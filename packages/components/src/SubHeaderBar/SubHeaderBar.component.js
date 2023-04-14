@@ -1,5 +1,4 @@
 import has from 'lodash/has';
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -115,7 +114,7 @@ function SubHeaderBar({
 						<Renderer.Action
 							id="backArrow"
 							onClick={onGoBack}
-							label={t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go Back' })}
+							label={t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go back' })}
 							icon="talend-arrow-left"
 							bsStyle="link"
 							data-feature={goBackDataFeature}

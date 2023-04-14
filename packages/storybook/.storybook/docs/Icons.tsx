@@ -1,19 +1,20 @@
-import React, { ChangeEvent } from 'react';
+import { useState, useEffect } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
 import { IconGallery, IconItem } from '@storybook/components';
 
 import { Form, Icon, IconsProvider, ThemeProvider } from '@talend/design-system';
 
 export const Icons = () => {
-	const [icons, setIds] = React.useState<(string | null)[]>([]);
-	const [query, setQuery] = React.useState<string>('');
-	const [size, setSize] = React.useState<number>(2);
-	const [filter, setFilter] = React.useState<boolean>();
-	const [transform, setTransform] = React.useState<string>('');
-	const [useCurrentColor, setUseCurrentColor] = React.useState<boolean>();
-	const [currentColor, setCurrentColor] = React.useState<string>();
-	const [border, setBorder] = React.useState<boolean>();
+	const [icons, setIds] = useState<(string | null)[]>([]);
+	const [query, setQuery] = useState<string>('');
+	const [size, setSize] = useState<number>(2);
+	const [filter, setFilter] = useState<boolean>();
+	const [transform, setTransform] = useState<string>('');
+	const [useCurrentColor, setUseCurrentColor] = useState<boolean>();
+	const [currentColor, setCurrentColor] = useState<string>();
+	const [border, setBorder] = useState<boolean>();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		IconsProvider.getAllIconIds().then((ids: (string | null)[]) => {
 			const cleanIds = ids.filter(id => id && !id.includes(':'));
 			setIds(cleanIds);
@@ -68,7 +69,7 @@ export const Icons = () => {
 							/>
 							<Form.Color
 								label="Color"
-								onChange={(event: React.FormEvent<HTMLInputElement>) =>
+								onChange={(event: FormEvent<HTMLInputElement>) =>
 									setCurrentColor(event.currentTarget.value)
 								}
 								value={currentColor}

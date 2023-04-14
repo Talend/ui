@@ -1,4 +1,5 @@
-import React, { createElement, Fragment, useEffect, useRef } from 'react';
+import { createElement, Fragment, useEffect, useRef } from 'react';
+import type { ReactElement } from 'react';
 import { render } from 'react-dom';
 import { autocomplete } from '@algolia/autocomplete-js';
 
@@ -15,7 +16,7 @@ export function Autocomplete(props: any) {
 			container: containerRef.current || '',
 			renderer: { createElement, Fragment },
 			render({ children }, root) {
-				render(children as React.ReactElement, root);
+				render(children as ReactElement, root);
 			},
 			...props,
 		});

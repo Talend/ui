@@ -1,5 +1,64 @@
 # @talend/react-containers
 
+## 9.0.3
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- Updated dependencies [cf697de02]
+- Updated dependencies [321bd07d7]
+- Updated dependencies [708589ad4]
+  - @talend/react-components@10.2.3
+  - @talend/react-forms@9.1.0
+
+## 9.0.2
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [f47e34dd0]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/react-forms@9.0.4
+  - @talend/react-cmf@7.2.0
+
+## 9.0.1
+
+### Patch Changes
+
+- 8c09dacd8: fix(HeaderBar): TypeError: Assignment to constant variable.
+- Updated dependencies [20f8526e9]
+  - @talend/react-components@10.1.1
+
+## 9.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+  - @talend/react-forms@9.0.2
+
+## 8.0.2
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+- Updated dependencies [99398080f]
+- Updated dependencies [5e4aad637]
+  - @talend/react-forms@9.0.0
+
 ## 8.0.1
 
 ### Patch Changes

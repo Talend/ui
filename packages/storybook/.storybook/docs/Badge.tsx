@@ -1,9 +1,9 @@
-import React from 'react';
+import type { AnchorHTMLAttributes } from 'react';
 import tokens from '@talend/design-tokens';
 
 import { Status } from './StatusTable';
 
-import theme from './Badge.scss';
+import theme from './Badge.module.scss';
 
 export const renderStatus = (status?: Status) => {
 	switch (status) {
@@ -71,7 +71,7 @@ const Badge = ({
 	children,
 	status,
 	...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & { icon: string; status?: Status }) => {
+}: AnchorHTMLAttributes<HTMLAnchorElement> & { icon: string; status?: Status }) => {
 	let attrs;
 	if (href) {
 		attrs = {

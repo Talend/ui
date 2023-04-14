@@ -1,4 +1,3 @@
-import React from 'react';
 import cases from 'jest-in-case';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';

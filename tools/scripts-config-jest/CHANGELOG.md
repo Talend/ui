@@ -1,5 +1,18 @@
 # @talend/scripts-config-jest
 
+## 12.1.2
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+  - @talend/scripts-config-babel@13.0.0
+
+## 12.1.1
+
+### Patch Changes
+
+- 29e95e8f6: Add popover disclosure to rendered unit test
+
 ## 12.1.0
 
 ### Minor Changes

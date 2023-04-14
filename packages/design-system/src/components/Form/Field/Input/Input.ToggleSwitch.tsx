@@ -1,4 +1,6 @@
-import React from 'react';
+import { forwardRef } from 'react';
+import type { Ref } from 'react';
+
 import { Checkbox as ReakitCheckbox, unstable_useId as useId } from 'reakit';
 import classnames from 'classnames';
 
@@ -7,7 +9,7 @@ import { CheckboxProps } from './Input.Checkbox';
 
 import styles from './Input.ToggleSwitch.module.scss';
 
-const ToggleSwitch = React.forwardRef(
+const ToggleSwitch = forwardRef(
 	(
 		{
 			id,
@@ -21,7 +23,7 @@ const ToggleSwitch = React.forwardRef(
 			isInline,
 			...rest
 		}: Omit<CheckboxProps, 'indeterminate'>,
-		ref: React.Ref<HTMLInputElement>,
+		ref: Ref<HTMLInputElement>,
 	) => {
 		const { id: reakitId } = useId();
 		const switchId = id || `switch--${reakitId}`;

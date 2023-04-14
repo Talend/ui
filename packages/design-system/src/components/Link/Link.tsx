@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
+import { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
 
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';

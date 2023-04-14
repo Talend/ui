@@ -1,4 +1,3 @@
-import React from 'react';
 import { SizedIcon } from '@talend/design-system';
 import classnames from 'classnames';
 

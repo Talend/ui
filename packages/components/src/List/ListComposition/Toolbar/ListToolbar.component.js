@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar } from '@talend/react-bootstrap';
 
@@ -9,7 +9,7 @@ const theme = getTheme(cssModule);
 
 const Right = ({ children }) => (
 	<ul className={theme('tc-list-toolbar-right')}>
-		{React.Children.map(
+		{Children.map(
 			children,
 			childElement =>
 				childElement && <li className={theme('tc-list-toolbar-separated')}>{childElement}</li>,

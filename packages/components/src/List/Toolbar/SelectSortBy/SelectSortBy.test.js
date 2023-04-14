@@ -1,4 +1,3 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
@@ -8,7 +7,10 @@ const id = 'toolbar-sort';
 const field = 'id';
 const requiredProps = {
 	onChange: jest.fn(),
-	options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+	options: [
+		{ id: 'id', name: 'Id' },
+		{ id: 'name', name: 'Name' },
+	],
 };
 
 describe('SelectSortBy', () => {
@@ -76,10 +78,7 @@ describe('SelectSortBy', () => {
 		// when
 		const wrapper = shallow(<SelectSortBy {...props} />);
 
-		wrapper
-			.find('.tc-list-toolbar-order-chooser')
-			.at(0)
-			.simulate('click', event);
+		wrapper.find('.tc-list-toolbar-order-chooser').at(0).simulate('click', event);
 
 		// then
 		expect(props.onChange).toBeCalledWith(event, {

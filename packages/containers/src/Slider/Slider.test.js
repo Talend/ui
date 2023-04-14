@@ -1,4 +1,3 @@
-import React from 'react';
 import { Map } from 'immutable';
 import { shallow } from 'enzyme';
 import Container, { DISPLAY_NAME } from './Slider.container';

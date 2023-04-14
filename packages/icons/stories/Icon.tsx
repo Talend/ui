@@ -1,10 +1,11 @@
-import * as React from 'react';
+import { createContext, useContext, useState } from 'react';
+import type { ChangeEvent, PropsWithChildren } from 'react';
 import { useCopyToClipboard } from 'react-use';
 
 import tokens from '@talend/design-tokens';
 
-import metadata from '../src/metadata.json';
 import { infoFromFigma as icons } from '../dist/info';
+import metadata from '../src/metadata.json';
 
 const iconColorTokens = {
 	'neutral/icon': tokens.coralColorNeutralIcon,
@@ -46,15 +47,15 @@ export const getIconNamesBySize = (size: keyof typeof iconSizes) => {
 		.sort();
 };
 
-const SearchContext = React.createContext({
+const SearchContext = createContext({
 	query: '',
 	setQuery: (value: string) => {},
 });
 
 const IconFilter = () => {
-	const searchContext = React.useContext(SearchContext);
+	const searchContext = useContext(SearchContext);
 
-	const onFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const onFilter = (event: ChangeEvent<HTMLInputElement>) => {
 		const value = event.currentTarget.value;
 		searchContext.setQuery(value);
 	};
@@ -75,7 +76,7 @@ const IconFilter = () => {
 	);
 };
 
-const LegacyIconContext = React.createContext({
+const LegacyIconContext = createContext({
 	size: '',
 	setSize: (value: string) => {},
 	filter: '',
@@ -83,7 +84,7 @@ const LegacyIconContext = React.createContext({
 });
 
 const LegacyIconSizePicker = () => {
-	const legacyIconContext = React.useContext(LegacyIconContext);
+	const legacyIconContext = useContext(LegacyIconContext);
 	return (
 		<div className="form-group">
 			<label htmlFor="select-size">Icon size</label>
@@ -104,7 +105,7 @@ const LegacyIconSizePicker = () => {
 };
 
 const LegacyIconFilterPicker = () => {
-	const legacyIconContext = React.useContext(LegacyIconContext);
+	const legacyIconContext = useContext(LegacyIconContext);
 	return (
 		<div className="form-group">
 			<label htmlFor="select-filter" className="control-label">
@@ -132,13 +133,13 @@ export const LegacyIconToolbar = () => {
 	);
 };
 
-const IconContext = React.createContext({
+const IconContext = createContext({
 	color: '',
 	setColor: (value: string) => {},
 });
 
 const IconColorTokenPicker = () => {
-	const iconContext = React.useContext(IconContext);
+	const iconContext = useContext(IconContext);
 	return (
 		<div className="form-group">
 			<label htmlFor="color" className="control-label">
@@ -171,7 +172,7 @@ const IconToolbar = () => {
 export const Grid = ({
 	columns = 1,
 	children,
-}: React.PropsWithChildren<HTMLElement> & { columns?: number }) => {
+}: PropsWithChildren<HTMLElement> & { columns?: number }) => {
 	return (
 		<div
 			style={{
@@ -184,13 +185,13 @@ export const Grid = ({
 	);
 };
 
-const IconList = (props: React.PropsWithChildren<any>) => (
+const IconList = (props: PropsWithChildren<any>) => (
 	<div {...props} style={{ paddingBlock: tokens.coralSpacingM }} />
 );
 
-export const IconGallery = ({ children }: React.PropsWithChildren<HTMLElement>) => {
-	const [color, setColor] = React.useState('');
-	const [query, setQuery] = React.useState('');
+export const IconGallery = ({ children }: PropsWithChildren<HTMLElement>) => {
+	const [color, setColor] = useState('');
+	const [query, setQuery] = useState('');
 	return (
 		<IconContext.Provider value={{ color, setColor }}>
 			<SearchContext.Provider value={{ query, setQuery }}>
@@ -201,10 +202,10 @@ export const IconGallery = ({ children }: React.PropsWithChildren<HTMLElement>) 
 	);
 };
 
-export const LegacyIconGallery = ({ children }: React.PropsWithChildren<HTMLElement>) => {
-	const [size, setSize] = React.useState('');
-	const [filter, setFilter] = React.useState('');
-	const [query, setQuery] = React.useState('');
+export const LegacyIconGallery = ({ children }: PropsWithChildren<HTMLElement>) => {
+	const [size, setSize] = useState('');
+	const [filter, setFilter] = useState('');
+	const [query, setQuery] = useState('');
 	return (
 		<LegacyIconContext.Provider value={{ size, setSize, filter, setFilter }}>
 			<SearchContext.Provider value={{ query, setQuery }}>
@@ -223,12 +224,30 @@ export const IconItem = ({
 	name: string;
 	size?: 'XS' | 'S' | 'M' | 'L' | undefined;
 }) => {
-	const searchContext = React.useContext(SearchContext);
+	const searchContext = useContext(SearchContext);
 	const [, copyToClipboard] = useCopyToClipboard();
-	const onClickHandler = () => {
+
+	const onTextClickHandler = () => {
 		const nameToCopy = name.split(':')[0];
 		copyToClipboard(nameToCopy);
 		alert(`"${nameToCopy}" has been copied to clipboard`);
+	};
+
+	const onIconClickHandler = () => {
+		var svgData = document.getElementById(`${name}:${size}`)?.getElementsByTagName('svg')[0];
+		if (svgData) {
+			svgData.removeAttribute('width');
+			svgData.removeAttribute('height');
+
+			var svgBlob = new Blob([svgData?.outerHTML], { type: 'image/svg+xml;charset=utf-8' });
+			var svgUrl = URL.createObjectURL(svgBlob);
+			var downloadLink = document.createElement('a');
+			downloadLink.href = svgUrl;
+			downloadLink.download = `${name}-${size}.svg`;
+			document.body.appendChild(downloadLink);
+			downloadLink.click();
+			document.body.removeChild(downloadLink);
+		}
 	};
 	const iconMetadata = metadata.find(data => data.name.endsWith(size + '/' + name));
 	const isFound = size
@@ -240,64 +259,67 @@ export const IconItem = ({
 	return (
 		<div {...rest}>
 			{isFound ? (
-				<div role="button" onClick={onClickHandler} onKeyPress={onClickHandler} tabIndex={0}>
+				<div
+					style={{
+						display: 'flex',
+						gap: tokens.coralSpacingM,
+						paddingBlock: tokens.coralSpacingXs,
+					}}
+				>
 					<div
 						style={{
 							display: 'flex',
-							gap: tokens.coralSpacingM,
-							paddingBlock: tokens.coralSpacingXs,
+							justifyContent: 'center',
+							alignItems: 'center',
+							width: tokens.coralSizingM,
+							height: tokens.coralSizingM,
+							border: `${tokens.coralBorderSSolid} ${tokens.coralColorNeutralBorderWeak}`,
+							boxShadow: tokens.coralElevationShadowAccent,
+							borderRadius: tokens.coralRadiusS,
 						}}
 					>
-						<div
-							style={{
-								display: 'flex',
-								justifyContent: 'center',
-								alignItems: 'center',
-								width: tokens.coralSizingM,
-								height: tokens.coralSizingM,
-								border: `${tokens.coralBorderSSolid} ${tokens.coralColorNeutralBorderWeak}`,
-								boxShadow: tokens.coralElevationShadowAccent,
-								borderRadius: tokens.coralRadiusS,
-							}}
-						>
+						<div role="button" onClick={onIconClickHandler} tabIndex={0}>
 							<Icon size={size} name={name} />
 						</div>
-						<div
-							style={{
-								flex: 1,
-								font: tokens.coralParagraphM,
-							}}
-						>
-							{size ? (
-								<dl
-									style={{
-										display: 'grid',
-										gridTemplateColumns: '1fr 3fr',
-									}}
-								>
-									<dt>Name</dt>
-									<dd>{name}</dd>
-									{size && (
+					</div>
+					<div
+						role="button"
+						onClick={onTextClickHandler}
+						tabIndex={0}
+						style={{
+							flex: 1,
+							font: tokens.coralParagraphM,
+						}}
+					>
+						{size ? (
+							<dl
+								style={{
+									display: 'grid',
+									gridTemplateColumns: '1fr 3fr',
+								}}
+							>
+								<dt>Name</dt>
+								<dd>{name}</dd>
+								{size && (
+									<>
+										<dt>Size</dt>
+										<dd>{size}</dd>
+									</>
+								)}
+								{iconMetadata &&
+									'description' in iconMetadata &&
+									iconMetadata.description.length > 0 && (
 										<>
-											<dt>Size</dt>
-											<dd>{size}</dd>
+											<dt style={{ color: tokens.coralColorNeutralTextWeak }}>Desc</dt>
+											<dd style={{ color: tokens.coralColorNeutralTextWeak }}>
+												{iconMetadata.description}
+											</dd>
 										</>
 									)}
-									{iconMetadata &&
-										'description' in iconMetadata &&
-										iconMetadata.description.length > 0 && (
-											<>
-												<dt style={{ color: tokens.coralColorNeutralTextWeak }}>Desc</dt>
-												<dd style={{ color: tokens.coralColorNeutralTextWeak }}>
-													{iconMetadata.description}
-												</dd>
-											</>
-										)}
-								</dl>
-							) : (
-								<span>{name}</span>
-							)}
-						</div>
+							</dl>
+						) : (
+							<span>{name}</span>
+						)}
 					</div>
 				</div>
 			) : (
@@ -312,8 +334,8 @@ export const HiddenIconItem = () => {
 };
 
 const Icon = ({ name, size }: { name: string; size?: keyof typeof iconSizes }) => {
-	const iconContext = React.useContext(IconContext);
-	const legacyIconContext = React.useContext(LegacyIconContext);
+	const iconContext = useContext(IconContext);
+	const legacyIconContext = useContext(LegacyIconContext);
 	const style = {
 			display: 'flex',
 			alignItems: 'center',

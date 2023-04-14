@@ -1,4 +1,3 @@
-import React from 'react';
 import { Customized, Rectangle, RectangleProps } from 'recharts';
 import { FormatValue } from '@talend/react-components';
 import { useTranslation } from 'react-i18next';

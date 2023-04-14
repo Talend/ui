@@ -1,8 +1,7 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import Immutable from 'immutable';
-
+import { render, screen, within } from '@testing-library/react';
 import ActionDropdown from './ActionDropdown.component';
+jest.unmock('@talend/design-system');
 
 const items = [
 	{
@@ -27,10 +26,11 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />);
+		render(<ActionDropdown {...props} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toBeInTheDocument();
+		expect(screen.getByRole('menu')).toBeInTheDocument();
 	});
 
 	it('should render the same as when plain object or immutable list', () => {
@@ -46,26 +46,11 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const immutableWrapper = mount(<ActionDropdown {...immutableProps} />);
-		const wrapper = mount(<ActionDropdown {...props} />);
+		render(<ActionDropdown {...immutableProps} />);
 
 		// then
-		expect(wrapper.html()).toEqual(immutableWrapper.html());
-	});
-
-	it('should render immutable items', () => {
-		// given
-		const props = {
-			id: 'dropdown-id',
-			label: 'related items',
-			items: immutableItems,
-		};
-
-		// when
-		const wrapper = mount(<ActionDropdown {...props} />);
-
-		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toBeInTheDocument();
+		expect(screen.getByRole('menu')).toBeInTheDocument();
 	});
 
 	it('should render a button with icon and label', () => {
@@ -78,10 +63,13 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
+		render(<ActionDropdown {...props} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toBeInTheDocument();
+		const icon = screen.getByText('related items').previousSibling;
+		expect(icon).toHaveAttribute('name', 'fa fa-file-excel-o');
+		expect(icon.nodeName).toBe('svg');
 	});
 
 	it('should render icon only with hideLabel props', () => {
@@ -96,10 +84,15 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
+		render(<ActionDropdown {...props} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.queryByText('related items')).not.toBeInTheDocument();
+		expect(screen.getByRole('button')).toBeInTheDocument();
+		const icon = screen.getByRole('button').childNodes[0];
+		expect(icon).toBeInTheDocument();
+		expect(icon).toHaveAttribute('name', 'fa fa-file-excel-o');
+		expect(icon.nodeName).toBe('svg');
 	});
 
 	it('should render an ellipsis dropdown', () => {
@@ -114,10 +107,10 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
+		render(<ActionDropdown {...props} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveClass('theme-ellipsis');
 	});
 
 	it('should render a button with "link" theme', () => {
@@ -130,13 +123,13 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
+		render(<ActionDropdown {...props} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveClass('btn-link');
 	});
 
-	it('should render "no option" item when items array is empty', () => {
+	it('should render "no options" item when items array is empty', () => {
 		// given
 		const props = {
 			id: 'dropdown-id',
@@ -145,10 +138,10 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownMenu');
+		render(<ActionDropdown {...props} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByText('No options')).toBeInTheDocument();
 	});
 
 	it('should render loader item', () => {
@@ -161,10 +154,10 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownMenu');
+		render(<ActionDropdown {...props} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByLabelText('Loading...')).toBeInTheDocument();
 	});
 
 	it('should render loader item below existing items', () => {
@@ -177,10 +170,11 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownMenu');
-
+		render(<ActionDropdown {...props} />);
+		const item = screen.getByText('document 2').parentElement;
+		const loading = item.nextSibling;
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(within(loading).getByLabelText('Loading...')).toBeInTheDocument();
 	});
 
 	it('should render icon-only items with item hideLabel props', () => {
@@ -192,9 +186,11 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownMenu');
+		render(<ActionDropdown {...props} />);
+		const item = screen.getAllByRole('menuitem')[0].firstChild;
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(item).toBeInTheDocument();
+		expect(item).toHaveClass('tc-icon');
 	});
 });

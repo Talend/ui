@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStorage } from 'react-use';
 
@@ -105,25 +105,25 @@ export const parameters = {
 
 			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
 
-			React.useEffect(() => {
+			useEffect(() => {
 				channel.emit(UPDATE_GLOBALS, {
 					globals: { theme: hasDarkMode ? 'dark' : 'light' },
 				});
 			}, [hasDarkMode]);
 
-			React.useEffect(() => {
+			useEffect(() => {
 				channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
 			}, [statusByPage]);
 
 			const { theme } = globals;
-			React.useEffect(() => {
+			useEffect(() => {
 				const hasDarkModeFromToolbar = theme === 'dark';
 				if (hasDarkModeFromToolbar != hasDarkMode) {
 					setDarkMode(hasDarkModeFromToolbar);
 				}
 			}, [theme]);
 
-			React.useEffect(() => {
+			useEffect(() => {
 				document
 					.querySelectorAll('#bootstrap-theme')
 					.forEach(link => (link.disabled = !hasBootstrapStylesheet));

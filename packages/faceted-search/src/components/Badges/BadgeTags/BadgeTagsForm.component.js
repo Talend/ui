@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useState, useMemo } from 'react';
+import { Fragment, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { getTheme, Checkbox, Action, Rich, Loader, FilterBar } from '@talend/react-components';
 import cssModule from './BadgeTags.module.scss';
-import { getApplyDataFeature } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);
 
@@ -14,7 +14,7 @@ const BadgeTag = ({ checked, id, label, onChange }) => {
 		onChange(event, id);
 	};
 	return (
-		<React.Fragment>
+		<Fragment>
 			<Checkbox
 				onChange={onChangeTag}
 				aria-describedby={describedby}
@@ -25,7 +25,7 @@ const BadgeTag = ({ checked, id, label, onChange }) => {
 			<div id={describedby} className="sr-only">
 				{label}
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 
@@ -55,7 +55,17 @@ const getVisibleTags = (tags, filterValue, showAll) => {
 		.filter(tag => (showAll ? true : tag.checked));
 };
 
-const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isLoading, t }) => {
+const BadgeTagsForm = ({
+	tagsValues,
+	id,
+	onChange,
+	onSubmit,
+	value,
+	feature,
+	isLoading,
+	t,
+	...rest
+}) => {
 	const [filter, setFilter] = useState('');
 	const [showAll, setShowAll] = useState(true);
 
@@ -82,7 +92,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 		: t('SHOW_ALL_TAGS', { defaultValue: 'Show all' });
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<FilterBar
 				autoFocus={false}
 				dockable={false}
@@ -148,11 +158,12 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 							label={t('APPLY', { defaultValue: 'Apply' })}
 							bsStyle="info"
 							disabled={value.length === 0}
+							{...getDataAttributesFrom(rest)}
 						/>
 					</Rich.Layout.Footer>
 				</form>
 			)}
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

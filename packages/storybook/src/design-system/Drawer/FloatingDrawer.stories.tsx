@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { ComponentStory } from '@storybook/react';
 import { Area } from '~docs';
 import { screen, userEvent } from '@storybook/testing-library';
@@ -37,7 +37,7 @@ export const WithDisclosure: ComponentStory<typeof FloatingDrawer> = () => (
 WithDisclosure.play = playOpenDrawer;
 
 const ControlledFloatingDrawer = () => {
-	const [visible, setVisible] = React.useState(false);
+	const [visible, setVisible] = useState(false);
 	return (
 		<>
 			<ButtonPrimary data-test="drawer-disclosure" onClick={() => setVisible(!visible)}>

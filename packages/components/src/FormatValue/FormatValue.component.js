@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
@@ -64,7 +63,7 @@ function replaceCharacterByIcon(value, index, t) {
 					<Icon
 						key={index}
 						aria-label={t('FORMAT_VALUE_WHITE_SPACE_CHARACTER', {
-							defaultValue: 'white space character',
+							defaultValue: 'whitespace character',
 						})}
 						className={classNames(
 							theme['td-white-space-character'],
@@ -112,9 +111,9 @@ export function FormatValueComponent({ value, className }) {
 		) {
 			formattedValue = hiddenCharsRegExpMatch
 				.slice(1)
-				.flatMap((value, index) => value?.split(SPLIT_REGEX[index]))
+				.flatMap((flatMapValue, index) => flatMapValue?.split(SPLIT_REGEX[index]))
 				.filter(isEmptyCharacter)
-				.map((value, index) => replaceCharacterByIcon(value, index, t));
+				.map((mappedValue, index) => replaceCharacterByIcon(mappedValue, index, t));
 		}
 	}
 	return <span className={className}>{formattedValue}</span>;

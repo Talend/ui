@@ -1,4 +1,5 @@
-import React from 'react';
+import { useContext, useState, useEffect, memo } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 import { FileImageResponse } from 'figma-js';
 
 import styles from './FigmaImage.module.scss';
@@ -13,7 +14,7 @@ function getMetadata(url: string) {
 	};
 }
 
-const FigmaImagePlaceholder = React.memo(() => {
+const FigmaImagePlaceholder = memo(() => {
 	return (
 		<div
 			style={{
@@ -39,12 +40,12 @@ const FigmaImage = ({
 	alt = '',
 	full = false,
 	...rest
-}: React.ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string; full?: boolean }) => {
-	const figma = React.useContext(FigmaContext);
+}: ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string; full?: boolean }) => {
+	const figma = useContext(FigmaContext);
 
-	const [fileImageResponse, setFileImageResponse] = React.useState<FileImageResponse>();
+	const [fileImageResponse, setFileImageResponse] = useState<FileImageResponse>();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', () => {
 				navigator.serviceWorker.register('/sw.js').then(
@@ -66,7 +67,7 @@ const FigmaImage = ({
 		}
 	}, []);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (src) {
 			const { projectId, nodeId } = getMetadata(src);
 			figma

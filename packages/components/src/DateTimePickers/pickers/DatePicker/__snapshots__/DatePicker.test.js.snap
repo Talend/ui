@@ -14,7 +14,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
   onSelect={[MockFunction]}
   selectedDate={2018-06-11T22:00:00.000Z}
 >
-  <div>
+  <div
+    onKeyDown={[Function]}
+  >
     <DatePicker
       calendar={
         {

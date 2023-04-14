@@ -2,8 +2,17 @@ name: PR tests
 
 on:
   pull_request:
-  push:
-    branches: [master, maintenance/*]
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: write # needed to write comment
+  statuses: write
 
 jobs:
   build:
@@ -12,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: 16
           check-latest: true
@@ -27,4 +36,29 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Test
-        run: yarn test
+        run: yarn test --coverage --coverageReporters json-summary
+
+      - name: Jest Coverage Comment
+        uses: MishaKav/jest-coverage-comment@41b5ca01d1250de84537448d248b8d18152cb277 #1.0.23
+        with:
+          multiple-files: |
+            assets-api, ./packages/assets-api/coverage/coverage-summary.json
+            cmf, ./packages/cmf/coverage/coverage-summary.json
+            cmf-cqrs, ./packages/cmf-cqrs/coverage/coverage-summary.json
+            cmf-router, ./packages/cmf-router/coverage/coverage-summary.json
+            components, ./packages/components/coverage/coverage-summary.json
+            containers, ./packages/containers/coverage/coverage-summary.json
+            dataviz, ./packages/dataviz/coverage/coverage-summary.json
+            design-system, ./packages/design-system/coverage/coverage-summary.json
+            faceted-search, ./packages/faceted-search/coverage/coverage-summary.json
+            flow-designer, ./packages/flow-designer/coverage/coverage-summary.json
+            forms, ./packages/forms/coverage/coverage-summary.json
+            http, ./packages/http/coverage/coverage-summary.json
+            sagas, ./packages/sagas/coverage/coverage-summary.json
+            stepper, ./packages/stepper/coverage/coverage-summary.json
+            utils, ./packages/utils/coverage/coverage-summary.json
+
+      - name: Check design-tokens
+        run: |
+          cd packages/design-tokens
+          node ./scripts/compare.js src/light/_index.scss src/dark/_index.scss

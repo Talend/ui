@@ -2,7 +2,7 @@ import noop from 'lodash/noop';
 import get from 'lodash/get';
 import head from 'lodash/head';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component as RComponent } from 'react';
 import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -130,7 +130,7 @@ export function getItemType(item) {
 	return null;
 }
 
-export class ModelViewer extends React.Component {
+export class ModelViewer extends RComponent {
 	static displayName = 'ModelViewerContainer';
 
 	static propTypes = {

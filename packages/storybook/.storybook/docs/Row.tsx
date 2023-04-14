@@ -1,10 +1,10 @@
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
 export default function Row({
 	children,
 	centered,
 	...props
-}: React.HTMLAttributes<HTMLDivElement> & { centered: 'all' | 'vertical' | 'horizontal' }) {
+}: HTMLAttributes<HTMLDivElement> & { centered: 'all' | 'vertical' | 'horizontal' }) {
 	return (
 		<div
 			{...props}

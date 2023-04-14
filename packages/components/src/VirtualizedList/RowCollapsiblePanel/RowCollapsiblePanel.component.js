@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { memo, Component } from 'react';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { CellMeasurer, CellMeasurerCache } from 'react-virtualized';
@@ -9,7 +9,7 @@ import Skeleton from '../../Skeleton';
 import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
-import withListGesture from '../../Gesture/withListGesture';
+import { Gesture } from '@talend/react-a11y';
 import theme from './RowCollapsiblePanel.module.scss';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
@@ -39,12 +39,12 @@ function LoadingCollapsiblePanel() {
 	);
 }
 
-const MemoLoadingCollapsiblePanel = React.memo(LoadingCollapsiblePanel);
+const MemoLoadingCollapsiblePanel = memo(LoadingCollapsiblePanel);
 
 /**
  * Row renderer that displays a Collapsible Panel
  */
-class RowCollapsiblePanel extends React.Component {
+class RowCollapsiblePanel extends Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
@@ -113,7 +113,7 @@ RowCollapsiblePanel.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-const RowCollapsiblePanelWrapper = withListGesture(RowCollapsiblePanel);
+const RowCollapsiblePanelWrapper = Gesture.withListGesture(RowCollapsiblePanel);
 RowCollapsiblePanelWrapper.options = options;
 
 export default RowCollapsiblePanelWrapper;

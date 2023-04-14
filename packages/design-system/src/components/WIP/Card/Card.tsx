@@ -1,12 +1,12 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 
 import { StackVertical } from '../../Stack';
 
 import theme from './Card.module.scss';
 
 interface CardPropsType {
-	header?: React.ReactNode;
-	children: React.ReactNode;
+	header?: ReactNode;
+	children: ReactNode;
 }
 
 function Card({ header, children }: CardPropsType) {

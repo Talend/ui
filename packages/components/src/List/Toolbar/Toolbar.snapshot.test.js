@@ -1,4 +1,3 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Toolbar from './Toolbar.component';
@@ -47,7 +46,10 @@ const sort = {
 	field: 'id',
 	isDescending: true,
 	onChange: jest.fn(),
-	options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+	options: [
+		{ id: 'id', name: 'Id' },
+		{ id: 'name', name: 'Name' },
+	],
 };
 
 const pagination = {

@@ -1,5 +1,99 @@
 # @talend/icons
 
+## 6.57.0
+
+### Minor Changes
+
+- 9a5d93e5b: added icon `book-open` in size `L`
+- 9a5d93e5b: added icon `book-open` in size `M`
+- 9a5d93e5b: added icon `megaphone` in size `L`
+- 9a5d93e5b: added icon `megaphone` in size `M`
+- 9a5d93e5b: added icon `support-agent` in size `L`
+- 9a5d93e5b: added icon `support-agent` in size `M`
+- 9a5d93e5b: added icon `workspace` in size `L`
+- 9a5d93e5b: added icon `workspace` in size `M`
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- 9a5d93e5b: changed icon `chevron-double-left` in size `M`
+- 9a5d93e5b: changed icon `chevron-double-left` in size `S`
+- 9a5d93e5b: changed icon `chevron-double-left` in size `XS`
+- 9a5d93e5b: changed icon `contains` in size `S`
+- 9a5d93e5b: changed icon `hand-pointer` in size `L`
+
+## 6.56.0
+
+### Minor Changes
+
+- 578d1807e: feat: Add some new svg icons
+
+## 6.55.0
+
+### Minor Changes
+
+- 9db7ef2fe: added icon `curly-braces` in size `L`
+- 9db7ef2fe: added icon `curly-braces` in size `M`
+- 9db7ef2fe: added icon `curly-braces` in size `S`
+- 9db7ef2fe: added icon `smiley-sleepy` in size `L`
+- 9db7ef2fe: added icon `smiley-sleepy` in size `M`
+
+### Patch Changes
+
+- 9db7ef2fe: changed icon `hierchical-bottom` in size `M`
+- 9db7ef2fe: changed icon `hierchical-bottom` in size `S`
+- b0193afbd: chore: upgrade webpack
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+## 6.54.0
+
+### Minor Changes
+
+- 9d8506a82: added icon `dots-horizontal` in size `L`
+- 9d8506a82: added icon `dots-horizontal` in size `M`
+- 9d8506a82: added icon `dots-horizontal` in size `S`
+- 9d8506a82: added icon `triangle-restart` in size `L`
+- 9d8506a82: added icon `triangle-restart` in size `M`
+
+### Patch Changes
+
+- 9d8506a82: changed icon `dots-vertical` in size `L`
+- 9d8506a82: changed icon `dots-vertical` in size `M`
+- 9d8506a82: changed icon `dots-vertical` in size `S`
+
+## 6.53.0
+
+### Minor Changes
+
+- 672072887: added icon `folder-plus` in size `L`
+- 672072887: added icon `folder-plus` in size `M`
+- 672072887: added icon `two-vertical-lines-circle` in size `L`
+- 672072887: added icon `two-vertical-lines-circle` in size `M`
+
+### Patch Changes
+
+- 672072887: changed icon `chevron-double-left-filled` in size `M`
+- 672072887: changed icon `chevron-double-left-stroke` in size `M`
+- 672072887: changed icon `chevron-double-right` in size `L`
+- 672072887: changed icon `chevron-double-right-filled` in size `L`
+- 672072887: changed icon `chevron-double-right-filled` in size `M`
+- 672072887: changed icon `chevron-double-right-stroke` in size `L`
+- 672072887: changed icon `chevron-double-right-stroke` in size `M`
+- 672072887: changed icon `chevron-right` in size `L`
+- 672072887: changed icon `diverge` in size `M`
+- 672072887: changed icon `diverge` in size `S`
+- 672072887: changed icon `dots-vertical` in size `L`
+- 672072887: changed icon `dots-vertical` in size `M`
+- 672072887: changed icon `dots-vertical` in size `S`
+- 672072887: changed icon `home` in size `L`
+- 672072887: changed icon `home` in size `M`
+- 672072887: changed icon `home` in size `S`
+- 672072887: changed icon `slider-controls` in size `M`
+
 ## 6.52.0
 
 ### Minor Changes

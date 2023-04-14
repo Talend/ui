@@ -1,11 +1,11 @@
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
 export default function Col({
 	children,
 	fixed,
 	centered,
 	...props
-}: React.HTMLAttributes<HTMLDivElement> & {
+}: HTMLAttributes<HTMLDivElement> & {
 	fixed: boolean;
 	centered: 'all' | 'vertical' | 'horizontal';
 }) {

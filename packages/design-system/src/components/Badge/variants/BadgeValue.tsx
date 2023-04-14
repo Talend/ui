@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { Fragment, forwardRef } from 'react';
 
 import classnames from 'classnames';
 
@@ -23,13 +23,13 @@ const BadgeValue = forwardRef((props: BadgeValueProps) => {
 			<span className={classnames(styles['badge-value__children'])} data-testid="badge-value">
 				<StackHorizontal gap="XS" as="span" align="center">
 					{value.map((item: string, idx: number) => (
-						<React.Fragment key={`badgevalue-fragment-${item}`}>
+						<Fragment key={`badgevalue-fragment-${item}`}>
 							{idx > 0 && <Divider key={`badgevalue-divider-${item}`} orientation="vertical" />}
 
 							<span data-testid={`badgevalue-${item}`} key={`badgevalue-value-${item}`}>
 								{item}
 							</span>
-						</React.Fragment>
+						</Fragment>
 					))}
 				</StackHorizontal>
 			</span>

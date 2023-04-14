@@ -1,4 +1,3 @@
-import React from 'react';
 import Immutable from 'immutable';
 import { action } from '@storybook/addon-actions';
 

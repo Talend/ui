@@ -1,4 +1,5 @@
-import React from 'react';
+import { Component } from 'react';
+import type { MouseEventHandler, MouseEvent } from 'react';
 import { scaleLinear, drag, select } from 'd3';
 import { Map } from 'immutable';
 
@@ -92,19 +93,19 @@ type Props = {
 	onDragStart?: (event: any) => void;
 	onDrag?: (event: any) => void;
 	onDragEnd?: (event: any) => void;
-	onClick?: React.MouseEventHandler;
-	onDoubleClick?: React.MouseEventHandler;
+	onClick?: MouseEventHandler;
+	onDoubleClick?: MouseEventHandler;
 	children?: any;
 };
 
-class AbstractNode extends React.Component<Props> {
+class AbstractNode extends Component<Props> {
 	static calculatePortPosition = calculatePortPosition;
 
 	d3Node: any;
 
 	nodeElement: any;
 
-	squaredDeltaDrag: number = 0;
+	squaredDeltaDrag = 0;
 
 	constructor(props: Props) {
 		super(props);
@@ -142,13 +143,13 @@ class AbstractNode extends React.Component<Props> {
 		this.d3Node.remove();
 	}
 
-	onClick(clickEvent: React.MouseEvent) {
+	onClick(clickEvent: MouseEvent) {
 		if (this.props.onClick) {
 			this.props.onClick(clickEvent);
 		}
 	}
 
-	onDoubleClick(clickEvent: React.MouseEvent) {
+	onDoubleClick(clickEvent: MouseEvent) {
 		if (this.props.onDoubleClick) {
 			this.props.onDoubleClick(clickEvent);
 		}

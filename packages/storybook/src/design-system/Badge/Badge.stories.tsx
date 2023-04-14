@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 import { action } from '@storybook/addon-actions';
 import { ComponentStory } from '@storybook/react';
 
@@ -11,6 +9,7 @@ import {
 	StackHorizontal,
 	StackVertical,
 } from '@talend/design-system';
+import { useState } from 'react';
 
 export default {
 	component: BadgeValue,

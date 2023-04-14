@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
 import Container, { DISPLAY_NAME } from './EditableText.container';

@@ -1,5 +1,50 @@
 # @talend/design-system
 
+## 7.7.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- be1095095: fix(design-system): Button style while compacted by layout
+
+## 7.7.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 285efb74a: fix: add data-test to buttons in modal
+- Updated dependencies [616601fda]
+  - @talend/design-tokens@2.7.3
+
+## 7.7.0
+
+### Minor Changes
+
+- a01e81852: feat(design-system): Modal have no close button if preventEscaping is on
+
+## 7.6.0
+
+### Minor Changes
+
+- 00869855d: Popover - Add `focusOnDisclosure` option to allow focus on disclosure when popover is opened
+
+## 7.5.1
+
+### Patch Changes
+
+- 4c3495e12: chore: apply code style
+
+## 7.5.0
+
+### Minor Changes
+
+- 4cfbf226b: feat(Tabs&Dropdown): add new data-feature & data-testid capabilities
+
 ## 7.4.1
 
 ### Patch Changes

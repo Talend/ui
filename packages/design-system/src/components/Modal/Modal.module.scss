@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-.modal-backdrop:before,
+.modal-backdrop::before,
 .modal-container {
 	position: fixed;
 	top: 0;
@@ -10,7 +10,7 @@
 }
 
 .modal-backdrop {
-	&:before {
+	&::before {
 		z-index: tokens.$coral-elevation-layer-standard-front;
 		content: '';
 		background-color: tokens.$coral-color-assistive-background;

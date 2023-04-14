@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import has from 'lodash/has';
@@ -16,7 +16,7 @@ export const DEFAULT_VALUE_PROP_TYPES = PropTypes.oneOfType([
 	}),
 ]);
 
-export default class DefaultValueRenderer extends React.Component {
+export default class DefaultValueRenderer extends Component {
 	static propTypes = {
 		className: PropTypes.string,
 		value: DEFAULT_VALUE_PROP_TYPES,

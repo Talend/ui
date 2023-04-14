@@ -52,7 +52,7 @@ exports[`DateTimeView should render 1`] = `
       "middleElement": <HeaderTitle
         button={
           {
-            "aria-label": "Switch to month and year pickers view",
+            "aria-label": "Switch to month-and-year view",
             "onClick": [MockFunction],
             "tabIndex": 0,
           }
@@ -109,7 +109,7 @@ exports[`DateTimeView should render without timePicker 1`] = `
       "middleElement": <HeaderTitle
         button={
           {
-            "aria-label": "Switch to month and year pickers view",
+            "aria-label": "Switch to month-and-year view",
             "onClick": [MockFunction],
             "tabIndex": 0,
           }

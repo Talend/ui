@@ -1,16 +1,17 @@
-import React from 'react';
+import { forwardRef, Children, cloneElement } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 import { isElement } from 'react-is';
 import { StackHorizontal } from '../../Stack';
 
 import styles from './Buttons.module.scss';
 
-type ButtonsProps = React.HTMLAttributes<HTMLDivElement> & {
+type ButtonsProps = HTMLAttributes<HTMLDivElement> & {
 	disabled?: boolean;
 	readOnly?: boolean;
 };
 
-const Buttons = React.forwardRef(
-	({ disabled, readOnly, children, ...rest }: ButtonsProps, ref: React.Ref<HTMLDivElement>) => {
+const Buttons = forwardRef(
+	({ disabled, readOnly, children, ...rest }: ButtonsProps, ref: Ref<HTMLDivElement>) => {
 		const childrenProps: { disabled?: boolean; readOnly?: boolean } = {};
 		if (disabled) childrenProps.disabled = true;
 		if (readOnly) childrenProps.readOnly = true;
@@ -24,8 +25,8 @@ const Buttons = React.forwardRef(
 					{...rest}
 					ref={ref}
 				>
-					{React.Children.toArray(children).map(child =>
-						isElement(child) ? React.cloneElement(child, childrenProps) : child,
+					{Children.toArray(children).map(child =>
+						isElement(child) ? cloneElement(child, childrenProps) : child,
 					)}
 				</StackHorizontal>
 			</div>

@@ -1,6 +1,4 @@
-import React from 'react';
-import { Button } from '@talend/react-bootstrap';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import ActionList from './ActionList.component';
 
 describe('ActionList', () => {
@@ -16,12 +14,8 @@ describe('ActionList', () => {
 		];
 
 		// when
-		const actionList = <ActionList actions={actions} />;
-		const wrapper = mount(actionList);
-		wrapper
-			.find(Button)
-			.at(2)
-			.simulate('click');
+		render(<ActionList actions={actions} />);
+		screen.getByText('Favorites').click();
 
 		// then
 		expect(onPreparationsClick).not.toBeCalled();
@@ -35,20 +29,20 @@ describe('ActionList', () => {
 			{ label: 'Datasets', id: 'datasets-custom-id' },
 			{ label: 'Favorites', id: 'favs-custom-id' },
 		];
-		const actionList = <ActionList id="test" actions={actions} />;
-		const wrapper = mount(actionList);
-
-		expect(wrapper.find('button#test-nav-preparation-custom-id').text()).toEqual('Preparations');
-		expect(wrapper.find('button#test-nav-datasets-custom-id').text()).toEqual('Datasets');
-		expect(wrapper.find('button#test-nav-favs-custom-id').text()).toEqual('Favorites');
+		render(<ActionList id="test" actions={actions} />);
+		expect(screen.getByText('Preparations').parentElement).toHaveAttribute(
+			'id',
+			'test-nav-preparation-custom-id',
+		);
+		expect(screen.getByText('Datasets').parentElement.id).toBe('test-nav-datasets-custom-id');
+		expect(screen.getByText('Favorites').parentElement.id).toBe('test-nav-favs-custom-id');
 	});
 
 	it('should work even if there is no id, label, or action id', () => {
 		const actions = [{}, {}, {}];
-		const actionList = <ActionList actions={actions} />;
 
 		expect(() => {
-			mount(actionList);
+			render(<ActionList actions={actions} />);
 		}).not.toThrow();
 	});
 });

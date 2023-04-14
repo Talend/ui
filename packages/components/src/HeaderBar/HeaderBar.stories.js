@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { makeDecorator } from '@storybook/addons';
 
@@ -94,19 +93,6 @@ function IntercomComponent() {
 		</div>
 	);
 }
-
-const withIcons = makeDecorator({
-	name: 'withIcons',
-	wrapper: (getStory, context) => {
-		const story = getStory(context);
-		return (
-			<div>
-				{story}
-				<div className="container" style={{ paddingTop: 40 }} />
-			</div>
-		);
-	},
-});
 
 export default {
 	title: 'Navigation/HeaderBar',
@@ -250,9 +236,9 @@ WithHelpSplitDropdown.story = {
 export const WithCallToAction = () => {
 	const headerProps = Immutable.fromJS(props).toJS();
 	headerProps.callToAction = {
-		id: 'header-call-to-action',
 		bsStyle: 'info',
 		className: 'btn-inverse',
+		id: 'header-call-to-action',
 		label: 'Subscribe now',
 		onClick: action('onActionClick'),
 	};
@@ -261,6 +247,23 @@ export const WithCallToAction = () => {
 
 WithCallToAction.story = {
 	name: 'with callToAction',
+	parameters: { info: { styles: infoStyle } },
+};
+
+export const WithGenericAction = () => {
+	const headerProps = Immutable.fromJS(props).toJS();
+	headerProps.genericAction = {
+		bsStyle: 'link',
+		id: 'header-generic-action',
+		icon: 'talend-info-circle',
+		label: 'Talend Experience',
+		onClick: action('onActionClick'),
+	};
+	return <HeaderBar {...headerProps} />;
+};
+
+WithGenericAction.story = {
+	name: 'with genericAction',
 	parameters: { info: { styles: infoStyle } },
 };
 

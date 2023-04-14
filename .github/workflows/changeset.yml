@@ -5,6 +5,17 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+  deployments: read
+  pull-requests: write
+  statuses: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   release:
     name: Release
@@ -12,14 +23,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: 16
           registry-url: "https://registry.npmjs.org/"
@@ -31,7 +42,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@e9cc34b540dd3ad1b030c57fd97269e8f6ad905a #v1.4.1
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release

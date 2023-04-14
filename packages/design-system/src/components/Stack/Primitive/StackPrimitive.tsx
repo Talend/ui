@@ -1,6 +1,7 @@
 import styles from './StackPrimitive.module.scss';
 import classnames from 'classnames';
-import React, { forwardRef, ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { Ref, ReactNode } from 'react';
 
 export const justifyOptions = {
 	start: 'justify-start',
@@ -92,7 +93,7 @@ export const possibleAsTypes = ['div', 'ul', 'ol', 'article', 'span', 'dl'] as c
 type DirectionType = 'row' | 'column';
 
 export type StackPrimitiveProps = {
-	as?: typeof possibleAsTypes[number];
+	as?: (typeof possibleAsTypes)[number];
 	justify?: keyof typeof justifyOptions;
 	align?: keyof typeof alignOptions;
 	gap: GapType;
@@ -131,7 +132,7 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 		isFullWidth,
 		...props
 	}: StackPrimitiveProps,
-	ref: React.Ref<any>,
+	ref: Ref<any>,
 ) {
 	const TagType = as;
 	const { alignContent, ...spreadableProps } = props;

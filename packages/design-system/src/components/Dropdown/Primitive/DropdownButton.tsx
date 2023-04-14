@@ -1,5 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
-
+import { forwardRef, Ref } from 'react';
 import { MenuItem, MenuItemProps } from 'reakit';
 
 // eslint-disable-next-line @talend/import-depth

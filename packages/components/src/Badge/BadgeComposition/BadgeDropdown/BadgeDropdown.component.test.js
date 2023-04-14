@@ -1,5 +1,5 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import BadgeDropdown from './BadgeDropdown.component';
 
 describe('BadgeDropdown', () => {
@@ -27,8 +27,11 @@ describe('BadgeDropdown', () => {
 			],
 		};
 		// when
-		const wrapper = mount(<BadgeDropdown props={dropdownProps} />);
+		render(<BadgeDropdown props={dropdownProps} />);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByText('Label')).toBeInTheDocument();
+		expect(screen.getByText('document 1')).toBeInTheDocument();
+		userEvent.click(screen.getByText('document 1'));
+		expect(dropdownProps.items[0].onClick).toHaveBeenCalledTimes(1);
 	});
 });

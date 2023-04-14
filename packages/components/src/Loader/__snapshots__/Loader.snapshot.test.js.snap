@@ -6,8 +6,9 @@ exports[`Loader should render a default loader 1`] = `
 >
   <svg
     aria-busy="true"
-    aria-label="Loading "
+    aria-label="Loading... "
     className="tc-circular-progress theme-loader theme-animate theme-default"
+    data-test="circular-progress"
     focusable="false"
     viewBox="0 0 50 50"
   >
@@ -34,8 +35,9 @@ exports[`Loader should render a default loader if size is not specified 1`] = `
 >
   <svg
     aria-busy="true"
-    aria-label="Loading "
+    aria-label="Loading... "
     className="tc-circular-progress theme-loader theme-animate theme-default"
+    data-test="circular-progress"
     focusable="false"
     viewBox="0 0 50 50"
   >
@@ -62,8 +64,9 @@ exports[`Loader should render a large loader 1`] = `
 >
   <svg
     aria-busy="true"
-    aria-label="Loading "
+    aria-label="Loading... "
     className="tc-circular-progress theme-loader theme-animate theme-large"
+    data-test="circular-progress"
     focusable="false"
     viewBox="0 0 50 50"
   >
@@ -90,8 +93,9 @@ exports[`Loader should render a small loader 1`] = `
 >
   <svg
     aria-busy="true"
-    aria-label="Loading "
+    aria-label="Loading... "
     className="tc-circular-progress theme-loader theme-animate theme-small"
+    data-test="circular-progress"
     focusable="false"
     viewBox="0 0 50 50"
   >

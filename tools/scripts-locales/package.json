@@ -1,0 +1,24 @@
+{
+  "name": "@talend/scripts-locales",
+  "version": "1.0.1",
+  "description": "manage locales in the project",
+  "type": "module",
+  "bin": {
+    "talend-locales": "src/index.js"
+  },
+  "scripts": {
+    "lint": "talend-scripts lint"
+  },
+  "dependencies": {
+    "@talend/scripts-utils": "^2.0.2"
+  },
+  "keywords": [
+    "i18next",
+    "talend"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "frontend@talend.com",
+  "license": "Apache-2.0"
+}

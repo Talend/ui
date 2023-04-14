@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren, Children } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
@@ -113,8 +113,8 @@ function BadgePrimitive({
 					</span>
 				</StackHorizontal>
 
-				{React.Children.count(children) > 0 && !operators && <BadgeDivider />}
-				{React.Children.count(children) > 0 && operators && (
+				{Children.count(children) > 0 && !operators && <BadgeDivider />}
+				{Children.count(children) > 0 && operators && (
 					<OperatorButton
 						operators={operators.list}
 						selectedOperator={operators.selected ? operators.selected : operators.list[0]}

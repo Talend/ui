@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import keycode from 'keycode';
@@ -9,7 +9,7 @@ import { randomUUID } from '@talend/utils';
 import FocusManager from '../../../FocusManager';
 import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
-import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
+import { focus } from '@talend/react-a11y';
 
 import theme from './InputDateTimePicker.module.scss';
 
@@ -68,7 +68,7 @@ function InputDateTimePicker(props) {
 				}
 
 				if (showPicker) {
-					focusOnCalendar(containerRef.current);
+					focus.focusOnCalendar(containerRef.current);
 				} else {
 					openPicker();
 				}

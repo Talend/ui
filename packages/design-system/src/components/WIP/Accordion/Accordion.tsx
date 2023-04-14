@@ -1,11 +1,11 @@
-import React, { ReactElement, useState } from 'react';
+import { Children, cloneElement, ReactElement, useState } from 'react';
 
 export type AccordionPropsType = {
 	children: ReactElement[];
 };
 
 const Accordion = ({ children }: AccordionPropsType) => {
-	const panelCount = React.Children.count(children);
+	const panelCount = Children.count(children);
 	const [openedPanelIndex, setOpenedPanelIndex] = useState<number | null>(null);
 
 	const handleToggle = (index: number) => {
@@ -17,11 +17,11 @@ const Accordion = ({ children }: AccordionPropsType) => {
 	};
 
 	const getItems = () => {
-		return React.Children.map(children, (child, index) => {
+		return Children.map(children, (child, index) => {
 			const isFirst = index === 0;
 			const isLast = index === panelCount - 1;
 			const isExpanded = index === openedPanelIndex;
-			return React.cloneElement(child, {
+			return cloneElement(child, {
 				managed: true,
 				index,
 				expanded: isExpanded,

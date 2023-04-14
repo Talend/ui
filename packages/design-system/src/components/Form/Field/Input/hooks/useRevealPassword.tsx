@@ -1,4 +1,5 @@
-import React, { MouseEvent, useState } from 'react';
+import { useState } from 'react';
+import type { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
@@ -14,7 +15,7 @@ export default function useRevealPassword() {
 	const showMsg = t('FORM_PASSWORD_SHOW', { defaultValue: 'Show password' });
 	const hideMsg = t('FORM_PASSWORD_HIDE', { defaultValue: 'Hide password' });
 
-	function onReveal(event: React.MouseEvent<any>) {
+	function onReveal(event: MouseEvent<any>) {
 		event.preventDefault();
 		setRevealed(prevState => !prevState);
 	}

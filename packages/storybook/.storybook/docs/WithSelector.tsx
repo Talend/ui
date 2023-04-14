@@ -1,17 +1,15 @@
-import React from 'react';
+import { useState, useRef, useEffect, cloneElement } from 'react';
+import type { PropsWithChildren } from 'react';
 import { Args, ReactFramework, StoryContext, StoryFn } from '@storybook/react';
 
 type Selector = ':hover' | ':focus' | ':active';
 
-const WithSelector = ({
-	children,
-	selector,
-}: React.PropsWithChildren<any> & { selector: Selector }) => {
-	const [className, setClassName] = React.useState<string>('');
-	const [styles, setStyles] = React.useState<string[]>([]);
-	const ref = React.useRef<HTMLElement>();
+const WithSelector = ({ children, selector }: PropsWithChildren<any> & { selector: Selector }) => {
+	const [className, setClassName] = useState<string>('');
+	const [styles, setStyles] = useState<string[]>([]);
+	const ref = useRef<HTMLElement>();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (!ref.current) return;
 		setStyles([]);
 		const selectors = Array.from(ref.current.classList).map(clazz => {
@@ -44,7 +42,7 @@ const WithSelector = ({
 		}
 	}, [selector]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (!ref.current) return;
 		ref.current.className = `${ref.current.className} ${className}`;
 	}, [className]);
@@ -52,7 +50,7 @@ const WithSelector = ({
 	return (
 		<>
 			{styles && <style>{styles.join(' ')}</style>}
-			{React.cloneElement(children, {
+			{cloneElement(children, {
 				ref,
 			})}
 		</>

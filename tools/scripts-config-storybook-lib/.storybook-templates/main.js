@@ -3,6 +3,9 @@ const { merge } = require('lodash');
 const path = require('path');
 const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 const { getAllModules } = require('@talend/module-to-cdn');
+const {
+	getSassLoaders,
+} = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const { fixWindowsPaths } = require('./utils');
 
@@ -49,8 +52,28 @@ const defaultMain = {
 	},
 	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
+		// by default storybook do not support scss without css module
+		// here we remove storybook scss config and replace it by our config
+		const rules = [
+			...config.module.rules.filter(rule => {
+				return !rule.test?.toString().includes('s[ca]ss');
+			}),
+			{
+				test: /\.scss$/,
+				exclude: /\.module\.scss$/,
+				use: getSassLoaders(false, '', true),
+			},
+			{
+				test: /\.module\.scss$/,
+				use: getSassLoaders(true, '', true),
+			},
+		];
 		const mergedConfig = {
 			...config,
+			module: {
+				...config.module,
+				rules,
+			},
 			plugins: [
 				...config.plugins,
 				// use dynamic-cdn-webpack-plugin with default modules

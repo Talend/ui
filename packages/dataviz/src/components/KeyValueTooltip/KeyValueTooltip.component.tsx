@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import { FormatValue } from '@talend/react-components';
 import { Tooltip } from '../Tooltip/Tooltip.component';

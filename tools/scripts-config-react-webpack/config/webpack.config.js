@@ -147,6 +147,12 @@ const meta = VERSIONS.talendLibraries.reduce(
 	},
 );
 
+function renderMeta() {
+	return Object.keys(meta)
+		.map(key => `<meta name="${key}" content="${meta[key]}" />`)
+		.join('\n');
+}
+
 function getCopyConfig(env, userCopyConfig = [], noDynamicCdn) {
 	const config = [...userCopyConfig];
 	const assetsOverridden = config.some(nextAsset =>
@@ -182,7 +188,8 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 		window.basename = '${BASENAME}';
 	</script>`;
 	if (useInitiator) {
-		headScript = `<script type="text/javascript">
+		// meta are not injected if inject is false
+		headScript = `${renderMeta()}<script type="text/javascript">
 			window.basename = '${BASENAME}';
 			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
 			var TALEND_CDN_VERSIONS = {
@@ -244,6 +251,9 @@ module.exports = ({ getUserConfig, mode }) => {
 			process.cwd(),
 			userHtmlConfig.template || DEFAULT_INDEX_TEMPLATE_PATH,
 		);
+
+		meta['app-id'] = userHtmlConfig.appId || theme;
+
 		const indexTemplate = await getIndexTemplate(
 			env,
 			mode,
@@ -253,9 +263,12 @@ module.exports = ({ getUserConfig, mode }) => {
 
 		const isEnvDevelopment = mode === 'development';
 		const isEnvProduction = mode === 'production';
+		const isEnvDevelopmentServe = isEnvDevelopment && process.env.WEBPACK_SERVE === 'true';
 		const b64favicon = icons.getFavicon(theme);
 
-		meta['app-id'] = userHtmlConfig.appId || theme;
+		const srcDirectories = (getUserConfig('webpack', {})?.monoRepoFixSourceMap || [])
+			.map(src => path.resolve(process.cwd(), src))
+			.concat([path.resolve(process.cwd(), './src/app')]);
 
 		return {
 			mode,
@@ -277,32 +290,33 @@ module.exports = ({ getUserConfig, mode }) => {
 				rules: [
 					isEnvDevelopment && {
 						test: /\.js$/,
-						include: /@talend/,
+						include: /node_modules/,
 						use: ['source-map-loader'],
 						enforce: 'pre',
 					},
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
+						include: srcDirectories,
 						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
 						test: /\.css$/,
 						exclude: /\.module\.css$/,
-						use: getCommonStyleLoaders(false, mode),
+						use: getCommonStyleLoaders(false, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.module\.css$/,
-						use: getCommonStyleLoaders(true, mode),
+						use: getCommonStyleLoaders(true, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.scss$/,
 						exclude: /\.module\.scss$/,
-						use: getSassLoaders(false, sassData, mode),
+						use: getSassLoaders(false, sassData, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.module\.scss$/,
-						use: getSassLoaders(true, sassData, mode),
+						use: getSassLoaders(true, sassData, isEnvDevelopmentServe),
 					},
 					...getAssetsRules(true),
 				].filter(Boolean),

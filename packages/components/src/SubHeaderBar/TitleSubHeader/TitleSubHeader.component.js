@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { InlineEditing } from '@talend/design-system';
@@ -66,7 +66,7 @@ function TitleSubHeader({
 	onSubmit,
 	...rest
 }) {
-	const [isEditMode, setIsEditMode] = React.useState(false);
+	const [isEditMode, setIsEditMode] = useState(false);
 
 	function handleSubmit(...args) {
 		if (onSubmit) {

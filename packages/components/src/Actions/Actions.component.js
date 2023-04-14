@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { ButtonGroup } from '@talend/react-bootstrap';
 import classNames from 'classnames';
 import Action from './Action';

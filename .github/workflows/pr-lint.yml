@@ -3,6 +3,18 @@ name: PR lint
 on:
   pull_request:
 
+permissions:
+  contents: write
+  deployments: read
+  pull-requests: write # needed to annotate code
+  statuses: write
+  checks: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,13 +22,13 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: 16
           check-latest: true
@@ -25,7 +37,7 @@ jobs:
           cache: "yarn"
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --ignore-scripts
 
       - name: eslint + stylelint
         continue-on-error: true
@@ -34,14 +46,13 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v29.0.4
+        uses: tj-actions/changed-files@b109d83a62e94cf7c522bf6c15cb25c175850b16 #v35.7.12
 
       - name: Merge lint
         run: node merge-report.js ${{ steps.changed-files.outputs.all_changed_files }}
 
       - name: Annotate Code Linting Results
-        continue-on-error: true
-        uses: ataylorme/eslint-annotate-action@1.2.0
+        uses: ataylorme/eslint-annotate-action@2c426a387ed738e9522e93abfcb4cfc57b46458a #v2.2.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json

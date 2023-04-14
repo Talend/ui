@@ -1,5 +1,3 @@
-import React from 'react';
-
 import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
 
 export type BadgeTagProps = Omit<BadgePrimitiveProps, 'semanticIcon'>;

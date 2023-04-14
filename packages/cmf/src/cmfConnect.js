@@ -22,7 +22,7 @@ export default cmfConnect({
 });
  */
 import PropTypes from 'prop-types';
-import React from 'react';
+import { useState, useContext, useEffect, forwardRef } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect, useStore } from 'react-redux';
@@ -235,8 +235,8 @@ export default function cmfConnect({
 		}
 
 		function CMFContainer(props, ref) {
-			const [instanceId] = React.useState(randomUUID());
-			const registry = React.useContext(RegistryContext);
+			const [instanceId] = useState(randomUUID());
+			const registry = useContext(RegistryContext);
 			const store = useStore();
 
 			function dispatchActionCreator(actionCreatorId, event, data, extraContext) {
@@ -244,7 +244,7 @@ export default function cmfConnect({
 				props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 
-			React.useEffect(() => {
+			useEffect(() => {
 				initState(props);
 				if (props.saga) {
 					dispatchActionCreator(
@@ -343,7 +343,7 @@ export default function cmfConnect({
 				getSetStateAction(state(getState(getReduxState(), id)), id, type);
 		};
 		if (rest.forwardRef) {
-			CMFWithRef = React.forwardRef(CMFWithRef);
+			CMFWithRef = forwardRef(CMFWithRef);
 			CMFWithRef.displayName = `ForwardRef(${CMFContainer.displayName})`;
 			CMFWithRef.WrappedComponent = CMFContainer.WrappedComponent;
 			CMFWithRef.getState = CMFContainer.getState;

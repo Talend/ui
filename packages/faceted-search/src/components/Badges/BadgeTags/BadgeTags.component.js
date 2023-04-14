@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import isObject from 'lodash/isObject';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import { BadgeTagsForm } from './BadgeTagsForm.component';
@@ -43,6 +44,7 @@ export const BadgeTags = ({
 	removable,
 	displayType,
 	t,
+	...rest
 }) => {
 	const [tagsValues, setTagsValues] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -58,7 +60,14 @@ export const BadgeTags = ({
 		callbacks
 			.getTags()
 			.then(data => {
-				setTagsValues(data.map(item => ({ id: item, label: item })));
+				setTagsValues(
+					data.map(item => {
+						if (isObject(item)) {
+							return { id: item.id, label: item.label };
+						}
+						return { id: item, label: item };
+					}),
+				);
 			})
 			.finally(() => {
 				setIsLoading(false);
@@ -95,6 +104,7 @@ export const BadgeTags = ({
 					feature={category || label}
 					isLoading={isLoading}
 					t={t}
+					{...rest}
 				/>
 			)}
 		</BadgeFaceted>

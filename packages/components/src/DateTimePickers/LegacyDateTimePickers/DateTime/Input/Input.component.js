@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import DebounceInput from 'react-debounce-input';
 
 import { DateTimeContext } from '../Context';

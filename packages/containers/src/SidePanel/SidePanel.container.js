@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component as RComponent } from 'react';
 import Component from '@talend/react-components/lib/SidePanel';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
@@ -13,7 +13,7 @@ export const DEFAULT_STATE = new Map({
  * Checkout the {@link http://talend.surge.sh/containers/?selectedKind=SidePanelExample&selectedStory=Default|examples}
  * @param {object} props react props
  */
-class SidePanel extends React.Component {
+class SidePanel extends RComponent {
 	static displayName = 'Container(SidePanel)';
 
 	static propTypes = {

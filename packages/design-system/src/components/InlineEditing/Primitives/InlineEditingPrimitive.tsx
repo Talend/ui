@@ -1,12 +1,14 @@
-import React, {
-	cloneElement,
-	ElementType,
-	forwardRef,
-	HTMLAttributes,
+import { cloneElement, forwardRef, useEffect, useState } from 'react';
+
+import type {
+	MouseEvent,
+	FormEvent,
+	KeyboardEvent as RKeyboardEvent,
 	ReactElement,
 	Ref,
-	useEffect,
-	useState,
+	HTMLAttributes,
+	ElementType,
+	ChangeEvent,
 } from 'react';
 import classnames from 'classnames';
 import keycode from 'keycode';
@@ -29,10 +31,10 @@ type ErrorInEditing =
 	  };
 
 export type OnEditEvent =
-	| React.MouseEvent<HTMLButtonElement>
+	| MouseEvent<HTMLButtonElement>
 	| KeyboardEvent
-	| React.FormEvent<HTMLFormElement>
-	| React.KeyboardEvent;
+	| FormEvent<HTMLFormElement>
+	| RKeyboardEvent;
 
 export type InlineEditingPrimitiveProps = {
 	loading?: boolean;
@@ -69,7 +71,7 @@ const InlineEditingPrimitive = forwardRef(
 		} = props;
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const [isEditing, setEditing] = useState<boolean>(false);
-		const [value, setValue] = React.useState<string | undefined>(defaultValue);
+		const [value, setValue] = useState<string | undefined>(defaultValue);
 		const toggleEditionMode = (isEditionMode: boolean) => {
 			setEditing(isEditionMode);
 			onToggle(isEditionMode);
@@ -133,11 +135,10 @@ const InlineEditingPrimitive = forwardRef(
 			name: label.replace(/\s/g, ''),
 			required,
 			placeholder,
-			onChange: (
-				event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
-			): void => setValue(event.target.value),
+			onChange: (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>): void =>
+				setValue(event.target.value),
 			// Keyboard shortcuts
-			onKeyDown: (event: React.KeyboardEvent) => {
+			onKeyDown: (event: RKeyboardEvent) => {
 				if (event.keyCode === keycode.codes.enter && mode !== 'multi') {
 					// Enter
 					handleSubmit(event);

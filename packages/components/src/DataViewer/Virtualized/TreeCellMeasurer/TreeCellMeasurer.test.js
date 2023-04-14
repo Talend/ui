@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { CellMeasurerCache } from 'react-virtualized';
 import TreeCellMeasurer from './TreeCellMeasurer.component';

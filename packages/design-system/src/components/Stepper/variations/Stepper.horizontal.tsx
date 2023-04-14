@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import Stepper, { StepperProps } from '../Stepper';
 
 type StepperHorizontalProps = Omit<StepperProps, 'orientation'>;

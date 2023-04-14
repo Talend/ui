@@ -1,4 +1,3 @@
-import React from 'react';
 import { Token } from '../../../../../../src/tokens/types';
 import DefinitionListItem from './DefinitionListItem';
 import CardRadius from '../../Card/CardRadius';

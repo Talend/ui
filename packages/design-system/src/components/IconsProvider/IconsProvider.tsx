@@ -1,6 +1,6 @@
 import VisuallyHidden from '../VisuallyHidden';
 import assetsAPI from '@talend/assets-api';
-import React, { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
+import { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
 
 const DEFAULT_BUNDLES = [
 	assetsAPI.getURL('/dist/svg-bundle/all.svg', '@talend/icons'),

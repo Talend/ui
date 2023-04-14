@@ -1,9 +1,6 @@
-import React from 'react';
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
-
-import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
-
+import { action } from '@storybook/addon-actions';
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 import {
 	ButtonIcon,
 	ButtonPrimary,

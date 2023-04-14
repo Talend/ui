@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import Badge from '../../Badge';
 
 /**
  * Cell renderer that displays a badge
  */
-class CellBadge extends React.Component {
+class CellBadge extends Component {
 	shouldComponentUpdate(nextProps) {
 		return (
 			this.props.cellData !== nextProps.cellData ||

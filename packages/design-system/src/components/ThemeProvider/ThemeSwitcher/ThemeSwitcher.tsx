@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ButtonIconToggle } from '../../ButtonIcon';
@@ -12,7 +12,7 @@ const ThemeSwitcher = () => {
 	const [hasDarkMode, setDarkMode] = useState(false);
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setDarkMode(theme === dark);
 	}, [theme]);
 

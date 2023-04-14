@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Token, TokenType } from '../../../src/tokens/types';
 import { TokensProps } from './TokensTypes';
 import BreakpointScale from './components/DefinitionList/BreakpointScale/BreakpointScale';

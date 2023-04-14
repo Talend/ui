@@ -16,10 +16,12 @@ $module: range-filter;
 		&--top {
 			top: -36px;
 		}
+
 		&--bottom-left {
 			position: absolute;
 			text-align: left;
 		}
+
 		&--bottom-right {
 			transform: translateX(50%);
 		}
@@ -27,7 +29,7 @@ $module: range-filter;
 
 	:global {
 		.rc-slider-mark-text:last-child {
-			left: initial !important;
+			left: initial !important; // stylelint-disable declaration-no-important
 			right: 0;
 		}
 
@@ -36,6 +38,7 @@ $module: range-filter;
 			bottom: 0;
 		}
 	}
+
 	&__form {
 		display: flex;
 		justify-content: space-evenly;

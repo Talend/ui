@@ -1,9 +1,7 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { ButtonIcon } from '@talend/design-system';
 
-import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
@@ -21,7 +19,7 @@ function euclideanModulo(dividend, divisor) {
 	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
 
-class DateView extends React.PureComponent {
+class DateView extends PureComponent {
 	static propTypes = {
 		allowFocus: PropTypes.bool,
 		calendar: PropTypes.shape({
@@ -82,7 +80,7 @@ class DateView extends React.PureComponent {
 					year={this.props.calendar.year}
 					button={{
 						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', {
-							defaultValue: 'Switch to month and year pickers view',
+							defaultValue: 'Switch to month-and-year view',
 						}),
 						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,

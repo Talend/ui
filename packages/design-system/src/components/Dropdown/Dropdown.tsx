@@ -1,5 +1,4 @@
-import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
-
+import { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
 import { Menu, MenuButton, useMenuState } from 'reakit';
 
 import { DataAttributes, DeprecatedIconNames } from '../../types';
@@ -17,12 +16,12 @@ type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 	onClick: () => void;
 	icon?: DeprecatedIconNames;
 	type: 'button';
-};
+} & DataAttributes;
 
 type DropdownLinkType = Omit<LinkableType, 'children'> & {
 	label: string;
 	type: 'link';
-};
+} & DataAttributes;
 
 type DropdownLabelType = {
 	type: 'title';

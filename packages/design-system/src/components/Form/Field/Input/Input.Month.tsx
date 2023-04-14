@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import Input, { TypedInputFieldProps } from './Input';
 
 const Month = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Typeahead from '.';
 
 const view = {

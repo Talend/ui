@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, cloneElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { Dialog, DialogDisclosure, DialogStateReturn, useDialogState } from 'reakit';
 import PrimitiveDrawer from '../../Primitive/PrimitiveDrawer';
 
 import theme from './FloatingDrawer.module.scss';
 
 type WithDisclosure = {
-	disclosure: React.ReactElement;
+	disclosure: ReactElement;
 	visible?: never;
 };
 type Controlled = {
@@ -14,9 +15,9 @@ type Controlled = {
 };
 
 export type DrawerProps = {
-	header?: ((dialog: DialogStateReturn) => React.ReactNode) | React.ReactNode;
-	children: ((dialog: DialogStateReturn) => React.ReactNode) | React.ReactNode;
-	footer?: ((dialog: DialogStateReturn) => React.ReactNode) | React.ReactNode;
+	header?: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
+	children: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
+	footer?: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
 	onClose?: () => void;
 } & (WithDisclosure | Controlled);
 
@@ -43,7 +44,7 @@ export const FloatingDrawer = ({
 		<>
 			{disclosure && (
 				<DialogDisclosure {...dialog}>
-					{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
+					{disclosureProps => cloneElement(disclosure, disclosureProps)}
 				</DialogDisclosure>
 			)}
 			<Dialog

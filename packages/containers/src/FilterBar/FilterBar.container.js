@@ -1,5 +1,5 @@
 import { cmfConnect } from '@talend/react-cmf';
-import React from 'react';
+import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import Immutable from 'immutable';
@@ -15,7 +15,7 @@ export const DISPLAY_NAME = 'Container(FilterBar)';
 
 const DOCKED_ATTR = 'docked';
 
-class FilterBar extends React.Component {
+class FilterBar extends RComponent {
 	static displayName = DISPLAY_NAME;
 
 	static contextTypes = {

@@ -1,4 +1,5 @@
-import React from 'react';
+import { Children, cloneElement, PureComponent } from 'react';
+import type { ReactElement } from 'react';
 
 import { line, curveBasis, interpolateBasis } from 'd3';
 
@@ -33,12 +34,12 @@ type Props = {
 	onTargetDrag?: (event: any) => void;
 	onTargetDragEnd?: (event: any) => void;
 	children?: any;
-	linkSourceHandleComponent?: React.ReactElement;
+	linkSourceHandleComponent?: ReactElement;
 	sourceHandlePosition?: Position;
-	linkTargetHandleComponent?: React.ReactElement;
+	linkTargetHandleComponent?: ReactElement;
 };
 
-class AbstractLink extends React.PureComponent<Props> {
+class AbstractLink extends PureComponent<Props> {
 	static calculatePath = calculatePath;
 
 	renderLinkSourceHandle() {
@@ -75,8 +76,8 @@ class AbstractLink extends React.PureComponent<Props> {
 			this.props.source.getPosition(),
 			this.props.targetHandlePosition || this.props.target.getPosition(),
 		);
-		const newChildren = React.Children.map(this.props.children, child =>
-			React.cloneElement(child, { d: path, xInterpolate, yInterpolate }),
+		const newChildren = Children.map(this.props.children, child =>
+			cloneElement(child, { d: path, xInterpolate, yInterpolate }),
 		);
 		return (
 			<g>

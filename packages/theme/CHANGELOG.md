@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 7.0.1
+
+### Patch Changes
+
+- ab0bd21cf: chore: apply code style
+
 ## 7.0.0
 
 ### Major Changes

@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-tokens",
-  "version": "2.7.1",
+  "version": "2.7.3",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -34,7 +34,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^13.0.0",
+    "@talend/scripts-core": "^13.1.2",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}

@@ -5,10 +5,12 @@
 		transform: scale(0.95);
 		box-shadow: 0 0 0 0.3rem tokens.$coral-color-accent-background, 0 0 0 0.6rem tokens.$coral-color-accent-background;
 	}
+
 	80% {
 		transform: scale(1);
 		box-shadow: 0 0 0 0.3rem tokens.$coral-color-accent-background, 0 0 0 1rem rgba(0, 0, 0, 0);
 	}
+
 	100% {
 		transform: scale(0.95);
 		box-shadow: 0 0 0 0.3rem tokens.$coral-color-accent-background, 0 0 0 0 rgba(0, 0, 0, 0);
@@ -22,7 +24,7 @@
 	justify-content: flex-end;
 	z-index: 1;
 
-	&[data-index]:before {
+	&[data-index]::before {
 		content: attr(data-index) '. ';
 		margin-right: tokens.$coral-spacing-xxs;
 	}
@@ -45,8 +47,8 @@
 		z-index: 2;
 
 		.tc-svg-icon {
-			margin-left: tokens.$coral-spacing-xxs;;
-			margin-top: tokens.$coral-spacing-xxs;;
+			margin-left: tokens.$coral-spacing-xxs;
+			margin-top: tokens.$coral-spacing-xxs;
 			background: tokens.$coral-color-neutral-background;
 			border-radius: tokens.$coral-radius-round;
 			height: tokens.$coral-sizing-m;
@@ -77,7 +79,7 @@
 		color: tokens.$coral-color-neutral-text-disabled;
 		cursor: not-allowed;
 
-		&:before,
+		&::before,
 		.step__title {
 			opacity: tokens.$coral-opacity-m;
 		}
