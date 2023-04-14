@@ -22,6 +22,7 @@ export const IconL = (args: { name: IconNameWithSize<'L'>; color: string }) => (
 
 const colorOptions = {
 	options: [
+		tokens.coralColorSuccessIcon,
 		tokens.coralColorAccentIcon,
 		tokens.coralColorDangerIcon,
 		tokens.coralColorNeutralIcon,
