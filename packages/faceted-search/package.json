@@ -37,7 +37,7 @@
     "@talend/utils": "^2.5.0",
     "@talend/react-bootstrap": "^1.35.2",
     "classnames": "^2.3.2",
-    "date-fns": "^1.30.1",
+    "date-fns": "^2.29.3",
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21"
