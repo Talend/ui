@@ -10,6 +10,7 @@
     "lint": "talend-scripts lint"
   },
   "dependencies": {
+    "cross-spawn": "^7.0.3",
     "@talend/scripts-utils": "^2.0.2"
   },
   "keywords": [
