@@ -1,6 +1,6 @@
 import dateFnsFormat from 'date-fns/format';
 import parse from 'date-fns/parse';
-export * from './generator';
+import { buildWeeks } from './generator';
 
 type DateFnsFormatInput = Date | number | string;
 
@@ -232,4 +232,5 @@ export default {
 	formatToTimeZone,
 	getUTCOffset,
 	timeZoneExists,
+	buildWeeks,
 };
