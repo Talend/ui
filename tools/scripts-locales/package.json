@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-locales",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "manage locales in the project",
   "type": "module",
   "bin": {
