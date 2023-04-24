@@ -9,6 +9,7 @@ export * from './components/BarChart/barChart.tooltip';
 export * from './components/GeoChart/GeoChart.utils';
 export * from './components/RangeFilter/handlers';
 
+export type { ChartEntry } from './components/BarChart/barChart.types';
 export type { HorizontalBarChartProps } from './components/BarChart/HorizontalBarChart';
 export type {
 	VerticalBarChartEntry,
