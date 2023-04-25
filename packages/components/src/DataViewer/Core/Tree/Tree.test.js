@@ -1,5 +1,25 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import Tree, { isRoot } from './Tree.component';
+
+jest.mock('../TreeNode', () => props => (
+	<div className={props.className} data-testid="TreeNode" data-props={JSON.stringify(props)} />
+));
+jest.mock('../TreeNodeList', () => props => (
+	<ul
+		className={props.treeClassName}
+		data-testid="TreeNodeList"
+		data-props={JSON.stringify(props)}
+		data-level={props.level}
+	>
+		{props.value.map((item, index) => (
+			<li key={index} data-testid="TreeNodeListItem" className={props.nodeClassName}>
+				{item}
+			</li>
+		))}
+	</ul>
+));
 
 describe('isRoot', () => {
 	it('should return true, its root level', () => {
@@ -11,52 +31,36 @@ describe('isRoot', () => {
 });
 
 describe('Tree', () => {
-	let props;
-	beforeEach(() => {
-		props = {
-			getJSONPath: jest.fn(),
-			branch: jest.fn(() => <div data-testid="branch"></div>),
-			leaf: jest.fn(prop => <span data-testid="leaf" data-level={prop.level}></span>),
-			getValueType: jest.fn(),
-			getItemType: jest.fn(item => {
-				if (Array.isArray(item)) {
-					return 'array';
-				}
-				if (item instanceof Object) {
-					return 'object';
-				}
-				return;
-			}),
-			jsonpath: '$',
-			type: 'array',
-			level: 0,
-			index: 0,
-		};
-	});
-	it('should return a ul', () => {
-		render(<Tree {...props} value={[]} level={0} noRoot />);
+	it('should return a TreeNodeList', () => {
+		render(<Tree value={[]} level={0} noRoot />);
 		expect(screen.getByRole('list')).toBeVisible();
-		expect(screen.getByRole('list')).toHaveClass('tc-tree');
+		expect(JSON.parse(screen.getByRole('list').dataset.props)).toMatchObject({
+			level: 0,
+			value: [],
+			treeClassName: 'theme-tc-tree tc-tree',
+		});
 	});
-	it('should return a branch', () => {
-		render(<Tree {...props} value={{}} dataKey="myDataKey" level={0} />);
-		expect(screen.getByTestId('branch')).toBeVisible();
+	it('should return a TreeNode with dataKey', () => {
+		render(<Tree value={{}} dataKey="myDataKey" level={0} />);
+		expect(screen.getByTestId('TreeNode')).toBeVisible();
+		expect(JSON.parse(screen.getByTestId('TreeNode').dataset.props)).toMatchObject({
+			dataKey: 'myDataKey',
+			level: 0,
+		});
 	});
 	it('should return a list with custom className', () => {
-		render(<Tree {...props} value={[]} className="myCustomClass" level={0} noRoot />);
+		render(<Tree value={[]} className="myCustomClass" level={0} noRoot />);
 		expect(screen.getByRole('list')).toHaveClass('myCustomClass');
 	});
 	it('should return a list with a level > 0', () => {
-		render(<Tree {...props} value={['test']} level={1} />);
+		render(<Tree value={['test']} level={1} />);
 		expect(screen.getByRole('list')).toBeVisible();
 		expect(screen.getByRole('listitem')).toBeVisible();
-		expect(screen.getByRole('listitem')).toHaveClass('tc-tree-node-border');
-		expect(screen.getByTestId('leaf')).toHaveAttribute('data-level', '1');
+		expect(screen.getByRole('list')).toHaveAttribute('data-level', '1');
 	});
 	it('should return a list with a level > 0 and no node border', () => {
-		render(<Tree {...props} value={['test']} level={1} withNodeBorder={false} />);
+		render(<Tree value={['test']} level={1} withNodeBorder={false} />);
 		expect(screen.getByRole('list')).toBeVisible();
 		expect(screen.getByRole('listitem')).toBeVisible();
-		expect(screen.getByRole('listitem')).not.toHaveClass('tc-tree-node-border');
 	});
 });
