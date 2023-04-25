@@ -1,5 +1,27 @@
 # @talend/react-components
 
+## 10.2.3
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- 708589ad4: chore: Move Gesture into a dedicated package written in typescript
+- Updated dependencies [cf697de02]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+  - @talend/icons@6.57.0
+
 ## 10.2.2
 
 ### Patch Changes

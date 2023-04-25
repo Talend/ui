@@ -1,5 +1,14 @@
 # @talend/ui-storybook
 
+## 1.1.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- Updated dependencies [cf697de02]
+- Updated dependencies [be1095095]
+  - @talend/design-system@7.7.2
+
 ## 1.1.1
 
 ### Patch Changes

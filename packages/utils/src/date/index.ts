@@ -1,6 +1,6 @@
 import dateFnsFormat from 'date-fns/format';
 import parse from 'date-fns/parse';
-export * from './generator';
+import * as generator from './generator';
 
 type DateFnsFormatInput = Date | number | string;
 
@@ -221,6 +221,8 @@ const options = {
 export function format(date: DateFnsFormatInput, dateOption: string, lang: string): string {
 	return new Intl.DateTimeFormat(lang, options[dateOption]).format(parse(date));
 }
+
+export const buildWeeks = generator.buildWeeks;
 
 export default {
 	convertToLocalTime,

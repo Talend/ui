@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 7.7.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- be1095095: fix(design-system): Button style while compacted by layout
+
 ## 7.7.1
 
 ### Patch Changes

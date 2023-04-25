@@ -50,7 +50,7 @@ class NestedListViewWidget extends Component {
 			onCheck: this.onCheck.bind(this),
 		};
 
-		this.items = prepareItemsFromSchema(schema, callbacks);
+		this.items = prepareItemsFromSchema(schema, callbacks, value);
 		this.value = value;
 
 		this.state = {
@@ -66,6 +66,15 @@ class NestedListViewWidget extends Component {
 	componentDidUpdate(prevProps) {
 		// If props.value if different from previous prop and this.value, refresh the displayed items
 		if (!isEqual(prevProps.value, this.props.value) && !isEqual(this.value, this.props.value)) {
+			if (this.props.schema.options?.expandChecked) {
+				this.items = this.items.map(item => {
+					const values = this.props.value[item.key] || [];
+					return {
+						...item,
+						expanded: values.length > 0 && values.length !== item.children.length,
+					};
+				});
+			}
 			this.value = this.props.value;
 			// eslint-disable-next-line react/no-did-update-set-state
 			this.setState({
@@ -263,6 +272,10 @@ if (process.env.NODE_ENV !== 'production') {
 			labelProps: PropTypes.object,
 			dataTest: PropTypes.string,
 			autosize: PropTypes.bool,
+			items: PropTypes.array,
+			options: PropTypes.shape({
+				expandChecked: PropTypes.bool,
+			}),
 		}),
 		value: PropTypes.object,
 		valueIsUpdating: PropTypes.bool,

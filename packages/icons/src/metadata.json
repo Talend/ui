@@ -4277,8 +4277,22 @@
     "documentationLinks": []
   },
   {
+    "key": "00930c8b701756f5a2902383d5209b400500055e",
+    "name": "icon/M/workspace",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
     "key": "27ca35cf45db9ce54aeb0e5b9fdaa689a587c157",
     "name": "icon/L/smiley-sleepy",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "3e67fe03172eee16a5fd630df987431fe71fb897",
+    "name": "icon/L/workspace",
     "description": "",
     "remote": false,
     "documentationLinks": []
@@ -4300,6 +4314,48 @@
   {
     "key": "3fd319efb30a7546a433354860e63dd87dbe7ca3",
     "name": "icon/L/curly-braces",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "4871fe2efe56f348d27a5b1f55cc381233df75a4",
+    "name": "icon/M/megaphone",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "7b740d0b813b1c7944c196c8aa8bbc6006ce6755",
+    "name": "icon/M/book-open",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "0eb0774e69294c2ee329c59709f4cfc4e7f7dba7",
+    "name": "icon/L/megaphone",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "475d36fdd3c931d9ff088048b147fd345ff904cd",
+    "name": "icon/L/book-open",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "62de72a6f73bda2753e1025d4bd8e62824c16827",
+    "name": "icon/M/support-agent",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "a9bed9ad611c2f9a67af75057240afd14950381c",
+    "name": "icon/L/support-agent",
     "description": "",
     "remote": false,
     "documentationLinks": []

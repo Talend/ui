@@ -1,5 +1,19 @@
 # @talend/react-forms
 
+## 9.1.0
+
+### Minor Changes
+
+- 321bd07d7: feat(TDOPS-4043/NestedList): expand the list if any item is checked
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+- Updated dependencies [be1095095]
+- Updated dependencies [708589ad4]
+  - @talend/design-system@7.7.2
+  - @talend/react-components@10.2.3
+
 ## 9.0.4
 
 ### Patch Changes

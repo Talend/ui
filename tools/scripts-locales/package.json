@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-locales",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "manage locales in the project",
   "type": "module",
   "bin": {
@@ -10,6 +10,7 @@
     "lint": "talend-scripts lint"
   },
   "dependencies": {
+    "cross-spawn": "^7.0.3",
     "@talend/scripts-utils": "^2.0.2"
   },
   "keywords": [

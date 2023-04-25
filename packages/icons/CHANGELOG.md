@@ -1,5 +1,27 @@
 # @talend/icons
 
+## 6.57.0
+
+### Minor Changes
+
+- 9a5d93e5b: added icon `book-open` in size `L`
+- 9a5d93e5b: added icon `book-open` in size `M`
+- 9a5d93e5b: added icon `megaphone` in size `L`
+- 9a5d93e5b: added icon `megaphone` in size `M`
+- 9a5d93e5b: added icon `support-agent` in size `L`
+- 9a5d93e5b: added icon `support-agent` in size `M`
+- 9a5d93e5b: added icon `workspace` in size `L`
+- 9a5d93e5b: added icon `workspace` in size `M`
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- 9a5d93e5b: changed icon `chevron-double-left` in size `M`
+- 9a5d93e5b: changed icon `chevron-double-left` in size `S`
+- 9a5d93e5b: changed icon `chevron-double-left` in size `XS`
+- 9a5d93e5b: changed icon `contains` in size `S`
+- 9a5d93e5b: changed icon `hand-pointer` in size `L`
+
 ## 6.56.0
 
 ### Minor Changes

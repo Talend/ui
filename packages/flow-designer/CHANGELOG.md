@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.3.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+
 ## 5.3.1
 
 ### Patch Changes
