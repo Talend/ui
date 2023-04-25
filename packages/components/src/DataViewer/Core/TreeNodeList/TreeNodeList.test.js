@@ -1,15 +1,10 @@
+/* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import TreeNodeList from './TreeNodeList.component';
 
-function getItemType(item) {
-	if (Array.isArray(item)) {
-		return 'array';
-	}
-	if (item instanceof Object) {
-		return 'object';
-	}
-	return;
-}
+jest.mock('../TreeNode', () => props => (
+	<div data-testid="TreeNode" data-props={JSON.stringify(props)} />
+));
 
 describe('TreeNodeList', () => {
 	it('should return a list of 3 TreeNode with an inline paddingLeft value of 30', () => {
@@ -19,24 +14,31 @@ describe('TreeNodeList', () => {
 			{ dataKey: 'dataKey3', value: 'titi' },
 		];
 		const props = {
-			branch: jest.fn(() => <div data-testid="branch">branch</div>),
-			leaf: jest.fn(({ level, paddingOffset }) => (
-				<div data-testid="leaf" style={{ paddingLeft: paddingOffset }} data-level={level}>
-					leaf
-				</div>
-			)),
+			// branch: jest.fn(() => <div data-testid="branch">branch</div>),
+			// leaf: jest.fn(({ level, paddingOffset }) => (
+			// 	<div data-testid="leaf" style={{ paddingLeft: paddingOffset }} data-level={level}>
+			// 		leaf
+			// 	</div>
+			// )),
 			getJSONPath: () => '$',
-			getValueType: jest.fn(),
-			getItemType: jest.fn(getItemType),
+			// getValueType: jest.fn(),
+			// getItemType: jest.fn(getItemType),
 			index: 0,
 			jsonpath: '$',
 			nodeClassName: 'nodeClassName',
-			paddingOffset: 30,
+			// paddingOffset: 30,
 			treeClassName: 'treeClassName',
 			value,
 		};
 		render(<TreeNodeList {...props} />);
-		expect(screen.getAllByTestId('leaf')).toHaveLength(3);
-		expect(screen.getAllByTestId('leaf')[0]).toHaveStyle({ paddingLeft: 30 });
+		expect(screen.getAllByTestId('TreeNode')).toHaveLength(3);
+		const firstNode = screen.getAllByTestId('TreeNode')[0];
+		expect(JSON.parse(firstNode.dataset.props)).toMatchObject({
+			dataKey: 'dataKey1',
+			index: 0,
+			jsonpath: '$',
+			value: 'toto',
+			dataKey: 'dataKey1',
+		});
 	});
 });
