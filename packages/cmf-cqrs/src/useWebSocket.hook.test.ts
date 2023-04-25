@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import { useWebSocket } from './hooks';
 import { addWebsocketToRegistry, removeWebSocketFromRegistry } from './registry';
+import { useWebSocket } from './useWebSocket.hook';
 
 const messageEvent1 = {
 	data: '{"messageType": "unit test", "value": "test"}',
@@ -84,7 +84,9 @@ describe('hooks', () => {
 
 	it('should filter the messages based on their types', () => {
 		// given
-		const { result } = renderHook(() => useWebSocket(['unit test']));
+		const { result } = renderHook(() =>
+			useWebSocket((data: any) => data.messageType !== 'unit test'),
+		);
 		expect(result.current.lastMessage).toBeUndefined();
 		expect(result.current.lastJsonMessage).toBeUndefined();
 

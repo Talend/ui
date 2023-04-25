@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+
 import { WEBSOCKET_READY_STATE } from './constants';
 import { getWebSocketFromRegistry } from './registry';
 
@@ -8,8 +9,8 @@ export interface WebsocketMessageData {
 }
 
 export const useWebSocket = <T extends WebsocketMessageData>(
-	messageTypeDenyList: string[] = [],
-	id: string = 'default',
+	messageFilterFunction: (data: T) => boolean = () => true,
+	id = 'default',
 ) => {
 	const websocketRef = useRef<WebSocket>();
 	const [lastMessage, setLastMessage] = useState<{
@@ -32,7 +33,7 @@ export const useWebSocket = <T extends WebsocketMessageData>(
 
 	const onMessage = (messageEvent: MessageEvent<string>) => {
 		const data: T = JSON.parse(messageEvent.data);
-		if (!messageTypeDenyList.includes(data.messageType)) {
+		if (messageFilterFunction(data)) {
 			setLastMessage({ message: messageEvent, jsonData: data });
 		}
 	};
