@@ -1,4 +1,5 @@
 import { shallow, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import cases from 'jest-in-case';
 import { act } from 'react-dom/test-utils';
 
@@ -7,8 +8,8 @@ import { DateContext } from '../Context';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
-function DateConsumerDiv() {
-	return <div />;
+function DateConsumerDiv(props) {
+	return <div data-testid="DateConsumerDiv" data-props={JSON.stringify(props)} />;
 }
 // eslint-disable-next-line react/prop-types
 function DateConsumer() {
@@ -20,16 +21,29 @@ function DateConsumer() {
 }
 
 describe('Date.Manager', () => {
-	it('should render its children', () => {
+	it('should render its children with context value', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<Manager id={DEFAULT_ID} value={new Date(2017, 3, 4)}>
 				<DateConsumer />
 			</Manager>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('DateConsumerDiv')).toBeVisible();
+		const props = JSON.parse(screen.getByTestId('DateConsumerDiv').dataset.props);
+		expect(props).toEqual({
+			value: {
+				textInput: '2017-04-04',
+				date: '2017-04-03T22:00:00.000Z',
+			},
+			inputManagement: {
+				placeholder: 'YYYY-MM-DD',
+			},
+			pickerManagement: {
+				useUTC: false,
+			},
+		});
 	});
 
 	describe('value management', () => {
