@@ -17,6 +17,7 @@ export default class VirtualizedTree extends Component {
 		onVerticalScroll: PropTypes.func,
 		rowCount: PropTypes.number,
 		cellMeasurerClassName: PropTypes.string,
+		disableHeight: PropTypes.bool,
 	};
 
 	lazyLoadingCallBack = ({ startIndex, stopIndex }) => {
@@ -49,7 +50,7 @@ export default class VirtualizedTree extends Component {
 					this.props.className,
 				)}
 			>
-				<AutoSizer>
+				<AutoSizer disableHeight={this.props.disableHeight}>
 					{({ height, width }) => (
 						<List
 							{...this.props}
