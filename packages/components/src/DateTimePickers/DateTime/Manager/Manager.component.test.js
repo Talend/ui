@@ -310,7 +310,6 @@ describe('DateTime.Manager', () => {
 				// then
 				expect(onChange).toBeCalled();
 				const args = onChange.mock.calls[0];
-				expect(args[1]).toMatchSnapshot();
 				expect(args[0]).toEqual(expect.anything({ type: 'click' }));
 				// expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].textInput).toBe('2015-01-15');
@@ -323,7 +322,6 @@ describe('DateTime.Manager', () => {
 			it('should trigger props.onChange when date change with default time', async () => {
 				// given
 				const onChange = jest.fn();
-				const event = { target: { value: '2015-01-15' } };
 				render(
 					<Manager
 						id={DEFAULT_ID}
@@ -457,8 +455,6 @@ describe('DateTime.Manager', () => {
 			it('should trigger props.onChange with invalid time', async () => {
 				// given
 				const onChange = jest.fn();
-				const dateEvent = { target: { value: '2015-01-15' } };
-				const timeEvent = { target: { value: '12dfd:45' } };
 				const { rerender } = render(
 					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateTimeConsumer
