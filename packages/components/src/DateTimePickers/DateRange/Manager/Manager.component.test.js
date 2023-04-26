@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -26,7 +24,7 @@ function DateRangeConsumerDiv(props) {
 			/>
 			<button
 				data-testid={`picker-${props.pickerField}`}
-				onClick={e => props.pickerManagement.onStartChange(e, props.pickerValue)}
+				onClick={e => props.pickerManagement[props.pickerHandler](e, props.pickerValue)}
 			/>
 		</div>
 	);
@@ -472,9 +470,14 @@ describe('DateRange.Manager', () => {
 				},
 			])('$name', async ({ field, date, expectedTextInput, dateFormat }) => {
 				// given
+				const pickerHandler = field === 'endDate' ? 'onEndChange' : 'onStartChange';
 				render(
 					<Manager id={DEFAULT_ID} dateFormat={dateFormat}>
-						<DateRangeConsumer pickerField={field} pickerValue={date} />
+						<DateRangeConsumer
+							pickerField={field}
+							pickerValue={{ date }}
+							pickerHandler={pickerHandler}
+						/>
 					</Manager>,
 				);
 				// when
@@ -498,40 +501,41 @@ describe('DateRange.Manager', () => {
 					expectedEndDate: new Date(2019, 9, 11),
 					expectedOrigin: 'END_PICKER',
 				},
-			])('$name', ({ field, selectedDate, expectedStartDate, expectedEndDate, expectedOrigin }) => {
-				// given
-				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
-				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange}>
-						<DateRangeConsumer />
-					</Manager>,
-				);
-				expect(onChange).not.toBeCalled();
+			])(
+				'$name',
+				async ({ field, selectedDate, expectedStartDate, expectedEndDate, expectedOrigin }) => {
+					// given
+					const pickerHandler = field === 'endDate' ? 'onEndChange' : 'onStartChange';
+					const onChange = jest.fn();
+					render(
+						<Manager id={DEFAULT_ID} onChange={onChange}>
+							<DateRangeConsumer
+								pickerField={field}
+								pickerValue={{ date: selectedDate }}
+								pickerHandler={pickerHandler}
+							/>
+						</Manager>,
+					);
+					expect(onChange).not.toBeCalled();
 
-				// when
-				act(() => {
-					const props = wrapper.find('DateRangeConsumerDiv').prop('pickerManagement');
-					if (field === 'startDate') {
-						props.onStartChange(event, {
-							date: selectedDate,
-						});
-					} else {
-						props.onEndChange(event, {
-							date: selectedDate,
-						});
-					}
-				});
-				wrapper.update();
-				// then
-				expect(onChange).toBeCalledWith(event, {
-					startDate: expectedStartDate,
-					endDate: expectedEndDate,
-					errorMessage: null,
-					errors: [],
-					origin: expectedOrigin,
-				});
-			});
+					// when
+					await userEvent.click(screen.getByTestId(`picker-${field}`));
+
+					// then
+					expect(onChange).toBeCalledWith(
+						expect.anything({
+							type: 'change',
+						}),
+						{
+							startDate: expectedStartDate,
+							endDate: expectedEndDate,
+							errorMessage: null,
+							errors: [],
+							origin: expectedOrigin,
+						},
+					);
+				},
+			);
 		});
 	});
 });
