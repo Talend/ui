@@ -1,9 +1,6 @@
 /* eslint-disable react/prop-types */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { shallow, mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import cases from 'jest-in-case';
 
 import Manager from './Manager.component';
 import { DateTimeRangeContext } from '../Context';
