@@ -1,6 +1,4 @@
 /* eslint-disable react/display-name */
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { render, screen } from '@testing-library/react';
 
 import { DateRangeContext } from '../Context';
