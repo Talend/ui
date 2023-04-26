@@ -1,0 +1,720 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateRange.Picker should render 1`] = `
+<div
+  aria-label="Date picker"
+  class="theme-container"
+  tabindex="-1"
+>
+  <div
+    class="theme-container"
+  >
+    <div
+      class="theme-header"
+    >
+      <div
+        class="theme-element-container theme-left"
+      >
+        <span
+          aria-label="Go to previous month"
+          class="CoralButtonIcon"
+          icon="arrow-left"
+          tabindex="-1"
+        />
+      </div>
+      <div
+        class="theme-element-container theme-middle"
+      >
+        <button
+          aria-label="Switch to month-and-year view"
+          class="theme-common theme-button btn-tertiary btn-info btn btn-default"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            January 2007
+          </span>
+        </button>
+      </div>
+      <div
+        class="theme-element-container theme-right"
+      >
+        <span
+          aria-label="Go to next month"
+          class="CoralButtonIcon"
+          icon="arrow-right"
+          tabindex="-1"
+        />
+      </div>
+    </div>
+    <div
+      class="theme-element-container theme-body"
+    >
+      <div
+        class="theme-body"
+      >
+        <div
+          class="theme-date"
+        >
+          <div>
+            <table
+              class="theme-container"
+            >
+              <caption
+                class="sr-only"
+              >
+                January 2007
+              </caption>
+              <thead>
+                <tr
+                  class="theme-calendar-header"
+                >
+                  <th
+                    scope="col"
+                  >
+                    <abbr
+                      title="Monday"
+                    >
+                      M
+                    </abbr>
+                  </th>
+                  <th
+                    scope="col"
+                  >
+                    <abbr
+                      title="Tuesday"
+                    >
+                      T
+                    </abbr>
+                  </th>
+                  <th
+                    scope="col"
+                  >
+                    <abbr
+                      title="Wednesday"
+                    >
+                      W
+                    </abbr>
+                  </th>
+                  <th
+                    scope="col"
+                  >
+                    <abbr
+                      title="Thursday"
+                    >
+                      T
+                    </abbr>
+                  </th>
+                  <th
+                    scope="col"
+                  >
+                    <abbr
+                      title="Friday"
+                    >
+                      F
+                    </abbr>
+                  </th>
+                  <th
+                    scope="col"
+                  >
+                    <abbr
+                      title="Saturday"
+                    >
+                      S
+                    </abbr>
+                  </th>
+                  <th
+                    scope="col"
+                  >
+                    <abbr
+                      title="Sunday"
+                    >
+                      S
+                    </abbr>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="theme-calendar-row tc-date-picker-calendar-row"
+                >
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Monday 01 January 2007"
+                      class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                      data-value="1"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      1
+                    </button>
+                  </td>
+                  <td
+                    aria-current="date"
+                    class="theme-calendar-col theme-date-range theme-range-start"
+                  >
+                    <button
+                      aria-label="Range: start date, Tuesday 02 January 2007, selected"
+                      class="theme-calendar-day theme-selected tc-date-picker-day btn-tertiary btn-default"
+                      data-value="2"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Wednesday 03 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="3"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      3
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Thursday 04 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="4"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      4
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Friday 05 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="5"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      5
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Saturday 06 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="6"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      6
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Sunday 07 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="7"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      7
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="theme-calendar-row tc-date-picker-calendar-row"
+                >
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Monday 08 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="8"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      8
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Tuesday 09 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="9"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      9
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Wednesday 10 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="10"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      10
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Thursday 11 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="11"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      11
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Friday 12 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="12"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      12
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Saturday 13 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="13"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      13
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Sunday 14 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="14"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      14
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="theme-calendar-row tc-date-picker-calendar-row"
+                >
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Monday 15 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="15"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      15
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Tuesday 16 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="16"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      16
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Wednesday 17 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="17"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      17
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Thursday 18 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="18"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      18
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Friday 19 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="19"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      19
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Saturday 20 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="20"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      20
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Sunday 21 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="21"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      21
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="theme-calendar-row tc-date-picker-calendar-row"
+                >
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Monday 22 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="22"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      22
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Tuesday 23 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="23"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      23
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Wednesday 24 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="24"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      24
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Thursday 25 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="25"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      25
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Friday 26 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="26"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      26
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Saturday 27 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="27"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      27
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Sunday 28 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="28"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      28
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="theme-calendar-row tc-date-picker-calendar-row"
+                >
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Monday 29 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="29"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      29
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Tuesday 30 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="30"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      30
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Wednesday 31 January 2007"
+                      class="theme-calendar-day theme-range tc-date-picker-day btn-tertiary btn-default"
+                      data-value="31"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      31
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-middle"
+                  >
+                    <button
+                      aria-label="Included in range, Thursday 01 February 2007"
+                      class="theme-calendar-day theme-range theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      1
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col theme-date-range theme-range-end"
+                  >
+                    <button
+                      aria-label="Range: end date, Friday 02 February 2007"
+                      class="theme-calendar-day theme-selected theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Saturday 03 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      3
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Sunday 04 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      4
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="theme-calendar-row tc-date-picker-calendar-row"
+                >
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Monday 05 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      5
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Tuesday 06 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      6
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Wednesday 07 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      7
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Thursday 08 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      8
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Friday 09 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      9
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Saturday 10 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      10
+                    </button>
+                  </td>
+                  <td
+                    class="theme-calendar-col"
+                  >
+                    <button
+                      aria-label="Sunday 11 February 2007"
+                      class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      11
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="theme-footer theme-date-padding"
+  >
+    <button
+      aria-label="Pick Today"
+      class="btn-tertiary btn-info btn btn-default"
+      tabindex="-1"
+      type="button"
+    >
+      <span>
+        Today
+      </span>
+    </button>
+  </div>
+</div>
+`;

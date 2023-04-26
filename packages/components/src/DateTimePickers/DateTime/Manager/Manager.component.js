@@ -48,6 +48,7 @@ function ContextualManager(props) {
 			...state,
 			...newState,
 		};
+		console.log('##onDateChange', state, newState, nextState);
 		setState(nextState);
 		onChange(event, nextState);
 	}
