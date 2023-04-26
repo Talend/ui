@@ -180,6 +180,7 @@ class ContextualManager extends Component {
 	}
 
 	onSubmit(event, origin) {
+		console.log('### onSubmit', origin, this.state);
 		event.preventDefault();
 
 		// validation
@@ -190,6 +191,7 @@ class ContextualManager extends Component {
 			.filter(({ code }) => !errors.find(error => error.code === code))
 			.concat(errors);
 
+		console.log('### cakkback', origin, errors);
 		this.setState({ errors, errorMessage: errors[0] ? errors[0].message : '' }, () => {
 			if (!errors.length) {
 				this.onChange(event, origin);

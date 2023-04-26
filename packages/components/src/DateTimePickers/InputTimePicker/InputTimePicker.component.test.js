@@ -1,14 +1,9 @@
-import { mount } from 'enzyme';
-import keycode from 'keycode';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import InputTimePicker from './InputTimePicker.component';
 
 jest.unmock('@talend/design-system');
-function getOverlay(wrapper) {
-	return wrapper.find('.theme-popper').first();
-}
 
 describe('InputTimePicker', () => {
 	describe('focus/blur', () => {

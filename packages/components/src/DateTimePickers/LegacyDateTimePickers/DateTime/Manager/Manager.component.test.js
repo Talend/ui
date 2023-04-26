@@ -13,15 +13,32 @@ const DEFAULT_ID = 'DEFAULT_ID';
 function DateTimeConsumerDiv(props) {
 	return (
 		<div data-testid="DateTimeConsumerDiv">
+			<div
+				data-testid="errorManagement"
+				data-input={props.errorManagement.inputErrorId}
+				data-hours={props.errorManagement.hoursErrorId}
+				data-minutes={props.errorManagement.minutesErrorId}
+				data-seconds={props.errorManagement.secondsErrorId}
+				data-formmode={props.errorManagement.formMode}
+				data-focused={props.errorManagement.focusedInput}
+			/>
 			<button type="text" data-testid="getProps" onClick={() => props.getProps(props)} />
 			<input
 				type="text"
 				data-testid="textInput"
+				placeholder={props.inputManagement.placeholder}
 				value={props.datetime.textInput}
 				onChange={props.inputManagement.onChange}
+				onFocus={e => props.errorManagement.onInputFocus(e, 'focusHardId')}
 			/>
 			<button type="button" onClick={e => props.pickerManagement.onSubmit(e, props.testSubmit)}>
 				submit
+			</button>
+			<button type="button" onClick={e => props.formManagement.onSubmit(e, props.testSubmit)}>
+				form submit
+			</button>
+			<button type="button" onClick={props.formManagement.onReset}>
+				reset
 			</button>
 		</div>
 	);
@@ -367,29 +384,27 @@ describe('DateTime.Manager', () => {
 				expect(datetime.time).toEqual(time);
 			});
 
-			it('should trigger props.onChange with valid datetime', () => {
+			it('should trigger props.onChange with valid datetime', async () => {
 				// given
 				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
-				const wrapper = mount(
+				render(
 					<Manager id={DEFAULT_ID} onChange={onChange} useTime>
-						<DateTimeConsumer />
+						<DateTimeConsumer
+							testSubmit={{
+								date: new Date(2015, 0, 15),
+								time: { hours: '15', minutes: '45', seconds: '00' },
+							}}
+						/>
 					</Manager>,
 				);
 
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('pickerManagement')
-					.onSubmit(event, {
-						date: new Date(2015, 0, 15),
-						time: { hours: '15', minutes: '45', seconds: '00' },
-					});
+				await userEvent.click(screen.getByText('submit'));
 
 				// then
-				expect(onChange).toBeCalledWith(event, {
+				expect(onChange).toBeCalledWith(expect.anything(), {
 					datetime: new Date(2015, 0, 15, 15, 45),
 					origin: 'PICKER',
 					textInput: '2015-01-15 15:45',
@@ -398,56 +413,51 @@ describe('DateTime.Manager', () => {
 				});
 			});
 
-			it('should trigger not props.onChange in formMode', () => {
+			it('should trigger not props.onChange in formMode', async () => {
 				// given
 				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
-				const wrapper = mount(
+				render(
 					<Manager id={DEFAULT_ID} onChange={onChange} useTime formMode>
-						<DateTimeConsumer />
+						<DateTimeConsumer
+							testSubmit={{
+								date: new Date(2015, 0, 15),
+								time: { hours: '15', minutes: '45', seconds: '00' },
+							}}
+						/>
 					</Manager>,
 				);
 
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('pickerManagement')
-					.onSubmit(event, {
-						date: new Date(2015, 0, 15),
-						time: { hours: '15', minutes: '45', seconds: '00' },
-					});
+				await userEvent.click(screen.getByText('submit'));
 
 				// then
 				expect(onChange).not.toBeCalled();
 			});
 
-			it('should trigger props.onChange with invalid time', () => {
+			it('should trigger props.onChange with invalid time', async () => {
 				// given
 				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
-				const wrapper = mount(
+				render(
 					<Manager id={DEFAULT_ID} onChange={onChange} useTime>
-						<DateTimeConsumer />
+						<DateTimeConsumer
+							testSubmit={{
+								date: new Date(2015, 0, 15),
+								time: { hours: '15aze', minutes: '45', seconds: '00' },
+								field: FIELD_HOURS,
+							}}
+						/>
 					</Manager>,
 				);
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('pickerManagement')
-					.onSubmit(event, {
-						date: new Date(2015, 0, 15),
-						time: { hours: '15aze', minutes: '45', seconds: '00' },
-						field: FIELD_HOURS,
-					});
+				await userEvent.click(screen.getByText('submit'));
 
 				// then
 				expect(onChange).toBeCalled();
 				const args = onChange.mock.calls[0];
-				expect(args[0]).toBe(event);
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
 				]);
@@ -459,71 +469,63 @@ describe('DateTime.Manager', () => {
 	});
 
 	describe('input management', () => {
-		cases(
-			'should pass placeholder',
-			({ dateFormat, useTime, useSeconds, expectedPlaceholder }) => {
-				// when
-				const wrapper = mount(
-					<Manager
-						id={DEFAULT_ID}
-						dateFormat={dateFormat}
-						useTime={useTime}
-						useSeconds={useSeconds}
-					>
-						<DateTimeConsumer />
-					</Manager>,
-				);
-
-				// then
-				const { placeholder } = wrapper.find('DateTimeConsumerDiv').prop('inputManagement');
-				expect(placeholder).toBe(expectedPlaceholder);
+		test.each([
+			{
+				name: '(default)',
+				dateFormat: undefined,
+				useTime: false,
+				useSeconds: false,
+				expectedPlaceholder: 'YYYY-MM-DD',
 			},
-			[
-				{
-					name: '(default)',
-					dateFormat: undefined,
-					useTime: false,
-					useSeconds: false,
-					expectedPlaceholder: 'YYYY-MM-DD',
-				},
-				{
-					name: 'with time',
-					dateFormat: undefined,
-					useTime: true,
-					useSeconds: false,
-					expectedPlaceholder: 'YYYY-MM-DD HH:mm',
-				},
-				{
-					name: 'with time and seconds',
-					dateFormat: undefined,
-					useTime: true,
-					useSeconds: true,
-					expectedPlaceholder: 'YYYY-MM-DD HH:mm:ss',
-				},
-				{
-					name: 'with custom format',
-					dateFormat: 'DD/MM/YYYY',
-					useTime: false,
-					useSeconds: false,
-					expectedPlaceholder: 'DD/MM/YYYY',
-				},
-			],
-		);
-	});
-
-	describe('picker management', () => {
-		it('should pass date options', () => {
+			{
+				name: 'with time',
+				dateFormat: undefined,
+				useTime: true,
+				useSeconds: false,
+				expectedPlaceholder: 'YYYY-MM-DD HH:mm',
+			},
+			{
+				name: 'with time and seconds',
+				dateFormat: undefined,
+				useTime: true,
+				useSeconds: true,
+				expectedPlaceholder: 'YYYY-MM-DD HH:mm:ss',
+			},
+			{
+				name: 'with custom format',
+				dateFormat: 'DD/MM/YYYY',
+				useTime: false,
+				useSeconds: false,
+				expectedPlaceholder: 'DD/MM/YYYY',
+			},
+		])('$name', ({ dateFormat, useTime, useSeconds, expectedPlaceholder }) => {
 			// when
-			const wrapper = mount(
-				<Manager id={DEFAULT_ID} useTime useSeconds useUTC={false}>
+			render(
+				<Manager id={DEFAULT_ID} dateFormat={dateFormat} useTime={useTime} useSeconds={useSeconds}>
 					<DateTimeConsumer />
 				</Manager>,
 			);
 
 			// then
-			const { useTime, useSeconds, useUTC } = wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('pickerManagement');
+			expect(screen.getByRole('textbox')).toHaveAttribute('placeholder', expectedPlaceholder);
+		});
+	});
+
+	describe('picker management', () => {
+		it('should pass date options', async () => {
+			// given
+			const getProps = jest.fn();
+			render(
+				<Manager id={DEFAULT_ID} useTime useSeconds useUTC={false}>
+					<DateTimeConsumer getProps={getProps} />
+				</Manager>,
+			);
+			// when
+			await userEvent.click(screen.getByTestId('getProps'));
+
+			// then
+			const props = getProps.mock.calls[0][0];
+			const { useTime, useSeconds, useUTC } = props.pickerManagement;
 			expect(useTime).toBe(true);
 			expect(useSeconds).toBe(true);
 			expect(useUTC).toBe(false);
@@ -531,50 +533,47 @@ describe('DateTime.Manager', () => {
 	});
 
 	describe('form management', () => {
-		it('should reset value', () => {
+		it('should reset value', async () => {
 			// given
 			const initialDate = new Date(2017, 3, 4);
-			const wrapper = mount(
+			render(
 				<Manager id={DEFAULT_ID} selectedDateTime={initialDate} formMode>
 					<DateTimeConsumer />
 				</Manager>,
 			);
 
-			const event = { target: { value: '2001-01-02' } };
-			wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
-			wrapper.update();
-			expect(wrapper.find('DateTimeConsumerDiv').prop('datetime').textInput).toBe('2001-01-02');
+			await userEvent.click(screen.getByRole('textbox'));
+			screen.getByRole('textbox').value = '';
+			await userEvent.keyboard('2001-01-02');
+
+			expect(screen.getByRole('textbox')).toHaveValue('2001-01-02');
 
 			// when
-			wrapper.find('DateTimeConsumerDiv').prop('formManagement').onReset();
-			wrapper.update();
+			await userEvent.click(screen.getByText('reset'));
 
 			// then
-			expect(wrapper.find('DateTimeConsumerDiv').prop('datetime').textInput).toBe('2017-04-04');
+			expect(screen.getByRole('textbox')).toHaveValue('2017-04-04');
 		});
 
-		it('should submit value', () => {
+		it('should submit value in formMode', async () => {
 			// given
 			const initialDate = new Date(2017, 3, 4);
 			const onChange = jest.fn();
-			const wrapper = mount(
+			render(
 				<Manager id={DEFAULT_ID} selectedDateTime={initialDate} onChange={onChange} formMode>
-					<DateTimeConsumer />
+					<DateTimeConsumer testSubmit="PICKER" />
 				</Manager>,
 			);
-
-			const event = { target: { value: '2001-01-02' } };
-			wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
-			wrapper.update();
+			await userEvent.click(screen.getByRole('textbox'));
+			screen.getByRole('textbox').value = '';
+			await userEvent.keyboard('2001-01-02');
 			expect(onChange).not.toBeCalled();
 
 			// when
-			const submitEvent = { target: {}, preventDefault: jest.fn() };
-			wrapper.find('DateTimeConsumerDiv').prop('formManagement').onSubmit(submitEvent, 'PICKER');
+			await userEvent.click(screen.getByText('form submit'));
 
 			// then
-			expect(submitEvent.preventDefault).toBeCalled();
-			expect(onChange).toBeCalledWith(submitEvent, {
+			expect(onChange).toBeCalledWith(expect.anything(), {
 				datetime: new Date(2001, 0, 2),
 				errorMessage: '',
 				errors: [],
@@ -587,77 +586,68 @@ describe('DateTime.Manager', () => {
 	describe('error management', () => {
 		it('should generate error ids', () => {
 			// when
-			const wrapper = mount(
+			render(
 				<Manager id={DEFAULT_ID}>
 					<DateTimeConsumer />
 				</Manager>,
 			);
 
 			// then
-			const { inputErrorId, hoursErrorId, minutesErrorId, secondsErrorId } = wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('errorManagement');
-			expect(inputErrorId).toBe('DEFAULT_ID-input-error');
-			expect(hoursErrorId).toBe('DEFAULT_ID-hours-error');
-			expect(minutesErrorId).toBe('DEFAULT_ID-minutes-error');
-			expect(secondsErrorId).toBe('DEFAULT_ID-seconds-error');
+			const elem = screen.getByTestId('errorManagement');
+			expect(elem.dataset.input).toBe('DEFAULT_ID-input-error');
+			expect(elem.dataset.hours).toBe('DEFAULT_ID-hours-error');
+			expect(elem.dataset.minutes).toBe('DEFAULT_ID-minutes-error');
+			expect(elem.dataset.seconds).toBe('DEFAULT_ID-seconds-error');
 		});
 
 		it('should pass formMode', () => {
 			// when
-			const wrapper = mount(
+			render(
 				<Manager id={DEFAULT_ID} formMode>
 					<DateTimeConsumer />
 				</Manager>,
 			);
 
 			// then
-			const { formMode } = wrapper.find('DateTimeConsumerDiv').prop('errorManagement');
-			expect(formMode).toBe(true);
+			const elem = screen.getByTestId('errorManagement');
+			expect(elem.dataset.formmode).toBe('true');
 		});
 
-		it('should pass errors and error getter', () => {
+		it('should pass errors and error getter', async () => {
 			// given
-			const wrapper = mount(
+			const getProps = jest.fn();
+			render(
 				<Manager id={DEFAULT_ID} formMode>
-					<DateTimeConsumer />
+					<DateTimeConsumer getProps={getProps} />
 				</Manager>,
 			);
 
 			// when
-			const event = { target: { value: 'lol' } };
-			wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
-			wrapper.update();
+			await userEvent.click(screen.getByRole('textbox'));
+			screen.getByRole('textbox').value = '';
+			await userEvent.keyboard('lol');
 
 			// then
-			const { errors, hasError } = wrapper.find('DateTimeConsumerDiv').prop('errorManagement');
+			await userEvent.click(screen.getByTestId('getProps'));
+			const props = getProps.mock.calls[0][0];
+			const { errors, hasError } = props.errorManagement;
 			expect(errors).toEqual([{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' }]);
 			expect(hasError('INVALID_DATE_FORMAT')).toBe(true);
 			expect(hasError('INVALID_HOUR_EMPTY')).toBe(false);
 		});
 
-		it('should pass focused input and its modifier', () => {
-			// when
-			const wrapper = mount(
+		it('should pass focused input and its modifier', async () => {
+			// given
+			render(
 				<Manager id={DEFAULT_ID} formMode>
 					<DateTimeConsumer />
 				</Manager>,
 			);
-
-			const { focusedInput, onInputFocus } = wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('errorManagement');
-			expect(focusedInput).toBe(undefined);
+			expect(screen.getByTestId('errorManagement').dataset.focused).toBe(undefined);
 
 			// when
-			const nextFocusedInput = `${DEFAULT_ID}-minutes-error`;
-			onInputFocus(null, nextFocusedInput);
-			wrapper.update();
-
-			// then
-			expect(wrapper.find('DateTimeConsumerDiv').prop('errorManagement').focusedInput).toBe(
-				nextFocusedInput,
-			);
+			await userEvent.click(screen.getByRole('textbox'));
+			expect(screen.getByTestId('errorManagement').dataset.focused).toBe('focusHardId');
 		});
 	});
 });
