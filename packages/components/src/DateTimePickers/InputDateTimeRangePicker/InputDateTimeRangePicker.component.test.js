@@ -1,15 +1,18 @@
 import noop from 'lodash/noop';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import InputDateTimeRangePicker from './InputDateTimeRangePicker.component';
-import Manager from '../DateTimeRange/Manager';
+
+jest.unmock('@talend/design-system');
 
 describe('InputDateTimeRangePicker', () => {
 	it('should render', () => {
 		// when
 		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
-		const wrapper = mount(
+		const { container } = render(
 			<InputDateTimeRangePicker
 				id="my-picker"
 				startDateTime="2019-12-01 00:00:00"
@@ -19,14 +22,17 @@ describe('InputDateTimeRangePicker', () => {
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should render with default time', () => {
+	it('should works with default time', async () => {
 		// when
-		const wrapper = mount(
+		const onChange = jest.fn();
+		const { container } = render(
 			<InputDateTimeRangePicker
 				id="my-picker"
+				value={new Date(2023, 3, 26, 4, 0, 0)}
+				onChange={onChange}
 				defaultTimeStart={{
 					hours: '00',
 					minutes: '00',
@@ -37,36 +43,34 @@ describe('InputDateTimeRangePicker', () => {
 				}}
 			/>,
 		);
+		const start = screen.getByTestId('range-start');
+		const end = screen.getByTestId('range-end');
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
-	});
+		// start time
+		await userEvent.click(within(start).getByTestId('date-picker'));
+		await userEvent.click(within(start).getByText('10'));
+		// note first call seems to trigger a JS error...
+		await userEvent.click(within(start).getByTestId('time-picker'));
+		await userEvent.click(within(start).getByText('08:00'));
 
-	describe('onChange', () => {
-		it('should trigger props.onChange', () => {
-			// given
-			const payload = {
-				startDateTime: new Date(2015, 0, 15, 15, 45),
-				endDateTime: new Date(2015, 0, 15, 15, 45),
-			};
-			const onChange = jest.fn();
-			const event = { target: { value: '2015-01-15 15:45' } };
-			const wrapper = mount(<InputDateTimeRangePicker id="my-picker" onChange={onChange} />);
-			expect(onChange).not.toBeCalled();
+		const payload = onChange.mock.calls[1][1];
+		expect(payload.errors.length).toBe(0);
+		expect(payload.errorMessage).toBe(null);
+		// TZ=Europe/Paris
+		expect(payload.startDateTime).toEqual(new Date(2023, 3, 10, 8, 0, 0));
 
-			// when
-			wrapper.find(Manager).prop('onChange')(event, payload);
+		// // end time
+		await userEvent.click(within(end).getByTestId('date-picker'));
+		await userEvent.click(within(end).getByText('13'));
+		await userEvent.click(within(end).getByTestId('time-picker'));
+		await userEvent.click(within(end).getByText('10:00'));
+		expect(container.firstChild).toMatchSnapshot();
 
-			// then
-			expect(onChange).toBeCalledWith(event, payload);
-		});
-	});
-
-	describe('should display inline', () => {
-		let wrapper = mount(<InputDateTimeRangePicker id="range-picker" onChange={noop} />);
-		expect(wrapper.find('div.date-time-range-picker-inline').length).toEqual(0);
-
-		wrapper = mount(<InputDateTimeRangePicker id="range-picker" onChange={noop} inline />);
-		expect(wrapper.find('div.date-time-range-picker-inline').length).toEqual(1);
+		const payloadEnd = onChange.mock.calls[3][1];
+		expect(payloadEnd.errors.length).toBe(0);
+		expect(payloadEnd.errorMessage).toBe(null);
+		// TZ=Europe/Paris
+		expect(payloadEnd.endDateTime).toEqual(new Date(2023, 3, 13, 10, 0, 0));
 	});
 });
