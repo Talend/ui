@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.7.3
+
+### Patch Changes
+
+- e5a326ffb: fix(TFD-15547): Drawer is under Modal
+
 ## 7.7.2
 
 ### Patch Changes
