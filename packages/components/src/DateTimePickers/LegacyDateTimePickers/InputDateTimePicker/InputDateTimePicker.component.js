@@ -56,6 +56,12 @@ function InputDateTimePicker(props) {
 	const closePicker = isPicked => setPickerVisibility(false, isPicked);
 
 	function onKeyDown(event, { onReset }) {
+		console.log(
+			'onKeyDown',
+			event.keyCode === keycode.codes.down,
+			event.target !== referenceElement,
+			showPicker,
+		);
 		switch (event.keyCode) {
 			case keycode.codes.esc:
 				onReset();

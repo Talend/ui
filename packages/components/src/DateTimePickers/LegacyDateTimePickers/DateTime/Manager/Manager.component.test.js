@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-import { shallow, mount } from 'enzyme';
-import cases from 'jest-in-case';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 

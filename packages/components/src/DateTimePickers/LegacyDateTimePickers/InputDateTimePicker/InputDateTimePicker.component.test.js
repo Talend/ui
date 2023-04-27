@@ -1,3 +1,6 @@
+// rewrite using rtl
+import { screen, render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { mount } from 'enzyme';
 import keycode from 'keycode';
 import cases from 'jest-in-case';
@@ -8,46 +11,50 @@ import Manager from '../DateTime/Manager';
 function getOverlay(wrapper) {
 	return wrapper.find('.theme-popper').first();
 }
+function getPopup() {
+	return document.querySelector('.theme-popper');
+}
 
 describe('InputDateTimePicker', () => {
 	describe('focus/blur', () => {
-		it('should open picker on focus', () => {
+		it('should open picker on focus', async () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			expect(getOverlay(wrapper).exists()).toBe(false);
+			render(<InputDateTimePicker id="my-picker" />);
+			expect(screen.getByRole('textbox')).toBeVisible();
+			expect(getPopup()).not.toBeInTheDocument();
 
 			// when
-			wrapper.simulate('focus');
+			await userEvent.click(screen.getByRole('textbox'));
 
 			// then
-			expect(getOverlay(wrapper).exists()).toBe(true);
+			expect(screen.getByRole('textbox')).toHaveFocus();
+			expect(getPopup()).toBeInTheDocument();
 		});
 
-		it('should close picker on blur', () => {
+		it('should close picker on blur', async () => {
 			// given
 			jest.useFakeTimers();
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			wrapper.simulate('focus');
-			expect(getOverlay(wrapper).exists()).toBe(true);
+			render(<InputDateTimePicker id="my-picker" />);
+			await userEvent.click(screen.getByRole('textbox'));
 
 			// when
-			wrapper.simulate('blur');
+			screen.getByRole('textbox').blur();
 			jest.runAllTimers();
-			wrapper.update();
 
 			// then
-			expect(getOverlay(wrapper).exists()).toBe(false);
+			expect(getPopup()).not.toBeInTheDocument();
 		});
 
-		it('should trigger props.onBlur', () => {
+		it('should trigger props.onBlur', async () => {
 			// given
 			jest.useFakeTimers();
 			const onBlur = jest.fn();
-			const wrapper = mount(<InputDateTimePicker id="my-picker" onBlur={onBlur} />);
+			render(<InputDateTimePicker id="my-picker" onBlur={onBlur} />);
+			await userEvent.click(screen.getByRole('textbox'));
 			expect(onBlur).not.toBeCalled();
 
 			// when
-			wrapper.simulate('blur');
+			screen.getByRole('textbox').blur();
 			jest.runAllTimers();
 
 			// then
@@ -56,52 +63,50 @@ describe('InputDateTimePicker', () => {
 	});
 
 	describe('keydown', () => {
-		it('should close the picker and focus on input with ESC', () => {
+		it('should close the picker and focus on input with ESC', async () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			wrapper.simulate('focus');
-			expect(getOverlay(wrapper).exists()).toBe(true);
-			const event = { keyCode: keycode.codes.esc };
+			render(<InputDateTimePicker id="my-picker" />);
+			await userEvent.click(screen.getByRole('textbox'));
 
 			// when
-			wrapper.simulate('keydown', event);
+			await userEvent.keyboard('{Escape}');
 
 			// then
-			expect(getOverlay(wrapper).exists()).toBe(false);
+			expect(getPopup()).toBeNull();
 		});
 
-		it('should open picker if it is closed with DOWN on input', () => {
+		it('should open picker if it is closed with DOWN on input', async () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			expect(getOverlay(wrapper).exists()).toBe(false);
-			const event = { keyCode: keycode.codes.down };
+			render(<InputDateTimePicker id="my-picker" />);
 
 			// when
-			wrapper.find('input').simulate('keydown', event);
+			await userEvent.click(screen.getByRole('textbox'));
+			await userEvent.keyboard('{Escape}');
+			await userEvent.keyboard('{ArrowDown}');
 
 			// then
-			expect(getOverlay(wrapper).exists()).toBe(true);
+			expect(getPopup()).not.toBeNull();
 		});
 
-		it('should focus on calendar day if it is open with input DOWN', () => {
+		it('should focus on calendar day if it is open with input DOWN', async () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />, { attachTo: document.body });
-			wrapper.simulate('focus');
-			const event = { keyCode: keycode.codes.down };
+			jest.useFakeTimers();
+			render(<InputDateTimePicker id="my-picker" />);
+			await userEvent.click(screen.getByRole('textbox'));
 
 			// when
-			wrapper.find('input').first().simulate('keydown', event);
+			await userEvent.keyboard('{ArrowDown}'); //open
+			jest.runAllTimers();
 
 			// then
-			expect(document.activeElement.classList.contains('tc-date-picker-day')).toBe(true);
+			expect(document.activeElement).toHaveClass('tc-date-picker-day');
 		});
 	});
 
 	describe('onChange', () => {
-		it('should trigger props.onChange', () => {
+		it('should trigger props.onChange', async () => {
 			// given
 			const onChange = jest.fn();
-			const event = { target: { value: '2015-01-15 15:45' } };
 			const payload = {
 				datetime: new Date(2015, 0, 15, 15, 45),
 				origin: 'INPUT',
@@ -109,14 +114,17 @@ describe('InputDateTimePicker', () => {
 				errors: [],
 				errorMessage: null,
 			};
-			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={onChange} useTime />);
+			render(<InputDateTimePicker id="my-picker" onChange={onChange} useTime />);
 			expect(onChange).not.toBeCalled();
 
 			// when
-			wrapper.find(Manager).prop('onChange')(event, payload);
+			await userEvent.click(screen.getByRole('textbox'));
+			await userEvent.keyboard('2015-01-15 15:45');
+			// blur
+			await userEvent.keyboard('{Escape}');
 
 			// then
-			expect(onChange).toBeCalledWith(event, payload);
+			expect(onChange).toBeCalledWith(expect.anything(), payload);
 		});
 
 		cases(

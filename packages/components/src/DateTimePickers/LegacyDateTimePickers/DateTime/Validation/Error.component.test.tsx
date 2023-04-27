@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import Error from './Error.component';
 
@@ -8,10 +8,10 @@ describe('DateTime.Validation.Error', () => {
 		const errors = [{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' }];
 
 		// when
-		const wrapper = shallow(<Error errors={errors} />);
+		render(<Error errors={errors} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('INVALID_DATE_FORMAT')).toBeInTheDocument();
 	});
 
 	it('should hide errors', () => {
@@ -19,9 +19,9 @@ describe('DateTime.Validation.Error', () => {
 		const errors = [{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' }];
 
 		// when
-		const wrapper = shallow(<Error errors={errors} hidden />);
+		render(<Error errors={errors} hidden />);
 
 		// then
-		expect(wrapper.prop('className')).toBe('sr-only');
+		expect(screen.queryByTestId('INVALID_DATE_FORMAT').parentElement).toHaveClass('sr-only');
 	});
 });
