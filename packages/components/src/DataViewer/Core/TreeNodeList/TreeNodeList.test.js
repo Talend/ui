@@ -14,19 +14,10 @@ describe('TreeNodeList', () => {
 			{ dataKey: 'dataKey3', value: 'titi' },
 		];
 		const props = {
-			// branch: jest.fn(() => <div data-testid="branch">branch</div>),
-			// leaf: jest.fn(({ level, paddingOffset }) => (
-			// 	<div data-testid="leaf" style={{ paddingLeft: paddingOffset }} data-level={level}>
-			// 		leaf
-			// 	</div>
-			// )),
 			getJSONPath: () => '$',
-			// getValueType: jest.fn(),
-			// getItemType: jest.fn(getItemType),
 			index: 0,
 			jsonpath: '$',
 			nodeClassName: 'nodeClassName',
-			// paddingOffset: 30,
 			treeClassName: 'treeClassName',
 			value,
 		};
