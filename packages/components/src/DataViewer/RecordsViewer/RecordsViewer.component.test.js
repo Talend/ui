@@ -17,21 +17,6 @@ jest.mock('../Virtualized', () => {
 });
 
 describe('RecordsViewer', () => {
-	let treeProps = {
-		// branch: jest.fn(() => <div data-testid="branch"></div>),
-		// leaf: jest.fn(prop => <span data-testid="leaf" data-level={prop.level}></span>),
-		// getValueType: jest.fn(() => 'integer'),
-		// getItemType: jest.fn(item => {
-		// 	if (Array.isArray(item)) {
-		// 		return 'array';
-		// 	}
-		// 	if (item instanceof Object) {
-		// 		return 'object';
-		// 	}
-		// 	return;
-		// }),
-		// getJSONPath: jest.fn(() => '$'),
-	};
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
@@ -41,14 +26,11 @@ describe('RecordsViewer', () => {
 		);
 		// header
 		expect(screen.getByText('Records')).toBeVisible();
-		// list is height 0 ...
 		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render a tree (not virtualized) ', () => {
-		// fixme: find what is needed here as props to render something...
 		const { container } = render(
 			<Component
-				{...treeProps}
 				onCollapseAll={jest.fn()}
 				disableHeight
 				value={[{ data: 'myData' }]}
