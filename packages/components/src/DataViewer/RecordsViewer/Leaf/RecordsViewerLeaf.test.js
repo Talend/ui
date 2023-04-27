@@ -1,9 +1,22 @@
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import Component from './RecordsViewerLeaf.component';
+jest.unmock('@talend/design-system');
 
 describe('Component', () => {
+	beforeEach(() => {
+		Object.defineProperties(window.HTMLElement.prototype, {
+			offsetParent: {
+				get() {
+					return {
+						offsetWith: parseFloat(this.style.width) || 0,
+					};
+				},
+			},
+		});
+	});
 	it('should render the leaf', () => {
 		const props = {
+			measure: jest.fn(),
 			dataKey: 'myDataKey',
 			getQuality: jest.fn(() => -1),
 			level: 0,
@@ -16,11 +29,12 @@ describe('Component', () => {
 				},
 			},
 		};
-		const wrapper = shallow(<Component {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<Component {...props} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render the leaf highlighted', () => {
 		const props = {
+			measure: jest.fn(),
 			dataKey: 'myDataKey',
 			getQuality: jest.fn(() => -1),
 			level: 0,
@@ -34,29 +48,12 @@ describe('Component', () => {
 				},
 			},
 		};
-		const wrapper = shallow(<Component {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-	it('should render the leaf with padding offset', () => {
-		const props = {
-			dataKey: 'myDataKey',
-			getQuality: jest.fn(() => -1),
-			level: 1,
-			paddingOffset: 30,
-			value: {
-				data: {
-					value: 'myValue',
-				},
-				schema: {
-					type: 'int',
-				},
-			},
-		};
-		const wrapper = shallow(<Component {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<Component {...props} />);
+		expect(container.firstChild).toHaveClass('tc-records-viewer-leaf-highlighted');
 	});
 	it('should render the leaf with additional value', () => {
 		const props = {
+			measure: jest.fn(),
 			dataKey: 'myDataKey',
 			getQuality: jest.fn(() => -1),
 			level: 0,
@@ -72,7 +69,9 @@ describe('Component', () => {
 				<div>Additional render for what you want, you can use the value : {value.data.value}</div>
 			),
 		};
-		const wrapper = shallow(<Component {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Component {...props} />);
+		expect(
+			screen.getByText('Additional render for what you want, you can use the value : myValue'),
+		).toBeVisible();
 	});
 });

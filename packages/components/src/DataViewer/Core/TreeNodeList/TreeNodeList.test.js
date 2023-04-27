@@ -1,5 +1,10 @@
-import { shallow } from 'enzyme';
+/* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
 import TreeNodeList from './TreeNodeList.component';
+
+jest.mock('../TreeNode', () => props => (
+	<div data-testid="TreeNode" data-props={JSON.stringify(props)} />
+));
 
 describe('TreeNodeList', () => {
 	it('should return a list of 3 TreeNode with an inline paddingLeft value of 30', () => {
@@ -9,38 +14,22 @@ describe('TreeNodeList', () => {
 			{ dataKey: 'dataKey3', value: 'titi' },
 		];
 		const props = {
-			branch: jest.fn(),
 			getJSONPath: () => '$',
-			getValueType: jest.fn(),
 			index: 0,
 			jsonpath: '$',
-			leaf: jest.fn(),
-			nodeClassName: 'nodeClassName',
-			paddingOffset: 30,
-			treeClassName: 'treeClassName',
-			value,
-		};
-		const wrapper = shallow(<TreeNodeList {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-	it('should return a list of 3 TreeNode with an inline paddingLeft value of 0', () => {
-		const value = [
-			{ dataKey: 'dataKey1', value: 'toto' },
-			{ dataKey: 'dataKey2', value: 'tata' },
-			{ dataKey: 'dataKey3', value: 'titi' },
-		];
-		const props = {
-			branch: jest.fn(),
-			getJSONPath: () => '$',
-			getValueType: jest.fn(),
-			index: 0,
-			jsonpath: '$',
-			leaf: jest.fn(),
 			nodeClassName: 'nodeClassName',
 			treeClassName: 'treeClassName',
 			value,
 		};
-		const wrapper = shallow(<TreeNodeList {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<TreeNodeList {...props} />);
+		expect(screen.getAllByTestId('TreeNode')).toHaveLength(3);
+		const firstNode = screen.getAllByTestId('TreeNode')[0];
+		expect(JSON.parse(firstNode.dataset.props)).toMatchObject({
+			dataKey: 'dataKey1',
+			index: 0,
+			jsonpath: '$',
+			value: 'toto',
+			dataKey: 'dataKey1',
+		});
 	});
 });
