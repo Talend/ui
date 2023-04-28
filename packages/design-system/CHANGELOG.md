@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.8.0
+
+### Minor Changes
+
+- d5c2f9409: feat: Add other illustrations for EmptyStateMedium
+
 ## 7.7.3
 
 ### Patch Changes
