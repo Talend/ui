@@ -1,9 +1,15 @@
-import { shallow } from 'enzyme';
-import SimpleTextKeyValue, { AvroRenderer } from './SimpleTextKeyValue.component';
+/* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
+import SimpleTextKeyValue from './SimpleTextKeyValue.component';
+
+jest.unmock('@talend/design-system');
+jest.mock('./DefaultValueRenderer.component', () => {
+	return props => <span data-testid="DefaultValueRenderer" data-props={JSON.stringify(props)} />;
+});
 
 describe('SimpleTextKeyValue', () => {
 	it('should render the key and the value', () => {
-		const wrapper = shallow(
+		const { container } = render(
 			<SimpleTextKeyValue
 				className="myCLass"
 				formattedKey="myKey"
@@ -12,11 +18,11 @@ describe('SimpleTextKeyValue', () => {
 				style={{ padding: 0 }}
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render the key by the talend.component.label property', () => {
-		const wrapper = shallow(
+		render(
 			<SimpleTextKeyValue
 				className="myCLass"
 				formattedKey="non readable value"
@@ -26,42 +32,17 @@ describe('SimpleTextKeyValue', () => {
 				style={{ padding: 0 }}
 			/>,
 		);
-
-		expect(wrapper.find('.tc-simple-text-key').text()).toBe('readable value : ');
-	});
-	it('should render the value by the datagrid avroRenderer', () => {
-		const schema = {
-			type: {
-				type: 'int',
-			},
-		};
-		const data = {
-			value: '',
-		};
-		const wrapper = shallow(
-			<SimpleTextKeyValue
-				className="myCLass"
-				formattedKey="myKey"
-				value={data}
-				schema={schema}
-				separator=" : "
-				style={{ padding: 0 }}
-			/>,
-		);
-		expect(wrapper.find(AvroRenderer).props()).toEqual({
-			colDef: {
-				avro: schema,
-			},
-			data,
-		});
+		expect(screen.getByText(/readable value/)).toBeVisible();
 	});
 	it('should render only the key', () => {
-		const wrapper = shallow(<SimpleTextKeyValue formattedKey="myKey" />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<SimpleTextKeyValue formattedKey="myKey" />);
+		expect(screen.getByText('myKey')).toBeVisible();
+		expect(screen.getByText('myKey')).toHaveClass('tc-simple-text-key');
 	});
 	it('should render only the value', () => {
-		const wrapper = shallow(<SimpleTextKeyValue value="myValue" />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<SimpleTextKeyValue value="myValue" />);
+		expect(screen.getByText('myValue')).toBeVisible();
+		expect(screen.getByText('myValue')).toHaveClass('tc-simple-text-value');
 	});
 	it('should render the type', () => {
 		const schema = {
@@ -72,7 +53,7 @@ describe('SimpleTextKeyValue', () => {
 		const data = {
 			value: '',
 		};
-		const wrapper = shallow(
+		render(
 			<SimpleTextKeyValue
 				className="myCLass"
 				formattedKey="myKey"
@@ -81,7 +62,8 @@ describe('SimpleTextKeyValue', () => {
 				displayTypes
 			/>,
 		);
-		expect(wrapper.find('.tc-simple-text-type').text()).toBe('- int');
+		expect(screen.getByText('- int')).toBeVisible();
+		expect(screen.getByText('- int')).toHaveClass('tc-simple-text-type');
 	});
 	it('should render the type with a custom render', () => {
 		const schema = {
@@ -92,7 +74,7 @@ describe('SimpleTextKeyValue', () => {
 		const data = {
 			value: '',
 		};
-		const wrapper = shallow(
+		render(
 			<SimpleTextKeyValue
 				className="myCLass"
 				formattedKey="myKey"
@@ -102,6 +84,9 @@ describe('SimpleTextKeyValue', () => {
 				typesRenderer={s => <span>And the type is {s.type.type}</span>}
 			/>,
 		);
-		expect(wrapper.find('.tc-simple-text-type').text()).toBe('And the type is int');
+		expect(screen.getByText('And the type is int')).toBeVisible();
+		expect(screen.getByText('And the type is int').parentElement).toHaveClass(
+			'tc-simple-text-type',
+		);
 	});
 });

@@ -17,9 +17,11 @@ export class RecordsViewer extends Component {
 		t: PropTypes.func,
 		virtualized: PropTypes.bool,
 		displayHeader: PropTypes.bool,
+		disableHeight: PropTypes.bool,
 	};
 
 	static defaultProps = {
+		disableHeight: false,
 		virtualized: true,
 		t: getDefaultT(),
 		displayHeader: true,
@@ -28,7 +30,15 @@ export class RecordsViewer extends Component {
 	renderCellRenderer = args => <RecordsCellRenderer {...this.props} {...args} />;
 
 	render() {
-		const { onCollapseAll, onVerticalScroll, t, virtualized, displayHeader, ...props } = this.props;
+		const {
+			onCollapseAll,
+			onVerticalScroll,
+			t,
+			virtualized,
+			displayHeader,
+			disableHeight,
+			...props
+		} = this.props;
 		return (
 			<div className={classNames(theme['tc-records-viewer'], 'tc-records-viewer')}>
 				{displayHeader && (
@@ -48,6 +58,7 @@ export class RecordsViewer extends Component {
 						onVerticalScroll={onVerticalScroll}
 						paddingOffset={props.paddingOffset}
 						rowCount={get(props, 'value', []).length}
+						disableHeight={disableHeight}
 					/>
 				) : (
 					<Tree {...props} jsonpath="$" level={0} />

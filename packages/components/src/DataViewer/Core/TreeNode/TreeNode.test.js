@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import TreeNode, {
 	isBranch,
 	isBranchOpened,
@@ -71,15 +71,13 @@ describe('TreeNode', () => {
 			index: 0,
 		};
 		const branch = jest.fn();
-		branch.mockReturnValueOnce(<div>new branch</div>);
+		branch.mockReturnValueOnce(<div data-testid="branch">new branch</div>);
 		const leaf = jest.fn();
 		const getItemType = jest.fn();
 		getItemType.mockReturnValueOnce('array');
-		const wrapper = shallow(
-			<TreeNode {...props} getItemType={getItemType} branch={branch} leaf={leaf} />,
-		);
+		render(<TreeNode {...props} getItemType={getItemType} branch={branch} leaf={leaf} />);
 		expect(branch).toHaveBeenCalled();
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('branch')).toBeVisible();
 	});
 	it('should return a new leaf', () => {
 		const props = {
@@ -90,13 +88,11 @@ describe('TreeNode', () => {
 		};
 		const branch = jest.fn();
 		const leaf = jest.fn();
-		leaf.mockReturnValueOnce(<div>new leaf</div>);
+		leaf.mockReturnValueOnce(<div data-testid="leaf">new leaf</div>);
 		const getItemType = jest.fn();
 		getItemType.mockReturnValueOnce('something');
-		const wrapper = shallow(
-			<TreeNode {...props} getItemType={getItemType} branch={branch} leaf={leaf} />,
-		);
+		render(<TreeNode {...props} getItemType={getItemType} branch={branch} leaf={leaf} />);
 		expect(leaf).toHaveBeenCalled();
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('leaf')).toBeVisible();
 	});
 });

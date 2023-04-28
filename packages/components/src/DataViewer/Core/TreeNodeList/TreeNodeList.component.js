@@ -34,7 +34,6 @@ TreeNodeList.propTypes = {
 	index: PropTypes.number,
 	jsonpath: PropTypes.string,
 	nodeClassName: PropTypes.string,
-	paddingOffset: PropTypes.number,
 	treeClassName: PropTypes.string,
 	type: PropTypes.string,
 	value: PropTypes.array.isRequired,

@@ -1,5 +1,11 @@
 # @talend/react-cmf-cqrs
 
+## 8.0.0
+
+### Major Changes
+
+- f341cb828: feat(cmf-cqrs): allow to pass a filter function to useWebsocket
+
 ## 7.2.1
 
 ### Patch Changes

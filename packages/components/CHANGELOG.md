@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 10.2.4
+
+### Patch Changes
+
+- 96194d436: rewrite test using RTL and add some data-testid
+
 ## 10.2.3
 
 ### Patch Changes

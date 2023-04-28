@@ -1,6 +1,6 @@
 import styles from './IconDefault.module.scss';
 
-export default function IconDefault() {
+export function IconDefault() {
 	return (
 		<svg
 			width="40"

@@ -11,7 +11,7 @@
 
 .modal-backdrop {
 	&::before {
-		z-index: tokens.$coral-elevation-layer-standard-front;
+		z-index: tokens.$coral-elevation-layer-interactive-front;
 		content: '';
 		background-color: tokens.$coral-color-assistive-background;
 		opacity: tokens.$coral-opacity-l;
@@ -19,7 +19,7 @@
 }
 
 .modal-container {
-	z-index: calc(tokens.$coral-elevation-layer-standard-front + 1);
+	z-index: calc(tokens.$coral-elevation-layer-interactive-front + 1);
 	display: flex;
 	justify-content: center;
 	align-items: center;

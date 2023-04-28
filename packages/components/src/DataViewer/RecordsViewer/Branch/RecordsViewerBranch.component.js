@@ -7,7 +7,6 @@ import Skeleton from '../../../Skeleton';
 import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
 import theme from '../RecordsViewer.module.scss';
-import { Icon } from '@talend/design-system';
 
 /**
  * Used with the lazy loading to allow the render of the skeleton.
@@ -96,6 +95,7 @@ export class RecordsViewerBranch extends Component {
 						},
 					)}
 					onKeyDown={this.onKeyDown}
+					data-testid="records-branch"
 					onClick={this.onClickRecordsBranch}
 					tabIndex="0"
 					role="button"
