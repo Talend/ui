@@ -11,12 +11,12 @@ import {
 import { useTranslation } from 'react-i18next';
 import { isEventKey, codes } from 'keycode';
 import assetsApi from '@talend/assets-api';
-import { AceEditorProps } from 'react-ace';
 import FieldTemplate from '../FieldTemplate';
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import CodeSkeleton from './CodeSkeleton.component';
+import { IAceEditorProps } from 'react-ace';
 
 // JMA - TO REMOVE
 //
@@ -43,7 +43,7 @@ interface CodeSchema {
 	autoFocus: boolean;
 	description: string;
 	disabled: boolean;
-	options: AceEditorProps & { language?: string };
+	options: IAceEditorProps & { language?: string };
 	readOnly: boolean;
 	required: boolean;
 	title: string;
