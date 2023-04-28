@@ -1,5 +1,18 @@
 # @talend/scripts-config-prettier
 
+## 12.0.0
+
+### Major Changes
+
+- c18aabb97: feat: export config as main
+
+  Breaking change: this package can not be used by old talend-scripts preset. But now you can extends from it direclty.
+
+  ```diff
+  -const defaults = require('@talend/scripts-config-prettier/.prettierrc.js');
+  +const defaults = require('@talend/scripts-config-prettier');
+  ```
+
 ## 11.0.0
 
 ### Major Changes

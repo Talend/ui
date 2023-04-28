@@ -1,4 +1,3 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Label from './Label.component';
@@ -12,9 +11,7 @@ describe('Label', () => {
 			text: 'Text:',
 		};
 		// when
-		const wrapper = renderer.create(
-			<Label {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Label {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -26,9 +23,7 @@ describe('Label', () => {
 			htmlFor: 'id',
 		};
 		// when
-		const wrapper = renderer.create(
-			<Label {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Label {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});

@@ -1,5 +1,43 @@
 # @talend/scripts-config-eslint
 
+## 12.1.0
+
+### Minor Changes
+
+- 616601fda: feat: disable react import in jsx files mandatory rule
+
+## 12.0.2
+
+### Patch Changes
+
+- 65c8ad05c: fix: remove JSON.parse on object
+
+## 12.0.1
+
+### Patch Changes
+
+- a5bbb6db5: fix: path for default config
+
+## 12.0.0
+
+### Major Changes
+
+- c18aabb97: feat: export config as main and rename package
+
+  Breaking change: this package can not be used by old talend-scripts preset. But now you can extends from it direclty.
+
+  ```diff
+  -       "extends": "./node_modules/@talend/scripts-config-eslint/.eslintrc.js",
+  +       "extends": "@talend/eslint-config",
+  ```
+
+  Note: We have to rename as the doc mention it here https://eslint.org/docs/latest/developer-guide/shareable-configs
+
+### Patch Changes
+
+- Updated dependencies [c18aabb97]
+  - @talend/eslint-plugin@1.0.1
+
 ## 11.0.1
 
 ### Patch Changes

@@ -10,7 +10,7 @@ exports[`FormatValue should handle leading empty space in the string 1`] = `
 <DocumentFragment>
   <span>
     <span
-      aria-label="white space character"
+      aria-label="whitespace character"
       class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
       name="talend-empty-char"
     />
@@ -102,7 +102,7 @@ exports[`FormatValue should handle trailing empty space in the string 1`] = `
       l
     </span>
     <span
-      aria-label="white space character"
+      aria-label="whitespace character"
       class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
       name="talend-empty-char"
     />
@@ -122,7 +122,7 @@ exports[`FormatValue should replace the leading/trailing white space and the lin
 <DocumentFragment>
   <span>
     <span
-      aria-label="white space character"
+      aria-label="whitespace character"
       class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
       name="talend-empty-char"
     />
@@ -151,7 +151,7 @@ exports[`FormatValue should replace the leading/trailing white space and the lin
 
     </span>
     <span
-      aria-label="white space character"
+      aria-label="whitespace character"
       class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
       name="talend-empty-char"
     />

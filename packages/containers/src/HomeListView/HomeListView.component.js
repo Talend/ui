@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { isValidElement } from 'react';
 import Inject from '@talend/react-components/lib/Inject';
 import Layout from '@talend/react-components/lib/Layout';
 import HeaderBar from '@talend/react-components/lib/HeaderBar';
@@ -8,7 +8,7 @@ import List from '../List';
 import SidePanel from '../SidePanel';
 
 function getContent(Component, props) {
-	if (React.isValidElement(props)) {
+	if (isValidElement(props)) {
 		return props;
 	}
 	return <Component {...props} />;

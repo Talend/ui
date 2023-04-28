@@ -19,7 +19,7 @@ exports[`TreeView item should render 1`] = `
   <div
     className="tc-treeview-item theme-tc-treeview-item"
     style={
-      Object {
+      {
         "paddingLeft": "62px",
       }
     }
@@ -81,14 +81,14 @@ exports[`TreeView item should render items with icon 1`] = `
   <div
     className="tc-treeview-item theme-tc-treeview-item"
     style={
-      Object {
+      {
         "paddingLeft": "62px",
       }
     }
   >
     <TreeViewIcon
       icon={
-        Object {
+        {
           "name": "src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png",
           "title": "A pokemon",
         }

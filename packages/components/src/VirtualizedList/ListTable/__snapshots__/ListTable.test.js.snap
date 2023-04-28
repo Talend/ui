@@ -2,7 +2,7 @@
 
 exports[`ListGrid should render noRows 1`] = `
 <VirtualizedList(ListTable)
-  collection={Array []}
+  collection={[]}
   disableHeader={false}
   height={600}
   id="my-list"
@@ -18,7 +18,7 @@ exports[`ListGrid should render noRows 1`] = `
     gridClassName="theme-grid tc-dropdown-container"
     headerHeight={40}
     headerRowRenderer={[Function]}
-    headerStyle={Object {}}
+    headerStyle={{}}
     height={600}
     id="my-list"
     noRowsRenderer={[Function]}
@@ -31,10 +31,10 @@ exports[`ListGrid should render noRows 1`] = `
     rowGetter={[Function]}
     rowHeight={50}
     rowRenderer={[Function]}
-    rowStyle={Object {}}
+    rowStyle={{}}
     scrollToAlignment="auto"
     scrollToIndex={-1}
-    style={Object {}}
+    style={{}}
     width={1024}
   >
     <div
@@ -43,13 +43,13 @@ exports[`ListGrid should render noRows 1`] = `
       className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
       id="my-list"
       role="grid"
-      style={Object {}}
+      style={{}}
     >
       <div
         className="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
         role="row"
         style={
-          Object {
+          {
             "height": 40,
             "overflow": "hidden",
             "paddingRight": 0,
@@ -62,7 +62,7 @@ exports[`ListGrid should render noRows 1`] = `
           key="Header-Col0"
           role="columnheader"
           style={
-            Object {
+            {
               "WebkitFlex": "0 1 0px",
               "flex": "0 1 0px",
               "msFlex": "0 1 0px",
@@ -82,7 +82,7 @@ exports[`ListGrid should render noRows 1`] = `
           key="Header-Col1"
           role="columnheader"
           style={
-            Object {
+            {
               "WebkitFlex": "0 1 0px",
               "flex": "0 1 0px",
               "msFlex": "0 1 0px",
@@ -110,7 +110,7 @@ exports[`ListGrid should render noRows 1`] = `
         columnCount={1}
         columnWidth={1024}
         containerRole="rowgroup"
-        containerStyle={Object {}}
+        containerStyle={{}}
         disableHeader={false}
         estimatedColumnSize={100}
         estimatedRowSize={30}
@@ -118,7 +118,7 @@ exports[`ListGrid should render noRows 1`] = `
         gridClassName="theme-grid tc-dropdown-container"
         headerHeight={40}
         headerRowRenderer={[Function]}
-        headerStyle={Object {}}
+        headerStyle={{}}
         height={560}
         isScrollingOptOut={false}
         noContentRenderer={[Function]}
@@ -136,7 +136,7 @@ exports[`ListGrid should render noRows 1`] = `
         rowGetter={[Function]}
         rowHeight={50}
         rowRenderer={[Function]}
-        rowStyle={Object {}}
+        rowStyle={{}}
         scrollToAlignment="auto"
         scrollToColumn={-1}
         scrollToIndex={-1}
@@ -144,7 +144,7 @@ exports[`ListGrid should render noRows 1`] = `
         scrollbarWidth={0}
         scrollingResetTimeInterval={150}
         style={
-          Object {
+          {
             "overflowX": "hidden",
           }
         }
@@ -158,7 +158,7 @@ exports[`ListGrid should render noRows 1`] = `
           onScroll={[Function]}
           role="rowgroup"
           style={
-            Object {
+            {
               "WebkitOverflowScrolling": "touch",
               "boxSizing": "border-box",
               "direction": "ltr",
@@ -191,7 +191,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
     gridClassName="theme-grid tc-dropdown-container"
     headerHeight={40}
     headerRowRenderer={[Function]}
-    headerStyle={Object {}}
+    headerStyle={{}}
     height={600}
     id="my-list"
     noRowsRenderer={[Function]}
@@ -204,10 +204,10 @@ exports[`ListGrid should render react-virtualized table 1`] = `
     rowGetter={[Function]}
     rowHeight={50}
     rowRenderer={[Function]}
-    rowStyle={Object {}}
+    rowStyle={{}}
     scrollToAlignment="auto"
     scrollToIndex={-1}
-    style={Object {}}
+    style={{}}
     width={1024}
   >
     <Content
@@ -219,7 +219,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label="Id"
-      style={Object {}}
+      style={{}}
       width={0}
     />
     <Content
@@ -231,7 +231,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label="Name"
-      style={Object {}}
+      style={{}}
       width={0}
     />
     <Content
@@ -243,7 +243,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label=""
-      style={Object {}}
+      style={{}}
       width={0}
     />
   </Table>
@@ -259,7 +259,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
     gridClassName="theme-grid tc-dropdown-container"
     headerHeight={40}
     headerRowRenderer={[Function]}
-    headerStyle={Object {}}
+    headerStyle={{}}
     height={600}
     id="my-list"
     noRowsRenderer={[Function]}
@@ -272,10 +272,10 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
     rowGetter={[Function]}
     rowHeight={50}
     rowRenderer={[Function]}
-    rowStyle={Object {}}
+    rowStyle={{}}
     scrollToAlignment="auto"
     scrollToIndex={-1}
-    style={Object {}}
+    style={{}}
     width={1024}
   >
     <Content
@@ -287,7 +287,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label="Id"
-      style={Object {}}
+      style={{}}
       width={0}
     />
     <Content
@@ -299,7 +299,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label="Name"
-      style={Object {}}
+      style={{}}
       width={0}
     />
     <Content
@@ -311,7 +311,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label=""
-      style={Object {}}
+      style={{}}
       width={0}
     />
   </Table>
@@ -327,7 +327,7 @@ exports[`ListGrid should render table with sort props 1`] = `
     gridClassName="theme-grid tc-dropdown-container"
     headerHeight={40}
     headerRowRenderer={[Function]}
-    headerStyle={Object {}}
+    headerStyle={{}}
     height={600}
     id="my-list"
     noRowsRenderer={[Function]}
@@ -340,13 +340,13 @@ exports[`ListGrid should render table with sort props 1`] = `
     rowGetter={[Function]}
     rowHeight={50}
     rowRenderer={[Function]}
-    rowStyle={Object {}}
+    rowStyle={{}}
     scrollToAlignment="auto"
     scrollToIndex={-1}
     sort={[MockFunction]}
     sortBy="name"
     sortDirection="DESC"
-    style={Object {}}
+    style={{}}
     width={1024}
   >
     <Content
@@ -358,7 +358,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label="Id"
-      style={Object {}}
+      style={{}}
       width={0}
     />
     <Content
@@ -370,7 +370,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label="Name"
-      style={Object {}}
+      style={{}}
       width={0}
     />
     <Content
@@ -382,7 +382,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       flexShrink={1}
       headerRenderer={[Function]}
       label=""
-      style={Object {}}
+      style={{}}
       width={0}
     />
   </Table>

@@ -1,12 +1,13 @@
 {
   "name": "@talend/scripts-build-cdn",
-  "version": "11.0.0",
+  "version": "11.0.1",
   "description": "Give a CLI to build a CDN for js and css with unpkg like structures",
   "main": "index.js",
   "bin": {
     "talend-cdn": "./index.js"
   },
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "start": "node index.js --debug --exclude ';@angular;' 2> error.log",
     "test": "echo \"Nothing to test\""
   },
@@ -21,8 +22,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@talend/babel-plugin-import-d3": "^0.2.1",
-    "@talend/module-to-cdn": "^9.8.3",
-    "@talend/scripts-config-cdn": "^10.5.3",
+    "@talend/module-to-cdn": "^9.8.4",
+    "@talend/scripts-config-cdn": "^10.6.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "commander": "^6.2.1",
     "cpx2": "^3.0.2",
@@ -30,9 +31,9 @@
     "mkdirp": "^1.0.4",
     "queue": "^6.0.2",
     "rimraf": "^3.0.2",
-    "semver": "^7.3.7",
-    "webpack": "^5.73.0",
-    "webpack-bundle-analyzer": "^4.5.0",
+    "semver": "^7.3.8",
+    "webpack": "^5.76.3",
+    "webpack-bundle-analyzer": "^4.7.0",
     "webpack-cli": "^4.10.0"
   },
   "publishConfig": {

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -21,6 +20,7 @@ export function TreeHeader({ title, otherActions, onClickCollapseAll, onClickExp
 							theme['tc-tree-header-actions-icon'],
 							'tc-tree-header-actions-icon',
 						)}
+						data-testid="collapse-all"
 						icon="talend-minus-circle"
 						id="CollapseAllRecords"
 						tooltipLabel={t('RECORDS_HEADER_LABEL_CLOSE_ALL', {
@@ -38,6 +38,7 @@ export function TreeHeader({ title, otherActions, onClickCollapseAll, onClickExp
 							'tc-tree-header-actions-icon',
 						)}
 						icon="talend-table"
+						data-testid="expand-all"
 						id="ExpandAllRecords"
 						tooltipLabel={t('RECORDS_HEADER_LABEL_EXPAND_ALL', {
 							defaultValue: 'Expand all',

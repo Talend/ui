@@ -1,47 +1,39 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import BadgeLabel from './BadgeLabel.component';
+
+jest.unmock('@talend/design-system');
 
 describe('BadgeLabel', () => {
 	it('should default render', () => {
 		// given
 		const label = 'my label';
 		// when
-		const wrapper = mount(<BadgeLabel label={label} />);
+		render(<BadgeLabel label={label} />);
 		// then
-		expect(
-			wrapper
-				.find('.tc-badge-label-text')
-				.at(0)
-				.text(),
-		).toBe(label);
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByText(label)).toBeInTheDocument();
 	});
 	it('should render with category', () => {
 		// given
 		const label = 'my label';
 		const category = 'my category';
 		// when
-		const wrapper = mount(<BadgeLabel label={label} category={category} />);
+		render(<BadgeLabel label={label} category={category} />);
 		// then
-		expect(
-			wrapper
-				.find('.tc-badge-label-text-with-categ')
-				.at(0)
-				.text(),
-		).toBe(label);
+		expect(screen.getByText(label)).toBeInTheDocument();
+		expect(screen.getByText(label)).toHaveClass('tc-badge-label-text-with-categ');
 	});
 	it('should render with children', () => {
 		// given
 		const label = 'my label';
 		const childText = 'Composition is the key to use React correctly';
 		// when
-		const wrapper = mount(
+		render(
 			<BadgeLabel label={label}>
 				<div id="my child">{childText}</div>
 			</BadgeLabel>,
 		);
 		// then
-		expect(wrapper.find('div[id="my child"]').text()).toEqual(childText);
+		expect(screen.getByText(childText)).toBeInTheDocument();
+		expect(screen.getByText(childText)).toHaveAttribute('id', 'my child');
 	});
 });

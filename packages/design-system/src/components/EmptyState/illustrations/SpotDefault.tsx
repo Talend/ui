@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './SpotDefault.module.scss';
 
 export default function SpotDefault() {

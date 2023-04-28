@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isNull from 'lodash/isNull';
@@ -116,7 +116,7 @@ AvroRenderer.propTypes = {
 };
 
 // eslint-disable-next-line prefer-arrow-callback
-const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
+const SimpleTextKeyValue = forwardRef(function SimpleTextKeyValue(
 	{
 		formattedKey,
 		className,

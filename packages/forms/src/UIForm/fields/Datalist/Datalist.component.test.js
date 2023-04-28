@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import DatalistComponent from '@talend/react-components/lib/Datalist';
 import Datalist from './Datalist.component';

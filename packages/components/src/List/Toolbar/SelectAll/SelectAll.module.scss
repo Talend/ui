@@ -12,6 +12,7 @@ $tc-list-toolbar-background-color: $wild-sand !default;
 .tc-list-toolbar-select-all {
 	margin: $padding-small 0 $padding-small $padding-large;
 	padding-left: 0;
+
 	:global(label) {
 		margin-bottom: 0;
 		margin-left: 5px;

@@ -1,62 +1,43 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
+jest.unmock('@talend/design-system');
+
+jest.mock('../../../FormatValue/FormatValue.component', () => {
+	return jest.fn(props => (
+		<span data-testid="formatvalue" data-value={props.value} data-type={typeof props.value}>
+			{props.value}
+		</span>
+	));
+});
+jest.mock('../../../TooltipTrigger', () => {
+	return jest.fn(props => (
+		<span data-testid="tooltip-trigger">
+			<span data-testid="tooltip-label">{props.label}</span>
+			<span>{props.children}</span>
+		</span>
+	));
+});
 
 describe('#DefaultValueRenderer', () => {
 	it('should render without the tooltip', () => {
-		const wrapper = shallow(<DefaultValueRenderer value="loreum" />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<DefaultValueRenderer value="loreum" />);
+		expect(screen.getByText('loreum')).toBeVisible();
 	});
 
-	it('should render a boolean', () => {
-		const wrapper = shallow(<DefaultValueRenderer value={false} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render a bytes', () => {
-		const wrapper = shallow(<DefaultValueRenderer value={{ bytes: 'ejfiejifje' }} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render empty when the value is null', () => {
-		const wrapper = shallow(<DefaultValueRenderer value={null} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render empty when the value is undefined', () => {
-		const wrapper = mount(<DefaultValueRenderer value={undefined} />);
-
-		expect(wrapper.find('div').text()).toBe('');
-	});
-
-	it('should render the leading/trailing special character', () => {
-		const wrapper = shallow(<DefaultValueRenderer value=" loreum " />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render DefaultValueRenderer with the tooltip when the label overflow in width', () => {
-		const wrapper = shallow(<DefaultValueRenderer value="loreum" isValueOverflown />);
-
-		wrapper.find('div').at(0).simulate('focus');
-
-		wrapper.update();
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-
-		wrapper.setProps({
-			isValueOverflown: false,
+	it('should call FormatValue and pass it the value', () => {
+		const VALUES = [false, { bytes: 'ejfiejifje' }, null, undefined, ' loreum '];
+		const EXPECTED = ['false', 'ejfiejifje', '', '', ' loreum '];
+		let { rerender } = render(null);
+		VALUES.forEach(value => {
+			rerender(<DefaultValueRenderer value={value} />);
+			expect(screen.getByTestId('formatvalue').dataset.value).toBe(EXPECTED[VALUES.indexOf(value)]);
 		});
+	});
 
-		wrapper.find('div').at(0).simulate('focus');
-
-		wrapper.update();
-		// should remove the tooltip
-		expect(wrapper.getElement()).toMatchSnapshot();
+	it('should render DefaultValueRenderer with the tooltip when the label overflow in width', async () => {
+		render(<DefaultValueRenderer value="loreum" isValueOverflown />);
+		expect(screen.getByTestId('tooltip-trigger')).toBeVisible();
+		expect(screen.getByTestId('tooltip-label')).toBeVisible();
+		expect(screen.getByTestId('tooltip-label')).toHaveTextContent('loreum');
 	});
 });

@@ -1,9 +1,7 @@
-import React from 'react';
 import { render } from '@testing-library/react';
 import { SagaComponent } from './Saga.component';
 
 const defaultMockUuid = '42';
-jest.mock('uuid', () => ({ v4: () => defaultMockUuid }));
 
 describe('Saga Component', () => {
 	it('should dispatch actions', () => {

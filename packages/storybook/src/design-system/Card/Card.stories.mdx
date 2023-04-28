@@ -1,0 +1,60 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Use } from '~docs';
+
+import { Card, StackVertical, InlineMessageWarning } from '@talend/design-system';
+import * as Stories from './Card.stories';
+
+<Meta
+	title="Design System/Card"
+	parameters={{
+		status: { figma: 'wip', storybook: 'wip', react: 'ok', i18n: 'na' },
+	}}
+/>
+
+# Card
+
+<StackVertical
+	gap="XS"
+	margin={{
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 'M',
+	}}
+>
+	<InlineMessageWarning
+		title="Work in progress"
+		withBackground
+		description="This is an undocumented prototype for a background / container primitive."
+	/>
+</StackVertical>
+
+`Card` is a basic box component providing the general "rounded-borders container" style.
+
+## Zoning
+
+WIP
+
+## Style
+
+### Sizing
+
+WIP
+
+### Variations
+
+**Default card**
+
+<Canvas>
+	<Story story={Stories.DefaultCard} />
+</Canvas>
+
+## States
+
+## Interactions
+
+## Content
+
+## Usage
+
+## Accessibility

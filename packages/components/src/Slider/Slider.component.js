@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 import classnames from 'classnames';
 import RcSlider from 'rc-slider';
 import range from 'lodash/range';
@@ -199,7 +199,7 @@ function getHandle(captionsFormat) {
 	return renderHandler;
 }
 
-const Slider = React.forwardRef((props, ref) => {
+const Slider = forwardRef((props, ref) => {
 	const handleRender = getHandle(props.captionsFormat, ref);
 
 	const {

@@ -1,5 +1,188 @@
 # @talend/design-system
 
+## 7.7.3
+
+### Patch Changes
+
+- e5a326ffb: fix(TFD-15547): Drawer is under Modal
+
+## 7.7.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- be1095095: fix(design-system): Button style while compacted by layout
+
+## 7.7.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 285efb74a: fix: add data-test to buttons in modal
+- Updated dependencies [616601fda]
+  - @talend/design-tokens@2.7.3
+
+## 7.7.0
+
+### Minor Changes
+
+- a01e81852: feat(design-system): Modal have no close button if preventEscaping is on
+
+## 7.6.0
+
+### Minor Changes
+
+- 00869855d: Popover - Add `focusOnDisclosure` option to allow focus on disclosure when popover is opened
+
+## 7.5.1
+
+### Patch Changes
+
+- 4c3495e12: chore: apply code style
+
+## 7.5.0
+
+### Minor Changes
+
+- 4cfbf226b: feat(Tabs&Dropdown): add new data-feature & data-testid capabilities
+
+## 7.4.1
+
+### Patch Changes
+
+- 6c6133860: TDOPS-3536 - Fix passing props to popover disclosure on Design System
+
+## 7.4.0
+
+### Minor Changes
+
+- 79c2d5165: feat(TFD-14857): BadgeDropdown is now controlled
+
+## 7.3.0
+
+### Minor Changes
+
+- 4c5598a5a: Add new Badge component in DS
+
+### Patch Changes
+
+- ed4014653: fix: Collapsible state is init by expaneded props
+
+## 7.2.0
+
+### Minor Changes
+
+- 1ce5a1f8c: feat(TUX-1221) add openInNewTab option for LinkAsButton
+
+### Patch Changes
+
+- f855fcae0: fix(design-system/Modal): sync header x padding with spec
+
+## 7.1.6
+
+### Patch Changes
+
+- 890eee0b5: fix(design-system): add data-testid to InlineEditing
+
+## 7.1.5
+
+### Patch Changes
+
+- 1aa89365a: TDOPS-3299 - design system modal z-index to use tokens convention
+
+## 7.1.4
+
+### Patch Changes
+
+- f36e7f7c3: InlineEditing : handle keyboard shortcut only when element has the focus
+
+  remove usekey which bind by default on document.
+
+## 7.1.3
+
+### Patch Changes
+
+- c8ea668ee: InlineEditing : don't handle enter key when not in edition
+
+## 7.1.2
+
+### Patch Changes
+
+- 5aeff7b47: TDOPS-3267 - Fixed support for `onBlur` property passed to primitive input
+
+## 7.1.1
+
+### Patch Changes
+
+- fe430c316: fix: add missing export on the root
+
+  - Input on Form component (so Form.Input)
+  - Breadcrumbs
+  - theme tokens
+  - TabsAsLinkList
+
+  ```
+  import { dark, light, Breadcrumbs } from '@talend/design-system';
+  ```
+
+## 7.1.0
+
+### Minor Changes
+
+- 3815dabd3: feat(design-system): add Message component
+
+## 7.0.2
+
+### Patch Changes
+
+- 105990b24: feat(InlineEditing): add new `onToggle` optional props to get notify from edition mode changes
+
+## 7.0.1
+
+### Patch Changes
+
+- e76a4db6b: fix: ThemeProvider optional theme property
+- 60a00f152: fix: apply transform style from props
+
+## 7.0.0
+
+### Major Changes
+
+- ee9b1daf6: \* chore: remove dependency over styled-components
+  - remove deprecated components
+
+### Patch Changes
+
+- a23396460: fix: missing fonts in exported bundle
+
+## 6.0.1
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
+## 6.0.0
+
+### Major Changes
+
+- 69f09a921: ThemeProvider: Removed styled components global styles
+
+  BREAKING CHANGE:
+
+  - Now global style is applied by default
+  - createGlobalStyle is not exposed anymore and should not be needed
+  - ThemeProvider.GlobalStyle do not exists, it is now in the by default in the CSS
+
+### Minor Changes
+
+- e802df9c3: Stepper no longer uses StyledComponents
+- ac7bfe557: Combobox: Removing Styled Components
+
 ## 5.4.1
 
 ### Patch Changes

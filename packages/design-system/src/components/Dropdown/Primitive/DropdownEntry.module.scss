@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$iconAlignmentOffsetM: -0.3rem;
+$icon-alignment-offset-m: -0.3rem;
 
 .dropdownEntry {
 	background: tokens.$coral-color-accent-background-weak;
@@ -9,7 +9,7 @@ $iconAlignmentOffsetM: -0.3rem;
 	min-width: 0;
 	color: tokens.$coral-color-neutral-text;
 	font: tokens.$coral-paragraph-m;
-	transition: all tokens.$coral-transition-fast;
+	transition: tokens.$coral-transition-fast;
 	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
 	max-width: tokens.$coral-sizing-maximal;
 	text-align: start;
@@ -24,7 +24,7 @@ $iconAlignmentOffsetM: -0.3rem;
 		margin-right: tokens.$coral-spacing-xxs;
 		flex-shrink: 0;
 		position: relative;
-		bottom: $iconAlignmentOffsetM;
+		bottom: $icon-alignment-offset-m;
 	}
 
 	.buttonContent {

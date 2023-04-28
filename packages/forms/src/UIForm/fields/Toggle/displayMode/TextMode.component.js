@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import Toggle from '@talend/react-components/lib/Toggle';
 

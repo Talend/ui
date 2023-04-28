@@ -3,6 +3,7 @@
 .panelWrapper {
 	box-shadow: tokens.$coral-elevation-shadow-neutral-s;
 	overflow: hidden;
+
 	&__alone {
 		border-radius: tokens.$coral-radius-s;
 	}

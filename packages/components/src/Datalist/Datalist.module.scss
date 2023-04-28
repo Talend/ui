@@ -46,6 +46,7 @@ $tc-datalist-item-height: 4rem !default;
 	> li > div {
 		display: flex;
 		height: $tc-datalist-item-height;
+
 		&:hover {
 			background-color: $concrete;
 		}

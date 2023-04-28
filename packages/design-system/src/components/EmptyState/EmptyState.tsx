@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react';
 import EmptyStateLarge, { EmptyStateLargeProps } from './variants/EmptyStateLarge';
 import EmptyStateMedium, { EmptyStateMediumProps } from './variants/EmptyStateMedium';
 import EmptyStateSmall, { EmptyStateSmallProps } from './variants/EmptyStateSmall';
+import { forwardRef, Ref } from 'react';
 
 type availableVariantsTypes = 'L' | 'M' | 'S';
 

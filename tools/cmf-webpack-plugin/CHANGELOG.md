@@ -1,5 +1,16 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.37.0
+
+### Minor Changes
+
+- c9f5964f6: feat: do not write settings to disk
+
+### Patch Changes
+
+- Updated dependencies [c9f5964f6]
+  - @talend/scripts-cmf@1.1.0
+
 ## 6.36.9
 
 ### Patch Changes

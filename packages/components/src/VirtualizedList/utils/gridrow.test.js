@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import CellTitle from '../CellTitle';
 import VirtualizedList from '..';
 import {
@@ -185,7 +185,7 @@ describe('gridrow', () => {
 			const result = extractSpecialFields(parent);
 
 			// then
-			const children = React.Children.toArray(fields);
+			const children = Children.toArray(fields);
 			expect(result).toEqual({
 				titleField: children[1],
 				selectionField: children[3],

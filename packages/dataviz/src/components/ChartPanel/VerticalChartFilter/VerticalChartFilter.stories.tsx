@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import VerticalChartFilter, { VerticalChartFilterProps } from './VerticalChartFilter.component';
 import { DateRangeHandler, NumberRangeHandler } from '../../RangeFilter';

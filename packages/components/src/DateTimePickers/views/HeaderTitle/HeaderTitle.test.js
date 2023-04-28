@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 
 import HeaderTitle from './HeaderTitle.component';
@@ -32,18 +31,8 @@ describe('HeaderTitle', () => {
 		const wrapperButton = shallow(
 			<HeaderTitle monthIndex={11} year={2002} button={{ whateverButtonProp: 'whateverValue' }} />,
 		);
-		expect(
-			wrapperSpanAction
-				.find('span')
-				.first()
-				.text(),
-		).toEqual('March');
-		expect(
-			wrapperSpanAction
-				.find(ActionDropdown)
-				.first()
-				.props().label,
-		).toEqual('2001');
+		expect(wrapperSpanAction.find('span').first().text()).toEqual('March');
+		expect(wrapperSpanAction.find(ActionDropdown).first().props().label).toEqual('2001');
 		expect(wrapperButton.prop('label')).toBe('December 2002');
 	});
 });

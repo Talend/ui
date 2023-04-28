@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import { Separator as ReakitSeparator, SeparatorProps as ReakitSeparatorProps } from 'reakit';
 
 import style from './Divider.module.scss';

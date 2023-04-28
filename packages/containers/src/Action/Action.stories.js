@@ -1,4 +1,3 @@
-import React from 'react';
 import { action as stAction } from '@storybook/addon-actions';
 
 import Action from '.';

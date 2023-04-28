@@ -98,7 +98,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       onKeyDown={[Function]}
       role="button"
       style={
-        Object {
+        {
           "pointerEvents": "none",
         }
       }
@@ -121,7 +121,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       onKeyDown={[Function]}
       role="button"
       style={
-        Object {
+        {
           "pointerEvents": "none",
         }
       }
@@ -320,7 +320,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       onKeyDown={[Function]}
       role="button"
       style={
-        Object {
+        {
           "pointerEvents": "none",
         }
       }
@@ -344,7 +344,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       onKeyDown={[Function]}
       role="button"
       style={
-        Object {
+        {
           "pointerEvents": "none",
         }
       }

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import SimpleCheckBox from './SimpleCheckBox.component';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';

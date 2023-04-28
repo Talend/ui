@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container ActionBar should compute props using CMF with array of string 1`] = `
-Object {
-  "actions": Object {
-    "left": Array [
-      Object {
+{
+  "actions": {
+    "left": [
+      {
         "actionId": "menu:demo",
       },
-      Object {
+      {
         "actionId": "menu:article",
       },
-      Object {
-        "actions": Array [
+      {
+        "actions": [
           "menu:demo",
           "menu:article",
         ],
         "displayMode": "btnGroup",
       },
     ],
-    "right": Array [
-      Object {
+    "right": [
+      {
         "displayMode": "splitDropdown",
-        "items": Array [
+        "items": [
           "menu:article",
         ],
         "name": "menu:demo",
@@ -33,8 +33,8 @@ Object {
   "dispatchActionCreator": [Function],
   "getComponent": [Function],
   "initState": [Function],
-  "renderers": Object {
-    "Action": Object {
+  "renderers": {
+    "Action": {
       "$$typeof": Symbol(react.memo),
       "CMFContainer": [Function],
       "DISPLAY_MODE_DROPDOWN": "dropdown",
@@ -47,7 +47,7 @@ Object {
       "setStateAction": [Function],
       "type": [Function],
     },
-    "ActionDropdown": Object {
+    "ActionDropdown": {
       "$$typeof": Symbol(react.memo),
       "CMFContainer": [Function],
       "WrappedComponent": [Function],
@@ -56,7 +56,7 @@ Object {
       "setStateAction": [Function],
       "type": [Function],
     },
-    "ActionSplitDropdown": Object {
+    "ActionSplitDropdown": {
       "$$typeof": Symbol(react.memo),
       "CMFContainer": [Function],
       "WrappedComponent": [Function],
@@ -65,7 +65,7 @@ Object {
       "setStateAction": [Function],
       "type": [Function],
     },
-    "Actions": Object {
+    "Actions": {
       "$$typeof": Symbol(react.memo),
       "CMFContainer": [Function],
       "WrappedComponent": [Function],
@@ -82,24 +82,24 @@ Object {
 `;
 
 exports[`Container ActionBar should pass the props 1`] = `
-Object {
-  "actions": Object {
-    "left": Array [
-      Object {
+{
+  "actions": {
+    "left": [
+      {
         "bsStyle": "primary",
         "icon": "fa fa-asterisk",
         "label": "Preparations",
         "onClick": [MockFunction],
       },
-      Object {
+      {
         "displayMode": "dropdown",
         "icon": "fa fa-file-excel-o",
-        "items": Array [
-          Object {
+        "items": [
+          {
             "label": "document 1",
             "onClick": [MockFunction],
           },
-          Object {
+          {
             "label": "document 2",
             "onClick": [MockFunction],
           },
@@ -107,24 +107,24 @@ Object {
         "label": "related items",
       },
     ],
-    "right": Array [
-      Object {
+    "right": [
+      {
         "icon": "fa fa-file-excel-o",
         "label": "Datasets",
         "onClick": [MockFunction],
       },
-      Object {
+      {
         "icon": "fa fa-star",
         "label": "Favorites",
         "onClick": [MockFunction],
       },
-      Object {
-        "actions": Array [
-          Object {
+      {
+        "actions": [
+          {
             "label": "document 1",
             "onClick": [MockFunction],
           },
-          Object {
+          {
             "label": "document 2",
             "onClick": [MockFunction],
           },
@@ -138,8 +138,8 @@ Object {
   "dispatchActionCreator": [Function],
   "getComponent": [Function],
   "initState": [Function],
-  "renderers": Object {
-    "Action": Object {
+  "renderers": {
+    "Action": {
       "$$typeof": Symbol(react.memo),
       "CMFContainer": [Function],
       "DISPLAY_MODE_DROPDOWN": "dropdown",
@@ -152,7 +152,7 @@ Object {
       "setStateAction": [Function],
       "type": [Function],
     },
-    "ActionDropdown": Object {
+    "ActionDropdown": {
       "$$typeof": Symbol(react.memo),
       "CMFContainer": [Function],
       "WrappedComponent": [Function],
@@ -161,7 +161,7 @@ Object {
       "setStateAction": [Function],
       "type": [Function],
     },
-    "ActionSplitDropdown": Object {
+    "ActionSplitDropdown": {
       "$$typeof": Symbol(react.memo),
       "CMFContainer": [Function],
       "WrappedComponent": [Function],
@@ -170,7 +170,7 @@ Object {
       "setStateAction": [Function],
       "type": [Function],
     },
-    "Actions": Object {
+    "Actions": {
       "$$typeof": Symbol(react.memo),
       "CMFContainer": [Function],
       "WrappedComponent": [Function],

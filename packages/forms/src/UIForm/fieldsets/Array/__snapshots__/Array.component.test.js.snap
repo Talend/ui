@@ -9,47 +9,47 @@ exports[`Array component #renderItem should render item at given index 1`] = `
   onChange={[MockFunction]}
   onFinish={[MockFunction]}
   schema={
-    Object {
-      "items": Array [
-        Object {
-          "key": Array [
+    {
+      "items": [
+        {
+          "key": [
             "comments",
             1,
             "name",
           ],
           "required": true,
-          "schema": Object {
+          "schema": {
             "title": "Name",
             "type": "string",
           },
           "title": "Name",
           "type": "text",
         },
-        Object {
+        {
           "description": "Email will be used for evil.",
-          "key": Array [
+          "key": [
             "comments",
             1,
             "email",
           ],
-          "schema": Object {
+          "schema": {
             "description": "Email will be used for evil.",
-            "pattern": "^\\\\S+@\\\\S+$",
+            "pattern": "^\\S+@\\S+$",
             "title": "Email",
             "type": "string",
           },
           "title": "Email",
           "type": "text",
         },
-        Object {
-          "key": Array [
+        {
+          "key": [
             "comments",
             1,
             "comment",
           ],
           "maxlength": 20,
           "rows": 3,
-          "schema": Object {
+          "schema": {
             "maxLength": 20,
             "title": "Comment",
             "type": "string",
@@ -60,7 +60,7 @@ exports[`Array component #renderItem should render item at given index 1`] = `
           "validationMessage": "Don't be greedy!",
         },
       ],
-      "key": Array [
+      "key": [
         "comments",
         1,
       ],
@@ -68,15 +68,15 @@ exports[`Array component #renderItem should render item at given index 1`] = `
       "widget": "fieldset",
     }
   }
-  templates={Object {}}
+  templates={{}}
   value={
-    Object {
+    {
       "comment": "Let's do that instead",
       "email": "jm@lol.com",
       "name": "JM",
     }
   }
-  widgets={Object {}}
+  widgets={{}}
 />
 `;
 
@@ -95,47 +95,47 @@ exports[`Array component should render array 1`] = `
   onReorder={[Function]}
   renderItem={[Function]}
   schema={
-    Object {
-      "items": Array [
-        Object {
-          "key": Array [
+    {
+      "items": [
+        {
+          "key": [
             "comments",
             "",
             "name",
           ],
           "required": true,
-          "schema": Object {
+          "schema": {
             "title": "Name",
             "type": "string",
           },
           "title": "Name",
           "type": "text",
         },
-        Object {
+        {
           "description": "Email will be used for evil.",
-          "key": Array [
+          "key": [
             "comments",
             "",
             "email",
           ],
-          "schema": Object {
+          "schema": {
             "description": "Email will be used for evil.",
-            "pattern": "^\\\\S+@\\\\S+$",
+            "pattern": "^\\S+@\\S+$",
             "title": "Email",
             "type": "string",
           },
           "title": "Email",
           "type": "text",
         },
-        Object {
-          "key": Array [
+        {
+          "key": [
             "comments",
             "",
             "comment",
           ],
           "maxlength": 20,
           "rows": 3,
-          "schema": Object {
+          "schema": {
             "maxLength": 20,
             "title": "Comment",
             "type": "string",
@@ -146,31 +146,31 @@ exports[`Array component should render array 1`] = `
           "validationMessage": "Don't be greedy!",
         },
       ],
-      "key": Array [
+      "key": [
         "comments",
       ],
       "required": true,
-      "schema": Object {
-        "items": Object {
-          "properties": Object {
-            "comment": Object {
+      "schema": {
+        "items": {
+          "properties": {
+            "comment": {
               "maxLength": 20,
               "title": "Comment",
               "type": "string",
               "validationMessage": "Don't be greedy!",
             },
-            "email": Object {
+            "email": {
               "description": "Email will be used for evil.",
-              "pattern": "^\\\\S+@\\\\S+$",
+              "pattern": "^\\S+@\\S+$",
               "title": "Email",
               "type": "string",
             },
-            "name": Object {
+            "name": {
               "title": "Name",
               "type": "string",
             },
           },
-          "required": Array [
+          "required": [
             "name",
             "comment",
           ],
@@ -183,27 +183,27 @@ exports[`Array component should render array 1`] = `
       "type": "array",
     }
   }
-  templates={Object {}}
+  templates={{}}
   value={
-    Array [
-      Object {
+    [
+      {
         "comment": "Let's do this",
         "email": "jimmy@lol.com",
         "name": "Jimmy",
       },
-      Object {
+      {
         "comment": "Let's do that instead",
         "email": "jm@lol.com",
         "name": "JM",
       },
-      Object {
+      {
         "comment": "Don't user ternary !",
         "email": "geoffroy@lol.com",
         "name": "Goeffroy",
       },
     ]
   }
-  widgets={Object {}}
+  widgets={{}}
 />
 `;
 
@@ -222,47 +222,47 @@ exports[`Array component should render array that can't be reordered 1`] = `
   onReorder={[Function]}
   renderItem={[Function]}
   schema={
-    Object {
-      "items": Array [
-        Object {
-          "key": Array [
+    {
+      "items": [
+        {
+          "key": [
             "comments",
             "",
             "name",
           ],
           "required": true,
-          "schema": Object {
+          "schema": {
             "title": "Name",
             "type": "string",
           },
           "title": "Name",
           "type": "text",
         },
-        Object {
+        {
           "description": "Email will be used for evil.",
-          "key": Array [
+          "key": [
             "comments",
             "",
             "email",
           ],
-          "schema": Object {
+          "schema": {
             "description": "Email will be used for evil.",
-            "pattern": "^\\\\S+@\\\\S+$",
+            "pattern": "^\\S+@\\S+$",
             "title": "Email",
             "type": "string",
           },
           "title": "Email",
           "type": "text",
         },
-        Object {
-          "key": Array [
+        {
+          "key": [
             "comments",
             "",
             "comment",
           ],
           "maxlength": 20,
           "rows": 3,
-          "schema": Object {
+          "schema": {
             "maxLength": 20,
             "title": "Comment",
             "type": "string",
@@ -273,32 +273,32 @@ exports[`Array component should render array that can't be reordered 1`] = `
           "validationMessage": "Don't be greedy!",
         },
       ],
-      "key": Array [
+      "key": [
         "comments",
       ],
       "reorder": false,
       "required": true,
-      "schema": Object {
-        "items": Object {
-          "properties": Object {
-            "comment": Object {
+      "schema": {
+        "items": {
+          "properties": {
+            "comment": {
               "maxLength": 20,
               "title": "Comment",
               "type": "string",
               "validationMessage": "Don't be greedy!",
             },
-            "email": Object {
+            "email": {
               "description": "Email will be used for evil.",
-              "pattern": "^\\\\S+@\\\\S+$",
+              "pattern": "^\\S+@\\S+$",
               "title": "Email",
               "type": "string",
             },
-            "name": Object {
+            "name": {
               "title": "Name",
               "type": "string",
             },
           },
-          "required": Array [
+          "required": [
             "name",
             "comment",
           ],
@@ -311,26 +311,26 @@ exports[`Array component should render array that can't be reordered 1`] = `
       "type": "array",
     }
   }
-  templates={Object {}}
+  templates={{}}
   value={
-    Array [
-      Object {
+    [
+      {
         "comment": "Let's do this",
         "email": "jimmy@lol.com",
         "name": "Jimmy",
       },
-      Object {
+      {
         "comment": "Let's do that instead",
         "email": "jm@lol.com",
         "name": "JM",
       },
-      Object {
+      {
         "comment": "Don't user ternary !",
         "email": "geoffroy@lol.com",
         "name": "Goeffroy",
       },
     ]
   }
-  widgets={Object {}}
+  widgets={{}}
 />
 `;

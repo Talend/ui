@@ -6,7 +6,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
 >
   <ActionBar
     className="theme-tc-subheader-navbar tc-subheader-navbar"
-    components={Object {}}
+    components={{}}
   >
     <SubHeaderBarActions
       left={true}
@@ -17,7 +17,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         hideLabel={true}
         icon="talend-arrow-left"
         id="backArrow"
-        label="Go Back"
+        label="Go back"
         onClick={[MockFunction]}
       />
       <TitleSubHeader

@@ -9,7 +9,7 @@
 }
 
 .calendar-header {
-	&:after {
+	&::after {
 		@include picker-underline;
 		width: 100%;
 		position: absolute;
@@ -34,11 +34,6 @@
 	text-align: center;
 
 	.calendar-day {
-		&.today {
-			background-color: tint($lochmara, 90%);
-			color: $lochmara;
-			border: solid 1px $lochmara;
-		}
 
 		@include picker-action;
 
@@ -49,6 +44,12 @@
 		border-radius: 50%;
 		line-height: 2.4rem;
 		padding: 0;
+
+		&.today {
+			background-color: tint($lochmara, 90%);
+			color: $lochmara;
+			border: solid 1px $lochmara;
+		}
 
 		&.not-current-month {
 			opacity: 0.54;

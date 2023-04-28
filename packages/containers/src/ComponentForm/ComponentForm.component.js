@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
@@ -84,7 +84,7 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	}
 }
 
-export class TCompForm extends React.Component {
+export class TCompForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};

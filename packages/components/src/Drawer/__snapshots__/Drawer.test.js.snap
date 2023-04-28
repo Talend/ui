@@ -39,7 +39,7 @@ exports[`Drawer should render 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
@@ -79,7 +79,7 @@ exports[`Drawer should render stacked 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
@@ -119,7 +119,7 @@ exports[`Drawer should render using custom className 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
@@ -154,7 +154,7 @@ exports[`Drawer should render using custom styles 1`] = `
 <div
   className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
   style={
-    Object {
+    {
       "top": 45,
     }
   }
@@ -164,7 +164,7 @@ exports[`Drawer should render using custom styles 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
@@ -288,7 +288,7 @@ exports[`Drawer should render with tabs 1`] = `
     </div>
     <div
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
@@ -328,7 +328,7 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,

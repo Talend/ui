@@ -5,73 +5,73 @@ exports[`Tabs widget should render fieldset 1`] = `
   className="theme-tf-tabs tf-tabs"
   id="undefined-tabs"
   items={
-    Array [
-      Object {
+    [
+      {
         "aria-label": undefined,
         "children": <Widget
-          errors={Object {}}
+          errors={{}}
           schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
+            {
+              "items": [
+                {
+                  "key": [
                     "user",
                     "firstname",
                   ],
-                  "schema": Object {
+                  "schema": {
                     "type": "string",
                   },
                   "type": "text",
                 },
-                Object {
-                  "key": Array [
+                {
+                  "key": [
                     "user",
                     "lastname",
                   ],
-                  "schema": Object {
+                  "schema": {
                     "type": "string",
                   },
                   "type": "text",
                 },
               ],
-              "options": Object {
+              "options": {
                 "hideTitle": true,
               },
               "title": "User",
               "widget": "fieldset",
             }
           }
-          widgets={Object {}}
+          widgets={{}}
         />,
         "className": "",
         "key": 0,
         "label": "User",
       },
-      Object {
+      {
         "aria-label": undefined,
         "children": <Widget
-          errors={Object {}}
+          errors={{}}
           schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
+            {
+              "items": [
+                {
+                  "key": [
                     "comment",
                   ],
-                  "schema": Object {
+                  "schema": {
                     "type": "string",
                   },
                   "type": "text",
                 },
               ],
-              "options": Object {
+              "options": {
                 "hideTitle": true,
               },
               "title": "Other",
               "widget": "fieldset",
             }
           }
-          widgets={Object {}}
+          widgets={{}}
         />,
         "className": "",
         "key": 1,

@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { action } from '@storybook/addon-actions';
 import TextArea from '.';

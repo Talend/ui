@@ -1,0 +1,19 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.badge-dropdown__placeholder {
+	color: tokens.$coral-color-neutral-text;
+	font: tokens.$coral-heading-s;
+	padding: 0 tokens.$coral-spacing-xxs;
+}
+
+.badge-dropdown__button__caret {
+	align-items: center;
+	display: inline-flex;
+	transition: transform tokens.$coral-transition-fast;
+}
+
+.badge-dropdown__button[aria-expanded='true'] {
+	.badge-dropdown__button__caret {
+		transform: rotate(-180deg);
+	}
+}

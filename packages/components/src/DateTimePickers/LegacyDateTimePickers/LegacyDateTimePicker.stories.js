@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import InputDateTimePicker from '.';
@@ -9,7 +9,7 @@ export default {
 
 export const FormModeDateTime = () => {
 	return (
-		<React.Fragment>
+		<Fragment>
 			<div style={{ width: 150 }}>
 				<div> in form mode with validation and submit </div>
 				<InputDateTimePicker
@@ -23,13 +23,13 @@ export const FormModeDateTime = () => {
 					useSeconds
 				/>
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 
 export const FormModeHybridDateTime = () => {
 	return (
-		<React.Fragment>
+		<Fragment>
 			<h3>Hybrid DateTime picker</h3>
 			<p>For use when the independent input of date or time within one component is required</p>
 			<div style={{ width: 200 }}>
@@ -72,6 +72,6 @@ export const FormModeHybridDateTime = () => {
 					formMode
 				/>
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };

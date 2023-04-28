@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import { Button } from '@talend/react-bootstrap';
 
@@ -8,13 +7,15 @@ describe('Header', () => {
 	it('should trigger callback when clicking on header button', () => {
 		// given
 		const props = {
-			headerDefault: [{
-				disabled: false,
-				label: 'Search for specific values',
-				icon: 'talend-search',
-				id: 'search',
-				onClick: jest.fn(), // provided click callback
-			}],
+			headerDefault: [
+				{
+					disabled: false,
+					label: 'Search for specific values',
+					icon: 'talend-search',
+					id: 'search',
+					onClick: jest.fn(), // provided click callback
+				},
+			],
 		};
 		const headerInstance = <Header {...props} />;
 

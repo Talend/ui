@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { PIECHART_SIZES } from './PieChartIcon.component';
 import PieChartButton, { decorateWithOverlay, wrapMouseEvent } from './PieChartButton.component';
@@ -57,10 +56,7 @@ describe('PieChartButton', () => {
 				/>,
 			);
 
-			wrapper
-				.find('Button')
-				.at(0)
-				.simulate('click', event);
+			wrapper.find('Button').at(0).simulate('click', event);
 
 			expect(onClick).toHaveBeenCalledWith(event, {
 				action: {

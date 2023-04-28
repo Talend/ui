@@ -1,4 +1,4 @@
-import React, { forwardRef, Key, Ref, useEffect, useRef, useState } from 'react';
+import { forwardRef, Key, Ref, useEffect, useRef, useState } from 'react';
 import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';

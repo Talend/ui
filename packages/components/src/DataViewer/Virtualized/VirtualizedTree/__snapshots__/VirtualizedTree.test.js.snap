@@ -1,16 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VirtualizedTree should render the autosize from react virtualized 1`] = `
-<div
-  className="theme-tc-virtualized-tree tc-virtualized-tree"
->
-  <AutoSizer
-    disableHeight={false}
-    disableWidth={false}
-    onResize={[Function]}
-    style={Object {}}
-  >
-    [Function]
-  </AutoSizer>
-</div>
+{
+  "cache": {
+    "_cellHeightCache": {},
+    "_cellWidthCache": {},
+    "_columnCount": 0,
+    "_columnWidthCache": {},
+    "_defaultHeight": 40,
+    "_defaultWidth": 100,
+    "_hasFixedHeight": false,
+    "_hasFixedWidth": true,
+    "_minHeight": 0,
+    "_minWidth": 0,
+    "_rowCount": 0,
+    "_rowHeightCache": {},
+  },
+  "deferredMeasurementCache": {
+    "_cellHeightCache": {},
+    "_cellWidthCache": {},
+    "_columnCount": 0,
+    "_columnWidthCache": {},
+    "_defaultHeight": 40,
+    "_defaultWidth": 100,
+    "_hasFixedHeight": false,
+    "_hasFixedWidth": true,
+    "_minHeight": 0,
+    "_minWidth": 0,
+    "_rowCount": 0,
+    "_rowHeightCache": {},
+  },
+  "disableHeight": true,
+  "height": 100,
+  "rowCount": 10,
+  "width": 100,
+}
 `;

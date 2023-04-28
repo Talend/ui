@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { memo, forwardRef, Ref } from 'react';
 import Skeleton from '../../../Skeleton';
 import classnames from 'classnames';
 
@@ -22,4 +22,4 @@ const StepSkeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLLIElement>) 
 	);
 });
 
-export default React.memo(StepSkeleton);
+export default memo(StepSkeleton);

@@ -6,14 +6,14 @@ exports[`BadgeSliderForm should mount a badge with a greaterThan slider 1`] = `
   id="customId"
   onChange={
     [MockFunction] {
-      "calls": Array [
-        Array [
+      "calls": [
+        [
           null,
           0,
         ],
       ],
-      "results": Array [
-        Object {
+      "results": [
+        {
           "type": "return",
           "value": undefined,
         },
@@ -22,7 +22,7 @@ exports[`BadgeSliderForm should mount a badge with a greaterThan slider 1`] = `
   }
   onSubmit={[MockFunction]}
   operator={
-    Object {
+    {
       "name": "greaterThan",
     }
   }
@@ -36,14 +36,14 @@ exports[`BadgeSliderForm should mount a default badge 1`] = `
   id="customId"
   onChange={
     [MockFunction] {
-      "calls": Array [
-        Array [
+      "calls": [
+        [
           null,
           0,
         ],
       ],
-      "results": Array [
-        Object {
+      "results": [
+        {
           "type": "return",
           "value": undefined,
         },
@@ -61,14 +61,14 @@ exports[`BadgeSliderForm should mount a default badge in edit mode 1`] = `
   id="customId"
   onChange={
     [MockFunction] {
-      "calls": Array [
-        Array [
+      "calls": [
+        [
           null,
           0,
         ],
       ],
-      "results": Array [
-        Object {
+      "results": [
+        {
           "type": "return",
           "value": undefined,
         },
@@ -86,14 +86,14 @@ exports[`BadgeSliderForm should mount an badge with an equals slider 1`] = `
   id="customId"
   onChange={
     [MockFunction] {
-      "calls": Array [
-        Array [
+      "calls": [
+        [
           null,
           0,
         ],
       ],
-      "results": Array [
-        Object {
+      "results": [
+        {
           "type": "return",
           "value": undefined,
         },
@@ -102,7 +102,7 @@ exports[`BadgeSliderForm should mount an badge with an equals slider 1`] = `
   }
   onSubmit={[MockFunction]}
   operator={
-    Object {
+    {
       "name": "equals",
     }
   }

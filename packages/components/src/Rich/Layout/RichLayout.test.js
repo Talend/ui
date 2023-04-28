@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import RichLayout from './RichLayout.component';
 

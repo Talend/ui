@@ -1,0 +1,24 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.message {
+	display: flex;
+	border-radius: tokens.$coral-radius-s;
+	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	background-color: tokens.$coral-color-neutral-background;
+	height: 100%;
+	width: 28rem;
+
+	border-top-left-radius: tokens.$coral-radius-s;
+	border-bottom-left-radius: tokens.$coral-radius-s;
+	border-left: 0.6rem solid tokens.$coral-color-neutral-border-hover;
+
+	&__title {
+		font: tokens.$coral-heading-m;
+	}
+
+	&__description {
+		font: tokens.$coral-paragraph-m;
+		color: tokens.$coral-color-neutral-text-weak;
+		margin: 0;
+	}
+}

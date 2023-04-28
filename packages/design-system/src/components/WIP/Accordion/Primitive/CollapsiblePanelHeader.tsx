@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactChild, Ref } from 'react';
+import { forwardRef, ReactChild, Ref } from 'react';
 import classnames from 'classnames';
 
 import { ButtonIcon } from '../../../ButtonIcon';
@@ -105,6 +105,7 @@ const CollapsiblePanelHeader = forwardRef(
 						icon={action.icon}
 						onClick={action.callback}
 						data-test="action.button"
+						data-testid="action.button"
 					>
 						{action.tooltip}
 					</ButtonIcon>
@@ -119,6 +120,7 @@ const CollapsiblePanelHeader = forwardRef(
 						[styles['headerWrapper__size-s']]: size === 'S',
 					})}
 					data-test="panel.header"
+					data-testid="panel.header"
 				>
 					{getContent()}
 				</div>
@@ -137,6 +139,7 @@ const CollapsiblePanelHeader = forwardRef(
 				disabled={disabled}
 				ref={ref}
 				data-test="panel.header"
+				data-testid="panel.header"
 			>
 				{getContent()}
 			</button>

@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import { MenuProps } from 'reakit';
 
 import styles from './DropdownShell.module.scss';

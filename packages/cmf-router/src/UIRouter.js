@@ -7,7 +7,7 @@
  * @see react-cmf/lib/settings
  */
 import PropTypes from 'prop-types';
-import React from 'react';
+import { useEffect } from 'react';
 import { Router } from 'react-router';
 import { Route, Routes, Outlet } from 'react-router-dom';
 import { onLocationChanged } from 'connected-react-router';
@@ -92,7 +92,7 @@ export function getRouter(history, basename) {
 	 */
 	function CMFRouter({ action, location, ...props }) {
 		// sync from history to redux
-		React.useEffect(() => {
+		useEffect(() => {
 			return history.listen(({ location, action, isFirstRendering = false }) => {
 				props.dispatch(onLocationChanged(location, action, isFirstRendering));
 			});

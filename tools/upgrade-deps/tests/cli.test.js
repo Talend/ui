@@ -12,7 +12,7 @@ const {
 	isMajorLockGT,
 	isSameVersion,
 	isSameLockVersion,
-} = require('./utils');
+} = require('./utils.js');
 
 const fixturePath = path.join(__dirname, 'fixture', 'basic');
 const bin = path.resolve(__dirname, '..', 'bin', 'cli.js');
@@ -33,7 +33,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 
 	it('should by default only do safe upgrade', async () => {
 		const tmp = await getTmpDirectory('basic-default', fixturePath, lock);
-		const output = spawnSync('node', [bin, '-v'], { cwd: tmp });
+		const output = spawnSync('node', [bin, '-v', '--ignore-scripts'], { cwd: tmp });
 		const tmpLock = getLockContent(tmp, lock);
 		expect(output.error).toBeUndefined();
 		const err = output.stderr.toString();
@@ -44,9 +44,10 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		const pkgSub = JSON.parse(readFileSync(path.join(tmp, 'packages', 'suba', 'package.json')));
 		expect(pkg.devDependencies.chokidar).toBe(origin.devDependencies.chokidar);
 		expect(pkg.devDependencies.chokidar).toBe('2.1.8');
-		expect(isMinorGt('chokidar', pkg, origin)).toBe(false);
+		expect(isMinorGt('chokidar', pkg, origin, 'devDependencies')).toBe(false);
 		expect(isMinorGt('react', pkg, origin)).toBe(true);
-		expect(isMinorGt('react-dom', pkg, origin)).toBe(true);
+		expect(isMinorGt('react-dom', pkg, origin, 'devDependencies')).toBe(true);
+		expect(isMinorGt('react-dom', pkg, origin, 'peerDependencies')).toBe(true);
 		// no update on this old version installed
 		expect(isMinorLockGT('react', tmpLock, originLock)).toBe(true);
 		expect(isMinorLockGT('react-dom', tmpLock, originLock)).toBe(true);
@@ -88,8 +89,9 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		expect(output.error).toBeUndefined();
 
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
-		expect(isMajorGT('chokidar', pkg, origin)).toBe(true);
-		expect(isMajorGT('react-dom', pkg, origin)).toBe(true);
+		expect(isMajorGT('chokidar', pkg, origin, 'devDependencies')).toBe(true);
+		expect(isMajorGT('react-dom', pkg, origin, 'devDependencies')).toBe(true);
+		expect(isMajorGT('react-dom', pkg, origin, 'peerDependencies')).toBe(true);
 		expect(isMajorGT('react', pkg, origin)).toBe(true);
 		expect(isMajorLockGT('chokidar', tmpLock, originLock)).toBe(true);
 		expect(isMajorLockGT('react-dom', tmpLock, originLock)).toBe(true);
@@ -110,8 +112,9 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		expect(output.error).toBeUndefined();
 
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
-		expect(isSameVersion('chokidar', pkg, origin)).toBe(true);
-		expect(isSameVersion('react-dom', pkg, origin)).toBe(true);
+		expect(isSameVersion('chokidar', pkg, origin, 'devDependencies')).toBe(true);
+		expect(isSameVersion('react-dom', pkg, origin, 'devDependencies')).toBe(true);
+		expect(isSameVersion('react-dom', pkg, origin, 'peerDependencies')).toBe(true);
 
 		const tmpLock = getLockContent(tmp, lock);
 		expect(isSameLockVersion('chokidar', tmpLock, originLock)).toBe(true);
@@ -132,7 +135,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		expect(output.error).toBeUndefined();
 
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
-		expect(isSameVersion('chokidar', pkg, origin)).toBe(true);
+		expect(isSameVersion('chokidar', pkg, origin, 'devDependencies')).toBe(true);
 		expect(isSameVersion('react', pkg, origin)).toBe(true);
 
 		const tmpLock = getLockContent(tmp, lock);

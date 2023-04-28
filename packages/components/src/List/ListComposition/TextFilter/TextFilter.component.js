@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useListContext } from '../context';
 import FilterBar from '../../../FilterBar';
@@ -8,7 +8,7 @@ function TextFilter(props) {
 	const { textFilter, setTextFilter, setFilteredColumns } = useListContext();
 	const [dockedState, setDocked] = useState(initialDocked);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setFilteredColumns(applyOn);
 	}, [applyOn, setFilteredColumns]);
 

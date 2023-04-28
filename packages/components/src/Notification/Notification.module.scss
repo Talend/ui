@@ -1,13 +1,13 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 
-$tc-notification-info-color: #3c763d !default;
-$tc-notification-info-bgcolor: #e8f2cc !default;
+$tc-notification-info-color: #3C763D !default;
+$tc-notification-info-bgcolor: #E8F2CC !default;
 
-$tc-notification-warning-color: #8a6d3b !default;
-$tc-notification-warning-bgcolor: #fdeecc !default;
+$tc-notification-warning-color: #8A6D3B !default;
+$tc-notification-warning-bgcolor: #FDEECC !default;
 
-$tc-notification-error-color: #a94442 !default;
-$tc-notification-error-bgcolor: #f5e0e0 !default;
+$tc-notification-error-color: #A94442 !default;
+$tc-notification-error-bgcolor: #F5E0E0 !default;
 
 $tc-notification-animation-duration: 0.3s !default;
 
@@ -60,12 +60,12 @@ $tc-notification-icon-size: $svg-md-size !default;
 	}
 
 	&-title {
+		font-size: $font-size-small;
+		font-weight: bold;
 		margin: {
 			top: 0;
 			right: $padding-larger;
 		}
-		font-size: $font-size-small;
-		font-weight: bold;
 	}
 
 	&-close {
@@ -93,7 +93,7 @@ $tc-notification-icon-size: $svg-md-size !default;
 		}
 
 		&-action {
-			color: #1babcd;
+			color: #1BABCD;
 			padding: 0 $padding-small;
 
 			svg {
@@ -159,6 +159,7 @@ $tc-notification-icon-size: $svg-md-size !default;
 		z-index: 1;
 	}
 }
+
 :global(.tc-notification-enter) {
 	animation: tc-notification-slide-in $tc-notification-animation-duration linear;
 }

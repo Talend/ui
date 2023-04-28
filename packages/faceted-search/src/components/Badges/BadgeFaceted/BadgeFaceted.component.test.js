@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { mount } from 'enzyme';
 import Badge from '@talend/react-components/lib/Badge';
 import { BadgeFaceted } from './BadgeFaceted.component';

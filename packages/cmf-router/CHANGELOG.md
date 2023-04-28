@@ -1,5 +1,25 @@
 # Changelog
 
+## 5.2.6
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [616601fda]
+- Updated dependencies [f47e34dd0]
+  - @talend/react-cmf@7.2.0
+
+## 5.2.5
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
 ## 5.2.4
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect } from 'react';
+import { Fragment, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../../../constants';
 import FilterBar from '../../../../FilterBar';
@@ -58,7 +58,7 @@ export default function ColumnChooser({
 	const resetFilter = useCallback(() => setTextFilter(''), [setTextFilter]);
 
 	const Default = (
-		<React.Fragment>
+		<Fragment>
 			<ColumnChooserHeader />
 			<FilterBar
 				autoFocus={false}
@@ -78,7 +78,7 @@ export default function ColumnChooser({
 				<ColumnChooserBody />
 				<ColumnChooserFooter />
 			</form>
-		</React.Fragment>
+		</Fragment>
 	);
 	return (
 		<ColumnChooserProvider

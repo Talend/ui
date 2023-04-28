@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import keycode from 'keycode';
@@ -7,7 +7,7 @@ import FocusManager from '../FocusManager';
 import theme from './EditableText.module.scss';
 import getDefaultT from '../translate';
 
-class InlineForm extends React.Component {
+class InlineForm extends Component {
 	static propTypes = {
 		text: PropTypes.string.isRequired,
 		placeholder: PropTypes.string,

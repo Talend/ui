@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
 
@@ -75,10 +74,7 @@ describe('Time.Manager', () => {
 					);
 
 					// when
-					wrapper
-						.find('TimeConsumerDiv')
-						.prop('inputManagement')
-						.onChange(event);
+					wrapper.find('TimeConsumerDiv').prop('inputManagement').onChange(event);
 					wrapper.update();
 
 					// then
@@ -113,10 +109,7 @@ describe('Time.Manager', () => {
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('TimeConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				wrapper.find('TimeConsumerDiv').prop('inputManagement').onChange(event);
 
 				// then
 				expect(onChange).toBeCalledWith(event, {
@@ -144,10 +137,7 @@ describe('Time.Manager', () => {
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('TimeConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				wrapper.find('TimeConsumerDiv').prop('inputManagement').onChange(event);
 
 				// then
 				expect(onChange).toBeCalled();

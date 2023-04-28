@@ -5,31 +5,31 @@ exports[`RadarChart should render a RadarChart 1`] = `
   cx={210}
   cy={140}
   data={
-    Array [
-      Object {
+    [
+      {
         "A": 4,
         "axis": "Validity",
       },
-      Object {
+      {
         "A": 3,
         "axis": "Social curation",
       },
-      Object {
+      {
         "A": 2,
         "axis": "Completeness",
       },
-      Object {
+      {
         "A": 1,
         "axis": "Discoverability",
       },
-      Object {
+      {
         "A": 1,
         "axis": "other",
       },
     ]
   }
   domain={
-    Array [
+    [
       0,
       5,
     ]
@@ -49,7 +49,7 @@ exports[`RadarChart should render a RadarChart 1`] = `
     cy={0}
     dataKey="axis"
     domain={
-      Array [
+      [
         0,
         "auto",
       ]
@@ -87,31 +87,31 @@ exports[`RadarChart should render a chart with custom dots 1`] = `
   cx={210}
   cy={140}
   data={
-    Array [
-      Object {
+    [
+      {
         "A": 4,
         "axis": "Validity",
       },
-      Object {
+      {
         "A": 3,
         "axis": "Social curation",
       },
-      Object {
+      {
         "A": 2,
         "axis": "Completeness",
       },
-      Object {
+      {
         "A": 1,
         "axis": "Discoverability",
       },
-      Object {
+      {
         "A": 1,
         "axis": "other",
       },
     ]
   }
   domain={
-    Array [
+    [
       0,
       5,
     ]
@@ -131,7 +131,7 @@ exports[`RadarChart should render a chart with custom dots 1`] = `
     cy={0}
     dataKey="axis"
     domain={
-      Array [
+      [
         0,
         "auto",
       ]

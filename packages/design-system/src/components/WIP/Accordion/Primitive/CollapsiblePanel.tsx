@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from 'react';
+import { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from 'react';
 import classNames from 'classnames';
 import { unstable_useId as useId } from 'reakit/Id';
 
@@ -44,7 +44,7 @@ const CollapsiblePanel = forwardRef(
 		}: CollapsiblePanelPropsType,
 		ref: Ref<HTMLButtonElement>,
 	) => {
-		const [localExpanded, setLocalExpanded] = useState(false);
+		const [localExpanded, setLocalExpanded] = useState(!!expanded);
 
 		const { id: reakitId } = useId();
 		const componentId = id || reakitId;
@@ -94,6 +94,7 @@ const CollapsiblePanel = forwardRef(
 						aria-labelledby={controlId}
 						className={styles.panelContent}
 						data-test="panel.section"
+						data-testid="panel.section"
 					>
 						{children}
 					</div>

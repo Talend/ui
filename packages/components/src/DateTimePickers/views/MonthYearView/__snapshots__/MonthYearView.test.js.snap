@@ -12,9 +12,9 @@ exports[`MonthYearView should render 1`] = `
     />
   }
   header={
-    Object {
+    {
       "leftElement": <Action
-        aria-label="Switch back to date and time pickers view"
+        aria-label="Switch to date-and-time view"
         className="btn-tertiary btn-info"
         icon="talend-arrow-left"
         label=""

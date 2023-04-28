@@ -27,7 +27,7 @@ $tc-dropdown-button-right-padding: 0.8rem;
 		}
 
 		&.ellipsis {
-			&:after {
+			&::after {
 				content: '\22ee';
 				font-size: 2em;
 				font-weight: bold;

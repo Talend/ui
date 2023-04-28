@@ -1,5 +1,31 @@
 # @talend/react-stepper
 
+## 7.1.5
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
+## 7.1.4
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+
+## 7.1.3
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+
 ## 7.1.2
 
 ### Patch Changes

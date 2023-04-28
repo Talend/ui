@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component as RComponent } from 'react';
 import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -37,7 +37,7 @@ export function getIcon(opened) {
 	};
 }
 
-export class RecordsViewer extends React.Component {
+export class RecordsViewer extends RComponent {
 	static displayName = 'RecordsViewerContainer';
 
 	static propTypes = {

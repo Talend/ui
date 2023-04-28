@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import JSONSchemaRenderer from '@talend/react-components/lib/JSONSchemaRenderer';

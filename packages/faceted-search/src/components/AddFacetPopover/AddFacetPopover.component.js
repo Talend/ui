@@ -1,4 +1,4 @@
-import React, { createRef, useCallback, useEffect, useRef, useState } from 'react';
+import { createRef, useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import isString from 'lodash/isString';
 import times from 'lodash/times';

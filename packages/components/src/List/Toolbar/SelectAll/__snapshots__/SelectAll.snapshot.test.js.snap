@@ -17,7 +17,7 @@ exports[`SelectAll should be unchecked when there is no items 1`] = `
         type="checkbox"
       />
       <span>
-        Select All
+        Select all
       </span>
     </label>
   </div>
@@ -41,7 +41,7 @@ exports[`SelectAll should render 1`] = `
         type="checkbox"
       />
       <span>
-        Select All
+        Select all
       </span>
     </label>
   </div>
@@ -67,7 +67,7 @@ exports[`SelectAll should render id if provided 1`] = `
         type="checkbox"
       />
       <span>
-        Select All
+        Select all
       </span>
     </label>
   </div>

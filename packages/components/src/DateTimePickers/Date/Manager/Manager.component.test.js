@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
 import { act } from 'react-dom/test-utils';
@@ -170,10 +169,7 @@ describe('Date.Manager', () => {
 
 					// when
 					act(() => {
-						wrapper
-							.find('DateConsumerDiv')
-							.prop('inputManagement')
-							.onChange(event);
+						wrapper.find('DateConsumerDiv').prop('inputManagement').onChange(event);
 					});
 					wrapper.update();
 
@@ -222,10 +218,7 @@ describe('Date.Manager', () => {
 
 				// when
 				act(() => {
-					wrapper
-						.find('DateConsumerDiv')
-						.prop('inputManagement')
-						.onChange(event);
+					wrapper.find('DateConsumerDiv').prop('inputManagement').onChange(event);
 				});
 				wrapper.update();
 
@@ -252,10 +245,7 @@ describe('Date.Manager', () => {
 
 				// when
 				act(() => {
-					wrapper
-						.find('DateConsumerDiv')
-						.prop('inputManagement')
-						.onChange(event);
+					wrapper.find('DateConsumerDiv').prop('inputManagement').onChange(event);
 				});
 				wrapper.update();
 
@@ -286,10 +276,7 @@ describe('Date.Manager', () => {
 
 					// when
 					act(() => {
-						wrapper
-							.find('DateConsumerDiv')
-							.prop('pickerManagement')
-							.onSubmit(event, { date });
+						wrapper.find('DateConsumerDiv').prop('pickerManagement').onSubmit(event, { date });
 					});
 					wrapper.update();
 

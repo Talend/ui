@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { ActionButton } from '@talend/react-components/lib/Actions';
 import { mock } from '@talend/react-cmf';

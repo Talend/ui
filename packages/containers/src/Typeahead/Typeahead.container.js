@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { cmfConnect, componentState } from '@talend/react-cmf';
@@ -18,7 +18,7 @@ export const DEFAULT_STATE = new Immutable.Map({
 /**
  * The Typeahead React container
  */
-export default class Typeahead extends React.Component {
+export default class Typeahead extends RComponent {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {

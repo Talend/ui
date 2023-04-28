@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import Badge from '@talend/react-components/lib/Badge';
 import Form from '@talend/react-forms';
 import VirtualizedList from '@talend/react-components/lib/VirtualizedList';

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import getDefaultT from '../../../translate';
 
@@ -8,13 +7,15 @@ function ItemsNumber({ id, totalItems, selected, label, labelSelected, t }) {
 			{selected
 				? labelSelected ||
 				  t('LIST_TOOLBAR_NUMBER_OF_SELECTED_ITEMS', {
-						defaultValue: '{{count}}/{{total}} items',
+						defaultValue: '{{count}}/{{total}} item',
+						defaultValue_plural: '{{count}}/{{total}} items',
 						count: selected,
 						total: totalItems,
 				  })
 				: label ||
 				  t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
-						defaultValue: '{{count}} items',
+						defaultValue: '{{count}} item',
+						defaultValue_plural: '{{count}} items',
 						count: totalItems,
 				  })}
 		</div>

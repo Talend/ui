@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import Input, { TypedInputFieldProps } from './Input';
 
 const Time = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {

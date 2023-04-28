@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import parseISO from 'date-fns/parseISO';
 import { DateInputField, DateRangeHandler } from './DateRangeHandler';

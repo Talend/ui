@@ -48,9 +48,9 @@ export function adaptAdditionalRules(mergedSchema) {
  * that is applied on schema.customValidation = true
  * @returns {object} The validation result.
  */
-export function validateValue(schema, value, properties, customValidationFn) {
+export function validateValue(schema, value, properties, customValidationFn, event) {
 	const validationSchema = adaptAdditionalRules(schema);
-	const staticResult = validate(validationSchema, value);
+	const staticResult = validate(validationSchema, value, event);
 	if (staticResult.valid && schema.customValidation && customValidationFn) {
 		return customValidationFn(schema, value, properties);
 	}
@@ -111,13 +111,14 @@ export function validateSimple(
 	properties,
 	customValidationFn,
 	deepValidation,
+	event,
 ) {
 	const results = {};
 	const { key, items } = mergedSchema;
 	// do not break in case we do not have the key
 	// we need to keep deepValidation
 	if (key) {
-		results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
+		results[key] = validateValue(mergedSchema, value, properties, customValidationFn, event);
 	}
 
 	if (deepValidation && items) {
@@ -145,11 +146,12 @@ export function validateSingle(
 	properties,
 	customValidationFn,
 	deepValidation,
+	event,
 ) {
 	if (mergedSchema.type === 'array') {
 		return validateArray(mergedSchema, value, properties, customValidationFn, deepValidation);
 	}
-	return validateSimple(mergedSchema, value, properties, customValidationFn, deepValidation);
+	return validateSimple(mergedSchema, value, properties, customValidationFn, deepValidation, event);
 }
 
 /**

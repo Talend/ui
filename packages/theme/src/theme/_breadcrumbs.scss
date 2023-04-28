@@ -30,9 +30,9 @@
 			overflow: hidden;
 		}
 
-		& + li {
+		+ li {
 			// https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html
-			&:before {
+			&::before {
 				display: block;
 				content: '';
 				margin: 0 $padding-small $padding-smaller $padding-smaller;
@@ -43,6 +43,7 @@
 			}
 		}
 
+		// stylelint-disable-next-line selector-no-qualifying-type
 		&.active span {
 			font-weight: $font-weight-semi-bold;
 			color: $breadcrumb-items-active-color;
@@ -58,6 +59,7 @@
 		background: transparent;
 		border: none;
 
+		// stylelint-disable-next-line selector-no-qualifying-type
 		&:focus,
 		&:hover,
 		&:active,

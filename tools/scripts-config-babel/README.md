@@ -4,7 +4,7 @@ You can use your own babelrc but it is not recommanded. To do so, you will need 
 
 ```json
 {
-  "extends": "@talend/scripts-config-babel/.babelrc.json"
+	"extends": "@talend/scripts-config-babel"
 }
 ```
 

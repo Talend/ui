@@ -1,19 +1,20 @@
-import React from 'react';
+import { forwardRef, Children, cloneElement } from 'react';
+import type { Ref, HTMLAttributes } from 'react';
 import { isElement } from 'react-is';
 
 import styles from './Row.module.scss';
 import classNames from 'classnames';
 
-type RowProps = React.HTMLAttributes<HTMLDivElement> & {
+type RowProps = HTMLAttributes<HTMLDivElement> & {
 	disabled?: boolean;
 	readOnly?: boolean;
 	isStretched?: boolean;
 };
 
-const Row = React.forwardRef(
+const Row = forwardRef(
 	(
 		{ children, disabled, readOnly, isStretched = false, ...rest }: RowProps,
-		ref: React.Ref<HTMLDivElement>,
+		ref: Ref<HTMLDivElement>,
 	) => {
 		const childrenProps: { disabled?: boolean; readOnly?: boolean } = {};
 		if (disabled) childrenProps.disabled = true;
@@ -25,8 +26,8 @@ const Row = React.forwardRef(
 				{...rest}
 				ref={ref}
 			>
-				{React.Children.toArray(children).map(child =>
-					isElement(child) ? React.cloneElement(child, childrenProps) : child,
+				{Children.toArray(children).map(child =>
+					isElement(child) ? cloneElement(child, childrenProps) : child,
 				)}
 			</div>
 		);

@@ -12,39 +12,39 @@ exports[`Columns widget should render columns 1`] = `
   >
     <Widget
       schema={
-        Object {
-          "items": Array [
-            Object {
+        {
+          "items": [
+            {
               "description": "Hint: this is the last name",
-              "key": Array [
+              "key": [
                 "lastname",
               ],
-              "ngModelOptions": Object {},
-              "schema": Object {
+              "ngModelOptions": {},
+              "schema": {
                 "type": "string",
               },
               "title": "Last Name (with description)",
               "type": "text",
             },
-            Object {
-              "key": Array [
+            {
+              "key": [
                 "firstname",
               ],
-              "ngModelOptions": Object {},
+              "ngModelOptions": {},
               "placeholder": "Enter your firstname here",
               "required": true,
-              "schema": Object {
+              "schema": {
                 "type": "string",
               },
               "title": "First Name (with placeholder)",
               "type": "text",
             },
-            Object {
-              "key": Array [
+            {
+              "key": [
                 "age",
               ],
-              "ngModelOptions": Object {},
-              "schema": Object {
+              "ngModelOptions": {},
+              "schema": {
                 "type": "number",
               },
               "title": "Age",
@@ -55,24 +55,24 @@ exports[`Columns widget should render columns 1`] = `
           "widget": "fieldset",
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
     <Widget
       schema={
-        Object {
+        {
           "description": "This one is a column composed by a single input",
-          "key": Array [
+          "key": [
             "singleInput",
           ],
-          "ngModelOptions": Object {},
-          "schema": Object {
+          "ngModelOptions": {},
+          "schema": {
             "type": "string",
           },
           "title": "singleInput",
           "type": "text",
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
   </div>
 </div>

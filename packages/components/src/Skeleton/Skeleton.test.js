@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import Skeleton from './Skeleton.component';
 
@@ -13,7 +12,7 @@ describe('Skeleton', () => {
 		const wrapper = mount(<Skeleton type="text" t={t} />);
 		const element = wrapper.find('.tc-skeleton');
 		expect(element.type()).toBe('span');
-		expect(element.props()['aria-label']).toBe('text (loading)');
+		expect(element.props()['aria-label']).toBe('text Loading...');
 	});
 	it('should use style to apply with/height', () => {
 		const wrapper = mount(<Skeleton type="text" t={t} width={80} height={30} />);

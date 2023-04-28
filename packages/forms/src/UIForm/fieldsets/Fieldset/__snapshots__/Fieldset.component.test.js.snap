@@ -11,33 +11,33 @@ exports[`Fieldset widget should render fieldset 1`] = `
   </legend>
   <Widget
     schema={
-      Object {
-        "key": Array [
+      {
+        "key": [
           "user",
           "firstname",
         ],
-        "schema": Object {
+        "schema": {
           "type": "string",
         },
         "type": "text",
       }
     }
-    widgets={Object {}}
+    widgets={{}}
   />
   <Widget
     schema={
-      Object {
-        "key": Array [
+      {
+        "key": [
           "user",
           "lastname",
         ],
-        "schema": Object {
+        "schema": {
           "type": "string",
         },
         "type": "text",
       }
     }
-    widgets={Object {}}
+    widgets={{}}
   />
 </fieldset>
 `;

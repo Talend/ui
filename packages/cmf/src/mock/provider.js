@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import { Provider } from 'react-redux';
 import { RegistryProvider } from '../RegistryProvider';
 import mock from './store';
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends Component {
 	static propTypes = {
 		children: PropTypes.any,
 		onError: PropTypes.func,

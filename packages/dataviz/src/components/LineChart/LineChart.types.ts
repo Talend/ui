@@ -54,6 +54,7 @@ export type LineChartOptions = {
 		manualTicks?: Array<string | number>;
 		horizontalOffset?: number;
 		verticalOffset?: number;
+		tickLine?: boolean;
 		formatter?: (value: any) => string;
 	};
 	rightYAxisOptions?: {
@@ -65,6 +66,7 @@ export type LineChartOptions = {
 		manualTicks?: Array<string | number>;
 		horizontalOffset?: number;
 		verticalOffset?: number;
+		tickLine?: boolean;
 		formatter?: (value: any) => string;
 	};
 	showGridLines?: boolean;

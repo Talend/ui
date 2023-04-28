@@ -1,4 +1,3 @@
-import React from 'react';
 import FormatValue from './FormatValue.component';
 
 export default {

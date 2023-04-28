@@ -1,7 +1,9 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { Map, List } from 'immutable';
+import { render, screen } from '@testing-library/react';
 
+// eslint-disable-next-line @talend/import-depth
+import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Connected, { mapStateToProps } from './HeaderBar.connect';
 import Constants from './HeaderBar.constant';
@@ -11,9 +13,9 @@ describe('Container HeaderBar', () => {
 	const dispatch = jest.fn();
 	const containerProps = { state, dispatch };
 
-	it('should render HeaderBar container', () => {
-		const wrapper = shallow(<Container {...containerProps} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+	it('should render HeaderBar container', async () => {
+		render(await prepareCMF(<Container {...containerProps} />));
+		expect(screen.getByRole('navigation')).toBeVisible();
 	});
 
 	it('should render HeaderBar container with a list of items', () => {
@@ -133,7 +135,11 @@ describe('Connected HeaderBar', () => {
 
 		const props = mapStateToProps(state, ownProps);
 
-		expect(props).toEqual({});
+		expect(props).toEqual({
+			callToAction: undefined,
+			genericAction: undefined,
+			productsItems: undefined,
+		});
 	});
 
 	it('should mapStateToProps with a list of products', () => {

@@ -1,12 +1,12 @@
 import actions from './actions';
 import ACKDispatcher from './components/ACKDispatcher';
+import * as constants from './constants';
 import middlewares from './middleware';
 import reducers from './reducers';
 import { ackProcessed } from './reducers/ack';
-import * as constants from './constants';
 import sagas from './sagas';
 
-export { useWebSocket } from './hooks';
+export { useWebSocket } from './useWebSocket.hook';
 export { actions, ACKDispatcher, constants, middlewares, reducers, sagas, ackProcessed };
 
 export default {

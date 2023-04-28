@@ -6,7 +6,9 @@ exports[`MonthPicker should render 1`] = `
   selectedMonthIndex={4}
   selectedYear={2018}
 >
-  <div>
+  <div
+    onKeyDown={[Function]}
+  >
     <MonthPicker
       onKeyDown={[Function]}
       onSelect={[MockFunction]}

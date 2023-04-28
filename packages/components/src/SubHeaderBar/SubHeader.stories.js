@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import FilterBar from '../FilterBar';
 import Tag from '../Tag';
@@ -92,6 +91,12 @@ export const WithIcon = () => (
 export const WithSubtitle = () => (
 	<div>
 		<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
+	</div>
+);
+
+export const WithEditableSubtitle = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction} editable subTitle="mySubTitle" />
 	</div>
 );
 

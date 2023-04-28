@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
 import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
@@ -10,17 +10,8 @@ import { extractDataAttributes } from '../../utils/properties';
 const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
 
 function DateWidget(props) {
-	const {
-		errorMessage,
-		id,
-		isValid,
-		onChange,
-		onFinish,
-		options,
-		schema,
-		value,
-		valueIsUpdating,
-	} = props;
+	const { errorMessage, id, isValid, onChange, onFinish, options, schema, value, valueIsUpdating } =
+		props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const convertedValue =

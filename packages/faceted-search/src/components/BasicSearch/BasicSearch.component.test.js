@@ -1,10 +1,10 @@
-import React from 'react';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 import { mount } from 'enzyme';
 import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
+import { render } from '@testing-library/react';
 
 describe('BasicSearch', () => {
 	const badgeText = {
@@ -169,54 +169,90 @@ describe('BasicSearch', () => {
 		});
 		expect(wrapper.find('[role="option"]')).toHaveLength(0);
 	});
+	it('should not trigger onSubmit when badge definition has not changed', () => {
+		// given
+		const onSubmit = jest.fn();
+		const props = {
+			badgesDefinitions,
+			onSubmit,
+		};
+		// when
+		const { rerender } = render(
+			<FacetedManager id="manager-id">
+				<BasicSearch {...props} />
+			</FacetedManager>,
+		);
+		expect(onSubmit).not.toHaveBeenCalled();
+
+		rerender(
+			<FacetedManager id="manager-id">
+				<BasicSearch {...props} />
+			</FacetedManager>,
+		);
+		// then
+		expect(onSubmit).not.toHaveBeenCalled();
+	});
 	it('should not trigger onSubmit when a badge is in creation', () => {
 		// given
 		const onSubmit = jest.fn();
 		const props = {
 			badgesDefinitions,
-			badgesFaceted,
 			onSubmit,
 		};
 		// when
-		const wrapper = mount(
+		const { rerender } = render(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
 		);
-		wrapper.update();
-		// then
+		expect(onSubmit).not.toHaveBeenCalled();
+
+		rerender(
+			<FacetedManager id="manager-id">
+				<BasicSearch {...props} badgesFaceted={badgesFaceted} />
+			</FacetedManager>,
+		);
+
 		expect(onSubmit).not.toHaveBeenCalled();
 	});
-	it('should trigger onSubmit when no badge is in creation', () => {
+
+	it('should trigger onSubmit when no badge is in creation and badge definition has changed', () => {
 		// given
 		const onSubmit = jest.fn();
 		const props = {
 			badgesDefinitions,
-			badgesFaceted: {
-				badges: [
-					{
-						...badgeText,
-						metadata: {
-							...badgeText.metadata,
-							isInCreation: false,
-						},
-					},
-				],
-			},
 			onSubmit,
 		};
+		const badgesFacetedNotInCreation = {
+			badges: [
+				{
+					...badgeText,
+					metadata: {
+						...badgeText.metadata,
+						isInCreation: false,
+					},
+				},
+			],
+		};
 		// when
-		const wrapper = mount(
+		const { rerender } = render(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
 		);
-		wrapper.update();
+		expect(onSubmit).not.toHaveBeenCalled();
+
+		rerender(
+			<FacetedManager id="manager-id">
+				<BasicSearch {...props} badgesFaceted={badgesFacetedNotInCreation} />
+			</FacetedManager>,
+		);
+
 		// then
 		expect(onSubmit).toHaveBeenCalled();
 		expect(onSubmit.mock.calls.length).toBe(1);
 		expect(onSubmit.mock.calls[0][0]).toEqual({});
-		expect(onSubmit.mock.calls[0][1]).toEqual(props.badgesFaceted.badges);
+		expect(onSubmit.mock.calls[0][1]).toEqual(badgesFacetedNotInCreation.badges);
 	});
 
 	it('should not show add filter button when no badge definitions provided', () => {

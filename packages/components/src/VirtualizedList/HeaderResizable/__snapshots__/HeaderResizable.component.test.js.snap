@@ -34,7 +34,7 @@ exports[`HeaderResizable should render with no specific props 1`] = `
           defaultClassNameDragged="react-draggable-dragged"
           defaultClassNameDragging="react-draggable-dragging"
           defaultPosition={
-            Object {
+            {
               "x": 0,
               "y": 0,
             }
@@ -46,7 +46,7 @@ exports[`HeaderResizable should render with no specific props 1`] = `
           onStart={[Function]}
           onStop={[Function]}
           position={
-            Object {
+            {
               "x": 0,
             }
           }
@@ -69,7 +69,7 @@ exports[`HeaderResizable should render with no specific props 1`] = `
               onMouseUp={[Function]}
               onTouchEnd={[Function]}
               style={
-                Object {
+                {
                   "transform": "translate(0px,undefinedpx)",
                 }
               }

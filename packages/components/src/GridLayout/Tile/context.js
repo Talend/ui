@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import { createContext, useContext } from 'react';
 import invariant from 'invariant';
 
 // eslint-disable-next-line import/prefer-default-export
-export const TileContext = React.createContext();
+export const TileContext = createContext();
 
 export function useTileContext() {
 	const context = useContext(TileContext);

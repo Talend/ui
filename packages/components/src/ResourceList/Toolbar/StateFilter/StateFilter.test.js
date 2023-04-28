@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '@talend/react-bootstrap';
 import { mount } from 'enzyme';
 import StateFilter, { TYPES } from './StateFilter.component';
@@ -12,16 +11,10 @@ describe('StateFilter', () => {
 
 		expect(onChange).not.toBeCalled();
 
-		wrapper
-			.find(Button)
-			.at(0)
-			.simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 		expect(onChange).toBeCalledWith(TYPES.CERTIFIED, false);
 
-		wrapper
-			.find(Button)
-			.at(1)
-			.simulate('click');
+		wrapper.find(Button).at(1).simulate('click');
 		expect(onChange).toBeCalledWith(TYPES.FAVORITES, true);
 	});
 });

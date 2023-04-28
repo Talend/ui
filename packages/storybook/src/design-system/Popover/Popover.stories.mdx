@@ -1,0 +1,84 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import * as Stories from './Popover.stories';
+import { StackVertical, InlineMessageWarning } from '@talend/design-system';
+
+<Meta
+	title="Design System/Popover"
+	parameters={{
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
+	}}
+/>
+
+# Popover
+
+<StackVertical
+	gap="XS"
+	margin={{
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 'M',
+	}}
+>
+	<InlineMessageWarning
+		title="Early API"
+		withBackground
+		description="This component works but its API is unproven. Use experimentally."
+	/>
+</StackVertical>
+
+Popover displays floating informative and actionable content in relation to its disclosure.
+
+## Zoning
+
+## Style
+
+### Default
+
+<Canvas>
+	<Story height="12rem" story={Stories.DefaultStory} />
+</Canvas>
+
+### Disable padding in popover contents
+
+<Canvas>
+	<Story height="12rem" story={Stories.WithoutPaddingStory} />
+</Canvas>
+
+### Disclosure
+
+You can use any of the design system's "Clickable" or "Form" component as a disclosure.
+
+<Canvas>
+	<Story height="12rem" story={Stories.DisclosureStory} />
+</Canvas>
+
+<Canvas>
+	<Story height="15rem" story={Stories.FormDisclosureStory} />
+</Canvas>
+
+## States
+
+## Content
+
+_Not applicable_
+
+## Interaction
+
+## Accessibility
+
+## Usage
+
+### Close popover from the inside
+
+You may need to programmatically close the popover with an interaction from its content.
+
+Such would be the case when submitting a setting or simply clicking on a "close" button.
+
+You can do just so by using the "function as children" pattern:
+
+<Canvas>
+	<Story height="12rem" story={Stories.WithFunctionAsChildren} />
+</Canvas>
+
+As you can see, the button inside that popover consumes the popover's state and its methods.

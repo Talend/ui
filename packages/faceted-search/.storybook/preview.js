@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider } from '@talend/design-system';
 import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as facetedNamespaces } from '@talend/locales-tui-faceted-search/namespaces';

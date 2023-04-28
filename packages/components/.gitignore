@@ -25,6 +25,7 @@ coverage/
 # Compilation output #
 target/
 *.class
+types
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React from 'react';
+import { Component } from 'react';
 import { all, fork } from 'redux-saga/effects';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
@@ -14,7 +14,7 @@ function* initSagaMiddleWare() {
  * @example
 <CMFStory name="Hello world"></CMFStory>
  */
-class CMFStory extends React.Component {
+class CMFStory extends Component {
 	constructor(props) {
 		super(props);
 		let state;

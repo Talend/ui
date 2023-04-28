@@ -1,55 +1,55 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .inlineMessage {
-  display: inline;
-  font: tokens.$coral-paragraph-m;
-  color: tokens.$coral-color-neutral-text;
+	display: inline;
+	font: tokens.$coral-paragraph-m;
+	color: tokens.$coral-color-neutral-text;
 
-  strong {
-    font: tokens.$coral-paragraph-m-bold;
-  }
+	strong {
+		font: tokens.$coral-paragraph-m-bold;
+	}
 
-  .icon {
-    margin-right: tokens.$coral-spacing-xxs;
-    width: tokens.$coral-sizing-xxxs;
-    height: tokens.$coral-sizing-xxxs;
-    display: inline-block;
-    // Visually align icon in inline mode
-    position: relative;
-    top: 0.3rem;
+	.icon {
+		margin-right: tokens.$coral-spacing-xxs;
+		width: tokens.$coral-sizing-xxxs;
+		height: tokens.$coral-sizing-xxxs;
+		display: inline-block;
+		// Visually align icon in inline mode
+		position: relative;
+		top: 0.3rem;
 
-    svg {
-      width: tokens.$coral-sizing-xxxs;
-      height: tokens.$coral-sizing-xxxs;
-    }
-  }
+		svg {
+			width: tokens.$coral-sizing-xxxs;
+			height: tokens.$coral-sizing-xxxs;
+		}
+	}
 
-  > * {
-    display: inline;
-  }
+	> * {
+		display: inline;
+	}
 
-  &__contents {
-    > * {
-      display: inline;
-      margin-right: tokens.$coral-spacing-xxs;
+	&__contents {
+		> * {
+			display: inline;
+			margin-right: tokens.$coral-spacing-xxs;
 
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
 
-  &_withBackground {
-    display: inline-flex;
-    padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
-    border-radius: tokens.$coral-radius-s;
-    justify-content: flex-start;
-    align-items: flex-start;
+	&_withBackground {
+		display: inline-flex;
+		padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
+		border-radius: tokens.$coral-radius-s;
+		justify-content: flex-start;
+		align-items: flex-start;
 
-    .icon {
-      // Visually align icon in inline-flex mode
-      top: 0.1rem;
-    }
-  }
+		.icon {
+			// Visually align icon in inline-flex mode
+			top: 0.1rem;
+		}
+	}
 
 }

@@ -1,0 +1,7 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.badge-value__children {
+	color: tokens.$coral-color-neutral-text;
+	font: tokens.$coral-heading-s;
+	padding: 0 tokens.$coral-spacing-xxs;
+}

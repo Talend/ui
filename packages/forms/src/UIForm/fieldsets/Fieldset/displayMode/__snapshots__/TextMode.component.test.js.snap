@@ -4,33 +4,33 @@ exports[`Fieldset widget in text mode should render a simple definition list wit
 <dl>
   <Widget
     schema={
-      Object {
-        "key": Array [
+      {
+        "key": [
           "user",
           "firstname",
         ],
-        "schema": Object {
+        "schema": {
           "type": "string",
         },
         "type": "text",
       }
     }
-    widgets={Object {}}
+    widgets={{}}
   />
   <Widget
     schema={
-      Object {
-        "key": Array [
+      {
+        "key": [
           "user",
           "lastname",
         ],
-        "schema": Object {
+        "schema": {
           "type": "string",
         },
         "type": "text",
       }
     }
-    widgets={Object {}}
+    widgets={{}}
   />
 </dl>
 `;
@@ -48,33 +48,33 @@ exports[`Fieldset widget in text mode should render a title described by a defin
     <dl>
       <Widget
         schema={
-          Object {
-            "key": Array [
+          {
+            "key": [
               "user",
               "firstname",
             ],
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
-        widgets={Object {}}
+        widgets={{}}
       />
       <Widget
         schema={
-          Object {
-            "key": Array [
+          {
+            "key": [
               "user",
               "lastname",
             ],
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
-        widgets={Object {}}
+        widgets={{}}
       />
     </dl>
   </dd>

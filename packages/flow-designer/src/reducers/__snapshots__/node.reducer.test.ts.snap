@@ -9,7 +9,7 @@ Immutable.Map {
   "parents": Immutable.Map {
     "id": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -61,7 +61,7 @@ Immutable.Map {
   "parents": Immutable.Map {
     "id": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -109,7 +109,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -177,7 +177,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -221,7 +221,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -289,7 +289,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -357,7 +357,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -425,7 +425,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -495,7 +495,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -563,7 +563,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -631,7 +631,7 @@ Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,

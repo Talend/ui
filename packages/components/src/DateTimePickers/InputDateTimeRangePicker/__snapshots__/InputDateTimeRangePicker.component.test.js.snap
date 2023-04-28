@@ -107,7 +107,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               onChange={[Function]}
                               placeholder="YYYY-MM-DD"
                               style={
-                                Object {
+                                {
                                   "width": 47,
                                 }
                               }
@@ -123,7 +123,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 onKeyDown={[Function]}
                                 placeholder="YYYY-MM-DD"
                                 style={
-                                  Object {
+                                  {
                                     "width": 47,
                                   }
                                 }
@@ -133,7 +133,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             </DebounceInput>
                             <span
                               style={
-                                Object {
+                                {
                                   "fontSize": "1.4rem",
                                   "padding": "0 1rem",
                                   "position": "absolute",
@@ -163,7 +163,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                     <FocusManager
                       className="theme-time-picker time-picker"
                       divRef={
-                        Object {
+                        {
                           "current": <div
                             class="theme-time-picker time-picker"
                             tabindex="-1"
@@ -221,7 +221,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               onChange={[Function]}
                               placeholder="HH:mm:ss"
                               style={
-                                Object {
+                                {
                                   "width": 47,
                                 }
                               }
@@ -238,7 +238,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 onKeyDown={[Function]}
                                 placeholder="HH:mm:ss"
                                 style={
-                                  Object {
+                                  {
                                     "width": 47,
                                   }
                                 }
@@ -248,7 +248,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             </DebounceInput>
                             <span
                               style={
-                                Object {
+                                {
                                   "fontSize": "1.4rem",
                                   "padding": "0 1rem",
                                   "position": "absolute",
@@ -373,7 +373,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               onChange={[Function]}
                               placeholder="YYYY-MM-DD"
                               style={
-                                Object {
+                                {
                                   "width": 47,
                                 }
                               }
@@ -389,7 +389,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 onKeyDown={[Function]}
                                 placeholder="YYYY-MM-DD"
                                 style={
-                                  Object {
+                                  {
                                     "width": 47,
                                   }
                                 }
@@ -399,7 +399,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             </DebounceInput>
                             <span
                               style={
-                                Object {
+                                {
                                   "fontSize": "1.4rem",
                                   "padding": "0 1rem",
                                   "position": "absolute",
@@ -429,7 +429,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                     <FocusManager
                       className="theme-time-picker time-picker"
                       divRef={
-                        Object {
+                        {
                           "current": <div
                             class="theme-time-picker time-picker"
                             tabindex="-1"
@@ -487,7 +487,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               onChange={[Function]}
                               placeholder="HH:mm:ss"
                               style={
-                                Object {
+                                {
                                   "width": 47,
                                 }
                               }
@@ -504,7 +504,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                                 onKeyDown={[Function]}
                                 placeholder="HH:mm:ss"
                                 style={
-                                  Object {
+                                  {
                                     "width": 47,
                                   }
                                 }
@@ -514,7 +514,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             </DebounceInput>
                             <span
                               style={
-                                Object {
+                                {
                                   "fontSize": "1.4rem",
                                   "padding": "0 1rem",
                                   "position": "absolute",
@@ -544,13 +544,13 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
 <InputDateTimeRangePicker
   dateFormat="YYYY-MM-DD"
   defaultTimeEnd={
-    Object {
+    {
       "hours": "12",
       "minutes": "24",
     }
   }
   defaultTimeStart={
-    Object {
+    {
       "hours": "00",
       "minutes": "00",
     }
@@ -574,19 +574,19 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
         <InputDateTimePickerSwitch
           dateFormat="YYYY-MM-DD"
           defaultTimeEnd={
-            Object {
+            {
               "hours": "12",
               "minutes": "24",
             }
           }
           defaultTimeStart={
-            Object {
+            {
               "hours": "00",
               "minutes": "00",
             }
           }
           defaultTimeValue={
-            Object {
+            {
               "hours": "00",
               "minutes": "00",
             }
@@ -598,19 +598,19 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
             defaultTimeEnd={
-              Object {
+              {
                 "hours": "12",
                 "minutes": "24",
               }
             }
             defaultTimeStart={
-              Object {
+              {
                 "hours": "00",
                 "minutes": "00",
               }
             }
             defaultTimeValue={
-              Object {
+              {
                 "hours": "00",
                 "minutes": "00",
               }
@@ -625,7 +625,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
             <DateTime.Manager
               dateFormat="YYYY-MM-DD"
               defaultTimeValue={
-                Object {
+                {
                   "hours": "00",
                   "minutes": "00",
                 }
@@ -686,7 +686,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               onChange={[Function]}
                               placeholder="YYYY-MM-DD"
                               style={
-                                Object {
+                                {
                                   "width": 47,
                                 }
                               }
@@ -702,7 +702,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                                 onKeyDown={[Function]}
                                 placeholder="YYYY-MM-DD"
                                 style={
-                                  Object {
+                                  {
                                     "width": 47,
                                   }
                                 }
@@ -712,7 +712,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             </DebounceInput>
                             <span
                               style={
-                                Object {
+                                {
                                   "fontSize": "1.4rem",
                                   "padding": "0 1rem",
                                   "position": "absolute",
@@ -740,7 +740,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                     <FocusManager
                       className="theme-time-picker time-picker"
                       divRef={
-                        Object {
+                        {
                           "current": <div
                             class="theme-time-picker time-picker"
                             tabindex="-1"
@@ -798,7 +798,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               onChange={[Function]}
                               placeholder="HH:mm"
                               style={
-                                Object {
+                                {
                                   "width": 47,
                                 }
                               }
@@ -815,7 +815,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                                 onKeyDown={[Function]}
                                 placeholder="HH:mm"
                                 style={
-                                  Object {
+                                  {
                                     "width": 47,
                                   }
                                 }
@@ -825,7 +825,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             </DebounceInput>
                             <span
                               style={
-                                Object {
+                                {
                                   "fontSize": "1.4rem",
                                   "padding": "0 1rem",
                                   "position": "absolute",
@@ -871,19 +871,19 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
         <InputDateTimePickerSwitch
           dateFormat="YYYY-MM-DD"
           defaultTimeEnd={
-            Object {
+            {
               "hours": "12",
               "minutes": "24",
             }
           }
           defaultTimeStart={
-            Object {
+            {
               "hours": "00",
               "minutes": "00",
             }
           }
           defaultTimeValue={
-            Object {
+            {
               "hours": "12",
               "minutes": "24",
             }
@@ -895,19 +895,19 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
           <InputDateTimePicker
             dateFormat="YYYY-MM-DD"
             defaultTimeEnd={
-              Object {
+              {
                 "hours": "12",
                 "minutes": "24",
               }
             }
             defaultTimeStart={
-              Object {
+              {
                 "hours": "00",
                 "minutes": "00",
               }
             }
             defaultTimeValue={
-              Object {
+              {
                 "hours": "12",
                 "minutes": "24",
               }
@@ -922,7 +922,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
             <DateTime.Manager
               dateFormat="YYYY-MM-DD"
               defaultTimeValue={
-                Object {
+                {
                   "hours": "12",
                   "minutes": "24",
                 }
@@ -983,7 +983,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               onChange={[Function]}
                               placeholder="YYYY-MM-DD"
                               style={
-                                Object {
+                                {
                                   "width": 47,
                                 }
                               }
@@ -999,7 +999,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                                 onKeyDown={[Function]}
                                 placeholder="YYYY-MM-DD"
                                 style={
-                                  Object {
+                                  {
                                     "width": 47,
                                   }
                                 }
@@ -1009,7 +1009,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             </DebounceInput>
                             <span
                               style={
-                                Object {
+                                {
                                   "fontSize": "1.4rem",
                                   "padding": "0 1rem",
                                   "position": "absolute",
@@ -1037,7 +1037,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                     <FocusManager
                       className="theme-time-picker time-picker"
                       divRef={
-                        Object {
+                        {
                           "current": <div
                             class="theme-time-picker time-picker"
                             tabindex="-1"
@@ -1095,7 +1095,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               onChange={[Function]}
                               placeholder="HH:mm"
                               style={
-                                Object {
+                                {
                                   "width": 47,
                                 }
                               }
@@ -1112,7 +1112,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                                 onKeyDown={[Function]}
                                 placeholder="HH:mm"
                                 style={
-                                  Object {
+                                  {
                                     "width": 47,
                                   }
                                 }
@@ -1122,7 +1122,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             </DebounceInput>
                             <span
                               style={
-                                Object {
+                                {
                                   "fontSize": "1.4rem",
                                   "padding": "0 1rem",
                                   "position": "absolute",

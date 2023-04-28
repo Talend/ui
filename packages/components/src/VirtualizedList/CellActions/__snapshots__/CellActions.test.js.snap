@@ -6,38 +6,38 @@ exports[`CellActions should render actions 1`] = `
 >
   <Actions
     actions={
-      Array [
-        Object {
+      [
+        {
           "icon": "talend-pencil",
           "id": "action-1",
           "label": "Simple action",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "displayMode": "dropdown",
           "icon": "talend-file-o",
           "id": "action-2",
-          "items": Array [
-            Object {
+          "items": [
+            {
               "label": "Document 1",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "label": "Document 2",
               "onClick": [MockFunction],
             },
           ],
           "label": "Dropdown action",
         },
-        Object {
+        {
           "displayMode": "splitDropdown",
           "id": "action-3",
-          "items": Array [
-            Object {
+          "items": [
+            {
               "label": "File 1",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "label": "File 2",
               "onClick": [MockFunction],
             },

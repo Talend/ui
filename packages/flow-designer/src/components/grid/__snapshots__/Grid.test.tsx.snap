@@ -27,7 +27,7 @@ exports[`Grid.component should render a grid by default 1`] = `
     fill="url(#grid)"
     height="100%"
     style={
-      Object {
+      {
         "pointerEvents": "none",
       }
     }

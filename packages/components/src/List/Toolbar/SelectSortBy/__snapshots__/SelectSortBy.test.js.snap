@@ -11,7 +11,7 @@ exports[`SelectSortBy should render 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
-      aria-label="Change sort criteria. Current sort by Id."
+      aria-label="Change sort criteria. Current sort criteria: Id."
       className="dropdown-toggle"
       href="#"
       id="42"
@@ -97,7 +97,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
-      aria-label="Change sort criteria. Current sort by Id."
+      aria-label="Change sort criteria. Current sort criteria: Id."
       className="dropdown-toggle"
       href="#"
       id="toolbar-sort-by"
@@ -221,7 +221,7 @@ exports[`SelectSortBy should render without field selected 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
-      aria-label="Change sort criteria. Current sort by N.C."
+      aria-label="Change sort criteria. Current sort criteria: N.C."
       className="dropdown-toggle"
       href="#"
       id="42"

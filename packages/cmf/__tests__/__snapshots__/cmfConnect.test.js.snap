@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`cmfConnect Higher Order Component should not remove the component state when unmount and cmfConnect keepComponentState is true 1`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "TestComponent",
       "initialComponentState": Immutable.Map {},
       "key": "default",
@@ -16,9 +16,9 @@ Object {
 `;
 
 exports[`cmfConnect Higher Order Component should not remove the component state when unmount and props keepComponentState is true 1`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "TestComponent",
       "initialComponentState": Immutable.Map {},
       "key": "default",
@@ -31,9 +31,9 @@ Object {
 `;
 
 exports[`cmfConnect Higher Order Component should remove the component state when unmount 1`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "TestComponent",
       "initialComponentState": Immutable.Map {},
       "key": "default",
@@ -46,9 +46,9 @@ Object {
 `;
 
 exports[`cmfConnect Higher Order Component should remove the component state when unmount 2`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "TestComponent",
       "key": "default",
       "type": "REACT_CMF.COMPONENT_REMOVE_STATE",
@@ -60,9 +60,9 @@ Object {
 `;
 
 exports[`cmfConnect Higher Order Component should remove the component state when unmount and props keepComponentState is false 1`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "TestComponent",
       "initialComponentState": Immutable.Map {},
       "key": "default",
@@ -75,9 +75,9 @@ Object {
 `;
 
 exports[`cmfConnect Higher Order Component should remove the component state when unmount and props keepComponentState is false 2`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "TestComponent",
       "key": "default",
       "type": "REACT_CMF.COMPONENT_REMOVE_STATE",

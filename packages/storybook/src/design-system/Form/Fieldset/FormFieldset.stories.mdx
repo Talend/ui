@@ -1,0 +1,112 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
+
+import * as Stories from './FormFieldset.stories';
+
+<Meta
+	title="Design System/Form/Form Fieldset"
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
+
+# Form Fieldset
+
+Fieldsets group together fields within a form.
+
+It's a semantic group, not necessarily a visual one. This component however provides a `legend` prop to help visually segment fieldsets.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=349%3A227"
+	alt="zoning image for form fieldset"
+/>
+
+## Style
+
+Group logical blocks into a fieldset.
+
+If the fields are even more closely related, display them on the same line using `Row`.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=191%3A352"
+	alt="Fieldset mockup"
+/>
+
+<Canvas>
+	<Story story={Stories.Default} />
+</Canvas>
+
+## States
+
+### Error
+
+A fieldset usually does not carry error state. Its individual fields do.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=224%3A13927"
+	alt="Fieldset mockup with state"
+/>
+
+<Canvas>
+	<Story story={Stories.Error} />
+</Canvas>
+
+In case of more than one error or a horizontal fieldset, display the errors under each affected field.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A0"
+	alt="Fieldset mockup with errors in two fields"
+/>
+
+<Canvas>
+	<Story story={Stories.Errors} />
+</Canvas>
+
+## Content
+
+### Legend
+
+Provide a legend to the fieldset to help contextualize its contents.
+
+### Inline message
+
+Field validation may sometime be more complex than on a single field.
+
+If the broken validation rule benefits from a single point of explanation, use an `InlineMessage` within the affected `Fieldset` instead.
+
+This is the only exception to the rule. Errors must otherwise be displayed under each field.
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=141%3A11352"
+	alt="inline message position for form fieldset"
+/>
+
+## Interactions
+
+### Conditional fieldsets
+
+A conditional fieldset appears only when previous conditions are met.
+
+The trigger can be any "on / off" interactions available in a form:
+
+- A checkbox has been activated
+- A radio button has been selected
+- A switch has been toggled
+- A select field has been set to a specific value
+- A button has been pressed
+
+Use sparingly as it makes a form harder to predict and understand at a glance.
+
+<Canvas>
+	<Story story={Stories.ConditionalFieldset} />
+</Canvas>
+
+## Usage
+
+N/A
+
+## Accessibility
+
+N/A

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SimpleTextKeyValue } from '../../Text';
@@ -20,7 +20,7 @@ function getBranchDisplayKey(union, hasSemanticAwareness, getDisplayKey, value) 
  * will be improve later on.
  * This is the workaround to make it work for now.
  */
-export default class ModelViewerBranch extends React.Component {
+export default class ModelViewerBranch extends Component {
 	static propTypes = {
 		dataKey: PropTypes.string,
 		getChilds: PropTypes.func,
@@ -62,6 +62,7 @@ export default class ModelViewerBranch extends React.Component {
 			value: this.props.value,
 		};
 		const union = this.props.isUnion(this.props.value);
+		console.log('#### union', union, this.props.isUnion());
 		if (this.state.firstClickUnion && union) {
 			this.setState(
 				{ firstClickUnion: false },
@@ -91,6 +92,7 @@ export default class ModelViewerBranch extends React.Component {
 			>
 				<span className={classNames(theme['tc-model-branch-content'], 'tc-model-branch-content')}>
 					<button
+						data-testid="model-branch-button"
 						className={classNames(theme['tc-model-branch-button'], 'tc-model-branch-button', {
 							[theme['tc-model-branch-button-highlighted']]: jsonpath === jsonPathSelection,
 							'tc-model-branch-button-highlighted': jsonpath === jsonPathSelection,

@@ -3,17 +3,17 @@
 exports[`Time.Manager should render its children 1`] = `
 <Context.Provider
   value={
-    Object {
-      "inputManagement": Object {
+    {
+      "inputManagement": {
         "onChange": [Function],
         "placeholder": "HH:mm",
       },
-      "pickerManagement": Object {
+      "pickerManagement": {
         "onChange": [Function],
       },
-      "time": Object {
+      "time": {
         "textInput": "12:15",
-        "time": Object {
+        "time": {
           "hours": "12",
           "minutes": "15",
           "seconds": "00",

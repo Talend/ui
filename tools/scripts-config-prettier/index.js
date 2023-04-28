@@ -1,3 +1,1 @@
-const path = require('path');
-
-module.exports = () => path.join(__dirname, '.prettierrc.js');
+module.exports = require('./.prettierrc');

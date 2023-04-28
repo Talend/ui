@@ -1,0 +1,20 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.badge {
+	display: inline-block;
+
+	background: tokens.$coral-color-neutral-background;
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	border-radius: tokens.$coral-radius-s;
+}
+
+.badge__label {
+	font: tokens.$coral-paragraph-m;
+	padding: tokens.$coral-spacing-xxs;
+}
+
+.badge__divider {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}

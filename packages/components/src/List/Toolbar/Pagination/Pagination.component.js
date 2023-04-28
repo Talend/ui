@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import React from 'react';
-import uuid from 'uuid';
 import { Nav, NavItem, NavDropdown, MenuItem } from '@talend/react-bootstrap';
+import { randomUUID } from '@talend/utils';
 
 import Icon from '../../../Icon';
 
@@ -95,7 +94,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, .
 			>
 				<Icon {...prev} />
 			</NavItem>,
-			<li className={theme['page-index']}>
+			<li key="page-index" className={theme['page-index']}>
 				{currentPage}/{pagesLength}
 			</li>,
 			<NavItem
@@ -128,7 +127,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, .
 	return (
 		<Nav className={theme['tc-pagination']} onSelect={selectedKey => changePageTo(selectedKey)}>
 			<NavDropdown
-				id={id ? `${id}-size` : uuid.v4()}
+				id={id ? `${id}-size` : randomUUID()}
 				title={getItemsPerPageTitle(itemsPerPage)}
 				onSelect={onChangeItemsPerPage}
 			>

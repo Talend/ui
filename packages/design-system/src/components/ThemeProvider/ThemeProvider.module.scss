@@ -1,0 +1,34 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+:global {
+	html {
+		/* 1rem = 10px */
+		font-size: 62.5%;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		font: tokens.$coral-paragraph-m;
+		color: tokens.$coral-color-neutral-text;
+		background-color: tokens.$coral-color-neutral-background;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	[role='list'] {
+		margin: 0;
+		padding: 0;
+	}
+
+	.focus-outline-hidden *:focus {
+		outline: none;
+	}
+
+	::selection {
+		color: tokens.$coral-color-neutral-text;
+		background-color: tokens.$coral-color-accent-background-selected;
+	}
+}

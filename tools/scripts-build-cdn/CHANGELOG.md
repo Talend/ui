@@ -1,5 +1,11 @@
 # @talend/scripts-build-cdn
 
+## 11.0.1
+
+### Patch Changes
+
+- b0193afbd: chore: upgrade webpack
+
 ## 11.0.0
 
 ### Major Changes

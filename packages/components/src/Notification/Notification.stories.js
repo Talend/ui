@@ -1,9 +1,9 @@
-import React from 'react';
+import { Component } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import NotificationContainer from './Notification.component';
 
-class NotificationWrapper extends React.Component {
+class NotificationWrapper extends Component {
 	constructor() {
 		super();
 		this.notifications = [];

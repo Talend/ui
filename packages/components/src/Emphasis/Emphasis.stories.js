@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Emphasis from './Emphasis.component';
 
 export default {

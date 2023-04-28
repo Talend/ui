@@ -1,3 +1,5 @@
+import { Badge, BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
+import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
 	ButtonDestructive,
@@ -26,7 +28,6 @@ import EmptyState, {
 import ErrorState from './components/ErrorState';
 import Form from './components/Form';
 import { AffixButton, AffixReadOnly, AffixSelect } from './components/Form/Affix';
-import HeaderBar from './components/WIP/HeaderBar';
 import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
@@ -38,11 +39,19 @@ import {
 	InlineMessageSuccess,
 	InlineMessageWarning,
 } from './components/InlineMessage';
-import Layout from './components/Layout';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
-import Menu from './components/WIP/Menu';
+import {
+	MessageSuccess,
+	MessageDestructive,
+	MessageInformation,
+	MessageWarning,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
+} from './components/Message';
 import Modal from './components/Modal';
 import Popover from './components/WIP/Popover';
 import Skeleton, {
@@ -62,7 +71,7 @@ import {
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import { Tabs, TabsKit } from './components/WIP/Tabs';
+import { Tabs, TabsAsLinkList, TabsKit } from './components/WIP/Tabs';
 import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
 import {
 	Tag,
@@ -77,15 +86,20 @@ import {
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
-import * as themes from './themes';
-import deprecatedTokens from './deprecatedTokens';
 
 export * from './components/Stack';
+export * from './themes';
 export {
 	Accordion,
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
+	Badge,
+	BadgeValue,
+	BadgeTag,
+	BadgeDropdown,
+	BadgePopover,
+	Breadcrumbs,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,
@@ -112,7 +126,6 @@ export {
 	EmptyStateLarge,
 	ErrorState,
 	Form,
-	HeaderBar,
 	Icon,
 	IconsProvider,
 	InlineEditing,
@@ -122,11 +135,17 @@ export {
 	InlineMessageWarning,
 	InlineMessageDestructive,
 	InlineMessageBeta,
-	Layout,
 	Link,
 	LinkAsButton,
 	Loading,
-	Menu,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
+	MessageSuccess,
+	MessageDestructive,
+	MessageInformation,
+	MessageWarning,
 	Modal,
 	Popover,
 	SizedIcon,
@@ -145,6 +164,7 @@ export {
 	Stepper,
 	Switch,
 	Tabs,
+	TabsAsLinkList,
 	TabsKit,
 	Tag,
 	TagBeta,
@@ -157,8 +177,6 @@ export {
 	ThemeProvider,
 	Tooltip,
 	VisuallyHidden,
-	themes,
-	deprecatedTokens,
 };
 
 export type { TooltipPlacement };

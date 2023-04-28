@@ -19,9 +19,11 @@
 
 .button {
 	@include nav-action;
+
 	&:hover {
 		color: $scooter;
 	}
+
 	&:active {
 		color: darken($scooter, 12%);
 	}

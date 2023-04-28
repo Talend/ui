@@ -27,12 +27,9 @@ pluginTester({
 				const { csv } = require('d3-fetch');`,
 			output: `
 				const { select, event } = require('d3').selection;
-
 				const shape = require('d3').shape;
-
 				const { scaleBand } = require('d3').scale;
-
 				const { csv } = require('d3').fetch;`,
-		}
+		},
 	],
 });

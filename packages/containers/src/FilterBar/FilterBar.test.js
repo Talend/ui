@@ -1,4 +1,3 @@
-import React from 'react';
 import { Map } from 'immutable';
 import { shallow } from 'enzyme';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './FilterBar.container';

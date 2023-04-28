@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import { Action } from '@talend/react-components/lib/Actions';
 import Inject from '@talend/react-components/lib/Inject';
 import classNames from 'classnames';
 
-export default class SingleButton extends React.Component {
+export default class SingleButton extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};

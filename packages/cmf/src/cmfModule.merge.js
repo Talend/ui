@@ -1,4 +1,3 @@
-import React from 'react';
 import { spawn } from 'redux-saga/effects';
 import _merge from 'lodash/merge';
 import { assertValueTypeOf } from './assert';

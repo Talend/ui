@@ -1,11 +1,11 @@
-import React from 'react';
-import { DefaultTheme } from 'styled-components';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { createContext } from 'react';
 
 export type ThemeContextProps = {
-	theme?: DefaultTheme;
-	switchTheme?: (theme: DefaultTheme) => void;
+	theme?: string;
+	switchTheme?: (theme: string) => void;
 };
 
-const ThemeContext = React.createContext<ThemeContextProps>({});
+const ThemeContext = createContext<ThemeContextProps>({});
 
 export default ThemeContext;

@@ -1,0 +1,129 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
+import { InlineEditing } from '@talend/design-system';
+import * as Stories from './InlineEditing.stories';
+
+<Meta
+	title="Design System/Inline Editing"
+	component={InlineEditing}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
+		figmaLink:
+			'https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=422%3A3426',
+	}}
+	decorators={[
+		Story => (
+			<div style={{ width: '30rem' }}>
+				<Story />
+			</div>
+		),
+	]}
+/>
+
+# Inline Editing
+
+User can perform inline editing by using inline form.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=467%3A7850"
+	alt="zoning image for inline editing"
+/>
+
+## Style
+
+### Variations
+
+**Single line**
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=467%3A7866"
+	alt="Single line InlineEditing with content"
+/>
+
+<Canvas>
+	<Story story={Stories.Text} />
+</Canvas>
+
+**Empty single line with a placeholder**
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=472%3A3999"
+	alt="Single line InlineEditing without initial content"
+/>
+
+<Canvas>
+	<Story story={Stories.EmptyTextWithPlaceholder} />
+</Canvas>
+
+**Multi lines**
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=474%3A4085"
+	alt="Multi lines InlineEditing with initial content"
+/>
+
+<Canvas>
+	<Story story={Stories.Textarea} />
+</Canvas>
+
+## States
+
+### Loading
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=477%3A4388"
+	alt="Pending state for InlineEditing"
+/>
+
+<Canvas>
+	<Story story={Stories.LoadingMode} />
+</Canvas>
+
+### Error
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=478%3A4481"
+	alt="Error state for InlineEditing"
+/>
+
+In this example, async submit will always end up with an error.
+
+<Canvas>
+	<Story story={Stories.InUse} />
+</Canvas>
+
+## Interactions
+
+The edit mode can be triggered by clicking on the pencil icon, or by double-clicking on the text.
+
+### Quality Assurance
+
+Non-regression testing can be performed using:
+
+| data-test                                         | description                                                                   |
+| ------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `inlineediting`                                   | Container containing value and actions                                        |
+| `inlineediting.button.edit`                       | Edit button to pass into "editing" mode                                       |
+| `inlineediting.input` or `inlineediting.textarea` | Control to change its value in "editing" mode depending on the variant in use |
+| `inlineediting.button.cancel`                     | Cancel button to quit "editing" mode                                          |
+| `inlineediting.button.submit`                     | Submit button to validate edition in "editing" mode                           |
+
+## Usage
+
+<Canvas>
+	<Story story={Stories.Default} />
+	<Story story={Stories.WithEllipsis} />
+	<Story story={Stories.WithTextarea} />
+	<Story story={Stories.LongTextInTextarea} />
+	<Story story={Stories.AsHeading} />
+</Canvas>
+
+## Accessibility
+
+- In single line mode, press <kbd>Enter</kbd> to validate the edition
+- Buttons can be focused by using <kbd>Tab</kbd>
+- Press <kbd>Esc</kbd> to cancel the edition
+
+Clicking outside the form will cancel the edition as well

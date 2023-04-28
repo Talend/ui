@@ -1,0 +1,148 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+import { Form } from '@talend/design-system';
+
+import * as Stories from './Input.Radio.stories';
+
+<Meta
+	title="Design System/Form/Form Fields/Radio"
+	component={Form.Radio}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
+
+# Radio
+
+`Form.Radio` inputs are used when a question has only one answer. Radio only lets users select one option from a set.
+
+Use radio buttons for exclusive selection when users need to see all available options side-by-side.
+
+Otherwise, consider using [checkboxes](components-form-form-fields-checkbox--checkbox-fill-states) or a [select field](components-form-form-fields-select).
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=44%3A76"
+	alt="zoning image for radio buttons"
+/>
+
+## Style
+
+<FigmaImage
+	src="https://www.figma.com/file/Ux9flIa7RJXED6xnsajju8/Radio?node-id=1%3A101"
+	alt="Radio mockup"
+/>
+
+## States
+
+### Default
+
+<Canvas>
+	<Story story={Stories.RadioFillStates} />
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story story={Stories.RadioFillStatesDisabled} />
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story story={Stories.RadioFillStatesReadonly} />
+</Canvas>
+
+### Multiple radios
+
+<Canvas>
+	<Story story={Stories.ReactHooksForm} />
+</Canvas>
+
+## Content
+
+Radio buttons appear as a list of two or more options where users can select only one option. It's important to make their labels comprehensive and clearly distinct.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use positive and active wording for labels.</li>
+			<li>
+				Aim for clear and distinct labels to ease the reading flow and help users make the right
+				choice.
+			</li>
+			<li>Start each label with capital letter.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Don’t use vague or misleading labels that are difficult to understand by average users.
+			</li>
+			<li>Don’t use punctuations at the end of labels.</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interactions
+
+- The label must always be clickable to check or uncheck.
+
+## Usage
+
+export const Template = args => {
+	const Component = Form.Radio;
+	Component.displayName = 'Form.Radio';
+	return <Component {...args} />;
+};
+
+<Canvas>
+	<Story
+		name="basic"
+		args={{
+			label: 'Radio',
+			checked: false,
+			readOnly: false,
+			disabled: false,
+		}}
+		argTypes={{
+			label: {
+				description: 'Radio label',
+				control: {
+					type: 'text',
+				},
+			},
+			checked: {
+				description: 'Radio is checked or  not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			readOnly: {
+				description: 'Radio is read only or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			disabled: {
+				description: 'Radio is disabled or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+		}}
+	>
+		{Template.bind({})}
+	</Story>
+</Canvas>
+
+<ArgsTable story="basic" />
+
+## Accessibility
+
+Press <kbd>Tab</kbd> to focus on a radio button.
+
+Press <kbd>Tab</kbd> or <kbd>Shift</kbd> + <kbd>Tab</kbd> to navigate between radio buttons.
+
+Press the arrows keys to change the selection.

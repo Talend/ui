@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import isSameSecond from 'date-fns/is_same_second';
 
@@ -24,7 +24,7 @@ import {
 	INPUT_ERRORS,
 } from '../constants';
 
-class ContextualManager extends React.Component {
+class ContextualManager extends Component {
 	static displayName = 'DateTime.Manager';
 
 	static propTypes = {

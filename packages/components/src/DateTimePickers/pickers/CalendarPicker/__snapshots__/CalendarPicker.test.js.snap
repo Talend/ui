@@ -9,7 +9,7 @@ exports[`CalendarPicker should render 1`] = `
   <withI18nextTranslation(DateView)
     allowFocus={true}
     calendar={
-      Object {
+      {
         "monthIndex": 5,
         "year": 2018,
       }

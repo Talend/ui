@@ -1,5 +1,21 @@
 # @talend/design-tokens
 
+## 2.7.3
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+## 2.7.2
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+
 ## 2.7.1
 
 ### Patch Changes

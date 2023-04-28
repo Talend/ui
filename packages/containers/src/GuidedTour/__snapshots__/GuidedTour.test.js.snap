@@ -8,19 +8,19 @@ exports[`Guided Tour Container should render 1`] = `
   showButtons={true}
   showCloseButton={true}
   steps={
-    Array [
-      Object {
-        "content": Object {
+    [
+      {
+        "content": {
           "body": "Text A",
         },
       },
-      Object {
-        "content": Object {
+      {
+        "content": {
           "body": "Text B",
         },
       },
-      Object {
-        "content": Object {
+      {
+        "content": {
           "body": "Text C",
         },
       },

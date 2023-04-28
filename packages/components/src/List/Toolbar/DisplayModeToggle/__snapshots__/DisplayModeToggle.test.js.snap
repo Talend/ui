@@ -8,7 +8,7 @@ exports[`DisplayModeToggle should render 1`] = `
   <StackHorizontal
     gap="XS"
     padding={
-      Object {
+      {
         "x": "S",
         "y": 0,
       }
@@ -18,7 +18,7 @@ exports[`DisplayModeToggle should render 1`] = `
       className="CoralStackHorizontal"
       gap="XS"
       padding={
-        Object {
+        {
           "x": "S",
           "y": 0,
         }

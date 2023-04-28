@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
@@ -20,12 +19,9 @@ describe('MonthPicker', () => {
 		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-month')
-				.at(4)
-				.prop('className'),
-		).toContain('theme-selected');
+		expect(wrapper.find('.tc-date-picker-month').at(4).prop('className')).toContain(
+			'theme-selected',
+		);
 	});
 
 	it('should trigger props.onSelect on selection', () => {
@@ -34,10 +30,7 @@ describe('MonthPicker', () => {
 		const wrapper = mount(<MonthPicker onSelect={onSelect} />);
 
 		// when
-		wrapper
-			.find('.tc-date-picker-month')
-			.at(4)
-			.simulate('click');
+		wrapper.find('.tc-date-picker-month').at(4).simulate('click');
 
 		// then
 		expect(onSelect).toBeCalledWith(expect.anything(), 4);
@@ -46,22 +39,12 @@ describe('MonthPicker', () => {
 	it('should manage tabIndex', () => {
 		// given
 		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
-		expect(
-			wrapper
-				.find('.tc-date-picker-month')
-				.at(4)
-				.prop('tabIndex'),
-		).toBe(-1);
+		expect(wrapper.find('.tc-date-picker-month').at(4).prop('tabIndex')).toBe(-1);
 
 		// when
 		wrapper.setProps({ allowFocus: true });
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-month')
-				.at(4)
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(wrapper.find('.tc-date-picker-month').at(4).prop('tabIndex')).toBe(0);
 	});
 });

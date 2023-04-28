@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Connected List should map items to props from collection List 1`] = `
-Object {
+{
   "items": Immutable.List [
     Immutable.Map {
       "id": 3,
@@ -35,7 +35,7 @@ Object {
 `;
 
 exports[`Connected List should map items to props from collection Map 1`] = `
-Object {
+{
   "items": Immutable.List [
     Immutable.Map {
       "id": 3,
@@ -69,7 +69,7 @@ Object {
 `;
 
 exports[`Connected List should map items to props from default collection List 1`] = `
-Object {
+{
   "items": Immutable.List [
     Immutable.Map {
       "id": 3,
@@ -103,8 +103,8 @@ Object {
 `;
 
 exports[`Container List should put default props 1`] = `
-Object {
-  "actions": Object {
+{
+  "actions": {
     "editCancel": "object:edit:cancel",
     "editSubmit": "object:edit:submit",
     "title": "object:open",
@@ -139,41 +139,41 @@ Object {
       "author": "Jean-Pierre DUPONT with super long name",
     },
   ],
-  "list": Object {
-    "cellDictionary": Object {
-      "title": Object {
+  "list": {
+    "cellDictionary": {
+      "title": {
         "cellRenderer": [Function],
         "cellType": "title",
         "className": "tc-list-title-cell",
       },
     },
-    "columns": Array [
-      Object {
+    "columns": [
+      {
         "key": "id",
         "label": "Id",
       },
-      Object {
+      {
         "key": "name",
         "label": "Name",
       },
-      Object {
+      {
         "key": "author",
         "label": "Author",
       },
-      Object {
+      {
         "key": "created",
         "label": "Created",
       },
-      Object {
+      {
         "key": "modified",
         "label": "Modified",
       },
     ],
     "id": "list",
-    "itemProps": Object {},
-    "items": Array [
-      Object {
-        "actions": Array [],
+    "itemProps": {},
+    "items": [
+      {
+        "actions": [],
         "author": "Jean-Pierre DUPONT",
         "className": "item-0-class",
         "created": "2016-09-22",
@@ -182,10 +182,10 @@ Object {
         "id": 1,
         "modified": "2016-09-22",
         "name": "Title with actions",
-        "persistentActions": Array [],
+        "persistentActions": [],
       },
-      Object {
-        "actions": Array [],
+      {
+        "actions": [],
         "author": "Jean-Pierre DUPONT",
         "className": "item-1-class",
         "created": "2016-09-22",
@@ -194,24 +194,24 @@ Object {
         "id": 2,
         "modified": "2016-09-22",
         "name": "Title in input mode",
-        "persistentActions": Array [],
+        "persistentActions": [],
       },
-      Object {
-        "actions": Array [],
+      {
+        "actions": [],
         "author": "Jean-Pierre DUPONT with super long name",
         "created": "2016-09-22",
         "id": 3,
         "modified": "2016-09-22",
         "name": "Super long title to trigger overflow on some rendering",
-        "persistentActions": Array [],
+        "persistentActions": [],
       },
     ],
-    "sort": Object {
+    "sort": {
       "field": "name",
       "isDescending": false,
       "onChange": [Function],
     },
-    "titleProps": Object {
+    "titleProps": {
       "actionsKey": "actions",
       "key": "label",
       "onClick": [Function],
@@ -220,42 +220,42 @@ Object {
       "persistentActionsKey": "persistentActions",
     },
   },
-  "toolbar": Object {
-    "actionBar": Object {
-      "actions": Object {},
-      "multiSelectActions": Object {},
+  "toolbar": {
+    "actionBar": {
+      "actions": {},
+      "multiSelectActions": {},
     },
-    "display": Object {
-      "displayModes": Array [
+    "display": {
+      "displayModes": [
         "large",
         "table",
       ],
       "mode": "table",
       "onChange": [Function],
     },
-    "filter": Object {
+    "filter": {
       "docked": true,
       "onFilter": [Function],
       "onToggle": [Function],
       "placeholder": "find an object",
       "value": "",
     },
-    "pagination": Object {
+    "pagination": {
       "itemsPerPage": 10,
       "onChange": [Function],
       "startIndex": 1,
       "totalResults": 0,
     },
-    "sort": Object {
+    "sort": {
       "field": "name",
       "isDescending": false,
       "onChange": [Function],
-      "options": Array [
-        Object {
+      "options": [
+        {
           "id": "id",
           "name": "Id",
         },
-        Object {
+        {
           "id": "name",
           "name": "Name",
         },

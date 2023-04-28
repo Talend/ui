@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import Step, { StepPrimitiveProps } from '../Primitive/Step';
 
 type StepValidatedTypes = Omit<StepPrimitiveProps, 'status'>;

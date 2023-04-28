@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref } from 'react';
+import { forwardRef, ReactElement, Ref } from 'react';
 import { DataAttributes } from '../../../../types';
 import { TabInitialState, useTabState } from 'reakit';
 import TabList from '../Primitive/TabList';
@@ -24,12 +24,20 @@ const Tabs = forwardRef(
 					{tabs.map((tab, index) => {
 						if (typeof tab.tabTitle === 'string') {
 							return (
-								<Tab {...tabState} size={size} key={index}>
+								<Tab {...tabState} {...tab.tabButtonAttributes} size={size} key={index}>
 									{tab.tabTitle}
 								</Tab>
 							);
 						}
-						return <Tab {...tabState} size={size} key={index} {...tab.tabTitle} />;
+						return (
+							<Tab
+								{...tabState}
+								size={size}
+								key={index}
+								{...tab.tabTitle}
+								{...tab.tabButtonAttributes}
+							/>
+						);
 					})}
 				</TabList>
 

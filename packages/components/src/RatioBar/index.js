@@ -4,4 +4,6 @@ import { RatioBarComposition, RatioBarLine } from './RatioBarComposition.compone
 RatioBar.Composition = RatioBarComposition;
 RatioBar.Line = RatioBarLine;
 
+export { RatioBarComposition, RatioBarLine };
+
 export default RatioBar;

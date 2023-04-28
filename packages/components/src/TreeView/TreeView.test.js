@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 
 import TreeView from './TreeView.component';
@@ -46,12 +45,7 @@ describe('TreeView', () => {
 		const wrapper = shallow(<TreeView {...defaultProps} />);
 
 		// then
-		expect(
-			wrapper
-				.find('TreeView')
-				.shallow()
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.find('TreeView').shallow().getElement()).toMatchSnapshot();
 	});
 
 	it('when a user click on the add Action it should call props.addAction', () => {
@@ -64,10 +58,7 @@ describe('TreeView', () => {
 		expect(props.addAction).not.toBeCalled();
 
 		// when
-		wrapper
-			.dive()
-			.find('Action')
-			.simulate('click');
+		wrapper.dive().find('Action').simulate('click');
 
 		// then
 		expect(props.addAction).toBeCalled();

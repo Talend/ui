@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import TooltipTrigger from '../../../TooltipTrigger';
 import badgeCssModule from '../../Badge.module.scss';

@@ -1,4 +1,4 @@
-import React, { forwardRef, LabelHTMLAttributes, ReactElement, Ref } from 'react';
+import { forwardRef, LabelHTMLAttributes, ReactElement, Ref } from 'react';
 import classnames from 'classnames';
 import styles from './Label.module.scss';
 import { ReactI18NextChild } from 'react-i18next';

@@ -4,9 +4,9 @@ $tc-collapsible-panel-padding-smaller: $padding-smaller !default;
 $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
-$tc-collapsible-descriptive-panel-content-description-color: #808080 !default;
+$tc-collapsible-descriptive-panel-content-description-color: $gray !default;
 $tc-toggle-color: #555964 !default;
-$tc-skeleton-background-color: #dfdfdf !default;
+$tc-skeleton-background-color: #DFDFDF !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -90,6 +90,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		:global(.panel-heading) {
 			border-left-color: $brand-info;
 		}
+
 		:global(.tc-status-label) {
 			color: $brand-info;
 		}
@@ -99,6 +100,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		:global(.panel-heading) {
 			border-left-color: $brand-success;
 		}
+
 		:global(.tc-status-label) {
 			color: $brand-success;
 		}
@@ -106,9 +108,11 @@ $tc-skeleton-background-color: #dfdfdf !default;
 
 	&.danger {
 		border-color: $brand-danger;
+
 		:global(.panel-heading) {
 			border-color: $brand-danger;
 		}
+
 		:global(.tc-status-label) {
 			color: $brand-danger;
 		}
@@ -118,6 +122,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		:global(.panel-heading) {
 			border-left-color: $gray;
 		}
+
 		:global(.tc-status-label) {
 			color: $gray;
 		}
@@ -127,6 +132,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		:global(.panel-heading) {
 			border-left-color: $brand-warning;
 		}
+
 		:global(.tc-status-label) {
 			color: $brand-warning;
 		}
@@ -143,9 +149,11 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		height: 4rem;
 		align-items: center;
 		padding: 0 $padding-normal;
-		& > a {
+
+		> a {
 			width: 100%;
 		}
+
 		.panel-title {
 			padding: 0;
 			display: flex;
@@ -156,10 +164,11 @@ $tc-skeleton-background-color: #dfdfdf !default;
 			font-size: 1.4rem;
 			width: 100%;
 			padding-right: $padding-smaller;
+
 			> * {
+				@include col-style;
 				padding: 0;
 				text-decoration: none;
-				@include col-style;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
@@ -171,6 +180,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		height: 1.6rem;
 		width: 1.6rem;
 		transform-origin: center;
+
 		svg {
 			height: 1rem;
 			width: 1rem;
@@ -186,9 +196,11 @@ $tc-skeleton-background-color: #dfdfdf !default;
 			display: flex;
 			justify-content: space-between;
 			padding: 0;
+
 			.panel-title {
 				width: 100%;
 			}
+
 			&:hover {
 				background: $white;
 				cursor: pointer;
@@ -281,6 +293,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 
 	.group {
 		justify-content: flex-start;
+
 		> * {
 			margin-right: $padding-smaller;
 		}

@@ -3,7 +3,7 @@
 exports[`List DisplayMode should render 1`] = `
 <ListDisplayMode
   displayModesOptions={
-    Array [
+    [
       "table",
       "large",
     ]
@@ -12,7 +12,7 @@ exports[`List DisplayMode should render 1`] = `
 >
   <DisplayModeToggle
     displayModes={
-      Array [
+      [
         "table",
         "large",
       ]
@@ -25,7 +25,7 @@ exports[`List DisplayMode should render 1`] = `
     <StackHorizontal
       gap="XS"
       padding={
-        Object {
+        {
           "x": "S",
           "y": 0,
         }
@@ -35,7 +35,7 @@ exports[`List DisplayMode should render 1`] = `
         className="CoralStackHorizontal"
         gap="XS"
         padding={
-          Object {
+          {
             "x": "S",
             "y": 0,
           }

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Badge from './Badge.component';
@@ -91,7 +91,7 @@ export default {
 };
 
 export const Default = () => (
-	<React.Fragment>
+	<Fragment>
 		<section>
 			<h1>New visual</h1>
 
@@ -849,7 +849,7 @@ export const Default = () => (
 				</div>
 			</div>
 		</section>
-	</React.Fragment>
+	</Fragment>
 );
 
 export const Colored = () => (

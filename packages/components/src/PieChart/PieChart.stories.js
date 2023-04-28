@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import ActionButton from '../Actions/ActionButton';
@@ -178,7 +178,7 @@ export const PieChartButtonDefault = () => (
 );
 
 export const LoadingState = () => {
-	class WithLayout extends React.Component {
+	class WithLayout extends Component {
 		constructor() {
 			super();
 			this.changeState = this.changeState.bind(this);

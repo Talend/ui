@@ -1,4 +1,3 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
@@ -39,10 +38,7 @@ describe('ActionTooltip', () => {
 			</TooltipTrigger>,
 		);
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		// then
 		wrapper.update();
@@ -64,10 +60,7 @@ describe('ActionTooltip', () => {
 			</TooltipTrigger>,
 		);
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		// then
 		wrapper.update();
@@ -88,10 +81,7 @@ describe('ActionTooltip', () => {
 			</TooltipTrigger>,
 		);
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('mouseOver');
+		wrapper.find('div').at(0).simulate('mouseOver');
 
 		// then
 		expect(wrapper.update().getElement()).toMatchSnapshot();

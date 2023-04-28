@@ -12,6 +12,7 @@
 			background: $tc-list-row-selected-hover-bg;
 		}
 	}
+
 	.row-selection.active {
 		background: $tc-list-row-active-bg;
 
@@ -39,6 +40,7 @@
 			background: $tc-list-row-selected-hover-bg;
 		}
 	}
+
 	.row-selection.active :global(.tc-list-large-inner-box) {
 		background: $tc-list-row-active-bg;
 

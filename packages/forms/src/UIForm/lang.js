@@ -88,5 +88,8 @@ export default function getLanguage(t = defaultTranslate) {
 		UNKNOWN_PROPERTY: t('ERROR_UNKNOWN_PROPERTY', {
 			defaultValue: 'Unknown property (not in schema)',
 		}),
+		CUSTOM_ERROR_INVALID_INPUT: t('CUSTOM_ERROR_INVALID_INPUT', {
+			defaultValue: 'Input is not valid',
+		}),
 	};
 }

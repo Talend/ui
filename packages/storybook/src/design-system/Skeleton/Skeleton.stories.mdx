@@ -1,0 +1,124 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
+import {
+	SkeletonButton,
+	SkeletonParagraph,
+	SkeletonHeading,
+	SkeletonInput,
+	Skeleton,
+	StackHorizontal,
+	StackVertical,
+} from '@talend/design-system';
+
+import * as Stories from './Skeleton.stories';
+
+<Meta
+	title="Design System/Skeleton"
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons',
+	}}
+/>
+
+# Skeleton
+
+Skeleton is used as placeholder to fill the space while the real content is loading.
+
+## Zoning
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=2919%3A7340" />
+
+## Style
+
+### Button
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3530%3A188" />
+
+<Canvas>
+	<Story story={Stories.SkeletonButtonStory} name="Button" />
+</Canvas>
+
+<ArgsTable story="Button" />
+
+### ButtonIcon
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3530%3A189" />
+
+<Canvas>
+	<Story story={Stories.SkeletonButtonIconStory} name="ButtonIcon" />
+</Canvas>
+
+<ArgsTable story="ButtonIcon" />
+
+### Text
+
+#### Heading
+
+It illustrates any heading element.
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3530%3A187" />
+
+<Canvas>
+	<Story story={Stories.SkeletonHeadingStory} name="Headings" />
+</Canvas>
+
+<ArgsTable story="Headings" />
+
+#### Paragraph
+
+It illustrates any paragraph or small copy element.
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3530%3A182" />
+
+<Canvas>
+	<Story story={Stories.SkeletonParagraphStory} name="Paragraphs" />
+</Canvas>
+
+<ArgsTable story="Paragraphs" />
+
+#### Input
+
+It illustrates any input element.
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3705%3A92" />
+
+<Canvas>
+	<Story story={Stories.SkeletonInputStory} name="Inputs" />
+</Canvas>
+
+#### Composition example
+
+Combine all of them to mock content!
+
+<Canvas>
+	<Story story={Stories.CompositionExample} />
+</Canvas>
+
+## States
+
+Not Applicable
+
+## Content
+
+Not Applicable
+
+## Interaction
+
+Skeletons use the heartbeat animation.
+The cursor is set to `progress`.
+
+## Accessibility
+
+Each Skeleton component is hidden to screen readers by default.
+The goal is to set the current loading content to `aria-busy="true"` instead.
+Here is an article about [more accessible skeletons](https://adrianroselli.com/2020/11/more-accessible-skeletons.html) written by Adrian Roselli.
+
+## Usage
+
+As you've seen above, `Skeleton` can be used by importing the single variant you need (ie: `SkeletonButton` or `SkeletonHeading`).
+
+You can also use `Skeleton` and specify the variant you need to use: its props will then match the variant's own.
+
+<Canvas>
+	<Story story={Stories.ButtonVariants} />
+</Canvas>

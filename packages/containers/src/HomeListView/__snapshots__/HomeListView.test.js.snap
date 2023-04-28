@@ -3,7 +3,7 @@
 exports[`Component HomeListView should be able to render theme 1`] = `
 <Layout
   drawers={
-    Array [
+    [
       <h1>
         Hello children
       </h1>,
@@ -29,13 +29,13 @@ exports[`Component HomeListView should be able to render theme 1`] = `
 `;
 
 exports[`Component HomeListView should children transformed as array in props.drawers 1`] = `
-Array [
-  Object {
-    "props": Object {
-      "children": Object {
-        "props": Object {
-          "children": Object {
-            "props": Object {
+[
+  {
+    "props": {
+      "children": {
+        "props": {
+          "children": {
+            "props": {
               "children": null,
             },
           },
@@ -45,18 +45,18 @@ Array [
       "foo": "bar",
     },
   },
-  Object {
-    "props": Object {
-      "children": Object {
-        "props": Object {
+  {
+    "props": {
+      "children": {
+        "props": {
           "children": null,
         },
       },
       "label": "foo",
     },
   },
-  Object {
-    "props": Object {
+  {
+    "props": {
       "children": null,
     },
   },
@@ -66,7 +66,7 @@ Array [
 exports[`Component HomeListView should render with element props 1`] = `
 <Layout
   drawers={
-    Array [
+    [
       <h1>
         Hello children
       </h1>,
@@ -93,23 +93,22 @@ exports[`Component HomeListView should render with element props 1`] = `
 exports[`Component HomeListView should render with object props 1`] = `
 <Layout
   drawers={
-    Array [
+    [
       <h1>
         Hello children
       </h1>,
     ]
   }
   header={
-    <withI18nextTranslation(HeaderBar)
+    <HeaderBar
       app="hello app"
-      t={[Function]}
     />
   }
   mode="TwoColumns"
   one={
     <Memo(Connect(CMF(Container(SidePanel))))
       actionIds={
-        Array [
+        [
           "menu:demo",
           "menu:article",
         ]
@@ -118,7 +117,7 @@ exports[`Component HomeListView should render with object props 1`] = `
   }
 >
   <Memo(Connect(CMF(Container(List))))
-    actions={Object {}}
+    actions={{}}
     items={
       Immutable.List [
         Immutable.Map {
@@ -134,35 +133,35 @@ exports[`Component HomeListView should render with object props 1`] = `
       ]
     }
     list={
-      Object {
-        "columns": Array [
-          Object {
+      {
+        "columns": [
+          {
             "key": "id",
             "label": "Id",
           },
-          Object {
+          {
             "key": "label",
             "label": "Name",
           },
         ],
-        "titleProps": Object {
+        "titleProps": {
           "key": "label",
         },
       }
     }
     toolbar={
-      Object {
-        "filter": Object {
+      {
+        "filter": {
           "placeholder": "find an object",
         },
-        "sort": Object {
+        "sort": {
           "field": "id",
-          "options": Array [
-            Object {
+          "options": [
+            {
               "id": "id",
               "name": "Id",
             },
-            Object {
+            {
               "id": "label",
               "name": "Name",
             },

@@ -1,4 +1,3 @@
-import React from 'react';
 import keycode from 'keycode';
 import { Map } from 'immutable';
 import { shallow, mount } from 'enzyme';

@@ -1,5 +1,11 @@
 # @talend/eslint-plugin
 
+## 1.0.1
+
+### Patch Changes
+
+- c18aabb97: fix: remove unused dep and rewrite test using jest
+
 ## 1.0.0
 
 ### Major Changes

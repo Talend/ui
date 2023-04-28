@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getTheme } from '../theme';
 
 import ResourceList from '../ResourceList';

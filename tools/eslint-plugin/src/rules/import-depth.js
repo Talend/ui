@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * @fileoverview Check if the import depth let your code be UMD build compliant
  * @author Jean-Michel FRANCOIS
@@ -23,8 +24,8 @@ function getValue(node) {
 // are considered as components lib
 const COMPONENTS = ['context', 'react-components', 'react-containers'];
 
-function isTalendUI(packageName) {
-	return modulesToCheck.find(package => packageName.startsWith(package));
+function isTalendUI(pkgName) {
+	return modulesToCheck.find(pkg => pkgName.startsWith(pkg));
 }
 
 function checkAndReport(context, node, value, messageId) {

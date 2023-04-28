@@ -2,100 +2,23 @@
 
 exports[`Component should render the leaf 1`] = `
 <div
-  className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
+  class="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
 >
-  <SimpleTextKeyValue
-    displayTypes={false}
-    formattedKey="myDataKey"
-    isLongValueToggled={false}
-    isValueOverflown={false}
-    schema={
-      Object {
-        "type": "int",
-      }
-    }
-    typesRenderer={[Function]}
-    value={
-      Object {
-        "value": "myValue",
-      }
-    }
-  />
-</div>
-`;
-
-exports[`Component should render the leaf highlighted 1`] = `
-<div
-  className="theme-tc-records-viewer-leaf tc-records-viewer-leaf theme-tc-records-viewer-leaf-highlighted tc-records-viewer-leaf-highlighted"
->
-  <SimpleTextKeyValue
-    displayTypes={false}
-    formattedKey="myDataKey"
-    isLongValueToggled={false}
-    isValueOverflown={false}
-    schema={
-      Object {
-        "type": "int",
-      }
-    }
-    typesRenderer={[Function]}
-    value={
-      Object {
-        "value": "myValue",
-      }
-    }
-  />
-</div>
-`;
-
-exports[`Component should render the leaf with additional value 1`] = `
-<div
-  className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
->
-  <div>
-    Additional render for what you want, you can use the value : 
-    myValue
-  </div>
-  <SimpleTextKeyValue
-    displayTypes={false}
-    formattedKey="myDataKey"
-    isLongValueToggled={false}
-    isValueOverflown={false}
-    schema={
-      Object {
-        "type": "int",
-      }
-    }
-    typesRenderer={[Function]}
-    value={
-      Object {
-        "value": "myValue",
-      }
-    }
-  />
-</div>
-`;
-
-exports[`Component should render the leaf with padding offset 1`] = `
-<div
-  className="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
->
-  <SimpleTextKeyValue
-    displayTypes={false}
-    formattedKey="myDataKey"
-    isLongValueToggled={false}
-    isValueOverflown={false}
-    schema={
-      Object {
-        "type": "int",
-      }
-    }
-    typesRenderer={[Function]}
-    value={
-      Object {
-        "value": "myValue",
-      }
-    }
-  />
+  <span
+    class="theme-tc-simple-text tc-simple-text"
+  >
+    <span
+      class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+    >
+      myDataKey
+    </span>
+    <div
+      class="theme-td-default-cell td-default-cell"
+    >
+      <span>
+        myValue
+      </span>
+    </div>
+  </span>
 </div>
 `;

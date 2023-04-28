@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import keycode from 'keycode';
 import { Action } from '../index';
@@ -98,10 +97,7 @@ describe('PlainTextTitle', () => {
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
 		expect(
-			wrapper
-				.find('Action')
-				.props()
-				.className.includes('tc-editable-text-empty-pencil'),
+			wrapper.find('Action').props().className.includes('tc-editable-text-empty-pencil'),
 		).toBeTruthy();
 	});
 });
@@ -147,31 +143,11 @@ describe('InlineForm', () => {
 	it('should not call onSubmit when submit event trigger with empty value', () => {
 		const event = { preventDefault: jest.fn() };
 		const wrapper = shallow(<InlineForm {...defaultProps} />);
-		expect(
-			wrapper
-				.find('.form-group')
-				.first()
-				.props().className,
-		).toBe('form-group');
-		expect(
-			wrapper
-				.find('Action')
-				.at(1)
-				.props().disabled,
-		).toBe(false);
+		expect(wrapper.find('.form-group').first().props().className).toBe('form-group');
+		expect(wrapper.find('Action').at(1).props().disabled).toBe(false);
 		wrapper.setState({ value: ' ' });
-		expect(
-			wrapper
-				.find('.form-group')
-				.first()
-				.props().className,
-		).toBe('form-group has-error');
-		expect(
-			wrapper
-				.find('Action')
-				.at(1)
-				.props().disabled,
-		).toBe(true);
+		expect(wrapper.find('.form-group').first().props().className).toBe('form-group has-error');
+		expect(wrapper.find('Action').at(1).props().disabled).toBe(true);
 		wrapper.find('form').simulate('submit', event);
 		expect(event.preventDefault).toHaveBeenCalled();
 		expect(defaultProps.onSubmit).not.toHaveBeenCalled();
@@ -188,10 +164,7 @@ describe('InlineForm', () => {
 		const event = { keyCode: keycode.codes.esc };
 		const wrapper = shallow(<InlineForm {...defaultProps} />);
 		wrapper.setState({ value: 'myDataBeforeCancel' });
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('keydown', event);
+		wrapper.find('input').at(0).simulate('keydown', event);
 		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
 		expect(wrapper.state('value')).toEqual('');
 	});
@@ -207,42 +180,17 @@ describe('InlineForm', () => {
 		const props = { ...defaultProps, errorMessage };
 		const wrapper = shallow(<InlineForm {...props} />);
 
-		expect(
-			wrapper
-				.find('.form-group')
-				.first()
-				.props().className,
-		).toBe('form-group has-error');
-		expect(
-			wrapper
-				.find('.form-group')
-				.first()
-				.text(),
-		).toBe(errorMessage);
+		expect(wrapper.find('.form-group').first().props().className).toBe('form-group has-error');
+		expect(wrapper.find('.form-group').first().text()).toBe(errorMessage);
 	});
 	it('should not show errors if not required', () => {
 		const event = { preventDefault: jest.fn() };
 		const props = { ...defaultProps, required: false };
 		const wrapper = shallow(<InlineForm {...props} />);
-		expect(
-			wrapper
-				.find('Action')
-				.at(1)
-				.props().disabled,
-		).toBe(false);
+		expect(wrapper.find('Action').at(1).props().disabled).toBe(false);
 		wrapper.setState({ value: ' ' });
-		expect(
-			wrapper
-				.find('.form-group')
-				.first()
-				.props().className,
-		).toBe('form-group');
-		expect(
-			wrapper
-				.find('Action')
-				.at(1)
-				.props().disabled,
-		).toBe(false);
+		expect(wrapper.find('.form-group').first().props().className).toBe('form-group');
+		expect(wrapper.find('Action').at(1).props().disabled).toBe(false);
 		wrapper.find('form').simulate('submit', event);
 		expect(event.preventDefault).toHaveBeenCalled();
 		expect(defaultProps.onSubmit).toHaveBeenCalled();

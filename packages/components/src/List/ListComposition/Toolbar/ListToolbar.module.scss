@@ -38,7 +38,8 @@ $tc-toolbar-height: 7rem;
 	&-separated {
 		display: flex;
 	}
-	&-separated:not(:first-child):before {
+
+	&-separated:not(:first-child)::before {
 		align-self: center;
 		content: '|';
 		color: $silver;

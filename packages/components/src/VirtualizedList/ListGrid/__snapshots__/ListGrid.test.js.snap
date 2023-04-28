@@ -2,7 +2,7 @@
 
 exports[`ListGrid should render noRows 1`] = `
 <VirtualizedList(ListGrid)
-  collection={Array []}
+  collection={[]}
   height={600}
   id="my-list"
   isSelected={[MockFunction]}
@@ -15,7 +15,7 @@ exports[`ListGrid should render noRows 1`] = `
     aria-label="list"
     autoHeight={false}
     className="tc-list-list theme-tc-list-list"
-    collection={Array []}
+    collection={[]}
     containerRole="list"
     estimatedRowSize={30}
     height={600}
@@ -32,7 +32,7 @@ exports[`ListGrid should render noRows 1`] = `
     rowRenderer={[Function]}
     scrollToAlignment="auto"
     scrollToIndex={-1}
-    style={Object {}}
+    style={{}}
     width={1024}
   >
     <Grid
@@ -44,11 +44,11 @@ exports[`ListGrid should render noRows 1`] = `
       cellRangeRenderer={[Function]}
       cellRenderer={[Function]}
       className="ReactVirtualized__List tc-list-list theme-tc-list-list"
-      collection={Array []}
+      collection={[]}
       columnCount={1}
       columnWidth={1024}
       containerRole="list"
-      containerStyle={Object {}}
+      containerStyle={{}}
       estimatedColumnSize={100}
       estimatedRowSize={30}
       getScrollbarSize={[Function]}
@@ -74,7 +74,7 @@ exports[`ListGrid should render noRows 1`] = `
       scrollToIndex={-1}
       scrollToRow={-1}
       scrollingResetTimeInterval={150}
-      style={Object {}}
+      style={{}}
       tabIndex={0}
       width={1024}
     >
@@ -86,7 +86,7 @@ exports[`ListGrid should render noRows 1`] = `
         onScroll={[Function]}
         role="group"
         style={
-          Object {
+          {
             "WebkitOverflowScrolling": "touch",
             "boxSizing": "border-box",
             "direction": "ltr",
@@ -115,13 +115,13 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   autoHeight={false}
   className="tc-list-list theme-tc-list-list"
   collection={
-    Array [
-      Object {
+    [
+      {
         "description": "Simple row with icon and actions",
         "id": 0,
         "name": "Title with icon and actions",
       },
-      Object {
+      {
         "description": "Simple row without actions",
         "id": 1,
         "name": "Title without actions",
@@ -146,7 +146,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   rowRenderer={[Function]}
   scrollToAlignment="auto"
   scrollToIndex={-1}
-  style={Object {}}
+  style={{}}
   width={1024}
 >
   <Content
@@ -158,7 +158,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     flexShrink={1}
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={0}
   />
   <Content
@@ -170,7 +170,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     flexShrink={1}
     headerRenderer={[Function]}
     label="Name"
-    style={Object {}}
+    style={{}}
     width={0}
   />
   <Content
@@ -182,7 +182,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     flexShrink={1}
     headerRenderer={[Function]}
     label=""
-    style={Object {}}
+    style={{}}
     width={0}
   />
 </List>

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import entries from 'lodash/entries';
 import get from 'lodash/get';

@@ -13,7 +13,7 @@ exports[`Filter container should render 1`] = `
   onAfterChange={[Function]}
   onChange={[Function]}
   props={
-    Object {
+    {
       "id": "filter",
     }
   }

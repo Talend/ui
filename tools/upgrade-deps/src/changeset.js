@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
-const { execSync } = require('child_process');
-const os = require('os');
-const path = require('path');
-const semver = require('semver');
-const fs = require('fs');
-const uuid = require('uuid');
+import { execSync } from 'child_process';
+import os from 'os';
+import path from 'path';
+import semver from 'semver';
+import fs from 'fs';
+import crypto from 'crypto';
 
 const reDiff = new RegExp(/^[+,-] {4}"/);
 
@@ -27,7 +27,7 @@ function getModifiedPackage() {
 				.map(l => l.split(' ').pop())
 				// filter
 				.map(p => {
-					const def = require(path.join(process.cwd(), p));
+					const def = JSON.parse(fs.readFileSync(path.join(process.cwd(), p)));
 					def.talend = { path: p };
 					return def;
 				})
@@ -95,13 +95,17 @@ ${diffContent}
 \`\`\`
 `;
 		fs.writeFileSync(
-			path.join(process.cwd(), '.changeset', `ci-dependencies-${uuid.v4().split('-')[0]}.md`),
+			path.join(
+				process.cwd(),
+				'.changeset',
+				`ci-dependencies-${crypto.randomUUID().split('-')[0]}.md`,
+			),
 			content,
 		);
 	});
 }
 
-module.exports = {
+export default {
 	add,
 	isSetup,
 };

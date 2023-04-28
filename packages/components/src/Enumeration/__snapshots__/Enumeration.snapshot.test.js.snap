@@ -279,7 +279,7 @@ exports[`Enumeration should render item in edit mode with error 1`] = `
   id="tc-enumeration-0-item"
   role="row"
   style={
-    Object {
+    {
       "height": 42,
       "left": 0,
       "position": "absolute",
@@ -357,13 +357,13 @@ exports[`Enumeration should render item in edit mode with error 1`] = `
 `;
 
 exports[`Enumeration should render list in default state and required component 1`] = `
-Array [
+[
   <div
     className="theme-tc-enumeration-item tc-enumeration-item"
     id="tc-enumeration-0-item"
     role="row"
     style={
-      Object {
+      {
         "height": 42,
         "left": 0,
         "position": "absolute",
@@ -374,7 +374,7 @@ Array [
   >
     <Button
       active={false}
-      aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+      aria-label="Select item "Lorem ipsum dolor sit amet 0""
       block={false}
       bsClass="btn"
       bsStyle="link"
@@ -385,7 +385,7 @@ Array [
       role="gridcell"
     >
       <button
-        aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+        aria-label="Select item "Lorem ipsum dolor sit amet 0""
         className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -450,7 +450,7 @@ Array [
     id="tc-enumeration-1-item"
     role="row"
     style={
-      Object {
+      {
         "height": 42,
         "left": 0,
         "position": "absolute",
@@ -461,7 +461,7 @@ Array [
   >
     <Button
       active={false}
-      aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+      aria-label="Select item "Lorem ipsum dolor sit amet 1""
       block={false}
       bsClass="btn"
       bsStyle="link"
@@ -472,7 +472,7 @@ Array [
       role="gridcell"
     >
       <button
-        aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+        aria-label="Select item "Lorem ipsum dolor sit amet 1""
         className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -537,7 +537,7 @@ Array [
     id="tc-enumeration-2-item"
     role="row"
     style={
-      Object {
+      {
         "height": 42,
         "left": 0,
         "position": "absolute",
@@ -548,7 +548,7 @@ Array [
   >
     <Button
       active={false}
-      aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+      aria-label="Select item "Lorem ipsum dolor sit amet 2""
       block={false}
       bsClass="btn"
       bsStyle="link"
@@ -559,7 +559,7 @@ Array [
       role="gridcell"
     >
       <button
-        aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+        aria-label="Select item "Lorem ipsum dolor sit amet 2""
         className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -623,13 +623,13 @@ Array [
 `;
 
 exports[`Enumeration should render selected mode with checkboxes 1`] = `
-Array [
+[
   <div
     className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
     id="tc-enumeration-0-item"
     role="row"
     style={
-      Object {
+      {
         "height": 42,
         "left": 0,
         "position": "absolute",
@@ -640,7 +640,7 @@ Array [
   >
     <Button
       active={false}
-      aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+      aria-label="Select item "Lorem ipsum dolor sit amet 0""
       block={false}
       bsClass="btn"
       bsStyle="link"
@@ -651,7 +651,7 @@ Array [
       role="gridcell"
     >
       <button
-        aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+        aria-label="Select item "Lorem ipsum dolor sit amet 0""
         className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -659,7 +659,7 @@ Array [
         type="button"
       >
         <Checkbox
-          aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
+          aria-label="Check item "Lorem ipsum dolor sit amet 0""
           checked={true}
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           disabled={false}
@@ -671,7 +671,7 @@ Array [
           >
             <label>
               <input
-                aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
+                aria-label="Check item "Lorem ipsum dolor sit amet 0""
                 checked={true}
                 data-checked={2}
                 disabled={false}
@@ -696,7 +696,7 @@ Array [
     id="tc-enumeration-1-item"
     role="row"
     style={
-      Object {
+      {
         "height": 42,
         "left": 0,
         "position": "absolute",
@@ -707,7 +707,7 @@ Array [
   >
     <Button
       active={false}
-      aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+      aria-label="Select item "Lorem ipsum dolor sit amet 1""
       block={false}
       bsClass="btn"
       bsStyle="link"
@@ -718,7 +718,7 @@ Array [
       role="gridcell"
     >
       <button
-        aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+        aria-label="Select item "Lorem ipsum dolor sit amet 1""
         className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -726,7 +726,7 @@ Array [
         type="button"
       >
         <Checkbox
-          aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
+          aria-label="Check item "Lorem ipsum dolor sit amet 1""
           checked={true}
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           disabled={false}
@@ -738,7 +738,7 @@ Array [
           >
             <label>
               <input
-                aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
+                aria-label="Check item "Lorem ipsum dolor sit amet 1""
                 checked={true}
                 data-checked={2}
                 disabled={false}
@@ -763,7 +763,7 @@ Array [
     id="tc-enumeration-2-item"
     role="row"
     style={
-      Object {
+      {
         "height": 42,
         "left": 0,
         "position": "absolute",
@@ -774,7 +774,7 @@ Array [
   >
     <Button
       active={false}
-      aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+      aria-label="Select item "Lorem ipsum dolor sit amet 2""
       block={false}
       bsClass="btn"
       bsStyle="link"
@@ -785,7 +785,7 @@ Array [
       role="gridcell"
     >
       <button
-        aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+        aria-label="Select item "Lorem ipsum dolor sit amet 2""
         className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -793,7 +793,7 @@ Array [
         type="button"
       >
         <Checkbox
-          aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+          aria-label="Check item "Lorem ipsum dolor sit amet 2""
           checked={false}
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           disabled={false}
@@ -805,7 +805,7 @@ Array [
           >
             <label>
               <input
-                aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+                aria-label="Check item "Lorem ipsum dolor sit amet 2""
                 checked={false}
                 data-checked={0}
                 disabled={false}
@@ -831,10 +831,10 @@ Array [
 exports[`Enumeration should render with EmptyListPlaceholder in default mode when there's no items in list 1`] = `
 <ItemsEnumeration
   displayMode="DISPLAY_MODE_DEFAULT"
-  headerDefault={Array []}
-  headerInput={Array []}
+  headerDefault={[]}
+  headerInput={[]}
   id="tc-enumeration"
-  items={Array []}
+  items={[]}
   t={[Function]}
 >
   <EmptyListPlaceholder
@@ -853,10 +853,10 @@ exports[`Enumeration should render with EmptyListPlaceholder in default mode whe
 exports[`Enumeration should render with EmptyListPlaceholder in search mode when there's no items in list 1`] = `
 <ItemsEnumeration
   displayMode="DISPLAY_MODE_SEARCH"
-  headerDefault={Array []}
-  headerInput={Array []}
+  headerDefault={[]}
+  headerInput={[]}
   id="tc-enumeration"
-  items={Array []}
+  items={[]}
   t={[Function]}
 >
   <EmptyListPlaceholder

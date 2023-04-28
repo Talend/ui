@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
@@ -166,7 +165,7 @@ function ActionButton(props) {
 		});
 	}
 	if (loading) {
-		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} (loading)', type: ariaLabel });
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} Loading...', type: ariaLabel });
 	}
 
 	const hasPopup = !inProgress && overlayComponent;

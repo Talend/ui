@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useLayoutEffect, useEffect } from 'react';
+import { createRef, useState, useLayoutEffect, useEffect } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
@@ -64,7 +64,7 @@ function SidePanel({
 	const docked = onToggleDock ? dockedProp : dockState;
 	const [width, setWidth] = useState(() => getInitialWidth(docked, large));
 	const [animation, setAnimation] = useState(false);
-	const ref = React.createRef();
+	const ref = createRef();
 
 	useLayoutEffect(() => {
 		if (docked || minimised) {

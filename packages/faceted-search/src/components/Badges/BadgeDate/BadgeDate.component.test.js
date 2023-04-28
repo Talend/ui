@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { mount } from 'enzyme';
 import { BadgeDate } from './BadgeDate.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';

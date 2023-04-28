@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import Dialog from '../Dialog';
 import Action from '../Actions/Action';
 

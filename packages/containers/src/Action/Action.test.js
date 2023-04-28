@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import { mock } from '@talend/react-cmf';
 

@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 

@@ -1,6 +1,20 @@
 /*  Common code for validating a value against its form and schema definition */
 import tv4 from 'tv4';
 
+function validateTypeSpecificInput(inputType = '', event = {}) {
+	switch (inputType) {
+		case 'number':
+			// If the user types a non-integer value, the value is emptied by browser but still displayed in UI
+			if (event.target?.validity && !event.target.validity.valid) {
+				return { valid: false, message: 'CUSTOM_ERROR_INVALID_INPUT' };
+			}
+			break;
+		default:
+			break;
+	}
+	return { valid: true };
+}
+
 /**
  * Validate a value against its form definition and schema.
  * The value should either be of proper type or a string, some type
@@ -8,9 +22,10 @@ import tv4 from 'tv4';
  *
  * @param {Object} form A merged form definition, i.e. one with a schema.
  * @param {Any} value the value to validate.
+ * @param {Object} event for input types in which the values are not available in form
  * @return {Object} a tv4js result object.
  */
-export function validate(form, value) {
+export function validate(form, value, event) {
 	if (!form) {
 		return { valid: true };
 	}
@@ -28,9 +43,9 @@ export function validate(form, value) {
 		value = undefined;
 	}
 
-	// Numbers fields will give a null value, which also means empty field
-	if (form.type === 'number' && value === null) {
-		value = undefined;
+	const error = validateTypeSpecificInput(form.type, event);
+	if (!error.valid && error.message) {
+		return { valid: false, error: { message: error.message } };
 	}
 
 	// Version 4 of JSON Schema has the required property not on the

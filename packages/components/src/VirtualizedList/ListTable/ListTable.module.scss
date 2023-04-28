@@ -27,6 +27,7 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 		&:focus,
 		&:global(.ally-focus-within) {
 			background-color: $wild-sand;
+
 			.cell {
 				border-right: 1px solid $white;
 			}
@@ -39,6 +40,7 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 
 	.tc-list-headerRow {
 		box-shadow: $shadow-default;
+
 		.header {
 			color: $tc-list-table-header-color;
 			display: inline-flex;
@@ -67,11 +69,6 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 		box-shadow: $shadow-default;
 
 		.cell {
-			// selection's checkbox has no "name" attribute, so "tc-list-cell-" refer to this cell
-			&:global(.tc-list-cell-),
-			&:last-child {
-				border-right: none;
-			}
 
 			border-right: $tc-list-table-border;
 			white-space: nowrap;
@@ -82,6 +79,11 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 			height: 100%;
 			display: flex;
 			align-items: center;
+			// selection's checkbox has no "name" attribute, so "tc-list-cell-" refer to this cell
+			&:global(.tc-list-cell-),
+			&:last-child {
+				border-right: none;
+			}
 		}
 	}
 

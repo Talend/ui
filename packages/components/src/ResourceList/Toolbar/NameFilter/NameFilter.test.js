@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import NameFilter from './NameFilter.component';
 
@@ -14,10 +13,7 @@ describe('NameFilter', () => {
 		const wrapper = shallow(<NameFilter onChange={onChange} />);
 		expect(onChange).not.toBeCalled();
 
-		wrapper
-			.find('DebounceInput')
-			.at(0)
-			.simulate('change', payload);
+		wrapper.find('DebounceInput').at(0).simulate('change', payload);
 
 		expect(onChange).toBeCalledWith(payload);
 	});

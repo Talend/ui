@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.1.1
+
+### Patch Changes
+
+- f77b6a9b7: TDOPS-3372 - validate input value for integer fields
+
 ## 1.1.0
 
 ### Minor Changes

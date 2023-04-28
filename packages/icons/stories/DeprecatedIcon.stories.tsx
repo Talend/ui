@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Icon from './Icon';
 import { info as icons } from '../dist/info';
 

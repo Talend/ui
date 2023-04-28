@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Action from '../Actions/Action';
@@ -24,7 +24,7 @@ function TdsTileContent({ id }) {
 	switch (displayMode) {
 		case 'chart':
 			return (
-				<React.Fragment>
+				<Fragment>
 					<div>
 						'my chart'
 						<InputDateTimePicker
@@ -34,21 +34,21 @@ function TdsTileContent({ id }) {
 							onChange={action('onChange')}
 						/>
 					</div>
-				</React.Fragment>
+				</Fragment>
 			);
 		case 'filter':
 			return (
-				<React.Fragment>
+				<Fragment>
 					<div>my filter</div>
 					<Action {...submitAction} />
-				</React.Fragment>
+				</Fragment>
 			);
 		case 'filterUser': {
 			return (
-				<React.Fragment>
+				<Fragment>
 					<div>'user list'</div>
 					<Action {...submitAction} />
-				</React.Fragment>
+				</Fragment>
 			);
 		}
 		default:

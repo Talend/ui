@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
 import { batchedSubscribe } from 'redux-batched-subscribe';

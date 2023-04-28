@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import Toggle from './Toggle.component';
 
@@ -13,9 +12,7 @@ describe('Toggle', () => {
 		// given
 
 		// when
-		const toggle = (
-			<Toggle {...defaultProps} />
-		);
+		const toggle = <Toggle {...defaultProps} />;
 		const wrapper = mount(toggle);
 		wrapper.find('input').simulate('change');
 
@@ -27,9 +24,7 @@ describe('Toggle', () => {
 		// given
 
 		// when
-		const toggle = (
-			<Toggle {...defaultProps} />
-		);
+		const toggle = <Toggle {...defaultProps} />;
 		const wrapper = mount(toggle);
 		wrapper.find('input').simulate('blur');
 

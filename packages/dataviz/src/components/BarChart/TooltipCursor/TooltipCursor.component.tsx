@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import { SVGProps } from 'react';
 import { Customized } from 'recharts';
 import styles from './TooltipCursor.component.module.scss';
 

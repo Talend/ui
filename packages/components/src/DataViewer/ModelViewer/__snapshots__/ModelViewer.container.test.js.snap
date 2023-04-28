@@ -1,8 +1,268 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`I18n should render 1`] = `
-<Container(TreeManager)
-  componentId="ModelViewer"
-  wrappedComponent={[Function]}
-/>
+<div
+  class="theme-tc-model tc-model"
+>
+  <div
+    class="theme-tc-tree-header tc-tree-header"
+  >
+    Data model
+    <div
+      class="theme-tc-tree-header-actions tc-tree-header-actions"
+    />
+  </div>
+  <ul
+    class="theme-tc-tree tc-tree"
+  >
+    <li>
+      <span
+        class="theme-tc-model-leaf tc-model-leaf"
+      >
+        <button
+          aria-label="Select business_id ($['business_id'])"
+          class="theme-tc-model-leaf-button tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="business_id (INTEGER)"
+        />
+        <span
+          class="theme-tc-simple-text tc-simple-text"
+        >
+          <span
+            class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+          >
+            business_id
+             
+          </span>
+          <span
+            class="theme-tc-simple-text-value tc-simple-text-value"
+          >
+            (INTEGER)
+          </span>
+        </span>
+        <span
+          class="theme-tc-model-leaf-options tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <span
+        class="theme-tc-model-leaf tc-model-leaf"
+      >
+        <button
+          aria-label="Select name ($['name'])"
+          class="theme-tc-model-leaf-button tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="name (STRING)"
+        />
+        <span
+          class="theme-tc-simple-text tc-simple-text"
+        >
+          <span
+            class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+          >
+            name
+             
+          </span>
+          <span
+            class="theme-tc-simple-text-value tc-simple-text-value"
+          >
+            (STRING)
+          </span>
+        </span>
+        <span
+          class="theme-tc-model-leaf-options tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <span
+        class="theme-tc-model-leaf tc-model-leaf"
+      >
+        <button
+          aria-label="Select category ($['category'])"
+          class="theme-tc-model-leaf-button tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="category (STRING)"
+        />
+        <span
+          class="theme-tc-simple-text tc-simple-text"
+        >
+          <span
+            class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+          >
+            category
+             
+          </span>
+          <span
+            class="theme-tc-simple-text-value tc-simple-text-value"
+          >
+            (STRING)
+          </span>
+        </span>
+        <span
+          class="theme-tc-model-leaf-options tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <span
+        class="theme-tc-model-leaf tc-model-leaf"
+      >
+        <button
+          aria-label="Select rating ($['rating'])"
+          class="theme-tc-model-leaf-button tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="rating (DOUBLE)"
+        />
+        <span
+          class="theme-tc-simple-text tc-simple-text"
+        >
+          <span
+            class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+          >
+            rating
+             
+          </span>
+          <span
+            class="theme-tc-simple-text-value tc-simple-text-value"
+          >
+            (DOUBLE)
+          </span>
+        </span>
+        <span
+          class="theme-tc-model-leaf-options tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <span
+        class="theme-tc-model-leaf tc-model-leaf"
+      >
+        <button
+          aria-label="Select num_of_reviews ($['num_of_reviews'])"
+          class="theme-tc-model-leaf-button tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="num_of_reviews (INTEGER)"
+        />
+        <span
+          class="theme-tc-simple-text tc-simple-text"
+        >
+          <span
+            class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+          >
+            num_of_reviews
+             
+          </span>
+          <span
+            class="theme-tc-simple-text-value tc-simple-text-value"
+          >
+            (INTEGER)
+          </span>
+        </span>
+        <span
+          class="theme-tc-model-leaf-options tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <div
+        class="theme-tc-model-branch tc-model-branch"
+      >
+        <span
+          class="theme-tc-model-branch-content tc-model-branch-content"
+        >
+          <button
+            class="theme-tc-model-branch-button tc-model-branch-button"
+            data-testid="model-branch-button"
+          />
+          <span
+            class="theme-tc-tree-branch-icon tc-tree-branch-icon theme-tc-model-branch-icon tc-model-branch-icon"
+            data-testid="tree-branch-icon"
+          >
+            <span
+              class="CoralIcon theme-tc-tree-branch-icon-caret tc-tree-branch-icon-caret theme-tc-tree-branch-icon-caret-right tc-tree-branch-icon-caret-right"
+              name="talend-chevron-left"
+              title="Expand attributes ($['attributes'])"
+            />
+          </span>
+          <span
+            class="theme-tc-simple-text tc-simple-text"
+          >
+            <span
+              class="theme-tc-simple-text-key tc-simple-text-key"
+            >
+              attributes
+               
+            </span>
+          </span>
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="theme-tc-model-branch tc-model-branch"
+      >
+        <span
+          class="theme-tc-model-branch-content tc-model-branch-content"
+        >
+          <button
+            class="theme-tc-model-branch-button tc-model-branch-button"
+            data-testid="model-branch-button"
+          />
+          <span
+            class="theme-tc-tree-branch-icon tc-tree-branch-icon theme-tc-model-branch-icon tc-model-branch-icon"
+            data-testid="tree-branch-icon"
+          >
+            <span
+              class="CoralIcon theme-tc-tree-branch-icon-caret tc-tree-branch-icon-caret theme-tc-tree-branch-icon-caret-right tc-tree-branch-icon-caret-right"
+              name="talend-chevron-left"
+              title="Expand location ($['location'])"
+            />
+          </span>
+          <span
+            class="theme-tc-simple-text tc-simple-text"
+          >
+            <span
+              class="theme-tc-simple-text-key tc-simple-text-key"
+            >
+              location
+               
+            </span>
+          </span>
+        </span>
+      </div>
+    </li>
+    <li>
+      <span
+        class="theme-tc-model-leaf tc-model-leaf"
+      >
+        <button
+          aria-label="Select tags ($['tags'][])"
+          class="theme-tc-model-leaf-button tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="tags* (array)"
+        />
+        <span
+          class="theme-tc-simple-text tc-simple-text"
+        >
+          <span
+            class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+          >
+            tags*
+             
+          </span>
+          <span
+            class="theme-tc-simple-text-value tc-simple-text-value"
+          >
+            (array)
+          </span>
+        </span>
+        <span
+          class="theme-tc-model-leaf-options tc-model-leaf-options"
+        />
+      </span>
+    </li>
+  </ul>
+</div>
 `;

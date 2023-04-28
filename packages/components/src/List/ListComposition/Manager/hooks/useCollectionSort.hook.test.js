@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
@@ -136,11 +135,13 @@ describe('useCollectionSort', () => {
 		};
 
 		const sortFunctions = {
-			firstName: ({ sortBy }) => (a, b) => {
-				const aValue = a[sortBy];
-				const bValue = b[sortBy];
-				return aValue[aValue.length - 1].localeCompare(bValue[bValue.length - 1]);
-			},
+			firstName:
+				({ sortBy }) =>
+				(a, b) => {
+					const aValue = a[sortBy];
+					const bValue = b[sortBy];
+					return aValue[aValue.length - 1].localeCompare(bValue[bValue.length - 1]);
+				},
 		};
 
 		// when

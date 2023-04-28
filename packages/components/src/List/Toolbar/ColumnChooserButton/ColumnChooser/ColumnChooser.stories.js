@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import ColumnChooser from './ColumnChooser.component';
 import { Card } from '@talend/design-system';

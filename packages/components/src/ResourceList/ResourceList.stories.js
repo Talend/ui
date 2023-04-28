@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { action } from '@storybook/addon-actions';
@@ -245,8 +245,8 @@ Pipeline.propTypes = {
 
 export function FilteredResourceList(props) {
 	const { t } = useTranslation();
-	const [filter, setFilter] = React.useState();
-	const filteredCollection = React.useMemo(
+	const [filter, setFilter] = useState();
+	const filteredCollection = useMemo(
 		() =>
 			filter
 				? props.collection.filter(item => item.name.toLowerCase().includes(filter.toLowerCase()))
@@ -259,8 +259,7 @@ export function FilteredResourceList(props) {
 			toolbar={{
 				name: {
 					label: t('FILTER', {
-						defaultValue: 'Find a {{type, lowercase}}',
-						type: props?.renderAs?.name,
+						defaultValue: 'Filter:',
 					}),
 					value: filter,
 					onChange: event => setFilter(event.target.value),

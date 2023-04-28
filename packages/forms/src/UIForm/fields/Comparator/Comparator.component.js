@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import last from 'lodash/last';
 import classNames from 'classnames';
 
@@ -86,7 +86,7 @@ function OperatorListElement({ symbol, icon, name, selected }) {
 	);
 }
 
-class Comparator extends React.Component {
+class Comparator extends Component {
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);

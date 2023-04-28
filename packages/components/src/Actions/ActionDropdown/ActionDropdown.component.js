@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
@@ -142,7 +142,7 @@ function getDropdownContainer(dropdownElement) {
 };
  <ActionDropdown {...props} />
  */
-class ActionDropdown extends React.Component {
+class ActionDropdown extends Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);

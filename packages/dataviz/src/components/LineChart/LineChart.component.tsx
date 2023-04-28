@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import {
 	LineChart as RLineChart,
 	Line,
@@ -20,6 +20,8 @@ export interface LineChartProps {
 	data: LineChartEntry[];
 	lines: LineOptions[];
 	chartOptions: LineChartOptions;
+	hasLineSelection?: boolean;
+	initialSelectedLines?: string[];
 	onLineClicked?: (key: string) => void;
 	onLineHovered?: (key: string) => void;
 	onLegendItemClicked?: (key: string) => void;
@@ -30,6 +32,8 @@ function LineChart({
 	data,
 	lines,
 	chartOptions,
+	hasLineSelection,
+	initialSelectedLines = [],
 	onLineClicked = () => {},
 	onLineHovered = () => {},
 	onLegendItemClicked = () => {},
@@ -47,7 +51,14 @@ function LineChart({
 		tooltip,
 	} = chartOptions;
 
-	const getLineStyleFromStatus = (status: LineStatus) => {
+	const [activeLine, setActiveLine] = useState<string | null>(null);
+	const [selectedLines, setSelectedLines] = useState<string[]>(initialSelectedLines);
+	const hasOnlyOneValue = data?.length === 1;
+
+	const getLineStyleFromStatus = (status: LineStatus, key: string) => {
+		const defaultDotSize = hasOnlyOneValue ? 2 : 0;
+		const defaultDotStrokeWidth = hasOnlyOneValue ? 4 : 0;
+
 		const styleByStatus = {
 			light: {
 				strokeWidth: 1,
@@ -70,10 +81,49 @@ function LineChart({
 				activeDot: { r: 6, strokeWidth: 0 },
 			},
 		};
+
+		if (hasLineSelection && selectedLines.length > 0) {
+			return {
+				dot: { r: defaultDotSize, strokeWidth: defaultDotStrokeWidth },
+				...styleByStatus[status],
+				strokeOpacity: selectedLines.includes(key) ? 1 : 0.25,
+			};
+		}
+
+		if (activeLine !== null) {
+			return {
+				dot: { r: defaultDotSize, strokeWidth: defaultDotStrokeWidth },
+				...styleByStatus[status],
+				strokeOpacity: activeLine === key ? 1 : 0.25,
+			};
+		}
+
 		return {
-			dot: { r: 0 },
+			dot: { r: defaultDotSize, strokeWidth: defaultDotStrokeWidth },
 			...styleByStatus[status],
 		};
+	};
+
+	const onLegendClicked = (key: string) => {
+		if (hasLineSelection) {
+			const isSelected = selectedLines.includes(key);
+			const newSelectedLines = isSelected
+				? selectedLines.filter(lineKey => lineKey !== key)
+				: [...selectedLines, key];
+			setSelectedLines(newSelectedLines.length === lines.length ? [] : newSelectedLines);
+		}
+		onLegendItemClicked(key);
+	};
+
+	const onLegendHovered = (key: string) => {
+		if (onLegendItemHovered) {
+			onLegendItemHovered(key);
+		}
+		if (key === '') {
+			setActiveLine(null);
+		} else {
+			setActiveLine(key);
+		}
 	};
 
 	return (
@@ -104,13 +154,13 @@ function LineChart({
 						type={leftYAxisOptions?.type}
 						domain={leftYAxisOptions?.domain}
 						unit={leftYAxisOptions?.hideUnitInAxis ? '' : leftYAxisOptions?.unit}
-						interval={leftYAxisOptions?.manualTicks ? 0 : 'preserveEnd'}
+						interval={leftYAxisOptions?.manualTicks ? undefined : 'preserveEnd'}
 						dx={leftYAxisOptions?.horizontalOffset}
 						dy={leftYAxisOptions?.verticalOffset}
 						minTickGap={2}
-						tickCount={6}
+						tickCount={leftYAxisOptions?.manualTicks ? undefined : 6}
 						ticks={leftYAxisOptions?.manualTicks}
-						tickLine={false}
+						tickLine={!!leftYAxisOptions?.tickLine}
 						tickFormatter={leftYAxisOptions?.formatter}
 					/>
 					<YAxis
@@ -120,13 +170,13 @@ function LineChart({
 						type={rightYAxisOptions?.type}
 						domain={rightYAxisOptions?.domain}
 						unit={rightYAxisOptions?.hideUnitInAxis ? '' : rightYAxisOptions?.unit}
-						interval={rightYAxisOptions?.manualTicks ? 0 : 'preserveEnd'}
+						interval={rightYAxisOptions?.manualTicks ? undefined : 'preserveEnd'}
 						dx={rightYAxisOptions?.horizontalOffset}
 						dy={rightYAxisOptions?.verticalOffset}
 						minTickGap={2}
-						tickCount={6}
+						tickCount={rightYAxisOptions?.manualTicks ? undefined : 6}
 						ticks={rightYAxisOptions?.manualTicks}
-						tickLine={false}
+						tickLine={!!rightYAxisOptions?.tickLine}
 						tickFormatter={rightYAxisOptions?.formatter}
 					/>
 					{!tooltip?.hide && (
@@ -155,8 +205,10 @@ function LineChart({
 										showInactives: legend?.showInactives,
 										isRightAxisDisplayed: rightYAxisOptions?.hide === false,
 									}}
-									onLegendClicked={onLegendItemClicked}
-									onLegendHovered={onLegendItemHovered}
+									selection={selectedLines}
+									hasLineSelection={hasLineSelection}
+									onLegendClicked={onLegendClicked}
+									onLegendHovered={onLegendHovered}
 								/>
 							}
 						/>
@@ -173,7 +225,7 @@ function LineChart({
 							strokeDasharray={options?.dashed ? '17 4' : ''}
 							connectNulls
 							animationDuration={300}
-							{...getLineStyleFromStatus(options?.status || 'active')}
+							{...getLineStyleFromStatus(options?.status || 'active', options.key)}
 							onClick={() => onLineClicked(options.key)}
 							onMouseEnter={() => onLineHovered(options.key)}
 							onMouseLeave={() => onLineHovered('')}

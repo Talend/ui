@@ -1,5 +1,26 @@
 # @talend/scripts-config-babel
 
+## 13.0.0
+
+### Major Changes
+
+- cf697de02: feat: use React automatic import to transpile jsx (related to useless React import cleaning)
+
+## 12.0.0
+
+### Major Changes
+
+- c18aabb97: feat: expose config as main
+
+  Breaking change: this package can not be used by old talend-scripts preset. But now you can extends from it direclty.
+
+  ```diff
+  {
+  -	"extends": "@talend/scripts-config-babel/.babelrc.json"
+  +	"extends": "@talend/scripts-config-babel"
+  }
+  ```
+
 ## 11.0.0
 
 ### Major Changes

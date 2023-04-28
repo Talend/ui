@@ -15,12 +15,12 @@ exports[`Dialog should render 1`] = `
   manager={
     ModalManager {
       "add": [Function],
-      "containers": Array [],
-      "data": Array [],
+      "containers": [],
+      "data": [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
       "isTopModal": [Function],
-      "modals": Array [],
+      "modals": [],
       "remove": [Function],
     }
   }
@@ -56,12 +56,12 @@ exports[`Dialog should render action 1`] = `
   manager={
     ModalManager {
       "add": [Function],
-      "containers": Array [],
-      "data": Array [],
+      "containers": [],
+      "data": [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
       "isTopModal": [Function],
-      "modals": Array [],
+      "modals": [],
       "remove": [Function],
     }
   }
@@ -120,12 +120,12 @@ exports[`Dialog should render error 1`] = `
   manager={
     ModalManager {
       "add": [Function],
-      "containers": Array [],
-      "data": Array [],
+      "containers": [],
+      "data": [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
       "isTopModal": [Function],
-      "modals": Array [],
+      "modals": [],
       "remove": [Function],
     }
   }
@@ -180,12 +180,12 @@ exports[`Dialog should render header 1`] = `
   manager={
     ModalManager {
       "add": [Function],
-      "containers": Array [],
-      "data": Array [],
+      "containers": [],
+      "data": [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
       "isTopModal": [Function],
-      "modals": Array [],
+      "modals": [],
       "remove": [Function],
     }
   }
@@ -237,12 +237,12 @@ exports[`Dialog should render large 1`] = `
   manager={
     ModalManager {
       "add": [Function],
-      "containers": Array [],
-      "data": Array [],
+      "containers": [],
+      "data": [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
       "isTopModal": [Function],
-      "modals": Array [],
+      "modals": [],
       "remove": [Function],
     }
   }
@@ -303,12 +303,12 @@ exports[`Dialog should render small 1`] = `
   manager={
     ModalManager {
       "add": [Function],
-      "containers": Array [],
-      "data": Array [],
+      "containers": [],
+      "data": [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
       "isTopModal": [Function],
-      "modals": Array [],
+      "modals": [],
       "remove": [Function],
     }
   }
@@ -367,12 +367,12 @@ exports[`Dialog should render subtitle 1`] = `
   manager={
     ModalManager {
       "add": [Function],
-      "containers": Array [],
-      "data": Array [],
+      "containers": [],
+      "data": [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
       "isTopModal": [Function],
-      "modals": Array [],
+      "modals": [],
       "remove": [Function],
     }
   }

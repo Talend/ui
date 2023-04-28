@@ -1,9 +1,10 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import type { PropsWithChildren, MouseEvent } from 'react';
 import { Radio, RadioGroup, useRadioState } from 'reakit';
+import classnames from 'classnames';
+import theme from './Switch.module.scss';
 
-import * as S from './Switch.style';
-
-export type SwitchProps = React.PropsWithChildren<any> & {
+export type SwitchProps = PropsWithChildren<any> & {
 	label: string;
 	value?: string;
 	defaultValue?: string;
@@ -30,8 +31,8 @@ const Switch = ({
 		unstable_virtual: true,
 	});
 
-	const containerRef = useRef<React.PropsWithChildren<any>>();
-	const switchIndicator = useRef<React.PropsWithChildren<any>>();
+	const containerRef = useRef<PropsWithChildren<any>>();
+	const switchIndicator = useRef<PropsWithChildren<any>>();
 
 	useLayoutEffect(() => {
 		const radioGroup = containerRef?.current;
@@ -57,15 +58,18 @@ const Switch = ({
 	}, [radio, defaultValue, radio.items]);
 
 	return (
-		<S.Switch readOnly={readOnly} disabled={disabled}>
+		<div
+			className={classnames(theme.switch, {
+				[theme.readOnly]: readOnly,
+				[theme.disabled]: disabled,
+			})}
+		>
 			<RadioGroup {...rest} {...radio} ref={containerRef} aria-label={label} disabled={disabled}>
 				{values.map((v: string, i: number) => {
 					const isChecked = radio.state === v;
 					return (
 						<Radio
-							onChange={(event: React.MouseEvent<HTMLButtonElement>) =>
-								onChange && onChange(event, v)
-							}
+							onChange={(event: MouseEvent<HTMLButtonElement>) => onChange && onChange(event, v)}
 							{...radio}
 							value={v}
 							as="button"
@@ -76,11 +80,16 @@ const Switch = ({
 						</Radio>
 					);
 				})}
-				<S.SwitchIndicator ref={switchIndicator} data-animated={false} aria-hidden="true">
+				<span
+					className={theme.switchIndicator}
+					ref={switchIndicator}
+					data-animated={false}
+					aria-hidden="true"
+				>
 					<em />
-				</S.SwitchIndicator>
+				</span>
 			</RadioGroup>
-		</S.Switch>
+		</div>
 	);
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
@@ -23,12 +23,12 @@ const RowCheckbox = ({
 	};
 	const describedby = `${id}-${description}`;
 	return locked ? (
-		<React.Fragment>
+		<Fragment>
 			<Icon name="talend-locked" className={theme('tc-column-chooser-row-locked-icon')} />
 			<RowLabel label={label} />
-		</React.Fragment>
+		</Fragment>
 	) : (
-		<React.Fragment>
+		<Fragment>
 			<Checkbox
 				checked={checked}
 				data-feature={dataFeature}
@@ -41,7 +41,7 @@ const RowCheckbox = ({
 			<div id={describedby} className="sr-only">
 				{description}
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

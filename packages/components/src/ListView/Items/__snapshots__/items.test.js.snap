@@ -6,15 +6,15 @@ exports[`Items should render 1`] = `
   getItemHeight={[Function]}
   isSwitchBox={false}
   items={
-    Array [
-      Object {
+    [
+      {
         "label": "Lorem ipsum dolor sit amet 0",
       },
-      Object {
+      {
         "checked": true,
         "label": "Lorem ipsum dolor sit amet 1",
       },
-      Object {
+      {
         "label": "Lorem ipsum dolor sit amet 2",
       },
     ]
@@ -35,15 +35,15 @@ exports[`Items should render 1`] = `
           estimatedRowSize={30}
           height={30}
           items={
-            Array [
-              Object {
+            [
+              {
                 "label": "Lorem ipsum dolor sit amet 0",
               },
-              Object {
+              {
                 "checked": true,
                 "label": "Lorem ipsum dolor sit amet 1",
               },
-              Object {
+              {
                 "label": "Lorem ipsum dolor sit amet 2",
               },
             ]
@@ -59,7 +59,7 @@ exports[`Items should render 1`] = `
           rowRenderer={[Function]}
           scrollToAlignment="auto"
           scrollToIndex={-1}
-          style={Object {}}
+          style={{}}
           width={30}
         >
           <Grid
@@ -74,22 +74,22 @@ exports[`Items should render 1`] = `
             columnCount={1}
             columnWidth={30}
             containerRole="rowgroup"
-            containerStyle={Object {}}
+            containerStyle={{}}
             estimatedColumnSize={100}
             estimatedRowSize={30}
             getScrollbarSize={[Function]}
             height={30}
             isScrollingOptOut={false}
             items={
-              Array [
-                Object {
+              [
+                {
                   "label": "Lorem ipsum dolor sit amet 0",
                 },
-                Object {
+                {
                   "checked": true,
                   "label": "Lorem ipsum dolor sit amet 1",
                 },
-                Object {
+                {
                   "label": "Lorem ipsum dolor sit amet 2",
                 },
               ]
@@ -112,7 +112,7 @@ exports[`Items should render 1`] = `
             scrollToIndex={-1}
             scrollToRow={-1}
             scrollingResetTimeInterval={150}
-            style={Object {}}
+            style={{}}
             tabIndex={0}
             width={30}
           >
@@ -123,7 +123,7 @@ exports[`Items should render 1`] = `
               onScroll={[Function]}
               role="listbox"
               style={
-                Object {
+                {
                   "WebkitOverflowScrolling": "touch",
                   "boxSizing": "border-box",
                   "direction": "ltr",
@@ -141,7 +141,7 @@ exports[`Items should render 1`] = `
                 className="ReactVirtualized__Grid__innerScrollContainer"
                 role="rowgroup"
                 style={
-                  Object {
+                  {
                     "height": 166,
                     "maxHeight": 166,
                     "maxWidth": 30,
@@ -155,20 +155,20 @@ exports[`Items should render 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -177,7 +177,7 @@ exports[`Items should render 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 4,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -195,7 +195,7 @@ exports[`Items should render 1`] = `
                     className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
-                      Object {
+                      {
                         "height": 40,
                         "left": 0,
                         "position": "absolute",
@@ -224,20 +224,20 @@ exports[`Items should render 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -246,7 +246,7 @@ exports[`Items should render 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 4,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -264,7 +264,7 @@ exports[`Items should render 1`] = `
                     className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
-                      Object {
+                      {
                         "height": 42,
                         "left": 0,
                         "position": "absolute",
@@ -277,7 +277,7 @@ exports[`Items should render 1`] = `
                       dataTest="item-0"
                       isSwitchBox={false}
                       item={
-                        Object {
+                        {
                           "label": "Lorem ipsum dolor sit amet 0",
                         }
                       }
@@ -328,20 +328,20 @@ exports[`Items should render 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -350,7 +350,7 @@ exports[`Items should render 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 4,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -368,7 +368,7 @@ exports[`Items should render 1`] = `
                     className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
-                      Object {
+                      {
                         "height": 42,
                         "left": 0,
                         "position": "absolute",
@@ -381,7 +381,7 @@ exports[`Items should render 1`] = `
                       dataTest="item-1"
                       isSwitchBox={false}
                       item={
-                        Object {
+                        {
                           "checked": true,
                           "label": "Lorem ipsum dolor sit amet 1",
                         }
@@ -434,20 +434,20 @@ exports[`Items should render 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -456,7 +456,7 @@ exports[`Items should render 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 4,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -474,7 +474,7 @@ exports[`Items should render 1`] = `
                     className="theme-tc-item-container tc-item-container"
                     key="3-0"
                     style={
-                      Object {
+                      {
                         "height": 42,
                         "left": 0,
                         "position": "absolute",
@@ -487,7 +487,7 @@ exports[`Items should render 1`] = `
                       dataTest="item-2"
                       isSwitchBox={false}
                       item={
-                        Object {
+                        {
                           "label": "Lorem ipsum dolor sit amet 2",
                         }
                       }
@@ -551,21 +551,21 @@ exports[`Items should render with nested items 1`] = `
   getItemHeight={[Function]}
   isSwitchBox={false}
   items={
-    Array [
-      Object {
+    [
+      {
         "label": "Lorem ipsum dolor default",
       },
-      Object {
+      {
         "checked": true,
-        "children": Array [
-          Object {
+        "children": [
+          {
             "label": "Lorem ipsum dolor sit amet 0",
           },
-          Object {
+          {
             "checked": true,
             "label": "Lorem ipsum dolor sit amet 1",
           },
-          Object {
+          {
             "label": "Lorem ipsum dolor sit amet 2",
           },
         ],
@@ -589,21 +589,21 @@ exports[`Items should render with nested items 1`] = `
           estimatedRowSize={30}
           height={30}
           items={
-            Array [
-              Object {
+            [
+              {
                 "label": "Lorem ipsum dolor default",
               },
-              Object {
+              {
                 "checked": true,
-                "children": Array [
-                  Object {
+                "children": [
+                  {
                     "label": "Lorem ipsum dolor sit amet 0",
                   },
-                  Object {
+                  {
                     "checked": true,
                     "label": "Lorem ipsum dolor sit amet 1",
                   },
-                  Object {
+                  {
                     "label": "Lorem ipsum dolor sit amet 2",
                   },
                 ],
@@ -622,7 +622,7 @@ exports[`Items should render with nested items 1`] = `
           rowRenderer={[Function]}
           scrollToAlignment="auto"
           scrollToIndex={-1}
-          style={Object {}}
+          style={{}}
           width={30}
         >
           <Grid
@@ -637,28 +637,28 @@ exports[`Items should render with nested items 1`] = `
             columnCount={1}
             columnWidth={30}
             containerRole="rowgroup"
-            containerStyle={Object {}}
+            containerStyle={{}}
             estimatedColumnSize={100}
             estimatedRowSize={30}
             getScrollbarSize={[Function]}
             height={30}
             isScrollingOptOut={false}
             items={
-              Array [
-                Object {
+              [
+                {
                   "label": "Lorem ipsum dolor default",
                 },
-                Object {
+                {
                   "checked": true,
-                  "children": Array [
-                    Object {
+                  "children": [
+                    {
                       "label": "Lorem ipsum dolor sit amet 0",
                     },
-                    Object {
+                    {
                       "checked": true,
                       "label": "Lorem ipsum dolor sit amet 1",
                     },
-                    Object {
+                    {
                       "label": "Lorem ipsum dolor sit amet 2",
                     },
                   ],
@@ -684,7 +684,7 @@ exports[`Items should render with nested items 1`] = `
             scrollToIndex={-1}
             scrollToRow={-1}
             scrollingResetTimeInterval={150}
-            style={Object {}}
+            style={{}}
             tabIndex={0}
             width={30}
           >
@@ -695,7 +695,7 @@ exports[`Items should render with nested items 1`] = `
               onScroll={[Function]}
               role="listbox"
               style={
-                Object {
+                {
                   "WebkitOverflowScrolling": "touch",
                   "boxSizing": "border-box",
                   "direction": "ltr",
@@ -713,7 +713,7 @@ exports[`Items should render with nested items 1`] = `
                 className="ReactVirtualized__Grid__innerScrollContainer"
                 role="rowgroup"
                 style={
-                  Object {
+                  {
                     "height": 124,
                     "maxHeight": 124,
                     "maxWidth": 30,
@@ -727,18 +727,18 @@ exports[`Items should render with nested items 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -747,7 +747,7 @@ exports[`Items should render with nested items 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 3,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -764,7 +764,7 @@ exports[`Items should render with nested items 1`] = `
                     className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
-                      Object {
+                      {
                         "height": 40,
                         "left": 0,
                         "position": "absolute",
@@ -793,18 +793,18 @@ exports[`Items should render with nested items 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -813,7 +813,7 @@ exports[`Items should render with nested items 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 3,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -830,7 +830,7 @@ exports[`Items should render with nested items 1`] = `
                     className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
-                      Object {
+                      {
                         "height": 42,
                         "left": 0,
                         "position": "absolute",
@@ -843,7 +843,7 @@ exports[`Items should render with nested items 1`] = `
                       dataTest="item-0"
                       isSwitchBox={false}
                       item={
-                        Object {
+                        {
                           "label": "Lorem ipsum dolor default",
                         }
                       }
@@ -894,18 +894,18 @@ exports[`Items should render with nested items 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -914,7 +914,7 @@ exports[`Items should render with nested items 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 3,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -931,7 +931,7 @@ exports[`Items should render with nested items 1`] = `
                     className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
-                      Object {
+                      {
                         "height": 42,
                         "left": 0,
                         "position": "absolute",
@@ -944,17 +944,17 @@ exports[`Items should render with nested items 1`] = `
                       dataTest="item-1"
                       isSwitchBox={false}
                       item={
-                        Object {
+                        {
                           "checked": true,
-                          "children": Array [
-                            Object {
+                          "children": [
+                            {
                               "label": "Lorem ipsum dolor sit amet 0",
                             },
-                            Object {
+                            {
                               "checked": true,
                               "label": "Lorem ipsum dolor sit amet 1",
                             },
-                            Object {
+                            {
                               "label": "Lorem ipsum dolor sit amet 2",
                             },
                           ],
@@ -1100,15 +1100,15 @@ exports[`Items should render with provided id 1`] = `
   id="my-widget"
   isSwitchBox={false}
   items={
-    Array [
-      Object {
+    [
+      {
         "label": "Lorem ipsum dolor sit amet 0",
       },
-      Object {
+      {
         "checked": true,
         "label": "Lorem ipsum dolor sit amet 1",
       },
-      Object {
+      {
         "label": "Lorem ipsum dolor sit amet 2",
       },
     ]
@@ -1129,15 +1129,15 @@ exports[`Items should render with provided id 1`] = `
           estimatedRowSize={30}
           height={30}
           items={
-            Array [
-              Object {
+            [
+              {
                 "label": "Lorem ipsum dolor sit amet 0",
               },
-              Object {
+              {
                 "checked": true,
                 "label": "Lorem ipsum dolor sit amet 1",
               },
-              Object {
+              {
                 "label": "Lorem ipsum dolor sit amet 2",
               },
             ]
@@ -1153,7 +1153,7 @@ exports[`Items should render with provided id 1`] = `
           rowRenderer={[Function]}
           scrollToAlignment="auto"
           scrollToIndex={-1}
-          style={Object {}}
+          style={{}}
           width={30}
         >
           <Grid
@@ -1168,22 +1168,22 @@ exports[`Items should render with provided id 1`] = `
             columnCount={1}
             columnWidth={30}
             containerRole="rowgroup"
-            containerStyle={Object {}}
+            containerStyle={{}}
             estimatedColumnSize={100}
             estimatedRowSize={30}
             getScrollbarSize={[Function]}
             height={30}
             isScrollingOptOut={false}
             items={
-              Array [
-                Object {
+              [
+                {
                   "label": "Lorem ipsum dolor sit amet 0",
                 },
-                Object {
+                {
                   "checked": true,
                   "label": "Lorem ipsum dolor sit amet 1",
                 },
-                Object {
+                {
                   "label": "Lorem ipsum dolor sit amet 2",
                 },
               ]
@@ -1206,7 +1206,7 @@ exports[`Items should render with provided id 1`] = `
             scrollToIndex={-1}
             scrollToRow={-1}
             scrollingResetTimeInterval={150}
-            style={Object {}}
+            style={{}}
             tabIndex={0}
             width={30}
           >
@@ -1217,7 +1217,7 @@ exports[`Items should render with provided id 1`] = `
               onScroll={[Function]}
               role="listbox"
               style={
-                Object {
+                {
                   "WebkitOverflowScrolling": "touch",
                   "boxSizing": "border-box",
                   "direction": "ltr",
@@ -1235,7 +1235,7 @@ exports[`Items should render with provided id 1`] = `
                 className="ReactVirtualized__Grid__innerScrollContainer"
                 role="rowgroup"
                 style={
-                  Object {
+                  {
                     "height": 166,
                     "maxHeight": 166,
                     "maxWidth": 30,
@@ -1249,20 +1249,20 @@ exports[`Items should render with provided id 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -1271,7 +1271,7 @@ exports[`Items should render with provided id 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 4,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -1289,7 +1289,7 @@ exports[`Items should render with provided id 1`] = `
                     className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
-                      Object {
+                      {
                         "height": 40,
                         "left": 0,
                         "position": "absolute",
@@ -1318,20 +1318,20 @@ exports[`Items should render with provided id 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -1340,7 +1340,7 @@ exports[`Items should render with provided id 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 4,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -1358,7 +1358,7 @@ exports[`Items should render with provided id 1`] = `
                     className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
-                      Object {
+                      {
                         "height": 42,
                         "left": 0,
                         "position": "absolute",
@@ -1372,7 +1372,7 @@ exports[`Items should render with provided id 1`] = `
                       id="my-widget-1-item"
                       isSwitchBox={false}
                       item={
-                        Object {
+                        {
                           "label": "Lorem ipsum dolor sit amet 0",
                         }
                       }
@@ -1429,20 +1429,20 @@ exports[`Items should render with provided id 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -1451,7 +1451,7 @@ exports[`Items should render with provided id 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 4,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -1469,7 +1469,7 @@ exports[`Items should render with provided id 1`] = `
                     className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
-                      Object {
+                      {
                         "height": 42,
                         "left": 0,
                         "position": "absolute",
@@ -1483,7 +1483,7 @@ exports[`Items should render with provided id 1`] = `
                       id="my-widget-2-item"
                       isSwitchBox={false}
                       item={
-                        Object {
+                        {
                           "checked": true,
                           "label": "Lorem ipsum dolor sit amet 1",
                         }
@@ -1542,20 +1542,20 @@ exports[`Items should render with provided id 1`] = `
                 <CellMeasurer
                   cache={
                     CellMeasurerCache {
-                      "_cellHeightCache": Object {
+                      "_cellHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
-                      "_cellWidthCache": Object {
+                      "_cellWidthCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
                         "3-0": 0,
                       },
                       "_columnCount": 1,
-                      "_columnWidthCache": Object {},
+                      "_columnWidthCache": {},
                       "_defaultHeight": 42,
                       "_defaultWidth": 100,
                       "_hasFixedHeight": false,
@@ -1564,7 +1564,7 @@ exports[`Items should render with provided id 1`] = `
                       "_minHeight": 0,
                       "_minWidth": 0,
                       "_rowCount": 4,
-                      "_rowHeightCache": Object {
+                      "_rowHeightCache": {
                         "0-0": 0,
                         "1-0": 0,
                         "2-0": 0,
@@ -1582,7 +1582,7 @@ exports[`Items should render with provided id 1`] = `
                     className="theme-tc-item-container tc-item-container"
                     key="3-0"
                     style={
-                      Object {
+                      {
                         "height": 42,
                         "left": 0,
                         "position": "absolute",
@@ -1596,7 +1596,7 @@ exports[`Items should render with provided id 1`] = `
                       id="my-widget-3-item"
                       isSwitchBox={false}
                       item={
-                        Object {
+                        {
                           "label": "Lorem ipsum dolor sit amet 2",
                         }
                       }

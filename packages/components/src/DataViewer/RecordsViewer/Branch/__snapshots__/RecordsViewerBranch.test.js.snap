@@ -1,165 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RecordsViewerBranch should render the branch with additional value 1`] = `
-<div
-  className="theme-tc-records-viewer-branch tc-records-viewer-branch"
->
-  <span
-    className="theme-tc-records-viewer-branch-content tc-records-viewer-branch-content"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
-    tabIndex="0"
-  >
-    <withI18nextTranslation(TreeBranchIcon)
-      dataKey="myDataKey"
-      getIcon={[MockFunction]}
-      index={0}
-      jsonpath="$"
-      onToggle={[MockFunction]}
-      opened={false}
-      t={[Function]}
-      useCustomIcon={false}
-      value={
-        Object {
-          "schema": Object {
-            "@talend-quality@": Object {
-              "-1": 346,
-              "0": 33,
-              "1": 655,
-              "total": 1034,
-            },
-            "doc": "Id",
-            "name": "id",
-            "type": Object {
-              "type": "integer",
-            },
-          },
-        }
-      }
-    />
-    <span
-      className="theme-tc-records-viewer-branch-text tc-records-viewer-branch-text"
-    >
-      myDataKey
-    </span>
-    <div>
-      Additional render for what you want, you can use the value : 
-      Object {
-        "opened": false,
-        "value": Object {
-          "schema": Object {
-            "@talend-quality@": Object {
-              "-1": 346,
-              "0": 33,
-              "1": 655,
-              "total": 1034,
-            },
-            "doc": "Id",
-            "name": "id",
-            "type": Object {
-              "type": "integer",
-            },
-          },
-        },
-      }
-    </div>
-  </span>
-</div>
-`;
-
 exports[`RecordsViewerBranch should render the branch with children 1`] = `
 <div
-  className="theme-tc-records-viewer-branch tc-records-viewer-branch"
+  class="theme-tc-records-viewer-branch tc-records-viewer-branch"
 >
   <span
-    className="theme-tc-records-viewer-branch-content tc-records-viewer-branch-content"
-    onClick={[Function]}
-    onKeyDown={[Function]}
+    class="theme-tc-records-viewer-branch-content tc-records-viewer-branch-content"
+    data-testid="records-branch"
     role="button"
-    tabIndex="0"
+    tabindex="0"
   >
-    <withI18nextTranslation(TreeBranchIcon)
-      dataKey="myDataKey"
-      getIcon={[MockFunction]}
-      index={0}
-      jsonpath="$"
-      onToggle={[MockFunction]}
-      opened={true}
-      t={[Function]}
-      useCustomIcon={false}
-      value={
-        Object {
-          "schema": Object {
-            "@talend-quality@": Object {
-              "-1": 346,
-              "0": 33,
-              "1": 655,
-              "total": 1034,
-            },
-            "doc": "Id",
-            "name": "id",
-            "type": Object {
-              "type": "integer",
-            },
-          },
-        }
-      }
-    />
     <span
-      className="theme-tc-records-viewer-branch-text tc-records-viewer-branch-text"
+      class="theme-tc-tree-branch-icon tc-tree-branch-icon"
+      data-testid="tree-branch-icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg theme-tc-tree-branch-icon-caret tc-tree-branch-icon-caret tc-icon-name-talend-caret-down"
+        focusable="false"
+        name="talend-caret-down"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        title="Collapse myDataKey ($)"
+      />
+    </span>
+    <span
+      class="theme-tc-records-viewer-branch-text tc-records-viewer-branch-text"
     >
       myDataKey
     </span>
-  </span>
-</div>
-`;
-
-exports[`RecordsViewerBranch should render the branch with length badge 1`] = `
-<div
-  className="theme-tc-records-viewer-branch tc-records-viewer-branch"
->
-  <span
-    className="theme-tc-records-viewer-branch-content tc-records-viewer-branch-content"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
-    tabIndex="0"
-  >
-    <withI18nextTranslation(TreeBranchIcon)
-      dataKey="myDataKey"
-      getIcon={[MockFunction]}
-      index={0}
-      jsonpath="$"
-      onToggle={[MockFunction]}
-      t={[Function]}
-      useCustomIcon={false}
-      value={
-        Object {
-          "schema": Object {
-            "@talend-quality@": Object {
-              "-1": 346,
-              "0": 33,
-              "1": 655,
-              "total": 1034,
-            },
-            "doc": "Id",
-            "name": "id",
-            "type": Object {
-              "type": "integer",
-            },
-          },
-        }
-      }
-    />
-    <span
-      className="theme-tc-records-viewer-branch-text tc-records-viewer-branch-text"
-    >
-      myDataKey
-    </span>
-    <LengthBadge
-      lengthValue={2}
-    />
   </span>
 </div>
 `;

@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
@@ -13,12 +13,12 @@ import startOfMonth from 'date-fns/start_of_month';
 
 import theme from './DatePicker.module.scss';
 import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
-import { withCalendarGesture } from '../../../../Gesture/withCalendarGesture';
+import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../../../translate';
 
 const getDayNames = memoize(buildDayNames);
 
-class DatePicker extends React.PureComponent {
+class DatePicker extends PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -187,4 +187,4 @@ DatePicker.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withCalendarGesture(DatePicker);
+export default Gesture.withCalendarGesture(DatePicker);

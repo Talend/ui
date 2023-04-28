@@ -1,5 +1,3 @@
-import React from 'react';
-
 import CircularProgress from './CircularProgress.component';
 
 export default {

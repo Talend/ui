@@ -1,0 +1,348 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import {
+	ButtonDestructive,
+	ButtonIcon,
+	ButtonIconFloating,
+	ButtonIconToggle,
+	ButtonPrimary,
+	ButtonSecondary,
+	ButtonTertiary,
+	Dropdown,
+	Form,
+	InlineMessageDestructive,
+	InlineMessageInformation,
+	InlineMessageSuccess,
+	InlineMessageWarning,
+	Link,
+	Popover,
+	Tag,
+	TagDestructive,
+	TagInformation,
+	TagSuccess,
+	TagWarning,
+	Toggle,
+} from '@talend/design-system';
+
+<Meta title="Component catalog" />
+
+## Buttons
+
+<Canvas>
+	<Story name="Buttons">
+		<ButtonPrimary onClick={() => {}} icon="talend-datagrid">
+			Primary button
+		</ButtonPrimary>
+		<ButtonDestructive onClick={() => {}} icon="talend-datagrid">
+			Destructive button
+		</ButtonDestructive>
+		<ButtonSecondary onClick={() => {}} icon="talend-datagrid">
+			Secondary button
+		</ButtonSecondary>
+		<ButtonTertiary onClick={() => {}} icon="talend-datagrid">
+			Tertiary button
+		</ButtonTertiary>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="ButtonIcon">
+		<ButtonIcon icon="talend-datagrid" onClick={() => {}}>
+			ButtonIcon
+		</ButtonIcon>
+		<ButtonIconFloating icon="talend-datagrid" onClick={() => {}}>
+			ButtonIconFloating
+		</ButtonIconFloating>
+		<ButtonIconToggle icon="talend-datagrid" onClick={() => {}} isActive={false}>
+			ButtonIconToggle
+		</ButtonIconToggle>
+	</Story>
+</Canvas>
+
+## Toggles
+
+<Canvas>
+	<Story name="Toggles">
+		<Toggle icon="talend-datagrid" isActive={false} onClick={() => {}}>
+			Toggle button
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={true} onClick={() => {}}>
+			Toggle button active
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={false} onClick={() => {}} disabled>
+			Toggle button disabled
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive disabled onClick={() => {}}>
+			Toggle button active disabled
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={true} onClick={() => {}}>
+			Toggle button active
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={false} onClick={() => {}} disabled>
+			Toggle button disabled
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive disabled onClick={() => {}}>
+			Toggle button active disabled
+		</Toggle>
+	</Story>
+</Canvas>
+
+## Dropdowns
+
+<Canvas>
+	<Story name="Dropdowns" height="20rem">
+		<Dropdown
+			aria-label="Custom menu"
+			items={[
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
+			]}
+		>
+			<ButtonPrimary isDropdown onClick={() => {}} icon="talend-datagrid">
+				Primary Dropdown
+			</ButtonPrimary>
+		</Dropdown>
+		<Dropdown
+			aria-label="Custom menu"
+			items={[
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
+			]}
+		>
+			<ButtonDestructive isDropdown onClick={() => {}} icon="talend-datagrid">
+				Destructive Dropdown
+			</ButtonDestructive>
+		</Dropdown>
+		<Dropdown
+			aria-label="Custom menu"
+			items={[
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
+			]}
+		>
+			<ButtonSecondary isDropdown onClick={() => {}} icon="talend-datagrid">
+				Secondary Dropdown
+			</ButtonSecondary>
+		</Dropdown>
+		<Dropdown
+			aria-label="Custom menu"
+			items={[
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
+			]}
+		>
+			<ButtonTertiary isDropdown onClick={() => {}} icon="talend-datagrid">
+				Tertiary Dropdown
+			</ButtonTertiary>
+		</Dropdown>
+		<Dropdown
+			aria-label="Custom menu"
+			items={[
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
+			]}
+		>
+			<ButtonIcon onClick={() => {}} icon="talend-datagrid">
+				Icon Dropdown
+			</ButtonIcon>
+		</Dropdown>
+	</Story>
+</Canvas>
+
+## Links
+
+<Canvas>
+	<Story name="Links">
+		<Link href="#">Link</Link>
+		<Link href="#" iconBefore="talend-info-circle">
+			Inline help
+		</Link>
+		<Link href="https://www.talend.com">Talend</Link>
+	</Story>
+</Canvas>
+
+## Forms
+
+<Canvas>
+	<Story name="Forms">
+		<Form>
+			<Form.Fieldset legend="Form fields">
+				<Form.Text name="text" label="Input" />
+				<Form.Number
+					name="amount"
+					label="Amount without decimal"
+					min="1"
+					step="1"
+					prefix="$"
+					suffix=".00"
+				/>
+				<Form.File label="File" name="file" />
+				<Form.Password label="Password" name="password" />
+				<Form.Datalist label="Datalist" values={['foo', 'bar']} name="datalist" />
+				<Form.Search label="Search" name="search" />
+				<Form.Textarea label="Textarea" name="textarea" />
+				<Form.Select label="Select" name="select">
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Select label="Select multiple" multiple name="select-multiple">
+					<option selected>Foo</option>
+					<option selected>Bar</option>
+				</Form.Select>
+				<Form.Checkbox label="Checkbox" checked name="checkbox" />
+				<Form.Radio label="Radio" checked name="radio" />
+				<Form.ToggleSwitch label="Switch" checked name="switch" />
+			</Form.Fieldset>
+			<Form.Buttons>
+				<ButtonSecondary onClick={() => {}} type="reset">
+					Reset
+				</ButtonSecondary>
+				<ButtonPrimary onClick={() => {}} type="submit">
+					Submit
+				</ButtonPrimary>
+			</Form.Buttons>
+		</Form>
+	</Story>
+</Canvas>
+
+## Tags
+
+<Canvas>
+	<Story name="Tags">
+		<Tag>Example</Tag>
+		<TagInformation>Example</TagInformation>
+		<TagSuccess>Example</TagSuccess>
+		<TagWarning>Example</TagWarning>
+		<TagDestructive>Example</TagDestructive>
+	</Story>
+</Canvas>
+
+## Inline Messages
+
+<Canvas>
+	<Story name="InlineMessages">
+		<InlineMessageInformation
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={{ href: '#', children: 'See more' }}
+			withBackground
+		/>
+		<InlineMessageSuccess
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={{ href: '#', children: 'See more' }}
+			withBackground
+		/>
+		<InlineMessageWarning
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={{ href: '#', children: 'See more' }}
+			withBackground
+		/>
+		<InlineMessageDestructive
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={{ href: '#', children: 'See more' }}
+			withBackground
+		/>
+	</Story>
+</Canvas>
+
+### Popovers
+
+<Canvas>
+	<Story name="Popovers" height="10rem">
+		<Popover
+			aria-label="Custom popover"
+			disclosure={
+				<ButtonIcon icon="talend-question-circle" onClick={() => {}}>
+					Open popover
+				</ButtonIcon>
+			}
+		>
+			Custom popover
+		</Popover>
+	</Story>
+</Canvas>

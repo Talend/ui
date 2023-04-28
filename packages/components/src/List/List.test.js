@@ -1,11 +1,17 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import List from './List.component';
 import toJsonWithoutI18n from '../../test/props-without-i18n';
 
 const listProps = {
-	columns: [{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }],
-	items: [{ id: 1, name: 'Hello world' }, { id: 2, name: 'Foo' }, { id: 3, name: 'Bar' }],
+	columns: [
+		{ key: 'id', label: 'Id' },
+		{ key: 'name', label: 'Name' },
+	],
+	items: [
+		{ id: 1, name: 'Hello world' },
+		{ id: 2, name: 'Foo' },
+		{ id: 3, name: 'Bar' },
+	],
 	itemProps: {
 		isSelected: () => false,
 		onToggleAll: jest.fn(),
@@ -23,7 +29,10 @@ const toolbarProps = {
 	sort: {
 		field: 'name',
 		onChange: jest.fn(),
-		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'name', name: 'Name' },
+		],
 	},
 	pagination: {
 		startIndex: 6,

@@ -9,66 +9,66 @@ exports[`ComponentForm #render should render a CircularProgress when we don't ha
 exports[`ComponentForm #render should render a UIForm 1`] = `
 <FormSwitcher
   data={
-    Object {
-      "jsonSchema": Object {
-        "properties": Object {
-          "_datasetMetadata": Object {
-            "properties": Object {
-              "description": Object {
+    {
+      "jsonSchema": {
+        "properties": {
+          "_datasetMetadata": {
+            "properties": {
+              "description": {
                 "title": "Description",
                 "type": "string",
               },
-              "name": Object {
+              "name": {
                 "title": "Name",
                 "type": "string",
               },
-              "type": Object {
+              "type": {
                 "title": "Types",
                 "type": "string",
               },
             },
-            "required": Array [],
+            "required": [],
             "type": "object",
           },
         },
-        "required": Array [],
+        "required": [],
         "title": "datastore",
         "type": "object",
       },
       "properties": undefined,
-      "uiSchema": Array [
-        Object {
-          "conditions": Array [],
-          "items": Array [
-            Object {
-              "conditions": Array [],
+      "uiSchema": [
+        {
+          "conditions": [],
+          "items": [
+            {
+              "conditions": [],
               "key": "_datasetMetadata.name",
               "title": "Name",
               "widget": "text",
             },
-            Object {
-              "conditions": Array [],
+            {
+              "conditions": [],
               "key": "_datasetMetadata.type",
-              "schema": Object {
-                "enum": Array [
+              "schema": {
+                "enum": [
                   "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
                 ],
                 "type": "string",
               },
               "title": "Types",
-              "titleMap": Array [
-                Object {
+              "titleMap": [
+                {
                   "name": "Basic Auth",
                   "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
                 },
               ],
-              "triggers": Array [
-                Object {
+              "triggers": [
+                {
                   "action": "builtin::root::reloadFromId",
                   "event": "focus",
                   "family": "builtin::family",
-                  "parameters": Array [
-                    Object {
+                  "parameters": [
+                    {
                       "key": "id",
                       "path": "_datasetMetadata.type",
                     },
@@ -78,8 +78,8 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
               ],
               "widget": "datalist",
             },
-            Object {
-              "conditions": Array [],
+            {
+              "conditions": [],
               "key": "_datasetMetadata.description",
               "title": "Description",
               "widget": "textarea",
@@ -97,7 +97,7 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
   onSubmit={[Function]}
   onTrigger={[Function]}
   widgets={
-    Object {
+    {
       "datalist": [Function],
       "multiSelect": [Function],
       "multiSelectTag": [Function],

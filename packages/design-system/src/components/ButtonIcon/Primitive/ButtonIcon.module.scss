@@ -12,7 +12,7 @@
 	height: tokens.$coral-sizing-m;
 	color: tokens.$coral-color-accent-icon;
 	border-radius: tokens.$coral-radius-round;
-	transition: all tokens.$coral-transition-fast;
+	transition: tokens.$coral-transition-fast;
 	flex-shrink: 0;
 
 	&__icon {

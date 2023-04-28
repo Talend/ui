@@ -1,4 +1,3 @@
-import React from 'react';
 import noop from 'lodash/noop';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';

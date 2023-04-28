@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 
 import FieldTemplate from './FieldTemplate.component';
@@ -57,7 +56,7 @@ describe('FieldTemplate', () => {
 		);
 
 		// then
-		expect(wrapper.find('OverlayTrigger').getElement()).toMatchSnapshot();
+		expect(wrapper.find('Popover').getElement()).toMatchSnapshot();
 	});
 
 	it('should render invalid className', () => {
