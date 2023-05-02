@@ -22,6 +22,6 @@ describe('DateTime.Validation.Error', () => {
 		render(<Error errors={errors} hidden />);
 
 		// then
-		expect(screen.queryByTestId('INVALID_DATE_FORMAT').parentElement).toHaveClass('sr-only');
+		expect(screen.queryByTestId('INVALID_DATE_FORMAT')?.parentElement).toHaveClass('sr-only');
 	});
 });

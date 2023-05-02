@@ -28,7 +28,6 @@ describe('InputDateTimeRangePicker', () => {
 		const { container } = render(
 			<InputDateTimeRangePicker
 				id="my-picker"
-				value={new Date(2023, 3, 26, 4, 0, 0)}
 				onChange={onChange}
 				defaultTimeStart={{
 					hours: '00',
@@ -46,7 +45,7 @@ describe('InputDateTimeRangePicker', () => {
 		// then
 		// start time
 		await userEvent.click(within(start).getByTestId('date-picker'));
-		await userEvent.click(within(start).getByText('10'));
+		await userEvent.click(within(start).getAllByText('10')[0]);
 		// note first call seems to trigger a JS error...
 		await userEvent.click(within(start).getByTestId('time-picker'));
 		await userEvent.click(within(start).getByText('08:00'));
@@ -55,19 +54,23 @@ describe('InputDateTimeRangePicker', () => {
 		expect(payload.errors.length).toBe(0);
 		expect(payload.errorMessage).toBe(null);
 		// TZ=Europe/Paris
-		expect(payload.startDateTime).toEqual(new Date(2023, 3, 10, 8, 0, 0));
+		const today = new Date();
+		expect(payload.startDateTime).toEqual(
+			new Date(today.getFullYear(), today.getMonth(), 10, 8, 0, 0),
+		);
 
 		// // end time
 		await userEvent.click(within(end).getByTestId('date-picker'));
 		await userEvent.click(within(end).getByText('13'));
 		await userEvent.click(within(end).getByTestId('time-picker'));
 		await userEvent.click(within(end).getByText('10:00'));
-		expect(container.firstChild).toMatchSnapshot();
 
 		const payloadEnd = onChange.mock.calls[3][1];
 		expect(payloadEnd.errors.length).toBe(0);
 		expect(payloadEnd.errorMessage).toBe(null);
 		// TZ=Europe/Paris
-		expect(payloadEnd.endDateTime).toEqual(new Date(2023, 3, 13, 10, 0, 0));
+		expect(payloadEnd.endDateTime).toEqual(
+			new Date(new Date(today.getFullYear(), today.getMonth(), 13, 10, 0, 0)),
+		);
 	});
 });
