@@ -1,4 +1,7 @@
 import { mount, shallow } from 'enzyme';
+// rewrite tests using rtl
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import startOfDay from 'date-fns/start_of_day';
 import DateTimePicker from './DateTimePicker.component';
 import DateTimeView from '../../views/DateTimeView';
@@ -12,9 +15,9 @@ describe('DateTimePicker', () => {
 
 	it('should render', () => {
 		dateMock.mock(new Date(2018, 5, 12));
-		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
+		const { container } = render(<DateTimePicker manageFocus={false} onSubmit={() => {}} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should initialize calendar view to current date', () => {
@@ -22,19 +25,17 @@ describe('DateTimePicker', () => {
 		dateMock.mock(new Date(2016, 4, 12));
 
 		// when
-		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
+		render(<DateTimePicker onSubmit={() => {}} />);
 
 		// then
-		const dateTimeView = wrapper.find(DateTimeView);
-		expect(dateTimeView.prop('calendar')).toEqual({
-			monthIndex: 4,
-			year: 2016,
-		});
+		const current = screen.getByText('12');
+		expect(current).toBeVisible();
+		expect(current).toHaveClass('theme-today');
 	});
 
 	it('should initialize calendar view to date from props', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<DateTimePicker
 				selection={{
 					date: new Date(2013, 0, 15),
@@ -44,37 +45,39 @@ describe('DateTimePicker', () => {
 		);
 
 		// then
-		expect(wrapper.state('calendar')).toEqual({
-			monthIndex: 0,
-			year: 2013,
-		});
+		const current = screen.getByText('15');
+		expect(current).toBeVisible();
+		expect(current).toHaveClass('theme-selected');
 	});
 
 	describe('focus management', () => {
 		it('should init allow focus state when option is off', () => {
 			// when
-			const wrapper = mount(<DateTimePicker manageFocus={false} onSubmit={() => {}} />);
+			const { container } = render(<DateTimePicker manageFocus={false} onSubmit={() => {}} />);
 
 			// then
-			expect(wrapper.state('allowFocus')).toBe(true);
+			expect(container.firstChild).toHaveAttribute('tabIndex', '0');
 		});
 
 		it('should disable focus when option is on', () => {
 			// when
-			const wrapper = mount(<DateTimePicker manageFocus onSubmit={() => {}} />);
+			const { container } = render(<DateTimePicker manageFocus onSubmit={() => {}} />);
 
 			// then
-			expect(wrapper.state('allowFocus')).toBe(false);
+			expect(container.firstChild).toHaveAttribute('tabIndex', '-1');
 		});
 
-		it('should allow focus when active element is in picker', () => {
+		it('should allow focus when active element is in picker', async () => {
 			// given
-			const wrapper = mount(<DateTimePicker manageFocus onSubmit={() => {}} />);
-			expect(wrapper.state('allowFocus')).toBe(false);
-			wrapper.getDOMNode().dispatchEvent(new Event('focusin'));
+			const { container } = render(<DateTimePicker manageFocus onSubmit={() => {}} />);
+			expect(container.firstChild).toHaveAttribute('tabIndex', '-1');
+
+			// when
+			// eslint-disable-next-line testing-library/no-container
+			container.firstChild.focus();
 
 			// then
-			expect(wrapper.state('allowFocus')).toBe(true);
+			expect(container.firstChild).toHaveAttribute('tabIndex', '0');
 		});
 
 		it('should disable focus when active element is out of picker', () => {

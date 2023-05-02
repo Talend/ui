@@ -14,8 +14,9 @@ function mock(now) {
 	if (spy) {
 		restore();
 	}
-	spy = jest.spyOn(global, 'Date').mockImplementation(() => now);
-	global.Date.now = jest.fn(() => now);
+	jest.useFakeTimers().setSystemTime(now);
+	// spy = jest.spyOn(global, 'Date').mockImplementation(() => now);
+	// global.Date.now = jest.fn(() => now);
 }
 
 export default {

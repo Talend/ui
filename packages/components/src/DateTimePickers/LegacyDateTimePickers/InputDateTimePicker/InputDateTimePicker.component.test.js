@@ -1,13 +1,9 @@
 // rewrite using rtl
-import { screen, render, fireEvent } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { mount } from 'enzyme';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 
-function getOverlay(wrapper) {
-	return wrapper.find('.theme-popper').first();
-}
 function getPopup() {
 	return document.querySelector('.theme-popper');
 }
