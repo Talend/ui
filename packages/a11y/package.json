@@ -35,8 +35,8 @@
     "react-dom": "^17.0.2"
   },
   "peerDependencies": {
-    "react": ">= 16.14.0 < 18.0.0",
-    "react-dom": ">= 16.14.0 < 18.0.0"
+    "react": ">= 16.14.0",
+    "react-dom": ">= 16.14.0"
   },
   "publishConfig": {
     "access": "public"
