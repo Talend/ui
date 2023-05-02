@@ -64,7 +64,11 @@ export function prepareItemsFromSchema(schema, callbacks, value) {
 
 		return {
 			label: item.title,
-			expanded: (value[key]?.length > 0 && value[key]?.length !== item.titleMap.length) || false,
+			expanded:
+				(schema.options?.expandChecked &&
+					value[key]?.length > 0 &&
+					value[key]?.length !== item.titleMap.length) ||
+				false,
 			key,
 			onExpandToggle,
 			onChange: onParentChange,

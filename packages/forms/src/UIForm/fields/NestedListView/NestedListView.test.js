@@ -334,6 +334,12 @@ describe('NestedListView component', () => {
 			const value = { bar: ['bar_2'] };
 			// when
 			render(<NestedListViewWidget {...props} value={value} />);
+			// when expanding the main checkbox
+			userEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
 			// selecting the children
 			userEvent.click(
 				screen.getByRole('checkbox', {
