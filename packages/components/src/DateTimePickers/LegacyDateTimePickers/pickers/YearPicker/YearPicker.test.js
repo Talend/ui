@@ -1,6 +1,4 @@
-import { mount } from 'enzyme';
-// rewrite tests using rtl
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dateMock from '../../../../../../../mocks/dateMock';
 
