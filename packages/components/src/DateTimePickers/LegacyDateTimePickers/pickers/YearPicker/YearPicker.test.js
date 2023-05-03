@@ -5,6 +5,10 @@ import dateMock from '../../../../../../../mocks/dateMock';
 import YearPicker from './YearPicker.component';
 
 describe('YearPicker', () => {
+	afterEach(() => {
+		dateMock.restore();
+	});
+
 	it('should render', () => {
 		// given
 		dateMock.mock(new Date(2015, 11, 31));

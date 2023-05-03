@@ -23,6 +23,10 @@ jest.mock('../../views/MonthYearView', () =>
 );
 
 describe('DateTimePicker', () => {
+	afterEach(() => {
+		dateMock.restore();
+	});
+
 	it('should render', () => {
 		dateMock.mock(new Date(2018, 5, 12));
 		const { container } = render(<DateTimePicker manageFocus={false} onSubmit={() => {}} />);
