@@ -1,9 +1,5 @@
-import { shallow } from 'enzyme';
-// rewrite using rtl
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import HeaderTitle from './HeaderTitle.component';
-import { ActionDropdown } from '../../../../Actions';
 
 describe('HeaderTitle', () => {
 	it('should render', () => {

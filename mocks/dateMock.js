@@ -1,22 +1,12 @@
-let spy;
-
 /**
  * Unmock the Date object by restoring the native Date
  */
 function restore() {
-	if (spy) {
-		spy.mockRestore();
-		spy = undefined;
-	}
+	jest.useRealTimers();
 }
 
 function mock(now) {
-	if (spy) {
-		restore();
-	}
 	jest.useFakeTimers().setSystemTime(now);
-	// spy = jest.spyOn(global, 'Date').mockImplementation(() => now);
-	// global.Date.now = jest.fn(() => now);
 }
 
 export default {
