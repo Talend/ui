@@ -1,5 +1,16 @@
 # @talend/react-components
 
+## 10.3.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [ae37dc329]
+  - @talend/react-a11y@1.1.0
+
 ## 10.2.4
 
 ### Patch Changes

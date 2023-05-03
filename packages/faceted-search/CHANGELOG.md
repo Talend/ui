@@ -1,5 +1,11 @@
 # Changelog
 
+## 9.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
 ## 9.1.1
 
 ### Patch Changes

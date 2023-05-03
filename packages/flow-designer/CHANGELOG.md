@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.4.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
 ## 5.3.2
 
 ### Patch Changes
