@@ -1,5 +1,19 @@
 # @talend/react-containers
 
+## 9.1.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [0103ec63f]
+- Updated dependencies [ae37dc329]
+  - @talend/react-forms@9.2.0
+  - @talend/react-components@10.3.0
+  - @talend/react-cmf@7.3.0
+
 ## 9.0.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -31,7 +31,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^7.1.4",
+    "@talend/react-cmf": "^7.3.0",
     "immutable": "^3.8.2",
     "redux-saga": "^1.2.2"
   },
