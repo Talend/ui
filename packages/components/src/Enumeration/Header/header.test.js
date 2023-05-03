@@ -1,8 +1,8 @@
-import { mount } from 'enzyme';
-import { Button } from '@talend/react-bootstrap';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Header from './Header.component';
-
+jest.unmock('@talend/design-system');
 describe('Header', () => {
 	it('should trigger callback when clicking on header button', () => {
 		// given
@@ -19,13 +19,10 @@ describe('Header', () => {
 		const headerInstance = <Header {...props} />;
 
 		// when
-		const wrapper = mount(headerInstance);
-		const buttons = wrapper.find(Button);
-
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
+		render(headerInstance);
+		userEvent.click(screen.getByLabelText('Add item'));
 
 		// then
-		expect(buttons.length).toBe(1);
 		expect(props.headerDefault[0].onClick).toBeCalled();
 	});
 	it('should not render disabled button', () => {
@@ -44,10 +41,9 @@ describe('Header', () => {
 		const headerInstance = <Header {...props} />;
 
 		// when
-		const wrapper = mount(headerInstance);
-		const buttons = wrapper.find(Button);
+		render(headerInstance);
 
 		// then
-		expect(buttons.length).toBe(0);
+		expect(screen.queryAllByRole('button').length).toBe(0);
 	});
 });
