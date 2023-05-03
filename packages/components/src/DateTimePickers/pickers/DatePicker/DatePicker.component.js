@@ -183,7 +183,6 @@ class DatePicker extends PureComponent {
 								);
 
 								const tdProps = {
-									key: j,
 									className: classNames(theme['calendar-col'], cellTheme),
 								};
 
@@ -229,7 +228,7 @@ class DatePicker extends PureComponent {
 								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
 
 								return (
-									<td {...tdProps}>
+									<td key={j} {...tdProps}>
 										<button
 											type="button"
 											className={className}

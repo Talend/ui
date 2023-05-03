@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 
 export type ErrorProps = {
-	hidden: boolean;
+	hidden?: boolean;
 	errors: { code: string; message: string }[];
 	id: string;
 };

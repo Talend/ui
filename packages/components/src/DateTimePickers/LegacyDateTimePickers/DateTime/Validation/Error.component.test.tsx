@@ -8,7 +8,7 @@ describe('DateTime.Validation.Error', () => {
 		const errors = [{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' }];
 
 		// when
-		render(<Error errors={errors} />);
+		render(<Error id="error" errors={errors} />);
 
 		// then
 		expect(screen.getByTestId('INVALID_DATE_FORMAT')).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe('DateTime.Validation.Error', () => {
 		const errors = [{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' }];
 
 		// when
-		render(<Error errors={errors} hidden />);
+		render(<Error id="error" errors={errors} hidden />);
 
 		// then
 		expect(screen.queryByTestId('INVALID_DATE_FORMAT')?.parentElement).toHaveClass('sr-only');
