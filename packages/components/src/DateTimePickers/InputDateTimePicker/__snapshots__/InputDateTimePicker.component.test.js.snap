@@ -19,6 +19,7 @@ exports[`InputDateTimePicker should render 1`] = `
       value="2017-04-04"
     />
     <span
+      data-testid="InputSizer"
       style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
     >
       YYYY-MM-DD
@@ -40,6 +41,7 @@ exports[`InputDateTimePicker should render 1`] = `
       value="15:27:00"
     />
     <span
+      data-testid="InputSizer"
       style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
     >
       HH:mm:ss

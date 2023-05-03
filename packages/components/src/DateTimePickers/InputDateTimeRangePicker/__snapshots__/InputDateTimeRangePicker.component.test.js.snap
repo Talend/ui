@@ -32,6 +32,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           value="2019-12-01"
         />
         <span
+          data-testid="InputSizer"
           style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
         >
           YYYY-MM-DD
@@ -53,6 +54,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           value="00:00:00"
         />
         <span
+          data-testid="InputSizer"
           style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
         >
           HH:mm:ss
@@ -100,6 +102,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           value="2019-12-11"
         />
         <span
+          data-testid="InputSizer"
           style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
         >
           YYYY-MM-DD
@@ -121,6 +124,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           value="23:59:59"
         />
         <span
+          data-testid="InputSizer"
           style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
         >
           HH:mm:ss
