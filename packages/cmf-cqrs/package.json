@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
-    "@talend/react-cmf": "^7.2.0",
+    "@talend/react-cmf": "^7.3.0",
     "immutable": "^3.8.2",
     "redux-saga": "^1.2.2"
   },
@@ -48,11 +48,11 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
-    "react": ">= 16.14.0 < 18.0.0",
-    "react-dom": ">= 16.14.0 < 18.0.0"
+    "react": ">= 16.14.0",
+    "react-dom": ">= 16.14.0"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.0.0"
+  "version": "8.1.0"
 }

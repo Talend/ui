@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.3.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [ae37dc329]
+  - @talend/react-cmf@7.3.0
+
 ## 5.2.6
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 9.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- 0103ec63f: fix(TDOPS-4264/NestedList): expand list based on the schema options
+- Updated dependencies [ae37dc329]
+  - @talend/react-components@10.3.0
+
 ## 9.1.0
 
 ### Minor Changes
