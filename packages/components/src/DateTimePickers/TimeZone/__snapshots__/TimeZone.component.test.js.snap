@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeZone should render 1`] = `
+<div
+  aria-label="Asia/Beijing"
+>
+  <span
+    class="theme-timezone-tooltip"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg theme-icon tc-icon-name-talend-info-circle"
+      focusable="false"
+      name="talend-info-circle"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </span>
+</div>
+`;
