@@ -6,13 +6,13 @@ import theme from './PlainTextTitle.module.scss';
 
 type PlainTextTitleProps = {
 	id?: string;
-	componentClass: string;
-	disabled?: bool;
+	componentClass: any;
+	disabled?: boolean;
 	feature?: string;
-	inProgress?: bool;
-	onEdit: func;
+	inProgress?: boolean;
+	onEdit: () => void;
 	text: string;
-	t: func;
+	t: (key: string, options?: any) => string;
 };
 
 export function PlainTextTitle({
@@ -43,6 +43,8 @@ export function PlainTextTitle({
 				</ComponentClass>
 			</TooltipTrigger>
 			<Action
+				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				// @ts-ignore
 				name="action-edit"
 				label={t('MODIFY_TOOLTIP', { defaultValue: 'Rename' })}
 				icon="talend-pencil"
