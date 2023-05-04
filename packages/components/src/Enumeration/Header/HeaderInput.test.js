@@ -1,8 +1,5 @@
-import { mount } from 'enzyme';
-// rewrite using react-testing-library
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Button } from '@talend/react-bootstrap';
 
 import HeaderInput from './HeaderInput.component';
 

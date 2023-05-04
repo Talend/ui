@@ -336,6 +336,48 @@ const withCustomActions = {
 	},
 };
 
+const EnumerationDynamicHeight = () => {
+	const [list, setList] = useState([]);
+	const ROW_HEIGHT = 30;
+	const enumerationProps = {
+		displayMode: 'DISPLAY_MODE_ADD',
+		inputPlaceholder: 'New entry',
+		headerDefault: [],
+		headerInput: [
+			{
+				label: 'Validate',
+				icon: 'talend-check',
+				id: 'validate',
+				onClick: (_, input) => {
+					const tmp = [...list];
+					tmp.push({ values: [input.value] });
+					setList(tmp);
+				},
+			},
+			{
+				label: 'Abort',
+				icon: 'talend-cross',
+				id: 'abort',
+				onClick: () => {
+					const tmp = [...list];
+					tmp.pop();
+					setList(tmp);
+				},
+			},
+		],
+		items: list,
+		onAddChange: () => {},
+		onAddKeyDown: () => {},
+		itemsProp: {
+			calculateListHeight: listItems => (listItems.length ? listItems.length * ROW_HEIGHT : 0),
+			getItemHeight: () => ROW_HEIGHT,
+			actionsDefault: [],
+			key: 'values',
+		},
+	};
+	return <Enumeration {...enumerationProps} />;
+};
+
 export default {
 	title: 'Form/Controls/Enumeration',
 };
@@ -496,45 +538,3 @@ export const WithCustomActions = () => (
 		<Enumeration {...withCustomActions} />
 	</div>
 );
-
-const EnumerationDynamicHeight = () => {
-	const [list, setList] = useState([]);
-	const ROW_HEIGHT = 30;
-	const enumerationProps = {
-		displayMode: 'DISPLAY_MODE_ADD',
-		inputPlaceholder: 'New entry',
-		headerDefault: [],
-		headerInput: [
-			{
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: (_, input) => {
-					const tmp = [...list];
-					tmp.push({ values: [input.value] });
-					setList(tmp);
-				},
-			},
-			{
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: () => {
-					const tmp = [...list];
-					tmp.pop();
-					setList(tmp);
-				},
-			},
-		],
-		items: list,
-		onAddChange: () => {},
-		onAddKeyDown: () => {},
-		itemsProp: {
-			calculateListHeight: listItems => (listItems.length ? listItems.length * ROW_HEIGHT : 0),
-			getItemHeight: () => ROW_HEIGHT,
-			actionsDefault: [],
-			key: 'values',
-		},
-	};
-	return <Enumeration {...enumerationProps} />;
-};

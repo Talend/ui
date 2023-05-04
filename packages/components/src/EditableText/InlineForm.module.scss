@@ -17,6 +17,7 @@ $tc-circle-editable-text-size: 16px !default;
 		margin: 0;
 		padding-top: 0;
 	}
+
 	.tc-editable-text-form-input {
 		width: 100%;
 		padding-right: 2 * $tc-circle-editable-text-size + $padding-large;
@@ -25,6 +26,7 @@ $tc-circle-editable-text-size: 16px !default;
 			background: lighten($scooter, 25%);
 		}
 	}
+
 	&-buttons {
 		display: flex;
 		position: absolute;
@@ -55,6 +57,7 @@ $tc-circle-editable-text-size: 16px !default;
 				margin-left: $padding-small;
 			}
 		}
+
 		&-submit {
 			border-color: $rio-grande;
 			background: $rio-grande;

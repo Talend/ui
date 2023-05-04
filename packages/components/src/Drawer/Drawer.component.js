@@ -316,7 +316,7 @@ function Drawer({
 	if (tabs && tabs.items.length > 0) {
 		customTabs = {
 			...tabs,
-			items: tabs.items && tabs.items.map(({ footerActions, ...item }) => item),
+			items: tabs.items && tabs.items.map(({ footerActions: _, ...item }) => item),
 		};
 
 		if (selectedTabKey) {
