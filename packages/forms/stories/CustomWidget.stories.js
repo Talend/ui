@@ -23,7 +23,7 @@ CustomWidget.propTypes = {
 };
 
 export default {
-	title: 'Customization/Widget',
+	title: 'Forms/Custom Widget',
 };
 
 export function Default() {

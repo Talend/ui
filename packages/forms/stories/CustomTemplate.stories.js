@@ -84,7 +84,7 @@ CustomArrayTemplate.propTypes = {
 };
 
 export default {
-	title: 'Customization/Template',
+	title: 'Forms/Custom Template',
 };
 
 export function Array() {
