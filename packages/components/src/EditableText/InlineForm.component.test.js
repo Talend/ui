@@ -1,10 +1,6 @@
-import { shallow } from 'enzyme';
 import InlineForm from './InlineForm.component';
-// rewrite tests using RTL
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import keycode from 'keycode';
-import { Action } from '../Actions';
 import getDefaultT from '../translate';
 
 describe('InlineForm', () => {
@@ -21,57 +17,46 @@ describe('InlineForm', () => {
 		};
 	});
 	it('should render', () => {
-		const wrapper = shallow(<InlineForm {...defaultProps} />);
-		expect(wrapper.find('input')).toHaveLength(1);
-		expect(wrapper.find(Action)).toHaveLength(2);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<InlineForm {...defaultProps} />);
+		expect(screen.getByRole('textbox')).toBeVisible();
+		expect(screen.getAllByRole('button')).toHaveLength(2);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should call change value and call onChange when change event trigger', () => {
 		const event = { target: { value: 'myInputChage' } };
-		const wrapper = shallow(<InlineForm {...defaultProps} />);
-		wrapper.find('input').simulate('change', event);
-		expect(wrapper.state('value')).toBe(event.target.value);
-		expect(defaultProps.onChange).toHaveBeenCalledWith(event);
-		expect(wrapper.find('input').getElement().props.value).toBe(event.target.value);
+		render(<InlineForm {...defaultProps} />);
+		userEvent.type(screen.getByRole('textbox'), 'myInputChage');
+		expect(defaultProps.onChange).toHaveBeenCalledWith(expect.anything(event));
 	});
 	it('should call onSubmit when submit event trigger', () => {
-		const event = { preventDefault: jest.fn() };
-		const wrapper = shallow(<InlineForm {...defaultProps} />);
-		wrapper.setState({ value: 'mySubmitData' });
-		wrapper.find('form').simulate('submit', event);
-		expect(event.preventDefault).toHaveBeenCalled();
-		expect(defaultProps.onSubmit).toHaveBeenCalledWith(event, {
-			value: wrapper.state('value'),
+		render(<InlineForm {...defaultProps} />);
+		userEvent.type(screen.getByRole('textbox'), 'mySubmitData');
+		userEvent.click(screen.getAllByRole('button')[1]);
+		expect(defaultProps.onSubmit).toHaveBeenCalledWith(expect.anything(), {
+			value: 'mySubmitData',
 			props: defaultProps,
 		});
 	});
 	it('should not call onSubmit when submit event trigger with empty value', () => {
-		const event = { preventDefault: jest.fn() };
-		const wrapper = shallow(<InlineForm {...defaultProps} />);
-		expect(wrapper.find('.form-group').first().props().className).toBe('form-group');
-		expect(wrapper.find('Action').at(1).props().disabled).toBe(false);
-		wrapper.setState({ value: ' ' });
-		expect(wrapper.find('.form-group').first().props().className).toBe('form-group has-error');
-		expect(wrapper.find('Action').at(1).props().disabled).toBe(true);
-		wrapper.find('form').simulate('submit', event);
-		expect(event.preventDefault).toHaveBeenCalled();
+		render(<InlineForm {...defaultProps} text="" />);
+		userEvent.click(screen.getAllByRole('button')[1]);
 		expect(defaultProps.onSubmit).not.toHaveBeenCalled();
+		expect(screen.getByRole('textbox').parentElement).toHaveClass('has-error');
 	});
 	it('should call onCancel when cancel event trigger', () => {
 		const event = {};
-		const wrapper = shallow(<InlineForm {...defaultProps} />);
-		wrapper.setState({ value: 'myDataBeforeCancel' });
-		wrapper.find({ name: 'action-cancel-title' }).simulate('click', event);
-		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
-		expect(wrapper.state('value')).toEqual('');
+		render(<InlineForm {...defaultProps} text="myDataBeforeCancel" />);
+		expect(screen.getByRole('textbox')).toHaveValue('myDataBeforeCancel');
+		userEvent.click(screen.getAllByRole('button')[0]);
+		expect(defaultProps.onCancel).toHaveBeenCalledWith(expect.anything(event));
+		expect(screen.getByRole('textbox')).toHaveValue('');
 	});
 	it('should call onCancel when ESC', () => {
-		const event = { keyCode: keycode.codes.esc };
-		const wrapper = shallow(<InlineForm {...defaultProps} />);
-		wrapper.setState({ value: 'myDataBeforeCancel' });
-		wrapper.find('input').at(0).simulate('keydown', event);
-		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
-		expect(wrapper.state('value')).toEqual('');
+		render(<InlineForm {...defaultProps} text="myDataBeforeCancel" />);
+		userEvent.click(screen.getByRole('textbox'));
+		userEvent.keyboard('{Escape}');
+		expect(defaultProps.onCancel).toHaveBeenCalledWith(expect.anything());
+		expect(screen.getByRole('textbox')).toHaveValue('');
 	});
 
 	it('should call selectInput on render', () => {
@@ -83,27 +68,22 @@ describe('InlineForm', () => {
 	it('should show an error message if errorMessage is provided', () => {
 		const errorMessage = 'Custom error message';
 		const props = { ...defaultProps, errorMessage };
-		const wrapper = shallow(<InlineForm {...props} />);
-
-		expect(wrapper.find('.form-group').first().props().className).toBe('form-group has-error');
-		expect(wrapper.find('.form-group').first().text()).toBe(errorMessage);
+		render(<InlineForm {...props} />);
+		expect(screen.getByText(errorMessage)).toBeVisible();
+		expect(screen.getByText(errorMessage)).toHaveClass('text-danger');
+		expect(screen.getByText(errorMessage).parentElement).toHaveClass('has-error');
 	});
 	it('should not show errors if not required', () => {
-		const event = { preventDefault: jest.fn() };
 		const props = { ...defaultProps, required: false };
-		const wrapper = shallow(<InlineForm {...props} />);
-		expect(wrapper.find('Action').at(1).props().disabled).toBe(false);
-		wrapper.setState({ value: ' ' });
-		expect(wrapper.find('.form-group').first().props().className).toBe('form-group');
-		expect(wrapper.find('Action').at(1).props().disabled).toBe(false);
-		wrapper.find('form').simulate('submit', event);
-		expect(event.preventDefault).toHaveBeenCalled();
+		render(<InlineForm {...props} text="" />);
+		userEvent.click(screen.getAllByRole('button')[1]);
 		expect(defaultProps.onSubmit).toHaveBeenCalled();
 	});
 	it('should add placeholder to input', () => {
 		const placeholder = 'Your text here...';
 		const props = { ...defaultProps, required: false, placeholder };
-		const wrapper = shallow(<InlineForm {...props} />);
-		expect(wrapper.find('input').getElement().props.placeholder).toBe(placeholder);
+		render(<InlineForm {...props} />);
+		const input = screen.getByRole('textbox');
+		expect(input).toHaveAttribute('placeholder', placeholder);
 	});
 });

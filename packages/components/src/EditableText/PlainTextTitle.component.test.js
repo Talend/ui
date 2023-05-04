@@ -1,6 +1,4 @@
-import { shallow } from 'enzyme';
 import { PlainTextTitle } from './PlainTextTitle.component';
-// rewrite tests using RTL
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -22,8 +20,9 @@ describe('PlainTextTitle', () => {
 			onEdit: jest.fn(),
 			componentClass: 'h1',
 		};
-		const wrapper = shallow(<PlainTextTitle {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<PlainTextTitle {...props} />);
+		expect(screen.getByRole('heading')).toBeVisible();
+		expect(screen.getByRole('heading')).toHaveTextContent('text');
 	});
 
 	it('should render in disabled state', () => {
@@ -32,19 +31,18 @@ describe('PlainTextTitle', () => {
 			onEdit: jest.fn(),
 			disabled: true,
 		};
-		const wrapper = shallow(<PlainTextTitle {...props} />);
-
-		expect(wrapper.find('Action').prop('disabled')).toBe(true);
+		render(<PlainTextTitle {...props} />);
+		expect(screen.getByRole('button')).toBeDisabled();
 	});
 
-	it('should render inProgress state', () => {
+	it('should render disabled button for inProgress state', () => {
 		const props = {
 			text: 'text',
 			onEdit: jest.fn(),
 			inProgress: true,
 		};
-		const wrapper = shallow(<PlainTextTitle {...props} />);
-		expect(wrapper.find('Action').prop('disabled')).toBe(true);
+		render(<PlainTextTitle {...props} />);
+		expect(screen.getByRole('button')).toBeDisabled();
 	});
 
 	it('should trigger onEdit when click on the action', () => {
@@ -52,10 +50,9 @@ describe('PlainTextTitle', () => {
 		const props = {
 			text: 'text',
 			onEdit,
-			inProgress: true,
 		};
-		const wrapper = shallow(<PlainTextTitle {...props} />);
-		wrapper.find('Action').simulate('click');
+		render(<PlainTextTitle {...props} />);
+		userEvent.click(screen.getByRole('button'));
 		expect(onEdit).toHaveBeenCalled();
 	});
 
@@ -64,9 +61,10 @@ describe('PlainTextTitle', () => {
 			text: '',
 			onEdit: jest.fn(),
 		};
-		const wrapper = shallow(<PlainTextTitle {...props} />);
-		expect(
-			wrapper.find('Action').props().className.includes('tc-editable-text-empty-pencil'),
-		).toBeTruthy();
+		render(<PlainTextTitle {...props} />);
+		expect(screen.getByRole('button')).toBeVisible();
+		expect(screen.getByRole('button')).toHaveTextContent('');
+
+		expect(screen.getByRole('button')).toHaveClass('theme-tc-editable-text-empty-pencil');
 	});
 });
