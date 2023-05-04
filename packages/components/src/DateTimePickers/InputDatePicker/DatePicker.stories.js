@@ -8,7 +8,7 @@ import DateManager from '../Date/Manager';
 import DatePicker from '../Date/Picker';
 
 export default {
-	title: 'Form/Controls/DatePicker/Date',
+	title: 'Components/Form - Controls/DatePicker/Date',
 
 	decorators: [
 		story => (

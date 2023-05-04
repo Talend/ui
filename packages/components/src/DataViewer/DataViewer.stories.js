@@ -28,7 +28,7 @@ function buildRegExpJsonpath(jsonpath) {
 }
 
 export default {
-	title: 'Data/Tree/DataViewer',
+	title: 'Components/Tree/DataViewer',
 };
 
 export const DataTreeWithHighlight = () => {

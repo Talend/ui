@@ -62,7 +62,7 @@ class DisableActionIconToggle extends Component {
 }
 
 export default {
-	title: 'Buttons/IconToggle',
+	title: 'Components/Actions/IconToggle',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 

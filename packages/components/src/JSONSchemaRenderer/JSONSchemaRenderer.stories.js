@@ -104,7 +104,7 @@ const schema = {
 };
 
 export default {
-	title: 'Deprecated/JSONSchemaRenderer',
+	title: 'Components/Deprecated/JSONSchemaRenderer',
 };
 
 export const Default = () => (

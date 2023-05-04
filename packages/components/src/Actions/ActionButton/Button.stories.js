@@ -63,7 +63,7 @@ class DisableActionButton extends Component {
 }
 
 export default {
-	title: 'Buttons/Button',
+	title: 'Components/Actions/Button',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 
