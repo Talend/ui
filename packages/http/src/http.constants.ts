@@ -1,34 +1,20 @@
-export const OPTIONS = 'OPTIONS';
-export const GET = 'GET';
-export const HEAD = 'HEAD';
-export const PATCH = 'PATCH';
-export const POST = 'POST';
-export const PUT = 'PUT';
-export const DELETE = 'DELETE';
-export const TRACE = 'TRACE';
-export const CONNECT = 'CONNECT';
-export const NOT_REQUESTED = 'NOT_REQUESTED';
-export const PENDING = 'PENDING';
-export const SUCCEED = 'SUCCEED';
-export const FAILED = 'FAILED';
-
 export const REQUEST_STATUS = {
-	NOT_REQUESTED,
-	PENDING,
-	SUCCEED,
-	FAILED,
+	NOT_REQUESTED: 'NOT_REQUESTED',
+	PENDING: 'PENDING',
+	SUCCEED: 'SUCCEED',
+	FAILED: 'FAILED',
 };
 
 export const HTTP_METHODS = {
-	OPTIONS,
-	GET,
-	HEAD,
-	PATCH,
-	POST,
-	PUT,
-	DELETE,
-	TRACE,
-	CONNECT,
+	OPTIONS: 'OPTIONS',
+	GET: 'GET',
+	HEAD: 'HEAD',
+	PATCH: 'PATCH',
+	POST: 'POST',
+	PUT: 'PUT',
+	DELETE: 'DELETE',
+	TRACE: 'TRACE',
+	CONNECT: 'CONNECT',
 };
 
 export const HTTP_STATUS = {

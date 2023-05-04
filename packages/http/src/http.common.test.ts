@@ -1,9 +1,9 @@
 import fetchMock from 'fetch-mock';
 import { Response, Headers } from 'node-fetch';
-import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
 
 import { HTTP, getDefaultConfig, setDefaultConfig } from './config';
 import { httpFetch, handleBody, encodePayload, handleHttpResponse } from './http.common';
+import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
 const defaultBody = { is: 'ok' };
