@@ -56,10 +56,7 @@ function parseCookie(cookie: string): Map<string, string> {
  */
 function findCSRFToken({ CSRFTokenCookieKey = 'csrfToken' }: TalendRequestInitSecurity) {
 	return (cookieValues: Map<string, string>): string | undefined => {
-		if (cookieValues instanceof Map) {
-			return cookieValues.get(CSRFTokenCookieKey);
-		}
-		return undefined;
+		return cookieValues.get(CSRFTokenCookieKey);
 	};
 }
 

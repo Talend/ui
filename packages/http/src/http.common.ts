@@ -43,7 +43,7 @@ export function encodePayload(headers: HeadersInit, payload: any) {
 export async function handleBody(response: Response) {
 	let methodBody = 'text';
 
-	const headers = response?.headers || new Headers();
+	const { headers } = response;
 	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
 		methodBody = 'json';
