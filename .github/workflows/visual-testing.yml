@@ -84,7 +84,6 @@ jobs:
           workingDir: packages/${{ matrix.package }}
           exitZeroOnChanges: true # Option to prevent the workflow from failing in PR
           # Handle monorepos https://www.chromatic.com/docs/monorepos
-          preserveMissing: true
           forceRebuild: true
 
       - name: Publish Master to DS Chromatic
@@ -96,5 +95,4 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/${{ matrix.package }}
           autoAcceptChanges: true # Option to accept any change for this baseline refresh
-          preserveMissing: true
           forceRebuild: true

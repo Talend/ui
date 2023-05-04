@@ -16,6 +16,10 @@ const STORIES = [
 	`${rootPath}src/content/docs/Capitalization.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Wording.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/design-system/**/*.stories.mdx`,
+	`${rootPath}../design-tokens/**/*.stories.mdx`,
+	`${rootPath}../design-system/**/*.stories.mdx`,
+	`${rootPath}../dataviz/**/*.stories.mdx`,
+	`${rootPath}../forms/**/*.stories.mdx`,
 ];
 
 module.exports = {
