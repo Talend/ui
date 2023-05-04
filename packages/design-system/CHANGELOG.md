@@ -1,6 +1,6 @@
 # @talend/design-system
 
-## 7.8.0asassa
+## 7.8.0
 
 ### Minor Changes
 

@@ -13,7 +13,7 @@ const SampleParagraph = () => (
 		vitae pretium condimentum, ipsum lectus hendrerit est, a ultrices lacus odio in mi. Phasellus
 		accumsan diam in metus dictum ultrices. In hac habitasse platea dictumst. Curabitur vestibulum
 		vitae libero sit amet blandit. Nulla bibendum sollicitudin dolor at vehicula. Morbi quis viverra
-		velit, eget ornare velit. Praesent porttitor sagittis nulla non vehicula. usdsdssdsdsdsd
+		velit, eget ornare velit. Praesent porttitor sagittis nulla non vehicula. u
 	</p>
 );
 
