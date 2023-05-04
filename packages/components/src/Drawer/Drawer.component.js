@@ -12,6 +12,7 @@ import TabBar from '../TabBar';
 import Inject from '../Inject';
 import EditableText from '../EditableText';
 import { getTheme } from '../theme';
+import { randomUUID } from '@talend/utils';
 
 import theme from './Drawer.module.scss';
 
@@ -53,7 +54,14 @@ DrawerAnimation.defaultProps = {
 	onTransitionComplete: () => {},
 };
 
-function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {
+function DrawerContainer({
+	drawerId,
+	stacked,
+	className,
+	children,
+	withTransition = true,
+	...rest
+}) {
 	const drawerContainerClasses = css(
 		className,
 		'tc-drawer',
@@ -66,7 +74,7 @@ function DrawerContainer({ stacked, className, children, withTransition = true, 
 		},
 	);
 	return (
-		<div className={drawerContainerClasses} {...rest}>
+		<div className={drawerContainerClasses} role="dialog" aria-labelledby={drawerId} {...rest}>
 			<div className={classnames('tc-drawer-container', theme['tc-drawer-container'])}>
 				{children}
 			</div>
@@ -75,6 +83,7 @@ function DrawerContainer({ stacked, className, children, withTransition = true, 
 }
 
 DrawerContainer.propTypes = {
+	drawerId: PropTypes.string,
 	stacked: PropTypes.bool,
 	withTransition: PropTypes.bool,
 	className: PropTypes.string,
@@ -149,6 +158,7 @@ export function subtitleComponent(subtitle) {
 function DrawerTitle({
 	title,
 	subtitle,
+	drawerId,
 	children,
 	onCancelAction,
 	getComponent,
@@ -190,9 +200,12 @@ function DrawerTitle({
 			<div className={css('tc-drawer-header-menu')}>
 				<div className={css('tc-drawer-header-title')}>
 					{!editable ? (
-						<h1 title={title}>{title}</h1>
+						<h1 id={drawerId} title={title}>
+							{title}
+						</h1>
 					) : (
 						<InjectedEditableText
+							id={drawerId}
 							text={title}
 							inProgress={inProgress}
 							feature="drawertitle.rename"
@@ -218,6 +231,7 @@ function DrawerTitle({
 }
 
 DrawerTitle.propTypes = {
+	drawerId: PropTypes.string,
 	title: PropTypes.string.isRequired,
 	subtitle: PropTypes.string,
 	onCancelAction: PropTypes.shape(Action.propTypes),
@@ -289,6 +303,7 @@ function Drawer({
 	editableTitle,
 	renderTitleActions,
 }) {
+	const [drawerId] = useState(randomUUID());
 	if (!children) {
 		return null;
 	}
@@ -316,9 +331,11 @@ function Drawer({
 			stacked={stacked}
 			className={className}
 			style={style}
+			drawerId={drawerId}
 			withTransition={withTransition}
 		>
 			<DrawerTitle
+				drawerId={drawerId}
 				renderTitleActions={renderTitleActions}
 				editable={editableTitle}
 				title={title}

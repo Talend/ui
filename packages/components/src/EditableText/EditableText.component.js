@@ -10,7 +10,16 @@ import getDefaultT from '../translate';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgress, feature, t }) {
+export function PlainTextTitle({
+	id,
+	componentClass,
+	onEdit,
+	disabled,
+	text,
+	inProgress,
+	feature,
+	t,
+}) {
 	const isDisabled = disabled || inProgress;
 	const ComponentClass = componentClass;
 	return (
@@ -21,6 +30,7 @@ export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgr
 				className="tc-editable-text-wording-wrapper"
 			>
 				<ComponentClass
+					id={drawerId}
 					className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
 					onDoubleClick={isDisabled ? undefined : onEdit}
 				>

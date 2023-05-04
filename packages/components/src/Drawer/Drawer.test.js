@@ -1,62 +1,53 @@
-import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 
 import Drawer, { cancelActionComponent, combinedFooterActions } from './Drawer.component';
 
 describe('Drawer', () => {
 	it('should render', () => {
-		const wrapper = renderer
-			.create(
-				<Drawer>
-					<h1>Hello world</h1>
-				</Drawer>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const { container } = render(
+			<Drawer>
+				<h1>Hello world</h1>
+			</Drawer>,
+		);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render without tc-drawer-transition class', () => {
-		const wrapper = renderer
-			.create(
-				<Drawer withTransition={false}>
-					<h1>Hello world</h1>
-				</Drawer>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(
+			<Drawer withTransition={false}>
+				<h1>Hello world</h1>
+			</Drawer>,
+		);
+		expect(screen.getByRole('dialog')).not.toHaveClass('tc-drawer-transition');
+		expect(screen.getByRole('dialog')).toHaveClass('tc-drawer');
 	});
 	it('should render using custom styles', () => {
-		const wrapper = renderer
-			.create(
-				<Drawer style={{ top: 45 }}>
-					<h1>Hello world</h1>
-				</Drawer>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(
+			<Drawer style={{ top: 45 }}>
+				<h1>Hello world</h1>
+			</Drawer>,
+		);
+		expect(screen.getByRole('dialog')).toHaveStyle('top: 45px;');
 	});
 	it('should render using custom className', () => {
-		const wrapper = renderer
-			.create(
-				<Drawer className="my-custom-drawer">
-					<h1>Hello world</h1>
-				</Drawer>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(
+			<Drawer className="my-custom-drawer">
+				<h1>Hello world</h1>
+			</Drawer>,
+		);
+		expect(screen.getByRole('dialog')).toHaveClass('my-custom-drawer');
 	});
 	it('should render stacked', () => {
-		const wrapper = renderer
-			.create(
-				<Drawer stacked>
-					<h1>Hello world</h1>
-				</Drawer>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(
+			<Drawer stacked>
+				<h1>Hello world</h1>
+			</Drawer>,
+		);
+		expect(screen.getByRole('dialog')).toHaveClass('stacked');
+		expect(screen.getByRole('dialog')).toHaveClass('theme-drawer-stacked');
 	});
 	it('should not render if no children', () => {
-		const wrapper = renderer.create(<Drawer />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(<Drawer />);
+		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 	});
 	it('should render cancelActionComponent', () => {
 		render(cancelActionComponent({ id: 'test' }));
@@ -82,14 +73,18 @@ describe('Drawer', () => {
 			onSelect: jest.fn(),
 			selectedKey: '2',
 		};
-		const wrapper = renderer
-			.create(
-				<Drawer tabs={tabs}>
-					<h1>Hello world</h1>
-				</Drawer>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(
+			<Drawer tabs={tabs}>
+				<h1>Hello world</h1>
+			</Drawer>,
+		);
+		expect(screen.getByRole('tablist')).toBeInTheDocument();
+		expect(screen.getAllByRole('tab').length).toBe(2);
+		expect(screen.getAllByRole('tab')[0]).toHaveAttribute('aria-selected', 'false');
+		expect(screen.getAllByRole('tab')[1]).toHaveAttribute('aria-selected', 'true');
+
+		expect(screen.getByText('Tab 1')).toBeInTheDocument();
+		expect(screen.getByText('Tab 2')).toBeInTheDocument();
 	});
 
 	it('should render with tabs specific actions by tab with selectedTabKey', () => {
@@ -176,25 +171,21 @@ describe('Drawer', () => {
 	});
 
 	it('render drawer content without extra className', () => {
-		const wrapper = renderer
-			.create(
-				<Drawer.Content>
-					<h1>Hello world</h1>
-				</Drawer.Content>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(
+			<Drawer.Content>
+				<h1>Hello world</h1>
+			</Drawer.Content>,
+		);
+		expect(screen.getByText('Hello world')).toBeInTheDocument();
 	});
 
 	it('render drawer content with extra className', () => {
-		const wrapper = renderer
-			.create(
-				<Drawer.Content className="extraClass">
-					<h1>Hello world</h1>
-				</Drawer.Content>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const { container } = render(
+			<Drawer.Content className="extraClass">
+				<h1>Hello world</h1>
+			</Drawer.Content>,
+		);
+		expect(container.firstChild).toHaveClass('extraClass');
 	});
 
 	it('render with injected TabBar or Action if provided', () => {
@@ -378,27 +369,26 @@ describe('Drawer', () => {
 	});
 });
 
-function getComponent(name) {
-	if (name === 'EditableText') {
-		return function EditableText() {
-			return <input />;
-		};
-	}
-	return null;
-}
-
-const tagTitleProps = {
-	getComponent,
-	title: 'test',
-	subtitle: 'subtitle test',
-	subtitleTag: {
-		label: 'BETA',
-		tooltip: 'This is a BETA tag',
-		variant: 'beta',
-	},
-};
-
 describe('Drawer title', () => {
+	function getComponent(name) {
+		if (name === 'EditableText') {
+			return function EditableText() {
+				return <input />;
+			};
+		}
+		return null;
+	}
+
+	const tagTitleProps = {
+		getComponent,
+		title: 'test',
+		subtitle: 'subtitle test',
+		subtitleTag: {
+			label: 'BETA',
+			tooltip: 'This is a BETA tag',
+			variant: 'beta',
+		},
+	};
 	it('should render drawer title with a tag', () => {
 		render(<Drawer.Title {...tagTitleProps} />);
 		expect(screen.getByText('test')).toBeInTheDocument();
