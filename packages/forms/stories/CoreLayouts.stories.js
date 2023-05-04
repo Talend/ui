@@ -26,7 +26,7 @@ LayoutDrawer.propTypes = {
 };
 
 export default {
-	title: 'Core concepts/Layouts',
+	title: 'Forms/Layouts',
 };
 
 export const Default = () => (
