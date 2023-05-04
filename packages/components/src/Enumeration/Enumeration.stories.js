@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import Enumeration from './Enumeration.component';
 
 import theme from './Enumeration.stories.module.scss';
+import { DISPLAY_MODE_SEARCH } from './displayModes';
 
 const addItemAction = {
 	label: 'Add item',
@@ -131,7 +132,7 @@ const props = {
 
 const defaultEmptyListProps = { ...props, items: [] };
 
-const searchModeEmptyListProps = { ...defaultEmptyListProps, displayMode: 'DISPLAY_MODE_SEARCH' };
+const searchModeEmptyListProps = { ...defaultEmptyListProps, displayMode: DISPLAY_MODE_SEARCH };
 
 const dropDownActionsProps = {
 	...props,
@@ -174,7 +175,7 @@ const selectedValuesProps = {
 };
 const searchProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_SEARCH',
+	displayMode: DISPLAY_MODE_SEARCH,
 	searchCriteria: 'lorem',
 };
 

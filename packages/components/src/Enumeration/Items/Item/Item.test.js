@@ -1,66 +1,52 @@
-import { mount } from 'enzyme';
-import { Button } from '@talend/react-bootstrap';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import cloneDeep from 'lodash/cloneDeep';
 
 import Item from './Item.component';
+jest.unmock('@talend/design-system');
 
 const item = {
 	values: ['toto'],
 	itemProps: {
 		key: 'values',
-		onSubmitItem: jest.fn(), // provided click callback
-		onAbortItem: jest.fn(), // provided click callback
-		onSelectItem: jest.fn(), // provided click callback
+		onSubmitItem: jest.fn(),
+		onAbortItem: jest.fn(),
+		onSelectItem: jest.fn(),
 		actions: [
 			{
 				label: 'Edit',
 				id: 'edit',
-				onClick: jest.fn(), // provided click callback
+				onClick: jest.fn(),
 			},
 			{
 				label: 'Delete',
 				id: 'delete',
-				onClick: jest.fn(), // provided click callback
+				onClick: jest.fn(),
 			},
 		],
 	},
 };
 
 describe('Item', () => {
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 	it('should display value with three buttons and trigger callback on button title click', () => {
 		// given
 		const props = {
 			item,
 		};
-		const itemInstance = <Item {...props} />;
-
-		// when
-		const wrapper = mount(itemInstance);
-		const buttons = wrapper.find(Button);
-
-		buttons.at(1).simulate('click', { stopPropagation: () => {} });
+		render(<Item {...props} />);
 
 		// then
-		expect(buttons.length).toBe(3);
+		userEvent.click(screen.getByLabelText('Delete'));
+		expect(props.item.itemProps.actions[1].onClick).toBeCalled();
+
+		userEvent.click(screen.getByLabelText('Edit'));
 		expect(props.item.itemProps.actions[0].onClick).toBeCalled();
-	});
 
-	it('should display value with three buttons and trigger callback on item click', () => {
-		// given
-		const props = {
-			item,
-		};
-
-		const itemInstance = <Item {...props} />;
-
-		// when
-		const wrapper = mount(itemInstance);
-		const buttons = wrapper.find(Button);
-
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
-
-		// then
-		expect(buttons.length).toBe(3);
+		userEvent.click(screen.getByText('toto'));
 		expect(props.item.itemProps.onSelectItem).toBeCalled();
 	});
 
@@ -72,14 +58,11 @@ describe('Item', () => {
 			item: itemWithDisabled,
 		};
 
-		const itemInstance = <Item {...props} />;
-
-		// when
-		const wrapper = mount(itemInstance);
-		const buttons = wrapper.find('.tc-enumeration-item-actions').at(0).find(Button);
+		render(<Item {...props} />);
 
 		// then
-		expect(buttons.length).toBe(1);
+		expect(screen.getByLabelText('Delete')).toBeVisible();
+		expect(screen.queryByLabelText('Edit')).not.toBeInTheDocument();
 	});
 
 	it('should display a label if "item[key]" is a string', () => {
@@ -90,8 +73,8 @@ describe('Item', () => {
 			},
 		};
 
-		const wrapper = mount(<Item {...props} />);
-		expect(wrapper.find('.tc-enumeration-item-label').at(0).text()).toEqual('toto');
+		render(<Item {...props} />);
+		expect(screen.getByText('toto')).toBeVisible();
 	});
 
 	it('should display the item with an icon appended', () => {
@@ -105,10 +88,11 @@ describe('Item', () => {
 			},
 		};
 
-		const wrapper = mount(<Item {...props} />);
-		expect(wrapper.find('TooltipTrigger').at(0).props().label).toBe('mad world');
-		expect(wrapper.find('Icon').props().title).toBe('mad world');
-		expect(wrapper.find('Icon').length).toBe(1);
+		render(<Item {...props} />);
+		expect(screen.getAllByRole('gridcell')[0].querySelector('svg')).toHaveAttribute(
+			'title',
+			'mad world',
+		);
 	});
 
 	it('should display the item with a class on button', () => {
@@ -118,9 +102,8 @@ describe('Item', () => {
 				className: 'special',
 			},
 		};
-		const wrapper = mount(<Item {...props} />);
-		const buttons = wrapper.find('.tc-enumeration-item').at(0).find(Button);
-		const button = buttons.at(0);
-		expect(button.props().className.includes('special'));
+		render(<Item {...props} />);
+
+		expect(screen.getByText('toto').parentElement).toHaveClass('special');
 	});
 });
