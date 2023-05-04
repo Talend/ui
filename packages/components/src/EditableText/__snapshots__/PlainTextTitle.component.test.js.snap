@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlainTextTitle should render 1`] = `
+<div
+  class="theme-tc-editable-text-title"
+>
+  <span
+    aria-describedby="42"
+    class="theme-tc-editable-text-wording tc-editable-text-wording"
+  >
+    text
+  </span>
+  <button
+    aria-describedby="42"
+    aria-label="Rename"
+    class="theme-tc-editable-text-pencil tc-editable-text-pencil btn-icon-only btn btn-link"
+    data-feature="my.custom.feature"
+    name="action-edit"
+    type="button"
+  >
+    <span
+      class="CoralIcon"
+      name="talend-pencil"
+    />
+  </button>
+</div>
+`;
+
+exports[`PlainTextTitle should render provided component class 1`] = `
+<div
+  className="theme-tc-editable-text-title"
+>
+  <TooltipTrigger
+    className="tc-editable-text-wording-wrapper"
+    label="text"
+    tooltipPlacement="bottom"
+  >
+    <h1
+      className="theme-tc-editable-text-wording tc-editable-text-wording"
+      onDoubleClick={[MockFunction]}
+    >
+      text
+    </h1>
+  </TooltipTrigger>
+  <Action
+    bsStyle="link"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    data-feature="my.custom.feature"
+    hideLabel={true}
+    icon="talend-pencil"
+    label="Rename"
+    name="action-edit"
+    onClick={[MockFunction]}
+  />
+</div>
+`;
