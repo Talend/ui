@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 10.3.1
+
+### Patch Changes
+
+- 37f6f9f14: chore: rewrite tests of DateTimePickers
+
 ## 10.3.0
 
 ### Minor Changes
