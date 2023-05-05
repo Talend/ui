@@ -3,7 +3,6 @@
  * This module target to extract csrf token from a cookie,
  * and then merge it if available into a http config.
  */
-
 import { TalendRequestInit, TalendRequestInitSecurity } from './http.types';
 
 /**

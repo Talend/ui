@@ -1,6 +1,6 @@
+import { HTTP } from './config';
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
-import { HTTP } from './config';
 import { TalendHttpResponse, TalendRequestInit } from './http.types';
 
 /**
