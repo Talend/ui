@@ -1,5 +1,5 @@
-import { mount } from 'enzyme';
-import { Button } from '@talend/react-bootstrap';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import HeaderInput from './HeaderInput.component';
 
@@ -26,11 +26,10 @@ describe('Header input', () => {
 		const headerInputInstance = <HeaderInput {...props} />;
 
 		// when
-		const wrapper = mount(headerInputInstance);
-		const buttons = wrapper.find(Button);
-
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
-		buttons.at(1).simulate('click', { stopPropagation: () => {} });
+		render(headerInputInstance);
+		const buttons = screen.getAllByRole('link');
+		userEvent.click(buttons[0]);
+		userEvent.click(buttons[1]);
 
 		// then
 		expect(props.headerInput[0].onClick).toBeCalled();
@@ -55,11 +54,10 @@ describe('Header input', () => {
 				},
 			],
 		};
-		const headerInputInstance = <HeaderInput {...props} />;
 
 		// when
-		const wrapper = mount(headerInputInstance);
-		const buttons = wrapper.find(Button);
+		render(<HeaderInput {...props} />);
+		const buttons = screen.getAllByRole('link');
 		// then
 		expect(buttons.length).toBe(1);
 	});

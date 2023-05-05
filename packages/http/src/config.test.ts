@@ -24,5 +24,19 @@ describe('Configuration service', () => {
 
 			expect(getDefaultConfig()).toEqual({ headers: { 'Accept-Language': 'ja' } });
 		});
+
+		it('should throw error on second call', () => {
+			setDefaultConfig({
+				headers: {},
+			});
+
+			expect(() => {
+				setDefaultConfig({
+					headers: {},
+				});
+			}).toThrow(
+				'ERROR: setDefaultConfig should not be called twice, if you wish to change the language use setDefaultLanguage api.',
+			);
+		});
 	});
 });

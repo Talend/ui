@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { ReactNode } from 'react';
 import theme from './TileHeader.module.scss';
 
-function Header(props) {
+type HeaderProps = {
+	children: ReactNode;
+};
+
+function Header(props: HeaderProps) {
 	return (
 		<div className={classnames(theme['tc-tile-header'], 'tc-tile-header')}>{props.children}</div>
 	);
 }
-
-Header.propTypes = {
-	children: PropTypes.node,
-};
 
 export default Header;

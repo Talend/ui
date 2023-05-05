@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../Icon';
 import skeletonCssModule from './Skeleton.module.scss';
 import { getTheme } from '../theme';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import '../translate';
 
 const theme = getTheme(skeletonCssModule);
 const TYPES = {
@@ -21,7 +19,11 @@ const SIZES = {
 	small: 'small',
 };
 
-function getTranslatedType(t, type) {
+function getTranslatedType(
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	t: (msgId: string, opts: any) => string,
+	type: (typeof TYPES)[keyof typeof TYPES],
+) {
 	switch (type) {
 		case TYPES.button:
 			return t('SKELETON_TYPE_BUTTON', { defaultValue: 'button' });
@@ -35,6 +37,15 @@ function getTranslatedType(t, type) {
 			return type;
 	}
 }
+export type SkeletonProps = {
+	heartbeat?: boolean;
+	type?: (typeof TYPES)[keyof typeof TYPES];
+	size?: (typeof SIZES)[keyof typeof SIZES];
+	width: number | string;
+	height: number | string;
+	name?: string;
+	className?: string;
+};
 
 /**
  * This component show some skeleton stuff
@@ -53,7 +64,7 @@ function Skeleton({
 	height,
 	name,
 	className,
-}) {
+}: SkeletonProps) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const classes = theme(
 		'tc-skeleton',
@@ -73,16 +84,6 @@ function Skeleton({
 	}
 	return <span style={{ width, height }} className={classes} aria-label={ariaLabel} />;
 }
-
-Skeleton.propTypes = {
-	heartbeat: PropTypes.bool,
-	type: PropTypes.oneOf([TYPES.button, TYPES.circle, TYPES.icon, TYPES.text]),
-	size: PropTypes.oneOf([SIZES.small, SIZES.medium, SIZES.large, SIZES.xlarge]),
-	width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-	height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-	name: PropTypes.string,
-	className: PropTypes.string,
-};
 
 Skeleton.displayName = 'Skeleton';
 Skeleton.TYPES = TYPES;

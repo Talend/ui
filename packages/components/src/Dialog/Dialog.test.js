@@ -1,112 +1,102 @@
-import { shallow } from 'enzyme';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Dialog from './Dialog.component';
 
-jest.mock('react-dom');
-
-const defaultProps = {
-	show: true,
-};
-const headerProps = {
-	header: 'Hello world',
-	show: true,
-};
-
-const subtitleProps = {
-	header: 'Hello world',
-	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	show: true,
-};
-const errorProps = {
-	header: 'Hello world',
-	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	error: 'Vestibulum molestie id massa eu pretium.',
-	show: true,
-};
-
-const actionProps = {
-	show: true,
-	header: 'Hello world',
-	action: {
-		label: 'OK',
-		onClick: jest.fn(),
-	},
-};
-const smallProps = {
-	show: true,
-	header: 'Hello world',
-	size: 'small',
-	onHide: jest.fn(),
-	dialogClassName: 'customDialogClassName',
-	keyboard: true,
-	backdrop: false,
-	action: {
-		label: 'OK',
-		onClick: jest.fn(),
-	},
-};
-const largeProps = {
-	show: true,
-	header: 'Hello world',
-	size: 'large',
-	onHide: jest.fn(),
-	dialogClassName: 'customDialogClassName',
-	keyboard: true,
-	backdrop: false,
-	action: {
-		label: 'OK',
-		onClick: jest.fn(),
-	},
-};
-const flexProps = {
-	header: 'Hello World',
-	flex: true,
-};
+jest.mock('@talend/react-bootstrap', () => {
+	const Modal = props => (
+		<div data-testid="Modal" data-size={props.bsSize} {...props}>
+			{props.children}
+		</div>
+	);
+	Modal.Header = props => <div data-testid="Header">{props.children}</div>;
+	Modal.Title = props => <div data-testid="Title">{props.children}</div>;
+	Modal.Body = props => <div data-testid="Body">{props.children}</div>;
+	Modal.Footer = props => <div data-testid="Footer">{props.children}</div>;
+	return { Modal };
+});
+jest.mock('../Actions/Action', () => props => (
+	<button data-testid="Action" {...props}>
+		{props.label}
+	</button>
+));
+jest.mock('../ActionBar', () => () => <div data-testid="ActionBar" />);
 
 const children = <div>BODY</div>;
 
 describe('Dialog', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Dialog {...defaultProps}>{children}</Dialog>);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<Dialog show>{children}</Dialog>);
+		expect(container).toMatchSnapshot();
 	});
 	it('should render header', () => {
-		const wrapper = shallow(<Dialog {...headerProps}>{children}</Dialog>);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(
+			<Dialog header="Hello world" show>
+				{children}
+			</Dialog>,
+		);
+		expect(screen.getByTestId('Header')).toBeInTheDocument();
 	});
 	it('should render subtitle', () => {
-		const wrapper = shallow(<Dialog {...subtitleProps}>{children}</Dialog>);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(
+			<Dialog show header="Hello world" subtitle="Lorem ipsum">
+				{children}
+			</Dialog>,
+		);
+		expect(screen.getByText('Lorem ipsum')).toBeVisible();
 	});
-	it('should render error', () => {
-		const wrapper = shallow(<Dialog {...errorProps}>{children}</Dialog>);
-		expect(wrapper.getElement()).toMatchSnapshot();
+	it('should render error instead of subtitle', () => {
+		render(
+			<Dialog header="Hello world" subtitle="Lorem ipsum" error="Vestibulum" show>
+				{children}
+			</Dialog>,
+		);
+		expect(screen.getByText('Vestibulum')).toBeVisible();
+		expect(screen.queryByText('Lorem ipsum')).not.toBeInTheDocument();
 	});
 	it('should render action', () => {
-		const wrapper = shallow(<Dialog {...actionProps}>{children}</Dialog>);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const action = {
+			label: 'OK',
+			onClick: jest.fn(),
+		};
+		render(
+			<Dialog show header="Hello world" action={action}>
+				{children}
+			</Dialog>,
+		);
+		userEvent.click(screen.getByText('OK'));
+		expect(action.onClick).toHaveBeenCalled();
 	});
 	it('should render small', () => {
-		const wrapper = shallow(<Dialog {...smallProps}>{children}</Dialog>);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(
+			<Dialog show header="Hello world" size="small">
+				{children}
+			</Dialog>,
+		);
+		expect(screen.getByTestId('Modal')).toHaveAttribute('data-size', 'small');
 	});
 	it('should render large', () => {
-		const wrapper = shallow(<Dialog {...largeProps}>{children}</Dialog>);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(
+			<Dialog show size="large">
+				{children}
+			</Dialog>,
+		);
+		expect(screen.getByTestId('Modal').dataset.size).toBe('large');
 	});
 	it('should spread props', () => {
-		const wrapper = shallow(<Dialog foo="bar" id="my-id" className="foo" />);
-		expect(wrapper.props()).toMatchObject({
-			foo: 'bar',
-			id: 'my-id',
-			className: 'foo',
-		});
+		render(<Dialog id="my-id" className="foo" />);
+		expect(screen.getByTestId('Modal')).toHaveAttribute('id', 'my-id');
+		expect(screen.getByTestId('Modal')).toHaveClass('foo');
 	});
 	it('render modal without modal-flex class if flex prop is not set', () => {
-		const wrapper = shallow(<Dialog {...defaultProps}>{children}</Dialog>);
-		expect(wrapper.hasClass('modal-flex')).toBe(false);
-	});
-	it('render modal with modal-flex class if flex prop is true', () => {
-		const wrapper = shallow(<Dialog {...flexProps}>{children}</Dialog>);
-		expect(wrapper.hasClass('modal-flex')).toBe(true);
+		let { rerender } = render(<Dialog show>{children}</Dialog>);
+		expect(screen.getByTestId('Modal')).not.toHaveClass('modal-flex');
+		rerender(
+			<Dialog show flex>
+				{children}
+			</Dialog>,
+		);
+		expect(screen.getByTestId('Modal')).toHaveClass('modal-flex');
 	});
 });
