@@ -1,5 +1,12 @@
 # @talend/http
 
+## 2.2.0
+
+### Minor Changes
+
+- a8bdec1f0: chore(http): Improve code covering
+- e88ce400b: feat: expose http utils functions and constants
+
 ## 2.1.0
 
 ### Minor Changes
