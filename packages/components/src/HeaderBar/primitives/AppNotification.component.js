@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
 import omit from 'lodash/omit';
 import { useTranslation } from 'react-i18next';
 
 import Inject from '../Inject';
+import Action from '../Actions/Action';
+import ActionIntercom from '../ActionIntercom';
+import ActionDropdown from '../Actions/ActionDropdown';
+import Typeahead from '../Typeahead';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import { getTheme } from '../theme';
 import AppSwitcher from '../AppSwitcher';
@@ -10,6 +15,67 @@ import AppSwitcher from '../AppSwitcher';
 import headerBarCssModule from './HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
+
+function AppNotification({ getComponent, hasUnread, t, ...props }) {
+	const className = theme('tc-header-bar-action', 'separated');
+
+	let icon;
+	let label;
+	if (hasUnread) {
+		icon = 'talend-bell-notification';
+		label = t('HEADERBAR_NOTIFICATION_UNREAD', {
+			defaultValue: 'Notifications (you have unread notifications)',
+		});
+	} else {
+		icon = 'talend-bell';
+		label = t('HEADERBAR_NOTIFICATION', {
+			defaultValue: 'Notifications (you have no unread notifications)',
+		});
+	}
+
+	const global = {
+		bsStyle: 'link',
+		hideLabel: true,
+		icon,
+		label,
+		tooltipPlacement: 'bottom',
+		...props,
+	};
+	const Renderers = Inject.getAll(getComponent, { Action });
+
+	return (
+		<li role="presentation" className={className}>
+			<Renderers.Action {...global} />
+		</li>
+	);
+}
+
+function Intercom({ id, config, tooltipPlacement }) {
+	return (
+		<ActionIntercom
+			className={theme('tc-header-bar-intercom-default-component', 'btn', 'btn-link')}
+			id={id}
+			config={useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
+			tooltipPlacement={tooltipPlacement}
+		/>
+	);
+}
+
+function GenericAction({ getComponent, ...props }) {
+	const global = {
+		bsStyle: 'link',
+		tooltipPlacement: 'bottom',
+		...props,
+	};
+	const className = theme('tc-header-bar-action', 'tc-header-bar-generic-action', 'separated');
+	const Renderers = Inject.getAll(getComponent, { Action });
+
+	return (
+		<li role="presentation" className={className}>
+			<Renderers.Action {...global} />
+		</li>
+	);
+}
 
 function HeaderBar(props) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
@@ -110,6 +176,61 @@ HeaderBar.User = User;
 HeaderBar.displayName = 'HeaderBar';
 
 if (process.env.NODE_ENV !== 'production') {
+	Search.propTypes = {
+		...Typeahead.propTypes,
+		renderers: PropTypes.shape({
+			Typeahead: PropTypes.func,
+		}),
+	};
+
+	GenericAction.propTypes = {
+		getComponent: PropTypes.func,
+		renders: PropTypes.shape({
+			Action: PropTypes.func,
+		}),
+	};
+
+	Help.propTypes = {
+		getComponent: PropTypes.func,
+		renderers: PropTypes.shape({
+			ActionSplitDropdown: PropTypes.func,
+			Action: PropTypes.func,
+		}),
+		t: PropTypes.func.isRequired,
+	};
+
+	Information.propTypes = {
+		getComponent: PropTypes.func,
+		items: PropTypes.array,
+		renderers: PropTypes.shape({
+			ActionSplitDropdown: PropTypes.func,
+			Action: PropTypes.func,
+		}),
+		t: PropTypes.func.isRequired,
+	};
+
+	User.propTypes = {
+		firstName: PropTypes.string,
+		lastName: PropTypes.string,
+		getComponent: PropTypes.func,
+		name: PropTypes.string,
+		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
+		t: PropTypes.func,
+	};
+
+	AppNotification.propTypes = {
+		getComponent: PropTypes.func,
+		hasUnread: PropTypes.bool,
+		renderers: PropTypes.shape({ Action: PropTypes.func }),
+		t: PropTypes.func.isRequired,
+	};
+
+	Intercom.propTypes = {
+		id: PropTypes.string.isRequired,
+		config: PropTypes.object.isRequired,
+		tooltipPlacement: PropTypes.string,
+	};
+
 	HeaderBar.propTypes = {
 		AppSwitcher: PropTypes.func,
 		Intercom: PropTypes.func,
