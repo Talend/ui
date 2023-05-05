@@ -1,23 +1,27 @@
 import { isValidElement } from 'react';
 import PropTypes from 'prop-types';
 
+type NotFoundComponentProps = {
+	error: string;
+};
 /**
  * This is to render an not found component to alert developers
  * @param {object} props container of the error
  */
-function NotFoundComponent({ error }) {
+function NotFoundComponent({ error }: NotFoundComponentProps) {
 	return <div className="alert alert-danger">{error}</div>;
 }
 
-NotFoundComponent.propTypes = {
-	error: PropTypes.string.isRequired,
+type InjectProps = {
+	getComponent: (component: any) => any;
+	component: string;
 };
 
 /**
  * This component role is to show the evaluated component or not found component
  * @param {object} props getComponent method to resolve the component given and his props
  */
-function Inject({ getComponent, component, ...props }) {
+function Inject({ getComponent, component, ...props }: InjectProps) {
 	if (!getComponent || !component) {
 		return null;
 	}
@@ -28,11 +32,6 @@ function Inject({ getComponent, component, ...props }) {
 		return <NotFoundComponent error={error.message} />;
 	}
 }
-
-Inject.propTypes = {
-	getComponent: PropTypes.func,
-	component: PropTypes.string,
-};
 
 /**
  * This function is used to inject an array of components
@@ -117,7 +116,7 @@ Inject.getReactElement = function getReactElement(
 	getComponent,
 	data,
 	CustomInject = Inject,
-	withKey,
+	withKey = false,
 ) {
 	if (Array.isArray(data)) {
 		return data.map(info => getReactElement(getComponent, info, CustomInject, true));
