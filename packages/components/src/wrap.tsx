@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ReactElement, Component as RComponent, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import omit from 'lodash/omit';
 
-import Inject from './Inject';
+import Inject, { GetComponentType, InjectConfig } from './Inject';
 
 type ToTextProps = {
 	text?: string | string[];
@@ -47,8 +47,8 @@ function isNotBlackListedAttr(attr: string) {
 }
 
 type WrapperProps = {
-	getComponent: (key: string) => RComponent | Component;
-	components: { [key: string]: RComponent | Component };
+	getComponent: GetComponentType;
+	components: Record<string, InjectConfig>;
 	text?: string | string[];
 	children: ReactNode;
 };
