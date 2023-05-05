@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Inject from '../../Inject';
 import Action from '../../Actions/Action';
 import { getTheme } from '../../theme';

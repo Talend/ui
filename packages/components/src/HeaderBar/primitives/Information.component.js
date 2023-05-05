@@ -1,18 +1,11 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
-import omit from 'lodash/omit';
-import { useTranslation } from 'react-i18next';
 
-import Inject from '../Inject';
-import Action from '../Actions/Action';
-import ActionIntercom from '../ActionIntercom';
-import ActionDropdown from '../Actions/ActionDropdown';
-import Typeahead from '../Typeahead';
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import { getTheme } from '../theme';
-import AppSwitcher from '../AppSwitcher';
+import Inject from '../../Inject';
+import Action from '../../Actions/Action';
+import ActionDropdown from '../../Actions/ActionDropdown';
+import { getTheme } from '../../theme';
 
-import headerBarCssModule from './HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
 
@@ -38,14 +31,12 @@ export function Information({ getComponent, t, ...props }) {
 	);
 }
 
-if (process.env.NODE_ENV !== 'production') {
-	Information.propTypes = {
-		getComponent: PropTypes.func,
-		items: PropTypes.array,
-		renderers: PropTypes.shape({
-			ActionSplitDropdown: PropTypes.func,
-			Action: PropTypes.func,
-		}),
-		t: PropTypes.func.isRequired,
-	};
-}
+Information.propTypes = {
+	getComponent: PropTypes.func,
+	items: PropTypes.array,
+	renderers: PropTypes.shape({
+		ActionSplitDropdown: PropTypes.func,
+		Action: PropTypes.func,
+	}),
+	t: PropTypes.func.isRequired,
+};

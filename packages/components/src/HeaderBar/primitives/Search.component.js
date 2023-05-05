@@ -4,7 +4,7 @@ import Inject from '../../Inject';
 import Typeahead from '../../Typeahead';
 import { getTheme } from '../../theme';
 
-import headerBarCssModule from './HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
 
@@ -22,11 +22,10 @@ export function Search({ getComponent, icon, ...props }) {
 	);
 }
 
-if (process.env.NODE_ENV !== 'production') {
-	Search.propTypes = {
-		...Typeahead.propTypes,
-		renderers: PropTypes.shape({
-			Typeahead: PropTypes.func,
-		}),
-	};
-}
+Search.propTypes = {
+	getComponent: PropTypes.func,
+	icon: PropTypes.object,
+	renderers: PropTypes.shape({
+		Typeahead: PropTypes.func,
+	}),
+};

@@ -7,6 +7,17 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import { getTheme } from '../theme';
 import AppSwitcher from '../AppSwitcher';
 
+import { Logo } from './primitives/Logo.component';
+import { Environment } from './primitives/Environment.component';
+import { CallToAction } from './primitives/CallToAction.component';
+import { GenericAction } from './primitives/GenericAction.component';
+import { Search } from './primitives/Search.component';
+import { User } from './primitives/User.component';
+import { Information } from './primitives/Information.component';
+import { Help } from './primitives/Help.component';
+import { AppNotification } from './primitives/AppNotification.component';
+import { Intercom } from './primitives/Intercom.component';
+
 import headerBarCssModule from './HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
@@ -27,10 +38,6 @@ function HeaderBar(props) {
 		Intercom,
 	});
 
-	if (props.brand && props.products) {
-		console.warn('Deprecated: use @talend/ui-ee/AppSwitcher');
-	}
-
 	const AppSwitcherComponent =
 		props.AppSwitcher || Inject.get(props.getComponent, 'AppSwitcher', AppSwitcher);
 
@@ -39,7 +46,7 @@ function HeaderBar(props) {
 	if (NotificationCenter) {
 		notificationCenter = <NotificationCenter />;
 	} else if (props.notification) {
-		console.warn('Deprecated: use @talend/notification-center');
+		// Deprecated: use @talend ee
 		notificationCenter = (
 			<Components.AppNotification getComponent={props.getComponent} {...props.notification} t={t} />
 		);
@@ -50,7 +57,7 @@ function HeaderBar(props) {
 	if (CustomIntercom) {
 		intercom = <CustomIntercom />;
 	} else if (props.intercom) {
-		console.warn('Deprecated: use @talend/ui-ee/Intercom');
+		// Deprecated use @talend ee
 		intercom = <Components.Intercom getComponent={props.getComponent} {...props.intercom} />;
 	}
 
@@ -109,36 +116,34 @@ HeaderBar.Information = Information;
 HeaderBar.User = User;
 HeaderBar.displayName = 'HeaderBar';
 
-if (process.env.NODE_ENV !== 'production') {
-	HeaderBar.propTypes = {
-		AppSwitcher: PropTypes.func,
-		Intercom: PropTypes.func,
-		NotificationCenter: PropTypes.func,
-		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
-		brand: PropTypes.shape({
-			isSeparated: PropTypes.bool,
-			renderers: PropTypes.shape({
-				Action: PropTypes.func,
-			}),
-			icon: PropTypes.string,
-			iconUrl: PropTypes.string,
+HeaderBar.propTypes = {
+	AppSwitcher: PropTypes.func,
+	Intercom: PropTypes.func,
+	NotificationCenter: PropTypes.func,
+	logo: PropTypes.shape(omit(Logo.propTypes, 't')),
+	brand: PropTypes.shape({
+		isSeparated: PropTypes.bool,
+		renderers: PropTypes.shape({
+			Action: PropTypes.func,
 		}),
-		env: PropTypes.shape(Environment.propTypes),
-		callToAction: PropTypes.shape(CallToAction.propTypes),
-		genericAction: PropTypes.shape(GenericAction.propTypes),
-		search: PropTypes.shape(Search.propTypes),
-		help: PropTypes.shape(omit(Help.propTypes, 't')),
-		information: PropTypes.shape(omit(Information.propTypes, 't')),
-		intercom: PropTypes.shape(Intercom.propTypes),
-		user: PropTypes.shape(User.propTypes),
-		notification: PropTypes.shape(omit(AppNotification.propTypes, 't')),
-		products: PropTypes.shape({
-			items: PropTypes.array,
-			onSelect: PropTypes.func,
-		}),
-		getComponent: PropTypes.func,
-		t: PropTypes.func,
-	};
-}
+		icon: PropTypes.string,
+		iconUrl: PropTypes.string,
+	}),
+	env: PropTypes.shape(Environment.propTypes),
+	callToAction: PropTypes.shape(CallToAction.propTypes),
+	genericAction: PropTypes.shape(GenericAction.propTypes),
+	search: PropTypes.shape(Search.propTypes),
+	help: PropTypes.shape(omit(Help.propTypes, 't')),
+	information: PropTypes.shape(omit(Information.propTypes, 't')),
+	intercom: PropTypes.shape(Intercom.propTypes),
+	user: PropTypes.shape(User.propTypes),
+	notification: PropTypes.shape(omit(AppNotification.propTypes, 't')),
+	products: PropTypes.shape({
+		items: PropTypes.array,
+		onSelect: PropTypes.func,
+	}),
+	getComponent: PropTypes.func,
+	t: PropTypes.func,
+};
 
 export default HeaderBar;

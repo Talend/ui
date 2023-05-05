@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-import Inject from '../Inject';
-import ActionDropdown from '../Actions/ActionDropdown';
-import { getTheme } from '../theme';
+import Inject from '../../Inject';
+import ActionDropdown from '../../Actions/ActionDropdown';
+import { getTheme } from '../../theme';
 
-import headerBarCssModule from './HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
 
@@ -39,13 +39,11 @@ export function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 	);
 }
 
-if (process.env.NODE_ENV !== 'production') {
-	User.propTypes = {
-		firstName: PropTypes.string,
-		lastName: PropTypes.string,
-		getComponent: PropTypes.func,
-		name: PropTypes.string,
-		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
-		t: PropTypes.func,
-	};
-}
+User.propTypes = {
+	firstName: PropTypes.string,
+	lastName: PropTypes.string,
+	getComponent: PropTypes.func,
+	name: PropTypes.string,
+	renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
+	t: PropTypes.func,
+};

@@ -1,18 +1,10 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
-import omit from 'lodash/omit';
-import { useTranslation } from 'react-i18next';
 
-import Inject from '../Inject';
-import Action from '../Actions/Action';
-import ActionIntercom from '../ActionIntercom';
-import ActionDropdown from '../Actions/ActionDropdown';
-import Typeahead from '../Typeahead';
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import { getTheme } from '../theme';
-import AppSwitcher from '../AppSwitcher';
+import Inject from '../../Inject';
+import Action from '../../Actions/Action';
+import { getTheme } from '../../theme';
 
-import headerBarCssModule from './HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
 
@@ -33,13 +25,11 @@ export function Help({ getComponent, t, ...props }) {
 		</li>
 	);
 }
-if (process.env.NODE_ENV !== 'production') {
-	Help.propTypes = {
-		getComponent: PropTypes.func,
-		renderers: PropTypes.shape({
-			ActionSplitDropdown: PropTypes.func,
-			Action: PropTypes.func,
-		}),
-		t: PropTypes.func.isRequired,
-	};
-}
+Help.propTypes = {
+	getComponent: PropTypes.func,
+	renderers: PropTypes.shape({
+		ActionSplitDropdown: PropTypes.func,
+		Action: PropTypes.func,
+	}),
+	t: PropTypes.func.isRequired,
+};

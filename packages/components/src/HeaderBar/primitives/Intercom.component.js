@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 
-import ActionIntercom from '../ActionIntercom';
-import { getTheme } from '../theme';
+import ActionIntercom from '../../ActionIntercom';
+import { getTheme } from '../../theme';
 
-import headerBarCssModule from './HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
 export function Intercom({ id, config, tooltipPlacement }) {
@@ -18,10 +18,8 @@ export function Intercom({ id, config, tooltipPlacement }) {
 	);
 }
 
-if (process.env.NODE_ENV !== 'production') {
-	Intercom.propTypes = {
-		id: PropTypes.string.isRequired,
-		config: PropTypes.object.isRequired,
-		tooltipPlacement: PropTypes.string,
-	};
-}
+Intercom.propTypes = {
+	id: PropTypes.string.isRequired,
+	config: PropTypes.object.isRequired,
+	tooltipPlacement: PropTypes.string,
+};
