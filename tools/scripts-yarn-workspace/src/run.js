@@ -27,7 +27,7 @@ export async function run(cmd, opts = {}) {
 			if (code > 0) {
 				run.exitCode += 1;
 				console.error(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
-				reject(stderr);
+				reject(`STDOUT: ${stdout}\n\nSTDERR: ${stderr}`);
 				return;
 			}
 			const end = Date.now();
