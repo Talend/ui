@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import classNames from 'classnames';
+import { TFunction } from 'i18next';
 import TooltipTrigger from '../TooltipTrigger';
 import { Action } from '../Actions';
 import getDefaultT from '../translate';
@@ -13,7 +14,7 @@ type PlainTextTitleProps = {
 	inProgress?: boolean;
 	onEdit: () => void;
 	text: string;
-	t: (key: string, options?: any) => string;
+	t: TFunction;
 };
 
 export function PlainTextTitle({
