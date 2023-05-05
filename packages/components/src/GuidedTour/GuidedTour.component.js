@@ -10,6 +10,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import theme from './GuidedTour.module.scss';
 
 function getTooltipContent({ header, body }) {
+	// eslint-disable-next-line react/display-name
 	return reactourCallbacks => (
 		<Fragment>
 			{header && <h2 className={classNames(theme.header, 'tc-guided-tour__header')}>{header}</h2>}

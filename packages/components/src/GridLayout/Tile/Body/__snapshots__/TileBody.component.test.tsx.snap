@@ -2,7 +2,7 @@
 
 exports[`tile's body should compute tile body 1`] = `
 <div
-  className="theme-tc-tile-body tc-tile-body"
+  class="theme-tc-tile-body tc-tile-body"
 >
   my body
 </div>

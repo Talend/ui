@@ -1,24 +1,29 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { ReactNode, MouseEvent, useState } from 'react';
 import classnames from 'classnames';
 import theme from './Tile.module.scss';
-import { TileContext } from './context';
+import { TileContext, TileContextType } from './context';
 
 /**
  * We need to stop propagation when focusing an input
  * in order to prevent the drag n drop feature from starting at that moment
  * @param e event
  */
-function ignoreDragOnInput(e) {
-	if (e.target.tagName.toLowerCase() === 'input') {
+function ignoreDragOnInput(e: MouseEvent<HTMLDivElement>) {
+	if ((e.target as HTMLDivElement).tagName.toLowerCase() === 'input') {
 		e.stopPropagation();
 	}
 }
 
-function Tile(props) {
-	const [displayMode, setDisplayMode] = useState();
+type TileProps = {
+	children: ReactNode;
+	className?: string;
+};
 
-	const contextValues = {
+function Tile(props: TileProps) {
+	const [displayMode, setDisplayMode] = useState<string>('');
+
+	const contextValues: TileContextType = {
 		displayMode,
 		setDisplayMode,
 	};
@@ -33,10 +38,5 @@ function Tile(props) {
 		</TileContext.Provider>
 	);
 }
-
-Tile.propTypes = {
-	children: PropTypes.node,
-	className: PropTypes.string,
-};
 
 export default Tile;

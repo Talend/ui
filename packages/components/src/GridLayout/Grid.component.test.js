@@ -8,7 +8,7 @@ describe('Grid tiles', () => {
 		render(<Grid isLoading />);
 
 		// then
-		const skels = screen.getAllByLabelText('text loading...');
+		const skels = screen.getAllByLabelText('text Loading...');
 		expect(skels.length).toBe(3);
 	});
 	it('should compute tile custom skeleton', () => {
@@ -20,7 +20,7 @@ describe('Grid tiles', () => {
 		render(<Grid isLoading skeletonConfiguration={defaultConfiguration} />);
 
 		// then
-		const skels = screen.getAllByLabelText('text loading...');
+		const skels = screen.getAllByLabelText('text Loading...');
 		expect(skels.length).toBe(1);
 	});
 });
