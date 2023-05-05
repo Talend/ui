@@ -1,15 +1,8 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
-import omit from 'lodash/omit';
-import { useTranslation } from 'react-i18next';
 
 import Inject from '../../Inject';
 import { Action } from '../../Actions';
-import ActionIntercom from '../../ActionIntercom';
-import Typeahead from '../../Typeahead';
-import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { getTheme } from '../../theme';
-import AppSwitcher from '../../AppSwitcher';
 
 import headerBarCssModule from '../HeaderBar.module.scss';
 

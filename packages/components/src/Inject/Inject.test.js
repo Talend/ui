@@ -3,7 +3,7 @@ import { Action } from '../Actions';
 
 import Inject from './Inject.component';
 
-const error = { message: 'MyError' };
+const error = new Error('MyError');
 
 describe('Inject', () => {
 	it('should render', () => {

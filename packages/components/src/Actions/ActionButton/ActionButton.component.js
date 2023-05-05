@@ -11,7 +11,7 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
+import OverlayTrigger from '../../OverlayTrigger';
 import { SizedIcon } from '@talend/design-system';
 
 const LEFT = 'left';
