@@ -1,8 +1,20 @@
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+/* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
 
 import { DateRangeContext } from '../Context';
 import Input from './Input.component';
+
+jest.mock('react-debounce-input', () => {
+	return props => <input data-testid="debounce" data-props={JSON.stringify(props)} {...props} />;
+});
+
+jest.mock('../../shared/InputSizer', () => {
+	return props => (
+		<div data-testid="InputSizer" data-props={JSON.stringify(props)}>
+			{props.children(300)}
+		</div>
+	);
+});
 
 describe('Date.Input', () => {
 	it('should render', () => {
@@ -22,16 +34,21 @@ describe('Date.Input', () => {
 			},
 		};
 
-		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
-
 		// when
-		const wrapper = mount(
+		render(
 			<DateRangeContext.Provider value={managerValue}>
 				<Input {...props} />
 			</DateRangeContext.Provider>,
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		const input = screen.getByTestId('debounce');
+		expect(input).toHaveAttribute('autocomplete', 'off');
+		expect(input).toHaveClass('form-control');
+		expect(input).toHaveAttribute('debouncetimeout', '300');
+		expect(input).toHaveAttribute('type', 'text');
+		expect(input).toHaveAttribute('placeholder', 'YYYY-MM-DD');
+		expect(input).toHaveValue('2019-10-11');
+		expect(input).toHaveStyle('width: 300px;');
 	});
 });

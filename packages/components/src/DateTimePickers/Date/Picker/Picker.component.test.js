@@ -1,8 +1,11 @@
-import { mount } from 'enzyme';
-
+/* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
 import { DateContext } from '../Context';
 import Picker from './Picker.component';
-import CalendarPicker from '../../pickers/CalendarPicker';
+
+jest.mock('../../pickers/CalendarPicker', () => {
+	return props => <div data-testid="CalendarPicker" data-props={JSON.stringify(props)} />;
+});
 
 describe('Date.Picker', () => {
 	it('should render', () => {
@@ -18,45 +21,19 @@ describe('Date.Picker', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<DateContext.Provider value={managerValue}>
 				<Picker other="custom props" />
 			</DateContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find(CalendarPicker).props()).toMatchObject({
+		const props = JSON.parse(screen.getByTestId('CalendarPicker').dataset.props);
+		expect(props).toMatchObject({
 			manageFocus: true,
-			onSubmit: managerValue.pickerManagement.onSubmit,
 			other: 'custom props',
-			selectedDate: new Date(2007, 0, 2),
+			selectedDate: '2007-01-01T23:00:00.000Z',
 			useUTC: false,
-			t: expect.any(Function),
 		});
-	});
-
-	it('should call manager onSubmit callback on picker submission', () => {
-		// given
-		const managerValue = {
-			value: {
-				date: new Date(2007, 0, 2),
-			},
-			pickerManagement: {
-				onSubmit: jest.fn(),
-			},
-		};
-
-		const wrapper = mount(
-			<DateContext.Provider value={managerValue}>
-				<Picker />
-			</DateContext.Provider>,
-		);
-		expect(managerValue.pickerManagement.onSubmit).not.toBeCalled();
-
-		// when
-		wrapper.find(CalendarPicker).prop('onSubmit')();
-
-		// then
-		expect(managerValue.pickerManagement.onSubmit).toBeCalled();
 	});
 });

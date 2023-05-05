@@ -3,32 +3,36 @@
 exports[`CalendarPicker should render 1`] = `
 <div
   aria-label="Date picker"
-  className="theme-container"
-  tabIndex={0}
+  class="theme-container"
+  tabindex="0"
 >
-  <withI18nextTranslation(DateView)
-    allowFocus={true}
-    calendar={
-      {
-        "monthIndex": 5,
-        "year": 2018,
-      }
-    }
-    onSelectDate={[Function]}
-    onSelectMonthYear={[Function]}
-    onTitleClick={[Function]}
-    t={[Function]}
-  />
   <div
-    className="theme-footer theme-date-padding"
+    data-props="{"allowFocus":true,"calendar":{"monthIndex":5,"year":2018}}"
+    data-testid="DateView"
   >
-    <Action
+    <button>
+      onTitleClick
+    </button>
+    <button>
+      onSelectMonthYear
+    </button>
+    <button>
+      onSelectDate
+    </button>
+  </div>
+  <div
+    class="theme-footer theme-date-padding"
+  >
+    <button
       aria-label="Pick Today"
-      className="btn-tertiary btn-info"
-      label="Today"
-      onClick={[Function]}
-      tabIndex={-1}
-    />
+      class="btn-tertiary btn-info btn btn-default"
+      tabindex="-1"
+      type="button"
+    >
+      <span>
+        Today
+      </span>
+    </button>
   </div>
 </div>
 `;

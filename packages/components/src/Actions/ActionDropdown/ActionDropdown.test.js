@@ -2,7 +2,6 @@
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import cases from 'jest-in-case';
 import ActionDropdown, { InjectDropdownMenuItem, getMenuItem } from './ActionDropdown.component';
 
 jest.unmock('@talend/design-system');
@@ -191,7 +190,7 @@ describe('Dropup', () => {
 		}
 	}
 
-	cases('dropdown/dropup switch', testSwitch, [
+	test.each([
 		{
 			name: 'should dropup on dropdown bottom overflow',
 			containerPosition: { top: 60, bottom: 95 },
@@ -227,5 +226,5 @@ describe('Dropup', () => {
 			isInitialDropup: false,
 			isDropupExpected: false,
 		},
-	]);
+	])('$name', testSwitch);
 });

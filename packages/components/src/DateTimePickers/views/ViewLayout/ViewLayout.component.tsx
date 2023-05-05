@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from './ViewLayout.module.scss';
+import { ReactNode } from 'react';
 
-function ViewLayout(props) {
+function ViewLayout(props: ViewLayoutProps) {
 	const { leftElement, middleElement, rightElement } = props.header;
 
 	return (
@@ -17,13 +17,15 @@ function ViewLayout(props) {
 	);
 }
 
-ViewLayout.propTypes = {
-	header: PropTypes.shape({
-		leftElement: PropTypes.element,
-		middleElement: PropTypes.element,
-		rightElement: PropTypes.element,
-	}).isRequired,
-	bodyElement: PropTypes.element.isRequired,
+type HeaderProps = {
+	leftElement: ReactNode;
+	middleElement: ReactNode;
+	rightElement: ReactNode;
+};
+
+type ViewLayoutProps = {
+	header: HeaderProps;
+	bodyElement: ReactNode;
 };
 
 export default ViewLayout;
