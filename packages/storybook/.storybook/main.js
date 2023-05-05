@@ -19,6 +19,7 @@ const STORIES = [
 	`${rootPath}../components/**/*.stories.@(js|tsx|mdx)`,
 	`${rootPath}../forms/**/*.stories.@(js|tsx|mdx)`,
 	`${rootPath}../dataviz/**/*.stories.@(js|tsx|mdx)`,
+	`${rootPath}../icons/**/*.stories.@(js|tsx|mdx)`,
 ];
 
 module.exports = {
