@@ -6,6 +6,7 @@ test: rewrite tests using RTL of:
 
 - JSONSchemaRenderer
 - Layout
+- Loader
 
 chore(Link): rename index.js into index.ts
 
