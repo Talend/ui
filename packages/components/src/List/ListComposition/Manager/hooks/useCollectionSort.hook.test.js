@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useCollectionSort } from './useCollectionSort.hook';

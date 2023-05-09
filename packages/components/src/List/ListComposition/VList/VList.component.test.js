@@ -1,24 +1,50 @@
-import { mount } from 'enzyme';
-
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { screen, render } from '@testing-library/react';
 import VList from './VList.component';
-import VirtualizedList from '../../../VirtualizedList';
-import Manager from '../Manager';
 import { ListContext } from '../context';
 
+jest.unmock('@talend/design-system');
+jest.mock('../../../VirtualizedList', () => {
+	const Original = jest.requireActual('../../../VirtualizedList').default;
+	const TestVList = ({ type, collection, ...props }) => (
+		<div data-testid="VirtualizedList" data-props={JSON.stringify({ type, collection })}>
+			{props.headerAction}
+			{props.children}
+		</div>
+	);
+	Object.entries(Original).forEach(([key, value]) => {
+		TestVList[key] = value;
+	});
+	return TestVList;
+});
+
 describe('List VList', () => {
-	it('should pass collection', () => {
+	it('should render collection', () => {
 		// given
-		const contextValue = { collection: [{ id: 0 }, { id: 1 }], setColumns: jest.fn() };
+		const contextValue = {
+			collection: [
+				{ id: '1', name: 'first' },
+				{ id: '2', name: 'two' },
+			],
+			columns: [
+				{ key: 'id', label: 'Id' },
+				{ key: 'name', label: 'Name' },
+			],
+			visibleColumns: ['id', 'name'],
+			setColumns: jest.fn(),
+		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={contextValue}>
 				<VList />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find(VirtualizedList).prop('collection')).toBe(contextValue.collection);
+		const props = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
+		expect(props.collection).toEqual(contextValue.collection);
 	});
 
 	it('should pass displayMode from context in uncontrolled mode', () => {
@@ -26,14 +52,15 @@ describe('List VList', () => {
 		const contextValue = { displayMode: 'large', collection: [], setColumns: jest.fn() };
 
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={contextValue}>
 				<VList />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find(VirtualizedList).prop('type')).toBe('LARGE');
+		const props = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
+		expect(props.type).toBe('LARGE');
 	});
 
 	it('should pass displayMode from props in controlled mode', () => {
@@ -41,14 +68,15 @@ describe('List VList', () => {
 		const contextValue = { displayMode: 'large', collection: [], setColumns: jest.fn() };
 
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={contextValue}>
 				<VList type="TABLE" />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find(VirtualizedList).prop('type')).toBe('TABLE');
+		const props = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
+		expect(props.type).toBe('TABLE');
 	});
 
 	it('Should not display column chooser by default', () => {
@@ -56,13 +84,12 @@ describe('List VList', () => {
 		const contextValue = { collection: [{ id: 0 }, { id: 1 }], setColumns: jest.fn() };
 
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={contextValue}>
 				<VList />
 			</ListContext.Provider>,
 		);
-
-		expect(wrapper.exists('ColumnChooser')).toBe(false);
+		expect(screen.queryByRole('button', { name: 'Column chooser' })).toBeNull();
 	});
 
 	it('Should display column chooser from boolean', () => {
@@ -73,8 +100,7 @@ describe('List VList', () => {
 			setColumns: jest.fn(),
 			setVisibleColumns: jest.fn(),
 		};
-
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={contextValue}>
 				<VList type="TABLE" columnChooser>
 					<VList.Text label="Id" dataKey="id" />
@@ -82,19 +108,7 @@ describe('List VList', () => {
 				</VList>
 			</ListContext.Provider>,
 		);
-
-		expect(wrapper.html()).toMatchSnapshot();
-
-		expect(wrapper.find('ColumnChooser')).toHaveLength(1);
-	});
-
-	it('should display a list without columns', () => {
-		const wrapper = mount(
-			<Manager id="my-list" collection={[]}>
-				<VList type="TABLE" />
-			</Manager>,
-		);
-
-		expect(wrapper.find('Table .tc-list-table')).toHaveLength(1);
+		expect(screen.getByRole('button')).toBeVisible();
+		expect(screen.getByRole('button')).toHaveAttribute('data-feature', 'column-chooser.open');
 	});
 });

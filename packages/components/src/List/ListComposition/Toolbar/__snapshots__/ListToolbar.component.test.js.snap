@@ -13,17 +13,26 @@ exports[`List Toolbar should display nav with children 1`] = `
 `;
 
 exports[`List Toolbar should display nav with li and separator 1`] = `
-<div role="toolbar"
-     class="tc-list-toolbar theme-tc-list-toolbar navbar navbar-default"
+<div
+  class="tc-list-toolbar theme-tc-list-toolbar navbar navbar-default"
+  role="toolbar"
 >
-  <div class="container-fluid">
-    <ul class="tc-list-toolbar-right theme-tc-list-toolbar-right">
-      <li class="tc-list-toolbar-separated theme-tc-list-toolbar-separated">
+  <div
+    class="container-fluid"
+  >
+    <ul
+      class="tc-list-toolbar-right theme-tc-list-toolbar-right"
+    >
+      <li
+        class="tc-list-toolbar-separated theme-tc-list-toolbar-separated"
+      >
         <div>
           Hello
         </div>
       </li>
-      <li class="tc-list-toolbar-separated theme-tc-list-toolbar-separated">
+      <li
+        class="tc-list-toolbar-separated theme-tc-list-toolbar-separated"
+      >
         <div>
           World
         </div>
