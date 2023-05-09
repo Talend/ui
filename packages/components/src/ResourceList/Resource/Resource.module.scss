@@ -132,6 +132,7 @@
 				font-weight: initial;
 				flex-shrink: 0;
 
+				// stylelint-disable-next-line
 				&.icon-only {
 					margin-right: -1 * $padding-smaller;
 				}
