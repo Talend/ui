@@ -2,26 +2,86 @@
 
 exports[`OneColumn should render 1`] = `
 <div
-  className="tc-layout-one-column theme-main"
+  class="tc-layout-one-column theme-main"
   id="tc-layout-main"
   role="main"
-  tabIndex="-1"
+  tabindex="-1"
 >
-  <WithDrawer>
+  <div
+    class="theme-tc-with-drawer"
+  >
     <div
-      style={
-        {
-          "display": "flex",
-          "flexDirection": "column",
-          "height": "100%",
-          "overflow": "auto",
-        }
-      }
+      id="my-tabs"
+    >
+      <div
+        class="theme-tc-tab-bar-menu tc-tab-bar-menu"
+      >
+        <ul
+          class="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
+          role="tablist"
+        >
+          <li
+            class="theme-tc-tab-bar-item tc-tab-bar-item"
+            role="presentation"
+          >
+            <button
+              aria-controls="my-tabs-pane-1"
+              aria-selected="false"
+              href="#"
+              id="my-tabs-tab-1"
+              label="Tab1"
+              role="tab"
+              tabindex="-1"
+            >
+              <span
+                aria-describedby="42"
+                class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+              >
+                <span
+                  class="theme-tc-tab-bar-item-label"
+                >
+                  Tab1
+                </span>
+              </span>
+            </button>
+          </li>
+          <li
+            class="theme-tc-tab-bar-item tc-tab-bar-item active"
+            role="presentation"
+          >
+            <button
+              aria-controls="my-tabs-pane-2"
+              aria-selected="true"
+              href="#"
+              id="my-tabs-tab-2"
+              label="Tab2"
+              role="tab"
+            >
+              <span
+                aria-describedby="42"
+                class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+              >
+                <span
+                  class="theme-tc-tab-bar-item-label"
+                >
+                  Tab2
+                </span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      style="overflow: auto; height: 100%; display: flex; flex-direction: column;"
     >
       <span>
         children
       </span>
     </div>
-  </WithDrawer>
+    <div
+      class="theme-tc-with-drawer-container"
+    />
+  </div>
 </div>
 `;
