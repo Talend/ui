@@ -459,7 +459,7 @@ const handlerTags = {
 };
 
 export default {
-	title: 'Data/Tree/DataTreeViewer',
+	title: 'Components/Tree/DataTreeViewer',
 };
 
 export const TreeDefault = () => (

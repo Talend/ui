@@ -11,7 +11,7 @@ import {
 } from '@talend/design-system';
 
 export default {
-	title: 'Messaging & Communication/Stepper',
+	title: 'Components/Messaging & Communication/Stepper',
 };
 const title = 'Sample processing...';
 

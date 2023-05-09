@@ -67,7 +67,7 @@ const center = (
 );
 
 export default {
-	title: 'Navigation/SubHeader',
+	title: 'Components/Navigation/SubHeader',
 };
 
 export const WithDefault = () => (

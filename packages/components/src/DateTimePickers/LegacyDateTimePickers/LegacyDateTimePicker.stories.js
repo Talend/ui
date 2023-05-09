@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import InputDateTimePicker from '.';
 
 export default {
-	title: 'Deprecated/LegacyDteTimePicker',
+	title: 'Components/Deprecated/LegacyDteTimePicker',
 };
 
 export const FormModeDateTime = () => {

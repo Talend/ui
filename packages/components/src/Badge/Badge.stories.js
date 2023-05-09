@@ -87,7 +87,7 @@ function onSelect(name) {
 const longStr = 'Very, very, very, very, very, very, very, very long tag';
 
 export default {
-	title: 'Navigation/Badge',
+	title: 'Components/Navigation/Badge',
 };
 
 export const Default = () => (

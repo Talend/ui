@@ -4,7 +4,7 @@ import InputTimePicker from './InputTimePicker.component';
 import TimePicker from '../pickers/TimePicker';
 
 export default {
-	title: 'Form/Controls/DatePicker/Time',
+	title: 'Components/Form - Controls/DatePicker/Time',
 
 	decorators: [
 		story => (

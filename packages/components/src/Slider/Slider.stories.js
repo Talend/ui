@@ -67,7 +67,7 @@ const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => `${Math.floor(value)}`;
 
 export default {
-	title: 'Form/Controls/Slider',
+	title: 'Components/Form - Controls/Slider',
 };
 
 export const Default = () => (

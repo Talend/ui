@@ -59,7 +59,7 @@ InteractiveLabelToggle.propTypes = {
 };
 
 export default {
-	title: 'Form/Controls/Toggle',
+	title: 'Components/Form - Controls/Toggle',
 };
 
 export const Default = () => (
