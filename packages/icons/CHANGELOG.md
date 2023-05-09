@@ -1,5 +1,19 @@
 # @talend/icons
 
+## 6.58.0
+
+### Minor Changes
+
+- 49d174081: added icon `flow-target-filled` in size `L`
+- 49d174081: added icon `flow-target-filled` in size `M`
+
+### Patch Changes
+
+- 49d174081: changed icon `group` in size `L`
+- 49d174081: changed icon `job` in size `L`
+- 49d174081: changed icon `job` in size `M`
+- 49d174081: changed icon `job` in size `S`
+
 ## 6.57.0
 
 ### Minor Changes

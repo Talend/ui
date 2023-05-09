@@ -1,5 +1,41 @@
 # @talend/react-components
 
+## 10.3.2
+
+### Patch Changes
+
+- b96328ad4: - chore: rewrite Skeleton & GridLayout in TS
+  - test rewrite tests from enzyme to RTL of FocusManager, GridLayout
+- d44f9deb3: fix(ResourceList): fix some sizing issue
+- 2fa0bd46c: test: rewrite tests using RTL of:
+
+  - JSONSchemaRenderer
+  - Layout
+  - Loader
+
+  chore(Link): rename index.js into index.ts
+
+  chore(Layout): migrate to TS part of internals
+
+- 56948ce94: - rewrite tests using RTL of Dialog, Drawer, EditableText, Enumeration
+  - refactor the EditableText component
+  - refactor Enumeration
+- c94aceb65: - fix: Remove wrong proptypes from Action (overlay).
+  Make a lots of noise for nothing the overlay is not required on Action.
+
+  - chore: refactor HeaderBar. move into private primitives each internal components
+  - tests: rewrite tests of Inject and HTTPError
+  - chore: rewrite Inject using Typescript
+  - chore: rename index files of Icons and IconsProvider to index.ts
+
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+  - @talend/icons@6.58.0
+
 ## 10.3.1
 
 ### Patch Changes
