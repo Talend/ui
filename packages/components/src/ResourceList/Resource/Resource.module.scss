@@ -106,8 +106,8 @@
 			padding-left: $padding-small;
 			margin-bottom: 0;
 
-			div:first-child {
-				margin-bottom: $padding-small;
+			> div {
+				margin-top: $padding-smaller;
 			}
 
 			div {
