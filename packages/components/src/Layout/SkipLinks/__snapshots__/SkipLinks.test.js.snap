@@ -1,128 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Skip links should render navigation link 1`] = `
-<withI18nextTranslation(SkipLinks)
-  mainId="#my-custom-main-id"
-  navigationId="#my-custom-nav-id"
-  t={[Function]}
+exports[`Skip links should render 1`] = `
+<nav
+  aria-label="Skip links"
+  class="theme-tc-skip-links"
 >
-  <nav
-    aria-label="Skip links"
-    className="theme-tc-skip-links"
-  >
-    <ul>
-      <li
-        key="navigation"
+  <ul>
+    <li>
+      <a
+        href="#my-custom-nav-id"
       >
-        <SkipTo
-          href="#my-custom-nav-id"
-          label="Skip to navigation"
+        <span
+          class="theme-icon"
         >
-          <a
-            href="#my-custom-nav-id"
-          >
-            <span
-              className="theme-icon"
-            >
-              <Icon
-                name="talend-arrow-left"
-                transform="rotate-270"
-              >
-                <span
-                  className="CoralIcon"
-                  name="talend-arrow-left"
-                  transform="rotate-270"
-                />
-              </Icon>
-            </span>
-            <span
-              className="theme-text"
-            >
-              Skip to navigation
-            </span>
-          </a>
-        </SkipTo>
-      </li>
-      <li
-        key="main"
+          <span
+            class="CoralIcon"
+            name="talend-arrow-left"
+            transform="rotate-270"
+          />
+        </span>
+        <span
+          class="theme-text"
+        >
+          Skip to navigation
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="#my-custom-main-id"
       >
-        <SkipTo
-          href="#my-custom-main-id"
-          label="Skip to main content"
+        <span
+          class="theme-icon"
         >
-          <a
-            href="#my-custom-main-id"
-          >
-            <span
-              className="theme-icon"
-            >
-              <Icon
-                name="talend-arrow-left"
-                transform="rotate-270"
-              >
-                <span
-                  className="CoralIcon"
-                  name="talend-arrow-left"
-                  transform="rotate-270"
-                />
-              </Icon>
-            </span>
-            <span
-              className="theme-text"
-            >
-              Skip to main content
-            </span>
-          </a>
-        </SkipTo>
-      </li>
-    </ul>
-  </nav>
-</withI18nextTranslation(SkipLinks)>
-`;
-
-exports[`Skip links should render only main link 1`] = `
-<withI18nextTranslation(SkipLinks)
-  mainId="#my-custom-main-id"
-  t={[Function]}
->
-  <nav
-    aria-label="Skip links"
-    className="theme-tc-skip-links"
-  >
-    <ul>
-      <li
-        key="main"
-      >
-        <SkipTo
-          href="#my-custom-main-id"
-          label="Skip to main content"
+          <span
+            class="CoralIcon"
+            name="talend-arrow-left"
+            transform="rotate-270"
+          />
+        </span>
+        <span
+          class="theme-text"
         >
-          <a
-            href="#my-custom-main-id"
-          >
-            <span
-              className="theme-icon"
-            >
-              <Icon
-                name="talend-arrow-left"
-                transform="rotate-270"
-              >
-                <span
-                  className="CoralIcon"
-                  name="talend-arrow-left"
-                  transform="rotate-270"
-                />
-              </Icon>
-            </span>
-            <span
-              className="theme-text"
-            >
-              Skip to main content
-            </span>
-          </a>
-        </SkipTo>
-      </li>
-    </ul>
-  </nav>
-</withI18nextTranslation(SkipLinks)>
+          Skip to main content
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
 `;

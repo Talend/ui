@@ -25,7 +25,7 @@ const defaultProps = {
 };
 
 export default {
-	title: 'Data/List/Column Chooser',
+	title: 'Components/List/Column Chooser',
 	render: props => (
 		<ColumnChooser
 			{...{

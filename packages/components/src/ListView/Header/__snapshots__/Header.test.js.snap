@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render 1`] = `
+<header
+  class="theme-tc-listview-header tc-listview-header"
+>
+  <strong>
+    Values
+  </strong>
+  <div
+    class="actions"
+  >
+    <button
+      aria-describedby="42"
+      aria-label="Search for specific values"
+      class="btn-icon-only btn btn-link"
+      role="link"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-search"
+      />
+    </button>
+  </div>
+</header>
+`;

@@ -133,7 +133,7 @@ const withIconProps = {
 };
 
 export default {
-	title: 'Form/Controls/ListView',
+	title: 'Components/Form - Controls/ListView',
 
 	decorators: [
 		story => (

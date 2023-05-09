@@ -72,7 +72,6 @@
     "algoliasearch": "^4.14.3",
     "browser-sync": "^2.27.11",
     "browser-sync-webpack-plugin": "^2.3.0",
-    "chromatic": "^6.15.0",
     "color-contrast-checker": "^2.1.0",
     "concurrently": "^7.6.0",
     "core-js": "^3.27.2",

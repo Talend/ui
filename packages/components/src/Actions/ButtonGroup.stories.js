@@ -63,7 +63,7 @@ const actions = [
 ];
 
 export default {
-	title: 'Buttons/ButtonGroup',
+	title: 'Components/Actions/ButtonGroup',
 };
 
 export const Default = () => (

@@ -70,7 +70,7 @@ class Photos extends Component {
 }
 
 export default {
-	title: 'Deprecated/MultiSelect',
+	title: 'Components/Deprecated/MultiSelect',
 };
 
 export const Default = () => <Photos />;

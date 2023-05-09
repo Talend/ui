@@ -87,7 +87,7 @@ class NotificationWrapper extends Component {
 }
 
 export default {
-	title: 'Messaging & Communication/Notification',
+	title: 'Components/Messaging & Communication/Notification',
 };
 
 export const Default = () => (

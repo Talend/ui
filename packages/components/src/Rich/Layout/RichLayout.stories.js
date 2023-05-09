@@ -85,7 +85,7 @@ const footer = (
 const customBody = <div>my custom body rich tolltip</div>;
 
 export default {
-	title: 'Layout/RichLayout',
+	title: 'Components/Layout/RichLayout',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 

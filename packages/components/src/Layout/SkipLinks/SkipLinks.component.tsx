@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { TFunction } from 'i18next';
 import { withTranslation } from 'react-i18next';
 
 import Icon from '../../Icon';
@@ -7,7 +7,12 @@ import getDefaultT from '../../translate';
 
 import theme from './SkipLinks.module.scss';
 
-function SkipTo({ href, label }) {
+type SkipToProps = {
+	href: string;
+	label: string;
+};
+
+function SkipTo({ href, label }: SkipToProps) {
 	return (
 		<a href={href}>
 			<span className={theme.icon}>
@@ -17,9 +22,10 @@ function SkipTo({ href, label }) {
 		</a>
 	);
 }
-SkipTo.propTypes = {
-	href: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
+type SkipLinksProps = {
+	navigationId: string;
+	mainId: string;
+	t: TFunction;
 };
 
 /**
@@ -27,7 +33,7 @@ SkipTo.propTypes = {
  * It consists in giving some links as the firsts focusable elements of the page
  * to go directly to some meaningful content.
  */
-function SkipLinks({ mainId, navigationId, t }) {
+function SkipLinks({ mainId, navigationId, t }: SkipLinksProps) {
 	return (
 		<nav
 			className={theme['tc-skip-links']}
@@ -55,12 +61,6 @@ function SkipLinks({ mainId, navigationId, t }) {
 
 SkipLinks.defaultProps = {
 	t: getDefaultT(),
-};
-
-SkipLinks.propTypes = {
-	navigationId: PropTypes.string,
-	mainId: PropTypes.string.isRequired,
-	t: PropTypes.func,
 };
 
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(SkipLinks);

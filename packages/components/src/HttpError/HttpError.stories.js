@@ -61,7 +61,7 @@ const notFoundWithRedirectProps = {
 };
 
 export default {
-	title: 'Messaging & Communication/HttpError',
+	title: 'Components/Messaging & Communication/HttpError',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 
