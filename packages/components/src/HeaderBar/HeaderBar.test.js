@@ -4,8 +4,9 @@ import HeaderBarComponent from './HeaderBar.component';
 
 describe('HeaderBar', () => {
 	it('should render', () => {
-		render(<HeaderBarComponent />);
+		const { container } = render(<HeaderBarComponent />);
 		expect(screen.getByRole('navigation')).toBeInTheDocument();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render logo', () => {

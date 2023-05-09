@@ -1,45 +1,54 @@
-import { isValidElement } from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { isValidElement, ComponentClass, FunctionComponent, ReactNode } from 'react';
 
+type NotFoundComponentProps = {
+	error: string;
+};
 /**
  * This is to render an not found component to alert developers
  * @param {object} props container of the error
  */
-function NotFoundComponent({ error }) {
+function NotFoundComponent({ error }: NotFoundComponentProps) {
 	return <div className="alert alert-danger">{error}</div>;
 }
 
-NotFoundComponent.propTypes = {
-	error: PropTypes.string.isRequired,
+export type InjectedComponentType = string | ComponentClass | FunctionComponent;
+export type GetComponentType = (component: InjectedComponentType) => InjectedComponentType;
+export type InjectConfig = {
+	component: InjectedComponentType;
+} & Record<string, any>;
+
+type InjectProps = {
+	getComponent: GetComponentType;
+	component: InjectedComponentType;
 };
 
 /**
  * This component role is to show the evaluated component or not found component
  * @param {object} props getComponent method to resolve the component given and his props
  */
-function Inject({ getComponent, component, ...props }) {
+function Inject({ getComponent, component, ...props }: InjectProps) {
 	if (!getComponent || !component) {
 		return null;
 	}
 	try {
 		const Component = getComponent(component);
 		return <Component {...props} />;
-	} catch (error) {
+	} catch (error: any) {
 		return <NotFoundComponent error={error.message} />;
 	}
 }
-
-Inject.propTypes = {
-	getComponent: PropTypes.func,
-	component: PropTypes.string,
-};
 
 /**
  * This function is used to inject an array of components
  * @param {function} getComponent the method used to resolve the component
  * @param {array} array an array of components
  */
-Inject.map = function injectMap(getComponent, array, CustomInject = Inject) {
+Inject.map = function injectMap(
+	getComponent: GetComponentType,
+	array: InjectConfig[],
+	CustomInject: (props: InjectProps) => JSX.Element | null = Inject,
+): JSX.Element[] {
 	return array.map((props, index) => (
 		<CustomInject key={index} getComponent={getComponent} {...props} />
 	));
@@ -55,8 +64,12 @@ Inject.map = function injectMap(getComponent, array, CustomInject = Inject) {
 		'aside': [{ component: 'MyConnectedSidePanel', toto: 'mdr' }],
 	}
  */
-Inject.all = function injectAll(getComponent, components, CustomInject = Inject) {
-	return (key, props) => {
+Inject.all = function injectAll(
+	getComponent: GetComponentType,
+	components: Record<string, InjectConfig | InjectConfig[]>,
+	CustomInject: FunctionComponent<InjectProps> = Inject,
+) {
+	return (key: string, props: any = {}) => {
 		if (!components) {
 			return null;
 		}
@@ -80,7 +93,11 @@ Inject.all = function injectAll(getComponent, components, CustomInject = Inject)
  * @param {string|function} componentId the id to fetch with getComponent method or the component to render
  * @param {object} DefaultComponent The component to fallback to
  */
-Inject.get = function injectGet(getComponent, componentId, DefaultComponent) {
+Inject.get = function injectGet(
+	getComponent: GetComponentType,
+	componentId: InjectedComponentType,
+	DefaultComponent: InjectedComponentType,
+): InjectedComponentType {
 	if (typeof componentId === 'function') {
 		return componentId;
 	}
@@ -99,9 +116,12 @@ Inject.get = function injectGet(getComponent, componentId, DefaultComponent) {
  * @param {function} getComponent the method used to resolve the component
  * @param {object} config the component configurations
  */
-Inject.getAll = function injectGetAll(getComponent, config) {
-	const components = {};
-	Object.keys(config).forEach(key => {
+Inject.getAll = function injectGetAll(
+	getComponent: GetComponentType,
+	config: Record<string, InjectedComponentType>,
+): Record<string, InjectedComponentType> {
+	const components: Record<string, InjectedComponentType> = {};
+	Object.keys(config).forEach((key: string) => {
 		components[key] = Inject.get(getComponent, key, config[key]);
 	});
 	return components;
@@ -114,11 +134,12 @@ Inject.getAll = function injectGetAll(getComponent, config) {
  * @param {object|string|React Element} data
  */
 Inject.getReactElement = function getReactElement(
-	getComponent,
-	data,
-	CustomInject = Inject,
-	withKey,
-) {
+	getComponent: GetComponentType,
+	data: InjectedComponentType | InjectedComponentType[] | InjectConfig,
+	CustomInject: FunctionComponent<InjectProps> = Inject,
+	withKey = false,
+): ReactNode {
+	let key;
 	if (Array.isArray(data)) {
 		return data.map(info => getReactElement(getComponent, info, CustomInject, true));
 	} else if (data === null) {
@@ -126,33 +147,20 @@ Inject.getReactElement = function getReactElement(
 	} else if (typeof data === 'string') {
 		const props = { getComponent, component: data };
 		if (withKey) {
-			props.key = `${data}#default`;
+			key = `${data}#default`;
 		}
-		return <CustomInject {...props} />;
+		return <CustomInject {...props} key={key} />;
 	} else if (isValidElement(data)) {
 		return data;
 	} else if (typeof data === 'object') {
 		const props = { getComponent, ...data };
 		if (withKey) {
-			props.key = `${data.component}#${data.componentId || 'default'}`;
+			key = `${data.component}#${data.componentId || 'default'}`;
 		}
-		return <CustomInject {...props} />;
+		return <CustomInject {...props} key={key} />;
 	}
 	return data; // We do not throw anything, proptypes should do the job
 };
-
-Inject.getReactElement.propTypes = PropTypes.oneOfType([
-	PropTypes.string,
-	PropTypes.shape({ component: PropTypes.string }),
-	PropTypes.element,
-	PropTypes.arrayOf(
-		PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.shape({ component: PropTypes.string }),
-			PropTypes.element,
-		]),
-	),
-]);
 
 Inject.displayName = 'Inject';
 
