@@ -273,7 +273,7 @@ const getLayoutWithLoremIpsum = () => (
 );
 
 export default {
-	title: 'Messaging & Communication/GuidedTour',
+	title: 'Components/Messaging & Communication/GuidedTour',
 
 	decorators: [
 		story => (

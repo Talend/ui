@@ -30,7 +30,7 @@ const withLabel = {
 };
 
 export default {
-	title: 'Form/Controls/Checkbox',
+	title: 'Components/Form - Controls/Checkbox',
 };
 
 export const Default = () => (

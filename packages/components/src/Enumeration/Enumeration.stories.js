@@ -379,7 +379,7 @@ const EnumerationDynamicHeight = () => {
 };
 
 export default {
-	title: 'Form/Controls/Enumeration',
+	title: 'Components/Form - Controls/Enumeration',
 };
 
 export const Default = () => (

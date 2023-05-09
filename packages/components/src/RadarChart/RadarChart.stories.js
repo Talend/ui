@@ -29,7 +29,7 @@ const chartDomain = [0, 5];
 const activeAxis = 2;
 
 export default {
-	title: 'Data/Dataviz/RadarChart',
+	title: 'Components/Dataviz/RadarChart',
 };
 
 export const RadarChartSingle = () => (

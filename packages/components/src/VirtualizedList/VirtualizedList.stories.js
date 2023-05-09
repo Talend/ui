@@ -429,7 +429,7 @@ const CustomRenderResizableWidthRenderProps = props => (
 );
 
 export default {
-	title: 'Data/List/VirtualizedList',
+	title: 'Components/List/VirtualizedList',
 };
 
 export const ListTable = () => (

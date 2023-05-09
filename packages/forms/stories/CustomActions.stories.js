@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src/UIForm';
 
 export default {
-	title: 'Customization/Custom actions',
+	title: 'Forms/Custom actions',
 };
 
 export function Default() {

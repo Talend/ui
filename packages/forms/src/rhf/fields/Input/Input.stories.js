@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import Input from '.';
 
 export default {
-	title: 'RHF/Input',
+	title: 'Forms/RHF/Input',
 
 	parameters: {
 		component: Input,

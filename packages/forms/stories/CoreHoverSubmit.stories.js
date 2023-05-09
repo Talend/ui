@@ -52,7 +52,7 @@ function UIFormWithOnSubmitHover() {
 }
 
 export default {
-	title: 'Core Concepts/Hover Submit',
+	title: 'Forms/Hover Submit',
 };
 
 export function Default() {

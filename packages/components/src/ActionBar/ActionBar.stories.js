@@ -250,7 +250,7 @@ const appMassActions = {
 };
 
 export default {
-	title: 'Form/Controls/ActionBar',
+	title: 'Components/Form - Controls/ActionBar',
 };
 
 export const Default = () => (

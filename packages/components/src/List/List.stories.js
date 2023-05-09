@@ -598,7 +598,7 @@ const ListTemplate = args => {
 };
 
 export default {
-	title: 'Data/List/List',
+	title: 'Components/List/List',
 };
 
 export const TableDisplay = () => (

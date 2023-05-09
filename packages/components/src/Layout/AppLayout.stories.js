@@ -80,7 +80,7 @@ const tabs = {
 };
 
 export default {
-	title: 'Layout/AppLayout',
+	title: 'Components/Layout/AppLayout',
 };
 
 export const OneColumn = () => <Layout mode="OneColumn" children={content} />;

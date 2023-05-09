@@ -125,7 +125,7 @@ const element = (
 );
 
 export default {
-	title: 'Layout/CollapsiblePanel',
+	title: 'Components/Layout/CollapsiblePanel',
 };
 
 export const Default = () => (

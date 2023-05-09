@@ -131,7 +131,7 @@ const props = {
 };
 
 export default {
-	title: 'Form/Controls/ResourcePicker',
+	title: 'Components/Form - Controls/ResourcePicker',
 };
 
 export const Default = () => (

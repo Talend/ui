@@ -277,7 +277,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 export default {
-	title: 'Layout/Drawer',
+	title: 'Components/Layout/Drawer',
 };
 
 export const Layout1Column = () => (
