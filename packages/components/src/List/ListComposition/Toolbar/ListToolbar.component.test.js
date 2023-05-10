@@ -11,7 +11,7 @@ describe('List Toolbar', () => {
 		);
 
 		// then
-		expect(screen.getByRole('navigation')).toBeVisible();
+		expect(screen.getByRole('toolbar')).toBeVisible();
 		expect(screen.getByText('Hello')).toBeVisible();
 	});
 	it('should display nav with li and separator', () => {
