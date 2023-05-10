@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@talend/design-tokens": "^2.7.3",
-    "@talend/design-system": "^7.7.2",
+    "@talend/design-system": "^7.8.0",
     "react-hook-form": "^6.15.8"
   },
   "devDependencies": {
@@ -38,7 +38,7 @@
     "@storybook/testing-react": "^1.3.0",
     "@storybook/theming": "^6.5.16",
     "@talend/scripts-core": "^13.1.3",
-    "@types/react": "^17.0.53",
+    "@types/react": "^17.0.59",
     "mdx-embed": "^1.1.2",
     "react": "^17.0.2",
     "react-router-dom": "~6.3.0",
