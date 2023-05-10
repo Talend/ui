@@ -1,5 +1,8 @@
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Component from './ColumnChooser.component';
+
+jest.unmock('@talend/design-system');
 
 const columns = [
 	{ key: 'id', label: 'Id', order: 1 },
@@ -25,9 +28,9 @@ describe('ColumnChooser', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<Component {...props} />);
+		const { container } = render(<Component {...props} />);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 	it('should render with children', () => {
 		// Given
@@ -36,11 +39,11 @@ describe('ColumnChooser', () => {
 			columnsFromList: columns,
 			onSubmit: jest.fn(),
 		};
-		const Children = <div id="my-child">Hello World</div>;
+		const Children = <div data-testid="my-child">Hello World</div>;
 		// When
-		const wrapper = mount(<Component {...props}>{Children}</Component>);
+		render(<Component {...props}>{Children}</Component>);
 		// Then
-		expect(wrapper.find('div#my-child').text()).toBe('Hello World');
+		expect(screen.getByTestId('my-child')).toBeVisible();
 	});
 	it('should trigger the onSubmit props', () => {
 		// Given
@@ -51,8 +54,9 @@ describe('ColumnChooser', () => {
 			onSubmit,
 		};
 		// When
-		const wrapper = mount(<Component {...props} />);
-		wrapper.find('form#my-id-form').simulate('submit');
+		render(<Component {...props} />);
+		userEvent.click(screen.getByLabelText('Apply'));
+
 		// Then
 		expect(onSubmit).toHaveBeenCalled();
 		expect(onSubmit.mock.calls[0][1]).toEqual([
@@ -78,14 +82,11 @@ describe('ColumnChooser', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<Component {...props} />);
+		render(<Component {...props} />);
+
 		// Then
-		expect(
-			wrapper.find('input[aria-describedby="my-id-body-display the column Author"]'),
-		).toHaveLength(0);
-		expect(
-			wrapper.find('input[aria-describedby="my-id-body-display the column Name"]'),
-		).toHaveLength(1);
+		expect(screen.queryByText('Author')).not.toBeInTheDocument();
+		expect(screen.getByText('Name')).toBeInTheDocument();
 	});
 	it('should locked the first two columns', () => {
 		// Given
@@ -96,8 +97,8 @@ describe('ColumnChooser', () => {
 			nbLockedLeftItems: 2,
 		};
 		// When
-		const wrapper = mount(<Component {...props} />);
+		render(<Component {...props} />);
 		// Then
-		expect(wrapper.find('Icon[name="talend-locked"]')).toHaveLength(2);
+		expect(document.querySelectorAll('svg[name="talend-locked"]')).toHaveLength(2);
 	});
 });
