@@ -4,7 +4,7 @@ exports[`PieChart getCircle should get return a path 1`] = `
 <path
   className="tc-pie-chart-color-red theme-tc-pie-chart-color-red"
   d="M0,0Z"
-  transform="translate(20,20)"
+  transform="translate(10,10)"
 />
 `;
 
@@ -12,7 +12,7 @@ exports[`PieChart getCircle should get return a path with hover color 1`] = `
 <path
   className="tc-pie-chart-color-red theme-tc-pie-chart-color-red"
   d="M0,0Z"
-  transform="translate(20,20)"
+  transform="translate(10,10)"
 />
 `;
 
