@@ -15,6 +15,7 @@ function decorateWithTooltip(tooltip, label, tooltipPlacement, Component, props)
 	if (!tooltip || !label) {
 		return <Component {...props} />;
 	}
+
 	return (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<span>

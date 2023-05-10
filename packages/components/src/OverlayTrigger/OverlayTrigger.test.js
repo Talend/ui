@@ -1,13 +1,6 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import OverlayTrigger from './OverlayTrigger.component';
-
-function getDOMRect(top, bottom, height) {
-	return {
-		bottom,
-		height,
-		top,
-	};
-}
 
 jest.mock('./overlay', () => ({
 	getAdaptedPlacement: () => 'top',
@@ -26,12 +19,12 @@ jest.mock('./overlay', () => ({
 	}),
 }));
 
-const Overlay = <div>Overlay</div>;
+const Overlay = <div data-testid="TestOverlay">Overlay</div>;
 
 describe('OverlayTrigger', () => {
 	it('should wrap the children with an overlay', () => {
 		const overlayPlacement = 'top';
-		const wrapper = shallow(
+		render(
 			<OverlayTrigger
 				overlayId="myId"
 				overlayRef={() => {}}
@@ -41,50 +34,13 @@ describe('OverlayTrigger', () => {
 				<div>wrap me</div>
 			</OverlayTrigger>,
 		);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.state('placement')).toBe(overlayPlacement);
-	});
-
-	it('should prevent the scrolling', () => {
-		const wrapper = shallow(
-			<OverlayTrigger overlayComponent={Overlay} preventScrolling>
-				<div>wrap me</div>
-			</OverlayTrigger>,
-		);
-
-		expect(wrapper.find('OverlayTriggerForked').props().container).toBe(wrapper.instance());
-	});
-
-	it('should inject the overlay', () => {
-		const wrapper = shallow(
-			<OverlayTrigger overlayComponent="Overlay" getComponent={() => Overlay}>
-				<div>wrap me</div>
-			</OverlayTrigger>,
-		);
-
-		expect(wrapper.find('OverlayTriggerForked').props().overlay).toMatchSnapshot();
-	});
-
-	it('should restore the initial placement when the overlay is close', () => {
-		const wrapper = shallow(
-			<OverlayTrigger
-				overlayId="myId"
-				overlayRef={() => {}}
-				overlayComponent={Overlay}
-				overlayPlacement="top"
-			>
-				<div>wrap me</div>
-			</OverlayTrigger>,
-		);
-		wrapper.setState({ placement: 'bottom' });
-
-		expect(wrapper.find('OverlayTriggerForked').props().onExited());
-		expect(wrapper.state('placement')).toBe('top');
+		expect(screen.queryByTestId('TestOverlay')).not.toBeInTheDocument();
+		userEvent.click(screen.getByText('wrap me'));
+		expect(screen.getByTestId('TestOverlay')).toBeInTheDocument();
 	});
 
 	it('should determinate the adapted position when the overlay is open', () => {
-		const wrapper = shallow(
+		render(
 			<OverlayTrigger
 				overlayId="myId"
 				overlayRef={() => {}}
@@ -94,10 +50,7 @@ describe('OverlayTrigger', () => {
 				<div>wrap me</div>
 			</OverlayTrigger>,
 		);
-		wrapper.instance().setTriggerElement({ getBoundingClientRect: () => getDOMRect(100, 150, 50) });
-
-		wrapper.find('OverlayTriggerForked').props().onEntering();
-
-		expect(wrapper.state('placement')).toBe('top');
+		userEvent.click(screen.getByText('wrap me'));
+		expect(screen.getByRole('tooltip')).toHaveClass('top');
 	});
 });

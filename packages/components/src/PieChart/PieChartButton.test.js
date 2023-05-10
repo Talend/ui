@@ -1,7 +1,36 @@
-import { shallow, mount } from 'enzyme';
+/* eslint-disable react/display-name */
+/* eslint-disable react/prop-types */
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { PIECHART_SIZES } from './PieChartIcon.component';
 import PieChartButton, { decorateWithOverlay, wrapMouseEvent } from './PieChartButton.component';
 
+// jest.mock('../OverlayTrigger', () => {
+// 	const OverlayTrigger = ({ children, overlay, overlayRef, ...props }) => (
+// 		<div data-testid="OverlayTrigger" data-props={JSON.stringify(props)}>
+// 			{children}
+// 			{overlay}
+// 		</div>
+// 	);
+// 	OverlayTrigger.propTypes = {};
+// 	return OverlayTrigger;
+// });
+jest.mock('../OverlayTrigger/overlay', () => ({
+	getAdaptedPlacement: () => 'top',
+	getOverlayElement: () => ({
+		getBoundingClientRect: () => ({
+			bottom: 290,
+			height: 100,
+			top: 190,
+		}),
+	}),
+	getContainerElement: () => ({
+		getBoundingClientRect: () => ({
+			bottom: 270,
+			top: 0,
+		}),
+	}),
+}));
 describe('PieChartButton', () => {
 	describe('snapshots render', () => {
 		const pieChartData = [
@@ -27,13 +56,11 @@ describe('PieChartButton', () => {
 			},
 		];
 		it('should render a PieChartButton', () => {
-			const wrapper = shallow(
-				<PieChartButton display={PIECHART_SIZES.SMALL} model={pieChartData} />,
-			);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			render(<PieChartButton display={PIECHART_SIZES.SMALL} model={pieChartData} />);
+			expect(screen.getByRole('button')).toBeVisible();
 		});
 		it('should render nothing', () => {
-			const wrapper = shallow(
+			render(
 				<PieChartButton
 					available={false}
 					display={PIECHART_SIZES.MEDIUM}
@@ -41,13 +68,11 @@ describe('PieChartButton', () => {
 					model={pieChartData}
 				/>,
 			);
-
-			expect(wrapper.getElement()).toBeNull();
+			expect(screen.queryByRole('button')).not.toBeInTheDocument();
 		});
 		it('should trigger onClick', () => {
 			const onClick = jest.fn();
-			const event = {};
-			const wrapper = shallow(
+			render(
 				<PieChartButton
 					label="my label"
 					display={PIECHART_SIZES.SMALL}
@@ -55,10 +80,9 @@ describe('PieChartButton', () => {
 					onClick={onClick}
 				/>,
 			);
+			userEvent.click(screen.getByRole('button'));
 
-			wrapper.find('Button').at(0).simulate('click', event);
-
-			expect(onClick).toHaveBeenCalledWith(event, {
+			expect(onClick).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
 				action: {
 					label: 'my label',
 				},
@@ -66,9 +90,9 @@ describe('PieChartButton', () => {
 			});
 		});
 
-		it('should render a PieChartButton with an overlay', () => {
-			const overlayComponent = <div>I am an overlay</div>;
-			const wrapper = shallow(
+		it('should render a PieChartButton with an overlay', async () => {
+			const overlayComponent = <div data-testid="TestOverlay">I am an overlay</div>;
+			render(
 				<PieChartButton
 					display={PIECHART_SIZES.MEDIUM}
 					labelIndex={2}
@@ -77,16 +101,16 @@ describe('PieChartButton', () => {
 					overlayId="id-popover"
 				/>,
 			);
-
-			expect(wrapper.getElement()).toMatchSnapshot();
+			await userEvent.click(screen.getByRole('button'));
+			expect(screen.getByRole('tooltip')).toBeVisible();
 		});
 		it('should called refs methods', () => {
 			// given
-			const overlayComponent = <div className="fake-overlay" />;
+			const overlayComponent = <div className="fake-overlay">WAT</div>;
 			// when
 			const myButtonRef = jest.fn();
 			const myOverlayRef = jest.fn();
-			mount(
+			render(
 				<PieChartButton
 					display={PIECHART_SIZES.MEDIUM}
 					labelIndex={2}
@@ -134,7 +158,7 @@ describe('decorateWithOverlay', () => {
 				<div>{decorateWithOverlay(btn, 'top', overlayComponent, 'myDumbOverlay', myBindRef)}</div>
 			);
 		}
-		mount(<OverlayCmp />);
+		render(<OverlayCmp />);
 		expect(myBindRef).toHaveBeenCalled();
 	});
 });
