@@ -1,12 +1,50 @@
-import { shallow } from 'enzyme';
+/* eslint-disable react/display-name */
+/* eslint-disable react/prop-types */
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import cloneDeep from 'lodash/cloneDeep';
 
 import VirtualizedList from '../../VirtualizedList';
-import {
-	ListToVirtualizedList,
-	HiddenHeader,
-	compareOrder,
-} from './ListToVirtualizedList.component';
+import { ListToVirtualizedList, compareOrder } from './ListToVirtualizedList.component';
+
+jest.unmock('@talend/design-system');
+jest.mock('../../VirtualizedList', () => {
+	const getProps = jest.fn();
+	const Original = jest.requireActual('../../VirtualizedList').default;
+	const TestVList = ({
+		sortBy,
+		sortDirection,
+		rowHeight,
+		type,
+		collection,
+		defaultHeight,
+		...props
+	}) => (
+		<div
+			data-testid="VirtualizedList"
+			data-props={JSON.stringify({
+				sortBy,
+				sortDirection,
+				rowHeight,
+				type,
+				collection,
+				defaultHeight,
+			})}
+		>
+			{props.headerAction}
+			{props.children}
+			<button type="button" onClick={() => getProps(props)}>
+				getProps
+			</button>
+		</div>
+	);
+	Object.entries(Original).forEach(([key, value]) => {
+		TestVList[key] = value;
+	});
+	TestVList.getProps = getProps;
+	TestVList.Content = props => <div data-testid="Content" data-props={JSON.stringify(props)}></div>;
+	return TestVList;
+});
 
 const props = {
 	id: 'mylistid',
@@ -24,14 +62,19 @@ const props = {
 };
 
 describe('ListToVirtualizedList', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
 	it('should map props', () => {
-		const wrapper = shallow(<ListToVirtualizedList {...props} />);
-		expect(wrapper.props().collection).toBe(props.items);
-		expect(wrapper.props().type).toBe('TABLE');
-		const columns = wrapper.find(VirtualizedList.Content);
+		render(<ListToVirtualizedList {...props} />);
+		const testProps = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
+		expect(testProps.collection).toMatchObject(props.items);
+		expect(testProps.type).toBe('TABLE');
+
+		const columns = screen.getAllByTestId('Content');
 		expect(columns.length).toBe(4);
 		columns.forEach(element => {
-			const eProps = element.props();
+			const eProps = JSON.parse(element.dataset.props);
 			if (eProps.label === 'Id') {
 				expect(eProps.dataKey).toBe('id');
 			} else if (eProps.label === 'Label') {
@@ -40,7 +83,6 @@ describe('ListToVirtualizedList', () => {
 			} else if (eProps.label === 'Actions') {
 				expect(eProps.dataKey).toBe('myactions');
 				expect(eProps.disableSort).toBe(true);
-				expect(eProps.headerRenderer).toBe(HiddenHeader);
 			} else if (eProps.label === 'Tag') {
 				expect(eProps.dataKey).toBe('tag');
 			} else {
@@ -51,29 +93,33 @@ describe('ListToVirtualizedList', () => {
 
 	it('should support defaultHeight', () => {
 		const rProps = { ...props, defaultHeight: 300 };
-		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();
-		expect(table.defaultHeight).toBe(300);
+		render(<ListToVirtualizedList {...rProps} displayMode="table" />);
+		const passedProps = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
+		expect(passedProps.defaultHeight).toBe(300);
 	});
 
 	it('should support displayMode', () => {
-		const table = shallow(<ListToVirtualizedList {...props} displayMode="table" />).props();
+		const { rerender } = render(<ListToVirtualizedList {...props} displayMode="table" />);
+		const table = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
 		expect(table.type).toBe('TABLE');
 
-		const large = shallow(<ListToVirtualizedList {...props} displayMode="large" />).props();
+		rerender(<ListToVirtualizedList {...props} displayMode="large" />);
+		const large = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
 		expect(large.type).toBe('LARGE');
 	});
 
 	it('should support rowHeight', () => {
 		const rProps = { ...props, rowHeight: 200 };
-		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();
+		render(<ListToVirtualizedList {...rProps} displayMode="table" />);
+		const table = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
 		expect(table.rowHeight).toBe(200);
 	});
 
 	it('columns should have disableSort prop to true if hideHeader or disableSort is true', () => {
-		const table = shallow(<ListToVirtualizedList {...props} />);
-		const columns = table.find(VirtualizedList.Content);
+		render(<ListToVirtualizedList {...props} />);
+		const columns = screen.getAllByTestId('Content');
 		columns.forEach(element => {
-			const eProps = element.props();
+			const eProps = JSON.parse(element.dataset.props);
 			if (eProps.label === 'Label' || eProps.label === 'Actions') {
 				expect(eProps.disableSort).toBeTruthy();
 			} else {
@@ -84,11 +130,12 @@ describe('ListToVirtualizedList', () => {
 
 	it('should add actionsKey to titleProps', () => {
 		// when
-		const wrapper = shallow(<ListToVirtualizedList {...props} />);
+		render(<ListToVirtualizedList {...props} />);
 
 		// then
-		wrapper.find(VirtualizedList.Content).forEach(element => {
-			const eProps = element.props();
+		const columns = screen.getAllByTestId('Content');
+		columns.forEach(element => {
+			const eProps = JSON.parse(element.dataset.props);
 			if (eProps.columnData) {
 				expect(eProps.columnData.actionsKey).toBe('actions');
 			}
@@ -97,90 +144,86 @@ describe('ListToVirtualizedList', () => {
 
 	it('should NOT add actionsKey without titleProps', () => {
 		// when
-		const wrapper = shallow(<ListToVirtualizedList {...props} titleProps={undefined} />);
+		render(<ListToVirtualizedList {...props} titleProps={undefined} />);
 
 		// then
-		wrapper.find(VirtualizedList.Content).forEach(element => {
-			const eProps = element.props();
+		const columns = screen.getAllByTestId('Content');
+		columns.forEach(element => {
+			const eProps = JSON.parse(element.dataset.props);
 			if (eProps.columnData) {
 				expect(eProps.columnData.actionsKey).toBe('actions');
 			}
 		});
 	});
 
-	it('should find supposedActions based on items', () => {
-		// when
-		const wrapper = shallow(<ListToVirtualizedList {...props} />);
-		const CellActions = VirtualizedList.cellDictionary.actions;
-
-		// then
-		wrapper.find(VirtualizedList.Content).forEach(element => {
-			const eProps = element.props();
-			if (eProps.label === 'Actions') {
-				expect(eProps.cellRenderer).toBe(CellActions.cellRenderer);
-			}
-		});
-	});
-
-	it('should support multiple cell renderers through column type', () => {
-		const wrapper = shallow(<ListToVirtualizedList {...props} />);
-		const CellBadge = VirtualizedList.cellDictionary.badge;
-
-		// then
-		wrapper.find(VirtualizedList.Content).forEach(element => {
-			const eProps = element.props();
-			if (eProps.label === 'Tag') {
-				expect(eProps.cellRenderer).toBe(CellBadge.cellRenderer);
-			}
-		});
-	});
-
-	it('should support custom cell renderer', () => {
+	it('should find renderer based on column type', async () => {
+		// given
 		const renderer = function test() {
 			return 'ok';
 		};
 		const customDictionary = { customType: { cellRenderer: renderer } };
-		const wrapper = shallow(<ListToVirtualizedList {...props} cellDictionary={customDictionary} />);
+		render(<ListToVirtualizedList {...props} cellDictionary={customDictionary} />);
+
+		// when
+		await userEvent.click(screen.getByText('getProps'));
+		const renderProps = VirtualizedList.getProps.mock.calls[0][0];
+		const CellActions = VirtualizedList.cellDictionary.actions;
+		const CellBadge = VirtualizedList.cellDictionary.badge;
 
 		// then
-		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
-		expect(column.props().cellRenderer).toBe(renderer);
+		expect(renderProps.children[0].props.label).toBe('Id');
+		expect(renderProps.children[0].props.cellRenderer).toBe(renderer);
+		expect(renderProps.children[2].props.label).toBe('Tag');
+		expect(renderProps.children[2].props.cellRenderer).toBe(CellBadge.cellRenderer);
+		expect(renderProps.children[3].props.label).toBe('Actions');
+		expect(renderProps.children[3].props.cellRenderer).toBe(CellActions.cellRenderer);
 	});
 
-	it('should support custom header renderer', () => {
+	it('should support custom header renderer', async () => {
+		// given
 		const renderer = function test() {
 			return 'ok';
 		};
 		const customHeaderDictionary = { customType: { headerRenderer: renderer } };
-		const wrapper = shallow(
-			<ListToVirtualizedList {...props} headerDictionary={customHeaderDictionary} />,
-		);
+		render(<ListToVirtualizedList {...props} headerDictionary={customHeaderDictionary} />);
+
+		// when
+		await userEvent.click(screen.getByText('getProps'));
+		const renderProps = VirtualizedList.getProps.mock.calls[0][0];
 
 		// then
-		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
-		expect(column.props().headerRenderer).toBe(renderer);
+		const column = renderProps.children[0].props;
+		expect(column.label).toBe('Id');
+		expect(column.headerRenderer).toBe(renderer);
 	});
 
-	it('should support column hide feature', () => {
+	it('should support column hide feature', async () => {
+		// given
 		const hideProps = cloneDeep(props);
 		hideProps.columns.find(column => column.label === 'Tag').hidden = true;
-		const wrapper = shallow(<ListToVirtualizedList {...hideProps} />);
+		render(<ListToVirtualizedList {...hideProps} />);
+
+		// when
+		await userEvent.click(screen.getByText('getProps'));
+		const renderProps = VirtualizedList.getProps.mock.calls[0][0];
 
 		// then
-		const columnId = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
-		const columnTag = wrapper.find(VirtualizedList.Content).find({ label: 'Tag' });
+		const columnId = renderProps.children.filter(column => column.props.label === 'Id');
+		const columnTag = renderProps.children.filter(column => column.props.label === 'Tag');
 		expect(columnId.length).toBe(1);
 		expect(columnTag.length).toBe(0);
 	});
 
-	it('should adapt sort info', () => {
-		// when
-		const ascVirtualizedProps = shallow(
+	it('should adapt sort info', async () => {
+		// given
+		const { rerender } = render(
 			<ListToVirtualizedList {...props} sort={{ field: 'name', isDescending: false }} />,
-		).props();
-		const descVirtualizedProps = shallow(
-			<ListToVirtualizedList {...props} sort={{ field: 'name', isDescending: true }} />,
-		).props();
+		);
+
+		// when
+		const ascVirtualizedProps = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
+		rerender(<ListToVirtualizedList {...props} sort={{ field: 'name', isDescending: true }} />);
+		const descVirtualizedProps = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
 
 		// then
 		expect(ascVirtualizedProps.sortBy).toBe('name');
@@ -188,14 +231,16 @@ describe('ListToVirtualizedList', () => {
 		expect(descVirtualizedProps.sortDirection).toBe(VirtualizedList.SORT_BY.DESC);
 	});
 
-	it('should adapt sort onChange', () => {
+	it('should adapt sort onChange', async () => {
 		// given
 		const onChange = jest.fn();
-		const virtualizedProps = shallow(
+		render(
 			<ListToVirtualizedList {...props} sort={{ field: 'name', isDescending: false, onChange }} />,
-		).props();
+		);
 
 		// when
+		userEvent.click(screen.getByText('getProps'));
+		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.sort({ sortBy: 'name', sortDirection: VirtualizedList.SORT_BY.DESC });
 
 		// then
@@ -205,11 +250,11 @@ describe('ListToVirtualizedList', () => {
 	it('should adapt selection isSelected', () => {
 		// given
 		const isSelected = jest.fn();
-		const virtualizedProps = shallow(
-			<ListToVirtualizedList {...props} itemProps={{ isSelected }} />,
-		).props();
+		render(<ListToVirtualizedList {...props} itemProps={{ isSelected }} />);
 
 		// when
+		userEvent.click(screen.getByText('getProps'));
+		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.isSelected(props.items[0]);
 
 		// then
@@ -220,11 +265,11 @@ describe('ListToVirtualizedList', () => {
 		// given
 		const onToggle = jest.fn();
 		const event = { target: {} };
-		const virtualizedProps = shallow(
-			<ListToVirtualizedList {...props} itemProps={{ onToggle }} />,
-		).props();
+		render(<ListToVirtualizedList {...props} itemProps={{ onToggle }} />);
 
 		// when
+		userEvent.click(screen.getByText('getProps'));
+		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.selectionToggle(event, props.items[0]);
 
 		// then
@@ -235,11 +280,11 @@ describe('ListToVirtualizedList', () => {
 		// given
 		const onRowClick = jest.fn();
 		const event = { target: {} };
-		const virtualizedProps = shallow(
-			<ListToVirtualizedList {...props} itemProps={{ onRowClick }} />,
-		).props();
+		render(<ListToVirtualizedList {...props} itemProps={{ onRowClick }} />);
 
 		// when
+		userEvent.click(screen.getByText('getProps'));
+		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.onRowClick(event, props.items[0]);
 
 		// then
@@ -250,9 +295,11 @@ describe('ListToVirtualizedList', () => {
 		// given
 		props.titleProps.onClick = jest.fn();
 		const event = { target: {} };
-		const virtualizedProps = shallow(<ListToVirtualizedList {...props} />).props();
+		render(<ListToVirtualizedList {...props} />);
 
 		// when
+		userEvent.click(screen.getByText('getProps'));
+		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.onRowDoubleClick(event, props.items[0]);
 
 		// then
@@ -262,11 +309,11 @@ describe('ListToVirtualizedList', () => {
 	it('should adapt selection isActive', () => {
 		// given
 		const isActive = jest.fn();
-		const virtualizedProps = shallow(
-			<ListToVirtualizedList {...props} itemProps={{ isActive }} />,
-		).props();
+		render(<ListToVirtualizedList {...props} itemProps={{ isActive }} />);
 
 		// when
+		userEvent.click(screen.getByText('getProps'));
+		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.isActive(props.items[0]);
 
 		// then
