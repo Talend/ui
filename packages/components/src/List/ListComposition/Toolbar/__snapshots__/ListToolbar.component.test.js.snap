@@ -1,17 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List Toolbar should display nav with children 1`] = `
-<div role="toolbar"
-     class="tc-list-toolbar theme-tc-list-toolbar navbar navbar-default"
->
-  <div class="container-fluid">
-    <div>
-      Hello
-    </div>
-  </div>
-</div>
-`;
-
 exports[`List Toolbar should display nav with li and separator 1`] = `
 <div
   class="tc-list-toolbar theme-tc-list-toolbar navbar navbar-default"
