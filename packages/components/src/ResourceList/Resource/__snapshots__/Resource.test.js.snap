@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Resource component snaps renderers should render 1`] = `
+<div
+  aria-label="Title with few actions"
+  aria-posinset="1"
+  aria-role="button"
+  class="resource-item theme-resource-item theme-center"
+  role="listitem"
+  tabindex="0"
+>
+  <span
+    class="CoralIcon theme-icon"
+    name="talend-file-xls-o"
+  />
+  <div
+    class="data-container theme-data-container"
+  >
+    <span
+      class="title theme-title"
+    >
+      Title with few actions
+    </span>
+    <small
+      class="author theme-author"
+    >
+      owned by Jean-Pierre DUPONT, over 2 years ago
+    </small>
+  </div>
+  <div
+    class="flags-container theme-flags-container"
+  >
+    <span
+      class="CoralIcon theme-flag"
+      name="talend-badge"
+    />
+    <span
+      class="CoralIcon theme-flag"
+      name="talend-star"
+    />
+  </div>
+</div>
+`;

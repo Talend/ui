@@ -62,6 +62,7 @@ function Resource({ parent, index, style, className, as, t, ...rest }) {
 			aria-posinset={index + 1}
 			aria-setsize={parent.props.rowCount}
 			aria-label={name}
+			aria-role="button"
 			onClick={onRowClick}
 			{...rest}
 		>

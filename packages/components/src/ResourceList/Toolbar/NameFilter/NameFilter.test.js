@@ -1,4 +1,5 @@
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import NameFilter from './NameFilter.component';
 
 describe('NameFilter', () => {
@@ -10,10 +11,12 @@ describe('NameFilter', () => {
 			},
 		};
 
-		const wrapper = shallow(<NameFilter onChange={onChange} />);
+		render(<NameFilter onChange={onChange} />);
 		expect(onChange).not.toBeCalled();
 
-		wrapper.find('DebounceInput').at(0).simulate('change', payload);
+		userEvent.click(screen.getByRole('textbox'));
+		userEvent.keyboard('titi');
+		// wrapper.find('DebounceInput').at(0).simulate('change', payload);
 
 		expect(onChange).toBeCalledWith(payload);
 	});
