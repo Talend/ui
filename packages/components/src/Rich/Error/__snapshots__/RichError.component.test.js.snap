@@ -2,14 +2,14 @@
 
 exports[`RichLayout should render RichLayout with header, content and footer 1`] = `
 <div
-  className="theme-wrapper tc-rich-error"
+  class="theme-wrapper tc-rich-error"
 >
-  <Icon
-    className="theme-icon tc-rich-error-icon"
+  <span
+    class="CoralIcon theme-icon tc-rich-error-icon"
     name="talend-warning"
   />
   <div
-    className="theme-content tc-rich-error-content"
+    class="theme-content tc-rich-error-content"
   >
     <h4>
       Pipelines

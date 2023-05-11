@@ -5,3 +5,5 @@
 test: rewrite tests using testing-library of the following components:
 
 - ResourceList
+- ResourcePicker
+- Rich
