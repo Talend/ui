@@ -8,3 +8,4 @@ test: rewrite tests using testing-library of the following components:
 - ResourcePicker
 - Rich
 - SidePanel
+- Skeleton
