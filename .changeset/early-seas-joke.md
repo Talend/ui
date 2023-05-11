@@ -9,3 +9,4 @@ test: rewrite tests using testing-library of the following components:
 - Rich
 - SidePanel
 - Skeleton
+- Slider
