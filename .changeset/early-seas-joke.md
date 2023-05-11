@@ -10,3 +10,4 @@ test: rewrite tests using testing-library of the following components:
 - SidePanel
 - Skeleton
 - Slider
+- SubHeaderBar
