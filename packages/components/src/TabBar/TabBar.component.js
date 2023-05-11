@@ -95,6 +95,7 @@ function TabBar(props) {
 	}
 
 	function handleKeyDown(event) {
+		console.log('###', event);
 		const { items } = props;
 		switch (event.which) {
 			case keycode.codes.home:
@@ -160,6 +161,7 @@ function TabBar(props) {
 					<NavItem
 						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
 						{...item}
+						key={item.key}
 						eventKey={item.key}
 						componentClass="button"
 					>
