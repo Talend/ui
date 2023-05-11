@@ -3651,30 +3651,30 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-7.3.0.tgz#6b1527dfb1583c98a00654c044cc669b5ce50251"
   integrity sha512-J5RwvcwW++SC7LGvkxG/MNGNuCe1gUc1mYscAOzZUAxz1VvrlVIWQTaqtfFhdpHsaoKJ3ZPlvOlUOm4GvMKKlw==
 
-"@talend/locales-tui-components@^6.44.11":
-  version "6.44.11"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-components/-/locales-tui-components-6.44.11.tgz#116598b0e822a9974b5a43ee9911427ca1c760b6"
-  integrity sha512-uRS1kPxTv34Oqk6oyUA+k3wJI3H94gFq91fS8vQWEFGLON/C/xbo25oTxELs5xQBzxfdJOf0Ywolsrfzadl2Uw==
+"@talend/locales-tui-components@^9.5.0":
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-components/-/locales-tui-components-9.5.0.tgz#ed16d42d0ddec7bd8e71dd91af63428f5cce3804"
+  integrity sha512-m+Ct7na5uSNBnQG7a869NkbZqQLglQVpspGj/QhfE4SxIwjdUA0zlZauNUThqo7n5LUWm6dNB3F1os6ZZM1lVg==
 
-"@talend/locales-tui-containers@^6.38.1":
-  version "6.38.1"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-containers/-/locales-tui-containers-6.38.1.tgz#c7069f2916b36a319801eac105d21df6e945455e"
-  integrity sha512-m4Pryp5TZjqW7n4nxV2+sa3ACt58uyFxOx0kRU7tLlmQrqvnSxZaRiByHatrUqUdrjHan4zwVzQVpMyhqRpDKw==
+"@talend/locales-tui-containers@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-containers/-/locales-tui-containers-8.0.2.tgz#a6f4ecef036f51d6fdc706358a52f0beb1570b03"
+  integrity sha512-pBqTK4FHTd3olbujW1Rm2Y6A4z7EZpQ0lTjowK0/4loi5uqXTJXtFuiL2UoGQ7zCWf8b1ILJrvtFi81DpCgvQg==
 
 "@talend/locales-tui-dataviz@^0.4.6":
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-dataviz/-/locales-tui-dataviz-0.4.6.tgz#fe51013b25b9c2eaae362d50729449d641627de2"
   integrity sha512-JxG7Nm7EEbjrU6jZMik1rdHCDivZfcW6T4/YiodaR6PYOivUP5gnPKIn1LxgbgbS69cK/x6RJ5dAaJPg/W7uyA==
 
-"@talend/locales-tui-faceted-search@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-faceted-search/-/locales-tui-faceted-search-4.0.2.tgz#e1eb85f1656cbde5425d3efee3dca6106d96392f"
-  integrity sha512-tzSh0MmbrN5smuXXp83gNHMY/LHTrgSNZVxQ/1+q22FsnqeyIyPggp2fZAe+mse9ovw6JTIbLm25ul8UhcVOEg==
+"@talend/locales-tui-faceted-search@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-faceted-search/-/locales-tui-faceted-search-8.1.0.tgz#aab609314cafa652e98a415e71ee6099496c69ee"
+  integrity sha512-ovSv/S/mco7iGTkDgIu5ac5fW2z6E2j+U2QaDSMyXLgNQ89u6C3bqthFUEisXyQ12tPnI+JXE7DjKynbkjWkPQ==
 
-"@talend/locales-tui-forms@^6.41.4":
-  version "6.41.4"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-6.41.4.tgz#3a4fbcffa2fc1489021c915ede6d38d08023aaa0"
-  integrity sha512-merVbYZ6FfcV48b/XJbNdPPHqYt1MToRO1t1jnNCUfK5++9VlKzeC6hgRVPTUmb2WX5fo8vi/GMGNAfNuGAj8Q==
+"@talend/locales-tui-forms@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-9.0.1.tgz#617170646d6f98a572efcccd2caf857ccdfd7e86"
+  integrity sha512-iGTiNoLRkySwyuqZBWeMxWs1qgtTxVxl6qbbLBNpLCEmDkGYMAqvawnOSb+/3E+PHbo7MlzeINDrvIV8pogzOQ==
 
 "@testing-library/cypress@^9.0.0":
   version "9.0.0"
