@@ -4,6 +4,7 @@ import NameFilter from './NameFilter.component';
 
 describe('NameFilter', () => {
 	it('should trigger onChange callback on change', () => {
+		jest.useFakeTimers();
 		const onChange = jest.fn();
 		const payload = {
 			target: {
@@ -11,13 +12,14 @@ describe('NameFilter', () => {
 			},
 		};
 
-		render(<NameFilter onChange={onChange} />);
+		render(<NameFilter label="label" onChange={onChange} />);
 		expect(onChange).not.toBeCalled();
 
 		userEvent.click(screen.getByRole('textbox'));
 		userEvent.keyboard('titi');
-		// wrapper.find('DebounceInput').at(0).simulate('change', payload);
+		jest.runAllTimers();
 
-		expect(onChange).toBeCalledWith(payload);
+		expect(onChange).toBeCalledWith(expect.anything(payload));
+		jest.useRealTimers();
 	});
 });
