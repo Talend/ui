@@ -4,7 +4,6 @@ exports[`Resource component snaps renderers should render 1`] = `
 <div
   aria-label="Title with few actions"
   aria-posinset="1"
-  aria-role="button"
   class="resource-item theme-resource-item theme-center"
   role="listitem"
   tabindex="0"
