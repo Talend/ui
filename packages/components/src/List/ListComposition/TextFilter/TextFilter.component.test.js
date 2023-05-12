@@ -96,7 +96,6 @@ describe('TextFilter', () => {
 	it('should call the callback on change (controlled mode)', () => {
 		// given
 		const onChange = jest.fn();
-		const event = { target: { value: 'my-filter-value' } };
 		render(
 			<ListContext.Provider value={defaultContext}>
 				<TextFilter
