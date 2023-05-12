@@ -5,16 +5,6 @@ import userEvent from '@testing-library/user-event';
 import { PIECHART_SIZES } from './PieChartIcon.component';
 import PieChartButton, { decorateWithOverlay, wrapMouseEvent } from './PieChartButton.component';
 
-// jest.mock('../OverlayTrigger', () => {
-// 	const OverlayTrigger = ({ children, overlay, overlayRef, ...props }) => (
-// 		<div data-testid="OverlayTrigger" data-props={JSON.stringify(props)}>
-// 			{children}
-// 			{overlay}
-// 		</div>
-// 	);
-// 	OverlayTrigger.propTypes = {};
-// 	return OverlayTrigger;
-// });
 jest.mock('../OverlayTrigger/overlay', () => ({
 	getAdaptedPlacement: () => 'top',
 	getOverlayElement: () => ({
