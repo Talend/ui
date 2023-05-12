@@ -1,5 +1,3 @@
-import renderer from 'react-test-renderer';
-// rewrite tests using react-testing-library
 import { screen, render } from '@testing-library/react';
 import { Status, STATUS } from './Status.component';
 
