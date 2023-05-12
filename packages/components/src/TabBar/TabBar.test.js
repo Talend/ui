@@ -1,6 +1,4 @@
 import keycode from 'keycode';
-import { shallow, mount } from 'enzyme';
-// rewrite tests using react-testing-library
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TabBar from './TabBar.component';
@@ -109,6 +107,7 @@ describe('TabBar component', () => {
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
 	});
 
+	// TODO: fix this test
 	xit('should select first item on home keydown', async () => {
 		// given
 		const onSelect = jest.fn();
@@ -122,6 +121,7 @@ describe('TabBar component', () => {
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
 	});
 
+	// TODO: fix this test
 	xit('should select last item on end keydown', () => {
 		// given
 		const onSelect = jest.fn();
