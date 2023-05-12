@@ -4,16 +4,17 @@ import { unstable_useId as useId } from 'reakit/Id';
 
 import { DataAttributes } from '../../../../types';
 
+import { variants } from '../../../Status/Primitive/StatusPrimitive';
+
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';
 import styles from './CollapsiblePanel.module.scss';
 
-export type CollapsiblePanelPropsType = {
+type CollapsiblePanelCommonPropsType = {
 	children: ReactChild;
 	managed?: boolean;
 	expanded?: boolean;
 	index?: number;
-	title: string;
 	action?: PanelHeaderAction;
 	size?: 'S' | 'M';
 	metadata?: ReactChild[];
@@ -23,6 +24,19 @@ export type CollapsiblePanelPropsType = {
 	onToggleExpanded?: (index: number) => void;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'> &
 	DataAttributes;
+
+export type CollapsiblePanelWithTitlePropsType = {
+	title: ReactChild;
+	status?: never;
+};
+
+export type CollapsiblePanelWithStatusPropsType = {
+	title?: never;
+	status: keyof typeof variants;
+};
+
+export type CollapsiblePanelPropsType = CollapsiblePanelCommonPropsType &
+	(CollapsiblePanelWithTitlePropsType | CollapsiblePanelWithStatusPropsType);
 
 const CollapsiblePanel = forwardRef(
 	(
@@ -34,6 +48,7 @@ const CollapsiblePanel = forwardRef(
 			index,
 			onToggleExpanded,
 			title,
+			status,
 			action,
 			size,
 			metadata,
@@ -81,6 +96,7 @@ const CollapsiblePanel = forwardRef(
 					expanded={!disabled && localExpanded}
 					handleClick={handleToggleExpanded}
 					title={title}
+					status={status}
 					action={action}
 					metadata={metadata}
 					size={size}
