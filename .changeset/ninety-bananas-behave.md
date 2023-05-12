@@ -8,3 +8,4 @@ test: rewrite using react testing-library the following components:
 - Tag
 - Toggle
 - TooltipTrigger
+- TreeView
