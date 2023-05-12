@@ -1,6 +1,3 @@
-import { shallow, mount } from 'enzyme';
-import { Button } from '@talend/react-bootstrap';
-// rewrite test using react-testing-library
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import StateFilter, { TYPES } from './StateFilter.component';
