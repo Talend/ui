@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tag should render 1`] = `
-<Tag>
+<span
+  class="theme-tag theme-tag"
+>
   The lazy quick brown fox jumps over the lazy dog
-</Tag>
+</span>
 `;
