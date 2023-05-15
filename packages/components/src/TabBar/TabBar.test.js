@@ -107,7 +107,6 @@ describe('TabBar component', () => {
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
 	});
 
-	// TODO: fix this test
 	it('should select first item on home keydown', async () => {
 		// given
 		const onSelect = jest.fn();
@@ -123,7 +122,6 @@ describe('TabBar component', () => {
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
 	});
 
-	// TODO: fix this test
 	it('should select last item on end keydown', () => {
 		// given
 		const onSelect = jest.fn();
