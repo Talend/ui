@@ -1014,7 +1014,7 @@ export const TableWithActionOverlay = () => (
 				id: index,
 				name: 'Title with actions',
 				created: 1518596913333,
-				modified: minusThreeHours,
+				modified: 1518790010000,
 				author: 'Jean-Pierre DUPONT',
 				actions: [overlayAction, ...actions],
 				icon: 'talend-file-xls-o',
