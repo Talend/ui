@@ -40,4 +40,6 @@ const Status = forwardRef((props: StatusProps, ref: Ref<HTMLSpanElement>) => {
 	}
 });
 
+Status.displayName = 'Status';
+
 export default Status;
