@@ -1,8 +1,5 @@
-import renderer from 'react-test-renderer';
-
+import { screen, render } from '@testing-library/react';
 import { Status, STATUS } from './Status.component';
-
-jest.mock('react-dom');
 
 const currentStatus = {
 	status: 'successful',
@@ -46,7 +43,7 @@ const inProgressStatus = {
 const inProgressStatusWithPercent = {
 	status: 'inProgress',
 	label: 'In Progress',
-	percent: '70',
+	progress: '70',
 	actions: [
 		{
 			label: 'cancel',
@@ -70,10 +67,17 @@ const skeletonStatusProps = {
 describe('Status', () => {
 	it('should render a label with Icon', () => {
 		// when
-		const wrapper = renderer.create(<Status {...currentStatus} />).toJSON();
+		const { container } = render(<Status {...currentStatus} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Successful')).toBeVisible();
+		expect(screen.getByText('cancel')).toBeVisible();
+		expect(screen.getByText('delete')).toBeVisible();
+		expect(document.querySelector('.tc-status-icon .CoralIcon')).toHaveAttribute(
+			'name',
+			'fa fa-check',
+		);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render a label', () => {
 		// given
@@ -83,40 +87,49 @@ describe('Status', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<Status {...props} />).toJSON();
+		render(<Status {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Successful')).toBeVisible();
+		expect(document.querySelector('.tc-status-icon .CoralIcon')).toBeNull();
 	});
 	it('should render a label with Icon without actions', () => {
 		// when
-		const wrapper = renderer.create(<Status {...currentStatus} actions={[]} />).toJSON();
+		render(<Status {...currentStatus} actions={[]} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Successful')).toBeVisible();
+		expect(screen.queryByText('cancel')).not.toBeInTheDocument();
+		expect(screen.queryByText('delete')).not.toBeInTheDocument();
 	});
 
 	it('should render a label with a continuous circular progress', () => {
 		// when
-		const wrapper = renderer.create(<Status {...inProgressStatus} />).toJSON();
+		render(<Status {...inProgressStatus} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('In Progress')).toBeVisible();
+		expect(screen.getByTestId('circular-progress')).toHaveClass('theme-animate');
 	});
 
 	it('should render a label with a fixed circular progress', () => {
 		// when
-		const wrapper = renderer.create(<Status {...inProgressStatusWithPercent} />).toJSON();
+		render(<Status {...inProgressStatusWithPercent} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('In Progress')).toBeVisible();
+		expect(screen.getByTestId('circular-progress')).toHaveClass('theme-fixed');
+		expect(screen.getByTestId('circular-progress')).toHaveAttribute('aria-label', 'Loading... 70%');
 	});
 
 	it('should render a label with a skeleton', () => {
 		// when
-		const wrapper = renderer.create(<Status {...skeletonStatusProps} />).toJSON();
+		render(<Status {...skeletonStatusProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		const skeletons = document.querySelectorAll('.tc-skeleton');
+		expect(skeletons).toHaveLength(2);
+		expect(skeletons[0]).toHaveClass('tc-skeleton-circle');
+		expect(skeletons[1]).toHaveClass('tc-skeleton-text');
 	});
 });

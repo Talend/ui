@@ -9,6 +9,7 @@ exports[`Loader should render 1`] = `
     aria-label="Loading... "
     class="tc-circular-progress theme-loader theme-animate theme-default"
     data-test="circular-progress"
+    data-testid="circular-progress"
     focusable="false"
     viewBox="0 0 50 50"
   >

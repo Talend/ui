@@ -1,7 +1,10 @@
-import { shallow } from 'enzyme';
-import { Icon, Action, ActionBar } from '../index';
+/* eslint-disable react/display-name */
+/* eslint-disable react/prop-types */
+import { render, screen } from '@testing-library/react';
+import { Action } from '../Actions';
+import Icon from '../Icon';
+import ActionBar from '../ActionBar';
 import SubHeaderBar from './SubHeaderBar.component';
-import Skeleton from '../Skeleton';
 
 function getComponent(name) {
 	if (name === 'Action') {
@@ -10,19 +13,20 @@ function getComponent(name) {
 	if (name === 'Icon') {
 		return Icon;
 	}
+	if (name === 'WhatEver') {
+		return ({ foo }) => <div data-testid="WhatEver">{foo}</div>;
+	}
 	return ActionBar;
 }
 
 describe('SubHeaderBarActions', () => {
 	it('should render with center props', () => {
 		const props = {
-			title: 'myTitle',
 			left: false,
 			center: true,
 			right: false,
-			className: 'myClassName',
 		};
-		const wrapper = shallow(
+		render(
 			<SubHeaderBar.Content {...props}>
 				<Action
 					label="action1"
@@ -38,22 +42,20 @@ describe('SubHeaderBarActions', () => {
 					onClick={jest.fn()}
 					hideLabel
 				/>
-				<Icon name="talend-bell" />
+				<Icon name="talend-bell" data-testid="Icon" />
 			</SubHeaderBar.Content>,
 		);
-		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
-		expect(wrapper.find(ActionBar.Content).get(0).props.center).toBeTruthy();
-		expect(wrapper.find(Icon)).toHaveLength(1);
-		expect(wrapper.find(Action)).toHaveLength(2);
+		expect(screen.getAllByRole('button')).toHaveLength(2);
+		expect(screen.getByTestId('Icon')).toBeInTheDocument();
+		expect(document.querySelector('.tc-subheader-center')).toBeInTheDocument();
 	});
 	it('should render with right props', () => {
 		const props = {
 			left: false,
 			center: false,
 			right: true,
-			className: 'myClassName',
 		};
-		const wrapper = shallow(
+		render(
 			<SubHeaderBar.Content {...props}>
 				<Action
 					label="action1"
@@ -69,13 +71,12 @@ describe('SubHeaderBarActions', () => {
 					onClick={jest.fn()}
 					hideLabel
 				/>
-				<Icon name="talend-bell" />
+				<Icon name="talend-bell" data-testid="Icon" />
 			</SubHeaderBar.Content>,
 		);
-		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
-		expect(wrapper.find(ActionBar.Content).get(0).props.right).toBeTruthy();
-		expect(wrapper.find(Icon)).toHaveLength(1);
-		expect(wrapper.find(Action)).toHaveLength(2);
+		expect(screen.getAllByRole('button')).toHaveLength(2);
+		expect(screen.getByTestId('Icon')).toBeInTheDocument();
+		expect(document.querySelector('.tc-subheader-right')).toBeInTheDocument();
 	});
 });
 
@@ -115,7 +116,7 @@ describe('SubHeaderBar', () => {
 			right: [
 				{
 					component: 'Action',
-					label: 'action3',
+					label: 'action4',
 					bsStyle: 'link',
 					icon: 'talend-activity',
 					onClick: jest.fn(),
@@ -142,7 +143,7 @@ describe('SubHeaderBar', () => {
 			],
 		};
 	});
-	it('should render without i18n', () => {
+	it('should render', () => {
 		const props = {
 			title: 'myTitle',
 			left: false,
@@ -152,55 +153,54 @@ describe('SubHeaderBar', () => {
 			...actions,
 			onGoBack: jest.fn(),
 		};
-		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.getElement().props.i18n).toBeFalsy();
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<SubHeaderBar {...props} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
-	it('should render SubHeaderBarActions (default + custom)', () => {
+	it('should render SubHeaderBar (default + custom)', () => {
 		const props = {
 			title: 'myTitle',
 			getComponent,
 			components,
 			onGoBack: jest.fn(),
 		};
-		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBar.Inject)).toHaveLength(3);
-		expect(wrapper.find(SubHeaderBar.Inject).get(0).props.foo).toBe('bar');
-		expect(wrapper.find(SubHeaderBar.Inject).get(1).props.foo).toBe('baz');
-		expect(wrapper.find(SubHeaderBar.Inject).get(2).props.foo).toBe('bat');
-		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(1);
-		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
+		render(<SubHeaderBar {...props} />);
+		expect(screen.getByText('myTitle')).toBeVisible();
+
+		// Inject
+		expect(screen.getByText('bar')).toBeVisible();
+		expect(screen.getByText('baz')).toBeVisible();
+		expect(screen.getByText('bat')).toBeVisible();
 	});
-	it('should render SubHeaderBarActions (default + right)', () => {
+	it('should render SubHeaderBar (default + right)', () => {
 		const props = {
 			title: 'myTitle',
 			right: actions.right,
 			onGoBack: jest.fn(),
 		};
-		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(2);
-		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
-		expect(wrapper.find(SubHeaderBar.Content).get(1).props.right).toBeTruthy();
+		render(<SubHeaderBar {...props} />);
+		expect(screen.getByText('myTitle')).toBeVisible();
+		expect(screen.getByLabelText('action4')).toBeVisible();
+		expect(screen.getByLabelText('action4').parentElement).toHaveClass('navbar-right');
 	});
-	it('should render SubHeaderBarActions (default + center)', () => {
+	it('should render SubHeaderBar (default + center)', () => {
 		const props = {
 			title: 'myTitle',
 			center: actions.center,
 			onGoBack: jest.fn(),
 		};
-		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(2);
-		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
-		expect(wrapper.find(SubHeaderBar.Content).get(1).props.center).toBeTruthy();
+		render(<SubHeaderBar {...props} />);
+		expect(screen.getByText('myTitle')).toBeVisible();
+		expect(screen.getByLabelText('action3')).toBeVisible();
+		expect(screen.getByLabelText('action3').parentElement).toHaveClass('theme-navbar-center');
 	});
-	it('should render SubHeaderBarActions (default)', () => {
+	it('should render SubHeaderBar (default)', () => {
 		const props = {
 			title: 'myTitle',
 			onGoBack: jest.fn(),
 		};
-		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(1);
-		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
+		render(<SubHeaderBar {...props} />);
+		expect(screen.getByText('myTitle')).toBeVisible();
+		expect(screen.getByLabelText('Go back')).toBeVisible();
 	});
 
 	it('Should render SubHeader component if right actions are in loading state', () => {
@@ -209,9 +209,9 @@ describe('SubHeaderBar', () => {
 			rightActionsLoading: true,
 			onGoBack: jest.fn(),
 		};
-		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(2);
-		expect(wrapper.find(SubHeaderBar.Content).at(1).find(Skeleton)).toHaveLength(1);
+		render(<SubHeaderBar {...props} />);
+		expect(screen.getByLabelText('text Loading...')).toHaveClass('tc-skeleton');
+		expect(screen.getByLabelText('text Loading...').parentElement).toHaveClass('navbar-right');
 	});
 });
 
@@ -221,18 +221,12 @@ describe('CustomInject', () => {
 			component: 'Action',
 			getComponent: jest.fn(getComponent),
 			left: true,
-			extra: 'foo',
+			label: 'foo',
 		};
-		const wrapper = shallow(<SubHeaderBar.Inject {...props} />);
-		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(1);
-		expect(wrapper.find(SubHeaderBar.Content).get(0).props.left).toBeTruthy();
-		expect(wrapper.find(SubHeaderBar.Content).get(0).props.children).toBeDefined();
-		expect(wrapper.find('Inject')).toHaveLength(1);
-		expect(wrapper.find('Inject').get(0).props).toEqual({
-			extra: props.extra,
-			component: props.component,
-			getComponent: props.getComponent,
-		});
+		render(<SubHeaderBar.Inject {...props} />);
+		expect(props.getComponent).toHaveBeenCalledWith(props.component);
+		expect(screen.getByText('foo')).toBeVisible();
+		expect(screen.getByRole('button').parentElement).toHaveClass('navbar-left');
 	});
 	it('should render nowrapped Inject if nowrap props', () => {
 		const props = {
@@ -240,15 +234,11 @@ describe('CustomInject', () => {
 			getComponent: jest.fn(getComponent),
 			left: true,
 			nowrap: true,
-			extra: 'foo',
+			label: 'foo',
 		};
-		const wrapper = shallow(<SubHeaderBar.Inject {...props} />);
-		expect(wrapper.find(SubHeaderBar.Content)).toHaveLength(0);
-		expect(wrapper.find('Inject')).toHaveLength(1);
-		expect(wrapper.find('Inject').get(0).props).toEqual({
-			extra: props.extra,
-			component: props.component,
-			getComponent: props.getComponent,
-		});
+		render(<SubHeaderBar.Inject {...props} />);
+		expect(props.getComponent).toHaveBeenCalledWith(props.component);
+		expect(screen.getByText('foo')).toBeVisible();
+		expect(screen.getByRole('button').parentElement).not.toHaveClass('navbar-left');
 	});
 });
