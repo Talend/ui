@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
-import { mount } from 'enzyme';
-
-import ColumnChooser from '.';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import ColumnChooser from './ColumnChooser.component';
 import { ListContext } from '../context';
-import ColumnChooserButton from '../../Toolbar/ColumnChooserButton';
 import getDefaultT from '../../../translate';
+
+jest.unmock('@talend/design-system');
 
 describe('ColumnChooser', () => {
 	let defaultContext;
@@ -22,30 +22,30 @@ describe('ColumnChooser', () => {
 
 	it('should render column chooser component', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={defaultContext}>
 				<ColumnChooser id="myColumnChooser" />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find(ColumnChooserButton)).toBeDefined();
+		expect(screen.getByRole('button')).toBeVisible();
+		screen.getByRole('button').focus(); // trigger the tooltip
+		expect(screen.getByText('Open the column chooser')).toBeVisible();
 	});
 
 	it('should update columns', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={defaultContext}>
 				<ColumnChooser id="myColumnChooser" />
 			</ListContext.Provider>,
 		);
-		const onSubmit = wrapper.find(ColumnChooserButton).prop('onSubmit');
 
 		// when
-		onSubmit(null, [
-			{ key: 'foo', hidden: true },
-			{ key: 'bar', hidden: false },
-		]);
+		userEvent.click(screen.getByRole('button'));
+		userEvent.click(screen.getByText('Bar'));
+		userEvent.click(screen.getByText('Apply'));
 
 		// then
 		expect(defaultContext.setVisibleColumns).toBeCalledWith(['bar']);
@@ -53,17 +53,14 @@ describe('ColumnChooser', () => {
 
 	it('should call props.onSubmit if exist', () => {
 		const onSubmit = jest.fn();
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={defaultContext}>
 				<ColumnChooser id="myColumnChooser" onSubmit={onSubmit} />
 			</ListContext.Provider>,
 		);
-		const internalOnSubmit = wrapper.find(ColumnChooserButton).prop('onSubmit');
-
-		internalOnSubmit(null, [
-			{ key: 'foo', hidden: true },
-			{ key: 'bar', hidden: false },
-		]);
+		userEvent.click(screen.getByRole('button'));
+		userEvent.click(screen.getByText('Bar'));
+		userEvent.click(screen.getByText('Apply'));
 
 		expect(onSubmit).toHaveBeenCalled();
 	});
