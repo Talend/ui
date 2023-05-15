@@ -138,13 +138,12 @@ describe('Typeahead', () => {
 				onToggle: jest.fn(),
 				docked: true,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
+			render(<Typeahead {...props} />);
 
 			// then
-			expect(typeaheadInstance.find('Action').length).toBe(1);
+			expect(screen.getByRole('button')).toBeVisible();
 		});
 
 		it('should call onToggle', () => {
