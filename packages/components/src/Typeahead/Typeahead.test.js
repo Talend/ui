@@ -1,7 +1,6 @@
-import { mount } from 'enzyme';
-// rewrite to use react-testing-library
 import Typeahead from './Typeahead.component';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 function getHeaders() {
 	return document.querySelectorAll('.section-header');
@@ -153,11 +152,10 @@ describe('Typeahead', () => {
 				onToggle: jest.fn(),
 				docked: true,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Button.tc-typeahead-toggle').at(0).simulate('click');
+			render(<Typeahead {...props} />);
+			userEvent.click(screen.getByRole('button'));
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -172,12 +170,10 @@ describe('Typeahead', () => {
 				...initialProps,
 				onChange,
 			};
-			const typeahead = <Typeahead {...props} />;
-			const event = { target: { value: 'toto' } };
 
 			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('input').simulate('change', event);
+			render(<Typeahead {...props} />);
+			userEvent.type(screen.getByRole('textbox'), 'toto');
 
 			// then
 			expect(onChange).toBeCalled();
@@ -190,11 +186,11 @@ describe('Typeahead', () => {
 				...initialProps,
 				onBlur,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('input').simulate('blur');
+			render(<Typeahead {...props} />);
+			userEvent.click(screen.getByRole('textbox'));
+			userEvent.tab();
 
 			// then
 			expect(onBlur).toBeCalled();
@@ -210,14 +206,17 @@ describe('Typeahead', () => {
 				onSelect,
 				items,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Item').at(0).simulate('click');
+			render(<Typeahead {...props} />);
+			userEvent.click(screen.getAllByRole('option')[0]);
 
 			// then
 			expect(onSelect).toBeCalled();
+			expect(onSelect).toBeCalledWith(expect.anything({ type: 'click' }), {
+				itemIndex: 0,
+				sectionIndex: 0,
+			});
 		});
 
 		it('should render typeahead selected item by id', () => {
