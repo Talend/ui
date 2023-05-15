@@ -1,5 +1,3 @@
-import { shallow, mount } from 'enzyme';
-// rewrite to use react-testing-library
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Toggle from './Toggle.component';

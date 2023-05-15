@@ -1,5 +1,7 @@
 import classNames from 'classnames';
 
+type THEMES = Record<string, string>;
+
 /**
  * This function take cssModules files & generate a function that you can use to
  * duplicate the classes: the generated from the css module & the generic allowing any host app
@@ -20,8 +22,8 @@ import classNames from 'classnames';
  * // This will output -> <div class="error test error_X341DZ"/>
  * }
  */
-export function getTheme(...cssThemes) {
-	return function applyTheme(...params) {
+export function getTheme(...cssThemes: THEMES[]) {
+	return function applyTheme(...params: (string | object | string[])[]) {
 		const classnamesParams = params.reduce((acc, param) => {
 			if (Array.isArray(param)) {
 				acc.push(...param.map(element => applyTheme(element)));

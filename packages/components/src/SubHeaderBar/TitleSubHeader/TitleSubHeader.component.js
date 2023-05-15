@@ -10,50 +10,8 @@ import Inject from '../../Inject';
 import getDefaultT from '../../translate';
 import TooltipTrigger from '../../TooltipTrigger';
 import { getTheme } from '../../theme';
-
+import { SubTitle } from './SubTitle.component';
 const theme = getTheme(titleSubHeaderCssModule);
-
-function DefaultSubTitle({ subTitle, subTitleProps }) {
-	return (
-		<small className={theme('tc-subheader-details-text-subtitle')} {...subTitleProps}>
-			{subTitle}
-		</small>
-	);
-}
-
-DefaultSubTitle.propTypes = {
-	subTitle: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-	subTitleProps: PropTypes.object,
-};
-
-function SubTitle({
-	subTitleLoading,
-	subTitle,
-	subTitleAs: SubTitleAs = DefaultSubTitle,
-	...rest
-}) {
-	if (subTitleLoading) {
-		return (
-			<Skeleton
-				className={theme('tc-subheader-details-loading-subtitle')}
-				type={Skeleton.TYPES.text}
-				size={Skeleton.SIZES.large}
-			/>
-		);
-	}
-
-	if (subTitle) {
-		return <SubTitleAs subTitle={subTitle} {...rest} />;
-	}
-
-	return null;
-}
-
-SubTitle.propTypes = {
-	subTitle: PropTypes.node,
-	subTitleLoading: PropTypes.bool,
-	subTitleAs: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-};
 
 function TitleSubHeader({
 	title,
@@ -135,4 +93,4 @@ TitleSubHeader.defaultProps = {
 	editable: false,
 };
 
-export { TitleSubHeader as default, SubTitle };
+export { TitleSubHeader as default };
