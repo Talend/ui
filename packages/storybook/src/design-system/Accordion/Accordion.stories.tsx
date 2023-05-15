@@ -25,6 +25,26 @@ export const SimpleCollapsiblePanel = () => (
 	</div>
 );
 
+export const StatusCollapsiblePanel = () => (
+	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+		<CollapsiblePanel status="successful">
+			<SampleParagraph />
+		</CollapsiblePanel>
+		<CollapsiblePanel status="failed">
+			<SampleParagraph />
+		</CollapsiblePanel>
+		<CollapsiblePanel status="inProgress">
+			<SampleParagraph />
+		</CollapsiblePanel>
+		<CollapsiblePanel status="warning">
+			<SampleParagraph />
+		</CollapsiblePanel>
+		<CollapsiblePanel status="canceled">
+			<SampleParagraph />
+		</CollapsiblePanel>
+	</div>
+);
+
 export const DisabledPanel = {
 	render: (props: Story) => (
 		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
@@ -64,7 +84,7 @@ export const WithMetadata = () => (
 			</CollapsiblePanel>
 			<CollapsiblePanel
 				title="Simple panel with several metadata and action"
-				metadata={['Duration : 3sec', <TagSuccess key="successTag">Succes</TagSuccess>]}
+				metadata={['Duration : 3sec', <TagSuccess key="successTag">Success</TagSuccess>]}
 				action={{
 					icon: 'plus',
 					tooltip: 'action tooltip',
