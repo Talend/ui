@@ -91,12 +91,12 @@ function getTalendVersions() {
 		// eslint-disable-next-line
 		const packageLock = require(packagelockPath);
 
-		Object.keys(packageLock.packages)
+		Object.keys(packageLock.packages || packageLock.dependencies)
 			.filter(k => k.includes(TALEND_LIB_PREFIX))
 			.reduce((acc, key) => {
 				const name = `${TALEND_LIB_PREFIX}${key.split(TALEND_LIB_PREFIX)[1]}`;
 				if (talendDependencies.includes(name)) {
-					acc[name] = packageLock.packages[key].version;
+					acc[name] = (packageLock.packages || packageLock.dependencies)[key].version;
 				}
 				return acc;
 			}, talendLibraries);
