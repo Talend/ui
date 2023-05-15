@@ -95,6 +95,7 @@ function TabBar(props) {
 	}
 
 	function handleKeyDown(event) {
+		console.log('### handleKeyDown', event);
 		const { items } = props;
 		switch (event.which) {
 			case keycode.codes.home:

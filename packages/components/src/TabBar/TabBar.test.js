@@ -108,30 +108,31 @@ describe('TabBar component', () => {
 	});
 
 	// TODO: fix this test
-	xit('should select first item on home keydown', async () => {
+	it('should select first item on home keydown', async () => {
 		// given
 		const onSelect = jest.fn();
 		render(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		await userEvent.click(screen.getByRole('tablist'));
-		await userEvent.keyboard('{Home}');
+		const root = document.querySelector('#my-tabs > div');
+		fireEvent.keyDown(root, {
+			keyCode: keycode.codes.home,
+		});
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
 	});
 
 	// TODO: fix this test
-	xit('should select last item on end keydown', () => {
+	it('should select last item on end keydown', () => {
 		// given
 		const onSelect = jest.fn();
 		render(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		fireEvent.keyDown(document.querySelector('#my-tabs'), {
-			key: 'End',
-			code: 'End',
-			which: keycode.codes.end,
+		const root = document.querySelector('#my-tabs > div');
+		fireEvent.keyDown(root, {
+			keyCode: keycode.codes.end,
 		});
 
 		// then
