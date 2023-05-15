@@ -1,5 +1,4 @@
-import { shallow } from 'enzyme';
-
+import { render } from '@testing-library/react';
 import Resource from './Resource.component';
 
 jest.mock('date-fns/distance_in_words_to_now', () => () => 'over 2 years ago');
@@ -10,7 +9,7 @@ describe('Resource component snaps', () => {
 	});
 
 	describe('renderers', () => {
-		it('should render an empty Resource', () => {
+		it('should not render an empty Resource', () => {
 			const collection = [];
 			const props = {
 				parent: {
@@ -22,12 +21,11 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = shallow(<Resource {...props} />);
-
-			expect(wrapper.getElement()).toMatchSnapshot();
+			const { container } = render(<Resource {...props} />);
+			expect(container).toBeEmptyDOMElement();
 		});
 
-		it('should render a regular Resource', () => {
+		it('should render', () => {
 			const collection = [
 				{
 					id: 0,
@@ -47,9 +45,8 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = shallow(<Resource {...props} />);
-			expect(wrapper.find('.author').length).toBe(1);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			const { container } = render(<Resource {...props} />);
+			expect(container.firstChild).toMatchSnapshot();
 		});
 
 		it('should render a Resource with just a title/subtitle/flags', () => {
@@ -71,10 +68,10 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = shallow(<Resource {...props} />);
-			expect(wrapper.find('.author').length).toBe(0);
-			expect(wrapper.find('.subtitle').length).toBe(1);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			render(<Resource {...props} />);
+			expect(document.querySelector('.title')).toHaveTextContent('Title with few actions');
+			expect(document.querySelector('.subtitle')).toHaveTextContent('Loreum lopsum');
+			expect(document.querySelectorAll('.theme-flag')).toHaveLength(2);
 		});
 
 		it('should render a regular Resource without author information', () => {
@@ -95,9 +92,8 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = shallow(<Resource {...props} />);
-
-			expect(wrapper.find('.author').length).toBe(0);
+			render(<Resource {...props} />);
+			expect(document.querySelector('.author')).toBeNull();
 		});
 
 		it('should render a Resource without icon', () => {
@@ -119,9 +115,8 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = shallow(<Resource {...props} />);
-
-			expect(wrapper.getElement()).toMatchSnapshot();
+			render(<Resource {...props} />);
+			expect(document.querySelector('.theme-icon')).toBeNull();
 		});
 
 		it('should render a Resource with CERTIFIED flag', () => {
@@ -145,9 +140,8 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = shallow(<Resource {...props} />);
-
-			expect(wrapper.getElement()).toMatchSnapshot();
+			render(<Resource {...props} />);
+			expect(document.querySelectorAll('.theme-flag[name="talend-badge"]')).toHaveLength(1);
 		});
 
 		it('should render a Resource with FAVORITE flag', () => {
@@ -171,9 +165,8 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = shallow(<Resource {...props} />);
-
-			expect(wrapper.getElement()).toMatchSnapshot();
+			render(<Resource {...props} />);
+			expect(document.querySelectorAll('.theme-flag[name="talend-star"]')).toHaveLength(1);
 		});
 
 		it('should render a Resource with both CERTIFIED and FAVORITE flags', () => {
@@ -197,9 +190,9 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = shallow(<Resource {...props} />);
-
-			expect(wrapper.getElement()).toMatchSnapshot();
+			render(<Resource {...props} />);
+			expect(document.querySelectorAll('.theme-flag[name="talend-badge"]')).toHaveLength(1);
+			expect(document.querySelectorAll('.theme-flag[name="talend-star"]')).toHaveLength(1);
 		});
 	});
 });

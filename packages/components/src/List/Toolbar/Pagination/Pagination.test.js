@@ -1,5 +1,5 @@
-import { mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Pagination from './Pagination.component';
 
 const props = {
@@ -10,39 +10,41 @@ const props = {
 	onChange: jest.fn(),
 };
 
+jest.unmock('@talend/design-system');
+
 describe('Pagination', () => {
 	it('should navigate to first page', () => {
 		// given
-		const instance = mount(<Pagination {...props} />);
+		render(<Pagination {...props} />);
 		// when
-		instance.find('a#pagination-nav-to-first').simulate('click');
+		userEvent.click(screen.getByLabelText('Go to first page.'));
 		// then
 		expect(props.onChange).toBeCalledWith(1, 5);
 	});
 
 	it('should navigate to previous page', () => {
 		// given
-		const instance = mount(<Pagination {...props} />);
+		render(<Pagination {...props} />);
 		// when
-		instance.find('a#pagination-nav-to-prev').simulate('click');
+		userEvent.click(screen.getByLabelText('Go to previous page. Current page: 3.'));
 		// then
 		expect(props.onChange).toBeCalledWith(6, 5);
 	});
 
 	it('should navigate to next page', () => {
 		// given
-		const instance = mount(<Pagination {...props} />);
+		render(<Pagination {...props} />);
 		// when
-		instance.find('a#pagination-nav-to-next').simulate('click');
+		userEvent.click(screen.getByLabelText('Go to next page. Current page: 3.'));
 		// then
 		expect(props.onChange).toBeCalledWith(16, 5);
 	});
 
 	it('should navigate to last page', () => {
 		// given
-		const instance = mount(<Pagination {...props} />);
+		render(<Pagination {...props} />);
 		// when
-		instance.find('a#pagination-nav-to-last').simulate('click');
+		userEvent.click(screen.getByLabelText('Go to last page.'));
 		// then
 		expect(props.onChange).toBeCalledWith(21, 5);
 	});

@@ -2,127 +2,114 @@
 
 exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = `
 <div
-  className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
+  class="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
 >
-  <FilterBar
-    autoFocus={true}
-    className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
-    disabled={false}
-    dockable={false}
-    docked={true}
-    navbar={true}
-  />
-  <withI18nextTranslation(SortOptions)
-    orders={
-      {
-        "date": "desc",
-        "name": "desc",
-      }
-    }
-    t={[Function]}
-    types={
-      [
-        "name",
-        "date",
-      ]
-    }
-  />
-  <withI18nextTranslation(StateFilter)
-    t={[Function]}
-    types={
-      [
-        "selection",
-        "favorites",
-        "certified",
-      ]
-    }
-  />
-</div>
-`;
-
-exports[`Toolbar component snaps should render Toolbar without name widget 1`] = `
-<div
-  className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
->
-  <withI18nextTranslation(SortOptions)
-    orders={
-      {
-        "date": "desc",
-        "name": "desc",
-      }
-    }
-    t={[Function]}
-    types={
-      [
-        "name",
-        "date",
-      ]
-    }
-  />
-  <withI18nextTranslation(StateFilter)
-    t={[Function]}
-    types={
-      [
-        "selection",
-        "favorites",
-        "certified",
-      ]
-    }
-  />
-</div>
-`;
-
-exports[`Toolbar component snaps should render Toolbar without sort widgets 1`] = `
-<div
-  className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
->
-  <FilterBar
-    autoFocus={true}
-    className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
-    disabled={false}
-    dockable={false}
-    docked={true}
-    navbar={true}
-  />
-  <withI18nextTranslation(StateFilter)
-    t={[Function]}
-    types={
-      [
-        "selection",
-        "favorites",
-        "certified",
-      ]
-    }
-  />
-</div>
-`;
-
-exports[`Toolbar component snaps should render Toolbar without state widgets 1`] = `
-<div
-  className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
->
-  <FilterBar
-    autoFocus={true}
-    className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
-    disabled={false}
-    dockable={false}
-    docked={true}
-    navbar={true}
-  />
-  <withI18nextTranslation(SortOptions)
-    orders={
-      {
-        "date": "desc",
-        "name": "desc",
-      }
-    }
-    t={[Function]}
-    types={
-      [
-        "name",
-        "date",
-      ]
-    }
-  />
+  <form
+    class="theme-filter tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter theme-navbar"
+    role="search"
+  >
+    <div
+      class="form-group"
+    >
+      <span
+        class="CoralIcon theme-search-icon theme-search-focused"
+        name="talend-search"
+      />
+      <input
+        aria-label="Filter"
+        autocomplete="off"
+        class="theme-search form-control"
+        name="search"
+        placeholder="Filter"
+        role="searchbox"
+        type="search"
+        value=""
+      />
+    </div>
+  </form>
+  <div
+    class="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
+  >
+    <span
+      class="theme-option-label"
+    >
+      Sort:
+    </span>
+    <button
+      aria-describedby="42"
+      aria-label="Sort by name (current order: desc)"
+      class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn btn-link"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-sort-az"
+      />
+      <span
+        class="CoralIcon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator"
+        name="talend-caret-down"
+      />
+    </button>
+    <button
+      aria-describedby="42"
+      aria-label="Sort by date (current order: desc)"
+      class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn btn-link"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-sort-desc"
+      />
+      <span
+        class="CoralIcon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator"
+        name="talend-caret-down"
+      />
+    </button>
+  </div>
+  <div
+    class="tc-resource-picker-state-filters theme-tc-resource-picker-state-filters"
+  >
+    <span
+      class="theme-option-label"
+    >
+      Filter:
+    </span>
+    <button
+      aria-describedby="42"
+      aria-label="Selected"
+      aria-pressed="false"
+      class="theme-tc-resource-picker-selection-filter tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-check-circle"
+      />
+    </button>
+    <button
+      aria-describedby="42"
+      aria-label="Certified"
+      aria-pressed="false"
+      class="theme-tc-resource-picker-certified-filter tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-badge"
+      />
+    </button>
+    <button
+      aria-describedby="42"
+      aria-label="Favorites"
+      aria-pressed="false"
+      class="theme-tc-resource-picker-favorite-filter tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-star"
+      />
+    </button>
+  </div>
 </div>
 `;

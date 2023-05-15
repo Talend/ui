@@ -1,83 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table should render Table with props data as an array 1`] = `
-<table
-  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
-  id="my-viewer"
->
-  <caption
-    className="sr-only"
-  >
-    my-viewer
-  </caption>
-  <thead>
-    <tr>
-      <th
-        id="my-viewer-field1"
-      >
-        field1
-      </th>
-      <th
-        id="my-viewer-field0"
-      >
-        field0
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td
-        headers="my-viewer-field1"
-      >
-        <TreeGesture(JSONLike)
-          id="my-viewer"
-          jsonpath="$[0]['field1']"
-          nativeValueClassName="theme-nativevalue"
-        />
-      </td>
-      <td
-        headers="my-viewer-field0"
-      >
-        <TreeGesture(JSONLike)
-          data="header1"
-          id="my-viewer"
-          jsonpath="$[0]['field0']"
-          nativeValueClassName="theme-nativevalue"
-        />
-      </td>
-    </tr>
-    <tr>
-      <td
-        headers="my-viewer-field1"
-      >
-        <TreeGesture(JSONLike)
-          data="header2"
-          id="my-viewer"
-          jsonpath="$[1]['field1']"
-          nativeValueClassName="theme-nativevalue"
-        />
-      </td>
-      <td
-        headers="my-viewer-field0"
-      >
-        <TreeGesture(JSONLike)
-          id="my-viewer"
-          jsonpath="$[1]['field0']"
-          nativeValueClassName="theme-nativevalue"
-        />
-      </td>
-    </tr>
-  </tbody>
-</table>
-`;
-
 exports[`Table should render Table with props data as an object 1`] = `
 <table
-  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
+  class="theme-table tc-object-viewer table table-bordered table-striped table-hover"
   id="my-viewer"
 >
   <caption
-    className="sr-only"
+    class="sr-only"
   >
     my-viewer
   </caption>
@@ -90,7 +19,7 @@ exports[`Table should render Table with props data as an object 1`] = `
           field1
         </div>
         <div
-          className="text-right"
+          class="text-right"
         >
           type2
         </div>
@@ -102,7 +31,7 @@ exports[`Table should render Table with props data as an object 1`] = `
           field0
         </div>
         <div
-          className="text-right"
+          class="text-right"
         >
           type1
         </div>
@@ -114,66 +43,149 @@ exports[`Table should render Table with props data as an object 1`] = `
       <td
         headers="my-viewer-field1"
       >
-        <TreeGesture(JSONLike)
-          id="my-viewer"
-          jsonpath="$[0]['field1']"
-          nativeValueClassName="theme-nativevalue"
-        />
+        <div
+          class="tc-object-viewer theme-container"
+          data-testid="my-viewer-container"
+          id="my-viewer-container"
+        >
+          <ul
+            class="theme-tc-object-viewer-list"
+            role="tree"
+          >
+            <li
+              aria-level="1"
+              aria-posinset="1"
+              aria-setsize="1"
+              class="theme-list-item"
+              id="my-viewer-root"
+              role="treeitem"
+              tabindex="0"
+            >
+              <div
+                class="theme-line"
+              >
+                <div
+                  class="theme-line-main"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
       </td>
       <td
         headers="my-viewer-field0"
       >
-        <TreeGesture(JSONLike)
-          data="header1"
-          id="my-viewer"
-          jsonpath="$[0]['field0']"
-          nativeValueClassName="theme-nativevalue"
-        />
+        <div
+          class="tc-object-viewer theme-container"
+          data-testid="my-viewer-container"
+          id="my-viewer-container"
+        >
+          <ul
+            class="theme-tc-object-viewer-list"
+            role="tree"
+          >
+            <li
+              aria-level="1"
+              aria-posinset="1"
+              aria-setsize="1"
+              class="theme-list-item"
+              id="my-viewer-root"
+              role="treeitem"
+              tabindex="0"
+            >
+              <div
+                class="theme-line"
+              >
+                <div
+                  class="theme-line-main"
+                >
+                  <span
+                    class="theme-nativevalue theme-native theme-string"
+                  >
+                    header1
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </td>
     </tr>
     <tr>
       <td
         headers="my-viewer-field1"
       >
-        <TreeGesture(JSONLike)
-          data="header2"
-          id="my-viewer"
-          jsonpath="$[1]['field1']"
-          nativeValueClassName="theme-nativevalue"
-        />
+        <div
+          class="tc-object-viewer theme-container"
+          data-testid="my-viewer-container"
+          id="my-viewer-container"
+        >
+          <ul
+            class="theme-tc-object-viewer-list"
+            role="tree"
+          >
+            <li
+              aria-level="1"
+              aria-posinset="1"
+              aria-setsize="1"
+              class="theme-list-item"
+              id="my-viewer-root"
+              role="treeitem"
+              tabindex="0"
+            >
+              <div
+                class="theme-line"
+              >
+                <div
+                  class="theme-line-main"
+                >
+                  <span
+                    class="theme-nativevalue theme-native theme-string"
+                  >
+                    header2
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </td>
       <td
         headers="my-viewer-field0"
       >
-        <TreeGesture(JSONLike)
-          id="my-viewer"
-          jsonpath="$[1]['field0']"
-          nativeValueClassName="theme-nativevalue"
-        />
+        <div
+          class="tc-object-viewer theme-container"
+          data-testid="my-viewer-container"
+          id="my-viewer-container"
+        >
+          <ul
+            class="theme-tc-object-viewer-list"
+            role="tree"
+          >
+            <li
+              aria-level="1"
+              aria-posinset="1"
+              aria-setsize="1"
+              class="theme-list-item"
+              id="my-viewer-root"
+              role="treeitem"
+              tabindex="0"
+            >
+              <div
+                class="theme-line"
+              >
+                <div
+                  class="theme-line-main"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
       </td>
     </tr>
   </tbody>
 </table>
 `;
-
-exports[`Table should render if data is empty 1`] = `
-<table
-  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
-  id="my-viewer"
->
-  <caption
-    className="sr-only"
-  >
-    my-viewer
-  </caption>
-  <thead>
-    <tr />
-  </thead>
-  <tbody />
-</table>
-`;
-
-exports[`Table should render null if data.datas is not an array 1`] = `null`;
 
 exports[`buildContentHeaders should return a jsx array with a type 1`] = `
 [

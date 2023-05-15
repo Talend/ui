@@ -1,23 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectAllColumnsCheckbox should render by default 1`] = `
-<div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
-  <div class="checkbox tc-checkbox">
-    <label for="select-all-id-checkbox-Select-all"
-           data-feature="column-chooser.select.all.enable"
+<div
+  class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
+>
+  <div
+    class="checkbox tc-checkbox"
+  >
+    <label
+      data-feature="column-chooser.select.all.enable"
+      for="select-all-id-checkbox-Select-all"
     >
-      <input type="checkbox"
-             id="select-all-id-checkbox-Select-all"
-             data-checked="1"
-             aria-describedby="select-all-id-display all the columns"
-      >
+      <input
+        aria-describedby="select-all-id-display all the columns"
+        data-checked="1"
+        id="select-all-id-checkbox-Select-all"
+        type="checkbox"
+      />
       <span>
         Select all
       </span>
     </label>
   </div>
-  <div id="select-all-id-display all the columns"
-       class="sr-only"
+  <div
+    class="sr-only"
+    id="select-all-id-display all the columns"
   >
     display all the columns
   </div>

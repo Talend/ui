@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab #v3.5.2
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
@@ -42,7 +42,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@e9cc34b540dd3ad1b030c57fd97269e8f6ad905a #v1.4.1
+        uses: changesets/action@62a9eee638c4655e15f69233d6dbe447a8654921 #v1.4.2
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release
