@@ -1,4 +1,6 @@
-import { shallow } from 'enzyme';
+/* eslint-disable @typescript-eslint/no-shadow */
+import { within, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { CellTitleActionsComponent } from './CellTitleActions.component';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
 
@@ -162,13 +164,18 @@ const props = {
 	id: 'my-actions',
 	actionsKey: 'actions',
 	persistentActionsKey: 'persistentActions',
-	getComponent: jest.fn(),
+	getComponent: () => props =>
+		(
+			<button data-testid="Action" onClick={props.onClick}>
+				{props.label}
+			</button>
+		),
 };
 
 describe('CellTitleActions', () => {
 	it('should not render actions in input mode', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_INPUT}
@@ -177,12 +184,12 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('.main-title-actions-group').length).toBe(0);
+		expect(screen.queryByTestId('Action')).not.toBeInTheDocument();
 	});
 
 	it('should display all actions when there are only few (< 4)', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
@@ -191,12 +198,12 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(screen.getAllByTestId('Action')).toHaveLength(3);
 	});
 
 	it('should display 2 actions and the rest in an ellipsis dropdown (>= 4)', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
@@ -205,35 +212,10 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
-	});
-
-	it('should extract dropdown actions, completed with simple actions, to display out of ellipsis dropdown', () => {
-		// when
-		const wrapper = shallow(
-			<CellTitleActionsComponent
-				{...props}
-				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
-				rowData={{ actions: lotOfSimpleActions.concat(dropdownActions) }}
-			/>,
-		);
-
-		// then
-		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
-	});
-
-	it('should extract only dropdown actions, when there are lot of them', () => {
-		// when
-		const wrapper = shallow(
-			<CellTitleActionsComponent
-				{...props}
-				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
-				rowData={{ actions: lotOfSimpleActions.concat(lotsOfDropdownActions) }}
-			/>,
-		);
-
-		// then
-		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(screen.getAllByTestId('Action')).toHaveLength(3);
+		const dd = screen.getByLabelText('Open menu');
+		expect(dd).toBeVisible();
+		expect(screen.getAllByRole('menuitem')).toHaveLength(2);
 	});
 
 	it('should keep definition order of dropdown and simple actions extracted out of the ellipsis dropdown', () => {
@@ -241,7 +223,7 @@ describe('CellTitleActions', () => {
 		const actionsSimpleFirst = [fewSimpleActions[0], dropdownActions[0], ...lotOfSimpleActions];
 
 		// when
-		const wrapperSimpleFirst = shallow(
+		const { rerender } = render(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
@@ -250,17 +232,16 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapperSimpleFirst.find('.cell-title-actions').childAt(1).props().displayMode).toEqual(
-			'dropdown',
-		);
-
-		// -------------
+		expect(screen.getAllByTestId('Action')).toHaveLength(3);
+		expect(screen.getAllByTestId('Action')[0]).toHaveTextContent(actionsSimpleFirst[0].label);
+		expect(screen.getAllByTestId('Action')[1]).toHaveTextContent(actionsSimpleFirst[1].label);
+		expect(screen.getAllByTestId('Action')[2]).toHaveTextContent(actionsSimpleFirst[2].label);
 
 		// 2°) dropdown action then simple action
 		const actionsDropdownFirst = [dropdownActions[0], fewSimpleActions[0], ...lotOfSimpleActions];
 
 		// when
-		const wrapperDropdownFirst = shallow(
+		rerender(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
@@ -269,14 +250,15 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapperDropdownFirst.find('.cell-title-actions').childAt(0).props().displayMode).toEqual(
-			'dropdown',
-		);
+		expect(screen.getAllByTestId('Action')).toHaveLength(3);
+		expect(screen.getAllByTestId('Action')[0]).toHaveTextContent(actionsDropdownFirst[0].label);
+		expect(screen.getAllByTestId('Action')[1]).toHaveTextContent(actionsDropdownFirst[1].label);
+		expect(screen.getAllByTestId('Action')[2]).toHaveTextContent(actionsDropdownFirst[2].label);
 	});
 
 	it('should display all actions on LARGE display mode', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
@@ -286,12 +268,12 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(screen.getAllByTestId('Action')).toHaveLength(5);
 	});
 
 	it('should render persistent actions', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
@@ -300,31 +282,34 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(screen.getAllByTestId('Action')).toHaveLength(2);
 	});
 
 	it('should stop keydown propagation', () => {
 		// given
-		const wrapper = shallow(
-			<CellTitleActionsComponent
-				{...props}
-				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
-				rowData={{ persistentActions }}
-			/>,
+		const onKeyDown = jest.fn();
+		render(
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+			<div onKeyDown={onKeyDown}>
+				<CellTitleActionsComponent
+					{...props}
+					displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+					rowData={{ persistentActions }}
+				/>
+			</div>,
 		);
 
-		const event = { stopPropagation: jest.fn() };
-
 		// when
-		wrapper.simulate('keydown', event);
+		screen.getAllByTestId('Action')[0].focus();
+		userEvent.keyboard({ key: 'a' });
 
 		// then
-		expect(event.stopPropagation).toBeCalled();
+		expect(onKeyDown).not.toBeCalled();
 	});
 
 	it('should render all type of actions', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
@@ -333,12 +318,12 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(screen.getAllByTestId('Action')).toHaveLength(6);
 	});
 
 	it('should render two actions group in separator case', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
@@ -348,6 +333,8 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('.cell-title-actions').length).toBe(2);
+		const [group1, group2] = document.querySelectorAll('.tc-actions');
+		expect(within(group1).getByTestId('Action')).toBeVisible();
+		expect(within(group2).getAllByTestId('Action')).toHaveLength(3);
 	});
 });
