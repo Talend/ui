@@ -1,18 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CellLabel should default render a string 1`] = `
-<span id="25"
-      title="my label"
-      class="CoralTagInformation"
->
-  my label
-</span>
-`;
-
 exports[`CellLabel should default render an object 1`] = `
-<span id="25"
-      title="my label"
-      class="CoralTagInformation"
+<span
+  class="theme-tag theme-tag"
+  id="25"
+  title="my label"
 >
   my label
 </span>
