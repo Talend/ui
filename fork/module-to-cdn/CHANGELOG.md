@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.8.5
+
+### Patch Changes
+
+-   fed80967c: - UUID removed umd with version 9.0.0
+
 ## 9.8.4
 
 ### Patch Changes

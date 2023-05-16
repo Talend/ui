@@ -1,5 +1,33 @@
 # @talend/react-components
 
+## 10.3.3
+
+### Patch Changes
+
+- 52d4f2df3: test: rewrite tests using testing-library of the following components:
+
+  - ResourceList
+  - ResourcePicker
+  - Rich
+  - SidePanel
+  - Skeleton
+  - Slider
+  - SubHeaderBar
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- 85b04cc81: test(List): rewrite using RTL
+- 9719af7af: test: rewrite test using RTL of the following components:
+
+  - ObjectViewer
+  - OverlayTrigger
+  - PieChart
+  - RadarChart
+  - RatioBar
+
+- Updated dependencies [fca736c31]
+- Updated dependencies [fca736c31]
+  - @talend/icons@6.58.1
+
 ## 10.3.2
 
 ### Patch Changes
