@@ -1,5 +1,12 @@
 # @talend/icons
 
+## 6.58.1
+
+### Patch Changes
+
+- fca736c31: changed icon `group` in size `L`
+- fca736c31: changed icon `group` in size `M`
+
 ## 6.58.0
 
 ### Minor Changes

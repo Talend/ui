@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.9.0
+
+### Minor Changes
+
+- 7a9f88147: chore(TFD-15534): Add status to accordion header
+
 ## 7.8.0
 
 ### Minor Changes

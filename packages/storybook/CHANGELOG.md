@@ -1,5 +1,13 @@
 # @talend/ui-storybook
 
+## 1.1.3
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- Updated dependencies [7a9f88147]
+  - @talend/design-system@7.9.0
+
 ## 1.1.2
 
 ### Patch Changes
