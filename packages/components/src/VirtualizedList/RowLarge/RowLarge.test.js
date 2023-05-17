@@ -1,10 +1,10 @@
-import { shallow, mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import RowLarge from './RowLarge.component';
 import VirtualizedList from '..';
 import CellTitle from '../CellTitle';
 
 const titleProps = {
+	id: 'my-list',
 	actionsKey: 'titleActions',
 	displayModeKey: 'display',
 	iconKey: 'icon',
@@ -12,11 +12,13 @@ const titleProps = {
 
 const titleActions = [
 	{
+		id: 'edit',
 		label: 'edit',
 		icon: 'talend-pencil',
 		onClick: jest.fn(),
 	},
 	{
+		id: 'delete',
 		label: 'delete',
 		icon: 'talend-trash',
 		onClick: jest.fn(),
@@ -37,7 +39,6 @@ const collection = [
 		titleActions,
 	},
 ];
-var a = 'fio';
 
 const parent = {
 	props: {
@@ -45,8 +46,17 @@ const parent = {
 		collection,
 		rowGetter: index => collection[index],
 		children: [
-			<VirtualizedList.Content label="Id" dataKey="id" width={50} flexShrink={0} flexGrow={0} />,
 			<VirtualizedList.Content
+				key={1}
+				label="Id"
+				dataKey="id"
+				width={50}
+				flexShrink={0}
+				flexGrow={0}
+				columnData={{}}
+			/>,
+			<VirtualizedList.Content
+				key={2}
 				label="Name"
 				dataKey="name"
 				width={350}
@@ -56,30 +66,30 @@ const parent = {
 				{...CellTitle}
 			/>,
 			<VirtualizedList.Content
+				key={3}
 				label="Description"
 				dataKey="name"
 				width={350}
 				flexShrink={0}
 				flexGrow={0}
+				columnData={{}}
 			/>,
 		],
 	},
 };
 
 describe('RowLarge', () => {
-	const random = Math.random();
-
-	beforeAll(() => {
-		Math.random = () => 0.5;
+	beforeEach(() => {
+		jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
 	});
 
-	afterAll(() => {
-		Math.random = random;
+	afterEach(() => {
+		jest.spyOn(global.Math, 'random').mockRestore();
 	});
 
 	it('should render large row', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<RowLarge
 				className="my-class-names"
 				index={1}
@@ -89,7 +99,7 @@ describe('RowLarge', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render RandomSizeSkeleton with empty data', () => {
@@ -103,9 +113,10 @@ describe('RowLarge', () => {
 		};
 
 		// when
-		const wrapper = mount(<RowLarge className="my-class-names" index={1} parent={noDataParent} />);
+		render(<RowLarge className="my-class-names" index={1} parent={noDataParent} />);
 
 		// then 3 columns on one line
-		expect(wrapper.find('RandomSizeSkeleton').length).toBe(3);
+		expect(screen.getByRole('listitem')).toBeVisible();
+		expect(screen.getAllByLabelText('text Loading...')).toHaveLength(3);
 	});
 });

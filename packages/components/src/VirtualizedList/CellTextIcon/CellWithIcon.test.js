@@ -1,9 +1,9 @@
-import { shallow } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
 import CellWithIcon from './CellWithIcon.component';
+jest.unmock('@talend/design-system');
 
 describe('CellWithIcon', () => {
-	it('should render with icon', () => {
+	it('should render', () => {
 		// when
 		const columnData = {
 			getIcon: () => ({
@@ -13,10 +13,12 @@ describe('CellWithIcon', () => {
 			}),
 		};
 
-		const wrapper = shallow(<CellWithIcon cellData="Test label" columnData={columnData} />);
+		const { container } = render(<CellWithIcon cellData="Test label" columnData={columnData} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByText('Test label')).toBeVisible();
+		expect(screen.getByRole('link')).toHaveAttribute('aria-label', 'test');
 	});
 
 	it('should render without icon', () => {
@@ -25,9 +27,10 @@ describe('CellWithIcon', () => {
 			getIcon: () => undefined,
 		};
 
-		const wrapper = shallow(<CellWithIcon cellData="Test label 2" columnData={columnData} />);
+		render(<CellWithIcon cellData="Test label 2" columnData={columnData} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Test label 2')).toBeVisible();
+		expect(screen.queryByRole('link')).not.toBeInTheDocument();
 	});
 });

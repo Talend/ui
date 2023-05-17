@@ -1,12 +1,10 @@
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-
+import { render } from '@testing-library/react';
 import { NoRowsComponent } from './NoRows.component';
 
 describe('NoRows', () => {
 	it('should show no result', () => {
-		const wrapper = mount(<NoRowsComponent />);
+		const { container } = render(<NoRowsComponent />);
 
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
