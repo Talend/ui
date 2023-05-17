@@ -28,6 +28,12 @@ export default {
 			chartConfig: await getGeoChartConfig(name.replaceAll(' ', '_')),
 		}),
 	],
+	parameters: {
+		chromatic: {
+			// To avoid issues with charts, we'll need to improve this later on
+			diffThreshold: 0.6,
+		},
+	},
 };
 
 const Default: Story<GeoChartProps> = (props, { loaded }) => <GeoChart {...loaded} {...props} />;

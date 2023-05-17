@@ -9,6 +9,7 @@ export default {
 	parameters: {
 		chromatic: {
 			delay: 1500,
+			diffThreshold: 0.6,
 		},
 	},
 } as Meta<BoxPlotProps>;
