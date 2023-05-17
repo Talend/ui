@@ -22,8 +22,6 @@ export const DEFAULT_STATE = new Map({});
 
  */
 
-// rewrite the following react component as a function
-
 const cache = {};
 
 function ACKDispatcher(props) {
