@@ -98,37 +98,6 @@ const dropdownActions = [
 	},
 ];
 
-const lotsOfDropdownActions = dropdownActions.concat([
-	{
-		id: 'open-with-tfd',
-		displayMode: 'dropdown',
-		label: 'Open with Streams',
-		icon: 'talend-datastreams-colored',
-		items: [
-			{
-				label: 'Stream 1',
-				onClick: jest.fn(),
-			},
-			{
-				label: 'Stream 2',
-				onClick: jest.fn(),
-			},
-		],
-	},
-	{
-		id: 'open-with-tdp',
-		displayMode: 'dropdown',
-		label: 'Open with Data Preparation',
-		icon: 'talend-tdp-colored',
-		items: [
-			{
-				label: 'Prep 1',
-				onClick: jest.fn(),
-			},
-		],
-	},
-]);
-
 const persistentActions = [
 	{
 		label: 'favorite',

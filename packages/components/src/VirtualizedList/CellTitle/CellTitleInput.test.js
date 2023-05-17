@@ -1,6 +1,5 @@
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import keycode from 'keycode';
+import userEvent from '@testing-library/user-event';
+import { screen, render } from '@testing-library/react';
 
 import CellTitleInput from './CellTitleInput.component';
 
@@ -10,7 +9,7 @@ describe('CellTitleInput', () => {
 		const rowData = { id: 1 };
 
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<CellTitleInput
 				id="my-cell"
 				cellData="my value"
@@ -21,7 +20,8 @@ describe('CellTitleInput', () => {
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toHaveValue('my value');
 	});
 
 	it('should call submit callback on blur', () => {
@@ -30,7 +30,7 @@ describe('CellTitleInput', () => {
 		const onEditCancel = jest.fn();
 		const onEditSubmit = jest.fn();
 
-		const wrapper = mount(
+		render(
 			<CellTitleInput
 				id="my-cell-input"
 				cellData="my value"
@@ -41,7 +41,8 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		wrapper.find('input#my-cell-input').simulate('blur');
+		userEvent.click(screen.getByRole('textbox'));
+		screen.getByRole('textbox').blur();
 
 		// then
 		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
@@ -56,7 +57,7 @@ describe('CellTitleInput', () => {
 		const onEditCancel = jest.fn();
 		const onEditSubmit = jest.fn();
 
-		const wrapper = mount(
+		render(
 			<CellTitleInput
 				id="my-cell-input"
 				cellData="my value"
@@ -67,7 +68,8 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		wrapper.simulate('submit');
+		const form = screen.getByRole('textbox').closest('form');
+		form.submit();
 
 		// then
 		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
@@ -81,9 +83,8 @@ describe('CellTitleInput', () => {
 		const rowData = { id: 1 };
 		const onEditCancel = jest.fn();
 		const onEditSubmit = jest.fn();
-		const event = { keyCode: keycode('escape') };
 
-		const wrapper = mount(
+		render(
 			<CellTitleInput
 				id="my-cell-input"
 				cellData="my value"
@@ -94,7 +95,8 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		wrapper.find('input#my-cell-input').simulate('keyUp', event);
+		userEvent.click(screen.getByRole('textbox'));
+		userEvent.keyboard('{esc}');
 
 		// then
 		expect(onEditCancel).toBeCalledWith(expect.anything(), rowData);
