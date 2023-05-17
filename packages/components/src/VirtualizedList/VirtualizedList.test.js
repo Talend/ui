@@ -36,6 +36,7 @@ jest.mock('react-virtualized', () => {
 	// eslint-disable-next-line @typescript-eslint/no-shadow
 	return {
 		...mod,
+		// eslint-disable-next-line react/prop-types
 		AutoSizer: ({ disableHeight, children }) => (
 			<div data-testid="AutoSizer" data-disableheight={disableHeight}>
 				{children({ height: 100, width: 100 })}

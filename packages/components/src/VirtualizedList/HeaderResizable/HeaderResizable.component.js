@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -11,6 +12,7 @@ import getDefaultT from '../../translate';
 
 const theme = getTheme(headerResizableCssModule);
 
+// eslint-disable-next-line react/prop-types
 const HeaderResizableContent = ({ customRender, ...rest }) => {
 	if (customRender) {
 		return customRender;
