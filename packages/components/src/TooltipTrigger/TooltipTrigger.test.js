@@ -1,9 +1,15 @@
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-
+import { act } from 'react-dom/test-utils';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import TooltipTrigger from './TooltipTrigger.component';
 
-jest.mock('react-dom');
+jest.useFakeTimers();
+
+function runAllTimers() {
+	act(() => {
+		jest.runAllTimers();
+	});
+}
 
 describe('ActionTooltip', () => {
 	it('should render only the children', () => {
@@ -11,79 +17,63 @@ describe('ActionTooltip', () => {
 		const props = {
 			label: 'toto',
 			tooltipPlacement: 'right',
+			tooltipDelay: 10,
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<TooltipTrigger {...props}>
-				<div>Action</div>
-			</TooltipTrigger>,
+		render(
+			<div>
+				<TooltipTrigger {...props}>
+					<div>Action</div>
+				</TooltipTrigger>
+			</div>,
 		);
-
+		runAllTimers();
 		// then
-		expect(wrapper.toJSON()).toMatchSnapshot();
+		expect(screen.getByText('Action')).toBeVisible();
+		expect(screen.queryByText('toto')).not.toBeInTheDocument();
 	});
 
-	it('should render tooltip when focus the children', () => {
+	it('should render tooltip when focus the children', async () => {
 		// given
 		const props = {
 			label: 'toto',
 			tooltipPlacement: 'right',
+			tooltipDelay: 10,
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<TooltipTrigger {...props}>
-				<div>Action</div>
+				<button data-testid="children">Action</button>
 			</TooltipTrigger>,
 		);
 
-		wrapper.find('div').at(0).simulate('focus');
+		await userEvent.hover(screen.getByText('Action'));
+		runAllTimers();
 
 		// then
-		wrapper.update();
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(await screen.findByText('toto')).toBeVisible();
 	});
 
 	it('should render custom tooltip when focus the children', () => {
 		// given
 		const props = {
-			ariaLabel: 'a custom tooltip',
 			label: <div>a custom tooltip</div>,
 			tooltipPlacement: 'right',
+			tooltipDelay: 10,
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<TooltipTrigger {...props}>
-				<div>Action</div>
+				<button>Action</button>
 			</TooltipTrigger>,
 		);
-
-		wrapper.find('div').at(0).simulate('focus');
-
-		// then
-		wrapper.update();
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render tooltip when hover the children', () => {
-		// given
-		const props = {
-			label: 'toto',
-			tooltipPlacement: 'right',
-		};
-
-		// when
-		const wrapper = shallow(
-			<TooltipTrigger {...props}>
-				<div>Action</div>
-			</TooltipTrigger>,
-		);
-
-		wrapper.find('div').at(0).simulate('mouseOver');
+		screen.getByText('Action').focus();
+		runAllTimers();
 
 		// then
-		expect(wrapper.update().getElement()).toMatchSnapshot();
+		expect(screen.getByText('a custom tooltip')).toBeVisible();
 	});
 });

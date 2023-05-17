@@ -1,5 +1,5 @@
-import { mount } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import LabelToggle from './LabelToggle.component';
 
 describe('LabelToggle', () => {
@@ -21,19 +21,19 @@ describe('LabelToggle', () => {
 	});
 
 	it('should render three radio buttons', () => {
-		const wrapper = mount(<LabelToggle {...props} />);
-		expect(wrapper.find('label')).toHaveLength(3);
+		const { container } = render(<LabelToggle {...props} />);
+		expect(screen.getAllByRole('radio')).toHaveLength(3);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should be checked the "checked" value', () => {
-		const wrapper = mount(<LabelToggle {...props} />);
-		expect(wrapper.find('#test-radio-b').props().checked).toEqual(true);
-		expect(wrapper.find('label')).toHaveLength(3);
+		render(<LabelToggle {...props} />);
+		expect(screen.getByRole('radio', { name: 'B' })).toBeChecked();
 		expect(onChange).toHaveBeenCalledTimes(0);
 	});
 	it('should change the default value', () => {
-		const wrapper = mount(<LabelToggle {...props} />);
-		wrapper.find('#test-radio-c').simulate('change', { target: { checked: true } });
+		render(<LabelToggle {...props} />);
+		userEvent.click(screen.getByRole('radio', { name: 'A' }));
 		expect(onChange).toHaveBeenCalledTimes(1);
-		expect(wrapper.find('label')).toHaveLength(3);
+		expect(onChange).toHaveBeenCalledWith('a');
 	});
 });
