@@ -10,13 +10,6 @@ describe('Container ACKDispatcher', () => {
 	const dispatch = jest.fn();
 	beforeEach(() => {
 		jest.resetAllMocks();
-		// mockProcessACK = jest.spyOn(Container.prototype, 'processACK');
-		// mockDispatchAndUpdateAck = jest.spyOn(Container.prototype, 'dispatchAndUpdateAck');
-	});
-
-	afterEach(() => {
-		// mockProcessACK.mockRestore();
-		// mockDispatchAndUpdateAck.mockRestore();
 	});
 
 	it('should render nothing', () => {

@@ -4,6 +4,7 @@
 
 chore: refactor to use new Context API
 
+rewrite tests using RTL
 
 ## breaking changes:
 
