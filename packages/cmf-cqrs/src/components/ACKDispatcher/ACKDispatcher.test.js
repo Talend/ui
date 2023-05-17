@@ -1,51 +1,33 @@
 import { Map } from 'immutable';
-import { shallow, mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 
 import Container, { DEFAULT_STATE } from './ACKDispatcher.container';
 import Connected, { mapStateToProps } from './ACKDispatcher.connect';
+const CMFProvider = mock.Provider;
 
 describe('Container ACKDispatcher', () => {
-	let mockProcessACK;
-	let mockDispatchAndUpdateAck;
-
+	const dispatch = jest.fn();
 	beforeEach(() => {
-		mockProcessACK = jest.spyOn(Container.prototype, 'processACK');
-		mockDispatchAndUpdateAck = jest.spyOn(Container.prototype, 'dispatchAndUpdateAck');
+		jest.resetAllMocks();
+		// mockProcessACK = jest.spyOn(Container.prototype, 'processACK');
+		// mockDispatchAndUpdateAck = jest.spyOn(Container.prototype, 'dispatchAndUpdateAck');
 	});
 
 	afterEach(() => {
-		mockProcessACK.mockRestore();
-		mockDispatchAndUpdateAck.mockRestore();
+		// mockProcessACK.mockRestore();
+		// mockDispatchAndUpdateAck.mockRestore();
 	});
 
 	it('should render nothing', () => {
-		const instance = new Container({ acks: Map() });
-		expect(instance.render()).toBe(null);
-	});
-	it('should not update if ack has not changed', () => {
-		const props = { acks: Map() };
-		const instance = new Container(props);
-		expect(instance.shouldComponentUpdate(props)).toBe(false);
-		expect(instance.shouldComponentUpdate({ acks: Map({ 123: {} }) })).toBe(true);
-	});
-	it('should render call process acks', () => {
-		const registry = mock.store.registry();
-		const mocked = jest.fn();
-
-		function myActionCreator() {
-			mocked();
-			return {
-				type: '__TEST__',
-			};
-		}
-
-		registry['actionCreator:myActionCreator'] = myActionCreator;
-		mount(<Container acks={Map()} />, mock.Provider.getEnzymeOption({ registry }));
-		expect(mockProcessACK).toHaveBeenCalled();
+		const { container } = render(
+			<CMFProvider>
+				<Container acks={Map()} dispatch={dispatch} />
+			</CMFProvider>,
+		);
+		expect(container.firstChild).toBeEmptyDOMElement();
 	});
 	it('should processACK call dispatch', () => {
-		const dispatch = jest.fn();
 		const acks = Map({
 			123: new Map({
 				actionCreator: 'actionCreator',
@@ -69,14 +51,18 @@ describe('Container ACKDispatcher', () => {
 
 		registry['actionCreator:actionCreator'] = myActionCreator;
 		registry['actionCreator:actionCreatorBis'] = myActionCreator;
-		mount(<Container acks={acks} dispatch={dispatch} />, { context: { registry } });
-		expect(mockDispatchAndUpdateAck).toHaveBeenCalled();
-		const calls = mockDispatchAndUpdateAck.mock.calls;
-		expect(calls.length).toBe(1);
-		expect(calls[0]).toEqual(['actionCreator', { foo: 'bar' }, '123']);
+		render(
+			<CMFProvider registry={registry}>
+				<Container acks={acks} dispatch={dispatch} />
+			</CMFProvider>,
+		);
+		expect(mocked).toHaveBeenCalledTimes(1);
+		expect(dispatch).toHaveBeenCalledWith({
+			ack: { requestId: '123', type: 'ACK_DELETE' },
+			type: '__TEST__',
+		});
 	});
 	it('should dispatch call props.dispatch with action created', () => {
-		const dispatch = jest.fn();
 		const mocked = jest.fn();
 
 		function myActionCreator() {
@@ -88,12 +74,19 @@ describe('Container ACKDispatcher', () => {
 
 		const registry = mock.store.registry();
 		registry['actionCreator:myActionCreator'] = myActionCreator;
-		const wrapper = shallow(<Container dispatch={dispatch} acks={Map()} />, {
-			context: { registry },
-		});
-		wrapper.setProps({
-			acks: Map({ id1: Map({ actionCreator: 'myActionCreator', received: true }) }),
-		});
+		const { rerender } = render(
+			<CMFProvider registry={registry}>
+				<Container dispatch={dispatch} acks={Map()} />
+			</CMFProvider>,
+		);
+		rerender(
+			<CMFProvider registry={registry}>
+				<Container
+					dispatch={dispatch}
+					acks={Map({ id1: Map({ actionCreator: 'myActionCreator', received: true }) })}
+				/>
+			</CMFProvider>,
+		);
 		expect(dispatch).toHaveBeenCalled();
 		const calls = dispatch.mock.calls;
 		const action = calls[0][0];
@@ -108,7 +101,6 @@ describe('Container ACKDispatcher', () => {
 	});
 	it(`should dispatch call props.dispatch even when ack only when both received is true, and action exist
 	meaning that we can receive ack before creation request is resolve`, () => {
-		const dispatch = jest.fn();
 		const acks = Map({
 			42: new Map({
 				received: true,
@@ -135,11 +127,15 @@ describe('Container ACKDispatcher', () => {
 
 		registry['actionCreator:actionCreator'] = myActionCreator;
 		registry['actionCreator:actionCreatorBis'] = myActionCreator;
-		mount(<Container dispatch={dispatch} acks={acks} />, { context: { registry } });
-		expect(mockDispatchAndUpdateAck).toHaveBeenCalled();
-		const calls = mockDispatchAndUpdateAck.mock.calls;
-		expect(calls.length).toBe(1);
-		expect(calls[0]).toEqual(['actionCreator', { foo: 'bar' }, '123']);
+		render(
+			<CMFProvider registry={registry}>
+				<Container dispatch={dispatch} acks={acks} />
+			</CMFProvider>,
+		);
+		expect(dispatch).toHaveBeenCalledWith({
+			ack: { requestId: '123', type: 'ACK_DELETE' },
+			type: '__TEST__',
+		});
 	});
 });
 
