@@ -1,8 +1,11 @@
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+/* eslint-disable testing-library/no-unnecessary-act */
+import { render, screen, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import { useForm, FormProvider } from 'react-hook-form';
 import TextArea from './RHFTextArea.component';
 
+jest.unmock('@talend/design-system');
 jest.mock('ally.js');
 
 /* eslint-disable-next-line react/prop-types */
@@ -22,23 +25,24 @@ describe('TextArea RHF widget', () => {
 	it('should integrate with RHF', async () => {
 		// given
 		const onSubmit = jest.fn();
-		// when
-		const wrapper = mount(
-			<FormWrapper onSubmit={onSubmit}>
-				<TextArea id="name" name="name" label="name" defaultValue="12" />
-			</FormWrapper>,
-		);
-		// then
 		await act(async () => {
-			wrapper.find('form').simulate('submit');
+			// when
+			render(
+				<FormWrapper onSubmit={onSubmit}>
+					<TextArea id="name" name="name" label="name" defaultValue="12" />
+				</FormWrapper>,
+			);
+			// then
+
+			userEvent.click(screen.getByText('Submit'));
 		});
 		expect(onSubmit.mock.calls[0][0]).toEqual({ name: '12' });
 
 		await act(async () => {
-			const textarea = wrapper.find('textarea').at(0);
-			textarea.getDOMNode().value = 'test';
-			textarea.getDOMNode().dispatchEvent(new Event('textarea'));
-			wrapper.find('form').simulate('submit');
+			userEvent.click(screen.getByRole('textbox'));
+			userEvent.clear(screen.getByRole('textbox'));
+			userEvent.keyboard('test');
+			userEvent.click(screen.getByText('Submit'));
 		});
 
 		expect(onSubmit.mock.calls[1][0]).toEqual({ name: 'test' });
@@ -47,32 +51,27 @@ describe('TextArea RHF widget', () => {
 	it('should render RHF error', async () => {
 		// given
 		const onSubmit = jest.fn();
-		// when
-		const wrapper = mount(
-			<FormWrapper onSubmit={onSubmit}>
-				<TextArea
-					id="name"
-					name="name"
-					label="name"
-					defaultValue="12"
-					required
-					rules={{
-						required: 'This should not be empty',
-					}}
-				/>
-			</FormWrapper>,
-		);
-		// then
 		await act(async () => {
-			const textarea = wrapper.find('textarea').at(0);
-			textarea.getDOMNode().value = '';
-			textarea.getDOMNode().dispatchEvent(new Event('textarea'));
-			wrapper.find('form').simulate('submit');
+			// when
+			render(
+				<FormWrapper onSubmit={onSubmit}>
+					<TextArea
+						id="name"
+						name="name"
+						label="name"
+						defaultValue="12"
+						required
+						rules={{
+							required: 'This should not be empty',
+						}}
+					/>
+				</FormWrapper>,
+			);
+			// then
+			userEvent.click(screen.getByRole('textbox'));
+			userEvent.clear(screen.getByRole('textbox'));
+			userEvent.click(screen.getByText('Submit'));
 		});
-
-		wrapper.update();
-		expect(wrapper.find('InlineMessageDestructive').at(0).props().description).toBe(
-			'This should not be empty',
-		);
+		expect(screen.getByText('This should not be empty')).toBeInTheDocument();
 	});
 });
