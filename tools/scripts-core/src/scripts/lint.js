@@ -37,8 +37,12 @@ async function lintEs(env, presetApi, options) {
 			'.eslintrc',
 		]) || path.join(configRootPath, 'index.js');
 	let args = ['--config', eslintConfigPath, '--ext', '.js,.ts,.tsx'];
-	if (options.length > 0) {
+	if (options.length === 1 && options.includes('--fix')) {
+		args.push('--fix');
+	} else if (options.length > 0) {
 		args = args.concat(options);
+		// eslint-disable-next-line no-console
+		console.log('eslint options:', args.join(' '));
 	} else {
 		args.push('./src');
 	}
@@ -73,8 +77,12 @@ async function lintStyle(env, presetApi, options) {
 			'.stylelintrc',
 		]) || path.join(configRootPath, '.stylelintrc.js');
 	let args = ['--config', stylelintConfigPath];
-	if (options.length > 0) {
+	if (options.length === 1 && options.includes('--fix')) {
+		args.push('--fix');
+	} else if (options.length > 0) {
 		args = args.concat(options);
+		// eslint-disable-next-line no-console
+		console.log('stylelint options:', args.join(' '));
 	} else {
 		args.push('./src/**/*.*css');
 	}
