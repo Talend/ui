@@ -1,6 +1,9 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import SimpleCheckBox from './SimpleCheckBox.component';
+
+jest.unmock('@talend/design-system');
 
 describe('SimpleCheckBox field', () => {
 	const schema = {
@@ -11,7 +14,7 @@ describe('SimpleCheckBox field', () => {
 
 	it('should render input', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<SimpleCheckBox
 				describedby="myForm-description myForm-error"
 				onChange={jest.fn()}
@@ -24,7 +27,7 @@ describe('SimpleCheckBox field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -35,7 +38,7 @@ describe('SimpleCheckBox field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<SimpleCheckBox
 				describedby="myForm-description myForm-error"
 				onChange={jest.fn()}
@@ -48,14 +51,14 @@ describe('SimpleCheckBox field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).toBeDisabled();
 	});
 
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = shallow(
+		render(
 			<SimpleCheckBox
 				id="myForm"
 				label="My checkbox custom label"
@@ -65,20 +68,19 @@ describe('SimpleCheckBox field', () => {
 				value
 			/>,
 		);
-		const event = { target: { checked: false } };
 
 		// when
-		wrapper.find('input').at(0).simulate('change', event);
+		userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema, value: false });
+		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: false });
 	});
 
 	it('should trigger onFinish on checkbox change', () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = shallow(
+		render(
 			<SimpleCheckBox
 				id="myForm"
 				label="My checkbox custom label"
@@ -88,20 +90,19 @@ describe('SimpleCheckBox field', () => {
 				value
 			/>,
 		);
-		const event = { target: { checked: false } };
 
 		// when
-		wrapper.find('input').at(0).simulate('change', event);
+		userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(onFinish).toBeCalledWith(event, { schema, value: false });
+		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });
 	});
 
 	describe('data-feature', () => {
 		const dataFeature = 'my.custom.feature';
 
 		it('should render checkbox with check data-feature when checkbox is unchecked', () => {
-			const wrapper = shallow(
+			render(
 				<SimpleCheckBox
 					describedby="myForm-description myForm-error"
 					onChange={jest.fn()}
@@ -114,11 +115,13 @@ describe('SimpleCheckBox field', () => {
 					}}
 				/>,
 			);
-			expect(wrapper.find(`label[data-feature="${dataFeature}.check"]`).exists()).toBeTruthy();
+			expect(
+				document.querySelector(`label[data-feature="${dataFeature}.check"]`),
+			).toBeInTheDocument();
 		});
 
 		it('should render checkbox with uncheck data-feature when checkbox is checked', () => {
-			const wrapper = shallow(
+			render(
 				<SimpleCheckBox
 					describedby="myForm-description myForm-error"
 					onChange={jest.fn()}
@@ -132,7 +135,9 @@ describe('SimpleCheckBox field', () => {
 					value
 				/>,
 			);
-			expect(wrapper.find(`label[data-feature="${dataFeature}.uncheck"]`).exists()).toBeTruthy();
+			expect(
+				document.querySelector(`label[data-feature="${dataFeature}.uncheck"]`),
+			).toBeInTheDocument();
 		});
 	});
 });

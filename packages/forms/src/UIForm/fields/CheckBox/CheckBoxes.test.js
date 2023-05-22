@@ -1,6 +1,9 @@
-import { shallow, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import CheckBoxes from './CheckBoxes.component';
+
+jest.unmock('@talend/design-system');
 
 describe('CheckBoxes field', () => {
 	const schema = {
@@ -16,10 +19,10 @@ describe('CheckBoxes field', () => {
 
 	it('should render checkboxes', () => {
 		// given
-		const values = ['foo', 'bar'];
+		const value = ['foo', 'bar'];
 
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<CheckBoxes
 				id="myForm"
 				isValid
@@ -27,17 +30,21 @@ describe('CheckBoxes field', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-				values={values}
+				value={value}
 			/>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+		expect(screen.getByRole('checkbox', { name: 'My foo title' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'My bar title' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'My lol title' })).not.toBeChecked();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render checkboxes with no values', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CheckBoxes
 				id="myForm"
 				isValid
@@ -49,7 +56,10 @@ describe('CheckBoxes field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+		expect(screen.getByRole('checkbox', { name: 'My foo title' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'My bar title' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'My lol title' })).not.toBeChecked();
 	});
 
 	it('should render disabled checkboxes', () => {
@@ -60,7 +70,7 @@ describe('CheckBoxes field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<CheckBoxes
 				id="myForm"
 				isValid
@@ -72,7 +82,10 @@ describe('CheckBoxes field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+		expect(screen.getByRole('checkbox', { name: 'My foo title' })).toBeDisabled();
+		expect(screen.getByRole('checkbox', { name: 'My bar title' })).toBeDisabled();
+		expect(screen.getByRole('checkbox', { name: 'My lol title' })).toBeDisabled();
 	});
 
 	describe('#onChange', () => {
@@ -80,7 +93,7 @@ describe('CheckBoxes field', () => {
 			// given
 			const values = ['foo', 'bar'];
 			const onChange = jest.fn();
-			const wrapper = mount(
+			render(
 				<CheckBoxes
 					id="myForm"
 					isValid
@@ -91,19 +104,21 @@ describe('CheckBoxes field', () => {
 					value={values}
 				/>,
 			);
-			const event = { target: { checked: true } };
 
 			// when
-			wrapper.find('input').at(2).simulate('change', event);
+			userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });
+			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
+				schema,
+				value: ['foo', 'bar', 'lol'],
+			});
 		});
 
 		it('should trigger callback, adding a value to undefined values', () => {
 			// given
 			const onChange = jest.fn();
-			const wrapper = mount(
+			render(
 				<CheckBoxes
 					id="myForm"
 					isValid
@@ -113,10 +128,9 @@ describe('CheckBoxes field', () => {
 					schema={schema}
 				/>,
 			);
-			const event = { target: { checked: true } };
 
 			// when
-			wrapper.find('input').at(2).simulate('change', event);
+			userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['lol'] });
@@ -126,7 +140,7 @@ describe('CheckBoxes field', () => {
 			// given
 			const values = ['foo', 'bar'];
 			const onChange = jest.fn();
-			const wrapper = mount(
+			render(
 				<CheckBoxes
 					id="myForm"
 					isValid
@@ -137,20 +151,22 @@ describe('CheckBoxes field', () => {
 					value={values}
 				/>,
 			);
-			const event = { target: { checked: false } };
 
 			// when
-			wrapper.find('input').at(0).simulate('change', event);
+			userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['bar'] });
+			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
+				schema,
+				value: ['bar'],
+			});
 		});
 
 		it('should trigger callback, removing a value to existing single value', () => {
 			// given
 			const values = ['foo'];
 			const onChange = jest.fn();
-			const wrapper = mount(
+			render(
 				<CheckBoxes
 					id="myForm"
 					isValid
@@ -161,13 +177,15 @@ describe('CheckBoxes field', () => {
 					value={values}
 				/>,
 			);
-			const event = { target: { checked: false } };
 
 			// when
-			wrapper.find('input').at(0).simulate('change', event);
+			userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: undefined });
+			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
+				schema,
+				value: undefined,
+			});
 		});
 	});
 
