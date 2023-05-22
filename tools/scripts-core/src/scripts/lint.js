@@ -39,12 +39,13 @@ async function lintEs(env, presetApi, options) {
 	let args = ['--config', eslintConfigPath, '--ext', '.js,.ts,.tsx'];
 	if (options.length === 1 && options.includes('--fix')) {
 		args.push('--fix');
-	} else if (options.length > 0) {
-		args = args.concat(options);
-		// eslint-disable-next-line no-console
-		console.log('eslint options:', args.join(' '));
-	} else {
 		args.push('./src');
+	} else {
+		if (options.length > 0) {
+			args = args.concat(options);
+		} else {
+			args.push('./src');
+		}
 	}
 
 	// https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
@@ -58,6 +59,9 @@ async function lintEs(env, presetApi, options) {
 	}
 
 	const eslint = utils.path.resolveBin('eslint');
+
+	// eslint-disable-next-line no-console
+	console.log('eslint options:', args.join(' '));
 
 	return utils.process.spawn(eslint, args, {
 		stdio: 'inherit',
@@ -77,14 +81,16 @@ async function lintStyle(env, presetApi, options) {
 			'.stylelintrc',
 		]) || path.join(configRootPath, '.stylelintrc.js');
 	let args = ['--config', stylelintConfigPath];
+
 	if (options.length === 1 && options.includes('--fix')) {
 		args.push('--fix');
-	} else if (options.length > 0) {
-		args = args.concat(options);
-		// eslint-disable-next-line no-console
-		console.log('stylelint options:', args.join(' '));
-	} else {
 		args.push('./src/**/*.*css');
+	} else {
+		if (options.length > 0) {
+			args = args.concat(options);
+		} else {
+			args.push('./src/**/*.*css');
+		}
 	}
 
 	// https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
@@ -98,6 +104,9 @@ async function lintStyle(env, presetApi, options) {
 	}
 	utils.pkg.checkPackageIsInstalled('@talend/scripts-config-stylelint');
 	const stylelint = utils.path.resolveBin('stylelint');
+
+	// eslint-disable-next-line no-console
+	console.log('stylelint options:', args.join(' '));
 
 	return utils.process.spawn(stylelint, args, {
 		stdio: 'inherit',
