@@ -78,7 +78,7 @@ describe('SingleButton field', () => {
 		expect(screen.getByRole('button')).toBeDisabled();
 	});
 
-	it('should call trigger on button click', () => {
+	it('should call trigger on button click', async () => {
 		// given
 		const triggerSchema = {
 			...schema,
@@ -88,7 +88,7 @@ describe('SingleButton field', () => {
 		render(<SingleButton id="myForm" onTrigger={onTrigger} schema={triggerSchema} />);
 
 		// when
-		userEvent.click(screen.getByRole('button'));
+		await userEvent.click(screen.getByRole('button'));
 
 		// then
 		expect(onTrigger).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {

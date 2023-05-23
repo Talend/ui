@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { render, screen, act } from '@testing-library/react';
+import { render, screen, act, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useForm, FormProvider } from 'react-hook-form';
 import Input from './RHFInput.component';
@@ -32,8 +32,8 @@ describe('Input RHF widget', () => {
 				</FormWrapper>,
 			);
 			const input = screen.getByLabelText('name');
-			await userEvent.click(input);
-			await userEvent.keyboard('{Enter}');
+			fireEvent.click(input);
+			fireEvent.submit(input.form);
 		});
 
 		// then

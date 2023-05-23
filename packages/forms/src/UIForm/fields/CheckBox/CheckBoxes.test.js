@@ -89,7 +89,7 @@ describe('CheckBoxes field', () => {
 	});
 
 	describe('#onChange', () => {
-		it('should trigger callback, adding a value to existing values', () => {
+		it('should trigger callback, adding a value to existing values', async () => {
 			// given
 			const values = ['foo', 'bar'];
 			const onChange = jest.fn();
@@ -106,7 +106,7 @@ describe('CheckBoxes field', () => {
 			);
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
@@ -115,7 +115,7 @@ describe('CheckBoxes field', () => {
 			});
 		});
 
-		it('should trigger callback, adding a value to undefined values', () => {
+		it('should trigger callback, adding a value to undefined values', async () => {
 			// given
 			const onChange = jest.fn();
 			render(
@@ -130,13 +130,13 @@ describe('CheckBoxes field', () => {
 			);
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['lol'] });
 		});
 
-		it('should trigger callback, removing a value to existing multi values', () => {
+		it('should trigger callback, removing a value to existing multi values', async () => {
 			// given
 			const values = ['foo', 'bar'];
 			const onChange = jest.fn();
@@ -153,7 +153,7 @@ describe('CheckBoxes field', () => {
 			);
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
@@ -162,7 +162,7 @@ describe('CheckBoxes field', () => {
 			});
 		});
 
-		it('should trigger callback, removing a value to existing single value', () => {
+		it('should trigger callback, removing a value to existing single value', async () => {
 			// given
 			const values = ['foo'];
 			const onChange = jest.fn();
@@ -179,7 +179,7 @@ describe('CheckBoxes field', () => {
 			);
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
@@ -189,11 +189,11 @@ describe('CheckBoxes field', () => {
 		});
 	});
 
-	it('should trigger onFinish on checkbox change', () => {
+	it('should trigger onFinish on checkbox change', async () => {
 		// given
 		const values = ['foo', 'bar'];
 		const onFinish = jest.fn();
-		const wrapper = mount(
+		render(
 			<CheckBoxes
 				id="myForm"
 				isValid
@@ -204,10 +204,10 @@ describe('CheckBoxes field', () => {
 				value={values}
 			/>,
 		);
-		const event = { target: { checked: true } };
+		// const event = { target: { checked: true } };
 
 		// when
-		wrapper.find('input').at(2).simulate('change', event);
+		await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
 
 		// then
 		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });

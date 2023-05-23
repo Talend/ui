@@ -1,6 +1,5 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { render, screen, act } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, act, fireEvent } from '@testing-library/react';
 
 import { useForm, FormProvider } from 'react-hook-form';
 import TextArea from './RHFTextArea.component';
@@ -20,6 +19,7 @@ function FormWrapper({ children, onSubmit }) {
 		</form>
 	);
 }
+jest.useFakeTimers();
 
 describe('TextArea RHF widget', () => {
 	it('should integrate with RHF', async () => {
@@ -32,17 +32,16 @@ describe('TextArea RHF widget', () => {
 					<TextArea id="name" name="name" label="name" defaultValue="12" />
 				</FormWrapper>,
 			);
-			// then
-
-			userEvent.click(screen.getByText('Submit'));
+			fireEvent.click(screen.getByText('Submit'));
+			jest.runAllTimers();
 		});
+		// then
 		expect(onSubmit.mock.calls[0][0]).toEqual({ name: '12' });
 
 		await act(async () => {
-			userEvent.click(screen.getByRole('textbox'));
-			userEvent.clear(screen.getByRole('textbox'));
-			userEvent.keyboard('test');
-			userEvent.click(screen.getByText('Submit'));
+			fireEvent.change(screen.getByRole('textbox'), { target: { value: 'test' } });
+			fireEvent.click(screen.getByText('Submit'));
+			jest.runAllTimers();
 		});
 
 		expect(onSubmit.mock.calls[1][0]).toEqual({ name: 'test' });
@@ -52,7 +51,6 @@ describe('TextArea RHF widget', () => {
 		// given
 		const onSubmit = jest.fn();
 		await act(async () => {
-			// when
 			render(
 				<FormWrapper onSubmit={onSubmit}>
 					<TextArea
@@ -67,11 +65,12 @@ describe('TextArea RHF widget', () => {
 					/>
 				</FormWrapper>,
 			);
-			// then
-			userEvent.click(screen.getByRole('textbox'));
-			userEvent.clear(screen.getByRole('textbox'));
-			userEvent.click(screen.getByText('Submit'));
+			// fireEvent.click(screen.getByRole('textbox'));
+			fireEvent.change(screen.getByRole('textbox'), { target: { value: '' } });
+			fireEvent.click(screen.getByText('Submit'));
+			jest.runAllTimers();
 		});
+
 		expect(screen.getByText('This should not be empty')).toBeInTheDocument();
 	});
 });

@@ -55,7 +55,7 @@ describe('CheckBox field', () => {
 		expect(screen.getByRole('checkbox')).toBeDisabled();
 	});
 
-	it('should trigger onChange and onFinish on click', () => {
+	it('should trigger onChange and onFinish on click', async () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
@@ -72,7 +72,7 @@ describe('CheckBox field', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('checkbox'));
+		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: false });

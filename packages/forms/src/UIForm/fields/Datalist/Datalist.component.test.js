@@ -1,6 +1,14 @@
+/* eslint-disable testing-library/no-unnecessary-act */
 import { shallow } from 'enzyme';
+import { render, screen, fireEvent, act } from '@testing-library/react';
+import userEventLib from '@testing-library/user-event';
+
 import DatalistComponent from '@talend/react-components/lib/Datalist';
 import Datalist from './Datalist.component';
+
+jest.mock('ally.js');
+jest.unmock('@talend/design-system');
+const userEvent = userEventLib.setup();
 
 const schema = {
 	autoFocus: true,
@@ -23,14 +31,7 @@ const schema = {
 };
 
 const schemaMultiSection = {
-	autoFocus: true,
-	description: 'This is my datalist',
-	disabled: false,
-	placeholder: 'Type here',
-	readOnly: false,
-	required: true,
-	restricted: true,
-	title: 'My List',
+	...schema,
 	options: {
 		isMultiSection: true,
 		titleMap: [
@@ -60,7 +61,7 @@ const schemaMultiSection = {
 describe('Datalist component', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<Datalist
 				id="my-datalist"
 				isValid
@@ -74,18 +75,20 @@ describe('Datalist component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should render with multisection', () => {
+	it('should render with multisection', async () => {
 		// when
-		const wrapper = shallow(
+		const onChange = jest.fn();
+		const onFinish = jest.fn();
+		render(
 			<Datalist
 				id="my-datalist"
 				isValid
 				errorMessage="This should be correct"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
+				onChange={onChange}
+				onFinish={onFinish}
 				onTrigger={jest.fn()}
 				schema={schemaMultiSection}
 				value="foo"
@@ -93,12 +96,18 @@ describe('Datalist component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const options = screen.getAllByRole('option');
+		expect(options).toHaveLength(4);
+		expect(options[0]).toHaveTextContent('Foo2');
+		expect(options[1]).toHaveTextContent('Lol');
+		expect(options[2]).toHaveTextContent('Foo');
+		expect(options[3]).toHaveTextContent('Bar');
 	});
 
 	describe('onChange', () => {
-		it('should call props.onChange && props.onFinish', () => {
+		it('should call props.onChange && props.onFinish', async () => {
 			// when
+			jest.useFakeTimers();
 			const props = {
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
@@ -110,17 +119,22 @@ describe('Datalist component', () => {
 					},
 				},
 			};
-			const wrapper = shallow(<Datalist {...props} />);
-			const selectedValue = { label: 'Bar', value: 'bar' };
-			const event = { type: 'change' };
-			wrapper.instance().onChange(event, selectedValue);
+			render(<Datalist {...props} />);
+			const input = screen.getByRole('textbox');
+			fireEvent.focus(input);
+			fireEvent.change(input, { target: { value: 'bar' } });
+			fireEvent.blur(input);
+			act(() => {
+				jest.runAllTimers(); // focus manager
+			});
 
 			// then
-			expect(props.onChange).toHaveBeenCalledWith(event, {
+			const selectedValue = { value: 'bar' };
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 				schema: props.schema,
 				...selectedValue,
 			});
-			expect(props.onFinish).toHaveBeenCalledWith(event, {
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), {
 				schema: props.schema,
 				...selectedValue,
 			});
