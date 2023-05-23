@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",
+    "@talend/scripts-utils": "^2.0.2",
     "@talend/eslint-plugin": "^1.0.1",
     "@typescript-eslint/parser": "^5.50.0",
     "@typescript-eslint/eslint-plugin": "^5.50.0",

@@ -12,7 +12,7 @@ const config = JSON.parse(content);
 
 if (isTS) {
 	delete config.parserOptions;
-	const TO_REMOVE = ['plugin:import/recommended'];
+	const TO_REMOVE = ['airbnb-base', 'plugin:import/recommended'];
 	Object.assign(config, {
 		parser: '@typescript-eslint/parser',
 		extends: config.extends
