@@ -54,13 +54,14 @@ describe('SimpleCheckBox field', () => {
 		expect(screen.getByRole('checkbox')).toBeDisabled();
 	});
 
-	it('should trigger onChange', () => {
+	it('should trigger onChange', async () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
 		render(
 			<SimpleCheckBox
 				id="myForm"
+				describedby="myForm-description myForm-error"
 				label="My checkbox custom label"
 				onChange={onChange}
 				onFinish={onFinish}
@@ -70,18 +71,19 @@ describe('SimpleCheckBox field', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('checkbox'));
+		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: false });
 	});
 
-	it('should trigger onFinish on checkbox change', () => {
+	it('should trigger onFinish on checkbox change', async () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
 		render(
 			<SimpleCheckBox
+				describedby="myForm-description myForm-error"
 				id="myForm"
 				label="My checkbox custom label"
 				onChange={onChange}
@@ -92,7 +94,7 @@ describe('SimpleCheckBox field', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('checkbox'));
+		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
 		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });

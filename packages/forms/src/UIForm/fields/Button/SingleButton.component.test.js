@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import SingleButton from './SingleButton.component';
 
+jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('SingleButton field', () => {
