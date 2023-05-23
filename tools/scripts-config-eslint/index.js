@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const utils = require('@talend/scripts-utils');
+
 const cwd = process.cwd();
 const isTS = utils.fs.tsConfig();
 const commentsRegex = /\/\/.*/g;
