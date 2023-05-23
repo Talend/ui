@@ -17,6 +17,7 @@ export default function DateTimeWidget(props) {
 
 	function onDateTimeChange(event, { errorMessage: nextErrorMessage, datetime, textInput }) {
 		setState({ errorMessage: nextErrorMessage });
+		console.log('onDateTimeChange', datetime);
 		let result = datetime;
 		if (!nextErrorMessage && datetime) {
 			result = convertDate(datetime, textInput, props.schema.schema);

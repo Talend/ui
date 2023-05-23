@@ -1,5 +1,10 @@
 import { shallow } from 'enzyme';
+import { screen, render, fireEvent, act } from '@testing-library/react';
+
 import File, { FileWidget, base64Decode } from './File.component';
+
+jest.mock('ally.js');
+jest.unmock('@talend/design-system');
 
 describe('File field', () => {
 	const schema = {
@@ -42,13 +47,15 @@ describe('File field', () => {
 			],
 		},
 	};
-
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 	it('should render default File', () => {
 		// when
-		const wrapper = shallow(<File {...props} />);
+		const { container } = render(<File {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render File with data', () => {
@@ -59,10 +66,11 @@ describe('File field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<File {...valuedProps} />);
+		render(<File {...valuedProps} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const textInput = screen.getByRole('textbox');
+		expect(textInput).toHaveValue('test.xml');
 	});
 
 	it('should render File with pre-signed url related trigger', () => {
@@ -73,16 +81,17 @@ describe('File field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<File {...valuedProps} />);
+		render(<File {...valuedProps} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toHaveValue('6.avro');
 	});
 
-	it('should trigger onChange when user select file', () => {
+	it('should trigger onChange when user select file', async () => {
 		// given
-		const wrapper = shallow(<File {...props} />);
-		expect(props.onChange).not.toBeCalled();
+		jest.useFakeTimers();
+		render(<File {...props} />);
+
 		const testContent = { test: 'content' };
 		const blob = new Blob([JSON.stringify(testContent, null, 2)], {
 			type: 'application/json',
@@ -98,14 +107,18 @@ describe('File field', () => {
 		const value = 'data:application/json;name=;base64,ewogICJ0ZXN0IjogImNvbnRlbnQiCn0=';
 
 		// when
-		const fileInput = wrapper.find('input[type="file"]');
-		fileInput.simulate('change', event);
+		const fileInput = document.querySelector('input[type="file"]');
+		fireEvent.change(fileInput, event);
+		await act(async () => {
+			jest.runAllTimers();
+		});
+		jest.useRealTimers();
 
 		// then
 		// Loading a file is asynchronous, so wait for the file to be loaded
-		setTimeout(() => {
-			expect(props.onChange).toHaveBeenCalledWith(event, { schema, value });
-		}, 500);
+		// setTimeout(() => {
+		expect(props.onChange).toHaveBeenCalledWith(event, { schema, value });
+		// }, 500);
 	});
 
 	it('should trigger pre-signed url related onChange when user select file', () => {
