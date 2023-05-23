@@ -12,7 +12,7 @@
     "build-storybook": "talend-scripts build-storybook",
     "pre-release": "yarn build:dev && yarn build:prod && yarn build:ace",
     "build:lib": "talend-scripts build",
-    "test": "talend-scripts test",
+    "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",

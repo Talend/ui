@@ -1,29 +1,824 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Date widget should render date picker 1`] = `
-<FieldTemplate
-  description="my date picker"
-  descriptionId="myForm-description"
-  errorId="myForm-error"
-  errorMessage="My error message"
-  id="myForm"
-  isValid={false}
-  label="My date title"
-  required={true}
+<div
+  class="form-group theme-template has-error required"
 >
-  <InputDatePicker
-    aria-describedby="myForm-description myForm-error"
-    aria-invalid={true}
-    aria-required={true}
-    autoFocus={true}
-    dateFormat="YYYY-MM-DD"
-    id="myForm"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="Type your date here"
-    required={true}
-    useUTC={false}
-    value="15/02/2018 23:55:32"
-  />
-</FieldTemplate>
+  <label
+    class="control-label"
+    for="myForm"
+  >
+    My date title
+  </label>
+  <div
+    class="theme-date-picker date-picker"
+    tabindex="-1"
+  >
+    <input
+      aria-describedby="myForm-description myForm-error"
+      aria-invalid="true"
+      aria-required="true"
+      autocomplete="off"
+      class="form-control"
+      id="myForm-input"
+      placeholder="Type your date here"
+      style="width: 5px;"
+      type="text"
+      value="15/02/2018 23:55:32"
+    />
+    <span
+      data-testid="InputSizer"
+      style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
+    >
+      DD/MM/YYYY
+    </span>
+    <div
+      class="theme-popper"
+      id="date-picker-myForm"
+      role="button"
+      style="position: fixed; left: 0px; top: 0px;"
+    >
+      <div
+        aria-label="Date picker"
+        class="theme-container"
+        tabindex="-1"
+      >
+        <div
+          class="theme-container"
+        >
+          <div
+            class="theme-header"
+          >
+            <div
+              class="theme-element-container theme-left"
+            >
+              <button
+                aria-describedby="id-42"
+                aria-label="Go to previous month"
+                class="theme-clickable theme-buttonIcon theme-size_S"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                  class="theme-buttonIcon__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1.6rem; height: 1.6rem;"
+                  >
+                    <use
+                      xlink:href="#arrow-left:M"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div
+              class="theme-element-container theme-middle"
+            >
+              <button
+                aria-label="Switch to month-and-year view"
+                class="theme-common theme-button btn-tertiary btn-info btn btn-default"
+                tabindex="-1"
+                type="button"
+              >
+                <span>
+                  May 2023
+                </span>
+              </button>
+            </div>
+            <div
+              class="theme-element-container theme-right"
+            >
+              <button
+                aria-describedby="id-42"
+                aria-label="Go to next month"
+                class="theme-clickable theme-buttonIcon theme-size_S"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                  class="theme-buttonIcon__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1.6rem; height: 1.6rem;"
+                  >
+                    <use
+                      xlink:href="#arrow-right:M"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div
+            class="theme-element-container theme-body"
+          >
+            <div
+              class="theme-body"
+            >
+              <div
+                class="theme-date"
+              >
+                <div>
+                  <table
+                    class="theme-container"
+                  >
+                    <caption
+                      class="sr-only"
+                    >
+                      May 2023
+                    </caption>
+                    <thead>
+                      <tr
+                        class="theme-calendar-header"
+                      >
+                        <th
+                          scope="col"
+                        >
+                          <abbr
+                            title="Monday"
+                          >
+                            M
+                          </abbr>
+                        </th>
+                        <th
+                          scope="col"
+                        >
+                          <abbr
+                            title="Tuesday"
+                          >
+                            T
+                          </abbr>
+                        </th>
+                        <th
+                          scope="col"
+                        >
+                          <abbr
+                            title="Wednesday"
+                          >
+                            W
+                          </abbr>
+                        </th>
+                        <th
+                          scope="col"
+                        >
+                          <abbr
+                            title="Thursday"
+                          >
+                            T
+                          </abbr>
+                        </th>
+                        <th
+                          scope="col"
+                        >
+                          <abbr
+                            title="Friday"
+                          >
+                            F
+                          </abbr>
+                        </th>
+                        <th
+                          scope="col"
+                        >
+                          <abbr
+                            title="Saturday"
+                          >
+                            S
+                          </abbr>
+                        </th>
+                        <th
+                          scope="col"
+                        >
+                          <abbr
+                            title="Sunday"
+                          >
+                            S
+                          </abbr>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        class="theme-calendar-row tc-date-picker-calendar-row"
+                      >
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Monday 01 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="1"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            1
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Tuesday 02 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="2"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            2
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Wednesday 03 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="3"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            3
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Thursday 04 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="4"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            4
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Friday 05 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="5"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            5
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Saturday 06 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="6"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            6
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Sunday 07 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="7"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            7
+                          </button>
+                        </td>
+                      </tr>
+                      <tr
+                        class="theme-calendar-row tc-date-picker-calendar-row"
+                      >
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Monday 08 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="8"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            8
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Tuesday 09 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="9"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            9
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Wednesday 10 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="10"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            10
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Thursday 11 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="11"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            11
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Friday 12 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="12"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            12
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Saturday 13 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="13"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            13
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Sunday 14 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="14"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            14
+                          </button>
+                        </td>
+                      </tr>
+                      <tr
+                        class="theme-calendar-row tc-date-picker-calendar-row"
+                      >
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Monday 15 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="15"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            15
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Tuesday 16 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="16"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            16
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Wednesday 17 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="17"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            17
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Thursday 18 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="18"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            18
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Friday 19 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="19"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            19
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Saturday 20 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="20"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            20
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Sunday 21 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="21"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            21
+                          </button>
+                        </td>
+                      </tr>
+                      <tr
+                        class="theme-calendar-row tc-date-picker-calendar-row"
+                      >
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Monday 22 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="22"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            22
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Today, Tuesday 23 May 2023"
+                            class="theme-calendar-day theme-today tc-date-picker-day btn-tertiary btn-default"
+                            data-value="23"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            23
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Wednesday 24 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="24"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            24
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Thursday 25 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="25"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            25
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Friday 26 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="26"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            26
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Saturday 27 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="27"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            27
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Sunday 28 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="28"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            28
+                          </button>
+                        </td>
+                      </tr>
+                      <tr
+                        class="theme-calendar-row tc-date-picker-calendar-row"
+                      >
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Monday 29 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="29"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            29
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Tuesday 30 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="30"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            30
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Wednesday 31 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            data-value="31"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            31
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Thursday 01 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            1
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Friday 02 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            2
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Saturday 03 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            3
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Sunday 04 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            4
+                          </button>
+                        </td>
+                      </tr>
+                      <tr
+                        class="theme-calendar-row tc-date-picker-calendar-row"
+                      >
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Monday 05 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            5
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Tuesday 06 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            6
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Wednesday 07 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            7
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Thursday 08 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            8
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Friday 09 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            9
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Saturday 10 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            10
+                          </button>
+                        </td>
+                        <td
+                          class="theme-calendar-col"
+                        >
+                          <button
+                            aria-label="Sunday 11 June 2023"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            11
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="theme-footer theme-date-padding"
+        >
+          <button
+            aria-label="Pick Today"
+            class="btn-tertiary btn-info btn btn-default"
+            tabindex="-1"
+            type="button"
+          >
+            <span>
+              Today
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessageError"
+      id="myForm-error"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-destructive__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#square-cross:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          My error message
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;
