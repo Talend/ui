@@ -40,12 +40,10 @@ async function lintEs(env, presetApi, options) {
 	if (options.length === 1 && options.includes('--fix')) {
 		args.push('--fix');
 		args.push('./src');
+	} else if (options.length > 0) {
+		args = args.concat(options);
 	} else {
-		if (options.length > 0) {
-			args = args.concat(options);
-		} else {
-			args.push('./src');
-		}
+		args.push('./src');
 	}
 
 	// https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
@@ -85,12 +83,10 @@ async function lintStyle(env, presetApi, options) {
 	if (options.length === 1 && options.includes('--fix')) {
 		args.push('--fix');
 		args.push('./src/**/*.*css');
+	} else if (options.length > 0) {
+		args = args.concat(options);
 	} else {
-		if (options.length > 0) {
-			args = args.concat(options);
-		} else {
-			args.push('./src/**/*.*css');
-		}
+		args.push('./src/**/*.*css');
 	}
 
 	// https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
@@ -132,7 +128,8 @@ export default async function lint(env, presetApi, options) {
 			console.error(e);
 		}
 	}
-	let hasStyle = await utils.glob.globMatch('./src/**/*.*css');
+	const hasStyle = await utils.glob.globMatch('./src/**/*.*css');
+
 	if (
 		smartOpts.css.length !== 0 ||
 		(smartOpts.js.length === 0 && smartOpts.css.length === 0 && hasStyle)
