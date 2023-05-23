@@ -27,7 +27,7 @@ const cookieElementRegexp = new RegExp(/(.*)=(.*)/);
  * retrieve the cookie from the document
  */
 export function getCookie(): string {
-	if (document.cookie) {
+	if (typeof window === 'object' && document.cookie) {
 		return document.cookie;
 	}
 	return '';
