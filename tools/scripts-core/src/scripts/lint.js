@@ -58,9 +58,6 @@ async function lintEs(env, presetApi, options) {
 
 	const eslint = utils.path.resolveBin('eslint');
 
-	// eslint-disable-next-line no-console
-	console.log('eslint options:', args.join(' '));
-
 	return utils.process.spawn(eslint, args, {
 		stdio: 'inherit',
 		env,
@@ -100,9 +97,6 @@ async function lintStyle(env, presetApi, options) {
 	}
 	utils.pkg.checkPackageIsInstalled('@talend/scripts-config-stylelint');
 	const stylelint = utils.path.resolveBin('stylelint');
-
-	// eslint-disable-next-line no-console
-	console.log('stylelint options:', args.join(' '));
 
 	return utils.process.spawn(stylelint, args, {
 		stdio: 'inherit',
