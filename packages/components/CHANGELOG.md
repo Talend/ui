@@ -1,5 +1,22 @@
 # @talend/react-components
 
+## 10.3.4
+
+### Patch Changes
+
+- b99957a47: test: rewrite all tests using react-testing-library
+- 0ccc2592e: test: rewrite using react testing-library the following components:
+
+  - TabBar
+  - Tag
+  - Toggle
+  - TooltipTrigger
+  - TreeView
+  - Typeahead
+  - withDrawer
+
+  Rewrite theme utility in Typescript
+
 ## 10.3.3
 
 ### Patch Changes
