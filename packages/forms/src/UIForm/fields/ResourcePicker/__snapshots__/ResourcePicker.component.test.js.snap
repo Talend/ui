@@ -1,81 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ResourcePicker field should render simple select 1`] = `
-<ResourcePicker field
-  errorMessage="My Error Message"
-  id="mySelect"
-  isValid={true}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  onTrigger={
-    [MockFunction] {
-      "calls": [
-        [
-          undefined,
-          {
-            "errors": undefined,
-            "filters": {
-              "certified": false,
-              "favorites": false,
-              "name": "",
-              "selected": [],
-              "selection": false,
-            },
-            "properties": undefined,
-            "schema": {
-              "description": "ResourcePicker me",
-              "placeholder": "Please select a value",
-              "required": true,
-              "schema": {
-                "type": "object",
-              },
-              "title": "My ResourcePicker title",
-              "triggers": [
-                {
-                  "action": "resourcePickerSelected",
-                  "onEvent": "change",
-                },
-                {
-                  "action": "resourcePickerFiltered",
-                  "onEvent": "filter",
-                },
-              ],
-            },
-            "trigger": {
-              "action": "resourcePickerFiltered",
-              "onEvent": "filter",
-            },
-          },
-        ],
-      ],
-      "results": [
-        {
-          "type": "return",
-          "value": Promise {},
-        },
-      ],
-    }
-  }
-  schema={
-    {
-      "description": "ResourcePicker me",
-      "placeholder": "Please select a value",
-      "required": true,
-      "schema": {
-        "type": "object",
-      },
-      "title": "My ResourcePicker title",
-      "triggers": [
-        {
-          "action": "resourcePickerSelected",
-          "onEvent": "change",
-        },
-        {
-          "action": "resourcePickerFiltered",
-          "onEvent": "filter",
-        },
-      ],
-    }
-  }
-/>
+exports[`ResourcePicker field should render ResourcePicker 1`] = `
+<div
+  class="form-group theme-template required"
+>
+  <label
+    class="control-label"
+    for="mySelect"
+  >
+    My ResourcePicker title
+  </label>
+  <div
+    data-props="{}"
+    data-testid="ResourcePicker"
+  >
+    <div
+      data-props="{}"
+      data-testid="toolbar"
+    />
+    <button
+      type="button"
+    >
+      onRowClick
+    </button>
+    <button
+      type="button"
+    >
+      isSelected
+    </button>
+    ResourcePicker
+  </div>
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="mySelect-description"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          ResourcePicker me
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;
