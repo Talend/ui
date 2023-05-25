@@ -1,4 +1,7 @@
 import { mount, shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import ArrayItem from './ArrayItem.component';
 
 describe('Array Item component', () => {
