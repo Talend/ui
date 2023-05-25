@@ -1,7 +1,14 @@
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import ArrayWidget from './Array.component';
 import DefaultArrayTemplate from './DefaultArrayTemplate.component';
 import defaultWidgets from '../../utils/widgets';
+import { WidgetContext } from '../../context';
+
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+jest.unmock('@talend/design-system');
+jest.mock('ally.js');
 
 const schema = {
 	key: ['comments'],
@@ -87,23 +94,33 @@ const value = [
 ];
 
 describe('Array component', () => {
+	const props = {
+		id: 'talend-array',
+		description: 'My array description',
+		errorMessage: 'This array is not correct',
+		schema,
+		value,
+		onChange: jest.fn(),
+		onFinish: jest.fn(),
+		isValid: true,
+		errors: {},
+	};
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
+
 	it('should render array', () => {
 		// when
-		const wrapper = shallow(
-			<ArrayWidget
-				description="My array description"
-				errorMessage="This array is not correct"
-				id="talend-array"
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={schema}
-				value={value}
-			/>,
+		const { container } = render(
+			<WidgetContext.Provider value={defaultWidgets}>
+				<ArrayWidget {...props} />
+			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getAllByLabelText('Move down')).toHaveLength(3);
+		expect(screen.getAllByLabelText('Move up')).toHaveLength(3);
 	});
 
 	it("should render array that can't be reordered", () => {
@@ -114,122 +131,81 @@ describe('Array component', () => {
 		};
 
 		// when
-		const wrapper = shallow(
-			<ArrayWidget
-				description="My array description"
-				errorMessage="This array is not correct"
-				id="talend-array"
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={nonReorderSchema}
-				value={value}
-			/>,
+		render(
+			<WidgetContext.Provider value={defaultWidgets}>
+				<ArrayWidget {...props} schema={nonReorderSchema} />
+			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.queryByLabelText('Move down')).not.toBeInTheDocument();
+		expect(screen.queryByLabelText('Move up')).not.toBeInTheDocument();
 	});
 
 	it('should render a readOnly array', () => {
-		const wrapper = mount(
-			<ArrayWidget
-				description="My array description"
-				errorMessage="This array is not correct"
-				id="talend-array"
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={{ ...schema, readOnly: true }}
-				value={value}
-				errors={{}}
-			/>,
-		);
-		expect(wrapper.find('Action').length).toBe(0);
+		render(<ArrayWidget {...props} schema={{ ...schema, readOnly: true }} />);
+		expect(screen.queryByLabelText('Move down')).not.toBeInTheDocument();
+		expect(screen.queryByLabelText('Move up')).not.toBeInTheDocument();
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.queryAllByRole('button')).toHaveLength(0);
 	});
 
-	it('should render array with Add/Delete button disabled', () => {
+	it('should render array with Add button disabled', () => {
 		// given
 		const disabledSchema = {
 			...schema,
 			disabled: true,
 		};
 		// when
-		const wrapper = mount(
-			<ArrayWidget
-				description="My array description"
-				id="talend-array"
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={disabledSchema}
-				value={value}
-				errors={{}}
-			/>,
+		render(
+			<WidgetContext.Provider value={defaultWidgets}>
+				<ArrayWidget {...props} schema={disabledSchema} />
+			</WidgetContext.Provider>,
 		);
 		// then
-		expect(wrapper.find('Action#talend-array-btn').prop('disabled')).toBe(true);
+		expect(screen.getByText('Add').parentElement).toBeDisabled();
 	});
 
 	describe('#onAdd', () => {
-		it('should trigger onChange and validation with additional empty item', () => {
+		it('should trigger onChange and validation with additional empty item', async () => {
 			// given
-			const onChange = jest.fn();
-			const onFinish = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description="My array description"
-					errorMessage="This array is not correct"
-					id="talend-array"
-					isValid
-					onChange={onChange}
-					onFinish={onFinish}
-					schema={schema}
-					value={value}
-				/>,
+			render(
+				<WidgetContext.Provider value={defaultWidgets}>
+					<ArrayWidget {...props} />
+				</WidgetContext.Provider>,
 			);
 
 			// when
-			wrapper.instance().onAdd(event);
-
+			await userEvent.click(screen.getByText('Add'));
 			// then
 			const payload = { schema, value: value.concat({}) };
-			expect(onChange).toBeCalledWith(event, payload);
-			expect(onFinish).toBeCalledWith(event, payload);
+			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
 		});
 
-		it('should close all items with closeable item widget', () => {
+		it('should close all items with closeable item widget', async () => {
 			// given
-			const onChange = jest.fn();
-			const onFinish = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description="My array description"
-					errorMessage="This array is not correct"
-					id="talend-array"
-					isValid
-					onChange={onChange}
-					onFinish={onFinish}
-					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
-					value={value}
-					widgets={defaultWidgets}
-				/>,
+			expect(defaultWidgets.collapsibleFieldset.isCloseable).toBe(true);
+			render(
+				<WidgetContext.Provider value={defaultWidgets}>
+					<ArrayWidget
+						{...props}
+						schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
+						widgets={defaultWidgets}
+					/>
+				</WidgetContext.Provider>,
 			);
 
 			// when
-			wrapper.instance().onAdd(event);
+			await userEvent.click(screen.getByText('Add'));
 
 			// then
-			const newValues = onChange.mock.calls[0][1].value;
-			newValues.forEach((item, index) => {
-				if (index === newValues.length - 1) {
-					expect(item).toEqual({});
-				} else {
-					expect(item.isClosed).toBe(true);
-				}
-			});
+			const newValues = props.onChange.mock.calls[0][1].value;
+			expect(newValues).toHaveLength(4);
+			expect(newValues[0].isClosed).toBe(true);
+			expect(newValues[1].isClosed).toBe(true);
+			expect(newValues[2].isClosed).toBe(true);
+			expect(newValues[3]).toEqual({});
 		});
 
 		it('should add first enum value as default for single select', () => {
