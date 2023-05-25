@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { shallow } from 'enzyme';
 import ArrayWidget from './Array.component';
-import DefaultArrayTemplate from './DefaultArrayTemplate.component';
 import defaultWidgets from '../../utils/widgets';
 import { WidgetContext } from '../../context';
 
