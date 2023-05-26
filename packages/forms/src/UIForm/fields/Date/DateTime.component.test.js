@@ -1,5 +1,6 @@
 import { shallow, mount } from 'enzyme';
 import { act, render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import DateTimeWidget from './DateTime.component';
 
 jest.mock('ally.js');
@@ -7,6 +8,7 @@ jest.unmock('@talend/design-system');
 
 describe('DateTime widget', () => {
 	beforeEach(() => {
+		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
 		jest.useFakeTimers();
 	});
 	afterEach(() => {
@@ -22,45 +24,33 @@ describe('DateTime widget', () => {
 		type: 'text',
 		schema: { type: 'string' },
 	};
-	xit('should render an InputDateTimePicker', () => {
+	const props = {
+		schema,
+		id: 'talend-date-time',
+		errorMessage: 'something wrong',
+		onChange: jest.fn(),
+		onFinish: jest.fn(),
+		options: {},
+	};
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
+	it('should render an InputDateTimePicker', () => {
 		// when
-		const { container } = render(
-			<DateTimeWidget
-				id="talend-date-time"
-				isValid={false}
-				errorMessage="something wrong"
-				schema={schema}
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				options={{}}
-			/>,
-		);
+		const { container } = render(<DateTimeWidget {...props} />);
 
 		// then
 		expect(container.firstChild).toMatchSnapshot();
 	});
-	xit('should convert iso-datetime for render', async () => {
+	it('should convert iso-datetime for render', async () => {
 		// given
 		const isoSchema = {
 			...schema,
 			schema: { type: 'string', format: 'iso-datetime' },
 		};
 		const value = '2018-01-01T10:35:48.951Z';
-		const onFinish = jest.fn();
 		// when
-		render(
-			<DateTimeWidget
-				id="myForm"
-				isValid={false}
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={onFinish}
-				options={{}}
-				schema={isoSchema}
-				useSeconds
-				value={value}
-			/>,
-		);
+		render(<DateTimeWidget {...props} schema={isoSchema} value={value} />);
 		fireEvent.blur(screen.getAllByRole('textbox')[0]);
 		await act(async () => {
 			jest.runAllTimers();
@@ -69,21 +59,9 @@ describe('DateTime widget', () => {
 		expect(screen.getAllByRole('textbox')[0]).toHaveValue('2018-01-01');
 		expect(screen.getAllByRole('textbox')[1]).toHaveValue('11:35');
 	});
-	xit('should trigger onFinish on picker blur', async () => {
+	it('should trigger onFinish on picker blur', async () => {
 		// given
-		const onFinish = jest.fn();
-		render(
-			<DateTimeWidget
-				id="myForm"
-				isValid={false}
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={onFinish}
-				options={{}}
-				schema={schema}
-				value="15/02/2018"
-			/>,
-		);
+		render(<DateTimeWidget {...props} value="15/02/2018" />);
 		const event = { target: {} };
 
 		// when
@@ -93,206 +71,145 @@ describe('DateTime widget', () => {
 		});
 
 		// then
-		expect(onFinish).toBeCalled();
+		expect(props.onFinish).toBeCalled();
 	});
 	describe('onChange', () => {
 		it('should call props onChange', async () => {
 			// given
-			const onChange = jest.fn();
-			render(
-				<DateTimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={onChange}
-					onFinish={jest.fn()}
-					options={{ dateFormat: 'DD/MM/YYYY' }}
-					schema={schema}
-				/>,
-			);
-			const event = { target: { value: '2015-09-21 00:00' } };
-
-			// when
-			fireEvent.change(screen.getAllByRole('textbox')[0], event);
-			// fireEvent.change(screen.getAllByRole('textbox')[1], event);
-			await act(async () => {
-				jest.runAllTimers();
-			});
-
-			// then
-			expect(onChange).toBeCalledWith(expect.anything(event), { schema, value: '2015-09-21' });
-		});
-
-		xit('should convert valid date to timestamp', async () => {
-			// given
-			const onChange = jest.fn();
-			const timestampSchema = {
-				...schema,
-				schema: { type: 'number' },
-			};
-			render(
-				<DateTimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={onChange}
-					onFinish={jest.fn()}
-					options={{ dateFormat: 'DD/MM/YYYY' }}
-					schema={timestampSchema}
-					useSeconds
-				/>,
-			);
-			const event = { target: {} };
-			const payload = {
-				datetime: new Date(2015, 9, 21, 2, 30, 9),
-				textInput: '2015-09-21 02:30:09',
-				errorMessage: undefined,
-			};
+			render(<DateTimeWidget {...props} options={{ dateFormat: 'DD/MM/YYYY' }} />);
 
 			// when
 			fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: '21/09/2015' } });
-			fireEvent.change(screen.getAllByRole('textbox')[1], { target: { value: '02:30' } });
+			fireEvent.change(screen.getAllByRole('textbox')[1], { target: { value: '09:10' } });
+			fireEvent.blur(screen.getAllByRole('textbox')[1]);
+
 			await act(async () => {
 				jest.runAllTimers();
 			});
 
 			// then
-			expect(onChange.mock.calls[1][1]).toMatchObject({
-				schema: timestampSchema,
-				value: payload.datetime.getTime(),
+			expect(props.onChange).toHaveBeenCalledTimes(2);
+			expect(props.onChange.mock.calls[1][1]).toMatchObject({
+				schema,
+				value: '21/09/2015 09:10',
 			});
 		});
 
-		xit('should not throw any error message', () => {
+		it('should convert valid date to timestamp', async () => {
 			// given
-			const onChange = jest.fn();
 			const timestampSchema = {
 				...schema,
 				schema: { type: 'number' },
 			};
-			const wrapper = shallow(
+			render(
 				<DateTimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={onChange}
-					onFinish={jest.fn()}
-					options={{}}
+					{...props}
+					options={{ dateFormat: 'DD/MM/YYYY', timezone: 'Europe/Paris' }}
 					schema={timestampSchema}
 				/>,
 			);
-			expect(onChange).not.toBeCalled();
-			const event = { target: {} };
-			const payload = {
-				datetime: undefined,
-				textInput: '',
-				errorMessage: undefined,
-			};
 
 			// when
-			wrapper.find('InputDateTimePickerSwitch').simulate('change', event, payload);
+			expect(screen.getAllByRole('textbox')).toHaveLength(2);
+			fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: '21/09/2015' } });
+			fireEvent.change(screen.getAllByRole('textbox')[1], { target: { value: '02:30' } });
+			fireEvent.blur(screen.getAllByRole('textbox')[1]);
+
+			await act(async () => {
+				jest.runAllTimers();
+			});
 
 			// then
-			expect(onChange).toBeCalledWith(event, {
+			expect(props.onChange).toHaveBeenCalledTimes(2);
+
+			expect(props.onChange.mock.calls[1][1]).toMatchObject({
 				schema: timestampSchema,
-				value: undefined,
+				value: new Date(2015, 8, 21, 2, 30, 0).getTime(),
 			});
 		});
 
-		xit('should convert valid date to ise-datetime', () => {
+		it('should not throw any error message', async () => {
+			// given
+			const timestampSchema = {
+				...schema,
+				schema: { type: 'number' },
+			};
+			render(<DateTimeWidget {...props} schema={timestampSchema} />);
+
+			// when
+			fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: '' } });
+			fireEvent.change(screen.getAllByRole('textbox')[1], { target: { value: '' } });
+			fireEvent.blur(screen.getAllByRole('textbox')[1]);
+
+			await act(async () => {
+				jest.runAllTimers();
+			});
+
+			// then
+			expect(props.onChange).not.toBeCalledWith();
+		});
+
+		it('should convert valid date to iso-datetime', async () => {
 			// given
 			const onChange = jest.fn();
 			const isoSchema = {
 				...schema,
 				schema: { format: 'iso-datetime' },
 			};
-			const wrapper = mount(
-				<DateTimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={onChange}
-					onFinish={jest.fn()}
-					options={{}}
-					schema={isoSchema}
-				/>,
-			);
+			render(<DateTimeWidget {...props} schema={isoSchema} />);
 			expect(onChange).not.toBeCalled();
-			const event = { target: {} };
-			const payload = {
-				datetime: new Date(2015, 9, 21, 2, 30),
-				textInput: '2015-09-21 02:30',
-				errorMessage: undefined,
-			};
 
 			// when
-			wrapper.find('InputDateTimePicker').prop('onChange')(event, payload);
+			fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: '2015-09-21' } });
+			fireEvent.change(screen.getAllByRole('textbox')[1], { target: { value: '02:30' } });
+			fireEvent.blur(screen.getAllByRole('textbox')[1]);
+
+			await act(async () => {
+				jest.runAllTimers();
+			});
 
 			// then
-			expect(onChange).toBeCalledWith(event, {
+			expect(props.onChange).toBeCalledWith(expect.anything(), {
 				schema: isoSchema,
-				value: payload.datetime.toISOString(),
+				value: new Date(2015, 8, 21, 2, 30).toISOString(),
 			});
 		});
 
-		xit('should call props onFinish when there is no error', () => {
+		it('should call props onFinish when there is no error', async () => {
 			// given
-			const onFinish = jest.fn();
-			const wrapper = mount(
-				<DateTimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={jest.fn()}
-					onFinish={onFinish}
-					options={{}}
-					schema={schema}
-					value="15/02/2018"
-				/>,
-			);
-			expect(onFinish).not.toBeCalled();
-			const event = { target: {} };
-			const payload = {
-				datetime: new Date(2015, 9, 21, 2, 30, 9),
-				textInput: '2015-09-21 02:30',
-				errorMessage: undefined,
-			};
+			render(<DateTimeWidget {...props} value="2018-15-02" />);
 
 			// when
-			wrapper.find('InputDateTimePicker').prop('onChange')(event, payload);
+			fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: '2015-09-21' } });
+			fireEvent.change(screen.getAllByRole('textbox')[1], { target: { value: '02:30' } });
+			fireEvent.blur(screen.getAllByRole('textbox')[1]);
+			await act(async () => {
+				jest.runAllTimers();
+			});
 
 			// then
-			expect(onFinish).toBeCalledWith(event, { schema, value: '2015-09-21 02:30' });
+			expect(props.onFinish).toBeCalledWith(expect.anything(), {
+				schema,
+				value: '2015-09-21 02:30',
+			});
 		});
 
-		xit('should NOT call props onFinish when there is an error', () => {
+		it('should call props onFinish when there is an error without value', async () => {
 			// given
-			const onFinish = jest.fn();
-			const wrapper = mount(
-				<DateTimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={jest.fn()}
-					onFinish={onFinish}
-					options={{}}
-					schema={schema}
-					value="15/02/2018"
-				/>,
-			);
-			expect(onFinish).not.toBeCalled();
-			const event = { target: {} };
-			const payload = {
-				datetime: new Date(''), // invalid error
-				textInput: '2015-09-aa',
-				errorMessage: 'THERE IS AN ERROR',
-			};
+			render(<DateTimeWidget {...props} value="2018-02-15" />);
 
 			// when
-			wrapper.find('InputDateTimePicker').prop('onChange')(event, payload);
+			fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: '2015-09-aa' } });
+			fireEvent.blur(screen.getAllByRole('textbox')[0]);
+			await act(async () => {
+				jest.runAllTimers();
+			});
 
 			// then
-			expect(onFinish).not.toBeCalled();
+			expect(props.onFinish).toBeCalledWith(expect.anything(), {
+				schema,
+				value: undefined,
+			});
 		});
 	});
 });

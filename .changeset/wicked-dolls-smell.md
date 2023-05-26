@@ -14,3 +14,4 @@ Warning: Received `true` for a non-boolean attribute `active`.
 
 fix: Columns fieldset propTypes
 fix: Fieldset propTypes
+fix: omit isDisabledChecker from input in Date/Time pickers

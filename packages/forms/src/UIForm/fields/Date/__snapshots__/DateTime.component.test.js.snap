@@ -2,7 +2,7 @@
 
 exports[`DateTime widget should render an InputDateTimePicker 1`] = `
 <div
-  class="form-group theme-template has-error required"
+  class="form-group theme-template required"
 >
   <label
     class="control-label"
@@ -23,7 +23,7 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
         data-testid="date-picker"
         id="talend-date-time-date-picker-input"
         placeholder="YYYY-MM-DD"
-        style="width: 5px;"
+        style="width: 47px;"
         type="text"
         value=""
       />
@@ -45,7 +45,7 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
         id="talend-date-time-time-picker-input"
         maxlength="5"
         placeholder="HH:mm"
-        style="width: 5px;"
+        style="width: 47px;"
         type="text"
         value=""
       />
@@ -61,12 +61,12 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
     <div
       aria-live="polite"
       class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessageError"
-      id="talend-date-time-error"
+      data-test="fieldTemplate.inlineMessage"
+      id="talend-date-time-description"
       role="status"
     >
       <span
-        class="theme-icon theme-destructive__icon"
+        class="theme-icon theme-information__icon"
       >
         <svg
           aria-hidden="true"
@@ -75,7 +75,7 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
           style="width: 1.6rem; height: 1.6rem;"
         >
           <use
-            xlink:href="#square-cross:M"
+            xlink:href="#information-filled:M"
           />
         </svg>
       </span>
@@ -83,7 +83,7 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
         class="theme-inlineMessage__contents"
       >
         <span>
-          something wrong
+          talend datetime picker
         </span>
       </p>
     </div>
