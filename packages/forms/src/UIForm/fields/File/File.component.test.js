@@ -1,5 +1,4 @@
-import { shallow } from 'enzyme';
-import { screen, render, fireEvent, act, waitFor } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import File, { FileWidget, base64Decode } from './File.component';
 

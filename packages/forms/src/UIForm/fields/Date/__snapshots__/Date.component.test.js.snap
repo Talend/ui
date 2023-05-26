@@ -511,8 +511,8 @@ exports[`Date widget should render date picker 1`] = `
                           class="theme-calendar-col"
                         >
                           <button
-                            aria-label="Today, Tuesday 23 May 2023"
-                            class="theme-calendar-day theme-today tc-date-picker-day btn-tertiary btn-default"
+                            aria-label="Tuesday 23 May 2023"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="23"
                             tabindex="-1"
                             type="button"
@@ -550,8 +550,8 @@ exports[`Date widget should render date picker 1`] = `
                           class="theme-calendar-col"
                         >
                           <button
-                            aria-label="Friday 26 May 2023"
-                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                            aria-label="Today, Friday 26 May 2023"
+                            class="theme-calendar-day theme-today tc-date-picker-day btn-tertiary btn-default"
                             data-value="26"
                             tabindex="-1"
                             type="button"
