@@ -15,15 +15,55 @@ jest.mock(
 	() =>
 		({ toolbar, onRowClick, isSelected, collection, ...props }) =>
 			(
-				<div data-testid="ResourcePicker" data-props={JSON.stringify({})}>
-					<div data-testid="toolbar" data-props={JSON.stringify({})}></div>
-					<button type="button" onClick={e => onRowClick(e)}>
+				<div data-testid="ResourcePicker" data-props={JSON.stringify(props, null, 2)}>
+					<div data-testid="toolbar" data-props={JSON.stringify(toolbar, null, 2)}>
+						<div>
+							<label htmlFor="toolbar-name">{toolbar.name.label}</label>
+							<input
+								id="toolbar-name"
+								type="text"
+								onChange={e => toolbar.name.onChange(e)}
+								value={toolbar.name.value}
+							/>
+						</div>
+						<div className="tc-resource-picker-state-filters">
+							<button onClick={() => toolbar.state.onChange('selection', true)}>
+								state filter
+							</button>
+							<button onClick={() => toolbar.state.onChange('certified', true)}>
+								certified filter
+							</button>
+							<button onClick={() => toolbar.state.onChange('favorites', true)}>
+								favorites filter
+							</button>
+						</div>
+						<div className="tc-resource-picker-sort-options">
+							<button onClick={() => toolbar.sort.onChange('name', 'asc')}>sort by name</button>
+							<button onClick={() => toolbar.sort.onChange('date', 'asc')}>sort by date</button>
+
+							<button onClick={() => toolbar.sort.onChange('name', 'desc')}>
+								sort by name desc
+							</button>
+							<button onClick={() => toolbar.sort.onChange('date', 'desc')}>
+								sort by date desc
+							</button>
+						</div>
+					</div>
+					<button type="button" onClick={e => onRowClick(e, { id: '0' })}>
 						onRowClick
+					</button>
+					<button type="button" onClick={e => onRowClick(e, { id: '1' })}>
+						onRowClick first
 					</button>
 					<button type="button" onClick={e => isSelected(e)}>
 						isSelected
 					</button>
-					{collection && <span data-testid="collection"></span>}
+					{collection && (
+						<span
+							data-testid="collection"
+							data-collection={JSON.stringify(collection, null, 2)}
+						></span>
+					)}
 					ResourcePicker
 				</div>
 			),
@@ -99,19 +139,14 @@ describe('ResourcePicker field', () => {
 		onTrigger: jest.fn(() => Promise.resolve({ collection })),
 		schema,
 	};
-
-	it('should render ResourcePicker', async done => {
-		const onTrigger = jest.fn(
-			() =>
-				new Promise(resolve => {
-					resolve({ collection });
-					done();
-				}),
-		);
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+	it('should render ResourcePicker', async () => {
 		const { container } = render(
-			<ResourcePicker {...props} isValid errorMessage="My Error Message" onTrigger={onTrigger} />,
+			<ResourcePicker {...props} isValid errorMessage="My Error Message" />,
 		);
-		expect(onTrigger).toBeCalledWith(undefined, {
+		expect(props.onTrigger).toBeCalledWith(undefined, {
 			errors: undefined,
 			filters: { certified: false, favorites: false, name: '', selected: [], selection: false },
 			properties: undefined,
@@ -128,39 +163,32 @@ describe('ResourcePicker field', () => {
 			},
 			trigger: { action: 'resourcePickerFiltered', onEvent: 'filter' },
 		});
-		expect(container.firstChild).toMatchSnapshot();
 		expect(screen.getByTestId('ResourcePicker')).toBeInTheDocument();
-		const res = await screen.findByTestId('collection');
-		screen.debug();
-		// const rprops = JSON.parse(screen.getByTestId('ResourcePicker').dataset.props);
-		// expect(rprops.collection).toBeDefined();
+		await screen.findByTestId('collection');
+		expect(container.firstChild).toMatchSnapshot();
+		const resultCollection = JSON.parse(screen.getByTestId('collection').dataset.collection);
+		expect(resultCollection).toBeDefined();
 	});
 
-	xit('should render with wanted sort and filter', done => {
-		const wrapper = mount(
+	it('should render with wanted sort and filter', async () => {
+		render(
 			<ResourcePicker
-				id="mySelect"
-				isValid
-				errorMessage="My Error Message"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				onTrigger={jest.fn(
-					() =>
-						new Promise(resolve => {
-							resolve({ collection });
-							done();
-						}),
-				)}
+				{...props}
 				schema={{ ...schema, options: { filters: ['certified'], sort: ['name'] } }}
 			/>,
 		);
+		await screen.findByTestId('collection');
 
-		expect(wrapper.find('.tc-resource-picker-sort-options button').length).toBe(1);
-		expect(wrapper.find('.tc-resource-picker-state-filters button').length).toBe(1);
+		const toolbar = JSON.parse(screen.getByTestId('toolbar').dataset.props);
+		expect(toolbar).toMatchObject({
+			name: { label: 'Please select a value' },
+			sort: { types: ['name'] },
+			state: { certified: false, types: ['certified'] },
+		});
 	});
 
-	xit('should call onTrigger when mounting component', () => {
-		shallow(<ResourcePicker {...props} />);
+	it('should call onTrigger when mounting component', () => {
+		render(<ResourcePicker {...props} />);
 
 		expect(props.onTrigger).toBeCalledWith(undefined, {
 			schema: expect.anything(),
@@ -180,12 +208,11 @@ describe('ResourcePicker field', () => {
 		});
 	});
 
-	xit('should call onChange when selecting an item', async () => {
-		const wrapper = await mount(<ResourcePicker {...props} />);
-		await wrapper.instance().busy;
-		wrapper.update();
+	it('should call onChange when selecting an item', async () => {
+		render(<ResourcePicker {...props} />);
+		await screen.findByTestId('collection');
+		await userEvent.click(screen.getByText('onRowClick'));
 
-		wrapper.find('.resource-item').at(0).simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: {
 				description: 'ResourcePicker me',
@@ -221,7 +248,7 @@ describe('ResourcePicker field', () => {
 		});
 	});
 
-	xit('should allow multi selection', async () => {
+	it('should allow multi selection', async () => {
 		const multi = {
 			...props,
 			schema: {
@@ -230,12 +257,11 @@ describe('ResourcePicker field', () => {
 			},
 		};
 
-		const wrapper = await mount(<ResourcePicker {...multi} />);
-		await wrapper.instance().busy;
-		wrapper.update();
+		render(<ResourcePicker {...multi} />);
+		await screen.findByTestId('collection');
+		await userEvent.click(screen.getByText('onRowClick'));
+		await userEvent.click(screen.getByText('onRowClick first'));
 
-		wrapper.find('.resource-item').at(0).simulate('click');
-		wrapper.find('.resource-item').at(1).simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
 			value: ['0', '1'],
@@ -253,70 +279,68 @@ describe('ResourcePicker field', () => {
 		});
 	});
 
-	xit('should unselect in multi case', async () => {
-		const onChangeUnselect = jest.fn();
+	it('should unselect in multi case', async () => {
 		const multi = {
 			...props,
-			onChange: onChangeUnselect,
 			schema: {
 				...props.schema,
 				multi: true,
 			},
 		};
-		const wrapper = await mount(<ResourcePicker {...multi} />);
-		await wrapper.instance().busy;
-		wrapper.update();
+		render(<ResourcePicker {...multi} />);
+		await screen.findByTestId('collection');
+		await userEvent.click(screen.getByText('onRowClick'));
+		await userEvent.click(screen.getByText('onRowClick'));
 
-		wrapper.find('.resource-item').at(0).simulate('click');
-		wrapper.find('.resource-item').at(0).simulate('click');
-		expect(onChangeUnselect.mock.calls.length).toBe(2);
+		expect(props.onChange.mock.calls.length).toBe(2);
+		expect(props.onChange).toBeCalledWith(expect.anything(), {
+			schema: expect.anything(),
+			value: [],
+		});
 	});
 
-	xit('should not unselect single selection when value is required', async () => {
-		const onChangeUnselect = jest.fn();
+	it('should not unselect single selection when value is required', async () => {
 		const unselectProps = {
 			...props,
-			onChange: onChangeUnselect,
 			schema: {
 				...props.schema,
 				required: true,
 			},
 		};
-		const wrapper = await mount(<ResourcePicker {...unselectProps} />);
-		await wrapper.instance().busy;
-		wrapper.update();
+		render(<ResourcePicker {...unselectProps} />);
+		await screen.findByTestId('collection');
 
-		wrapper.find('.resource-item').at(0).simulate('click');
-		wrapper.find('.resource-item').at(0).simulate('click');
-		expect(onChangeUnselect.mock.calls.length).toBe(1);
+		await userEvent.click(screen.getByText('onRowClick'));
+		await userEvent.click(screen.getByText('onRowClick'));
+		expect(props.onChange.mock.calls.length).toBe(1);
 	});
 
-	xit('should unselect single selection when value is not required', async () => {
-		const onChangeUnselect = jest.fn();
+	it('should unselect single selection when value is not required', async () => {
 		const unselectProps = {
 			...props,
-			onChange: onChangeUnselect,
 			schema: {
 				...props.schema,
 				required: false,
 			},
 		};
-		const wrapper = await mount(<ResourcePicker {...unselectProps} />);
-		await wrapper.instance().busy;
-		wrapper.update();
+		render(<ResourcePicker {...unselectProps} />);
+		await screen.findByTestId('collection');
 
-		wrapper.find('.resource-item').at(0).simulate('click');
-		wrapper.find('.resource-item').at(0).simulate('click');
-		expect(onChangeUnselect.mock.calls.length).toBe(2);
+		await userEvent.click(screen.getByText('onRowClick'));
+		await userEvent.click(screen.getByText('onRowClick'));
+
+		expect(props.onChange.mock.calls.length).toBe(2);
+		expect(props.onChange).toBeCalledWith(expect.anything(), {
+			schema: expect.anything(),
+			value: undefined,
+		});
 	});
 
-	xit('should not allow multi selection', async () => {
-		const wrapper = await mount(<ResourcePicker {...props} />);
-		await wrapper.instance().busy;
-		wrapper.update();
-
-		wrapper.find('.resource-item').at(0).simulate('click');
-		wrapper.find('.resource-item').at(1).simulate('click');
+	it('should not allow multi selection', async () => {
+		render(<ResourcePicker {...props} />);
+		await screen.findByTestId('collection');
+		await userEvent.click(screen.getByText('onRowClick'));
+		await userEvent.click(screen.getByText('onRowClick first'));
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
 			value: '1',
@@ -327,12 +351,10 @@ describe('ResourcePicker field', () => {
 		beforeEach(() => {
 			jest.clearAllMocks();
 		});
-		xit('should filter on selection', async () => {
-			const wrapper = mount(<ResourcePicker {...props} />);
-			await wrapper.instance().busy;
-			wrapper.update();
-
-			wrapper.find('.tc-resource-picker-state-filters').find(Button).at(0).simulate('click');
+		it('should filter on selection', async () => {
+			render(<ResourcePicker {...props} />);
+			await screen.findByTestId('collection');
+			await userEvent.click(screen.getByText('state filter'));
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -352,12 +374,10 @@ describe('ResourcePicker field', () => {
 			});
 		});
 
-		xit('should filter on certified', async () => {
-			const wrapper = mount(<ResourcePicker {...props} />);
-			await wrapper.instance().busy;
-			wrapper.update();
-
-			wrapper.find('.tc-resource-picker-state-filters').find(Button).at(1).simulate('click');
+		it('should filter on certified', async () => {
+			render(<ResourcePicker {...props} />);
+			await screen.findByTestId('collection');
+			await userEvent.click(screen.getByText('certified filter'));
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -377,12 +397,10 @@ describe('ResourcePicker field', () => {
 			});
 		});
 
-		xit('should filter on favorites', async () => {
-			const wrapper = mount(<ResourcePicker {...props} />);
-			await wrapper.instance().busy;
-			wrapper.update();
-
-			wrapper.find('.tc-resource-picker-state-filters').find(Button).at(2).simulate('click');
+		it('should filter on favorites', async () => {
+			render(<ResourcePicker {...props} />);
+			await screen.findByTestId('collection');
+			await userEvent.click(screen.getByText('favorites filter'));
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -401,13 +419,14 @@ describe('ResourcePicker field', () => {
 				},
 			});
 		});
-		xit('should filter', () => {
-			const wrapper = shallow(<ResourcePicker {...props} />);
+		xit('should filter', async () => {
+			render(<ResourcePicker {...props} />);
+			await screen.findByTestId('collection');
+			fireEvent.change(screen.getByLabelText('Please select a value'), {
+				target: { value: 'test' },
+			});
 
-			wrapper.instance().nameFilterChanged({ target: { value: 'test' } });
-			wrapper.update();
-
-			expect(props.onTrigger).toHaveBeenLastCalledWith(null, {
+			expect(props.onTrigger).toHaveBeenCalledWith(expect.anything(), {
 				schema: expect.anything(),
 				errors: undefined,
 				properties: undefined,
@@ -423,20 +442,14 @@ describe('ResourcePicker field', () => {
 					selection: false,
 				},
 			});
-
-			expect(
-				wrapper.find('FieldTemplate').shallow().children().at(1).prop('toolbar').name.value,
-			).toBe('test');
 		});
 	});
 
 	describe('sort', () => {
-		xit('should sort by name', async () => {
-			const wrapper = mount(<ResourcePicker {...props} />);
-			await wrapper.instance().busy;
-			wrapper.update();
-
-			wrapper.find('.tc-resource-picker-sort-options').find(Button).at(0).simulate('click');
+		it('should sort by name', async () => {
+			render(<ResourcePicker {...props} />);
+			await screen.findByTestId('collection');
+			await userEvent.click(screen.getByText('sort by name'));
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -459,12 +472,10 @@ describe('ResourcePicker field', () => {
 			});
 		});
 
-		xit('should sort by date', async () => {
-			const wrapper = mount(<ResourcePicker {...props} />);
-			await wrapper.instance().busy;
-			wrapper.update();
-
-			wrapper.find('.tc-resource-picker-sort-options').find(Button).at(1).simulate('click');
+		it('should sort by date', async () => {
+			render(<ResourcePicker {...props} />);
+			await screen.findByTestId('collection');
+			await userEvent.click(screen.getByText('sort by date'));
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
