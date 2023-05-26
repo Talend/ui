@@ -1,6 +1,4 @@
-import { shallow, mount } from 'enzyme';
 import { act, render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import DateTimeWidget from './DateTime.component';
 
 jest.mock('ally.js');
