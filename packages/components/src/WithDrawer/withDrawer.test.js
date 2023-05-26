@@ -1,19 +1,37 @@
-import { shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import WithDrawer from './WithDrawer.component';
 import Drawer from '../Drawer';
 
 describe('WithDrawer', () => {
-	it('should inject route as key if available', () => {
-		const drawer = <Drawer route={{ path: 'path' }}>test</Drawer>;
-		const wrapper = shallow(<WithDrawer drawers={[drawer]} />);
-		expect(wrapper.children().children().key()).toEqual('path');
+	it('should render', () => {
+		const drawer = <Drawer title="drawerTitle">test</Drawer>;
+		const { container } = render(
+			<WithDrawer drawers={[drawer]}>
+				<div data-testid="Children" />
+			</WithDrawer>,
+		);
+		// transition
+		expect(screen.getByRole('dialog').parentElement).toHaveStyle(
+			'transition: transform 350ms ease-in-out; transform: translateX(0%);',
+		);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it("should inject generated key if route isn't available", () => {
+	it('should desactivate transition from Drawer props', () => {
 		// note: here we don't use a component because react doesn t create
 		// an object with props in real rendering
-		const wrapper = shallow(<WithDrawer drawers={[{}]} />);
-		expect(wrapper.children().children().key()).toEqual('0');
+		let drawer = (
+			<Drawer title="drawerTitle" withTransition={false}>
+				test
+			</Drawer>
+		);
+		render(
+			<WithDrawer drawers={[drawer]}>
+				<div data-testid="Children" />
+			</WithDrawer>,
+		);
+		expect(screen.getByRole('dialog').parentElement).toHaveStyle(
+			'transition: transform 0ms ease-in-out; transform: translateX(0%);',
+		);
 	});
 });

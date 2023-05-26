@@ -2,33 +2,30 @@
 
 exports[`HeaderIcon should render the header when there is no sort 1`] = `
 <div
-  className="theme-tc-header-icon tc-header-icon"
+  class="theme-tc-header-icon tc-header-icon"
 >
   <span
     aria-label="test"
     title="test"
   >
-    <Icon
+    <span
+      class="CoralIcon"
       name="talend-test"
     />
-  </span>
-</div>
-`;
-
-exports[`HeaderIcon should render unchecked checkbox 1`] = `
-<div
-  className="theme-tc-header-icon tc-header-icon"
->
-  <span
-    aria-label="test"
-    title="test"
-  >
-    <Icon
-      name="talend-test"
-    />
-    <SortIndicator
-      sortDirection="DESC"
-    />
+    <svg
+      class="ReactVirtualized__Table__sortableHeaderIcon ReactVirtualized__Table__sortableHeaderIcon--DESC"
+      height="18"
+      viewBox="0 0 24 24"
+      width="18"
+    >
+      <path
+        d="M7 10l5 5 5-5z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
   </span>
 </div>
 `;

@@ -2,53 +2,142 @@
 
 exports[`CellActions should render actions 1`] = `
 <div
-  className="tc-list-actions theme-tc-list-actions theme-tc-list-actions"
+  class="tc-list-actions theme-tc-list-actions theme-tc-list-actions"
 >
-  <Actions
-    actions={
-      [
-        {
-          "icon": "talend-pencil",
-          "id": "action-1",
-          "label": "Simple action",
-          "onClick": [MockFunction],
-        },
-        {
-          "displayMode": "dropdown",
-          "icon": "talend-file-o",
-          "id": "action-2",
-          "items": [
-            {
-              "label": "Document 1",
-              "onClick": [MockFunction],
-            },
-            {
-              "label": "Document 2",
-              "onClick": [MockFunction],
-            },
-          ],
-          "label": "Dropdown action",
-        },
-        {
-          "displayMode": "splitDropdown",
-          "id": "action-3",
-          "items": [
-            {
-              "label": "File 1",
-              "onClick": [MockFunction],
-            },
-            {
-              "label": "File 2",
-              "onClick": [MockFunction],
-            },
-          ],
-          "label": "Split dropdown action",
-          "onClick": [MockFunction],
-        },
-      ]
-    }
-    hideLabel={true}
-    link={true}
-  />
+  <div
+    class="tc-actions btn-group"
+  >
+    <button
+      aria-describedby="42"
+      aria-label="Simple action"
+      class="btn-icon-only btn btn-link"
+      id="action-1"
+      role="link"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-pencil"
+      />
+    </button>
+    <div
+      class="dropdown btn-group btn-group-link"
+    >
+      <button
+        aria-describedby="42"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Dropdown action"
+        class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+        id="action-2"
+        role="button"
+        type="button"
+      >
+        <span
+          class="CoralIcon"
+          name="talend-file-o"
+        />
+        <span
+          class="CoralIcon theme-tc-dropdown-caret"
+          name="talend-caret-down"
+        />
+      </button>
+      <ul
+        aria-labelledby="action-2"
+        class="dropdown-menu"
+        role="menu"
+      >
+        <li
+          class="theme-tc-dropdown-item tc-dropdown-item"
+          role="presentation"
+        >
+          <a
+            href="#"
+            label="Document 1"
+            role="menuitem"
+            tabindex="-1"
+            title="Document 1"
+          >
+            Document 1
+          </a>
+        </li>
+        <li
+          class="theme-tc-dropdown-item tc-dropdown-item"
+          role="presentation"
+        >
+          <a
+            href="#"
+            label="Document 2"
+            role="menuitem"
+            tabindex="-1"
+            title="Document 2"
+          >
+            Document 2
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="dropdown btn-group"
+    >
+      <button
+        aria-label="Split dropdown action"
+        class="theme-tc-split-dropdown btn btn-default"
+        type="button"
+      >
+        <span>
+          <span>
+            Split dropdown action
+          </span>
+        </span>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Open Split dropdown action menu"
+        class="dropdown-toggle btn btn-default"
+        id="action-3"
+        role="button"
+        type="button"
+      >
+         
+        <span
+          class="caret"
+        />
+      </button>
+      <ul
+        aria-labelledby="action-3"
+        class="dropdown-menu"
+        role="menu"
+      >
+        <li
+          class=""
+          role="presentation"
+        >
+          <a
+            href="#"
+            label="File 1"
+            role="menuitem"
+            tabindex="-1"
+          >
+            File 1
+          </a>
+        </li>
+        <li
+          class=""
+          role="presentation"
+        >
+          <a
+            href="#"
+            label="File 2"
+            role="menuitem"
+            tabindex="-1"
+          >
+            File 2
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 `;

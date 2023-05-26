@@ -1,27 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CellDatetime should render CellDatetime 1`] = `
-<TooltipTrigger
-  label="2016-09-22 09:00:00"
-  tooltipPlacement="top"
+<div
+  aria-label="2016-09-22 09:00:00"
+  data-placement="top"
+  data-testid="TooltipTrigger"
 >
   <div
-    className="cell-datetime-container theme-cell-datetime-container"
+    class="cell-datetime-container theme-cell-datetime-container"
   >
     about 1 month ago
   </div>
-</TooltipTrigger>
-`;
-
-exports[`CellDatetime should render CellDatetime with tooltip in ago mode 1`] = `
-<TooltipTrigger
-  label="2016-09-22 09:00:00"
-  tooltipPlacement="top"
->
-  <div
-    className="cell-datetime-container theme-cell-datetime-container"
-  >
-    about 1 month ago
-  </div>
-</TooltipTrigger>
+</div>
 `;

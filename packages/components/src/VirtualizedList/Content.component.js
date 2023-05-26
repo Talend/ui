@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
 import TooltipTrigger from '../TooltipTrigger';
@@ -39,3 +40,13 @@ export default function Content() {
 }
 Content.displayName = 'Content';
 Content.defaultProps = defaultColumnConfiguration;
+Content.propTypes = {
+	label: PropTypes.string.isRequired,
+	dataKey: PropTypes.string.isRequired,
+	width: PropTypes.number.isRequired,
+	columnData: PropTypes.shape({
+		tooltipLabel: PropTypes.string,
+		tooltipPlacement: PropTypes.string,
+		getTooltipLabel: PropTypes.func,
+	}).isRequired,
+};

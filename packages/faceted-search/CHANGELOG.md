@@ -1,5 +1,11 @@
 # Changelog
 
+## 9.2.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+
 ## 9.2.0
 
 ### Minor Changes

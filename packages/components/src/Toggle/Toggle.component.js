@@ -17,16 +17,18 @@ import Checkbox from '../Checkbox';
  * @return XML(JSX) React pure component
  */
 function Toggle({ className, ...props }) {
-	return new Checkbox({
-		className: classNames(
-			'switch tc-toggle',
-			{
-				'tc-toggle-disabled': props.disabled,
-			},
-			className,
-		),
-		...props,
-	});
+	return (
+		<Checkbox
+			className={classNames(
+				'switch tc-toggle',
+				{
+					'tc-toggle-disabled': props.disabled,
+				},
+				className,
+			)}
+			{...props}
+		/>
+	);
 }
 
 Toggle.displayName = 'Toggle';

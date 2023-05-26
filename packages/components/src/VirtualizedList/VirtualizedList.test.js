@@ -1,5 +1,4 @@
-import { shallow, mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import VirtualizedList from '.';
 import collection from './collection';
 
@@ -32,13 +31,51 @@ const contentFields = [
 	/>,
 ];
 
+jest.mock('react-virtualized', () => {
+	const mod = jest.requireActual('react-virtualized');
+	// eslint-disable-next-line @typescript-eslint/no-shadow
+	return {
+		...mod,
+		// eslint-disable-next-line react/prop-types
+		AutoSizer: ({ disableHeight, children }) => (
+			<div data-testid="AutoSizer" data-disableheight={disableHeight}>
+				{children({ height: 100, width: 100 })}
+			</div>
+		),
+	};
+});
+
 describe('VirtualizedList', () => {
+	it('should render', () => {
+		// when
+		const { container } = render(
+			<VirtualizedList
+				collection={collection}
+				height={600}
+				width={1024}
+				id="my-list-id"
+				isSelected={jest.fn()}
+				rowHeight={50}
+				selectionToggle={jest.fn()}
+				sort={jest.fn()}
+				sortBy="name"
+				sortDirection="DESC"
+				type={TABLE}
+			>
+				{contentFields}
+			</VirtualizedList>,
+		);
+
+		// then
+		expect(container.firstChild).toMatchSnapshot();
+	});
 	it('should use AutoSizer', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<VirtualizedList
 				collection={collection}
 				height={600}
+				width={1024}
 				id="my-list-id"
 				isSelected={jest.fn()}
 				rowHeight={50}
@@ -53,68 +90,19 @@ describe('VirtualizedList', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should use defaultHeight if AutoSizer can not get parent element height', () => {
-		// when
-		const wrapper = mount(
-			<span>
-				<VirtualizedList
-					collection={collection}
-					id="my-list-id"
-					isSelected={jest.fn()}
-					rowHeight={50}
-					selectionToggle={jest.fn()}
-					sort={jest.fn()}
-					sortBy="name"
-					sortDirection="DESC"
-					type={TABLE}
-				>
-					{contentFields}
-				</VirtualizedList>
-			</span>,
-		);
-
-		// then
-		expect(wrapper.find('VirtualizedList(RendererSelector)').props().height).toBe(250);
-	});
-
-	it('should render RendererSelector', () => {
-		// given
-		const wrapper = mount(
-			<VirtualizedList
-				collection={collection}
-				height={600}
-				id="my-list-id"
-				isActive={jest.fn()}
-				isSelected={jest.fn()}
-				onRowClick={jest.fn()}
-				onRowDoubleClick={jest.fn()}
-				onScroll={jest.fn()}
-				rowHeight={50}
-				selectionToggle={jest.fn()}
-				sort={jest.fn()}
-				sortBy="name"
-				sortDirection="DESC"
-				type={TABLE}
-			>
-				{contentFields}
-			</VirtualizedList>,
-		);
-		expect(wrapper.find('VirtualizedList(RendererSelector)')).toHaveLength(1);
+		expect(screen.getByTestId('AutoSizer')).toBeInTheDocument();
 	});
 
 	it('should render CircularProgress', () => {
 		// given
-		const wrapper = shallow(
+		render(
 			<VirtualizedList
+				inProgress
 				collection={collection}
 				height={600}
 				id="my-list-id"
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
-				inProgress
 				onRowClick={jest.fn()}
 				onRowDoubleClick={jest.fn()}
 				rowHeight={50}
@@ -128,6 +116,6 @@ describe('VirtualizedList', () => {
 			</VirtualizedList>,
 		);
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('circular-progress')).toBeVisible();
 	});
 });
