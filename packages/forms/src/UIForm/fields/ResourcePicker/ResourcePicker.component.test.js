@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
-import { shallow, mount } from 'enzyme';
 import { screen, render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
-import { Button } from '@talend/react-bootstrap';
 
 import ResourcePicker from './ResourcePicker.component';
 
