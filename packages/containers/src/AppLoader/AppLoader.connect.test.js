@@ -1,27 +1,26 @@
 import Immutable from 'immutable';
-import { shallow } from 'enzyme';
-import AppLoader from '@talend/react-components/lib/AppLoader';
+import { render, screen } from '@testing-library/react';
 import { AppLoaderContainer, mapStateToProps } from './AppLoader.connect';
 
 describe('AppLoader container', () => {
 	describe('rendering', () => {
 		it('should render child if not loading', () => {
-			const wrapper = shallow(
+			render(
 				<AppLoaderContainer>
-					<div className="child" />
+					<div data-testid="child" />
 				</AppLoaderContainer>,
 			);
-			expect(wrapper.find('.child').length).toBe(1);
+			expect(screen.getByTestId('child')).toBeVisible();
 		});
 
 		it('should render the app loader if loading', () => {
-			const wrapper = shallow(
+			render(
 				<AppLoaderContainer loading>
-					<div className="child" />
+					<div data-testid="child" />
 				</AppLoaderContainer>,
 			);
-			expect(wrapper.find('.child').length).toBe(0);
-			expect(wrapper.getElement()).toEqual(<AppLoader />);
+			expect(screen.queryByTestId('child')).not.toBeInTheDocument();
+			expect(screen.getByRole('status')).toBeVisible();
 		});
 	});
 
