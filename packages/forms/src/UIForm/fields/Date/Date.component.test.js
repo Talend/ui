@@ -24,6 +24,7 @@ describe('Date widget', () => {
 
 	it('should render date picker', async () => {
 		// when
+		jest.useFakeTimers().setSystemTime(new Date('2018-02-15T23:55:32'));
 		const { container } = render(
 			<DateWidget
 				id="myForm"
