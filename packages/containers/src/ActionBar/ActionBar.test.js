@@ -1,6 +1,4 @@
-import { mount } from 'enzyme';
 import { screen, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import cmf, { mock } from '@talend/react-cmf';
 
 import Container from './ActionBar.connect';
@@ -65,27 +63,25 @@ const actions = {
 	],
 };
 
-const context = mock.store.context();
-const Provider = mock.Provider;
-
 describe('Container ActionBar', () => {
-	beforeAll(() => {
-		context.registry = cmf.registry.getRegistry();
-		cmf.component.registerMany({
-			Action,
-			Actions,
-			ActionDropdown,
-			ActionSplitDropdown,
+	let config;
+	beforeAll(async () => {
+		config = await cmf.bootstrap({
+			render: false,
+			components: {
+				Action,
+				Actions,
+				ActionDropdown,
+				ActionSplitDropdown,
+			},
 		});
 	});
-
 	it('should pass the props', () => {
-		// context.registry = {};
 		const props = { actions };
 		render(
-			<Provider {...context}>
+			<config.App {...mock.store.context()}>
 				<Container {...props} />
-			</Provider>,
+			</config.App>,
 		);
 		const Preparations = screen.getByRole('button', { name: 'Preparations' });
 		const left = Preparations.parentElement;
@@ -129,9 +125,9 @@ describe('Container ActionBar', () => {
 		};
 
 		render(
-			<Provider {...context} state={state}>
+			<config.App {...mock.store.context(state)}>
 				<Container actionIds={actionIds} />
-			</Provider>,
+			</config.App>,
 		);
 		expect(screen.getAllByRole('button')).toHaveLength(4);
 		expect(screen.getByText('Demo')).toBeInTheDocument();
