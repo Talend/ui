@@ -1,17 +1,44 @@
+/* eslint-disable react/display-name */
 import { fromJS, Map } from 'immutable';
-import { mock } from '@talend/react-cmf';
-import { mount } from 'enzyme';
+import cmf, { mock } from '@talend/react-cmf';
+import { render } from '@testing-library/react';
 
 import Container from './ConfirmDialog.container';
 import Connected, { mapStateToProps } from './ConfirmDialog.connect';
 
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 
-jest.mock('@talend/react-components/lib/ConfirmDialog', () => props => (
-	<div className="tc-confirm-dialog" {...props} />
-));
+jest.mock(
+	'@talend/react-components/lib/ConfirmDialog',
+	() =>
+		({ cancelAction, validateAction, show, ...props }) =>
+			(
+				<div
+					data-testid="ConfirmDialog"
+					className="tc-confirm-dialog"
+					{...props}
+					aria-hidden={(!show).toString()}
+				>
+					<button data-testid="cancelAction" onClick={cancelAction.onClick}>
+						cancelAction.label
+					</button>
+					<button data-testid="validateAction" onClick={validateAction.onClick}>
+						validateAction.label
+					</button>
+				</div>
+			),
+);
+jest.unmock('@talend/design-system');
 
 describe('Container ConfirmDialog', () => {
+	let App;
+	beforeAll(async () => {
+		const config = await cmf.bootstrap({
+			render: false,
+			components: {},
+		});
+		App = config.App;
+	});
 	it('should not render', () => {
 		const state = new Map({
 			size: 'small',
@@ -19,11 +46,12 @@ describe('Container ConfirmDialog', () => {
 			show: true,
 			children: 'Confirm this !',
 		});
-		const wrapper = mount(
-			<Container state={state} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		const { container } = render(
+			<App {...mock.store.context()}>
+				<Container state={state} />
+			</App>,
 		);
-		expect(wrapper.instance()).toBe(null);
+		expect(container).toBeEmptyDOMElement();
 	});
 	it('should render', () => {
 		const state = new Map({
@@ -35,11 +63,13 @@ describe('Container ConfirmDialog', () => {
 			cancelAction: 'menu:demo',
 			model: { foo: 'bar' },
 		});
-		const wrapper = mount(
-			<Container state={state} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		const { container } = render(
+			<App {...mock.store.context()}>
+				<Container state={state} />
+			</App>,
 		);
-		expect(wrapper.html()).toMatchSnapshot();
+
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
 
