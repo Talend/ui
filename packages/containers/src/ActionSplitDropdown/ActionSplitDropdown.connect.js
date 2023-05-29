@@ -41,6 +41,8 @@ export function ContainerActionSplitDropdown(props) {
 	delete newProps.dispatch;
 	delete newProps.dispatchActionCreator;
 	delete newProps.getComponent;
+	delete newProps.actionIds;
+	delete newProps.actionId;
 
 	newProps = {
 		...getOnClick(newProps, props),

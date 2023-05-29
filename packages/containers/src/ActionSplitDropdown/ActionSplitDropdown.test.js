@@ -1,9 +1,12 @@
 import { shallow } from 'enzyme';
-import { mock } from '@talend/react-cmf';
+import { render } from '@testing-library/react';
+import cmf, { mock } from '@talend/react-cmf';
 import Connected, {
 	mapStateToProps,
 	ContainerActionSplitDropdown,
 } from './ActionSplitDropdown.connect';
+
+jest.unmock('@talend/design-system');
 
 describe('Connect(CMF(Container(ActionSplitDropdown)))', () => {
 	it('should connect ActionSplitDropdown', () => {
@@ -25,18 +28,21 @@ describe('Connect(CMF(Container(ActionSplitDropdown)))', () => {
 });
 
 describe('Container(ActionSplitDropdown)', () => {
+	let App;
+	beforeEach(async () => {
+		const config = await cmf.bootstrap({
+			render: false,
+			components: {},
+		});
+		App = config.App;
+	});
 	it('should render', () => {
 		const context = mock.store.context();
-		const wrapper = shallow(
-			<ContainerActionSplitDropdown
-				foo="extra"
-				items={[{ foo: 'bar', actionCreator: 'menu:item' }]}
-				actionCreator="split"
-			/>,
-			{ context },
+		const { container } = render(
+			<App {...context}>
+				<ContainerActionSplitDropdown label="extra" actionIds={['menu:article']} />
+			</App>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
-		const props = wrapper.props();
-		expect(typeof props.items[0].onClick).toBe('function');
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
