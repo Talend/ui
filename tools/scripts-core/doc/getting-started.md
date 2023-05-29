@@ -87,3 +87,22 @@ You need to add a tsconfig at the root of your project, extending `@talend/scrip
 ```
 
 6. And you're good to go.
+
+## build options
+
+talend-scripts manage options for build as this is a script not only one sub command.
+
+_--watch_: It will not delete the target folder (which the case by default).
+This is usefull when you have a watcher already on it.
+
+_--umd_: create a UMD bundle from the library using module-to-cdn and cdn-webpack-plugin.
+
+## lint options
+
+talend-scripts manage options for build as this is a script not only one sub command.
+
+_--fix_: fix the corresponding issues that can be automatically fixed.
+
+## tests options
+
+This command is a pass through jest / karma. So you can pass anything you want.
