@@ -1,4 +1,6 @@
-import { mount } from 'enzyme';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { screen, render, fireEvent } from '@testing-library/react';
 import { Map, fromJS, List as ImmutableList } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 import { mock } from '@talend/react-cmf';
@@ -85,13 +87,23 @@ const items = fromJS([
 	},
 ]);
 
+jest.mock('@talend/react-components/lib/List', () => ({ getProps, ...props }) => (
+	<div data-testid="List">
+		<button onClick={() => getProps(props)}>getProps</button>
+	</div>
+));
+jest.unmock('@talend/design-system');
+
 describe('Container List', () => {
 	it('should put default props', () => {
-		const wrapper = mount(
-			<Container {...cloneDeep(settings)} items={items} />,
-			mock.Provider.getEnzymeOption(mock.store.context),
+		const getProps = jest.fn();
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container {...cloneDeep(settings)} items={items} getProps={getProps} />,
+			</mock.Provider>,
 		);
-		const props = wrapper.find('List').props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		expect(props.displayMode).toBe('table');
 		expect(props.list.items.length).toBe(3);
 		expect(props.list.items[0].id).toBe(1);
@@ -111,16 +123,20 @@ describe('Container List', () => {
 	});
 
 	it('should define the cellDictionary props', () => {
+		const getProps = jest.fn();
 		const getComponent = jest.fn(() => 'my custom component');
-		const wrapper = mount(
-			<Container
-				cellDictionary={{ custom: { component: 'componentId' } }}
-				getComponent={getComponent}
-				items={fromJS([])}
-			/>,
-			mock.Provider.getEnzymeOption(mock.store.context),
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container
+					cellDictionary={{ custom: { component: 'componentId' } }}
+					getComponent={getComponent}
+					items={fromJS([])}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.find('List').props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 
 		expect(props.list.cellDictionary).toEqual({
 			custom: { cellRenderer: 'my custom component' },
@@ -134,16 +150,20 @@ describe('Container List', () => {
 	});
 
 	it('should define the headerDictionary props', () => {
+		const getProps = jest.fn();
 		const getComponent = jest.fn(() => 'my custom component');
-		const wrapper = mount(
-			<Container
-				getComponent={getComponent}
-				items={fromJS([])}
-				headerDictionary={{ custom: { component: 'componentId' } }}
-			/>,
-			mock.Provider.getEnzymeOption(mock.store.context),
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container
+					getProps={getProps}
+					getComponent={getComponent}
+					items={fromJS([])}
+					headerDictionary={{ custom: { component: 'componentId' } }}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.find('List').props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 
 		expect(props.list.headerDictionary).toEqual({
 			custom: { headerRenderer: 'my custom component' },
@@ -152,37 +172,45 @@ describe('Container List', () => {
 	});
 
 	it('should add multiSelection props', () => {
+		const getProps = jest.fn();
 		const multiSelectionSetting = cloneDeep(settings);
 		multiSelectionSetting.idKey = 'id';
 		multiSelectionSetting.multiSelectActions = {
 			left: ['object:remove'],
 		};
-		const wrapper = mount(
-			<Container {...multiSelectionSetting} items={items} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container {...multiSelectionSetting} items={items} getProps={getProps} />
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		expect(typeof props.list.itemProps.onToggle).toBe('function');
 		expect(typeof props.list.itemProps.onToggleAll).toBe('function');
 		expect(typeof props.list.itemProps.isSelected).toBe('function');
 	});
 
 	it('should render without toolbar', () => {
-		const wrapper = mount(
-			<Container items={items} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		const getProps = jest.fn();
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container items={items} getProps={getProps} />
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		expect(props.toolbar).toBe(undefined);
 	});
 
 	it('should support displayMode as props', () => {
-		const wrapper = mount(
-			<Container displayMode="large" items={items} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		const getProps = jest.fn();
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container displayMode="large" items={items} getProps={getProps} />
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		expect(props.displayMode).toBe('large');
 	});
 
@@ -194,15 +222,19 @@ describe('Container List', () => {
 				'actionCreator:object:open': actionCreator,
 			},
 		};
-		const wrapper = mount(
-			<Container
-				{...cloneDeep(settings)}
-				items={items}
-				dispatchActionCreator={dispatchActionCreator}
-			/>,
-			mock.Provider.getEnzymeOption(context),
+		const getProps = jest.fn();
+		render(
+			<mock.Provider {...mock.store.context(undefined, context.registry)}>
+				<Container
+					getProps={getProps}
+					{...cloneDeep(settings)}
+					items={items}
+					dispatchActionCreator={dispatchActionCreator}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		const onClick = props.list.titleProps.onClick;
 		const e = {};
 		const data = { foo: 'bar' };
@@ -224,15 +256,19 @@ describe('Container List', () => {
 				'actionCreator:object:edit:submit': actionCreator,
 			},
 		};
-		const wrapper = mount(
-			<Container
-				{...cloneDeep(settings)}
-				items={items}
-				dispatchActionCreator={dispatchActionCreator}
-			/>,
-			mock.Provider.getEnzymeOption(context),
+		const getProps = jest.fn();
+		render(
+			<mock.Provider {...mock.store.context(undefined, context.registry)}>
+				<Container
+					{...cloneDeep(settings)}
+					items={items}
+					dispatchActionCreator={dispatchActionCreator}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		const onEditSubmit = props.list.titleProps.onEditSubmit;
 		const e = {};
 		const data = { foo: 'bar' };
@@ -247,6 +283,7 @@ describe('Container List', () => {
 	});
 
 	it('should ontitle edit cancel call action creator', () => {
+		const getProps = jest.fn();
 		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
 		const context = {
@@ -254,15 +291,18 @@ describe('Container List', () => {
 				'actionCreator:object:edit:cancel': actionCreator,
 			},
 		};
-		const wrapper = mount(
-			<Container
-				{...cloneDeep(settings)}
-				items={items}
-				dispatchActionCreator={dispatchActionCreator}
-			/>,
-			mock.Provider.getEnzymeOption(context),
+		render(
+			<mock.Provider {...mock.store.context(undefined, context.registry)}>
+				<Container
+					{...cloneDeep(settings)}
+					items={items}
+					dispatchActionCreator={dispatchActionCreator}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		const onEditCancel = props.list.titleProps.onEditCancel;
 		const e = {};
 		const data = { foo: 'bar' };
@@ -277,6 +317,7 @@ describe('Container List', () => {
 	});
 
 	it('should not set onclick if no action on title', () => {
+		const getProps = jest.fn();
 		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
 		const context = {
@@ -288,20 +329,24 @@ describe('Container List', () => {
 			...cloneDeep(settings),
 			actions: {},
 		};
-		const wrapper = mount(
-			<Container
-				{...settingsWithoutActions}
-				items={items}
-				dispatchActionCreator={dispatchActionCreator}
-			/>,
-			mock.Provider.getEnzymeOption(context),
+		render(
+			<mock.Provider {...mock.store.context(undefined, context.registry)}>
+				<Container
+					{...settingsWithoutActions}
+					items={items}
+					dispatchActionCreator={dispatchActionCreator}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		expect(props.list.titleProps.onClick).toBeUndefined();
 	});
 
 	it('should call action creator on pagination change', () => {
 		// given
+		const getProps = jest.fn();
 		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
 		const setState = jest.fn();
@@ -310,16 +355,19 @@ describe('Container List', () => {
 				'actionCreator:pagination:change': actionCreator,
 			},
 		};
-		const wrapper = mount(
-			<Container
-				{...cloneDeep(settings)}
-				items={items}
-				dispatchActionCreator={dispatchActionCreator}
-				setState={setState}
-			/>,
-			mock.Provider.getEnzymeOption(context),
+		render(
+			<mock.Provider {...mock.store.context(undefined, context.registry)}>
+				<Container
+					{...cloneDeep(settings)}
+					items={items}
+					dispatchActionCreator={dispatchActionCreator}
+					setState={setState}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		const event = null;
 		const data = { startIndex: 1, itemsPerPage: 5 };
 
@@ -342,24 +390,41 @@ describe('Container List', () => {
 			table: 3,
 			large: 2,
 		};
-		const wrapper = mount(
-			<Container {...cloneDeep(settings)} items={items} rowHeight={rowHeight} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		const getProps = jest.fn();
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container
+					{...cloneDeep(settings)}
+					items={items}
+					rowHeight={rowHeight}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.find('List').props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		expect(props.displayMode).toBe('table');
 		expect(props.rowHeight).toBe(3);
 	});
 
 	it('should call action creator when onToggle event is triggered', () => {
 		// given
+		const getProps = jest.fn();
 		const dispatch = jest.fn();
 		const setState = jest.fn();
-		const wrapper = mount(
-			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container
+					{...cloneDeep(settings)}
+					items={items}
+					dispatch={dispatch}
+					setState={setState}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		const event = { type: 'click' };
 		const payload = { filterDocked: true, searchQuery: '' };
 		const data = { event, payload, type: 'LIST_TOGGLE_FILTER' };
@@ -372,13 +437,22 @@ describe('Container List', () => {
 
 	it('should call action creator when onFilter event is triggered', () => {
 		// given
+		const getProps = jest.fn();
 		const dispatch = jest.fn();
 		const setState = jest.fn();
-		const wrapper = mount(
-			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container
+					{...cloneDeep(settings)}
+					items={items}
+					dispatch={dispatch}
+					setState={setState}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		const event = { type: 'click' };
 		const payload = { searchQuery: 'test' };
 		const data = { event, payload, type: 'LIST_FILTER_CHANGE' };
@@ -391,13 +465,22 @@ describe('Container List', () => {
 
 	it('should call action creator when sorting onChange event is triggered', () => {
 		// given
+		const getProps = jest.fn();
 		const dispatch = jest.fn();
 		const setState = jest.fn();
-		const wrapper = mount(
-			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
-			mock.Provider.getEnzymeOption(mock.store.context()),
+		render(
+			<mock.Provider {...mock.store.context()}>
+				<Container
+					{...cloneDeep(settings)}
+					items={items}
+					dispatch={dispatch}
+					setState={setState}
+					getProps={getProps}
+				/>
+			</mock.Provider>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByRole('button'));
+		const props = getProps.mock.calls[0][0];
 		const event = { type: 'click' };
 		const payload = { isDescending: true, field: 'name' };
 		const data = { event, payload, type: 'LIST_CHANGE_SORT_ORDER' };
@@ -411,6 +494,7 @@ describe('Container List', () => {
 	describe('Toggle selection', () => {
 		it('should select one item', () => {
 			// given
+			const getProps = jest.fn();
 			const multiSelectionSetting = cloneDeep(settings);
 			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
@@ -419,12 +503,15 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [] });
 			multiSelectionSetting.state = state;
-			const wrapper = mount(
-				<Container {...multiSelectionSetting} items={items} />,
-				mock.Provider.getEnzymeOption(mock.store.context()),
+			render(
+				<mock.Provider {...mock.store.context()}>
+					<Container {...multiSelectionSetting} items={items} getProps={getProps} />
+				</mock.Provider>,
 			);
 			// when
-			wrapper.find('List').props().list.itemProps.onToggle({}, { id: 1 });
+			fireEvent.click(screen.getByRole('button'));
+			const props = getProps.mock.calls[0][0];
+			props.list.itemProps.onToggle({}, { id: 1 });
 			// then
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toMatchObject({
 				selectedItems: expect.any(ImmutableList),
@@ -433,6 +520,7 @@ describe('Container List', () => {
 
 		it('should deselect one item', () => {
 			// given
+			const getProps = jest.fn();
 			const multiSelectionSetting = cloneDeep(settings);
 			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
@@ -441,12 +529,15 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [1] });
 			multiSelectionSetting.state = state;
-			const wrapper = mount(
-				<Container {...multiSelectionSetting} items={items} />,
-				mock.Provider.getEnzymeOption(mock.store.context()),
+			render(
+				<mock.Provider {...mock.store.context()}>
+					<Container {...multiSelectionSetting} items={items} getProps={getProps} />
+				</mock.Provider>,
 			);
 			// when
-			wrapper.find('List').props().list.itemProps.onToggle({}, { id: 1 });
+			fireEvent.click(screen.getByRole('button'));
+			const props = getProps.mock.calls[0][0];
+			props.list.itemProps.onToggle({}, { id: 1 });
 			// then
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
 				selectedItems: new ImmutableList([]),
@@ -454,20 +545,25 @@ describe('Container List', () => {
 		});
 		it('should select all items', () => {
 			// given
+			const getProps = jest.fn();
 			const multiSelectionSetting = cloneDeep(settings);
 			multiSelectionSetting.idKey = 'id';
+
 			multiSelectionSetting.multiSelectActions = {
 				left: ['object:remove'],
 			};
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [] });
 			multiSelectionSetting.state = state;
-			const wrapper = mount(
-				<Container {...multiSelectionSetting} items={items} />,
-				mock.Provider.getEnzymeOption(mock.store.context()),
+			render(
+				<mock.Provider {...mock.store.context()}>
+					<Container {...multiSelectionSetting} items={items} getProps={getProps} />
+				</mock.Provider>,
 			);
 			// when
-			wrapper.find('List').props().list.itemProps.onToggleAll();
+			fireEvent.click(screen.getByRole('button'));
+			const props = getProps.mock.calls[0][0];
+			props.list.itemProps.onToggleAll();
 			// then
 
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
@@ -477,6 +573,7 @@ describe('Container List', () => {
 
 		it('should deselect all items', () => {
 			// given
+			const getProps = jest.fn();
 			const multiSelectionSetting = cloneDeep(settings);
 			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
@@ -485,12 +582,15 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [1, 2, 3] });
 			multiSelectionSetting.state = state;
-			const wrapper = mount(
-				<Container {...multiSelectionSetting} items={items} />,
-				mock.Provider.getEnzymeOption(mock.store.context()),
+			render(
+				<mock.Provider {...mock.store.context()}>
+					<Container {...multiSelectionSetting} items={items} getProps={getProps} />
+				</mock.Provider>,
 			);
 			// when
-			wrapper.find('List').props().list.itemProps.onToggleAll();
+			fireEvent.click(screen.getByRole('button'));
+			const props = getProps.mock.calls[0][0];
+			props.list.itemProps.onToggleAll();
 			// then
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
 				selectedItems: new ImmutableList([]),
@@ -499,6 +599,7 @@ describe('Container List', () => {
 
 		it('should compute the number of selected items', () => {
 			// given
+			const getProps = jest.fn();
 			const multiSelectionSetting = cloneDeep(settings);
 			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
@@ -509,12 +610,15 @@ describe('Container List', () => {
 			multiSelectionSetting.state = state;
 
 			// when
-			const wrapper = mount(
-				<Container {...multiSelectionSetting} items={items} />,
-				mock.Provider.getEnzymeOption(mock.store.context()),
+			render(
+				<mock.Provider {...mock.store.context()}>
+					<Container {...multiSelectionSetting} items={items} getProps={getProps} />
+				</mock.Provider>,
 			);
 			// then
-			expect(wrapper.props().toolbar.actionBar.selected).toBe(3);
+			fireEvent.click(screen.getByRole('button'));
+			const props = getProps.mock.calls[0][0];
+			expect(props.toolbar.actionBar.selected).toBe(3);
 		});
 	});
 });

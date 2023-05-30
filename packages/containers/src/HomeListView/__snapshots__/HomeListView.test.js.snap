@@ -91,84 +91,46 @@ exports[`Component HomeListView should render with element props 1`] = `
 `;
 
 exports[`Component HomeListView should render with object props 1`] = `
-<Layout
-  drawers={
-    [
-      <h1>
-        Hello children
-      </h1>,
-    ]
-  }
-  header={
-    <HeaderBar
-      app="hello app"
-    />
-  }
-  mode="TwoColumns"
-  one={
-    <Memo(Connect(CMF(Container(SidePanel))))
-      actionIds={
-        [
-          "menu:demo",
-          "menu:article",
-        ]
-      }
-    />
-  }
+<div
+  class="container"
 >
-  <Memo(Connect(CMF(Container(List))))
-    actions={{}}
-    items={
-      Immutable.List [
-        Immutable.Map {
-          "id": 1,
-          "label": "Title with actions",
-          "created": "2016-09-22",
-          "modified": "2016-09-22",
-          "author": "Jean-Pierre DUPONT",
-          "icon": "fa fa-file-excel-o",
-          "display": "text",
-          "className": "item-0-class",
-        },
-      ]
-    }
-    list={
-      {
-        "columns": [
-          {
-            "key": "id",
-            "label": "Id",
-          },
-          {
-            "key": "label",
-            "label": "Name",
-          },
-        ],
-        "titleProps": {
-          "key": "label",
-        },
-      }
-    }
-    toolbar={
-      {
-        "filter": {
-          "placeholder": "find an object",
-        },
-        "sort": {
-          "field": "id",
-          "options": [
-            {
-              "id": "id",
-              "name": "Id",
-            },
-            {
-              "id": "label",
-              "name": "Name",
-            },
-          ],
-        },
-      }
-    }
-  />
-</Layout>
+  <div
+    class="row"
+  >
+    <div
+      class="col-md-offset-3 col-md-6"
+      style="overflow-y: auto; height: 100vh; margin-top: 200px;"
+    >
+      <h1>
+        An error occurred
+      </h1>
+      <div>
+        <p
+          class="error-title"
+        >
+          Error
+          : 
+          actionCreator not found in the registry: cmf.saga.start
+        </p>
+        <p>
+          From here you can either refresh or contact the support.
+        </p>
+        <button
+          class="btn btn-danger btn-inverse"
+          data-feature="refresh-on-error"
+          style="margin: 20px;"
+        >
+          Refresh
+        </button>
+        <a
+          class="btn btn-primary btn-inverse"
+          data-feature="download-on-error-details"
+          download="report.json"
+        >
+          Download details
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 `;

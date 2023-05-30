@@ -15,11 +15,6 @@ export const DISPLAY_NAME = 'Container(Slider)';
 class Slider extends RComponent {
 	static displayName = DISPLAY_NAME;
 
-	static contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
-	};
-
 	static propTypes = {
 		...cmfConnect.propTypes,
 		id: PropTypes.string,

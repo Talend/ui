@@ -17,10 +17,6 @@ class ShortcutManager extends Component {
 		...cmfConnect.propTypes,
 	};
 
-	static contextTypes = {
-		store: PropTypes.object.isRequired,
-	};
-
 	constructor(props) {
 		super(props);
 		this.redirect = this.redirect.bind(this);

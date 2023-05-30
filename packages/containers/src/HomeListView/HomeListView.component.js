@@ -66,9 +66,9 @@ HomeListView.propTypes = {
 	id: PropTypes.string,
 	hasTheme: PropTypes.bool,
 	components: PropTypes.object,
-	header: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
-	sidepanel: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
-	list: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
+	header: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+	sidepanel: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
+	list: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
 	children: PropTypes.node,
 };
 
