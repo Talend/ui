@@ -1,6 +1,10 @@
-import { mount } from 'enzyme';
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/display-name */
+import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 import Immutable, { fromJS } from 'immutable';
+// eslint-disable-next-line @talend/import-depth
+import { prepareCMF } from '@talend/react-cmf/src/mock/rtl';
 import Container from './Notification.container';
 import Connected, { mergeProps, deleteNotification } from './Notification.connect';
 import pushNotification from './pushNotification';
@@ -11,10 +15,9 @@ jest.mock('@talend/react-components/lib/Notification', () => props => (
 ));
 
 describe('Container Notification', () => {
-	it('should render', () => {
-		const context = mock.store.context();
-		const wrapper = mount(<Container />, mock.Provider.getEnzymeOption(context));
-		expect(wrapper.html()).toMatchSnapshot();
+	it('should render', async () => {
+		const { container } = render(await prepareCMF(<Container />));
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
 

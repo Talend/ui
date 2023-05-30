@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container Notification should render 1`] = `
-<div class="tc-notifications"
-     notifications
->
-</div>
+<div
+  class="tc-notifications"
+  notifications=""
+/>
 `;
