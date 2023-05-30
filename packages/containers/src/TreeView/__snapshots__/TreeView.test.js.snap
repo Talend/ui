@@ -1,45 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TreeView should render the data 1`] = `
-<TreeGesture(TreeView)
-  childrenAttr="children"
-  data={
-    Immutable.List [
-      Immutable.Map {
-        "id": 1,
-        "name": "foo",
-        "children": [],
-      },
-      Immutable.Map {
-        "id": 2,
-        "name": "bar",
-        "children": [],
-      },
-    ]
-  }
-  id="my-treeview"
-  idAttr="id"
-  nameAttr="name"
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onToggleAllSiblings={[Function]}
-  structure={
-    [
-      {
-        "children": [],
-        "id": 1,
-        "isOpened": false,
-        "name": "foo",
-        "parent": undefined,
-      },
-      {
-        "children": [],
-        "id": 2,
-        "isOpened": false,
-        "name": "bar",
-        "parent": undefined,
-      },
-    ]
-  }
-/>
+exports[`TreeView should render 1`] = `
+<div
+  class="tc-treeview theme-tc-treeview"
+>
+  <header
+    class="theme-tc-treeview-header"
+  >
+    <span
+      id="my-treeview-title"
+    >
+      Folders
+    </span>
+  </header>
+  <ul
+    aria-labelledby="my-treeview-title"
+    class="theme-tc-treeview-list"
+    role="tree"
+  >
+    <li
+      aria-level="1"
+      aria-posinset="1"
+      aria-selected="false"
+      aria-setsize="2"
+      class="tc-treeview-item-li theme-tc-treeview-li"
+      id="my-treeview-0"
+      role="treeitem"
+      tabindex="0"
+    >
+      <div
+        class="tc-treeview-item theme-tc-treeview-item"
+        style="padding-left: 30px;"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg theme-tc-treeview-folder tc-icon-name-talend-folder-closed"
+          focusable="false"
+          name="talend-folder-closed"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+        <span
+          class="tc-treeview-item-name theme-tc-treeview-item-name"
+        >
+          foo
+        </span>
+        <div
+          class="theme-tc-treeview-item-ctrl"
+        />
+      </div>
+    </li>
+    <li
+      aria-level="1"
+      aria-posinset="2"
+      aria-selected="false"
+      aria-setsize="2"
+      class="tc-treeview-item-li theme-tc-treeview-li"
+      id="my-treeview-1"
+      role="treeitem"
+      tabindex="-1"
+    >
+      <div
+        class="tc-treeview-item theme-tc-treeview-item"
+        style="padding-left: 30px;"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg theme-tc-treeview-folder tc-icon-name-talend-folder-closed"
+          focusable="false"
+          name="talend-folder-closed"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+        <span
+          class="tc-treeview-item-name theme-tc-treeview-item-name"
+        >
+          bar
+        </span>
+        <div
+          class="theme-tc-treeview-item-ctrl"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
 `;
