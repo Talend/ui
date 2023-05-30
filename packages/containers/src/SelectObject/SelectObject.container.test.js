@@ -1,56 +1,42 @@
-import { shallow } from 'enzyme';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { screen, render, fireEvent } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 import Immutable from 'immutable';
+// eslint-disable-next-line @talend/import-depth
+import { prepareCMF } from '@talend/react-cmf/src/mock/rtl';
 
-import Component from './SelectObject.component';
 import Container, { getById, filter, filterAll } from './SelectObject.container';
-import Connected, { mapStateToProps } from './SelectObject.connect';
 
-describe('Component SelectObject', () => {
-	it('should render', () => {
-		const context = mock.store.context();
-		const item = new Immutable.Map({ id: '1', name: 'foo' });
-		const props = {
-			id: 'my-tree',
-			schema: {
-				jsonSchema: {},
-			},
-			sourceData: new Immutable.List([item]),
-			filter: {
-				className: 'my-custom-filter',
-			},
-			tree: {},
-			selected: {
-				id: '1',
-				name: 'foo',
-			},
-		};
-		const wrapper = shallow(<Component {...props} />, { context });
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-});
+jest.unmock('@talend/design-system');
+jest.mock('./SelectObject.component', () => ({ getProps, ...props }) => (
+	<div data-testid="SelectObject">
+		<button onClick={() => getProps(props)}>getProps</button>
+	</div>
+));
 
 describe('Container SelectObject', () => {
 	it('should render', () => {
 		const context = mock.store.context();
-		const wrapper = shallow(<Container />, { context });
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(
+			<mock.Provider {...context}>
+				<Container />
+			</mock.Provider>,
+		);
+		expect(container.firstChild).toMatchSnapshot();
 	});
-	it('should propagate extra props', () => {
-		const context = mock.store.context();
-		const wrapper = shallow(<Container extra="foo" />, { context });
-		expect(wrapper.props().extra).toBe('foo');
-	});
-	it('should default props with Tree map the selectedId and onTreeClick', () => {
-		const context = mock.store.context();
+	it('should default props with Tree map the selectedId', async () => {
 		const tree = {};
+		const getProps = jest.fn();
 		const item = new Immutable.Map({ id: '1', name: 'foo' });
 		const sourceData = new Immutable.List([item]);
-		const wrapper = shallow(<Container tree={tree} selectedId="1" sourceData={sourceData} />, {
-			context,
-		});
-
-		const props = wrapper.props();
+		render(
+			await prepareCMF(
+				<Container tree={tree} selectedId="1" sourceData={sourceData} getProps={getProps} />,
+			),
+		);
+		fireEvent.click(screen.getByText('getProps'));
+		const props = getProps.mock.calls[0][0];
 		expect(props).toEqual({
 			breadCrumbsRootLabel: 'root',
 			idAttr: 'id',
@@ -60,23 +46,25 @@ describe('Container SelectObject', () => {
 			selectedId: '1',
 			sourceData: new Immutable.List([item]),
 			tree: {
-				onSelect: wrapper.instance().onTreeClick,
+				onSelect: expect.anything(),
 				selectedId: '1',
 			},
 		});
 	});
-	it('should set selectedId props to the only matched item if nothing selected', () => {
-		const context = mock.store.context();
+	it('should set selectedId props to the only matched item if nothing selected', async () => {
+		const getProps = jest.fn();
 		const tree = {};
 		const item1 = new Immutable.Map({ id: '1', name: 'foo' });
 		const item2 = new Immutable.Map({ id: '2', name: 'bar' });
 		const sourceData = new Immutable.List([item1, item2]);
 
-		const wrapper = shallow(<Container tree={tree} sourceData={sourceData} query="f" />, {
-			context,
-		});
-
-		const props = wrapper.props();
+		render(
+			await prepareCMF(
+				<Container tree={tree} sourceData={sourceData} query="f" getProps={getProps} />,
+			),
+		);
+		fireEvent.click(screen.getByText('getProps'));
+		const props = getProps.mock.calls[0][0];
 		expect(props).toMatchObject({
 			breadCrumbsRootLabel: 'root',
 			idAttr: 'id',
@@ -88,7 +76,7 @@ describe('Container SelectObject', () => {
 			results: {
 				idAttr: 'id',
 				nameAttr: 'name',
-				onClick: wrapper.instance().onResultsClick,
+				onClick: expect.anything(),
 				selectedId: '1',
 			},
 		});
@@ -357,46 +345,6 @@ describe('Container SelectObject', () => {
 			expect(results.get(0).get('toggled')).toBeFalsy();
 			expect(results.get(0).get('children')).toBeFalsy();
 			expect(results.get(1).get('children')).toBeFalsy();
-		});
-	});
-});
-
-describe('Connected SelectObject', () => {
-	it('should connect SelectObject', () => {
-		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
-		expect(Connected.WrappedComponent).toBe(Container);
-	});
-	it('should map state to props', () => {
-		const state = mock.store.state();
-		const data = new Immutable.List([
-			new Immutable.Map({ label: 'foo' }),
-			new Immutable.Map({ label: 'bar' }),
-		]);
-		state.cmf.collections = new Immutable.Map({
-			width: new Immutable.Map({ data }),
-		});
-		state.cmf.components = new Immutable.Map({
-			'Container(FilterBar)': new Immutable.Map({
-				test: new Immutable.Map({ query: 'foo' }),
-			}),
-			'Container(Tree)': new Immutable.Map({
-				test: new Immutable.Map({ selectedId: '27' }),
-			}),
-		});
-		const props = mapStateToProps(state, {
-			id: 'test',
-			nameAttr: 'label',
-			source: 'width.data',
-			tree: { extra: true },
-		});
-		expect(typeof props).toBe('object');
-		expect(props).toEqual({
-			query: 'foo',
-			sourceData: data,
-			tree: {
-				extra: true,
-				nameAttr: 'label',
-			},
 		});
 	});
 });

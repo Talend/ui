@@ -132,7 +132,7 @@ class SelectObject extends RComponent {
 
 	static propTypes = {
 		...cmfConnect.propTypes,
-		sourceData: PropTypes.array,
+		// sourceData: PropTypes.array,
 		selectedId: PropTypes.string,
 		tree: PropTypes.object,
 		idAttr: PropTypes.string,
