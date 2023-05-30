@@ -41,7 +41,6 @@ function toggleState(prevProps, data, idAttr) {
 
 		return nextState;
 	}
-	console.log('#### tggleState', id);
 	return prevProps.state.set(OPENED_ATTR, prevProps.state.get(OPENED_ATTR).push(id));
 }
 
