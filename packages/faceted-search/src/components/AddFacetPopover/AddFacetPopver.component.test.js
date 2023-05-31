@@ -1,6 +1,3 @@
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
-// rewrite tests using react-testing-library
 import { screen, render, fireEvent } from '@testing-library/react';
 import { AddFacetPopover } from './AddFacetPopover.component';
 import getDefaultT from '../../translate';
@@ -133,8 +130,8 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
-		getRowButtons(wrapper).first().simulate('click');
+		render(<AddFacetPopover {...props} />);
+		fireEvent.click(getRowButtons()[0]);
 		// Then
 		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[1]);
 	});
@@ -148,10 +145,10 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		render(<AddFacetPopover {...props} />);
 		// Then
-		expect(wrapper.find('.tc-add-facet-popover-row-button')).toHaveLength(3);
-		expect(wrapper.find('.tc-add-facet-popover-row-button-category')).toHaveLength(1);
+		expect(document.querySelectorAll('.tc-add-facet-popover-row-button')).toHaveLength(3);
+		expect(document.querySelectorAll('.tc-add-facet-popover-row-button-category')).toHaveLength(1);
 	});
 	it('should display the hidden category screen when click on a category row', () => {
 		// Given
@@ -163,10 +160,10 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
-		getRowButtons(wrapper).at(1).simulate('click'); // click on "Custom attributes"
+		render(<AddFacetPopover {...props} />);
+		fireEvent.click(getRowButtons()[1]); // click on "Custom attributes"
 		// Then
-		expect(wrapper.find('.tc-add-facet-popover-header-category')).toHaveLength(1);
+		expect(document.querySelectorAll('.tc-add-facet-popover-header-category')).toHaveLength(1);
 	});
 	it('should render an empty state when filter return no result', () => {
 		// Given

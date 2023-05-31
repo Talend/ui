@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { BadgeSliderForm } from './BadgeSliderForm.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 import getDefaultT from '../../../translate';
@@ -20,13 +20,13 @@ describe('BadgeSliderForm', () => {
 			onChange: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeSliderForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should mount a badge with a greaterThan slider', () => {
@@ -40,13 +40,17 @@ describe('BadgeSliderForm', () => {
 			operator: { name: 'greaterThan' },
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeSliderForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const slider = screen.getByRole('slider');
+		expect(slider).toHaveAttribute('aria-valuenow', '0');
+		expect(slider).toHaveAttribute('aria-valuemin', '0');
+		expect(slider).toHaveAttribute('aria-valuemax', '100');
+		expect(slider.parentElement).toHaveClass('theme-tc-slider-rc-slider--track-greater-than');
 	});
 
 	it('should mount an badge with an equals slider', () => {
@@ -60,13 +64,17 @@ describe('BadgeSliderForm', () => {
 			operator: { name: 'equals' },
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeSliderForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const slider = screen.getByRole('slider');
+		expect(slider).toHaveAttribute('aria-valuenow', '0');
+		expect(slider).toHaveAttribute('aria-valuemin', '0');
+		expect(slider).toHaveAttribute('aria-valuemax', '100');
+		expect(slider.parentElement).toHaveClass('theme-tc-slider-rc-slider--track-equals');
 	});
 
 	it('should mount a default badge in edit mode', () => {
@@ -74,19 +82,22 @@ describe('BadgeSliderForm', () => {
 		const props = {
 			id: 'customId',
 			onSubmit: jest.fn(),
+			value: 43,
 			feature: 'quality',
 			t: getDefaultT(),
 			onChange: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeSliderForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 
-		wrapper.find('.tc-badge-value-unit').first().simulate('click');
-		expect(wrapper.getElement()).toMatchSnapshot();
+		window.HTMLFormElement.prototype.requestSubmit = jest.fn();
+		fireEvent.click(screen.getByLabelText('Edit directly'));
+		// Then
+		expect(screen.getByRole('spinbutton')).toHaveValue(43);
 	});
 
 	it('should mount a default badge in error mode (oor)', () => {
@@ -102,16 +113,16 @@ describe('BadgeSliderForm', () => {
 			onChange: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeSliderForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 
-		expect(wrapper.find('.tc-badge-slider-form-error').first().text()).toBe(
+		expect(document.querySelector('.tc-badge-slider-form-error')).toHaveTextContent(
 			'The value must be between 6 and 76',
 		);
-		expect(wrapper.find('button[type="submit"]').first().props().disabled).toEqual(true);
+		expect(document.querySelector('button[type="submit"]')).toBeDisabled();
 	});
 
 	it('should mount a default badge in error mode (decimal)', () => {
@@ -126,16 +137,16 @@ describe('BadgeSliderForm', () => {
 			onChange: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeSliderForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 
-		expect(wrapper.find('.tc-badge-slider-form-error').first().text()).toBe(
+		expect(document.querySelector('.tc-badge-slider-form-error')).toHaveTextContent(
 			'Please fill with an integer value',
 		);
-		expect(wrapper.find('button[type="submit"]').first().props().disabled).toEqual(true);
+		expect(document.querySelector('button[type="submit"]')).toBeDisabled();
 	});
 
 	it('should mount a badge with some other values', () => {
@@ -145,23 +156,24 @@ describe('BadgeSliderForm', () => {
 			id: 'customId',
 			onSubmit,
 			onChange: jest.fn(),
-			value: '45',
+			value: 45,
 			feature: 'quality',
 			editing: true,
 			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeSliderForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		wrapper.find('.tc-badge-value-unit').first().simulate('click');
-		expect(wrapper.find('input[type="number"]').first().props().value).toEqual('45');
+		// wrapper.find('.tc-badge-value-unit').first().simulate('click');
+		fireEvent.click(screen.getByLabelText('Edit directly'));
+		expect(document.querySelector('input[type="number"]')).toHaveValue(45);
 
-		const submitButton = wrapper.find('button[type="submit"]').first();
-		submitButton.simulate('submit');
+		const submitButton = document.querySelector('button[type="submit"]');
+		fireEvent.submit(submitButton);
 
 		expect(onSubmit).toHaveBeenCalled();
 	});

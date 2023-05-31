@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable import/no-extraneous-dependencies */
-import { mount } from 'enzyme';
+// rewrite tests using react-testing-library
+import { render, screen } from '@testing-library/react';
 import { BadgeText } from '../Badges/BadgeText/BadgeText.component';
 
 import { BadgesGenerator } from './BadgesGenerator.component';
@@ -50,13 +50,17 @@ describe('BadgesGenerator', () => {
 			t: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<BadgesGenerator {...props} />);
+		const { container } = render(<BadgesGenerator {...props} />);
 		// Then
-		expect(wrapper.html()).toBe(null);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render the fake component', () => {
 		// Given
-		const FakeComponent = ({ id }) => <div id={id}>This is a fake component</div>;
+		const FakeComponent = ({ id }) => (
+			<div data-testid="fake" data-id={id}>
+				This is a fake component
+			</div>
+		);
 		const props = {
 			badges,
 			badgesDictionary,
@@ -65,11 +69,8 @@ describe('BadgesGenerator', () => {
 			t: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<BadgesGenerator {...props} />);
+		render(<BadgesGenerator {...props} />);
 		// Then
-		expect(wrapper.find('div#name-ed8c6c4a-9025-4ba9-b382-620773ce2ee8').text()).toEqual(
-			'This is a fake component',
-		);
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByTestId('fake').dataset.id).toBe('name-ed8c6c4a-9025-4ba9-b382-620773ce2ee8');
 	});
 });
