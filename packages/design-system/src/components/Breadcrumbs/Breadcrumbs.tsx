@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import styles from './Breadcrumbs.module.scss';
 import Link from '../Link';
-import Dropdown from '../Dropdown/Dropdown';
+import Dropdown, { DropdownItemType } from '../Dropdown/Dropdown';
 import { ButtonTertiary } from '../Button';
 import { StackHorizontal } from '../Stack';
 import Divider from '../Divider';
@@ -23,10 +23,10 @@ type BreadcrumbsRouterLink = {
 	as: ReactElement;
 };
 
-type BreadcrumbsItem = (BreadcrumbsRouterLink | BreadcrumbsLink)[];
+type BreadcrumbsItem = BreadcrumbsRouterLink | BreadcrumbsLink;
 
 type BreadCrumbsProps = Omit<HTMLAttributes<HTMLElement>, 'className' | 'style'> & {
-	items: BreadcrumbsItem;
+	items: BreadcrumbsItem[];
 };
 
 const maxBreadcrumbsItemLength = 4;
@@ -77,17 +77,19 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 						<StackHorizontal gap="S" align="center" wrap="nowrap">
 							<Dropdown
 								aria-label={t('COLLAPSED_LINKS_MENU', 'Collapsed links')}
-								items={collapsed.map(collapsedLinks => {
-									const refinedProp =
-										'href' in collapsedLinks
-											? { href: collapsedLinks.href }
-											: { as: collapsedLinks.as };
-									return {
+								items={collapsed.map((collapsedLinks: BreadcrumbsItem) => {
+									const props: DropdownItemType = {
 										label: collapsedLinks.label,
 										target: collapsedLinks.target,
 										type: 'link',
-										...refinedProp,
 									};
+									if ('as' in collapsedLinks) {
+										props.as = collapsedLinks.as;
+									}
+									if ('href' in collapsedLinks) {
+										props.href = collapsedLinks.href;
+									}
+									return props;
 								})}
 							>
 								<ButtonTertiary isDropdown size="S" onClick={() => {}}>
@@ -138,5 +140,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 		</nav>
 	);
 });
+
+Breadcrumbs.displayName = 'Breadcrumbs';
 
 export default Breadcrumbs;
