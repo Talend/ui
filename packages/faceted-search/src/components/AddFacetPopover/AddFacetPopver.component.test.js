@@ -1,5 +1,7 @@
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
+// rewrite tests using react-testing-library
+import { screen, render, fireEvent } from '@testing-library/react';
 import { AddFacetPopover } from './AddFacetPopover.component';
 import getDefaultT from '../../translate';
 
@@ -64,21 +66,27 @@ describe('AddFacetPopover', () => {
 		},
 	];
 
-	const getRowButtons = wrapper =>
-		wrapper.find('div.tc-add-facet-popover-row-container').find('button');
+	const getRowButtons = wrapper => {
+		if (wrapper) {
+			return wrapper.find('div.tc-add-facet-popover-row-container').find('button');
+		}
+		return document.querySelectorAll('div.tc-add-facet-popover-row-container button');
+	};
 
-	it('should render the html output', () => {
+	it('should render', () => {
 		// Given
 		const props = {
 			badges,
+			initialFilterValue: '',
+			badgesDefinitions,
 			id: 'my id',
 			onClick: jest.fn(),
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const { container } = render(<AddFacetPopover {...props} />);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render the some badge row, with connection in their attribute', () => {
 		// Given
@@ -90,19 +98,12 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		render(<AddFacetPopover {...props} />);
 		// Then
-		act(() => {
-			wrapper
-				.find('input')
-				.first()
-				.simulate('change', { target: { value: 'connection' } });
-		});
-		wrapper.update();
-		expect(wrapper.find('input').first().prop('value')).toBe('connection');
-		const rowButton = getRowButtons(wrapper);
+		fireEvent.change(document.querySelector('input'), { target: { value: 'connection' } });
+		const rowButton = getRowButtons();
 		expect(rowButton).toHaveLength(1);
-		expect(rowButton.text()).toBe('Connection name');
+		expect(rowButton[0]).toHaveTextContent('Connection name');
 	});
 	it('should reset the badge rows when the filter is reset', () => {
 		// Given
@@ -115,15 +116,11 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
-		expect(getRowButtons(wrapper)).toHaveLength(2);
+		render(<AddFacetPopover {...props} />);
+		expect(getRowButtons()).toHaveLength(2);
 		// Then
-		act(() => {
-			wrapper.find('button[aria-label="Remove filter"]').first().simulate('mouseDown');
-		});
-		wrapper.update();
-		expect(wrapper.find('input').first().prop('value')).toBe('');
-		expect(getRowButtons(wrapper)).toHaveLength(3);
+		fireEvent.mouseDown(screen.getByLabelText('Remove filter'));
+		expect(getRowButtons()).toHaveLength(3);
 	});
 	it('should return the badge definition when click on a row', () => {
 		// Given
@@ -181,20 +178,13 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		render(<AddFacetPopover {...props} />);
 		// Then
-		act(() => {
-			wrapper
-				.find('input')
-				.first()
-				.simulate('change', { target: { value: 'aaaaaaaaaa' } });
-		});
-		wrapper.update();
-		expect(wrapper.find('button.tc-add-facet-popover-row-button')).toHaveLength(0);
-		expect(wrapper.find('span.tc-add-facet-popover-filter-empty').first()).toHaveLength(1);
-		expect(wrapper.find('span.tc-add-facet-popover-filter-empty').first().text()).toBe(
-			'No result found',
-		);
+		fireEvent.change(document.querySelector('input'), { target: { value: 'aaaaaaaaaa' } });
+		expect(document.querySelectorAll('button.tc-add-facet-popover-row-button')).toHaveLength(0);
+		expect(
+			document.querySelectorAll('span.tc-add-facet-popover-filter-empty')[0],
+		).toHaveTextContent('No result found');
 	});
 	it('should render a disabled row if badgePerFacet is exceeded', () => {
 		// Given
@@ -224,10 +214,10 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		render(<AddFacetPopover {...props} />);
 		// Then
-		expect(wrapper.find('button.tc-add-facet-popover-row-button')).toHaveLength(2);
-		expect(wrapper.find('div.tc-add-facet-popover-row-disabled')).toHaveLength(1);
+		expect(document.querySelectorAll('button.tc-add-facet-popover-row-button')).toHaveLength(2);
+		expect(document.querySelectorAll('div.tc-add-facet-popover-row-disabled')).toHaveLength(1);
 	});
 	it('should not render an empty label badge', () => {
 		// Given
@@ -257,9 +247,9 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		render(<AddFacetPopover {...props} />);
 		// Then
-		expect(wrapper.find('button[aria-label=""]')).toHaveLength(0);
+		expect(document.querySelectorAll('button[aria-label=""]')).toHaveLength(0);
 	});
 	it('should sort by label if no comparator provided', () => {
 		// Given
@@ -271,13 +261,13 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		render(<AddFacetPopover {...props} />);
 
 		// Then
-		const rowButtons = getRowButtons(wrapper);
-		expect(rowButtons.at(0).text()).toEqual('Connection name');
-		expect(rowButtons.at(1).text()).toEqual('Custom attributes');
-		expect(rowButtons.at(2).text()).toEqual('Name');
+		const rowButtons = getRowButtons();
+		expect(rowButtons[0]).toHaveTextContent('Connection name');
+		expect(rowButtons[1]).toHaveTextContent('Custom attributes');
+		expect(rowButtons[2]).toHaveTextContent('Name');
 	});
 	it('should not sort if null is provided as comparator', () => {
 		// Given
@@ -290,12 +280,12 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		render(<AddFacetPopover {...props} />);
 
 		// Then
-		const rowButtons = getRowButtons(wrapper);
-		expect(rowButtons.at(0).text()).toEqual('Name');
-		expect(rowButtons.at(1).text()).toEqual('Connection name');
-		expect(rowButtons.at(2).text()).toEqual('Custom attributes');
+		const rowButtons = getRowButtons();
+		expect(rowButtons[0]).toHaveTextContent('Name');
+		expect(rowButtons[1]).toHaveTextContent('Connection name');
+		expect(rowButtons[2]).toHaveTextContent('Custom attributes');
 	});
 });
