@@ -4,7 +4,7 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 import Immutable from 'immutable';
 // eslint-disable-next-line @talend/import-depth
-import { prepareCMF } from '@talend/react-cmf/src/mock/rtl';
+import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 
 import Container, { getById, filter, filterAll } from './SelectObject.container';
 

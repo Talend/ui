@@ -1,7 +1,7 @@
 import { screen, render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 // eslint-disable-next-line @talend/import-depth
-import { prepareCMF } from '@talend/react-cmf/src/mock/rtl';
+import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import SidePanel from './SidePanel.container';
 import Connected, { mapStateToProps, mergeProps } from './SidePanel.connect';
 import { ACTION_TYPE_LINK } from './constants';
