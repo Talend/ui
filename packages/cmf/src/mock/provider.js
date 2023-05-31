@@ -59,11 +59,7 @@ function MockProvider(props) {
 	}
 	const context = {
 		store: st,
-		registry: {
-			'actionCreator:cmf.saga.start': () => {},
-			'actionCreator:cmf.saga.stop': () => {},
-			...(props.registry || {}),
-		},
+		registry: props.registry || {},
 	};
 	return (
 		<div className="mock-provider">
