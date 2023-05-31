@@ -8,6 +8,33 @@ import { ACTION_TYPE_LINK } from './constants';
 import Action from '../Action';
 
 jest.unmock('@talend/design-system');
+const cmfModule = {
+	id: 'test',
+	components: {
+		Action,
+	},
+	preloadedState: {
+		cmf: {
+			settings: {
+				actions: {
+					'menu:article': {
+						label: 'Article',
+						name: 'Article',
+						href: '/article',
+						icon: 'talend-file-xls-o',
+					},
+					'menu:demo': {
+						label: 'Demo',
+						name: 'Demo',
+						href: '/demo',
+						icon: 'talend-file-xls-o',
+					},
+				},
+				props: {},
+			},
+		},
+	},
+};
 
 describe('SidePanel', () => {
 	it('should render', () => {
@@ -17,37 +44,7 @@ describe('SidePanel', () => {
 	});
 	it('should render provided actions as string', async () => {
 		const actions = ['menu:article', 'menu:demo'];
-		render(
-			await prepareCMF(<Connected actionIds={actions} />, {
-				cmfModule: {
-					id: 'test',
-					components: {
-						Action,
-					},
-					preloadedState: {
-						cmf: {
-							settings: {
-								actions: {
-									'menu:article': {
-										label: 'Article',
-										name: 'Article',
-										href: '/article',
-										icon: 'talend-file-xls-o',
-									},
-									'menu:demo': {
-										label: 'Demo',
-										name: 'Demo',
-										href: '/demo',
-										icon: 'talend-file-xls-o',
-									},
-								},
-								props: {},
-							},
-						},
-					},
-				},
-			}),
-		);
+		render(await prepareCMF(<Connected actionIds={actions} />, { cmfModule }));
 		expect(screen.getByText('Article')).toBeVisible();
 		expect(screen.getByText('Demo')).toBeVisible();
 	});
@@ -59,6 +56,13 @@ describe('SidePanel.mapStateToProps', () => {
 
 	beforeEach(() => {
 		state = mock.store.state();
+		state.cmf.settings.actions['menu:href'] = {
+			label: 'href',
+			href: '/href',
+			name: 'href',
+			id: 'href-id',
+			icon: 'icon-href',
+		};
 
 		delete window.location;
 		window.location = { pathname: '/test' };
@@ -90,15 +94,6 @@ describe('SidePanel.mapStateToProps', () => {
 			actionIds: ['menu:href'],
 		});
 		expect(href.actions[0].active).toBe(true);
-	});
-
-	xit('should handle actionCreator with href', () => {
-		window.location.pathname = '/href';
-		const href = mapStateToProps(state, {
-			actionIds: ['menu:href'],
-		});
-		expect(href.actions[0]).toBe();
-		expect(href.actions[0].href).toBe('/href');
 	});
 
 	describe('integrated menu item routing with "actions" prop', () => {
