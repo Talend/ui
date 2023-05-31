@@ -2,15 +2,8 @@
 '@talend/react-containers': patch
 ---
 
-test: rewrite tests of:
+test: rewrite all tests using RTL:
 
-- Action
-- ActionBar
-- FilterBar
-- HomeListView
-- HeaderBar
-- List
-
-fix(ActionSplitDropdown): omit cmf Props
-fix(ActionDropdown): pass required id for a11y
-fix: remove old contextTypes api
+- fix(ActionSplitDropdown): omit cmf Props
+- fix(ActionDropdown): pass required id for a11y
+- fix: remove old React contextTypes api
