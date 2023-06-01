@@ -2,4 +2,4 @@
 '@talend/design-system': minor
 ---
 
-chore: added data attributes to the BadgeDropdown component
+feat: add data attributes to the BadgeDropdown component
