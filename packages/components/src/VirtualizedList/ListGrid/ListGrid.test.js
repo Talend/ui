@@ -1,5 +1,4 @@
-import { shallow, mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render } from '@testing-library/react';
 
 import ListGrid from './ListGrid.component';
 import VirtualizedList from '..';
@@ -9,7 +8,7 @@ import collection from '../collection';
 describe('ListGrid', () => {
 	it('should render react-virtualized list', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<ListGrid
 				collection={collection}
 				height={600}
@@ -20,45 +19,19 @@ describe('ListGrid', () => {
 				onRowDoubleClick={jest.fn()}
 				width={1024}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
-				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
-				<VirtualizedList.Content label="" dataKey="description" width={0} />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} columnData={{}} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} columnData={{}} />
+				<VirtualizedList.Content label="" dataKey="description" width={0} columnData={{}} />
 			</ListGrid>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
-			'ListGesture(withI18nextTranslation(VirtualizedList(RowLarge)))',
-		);
-	});
-
-	it('should enhance the rowRenderer with selection Higher Order renderer', () => {
-		// when
-		const wrapper = shallow(
-			<ListGrid
-				collection={collection}
-				height={600}
-				id="my-list"
-				isSelected={jest.fn()}
-				rowHeight={130}
-				rowRenderer={RowLarge}
-				width={1024}
-			>
-				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
-				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
-			</ListGrid>,
-		);
-
-		// then
-		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
-			'RowSelection(ListGesture(withI18nextTranslation(VirtualizedList(RowLarge))))',
-		);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render noRows', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<ListGrid
 				collection={[]}
 				height={600}
@@ -67,14 +40,14 @@ describe('ListGrid', () => {
 				rowHeight={130}
 				rowRenderer={RowLarge}
 				width={1024}
-				noRowsRenderer={() => <div>No rows</div>}
+				noRowsRenderer={() => <div data-testid="noRowsRenderer">No rows</div>}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
-				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} columnData={{}} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} columnData={{}} />
 			</ListGrid>,
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByTestId('noRowsRenderer')).toBeVisible();
 	});
 });

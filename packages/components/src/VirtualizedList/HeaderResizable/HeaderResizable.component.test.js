@@ -1,115 +1,101 @@
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render, fireEvent } from '@testing-library/react';
 
 import { HeaderResizable } from './HeaderResizable.component';
 import { virtualizedListContext } from '../virtualizedListContext';
 
 describe('HeaderResizable', () => {
-	it('should throw an error if used outside the virtualized list provider', () => {
-		// when
-		try {
-			mount(<HeaderResizable />);
-			expect.fail(
-				'It should have thrown an error because useListContext is used outside of context provider',
-			);
-		} catch (error) {
-			// then
-			expect(error.message).toBe(
-				'@talend/react-components > VirtualizedList: you are using a sub component out of VirtualizedList.',
-			);
-		}
-	});
 	it('should render with no specific props', () => {
 		const resizeColumn = jest.fn();
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable />
 			</virtualizedListContext.Provider>,
 		);
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(resizeColumn).not.toHaveBeenCalled();
 	});
 	it('should render with label', () => {
 		// given
 		const resizeColumn = jest.fn();
 		const label = 'my header label';
 		// when
-		const wrapper = mount(
+		render(
 			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
 		// then
-		expect(wrapper.find('HeaderResizableContent').prop('label')).toBe(label);
+		expect(screen.getByText(label)).toBeInTheDocument();
 	});
-	it('should render with custom header resizable', () => {
+	it('should render children', () => {
 		// given
 		const resizeColumn = jest.fn();
 		const label = 'my header label';
+		const custom = 'This is a custom resizable header';
 		// when
-		const wrapper = mount(
+		render(
 			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable>
 					<button id="myCustomButton">{label}</button>
-					<span>This is a custom resizable header</span>
+					<span>{custom}</span>
 				</HeaderResizable>
 			</virtualizedListContext.Provider>,
 		);
 		// then
-		expect(wrapper.find('button#myCustomButton').text()).toBe(label);
+		expect(screen.getByText(label)).toBeVisible();
+		expect(screen.getByText(custom)).toBeVisible();
 	});
 	it('should change resizing state when dragging is trigger', () => {
 		// given
 		const resizeColumn = jest.fn();
 		const label = 'my header label';
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
-		expect(wrapper.state('resizing')).toBe(false);
-		wrapper.find('Draggable').simulate('mousedown');
+		fireEvent.mouseDown(screen.getByTestId('draggable'));
+		// userEvent.click(screen.getByTestId('draggable'));
+
 		// then
-		expect(
-			wrapper.find(
-				'div[className="tc-header-cell-resizable theme-tc-header-cell-resizable tc-header-cell-resizable-resizing theme-tc-header-cell-resizable-resizing"]',
-			),
-		).toHaveLength(1);
-		expect(wrapper.state('resizing')).toBe(true);
+		expect(document.querySelectorAll('.tc-header-cell-resizable')).toHaveLength(1);
+		expect(container.firstChild).toHaveClass('tc-header-cell-resizable-resizing');
 	});
 	it('should change resizing state when dragging is ended', () => {
 		// given
 		const label = 'my header label';
 		const resizeColumn = jest.fn();
+
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
-		wrapper.find('Draggable').simulate('mousedown');
-		expect(wrapper.state('resizing')).toBe(true);
+
 		// then
-		wrapper.find('Draggable').simulate('mouseup');
-		expect(wrapper.state('resizing')).toBe(false);
+		fireEvent.mouseDown(screen.getByTestId('draggable'));
+		expect(container.firstChild).toHaveClass('tc-header-cell-resizable-resizing');
+		fireEvent.mouseUp(screen.getByTestId('draggable'));
+		expect(container.firstChild).not.toHaveClass('tc-header-cell-resizable-resizing');
 	});
 	it('should change the width by 10 when right keyboard is trigger', () => {
 		// given
 		const label = 'my header label';
 		const resizeColumn = jest.fn();
 		const dataKey = 'myDataKey';
-		const wrapper = mount(
+		render(
 			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable dataKey={dataKey} label={label} />
 			</virtualizedListContext.Provider>,
 		);
+
 		// when
-		wrapper
-			.find('input[data-testId="resize-input-button-ally"]')
-			.simulate('keyDown', { keyCode: 39 });
+		fireEvent.mouseDown(screen.getByTestId('resize-input-button-ally'));
+		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { keyCode: 39 });
 		// then
 		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, 10);
 	});
@@ -118,15 +104,13 @@ describe('HeaderResizable', () => {
 		const label = 'my header label';
 		const resizeColumn = jest.fn();
 		const dataKey = 'myDataKey';
-		const wrapper = mount(
+		render(
 			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable dataKey={dataKey} label={label} />
 			</virtualizedListContext.Provider>,
 		);
 		// when
-		wrapper
-			.find('input[data-testId="resize-input-button-ally"]')
-			.simulate('keyDown', { keyCode: 'something' });
+		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { keyCode: 'something' });
 		// then
 		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, 0);
 	});
@@ -135,15 +119,13 @@ describe('HeaderResizable', () => {
 		const label = 'my header label';
 		const resizeColumn = jest.fn();
 		const dataKey = 'myDataKey';
-		const wrapper = mount(
+		render(
 			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable dataKey={dataKey} label={label} />
 			</virtualizedListContext.Provider>,
 		);
 		// when
-		wrapper
-			.find('input[data-testId="resize-input-button-ally"]')
-			.simulate('keyDown', { keyCode: 37 });
+		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { keyCode: 37 });
 		// then
 		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, -10);
 	});

@@ -1,6 +1,38 @@
-import { shallow } from 'enzyme';
-
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
 import ResourceList from './ResourceList.component';
+
+jest.mock(
+	'../VirtualizedList',
+	() =>
+		({ rowHeight, collection, inProgress, type, onRowClick, noRowsRenderer, rowRenderers }) =>
+			(
+				<div
+					data-testid="VirtualizedList"
+					data-props={JSON.stringify({ rowHeight, collection, inProgress, type })}
+				>
+					<div data-testid="rowRenderers">
+						{rowRenderers.resource({
+							index: 0,
+							parent: {
+								props: {
+									rowHeight,
+									collection,
+									inProgress,
+									type,
+									rowGetter: index => collection[index],
+								},
+							},
+						})}
+					</div>
+					{collection.length === 0 && <div data-testid="noRowsRenderer">{noRowsRenderer()}</div>}
+					<button type="button" onClick={() => onRowClick()}>
+						onRowClick
+					</button>
+				</div>
+			),
+);
 
 const collection = [
 	{
@@ -36,20 +68,28 @@ describe('ResourceList component', () => {
 			collection: [],
 		};
 
-		const wrapper = shallow(<ResourceList {...props} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<ResourceList {...props} />);
+		expect(container.firstChild).toHaveClass('tc-resource-list');
+		expect(screen.getByText('No results')).toBeVisible();
+		expect(screen.getByTestId('VirtualizedList')).toBeVisible();
+		const renderProps = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
+		expect(renderProps).toEqual({
+			rowHeight: 100,
+			collection: [],
+			type: 'resource',
+		});
 	});
 
-	it('should render ResourceList with some Resources', () => {
+	it('should render ResourceList pass collection to VirtualizedList', () => {
 		const props = {
 			toolbar: {},
 			isLoading: true,
 			collection,
 		};
 
-		const wrapper = shallow(<ResourceList {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<ResourceList {...props} />);
+		const renderProps = JSON.parse(screen.getByTestId('VirtualizedList').dataset.props);
+		expect(renderProps.collection).toMatchObject(props.collection);
 	});
 
 	it('should render ResourceList in filtered mode', () => {
@@ -63,9 +103,9 @@ describe('ResourceList component', () => {
 			collection,
 		};
 
-		const wrapper = shallow(<ResourceList {...props} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<ResourceList {...props} />);
+		const toolbar = document.querySelector('.tc-resource-list-toolbar');
+		expect(toolbar.nextSibling).toHaveClass('theme-filtered');
 	});
 
 	it('should render ResourceList without toolbar', () => {
@@ -73,9 +113,8 @@ describe('ResourceList component', () => {
 			collection,
 		};
 
-		const wrapper = shallow(<ResourceList {...props} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<ResourceList {...props} />);
+		expect(document.querySelector('.tc-resource-list-toolbar')).not.toBeInTheDocument();
 	});
 
 	it('should render ResourceList with render as Custom Resource', () => {
@@ -83,10 +122,8 @@ describe('ResourceList component', () => {
 			collection,
 		};
 
-		const wrapper = shallow(
-			<ResourceList {...props} renderAs={() => <div>Custom Resource</div>} />,
-		);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<ResourceList {...props} renderAs={() => <div>Custom Resource</div>} />);
+		expect(screen.getByText('Custom Resource')).toBeVisible();
+		expect(screen.getByLabelText('Title with few actions')).toBeVisible();
 	});
 });

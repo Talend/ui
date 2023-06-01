@@ -1,5 +1,4 @@
-import { shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import CellActions from './CellActions.component';
 
 const actions = [
@@ -46,9 +45,19 @@ const actions = [
 describe('CellActions', () => {
 	it('should render actions', () => {
 		// when
-		const wrapper = shallow(<CellActions cellData={actions} />);
+		const { container } = render(<CellActions cellData={actions} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getAllByRole('button')).toHaveLength(3);
+		expect(screen.getByLabelText('Simple action')).toBeVisible();
+		expect(screen.getByLabelText('Dropdown action')).toBeVisible();
+		expect(screen.getByLabelText('Split dropdown action')).toBeVisible();
+		expect(screen.getAllByRole('menuitem')).toHaveLength(4);
+		expect(screen.getAllByRole('menuitem')).toHaveLength(4);
+		expect(screen.getAllByRole('menuitem')[0]).toHaveTextContent('Document 1');
+		expect(screen.getAllByRole('menuitem')[1]).toHaveTextContent('Document 2');
+		expect(screen.getAllByRole('menuitem')[2]).toHaveTextContent('File 1');
+		expect(screen.getAllByRole('menuitem')[3]).toHaveTextContent('File 2');
 	});
 });

@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import { memo } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonIconToggle, StackHorizontal } from '@talend/design-system';

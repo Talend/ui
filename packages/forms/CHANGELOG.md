@@ -1,5 +1,18 @@
 # @talend/react-forms
 
+## 9.2.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- Updated dependencies [52d4f2df3]
+- Updated dependencies [b326091d2]
+- Updated dependencies [7a9f88147]
+- Updated dependencies [85b04cc81]
+- Updated dependencies [9719af7af]
+  - @talend/react-components@10.3.3
+  - @talend/design-system@7.9.0
+
 ## 9.2.0
 
 ### Minor Changes

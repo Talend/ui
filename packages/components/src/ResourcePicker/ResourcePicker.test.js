@@ -1,11 +1,11 @@
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import ResourcePicker from './ResourcePicker.component';
 
 describe('ResourcePicker component', () => {
 	it('should render ResourceList', () => {
-		const wrapper = shallow(<ResourcePicker />);
+		const { container } = render(<ResourcePicker />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

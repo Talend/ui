@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/default-param-last */
 import { useCallback, useState } from 'react';
 import isNil from 'lodash/isNil';
 
@@ -44,19 +45,16 @@ export function filter(collection, textFilter, filterFunctions, visibleColumns, 
 	);
 }
 
-export const filterCollection = (
-	textFilter,
-	filterFunctions = {},
-	visibleColumns,
-	filteredColumns,
-) => (collection = []) =>
-	useCallback(filter(collection, textFilter, filterFunctions, visibleColumns, filteredColumns), [
-		collection,
-		textFilter,
-		filterFunctions,
-		visibleColumns,
-		filteredColumns,
-	]);
+export const filterCollection =
+	(textFilter, filterFunctions = {}, visibleColumns, filteredColumns) =>
+	(collection = []) =>
+		useCallback(filter(collection, textFilter, filterFunctions, visibleColumns, filteredColumns), [
+			collection,
+			textFilter,
+			filterFunctions,
+			visibleColumns,
+			filteredColumns,
+		]);
 
 export const useCollectionFilter = (
 	collection = [],

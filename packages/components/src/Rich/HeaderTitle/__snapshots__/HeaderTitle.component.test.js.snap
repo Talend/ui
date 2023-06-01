@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeaderTooltip should render HeaderTooltip with header, content and footer 1`] = `
+exports[`HeaderTitle should render HeaderTitle 1`] = `
 <div
-  className="theme-container tc-header-title"
+  class="theme-container tc-header-title"
 >
   <h4
-    className="theme-title tc-header-title-text"
+    class="theme-title tc-header-title-text"
     title="Pipelines"
   >
     Pipelines

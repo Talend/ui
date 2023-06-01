@@ -1,4 +1,5 @@
-import { shallow } from 'enzyme';
+import userEvent from '@testing-library/user-event';
+import { screen, render } from '@testing-library/react';
 
 import { cellTitleDisplayModes } from '../utils/constants';
 import CellTitleSelector from './CellTitleSelector.component';
@@ -11,7 +12,7 @@ describe('CellTitleSelector', () => {
 		const rowData = { id: 1 };
 
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<CellTitleSelector
 				id="my-title"
 				cellData="my value"
@@ -24,15 +25,16 @@ describe('CellTitleSelector', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toHaveValue('my value');
 	});
 
-	it('should render the button', () => {
+	it('should render the link', () => {
 		// given
 		const rowData = { id: 1 };
 
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleSelector
 				id="my-title"
 				cellData="my value"
@@ -44,15 +46,16 @@ describe('CellTitleSelector', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('link')).toBeVisible();
+		expect(screen.getByRole('link')).toHaveTextContent('my value');
 	});
 
-	it('should trigger callback on button click', () => {
+	it('should trigger callback on link click', () => {
 		// given
 		const rowData = { id: 1 };
 		const onClick = jest.fn();
 		const clickEvent = { button: 0 };
-		const wrapper = shallow(
+		render(
 			<CellTitleSelector
 				id="my-title"
 				cellData="my value"
@@ -64,15 +67,15 @@ describe('CellTitleSelector', () => {
 		);
 
 		// when
-		wrapper.find('#my-title-btn').simulate('click', clickEvent);
+		userEvent.click(screen.getByRole('link'));
 
 		// then
-		expect(onClick).toBeCalledWith(clickEvent, rowData);
+		expect(onClick).toBeCalledWith(expect.anything(clickEvent), rowData);
 	});
 
 	it('should render the simple text', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitleSelector
 				id="my-title"
 				cellData="my value"
@@ -82,6 +85,8 @@ describe('CellTitleSelector', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('my value')).toBeVisible();
+		expect(screen.queryByRole('link')).not.toBeInTheDocument();
+		expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
 	});
 });

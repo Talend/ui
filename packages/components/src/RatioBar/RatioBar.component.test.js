@@ -1,6 +1,23 @@
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { RatioBar } from './RatioBar.component';
 
+// as this is SVG we need to rely on custom selector
+function getCounter() {
+	return document.querySelector('.tc-ratio-bar-counter');
+}
+function getRatioBar() {
+	return document.querySelector('.tc-ratio-bar');
+}
+function getRatioBarLine() {
+	return document.querySelector('.tc-ratio-bar-line');
+}
+function getEmptyLine() {
+	return document.querySelector('.tc-ratio-bar-line-empty');
+}
+function getErrorLine() {
+	return document.querySelector('.tc-ratio-bar-line-error');
+}
 describe('RatioBar', () => {
 	describe('RatioBar component', () => {
 		it('should render an empty bar', () => {
@@ -10,11 +27,13 @@ describe('RatioBar', () => {
 				total: 12,
 			};
 			// when
-			const wrapper = shallow(<RatioBar {...props} />);
+			const { container } = render(<RatioBar {...props} />);
 			// then
-			expect(wrapper.find('FilledLine').props()).toEqual({ percentage: 0, value: 0 });
-			expect(wrapper.find('EmptyLine').props()).toEqual({ percentage: 100, value: 12 });
-			expect(wrapper.find('.tc-ratio-bar-counter').text()).toEqual('0/12');
+			expect(container.firstChild).toMatchSnapshot();
+			expect(getCounter()).toHaveTextContent('0/12');
+			expect(getRatioBar()).toBeVisible();
+			expect(getEmptyLine()).toBeVisible();
+			expect(getEmptyLine()).toHaveStyle('flex-basis: 100%');
 		});
 
 		it('should render a not applicable chart', () => {
@@ -24,11 +43,9 @@ describe('RatioBar', () => {
 				total: 12,
 			};
 			// when
-			const wrapper = shallow(<RatioBar {...props} />);
+			render(<RatioBar {...props} />);
 			// then
-			expect(wrapper.find('FilledLine').props()).toEqual({ percentage: 0, value: 0 });
-			expect(wrapper.find('EmptyLine').props()).toEqual({ percentage: 100, value: 12 });
-			expect(wrapper.find('Trans').length).toBe(1);
+			expect(getCounter()).toHaveTextContent('N/A');
 		});
 
 		it('should render an full sized chart', () => {
@@ -38,11 +55,11 @@ describe('RatioBar', () => {
 				total: 12,
 			};
 			// when
-			const wrapper = shallow(<RatioBar {...props} />);
+			render(<RatioBar {...props} />);
 			// then
-			expect(wrapper.find('FilledLine').props()).toEqual({ percentage: 100, value: 12 });
-			expect(wrapper.find('EmptyLine').props()).toEqual({ percentage: 0, value: 0 });
-			expect(wrapper.find('.tc-ratio-bar-counter').text()).toEqual('12/12');
+			userEvent.tab();
+			expect(getCounter()).toHaveTextContent('12/12');
+			expect(getRatioBarLine()).toHaveStyle('flex-basis: 100%');
 		});
 
 		it('should render a classic ratio bar', () => {
@@ -52,17 +69,11 @@ describe('RatioBar', () => {
 				total: 12,
 			};
 			// when
-			const wrapper = shallow(<RatioBar {...props} />);
+			render(<RatioBar {...props} />);
 			// then
-			expect(wrapper.find('FilledLine').props()).toEqual({
-				percentage: 41.66666666666667,
-				value: 5,
-			});
-			expect(wrapper.find('EmptyLine').props()).toEqual({
-				percentage: 58.33333333333333,
-				value: 7,
-			});
-			expect(wrapper.find('.tc-ratio-bar-counter').text()).toEqual('5/12');
+			expect(getRatioBarLine()).toHaveStyle('flex-basis: 41.66666666666667%');
+			expect(getEmptyLine()).toHaveStyle('flex-basis: 58.33333333333333%');
+			expect(getCounter()).toHaveTextContent('5/12');
 		});
 	});
 
@@ -74,21 +85,12 @@ describe('RatioBar', () => {
 			errors: 2,
 		};
 		// when
-		const wrapper = shallow(<RatioBar {...props} />);
+		render(<RatioBar {...props} />);
 		// then
-		expect(wrapper.find('FilledLine').props()).toEqual({
-			percentage: 41.66666666666667,
-			value: 5,
-		});
-		expect(wrapper.find('EmptyLine').props()).toEqual({
-			percentage: 41.666666666666664,
-			value: 5,
-		});
-		expect(wrapper.find('ErrorLine').props()).toEqual({
-			percentage: 16.666666666666664,
-			value: 2,
-		});
-		expect(wrapper.find('.tc-ratio-bar-counter').text()).toEqual('7/12');
+		expect(getRatioBarLine()).toHaveStyle('flex-basis: 41.66666666666667%');
+		expect(getEmptyLine()).toHaveStyle('flex-basis: 41.666666666666664%');
+		expect(getErrorLine()).toHaveStyle('flex-basis: 16.666666666666664%');
+		expect(getCounter()).toHaveTextContent('7/12');
 	});
 
 	it('should render a classic ratio bar without label', () => {
@@ -98,16 +100,10 @@ describe('RatioBar', () => {
 			total: 12,
 		};
 		// when
-		const wrapper = shallow(<RatioBar {...props} hideLabel />);
+		render(<RatioBar {...props} hideLabel />);
 		// then
-		expect(wrapper.find('FilledLine').props()).toEqual({
-			percentage: 41.66666666666667,
-			value: 5,
-		});
-		expect(wrapper.find('EmptyLine').props()).toEqual({
-			percentage: 58.33333333333333,
-			value: 7,
-		});
-		expect(wrapper.find('.tc-ratio-bar-counter').length).toBe(0);
+		expect(getRatioBarLine()).toHaveStyle('flex-basis: 41.66666666666667%');
+		expect(getEmptyLine()).toHaveStyle('flex-basis: 58.33333333333333%');
+		expect(getCounter()).not.toBeInTheDocument();
 	});
 });

@@ -1,5 +1,6 @@
-import { mount } from 'enzyme';
-import RadarChart from '.';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { RadarChart } from './RadarChart.component';
 
 describe('RadarChart', () => {
 	it('should render a RadarChart', () => {
@@ -16,7 +17,7 @@ describe('RadarChart', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<RadarChart data={props.data} domain={props.domain}>
 				<RadarChart.PolarAngleAxis dataKey={props.dataKey} />
 				<RadarChart.Radar
@@ -30,7 +31,7 @@ describe('RadarChart', () => {
 			</RadarChart>,
 		);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render a chart with clickable labels', () => {
 		const props = {
@@ -48,7 +49,7 @@ describe('RadarChart', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<RadarChart data={props.data} domain={props.domain}>
 				<RadarChart.PolarAngleAxis
 					dataKey="axis"
@@ -67,7 +68,7 @@ describe('RadarChart', () => {
 		);
 
 		// when
-		wrapper.find('.recharts-polar-angle-axis-tick').at(0).simulate('click');
+		userEvent.click(document.querySelectorAll('.recharts-polar-angle-axis-tick')[0]);
 
 		// then
 		expect(props.clickMock).toHaveBeenCalledWith(
@@ -94,7 +95,7 @@ describe('RadarChart', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<RadarChart data={props.data} domain={props.domain}>
 				<RadarChart.PolarAngleAxis dataKey={props.dataKey} />
 				<RadarChart.Radar
@@ -109,7 +110,7 @@ describe('RadarChart', () => {
 		);
 
 		// when
-		wrapper.find('.recharts-dot').at(0).simulate('click');
+		userEvent.click(document.querySelectorAll('.recharts-dot')[0]);
 
 		// then
 		expect(props.clickMock).toHaveBeenCalledWith(
@@ -133,7 +134,7 @@ describe('RadarChart', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<RadarChart data={props.data} domain={props.domain}>
 				<RadarChart.PolarAngleAxis dataKey={props.dataKey} />
 				<RadarChart.Radar
@@ -147,7 +148,8 @@ describe('RadarChart', () => {
 				/>
 			</RadarChart>,
 		);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const dots = document.querySelectorAll('circle');
+		expect(dots.length).toBe(5);
+		expect(dots[0]).toHaveAttribute('fill-opacity', '1');
 	});
 });

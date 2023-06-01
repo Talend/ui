@@ -74,7 +74,6 @@ class CellTitle extends Component {
 				</TooltipTrigger>
 			);
 		}
-
 		const defaultTitle = (
 			<Fragment>
 				<CellTitleSelector

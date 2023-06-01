@@ -49,7 +49,7 @@ function ResourceList({
 				</span>
 			</div>
 		),
-		[renderAs],
+		[t],
 	);
 	return (
 		<div className={theme('tc-resource-list')}>

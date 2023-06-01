@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 15.3.3
+
+### Patch Changes
+
+- fb81e1ed2: fix: support package-lock format 1
+
 ## 15.3.2
 
 ### Patch Changes

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortOptions should render SortOptions in default mode 1`] = `
+<div
+  class="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
+>
+  <span
+    class="theme-option-label"
+  >
+    Sort:
+  </span>
+  <button
+    aria-describedby="42"
+    aria-label="Sort by name (current order: desc)"
+    class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn btn-link"
+    type="button"
+  >
+    <span
+      class="CoralIcon"
+      name="talend-sort-az"
+    />
+    <span
+      class="CoralIcon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator"
+      name="talend-caret-down"
+    />
+  </button>
+  <button
+    aria-describedby="42"
+    aria-label="Sort by date (current order: desc)"
+    class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn btn-link"
+    type="button"
+  >
+    <span
+      class="CoralIcon"
+      name="talend-sort-desc"
+    />
+    <span
+      class="CoralIcon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator"
+      name="talend-caret-down"
+    />
+  </button>
+</div>
+`;
