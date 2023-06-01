@@ -31,5 +31,6 @@ if (process.env.NODE_ENV !== 'production') {
 			}),
 		}).isRequired,
 		properties: PropTypes.object,
+		...Widget.propTypes,
 	};
 }

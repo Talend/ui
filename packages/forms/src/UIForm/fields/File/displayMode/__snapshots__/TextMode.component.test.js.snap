@@ -1,28 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`File input text display mode should render a blank field 1`] = `
-<FieldTemplate
-  id="my-file-field"
-  label="Upload file"
+exports[`File input text display mode should render 1`] = `
+<div
+  class="form-group"
 >
-  
-</FieldTemplate>
-`;
-
-exports[`File input text display mode should render crème.xlsx 1`] = `
-<FieldTemplate
-  id="my-file-field"
-  label="Upload file"
->
-  crème.xlsx
-</FieldTemplate>
-`;
-
-exports[`File input text display mode should render test.xml 1`] = `
-<FieldTemplate
-  id="my-file-field"
-  label="Upload file"
->
-  test.xml
-</FieldTemplate>
+  <dt>
+    <label
+      class="control-label"
+      for="my-file-field"
+    >
+      Upload file
+    </label>
+  </dt>
+  <dd
+    id="my-file-field"
+  >
+    test.xml
+  </dd>
+</div>
 `;

@@ -1,6 +1,8 @@
-import { shallow } from 'enzyme';
-
+import { screen, render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Text from './Text.component';
+
+jest.unmock('@talend/design-system');
 
 describe('Text field', () => {
 	const defaultSchema = {
@@ -27,10 +29,10 @@ describe('Text field', () => {
 
 	it('should render input', () => {
 		// when
-		const wrapper = shallow(<Text {...defaultProps} />);
+		const { container } = render(<Text {...defaultProps} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render password input', () => {
@@ -41,10 +43,10 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('My input title')).toHaveAttribute('type', 'password');
 	});
 
 	it('should render disabled input', () => {
@@ -58,10 +60,10 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('My input title')).toBeDisabled();
 	});
 
 	it('should render readonly input', () => {
@@ -75,10 +77,10 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('My input title')).toHaveAttribute('readonly');
 	});
 
 	it('should render input with min attribute', () => {
@@ -96,10 +98,10 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('My input title')).toHaveAttribute('min', '0');
 	});
 
 	it('should render input with max attribute', () => {
@@ -117,10 +119,10 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('My input title')).toHaveAttribute('max', '10');
 	});
 
 	it('should render input with step attribute', () => {
@@ -138,53 +140,62 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.find('[type="number"]').at(0).props().step).toEqual(0.01);
+		expect(screen.getByLabelText('My input title')).toHaveAttribute('step', '0.01');
 	});
 
-	it('should trigger onChange', () => {
+	it('should trigger onChange', async () => {
 		// given
 		const onChange = jest.fn();
 		const props = { ...defaultProps, onChange };
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 		const event = { target: { value: 'totoa' } };
 
 		// when
-		wrapper.find('input').simulate('change', event);
+		screen.getByLabelText('My input title').focus();
+		await userEvent.keyboard('totoa');
+		screen.getByLabelText('My input title').blur();
+
+		// wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema: defaultSchema, value: 'totoa' });
+		expect(onChange).toHaveBeenLastCalledWith(expect.anything(event), {
+			schema: defaultSchema,
+			value: 'totoa',
+		});
 	});
 
-	it('should trigger onChange with number value', () => {
+	it('should trigger onChange with number value', async () => {
 		// given
 		const schema = { ...defaultSchema, type: 'number' };
 		const onChange = jest.fn();
 		const props = { ...defaultProps, onChange, schema };
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 		const event = { target: { value: '25' } };
 
 		// when
-		wrapper.find('input').simulate('change', event);
+		screen.getByLabelText('My input title').focus();
+		fireEvent.change(screen.getByLabelText('My input title'), event);
+		screen.getByLabelText('My input title').blur();
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema, value: 25 });
+		expect(onChange).toHaveBeenLastCalledWith(expect.anything(event), { schema, value: 25 });
 	});
 
 	it('should trigger onFinish on input blur', () => {
 		// given
 		const onFinish = jest.fn();
 		const props = { ...defaultProps, onFinish };
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 		const event = { target: { value: 'totoa' } };
 
 		// when
-		wrapper.find('input').simulate('blur', event);
+		screen.getByLabelText('My input title').blur();
 
 		// then
-		expect(onFinish).toBeCalledWith(event, { schema: defaultSchema });
+		expect(onFinish).toBeCalledWith(expect.anything(event), { schema: defaultSchema });
 	});
 
 	it('should render hidden input', () => {
@@ -198,10 +209,10 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(document.querySelector('input')).toHaveAttribute('type', 'hidden');
 	});
 
 	it('should pass autoComplete to input', () => {
@@ -215,10 +226,10 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.find('input').prop('autoComplete')).toBe('off');
+		expect(screen.getByLabelText('My input title')).toHaveAttribute('autoComplete', 'off');
 	});
 
 	it('should pass labelProps to FieldTemplate', () => {
@@ -233,9 +244,9 @@ describe('Text field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Text {...props} />);
+		render(<Text {...props} />);
 
 		// then
-		expect(wrapper.find('FieldTemplate').prop('labelProps')).toBe(labelProps);
+		expect(screen.getByText('My input title')).toHaveClass('hello');
 	});
 });

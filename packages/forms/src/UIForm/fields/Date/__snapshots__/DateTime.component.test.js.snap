@@ -1,24 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateTime widget should render an InputDateTimePicker 1`] = `
-<FieldTemplate
-  description="talend datetime picker"
-  descriptionId="talend-date-time-description"
-  errorId="talend-date-time-error"
-  errorMessage="something wrong"
-  id="talend-date-time"
-  isValid={false}
-  label="Select DateTime"
-  required={true}
+<div
+  class="form-group theme-template required"
 >
-  <InputDateTimePickerSwitch
-    aria-describedby="talend-date-time-description talend-date-time-error"
-    aria-invalid={true}
-    aria-required={true}
-    autoFocus={true}
-    id="talend-date-time"
-    onBlur={[Function]}
-    onChange={[Function]}
-  />
-</FieldTemplate>
+  <label
+    class="control-label"
+    for="talend-date-time"
+  >
+    Select DateTime
+  </label>
+  <div
+    class="theme-date-time-picker"
+  >
+    <div
+      class="theme-date-picker date-picker"
+      tabindex="-1"
+    >
+      <input
+        autocomplete="off"
+        class="form-control"
+        data-testid="date-picker"
+        id="talend-date-time-date-picker-input"
+        placeholder="YYYY-MM-DD"
+        style="width: 47px;"
+        type="text"
+        value=""
+      />
+      <span
+        data-testid="InputSizer"
+        style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
+      >
+        YYYY-MM-DD
+      </span>
+    </div>
+    <div
+      class="theme-time-picker time-picker"
+      tabindex="-1"
+    >
+      <input
+        autocomplete="off"
+        class="form-control theme-time-picker-input"
+        data-testid="time-picker"
+        id="talend-date-time-time-picker-input"
+        maxlength="5"
+        placeholder="HH:mm"
+        style="width: 47px;"
+        type="text"
+        value=""
+      />
+      <span
+        data-testid="InputSizer"
+        style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
+      >
+        HH:mm
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="talend-date-time-description"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          talend datetime picker
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;
