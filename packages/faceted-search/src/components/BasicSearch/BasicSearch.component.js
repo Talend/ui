@@ -150,9 +150,7 @@ const BasicSearch = ({
 								<ButtonSecondary
 									size="S"
 									isDropdown
-									data-feature={[disclosureProps.dataFeature, USAGE_TRACKING_TAGS.BASIC_ADD].join(
-										'.',
-									)}
+									data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}
 									{...disclosureProps}
 								>
 									{t('BASIC_SEARCH_ADD_FILTER', 'Add filter')}
