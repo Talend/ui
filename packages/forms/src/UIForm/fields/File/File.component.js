@@ -176,7 +176,7 @@ class FileWidget extends Component {
 				<div className={theme.file}>
 					{this.state.loading && (
 						<Skeleton
-							className={theme['file-skeleton']}
+							data-testid="file-skeleton"
 							type={Skeleton.TYPES.text}
 							size={Skeleton.SIZES.xlarge}
 						/>

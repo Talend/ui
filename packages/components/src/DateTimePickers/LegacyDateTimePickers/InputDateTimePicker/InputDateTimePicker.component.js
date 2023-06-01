@@ -25,6 +25,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onBlur',
 	'onChange',
 	'hybridMode',
+	'isDisabledChecker',
 ];
 
 function onMouseDown(event) {

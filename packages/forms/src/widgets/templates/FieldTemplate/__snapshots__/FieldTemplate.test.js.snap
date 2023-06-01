@@ -1,56 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldTemplate should render the common widget markup 1`] = `
-<FieldTemplate
-  description="This is the description"
-  descriptionId="test-description"
-  error="This is the error"
-  errorId="test-error"
-  label="Test"
+<div
+  class="form-group has-error"
 >
-  <div
-    className="form-group has-error"
+  <label
+    class="control-label"
   >
-    <label
-      className="control-label"
+    Test
+  </label>
+  <input
+    name="test"
+  />
+  <div>
+    <div
+      class="sr-only"
     >
-      Test
-    </label>
-    <input
-      name="test"
-    />
-    <div>
       <div
-        className="sr-only"
-      >
-        <InlineMessageInformation
-          data-test="fieldTemplate.inlineMessage"
-          description="This is the description"
-          id="test-description"
-        >
-          <span
-            className="CoralInlineMessageInformation"
-            data-test="fieldTemplate.inlineMessage"
-            description="This is the description"
-            id="test-description"
-          />
-        </InlineMessageInformation>
-      </div>
-      <InlineMessageDestructive
-        aria-live="assertive"
-        data-test="fieldTemplate.inlineMessageError"
-        description="This is the error"
-        id="test-error"
+        aria-live="polite"
+        class="theme-inlineMessage"
+        data-test="fieldTemplate.inlineMessage"
+        id="test-description"
+        role="status"
       >
         <span
-          aria-live="assertive"
-          className="CoralInlineMessageDestructive"
-          data-test="fieldTemplate.inlineMessageError"
-          description="This is the error"
-          id="test-error"
-        />
-      </InlineMessageDestructive>
+          class="theme-icon theme-information__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.6rem; height: 1.6rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
+        </span>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            This is the description
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessageError"
+      id="test-error"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-destructive__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#square-cross:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          This is the error
+        </span>
+      </p>
     </div>
   </div>
-</FieldTemplate>
+</div>
 `;
