@@ -2,4 +2,4 @@
 '@talend/react-faceted-search': minor
 ---
 
-chore: added data attributes to the faceted basic search
+chore: added custom attributes to the faceted basic search
