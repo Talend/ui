@@ -181,7 +181,7 @@ function getLoaderStyle(icon = '') {
 	return LOADER_STYLE.replace('ICON_BASE_64', icon);
 }
 
-export default {
+module.exports = {
 	APP_LOADER,
 	getLoaderStyle,
 };

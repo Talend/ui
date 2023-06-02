@@ -35,53 +35,47 @@ context('<HorizontalBarChart />', () => {
 		});
 	});
 
-	// it('Should render tooltip on hover', () => {
-	// 	const getTooltipContent = jest.fn().mockImplementation(() => 'myTooltipContent');
-	// 	const component = mount(
-	// 		<HorizontalBarChart
-	// 			data={[
-	// 				{
-	// 					key: 'Entry fully matching filter',
-	// 					value: 2145,
-	// 					filteredValue: 2145,
-	// 				},
-	// 			]}
-	// 			chartStyle={ChartStyle.VALUE}
-	// 			height={300}
-	// 			width={400}
-	// 			onBarClick={jest.fn()}
-	// 			getTooltipContent={getTooltipContent}
-	// 		/>,
-	// 	);
+	it('Should render tooltip on hover', () => {
+		const onBarClick = cy.stub().as('onBarClick');
+		cy.mount(
+			<HorizontalBarChart
+				data={[
+					{
+						key: 'Entry fully matching filter',
+						value: 2145,
+						filteredValue: 2145,
+					},
+				]}
+				chartStyle={ChartStyle.VALUE}
+				height={300}
+				width={400}
+				onBarClick={onBarClick}
+				getTooltipContent={() => <div data-testid="tooltip">tooltip</div>}
+			/>,
+		);
 
-	// 	component.find('BarChart').invoke('onMouseMove')!({
-	// 		isTooltipActive: true,
-	// 		activeTooltipIndex: 0,
-	// 	} as any);
-	// 	component.update();
-
-	// 	expect(getTooltipContent).toHaveBeenCalledWith({
-	// 		filteredValue: 2145,
-	// 		key: 'Entry fully matching filter',
-	// 		value: 2145,
-	// 	});
-	// 	expect(component.find('Tooltip').text()).toEqual('myTooltipContent');
-	// });
-	// it('Should not grow to available size if not enough data provided', () => {
-	// 	const component = mount(
-	// 		<HorizontalBarChart
-	// 			data={[
-	// 				{
-	// 					key: 'Entry fully matching filter',
-	// 					value: 2145,
-	// 					filteredValue: 2145,
-	// 				},
-	// 			]}
-	// 			chartStyle={ChartStyle.VALUE}
-	// 			onBarClick={jest.fn()}
-	// 			getTooltipContent={jest.fn()}
-	// 		/>,
-	// 	);
-	// 	expect(component.find('ForwardRef').prop('height')).toEqual(65);
-	// });
+		cy.get('.recharts-bar-rectangle')
+			.first()
+			.trigger('mousemove')
+			.trigger('click', { force: true });
+		cy.get('[data-test="myTooltipContent"]').should('be.visible');
+	});
+	it('Should not grow to available size if not enough data provided', () => {
+		const onBarClick = cy.stub().as('onBarClick');
+		cy.mount(
+			<HorizontalBarChart
+				data={[
+					{
+						key: 'Entry fully matching filter',
+						value: 2145,
+						filteredValue: 2145,
+					},
+				]}
+				chartStyle={ChartStyle.VALUE}
+				onBarClick={onBarClick}
+				getTooltipContent={() => <div data-testid="tooltip">tooltip</div>}
+			/>,
+		);
+		// expect(component.find('ForwardRef').prop('height')).toEqual(65);
+	});
 });

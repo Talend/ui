@@ -21,7 +21,9 @@ function hasPackageInstalled(name) {
 		require(name);
 		return true;
 		// eslint-disable-next-line no-empty
-	} catch (e) {}
+	} catch (e) {
+		console.error(e);
+	}
 	return false;
 }
 
