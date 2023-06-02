@@ -47,7 +47,6 @@ describe('BadgeOverlay', () => {
 		// When
 		render(<BadgeOverlay {...props}>{childrenAsFunc}</BadgeOverlay>);
 
-		// wrapper.find('button').simulate('click');
 		fireEvent.click(screen.getByRole('button'));
 		// await screen.findByRole('tooltip');
 		// Then
