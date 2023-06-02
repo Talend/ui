@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// rewrite tests using react-testing-library
 import { render, screen } from '@testing-library/react';
 import { BadgeText } from '../Badges/BadgeText/BadgeText.component';
 
