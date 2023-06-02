@@ -17,17 +17,15 @@ context('<HorizontalBarChart />', () => {
 				getTooltipContent={() => <div data-testid="tooltip">tooltip</div>}
 			/>,
 		);
-		// 	component.find('BarChart').invoke('onMouseMove')!({
-		// 		isTooltipActive: true,
-		// 		activeTooltipIndex: 0,
-		// 	} as any);
-		// 	component.update();
-		// 	component.find('BarChart').invoke('onClick')!({} as any);
-		// 	expect(onBarClick).toHaveBeenCalledWith(undefined, entry);
+		cy.get('.recharts-bar-rectangle')
+			.first()
+			.trigger('mousemove')
+			.trigger('click', { force: true });
+		cy.get('@onBarClick').should('be.calledWith', Cypress.sinon.match.object, entry);
 	});
 	it('Should render tooltip on hover', () => {
 		const onBarClick = cy.stub().as('onBarClick');
-		const getTooltipContent = () => <div data-test="myTooltipContent">tooltip</div>;
+		const getTooltipContent = () => <div data-test="myTooltipContent">myTooltipContent</div>;
 		const entry = {
 			key: { min: 2000, max: 2100 },
 			label: '[2000, 2100[',
@@ -43,12 +41,11 @@ context('<HorizontalBarChart />', () => {
 				getTooltipContent={getTooltipContent}
 			/>,
 		);
-		// 	component.find('BarChart').invoke('onMouseMove')!({
-		// 		isTooltipActive: true,
-		// 		activeTooltipIndex: 0,
-		// 	} as any);
-		// 	component.update();
-		// 	expect(getTooltipContent).toHaveBeenCalledWith(entry);
-		// 	expect(component.find('Tooltip').text()).toEqual('myTooltipContent');
+		cy.get('.recharts-bar-rectangle')
+			.first()
+			.trigger('mousemove')
+			.trigger('click', { force: true });
+
+		cy.get('[data-test="myTooltipContent"]').should('be.visible');
 	});
 });
