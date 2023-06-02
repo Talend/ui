@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from 'cypress';
 import path from 'path';
 
@@ -5,8 +6,6 @@ import {
 	getWebpackRules,
 	getWebpackPlugins,
 } from '@talend/scripts-config-react-webpack/config/webpack.config.common';
-
-console.log('###', __dirname, process.cwd());
 
 const webpack = require('webpack');
 const srcDirectories = [
@@ -51,8 +50,6 @@ export default defineConfig({
 	env: {
 		reactDevtools: true,
 	},
-	// experimentalFetchPolyfill: true,
-	// experimentalSingleTabRunMode: true,
 	component: {
 		devServer: {
 			framework: 'react',
