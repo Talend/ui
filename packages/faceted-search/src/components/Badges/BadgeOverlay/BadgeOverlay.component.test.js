@@ -48,7 +48,6 @@ describe('BadgeOverlay', () => {
 		render(<BadgeOverlay {...props}>{childrenAsFunc}</BadgeOverlay>);
 
 		fireEvent.click(screen.getByRole('button'));
-		// await screen.findByRole('tooltip');
 		// Then
 		expect(onChange.mock.calls.length).toBe(1);
 		expect(onChange.mock.calls[0][1]).toBe(true);
