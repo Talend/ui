@@ -20,7 +20,7 @@ context('<HorizontalBarChart />', () => {
 				height={300}
 				width={400}
 				onBarClick={onBarClick}
-				getTooltipContent={() => 'tooltip'}
+				getTooltipContent={() => <div data-testid="tooltip">tooltip</div>}
 			/>,
 		);
 

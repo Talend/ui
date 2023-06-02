@@ -51,8 +51,8 @@ export default defineConfig({
 	env: {
 		reactDevtools: true,
 	},
-	experimentalFetchPolyfill: true,
-	experimentalSingleTabRunMode: true,
+	// experimentalFetchPolyfill: true,
+	// experimentalSingleTabRunMode: true,
 	component: {
 		devServer: {
 			framework: 'react',
