@@ -49,8 +49,6 @@ describe('BadgeNumberForm', () => {
 		expect(document.querySelector('input[type="number"]')).toHaveAttribute('value', 'i230982903');
 		expect(document.querySelector('input[type="number"]')).toHaveValue(null);
 
-		// const submitButton = wrapper.find('button[type="submit"]').first();
-		// submitButton.simulate('submit');
 		fireEvent.submit(document.querySelector('button[type="submit"]'));
 
 		expect(onSubmit).toHaveBeenCalled();
