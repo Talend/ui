@@ -6,11 +6,9 @@ describe('Number input field', () => {
 		const onChange = jest.fn();
 		render(<NumberInputField id="" value={10} onChange={onChange} />);
 
-		// component.find('input').simulate('change', { target: { value: '20' } });
 		fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '20' } });
 		expect(onChange).not.toHaveBeenCalled();
 
-		// component.find('input').simulate('blur');
 		fireEvent.blur(screen.getByRole('spinbutton'));
 		expect(onChange).toHaveBeenCalledWith(20);
 	});

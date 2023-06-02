@@ -6,7 +6,6 @@ import { DateInputField, DateRangeHandler } from './DateRangeHandler';
 jest.unmock('@talend/design-system');
 
 jest.mock('@talend/react-components', () => ({
-	// ...jest.requireActual('@talend/react-components'),
 	InputDatePicker: ({ onChange, onBlur, onKeyDown, ...props }) => (
 		<div data-testid="InputDatePicker" {...props}>
 			<button
@@ -52,7 +51,6 @@ describe('DateRangeHandler', () => {
 	it('Should submit value on blur', () => {
 		const onChange = jest.fn();
 		render(<DateInputField id="" value={1262300400000} onChange={onChange} />);
-		// fireEvent.focus(screen.getByRole('textbox'));
 		fireEvent.click(screen.getByText('InputDatePicker.onChange'));
 		expect(onChange).toHaveBeenCalledWith(parseISO('2015-01-01').getTime());
 	});
