@@ -168,7 +168,6 @@ describe('BadgeSliderForm', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		// wrapper.find('.tc-badge-value-unit').first().simulate('click');
 		fireEvent.click(screen.getByLabelText('Edit directly'));
 		expect(document.querySelector('input[type="number"]')).toHaveValue(45);
 
