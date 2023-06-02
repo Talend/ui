@@ -40,6 +40,7 @@
   ],
   "devDependencies": {
     "@talend/scripts-core": "^13.1.2",
+    "@talend/scripts-config-react-webpack": "^15.3.3",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
     "json-refs": "^3.0.15",

@@ -29,6 +29,7 @@
   "dependencies": {},
   "devDependencies": {
     "@talend/scripts-core": "^13.1.2",
+    "@talend/scripts-config-react-webpack": "^15.3.3",
     "read-pkg-up": "^7.0.1"
   },
   "publishConfig": {
