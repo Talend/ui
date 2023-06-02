@@ -33,4 +33,5 @@ export default async function build(env, _, options) {
 		}
 		return buildLib(env, _, options);
 	}
+	return Promise.reject(new Error('Unknown package type'));
 }

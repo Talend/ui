@@ -15,13 +15,12 @@ const { DuplicatesPlugin } = require('inspectpack/plugin');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
-const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
-
 const cdn = require('@talend/scripts-config-cdn');
 const utils = require('@talend/scripts-utils');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
 const icons = require('./icons');
+const AppLoader = require('./loader').default;
 const {
 	getCommonStyleLoaders,
 	getSassLoaders,
