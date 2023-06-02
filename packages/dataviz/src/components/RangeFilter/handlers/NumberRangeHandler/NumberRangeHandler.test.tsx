@@ -1,42 +1,43 @@
-import { mount } from 'enzyme';
+import { screen, render, fireEvent } from '@testing-library/react';
 import { NumberInputField, NumberRangeHandler } from './NumberRangeHandler';
 
 describe('Number input field', () => {
 	it('Should submit value on blur', () => {
 		const onChange = jest.fn();
-		const component = mount(<NumberInputField id="" value={10} onChange={onChange} />);
+		render(<NumberInputField id="" value={10} onChange={onChange} />);
 
-		component.find('input').simulate('change', { target: { value: '20' } });
+		// component.find('input').simulate('change', { target: { value: '20' } });
+		fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '20' } });
 		expect(onChange).not.toHaveBeenCalled();
 
-		component.find('input').simulate('blur');
+		// component.find('input').simulate('blur');
+		fireEvent.blur(screen.getByRole('spinbutton'));
 		expect(onChange).toHaveBeenCalledWith(20);
 	});
 
 	it('Should not trigger onChange if value did not change', () => {
 		const onChange = jest.fn();
-		const component = mount(<NumberInputField id="" value={10} onChange={onChange} />);
-
-		component.find('input').simulate('blur');
+		render(<NumberInputField id="" value={10} onChange={onChange} />);
+		fireEvent.blur(screen.getByRole('spinbutton'));
 		expect(onChange).not.toHaveBeenCalled();
 	});
 
 	it('Should reset value on Esc', () => {
 		const onChange = jest.fn();
-		const component = mount(<NumberInputField id="" value={10} onChange={onChange} />);
+		render(<NumberInputField id="" value={10} onChange={onChange} />);
 
-		component.find('input').simulate('change', { target: { value: '20' } });
-		component.find('input').simulate('keydown', { key: 'Escape' });
+		fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '20' } });
+		fireEvent.keyDown(screen.getByRole('spinbutton'), { key: 'Escape' });
 
-		expect(component.find('input').prop('value')).toEqual('10');
+		expect(screen.getByRole('spinbutton')).toHaveValue(10);
 	});
 
 	it('Should submit value on Enter', () => {
 		const onChange = jest.fn();
-		const component = mount(<NumberInputField id="" value={10} onChange={onChange} />);
+		render(<NumberInputField id="" value={10} onChange={onChange} />);
 
-		component.find('input').simulate('change', { target: { value: '20' } });
-		component.find('input').simulate('keydown', { key: 'Enter' });
+		fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '20' } });
+		fireEvent.keyDown(screen.getByRole('spinbutton'), { key: 'Enter' });
 
 		expect(onChange).toHaveBeenCalledWith(20);
 	});

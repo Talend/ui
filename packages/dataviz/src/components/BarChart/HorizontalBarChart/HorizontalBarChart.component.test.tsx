@@ -1,6 +1,4 @@
-import { mount } from 'enzyme';
-// rewrite tests using react-testing-library
-import { screen, render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import HorizontalBarChart from './HorizontalBarChart.component';
 import { ChartStyle } from '../../../types';
 

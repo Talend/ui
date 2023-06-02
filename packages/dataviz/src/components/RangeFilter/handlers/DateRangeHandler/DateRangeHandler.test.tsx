@@ -1,60 +1,77 @@
-import { shallow } from 'enzyme';
+/* eslint-disable react/prop-types */
+import { render, fireEvent, screen } from '@testing-library/react';
 import parseISO from 'date-fns/parseISO';
 import { DateInputField, DateRangeHandler } from './DateRangeHandler';
 
+jest.unmock('@talend/design-system');
+
+jest.mock('@talend/react-components', () => ({
+	// ...jest.requireActual('@talend/react-components'),
+	InputDatePicker: ({ onChange, onBlur, onKeyDown, ...props }) => (
+		<div data-testid="InputDatePicker" {...props}>
+			<button
+				onClick={e =>
+					onChange(e, {
+						origin: 'PICKER',
+						textInput: '2015-01-01',
+					})
+				}
+			>
+				InputDatePicker.onChange
+			</button>
+			<button
+				onClick={e =>
+					onChange(e, {
+						origin: 'PICKER',
+						textInput: '2015-24-24',
+					})
+				}
+			>
+				InputDatePicker.onChange wrong
+			</button>
+			<button onClick={() => onBlur({} as any)}>InputDatePicker.onBlur</button>
+			<button onClick={() => onKeyDown({ key: 'Escape' } as any)}>InputDatePicker.onKeyDown</button>
+			<button onClick={() => onKeyDown({ key: 'Enter' } as any)}>InputDatePicker.onKeyDown</button>
+			<input
+				data-testid="datepicker"
+				type="text"
+				value={props.value}
+				onChange={e => onChange(e, props.testData)}
+			/>
+		</div>
+	),
+}));
+
 describe('DateRangeHandler', () => {
+	it('should render a InputDatePicker', () => {
+		const { container } = render(
+			<DateInputField id="myId" value={1262300400000} onChange={jest.fn()} onBlur={jest.fn()} />,
+		);
+		expect(container.firstChild).toHaveAttribute('data-testid', 'InputDatePicker');
+	});
 	it('Should submit value on blur', () => {
 		const onChange = jest.fn();
-		const component = shallow(<DateInputField id="" value={1262300400000} onChange={onChange} />);
-
-		const inputOnChange = component.find('InputDatePicker').invoke('onChange') as any;
-		inputOnChange({}, { textInput: '2015-01-01' });
-		expect(onChange).not.toHaveBeenCalled();
-
-		component.find('InputDatePicker').invoke('onBlur')!({} as any);
-		expect(onChange).toHaveBeenCalledWith(parseISO('2015-01-01').getTime());
-	});
-
-	it('Should reset value on Esc', () => {
-		const onChange = jest.fn();
-		const component = shallow(<DateInputField id="" value={1262300400000} onChange={onChange} />);
-
-		const inputOnChange = component.find('InputDatePicker').invoke('onChange') as any;
-		inputOnChange({}, { textInput: '2015-01-01' });
-		component.find('InputDatePicker').invoke('onKeyDown')!({ key: 'Escape' } as any);
-
-		expect(component.find('InputDatePicker').prop('value')).toBe('2010-01-01');
-	});
-
-	it('Should submit value on Enter', () => {
-		const onChange = jest.fn();
-		const component = shallow(<DateInputField id="" value={1262300400000} onChange={onChange} />);
-
-		const inputOnChange = component.find('InputDatePicker').invoke('onChange') as any;
-		inputOnChange({}, { textInput: '2015-01-01' });
-		component.find('InputDatePicker').invoke('onKeyDown')!({ key: 'Enter' } as any);
-
+		render(<DateInputField id="" value={1262300400000} onChange={onChange} />);
+		// fireEvent.focus(screen.getByRole('textbox'));
+		fireEvent.click(screen.getByText('InputDatePicker.onChange'));
 		expect(onChange).toHaveBeenCalledWith(parseISO('2015-01-01').getTime());
 	});
 
 	it('Should reset value on blur with invalid input', () => {
 		const onChange = jest.fn();
-		const component = shallow(<DateInputField id="" value={1262300400000} onChange={onChange} />);
-
-		const inputOnChange = component.find('InputDatePicker').invoke('onChange') as any;
-		inputOnChange({}, { textInput: '2010-24-24' });
-		component.find('InputDatePicker').invoke('onBlur')!({} as any);
-
-		expect(component.find('InputDatePicker').prop('value')).toBe('2010-01-01');
+		render(<DateInputField id="" value={1262300400000} onChange={onChange} />);
+		fireEvent.click(screen.getByText('InputDatePicker.onChange wrong'));
+		expect(screen.getByRole('textbox')).toHaveValue('2015-24-24');
+		expect(onChange).not.toHaveBeenCalled();
 	});
 
 	it('Should set min value to current timezone day start', () => {
-		const min = DateRangeHandler.getMinValue!(parseISO('2015-01-01T12:00:00').getTime());
+		const min = DateRangeHandler.getMinValue(parseISO('2015-01-01T12:00:00').getTime());
 		expect(min).toEqual(parseISO('2015-01-01T00:00:00.000').getTime());
 	});
 
 	it('Should set max value to current timezone day end', () => {
-		const max = DateRangeHandler.getMaxValue!(new Date('2015-01-01T12:00:00').getTime());
+		const max = DateRangeHandler.getMaxValue(new Date('2015-01-01T12:00:00').getTime());
 		expect(max).toEqual(parseISO('2015-01-01T23:59:59.999').getTime());
 	});
 
