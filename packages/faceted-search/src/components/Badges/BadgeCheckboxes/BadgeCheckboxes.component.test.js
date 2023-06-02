@@ -1,4 +1,3 @@
-// rewrite using react-testing-library
 import { render } from '@testing-library/react';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 
