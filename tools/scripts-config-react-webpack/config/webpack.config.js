@@ -20,7 +20,7 @@ const utils = require('@talend/scripts-utils');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
 const icons = require('./icons');
-const AppLoader = require('./loader').default;
+const AppLoader = require('./loader');
 const {
 	getCommonStyleLoaders,
 	getSassLoaders,
