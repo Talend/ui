@@ -63,7 +63,7 @@
     "@types/enzyme": "^3.10.12",
     "@types/geojson": "^7946.0.10",
     "@types/lodash": "^4.14.191",
-    "@types/react": "^17.0.53",
+    "@types/react": "^18.2.8",
     "@types/topojson-client": "^3.1.1",
     "@types/topojson-specification": "^1.0.2",
     "cross-env": "^7.0.3",
