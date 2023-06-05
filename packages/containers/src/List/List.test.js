@@ -3,7 +3,6 @@
 import { screen, render, fireEvent } from '@testing-library/react';
 import { Map, fromJS, List as ImmutableList } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
-import { mock } from '@talend/react-cmf';
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Container, { DEFAULT_STATE } from './List.container';

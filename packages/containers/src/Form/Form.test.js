@@ -126,7 +126,6 @@ describe('Container(Form)', () => {
 	});
 
 	it('should jsonSchema return call results from props.jsonSchema function', () => {
-		const jsonSchema = { foo: 'bar' };
 		const jsonSchemaFunc = () => jsonSchema;
 		const form = new Container({
 			jsonSchema: jsonSchemaFunc,
@@ -135,7 +134,6 @@ describe('Container(Form)', () => {
 	});
 
 	it('should jsonSchema return call results from props.jsonSchema function', () => {
-		const jsonSchema = { foo: 'bar' };
 		const jsonSchemaFunc = () => jsonSchema;
 		const form = new Container({
 			jsonSchema: jsonSchemaFunc,
@@ -144,7 +142,6 @@ describe('Container(Form)', () => {
 	});
 
 	it('should uiSchema return call results from props.uiSchema function', () => {
-		const uiSchema = { foo: 'bar' };
 		const uiSchemaFunc = () => uiSchema;
 		const form = new Container({
 			uiSchema: uiSchemaFunc,

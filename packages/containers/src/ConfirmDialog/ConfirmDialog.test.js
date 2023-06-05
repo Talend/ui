@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 import { fromJS, Map } from 'immutable';
 import cmf, { mock } from '@talend/react-cmf';

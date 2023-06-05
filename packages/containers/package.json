@@ -33,6 +33,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/react-bootstrap": "^1.35.2",
     "@talend/react-cmf": "^7.3.0",
     "@talend/react-components": "^10.3.3",
     "@talend/react-forms": "^9.2.1",
