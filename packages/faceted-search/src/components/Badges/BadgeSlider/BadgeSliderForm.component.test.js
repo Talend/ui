@@ -94,7 +94,6 @@ describe('BadgeSliderForm', () => {
 			</BadgeFacetedProvider>,
 		);
 
-		window.HTMLFormElement.prototype.requestSubmit = jest.fn();
 		fireEvent.click(screen.getByLabelText('Edit directly'));
 		// Then
 		expect(screen.getByRole('spinbutton')).toHaveValue(43);
