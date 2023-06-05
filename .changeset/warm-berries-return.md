@@ -2,4 +2,4 @@
 '@talend/design-system': minor
 ---
 
-feat: added rich radio button component
+feat(TDC-6804): added rich radio button component
