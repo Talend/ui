@@ -1,86 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs widget should render fieldset 1`] = `
-<TabBar
-  className="theme-tf-tabs tf-tabs"
+exports[`Tabs widget should render tabs 1`] = `
+<div
+  class="theme-tf-tabs tf-tabs"
   id="undefined-tabs"
-  items={
-    [
-      {
-        "aria-label": undefined,
-        "children": <Widget
-          errors={{}}
-          schema={
-            {
-              "items": [
-                {
-                  "key": [
-                    "user",
-                    "firstname",
-                  ],
-                  "schema": {
-                    "type": "string",
-                  },
-                  "type": "text",
-                },
-                {
-                  "key": [
-                    "user",
-                    "lastname",
-                  ],
-                  "schema": {
-                    "type": "string",
-                  },
-                  "type": "text",
-                },
-              ],
-              "options": {
-                "hideTitle": true,
-              },
-              "title": "User",
-              "widget": "fieldset",
-            }
-          }
-          widgets={{}}
-        />,
-        "className": "",
-        "key": 0,
-        "label": "User",
-      },
-      {
-        "aria-label": undefined,
-        "children": <Widget
-          errors={{}}
-          schema={
-            {
-              "items": [
-                {
-                  "key": [
-                    "comment",
-                  ],
-                  "schema": {
-                    "type": "string",
-                  },
-                  "type": "text",
-                },
-              ],
-              "options": {
-                "hideTitle": true,
-              },
-              "title": "Other",
-              "widget": "fieldset",
-            }
-          }
-          widgets={{}}
-        />,
-        "className": "",
-        "key": 1,
-        "label": "Other",
-      },
-    ]
-  }
-  onSelect={[Function]}
-  selectedKey={0}
-  tooltipPlacement="top"
-/>
+>
+  <div
+    class="theme-tc-tab-bar-menu tc-tab-bar-menu"
+  >
+    <ul
+      class="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
+      role="tablist"
+    >
+      <li
+        class="active"
+        role="presentation"
+      >
+        <button
+          aria-controls="undefined-tabs-pane-0"
+          aria-selected="true"
+          href="#"
+          id="undefined-tabs-tab-0"
+          label="User"
+          role="tab"
+        >
+          <span
+            aria-describedby="42"
+            class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+          >
+            <span
+              class="theme-tc-tab-bar-item-label"
+            >
+              User
+            </span>
+          </span>
+        </button>
+      </li>
+      <li
+        class=""
+        role="presentation"
+      >
+        <button
+          aria-controls="undefined-tabs-pane-1"
+          aria-selected="false"
+          href="#"
+          id="undefined-tabs-tab-1"
+          label="Other"
+          role="tab"
+          tabindex="-1"
+        >
+          <span
+            aria-describedby="42"
+            class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+          >
+            <span
+              class="theme-tc-tab-bar-item-label"
+            >
+              Other
+            </span>
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="tab-content"
+  >
+    <div
+      aria-hidden="false"
+      aria-labelledby="undefined-tabs-tab-0"
+      class="fade tab-pane active in"
+      id="undefined-tabs-pane-0"
+      role="tabpanel"
+    >
+      <fieldset
+        class="form-group"
+      >
+        <legend
+          class="sr-only"
+        >
+          User
+        </legend>
+        <div
+          aria-busy="false"
+          class="form-group theme-template"
+        >
+          <input
+            aria-describedby="user_firstname-description user_firstname-error"
+            aria-invalid="false"
+            class="form-control"
+            id="user_firstname"
+            type="text"
+            value=""
+          />
+          <div />
+        </div>
+        <div
+          aria-busy="false"
+          class="form-group theme-template"
+        >
+          <input
+            aria-describedby="user_lastname-description user_lastname-error"
+            aria-invalid="false"
+            class="form-control"
+            id="user_lastname"
+            type="text"
+            value=""
+          />
+          <div />
+        </div>
+      </fieldset>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="undefined-tabs-tab-1"
+      class="fade tab-pane"
+      id="undefined-tabs-pane-1"
+      role="tabpanel"
+    >
+      <fieldset
+        class="form-group"
+      >
+        <legend
+          class="sr-only"
+        >
+          Other
+        </legend>
+        <div
+          aria-busy="false"
+          class="form-group theme-template"
+        >
+          <input
+            aria-describedby="comment-description comment-error"
+            aria-invalid="false"
+            class="form-control"
+            id="comment"
+            type="text"
+            value=""
+          />
+          <div />
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
 `;

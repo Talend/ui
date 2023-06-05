@@ -35,6 +35,8 @@ const Input = forwardRef((props, ref) => {
 	);
 });
 
+Input.displayName = 'Input';
+
 if (process.env.NODE_ENV !== 'production') {
 	Input.propTypes = {
 		id: PropTypes.string.isRequired,

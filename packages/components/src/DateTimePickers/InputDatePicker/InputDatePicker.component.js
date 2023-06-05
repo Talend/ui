@@ -27,6 +27,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'hideTimezone',
 	'startDate',
 	'endDate',
+	'isDisabledChecker',
 ];
 
 function onMouseDown(event) {

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { ButtonIcon, ButtonSecondary, Popover } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
 
+import { isEqual } from 'lodash';
 import { AddFacetPopover } from '../AddFacetPopover';
 import { BadgesGenerator } from '../BadgesGenerator';
 import { QuickSearchInput } from '../QuickSearchInput';
@@ -47,6 +48,7 @@ const BasicSearch = ({
 	quickSearchPlaceholder,
 	quickSearchFacetsFilter,
 	quickSearchInputProps,
+	disclosureProps,
 }) => {
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(
@@ -145,7 +147,12 @@ const BasicSearch = ({
 							isFixed
 							hasPadding={false}
 							disclosure={
-								<ButtonSecondary size="S" isDropdown data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}>
+								<ButtonSecondary
+									size="S"
+									isDropdown
+									data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}
+									{...disclosureProps}
+								>
 									{t('BASIC_SEARCH_ADD_FILTER', 'Add filter')}
 								</ButtonSecondary>
 							}
@@ -208,6 +215,7 @@ BasicSearch.propTypes = {
 	setBadgesFaceted: PropTypes.func,
 	callbacks: callbacksPropTypes,
 	quickSearchInputProps: PropTypes.object,
+	disclosureProps: PropTypes.object,
 };
 
 export { BasicSearch };
