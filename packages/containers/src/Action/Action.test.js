@@ -1,16 +1,19 @@
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
-
 import Action, { mapStateToProps, mergeProps } from './Action.connect';
 
+jest.unmock('@talend/design-system');
+
+const Provider = mock.Provider;
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {
 		const context = mock.store.context();
-		const wrapper = mount(
-			<Action actionId="menu:article" extra="foo" />,
-			mock.Provider.getEnzymeOption(context),
+		const { container } = render(
+			<Provider {...context}>
+				<Action label="menuarticle" extra="foo" onClick={jest.fn()} />
+			</Provider>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
 

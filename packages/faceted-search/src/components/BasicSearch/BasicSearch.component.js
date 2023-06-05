@@ -1,6 +1,6 @@
+import { get, isEqual } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 
 import { ButtonIcon, ButtonSecondary, Popover } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
@@ -28,7 +28,6 @@ import {
 import theme from './BasicSearch.module.scss';
 import { USAGE_TRACKING_TAGS } from '../../constants';
 import { DEFAULT_QUICKSEARCH_OPERATOR } from '../QuickSearchInput/QuickSearchInput.component';
-import { isEqual } from 'lodash';
 
 const css = getTheme(theme);
 
@@ -48,6 +47,7 @@ const BasicSearch = ({
 	quickSearchPlaceholder,
 	quickSearchFacetsFilter,
 	quickSearchInputProps,
+	disclosureProps,
 }) => {
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(
@@ -146,7 +146,12 @@ const BasicSearch = ({
 							isFixed
 							hasPadding={false}
 							disclosure={
-								<ButtonSecondary size="S" isDropdown data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}>
+								<ButtonSecondary
+									size="S"
+									isDropdown
+									data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}
+									{...disclosureProps}
+								>
 									{t('BASIC_SEARCH_ADD_FILTER', 'Add filter')}
 								</ButtonSecondary>
 							}
@@ -209,6 +214,7 @@ BasicSearch.propTypes = {
 	setBadgesFaceted: PropTypes.func,
 	callbacks: callbacksPropTypes,
 	quickSearchInputProps: PropTypes.object,
+	disclosureProps: PropTypes.object,
 };
 
 export { BasicSearch };

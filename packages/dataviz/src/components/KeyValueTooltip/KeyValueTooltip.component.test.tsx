@@ -1,9 +1,9 @@
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import KeyValueTooltip from './KeyValueTooltip.component';
 
 describe('TooltipContent', () => {
 	it('Should render', () => {
-		const component = mount(
+		const { container } = render(
 			<KeyValueTooltip
 				entries={[
 					{
@@ -13,6 +13,6 @@ describe('TooltipContent', () => {
 				]}
 			/>,
 		);
-		expect(component.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

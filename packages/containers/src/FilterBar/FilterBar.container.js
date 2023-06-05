@@ -18,11 +18,6 @@ const DOCKED_ATTR = 'docked';
 class FilterBar extends RComponent {
 	static displayName = DISPLAY_NAME;
 
-	static contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
-	};
-
 	static propTypes = {
 		...cmfConnect.propTypes,
 		id: PropTypes.string,

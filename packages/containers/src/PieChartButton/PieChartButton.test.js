@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import Connected, { ContainerPieChartButton } from './PieChartButton.connect';
 
 describe('PieChartButton connected', () => {
@@ -20,9 +20,8 @@ describe('PieChartButton container', () => {
 				{ percentage: 15, color: 'silver-chalice' },
 			],
 		});
-		expect(
-			shallow(<ContainerPieChartButton state={initialState} />).getElement(),
-		).toMatchSnapshot();
+		const { container } = render(<ContainerPieChartButton state={initialState} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render not available pie chart button', () => {
@@ -36,9 +35,8 @@ describe('PieChartButton container', () => {
 			],
 			available: false,
 		});
-		expect(
-			shallow(<ContainerPieChartButton state={initialState} />).getElement().props.available,
-		).toBeFalsy();
+		const { container } = render(<ContainerPieChartButton state={initialState} />);
+		expect(container).toBeEmptyDOMElement();
 	});
 
 	it('should render loading pie chart button', () => {
@@ -50,27 +48,10 @@ describe('PieChartButton container', () => {
 				{ percentage: 20, color: 'dove-gray' },
 				{ percentage: 15, color: 'silver-chalice' },
 			],
-			loading: false,
+			loading: true,
 		});
-		expect(
-			shallow(<ContainerPieChartButton state={initialState} />).getElement().props.loading,
-		).toBeFalsy();
-	});
-});
-
-describe('PieChartButton container', () => {
-	it('should render', () => {
-		const initialState = Immutable.fromJS({
-			model: [
-				{ percentage: 10, color: 'rio-grande' },
-				{ percentage: 15, color: 'chestnut-rose' },
-				{ percentage: 5, color: 'lightning-yellow' },
-				{ percentage: 20, color: 'dove-gray' },
-				{ percentage: 15, color: 'silver-chalice' },
-			],
-		});
-		expect(
-			shallow(<ContainerPieChartButton state={initialState} />).getElement(),
-		).toMatchSnapshot();
+		render(<ContainerPieChartButton state={initialState} />);
+		expect(screen.getByLabelText('Loading chart')).toBeVisible();
+		expect(screen.getByLabelText('Loading chart')).toHaveAttribute('aria-busy', 'true');
 	});
 });

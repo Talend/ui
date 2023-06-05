@@ -3,16 +3,14 @@
 exports[`Connected ActionFile should render 1`] = `
 <span>
   <input
-    className="theme-action-file-input sr-only"
+    class="theme-action-file-input sr-only"
     data-test="42"
-    disabled={false}
     id="42"
-    onChange={[Function]}
     type="file"
   />
   <label
-    className="btn btn-default theme-btn-file btn-icon-only"
-    htmlFor="42"
+    class="btn btn-default theme-btn-file btn-icon-only"
+    for="42"
   >
     <span />
   </label>

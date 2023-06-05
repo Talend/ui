@@ -1,21 +1,52 @@
-import { shallow } from 'enzyme';
-import cases from 'jest-in-case';
+import { screen, render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
+// eslint-disable-next-line @talend/import-depth
+import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import SidePanel from './SidePanel.container';
-import { mapStateToProps, mergeProps } from './SidePanel.connect';
+import Connected, { mapStateToProps, mergeProps } from './SidePanel.connect';
 import { ACTION_TYPE_LINK } from './constants';
+import Action from '../Action';
+
+jest.unmock('@talend/design-system');
+const cmfModule = {
+	id: 'test',
+	components: {
+		Action,
+	},
+	preloadedState: {
+		cmf: {
+			settings: {
+				actions: {
+					'menu:article': {
+						label: 'Article',
+						name: 'Article',
+						href: '/article',
+						icon: 'talend-file-xls-o',
+					},
+					'menu:demo': {
+						label: 'Demo',
+						name: 'Demo',
+						href: '/demo',
+						icon: 'talend-file-xls-o',
+					},
+				},
+				props: {},
+			},
+		},
+	},
+};
 
 describe('SidePanel', () => {
 	it('should render', () => {
-		const context = mock.store.context();
-		const sidepanel = shallow(<SidePanel />, { context });
-		expect(sidepanel.getElement()).toMatchSnapshot();
+		// const context = mock.store.context();
+		const { container } = render(<SidePanel />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
-	it('should render provided actions as string', () => {
+	it('should render provided actions as string', async () => {
 		const actions = ['menu:article', 'menu:demo'];
-		const context = mock.store.context();
-		const sidepanel = shallow(<SidePanel actions={actions} />, { context });
-		expect(sidepanel.getElement()).toMatchSnapshot();
+		render(await prepareCMF(<Connected actionIds={actions} />, { cmfModule }));
+		expect(screen.getByText('Article')).toBeVisible();
+		expect(screen.getByText('Demo')).toBeVisible();
 	});
 });
 
@@ -25,6 +56,13 @@ describe('SidePanel.mapStateToProps', () => {
 
 	beforeEach(() => {
 		state = mock.store.state();
+		state.cmf.settings.actions['menu:href'] = {
+			label: 'href',
+			href: '/href',
+			name: 'href',
+			id: 'href-id',
+			icon: 'icon-href',
+		};
 
 		delete window.location;
 		window.location = { pathname: '/test' };
@@ -56,15 +94,6 @@ describe('SidePanel.mapStateToProps', () => {
 			actionIds: ['menu:href'],
 		});
 		expect(href.actions[0].active).toBe(true);
-	});
-
-	xit('should handle actionCreator with href', () => {
-		window.location.pathname = '/href';
-		const href = mapStateToProps(state, {
-			actionIds: ['menu:href'],
-		});
-		expect(href.actions[0]).toBe();
-		expect(href.actions[0].href).toBe('/href');
 	});
 
 	describe('integrated menu item routing with "actions" prop', () => {
@@ -120,95 +149,91 @@ describe('SidePanel.mapStateToProps', () => {
 			expect(props.actions[1].onClick).toBeUndefined();
 		});
 
-		cases(
-			'should define "selected" action based on the same "menuActions" item "path"',
-			({ currentRoute, itemRoute, isMatching }) => {
-				window.location.pathname = currentRoute;
-				const actionSelectable = {
-					identity: 'The one',
-					href: itemRoute,
-				};
-
-				const props = mapStateToProps(state, {
-					componentId: 'compId',
-					actions: [
-						{
-							anotherRandomSpecificActionProp: 'other prop',
-							href: 'whatever/path/to/route',
-						},
-						actionSelectable,
-					],
-				});
-
-				if (isMatching) {
-					expect(props.selected).toMatchObject(actionSelectable);
-				} else {
-					expect(props.selected).toBeUndefined();
-				}
+		test.each([
+			{
+				name: 'Usual simple path',
+				currentRoute: '/a/usual/path',
+				itemRoute: '/a/usual/path',
+				isMatching: true,
 			},
-			[
-				{
-					name: 'Usual simple path',
-					currentRoute: '/a/usual/path',
-					itemRoute: '/a/usual/path',
-					isMatching: true,
-				},
-				{
-					name: 'Usual simple path with trailing /',
-					currentRoute: '/a/usual/path/',
-					itemRoute: '/a/usual/path',
-					isMatching: true,
-				},
-				{
-					name: 'Usual simple path with trailing / on match',
-					currentRoute: '/a/usual/path',
-					itemRoute: '/a/usual/path/',
-					isMatching: true,
-				},
-				{
-					name: 'Subset path starting at the beginning',
-					currentRoute: '/a/usual/path',
-					itemRoute: '/a/usual',
-					isMatching: true,
-				},
-				{
-					name: 'Subset path starting at the beginning but without the exact last segment (currentRoute longer)',
-					currentRoute: '/a/usual/path',
-					itemRoute: '/a/usual/pat',
-					isMatching: false,
-				},
-				{
-					name: 'Subset path starting at the beginning but without the exact last segment (currentRoute shorter)',
-					currentRoute: '/a/usual/pat',
-					itemRoute: '/a/usual/path',
-					isMatching: false,
-				},
-				{
-					name: 'Subset path but not starting at the beginning',
-					currentRoute: '/a/usual/path',
-					itemRoute: '/usual/path',
-					isMatching: false,
-				},
-				{
-					name: 'Subset path starting with hash',
-					currentRoute: '/a/usual#lol',
-					itemRoute: '/a/usual',
-					isMatching: true,
-				},
-				{
-					name: 'Matching hash based route',
-					currentRoute: '#hashBasedRoute',
-					itemRoute: '#hashBasedRoute',
-					isMatching: true,
-				},
-				{
-					name: 'Non Matching hash based route',
-					currentRoute: '#hashBasedRoute',
-					itemRoute: '#hashBasedRouta',
-					isMatching: false,
-				},
-			],
-		);
+			{
+				name: 'Usual simple path with trailing /',
+				currentRoute: '/a/usual/path/',
+				itemRoute: '/a/usual/path',
+				isMatching: true,
+			},
+			{
+				name: 'Usual simple path with trailing / on match',
+				currentRoute: '/a/usual/path',
+				itemRoute: '/a/usual/path/',
+				isMatching: true,
+			},
+			{
+				name: 'Subset path starting at the beginning',
+				currentRoute: '/a/usual/path',
+				itemRoute: '/a/usual',
+				isMatching: true,
+			},
+			{
+				name: 'Subset path starting at the beginning but without the exact last segment (currentRoute longer)',
+				currentRoute: '/a/usual/path',
+				itemRoute: '/a/usual/pat',
+				isMatching: false,
+			},
+			{
+				name: 'Subset path starting at the beginning but without the exact last segment (currentRoute shorter)',
+				currentRoute: '/a/usual/pat',
+				itemRoute: '/a/usual/path',
+				isMatching: false,
+			},
+			{
+				name: 'Subset path but not starting at the beginning',
+				currentRoute: '/a/usual/path',
+				itemRoute: '/usual/path',
+				isMatching: false,
+			},
+			{
+				name: 'Subset path starting with hash',
+				currentRoute: '/a/usual#lol',
+				itemRoute: '/a/usual',
+				isMatching: true,
+			},
+			{
+				name: 'Matching hash based route',
+				currentRoute: '#hashBasedRoute',
+				itemRoute: '#hashBasedRoute',
+				isMatching: true,
+			},
+			{
+				name: 'Non Matching hash based route',
+				currentRoute: '#hashBasedRoute',
+				itemRoute: '#hashBasedRouta',
+				isMatching: false,
+			},
+		])('$name', ({ currentRoute, itemRoute, isMatching }) => {
+			window.location.pathname = currentRoute;
+			const actionSelectable = {
+				identity: 'The one',
+				href: itemRoute,
+			};
+
+			const props = mapStateToProps(state, {
+				componentId: 'compId',
+				actions: [
+					{
+						anotherRandomSpecificActionProp: 'other prop',
+						href: 'whatever/path/to/route',
+					},
+					actionSelectable,
+				],
+			});
+
+			if (isMatching) {
+				expect(props.selected).toMatchObject(actionSelectable);
+			} else {
+				expect(props.selected).toBeUndefined();
+			}
+		});
 
 		it('should memoized "actions" and "selected" computed', () => {
 			const actions = [

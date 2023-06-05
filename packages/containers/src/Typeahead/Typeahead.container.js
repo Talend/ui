@@ -24,7 +24,6 @@ export default class Typeahead extends RComponent {
 	static propTypes = {
 		...componentState.propTypes,
 		onSelect: PropTypes.func,
-		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
 	};
 

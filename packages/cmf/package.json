@@ -56,6 +56,7 @@
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.1.5",
     "@talend/scripts-core": "^13.1.2",
+    "@talend/scripts-config-react-webpack": "^15.3.3",
     "@testing-library/react": "^12.1.5",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.11",

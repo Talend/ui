@@ -249,6 +249,7 @@ class ActionDropdown extends Component {
 
 		const dropdown = (
 			<Renderers.DropdownButton
+				id={this.props.id}
 				title={title}
 				bsStyle={style}
 				role="button"
@@ -305,6 +306,7 @@ class ActionDropdown extends Component {
 ActionDropdown.displayName = 'ActionDropdown';
 
 ActionDropdown.propTypes = {
+	id: PropTypes.string,
 	bsStyle: PropTypes.string,
 	className: PropTypes.string,
 	dropup: PropTypes.bool,

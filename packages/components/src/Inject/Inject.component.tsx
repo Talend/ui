@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { isValidElement, ComponentClass, FunctionComponent, ReactNode } from 'react';
+import PropTypes from 'prop-types';
 
 type NotFoundComponentProps = {
 	error: string;
@@ -14,6 +16,7 @@ function NotFoundComponent({ error }: NotFoundComponentProps) {
 
 export type InjectedComponentType = string | ComponentClass | FunctionComponent;
 export type GetComponentType = (component: InjectedComponentType) => InjectedComponentType;
+
 export type InjectConfig = {
 	component: InjectedComponentType;
 } & Record<string, any>;
@@ -161,7 +164,19 @@ Inject.getReactElement = function getReactElement(
 	}
 	return data; // We do not throw anything, proptypes should do the job
 };
-
+// @ts-ignore
+Inject.getReactElement.propTypes = PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.shape({ component: PropTypes.string }),
+	PropTypes.element,
+	PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({ component: PropTypes.string }),
+			PropTypes.element,
+		]),
+	),
+]);
 Inject.displayName = 'Inject';
 
 Inject.NotFound = NotFoundComponent;

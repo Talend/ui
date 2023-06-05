@@ -53,15 +53,17 @@ export const QuickSearchInput = ({
 				name: 'talend-search',
 			}}
 			items={
-				opened && [
-					{
-						hint: true,
-						title: t('QUICKSEARCH_ITEM_TOOLTIP', {
-							defaultValue: 'Search in',
-						}),
-						suggestions: filteredFacets.map(a => get(a, ['properties', 'label'], null)),
-					},
-				]
+				opened
+					? [
+							{
+								hint: true,
+								title: t('QUICKSEARCH_ITEM_TOOLTIP', {
+									defaultValue: 'Search in',
+								}),
+								suggestions: filteredFacets.map(a => get(a, ['properties', 'label'], null)),
+							},
+					  ]
+					: undefined
 			}
 			value={value}
 			role="searchbox"

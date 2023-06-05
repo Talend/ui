@@ -15,19 +15,19 @@ const { DuplicatesPlugin } = require('inspectpack/plugin');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
-const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
-
 const cdn = require('@talend/scripts-config-cdn');
 const utils = require('@talend/scripts-utils');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
 const icons = require('./icons');
+const AppLoader = require('./loader');
 const {
 	getCommonStyleLoaders,
 	getSassLoaders,
 	getJSAndTSLoader,
 	getSassData,
 	getAssetsRules,
+	getFileNameForExtension,
 } = require('./webpack.config.common');
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
@@ -35,8 +35,6 @@ const cdnMode = !!process.env.INITIATOR_URL;
 
 const DEFAULT_INDEX_TEMPLATE_PATH = 'src/app/index.html';
 const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
-const getFileNameForExtension = (extension, prefix) =>
-	`${prefix || ''}[name]-[contenthash].${extension}`;
 
 const TALEND_LIB_PREFIX = '@talend/';
 
@@ -233,7 +231,6 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 
 module.exports = ({ getUserConfig, mode }) => {
 	return async (env = {}) => {
-		const cssModulesEnabled = getUserConfig(['css', 'modules'], true);
 		const cssPrefix = getUserConfig(['css', 'prefix']);
 		const jsPrefix = getUserConfig(['js', 'prefix']);
 		const userHtmlConfig = getUserConfig('html', {});
@@ -353,7 +350,6 @@ module.exports = ({ getUserConfig, mode }) => {
 						include: sentryConfig.include || ['dist/'],
 						ignore: sentryConfig.ignore || ['cdn/'],
 					}),
-				,
 				new HtmlWebpackPlugin({
 					filename: './index.html',
 					appLoader: AppLoader.APP_LOADER,
