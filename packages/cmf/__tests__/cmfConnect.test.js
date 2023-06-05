@@ -342,7 +342,7 @@ describe('cmfConnect', () => {
 			expect(call[0]).toBe('myactionCreator');
 			expect(call[1]).toBe(event);
 			expect(call[2]).toBe(data);
-			expect(call[3].registry).toBe(context.registry);
+			expect(call[3].registry).toMatchObject(context.registry);
 			expect(call[3].store).toMatchObject(context.store);
 		});
 
@@ -394,7 +394,7 @@ describe('cmfConnect', () => {
 			expect(callDidMountActionCreator[0]).toBe('hello');
 			expect(callDidMountActionCreator[1]).toBe(null);
 			expect(callDidMountActionCreator[2]).toEqual(props);
-			expect(callDidMountActionCreator[3].registry).toBe(context.registry);
+			expect(callDidMountActionCreator[3].registry).toMatchObject(context.registry);
 			expect(callDidMountActionCreator[3].store).toMatchObject(context.store);
 
 			expect(props.initState).toHaveBeenCalled();
@@ -425,7 +425,7 @@ describe('cmfConnect', () => {
 				}),
 				expect.objectContaining({
 					store: context.store,
-					registry: context.registry,
+					registry: expect.objectContaining(context.registry),
 				}),
 			);
 		});
@@ -452,7 +452,7 @@ describe('cmfConnect', () => {
 				props,
 				expect.objectContaining({
 					store: context.store,
-					registry: context.registry,
+					registry: expect.objectContaining(context.registry),
 				}),
 			);
 		});
@@ -482,7 +482,7 @@ describe('cmfConnect', () => {
 			expect(call[0]).toBe('bye');
 			expect(call[1]).toBe(null);
 			expect(call[2]).toEqual(props);
-			expect(call[3].registry).toBe(context.registry);
+			expect(call[3].registry).toMatchObject(context.registry);
 			expect(call[3].store).toBe(context.store);
 
 			expect(props.deleteState).toHaveBeenCalled();

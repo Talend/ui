@@ -34,15 +34,10 @@ export class DeleteResource extends Component {
 		resourceTypeLabel: PropTypes.string,
 		resourceId: PropTypes.string,
 		collectionId: PropTypes.string,
-		female: PropTypes.string,
+		female: PropTypes.bool,
 		onCancelRedirectUrl: PropTypes.string,
 		validateActionProps: PropTypes.object,
 		t: PropTypes.func,
-	};
-
-	static contextTypes = {
-		registry: PropTypes.object.isRequired,
-		store: PropTypes.object.isRequired,
 	};
 
 	static defaultProps = {
@@ -50,8 +45,8 @@ export class DeleteResource extends Component {
 		t: getDefaultT(),
 	};
 
-	constructor(props, context) {
-		super(props, context);
+	constructor(props) {
+		super(props);
 		this.getLabelInfo = this.getLabelInfo.bind(this);
 		this.getResourceInfo = this.getResourceInfo.bind(this);
 		this.onHide = this.onHide.bind(this);

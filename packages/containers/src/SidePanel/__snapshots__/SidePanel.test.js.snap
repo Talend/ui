@@ -1,32 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SidePanel should render 1`] = `
-<withI18nextTranslation(SidePanel)
-  actions={[]}
-  dockable={true}
-  docked={false}
-  large={false}
-  minimised={false}
-  onToggleDock={[Function]}
-  reverse={false}
-  t={[Function]}
-/>
-`;
-
-exports[`SidePanel should render provided actions as string 1`] = `
-<withI18nextTranslation(SidePanel)
-  actions={
-    [
-      "menu:article",
-      "menu:demo",
-    ]
-  }
-  dockable={true}
-  docked={false}
-  large={false}
-  minimised={false}
-  onToggleDock={[Function]}
-  reverse={false}
-  t={[Function]}
-/>
+<nav
+  class="theme-tc-side-panel tc-side-panel"
+  role="navigation"
+  style="width: 0px;"
+>
+  <div
+    class="theme-toggle-btn tc-side-panel-toggle-btn"
+  >
+    <button
+      aria-describedby="42"
+      aria-label="Collapse menu"
+      class="btn-icon-only btn btn-link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-opener"
+        focusable="false"
+        name="talend-opener"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+  <div
+    class="theme-action-list-container tc-side-panel-action-list-container"
+    data-simplebar="true"
+  >
+    <ul
+      class="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+    />
+  </div>
+</nav>
 `;

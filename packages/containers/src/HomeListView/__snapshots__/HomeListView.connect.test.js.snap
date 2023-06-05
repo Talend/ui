@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connected HomeListView should render 1`] = `
+<div
+  class="tc-layout theme-layout"
+>
+  <div
+    class="theme-skip-links"
+  >
+    <nav
+      aria-label="Skip links"
+      class="theme-tc-skip-links"
+    >
+      <ul>
+        <li>
+          <a
+            href="#tc-layout-side-menu"
+          >
+            <span
+              class="theme-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
+                focusable="false"
+                name="talend-arrow-left"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </span>
+            <span
+              class="theme-text"
+            >
+              Skip to navigation
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#tc-layout-main"
+          >
+            <span
+              class="theme-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
+                focusable="false"
+                name="talend-arrow-left"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </span>
+            <span
+              class="theme-text"
+            >
+              Skip to main content
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <header
+    class="tc-layout-header theme-header"
+    role="banner"
+  >
+    <div
+      data-testid="HeaderBar"
+    >
+      HeaderBar
+    </div>
+  </header>
+  <div
+    class="tc-layout-two-columns theme-container"
+  >
+    <div
+      class="tc-layout-two-columns-left theme-sidemenu"
+      id="tc-layout-side-menu"
+      tabindex="-1"
+    >
+      <div
+        data-testid="SidePanel"
+      >
+        SidePanel
+      </div>
+    </div>
+    <div
+      class="tc-layout-two-columns-main theme-main"
+      id="tc-layout-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div
+        class="theme-tc-with-drawer"
+      >
+        <div
+          style="overflow: auto; height: 100%; display: flex; flex-direction: column;"
+        >
+          <div
+            data-testid="List"
+          >
+            List
+          </div>
+        </div>
+        <div
+          class="theme-tc-with-drawer-container"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
