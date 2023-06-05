@@ -14,11 +14,7 @@ export function* fetchDefinition(action) {
 		yield put(
 			Component.setStateAction(
 				prev =>
-					prev
-						.set('jsonSchema')
-						.set('uiSchema')
-						.set('response', response)
-						.set('dirty', false),
+					prev.set('jsonSchema').set('uiSchema').set('response', response).set('dirty', false),
 				action.componentId,
 			),
 		);

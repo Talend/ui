@@ -262,7 +262,6 @@ class TreeViewItem extends Component {
 				>
 					{children.length ? (
 						<Action
-							key="toggle"
 							className={css['tc-treeview-toggle']}
 							icon="talend-caret-down"
 							iconTransform={isOpened ? undefined : 'rotate-270'}

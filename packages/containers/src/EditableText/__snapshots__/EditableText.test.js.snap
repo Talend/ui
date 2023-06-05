@@ -1,14 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EditableText container should render 1`] = `
-<withI18nextTranslation(EditableText)
-  editMode={false}
-  inProgress={false}
-  loading={false}
-  onCancel={[Function]}
-  onChange={[Function]}
-  onEdit={[Function]}
-  onSubmit={[Function]}
-  t={[Function]}
-/>
+<div
+  class="theme-tc-editable-text tc-editable-text"
+>
+  <div
+    class="theme-tc-editable-text-title"
+  >
+    <span
+      aria-describedby="42"
+      class="theme-tc-editable-text-wording tc-editable-text-wording"
+    >
+      test
+    </span>
+    <button
+      aria-describedby="42"
+      aria-label="Rename"
+      class="theme-tc-editable-text-pencil tc-editable-text-pencil btn-icon-only btn btn-link"
+      name="action-edit"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-pencil"
+        focusable="false"
+        name="talend-pencil"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+</div>
 `;

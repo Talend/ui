@@ -2,78 +2,165 @@
 
 exports[`Columns widget should render columns 1`] = `
 <div
-  className="tf-columns theme-tf-columns"
+  class="tf-columns theme-tf-columns"
 >
   <legend>
     My awesome columns
   </legend>
   <div
-    className="tf-columns-items theme-items"
+    class="tf-columns-items theme-items"
   >
-    <Widget
-      schema={
-        {
-          "items": [
-            {
-              "description": "Hint: this is the last name",
-              "key": [
-                "lastname",
-              ],
-              "ngModelOptions": {},
-              "schema": {
-                "type": "string",
-              },
-              "title": "Last Name (with description)",
-              "type": "text",
-            },
-            {
-              "key": [
-                "firstname",
-              ],
-              "ngModelOptions": {},
-              "placeholder": "Enter your firstname here",
-              "required": true,
-              "schema": {
-                "type": "string",
-              },
-              "title": "First Name (with placeholder)",
-              "type": "text",
-            },
-            {
-              "key": [
-                "age",
-              ],
-              "ngModelOptions": {},
-              "schema": {
-                "type": "number",
-              },
-              "title": "Age",
-              "type": "number",
-            },
-          ],
-          "title": "User Fieldset",
-          "widget": "fieldset",
-        }
-      }
-      widgets={{}}
-    />
-    <Widget
-      schema={
-        {
-          "description": "This one is a column composed by a single input",
-          "key": [
-            "singleInput",
-          ],
-          "ngModelOptions": {},
-          "schema": {
-            "type": "string",
-          },
-          "title": "singleInput",
-          "type": "text",
-        }
-      }
-      widgets={{}}
-    />
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class=""
+      >
+        User Fieldset
+      </legend>
+      <div
+        aria-busy="false"
+        class="form-group theme-template"
+      >
+        <label
+          class="control-label"
+          for="lastname"
+        >
+          Last Name (with description)
+        </label>
+        <input
+          aria-describedby="lastname-description lastname-error"
+          aria-invalid="false"
+          class="form-control"
+          id="lastname"
+          type="text"
+          value=""
+        />
+        <div>
+          <div
+            aria-live="polite"
+            class="theme-inlineMessage"
+            data-test="fieldTemplate.inlineMessage"
+            id="lastname-description"
+            role="status"
+          >
+            <span
+              class="theme-icon theme-information__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1.6rem; height: 1.6rem;"
+              >
+                <use
+                  xlink:href="#information-filled:M"
+                />
+              </svg>
+            </span>
+            <p
+              class="theme-inlineMessage__contents"
+            >
+              <span>
+                Hint: this is the last name
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-busy="false"
+        class="form-group theme-template required"
+      >
+        <label
+          class="control-label"
+          for="firstname"
+        >
+          First Name (with placeholder)
+        </label>
+        <input
+          aria-describedby="firstname-description firstname-error"
+          aria-invalid="false"
+          aria-required="true"
+          class="form-control"
+          id="firstname"
+          placeholder="Enter your firstname here"
+          type="text"
+          value=""
+        />
+        <div />
+      </div>
+      <div
+        aria-busy="false"
+        class="form-group theme-template"
+      >
+        <label
+          class="control-label"
+          for="age"
+        >
+          Age
+        </label>
+        <input
+          aria-describedby="age-description age-error"
+          aria-invalid="false"
+          class="form-control"
+          id="age"
+          type="number"
+          value=""
+        />
+        <div />
+      </div>
+    </fieldset>
+    <div
+      aria-busy="false"
+      class="form-group theme-template"
+    >
+      <label
+        class="control-label"
+        for="singleInput"
+      >
+        singleInput
+      </label>
+      <input
+        aria-describedby="singleInput-description singleInput-error"
+        aria-invalid="false"
+        class="form-control"
+        id="singleInput"
+        type="text"
+        value=""
+      />
+      <div>
+        <div
+          aria-live="polite"
+          class="theme-inlineMessage"
+          data-test="fieldTemplate.inlineMessage"
+          id="singleInput-description"
+          role="status"
+        >
+          <span
+            class="theme-icon theme-information__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.6rem; height: 1.6rem;"
+            >
+              <use
+                xlink:href="#information-filled:M"
+              />
+            </svg>
+          </span>
+          <p
+            class="theme-inlineMessage__contents"
+          >
+            <span>
+              This one is a column composed by a single input
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

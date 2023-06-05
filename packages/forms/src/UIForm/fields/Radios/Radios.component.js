@@ -42,7 +42,7 @@ export default function Radios({
 		>
 			{schema.titleMap &&
 				schema.titleMap.map((option, index) => (
-					<div className={radioClassNames} key={index}>
+					<div className={radioClassNames} key={option.value || option.name}>
 						<label>
 							{/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
 							<input

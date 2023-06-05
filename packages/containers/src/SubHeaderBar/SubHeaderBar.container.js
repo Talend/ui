@@ -26,11 +26,6 @@ class SubHeaderBar extends RComponent {
 		title: PropTypes.string,
 	};
 
-	static contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
-	};
-
 	constructor(props) {
 		super(props);
 		this.onGoBack = this.onGoBack.bind(this);

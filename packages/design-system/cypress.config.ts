@@ -1,24 +1,15 @@
 import { defineConfig } from 'cypress';
 
 import path from 'path';
-import getWebpackConfiguration from '@talend/scripts-config-react-webpack';
 
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {
-	getCommonStyleLoaders,
-	getSassLoaders,
-	getJSAndTSLoader,
-	getSassData,
-	getAssetsRules,
+	getWebpackRules,
+	getWebpackPlugins,
 } from '@talend/scripts-config-react-webpack/config/webpack.config.common';
 
-const getFileNameForExtension = (extension, prefix) =>
-	`${prefix || ''}[name]-[contenthash].${extension}`;
-
-const sassData = '';
 const webpackConfig = {
 	mode: 'development',
-	entry: [path.join(__dirname, 'src', 'index.js')],
+	entry: [path.join(__dirname, 'src', 'index.ts')],
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 	},
@@ -30,50 +21,9 @@ const webpackConfig = {
 		},
 	},
 	module: {
-		rules: [
-			{
-				test: /\.js$/,
-				include: /node_modules/,
-				use: ['source-map-loader'],
-				enforce: 'pre',
-			},
-			{
-				test: /\.(js|ts|tsx)$/,
-				exclude: /node_modules/,
-				include: [path.resolve(process.cwd(), './src/')],
-				use: getJSAndTSLoader(process.env, true),
-			},
-			{
-				test: /\.css$/,
-				exclude: /\.module\.css$/,
-				include: [path.resolve(process.cwd(), './src/')],
-				use: getCommonStyleLoaders(false, true),
-			},
-			{
-				test: /\.module\.css$/,
-				include: [path.resolve(process.cwd(), './src/')],
-				use: getCommonStyleLoaders(true, true),
-			},
-			{
-				test: /\.scss$/,
-				exclude: /\.module\.scss$/,
-				include: [path.resolve(process.cwd(), './src/')],
-				use: getSassLoaders(false, sassData, true),
-			},
-			{
-				test: /\.module\.scss$/,
-				include: [path.resolve(process.cwd(), './src/')],
-				use: getSassLoaders(true, sassData, true),
-			},
-			...getAssetsRules(true),
-		].filter(Boolean),
+		rules: getWebpackRules([path.resolve(process.cwd(), './src/')], true, true),
 	},
-	plugins: [
-		new MiniCssExtractPlugin({
-			filename: getFileNameForExtension('css'),
-			chunkFilename: getFileNameForExtension('css'),
-		}),
-	],
+	plugins: getWebpackPlugins(),
 };
 
 export default defineConfig({

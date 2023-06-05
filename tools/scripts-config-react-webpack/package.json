@@ -59,9 +59,7 @@
     "webpack-dev-server": "^4.13.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "*",
     "@talend/icons": "*",
-    "@talend/react-components": "*",
     "react": "*"
   },
   "publishConfig": {

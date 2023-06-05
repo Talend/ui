@@ -1,28 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container(ActionDropdown) should render 1`] = `
-<withI18nextTranslation(ActionDropdown)
-  t={[Function]}
-/>
-`;
-
-exports[`Container(ActionDropdown) should render with items 1`] = `
-<withI18nextTranslation(ActionDropdown)
-  actionIds={
-    [
-      "menu:article",
-    ]
-  }
-  foo="extra"
-  items={
-    [
-      {
-        "actionCreator": "menu:item",
-        "label": "Foo",
-        "onClick": [Function],
-      },
-    ]
-  }
-  t={[Function]}
-/>
+<div
+  class="dropdown btn-group btn-group-default"
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="foo"
+    class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+    id="foo"
+    role="button"
+    type="button"
+  >
+    <span
+      class="tc-dropdown-button-title-label"
+    >
+      foo
+    </span>
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+      focusable="false"
+      name="talend-caret-down"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </button>
+  <ul
+    aria-labelledby="foo"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <li
+      class="disabled"
+      role="presentation"
+    >
+      <a
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+      >
+        No options
+      </a>
+    </li>
+  </ul>
+</div>
 `;

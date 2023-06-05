@@ -1,6 +1,9 @@
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 
 import RadioOrSelect from './RadioOrSelect.component';
+
+jest.mock('ally.js');
+jest.unmock('@talend/design-system');
 
 describe('RadioOrSelect field', () => {
 	const schema = {
@@ -19,7 +22,7 @@ describe('RadioOrSelect field', () => {
 
 	it('should render select when titleMap has less than 2 options', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<RadioOrSelect
 				id="myRadioOrSelect"
 				isValid
@@ -32,7 +35,12 @@ describe('RadioOrSelect field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getAllByRole('radio')).toHaveLength(2);
+		expect(screen.getAllByRole('radio')[0].nextSibling).toHaveTextContent('My foo title');
+		expect(screen.getAllByRole('radio')[1].nextSibling).toHaveTextContent('My bar title');
+		expect(screen.getByText('My Select title').tagName).toBe('LABEL');
+		expect(screen.getByRole('status')).toHaveTextContent('Select me');
 	});
 
 	it('should render select when titleMap has more than 2 options', () => {
@@ -43,7 +51,7 @@ describe('RadioOrSelect field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<RadioOrSelect
 				id="myRadioOrSelect"
 				isValid
@@ -56,6 +64,9 @@ describe('RadioOrSelect field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getAllByRole('option')).toHaveLength(4);
+		expect(screen.getAllByRole('option')[1]).toHaveTextContent('My foo title');
+		expect(screen.getAllByRole('option')[2]).toHaveTextContent('My bar title');
+		expect(screen.getAllByRole('option')[3]).toHaveTextContent('My lol title');
 	});
 });

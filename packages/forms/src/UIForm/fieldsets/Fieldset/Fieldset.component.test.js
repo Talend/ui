@@ -1,8 +1,21 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
+import { WidgetContext } from '../../context';
+import widgets from '../../utils/widgets';
 import Fieldset from './Fieldset.component';
 
+const widgetProps = {
+	onChange: jest.fn(),
+	onFinish: jest.fn(),
+	errors: {},
+};
+
+jest.unmock('@talend/design-system');
+
 describe('Fieldset widget', () => {
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 	it('should render fieldset', () => {
 		// given
 		const schema = {
@@ -22,10 +35,15 @@ describe('Fieldset widget', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Fieldset schema={schema} />);
+
+		const { container } = render(
+			<WidgetContext.Provider value={widgets}>
+				<Fieldset schema={schema} {...widgetProps} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render fieldset with nested condition', () => {
@@ -86,12 +104,14 @@ describe('Fieldset widget', () => {
 		};
 		const properties = { configuration: { fields: [{ type: 'FREETEXT' }] } };
 		// when
-		const wrapper = shallow(<Fieldset schema={schema} properties={properties} />);
-		const widgets = wrapper.find('Widget');
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<Fieldset schema={schema} properties={properties} {...widgetProps} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(widgets.length).toBe(2);
-		expect(widgets.at(1).props().schema.title).toBe('Free text');
+		expect(screen.getByText('Free text')).toBeVisible();
 	});
 
 	it('should not render fieldset legend without any title', () => {
@@ -112,10 +132,15 @@ describe('Fieldset widget', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Fieldset schema={schema} />);
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<Fieldset schema={schema} {...widgetProps} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(wrapper.find('legend').length).toBe(0);
+
+		expect(document.querySelector('legend')).toBeNull();
 	});
 
 	it('should hide title', () => {
@@ -133,10 +158,14 @@ describe('Fieldset widget', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Fieldset schema={schema} />);
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<Fieldset schema={schema} {...widgetProps} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(wrapper.find('legend').prop('className')).toBe('sr-only');
+		expect(document.querySelector('legend')).toHaveClass('sr-only');
 	});
 
 	it('should not render if empty', () => {
@@ -156,9 +185,13 @@ describe('Fieldset widget', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Fieldset schema={schema} />);
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<Fieldset schema={schema} {...widgetProps} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(wrapper.find('fieldset')).toHaveLength(0);
+		expect(document.querySelector('fieldset')).toBeNull();
 	});
 });

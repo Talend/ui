@@ -1,10 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgeNumberForm should mount a default badge 1`] = `
-<BadgeNumberForm
-  feature="price"
-  id="customId"
-  onSubmit={[MockFunction]}
-  t={[Function]}
-/>
+<form
+  class="tc-badge-number-form theme-tc-badge-number-form"
+  id="customId-number"
+>
+  <div
+    class="theme-body tc-tooltip-body tc-badge-number-form-body theme-tc-badge-number-form-body"
+    id="customId-badge-body"
+  >
+    <div
+      class="theme-content tc-tooltip-content"
+      id="customId-badge-body-content"
+    >
+      <input
+        class="form-control"
+        id="customId-input"
+        placeholder="Type here"
+        type="number"
+        value=""
+      />
+    </div>
+  </div>
+  <footer
+    class="theme-footer tc-tooltip-footer"
+    id="customId-badge-footer"
+  >
+    <button
+      aria-label="Apply"
+      class="btn btn-info"
+      data-feature="filter.price.add"
+      type="submit"
+    >
+      <span>
+        Apply
+      </span>
+    </button>
+  </footer>
+</form>
 `;

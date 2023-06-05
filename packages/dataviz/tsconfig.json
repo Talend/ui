@@ -1,7 +1,14 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "./cypress.d.ts", "./cypress/**/*.ts", "./cypress.config.ts"],
   "compilerOptions": {
-    "declaration": true
+    "baseUrl": ".",
+    "declaration": true,
+    "module": "CommonJs",
+
+    "rootDirs": ["cypress", "@testing-library/cypress", "src"],
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"]
   }
 }

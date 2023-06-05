@@ -1,6 +1,9 @@
-import { shallow, mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Toggle from './Toggle.component';
+
+jest.unmock('@talend/design-system');
+jest.mock('ally.js');
 
 describe('Toggle field', () => {
 	const schema = {
@@ -12,7 +15,7 @@ describe('Toggle field', () => {
 
 	it('should render input', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<Toggle
 				id="myForm"
 				isValid
@@ -25,7 +28,7 @@ describe('Toggle field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render autoFocused input', () => {
@@ -36,7 +39,7 @@ describe('Toggle field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Toggle
 				id="myForm"
 				isValid
@@ -49,7 +52,7 @@ describe('Toggle field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).toHaveFocus();
 	});
 
 	it('should render disabled input', () => {
@@ -60,7 +63,7 @@ describe('Toggle field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Toggle
 				id="myForm"
 				isValid
@@ -73,14 +76,14 @@ describe('Toggle field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).toBeDisabled();
 	});
 
-	it('should trigger onChange and onFinish', () => {
+	it('should trigger onChange and onFinish', async () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = mount(
+		render(
 			<Toggle
 				id="myForm"
 				isValid
@@ -93,7 +96,7 @@ describe('Toggle field', () => {
 		);
 
 		// when
-		wrapper.find('input').simulate('change');
+		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });

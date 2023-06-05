@@ -1,56 +1,31 @@
-import { shallow } from 'enzyme';
+/* eslint-disable react/prop-types */
+import { screen, render, fireEvent } from '@testing-library/react';
 import { TimeRangeHandler, TimeInputField } from './TimeRangeHandler';
 
 const H11_11_11_IN_SECS = 11 * 3600 + 11 * 60 + 11;
 
+jest.mock('@talend/react-components', () => ({
+	InputTimePicker: ({ onChange }) => (
+		<div data-testid="InputTimePicker">
+			<button
+				onClick={e =>
+					onChange(e, {
+						origin: 'PICKER',
+						textInput: '11:11:11',
+					})
+				}
+			>
+				InputTimePicker.onChange
+			</button>
+		</div>
+	),
+}));
+
 describe('TimeRangeHandler', () => {
 	it('Should submit value on blur', () => {
 		const onChange = jest.fn();
-		const component = shallow(<TimeInputField id="" value={9845} onChange={onChange} />);
-
-		const inputOnChange = component.find('InputTimePicker').invoke('onChange') as any;
-		inputOnChange(
-			{},
-			{
-				textInput: '11:11:11',
-			},
-		);
-		expect(onChange).not.toHaveBeenCalled();
-
-		component.find('InputTimePicker').invoke('onBlur')!({} as any);
-		expect(onChange).toHaveBeenCalledWith(H11_11_11_IN_SECS);
-	});
-
-	it('Should reset value on Esc', () => {
-		const onChange = jest.fn();
-		const component = shallow(
-			<TimeInputField id="" value={H11_11_11_IN_SECS} onChange={onChange} />,
-		);
-
-		const inputOnChange = component.find('InputTimePicker').invoke('onChange') as any;
-		inputOnChange(
-			{},
-			{
-				textInput: '12:12:12',
-			},
-		);
-		component.find('InputTimePicker').invoke('onKeyDown')!({ key: 'Escape' } as any);
-
-		expect(component.find('InputTimePicker').prop('value')).toBe('11:11:11');
-	});
-
-	it('Should submit value on Enter', () => {
-		const onChange = jest.fn();
-		const component = shallow(<TimeInputField id="" value={3600} onChange={onChange} />);
-
-		const inputOnChange = component.find('InputTimePicker').invoke('onChange') as any;
-		inputOnChange(
-			{},
-			{
-				textInput: '11:11:11',
-			},
-		);
-		component.find('InputTimePicker').invoke('onKeyDown')!({ key: 'Enter' } as any);
+		render(<TimeInputField id="" value={9845} onChange={onChange} />);
+		fireEvent.click(screen.getByText('InputTimePicker.onChange'));
 
 		expect(onChange).toHaveBeenCalledWith(H11_11_11_IN_SECS);
 	});

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import { getTheme } from '@talend/react-components/lib/theme';
+import { isEqual } from 'lodash';
 
 import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';
@@ -14,7 +15,6 @@ import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';
 
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 import { USAGE_TRACKING_TAGS } from '../../../constants';
-import { isEqual } from 'lodash';
 
 const theme = getTheme(cssModule);
 
