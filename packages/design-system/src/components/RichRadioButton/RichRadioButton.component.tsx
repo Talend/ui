@@ -2,9 +2,10 @@
 
 import { RichRadioButtonProps } from './RichRadioButton.types';
 import { StackVertical, StackHorizontal } from '../Stack';
-import { getTagVariant } from './RichRadioButton.utils';
 import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
 import style from './RichRadioButton.module.scss';
+import classnames from 'classnames';
+import { Tag } from '../Tag';
 
 const RichRadioButton = ({
 	dataFeature,
@@ -36,16 +37,16 @@ const RichRadioButton = ({
 					{asset && (
 						<>
 							<span
-								className={
-									style[`rich-radio-button__${asset.illustration ? 'illustration' : 'icon'}`]
-								}
+								className={classnames({
+									'rich-radio-button__illustration': asset.illustration,
+									'rich-radio-button__icon': !asset.illustration,
+								})}
 							>
-								{!asset.illustration
-									? getIconWithDeprecatedSupport({
-											iconSrc: asset.name || '',
-											size: 'L',
-									  })
-									: asset.illustration}
+								{asset.illustration ||
+									getIconWithDeprecatedSupport({
+										iconSrc: asset.name || '',
+										size: 'L',
+									})}
 							</span>
 						</>
 					)}
@@ -55,8 +56,11 @@ const RichRadioButton = ({
 					{tags && (
 						<StackHorizontal as="span" gap="XS" wrap="wrap">
 							{tags.map(tag => {
-								const Tag = getTagVariant(tag);
-								return <Tag key={tag.name}>{tag.name}</Tag>;
+								return (
+									<Tag variant={tag.variant} key={tag.name}>
+										{tag.name}
+									</Tag>
+								);
 							})}
 						</StackHorizontal>
 					)}

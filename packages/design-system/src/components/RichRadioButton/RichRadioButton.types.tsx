@@ -7,12 +7,24 @@ export interface RichRadioButtonTag {
 	variant?: keyof typeof TagVariant;
 }
 
+export interface RichRadioButtonAssetIcon {
+	illustration?: never;
+	name: IconNameWithSize<'L'>;
+}
+
+export interface RichRadioButtonAssetIllustration {
+	illustration: ReactElement;
+	name?: never;
+}
+
+export type RichRadioButtonAsset = RichRadioButtonAssetIcon | RichRadioButtonAssetIllustration;
+
 export interface RichRadioButtonProps {
 	dataFeature?: string;
 	description?: string;
 	asset?: {
-		name?: IconNameWithSize<'L'>;
 		illustration?: ReactElement;
+		name?: string;
 	};
 	id: string;
 	isChecked?: boolean;

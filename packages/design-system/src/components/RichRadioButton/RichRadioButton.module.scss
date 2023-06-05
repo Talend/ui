@@ -4,17 +4,17 @@
 
 .rich-radio-button {
 	background-color: tokens.$coral-color-accent-background-weak;
-	border: 1px solid tokens.$coral-color-neutral-border-weak;
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	border-radius: tokens.$coral-radius-m;
 	display: block;
 	padding: tokens.$coral-spacing-m;
-	transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+	transition: background-color tokens.$coral-transition-normal, box-shadow tokens.$coral-transition-normal, border-color tokens.$coral-transition-normal;
 	width: 100%;
 
 	&__icon {
 		color: tokens.$coral-color-accent-icon;
 		height: tokens.$coral-sizing-xs;
-		transition: color 0.3s;
+		transition: color tokens.$coral-transition-normal;
 		width: tokens.$coral-sizing-xs;
 	}
 
@@ -117,7 +117,7 @@
 
 				&:focus {
 					+ .rich-radio-button {
-						outline: 2px solid tokens.$coral-color-assistive-border-focus;
+						outline: tokens.$coral-border-m-solid solid tokens.$coral-color-assistive-border-focus;
 
 						.rich-radio-button__icon {
 							color: tokens.$coral-color-accent-icon;
@@ -170,21 +170,21 @@
 
 					+ .rich-radio-button {
 						background-color: tokens.$coral-color-accent-background-selected;
-						border: 2px solid tokens.$coral-color-accent-border;
+						border: tokens.$coral-border-m-solid solid tokens.$coral-color-accent-border;
 					}
 				}
 
 				&[readonly] {
 					+ .rich-radio-button {
 						background-color: tokens.$coral-color-neutral-background;
-						border: 2px solid tokens.$coral-color-neutral-border;
+						border: tokens.$coral-border-m-solid solid tokens.$coral-color-neutral-border;
 					}
 				}
 
 				&:disabled {
 					+ .rich-radio-button {
 						background-color: tokens.$coral-color-neutral-background-disabled;
-						border: 2px solid tokens.$coral-color-neutral-border-disabled;
+						border: tokens.$coral-border-m-solid solid tokens.$coral-color-neutral-border-disabled;
 					}
 				}
 			}
