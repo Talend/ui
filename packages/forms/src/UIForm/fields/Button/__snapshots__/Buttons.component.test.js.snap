@@ -2,49 +2,37 @@
 
 exports[`Buttons field should render buttons 1`] = `
 <div
-  className="theme-tf-buttons tf-buttons extra"
+  class="theme-tf-buttons tf-buttons extra"
 >
-  <SingleButton
-    className="theme-undefined custom-class-name"
+  <button
+    aria-label="Reset"
+    class="btn--secondary btn theme-undefined custom-class-name btn btn-default"
     id="myForm-0"
-    onTrigger={[MockFunction]}
-    schema={
-      {
-        "className": "custom-class-name",
-        "title": "Reset",
-        "type": "reset",
-        "widget": "button",
-      }
-    }
-  />
-  <SingleButton
-    className="theme-right"
+    type="reset"
+  >
+    <span>
+      Reset
+    </span>
+  </button>
+  <button
+    aria-label="Test"
+    class="btn--secondary btn theme-right btn btn-default"
     id="myForm-1"
-    onTrigger={[MockFunction]}
-    schema={
-      {
-        "position": "right",
-        "title": "Test",
-        "triggers": [
-          "test",
-        ],
-        "type": "button",
-        "widget": "button",
-      }
-    }
-  />
-  <SingleButton
-    className="theme-undefined"
+    type="button"
+  >
+    <span>
+      Test
+    </span>
+  </button>
+  <button
+    aria-label="Submit"
+    class="btn theme-undefined btn btn-primary"
     id="myForm-2"
-    onTrigger={[MockFunction]}
-    schema={
-      {
-        "bsStyle": "primary",
-        "title": "Submit",
-        "type": "submit",
-        "widget": "button",
-      }
-    }
-  />
+    type="submit"
+  >
+    <span>
+      Submit
+    </span>
+  </button>
 </div>
 `;

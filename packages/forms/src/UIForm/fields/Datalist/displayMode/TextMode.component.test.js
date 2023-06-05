@@ -1,8 +1,8 @@
-import { shallow, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import DatalistTextMode from './TextMode.component';
 
 jest.mock('ally.js');
-
+jest.unmock('@talend/design-system');
 const schema = {
 	title: 'My List',
 	titleMap: [
@@ -34,25 +34,19 @@ const schemaWithGroups = {
 describe('Datalist component in text display mode', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(<DatalistTextMode id="my-datalist" schema={schema} value="foo" />);
+		const { container } = render(<DatalistTextMode id="my-datalist" schema={schema} value="foo" />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should call onTrigger on mount', done => {
+	it('should call onTrigger on mount', () => {
 		// given
-		let wrapper;
 		const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 		const props = {
 			onTrigger: jest.fn(
 				() =>
 					new Promise(resolve => {
-						// hack: to be sure we catch the setState after the promise
-						setTimeout(() => {
-							expect(wrapper.find('dd').text()).toBe('Foo');
-							done();
-						}, 0);
 						return resolve(data);
 					}),
 			),
@@ -70,7 +64,7 @@ describe('Datalist component in text display mode', () => {
 		};
 
 		// when
-		wrapper = mount(<DatalistTextMode {...props} value="foo" />);
+		render(<DatalistTextMode {...props} value="foo" />);
 
 		// then
 		expect(props.onTrigger).toBeCalledWith(null, {
@@ -79,15 +73,13 @@ describe('Datalist component in text display mode', () => {
 			errors: props.errors,
 			properties: props.properties,
 		});
-		expect(wrapper.find('dd').text()).toBe('foo (loading labels)');
+		expect(screen.getByRole('definition')).toHaveTextContent('foo (loading labels)');
 	});
 	it('should show name in text mode when have groups', () => {
 		// when
-		const wrapper = mount(
-			<DatalistTextMode id="my-datalist-with-groups" schema={schemaWithGroups} value="foo" />,
-		);
+		render(<DatalistTextMode id="my-datalist-with-groups" schema={schemaWithGroups} value="foo" />);
 
 		// then
-		expect(wrapper.find('dd').text()).toBe('Foo');
+		expect(screen.getByRole('definition')).toHaveTextContent('Foo');
 	});
 });

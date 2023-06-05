@@ -2,12 +2,12 @@
 
 exports[`FieldTemplate in text display mode should render dt/dd 1`] = `
 <div
-  className="form-group"
+  class="form-group"
 >
   <dt>
     <label
-      className="control-label"
-      htmlFor="myAwesomeField"
+      class="control-label"
+      for="myAwesomeField"
     >
       My awesome label
     </label>

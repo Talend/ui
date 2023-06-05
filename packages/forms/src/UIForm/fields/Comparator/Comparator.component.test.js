@@ -1,7 +1,14 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+
 import Comparator from './Comparator.component';
+import { WidgetContext } from '../../context';
+
+jest.unmock('@talend/design-system');
 
 describe('Comparator field', () => {
+	const widgets = {
+		text: () => <div>Text</div>,
+	};
 	const props = {
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
@@ -43,14 +50,19 @@ describe('Comparator field', () => {
 		errors: {},
 		widgets: {},
 		isValid: true,
+		value: [],
 	};
 
 	it('should render default Comparator', () => {
 		// when
-		const wrapper = shallow(<Comparator {...props} />);
+		const { container } = render(
+			<WidgetContext.Provider value={widgets}>
+				<Comparator {...props} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render disabled Comparator', () => {
@@ -64,9 +76,13 @@ describe('Comparator field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Comparator {...disabledProps} />);
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<Comparator {...disabledProps} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toBeDisabled();
 	});
 });

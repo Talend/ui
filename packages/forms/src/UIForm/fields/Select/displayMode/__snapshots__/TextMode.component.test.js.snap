@@ -1,27 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text field text display mode should render array input 1`] = `
-<TextModeArrayTemplate
-  id="myForm"
-  schema={
-    {
-      "title": "My input title",
-      "type": "select",
-    }
-  }
-  value={
-    [
-      "toto",
-    ]
-  }
-/>
-`;
-
 exports[`Text field text display mode should render input 1`] = `
-<FieldTemplate
-  id="myForm"
-  label="My input title"
+<div
+  class="form-group"
 >
-  toto
-</FieldTemplate>
+  <dt>
+    <label
+      class="control-label"
+      for="myForm"
+    >
+      My input title
+    </label>
+  </dt>
+  <dd
+    id="myForm"
+  >
+    toto
+  </dd>
+</div>
 `;

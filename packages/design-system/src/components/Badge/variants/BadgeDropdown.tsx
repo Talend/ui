@@ -65,26 +65,33 @@ function mapBadgeItemToDropdownItem(onChange?: (selectedId: string) => void) {
 	});
 }
 
-export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children'> & {
-	/**
-	 * Listener for item selection.
-	 */
-	onChange: (selectedId: string) => void;
+export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children'> &
+	Partial<DataAttributes> & {
+		/**
+		 * Listener for item selection.
+		 */
+		onChange: (selectedId: string) => void;
 
-	/**
-	 * (Optional) ID of selected item. If not filled, first one is selected.
-	 */
-	selectedId?: string;
+		/**
+		 * (Optional) ID of selected item. If not filled, first one is selected.
+		 */
+		selectedId?: string;
 
-	/**
-	 * List of items available in dropdown menu.
-	 */
-	value: BadgeDropdownItem[];
-};
+		/**
+		 * List of items available in dropdown menu.
+		 */
+		value: BadgeDropdownItem[];
+	};
 
 const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanElement>) => {
-	const { onChange, selectedId, value } = props;
-
+	const {
+		onChange,
+		selectedId,
+		value,
+		'data-testid': dataTestId,
+		'data-test': dataTest,
+		'data-feature': dataFeature,
+	} = props;
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 	const selectedValue = value.find(v => v.id === selectedId) || value[0];
@@ -94,10 +101,15 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 			<Dropdown
 				aria-label={t('BADGE_ARIA_lABEL_SELECT_ITEM', 'Select item')}
 				items={value.map(mapBadgeItemToDropdownItem(onChange))}
-				data-testid={props['data-testid']}
-				data-test={props['data-test']}
+				data-testid={dataTestId}
+				data-test={dataTest}
+				data-feature={dataFeature}
 			>
-				<BadgeDropdownButton data-testid={props['data-testid']} data-test={props['data-test']}>
+				<BadgeDropdownButton
+					data-testid={dataTestId}
+					data-test={dataTest}
+					data-feature={dataFeature}
+				>
 					{selectedValue?.label}
 				</BadgeDropdownButton>
 			</Dropdown>
