@@ -1,8 +1,10 @@
 import { Map } from 'immutable';
-import { shallow } from 'enzyme';
+import { screen, render, fireEvent } from '@testing-library/react';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './FilterBar.container';
 import Connected from './FilterBar.connect';
 import { getComponentState, getQuery } from './FilterBar.selectors';
+
+jest.unmock('@talend/design-system');
 
 describe('Filter connected', () => {
 	it('should connect filter', () => {
@@ -22,26 +24,31 @@ describe('Filter container', () => {
 			onFilter: () => jest.fn(),
 			t: () => jest.fn(),
 		};
-		expect(shallow(<Container {...props} />).getElement()).toMatchSnapshot();
+		const { container } = render(<Container {...props} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should call setState when onFilter event trigger', () => {
-		const setState = jest.fn();
-		const wrapper = shallow(<Container setState={setState} />);
-		const event = {};
-		const query = 'foo';
-		wrapper.simulate('filter', event, query);
-		expect(setState).toHaveBeenCalledWith({ query });
-	});
-	it('should call onFilter when onFilter event trigger', () => {
 		const props = {
 			onFilter: jest.fn(),
 			setState: jest.fn(),
+			state: Map({ docked: false }),
 		};
-		const event = {};
+		render(<Container {...props} />);
 		const query = 'foo';
-		const wrapper = shallow(<Container {...props} />);
-		wrapper.simulate('filter', event, query);
-		expect(props.onFilter).toHaveBeenCalledWith(event, {
+		fireEvent.change(document.querySelector('input'), { target: { value: query } });
+		expect(props.setState).toHaveBeenCalledWith({ query });
+	});
+	it('should call onFilter when onFilter event trigger', async () => {
+		const props = {
+			onFilter: jest.fn(),
+			setState: jest.fn(),
+			state: Map({ docked: false }),
+		};
+		const query = 'foo';
+		render(<Container {...props} />);
+		fireEvent.focus(screen.getByRole('search'));
+		fireEvent.change(document.querySelector('input'), { target: { value: query } });
+		expect(props.onFilter).toHaveBeenCalledWith(expect.anything(), {
 			query,
 			props: {
 				dockable: true,
@@ -50,18 +57,25 @@ describe('Filter container', () => {
 		});
 	});
 	it('should call onBlur when onBlur event trigger', () => {
-		const onBlur = jest.fn();
-		const event = {};
-		const wrapper = shallow(<Container onBlur={onBlur} />);
-		wrapper.simulate('blur', event);
-		expect(onBlur).toHaveBeenCalledWith(event);
+		const props = {
+			onBlur: jest.fn(),
+			setState: jest.fn(),
+			state: Map({ docked: false }),
+		};
+		render(<Container {...props} />);
+		fireEvent.blur(document.querySelector('input'));
+		expect(props.onBlur).toHaveBeenCalled();
 	});
 	it('should call onFocus when onFocus event trigger', () => {
-		const onFocus = jest.fn();
-		const event = {};
-		const wrapper = shallow(<Container onFocus={onFocus} />);
-		wrapper.simulate('focus', event);
-		expect(onFocus).toHaveBeenCalledWith(event);
+		const props = {
+			onBlur: jest.fn(),
+			setState: jest.fn(),
+			state: Map({ docked: false }),
+			onFocus: jest.fn(),
+		};
+		render(<Container {...props} />);
+		fireEvent.focus(document.querySelector('input'));
+		expect(props.onFocus).toHaveBeenCalled();
 	});
 	it('should call setState when onToggle event trigger', () => {
 		const state = Map({ docked: false });
@@ -73,23 +87,14 @@ describe('Filter container', () => {
 			setState,
 			state,
 			dockable: true,
+			onToggle: jest.fn(),
 		};
-		const wrapper = shallow(<Container {...props} />);
-		wrapper.simulate('toggle');
+		render(<Container {...props} />);
+		fireEvent.blur(document.querySelector('input'));
 		expect(props.setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(state);
 		expect(prevState.state.get('docked')).toBe(true);
-	});
-	it('should call onToggle when onToggle event trigger', () => {
-		const props = {
-			onToggle: jest.fn(),
-			setState: jest.fn(),
-			state: Map({ docked: false }),
-		};
-		const event = {};
-		const wrapper = shallow(<Container {...props} />);
-		wrapper.simulate('toggle', event);
-		expect(props.onToggle).toHaveBeenCalledWith(event);
+		expect(props.onToggle).toHaveBeenCalled();
 	});
 });
 

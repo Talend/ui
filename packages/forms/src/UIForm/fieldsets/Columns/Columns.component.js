@@ -25,5 +25,6 @@ if (process.env.NODE_ENV !== 'production') {
 			items: PropTypes.array.isRequired,
 			title: PropTypes.string,
 		}).isRequired,
+		...Widget.propTypes,
 	};
 }

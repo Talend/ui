@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import { BadgeDateForm } from './BadgeDateForm.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 import getDefaultT from '../../../translate';
@@ -24,19 +24,20 @@ describe('BadgeDateForm', () => {
 		};
 
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeDateForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 
-		wrapper.find('button[data-value=18]').simulate('click');
-		wrapper.find('button[type="submit"]').simulate('submit');
+		fireEvent.click(document.querySelector('button[data-value="18"]'));
+		fireEvent.submit(document.querySelector('button[type="submit"]'));
 
 		expect(onChange).toHaveBeenCalledWith(
 			expect.anything(),
 			new Date('2011-11-18T00:00:00').getTime(),
 		);
 		expect(onSubmit).toHaveBeenCalled();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

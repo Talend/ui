@@ -1,56 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Widget component should render custom widget 1`] = `
-<div>
-  my widget
-</div>
-`;
-
-exports[`Widget component should render custom widget in specific display mode 1`] = `
-<div>
-  my widget in text display mode
-</div>
-`;
-
-exports[`Widget component should render nothing if widget does not exist 1`] = `
-<p class="text-danger">
-  Widget not found unknown
-</p>
-`;
-
 exports[`Widget component should render widget 1`] = `
-<div class="form-group theme-template has-error"
-     aria-busy="false"
+<div
+  aria-busy="false"
+  class="form-group theme-template has-error"
 >
-  <input id="myForm_user_firstname"
-         class="form-control"
-         type="text"
-         aria-invalid="true"
-         aria-describedby="myForm_user_firstname-description myForm_user_firstname-error"
-         value="my firstname"
+  <label
+    class="control-label"
+    for="myForm_user_firstname"
   >
+    First Name
+  </label>
+  <input
+    aria-describedby="myForm_user_firstname-description myForm_user_firstname-error"
+    aria-invalid="true"
+    class="form-control"
+    id="myForm_user_firstname"
+    type="text"
+    value="my firstname"
+  />
   <div>
-    <span id="myForm_user_firstname-error"
-          description="This is not ok"
-          aria-live="assertive"
-          data-test="fieldTemplate.inlineMessageError"
-          class="CoralInlineMessageDestructive"
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessageError"
+      id="myForm_user_firstname-error"
+      role="status"
     >
-    </span>
+      <span
+        class="theme-icon theme-destructive__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#square-cross:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          This is not ok
+        </span>
+      </p>
+    </div>
   </div>
-</div>
-`;
-
-exports[`Widget component should render widget with the specific displayMode 1`] = `
-<div class="form-group">
-  <dt>
-    <label for="myForm_user_firstname"
-           class="control-label"
-    >
-    </label>
-  </dt>
-  <dd id="myForm_user_firstname">
-    my firstname
-  </dd>
 </div>
 `;

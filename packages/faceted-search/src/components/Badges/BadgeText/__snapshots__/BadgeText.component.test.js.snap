@@ -1,62 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgeText should mount a default badge 1`] = `
-<div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
-  <div id="tc-badge-select-myId-badge-text"
-       class="tc-badge-button theme-tc-badge-button"
+<div
+  class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
+>
+  <div
+    class="tc-badge-button theme-tc-badge-button"
+    id="tc-badge-select-myId-badge-text"
   >
-    <span aria-label="My Label"
-          class="tc-badge-category theme-tc-badge-category"
-          aria-describedby="42"
+    <span
+      aria-describedby="42"
+      aria-label="My Label"
+      class="tc-badge-category theme-tc-badge-category"
     >
       My Label
     </span>
-    <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
-      <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-        <button id="myId-badge-text-operator-action-overlay"
-                aria-label="Does not contain"
-                type="button"
-                aria-describedby="42"
-                class="btn btn-link"
+    <div
+      class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large"
+    >
+      <div
+        class="tc-badge-operator-button theme-tc-badge-operator-button"
+      >
+        <button
+          aria-describedby="42"
+          aria-label="Does not contain"
+          class="btn btn-link"
+          id="myId-badge-text-operator-action-overlay"
+          type="button"
         >
-          <svg name="talend-not-equal"
-               focusable="false"
-               aria-hidden="true"
-               class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-not-equal"
-               pointer-events="none"
-               shape-rendering="geometricPrecision"
-          >
-          </svg>
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-not-equal"
+            focusable="false"
+            name="talend-not-equal"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
         </button>
       </div>
     </div>
-    <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-      <button id="myId-badge-text-action-overlay"
-              aria-label="All"
-              type="button"
-              class="btn btn-link"
+    <div
+      class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
+    >
+      <button
+        aria-label="All"
+        class="btn btn-link"
+        id="myId-badge-text-action-overlay"
+        type="button"
       >
         <span>
           All
         </span>
       </button>
     </div>
-    <button role="button"
-            aria-label="Remove filter"
-            id="tc-badge-delete-myId-badge-text"
-            data-feature="filter.remove"
-            aria-describedby="42"
-            type="button"
-            class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+    <button
+      aria-describedby="42"
+      aria-label="Remove filter"
+      class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+      data-feature="filter.remove"
+      id="tc-badge-delete-myId-badge-text"
+      role="button"
+      type="button"
     >
-      <svg name="talend-cross"
-           focusable="false"
-           aria-hidden="true"
-           class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
-           pointer-events="none"
-           shape-rendering="geometricPrecision"
-      >
-      </svg>
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
+        focusable="false"
+        name="talend-cross"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
     </button>
   </div>
 </div>

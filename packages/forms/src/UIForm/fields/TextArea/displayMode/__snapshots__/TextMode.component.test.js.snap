@@ -1,37 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextArea field text display mode should render provided rows 1`] = `
-<FieldTemplate
-  id="myForm"
-  label="My input title"
->
-  <pre
-    style={
-      {
-        "fontSize": "inherit",
-        "height": "20rem",
-      }
-    }
-  >
-    toto
-  </pre>
-</FieldTemplate>
-`;
-
 exports[`TextArea field text display mode should render textarea 1`] = `
-<FieldTemplate
-  id="myForm"
-  label="My input title"
+<div
+  class="form-group"
 >
-  <pre
-    style={
-      {
-        "fontSize": "inherit",
-        "height": "10rem",
-      }
-    }
+  <dt>
+    <label
+      class="control-label"
+      for="myForm"
+    >
+      My input title
+    </label>
+  </dt>
+  <dd
+    id="myForm"
   >
-    toto
-  </pre>
-</FieldTemplate>
+    <pre
+      style="height: 10rem;"
+    >
+      toto
+    </pre>
+  </dd>
+</div>
 `;

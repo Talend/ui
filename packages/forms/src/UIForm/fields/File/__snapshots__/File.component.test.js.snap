@@ -1,127 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`File field should render File with data 1`] = `
-<FieldTemplate
-  description="This is the file field"
-  descriptionId="my-file-field-description"
-  errorId="my-file-field-error"
-  errorMessage="This is wrong"
-  id="my-file-field"
-  isValid={true}
-  label="Upload file"
-  labelAfter={false}
->
-  <div
-    className="theme-file"
-  >
-    <React.Fragment>
-      <input
-        aria-describedby="my-file-field-description my-file-field-error"
-        aria-invalid={false}
-        autoFocus={false}
-        className="form-control theme-file-input"
-        id="input-my-file-field"
-        onBlur={[Function]}
-        onChange={[Function]}
-        placeholder="Select a file to upload"
-        readOnly={false}
-        type="file"
-      />
-      <input
-        autoComplete="off"
-        className="form-control theme-file-replace"
-        name="input-filename-my-file-field"
-        onChange={[Function]}
-        placeholder="Select a file to upload"
-        tabIndex="-1"
-        type="text"
-        value="test.xml"
-      />
-    </React.Fragment>
-  </div>
-</FieldTemplate>
-`;
-
-exports[`File field should render File with pre-signed url related trigger 1`] = `
-<FieldTemplate
-  description="This is the file field"
-  descriptionId="my-file-field-description"
-  errorId="my-file-field-error"
-  errorMessage="This is wrong"
-  id="my-file-field"
-  isValid={true}
-  label="Upload file"
-  labelAfter={false}
->
-  <div
-    className="theme-file"
-  >
-    <React.Fragment>
-      <input
-        aria-describedby="my-file-field-description my-file-field-error"
-        aria-invalid={false}
-        autoFocus={false}
-        className="form-control theme-file-input"
-        id="input-my-file-field"
-        onBlur={[Function]}
-        onChange={[Function]}
-        placeholder="Select a file to upload"
-        readOnly={false}
-        type="file"
-      />
-      <input
-        autoComplete="off"
-        className="form-control theme-file-replace"
-        name="input-filename-my-file-field"
-        onChange={[Function]}
-        placeholder="Select a file to upload"
-        tabIndex="-1"
-        type="text"
-        value="6.avro"
-      />
-    </React.Fragment>
-  </div>
-</FieldTemplate>
-`;
-
 exports[`File field should render default File 1`] = `
-<FieldTemplate
-  description="This is the file field"
-  descriptionId="my-file-field-description"
-  errorId="my-file-field-error"
-  errorMessage="This is wrong"
-  id="my-file-field"
-  isValid={true}
-  label="Upload file"
-  labelAfter={false}
+<div
+  class="form-group theme-template"
 >
-  <div
-    className="theme-file"
+  <label
+    class="control-label"
+    for="my-file-field"
   >
-    <React.Fragment>
-      <input
-        aria-describedby="my-file-field-description my-file-field-error"
-        aria-invalid={false}
-        autoFocus={false}
-        className="form-control theme-file-input"
-        id="input-my-file-field"
-        onBlur={[Function]}
-        onChange={[Function]}
-        placeholder="Select a file to upload"
-        readOnly={false}
-        type="file"
-      />
-      <input
-        autoComplete="off"
-        className="form-control theme-file-replace"
-        name="input-filename-my-file-field"
-        onChange={[Function]}
-        placeholder="Select a file to upload"
-        tabIndex="-1"
-        type="text"
-        value=""
-      />
-    </React.Fragment>
+    Upload file
+  </label>
+  <div
+    class="theme-file"
+  >
+    <input
+      aria-describedby="my-file-field-description my-file-field-error"
+      aria-invalid="false"
+      class="form-control theme-file-input"
+      id="input-my-file-field"
+      placeholder="Select a file to upload"
+      type="file"
+    />
+    <input
+      autocomplete="off"
+      class="form-control theme-file-replace"
+      name="input-filename-my-file-field"
+      placeholder="Select a file to upload"
+      tabindex="-1"
+      type="text"
+      value=""
+    />
   </div>
-</FieldTemplate>
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="my-file-field-description"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          This is the file field
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;

@@ -88,7 +88,7 @@ BadgeSlider.propTypes = {
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
 	t: PropTypes.func.isRequired,
-	value: PropTypes.string,
+	value: PropTypes.number,
 	category: PropTypes.string,
 	defaultValue: PropTypes.number,
 	unit: PropTypes.string,

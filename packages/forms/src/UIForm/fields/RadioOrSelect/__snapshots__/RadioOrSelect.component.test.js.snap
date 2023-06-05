@@ -1,77 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioOrSelect field should render select when titleMap has less than 2 options 1`] = `
-<Radios
-  errorMessage="My Error Message"
-  id="myRadioOrSelect"
-  isValid={true}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  schema={
-    {
-      "description": "Select me",
-      "placeholder": "Please select a value",
-      "schema": {
-        "enum": [
-          "foo",
-          "bar",
-          "lol",
-        ],
-        "type": "string",
-      },
-      "title": "My Select title",
-      "titleMap": [
-        {
-          "name": "My foo title",
-          "value": "foo",
-        },
-        {
-          "name": "My bar title",
-          "value": "bar",
-        },
-      ],
-    }
-  }
-  value="foo"
-/>
-`;
-
-exports[`RadioOrSelect field should render select when titleMap has more than 2 options 1`] = `
-<Select
-  errorMessage="My Error Message"
-  id="myRadioOrSelect"
-  isValid={true}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  schema={
-    {
-      "description": "Select me",
-      "placeholder": "Please select a value",
-      "schema": {
-        "enum": [
-          "foo",
-          "bar",
-          "lol",
-        ],
-        "type": "string",
-      },
-      "title": "My Select title",
-      "titleMap": [
-        {
-          "name": "My foo title",
-          "value": "foo",
-        },
-        {
-          "name": "My bar title",
-          "value": "bar",
-        },
-        {
-          "name": "My lol title",
-          "value": "lol",
-        },
-      ],
-    }
-  }
-  value="lol"
-/>
+<div
+  class="form-group theme-template"
+>
+  <label
+    class="control-label"
+    for="myRadioOrSelect"
+  >
+    My Select title
+  </label>
+  <div
+    class="radio"
+  >
+    <label>
+      <input
+        aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
+        aria-invalid="false"
+        checked=""
+        id="myRadioOrSelect-0"
+        name="myRadioOrSelect"
+        type="radio"
+        value="foo"
+      />
+      <span>
+        My foo title
+      </span>
+    </label>
+  </div>
+  <div
+    class="radio"
+  >
+    <label>
+      <input
+        aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
+        aria-invalid="false"
+        id="myRadioOrSelect-1"
+        name="myRadioOrSelect"
+        type="radio"
+        value="bar"
+      />
+      <span>
+        My bar title
+      </span>
+    </label>
+  </div>
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="myRadioOrSelect-description"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          Select me
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;

@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 const utils = require('@talend/scripts-utils');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const { getBabelLoaderOptions } = utils.babel;
 
@@ -74,6 +75,8 @@ function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 		},
 	);
 }
+const getFileNameForExtension = (extension, prefix) =>
+	`${prefix || ''}[name]-[contenthash].${extension}`;
 
 function getAssetsRules(hashed = true) {
 	const name = `[name]${hashed ? '-[hash]' : ''}[ext]`;
@@ -102,10 +105,63 @@ function getAssetsRules(hashed = true) {
 	];
 }
 
+function getWebpackRules(srcDirectories, useTypescript, devMode) {
+	return [
+		devMode && {
+			test: /\.js$/,
+			include: /node_modules/,
+			use: ['source-map-loader'],
+			enforce: 'pre',
+		},
+		{
+			test: /\.(js|ts|tsx)$/,
+			exclude: /node_modules/,
+			include: srcDirectories,
+			use: getJSAndTSLoader(process.env, useTypescript),
+		},
+		{
+			test: /\.css$/,
+			exclude: /\.module\.css$/,
+			// include: srcDirectories,
+			use: getCommonStyleLoaders(false, devMode),
+		},
+		{
+			test: /\.module\.css$/,
+			// include: srcDirectories,
+			use: getCommonStyleLoaders(true, devMode),
+		},
+		{
+			test: /\.scss$/,
+			exclude: /\.module\.scss$/,
+			// include: srcDirectories,
+			use: getSassLoaders(false, '', devMode),
+		},
+		{
+			test: /\.module\.scss$/,
+			// include: srcDirectories,
+			use: getSassLoaders(true, '', devMode),
+		},
+		...getAssetsRules(true),
+	].filter(Boolean);
+}
+
+function getWebpackPlugins(useTypescript) {
+	return [
+		new MiniCssExtractPlugin({
+			filename: getFileNameForExtension('css'),
+			chunkFilename: getFileNameForExtension('css'),
+		}),
+		useTypescript && new ForkTsCheckerWebpackPlugin(),
+	].filter(Boolean);
+}
+
 module.exports = {
 	getSassData,
 	getCommonStyleLoaders,
 	getSassLoaders,
 	getJSAndTSLoader,
 	getAssetsRules,
+	getFileNameForExtension,
+	getWebpackRules,
+	getWebpackPlugins,
 };

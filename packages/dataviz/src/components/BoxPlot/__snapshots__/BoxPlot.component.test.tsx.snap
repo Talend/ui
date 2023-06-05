@@ -1,157 +1,172 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Boxplot chart should render the different basic components of the boxplot 1`] = `
-<div id="boxplotId"
-     class="theme-box-plot"
+<div
+  class="theme-box-plot"
+  id="boxplotId"
 >
-  <svg width="200"
-       height="400"
-       class="theme-box"
+  <svg
+    class="theme-box"
+    height="400"
+    width="200"
   >
-    <g transform="translate(80,30)">
+    <g
+      transform="translate(80,30)"
+    >
       <g>
-        <line class="theme-box-plot__center"
-              x1="20"
-              y1="300"
-              x2="20"
-              y2="0"
-              style="opacity: 0.000001;"
-        >
-        </line>
+        <line
+          class="theme-box-plot__center"
+          style="opacity: 0.000001;"
+          x1="20"
+          x2="20"
+          y1="300"
+          y2="0"
+        />
       </g>
       <g>
         <g>
-          <rect x="0"
-                y="29.999999999999993"
-                width="40"
-                height="29.999999999999993"
-          >
-          </rect>
+          <rect
+            height="29.999999999999993"
+            width="40"
+            x="0"
+            y="29.999999999999993"
+          />
         </g>
         <g>
-          <rect x="0"
-                y="29.999999999999993"
-                width="40"
-                height="246"
-          >
-          </rect>
+          <rect
+            height="246"
+            width="40"
+            x="0"
+            y="29.999999999999993"
+          />
         </g>
       </g>
       <g>
         <g>
-          <polygon class="theme-box-plot__whiskerPolyg"
-                   points="0,0 40,0 20,-20 20,-20"
-          >
-          </polygon>
-          <text class="theme-box-plot__max-min-labels"
-                x="20"
-                y="0"
-                style="opacity: 1;"
-                text-anchor="middle"
+          <polygon
+            class="theme-box-plot__whiskerPolyg"
+            points="0,0 40,0 20,-20 20,-20"
+          />
+          <text
+            class="theme-box-plot__max-min-labels"
+            style="opacity: 1;"
+            text-anchor="middle"
+            x="20"
+            y="0"
           >
             Maximum
           </text>
         </g>
         <g>
-          <polygon class="theme-box-plot__whiskerPolyg"
-                   points="0,300 40,300 20,320 20,320"
-          >
-          </polygon>
-          <text class="theme-box-plot__max-min-labels"
-                x="20"
-                y="150"
-                style="opacity: 1;"
-                text-anchor="middle"
+          <polygon
+            class="theme-box-plot__whiskerPolyg"
+            points="0,300 40,300 20,320 20,320"
+          />
+          <text
+            class="theme-box-plot__max-min-labels"
+            style="opacity: 1;"
+            text-anchor="middle"
+            x="20"
+            y="150"
           >
             Minimum
           </text>
         </g>
       </g>
       <g>
-        <circle class="theme-box-plot__mean"
-                r="17"
-                cx="20"
-                cy="120.63000000000001"
-                style="opacity: 1;"
-        >
-        </circle>
-        <circle r="1.5"
-                cx="20"
-                cy="120.63000000000001"
-                style="opacity: 0.000001; shape-rendering: geometricPrecision;"
-        >
-        </circle>
+        <circle
+          class="theme-box-plot__mean"
+          cx="20"
+          cy="120.63000000000001"
+          r="17"
+          style="opacity: 1;"
+        />
+        <circle
+          cx="20"
+          cy="120.63000000000001"
+          r="1.5"
+          style="opacity: 0.000001; shape-rendering: geometricPrecision;"
+        />
       </g>
       <g>
-        <text class="theme-box-plot__max-min-labels"
-              x="20"
-              y="150"
-              style="opacity: 1;"
-              text-anchor="middle"
+        <text
+          class="theme-box-plot__max-min-labels"
+          style="opacity: 1;"
+          text-anchor="middle"
+          x="20"
+          y="150"
         >
           100
         </text>
-        <text class="theme-box-plot__max-min-labels"
-              x="20"
-              y="150"
-              style="opacity: 1;"
-              text-anchor="middle"
+        <text
+          class="theme-box-plot__max-min-labels"
+          style="opacity: 1;"
+          text-anchor="middle"
+          x="20"
+          y="150"
         >
           0
         </text>
-        <text class="theme-box-plot__mean-labels"
-              x="20"
-              y="110.63000000000001"
-              style="opacity: 0.000001;"
-              text-anchor="middle"
+        <text
+          class="theme-box-plot__mean-labels"
+          style="opacity: 0.000001;"
+          text-anchor="middle"
+          x="20"
+          y="110.63000000000001"
         >
           Mean:59.79
         </text>
-        <text class="theme-box-plot__low-quantile-labels"
-              x="45"
-              y="150"
-              style="opacity: 1;"
-              text-anchor="start"
+        <text
+          class="theme-box-plot__low-quantile-labels"
+          style="opacity: 1;"
+          text-anchor="start"
+          x="45"
+          y="150"
         >
           8
         </text>
-        <text class="theme-box-plot__low-quantile-labels"
-              x="10"
-              y="150"
-              style="opacity: 1;"
-              text-anchor="end"
+        <text
+          class="theme-box-plot__low-quantile-labels"
+          style="opacity: 1;"
+          text-anchor="end"
+          x="10"
+          y="150"
         >
           Lower quantile
         </text>
-        <text class="theme-box-plot__up-quantile-labels"
-              x="10"
-              y="150"
-              style="opacity: 1;"
-              text-anchor="end"
+        <text
+          class="theme-box-plot__up-quantile-labels"
+          style="opacity: 1;"
+          text-anchor="end"
+          x="10"
+          y="150"
         >
           Upper quantile
         </text>
-        <text class="theme-box-plot__up-quantile-labels"
-              x="45"
-              y="150"
-              style="opacity: 1;"
-              text-anchor="start"
+        <text
+          class="theme-box-plot__up-quantile-labels"
+          style="opacity: 1;"
+          text-anchor="start"
+          x="45"
+          y="150"
         >
           90
         </text>
-        <text class="theme-box-plot__mean-labels"
-              x="35"
-              style="opacity: 0.000001;"
-              text-anchor="end"
-              y="121.00000000000001"
+        <text
+          class="theme-box-plot__mean-labels"
+          style="opacity: 0.000001;"
+          text-anchor="end"
+          x="35"
+          y="121.00000000000001"
         >
           58
         </text>
-        <text class="theme-box-plot__mean-labels"
-              x="5"
-              style="opacity: 0.000001;"
-              text-anchor="start"
-              y="121.00000000000001"
+        <text
+          class="theme-box-plot__mean-labels"
+          style="opacity: 0.000001;"
+          text-anchor="start"
+          x="5"
+          y="121.00000000000001"
         >
           Median
         </text>

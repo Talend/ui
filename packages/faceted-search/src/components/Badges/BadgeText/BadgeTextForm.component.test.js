@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { BadgeTextForm } from './BadgeTextForm.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 
@@ -18,13 +18,13 @@ describe('BadgeTextForm', () => {
 			t: () => 'Apply',
 		};
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeTextForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should mount a badge with some other values', () => {
@@ -39,17 +39,16 @@ describe('BadgeTextForm', () => {
 			t: () => 'Apply',
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeTextForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 
 		// Then
-		expect(wrapper.find('input[type="text"]').first().props().value).toEqual('init value');
+		expect(screen.getByRole('textbox')).toHaveValue('init value');
 
-		const submitButton = wrapper.find('button[type="submit"]').first();
-		submitButton.simulate('submit');
+		fireEvent.submit(document.querySelector('button[type="submit"]'));
 
 		expect(onSubmit).toHaveBeenCalled();
 	});

@@ -1,9 +1,13 @@
-import cases from 'jest-in-case';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
-import { shallow, mount } from 'enzyme';
-import CollapsiblePanel from '@talend/react-components/lib/CollapsiblePanel';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import createCollapsibleFieldset, { defaultTitle } from './CollapsibleFieldset.component';
+import { WidgetContext } from '../../context';
+import widgets from '../../utils/widgets';
+
+jest.unmock('@talend/design-system');
+jest.mock('ally.js');
 
 function customTitle(value, schema) {
 	return `${schema.title}: ${value.firstname} ${value.lastname}`;
@@ -62,57 +66,68 @@ const defaultTitleMockData = {
 	},
 };
 
+const props = {
+	id: 'my-fieldset',
+	schema,
+	value,
+	onChange: jest.fn(),
+};
 describe('CollapsibleFieldset', () => {
-	cases(
-		'should render',
-		opts => {
-			// given
-			const CollapsibleFieldset = createCollapsibleFieldset(opts.titleFn);
+	it('should render', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset();
 
-			// when
-			const wrapper = shallow(
-				<CollapsibleFieldset
-					id="my-fieldset"
-					schema={schema}
-					value={{ ...(opts.empty ? {} : value), isClosed: opts.isClosed }}
-				/>,
-			);
+		// when
+		const { container } = render(
+			<WidgetContext.Provider value={widgets}>
+				<CollapsibleFieldset {...props} />
+			</WidgetContext.Provider>,
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+	it('should render header only with isClosed props', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<CollapsibleFieldset {...props} value={{ ...value, isClosed: true }} />
+			</WidgetContext.Provider>,
+		);
+		expect(screen.getByRole('tab')).toHaveTextContent('Jimmy, Somsanith');
+		expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
+	});
+	it('should render a custom title', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset(customTitle);
 
-			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
-		},
-		{
-			'a full fieldset (header and body)': { isClosed: false },
-			'a collapsed fieldset (header only)': { isClosed: true },
-			'a custom title': { isClosed: false, titleFn: customTitle },
-			'without value': { empty: true },
-		},
-	);
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<CollapsibleFieldset {...props} />
+			</WidgetContext.Provider>,
+		);
+		expect(screen.getByRole('tab')).toHaveTextContent('Basic: Jimmy Somsanith');
+	});
+	it('should render without value', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<CollapsibleFieldset {...props} value={{}} />
+			</WidgetContext.Provider>,
+		);
+		expect(screen.getByRole('tab')).toHaveTextContent('Basic');
+	});
 
-	it('should toggle', () => {
+	it('should toggle', async () => {
 		// given
 		const CollapsibleFieldset = createCollapsibleFieldset();
-		const onChange = jest.fn();
-		const event = {
-			stopPropagation: jest.fn(),
-			preventDefault: jest.fn(),
-		};
 
-		const wrapper = shallow(
-			<CollapsibleFieldset
-				id="my-fieldset"
-				onChange={onChange}
-				schema={schema}
-				value={{ ...value, isClosed: true }}
-			/>,
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<CollapsibleFieldset {...props} value={{ ...value, isClosed: true }} />
+			</WidgetContext.Provider>,
 		);
 		// when
-		wrapper.find(CollapsiblePanel).getElement().props.onToggle(event);
+		await userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(event.stopPropagation).toBeCalled();
-		expect(event.preventDefault).toBeCalled();
-		expect(onChange).toBeCalledWith(event, {
+		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema,
 			value: { ...value, isClosed: false },
 		});
@@ -120,58 +135,44 @@ describe('CollapsibleFieldset', () => {
 
 	it('should render Actions component if actions are provided', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
-		const onChange = jest.fn();
-		const actions = [{ id: 'action1' }, { id: 'action2' }];
+		const actions = [
+			{ id: 'action1', label: 'Action1', onClick: jest.fn() },
+			{ id: 'action2', label: 'Action 2', onClick: jest.fn() },
+		];
 
-		const wrapper = mount(
-			<CollapsibleFieldset
-				id="my-fieldset"
-				onChange={onChange}
-				schema={schema}
-				value={value}
-				actions={actions}
-			/>,
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<CollapsibleFieldset {...props} actions={actions} />
+			</WidgetContext.Provider>,
 		);
-
-		expect(wrapper.find('.panel-title button#action1').length).toBe(1);
-		expect(wrapper.find('.panel-title button#action2').length).toBe(1);
+		screen.debug();
+		expect(screen.getByRole('button', { name: 'Action1' })).toBeVisible();
+		expect(screen.getByRole('button', { name: 'Action 2' })).toBeVisible();
 	});
 
 	it('should not render Actions component if actions are not provided', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
-		const onChange = jest.fn();
 
-		const wrapper = shallow(
-			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} value={value} />,
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<CollapsibleFieldset {...props} />
+			</WidgetContext.Provider>,
 		);
-
-		expect(wrapper.exists('Actions')).toEqual(false);
-	});
-
-	it('should concat values in case it is used in array', () => {
-		const CollapsibleFieldset = createCollapsibleFieldset();
-		const onChange = jest.fn();
-
-		const wrapper = mount(
-			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} value={value} />,
-		);
-		const panel = wrapper.find('CollapsiblePanel');
-
-		expect(panel.props().header[0].label).toEqual(`${value.firstname}, ${value.lastname}`);
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.queryAllByRole('button')).toHaveLength(1);
 	});
 
 	it('should display description', () => {
 		// given
 		const CollapsibleFieldset = createCollapsibleFieldset();
-		const onChange = jest.fn();
 		// when
-		const wrapper = mount(
-			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} />,
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<CollapsibleFieldset {...props} />
+			</WidgetContext.Provider>,
 		);
 		// then
-		expect(wrapper.find('InlineMessageInformation').at(0).props().description).toBe(
-			'This is description',
-		);
+		expect(screen.getByText('This is description')).toBeVisible();
 	});
 });
 

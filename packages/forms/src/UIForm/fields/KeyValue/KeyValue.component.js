@@ -56,6 +56,8 @@ function KeyValue({
 		<FieldTemplate
 			description={description}
 			errorMessage={errorMessage}
+			errorId={restProps.errorId}
+			descriptionId={restProps.descriptionId}
 			id={id}
 			isValid={isValid}
 			label={title}
