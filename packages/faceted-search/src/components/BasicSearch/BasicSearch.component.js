@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { ButtonIcon, ButtonSecondary, Popover } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
 
-import { isEqual } from 'lodash';
 import { AddFacetPopover } from '../AddFacetPopover';
 import { BadgesGenerator } from '../BadgesGenerator';
 import { QuickSearchInput } from '../QuickSearchInput';
