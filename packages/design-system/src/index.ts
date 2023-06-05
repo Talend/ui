@@ -86,6 +86,7 @@ import {
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
+import RichRadioButton from './components/RichRadioButton';
 
 export * from './components/Stack';
 export * from './themes';
@@ -148,6 +149,7 @@ export {
 	MessageWarning,
 	Modal,
 	Popover,
+	RichRadioButton,
 	SizedIcon,
 	Skeleton,
 	SkeletonButton,

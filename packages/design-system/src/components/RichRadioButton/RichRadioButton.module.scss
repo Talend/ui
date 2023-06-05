@@ -1,0 +1,193 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+@use '~@talend/design-tokens/lib/tokens';
+
+.rich-radio-button {
+	background-color: tokens.$coral-color-accent-background-weak;
+	border: 1px solid tokens.$coral-color-neutral-border-weak;
+	border-radius: tokens.$coral-radius-m;
+	display: block;
+	padding: tokens.$coral-spacing-m;
+	transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+	width: 100%;
+
+	&__icon {
+		color: tokens.$coral-color-accent-icon;
+		height: tokens.$coral-sizing-xs;
+		transition: color 0.3s;
+		width: tokens.$coral-sizing-xs;
+	}
+
+	&__illustration {
+		height: tokens.$coral-sizing-l;
+		width: tokens.$coral-sizing-l;
+	}
+
+	svg {
+		flex: none;
+	}
+
+	h4 {
+		color: tokens.$coral-color-accent-text;
+		font: tokens.$coral-heading-s;
+	}
+
+	p {
+		color: tokens.$coral-color-neutral-text-weak;
+		font: tokens.$coral-paragraph-s;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex: 1;
+		margin: 0;
+		max-width: 400px;
+		min-width: 220px;
+		position: relative;
+		width: 100%;
+
+		input {
+			cursor: pointer;
+			height: 100%;
+			left: 0;
+			margin: 0;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+
+			&:disabled {
+				cursor: not-allowed;
+
+				+ .rich-radio-button {
+					.rich-radio-button__icon {
+						color: tokens.$coral-color-neutral-icon-weak;
+					}
+
+					h4 {
+						color: tokens.$coral-color-neutral-text-disabled;
+					}
+				}
+			}
+
+			&[readonly] {
+				cursor: default;
+
+				+ .rich-radio-button {
+					.rich-radio-button__icon {
+						color: tokens.$coral-color-neutral-icon-weak;
+					}
+
+					h4 {
+						color: tokens.$coral-color-neutral-text;
+					}
+				}
+			}
+
+			&:not(:disabled, [readonly]) {
+				&:is(:hover, :active) {
+					+ .rich-radio-button {
+						box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+					}
+				}
+
+				&:hover {
+					+ .rich-radio-button {
+						.rich-radio-button__icon {
+							color: tokens.$coral-color-accent-icon-hover;
+						}
+
+						h4 {
+							color: tokens.$coral-color-accent-text-hover;
+						}
+					}
+				}
+
+				&:active {
+					+ .rich-radio-button {
+						.rich-radio-button__icon {
+							color: tokens.$coral-color-accent-icon-active;
+						}
+
+						h4 {
+							color: tokens.$coral-color-accent-text-active;
+						}
+					}
+				}
+
+				&:focus {
+					+ .rich-radio-button {
+						outline: 2px solid tokens.$coral-color-assistive-border-focus;
+
+						.rich-radio-button__icon {
+							color: tokens.$coral-color-accent-icon;
+						}
+					}
+				}
+			}
+
+			&:not(:checked) {
+				&:not(:disabled, [readonly]) {
+					&:hover {
+						+ .rich-radio-button {
+							border-color: tokens.$coral-color-neutral-border-weak-hover;
+						}
+					}
+
+					&:active {
+						+ .rich-radio-button {
+							border-color: tokens.$coral-color-neutral-border;
+						}
+					}
+				}
+
+				&[readonly] {
+					+ .rich-radio-button {
+						border-color: transparent;
+					}
+				}
+
+				&:disabled {
+					+ .rich-radio-button {
+						background-color: tokens.$coral-color-neutral-background-medium;
+					}
+				}
+			}
+
+			&:checked {
+				&:not(:disabled, [readonly]) {
+					&:hover {
+						+ .rich-radio-button {
+							border-color: tokens.$coral-color-accent-border-hover;
+						}
+					}
+
+					&:active {
+						+ .rich-radio-button {
+							border-color: tokens.$coral-color-accent-border-active;
+						}
+					}
+
+					+ .rich-radio-button {
+						background-color: tokens.$coral-color-accent-background-selected;
+						border: 2px solid tokens.$coral-color-accent-border;
+					}
+				}
+
+				&[readonly] {
+					+ .rich-radio-button {
+						background-color: tokens.$coral-color-neutral-background;
+						border: 2px solid tokens.$coral-color-neutral-border;
+					}
+				}
+
+				&:disabled {
+					+ .rich-radio-button {
+						background-color: tokens.$coral-color-neutral-background-disabled;
+						border: 2px solid tokens.$coral-color-neutral-border-disabled;
+					}
+				}
+			}
+		}
+	}
+}

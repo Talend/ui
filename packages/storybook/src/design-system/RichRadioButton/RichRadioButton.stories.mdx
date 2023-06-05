@@ -1,0 +1,99 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import * as Stories from './RichRadioButton.stories';
+
+<Meta
+	title="Design System/RichRadioButton"
+	parameters={{
+		status: { figma: 'ok', storybook: 'wip', react: 'wip', i18n: 'na' },
+	}}
+/>
+
+# Rich Radio Button
+
+Selectable card with the same behavior as a radio button with multiple parameters to allow multiple combinations between title, description tabs and icon
+
+## Zoning
+
+## Style
+
+### Default
+
+<Canvas>
+	<Story story={Stories.DefaultStory} />
+</Canvas>
+
+### Rich Radio Button with text and tags
+
+<Canvas>
+	<Story story={Stories.RichRadioButtonWithTags} />
+</Canvas>
+
+### Rich Radio Button with text, tags and icon
+
+<Canvas>
+	<Story story={Stories.RichRadioButtonWithTagsAndIcon} />
+</Canvas>
+
+### Rich Radio Button disabled
+
+<Canvas>
+	<Story story={Stories.RichRadioButtonDisabled} />
+</Canvas>
+
+### Rich Radio Button readonly
+
+<Canvas>
+	<Story story={Stories.RichRadioButtonReadOnly} />
+</Canvas>
+
+## States
+
+### Checked
+
+<Canvas>
+	<Story story={Stories.CheckedRichRadioButton} />
+</Canvas>
+
+### Checked Rich Radio Button with text and tags
+
+<Canvas>
+	<Story story={Stories.CheckedRichRadioButtonWithTags} />
+</Canvas>
+
+### Checked Rich Radio Button with text, tags and icon
+
+<Canvas>
+	<Story story={Stories.CheckedRichRadioButtonWithTagsAndIcon} />
+</Canvas>
+
+### Checked Rich Radio Button disabled
+
+<Canvas>
+	<Story story={Stories.CheckedRichRadioButtonDisabled} />
+</Canvas>
+
+### Checked Rich Radio Button readonly
+
+<Canvas>
+	<Story story={Stories.CheckedRichRadioButtonReadOnly} />
+</Canvas>
+
+## Content
+
+_Not applicable_
+
+## Interaction
+
+## Accessibility
+
+## Usage
+
+### Close popover from the inside
+
+You may need to programmatically close the popover with an interaction from its content.
+
+Such would be the case when submitting a setting or simply clicking on a "close" button.
+
+You can do just so by using the "function as children" pattern:
+
+As you can see, the button inside that popover consumes the popover's state and its methods.
