@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BadgeText should mount a default badge 1`] = `
+exports[`BadgeDate should render a default badge 1`] = `
 <div
   class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
 >
   <div
     class="tc-badge-button theme-tc-badge-button"
-    id="tc-badge-select-myId-badge-text"
+    id="tc-badge-select-myId-badge-date"
   >
     <span
       aria-describedby="42"
-      aria-label="My Label"
+      aria-label="date"
       class="tc-badge-category theme-tc-badge-category"
     >
-      My Label
+      date
     </span>
     <div
       class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large"
@@ -23,9 +23,9 @@ exports[`BadgeText should mount a default badge 1`] = `
       >
         <button
           aria-describedby="42"
-          aria-label="Does not contain"
+          aria-label="Not equal to"
           class="btn btn-link"
-          id="myId-badge-text-operator-action-overlay"
+          id="myId-badge-date-operator-action-overlay"
           type="button"
         >
           <svg
@@ -43,13 +43,13 @@ exports[`BadgeText should mount a default badge 1`] = `
       class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
     >
       <button
-        aria-label="All"
+        aria-label="2011-10-01"
         class="btn btn-link"
-        id="myId-badge-text-action-overlay"
+        id="myId-badge-date-action-overlay"
         type="button"
       >
         <span>
-          All
+          2011-10-01
         </span>
       </button>
     </div>
@@ -58,7 +58,7 @@ exports[`BadgeText should mount a default badge 1`] = `
       aria-label="Remove filter"
       class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
       data-feature="filter.remove"
-      id="tc-badge-delete-myId-badge-text"
+      id="tc-badge-delete-myId-badge-date"
       role="button"
       type="button"
     >
