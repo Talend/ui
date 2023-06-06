@@ -1,7 +1,7 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import type { Ref } from 'react';
-
-import { Checkbox as ReakitCheckbox, unstable_useId as useId } from 'reakit';
+import { randomUUID } from '@talend/utils';
+import { Checkbox as ReakitCheckbox } from 'reakit';
 import classnames from 'classnames';
 
 import useCheckboxState from './hooks/useCheckboxState';
@@ -25,8 +25,8 @@ const ToggleSwitch = forwardRef(
 		}: Omit<CheckboxProps, 'indeterminate'>,
 		ref: Ref<HTMLInputElement>,
 	) => {
-		const { id: reakitId } = useId();
-		const switchId = id || `switch--${reakitId}`;
+		const [uuid] = useState<string>(randomUUID());
+		const switchId = id || `switch--${uuid}`;
 		const checkbox = useCheckboxState({ state: defaultChecked || checked, readOnly });
 
 		return (

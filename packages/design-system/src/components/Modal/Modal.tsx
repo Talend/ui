@@ -98,7 +98,7 @@ function Modal(props: ModalPropsType): ReactElement {
 							data-test="modal"
 							data-testid="modal"
 							className={styles.modal}
-							hide={preventEscaping ? undefined : () => onCloseHandler()}
+							// hide={preventEscaping ? undefined : () => onCloseHandler()}
 							ref={ref}
 						>
 							<StackVertical gap={0}>

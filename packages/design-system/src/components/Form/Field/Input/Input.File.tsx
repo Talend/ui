@@ -1,5 +1,5 @@
 import { forwardRef, Key, Ref, useEffect, useRef, useState } from 'react';
-import { unstable_useId as useId } from 'reakit';
+import { randomUUID } from '@talend/utils';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 import classnames from 'classnames';
@@ -88,8 +88,8 @@ const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 			}
 		};
 	}, []);
-	const { id: reakitId } = useId();
-	const fileInfoId = `info--${reakitId}`;
+	const [uuid] = useState<string>(randomUUID());
+	const fileInfoId = `info--${uuid}`;
 
 	const filesValue = () => {
 		if (files) {

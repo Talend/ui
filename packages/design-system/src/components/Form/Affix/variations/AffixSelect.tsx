@@ -1,5 +1,5 @@
-import { forwardRef, Ref } from 'react';
-import { unstable_useId as useId } from 'reakit';
+import { forwardRef, Ref, useState } from 'react';
+import { randomUUID } from '@talend/utils';
 import FieldPrimitive, { FieldPropsPrimitive } from '../../Primitives/Field/Field';
 import SelectNoWrapper, { SelectNoWrapperProps } from '../../Primitives/Select/SelectNoWrapper';
 
@@ -12,8 +12,8 @@ const AffixSelect = forwardRef((props: AffixSelectPropsType, ref: Ref<HTMLSelect
 	const { label, children, name, id, isSuffix, ...rest } = props;
 
 	function SelectAffixComponent({ affixId }: { affixId?: string }) {
-		const { id: reakitId } = useId();
-		const fieldID = affixId || `field--${reakitId}`;
+		const [uuid] = useState<string>(randomUUID());
+		const fieldID = affixId || `field--${uuid}`;
 
 		function AffixSelectComponent(
 			selectProps: Omit<SelectNoWrapperProps, 'hasError' | 'name' | 'children' | 'label'>,
