@@ -1,4 +1,3 @@
-import { IconNameWithSize } from '@talend/icons';
 import { ReactElement } from 'react';
 import { TagVariant } from '../Tag/Tag';
 
@@ -12,7 +11,7 @@ export interface RichRadioButtonProps {
 	description?: string;
 	asset?: {
 		illustration?: ReactElement;
-		name?: IconNameWithSize<'L'>;
+		name?: string;
 	};
 	id: string;
 	isChecked?: boolean;
