@@ -3,6 +3,7 @@ import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { ButtonPrimary, Modal } from '@talend/design-system';
+// eslint-disable-next-line @talend/import-depth
 import { ModalPropsType } from '@talend/design-system/lib/components/Modal';
 
 export default {
@@ -21,13 +22,14 @@ function ModalStory(props: Partial<ModalPropsType>) {
 			{modalOpen && (
 				<Modal
 					header={{ title: '(Default story title)' }}
-					children="(Default story child)"
 					onClose={() => {
 						action('onClose');
 						setModalOpen(false);
 					}}
 					{...props}
-				/>
+				>
+					(Default story child)
+				</Modal>
 			)}
 		</>
 	);
@@ -139,20 +141,6 @@ export const NoDisclosure: ComponentStory<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'No disclosure modal' }}>
 		<p>A basic modal with only a title and a text content.</p>
 	</ModalStory>
-);
-
-export const WithDisclosure: ComponentStory<typeof Modal> = props => (
-	<Modal
-		{...props}
-		header={{ title: 'With disclosure' }}
-		disclosure={
-			<ButtonPrimary data-test="modal-disclosure" onClick={() => {}}>
-				Open the modal
-			</ButtonPrimary>
-		}
-	>
-		<p>A basic modal with an associated disclosure button.</p>
-	</Modal>
 );
 
 export const WithIcon: ComponentStory<typeof Modal> = props => (

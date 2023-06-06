@@ -4,7 +4,7 @@ import { DisclosureState } from './DialogState';
 
 export type DialogPropsType = React.HTMLAttributes<HTMLDivElement> & {
 	'aria-modal'?: boolean | 'true' | 'false';
-} & DisclosureState;
+} & Partial<DisclosureState>;
 
 function BaseDialog(props: DialogPropsType, ref: Ref<HTMLDivElement>) {
 	if (!props.visible) {

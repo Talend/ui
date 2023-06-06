@@ -11,6 +11,7 @@ import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './ButtonStyles.module.scss';
 import { SizedIcon } from '../../Icon';
+import Clickable from '../../Clickable/Clickable';
 
 export type AvailableVariantsTypes = 'primary' | 'destructive' | 'secondary' | 'tertiary';
 export type AvailableSizes = 'M' | 'S';
@@ -47,8 +48,8 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 		[styles['size-S']]: size === 'S',
 	};
 	return (
-		<button
-			className={classnames(styles.button, styles.clickable, className, cls)}
+		<Clickable
+			className={classnames(styles.button, className, cls)}
 			{...rest}
 			aria-busy={isLoading}
 			ref={ref}
@@ -72,7 +73,7 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 					</span>
 				)}
 			</StackHorizontal>
-		</button>
+		</Clickable>
 	);
 }
 

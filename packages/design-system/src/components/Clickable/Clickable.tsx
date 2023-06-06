@@ -3,7 +3,10 @@ import classnames from 'classnames';
 
 import styles from './Clickable.module.scss';
 
-export type ClickableProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'ref'> & {
+export type ClickableProps = Omit<
+	HTMLProps<HTMLButtonElement>,
+	'size' | 'ref' | 'wrap' | 'loop'
+> & {
 	type?: 'button' | 'submit' | 'reset';
 	children: string | ReactNode | ReactNode[];
 	onClick?: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
