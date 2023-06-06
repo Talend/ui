@@ -1,4 +1,4 @@
-import { cloneElement, HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
+import { HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DeprecatedIconNames } from '../../types';
@@ -11,7 +11,7 @@ import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructi
 
 import styles from './Modal.module.scss';
 import { Dialog, useDialogState } from './Primitives/Dialog';
-import { DialogDisclosure } from './Primitives/DialogDisclosure';
+// import { DialogDisclosure } from './Primitives/DialogDisclosure';
 import { DialogBackdrop } from './Primitives/DialogBackdrop';
 
 type IconProp = DeprecatedIconNames | ReactElement;
@@ -36,7 +36,7 @@ export type ModalPropsType = {
 		icon?: IconProp;
 	};
 	onClose?: () => void;
-	disclosure?: ReactElement;
+	// disclosure?: ReactElement;
 	primaryAction?: PrimaryActionPropsType;
 	secondaryAction?: ButtonSecondaryPropsType<'M'>;
 	preventEscaping?: boolean;
@@ -57,14 +57,14 @@ function Modal(props: ModalPropsType): ReactElement {
 	const {
 		header,
 		primaryAction,
-		disclosure,
+		// disclosure,
 		onClose,
 		secondaryAction,
 		preventEscaping,
 		children,
 		...rest
 	} = props;
-	const hasDisclosure = 'disclosure' in props;
+	const hasDisclosure = false; // 'disclosure' in props;
 	const { t } = useTranslation('design-system');
 	const dialog = useDialogState({ visible: !hasDisclosure });
 	const ref = useRef<HTMLDivElement>(null);
@@ -79,11 +79,11 @@ function Modal(props: ModalPropsType): ReactElement {
 
 	return (
 		<>
-			{disclosure && (
+			{/* {disclosure && (
 				<DialogDisclosure {...dialog}>
 					{disclosureProps => cloneElement(disclosure, disclosureProps)}
 				</DialogDisclosure>
-			)}
+			)} */}
 			{dialog.visible && (
 				<DialogBackdrop
 					{...dialog}

@@ -1,4 +1,6 @@
-export type DialogDisclosurePropsType = React.HTMLAttributes<HTMLButtonElement> & {};
+export type DialogDisclosurePropsType = React.HTMLAttributes<HTMLButtonElement> & {
+	children: React.ReactNode | ((props: any) => React.ReactNode);
+};
 
 export function DialogDisclosure(props: DialogDisclosurePropsType) {
 	const { children, ...rest } = props;
