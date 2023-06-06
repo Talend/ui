@@ -23,6 +23,7 @@ const RichRadioButton = ({
 	return (
 		<label className={style['rich-radio-button__wrapper']}>
 			<input
+				className={style['rich-radio-button__input']}
 				type="radio"
 				id={id}
 				name={name}
