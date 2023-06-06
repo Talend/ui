@@ -1,6 +1,5 @@
 import { cloneElement, HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog';
 
 import { DeprecatedIconNames } from '../../types';
 import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
@@ -11,6 +10,9 @@ import { ButtonSecondaryPropsType } from '../Button/variations/ButtonSecondary';
 import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructive';
 
 import styles from './Modal.module.scss';
+import { Dialog, useDialogState } from './Primitives/Dialog';
+import { DialogDisclosure } from './Primitives/DialogDisclosure';
+import { DialogBackdrop } from './Primitives/DialogBackdrop';
 
 type IconProp = DeprecatedIconNames | ReactElement;
 
@@ -65,7 +67,7 @@ function Modal(props: ModalPropsType): ReactElement {
 	const hasDisclosure = 'disclosure' in props;
 	const { t } = useTranslation('design-system');
 	const dialog = useDialogState({ visible: !hasDisclosure });
-	const ref = useRef(null);
+	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		(ref.current as unknown as HTMLElement)?.focus();

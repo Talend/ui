@@ -10,7 +10,7 @@ import Clickable, { ClickableProps } from '../Clickable';
 import { LinkableType } from '../Linkable';
 import { DataAttributes, DeprecatedIconNames } from '../../types';
 
-type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
+type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 	label: string;
 	onClick: () => void;
 	icon?: DeprecatedIconNames;

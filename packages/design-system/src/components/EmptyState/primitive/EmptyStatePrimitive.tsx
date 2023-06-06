@@ -61,5 +61,5 @@ const EmptyStatePrimitive = forwardRef((props: EmptyStatePrimitiveProps, ref: Re
 		</article>
 	);
 });
-
+EmptyStatePrimitive.displayName = 'EmptyStatePrimitive';
 export default EmptyStatePrimitive;

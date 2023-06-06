@@ -1,15 +1,11 @@
-import { forwardRef, MouseEvent, ReactNode, Ref } from 'react';
+import { forwardRef, MouseEvent, ReactNode, Ref, HTMLProps } from 'react';
 import classnames from 'classnames';
-import {
-	Clickable as ReakitClickable,
-	ClickableProps as ReakitClickableProps,
-} from 'reakit/Clickable';
 
 import styles from './Clickable.module.scss';
 
-export type ClickableProps = Omit<ReakitClickableProps, 'style'> & {
+export type ClickableProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'ref'> & {
 	type?: 'button' | 'submit' | 'reset';
-	children: ReactNode | ReactNode[];
+	children: string | ReactNode | ReactNode[];
 	onClick?: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 };
 
@@ -17,7 +13,7 @@ const Clickable = forwardRef(
 	// Ref<any>: Clickable is polymorphic. Could be any HTML element
 	({ type = 'button', className, ...props }: ClickableProps, ref: Ref<any>) => {
 		return (
-			<ReakitClickable
+			<button
 				{...props}
 				className={classnames(styles.clickable, className)}
 				type={type}

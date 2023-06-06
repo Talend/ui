@@ -139,4 +139,5 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 	);
 });
 
+Breadcrumbs.displayName = 'Breadcrumbs';
 export default Breadcrumbs;

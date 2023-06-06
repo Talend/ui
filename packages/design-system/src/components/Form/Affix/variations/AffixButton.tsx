@@ -34,7 +34,7 @@ export type AffixButtonPropsType = Omit<ClickableProps, 'className' | 'children'
 	CommonAffixButtonPropsType &
 	(AffixButtonHideTextProps | AffixButtonShowTextProps);
 
-const AffixButton = forwardRef(
+const AffixButton = forwardRef<HTMLButtonElement, AffixButtonPropsType>(
 	(
 		{
 			children,

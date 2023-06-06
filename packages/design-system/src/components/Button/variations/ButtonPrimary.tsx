@@ -5,10 +5,8 @@ import styles from './ButtonPrimary.module.scss';
 
 export type ButtonPrimaryPropsType<S extends AvailableSizes> = Omit<
 	BaseButtonProps<S>,
-	'className' | 'size'
-> & {
-	size?: S;
-};
+	'className'
+>;
 
 function Primary<S extends AvailableSizes>(
 	props: ButtonPrimaryPropsType<S>,

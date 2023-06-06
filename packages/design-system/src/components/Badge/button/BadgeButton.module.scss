@@ -23,3 +23,19 @@
 		color: tokens.$coral-color-accent-text-strong-active;
 	}
 }
+
+.clickable {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	border: none;
+	line-height: 1;
+	background: transparent;
+	transition: tokens.$coral-transition-fast;
+
+	&:disabled,
+	&[aria-disabled='true'],
+	&[aria-busy='true'] {
+		cursor: not-allowed;
+	}
+}

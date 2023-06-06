@@ -4412,12 +4412,12 @@
   dependencies:
     "@types/react" "^17"
 
-"@types/react-is@^16.7.2":
-  version "16.7.2"
-  resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-16.7.2.tgz#8c2862013d00d741be189ceb71da8e8d21e8fa7d"
-  integrity sha512-rdQUu9J+RUz4Vcr768UyTzv+fZGzKBy1/PPhaxTfzAfaHSW4+b0olA6czXLZv7PO7/ktbHu41kcpAG7Z46kvDQ==
+"@types/react-is@^17.0.0":
+  version "17.0.4"
+  resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-17.0.4.tgz#3cccd02851f7f7a75b21d6e922da26bc7f8f44ad"
+  integrity sha512-FLzd0K9pnaEvKz4D1vYxK9JmgQPiGk1lu23o1kqGsLeT0iPbRSF7b76+S5T9fD8aRa0B8bY7I/3DebEj+1ysBA==
   dependencies:
-    "@types/react" "^16"
+    "@types/react" "^17"
 
 "@types/react-redux@^7.1.20", "@types/react-redux@^7.1.25":
   version "7.1.25"
@@ -4436,7 +4436,7 @@
   dependencies:
     "@types/react" "^17"
 
-"@types/react@*", "@types/react@>=16.9.11", "@types/react@^16", "@types/react@^17", "@types/react@^17.0.2", "@types/react@^17.0.53":
+"@types/react@*", "@types/react@>=16.9.11", "@types/react@^17", "@types/react@^17.0.2", "@types/react@^17.0.53":
   version "17.0.55"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.55.tgz#f94eac1a37929cd86d1cc084c239c08dcfd10e5f"
   integrity sha512-kBcAhmT8RivFDYxHdy8QfPKu+WyfiiGjdPb9pIRtd6tj05j0zRHq5DBGW5Ogxv5cwSKd93BVgUk/HZ4I9p3zNg==

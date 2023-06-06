@@ -2,7 +2,7 @@ import { forwardRef, ReactElement, Ref } from 'react';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
-import Clickable, { ClickableProps } from '../../Clickable';
+import { ClickableProps } from '../../Clickable';
 
 import { DataAttributes, DeprecatedIconNames } from '../../../types';
 import { StackHorizontal } from '../../Stack';
@@ -22,9 +22,7 @@ export type SharedButtonTypes<S extends AvailableSizes> = {
 	isLoading?: boolean;
 	isDropdown?: boolean;
 	size?: S;
-	icon?: S extends 'S'
-		? IconNameWithSize<'S'>
-		: DeprecatedIconNames | ReactElement | IconNameWithSize<'M'>;
+	icon?: IconNameWithSize<'S'> | DeprecatedIconNames | ReactElement | IconNameWithSize<'M'>;
 };
 
 export type BaseButtonProps<S extends AvailableSizes> = Omit<ClickableProps, 'style'> &
@@ -33,23 +31,24 @@ export type BaseButtonProps<S extends AvailableSizes> = Omit<ClickableProps, 'st
 
 function ButtonPrimitiveInner<S extends AvailableSizes>(
 	props: BaseButtonProps<S>,
-	ref?: Ref<HTMLButtonElement>,
+	ref: Ref<HTMLButtonElement>,
 ) {
 	const {
 		className,
 		children,
 		onClick,
-		size = 'M',
+		size,
 		icon,
 		isLoading = false,
 		isDropdown = false,
 		...rest
 	} = props;
+	const cls = {
+		[styles['size-S']]: size === 'S',
+	};
 	return (
-		<Clickable
-			className={classnames(styles.button, className, {
-				[styles['size-S']]: size === 'S',
-			})}
+		<button
+			className={classnames(styles.button, styles.clickable, className, cls)}
 			{...rest}
 			aria-busy={isLoading}
 			ref={ref}
@@ -63,7 +62,7 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 				)}
 				{!isLoading && icon && (
 					<span className={styles.button__icon}>
-						{getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'S' ? 'S' : 'M' })}
+						{getIconWithDeprecatedSupport({ iconSrc: icon, size: size || 'M' })}
 					</span>
 				)}
 				{children}
@@ -73,7 +72,7 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 					</span>
 				)}
 			</StackHorizontal>
-		</Clickable>
+		</button>
 	);
 }
 

@@ -2,7 +2,6 @@ import { forwardRef, Ref } from 'react';
 
 import classnames from 'classnames';
 import styles from './BadgeButton.module.scss';
-import Clickable from '../../Clickable';
 import { DataAttributes } from 'src/types';
 
 type BadgeButtonProps = {
@@ -37,8 +36,8 @@ const BadgeButton = forwardRef(
 		const defaultTestId = 'badge-button';
 
 		return (
-			<Clickable
-				className={classnames(styles.badge__button)}
+			<button
+				className={classnames(styles.badge__button, styles.clickable)}
 				data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
 				data-test={dataTest ? `${dataTest}.${defaultTestId}` : defaultTestId}
 				key={componentId}
@@ -47,7 +46,7 @@ const BadgeButton = forwardRef(
 				{...rest}
 			>
 				{children}
-			</Clickable>
+			</button>
 		);
 	},
 );
