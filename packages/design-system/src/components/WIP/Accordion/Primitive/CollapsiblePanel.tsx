@@ -1,6 +1,6 @@
 import { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from 'react';
 import classNames from 'classnames';
-import { unstable_useId as useId } from 'reakit/Id';
+import { randomUUID } from '@talend/utils';
 
 import { DataAttributes } from '../../../../types';
 
@@ -61,8 +61,8 @@ const CollapsiblePanel = forwardRef(
 	) => {
 		const [localExpanded, setLocalExpanded] = useState(!!expanded);
 
-		const { id: reakitId } = useId();
-		const componentId = id || reakitId;
+		const [uuid] = useState<string>(randomUUID());
+		const componentId = id || uuid;
 		const controlId = `CollapsiblePanel__control--${componentId}`;
 		const sectionId = `CollapsiblePanel__content--${componentId}`;
 

@@ -36,7 +36,7 @@ const Datalist = forwardRef(
 		}: DatalistProps,
 		ref: Ref<HTMLInputElement> | undefined,
 	) => {
-		const [uuid] = setState<string>(randomUUID());
+		const [uuid] = useState<string>(randomUUID());
 		const datalistId = id || `datalist--${uuid}`;
 		const datalistListId = `datalist__list--${uuid}`;
 

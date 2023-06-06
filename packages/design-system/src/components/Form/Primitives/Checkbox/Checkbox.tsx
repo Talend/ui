@@ -1,5 +1,6 @@
-import { forwardRef, ReactElement, Ref } from 'react';
-import { Checkbox as ReakitCheckbox, CheckboxProps, unstable_useId as useId } from 'reakit';
+import { forwardRef, ReactElement, Ref, useState } from 'react';
+import { randomUUID } from '@talend/utils';
+import { Checkbox as ReakitCheckbox, CheckboxProps } from 'reakit';
 import { ReactI18NextChild } from 'react-i18next';
 import classnames from 'classnames';
 
@@ -28,8 +29,8 @@ const Checkbox = forwardRef((props: CheckboxPrimitiveType, ref: Ref<HTMLInputEle
 		indeterminate,
 		...rest
 	} = props;
-	const { id: reakitId } = useId();
-	const checkboxId = id || `checkbox--${reakitId}`;
+	const [uuid] = useState<string>(randomUUID());
+	const checkboxId = id || `checkbox--${uuid}`;
 	const state = (indeterminate && 'indeterminate') || defaultChecked || checked;
 	const checkboxState = useCheckboxState({
 		state,
