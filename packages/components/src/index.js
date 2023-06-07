@@ -1,4 +1,3 @@
-import './i18next';
 import AboutDialog from './AboutDialog';
 import ActionBar from './ActionBar';
 import ActionIntercom from './ActionIntercom';

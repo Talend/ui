@@ -1,4 +1,3 @@
-import './i18next';
 export { default as HorizontalBarChart } from './components/BarChart/HorizontalBarChart';
 export { default as VerticalBarChart } from './components/BarChart/VerticalBarChart';
 export { default as VerticalChartFilter } from './components/ChartPanel/VerticalChartFilter';

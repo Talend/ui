@@ -130,7 +130,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 			{...rest}
 			className={styles.breadcrumbs}
 			ref={ref}
-			aria-label={t('BREADCRUMB_LABEL', { defaultValue: 'breadcrumb' })}
+			aria-label={t('BREADCRUMB_LABEL', { defaultValue: 'breadcrumb' }) || undefined}
 		>
 			<StackHorizontal gap="S" as="ul" justify="start" align="center" role="list">
 				{buildEntries()}
