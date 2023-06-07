@@ -113,7 +113,7 @@
 
 			&:focus {
 				+ .rich-radio-button {
-					outline: tokens.$coral-border-m-solid solid tokens.$coral-color-assistive-border-focus;
+					outline: tokens.$coral-border-m-solid tokens.$coral-color-assistive-border-focus;
 
 					.rich-radio-button__icon {
 						color: tokens.$coral-color-accent-icon;
@@ -166,21 +166,21 @@
 
 				+ .rich-radio-button {
 					background-color: tokens.$coral-color-accent-background-selected;
-					border: tokens.$coral-border-m-solid solid tokens.$coral-color-accent-border;
+					border: tokens.$coral-border-m-solid tokens.$coral-color-accent-border;
 				}
 			}
 
 			&[readonly] {
 				+ .rich-radio-button {
 					background-color: tokens.$coral-color-neutral-background;
-					border: tokens.$coral-border-m-solid solid tokens.$coral-color-neutral-border;
+					border: tokens.$coral-border-m-solid tokens.$coral-color-neutral-border;
 				}
 			}
 
 			&:disabled {
 				+ .rich-radio-button {
 					background-color: tokens.$coral-color-neutral-background-disabled;
-					border: tokens.$coral-border-m-solid solid tokens.$coral-color-neutral-border-disabled;
+					border: tokens.$coral-border-m-solid tokens.$coral-color-neutral-border-disabled;
 				}
 			}
 		}

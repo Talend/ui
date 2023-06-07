@@ -1,4 +1,4 @@
-import { RichRadioButton } from '@talend/design-system';
+import { Illustration, RichRadioButton } from '@talend/design-system';
 
 export default {
 	component: RichRadioButton,
@@ -51,6 +51,34 @@ export const RichRadioButtonWithTagsAndIcon = () => (
 		Culpa iste molestias optio nihil placeat magnam, odio modi earum est voluptas saepe?"
 		id={'richRadioButtonWithTagsAndIcon'}
 		name={'richRadioButtonWithTagsAndIcon'}
+		onChange={() => {}}
+		title="This is a title"
+		tags={[
+			{
+				name: 'Tag 1',
+			},
+			{
+				name: 'Tag 2',
+				variant: 'information',
+			},
+			{
+				name: 'Tag 3',
+				variant: 'information',
+			},
+		]}
+	/>
+);
+
+export const RichRadioButtonWithTagsAndIllustration = () => (
+	<RichRadioButton
+		asset={{
+			illustration: Illustration.IconDefault,
+		}}
+		description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+		Porro nihil delectus quaerat repellat saepe officiis id aut. 
+		Culpa iste molestias optio nihil placeat magnam, odio modi earum est voluptas saepe?"
+		id={'richRadioButtonWithTagsAndIllustration'}
+		name={'richRadioButtonWithTagsAndIllustration'}
 		onChange={() => {}}
 		title="This is a title"
 		tags={[
@@ -177,6 +205,35 @@ export const CheckedRichRadioButtonWithTagsAndIcon = () => (
 		id={'checkedRichRadioButtonWithTagsAndIcon'}
 		isChecked={true}
 		name={'checkedRichRadioButtonWithTagsAndIcon'}
+		onChange={() => {}}
+		title="This is a title"
+		tags={[
+			{
+				name: 'Tag 1',
+			},
+			{
+				name: 'Tag 2',
+				variant: 'information',
+			},
+			{
+				name: 'Tag 3',
+				variant: 'information',
+			},
+		]}
+	/>
+);
+
+export const CheckedRichRadioButtonWithTagsAndIllustration = () => (
+	<RichRadioButton
+		asset={{
+			illustration: Illustration.IconDefault,
+		}}
+		description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+		Porro nihil delectus quaerat repellat saepe officiis id aut. 
+		Culpa iste molestias optio nihil placeat magnam, odio modi earum est voluptas saepe?"
+		id={'checkedRichRadioButtonWithTagsAndIllustration'}
+		isChecked={true}
+		name={'checkedRichRadioButtonWithTagsAndIllustration'}
 		onChange={() => {}}
 		title="This is a title"
 		tags={[

@@ -2,7 +2,7 @@ import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import * as Stories from './RichRadioButton.stories';
 
 <Meta
-	title="Design System/RichRadioButton"
+	title="Design System/Rich Radio Button"
 	parameters={{
 		status: { figma: 'ok', storybook: 'wip', react: 'wip', i18n: 'na' },
 	}}
@@ -10,7 +10,7 @@ import * as Stories from './RichRadioButton.stories';
 
 # Rich Radio Button
 
-Selectable card with the same behavior as a radio button with multiple parameters to allow multiple combinations between title, description tabs and icon
+Selectable card with the same behavior as a radio button with multiple parameters to allow multiple combinations between title, description tags and icon
 
 ## Zoning
 
@@ -32,6 +32,12 @@ Selectable card with the same behavior as a radio button with multiple parameter
 
 <Canvas>
 	<Story story={Stories.RichRadioButtonWithTagsAndIcon} />
+</Canvas>
+
+### Rich Radio Button with an illustration
+
+<Canvas>
+	<Story story={Stories.RichRadioButtonWithTagsAndIllustration} />
 </Canvas>
 
 ### Rich Radio Button disabled
@@ -64,6 +70,12 @@ Selectable card with the same behavior as a radio button with multiple parameter
 
 <Canvas>
 	<Story story={Stories.CheckedRichRadioButtonWithTagsAndIcon} />
+</Canvas>
+
+### Checked Rich Radio Button with an illustration
+
+<Canvas>
+	<Story story={Stories.CheckedRichRadioButtonWithTagsAndIllustration} />
 </Canvas>
 
 ### Checked Rich Radio Button disabled

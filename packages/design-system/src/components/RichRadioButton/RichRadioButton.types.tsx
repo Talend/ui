@@ -10,7 +10,7 @@ export interface RichRadioButtonProps {
 	dataFeature?: string;
 	description?: string;
 	asset?: {
-		illustration?: ReactElement;
+		illustration?: () => ReactElement;
 		name?: string;
 	};
 	id: string;

@@ -39,6 +39,7 @@ import {
 	InlineMessageSuccess,
 	InlineMessageWarning,
 } from './components/InlineMessage';
+import Illustration from './components/illustrations';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
@@ -136,6 +137,7 @@ export {
 	InlineMessageWarning,
 	InlineMessageDestructive,
 	InlineMessageBeta,
+	Illustration,
 	Link,
 	LinkAsButton,
 	Loading,

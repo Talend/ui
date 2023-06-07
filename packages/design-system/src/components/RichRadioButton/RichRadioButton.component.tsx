@@ -20,6 +20,8 @@ const RichRadioButton = ({
 	tags,
 	title,
 }: RichRadioButtonProps) => {
+	const Illustation = asset?.illustration;
+
 	return (
 		<label className={style['rich-radio-button__wrapper']}>
 			<input
@@ -31,25 +33,23 @@ const RichRadioButton = ({
 				readOnly={isReadOnly}
 				data-feature={dataFeature}
 				checked={isChecked}
-				onClick={() => onChange(id)}
+				onChange={() => onChange(id)}
 			/>
 			<span className={style['rich-radio-button']}>
 				<StackVertical as="span" gap="XS">
 					{asset && (
-						<>
-							<span
-								className={classnames({
-									'rich-radio-button__illustration': asset.illustration,
-									'rich-radio-button__icon': !asset.illustration,
+						<span
+							className={classnames({
+								[style['rich-radio-button__illustration']]: asset.illustration,
+								[style['rich-radio-button__icon']]: !asset.illustration,
+							})}
+						>
+							{(Illustation && <Illustation />) ||
+								getIconWithDeprecatedSupport({
+									iconSrc: asset.name || '',
+									size: 'L',
 								})}
-							>
-								{asset.illustration ||
-									getIconWithDeprecatedSupport({
-										iconSrc: asset.name || '',
-										size: 'L',
-									})}
-							</span>
-						</>
+						</span>
 					)}
 					<h4>{title}</h4>
 
