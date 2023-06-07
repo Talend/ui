@@ -92,7 +92,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 							>
 								<ButtonTertiary isDropdown size="S" onClick={() => {}}>
 									<VisuallyHidden>
-										{t('COLLAPSED_LINKS_BUTTON', 'Display collapsed links')}
+										{t('COLLAPSED_LINKS_BUTTON', { defaultvalue: 'Display collapsed links' })}
 									</VisuallyHidden>
 									<span aria-hidden>…</span>
 								</ButtonTertiary>
@@ -130,7 +130,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 			{...rest}
 			className={styles.breadcrumbs}
 			ref={ref}
-			aria-label={t('BREADCRUMB_LABEL', { defaultValue: 'breadcrumb' }) || ''}
+			aria-label={t('BREADCRUMB_LABEL', { defaultValue: 'breadcrumb' })}
 		>
 			<StackHorizontal gap="S" as="ul" justify="start" align="center" role="list">
 				{buildEntries()}

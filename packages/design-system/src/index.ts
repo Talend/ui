@@ -1,3 +1,4 @@
+import './i18next';
 import { Badge, BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
@@ -86,6 +87,7 @@ import {
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
+import i18next from 'i18next';
 
 export * from './components/Stack';
 export * from './themes';
