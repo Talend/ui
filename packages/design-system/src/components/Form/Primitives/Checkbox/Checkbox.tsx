@@ -1,6 +1,5 @@
 import { forwardRef, ReactElement, Ref } from 'react';
 import { Checkbox as ReakitCheckbox, CheckboxProps, unstable_useId as useId } from 'reakit';
-import { ReactI18NextChild } from 'react-i18next';
 import classnames from 'classnames';
 
 import useCheckboxState from '../../../Form/Field/Input/hooks/useCheckboxState';
@@ -11,7 +10,7 @@ import styles from './Checkbox.module.scss';
 export type CheckboxPrimitiveType = Omit<CheckboxProps, 'type' | 'prefix'> & {
 	id?: string;
 	indeterminate?: boolean;
-	label: string | ReactElement | ReactI18NextChild;
+	label: string | ReactElement;
 	isInline?: boolean;
 	name: string;
 };

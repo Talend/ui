@@ -9,7 +9,7 @@ const StatusCanceled = forwardRef((props: StatusCanceledProps, ref: Ref<HTMLSpan
 	const { t } = useTranslation('design-system');
 	return (
 		<StatusPrimitive icon="circle-slash" variant="canceled" {...props} ref={ref}>
-			{props.children || t('CANCELED', 'Canceled')}
+			{props.children || t('CANCELED', 'Canceled') || ''}
 		</StatusPrimitive>
 	);
 });

@@ -76,7 +76,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 					<li className={classnames(styles.entry, styles.entry__collapsed)}>
 						<StackHorizontal gap="S" align="center" wrap="nowrap">
 							<Dropdown
-								aria-label={t('COLLAPSED_LINKS_MENU', 'Collapsed links')}
+								aria-label={t('COLLAPSED_LINKS_MENU', { defaultvalue: 'Collapsed links' })}
 								items={collapsed.map(collapsedLinks => {
 									const refinedProp =
 										'href' in collapsedLinks
@@ -130,7 +130,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 			{...rest}
 			className={styles.breadcrumbs}
 			ref={ref}
-			aria-label={t('BREADCRUMB_LABEL', 'breadcrumb')}
+			aria-label={t('BREADCRUMB_LABEL', { defaultValue: 'breadcrumb' }) || ''}
 		>
 			<StackHorizontal gap="S" as="ul" justify="start" align="center" role="list">
 				{buildEntries()}
@@ -139,4 +139,5 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 	);
 });
 
+Breadcrumbs.displayName = 'Breadcrumbs';
 export default Breadcrumbs;

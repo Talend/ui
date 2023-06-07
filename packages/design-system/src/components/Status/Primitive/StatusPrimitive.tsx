@@ -23,7 +23,7 @@ export type StatusProps = {
 	icon?: IconNameWithSize<'M'>;
 	inProgress?: boolean;
 	hideText?: boolean;
-	children?: string;
+	children?: string | null;
 	variant: keyof typeof variants;
 };
 
