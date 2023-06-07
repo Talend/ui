@@ -12,7 +12,7 @@ export default {
 
 function ModalStory(props: Partial<ModalPropsType>) {
 	const [modalOpen, setModalOpen] = useState(false);
-
+	const { children, ...rest } = props;
 	return (
 		<>
 			<ButtonPrimary onClick={() => setModalOpen(true)} data-test="open-modal">
@@ -26,9 +26,9 @@ function ModalStory(props: Partial<ModalPropsType>) {
 						action('onClose');
 						setModalOpen(false);
 					}}
-					{...props}
+					{...rest}
 				>
-					(Default story child)
+					{children || '(Default story child)'}
 				</Modal>
 			)}
 		</>

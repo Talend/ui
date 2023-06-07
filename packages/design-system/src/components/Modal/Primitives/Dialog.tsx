@@ -10,7 +10,7 @@ function BaseDialog(props: DialogPropsType, ref: Ref<HTMLDivElement>) {
 	if (!props.visible) {
 		return null;
 	}
-	return <Portal>{props.visible && <div ref={ref} role="dialog" data-dialog {...props} />}</Portal>;
+	return <div ref={ref} role="dialog" data-dialog {...props} />;
 }
 
 export const Dialog = forwardRef<HTMLDivElement, DialogPropsType>(BaseDialog);
