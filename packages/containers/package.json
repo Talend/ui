@@ -56,21 +56,21 @@
     "@talend/react-storybook-cmf": "^7.2.0",
     "@talend/scripts-core": "^13.1.3",
     "@talend/scripts-config-react-webpack": "^15.3.3",
-    "i18next": "^20.6.1",
+    "i18next": "^22.5.1",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.18.6",
+    "react-i18next": "^12.3.1",
     "react-test-renderer": "^17.0.2",
     "redux-saga-tester": "^1.0.874"
   },
   "peerDependencies": {
-    "i18next": "^20.1.0",
+    "i18next": "^22.5.1",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",
-    "react-i18next": "^11.18.6"
+    "react-i18next": "^12.3.1"
   },
   "publishConfig": {
     "access": "public"
