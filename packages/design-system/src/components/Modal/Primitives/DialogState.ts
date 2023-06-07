@@ -1,10 +1,8 @@
-export type DisclosureState = {
+export type DialogState = {
 	visible: boolean;
-	animated: boolean | number;
-	animating: boolean;
 };
 
-export type DisclosureAction = {
+export type DialogAction = {
 	show: () => void;
 	/**
 	 * Changes the `visible` state to `false`
