@@ -13,7 +13,7 @@ import { IconUser } from './IconUser';
 import { IconWarning } from './IconWarning';
 import IconSpotDefault from './SpotDefault';
 
-export const Illustration = {
+export default {
 	IconActivity,
 	IconChart,
 	IconChecklist,
@@ -29,5 +29,3 @@ export const Illustration = {
 	IconUser,
 	IconWarning,
 };
-
-export default Illustration;

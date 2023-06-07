@@ -4,7 +4,6 @@
 	background-color: tokens.$coral-color-accent-background-weak;
 	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	border-radius: tokens.$coral-radius-m;
-	display: block;
 	padding: tokens.$coral-spacing-m;
 	transition: background-color tokens.$coral-transition-normal, box-shadow tokens.$coral-transition-normal, border-color tokens.$coral-transition-normal;
 	width: 100%;
@@ -35,8 +34,8 @@
 		display: flex;
 		flex: 1;
 		margin: 0;
-		min-height: 77px;
 		max-width: 400px;
+		min-height: 77px;
 		min-width: 220px;
 		position: relative;
 		width: 100%;

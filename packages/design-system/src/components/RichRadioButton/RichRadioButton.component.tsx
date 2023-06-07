@@ -1,5 +1,3 @@
-// eslint-disable-next-line @talend/import-depth
-
 import { RichRadioButtonProps } from './RichRadioButton.types';
 import { StackVertical, StackHorizontal } from '../Stack';
 import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
