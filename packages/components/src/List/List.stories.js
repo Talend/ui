@@ -321,7 +321,7 @@ const propsWithVirtualized = {
 				key: 'modified',
 				label: 'Modified',
 				type: 'datetime',
-				data: { mode: 'ago' },
+				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
 			},
 		],
 		items: [
@@ -420,7 +420,7 @@ const propsWithResizable = {
 				key: 'modified',
 				label: 'Modified',
 				type: 'datetime',
-				data: { mode: 'ago' },
+				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
 				width: 135,
 				resizable: true,
 			},
