@@ -127,7 +127,7 @@ function getModulesFromLockFile(dir) {
 				})
 				.map(addLocal);
 		} else {
-			console.error(`No lockfile found in ${cwd}. Search in parent directory`);
+			console.log(`No lockfile found in ${cwd}. Search in parent directory`);
 			return getModulesFromLockFile(path.join(cwd, '..'));
 		}
 	}

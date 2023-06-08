@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { BadgeText } from './BadgeText.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 import getDefaultT from '../../../translate';
@@ -18,13 +18,13 @@ describe('BadgeText', () => {
 			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeText {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should mount a badge with some other values', () => {
@@ -37,13 +37,13 @@ describe('BadgeText', () => {
 			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeText {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.find('#potatoId-badge-text-action-overlay').first().text()).toEqual(
+		expect(document.querySelector('#potatoId-badge-text-action-overlay')).toHaveTextContent(
 			'init value',
 		);
 	});

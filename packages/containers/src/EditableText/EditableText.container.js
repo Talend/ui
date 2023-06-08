@@ -23,12 +23,7 @@ class EditableText extends RComponent {
 		onEdit: PropTypes.func,
 		onSubmit: PropTypes.func,
 		onChange: PropTypes.func,
-		text: PropTypes.string,
-	};
-
-	static contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
+		text: PropTypes.string.isRequired,
 	};
 
 	constructor(props) {

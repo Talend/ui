@@ -22,7 +22,11 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 			labelProps: PropTypes.object,
 		}),
-		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		value: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number,
+			PropTypes.arrayOf(PropTypes.string),
+		]),
 	};
 }
 

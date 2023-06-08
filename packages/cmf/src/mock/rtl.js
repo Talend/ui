@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import bootstrap from '../bootstrap';
 import registry from '../registry';
 

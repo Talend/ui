@@ -1,8 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Action should render from name props keeping extra props 1`] = `
-<Connect(CMF(Action))
-  actionId="menu:article"
-  extra="foo"
-/>
+<div
+  class="mock-provider"
+>
+  <button
+    aria-label="menuarticle"
+    class="btn btn-default"
+    type="button"
+  >
+    <span>
+      menuarticle
+    </span>
+  </button>
+</div>
 `;

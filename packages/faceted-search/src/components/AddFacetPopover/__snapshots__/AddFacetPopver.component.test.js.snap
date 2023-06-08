@@ -1,48 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddFacetPopover should render the html output 1`] = `
-<div id="my id-add-facet-popover"
-     class="tc-add-facet-popover theme-tc-add-facet-popover"
+exports[`AddFacetPopover should render 1`] = `
+<div
+  class="tc-add-facet-popover theme-tc-add-facet-popover"
+  id="my id-add-facet-popover"
 >
-  <div id="my id-add-facet-popover"
-       class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+  <div
+    class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+    id="my id-add-facet-popover"
   >
     <div>
-      <header id="my id-add-facet-popover-null-header"
-              class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
+      <header
+        class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
+        id="my id-add-facet-popover-null-header"
       >
-        <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-              role="search"
+        <form
+          class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+          role="search"
         >
-          <div class="form-group">
-            <svg name="talend-search"
-                 focusable="false"
-                 aria-hidden="true"
-                 class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
-                 pointer-events="none"
-                 shape-rendering="geometricPrecision"
-            >
-            </svg>
-            <input name="search"
-                   placeholder="Find a filter"
-                   autocomplete="off"
-                   aria-label="Find a filter"
-                   role="searchbox"
-                   type="search"
-                   id="my id-add-facet-popover-null-filter-input"
-                   class="theme-search form-control"
-                   value
-            >
+          <div
+            class="form-group"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
+              focusable="false"
+              name="talend-search"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+            <input
+              aria-label="Find a filter"
+              autocomplete="off"
+              class="theme-search form-control"
+              id="my id-add-facet-popover-null-filter-input"
+              name="search"
+              placeholder="Find a filter"
+              role="searchbox"
+              type="search"
+              value=""
+            />
           </div>
         </form>
       </header>
-      <div id="my id-add-facet-popover-null-body"
-           class="theme-body tc-tooltip-body"
+      <div
+        class="theme-body tc-tooltip-body"
+        id="my id-add-facet-popover-null-body"
       >
-        <div id="my id-add-facet-popover-null-body-content"
-             class="theme-content tc-tooltip-content"
+        <div
+          class="theme-content tc-tooltip-content"
+          id="my id-add-facet-popover-null-body-content"
         >
-          <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+          <div
+            class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container"
+          >
+            <button
+              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
+              id="my id-add-facet-popover-row-button-Connection name"
+              tabindex="0"
+            >
+              <div
+                class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S"
+              >
+                <div
+                  class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink"
+                >
+                  Connection name
+                </div>
+              </div>
+            </button>
+            <button
+              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button tc-add-facet-popover-row-button-category theme-tc-add-facet-popover-row-button-category"
+              id="my id-open-category-row-button-Custom attributes"
+              tabindex="0"
+            >
+              <div
+                class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S"
+              >
+                <div
+                  class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink"
+                >
+                  Custom attributes
+                </div>
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1.2rem; height: 1.2rem;"
+                >
+                  <use
+                    xlink:href="#chevron-right:S"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button
+              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
+              id="my id-add-facet-popover-row-button-Name"
+              tabindex="0"
+            >
+              <div
+                class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S"
+              >
+                <div
+                  class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink"
+                >
+                  Name
+                </div>
+              </div>
+            </button>
           </div>
         </div>
       </div>

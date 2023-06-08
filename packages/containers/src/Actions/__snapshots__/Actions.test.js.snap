@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Actions should render 1`] = `
+<div
+  class="tc-actions btn-group"
+>
+  <button
+    class="btn-icon-only btn btn-default"
+    id="menu"
+    name="Menu"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg tc-icon-name-fa-bars"
+      focusable="false"
+      name="fa-bars"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span />
+  </button>
+</div>
+`;

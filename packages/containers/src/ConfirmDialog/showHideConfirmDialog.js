@@ -4,7 +4,7 @@ export function showConfirmDialog(state, action) {
 	const newState = { ...state };
 	newState.cmf.components = state.cmf.components.setIn(
 		path,
-		action.confirmDialogConf.set('show', true)
+		action.confirmDialogConf.set('show', true),
 	);
 	return newState;
 }

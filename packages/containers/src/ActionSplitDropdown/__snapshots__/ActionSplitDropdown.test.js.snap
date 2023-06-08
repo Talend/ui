@@ -1,18 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container(ActionSplitDropdown) should render 1`] = `
-<ActionSplitDropdown
-  actionCreator="split"
-  foo="extra"
-  items={
-    [
-      {
-        "actionCreator": "menu:item",
-        "foo": "bar",
-        "onClick": [Function],
-      },
-    ]
-  }
-  onClick={[Function]}
-/>
+<div
+  class="dropdown btn-group"
+>
+  <button
+    aria-label="extra"
+    class="theme-tc-split-dropdown btn btn-default"
+    type="button"
+  >
+    <span>
+      <span>
+        extra
+      </span>
+    </span>
+  </button>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="Open extra menu"
+    class="dropdown-toggle btn btn-default"
+    id="42"
+    role="button"
+    type="button"
+  >
+     
+    <span
+      class="caret"
+    />
+  </button>
+  <ul
+    aria-labelledby="42"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <li
+      class="disabled"
+      role="presentation"
+    >
+      <a
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+      />
+    </li>
+  </ul>
+</div>
 `;

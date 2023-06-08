@@ -1,30 +1,252 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Guided Tour Container should render 1`] = `
-<GuidedTour
-  disableAllInteractions={false}
-  disableKeyboardNavigation={false}
-  onRequestClose={[Function]}
-  showButtons={true}
-  showCloseButton={true}
-  steps={
-    [
-      {
-        "content": {
-          "body": "Text A",
-        },
-      },
-      {
-        "content": {
-          "body": "Text B",
-        },
-      },
-      {
-        "content": {
-          "body": "Text C",
-        },
-      },
-    ]
-  }
-/>
+<div
+  id="___reactour"
+>
+  <div
+    class="sc-pyfCe biIBAN"
+  >
+    <svg
+      height="0"
+      width="0"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <mask
+          id="mask-main"
+        >
+          <rect
+            fill="white"
+            height="0"
+            width="0"
+            x="0"
+            y="0"
+          />
+          <rect
+            fill="black"
+            height="20"
+            width="20"
+            x="0"
+            y="0"
+          />
+          <rect
+            fill="white"
+            height="4"
+            width="4"
+            x="-1"
+            y="-1"
+          />
+          <circle
+            cx="4"
+            cy="4"
+            fill="black"
+            r="4"
+          />
+          <rect
+            fill="white"
+            height="4"
+            width="4"
+            x="17"
+            y="-1"
+          />
+          <circle
+            cx="16"
+            cy="4"
+            fill="black"
+            r="4"
+          />
+          <rect
+            fill="white"
+            height="4"
+            width="4"
+            x="-1"
+            y="17"
+          />
+          <circle
+            cx="4"
+            cy="16"
+            fill="black"
+            r="4"
+          />
+          <rect
+            fill="white"
+            height="4"
+            width="4"
+            x="17"
+            y="17"
+          />
+          <circle
+            cx="16"
+            cy="16"
+            fill="black "
+            r="4"
+          />
+        </mask>
+        <clippath
+          id="clip-path"
+        >
+          <rect
+            height="0"
+            width="0"
+            x="0"
+            y="0"
+          />
+          <rect
+            height="20"
+            width="0"
+            x="0"
+            y="0"
+          />
+          <rect
+            height="20"
+            width="0"
+            x="10"
+            y="0"
+          />
+          <rect
+            height="0"
+            width="0"
+            x="0"
+            y="10"
+          />
+        </clippath>
+      </defs>
+      <rect
+        fill="currentColor"
+        height="0"
+        mask="url(#mask-main)"
+        width="0"
+        x="0"
+        y="0"
+      />
+      <rect
+        clip-path="url(#clip-path)"
+        fill="currentColor"
+        height="0"
+        pointer-events="auto"
+        width="0"
+        x="0"
+        y="0"
+      />
+      <rect
+        class="reactour__mask--disable-interaction tc-guided-tour__highlighted-mask"
+        display="block"
+        fill="transparent"
+        height="20"
+        pointer-events="auto"
+        width="20"
+        x="0"
+        y="0"
+      />
+    </svg>
+  </div>
+  <div
+    data-focus-guard="true"
+    style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+    tabindex="0"
+  />
+  <div
+    data-focus-guard="true"
+    style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+    tabindex="1"
+  />
+  <div
+    data-focus-lock-disabled="false"
+  >
+    <div
+      class="sc-eDvSVe czgksq reactour__helper theme-tc-guided-tour tc-guided-tour reactour__helper--is-open"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="theme-body tc-guided-tour__body"
+      >
+        <p>
+          Text A
+        </p>
+      </div>
+      <div
+        class="sc-gKPRtg hrgDlm"
+        data-tour-elem="controls"
+      >
+        <button
+          class="sc-bcXHqe gboiNZ sc-dkrFOg klzMxH"
+          data-tour-elem="left-arrow"
+          disabled=""
+        >
+          <svg
+            viewBox="0 0 18.4 14.4"
+          >
+            <path
+              d="M1.4 7.2h16M7.6 1L1.4 7.2l6.2 6.2"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+        <nav
+          class="sc-iBYQkv gtetUN"
+          data-tour-elem="navigation"
+        >
+          <button
+            class="sc-ftTHYK dWxPgg reactour__dot reactour__dot--is-active"
+            data-tour-elem="dot"
+            disabled=""
+          />
+          <button
+            class="sc-ftTHYK rIoYm reactour__dot"
+            data-tour-elem="dot"
+            disabled=""
+          />
+          <button
+            class="sc-ftTHYK rIoYm reactour__dot"
+            data-tour-elem="dot"
+            disabled=""
+          />
+        </nav>
+        <button
+          class="sc-bcXHqe fgqvXG sc-dkrFOg gYUJja"
+          data-tour-elem="right-arrow"
+        >
+          <svg
+            viewBox="0 0 18.4 14.4"
+          >
+            <path
+              d="M17 7.2H1M10.8 1L17 7.2l-6.2 6.2"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+      <button
+        aria-label="Close"
+        class="sc-bcXHqe fgqvXG sc-hLBbgP rHoDM reactour__close"
+      >
+        <svg
+          aria-hidden="true"
+          role="presentation"
+          viewBox="0 0 9.1 9.1"
+        >
+          <path
+            d="M5.9 4.5l2.8-2.8c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L4.5 3.1 1.7.3C1.3-.1.7-.1.3.3c-.4.4-.4 1 0 1.4l2.8 2.8L.3 7.4c-.4.4-.4 1 0 1.4.2.2.4.3.7.3s.5-.1.7-.3L4.5 6l2.8 2.8c.3.2.5.3.8.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L5.9 4.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    data-focus-guard="true"
+    style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+    tabindex="0"
+  />
+</div>
 `;

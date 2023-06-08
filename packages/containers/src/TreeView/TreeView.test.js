@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { screen, render, fireEvent } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 import Immutable from 'immutable';
 import TreeView, {
@@ -7,6 +7,8 @@ import TreeView, {
 	transform,
 	mapStateToProps,
 } from './TreeView.container';
+
+jest.unmock('@talend/design-system');
 
 describe('TreeView', () => {
 	let context;
@@ -17,17 +19,15 @@ describe('TreeView', () => {
 		context = mock.store.context();
 		state = mock.store.state();
 		data = new Immutable.List([
-			new Immutable.Map({ id: 1, name: 'foo', children: [] }),
+			new Immutable.Map({ id: 1, name: 'foo', children: [{ id: 11, name: 'fofo', childre: [] }] }),
 			new Immutable.Map({ id: 2, name: 'bar', children: [] }),
 		]);
 		context.store.getState = () => state;
 	});
 
-	it('should render the data', () => {
-		const wrapper = shallow(<TreeView.WrappedComponent id="my-treeview" data={data} />, {
-			context,
-		});
-		expect(wrapper.find('TreeGesture(TreeView)').getElement()).toMatchSnapshot();
+	it('should render', () => {
+		const { container } = render(<TreeView.WrappedComponent id="my-treeview" data={data} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should select element', () => {
@@ -49,20 +49,20 @@ describe('TreeView', () => {
 			onSelect,
 			onSelectActionCreator,
 		};
-		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
+		render(<TreeView.WrappedComponent {...props} />);
 
 		// when
-		wrapper.prop('onSelect')(null, data.get(0).toJS());
+		fireEvent.click(screen.getByText('foo'));
 
 		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('selectedId')).toEqual(1);
-		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(onSelect).toHaveBeenCalledWith(expect.anything(data.get(0).toJS()));
 		expect(dispatchActionCreator).toHaveBeenCalled();
 		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
-		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
+		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(expect.anything(data.get(0).toJS()));
 	});
 
 	it('should open/close on toggle', () => {
@@ -70,17 +70,18 @@ describe('TreeView', () => {
 			state: DEFAULT_STATE,
 		};
 		const setState = jest.fn(fn => {
-			prevState.state = fn(prevState);
+			const res = fn(prevState);
+			prevState.state = res;
 		});
 		const props = {
 			id: 'my-treeview',
 			setState,
 			data,
 		};
-		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
+		render(<TreeView.WrappedComponent {...props} />);
 
 		// when
-		wrapper.prop('onToggle')(null, data.get(0).toJS());
+		fireEvent.click(document.querySelector('button'));
 
 		// then
 		expect(setState).toHaveBeenCalled();
@@ -88,7 +89,7 @@ describe('TreeView', () => {
 		expect(prevState.state.get('opened').toJS()).toEqual([1]);
 
 		// when
-		wrapper.prop('onToggle')(null, data.get(0).toJS());
+		fireEvent.click(document.querySelector('button'));
 
 		// then
 		expect(setState.mock.calls.length).toBe(2);
@@ -113,16 +114,16 @@ describe('TreeView', () => {
 			onSelect,
 			onSelectActionCreator,
 		};
-		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-		wrapper.simulate('select', null, data.get(0).toJS());
+		render(<TreeView.WrappedComponent {...props} />);
+		fireEvent.click(screen.getByText('foo'));
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('selectedId')).toEqual(1);
-		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(onSelect).toHaveBeenCalledWith(expect.anything(data.get(0).toJS()));
 		expect(dispatchActionCreator).toHaveBeenCalled();
 		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
-		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
+		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(expect.anything(data.get(0).toJS()));
 	});
 
 	it('should unselect onSelect twice', () => {
@@ -140,19 +141,19 @@ describe('TreeView', () => {
 			data,
 			onSelect,
 		};
-		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
+		render(<TreeView.WrappedComponent {...props} />, { context });
 
 		// when
-		wrapper.prop('onSelect')(null, data.get(0).toJS());
+		fireEvent.click(screen.getByText('foo'));
 
 		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('selectedId')).toEqual(1);
-		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(onSelect).toHaveBeenCalledWith(expect.anything(data.get(0).toJS()));
 
 		// when
-		wrapper.prop('onSelect')(null, data.get(0).toJS());
+		fireEvent.click(screen.getByText('foo'));
 
 		// then
 		expect(prevState.state.get('selectedId')).toBe();

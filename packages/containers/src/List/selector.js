@@ -74,8 +74,8 @@ export function compare(sortBy) {
 
 			return aValue.localeCompare(bValue);
 		}
-		
-		if(typeof aValue === 'number' && typeof bValue === 'number') {
+
+		if (typeof aValue === 'number' && typeof bValue === 'number') {
 			if (aValue < bValue) {
 				return -1;
 			}

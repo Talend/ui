@@ -1,19 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Action Icon Toggle should render 1`] = `
-<ActionIconToggle
-  active={true}
-  className="my-awesome-classname"
-  icon="talend-awesome-icon"
+<button
+  aria-describedby="42"
+  aria-label="My awesome label"
+  aria-pressed="true"
+  class="my-awesome-classname tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
   id="my-awesome-action-id"
-  label="My awesome label"
-  onClick={[Function]}
-  payload={
-    {
-      "type": "TOGGLE-MY-AWESOME-ACTION",
-    }
-  }
-  tick={false}
-  tooltipPlacement="top"
-/>
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-awesome-icon"
+    focusable="false"
+    name="talend-awesome-icon"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+  />
+</button>
 `;
