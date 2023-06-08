@@ -59,9 +59,9 @@ function Header({ headerDefault, headerLabel, labelProps, nbItemsSelected, nbIte
 				<small>
 					(
 					{t('LISTVIEW_HEADER_SELECTED', {
-						count: nbItemsSelected,
+						number: nbItemsSelected,
 						total: nbItems,
-						defaultValue: '{{count}}/{{total}} selected',
+						defaultValue: '{{number}}/{{total}} selected',
 					})}
 					)
 				</small>

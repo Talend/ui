@@ -13,7 +13,7 @@ const getSelectBadgeLabel = (value, t) => {
 			return t('FACETED_SEARCH_VALUES_COUNT', {
 				count: checkedCheckboxes.length,
 				defaultValue: '{{count}} value',
-				defaultValue_plural: '{{count}} values',
+				defaultValue_other: '{{count}} values',
 			});
 		} else if (!checkedCheckboxes.length) {
 			return labelAll;

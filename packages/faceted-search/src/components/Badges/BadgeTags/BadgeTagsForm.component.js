@@ -88,7 +88,7 @@ const BadgeTagsForm = ({
 	};
 
 	const leftBtnLabel = showAll
-		? t('NB_SELECTED_TAGS', { count: value.length, defaultValue: '{{count}} selected' })
+		? t('NB_SELECTED_TAGS', { number: value.length, defaultValue: '{{number}} selected' })
 		: t('SHOW_ALL_TAGS', { defaultValue: 'Show all' });
 
 	return (
