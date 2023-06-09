@@ -25,6 +25,7 @@ const TabListComponent = forwardRef(
 		return <TabList {...tab} ref={ref} {...props} />;
 	},
 );
+TabListComponent.displayName = 'TabList';
 
 const TabComponent = forwardRef((props: TabPropsTypesWithoutState, ref: Ref<HTMLButtonElement>) => {
 	const tab = useContext(TabsContext);
@@ -33,6 +34,7 @@ const TabComponent = forwardRef((props: TabPropsTypesWithoutState, ref: Ref<HTML
 	}
 	return <Tab {...tab} ref={ref} {...props} />;
 });
+TabComponent.displayName = 'Tab';
 
 const TabPanelComponent = forwardRef(
 	(props: TabPanelPropsTypesWithoutState, ref: Ref<HTMLDivElement>) => {
@@ -43,6 +45,7 @@ const TabPanelComponent = forwardRef(
 		return <TabPanel {...tab} ref={ref} {...props} />;
 	},
 );
+TabPanelComponent.displayName = 'TabPanel';
 
 Tabs.Tab = TabComponent;
 Tabs.TabList = TabListComponent;

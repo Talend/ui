@@ -45,5 +45,6 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLSpanElement>) =>
 		}
 	}
 });
+Skeleton.displayName = 'Skeleton';
 
 export default Skeleton;

@@ -25,4 +25,5 @@ const Loading = forwardRef<React.ReactElement, React.PropsWithChildren<any>>((pr
 	</svg>
 ));
 
+Loading.displayName = 'Loading';
 export default Loading;

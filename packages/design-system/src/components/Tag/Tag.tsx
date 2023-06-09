@@ -45,5 +45,6 @@ const Tag = forwardRef(({ variant, ...rest }: TagProps, ref: Ref<HTMLSpanElement
 			return <TagDefault {...rest} ref={ref} />;
 	}
 });
+Tag.displayName = 'Tag';
 
 export default Tag;

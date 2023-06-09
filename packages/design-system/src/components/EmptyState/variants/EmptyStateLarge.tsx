@@ -13,4 +13,5 @@ const EmptyStateLarge = forwardRef((props: EmptyStateLargeProps, ref: Ref<HTMLEl
 	);
 });
 
+EmptyStateLarge.displayName = 'EmptyStateLarge';
 export default EmptyStateLarge;

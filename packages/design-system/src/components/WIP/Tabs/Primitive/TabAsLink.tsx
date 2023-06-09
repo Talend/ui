@@ -41,6 +41,7 @@ const TabComponent = forwardRef(
 		);
 	},
 );
+TabComponent.displayName = 'TabComponent';
 
 const TabAsLink = forwardRef((props: TabAsLinkProps, ref: Ref<HTMLAnchorElement>) => {
 	const { tooltip, ...otherProps } = props;

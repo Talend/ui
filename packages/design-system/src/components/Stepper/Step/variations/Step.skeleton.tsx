@@ -21,5 +21,6 @@ const StepSkeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLLIElement>) 
 		</li>
 	);
 });
+StepSkeleton.displayName = 'StepSkeleton';
 
 export default memo(StepSkeleton);

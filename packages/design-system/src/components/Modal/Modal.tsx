@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
+import { ReactElement, ReactNode, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DeprecatedIconNames } from '../../types';
@@ -70,7 +70,6 @@ function Modal(props: ModalPropsType): ReactElement {
 	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		console.log('### effect', ref);
 		ref.current?.focus();
 	}, [ref]);
 

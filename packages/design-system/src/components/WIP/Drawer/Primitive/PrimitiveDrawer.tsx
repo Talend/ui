@@ -21,5 +21,6 @@ export const PrimitiveDrawer = forwardRef(
 		</div>
 	),
 );
+PrimitiveDrawer.displayName = 'PrimitiveDrawer';
 
 export default PrimitiveDrawer;
