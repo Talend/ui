@@ -1,3 +1,4 @@
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';

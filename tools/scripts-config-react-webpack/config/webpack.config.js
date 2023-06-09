@@ -181,13 +181,11 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 	 * For example react-is index.js includes a test on process.env.NODE_ENV to require the min version or not.
 	 * Let's bypass this issue by setting a process.env.NODE_ENV
 	 */
-	let headScript = `
-	<script type="text/javascript">
-		window.basename = '${BASENAME}';
-	</script>`;
+	let headScript = '';
 	if (useInitiator) {
 		// meta are not injected if inject is false
-		headScript = `${renderMeta()}<script type="text/javascript">
+		headScript = `${renderMeta()}<base href="${BASENAME}" />
+		<script type="text/javascript">
 			window.basename = '${BASENAME}';
 			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
 			var TALEND_CDN_VERSIONS = {
@@ -204,7 +202,6 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 		<link rel="icon" type="image/svg+xml" href="<%= htmlWebpackPlugin.options.favicon || htmlWebpackPlugin.options.b64favicon %>">
 		<style><%= htmlWebpackPlugin.options.appLoaderStyle %></style>
 		${headScript}
-		<base href="${BASENAME}" />
 	</head>`;
 	// fs.exists is deprecated
 	const templateExists = await utils.fs.isFile(indexTemplatePath);
