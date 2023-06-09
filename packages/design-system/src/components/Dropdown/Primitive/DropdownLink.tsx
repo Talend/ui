@@ -1,5 +1,4 @@
 import { forwardRef, ReactElement, Ref } from 'react';
-// import { MenuItem, MenuItemProps } from 'reakit';
 import Linkable, { LinkableType } from '../../Linkable';
 
 import styles from './DropdownEntry.module.scss';
@@ -22,9 +21,9 @@ LocalLink.displayName = 'LocalLink';
 const DropdownLink = forwardRef(
 	({ children, as, ...props }: DropdownLinkType, ref: Ref<HTMLAnchorElement>) => {
 		return (
-			<LocalLink {...props} ref={ref}>
+			<Linkable {...props} ref={ref}>
 				{children}
-			</LocalLink>
+			</Linkable>
 		);
 	},
 );

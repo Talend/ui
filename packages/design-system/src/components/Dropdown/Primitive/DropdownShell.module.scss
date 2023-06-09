@@ -17,10 +17,10 @@
 		transition: tokens.$coral-transition-fast;
 	}
 
-	&[data-enter] {
-		.animatedZone {
-			// opacity: 1;
-			// transform: translateY(0%);
-		}
-	}
+	// &[data-enter] {
+	// .animatedZone {
+	// opacity: 1;
+	// transform: translateY(0%);
+	// }
+	// }
 }

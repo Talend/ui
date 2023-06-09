@@ -1,14 +1,10 @@
 import { forwardRef, Ref, HTMLAttributes } from 'react';
-// import { MenuProps } from 'reakit';
 import styles from './DropdownShell.module.scss';
 import { StackVertical } from '../../Stack';
 
-type ShellProps = HTMLAttributes<HTMLDivElement> & {
-	// visible?: boolean;
-};
+type ShellProps = HTMLAttributes<HTMLDivElement>;
 
 const DropdownShell = forwardRef(({ children, ...rest }: ShellProps, ref: Ref<HTMLDivElement>) => {
-	// if (!visible) return null;
 	return (
 		<div
 			role="menu"

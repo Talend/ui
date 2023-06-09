@@ -1,15 +1,5 @@
-import {
-	HTMLAttributes,
-	cloneElement,
-	forwardRef,
-	MouseEvent,
-	ReactElement,
-	Ref,
-	useState,
-} from 'react';
-// import { useMenuState } from 'reakit';
-// eslint-disable-next-line @talend/import-depth
-import { useFloating, autoUpdate, offset, flip, shift } from '@floating-ui/react';
+import { cloneElement, MouseEvent, ReactElement, useState } from 'react';
+import { useFloating, autoUpdate, flip, shift } from '@floating-ui/react';
 import MenuButton from './Primitive/MenuButton';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
