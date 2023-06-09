@@ -1,14 +1,22 @@
-import { forwardRef, Ref } from 'react';
-import { MenuProps } from 'reakit';
-
+import { forwardRef, Ref, HTMLAttributes } from 'react';
+// import { MenuProps } from 'reakit';
 import styles from './DropdownShell.module.scss';
 import { StackVertical } from '../../Stack';
 
-type ShellProps = MenuProps;
+type ShellProps = HTMLAttributes<HTMLDivElement> & {
+	// visible?: boolean;
+};
 
 const DropdownShell = forwardRef(({ children, ...rest }: ShellProps, ref: Ref<HTMLDivElement>) => {
+	// if (!visible) return null;
 	return (
-		<div {...rest} className={styles.dropdownShell} ref={ref}>
+		<div
+			role="menu"
+			aria-orientation="vertical"
+			{...rest}
+			className={styles.dropdownShell}
+			ref={ref}
+		>
 			<div className={styles.animatedZone}>
 				<StackVertical gap={0} align="stretch" justify="stretch">
 					{children}
@@ -17,5 +25,7 @@ const DropdownShell = forwardRef(({ children, ...rest }: ShellProps, ref: Ref<HT
 		</div>
 	);
 });
+
+DropdownShell.displayName = 'DropdownShell';
 
 export default DropdownShell;

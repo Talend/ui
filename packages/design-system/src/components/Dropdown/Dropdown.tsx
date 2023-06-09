@@ -1,7 +1,16 @@
-import { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
-import { Menu, MenuButton, useMenuState } from 'reakit';
+import {
+	HTMLAttributes,
+	cloneElement,
+	forwardRef,
+	MouseEvent,
+	ReactElement,
+	Ref,
+	useState,
+} from 'react';
+// import { useMenuState } from 'reakit';
 // eslint-disable-next-line @talend/import-depth
-import DropdownButton from './Primitive/DropdownButton';
+import { useFloating, autoUpdate, offset, flip, shift } from '@floating-ui/react';
+import MenuButton from './Primitive/MenuButton';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
 import DropdownTitle from './Primitive/DropdownTitle';
@@ -43,40 +52,47 @@ export type DropdownPropsType = {
 	'aria-label': string;
 } & Partial<DataAttributes>;
 
-const Dropdown = forwardRef(
-	(
-		{
-			children,
-			'data-test': dataTest,
-			'data-testid': dataTestId,
-			items,
-			...rest
-		}: DropdownPropsType,
-		ref: Ref<HTMLDivElement>,
-	) => {
-		const menu = useMenuState({
-			animated: 250,
-			gutter: 4,
-			loop: true,
-		});
+const Dropdown = ({
+	children,
+	'data-test': dataTest,
+	'data-testid': dataTestId,
+	items,
+	...rest
+}: DropdownPropsType) => {
+	const [isOpen, setIsOpen] = useState(false);
+	const floating = useFloating({
+		open: isOpen,
+		onOpenChange: setIsOpen,
+		middleware: [/*offset(10),*/ flip(), shift()],
+		whileElementsMounted: autoUpdate,
+	});
+	// const menu = useMenuState({
+	// 	animated: 250,
+	// 	gutter: 4,
+	// 	loop: true,
+	// });
 
-		const menuButtonTestId = dataTestId ? `${dataTestId}.dropdown.button` : 'dropdown.button';
-		const menuTestId = dataTestId ? `${dataTestId}.dropdown.menu` : 'dropdown.menu';
-		const menuItemTestId = dataTestId ? `${dataTestId}.dropdown.menuitem` : 'dropdown.menuitem';
-		const menuButtonTest = dataTest ? `${dataTest}.dropdown.button` : 'dropdown.button';
-		const menuTest = dataTest ? `${dataTest}.dropdown.menu` : 'dropdown.menu';
-		const menuItemTest = dataTest ? `${dataTest}.dropdown.menuitem` : 'dropdown.menuitem';
-
-		return (
-			<>
-				<MenuButton {...menu} data-testid={menuButtonTestId} data-test={menuButtonTest}>
-					{disclosureProps => cloneElement(children, disclosureProps)}
-				</MenuButton>
-				<Menu
-					{...menu}
-					as={DropdownShell}
+	const menuButtonTestId = dataTestId ? `${dataTestId}.dropdown.button` : 'dropdown.button';
+	const menuTestId = dataTestId ? `${dataTestId}.dropdown.menu` : 'dropdown.menu';
+	const menuItemTestId = dataTestId ? `${dataTestId}.dropdown.menuitem` : 'dropdown.menuitem';
+	const menuButtonTest = dataTest ? `${dataTest}.dropdown.button` : 'dropdown.button';
+	const menuTest = dataTest ? `${dataTest}.dropdown.menu` : 'dropdown.menu';
+	const menuItemTest = dataTest ? `${dataTest}.dropdown.menuitem` : 'dropdown.menuitem';
+	debugger;
+	return (
+		<>
+			{cloneElement(children as any, {
+				onClick: () => setIsOpen(!isOpen),
+				'aria-pressed': `${isOpen}`,
+				'data-testid': menuButtonTestId,
+				'data-test': menuButtonTest,
+				ref: floating.refs.setReference,
+			})}
+			{isOpen && (
+				<DropdownShell
 					{...rest}
-					ref={ref}
+					ref={floating.refs.setFloating}
+					style={floating.floatingStyles}
 					data-testid={menuTestId}
 					data-test={menuTest}
 				>
@@ -85,11 +101,11 @@ const Dropdown = forwardRef(
 							const { label, ...entryRest } = entry;
 							const id = `${label}-${index}`;
 							return (
-								<DropdownButton
+								<MenuButton
 									{...entryRest}
-									{...menu}
+									// {...menu}
 									onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-										menu.hide();
+										// menu.hide();
 										entry.onClick(event);
 									}}
 									key={id}
@@ -98,7 +114,7 @@ const Dropdown = forwardRef(
 									data-test={`${menuItemTest}.${id}`}
 								>
 									{label}
-								</DropdownButton>
+								</MenuButton>
 							);
 						}
 
@@ -120,7 +136,7 @@ const Dropdown = forwardRef(
 							const id = `divider-${index}`;
 							return (
 								<DropdownDivider
-									{...menu}
+									// {...menu}
 									key={id}
 									data-testid={`${menuItemTestId}.${id}`}
 									data-test={`${menuItemTest}.${id}`}
@@ -134,11 +150,11 @@ const Dropdown = forwardRef(
 							<DropdownLink
 								as={as}
 								{...entryRest}
-								{...menu}
+								// {...menu}
 								key={id}
 								id={id}
 								onClick={(event: MouseEvent<HTMLAnchorElement>) => {
-									menu.hide();
+									// menu.hide();
 									if (entry.onClick) {
 										entry.onClick(event);
 									}
@@ -150,11 +166,11 @@ const Dropdown = forwardRef(
 							</DropdownLink>
 						);
 					})}
-				</Menu>
-			</>
-		);
-	},
-);
+				</DropdownShell>
+			)}
+		</>
+	);
+};
 
 Dropdown.displayName = 'Dropdown';
 

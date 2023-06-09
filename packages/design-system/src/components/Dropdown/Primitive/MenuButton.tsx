@@ -1,5 +1,4 @@
 import { forwardRef, Ref } from 'react';
-import { MenuItem, MenuItemProps } from 'reakit';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
@@ -9,13 +8,14 @@ import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './DropdownEntry.module.scss';
 
-export type DropdownButtonType = Omit<ClickableProps, 'as'> &
-	MenuItemProps & { icon?: DeprecatedIconNames | IconNameWithSize<'M'> };
+export type MenuButtonType = ClickableProps & /*MenuItemProps &*/ {
+	icon?: DeprecatedIconNames | IconNameWithSize<'M'>;
+};
 
-const DropdownButton = forwardRef(
-	({ children, icon, ...props }: DropdownButtonType, ref: Ref<HTMLButtonElement>) => {
+const MenuButton = forwardRef(
+	({ children, icon, ...props }: MenuButtonType, ref: Ref<HTMLButtonElement>) => {
 		return (
-			<MenuItem {...props} as={Clickable} className={styles.dropdownEntry} ref={ref}>
+			<Clickable {...props} className={styles.dropdownEntry} ref={ref}>
 				{icon && (
 					<span className={styles.buttonIcon}>
 						{getIconWithDeprecatedSupport({
@@ -26,11 +26,11 @@ const DropdownButton = forwardRef(
 					</span>
 				)}
 				<span className={styles.buttonContent}>{children}</span>
-			</MenuItem>
+			</Clickable>
 		);
 	},
 );
 
-DropdownButton.displayName = 'DropdownButton';
+MenuButton.displayName = 'MenuButton';
 
-export default DropdownButton;
+export default MenuButton;
