@@ -1,3 +1,3 @@
-import { VisuallyHidden } from 'reakit';
+import { VisuallyHidden } from './VisuallyHidden';
 
 export default VisuallyHidden;
