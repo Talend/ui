@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 7.10.0
+
+### Minor Changes
+
+- a90c12b34: feat: add data attributes to the BadgeDropdown component
+- c54e10157: feat(TDC-6804): added rich radio button component
+
 ## 7.9.0
 
 ### Minor Changes
