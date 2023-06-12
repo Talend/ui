@@ -1,5 +1,21 @@
 # @talend/react-forms
 
+## 9.2.2
+
+### Patch Changes
+
+- 3099c427a: chore: rewrite tests using react-testing-library
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- Updated dependencies [a90c12b34]
+- Updated dependencies [fcd8daf3c]
+- Updated dependencies [c7f316d7c]
+- Updated dependencies [b8c4161d2]
+- Updated dependencies [c54e10157]
+- Updated dependencies [3099c427a]
+  - @talend/design-system@7.10.0
+  - @talend/react-components@10.3.5
+
 ## 9.2.1
 
 ### Patch Changes

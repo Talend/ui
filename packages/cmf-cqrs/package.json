@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^13.1.2",
-    "@talend/scripts-config-react-webpack": "^15.3.3",
+    "@talend/scripts-config-react-webpack": "^15.4.0",
     "@testing-library/react-hooks": "^8.0.1",
     "mock-socket": "^9.1.5",
     "prop-types": "^15.8.1",
@@ -55,5 +55,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.1.0"
+  "version": "9.0.0"
 }

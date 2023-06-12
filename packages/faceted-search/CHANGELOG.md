@@ -1,5 +1,15 @@
 # Changelog
 
+## 9.3.0
+
+### Minor Changes
+
+- d579821da: feat: added custom attributes to the faceted basic search
+
+### Patch Changes
+
+- 9ea9961bd: test: rewrite using react testing library
+
 ## 9.2.1
 
 ### Patch Changes
