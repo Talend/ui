@@ -1,17 +1,22 @@
 import { cloneElement, useState } from 'react';
+import type { PropsWithChildren } from 'react';
+// example from doc
+// https://codesandbox.io/s/xenodochial-grass-js3bo9?file=/src/Tooltip.tsx:937-1044
+import {
+	useFloating,
+	useHover,
+	useFocus,
+	useDismiss,
+	useRole,
+	useInteractions,
+	autoUpdate,
+	flip,
+	offset,
+	shift,
+} from '@floating-ui/react';
 import { randomUUID } from '@talend/utils';
 
-import type { PropsWithChildren, FC } from 'react';
-import {
-	Tooltip as ReakitTooltip,
-	TooltipArrow as ReakitTooltipArrow,
-	TooltipProps as ReakitTooltipProps,
-	TooltipReference as ReakitTooltipReference,
-	useTooltipState as useReakitTooltipState,
-} from 'reakit/Tooltip';
-
 import styles from './Tooltip.module.scss';
-
 export type Placement =
 	| 'auto-start'
 	| 'auto'
@@ -29,34 +34,56 @@ export type Placement =
 	| 'left'
 	| 'left-start';
 
-export type TooltipProps = PropsWithChildren<any> &
-	ReakitTooltipProps & {
-		title?: string;
-	};
+export type TooltipProps = PropsWithChildren<any> & {
+	title?: string;
+	placement?: Placement;
+};
 
-const Tooltip: FC<TooltipProps> = ({ children, title, baseId, ...rest }: TooltipProps) => {
+// FIXME: fix styles
+// FIXME: fix placement left
+const Tooltip = ({ children, title, placement = 'top', ...rest }: TooltipProps) => {
 	const [uuid] = useState<string>(randomUUID());
-	const tooltipState = useReakitTooltipState({
-		...rest,
-		animated: 250,
-		gutter: 15,
-		unstable_flip: true,
-		unstable_preventOverflow: true,
-		baseId: baseId || uuid,
+	// const tooltipState = useTooltipState({
+	// 	...rest,
+	// 	animated: 250,
+	// 	gutter: 15,
+	// });
+	const [isOpen, setIsOpen] = useState(false);
+	const floating = useFloating({
+		placement,
+		open: isOpen,
+		onOpenChange: setIsOpen,
+		middleware: [
+			offset(4),
+			flip({
+				crossAxis: placement.includes('-'),
+				fallbackAxisSideDirection: 'start',
+				padding: 5,
+			}),
+			shift({ padding: 4 }),
+		],
+		whileElementsMounted: autoUpdate,
 	});
-
+	const hover = useHover(floating.context, { move: false });
+	const focus = useFocus(floating.context);
+	const dismiss = useDismiss(floating.context);
+	const role = useRole(floating.context, { role: 'tooltip' });
+	const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
 	return (
 		<>
-			<ReakitTooltipReference {...tooltipState} ref={children.ref} {...children.props}>
-				{referenceProps => cloneElement(children, referenceProps)}
-			</ReakitTooltipReference>
-			{title && (
-				<ReakitTooltip className={styles.tooltip} {...tooltipState} {...rest}>
-					<div className={styles.container}>
-						<ReakitTooltipArrow className={styles.arrow} {...tooltipState} />
-						{title}
-					</div>
-				</ReakitTooltip>
+			{cloneElement(children as any, {
+				ref: floating.refs.setReference,
+				...getReferenceProps(),
+			})}
+			{title && isOpen && (
+				<div
+					ref={floating.refs.setFloating}
+					className={styles.container}
+					style={floating.floatingStyles}
+					{...getFloatingProps()}
+				>
+					{title}
+				</div>
 			)}
 		</>
 	);

@@ -1,7 +1,6 @@
 import { forwardRef, useState } from 'react';
 import type { Ref } from 'react';
 import { randomUUID } from '@talend/utils';
-import { Checkbox as ReakitCheckbox } from 'reakit';
 import classnames from 'classnames';
 
 import useCheckboxState from './hooks/useCheckboxState';
@@ -39,10 +38,7 @@ const ToggleSwitch = forwardRef(
 				})}
 			>
 				<label htmlFor={switchId} style={readOnly ? { pointerEvents: 'none' } : {}}>
-					{/*
-					// ReakitCheckbox is not based on HTMLInputElement despite working like one
-					// @ts-ignore */}
-					<ReakitCheckbox
+					<input
 						id={switchId}
 						disabled={disabled}
 						readOnly={readOnly}
