@@ -2,4 +2,4 @@
 '@talend/scripts-config-storybook-lib': patch
 ---
 
-chore: forward calls if not match msw
+fix(msw): add option onUnhandledRequest: 'bypass' to forward calls if not match
