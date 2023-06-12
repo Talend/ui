@@ -1,6 +1,5 @@
-import { forwardRef, ReactElement, Ref, useState } from 'react';
+import { forwardRef, ReactElement, Ref, useState, InputHTMLAttributes } from 'react';
 import { randomUUID } from '@talend/utils';
-import { Checkbox as ReakitCheckbox, CheckboxProps } from 'reakit';
 import { ReactI18NextChild } from 'react-i18next';
 import classnames from 'classnames';
 
@@ -8,6 +7,10 @@ import useCheckboxState from '../../../Form/Field/Input/hooks/useCheckboxState';
 import Label from '../Label/Label';
 
 import styles from './Checkbox.module.scss';
+
+type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
+	value?: string | number;
+};
 
 export type CheckboxPrimitiveType = Omit<CheckboxProps, 'type' | 'prefix'> & {
 	id?: string;
@@ -44,7 +47,7 @@ const Checkbox = forwardRef((props: CheckboxPrimitiveType, ref: Ref<HTMLInputEle
 				[styles.checkbox_isInline]: isInline,
 			})}
 		>
-			<ReakitCheckbox
+			<input
 				{...checkboxState}
 				type="checkbox"
 				disabled={disabled}
