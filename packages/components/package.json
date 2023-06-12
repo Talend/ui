@@ -50,7 +50,7 @@
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
     "rc-slider": "^10.1.0",
-    "react-autowhatever": "10.2.0",
+    "react-autowhatever": "github:moroshko/react-autowhatever#652a90901f1d43b950ddfe7d4e3ac339834b0004",
     "@talend/react-bootstrap": "^1.35.2",
     "react-debounce-input": "^3.3.0",
     "react-draggable": "^4.4.5",
