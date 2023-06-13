@@ -29,7 +29,6 @@
   "devDependencies": {
     "@talend/scripts-core": "^13.1.2",
     "@talend/scripts-config-react-webpack": "^15.3.3",
-    "enzyme": "^3.11.0",
     "fetch-mock": "^9.11.0",
     "node-fetch": "^2.6.9",
     "react": "^17.0.2",

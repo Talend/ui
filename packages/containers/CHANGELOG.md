@@ -1,5 +1,23 @@
 # @talend/react-containers
 
+## 9.1.2
+
+### Patch Changes
+
+- b8c4161d2: test: rewrite all tests using RTL:
+
+  - fix(ActionSplitDropdown): omit cmf Props
+  - fix(ActionDropdown): pass required id for a11y
+  - fix: remove old React contextTypes api
+
+- Updated dependencies [fcd8daf3c]
+- Updated dependencies [3099c427a]
+- Updated dependencies [c7f316d7c]
+- Updated dependencies [b8c4161d2]
+- Updated dependencies [3099c427a]
+  - @talend/react-components@10.3.5
+  - @talend/react-forms@9.2.2
+
 ## 9.1.1
 
 ### Patch Changes

@@ -93,6 +93,11 @@ function CustomListLazyLoading(props) {
 
 export default {
 	title: 'Components/List/List Composition',
+	parameters: {
+		chromatic: {
+			disableSnapshot: true,
+		},
+	},
 };
 
 export const Default = () => (
