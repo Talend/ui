@@ -7,7 +7,7 @@ import {
 	Tabs,
 	TabsKit,
 	InlineMessage,
-} from '@talend/design-system';
+} from '../../';
 
 export default { component: Tabs };
 

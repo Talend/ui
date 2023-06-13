@@ -1,18 +1,18 @@
 import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
-import { TabList as ReakitTabList, TabState } from 'reakit';
 import { DataAttributes } from '../../../types';
 import { StackHorizontal } from '../../Stack';
+import { TabState } from './TabState';
 
 export type TabListPropsTypesWithoutState = DataAttributes &
 	HTMLAttributes<HTMLDivElement> & { children: ReactElement | ReactElement[] };
 
-type TabListPropsTypes = TabListPropsTypesWithoutState & TabState;
+type TabListPropsTypes = TabListPropsTypesWithoutState;
 
 const TabList = forwardRef((props: TabListPropsTypes, ref: Ref<HTMLDivElement>) => {
 	return (
-		<ReakitTabList {...props} ref={ref} as={StackHorizontal} gap="M">
+		<StackHorizontal role="tablist" {...props} ref={ref} gap="M">
 			{props.children}
-		</ReakitTabList>
+		</StackHorizontal>
 	);
 });
 

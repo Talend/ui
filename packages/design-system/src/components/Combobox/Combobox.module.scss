@@ -1,5 +1,5 @@
 @use '~@talend/design-tokens/lib/tokens';
-@use '../../Form/Primitives/mixins' as Form;
+@use '../Form/Primitives/mixins' as Form;
 
 .combobox {
 	&__input {
