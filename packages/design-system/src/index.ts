@@ -15,10 +15,10 @@ import {
 	ButtonTertiaryAsLink,
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
-import Card from './components/WIP/Card';
-import Combobox from './components/WIP/Combobox';
+import Card from './components/Card';
+import Combobox from './components/Combobox';
 import Divider from './components/Divider';
-import { FloatingDrawer } from './components/WIP/Drawer';
+import { FloatingDrawer } from './components/Drawer';
 import Dropdown from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
@@ -54,7 +54,7 @@ import {
 	MessageCollectionWarning,
 } from './components/Message';
 import Modal from './components/Modal';
-import Popover from './components/WIP/Popover';
+import Popover from './components/Popover';
 import Skeleton, {
 	SkeletonButton,
 	SkeletonButtonIcon,
@@ -72,8 +72,8 @@ import {
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import { Tabs, TabsAsLinkList, TabsKit } from './components/WIP/Tabs';
-import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
+import { Tabs, TabsAsLinkList, TabsKit } from './components/Tabs';
+import { Accordion, CollapsiblePanel } from './components/Accordion';
 import {
 	Tag,
 	TagBeta,

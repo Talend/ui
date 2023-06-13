@@ -1,7 +1,7 @@
 import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { TabList as ReakitTabList, TabState } from 'reakit';
-import { DataAttributes } from '../../../../types';
-import { StackHorizontal } from '../../../Stack';
+import { DataAttributes } from '../../../types';
+import { StackHorizontal } from '../../Stack';
 
 export type TabListPropsTypesWithoutState = DataAttributes &
 	HTMLAttributes<HTMLDivElement> & { children: ReactElement | ReactElement[] };

@@ -1,4 +1,4 @@
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import styles from './Combobox.module.scss';
 import { useTranslation } from 'react-i18next';
 import {

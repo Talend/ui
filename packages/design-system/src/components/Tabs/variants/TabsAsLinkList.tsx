@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from 'react';
 import TabAsLink, { TabAsLinkProps } from '../Primitive/TabAsLink';
-import { StackHorizontal } from '../../../Stack';
-import { DataAttributes } from '../../../../types';
+import { StackHorizontal } from '../../Stack';
+import { DataAttributes } from '../../../types';
 
 import styles from './TabsAsLinkList.module.scss';
 

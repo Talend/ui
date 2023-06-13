@@ -2,9 +2,9 @@ import { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from
 import classNames from 'classnames';
 import { randomUUID } from '@talend/utils';
 
-import { DataAttributes } from '../../../../types';
+import { DataAttributes } from '../../../types';
 
-import { variants } from '../../../Status/Primitive/StatusPrimitive';
+import { variants } from '../../Status/Primitive/StatusPrimitive';
 
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';

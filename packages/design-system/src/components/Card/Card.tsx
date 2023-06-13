@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { StackVertical } from '../../Stack';
+import { StackVertical } from '../Stack';
 
 import theme from './Card.module.scss';
 

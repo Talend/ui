@@ -1,5 +1,5 @@
 import { forwardRef, ReactElement, Ref } from 'react';
-import { DataAttributes } from '../../../../types';
+import { DataAttributes } from '../../../types';
 import { TabInitialState, useTabState } from 'reakit';
 import TabList from '../Primitive/TabList';
 import Tab, { TabPropsTypesWithoutState } from '../Primitive/Tab';

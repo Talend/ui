@@ -10,9 +10,9 @@ import {
 	PopoverStateReturn,
 	usePopoverState,
 } from 'reakit';
-import Clickable from '../../Clickable';
-import { Placement } from '../../Tooltip/Tooltip';
-import { DataAttributes } from '../../../types';
+import Clickable from '../Clickable';
+import { Placement } from '../Tooltip/Tooltip';
+import { DataAttributes } from '../../types';
 
 import style from './Popover.module.scss';
 

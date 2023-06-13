@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { TabPanel as ReakitTabPanel, TabState } from 'reakit';
-import { DataAttributes } from '../../../../types';
+import { DataAttributes } from '../../../types';
 
 export type TabPanelPropsTypesWithoutState = DataAttributes &
 	HTMLAttributes<HTMLDivElement> & { children: ReactElement | ReactElement[] };
