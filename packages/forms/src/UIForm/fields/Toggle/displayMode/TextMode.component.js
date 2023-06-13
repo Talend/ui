@@ -4,8 +4,6 @@ import Toggle from '@talend/react-components/lib/Toggle';
 
 function noop() {}
 
-jest.unmock('@talend/design-system');
-
 export default function TextModeToggle(props) {
 	return (
 		<div className={classNames('form-group', props.className)}>
