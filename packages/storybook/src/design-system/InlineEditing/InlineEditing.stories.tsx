@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { InlineEditing } from '@talend/design-system';
+import { InlineEditing, StackVertical } from '@talend/design-system';
 
 export default {
 	component: InlineEditing,
@@ -19,6 +19,7 @@ export const Text = {
 		/>
 	),
 };
+
 export const EmptyTextWithPlaceholder = {
 	render: (props: Story) => (
 		<InlineEditing.Text
@@ -29,6 +30,29 @@ export const EmptyTextWithPlaceholder = {
 		/>
 	),
 };
+
+function DoubleBindingInlineEditing({ ...props }) {
+	const [textValue, setTextValue] = useState('Lorem Ipsum');
+
+	return (
+		<StackVertical gap={'M'}>
+			<InlineEditing.Text
+				label="Edit the value"
+				placeholder="What is your Lorem Ipsum?"
+				defaultValue={textValue}
+				onEdit={(_, newValue) => setTextValue(newValue)}
+				{...props}
+			/>
+
+			<input value={textValue} onChange={e => setTextValue(e.currentTarget.value)} />
+		</StackVertical>
+	);
+}
+
+export const TextWithDoubleBinding = {
+	render: (props: Story) => <DoubleBindingInlineEditing {...props} />,
+};
+
 export const Textarea = {
 	render: (props: Story) => (
 		<InlineEditing.Textarea

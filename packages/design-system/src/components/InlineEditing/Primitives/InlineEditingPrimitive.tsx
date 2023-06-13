@@ -1,4 +1,4 @@
-import { cloneElement, forwardRef, useEffect, useState } from 'react';
+import { cloneElement, forwardRef, useEffect, useRef, useState } from 'react';
 
 import type {
 	MouseEvent,
@@ -70,8 +70,10 @@ const InlineEditingPrimitive = forwardRef(
 			...rest
 		} = props;
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
+
 		const [isEditing, setEditing] = useState<boolean>(false);
 		const [value, setValue] = useState<string | undefined>(defaultValue);
+
 		const toggleEditionMode = (isEditionMode: boolean) => {
 			setEditing(isEditionMode);
 			onToggle(isEditionMode);
@@ -83,6 +85,14 @@ const InlineEditingPrimitive = forwardRef(
 				toggleEditionMode(hasError);
 			}
 		}, [hasError]);
+
+		useEffect(() => {
+			// Update state's value when default value is updated
+			if (value !== defaultValue) setValue(defaultValue);
+
+			// Update state's value only when default value is updated
+			// eslint-disable-next-line react-hooks/exhaustive-deps
+		}, [defaultValue]);
 
 		const handleSubmit = (event: OnEditEvent) => {
 			event.stopPropagation();
