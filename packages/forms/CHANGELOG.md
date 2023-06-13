@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 9.2.3
+
+### Patch Changes
+
+- eefc711c0: fix: remove jest from runtime
+
 ## 9.2.2
 
 ### Patch Changes
