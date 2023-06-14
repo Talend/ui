@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
+import tokens from '@talend/design-tokens';
+
 import { GRID_SIZE } from '../../constants/flowdesigner.constants';
 import { Transform } from '../../customTypings/index.d';
 
@@ -17,7 +19,7 @@ function Grid({ transformData }: { transformData?: Transform }) {
 				<pattern
 					id="grid"
 					fill="none"
-					stroke="#8F8F8F"
+					stroke={tokens.coralColorNeutralBorder}
 					strokeWidth="0.5"
 					x={get(transformData, 'x')}
 					y={get(transformData, 'y')}
