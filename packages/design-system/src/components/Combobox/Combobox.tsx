@@ -1,12 +1,8 @@
+import { useState, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { randomUUID } from '@talend/utils';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import styles from './Combobox.module.scss';
-import { useTranslation } from 'react-i18next';
-import {
-	unstable_useComboboxState as useReakitComboboxState,
-	unstable_Combobox as ReakitCombobox,
-	unstable_ComboboxPopover as ReakitComboboxPopover,
-	unstable_ComboboxOption as ReakitComboboxOption,
-} from 'reakit';
 
 export type ComboboxProps = {
 	values?: string[];
@@ -15,25 +11,62 @@ export type ComboboxProps = {
 
 const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
+	const [show, setShow] = useState<boolean>(false);
+	const [options, setOptions] = useState<string[]>(values || []);
+	const [value, setValue] = useState<string>(rest.initialValue || '');
+	const [id] = useState<string>(rest.id || randomUUID());
+	const [boxId] = useState<string>(randomUUID());
+	const noValue = t('COMBOBOX_NOT_RESULT', 'No results found');
+	const onKeydown = useCallback(e => {
+		if (e.key === 'Escape') {
+			setShow(false);
+		}
+	}, []);
+	// const combobox = useReakitComboboxState({
+	// 	autoSelect: true,
+	// 	inline: true,
+	// 	list: true,
+	// 	gutter: 8,
+	// 	values,
+	// });
 
-	const combobox = useReakitComboboxState({
-		autoSelect: true,
-		inline: true,
-		list: true,
-		gutter: 8,
-		values,
-	});
+	// sync options with values and value
+	useEffect(() => {
+		if (value) {
+			setOptions(values.filter(option => option.toLowerCase().includes(value.toLowerCase())));
+		} else {
+			setOptions(values);
+		}
+	}, [value, values]);
 
 	return (
 		<div className={styles.combobox}>
-			<ReakitCombobox {...combobox} {...rest} className={styles.combobox__input} />
-			<ReakitComboboxPopover {...combobox}>
-				{combobox.matches.length
-					? combobox.matches.map(match => (
-							<ReakitComboboxOption {...combobox} key={match} value={match} />
-					  ))
-					: t('COMBOBOX_NOT_RESULT', 'No results found')}
-			</ReakitComboboxPopover>
+			<input
+				className={styles.combobox__input}
+				id={id}
+				role="combobox"
+				autoComplete="off"
+				aria-expanded={show}
+				onKeyDown={onKeydown}
+				onFocus={() => setShow(true)}
+				aria-controls={boxId}
+				value={value}
+				placeholder={t('COMBOBOX_PLACEHOLDER', 'Search')}
+				onChange={e => setValue(e.target.value)}
+			/>
+			<div id={boxId} role="listbox" aria-labelledby={id} data-dialog="true" hidden={!show}>
+				{options.length ? (
+					options.map(v => (
+						<div role="option" aria-selected="false" key={v}>
+							{v}
+						</div>
+					))
+				) : (
+					<div role="option" aria-selected="false">
+						{noValue}
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };

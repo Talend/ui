@@ -9,6 +9,7 @@
 	}
 
 	[role='listbox'] {
+		margin-top: tokens.$coral-spacing-xs;
 		background: tokens.$coral-color-neutral-background;
 		border-radius: tokens.$coral-radius-s;
 		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
