@@ -55,9 +55,24 @@ const Combobox = ({ values, ...rest }: ComboboxProps) => {
 				onChange={e => setValue(e.target.value)}
 			/>
 			<div id={boxId} role="listbox" aria-labelledby={id} data-dialog="true" hidden={!show}>
-				{options.length ? (
+				{show && options.length ? (
 					options.map(v => (
-						<div role="option" aria-selected="false" key={v}>
+						<div
+							role="option"
+							tabIndex={-1}
+							aria-selected="false"
+							key={v}
+							onClick={() => {
+								setValue(v);
+								setShow(false);
+							}}
+							onKeyDown={e => {
+								if (e.key === 'Enter') {
+									setValue(v);
+									setShow(false);
+								}
+							}}
+						>
 							{v}
 						</div>
 					))

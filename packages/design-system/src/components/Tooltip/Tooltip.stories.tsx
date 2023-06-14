@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { ButtonPrimary, Tooltip } from '@talend/design-system';
+import { ButtonPrimary, Tooltip } from '../../';
 
 export default { component: Tooltip };
 
