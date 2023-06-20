@@ -95,7 +95,7 @@ const defaultMain = {
 
 const userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
-module.exports = {
+const config = {
 	...defaultMain,
 	features: merge(defaultMain.features, userMain.features),
 	stories: fixWindowsPaths([...(userMain.stories || defaultMain.stories)]),
@@ -110,3 +110,5 @@ module.exports = {
 		return finalConfig
 	}
 };
+
+export default config;
