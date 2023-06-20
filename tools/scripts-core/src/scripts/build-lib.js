@@ -93,7 +93,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 			} else {
 				console.log('Building with tsc');
 			}
-			args = 'tsc'.concat(args);
+			args = ['tsc'].concat(args);
 
 			const tscSpawn = await utils.process.spawn('npx', args, { stdio: 'inherit', env });
 
