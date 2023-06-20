@@ -1,7 +1,4 @@
 {
   "root": true,
-  "extends": ["@talend"],
-  "rules": {
-    "react/display-name": "warn"
-  }
+  "extends": ["@talend"]
 }

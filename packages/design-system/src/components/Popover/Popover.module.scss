@@ -1,6 +1,16 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .popover {
+	background-color: white;
+	box-shadow: 0 2px 4px rgba(0, 10, 20, 0.1);
+	border: 1px solid #ddd;
+	font-size: 90%;
+	padding: 4px 8px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	width: max-content;
+	max-width: calc(100vw - 10px);
+
 	&__arrow {
 		[class='fill'] {
 			fill: tokens.$coral-color-neutral-background;

@@ -3,6 +3,8 @@ import type { PropsWithChildren } from 'react';
 // example from doc
 // https://codesandbox.io/s/xenodochial-grass-js3bo9?file=/src/Tooltip.tsx:937-1044
 import {
+	arrow,
+	FloatingArrow,
 	useFloating,
 	useHover,
 	useFocus,
@@ -49,11 +51,15 @@ const Tooltip = ({ children, title, placement = 'top', ...rest }: TooltipProps) 
 	// 	gutter: 15,
 	// });
 	const [isOpen, setIsOpen] = useState(false);
+	const arrowRef = useRef(null);
 	const floating = useFloating({
 		placement,
 		open: isOpen,
 		onOpenChange: setIsOpen,
 		middleware: [
+			arrow({
+				element: arrowRef,
+			}),
 			offset(4),
 			flip({
 				crossAxis: placement.includes('-'),
@@ -82,6 +88,7 @@ const Tooltip = ({ children, title, placement = 'top', ...rest }: TooltipProps) 
 					style={floating.floatingStyles}
 					{...getFloatingProps()}
 				>
+					<FloatingArrow ref={arrowRef} context={context} />
 					{title}
 				</div>
 			)}

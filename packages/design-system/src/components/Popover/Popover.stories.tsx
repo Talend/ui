@@ -2,7 +2,7 @@ import { forwardRef, Ref } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { PopoverStateReturn } from 'reakit/ts';
-import { Popover, ButtonPrimary, ButtonIcon, StackVertical, Form } from '@talend/design-system';
+import { Popover, ButtonPrimary, ButtonIcon, StackVertical, Form } from '../../';
 import { PopoverDisclosureHTMLProps } from 'reakit';
 
 export default {
