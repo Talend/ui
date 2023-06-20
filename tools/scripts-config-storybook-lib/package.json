@@ -23,7 +23,6 @@
     "@storybook/addon-essentials": "^7.0.2",
     "@storybook/addon-interactions": "^7.0.2",
     "@storybook/addon-links": "^7.0.2",
-    "@storybook/builder-webpack5": "^7.0.2",
     "@storybook/jest": "^0.1.0",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.0.2",

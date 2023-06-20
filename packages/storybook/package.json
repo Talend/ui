@@ -33,7 +33,7 @@
     "@storybook/addons": "^7.0.2",
     "@storybook/core-events": "^7.0.2",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^7.0.2",
+    "@storybook/react-webpack5": "^7.0.20",
     "@storybook/testing-library": "^0.1.0",
     "@storybook/testing-react": "^2.0.0",
     "@storybook/theming": "^7.0.2",
@@ -41,6 +41,7 @@
     "@types/react": "^17.0.53",
     "mdx-embed": "^1.1.2",
     "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-router-dom": "~6.3.0",
     "storybook-addon-mdx-embed": "^1.1.1",
     "storybook-docs-toc": "^1.7.0"

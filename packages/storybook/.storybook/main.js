@@ -1,5 +1,6 @@
-const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+
+import path from 'path';
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 
 const rootPath = require.resolve('@talend/ui-storybook').replace('src/index.ts', '');
 
@@ -18,21 +19,22 @@ const STORIES = [
 	`${rootPath}src/design-system/**/*.stories.mdx`,
 ];
 
-module.exports = {
-	framework: '@storybook/react',
+const config = {
+	framework: {
+		name: '@storybook/react-webpack5',
+		options: {
+			builder: {
+				lazyCompilation: true,
+				fsCache: true,
+			},
+		},
+	},
 	stories: STORIES,
 	staticDirs: [`${rootPath}static`],
 	addons: ['storybook-addon-mdx-embed'],
 	typescript: {
 		reactDocgen: false,
 		check: true,
-	},
-	core: {
-		builder: 'webpack5',
-		options: {
-			lazyCompilation: true,
-			fsCache: true,
-		},
 	},
 	webpackFinal: async config => {
 		config.plugins.push(
@@ -60,3 +62,5 @@ module.exports = {
 		return config;
 	},
 };
+
+export default config;

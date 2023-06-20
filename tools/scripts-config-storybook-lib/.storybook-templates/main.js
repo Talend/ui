@@ -1,13 +1,13 @@
-const fs = require('fs');
-const { merge } = require('lodash');
-const path = require('path');
-const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
-const { getAllModules } = require('@talend/module-to-cdn');
-const {
+import fs from 'fs';
+import { merge } from 'lodash';
+import path from 'path';
+import CDNPlugin from '@talend/dynamic-cdn-webpack-plugin';
+import { getAllModules } from '@talend/module-to-cdn';
+import {
 	getSassLoaders,
-} = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
+} from '@talend/scripts-config-react-webpack/config/webpack.config.common';
 
-const { fixWindowsPaths } = require('./utils');
+import { fixWindowsPaths } from './utils';
 
 const cwd = process.cwd();
 
@@ -25,10 +25,17 @@ function getStoriesFolders() {
 }
 
 const defaultMain = {
-	framework: '@storybook/react-webpack5',
+	framework: {
+		name: '@storybook/react-webpack5',
+		options: {
+			builder: {
+				disableTelemetry: true,
+				enableCrashReports: false,
+			},
+		},
+	},
 	features: {
 		buildStoriesJson: true,
-		previewCsfV3: true,
 	},
 	stories: getStoriesFolders(),
 	staticDirs: [path.join(__dirname, 'msw')],
@@ -46,11 +53,6 @@ const defaultMain = {
 			},
 		},
 	],
-	core: {
-		builder: 'webpack5',
-		disableTelemetry: true,
-		enableCrashReports: false,
-	},
 	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
 		// by default storybook do not support scss without css module
