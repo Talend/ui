@@ -21,8 +21,6 @@ export default async function build(env, presetApi, unsafeOptions) {
 		}
 		return true;
 	});
-	const babel = utils.path.resolveBin('@babel/cli', { executable: 'babel' });
-	const tsc = utils.path.resolveBin('typescript', { executable: 'tsc' });
 
 	const babelRootPath = utils.path.getPkgRootPath('@talend/scripts-config-babel');
 	const tsRootPath = utils.path.getPkgRootPath('@talend/scripts-config-typescript');
