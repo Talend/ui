@@ -1,11 +1,13 @@
-import { cloneElement, useState } from 'react';
+import { cloneElement } from 'react';
+import type { Ref } from 'react';
 
 type DisclosureProps = {
 	children: React.ReactNode;
 	initialValue?: boolean;
 	eventType: string;
-	show: boolean;
-	setShow: (isOpen: boolean) => void;
+	open: boolean;
+	popref: Ref;
+	setOpen: (isOpen: boolean) => void;
 };
 
 type DisclosureOutputProps = {
@@ -16,16 +18,19 @@ type DisclosureOutputProps = {
 
 export function Disclosure({
 	children,
-	show,
-	setShow,
+	popref,
+	open,
+	setOpen,
 	eventType = 'click',
 	...rest
 }: DisclosureProps) {
-	const toggle = () => setShow(!show);
-	const props: DisclosureOutputProps = {};
+	const props: DisclosureOutputProps = {
+		ref: popref,
+	};
 	if (eventType === 'click') {
-		props.onClick = () => {
-			toggle();
+		props.onClick = (...args: any) => {
+			setOpen(!open);
+			if (rest.onClick) rest.onClick(...args);
 		};
 	} else {
 		props.onHover = () => {
@@ -37,6 +42,9 @@ export function Disclosure({
 	}
 	if (typeof children === 'function') {
 		return children(props);
+	}
+	if (!children) {
+		return null;
 	}
 	return cloneElement(children as any, { ...props, ...rest });
 }

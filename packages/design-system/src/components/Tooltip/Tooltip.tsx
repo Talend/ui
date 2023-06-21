@@ -1,4 +1,4 @@
-import { cloneElement, useState } from 'react';
+import { cloneElement, useState, useRef } from 'react';
 import type { PropsWithChildren } from 'react';
 // example from doc
 // https://codesandbox.io/s/xenodochial-grass-js3bo9?file=/src/Tooltip.tsx:937-1044
@@ -88,7 +88,7 @@ const Tooltip = ({ children, title, placement = 'top', ...rest }: TooltipProps) 
 					style={floating.floatingStyles}
 					{...getFloatingProps()}
 				>
-					<FloatingArrow ref={arrowRef} context={context} />
+					<FloatingArrow ref={arrowRef} context={floating.context} />
 					{title}
 				</div>
 			)}

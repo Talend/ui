@@ -4,6 +4,7 @@ import type { HTMLProps, Dispatch, SetStateAction, ReactNode } from 'react';
 import { useMergeRefs, Placement, FloatingPortal, FloatingFocusManager } from '@floating-ui/react';
 import { usePopover } from './usePopover';
 import { Disclosure } from '../Disclosure/Disclosure';
+import theme from './Popover.module.scss';
 
 interface PopoverOptions {
 	disclosure?: ReactNode;
@@ -45,6 +46,7 @@ export const PopoverContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 				<FloatingFocusManager context={floatingContext} modal={context.modal}>
 					<div
 						ref={ref}
+						className={theme.popover}
 						style={{ ...context.floatingStyles, ...style }}
 						aria-labelledby={context.labelId}
 						aria-describedby={context.descriptionId}
@@ -61,7 +63,7 @@ export const PopoverContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 export function Popover({
 	children,
 	disclosure,
-	modal = false,
+	modal = true,
 	...restOptions
 }: {
 	children: ReactNode;
@@ -71,8 +73,14 @@ export function Popover({
 	const popover = usePopover({ modal, ...restOptions });
 	return (
 		<PopoverContext.Provider value={popover}>
-			<Disclosure {...disclosure} />
-			<PopoverContent>{children}</PopoverContent>
+			<Disclosure
+				popref={popover.refs.setReference}
+				// style={popover.floatingStyles}
+				{...popover.getReferenceProps()}
+			>
+				{disclosure}
+			</Disclosure>
+			{popover.open && <PopoverContent ref={popover.refs.setFloating}>{children}</PopoverContent>}
 		</PopoverContext.Provider>
 	);
 }
