@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 13.3.0
+
+### Minor Changes
+
+- 51206dfd6: Make scripts-core compliant with yarn v3.X
+
 ## 13.2.0
 
 ### Minor Changes
