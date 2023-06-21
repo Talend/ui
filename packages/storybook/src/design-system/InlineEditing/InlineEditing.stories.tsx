@@ -31,7 +31,7 @@ export const EmptyTextWithPlaceholder = {
 	),
 };
 
-function DoubleBindingInlineEditing({ ...props }) {
+function ControlledInlineEditing({ ...props }) {
 	const [textValue, setTextValue] = useState('Lorem Ipsum');
 
 	return (
@@ -39,8 +39,8 @@ function DoubleBindingInlineEditing({ ...props }) {
 			<InlineEditing.Text
 				label="Edit the value"
 				placeholder="What is your Lorem Ipsum?"
-				defaultValue={textValue}
-				onEdit={(_, newValue) => setTextValue(newValue)}
+				value={textValue}
+				onChangeValue={newValue => setTextValue(newValue)}
 				{...props}
 			/>
 
@@ -49,8 +49,8 @@ function DoubleBindingInlineEditing({ ...props }) {
 	);
 }
 
-export const TextWithDoubleBinding = {
-	render: (props: Story) => <DoubleBindingInlineEditing {...props} />,
+export const ControlledComponent = {
+	render: (props: Story) => <ControlledInlineEditing {...props} />,
 };
 
 export const Textarea = {
