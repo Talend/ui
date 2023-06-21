@@ -1,7 +1,14 @@
-import { forwardRef, useContext, createContext } from 'react';
+import { forwardRef, useContext, createContext, useRef } from 'react';
 import type { HTMLProps, Dispatch, SetStateAction, ReactNode } from 'react';
+import tokens from '@talend/design-tokens';
 
-import { useMergeRefs, Placement, FloatingPortal, FloatingFocusManager } from '@floating-ui/react';
+import {
+	useMergeRefs,
+	Placement,
+	FloatingPortal,
+	FloatingFocusManager,
+	FloatingArrow,
+} from '@floating-ui/react';
 import { usePopover } from './usePopover';
 import { Disclosure } from '../Disclosure/Disclosure';
 import theme from './Popover.module.scss';
@@ -36,6 +43,7 @@ export const usePopoverContext = () => {
 
 export const PopoverContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
 	function PopoverContent({ style, ...props }, propRef) {
+		const arrowRef = useRef(null);
 		const { context: floatingContext, ...context } = usePopoverContext();
 		const ref = useMergeRefs([context.refs.setFloating, propRef]);
 
@@ -60,6 +68,13 @@ export const PopoverContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 						aria-describedby={context.descriptionId}
 						{...context.getFloatingProps(props)}
 					>
+						<FloatingArrow
+							ref={arrowRef}
+							context={context}
+							strokeWidth={1}
+							stroke={tokens.coralColorIllustrationShadow}
+							fill={tokens.coralColorNeutralBackground}
+						/>
 						{children}
 					</div>
 				</FloatingFocusManager>
@@ -84,7 +99,11 @@ export function Popover({
 			<Disclosure popref={popover.refs.setReference} {...popover.getReferenceProps()}>
 				{disclosure}
 			</Disclosure>
-			{popover.open && <PopoverContent ref={popover.refs.setFloating}>{children}</PopoverContent>}
+			{popover.open && (
+				<>
+					<PopoverContent ref={popover.refs.setFloating}>{children}</PopoverContent>
+				</>
+			)}
 		</PopoverContext.Provider>
 	);
 }

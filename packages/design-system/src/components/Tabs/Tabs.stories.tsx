@@ -336,7 +336,7 @@ export const TabStandaloneControlled = () => (
 					icon: 'user',
 					title: 'Tab 2',
 					'data-feature': 'domain.feature.description',
-					id: 'tab2', // Set the tab's id for this use, otherwise Reakit will create one randomly
+					id: 'tab2', // Set the tab's id for this use, otherwise it will create one randomly
 				},
 				tabContent: (
 					<>

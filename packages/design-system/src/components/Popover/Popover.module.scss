@@ -11,29 +11,11 @@
 	// width: max-content;
 	// max-width: calc(100vw - 10px);
 
-	&__arrow {
-		[class='fill'] {
-			fill: tokens.$coral-color-neutral-background;
-		}
+	background-color: tokens.$coral-color-neutral-background;
+	transition: opacity tokens.$coral-transition-fast;
+	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	border-radius: tokens.$coral-radius-s;
+	opacity: 1;
 
-		[class='stroke'] {
-			fill: tokens.$coral-color-illustration-shadow;
-		}
-	}
-
-	&__animated {
-		background-color: tokens.$coral-color-neutral-background;
-		transition: opacity tokens.$coral-transition-fast;
-		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
-		border-radius: tokens.$coral-radius-s;
-		opacity: 0;
-
-		&_withPadding {
-			padding: tokens.$coral-spacing-m;
-		}
-
-		[data-enter] & {
-			opacity: 1;
-		}
-	}
+	padding: tokens.$coral-spacing-m;
 }

@@ -18,7 +18,6 @@ import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/B
 import Card from './components/Card';
 import Combobox from './components/Combobox';
 import Divider from './components/Divider';
-import { FloatingDrawer } from './components/Drawer';
 import Dropdown from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
@@ -120,7 +119,6 @@ export {
 	CollapsiblePanel,
 	Combobox,
 	Divider,
-	FloatingDrawer,
 	Dropdown,
 	EmptyState,
 	EmptyStateMedium,

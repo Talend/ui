@@ -11,6 +11,10 @@ import {
 	useInteractions,
 	Placement,
 } from '@floating-ui/react';
+import tokens from '@talend/design-tokens';
+
+const ARROW_HEIGHT = 7;
+const GAP = 2;
 
 interface PopoverOptions {
 	initialOpen?: boolean;
@@ -40,13 +44,13 @@ export function usePopover({
 		onOpenChange: setOpen,
 		whileElementsMounted: autoUpdate,
 		middleware: [
-			offset(5),
+			offset(ARROW_HEIGHT + GAP),
 			flip({
 				crossAxis: placement.includes('-'),
 				fallbackAxisSideDirection: 'end',
-				padding: 5,
+				padding: 0,
 			}),
-			shift({ padding: 5 }),
+			shift({ padding: 0 }),
 		],
 	});
 
