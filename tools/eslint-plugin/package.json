@@ -14,7 +14,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@talend/scripts-config-cdn": "^10.6.0",
+    "@talend/scripts-config-cdn": "^10.7.0",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {

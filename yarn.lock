@@ -15442,9 +15442,9 @@ rc-slider@^10.2.1:
     rc-util "^5.27.0"
 
 rc-util@^5.27.0:
-  version "5.33.1"
-  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-5.33.1.tgz#96e5814400e04b819bace502b6ca40a67f3be37f"
-  integrity sha512-oMs2OIV/2lUCF8nllevzLccneyxAzdSOaHSs5y91qOLdqaLbIMsuL49C6/DhF/WKMqiAKEKGdVk2F1sB5HQe9A==
+  version "5.34.0"
+  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-5.34.0.tgz#3bec84f98c1dbf5305d89cda124aa8a0c9615f97"
+  integrity sha512-+zCDJ1gq+KwqbaZPAk7PGlNAssoTcnZSnTsr5KMYDBhzdPNFxyuglnewWMP5PyP/kAC6uW4r9Ejc08M+Lei04A==
   dependencies:
     "@babel/runtime" "^7.18.3"
     react-is "^16.12.0"
