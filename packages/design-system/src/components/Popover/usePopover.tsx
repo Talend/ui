@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useMemo } from 'react';
 import {
 	useFloating,
 	autoUpdate,
@@ -27,9 +27,9 @@ export function usePopover({
 	open: controlledOpen,
 	onOpenChange: setControlledOpen,
 }: PopoverOptions = {}) {
-	const [uncontrolledOpen, setUncontrolledOpen] = React.useState(initialOpen);
-	const [labelId, setLabelId] = React.useState<string | undefined>();
-	const [descriptionId, setDescriptionId] = React.useState<string | undefined>();
+	const [uncontrolledOpen, setUncontrolledOpen] = useState(initialOpen);
+	const [labelId, setLabelId] = useState<string | undefined>();
+	const [descriptionId, setDescriptionId] = useState<string | undefined>();
 
 	const open = controlledOpen ?? uncontrolledOpen;
 	const setOpen = setControlledOpen ?? setUncontrolledOpen;
@@ -60,7 +60,7 @@ export function usePopover({
 
 	const interactions = useInteractions([click, dismiss, role]);
 
-	return React.useMemo(
+	return useMemo(
 		() => ({
 			open,
 			setOpen,

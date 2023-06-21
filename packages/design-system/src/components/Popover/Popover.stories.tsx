@@ -1,9 +1,7 @@
 import { forwardRef, Ref } from 'react';
-
 import { action } from '@storybook/addon-actions';
-import { PopoverStateReturn } from 'reakit/ts';
 import { Popover, ButtonPrimary, ButtonIcon, StackVertical, Form } from '../../';
-import { PopoverDisclosureHTMLProps } from 'reakit';
+import { DisclosureFnProps } from '../Disclosure/Disclosure';
 
 export default {
 	component: Popover,
@@ -12,7 +10,7 @@ export default {
 const EasyPopover = () => <StackVertical gap="S">Hello hello</StackVertical>;
 
 /* eslint-disable-next-line react/display-name */
-const OpenPopover = forwardRef((props: PopoverDisclosureHTMLProps, ref: Ref<HTMLButtonElement>) => {
+const OpenPopover = forwardRef((props: any, ref: Ref) => {
 	return (
 		<ButtonPrimary onClick={action('Clicked disclosure')} {...props} ref={ref}>
 			Open popover
@@ -66,10 +64,10 @@ export const WithoutPaddingStory = () => (
 export const WithFunctionAsChildren = () => (
 	<div style={{ padding: '1.2rem' }}>
 		<Popover aria-label="Custom popover" disclosure={<OpenPopover />}>
-			{(popover: PopoverStateReturn) => (
+			{(popover: DisclosureFnProps) => (
 				<StackVertical gap="S">
 					There is some content
-					<ButtonPrimary onClick={() => popover?.hide()}>Close Me please</ButtonPrimary>
+					<ButtonPrimary onClick={() => popover?.setOpen(false)}>Close Me please</ButtonPrimary>
 				</StackVertical>
 			)}
 			<EasyPopover />

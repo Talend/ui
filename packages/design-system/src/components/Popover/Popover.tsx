@@ -40,6 +40,14 @@ export const PopoverContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 		const ref = useMergeRefs([context.refs.setFloating, propRef]);
 
 		if (!floatingContext.open) return null;
+		let children = props.children;
+
+		if (typeof props.children === 'function') {
+			children = children({
+				hide: () => context.setOpen(false),
+				...context,
+			});
+		}
 
 		return (
 			<FloatingPortal>
@@ -52,7 +60,7 @@ export const PopoverContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 						aria-describedby={context.descriptionId}
 						{...context.getFloatingProps(props)}
 					>
-						{props.children}
+						{children}
 					</div>
 				</FloatingFocusManager>
 			</FloatingPortal>
@@ -73,11 +81,7 @@ export function Popover({
 	const popover = usePopover({ modal, ...restOptions });
 	return (
 		<PopoverContext.Provider value={popover}>
-			<Disclosure
-				popref={popover.refs.setReference}
-				// style={popover.floatingStyles}
-				{...popover.getReferenceProps()}
-			>
+			<Disclosure popref={popover.refs.setReference} {...popover.getReferenceProps()}>
 				{disclosure}
 			</Disclosure>
 			{popover.open && <PopoverContent ref={popover.refs.setFloating}>{children}</PopoverContent>}

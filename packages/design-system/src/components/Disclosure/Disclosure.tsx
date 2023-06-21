@@ -1,7 +1,7 @@
 import { cloneElement } from 'react';
 import type { Ref } from 'react';
 
-type DisclosureProps = {
+export type DisclosureProps = {
 	children: React.ReactNode;
 	initialValue?: boolean;
 	eventType: string;
@@ -10,10 +10,19 @@ type DisclosureProps = {
 	setOpen: (isOpen: boolean) => void;
 };
 
-type DisclosureOutputProps = {
+type DisclosureButtonProps = {
+	ref: Ref;
 	onClick?: () => void;
 	onHover?: () => void;
 	onLeave?: () => void;
+};
+
+export type DisclosureFnProps = {
+	ref;
+	open: boolean;
+	toggle: () => void;
+	hide: () => void;
+	setOpen: (isOpen: boolean) => void;
 };
 
 export function Disclosure({
@@ -24,7 +33,7 @@ export function Disclosure({
 	eventType = 'click',
 	...rest
 }: DisclosureProps) {
-	const props: DisclosureOutputProps = {
+	const props: DisclosureButtonProps = {
 		ref: popref,
 	};
 	if (eventType === 'click') {
@@ -41,7 +50,11 @@ export function Disclosure({
 		};
 	}
 	if (typeof children === 'function') {
-		return children(props);
+		return children({
+			ref: popref,
+			open,
+			setOpen,
+		});
 	}
 	if (!children) {
 		return null;
