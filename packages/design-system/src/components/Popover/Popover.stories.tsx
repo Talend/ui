@@ -65,12 +65,14 @@ export const WithFunctionAsChildren = () => (
 	<div style={{ padding: '1.2rem' }}>
 		<Popover aria-label="Custom popover" disclosure={<OpenPopover />}>
 			{(popover: DisclosureFnProps) => (
-				<StackVertical gap="S">
-					There is some content
-					<ButtonPrimary onClick={() => popover?.setOpen(false)}>Close Me please</ButtonPrimary>
-				</StackVertical>
+				<>
+					<StackVertical gap="S">
+						There is some content
+						<ButtonPrimary onClick={() => popover?.setOpen(false)}>Close Me please</ButtonPrimary>
+					</StackVertical>
+					<EasyPopover />
+				</>
 			)}
-			<EasyPopover />
 		</Popover>
 	</div>
 );

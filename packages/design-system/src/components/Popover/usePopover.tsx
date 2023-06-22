@@ -11,7 +11,6 @@ import {
 	useInteractions,
 	Placement,
 } from '@floating-ui/react';
-import tokens from '@talend/design-tokens';
 
 const ARROW_HEIGHT = 7;
 const GAP = 2;
