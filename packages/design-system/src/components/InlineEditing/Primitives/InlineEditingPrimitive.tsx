@@ -121,13 +121,6 @@ const InlineEditingPrimitive = forwardRef(
 			}
 		}, [hasError]);
 
-		useEffect(() => {
-			if (onChangeValue) {
-				// Controlled mode - set internal value with prop value when change
-				setInternalValue(value);
-			}
-		}, [onChangeValue, value]);
-
 		const handleSubmit = (event: OnEditEvent) => {
 			event.stopPropagation();
 
