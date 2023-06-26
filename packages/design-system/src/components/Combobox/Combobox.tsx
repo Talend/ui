@@ -1,10 +1,11 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { randomUUID } from '@talend/utils';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import styles from './Combobox.module.scss';
+import { useId } from '../../useId';
 
 export type ComboboxProps = {
+	id?: string;
 	values?: string[];
 	initialValue?: string;
 };
@@ -14,8 +15,8 @@ const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	const [show, setShow] = useState<boolean>(false);
 	const [options, setOptions] = useState<string[]>(values || []);
 	const [value, setValue] = useState<string>(rest.initialValue || '');
-	const [id] = useState<string>(rest.id || randomUUID());
-	const [boxId] = useState<string>(randomUUID());
+	const id = useId(rest.id);
+	const boxId = useId();
 	const noValue = t('COMBOBOX_NOT_RESULT', 'No results found');
 	const onKeydown = useCallback(e => {
 		if (e.key === 'Escape') {
@@ -33,9 +34,11 @@ const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	// sync options with values and value
 	useEffect(() => {
 		if (value) {
-			setOptions(values.filter(option => option.toLowerCase().includes(value.toLowerCase())));
+			setOptions(
+				(values || []).filter(option => option.toLowerCase().includes(value.toLowerCase())),
+			);
 		} else {
-			setOptions(values);
+			setOptions(values || []);
 		}
 	}, [value, values]);
 
