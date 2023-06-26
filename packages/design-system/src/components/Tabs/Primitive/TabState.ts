@@ -69,7 +69,6 @@ export function useTabState(initialState?: TabInitialState): TabStateReturn {
 		) {
 			hasChanged = true;
 		}
-		console.log('try to detect change in panels', hasChanged);
 
 		if (hasChanged) {
 			setPanels(getPanels(initialState?.tabs ?? []));

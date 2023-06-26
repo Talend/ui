@@ -43,8 +43,7 @@ export type TooltipProps = PropsWithChildren<any> & {
 
 // FIXME: fix styles
 // FIXME: fix placement left
-const Tooltip = ({ children, title, placement = 'top', ...rest }: TooltipProps) => {
-	const [uuid] = useState<string>(randomUUID());
+const Tooltip = ({ children, title, placement = 'top' }: TooltipProps) => {
 	// const tooltipState = useTooltipState({
 	// 	...rest,
 	// 	animated: 250,

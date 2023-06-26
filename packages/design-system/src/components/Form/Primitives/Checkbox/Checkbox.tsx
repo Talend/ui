@@ -1,5 +1,4 @@
-import { forwardRef, ReactElement, Ref, useState, InputHTMLAttributes } from 'react';
-import { randomUUID } from '@talend/utils';
+import { forwardRef, ReactElement, Ref, InputHTMLAttributes } from 'react';
 import { ReactI18NextChild } from 'react-i18next';
 import classnames from 'classnames';
 
@@ -7,6 +6,7 @@ import useCheckboxState from '../../../Form/Field/Input/hooks/useCheckboxState';
 import Label from '../Label/Label';
 
 import styles from './Checkbox.module.scss';
+import { useId } from '../../../../useId';
 
 type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
 	value?: string | number;
@@ -32,8 +32,7 @@ const Checkbox = forwardRef((props: CheckboxPrimitiveType, ref: Ref<HTMLInputEle
 		indeterminate,
 		...rest
 	} = props;
-	const [uuid] = useState<string>(randomUUID());
-	const checkboxId = id || `checkbox--${uuid}`;
+	const checkboxId = useId(id, 'checkbox-');
 	const state = (indeterminate && 'indeterminate') || defaultChecked || checked;
 	const checkboxState = useCheckboxState({
 		state,

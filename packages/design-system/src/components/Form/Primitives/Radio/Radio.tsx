@@ -1,11 +1,11 @@
-import { forwardRef, InputHTMLAttributes, Ref, useState } from 'react';
-import { randomUUID } from '@talend/utils';
+import { forwardRef, InputHTMLAttributes, Ref } from 'react';
 
 import classnames from 'classnames';
 import Label from '../Label/Label';
 import useReadOnly from '../../../Form/Field/Input/hooks/useReadOnly';
 
 import styles from './Radio.module.scss';
+import { useId } from '../../../../useId';
 
 export type RadioPrimitiveType = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'prefix'> & {
 	label: string;
@@ -14,8 +14,7 @@ export type RadioPrimitiveType = Omit<InputHTMLAttributes<HTMLInputElement>, 'ty
 
 const Radio = forwardRef((props: RadioPrimitiveType, ref: Ref<HTMLInputElement>) => {
 	const { id, label, readOnly, disabled, defaultChecked, checked, ...rest } = props;
-	const [uuid] = useState<string>(randomUUID());
-	const radioId = id || `checkbox--${uuid}`;
+	const radioId = useId(id, 'checkbox-');
 	const readOnlyRadioProps = useReadOnly(defaultChecked || checked);
 
 	return (

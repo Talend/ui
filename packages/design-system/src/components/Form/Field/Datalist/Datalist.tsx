@@ -1,11 +1,11 @@
-import { forwardRef, Key, Ref, useState } from 'react';
-import { randomUUID } from '@talend/utils';
+import { forwardRef, Key, Ref } from 'react';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
 } from '../../Primitives/index';
+import { useId } from '../../../../useId';
 
 export type DatalistProps = {
 	values: string[];
@@ -36,9 +36,8 @@ const Datalist = forwardRef(
 		}: DatalistProps,
 		ref: Ref<HTMLInputElement> | undefined,
 	) => {
-		const [uuid] = useState<string>(randomUUID());
-		const datalistId = id || `datalist--${uuid}`;
-		const datalistListId = `datalist__list--${uuid}`;
+		const datalistId = useId(id, 'datalist-');
+		const datalistListId = useId(undefined, 'datalist__list-');
 
 		return (
 			<>

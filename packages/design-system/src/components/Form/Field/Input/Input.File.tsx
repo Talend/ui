@@ -1,5 +1,4 @@
 import { forwardRef, Key, Ref, useEffect, useRef, useState } from 'react';
-import { randomUUID } from '@talend/utils';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 import classnames from 'classnames';
@@ -15,6 +14,7 @@ import {
 } from '../../Primitives/index';
 
 import styles from './Input.File.module.scss';
+import { useId } from '../../../../useId';
 
 function getFileSize(size: number, t: TFunction) {
 	if (size < 1024) {
@@ -88,8 +88,7 @@ const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 			}
 		};
 	}, []);
-	const [uuid] = useState<string>(randomUUID());
-	const fileInfoId = `info--${uuid}`;
+	const fileInfoId = useId(undefined, 'info-');
 
 	const filesValue = () => {
 		if (files) {
