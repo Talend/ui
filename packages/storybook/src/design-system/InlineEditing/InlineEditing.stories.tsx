@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Story } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
-import { InlineEditing, StackVertical } from '@talend/design-system';
+import { action } from '@storybook/addon-actions';
+import { Story } from '@storybook/react';
+
+import { InlineEditing, StackHorizontal, StackVertical } from '@talend/design-system';
 
 export default {
 	component: InlineEditing,
@@ -32,7 +33,12 @@ export const EmptyTextWithPlaceholder = {
 };
 
 function ControlledInlineEditing({ ...props }) {
-	const [textValue, setTextValue] = useState('Lorem Ipsum');
+	const [data, setData] = useState({
+		id: 'object-1',
+		name: 'my first object',
+	});
+
+	const [textValue, setTextValue] = useState(data.name);
 
 	return (
 		<StackVertical gap={'M'}>
@@ -40,11 +46,13 @@ function ControlledInlineEditing({ ...props }) {
 				label="Edit the value"
 				placeholder="What is your Lorem Ipsum?"
 				value={textValue}
+				onCancel={() => setTextValue(data.name)}
 				onChangeValue={newValue => setTextValue(newValue)}
+				onEdit={(_, newValue) => setData({ ...data, name: newValue })}
 				{...props}
 			/>
 
-			<input value={textValue} onChange={e => setTextValue(e.currentTarget.value)} />
+			<label>{`Data = ${JSON.stringify(data)}`}</label>
 		</StackVertical>
 	);
 }

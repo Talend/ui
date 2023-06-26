@@ -1,11 +1,4 @@
-import { ButtonIcon } from '../../ButtonIcon';
-import Form from '../../Form';
-import { StackHorizontal } from '../../Stack';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
-import styles from './InlineEditingPrimitive.module.scss';
-import classnames from 'classnames';
-import keycode from 'keycode';
-import { cloneElement, forwardRef, useEffect, useState } from 'react';
+import { cloneElement, forwardRef, useCallback, useEffect, useState } from 'react';
 import type {
 	MouseEvent,
 	FormEvent,
@@ -17,6 +10,16 @@ import type {
 	ChangeEvent,
 } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import classnames from 'classnames';
+import keycode from 'keycode';
+
+import { ButtonIcon } from '../../ButtonIcon';
+import Form from '../../Form';
+import { StackHorizontal } from '../../Stack';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+
+import styles from './InlineEditingPrimitive.module.scss';
 
 type ErrorInEditing =
 	| {
@@ -97,19 +100,16 @@ const InlineEditingPrimitive = forwardRef(
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 		const [isEditing, setEditing] = useState<boolean>(false);
+		const [internalValue, setInternalValue] = useState<string | undefined>(defaultValue);
 
-		// Both modes (controlled & uncontrolled) - store currently typed value
-		const [inProgressValue, setInProgressValue] = useState<string | undefined>(defaultValue);
+		// Displayed content depends on current mode
+		// Controlled mode - display value prop
+		// Uncontrolled mode - display internal value
 
-		// Both modes (controlled & uncontrolled) - store a snapshot value
-		const [snapshotValue, setSnapshotValue] = useState<string | undefined>(defaultValue);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		const getValue = () => (onChangeValue ? value : internalValue);
 
 		const toggleEditionMode = (isEditionMode: boolean) => {
-			if (isEditionMode) {
-				// Both modes - initiate inProgressValue with stored value
-				setInProgressValue(snapshotValue);
-			}
-
 			setEditing(isEditionMode);
 			onToggle(isEditionMode);
 		};
@@ -123,21 +123,16 @@ const InlineEditingPrimitive = forwardRef(
 
 		useEffect(() => {
 			if (onChangeValue) {
-				// Controlled mode - save value prop as snapshot
-				setSnapshotValue(value);
+				// Controlled mode - set internal value with prop value when change
+				setInternalValue(value);
 			}
 		}, [onChangeValue, value]);
 
 		const handleSubmit = (event: OnEditEvent) => {
 			event.stopPropagation();
 
-			if (onChangeValue) {
-				// Controlled mode - call external controller to handle validating new filled value
-				onChangeValue(inProgressValue || '');
-			} else if (onEdit) {
-				// Uncontrolled mode - save input value as snapshot and notify
-				setSnapshotValue(inProgressValue);
-				onEdit(event, inProgressValue || '');
+			if (onEdit) {
+				onEdit(event, getValue() || '');
 			}
 
 			toggleEditionMode(false);
@@ -145,7 +140,8 @@ const InlineEditingPrimitive = forwardRef(
 
 		const handleCancel = () => {
 			if (isEditing) {
-				setInProgressValue(snapshotValue);
+				// Uncontrolled mode - set to default value
+				setInternalValue(defaultValue);
 			}
 			toggleEditionMode(false);
 			onCancel();
@@ -157,16 +153,11 @@ const InlineEditingPrimitive = forwardRef(
 			const Default = mode === 'multi' ? 'p' : 'span';
 			const sharedProps = {
 				'data-placeholder': placeholder,
-				'aria-hidden': snapshotValue === undefined,
+				'aria-hidden': getValue() === undefined,
 				className: classnames(styles.inlineEditor__content__value, {
 					[styles.inlineEditor__content__value_multiline]: mode === 'multi',
 				}),
 			};
-
-			// Displayed content depends on current mode
-			// Controlled mode - display value prop
-			// Uncontrolled mode - display internal value
-			const getValue = () => (onChangeValue ? value : snapshotValue);
 
 			if (renderValueAs && typeof renderValueAs === 'object') {
 				return cloneElement(renderValueAs as unknown as ReactElement, { ...sharedProps }, [
@@ -192,8 +183,13 @@ const InlineEditingPrimitive = forwardRef(
 			name: label.replace(/\s/g, ''),
 			required,
 			placeholder,
-			onChange: (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>): void =>
-				setInProgressValue(event.target.value),
+			onChange: (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>): void => {
+				if (onChangeValue) {
+					onChangeValue(event.target.value);
+				} else {
+					setInternalValue(event.target.value);
+				}
+			},
 			// Keyboard shortcuts
 			onKeyDown: (event: RKeyboardEvent) => {
 				if (event.keyCode === keycode.codes.enter && mode !== 'multi') {
@@ -217,10 +213,10 @@ const InlineEditingPrimitive = forwardRef(
 					<>
 						<div className={styles.inlineEditor__editor}>
 							{mode === 'multi' && (
-								<Form.Textarea {...sharedInputProps}>{inProgressValue}</Form.Textarea>
+								<Form.Textarea {...sharedInputProps}>{getValue()}</Form.Textarea>
 							)}
 							{mode === 'single' && (
-								<Form.Text value={inProgressValue} {...sharedInputProps} data-padding-override />
+								<Form.Text value={getValue()} {...sharedInputProps} data-padding-override />
 							)}
 							<div
 								className={classnames(styles.inlineEditor__editor__actions, {
