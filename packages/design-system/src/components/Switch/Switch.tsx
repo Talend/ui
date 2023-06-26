@@ -50,7 +50,7 @@ const Switch = ({
 		const currentId = valueIds[checkedRadioIndex];
 
 		const checkedElement = radioGroup.querySelector(`#${currentId}`);
-		const items = Array.from(radioGroup.querySelectorAll(`.${theme.btn}`));
+		const items = Array.from<HTMLOptionElement>(radioGroup.querySelectorAll(`.${theme.btn}`));
 		if (!checkedElement) {
 			return;
 		}
