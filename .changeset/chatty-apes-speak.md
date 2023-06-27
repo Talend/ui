@@ -23,7 +23,7 @@ Components changed:
 * Form/Affix/Select (useId)
 * Form/Field/Datalist (useId)
 * Form/Field/InputFile (useId)
-* [ ] Form/Field/InputToggleSwitch (rewrite)
+* Form/Field/InputToggleSwitch (rewrite)
 * Form/Primitives/Checkbox (rewrite)
 * Form/Primitives/Field (useId)
 * Form/Primitives/Radio (useId)
