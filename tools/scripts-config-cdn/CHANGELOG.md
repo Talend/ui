@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.7.0
+
+### Minor Changes
+
+- 646a521a3: Make scripts-config-cdn compliant with yarn v3.X
+
 ## 10.6.0
 
 ### Minor Changes
