@@ -10,3 +10,4 @@ chore: remove reakit
 Breaking changes:
 * HTML structure as a result may have changed
 * Some passed props from our component to reakit and not documented as a usage as been removed. If you need a different usage let us knwow
+* Change Tabs API
