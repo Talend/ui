@@ -38,12 +38,14 @@ const ToggleSwitch = forwardRef(
 			>
 				<label htmlFor={switchId} style={readOnly ? { pointerEvents: 'none' } : {}}>
 					<input
+						type="checkbox"
 						id={switchId}
 						disabled={disabled}
 						readOnly={readOnly}
 						required={required}
+						aria-checked={checkbox.state === true}
+						onChange={() => checkbox.setState(!checkbox.state)}
 						{...rest}
-						{...checkbox}
 						ref={ref}
 					/>
 					<span className={styles.legend}>

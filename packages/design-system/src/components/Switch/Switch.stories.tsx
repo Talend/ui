@@ -1,5 +1,4 @@
 import { Story } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { useState } from 'react';
 import { Switch } from '../../';
 
