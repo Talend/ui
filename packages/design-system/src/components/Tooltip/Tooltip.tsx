@@ -16,8 +16,7 @@ import {
 	offset,
 	shift,
 } from '@floating-ui/react';
-import { randomUUID } from '@talend/utils';
-
+import { useId } from '../../useId';
 import styles from './Tooltip.module.scss';
 export type Placement =
 	| 'auto-start'
@@ -39,16 +38,18 @@ export type Placement =
 export type TooltipProps = PropsWithChildren<any> & {
 	title?: string;
 	placement?: Placement;
+	id?: string;
 };
 
 // FIXME: fix styles
 // FIXME: fix placement left
-const Tooltip = ({ children, title, placement = 'top' }: TooltipProps) => {
+const Tooltip = ({ id, children, title, placement = 'top' }: TooltipProps) => {
 	// const tooltipState = useTooltipState({
 	// 	...rest,
 	// 	animated: 250,
 	// 	gutter: 15,
 	// });
+	const safeId = useId(id);
 	const [isOpen, setIsOpen] = useState(false);
 	const arrowRef = useRef(null);
 	const floating = useFloating({
@@ -78,10 +79,12 @@ const Tooltip = ({ children, title, placement = 'top' }: TooltipProps) => {
 		<>
 			{cloneElement(children as any, {
 				ref: floating.refs.setReference,
+				'aria-describedBy': safeId,
 				...getReferenceProps(),
 			})}
 			{title && isOpen && (
 				<div
+					id={safeId}
 					ref={floating.refs.setFloating}
 					className={styles.container}
 					style={floating.floatingStyles}

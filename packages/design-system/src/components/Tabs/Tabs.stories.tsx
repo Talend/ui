@@ -1,6 +1,5 @@
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 import {
-	Divider,
 	TabsAsLinkList,
 	StackHorizontal,
 	StackVertical,

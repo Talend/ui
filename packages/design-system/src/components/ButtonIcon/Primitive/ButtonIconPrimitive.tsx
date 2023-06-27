@@ -66,6 +66,7 @@ function Primitive<S extends AvailableSizes>(
 		<Tooltip title={children} placement={tooltipPlacement || 'top'}>
 			<Button
 				{...rest}
+				tabIndex={rest.tabIndex || 0}
 				className={classnames(styles.buttonIcon, {
 					[styles.floating]: variant === 'floating',
 					[styles.toggle]: variant === 'toggle',
