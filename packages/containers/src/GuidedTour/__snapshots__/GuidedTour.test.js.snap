@@ -5,7 +5,7 @@ exports[`Guided Tour Container should render 1`] = `
   id="___reactour"
 >
   <div
-    class="sc-pyfCe biIBAN"
+    class="sc-jXbUNg bJapku"
   >
     <svg
       height="0"
@@ -155,7 +155,7 @@ exports[`Guided Tour Container should render 1`] = `
     data-focus-lock-disabled="false"
   >
     <div
-      class="sc-eDvSVe czgksq reactour__helper theme-tc-guided-tour tc-guided-tour reactour__helper--is-open"
+      class="sc-dcJsrY djpCVG reactour__helper theme-tc-guided-tour tc-guided-tour reactour__helper--is-open"
       role="dialog"
       tabindex="-1"
     >
@@ -167,11 +167,11 @@ exports[`Guided Tour Container should render 1`] = `
         </p>
       </div>
       <div
-        class="sc-gKPRtg hrgDlm"
+        class="sc-gsFSXq ghknmB"
         data-tour-elem="controls"
       >
         <button
-          class="sc-bcXHqe gboiNZ sc-dkrFOg klzMxH"
+          class="sc-aXZVg cdorhc sc-eqUAAy cTnNMO"
           data-tour-elem="left-arrow"
           disabled=""
         >
@@ -189,27 +189,27 @@ exports[`Guided Tour Container should render 1`] = `
           </svg>
         </button>
         <nav
-          class="sc-iBYQkv gtetUN"
+          class="sc-kAyceB cIhnUi"
           data-tour-elem="navigation"
         >
           <button
-            class="sc-ftTHYK dWxPgg reactour__dot reactour__dot--is-active"
+            class="sc-imWYAI fDMcHs reactour__dot reactour__dot--is-active"
             data-tour-elem="dot"
             disabled=""
           />
           <button
-            class="sc-ftTHYK rIoYm reactour__dot"
+            class="sc-imWYAI fpkxFa reactour__dot"
             data-tour-elem="dot"
             disabled=""
           />
           <button
-            class="sc-ftTHYK rIoYm reactour__dot"
+            class="sc-imWYAI fpkxFa reactour__dot"
             data-tour-elem="dot"
             disabled=""
           />
         </nav>
         <button
-          class="sc-bcXHqe fgqvXG sc-dkrFOg gYUJja"
+          class="sc-aXZVg dbJwZj sc-eqUAAy eqHGdD"
           data-tour-elem="right-arrow"
         >
           <svg
@@ -228,7 +228,7 @@ exports[`Guided Tour Container should render 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="sc-bcXHqe fgqvXG sc-hLBbgP rHoDM reactour__close"
+        class="sc-aXZVg dbJwZj sc-fqkvVR bBofGr reactour__close"
       >
         <svg
           aria-hidden="true"
