@@ -1,7 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { cloneElement, useState, useRef } from 'react';
 import type { PropsWithChildren } from 'react';
-// example from doc
-// https://codesandbox.io/s/xenodochial-grass-js3bo9?file=/src/Tooltip.tsx:937-1044
 import {
 	arrow,
 	FloatingArrow,
@@ -41,14 +40,7 @@ export type TooltipProps = PropsWithChildren<any> & {
 	id?: string;
 };
 
-// FIXME: fix styles
-// FIXME: fix placement left
 const Tooltip = ({ id, children, title, placement = 'top' }: TooltipProps) => {
-	// const tooltipState = useTooltipState({
-	// 	...rest,
-	// 	animated: 250,
-	// 	gutter: 15,
-	// });
 	const safeId = useId(id);
 	const [isOpen, setIsOpen] = useState(false);
 	const arrowRef = useRef(null);

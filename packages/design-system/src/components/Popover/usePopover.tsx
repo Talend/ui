@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import type { Ref, RefObject, MutableRefObject } from 'react';
 import {
 	useFloating,
 	arrow,
@@ -18,7 +19,7 @@ const GAP = 2;
 
 interface PopoverOptions {
 	initialOpen?: boolean;
-	arrowRef: Ref<HTMLDivElement>;
+	arrowRef?: MutableRefObject<SVGSVGElement | null>;
 	placement?: Placement;
 	modal?: boolean;
 	open?: boolean;
@@ -39,26 +40,28 @@ export function usePopover({
 
 	const open = controlledOpen ?? uncontrolledOpen;
 	const setOpen = setControlledOpen ?? setUncontrolledOpen;
-
+	const middleware = [
+		offset(ARROW_HEIGHT + GAP),
+		flip({
+			crossAxis: placement.includes('-'),
+			fallbackAxisSideDirection: 'end',
+			padding: 0,
+		}),
+		shift({ padding: 0 }),
+	];
+	if (arrowRef && arrowRef.current) {
+		middleware.push(
+			arrow({
+				element: arrowRef,
+			}),
+		);
+	}
 	const data = useFloating({
 		placement,
 		open,
 		onOpenChange: setOpen,
 		whileElementsMounted: autoUpdate,
-		middleware: [
-			arrow({
-				element: arrowRef,
-				size: ARROW_HEIGHT,
-				gap: GAP,
-			}),
-			offset(ARROW_HEIGHT + GAP),
-			flip({
-				crossAxis: placement.includes('-'),
-				fallbackAxisSideDirection: 'end',
-				padding: 0,
-			}),
-			shift({ padding: 0 }),
-		],
+		middleware,
 	});
 
 	const context = data.context;

@@ -8,7 +8,7 @@ import {
 	EmptyStateMedium,
 	EmptyStateSmall,
 	StackHorizontal,
-} from '@talend/design-system';
+} from '../../';
 
 export default {
 	component: EmptyStateLarge,

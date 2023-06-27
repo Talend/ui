@@ -38,7 +38,7 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 		className,
 		children,
 		onClick,
-		size,
+		size = 'M',
 		icon,
 		isLoading = false,
 		isDropdown = false,

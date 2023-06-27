@@ -28,7 +28,7 @@ export function Popover({
 } & PopoverOptions) {
 	// This can accept any props as options, e.g. `placement`,
 	// or other positioning options.
-	const arrowRef = useRef<HTMLDivElement>(null);
+	const arrowRef = useRef<SVGSVGElement>(null);
 	const popover = usePopover({ modal, arrowRef, ...restOptions });
 
 	let childrenRendered = children;

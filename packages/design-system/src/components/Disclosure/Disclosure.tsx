@@ -27,5 +27,6 @@ export function Disclosure({ children, popref, ...rest }: DisclosureProps) {
 	if (!children) {
 		return null;
 	}
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	return cloneElement(children as any, { ...props, ...rest });
 }
