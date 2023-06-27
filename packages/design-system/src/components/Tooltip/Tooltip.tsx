@@ -74,18 +74,16 @@ const Tooltip = ({ id, children, title, placement = 'top' }: TooltipProps) => {
 				'aria-describedby': safeId,
 				...getReferenceProps(),
 			})}
-			{title && isOpen && (
-				<div
-					id={safeId}
-					ref={floating.refs.setFloating}
-					className={styles.container}
-					style={floating.floatingStyles}
-					{...getFloatingProps()}
-				>
-					<FloatingArrow ref={arrowRef} context={floating.context} />
-					{title}
-				</div>
-			)}
+			<div
+				id={safeId}
+				ref={floating.refs.setFloating}
+				className={styles.container}
+				style={{ display: isOpen ? 'block' : 'none', ...floating.floatingStyles }}
+				{...getFloatingProps()}
+			>
+				<FloatingArrow ref={arrowRef} context={floating.context} />
+				{title}
+			</div>
 		</>
 	);
 };

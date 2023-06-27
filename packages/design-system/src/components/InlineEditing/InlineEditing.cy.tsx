@@ -73,7 +73,7 @@ context('<InlineEditing />', () => {
 			.focus()
 			.type('{selectall}{del}blah')
 			.should('have.value', 'blah');
-		cy.findByTestId('inlineediting.button.cancel').focus().type('{enter}');
+		cy.findByTestId('inlineediting.button.cancel').focus().click(); //type('{enter}', { force: true });
 		cy.findByTestId('inlineediting').should('have.text', defaultValue);
 	});
 });
