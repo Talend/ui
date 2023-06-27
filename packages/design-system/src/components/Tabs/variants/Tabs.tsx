@@ -11,26 +11,12 @@ const Tabs = forwardRef(({ size = 'M', ...rest }: TabsPropTypes, ref: Ref<HTMLDi
 		<div ref={ref}>
 			<TabList>
 				{tabState.tabs.map((tab, index) => {
-					if (typeof tab.tabTitle === 'string') {
-						return (
-							<Tab
-								{...tabState}
-								{...rest.tabs[index].tabButtonAttributes}
-								size={size}
-								tabId={tab.tabId}
-								key={tab.tabId}
-							>
-								{tab.tabTitle}
-							</Tab>
-						);
-					}
 					return (
 						<Tab
 							{...tabState}
 							size={size}
-							key={tab.tabId}
-							tabId={tab.tabId}
-							{...tab.tabTitle}
+							key={tab.id}
+							{...tab}
 							{...rest.tabs[index].tabButtonAttributes}
 						/>
 					);
@@ -38,8 +24,8 @@ const Tabs = forwardRef(({ size = 'M', ...rest }: TabsPropTypes, ref: Ref<HTMLDi
 			</TabList>
 
 			{tabState.tabs.map(tab => (
-				<TabPanel {...tabState} key={tab.tabId}>
-					{tab.tabContent}
+				<TabPanel {...tabState} id={tab.id} key={tab.id}>
+					{tab.content}
 				</TabPanel>
 			))}
 		</div>

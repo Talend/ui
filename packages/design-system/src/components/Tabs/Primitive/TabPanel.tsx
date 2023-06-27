@@ -1,17 +1,17 @@
-import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
+import { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
 import { DataAttributes } from '../../../types';
 import { TabState } from './TabState';
 
 export type TabPanelPropsTypesWithoutState = DataAttributes &
-	HTMLAttributes<HTMLDivElement> & { children: ReactElement | ReactElement[] };
+	HTMLAttributes<HTMLDivElement> & { children: ReactNode | ReactNode[] };
 
 type TabPanelPropsTypes = TabPanelPropsTypesWithoutState &
 	TabState & {
-		tabId: string;
+		id: string;
 	};
 
 const TabPanel = forwardRef((props: TabPanelPropsTypes, ref: Ref<HTMLDivElement>) => {
-	if (props.tabId !== props.selectedId) {
+	if (props.id !== props.selectedId) {
 		return null;
 	}
 	return (

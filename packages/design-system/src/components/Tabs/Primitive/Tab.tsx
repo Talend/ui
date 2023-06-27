@@ -1,4 +1,5 @@
-import { forwardRef, HTMLAttributes, Ref } from 'react';
+import { forwardRef } from 'react';
+import type { ReactNode, HTMLAttributes, Ref } from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
@@ -17,7 +18,7 @@ type TabChildren =
 			icon?: IconNameWithSize<'S'>;
 			tag?: string | number;
 	  }
-	| { children: string };
+	| { children: ReactNode };
 
 type TabSize = {
 	size?: 'M' | 'L';
@@ -32,27 +33,25 @@ export type TabPropsTypesWithoutState = DataAttributes &
 	TabSize &
 	TabTooltip &
 	TabChildren & {
-		tabId: string;
+		id: string;
 	};
 
 type TabPropsTypes = TabPropsTypesWithoutState & TabStateReturn;
 
 const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 	const { tooltip, ...otherProps } = props;
-	debugger;
 	const component = () => {
 		if ('children' in otherProps) {
-			debugger;
-			const { children, size, setSelectedId, selectedId, tabId, tabs, ...rest } = otherProps;
+			const { children, size, setSelectedId, selectedId, id, tabs, ...rest } = otherProps;
 			return (
 				// eslint-disable-next-line jsx-a11y/role-supports-aria-props
 				<button
 					{...rest}
-					onClick={() => setSelectedId(tabId)}
-					tabIndex={selectedId === tabId ? 0 : -1}
-					aria-controls={tabId}
+					onClick={() => setSelectedId(id)}
+					tabIndex={selectedId === id ? 0 : -1}
+					aria-controls={id}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
-					aria-selected={selectedId === tabId}
+					aria-selected={selectedId === id}
 					type="button"
 					ref={ref}
 					className={classnames(styles.tab, { [styles.tab_large]: size === 'L' })}
@@ -62,16 +61,16 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 			);
 		}
 
-		const { icon, title, tag, size, setSelectedId, selectedId, tabId, ...rest } = otherProps;
+		const { icon, title, tag, size, setSelectedId, selectedId, id, ...rest } = otherProps;
 		return (
 			// eslint-disable-next-line jsx-a11y/role-supports-aria-props
 			<button
 				{...rest}
-				onClick={() => setSelectedId(tabId)}
-				tabIndex={selectedId === tabId ? 0 : -1}
-				aria-controls={tabId}
+				onClick={() => setSelectedId(id)}
+				tabIndex={selectedId === id ? 0 : -1}
+				aria-controls={id}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
-				aria-selected={selectedId === tabId}
+				aria-selected={selectedId === id}
 				type="button"
 				ref={ref}
 				className={classnames(styles.tab, { [styles.tab_large]: size === 'L' })}

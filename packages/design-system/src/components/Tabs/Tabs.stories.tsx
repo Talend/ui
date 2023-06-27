@@ -18,16 +18,16 @@ export const Styles = () => (
 			<Tabs
 				tabs={[
 					{
-						tabTitle: 'Tabs 1',
-						tabContent: <></>,
+						title: 'Tabs 1',
+						content: <></>,
 					},
 					{
-						tabTitle: 'Tabs 2',
-						tabContent: <></>,
+						title: 'Tabs 2',
+						content: <></>,
 					},
 					{
-						tabTitle: 'Tabs 3',
-						tabContent: <></>,
+						title: 'Tabs 3',
+						content: <></>,
 					},
 				]}
 			/>
@@ -38,16 +38,16 @@ export const Styles = () => (
 				size="L"
 				tabs={[
 					{
-						tabTitle: 'Tabs 1',
-						tabContent: <></>,
+						title: 'Tabs 1',
+						content: <></>,
 					},
 					{
-						tabTitle: 'Tabs 2',
-						tabContent: <></>,
+						title: 'Tabs 2',
+						content: <></>,
 					},
 					{
-						tabTitle: 'Tabs 3',
-						tabContent: <></>,
+						title: 'Tabs 3',
+						content: <></>,
 					},
 				]}
 			/>
@@ -59,25 +59,19 @@ export const TabsWithIcon = () => (
 	<Tabs
 		tabs={[
 			{
-				tabTitle: {
-					icon: 'user',
-					title: 'User',
-				},
-				tabContent: <h2>Users tab content</h2>,
+				icon: 'user',
+				title: 'User',
+				content: <h2>Users tab content</h2>,
 			},
 			{
-				tabTitle: {
-					icon: 'calendar',
-					title: 'Calendar',
-				},
-				tabContent: <h2>Calendar tab content</h2>,
+				icon: 'calendar',
+				title: 'Calendar',
+				content: <h2>Calendar tab content</h2>,
 			},
 			{
-				tabTitle: {
-					icon: 'star',
-					title: 'Favorite',
-				},
-				tabContent: <h2>Favorite tab content</h2>,
+				icon: 'star',
+				title: 'Favorite',
+				content: <h2>Favorite tab content</h2>,
 			},
 		]}
 	/>
@@ -87,26 +81,20 @@ export const TabsWithTag = () => (
 	<Tabs
 		tabs={[
 			{
-				tabTitle: {
-					title: 'User',
-					tag: 13,
-				},
-				tabContent: <h2>Users tab content</h2>,
+				title: 'User',
+				tag: 13,
+				content: <h2>Users tab content</h2>,
 			},
 			{
-				tabTitle: {
-					title: 'Calendar',
-					tag: 54,
-				},
-				tabContent: <h2>Calendar tab content</h2>,
+				title: 'Calendar',
+				tag: 54,
+				content: <h2>Calendar tab content</h2>,
 			},
 			{
-				tabTitle: {
-					title: 'Favorite',
-					tag: '999+',
-					tooltip: '1534 Favorite items',
-				},
-				tabContent: <h2>Favorite tab content</h2>,
+				title: 'Favorite',
+				tag: '999+',
+				tooltip: '1534 Favorite items',
+				content: <h2>Favorite tab content</h2>,
 			},
 		]}
 	/>
@@ -116,22 +104,17 @@ export const TabsWithLongTitles = () => (
 	<Tabs
 		tabs={[
 			{
-				tabTitle: {
-					icon: 'user',
-					title: 'Users',
-					tag: 123,
-				},
-				tabContent: <h2>Users tab content</h2>,
+				icon: 'user',
+				title: 'Users',
+				tag: 123,
+				content: <h2>Users tab content</h2>,
 			},
 			{
-				tabTitle: {
-					icon: 'information-stroke',
-					title: 'A much too long title that will trigger the overflow limit',
-					tag: '999+',
-					tooltip:
-						'1239 notifications - A much too long title that will trigger the overflow limit',
-				},
-				tabContent: <h2>About tab content</h2>,
+				icon: 'information-stroke',
+				title: 'A much too long title that will trigger the overflow limit',
+				tag: '999+',
+				tooltip: '1239 notifications - A much too long title that will trigger the overflow limit',
+				content: <h2>About tab content</h2>,
 			},
 		]}
 	/>
@@ -141,8 +124,8 @@ export const TabStandalone = () => (
 	<Tabs
 		tabs={[
 			{
-				tabTitle: 'Tab 1', // Simple string title
-				tabContent: (
+				title: 'Tab 1', // Simple string title
+				content: (
 					<>
 						<p>Here's some tab content</p>
 						<InlineMessage
@@ -154,13 +137,11 @@ export const TabStandalone = () => (
 				),
 			},
 			{
-				tabTitle: {
-					// Advanced object title
-					icon: 'user',
-					title: 'Tab 2',
-					'data-feature': 'domain.feature.description',
-				},
-				tabContent: (
+				// Advanced object title
+				icon: 'user',
+				title: 'Tab 2',
+				'data-feature': 'domain.feature.description',
+				content: (
 					<>
 						<h2>Different content</h2>
 						<InlineMessage
@@ -172,13 +153,11 @@ export const TabStandalone = () => (
 				),
 			},
 			{
-				tabTitle: {
-					icon: 'user',
-					title: 'Tab 3',
-					tag: '999+',
-					tooltip: "It's a large number",
-				},
-				tabContent: (
+				icon: 'user',
+				title: 'Tab 3',
+				tag: '999+',
+				tooltip: "It's a large number",
+				content: (
 					<>
 						<h2>Different content again</h2>
 						<InlineMessage
@@ -198,11 +177,9 @@ export const TabStandaloneLarge = () => (
 		size="L"
 		tabs={[
 			{
-				tabTitle: {
-					title: 'Tab title that hits the size limit should get a tooltip',
-					tooltip: 'Tab title that hits the size limit should get a tooltip',
-				},
-				tabContent: (
+				title: 'Tab title that hits the size limit should get a tooltip',
+				tooltip: 'Tab title that hits the size limit should get a tooltip',
+				content: (
 					<>
 						<p>Here's some tab content</p>
 						<InlineMessage
@@ -214,12 +191,10 @@ export const TabStandaloneLarge = () => (
 				),
 			},
 			{
-				tabTitle: {
-					icon: 'user',
-					title: 'Tab 2',
-					'data-feature': 'domain.feature.description',
-				},
-				tabContent: (
+				icon: 'user',
+				title: 'Tab 2',
+				'data-feature': 'domain.feature.description',
+				content: (
 					<>
 						<h2>Different content</h2>
 						<InlineMessage
@@ -231,13 +206,11 @@ export const TabStandaloneLarge = () => (
 				),
 			},
 			{
-				tabTitle: {
-					icon: 'user',
-					title: 'Tab 3',
-					tag: '999+',
-					tooltip: "It's a large number",
-				},
-				tabContent: (
+				icon: 'user',
+				title: 'Tab 3',
+				tag: '999+',
+				tooltip: "It's a large number",
+				content: (
 					<>
 						<h2>Different content again</h2>
 						<InlineMessage
@@ -254,63 +227,47 @@ export const TabStandaloneLarge = () => (
 
 export const TabsWithComposition = () => (
 	<TabsKit>
-		<StackVertical gap="M">
-			<StackVertical gap="S">
-				<h2>A header of some sort</h2>
-				<TabsKit.TabList>
-					<TabsKit.Tab tooltip="Tab title that hits the size limit should get a tooltip">
-						Tab title that hits the size limit should get a tooltip
-					</TabsKit.Tab>
-					<TabsKit.Tab icon="user" title="Tab 2" />
-				</TabsKit.TabList>
-			</StackVertical>
+		<TabsKit.TabList>
+			<TabsKit.Tab id="one" tooltip="Tab title that hits the size limit should get a tooltip">
+				Tab title that hits the size limit should get a tooltip
+			</TabsKit.Tab>
+			<TabsKit.Tab id="two" icon="user" title="Tab 2" />
+		</TabsKit.TabList>
 
-			<Divider />
+		<TabsKit.TabPanel id="one">
+			<p>Here's some tab content</p>
+			<InlineMessage variant="information" withBackground description="With an inline message" />
+		</TabsKit.TabPanel>
 
-			<TabsKit.TabPanel>
-				<p>Here's some tab content</p>
-				<InlineMessage variant="information" withBackground description="With an inline message" />
-			</TabsKit.TabPanel>
-
-			<TabsKit.TabPanel>
-				<h2>Different content</h2>
-				<InlineMessage
-					variant="warning"
-					withBackground
-					description="With a warning inline message"
-				/>
-			</TabsKit.TabPanel>
-		</StackVertical>
+		<TabsKit.TabPanel id="two">
+			<h2>Different content</h2>
+			<InlineMessage variant="warning" withBackground description="With a warning inline message" />
+		</TabsKit.TabPanel>
 	</TabsKit>
 );
 
 export const TabsWithCompositionLarge = () => (
 	<TabsKit>
-		<StackVertical gap="M">
-			<StackVertical gap="S">
-				<h2>A header of some sort</h2>
-				<TabsKit.TabList>
-					<TabsKit.Tab size="L" tooltip="Tab title that hits the size limit should get a tooltip">
-						Tab title that hits the size limit should get a tooltip
-					</TabsKit.Tab>
-					<TabsKit.Tab size="L" icon="user" title="Tab 2" />
-				</TabsKit.TabList>
-			</StackVertical>
+		<TabsKit.TabList>
+			<TabsKit.Tab
+				id="one"
+				size="L"
+				tooltip="Tab title that hits the size limit should get a tooltip"
+			>
+				Tab title that hits the size limit should get a tooltip
+			</TabsKit.Tab>
+			<TabsKit.Tab id="two" size="L" icon="user" title="Tab 2" />
+		</TabsKit.TabList>
 
-			<TabsKit.TabPanel>
-				<p>Here's some tab content</p>
-				<InlineMessage variant="information" withBackground description="With an inline message" />
-			</TabsKit.TabPanel>
+		<TabsKit.TabPanel id="one">
+			<p>Here's some tab content</p>
+			<InlineMessage variant="information" withBackground description="With an inline message" />
+		</TabsKit.TabPanel>
 
-			<TabsKit.TabPanel>
-				<h2>Different content</h2>
-				<InlineMessage
-					variant="warning"
-					withBackground
-					description="With a warning inline message"
-				/>
-			</TabsKit.TabPanel>
-		</StackVertical>
+		<TabsKit.TabPanel id="two">
+			<h2>Different content</h2>
+			<InlineMessage variant="warning" withBackground description="With a warning inline message" />
+		</TabsKit.TabPanel>
 	</TabsKit>
 );
 
@@ -319,8 +276,8 @@ export const TabStandaloneControlled = () => (
 		selectedId="tab2"
 		tabs={[
 			{
-				tabTitle: 'Tab 1',
-				tabContent: (
+				title: 'Tab 1',
+				content: (
 					<>
 						<p>Here's some tab content</p>
 						<InlineMessage
@@ -332,13 +289,11 @@ export const TabStandaloneControlled = () => (
 				),
 			},
 			{
-				tabTitle: {
-					icon: 'user',
-					title: 'Tab 2',
-					'data-feature': 'domain.feature.description',
-					id: 'tab2', // Set the tab's id for this use, otherwise it will create one randomly
-				},
-				tabContent: (
+				icon: 'user',
+				title: 'Tab 2',
+				'data-feature': 'domain.feature.description',
+				id: 'tab2', // Set the tab's id for this use, otherwise it will create one randomly
+				content: (
 					<>
 						<h2>Different content</h2>
 						<InlineMessage
@@ -355,31 +310,26 @@ export const TabStandaloneControlled = () => (
 
 export const TabsWithCompositionControlled = () => (
 	<TabsKit selectedId="tab2">
-		<StackVertical gap="M">
-			<StackVertical gap="S">
-				<h2>A header of some sort</h2>
-				<TabsKit.TabList>
-					<TabsKit.Tab size="L" tooltip="Tab title that hits the size limit should get a tooltip">
-						Tab title that hits the size limit should get a tooltip
-					</TabsKit.Tab>
-					<TabsKit.Tab size="L" id="tab2" icon="user" title="Tab 2" />
-				</TabsKit.TabList>
-			</StackVertical>
+		<TabsKit.TabList>
+			<TabsKit.Tab
+				size="L"
+				id="tab1"
+				tooltip="Tab title that hits the size limit should get a tooltip"
+			>
+				Tab title that hits the size limit should get a tooltip
+			</TabsKit.Tab>
+			<TabsKit.Tab size="L" id="tab2" icon="user" title="Tab 2" />
+		</TabsKit.TabList>
 
-			<TabsKit.TabPanel>
-				<p>Here's some tab content</p>
-				<InlineMessage variant="information" withBackground description="With an inline message" />
-			</TabsKit.TabPanel>
+		<TabsKit.TabPanel id="tab1">
+			<p>Here's some tab content</p>
+			<InlineMessage variant="information" withBackground description="With an inline message" />
+		</TabsKit.TabPanel>
 
-			<TabsKit.TabPanel>
-				<h2>Different content</h2>
-				<InlineMessage
-					variant="warning"
-					withBackground
-					description="With a warning inline message"
-				/>
-			</TabsKit.TabPanel>
-		</StackVertical>
+		<TabsKit.TabPanel id="tab2">
+			<h2>Different content</h2>
+			<InlineMessage variant="warning" withBackground description="With a warning inline message" />
+		</TabsKit.TabPanel>
 	</TabsKit>
 );
 

@@ -1,7 +1,6 @@
 import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { DataAttributes } from '../../../types';
 import { StackHorizontal } from '../../Stack';
-import { TabState } from './TabState';
 
 export type TabListPropsTypesWithoutState = DataAttributes &
 	HTMLAttributes<HTMLDivElement> & { children: ReactElement | ReactElement[] };

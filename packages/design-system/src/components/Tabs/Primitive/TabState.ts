@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
 import { randomUUID } from '@talend/utils';
+// eslint-disable-next-line @talend/import-depth
+import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import { DataAttributes } from '../../../types';
 
 export type TabWithIdPropTypes = {
-	tabId: string;
-	tabTitle: string | { icon?: string; title: string; tag?: string | number; tooltip?: string };
-	tabContent: React.ReactNode;
+	id: string;
+	title: string;
+	icon?: IconNameWithSize<'S'>;
+	tag?: string | number;
+	tooltip?: string;
+	content: React.ReactNode;
 	size?: 'M' | 'L';
 	tabButtonAttributes?: DataAttributes;
 };
 
-export type TabPropTypes = Omit<TabWithIdPropTypes, 'tabId'> & {
-	tabId?: TabWithIdPropTypes['tabId'];
+export type TabPropTypes = Omit<TabWithIdPropTypes, 'id'> & {
+	id?: TabWithIdPropTypes['id'];
 };
 
 export type TabsPropTypes = {
@@ -37,15 +42,18 @@ export type TabActions = {
 	setSelectedId: (id: string) => void;
 };
 
-export type TabInitialState = Partial<TabState>;
+export type TabInitialState = {
+	selectedId?: string;
+	tabs?: TabPropTypes[];
+};
 
 export type TabStateReturn = TabState & TabActions;
 
 function getPanels(tabPanels: TabPropTypes[]): TabWithIdPropTypes[] {
 	// ensure there is an id for each tab
 	return tabPanels.map(panel => {
-		const id = panel.tabId ?? `tab-${randomUUID()}`;
-		return { ...panel, tabId: id };
+		const id = panel.id ?? `tab-${randomUUID()}`;
+		return { ...panel, id };
 	});
 }
 
@@ -61,12 +69,10 @@ export function useTabState(initialState?: TabInitialState): TabStateReturn {
 		if (panels.length !== initialState?.tabs?.length) {
 			hasChanged = true;
 		}
-		if (panels.some((panel, index) => panel.tabTitle !== initialState?.tabs?.[index].tabTitle)) {
+		if (panels.some((panel, index) => panel.title !== initialState?.tabs?.[index].title)) {
 			hasChanged = true;
 		}
-		if (
-			panels.some((panel, index) => panel.tabContent !== initialState?.tabs?.[index].tabContent)
-		) {
+		if (panels.some((panel, index) => panel.content !== initialState?.tabs?.[index].content)) {
 			hasChanged = true;
 		}
 
@@ -78,7 +84,7 @@ export function useTabState(initialState?: TabInitialState): TabStateReturn {
 	useEffect(() => {
 		if (selectedId === undefined) {
 			if (panels.length) {
-				setSelectedId(panels[0].tabId);
+				setSelectedId(panels[0].id);
 			}
 		}
 	}, [selectedId, panels]);

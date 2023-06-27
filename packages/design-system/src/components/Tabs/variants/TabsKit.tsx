@@ -1,54 +1,54 @@
-import { createContext, forwardRef, ReactElement, Ref, useContext, useMemo } from 'react';
-import { TabInitialState, TabState, useTabState } from '../Primitive/TabState';
-import TabList, { TabListPropsTypesWithoutState } from '../Primitive/TabList';
-import Tab, { TabPropsTypesWithoutState } from '../Primitive/Tab';
-import TabPanel, { TabPanelPropsTypesWithoutState } from '../Primitive/TabPanel';
+import { createContext, forwardRef, ReactNode, Ref, useContext, useMemo } from 'react';
+import { TabStateReturn, useTabState } from '../Primitive/TabState';
+import TabList from '../Primitive/TabList';
+import Tab from '../Primitive/Tab';
+import TabPanel from '../Primitive/TabPanel';
 
 export type TabsProps = {
-	children: ReactElement | ReactElement[];
-} & TabInitialState;
+	children: ReactNode | ReactNode[];
+	selectedId?: string;
+};
 
-const TabsContext = createContext<TabState | null>(null);
+const TabsContext = createContext<TabStateReturn | null>(null);
 
 const Tabs = ({ children, ...initialState }: TabsProps) => {
-	const tab = useTabState(initialState);
-	const value = useMemo(() => tab, [tab]);
+	const tabs = useTabState(initialState);
+	const value = useMemo(() => tabs, [tabs]);
 	return <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 };
 
-const TabListComponent = forwardRef(
-	(props: TabListPropsTypesWithoutState, ref: Ref<HTMLDivElement>) => {
-		const tab = useContext(TabsContext);
-		if (!tab) {
-			return null;
-		}
-		return <TabList {...tab} ref={ref} {...props} />;
-	},
-);
-TabListComponent.displayName = 'TabList';
+type TabComponentProps = {
+	size?: 'M' | 'L';
+	id: string;
+	tooltip?: string;
+	children: ReactNode | ReactNode[];
+};
 
-const TabComponent = forwardRef((props: TabPropsTypesWithoutState, ref: Ref<HTMLButtonElement>) => {
+const TabComponent = forwardRef((props: TabComponentProps, ref: Ref<HTMLButtonElement>) => {
+	const tabs = useContext(TabsContext);
+	if (!tabs) {
+		return null;
+	}
+	return <Tab {...tabs} ref={ref} {...props} />;
+});
+TabComponent.displayName = 'Tab';
+
+type TabPanelProps = {
+	id: string;
+	children: ReactNode | ReactNode[];
+};
+
+const TabPanelComponent = forwardRef((props: TabPanelProps, ref: Ref<HTMLDivElement>) => {
 	const tab = useContext(TabsContext);
 	if (!tab) {
 		return null;
 	}
-	return <Tab {...tab} ref={ref} {...props} />;
+	return <TabPanel {...tab} ref={ref} {...props} />;
 });
-TabComponent.displayName = 'Tab';
-
-const TabPanelComponent = forwardRef(
-	(props: TabPanelPropsTypesWithoutState, ref: Ref<HTMLDivElement>) => {
-		const tab = useContext(TabsContext);
-		if (!tab) {
-			return null;
-		}
-		return <TabPanel {...tab} ref={ref} {...props} />;
-	},
-);
 TabPanelComponent.displayName = 'TabPanel';
 
 Tabs.Tab = TabComponent;
-Tabs.TabList = TabListComponent;
+Tabs.TabList = TabList;
 Tabs.TabPanel = TabPanelComponent;
 
 export default Tabs;
