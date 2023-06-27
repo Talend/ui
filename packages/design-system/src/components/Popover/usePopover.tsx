@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import {
 	useFloating,
+	arrow,
 	autoUpdate,
 	offset,
 	flip,
@@ -17,6 +18,7 @@ const GAP = 2;
 
 interface PopoverOptions {
 	initialOpen?: boolean;
+	arrowRef: Ref<HTMLDivElement>;
 	placement?: Placement;
 	modal?: boolean;
 	open?: boolean;
@@ -26,6 +28,7 @@ interface PopoverOptions {
 export function usePopover({
 	initialOpen = false,
 	placement = 'bottom',
+	arrowRef,
 	modal,
 	open: controlledOpen,
 	onOpenChange: setControlledOpen,
@@ -43,6 +46,11 @@ export function usePopover({
 		onOpenChange: setOpen,
 		whileElementsMounted: autoUpdate,
 		middleware: [
+			arrow({
+				element: arrowRef,
+				size: ARROW_HEIGHT,
+				gap: GAP,
+			}),
 			offset(ARROW_HEIGHT + GAP),
 			flip({
 				crossAxis: placement.includes('-'),

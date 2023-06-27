@@ -28,8 +28,8 @@ export function Popover({
 } & PopoverOptions) {
 	// This can accept any props as options, e.g. `placement`,
 	// or other positioning options.
-	const popover = usePopover({ modal, ...restOptions });
-	const arrowRef = useRef(null);
+	const arrowRef = useRef<HTMLDivElement>(null);
+	const popover = usePopover({ modal, arrowRef, ...restOptions });
 
 	let childrenRendered = children;
 	if (typeof children === 'function') {
@@ -55,7 +55,7 @@ export function Popover({
 		</div>
 	);
 	if (isFixed) {
-		content = <FloatingPortal>${content}</FloatingPortal>;
+		content = <FloatingPortal>{content}</FloatingPortal>;
 	}
 	return (
 		<>
