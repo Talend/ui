@@ -1,8 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/await-async-query */
-import Popover from './Popover';
-import { ButtonPrimary } from '../../Button';
-import { CollapsiblePanel } from '../Accordion';
+import { Popover, ButtonPrimary, CollapsiblePanel } from '../../';
 
 context('<Popover />', () => {
 	describe('default', () => {

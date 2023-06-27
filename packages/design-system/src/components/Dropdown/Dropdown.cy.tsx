@@ -77,7 +77,7 @@ context('<Dropdown />', () => {
 
 	it('should display menu', () => {
 		cy.mount(<WithIcons />);
-		cy.findByTestId('dropdown.button').click();
+		cy.findByTestId('dropdown.button').focus().click();
 		cy.findByTestId('dropdown.menu').should('be.visible');
 		cy.findByTestId('dropdown.menuitem.Link with icon-0').should('be.visible');
 		cy.findByTestId('dropdown.menuitem.Button with icon-1').should('be.visible');

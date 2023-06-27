@@ -1,5 +1,12 @@
 import { cloneElement, MouseEvent, ReactElement, useState } from 'react';
-import { useFloating, autoUpdate, flip, shift } from '@floating-ui/react';
+import {
+	useDismiss,
+	useInteractions,
+	useFloating,
+	autoUpdate,
+	flip,
+	shift,
+} from '@floating-ui/react';
 import MenuButton from './Primitive/MenuButton';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
@@ -50,25 +57,25 @@ const Dropdown = ({
 	...rest
 }: DropdownPropsType) => {
 	const [isOpen, setIsOpen] = useState(false);
+
 	const floating = useFloating({
 		open: isOpen,
 		onOpenChange: setIsOpen,
 		middleware: [/*offset(10),*/ flip(), shift()],
 		whileElementsMounted: autoUpdate,
 	});
-	// const menu = useMenuState({
-	// 	animated: 250,
-	// 	gutter: 4,
-	// 	loop: true,
-	// });
-
+	const dismiss = useDismiss(floating.context, {
+		escapeKey: true,
+		outsidePressEvent: 'mousedown',
+	});
+	const { getReferenceProps, getFloatingProps } = useInteractions([dismiss]);
 	const menuButtonTestId = dataTestId ? `${dataTestId}.dropdown.button` : 'dropdown.button';
 	const menuTestId = dataTestId ? `${dataTestId}.dropdown.menu` : 'dropdown.menu';
 	const menuItemTestId = dataTestId ? `${dataTestId}.dropdown.menuitem` : 'dropdown.menuitem';
 	const menuButtonTest = dataTest ? `${dataTest}.dropdown.button` : 'dropdown.button';
 	const menuTest = dataTest ? `${dataTest}.dropdown.menu` : 'dropdown.menu';
 	const menuItemTest = dataTest ? `${dataTest}.dropdown.menuitem` : 'dropdown.menuitem';
-	debugger;
+
 	return (
 		<>
 			{cloneElement(children as any, {
@@ -77,87 +84,89 @@ const Dropdown = ({
 				'data-testid': menuButtonTestId,
 				'data-test': menuButtonTest,
 				ref: floating.refs.setReference,
+				...getReferenceProps(),
 			})}
-			{isOpen && (
-				<DropdownShell
-					{...rest}
-					ref={floating.refs.setFloating}
-					style={floating.floatingStyles}
-					data-testid={menuTestId}
-					data-test={menuTest}
-				>
-					{items.map((entry, index) => {
-						if (entry.type === 'button') {
-							const { label, ...entryRest } = entry;
-							const id = `${label}-${index}`;
-							return (
-								<MenuButton
-									{...entryRest}
-									// {...menu}
-									onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-										// menu.hide();
-										entry.onClick(event);
-									}}
-									key={id}
-									id={id}
-									data-testid={`${menuItemTestId}.${id}`}
-									data-test={`${menuItemTest}.${id}`}
-								>
-									{label}
-								</MenuButton>
-							);
-						}
-
-						if (entry.type === 'title') {
-							const { label } = entry;
-							const id = `${label}-${index}`;
-							return (
-								<DropdownTitle
-									key={id}
-									data-testid={`${menuItemTestId}.${id}`}
-									data-test={`${menuItemTest}.${id}`}
-								>
-									{label}
-								</DropdownTitle>
-							);
-						}
-
-						if (entry.type === 'divider') {
-							const id = `divider-${index}`;
-							return (
-								<DropdownDivider
-									// {...menu}
-									key={id}
-									data-testid={`${menuItemTestId}.${id}`}
-									data-test={`${menuItemTest}.${id}`}
-								/>
-							);
-						}
-
-						const { label, as, type, ...entryRest } = entry;
+			<DropdownShell
+				{...rest}
+				ref={floating.refs.setFloating}
+				onClick={() => setIsOpen(false)}
+				style={{ ...floating.floatingStyles, display: isOpen ? 'block' : 'none' }}
+				data-testid={menuTestId}
+				data-test={menuTest}
+				{...getFloatingProps()}
+			>
+				{items.map((entry, index) => {
+					if (entry.type === 'button') {
+						const { label, ...entryRest } = entry;
 						const id = `${label}-${index}`;
 						return (
-							<DropdownLink
-								as={as}
+							<MenuButton
 								{...entryRest}
 								// {...menu}
-								key={id}
-								id={id}
-								onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+								onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
 									// menu.hide();
-									if (entry.onClick) {
-										entry.onClick(event);
-									}
+									entry.onClick(event);
 								}}
+								key={id}
+								tabIndex={0}
+								id={id}
 								data-testid={`${menuItemTestId}.${id}`}
 								data-test={`${menuItemTest}.${id}`}
 							>
 								{label}
-							</DropdownLink>
+							</MenuButton>
 						);
-					})}
-				</DropdownShell>
-			)}
+					}
+
+					if (entry.type === 'title') {
+						const { label } = entry;
+						const id = `${label}-${index}`;
+						return (
+							<DropdownTitle
+								key={id}
+								data-testid={`${menuItemTestId}.${id}`}
+								data-test={`${menuItemTest}.${id}`}
+							>
+								{label}
+							</DropdownTitle>
+						);
+					}
+
+					if (entry.type === 'divider') {
+						const id = `divider-${index}`;
+						return (
+							<DropdownDivider
+								// {...menu}
+								key={id}
+								data-testid={`${menuItemTestId}.${id}`}
+								data-test={`${menuItemTest}.${id}`}
+							/>
+						);
+					}
+
+					const { label, as, type, ...entryRest } = entry;
+					const id = `${label}-${index}`;
+					return (
+						<DropdownLink
+							as={as}
+							{...entryRest}
+							// {...menu}
+							key={id}
+							id={id}
+							onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+								// menu.hide();
+								if (entry.onClick) {
+									entry.onClick(event);
+								}
+							}}
+							data-testid={`${menuItemTestId}.${id}`}
+							data-test={`${menuItemTest}.${id}`}
+						>
+							{label}
+						</DropdownLink>
+					);
+				})}
+			</DropdownShell>
 		</>
 	);
 };

@@ -54,10 +54,9 @@ context('<Button />', () => {
 	describe('loading state', () => {
 		it('should load', () => {
 			cy.mount(<Loading data-testid="my.button" />);
-			cy.findByTestId('my.button')
-				.should('have.attr', 'aria-busy', 'false')
-				.click()
-				.should('have.attr', 'aria-busy', 'true');
+			cy.findByTestId('my.button').should('have.attr', 'aria-busy', 'false');
+			cy.findByTestId('my.button').focus().click();
+			cy.findByTestId('my.button').should('have.attr', 'aria-busy', 'true');
 			cy.get('button').should('have.attr', 'aria-busy', 'false');
 		});
 

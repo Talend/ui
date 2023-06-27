@@ -71,7 +71,7 @@ const Tooltip = ({ id, children, title, placement = 'top' }: TooltipProps) => {
 		<>
 			{cloneElement(children as any, {
 				ref: floating.refs.setReference,
-				'aria-describedBy': safeId,
+				'aria-describedby': safeId,
 				...getReferenceProps(),
 			})}
 			{title && isOpen && (
