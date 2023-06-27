@@ -11,15 +11,7 @@ const Tabs = forwardRef(({ size = 'M', ...rest }: TabsPropTypes, ref: Ref<HTMLDi
 		<div ref={ref}>
 			<TabList>
 				{tabState.tabs.map((tab, index) => {
-					return (
-						<Tab
-							{...tabState}
-							size={size}
-							key={tab.id}
-							{...tab}
-							{...rest.tabs[index].tabButtonAttributes}
-						/>
-					);
+					return <Tab {...tabState} size={size} key={tab.id} {...tab} />;
 				})}
 			</TabList>
 

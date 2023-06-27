@@ -4,7 +4,7 @@ import { randomUUID } from '@talend/utils';
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import { DataAttributes } from '../../../types';
 
-export type TabWithIdPropTypes = {
+export type TabWithIdPropTypes = DataAttributes & {
 	id: string;
 	title: string;
 	icon?: IconNameWithSize<'S'>;
@@ -12,7 +12,6 @@ export type TabWithIdPropTypes = {
 	tooltip?: string;
 	content: React.ReactNode;
 	size?: 'M' | 'L';
-	tabButtonAttributes?: DataAttributes;
 };
 
 export type TabPropTypes = Omit<TabWithIdPropTypes, 'id'> & {

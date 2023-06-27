@@ -29,7 +29,7 @@ type TabTooltip = {
 };
 
 export type TabPropsTypesWithoutState = DataAttributes &
-	Omit<HTMLAttributes<HTMLButtonElement>, 'className' | 'style' | 'type'> &
+	Omit<HTMLAttributes<HTMLButtonElement>, 'content' | 'className' | 'style' | 'type'> &
 	TabSize &
 	TabTooltip &
 	TabChildren & {
