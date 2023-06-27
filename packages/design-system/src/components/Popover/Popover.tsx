@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import type { ReactNode } from 'react';
 import tokens from '@talend/design-tokens';
 
-import { Placement, FloatingPortal, FloatingFocusManager, FloatingArrow } from '@floating-ui/react';
+import { Placement, FloatingArrow } from '@floating-ui/react';
 import { usePopover } from './usePopover';
 import { Disclosure } from '../Disclosure/Disclosure';
 import theme from './Popover.module.scss';
@@ -38,31 +38,23 @@ export function Popover({
 			<Disclosure popref={popover.refs.setReference} {...popover.getReferenceProps()}>
 				{disclosure}
 			</Disclosure>
-			{popover.open && (
-				<>
-					<FloatingPortal>
-						<FloatingFocusManager context={popover.context} modal={popover.modal}>
-							<div
-								ref={popover.refs.setFloating}
-								className={theme.popover}
-								style={{ ...popover.floatingStyles }}
-								aria-labelledby={popover.labelId}
-								aria-describedby={popover.descriptionId}
-								{...popover.getFloatingProps(restOptions)}
-							>
-								<FloatingArrow
-									ref={arrowRef}
-									context={popover.context}
-									strokeWidth={1}
-									stroke={tokens.coralColorIllustrationShadow}
-									fill={tokens.coralColorNeutralBackground}
-								/>
-								{childrenRendered}
-							</div>
-						</FloatingFocusManager>
-					</FloatingPortal>
-				</>
-			)}
+			<div
+				ref={popover.refs.setFloating}
+				className={theme.popover}
+				style={{ ...popover.floatingStyles, display: popover.open ? 'block' : 'none' }}
+				aria-labelledby={popover.labelId}
+				aria-describedby={popover.descriptionId}
+				{...popover.getFloatingProps(restOptions)}
+			>
+				<FloatingArrow
+					ref={arrowRef}
+					context={popover.context}
+					strokeWidth={1}
+					stroke={tokens.coralColorIllustrationShadow}
+					fill={tokens.coralColorNeutralBackground}
+				/>
+				{childrenRendered}
+			</div>
 		</>
 	);
 }
