@@ -1,4 +1,5 @@
 ---
+'@talend/scripts-core': major
 '@talend/scripts-config-jest': major
 ---
 
