@@ -41,6 +41,7 @@ jobs:
           yarn --frozen-lock --ignore-scripts
           yarn cypress install
           yarn workspace @talend/assets-api run build:lib
+          yarn workspace @talend/utils run build:lib
           yarn workspace @talend/icons run build:lib
           yarn workspace @talend/design-tokens run build:lib
 
