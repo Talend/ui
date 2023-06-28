@@ -142,6 +142,20 @@ export const NoDisclosure: ComponentStory<typeof Modal> = props => (
 	</ModalStory>
 );
 
+export const WithDisclosure: ComponentStory<typeof Modal> = props => (
+	<Modal
+		{...props}
+		header={{ title: 'With disclosure' }}
+		disclosure={
+			<ButtonPrimary data-test="modal-disclosure" onClick={() => {}}>
+				Open the modal
+			</ButtonPrimary>
+		}
+	>
+		<p>A basic modal with an associated disclosure button.</p>
+	</Modal>
+);
+
 export const WithIcon: ComponentStory<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'With icon', icon: 'talend-file-hdfs-o' }}>
 		<p>A basic modal with title, a text content and an icon.</p>

@@ -1,4 +1,5 @@
-import { ReactElement, ReactNode, useEffect, useRef } from 'react';
+import { useEffect, useRef, cloneElement } from 'react';
+import type { ReactNode, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DeprecatedIconNames } from '../../types';
@@ -11,8 +12,8 @@ import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructi
 
 import styles from './Modal.module.scss';
 import { Dialog, DialogPropsType, useDialogState } from './Primitives/Dialog';
-// import { DialogDisclosure } from './Primitives/DialogDisclosure';
 import { DialogBackdrop } from './Primitives/DialogBackdrop';
+import { Disclosure } from '../Disclosure/Disclosure';
 
 type IconProp = DeprecatedIconNames | ReactElement;
 
@@ -36,7 +37,7 @@ export type ModalPropsType = {
 		icon?: IconProp;
 	};
 	onClose?: () => void;
-	// disclosure?: ReactElement;
+	disclosure?: ReactElement;
 	primaryAction?: PrimaryActionPropsType;
 	secondaryAction?: ButtonSecondaryPropsType<'M'>;
 	preventEscaping?: boolean;
@@ -57,14 +58,14 @@ function Modal(props: ModalPropsType): ReactElement {
 	const {
 		header,
 		primaryAction,
-		// disclosure,
+		disclosure,
 		onClose,
 		secondaryAction,
 		preventEscaping,
 		children,
 		...rest
 	} = props;
-	const hasDisclosure = false; // 'disclosure' in props;
+	const hasDisclosure = 'disclosure' in props;
 	const { t } = useTranslation('design-system');
 	const dialog = useDialogState({ visible: !hasDisclosure });
 	const ref = useRef<HTMLDivElement>(null);
@@ -77,11 +78,13 @@ function Modal(props: ModalPropsType): ReactElement {
 
 	return (
 		<>
-			{/* {disclosure && (
-				<DialogDisclosure {...dialog}>
-					{disclosureProps => cloneElement(disclosure, disclosureProps)}
-				</DialogDisclosure>
-			)} */}
+			{disclosure && (
+				<Disclosure {...dialog}>
+					{disclosureProps =>
+						cloneElement(disclosure, { ...disclosureProps, onClick: dialog.show })
+					}
+				</Disclosure>
+			)}
 			<DialogBackdrop
 				visible={dialog.visible}
 				className={styles['modal-backdrop']}
