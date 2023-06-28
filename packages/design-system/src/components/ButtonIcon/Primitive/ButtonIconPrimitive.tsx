@@ -5,6 +5,7 @@ import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
+import { useId } from '../../../useId';
 import { DeprecatedIconNames } from '../../../types';
 import Button from '../../Clickable';
 import Tooltip, { TooltipPlacement } from '../../Tooltip';

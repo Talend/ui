@@ -4,6 +4,7 @@ import type { PropsWithChildren } from 'react';
 import {
 	arrow,
 	FloatingArrow,
+	FloatingPortal,
 	useFloating,
 	useHover,
 	useFocus,
@@ -40,7 +41,7 @@ export type TooltipProps = PropsWithChildren<any> & {
 	id?: string;
 };
 
-const Tooltip = ({ id, children, title, placement = 'top' }: TooltipProps) => {
+const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipProps) => {
 	const safeId = useId(id);
 	const [isOpen, setIsOpen] = useState(false);
 	const arrowRef = useRef(null);
@@ -67,23 +68,27 @@ const Tooltip = ({ id, children, title, placement = 'top' }: TooltipProps) => {
 	const dismiss = useDismiss(floating.context);
 	const role = useRole(floating.context, { role: 'tooltip' });
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
+
 	return (
 		<>
 			{cloneElement(children as any, {
 				ref: floating.refs.setReference,
-				'aria-describedby': safeId,
 				...getReferenceProps(),
+				'aria-describedby': safeId,
 			})}
-			<div
-				id={safeId}
-				ref={floating.refs.setFloating}
-				className={styles.container}
-				style={{ display: isOpen ? 'block' : 'none', ...floating.floatingStyles }}
-				{...getFloatingProps()}
-			>
-				<FloatingArrow ref={arrowRef} context={floating.context} />
-				{title}
-			</div>
+			<FloatingPortal>
+				<div
+					{...getFloatingProps()}
+					id={safeId}
+					ref={floating.refs.setFloating}
+					className={styles.container}
+					style={{ display: isOpen ? 'block' : 'none', ...floating.floatingStyles }}
+					{...rest}
+				>
+					<FloatingArrow ref={arrowRef} context={floating.context} />
+					{title}
+				</div>
+			</FloatingPortal>
 		</>
 	);
 };
