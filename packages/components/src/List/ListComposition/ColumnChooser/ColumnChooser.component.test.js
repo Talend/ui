@@ -19,10 +19,6 @@ describe('ColumnChooser', () => {
 			t: getDefaultT(),
 		};
 	});
-	afterAll(() => {
-		//fix floating ui TypeError: Cannot read properties of null (reading 'documentElement')
-		new Promise(resolve => setTimeout(resolve, 0));
-	});
 
 	it('should render column chooser component', () => {
 		// when

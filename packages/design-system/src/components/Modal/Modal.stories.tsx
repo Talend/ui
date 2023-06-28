@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { ButtonPrimary, Modal } from '@talend/design-system';
-// eslint-disable-next-line @talend/import-depth
-import { ModalPropsType } from '@talend/design-system/lib/components/Modal';
+import type { ModalPropsType } from './Modal';
+import { ButtonPrimary, Modal } from '../../';
 
 export default {
 	component: Modal,
