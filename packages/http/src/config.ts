@@ -7,6 +7,22 @@ export const HTTP: { defaultConfig?: TalendRequestInit | null } = {
 	defaultConfig: null,
 };
 
+export const HTTP_INTERCEPTORS: Record<string, (response: Response) => void> = {};
+
+export function addHttpInterceptor(name: string, interceptor: (response: Response) => void) {
+	if (HTTP_INTERCEPTORS[name]) {
+		throw new Error(`Interceptor ${name} already exists`);
+	}
+	HTTP_INTERCEPTORS[name] = interceptor;
+}
+
+export function removeHttpInterceptor(name: string) {
+	if (!HTTP_INTERCEPTORS[name]) {
+		throw new Error(`Interceptor ${name} does not exist`);
+	}
+	delete HTTP_INTERCEPTORS[name];
+}
+
 /**
  * setDefaultHeader - define a default config to use with the saga http
  * this default config is stored in this module for the whole application
