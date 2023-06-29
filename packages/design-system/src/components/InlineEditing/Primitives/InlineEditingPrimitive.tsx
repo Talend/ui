@@ -1,4 +1,4 @@
-import { cloneElement, forwardRef, useCallback, useEffect, useState } from 'react';
+import { cloneElement, forwardRef, useEffect, useState } from 'react';
 import type {
 	MouseEvent,
 	FormEvent,
@@ -119,6 +119,7 @@ const InlineEditingPrimitive = forwardRef(
 			if (hasError) {
 				toggleEditionMode(hasError);
 			}
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [hasError]);
 
 		const handleSubmit = (event: OnEditEvent) => {
