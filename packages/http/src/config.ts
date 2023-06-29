@@ -7,20 +7,23 @@ export const HTTP: { defaultConfig?: TalendRequestInit | null } = {
 	defaultConfig: null,
 };
 
-export const HTTP_INTERCEPTORS: Record<string, (response: Response) => void> = {};
+export const HTTP_RESPONSE_INTERCEPTORS: Record<string, (response: Response) => void> = {};
 
-export function addHttpInterceptor(name: string, interceptor: (response: Response) => void) {
-	if (HTTP_INTERCEPTORS[name]) {
+export function addHttpResponseInterceptor(
+	name: string,
+	interceptor: (response: Response) => void,
+) {
+	if (HTTP_RESPONSE_INTERCEPTORS[name]) {
 		throw new Error(`Interceptor ${name} already exists`);
 	}
-	HTTP_INTERCEPTORS[name] = interceptor;
+	HTTP_RESPONSE_INTERCEPTORS[name] = interceptor;
 }
 
-export function removeHttpInterceptor(name: string) {
-	if (!HTTP_INTERCEPTORS[name]) {
+export function removeHttpResponseInterceptor(name: string) {
+	if (!HTTP_RESPONSE_INTERCEPTORS[name]) {
 		throw new Error(`Interceptor ${name} does not exist`);
 	}
-	delete HTTP_INTERCEPTORS[name];
+	delete HTTP_RESPONSE_INTERCEPTORS[name];
 }
 
 /**

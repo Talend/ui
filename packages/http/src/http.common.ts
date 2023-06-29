@@ -1,4 +1,4 @@
-import { HTTP, HTTP_INTERCEPTORS } from './config';
+import { HTTP, HTTP_RESPONSE_INTERCEPTORS } from './config';
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
 import { TalendHttpResponse, TalendRequestInit } from './http.types';
@@ -126,7 +126,7 @@ export async function httpFetch<T>(
 		}),
 	);
 
-	Object.values(HTTP_INTERCEPTORS).forEach(interceptor => {
+	Object.values(HTTP_RESPONSE_INTERCEPTORS).forEach(interceptor => {
 		interceptor(response);
 	});
 

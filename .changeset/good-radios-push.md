@@ -7,9 +7,9 @@ feat(http): add the possibility to add global interceptors for every calls that 
 Usage:
   
 ```typescript
-import { addHttpInterceptor, HTTP_STATUS } from '@talend/http';
+import { addHttpResponseInterceptor, HTTP_STATUS } from '@talend/http';
 
-addHttpInterceptor('logout', (response: Response): void => {
+addHttpResponseInterceptor('logout', (response: Response): void => {
 	if (response.status === HTTP_STATUS.UNAUTHORIZED) {
 		logout();
 	}

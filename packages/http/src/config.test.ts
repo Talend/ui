@@ -1,9 +1,9 @@
 import {
 	HTTP,
-	HTTP_INTERCEPTORS,
-	addHttpInterceptor,
+	HTTP_RESPONSE_INTERCEPTORS,
+	addHttpResponseInterceptor,
 	getDefaultConfig,
-	removeHttpInterceptor,
+	removeHttpResponseInterceptor,
 	setDefaultConfig,
 	setDefaultLanguage,
 } from './config';
@@ -50,17 +50,17 @@ describe('Configuration service', () => {
 
 	describe('Http interceptors', () => {
 		beforeEach(() => {
-			for (const key in HTTP_INTERCEPTORS) {
-				if (HTTP_INTERCEPTORS.hasOwnProperty(key)) {
-					delete HTTP_INTERCEPTORS[key];
+			for (const key in HTTP_RESPONSE_INTERCEPTORS) {
+				if (HTTP_RESPONSE_INTERCEPTORS.hasOwnProperty(key)) {
+					delete HTTP_RESPONSE_INTERCEPTORS[key];
 				}
 			}
 		});
 
 		it('should add a new interceptor when the name is not already used', () => {
 			const interceptor = jest.fn();
-			addHttpInterceptor('myInterceptor', interceptor);
-			expect(HTTP_INTERCEPTORS).toEqual({
+			addHttpResponseInterceptor('myInterceptor', interceptor);
+			expect(HTTP_RESPONSE_INTERCEPTORS).toEqual({
 				myInterceptor: interceptor,
 			});
 		});
@@ -68,30 +68,30 @@ describe('Configuration service', () => {
 		it('should throw an error when the name is already used', () => {
 			const interceptor1 = jest.fn();
 			const interceptor2 = jest.fn();
-			addHttpInterceptor('myInterceptor', interceptor1);
-			expect(() => addHttpInterceptor('myInterceptor', interceptor2)).toThrowError(
+			addHttpResponseInterceptor('myInterceptor', interceptor1);
+			expect(() => addHttpResponseInterceptor('myInterceptor', interceptor2)).toThrowError(
 				'Interceptor myInterceptor already exists',
 			);
-			expect(HTTP_INTERCEPTORS).toEqual({
+			expect(HTTP_RESPONSE_INTERCEPTORS).toEqual({
 				myInterceptor: interceptor1,
 			});
 		});
 
 		it('should remove an existing interceptor', () => {
 			const interceptor1 = jest.fn();
-			addHttpInterceptor('myInterceptor', interceptor1);
+			addHttpResponseInterceptor('myInterceptor', interceptor1);
 
-			removeHttpInterceptor('myInterceptor');
-			expect(HTTP_INTERCEPTORS).toEqual({});
+			removeHttpResponseInterceptor('myInterceptor');
+			expect(HTTP_RESPONSE_INTERCEPTORS).toEqual({});
 		});
 
 		it('should throw an error when the interceptor does not exist', () => {
 			const interceptor2 = jest.fn();
-			addHttpInterceptor('myInterceptor2', interceptor2);
-			expect(() => removeHttpInterceptor('myInterceptor')).toThrowError(
+			addHttpResponseInterceptor('myInterceptor2', interceptor2);
+			expect(() => removeHttpResponseInterceptor('myInterceptor')).toThrowError(
 				'Interceptor myInterceptor does not exist',
 			);
-			expect(HTTP_INTERCEPTORS).toEqual({ myInterceptor2: interceptor2 });
+			expect(HTTP_RESPONSE_INTERCEPTORS).toEqual({ myInterceptor2: interceptor2 });
 		});
 	});
 });
