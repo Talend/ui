@@ -1,11 +1,13 @@
 import { axe, toHaveNoViolations } from 'jest-axe';
-import { render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './';
 
 expect.extend(toHaveNoViolations);
 
 describe('ButtonIcon', () => {
 	it('should render accessible button', async () => {
+		// note we need to add the aria-label to be accessible
+		// TODO: make it required
 		const { container } = render(
 			<ButtonIcon aria-label="should be required" icon="talend-arrow-left" onClick={() => {}}>
 				children is considered as description

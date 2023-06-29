@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import tokens from '@talend/design-tokens';
 
