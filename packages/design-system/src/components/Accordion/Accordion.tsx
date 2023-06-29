@@ -1,4 +1,5 @@
-import { Children, cloneElement, ReactElement, useState } from 'react';
+import { Children, cloneElement, useState } from 'react';
+import type { ReactElement } from 'react';
 
 export type AccordionPropsType = {
 	children: ReactElement[];

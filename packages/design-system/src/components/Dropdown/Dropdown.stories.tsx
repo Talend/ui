@@ -22,7 +22,7 @@ export const WithIcons = {
 				{
 					icon: 'talend-tmc-colored',
 					label: 'Button with icon',
-					onClick: () => action('clicked'),
+					onClick: action('Button with icon clicked'),
 					type: 'button',
 				},
 			]}

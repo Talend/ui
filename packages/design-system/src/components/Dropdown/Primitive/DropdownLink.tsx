@@ -21,9 +21,9 @@ LocalLink.displayName = 'LocalLink';
 const DropdownLink = forwardRef(
 	({ children, as, ...props }: DropdownLinkType, ref: Ref<HTMLAnchorElement>) => {
 		return (
-			<Linkable {...props} ref={ref}>
+			<LocalLink {...props} ref={ref}>
 				{children}
-			</Linkable>
+			</LocalLink>
 		);
 	},
 );

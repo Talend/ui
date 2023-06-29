@@ -1,9 +1,9 @@
 import { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from 'react';
 import classNames from 'classnames';
 
+import { useId } from '../../../useId';
 import { DataAttributes } from '../../../types';
 import { variants } from '../../Status/Primitive/StatusPrimitive';
-import { useId } from '../../../useId';
 
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';

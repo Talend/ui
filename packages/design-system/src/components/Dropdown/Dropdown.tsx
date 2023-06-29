@@ -104,8 +104,9 @@ const Dropdown = ({
 								{...entryRest}
 								// {...menu}
 								onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-									// menu.hide();
 									entry.onClick(event);
+									setIsOpen(false);
+									console.log('closed but sent');
 								}}
 								key={id}
 								tabIndex={0}
@@ -154,7 +155,7 @@ const Dropdown = ({
 							key={id}
 							id={id}
 							onClick={(event: MouseEvent<HTMLAnchorElement>) => {
-								// menu.hide();
+								setIsOpen(false);
 								if (entry.onClick) {
 									entry.onClick(event);
 								}

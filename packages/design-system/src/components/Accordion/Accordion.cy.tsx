@@ -1,3 +1,4 @@
+/* eslint-disable cypress/unsafe-to-chain-command */
 /* eslint-disable testing-library/await-async-query */
 /* eslint-disable testing-library/prefer-screen-queries */
 import { Accordion, CollapsiblePanel } from './';
@@ -39,9 +40,9 @@ context('<CollapsiblePanel />', () => {
 
 	it('should expand and collapse', () => {
 		cy.mount(<WithAction />);
-		cy.get('#CollapsiblePanel__control--panel-with-action').click();
+		cy.get('#CollapsiblePanel__control--panel-with-action').focus().click();
 		cy.findByTestId('panel.section').should('be.visible');
-		cy.get('#CollapsiblePanel__control--panel-with-action').click();
+		cy.get('#CollapsiblePanel__control--panel-with-action').focus().click();
 		cy.findByTestId('panel.section').should('not.exist');
 	});
 

@@ -10,22 +10,6 @@ type ShellProps = HTMLAttributes<HTMLDivElement> & {
 
 const DropdownShell = forwardRef<HTMLDivElement, ShellProps>(
 	({ children, onClick, ...rest }, ref) => {
-		// add event listener on ref to close dropdown on click outside
-		useEffect(() => {
-			const handleClickInMenu = (event: MouseEvent) => {
-				event.stopPropagation();
-				if (ref === null || typeof ref === 'function') {
-					return;
-				}
-				if (ref.current && !ref.current.contains(event.target as Node)) {
-					onClick();
-				}
-			};
-			document.addEventListener('mousedown', handleClickInMenu);
-			return () => {
-				document.removeEventListener('mousedown', handleClickInMenu);
-			};
-		}, [ref, onClick]);
 		return (
 			<div
 				role="menu"

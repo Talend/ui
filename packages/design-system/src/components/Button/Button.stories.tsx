@@ -12,12 +12,9 @@ import {
 	StackHorizontal,
 	StackVertical,
 	Tooltip,
-} from '@talend/design-system';
+} from '../../';
 
-import {
-	BaseButtonProps,
-	AvailableSizes,
-} from '@talend/design-system/lib/components/Button/Primitive/ButtonPrimitive';
+import { BaseButtonProps, AvailableSizes } from './Primitive/ButtonPrimitive';
 
 const commonArgTypes = {
 	children: {

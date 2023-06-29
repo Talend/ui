@@ -19,7 +19,7 @@ context('<Tooltip />', () => {
 		it('Should be able to override baseId', () => {
 			const tooltipBaseId = 'base-id';
 			cy.mount(
-				<Tooltip title="click me" data-testid="my.tooltip" baseId={tooltipBaseId}>
+				<Tooltip title="click me" data-testid="my.tooltip" id={tooltipBaseId}>
 					<button>button</button>
 				</Tooltip>,
 			);

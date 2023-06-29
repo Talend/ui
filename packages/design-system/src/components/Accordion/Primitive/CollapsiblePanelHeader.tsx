@@ -63,6 +63,7 @@ const CollapsiblePanelHeader = forwardRef(
 				return (
 					<ButtonIcon
 						id={controlId}
+						aria-label="Toggle"
 						aria-controls={sectionId}
 						aria-expanded={expanded}
 						icon={expanded ? 'chevron-up' : 'chevron-down'}

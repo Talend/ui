@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
 
-import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '@talend/design-system';
+import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '../../';
 
 export default { component: Accordion };
 
