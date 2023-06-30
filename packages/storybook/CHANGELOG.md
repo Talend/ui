@@ -1,5 +1,16 @@
 # @talend/ui-storybook
 
+## 1.2.0
+
+### Minor Changes
+
+- d8c9adc34: [DS] InlineEditing : allow to update value from default value prop
+
+### Patch Changes
+
+- Updated dependencies [d8c9adc34]
+  - @talend/design-system@7.11.0
+
 ## 1.1.3
 
 ### Patch Changes
