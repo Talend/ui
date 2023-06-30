@@ -10,9 +10,10 @@ require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
-
+const jestAxe = require('jest-axe');
 jest.mock('ally.js');
 
+expect.extend(jestAxe.toHaveNoViolations);
 // add missing ResizeObserver
 class ResizeObserver {
 	observe() {

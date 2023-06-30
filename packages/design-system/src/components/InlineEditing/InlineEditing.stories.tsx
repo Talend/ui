@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 
-import { InlineEditing, StackVertical } from '@talend/design-system';
+import { InlineEditing, StackVertical } from '../../';
 
 export default {
 	component: InlineEditing,

@@ -1,8 +1,6 @@
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './';
-
-expect.extend(toHaveNoViolations);
 
 describe('ButtonIcon', () => {
 	it('should render accessible button', async () => {

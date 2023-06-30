@@ -5,6 +5,7 @@
 
 - fix: enforce timer at the end of all tests.
 - feat: mock ally.js has it uses unsupported dom method from jsdom.
+- feat: add jest-axe configuration
 
 
 To support floating-ui/react following issue we have decided to add an afterAll to let floating-ui finish stuff
