@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.11.0
+
+### Minor Changes
+
+- d8c9adc34: [DS] InlineEditing : allow to update value from default value prop
+
 ## 7.10.0
 
 ### Minor Changes
