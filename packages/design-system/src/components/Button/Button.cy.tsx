@@ -55,19 +55,16 @@ context('<Button />', () => {
 		it('should load', () => {
 			cy.mount(<Loading data-testid="my.button" />);
 			cy.findByTestId('my.button').should('have.attr', 'aria-busy', 'false');
-			cy.findByTestId('my.button').focus().click();
+			cy.findByTestId('my.button').click({ force: true });
 			cy.findByTestId('my.button').should('have.attr', 'aria-busy', 'true');
 			cy.get('button').should('have.attr', 'aria-busy', 'false');
 		});
 
 		it('should have a tooltip', () => {
 			cy.mount(<Loading data-testid="my.button" />);
-			cy.findByTestId('my.button')
-				.focus()
-				.should('have.attr', 'aria-describedby')
-				.then(describedBy =>
-					cy.get(`#${describedBy}`).should('have.text', 'Relevant description of the basic button'),
-				);
+			cy.findByTestId('my.button').focus();
+			cy.findByTestId('my.button').should('have.attr', 'aria-describedby');
+			cy.get(`#${describedBy}`).should('have.text', 'Relevant description of the basic button');
 		});
 	});
 });

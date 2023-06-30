@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import type { Ref, RefObject, MutableRefObject } from 'react';
+import type { MutableRefObject } from 'react';
 import {
 	useFloating,
 	arrow,

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import type { ReactNode } from 'react';
 import tokens from '@talend/design-tokens';
 
@@ -57,14 +57,7 @@ export function Popover({
 	if (isFixed) {
 		content = <FloatingPortal>{content}</FloatingPortal>;
 	}
-	const disclosureProps = popover.getReferenceProps();
-	const onClick = disclosureProps.onClick;
-	disclosureProps.onClick = event => {
-		event.stopPropagation();
-		if (onClick) {
-			onClick(event);
-		}
-	};
+	const disclosureProps = popover.getReferenceProps({ onClick: e => e.stopPropagation() });
 	return (
 		<>
 			<Disclosure popref={popover.refs.setReference} {...disclosureProps}>
