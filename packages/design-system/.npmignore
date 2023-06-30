@@ -14,7 +14,7 @@ static
 .eslintrc
 .gitignore
 .npmignore
-.prettierrc
+.prettierrc.js
 cypress.json
 jest.config.js
 talend-scripts.json
