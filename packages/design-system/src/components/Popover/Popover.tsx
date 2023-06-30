@@ -57,9 +57,17 @@ export function Popover({
 	if (isFixed) {
 		content = <FloatingPortal>{content}</FloatingPortal>;
 	}
+	const disclosureProps = popover.getReferenceProps();
+	const onClick = disclosureProps.onClick;
+	disclosureProps.onClick = event => {
+		event.stopPropagation();
+		if (onClick) {
+			onClick(event);
+		}
+	};
 	return (
 		<>
-			<Disclosure popref={popover.refs.setReference} {...popover.getReferenceProps()}>
+			<Disclosure popref={popover.refs.setReference} {...disclosureProps}>
 				{disclosure}
 			</Disclosure>
 			{content}
