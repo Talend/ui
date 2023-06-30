@@ -31,8 +31,8 @@ function Grid({ transformData }: { transformData?: Transform }) {
 				>
 					<path d={`M 0 0 V ${halfCrossSize}`} />
 					<path d={`M 0 0 H ${halfCrossSize}`} />
-					<line x1="0" y1={`${largeGridSize}`} x2="0" y2={deltaSize} />
-					<line x1={`${largeGridSize}`} y1="0" x2={deltaSize} y2="0" />
+					<line x1="0" y1={largeGridSize} x2="0" y2={deltaSize} />
+					<line x1={largeGridSize} y1="0" x2={deltaSize} y2="0" />
 				</pattern>
 			</defs>
 			<rect
