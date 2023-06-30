@@ -14,7 +14,7 @@ Breaking changes:
 
 Components changed:
 * Accordion (useId)
-* Clickabke (rewrite)
+* Clickable (rewrite)
 * Combobox (add as primitive)
 * Disclosure (add as primitive)
 * Divider (rewrite)
