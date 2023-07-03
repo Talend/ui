@@ -97,6 +97,16 @@ const badgesFaceted = {
 						label: 'Amazon S3',
 						checked: true,
 					},
+					{
+						id: 'hdfs',
+						label: 'HDFS',
+						checked: true,
+					},
+					{
+						id: 'localcon',
+						label: 'Local connection',
+						checked: true,
+					},
 				],
 			},
 			metadata: {
