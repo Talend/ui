@@ -17,6 +17,7 @@ const STORIES = [
 	`${rootPath}src/content/docs/Capitalization.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Wording.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/design-system/**/*.stories.mdx`,
+	`${rootPath}src/design-system/Accordion/*.stories.mdx`,
 ];
 
 const config = {
@@ -29,7 +30,8 @@ const config = {
 			},
 		},
 	},
-	stories: STORIES,
+	// stories: STORIES,
+	stories: [],
 	staticDirs: [`${rootPath}static`],
 	addons: ['storybook-addon-mdx-embed'],
 	typescript: {

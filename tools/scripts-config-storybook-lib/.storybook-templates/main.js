@@ -8,6 +8,9 @@ import {
 } from '@talend/scripts-config-react-webpack/config/webpack.config.common';
 
 import { fixWindowsPaths } from './utils';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const cwd = process.cwd();
 
@@ -17,7 +20,6 @@ function getFolderGlob(folderName) {
 
 function getStoriesFolders() {
 	const storiesFolders = [getFolderGlob('src')];
-
 	if (fs.existsSync(path.join(cwd, 'stories'))) {
 		storiesFolders.push(getFolderGlob('stories'));
 	}
@@ -81,7 +83,8 @@ const defaultMain = {
 				...config.plugins,
 				// use dynamic-cdn-webpack-plugin with default modules
 				new CDNPlugin({
-					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/))
+					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/)),
+                    disable: true, // temporaly disable the CDN pluggin, causing 404 on the cdn
 				}),
 			],
 			resolve: {
@@ -93,7 +96,9 @@ const defaultMain = {
 	},
 };
 
-const userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
+const temp_userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
+
+const userMain = temp_userMain.default;
 
 const config = {
 	...defaultMain,
