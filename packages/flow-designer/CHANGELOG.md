@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.5.0
+
+### Minor Changes
+
+- 95670ed73: Lighten grid background
+
 ## 5.4.0
 
 ### Minor Changes
