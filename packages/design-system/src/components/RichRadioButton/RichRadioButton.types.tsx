@@ -6,13 +6,28 @@ export interface RichRadioButtonTag {
 	variant?: keyof typeof TagVariant;
 }
 
+export interface LogoAsset {
+	logo: string;
+	name: never;
+	illustration: never;
+}
+
+export interface IllustrationAsset {
+	logo: never;
+	name: never;
+	illustration: () => ReactElement;
+}
+
+export interface IconAsset {
+	logo: never;
+	name: string;
+	illustration: never;
+}
+
 export interface RichRadioButtonProps {
 	dataFeature?: string;
 	description?: string;
-	asset?: {
-		illustration?: () => ReactElement;
-		name?: string;
-	};
+	asset?: LogoAsset | IllustrationAsset | IconAsset;
 	id: string;
 	isChecked?: boolean;
 	isDisabled?: boolean;

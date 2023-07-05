@@ -1,9 +1,41 @@
-import { RichRadioButtonProps } from './RichRadioButton.types';
+import {
+	RichRadioButtonProps,
+	LogoAsset,
+	IllustrationAsset,
+	IconAsset,
+} from './RichRadioButton.types';
 import { StackVertical, StackHorizontal } from '../Stack';
 import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
 import style from './RichRadioButton.module.scss';
 import classnames from 'classnames';
 import { Tag } from '../Tag';
+import { Icon } from '../Icon';
+
+function RichRadioButtonIcon({ asset }: { asset?: LogoAsset | IllustrationAsset | IconAsset }) {
+	if (asset?.illustration) {
+		return (
+			<span className={classnames([style['rich-radio-button__illustration']])}>
+				<asset.illustration />
+			</span>
+		);
+	}
+	if (asset?.logo) {
+		return <Icon name={asset.logo} className={classnames([style['rich-radio-button__logo']])} />;
+	}
+	if (asset?.name) {
+		return (
+			<span className={classnames([style['rich-radio-button__icon']])}>
+				{getIconWithDeprecatedSupport({
+					iconSrc: asset.name || '',
+					size: 'L',
+					...asset,
+				})}
+			</span>
+		);
+	}
+
+	return null;
+}
 
 const RichRadioButton = ({
 	dataFeature,
@@ -18,8 +50,6 @@ const RichRadioButton = ({
 	tags,
 	title,
 }: RichRadioButtonProps) => {
-	const Illustation = asset?.illustration;
-
 	return (
 		<label className={style['rich-radio-button__wrapper']}>
 			<input
@@ -35,20 +65,7 @@ const RichRadioButton = ({
 			/>
 			<span className={style['rich-radio-button']}>
 				<StackVertical as="span" gap="XS">
-					{asset && (
-						<span
-							className={classnames({
-								[style['rich-radio-button__illustration']]: asset.illustration,
-								[style['rich-radio-button__icon']]: !asset.illustration,
-							})}
-						>
-							{(Illustation && <Illustation />) ||
-								getIconWithDeprecatedSupport({
-									iconSrc: asset.name || '',
-									size: 'L',
-								})}
-						</span>
-					)}
+					<RichRadioButtonIcon asset={asset} />
 					<h4>{title}</h4>
 
 					{description && <p>{description}</p>}
