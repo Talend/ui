@@ -10,6 +10,7 @@ import style from './RichRadioButton.module.scss';
 import classnames from 'classnames';
 import { Tag } from '../Tag';
 import { Icon } from '../Icon';
+import { DataAttributes } from 'src/types';
 
 function RichRadioButtonIcon({ asset }: { asset?: LogoAsset | IllustrationAsset | IconAsset }) {
 	if (asset?.illustration) {
@@ -49,7 +50,9 @@ const RichRadioButton = ({
 	onChange,
 	tags,
 	title,
-}: RichRadioButtonProps) => {
+	'data-testid': dataTestId,
+	'data-test': dataTest,
+}: RichRadioButtonProps & Partial<DataAttributes>) => {
 	return (
 		<label className={style['rich-radio-button__wrapper']}>
 			<input
@@ -59,8 +62,10 @@ const RichRadioButton = ({
 				name={name}
 				disabled={isDisabled}
 				readOnly={isReadOnly}
-				data-feature={dataFeature}
 				checked={isChecked}
+				data-feature={dataFeature}
+				data-testid={dataTestId}
+				data-test={dataTest}
 				onChange={() => onChange(id)}
 				data-checked={isChecked}
 			/>
