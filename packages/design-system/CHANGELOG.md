@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.12.0
+
+### Minor Changes
+
+- 7de53ccf0: feat(design-system): Handle logos in RichRadioButton
+
 ## 7.11.0
 
 ### Minor Changes
