@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@talend/bootstrap-sass": "^3.4.8",
+    "@talend/design-tokens": "^2.7.3",
     "@talend/icons": "^6.58.1"
   },
   "devDependencies": {

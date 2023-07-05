@@ -1,12 +1,61 @@
+@use '@talend/design-tokens/lib/tokens';
+
+body {
+	color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-neutral-background;
+}
+
+h1,
+.h1 {
+	color: tokens.$coral-color-neutral-text;
+	font: tokens.$coral-heading-l;
+}
+
 h2,
 .h2 {
-	font-weight: $font-weight-semi-bold;
+	color: tokens.$coral-color-neutral-text;
+	font: tokens.$coral-heading-m;
 }
 
 h3,
 .h3,
 h4,
 .h4 {
-	color: #000;
-	font-weight: $font-weight-semi-bold;
+	color: tokens.$coral-color-neutral-text;
+	font: tokens.$coral-heading-s;
 }
+
+p,
+.p {
+	color: tokens.$coral-color-neutral-text;
+	font: tokens.$coral-paragraph-m;
+}
+
+.text-muted {
+	color: tokens.$coral-color-neutral-text-disabled;
+}
+.text-primary {
+	color: tokens.$coral-color-accent-text;
+}
+.text-warning {
+	color: tokens.$coral-color-warning-text;
+}
+.text-danger {
+	color: tokens.$coral-color-danger-text;
+}
+.text-success {
+	color: tokens.$coral-color-success-text;
+}
+.text-info {
+	color: tokens.$coral-color-accent-text;
+}
+
+a {
+	color: tokens.$coral-color-accent-text;
+}
+
+// for later on
+// code {
+// 	color: tokens.$coral-color-danger-text-strong;
+// 	background-color: tokens.$coral-color-danger-background;
+// }
