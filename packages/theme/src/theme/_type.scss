@@ -8,13 +8,13 @@ body {
 h1,
 .h1 {
 	color: tokens.$coral-color-neutral-text;
-	font: tokens.$coral-heading-l;
+	// font: tokens.$coral-heading-l;
 }
 
 h2,
 .h2 {
 	color: tokens.$coral-color-neutral-text;
-	font: tokens.$coral-heading-m;
+	// font: tokens.$coral-heading-m;
 }
 
 h3,
@@ -22,13 +22,13 @@ h3,
 h4,
 .h4 {
 	color: tokens.$coral-color-neutral-text;
-	font: tokens.$coral-heading-s;
+	// font: tokens.$coral-heading-s;
 }
 
 p,
 .p {
 	color: tokens.$coral-color-neutral-text;
-	font: tokens.$coral-paragraph-m;
+	// font: tokens.$coral-paragraph-m;
 }
 
 .text-muted {
@@ -54,7 +54,7 @@ a {
 	color: tokens.$coral-color-accent-text;
 }
 
-// for later on
+// for later on as it is override
 // code {
 // 	color: tokens.$coral-color-danger-text-strong;
 // 	background-color: tokens.$coral-color-danger-background;
