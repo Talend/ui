@@ -62,6 +62,7 @@ const RichRadioButton = ({
 				data-feature={dataFeature}
 				checked={isChecked}
 				onChange={() => onChange(id)}
+				data-checked={isChecked}
 			/>
 			<span className={style['rich-radio-button']}>
 				<StackVertical as="span" gap="XS">
