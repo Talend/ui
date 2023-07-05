@@ -1,18 +1,33 @@
 import { ReactElement } from 'react';
 import { TagVariant } from '../Tag/Tag';
 
-export interface RichRadioButtonTag {
+export type RichRadioButtonTag = {
 	name: string;
 	variant?: keyof typeof TagVariant;
-}
+};
 
-export interface RichRadioButtonProps {
+export type LogoAsset = {
+	illustration?: never;
+	logo: string;
+	name?: never;
+};
+
+export type IllustrationAsset = {
+	illustration: () => ReactElement;
+	logo?: never;
+	name?: never;
+};
+
+export type IconAsset = {
+	illustration?: never;
+	logo?: never;
+	name: string;
+};
+
+export type RichRadioButtonProps = {
 	dataFeature?: string;
 	description?: string;
-	asset?: {
-		illustration?: () => ReactElement;
-		name?: string;
-	};
+	asset?: LogoAsset | IllustrationAsset | IconAsset;
 	id: string;
 	isChecked?: boolean;
 	isDisabled?: boolean;
@@ -21,4 +36,4 @@ export interface RichRadioButtonProps {
 	name: string;
 	tags?: RichRadioButtonTag[];
 	title: string;
-}
+};
