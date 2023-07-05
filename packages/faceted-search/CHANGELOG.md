@@ -1,5 +1,16 @@
 # Changelog
 
+## 9.4.0
+
+### Minor Changes
+
+- 93def65ae: TDOPS-4704 - Faceted search : Allow to configure faceted search min trigger length for quick search input
+
+### Patch Changes
+
+- bb0cd786e: fix(TDC-6575): badge size overlap with "Add Filter" button with some long values
+- 04167fe3d: fix(faceted-search): data-feature typo
+
 ## 9.3.0
 
 ### Minor Changes
