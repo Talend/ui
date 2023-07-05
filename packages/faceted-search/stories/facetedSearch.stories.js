@@ -522,3 +522,16 @@ export const WithQuickSearchFilter = () => (
 		/>
 	</FacetedSearch.Faceted>
 );
+
+export const WithQuickSearchFilterCustomizableInputTriggerLength = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<p>Quick search will trigger after a minimum input length that can be customized</p>
+		<br />
+		<FacetedSearch.BasicSearch
+			badgesDefinitions={badgesDefinitions}
+			callbacks={callbacks}
+			onSubmit={action('onSubmit')}
+			quickSearchMinLength={5}
+		/>
+	</FacetedSearch.Faceted>
+);
