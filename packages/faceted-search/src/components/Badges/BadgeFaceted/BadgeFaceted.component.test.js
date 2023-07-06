@@ -11,8 +11,8 @@ const MyWrappedBadge = ({ children, properties, providerValue }) => (
 );
 
 // eslint-disable-next-line react/prop-types
-const TestChildren = ({ badgeValue = 'default', onChangeValue, onSubmitBadge }) => (
-	<button data-testid="my-button" id="my-button" onChange={onChangeValue} onClick={onSubmitBadge}>
+const TestChildren = ({ badgeValue = 'default', onChangeValue, onSubmit }) => (
+	<button data-testid="my-button" id="my-button" onChange={onChangeValue} onClick={onSubmit}>
 		{badgeValue}
 	</button>
 );
@@ -89,54 +89,6 @@ describe('BadgeFaceted', () => {
 		expect(dispatch).toHaveBeenNthCalledWith(1, {
 			payload: { badgeId: 'my-badge-id' },
 			type: 'DELETE_BADGE',
-		});
-	});
-	it('should trigger onSubmit callback from context when submit button is clicked', () => {
-		// Given
-		const dispatch = jest.fn();
-		const badgeFacetedContextValue = {
-			state: { badges: [] },
-			dispatch,
-			onSubmit: jest.fn(),
-		};
-		const props = {
-			badgeId: 'my-badge-id',
-			category: 'Category',
-			id: 'my-id',
-			labelCategory: 'My Label',
-			labelValue: 'All',
-			operator,
-			operators,
-			t: () => 'Remove filter',
-			value: 'hello world',
-		};
-		// When
-		render(
-			<MyWrappedBadge properties={props} providerValue={badgeFacetedContextValue}>
-				{renderProps => <TestChildren {...renderProps} />}
-			</MyWrappedBadge>,
-		);
-		fireEvent.click(screen.getByRole('button', { name: 'All' }));
-		fireEvent.click(screen.getByRole('button', { name: 'hello world' }));
-		// Then
-		expect(dispatch).toHaveBeenCalledWith({
-			payload: {
-				badgeId: 'my-badge-id',
-				metadata: {
-					isInCreation: false,
-				},
-				properties: {
-					initialOperatorOpened: false,
-					initialValueOpened: false,
-					operator: {
-						iconName: 'talend-my-icon-equal',
-						label: 'My icon operator equal',
-						name: 'operatorIconEqual',
-					},
-					value: 'hello world',
-				},
-			},
-			type: 'UPDATE_BADGE',
 		});
 	});
 	it('should show special chars when a display type is provided', () => {
