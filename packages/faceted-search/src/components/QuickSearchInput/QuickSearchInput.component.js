@@ -17,7 +17,7 @@ export const QuickSearchInput = ({
 	onSelect = () => {},
 	facetsFilter,
 	inputProps,
-	minLength = 2,
+	minLength,
 }) => {
 	const defaultFacet = useMemo(() => getDefaultFacet(facets), [facets]);
 	const [opened, setOpened] = useState(false);

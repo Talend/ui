@@ -523,15 +523,46 @@ export const WithQuickSearchFilter = () => (
 	</FacetedSearch.Faceted>
 );
 
-export const WithQuickSearchFilterCustomizableInputTriggerLength = () => (
-	<FacetedSearch.Faceted id="my-faceted-search">
-		<p>Quick search will trigger after a minimum input length that can be customized</p>
-		<br />
-		<FacetedSearch.BasicSearch
-			badgesDefinitions={badgesDefinitions}
-			callbacks={callbacks}
-			onSubmit={action('onSubmit')}
-			quickSearchMinLength={5}
-		/>
-	</FacetedSearch.Faceted>
-);
+export const WithQuickSearchFilterCustomizableInputTriggerLength = () => {
+	const badgeNameWithLength = {
+		properties: {
+			attribute: 'name',
+			initialOperatorOpened: true,
+			initialValueOpened: false,
+			label: 'Name',
+			operator: {},
+			operators: [],
+			type: 'text',
+			placeholder: 'Enter a dataset name',
+		},
+		metadata: {
+			isAvailableForQuickSearch: true,
+			isAvailableForFacetList: true,
+			badgePerFacet: 'N',
+			entitiesPerBadge: '1',
+			operators: [
+				'containsIgnoreCase',
+				'notContainsIgnoreCase',
+				'equals',
+				'notEquals',
+				'match a regexp',
+			],
+			'data-feature': 'faceted-badge-name',
+			minLength: 5,
+		},
+	};
+	return (
+		<FacetedSearch.Faceted id="my-faceted-search">
+			<p>
+				Quick search will trigger after a minimum input length that can be customized based on badge
+				definition
+			</p>
+			<br />
+			<FacetedSearch.BasicSearch
+				badgesDefinitions={[badgeNameWithLength]}
+				callbacks={callbacks}
+				onSubmit={action('onSubmit')}
+			/>
+		</FacetedSearch.Faceted>
+	);
+};

@@ -133,6 +133,44 @@ describe('BasicSearch', () => {
 		// eslint-disable-next-line jest-dom/prefer-in-document
 		expect(screen.queryAllByRole('option')).toHaveLength(0);
 	});
+
+	it('should display quick search faced depending on badge length configuration', () => {
+		// Given
+		const props = {
+			badgesDefinitions: badgesDefinitionsWithQuicksearch.map(
+				badgesDefinitionsWithQuicksearchItem => ({
+					...badgesDefinitionsWithQuicksearchItem,
+					metadata: { ...badgesDefinitionsWithQuicksearchItem.metadata, minLength: 3 },
+				}),
+			),
+			badgesFaceted,
+			onSubmit: jest.fn(),
+		};
+		render(
+			<FacetedManager id="manager-id">
+				<BasicSearch
+					{...props}
+					quickSearchFacetsFilter={(term, facets) =>
+						facets.filter(facet => facet.properties.label === term)
+					}
+				/>
+			</FacetedManager>,
+		);
+		// When searching with less then 3 chars
+		fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Na' } });
+
+		// Then it won't display any faced
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.queryAllByRole('option')).toHaveLength(0);
+
+		// When searching with more then 3 chars
+		fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Name' } });
+
+		// Then it will display name faced
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.getAllByRole('option')).toHaveLength(1);
+	});
+
 	it('should not trigger onSubmit when badge definition has not changed', () => {
 		// given
 		const onSubmit = jest.fn();
