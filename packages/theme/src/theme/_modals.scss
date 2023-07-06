@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 .modal-dialog {
 	display: flex;
 	flex-direction: row;
@@ -13,13 +15,14 @@
 		flex-shrink: 0;
 		border: none; // it keeps the border-radius
 		border-radius: $border-radius-base;
+		background: tokens.$coral-color-neutral-background;
 	}
 
 	&-header {
 		border-top-left-radius: $border-radius-base;
 		border-top-right-radius: $border-radius-base;
-		background-color: $modal-header-bg;
-		border-color: $concrete;
+		border: none;
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 		padding: {
 			top: $modal-title-padding-top;
 			bottom: $modal-title-padding-bottom;
@@ -32,17 +35,18 @@
 		.modal {
 			&-subtitle {
 				font-size: 14px;
-				color: $dark-silver;
+				// color: $dark-silver;
 				margin-top: 1px;
 
 				&.error {
-					color: $chestnut-rose;
+					color: tokens.$coral-color-danger-text;
 				}
 			}
 		}
 
 		.close {
-			color: $dove-gray;
+			// color: $dove-gray;
+			color: tokens.$coral-color-neutral-text-weak;
 			opacity: 1;
 		}
 	}
@@ -50,7 +54,6 @@
 	&-body {
 		flex-grow: 1;
 		overflow-y: auto;
-		background-color: $wild-sand;
 	}
 
 	&-footer {

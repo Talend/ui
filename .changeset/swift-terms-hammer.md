@@ -16,6 +16,7 @@ We have updated:
 * Table
 * Form (control)
 * Navbar
+* Modal
 
 TODO:
 * Nav
@@ -26,6 +27,6 @@ TODO:
 * List group
 * Panel
 * Weel
-* Dialog
+* Tooltip
 
 
