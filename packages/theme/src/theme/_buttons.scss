@@ -33,6 +33,7 @@
 	padding: var(--t-button-padding);
 	border: 1px solid;
 	box-shadow: none;
+	/* stylelint-disable-next-line declaration-property-value-disallowed-list */
 	transition: all 0.1s ease-out;
 
 	&,
@@ -79,7 +80,7 @@
 	}
 
 	&,
-	& > span {
+	> span {
 		display: inline-flex;
 		gap: 0.5rem;
 		align-items: center;
@@ -126,8 +127,9 @@
 	&-tertiary,
 	&--tertiary,
 	&-link {
-		color: tokens.$coral-color-accent-text;
 		--t-button-color: tokens.$coral-color-accent-text;
+		color: tokens.$coral-color-accent-text;
+
 		&:hover {
 			--t-button-color: tokens.$coral-color-accent-text-strong-hover;
 			color: tokens.$coral-color-accent-text-strong-hover;
@@ -135,10 +137,11 @@
 		}
 
 		&:active {
+			--t-button-color: tokens.$coral-color-accent-text-strong-active;
 			color: tokens.$coral-color-accent-text-strong-active;
 			background: tokens.$coral-color-accent-background-weak-active;
-			--t-button-color: tokens.$coral-color-accent-text-strong-active;
 		}
+
 		&:disabled,
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
@@ -151,16 +154,17 @@
 	&--secondary,
 	&-tertiary,
 	&--tertiary {
-		background-color: transparent;
-		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
 		--t-button-border-color: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
 		--t-button-background-color: transparent;
+		background-color: transparent;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
 
 		&:hover,
 		&:active {
-			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
 			--t-button-background-color: var(--t-button-secondary-background--hover);
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
 		}
+
 		&:disabled,
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
@@ -177,27 +181,29 @@
 
 	&.btn-danger,
 	&.btn--destructive {
-		color: tokens.$coral-color-danger-text-weak;
-		border: tokens.$coral-color-danger-background-strong;
-		background: tokens.$coral-color-danger-background-strong;
 		--t-button-background-color: var(--t-button-destructive-background);
 		--t-button-border-color: tokens.$coral-color-danger-text-weak;
 		--t-button-color: tokens.$coral-color-danger-text-weak;
 
+		color: tokens.$coral-color-danger-text-weak;
+		border: tokens.$coral-color-danger-background-strong;
+		background: tokens.$coral-color-danger-background-strong;
+
 		&:hover {
-			color: tokens.$coral-color-danger-text-weak-hover;
-			background: tokens.$coral-color-danger-background-strong-hover;
 			--t-button-background-color: tokens.$coral-color-danger-background-strong-hover;
 			--t-button-border-color: tokens.$coral-color-danger-background-strong-hover;
+			color: tokens.$coral-color-danger-text-weak-hover;
+			background: tokens.$coral-color-danger-background-strong-hover;
 		}
 
 		&:active {
-			color: tokens.$coral-color-danger-text-weak-active;
-			background: tokens.$coral-color-danger-background-strong-active;
 			--t-button-color: tokens.$coral-color-danger-text-weak-active;
 			--t-button-background-color: tokens.$coral-color-danger-background-strong-active;
 			--t-button-border-color: tokens.$coral-color-danger-background-strong-active;
+			color: tokens.$coral-color-danger-text-weak-active;
+			background: tokens.$coral-color-danger-background-strong-active;
 		}
+
 		&[disabled] &:hover,
 		.disabled &:hover {
 			background: tokens.$coral-color-neutral-background-disabled;

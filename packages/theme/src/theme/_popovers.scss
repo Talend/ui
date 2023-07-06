@@ -4,15 +4,19 @@
 	background-color: tokens.$coral-color-neutral-background;
 	color: tokens.$coral-color-neutral-text;
 }
-.popover.left .arrow:after {
+
+.popover.left .arrow::after {
 	border-left-color: tokens.$coral-color-neutral-background;
 }
-.popover.top .arrow:after {
+
+.popover.top .arrow::after {
 	border-top-color: tokens.$coral-color-neutral-background;
 }
-.popover.right .arrow:after {
+
+.popover.right .arrow::after {
 	border-right-color: tokens.$coral-color-neutral-background;
 }
-.popover.bottom .arrow:after {
+
+.popover.bottom .arrow::after {
 	border-bottom-color: tokens.$coral-color-neutral-background;
 }

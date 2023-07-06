@@ -47,6 +47,7 @@ a.label {
 .label-default {
 	color: tokens.$coral-color-neutral-text;
 	background: tokens.$coral-color-neutral-background-strong;
+
 	&[href] {
 		&:hover,
 		&:focus {
@@ -58,6 +59,7 @@ a.label {
 .label-primary {
 	color: tokens.$coral-color-accent-text;
 	background: tokens.$coral-color-accent-background;
+
 	&[href] {
 		&:hover,
 		&:focus {
@@ -69,6 +71,7 @@ a.label {
 .label-success {
 	color: tokens.$coral-color-success-text;
 	background: tokens.$coral-color-success-background;
+
 	&[href] {
 		&:hover,
 		&:focus {
@@ -80,6 +83,7 @@ a.label {
 .label-info {
 	color: tokens.$coral-color-accent-text;
 	background: tokens.$coral-color-accent-background;
+
 	&[href] {
 		&:hover,
 		&:focus {
@@ -91,6 +95,7 @@ a.label {
 .label-warning {
 	color: tokens.$coral-color-warning-text;
 	background: tokens.$coral-color-warning-background;
+
 	&[href] {
 		&:hover,
 		&:focus {
@@ -102,6 +107,7 @@ a.label {
 .label-danger {
 	color: tokens.$coral-color-danger-text;
 	background: tokens.$coral-color-danger-background;
+
 	&[href] {
 		&:hover,
 		&:focus {
