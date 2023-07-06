@@ -19,10 +19,10 @@ We have updated:
 * Modal
 * Tooltip
 * Popover
+* Alert
 
 TODO:
 * Nav
-* Alert
 * Label
 * Badge
 * Progress bar
