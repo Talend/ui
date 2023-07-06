@@ -75,9 +75,9 @@ const BadgeFaceted = ({
 		setBadgeValue(entityValue);
 	};
 
-	const onSubmitBadge = () => {
+	const onSubmitBadge = event => {
 		overlayDispatch(OVERLAY_FLOW_ACTIONS.closeAll);
-		event.preventDefault();
+		event?.preventDefault();
 		dispatch(
 			BADGES_ACTIONS.update(
 				badgeId,
