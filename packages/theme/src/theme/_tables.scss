@@ -1,3 +1,10 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: tokens.$coral-color-neutral-background;
+	color: tokens.$coral-color-neutral-text;
+}
+
 .table {
 	// Cells
 	> thead,
@@ -7,6 +14,38 @@
 			> th,
 			> td {
 				vertical-align: middle;
+			}
+
+			// colors
+			&.info {
+				td {
+					color: tokens.$coral-color-neutral-text;
+					background: tokens.$coral-color-accent-background;
+				}
+			}
+			&.success {
+				td {
+					color: tokens.$coral-color-neutral-text;
+					background: tokens.$coral-color-success-background;
+				}
+			}
+			&.danger {
+				td {
+					color: tokens.$coral-color-neutral-text;
+					background: tokens.$coral-color-danger-background;
+				}
+			}
+			&.warning {
+				td {
+					color: tokens.$coral-color-neutral-text;
+					background: tokens.$coral-color-warning-background;
+				}
+			}
+			&.active {
+				td {
+					color: tokens.$coral-color-neutral-text;
+					background: tokens.$coral-color-neutral-background-medium;
+				}
 			}
 		}
 	}
@@ -18,7 +57,8 @@
 	}
 }
 
-@-moz-document url-prefix() { /* fix Firefox only https://bugzilla.mozilla.org/show_bug.cgi?id=410959 */
+@-moz-document url-prefix() {
+	/* fix Firefox only https://bugzilla.mozilla.org/show_bug.cgi?id=410959 */
 	.table {
 		border-collapse: separate !important;
 		border-spacing: 0;
