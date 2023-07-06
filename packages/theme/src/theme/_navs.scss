@@ -1,4 +1,5 @@
 /* stylelint-disable selector-no-qualifying-type */
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-tabbar-active-border-size: 0.2rem !default;
 $tc-tabbar-active-color: $lochmara;

@@ -1,3 +1,14 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.navbar-inverse {
+	color: tokens.$coral-color-neutral-text-inverted;
+	background: tokens.$coral-color-branding-navigation;
+}
+.navbar-default {
+	color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-neutral-background-medium;
+}
+
 .navbar {
 	border: none;
 
