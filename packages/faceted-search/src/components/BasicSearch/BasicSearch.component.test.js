@@ -159,14 +159,14 @@ describe('BasicSearch', () => {
 		// When searching with less then 3 chars
 		fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Na' } });
 
-		// Then it won't display any faced
+		// Then it won't display any facet
 		// eslint-disable-next-line jest-dom/prefer-in-document
 		expect(screen.queryAllByRole('option')).toHaveLength(0);
 
 		// When searching with more then 3 chars
 		fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Name' } });
 
-		// Then it will display name faced
+		// Then it will display name facet
 		// eslint-disable-next-line jest-dom/prefer-in-document
 		expect(screen.getAllByRole('option')).toHaveLength(1);
 	});
