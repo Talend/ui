@@ -5,6 +5,10 @@
 		<title>Talend Bootstrap Theme example</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/@talend/design-tokens@2.7.3/dist/TalendDesignTokens.css"
+		/>
 		<style>
 			body {
 				padding-top: 50px;
@@ -197,7 +201,7 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body data-theme="light">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -232,6 +236,9 @@
 								<li><a href="#containers">Containers</a></li>
 								<li><a href="#dialogs">Dialogs</a></li>
 							</ul>
+						</li>
+						<li>
+							<button class="btn" onclick="toggleTheme()">Toggle Dark/Light</button>
 						</li>
 					</ul>
 				</div>
@@ -711,7 +718,7 @@
 								</svg>
 							</a>
 
-							<a href="#" class="btn btn-link btn-icon-only" style="color: green;">
+							<a href="#" class="btn btn-link btn-icon-only" style="color: green">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
 									<title>plus-circle</title>
 									<path
@@ -769,8 +776,8 @@
 							</a>
 						</p>
 
-						<div id="btn-dropdown" style="margin-bottom: 15px;">
-							<div class="bs-component" style="margin: 0;">
+						<div id="btn-dropdown" style="margin-bottom: 15px">
+							<div class="bs-component" style="margin: 0">
 								<div class="btn-group">
 									<a href="#" class="btn btn-default">Default</a>
 									<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
@@ -843,8 +850,8 @@
 							</div>
 						</div>
 
-						<div id="btn-dropdown-icons" style="margin-bottom: 15px;">
-							<div class="bs-component" style="margin: 0;">
+						<div id="btn-dropdown-icons" style="margin-bottom: 15px">
+							<div class="bs-component" style="margin: 0">
 								<div class="btn-group">
 									<a href="#" class="btn btn-default">
 										<span>
@@ -967,8 +974,8 @@
 							</div>
 						</div>
 
-						<div id="btn-dropup-icons" style="margin-bottom: 15px;">
-							<div class="bs-component" style="margin: 0;">
+						<div id="btn-dropup-icons" style="margin-bottom: 15px">
+							<div class="bs-component" style="margin: 0">
 								<div class="dropup btn-group">
 									<a href="#" class="btn btn-default">
 										<span>
@@ -1256,8 +1263,8 @@
 							</a>
 						</p>
 
-						<div id="btn-inverse-dropdown" style="margin-bottom: 15px;">
-							<div class="bs-component" style="margin: 0;">
+						<div id="btn-inverse-dropdown" style="margin-bottom: 15px">
+							<div class="bs-component" style="margin: 0">
 								<div class="btn-group">
 									<a href="#" class="btn btn-default btn-inverse">Default</a>
 									<a
@@ -1345,8 +1352,8 @@
 							</div>
 						</div>
 
-						<div id="btn-inverse-dropdown-icons" style="margin-bottom: 15px;">
-							<div class="bs-component" style="margin: 0;">
+						<div id="btn-inverse-dropdown-icons" style="margin-bottom: 15px">
+							<div class="bs-component" style="margin: 0">
 								<div class="btn-group">
 									<a href="#" class="btn btn-default btn-inverse">
 										<span>
@@ -1484,8 +1491,8 @@
 							</div>
 						</div>
 
-						<div id="btn-inverse-dropup-icons" style="margin-bottom: 15px;">
-							<div class="bs-component" style="margin: 0;">
+						<div id="btn-inverse-dropup-icons" style="margin-bottom: 15px">
+							<div class="bs-component" style="margin: 0">
 								<div class="dropup btn-group">
 									<a href="#" class="btn btn-default btn-inverse">
 										<span>
@@ -1714,7 +1721,7 @@
 							<a href="#" class="btn btn-default btn-lg btn-block">Block level button</a>
 						</p>
 
-						<div class="bs-component" style="margin-bottom: 15px;">
+						<div class="bs-component" style="margin-bottom: 15px">
 							<div class="btn-group btn-group-justified">
 								<a href="#" class="btn btn-default">Left</a>
 								<a href="#" class="btn btn-default">Middle</a>
@@ -1722,7 +1729,7 @@
 							</div>
 						</div>
 
-						<div class="bs-component" style="margin-bottom: 15px;">
+						<div class="bs-component" style="margin-bottom: 15px">
 							<div class="btn-toolbar">
 								<div class="btn-group">
 									<a href="#" class="btn btn-default">1</a>
@@ -1868,7 +1875,7 @@
 						</div>
 
 						<div id="tables-component" class="bs-component">
-							<table class="table table-striped table-hover ">
+							<table class="table table-striped table-hover">
 								<thead>
 									<tr>
 										<th>#</th>
@@ -2573,9 +2580,7 @@
 							<ul class="breadcrumb">
 								<li class="dropdown">
 									<button class="dropdown-toggle btn btn-link" data-toggle="dropdown">
-										<span>
-											Dropdown
-										</span>
+										<span> Dropdown </span>
 									</button>
 									<ul class="dropdown-menu">
 										<li><a href="#">Action</a></li>
@@ -2729,7 +2734,7 @@
 				<div class="row">
 					<div class="col-lg-4">
 						<h2>Labels</h2>
-						<div id="labels-component" class="bs-component" style="margin-bottom: 40px;">
+						<div id="labels-component" class="bs-component" style="margin-bottom: 40px">
 							<span class="label label-default">Default</span>
 							<span class="label label-primary">Primary</span>
 							<span class="label label-success">Success</span>
@@ -2769,7 +2774,7 @@
 						<h3 id="progress-basic">Basic</h3>
 						<div class="bs-component">
 							<div class="progress">
-								<div class="progress-bar" style="width: 60%;"></div>
+								<div class="progress-bar" style="width: 60%"></div>
 							</div>
 						</div>
 
@@ -2878,9 +2883,7 @@
 					<div class="col-lg-4">
 						<div class="bs-component">
 							<div class="list-group">
-								<a href="#" class="list-group-item active">
-									Cras justo odio
-								</a>
+								<a href="#" class="list-group-item active"> Cras justo odio </a>
 								<a href="#" class="list-group-item">Dapibus ac facilisis in </a>
 								<a href="#" class="list-group-item">Morbi leo risus </a>
 							</div>
@@ -2917,22 +2920,16 @@
 					<div class="col-lg-4">
 						<div class="bs-component">
 							<div class="panel panel-default">
-								<div class="panel-body">
-									Basic panel
-								</div>
+								<div class="panel-body">Basic panel</div>
 							</div>
 
 							<div class="panel panel-default">
 								<div class="panel-heading">Panel heading</div>
-								<div class="panel-body">
-									Panel content
-								</div>
+								<div class="panel-body">Panel content</div>
 							</div>
 
 							<div class="panel panel-default">
-								<div class="panel-body">
-									Panel content
-								</div>
+								<div class="panel-body">Panel content</div>
 								<div class="panel-footer">Panel footer</div>
 							</div>
 						</div>
@@ -2943,27 +2940,21 @@
 								<div class="panel-heading">
 									<h3 class="panel-title">Panel primary</h3>
 								</div>
-								<div class="panel-body">
-									Panel content
-								</div>
+								<div class="panel-body">Panel content</div>
 							</div>
 
 							<div class="panel panel-success">
 								<div class="panel-heading">
 									<h3 class="panel-title">Panel success</h3>
 								</div>
-								<div class="panel-body">
-									Panel content
-								</div>
+								<div class="panel-body">Panel content</div>
 							</div>
 
 							<div class="panel panel-warning">
 								<div class="panel-heading">
 									<h3 class="panel-title">Panel warning</h3>
 								</div>
-								<div class="panel-body">
-									Panel content
-								</div>
+								<div class="panel-body">Panel content</div>
 							</div>
 						</div>
 					</div>
@@ -2973,18 +2964,14 @@
 								<div class="panel-heading">
 									<h3 class="panel-title">Panel danger</h3>
 								</div>
-								<div class="panel-body">
-									Panel content
-								</div>
+								<div class="panel-body">Panel content</div>
 							</div>
 
 							<div class="panel panel-info">
 								<div class="panel-heading">
 									<h3 class="panel-title">Panel info</h3>
 								</div>
-								<div class="panel-body">
-									Panel content
-								</div>
+								<div class="panel-body">Panel content</div>
 							</div>
 						</div>
 					</div>
@@ -2998,23 +2985,17 @@
 				<div id="wells-component" class="row">
 					<div class="col-lg-4">
 						<div class="bs-component">
-							<div class="well">
-								Look, I'm in a well!
-							</div>
+							<div class="well">Look, I'm in a well!</div>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="bs-component">
-							<div class="well well-sm">
-								Look, I'm in a small well!
-							</div>
+							<div class="well well-sm">Look, I'm in a small well!</div>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="bs-component">
-							<div class="well well-lg">
-								Look, I'm in a large well!
-							</div>
+							<div class="well well-lg">Look, I'm in a large well!</div>
 						</div>
 					</div>
 				</div>
@@ -3230,19 +3211,27 @@
 				var content = document.querySelector(cls);
 				content.parentNode.appendChild(content.cloneNode(true));
 			}
-			(function() {
+			function toggleTheme() {
+				var dataset = document.body.dataset;
+				if (dataset.theme === 'light') {
+					dataset.theme = 'dark';
+				} else {
+					dataset.theme = 'light';
+				}
+			}
+			(function () {
 				function setDropDownMenuVisibility() {
 					var top = $(document).scrollTop();
 					var $banner = $('#banner');
 					var elementTop = $banner.offset().top;
 					var elementBottom = elementTop + $banner.height();
 
-					$('#menu_dropdown').toggle(top >= elementBottom);
+					// $('#menu_dropdown').toggle(top >= elementBottom);
 				}
 
-				$(function() {
+				$(function () {
 					setDropDownMenuVisibility();
-					$('input[type=checkbox][data-checked]').change(function() {
+					$('input[type=checkbox][data-checked]').change(function () {
 						const el = $(this);
 						switch (el.attr('data-checked')) {
 							case '0':
@@ -3263,7 +3252,7 @@
 					});
 				});
 
-				$(window).scroll(function() {
+				$(window).scroll(function () {
 					var top = $(document).scrollTop();
 					$('.splash').css({
 						'background-position': '0px -' + (top / 3).toFixed(2) + 'px',
@@ -3273,15 +3262,13 @@
 
 					setDropDownMenuVisibility();
 				});
-				$("a[href='#']").click(function(e) {
+				$("a[href='#']").click(function (e) {
 					e.preventDefault();
 				});
 				var $button = $(
 					"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>",
-				).click(function() {
-					var html = $(this)
-						.parent()
-						.html();
+				).click(function () {
+					var html = $(this).parent().html();
 					html = cleanSource(html);
 					$('#source-modal pre').text(html);
 					$('#source-modal').modal();
@@ -3289,11 +3276,11 @@
 				$('.bs-component [data-toggle="popover"]').popover();
 				$('.bs-component [data-toggle="tooltip"]').tooltip();
 				$('.bs-component').hover(
-					function() {
+					function () {
 						$(this).append($button);
 						$button.show();
 					},
-					function() {
+					function () {
 						$button.hide();
 					},
 				);
@@ -3309,7 +3296,7 @@
 					lines.splice(-1, 1);
 					var indentSize = lines[0].length - lines[0].trim().length,
 						re = new RegExp(' {' + indentSize + '}');
-					lines = lines.map(function(line) {
+					lines = lines.map(function (line) {
 						if (line.match(re)) {
 							line = line.substring(indentSize);
 						}
