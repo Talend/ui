@@ -24,6 +24,7 @@ We have updated:
 
 TODO:
 * Nav
+* Tabs
 * Label
 * Progress bar
 * List group

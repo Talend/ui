@@ -34,6 +34,7 @@ input::-ms-clear {
 		border-color: tokens.$coral-color-neutral-border-disabled;
 	}
 
+	&[disabled],
 	&[readonly],
 	&[readonly]:focus {
 		border-width: 0;
