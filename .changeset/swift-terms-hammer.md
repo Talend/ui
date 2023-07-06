@@ -20,11 +20,11 @@ We have updated:
 * Tooltip
 * Popover
 * Alert
+* Badge
 
 TODO:
 * Nav
 * Label
-* Badge
 * Progress bar
 * List group
 * Panel
