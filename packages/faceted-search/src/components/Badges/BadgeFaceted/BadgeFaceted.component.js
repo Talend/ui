@@ -101,9 +101,8 @@ const BadgeFaceted = ({
 		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
 	};
 
-	const onHideSubmitBadge = (...args) => {
-		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
-		onSubmitBadge(...args);
+	const onHideOverlay = () => {
+		overlayDispatch(OVERLAY_FLOW_ACTIONS.closeAll);
 	};
 
 	return (
@@ -131,13 +130,13 @@ const BadgeFaceted = ({
 				className={theme('tc-badge-faceted-overlay')}
 				showSpecialChars={!!displayType}
 				label={labelValue}
-				onHide={onHideSubmitBadge}
+				onHide={onHideOverlay}
 				opened={overlayState.valueOpened}
 				onChange={onChangeValueOverlay}
 				readOnly={readOnly}
 				t={t}
 			>
-				{children({ onSubmitBadge, onChangeValue, badgeValue })}
+				{children({ onHideOverlay, onSubmitBadge, onChangeValue, badgeValue })}
 			</BadgeOverlay>
 			{removable && (
 				<Badge.DeleteAction
