@@ -9,6 +9,6 @@
 
 	div {
 		width: 0.2rem;
-		transition: height 0.4s ease-in-out;
+		transition: height tokens.$coral-transition-slow;
 	}
 }

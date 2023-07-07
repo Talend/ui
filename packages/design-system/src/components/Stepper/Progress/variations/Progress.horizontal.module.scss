@@ -12,6 +12,6 @@
 	div {
 		top: 0;
 		height: 0.2rem;
-		transition: width 0.4s ease-in-out;
+		transition: width tokens.$coral-transition-slow;
 	}
 }
