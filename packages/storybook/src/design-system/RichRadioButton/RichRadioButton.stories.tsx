@@ -252,6 +252,35 @@ export const CheckedRichRadioButtonWithTagsAndIllustration = () => (
 	/>
 );
 
+export const CheckedRichRadioButtonWithTagsAndLogo = () => (
+	<RichRadioButton
+		asset={{
+			logo: 'talend-snowflake',
+		}}
+		description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+		Porro nihil delectus quaerat repellat saepe officiis id aut. 
+		Culpa iste molestias optio nihil placeat magnam, odio modi earum est voluptas saepe?"
+		id={'checkedRichRadioButtonWithTagsAndLogo'}
+		isChecked={true}
+		name={'checkedRichRadioButtonWithTagsAndLogo'}
+		onChange={() => {}}
+		title="This is a snowflake title"
+		tags={[
+			{
+				name: 'Tag 1',
+			},
+			{
+				name: 'Tag 2',
+				variant: 'information',
+			},
+			{
+				name: 'Tag 3',
+				variant: 'information',
+			},
+		]}
+	/>
+);
+
 export const CheckedRichRadioButtonDisabled = () => (
 	<RichRadioButton
 		asset={{

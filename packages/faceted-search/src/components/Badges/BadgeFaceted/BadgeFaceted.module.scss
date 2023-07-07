@@ -5,7 +5,7 @@
 // stylelint-disable scss/selector-no-redundant-nesting-selector
 .tc-badge-faceted {
 	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
-	max-width: tokens.$coral-sizing-maximal;
+	max-width: fit-content;
 
 	:global(.tc-badge-button) {
 		max-width: none;

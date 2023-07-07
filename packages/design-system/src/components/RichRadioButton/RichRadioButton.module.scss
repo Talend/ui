@@ -20,12 +20,13 @@
 
 	&__icon {
 		color: tokens.$coral-color-accent-icon;
-		height: tokens.$coral-sizing-xs;
+		min-height: tokens.$coral-sizing-xs;
+		min-width: tokens.$coral-sizing-xs;
 		transition: color tokens.$coral-transition-normal;
-		width: tokens.$coral-sizing-xs;
 	}
 
-	&__illustration {
+	&__illustration,
+	&__logo {
 		height: tokens.$coral-sizing-l;
 		width: tokens.$coral-sizing-l;
 	}

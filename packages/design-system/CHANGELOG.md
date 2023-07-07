@@ -1,5 +1,18 @@
 # @talend/design-system
 
+## 7.12.1
+
+### Patch Changes
+
+- b10ae79ed: fix(design-system): add data attributes to RichRadioButton
+- 5bfab7ded: feat(tdc-7258): added data-checked attribute so automated tests can select the checked card
+
+## 7.12.0
+
+### Minor Changes
+
+- 7de53ccf0: feat(design-system): Handle logos in RichRadioButton
+
 ## 7.11.0
 
 ### Minor Changes

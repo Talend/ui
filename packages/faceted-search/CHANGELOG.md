@@ -1,5 +1,26 @@
 # Changelog
 
+## 10.0.0
+
+### Major Changes
+
+- aab0eeb36: TDOPS-4704 - Faceted search : Allow to configure faceted search min/max input length for text badge
+
+  # BREAKING CHANGE
+
+  Faceted search : `quickSearchMinLength` configuration for quick search input is no more used and now detected from badge configuration
+
+## 9.4.0
+
+### Minor Changes
+
+- 93def65ae: TDOPS-4704 - Faceted search : Allow to configure faceted search min trigger length for quick search input
+
+### Patch Changes
+
+- bb0cd786e: fix(TDC-6575): badge size overlap with "Add Filter" button with some long values
+- 04167fe3d: fix(faceted-search): data-feature typo
+
 ## 9.3.0
 
 ### Minor Changes
