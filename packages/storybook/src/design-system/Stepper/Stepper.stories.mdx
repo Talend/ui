@@ -146,6 +146,7 @@ In case of an error in the current step, please inform the user by using an inli
 		name="usage"
 		args={{
 			variant: 'Vertical',
+			activeIndex: 1,
 		}}
 		argTypes={{
 			variant: {
@@ -155,9 +156,15 @@ In case of an error in the current step, please inform the user by using an inli
 					options: ['Vertical', 'Horizontal'],
 				},
 			},
+			activeIndex: {
+				description: 'Current step',
+				control: {
+					type: 'number',
+				},
+			},
 		}}
 	>
-		{({ variant, index, title }) => {
+		{({ activeIndex, variant, index, title }) => {
 			const StepperComponent = Stepper[variant];
 			StepperComponent.displayName = `Stepper.${variant}`;
 			return (

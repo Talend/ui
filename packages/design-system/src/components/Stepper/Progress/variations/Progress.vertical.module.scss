@@ -1,11 +1,5 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-@keyframes progress {
-	0% {
-		height: 0;
-	}
-}
-
 .vertical {
 	top: tokens.$coral-sizing-xxs;
 	right: calc(#{tokens.$coral-sizing-xxxs} / 2 - 0.05rem);
@@ -15,6 +9,6 @@
 
 	div {
 		width: 0.2rem;
-		animation: progress 1s ease-in-out;
+		transition: height 0.4s ease-in-out;
 	}
 }
