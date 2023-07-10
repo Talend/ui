@@ -24,12 +24,12 @@ We have updated the following bootstrap styles:
 * Breadcrumb
 * Tabs
 * Progress bar
+* Panel
 
 TODO:
 * Nav
 * Label
 * List group
-* Panel
 * Weel
 
 

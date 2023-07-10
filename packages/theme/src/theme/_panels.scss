@@ -1,0 +1,58 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.panel-default {
+	color: tokens.$coral-color-neutral-text;
+	border-color: tokens.$coral-color-neutral-border;
+	background-color: tokens.$coral-color-neutral-background;
+
+	.panel-footer,
+	.panel-heading {
+		color: tokens.$coral-color-neutral-text;
+		background-color: tokens.$coral-color-neutral-background-medium;
+	}
+}
+
+.panel-primary {
+	border-color: tokens.$coral-color-accent-border;
+
+	.panel-heading {
+		color: tokens.$coral-color-accent-text;
+		background-color: tokens.$coral-color-accent-background;
+	}
+}
+
+.panel-success {
+	border-color: tokens.$coral-color-success-border;
+
+	.panel-heading {
+		color: tokens.$coral-color-success-text;
+		background-color: tokens.$coral-color-success-background;
+	}
+}
+
+.panel-warning {
+	border-color: tokens.$coral-color-warning-border;
+
+	.panel-heading {
+		color: tokens.$coral-color-warning-text;
+		background-color: tokens.$coral-color-warning-background;
+	}
+}
+
+.panel-info {
+	border-color: tokens.$coral-color-accent-border;
+
+	.panel-heading {
+		color: tokens.$coral-color-accent-text;
+		background-color: tokens.$coral-color-accent-background;
+	}
+}
+
+.panel-danger {
+	border-color: tokens.$coral-color-danger-border;
+
+	.panel-heading {
+		color: tokens.$coral-color-danger-text;
+		background-color: tokens.$coral-color-danger-background;
+	}
+}
