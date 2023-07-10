@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.12.2
+
+### Patch Changes
+
+- 1c53807b7: chore: update rich radio button
+
 ## 7.12.1
 
 ### Patch Changes
