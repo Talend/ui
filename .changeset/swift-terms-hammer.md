@@ -26,10 +26,10 @@ We have updated the following bootstrap styles:
 * Progress bar
 * Panel
 * Weel
+* List group
 
 TODO:
 * Nav
-* Label
-* List group
+* Pagination
 
 
