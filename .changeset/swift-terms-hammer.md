@@ -25,11 +25,11 @@ We have updated the following bootstrap styles:
 * Tabs
 * Progress bar
 * Panel
+* Weel
 
 TODO:
 * Nav
 * Label
 * List group
-* Weel
 
 
