@@ -1,3 +1,5 @@
+// escape following rule to ovveride bootstrap table styles
+/* stylelint-disable selector-no-qualifying-type */
 /* stylelint-disable declaration-no-important */
 @use '~@talend/design-tokens/lib/tokens';
 
@@ -18,35 +20,35 @@
 			}
 		}
 
-		> .info {
+		> tr.info {
 			td {
 				color: tokens.$coral-color-neutral-text;
 				background: tokens.$coral-color-accent-background;
 			}
 		}
 
-		> .success {
+		> tr.success {
 			td {
 				color: tokens.$coral-color-neutral-text;
 				background: tokens.$coral-color-success-background;
 			}
 		}
 
-		> .danger {
+		> tr.danger {
 			td {
 				color: tokens.$coral-color-neutral-text;
 				background: tokens.$coral-color-danger-background;
 			}
 		}
 
-		> .warning {
+		> tr.warning {
 			td {
 				color: tokens.$coral-color-neutral-text;
 				background: tokens.$coral-color-warning-background;
 			}
 		}
 
-		> .active {
+		> tr.active {
 			td {
 				color: tokens.$coral-color-neutral-text;
 				background: tokens.$coral-color-neutral-background-medium;
@@ -55,8 +57,44 @@
 	}
 
 	&-hover {
-		> tbody > tr:hover {
-			font-weight: 700;
+		> tbody {
+			> tr:hover {
+				font-weight: 700;
+
+				td {
+					background: tokens.$coral-color-neutral-background-medium;
+				}
+			}
+
+			> tr.info:hover {
+				td {
+					background: tokens.$coral-color-accent-background-hover;
+				}
+			}
+
+			> tr.success:hover {
+				td {
+					background: tokens.$coral-color-success-background-hover;
+				}
+			}
+
+			> tr.danger:hover {
+				td {
+					background: tokens.$coral-color-danger-background-hover;
+				}
+			}
+
+			> tr.warning:hover {
+				td {
+					background: tokens.$coral-color-warning-background-hover;
+				}
+			}
+
+			> tr.active:hover {
+				td {
+					background: tokens.$coral-color-neutral-background-strong;
+				}
+			}
 		}
 	}
 }
