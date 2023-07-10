@@ -20,16 +20,16 @@ We have updated the following bootstrap styles:
 * Tooltip
 * Popover
 * Alert
-* Badge
+* Label
 * Breadcrumb
 * Tabs
 * Progress bar
 * Panel
 * Weel
 * List group
+* Pagination
+* Badge
 
 TODO:
 * Nav
-* Pagination
-
 
