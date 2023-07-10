@@ -1,4 +1,3 @@
-
 import path from 'path';
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 
@@ -16,8 +15,7 @@ const STORIES = [
 	`${rootPath}src/content/docs/Conventions.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Capitalization.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Wording.stories.@(js|tsx|mdx)`,
-	`${rootPath}src/design-system/**/*.stories.mdx`,
-	`${rootPath}src/design-system/Accordion/*.stories.mdx`,
+	`${rootPath}src/design-system/**/*.mdx`,
 ];
 
 const config = {
@@ -30,8 +28,7 @@ const config = {
 			},
 		},
 	},
-	// stories: STORIES,
-	stories: [],
+	stories: STORIES,
 	staticDirs: [`${rootPath}static`],
 	addons: ['storybook-addon-mdx-embed'],
 	typescript: {

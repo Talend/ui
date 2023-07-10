@@ -101,7 +101,10 @@ export const parameters = {
 				true,
 			);
 
-			const { id, parameters, globals, title } = props.context;
+			// const { id, parameters, globals, title } = props.context;
+			// not shure about this but this is where i found the id, title and parameters variables
+			// globals is still missing
+			const { id, parameters, globals, title } = props.context?.attachedCSFFile?.meta;
 
 			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
 
@@ -313,7 +316,7 @@ export const decorators = [
 
 		const { locale: localeKey, theme: themeKey } = globals;
 		if (localeKey) i18next.changeLanguage(localeKey);
-
+		console.log('@@ decorator context : ', context);
 		//TODO: backport theme switcher to scripts-config-storybook and remove this
 		return (
 			<ThemeProvider theme={themeKey}>
