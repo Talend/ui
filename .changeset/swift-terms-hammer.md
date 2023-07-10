@@ -11,7 +11,7 @@ To be aligned with this theme you should:
 * replace all hardcoded colors used in your project and use `@talend/design-tokens`
 * test your application with the dark theme
 
-We have updated:
+We have updated the following bootstrap styles:
 * Button
 * Table
 * Form (control)
@@ -21,12 +21,13 @@ We have updated:
 * Popover
 * Alert
 * Badge
+* Breadcrumb
+* Tabs
+* Progress bar
 
 TODO:
 * Nav
-* Tabs
 * Label
-* Progress bar
 * List group
 * Panel
 * Weel
