@@ -106,6 +106,7 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 				background-color: tokens.$coral-color-accent-background-hover;
 
 				.btn-link:hover {
+					color: tokens.$coral-color-accent-text;
 					background-color: tokens.$coral-color-accent-background-hover;
 				}
 			}
