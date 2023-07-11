@@ -62,7 +62,7 @@ function HeaderBar(props) {
 	}
 
 	return (
-		<nav className={theme('tc-header-bar', 'navbar')}>
+		<nav className={theme('tc-header-bar', 'navbar', 'navbar-inverse')}>
 			<ul className={theme('tc-header-bar-actions', 'navbar-nav')}>
 				{props.logo && <Components.Logo getComponent={props.getComponent} {...props.logo} t={t} />}
 				<AppSwitcherComponent {...props.brand} {...props.products} isSeparated={!!props.env} />
