@@ -29,7 +29,5 @@ We have updated the following bootstrap styles:
 * List group
 * Pagination
 * Badge
-
-TODO:
 * Pills
 
