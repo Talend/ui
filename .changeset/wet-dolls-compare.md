@@ -8,3 +8,4 @@ We have updated the following components:
 
 * HeaderBar
 * ActionBar
+* CollapsiblePanel
