@@ -14,7 +14,9 @@ export type DividerHTMLProps = HTMLAttributes<HTMLHRElement> & RefAttributes<HTM
 export type DividerProps = DividerOptions & DividerHTMLProps;
 
 const Divider = forwardRef((props: DividerProps, ref: Ref<HTMLHRElement>) => {
-	return <hr {...props} aria-orientation={props.orientation} ref={ref} className={style.divider} />;
+	const ruleOrientation = props.orientation || 'horizontal';
+
+	return <hr {...props} aria-orientation={ruleOrientation} ref={ref} className={style.divider} />;
 });
 
 Divider.displayName = 'Divider';
