@@ -1,10 +1,11 @@
-import { Token, TokenType } from '../../../src/tokens/types';
+import { StackVertical } from '@talend/design-system';
+
+import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
 import { TokensProps } from './TokensTypes';
 import BreakpointScale from './components/DefinitionList/BreakpointScale/BreakpointScale';
 import DefinitionListBreakpoint from './components/DefinitionList/DefinitionListBreakpoint';
-import { StackVertical } from '@talend/design-system';
 
-const TokensBreakpoint = ({ tokens }: TokensProps) => (
+const TokensBreakpoint = ({ tokens }: TokensProps<ColorToken>) => (
 	<StackVertical gap="L" justify="stretch" align="stretch">
 		<BreakpointScale tokens={tokens.filter((t: Token) => t.type === TokenType.BREAKPOINT)} />
 		<DefinitionListBreakpoint

@@ -1,7 +1,8 @@
+import { StackVertical, TabsKit } from '@talend/design-system';
+
 import { Token } from '../../../../../src/tokens/types';
 import { TokensProps } from '../../TokensTypes';
 import DefinitionListItemColor from './DefinitionListItem/DefinitionListItemColor';
-import { StackVertical, TabsKit as Tabs } from '@talend/design-system';
 
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	const filteredTokens = {
@@ -18,27 +19,27 @@ const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	};
 
 	return (
-		<Tabs>
-			<Tabs.TabList>
-				{Object.keys(filteredTokens).map((entry: string) => (
-					<Tabs.Tab size="L" key={entry}>
-						{entry}
-					</Tabs.Tab>
+		<TabsKit selectedId="neutral">
+			<TabsKit.TabList>
+				{Object.keys(filteredTokens).map((tokenKey: string) => (
+					<TabsKit.Tab size="L" key={tokenKey} id={tokenKey}>
+						{tokenKey}
+					</TabsKit.Tab>
 				))}
-			</Tabs.TabList>
+			</TabsKit.TabList>
 
 			<StackVertical gap="L" padding={{ x: 0, y: 'L' }}>
-				{Object.values(filteredTokens).map((entries: Token[], index) => (
-					<Tabs.TabPanel key={index}>
+				{Object.entries(filteredTokens).map(tokenEntry => (
+					<TabsKit.TabPanel key={tokenEntry[0]} id={tokenEntry[0]}>
 						<StackVertical gap="S">
-							{entries.map((token, index) => (
+							{tokenEntry[1].map((token, index) => (
 								<DefinitionListItemColor key={`${token.name}-${index}`} token={token} />
 							))}
 						</StackVertical>
-					</Tabs.TabPanel>
+					</TabsKit.TabPanel>
 				))}
 			</StackVertical>
-		</Tabs>
+		</TabsKit>
 	);
 };
 

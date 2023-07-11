@@ -1,4 +1,5 @@
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+
 import {
 	TabsAsLinkList,
 	StackHorizontal,
@@ -225,7 +226,7 @@ export const TabStandaloneLarge = () => (
 );
 
 export const TabsWithComposition = () => (
-	<TabsKit>
+	<TabsKit selectedId="one">
 		<TabsKit.TabList>
 			<TabsKit.Tab id="one" tooltip="Tab title that hits the size limit should get a tooltip">
 				Tab title that hits the size limit should get a tooltip
@@ -246,7 +247,7 @@ export const TabsWithComposition = () => (
 );
 
 export const TabsWithCompositionLarge = () => (
-	<TabsKit>
+	<TabsKit selectedId="one">
 		<TabsKit.TabList>
 			<TabsKit.Tab
 				id="one"
