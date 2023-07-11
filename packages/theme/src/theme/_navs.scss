@@ -2,7 +2,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 $tc-tabbar-active-border-size: 0.2rem !default;
-$tc-tabbar-active-color: $lochmara;
 
 .nav {
 	.btn-link {
@@ -56,6 +55,12 @@ $tc-tabbar-active-color: $lochmara;
 					color: tokens.$coral-color-accent-text-weak;
 				}
 			}
+
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:focus {
+				background-color: tokens.$coral-color-accent-background-strong;
+			}
 		}
 
 		.btn.btn-link {
@@ -83,11 +88,11 @@ $tc-tabbar-active-color: $lochmara;
 			.btn.btn-link {
 				width: 100%;
 				text-align: left;
-				background-color: transparent;
 
 				&:focus,
 				&:hover,
 				&:active {
+					background-color: tokens.$coral-color-accent-background-strong;
 					color: tokens.$coral-color-accent-text-weak;
 				}
 			}
