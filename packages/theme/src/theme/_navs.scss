@@ -103,13 +103,17 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 		> li {
 			&:focus,
 			&:hover {
-				background-color: rgba($white, 0.12);
+				background-color: tokens.$coral-color-accent-background-hover;
+
+				.btn-link:hover {
+					background-color: tokens.$coral-color-accent-background-hover;
+				}
 			}
 
 			&:active,
 			&.active,
 			&.open {
-				background-color: rgba($white, 0.25);
+				background-color: tokens.$coral-color-accent-background-strong;
 			}
 		}
 	}
