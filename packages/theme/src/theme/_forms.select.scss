@@ -1,13 +1,12 @@
+/* stylelint-disable selector-no-qualifying-type */
 @use '~@talend/design-tokens/lib/tokens';
 
-// stylelint-disable-next-line selector-no-qualifying-type
 select.form-control {
 	border-color: tokens.$coral-color-neutral-border;
 	overflow: auto;
 	cursor: pointer;
 	border-radius: $input-border-radius;
 
-	// stylelint-disable-next-line selector-no-qualifying-type
 	&[multiple] {
 		padding-top: $padding-small;
 		padding-bottom: $padding-small;
@@ -19,7 +18,6 @@ select.form-control {
 		}
 	}
 
-	// stylelint-disable-next-line seFlector-no-qualifying-type
 	&:not([multiple]) {
 		appearance: none;
 		background-color: tokens.$coral-color-neutral-background;
