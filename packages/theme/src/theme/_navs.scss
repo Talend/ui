@@ -33,20 +33,20 @@ $tc-tabbar-active-color: $lochmara;
 			+ li {
 				margin: 0;
 			}
+
 			// .btn.btn-link,
 			// .btn.btn-link:hover {
 			// 	color: inherit;
 			// 	background-color: inherit;
 			// }
-			&:hover {
-				color: tokens.$coral-color-accent-text-weak-hover;
-				background-color: tokens.$coral-color-accent-background-strong;
-			}
 
+			&:hover,
 			&.active,
 			&.open {
-				color: tokens.$coral-color-accent-text-weak-active;
-				background-color: tokens.$coral-color-accent-background-strong;
+				.btn-link {
+					color: tokens.$coral-color-accent-text-weak;
+					background-color: tokens.$coral-color-accent-background-strong;
+				}
 			}
 
 			&.disabled .btn {

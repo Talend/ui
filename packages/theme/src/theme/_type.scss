@@ -25,6 +25,13 @@ h4,
 	// font: tokens.$coral-heading-s;
 }
 
+h5,
+.h5,
+h6,
+.h6 {
+	color: tokens.$coral-color-neutral-text;
+}
+
 p,
 .p {
 	color: tokens.$coral-color-neutral-text;

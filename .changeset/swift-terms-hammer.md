@@ -31,5 +31,5 @@ We have updated the following bootstrap styles:
 * Badge
 
 TODO:
-* Nav
+* Pills
 
