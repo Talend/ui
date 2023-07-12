@@ -9,6 +9,7 @@ We have updated the following components:
 * ActionBar
 * CollapsiblePanel
 * Datalist
+* DateTimePickers
 * Drawer
 * FilterBar
 * GridLayout aka Dashboard
