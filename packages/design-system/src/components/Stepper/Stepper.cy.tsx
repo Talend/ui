@@ -33,7 +33,7 @@ context('<Stepper />', () => {
 				<Stepper.Step.Enabled title="Next step" />
 			</Stepper>,
 		);
-		cy.get("[role='progressbar'] div").first().should('have.attr', 'style', 'height: 0%;');
+		cy.get("[role='progressbar'] div").should('have.attr', 'style', 'height: 0%;');
 	});
 
 	it('should render progressbar with 100% height', () => {
@@ -44,7 +44,7 @@ context('<Stepper />', () => {
 				<Stepper.Step.InProgress title="Current step" />
 			</Stepper>,
 		);
-		cy.get("[role='progressbar'] div").last().should('have.attr', 'style', 'height: 100%;');
+		cy.get("[role='progressbar'] div").should('have.attr', 'style', 'height: 100%;');
 	});
 
 	it('should render progressbar with no height if the currentStepIndex is outside of the range of steps', () => {
@@ -55,7 +55,7 @@ context('<Stepper />', () => {
 				<Stepper.Step.InProgress title="Current step" />
 			</Stepper>,
 		);
-		cy.get("[role='progressbar'] div").last().should('have.attr', 'style', 'height: 0%;');
+		cy.get("[role='progressbar'] div").should('have.attr', 'style', 'height: 0%;');
 	});
 
 	it('should render progressbar with no height if the currentStepIndex is outside of the range of steps', () => {
@@ -66,6 +66,6 @@ context('<Stepper />', () => {
 				<Stepper.Step.InProgress title="Current step" />
 			</Stepper>,
 		);
-		cy.get("[role='progressbar'] div").last().should('have.attr', 'style', 'height: 0%;');
+		cy.get("[role='progressbar'] div").should('have.attr', 'style', 'height: 0%;');
 	});
 });
