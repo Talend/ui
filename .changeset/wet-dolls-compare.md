@@ -20,6 +20,7 @@ We have updated the following components:
 * ResourceList
 * ResourcePicker
 * RichLayout
+* Skeleton
 * Slider
 * Toggle
 * Tooltip

@@ -1,5 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
+@use '@talend/design-tokens/lib/tokens';
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 $tc-skeleton-border-radius: 4px !default;
@@ -15,7 +15,7 @@ $tc-skeleton-text-width-large: 130px !default;
 $tc-skeleton-text-width-extra-large: 160px !default;
 $tc-skeleton-button-height: 35px !default;
 $tc-skeleton-button-width: 80px !default;
-$tc-skeleton-color: $black !default;
+$tc-skeleton-color: tokens.$coral-color-neutral-text !default;
 
 :global(.tc-skeleton-heartbeat) {
 	@include heartbeat(skeleton-blink);
