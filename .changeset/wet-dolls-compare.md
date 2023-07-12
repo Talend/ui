@@ -22,6 +22,7 @@ We have updated the following components:
 * RichLayout
 * Skeleton
 * Slider
+* SubHeaderBar
 * Toggle
 * Tooltip
 * Typeahead
