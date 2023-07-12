@@ -19,7 +19,7 @@ export type LinkProps = Omit<LinkableType, 'className'> & LinkComponentProps;
 
 const Link = forwardRef(
 	(
-		{ children, disabled, href, target, title, hideExternalIcon, ...rest }: LinkProps,
+		{ children, disabled, href, target, title, ...rest }: LinkProps,
 		ref: Ref<HTMLAnchorElement>,
 	) => {
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
