@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { Children, cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import { Children, cloneElement, forwardRef, ReactElement, Ref, useMemo } from 'react';
 import { isElement } from 'react-is';
 
 import ProgressHorizontal from './Progress/variations/Progress.horizontal';
@@ -21,8 +21,14 @@ const Stepper = forwardRef(
 		{ currentStepIndex = 0, children, orientation = 'vertical', loading, ...rest }: StepperProps,
 		ref: Ref<HTMLDivElement>,
 	) => {
-		const value = currentStepIndex + 1;
 		const max = Children.count(children);
+		const value = useMemo(() => {
+			if (typeof currentStepIndex !== 'number' || currentStepIndex < 0 || currentStepIndex > max) {
+				return 0;
+			}
+
+			return currentStepIndex + 1;
+		}, [currentStepIndex, max]);
 
 		return (
 			<div
@@ -32,6 +38,7 @@ const Stepper = forwardRef(
 			>
 				{orientation === 'vertical' && <ProgressVertical value={value} max={max} />}
 				{orientation === 'horizontal' && <ProgressHorizontal value={value} max={max} />}
+
 				<ol className={styles.stepper__steps}>
 					{children &&
 						Children.map(
