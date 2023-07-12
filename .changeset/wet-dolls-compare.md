@@ -8,9 +8,11 @@ We have updated the following components:
 
 * ActionBar
 * CollapsiblePanel
+* Datalist
 * Drawer
 * FilterBar
 * GridLayout aka Dashboard
 * HeaderBar
 * ResourceList
 * RichLayout
+* Typeahead
