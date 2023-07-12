@@ -21,4 +21,5 @@ We have updated the following components:
 * RichLayout
 * Slider
 * Toggle
+* Tooltip
 * Typeahead
