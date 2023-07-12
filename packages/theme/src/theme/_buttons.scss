@@ -151,12 +151,8 @@
 	}
 
 	&-inverse,
-	&--secondary,
-	&-tertiary,
-	&--tertiary {
+	&--secondary {
 		--t-button-border-color: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-		--t-button-background-color: transparent;
-		background-color: transparent;
 		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
 
 		&:hover,
@@ -164,6 +160,14 @@
 			--t-button-background-color: var(--t-button-secondary-background--hover);
 			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
 		}
+	}
+
+	&-inverse,
+	&--secondary,
+	&-tertiary,
+	&--tertiary {
+		--t-button-background-color: transparent;
+		background-color: transparent;
 
 		&:disabled,
 		&[aria-disabled='true'],
