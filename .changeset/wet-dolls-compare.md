@@ -13,6 +13,7 @@ We have updated the following components:
 * Drawer
 * Enumeration (bug on buttons)
 * FilterBar
+* GuidedTour
 * GridLayout aka Dashboard
 * HeaderBar
 * ResourceList
