@@ -19,4 +19,5 @@ We have updated the following components:
 * ResourcePicker
 * RichLayout
 * Slider
+* Toggle
 * Typeahead
