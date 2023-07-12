@@ -1,7 +1,8 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-$tc-resource-picker-toolbar-favorite-color: $lightning-yellow !default;
-$tc-resource-picker-toolbar-certified-color: $brand-primary !default;
+$tc-resource-picker-toolbar-favorite-color: tokens.$coral-color-warning-text !default;
+$tc-resource-picker-toolbar-certified-color: tokens.$coral-color-accent-text !default;
 
 .tc-resource-picker-state-filters {
 	margin-right: $padding-normal;
@@ -23,7 +24,7 @@ $tc-resource-picker-toolbar-certified-color: $brand-primary !default;
 			margin: 0;
 			width: $svg-md-size;
 			height: $svg-md-size;
-			color: $dove-gray;
+			color: tokens.$coral-color-neutral-text;
 		}
 
 		&:hover:not([disabled]),
@@ -41,7 +42,7 @@ $tc-resource-picker-toolbar-certified-color: $brand-primary !default;
 		&:global(.active),
 		&:hover {
 			&.tc-resource-picker-selection-filter > svg {
-				color: $scooter;
+				color: tokens.$coral-color-accent-text;
 			}
 
 			&.tc-resource-picker-favorite-filter > svg {
