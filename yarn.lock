@@ -2865,7 +2865,7 @@
     process "^0.11.10"
     util "^0.12.4"
 
-"@storybook/builder-webpack5@7.0.2", "@storybook/builder-webpack5@^7.0.2":
+"@storybook/builder-webpack5@7.0.2":
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/@storybook/builder-webpack5/-/builder-webpack5-7.0.2.tgz#39821ff4343e89f0529130de50a636c47fdde6c2"
   integrity sha512-kYzmP4QfH/sA6S65+PY5XzIJ5Adsc9soSEZYdTYntTtLOzdrthKEb7InlYKt1Tg1hGVyhn6KQafSxyGHgFkC+A==

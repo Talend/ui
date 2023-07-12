@@ -98,7 +98,7 @@ const defaultMain = {
 
 const temp_userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
-const userMain = temp_userMain.default;
+const userMain = temp_userMain.default || {};
 
 const config = {
 	...defaultMain,
