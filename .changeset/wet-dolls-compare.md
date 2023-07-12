@@ -16,5 +16,6 @@ We have updated the following components:
 * GridLayout aka Dashboard
 * HeaderBar
 * ResourceList
+* ResourcePicker
 * RichLayout
 * Typeahead
