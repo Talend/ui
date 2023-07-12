@@ -11,6 +11,7 @@ We have updated the following components:
 * Datalist
 * DateTimePickers
 * Drawer
+* Enumeration (bug on buttons)
 * FilterBar
 * GridLayout aka Dashboard
 * HeaderBar

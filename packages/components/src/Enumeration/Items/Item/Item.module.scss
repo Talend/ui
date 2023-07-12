@@ -1,17 +1,17 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
 $tc-enumeration-item-height: 3.3rem !default;
 
-$tc-enumeration-item-error-color: red !default;
 $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
 $tc-enumeration-item-font-size: 14px;
 $tc-enumeration-item-btn-height: 16px;
 $tc-enumeration-item-error-padding: 0 $padding-normal;
-$selected-item-color: #FAFAFA;
+$selected-item-color: #fafafa;
 $item-checkbox-margin: 5px;
 $item-checkbox-width: 20px;
 
@@ -93,11 +93,11 @@ $item-checkbox-width: 20px;
 	}
 
 	.tc-enumeration-item-error {
-		font-size: 12px;
+		font-size: tokens.$coral-paragraph-s;
 		position: absolute;
 		top: 100%;
 		width: 100%;
-		color: $tc-enumeration-item-error-color;
+		color: tokens.$coral-color-danger-text;
 		padding: $tc-enumeration-item-error-padding;
 		z-index: 1;
 		background: inherit;
@@ -113,7 +113,7 @@ $item-checkbox-width: 20px;
 }
 
 .selected-item {
-	background-color: $selected-item-color;
+	background-color: tokens.$coral-color-neutral-background-medium;
 }
 
 .tc-enumeration-item:hover,
@@ -126,6 +126,5 @@ $item-checkbox-width: 20px;
 // disable hover if item is selected
 .tc-enumeration-item:hover:not(.selected-item),
 .tc-enumeration-item:not(.selected-item):global(.ally-focus-within) {
-	background-color: rgba(250, 250, 250, 1);
+	background-color: tokens.$coral-color-neutral-background-medium;
 }
-
