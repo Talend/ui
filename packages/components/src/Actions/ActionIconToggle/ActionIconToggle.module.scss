@@ -1,10 +1,10 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-icon-toggle-size: 2.4rem !default;
 $tc-icon-toggle-icon-size: $svg-sm-size !default;
-$tc-icon-toggle-border: 1px solid $gray;
+$tc-icon-toggle-border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border !default;
 $tc-icon-toggle-tick-size: 12px !default;
-$tc-icon-toggle-tick-border: 1px solid $white;
 
 @mixin tc-icon-toggle($btn-size: $tc-icon-toggle-size, $icon-size: $tc-icon-toggle-icon-size) {
 	height: $btn-size;
@@ -32,7 +32,7 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 	padding: 0;
 
 	svg {
-		color: $gray;
+		color: tokens.$coral-color-neutral-icon-weak;
 	}
 
 	&,
@@ -43,10 +43,10 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 	&[disabled] {
 		&:hover,
 		&:focus {
-			border-color: $scooter;
+			border-color: tokens.$coral-color-accent-text;
 
 			svg {
-				color: $scooter;
+				color: tokens.$coral-color-accent-text;
 			}
 		}
 	}
@@ -54,26 +54,26 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 	&:hover,
 	&:active {
 		box-shadow: none;
-		border-color: $scooter;
+		border-color: tokens.$coral-color-accent-text;
 		background-color: transparent;
 
 		svg {
-			color: $scooter;
+			color: tokens.$coral-color-accent-text;
 		}
 	}
 
 	&.active {
-		background-color: $brand-primary;
-		border-color: $brand-primary;
+		background-color: tokens.$coral-color-accent-background-strong;
+		border-color: tokens.$coral-color-accent-background;
 
 		svg {
-			color: white;
+			color: tokens.$coral-color-neutral-text-inverted;
 		}
 
 		&:hover:not([disabled]),
 		&:active {
-			background-color: $scooter;
-			border-color: $scooter;
+			background-color: tokens.$coral-color-accent-background-hover;
+			border-color: tokens.$coral-color-accent-background-hover;
 		}
 	}
 
@@ -85,7 +85,7 @@ $tc-icon-toggle-tick-border: 1px solid $white;
 		border-radius: calc(#{$tc-icon-toggle-tick-size} / 2);
 		right: -0.4rem;
 		top: -0.4rem;
-		background: $scooter;
-		border: $tc-icon-toggle-tick-border;
+		background: tokens.$coral-color-accent-text;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 }
