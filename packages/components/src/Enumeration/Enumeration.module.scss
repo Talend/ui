@@ -2,6 +2,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 $tc-enumeration-height: 50vh !default;
+$tc-enumeration-font-size: 1.4rem !default;
 
 .tc-enumeration {
 	overflow: hidden;
@@ -10,8 +11,8 @@ $tc-enumeration-height: 50vh !default;
 
 	:global {
 		input[type='text'] {
-			font-size: tokens.$coral-heading-s;
-			line-height: tokens.$coral-heading-s;
+			font-size: $tc-enumeration-font-size;
+			line-height: $tc-enumeration-font-size;
 		}
 
 		.btn {
@@ -24,8 +25,8 @@ $tc-enumeration-height: 50vh !default;
 				outline-offset: 0.5rem;
 
 				svg {
-					height: tokens.$coral-heading-s;
-					width: tokens.$coral-heading-s;
+					height: $tc-enumeration-font-size;
+					width: $tc-enumeration-font-size;
 				}
 			}
 		}
