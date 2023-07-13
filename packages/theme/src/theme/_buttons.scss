@@ -153,12 +153,10 @@
 	&-inverse,
 	&--secondary {
 		--t-button-border-color: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-		// border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
 
 		&:hover,
 		&:active {
 			--t-button-background-color: var(--t-button-secondary-background--hover);
-			// border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
 		}
 	}
 
