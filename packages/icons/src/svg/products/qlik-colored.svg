@@ -1,36 +1,9 @@
-<svg
-    version="1.1"
-    id="svg354"
-    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-    sodipodi:docname="Qlik_Logo.svg"
-    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:svg="http://www.w3.org/2000/svg">
-    <g
-        inkscape:label="Ebene 1"
-        inkscape:groupmode="layer"
-        id="layer1"
-    >
-        <g
-            id="g62"
-            transform="matrix(2.3551276,0,0,-2.3551276,-1215.2303,89.95579)">
-            <g
-                id="g72"
-                transform="translate(538.41489,18.7189)">
-                <path
-                    d="m 0,0 -2.418,2.029 c 0.843,1.334 1.333,2.914 1.333,4.609 0,4.773 -3.869,8.643 -8.642,8.643 -4.773,0 -8.643,-3.87 -8.643,-8.642 0,-4.773 3.87,-8.643 8.643,-8.643 1.852,0 3.566,0.584 4.973,1.575 l 2.579,-2.164 c 0,0 0.383,-0.321 0.705,0.062 l 1.532,1.826 c 0,0 0.322,0.383 -0.062,0.705 m -4.417,6.638 c 0,-2.933 -2.377,-5.31 -5.31,-5.31 -2.933,0 -5.311,2.377 -5.311,5.311 0,2.932 2.378,5.31 5.311,5.31 2.933,0 5.31,-2.378 5.31,-5.311"
-                    style="fill:#009c4d;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                    id="path74" />
-            </g>
-            <g
-                id="g76"
-                transform="translate(525.28339,25.3576)">
-                <path
-                    d="M 0,0 C 0,1.88 1.524,3.404 3.404,3.404 5.284,3.404 6.808,1.88 6.808,0 6.808,-1.88 5.284,-3.405 3.404,-3.404 1.524,-3.404 0,-1.88 0,0"
-                    style="fill:#54565b;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                    id="path78" />
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42">
+    <path
+        d="m0 0-2.418 2.029A8.643 8.643 0 1 1-4.754-.429l2.579-2.164s.383-.321.705.062L.062-.705S.384-.322 0 0m-4.417 6.638a5.31 5.31 0 1 0-10.62.001 5.31 5.31 0 0 0 10.62-.001"
+        style="fill:#009c4d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+        transform="matrix(2.35513 0 0 -2.35513 52.805 45.87)" />
+    <path d="M0 0a3.404 3.404 0 1 0 6.808 0A3.404 3.404 0 0 0 0 0"
+        style="fill:#54565b;fill-opacity:1;fill-rule:nonzero;stroke:none"
+        transform="matrix(2.35513 0 0 -2.35513 21.88 30.235)" />
 </svg>
