@@ -67,13 +67,17 @@ $tc-icon-toggle-tick-size: 12px !default;
 		border-color: tokens.$coral-color-accent-background;
 
 		svg {
-			color: tokens.$coral-color-neutral-text-inverted;
+			color: tokens.$coral-color-accent-text-weak;
 		}
 
 		&:hover:not([disabled]),
 		&:active {
 			background-color: tokens.$coral-color-accent-background-hover;
 			border-color: tokens.$coral-color-accent-background-hover;
+
+			svg {
+				color: tokens.$coral-color-accent-text;
+			}
 		}
 	}
 

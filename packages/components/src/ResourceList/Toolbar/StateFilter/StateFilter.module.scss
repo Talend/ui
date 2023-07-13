@@ -15,22 +15,16 @@ $tc-resource-picker-toolbar-certified-color: tokens.$coral-color-accent-text !de
 
 	// ActionIconToggle style reset :
 	:global(.tc-icon-toggle) {
-		background: none;
 		border: none;
 		box-shadow: none;
-		width: $svg-md-size;
 
-		> svg {
+		> :global(.tc-icon) {
 			margin: 0;
-			width: $svg-md-size;
-			height: $svg-md-size;
-			color: tokens.$coral-color-neutral-text;
 		}
 
 		&:hover:not([disabled]),
 		&:focus,
 		&:active {
-			background: none;
 			border: none;
 		}
 	}
