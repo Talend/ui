@@ -17,6 +17,7 @@ We have updated the following components:
 * GuidedTour
 * GridLayout aka Dashboard
 * HeaderBar
+* ListView
 * ResourceList
 * ResourcePicker
 * RichLayout
