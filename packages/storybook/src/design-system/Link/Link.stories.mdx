@@ -74,6 +74,14 @@ Even if it's the same domain, when the link opens in a new window or tab, the ti
 
 The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 
+### External hiding default external icon
+
+When the link targets a new domain, we add only the custom icon right after.
+
+<Canvas>
+	<Story story={Stories.ExternalWithIcon} />
+</Canvas>
+
 ### Router links
 
 In React SPAs, most links are handled by libraries such as React Router. `Link` takes that into account.

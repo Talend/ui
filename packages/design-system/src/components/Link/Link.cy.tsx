@@ -21,6 +21,11 @@ context('<Link />', () => {
 		cy.findByTestId('link.icon.external').should('be.visible');
 	});
 
+	it('should not render external if prevented', () => {
+		cy.mount(<Link href="https://www.talend.com" icon="talend-logo" hideExternalIcon />);
+		cy.get('[data-testid="link.icon.external"]').should('not.exist');
+	});
+
 	it('should render disabled', () => {
 		cy.mount(<Link href="#" icon="information-filled" disabled data-testid="my.link" />);
 		cy.findByTestId('my.link').should('have.attr', 'aria-disabled');

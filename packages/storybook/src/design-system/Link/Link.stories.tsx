@@ -83,6 +83,16 @@ export const External = {
 	},
 };
 
+export const ExternalWithIcon = {
+	render(props: Story<LinkProps>) {
+		return (
+			<Link href="https://www.talend.com" {...props} hideExternalIcon icon="information-filled">
+				talend.com
+			</Link>
+		);
+	},
+};
+
 export const TargetBlank = {
 	render(props: Story<LinkProps>) {
 		return (
