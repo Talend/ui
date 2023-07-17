@@ -1,15 +1,16 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
+@use '~@talend/design-tokens/lib/tokens';
 @import '~@talend/bootstrap-theme/src/theme/animation';
+
 $tc-pie-chart-font-size: $font-size-large !default;
 $tc-pie-chart-loading-min-height-no-label: 20px !default;
 $tc-pie-chart-loading-min-height: 25px !default;
 $tc-pie-chart-skeleton-label-width: 40px !default;
 $tc-pie-chart-skeleton-label-height: 14px !default;
 $tc-pie-chart-loading-margin-left: 4px !default;
-$tc-pie-chart-hover-color: $scooter !default;
+$tc-pie-chart-hover-color: tokens.$coral-color-accent-text !default;
 
-$tc-pie-chart-colors: (rio-grande $rio-grande, jaffa $jaffa, chestnut-rose $chestnut-rose, lightning-yellow $lightning-yellow, dove-gray $dove-gray, silver-chalice $silver-chalice, alto $alto) !default;
+$tc-pie-chart-colors: (rio-grande tokens.$coral-color-charts-success, jaffa tokens.$coral-color-charts-warning, chestnut-rose tokens.$coral-color-charts-danger, lightning-yellow tokens.$coral-color-charts-color-00, dove-gray tokens.$coral-color-charts-neutral-strong, silver-chalice tokens.$coral-color-charts-neutral, alto tokens.$coral-color-charts-neutral-weak) !default;
 
 @mixin apply-color($color) {
 	color: $color;
