@@ -75,6 +75,7 @@ $tc-svg-icon-size: $padding-large !default;
 
 	&-back-button {
 		color: tokens.$coral-color-neutral-text;
+		/* stylelint-disable-next-line declaration-no-important */
 		background-color: tokens.$coral-color-neutral-background-strong !important;
 		width: $tc-subheader-bar-height;
 		height: $tc-subheader-bar-height;
