@@ -20,11 +20,13 @@ We have updated the following components:
 * HeaderBar
 * ListView
 * Notification
+* Progress
 * ResourceList
 * ResourcePicker
 * RichLayout
 * Skeleton
 * Slider
+* Status
 * SubHeaderBar
 * Toggle
 * Tooltip
