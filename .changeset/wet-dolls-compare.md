@@ -19,6 +19,7 @@ We have updated the following components:
 * GridLayout aka Dashboard
 * HeaderBar
 * ListView
+* Notification
 * ResourceList
 * ResourcePicker
 * RichLayout
