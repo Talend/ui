@@ -32,7 +32,7 @@
 
 :global(.tc-list-list) {
 	.row-selection.selected :global(.tc-list-large-inner-box) {
-		background: $tc-list-row-selected-bg;
+		background: tokens.$coral-color-accent-background;
 
 		&:hover,
 		&:focus,
