@@ -23,6 +23,7 @@ We have updated the following components:
 * ListView
 * MultiSelect
 * Notification
+* ObjectViewer
 * PieChart
 * Progress
 * ResourceList

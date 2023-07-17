@@ -1,4 +1,6 @@
+/* stylelint-disable scss/selector-no-redundant-nesting-selector */
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .table {
 	font-size: 12px;
@@ -10,7 +12,7 @@
 	.nativevalue {
 		font-family: $font-family-monospace;
 		font-size: $font-size-small;
-		color: $dove-gray;
+		color: tokens.$coral-color-neutral-text;
 		padding: 0;
 	}
 
@@ -19,8 +21,8 @@
 	}
 
 	&:global(.table) > thead > tr {
-		background-color: $brand-primary-dark;
-		color: $white;
+		background-color: tokens.$coral-color-accent-background-strong;
+		color: tokens.$coral-color-accent-text-weak;
 		font-family: 'Source Sans Pro';
 
 		& > th {
@@ -43,7 +45,7 @@
 	:global(.btn-link) {
 		font-family: 'Inconsolata';
 		font-size: 12px;
-		color: $dove-gray;
+		color: tokens.$coral-color-neutral-text-weak;
 		padding: 0;
 	}
 }
