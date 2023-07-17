@@ -155,7 +155,7 @@
 
 .chevron-filled {
 	svg {
-		@include chevron(tokens.$coral-color-accent-text-weak);
+		@include chevron(tokens.$coral-color-accent-text-strong);
 		background-color: tokens.$coral-color-accent-background;
 	}
 }
