@@ -11,7 +11,7 @@ We have updated the following components:
 * Badge
 * CollapsiblePanel
 * Datalist
-* DateTimePickers
+* DateTimePickers + Legacy
 * Drawer
 * Enumeration (bug on buttons)
 * FilterBar
