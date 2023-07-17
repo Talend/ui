@@ -22,12 +22,14 @@ We have updated the following components:
 * GuidedTour
 * GridLayout aka Dashboard
 * HeaderBar
+* List (Virtualized and Composition)
 * ListView
 * MultiSelect
 * Notification
 * ObjectViewer
 * PieChart
 * Progress
+* RadarChart
 * ResourceList
 * ResourcePicker
 * RichLayout
