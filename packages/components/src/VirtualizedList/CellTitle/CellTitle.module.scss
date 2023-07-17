@@ -1,8 +1,8 @@
+/* stylelint-disable declaration-no-important */
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-@import '../colors';
-
-$tc-list-title-color: $black !default;
+// $tc-list-title-color: $black !default;
 $tc-list-title-icon-size: $svg-rg-size !default;
 
 .tc-list-title {
@@ -45,7 +45,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 
 		padding: 0 $padding-normal;
 
-		color: $tc-list-title-color;
+		color: tokens.$coral-color-neutral-text;
 		font-size: inherit;
 		font-weight: 600;
 		text-transform: none;
@@ -71,12 +71,12 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 		&:hover,
 		&:global(.ally-focus-within) {
 			.icon {
-				color: $brand-primary;
+				color: tokens.$coral-color-accent-text;
 				filter: none;
 			}
 
 			.main-title {
-				color: $lochmara;
+				color: tokens.$coral-color-accent-text;
 			}
 		}
 	}
@@ -103,7 +103,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-active-hover-bg, 100%) $padding-large);
+			// background: linear-gradient(90deg, tokens.$coral-color-neutral-background, tokens.$coral-color-accent-background $padding-large);
 		}
 	}
 }
@@ -114,7 +114,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-selected-hover-bg, 100%) $padding-large);
+			// background: linear-gradient(90deg, tokens.$coral-color-neutral-background, tokens.$coral-color-accent-background $padding-large);
 		}
 	}
 }
