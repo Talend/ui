@@ -8,7 +8,7 @@ $tc-filter-bar-width: 250px !default;
 .filter {
 	display: flex;
 	height: $padding-larger;
-	background-color: rgba($silver, 0.2);
+	background-color: tokens.$coral-color-neutral-background-medium;
 	padding: 0;
 	border-radius: $border-radius-base;
 
@@ -18,7 +18,7 @@ $tc-filter-bar-width: 250px !default;
 		margin: 8px 0;
 		height: $svg-md-size;
 		width: $padding-larger;
-		fill: $gray;
+		fill: tokens.$coral-color-neutral-icon-weak;
 	}
 
 	> :global(.form-group) {
@@ -43,7 +43,7 @@ $tc-filter-bar-width: 250px !default;
 		font-size: $font-size-base;
 
 		&::placeholder {
-			color: $dark-silver;
+			color: tokens.$coral-color-neutral-icon-weak;
 		}
 
 		&::-ms-clear {
