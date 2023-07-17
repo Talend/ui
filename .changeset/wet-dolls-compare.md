@@ -15,6 +15,7 @@ We have updated the following components:
 * DataViewer
 * DateTimePickers + Legacy
 * Drawer
+* EditableText
 * Enumeration (bug on buttons)
 * FilterBar
 * GuidedTour
