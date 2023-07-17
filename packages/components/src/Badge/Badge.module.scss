@@ -23,10 +23,11 @@ $tc-badge-small-padding: 0.8rem;
 
 $tc-badge-disabled-opacity: 0.62;
 
-@mixin colored-badge($background-color, $color) {
+@mixin colored-badge($background-color, $color, $border) {
 	.tc-badge-button {
 		background-color: $background-color;
 		color: $color;
+		border-color: $border;
 
 		.tc-badge-separator {
 			background-color: $color;
@@ -52,7 +53,7 @@ $tc-badge-disabled-opacity: 0.62;
 		display: inline-flex;
 		background-color: tokens.$coral-color-neutral-background-medium;
 		border: solid 1px;
-		border-color: $gallery;
+		border-color: tokens.$coral-color-neutral-border-weak;
 		border-radius: 25px;
 		max-width: 100%;
 
@@ -333,23 +334,23 @@ $tc-badge-disabled-opacity: 0.62;
 	}
 
 	&--valid {
-		@include colored-badge(tokens.$coral-color-success-background, tokens.$coral-color-success-text);
+		@include colored-badge(tokens.$coral-color-success-background, tokens.$coral-color-success-text, tokens.$coral-color-success-border);
 	}
 
 	&--invalid {
-		@include colored-badge(tokens.$coral-color-danger-background, tokens.$coral-color-danger-text);
+		@include colored-badge(tokens.$coral-color-danger-background, tokens.$coral-color-danger-text, tokens.$coral-color-danger-border);
 	}
 
 	&--empty {
-		@include colored-badge(tokens.$coral-color-neutral-background-medium, tokens.$coral-color-neutral-text);
+		@include colored-badge(tokens.$coral-color-neutral-background-medium, tokens.$coral-color-neutral-text, tokens.$coral-color-neutral-border);
 	}
 
 	&--pattern {
-		@include colored-badge(tokens.$coral-color-warning-background, tokens.$coral-color-warning-text);
+		@include colored-badge(tokens.$coral-color-warning-background, tokens.$coral-color-warning-text, tokens.$coral-color-warning-border);
 	}
 
 	&--value {
-		@include colored-badge(tokens.$coral-color-accent-background, tokens.$coral-color-accent-text);
+		@include colored-badge(tokens.$coral-color-accent-background, tokens.$coral-color-accent-text, tokens.$coral-color-accent-border);
 	}
 
 	&-dropdown {
