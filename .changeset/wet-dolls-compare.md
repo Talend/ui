@@ -18,6 +18,7 @@ We have updated the following components:
 * EditableText
 * Enumeration (bug on buttons)
 * FilterBar
+* FormatValue
 * GuidedTour
 * GridLayout aka Dashboard
 * HeaderBar
