@@ -35,4 +35,5 @@ We have updated the following components:
 * SubHeaderBar
 * Toggle
 * Tooltip
+* TreeView
 * Typeahead
