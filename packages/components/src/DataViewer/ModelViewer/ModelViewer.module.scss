@@ -1,20 +1,8 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
+@use '~@talend/design-tokens/lib/tokens';
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
-$background-hover: rgba($dark-silver, 0.1) !default;
-$background-highlight: rgba($scooter, 0.1) !default;
 $model-node-height: 3rem !default;
-
-@mixin selection($background-color) {
-	background: $background-color;
-	bottom: 0;
-	content: ' ';
-	left: -100%;
-	position: absolute;
-	right: 0;
-	top: 0;
-}
 
 .tc-model {
 	display: flex;
@@ -26,7 +14,7 @@ $model-node-height: 3rem !default;
 	&-leaf,
 	&-branch {
 		:global(.tc-simple-text-value) {
-			color: $dark-silver;
+			color: tokens.$coral-color-neutral-text-weak;
 		}
 
 		&-padding-left {
@@ -41,18 +29,6 @@ $model-node-height: 3rem !default;
 			position: absolute;
 			top: 0;
 			width: 100%;
-
-			&:hover {
-				&::before {
-					@include selection($background-hover);
-				}
-			}
-
-			&-highlighted {
-				&::before {
-					@include selection($background-highlight);
-				}
-			}
 		}
 	}
 
@@ -69,7 +45,7 @@ $model-node-height: 3rem !default;
 			&:focus,
 			&:hover {
 				:global(.tc-tree-branch-icon-caret) {
-					color: $scooter;
+					color: tokens.$coral-color-accent-text-hover;
 				}
 			}
 		}
