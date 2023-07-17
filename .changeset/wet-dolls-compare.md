@@ -8,6 +8,7 @@ We have updated the following components:
 
 * ActionBar
 * ActionIconToggle
+* AppLoader
 * Badge
 * CollapsiblePanel
 * Datalist
@@ -19,6 +20,7 @@ We have updated the following components:
 * GridLayout aka Dashboard
 * HeaderBar
 * ListView
+* MultiSelect
 * Notification
 * Progress
 * ResourceList
