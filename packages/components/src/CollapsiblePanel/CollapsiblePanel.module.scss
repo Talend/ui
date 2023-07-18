@@ -271,14 +271,6 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 		}
 	}
 
-	&.open {
-		:global(.toggle) {
-			svg {
-				fill: $white;
-			}
-		}
-	}
-
 	&.selected {
 		.title,
 		.detail {
