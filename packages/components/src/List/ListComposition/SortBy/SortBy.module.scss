@@ -1,8 +1,7 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 // SelectSortBy styles
-
-$tc-list-toolbar-display-color: $dove-gray !default;
 $tc-order-chooser-icon-size: 0.6rem !default;
 
 .tc-sort-by {
@@ -16,11 +15,11 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 	&-label {
 		margin: 0;
 		font-weight: normal;
-		color: $dove-gray;
+		color: tokens.$coral-color-neutral-text-weak;
 	}
 
 	:global(.navbar-btn.btn) {
-		color: $tc-list-toolbar-display-color;
+		color: tokens.$coral-color-neutral-text-weak;
 		font-size: 1em;
 		margin: 0;
 	}
@@ -33,7 +32,7 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		&:hover,
 		&:focus,
 		&:active {
-			color: $black;
+			color: tokens.$coral-color-neutral-text;
 			box-shadow: none;
 		}
 
