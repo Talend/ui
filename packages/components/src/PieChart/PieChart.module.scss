@@ -47,21 +47,21 @@ $tc-pie-chart-colors: (rio-grande tokens.$coral-color-charts-success, jaffa toke
 	&:hover,
 	&:active,
 	&:focus {
-		color: $scooter;
+		color: tokens.$coral-color-accent-text;
 		text-decoration: none;
 	}
 
 	&.active {
-		background-color: $brand-primary;
-		border-color: $brand-primary;
-		color: $white;
+		background-color: tokens.$coral-color-accent-background-strong-active;
+		border-color: tokens.$coral-color-accent-background-strong-active;
+		color: tokens.$coral-color-accent-text-weak;
 
 		&:hover,
 		&:active,
 		&:focus {
-			background-color: $scooter;
-			border-color: $scooter;
-			color: $white;
+			background-color: tokens.$coral-color-accent-background;
+			border-color: tokens.$coral-color-accent-background;
+			color: tokens.$coral-color-accent-text;
 		}
 	}
 }
