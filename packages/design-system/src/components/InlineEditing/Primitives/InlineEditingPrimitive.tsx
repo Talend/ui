@@ -43,6 +43,7 @@ export type InlineEditingPrimitiveProps = {
 	onToggle?: (isEditionMode: boolean) => void;
 	label: string;
 	required?: boolean;
+	maxLength?: number;
 	placeholder: string;
 	ariaLabel?: string;
 	renderValueAs?: ElementType | ReactElement;
@@ -85,6 +86,7 @@ const InlineEditingPrimitive = forwardRef(
 			onCancel = () => {},
 			onToggle = () => {},
 			required = false,
+			maxLength,
 			label,
 			hasError,
 			description,
@@ -176,6 +178,7 @@ const InlineEditingPrimitive = forwardRef(
 			label,
 			name: label.replace(/\s/g, ''),
 			required,
+			maxLength,
 			placeholder,
 			onChange: (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>): void => {
 				if (onChangeValue) {
