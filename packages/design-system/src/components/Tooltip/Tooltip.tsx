@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { cloneElement, useState, useRef } from 'react';
 import type { PropsWithChildren } from 'react';
+
 import {
 	arrow,
 	FloatingArrow,
@@ -16,8 +17,11 @@ import {
 	offset,
 	shift,
 } from '@floating-ui/react';
+
 import { useId } from '../../useId';
+
 import styles from './Tooltip.module.scss';
+
 export type Placement =
 	| 'auto-start'
 	| 'auto'
@@ -53,7 +57,7 @@ const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipPro
 			arrow({
 				element: arrowRef,
 			}),
-			offset(4),
+			offset(10),
 			flip({
 				crossAxis: placement.includes('-'),
 				fallbackAxisSideDirection: 'start',

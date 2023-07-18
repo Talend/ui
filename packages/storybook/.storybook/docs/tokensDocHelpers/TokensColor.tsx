@@ -1,6 +1,6 @@
 import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
-import { TokensProps } from './TokensTypes';
 import { getDisplayName } from './TokenFormatter';
+import { TokensProps } from './TokensTypes';
 import DefinitionListColors from './components/DefinitionList/DefinitionListColors';
 
 const colorOrder = [
@@ -15,7 +15,7 @@ const colorOrder = [
 	'charts',
 ];
 
-const TokensColor = ({ tokens }: TokensProps) => (
+const TokensColor = ({ tokens }: TokensProps<ColorToken>) => (
 	<DefinitionListColors
 		tokens={tokens
 			.filter((t: Token) => t.type === TokenType.COLOR)

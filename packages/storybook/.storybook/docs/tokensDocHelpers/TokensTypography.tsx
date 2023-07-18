@@ -1,11 +1,11 @@
 import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
-import { TokensProps } from './TokensTypes';
 import { getDisplayName } from './TokenFormatter';
+import { TokensProps } from './TokensTypes';
 import DefinitionListTypography from './components/DefinitionList/DefinitionListTypography';
 
 const colorOrder = ['heading', 'paragraph', 'data'];
 
-const TokensTypography = ({ tokens }: TokensProps) => (
+const TokensTypography = ({ tokens }: TokensProps<ColorToken>) => (
 	<DefinitionListTypography
 		tokens={tokens
 			.filter((t: Token) => t.type === TokenType.TYPOGRAPHY)

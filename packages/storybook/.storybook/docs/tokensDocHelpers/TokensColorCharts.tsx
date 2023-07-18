@@ -1,7 +1,7 @@
-import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
-import { TokensProps } from './TokensTypes';
 import { StackVertical } from '@talend/design-system';
 
+import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
+import { TokensProps } from './TokensTypes';
 import ColorScale from './components/DefinitionList/ColorScale/ColorScale';
 import DefinitionListCharts from './components/DefinitionList/DefinitionListCharts';
 
@@ -24,7 +24,7 @@ const OrderedCharts = [
 	'Color09',
 ];
 
-const TokensColorCharts = ({ tokens }: TokensProps) => {
+const TokensColorCharts = ({ tokens }: TokensProps<ColorToken>) => {
 	const colorTokens = tokens
 		.filter((t: Token) => t.type === TokenType.COLOR)
 		.reduce((acc: Record<string, ColorToken>, curr: ColorToken) => {

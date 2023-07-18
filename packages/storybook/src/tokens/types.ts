@@ -40,4 +40,4 @@ export interface TypographyToken extends Token {
 	fontFamily: string;
 }
 
-export type Tokens = Token[];
+export type Tokens<T extends Token> = T[];

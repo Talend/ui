@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { randomUUID } from '@talend/utils';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
+import { randomUUID } from '@talend/utils';
+
 import { DataAttributes } from '../../../types';
 
 export type TabWithIdPropTypes = DataAttributes & {
@@ -21,6 +23,7 @@ export type TabPropTypes = Omit<TabWithIdPropTypes, 'id'> & {
 export type TabsPropTypes = {
 	tabs: TabPropTypes[];
 	size?: 'M' | 'L';
+	selectedId?: string;
 };
 
 export type TabState = {
@@ -78,15 +81,28 @@ export function useTabState(initialState?: TabInitialState): TabStateReturn {
 		if (hasChanged) {
 			setPanels(getPanels(initialState?.tabs ?? []));
 		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [panels, initialState?.tabs]);
+	}, [initialState?.tabs]);
+
+	useEffect(() => {
+		if (selectedId !== initialState?.selectedId && initialState?.selectedId) {
+			setSelectedId(initialState?.selectedId);
+		}
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [initialState?.selectedId]);
+
 	useEffect(() => {
 		if (selectedId === undefined) {
 			if (panels.length) {
 				setSelectedId(panels[0].id);
 			}
 		}
-	}, [selectedId, panels]);
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [panels]);
+
 	return {
 		selectedId,
 		setSelectedId,

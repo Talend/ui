@@ -1,14 +1,12 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { HTMLAttributes } from 'react';
 
 import { StackVertical, TabsKit } from '@talend/design-system';
-import { ColorToken, Token, TokenType } from '../../../../src/tokens/types';
-import { TokensProps } from '../TokensTypes';
 
-import ColorCompositions from './data/ColorCompositions.json';
-
+import { ColorToken, TokenType } from '../../../../src/tokens/types';
 import { groupBy } from '../TokenFormatter';
+import { TokensProps } from '../TokensTypes';
 import CompositionListItem from '../components/CompositionList/CompositionListItem';
+import ColorCompositions from './data/ColorCompositions.json';
 
 type ColorComposition = {
 	icon?: string;
@@ -17,11 +15,12 @@ type ColorComposition = {
 	border: string;
 };
 
-const SemanticColors = ['Accent', 'Danger', 'Warning', 'Success', 'Beta'];
-
-const ColorTokens = ({ tokens, ...rest }: HTMLAttributes<HTMLDivElement> & TokensProps) => {
+const ColorTokens = ({
+	tokens,
+	...rest
+}: HTMLAttributes<HTMLDivElement> & TokensProps<ColorToken>) => {
 	const colorTokens = tokens
-		.filter((t: Token) => [TokenType.COLOR, TokenType.GRADIENT].includes(t.type))
+		.filter(t => [TokenType.COLOR, TokenType.GRADIENT].includes(t.type))
 		.reduce((acc: Record<string, ColorToken>, curr: ColorToken) => {
 			acc[curr.name.replace('coral', '').replace('Color', '').replace('Gradient', '')] = curr;
 			return acc;
@@ -90,13 +89,13 @@ const ColorTokens = ({ tokens, ...rest }: HTMLAttributes<HTMLDivElement> & Token
 
 	return (
 		<div {...rest}>
-			<TabsKit>
+			<TabsKit selectedId="Neutral">
 				<StackVertical gap="L" justify="stretch" align="stretch">
 					<TabsKit.TabList>
 						<>
 							{Object.keys(semanticColors).map(keyTitle => {
 								return (
-									<TabsKit.Tab size="L" key={keyTitle}>
+									<TabsKit.Tab size="L" key={keyTitle} id={keyTitle}>
 										{keyTitle}
 									</TabsKit.Tab>
 								);
@@ -104,11 +103,11 @@ const ColorTokens = ({ tokens, ...rest }: HTMLAttributes<HTMLDivElement> & Token
 						</>
 					</TabsKit.TabList>
 
-					{Object.values(semanticColors).map(group => {
+					{Object.entries(semanticColors).map(groupEntry => {
 						return (
-							<TabsKit.TabPanel key={Object.keys(group)[0]}>
+							<TabsKit.TabPanel key={groupEntry[0]} id={groupEntry[0]}>
 								<StackVertical gap="M" align="stretch" justify="stretch">
-									{Object.entries(group).map(([background, tks], key) => {
+									{Object.entries(groupEntry[1]).map(([background, tks], key) => {
 										return (
 											<StackVertical
 												gap="M"
