@@ -86,7 +86,7 @@ export function useTabState(initialState?: TabInitialState): TabStateReturn {
 	}, [initialState?.tabs]);
 
 	useEffect(() => {
-		if (selectedId !== initialState?.selectedId) {
+		if (selectedId !== initialState?.selectedId && initialState?.selectedId) {
 			setSelectedId(initialState?.selectedId);
 		}
 
