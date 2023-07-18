@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 7.14.0
+
+### Minor Changes
+
+- cd79a04a8: Design System - InlineEdit and InlineEditMulti can now have a maxLength attribute
+
+### Patch Changes
+
+- 0789cda91: Design system - Form file will now update on files prop change and will trigger onChange when file is cleared
+
 ## 7.13.0
 
 ### Minor Changes
