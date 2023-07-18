@@ -1,12 +1,11 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-$tc-list-toolbar-background-color: $wild-sand !default;
+@use '~@talend/design-tokens/lib/tokens';
 
 .container {
 	padding-left: 0;
 	margin: 0;
 	width: 100%;
-	background: $tc-list-toolbar-background-color;
+	background: tokens.$coral-color-neutral-background;
 }
 
 .tc-list-toolbar-select-all {

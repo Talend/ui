@@ -76,7 +76,7 @@ $tc-badge-disabled-opacity: 0.62;
 			flex-shrink: 0;
 			height: 12px;
 			width: 1px;
-			background-color: $gallery;
+			background-color: tokens.$coral-color-neutral-background-medium;
 			margin: $padding-smaller;
 
 			&.tc-badge-separator-icon {
