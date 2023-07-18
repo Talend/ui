@@ -1,6 +1,7 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable declaration-no-important */
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+@use '~@talend/design-tokens/lib/tokens';
 
 ////
 /// Side panel
@@ -30,7 +31,7 @@ $large-docked-width: 7rem;
 	overflow: hidden;
 	position: relative;
 
-	&:before {
+	&::before {
 		left: 1rem;
 		bottom: -5rem;
 	}
@@ -66,10 +67,12 @@ $large-docked-width: 7rem;
 					margin-left: $padding-small;
 				}
 			}
+
 			.tc-svg-icon {
 				width: $tc-side-panel-icons-size;
 				height: $tc-side-panel-icons-size;
 			}
+
 			:global(svg) {
 				margin-left: $padding-smaller;
 			}
@@ -143,6 +146,7 @@ $large-docked-width: 7rem;
 					opacity: 0;
 				}
 			}
+
 			.tc-action-list {
 				width: $docked-width;
 				min-width: auto;
@@ -198,10 +202,12 @@ $large-docked-width: 7rem;
 					min-width: auto;
 				}
 			}
+
 			.toggle-btn {
 				height: $toggle-height;
 				vertical-align: center;
 				padding: 0;
+
 				.btn.btn-link {
 					height: $toggle-height;
 					padding: 0;
@@ -213,7 +219,7 @@ $large-docked-width: 7rem;
 	&.reverse[role='navigation'] {
 		background: $wild-sand !important; // sass-lint:disable-line no-important
 
-		&:before {
+		&::before {
 			content: none;
 		}
 
