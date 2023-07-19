@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
+        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
           node-version: 18
           check-latest: true
@@ -46,7 +46,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@54849deb963ca9f24185fb5de2965e002d066e6b #v37.0.5
+        uses: tj-actions/changed-files@2a968ff601949c81b47d9c1fdb789b0d25ddeea2 #v37.1.2
 
       - name: Merge lint
         run: node merge-report.js ${{ steps.changed-files.outputs.all_changed_files }}

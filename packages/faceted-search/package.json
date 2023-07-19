@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-faceted-search",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "description": "Faceted search",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -47,7 +47,7 @@
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "@talend/bootstrap-theme": "^7.0.1",
-    "@talend/design-system": "^7.10.0",
+    "@talend/design-system": "^7.14.0",
     "@talend/icons": "^6.58.1",
     "@talend/locales-tui-components": "^9.5.0",
     "@talend/locales-tui-faceted-search": "^8.1.0",

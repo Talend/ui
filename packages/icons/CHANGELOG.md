@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.59.0
+
+### Minor Changes
+
+- 6cc954983: feat: add qlik icon
+
 ## 6.58.1
 
 ### Patch Changes

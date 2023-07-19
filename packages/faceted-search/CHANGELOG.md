@@ -1,5 +1,11 @@
 # Changelog
 
+## 10.0.1
+
+### Patch Changes
+
+- a17306fc9: TDOPS-4795 - [TUI] Faceted search display wrong plural label
+
 ## 10.0.0
 
 ### Major Changes

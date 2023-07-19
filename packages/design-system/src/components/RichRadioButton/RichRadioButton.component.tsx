@@ -7,7 +7,6 @@ import {
 import { StackVertical, StackHorizontal } from '../Stack';
 import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
 import style from './RichRadioButton.module.scss';
-import classnames from 'classnames';
 import { Tag } from '../Tag';
 import { Icon } from '../Icon';
 import { DataAttributes } from 'src/types';
@@ -15,17 +14,17 @@ import { DataAttributes } from 'src/types';
 function RichRadioButtonIcon({ asset }: { asset?: LogoAsset | IllustrationAsset | IconAsset }) {
 	if (asset?.illustration) {
 		return (
-			<span className={classnames([style['rich-radio-button__illustration']])}>
+			<span className={style['rich-radio-button__illustration']}>
 				<asset.illustration />
 			</span>
 		);
 	}
 	if (asset?.logo) {
-		return <Icon name={asset.logo} className={classnames([style['rich-radio-button__logo']])} />;
+		return <Icon name={asset.logo} className={style['rich-radio-button__logo']} />;
 	}
 	if (asset?.name) {
 		return (
-			<span className={classnames([style['rich-radio-button__icon']])}>
+			<span className={style['rich-radio-button__icon']}>
 				{getIconWithDeprecatedSupport({
 					iconSrc: asset.name || '',
 					size: 'L',
@@ -68,6 +67,12 @@ const RichRadioButton = ({
 				data-test={dataTest}
 				onChange={() => onChange(id)}
 				data-checked={isChecked}
+				onKeyDown={event => {
+					if (event.key === 'Enter') {
+						event.preventDefault();
+						onChange(id);
+					}
+				}}
 			/>
 			<span className={style['rich-radio-button']}>
 				<StackVertical as="span" gap="XS">
