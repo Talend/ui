@@ -1,5 +1,29 @@
 # @talend/design-system
 
+## 7.14.0
+
+### Minor Changes
+
+- cd79a04a8: Design System - InlineEdit and InlineEditMulti can now have a maxLength attribute
+
+### Patch Changes
+
+- 0789cda91: Design system - Form file will now update on files prop change and will trigger onChange when file is cleared
+
+## 7.13.0
+
+### Minor Changes
+
+- 4292de3ea: feat(TDC-7254/Stepper): Add a new props `currentStepIndex` to control current step. Set to zero by default.
+
+  This fix an issue as the previous code is based on react ref which is not updated when dom is changed. As we don't want to observe mutation on the DOM, let's go back on classic react patterns, make it pure and ask for a state
+
+## 7.12.2
+
+### Patch Changes
+
+- 1c53807b7: chore: update rich radio button
+
 ## 7.12.1
 
 ### Patch Changes

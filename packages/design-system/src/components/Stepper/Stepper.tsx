@@ -1,24 +1,16 @@
-import {
-	Children,
-	cloneElement,
-	forwardRef,
-	ReactElement,
-	Ref,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
 import classnames from 'classnames';
+import { Children, cloneElement, forwardRef, ReactElement, Ref, useMemo } from 'react';
 import { isElement } from 'react-is';
 
-import ProgressVertical from './Progress/variations/Progress.vertical';
 import ProgressHorizontal from './Progress/variations/Progress.horizontal';
+import ProgressVertical from './Progress/variations/Progress.vertical';
 
 import styles from './Stepper.module.scss';
 
 export type StepperOrientation = 'horizontal' | 'vertical';
 
 export type StepperProps = {
+	currentStepIndex?: number;
 	orientation?: StepperOrientation;
 	children: ReactElement | ReactElement[];
 	loading?: boolean;
@@ -26,21 +18,17 @@ export type StepperProps = {
 
 const Stepper = forwardRef(
 	(
-		{ children, orientation = 'vertical', loading, ...rest }: StepperProps,
+		{ currentStepIndex = 0, children, orientation = 'vertical', loading, ...rest }: StepperProps,
 		ref: Ref<HTMLDivElement>,
 	) => {
-		const listRef = useRef<null | HTMLOListElement>(null);
-		const [progressIndex, setProgressIndex] = useState(0);
-
-		useEffect(() => {
-			// Find the last active step in the list and store its index
-			const listEntries = listRef.current ? Array.from(listRef.current.children) : [];
-			const indexOfProgress = listEntries.map(entry => entry.ariaCurrent).lastIndexOf('step');
-			setProgressIndex(indexOfProgress);
-		}, []);
-
-		const value = progressIndex + 1;
 		const max = Children.count(children);
+		const value = useMemo(() => {
+			if (typeof currentStepIndex !== 'number' || currentStepIndex < 0 || currentStepIndex > max) {
+				return 0;
+			}
+
+			return currentStepIndex + 1;
+		}, [currentStepIndex, max]);
 
 		return (
 			<div
@@ -50,7 +38,8 @@ const Stepper = forwardRef(
 			>
 				{orientation === 'vertical' && <ProgressVertical value={value} max={max} />}
 				{orientation === 'horizontal' && <ProgressHorizontal value={value} max={max} />}
-				<ol className={styles.stepper__steps} ref={listRef}>
+
+				<ol className={styles.stepper__steps}>
 					{children &&
 						Children.map(
 							children,
