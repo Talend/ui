@@ -88,6 +88,36 @@ describe('CheckBoxes field', () => {
 		expect(screen.getByRole('checkbox', { name: 'My lol title' })).toBeDisabled();
 	});
 
+	it('should render single disabled checkboxe', () => {
+		// given
+		const singleDisabledSchema = {
+			...schema,
+			titleMap: [
+				{ name: 'My foo title', value: 'foo' },
+				{ name: 'My bar title', value: 'bar', disabled: true },
+				{ name: 'My lol title', value: 'lol' },
+			],
+		};
+
+		// when
+		render(
+			<CheckBoxes
+				id="myForm"
+				isValid
+				errorMessage="My error message"
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={singleDisabledSchema}
+			/>,
+		);
+
+		// then
+		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+		expect(screen.getByRole('checkbox', { name: 'My foo title' })).toBeEnabled();
+		expect(screen.getByRole('checkbox', { name: 'My bar title' })).toBeDisabled();
+		expect(screen.getByRole('checkbox', { name: 'My lol title' })).toBeEnabled();
+	});
+
 	describe('#onChange', () => {
 		it('should trigger callback, adding a value to existing values', async () => {
 			// given
