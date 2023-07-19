@@ -95,7 +95,6 @@ function RangeFilter({
 						id={`${id}-range-filter-min-input`}
 						value={range.min}
 						onChange={(value: number) => {
-							console.log('4444');
 							onAfterChange({
 								// Tricky one: we want the corrected value (i.e. day start) to stay between limits
 								min: Math.min(Math.max(getMinValue(value), limits.min), range.max),
