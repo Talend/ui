@@ -179,14 +179,6 @@
 			color: tokens.$coral-color-accent-text-strong-active;
 			background: tokens.$coral-color-accent-background-weak-active;
 		}
-	}
-
-	&-inverse,
-	&--secondary,
-	&-tertiary,
-	&--tertiary {
-		--t-button-background-color: transparent;
-		background-color: transparent;
 
 		&:disabled,
 		&[aria-disabled='true'],
