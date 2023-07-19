@@ -44,14 +44,14 @@
     "date-fns": "^2.30.0",
     "geojson": "^0.5.0",
     "lodash": "^4.17.21",
-    "recharts": "^2.7.1",
+    "recharts": "^2.7.2",
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "@cypress/react": "^7.0.3",
-    "@cypress/webpack-dev-server": "^3.4.1",
+    "@cypress/webpack-dev-server": "^3.5.1",
     "@talend/bootstrap-theme": "^7.0.1",
-    "@talend/icons": "^6.58.1",
+    "@talend/icons": "^6.59.0",
     "@talend/locales-tui-components": "^9.5.0",
     "@talend/locales-tui-dataviz": "^0.4.6",
     "@talend/react-components": "^10.3.5",

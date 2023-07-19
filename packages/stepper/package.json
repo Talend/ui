@@ -38,7 +38,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^6.58.1",
+    "@talend/icons": "^6.59.0",
     "@talend/scripts-core": "^13.3.0",
     "@talend/scripts-config-react-webpack": "^15.4.0",
     "i18next": "^20.6.1",

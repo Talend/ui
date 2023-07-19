@@ -18,13 +18,13 @@
     "test": "talend-scripts test"
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.22.5",
+    "@babel/eslint-parser": "^7.22.9",
     "@talend/scripts-utils": "^2.0.2",
     "@talend/eslint-plugin": "^1.0.1",
-    "@typescript-eslint/parser": "^5.60.0",
-    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
     "eslint": "^7.32.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-angular": "^4.1.0",
     "eslint-plugin-cypress": "^2.13.3",

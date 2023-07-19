@@ -20,7 +20,7 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
-    "@talend/design-system": "^7.11.0",
+    "@talend/design-system": "^7.14.0",
     "@talend/design-tokens": "^2.7.3",
     "react-hook-form": "^6.15.8"
   },
