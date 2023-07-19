@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 9.3.0
+
+### Minor Changes
+
+- 7a9a8db40: Forms - Allow to disable a single checkbox for checkbox widget list
+
 ## 9.2.3
 
 ### Patch Changes
