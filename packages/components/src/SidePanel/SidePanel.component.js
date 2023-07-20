@@ -110,7 +110,14 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav id={id} className={navCSS} role="navigation" ref={ref} style={{ width }}>
+		<nav
+			id={id}
+			className={navCSS}
+			role="navigation"
+			ref={ref}
+			style={{ width }}
+			data-theme="light"
+		>
 			{backgroundIcon && (
 				<style>
 					{`#${id}::before {

@@ -192,6 +192,7 @@ $large-docked-width: 7rem;
 
 	&.reverse[role='navigation'] {
 		background: tokens.$coral-color-neutral-background-medium !important;
+		color: tokens.$coral-color-neutral-text !important;
 
 		&::before {
 			content: none;
