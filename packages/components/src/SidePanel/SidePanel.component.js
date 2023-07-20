@@ -155,6 +155,7 @@ function SidePanel({
 						onSelect={onSelect}
 						selected={selected}
 						actions={actions}
+						reverse={!reverse}
 						id={id}
 						isNav
 					/>
