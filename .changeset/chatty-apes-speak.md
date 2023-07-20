@@ -11,6 +11,7 @@ Breaking changes:
 * HTML structure output may have changed
 * Some passed props from our component to reakit and not documented as a usage as been removed. If you need a different usage let us knwow, now we own the code
 * Tabs props API has been completly changed
+* Tooltip do not use cloneElement and accept only children as function now.
 
 Components changed:
 * Accordion (useId)
@@ -31,5 +32,5 @@ Components changed:
 * Popover (rewrite using `@floating-ui/react`)
 * Switch (rewrite)
 * Tabs (rewrite + props changed)
-* Tooltip (rewrite using `@floating-ui/react`)
+* Tooltip (rewrite using `@floating-ui/react` + API Change)
 * VisuallyHidden (rewrite)

@@ -12,6 +12,8 @@ import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper
 import { SizedIcon } from '../../../Icon';
 
 import styles from '../AffixStyles.module.scss';
+import { mergeRefs } from '../../../../mergeRef';
+import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip/Tooltip';
 
 type CommonAffixButtonPropsType = {
 	children: string;
@@ -47,11 +49,12 @@ const AffixButton = forwardRef<HTMLButtonElement, AffixButtonPropsType>(
 		}: AffixButtonPropsType,
 		ref: Ref<HTMLButtonElement>,
 	) => {
-		const element = (
+		const element = (subProps: TooltipChildrenFnProps, subRef: TooltipChildrenFnRef) => (
 			<Clickable
+				{...subProps}
 				type="button"
 				onClick={onClick}
-				ref={ref}
+				ref={subRef}
 				{...rest}
 				className={classnames(styles.affix, styles.button, { [styles.affix_isSuffix]: isSuffix })}
 			>
@@ -74,12 +77,14 @@ const AffixButton = forwardRef<HTMLButtonElement, AffixButtonPropsType>(
 		if (hideText) {
 			return (
 				<Tooltip title={children} placement="top">
-					{element}
+					{(triggerProps: TooltipChildrenFnProps, triggerRef: TooltipChildrenFnRef) =>
+						element(triggerProps, mergeRefs<HTMLButtonElement>([triggerRef, ref]))
+					}
 				</Tooltip>
 			);
 		}
 
-		return element;
+		return element({}, ref);
 	},
 );
 

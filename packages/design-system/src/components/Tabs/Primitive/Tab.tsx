@@ -11,6 +11,8 @@ import styles from './TabStyles.module.scss';
 import Tooltip from '../../Tooltip';
 import { TagDefault } from '../../Tag';
 import { TabStateReturn } from './TabState';
+import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip/Tooltip';
+import { mergeRefs } from '../../../mergeRef';
 
 type TabChildren =
 	| {
@@ -40,12 +42,13 @@ type TabPropsTypes = TabPropsTypesWithoutState & TabStateReturn;
 
 const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 	const { tooltip, ...otherProps } = props;
-	const component = () => {
+	const component = (triggerProps?: TooltipChildrenFnProps, triggerRef?: TooltipChildrenFnRef) => {
 		if ('children' in otherProps) {
 			const { children, size, setSelectedId, selectedId, id, tabs, ...rest } = otherProps;
 			return (
 				// eslint-disable-next-line jsx-a11y/role-supports-aria-props
 				<button
+					{...triggerProps}
 					{...rest}
 					onClick={() => setSelectedId(id)}
 					tabIndex={selectedId === id ? 0 : -1}
@@ -53,7 +56,7 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-selected={selectedId === id}
 					type="button"
-					ref={ref}
+					ref={mergeRefs([ref, triggerRef])}
 					className={classnames(styles.tab, { [styles.tab_large]: size === 'L' })}
 				>
 					<span className={styles.tab__copy}>{children}</span>
@@ -65,6 +68,7 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 		return (
 			// eslint-disable-next-line jsx-a11y/role-supports-aria-props
 			<button
+				{...triggerProps}
 				{...rest}
 				onClick={() => setSelectedId(id)}
 				tabIndex={selectedId === id ? 0 : -1}
@@ -72,7 +76,7 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-selected={selectedId === id}
 				type="button"
-				ref={ref}
+				ref={mergeRefs([ref, triggerRef])}
 				className={classnames(styles.tab, { [styles.tab_large]: size === 'L' })}
 			>
 				<StackHorizontal gap="XXS" align="center" display="inline">
@@ -85,7 +89,7 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 	};
 
 	if (tooltip) {
-		return <Tooltip title={tooltip}>{component()}</Tooltip>;
+		return <Tooltip title={tooltip}>{component}</Tooltip>;
 	}
 
 	return component();

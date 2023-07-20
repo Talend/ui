@@ -10,6 +10,8 @@ import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 
 import styles from './Status.module.scss';
+import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip/Tooltip';
+import { mergeRefs } from '../../../mergeRef';
 
 export const variants = {
 	successful: 'successful',
@@ -34,7 +36,7 @@ const Status = forwardRef(
 	) => {
 		const text = <span className={styles.status__text}>{children}</span>;
 		const picto = (
-			<span className={styles.status__icon} aria-hidden>
+			<span className={styles.status__icon}>
 				{inProgress ? <Loading /> : icon ? <SizedIcon name={icon} size="M" /> : null}
 			</span>
 		);
@@ -42,7 +44,22 @@ const Status = forwardRef(
 		return (
 			<span {...rest} className={classnames(styles.status, styles[variant])} ref={ref}>
 				<StackHorizontal as="span" display="inline" gap="XXS" align="center" justify="start">
-					{hideText ? <Tooltip title={children}>{picto}</Tooltip> : [picto, text]}
+					{hideText ? (
+						<Tooltip title={children}>
+							{(triggerProps: TooltipChildrenFnProps, triggerRef: TooltipChildrenFnRef) => (
+								<span
+									className={styles.status__icon}
+									aria-hidden
+									{...triggerProps}
+									ref={mergeRefs([ref, triggerRef])}
+								>
+									{inProgress ? <Loading /> : icon ? <SizedIcon name={icon} size="M" /> : null}
+								</span>
+							)}
+						</Tooltip>
+					) : (
+						[picto, text]
+					)}
 				</StackHorizontal>
 			</span>
 		);

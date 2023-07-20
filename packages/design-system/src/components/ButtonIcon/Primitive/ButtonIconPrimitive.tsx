@@ -13,6 +13,7 @@ import Loading from '../../Loading';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './ButtonIcon.module.scss';
+import { mergeRefs } from '../../../mergeRef';
 
 export type AvailableSizes = 'M' | 'S' | 'XS';
 export type PossibleVariants = 'toggle' | 'floating' | 'default';
@@ -65,25 +66,28 @@ function Primitive<S extends AvailableSizes>(
 
 	return (
 		<Tooltip title={children} placement={tooltipPlacement || 'top'}>
-			<Button
-				{...rest}
-				tabIndex={rest.tabIndex || 0}
-				className={classnames(styles.buttonIcon, {
-					[styles.floating]: variant === 'floating',
-					[styles.toggle]: variant === 'toggle',
-					[styles.size_S]: size === 'S',
-					[styles.size_XS]: size === 'XS',
-				})}
-				ref={ref}
-				disabled={disabled || isLoading}
-				{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
-			>
-				<span className={styles.buttonIcon__icon} aria-hidden>
-					{!isLoading &&
-						getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'XS' ? 'S' : 'M' })}
-					{isLoading && <Loading />}
-				</span>
-			</Button>
+			{(triggerProps, triggerRef) => (
+				<Button
+					{...triggerProps}
+					{...rest}
+					tabIndex={rest.tabIndex || 0}
+					className={classnames(styles.buttonIcon, {
+						[styles.floating]: variant === 'floating',
+						[styles.toggle]: variant === 'toggle',
+						[styles.size_S]: size === 'S',
+						[styles.size_XS]: size === 'XS',
+					})}
+					ref={mergeRefs([ref, triggerRef])}
+					disabled={disabled || isLoading}
+					{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
+				>
+					<span className={styles.buttonIcon__icon} aria-hidden>
+						{!isLoading &&
+							getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'XS' ? 'S' : 'M' })}
+						{isLoading && <Loading />}
+					</span>
+				</Button>
+			)}
 		</Tooltip>
 	);
 }

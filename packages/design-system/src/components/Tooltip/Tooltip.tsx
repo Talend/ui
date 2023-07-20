@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cloneElement, useState, useRef } from 'react';
-import type { PropsWithChildren } from 'react';
-
+import { useState, useRef } from 'react';
+import type { ReactNode, MutableRefObject, RefCallback } from 'react';
 import {
 	arrow,
 	FloatingArrow,
@@ -23,9 +22,6 @@ import { useId } from '../../useId';
 import styles from './Tooltip.module.scss';
 
 export type Placement =
-	| 'auto-start'
-	| 'auto'
-	| 'auto-end'
 	| 'top-start'
 	| 'top'
 	| 'top-end'
@@ -39,10 +35,23 @@ export type Placement =
 	| 'left'
 	| 'left-start';
 
-export type TooltipProps = PropsWithChildren<any> & {
+export type TooltipChildrenFnProps = {
+	onHover?: (event: any) => void;
+	onFocus?: (event: any) => void;
+	onBlur?: (event: any) => void;
+	'aria-describedby'?: string;
+};
+
+export type TooltipChildrenFnRef =
+	| any
+	| MutableRefObject<HTMLButtonElement>
+	| RefCallback<HTMLButtonElement>;
+
+export type TooltipProps = {
 	title?: string;
 	placement?: Placement;
 	id?: string;
+	children: (props: TooltipChildrenFnProps, ref: any) => ReactNode;
 };
 
 const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipProps) => {
@@ -50,7 +59,7 @@ const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipPro
 	const [isOpen, setIsOpen] = useState(false);
 	const arrowRef = useRef(null);
 	const floating = useFloating({
-		placement,
+		placement: placement || 'top',
 		open: isOpen,
 		onOpenChange: setIsOpen,
 		middleware: [
@@ -75,11 +84,13 @@ const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipPro
 
 	return (
 		<>
-			{cloneElement(children as any, {
-				ref: floating.refs.setReference,
-				...getReferenceProps(),
-				'aria-describedby': safeId,
-			})}
+			{children(
+				{
+					...getReferenceProps(),
+					'aria-describedby': safeId,
+				},
+				floating.refs.setReference,
+			)}
 			<FloatingPortal>
 				<div
 					{...getFloatingProps()}

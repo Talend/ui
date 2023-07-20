@@ -10,6 +10,8 @@ import styles from './TabStyles.module.scss';
 import Tooltip from '../../Tooltip';
 import { TagDefault } from '../../Tag';
 import Linkable, { LinkableType } from '../../Linkable';
+import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip/Tooltip';
+import { mergeRefs } from '../../../mergeRef';
 
 type TabChildren = Omit<LinkableType, 'icon' | 'children' | 'as'> & {
 	title: string;
@@ -49,7 +51,9 @@ const TabAsLink = forwardRef((props: TabAsLinkProps, ref: Ref<HTMLAnchorElement>
 	if (tooltip) {
 		return (
 			<Tooltip title={tooltip}>
-				<TabComponent {...otherProps} ref={ref} />
+				{(triggerProps: TooltipChildrenFnProps, triggerRef: TooltipChildrenFnRef) => (
+					<TabComponent {...triggerProps} {...otherProps} ref={mergeRefs([ref, triggerRef])} />
+				)}
 			</Tooltip>
 		);
 	}
