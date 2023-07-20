@@ -20,6 +20,7 @@ import {
 import { useId } from '../../useId';
 
 import styles from './Tooltip.module.scss';
+import { renderOrClone } from '../../renderOrClone';
 
 export type Placement =
 	| 'top-start'
@@ -84,13 +85,11 @@ const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipPro
 
 	return (
 		<>
-			{children(
-				{
-					...getReferenceProps(),
-					'aria-describedby': safeId,
-				},
-				floating.refs.setReference,
-			)}
+			{renderOrClone(children, {
+				...getReferenceProps(),
+				'aria-describedby': safeId,
+				ref: floating.refs.setReference,
+			})}
 			<FloatingPortal>
 				<div
 					{...getFloatingProps()}
