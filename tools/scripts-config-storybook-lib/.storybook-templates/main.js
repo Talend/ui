@@ -1,16 +1,15 @@
-import fs from 'fs';
-import { merge } from 'lodash';
-import path from 'path';
-import CDNPlugin from '@talend/dynamic-cdn-webpack-plugin';
-import { getAllModules } from '@talend/module-to-cdn';
-import {
+const fs = require('fs');
+const { merge } = require('lodash');
+const path = require('path');
+const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
+const { getAllModules } = require('@talend/module-to-cdn');
+const {
 	getSassLoaders,
-} from '@talend/scripts-config-react-webpack/config/webpack.config.common';
+} = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
-import { fixWindowsPaths } from './utils';
-import { createRequire } from 'module';
+const { fixWindowsPaths } = require('./utils');
+const { createRequire } = require('module');
 
-const require = createRequire(import.meta.url);
 
 const cwd = process.cwd();
 
@@ -101,7 +100,7 @@ const temp_userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFileP
 
 const userMain = temp_userMain.default || {};
 
-const config = {
+module.exports  = {
 	...defaultMain,
 	features: merge(defaultMain.features, userMain.features),
 	stories: fixWindowsPaths([...(userMain.stories || defaultMain.stories)]),
@@ -117,4 +116,3 @@ const config = {
 	}
 };
 
-export default config;
