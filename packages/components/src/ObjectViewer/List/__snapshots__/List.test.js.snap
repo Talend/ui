@@ -1,65 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ObjectViewer.List should render List with props data as an array 1`] = `
-<ul
-  className="theme-container tc-object-viewer list-unstyled"
-  id="my-object-list"
->
-  <li>
-    <TreeGesture(JSONLike)
-      data={
-        {
-          "field0": "header1",
-        }
-      }
-      flat={true}
-      id="my-object-list"
-      jsonpath="$[0]"
-    />
-  </li>
-  <li>
-    <TreeGesture(JSONLike)
-      data={
-        {
-          "field1": "header2",
-        }
-      }
-      flat={true}
-      id="my-object-list"
-      jsonpath="$[1]"
-    />
-  </li>
-</ul>
-`;
-
 exports[`ObjectViewer.List should render List with props data as an object 1`] = `
 <ul
-  className="theme-container tc-object-viewer list-unstyled"
+  class="theme-container tc-object-viewer list-unstyled"
   id="my-object-list"
 >
   <li>
-    <TreeGesture(JSONLike)
-      data={
-        {
-          "field0": "header1",
-        }
-      }
-      flat={true}
-      id="my-object-list"
-      jsonpath="$[0]"
-    />
+    <div
+      class="tc-object-viewer theme-container"
+      data-testid="my-object-list-container"
+      id="my-object-list-container"
+    >
+      <ul
+        class="theme-tc-object-viewer-list"
+        role="tree"
+      >
+        <li
+          aria-expanded="false"
+          aria-level="1"
+          aria-posinset="1"
+          aria-setsize="1"
+          class="theme-list-item"
+          id="my-object-list-root"
+          role="treeitem"
+          tabindex="0"
+        >
+          <div
+            class="theme-line"
+          >
+            <button
+              aria-hidden="true"
+              aria-label=""
+              class="theme-toggle tc-object-viewer-toggle btn-icon-only btn btn-link"
+              id="my-object-list-root-toggle"
+              role="link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="CoralIcon"
+                name="talend-caret-down"
+                transform="rotate-270"
+              />
+              <span />
+            </button>
+            <div
+              class="theme-line-main"
+            >
+              <sup
+                aria-describedby="42"
+                aria-label="Contains 1 child object"
+                class="theme-badge badge"
+              >
+                (1)
+              </sup>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </li>
   <li>
-    <TreeGesture(JSONLike)
-      data={
-        {
-          "field1": "header2",
-        }
-      }
-      flat={true}
-      id="my-object-list"
-      jsonpath="$[1]"
-    />
+    <div
+      class="tc-object-viewer theme-container"
+      data-testid="my-object-list-container"
+      id="my-object-list-container"
+    >
+      <ul
+        class="theme-tc-object-viewer-list"
+        role="tree"
+      >
+        <li
+          aria-expanded="false"
+          aria-level="1"
+          aria-posinset="1"
+          aria-setsize="1"
+          class="theme-list-item"
+          id="my-object-list-root"
+          role="treeitem"
+          tabindex="0"
+        >
+          <div
+            class="theme-line"
+          >
+            <button
+              aria-hidden="true"
+              aria-label=""
+              class="theme-toggle tc-object-viewer-toggle btn-icon-only btn btn-link"
+              id="my-object-list-root-toggle"
+              role="link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="CoralIcon"
+                name="talend-caret-down"
+                transform="rotate-270"
+              />
+              <span />
+            </button>
+            <div
+              class="theme-line-main"
+            >
+              <sup
+                aria-describedby="42"
+                aria-label="Contains 1 child object"
+                class="theme-badge badge"
+              >
+                (1)
+              </sup>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </li>
 </ul>
 `;

@@ -1,5 +1,23 @@
 # Changelog
 
+## 5.5.0
+
+### Minor Changes
+
+- 95670ed73: Lighten grid background
+
+## 5.4.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+## 5.3.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+
 ## 5.3.1
 
 ### Patch Changes

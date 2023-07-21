@@ -1,7 +1,10 @@
-import { shallow } from 'enzyme';
-import { mock } from '@talend/react-cmf';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import cmf, { mock } from '@talend/react-cmf';
 
 import { ContainerActionIconToggle, mapStateToProps, mergeProps } from './ActionIconToggle.connect';
+
+jest.unmock('@talend/design-system');
 
 const state = {
 	cmf: {
@@ -24,50 +27,60 @@ const state = {
 };
 
 describe('Action Icon Toggle', () => {
+	let App;
+	beforeAll(async () => {
+		const config = await cmf.bootstrap({
+			render: false,
+			components: {},
+		});
+		App = config.App;
+	});
 	it('should render', () => {
 		// given
 		const context = mock.store.context();
 
 		// when
-		const wrapper = shallow(
-			<ContainerActionIconToggle
-				className="my-awesome-classname"
-				icon="talend-awesome-icon"
-				id="my-awesome-action-id"
-				label="My awesome label"
-				tooltipPlacement="top"
-				payload={{ type: 'TOGGLE-MY-AWESOME-ACTION' }}
-				active
-			/>,
-			{ context },
+		const { container } = render(
+			<App {...context}>
+				<ContainerActionIconToggle
+					className="my-awesome-classname"
+					icon="talend-awesome-icon"
+					id="my-awesome-action-id"
+					label="My awesome label"
+					tooltipPlacement="top"
+					payload={{ type: 'TOGGLE-MY-AWESOME-ACTION' }}
+					active
+				/>
+			</App>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should dispatch on click', () => {
+	it('should dispatch on click', async () => {
 		// given
 		const context = mock.store.context();
 		const dispatch = jest.fn();
 		const payload = { type: 'TOGGLE-MY-AWESOME-ACTION' };
 
-		const wrapper = shallow(
-			<ContainerActionIconToggle
-				className="my-awesome-classname"
-				icon="talend-awesome-icon"
-				id="my-awesome-action-id"
-				label="My awesome label"
-				tooltipPlacement="top"
-				payload={payload}
-				active
-				dispatch={dispatch}
-			/>,
-			{ context },
+		render(
+			<App {...context}>
+				<ContainerActionIconToggle
+					className="my-awesome-classname"
+					icon="talend-awesome-icon"
+					id="my-awesome-action-id"
+					label="My awesome label"
+					tooltipPlacement="top"
+					payload={payload}
+					active
+					dispatch={dispatch}
+				/>
+			</App>,
 		);
 
 		// when
-		wrapper.simulate('click');
+		await userEvent.click(screen.getByRole('button'));
 
 		// then
 		expect(dispatch).toBeCalledWith(payload);

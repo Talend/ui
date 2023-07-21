@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { cloneElement } from 'react';
+import type { PropsWithChildren, FC } from 'react';
 import {
 	Tooltip as ReakitTooltip,
 	TooltipArrow as ReakitTooltipArrow,
@@ -28,12 +29,12 @@ export type Placement =
 	| 'left'
 	| 'left-start';
 
-export type TooltipProps = React.PropsWithChildren<any> &
+export type TooltipProps = PropsWithChildren<any> &
 	ReakitTooltipProps & {
 		title?: string;
 	};
 
-const Tooltip: React.FC<TooltipProps> = ({ children, title, baseId, ...rest }: TooltipProps) => {
+const Tooltip: FC<TooltipProps> = ({ children, title, baseId, ...rest }: TooltipProps) => {
 	const { id: reakitId } = useId();
 	const tooltipState = useReakitTooltipState({
 		...rest,
@@ -47,7 +48,7 @@ const Tooltip: React.FC<TooltipProps> = ({ children, title, baseId, ...rest }: T
 	return (
 		<>
 			<ReakitTooltipReference {...tooltipState} ref={children.ref} {...children.props}>
-				{referenceProps => React.cloneElement(children, referenceProps)}
+				{referenceProps => cloneElement(children, referenceProps)}
 			</ReakitTooltipReference>
 			{title && (
 				<ReakitTooltip className={styles.tooltip} {...tooltipState} {...rest}>

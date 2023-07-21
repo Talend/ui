@@ -1,62 +1,14 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
+
 import Skeleton from '../Skeleton';
-import TooltipTrigger from '../TooltipTrigger';
-import { Action } from '../Actions';
 import InlineForm from './InlineForm.component';
+import { PlainTextTitle } from './PlainTextTitle.component';
 import theme from './EditableText.module.scss';
+
 import getDefaultT from '../translate';
-
 import I18N_DOMAIN_COMPONENTS from '../constants';
-
-export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgress, feature, t }) {
-	const isDisabled = disabled || inProgress;
-	const ComponentClass = componentClass;
-	return (
-		<div className={theme['tc-editable-text-title']}>
-			<TooltipTrigger
-				label={text}
-				tooltipPlacement="bottom"
-				className="tc-editable-text-wording-wrapper"
-			>
-				<ComponentClass
-					className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
-					onDoubleClick={isDisabled ? undefined : onEdit}
-				>
-					{text}
-				</ComponentClass>
-			</TooltipTrigger>
-			<Action
-				name="action-edit"
-				label={t('MODIFY_TOOLTIP', { defaultValue: 'Rename' })}
-				icon="talend-pencil"
-				onClick={onEdit}
-				bsStyle="link"
-				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil', {
-					[theme['tc-editable-text-empty-pencil']]: !text,
-				})}
-				disabled={disabled || inProgress}
-				hideLabel
-				data-feature={feature}
-			/>
-		</div>
-	);
-}
-PlainTextTitle.propTypes = {
-	componentClass: PropTypes.string,
-	disabled: PropTypes.bool,
-	feature: PropTypes.string,
-	inProgress: PropTypes.bool,
-	onEdit: PropTypes.func.isRequired,
-	text: PropTypes.string.isRequired,
-	t: PropTypes.func,
-};
-
-PlainTextTitle.defaultProps = {
-	componentClass: 'span',
-	t: getDefaultT(),
-};
 
 export function EditableTextComponent({ editMode, loading, inProgress, ...rest }) {
 	if (loading) {

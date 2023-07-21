@@ -51,7 +51,7 @@ const RichLayout = forwardRef((props, ref) => (
 RichLayout.Header = Header;
 RichLayout.Body = Body;
 RichLayout.Footer = Footer;
-
+RichLayout.displayName = 'RichLayout';
 RichLayout.propTypes = {
 	className: PropTypes.string,
 	Content: Inject.getReactElement.propTypes,

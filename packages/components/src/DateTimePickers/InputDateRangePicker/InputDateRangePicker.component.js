@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { usePopper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
-import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
+import { focus } from '@talend/react-a11y';
 import Icon from '../../Icon';
 
 import DateRange from '../DateRange';
@@ -16,7 +16,14 @@ import getDefaultT from '../../translate';
 
 import theme from './InputDateRangePicker.module.scss';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange', 't'];
+const PROPS_TO_OMIT_FOR_INPUT = [
+	'id',
+	'dateFormat',
+	'onBlur',
+	'onChange',
+	't',
+	'isDisabledChecker',
+];
 
 export default function InputDateRangePicker(props) {
 	const popoverId = `date-range-picker-${props.id}`;
@@ -39,7 +46,7 @@ export default function InputDateRangePicker(props) {
 	const handlers = useInputPickerHandlers({
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
-		handleKeyDown: () => focusOnCalendar(containerRef.current),
+		handleKeyDown: () => focus.focusOnCalendar(containerRef.current),
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);

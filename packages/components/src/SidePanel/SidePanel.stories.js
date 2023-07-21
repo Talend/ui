@@ -100,7 +100,7 @@ const other = [
 ];
 
 export default {
-	title: 'Navigation/SidePanel',
+	title: 'Components/Navigation/SidePanel',
 };
 
 export const Uncontrolled = () => (

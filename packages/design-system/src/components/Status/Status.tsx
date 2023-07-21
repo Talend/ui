@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
+import type { Ref } from 'react';
 import StatusFailed, { StatusFailedProps } from './variations/StatusFailed';
 import StatusWarning, { StatusWarningProps } from './variations/StatusWarning';
 import StatusSuccessful, { StatusSuccessfulProps } from './variations/StatusSuccessful';
@@ -16,7 +17,7 @@ type StatusProps = {
 	| StatusCanceledProps
 );
 
-const Status = React.forwardRef((props: StatusProps, ref: React.Ref<HTMLSpanElement>) => {
+const Status = forwardRef((props: StatusProps, ref: Ref<HTMLSpanElement>) => {
 	const { variant, ...rest } = props;
 	switch (variant) {
 		case variants.failed:
@@ -38,5 +39,7 @@ const Status = React.forwardRef((props: StatusProps, ref: React.Ref<HTMLSpanElem
 			return <StatusInProgress {...rest} ref={ref} />;
 	}
 });
+
+Status.displayName = 'Status';
 
 export default Status;

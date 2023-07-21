@@ -36,7 +36,7 @@ const myAction = {
 };
 
 export default {
-	title: 'Deprecated/SplitDropdown',
+	title: 'Components/Deprecated/SplitDropdown',
 
 	decorators: [
 		story => (

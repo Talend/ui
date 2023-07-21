@@ -2,19 +2,18 @@
 
 exports[`ModelViewer should render the ModelViewer 1`] = `
 <div
-  className="theme-tc-model tc-model"
+  class="theme-tc-model tc-model"
 >
-  <withI18nextTranslation(TreeHeader)
-    t={[Function]}
-    title="Data model"
-  />
-  <Tree
-    index={0}
-    jsonpath="$"
-    level={0}
-    noRoot={true}
-    type="array"
-    withNodeBorder={true}
+  <div
+    class="theme-tc-tree-header tc-tree-header"
+  >
+    Data model
+    <div
+      class="theme-tc-tree-header-actions tc-tree-header-actions"
+    />
+  </div>
+  <ul
+    class="theme-tc-tree tc-tree"
   />
 </div>
 `;

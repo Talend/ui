@@ -60,7 +60,7 @@ const onMouseDown = action('You mousedown me');
 const overlayComponent = <div>I am an overlay</div>;
 
 export default {
-	title: 'Data/Dataviz/PieChart',
+	title: 'Components/Dataviz/PieChart',
 };
 
 export const PieChartIconDefault = () => (

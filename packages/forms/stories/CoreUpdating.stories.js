@@ -186,7 +186,7 @@ const schema = {
 const updating = schema.uiSchema.map(w => w.key);
 
 export default {
-	title: 'Core Concepts/Updating',
+	title: 'Forms/Updating',
 };
 
 export function Default() {

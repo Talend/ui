@@ -1,6 +1,5 @@
-import { mount } from 'enzyme';
-import { Button } from '@talend/react-bootstrap';
-
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import HeaderInput from './HeaderInput.component';
 
 describe('Header input', () => {
@@ -16,13 +15,10 @@ describe('Header input', () => {
 				},
 			],
 		};
-		const headerInputInstance = <HeaderInput {...props} />;
+		render(<HeaderInput {...props} />);
 
 		// when
-		const wrapper = mount(headerInputInstance);
-		const buttons = wrapper.find(Button);
-
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
+		userEvent.click(screen.getByLabelText('Abort'));
 
 		// then
 		expect(props.headerInput[0].onClick).toBeCalled();

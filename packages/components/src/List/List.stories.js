@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import * as React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import cloneDeep from 'lodash/cloneDeep';
@@ -322,7 +321,7 @@ const propsWithVirtualized = {
 				key: 'modified',
 				label: 'Modified',
 				type: 'datetime',
-				data: { mode: 'ago' },
+				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
 			},
 		],
 		items: [
@@ -421,7 +420,7 @@ const propsWithResizable = {
 				key: 'modified',
 				label: 'Modified',
 				type: 'datetime',
-				data: { mode: 'ago' },
+				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
 				width: 135,
 				resizable: true,
 			},
@@ -579,9 +578,9 @@ const itemsForListWithIcons = [
 ];
 
 const ListTemplate = args => {
-	const [propsMemo, setState] = React.useState(args.listProps);
+	const [propsMemo, setState] = useState(args.listProps);
 	const { patch, listProps } = args;
-	React.useEffect(() => {
+	useEffect(() => {
 		if (patch && listProps) {
 			setState(patch(listProps));
 		}
@@ -599,7 +598,7 @@ const ListTemplate = args => {
 };
 
 export default {
-	title: 'Data/List/List',
+	title: 'Components/List/List',
 };
 
 export const TableDisplay = () => (
@@ -1015,7 +1014,7 @@ export const TableWithActionOverlay = () => (
 				id: index,
 				name: 'Title with actions',
 				created: 1518596913333,
-				modified: minusThreeHours,
+				modified: 1518790010000,
 				author: 'Jean-Pierre DUPONT',
 				actions: [overlayAction, ...actions],
 				icon: 'talend-file-xls-o',

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Component as RComponent } from 'react';
 import { cmfConnect } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/Slider';
 import omit from 'lodash/omit';
@@ -12,13 +12,8 @@ export const DEFAULT_STATE = new Immutable.Map({
 
 export const DISPLAY_NAME = 'Container(Slider)';
 
-class Slider extends React.Component {
+class Slider extends RComponent {
 	static displayName = DISPLAY_NAME;
-
-	static contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
-	};
 
 	static propTypes = {
 		...cmfConnect.propTypes,

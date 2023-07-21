@@ -1,180 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select field should render disabled input 1`] = `
-<FieldTemplate
-  description="Select me"
-  descriptionId="mySelect-description"
-  errorId="mySelect-error"
-  errorMessage="My Error Message"
-  id="mySelect"
-  isValid={true}
-  label="My Select title"
-  required={true}
->
-  <select
-    aria-describedby="mySelect-description mySelect-error"
-    aria-invalid={false}
-    aria-required={true}
-    autoFocus={true}
-    className="form-control"
-    disabled={true}
-    id="mySelect"
-    multiple={false}
-    onChange={[Function]}
-    readOnly={false}
-    value="lol"
-  >
-    <option
-      disabled={true}
-      value=""
-    >
-      Please select a value
-    </option>
-    <option
-      value="foo"
-    >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
-</FieldTemplate>
-`;
-
-exports[`Select field should render readOnly input 1`] = `
-<FieldTemplate
-  description="Select me"
-  descriptionId="mySelect-description"
-  errorId="mySelect-error"
-  errorMessage="My Error Message"
-  id="mySelect"
-  isValid={true}
-  label="My Select title"
-  required={true}
->
-  <select
-    aria-describedby="mySelect-description mySelect-error"
-    aria-invalid={false}
-    aria-required={true}
-    autoFocus={true}
-    className="form-control"
-    id="mySelect"
-    multiple={false}
-    onChange={[Function]}
-    readOnly={true}
-    value="lol"
-  >
-    <option
-      disabled={true}
-      value=""
-    >
-      Please select a value
-    </option>
-    <option
-      value="foo"
-    >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
-</FieldTemplate>
-`;
-
-exports[`Select field should render select multiple 1`] = `
-<FieldTemplate
-  description="Select me"
-  descriptionId="mySelect-description"
-  errorId="mySelect-error"
-  errorMessage="My Error Message"
-  id="mySelect"
-  isValid={true}
-  label="My Select title"
-  required={true}
->
-  <select
-    aria-describedby="mySelect-description mySelect-error"
-    aria-invalid={false}
-    aria-required={true}
-    autoFocus={true}
-    className="form-control"
-    id="mySelect"
-    multiple={true}
-    onChange={[Function]}
-    readOnly={false}
-    value={
-      [
-        "foo",
-        "lol",
-      ]
-    }
-  >
-    <option
-      disabled={true}
-      value=""
-    >
-      Please select a value
-    </option>
-    <option
-      value="foo"
-    >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
-</FieldTemplate>
-`;
-
 exports[`Select field should render simple select 1`] = `
-<FieldTemplate
-  description="Select me"
-  descriptionId="mySelect-description"
-  errorId="mySelect-error"
-  errorMessage="My Error Message"
-  id="mySelect"
-  isValid={true}
-  label="My Select title"
-  required={true}
+<div
+  class="form-group theme-template required"
 >
+  <label
+    class="control-label"
+    for="mySelect"
+  >
+    My Select title
+  </label>
   <select
     aria-describedby="mySelect-description mySelect-error"
-    aria-invalid={false}
-    aria-required={true}
-    autoFocus={true}
-    className="form-control"
+    aria-invalid="false"
+    aria-required="true"
+    class="form-control"
     id="mySelect"
-    multiple={false}
-    onChange={[Function]}
-    readOnly={false}
-    value="lol"
   >
     <option
-      disabled={true}
+      disabled=""
       value=""
     >
       Please select a value
@@ -195,47 +39,36 @@ exports[`Select field should render simple select 1`] = `
       My lol title
     </option>
   </select>
-</FieldTemplate>
-`;
-
-exports[`Select field should render simple select without placeholder 1`] = `
-<FieldTemplate
-  description="Select me"
-  descriptionId="mySelect-description"
-  errorId="mySelect-error"
-  errorMessage="My Error Message"
-  id="mySelect"
-  isValid={true}
-  label="My Select title"
-  required={true}
->
-  <select
-    aria-describedby="mySelect-description mySelect-error"
-    aria-invalid={false}
-    aria-required={true}
-    autoFocus={true}
-    className="form-control"
-    id="mySelect"
-    multiple={false}
-    onChange={[Function]}
-    readOnly={false}
-    value="lol"
-  >
-    <option
-      value="foo"
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="mySelect-description"
+      role="status"
     >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
-</FieldTemplate>
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          Select me
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;

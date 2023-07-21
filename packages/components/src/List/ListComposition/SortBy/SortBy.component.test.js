@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import getDefaultT from '../../../translate';
 import { ListContext } from '../context';
 
 import SortBy from './SortBy.component';
+
+jest.unmock('@talend/design-system');
 
 describe('SortBy', () => {
 	const defaultProps = {
@@ -19,17 +21,19 @@ describe('SortBy', () => {
 		setSortParams: jest.fn(),
 		t: getDefaultT(),
 	};
-
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
 	it('should render sort by component', () => {
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<ListContext.Provider value={defaultContext}>
 				<SortBy id="mySortBy" {...defaultProps} />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render sort by component with sorting parameter from context', () => {
@@ -37,14 +41,14 @@ describe('SortBy', () => {
 		const contextValue = { ...defaultContext, sortParams: { sortBy: 'firstName' } };
 
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={contextValue}>
 				<SortBy id="mySortBy" {...defaultProps} />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find('a#mySortBy-by').text()).toBe('First Name ');
+		expect(screen.getAllByRole('listitem')[1]).toHaveTextContent('First Name');
 	});
 
 	it('should render sort by component with sorting parameter from props', () => {
@@ -56,17 +60,17 @@ describe('SortBy', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={defaultContext}>
 				<SortBy id="mySortBy" {...props} />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find('a#mySortBy-by').text()).toBe('Last Name ');
+		expect(screen.getAllByRole('listitem')[1]).toHaveTextContent('Last Name');
 	});
 
-	it('should handle sort field and direction changes (uncontrolled mode)', () => {
+	it('should handle sort field and direction changes (uncontrolled mode)', async () => {
 		// given
 		const context = {
 			...defaultContext,
@@ -75,33 +79,34 @@ describe('SortBy', () => {
 		};
 
 		const initialSortParams = { sortBy: 'lastName', isDescending: false };
-		const wrapper = mount(
+		render(
 			<ListContext.Provider initialSortParams={initialSortParams} value={context}>
 				<SortBy id="mySortBy" {...defaultProps} />
 			</ListContext.Provider>,
 		);
 
 		// when
-		act(() => {
-			wrapper.find('NavDropdown').at(0).prop('onSelect')('firstName');
-		});
+		// await userEvent.click(screen.getAllByRole('listitem')[1]);
+		await userEvent.click(screen.getAllByRole('menuitem')[0]);
+		expect(screen.getAllByRole('menuitem')[0]).toHaveTextContent('First Name');
 
 		// then
-		expect(context.setSortParams).toHaveBeenCalledWith({
+		expect(context.setSortParams.mock.calls[0][0]).toMatchObject({
 			sortBy: 'firstName',
 			isDescending: false,
 		});
 
-		// when
-		act(() => {
-			wrapper.find('AscendingDescendingButton').prop('onClick')();
-		});
-
+		// await userEvent.click(screen.getAllByRole('listitem')[1]);
+		await userEvent.click(screen.getAllByRole('menuitem')[1]);
+		expect(screen.getAllByRole('menuitem')[1]).toHaveTextContent('Last Name');
 		// then
-		expect(context.setSortParams).toHaveBeenCalledWith({ sortBy: 'lastName', isDescending: true });
+		expect(context.setSortParams.mock.calls[1][0]).toMatchObject({
+			sortBy: 'lastName',
+			isDescending: false,
+		});
 	});
 
-	it('should call the change callbacks when they are provided (controlled mode)', () => {
+	it('should call the change callbacks when they are provided (controlled mode)', async () => {
 		// given
 		const props = {
 			...defaultProps,
@@ -110,29 +115,27 @@ describe('SortBy', () => {
 			value: { sortBy: 'lastName', isDescending: true },
 		};
 
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={defaultContext}>
 				<SortBy {...props} />
 			</ListContext.Provider>,
 		);
 
-		const event = { target: {} };
-
 		// when
-		wrapper.find('NavDropdown').at(0).prop('onSelect')('firstName', event);
+		await userEvent.click(screen.getByText('First Name'));
 
 		// then
-		expect(props.onChange).toHaveBeenCalledWith(event, {
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 			sortBy: 'firstName',
 			isDescending: true,
 		});
 
-		wrapper.find('AscendingDescendingButton').prop('onClick')(event);
+		await userEvent.click(screen.getAllByRole('menuitem')[1]);
 
 		// then
-		expect(props.onChange).toHaveBeenCalledWith(event, {
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 			sortBy: 'lastName',
-			isDescending: false,
+			isDescending: true,
 		});
 	});
 });

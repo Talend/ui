@@ -19,7 +19,7 @@ function generateButtonWithTooltip(label, tooltipPlacement) {
 }
 
 export default {
-	title: 'Messaging & Communication/Tooltip',
+	title: 'Components/Messaging & Communication/Tooltip',
 };
 
 export const Default = () => {

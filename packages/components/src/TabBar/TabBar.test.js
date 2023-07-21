@@ -1,5 +1,6 @@
 import keycode from 'keycode';
-import { shallow, mount } from 'enzyme';
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import TabBar from './TabBar.component';
 import { ActionButton } from '../Actions';
 
@@ -56,58 +57,66 @@ describe('TabBar component', () => {
 		// given
 
 		// when
-		const wrapper = shallow(<TabBar {...tabProps}>I'm the content</TabBar>);
+		render(<TabBar {...tabProps}>I'm the content</TabBar>);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText("I'm the content")).toBeInTheDocument();
+		expect(screen.getByText('Tab3').closest('button')).toHaveAttribute('aria-selected', 'true');
+		// note getbyrole check the visibility of the element
+		expect(screen.getAllByRole('tabpanel').length).toBe(1);
+		expect(document.querySelectorAll('[role="tabpanel"]').length).toBe(5);
 	});
 
 	it('should render with right children', () => {
 		// given
 
 		// when
-		const wrapper = mount(<TabBar {...rightProps}>I'm the content</TabBar>);
+		render(<TabBar {...rightProps}>I'm the content</TabBar>);
 
 		// then
-		expect(wrapper.find('button[id="rightButton"]').length).toBe(1);
+		expect(screen.getByText("I'm the content")).toBeInTheDocument();
+		// it is displayed just after the ul of tabs
+		expect(screen.getByText('Add').closest('button').previousSibling).toBe(
+			screen.getByRole('tablist'),
+		);
 	});
 
 	it('should render with selected children from item definition', () => {
 		// given
 		const items = tabProps.items.map((item, index) => ({
 			...item,
-			children: <div>child {index}</div>,
+			children: <div data-testid="item">child {index}</div>,
 		}));
 
 		// when
-		const wrapper = shallow(<TabBar {...tabProps} items={items} />);
+		render(<TabBar {...tabProps} items={items} />);
 
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		// then only tab3 is visible
+		expect(screen.getByRole('tabpanel')).toHaveTextContent('child 2');
 	});
 
 	it('should select item on click', () => {
 		// given
 		const onSelect = jest.fn();
-		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />);
+		render(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		wrapper.find('button').first().simulate('click');
+		userEvent.click(screen.getByText('Tab1'));
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
 	});
 
-	it('should select first item on home keydown', () => {
+	it('should select first item on home keydown', async () => {
 		// given
 		const onSelect = jest.fn();
-		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />, {
-			attachTo: document.body,
-		});
-		const event = { which: keycode.codes.home };
+		render(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		wrapper.simulate('keydown', event);
+		const root = document.querySelector('#my-tabs > div');
+		fireEvent.keyDown(root, {
+			keyCode: keycode.codes.home,
+		});
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
@@ -116,11 +125,13 @@ describe('TabBar component', () => {
 	it('should select last item on end keydown', () => {
 		// given
 		const onSelect = jest.fn();
-		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />);
-		const event = { which: keycode.codes.end };
+		render(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		wrapper.simulate('keydown', event);
+		const root = document.querySelector('#my-tabs > div');
+		fireEvent.keyDown(root, {
+			keyCode: keycode.codes.end,
+		});
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[4]);
@@ -129,12 +140,13 @@ describe('TabBar component', () => {
 	it('should render with badges', () => {
 		const props = {
 			...tabProps,
+			selectedKey: '1',
 			items: [
 				{
 					key: '1',
 					label: 'Tab1',
 					badge: {
-						label: 967,
+						label: '967',
 						className: 'custom-class-name',
 					},
 					'data-feature': 'action.1',
@@ -151,8 +163,7 @@ describe('TabBar component', () => {
 			],
 		};
 
-		const wrapper = shallow(<TabBar {...props}>I'm the content</TabBar>);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<TabBar {...props}>I'm the content</TabBar>);
+		expect(screen.getByText('967')).toHaveClass('tc-tab-bar-item-badge custom-class-name');
 	});
 });

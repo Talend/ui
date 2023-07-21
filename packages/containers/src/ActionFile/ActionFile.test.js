@@ -1,10 +1,20 @@
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import { ActionFile } from '@talend/react-components/lib/Actions';
-import { mock } from '@talend/react-cmf';
+import cmf, { mock } from '@talend/react-cmf';
 
 import Connected, { mapStateToProps, mergeProps, ContainerActionFile } from './ActionFile.connect';
 
+jest.unmock('@talend/design-system');
+
 describe('Connected ActionFile', () => {
+	let App;
+	beforeAll(async () => {
+		const config = await cmf.bootstrap({
+			render: false,
+			components: {},
+		});
+		App = config.App;
+	});
 	it('should connect ActionFile', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${ContainerActionFile.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(ContainerActionFile);
@@ -16,10 +26,13 @@ describe('Connected ActionFile', () => {
 	});
 	it('should render', () => {
 		const context = mock.store.context();
-		const wrapper = shallow(<ActionFile id="42" actionId="menu:article" extra="foo" />, {
-			context,
-		});
-		expect(wrapper.getElement()).toMatchSnapshot();
+
+		const { container } = render(
+			<App {...context}>
+				<ActionFile id="42" actionId="menu:article" onChange={jest.fn()} />
+			</App>,
+		);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
 

@@ -5,6 +5,7 @@ exports[`Item should display a selected item 1`] = `
   aria-selected={true}
   className="checkbox"
   data-test="item"
+  data-testid="item"
   id="0-item"
   role="option"
 >
@@ -19,6 +20,7 @@ exports[`Item should display a selected item 1`] = `
         checked={true}
         data-checked={2}
         data-test="item.checkbox"
+        data-testid="item.checkbox"
         disabled={false}
         id="checkbox-0-item"
         onChange={[Function]}

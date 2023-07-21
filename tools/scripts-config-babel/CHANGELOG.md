@@ -1,5 +1,11 @@
 # @talend/scripts-config-babel
 
+## 13.0.0
+
+### Major Changes
+
+- cf697de02: feat: use React automatic import to transpile jsx (related to useless React import cleaning)
+
 ## 12.0.0
 
 ### Major Changes

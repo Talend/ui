@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle should render a Toggle 1`] = `
+<div
+  class="checkbox tc-checkbox switch tc-toggle"
+>
+  <label
+    for="id"
+  >
+    <input
+      data-checked="0"
+      id="id"
+      type="checkbox"
+    />
+    <span />
+  </label>
+</div>
+`;

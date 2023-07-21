@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import keycode from 'keycode';
 import { Action } from '../Actions';
 import FocusManager from '../FocusManager';
-import theme from './EditableText.module.scss';
+import theme from './InlineForm.module.scss';
 import getDefaultT from '../translate';
 
 class InlineForm extends Component {

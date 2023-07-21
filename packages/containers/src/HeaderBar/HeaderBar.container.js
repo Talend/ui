@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
@@ -17,7 +17,7 @@ function sortProductsByLabel(a, b) {
 	return a.label > b.label ? 1 : -1;
 }
 
-class HeaderBar extends React.Component {
+class HeaderBar extends RComponent {
 	static displayName = 'Container(HeaderBar)';
 
 	static propTypes = {

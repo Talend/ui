@@ -197,7 +197,7 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 }
 
 export default {
-	title: 'Layout/Dashboard',
+	title: 'Components/Layout/Dashboard',
 	excludeStories: ['customSkeletonConf'],
 };
 

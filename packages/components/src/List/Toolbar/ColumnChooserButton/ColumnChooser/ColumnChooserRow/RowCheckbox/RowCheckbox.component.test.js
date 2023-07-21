@@ -1,5 +1,8 @@
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Component from './RowCheckbox.component';
+
+jest.unmock('@talend/design-system');
 
 describe('RowCheckBox', () => {
 	it('should render a checked checkbox input by default', () => {
@@ -13,10 +16,10 @@ describe('RowCheckBox', () => {
 			onChange: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<Component {...props} />);
+		const { container } = render(<Component {...props} />);
 		// Then
-		expect(wrapper.find('input[type="checkbox"]')).toHaveLength(1);
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).toBeVisible();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render a locked item', () => {
 		// Given
@@ -30,9 +33,9 @@ describe('RowCheckBox', () => {
 			onChange: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<Component {...props} />);
+		render(<Component {...props} />);
 		// Then
-		expect(wrapper.find('Icon[name="talend-locked"]')).toHaveLength(1);
+		expect(document.querySelectorAll('svg[name="talend-locked"]')).toHaveLength(1);
 	});
 	it('should call the onClick when checkbox trigger change', () => {
 		// Given
@@ -46,9 +49,9 @@ describe('RowCheckBox', () => {
 			onChange,
 		};
 		// When
-		const wrapper = mount(<Component {...props} />);
-		wrapper.find('input[type="checkbox"]').simulate('change');
+		render(<Component {...props} />);
+		userEvent.click(screen.getByRole('checkbox'));
 		// Then
-		expect(onChange).toHaveBeenNthCalledWith(1, false, 'column-label');
+		expect(onChange).toHaveBeenNthCalledWith(1, true, 'column-label');
 	});
 });

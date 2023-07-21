@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -31,7 +31,7 @@ type SpecificQualityBarProps = {
 	percentage: number;
 	value: number;
 	getDataFeature?: (type: EnrichedQualityType) => string;
-	onClick?: (e: React.MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
+	onClick?: (e: MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
 };
 
 type QualityRatioBarProps = SpecificQualityBarProps & {
@@ -42,7 +42,7 @@ type QualityRatioBarProps = SpecificQualityBarProps & {
 function QualityRatioBar({ onClick, type, getDataFeature, ...props }: QualityRatioBarProps) {
 	const specificProps = {
 		className: theme('quality-ratio-bar', `quality-ratio-bar--${type}`),
-		onClick: onClick ? (e: React.MouseEvent<HTMLElement>) => onClick(e, { type }) : null,
+		onClick: onClick ? (e: MouseEvent<HTMLElement>) => onClick(e, { type }) : null,
 		dataFeature: getDataFeature ? getDataFeature(type) : null,
 		dataTestId: `quality-bar-${type}`,
 	};

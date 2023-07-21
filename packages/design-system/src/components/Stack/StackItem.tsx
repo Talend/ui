@@ -1,5 +1,5 @@
 import { forwardRef, ReactNode } from 'react';
-import * as React from 'react';
+import type { Ref } from 'react';
 import classnames from 'classnames';
 import styles from './StackItem.module.scss';
 
@@ -40,7 +40,7 @@ export const StackItem = forwardRef(function StackItem(
 		overflow = 'auto',
 		...props
 	}: ItemProps,
-	ref: React.Ref<any>,
+	ref: Ref<any>,
 ) {
 	const TagType = as;
 	return (

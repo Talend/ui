@@ -21,6 +21,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 	'startDateTime',
 	'endDateTime',
+	'isDisabledChecker',
 ];
 
 function InputDateTimeRangePicker(props) {
@@ -77,7 +78,7 @@ function InputDateTimeRangePicker(props) {
 			<DateTimeRangeContext.Consumer>
 				{({ startDateTime, endDateTime, onStartChange, onEndChange }) => (
 					<div className={className} ref={containerRef}>
-						<div className="range-input">
+						<div className="range-input" data-testid="range-start">
 							<label htmlFor={props.id} className="control-label">
 								{props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 							</label>
@@ -96,7 +97,7 @@ function InputDateTimeRangePicker(props) {
 						<span className={classnames(theme.arrow, 'arrow')}>
 							<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
 						</span>
-						<div className="range-input">
+						<div className="range-input" data-testid="range-end">
 							<label htmlFor={props.id} className="control-label">
 								{props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
 							</label>

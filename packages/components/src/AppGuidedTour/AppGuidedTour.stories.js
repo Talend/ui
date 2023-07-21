@@ -41,7 +41,7 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 }
 
 export default {
-	title: 'Messaging & Communication/AppGuidedTour',
+	title: 'Components/Messaging & Communication/AppGuidedTour',
 };
 
 export const Default = () => <AppGuidedTourContainer withDemoContent />;

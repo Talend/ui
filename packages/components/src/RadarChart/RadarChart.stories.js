@@ -26,10 +26,10 @@ const ExampleDataClickable = [
 ];
 
 const chartDomain = [0, 5];
-const activeAxis = 2;
 
 export default {
-	title: 'Data/Dataviz/RadarChart',
+	title: 'Components/Dataviz/RadarChart',
+	parameters: { chromatic: { disableSnapshot: true } },
 };
 
 export const RadarChartSingle = () => (

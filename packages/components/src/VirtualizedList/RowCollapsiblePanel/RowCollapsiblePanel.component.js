@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import PropTypes from 'prop-types';
 import { memo, Component } from 'react';
 import get from 'lodash/get';
@@ -9,7 +11,7 @@ import Skeleton from '../../Skeleton';
 import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
-import withListGesture from '../../Gesture/withListGesture';
+import { Gesture } from '@talend/react-a11y';
 import theme from './RowCollapsiblePanel.module.scss';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
@@ -113,7 +115,7 @@ RowCollapsiblePanel.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-const RowCollapsiblePanelWrapper = withListGesture(RowCollapsiblePanel);
+const RowCollapsiblePanelWrapper = Gesture.withListGesture(RowCollapsiblePanel);
 RowCollapsiblePanelWrapper.options = options;
 
 export default RowCollapsiblePanelWrapper;

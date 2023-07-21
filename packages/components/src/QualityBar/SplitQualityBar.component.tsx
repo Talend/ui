@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { MouseEvent } from 'react';
 
 import { StackHorizontal } from '@talend/design-system';
 
@@ -15,7 +15,7 @@ import theme from './QualityRatioBar.module.scss';
 type SplitQualityBarProps = QualityCommonProps & {
 	percentages: QualityBarPercentages;
 	disabled?: boolean;
-	onClick?: (e: React.MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
+	onClick?: (e: MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
 	getDataFeature?: (type: string) => string;
 };
 

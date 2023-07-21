@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import Component from '@talend/react-components/lib/EditableText';
 import Immutable from 'immutable';
@@ -10,7 +10,7 @@ export const DEFAULT_STATE = new Immutable.Map({
 	editMode: false,
 });
 
-class EditableText extends React.Component {
+class EditableText extends RComponent {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {
@@ -23,12 +23,7 @@ class EditableText extends React.Component {
 		onEdit: PropTypes.func,
 		onSubmit: PropTypes.func,
 		onChange: PropTypes.func,
-		text: PropTypes.string,
-	};
-
-	static contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
+		text: PropTypes.string.isRequired,
 	};
 
 	constructor(props) {

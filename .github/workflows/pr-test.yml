@@ -21,12 +21,12 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
 
       - name: Use Node.js
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
+        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
-          node-version: 16
+          node-version: 18
           check-latest: true
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
@@ -39,7 +39,7 @@ jobs:
         run: yarn test --coverage --coverageReporters json-summary
 
       - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@c0e038bed569d269190b056a59b29e0593eccc0a #1.0.22
+        uses: MishaKav/jest-coverage-comment@41b5ca01d1250de84537448d248b8d18152cb277 #1.0.23
         with:
           multiple-files: |
             assets-api, ./packages/assets-api/coverage/coverage-summary.json

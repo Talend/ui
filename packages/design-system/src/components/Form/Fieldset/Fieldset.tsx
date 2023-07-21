@@ -1,10 +1,10 @@
-import { Children, cloneElement, forwardRef, Ref } from 'react';
-import * as React from 'react';
+import { Children, cloneElement, forwardRef } from 'react';
+import type { Ref, FieldsetHTMLAttributes } from 'react';
 import { isElement } from 'react-is';
 
 import styles from './Fieldset.module.scss';
 
-export type FieldsetProps = React.FieldsetHTMLAttributes<HTMLFieldSetElement> & {
+export type FieldsetProps = FieldsetHTMLAttributes<HTMLFieldSetElement> & {
 	legend?: string;
 	required?: boolean;
 	disabled?: boolean;

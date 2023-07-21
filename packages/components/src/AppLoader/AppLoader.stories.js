@@ -11,7 +11,7 @@ const AppSpecificLoader = ({ iconUrl }) => (
 );
 
 export default {
-	title: 'Design Principles/Loading Feedback/AppLoader',
+	title: 'Components/Design Principles/Loading Feedback/AppLoader',
 	component: AppSpecificLoader,
 };
 

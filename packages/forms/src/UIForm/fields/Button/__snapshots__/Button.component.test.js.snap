@@ -1,26 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button field should render button wrapped with field template 1`] = `
-<FieldTemplate
-  description="Click here to trigger a trigger"
-  descriptionId="myForm-description"
-  errorId="myForm-error"
-  errorMessage="This is wrong"
-  isValid={true}
+<div
+  class="form-group theme-template"
 >
-  <SingleButton
+  <button
+    aria-label="Boom !"
+    class="btn--secondary btn btn btn-default"
     id="myForm"
-    onTrigger={[MockFunction]}
-    schema={
-      {
-        "description": "Click here to trigger a trigger",
-        "title": "Boom !",
-        "triggers": [
-          "after",
-        ],
-        "widget": "button",
-      }
-    }
-  />
-</FieldTemplate>
+    type="button"
+  >
+    <span>
+      Boom !
+    </span>
+  </button>
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="myForm-description"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          Click here to trigger a trigger
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;

@@ -1,5 +1,60 @@
 # @talend/icons
 
+## 6.59.0
+
+### Minor Changes
+
+- 6cc954983: feat: add qlik icon
+
+## 6.58.1
+
+### Patch Changes
+
+- fca736c31: changed icon `group` in size `L`
+- fca736c31: changed icon `group` in size `M`
+
+## 6.58.0
+
+### Minor Changes
+
+- 49d174081: added icon `flow-target-filled` in size `L`
+- 49d174081: added icon `flow-target-filled` in size `M`
+
+### Patch Changes
+
+- 49d174081: changed icon `group` in size `L`
+- 49d174081: changed icon `job` in size `L`
+- 49d174081: changed icon `job` in size `M`
+- 49d174081: changed icon `job` in size `S`
+
+## 6.57.0
+
+### Minor Changes
+
+- 9a5d93e5b: added icon `book-open` in size `L`
+- 9a5d93e5b: added icon `book-open` in size `M`
+- 9a5d93e5b: added icon `megaphone` in size `L`
+- 9a5d93e5b: added icon `megaphone` in size `M`
+- 9a5d93e5b: added icon `support-agent` in size `L`
+- 9a5d93e5b: added icon `support-agent` in size `M`
+- 9a5d93e5b: added icon `workspace` in size `L`
+- 9a5d93e5b: added icon `workspace` in size `M`
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- 9a5d93e5b: changed icon `chevron-double-left` in size `M`
+- 9a5d93e5b: changed icon `chevron-double-left` in size `S`
+- 9a5d93e5b: changed icon `chevron-double-left` in size `XS`
+- 9a5d93e5b: changed icon `contains` in size `S`
+- 9a5d93e5b: changed icon `hand-pointer` in size `L`
+
+## 6.56.0
+
+### Minor Changes
+
+- 578d1807e: feat: Add some new svg icons
+
 ## 6.55.0
 
 ### Minor Changes

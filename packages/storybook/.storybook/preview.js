@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStorage } from 'react-use';
 
+import { default as i18next } from 'i18next';
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
-
 import { addons } from '@storybook/addons';
 
 import { DocsContainer } from '@storybook/addon-docs';
@@ -12,10 +12,28 @@ import { SET_STORIES, UPDATE_GLOBALS } from '@storybook/core-events';
 import { BackToTop, TableOfContents } from 'storybook-docs-toc';
 import '@talend/storybook-docs/dist/globalStyles.min.css';
 
-import 'focus-outline-manager';
+import {
+	namespaces as designSystemNamespaces,
+	locales as designSystemLocales,
+} from '@talend/locales-design-system';
+import {
+	namespaces as tuiComponentsNamespaces,
+	locales as tuiComponentsLocales,
+} from '@talend/locales-tui-components';
+import {
+	namespaces as tuiContainersNamespaces,
+	locales as tuiContainersLocales,
+} from '@talend/locales-tui-containers';
+import {
+	namespaces as tuiFacetedSearchNamespaces,
+	locales as tuiFacetedSearchLocales,
+} from '@talend/locales-tui-faceted-search';
+import {
+	namespaces as tuiFormsNamespaces,
+	locales as tuiFormsLocales,
+} from '@talend/locales-tui-forms';
 
-import i18n from './i18n';
-import i18next from 'i18next';
+import 'focus-outline-manager';
 
 import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
 import { Divider, Form, StackVertical, ThemeProvider } from '@talend/design-system';
@@ -39,7 +57,28 @@ const TokenOrder = [
 	'Breakpoints',
 ];
 
-export { i18n };
+export const i18n = {
+	namespaces: [
+		...designSystemNamespaces,
+		...tuiComponentsNamespaces,
+		...tuiContainersNamespaces,
+		...tuiFormsNamespaces,
+		...tuiFacetedSearchNamespaces,
+	],
+	locales: Object.keys(designSystemLocales).reduce(
+		(resources, language) => ({
+			...resources,
+			[language]: {
+				...designSystemLocales[language],
+				...tuiComponentsLocales[language],
+				...tuiContainersLocales[language],
+				...tuiFacetedSearchLocales[language],
+				...tuiFormsLocales[language],
+			},
+		}),
+		{},
+	),
+};
 
 export const globalTypes = {
 	locale: {
@@ -108,6 +147,7 @@ export const parameters = {
 				channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
 			}, [statusByPage]);
 
+			const { theme, locale } = globals;
 			useEffect(() => {
 				const hasDarkModeFromToolbar = theme === 'dark';
 				if (hasDarkModeFromToolbar != hasDarkMode) {
@@ -120,6 +160,10 @@ export const parameters = {
 					.querySelectorAll('#bootstrap-theme')
 					.forEach(link => (link.disabled = !hasBootstrapStylesheet));
 			}, [hasBootstrapStylesheet]);
+
+			useEffect(() => {
+				i18next.changeLanguage(locale);
+			}, [locale]);
 
 			const titleArray = title?.split('/');
 

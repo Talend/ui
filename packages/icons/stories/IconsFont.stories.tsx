@@ -6,7 +6,7 @@ function I({ className }: { className: string }) {
 }
 
 export default {
-	title: 'Icons font',
+	title: 'Icons/Icons font',
 	parameters: {},
 	component: I,
 };

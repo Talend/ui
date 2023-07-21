@@ -212,7 +212,7 @@ const schema = {
 };
 
 export default {
-	title: 'Core Concepts/Display Mode',
+	title: 'Forms/Display Mode',
 };
 
 export function TextMode() {

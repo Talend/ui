@@ -1,5 +1,7 @@
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import ColumnChooserButton from './ColumnChooserButton.component';
+
+jest.unmock('@talend/design-system');
 
 const columns = [
 	{ hidden: undefined, label: 'col1', locked: true, order: 1 },
@@ -19,10 +21,13 @@ describe('ColumnChooserButton', () => {
 			submit: jest.fn(),
 		};
 		// when
-		const wrapper = mount(<ColumnChooserButton {...props} />);
+		render(<ColumnChooserButton {...props} />);
 
 		// then
-		expect(wrapper.find('ButtonIcon[icon="talend-column-chooser"]')).toHaveLength(1);
-		expect(wrapper.find('ButtonIcon#my-wrapper-id-button')).toHaveLength(1);
+		const btn = screen.getByRole('button');
+		const icon = btn.querySelector('svg');
+		expect(btn).toBeVisible();
+		expect(btn).toHaveAttribute('id', 'my-wrapper-id-button');
+		expect(icon).toHaveAttribute('name', 'talend-column-chooser');
 	});
 });

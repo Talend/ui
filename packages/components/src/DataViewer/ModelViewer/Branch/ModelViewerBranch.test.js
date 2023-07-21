@@ -1,5 +1,7 @@
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Component from './ModelViewerBranch.component';
+jest.unmock('@talend/design-system');
 
 describe('ModelViewerBranch', () => {
 	it('render ModelViewerBranch', () => {
@@ -17,9 +19,9 @@ describe('ModelViewerBranch', () => {
 			value: {},
 		};
 		// when
-		const wrapper = shallow(<Component {...props} />);
+		render(<Component {...props} />);
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('myValueValue')).toBeVisible();
 	});
 	it('render ModelViewerBranch as a union', () => {
 		// given
@@ -37,13 +39,18 @@ describe('ModelViewerBranch', () => {
 			value: {},
 		};
 		// when
-		const wrapper = shallow(<Component {...props} />);
+		render(<Component {...props} />);
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(props.recursive).toHaveBeenCalled();
+		// caret-down means opened
+		expect(screen.getByTitle('Collapse myDataKey ($)')).toHaveAttribute(
+			'name',
+			'talend-caret-down',
+		);
 	});
 });
 describe('ModelViewerBranch#onClickLeafBranch', () => {
-	it('shoul call onToggle with union and firstClickUnion true', () => {
+	it('shoul call onToggle with union and firstClickUnion true', async () => {
 		// given
 		const props = {
 			dataKey: 'myDataKey',
@@ -58,18 +65,17 @@ describe('ModelViewerBranch#onClickLeafBranch', () => {
 			recursive: jest.fn(),
 			value: {},
 		};
-		const event = {};
 		// when
-		const wrapper = shallow(<Component {...props} />);
-		wrapper.instance().onClickLeafBranch(event);
+		render(<Component {...props} />);
+		await userEvent.click(screen.getByTestId('model-branch-button'));
 		// then
 		expect(props.onToggle).toHaveBeenCalledWith(
-			event,
+			expect.anything({ type: 'click' }),
 			{ firstClickUnion: true, jsonpath: '$', opened: false, value: {} },
 			0,
 		);
 	});
-	it('shoul call onToggle', () => {
+	it('shoul call onToggle', async () => {
 		// given
 		const props = {
 			dataKey: 'myDataKey',
@@ -84,13 +90,13 @@ describe('ModelViewerBranch#onClickLeafBranch', () => {
 			recursive: jest.fn(),
 			value: {},
 		};
-		const event = {};
+
 		// when
-		const wrapper = shallow(<Component {...props} />);
-		wrapper.instance().onClickLeafBranch(event);
+		render(<Component {...props} />);
+		await userEvent.click(screen.getByTestId('model-branch-button'));
 		// then
 		expect(props.onToggle).toHaveBeenCalledWith(
-			event,
+			expect.anything({ type: 'click' }),
 			{ jsonpath: '$', opened: false, value: {} },
 			0,
 		);

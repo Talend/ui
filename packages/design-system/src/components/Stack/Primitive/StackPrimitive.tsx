@@ -1,7 +1,7 @@
 import styles from './StackPrimitive.module.scss';
 import classnames from 'classnames';
-import { forwardRef, ReactNode } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
+import type { Ref, ReactNode } from 'react';
 
 export const justifyOptions = {
 	start: 'justify-start',
@@ -132,7 +132,7 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 		isFullWidth,
 		...props
 	}: StackPrimitiveProps,
-	ref: React.Ref<any>,
+	ref: Ref<any>,
 ) {
 	const TagType = as;
 	const { alignContent, ...spreadableProps } = props;

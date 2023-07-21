@@ -1,9 +1,9 @@
-import * as React from 'react';
+import type { HTMLAttributes } from 'react';
 
 import { getDisplayName } from './TokenFormatter';
 import { PropsWithToken } from './TokensTypes';
 
-const TokenName = ({ token, ...rest }: React.HTMLAttributes<HTMLDivElement> & PropsWithToken) => (
+const TokenName = ({ token, ...rest }: HTMLAttributes<HTMLDivElement> & PropsWithToken) => (
 	<div {...rest}>{getDisplayName(token?.name)}</div>
 );
 

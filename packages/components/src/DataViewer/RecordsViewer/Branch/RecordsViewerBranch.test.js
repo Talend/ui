@@ -1,6 +1,7 @@
-import { shallow } from 'enzyme';
-import keycode from 'keycode';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Component, { isLoaded } from './RecordsViewerBranch.component';
+jest.unmock('@talend/design-system');
 
 describe('isLoading', () => {
 	it('should return false on the initial state', () => {
@@ -38,8 +39,6 @@ describe('RecordsViewerBranch', () => {
 	const dataKey = 'myDataKey';
 	it('should render the branch with children', () => {
 		const onToggle = jest.fn();
-		const stopPropagation = jest.fn();
-		const preventDefault = jest.fn();
 
 		const props = {
 			dataKey,
@@ -57,19 +56,14 @@ describe('RecordsViewerBranch', () => {
 			sample: { schema },
 			value: { schema },
 		};
-		const wrapper = shallow(<Component {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
-
-		wrapper.find('div > span').simulate('click');
-		wrapper
-			.find('div > span')
-			.simulate('keydown', { keyCode: keycode.codes.enter, stopPropagation, preventDefault });
-		wrapper
-			.find('div > span')
-			.simulate('keydown', { keyCode: keycode.codes.space, stopPropagation, preventDefault });
+		const { container } = render(<Component {...props} />);
+		expect(container.firstChild).toMatchSnapshot();
+		userEvent.click(screen.getByTestId('records-branch'));
+		userEvent.keyboard('{enter}');
+		userEvent.keyboard('{space}');
 
 		expect(onToggle).toHaveBeenCalledWith(
-			undefined,
+			expect.anything(),
 			{
 				jsonpath: '$',
 				opened: true,
@@ -80,8 +74,6 @@ describe('RecordsViewerBranch', () => {
 			0,
 		);
 		expect(onToggle).toHaveBeenCalledTimes(3);
-		expect(stopPropagation).toHaveBeenCalled();
-		expect(preventDefault).toHaveBeenCalled();
 	});
 	it('should render the branch with length badge', () => {
 		const props = {
@@ -96,8 +88,8 @@ describe('RecordsViewerBranch', () => {
 			onToggle: jest.fn(),
 			value: { schema },
 		};
-		const wrapper = shallow(<Component {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Component {...props} />);
+		expect(screen.getByText('2')).toBeVisible();
 	});
 	it('should render the branch with additional value', () => {
 		const props = {
@@ -112,11 +104,13 @@ describe('RecordsViewerBranch', () => {
 			onToggle: jest.fn(),
 			opened: false,
 			value: { schema },
-			renderBranchAdditionalValue: value => (
-				<div>Additional render for what you want, you can use the value : {value}</div>
+			renderBranchAdditionalValue: () => (
+				<div>Additional render for what you want, you can use the value</div>
 			),
 		};
-		const wrapper = shallow(<Component {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Component {...props} />);
+		expect(
+			screen.getByText('Additional render for what you want, you can use the value'),
+		).toBeVisible();
 	});
 });

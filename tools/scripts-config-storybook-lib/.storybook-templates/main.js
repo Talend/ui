@@ -43,6 +43,7 @@ const defaultMain = {
 	staticDirs: [path.join(__dirname, 'msw')],
 	addons: [
 		'@storybook/addon-a11y',
+		'@storybook/addon-controls',
 		'@storybook/addon-essentials',
 		'@storybook/addon-links',
 		'@storybook/addon-interactions',

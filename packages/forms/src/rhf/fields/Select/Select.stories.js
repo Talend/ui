@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import Select from '.';
 
 export default {
-	title: 'RHF/Select',
+	title: 'Forms/RHF/Select',
 
 	parameters: {
 		component: Select,

@@ -1,588 +1,253 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BasicSearch should render the default html output with initial badges 1`] = `
-<div id="manager-id-basic-search"
-     class="tc-basic-search theme-tc-basic-search"
->
-  <div role="combobox"
-       aria-haspopup="listbox"
-       aria-owns="react-autowhatever-42"
-       aria-expanded="false"
-       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
-  >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
-      <label for="react-autowhatever-42-input"
-             class="control-label sr-only"
-      >
-        Search
-      </label>
-      <div class="icon-cls theme-icon-cls">
-        <svg name="talend-search"
-             focusable="false"
-             aria-hidden="true"
-             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
-             pointer-events="none"
-             shape-rendering="geometricPrecision"
-        >
-        </svg>
-      </div>
-      <input autocomplete="off"
-             aria-autocomplete="list"
-             aria-controls="react-autowhatever-42"
-             aria-activedescendant="react-autowhatever-42-section-0-item-0"
-             placeholder="Find in a column..."
-             role="searchbox"
-             type="text"
-             id="42"
-             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-             value
-      >
-    </div>
-  </div>
-  <div class="tc-basic-search-content theme-tc-basic-search-content">
-    <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
-      <div id="tc-badge-select-name-42-badge-text"
-           class="tc-badge-button theme-tc-badge-button"
-      >
-        <span aria-label="Name"
-              class="tc-badge-category theme-tc-badge-category"
-              aria-describedby="42"
-        >
-          Name
-        </span>
-        <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
-          <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-            <button id="name-42-badge-text-operator-action-overlay"
-                    aria-label="Contains"
-                    type="button"
-                    aria-describedby="42"
-                    class="btn btn-link"
-            >
-              <svg name="talend-contains"
-                   focusable="false"
-                   aria-hidden="true"
-                   class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-contains"
-                   pointer-events="none"
-                   shape-rendering="geometricPrecision"
-              >
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-          <button id="name-42-badge-text-action-overlay"
-                  aria-label="hello"
-                  type="button"
-                  class="btn btn-link"
-          >
-            <span>
-              hello
-            </span>
-          </button>
-        </div>
-        <button role="button"
-                aria-label="Remove filter"
-                id="tc-badge-delete-name-42-badge-text"
-                data-feature="filter.remove"
-                aria-describedby="42"
-                type="button"
-                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
-        >
-          <svg name="talend-cross"
-               focusable="false"
-               aria-hidden="true"
-               class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
-               pointer-events="none"
-               shape-rendering="geometricPrecision"
-          >
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
-      <button data-feature="filter.basic.add"
-              aria-expanded="false"
-              aria-controls="id-42"
-              aria-haspopup="dialog"
-              aria-busy="false"
-              class="theme-clickable theme-button theme-secondary theme-size-S"
-              type="button"
-      >
-        <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
-          Add filter
-          <span class="theme-button__caret">
-            <svg style="width: 1.2rem; height: 1.2rem;"
-                 aria-hidden="true"
-                 shape-rendering="geometricPrecision"
-                 pointer-events="none"
-            >
-              <use xlink:href="#chevron-down:S">
-              </use>
-            </svg>
-          </span>
-        </span>
-      </button>
-      <div id="id-42"
-           hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
-           role="dialog"
-           tabindex="-1"
-           data-dialog="true"
-      >
-        <div class="theme-popover__animated">
-          <div style="font-size: 30px; width: 1em; height: 1em; pointer-events: none; bottom: 100%;"
-               class="theme-popover__arrow"
-          >
-            <svg viewbox="0 0 30 30"
-                 style="transform: rotateZ(360deg);"
-            >
-              <path class="stroke"
-                    d="M23.7,27.1L17,19.9C16.5,19.3,15.8,19,15,19s-1.6,0.3-2.1,0.9l-6.6,7.2C5.3,28.1,3.4,29,2,29h26 C26.7,29,24.6,28.1,23.7,27.1z"
-              >
-              </path>
-              <path class="fill"
-                    d="M23,27.8c1.1,1.2,3.4,2.2,5,2.2h2H0h2c1.7,0,3.9-1,5-2.2l6.6-7.2c0.7-0.8,2-0.8,2.7,0L23,27.8L23,27.8z"
-              >
-              </path>
-            </svg>
-          </div>
-          <div>
-            <div id="manager-id-basic-search-add-facet-popover"
-                 class="tc-add-facet-popover theme-tc-add-facet-popover"
-            >
-              <div id="manager-id-basic-search-add-facet-popover"
-                   class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
-              >
-                <div>
-                  <header id="manager-id-basic-search-add-facet-popover-null-header"
-                          class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-                  >
-                    <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                          role="search"
-                    >
-                      <div class="form-group">
-                        <svg name="talend-search"
-                             focusable="false"
-                             aria-hidden="true"
-                             class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
-                             pointer-events="none"
-                             shape-rendering="geometricPrecision"
-                        >
-                        </svg>
-                        <input name="search"
-                               placeholder="Find a filter"
-                               autocomplete="off"
-                               aria-label="Find a filter"
-                               role="searchbox"
-                               type="search"
-                               id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                               class="theme-search form-control"
-                               value
-                        >
-                      </div>
-                    </form>
-                  </header>
-                  <div id="manager-id-basic-search-add-facet-popover-null-body"
-                       class="theme-body tc-tooltip-body"
-                  >
-                    <div id="manager-id-basic-search-add-facet-popover-null-body-content"
-                         class="theme-content tc-tooltip-content"
-                    >
-                      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
-                        <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                                class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                                tabindex="0"
-                        >
-                          <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
-                            <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
-                              Name
-                            </div>
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
-    <button tabindex="0"
-            data-feature="filter.basic.clear"
-            aria-describedby="id-42"
-            class="theme-clickable theme-buttonIcon theme-size_S"
-            type="button"
-    >
-      <span class="theme-buttonIcon__icon"
-            aria-hidden="true"
-      >
-        <svg style="width: 1.6rem; height: 1.6rem;"
-             aria-hidden="true"
-             shape-rendering="geometricPrecision"
-             pointer-events="none"
-        >
-          <use xlink:href="#trash:M">
-          </use>
-        </svg>
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
 exports[`BasicSearch should render the default html output with no badges 1`] = `
-<div id="manager-id-basic-search"
-     class="tc-basic-search theme-tc-basic-search"
+<div
+  class="tc-basic-search theme-tc-basic-search"
+  id="manager-id-basic-search"
 >
-  <div role="combobox"
-       aria-haspopup="listbox"
-       aria-owns="react-autowhatever-42"
-       aria-expanded="false"
-       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-owns="react-autowhatever-42"
+    class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+    role="combobox"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
-      <label for="react-autowhatever-42-input"
-             class="control-label sr-only"
+    <div
+      class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon"
+    >
+      <label
+        class="control-label sr-only"
+        for="react-autowhatever-42-input"
       >
         Search
       </label>
-      <div class="icon-cls theme-icon-cls">
-        <svg name="talend-search"
-             focusable="false"
-             aria-hidden="true"
-             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
-             pointer-events="none"
-             shape-rendering="geometricPrecision"
-        >
-        </svg>
-      </div>
-      <input autocomplete="off"
-             aria-autocomplete="list"
-             aria-controls="react-autowhatever-42"
-             aria-activedescendant="react-autowhatever-42-section-0-item-0"
-             placeholder="Find in a column..."
-             role="searchbox"
-             type="text"
-             id="42"
-             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-             value
+      <div
+        class="icon-cls theme-icon-cls"
       >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
+          focusable="false"
+          name="talend-search"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </div>
+      <input
+        aria-activedescendant="react-autowhatever-42-section-0-item-0"
+        aria-autocomplete="list"
+        aria-controls="react-autowhatever-42"
+        autocomplete="off"
+        class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+        id="42"
+        placeholder="Find in a column..."
+        role="searchbox"
+        type="text"
+        value=""
+      />
     </div>
   </div>
-  <div class="tc-basic-search-content theme-tc-basic-search-content">
-    <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
-      <button data-feature="filter.basic.add"
-              aria-expanded="false"
-              aria-controls="id-42"
-              aria-haspopup="dialog"
-              aria-busy="false"
-              class="theme-clickable theme-button theme-secondary theme-size-S"
-              type="button"
-      >
-        <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
-          Add filter
-          <span class="theme-button__caret">
-            <svg style="width: 1.2rem; height: 1.2rem;"
-                 aria-hidden="true"
-                 shape-rendering="geometricPrecision"
-                 pointer-events="none"
-            >
-              <use xlink:href="#chevron-down:S">
-              </use>
-            </svg>
-          </span>
-        </span>
-      </button>
-      <div id="id-42"
-           hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
-           role="dialog"
-           tabindex="-1"
-           data-dialog="true"
-      >
-        <div class="theme-popover__animated">
-          <div style="font-size: 30px; width: 1em; height: 1em; pointer-events: none; bottom: 100%;"
-               class="theme-popover__arrow"
-          >
-            <svg viewbox="0 0 30 30"
-                 style="transform: rotateZ(360deg);"
-            >
-              <path class="stroke"
-                    d="M23.7,27.1L17,19.9C16.5,19.3,15.8,19,15,19s-1.6,0.3-2.1,0.9l-6.6,7.2C5.3,28.1,3.4,29,2,29h26 C26.7,29,24.6,28.1,23.7,27.1z"
-              >
-              </path>
-              <path class="fill"
-                    d="M23,27.8c1.1,1.2,3.4,2.2,5,2.2h2H0h2c1.7,0,3.9-1,5-2.2l6.6-7.2c0.7-0.8,2-0.8,2.7,0L23,27.8L23,27.8z"
-              >
-              </path>
-            </svg>
-          </div>
-          <div>
-            <div id="manager-id-basic-search-add-facet-popover"
-                 class="tc-add-facet-popover theme-tc-add-facet-popover"
-            >
-              <div id="manager-id-basic-search-add-facet-popover"
-                   class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
-              >
-                <div>
-                  <header id="manager-id-basic-search-add-facet-popover-null-header"
-                          class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-                  >
-                    <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                          role="search"
-                    >
-                      <div class="form-group">
-                        <svg name="talend-search"
-                             focusable="false"
-                             aria-hidden="true"
-                             class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
-                             pointer-events="none"
-                             shape-rendering="geometricPrecision"
-                        >
-                        </svg>
-                        <input name="search"
-                               placeholder="Find a filter"
-                               autocomplete="off"
-                               aria-label="Find a filter"
-                               role="searchbox"
-                               type="search"
-                               id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                               class="theme-search form-control"
-                               value
-                        >
-                      </div>
-                    </form>
-                  </header>
-                  <div id="manager-id-basic-search-add-facet-popover-null-body"
-                       class="theme-body tc-tooltip-body"
-                  >
-                    <div id="manager-id-basic-search-add-facet-popover-null-body-content"
-                         class="theme-content tc-tooltip-content"
-                    >
-                      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
-                        <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                                class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                                tabindex="0"
-                        >
-                          <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
-                            <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
-                              Name
-                            </div>
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`BasicSearch should render the default html output with some badges 1`] = `
-<div id="manager-id-basic-search"
-     class="tc-basic-search theme-tc-basic-search"
->
-  <div role="combobox"
-       aria-haspopup="listbox"
-       aria-owns="react-autowhatever-42"
-       aria-expanded="false"
-       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+  <div
+    class="tc-basic-search-content theme-tc-basic-search-content"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
-      <label for="react-autowhatever-42-input"
-             class="control-label sr-only"
+    <div
+      class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
+    >
+      <div
+        class="tc-badge-button theme-tc-badge-button"
+        id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
       >
-        Search
-      </label>
-      <div class="icon-cls theme-icon-cls">
-        <svg name="talend-search"
-             focusable="false"
-             aria-hidden="true"
-             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
-             pointer-events="none"
-             shape-rendering="geometricPrecision"
-        >
-        </svg>
-      </div>
-      <input autocomplete="off"
-             aria-autocomplete="list"
-             aria-controls="react-autowhatever-42"
-             aria-activedescendant="react-autowhatever-42-section-0-item-0"
-             placeholder="Find in a column..."
-             role="searchbox"
-             type="text"
-             id="42"
-             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-             value
-      >
-    </div>
-  </div>
-  <div class="tc-basic-search-content theme-tc-basic-search-content">
-    <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
-      <div id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
-           class="tc-badge-button theme-tc-badge-button"
-      >
-        <span aria-label="Name"
-              class="tc-badge-category theme-tc-badge-category"
-              aria-describedby="42"
+        <span
+          aria-describedby="42"
+          aria-label="Name"
+          class="tc-badge-category theme-tc-badge-category"
         >
           Name
         </span>
-        <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
-          <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-            <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
-                    aria-label="Equals"
-                    type="button"
-                    aria-describedby="42"
-                    class="btn btn-link"
+        <div
+          class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large"
+        >
+          <div
+            class="tc-badge-operator-button theme-tc-badge-operator-button"
+          >
+            <button
+              aria-describedby="42"
+              aria-label="Equals"
+              class="btn btn-link"
+              id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
+              type="button"
             >
-              <svg name="talend-equal"
-                   focusable="false"
-                   aria-hidden="true"
-                   class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
-                   pointer-events="none"
-                   shape-rendering="geometricPrecision"
-              >
-              </svg>
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+                focusable="false"
+                name="talend-equal"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
             </button>
           </div>
         </div>
-        <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-          <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
-                  aria-label="hello"
-                  type="button"
-                  class="btn btn-link"
+        <div
+          class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
+        >
+          <button
+            aria-label="hello"
+            class="btn btn-link"
+            id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
+            type="button"
           >
             <span>
               hello
             </span>
           </button>
         </div>
-        <button role="button"
-                aria-label="Remove filter"
-                id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
-                data-feature="filter.remove"
-                aria-describedby="42"
-                type="button"
-                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+        <button
+          aria-describedby="42"
+          aria-label="Remove filter"
+          class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+          data-feature="filter.remove"
+          id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+          role="button"
+          type="button"
         >
-          <svg name="talend-cross"
-               focusable="false"
-               aria-hidden="true"
-               class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
-               pointer-events="none"
-               shape-rendering="geometricPrecision"
-          >
-          </svg>
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
+            focusable="false"
+            name="talend-cross"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
         </button>
       </div>
     </div>
-    <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
-      <button data-feature="filter.basic.add"
-              aria-expanded="false"
-              aria-controls="id-42"
-              aria-haspopup="dialog"
-              aria-busy="false"
-              class="theme-clickable theme-button theme-secondary theme-size-S"
-              type="button"
+    <div
+      class="tc-basic-search-content-popover theme-tc-basic-search-content-popover"
+    >
+      <button
+        aria-busy="false"
+        aria-controls="id-42"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        class="theme-clickable theme-button theme-secondary theme-size-S"
+        data-feature="filter.basic.add"
+        type="button"
       >
-        <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
           Add filter
-          <span class="theme-button__caret">
-            <svg style="width: 1.2rem; height: 1.2rem;"
-                 aria-hidden="true"
-                 shape-rendering="geometricPrecision"
-                 pointer-events="none"
+          <span
+            class="theme-button__caret"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.2rem; height: 1.2rem;"
             >
-              <use xlink:href="#chevron-down:S">
-              </use>
+              <use
+                xlink:href="#chevron-down:S"
+              />
             </svg>
           </span>
         </span>
       </button>
-      <div id="id-42"
-           hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
-           role="dialog"
-           tabindex="-1"
-           data-dialog="true"
+      <div
+        data-dialog="true"
+        hidden=""
+        id="id-42"
+        role="dialog"
+        style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
+        tabindex="-1"
       >
-        <div class="theme-popover__animated">
-          <div style="font-size: 30px; width: 1em; height: 1em; pointer-events: none; bottom: 100%;"
-               class="theme-popover__arrow"
+        <div
+          class="theme-popover__animated"
+        >
+          <div
+            class="theme-popover__arrow"
+            style="font-size: 30px; width: 1em; height: 1em; pointer-events: none; bottom: 100%;"
           >
-            <svg viewbox="0 0 30 30"
-                 style="transform: rotateZ(360deg);"
+            <svg
+              style="transform: rotateZ(360deg);"
+              viewBox="0 0 30 30"
             >
-              <path class="stroke"
-                    d="M23.7,27.1L17,19.9C16.5,19.3,15.8,19,15,19s-1.6,0.3-2.1,0.9l-6.6,7.2C5.3,28.1,3.4,29,2,29h26 C26.7,29,24.6,28.1,23.7,27.1z"
-              >
-              </path>
-              <path class="fill"
-                    d="M23,27.8c1.1,1.2,3.4,2.2,5,2.2h2H0h2c1.7,0,3.9-1,5-2.2l6.6-7.2c0.7-0.8,2-0.8,2.7,0L23,27.8L23,27.8z"
-              >
-              </path>
+              <path
+                class="stroke"
+                d="M23.7,27.1L17,19.9C16.5,19.3,15.8,19,15,19s-1.6,0.3-2.1,0.9l-6.6,7.2C5.3,28.1,3.4,29,2,29h26 C26.7,29,24.6,28.1,23.7,27.1z"
+              />
+              <path
+                class="fill"
+                d="M23,27.8c1.1,1.2,3.4,2.2,5,2.2h2H0h2c1.7,0,3.9-1,5-2.2l6.6-7.2c0.7-0.8,2-0.8,2.7,0L23,27.8L23,27.8z"
+              />
             </svg>
           </div>
           <div>
-            <div id="manager-id-basic-search-add-facet-popover"
-                 class="tc-add-facet-popover theme-tc-add-facet-popover"
+            <div
+              class="tc-add-facet-popover theme-tc-add-facet-popover"
+              id="manager-id-basic-search-add-facet-popover"
             >
-              <div id="manager-id-basic-search-add-facet-popover"
-                   class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+              <div
+                class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+                id="manager-id-basic-search-add-facet-popover"
               >
                 <div>
-                  <header id="manager-id-basic-search-add-facet-popover-null-header"
-                          class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
+                  <header
+                    class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
+                    id="manager-id-basic-search-add-facet-popover-null-header"
                   >
-                    <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                          role="search"
+                    <form
+                      class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+                      role="search"
                     >
-                      <div class="form-group">
-                        <svg name="talend-search"
-                             focusable="false"
-                             aria-hidden="true"
-                             class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
-                             pointer-events="none"
-                             shape-rendering="geometricPrecision"
-                        >
-                        </svg>
-                        <input name="search"
-                               placeholder="Find a filter"
-                               autocomplete="off"
-                               aria-label="Find a filter"
-                               role="searchbox"
-                               type="search"
-                               id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                               class="theme-search form-control"
-                               value
-                        >
+                      <div
+                        class="form-group"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
+                          focusable="false"
+                          name="talend-search"
+                          pointer-events="none"
+                          shape-rendering="geometricPrecision"
+                        />
+                        <input
+                          aria-label="Find a filter"
+                          autocomplete="off"
+                          class="theme-search form-control"
+                          id="manager-id-basic-search-add-facet-popover-null-filter-input"
+                          name="search"
+                          placeholder="Find a filter"
+                          role="searchbox"
+                          type="search"
+                          value=""
+                        />
                       </div>
                     </form>
                   </header>
-                  <div id="manager-id-basic-search-add-facet-popover-null-body"
-                       class="theme-body tc-tooltip-body"
+                  <div
+                    class="theme-body tc-tooltip-body"
+                    id="manager-id-basic-search-add-facet-popover-null-body"
                   >
-                    <div id="manager-id-basic-search-add-facet-popover-null-body-content"
-                         class="theme-content tc-tooltip-content"
+                    <div
+                      class="theme-content tc-tooltip-content"
+                      id="manager-id-basic-search-add-facet-popover-null-body-content"
                     >
-                      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
-                        <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                                class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                                tabindex="0"
+                      <div
+                        class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container"
+                      >
+                        <button
+                          class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
+                          id="manager-id-basic-search-add-facet-popover-row-button-Name"
+                          tabindex="0"
                         >
-                          <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
-                            <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
+                          <div
+                            class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S"
+                          >
+                            <div
+                              class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink"
+                            >
                               Name
                             </div>
                           </div>
@@ -598,257 +263,29 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
       </div>
     </div>
   </div>
-  <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
-    <button tabindex="0"
-            data-feature="filter.basic.clear"
-            aria-describedby="id-42"
-            class="theme-clickable theme-buttonIcon theme-size_S"
-            type="button"
-    >
-      <span class="theme-buttonIcon__icon"
-            aria-hidden="true"
-      >
-        <svg style="width: 1.6rem; height: 1.6rem;"
-             aria-hidden="true"
-             shape-rendering="geometricPrecision"
-             pointer-events="none"
-        >
-          <use xlink:href="#trash:M">
-          </use>
-        </svg>
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`BasicSearch should render the default html output with some badges and the quick search input 1`] = `
-<div id="manager-id-basic-search"
-     class="tc-basic-search theme-tc-basic-search"
->
-  <div role="combobox"
-       aria-haspopup="listbox"
-       aria-owns="react-autowhatever-42"
-       aria-expanded="false"
-       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+  <div
+    class="tc-basic-search-clear-content theme-tc-basic-search-clear-content"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
-      <label for="react-autowhatever-42-input"
-             class="control-label sr-only"
-      >
-        Search
-      </label>
-      <div class="icon-cls theme-icon-cls">
-        <svg name="talend-search"
-             focusable="false"
-             aria-hidden="true"
-             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
-             pointer-events="none"
-             shape-rendering="geometricPrecision"
-        >
-        </svg>
-      </div>
-      <input autocomplete="off"
-             aria-autocomplete="list"
-             aria-controls="react-autowhatever-42"
-             aria-activedescendant="react-autowhatever-42-section-0-item-0"
-             placeholder="Find in a column..."
-             role="searchbox"
-             type="text"
-             id="42"
-             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-             value
-      >
-    </div>
-  </div>
-  <div class="tc-basic-search-content theme-tc-basic-search-content">
-    <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
-      <div id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
-           class="tc-badge-button theme-tc-badge-button"
-      >
-        <span aria-label="Name"
-              class="tc-badge-category theme-tc-badge-category"
-              aria-describedby="42"
-        >
-          Name
-        </span>
-        <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
-          <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-            <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
-                    aria-label="Equals"
-                    type="button"
-                    aria-describedby="42"
-                    class="btn btn-link"
-            >
-              <svg name="talend-equal"
-                   focusable="false"
-                   aria-hidden="true"
-                   class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
-                   pointer-events="none"
-                   shape-rendering="geometricPrecision"
-              >
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-          <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
-                  aria-label="hello"
-                  type="button"
-                  class="btn btn-link"
-          >
-            <span>
-              hello
-            </span>
-          </button>
-        </div>
-        <button role="button"
-                aria-label="Remove filter"
-                id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
-                data-feature="filter.remove"
-                aria-describedby="42"
-                type="button"
-                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
-        >
-          <svg name="talend-cross"
-               focusable="false"
-               aria-hidden="true"
-               class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
-               pointer-events="none"
-               shape-rendering="geometricPrecision"
-          >
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
-      <button data-feature="filter.basic.add"
-              aria-expanded="false"
-              aria-controls="id-42"
-              aria-haspopup="dialog"
-              aria-busy="false"
-              class="theme-clickable theme-button theme-secondary theme-size-S"
-              type="button"
-      >
-        <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
-          Add filter
-          <span class="theme-button__caret">
-            <svg style="width: 1.2rem; height: 1.2rem;"
-                 aria-hidden="true"
-                 shape-rendering="geometricPrecision"
-                 pointer-events="none"
-            >
-              <use xlink:href="#chevron-down:S">
-              </use>
-            </svg>
-          </span>
-        </span>
-      </button>
-      <div id="id-42"
-           hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
-           role="dialog"
-           tabindex="-1"
-           data-dialog="true"
-      >
-        <div class="theme-popover__animated">
-          <div style="font-size: 30px; width: 1em; height: 1em; pointer-events: none; bottom: 100%;"
-               class="theme-popover__arrow"
-          >
-            <svg viewbox="0 0 30 30"
-                 style="transform: rotateZ(360deg);"
-            >
-              <path class="stroke"
-                    d="M23.7,27.1L17,19.9C16.5,19.3,15.8,19,15,19s-1.6,0.3-2.1,0.9l-6.6,7.2C5.3,28.1,3.4,29,2,29h26 C26.7,29,24.6,28.1,23.7,27.1z"
-              >
-              </path>
-              <path class="fill"
-                    d="M23,27.8c1.1,1.2,3.4,2.2,5,2.2h2H0h2c1.7,0,3.9-1,5-2.2l6.6-7.2c0.7-0.8,2-0.8,2.7,0L23,27.8L23,27.8z"
-              >
-              </path>
-            </svg>
-          </div>
-          <div>
-            <div id="manager-id-basic-search-add-facet-popover"
-                 class="tc-add-facet-popover theme-tc-add-facet-popover"
-            >
-              <div id="manager-id-basic-search-add-facet-popover"
-                   class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
-              >
-                <div>
-                  <header id="manager-id-basic-search-add-facet-popover-null-header"
-                          class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-                  >
-                    <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                          role="search"
-                    >
-                      <div class="form-group">
-                        <svg name="talend-search"
-                             focusable="false"
-                             aria-hidden="true"
-                             class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
-                             pointer-events="none"
-                             shape-rendering="geometricPrecision"
-                        >
-                        </svg>
-                        <input name="search"
-                               placeholder="Find a filter"
-                               autocomplete="off"
-                               aria-label="Find a filter"
-                               role="searchbox"
-                               type="search"
-                               id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                               class="theme-search form-control"
-                               value
-                        >
-                      </div>
-                    </form>
-                  </header>
-                  <div id="manager-id-basic-search-add-facet-popover-null-body"
-                       class="theme-body tc-tooltip-body"
-                  >
-                    <div id="manager-id-basic-search-add-facet-popover-null-body-content"
-                         class="theme-content tc-tooltip-content"
-                    >
-                      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
-                        <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                                class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                                tabindex="0"
-                        >
-                          <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
-                            <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
-                              Name
-                            </div>
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
-    <button tabindex="0"
-            data-feature="filter.basic.clear"
-            aria-describedby="id-42"
-            class="theme-clickable theme-buttonIcon theme-size_S"
-            type="button"
+    <button
+      aria-describedby="id-42"
+      class="theme-clickable theme-buttonIcon theme-size_S"
+      data-feature="filter.basic.clear"
+      tabindex="0"
+      type="button"
     >
-      <span class="theme-buttonIcon__icon"
-            aria-hidden="true"
+      <span
+        aria-hidden="true"
+        class="theme-buttonIcon__icon"
       >
-        <svg style="width: 1.6rem; height: 1.6rem;"
-             aria-hidden="true"
-             shape-rendering="geometricPrecision"
-             pointer-events="none"
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
         >
-          <use xlink:href="#trash:M">
-          </use>
+          <use
+            xlink:href="#trash:M"
+          />
         </svg>
       </span>
     </button>

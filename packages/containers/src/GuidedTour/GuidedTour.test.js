@@ -1,11 +1,11 @@
-import { shallow } from 'enzyme/build';
+import { screen, render } from '@testing-library/react';
 import { fromJS } from 'immutable';
 import Connect from './GuidedTour.connect';
 import Container from './GuidedTour.container';
 
 const defaultProps = {
 	state: fromJS({
-		isOpen: true,
+		show: true,
 	}),
 	steps: [
 		{
@@ -24,6 +24,7 @@ const defaultProps = {
 			},
 		},
 	],
+	t: jest.fn(key => key),
 };
 
 describe('Guided Tour Connect', () => {
@@ -35,7 +36,9 @@ describe('Guided Tour Connect', () => {
 
 describe('Guided Tour Container', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Container {...defaultProps} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Container {...defaultProps} />);
+		expect(document.querySelector('#___reactour')).toBeVisible();
+		expect(screen.getByText('Text A')).toBeVisible();
+		expect(document.querySelector('#___reactour')).toMatchSnapshot();
 	});
 });

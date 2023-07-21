@@ -6,7 +6,7 @@ import { usePopper } from 'react-popper';
 import { randomUUID } from '@talend/utils';
 
 import FocusManager from '../../FocusManager';
-import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
+import { focus } from '@talend/react-a11y';
 
 import DatePicker from '../Date';
 import TimeZone from '../TimeZone';
@@ -27,6 +27,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'hideTimezone',
 	'startDate',
 	'endDate',
+	'isDisabledChecker',
 ];
 
 function onMouseDown(event) {
@@ -51,7 +52,7 @@ export default function InputDatePicker(props) {
 		disabled: props.disabled,
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
-		handleKeyDown: () => focusOnCalendar(popperElement),
+		handleKeyDown: () => focus.focusOnCalendar(popperElement),
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);

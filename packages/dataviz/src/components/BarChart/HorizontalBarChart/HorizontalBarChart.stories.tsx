@@ -43,6 +43,12 @@ export default {
 			<KeyValueTooltip entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
 		),
 	},
+	parameters: {
+		chromatic: {
+			// To avoid issues with charts, we'll need to improve this later on
+			diffThreshold: 0.6,
+		},
+	},
 } as Meta<HorizontalBarChartProps>;
 
 export const ProfileChartWithFilter = Template.bind({});

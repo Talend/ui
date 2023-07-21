@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StateFilter should render 1`] = `
+<div
+  class="tc-resource-picker-state-filters theme-tc-resource-picker-state-filters"
+>
+  <span
+    class="theme-option-label"
+  >
+    Filter:
+  </span>
+  <button
+    aria-describedby="42"
+    aria-label="Certified"
+    aria-pressed="false"
+    class="theme-tc-resource-picker-certified-filter tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+    type="button"
+  >
+    <span
+      class="CoralIcon"
+      name="talend-badge"
+    />
+  </button>
+  <button
+    aria-describedby="42"
+    aria-label="Favorites"
+    aria-pressed="false"
+    class="theme-tc-resource-picker-favorite-filter tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+    type="button"
+  >
+    <span
+      class="CoralIcon"
+      name="talend-star"
+    />
+  </button>
+</div>
+`;

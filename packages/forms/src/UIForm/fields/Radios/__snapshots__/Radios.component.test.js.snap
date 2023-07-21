@@ -1,186 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Radios field should render disabled input 1`] = `
-<FieldTemplate
-  description="My radios input hint"
-  descriptionId="myForm-description"
-  errorId="myForm-error"
-  errorMessage="My error message"
-  id="myForm"
-  isValid={true}
-  label="My radios title"
-  required={true}
->
-  <div
-    className="radio disabled"
-  >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={false}
-        disabled={true}
-        id="myForm-0"
-        name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="radio"
-        value="foo"
-      />
-      <span>
-        My foo custom name
-      </span>
-    </label>
-  </div>
-  <div
-    className="radio disabled"
-  >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={false}
-        disabled={true}
-        id="myForm-1"
-        name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="radio"
-        value="bar"
-      />
-      <span>
-        My bar custom name
-      </span>
-    </label>
-  </div>
-  <div
-    className="radio disabled"
-  >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={true}
-        disabled={true}
-        id="myForm-2"
-        name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="radio"
-        value="toto"
-      />
-      <span>
-        My toto custom name
-      </span>
-    </label>
-  </div>
-</FieldTemplate>
-`;
-
-exports[`Radios field should render inline radios 1`] = `
-<FieldTemplate
-  description="My radios input hint"
-  descriptionId="myForm-description"
-  errorId="myForm-error"
-  errorMessage="My error message"
-  id="myForm"
-  isValid={true}
-  label="My radios title"
-  required={true}
->
-  <div
-    className="radio-inline"
-  >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={false}
-        id="myForm-0"
-        name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="radio"
-        value="foo"
-      />
-      <span>
-        My foo custom name
-      </span>
-    </label>
-  </div>
-  <div
-    className="radio-inline"
-  >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={false}
-        id="myForm-1"
-        name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="radio"
-        value="bar"
-      />
-      <span>
-        My bar custom name
-      </span>
-    </label>
-  </div>
-  <div
-    className="radio-inline"
-  >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={true}
-        id="myForm-2"
-        name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="radio"
-        value="toto"
-      />
-      <span>
-        My toto custom name
-      </span>
-    </label>
-  </div>
-</FieldTemplate>
-`;
-
 exports[`Radios field should render radios 1`] = `
-<FieldTemplate
-  description="My radios input hint"
-  descriptionId="myForm-description"
-  errorId="myForm-error"
-  errorMessage="My error message"
-  id="myForm"
-  isValid={true}
-  label="My radios title"
-  required={true}
+<div
+  class="form-group theme-template required"
 >
+  <label
+    class="control-label"
+    for="myForm"
+  >
+    My radios title
+  </label>
   <div
-    className="radio"
+    class="radio"
   >
     <label>
       <input
         aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={false}
+        aria-invalid="false"
         id="myForm-0"
         name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
         type="radio"
         value="foo"
       />
@@ -190,18 +28,14 @@ exports[`Radios field should render radios 1`] = `
     </label>
   </div>
   <div
-    className="radio"
+    class="radio"
   >
     <label>
       <input
         aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={false}
+        aria-invalid="false"
         id="myForm-1"
         name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
         type="radio"
         value="bar"
       />
@@ -211,18 +45,15 @@ exports[`Radios field should render radios 1`] = `
     </label>
   </div>
   <div
-    className="radio"
+    class="radio"
   >
     <label>
       <input
         aria-describedby="myForm-description myForm-error"
-        aria-invalid={false}
-        autoFocus={true}
-        checked={true}
+        aria-invalid="false"
+        checked=""
         id="myForm-2"
         name="myForm"
-        onBlur={[Function]}
-        onChange={[Function]}
         type="radio"
         value="toto"
       />
@@ -231,5 +62,36 @@ exports[`Radios field should render radios 1`] = `
       </span>
     </label>
   </div>
-</FieldTemplate>
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="myForm-description"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          My radios input hint
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;

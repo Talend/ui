@@ -2,42 +2,40 @@
 
 exports[`Fieldset widget should render fieldset 1`] = `
 <fieldset
-  className="form-group"
+  class="form-group"
 >
   <legend
-    className=""
+    class=""
   >
     My fieldset
   </legend>
-  <Widget
-    schema={
-      {
-        "key": [
-          "user",
-          "firstname",
-        ],
-        "schema": {
-          "type": "string",
-        },
-        "type": "text",
-      }
-    }
-    widgets={{}}
-  />
-  <Widget
-    schema={
-      {
-        "key": [
-          "user",
-          "lastname",
-        ],
-        "schema": {
-          "type": "string",
-        },
-        "type": "text",
-      }
-    }
-    widgets={{}}
-  />
+  <div
+    aria-busy="false"
+    class="form-group theme-template"
+  >
+    <input
+      aria-describedby="user_firstname-description user_firstname-error"
+      aria-invalid="false"
+      class="form-control"
+      id="user_firstname"
+      type="text"
+      value=""
+    />
+    <div />
+  </div>
+  <div
+    aria-busy="false"
+    class="form-group theme-template"
+  >
+    <input
+      aria-describedby="user_lastname-description user_lastname-error"
+      aria-invalid="false"
+      class="form-control"
+      id="user_lastname"
+      type="text"
+      value=""
+    />
+    <div />
+  </div>
 </fieldset>
 `;

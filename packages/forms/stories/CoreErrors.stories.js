@@ -197,7 +197,7 @@ const errors = schema.uiSchema.reduce(
 );
 
 export default {
-	title: 'Core Concepts/Errors',
+	title: 'Forms/Errors',
 };
 
 export function Default() {

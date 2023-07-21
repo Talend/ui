@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import * as React from 'react';
+import type { HTMLAttributes } from 'react';
 
 import { StackVertical, TabsKit } from '@talend/design-system';
 import { ColorToken, Token, TokenType } from '../../../../src/tokens/types';
@@ -19,7 +19,7 @@ type ColorComposition = {
 
 const SemanticColors = ['Accent', 'Danger', 'Warning', 'Success', 'Beta'];
 
-const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> & TokensProps) => {
+const ColorTokens = ({ tokens, ...rest }: HTMLAttributes<HTMLDivElement> & TokensProps) => {
 	const colorTokens = tokens
 		.filter((t: Token) => [TokenType.COLOR, TokenType.GRADIENT].includes(t.type))
 		.reduce((acc: Record<string, ColorToken>, curr: ColorToken) => {

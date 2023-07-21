@@ -2,10 +2,10 @@
 
 exports[`Array Template in text mode should render array template with complex items 1`] = `
 <div
-  className="theme-tf-array-text-mode"
+  class="theme-tf-array-text-mode"
 >
   <dt
-    className="tf-title-text-mode"
+    class="tf-title-text-mode"
     id="my-template"
   >
     comments
@@ -15,56 +15,34 @@ exports[`Array Template in text mode should render array template with complex i
       aria-labelledby="my-template"
     >
       <li
-        className="theme-block"
+        class="theme-block"
       >
-        <div>
+        <div
+          data-testid="renderItem"
+        >
           Render item 
           0
         </div>
       </li>
       <li
-        className="theme-block"
+        class="theme-block"
       >
-        <div>
+        <div
+          data-testid="renderItem"
+        >
           Render item 
           1
         </div>
       </li>
       <li
-        className="theme-block"
+        class="theme-block"
       >
-        <div>
+        <div
+          data-testid="renderItem"
+        >
           Render item 
           2
         </div>
-      </li>
-    </ol>
-  </dd>
-</div>
-`;
-
-exports[`Array Template in text mode should render array template with simple items 1`] = `
-<div
-  className="theme-tf-array-text-mode"
->
-  <dt
-    className="tf-title-text-mode"
-    id="my-template"
-  >
-    comments
-  </dt>
-  <dd>
-    <ol
-      aria-labelledby="my-template"
-    >
-      <li>
-        Jimmy
-      </li>
-      <li>
-        JM
-      </li>
-      <li>
-        Geoffroy
       </li>
     </ol>
   </dd>

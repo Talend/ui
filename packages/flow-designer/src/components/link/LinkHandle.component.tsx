@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { Component } from 'react';
+import type { ReactElement, ElementRef } from 'react';
 import { drag, select } from 'd3';
 import { PositionRecord } from '../../customTypings/index.d';
 
@@ -6,13 +7,13 @@ type Props = {
 	position: PositionRecord;
 	onDrag?: (event: any) => void;
 	onDragEnd?: (event: any) => void;
-	component: React.ReactElement;
+	component: ReactElement;
 };
 
-class LinkHandle extends React.Component<Props> {
+class LinkHandle extends Component<Props> {
 	d3Handle: any;
 
-	handle: React.ElementRef<'g'> | null;
+	handle: ElementRef<'g'> | null;
 
 	constructor(props: Props) {
 		super(props);

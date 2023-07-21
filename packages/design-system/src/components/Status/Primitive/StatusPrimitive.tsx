@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
+import type { Ref } from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
@@ -26,10 +27,10 @@ export type StatusProps = {
 	variant: keyof typeof variants;
 };
 
-const Status = React.forwardRef(
+const Status = forwardRef(
 	(
 		{ children, icon, inProgress, hideText, variant, ...rest }: StatusProps,
-		ref: React.Ref<HTMLSpanElement>,
+		ref: Ref<HTMLSpanElement>,
 	) => {
 		const text = <span className={styles.status__text}>{children}</span>;
 		const picto = (

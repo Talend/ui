@@ -11,7 +11,7 @@ const myAction = {
 };
 
 export default {
-	title: 'Buttons/File',
+	title: 'Components/Actions/File',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 
