@@ -1,0 +1,11 @@
+@use '@talend/design-tokens/lib/tokens';
+
+code {
+	color: tokens.$coral-color-danger-text-strong;
+	background-color: tokens.$coral-color-danger-background;
+}
+
+pre {
+	background-color: tokens.$coral-color-neutral-background-medium;
+	color: tokens.$coral-color-neutral-text;
+}

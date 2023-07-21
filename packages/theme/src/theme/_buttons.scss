@@ -6,23 +6,8 @@
 @use '@talend/design-tokens/lib/tokens';
 
 :root {
-	--t-button-color: currentColor;
-	--t-button-background-color: transparent;
-	--t-button-border-color: transparent;
-
 	--t-button-padding: 0 #{$padding-normal};
 	--t-button-height: #{$btn-line-height - 0.2rem};
-
-	--t-button-primary-color: tokens.$coral-color-accent-text-weak;
-	--t-button-primary-background: tokens.$coral-color-accent-background-strong;
-	--t-button-primary-background--hover: tokens.$coral-color-accent-background-strong-hover;
-	--t-button-primary-background--active: tokens.$coral-color-accent-background-strong-active;
-
-	--t-button-secondary-background--hover: #{$lochmara100};
-
-	--t-button-destructive-background: #{$btn-danger-bg};
-	--t-button-destructive-background--hover: #{$btn-danger-bg-hover};
-	--t-button-destructive-background--active: #{$btn-danger-bg-active};
 }
 
 .btn {
@@ -39,9 +24,9 @@
 	&,
 	&:focus,
 	&:hover {
-		color: var(--t-button-color);
-		background-color: var(--t-button-background-color);
-		border-color: var(--t-button-border-color);
+		color: currentColor;
+		background-color: transparent;
+		border-color: transparent;
 	}
 
 	&:active,
@@ -102,93 +87,73 @@
 	&-info,
 	&-warning,
 	&--primary {
-		--t-button-color: tokens.$coral-color-accent-text-weak;
-		--t-button-background-color: tokens.$coral-color-accent-background-strong;
-		color: tokens.$coral-color-accent-text-weak;
 		background: tokens.$coral-color-accent-background-strong;
+		color: tokens.$coral-color-accent-text-weak;
 
 		&:hover {
-			--t-button-color: tokens.$coral-color-accent-text-weak-hover;
-			--t-button-background-color: tokens.$coral-color-accent-background-strong-hover;
-			color: tokens.$coral-color-accent-text-weak-hover;
 			background: tokens.$coral-color-accent-background-strong-hover;
+			color: tokens.$coral-color-accent-text-weak-hover;
 		}
 
 		&:active {
-			--t-button-color: tokens.$coral-color-accent-text-weak-active;
-			--t-button-background-color: tokens.$coral-color-accent-background-strong-active;
-			color: tokens.$coral-color-accent-text-weak-active;
 			background: tokens.$coral-color-accent-background-strong-active;
+			color: tokens.$coral-color-accent-text-weak-active;
 		}
 	}
 
 	&-inverse {
-		--t-button-color: tokens.$coral-color-accent-text;
-		--t-button-border-color: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-		--t-button-background-color: transparent;
 		background-color: transparent;
-
+		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
 		color: tokens.$coral-color-accent-text;
 
 		&:hover {
-			--t-button-background-color: var(--t-button-secondary-background--hover);
-			--t-button-color: tokens.$coral-color-accent-text-strong-hover;
-			color: tokens.$coral-color-accent-text-strong-hover;
 			background: tokens.$coral-color-accent-background-weak-hover;
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+			color: tokens.$coral-color-accent-text-strong-hover;
 		}
 
 		&:active {
-			--t-button-background-color: var(--t-button-secondary-background--hover);
-			--t-button-color: tokens.$coral-color-accent-text-strong-active;
-			color: tokens.$coral-color-accent-text-strong-active;
 			background: tokens.$coral-color-accent-background-weak-active;
+			color: tokens.$coral-color-accent-text-strong-active;
 		}
 
 		&:disabled,
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
 			background: transparent;
-			color: tokens.$coral-color-neutral-text-disabled;
 			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+			color: tokens.$coral-color-neutral-text-disabled;
 
 			&:hover {
-				--t-button-background-color: transparent;
 				background-color: transparent;
 			}
 		}
 	}
 
 	&--secondary {
-		--t-button-border-color: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-		--t-button-color: tokens.$coral-color-accent-text;
-		--t-button-background-color: transparent;
 		background-color: transparent;
-
+		border-color: tokens.$coral-color-accent-text;
 		color: tokens.$coral-color-accent-text;
 
 		&:hover {
-			--t-button-background-color: var(--t-button-secondary-background--hover);
-			--t-button-color: tokens.$coral-color-accent-text-strong-hover;
-			color: tokens.$coral-color-accent-text-strong-hover;
 			background: tokens.$coral-color-accent-background-weak-hover;
+			border-color: tokens.$coral-color-accent-text;
+			color: tokens.$coral-color-accent-text-strong-hover;
 		}
 
 		&:active {
-			--t-button-background-color: var(--t-button-secondary-background--hover);
-			--t-button-color: tokens.$coral-color-accent-text-strong-active;
-			color: tokens.$coral-color-accent-text-strong-active;
 			background: tokens.$coral-color-accent-background-weak-active;
+			color: tokens.$coral-color-accent-text-strong-active;
 		}
 
 		&:disabled,
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
 			background: transparent;
-			color: tokens.$coral-color-neutral-text-disabled;
 			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+			color: tokens.$coral-color-neutral-text-disabled;
 
 			&:hover {
-				--t-button-background-color: transparent;
 				background-color: transparent;
 			}
 		}
@@ -196,21 +161,17 @@
 
 	&-tertiary,
 	&--tertiary {
-		--t-button-color: tokens.$coral-color-accent-text;
-		--t-button-background-color: transparent;
 		background-color: transparent;
 		color: tokens.$coral-color-accent-text;
 
 		&:hover {
-			--t-button-color: tokens.$coral-color-accent-text-strong-hover;
-			color: tokens.$coral-color-accent-text-strong-hover;
 			background: tokens.$coral-color-accent-background-weak-hover;
+			color: tokens.$coral-color-accent-text-strong-hover;
 		}
 
 		&:active {
-			--t-button-color: tokens.$coral-color-accent-text-strong-active;
-			color: tokens.$coral-color-accent-text-strong-active;
 			background: tokens.$coral-color-accent-background-weak-active;
+			color: tokens.$coral-color-accent-text-strong-active;
 		}
 
 		&:disabled,
@@ -221,57 +182,44 @@
 			color: tokens.$coral-color-neutral-text-disabled;
 
 			&:hover {
-				--t-button-background-color: transparent;
 				background-color: transparent;
 			}
 		}
 	}
 
 	&-link {
-		--t-button-color: tokens.$coral-color-accent-text;
 		color: tokens.$coral-color-accent-text;
 
 		&:hover {
-			--t-button-color: tokens.$coral-color-accent-text-strong-hover;
 			color: tokens.$coral-color-accent-text-strong-hover;
 		}
 
 		&:active {
-			--t-button-color: tokens.$coral-color-accent-text-strong-active;
 			color: tokens.$coral-color-accent-text-strong-active;
 		}
 
 		&:disabled,
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
-			color: tokens.$coral-color-neutral-text-disabled;
 			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+			color: tokens.$coral-color-neutral-text-disabled;
 		}
 	}
 
 	&.btn-danger,
 	&.btn--destructive {
-		--t-button-background-color: var(--t-button-destructive-background);
-		--t-button-border-color: tokens.$coral-color-danger-text-weak;
-		--t-button-color: tokens.$coral-color-danger-text-weak;
-
-		color: tokens.$coral-color-danger-text-weak;
-		border: tokens.$coral-color-danger-background-strong;
 		background: tokens.$coral-color-danger-background-strong;
+		border: tokens.$coral-color-danger-background-strong;
+		color: tokens.$coral-color-danger-text-weak;
 
 		&:hover {
-			--t-button-background-color: tokens.$coral-color-danger-background-strong-hover;
-			--t-button-border-color: tokens.$coral-color-danger-background-strong-hover;
-			color: tokens.$coral-color-danger-text-weak-hover;
 			background: tokens.$coral-color-danger-background-strong-hover;
+			color: tokens.$coral-color-danger-text-weak-hover;
 		}
 
 		&:active {
-			--t-button-color: tokens.$coral-color-danger-text-weak-active;
-			--t-button-background-color: tokens.$coral-color-danger-background-strong-active;
-			--t-button-border-color: tokens.$coral-color-danger-background-strong-active;
-			color: tokens.$coral-color-danger-text-weak-active;
 			background: tokens.$coral-color-danger-background-strong-active;
+			color: tokens.$coral-color-danger-text-weak-active;
 		}
 
 		&[disabled] &:hover,
@@ -283,8 +231,6 @@
 
 	&-icon-text {
 		--t-button-padding: 0;
-		--t-button-background-color: transparent;
-		--t-button-border-color: transparent;
 	}
 
 	&-xs,
