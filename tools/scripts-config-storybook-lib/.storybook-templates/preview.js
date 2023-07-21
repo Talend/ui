@@ -30,6 +30,18 @@ if (cmf) {
 
 const defaultPreview = {
 	globalTypes: {
+		theme: {
+			name: 'Theme',
+			description: 'Choose a theme to apply to the design system',
+			defaultValue: 'light',
+			toolbar: {
+				icon: 'paintbrush',
+				items: [
+					{ value: 'light', left: '⚪️', title: 'Default theme' },
+					{ value: 'dark', left: '⚫️', title: 'Dark theme' },
+				],
+			},
+		},
 		locale: {
 			name: 'Locale',
 			defaultValue: 'en',
@@ -63,7 +75,8 @@ const defaultPreview = {
 					key: 'icons-provider-decorator'
 				}),
 				React.createElement(ThemeProvider, {
-					key: 'theme-provider-decorator'
+					key: 'theme-provider-decorator',
+					theme: context.globals.theme,
 				}, storyElement)
 			];
 		},

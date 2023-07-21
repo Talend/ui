@@ -81,14 +81,17 @@ export const i18n = {
 };
 
 export const globalTypes = {
-	theme: {
-		name: 'Theme',
-		description: 'Choose a theme to apply to the design system',
+	locale: {
+		name: 'Locale',
+		defaultValue: 'en',
 		toolbar: {
-			icon: 'paintbrush',
+			icon: 'globe',
 			items: [
-				{ value: 'light', left: '⚪️', title: 'Default theme' },
-				{ value: 'dark', left: '⚫️', title: 'Dark theme' },
+				{ value: 'zh', title: 'Chinese' },
+				{ value: 'en', title: 'English' },
+				{ value: 'fr', title: 'French' },
+				{ value: 'de', title: 'German' },
+				{ value: 'ja', title: 'Japanese' },
 			],
 		},
 	},
@@ -126,15 +129,19 @@ export const parameters = {
 				true,
 			);
 
-			const { id, parameters, globals, title } = props.context;
+			// const { id, parameters, globals, title } = props.context;
+			// not shure about this but this is where i found the id, title and parameters variables
+			// globals is still missing
+			const { id, parameters, title } = props.context.attachedCSFFile?.meta;
+			const theme = props.context.store.globals.globals.theme;
 
 			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
 
-			useEffect(() => {
-				channel.emit(UPDATE_GLOBALS, {
-					globals: { theme: hasDarkMode ? 'dark' : 'light' },
-				});
-			}, [hasDarkMode]);
+			// useEffect(() => {
+			// 	channel.emit(UPDATE_GLOBALS, {
+			// 		globals: { theme: hasDarkMode ? 'dark' : 'light' },
+			// 	});
+			// }, [hasDarkMode]);
 
 			useEffect(() => {
 				channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
@@ -202,33 +209,31 @@ export const parameters = {
 
 						<TableOfContents>
 							{isDesignSystemElementPage && (
-								<ThemeProvider theme={light}>
-									<StackVertical
-										gap="XXS"
-										padding={{ top: 'XS', left: '0', right: '0', bottom: '0' }}
-									>
-										<Divider />
-										<Form.ToggleSwitch
-											label={'Dark mode'}
-											onChange={() => {
-												setDarkMode(!hasDarkMode);
-											}}
-											checked={hasDarkMode}
-										/>
-										<Form.ToggleSwitch
-											label={'Bootstrap stylesheet'}
-											onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
-											checked={!!hasBootstrapStylesheet}
-										/>
-										{/*
+								<StackVertical
+									gap="XXS"
+									padding={{ top: 'XS', left: '0', right: '0', bottom: '0' }}
+								>
+									<Divider />
+									<Form.ToggleSwitch
+										label={'Dark mode'}
+										onChange={() => {
+											setDarkMode(!hasDarkMode);
+										}}
+										checked={hasDarkMode}
+									/>
+									<Form.ToggleSwitch
+										label={'Bootstrap stylesheet'}
+										onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
+										checked={!!hasBootstrapStylesheet}
+									/>
+									{/*
 										<Form.Switch
 											label={'Figma iframes'}
 											onChange={() => setFigmaIframe(!hasFigmaIframe)}
 											checked={!!hasFigmaIframe}
 										/>
 										*/}
-									</StackVertical>
-								</ThemeProvider>
+								</StackVertical>
 							)}
 						</TableOfContents>
 
@@ -241,9 +246,7 @@ export const parameters = {
 							</Badges>
 						)}
 
-						<ThemeProvider theme={hasDarkMode ? dark : light}>
-							<DocsContainer {...props} />
-						</ThemeProvider>
+						<DocsContainer {...props} />
 
 						<BackToTop />
 					</DarkThemeWrapper>
@@ -341,7 +344,8 @@ export const decorators = [
 		const { globals = {} } = context;
 
 		const { locale: localeKey, theme: themeKey } = globals;
-
+		if (localeKey) i18next.changeLanguage(localeKey);
+		console.log('@@ decorator context : ', context);
 		//TODO: backport theme switcher to scripts-config-storybook and remove this
 		return (
 			<ThemeProvider theme={themeKey}>

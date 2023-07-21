@@ -39,7 +39,7 @@ type Inputs = {
 	'disabled-inline-option'?: string;
 };
 
-export const ReactHooksForm = () => {
+export const RadioReactHooksForm = () => {
 	const { register, handleSubmit } = useForm<Inputs>();
 	const [formData, setFormData] = useState<null | Inputs>();
 	return (
