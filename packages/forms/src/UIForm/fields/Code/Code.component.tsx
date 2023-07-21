@@ -30,7 +30,17 @@ import { IAceEditorProps } from 'react-ace';
 //
 
 const ReactAce = lazy(() =>
-	assetsApi.getUMD('react-ace').then((mod: any) => assetsApi.toDefaultModule(mod.default)),
+	assetsApi.getUMD('react-ace').then((mod: any) => {
+		const extUrl = assetsApi.getURL('/src-noconflict/ext-language_tools.js', 'ace-builds');
+		ace.config.set('basePath', extUrl.replace('ext-language_tools.js', ''));
+		assetsApi.addScript({ src: extUrl });
+		// wait for ext-language_tools.js to be loaded before return the ace module
+		return new Promise(resolve => {
+			setTimeout(() => {
+				resolve(assetsApi.toDefaultModule(mod.default));
+			}, 10);
+		});
+	}),
 );
 
 const DEFAULT_SET_OPTIONS = {
