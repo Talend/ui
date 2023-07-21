@@ -35,7 +35,6 @@
 		.modal {
 			&-subtitle {
 				font-size: 14px;
-				// color: $dark-silver;
 				margin-top: 1px;
 
 				&.error {
@@ -45,7 +44,6 @@
 		}
 
 		.close {
-			// color: $dove-gray;
 			color: tokens.$coral-color-neutral-text-weak;
 			opacity: 1;
 		}
