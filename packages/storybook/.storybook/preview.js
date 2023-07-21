@@ -134,6 +134,7 @@ export const parameters = {
 			// globals is still missing
 			const { id, parameters, title } = props.context.attachedCSFFile?.meta;
 			const theme = props.context.store.globals.globals.theme;
+			debugger;
 
 			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
 

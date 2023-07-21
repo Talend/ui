@@ -43,8 +43,8 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.0.2",
-    "@storybook/testing-library": "^0.1.0",
+    "@storybook/addon-actions": "^7.1.0",
+    "@storybook/testing-library": "^0.2.0",
     "@talend/bootstrap-theme": "^7.0.1",
     "@talend/design-system": "^7.14.0",
     "@talend/icons": "^6.58.1",
