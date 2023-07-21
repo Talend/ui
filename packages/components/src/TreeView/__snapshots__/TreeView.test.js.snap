@@ -2,119 +2,112 @@
 
 exports[`TreeView should render 1`] = `
 <div
-  className="tc-treeview theme-tc-treeview"
+  class="tc-treeview theme-tc-treeview"
 >
   <header
-    className="theme-tc-treeview-header"
+    class="theme-tc-treeview-header"
   >
     <span
       id="id-title"
     >
       some elements
     </span>
-    <Action
-      hideLabel={true}
-      icon="talend-plus"
+    <button
+      aria-describedby="42"
+      aria-label="add element"
+      class="btn-icon-only btn btn-link"
       id="id-add"
-      label="add element"
-      link={true}
-      onClick={[MockFunction]}
-      tooltipPlacement="right"
-    />
+      role="link"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-plus"
+      />
+    </button>
   </header>
   <ul
     aria-labelledby="id-title"
-    className="theme-tc-treeview-list"
+    class="theme-tc-treeview-list"
     role="tree"
   >
-    <TreeViewItem
+    <li
+      aria-expanded="false"
+      aria-level="1"
+      aria-posinset="1"
+      aria-selected="false"
+      aria-setsize="1"
+      class="tc-treeview-item-li theme-tc-treeview-li"
       id="id-0"
-      index={1}
-      item={
-        {
-          "actions": [
-            {
-              "action": [Function],
-              "icon": "talend-trash",
-              "label": "remove element",
-            },
-          ],
-          "children": [
-            {
-              "children": [
-                {
-                  "name": "me",
-                  "selected": true,
-                },
-                {
-                  "name": "bro",
-                },
-              ],
-              "name": "mami",
-              "toggled": true,
-            },
-            {
-              "children": [
-                {
-                  "name": "cousin",
-                },
-              ],
-              "name": "aunt",
-              "toggled": false,
-            },
-          ],
-          "counter": 101,
-          "name": "grandpa",
-          "showCounter": true,
-          "toggled": true,
-        }
-      }
-      level={1}
-      onKeyDown={[Function]}
-      onSelect={[MockFunction]}
-      onToggle={[MockFunction]}
-      siblings={
-        [
-          {
-            "actions": [
-              {
-                "action": [Function],
-                "icon": "talend-trash",
-                "label": "remove element",
-              },
-            ],
-            "children": [
-              {
-                "children": [
-                  {
-                    "name": "me",
-                    "selected": true,
-                  },
-                  {
-                    "name": "bro",
-                  },
-                ],
-                "name": "mami",
-                "toggled": true,
-              },
-              {
-                "children": [
-                  {
-                    "name": "cousin",
-                  },
-                ],
-                "name": "aunt",
-                "toggled": false,
-              },
-            ],
-            "counter": 101,
-            "name": "grandpa",
-            "showCounter": true,
-            "toggled": true,
-          },
-        ]
-      }
-    />
+      role="treeitem"
+      tabindex="0"
+    >
+      <div
+        class="tc-treeview-item theme-tc-treeview-item"
+        style="padding-left: 30px;"
+      >
+        <button
+          aria-hidden="true"
+          aria-label=""
+          class="theme-tc-treeview-toggle btn-icon-only btn btn-link"
+          id="id-0-toggle"
+          role="link"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="CoralIcon"
+            name="talend-caret-down"
+            transform="rotate-270"
+          />
+          <span />
+        </button>
+        <span
+          class="CoralIcon theme-tc-treeview-folder"
+          name="talend-folder-closed"
+        />
+        <span
+          class="tc-treeview-item-name theme-tc-treeview-item-name"
+        >
+          grandpa
+        </span>
+        <div
+          class="theme-tc-treeview-item-ctrl"
+        >
+          <div
+            class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
+          >
+            <div
+              class="tc-badge-button theme-tc-badge-button"
+            >
+              <div
+                class="tc-badge-label theme-tc-badge-label"
+              >
+                <span
+                  aria-describedby="42"
+                  class="tc-badge-label-text theme-tc-badge-label-text"
+                >
+                  101
+                </span>
+              </div>
+            </div>
+          </div>
+          <button
+            aria-describedby="42"
+            aria-label="remove element"
+            class="btn-icon-only btn btn-link"
+            id="id-0-talend-trash"
+            role="link"
+            type="button"
+          >
+            <span
+              class="CoralIcon"
+              name="talend-trash"
+            />
+          </button>
+        </div>
+      </div>
+    </li>
   </ul>
 </div>
 `;

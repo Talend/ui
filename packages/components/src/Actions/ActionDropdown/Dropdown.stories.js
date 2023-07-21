@@ -195,7 +195,7 @@ const oneEventAction = {
 };
 
 export default {
-	title: 'Buttons/Dropdown',
+	title: 'Components/Actions/Dropdown',
 };
 
 export const Default = () => (

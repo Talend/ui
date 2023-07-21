@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import TextArea from '.';
 
 export default {
-	title: 'RHF/TextArea',
+	title: 'Forms/RHF/TextArea',
 
 	parameters: {
 		component: TextArea,

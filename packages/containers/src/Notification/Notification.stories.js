@@ -25,6 +25,10 @@ const initialState = new Map({
 
 export default {
 	title: 'Notification',
+	parameters: {
+		// Disables Chromatic's snapshotting on a story level
+		chromatic: { disableSnapshot: true },
+	},
 };
 
 export const Default = () => <Notification initialState={initialState} />;

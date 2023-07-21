@@ -1,5 +1,16 @@
 # @talend/scripts-config-storybook-lib
 
+## 4.0.3
+
+### Patch Changes
+
+- 05043227a: fix(msw): add option onUnhandledRequest: 'bypass' to forward calls if not match
+- fcd8daf3c: fix: use bootstrap.css at build instead of rely on surge
+- fcd8daf3c: fix: add missing dependencies
+- Updated dependencies [ee828e0b0]
+- Updated dependencies [5fd268ed6]
+  - @talend/scripts-config-react-webpack@15.4.0
+
 ## 4.0.2
 
 ### Patch Changes

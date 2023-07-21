@@ -1,38 +1,31 @@
-import { mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import { ListContext, useListContext } from './context';
 
 function TestComponent() {
 	const context = useListContext();
-	return <div {...context} />;
+	return <div data-testid="TestComponent" {...context} />;
 }
 
 describe('List context', () => {
 	it('should throw when used outside of context provider', () => {
 		// when
-		try {
-			mount(<TestComponent />);
-			expect.fail(
-				'It should have thrown an error because useListContext is used outside of context provider',
-			);
-		} catch (error) {
-			// then
-			expect(error.message).toBe(
-				'@talend/react-components > List: you are using a sub component out of List.Manager.',
-			);
-		}
+		const toThrow = () => render(<TestComponent />);
+		// then
+		expect(toThrow).toThrow(
+			'@talend/react-components > List: you are using a sub component out of List.Manager.',
+		);
 	});
 	it('should throw when used outside of context provider', () => {
 		// given
 		const value = { id: 'lol' };
 
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={value}>
 				<TestComponent />
 			</ListContext.Provider>,
 		);
 		// then
-		expect(wrapper.find('div').prop('id')).toBe('lol');
+		expect(screen.getByTestId('TestComponent')).toHaveAttribute('id', 'lol');
 	});
 });

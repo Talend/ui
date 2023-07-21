@@ -1,7 +1,8 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
-import cmf, { cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect, useCMFContext } from '@talend/react-cmf';
+import { randomUUID } from '@talend/utils';
 
 import { deleteACK } from '../../actions/ack';
 
@@ -20,61 +21,43 @@ export const DEFAULT_STATE = new Map({});
  }
 
  */
-class ACKDispatcher extends Component {
-	static displayName = 'Container(ACKDispatcher)';
 
-	static propTypes = {
-		acks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		...cmfConnect.propTypes,
-	};
+const cache = {};
 
-	static contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
-		router: PropTypes.object,
-	};
-
-	constructor(props, context) {
-		super(props, context);
-		this.dispatchAndUpdateAck = this.dispatchAndUpdateAck.bind(this);
-		this.processACK = this.processACK.bind(this);
-		this.state = { dispatchedAck: [] };
+function ACKDispatcher(props) {
+	const context = useCMFContext();
+	const [uuid] = useState(randomUUID());
+	if (!cache[uuid]) {
+		cache[uuid] = [];
 	}
-
-	shouldComponentUpdate(nextProps) {
-		return this.props.acks !== nextProps.acks;
-	}
-
-	dispatchAndUpdateAck(actionCreator, data, requestId) {
-		const action = cmf.actionCreator.get(this.context, actionCreator)({}, data, this.context);
+	const dispatchedAck = cache[uuid];
+	function dispatchAndUpdateAck(actionCreator, data, requestId) {
+		const action = cmf.actionCreator.get(context, actionCreator)({}, data, context);
 		action.ack = deleteACK(null, { requestId });
-		this.props.dispatch(action);
-		this.setState(oldState => {
-			if (oldState.dispatchedAck.includes(requestId)) {
-				return oldState;
-			}
-			return { dispatchedAck: oldState.dispatchedAck.concat([requestId]) };
-		});
-	}
+		props.dispatch(action);
 
-	processACK() {
-		this.props.acks
-			.filter(ack => ack.get('received') === true && ack.get('actionCreator'))
-			.forEach((ack, requestId) => {
-				let data = ack.get('data');
-				if (data === undefined) {
-					data = {};
-				}
-				this.dispatchAndUpdateAck(ack.get('actionCreator'), data, requestId);
-			});
-	}
-
-	render() {
-		if (this.props.acks) {
-			this.processACK();
+		if (!dispatchedAck.includes(requestId)) {
+			cache[uuid].push(requestId);
 		}
-		return null;
 	}
+	(props.acks || [])
+		.filter(ack => ack.get('received') === true && ack.get('actionCreator'))
+		.forEach((ack, requestId) => {
+			let data = ack.get('data');
+			if (data === undefined) {
+				data = {};
+			}
+			dispatchAndUpdateAck(ack.get('actionCreator'), data, requestId);
+		});
+
+	return null;
 }
+
+ACKDispatcher.propTypes = {
+	acks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	...cmfConnect.propTypes,
+};
+
+ACKDispatcher.displayName = 'Container(ACKDispatcher)';
 
 export default ACKDispatcher;

@@ -1,9 +1,10 @@
 import fetchMock from 'fetch-mock';
 import { Response, Headers } from 'node-fetch';
-import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
 
 import { HTTP, getDefaultConfig, setDefaultConfig } from './config';
 import { httpFetch, handleBody, encodePayload, handleHttpResponse } from './http.common';
+import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
+import { TalendHttpError } from './http.types';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
 const defaultBody = { is: 'ok' };
@@ -14,6 +15,9 @@ const defaultPayload = {
 beforeEach(() => {
 	jest.clearAllMocks();
 });
+
+const isTalendHttpError = (err: any): err is TalendHttpError<unknown> =>
+	'response' in err && 'data' in err;
 
 describe('handleBody', () => {
 	it('should manage the body of the response like text if no header', async () => {
@@ -95,9 +99,10 @@ describe('handleBody', () => {
 						headers,
 					}) as any,
 				);
-			} catch (e) {
-				// @ts-ignore
-				expect(e.message).toEqual('403');
+			} catch (err) {
+				if (err instanceof Error) {
+					expect(err.message).toEqual('403');
+				}
 			}
 		});
 
@@ -130,11 +135,11 @@ describe('handleBody', () => {
 						status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
 					}) as any,
 				);
-			} catch (e) {
-				// @ts-ignore
-				expect(e.response instanceof Response).toBe(true);
-				// @ts-ignore
-				expect(e.response.status).toEqual(500);
+			} catch (err) {
+				if (isTalendHttpError(err)) {
+					expect(err.response instanceof Response).toBe(true);
+					expect(err.response.status).toEqual(500);
+				}
 			}
 		});
 	});

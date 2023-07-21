@@ -1,8 +1,12 @@
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import cmf, { mock } from '@talend/react-cmf';
 import { Map } from 'immutable';
 import Container, { DISPLAY_NAME } from './EditableText.container';
 import Connect from './EditableText.connect';
 import { getEditMode } from './EditableText.selectors';
+
+jest.unmock('@talend/design-system');
 
 describe('Connect', () => {
 	it('should connect EditableText', () => {
@@ -12,12 +16,23 @@ describe('Connect', () => {
 });
 
 describe('EditableText container', () => {
-	it('should render', () => {
-		const wrapper = shallow(<Container />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+	let App;
+	beforeAll(async () => {
+		const config = await cmf.bootstrap({
+			render: false,
+			components: {},
+		});
+		App = config.App;
 	});
-	it('should setState when submit event trigger', () => {
-		const event = {};
+	it('should render', () => {
+		const { container } = render(
+			<App {...mock.store.context()}>
+				<Container text="test" />
+			</App>,
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+	it('should setState when submit event trigger', async () => {
 		let state;
 		const props = {
 			state: Map({ editMode: true }),
@@ -25,39 +40,42 @@ describe('EditableText container', () => {
 				state = fn;
 			}),
 			onCancel: jest.fn(),
+			onSubmit: jest.fn(),
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('submit', event);
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByLabelText('Submit'));
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.editMode).toEqual(false);
+		expect(props.onSubmit).toHaveBeenCalledWith(expect.anything(), {
+			value: 'my text',
+			props: expect.anything(props),
+		});
 	});
-	it('should call onSubmit when submit event trigger', () => {
+	it('should call ActionCreatorSubmit when submit event trigger', async () => {
 		const event = {};
-		const data = { value: 'submitValue', props: {} };
-		const props = {
-			onSubmit: jest.fn(),
-			state: Map({ editMode: false }),
-			setState: jest.fn(),
-		};
-		shallow(<Container {...props} />).simulate('submit', event, data);
-		expect(props.onSubmit).toHaveBeenCalledWith(event, data);
-	});
-	it('should call ActionCreatorSubmit when submit event trigger', () => {
-		const event = {};
-		const data = { value: 'submitValue', props: {} };
 		const props = {
 			actionCreatorSubmit: 'mySubmitActionCreator',
 			dispatchActionCreator: jest.fn(),
-			state: Map({ editMode: false }),
+			state: Map({ editMode: true }),
 			setState: jest.fn(),
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('submit', event, data);
-		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorSubmit, event, {
-			props,
-			data,
-		});
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByLabelText('Submit'));
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+			props.actionCreatorSubmit,
+			expect.anything(event),
+			{
+				props,
+				data: {
+					props: expect.anything(props),
+					value: 'my text',
+				},
+			},
+		);
 	});
-	it('should setState when cancel event trigger', () => {
-		const event = {};
+	it('should setState when cancel event trigger', async () => {
 		let state;
 		const props = {
 			state: Map({ editMode: true }),
@@ -65,36 +83,43 @@ describe('EditableText container', () => {
 				state = fn;
 			}),
 			onCancel: jest.fn(),
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('cancel', event);
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByLabelText('Cancel'));
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.editMode).toEqual(false);
 	});
-	it('should call onCancel when cancel event trigger', () => {
-		const event = {};
+	it('should call onCancel when cancel event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false }),
+			state: Map({ editMode: true }),
 			onCancel: jest.fn(),
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('cancel', event);
-		expect(props.onCancel).toHaveBeenCalledWith(event);
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByLabelText('Cancel'));
+		expect(props.onCancel).toHaveBeenCalledWith(expect.anything());
 	});
-	it('should call actionCreatorCancel when cancel event trigger', () => {
-		const event = {};
+	it('should call actionCreatorCancel when cancel event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false }),
+			state: Map({ editMode: true }),
 			actionCreatorCancel: 'myCancelActionCreator',
 			dispatchActionCreator: jest.fn(),
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('cancel', event);
-		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorCancel, event, {
-			props,
-		});
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByLabelText('Cancel'));
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+			props.actionCreatorCancel,
+			expect.anything(),
+			{
+				props,
+			},
+		);
 	});
-	it('should call setState when edit event trigger', () => {
-		const event = {};
+	it('should call setState when edit event trigger', async () => {
 		let state;
 		const props = {
 			state: Map({ editMode: false }),
@@ -102,57 +127,73 @@ describe('EditableText container', () => {
 				state = fn;
 			}),
 			onCancel: jest.fn(),
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('edit', event);
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByLabelText('Rename'));
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.editMode).toEqual(true);
 	});
-	it('should call onEdit when edit event trigger', () => {
-		const event = {};
+	it('should call onEdit when edit event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
 			state: Map({ editMode: false }),
 			onEdit: jest.fn(),
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('edit', event);
-		expect(props.onEdit).toHaveBeenCalledWith(event);
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByLabelText('Rename'));
+		expect(props.onEdit).toHaveBeenCalledWith(expect.anything());
 	});
-	it('should call onEdit when edit event trigger', () => {
-		const event = {};
+	it('should call onEdit when edit event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
 			state: Map({ editMode: false }),
 			dispatchActionCreator: jest.fn(),
 			actionCreatorEdit: 'myEditActionCreator',
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('edit', event);
-		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorEdit, event, {
-			props,
-		});
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByLabelText('Rename'));
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+			props.actionCreatorEdit,
+			expect.anything(),
+			{
+				props,
+			},
+		);
 	});
-	it('should call onChange when change event trigger', () => {
-		const event = { target: { value: 'my onChangeTitle' } };
+	it('should call onChange when change event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false }),
+			state: Map({ editMode: true }),
 			onChange: jest.fn(),
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('change', event);
-		expect(props.onChange).toHaveBeenCalledWith(event, event.target.value);
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByRole('textbox'));
+		await userEvent.keyboard('my onChangeTitle');
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), 'my onChangeTitle');
 	});
-	it('should call onChange when change event tigger', () => {
-		const event = { target: { value: 'my onChangeTitle' } };
+	it('should call onChange when change event tigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false }),
+			state: Map({ editMode: true }),
 			dispatchActionCreator: jest.fn(),
 			actionCreatorChange: 'myChangeActionCreator',
+			text: 'my text',
 		};
-		shallow(<Container {...props} />).simulate('change', event);
-		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorChange, event, {
-			props,
-			value: event.target.value,
-		});
+		render(<Container {...props} />);
+		await userEvent.click(screen.getByRole('textbox'));
+		await userEvent.keyboard('my onChangeTitle');
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+			props.actionCreatorChange,
+			expect.anything(),
+			{
+				props,
+				value: 'my onChangeTitle',
+			},
+		);
 	});
 });
 

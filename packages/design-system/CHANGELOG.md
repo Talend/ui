@@ -1,5 +1,67 @@
 # @talend/design-system
 
+## 7.14.0
+
+### Minor Changes
+
+- cd79a04a8: Design System - InlineEdit and InlineEditMulti can now have a maxLength attribute
+
+### Patch Changes
+
+- 0789cda91: Design system - Form file will now update on files prop change and will trigger onChange when file is cleared
+
+## 7.13.0
+
+### Minor Changes
+
+- 4292de3ea: feat(TDC-7254/Stepper): Add a new props `currentStepIndex` to control current step. Set to zero by default.
+
+  This fix an issue as the previous code is based on react ref which is not updated when dom is changed. As we don't want to observe mutation on the DOM, let's go back on classic react patterns, make it pure and ask for a state
+
+## 7.12.2
+
+### Patch Changes
+
+- 1c53807b7: chore: update rich radio button
+
+## 7.12.1
+
+### Patch Changes
+
+- b10ae79ed: fix(design-system): add data attributes to RichRadioButton
+- 5bfab7ded: feat(tdc-7258): added data-checked attribute so automated tests can select the checked card
+
+## 7.12.0
+
+### Minor Changes
+
+- 7de53ccf0: feat(design-system): Handle logos in RichRadioButton
+
+## 7.11.0
+
+### Minor Changes
+
+- d8c9adc34: [DS] InlineEditing : allow to update value from default value prop
+
+## 7.10.0
+
+### Minor Changes
+
+- a90c12b34: feat: add data attributes to the BadgeDropdown component
+- c54e10157: feat(TDC-6804): added rich radio button component
+
+## 7.9.0
+
+### Minor Changes
+
+- 7a9f88147: chore(TFD-15534): Add status to accordion header
+
+## 7.8.0
+
+### Minor Changes
+
+- d5c2f9409: feat: Add other illustrations for EmptyStateMedium
+
 ## 7.7.3
 
 ### Patch Changes

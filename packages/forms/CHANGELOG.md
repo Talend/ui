@@ -1,5 +1,58 @@
 # @talend/react-forms
 
+## 9.3.0
+
+### Minor Changes
+
+- 7a9a8db40: Forms - Allow to disable a single checkbox for checkbox widget list
+
+## 9.2.3
+
+### Patch Changes
+
+- eefc711c0: fix: remove jest from runtime
+
+## 9.2.2
+
+### Patch Changes
+
+- 3099c427a: chore: rewrite tests using react-testing-library
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- Updated dependencies [a90c12b34]
+- Updated dependencies [fcd8daf3c]
+- Updated dependencies [c7f316d7c]
+- Updated dependencies [b8c4161d2]
+- Updated dependencies [c54e10157]
+- Updated dependencies [3099c427a]
+  - @talend/design-system@7.10.0
+  - @talend/react-components@10.3.5
+
+## 9.2.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- Updated dependencies [52d4f2df3]
+- Updated dependencies [b326091d2]
+- Updated dependencies [7a9f88147]
+- Updated dependencies [85b04cc81]
+- Updated dependencies [9719af7af]
+  - @talend/react-components@10.3.3
+  - @talend/design-system@7.9.0
+
+## 9.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- 0103ec63f: fix(TDOPS-4264/NestedList): expand list based on the schema options
+- Updated dependencies [ae37dc329]
+  - @talend/react-components@10.3.0
+
 ## 9.1.0
 
 ### Minor Changes

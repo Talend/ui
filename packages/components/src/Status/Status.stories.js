@@ -24,7 +24,7 @@ const myStatus = {
 };
 
 export default {
-	title: 'Messaging & Communication/Status',
+	title: 'Components/Messaging & Communication/Status',
 };
 
 export const Default = () => (

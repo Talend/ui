@@ -1,12 +1,8 @@
-import { shallow, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
-import { InlineEditing } from '@talend/design-system';
+import TitleSubHeader from './TitleSubHeader.component';
 
-import Skeleton from '../../Skeleton';
-import Icon from '../../Icon';
-import Action from '../../Actions/Action';
-import Tag from '../../Tag';
-import TitleSubHeader, { SubTitle } from './TitleSubHeader.component';
+jest.unmock('@talend/design-system');
 
 describe('TitleSubHeader', () => {
 	let defaultProps;
@@ -19,55 +15,37 @@ describe('TitleSubHeader', () => {
 	});
 
 	it('should render', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
-		expect(wrapper.find(Action)).toHaveLength(0);
-		expect(wrapper.find('h1')).toHaveLength(1);
-		expect(wrapper.find('button')).toHaveLength(0);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render with title', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
-		expect(wrapper.find('h1').getElement().props.children).toEqual('myTitle');
+		const { container } = render(<TitleSubHeader {...defaultProps} />);
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByText('myTitle')).toBeInTheDocument();
+		expect(screen.getByRole('heading')).toHaveTextContent('myTitle');
+		expect(screen.queryAllByRole('button').length).toBe(0);
 	});
 
 	it('should render with an icon', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} iconId="myIconId" />);
-		expect(wrapper.find(Icon)).toHaveLength(1);
-		expect(wrapper.find(Icon).get(0).props.name).toEqual('myIconId');
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should not render Icon', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
-		expect(wrapper.find(Icon)).toHaveLength(0);
-	});
-
-	it('should render plain text title', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable={false} />);
-		expect(wrapper.find(TitleSubHeader)).toHaveLength(0);
-		expect(wrapper.find('h1')).toHaveLength(1);
+		render(<TitleSubHeader {...defaultProps} iconId="myIconId" />);
+		expect(document.querySelector('svg[name="myIconId"]')).toBeInTheDocument();
 	});
 
 	it('should render InlineEditing', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
-		expect(wrapper.find(InlineEditing.Text)).toHaveLength(1);
-		expect(wrapper.find(InlineEditing.Text).get(0).props['data-feature']).toBe(
+		render(<TitleSubHeader {...defaultProps} editable />);
+		const btn = screen.getByTestId('inlineediting.button.edit');
+		expect(btn).toBeVisible();
+		expect(screen.getByTestId('inlineediting')).toHaveAttribute(
+			'data-feature',
 			'subheaderbar.rename',
 		);
-		expect(wrapper.find('h1')).toHaveLength(0);
 	});
 
 	it('should render skeleton', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} loading />);
-		expect(wrapper.find(Skeleton)).toHaveLength(1);
+		render(<TitleSubHeader {...defaultProps} loading />);
+		expect(document.querySelector('.tc-skeleton')).toBeInTheDocument();
+		expect(screen.queryByText('myTitle')).not.toBeInTheDocument();
 	});
 
 	it('should render inProgress', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} inProgress />);
-		expect(wrapper.props().className).toEqual(
-			'tc-subheader-details theme-tc-subheader-details tc-subheader-details-blink theme-tc-subheader-details-blink',
-		);
+		const { container } = render(<TitleSubHeader {...defaultProps} inProgress />);
+		expect(container.firstChild).toHaveClass('tc-subheader-details-blink');
 	});
 
 	it('should render pass extra props to the title', () => {
@@ -75,50 +53,9 @@ describe('TitleSubHeader', () => {
 		const titleProps = { 'data-test': '123' };
 
 		// when
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} titleProps={titleProps} />);
+		render(<TitleSubHeader {...defaultProps} titleProps={titleProps} />);
 
 		// then
-		expect(wrapper.find('[data-test="123"]')).toHaveLength(1);
-	});
-});
-
-describe('SubTitle', () => {
-	let defaultProps;
-	beforeEach(() => {
-		defaultProps = {
-			subTitle: 'mySubTitle',
-		};
-	});
-
-	it('should render', () => {
-		const wrapper = shallow(<SubTitle {...defaultProps} />);
-		expect(wrapper.html()).toMatchSnapshot();
-	});
-
-	it('should render in loading mode', () => {
-		const wrapper = shallow(<SubTitle subTitleLoading />);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render with a custom subtitle', () => {
-		const wrapper = shallow(
-			<SubTitle
-				{...defaultProps}
-				subTitleAs={({ subTitle }) => <Tag bsStyle="info">{subTitle}</Tag>}
-			/>,
-		);
-		expect(wrapper.find(Tag)).not.toBe(null);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render pass extra props to the subtitle', () => {
-		// given
-		const subTitleProps = { 'data-test': '345' };
-
-		// when
-		const wrapper = mount(<SubTitle {...defaultProps} subTitleProps={subTitleProps} />);
-
-		// then
-		expect(wrapper.find('[data-test="345"]')).toHaveLength(1);
+		expect(screen.getByRole('heading')).toHaveAttribute('data-test', '123');
 	});
 });

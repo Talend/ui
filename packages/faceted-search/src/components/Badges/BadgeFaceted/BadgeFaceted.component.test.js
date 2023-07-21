@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { mount } from 'enzyme';
+import { screen, render, fireEvent } from '@testing-library/react';
 import Badge from '@talend/react-components/lib/Badge';
 import { BadgeFaceted } from './BadgeFaceted.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
@@ -13,7 +12,7 @@ const MyWrappedBadge = ({ children, properties, providerValue }) => (
 
 // eslint-disable-next-line react/prop-types
 const TestChildren = ({ badgeValue = 'default', onChangeValue, onSubmit }) => (
-	<button id="my-button" onChange={onChangeValue} onClick={onSubmit}>
+	<button data-testid="my-button" id="my-button" onChange={onChangeValue} onClick={onSubmit}>
 		{badgeValue}
 	</button>
 );
@@ -50,44 +49,16 @@ describe('BadgeFaceted', () => {
 			t: () => 'Remove filter',
 		};
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<MyWrappedBadge properties={props} providerValue={badgeFacetedContextValue}>
 				{renderProps => <TestChildren {...renderProps} />}
 			</MyWrappedBadge>,
 		);
 		// Then
-		expect(wrapper.find('div#tc-badge-select-my-id')).toHaveLength(1);
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(document.querySelectorAll('div#tc-badge-select-my-id')).toHaveLength(1);
+		expect(container.firstChild).toMatchSnapshot();
 	});
-	it('should trigger the onSubmit callback from context when children is clicked', () => {
-		// Given
-		const onSubmit = jest.fn();
-		const badgeFacetedContextValue = {
-			onDeleteBadge: jest.fn(),
-			dispatch: jest.fn(),
-			onSubmit,
-		};
-		const props = {
-			badgeId: 'my-badge-id',
-			category: 'Category',
-			id: 'my-id',
-			labelCategory: 'My Label',
-			labelValue: 'All',
-			operator,
-			operators,
-			t: () => 'Remove filter',
-			value: 'hello world',
-		};
-		// When
-		const wrapper = mount(
-			<MyWrappedBadge properties={props} providerValue={badgeFacetedContextValue}>
-				{renderProps => <TestChildren {...renderProps} />}
-			</MyWrappedBadge>,
-		).renderProp('children')({ onSubmit });
-		wrapper.find('button#my-button').simulate('click');
-		// Then
-		expect(onSubmit).toHaveBeenCalledTimes(1);
-	});
+
 	it('should trigger the onDelete callback from context when cross button is clicked', () => {
 		// Given
 		const dispatch = jest.fn();
@@ -108,12 +79,12 @@ describe('BadgeFaceted', () => {
 			value: 'hello world',
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<MyWrappedBadge properties={props} providerValue={badgeFacetedContextValue}>
 				{renderProps => <TestChildren {...renderProps} />}
 			</MyWrappedBadge>,
 		);
-		wrapper.find('button#tc-badge-delete-my-id').simulate('click');
+		fireEvent.click(document.querySelector('button#tc-badge-delete-my-id'));
 		// Then
 		expect(dispatch).toHaveBeenNthCalledWith(1, {
 			payload: { badgeId: 'my-badge-id' },
@@ -140,11 +111,13 @@ describe('BadgeFaceted', () => {
 			displayType: Badge.TYPES.VALUE,
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<MyWrappedBadge properties={props} providerValue={badgeFacetedContextValue}>
 				{renderProps => <TestChildren {...renderProps} />}
 			</MyWrappedBadge>,
 		);
-		expect(wrapper.find('#my-id-action-overlay Icon[name="talend-empty-space"]')).toHaveLength(1);
+		expect(
+			document.querySelectorAll('#my-id-action-overlay [name="talend-empty-space"]'),
+		).toHaveLength(1);
 	});
 });

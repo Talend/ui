@@ -2,52 +2,44 @@
 
 exports[`RichLayout should render RichLayout with header, content and footer 1`] = `
 <div
-  className="theme-rich-layout"
+  class="theme-rich-layout"
   id="richlayout"
-  tabIndex="-1"
+  tabindex="-1"
 >
-  <Header
+  <header
+    class="theme-header tc-tooltip-header"
     id="richlayout-header"
   >
-    <div>
+    <div
+      data-testid="Header"
+    >
       Header
     </div>
-  </Header>
-  <Body
+  </header>
+  <div
+    class="theme-body tc-tooltip-body"
     id="richlayout-body"
   >
-    <div>
-      Content
+    <div
+      class="theme-content tc-tooltip-content"
+      id="richlayout-body-content"
+    >
+      <div
+        data-testid="Content"
+      >
+        Content
+      </div>
     </div>
-  </Body>
-  <Footer
+  </div>
+  <footer
+    class="theme-footer tc-tooltip-footer"
     id="richlayout-footer"
   >
-    <div>
+    <div
+      data-testid="Footer"
+    >
       Footer
     </div>
-  </Footer>
-</div>
-`;
-
-exports[`RichLayout should render with a text in the body 1`] = `
-<div
-  className="theme-rich-layout"
-  id="richlayout"
-  tabIndex="-1"
->
-  <Header
-    id="richlayout-header"
-  />
-  <Body
-    id="richlayout-body"
-  >
-    <p>
-      loreum
-    </p>
-  </Body>
-  <Footer
-    id="richlayout-footer"
-  />
+  </footer>
 </div>
 `;

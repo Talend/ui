@@ -2,27 +2,27 @@
 
 exports[`ViewLayout should render a ViewLayout 1`] = `
 <div
-  className="theme-container"
+  class="theme-container"
 >
   <div
-    className="theme-header"
+    class="theme-header"
   >
     <div
-      className="theme-element-container theme-left"
+      class="theme-element-container theme-left"
     >
       <span>
         left item
       </span>
     </div>
     <div
-      className="theme-element-container theme-middle"
+      class="theme-element-container theme-middle"
     >
       <span>
         middle item
       </span>
     </div>
     <div
-      className="theme-element-container theme-right"
+      class="theme-element-container theme-right"
     >
       <span>
         right item
@@ -30,9 +30,11 @@ exports[`ViewLayout should render a ViewLayout 1`] = `
     </div>
   </div>
   <div
-    className="theme-element-container theme-body"
+    class="theme-element-container theme-body"
   >
-    <whateverBodyElement />
+    <div
+      data-testid="body"
+    />
   </div>
 </div>
 `;

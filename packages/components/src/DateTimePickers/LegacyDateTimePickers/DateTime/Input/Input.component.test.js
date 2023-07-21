@@ -1,5 +1,5 @@
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { DateTimeContext } from '../Context';
 import Input from './Input.component';
@@ -21,14 +21,18 @@ describe('DateTime.Input', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<DateTimeContext.Provider value={managerValue}>
 				<Input aria-labelledby="labelId" />
 			</DateTimeContext.Provider>,
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		const input = screen.getByRole('textbox');
+		expect(input).toHaveAttribute('aria-labelledby', 'labelId');
+		expect(input).toHaveAttribute('aria-describedby', 'inputErrorId');
+		expect(input).toHaveAttribute('placeholder', 'YYY-MM-DD');
+		expect(input).toHaveValue('2007-01-02');
 	});
 
 	it('should call manager focus callback in input focus', () => {
@@ -42,7 +46,7 @@ describe('DateTime.Input', () => {
 			},
 		};
 
-		const wrapper = mount(
+		render(
 			<DateTimeContext.Provider value={managerValue}>
 				<Input aria-labelledby="labelId" />
 			</DateTimeContext.Provider>,
@@ -50,7 +54,7 @@ describe('DateTime.Input', () => {
 		expect(managerValue.errorManagement.onInputFocus).not.toBeCalled();
 
 		// when
-		wrapper.find('input').simulate('focus');
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
 		expect(managerValue.errorManagement.onInputFocus).toBeCalled();

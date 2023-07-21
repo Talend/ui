@@ -1,30 +1,44 @@
+/* eslint-disable react/prop-types */
 import { useContext } from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import ListManager from './ListManager.component';
 import { ListContext } from '../context';
 
-function TestConsumer() {
-	return <div />;
+function TestConsumer(props) {
+	return (
+		<div data-testid="TestConsumer" data-props={JSON.stringify(props)}>
+			<span data-testid="displayMode">{props.displayMode}</span>
+			<button onClick={() => props.setDisplayMode('large')}>Large</button>
+			<input
+				type="text"
+				value={props.textFilter}
+				onChange={e => props.setTextFilter(e.target.value)}
+			/>
+			<button onClick={() => props.setColumns(props.newValue)}>setColumns</button>
+			<button onClick={() => props.setFilteredColumns(props.newValue)}>setFilteredColumns</button>
+			<button onClick={() => props.setSortParams(props.newValue)}>setSortParams</button>
+		</div>
+	);
 }
 
-function ContextTestConsumer() {
+function ContextTestConsumer(props) {
 	const context = useContext(ListContext);
-	return <TestConsumer {...context} />;
+	return <TestConsumer {...context} {...props} />;
 }
 
 describe('List Manager', () => {
 	it('should display children', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<ListManager>
 				<ContextTestConsumer />
 			</ListManager>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('TestConsumer')).toBeVisible();
 	});
 
 	it('should pass collection', () => {
@@ -32,41 +46,36 @@ describe('List Manager', () => {
 		const collection = [{ id: 0 }, { id: 1 }];
 
 		// when
-		const wrapper = mount(
+		render(
 			<ListManager collection={collection}>
 				<ContextTestConsumer />
 			</ListManager>,
 		);
 
 		// then
-		expect(wrapper.find(TestConsumer).prop('collection')).toBe(collection);
+		const props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
+		expect(props.collection).toEqual(collection);
 	});
 
 	it('should propagate display mode', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<ListManager collection={[{ id: 0 }, { id: 1 }]}>
 				<ContextTestConsumer />
 			</ListManager>,
 		);
-		expect(wrapper.find(TestConsumer).prop('displayMode')).toBe('table');
-
-		const newDisplayMode = 'large';
+		expect(screen.getByTestId('displayMode')).toHaveTextContent('table');
 
 		// when
-		act(() => {
-			const setDisplayMode = wrapper.find(TestConsumer).prop('setDisplayMode');
-			setDisplayMode(newDisplayMode);
-		});
-		wrapper.update();
+		userEvent.click(screen.getByText('Large'));
 
 		// then
-		expect(wrapper.find(TestConsumer).prop('displayMode')).toBe(newDisplayMode);
+		expect(screen.getByTestId('displayMode')).toHaveTextContent('large');
 	});
 
 	it('should propagate filter', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<ListManager
 				collection={[
 					{ id: 0, name: 'toto' },
@@ -76,110 +85,88 @@ describe('List Manager', () => {
 				<ContextTestConsumer />
 			</ListManager>,
 		);
-		expect(wrapper.find(TestConsumer).prop('textFilter')).toBeUndefined();
-		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([
-			{ id: 0, name: 'toto' },
-			{ id: 1, name: 'tata' },
-		]);
 
 		const newFilter = 'toto';
 
 		// when
-		act(() => {
-			const setTextFilter = wrapper.find(TestConsumer).prop('setTextFilter');
-			setTextFilter(newFilter);
-		});
-		wrapper.update();
+		userEvent.type(screen.getByRole('textbox'), newFilter);
 
 		// then
-		expect(wrapper.find(TestConsumer).prop('textFilter')).toBe('toto');
-		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([{ id: 0, name: 'toto' }]);
+		const props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
+		expect(props.textFilter).toBe(newFilter);
+		expect(props.collection).toEqual([{ id: 0, name: 'toto' }]);
 	});
 
 	it('should propagate column list', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<ListManager
 				collection={[
 					{ dataKey: 'id', label: 'ID' },
 					{ dataKey: 'name', label: 'Name' },
 				]}
 			>
-				<ContextTestConsumer />
+				<ContextTestConsumer newValue={['id', 'name']} />
 			</ListManager>,
 		);
-		expect(wrapper.find(TestConsumer).prop('columns')).toEqual([]);
-
-		const columns = ['id', 'name'];
 
 		// when
-		act(() => {
-			const setColumns = wrapper.find(TestConsumer).prop('setColumns');
-			setColumns(columns);
-		});
-		wrapper.update();
+		userEvent.click(screen.getByText('setColumns'));
 
 		// then
-		expect(wrapper.find(TestConsumer).prop('columns')).toEqual(columns);
+		const props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
+		expect(props.columns).toEqual(['id', 'name']);
 	});
 
 	it('should propagate filtered column list', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<ListManager
 				collection={[
 					{ dataKey: 'id', label: 'ID' },
 					{ dataKey: 'name', label: 'Name' },
 				]}
 			>
-				<ContextTestConsumer />
+				<ContextTestConsumer newValue={['name']} />
 			</ListManager>,
 		);
-		expect(wrapper.find(TestConsumer).prop('filteredColumns')).toBeUndefined();
 
 		const filteredColumns = ['name'];
 
 		// when
-		act(() => {
-			const setFilteredColumns = wrapper.find(TestConsumer).prop('setFilteredColumns');
-			setFilteredColumns(filteredColumns);
-		});
-		wrapper.update();
+		userEvent.click(screen.getByText('setFilteredColumns'));
 
 		// then
-		expect(wrapper.find(TestConsumer).prop('filteredColumns')).toBe(filteredColumns);
+		const props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
+		expect(props.filteredColumns).toEqual(filteredColumns);
 	});
 
 	it('should propagate sort', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<ListManager
 				collection={[
 					{ id: 0, name: 'toto' },
 					{ id: 1, name: 'tata' },
 				]}
 			>
-				<ContextTestConsumer />
+				<ContextTestConsumer newValue={{ sortBy: 'name', isDescending: false }} />
 			</ListManager>,
 		);
-		expect(wrapper.find(TestConsumer).prop('sortParams')).toEqual({});
-		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([
+		let props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
+		expect(props.sortParams).toEqual({});
+		expect(props.collection).toEqual([
 			{ id: 0, name: 'toto' },
 			{ id: 1, name: 'tata' },
 		]);
 
-		const newSortParams = { sortBy: 'name', isDescending: false };
-
 		// when
-		act(() => {
-			const setSortParams = wrapper.find(TestConsumer).prop('setSortParams');
-			setSortParams(newSortParams);
-		});
-		wrapper.update();
+		userEvent.click(screen.getByText('setSortParams'));
 
 		// then
-		expect(wrapper.find(TestConsumer).prop('sortParams')).toBe(newSortParams);
-		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([
+		props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
+		expect(props.sortParams).toEqual({ sortBy: 'name', isDescending: false });
+		expect(props.collection).toEqual([
 			{ id: 1, name: 'tata' },
 			{ id: 0, name: 'toto' },
 		]);

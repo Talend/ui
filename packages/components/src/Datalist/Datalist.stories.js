@@ -50,7 +50,7 @@ const titleMapWithDisabledItems = [
 ];
 
 export default {
-	title: 'Form/Controls/Datalist',
+	title: 'Components/Form - Controls/Datalist',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 

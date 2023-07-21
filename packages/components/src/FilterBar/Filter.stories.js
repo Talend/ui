@@ -40,7 +40,7 @@ const divStyle = {
 };
 
 export default {
-	title: 'Form/Inline form/FilterBar',
+	title: 'Components/Form - Inline form/FilterBar',
 };
 
 export const DefaultDockAndDockable = () => (

@@ -1,13 +1,12 @@
-import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import Button from './Button';
 import FormControl from './FormControl';
 import InputGroup from './InputGroup';
 
 describe('<InputGroup>', () => {
-  xit('should render properly', () => {
-    const wrapper = mount(
+  it('should render properly', () => {
+    render(
       <InputGroup className="my-input-group">
         <InputGroup.Addon className="my-addon">Foo</InputGroup.Addon>
 
@@ -17,21 +16,23 @@ describe('<InputGroup>', () => {
           <Button>Bar</Button>
         </InputGroup.Button>
       </InputGroup>
-    ).assertSingle('.input-group.my-input-group');
+    );
+    expect(document.querySelector('.input-group.my-input-group')).toBeVisible();
 
-    wrapper
-      .assertSingle('.input-group-addon.my-addon')
-      .text()
-      .should.equal('Foo');
+    expect(
+      document.querySelector('.input-group-addon.my-addon')
+    ).toHaveTextContent('Foo');
 
-    wrapper.assertSingle('input.form-control[type="text"]');
+    expect(
+      document.querySelector('input.form-control[type="text"]')
+    ).toBeVisible();
 
-    wrapper.assertSingle('.input-group-btn.my-button').assertSingle(Button);
+    // eslint-disable-next-line jest-dom/prefer-in-document
+    expect(screen.getAllByRole('button')).toHaveLength(1);
   });
 
-  xit('should support bsSize', () => {
-    shallow(<InputGroup bsSize="small" />).assertSingle(
-      '.input-group.input-group-sm'
-    );
+  it('should support bsSize', () => {
+    render(<InputGroup bsSize="small" />);
+    expect(document.querySelector('.input-group.input-group-sm')).toBeVisible();
   });
 });

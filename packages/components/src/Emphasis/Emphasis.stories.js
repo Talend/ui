@@ -1,7 +1,7 @@
 import Emphasis from './Emphasis.component';
 
 export default {
-	title: 'Design Principles/Typography/Emphasis',
+	title: 'Components/Design Principles/Typography/Emphasis',
 };
 
 export const WithValue = () => (

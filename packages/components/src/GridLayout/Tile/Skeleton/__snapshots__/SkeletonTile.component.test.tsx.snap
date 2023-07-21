@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`skeleton tile should compute skeleton tile 1`] = `
+<div
+  class="theme-tc-tile-container tc-tile-container"
+>
+  <div
+    class="theme-tc-tile-body tc-tile-body"
+  >
+    <span
+      aria-label="text Loading..."
+      class="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      style="width: 100%; height: 100%;"
+    />
+  </div>
+</div>
+`;

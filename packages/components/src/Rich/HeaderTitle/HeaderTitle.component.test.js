@@ -1,10 +1,11 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import HeaderTitle from './HeaderTitle.component';
 
-describe('HeaderTooltip', () => {
-	it('should render HeaderTooltip with header, content and footer', () => {
-		const wrapper = shallow(<HeaderTitle title="Pipelines" />);
+describe('HeaderTitle', () => {
+	it('should render HeaderTitle', () => {
+		const { container } = render(<HeaderTitle title="Pipelines" />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('heading')).toHaveTextContent('Pipelines');
 	});
 });

@@ -1,189 +1,187 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListGrid should render noRows 1`] = `
-<VirtualizedList(ListGrid)
-  collection={[]}
-  height={600}
+exports[`ListGrid should render react-virtualized list 1`] = `
+<div
+  aria-label="list"
+  aria-readonly="true"
+  class="ReactVirtualized__Grid ReactVirtualized__List tc-list-list theme-tc-list-list"
   id="my-list"
-  isSelected={[MockFunction]}
-  noRowsRenderer={[Function]}
-  rowHeight={130}
-  rowRenderer={[Function]}
-  width={1024}
+  role="group"
+  style="box-sizing: border-box; direction: ltr; height: 600px; position: relative; width: 1024px; will-change: transform; overflow-x: hidden; overflow-y: hidden;"
+  tabindex="0"
 >
-  <List
-    aria-label="list"
-    autoHeight={false}
-    className="tc-list-list theme-tc-list-list"
-    collection={[]}
-    containerRole="list"
-    estimatedRowSize={30}
-    height={600}
-    id="my-list"
-    noRowsRenderer={[Function]}
-    onRowsRendered={[Function]}
-    onScroll={[Function]}
-    overscanIndicesGetter={[Function]}
-    overscanRowCount={10}
-    role="group"
-    rowCount={0}
-    rowGetter={[Function]}
-    rowHeight={130}
-    rowRenderer={[Function]}
-    scrollToAlignment="auto"
-    scrollToIndex={-1}
-    style={{}}
-    width={1024}
+  <div
+    class="ReactVirtualized__Grid__innerScrollContainer"
+    role="list"
+    style="width: auto; height: 260px; max-width: 1024px; max-height: 260px; overflow: hidden; position: relative;"
   >
-    <Grid
-      aria-label="list"
-      aria-readonly={true}
-      autoContainerWidth={true}
-      autoHeight={false}
-      autoWidth={false}
-      cellRangeRenderer={[Function]}
-      cellRenderer={[Function]}
-      className="ReactVirtualized__List tc-list-list theme-tc-list-list"
-      collection={[]}
-      columnCount={1}
-      columnWidth={1024}
-      containerRole="list"
-      containerStyle={{}}
-      estimatedColumnSize={100}
-      estimatedRowSize={30}
-      getScrollbarSize={[Function]}
-      height={600}
-      id="my-list"
-      isScrollingOptOut={false}
-      noContentRenderer={[Function]}
-      noRowsRenderer={[Function]}
-      onRowsRendered={[Function]}
-      onScroll={[Function]}
-      onScrollbarPresenceChange={[Function]}
-      onSectionRendered={[Function]}
-      overscanColumnCount={0}
-      overscanIndicesGetter={[Function]}
-      overscanRowCount={10}
-      role="group"
-      rowCount={0}
-      rowGetter={[Function]}
-      rowHeight={130}
-      rowRenderer={[Function]}
-      scrollToAlignment="auto"
-      scrollToColumn={-1}
-      scrollToIndex={-1}
-      scrollToRow={-1}
-      scrollingResetTimeInterval={150}
-      style={{}}
-      tabIndex={0}
-      width={1024}
+    <div
+      aria-posinset="1"
+      aria-setsize="2"
+      class="tc-list-item tc-list-large-row tc-list-large theme-tc-list-large theme-row"
+      id="my-list-0"
+      role="listitem"
+      style="height: 130px; left: 0px; position: absolute; top: 0px; width: 100%;"
+      tabindex="0"
     >
       <div
-        aria-label="list"
-        aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List tc-list-list theme-tc-list-list"
-        id="my-list"
-        onScroll={[Function]}
-        role="group"
-        style={
-          {
-            "WebkitOverflowScrolling": "touch",
-            "boxSizing": "border-box",
-            "direction": "ltr",
-            "height": 600,
-            "overflowX": "hidden",
-            "overflowY": "hidden",
-            "position": "relative",
-            "width": 1024,
-            "willChange": "transform",
-          }
-        }
-        tabIndex={0}
+        class="tc-list-large-inner-box theme-inner-box"
       >
-        <div>
-          No rows
-        </div>
+        <div
+          class="theme-header"
+        />
+        <dl
+          class="tc-list-large-content theme-content"
+        >
+          <div
+            class="theme-field-group"
+            role="group"
+          >
+            <dt
+              class="theme-field-label"
+            >
+              Id
+              :
+            </dt>
+            <dd
+              class="theme-field-value"
+            >
+              <div
+                class="tc-virtualizedlist-default-cell"
+              >
+                0
+              </div>
+            </dd>
+          </div>
+          <div
+            class="theme-field-group"
+            role="group"
+          >
+            <dt
+              class="theme-field-label"
+            >
+              Name
+              :
+            </dt>
+            <dd
+              class="theme-field-value"
+            >
+              <div
+                aria-describedby="42"
+                class="tc-virtualizedlist-default-cell"
+              >
+                Title with icon and actions
+              </div>
+            </dd>
+          </div>
+          <div
+            class="theme-field-group"
+            role="group"
+          >
+            <dt
+              class="theme-field-label"
+            >
+              
+              :
+            </dt>
+            <dd
+              class="theme-field-value"
+            >
+              <div
+                aria-describedby="42"
+                class="tc-virtualizedlist-default-cell"
+              >
+                Simple row with icon and actions
+              </div>
+            </dd>
+          </div>
+        </dl>
       </div>
-    </Grid>
-  </List>
-</VirtualizedList(ListGrid)>
-`;
-
-exports[`ListGrid should render react-virtualized list 1`] = `
-<List
-  aria-label="list"
-  autoHeight={false}
-  className="tc-list-list theme-tc-list-list"
-  collection={
-    [
-      {
-        "description": "Simple row with icon and actions",
-        "id": 0,
-        "name": "Title with icon and actions",
-      },
-      {
-        "description": "Simple row without actions",
-        "id": 1,
-        "name": "Title without actions",
-      },
-    ]
-  }
-  containerRole="list"
-  estimatedRowSize={30}
-  height={600}
-  id="my-list"
-  noRowsRenderer={[Function]}
-  onRowClick={[Function]}
-  onRowDoubleClick={[Function]}
-  onRowsRendered={[Function]}
-  onScroll={[Function]}
-  overscanIndicesGetter={[Function]}
-  overscanRowCount={10}
-  role="group"
-  rowCount={2}
-  rowGetter={[Function]}
-  rowHeight={130}
-  rowRenderer={[Function]}
-  scrollToAlignment="auto"
-  scrollToIndex={-1}
-  style={{}}
-  width={1024}
->
-  <Content
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="id"
-    defaultSortDirection="ASC"
-    flexGrow={0}
-    flexShrink={1}
-    headerRenderer={[Function]}
-    label="Id"
-    style={{}}
-    width={0}
-  />
-  <Content
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="name"
-    defaultSortDirection="ASC"
-    flexGrow={0}
-    flexShrink={1}
-    headerRenderer={[Function]}
-    label="Name"
-    style={{}}
-    width={0}
-  />
-  <Content
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="description"
-    defaultSortDirection="ASC"
-    flexGrow={0}
-    flexShrink={1}
-    headerRenderer={[Function]}
-    label=""
-    style={{}}
-    width={0}
-  />
-</List>
+    </div>
+    <div
+      aria-posinset="2"
+      aria-setsize="2"
+      class="tc-list-item tc-list-large-row tc-list-large theme-tc-list-large theme-row"
+      id="my-list-1"
+      role="listitem"
+      style="height: 130px; left: 0px; position: absolute; top: 130px; width: 100%;"
+      tabindex="0"
+    >
+      <div
+        class="tc-list-large-inner-box theme-inner-box"
+      >
+        <div
+          class="theme-header"
+        />
+        <dl
+          class="tc-list-large-content theme-content"
+        >
+          <div
+            class="theme-field-group"
+            role="group"
+          >
+            <dt
+              class="theme-field-label"
+            >
+              Id
+              :
+            </dt>
+            <dd
+              class="theme-field-value"
+            >
+              <div
+                aria-describedby="42"
+                class="tc-virtualizedlist-default-cell"
+              >
+                1
+              </div>
+            </dd>
+          </div>
+          <div
+            class="theme-field-group"
+            role="group"
+          >
+            <dt
+              class="theme-field-label"
+            >
+              Name
+              :
+            </dt>
+            <dd
+              class="theme-field-value"
+            >
+              <div
+                aria-describedby="42"
+                class="tc-virtualizedlist-default-cell"
+              >
+                Title without actions
+              </div>
+            </dd>
+          </div>
+          <div
+            class="theme-field-group"
+            role="group"
+          >
+            <dt
+              class="theme-field-label"
+            >
+              
+              :
+            </dt>
+            <dd
+              class="theme-field-value"
+            >
+              <div
+                aria-describedby="42"
+                class="tc-virtualizedlist-default-cell"
+              >
+                Simple row without actions
+              </div>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
 `;

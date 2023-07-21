@@ -103,7 +103,7 @@ class ResourcePicker extends Component {
 					[option]: value,
 				},
 			}),
-			() => this.onFilter(null, this.state),
+			() => this.onFilter(null),
 		);
 	}
 
@@ -119,7 +119,7 @@ class ResourcePicker extends Component {
 						name: target.value || '',
 					},
 				}),
-				() => this.onFilter(null, this.state),
+				() => this.onFilter(null),
 			);
 		}
 	}

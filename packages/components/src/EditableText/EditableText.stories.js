@@ -10,7 +10,7 @@ const props = {
 };
 
 export default {
-	title: 'Form/Inline form/EditableText',
+	title: 'Components/Form - Inline form/EditableText',
 
 	decorators: [
 		story => (

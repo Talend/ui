@@ -272,7 +272,7 @@ export function FilteredResourceList(props) {
 }
 
 export default {
-	title: 'Data/List/ResourceList',
+	title: 'Components/List/ResourceList',
 
 	excludeStories: ['preparations', 'pipelines', 'Preparation', 'Pipeline', 'FilteredResourceList'],
 };

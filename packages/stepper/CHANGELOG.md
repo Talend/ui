@@ -1,5 +1,16 @@
 # @talend/react-stepper
 
+## 7.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [ae37dc329]
+  - @talend/react-components@10.3.0
+
 ## 7.1.5
 
 ### Patch Changes

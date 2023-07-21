@@ -1,12 +1,14 @@
-import { shallow } from 'enzyme';
-import { ActionButton } from '@talend/react-components/lib/Actions';
-import { mock } from '@talend/react-cmf';
+import { screen, render } from '@testing-library/react';
+import cmf, { mock } from '@talend/react-cmf';
+import userEvent from '@testing-library/user-event';
 
 import Connected, {
 	mapStateToProps,
 	mergeProps,
 	ContainerActionButton,
 } from './ActionButton.connect';
+
+jest.unmock('@talend/design-system');
 
 describe('Connect(CMF(Container(ActionButton)))', () => {
 	it('should connect Container(ActionButton)', () => {
@@ -16,6 +18,16 @@ describe('Connect(CMF(Container(ActionButton)))', () => {
 });
 
 describe('CMF(Container(ActionButton))', () => {
+	let App;
+	beforeAll(async () => {
+		const config = await cmf.bootstrap({
+			render: false,
+			components: {
+				// ActionButton: ContainerActionButton,
+			},
+		});
+		App = config.App;
+	});
 	it('should map state to props', () => {
 		const state = {
 			cmf: {
@@ -34,26 +46,28 @@ describe('CMF(Container(ActionButton))', () => {
 	it('should render', () => {
 		const props = {
 			actionId: 'menu:article',
-			extra: 'foo',
+			'data-extra': 'foo',
 			onClick: () => {},
 			label: 'click',
 		};
 		const context = mock.store.context();
-		const wrapper = shallow(<ContainerActionButton {...props} />, {
-			context,
-		});
-		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find(ActionButton).length).toBe(1);
+
+		const { container } = render(
+			<App {...context}>
+				<ContainerActionButton {...props} />
+			</App>,
+		);
+		expect(container.firstChild).toMatchSnapshot();
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.getAllByRole('button')).toHaveLength(1);
 	});
 
-	it('should dispatch one action when it clicks', () => {
+	it('should dispatch one action when it clicks', async () => {
 		const dispatch = jest.fn();
-		const event = {};
-		const data = {};
 		const props = {
 			actionId: 'menu:article',
 			dispatch,
-			extra: 'foo',
+			label: 'Foo',
 			payload: {
 				type: 'ACTION',
 			},
@@ -62,34 +76,36 @@ describe('CMF(Container(ActionButton))', () => {
 			},
 		};
 		const context = mock.store.context();
-		const wrapper = shallow(<ContainerActionButton {...props} />, {
-			context,
-		});
-
-		wrapper.prop('onClick')(event, data);
+		render(
+			<App {...context}>
+				<ContainerActionButton {...props} />
+			</App>,
+		);
+		userEvent.click(screen.getByRole('button'));
 		expect(dispatch).toHaveBeenCalledWith({
 			model: props.model,
 			...props.payload,
 		});
 	});
 
-	it('should dispatch one actioncreator when it clicks', () => {
+	it('should dispatch one actioncreator when it clicks', async () => {
 		const dispatchActionCreator = jest.fn();
-		const event = {};
-		const data = {};
 		const props = {
 			actionId: 'menu:article',
 			dispatchActionCreator,
-			extra: 'foo',
+			label: 'foo',
 			actionCreator: 'foo',
 		};
 		const context = mock.store.context();
-		const wrapper = shallow(<ContainerActionButton {...props} />, {
-			context,
+		render(
+			<App {...context}>
+				<ContainerActionButton {...props} />
+			</App>,
+		);
+		await userEvent.click(screen.getByRole('button'));
+		expect(dispatchActionCreator).toHaveBeenCalledWith(props.actionCreator, expect.anything(), {
+			action: props,
 		});
-
-		wrapper.prop('onClick')(event, data);
-		expect(dispatchActionCreator).toHaveBeenCalledWith(props.actionCreator, event, data);
 	});
 });
 

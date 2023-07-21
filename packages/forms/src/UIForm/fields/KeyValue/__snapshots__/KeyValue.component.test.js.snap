@@ -1,317 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`KeyValue field should render autoFocused KeyValue 1`] = `
-<FieldTemplate
-  description="This is the key/value field"
-  errorMessage="This is wrong"
-  id="my-key-value-field"
-  isValid={true}
-  label="Variable"
->
-  <dl
-    className="theme-key-value"
-  >
-    <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": true,
-            "disabled": undefined,
-            "key": [
-              "infos",
-              "variable",
-              "key",
-            ],
-            "readOnly": undefined,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="lol"
-        widgets={{}}
-      />
-    </dt>
-    <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": true,
-            "disabled": undefined,
-            "key": [
-              "infos",
-              "variable",
-              "value",
-            ],
-            "readOnly": undefined,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="mdr"
-        widgets={{}}
-      />
-    </dd>
-  </dl>
-</FieldTemplate>
-`;
-
-exports[`KeyValue field should render customized KeyValue 1`] = `
-<FieldTemplate
-  description="This is the key/value field"
-  errorMessage="This is wrong"
-  id="my-key-value-field"
-  isValid={true}
-  label="Variable"
->
-  <dl
-    className="theme-key-value"
-  >
-    <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": true,
-            "disabled": undefined,
-            "key": [
-              "infos",
-              "variable",
-              "key",
-            ],
-            "readOnly": true,
-            "required": true,
-            "schema": {
-              "type": "number",
-            },
-            "type": "number",
-          }
-        }
-        value="lol"
-        widgets={{}}
-      />
-    </dt>
-    <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": undefined,
-            "disabled": undefined,
-            "key": [
-              "infos",
-              "variable",
-              "value",
-            ],
-            "readOnly": undefined,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="mdr"
-        widgets={{}}
-      />
-    </dd>
-  </dl>
-</FieldTemplate>
-`;
-
 exports[`KeyValue field should render default KeyValue 1`] = `
-<FieldTemplate
-  description="This is the key/value field"
-  errorMessage="This is wrong"
-  id="my-key-value-field"
-  isValid={true}
-  label="Variable"
+<div
+  class="form-group theme-template"
 >
+  <label
+    class="control-label"
+    for="my-key-value-field"
+  >
+    Variable
+  </label>
   <dl
-    className="theme-key-value"
+    class="theme-key-value"
   >
     <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": undefined,
-            "disabled": undefined,
-            "key": [
-              "infos",
-              "variable",
-              "key",
-            ],
-            "readOnly": undefined,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="lol"
-        widgets={{}}
-      />
+      <div
+        data-props="{"errorId":"my-key-value-field-error","descriptionId":"my-key-value-field-description","errors":{},"schema":{"schema":{"type":"string"},"type":"text","key":["infos","variable","key"]},"widgets":{},"id":"infos_variable_key","isValid":true,"valueIsUpdating":false}"
+        data-testid="widget-text-infos_variable_key"
+        id="infos_variable_key"
+      >
+        infos-variable-key
+      </div>
     </dt>
     <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": undefined,
-            "disabled": undefined,
-            "key": [
-              "infos",
-              "variable",
-              "value",
-            ],
-            "readOnly": undefined,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="mdr"
-        widgets={{}}
-      />
+      <div
+        data-props="{"errorId":"my-key-value-field-error","descriptionId":"my-key-value-field-description","errors":{},"schema":{"schema":{"type":"string"},"type":"text","key":["infos","variable","value"]},"widgets":{},"id":"infos_variable_value","isValid":true,"valueIsUpdating":false}"
+        data-testid="widget-text-infos_variable_value"
+        id="infos_variable_value"
+      >
+        infos-variable-value
+      </div>
     </dd>
   </dl>
-</FieldTemplate>
-`;
-
-exports[`KeyValue field should render disabled KeyValue 1`] = `
-<FieldTemplate
-  description="This is the key/value field"
-  errorMessage="This is wrong"
-  id="my-key-value-field"
-  isValid={true}
-  label="Variable"
->
-  <dl
-    className="theme-key-value"
-  >
-    <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": undefined,
-            "disabled": true,
-            "key": [
-              "infos",
-              "variable",
-              "key",
-            ],
-            "readOnly": undefined,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="lol"
-        widgets={{}}
-      />
-    </dt>
-    <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": undefined,
-            "disabled": true,
-            "key": [
-              "infos",
-              "variable",
-              "value",
-            ],
-            "readOnly": undefined,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="mdr"
-        widgets={{}}
-      />
-    </dd>
-  </dl>
-</FieldTemplate>
-`;
-
-exports[`KeyValue field should render readOnly KeyValue 1`] = `
-<FieldTemplate
-  description="This is the key/value field"
-  errorMessage="This is wrong"
-  id="my-key-value-field"
-  isValid={true}
-  label="Variable"
->
-  <dl
-    className="theme-key-value"
-  >
-    <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": undefined,
-            "disabled": undefined,
-            "key": [
-              "infos",
-              "variable",
-              "key",
-            ],
-            "readOnly": true,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="lol"
-        widgets={{}}
-      />
-    </dt>
-    <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
-        schema={
-          {
-            "autoFocus": undefined,
-            "disabled": undefined,
-            "key": [
-              "infos",
-              "variable",
-              "value",
-            ],
-            "readOnly": true,
-            "schema": {
-              "type": "string",
-            },
-            "type": "text",
-          }
-        }
-        value="mdr"
-        widgets={{}}
-      />
-    </dd>
-  </dl>
-</FieldTemplate>
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="my-key-value-field-description"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          This is the key/value field
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
 `;

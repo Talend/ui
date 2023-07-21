@@ -99,7 +99,7 @@ const noHeaderItems = [
 ];
 
 export default {
-	title: 'Form/Inline form/Typeahead',
+	title: 'Components/Form - Inline form/Typeahead',
 };
 
 export const DefaultWithDebounceInput = () => {

@@ -1,15 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NoRows should show no result 1`] = `
-<withI18nextTranslation(NoRowsComponent)
-  t={[Function]}
+<span
+  aria-live="polite"
+  class="theme-tc-virtualizedlist-no-result tc-virtualizedlist-no-result"
+  role="status"
 >
-  <span
-    aria-live="polite"
-    className="theme-tc-virtualizedlist-no-result tc-virtualizedlist-no-result"
-    role="status"
-  >
-    No results found
-  </span>
-</withI18nextTranslation(NoRowsComponent)>
+  No results found
+</span>
 `;

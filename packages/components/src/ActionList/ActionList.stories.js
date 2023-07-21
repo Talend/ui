@@ -43,7 +43,7 @@ const actions = [
 ];
 
 export default {
-	title: 'Navigation/ActionList',
+	title: 'Components/Navigation/ActionList',
 };
 
 export const Default = () => (

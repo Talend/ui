@@ -22,7 +22,7 @@ const actions = [
 ];
 
 export default {
-	title: 'Playground',
+	title: 'Forms/Playground',
 };
 
 export function Default({ data }: { data: FormDefinition }) {

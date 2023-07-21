@@ -1,5 +1,30 @@
 # @talend/react-cmf-cqrs
 
+## 9.0.0
+
+### Major Changes
+
+- 7cfaae07a: chore: refactor to use new Context API
+
+  rewrite tests using RTL
+
+  ## breaking changes:
+
+  If you are using this component in a test you must wrap it in CMF mock Provider to have redux, registry and router.
+
+  As this provider is set by CMF bootstrap you should have no issue in app.
+
+## 8.1.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [ae37dc329]
+  - @talend/react-cmf@7.3.0
+
 ## 8.0.0
 
 ### Major Changes

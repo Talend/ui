@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelToggle should render three radio buttons 1`] = `
+<div
+  class="tc-label-toggle theme-tc-label-toggle"
+>
+  <label
+    class=""
+    for="test-radio-a"
+  >
+    <input
+      id="test-radio-a"
+      name="name"
+      type="radio"
+      value="a"
+    />
+    <span>
+      A
+    </span>
+  </label>
+  <label
+    class="tc-radio-selected theme-tc-radio-selected"
+    for="test-radio-b"
+  >
+    <input
+      checked=""
+      id="test-radio-b"
+      name="name"
+      type="radio"
+      value="b"
+    />
+    <span>
+      B
+    </span>
+  </label>
+  <label
+    class=""
+    for="test-radio-c"
+  >
+    <input
+      id="test-radio-c"
+      name="name"
+      type="radio"
+      value="c"
+    />
+    <span>
+      C
+    </span>
+  </label>
+</div>
+`;

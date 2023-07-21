@@ -13,7 +13,10 @@ describe('defaultRegistry', () => {
 				obj: {},
 			};
 			const body = {
-				entries: [{ name: 'entry1', type: 'string' }, { name: 'entry2', type: 'string' }],
+				entries: [
+					{ name: 'entry1', type: 'string' },
+					{ name: 'entry2', type: 'string' },
+				],
 			};
 			const trigger = {
 				options: [{ path: 'obj.attr', type: 'object' }],
@@ -75,10 +78,16 @@ describe('defaultRegistry', () => {
 	describe('suggestions', () => {
 		it('should return a titleMap from body.items', () => {
 			const body = {
-				items: [{ label: 'item 1', id: 1 }, { label: 'item 2', id: 2 }],
+				items: [
+					{ label: 'item 1', id: 1 },
+					{ label: 'item 2', id: 2 },
+				],
 			};
 			expect(service.suggestions({ body })).toEqual({
-				titleMap: [{ name: 'item 1', value: 1 }, { name: 'item 2', value: 2 }],
+				titleMap: [
+					{ name: 'item 1', value: 1 },
+					{ name: 'item 2', value: 2 },
+				],
 			});
 		});
 	});

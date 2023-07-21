@@ -1,5 +1,32 @@
 # @talend/icons
 
+## 6.59.0
+
+### Minor Changes
+
+- 6cc954983: feat: add qlik icon
+
+## 6.58.1
+
+### Patch Changes
+
+- fca736c31: changed icon `group` in size `L`
+- fca736c31: changed icon `group` in size `M`
+
+## 6.58.0
+
+### Minor Changes
+
+- 49d174081: added icon `flow-target-filled` in size `L`
+- 49d174081: added icon `flow-target-filled` in size `M`
+
+### Patch Changes
+
+- 49d174081: changed icon `group` in size `L`
+- 49d174081: changed icon `job` in size `L`
+- 49d174081: changed icon `job` in size `M`
+- 49d174081: changed icon `job` in size `S`
+
 ## 6.57.0
 
 ### Minor Changes

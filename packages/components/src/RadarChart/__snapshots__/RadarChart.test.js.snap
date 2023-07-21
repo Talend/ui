@@ -1,169 +1,382 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadarChart should render a RadarChart 1`] = `
-<RadarChart
-  cx={210}
-  cy={140}
-  data={
-    [
-      {
-        "A": 4,
-        "axis": "Validity",
-      },
-      {
-        "A": 3,
-        "axis": "Social curation",
-      },
-      {
-        "A": 2,
-        "axis": "Completeness",
-      },
-      {
-        "A": 1,
-        "axis": "Discoverability",
-      },
-      {
-        "A": 1,
-        "axis": "other",
-      },
-    ]
-  }
-  domain={
-    [
-      0,
-      5,
-    ]
-  }
-  height={250}
-  innerRadius={0}
-  outerRadius={100}
-  tick={false}
-  tickLine={false}
-  width={420}
+<div
+  class="recharts-wrapper tc-radar-chart theme-tc-radar-chart"
+  role="region"
+  style="position: relative; cursor: default; width: 420px; height: 250px;"
 >
-  <PolarAngleAxis
-    allowDuplicatedCategory={true}
-    angleAxisId={0}
-    axisLine={true}
-    cx={0}
-    cy={0}
-    dataKey="axis"
-    domain={
-      [
-        0,
-        "auto",
-      ]
-    }
-    hide={false}
-    orientation="outer"
-    scale="auto"
-    tick={true}
-    tickLine={true}
-    tickSize={8}
-    type="category"
-  />
-  <Radar
-    activeDot={true}
-    angleAxisId={0}
-    animationBegin={0}
-    animationDuration={1500}
-    animationEasing="ease"
-    dataKey="A"
-    dot={true}
-    fill="#19426c"
-    fillOpacity={0.1}
-    hide={false}
-    isAnimationActive={true}
-    legendType="rect"
-    name="Trust score"
-    radiusAxisId={0}
-    stroke="#19426c"
-  />
-</RadarChart>
-`;
-
-exports[`RadarChart should render a chart with custom dots 1`] = `
-<RadarChart
-  cx={210}
-  cy={140}
-  data={
-    [
-      {
-        "A": 4,
-        "axis": "Validity",
-      },
-      {
-        "A": 3,
-        "axis": "Social curation",
-      },
-      {
-        "A": 2,
-        "axis": "Completeness",
-      },
-      {
-        "A": 1,
-        "axis": "Discoverability",
-      },
-      {
-        "A": 1,
-        "axis": "other",
-      },
-    ]
-  }
-  domain={
-    [
-      0,
-      5,
-    ]
-  }
-  height={250}
-  innerRadius={0}
-  outerRadius={100}
-  tick={false}
-  tickLine={false}
-  width={420}
->
-  <PolarAngleAxis
-    allowDuplicatedCategory={true}
-    angleAxisId={0}
-    axisLine={true}
-    cx={0}
-    cy={0}
-    dataKey="axis"
-    domain={
-      [
-        0,
-        "auto",
-      ]
-    }
-    hide={false}
-    orientation="outer"
-    scale="auto"
-    tick={true}
-    tickLine={true}
-    tickSize={8}
-    type="category"
-  />
-  <Radar
-    activeDot={true}
-    angleAxisId={0}
-    animationBegin={0}
-    animationDuration={1500}
-    animationEasing="ease"
-    dataKey="A"
-    dot={
-      <Dot
-        activeAxis={2}
+  <svg
+    class="recharts-surface"
+    cx="210"
+    cy="140"
+    height="250"
+    viewBox="0 0 420 250"
+    width="420"
+  >
+    <title />
+    <desc />
+    <defs>
+      <clippath
+        id="recharts1-clip"
+      >
+        <rect
+          height="240"
+          width="410"
+          x="5"
+          y="5"
+        />
+      </clippath>
+    </defs>
+    <g
+      class="recharts-polar-grid"
+    >
+      <g
+        class="recharts-polar-grid-angle"
+      >
+        <line
+          cx="210"
+          cy="140"
+          stroke="#ccc"
+          x1="210"
+          x2="210"
+          y1="140"
+          y2="40"
+        />
+        <line
+          cx="210"
+          cy="140"
+          stroke="#ccc"
+          x1="210"
+          x2="305.10565162951536"
+          y1="140"
+          y2="109.09830056250526"
+        />
+        <line
+          cx="210"
+          cy="140"
+          stroke="#ccc"
+          x1="210"
+          x2="268.7785252292473"
+          y1="140"
+          y2="220.90169943749476"
+        />
+        <line
+          cx="210"
+          cy="140"
+          stroke="#ccc"
+          x1="210"
+          x2="151.2214747707527"
+          y1="140"
+          y2="220.90169943749476"
+        />
+        <line
+          cx="210"
+          cy="140"
+          stroke="#ccc"
+          x1="210"
+          x2="114.89434837048464"
+          y1="140"
+          y2="109.09830056250527"
+        />
+      </g>
+      <g
+        class="recharts-polar-grid-concentric"
+      >
+        <path
+          class="recharts-polar-grid-concentric-polygon"
+          cx="210"
+          cy="140"
+          d="M 210,140L 210,140L 210,140L 210,140L 210,140Z"
+          fill="none"
+          radius="0"
+          stroke="#ccc"
+        />
+        <path
+          class="recharts-polar-grid-concentric-polygon"
+          cx="210"
+          cy="140"
+          d="M 210,100L 248.04226065180615,127.63932022500211L 233.51141009169893,172.3606797749979L 186.4885899083011,172.3606797749979L 171.95773934819385,127.63932022500211Z"
+          fill="none"
+          radius="40"
+          stroke="#ccc"
+        />
+        <path
+          class="recharts-polar-grid-concentric-polygon"
+          cx="210"
+          cy="140"
+          d="M 210,40L 305.10565162951536,109.09830056250526L 268.7785252292473,220.90169943749476L 151.2214747707527,220.90169943749476L 114.89434837048464,109.09830056250527Z"
+          fill="none"
+          radius="100"
+          stroke="#ccc"
+        />
+      </g>
+    </g>
+    <g
+      class="recharts-layer recharts-polar-radius-axis"
+    />
+    <g
+      class="recharts-layer recharts-polar-angle-axis"
+    >
+      <path
+        class="recharts-polygon angleAxis"
+        cx="210"
+        cy="140"
+        d="M210,40L305.10565162951536,109.09830056250526L268.7785252292473,220.90169943749476L151.2214747707527,220.90169943749476L114.89434837048464,109.09830056250527L210,40Z"
+        fill="none"
+        orientation="outer"
+        radius="100"
       />
-    }
-    fill="#19426c"
-    fillOpacity={0.1}
-    hide={false}
-    isAnimationActive={false}
-    legendType="rect"
-    name="Trust score"
-    radiusAxisId={0}
-    stroke="#19426c"
-  />
-</RadarChart>
+      <g
+        class="recharts-layer recharts-polar-angle-axis-ticks"
+      >
+        <g
+          class="recharts-layer recharts-polar-angle-axis-tick"
+        >
+          <line
+            class="angleAxis"
+            cx="210"
+            cy="140"
+            fill="none"
+            orientation="outer"
+            radius="100"
+            x1="210"
+            x2="210"
+            y1="40"
+            y2="32"
+          />
+          <text
+            class="recharts-text recharts-polar-angle-axis-tick-value"
+            cx="210"
+            cy="140"
+            fill="#808080"
+            orientation="outer"
+            radius="100"
+            stroke="none"
+            text-anchor="middle"
+            x="210"
+            y="32"
+          >
+            <tspan
+              dy="0em"
+              x="210"
+            >
+              Validity
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-polar-angle-axis-tick"
+        >
+          <line
+            class="angleAxis"
+            cx="210"
+            cy="140"
+            fill="none"
+            orientation="outer"
+            radius="100"
+            x1="305.10565162951536"
+            x2="312.7141037598766"
+            y1="109.09830056250526"
+            y2="106.62616460750567"
+          />
+          <text
+            class="recharts-text recharts-polar-angle-axis-tick-value"
+            cx="210"
+            cy="140"
+            fill="#808080"
+            orientation="outer"
+            radius="100"
+            stroke="none"
+            text-anchor="start"
+            x="312.7141037598766"
+            y="106.62616460750567"
+          >
+            <tspan
+              dy="0em"
+              x="312.7141037598766"
+            >
+              Social curation
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-polar-angle-axis-tick"
+        >
+          <line
+            class="angleAxis"
+            cx="210"
+            cy="140"
+            fill="none"
+            orientation="outer"
+            radius="100"
+            x1="268.7785252292473"
+            x2="273.4808072475871"
+            y1="220.90169943749476"
+            y2="227.37383539249433"
+          />
+          <text
+            class="recharts-text recharts-polar-angle-axis-tick-value"
+            cx="210"
+            cy="140"
+            fill="#808080"
+            orientation="outer"
+            radius="100"
+            stroke="none"
+            text-anchor="start"
+            x="273.4808072475871"
+            y="227.37383539249433"
+          >
+            <tspan
+              dy="0em"
+              x="273.4808072475871"
+            >
+              Completeness
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-polar-angle-axis-tick"
+        >
+          <line
+            class="angleAxis"
+            cx="210"
+            cy="140"
+            fill="none"
+            orientation="outer"
+            radius="100"
+            x1="151.2214747707527"
+            x2="146.51919275241292"
+            y1="220.90169943749476"
+            y2="227.37383539249433"
+          />
+          <text
+            class="recharts-text recharts-polar-angle-axis-tick-value"
+            cx="210"
+            cy="140"
+            fill="#808080"
+            orientation="outer"
+            radius="100"
+            stroke="none"
+            text-anchor="end"
+            x="146.51919275241292"
+            y="227.37383539249433"
+          >
+            <tspan
+              dy="0em"
+              x="146.51919275241292"
+            >
+              Discoverability
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-polar-angle-axis-tick"
+        >
+          <line
+            class="angleAxis"
+            cx="210"
+            cy="140"
+            fill="none"
+            orientation="outer"
+            radius="100"
+            x1="114.89434837048464"
+            x2="107.2858962401234"
+            y1="109.09830056250527"
+            y2="106.6261646075057"
+          />
+          <text
+            class="recharts-text recharts-polar-angle-axis-tick-value"
+            cx="210"
+            cy="140"
+            fill="#808080"
+            orientation="outer"
+            radius="100"
+            stroke="none"
+            text-anchor="end"
+            x="107.2858962401234"
+            y="106.6261646075057"
+          >
+            <tspan
+              dy="0em"
+              x="107.2858962401234"
+            >
+              other
+            </tspan>
+          </text>
+        </g>
+      </g>
+    </g>
+    <g
+      class="recharts-layer recharts-radar"
+    >
+      <g
+        class="recharts-layer recharts-radar-polygon"
+      >
+        <path
+          class="recharts-polygon"
+          d="M210,140L210,140L210,140L210,140L210,140L210,140Z"
+          fill="#19426c"
+          fill-opacity="0.1"
+          name="Trust score"
+          stroke="#19426c"
+        />
+        <g
+          class="recharts-layer recharts-radar-dots"
+        >
+          <circle
+            class="recharts-dot recharts-radar-dot"
+            cx="210"
+            cy="140"
+            fill="#19426c"
+            fill-opacity="0.1"
+            name="Trust score"
+            r="3"
+            stroke="#19426c"
+          />
+          <circle
+            class="recharts-dot recharts-radar-dot"
+            cx="210"
+            cy="140"
+            fill="#19426c"
+            fill-opacity="0.1"
+            name="Trust score"
+            r="3"
+            stroke="#19426c"
+          />
+          <circle
+            class="recharts-dot recharts-radar-dot"
+            cx="210"
+            cy="140"
+            fill="#19426c"
+            fill-opacity="0.1"
+            name="Trust score"
+            r="3"
+            stroke="#19426c"
+          />
+          <circle
+            class="recharts-dot recharts-radar-dot"
+            cx="210"
+            cy="140"
+            fill="#19426c"
+            fill-opacity="0.1"
+            name="Trust score"
+            r="3"
+            stroke="#19426c"
+          />
+          <circle
+            class="recharts-dot recharts-radar-dot"
+            cx="210"
+            cy="140"
+            fill="#19426c"
+            fill-opacity="0.1"
+            name="Trust score"
+            r="3"
+            stroke="#19426c"
+          />
+        </g>
+      </g>
+    </g>
+  </svg>
+</div>
 `;

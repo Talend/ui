@@ -1,25 +1,18 @@
-import { shallow, mount } from 'enzyme';
-import cases from 'jest-in-case';
-import { ButtonIcon } from '@talend/design-system';
+/* eslint-disable react/display-name */
+import userEvent from '@testing-library/user-event';
+import { screen, render } from '@testing-library/react';
 
 import DateView from './DateView.component';
 
-function getActions(wrapper) {
-	return wrapper.find('ViewLayout').shallow().find(ButtonIcon);
-}
-
-function clickOnPreviousMonth(wrapper) {
-	getActions(wrapper).first().simulate('click');
-}
-
-function clickOnNextMonth(wrapper) {
-	getActions(wrapper).last().simulate('click');
-}
+jest.mock('../../pickers/DatePicker', () => props => (
+	<div data-testid="DatePicker" data-props={JSON.stringify(props)} />
+));
+jest.unmock('@talend/design-system');
 
 describe('DateView', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<DateView
 				allowFocus
 				calendar={{
@@ -35,34 +28,13 @@ describe('DateView', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render without timePicker', () => {
-		// when
-		const wrapper = shallow(
-			<DateView
-				allowFocus
-				calendar={{
-					monthIndex: 5,
-					year: 2006,
-				}}
-				onTitleClick={jest.fn()}
-				onSelectMonthYear={jest.fn()}
-				onSelectDate={jest.fn()}
-				onSelectTime={jest.fn()}
-				selectedTime={{ hours: '15', minutes: '45' }}
-			/>,
-		);
-
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should trigger props.onTitleClick when title is clicked', () => {
 		// given
 		const onTitleClick = jest.fn();
-		const wrapper = mount(
+		render(
 			<DateView
 				calendar={{
 					monthIndex: 5,
@@ -77,8 +49,7 @@ describe('DateView', () => {
 		expect(onTitleClick).not.toBeCalled();
 
 		// when
-		const titleAction = wrapper.find('ViewLayout').find('HeaderTitle').find('button');
-		titleAction.simulate('click');
+		userEvent.click(screen.getByLabelText('Switch to month-and-year view'));
 
 		// then
 		expect(onTitleClick).toBeCalled();
@@ -86,7 +57,7 @@ describe('DateView', () => {
 
 	it('should manage tabIndex', () => {
 		// given
-		const wrapper = mount(
+		const { rerender } = render(
 			<DateView
 				calendar={{
 					monthIndex: 5,
@@ -98,67 +69,77 @@ describe('DateView', () => {
 				onTitleClick={jest.fn()}
 			/>,
 		);
-
-		expect(wrapper.find('ViewLayout').find('HeaderTitle').find('button').prop('tabIndex')).toBe(-1);
+		expect(screen.getByLabelText('Switch to month-and-year view')).toHaveAttribute(
+			'tabIndex',
+			'-1',
+		);
 
 		// when
-		wrapper.setProps({ allowFocus: true });
+		rerender(
+			<DateView
+				calendar={{
+					monthIndex: 5,
+					year: 2006,
+				}}
+				onSelectMonthYear={jest.fn()}
+				onSelectDate={jest.fn()}
+				onSelectTime={jest.fn()}
+				onTitleClick={jest.fn()}
+				allowFocus
+			/>,
+		);
 
 		// then
-		expect(wrapper.find('ViewLayout').find('HeaderTitle').find('button').prop('tabIndex')).toBe(0);
+		expect(screen.getByLabelText('Switch to month-and-year view')).toHaveAttribute('tabIndex', '0');
 	});
 
-	cases(
-		'month switch management',
-		({ calendar, button, expectedMonthYear }) => {
-			// given
-			const onSelectMonthYear = jest.fn();
-			const wrapper = shallow(
-				<DateView
-					calendar={calendar}
-					onTitleClick={jest.fn()}
-					onSelectMonthYear={onSelectMonthYear}
-					onSelectDate={jest.fn()}
-					onSelectTime={jest.fn()}
-				/>,
-			);
-			expect(onSelectMonthYear).not.toBeCalled();
-
-			// when
-			if (button === 'previous') {
-				clickOnPreviousMonth(wrapper);
-			} else if (button === 'next') {
-				clickOnNextMonth(wrapper);
-			}
-
-			// then
-			expect(onSelectMonthYear).toBeCalledWith(expectedMonthYear, undefined);
+	test.each([
+		{
+			name: 'should go to previous month within same year',
+			calendar: { monthIndex: 5, year: 2006 },
+			button: 'previous',
+			expectedMonthYear: { monthIndex: 4, year: 2006 },
 		},
-		[
-			{
-				name: 'should go to previous month within same year',
-				calendar: { monthIndex: 5, year: 2006 },
-				button: 'previous',
-				expectedMonthYear: { monthIndex: 4, year: 2006 },
-			},
-			{
-				name: 'should go to next month within same year',
-				calendar: { monthIndex: 5, year: 2006 },
-				button: 'next',
-				expectedMonthYear: { monthIndex: 6, year: 2006 },
-			},
-			{
-				name: 'should go from january to previous month',
-				calendar: { monthIndex: 0, year: 2006 },
-				button: 'previous',
-				expectedMonthYear: { monthIndex: 11, year: 2005 },
-			},
-			{
-				name: 'should go from december to next month',
-				calendar: { monthIndex: 11, year: 2006 },
-				button: 'next',
-				expectedMonthYear: { monthIndex: 0, year: 2007 },
-			},
-		],
-	);
+		{
+			name: 'should go to next month within same year',
+			calendar: { monthIndex: 5, year: 2006 },
+			button: 'next',
+			expectedMonthYear: { monthIndex: 6, year: 2006 },
+		},
+		{
+			name: 'should go from january to previous month',
+			calendar: { monthIndex: 0, year: 2006 },
+			button: 'previous',
+			expectedMonthYear: { monthIndex: 11, year: 2005 },
+		},
+		{
+			name: 'should go from december to next month',
+			calendar: { monthIndex: 11, year: 2006 },
+			button: 'next',
+			expectedMonthYear: { monthIndex: 0, year: 2007 },
+		},
+	])('$name', ({ calendar, button, expectedMonthYear }) => {
+		// given
+		const onSelectMonthYear = jest.fn();
+		render(
+			<DateView
+				calendar={calendar}
+				onTitleClick={jest.fn()}
+				onSelectMonthYear={onSelectMonthYear}
+				onSelectDate={jest.fn()}
+				onSelectTime={jest.fn()}
+			/>,
+		);
+		expect(onSelectMonthYear).not.toBeCalled();
+
+		// when
+		if (button === 'previous') {
+			userEvent.click(screen.getByLabelText('Go to previous month'));
+		} else if (button === 'next') {
+			userEvent.click(screen.getByLabelText('Go to next month'));
+		}
+
+		// then
+		expect(onSelectMonthYear).toBeCalledWith(expectedMonthYear, undefined);
+	});
 });

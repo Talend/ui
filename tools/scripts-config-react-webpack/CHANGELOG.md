@@ -1,5 +1,21 @@
 # @talend/scripts-config-react-webpack
 
+## 15.4.0
+
+### Minor Changes
+
+- 5fd268ed6: feat: support publicPath auto option
+
+### Patch Changes
+
+- ee828e0b0: fix: remove circular dependencies on react-components
+
+## 15.3.3
+
+### Patch Changes
+
+- fb81e1ed2: fix: support package-lock format 1
+
 ## 15.3.2
 
 ### Patch Changes

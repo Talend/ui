@@ -143,7 +143,7 @@ function renderContent() {
 }
 
 export default {
-	title: 'Navigation/Tabs',
+	title: 'Components/Navigation/Tabs',
 };
 
 export const Default = () => (

@@ -160,6 +160,7 @@ function TabBar(props) {
 					<NavItem
 						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
 						{...item}
+						key={item.key}
 						eventKey={item.key}
 						componentClass="button"
 					>

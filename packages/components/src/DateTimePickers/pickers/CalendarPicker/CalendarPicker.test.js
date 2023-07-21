@@ -1,9 +1,28 @@
-import { mount, shallow } from 'enzyme';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+// rewrite using rtl
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import startOfDay from 'date-fns/start_of_day';
 import CalendarPicker from './CalendarPicker.component';
-import DateView from '../../views/DateView';
-import MonthYearView from '../../views/MonthYearView';
 import dateMock from '../../../../../../mocks/dateMock';
+
+jest.mock('../../views/DateView', () => props => (
+	<div data-testid="DateView" data-props={JSON.stringify(props)}>
+		<button onClick={e => props.onTitleClick(e)}>onTitleClick</button>
+		<button onClick={() => props.onSelectMonthYear({ monthIndex: 1, year: 2019 })}>
+			onSelectMonthYear
+		</button>
+		<button onClick={e => props.onSelectDate(e, new Date(2018, 2, 5))}>onSelectDate</button>
+	</div>
+));
+jest.mock('../../views/MonthYearView', () => props => (
+	<div data-testid="MonthYearView" data-props={JSON.stringify(props)}>
+		<button onClick={e => props.onBackClick(e)}>onBackClick</button>
+		<button onClick={e => props.onSelectMonth(e, 5)}>onSelectMonth</button>
+		<button onClick={e => props.onSelectYear(e, 2016)}>onSelectYear</button>
+	</div>
+));
 
 describe('CalendarPicker', () => {
 	afterEach(() => {
@@ -12,9 +31,9 @@ describe('CalendarPicker', () => {
 
 	it('should render', () => {
 		dateMock.mock(new Date(2018, 5, 12));
-		const wrapper = shallow(<CalendarPicker onSubmit={() => {}} />);
+		const { container } = render(<CalendarPicker onSubmit={() => {}} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should initialize calendar view to current date', () => {
@@ -22,11 +41,11 @@ describe('CalendarPicker', () => {
 		dateMock.mock(new Date(2016, 4, 12));
 
 		// when
-		const wrapper = shallow(<CalendarPicker onSubmit={() => {}} />);
+		render(<CalendarPicker onSubmit={() => {}} />);
 
 		// then
-		const dateView = wrapper.find(DateView);
-		expect(dateView.prop('calendar')).toEqual({
+		const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+		expect(props.calendar).toEqual({
 			monthIndex: 4,
 			year: 2016,
 		});
@@ -34,12 +53,11 @@ describe('CalendarPicker', () => {
 
 	it('should initialize calendar view to date from props', () => {
 		// when
-		const wrapper = shallow(
-			<CalendarPicker selectedDate={new Date(2013, 0, 15)} onSubmit={() => {}} />,
-		);
+		render(<CalendarPicker selectedDate={new Date(2013, 0, 15)} onSubmit={() => {}} />);
 
 		// then
-		expect(wrapper.state('calendar')).toEqual({
+		const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+		expect(props.calendar).toEqual({
 			monthIndex: 0,
 			year: 2013,
 		});
@@ -48,110 +66,111 @@ describe('CalendarPicker', () => {
 	describe('focus management', () => {
 		it('should init allow focus state when option is off', () => {
 			// when
-			const wrapper = mount(<CalendarPicker manageFocus={false} onSubmit={() => {}} />);
+			render(<CalendarPicker manageFocus={false} onSubmit={() => {}} />);
 
 			// then
-			expect(wrapper.state('allowFocus')).toBe(true);
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.allowFocus).toBe(true);
+			expect(screen.getByLabelText('Date picker')).toHaveAttribute('tabIndex', '0');
 		});
 
 		it('should disable focus when option is on', () => {
 			// when
-			const wrapper = mount(<CalendarPicker manageFocus onSubmit={() => {}} />);
+			render(<CalendarPicker manageFocus onSubmit={() => {}} />);
 
 			// then
-			expect(wrapper.state('allowFocus')).toBe(false);
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.allowFocus).toBe(false);
+			expect(screen.getByLabelText('Date picker')).toHaveAttribute('tabIndex', '-1');
 		});
 
 		it('should allow focus when active element is in picker', () => {
 			// given
-			const wrapper = mount(<CalendarPicker manageFocus onSubmit={() => {}} />);
-			expect(wrapper.state('allowFocus')).toBe(false);
-			wrapper.getDOMNode().dispatchEvent(new Event('focusin'));
+			render(<CalendarPicker manageFocus onSubmit={() => {}} />);
+			userEvent.click(screen.getByLabelText('Date picker')); // focus by click
 
 			// then
-			expect(wrapper.state('allowFocus')).toBe(true);
+			expect(screen.getByLabelText('Date picker')).toHaveAttribute('tabIndex', '0');
 		});
 
 		it('should disable focus when active element is out of picker', () => {
 			// given
-			const wrapper = mount(<CalendarPicker manageFocus onSubmit={() => {}} />);
-			wrapper.setState({ allowFocus: true });
-			wrapper.getDOMNode().dispatchEvent(new Event('focusout'));
+			render(<CalendarPicker manageFocus onSubmit={() => {}} />);
+			userEvent.click(screen.getByLabelText('Date picker')); // focus by click
+
+			// when
+			userEvent.click(document.body); // focus out of picker
 
 			// then
-			expect(wrapper.state('allowFocus')).toBe(false);
+			expect(screen.getByLabelText('Date picker')).toHaveAttribute('tabIndex', '-1');
 		});
-
-		it('should NOT allow focus when active element is outside of picker', () => {});
 	});
 
 	describe('view switching', () => {
 		it('should switch state to MonthYearView when header title of DateView is clicked', () => {
 			// given
-			const wrapper = mount(<CalendarPicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateView: true });
+			render(<CalendarPicker onSubmit={() => {}} />);
 
 			// when
-			const clickTitleHandler = wrapper.find(DateView).prop('onTitleClick');
-			clickTitleHandler();
+			userEvent.click(screen.getByText('onTitleClick'));
 
 			// then
-			expect(wrapper.state('isDateView')).toBe(false);
+			expect(screen.getByTestId('MonthYearView')).toBeInTheDocument();
+			expect(screen.queryByTestId('DateView')).not.toBeInTheDocument();
 		});
 
 		it('should switch state to DateView when header back action of MonthYearView is clicked', () => {
 			// given
-			const wrapper = mount(<CalendarPicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateView: false });
+			render(<CalendarPicker onSubmit={() => {}} />);
+			userEvent.click(screen.getByText('onTitleClick'));
 
 			// when
-			const clickBackHandler = wrapper.find(MonthYearView).prop('onBackClick');
-			clickBackHandler();
+			userEvent.click(screen.getByText('onBackClick'));
 
 			// then
-			expect(wrapper.state('isDateView')).toBe(true);
+			expect(screen.getByTestId('DateView')).toBeInTheDocument();
+			expect(screen.queryByTestId('MonthYearView')).not.toBeInTheDocument();
 		});
 
 		it('should switch to new month/year value from day picker', () => {
 			// given
-			const wrapper = shallow(<CalendarPicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateView: true, calendar: { monthIndex: 10, year: 2018 } });
+			render(<CalendarPicker onSubmit={() => {}} />);
 
 			// when
-			wrapper.find(DateView).prop('onSelectMonthYear')({ monthIndex: 5, year: 2016 });
+			userEvent.click(screen.getByText('onSelectMonthYear'));
 
 			// then`
-			const calendar = wrapper.state('calendar');
-			expect(calendar.monthIndex).toBe(5);
-			expect(calendar.year).toBe(2016);
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.calendar.monthIndex).toBe(1);
+			expect(props.calendar.year).toBe(2019);
 		});
 
 		it('should switch to new month from monthYear picker', () => {
 			// given
-			const wrapper = shallow(<CalendarPicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateView: false, calendar: { monthIndex: 10, year: 2018 } });
-			const event = { target: {} };
+			const selectedDate = new Date(2018, 10, 12);
+			render(<CalendarPicker onSubmit={() => {}} selectedDate={selectedDate} />);
+			userEvent.click(screen.getByText('onTitleClick'));
 
 			// when
-			wrapper.find(MonthYearView).prop('onSelectMonth')(event, 5);
+			userEvent.click(screen.getByText('onSelectMonth'));
 
-			// then`
-			const calendar = wrapper.state('calendar');
-			expect(calendar.monthIndex).toBe(5);
+			// then
+			const props = JSON.parse(screen.getByTestId('MonthYearView').getAttribute('data-props'));
+			expect(props.selectedMonthIndex).toBe(5);
 		});
 
 		it('should switch to new year from monthYear picker', () => {
 			// given
-			const wrapper = shallow(<CalendarPicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateView: false, calendar: { monthIndex: 10, year: 2018 } });
-			const event = { target: {} };
+			const selectedDate = new Date(2018, 10, 12);
+			render(<CalendarPicker onSubmit={() => {}} selectedDate={selectedDate} />);
+			userEvent.click(screen.getByText('onTitleClick'));
 
 			// when
-			wrapper.find(MonthYearView).prop('onSelectYear')(event, 2016);
+			userEvent.click(screen.getByText('onSelectYear'));
 
 			// then
-			const calendar = wrapper.state('calendar');
-			expect(calendar.year).toBe(2016);
+			const props = JSON.parse(screen.getByTestId('MonthYearView').getAttribute('data-props'));
+			expect(props.selectedYear).toBe(2016);
 		});
 	});
 
@@ -160,53 +179,51 @@ describe('CalendarPicker', () => {
 			// given
 			const d1 = new Date(2018, 2, 5);
 			const d2 = new Date(2019, 11, 21);
-			const wrapper = shallow(<CalendarPicker selection={{ date: d1 }} onSubmit={() => {}} />);
+			const { rerender } = render(<CalendarPicker selectedDate={d1} onSubmit={() => {}} />);
 
 			// when
-			wrapper.setProps({ selectedDate: d2 });
+			rerender(<CalendarPicker selectedDate={d2} onSubmit={() => {}} />);
 
 			// then
-			expect(wrapper.state('selectedDate')).toBe(d2);
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.selectedDate).toBe(d2.toISOString());
 		});
 
 		it('should update state and submit on date picked', () => {
 			// given
 			const initialDate = new Date(2015, 10, 18);
 			const date = new Date(2018, 2, 5);
-			const event = { target: {}, persist() {} };
 			const onSubmit = jest.fn();
 
-			const wrapper = shallow(
-				<CalendarPicker selection={{ date: initialDate }} onSubmit={onSubmit} />,
-			);
+			render(<CalendarPicker selectedDate={initialDate} onSubmit={onSubmit} />);
 
 			// when
-			wrapper.find(DateView).prop('onSelectDate')(event, date);
+			userEvent.click(screen.getByText('onSelectDate'));
 
 			// then
-			expect(wrapper.state('selectedDate')).toBe(date);
-			expect(onSubmit).toBeCalledWith(event, { date });
+			expect(onSubmit).toBeCalledWith(expect.anything({ type: 'click' }), { date });
 		});
 	});
 
 	describe('today function', () => {
 		it('should switch state to DateTimeView when Today is clicked', () => {
 			// given
-			const wrapper = mount(<CalendarPicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateView: false });
+			render(<CalendarPicker onSubmit={() => {}} />);
+			userEvent.click(screen.getByText('onTitleClick'));
 
 			// when
-			wrapper.find({ label: 'Today' }).at(0).simulate('click');
+			userEvent.click(screen.getByText('Today'));
 
 			// then
-			expect(wrapper.state('isDateView')).toBe(true);
-			expect(wrapper.state('selectedDate')).toStrictEqual(startOfDay(new Date()));
+			expect(screen.getByTestId('DateView')).toBeInTheDocument();
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.selectedDate).toBe(startOfDay(new Date()).toISOString());
 		});
 	});
 	describe('date range', () => {
 		it('should initialize calendar of startDate when pick "from" date', () => {
 			// when
-			const wrapper = shallow(
+			render(
 				<CalendarPicker
 					selectedDate={new Date(2013, 0, 15)}
 					endDate={new Date(2013, 1, 2)}
@@ -215,14 +232,15 @@ describe('CalendarPicker', () => {
 			);
 
 			// then
-			expect(wrapper.state('calendar')).toEqual({
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.calendar).toEqual({
 				monthIndex: 0,
 				year: 2013,
 			});
 		});
 		it('should initialize calendar of endDate when pick "to" date', () => {
 			// when
-			const wrapper = shallow(
+			render(
 				<CalendarPicker
 					startDate={new Date(2012, 11, 29)}
 					selectedDate={new Date(2013, 0, 15)}
@@ -231,7 +249,8 @@ describe('CalendarPicker', () => {
 			);
 
 			// then
-			expect(wrapper.state('calendar')).toEqual({
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.calendar).toEqual({
 				monthIndex: 0,
 				year: 2013,
 			});

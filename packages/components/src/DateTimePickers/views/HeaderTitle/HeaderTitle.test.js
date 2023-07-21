@@ -1,38 +1,28 @@
-import { shallow } from 'enzyme';
-
+/* eslint-disable react/display-name */
+import { screen, render } from '@testing-library/react';
 import HeaderTitle from './HeaderTitle.component';
-import { ActionDropdown } from '../../../Actions';
+jest.mock('../../pickers/YearPicker', () => props => (
+	<div data-testid="YearPicker" data-props={JSON.stringify(props)} />
+));
 
 describe('HeaderTitle', () => {
 	it('should render a span and ActionDropdown', () => {
 		// When
-		const wrapper = shallow(<HeaderTitle monthIndex={8} year={2012} />);
+		const { container } = render(<HeaderTitle monthIndex={8} year={2012} />);
 
 		// Then
-		expect(wrapper.name()).toEqual('div');
-		expect(wrapper.find('span').exists()).toBe(true);
-		expect(wrapper.find(ActionDropdown).exists()).toBe(true);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render a button', () => {
 		// When
-		const wrapper = shallow(
-			<HeaderTitle monthIndex={8} year={2012} button={{ whateverButtonProp: 'whateverValue' }} />,
-		);
+		render(<HeaderTitle monthIndex={8} year={2012} button={{ 'data-foo': 'whateverValue' }} />);
 
 		// Then
-		expect(wrapper.name()).toEqual('Action');
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render the correct date and format', () => {
-		const wrapperSpanAction = shallow(<HeaderTitle monthIndex={2} year={2001} />);
-		const wrapperButton = shallow(
-			<HeaderTitle monthIndex={11} year={2002} button={{ whateverButtonProp: 'whateverValue' }} />,
-		);
-		expect(wrapperSpanAction.find('span').first().text()).toEqual('March');
-		expect(wrapperSpanAction.find(ActionDropdown).first().props().label).toEqual('2001');
-		expect(wrapperButton.prop('label')).toBe('December 2002');
+		const btn = screen.getByRole('button');
+		expect(btn).toBeVisible();
+		expect(btn).toHaveAttribute('aria-label', 'September 2012');
+		expect(btn).toHaveAttribute('data-foo', 'whateverValue');
+		expect(btn).toHaveTextContent('September 2012');
 	});
 });

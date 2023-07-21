@@ -1,18 +1,27 @@
-import PropTypes from 'prop-types';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+/* eslint-disable react/prop-types */
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import useCollectionSelection from './useCollectionSelection.hook';
 
-const Div = () => <div />;
-function SelectionComponent({ collection, initialSelectedIds, idKey }) {
+function SelectionComponent({ collection, initialSelectedIds, idKey, isSelected, ...props }) {
 	const hookReturn = useCollectionSelection(collection, initialSelectedIds, idKey);
-	return <Div id="mainChild" {...hookReturn} />;
+	return (
+		<div data-testid="SelectionComponent" data-props={JSON.stringify(hookReturn)}>
+			<button onClick={() => props.testIsSelected(hookReturn.isSelected)}>isSelected</button>
+			<button onClick={() => hookReturn.onToggleAll()}>onToggleAll</button>
+
+			{collection.map(item => (
+				<input
+					key={item ? item[idKey] : 'null'}
+					type="checkbox"
+					value={hookReturn.isSelected(item)}
+					onChange={() => hookReturn.onToggleItem(item)}
+					data-testid={`onToggle-${item ? item[idKey] : 'null'}`}
+				/>
+			))}
+		</div>
+	);
 }
-SelectionComponent.propTypes = {
-	collection: PropTypes.array,
-	initialSelectedIds: PropTypes.array,
-	idKey: PropTypes.string,
-};
 
 const collection = [
 	{
@@ -48,7 +57,7 @@ describe('useCollectionSelection', () => {
 		const initialSelectedIds = [1, 4];
 
 		// when
-		const wrapper = mount(
+		render(
 			<SelectionComponent
 				collection={collection}
 				initialSelectedIds={initialSelectedIds}
@@ -57,8 +66,8 @@ describe('useCollectionSelection', () => {
 		);
 
 		// then
-		const selectedIds = wrapper.find('#mainChild').prop('selectedIds');
-		expect(selectedIds).toEqual([1, 4]);
+		const props = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props);
+		expect(props.selectedIds).toEqual([1, 4]);
 	});
 
 	it('should set initial selection list with unloaded items', () => {
@@ -67,7 +76,7 @@ describe('useCollectionSelection', () => {
 		const initialSelectedIds = [1, 4];
 
 		// when
-		const wrapper = mount(
+		render(
 			<SelectionComponent
 				collection={caseCollection}
 				initialSelectedIds={initialSelectedIds}
@@ -76,8 +85,8 @@ describe('useCollectionSelection', () => {
 		);
 
 		// then
-		const selectedIds = wrapper.find('#mainChild').prop('selectedIds');
-		expect(selectedIds).toEqual([1, 4]);
+		const props = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props);
+		expect(props.selectedIds).toEqual([1, 4]);
 	});
 
 	it('should filter selected items according to the existing collection', () => {
@@ -85,30 +94,32 @@ describe('useCollectionSelection', () => {
 		const initialSelectedIds = [1, 4];
 
 		// when
-		const wrapper = mount(
+		render(
 			<SelectionComponent collection={[]} initialSelectedIds={initialSelectedIds} idKey="number" />,
 		);
 
 		// then
-		const selectedIds = wrapper.find('#mainChild').prop('selectedIds');
-		expect(selectedIds).toEqual([]);
+		const props = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props);
+		expect(props.selectedIds).toEqual([]);
 	});
 
-	it('should provide a function to check an item selection', () => {
+	it('should provide a function to check an item selection', async () => {
 		// given
 		const initialSelectedIds = [1, 4];
-
+		const testIsSelected = jest.fn();
 		// when
-		const wrapper = mount(
+		render(
 			<SelectionComponent
 				collection={collection}
 				initialSelectedIds={initialSelectedIds}
 				idKey="number"
+				testIsSelected={testIsSelected}
 			/>,
 		);
+		await userEvent.click(screen.getByText('isSelected'));
 
 		// then
-		const isSelected = wrapper.find('#mainChild').prop('isSelected');
+		const isSelected = testIsSelected.mock.calls[0][0];
 		expect(isSelected(collection[0])).toBe(false);
 		expect(isSelected(collection[1])).toBe(true);
 		expect(isSelected(collection[2])).toBe(false);
@@ -119,18 +130,20 @@ describe('useCollectionSelection', () => {
 	it('should provide a function to check an item selection that supports unloaded items', () => {
 		// given
 		const initialSelectedIds = [1, 4];
-
+		const testIsSelected = jest.fn();
 		// when
-		const wrapper = mount(
+		render(
 			<SelectionComponent
 				collection={[...collection, null]}
 				initialSelectedIds={initialSelectedIds}
 				idKey="number"
+				testIsSelected={testIsSelected}
 			/>,
 		);
+		userEvent.click(screen.getByText('isSelected'));
 
 		// then
-		const isSelected = wrapper.find('#mainChild').prop('isSelected');
+		const isSelected = testIsSelected.mock.calls[0][0];
 		expect(isSelected(collection[0])).toBe(false);
 		expect(isSelected(collection[1])).toBe(true);
 		expect(isSelected(collection[2])).toBe(false);
@@ -139,41 +152,39 @@ describe('useCollectionSelection', () => {
 		expect(isSelected(collection[6])).toBe(false);
 	});
 
-	it('should set new item selection', () => {
+	it('should set new item selection', async () => {
 		// given
-		const wrapper = mount(<SelectionComponent collection={collection} idKey="number" />);
+		render(<SelectionComponent collection={collection} idKey="number" />);
+		let selectedIds = JSON.parse(
+			screen.getByTestId('SelectionComponent').dataset.props,
+		).selectedIds;
+		expect(selectedIds).toEqual([]);
 
 		// when
-		let onToggleItem = wrapper.find('#mainChild').prop('onToggleItem');
-		act(() => onToggleItem(collection[0]));
-		wrapper.update();
+		await userEvent.click(screen.getByTestId('onToggle-0'));
 
 		// then
-		let selectedIds = wrapper.find('#mainChild').prop('selectedIds');
+		selectedIds = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props).selectedIds;
 		expect(selectedIds).toEqual([0]);
 
 		// when
-		onToggleItem = wrapper.find('#mainChild').prop('onToggleItem');
-		act(() => onToggleItem(collection[4]));
-		wrapper.update();
+		await userEvent.click(screen.getByTestId('onToggle-4'));
 
 		// then
-		selectedIds = wrapper.find('#mainChild').prop('selectedIds');
+		selectedIds = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props).selectedIds;
 		expect(selectedIds).toEqual([0, 4]);
 
 		// when
-		onToggleItem = wrapper.find('#mainChild').prop('onToggleItem');
-		act(() => onToggleItem(collection[0]));
-		wrapper.update();
+		await userEvent.click(screen.getByTestId('onToggle-0'));
 
 		// then
-		selectedIds = wrapper.find('#mainChild').prop('selectedIds');
+		selectedIds = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props).selectedIds;
 		expect(selectedIds).toEqual([4]);
 	});
 
-	it('should provide the "select all" status', () => {
+	it('should provide the "select all" status', async () => {
 		// when
-		const wrapper = mount(
+		render(
 			<SelectionComponent
 				collection={collection}
 				initialSelectedIds={[0, 1, 2, 3, 4]}
@@ -182,16 +193,18 @@ describe('useCollectionSelection', () => {
 		);
 
 		// then
-		let allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
+		let allIsSelected = JSON.parse(
+			screen.getByTestId('SelectionComponent').dataset.props,
+		).allIsSelected;
 		expect(allIsSelected).toBe(true);
 
 		// when
-		const onToggleItem = wrapper.find('#mainChild').prop('onToggleItem');
-		act(() => onToggleItem(collection[0]));
-		wrapper.update();
+		await userEvent.click(screen.getByTestId('onToggle-0'));
 
 		// then
-		allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
+		allIsSelected = JSON.parse(
+			screen.getByTestId('SelectionComponent').dataset.props,
+		).allIsSelected;
 		expect(allIsSelected).toBe(false);
 	});
 
@@ -201,7 +214,7 @@ describe('useCollectionSelection', () => {
 		const selection = [0, 1, 2, 3, 4];
 
 		// when
-		const wrapper = mount(
+		render(
 			<SelectionComponent
 				collection={caseCollection}
 				initialSelectedIds={selection}
@@ -210,21 +223,23 @@ describe('useCollectionSelection', () => {
 		);
 
 		// then
-		const allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
+		const allIsSelected = JSON.parse(
+			screen.getByTestId('SelectionComponent').dataset.props,
+		).allIsSelected;
 		expect(allIsSelected).toBe(false);
 	});
 
-	it('should toggle all', () => {
+	it('should toggle all', async () => {
 		// given
-		const wrapper = mount(<SelectionComponent collection={collection} idKey="number" />);
+		render(<SelectionComponent collection={collection} idKey="number" />);
 
 		// when
-		const onToggleAll = wrapper.find('#mainChild').prop('onToggleAll');
-		act(() => onToggleAll());
-		wrapper.update();
+		await userEvent.click(screen.getByText('onToggleAll'));
 
 		// then
-		const allIsSelected = wrapper.find('#mainChild').prop('allIsSelected');
+		const allIsSelected = JSON.parse(
+			screen.getByTestId('SelectionComponent').dataset.props,
+		).allIsSelected;
 		expect(allIsSelected).toBe(true);
 	});
 });

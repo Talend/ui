@@ -1,18 +1,15 @@
-import React, { useState, useRef } from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+/* eslint-disable react/no-string-refs */
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import keycode from 'keycode';
 import ReactDOM from 'react-dom';
-import ReactTestUtils from 'react-dom/test-utils';
-import { mount, shallow } from 'enzyme';
 
 import Dropdown from './Dropdown';
-import DropdownMenu from './DropdownMenu';
 import Grid from './Grid';
 import MenuItem from './MenuItem';
-
-import { shouldWarn } from './helpers';
 
 function CustomMenu({ children, ...props }) {
   return (
@@ -23,8 +20,6 @@ function CustomMenu({ children, ...props }) {
 }
 
 describe('<Dropdown>', () => {
-  const BaseDropdown = Dropdown.ControlledComponent;
-
   const dropdownChildren = [
     <Dropdown.Toggle key="toggle">Child Title</Dropdown.Toggle>,
     <Dropdown.Menu key="menu">

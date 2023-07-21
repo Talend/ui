@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 12.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
 ## 12.1.2
 
 ### Patch Changes

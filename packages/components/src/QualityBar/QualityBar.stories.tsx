@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { QualityBar } from './QualityBar.component';
 
 export default {
-	title: 'Data/Dataviz/QualityBar',
+	title: 'Components/Dataviz/QualityBar',
 };
 
 export const Default = () => (

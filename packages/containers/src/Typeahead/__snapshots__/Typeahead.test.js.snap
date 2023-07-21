@@ -1,22 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Typeahead container should render 1`] = `
-<Typeahead
-  autoFocus={false}
-  disabled={false}
-  docked={true}
-  focusedItemIndex={null}
-  focusedSectionIndex={null}
-  icon={{}}
-  id={42}
-  items={[]}
-  multiSection={true}
-  onBlur={[Function]}
-  onKeyDown={[Function]}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  position="left"
-  readOnly={false}
-  searching={false}
+<button
+  aria-describedby="42"
+  aria-label="my title"
+  class="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-default"
+  type="button"
 />
 `;

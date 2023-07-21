@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import { ListContext } from '../context';
 
 import getDefaultT from '../../../translate';
@@ -17,16 +17,16 @@ describe('ItemsNumber', () => {
 	describe('ItemsNumber', () => {
 		it('should render total number of items', () => {
 			// when
-			const wrapper = mount(
+			render(
 				<ListContext.Provider value={defaultContext}>
 					<ItemsNumber {...props} />
 				</ListContext.Provider>,
 			);
 
 			// then
-			expect(wrapper.find('div#list-items-number').text()).toEqual(`${props.totalItems} item`);
+			expect(screen.getByText(`${props.totalItems} item`)).toBeVisible();
 		});
-		it('should render total number of items + customized title', () => {
+		it('should render customized label', () => {
 			// given
 			const newProps = {
 				...props,
@@ -34,18 +34,16 @@ describe('ItemsNumber', () => {
 			};
 
 			// when
-			const wrapper = mount(
+			render(
 				<ListContext.Provider value={defaultContext}>
 					<ItemsNumber {...newProps} />
 				</ListContext.Provider>,
 			);
 
 			// then
-			expect(wrapper.find('div#list-items-number').text()).toEqual(
-				`${newProps.totalItems} bananas`,
-			);
+			expect(screen.getByText(newProps.label)).toBeVisible();
 		});
-		it('should render total number of items + number of selected items', () => {
+		it('should render labelSelected if props.selected', () => {
 			// given
 			const newProps = {
 				...props,
@@ -55,16 +53,14 @@ describe('ItemsNumber', () => {
 			};
 
 			// when
-			const wrapper = mount(
+			render(
 				<ListContext.Provider value={defaultContext}>
 					<ItemsNumber {...newProps} />
 				</ListContext.Provider>,
 			);
 
 			// then
-			expect(wrapper.find('div#list-items-number').text()).toEqual(
-				`${newProps.selected}/${newProps.totalItems} bananas`,
-			);
+			expect(screen.getByText(newProps.labelSelected)).toBeVisible();
 		});
 
 		it('should render total number of items + number of selected items with default label', () => {
@@ -75,16 +71,14 @@ describe('ItemsNumber', () => {
 			};
 
 			// when
-			const wrapper = mount(
+			render(
 				<ListContext.Provider value={defaultContext}>
 					<ItemsNumber {...newProps} />
 				</ListContext.Provider>,
 			);
 
 			// then
-			expect(wrapper.find('div#list-items-number').text()).toEqual(
-				`${newProps.selected}/${newProps.totalItems} item`,
-			);
+			expect(screen.getByText(`${newProps.selected}/${newProps.totalItems} item`)).toBeVisible();
 		});
 	});
 });

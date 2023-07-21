@@ -98,4 +98,41 @@ context('<CollapsiblePanel />', () => {
 			.should('have.attr', 'aria-expanded', 'true');
 		cy.get('#CollapsiblePanel__control--panel-a').should('have.attr', 'aria-expanded', 'false');
 	});
+
+	it('should display proper title without status', () => {
+		cy.mount(
+			<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+				<CollapsiblePanel id="panel-a" title="MyTitle">
+					<SampleParagraph />
+				</CollapsiblePanel>
+			</div>,
+		);
+		cy.get('#CollapsiblePanel__control--panel-a')
+			.find(':nth-child(2)') // Get the second child element
+			.then($element => {
+				const classname = $element.attr('class');
+				expect(classname).to.match(/CollapsiblePanelHeader-module__headerTitle/);
+				expect(classname).to.not.match(/Status-module__status/);
+
+				const title = $element.text(); // Get the text content of the element
+				expect(title).to.equal('MyTitle');
+			});
+	});
+
+	it('should display status without title', () => {
+		cy.mount(
+			<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+				<CollapsiblePanel id="panel-a" status="successful">
+					<SampleParagraph />
+				</CollapsiblePanel>
+			</div>,
+		);
+		cy.get('#CollapsiblePanel__control--panel-a')
+			.find(':nth-child(2)') // Get the second child element
+			.then($element => {
+				const classname = $element.attr('class');
+				expect(classname).to.not.match(/CollapsiblePanelHeader-module__headerTitle/);
+				expect(classname).to.match(/Status-module__status/);
+			});
+	});
 });

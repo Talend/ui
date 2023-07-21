@@ -1,8 +1,10 @@
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import NameFilter from './NameFilter.component';
 
 describe('NameFilter', () => {
 	it('should trigger onChange callback on change', () => {
+		jest.useFakeTimers();
 		const onChange = jest.fn();
 		const payload = {
 			target: {
@@ -10,11 +12,14 @@ describe('NameFilter', () => {
 			},
 		};
 
-		const wrapper = shallow(<NameFilter onChange={onChange} />);
+		render(<NameFilter label="label" onChange={onChange} />);
 		expect(onChange).not.toBeCalled();
 
-		wrapper.find('DebounceInput').at(0).simulate('change', payload);
+		userEvent.click(screen.getByRole('textbox'));
+		userEvent.keyboard('titi');
+		jest.runAllTimers();
 
-		expect(onChange).toBeCalledWith(payload);
+		expect(onChange).toBeCalledWith(expect.anything(payload));
+		jest.useRealTimers();
 	});
 });

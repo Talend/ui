@@ -1,5 +1,30 @@
 # @talend/http
 
+## 2.3.0
+
+### Minor Changes
+
+- 67144d23d: feat(http): add the possibility to add global interceptors for every calls that got through @talend/http calls
+
+  Usage:
+
+  ```typescript
+  import { addHttpResponseInterceptor, HTTP_STATUS } from '@talend/http';
+
+  addHttpResponseInterceptor('logout', (response: Response): void => {
+  	if (response.status === HTTP_STATUS.UNAUTHORIZED) {
+  		logout();
+  	}
+  });
+  ```
+
+## 2.2.0
+
+### Minor Changes
+
+- a8bdec1f0: chore(http): Improve code covering
+- e88ce400b: feat: expose http utils functions and constants
+
 ## 2.1.0
 
 ### Minor Changes

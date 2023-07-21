@@ -1,36 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NameFilter component snaps should render NameFilter in default mode 1`] = `
+exports[`NameFilter component snaps should render 1`] = `
 <form
-  className="tc-resource-picker-name-filter theme-tc-resource-picker-name-filter"
+  class="tc-resource-picker-name-filter theme-tc-resource-picker-name-filter"
 >
   <label
-    className="sr-only"
-    htmlFor="resource-picker-toolbar-name-filter-input"
+    class="sr-only"
+    for="resource-picker-toolbar-name-filter-input"
   >
     Example label
   </label>
-  <DebounceInput
-    autoComplete="off"
-    className="form-control"
-    debounceTimeout={100}
-    element="input"
-    forceNotifyByEnter={true}
-    forceNotifyOnBlur={true}
+  <input
+    autocomplete="off"
+    class="form-control"
     id="resource-picker-toolbar-name-filter-input"
-    minLength={0}
-    onChange={[Function]}
     placeholder="Example label"
-    required={true}
+    required=""
     type="text"
+    value=""
   />
-  <Action
-    bsStyle="link"
-    className="theme-remove"
-    hideLabel={true}
-    icon="talend-cross"
-    label="Remove filter"
-    onClick={[Function]}
-  />
+  <button
+    aria-describedby="42"
+    aria-label="Remove filter"
+    class="theme-remove btn-icon-only btn btn-link"
+    type="button"
+  >
+    <span
+      class="CoralIcon"
+      name="talend-cross"
+    />
+  </button>
 </form>
 `;

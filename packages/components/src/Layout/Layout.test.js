@@ -1,9 +1,7 @@
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import SubHeaderBar from '../SubHeaderBar';
 
 import Layout from './Layout.component';
-
-jest.mock('react-dom');
 
 const header = <h1>Header</h1>;
 const subHeader = <SubHeaderBar title="defaultTitle" onGoBack={jest.fn()} />;
@@ -33,86 +31,90 @@ const tabs = {
 	selectedKey: '2',
 };
 const drawers = [
-	<div style={{ width: 500 }}>
-		<h1>Hello drawers</h1>
+	<div key="first" style={{ width: 500 }}>
+		<h1>Hello drawer one</h1>
 		<p>You should not being able to read this because I&#39;m first</p>
 	</div>,
-	<div style={{ width: 400 }}>
-		<h1>Hello drawers</h1>
+	<div key="second" style={{ width: 400 }}>
+		<h1>Hello drawer two</h1>
 		<p>The content dictate the width</p>
 	</div>,
 ];
 
 describe('Layout', () => {
 	it('should render Layout OneColumn', () => {
-		const wrapper = shallow(
+		render(
 			<Layout mode="OneColumn" header={header}>
 				{one}
 			</Layout>,
 		);
-		expect(wrapper.find('OneColumn').length).toBe(1);
+		expect(screen.getByText('Header')).toBeVisible();
+		expect(screen.getByText('Column one')).toBeVisible();
 	});
 
 	it('should render Layout TwoColumns', () => {
-		const wrapper = shallow(
+		render(
 			<Layout mode="TwoColumns" one={one} header={header}>
 				{two}
 			</Layout>,
 		);
-		expect(wrapper.find('TwoColumns').length).toBe(1);
+		expect(screen.getByText('Column one')).toBeVisible();
+		expect(screen.getByText('Column two')).toBeVisible();
 	});
 
 	it('should render TwoColumns with drawers props', () => {
-		const wrapper = shallow(
+		render(
 			<Layout mode="TwoColumns" one={one} header={header} drawers={drawers}>
 				{two}
 			</Layout>,
 		);
-		expect(wrapper.find('TwoColumns').props().drawers.length).toBe(2);
+		expect(screen.getByText('Column one')).toBeVisible();
+		expect(screen.getByText('Column two')).toBeVisible();
+		expect(screen.getByText('Hello drawer one')).toBeVisible();
+		expect(screen.getByText('Hello drawer two')).toBeVisible();
 	});
 
 	it('should render layout with footer component', () => {
-		const wrapper = shallow(
+		render(
 			<Layout mode="OneColumn" header={header} footer={footer}>
 				{one}
 			</Layout>,
 		);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Footer')).toBeVisible();
 	});
 
 	it('should render layout without header', () => {
-		const wrapper = shallow(<Layout mode="OneColumn">{one}</Layout>);
-
-		expect(wrapper.find('header').length).toBe(0);
+		render(<Layout mode="OneColumn">{one}</Layout>);
+		expect(screen.queryByText('Header')).not.toBeInTheDocument();
 	});
 
 	it('should render TwoColumns with tabs props', () => {
-		const wrapper = shallow(
+		render(
 			<Layout mode="TwoColumns" one={one} header={header} tabs={tabs}>
 				{two}
 			</Layout>,
 		);
-		expect(wrapper.find('TwoColumns').props().tabs).toBe(tabs);
+		expect(screen.getByText('Tab1')).toBeVisible();
+		expect(screen.getByText('Tab2')).toBeVisible();
+		expect(screen.getByText('Tab3')).toBeVisible();
 	});
 
 	it('should render layout with subHeader in OneColumn mode', () => {
-		const wrapper = shallow(
+		render(
 			<Layout subHeader={subHeader} mode="OneColumn">
 				{one}
 			</Layout>,
 		);
-		expect(wrapper.find('SubHeaderBar').length).toBe(1);
-		expect(wrapper.find('OneColumn').length).toBe(1);
+		expect(screen.getByText('defaultTitle')).toBeVisible();
 	});
 
 	it('should render layout with subHeader in TwoColumns mode', () => {
-		const wrapper = shallow(
+		render(
 			<Layout subHeader={subHeader} mode="TwoColumns">
 				{one}
 			</Layout>,
 		);
-		expect(wrapper.find('SubHeaderBar').length).toBe(1);
-		expect(wrapper.find('TwoColumns').length).toBe(1);
+		expect(screen.getByText('defaultTitle')).toBeVisible();
+		expect(screen.getByText('Column one').closest('.tc-layout-two-columns')).toBeVisible();
 	});
 });

@@ -95,7 +95,7 @@ function IntercomComponent() {
 }
 
 export default {
-	title: 'Navigation/HeaderBar',
+	title: 'Components/Navigation/HeaderBar',
 };
 
 export const Default = () => {

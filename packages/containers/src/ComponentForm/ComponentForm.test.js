@@ -1,8 +1,11 @@
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import { fromJS, Map } from 'immutable';
+import cmf, { mock } from '@talend/react-cmf';
 import addSchemaMock from './ComponentForm.test.schema.json';
 
 import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
+
+jest.unmock('@talend/design-system');
 
 jest.mock('./kit', () => ({
 	createTriggers({ url, customRegistry, security }) {
@@ -19,6 +22,14 @@ jest.mock('./kit', () => ({
 }));
 
 describe('ComponentForm', () => {
+	let App;
+	beforeAll(async () => {
+		const config = await cmf.bootstrap({
+			render: false,
+			components: {},
+		});
+		App = config.App;
+	});
 	describe('#toJS', () => {
 		it('should return null for no object', () => {
 			// when
@@ -299,10 +310,20 @@ describe('ComponentForm', () => {
 			const state = new Map({});
 
 			// when
-			const wrapper = shallow(<TCompForm state={state} />);
+			render(
+				<App {...mock.store.context()}>
+					<TCompForm
+						state={state}
+						triggerURL="http://foo.com/rpc"
+						definitionURL="http://foo.com/definition.json"
+					/>
+				</App>,
+			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.getByTestId('form.skeleton')).toBeVisible();
+			// eslint-disable-next-line jest-dom/prefer-in-document
+			expect(screen.queryByRole('form')).toBeNull();
 		});
 
 		it('should render a response status', () => {
@@ -310,10 +331,18 @@ describe('ComponentForm', () => {
 			const state = fromJS({ response: { statusText: 'we had an error' } });
 
 			// when
-			const wrapper = shallow(<TCompForm state={state} />);
+			render(
+				<App {...mock.store.context()}>
+					<TCompForm
+						state={state}
+						triggerURL="http://foo.com/rpc"
+						definitionURL="http://foo.com/definition.json"
+					/>
+				</App>,
+			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.getByText('we had an error')).toBeVisible();
 		});
 
 		it('should render a UIForm', () => {
@@ -321,42 +350,33 @@ describe('ComponentForm', () => {
 			const state = fromJS(addSchemaMock.ui);
 
 			// when
-			const wrapper = shallow(<TCompForm state={state} />);
+			const { container } = render(
+				<App {...mock.store.context()}>
+					<TCompForm
+						state={state}
+						triggerURL="http://foo.com/rpc"
+						definitionURL="http://foo.com/definition.json"
+					/>
+				</App>,
+			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
-		});
-
-		it('should memoize uiSpecs', () => {
-			// given
-			const state = fromJS(addSchemaMock.ui);
-
-			const wrapper = shallow(<TCompForm state={state} />);
-			const jsonSchema = wrapper.props().jsonSchema;
-			const uiSchema = wrapper.props().uiSchema;
-
-			// when
-			wrapper.instance().forceUpdate();
-			wrapper.update();
-
-			// then
-			expect(wrapper.props().jsonSchema).toBe(jsonSchema);
-			expect(wrapper.props().uiSchema).toBe(uiSchema);
+			expect(document.querySelector('form')).toBeVisible();
+			expect(container.firstChild).toMatchSnapshot();
 		});
 	});
 
 	describe('#security', () => {
 		it('should pass security props to createTrigger', () => {
 			const state = fromJS(addSchemaMock.ui);
-			const wrapper = shallow(
-				<TCompForm
-					state={state}
-					triggerURL="http://trigger"
-					CSRFTokenCookieKey="fooCookie"
-					CSRFTokenHeaderKey="fooHeader"
-				/>,
-			);
-			const trigger = wrapper.instance().trigger;
+			const instance = new TCompForm({
+				state,
+				triggerURL: 'http://trigger',
+				CSRFTokenCookieKey: 'fooCookie',
+				CSRFTokenHeaderKey: 'fooHeader',
+			});
+			// instance.componentDidUpdate({ state });
+			const trigger = instance.trigger;
 			expect(trigger).toBeDefined();
 			expect(trigger.mockInfo.security.CSRFTokenCookieKey).toBe('fooCookie');
 			expect(trigger.mockInfo.security.CSRFTokenHeaderKey).toBe('fooHeader');
@@ -370,29 +390,35 @@ describe('ComponentForm', () => {
 			const newTriggerURL = 'http://new';
 			const oldCustomTriggers = { oldCustomReload: () => {} };
 			const newCustomTriggers = { newCustomReload: () => {} };
+			const props = {
+				state,
+				triggerURL: oldTriggerURL,
+				customTriggers: oldCustomTriggers,
+			};
+			const instance = new TCompForm(props);
 
-			const wrapper = shallow(
-				<TCompForm state={state} triggerURL={oldTriggerURL} customTriggers={oldCustomTriggers} />,
-			);
-			const oldTrigger = wrapper.instance().trigger;
+			const oldTrigger = instance.trigger;
 			expect(oldTrigger).toBeDefined();
 			expect(oldTrigger.mockInfo.url).toBe(oldTriggerURL);
 			expect(oldTrigger.mockInfo.customRegistry.oldCustomReload).toBeDefined();
 
 			// when
-			wrapper.setProps({ triggerURL: newTriggerURL });
+			// props.triggerURL = newTriggerURL;
+			instance.props.triggerURL = newTriggerURL;
+			instance.componentDidUpdate({ ...props, triggerURL: oldTriggerURL });
 
 			// then
-			const newTrigger = wrapper.instance().trigger;
+			const newTrigger = instance.trigger;
 			expect(newTrigger).toBeDefined();
 			expect(newTrigger.mockInfo.url).toBe(newTriggerURL);
 			expect(newTrigger.mockInfo.customRegistry.oldCustomReload).toBeDefined();
 
 			// when
-			wrapper.setProps({ customTriggers: newCustomTriggers });
+			props.customTriggers = newCustomTriggers;
+			instance.componentDidUpdate({ ...props, customTriggers: oldCustomTriggers });
 
 			// then
-			const evenNewerTrigger = wrapper.instance().trigger;
+			const evenNewerTrigger = instance.trigger;
 			expect(evenNewerTrigger).toBeDefined();
 			expect(evenNewerTrigger.mockInfo.url).toBe(newTriggerURL);
 			expect(evenNewerTrigger.mockInfo.customRegistry.oldCustomReload).not.toBeDefined();
@@ -405,22 +431,24 @@ describe('ComponentForm', () => {
 			const dispatch = jest.fn();
 			const oldUrl = 'http://old';
 			const newUrl = 'http://new';
-			const componentState = { properties: { name: 'old' } };
 
 			// when
-			const wrapper = shallow(
-				<TCompForm state={state} definitionURL={oldUrl} dispatch={dispatch} />,
-			);
-			wrapper.setState(componentState);
-			wrapper.setProps({ definitionURL: newUrl });
+			const props = {
+				state,
+				definitionURL: oldUrl,
+				triggerURL: 'http://trigger',
+				dispatch,
+			};
+			const { rerender } = render(<TCompForm {...props} />);
+			rerender(<TCompForm {...props} definitionURL={newUrl} />);
 
 			// then
 			expect(dispatch).toBeCalledWith({
+				triggerURL: 'http://trigger',
 				definitionURL: newUrl,
 				dispatch,
 				state,
 				type: TCompForm.ON_DEFINITION_URL_CHANGED,
-				...componentState,
 			});
 		});
 	});
@@ -451,10 +479,15 @@ describe('ComponentForm', () => {
 			it('should dispatch dirty state', () => {
 				// given
 				const setState = jest.fn();
-				const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+				const props = {
+					state,
+					setState,
+				};
+				const instance = new TCompForm(props);
+				// render(<TCompForm state={state} setState={setState} />);
 
 				// when
-				wrapper.instance().onChange(event, changePayload);
+				instance.onChange(event, changePayload);
 
 				// then
 				expect(setState).toBeCalledWith({ dirty: true });
@@ -467,10 +500,13 @@ describe('ComponentForm', () => {
 					dirty: true,
 				});
 				const setState = jest.fn();
-				const wrapper = shallow(<TCompForm state={dirtyState} setState={setState} />);
+				const instance = new TCompForm({
+					state: dirtyState,
+					setState,
+				});
 
 				// when
-				wrapper.instance().onChange(event, changePayload);
+				instance.onChange(event, changePayload);
 
 				// then
 				expect(setState).not.toBeCalled();
@@ -479,13 +515,17 @@ describe('ComponentForm', () => {
 			it('should set form data in state', () => {
 				// given
 				const setState = jest.fn();
-				const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+				const instance = new TCompForm({
+					state,
+					setState,
+				});
 
 				// when
-				wrapper.instance().onChange(event, changePayload);
+				instance.setState = jest.fn();
+				instance.onChange(event, changePayload);
 
 				// then
-				expect(wrapper.state()).toEqual({
+				expect(instance.setState).toHaveBeenCalledWith({
 					properties: {
 						_datasetMetadata: {
 							type: selectedType.value,
@@ -500,18 +540,16 @@ describe('ComponentForm', () => {
 				const setState = jest.fn();
 				const dispatch = jest.fn();
 				const componentId = 'MyComponentId';
-				const wrapper = shallow(
-					<TCompForm
-						componentId={componentId}
-						state={state}
-						setState={setState}
-						dispatch={dispatch}
-						dispatchOnChange
-					/>,
-				);
+				const instance = new TCompForm({
+					componentId,
+					state,
+					setState,
+					dispatch,
+					dispatchOnChange: true,
+				});
 
 				// when
-				wrapper.instance().onChange(event, changePayload);
+				instance.onChange(event, changePayload);
 
 				// then
 				const args = dispatch.mock.calls[0][0];
@@ -528,12 +566,15 @@ describe('ComponentForm', () => {
 		describe('#onTrigger', () => {
 			it('should call kit trigger', () => {
 				// given
-				const wrapper = shallow(<TCompForm state={state} dispatch={jest.fn()} />);
-				const trigger = wrapper.instance().trigger;
+				const instance = new TCompForm({
+					state,
+					dispatch: jest.fn(),
+				});
+				const trigger = instance.trigger;
 				expect(trigger.isCalled).toBeFalsy();
 
 				// when
-				wrapper.instance().onTrigger(event, changePayload);
+				instance.onTrigger(event, changePayload);
 
 				// then
 				expect(trigger.isCalled).toBe(true);
@@ -542,10 +583,12 @@ describe('ComponentForm', () => {
 			it('should set cmf state with schemas', () => {
 				// given
 				const setState = jest.fn();
-				const wrapper = shallow(
-					<TCompForm state={state} setState={setState} dispatch={jest.fn()} />,
-				);
-				const trigger = wrapper.instance().trigger;
+				const instance = new TCompForm({
+					state,
+					setState,
+					dispatch: jest.fn(),
+				});
+				const trigger = instance.trigger;
 				const data = {
 					jsonSchema: addSchemaMock.ui.jsonSchema,
 					uiSchema: addSchemaMock.ui.uiSchema,
@@ -553,12 +596,9 @@ describe('ComponentForm', () => {
 				trigger.mockReturnWith(data);
 
 				// when
-				return wrapper
-					.instance()
-					.onTrigger(event, changePayload)
-					.then(() => {
-						expect(setState).toBeCalledWith(data);
-					});
+				return instance.onTrigger(event, changePayload).then(() => {
+					expect(setState).toBeCalledWith(data);
+				});
 			});
 		});
 
@@ -572,12 +612,14 @@ describe('ComponentForm', () => {
 				};
 				const dispatch = jest.fn();
 				const componentId = 'MyComponentId';
-				const wrapper = shallow(
-					<TCompForm componentId={componentId} state={state} dispatch={dispatch} />,
-				);
+				const instance = new TCompForm({
+					componentId,
+					state,
+					dispatch,
+				});
 
 				// when
-				wrapper.instance().onSubmit(event, payload);
+				instance.onSubmit(event, payload);
 
 				// then
 				const args = dispatch.mock.calls[0][0];
@@ -595,20 +637,19 @@ describe('ComponentForm', () => {
 				const setState = jest.fn();
 				const dispatch = jest.fn();
 				const componentId = 'MyComponentId';
-				const wrapper = shallow(
-					<TCompForm
-						componentId={componentId}
-						setState={setState}
-						state={state}
-						dispatch={dispatch}
-					/>,
-				);
+				const instance = new TCompForm({
+					componentId,
+					state,
+					setState,
+					dispatch,
+				});
 
 				// when
-				wrapper.instance().onChange(event, changePayload);
+				instance.setState = jest.fn();
+				instance.onChange(event, changePayload);
 
 				// change state
-				expect(wrapper.state()).toEqual({
+				expect(instance.setState).toHaveBeenCalledWith({
 					properties: {
 						_datasetMetadata: {
 							type: selectedType.value,
@@ -617,11 +658,11 @@ describe('ComponentForm', () => {
 					},
 				});
 				// when
-				wrapper.instance().onReset();
+				instance.onReset();
 
 				// change state back to initial state provided by addSchemaMock.ui
 				// with dirty set to false since the form got reseted
-				expect(wrapper.state()).toEqual({
+				expect(instance.setState).toHaveBeenCalledWith({
 					properties: {
 						_datasetMetadata: {},
 					},

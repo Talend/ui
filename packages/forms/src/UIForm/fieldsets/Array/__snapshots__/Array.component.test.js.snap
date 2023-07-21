@@ -1,336 +1,517 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Array component #renderItem should render item at given index 1`] = `
-<Widget
-  description="My array description"
-  errorMessage="This array is not correct"
-  id="talend-array-1"
-  isValid={true}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  schema={
-    {
-      "items": [
-        {
-          "key": [
-            "comments",
-            1,
-            "name",
-          ],
-          "required": true,
-          "schema": {
-            "title": "Name",
-            "type": "string",
-          },
-          "title": "Name",
-          "type": "text",
-        },
-        {
-          "description": "Email will be used for evil.",
-          "key": [
-            "comments",
-            1,
-            "email",
-          ],
-          "schema": {
-            "description": "Email will be used for evil.",
-            "pattern": "^\\S+@\\S+$",
-            "title": "Email",
-            "type": "string",
-          },
-          "title": "Email",
-          "type": "text",
-        },
-        {
-          "key": [
-            "comments",
-            1,
-            "comment",
-          ],
-          "maxlength": 20,
-          "rows": 3,
-          "schema": {
-            "maxLength": 20,
-            "title": "Comment",
-            "type": "string",
-            "validationMessage": "Don't be greedy!",
-          },
-          "title": "Comment",
-          "type": "textarea",
-          "validationMessage": "Don't be greedy!",
-        },
-      ],
-      "key": [
-        "comments",
-        1,
-      ],
-      "title": undefined,
-      "widget": "fieldset",
-    }
-  }
-  templates={{}}
-  value={
-    {
-      "comment": "Let's do that instead",
-      "email": "jm@lol.com",
-      "name": "JM",
-    }
-  }
-  widgets={{}}
-/>
-`;
-
 exports[`Array component should render array 1`] = `
-<DefaultArrayTemplate
-  canReorder={true}
-  description="My array description"
-  errorMessage="This array is not correct"
-  id="talend-array"
-  isCloseable={false}
-  isValid={true}
-  onAdd={[Function]}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  onRemove={[Function]}
-  onReorder={[Function]}
-  renderItem={[Function]}
-  schema={
-    {
-      "items": [
-        {
-          "key": [
-            "comments",
-            "",
-            "name",
-          ],
-          "required": true,
-          "schema": {
-            "title": "Name",
-            "type": "string",
-          },
-          "title": "Name",
-          "type": "text",
-        },
-        {
-          "description": "Email will be used for evil.",
-          "key": [
-            "comments",
-            "",
-            "email",
-          ],
-          "schema": {
-            "description": "Email will be used for evil.",
-            "pattern": "^\\S+@\\S+$",
-            "title": "Email",
-            "type": "string",
-          },
-          "title": "Email",
-          "type": "text",
-        },
-        {
-          "key": [
-            "comments",
-            "",
-            "comment",
-          ],
-          "maxlength": 20,
-          "rows": 3,
-          "schema": {
-            "maxLength": 20,
-            "title": "Comment",
-            "type": "string",
-            "validationMessage": "Don't be greedy!",
-          },
-          "title": "Comment",
-          "type": "textarea",
-          "validationMessage": "Don't be greedy!",
-        },
-      ],
-      "key": [
-        "comments",
-      ],
-      "required": true,
-      "schema": {
-        "items": {
-          "properties": {
-            "comment": {
-              "maxLength": 20,
-              "title": "Comment",
-              "type": "string",
-              "validationMessage": "Don't be greedy!",
-            },
-            "email": {
-              "description": "Email will be used for evil.",
-              "pattern": "^\\S+@\\S+$",
-              "title": "Email",
-              "type": "string",
-            },
-            "name": {
-              "title": "Name",
-              "type": "string",
-            },
-          },
-          "required": [
-            "name",
-            "comment",
-          ],
-          "type": "object",
-        },
-        "maxItems": 2,
-        "type": "array",
-      },
-      "title": "comments",
-      "type": "array",
-    }
-  }
-  templates={{}}
-  value={
-    [
-      {
-        "comment": "Let's do this",
-        "email": "jimmy@lol.com",
-        "name": "Jimmy",
-      },
-      {
-        "comment": "Let's do that instead",
-        "email": "jm@lol.com",
-        "name": "JM",
-      },
-      {
-        "comment": "Don't user ternary !",
-        "email": "geoffroy@lol.com",
-        "name": "Goeffroy",
-      },
-    ]
-  }
-  widgets={{}}
-/>
-`;
-
-exports[`Array component should render array that can't be reordered 1`] = `
-<DefaultArrayTemplate
-  canReorder={false}
-  description="My array description"
-  errorMessage="This array is not correct"
-  id="talend-array"
-  isCloseable={false}
-  isValid={true}
-  onAdd={[Function]}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  onRemove={[Function]}
-  onReorder={[Function]}
-  renderItem={[Function]}
-  schema={
-    {
-      "items": [
-        {
-          "key": [
-            "comments",
-            "",
-            "name",
-          ],
-          "required": true,
-          "schema": {
-            "title": "Name",
-            "type": "string",
-          },
-          "title": "Name",
-          "type": "text",
-        },
-        {
-          "description": "Email will be used for evil.",
-          "key": [
-            "comments",
-            "",
-            "email",
-          ],
-          "schema": {
-            "description": "Email will be used for evil.",
-            "pattern": "^\\S+@\\S+$",
-            "title": "Email",
-            "type": "string",
-          },
-          "title": "Email",
-          "type": "text",
-        },
-        {
-          "key": [
-            "comments",
-            "",
-            "comment",
-          ],
-          "maxlength": 20,
-          "rows": 3,
-          "schema": {
-            "maxLength": 20,
-            "title": "Comment",
-            "type": "string",
-            "validationMessage": "Don't be greedy!",
-          },
-          "title": "Comment",
-          "type": "textarea",
-          "validationMessage": "Don't be greedy!",
-        },
-      ],
-      "key": [
-        "comments",
-      ],
-      "reorder": false,
-      "required": true,
-      "schema": {
-        "items": {
-          "properties": {
-            "comment": {
-              "maxLength": 20,
-              "title": "Comment",
-              "type": "string",
-              "validationMessage": "Don't be greedy!",
-            },
-            "email": {
-              "description": "Email will be used for evil.",
-              "pattern": "^\\S+@\\S+$",
-              "title": "Email",
-              "type": "string",
-            },
-            "name": {
-              "title": "Name",
-              "type": "string",
-            },
-          },
-          "required": [
-            "name",
-            "comment",
-          ],
-          "type": "object",
-        },
-        "maxItems": 2,
-        "type": "array",
-      },
-      "title": "comments",
-      "type": "array",
-    }
-  }
-  templates={{}}
-  value={
-    [
-      {
-        "comment": "Let's do this",
-        "email": "jimmy@lol.com",
-        "name": "Jimmy",
-      },
-      {
-        "comment": "Let's do that instead",
-        "email": "jm@lol.com",
-        "name": "JM",
-      },
-      {
-        "comment": "Don't user ternary !",
-        "email": "geoffroy@lol.com",
-        "name": "Goeffroy",
-      },
-    ]
-  }
-  widgets={{}}
-/>
+<fieldset
+  class="theme-tf-array-fieldset tf-array-fieldset"
+  data-content="comments"
+>
+  <legend
+    class="sr-only"
+  >
+    comments
+  </legend>
+  <button
+    aria-label="Add"
+    class="theme-tf-array-add tf-array-add btn btn-info"
+    id="talend-array-btn"
+    type="button"
+  >
+    <span>
+      Add
+    </span>
+  </button>
+  <div />
+  <ol
+    aria-describedby="talend-array-description talend-array-error"
+    aria-invalid="true"
+    class="theme-tf-array tf-array"
+    id="talend-array"
+  >
+    <li
+      class="theme-item item item-0"
+    >
+      <div
+        class="theme-tf-array-item tf-array-item"
+      >
+        <div
+          class="theme-control"
+        >
+          <button
+            aria-describedby="42"
+            aria-label="Move up"
+            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only theme-btn-disabled btn btn-link"
+            disabled=""
+            id="talend-array-control-0-moveUp"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-90"
+              focusable="false"
+              name="talend-arrow-left"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+          <button
+            aria-describedby="42"
+            aria-label="Move down"
+            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+            id="talend-array-control-0-moveDown"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
+              focusable="false"
+              name="talend-arrow-left"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+        </div>
+        <fieldset
+          class="form-group"
+        >
+          <div
+            aria-busy="false"
+            class="form-group theme-template required"
+          >
+            <label
+              class="control-label"
+              for="talend-array-0_comments_0_comments_0_name"
+            >
+              Name
+            </label>
+            <input
+              aria-describedby="talend-array-0_comments_0_comments_0_name-description talend-array-0_comments_0_comments_0_name-error"
+              aria-invalid="false"
+              aria-required="true"
+              class="form-control"
+              id="talend-array-0_comments_0_comments_0_name"
+              type="text"
+              value=""
+            />
+            <div />
+          </div>
+          <div
+            aria-busy="false"
+            class="form-group theme-template"
+          >
+            <label
+              class="control-label"
+              for="talend-array-0_comments_0_comments_0_email"
+            >
+              Email
+            </label>
+            <input
+              aria-describedby="talend-array-0_comments_0_comments_0_email-description talend-array-0_comments_0_comments_0_email-error"
+              aria-invalid="false"
+              class="form-control"
+              id="talend-array-0_comments_0_comments_0_email"
+              type="text"
+              value=""
+            />
+            <div>
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                data-test="fieldTemplate.inlineMessage"
+                id="talend-array-0_comments_0_comments_0_email-description"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1.6rem; height: 1.6rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="theme-inlineMessage__contents"
+                >
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-busy="false"
+            class="form-group theme-template"
+          >
+            <label
+              class="control-label"
+              for="talend-array-0_comments_0_comments_0_comment"
+            >
+              Comment
+            </label>
+            <textarea
+              aria-describedby="talend-array-0_comments_0_comments_0_comment-description talend-array-0_comments_0_comments_0_comment-error"
+              aria-invalid="false"
+              class="form-control"
+              id="talend-array-0_comments_0_comments_0_comment"
+              rows="3"
+            />
+            <div />
+          </div>
+        </fieldset>
+        <div
+          class="theme-control"
+        >
+          <button
+            aria-describedby="42"
+            aria-label="Delete"
+            class="theme-delete btn-icon-only btn btn-link"
+            id="talend-array-control-0-delete"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
+              focusable="false"
+              name="talend-trash"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+        </div>
+      </div>
+    </li>
+    <li
+      class="theme-item item item-1"
+    >
+      <div
+        class="theme-tf-array-item tf-array-item"
+      >
+        <div
+          class="theme-control"
+        >
+          <button
+            aria-describedby="42"
+            aria-label="Move up"
+            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+            id="talend-array-control-1-moveUp"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-90"
+              focusable="false"
+              name="talend-arrow-left"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+          <button
+            aria-describedby="42"
+            aria-label="Move down"
+            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+            id="talend-array-control-1-moveDown"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
+              focusable="false"
+              name="talend-arrow-left"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+        </div>
+        <fieldset
+          class="form-group"
+        >
+          <div
+            aria-busy="false"
+            class="form-group theme-template required"
+          >
+            <label
+              class="control-label"
+              for="talend-array-1_comments_1_comments_1_name"
+            >
+              Name
+            </label>
+            <input
+              aria-describedby="talend-array-1_comments_1_comments_1_name-description talend-array-1_comments_1_comments_1_name-error"
+              aria-invalid="false"
+              aria-required="true"
+              class="form-control"
+              id="talend-array-1_comments_1_comments_1_name"
+              type="text"
+              value=""
+            />
+            <div />
+          </div>
+          <div
+            aria-busy="false"
+            class="form-group theme-template"
+          >
+            <label
+              class="control-label"
+              for="talend-array-1_comments_1_comments_1_email"
+            >
+              Email
+            </label>
+            <input
+              aria-describedby="talend-array-1_comments_1_comments_1_email-description talend-array-1_comments_1_comments_1_email-error"
+              aria-invalid="false"
+              class="form-control"
+              id="talend-array-1_comments_1_comments_1_email"
+              type="text"
+              value=""
+            />
+            <div>
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                data-test="fieldTemplate.inlineMessage"
+                id="talend-array-1_comments_1_comments_1_email-description"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1.6rem; height: 1.6rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="theme-inlineMessage__contents"
+                >
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-busy="false"
+            class="form-group theme-template"
+          >
+            <label
+              class="control-label"
+              for="talend-array-1_comments_1_comments_1_comment"
+            >
+              Comment
+            </label>
+            <textarea
+              aria-describedby="talend-array-1_comments_1_comments_1_comment-description talend-array-1_comments_1_comments_1_comment-error"
+              aria-invalid="false"
+              class="form-control"
+              id="talend-array-1_comments_1_comments_1_comment"
+              rows="3"
+            />
+            <div />
+          </div>
+        </fieldset>
+        <div
+          class="theme-control"
+        >
+          <button
+            aria-describedby="42"
+            aria-label="Delete"
+            class="theme-delete btn-icon-only btn btn-link"
+            id="talend-array-control-1-delete"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
+              focusable="false"
+              name="talend-trash"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+        </div>
+      </div>
+    </li>
+    <li
+      class="theme-item item item-2"
+    >
+      <div
+        class="theme-tf-array-item tf-array-item"
+      >
+        <div
+          class="theme-control"
+        >
+          <button
+            aria-describedby="42"
+            aria-label="Move up"
+            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+            id="talend-array-control-2-moveUp"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-90"
+              focusable="false"
+              name="talend-arrow-left"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+          <button
+            aria-describedby="42"
+            aria-label="Move down"
+            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only theme-btn-disabled btn btn-link"
+            disabled=""
+            id="talend-array-control-2-moveDown"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
+              focusable="false"
+              name="talend-arrow-left"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+        </div>
+        <fieldset
+          class="form-group"
+        >
+          <div
+            aria-busy="false"
+            class="form-group theme-template required"
+          >
+            <label
+              class="control-label"
+              for="talend-array-2_comments_2_comments_2_name"
+            >
+              Name
+            </label>
+            <input
+              aria-describedby="talend-array-2_comments_2_comments_2_name-description talend-array-2_comments_2_comments_2_name-error"
+              aria-invalid="false"
+              aria-required="true"
+              class="form-control"
+              id="talend-array-2_comments_2_comments_2_name"
+              type="text"
+              value=""
+            />
+            <div />
+          </div>
+          <div
+            aria-busy="false"
+            class="form-group theme-template"
+          >
+            <label
+              class="control-label"
+              for="talend-array-2_comments_2_comments_2_email"
+            >
+              Email
+            </label>
+            <input
+              aria-describedby="talend-array-2_comments_2_comments_2_email-description talend-array-2_comments_2_comments_2_email-error"
+              aria-invalid="false"
+              class="form-control"
+              id="talend-array-2_comments_2_comments_2_email"
+              type="text"
+              value=""
+            />
+            <div>
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                data-test="fieldTemplate.inlineMessage"
+                id="talend-array-2_comments_2_comments_2_email-description"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1.6rem; height: 1.6rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="theme-inlineMessage__contents"
+                >
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-busy="false"
+            class="form-group theme-template"
+          >
+            <label
+              class="control-label"
+              for="talend-array-2_comments_2_comments_2_comment"
+            >
+              Comment
+            </label>
+            <textarea
+              aria-describedby="talend-array-2_comments_2_comments_2_comment-description talend-array-2_comments_2_comments_2_comment-error"
+              aria-invalid="false"
+              class="form-control"
+              id="talend-array-2_comments_2_comments_2_comment"
+              rows="3"
+            />
+            <div />
+          </div>
+        </fieldset>
+        <div
+          class="theme-control"
+        >
+          <button
+            aria-describedby="42"
+            aria-label="Delete"
+            class="theme-delete btn-icon-only btn btn-link"
+            id="talend-array-control-2-delete"
+            role="link"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
+              focusable="false"
+              name="talend-trash"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+        </div>
+      </div>
+    </li>
+  </ol>
+</fieldset>
 `;

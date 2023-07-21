@@ -55,7 +55,7 @@ BadgeDateForm.propTypes = {
 	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
-	value: PropTypes.string,
+	value: PropTypes.number,
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	dateFormat: PropTypes.string,

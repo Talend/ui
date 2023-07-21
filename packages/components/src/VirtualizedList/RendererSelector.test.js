@@ -1,10 +1,8 @@
-import { mount, shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import RendererSelector from './RendererSelector.component';
 import VirtualizedList from '.';
 import { listTypes } from './utils/constants';
 import collection from './collection';
-import NoRows from './NoRows';
 
 const { TABLE, LARGE } = listTypes;
 
@@ -16,6 +14,7 @@ const contentFields = [
 		width={50}
 		flexShrink={0}
 		flexGrow={0}
+		columnData={{}}
 	/>,
 	<VirtualizedList.Content
 		key="name"
@@ -24,6 +23,7 @@ const contentFields = [
 		width={350}
 		flexShrink={0}
 		flexGrow={0}
+		columnData={{}}
 	/>,
 	<VirtualizedList.Content
 		key="desc"
@@ -32,43 +32,57 @@ const contentFields = [
 		width={350}
 		flexShrink={0}
 		flexGrow={0}
+		columnData={{}}
 	/>,
 ];
 
 function NoRowsRenderer() {
-	return <div>I'm a custom NoRowsRenderer</div>;
+	return <div data-testid="NoRowsRenderer">I'm a custom NoRowsRenderer</div>;
 }
 
 describe('RendererSelector', () => {
 	it('should render table list by default', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<RendererSelector
-				collection={collection}
-				height={600}
 				id="my-list-id"
+				collection={collection}
+				rowCount={collection.length}
+				height={600}
+				width={1024}
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
 				onScroll={jest.fn()}
 				onRowDoubleClick={jest.fn()}
 				selectionToggle={jest.fn()}
-				sort={jest.fn()}
+				sort={jest.fn(() => collection)}
 				sortBy="name"
 				sortDirection="DESC"
-				width={1024}
 			>
 				{contentFields}
 			</RendererSelector>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('grid')).toBeVisible();
+		expect(screen.getAllByRole('row')).toHaveLength(3); // header + 2 rows
+		expect(screen.getAllByRole('columnheader')).toHaveLength(3);
+		expect(screen.getAllByRole('gridcell')).toHaveLength(6);
+		expect(screen.getAllByRole('columnheader')[0]).toHaveTextContent('Id');
+		expect(screen.getAllByRole('columnheader')[1]).toHaveTextContent('Name');
+		expect(screen.getAllByRole('columnheader')[2]).toHaveTextContent('Description');
+		expect(screen.getAllByRole('gridcell')[0]).toHaveTextContent('0');
+		expect(screen.getAllByRole('gridcell')[1]).toHaveTextContent('Title with icon and actions');
+		expect(screen.getAllByRole('gridcell')[2]).toHaveTextContent(
+			'Simple row with icon and actions',
+		);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render table list when requested', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<RendererSelector
 				collection={collection}
 				height={600}
@@ -90,12 +104,15 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('grid')).toBeVisible();
+		expect(screen.getAllByRole('row')).toHaveLength(3); // header + 2 rows
+		expect(screen.getAllByRole('columnheader')).toHaveLength(3);
+		expect(screen.getAllByRole('gridcell')).toHaveLength(6);
 	});
 
 	it('should render grid list', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<RendererSelector
 				collection={collection}
 				height={600}
@@ -114,14 +131,19 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.prop('rowRenderer').displayName).toBe(
-			'ListGesture(withI18nextTranslation(VirtualizedList(RowLarge)))',
+		expect(screen.getByRole('list')).toBeVisible();
+		expect(screen.getAllByRole('listitem')).toHaveLength(2);
+		expect(screen.getAllByRole('definition')).toHaveLength(6);
+		expect(screen.getAllByRole('definition')[0]).toHaveTextContent('0');
+		expect(screen.getAllByRole('definition')[1]).toHaveTextContent('Title with icon and actions');
+		expect(screen.getAllByRole('definition')[2]).toHaveTextContent(
+			'Simple row with icon and actions',
 		);
 	});
 
 	it('should render the table with the default NoRows', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<RendererSelector
 				collection={[]}
 				height={600}
@@ -140,12 +162,12 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.contains(<NoRows />)).toBe(true);
+		expect(screen.getByRole('status')).toHaveTextContent('No results found');
 	});
 
 	it('should render the grid with the default NoRows', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<RendererSelector
 				collection={[]}
 				height={600}
@@ -164,12 +186,12 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.contains(<NoRows />)).toBe(true);
+		expect(screen.getByRole('status')).toHaveTextContent('No results found');
 	});
 
 	it('should render the table with the noRowsRenderer', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<RendererSelector
 				collection={[]}
 				noRowsRenderer={NoRowsRenderer}
@@ -191,12 +213,12 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.contains(<NoRowsRenderer />)).toBe(true);
+		expect(screen.getByTestId('NoRowsRenderer')).toBeVisible();
 	});
 
 	it('should render the grid with the noRowsRenderer', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<RendererSelector
 				collection={[]}
 				height={600}
@@ -218,21 +240,20 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.contains(<NoRowsRenderer />)).toBe(true);
+		expect(screen.getByTestId('NoRowsRenderer')).toBeVisible();
 	});
 	it('should render the grid with the rowRenders', () => {
 		// when
 		function Custom() {
-			return <span>Custom</span>;
+			return <span data-testid="Custom">Custom</span>;
 		}
-		const wrapper = shallow(
+		render(
 			<RendererSelector
 				collection={collection}
 				height={600}
 				id="my-list-id"
-				isActive={jest.fn()}
-				isSelected={jest.fn()}
-				noRowsRenderer={NoRowsRenderer}
+				isActive={jest.fn(() => false)}
+				isSelected={jest.fn(() => false)}
 				onRowClick={jest.fn()}
 				onRowDoubleClick={jest.fn()}
 				selectionToggle={jest.fn()}
@@ -248,6 +269,6 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.prop('rowRenderer')).toBe(Custom);
+		expect(screen.getAllByTestId('Custom')).toHaveLength(2);
 	});
 });

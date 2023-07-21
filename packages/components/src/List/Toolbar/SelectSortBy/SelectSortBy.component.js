@@ -7,12 +7,11 @@ import getDefaultT from '../../../translate';
 import theme from './SelectSortBy.module.scss';
 import Icon from '../../../Icon';
 
-function SortByItem({ option, index, id, t }) {
+function SortByItem({ option, id, t }) {
 	const optionLabel = option.name || option.id;
 	return (
 		<MenuItem
 			id={id && `${id}-by-item-${option.id}`}
-			key={index}
 			eventKey={option}
 			aria-label={t('LIST_SELECT_SORT_BY', {
 				defaultValue: 'Select {{sortBy}} as current sort criteria.',
@@ -28,7 +27,6 @@ SortByItem.propTypes = {
 		id: PropTypes.string,
 		name: PropTypes.string,
 	}),
-	index: PropTypes.number,
 	id: PropTypes.string,
 	t: PropTypes.func,
 };
@@ -45,7 +43,6 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 		return onChange(event, { field: selected.id, isDescending: !order });
 	}
 
-	const getMenuItem = SortByItem;
 	const currentSortByLabel = selected ? selected.name || selected.id : 'N.C';
 	const currentSortOrderLabel = order
 		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
@@ -65,14 +62,9 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 						sortBy: currentSortByLabel,
 					})}
 				>
-					{options.map((option, index) =>
-						getMenuItem({
-							option,
-							index,
-							id,
-							t,
-						}),
-					)}
+					{options.map(option => (
+						<SortByItem option={option} key={id} id={id} t={t} />
+					))}
 				</NavDropdown>
 			)}
 			{selected && (

@@ -97,7 +97,7 @@ const bsProps = {
 const children = <div>BODY content. You can put what ever you want here</div>;
 
 export default {
-	title: 'Layout/Modals/Modal',
+	title: 'Components/Layout/Modals/Modal',
 };
 
 export const Default = () => (

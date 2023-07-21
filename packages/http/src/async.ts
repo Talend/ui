@@ -1,5 +1,5 @@
-import { HTTP_METHODS, REQUEST_STATUS } from './http.constants';
 import { httpFetch } from './http.common';
+import { HTTP_METHODS, REQUEST_STATUS } from './http.constants';
 import { TalendHttpResponse, TalendRequestInit } from './http.types';
 
 /**
