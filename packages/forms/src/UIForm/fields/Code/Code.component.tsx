@@ -38,7 +38,7 @@ const ReactAce = lazy(() =>
 		return new Promise(resolve => {
 			setTimeout(() => {
 				resolve(assetsApi.toDefaultModule(mod.default));
-			}, 10);
+			}, 100);
 		});
 	}),
 );
