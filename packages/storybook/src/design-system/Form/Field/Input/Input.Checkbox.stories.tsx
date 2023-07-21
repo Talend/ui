@@ -46,7 +46,7 @@ type Inputs = {
 	'option-f'?: boolean;
 };
 
-export const ReactHooksForm = () => {
+export const CheckboxReactHooksForm = () => {
 	const { register, handleSubmit } = useForm();
 	const [formData, setFormData] = useState<Inputs>();
 	return (
@@ -86,7 +86,7 @@ export const ReactHooksForm = () => {
 	);
 };
 
-export const Controlled = () => {
+export const CheckboxControlled = () => {
 	const { register, watch } = useForm();
 	const optionA = watch('option-a');
 	return (
