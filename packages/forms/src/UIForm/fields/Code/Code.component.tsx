@@ -18,6 +18,8 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 import CodeSkeleton from './CodeSkeleton.component';
 import { IAceEditorProps } from 'react-ace';
 
+declare const ace: any;
+
 // JMA - TO REMOVE
 //
 // TEMP DOC LINKS
