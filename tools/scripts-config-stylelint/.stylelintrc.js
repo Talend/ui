@@ -2,7 +2,8 @@ module.exports = {
 	extends: 'stylelint-config-sass-guidelines',
 	rules: {
 		'at-rule-disallowed-list': ['debug', 'warn'],
-		'color-hex-case': 'upper',
+		// deprecated but here to help align with current prettier
+		'color-hex-case': 'lower',
 		'color-named': 'always-where-possible',
 		'declaration-block-no-duplicate-properties': true,
 		'declaration-property-value-disallowed-list': {
@@ -12,7 +13,6 @@ module.exports = {
 		indentation: 'tab',
 		'function-calc-no-unspaced-operator': true,
 		'max-nesting-depth': 5,
-		'order/properties-alphabetical-order': null,
 		'scss/at-import-partial-extension-blacklist': ['scss', 'css'],
 		'scss/operator-no-unspaced': true,
 		'selector-class-pattern': ['^(?!_).*$', { resolveNestedSelectors: true }],
