@@ -134,7 +134,7 @@ export const parameters = {
 			// globals is still missing
 			const { id, parameters, title } = props.context.attachedCSFFile?.meta;
 			const theme = props.context.store.globals.globals.theme;
-			debugger;
+			const locale = props.context.store.globals.globals.locale;
 
 			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
 
@@ -148,7 +148,6 @@ export const parameters = {
 				channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
 			}, [statusByPage]);
 
-			const { theme, locale } = globals;
 			useEffect(() => {
 				const hasDarkModeFromToolbar = theme === 'dark';
 				if (hasDarkModeFromToolbar != hasDarkMode) {

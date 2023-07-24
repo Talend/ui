@@ -62,6 +62,15 @@ const config = {
 			...existingAlias,
 			'~docs': path.resolve(__dirname, './docs'),
 		};
+
+		config.resolve.fallback = {
+			...config.resolve.fallback,
+			fs: false,
+			stream: false,
+			constants: false,
+			path: false,
+		};
+
 		return config;
 	},
 };
