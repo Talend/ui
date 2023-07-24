@@ -32,7 +32,6 @@ const ReactAce = lazy(() =>
 			const cancel = setInterval(() => {
 				if (ace.require('ace/ext/language_tools')) {
 					clearInterval(cancel);
-					debugger;
 					resolve(assetsApi.toDefaultModule(mod.default));
 				}
 			}, 100);
