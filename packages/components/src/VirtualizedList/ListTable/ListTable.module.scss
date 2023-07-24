@@ -14,7 +14,7 @@ $tc-list-table-cell-padding: $padding-small !default;
 	background-color: tokens.$coral-color-neutral-background;
 
 	.row {
-		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 		background: tokens.$coral-color-neutral-background;
 		display: flex;
 		align-items: center;
@@ -25,7 +25,7 @@ $tc-list-table-cell-padding: $padding-small !default;
 			background-color: tokens.$coral-color-neutral-background-medium;
 
 			.cell {
-				border-right: 1px solid tokens.$coral-color-neutral-border;
+				border-right: 1px solid tokens.$coral-color-neutral-border-weak;
 			}
 		}
 	}
@@ -65,7 +65,7 @@ $tc-list-table-cell-padding: $padding-small !default;
 		box-shadow: $shadow-default;
 
 		.cell {
-			border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+			border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
