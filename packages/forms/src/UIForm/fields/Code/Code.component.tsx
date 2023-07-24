@@ -20,9 +20,13 @@ import { generateId, generateDescriptionId, generateErrorId } from '../../Messag
 import FieldTemplate from '../FieldTemplate';
 import CodeSkeleton from './CodeSkeleton.component';
 
+// Define ace namespace to avoid compiler error
+// And use it during react-ace lazy load without importing it (that will break lazy loading)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const ace: any;
 
 const ReactAce = lazy(() =>
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	assetsApi.getUMD('react-ace').then((mod: any) => {
 		const extUrl = assetsApi.getURL('/src-min-noconflict/ext-language_tools.js', 'ace-builds');
 		ace.config.set('basePath', extUrl.replace('ext-language_tools.js', ''));
@@ -150,7 +154,7 @@ export default function Code({
 						name={`${id}_wrapper`}
 						mode={options?.language}
 						onBlur={(event: Event) => onFinish(event, { schema })}
-						onLoad={(component: any) => setEditor(component)}
+						onLoad={(component: unknown) => setEditor(component)}
 						onChange={(newValue: string | number, event: Event) =>
 							onChange(event, { schema: schema, value: newValue })
 						}
