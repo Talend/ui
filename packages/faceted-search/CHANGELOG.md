@@ -1,5 +1,17 @@
 # Changelog
 
+## 11.0.0
+
+### Major Changes
+
+- bfc02c4fb: feat: use design-tokens for colors
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
 ## 10.0.1
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @talend/react-stepper
 
+## 8.0.0
+
+### Major Changes
+
+- bfc02c4fb: feat: upgrade major dependency @talend/react-components
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
 ## 7.2.0
 
 ### Minor Changes
