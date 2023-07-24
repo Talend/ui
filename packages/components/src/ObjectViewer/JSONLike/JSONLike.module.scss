@@ -1,7 +1,8 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 @mixin chevron($color) {
-	border: 1px solid $scooter;
+	border: 1px solid tokens.$coral-color-accent-border;
 	padding: 3px;
 	border-radius: 10px;
 	color: $color;
@@ -47,14 +48,14 @@
 			outline: none;
 
 			> .line {
-				background: rgba($black, 0.05);
-				color: $scooter;
+				background: tokens.$coral-color-neutral-background-medium;
+				color: tokens.$coral-color-accent-text;
 			}
 		}
 
 		&[aria-selected='true'] > .line {
-			background-color: rgba(93, 136, 170, 0.1);
-			color: $dove-gray;
+			background-color: tokens.$coral-color-accent-background;
+			color: tokens.$coral-color-accent-text-active;
 		}
 
 		.line {
@@ -71,7 +72,7 @@
 				> svg {
 					width: 0.9rem;
 					height: 0.9rem;
-					color: $scooter;
+					color: tokens.$coral-color-accent-text;
 				}
 			}
 
@@ -97,18 +98,18 @@
 
 		.complex-item {
 			flex: 1 1 auto;
-			border-left: solid 1px $alto;
+			border-left: solid 1px tokens.$coral-color-neutral-border-weak;
 			margin-left: $padding-smaller;
 			max-width: 100%;
 		}
 
 		.key {
 			padding-left: $padding-smaller;
-			color: $dove-gray;
+			color: tokens.$coral-color-neutral-text-weak;
 		}
 
 		.value {
-			color: $brand-primary;
+			color: tokens.$coral-color-accent-text-strong;
 			margin-left: $padding-smaller;
 			white-space: nowrap;
 			text-overflow: ellipsis;
@@ -126,7 +127,7 @@
 		.type {
 			font-family: 'Inconsolata';
 			font-size: 1.2rem;
-			color: $dark-silver;
+			color: tokens.$coral-color-neutral-text-weak;
 			opacity: 0.75;
 			display: inline;
 			margin-right: $padding-normal;
@@ -137,8 +138,8 @@
 		.badge {
 			top: -0.1rem;
 			margin-left: $padding-small;
-			background-color: rgba($brand-primary, 0.3);
-			color: $brand-primary;
+			background-color: tokens.$coral-color-accent-background;
+			color: tokens.$coral-color-accent-text;
 			font-size: 1rem;
 			padding: calc(#{$padding-smaller} / 2) $padding-smaller;
 			display: inline-table;
@@ -148,13 +149,13 @@
 
 .chevron {
 	svg {
-		@include chevron($scooter);
+		@include chevron(tokens.$coral-color-accent-text);
 	}
 }
 
 .chevron-filled {
 	svg {
-		@include chevron($white);
-		background-color: $scooter;
+		@include chevron(tokens.$coral-color-accent-text-strong);
+		background-color: tokens.$coral-color-accent-background;
 	}
 }

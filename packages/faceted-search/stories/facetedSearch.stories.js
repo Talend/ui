@@ -167,25 +167,6 @@ export default {
 	decorators: [
 		(Story, context) => (
 			<div>
-				<style>
-					{`
-				#talend-pie-charts path[class^='ti-slice-'] {
-					fill: #C6C6C6;
-				}
-				#talend-pie-charts path.ti-slice-right {
-					fill: currentColor;
-				}
-				.tc-badge-slider-form .invalid {
-					color: #EA8330;
-				}
-				.tc-badge-slider-form .valid {
-					color: #82BD41;
-				}
-				.tc-badge-slider-form .empty {
-					color: #202020;
-				}
-				`}
-				</style>
 				<Story {...context} />
 			</div>
 		),

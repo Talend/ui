@@ -178,8 +178,6 @@ class DatePicker extends PureComponent {
 										[theme['not-current-month']]: !this.isCurrentMonth(date),
 									},
 									'tc-date-picker-day',
-									'btn-tertiary',
-									'btn-default',
 								);
 
 								const tdProps = {

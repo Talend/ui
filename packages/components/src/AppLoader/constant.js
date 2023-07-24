@@ -12,6 +12,7 @@ body {
   height: 100vh;
   width: 100vw;
   background: #f6f6f6;
+  background: var(--coral-color-neutral-background-medium, #f6f6f6);
 }
 
 .tc-app-loader-icon {
@@ -40,6 +41,7 @@ body {
   height: 100%;
   opacity: 0;
   border-color: #ababab;
+  border-color: var(--coral-color-neutral-border, #ababab);
   opacity: 1;
   animation: app-loader-spin 5332ms cubic-bezier(.4, 0, .2, 1) infinite both;
 }

@@ -80,20 +80,6 @@ export const i18n = {
 	),
 };
 
-export const globalTypes = {
-	theme: {
-		name: 'Theme',
-		description: 'Choose a theme to apply to the design system',
-		toolbar: {
-			icon: 'paintbrush',
-			items: [
-				{ value: 'light', left: '⚪️', title: 'Default theme' },
-				{ value: 'dark', left: '⚫️', title: 'Dark theme' },
-			],
-		},
-	},
-};
-
 const channel = addons.getChannel();
 
 let statusByPage = {};

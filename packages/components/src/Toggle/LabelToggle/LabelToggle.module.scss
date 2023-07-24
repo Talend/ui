@@ -1,4 +1,6 @@
+/* stylelint-disable selector-no-qualifying-type */
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens';
 
 @mixin radio-toolbar-input($color, $opacity) {
 	transition: 0.2s ease-out;
@@ -8,20 +10,23 @@
 
 .tc-label-toggle {
 	display: inline-flex;
-	background-color: $gallery;
+	background-color: tokens.$coral-color-neutral-background-strong;
 	border-radius: $padding-larger;
 	margin-right: $padding-small;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25) inset;
 
 	&.tc-radio-disabled {
 		opacity: 0.54;
+
 		label:hover {
 			cursor: not-allowed;
+
 			&:not(.tc-radio-selected) {
-				background-color: $gallery;
-				color: $black;
+				background-color: tokens.$coral-color-neutral-background;
+				color: tokens.$coral-color-neutral-text;
 			}
 		}
+
 		input[type='radio'] {
 			cursor: not-allowed;
 		}
@@ -34,17 +39,17 @@
 	}
 
 	label {
-		background-color: $gallery;
+		background-color: tokens.$coral-color-neutral-background-strong;
+		color: tokens.$coral-color-neutral-text;
 		padding: 0 8px;
 		border-radius: $padding-larger;
-		color: $black;
 		font-weight: $font-weight-semi-bold;
 		margin: 2px 0;
 		cursor: pointer;
 
 		&:hover {
-			background-color: $scooter;
-			color: $white;
+			background-color: tokens.$coral-color-accent-background-strong-hover;
+			color: tokens.$coral-color-neutral-text-inverted;
 		}
 
 		&:first-of-type {
@@ -56,8 +61,8 @@
 		}
 
 		&.tc-radio-selected {
-			@include radio-toolbar-input($white, 1);
-			background-color: $lochmara;
+			@include radio-toolbar-input(tokens.$coral-color-neutral-text-inverted, 1);
+			background-color: tokens.$coral-color-accent-background-strong-active;
 			font-weight: $font-weight-semi-bold;
 		}
 	}

@@ -58,6 +58,19 @@ export const Default = () => (
 	</div>
 );
 
+export const Reverse = () => (
+	<div style={{ display: 'inline-table' }}>
+		<ActionList
+			id="context"
+			actions={actions}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			tooltipPlacement="top"
+			reverse
+		/>
+	</div>
+);
+
 export const WithCustomClassNames = () => (
 	<div>
 		<p>You can add your custom classnames to the container and items</p>

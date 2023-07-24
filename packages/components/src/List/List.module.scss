@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 // List styles
 
@@ -20,6 +21,6 @@
 		flex-grow: 1;
 		flex-shrink: 1;
 		box-shadow: $shadow-default;
-		background-color: $wild-sand;
+		background-color: tokens.$coral-color-neutral-background;
 	}
 }

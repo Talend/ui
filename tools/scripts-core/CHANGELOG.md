@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 14.0.0
+
+### Major Changes
+
+- 40e70c055: Upgrade typescript to 5.0
+
 ## 13.3.0
 
 ### Minor Changes

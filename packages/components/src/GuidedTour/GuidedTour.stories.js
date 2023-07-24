@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Component, Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-
+import tokens from '@talend/design-tokens';
 import { withTranslation } from 'react-i18next';
 
 import GuidedTour from './GuidedTour.component';
@@ -140,7 +140,7 @@ function getSteps({ hideControls, showControls, t }) {
 				body: 'Highlighted text here',
 			},
 			style: {
-				backgroundColor: '#fdf3da',
+				backgroundColor: tokens.coralColorWarningBackground,
 			},
 		},
 		{
@@ -264,7 +264,7 @@ const getLayoutWithLoremIpsum = () => (
 				flexBasis: '100vw',
 				alignItems: 'center',
 				textAlign: 'right',
-				background: '#eee',
+				background: tokens.coralColorNeutralBackground,
 			}}
 		>
 			<span data-tour="my-fourth-step">🧸 Lorem ispum</span>
