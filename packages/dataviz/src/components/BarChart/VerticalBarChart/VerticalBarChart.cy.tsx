@@ -17,6 +17,8 @@ context('<HorizontalBarChart />', () => {
 				getTooltipContent={() => <div data-testid="tooltip">tooltip</div>}
 			/>,
 		);
+
+		// eslint-disable-next-line cypress/unsafe-to-chain-command
 		cy.get('.recharts-bar-rectangle')
 			.first()
 			.trigger('mousemove')
@@ -41,6 +43,8 @@ context('<HorizontalBarChart />', () => {
 				getTooltipContent={getTooltipContent}
 			/>,
 		);
+
+		// eslint-disable-next-line cypress/unsafe-to-chain-command
 		cy.get('.recharts-bar-rectangle')
 			.first()
 			.trigger('mousemove')

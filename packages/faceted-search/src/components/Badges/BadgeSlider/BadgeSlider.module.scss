@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 // stylelint-disable property-no-vendor-prefix
 
@@ -60,7 +61,7 @@
 				font-size: 3.2rem;
 				font-weight: $font-weight-semi-bold;
 				width: 8rem;
-				color: $dove-gray;
+				color: tokens.$coral-color-neutral-text-weak;
 				box-shadow: none;
 				height: 4.7rem;
 				padding: 0;
@@ -85,7 +86,7 @@
 		justify-content: space-between;
 
 		.tc-badge-slider-form-error {
-			color: $brand-danger;
+			color: tokens.$coral-color-danger-text;
 		}
 	}
 }

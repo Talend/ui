@@ -88,6 +88,9 @@ function ActionList(props) {
 				theme['tc-action-list'],
 				'tc-action-list',
 				className,
+				{
+					'nav-inverse': props.reverse,
+				},
 			)}
 		>
 			{actions.map((action, index) => (
@@ -135,6 +138,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		selected: actionPropType,
 		className: PropTypes.string,
+		reverse: PropTypes.bool,
 	};
 }
 

@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
@@ -40,6 +41,6 @@
 	padding: 0;
 
 	&:active {
-		background-color: shade($concrete, 10%);
+		background-color: tokens.$coral-color-neutral-background-strong;
 	}
 }

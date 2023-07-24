@@ -4,6 +4,16 @@
 
 $module: line-chart;
 
+.container {
+	:global(.recharts-cartesian-axis-line) {
+		stroke: tokens.$coral-color-neutral-text;
+	}
+
+	:global(.recharts-text) {
+		fill: tokens.$coral-color-neutral-text;
+	}
+}
+
 .#{$module} {
 	&-custom-tooltip {
 		list-style: none;

@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $stepper-icon-size: $svg-md-size !default;
 
@@ -40,7 +41,7 @@ $stepper-icon-size: $svg-md-size !default;
 		}
 
 		&-failure {
-			color: $chestnut-rose;
+			color: tokens.$coral-color-danger-text;
 			font-weight: $font-weight-bold;
 		}
 	}
@@ -51,11 +52,11 @@ $stepper-icon-size: $svg-md-size !default;
 		height: $stepper-icon-size;
 
 		&-success {
-			fill: $rio-grande;
+			fill: tokens.$coral-color-success-text;
 		}
 
 		&-failure {
-			fill: $chestnut-rose;
+			fill: tokens.$coral-color-danger-text;
 		}
 
 		&-aborted {

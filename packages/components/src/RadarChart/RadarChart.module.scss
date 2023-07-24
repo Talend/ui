@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tc-radar-chart {
 	:global {
@@ -14,6 +15,6 @@
 }
 
 .tc-radar-chart-label--selected {
-	fill: $regal-blue;
+	fill: tokens.$coral-color-charts-default-strong;
 	font-weight: 600;
 }

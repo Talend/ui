@@ -1,6 +1,6 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-$tc-progress-color: $brand-success !default;
 $infinite-indicator-ratio: 3;
 $infinite-indicator-width: calc(100% / $infinite-indicator-ratio);
 
@@ -30,14 +30,14 @@ $infinite-indicator-width: calc(100% / $infinite-indicator-ratio);
 	}
 
 	.progress-percent {
-		background: $tc-progress-color;
+		background: tokens.$coral-color-success-background-strong;
 		height: 100%;
 		transition: width 200ms ease;
 		overflow: hidden;
 
 		.infinite-indicator {
 			height: 100%;
-			background: $white;
+			background: tokens.$coral-color-neutral-background;
 			position: relative;
 			width: $infinite-indicator-width;
 			animation-fill-mode: forwards;
@@ -59,7 +59,7 @@ $infinite-indicator-width: calc(100% / $infinite-indicator-ratio);
 	background-color: transparent;
 
 	:global(.progress-bar) {
-		background-color: $rio-grande;
+		background-color: tokens.$coral-color-success-background-strong;
 		box-shadow: none;
 	}
 }

@@ -1,9 +1,10 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tf-array-item {
 	display: flex;
-	background: $wild-sand;
-	border: 1px solid transparent;
+	background: tokens.$coral-color-neutral-background-medium;
+	border: tokens.$coral-border-s-solid transparent;
 
 	.delete,
 	.tf-array-item-reorder {
@@ -11,7 +12,7 @@
 	}
 
 	&:hover {
-		background: $white;
+		background: tokens.$coral-color-neutral-background;
 
 		.control {
 			.delete,
@@ -19,7 +20,7 @@
 				opacity: 1;
 
 				&:disabled {
-					color: $silver;
+					color: tokens.$coral-color-neutral-text-disabled;
 				}
 			}
 		}
@@ -35,7 +36,7 @@
 		flex-grow: 0;
 		flex-shrink: 0;
 
-		border-right: 1px solid $gray-lighter;
+		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 		display: flex;
 		flex-direction: column;
 		padding: 0;

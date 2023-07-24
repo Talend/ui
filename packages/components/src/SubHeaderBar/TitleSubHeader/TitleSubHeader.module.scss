@@ -26,7 +26,7 @@ $header-title-max-width: 90rem;
 		align-self: center;
 		width: $tc-input-subheader-size-large;
 		height: $tc-input-subheader-size-large;
-		color: $brand-primary;
+		color: tokens.$coral-color-accent-icon;
 		margin-right: $padding-large;
 	}
 
@@ -60,12 +60,11 @@ $header-title-max-width: 90rem;
 			input {
 				width: tokens.$coral-sizing-maximal;
 			}
-
 		}
 
 		&-subtitle {
 			@include ellipsis;
-			color: $black;
+			color: tokens.$coral-color-neutral-text;
 			font-size: $tc-input-subheader-size-medium;
 		}
 	}
