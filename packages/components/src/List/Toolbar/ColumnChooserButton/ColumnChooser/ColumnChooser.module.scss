@@ -50,7 +50,7 @@ $tc-height: 4rem;
 		min-height: $tc-height;
 
 		&-select-all {
-			border-bottom: $tc-popover-border-width solid tokens.$coral-color-neutral-border;
+			border-bottom: $tc-popover-border-width solid tokens.$coral-color-neutral-border-weak;
 		}
 
 		&:global(.ally-focus-within),
