@@ -36,7 +36,8 @@
     "**/webpack-dev-middleware": "^5.3.3",
     "**/@types/react": "^17.0.2",
     "**/@types/react-dom": "^17.0.2",
-    "**/i18next-scanner-typescript/typescript": "^4.9.5",
+    "**/i18next-scanner-typescript/typescript": "^5.0.4",
+    "**/browser-sync-client/typescript": "^5.0.4",
     "**/vinyl-fs/glob-parent": "^5.1.2",
     "**/fast-glob/glob-parent": "^5.1.2",
     "**/trim": "^1.0.1",
@@ -62,7 +63,7 @@
     "@types/react": "^17.0.62",
     "@types/react-dom": "^17.0.20",
     "terser-webpack-plugin": "^5.3.9",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.4",
     "webpack": "^5.87.0"
   }
 }
