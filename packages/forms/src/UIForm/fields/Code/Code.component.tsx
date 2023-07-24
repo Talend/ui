@@ -8,28 +8,19 @@ import {
 	useRef,
 	useState,
 } from 'react';
+import { IAceEditorProps } from 'react-ace';
 import { useTranslation } from 'react-i18next';
+
 import { isEventKey, codes } from 'keycode';
+
 import assetsApi from '@talend/assets-api';
-import FieldTemplate from '../FieldTemplate';
-import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
+import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import FieldTemplate from '../FieldTemplate';
 import CodeSkeleton from './CodeSkeleton.component';
-import { IAceEditorProps } from 'react-ace';
 
 declare const ace: any;
-
-// JMA - TO REMOVE
-//
-// TEMP DOC LINKS
-//
-// https://github.com/securingsincity/react-ace/blob/main/README.md
-// https://github.com/ajaxorg/ace/issues/4597 -> ace.config.set('basePath', 'path') error
-// https://github.com/ajaxorg/ace/issues/4782 -> Using ace-builds with webpack
-// 		|-> https://github.com/securingsincity/react-ace/issues/766
-// https://github.com/ajaxorg/ace/blob/master/demo/webpack/demo.js#L12 -> Ace demo webpack
-//
 
 const ReactAce = lazy(() =>
 	assetsApi.getUMD('react-ace').then((mod: any) => {
@@ -156,7 +147,7 @@ export default function Code({
 						name={`${id}_wrapper`}
 						mode={options?.language}
 						onBlur={(event: Event) => onFinish(event, { schema })}
-						onLoad={(ace: any) => setEditor(ace)}
+						onLoad={(component: any) => setEditor(component)}
 						onChange={(newValue: string | number, event: Event) =>
 							onChange(event, { schema: schema, value: newValue })
 						}
