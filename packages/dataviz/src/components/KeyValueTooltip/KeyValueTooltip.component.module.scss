@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $module: key-value-tooltip;
 
@@ -17,7 +18,7 @@ $module: key-value-tooltip;
 		margin-top: 0; // override dt margin
 		font-weight: $font-weight-regular;
 		line-height: $line-height-base;
-		color: $white;
+		color: tokens.$coral-color-neutral-background;
 
 		&::after {
 			content: ':';
@@ -26,12 +27,12 @@ $module: key-value-tooltip;
 
 	&__value {
 		margin-left: 5px;
-		color: $scooter;
+		color: tokens.$coral-color-accent-text-weak-active;
 	}
 
 	&--pattern {
 		.#{$module}__value {
-			color: $jaffa;
+			color: tokens.$coral-color-danger-text-weak;
 		}
 	}
 }

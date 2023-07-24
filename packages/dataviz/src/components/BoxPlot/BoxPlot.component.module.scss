@@ -1,5 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
+@use '~@talend/design-tokens/lib/tokens';
 // Imported (almost) as-is from TDP
 
 .box-plot {
@@ -7,14 +7,14 @@
 
 	line,
 	rect {
-		fill: #19426C;
-		stroke: black;
+		fill: tokens.$coral-color-charts-default-strong;
+		stroke: tokens.$coral-color-charts-neutral-strong;
 		stroke-width: 1px;
 	}
 
 	&__whiskerPolyg {
 		fill: none;
-		stroke: black;
+		stroke: tokens.$coral-color-charts-neutral-strong;
 		stroke-width: 2;
 	}
 
@@ -25,24 +25,24 @@
 	&__mean {
 		fill: white;
 		opacity: 0.5;
-		stroke: #19426C;
+		stroke: tokens.$coral-color-charts-default-strong;
 		shape-rendering: geometricPrecision;
 		stroke-width: 0.8;
 	}
 
 	&__max-min-labels {
-		fill: #0675C1;
+		fill: tokens.$coral-color-charts-default;
 	}
 
 	&__low-quantile-labels {
-		fill: #689734;
+		fill: tokens.$coral-color-charts-success-strong;
 	}
 
 	&__up-quantile-labels {
-		fill: #BA4C50;
+		fill: tokens.$coral-color-charts-danger-strong;
 	}
 
 	&__mean-labels {
-		fill: $white;
+		fill: tokens.$coral-color-charts-neutral-weak;
 	}
 }
