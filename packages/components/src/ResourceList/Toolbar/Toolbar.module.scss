@@ -1,8 +1,9 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tc-resource-list-toolbar {
 	display: flex;
-	background: $white;
+	background: tokens.$coral-color-neutral-background-medium;
 
 	> * {
 		margin: 0 $padding-normal;

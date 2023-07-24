@@ -1,5 +1,33 @@
 # @talend/react-forms
 
+## 9.3.0
+
+### Minor Changes
+
+- 7a9a8db40: Forms - Allow to disable a single checkbox for checkbox widget list
+
+## 9.2.3
+
+### Patch Changes
+
+- eefc711c0: fix: remove jest from runtime
+
+## 9.2.2
+
+### Patch Changes
+
+- 3099c427a: chore: rewrite tests using react-testing-library
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- Updated dependencies [a90c12b34]
+- Updated dependencies [fcd8daf3c]
+- Updated dependencies [c7f316d7c]
+- Updated dependencies [b8c4161d2]
+- Updated dependencies [c54e10157]
+- Updated dependencies [3099c427a]
+  - @talend/design-system@7.10.0
+  - @talend/react-components@10.3.5
+
 ## 9.2.1
 
 ### Patch Changes

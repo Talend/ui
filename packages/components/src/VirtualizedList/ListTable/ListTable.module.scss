@@ -1,11 +1,7 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
-@import '../colors';
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-list-table-cell-padding: $padding-small !default;
-$tc-list-table-header-color: $dove-gray !default;
-$tc-list-table-border: 1px solid darken($concrete, 5%);
 
 .tc-list-table-right-action {
 	position: absolute;
@@ -15,21 +11,21 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 }
 
 .tc-list-table {
-	background-color: $wild-sand;
+	background-color: tokens.$coral-color-neutral-background;
 
 	.row {
-		border-bottom: $tc-list-table-border;
-		background: $white;
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+		background: tokens.$coral-color-neutral-background;
 		display: flex;
 		align-items: center;
 
 		&:hover,
 		&:focus,
 		&:global(.ally-focus-within) {
-			background-color: $wild-sand;
+			background-color: tokens.$coral-color-neutral-background-medium;
 
 			.cell {
-				border-right: 1px solid $white;
+				border-right: 1px solid tokens.$coral-color-neutral-border;
 			}
 		}
 	}
@@ -42,7 +38,7 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 		box-shadow: $shadow-default;
 
 		.header {
-			color: $tc-list-table-header-color;
+			color: tokens.$coral-color-neutral-text;
 			display: inline-flex;
 			font-size: 1.2rem;
 			font-weight: 600;
@@ -69,8 +65,7 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 		box-shadow: $shadow-default;
 
 		.cell {
-
-			border-right: $tc-list-table-border;
+			border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;

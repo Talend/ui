@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 // stylelint-disable order/order
 $toolbar-height: 5.5rem;
@@ -11,13 +12,13 @@ $toolbar-height: 5.5rem;
 	position: relative;
 	width: 100%;
 
-	.tc-faceted-switch-mode{
+	.tc-faceted-switch-mode {
 		width: auto;
 		margin-right: $padding-small;
 	}
 
 	&-buttons {
-		background: $alto;
+		background: tokens.$coral-color-neutral-background;
 		border-radius: $padding-large $padding-large $padding-large $padding-large;
 		display: flex;
 		margin-right: $padding-large;
@@ -29,13 +30,13 @@ $toolbar-height: 5.5rem;
 		&-basic,
 		&-advanced {
 			&.tc-button-selected {
-				background: $st-tropaz;
+				background: tokens.$coral-color-accent-background-strong;
 				border-radius: $padding-large;
-				color: white;
+				color: tokens.$coral-color-accent-text-weak;
 			}
 
-			background: $alto;
-			color: black;
+			background: tokens.$coral-color-neutral-background;
+			color: tokens.$coral-color-neutral-text;
 			min-height: 2.5rem;
 			height: 2.5rem;
 			font-size: 1rem;
@@ -47,7 +48,7 @@ $toolbar-height: 5.5rem;
 			&:active,
 			&:focus,
 			&:hover {
-				background: $st-tropaz;
+				background: tokens.$coral-color-accent-background-strong;
 			}
 		}
 

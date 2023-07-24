@@ -1,6 +1,7 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable declaration-no-important */
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+@use '~@talend/design-tokens/lib/tokens';
 
 ////
 /// Side panel
@@ -8,10 +9,6 @@
 ////
 
 $list-item-height: 3rem !default;
-$list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-reverse-hover-color: rgba($black, 0.12) !default;
-$list-item-color: $white !default;
-$list-item-reverse-color: $brand-primary !default;
 $toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
@@ -21,16 +18,15 @@ $toggle-button-padding: $padding-small;
 $docked-width: 6rem;
 $large-docked-width: 7rem;
 
-.tc-side-panel,
-[role='navigation'] {
+.tc-side-panel {
 	display: flex;
 	flex-direction: column;
 	font-weight: 500;
-	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important; // sass-lint:disable-line no-important
+	background: tokens.$coral-color-branding-navigation;
 	overflow: hidden;
 	position: relative;
 
-	&:before {
+	&::before {
 		left: 1rem;
 		bottom: -5rem;
 	}
@@ -39,18 +35,18 @@ $large-docked-width: 7rem;
 		transition: 0.2s width ease-out;
 	}
 
-	.action-list-container.action-list-container {
+	.action-list-container {
 		flex: 1;
 		height: calc(100vh - 12rem); // specific to Safari
 
 		:global .tc-side-panel-list {
-			background: none;
+			background: transparent;
 		}
 
 		:global .tc-action-list-item {
 			width: calc(100% - 2rem);
-			background: none !important; // sass-lint:disable-line no-important
-			box-shadow: none !important; // sass-lint:disable-line no-important
+			background: none !important;
+			box-shadow: none !important;
 
 			.btn.btn-link {
 				display: flex;
@@ -66,25 +62,14 @@ $large-docked-width: 7rem;
 					margin-left: $padding-small;
 				}
 			}
+
 			.tc-svg-icon {
 				width: $tc-side-panel-icons-size;
 				height: $tc-side-panel-icons-size;
 			}
+
 			:global(svg) {
 				margin-left: $padding-smaller;
-			}
-
-			&:hover {
-				.btn.btn-link {
-					background: rgba(255, 255, 255, 0.12);
-				}
-			}
-
-			&.active {
-				.btn.btn-link {
-					color: $brand-primary;
-					background: $white;
-				}
 			}
 		}
 	}
@@ -100,7 +85,7 @@ $large-docked-width: 7rem;
 
 		:global {
 			.btn.btn-link {
-				color: $white;
+				color: tokens.$coral-color-neutral-text-inverted;
 				line-height: 1;
 				height: $toggle-height;
 				padding: 0 $padding-small;
@@ -121,10 +106,6 @@ $large-docked-width: 7rem;
 					border: none;
 				}
 
-				&:hover {
-					opacity: 1;
-				}
-
 				.tc-svg-icon {
 					width: $svg-sm-size;
 					height: $svg-sm-size;
@@ -143,6 +124,7 @@ $large-docked-width: 7rem;
 					opacity: 0;
 				}
 			}
+
 			.tc-action-list {
 				width: $docked-width;
 				min-width: auto;
@@ -178,11 +160,7 @@ $large-docked-width: 7rem;
 
 			.tc-action-list-item {
 				.btn.btn-link {
-					padding: $padding-normal $tc-side-panel-large-padding;
-
-					.tc-svg-icon {
-						margin-left: $padding-small;
-					}
+					padding: $padding-small; // $tc-side-panel-large-padding;
 
 					.tc-svg-icon + span {
 						margin-left: $tc-side-panel-large-padding;
@@ -198,10 +176,12 @@ $large-docked-width: 7rem;
 					min-width: auto;
 				}
 			}
+
 			.toggle-btn {
 				height: $toggle-height;
 				vertical-align: center;
 				padding: 0;
+
 				.btn.btn-link {
 					height: $toggle-height;
 					padding: 0;
@@ -211,9 +191,10 @@ $large-docked-width: 7rem;
 	}
 
 	&.reverse[role='navigation'] {
-		background: $wild-sand !important; // sass-lint:disable-line no-important
+		background: tokens.$coral-color-neutral-background-medium !important;
+		color: tokens.$coral-color-neutral-text !important;
 
-		&:before {
+		&::before {
 			content: none;
 		}
 
@@ -223,35 +204,7 @@ $large-docked-width: 7rem;
 			:global {
 				.btn.btn-link,
 				.tc-svg-icon {
-					color: $gray700;
-				}
-			}
-		}
-
-		:global {
-			.tc-action-list-item {
-				color: $gray700;
-
-				&:hover {
-					.btn.btn-link {
-						background: $list-item-reverse-hover-color;
-					}
-
-					.btn.btn-link,
-					.tc-svg-icon {
-						color: $black;
-					}
-				}
-
-				&.active {
-					.btn.btn-link {
-						background: $list-item-color;
-					}
-
-					.btn.btn-link,
-					.tc-svg-icon {
-						color: $brand-primary;
-					}
+					color: tokens.$coral-color-neutral-text-weak;
 				}
 			}
 		}

@@ -1,3 +1,13 @@
+// escape following rule to ovveride bootstrap table styles
+/* stylelint-disable selector-no-qualifying-type */
+/* stylelint-disable declaration-no-important */
+@use '~@talend/design-tokens/lib/tokens';
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: tokens.$coral-color-neutral-background;
+	color: tokens.$coral-color-neutral-text;
+}
+
 .table {
 	// Cells
 	> thead,
@@ -9,16 +19,89 @@
 				vertical-align: middle;
 			}
 		}
+
+		> tr.info {
+			td {
+				color: tokens.$coral-color-neutral-text;
+				background: tokens.$coral-color-accent-background;
+			}
+		}
+
+		> tr.success {
+			td {
+				color: tokens.$coral-color-neutral-text;
+				background: tokens.$coral-color-success-background;
+			}
+		}
+
+		> tr.danger {
+			td {
+				color: tokens.$coral-color-neutral-text;
+				background: tokens.$coral-color-danger-background;
+			}
+		}
+
+		> tr.warning {
+			td {
+				color: tokens.$coral-color-neutral-text;
+				background: tokens.$coral-color-warning-background;
+			}
+		}
+
+		> tr.active {
+			td {
+				color: tokens.$coral-color-neutral-text;
+				background: tokens.$coral-color-neutral-background-medium;
+			}
+		}
 	}
 
 	&-hover {
-		> tbody > tr:hover {
-			font-weight: 700;
+		> tbody {
+			> tr:hover {
+				font-weight: 700;
+
+				td {
+					background: tokens.$coral-color-neutral-background-medium;
+				}
+			}
+
+			> tr.info:hover {
+				td {
+					background: tokens.$coral-color-accent-background-hover;
+				}
+			}
+
+			> tr.success:hover {
+				td {
+					background: tokens.$coral-color-success-background-hover;
+				}
+			}
+
+			> tr.danger:hover {
+				td {
+					background: tokens.$coral-color-danger-background-hover;
+				}
+			}
+
+			> tr.warning:hover {
+				td {
+					background: tokens.$coral-color-warning-background-hover;
+				}
+			}
+
+			> tr.active:hover {
+				td {
+					background: tokens.$coral-color-neutral-background-strong;
+				}
+			}
 		}
 	}
 }
 
-@-moz-document url-prefix() { /* fix Firefox only https://bugzilla.mozilla.org/show_bug.cgi?id=410959 */
+/* stylelint-disable-next-line function-url-quotes */
+@-moz-document url-prefix() {
+	/* fix Firefox only https://bugzilla.mozilla.org/show_bug.cgi?id=410959 */
 	.table {
 		border-collapse: separate !important;
 		border-spacing: 0;

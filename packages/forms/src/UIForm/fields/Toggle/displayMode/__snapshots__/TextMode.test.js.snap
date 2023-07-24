@@ -2,29 +2,40 @@
 
 exports[`Toggle field in text mode should render the Toggle 1`] = `
 <div
-  className="form-group"
+  class="form-group"
 >
   <dt>
     <label
-      className="control-label sr-only"
-      htmlFor="myForm"
+      class="control-label sr-only"
+      for="myForm"
     >
       My Toggle
     </label>
     <div
-      aria-hidden={true}
+      aria-hidden="true"
     >
-      <Toggle
-        checked={true}
-        className=""
-        disabled={true}
-        intermediate={false}
-        label="My Toggle"
-      />
+      <div
+        class="checkbox tc-checkbox disabled switch tc-toggle tc-toggle-disabled"
+      >
+        <label
+          for="myForm"
+        >
+          <input
+            checked=""
+            data-checked="2"
+            disabled=""
+            id="myForm"
+            type="checkbox"
+          />
+          <span>
+            My Toggle
+          </span>
+        </label>
+      </div>
     </div>
   </dt>
   <dd
-    className="sr-only"
+    class="sr-only"
     id="myForm"
   >
     true

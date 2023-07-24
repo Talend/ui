@@ -97,6 +97,16 @@ const badgesFaceted = {
 						label: 'Amazon S3',
 						checked: true,
 					},
+					{
+						id: 'hdfs',
+						label: 'HDFS',
+						checked: true,
+					},
+					{
+						id: 'localcon',
+						label: 'Local connection',
+						checked: true,
+					},
 				],
 			},
 			metadata: {
@@ -157,25 +167,6 @@ export default {
 	decorators: [
 		(Story, context) => (
 			<div>
-				<style>
-					{`
-				#talend-pie-charts path[class^='ti-slice-'] {
-					fill: #C6C6C6;
-				}
-				#talend-pie-charts path.ti-slice-right {
-					fill: currentColor;
-				}
-				.tc-badge-slider-form .invalid {
-					color: #EA8330;
-				}
-				.tc-badge-slider-form .valid {
-					color: #82BD41;
-				}
-				.tc-badge-slider-form .empty {
-					color: #202020;
-				}
-				`}
-				</style>
 				<Story {...context} />
 			</div>
 		),
@@ -512,3 +503,47 @@ export const WithQuickSearchFilter = () => (
 		/>
 	</FacetedSearch.Faceted>
 );
+
+export const WithQuickSearchFilterCustomizableInputTriggerLength = () => {
+	const badgeNameWithLength = {
+		properties: {
+			attribute: 'name',
+			initialOperatorOpened: true,
+			initialValueOpened: false,
+			label: 'Name',
+			operator: {},
+			operators: [],
+			type: 'text',
+			placeholder: 'Enter a dataset name',
+		},
+		metadata: {
+			isAvailableForQuickSearch: true,
+			isAvailableForFacetList: true,
+			badgePerFacet: 'N',
+			entitiesPerBadge: '1',
+			operators: [
+				'containsIgnoreCase',
+				'notContainsIgnoreCase',
+				'equals',
+				'notEquals',
+				'match a regexp',
+			],
+			'data-feature': 'faceted-badge-name',
+			minLength: 5,
+		},
+	};
+	return (
+		<FacetedSearch.Faceted id="my-faceted-search">
+			<p>
+				Quick search will trigger after a minimum input length that can be customized based on badge
+				definition
+			</p>
+			<br />
+			<FacetedSearch.BasicSearch
+				badgesDefinitions={[badgeNameWithLength]}
+				callbacks={callbacks}
+				onSubmit={action('onSubmit')}
+			/>
+		</FacetedSearch.Faceted>
+	);
+};

@@ -1,116 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ComponentForm #render should render a CircularProgress when we don't have the schema 1`] = `
-<FormSwitcher
-  loading={true}
-/>
-`;
-
 exports[`ComponentForm #render should render a UIForm 1`] = `
-<FormSwitcher
-  data={
-    {
-      "jsonSchema": {
-        "properties": {
-          "_datasetMetadata": {
-            "properties": {
-              "description": {
-                "title": "Description",
-                "type": "string",
-              },
-              "name": {
-                "title": "Name",
-                "type": "string",
-              },
-              "type": {
-                "title": "Types",
-                "type": "string",
-              },
-            },
-            "required": [],
-            "type": "object",
-          },
-        },
-        "required": [],
-        "title": "datastore",
-        "type": "object",
-      },
-      "properties": undefined,
-      "uiSchema": [
-        {
-          "conditions": [],
-          "items": [
-            {
-              "conditions": [],
-              "key": "_datasetMetadata.name",
-              "title": "Name",
-              "widget": "text",
-            },
-            {
-              "conditions": [],
-              "key": "_datasetMetadata.type",
-              "schema": {
-                "enum": [
-                  "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
-                ],
-                "type": "string",
-              },
-              "title": "Types",
-              "titleMap": [
-                {
-                  "name": "Basic Auth",
-                  "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
-                },
-              ],
-              "triggers": [
-                {
-                  "action": "builtin::root::reloadFromId",
-                  "event": "focus",
-                  "family": "builtin::family",
-                  "parameters": [
-                    {
-                      "key": "id",
-                      "path": "_datasetMetadata.type",
-                    },
-                  ],
-                  "type": "reloadForm",
-                },
-              ],
-              "widget": "datalist",
-            },
-            {
-              "conditions": [],
-              "key": "_datasetMetadata.description",
-              "title": "Description",
-              "widget": "textarea",
-            },
-          ],
-          "title": "Metadata",
-          "widget": "fieldset",
-        },
-      ],
-    }
-  }
-  initialData={null}
-  onChange={[Function]}
-  onReset={[Function]}
-  onSubmit={[Function]}
-  onTrigger={[Function]}
-  widgets={
-    {
-      "datalist": [Function],
-      "multiSelect": [Function],
-      "multiSelectTag": [Function],
-      "multiSelect_text": [Function],
-    }
-  }
-/>
-`;
-
-exports[`ComponentForm #render should render a response status 1`] = `
-<p
-  className="danger"
+<form
+  class="tf-uiform theme-uiform"
+  novalidate=""
 >
-  we had an error
-</p>
+  <div
+    class="theme-form-content"
+  >
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class=""
+      >
+        Metadata
+      </legend>
+      <div
+        aria-busy="false"
+        class="form-group theme-template"
+      >
+        <label
+          class="control-label"
+          for="_datasetMetadata_name"
+        >
+          Name
+        </label>
+        <input
+          aria-describedby="_datasetMetadata_name-description _datasetMetadata_name-error"
+          aria-invalid="false"
+          class="form-control"
+          id="_datasetMetadata_name"
+          type="text"
+          value=""
+        />
+        <div />
+      </div>
+      <div
+        aria-busy="false"
+        class="form-group theme-template"
+      >
+        <label
+          class="control-label"
+          for="_datasetMetadata_type"
+        >
+          Types
+        </label>
+        <div
+          class="theme-tc-datalist-item"
+          tabindex="-1"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-_datasetMetadata_type"
+            class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist form-control-container"
+            role="combobox"
+          >
+            <div
+              class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-caret"
+            >
+              <label
+                class="control-label sr-only"
+                for="react-autowhatever-_datasetMetadata_type-input"
+              >
+                Search
+              </label>
+              <input
+                aria-autocomplete="list"
+                aria-controls="react-autowhatever-_datasetMetadata_type"
+                aria-describedby="_datasetMetadata_type-description _datasetMetadata_type-error"
+                aria-invalid="false"
+                autocomplete="off"
+                class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+                id="_datasetMetadata_type"
+                type="text"
+                value=""
+              />
+              <div
+                class="icon-cls theme-icon-cls icon-caret theme-icon-caret"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-caret-down"
+                  focusable="false"
+                  name="talend-caret-down"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div />
+      </div>
+      <div
+        aria-busy="false"
+        class="form-group theme-template"
+      >
+        <label
+          class="control-label"
+          for="_datasetMetadata_description"
+        >
+          Description
+        </label>
+        <textarea
+          aria-describedby="_datasetMetadata_description-description _datasetMetadata_description-error"
+          aria-invalid="false"
+          class="form-control"
+          id="_datasetMetadata_description"
+          rows="5"
+        />
+        <div />
+      </div>
+    </fieldset>
+  </div>
+  <div
+    class="theme-form-actions tf-actions-wrapper"
+  >
+    <div
+      class="theme-tf-buttons tf-buttons form-actions"
+    >
+      <button
+        aria-label="Submit"
+        class="btn theme-right btn btn-primary"
+        id="undefined-actions-0"
+        type="submit"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
 `;

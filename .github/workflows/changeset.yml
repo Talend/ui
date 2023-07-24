@@ -23,16 +23,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab #v3.5.2
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
+        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
-          node-version: 16
+          node-version: 18
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
           cache: "yarn"
@@ -42,7 +42,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@62a9eee638c4655e15f69233d6dbe447a8654921 #v1.4.2
+        uses: changesets/action@f13b1baaa620fde937751f5d2c3572b9da32af23 #v1.4.5
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release

@@ -1,6 +1,7 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import TextMode from './TextMode.component';
+jest.unmock('@talend/design-system');
 
 describe('Text field text display mode', () => {
 	const schema = {
@@ -12,7 +13,9 @@ describe('Text field text display mode', () => {
 			operator: '>=',
 			value: '666',
 		};
-		const wrapper = shallow(<TextMode id="myForm" schema={schema} value={value} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<TextMode id="myForm" schema={schema} value={value} />);
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('term')).toHaveTextContent('My input title');
+		expect(screen.getByRole('definition')).toHaveTextContent('>= 666');
 	});
 });

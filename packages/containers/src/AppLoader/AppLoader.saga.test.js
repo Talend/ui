@@ -1,5 +1,5 @@
+/* eslint-disable testing-library/await-async-utils */
 import api from '@talend/react-cmf';
-import registry from '@talend/react-cmf/lib/registry';
 import { call, all, take } from 'redux-saga/effects';
 import {
 	appLoaderSaga,
@@ -39,7 +39,7 @@ describe('AppLoader saga', () => {
 			const testAction2 = { type: 'TEST2' };
 			const actionCreator2 = jest.fn(() => testAction2);
 			const step = { [ACTION_CREATORS]: ['ac1', 'ac2'] };
-			const reg = registry.getRegistry();
+			const reg = api.registry.getRegistry();
 			reg['actionCreator:ac1'] = actionCreator1;
 			reg['actionCreator:ac2'] = actionCreator2;
 			// when
@@ -70,7 +70,7 @@ describe('AppLoader saga', () => {
 
 		it('should handle an saga step', () => {
 			// given
-			const reg = registry.getRegistry();
+			const reg = api.registry.getRegistry();
 			const saga = () => 'ok';
 			reg['SAGA:saga1'] = saga;
 			const step = { [SAGAS]: ['saga1'] };

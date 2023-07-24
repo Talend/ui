@@ -1,124 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FieldTemplate should add animation on value with updating status 1`] = `
+exports[`FieldTemplate should render 1`] = `
 <div
-  aria-busy={true}
-  className="form-group theme-template has-error theme-updating"
+  class="form-group theme-template"
 >
-  <Label
-    id="myAwesomeField"
-    label="My awesome label"
-  />
+  <label
+    class="control-label"
+    for="myAwesomeField"
+  >
+    My awesome label
+  </label>
   <input
     id="myAwesomeField"
   />
-  <Message
-    description="My awesome description"
-    descriptionId="myAwesomeField-description"
-    errorId="myAwesomeField-error"
-    errorMessage="This is wrong o_o"
-    isValid={false}
-  />
-</div>
-`;
-
-exports[`FieldTemplate should pass label props to the label 1`] = `
-<div
-  className="form-group theme-template"
->
-  <Label
-    className="custom-label-class"
-    id="myAwesomeField"
-    label="My awesome label"
-  />
-  <input
-    id="myAwesomeField"
-  />
-  <Message
-    description="My awesome description"
-    descriptionId="myAwesomeField-description"
-    errorId="myAwesomeField-error"
-    errorMessage="This is wrong o_o"
-    isValid={true}
-  />
-</div>
-`;
-
-exports[`FieldTemplate should render invalid className 1`] = `
-<div
-  className="form-group theme-template has-error"
->
-  <Label
-    id="myAwesomeField"
-    label="My awesome label"
-  />
-  <input
-    id="myAwesomeField"
-  />
-  <Message
-    description="My awesome description"
-    descriptionId="myAwesomeField-description"
-    errorId="myAwesomeField-error"
-    errorMessage="This is wrong o_o"
-    isValid={false}
-  />
-</div>
-`;
-
-exports[`FieldTemplate should render with hint 1`] = `
-<Popover
-  disclosure={
-    <ButtonIcon
-      icon="talend-info-circle"
-      size="S"
-    />
-  }
-  position="top"
->
-  <span>
-    Tooltip content, which helps to understand what is the purpose of this field
-  </span>
-</Popover>
-`;
-
-exports[`FieldTemplate should render with label after 1`] = `
-<div
-  className="form-group theme-template"
->
-  <input
-    id="myAwesomeField"
-  />
-  <Label
-    id="myAwesomeField"
-    label="My awesome label"
-  />
-  <Message
-    description="My awesome description"
-    descriptionId="myAwesomeField-description"
-    errorId="myAwesomeField-error"
-    errorMessage="This is wrong o_o"
-    isValid={true}
-  />
-</div>
-`;
-
-exports[`FieldTemplate should render with label before 1`] = `
-<div
-  className="form-group theme-template"
->
-  <Label
-    id="myAwesomeField"
-    label="My awesome label"
-  />
-  <input
-    id="myAwesomeField"
-  />
-  <Message
-    description="My awesome description"
-    descriptionId="myAwesomeField-description"
-    errorId="myAwesomeField-error"
-    errorMessage="This is wrong o_o"
-    isValid={true}
-  />
+  <div>
+    <div
+      aria-live="polite"
+      class="theme-inlineMessage"
+      data-test="fieldTemplate.inlineMessage"
+      id="myAwesomeField-description"
+      role="status"
+    >
+      <span
+        class="theme-icon theme-information__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="theme-inlineMessage__contents"
+      >
+        <span>
+          My awesome description
+        </span>
+      </p>
+    </div>
+  </div>
 </div>
 `;

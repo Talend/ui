@@ -1,5 +1,25 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 .tooltip-inner {
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 	text-align: left;
+	background: tokens.$coral-color-assistive-background;
+	color: tokens.$coral-color-assistive-text;
+}
+
+.tooltip.left .tooltip-arrow {
+	border-left-color: tokens.$coral-color-assistive-background;
+}
+
+.tooltip.right .tooltip-arrow {
+	border-right-color: tokens.$coral-color-assistive-background;
+}
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: tokens.$coral-color-assistive-background;
+}
+
+.tooltip.bottom .tooltip-arrow {
+	border-bottom-color: tokens.$coral-color-assistive-background;
 }

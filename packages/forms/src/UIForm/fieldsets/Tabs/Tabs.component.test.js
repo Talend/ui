@@ -1,88 +1,79 @@
-import { shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import Tabs from './Tabs.component';
+import { WidgetContext } from '../../context';
+import widgets from '../../utils/widgets';
+
+jest.unmock('@talend/design-system');
 
 describe('Tabs widget', () => {
-	it('should render fieldset', () => {
+	const schema = {
+		title: 'My Tabs',
+		items: [
+			{
+				title: 'User',
+				items: [
+					{
+						key: ['user', 'firstname'],
+						type: 'text',
+						schema: { type: 'string' },
+					},
+					{
+						key: ['user', 'lastname'],
+						type: 'text',
+						schema: { type: 'string' },
+					},
+				],
+			},
+			{
+				title: 'Other',
+				items: [
+					{
+						key: ['comment'],
+						type: 'text',
+						schema: { type: 'string' },
+					},
+				],
+			},
+		],
+	};
+	const props = {
+		schema,
+		errors: {},
+		onChange: jest.fn(),
+		onFinish: jest.fn(),
+	};
+
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
+
+	it('should render tabs', () => {
 		// given
-		const errors = {};
-		const schema = {
-			title: 'My Tabs',
-			items: [
-				{
-					title: 'User',
-					items: [
-						{
-							key: ['user', 'firstname'],
-							type: 'text',
-							schema: { type: 'string' },
-						},
-						{
-							key: ['user', 'lastname'],
-							type: 'text',
-							schema: { type: 'string' },
-						},
-					],
-				},
-				{
-					title: 'Other',
-					items: [
-						{
-							key: ['comment'],
-							type: 'text',
-							schema: { type: 'string' },
-						},
-					],
-				},
-			],
-		};
 
 		// when
-		const wrapper = shallow(<Tabs schema={schema} errors={errors} />);
+		const { container } = render(
+			<WidgetContext.Provider value={widgets}>
+				<Tabs {...props} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render invalid tab', () => {
 		// given
-		const errors = { 'user,firstname': 'This is wrong' };
-		const schema = {
-			title: 'My Tabs',
-			items: [
-				{
-					title: 'User',
-					items: [
-						{
-							key: ['user', 'firstname'],
-							type: 'text',
-							schema: { type: 'string' },
-						},
-						{
-							key: ['user', 'lastname'],
-							type: 'text',
-							schema: { type: 'string' },
-						},
-					],
-				},
-				{
-					title: 'Other',
-					items: [
-						{
-							key: ['comment'],
-							type: 'text',
-							schema: { type: 'string' },
-						},
-					],
-				},
-			],
-		};
-
 		// when
-		const wrapper = shallow(<Tabs schema={schema} errors={errors} />);
-		const invalidItem = wrapper.prop('items')[0];
+		render(
+			<WidgetContext.Provider value={widgets}>
+				<Tabs {...props} errors={{ 'user,firstname': 'This is wrong' }} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(invalidItem.className).toBe('theme-has-error');
+		const inputs = screen.getAllByRole('textbox');
+		expect(inputs[0]).toHaveAttribute('aria-invalid', 'true');
+		expect(inputs[1]).toHaveAttribute('aria-invalid', 'false');
+		expect(screen.getByRole('status')).toHaveTextContent('This is wrong');
 	});
 });

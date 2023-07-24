@@ -1,69 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PieChartButton container should render 1`] = `
-<PieChartButton
-  available={true}
-  model={
-    [
-      {
-        "color": "rio-grande",
-        "percentage": 10,
-      },
-      {
-        "color": "chestnut-rose",
-        "percentage": 15,
-      },
-      {
-        "color": "lightning-yellow",
-        "percentage": 5,
-      },
-      {
-        "color": "dove-gray",
-        "percentage": 20,
-      },
-      {
-        "color": "silver-chalice",
-        "percentage": 15,
-      },
-    ]
-  }
-  onClick={[Function]}
-  overlayComponent={null}
-  overlayId="pie-chart-popover"
-  overlayPlacement="bottom"
-/>
-`;
-
-exports[`PieChartButton container should render 2`] = `
-<PieChartButton
-  available={true}
-  model={
-    [
-      {
-        "color": "rio-grande",
-        "percentage": 10,
-      },
-      {
-        "color": "chestnut-rose",
-        "percentage": 15,
-      },
-      {
-        "color": "lightning-yellow",
-        "percentage": 5,
-      },
-      {
-        "color": "dove-gray",
-        "percentage": 20,
-      },
-      {
-        "color": "silver-chalice",
-        "percentage": 15,
-      },
-    ]
-  }
-  onClick={[Function]}
-  overlayComponent={null}
-  overlayId="pie-chart-popover"
-  overlayPlacement="bottom"
-/>
+<button
+  class="tc-pie-chart-button theme-tc-pie-chart-button btn btn-link"
+  role="button"
+  type="button"
+>
+  <span
+    class="tc-pie-chart-icon theme-tc-pie-chart-icon"
+  >
+    <svg
+      class="tc-pie-chart-icon-graph theme-tc-pie-chart-icon-graph"
+      height="20"
+      style="width: 20px; height: 20px;"
+      width="20"
+    >
+      <path
+        class="tc-pie-chart-color-rio-grande theme-tc-pie-chart-color-rio-grande"
+        d="M1.08,-8.935A9,9,0,0,1,4.378,-7.863L2.595,-5.41A6,6,0,0,0,1.08,-5.902Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-chestnut-rose theme-tc-pie-chart-color-chestnut-rose"
+        d="M6.125,-6.594A9,9,0,0,1,8.935,-1.08L5.902,-1.08A6,6,0,0,0,4.343,-4.14Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-lightning-yellow theme-tc-pie-chart-color-lightning-yellow"
+        d="M8.935,1.08A9,9,0,0,1,8.831,1.734L5.926,0.939Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-dove-gray theme-tc-pie-chart-color-dove-gray"
+        d="M8.164,3.788A9,9,0,0,1,1.08,8.935L1.08,5.902A6,6,0,0,0,5.279,2.851Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-silver-chalice theme-tc-pie-chart-color-silver-chalice"
+        d="M-1.08,8.935A9,9,0,0,1,-6.594,6.125L-4.14,4.343A6,6,0,0,0,-1.08,5.902Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-alto theme-tc-pie-chart-color-alto"
+        d="M-7.863,4.378A9,9,0,0,1,-1.08,-8.935L-1.08,-5.902A6,6,0,0,0,-5.41,2.595Z"
+        transform="translate(10,10)"
+      />
+    </svg>
+    <div
+      class="tc-pie-chart-color-rio-grande theme-tc-pie-chart-color-rio-grande"
+    >
+      10%
+    </div>
+  </span>
+</button>
 `;

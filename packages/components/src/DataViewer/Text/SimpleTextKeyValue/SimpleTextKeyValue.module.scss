@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tc-simple-text {
 	display: flex;
@@ -14,7 +15,7 @@
 		margin-right: $padding-smaller;
 		white-space: nowrap;
 		flex-shrink: 1;
-		color: $dove-gray;
+		color: tokens.$coral-color-neutral-text-weak;
 		vertical-align: top;
 	}
 
@@ -44,12 +45,12 @@
 
 	:global(.td-default-cell) {
 		display: inline-block;
-		color: $brand-primary;
+		color: tokens.$coral-color-accent-text;
 		font-family: 'Inconsolata';
 	}
 
 	&-type {
-		color: $dark-silver;
+		color: tokens.$coral-color-neutral-text;
 		opacity: 0.75;
 		margin-left: $padding-smaller;
 	}

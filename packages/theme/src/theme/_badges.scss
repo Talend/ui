@@ -1,0 +1,12 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.badge {
+	color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-neutral-background-strong;
+}
+
+.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge {
+	color: tokens.$coral-color-accent-text;
+	background-color: tokens.$coral-color-accent-background-weak;
+}

@@ -1,18 +1,6 @@
-import { IconActivity } from '../illustrations/IconActivity';
-import { IconChart } from '../illustrations/IconChart';
-import { IconChecklist } from '../illustrations/IconChecklist';
-import { IconDefault } from '../illustrations/IconDefault';
-import { IconFlask } from '../illustrations/IconFlask';
-import { IconLightBulb } from '../illustrations/IconLightBulb';
-import { IconMessage } from '../illustrations/IconMessage';
-import { IconPlug } from '../illustrations/IconPlug';
-import { IconRocket } from '../illustrations/IconRocket';
-import { IconSearch } from '../illustrations/IconSearch';
-import { IconSettings } from '../illustrations/IconSettings';
-import { IconUser } from '../illustrations/IconUser';
-import { IconWarning } from '../illustrations/IconWarning';
 import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
 import { forwardRef, Ref } from 'react';
+import Illustration from '../../illustrations';
 
 export type EmptyStateMediumIcon =
 	| 'ACTIVITY'
@@ -32,31 +20,31 @@ export type EmptyStateMediumIcon =
 function getIllustration(icon: EmptyStateMediumIcon) {
 	switch (icon) {
 		case 'ACTIVITY':
-			return <IconActivity />;
+			return <Illustration.IconActivity />;
 		case 'CHART':
-			return <IconChart />;
+			return <Illustration.IconChart />;
 		case 'CHECKLIST':
-			return <IconChecklist />;
+			return <Illustration.IconChecklist />;
 		case 'FLASK':
-			return <IconFlask />;
+			return <Illustration.IconFlask />;
 		case 'LIGHTBULB':
-			return <IconLightBulb />;
+			return <Illustration.IconLightBulb />;
 		case 'MESSAGE':
-			return <IconMessage />;
+			return <Illustration.IconMessage />;
 		case 'PLUG':
-			return <IconPlug />;
+			return <Illustration.IconPlug />;
 		case 'ROCKET':
-			return <IconRocket />;
+			return <Illustration.IconRocket />;
 		case 'SEARCH':
-			return <IconSearch />;
+			return <Illustration.IconSearch />;
 		case 'SETTINGS':
-			return <IconSettings />;
+			return <Illustration.IconSettings />;
 		case 'USER':
-			return <IconUser />;
+			return <Illustration.IconUser />;
 		case 'WARNING':
-			return <IconWarning />;
+			return <Illustration.IconWarning />;
 		default:
-			return <IconDefault />;
+			return <Illustration.IconDefault />;
 	}
 }
 

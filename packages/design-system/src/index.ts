@@ -39,6 +39,7 @@ import {
 	InlineMessageSuccess,
 	InlineMessageWarning,
 } from './components/InlineMessage';
+import Illustration from './components/illustrations';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
@@ -86,6 +87,7 @@ import {
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
+import RichRadioButton from './components/RichRadioButton';
 
 export * from './components/Stack';
 export * from './themes';
@@ -135,6 +137,7 @@ export {
 	InlineMessageWarning,
 	InlineMessageDestructive,
 	InlineMessageBeta,
+	Illustration,
 	Link,
 	LinkAsButton,
 	Loading,
@@ -148,6 +151,7 @@ export {
 	MessageWarning,
 	Modal,
 	Popover,
+	RichRadioButton,
 	SizedIcon,
 	Skeleton,
 	SkeletonButton,

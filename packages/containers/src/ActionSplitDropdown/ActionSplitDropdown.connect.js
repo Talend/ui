@@ -38,6 +38,11 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export function ContainerActionSplitDropdown(props) {
 	let newProps = { ...props };
+	delete newProps.dispatch;
+	delete newProps.dispatchActionCreator;
+	delete newProps.getComponent;
+	delete newProps.actionIds;
+	delete newProps.actionId;
 
 	newProps = {
 		...getOnClick(newProps, props),

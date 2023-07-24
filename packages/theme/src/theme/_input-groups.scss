@@ -1,3 +1,4 @@
+@use '~@talend/design-tokens/lib/tokens';
 ////
 /// Bootstrap input groups customization
 /// @group Input groups
@@ -12,6 +13,10 @@
 	}
 
 	&-addon {
+		background-color: tokens.$coral-color-neutral-background-medium;
+		color: tokens.$coral-color-neutral-text;
+		border-color: tokens.$coral-color-neutral-border;
+
 		padding-top: $input-group-addon-padding;
 		padding-bottom: $input-group-addon-padding;
 	}

@@ -1,5 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
+@use '~@talend/design-tokens/lib/tokens';
 @import '../bar-chart';
 
 $module: colored-bar;
@@ -41,6 +41,6 @@ $module: colored-bar;
 	}
 
 	&__secondary-bar {
-		fill: $alto;
+		fill: tokens.$coral-color-charts-neutral-weak;
 	}
 }

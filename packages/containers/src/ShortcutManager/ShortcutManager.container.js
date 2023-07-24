@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import keys from 'lodash/keys';
 import { cmfConnect } from '@talend/react-cmf';
@@ -15,10 +14,6 @@ class ShortcutManager extends Component {
 
 	static propTypes = {
 		...cmfConnect.propTypes,
-	};
-
-	static contextTypes = {
-		store: PropTypes.object.isRequired,
 	};
 
 	constructor(props) {

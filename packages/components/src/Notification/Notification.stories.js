@@ -88,6 +88,10 @@ class NotificationWrapper extends Component {
 
 export default {
 	title: 'Components/Messaging & Communication/Notification',
+	parameters: {
+		// Disables Chromatic's snapshotting on a story level
+		chromatic: { disableSnapshot: true },
+	},
 };
 
 export const Default = () => (

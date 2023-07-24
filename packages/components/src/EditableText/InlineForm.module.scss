@@ -1,5 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
+@use '~@talend/design-tokens/lib/tokens';
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 $tc-icon-editable-text-size: 0.8rem !default;
@@ -23,7 +23,7 @@ $tc-circle-editable-text-size: 16px !default;
 		padding-right: 2 * $tc-circle-editable-text-size + $padding-large;
 
 		&::selection {
-			background: lighten($scooter, 25%);
+			background: tokens.$coral-color-accent-background;
 		}
 	}
 
@@ -37,8 +37,8 @@ $tc-circle-editable-text-size: 16px !default;
 		right: $padding-larger;
 
 		&-icon {
-			border: 0.1rem solid $dark-silver;
-			color: $dark-silver;
+			border: 0.1rem solid tokens.$coral-color-neutral-border;
+			color: tokens.$coral-color-neutral-text-weak;
 			width: $tc-circle-editable-text-size;
 			height: $tc-circle-editable-text-size;
 			min-height: auto;
@@ -59,30 +59,30 @@ $tc-circle-editable-text-size: 16px !default;
 		}
 
 		&-submit {
-			border-color: $rio-grande;
-			background: $rio-grande;
-			fill: white;
+			border-color: tokens.$coral-color-success-border;
+			background: tokens.$coral-color-success-background-strong;
+			fill: tokens.$coral-color-success-text-weak;
 
 			&:focus,
 			&:hover {
-				color: $scooter;
-				background: $scooter;
-				border-color: $scooter;
+				color: tokens.$coral-color-success-text-weak;
+				background: tokens.$coral-color-success-background-strong-hover;
+				border-color: tokens.$coral-color-success-border;
 
 				svg {
-					background: $scooter;
+					background: tokens.$coral-color-success-background-strong-hover;
 				}
 			}
 
 			> svg {
-				color: white;
+				color: tokens.$coral-color-success-text-weak;
 			}
 		}
 
 		&-cancel:focus,
 		&-cancel:hover {
-			color: $scooter;
-			border-color: $scooter;
+			color: tokens.$coral-color-neutral-text;
+			border-color: tokens.$coral-color-neutral-border-hover;
 		}
 	}
 }

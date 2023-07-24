@@ -3,7 +3,7 @@ import SimpleCheckBox from './SimpleCheckBox.component';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-function getValues(value = [], itemValue, checked) {
+function getValues(itemValue, checked, value = []) {
 	if (checked) {
 		return value.concat(itemValue);
 	}
@@ -35,7 +35,7 @@ export default function CheckBoxes(props) {
 			{titleMap.map((item, index) => (
 				<SimpleCheckBox
 					describedby={`${descriptionId} ${errorId}`}
-					disabled={schema.disabled || valueIsUpdating}
+					disabled={item.disabled || schema.disabled || valueIsUpdating}
 					id={id}
 					key={index}
 					isValid={isValid}
@@ -43,13 +43,13 @@ export default function CheckBoxes(props) {
 					onChange={(event, payload) =>
 						onChange(event, {
 							schema: payload.schema,
-							value: getValues(value, item.value, payload.value),
+							value: getValues(item.value, payload.value, value),
 						})
 					}
 					onFinish={(event, payload) =>
 						onFinish(event, {
 							schema: payload.schema,
-							value: getValues(value, item.value, payload.value),
+							value: getValues(item.value, payload.value, value),
 						})
 					}
 					schema={schema}

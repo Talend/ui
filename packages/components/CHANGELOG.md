@@ -1,5 +1,46 @@
 # @talend/react-components
 
+## 10.3.5
+
+### Patch Changes
+
+- fcd8daf3c: fix: VirtualizedList.CellLabel support empty CellData
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- b8c4161d2: - fix: add missing proptypes on Inject
+  - fix(dropdown): propagate missing id for a11y
+  - chore: treeview remove unknow props key
+- 3099c427a: fix: remove wrong propTypes from Checkbox component
+
+  fix: remove active props to Button which was responsible for the following error:
+
+  ```
+  Warning: Received `true` for a non-boolean attribute `active`.
+
+      If you want to write it to the DOM, pass a string instead: active="true" or active={value.toString()}.
+  ```
+
+  fix: Columns fieldset propTypes
+  fix: Fieldset propTypes
+  fix: omit isDisabledChecker from input in Date/Time pickers
+
+## 10.3.4
+
+### Patch Changes
+
+- b99957a47: test: rewrite all tests using react-testing-library
+- 0ccc2592e: test: rewrite using react testing-library the following components:
+
+  - TabBar
+  - Tag
+  - Toggle
+  - TooltipTrigger
+  - TreeView
+  - Typeahead
+  - withDrawer
+
+  Rewrite theme utility in Typescript
+
 ## 10.3.3
 
 ### Patch Changes

@@ -52,8 +52,6 @@ Checkbox.defaultProps = {
 Checkbox.propTypes = {
 	id: PropTypes.string.isRequired,
 	label: PropTypes.node,
-	onChange: PropTypes.func.isRequired,
-	onBlur: PropTypes.func,
 	checked: PropTypes.bool,
 	autoFocus: PropTypes.bool,
 	disabled: PropTypes.bool,

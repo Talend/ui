@@ -21,6 +21,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 	'startDateTime',
 	'endDateTime',
+	'isDisabledChecker',
 ];
 
 function InputDateTimeRangePicker(props) {

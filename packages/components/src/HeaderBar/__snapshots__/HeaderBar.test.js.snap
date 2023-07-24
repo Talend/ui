@@ -2,7 +2,7 @@
 
 exports[`HeaderBar should render 1`] = `
 <nav
-  class="tc-header-bar theme-tc-header-bar navbar theme-navbar"
+  class="tc-header-bar theme-tc-header-bar navbar theme-navbar navbar-inverse theme-navbar-inverse"
 >
   <ul
     class="tc-header-bar-actions theme-tc-header-bar-actions navbar-nav theme-navbar-nav"

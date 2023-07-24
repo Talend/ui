@@ -15,6 +15,7 @@ import { LineChartEntry, LineChartOptions, LineOptions, LineStatus } from './Lin
 
 import { CustomTooltip } from './LineChartTooltip.component';
 import { CustomLegend } from './LineChartLegend.component';
+import style from './LineChart.module.scss';
 
 export interface LineChartProps {
 	data: LineChartEntry[];
@@ -129,7 +130,7 @@ function LineChart({
 	return (
 		<>
 			<ResponsiveContainer width={width || '100%'} height={height || '100%'} debounce={1}>
-				<RLineChart data={data} margin={margin || {}}>
+				<RLineChart data={data} margin={margin || {}} className={style.container}>
 					{!!showGridLines && (
 						<CartesianGrid
 							stroke={tokens.coralColorNeutralBackgroundMedium}

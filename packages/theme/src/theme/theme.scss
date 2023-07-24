@@ -8,6 +8,7 @@
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/type';
 @import './type';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/code';
+@import './code';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/grid';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/tables';
 @import './tables';
@@ -37,17 +38,24 @@
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs';
 @import './breadcrumbs';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/pagination';
+@import './pagination';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/pager';
+@import './pager';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/badges';
+@import './badges';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/jumbotron';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/thumbnails';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/alerts';
+@import './alerts';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/progress-bars';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/media';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/list-group';
+@import './list-group';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/panels';
+@import './panels';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/wells';
+@import './wells';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/close';
 
 // Components w/ JavaScript
@@ -56,6 +64,7 @@
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/tooltip';
 @import './tooltip';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/popovers';
+@import './popovers';
 @import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/carousel';
 
 // Utility classes

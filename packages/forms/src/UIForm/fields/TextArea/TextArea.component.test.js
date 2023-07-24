@@ -1,6 +1,8 @@
-import { shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import TextArea from './TextArea.component';
+
+jest.unmock('@talend/design-system');
 
 describe('TextArea field', () => {
 	const schema = {
@@ -15,7 +17,7 @@ describe('TextArea field', () => {
 
 	it('should render textarea', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<TextArea
 				id="myForm"
 				isValid
@@ -28,7 +30,7 @@ describe('TextArea field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render disabled textarea', () => {
@@ -39,7 +41,7 @@ describe('TextArea field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<TextArea
 				id="myForm"
 				isValid
@@ -52,7 +54,7 @@ describe('TextArea field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toBeDisabled();
 	});
 
 	it('should render readonly textarea', () => {
@@ -63,7 +65,7 @@ describe('TextArea field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<TextArea
 				id="myForm"
 				isValid
@@ -76,7 +78,7 @@ describe('TextArea field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toHaveAttribute('readonly');
 	});
 
 	it('should render provided rows', () => {
@@ -87,7 +89,7 @@ describe('TextArea field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<TextArea
 				id="myForm"
 				isValid
@@ -100,13 +102,13 @@ describe('TextArea field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toHaveAttribute('rows', '10');
 	});
 
-	it('should trigger onChange', () => {
+	it('should trigger onChange', async () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = shallow(
+		render(
 			<TextArea
 				id="myForm"
 				isValid
@@ -121,16 +123,16 @@ describe('TextArea field', () => {
 		const event = { target: { value } };
 
 		// when
-		wrapper.find('textarea').simulate('change', event);
+		await userEvent.type(screen.getByRole('textbox'), value);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema, value });
+		expect(onChange).toBeCalledWith(expect.anything(event), { schema, value });
 	});
 
-	it('should trigger onFinish on input blur', () => {
+	it('should trigger onFinish on input blur', async () => {
 		// given
 		const onFinish = jest.fn();
-		const wrapper = shallow(
+		render(
 			<TextArea
 				id="myForm"
 				isValid
@@ -145,9 +147,10 @@ describe('TextArea field', () => {
 		const event = { target: { value } };
 
 		// when
-		wrapper.find('textarea').simulate('blur', event);
+		await userEvent.type(screen.getByRole('textbox'), value);
+		await userEvent.tab();
 
 		// then
-		expect(onFinish).toBeCalledWith(event, { schema });
+		expect(onFinish).toBeCalledWith(expect.anything(event), { schema });
 	});
 });

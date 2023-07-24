@@ -1,45 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgeOperatorPopover should render the html output 1`] = `
-<div class="tc-badge-operator-popover theme-tc-badge-operator-popover">
-  <div id="my-id"
-       class="theme-body tc-tooltip-body"
+<div
+  class="tc-badge-operator-popover theme-tc-badge-operator-popover"
+>
+  <div
+    class="theme-body tc-tooltip-body"
+    id="my-id"
   >
-    <div id="my-id-content"
-         class="theme-content tc-tooltip-content"
+    <div
+      class="theme-content tc-tooltip-content"
+      id="my-id-content"
     >
-      <button role="button"
-              aria-label="My icon operator equal"
-              id="my-id-operator-row-button-operatorIconEqual"
-              type="button"
-              class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+      <button
+        aria-label="My icon operator equal"
+        class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+        id="my-id-operator-row-button-operatorIconEqual"
+        role="button"
+        type="button"
       >
-        <svg name="talend-my-icon-equal"
-             focusable="false"
-             aria-hidden="true"
-             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-equal"
-             pointer-events="none"
-             shape-rendering="geometricPrecision"
-        >
-        </svg>
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-equal"
+          focusable="false"
+          name="talend-my-icon-equal"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
         <span>
           My icon operator equal
         </span>
       </button>
-      <button role="button"
-              aria-label="My icon operator not equal"
-              id="my-id-operator-row-button-operatorIconNotEqual"
-              type="button"
-              class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+      <button
+        aria-label="My icon operator not equal"
+        class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+        id="my-id-operator-row-button-operatorIconNotEqual"
+        role="button"
+        type="button"
       >
-        <svg name="talend-my-icon-not-equal"
-             focusable="false"
-             aria-hidden="true"
-             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-not-equal"
-             pointer-events="none"
-             shape-rendering="geometricPrecision"
-        >
-        </svg>
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-not-equal"
+          focusable="false"
+          name="talend-my-icon-not-equal"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
         <span>
           My icon operator not equal
         </span>
