@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tc-resource-picker-name-filter {
 	flex: 1;
@@ -17,7 +18,7 @@
 
 .remove {
 	display: none;
-	color: opacify($gray, 0.2);
+	color: tokens.$coral-color-neutral-text;
 	padding: $padding-smaller 0;
 	line-height: 2rem;
 	height: 100%;

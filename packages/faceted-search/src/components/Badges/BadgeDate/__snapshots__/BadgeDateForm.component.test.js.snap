@@ -217,7 +217,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Monday 31 October 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -229,7 +229,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Tuesday 01 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="1"
                               tabindex="-1"
                               type="button"
@@ -242,7 +242,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Wednesday 02 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="2"
                               tabindex="-1"
                               type="button"
@@ -255,7 +255,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Thursday 03 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="3"
                               tabindex="-1"
                               type="button"
@@ -268,7 +268,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Friday 04 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="4"
                               tabindex="-1"
                               type="button"
@@ -281,7 +281,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Saturday 05 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="5"
                               tabindex="-1"
                               type="button"
@@ -294,7 +294,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Sunday 06 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="6"
                               tabindex="-1"
                               type="button"
@@ -311,7 +311,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Monday 07 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="7"
                               tabindex="-1"
                               type="button"
@@ -324,7 +324,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Tuesday 08 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="8"
                               tabindex="-1"
                               type="button"
@@ -337,7 +337,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Wednesday 09 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="9"
                               tabindex="-1"
                               type="button"
@@ -350,7 +350,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Thursday 10 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="10"
                               tabindex="-1"
                               type="button"
@@ -363,7 +363,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Friday 11 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="11"
                               tabindex="-1"
                               type="button"
@@ -376,7 +376,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Saturday 12 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="12"
                               tabindex="-1"
                               type="button"
@@ -389,7 +389,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Sunday 13 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="13"
                               tabindex="-1"
                               type="button"
@@ -406,7 +406,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Monday 14 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="14"
                               tabindex="-1"
                               type="button"
@@ -419,7 +419,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Tuesday 15 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="15"
                               tabindex="-1"
                               type="button"
@@ -432,7 +432,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Wednesday 16 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="16"
                               tabindex="-1"
                               type="button"
@@ -445,7 +445,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Thursday 17 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="17"
                               tabindex="-1"
                               type="button"
@@ -459,7 +459,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Friday 18 November 2011, selected"
-                              class="theme-calendar-day theme-selected tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-selected tc-date-picker-day"
                               data-value="18"
                               tabindex="-1"
                               type="button"
@@ -472,7 +472,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Saturday 19 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="19"
                               tabindex="-1"
                               type="button"
@@ -485,7 +485,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Sunday 20 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="20"
                               tabindex="-1"
                               type="button"
@@ -502,7 +502,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Monday 21 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="21"
                               tabindex="-1"
                               type="button"
@@ -515,7 +515,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Tuesday 22 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="22"
                               tabindex="-1"
                               type="button"
@@ -528,7 +528,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Wednesday 23 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="23"
                               tabindex="-1"
                               type="button"
@@ -541,7 +541,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Thursday 24 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="24"
                               tabindex="-1"
                               type="button"
@@ -554,7 +554,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Friday 25 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="25"
                               tabindex="-1"
                               type="button"
@@ -567,7 +567,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Saturday 26 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="26"
                               tabindex="-1"
                               type="button"
@@ -580,7 +580,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Sunday 27 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="27"
                               tabindex="-1"
                               type="button"
@@ -597,7 +597,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Monday 28 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="28"
                               tabindex="-1"
                               type="button"
@@ -610,7 +610,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Tuesday 29 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="29"
                               tabindex="-1"
                               type="button"
@@ -623,7 +623,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Wednesday 30 November 2011"
-                              class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day tc-date-picker-day"
                               data-value="30"
                               tabindex="-1"
                               type="button"
@@ -636,7 +636,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Thursday 01 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -648,7 +648,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Friday 02 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -660,7 +660,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Saturday 03 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -672,7 +672,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Sunday 04 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -688,7 +688,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Monday 05 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -700,7 +700,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Tuesday 06 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -712,7 +712,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Wednesday 07 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -724,7 +724,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Thursday 08 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -736,7 +736,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Friday 09 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -748,7 +748,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Saturday 10 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >
@@ -760,7 +760,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           >
                             <button
                               aria-label="Sunday 11 December 2011"
-                              class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
                               tabindex="-1"
                               type="button"
                             >

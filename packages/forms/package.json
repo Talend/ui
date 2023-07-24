@@ -41,6 +41,7 @@
     "@talend/json-schema-form-core": "1.1.1",
     "@talend/react-components": "^10.3.5",
     "@talend/design-system": "^7.10.0",
+    "@talend/design-tokens": "^2.7.3",
     "@talend/utils": "^2.5.1",
     "ajv": "^6.12.6",
     "classnames": "^2.3.2",
