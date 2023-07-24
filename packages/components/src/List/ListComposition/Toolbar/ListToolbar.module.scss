@@ -12,8 +12,8 @@ $tc-toolbar-height: 7rem;
 	padding-right: $padding-larger;
 
 	background: tokens.$coral-color-neutral-background-medium;
-	border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
-	border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+	border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	margin-bottom: 0;
 	flex-shrink: 0;
 	flex-grow: 0;
