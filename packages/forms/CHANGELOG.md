@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 10.0.0
+
+### Major Changes
+
+- bfc02c4fb: All colors are now based on design-tokens
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
 ## 9.3.0
 
 ### Minor Changes

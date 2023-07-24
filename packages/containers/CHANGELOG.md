@@ -1,5 +1,15 @@
 # @talend/react-containers
 
+## 9.1.3
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+  - @talend/react-forms@10.0.0
+
 ## 9.1.2
 
 ### Patch Changes
