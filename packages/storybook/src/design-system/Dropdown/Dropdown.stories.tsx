@@ -1,8 +1,13 @@
-import React from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
-import { ButtonIcon, ButtonPrimary, ButtonSecondary, ButtonTertiary, Dropdown } from '@talend/design-system';
+import {
+	ButtonIcon,
+	ButtonPrimary,
+	ButtonSecondary,
+	ButtonTertiary,
+	Dropdown,
+} from '@talend/design-system';
 
 export default {
 	component: Dropdown,

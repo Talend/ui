@@ -1,10 +1,10 @@
-import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import MultiSelectTag from './MultiSelectTag.component';
 
 jest.mock('ally.js');
+jest.unmock('@talend/design-system');
 
 describe('MultiSelectTag field', () => {
 	const props = {
@@ -41,12 +41,12 @@ describe('MultiSelectTag field', () => {
 		expect(screen.getByRole('textbox')).toBeInTheDocument();
 	});
 
-	it('should render suggestions on focus', () => {
+	it('should render suggestions on focus', async () => {
 		// given
 		render(<MultiSelectTag {...props} />);
 
 		// when
-		userEvent.click(screen.getByRole('textbox'));
+		await userEvent.click(screen.getByRole('textbox'));
 
 		// then
 		expect(screen.getByRole('listbox')).toBeInTheDocument();
@@ -55,14 +55,14 @@ describe('MultiSelectTag field', () => {
 		expect(screen.queryByRole('option', { name: 'tata' })).not.toBeInTheDocument(); // preset in value, not iin suggestionos
 	});
 
-	it('should update suggestion on input change', () => {
+	it('should update suggestion on input change', async () => {
 		// given
 		render(<MultiSelectTag {...props} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		userEvent.click(input);
-		userEvent.type(input, 'mobile');
+		await userEvent.click(input);
+		await userEvent.type(input, 'mobile');
 
 		// then
 		expect(screen.getByRole('listbox')).toBeInTheDocument();
@@ -70,7 +70,7 @@ describe('MultiSelectTag field', () => {
 		expect(screen.queryByRole('option', { name: 'toto' })).not.toBeInTheDocument();
 	});
 
-	it('should update suggestion on props.value change', () => {
+	it('should update suggestion on props.value change', async () => {
 		// given
 		const { rerender } = render(<MultiSelectTag {...props} />);
 		expect(screen.getByRole('option', { name: 'toto' })).toBeInTheDocument();
@@ -79,7 +79,7 @@ describe('MultiSelectTag field', () => {
 
 		// when
 		rerender(<MultiSelectTag {...props} value={['aze']} />);
-		userEvent.click(screen.getByRole('textbox'));
+		await userEvent.click(screen.getByRole('textbox'));
 
 		// then
 		expect(screen.getByRole('option', { name: 'toto' })).toBeInTheDocument();
@@ -87,60 +87,60 @@ describe('MultiSelectTag field', () => {
 		expect(screen.getByRole('option', { name: 'tata' })).toBeInTheDocument();
 	});
 
-	it('should suggest new item creation when widget is not restricted', () => {
+	it('should suggest new item creation when widget is not restricted', async () => {
 		// given
 		render(<MultiSelectTag {...props} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		userEvent.click(input);
-		userEvent.type(input, 'titi');
+		await userEvent.click(input);
+		await userEvent.type(input, 'titi');
 
 		// then
 		expect(screen.getByRole('option', { name: 'titi (new)' })).toBeInTheDocument();
 	});
 
-	it('should NOT suggest new item creation when widget is restricted', () => {
+	it('should NOT suggest new item creation when widget is restricted', async () => {
 		// given
 		const restrictedSchema = { ...props.schema, restricted: true };
 		render(<MultiSelectTag {...props} schema={restrictedSchema} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		userEvent.click(input);
-		userEvent.type(input, 'az');
+		await userEvent.click(input);
+		await userEvent.type(input, 'az');
 
 		// then
 		expect(screen.queryByRole('option', { name: 'az (new)' })).not.toBeInTheDocument();
 	});
 
-	it('should NOT suggest new item creation when a value already matches', () => {
+	it('should NOT suggest new item creation when a value already matches', async () => {
 		// given
 		render(<MultiSelectTag {...props} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		userEvent.click(input);
-		userEvent.type(input, 'aze');
+		await userEvent.click(input);
+		await userEvent.type(input, 'aze');
 
 		// then
 		expect(screen.queryByRole('option', { name: 'aze (new)' })).not.toBeInTheDocument();
 	});
 
-	it('should NOT suggest new item creation when a suggestion matches', () => {
+	it('should NOT suggest new item creation when a suggestion matches', async () => {
 		// given
 		render(<MultiSelectTag {...props} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		userEvent.click(input);
-		userEvent.type(input, 'toto');
+		await userEvent.click(input);
+		await userEvent.type(input, 'toto');
 
 		// then
 		expect(screen.queryByRole('option', { name: 'toto (new)' })).not.toBeInTheDocument();
 	});
 
-	it('should add tag', () => {
+	it('should add tag', async () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
@@ -148,8 +148,9 @@ describe('MultiSelectTag field', () => {
 		const input = screen.getByRole('textbox');
 
 		// when
-		userEvent.click(input);
-		userEvent.type(input, 'titi{enter}');
+		await userEvent.click(input);
+		await userEvent.keyboard('titi');
+		await userEvent.click(screen.getByRole('option'));
 
 		// then
 		const payload = { schema: props.schema, value: props.value.concat('titi') };
@@ -157,7 +158,7 @@ describe('MultiSelectTag field', () => {
 		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should remove tag', () => {
+	it('should remove tag', async () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
@@ -165,7 +166,7 @@ describe('MultiSelectTag field', () => {
 		const deleteButtons = screen.getAllByRole('button', { name: 'Delete' });
 
 		// when
-		userEvent.click(deleteButtons[0]);
+		await userEvent.click(deleteButtons[0]);
 
 		// then
 		const payload = { schema: props.schema, value: props.value.slice(1) };
@@ -188,7 +189,7 @@ describe('MultiSelectTag field', () => {
 		render(<MultiSelectTag {...triggerProps} />);
 
 		// when
-		userEvent.click(screen.getByRole('textbox'));
+		await userEvent.click(screen.getByRole('textbox'));
 
 		// then
 		expect(triggerProps.onTrigger).toBeCalledWith(expect.anything(), {
@@ -216,14 +217,14 @@ describe('MultiSelectTag field', () => {
 		expect(screen.getByText('aze_name')).toBeInTheDocument();
 	});
 
-	it('should call onBlur when blurring the input', () => {
+	it('should call onBlur when blurring the input', async () => {
 		// given
 		const onBlur = jest.fn();
 		const propsWithBlur = { ...props, onBlur };
 		render(<MultiSelectTag {...propsWithBlur} />);
 
 		// when
-		fireEvent.blur(screen.getByRole('textbox'));
+		await fireEvent.blur(screen.getByRole('textbox'));
 
 		// then
 		expect(onBlur).toHaveBeenCalled();

@@ -1,9 +1,9 @@
-import React from 'react';
-
 import { render, screen } from '@testing-library/react';
 
 import FormSwitcher from './FormSwitcher';
 import { data } from '../__mocks__/data';
+
+jest.unmock('@talend/design-system');
 
 describe('FormSwitcher', () => {
 	it('should render skeleton if props.loading', () => {

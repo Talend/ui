@@ -1,12 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import MonthYearView from './MonthYearView.component';
 
 describe('MonthYearView', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<MonthYearView
 				allowFocus
 				onBackClick={jest.fn()}
@@ -18,12 +17,12 @@ describe('MonthYearView', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should manage tabIndex', () => {
 		// given
-		const wrapper = shallow(
+		const { rerender } = render(
 			<MonthYearView
 				onBackClick={jest.fn()}
 				onSelectMonth={jest.fn()}
@@ -32,33 +31,28 @@ describe('MonthYearView', () => {
 				selectedYear={2012}
 			/>,
 		);
-		expect(
-			wrapper
-				.find('ViewLayout')
-				.shallow()
-				.find('Action')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
+		expect(screen.getByLabelText('Switch to date-and-time view')).toHaveAttribute('tabIndex', '-1');
 
 		// when
-		wrapper.setProps({ allowFocus: true });
+		rerender(
+			<MonthYearView
+				onBackClick={jest.fn()}
+				onSelectMonth={jest.fn()}
+				onSelectYear={jest.fn()}
+				selectedMonthIndex={8}
+				selectedYear={2012}
+				allowFocus
+			/>,
+		);
 
 		// then
-		expect(
-			wrapper
-				.find('ViewLayout')
-				.shallow()
-				.find('Action')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(screen.getByLabelText('Switch to date-and-time view')).toHaveAttribute('tabIndex', '0');
 	});
 
 	it('should trigger props.onBackClick', () => {
 		// given
 		const onBackClick = jest.fn();
-		const wrapper = shallow(
+		render(
 			<MonthYearView
 				onBackClick={onBackClick}
 				onSelectMonth={jest.fn()}
@@ -67,18 +61,12 @@ describe('MonthYearView', () => {
 				selectedYear={2012}
 			/>,
 		);
-		const event = { target: {} };
 		expect(onBackClick).not.toBeCalled();
 
 		// when
-		wrapper
-			.find('ViewLayout')
-			.shallow()
-			.find('Action')
-			.at(0)
-			.simulate('click', event);
+		userEvent.click(screen.getByLabelText('Switch to date-and-time view'));
 
 		// then
-		expect(onBackClick).toBeCalledWith(event);
+		expect(onBackClick).toBeCalled();
 	});
 });

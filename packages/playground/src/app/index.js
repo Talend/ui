@@ -6,7 +6,6 @@
  */
 import '@talend/bootstrap-theme';
 import getRouter from '@talend/react-cmf-router';
-import React from 'react';
 import cmf from '@talend/react-cmf';
 import { AppLoader, IconsProvider as BaseIconsProvider } from '@talend/react-components';
 import containersModule from '@talend/react-containers';

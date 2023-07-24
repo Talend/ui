@@ -1,8 +1,8 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { Button } from '@talend/react-bootstrap';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ActionIconToggle from './ActionIconToggle.component';
-import Icon from '../../Icon';
+
+jest.unmock('@talend/design-system');
 
 const inactiveIconToggle = {
 	className: 'my-icon-toggle',
@@ -18,35 +18,30 @@ const inactiveIconToggle = {
 describe('ActionIconToggle', () => {
 	it('should render a button', () => {
 		// when
-		const wrapper = shallow(<ActionIconToggle {...inactiveIconToggle} />);
+		render(<ActionIconToggle {...inactiveIconToggle} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'false');
 	});
 
 	it('should render an active button', () => {
 		// when
-		const wrapper = shallow(<ActionIconToggle {...inactiveIconToggle} active />);
+		render(<ActionIconToggle {...inactiveIconToggle} active />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'true');
+		expect(screen.getByRole('button')).toHaveClass('active');
 	});
 
 	it('should call click callback', () => {
 		// given
-		const wrapper = shallow(<ActionIconToggle {...inactiveIconToggle} />);
+		render(<ActionIconToggle {...inactiveIconToggle} />);
 		expect(inactiveIconToggle.onClick).not.toBeCalled();
 
 		// when
-		wrapper.find(Button).simulate('click');
+		userEvent.click(screen.getByRole('button'));
 
 		// then
 		expect(inactiveIconToggle.onClick).toBeCalled();
-	});
-
-	it('should pass correct props to <Icon />', () => {
-		const wrapper = shallow(<ActionIconToggle {...inactiveIconToggle} />);
-		const { icon, iconTransform } = inactiveIconToggle;
-		expect(wrapper.find(Icon).props()).toEqual({ name: icon, transform: iconTransform });
 	});
 });

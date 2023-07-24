@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Loader from '.';
 
 const containerStyle = {
@@ -11,7 +9,7 @@ const containerStyle = {
 };
 
 export default {
-	title: 'Design Principles/Loading Feedback/Loader',
+	title: 'Components/Design Principles/Loading Feedback/Loader',
 	decorators: [story => <div style={containerStyle}>{story()}</div>],
 };
 

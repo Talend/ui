@@ -1,9 +1,9 @@
-import React from 'react';
+import { Component } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import NotificationContainer from './Notification.component';
 
-class NotificationWrapper extends React.Component {
+class NotificationWrapper extends Component {
 	constructor() {
 		super();
 		this.notifications = [];
@@ -87,7 +87,11 @@ class NotificationWrapper extends React.Component {
 }
 
 export default {
-	title: 'Messaging & Communication/Notification',
+	title: 'Components/Messaging & Communication/Notification',
+	parameters: {
+		// Disables Chromatic's snapshotting on a story level
+		chromatic: { disableSnapshot: true },
+	},
 };
 
 export const Default = () => (

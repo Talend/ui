@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Dialog from './Dialog.component';
@@ -98,7 +97,7 @@ const bsProps = {
 const children = <div>BODY content. You can put what ever you want here</div>;
 
 export default {
-	title: 'Layout/Modals/Modal',
+	title: 'Components/Layout/Modals/Modal',
 };
 
 export const Default = () => (

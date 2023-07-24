@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 
@@ -59,7 +59,7 @@ InteractiveLabelToggle.propTypes = {
 };
 
 export default {
-	title: 'Form/Controls/Toggle',
+	title: 'Components/Form - Controls/Toggle',
 };
 
 export const Default = () => (

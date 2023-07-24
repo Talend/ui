@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import Datalist from '../Datalist';
@@ -10,21 +10,25 @@ function TimezoneList(props) {
 	const { lang, cldrTimezones } = schema;
 
 	if (!cldrTimezones) {
-		throw new Error('cldr timezones (from "cldr-dates-full") must be provided in TimezoneList widget UI schema.');
+		throw new Error(
+			'cldr timezones (from "cldr-dates-full") must be provided in TimezoneList widget UI schema.',
+		);
 	}
 
 	// Compute timezones list options
 	const timezones = useMemo(() => getTimezones(lang, cldrTimezones), [lang, cldrTimezones]);
 
-	return <Datalist
-		{...props}
-		schema={{
-			...schema,
-			restricted: true,
-			titleMap: timezones,
-			options: { ...schema.options, titleMap: timezones },
-		}}
-	/>;
+	return (
+		<Datalist
+			{...props}
+			schema={{
+				...schema,
+				restricted: true,
+				titleMap: timezones,
+				options: { ...schema.options, titleMap: timezones },
+			}}
+		/>
+	);
 }
 
 TimezoneList.propTypes = {

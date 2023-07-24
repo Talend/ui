@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { ComponentStory, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -313,7 +313,7 @@ export const TooltipButton = (props: Story<BaseButtonProps<AvailableSizes>>) => 
 export const Loading = {
 	render: (props: Story<BaseButtonProps<AvailableSizes>>) => {
 		// eslint-disable-next-line react-hooks/rules-of-hooks
-		const [loading, isLoading] = React.useState(false);
+		const [loading, isLoading] = useState(false);
 		return (
 			<Tooltip title="Relevant description of the basic button">
 				<ButtonPrimary

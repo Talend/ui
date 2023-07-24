@@ -1,10 +1,8 @@
-import React from 'react';
-
 import Icon from './Icon';
 import { info as icons } from '../dist/info';
 
 export default {
-	title: 'Deprecated/Icon',
+	title: 'Icons/Deprecated/Icon',
 	parameters: {
 		docs: {
 			description: {

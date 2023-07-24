@@ -4,6 +4,8 @@ on:
   pull_request:
     types: [closed]
 
+permissions: {}
+
 jobs:
   cleanup:
     name: Remove NR on surge
@@ -12,9 +14,9 @@ jobs:
 
     steps:
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Push to surge
         run: npx surge teardown ${{ github.event.pull_request.number }}.talend.surge.sh --token ${{ secrets.SURGE_TOKEN }}

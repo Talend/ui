@@ -7,7 +7,7 @@ import {
 	StackHorizontal,
 	StackVertical,
 } from '@talend/design-system';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default {
 	component: Badge,

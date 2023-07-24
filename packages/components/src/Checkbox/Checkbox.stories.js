@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Checkbox from '.';
@@ -31,7 +30,7 @@ const withLabel = {
 };
 
 export default {
-	title: 'Form/Controls/Checkbox',
+	title: 'Components/Form - Controls/Checkbox',
 };
 
 export const Default = () => (

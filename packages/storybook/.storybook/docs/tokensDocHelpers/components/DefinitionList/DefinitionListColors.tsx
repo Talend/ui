@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Token } from '../../../../../src/tokens/types';
 import { TokensProps } from '../../TokensTypes';
 import DefinitionListItemColor from './DefinitionListItem/DefinitionListItemColor';

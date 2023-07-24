@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import { Actions } from '@talend/react-components';
@@ -85,7 +84,7 @@ CustomArrayTemplate.propTypes = {
 };
 
 export default {
-	title: 'Customization/Template',
+	title: 'Forms/Custom Template',
 };
 
 export function Array() {

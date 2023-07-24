@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import TreeView from './TreeView.component';
@@ -386,7 +385,7 @@ cornerCaseLongName.structure = [
 const style = { width: '300px', border: '1px solid #eee', marginLeft: '10px' };
 
 export default {
-	title: 'Data/Tree/FolderTreeView',
+	title: 'Components/Tree/FolderTreeView',
 };
 
 export const Default = () => (

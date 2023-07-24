@@ -1,7 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+/* eslint-disable testing-library/no-unnecessary-act */
+import { render, screen } from '@testing-library/react';
 
 import Button from './Button.component';
+
+jest.unmock('@talend/design-system');
 
 describe('Button field', () => {
 	it('should render button wrapped with field template', () => {
@@ -14,7 +16,7 @@ describe('Button field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<Button
 				id="myForm"
 				isValid
@@ -25,6 +27,8 @@ describe('Button field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveTextContent('Boom !');
+		expect(screen.getByText('Click here to trigger a trigger')).toBeVisible();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

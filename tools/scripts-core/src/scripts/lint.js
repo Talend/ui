@@ -37,7 +37,10 @@ async function lintEs(env, presetApi, options) {
 			'.eslintrc',
 		]) || path.join(configRootPath, 'index.js');
 	let args = ['--config', eslintConfigPath, '--ext', '.js,.ts,.tsx'];
-	if (options.length > 0) {
+	if (options.length === 1 && options.includes('--fix')) {
+		args.push('--fix');
+		args.push('./src');
+	} else if (options.length > 0) {
 		args = args.concat(options);
 	} else {
 		args.push('./src');
@@ -73,7 +76,11 @@ async function lintStyle(env, presetApi, options) {
 			'.stylelintrc',
 		]) || path.join(configRootPath, '.stylelintrc.js');
 	let args = ['--config', stylelintConfigPath];
-	if (options.length > 0) {
+
+	if (options.length === 1 && options.includes('--fix')) {
+		args.push('--fix');
+		args.push('./src/**/*.*css');
+	} else if (options.length > 0) {
 		args = args.concat(options);
 	} else {
 		args.push('./src/**/*.*css');
@@ -115,7 +122,8 @@ export default async function lint(env, presetApi, options) {
 			console.error(e);
 		}
 	}
-	let hasStyle = await utils.glob.globMatch('./src/**/*.*css');
+	const hasStyle = await utils.glob.globMatch('./src/**/*.*css');
+
 	if (
 		smartOpts.css.length !== 0 ||
 		(smartOpts.js.length === 0 && smartOpts.css.length === 0 && hasStyle)

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
@@ -15,7 +14,7 @@ const SwitchFacetedMode = ({ facetedMode, onChange, t }) => (
 			onChange={() =>
 				onChange(facetedMode === FACETED_MODE.BASIC ? FACETED_MODE.ADVANCED : FACETED_MODE.BASIC)
 			}
-			dataFeature={
+			data-feature={
 				facetedMode === FACETED_MODE.BASIC
 					? USAGE_TRACKING_TAGS.BASIC
 					: USAGE_TRACKING_TAGS.ADVANCED

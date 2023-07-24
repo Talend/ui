@@ -1,10 +1,9 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import Boxplot from './BoxPlot.component';
 
 describe('Boxplot chart', () => {
 	it('should render the different basic components of the boxplot', () => {
-		const element = mount(
+		const { container } = render(
 			<Boxplot
 				boxPlotData={{
 					min: 0,
@@ -20,6 +19,6 @@ describe('Boxplot chart', () => {
 			/>,
 		);
 
-		expect(element.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

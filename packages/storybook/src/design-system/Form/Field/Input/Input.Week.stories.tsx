@@ -1,4 +1,3 @@
-import React from 'react';
 import { Form, StackVertical } from '@talend/design-system';
 
 export default {

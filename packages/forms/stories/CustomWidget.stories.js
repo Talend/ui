@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src/UIForm';
@@ -24,7 +23,7 @@ CustomWidget.propTypes = {
 };
 
 export default {
-	title: 'Customization/Widget',
+	title: 'Forms/Custom Widget',
 };
 
 export function Default() {

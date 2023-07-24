@@ -1,5 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { screen, render, fireEvent } from '@testing-library/react';
 import { Map } from 'immutable';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './SubHeaderBar.container';
 import Connect from './SubHeaderBar.connect';
@@ -14,33 +13,37 @@ describe('Connect', () => {
 
 describe('SubHeaderBar container', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Container onGoBack={jest.fn()} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<Container onGoBack={jest.fn()} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should call onGoBack event when goBack event trigger', () => {
 		// Given
-		const event = {};
 		const props = {
 			onGoBack: jest.fn(),
 		};
 		// When
-		shallow(<Container {...props} />).simulate('goBack', event);
+		render(<Container {...props} />);
+		fireEvent.click(screen.getByLabelText('Go back'));
 		// Then
-		expect(props.onGoBack).toHaveBeenCalledWith(event);
+		expect(props.onGoBack).toHaveBeenCalled();
 	});
 	it('should call actionCreatorGoBack event when goBack event trigger', () => {
 		// Given
-		const event = {};
 		const props = {
 			actionCreatorGoBack: 'myGoBackActionCreator',
 			dispatchActionCreator: jest.fn(),
 		};
 		// When
-		shallow(<Container {...props} />).simulate('goBack', event);
+		render(<Container {...props} />);
+		fireEvent.click(screen.getByLabelText('Go back'));
 		// Then
-		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorGoBack, event, {
-			props,
-		});
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+			props.actionCreatorGoBack,
+			expect.anything(),
+			{
+				props,
+			},
+		);
 	});
 });
 

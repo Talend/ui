@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { makeDecorator } from '@storybook/addons';
 
@@ -96,7 +95,7 @@ function IntercomComponent() {
 }
 
 export default {
-	title: 'Navigation/HeaderBar',
+	title: 'Components/Navigation/HeaderBar',
 };
 
 export const Default = () => {

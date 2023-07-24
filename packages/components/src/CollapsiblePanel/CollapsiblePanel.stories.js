@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
@@ -126,7 +125,7 @@ const element = (
 );
 
 export default {
-	title: 'Layout/CollapsiblePanel',
+	title: 'Components/Layout/CollapsiblePanel',
 };
 
 export const Default = () => (

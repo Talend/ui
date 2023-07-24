@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/display-name */
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Draggable from 'react-draggable';
@@ -11,6 +12,7 @@ import getDefaultT from '../../translate';
 
 const theme = getTheme(headerResizableCssModule);
 
+// eslint-disable-next-line react/prop-types
 const HeaderResizableContent = ({ customRender, ...rest }) => {
 	if (customRender) {
 		return customRender;
@@ -20,7 +22,7 @@ const HeaderResizableContent = ({ customRender, ...rest }) => {
 	return null;
 };
 
-export class HeaderResizable extends React.Component {
+export class HeaderResizable extends Component {
 	state = {
 		resizing: false,
 	};
@@ -82,7 +84,7 @@ export class HeaderResizable extends React.Component {
 							className={classNames(theme('tc-header-cell-resizable-drag-button'))}
 						>
 							<input
-								data-testId="resize-input-button-ally"
+								data-testid="resize-input-button-ally"
 								className={classNames(
 									theme('tc-header-cell-resizable-drag-accessibility'),
 									'sr-only',
@@ -94,7 +96,6 @@ export class HeaderResizable extends React.Component {
 								onClick={event => this.onKeyDownResizeColumn(event, resizeColumn)}
 							/>
 							<Draggable
-								className={classNames(theme('tc-header-cell-resizable-drag-button-handle'))}
 								axis="x"
 								onStart={this.setResizing(true)}
 								onDrag={(_, data) => {
@@ -104,6 +105,7 @@ export class HeaderResizable extends React.Component {
 								position={{ x: 0 }}
 							>
 								<div
+									data-testid="draggable"
 									className={classNames(theme('tc-header-cell-resizable-drag-button-handle-icon'))}
 									title={tooltipLabel}
 								/>

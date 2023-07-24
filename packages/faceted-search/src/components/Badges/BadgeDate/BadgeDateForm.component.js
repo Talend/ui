@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import startOfDay from 'date-fns/start_of_day';
 import PropTypes from 'prop-types';
 import { Action, getTheme, Rich, DatePicker } from '@talend/react-components';
@@ -55,7 +55,7 @@ BadgeDateForm.propTypes = {
 	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
-	value: PropTypes.string,
+	value: PropTypes.number,
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	dateFormat: PropTypes.string,

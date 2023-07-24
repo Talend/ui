@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-
-import toJsonWithoutI18n from '../../../../test/props-without-i18n';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import TextFilter from './TextFilter.component';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
+
+jest.unmock('@talend/design-system');
 
 describe('TextFilter', () => {
 	let defaultContext;
@@ -22,50 +21,45 @@ describe('TextFilter', () => {
 
 	it('should render text filter component', () => {
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<ListContext.Provider value={defaultContext}>
 				<TextFilter id="myTextFilter" />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render text filter component with defined docked state', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={defaultContext}>
 				<TextFilter id="myTextFilter" docked />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(screen.getByRole('search').tagName).toBe('BUTTON');
+		expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
 	});
 
-	it('should handle text filter changes (uncontrolled mode)', () => {
+	it('should handle text filter changes (uncontrolled mode)', async () => {
 		// given
 		const context = {
 			...defaultContext,
 			textFilter: '',
 			setTextFilter: jest.fn(),
 		};
-		const event = { target: { value: 'my-filter-value' } };
 
 		// when
-		let wrapper;
-		act(() => {
-			wrapper = mount(
-				<ListContext.Provider value={context}>
-					<TextFilter id="myTextFilter" initialDocked debounceTimeout={0} />
-				</ListContext.Provider>,
-			);
-
-			wrapper.find('button#myTextFilter').simulate('click');
-		});
-		wrapper.update();
-		wrapper.find('input').at(0).simulate('change', event);
+		render(
+			<ListContext.Provider value={context}>
+				<TextFilter id="myTextFilter" initialDocked debounceTimeout={0} />
+			</ListContext.Provider>,
+		);
+		await userEvent.click(screen.getByRole('search'));
+		await userEvent.type(screen.getByRole('searchbox'), 'my-filter-value');
 
 		// then
 		expect(context.setTextFilter).toHaveBeenCalledWith('my-filter-value');
@@ -73,7 +67,7 @@ describe('TextFilter', () => {
 
 	it('should deal with columns on which apply filter', () => {
 		// when
-		mount(
+		render(
 			<ListContext.Provider value={defaultContext}>
 				<TextFilter id="myTextFilter" applyOn={['foo']} />
 			</ListContext.Provider>,
@@ -83,22 +77,17 @@ describe('TextFilter', () => {
 		expect(defaultContext.setFilteredColumns).toHaveBeenCalledWith(['foo']);
 	});
 
-	it('should call the toggle callback when they are provided (controlled mode)', () => {
+	it('should call the toggle callback when they are provided (controlled mode)', async () => {
 		// given
 		const onToggle = jest.fn();
 
 		// when
-		let wrapper;
-		act(() => {
-			wrapper = mount(
-				<ListContext.Provider value={defaultContext}>
-					<TextFilter id="myTextFilter" initialDocked onToggle={onToggle} />
-				</ListContext.Provider>,
-			);
-
-			wrapper.find('button#myTextFilter').simulate('click');
-		});
-		wrapper.update();
+		render(
+			<ListContext.Provider value={defaultContext}>
+				<TextFilter id="myTextFilter" initialDocked onToggle={onToggle} />
+			</ListContext.Provider>,
+		);
+		await userEvent.click(screen.getByRole('search'));
 
 		// then
 		expect(onToggle).toHaveBeenCalled();
@@ -107,8 +96,7 @@ describe('TextFilter', () => {
 	it('should call the callback on change (controlled mode)', () => {
 		// given
 		const onChange = jest.fn();
-		const event = { target: { value: 'my-filter-value' } };
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={defaultContext}>
 				<TextFilter
 					id="myTextFilter"
@@ -121,7 +109,9 @@ describe('TextFilter', () => {
 		);
 
 		// when
-		wrapper.find('input').at(0).simulate('change', event);
+		userEvent.click(screen.getByRole('search'));
+		userEvent.clear(screen.getByRole('searchbox'));
+		userEvent.type(screen.getByRole('searchbox'), 'my-filter-value');
 
 		// then
 		expect(onChange).toHaveBeenCalledWith(expect.anything(), 'my-filter-value');
@@ -136,32 +126,26 @@ describe('TextFilter', () => {
 		};
 
 		// when
-		let wrapper;
-		act(() => {
-			wrapper = mount(
-				<ListContext.Provider value={context}>
-					<TextFilter id="myTextFilter" initialDocked />
-				</ListContext.Provider>,
-			);
+		render(
+			<ListContext.Provider value={context}>
+				<TextFilter id="myTextFilter" initialDocked />
+			</ListContext.Provider>,
+		);
 
-			wrapper.find('button#myTextFilter').simulate('click');
-		});
-		wrapper.update();
+		userEvent.click(screen.getByRole('search'));
 
 		// then
-		expect(wrapper.find('button#myTextFilter').length).toBe(0);
-		expect(wrapper.find('input').length).toBe(1);
-		expect(wrapper.find('input').at(0).prop('value')).toBe('my-filter-value');
+		expect(screen.queryByRole('search').tagName).toBe('FORM'); // this not anymore a button
+		expect(screen.getByRole('searchbox')).toBeInTheDocument();
+
+		expect(screen.getByRole('searchbox')).toHaveValue('my-filter-value');
 
 		// when
-		act(() => {
-			wrapper.find('input').simulate('blur'); // blur with no input value toggles the search
-		});
-		wrapper.update();
+		screen.getByRole('searchbox').blur();
 
 		// then
-		expect(wrapper.find('button#myTextFilter').length).toBe(0);
-		expect(wrapper.find('input').length).toBe(1);
+		expect(screen.queryByRole('search').tagName).toBe('FORM'); // this not anymore a button
+		expect(screen.getByRole('searchbox')).toBeInTheDocument();
 	});
 
 	it('should be docked when text filter is empty', () => {
@@ -173,29 +157,22 @@ describe('TextFilter', () => {
 		};
 
 		// when
-		let wrapper;
-		act(() => {
-			wrapper = mount(
-				<ListContext.Provider value={context}>
-					<TextFilter id="myTextFilter" initialDocked />
-				</ListContext.Provider>,
-			);
-			wrapper.find('button#myTextFilter').simulate('click');
-		});
-		wrapper.update();
+		render(
+			<ListContext.Provider value={context}>
+				<TextFilter id="myTextFilter" initialDocked />
+			</ListContext.Provider>,
+		);
+		userEvent.click(screen.getByRole('search'));
 
 		// then
-		expect(wrapper.find('button#myTextFilter').length).toBe(0);
-		expect(wrapper.find('input').length).toBe(1);
+		expect(screen.getByRole('search').tagName).toBe('FORM');
+		expect(screen.getByRole('searchbox')).toBeInTheDocument();
 
 		// when
-		act(() => {
-			wrapper.find('input').simulate('blur'); // blur with no input value toggles the search
-		});
-		wrapper.update();
+		screen.getByRole('searchbox').blur();
 
 		// then
-		expect(wrapper.find('button#myTextFilter').length).toBe(1);
-		expect(wrapper.find('input').length).toBe(0);
+		expect(screen.queryByRole('search').tagName).toBe('BUTTON'); // this not anymore a button
+		expect(screen.queryByRole('searchbox')).not.toBeInTheDocument();
 	});
 });

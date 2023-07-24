@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory } from '@storybook/react';
 
 import {
@@ -9,7 +8,7 @@ import {
 	TagSuccess,
 	TagWarning,
 	TagBeta,
-	tagDestructive
+	tagDestructive,
 } from '@talend/design-system';
 
 export default {

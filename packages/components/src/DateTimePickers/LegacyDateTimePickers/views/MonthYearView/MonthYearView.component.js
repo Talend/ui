@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '../../../../Actions';
 import MonthPicker from '../../pickers/MonthPicker';

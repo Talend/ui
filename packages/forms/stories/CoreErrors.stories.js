@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src/UIForm';
 
@@ -198,7 +197,7 @@ const errors = schema.uiSchema.reduce(
 );
 
 export default {
-	title: 'Core Concepts/Errors',
+	title: 'Forms/Errors',
 };
 
 export function Default() {

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Drawer } from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';

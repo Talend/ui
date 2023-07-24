@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 

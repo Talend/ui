@@ -1,4 +1,3 @@
-import React from 'react';
 import { Token } from '../../../../../../src/tokens/types';
 import CardBorder from '../../Card/CardBorder';
 import DefinitionListItem from './DefinitionListItem';

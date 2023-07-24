@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import ListView from '.';
@@ -134,7 +133,7 @@ const withIconProps = {
 };
 
 export default {
-	title: 'Form/Controls/ListView',
+	title: 'Components/Form - Controls/ListView',
 
 	decorators: [
 		story => (

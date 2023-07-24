@@ -1,4 +1,4 @@
-import React, { cloneElement, HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
+import { cloneElement, HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
 import classnames from 'classnames';
 import tokens from '@talend/design-tokens';
 import {

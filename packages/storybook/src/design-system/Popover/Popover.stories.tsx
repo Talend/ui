@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { PopoverStateReturn } from 'reakit/ts';

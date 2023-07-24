@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { defaultColumnConfiguration } from '../Content.component';
 
 import CellMappedData from './CellMappedData.component';

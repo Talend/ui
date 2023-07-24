@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { ButtonIcon } from '@talend/design-system';
@@ -21,7 +21,7 @@ function euclideanModulo(dividend, divisor) {
 	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
 
-class DateTimeView extends React.PureComponent {
+class DateTimeView extends PureComponent {
 	static propTypes = {
 		allowFocus: PropTypes.bool,
 		calendar: PropTypes.shape({

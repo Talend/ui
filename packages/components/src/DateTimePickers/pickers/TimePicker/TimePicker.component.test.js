@@ -1,22 +1,22 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { TimePicker } from './TimePicker.component';
 
 describe('TimePicker component', () => {
 	it('should render', () => {
-		const wrapper = shallow(<TimePicker onChange={jest.fn()} onSubmit={jest.fn()} />);
+		const { container } = render(<TimePicker onChange={jest.fn()} onKeyDown={jest.fn()} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	describe('event handlers', () => {
 		it('should call onChange when select time', () => {
 			// given
 			const onChange = jest.fn();
 			const event = expect.anything();
-			const wrapper = mount(<TimePicker onChange={onChange} />);
+			render(<TimePicker onChange={onChange} onKeyDown={jest.fn()} />);
 			// when
-			wrapper.find('button').at(3).simulate('click');
+			userEvent.click(screen.getByText('03:00'));
 			// then
 			expect(onChange).toBeCalledWith(event, {
 				textInput: '03:00',
@@ -27,13 +27,10 @@ describe('TimePicker component', () => {
 			// when
 			const scrollIntoViewMock = jest.fn();
 			window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
-			const wrapper = mount(
-				<TimePicker onChange={jest.fn()} onSubmit={jest.fn()} textInput="12:00" />,
-			);
-			wrapper.update();
+			render(<TimePicker onChange={jest.fn()} onKeyDown={jest.fn()} textInput="12:00" />);
 			// then
 			expect(scrollIntoViewMock).toBeCalledWith({ block: 'center' });
-			expect(wrapper.find('button').at(12).hasClass('highlight')).toBe(true);
+			expect(screen.getByText('12:00')).toHaveClass('highlight');
 		});
 	});
 });

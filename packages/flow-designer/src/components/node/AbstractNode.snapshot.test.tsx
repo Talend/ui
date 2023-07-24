@@ -1,4 +1,3 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
 
 import AbstractNode from './AbstractNode.component';
@@ -32,12 +31,7 @@ describe('<AbstractNode />', () => {
 		});
 		const tree = renderer
 			.create(
-				<AbstractNode
-					node={node}
-					startMoveNodeTo={noOp}
-					moveNodeTo={noOp}
-					moveNodeToEnd={noOp}
-				>
+				<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 					<rect />
 				</AbstractNode>,
 			)

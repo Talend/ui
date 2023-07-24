@@ -1,7 +1,7 @@
 /**
  * This file contains all utility functions that applies to table
  */
-import React from 'react';
+import { Children } from 'react';
 import classNames from 'classnames';
 import { Column } from 'react-virtualized';
 import CellCheckboxRenderer from '../CellCheckbox';
@@ -22,7 +22,7 @@ export function insertSelectionConfiguration(props) {
 		selectionMode,
 		selectionToggle,
 	} = props;
-	let contentsConfiguration = React.Children.toArray(children);
+	let contentsConfiguration = Children.toArray(children);
 	if (selectionToggle && isSelected) {
 		const toggleColumn = (
 			<Column
@@ -63,7 +63,7 @@ export function insertSelectionConfiguration(props) {
  * - parent id (via columnData)
  */
 export function toColumns({ id, theme, children, columnsWidths, getRowState }) {
-	return React.Children.toArray(children).map((field, index) => {
+	return Children.toArray(children).map((field, index) => {
 		const columnWidth = getColumnWidth(field.props.dataKey, columnsWidths);
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
 		const colProps = {

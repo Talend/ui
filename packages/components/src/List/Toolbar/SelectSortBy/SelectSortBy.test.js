@@ -1,15 +1,19 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-
+// rewrite tests using react-testing-library
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import SelectSortBy from './SelectSortBy.component';
 
 const id = 'toolbar-sort';
 const field = 'id';
 const requiredProps = {
 	onChange: jest.fn(),
-	options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+	options: [
+		{ id: 'id', name: 'Id' },
+		{ id: 'name', name: 'Name' },
+	],
 };
+
+jest.unmock('@talend/design-system');
 
 describe('SelectSortBy', () => {
 	it('should render', () => {
@@ -20,13 +24,14 @@ describe('SelectSortBy', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<SelectSortBy {...props} />).toJSON();
+		const { container } = render(<SelectSortBy {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
+		expect(screen.getByRole('menu')).toBeInTheDocument();
 	});
 
-	it('should render with no dropdown', () => {
+	it('should render with no dropdown if one option', () => {
 		// given
 		const props = {
 			field,
@@ -35,18 +40,24 @@ describe('SelectSortBy', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<SelectSortBy {...props} />).toJSON();
+		render(<SelectSortBy {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Id')).toBeInTheDocument();
+		expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 	});
 
 	it('should render without field selected', () => {
 		// when
-		const wrapper = renderer.create(<SelectSortBy {...requiredProps} />).toJSON();
+		render(<SelectSortBy {...requiredProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		// no selected => N.C
+		expect(screen.getByText('N.C')).toBeInTheDocument();
+		// no change order
+		expect(
+			screen.queryByLabelText('Change sort order. Current order: Ascending.'),
+		).not.toBeInTheDocument();
 	});
 
 	it('should render id if provided', () => {
@@ -58,10 +69,13 @@ describe('SelectSortBy', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<SelectSortBy {...props} />).toJSON();
+		render(<SelectSortBy {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.queryByText('N.C')).not.toBeInTheDocument();
+		expect(
+			screen.getByLabelText('Change sort order. Current order: Ascending.'),
+		).toBeInTheDocument();
 	});
 
 	it('should call toggle callback on sort-order click', () => {
@@ -71,18 +85,14 @@ describe('SelectSortBy', () => {
 			field,
 			...requiredProps,
 		};
-		const event = { target: {} };
 
 		// when
-		const wrapper = shallow(<SelectSortBy {...props} />);
+		render(<SelectSortBy {...props} />);
 
-		wrapper
-			.find('.tc-list-toolbar-order-chooser')
-			.at(0)
-			.simulate('click', event);
+		userEvent.click(screen.getByLabelText('Change sort order. Current order: Ascending.'));
 
 		// then
-		expect(props.onChange).toBeCalledWith(event, {
+		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			field: 'id',
 			isDescending: true,
 		});

@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/no-container */
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { render, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';

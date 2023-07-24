@@ -1,4 +1,3 @@
-import React from 'react';
 import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 

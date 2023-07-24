@@ -1,5 +1,35 @@
 # @talend/scripts-config-react-webpack
 
+## 15.4.0
+
+### Minor Changes
+
+- 5fd268ed6: feat: support publicPath auto option
+
+### Patch Changes
+
+- ee828e0b0: fix: remove circular dependencies on react-components
+
+## 15.3.3
+
+### Patch Changes
+
+- fb81e1ed2: fix: support package-lock format 1
+
+## 15.3.2
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+  - @talend/scripts-config-babel@13.0.0
+
+## 15.3.1
+
+### Patch Changes
+
+- 285efb74a: chore: minor upgrade of webpack-dev-server
+- b0193afbd: chore: upgrade webpack
+
 ## 15.3.0
 
 ### Minor Changes

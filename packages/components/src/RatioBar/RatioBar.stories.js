@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { RatioBar } from './RatioBar.component';
 
 export default {
-	title: 'Data/Dataviz/RatioBar',
+	title: 'Components/Dataviz/RatioBar',
 };
 
 export const _RatioBar = () => (

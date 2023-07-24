@@ -1,10 +1,9 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import InputDateTimeRangePicker from './InputDateTimeRangePicker.component';
 
 export default {
-	title: 'Form/Controls/DatePicker/Date Time Range',
+	title: 'Components/Form - Controls/DatePicker/Date Time Range',
 
 	decorators: [
 		story => (

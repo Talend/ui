@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 // eslint-disable-next-line import/prefer-default-export
-export const ListContext = React.createContext();
+export const ListContext = createContext();
 
 export function useListContext() {
 	const context = useContext(ListContext);

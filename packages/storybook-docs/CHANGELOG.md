@@ -1,5 +1,20 @@
 # @talend/storybook-docs
 
+## 1.1.6
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [616601fda]
+- Updated dependencies [285efb74a]
+  - @talend/design-system@7.7.1
+  - @talend/design-tokens@2.7.3
+
 ## 1.1.5
 
 ### Patch Changes

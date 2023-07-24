@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
@@ -17,7 +17,7 @@ export const DEFAULT_STATE = new Immutable.Map({});
  * This Component bind onChange to store the formData in it's state.
  * <Form jsonSchema={} uiSchema={} data={} />
  */
-class Form extends React.Component {
+class Form extends Component {
 	static displayName = 'Container(Form)';
 
 	static propTypes = {

@@ -2,6 +2,7 @@ import * as utils from '@talend/scripts-utils';
 import buildLib from './build-lib.js';
 import buildUMD from './build-lib-umd.js';
 
+// eslint-disable-next-line consistent-return
 export default async function build(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 	if (packageType.isApp) {

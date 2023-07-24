@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ButtonIcon, ButtonIconFloating, ButtonIconToggle, Skeleton, StackHorizontal, StackVertical } from '@talend/design-system';
+import {
+	ButtonIcon,
+	ButtonIconFloating,
+	ButtonIconToggle,
+	Skeleton,
+	StackHorizontal,
+	StackVertical,
+} from '@talend/design-system';
 
 export default {
 	component: ButtonIcon,

@@ -1,14 +1,18 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import TimeZone from './TimeZone.component';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { render } from '@testing-library/react';
 
+import TimeZone from './TimeZone.component';
+jest.mock('../../TooltipTrigger', () => props => (
+	<div aria-label={props.label}>{props.children}</div>
+));
+jest.unmock('@talend/design-system');
 describe('TimeZone', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(<TimeZone timezone="Asia/Beijing" />);
+		const { container } = render(<TimeZone timezone="Asia/Beijing" />);
 
 		// then
-		expect(wrapper.find('TooltipTrigger').length).toBe(1);
-		expect(wrapper.find('Icon').prop('name')).toBe('talend-info-circle');
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

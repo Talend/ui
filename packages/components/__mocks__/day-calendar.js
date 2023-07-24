@@ -1,10 +1,10 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import { buildWeeks } from '../src/DateTimePickers/generator';
 
-class DayCalendar extends React.Component {
+class DayCalendar extends Component {
 	isCurrentMonth(date) {
 		return getMonth(date) === this.props.month;
 	}
@@ -28,7 +28,10 @@ class DayCalendar extends React.Component {
 								const day = getDate(date);
 								return (
 									<td key={dayIndex}>
-										<button data-value={this.isCurrentMonth(date) && day} onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}>
+										<button
+											data-value={this.isCurrentMonth(date) && day}
+											onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}
+										>
 											{day}
 										</button>
 									</td>

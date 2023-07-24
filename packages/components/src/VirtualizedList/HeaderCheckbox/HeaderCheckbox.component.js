@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import classnames from 'classnames';
 import Checkbox from '../../Checkbox';
 import theme from './HeaderCheckbox.module.scss';

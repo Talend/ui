@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
@@ -12,8 +12,7 @@ const getSelectBadgeLabel = (value, t) => {
 		if (checkedCheckboxes.length > 3) {
 			return t('FACETED_SEARCH_VALUES_COUNT', {
 				count: checkedCheckboxes.length,
-				defaultValue: '{{count}} value',
-				defaultValue_plural: '{{count}} values',
+				defaultValue: '{{count}} values',
 			});
 		} else if (!checkedCheckboxes.length) {
 			return labelAll;

@@ -1,4 +1,4 @@
-import React, { ReactElement, isValidElement } from 'react';
+import { ReactElement, isValidElement } from 'react';
 
 import { ButtonPrimary } from '../Button';
 import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';

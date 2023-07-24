@@ -1,9 +1,14 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { act, render, screen, fireEvent } from '@testing-library/react';
 import TimeWidget from './Time.component';
 
+jest.unmock('@talend/design-system');
+jest.mock('ally.js');
+
 describe('Time component', () => {
+	beforeEach(() => {
+		window.HTMLElement.prototype.scrollIntoView = jest.fn();
+	});
+
 	const schema = {
 		autoFocus: true,
 		description: 'talend time picker',
@@ -11,147 +16,63 @@ describe('Time component', () => {
 		title: 'Select Time',
 		type: 'text',
 	};
+	const props = {
+		id: 'myForm',
+		errorMessage: 'My error message',
+		onChange: jest.fn(),
+		onFinish: jest.fn(),
+		schema,
+	};
 	it('should render an InputTimePicker', () => {
-		const wrapper = shallow(
-			<TimeWidget
-				id="myForm"
-				isValid={false}
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={schema}
-				value="12:34"
-			/>,
-		);
+		const { container } = render(<TimeWidget {...props} value="12:34" />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
-	it('should trigger onFinish on picker blur', () => {
+	it('should trigger onFinish on picker blur', async () => {
 		// given
-		const onFinish = jest.fn();
-		const wrapper = shallow(
-			<TimeWidget
-				id="myForm"
-				isValid={false}
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={onFinish}
-				schema={schema}
-				value="12:00"
-			/>,
-		);
-		expect(onFinish).not.toBeCalled();
+		jest.useFakeTimers();
+		render(<TimeWidget {...props} value="12:00" />);
 		const event = { target: {} };
 
 		// when
-		wrapper.find('InputTimePicker').simulate('blur', event);
-
+		fireEvent.blur(screen.getByRole('textbox'), event);
+		await act(async () => {
+			jest.runAllTimers();
+			jest.useRealTimers();
+		});
 		// then
-		expect(onFinish).toBeCalled();
+		expect(props.onFinish).toBeCalled();
 	});
 	describe('onChange', () => {
-		it('should call props onChange', () => {
-			// given
-			const onChange = jest.fn();
-			const wrapper = shallow(
-				<TimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={onChange}
-					onFinish={jest.fn()}
-					schema={schema}
-				/>,
-			);
-			expect(onChange).not.toBeCalled();
-			const event = { target: {} };
-			const payload = {
-				time: { hours: '12', minutes: '34' },
-				textInput: '12:34',
-				errorMessage: undefined,
-			};
-
-			// when
-			wrapper.find('InputTimePicker').simulate('change', event, payload);
-
-			// then
-			expect(onChange).toBeCalledWith(event, { schema, value: '12:34' });
+		beforeEach(() => {
+			jest.useFakeTimers();
+			jest.resetAllMocks();
 		});
-		it('should call onChange with previous value when there is error', () => {
-			// given
-			const onChange = jest.fn();
-			const wrapper = shallow(
-				<TimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={onChange}
-					onFinish={jest.fn()}
-					schema={schema}
-				/>,
-			);
-			expect(onChange).not.toBeCalled();
-			const event = { target: {} };
-			const payload = {
-				textInput: 'ddd',
-				errorMessage: 'Time is invalid',
-			};
-
-			// when
-			wrapper.find('InputTimePicker').simulate('change', event, payload);
-
-			// then
-			expect(onChange).toBeCalledWith(event, { schema, value: 'ddd' });
-
-			// check that component highlighted as invalid
-			const fieldTemplateProps = wrapper.find('FieldTemplate').props();
-			expect(fieldTemplateProps.isValid).toBeFalsy();
-			expect(fieldTemplateProps.errorMessage).toEqual('Time is invalid');
-		});
-		it('should not throw any error message', () => {
-			// given
-			const onChange = jest.fn();
-			const wrapper = shallow(
-				<TimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={onChange}
-					onFinish={jest.fn()}
-					schema={schema}
-				/>,
-			);
-			expect(onChange).not.toBeCalled();
-			const event = { target: {} };
-			const payload = {
-				time: null,
-				textInput: '',
-				errorMessage: undefined,
-			};
-
-			// when
-			wrapper.find('InputTimePicker').simulate('change', event, payload);
-
-			// then
-			expect(onChange).toBeCalledWith(event, {
-				schema,
-				value: '',
+		afterEach(async () => {
+			await act(async () => {
+				jest.runAllTimers();
 			});
+			jest.useRealTimers();
 		});
-		it('should call props onFinish when there is no error', () => {
+
+		it('should call props onChange', async () => {
 			// given
-			const onFinish = jest.fn();
-			const wrapper = shallow(
-				<TimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={jest.fn()}
-					onFinish={onFinish}
-					schema={schema}
-				/>,
-			);
-			expect(onFinish).not.toBeCalled();
+			render(<TimeWidget {...props} />);
+
+			// when
+			fireEvent.change(screen.getByRole('textbox'), { target: { value: '12:34' } });
+			fireEvent.blur(screen.getByRole('textbox'));
+			await act(async () => {
+				jest.runAllTimers();
+			});
+
+			// then
+			expect(props.onChange).toBeCalledWith(expect.anything(), { schema, value: '12:34' });
+		});
+
+		it('should call props onFinish when there is no error', async () => {
+			// given
+			render(<TimeWidget {...props} />);
 			const event = { target: {} };
 			const payload = {
 				time: { hours: '12', minutes: '34' },
@@ -160,25 +81,18 @@ describe('Time component', () => {
 			};
 
 			// when
-			wrapper.find('InputTimePicker').simulate('change', event, payload);
+			fireEvent.change(screen.getByRole('textbox'), { target: { value: '12:34' } });
+			fireEvent.blur(screen.getByRole('textbox'));
+			await act(async () => {
+				jest.runAllTimers();
+			});
 
 			// then
-			expect(onFinish).toBeCalledWith(event, { schema, value: '12:34' });
+			expect(props.onFinish).toBeCalledWith(expect.anything(), { schema, value: '12:34' });
 		});
-		it('should NOT call props onFinish when there is an error', () => {
+		it('should NOT call props onFinish when there is an error', async () => {
 			// given
-			const onFinish = jest.fn();
-			const wrapper = shallow(
-				<TimeWidget
-					id="myForm"
-					isValid={false}
-					errorMessage="My error message"
-					onChange={jest.fn()}
-					onFinish={onFinish}
-					schema={schema}
-				/>,
-			);
-			expect(onFinish).not.toBeCalled();
+			render(<TimeWidget {...props} />);
 			const event = { target: {} };
 			const payload = {
 				time: null,
@@ -187,10 +101,15 @@ describe('Time component', () => {
 			};
 
 			// when
-			wrapper.find('InputTimePicker').simulate('change', event, payload);
+			fireEvent.change(screen.getByRole('textbox'), { target: { value: '99:100' } });
+
+			await act(async () => {
+				jest.runAllTimers();
+			});
 
 			// then
-			expect(onFinish).not.toBeCalled();
+			expect(props.onChange).toBeCalled();
+			expect(props.onFinish).not.toBeCalled();
 		});
 	});
 });

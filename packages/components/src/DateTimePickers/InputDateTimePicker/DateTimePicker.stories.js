@@ -1,10 +1,9 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 
 export default {
-	title: 'Form/Controls/DatePicker/DateTime',
+	title: 'Components/Form - Controls/DatePicker/DateTime',
 
 	decorators: [
 		story => (

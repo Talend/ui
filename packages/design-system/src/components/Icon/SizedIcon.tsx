@@ -1,4 +1,5 @@
-import React, { HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 // eslint-disable-next-line @talend/import-depth
 import { Icon, icons, IconSize } from '@talend/icons/dist/typeUtils';
 
@@ -11,10 +12,10 @@ const getNumericSize = (size: IconSize) => {
 	}[size];
 };
 
-const SizedIcon = React.forwardRef(
+const SizedIcon = forwardRef(
 	<S extends IconSize>(
 		{ className, style, name, size, ...rest }: HTMLAttributes<SVGSVGElement> & Icon<S>,
-		ref: React.Ref<SVGSVGElement>,
+		ref: Ref<SVGSVGElement>,
 	) => {
 		const numericSize = getNumericSize(size);
 		const fullName = size ? `${name}:${size}` : name;

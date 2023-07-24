@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
 import Component from '@talend/react-components/lib/List';
 import VirtualizedList from '@talend/react-components/lib/VirtualizedList';

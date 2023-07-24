@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
@@ -53,8 +52,6 @@ Checkbox.defaultProps = {
 Checkbox.propTypes = {
 	id: PropTypes.string.isRequired,
 	label: PropTypes.node,
-	onChange: PropTypes.func.isRequired,
-	onBlur: PropTypes.func,
 	checked: PropTypes.bool,
 	autoFocus: PropTypes.bool,
 	disabled: PropTypes.bool,

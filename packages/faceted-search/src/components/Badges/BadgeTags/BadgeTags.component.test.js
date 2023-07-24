@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { BadgeTags } from './BadgeTags.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 import { render, screen, waitFor } from '@testing-library/react';

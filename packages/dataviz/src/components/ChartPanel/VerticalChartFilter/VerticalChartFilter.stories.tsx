@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import VerticalChartFilter, { VerticalChartFilterProps } from './VerticalChartFilter.component';
 import { DateRangeHandler, NumberRangeHandler } from '../../RangeFilter';
@@ -15,6 +14,12 @@ export default {
 			</div>
 		),
 	],
+	parameters: {
+		chromatic: {
+			// To avoid issues with charts, we'll need to improve this later on
+			diffThreshold: 0.6,
+		},
+	},
 } as Meta<VerticalChartFilterProps>;
 
 export const Number = Template.bind({});

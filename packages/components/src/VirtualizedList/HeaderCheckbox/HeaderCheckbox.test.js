@@ -1,8 +1,5 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { render, screen } from '@testing-library/react';
-
-import toJson from 'enzyme-to-json';
+import userEvent from '@testing-library/user-event';
 import HeaderCheckbox from './HeaderCheckbox.component';
 
 const items = [
@@ -19,18 +16,19 @@ const columnData = {
 };
 
 describe('Header "Select All" checkbox', () => {
-	it('should render a "Select All" checkbox on header when onToggleAll callback provided', () => {
+	it('should render', () => {
 		// when
-		const wrapper = shallow(<HeaderCheckbox columnData={columnData} />);
+		const { container } = render(<HeaderCheckbox columnData={columnData} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByText('Select all')).toBeVisible();
 	});
 	it('should trigger onToggleAll callback on checkbox toggle', () => {
 		// when
-		const wrapper = shallow(<HeaderCheckbox columnData={columnData} />);
+		render(<HeaderCheckbox columnData={columnData} />);
 
-		wrapper.find('#myList-header-check').simulate('change');
+		userEvent.click(screen.getByRole('checkbox'));
 
 		// then
 		expect(columnData.onToggleAll).toHaveBeenCalled();
@@ -38,12 +36,12 @@ describe('Header "Select All" checkbox', () => {
 
 	it('should render unchecked & disabled checkbox on header when there is no items', () => {
 		// when
-		const wrapper = shallow(<HeaderCheckbox columnData={{ ...columnData, collection: [] }} />);
+		render(<HeaderCheckbox columnData={{ ...columnData, collection: [] }} />);
 
 		// then
-		const checkbox = wrapper.find('#myList-header-check');
-		expect(checkbox.prop('checked')).toBe(false);
-		expect(checkbox.prop('disabled')).toBe(true);
+		const checkbox = screen.getByRole('checkbox');
+		expect(checkbox).not.toBeChecked();
+		expect(checkbox).toBeDisabled();
 	});
 
 	it('should render disabled checkbox when isToggleAllDisabled() is true', () => {
@@ -56,21 +54,17 @@ describe('Header "Select All" checkbox', () => {
 
 	it('should render a checked checkbox on header', () => {
 		// when
-		const wrapper = shallow(
-			<HeaderCheckbox columnData={{ ...columnData, isSelected: () => true }} />,
-		);
+		render(<HeaderCheckbox columnData={{ ...columnData, isSelected: () => true }} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).toBeChecked();
 	});
 
 	it('should render a partial checkbox on header', () => {
 		// when
-		const wrapper = shallow(
-			<HeaderCheckbox columnData={{ ...columnData, isSelected: ({ id }) => id === 1 }} />,
-		);
+		render(<HeaderCheckbox columnData={{ ...columnData, isSelected: ({ id }) => id === 1 }} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).toHaveAttribute('data-checked', '1');
 	});
 });

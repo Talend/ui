@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';

@@ -1,4 +1,5 @@
-import React, {
+import {
+	lazy,
 	DetailedHTMLProps,
 	KeyboardEvent,
 	LabelHTMLAttributes,
@@ -17,7 +18,7 @@ import { generateId, generateDescriptionId, generateErrorId } from '../../Messag
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import CodeSkeleton from './CodeSkeleton.component';
 
-const ReactAce = React.lazy(() =>
+const ReactAce = lazy(() =>
 	assetsApi.getUMD('react-ace').then((mod: any) => assetsApi.toDefaultModule(mod.default)),
 );
 

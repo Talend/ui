@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
 import { TokensProps } from './TokensTypes';
 import { getDisplayName } from './TokenFormatter';

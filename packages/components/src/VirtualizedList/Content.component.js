@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/no-unused-prop-types */
 import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
 import TooltipTrigger from '../TooltipTrigger';
@@ -10,10 +10,7 @@ function DefaultRenderer({ cellData, columnData, rowData }) {
 		tooltipLabel = getTooltipLabel(rowData);
 	}
 	return tooltipLabel ? (
-		<TooltipTrigger
-			label={tooltipLabel}
-			tooltipPlacement={columnData.tooltipPlacement || 'top'}
-		>
+		<TooltipTrigger label={tooltipLabel} tooltipPlacement={columnData.tooltipPlacement || 'top'}>
 			<div className="tc-virtualizedlist-default-cell">{cellData}</div>
 		</TooltipTrigger>
 	) : (
@@ -43,3 +40,13 @@ export default function Content() {
 }
 Content.displayName = 'Content';
 Content.defaultProps = defaultColumnConfiguration;
+Content.propTypes = {
+	label: PropTypes.string.isRequired,
+	dataKey: PropTypes.string.isRequired,
+	width: PropTypes.number.isRequired,
+	columnData: PropTypes.shape({
+		tooltipLabel: PropTypes.string,
+		tooltipPlacement: PropTypes.string,
+		getTooltipLabel: PropTypes.func,
+	}).isRequired,
+};

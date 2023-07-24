@@ -1,8 +1,9 @@
-import React from 'react';
-import { Story } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { useState } from 'react';
 
-import { InlineEditing } from '@talend/design-system';
+import { action } from '@storybook/addon-actions';
+import { Story } from '@storybook/react';
+
+import { InlineEditing, StackVertical } from '@talend/design-system';
 
 export default {
 	component: InlineEditing,
@@ -19,6 +20,7 @@ export const Text = {
 		/>
 	),
 };
+
 export const EmptyTextWithPlaceholder = {
 	render: (props: Story) => (
 		<InlineEditing.Text
@@ -29,6 +31,36 @@ export const EmptyTextWithPlaceholder = {
 		/>
 	),
 };
+
+function ControlledInlineEditing({ ...props }) {
+	const [data, setData] = useState({
+		id: 'object-1',
+		name: 'my first object',
+	});
+
+	const [textValue, setTextValue] = useState(data.name);
+
+	return (
+		<StackVertical gap={'M'}>
+			<InlineEditing.Text
+				label="Edit the value"
+				placeholder="What is your Lorem Ipsum?"
+				value={textValue}
+				onCancel={() => setTextValue(data.name)}
+				onChangeValue={newValue => setTextValue(newValue)}
+				onEdit={(_, newValue) => setData({ ...data, name: newValue })}
+				{...props}
+			/>
+
+			<label>{`Data = ${JSON.stringify(data)}`}</label>
+		</StackVertical>
+	);
+}
+
+export const ControlledComponent = {
+	render: (props: Story) => <ControlledInlineEditing {...props} />,
+};
+
 export const Textarea = {
 	render: (props: Story) => (
 		<InlineEditing.Textarea
@@ -110,9 +142,9 @@ export const LoadingMode = {
 };
 
 export const InUse = (props: Story) => {
-	const [data, setData] = React.useState('this is a default value');
-	const [error, setError] = React.useState(false);
-	const [loading, setLoading] = React.useState(false);
+	const [data, setData] = useState('this is a default value');
+	const [error, setError] = useState(false);
+	const [loading, setLoading] = useState(false);
 	const onCancel = () => {
 		setError(false);
 	};

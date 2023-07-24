@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .resource-item {
 	padding-left: $padding-normal;
@@ -31,9 +32,10 @@
 			white-space: nowrap;
 			font-size: 14px;
 			display: block;
-			color: $dove-gray;
+			color: tokens.$coral-color-neutral-text;
 			margin: 0;
 		}
+
 		> .title {
 			font-weight: 600;
 		}
@@ -50,11 +52,13 @@
 			&.visible {
 				opacity: 1;
 			}
+
 			&[name='talend-star'] {
-				color: $lightning-yellow;
+				color: tokens.$coral-color-warning-text;
 			}
+
 			&[name='talend-badge'] {
-				color: $brand-primary;
+				color: tokens.$coral-color-accent-text;
 			}
 		}
 	}
@@ -64,33 +68,34 @@
 	&:global(.selected),
 	&:active {
 		:global(.tc-svg-icon) {
-			color: $brand-primary;
+			color: tokens.$coral-color-accent-text;
 		}
+
 		.flags-container {
 			opacity: 1;
 		}
 	}
 
 	&:hover {
-		background-color: $wild-sand;
+		background-color: tokens.$coral-color-neutral-background-medium;
 
 		.data-container {
 			> .title,
 			> .author,
 			> .subtitle {
-				color: $scooter;
+				color: tokens.$coral-color-accent-text;
 			}
 		}
 	}
 
 	&:global(.selected) {
-		background: tint($scooter, 90);
+		background: tokens.$coral-color-accent-background;
 
 		.data-container {
 			> .title,
 			> .author,
 			> .subtitle {
-				color: $dove-gray;
+				color: tokens.$coral-color-neutral-text;
 			}
 		}
 	}
@@ -102,12 +107,13 @@
 			text-overflow: ellipsis;
 			overflow: hidden;
 		}
+
 		dl {
 			padding-left: $padding-small;
 			margin-bottom: 0;
 
-			div:first-child {
-				margin-bottom: $padding-small;
+			> div {
+				margin-top: $padding-smaller;
 			}
 
 			div {
@@ -127,13 +133,14 @@
 				font-weight: initial;
 				flex-shrink: 0;
 
+				// stylelint-disable-next-line
 				&.icon-only {
 					margin-right: -1 * $padding-smaller;
 				}
 
 				.tc-svg-icon {
 					margin: 0 $padding-smaller;
-					color: $brand-primary;
+					color: tokens.$coral-color-accent-text;
 				}
 			}
 

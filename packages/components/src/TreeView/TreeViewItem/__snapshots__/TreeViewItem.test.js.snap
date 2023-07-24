@@ -2,134 +2,91 @@
 
 exports[`TreeView item should render 1`] = `
 <li
-  aria-expanded={false}
-  aria-level={2}
-  aria-posinset={1}
-  aria-selected={false}
-  aria-setsize={4}
-  className="tc-treeview-item-li theme-tc-treeview-li"
+  aria-expanded="false"
+  aria-level="2"
+  aria-posinset="1"
+  aria-selected="false"
+  aria-setsize="4"
+  class="tc-treeview-item-li theme-tc-treeview-li"
   id="my-treeview"
-  onClick={[Function]}
-  onKeyDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
   role="treeitem"
-  tabIndex={-1}
+  tabindex="-1"
 >
   <div
-    className="tc-treeview-item theme-tc-treeview-item"
-    style={
-      {
-        "paddingLeft": "62px",
-      }
-    }
+    class="tc-treeview-item theme-tc-treeview-item"
+    style="padding-left: 62px;"
   >
-    <Action
-      aria-hidden={true}
-      className="theme-tc-treeview-toggle"
-      icon="talend-caret-down"
-      iconTransform="rotate-270"
+    <button
+      aria-hidden="true"
+      aria-label=""
+      class="theme-tc-treeview-toggle btn-icon-only btn btn-link"
       id="my-treeview-toggle"
-      label=""
-      link={true}
-      onClick={[Function]}
-      tabIndex="-1"
-    />
-    <TreeViewIcon
-      isOpened={false}
+      role="link"
+      tabindex="-1"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-caret-down theme-rotate-270"
+        focusable="false"
+        name="talend-caret-down"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+      <span />
+    </button>
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg theme-tc-treeview-folder tc-icon-name-talend-folder-closed"
+      focusable="false"
+      name="talend-folder-closed"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
     />
     <span
-      className="tc-treeview-item-name theme-tc-treeview-item-name"
+      class="tc-treeview-item-name theme-tc-treeview-item-name"
     >
       grandpa
     </span>
     <div
-      className="theme-tc-treeview-item-ctrl"
+      class="theme-tc-treeview-item-ctrl"
     >
-      <Badge
-        label="101"
-      />
-      <Action
-        hideLabel={true}
-        icon="talend-trash"
+      <div
+        class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
+      >
+        <div
+          class="tc-badge-button theme-tc-badge-button"
+        >
+          <div
+            class="tc-badge-label theme-tc-badge-label"
+          >
+            <span
+              aria-describedby="42"
+              class="tc-badge-label-text theme-tc-badge-label-text"
+            >
+              101
+            </span>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="42"
+        aria-label="remove element"
+        class="btn-icon-only btn btn-link"
         id="my-treeview-talend-trash"
-        label="remove element"
-        link={true}
-        onClick={[Function]}
-        tooltipPlacement="right"
-      />
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
+          focusable="false"
+          name="talend-trash"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </button>
     </div>
   </div>
 </li>
-`;
-
-exports[`TreeView item should render items with icon 1`] = `
-<li
-  aria-level={2}
-  aria-posinset={1}
-  aria-selected={false}
-  aria-setsize={4}
-  className="tc-treeview-item-li theme-tc-treeview-li"
-  id="my-treeview"
-  onClick={[Function]}
-  onKeyDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  role="treeitem"
-  tabIndex={-1}
->
-  <div
-    className="tc-treeview-item theme-tc-treeview-item"
-    style={
-      {
-        "paddingLeft": "62px",
-      }
-    }
-  >
-    <TreeViewIcon
-      icon={
-        {
-          "name": "src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png",
-          "title": "A pokemon",
-        }
-      }
-      isOpened={false}
-    />
-    <span
-      className="tc-treeview-item-name theme-tc-treeview-item-name"
-    >
-      grandpa
-    </span>
-    <div
-      className="theme-tc-treeview-item-ctrl"
-    >
-      <Badge
-        label="101"
-      />
-      <Action
-        hideLabel={true}
-        icon="talend-trash"
-        id="my-treeview-talend-trash"
-        label="remove element"
-        link={true}
-        onClick={[Function]}
-        tooltipPlacement="right"
-      />
-    </div>
-  </div>
-</li>
-`;
-
-exports[`TreeView item should render items with icon and tooltip 1`] = `
-<TooltipTrigger
-  label="New version of the Pokemon is available"
-  tooltipPlacement="top"
->
-  <span>
-    <Icon
-      className="theme-tc-treeview-img"
-      name="talend-versioning"
-    />
-  </span>
-</TooltipTrigger>
 `;

@@ -50,6 +50,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
     >
       <span
         className="theme-tc-actionbar-selected-count tc-actionbar-selected-count"
+        data-test="selected-count"
       >
         1 selected
       </span>

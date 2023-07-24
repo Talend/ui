@@ -1,11 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { action } from '@storybook/addon-actions';
 import Input from '.';
 
 export default {
-	title: 'RHF/Input',
+	title: 'Forms/RHF/Input',
 
 	parameters: {
 		component: Input,

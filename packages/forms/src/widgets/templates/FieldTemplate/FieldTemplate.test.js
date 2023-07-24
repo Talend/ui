@@ -1,48 +1,39 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render } from '@testing-library/react';
 import FieldTemplate from './FieldTemplate.component';
 
+jest.unmock('@talend/design-system');
+
 describe('FieldTemplate', () => {
+	const props = {
+		descriptionId: 'test-description',
+		errorId: 'test-error',
+		label: 'Test',
+		description: 'This is the description',
+		error: 'This is the error',
+	};
 	it('should render the common widget markup', () => {
 		// given
-		const props = {
-			descriptionId: 'test-description',
-			errorId: 'test-error',
-			label: 'Test',
-			description: 'This is the description',
-			error: 'This is the error',
-		};
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<FieldTemplate {...props}>
 				<input name="test" />
 			</FieldTemplate>,
 		);
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should hide description when there is an error message', () => {
+	it('should display the error message', () => {
 		// given
-		const props = {
-			descriptionId: 'test-description',
-			errorId: 'test-error',
-			label: 'Test',
-			description: 'This is the description',
-			error: 'This is the error',
-		};
 		// when
-		const wrapper = mount(
+		render(
 			<FieldTemplate {...props}>
 				<input name="test" />
 			</FieldTemplate>,
 		);
 		// then
-		const descBlock = wrapper.find('#test-description').at(0);
-		expect(descBlock.props().description).toEqual('This is the description');
 
-		const errorBlock = wrapper.find('#test-error').at(1);
-		expect(errorBlock.props().description).toEqual('This is the error');
+		expect(screen.getByText('This is the description')).toBeVisible();
+		expect(screen.getByText('This is the error')).toBeVisible();
 	});
 });

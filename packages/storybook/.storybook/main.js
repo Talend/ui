@@ -16,6 +16,10 @@ const STORIES = [
 	`${rootPath}src/content/docs/Capitalization.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Wording.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/design-system/**/*.stories.mdx`,
+	`${rootPath}../components/**/*.stories.@(js|tsx|mdx)`,
+	`${rootPath}../forms/**/*.stories.@(js|tsx|mdx)`,
+	`${rootPath}../dataviz/**/*.stories.@(js|tsx|mdx)`,
+	`${rootPath}../icons/**/*.stories.@(js|tsx|mdx)`,
 ];
 
 module.exports = {
@@ -36,13 +40,20 @@ module.exports = {
 	},
 	webpackFinal: async config => {
 		config.plugins.push(
-			new BrowserSyncPlugin({
-				host: 'localhost',
-				port: 3002,
-				proxy: 'http://localhost:6006/',
-				notify: false,
-				codeSync: false,
-			}),
+			new BrowserSyncPlugin(
+				{
+					host: 'localhost',
+					port: 3002,
+					proxy: 'http://localhost:6006/',
+					notify: false,
+					codeSync: false,
+				},
+				{
+					// prevent BrowserSync from reloading the page
+					// and let Webpack Dev Server take care of this
+					reload: false,
+				},
+			),
 		);
 
 		const existingAlias = config.resolve.alias || {};

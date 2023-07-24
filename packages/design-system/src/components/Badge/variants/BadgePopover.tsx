@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { Fragment, forwardRef, Ref } from 'react';
 
 import Divider from '../../Divider';
 import { StackHorizontal } from '../../Stack';
@@ -20,7 +20,7 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 			{
 				<StackHorizontal gap="XXS" as="span" align="center">
 					{value.map((item: BadgePopoverItem, idx: number) => (
-						<React.Fragment key={`badgepopover-fragment-${item.id}`}>
+						<Fragment key={`badgepopover-fragment-${item.id}`}>
 							{idx > 0 && (
 								<Divider key={`badgepopover-divider-${item.id}`} orientation="vertical" />
 							)}
@@ -33,7 +33,7 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 							>
 								{item.label}
 							</BadgeButton>
-						</React.Fragment>
+						</Fragment>
 					))}
 				</StackHorizontal>
 			}

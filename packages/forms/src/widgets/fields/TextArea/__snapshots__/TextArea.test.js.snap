@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea agnostic widget should render a TextArea 1`] = `
+<div
+  class="form-group"
+>
+  <label
+    class="control-label"
+    for="test"
+  >
+    Test
+  </label>
+  <textarea
+    aria-describedby="test-description test-error"
+    aria-invalid="false"
+    class="form-control myCustomClass"
+    id="test"
+    name="test-name"
+  />
+  <div />
+</div>
+`;

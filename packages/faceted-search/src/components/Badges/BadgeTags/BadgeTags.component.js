@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import isObject from 'lodash/isObject';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
@@ -17,8 +17,7 @@ const getSelectBadgeLabel = (value, t) => {
 		if (checkedCheckboxes.length > 3) {
 			return t('FACETED_SEARCH_VALUES_COUNT', {
 				count: checkedCheckboxes.length,
-				defaultValue: '{{count}} value',
-				defaultValue_plural: '{{count}} values',
+				defaultValue: '{{count}} values',
 			});
 		} else if (!checkedCheckboxes.length) {
 			return labelAll;

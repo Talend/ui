@@ -1,6 +1,7 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import Stepper from './Stepper.component';
+
+jest.unmock('@talend/design-system');
 
 describe('Stepper Component', () => {
 	describe('render', () => {
@@ -15,12 +16,12 @@ describe('Stepper Component', () => {
 			];
 			const renderActions = jest.fn();
 			// when
-			const wrapper = shallow(
+			const { baseElement } = render(
 				<Stepper steps={steps} title={title} renderActions={renderActions} />,
 			);
 			// then
-			expect(renderActions).toHaveBeenCalledWith(false);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(renderActions).not.toHaveBeenCalledWith();
+			expect(baseElement).toMatchSnapshot();
 		});
 
 		it('should render when there is an errors in the steps', () => {
@@ -41,14 +42,14 @@ describe('Stepper Component', () => {
 			];
 			const renderActions = jest.fn();
 			// when
-			const wrapper = shallow(
+			const { baseElement } = render(
 				<Stepper steps={steps} title={title} renderActions={renderActions}>
 					Import successfull
 				</Stepper>,
 			);
 			// then
 			expect(renderActions).toHaveBeenCalledWith(true);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(baseElement).toMatchSnapshot();
 		});
 	});
 });

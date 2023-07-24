@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
@@ -37,7 +36,7 @@ const myAction = {
 };
 
 export default {
-	title: 'Deprecated/SplitDropdown',
+	title: 'Components/Deprecated/SplitDropdown',
 
 	decorators: [
 		story => (

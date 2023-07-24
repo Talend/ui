@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import AboutDialog from '.';
 
@@ -44,7 +43,7 @@ const services = [
 const { name, version } = AboutDialog.Table.getColumnHeaders();
 
 export default {
-	title: 'Layout/Modals/AboutModal',
+	title: 'Components/Layout/Modals/AboutModal',
 
 	decorators: [
 		story => (

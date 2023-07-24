@@ -1,15 +1,13 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@use '~@talend/design-tokens/lib/_tokens.scss';
+@use '~@talend/design-tokens/lib/tokens';
 
 .dataviz-tooltip {
 	padding: tokens.$coral-spacing-m;
 
-	color: tokens.$coral-color-neutral-text-inverted;
+	color: tokens.$coral-color-assistive-text;
 	font: tokens.$coral-paragraph-m;
 
 	background: tokens.$coral-color-assistive-background;
-	border: tokens.$coral-border-s-solid rgba(0, 0, 0, 0.103);
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 	border-radius: tokens.$coral-radius-s;
 
 	&__title {

@@ -1,11 +1,9 @@
-import React from 'react';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
-import { mount } from 'enzyme';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
-import { render } from '@testing-library/react';
 
 describe('BasicSearch', () => {
 	const badgeText = {
@@ -70,32 +68,17 @@ describe('BasicSearch', () => {
 		// Given
 		const props = {
 			badgesDefinitions,
-			onSubmit: jest.fn(),
-		};
-		// When
-		const wrapper = mount(
-			<FacetedManager id="manager-id">
-				<BasicSearch {...props} />
-			</FacetedManager>,
-		);
-		// Then
-		expect(wrapper.html()).toMatchSnapshot();
-	});
-	it('should render the default html output with some badges', () => {
-		// Given
-		const props = {
-			badgesDefinitions,
 			badgesFaceted,
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
 		);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render the default html output with initial badges', () => {
@@ -112,31 +95,16 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
 		);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByLabelText('Name')).toBeInTheDocument();
+		expect(screen.getByText('hello')).toBeInTheDocument();
 	});
 
-	it('should render the default html output with some badges and the quick search input', () => {
-		// Given
-		const props = {
-			badgesDefinitions: badgesDefinitionsWithQuicksearch,
-			badgesFaceted,
-			onSubmit: jest.fn(),
-		};
-		// When
-		const wrapper = mount(
-			<FacetedManager id="manager-id">
-				<BasicSearch {...props} />
-			</FacetedManager>,
-		);
-		// Then
-		expect(wrapper.html()).toMatchSnapshot();
-	});
 	it('should filter facets available in quick search', () => {
 		// Given
 		const props = {
@@ -145,7 +113,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<FacetedManager id="manager-id">
 				<BasicSearch
 					{...props}
@@ -156,20 +124,53 @@ describe('BasicSearch', () => {
 			</FacetedManager>,
 		);
 		// Then
-		wrapper.find('input.tc-typeahead-typeahead-input').simulate('change', {
-			target: {
-				value: 'Name',
-			},
-		});
-		expect(wrapper.find('[role="option"]')).toHaveLength(1);
+		fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Name' } });
 
-		wrapper.find('input.tc-typeahead-typeahead-input').simulate('change', {
-			target: {
-				value: 'NotName',
-			},
-		});
-		expect(wrapper.find('[role="option"]')).toHaveLength(0);
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.getAllByRole('option')).toHaveLength(1);
+
+		fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'NotName' } });
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.queryAllByRole('option')).toHaveLength(0);
 	});
+
+	it('should display quick search faced depending on badge length configuration', () => {
+		// Given
+		const props = {
+			badgesDefinitions: badgesDefinitionsWithQuicksearch.map(
+				badgesDefinitionsWithQuicksearchItem => ({
+					...badgesDefinitionsWithQuicksearchItem,
+					metadata: { ...badgesDefinitionsWithQuicksearchItem.metadata, minLength: 3 },
+				}),
+			),
+			badgesFaceted,
+			onSubmit: jest.fn(),
+		};
+		render(
+			<FacetedManager id="manager-id">
+				<BasicSearch
+					{...props}
+					quickSearchFacetsFilter={(term, facets) =>
+						facets.filter(facet => facet.properties.label === term)
+					}
+				/>
+			</FacetedManager>,
+		);
+		// When searching with less then 3 chars
+		fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Na' } });
+
+		// Then it won't display any facet
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.queryAllByRole('option')).toHaveLength(0);
+
+		// When searching with more then 3 chars
+		fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Name' } });
+
+		// Then it will display name facet
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.getAllByRole('option')).toHaveLength(1);
+	});
+
 	it('should not trigger onSubmit when badge definition has not changed', () => {
 		// given
 		const onSubmit = jest.fn();
@@ -264,17 +265,19 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
 		);
 
 		// Then
-		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_ADD}"]`).length).toBe(0);
-		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`).length).toBe(
-			1,
-		);
+		expect(
+			document.querySelectorAll(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_ADD}"]`).length,
+		).toBe(0);
+		expect(
+			document.querySelectorAll(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`).length,
+		).toBe(1);
 	});
 
 	it('should not show remove all buttons when no badge can be removed', () => {
@@ -285,17 +288,19 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
 		);
 
 		// Then
-		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_ADD}"]`).length).toBe(1);
-		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`).length).toBe(
-			0,
-		);
+		expect(
+			document.querySelectorAll(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_ADD}"]`).length,
+		).toBe(1);
+		expect(
+			document.querySelectorAll(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`).length,
+		).toBe(0);
 	});
 
 	it('should remove all badges on clear button click', () => {
@@ -306,18 +311,17 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
 		);
 
 		// Then
-		expect(wrapper.find('.tc-badge').length).toBe(1);
-		wrapper
-			.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`)
-			.at(0)
-			.simulate('click');
-		expect(wrapper.find('.tc-badge').length).toBe(0);
+		expect(document.querySelectorAll('.tc-badge').length).toBe(1);
+		fireEvent.click(
+			document.querySelector(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`),
+		);
+		expect(document.querySelectorAll('.tc-badge').length).toBe(0);
 	});
 });

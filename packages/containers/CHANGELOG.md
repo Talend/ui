@@ -1,5 +1,87 @@
 # @talend/react-containers
 
+## 9.1.2
+
+### Patch Changes
+
+- b8c4161d2: test: rewrite all tests using RTL:
+
+  - fix(ActionSplitDropdown): omit cmf Props
+  - fix(ActionDropdown): pass required id for a11y
+  - fix: remove old React contextTypes api
+
+- Updated dependencies [fcd8daf3c]
+- Updated dependencies [3099c427a]
+- Updated dependencies [c7f316d7c]
+- Updated dependencies [b8c4161d2]
+- Updated dependencies [3099c427a]
+  - @talend/react-components@10.3.5
+  - @talend/react-forms@9.2.2
+
+## 9.1.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- Updated dependencies [52d4f2df3]
+- Updated dependencies [b326091d2]
+- Updated dependencies [85b04cc81]
+- Updated dependencies [9719af7af]
+  - @talend/react-components@10.3.3
+  - @talend/react-forms@9.2.1
+
+## 9.1.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [0103ec63f]
+- Updated dependencies [ae37dc329]
+  - @talend/react-forms@9.2.0
+  - @talend/react-components@10.3.0
+  - @talend/react-cmf@7.3.0
+
+## 9.0.3
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- Updated dependencies [cf697de02]
+- Updated dependencies [321bd07d7]
+- Updated dependencies [708589ad4]
+  - @talend/react-components@10.2.3
+  - @talend/react-forms@9.1.0
+
+## 9.0.2
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [f47e34dd0]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/react-forms@9.0.4
+  - @talend/react-cmf@7.2.0
+
+## 9.0.1
+
+### Patch Changes
+
+- 8c09dacd8: fix(HeaderBar): TypeError: Assignment to constant variable.
+- Updated dependencies [20f8526e9]
+  - @talend/react-components@10.1.1
+
 ## 9.0.0
 
 ### Major Changes

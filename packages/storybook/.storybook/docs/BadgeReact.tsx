@@ -1,8 +1,9 @@
-import React from 'react';
+import { memo } from 'react';
+import type { FunctionComponent } from 'react';
 
 import Badge from './Badge';
 
-const ReactStatus = (props: React.FunctionComponent) => {
+const ReactStatus = (props: FunctionComponent) => {
 	return (
 		<Badge {...props} icon="react">
 			React
@@ -10,4 +11,4 @@ const ReactStatus = (props: React.FunctionComponent) => {
 	);
 };
 
-export default React.memo(ReactStatus);
+export default memo(ReactStatus);

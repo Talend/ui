@@ -1,9 +1,10 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import type { PropsWithChildren, MouseEvent } from 'react';
 import { Radio, RadioGroup, useRadioState } from 'reakit';
 import classnames from 'classnames';
 import theme from './Switch.module.scss';
 
-export type SwitchProps = React.PropsWithChildren<any> & {
+export type SwitchProps = PropsWithChildren<any> & {
 	label: string;
 	value?: string;
 	defaultValue?: string;
@@ -30,8 +31,8 @@ const Switch = ({
 		unstable_virtual: true,
 	});
 
-	const containerRef = useRef<React.PropsWithChildren<any>>();
-	const switchIndicator = useRef<React.PropsWithChildren<any>>();
+	const containerRef = useRef<PropsWithChildren<any>>();
+	const switchIndicator = useRef<PropsWithChildren<any>>();
 
 	useLayoutEffect(() => {
 		const radioGroup = containerRef?.current;
@@ -68,9 +69,7 @@ const Switch = ({
 					const isChecked = radio.state === v;
 					return (
 						<Radio
-							onChange={(event: React.MouseEvent<HTMLButtonElement>) =>
-								onChange && onChange(event, v)
-							}
+							onChange={(event: MouseEvent<HTMLButtonElement>) => onChange && onChange(event, v)}
 							{...radio}
 							value={v}
 							as="button"

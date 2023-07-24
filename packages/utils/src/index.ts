@@ -1,4 +1,4 @@
-import date from './date';
+import * as date from './date';
 import validation from './validation';
 import { randomUUID } from './uuid';
 

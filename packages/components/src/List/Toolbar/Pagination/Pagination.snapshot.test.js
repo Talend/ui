@@ -1,4 +1,3 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Pagination from './Pagination.component';
@@ -14,9 +13,7 @@ describe('Pagination', () => {
 			onChange: jest.fn(),
 		};
 		// when
-		const wrapper = renderer.create(
-			<Pagination {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Pagination {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -30,9 +27,7 @@ describe('Pagination', () => {
 			onChange: jest.fn(),
 		};
 		// when
-		const wrapper = renderer.create(
-			<Pagination {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Pagination {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -45,9 +40,7 @@ describe('Pagination', () => {
 			onChange: jest.fn(),
 		};
 		// when
-		const wrapper = renderer.create(
-			<Pagination {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Pagination {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -61,9 +54,7 @@ describe('Pagination', () => {
 			onChange: jest.fn(),
 		};
 		// when
-		const wrapper = renderer.create(
-			<Pagination {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Pagination {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -76,9 +67,7 @@ describe('Pagination', () => {
 			onChange: jest.fn(),
 		};
 		// when
-		const wrapper = renderer.create(
-			<Pagination {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Pagination {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -91,9 +80,7 @@ describe('Pagination', () => {
 			onChange: jest.fn(),
 		};
 		// when
-		const wrapper = renderer.create(
-			<Pagination {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Pagination {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -106,9 +93,7 @@ describe('Pagination', () => {
 			onChange: jest.fn(),
 		};
 		// when
-		const wrapper = renderer.create(
-			<Pagination {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Pagination {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -121,9 +106,7 @@ describe('Pagination', () => {
 			onChange: jest.fn(),
 		};
 		// when
-		const wrapper = renderer.create(
-			<Pagination {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Pagination {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});

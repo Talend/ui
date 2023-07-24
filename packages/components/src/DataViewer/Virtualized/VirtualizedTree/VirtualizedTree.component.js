@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import { AutoSizer, CellMeasurerCache, List } from 'react-virtualized';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -10,13 +10,14 @@ const DEFAULT_HEIGHT = 40;
 /**
  * Help to use react-virtualized.
  */
-export default class VirtualizedTree extends React.Component {
+export default class VirtualizedTree extends Component {
 	static propTypes = {
 		cellRenderer: PropTypes.func.isRequired,
 		className: PropTypes.string,
 		onVerticalScroll: PropTypes.func,
 		rowCount: PropTypes.number,
 		cellMeasurerClassName: PropTypes.string,
+		disableHeight: PropTypes.bool,
 	};
 
 	lazyLoadingCallBack = ({ startIndex, stopIndex }) => {
@@ -49,7 +50,7 @@ export default class VirtualizedTree extends React.Component {
 					this.props.className,
 				)}
 			>
-				<AutoSizer>
+				<AutoSizer disableHeight={this.props.disableHeight}>
 					{({ height, width }) => (
 						<List
 							{...this.props}

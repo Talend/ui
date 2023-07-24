@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
 import { getTheme } from '@talend/react-components/lib/theme';
@@ -9,7 +9,18 @@ import cssModule from './BadgeText.module.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t, placeholder, ...rest }) => {
+const BadgeTextForm = ({
+	id,
+	onChange,
+	onSubmit,
+	value,
+	feature,
+	t,
+	placeholder,
+	minLength,
+	maxLength,
+	...rest
+}) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
 	const onChangeText = event => {
@@ -27,6 +38,8 @@ const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t, placeholder,
 					placeholder={placeholder || t('TYPE_HERE', { defaultValue: 'Type here' })}
 					type="text"
 					value={value}
+					minLength={minLength}
+					maxLength={maxLength}
 				/>
 			</Rich.Layout.Body>
 			<Rich.Layout.Footer id={id}>
@@ -50,6 +63,8 @@ BadgeTextForm.propTypes = {
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	placeholder: PropTypes.string,
+	minLength: PropTypes.number,
+	maxLength: PropTypes.number,
 };
 
 // eslint-disable-next-line import/prefer-default-export

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Progress from './Progress.component';
 
 const containerStyle = {
@@ -9,7 +7,7 @@ const containerStyle = {
 };
 
 export default {
-	title: 'Messaging & Communication/ProgressBar',
+	title: 'Components/Messaging & Communication/ProgressBar',
 };
 
 export const Percent = () => (

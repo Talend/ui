@@ -1,4 +1,5 @@
-import React, { PropsWithChildren } from 'react';
+import { forwardRef, createRef, useState, useEffect, memo } from 'react';
+import type { PropsWithChildren, Ref } from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { DeprecatedIconNames } from '../../types';
@@ -32,15 +33,15 @@ const accessibility = {
 };
 
 // eslint-disable-next-line react/display-name
-export const Icon = React.forwardRef(
+export const Icon = forwardRef(
 	(
 		{ className, name = 'talend-empty-space', transform, border, ...rest }: IconProps,
-		ref: React.Ref<SVGSVGElement>,
+		ref: Ref<SVGSVGElement>,
 	) => {
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
-		const safeRef = React.createRef<SVGSVGElement>(ref);
-		const [content, setContent] = React.useState<string>();
+		const safeRef = createRef<SVGSVGElement>(ref);
+		const [content, setContent] = useState<string>();
 
 		const isRemote = name.startsWith('remote-');
 		const isImg = name.startsWith('src-');
@@ -48,7 +49,7 @@ export const Icon = React.forwardRef(
 		const isRemoteSVG =
 			isRemote && content && content.includes('svg') && !content.includes('script');
 
-		React.useEffect(() => {
+		useEffect(() => {
 			if (isRemote) {
 				fetch(imgSrc, {
 					headers: {
@@ -74,7 +75,7 @@ export const Icon = React.forwardRef(
 			}
 		}, [imgSrc, isRemote]);
 
-		React.useEffect(() => {
+		useEffect(() => {
 			const current = safeRef?.current;
 			if (current && isRemoteSVG && content) {
 				// eslint-disable-next-line no-param-reassign
@@ -84,7 +85,7 @@ export const Icon = React.forwardRef(
 			}
 		}, [isRemoteSVG, safeRef, content, name, isRemote]);
 
-		React.useEffect(() => {
+		useEffect(() => {
 			if (border) {
 				const svgContainer = safeRef?.current;
 				if (svgContainer) {
@@ -145,6 +146,6 @@ export const Icon = React.forwardRef(
 	},
 );
 
-export const IconMemo = React.memo(Icon);
+export const IconMemo = memo(Icon);
 
 IconMemo.displayName = 'Icon';

@@ -1,30 +1,25 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import Toolbar from './Toolbar.component';
 
 describe('Toolbar component snaps', () => {
 	it('should render Toolbar with every widgets', () => {
-		const wrapper = shallow(<Toolbar name={{}} sort={{}} state={{}} />);
+		const { container } = render(<Toolbar name={{}} sort={{}} state={{}} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render Toolbar without name widget', () => {
-		const wrapper = shallow(<Toolbar sort={{}} state={{}} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Toolbar sort={{}} state={{}} />);
+		expect(screen.queryByRole('search')).not.toBeInTheDocument();
 	});
 
 	it('should render Toolbar without sort widgets', () => {
-		const wrapper = shallow(<Toolbar name={{}} state={{}} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Toolbar name={{}} state={{}} />);
+		expect(screen.queryByText('Sort:')).not.toBeInTheDocument();
 	});
 
 	it('should render Toolbar without state widgets', () => {
-		const wrapper = shallow(<Toolbar name={{}} sort={{}} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Toolbar name={{}} sort={{}} />);
+		expect(screen.queryByText('Filter:')).not.toBeInTheDocument();
 	});
 });

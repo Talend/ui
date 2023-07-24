@@ -1,7 +1,8 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { Map, List } from 'immutable';
+import { render, screen } from '@testing-library/react';
 
+// eslint-disable-next-line @talend/import-depth
+import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Connected, { mapStateToProps } from './HeaderBar.connect';
 import Constants from './HeaderBar.constant';
@@ -11,12 +12,12 @@ describe('Container HeaderBar', () => {
 	const dispatch = jest.fn();
 	const containerProps = { state, dispatch };
 
-	it('should render HeaderBar container', () => {
-		const wrapper = shallow(<Container {...containerProps} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+	it('should render HeaderBar container', async () => {
+		render(await prepareCMF(<Container {...containerProps} />));
+		expect(screen.getByRole('navigation')).toBeVisible();
 	});
 
-	it('should render HeaderBar container with a list of items', () => {
+	it('should render HeaderBar container with a list of items', async () => {
 		const props = {
 			...containerProps,
 			productsItems: [
@@ -32,11 +33,12 @@ describe('Container HeaderBar', () => {
 			}),
 		};
 
-		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.props().products.items).toHaveLength(1);
+		render(await prepareCMF(<Container {...props} />));
+		expect(screen.getByRole('navigation')).toBeVisible();
+		expect(screen.getByText('Foo')).toBeVisible();
 	});
 
-	it('should merge static products entries with fetched products and sort them by label', () => {
+	it('should merge static products entries with fetched products and sort them by label', async () => {
 		const props = {
 			...containerProps,
 			productsItems: [
@@ -67,15 +69,14 @@ describe('Container HeaderBar', () => {
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
 			}),
 		};
-
-		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.props().products.items).toHaveLength(3);
-		expect(wrapper.props().products.items[0].label).toEqual('Bar');
-		expect(wrapper.props().products.items[1].label).toEqual('Foo');
-		expect(wrapper.props().products.items[2].label).toEqual('Zeta');
+		render(await prepareCMF(<Container {...props} />));
+		expect(screen.getAllByRole('menuitem')).toHaveLength(3);
+		expect(screen.getByText('Bar')).toBeVisible();
+		expect(screen.getByText('Foo')).toBeVisible();
+		expect(screen.getByText('Zeta')).toBeVisible();
 	});
 
-	it('should use the provided prepare method to make a final preparation of the items', () => {
+	it('should use the provided prepare method to make a final preparation of the items', async () => {
 		const props = {
 			...containerProps,
 			productsItems: [
@@ -94,13 +95,12 @@ describe('Container HeaderBar', () => {
 			}),
 		};
 
-		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.props().products.items).toHaveLength(1);
-		expect(wrapper.props().products.items[0].label).toEqual('Foo and bar');
+		render(<Container {...props} />);
+		expect(screen.getByText('Foo and bar')).toBeVisible();
 		expect(props.prepareProducts).toHaveBeenCalled();
 	});
 
-	it('should render HeaderBar container while fetching items', () => {
+	it('should render HeaderBar container while fetching items', async () => {
 		const props = {
 			...containerProps,
 			state: new Map({
@@ -108,8 +108,10 @@ describe('Container HeaderBar', () => {
 			}),
 		};
 
-		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.props().products).toBeUndefined();
+		render(await prepareCMF(<Container {...props} />));
+		expect(screen.getByRole('navigation')).toBeVisible();
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.queryAllByRole('menuitem')).toHaveLength(0);
 	});
 });
 
@@ -134,8 +136,8 @@ describe('Connected HeaderBar', () => {
 		const props = mapStateToProps(state, ownProps);
 
 		expect(props).toEqual({
-			callToAction: null,
-			genericAction: null,
+			callToAction: undefined,
+			genericAction: undefined,
 			productsItems: undefined,
 		});
 	});

@@ -1,5 +1,4 @@
 /* eslint-disable new-cap */
-import React from 'react';
 import renderer from 'react-test-renderer';
 import { Map, OrderedMap } from 'immutable';
 

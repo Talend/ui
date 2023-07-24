@@ -1,5 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import format from 'date-fns/format';
 import { date as dateUtils } from '@talend/utils';
@@ -18,6 +19,16 @@ jest.mock('date-fns/format', () => ({
 	__esModule: true,
 	default: jest.fn(() => '2016-09-22 09:00:00'),
 }));
+
+jest.mock('../../TooltipTrigger', () => props => (
+	<div
+		data-testid="TooltipTrigger"
+		aria-label={props.label}
+		data-placement={props.tooltipPlacement}
+	>
+		{props.children}
+	</div>
+));
 
 jest.mock('@talend/utils', () => {
 	const actualUtils = jest.requireActual('@talend/utils');
@@ -48,7 +59,7 @@ describe('CellDatetime', () => {
 			mode: 'ago',
 		};
 
-		const wrapper = shallow(
+		const { container } = render(
 			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />,
 		);
 		// then
@@ -56,7 +67,12 @@ describe('CellDatetime', () => {
 			addSuffix: true,
 			locale: 'getLocale',
 		});
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByText('about 1 month ago')).toBeVisible();
+		expect(screen.getByTestId('TooltipTrigger')).toHaveAttribute(
+			'aria-label',
+			'2016-09-22 09:00:00',
+		);
 	});
 
 	it('should render CellDatetime with no date', () => {
@@ -65,10 +81,11 @@ describe('CellDatetime', () => {
 			mode: 'ago',
 		};
 
-		const wrapper = shallow(<CellDatetimeComponent columnData={columnData} />);
+		render(<CellDatetimeComponent columnData={columnData} />);
 		// then
-		const cellValue = wrapper.find('.cell-datetime-container').text();
-		expect(cellValue).toEqual('');
+		expect(distanceInWordsToNow).toHaveBeenCalled();
+		expect(format).toHaveBeenCalled();
+		expect(document.querySelector('.cell-datetime-container')).toBeEmptyDOMElement();
 	});
 
 	it('should render CellDatetime with invalid date', () => {
@@ -79,10 +96,11 @@ describe('CellDatetime', () => {
 
 		const cellData = 'not parsable date';
 
-		const wrapper = shallow(<CellDatetimeComponent cellData={cellData} columnData={columnData} />);
+		render(<CellDatetimeComponent cellData={cellData} columnData={columnData} />);
 		// then
-		const cellValue = wrapper.find('.cell-datetime-container').text();
-		expect(cellValue).toEqual(cellData);
+		expect(document.querySelector('.cell-datetime-container')).toHaveTextContent(
+			'not parsable date',
+		);
 	});
 
 	it('should format with "ago"', () => {
@@ -126,12 +144,12 @@ describe('CellDatetime', () => {
 			mode: 'ago',
 		};
 
-		const wrapper = shallow(
-			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />,
+		render(<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />);
+		// then
+		expect(screen.getByTestId('TooltipTrigger')).toHaveAttribute(
+			'aria-label',
+			'2016-09-22 09:00:00',
 		);
-		expect(wrapper.find('TooltipTrigger').length).toBe(1);
-		expect(wrapper.find('TooltipTrigger').getElement().props.label).toBe('2016-09-22 09:00:00');
-		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should format with timezone', () => {

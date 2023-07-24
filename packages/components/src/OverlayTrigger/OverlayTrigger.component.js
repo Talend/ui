@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import { Component, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Popover } from '@talend/react-bootstrap';
 import classNames from 'classnames';
@@ -28,7 +28,7 @@ function getPlacement(initialOverlayElement, triggerElement, currentPlacement) {
 	return getAdaptedPlacement(triggerRect, overlayRect, containerRect, currentPlacement);
 }
 
-export default class OverlayTrigger extends React.Component {
+export default class OverlayTrigger extends Component {
 	constructor(props) {
 		super(props);
 

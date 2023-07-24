@@ -1,7 +1,3 @@
-import React from 'react';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ColorContrastChecker from 'color-contrast-checker';
 import { Tag } from '@talend/design-system';
 

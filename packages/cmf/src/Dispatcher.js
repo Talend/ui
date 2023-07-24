@@ -5,7 +5,7 @@
  */
 import PropTypes from 'prop-types';
 
-import React from 'react';
+import { useContext, Children, cloneElement } from 'react';
 import cmfConnect from './cmfConnect';
 import action from './action';
 import actionCreator from './actionCreator';
@@ -22,7 +22,7 @@ function myfunc(event, props, context) {
 </Dispatcher>
  */
 export function Dispatcher(props) {
-	const registry = React.useContext(RegistryContext);
+	const registry = useContext(RegistryContext);
 	// console.log('@@@ registry', registry);
 
 	/**
@@ -54,14 +54,14 @@ export function Dispatcher(props) {
 
 	checkIfActionInfoExist();
 	const onProps = action.getOnProps(props);
-	const childrenWithProps = React.Children.map(props.children, child => {
+	const childrenWithProps = Children.map(props.children, child => {
 		const newProps = {};
 		onProps.forEach(name => {
 			newProps[name] = event => onEvent(event, name);
 		});
-		return React.cloneElement(child, newProps);
+		return cloneElement(child, newProps);
 	});
-	return React.Children.only(childrenWithProps[0]);
+	return Children.only(childrenWithProps[0]);
 }
 
 Dispatcher.propTypes = {

@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import { BadgeVariantType } from './primitive/BadgePrimitive';
 import BadgeDropdown, { BadgeDropdownProps } from './variants/BadgeDropdown';
 import BadgePopover, { BadgePopoverProps } from './variants/BadgePopover';

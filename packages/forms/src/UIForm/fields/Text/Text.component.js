@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
-import React from 'react';
 import { get, omit } from 'lodash';
 import { Link } from '@talend/design-system';
 import FieldTemplate from '../FieldTemplate';

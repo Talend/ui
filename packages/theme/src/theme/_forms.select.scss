@@ -1,11 +1,12 @@
-// stylelint-disable-next-line selector-no-qualifying-type
+/* stylelint-disable selector-no-qualifying-type */
+@use '~@talend/design-tokens/lib/tokens';
+
 select.form-control {
-	border-color: var(--t-form-border-color);
+	border-color: tokens.$coral-color-neutral-border;
 	overflow: auto;
 	cursor: pointer;
 	border-radius: $input-border-radius;
 
-	// stylelint-disable-next-line selector-no-qualifying-type
 	&[multiple] {
 		padding-top: $padding-small;
 		padding-bottom: $padding-small;
@@ -13,14 +14,13 @@ select.form-control {
 
 	&:hover {
 		&:not(:disabled) {
-			border: 1px solid var(--t-form-border-color--hover);
+			border: 1px solid tokens.$coral-color-neutral-border;
 		}
 	}
 
-	// stylelint-disable-next-line selector-no-qualifying-type
 	&:not([multiple]) {
 		appearance: none;
-		background-color: var(--t-form-background-color);
+		background-color: tokens.$coral-color-neutral-background;
 		background-repeat: no-repeat;
 		background-size: $svg-xs-size;
 		background-position-x: calc(100% - 1rem);
@@ -28,7 +28,7 @@ select.form-control {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z'%3E%3C/path%3E%3C/svg%3E");
 
 		&:disabled {
-			border: 1px solid var(--t-form-border-color--disabled);
+			border: 1px solid tokens.$coral-color-neutral-border;
 			opacity: 0.54;
 			cursor: not-allowed;
 		}

@@ -7,6 +7,12 @@ on:
       - "packages/design-tokens/**"
       - "packages/design-system/**"
 
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: write
+  statuses: write
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -16,16 +22,16 @@ jobs:
         browser: ["chrome", "firefox"]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
-          node-version: 16
+          node-version: 18
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
           cache: "yarn"
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 #v3.3.1
         with:
           path: ~/.cache/Cypress
           key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
@@ -34,29 +40,27 @@ jobs:
         run: |
           yarn --frozen-lock --ignore-scripts
           yarn cypress install
-
-      - name: Build @talend/design-tokens
-        run: |
           yarn workspace @talend/assets-api run build:lib
           yarn workspace @talend/icons run build:lib
           yarn workspace @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing
-        uses: cypress-io/github-action@v3
+        uses: cypress-io/github-action@d69252d52b9a31bad4f418f05ba2bc83687a02eb #v5.8.3
         with:
+          install: false
           browser: ${{ matrix.browser }}
           command: yarn workspace @talend/design-system run test:cy
 
       - name: Cypress screenshots upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce #v3.1.2
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-screenshots
           path: packages/design-system/cypress/screenshots/**/*
 
       - name: Cypress videos upload
-        uses: actions/upload-artifact@v3
-        if: always()
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce #v3.1.2
+        if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos
           path: packages/design-system/cypress/videos/**/*

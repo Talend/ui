@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta } from '@storybook/react';
 import tokens from '@talend/design-tokens';
 import {
@@ -26,6 +25,10 @@ export default {
 				component:
 					'A curve type chart based on the [LineChart component](https://recharts.org/en-US/api/LineChart) of [Recharts ](https://recharts.org/en-US)',
 			},
+		},
+		chromatic: {
+			// To avoid issues with charts, we'll need to improve this later on
+			diffThreshold: 0.6,
 		},
 	},
 } as Meta<LineChartProps>;

@@ -1,23 +1,22 @@
-import React from 'react';
-import { mount } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
 import ListToolbar from './ListToolbar.component';
 
 describe('List Toolbar', () => {
 	it('should display nav with children', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<ListToolbar>
 				<div>Hello</div>
 			</ListToolbar>,
 		);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('toolbar')).toBeVisible();
+		expect(screen.getByText('Hello')).toBeVisible();
 	});
 	it('should display nav with li and separator', () => {
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<ListToolbar>
 				<ListToolbar.Right>
 					<div>Hello</div>
@@ -27,6 +26,6 @@ describe('List Toolbar', () => {
 		);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

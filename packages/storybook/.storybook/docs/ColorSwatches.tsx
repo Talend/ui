@@ -1,4 +1,4 @@
-import React from 'react';
+import type { PropsWithChildren } from 'react';
 import { ColorPalette, ColorItem } from '@storybook/components';
 
 function ColorSwatches({
@@ -7,7 +7,7 @@ function ColorSwatches({
 	title,
 	subtitle,
 	...rest
-}: React.PropsWithChildren<any> & {
+}: PropsWithChildren<any> & {
 	colors: { [key: string]: string };
 	color: string;
 	title: string;

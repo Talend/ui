@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
-import React from 'react';
 import classnames from 'classnames';
 import { extractDataAttributes } from '../../utils/properties';
 
@@ -17,6 +16,7 @@ export default function SimpleCheckBox({
 	index,
 }) {
 	const { autoFocus } = schema;
+	const isDisabled = disabled || schema.disabled;
 
 	function getDataFeature() {
 		const dataFeature = schema['data-feature'];
@@ -31,12 +31,12 @@ export default function SimpleCheckBox({
 	}
 
 	return (
-		<div className={classnames('checkbox', { disabled })}>
+		<div className={classnames('checkbox', { disabled: isDisabled })}>
 			<label data-feature={getDataFeature()}>
 				<input
 					id={`${id}${index !== undefined ? `-${index}` : ''}`}
 					autoFocus={autoFocus}
-					disabled={disabled}
+					disabled={isDisabled}
 					onChange={event => {
 						const isChecked = event.target.checked;
 						onChange(event, { schema, value: isChecked });

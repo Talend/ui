@@ -1,12 +1,10 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import CellBadge from './CellBadge.component';
 
 describe('CellBadge', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<CellBadge
 				cellData="streaming"
 				rowIndex={25}
@@ -17,6 +15,7 @@ describe('CellBadge', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByText('streaming')).toBeVisible();
 	});
 });

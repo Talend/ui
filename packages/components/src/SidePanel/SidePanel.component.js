@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useLayoutEffect, useEffect } from 'react';
+import { createRef, useState, useLayoutEffect, useEffect } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
@@ -64,7 +64,7 @@ function SidePanel({
 	const docked = onToggleDock ? dockedProp : dockState;
 	const [width, setWidth] = useState(() => getInitialWidth(docked, large));
 	const [animation, setAnimation] = useState(false);
-	const ref = React.createRef();
+	const ref = createRef();
 
 	useLayoutEffect(() => {
 		if (docked || minimised) {
@@ -110,7 +110,14 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav id={id} className={navCSS} role="navigation" ref={ref} style={{ width }}>
+		<nav
+			id={id}
+			className={navCSS}
+			role="navigation"
+			ref={ref}
+			style={{ width }}
+			data-theme="light"
+		>
 			{backgroundIcon && (
 				<style>
 					{`#${id}::before {
@@ -155,6 +162,7 @@ function SidePanel({
 						onSelect={onSelect}
 						selected={selected}
 						actions={actions}
+						reverse={!reverse}
 						id={id}
 						isNav
 					/>

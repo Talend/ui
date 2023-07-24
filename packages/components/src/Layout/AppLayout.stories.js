@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Drawer from '../Drawer';
@@ -81,7 +80,7 @@ const tabs = {
 };
 
 export default {
-	title: 'Layout/AppLayout',
+	title: 'Components/Layout/AppLayout',
 };
 
 export const OneColumn = () => <Layout mode="OneColumn" children={content} />;

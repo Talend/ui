@@ -1,4 +1,3 @@
-import React from 'react';
 import { makeDecorator } from '@storybook/addons';
 import CMFStory from './CMFStory';
 import CMFDecorator from './CMFDecorator';

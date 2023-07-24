@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ActionSplitDropdown from '.';
 
 export default {

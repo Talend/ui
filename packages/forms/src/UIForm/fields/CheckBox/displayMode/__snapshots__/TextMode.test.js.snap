@@ -1,31 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckBox field in text mode should render checked value 1`] = `
-<FieldTemplate
-  className="theme-checkbox"
-  id="myForm"
-  label="My checkbox title"
+<div
+  class="form-group theme-checkbox"
 >
-  <Icon
-    aria-hidden={false}
-    aria-label={true}
-    className="theme-icon"
-    name="talend-check"
-  />
-</FieldTemplate>
-`;
-
-exports[`CheckBox field in text mode should render unchecked value 1`] = `
-<FieldTemplate
-  className="theme-checkbox"
-  id="myForm"
-  label="My checkbox title"
->
-  <Icon
-    aria-hidden={false}
-    aria-label={false}
-    className="theme-icon theme-cross"
-    name="talend-cross"
-  />
-</FieldTemplate>
+  <dt>
+    <label
+      class="control-label"
+      for="myForm"
+    >
+      My checkbox title
+    </label>
+  </dt>
+  <dd
+    id="myForm"
+  >
+    <svg
+      aria-hidden="true"
+      aria-label="true"
+      class="tc-svg-icon tc-icon theme-svg theme-icon tc-icon-name-talend-check"
+      focusable="false"
+      name="talend-check"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </dd>
+</div>
 `;

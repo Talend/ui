@@ -1,5 +1,4 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import getDefaultT from '../../../../../translate';
 import Component from './ColumnChooserFooter.component';
 import { ColumnChooserProvider } from '../columnChooser.context';
@@ -9,7 +8,7 @@ describe('ColumnChooserFooter', () => {
 		// given
 		const id = 'footer-context-id';
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<ColumnChooserProvider
 				value={{
 					id,
@@ -20,18 +19,18 @@ describe('ColumnChooserFooter', () => {
 			</ColumnChooserProvider>,
 		);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render the children', () => {
 		// given
-		const Children = () => <div id="my-child">Hello world</div>;
+		const Children = () => <div data-testid="my-child">Hello world</div>;
 		// when
-		const wrapper = mount(
+		render(
 			<Component>
 				<Children />
 			</Component>,
 		);
 		// then
-		expect(wrapper.find('div#my-child').text()).toBe('Hello world');
+		expect(screen.getByTestId('my-child')).toBeVisible();
 	});
 });

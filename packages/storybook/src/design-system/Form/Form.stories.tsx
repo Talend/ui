@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { ButtonPrimary, ButtonSecondary, Divider, Form, InlineMessageDestructive, InlineMessageInformation, Skeleton, StackHorizontal, StackVertical } from '@talend/design-system';
+import {
+	ButtonPrimary,
+	ButtonSecondary,
+	Divider,
+	Form,
+	InlineMessageDestructive,
+	InlineMessageInformation,
+	Skeleton,
+	StackHorizontal,
+	StackVertical,
+} from '@talend/design-system';
 
 import CountryCodes from './docs/data/CountryCodes.json';
 

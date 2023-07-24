@@ -1,4 +1,5 @@
-import React from 'react';
+import { Component } from 'react';
+import type { MouseEventHandler, ReactChildren } from 'react';
 import { select } from 'd3';
 
 import { Port, Position } from '../../api';
@@ -6,11 +7,11 @@ import { PortRecord } from '../../customTypings/index.d';
 
 type Props = {
 	port?: PortRecord;
-	onClick?: React.MouseEventHandler;
-	children?: React.ReactChildren;
+	onClick?: MouseEventHandler;
+	children?: ReactChildren;
 };
 
-class AbstractPort extends React.Component<Props> {
+class AbstractPort extends Component<Props> {
 	d3Node: any;
 
 	node: any;
@@ -43,9 +44,9 @@ class AbstractPort extends React.Component<Props> {
 					ref={c => {
 						this.node = c;
 					}}
-					transform={`translate(${Position.getXCoordinate(
+					transform={`translate(${Position.getXCoordinate(position)},${Position.getYCoordinate(
 						position,
-					)},${Position.getYCoordinate(position)})`}
+					)})`}
 				>
 					{this.props.children}
 				</g>

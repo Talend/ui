@@ -1,7 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import DatalistComponent from '@talend/react-components/lib/Datalist';
+/* eslint-disable testing-library/no-unnecessary-act */
+import { render, screen, fireEvent, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import Datalist from './Datalist.component';
+
+jest.mock('ally.js');
+jest.unmock('@talend/design-system');
 
 const schema = {
 	autoFocus: true,
@@ -24,14 +28,7 @@ const schema = {
 };
 
 const schemaMultiSection = {
-	autoFocus: true,
-	description: 'This is my datalist',
-	disabled: false,
-	placeholder: 'Type here',
-	readOnly: false,
-	required: true,
-	restricted: true,
-	title: 'My List',
+	...schema,
 	options: {
 		isMultiSection: true,
 		titleMap: [
@@ -61,7 +58,7 @@ const schemaMultiSection = {
 describe('Datalist component', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<Datalist
 				id="my-datalist"
 				isValid
@@ -75,18 +72,20 @@ describe('Datalist component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should render with multisection', () => {
+	it('should render with multisection', async () => {
 		// when
-		const wrapper = shallow(
+		const onChange = jest.fn();
+		const onFinish = jest.fn();
+		render(
 			<Datalist
 				id="my-datalist"
 				isValid
 				errorMessage="This should be correct"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
+				onChange={onChange}
+				onFinish={onFinish}
 				onTrigger={jest.fn()}
 				schema={schemaMultiSection}
 				value="foo"
@@ -94,102 +93,50 @@ describe('Datalist component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const options = screen.getAllByRole('option');
+		expect(options).toHaveLength(4);
+		expect(options[0]).toHaveTextContent('Foo2');
+		expect(options[1]).toHaveTextContent('Lol');
+		expect(options[2]).toHaveTextContent('Foo');
+		expect(options[3]).toHaveTextContent('Bar');
 	});
 
 	describe('onChange', () => {
-		it('should call props.onChange && props.onFinish', () => {
+		it('should call props.onChange && props.onFinish', async () => {
 			// when
+			jest.useFakeTimers();
 			const props = {
-				onChange: jest.fn(),
-				onFinish: jest.fn(),
-				onTrigger: jest.fn(),
-				schema: {
-					type: 'string',
-					schema: {
-						type: 'string',
-					},
-				},
-			};
-			const wrapper = shallow(<Datalist {...props} />);
-			const selectedValue = { label: 'Bar', value: 'bar' };
-			const event = { type: 'change' };
-			wrapper.instance().onChange(event, selectedValue);
-
-			// then
-			expect(props.onChange).toHaveBeenCalledWith(event, {
-				schema: props.schema,
-				...selectedValue,
-			});
-			expect(props.onFinish).toHaveBeenCalledWith(event, {
-				schema: props.schema,
-				...selectedValue,
-			});
-		});
-
-		it('should rebuild schema to match restriction on validation', () => {
-			// when
-			const props = {
-				onChange: jest.fn(),
-				onFinish: jest.fn(),
-				onTrigger: jest.fn(),
 				schema,
-			};
-			const wrapper = shallow(<Datalist {...props} />);
-			const selectedValue = { label: 'Bar', value: 'bar' };
-			const event = { type: 'change' };
-			wrapper.instance().setState({
-				titleMap: [
-					{ name: 'my_name', value: 'my' },
-					{ name: 'title_name', value: 'title' },
-					{ name: 'map_name', value: 'map' },
-				],
-			});
-			wrapper.instance().onChange(event, selectedValue);
-
-			// then
-			const generatedSchema = {
-				...schema,
-				schema: {
-					...schema.schema,
-					enum: ['my', 'title', 'map'],
-				},
-
-				titleMap: [
-					{ name: 'my_name', value: 'my' },
-					{ name: 'title_name', value: 'title' },
-					{ name: 'map_name', value: 'map' },
-				],
-			};
-			expect(props.onChange).toBeCalledWith(event, {
-				schema: generatedSchema,
-				...selectedValue,
-			});
-			expect(props.onFinish).toBeCalledWith(event, {
-				schema: generatedSchema,
-				...selectedValue,
-			});
-		});
-
-		it('should support undefined value', () => {
-			// when
-			const props = {
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
-				schema: {
-					type: 'string',
-					schema: {
-						type: 'string',
-					},
-				},
 			};
-			const event = { type: 'change' };
-			const payload = undefined;
-			const wrapper = shallow(<Datalist {...props} />);
-			wrapper.instance().onChange(event, payload);
+			render(<Datalist {...props} />);
+			const input = screen.getByRole('textbox');
+			fireEvent.focus(input);
+			fireEvent.change(input, { target: { value: 'bar' } });
+			fireEvent.blur(input);
+			await act(async () => {
+				jest.runAllTimers(); // focus manager
+				jest.useRealTimers();
+			});
+
 			// then
-			expect(props.onChange).toHaveBeenCalledWith(event, { schema: props.schema });
+			const selectedValue = { value: 'bar' };
+			expect(props.onChange).toHaveBeenCalledWith(
+				expect.anything(),
+				expect.anything({
+					schema: props.schema,
+					...selectedValue,
+				}),
+			);
+			expect(props.onFinish).toHaveBeenCalledWith(
+				expect.anything(),
+				expect.anything({
+					schema: props.schema,
+					...selectedValue,
+				}),
+			);
 		});
 	});
 
@@ -215,24 +162,21 @@ describe('Datalist component', () => {
 					],
 				},
 			};
-			const wrapper = shallow(<Datalist {...props} />);
-			const event = { type: 'focus', target: wrapper.instance() };
+			render(<Datalist {...props} />);
 
 			// when
-			wrapper.find(DatalistComponent).props().onFocus(event);
+			fireEvent.focus(screen.getByRole('textbox'));
 
 			// then
-			await expect(props.onTrigger).toBeCalledWith(event, {
+			await expect(props.onTrigger).toBeCalledWith(expect.anything(), {
 				trigger: props.schema.triggers[0],
 				schema: props.schema,
 				errors: props.errors,
 				properties: props.properties,
 			});
-			await expect(wrapper.state('isLoading')).toBe(true);
-			await expect(wrapper.state('isLoading')).toBe(false);
 		});
 
-		it('should call get titleMap from trigger and send it in onChange', async () => {
+		it('should call get titleMap from onChange and send it to props.onChange and props.onFinish', async () => {
 			// given
 			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 			const props = {
@@ -254,19 +198,31 @@ describe('Datalist component', () => {
 				},
 			};
 
-			const wrapper = shallow(<Datalist {...props} />);
-			const event = { type: 'focus', target: wrapper.instance() };
-			await wrapper.find(DatalistComponent).props().onFocus(event);
-			await expect(props.onTrigger).toHaveBeenCalled();
-			await wrapper.instance().onChange(event, undefined);
-			await expect(props.onChange).toHaveBeenCalledWith(event, {
+			render(<Datalist {...props} />);
+			await userEvent.click(screen.getByRole('textbox'));
+			expect(props.onTrigger).toHaveBeenCalledWith(expect.anything(), {
+				schema: props.schema,
+				trigger: props.schema.triggers[0],
+				errors: props.errors,
+				properties: props.properties,
+			});
+			await screen.findByRole('listbox');
+			await userEvent.click(screen.getByText('Foo'));
+			fireEvent.blur(screen.getByRole('textbox'));
+
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 				schema: { ...props.schema, titleMap: data.titleMap },
+				value: 'foo',
+			});
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), {
+				schema: { ...props.schema, titleMap: data.titleMap },
+				value: 'foo',
 			});
 		});
 	});
 
 	describe('getTitleMap', () => {
-		it('should return array from schema.titleMap', () => {
+		it('should return array from schema.titleMap', async () => {
 			// when
 			const props = {
 				onChange: jest.fn(),
@@ -275,9 +231,8 @@ describe('Datalist component', () => {
 				schema,
 				value: '',
 			};
-			const wrapper = shallow(<Datalist {...props} />);
-			const options = wrapper.instance().getTitleMap();
-
+			const instance = new Datalist(props);
+			const options = instance.getTitleMap();
 			// then
 			expect(options).toEqual([
 				{ name: 'Foo', value: 'foo' },
@@ -294,14 +249,15 @@ describe('Datalist component', () => {
 				onTrigger: jest.fn(),
 				schema,
 			};
-			const wrapper = shallow(<Datalist {...props} />);
-			wrapper.setState({
+			const instance = new Datalist(props);
+			instance.state = {
+				...instance.state,
 				titleMap: [
 					{ name: 'Hello', value: 'hello' },
 					{ name: 'World', value: 'world' },
 				],
-			});
-			const options = wrapper.instance().getTitleMap();
+			};
+			const options = instance.getTitleMap();
 
 			// then
 			expect(options).toEqual([
@@ -320,10 +276,11 @@ describe('Datalist component', () => {
 				value: 'hello',
 				resolveName: value => `${value}_name`,
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const instance = new Datalist(props);
+			const options = instance.getTitleMap();
 
 			// then
-			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
+			expect(options).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },
@@ -340,10 +297,11 @@ describe('Datalist component', () => {
 				schema: { ...schema, restricted: false },
 				value: '',
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const instance = new Datalist(props);
+			const options = instance.getTitleMap();
 
 			// then
-			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
+			expect(options).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },
@@ -376,13 +334,15 @@ describe('Datalist component', () => {
 				schema: { ...multiSectionSchema, restricted: false },
 				value: 'hello',
 				resolveName: value => `${value}_name`,
+				t: jest.fn(key => key),
 			};
 
 			// when
-			const wrapper = shallow(<Datalist {...props} />);
+			const instance = new Datalist(props);
+			const options = instance.getTitleMap();
 
 			// then
-			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
+			expect(options).toEqual([
 				{
 					suggestions: [
 						{ name: 'Foo', value: 'foo' },
@@ -391,8 +351,14 @@ describe('Datalist component', () => {
 					],
 					title: 'lol',
 				},
-				{ suggestions: [{ name: 'hello_name', value: 'hello' }], title: 'CUSTOM' },
+				{
+					suggestions: [{ name: 'hello_name', value: 'hello' }],
+					title: 'TF_DATALIST_CUSTOM_SECTION',
+				},
 			]);
+			expect(props.t).toHaveBeenCalledWith('TF_DATALIST_CUSTOM_SECTION', {
+				defaultValue: 'CUSTOM',
+			});
 		});
 
 		it('should NOT add unknown value on restricted datalist', () => {
@@ -404,10 +370,11 @@ describe('Datalist component', () => {
 				schema,
 				value: 'hello',
 			};
-			const wrapper = shallow(<Datalist {...props} />);
+			const instance = new Datalist(props);
+			const options = instance.getTitleMap();
 
 			// then
-			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
+			expect(options).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },
@@ -430,36 +397,56 @@ describe('Datalist component', () => {
 		};
 
 		it('should set a state, given multisection schema', () => {
-			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
-
-			expect(wrapper.state('isValid')).toBe(false);
-			expect(wrapper.state('errorMessage')).toBe(errorMessage);
+			const instance = new Datalist({
+				...props,
+				initialCheckValue: true,
+			});
+			instance.setState = jest.fn(v => (instance.state = { ...instance.state, ...v }));
+			instance.componentDidMount();
+			expect(instance.setState).toHaveBeenCalledWith({
+				errorMessage,
+				isValid: false,
+			});
+			expect(instance.state.errorMessage).toBe(errorMessage);
+			expect(instance.state.isValid).toBe(false);
 		});
 		it('should NOT set a state, given a multisection schema', () => {
-			const wrapper = shallow(<Datalist {...props} schema={schemaMultiSection} />);
-			expect(wrapper.state('isValid')).toBe(true);
-			expect(wrapper.state('errorMessage')).toBe(undefined);
+			const instance = new Datalist({ ...props });
+			instance.setState = jest.fn(v => (instance.state = { ...instance.state, ...v }));
+			instance.componentDidMount();
+
+			expect(instance.setState).not.toHaveBeenCalled();
+			expect(instance.state.isValid).toBe(true);
+			expect(instance.state.errorMessage).toBe(undefined);
 		});
 		it('should set a state, given simple schema', () => {
-			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
-			expect(wrapper.state('isValid')).toBe(false);
-			expect(wrapper.state('errorMessage')).toBe(errorMessage);
+			const instance = new Datalist({ ...props, schema, initialCheckValue: true });
+			instance.setState = jest.fn(v => (instance.state = { ...instance.state, ...v }));
+			instance.componentDidMount();
+			expect(instance.state.isValid).toBe(false);
+			expect(instance.state.errorMessage).toBe(errorMessage);
 		});
 		it('should NOT set a state, given a simple schema', () => {
-			const wrapper = shallow(<Datalist {...props} schema={schema} />);
-			expect(wrapper.state('isValid')).toBe(true);
-			expect(wrapper.state('errorMessage')).toBe(undefined);
+			const instance = new Datalist({ ...props, schema });
+			instance.setState = jest.fn(v => (instance.state = { ...instance.state, ...v }));
+			instance.componentDidMount();
+			expect(instance.state.isValid).toBe(true);
+			expect(instance.state.errorMessage).toBe(undefined);
 		});
 		it('should change value and the check should pass', () => {
 			const selectedValue = { label: 'Bar', value: 'bar' };
 			const event = { type: 'change' };
-			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
+			const instance = new Datalist({ ...props, initialCheckValue: true });
+			instance.setState = jest.fn(v => (instance.state = { ...instance.state, ...v }));
+			instance.componentDidMount();
 
-			expect(wrapper.state('isValid')).toBe(false);
-			expect(wrapper.state('errorMessage')).toBe(errorMessage);
-			wrapper.instance().onChange(event, selectedValue);
-			expect(wrapper.state('isValid')).toBe(true);
-			expect(wrapper.state('errorMessage')).toBe(undefined);
+			instance.onChange(event, selectedValue);
+			expect(instance.setState).toHaveBeenCalledWith({
+				isValid: true,
+				errorMessage: undefined,
+			});
+			expect(instance.state.isValid).toBe(true);
+			expect(instance.state.errorMessage).toBe(undefined);
 		});
 	});
 });

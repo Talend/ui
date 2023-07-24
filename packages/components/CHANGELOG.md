@@ -1,5 +1,199 @@
 # @talend/react-components
 
+## 10.3.5
+
+### Patch Changes
+
+- fcd8daf3c: fix: VirtualizedList.CellLabel support empty CellData
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- b8c4161d2: - fix: add missing proptypes on Inject
+  - fix(dropdown): propagate missing id for a11y
+  - chore: treeview remove unknow props key
+- 3099c427a: fix: remove wrong propTypes from Checkbox component
+
+  fix: remove active props to Button which was responsible for the following error:
+
+  ```
+  Warning: Received `true` for a non-boolean attribute `active`.
+
+      If you want to write it to the DOM, pass a string instead: active="true" or active={value.toString()}.
+  ```
+
+  fix: Columns fieldset propTypes
+  fix: Fieldset propTypes
+  fix: omit isDisabledChecker from input in Date/Time pickers
+
+## 10.3.4
+
+### Patch Changes
+
+- b99957a47: test: rewrite all tests using react-testing-library
+- 0ccc2592e: test: rewrite using react testing-library the following components:
+
+  - TabBar
+  - Tag
+  - Toggle
+  - TooltipTrigger
+  - TreeView
+  - Typeahead
+  - withDrawer
+
+  Rewrite theme utility in Typescript
+
+## 10.3.3
+
+### Patch Changes
+
+- 52d4f2df3: test: rewrite tests using testing-library of the following components:
+
+  - ResourceList
+  - ResourcePicker
+  - Rich
+  - SidePanel
+  - Skeleton
+  - Slider
+  - SubHeaderBar
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- 85b04cc81: test(List): rewrite using RTL
+- 9719af7af: test: rewrite test using RTL of the following components:
+
+  - ObjectViewer
+  - OverlayTrigger
+  - PieChart
+  - RadarChart
+  - RatioBar
+
+- Updated dependencies [fca736c31]
+- Updated dependencies [fca736c31]
+  - @talend/icons@6.58.1
+
+## 10.3.2
+
+### Patch Changes
+
+- b96328ad4: - chore: rewrite Skeleton & GridLayout in TS
+  - test rewrite tests from enzyme to RTL of FocusManager, GridLayout
+- d44f9deb3: fix(ResourceList): fix some sizing issue
+- 2fa0bd46c: test: rewrite tests using RTL of:
+
+  - JSONSchemaRenderer
+  - Layout
+  - Loader
+
+  chore(Link): rename index.js into index.ts
+
+  chore(Layout): migrate to TS part of internals
+
+- 56948ce94: - rewrite tests using RTL of Dialog, Drawer, EditableText, Enumeration
+  - refactor the EditableText component
+  - refactor Enumeration
+- c94aceb65: - fix: Remove wrong proptypes from Action (overlay).
+  Make a lots of noise for nothing the overlay is not required on Action.
+
+  - chore: refactor HeaderBar. move into private primitives each internal components
+  - tests: rewrite tests of Inject and HTTPError
+  - chore: rewrite Inject using Typescript
+  - chore: rename index files of Icons and IconsProvider to index.ts
+
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+  - @talend/icons@6.58.0
+
+## 10.3.1
+
+### Patch Changes
+
+- 37f6f9f14: chore: rewrite tests of DateTimePickers
+
+## 10.3.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [ae37dc329]
+  - @talend/react-a11y@1.1.0
+
+## 10.2.4
+
+### Patch Changes
+
+- 96194d436: rewrite test using RTL and add some data-testid
+
+## 10.2.3
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- 708589ad4: chore: Move Gesture into a dedicated package written in typescript
+- Updated dependencies [cf697de02]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+  - @talend/icons@6.57.0
+
+## 10.2.2
+
+### Patch Changes
+
+- e7d785a6a: fix: rewrite wrap fn using typescript
+- 7a097213f: chore: add some data-test to rewrite test using RTL
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 7a097213f: test: add data-test to circular-progress
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [b0193afbd]
+- Updated dependencies [616601fda]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+  - @talend/icons@6.55.0
+
+## 10.2.1
+
+### Patch Changes
+
+- 6d2d52b79: fix(stepper): bring back a css selector and setup a width
+
+## 10.2.0
+
+### Minor Changes
+
+- 3604ba4f6: feat(components): add disabled mode for the quality bar
+- 691e07a11: feat(components): use ErrorState in the Stepper
+- 3604ba4f6: feat(components): change the color for the non applicables elements in the quality bar
+
+## 10.1.1
+
+### Patch Changes
+
+- 20f8526e9: test: rewrite using RTL
+
 ## 10.1.0
 
 ### Minor Changes

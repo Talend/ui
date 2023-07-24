@@ -1,21 +1,19 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import toJSON from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import TwoColumns from './TwoColumns.component';
 
 describe('TwoColumns', () => {
-	it('should render two columns', () => {
+	it('should render', () => {
 		// given
 		const one = <div>Hello world</div>;
 
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<TwoColumns one={one} style={{ display: 'flex' }}>
 				<span>children</span>
 			</TwoColumns>,
 		);
 
 		// then
-		expect(toJSON(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

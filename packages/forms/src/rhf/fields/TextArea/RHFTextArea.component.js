@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import get from 'lodash/get';

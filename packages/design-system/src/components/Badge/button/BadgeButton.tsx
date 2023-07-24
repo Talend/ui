@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 
 import classnames from 'classnames';
 import styles from './BadgeButton.module.scss';

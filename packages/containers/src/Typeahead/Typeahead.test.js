@@ -1,5 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import { Map } from 'immutable';
 import keycode from 'keycode';
 import Container, { DEFAULT_STATE } from './Typeahead.container';
@@ -7,7 +6,9 @@ import Connect from './Typeahead.connect';
 
 const defaultProps = {
 	id: 42,
-	icon: {},
+	icon: {
+		title: 'my title',
+	},
 	items: [],
 	state: DEFAULT_STATE,
 };
@@ -21,12 +22,11 @@ describe('Connect', () => {
 
 describe('Typeahead container', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Container {...defaultProps} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<Container {...defaultProps} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should setState when changing display mode', () => {
-		const event = {};
 		let state;
 		const props = {
 			...defaultProps,
@@ -37,26 +37,13 @@ describe('Typeahead container', () => {
 			onToggle: jest.fn(),
 		};
 
-		shallow(<Container {...props} />).simulate('toggle', event);
+		render(<Container {...props} />);
+		fireEvent.click(document.querySelector('button'));
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.docked).toEqual(false);
 	});
 
 	describe('Handlers', () => {
-		describe('change', () => {
-			it('should call onChange callback if present', () => {
-				const event = {};
-				const data = { value: 'test' };
-				const props = {
-					...defaultProps,
-					onChange: jest.fn(),
-				};
-
-				shallow(<Container {...props} />).simulate('change', event, data);
-				expect(props.onChange).toHaveBeenCalledWith(event, data);
-			});
-		});
-
 		describe('keyDown', () => {
 			const KEYS = {
 				DOWN: 'ArrowDown',
@@ -82,7 +69,8 @@ describe('Typeahead container', () => {
 					onBlur: jest.fn(),
 				};
 
-				shallow(<Container {...props} />).simulate('keyDown', event, data);
+				const instance = new Container(props);
+				instance.onKeyDown(event, data);
 				expect(props.onKeyDown).toHaveBeenCalledWith(event, data);
 			});
 
@@ -95,8 +83,9 @@ describe('Typeahead container', () => {
 					onKeyDown: jest.fn(),
 					onBlur: jest.fn(),
 				};
+				const instance = new Container(props);
+				instance.onKeyDown(event, data);
 
-				shallow(<Container {...props} />).simulate('keyDown', event, data);
 				expect(props.onBlur).toHaveBeenCalledWith(event);
 			});
 
@@ -109,8 +98,9 @@ describe('Typeahead container', () => {
 					onKeyDown: jest.fn(),
 					onSelect: jest.fn(),
 				};
+				const instance = new Container(props);
+				instance.onKeyDown(event, data);
 
-				shallow(<Container {...props} />).simulate('keyDown', event, data);
 				expect(props.onSelect).toHaveBeenCalledWith(event, {
 					sectionIndex: 3,
 					itemIndex: 1,

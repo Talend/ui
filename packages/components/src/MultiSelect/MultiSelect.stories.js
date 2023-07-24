@@ -1,8 +1,8 @@
-import React from 'react';
+import { Component } from 'react';
 
 import MultiSelect from './MultiSelect.container';
 
-class Photos extends React.Component {
+class Photos extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -70,7 +70,7 @@ class Photos extends React.Component {
 }
 
 export default {
-	title: 'Deprecated/MultiSelect',
+	title: 'Components/Deprecated/MultiSelect',
 };
 
 export const Default = () => <Photos />;

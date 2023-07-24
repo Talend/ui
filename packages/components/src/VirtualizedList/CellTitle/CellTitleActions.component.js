@@ -1,5 +1,5 @@
+/* eslint-disable react/display-name */
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import get from 'lodash/get';
@@ -167,6 +167,7 @@ export function CellTitleActionsComponent({
 	actions.push(getPersistentActions(persistentActions, getComponent));
 
 	return (
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<div
 			id={id}
 			className={classNames('main-title-actions-group', theme['main-title-actions-group'])}

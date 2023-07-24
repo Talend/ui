@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story } from '@storybook/react';
 import { WithSelector } from '~docs';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';

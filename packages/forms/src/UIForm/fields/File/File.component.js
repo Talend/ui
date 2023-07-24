@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component, Fragment } from 'react';
 import { withTranslation } from 'react-i18next';
 import noop from 'lodash/noop';
 import Skeleton from '@talend/react-components/lib/Skeleton';
@@ -79,7 +79,7 @@ function getBase64(value, fileName) {
 	return value;
 }
 
-class FileWidget extends React.Component {
+class FileWidget extends Component {
 	static getDerivedStateFromProps(nextProps, prevState) {
 		const { schema, value } = nextProps;
 		const fileName = getFileName(value, schema);
@@ -176,13 +176,13 @@ class FileWidget extends React.Component {
 				<div className={theme.file}>
 					{this.state.loading && (
 						<Skeleton
-							className={theme['file-skeleton']}
+							data-testid="file-skeleton"
 							type={Skeleton.TYPES.text}
 							size={Skeleton.SIZES.xlarge}
 						/>
 					)}
 					{!this.state.loading && (
-						<React.Fragment>
+						<Fragment>
 							<input
 								id={`input-${id}`}
 								accept={accept}
@@ -210,7 +210,7 @@ class FileWidget extends React.Component {
 								autoComplete="off"
 								{...extractDataAttributes(schema)}
 							/>
-						</React.Fragment>
+						</Fragment>
 					)}
 				</div>
 			</FieldTemplate>

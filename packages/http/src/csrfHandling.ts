@@ -3,7 +3,6 @@
  * This module target to extract csrf token from a cookie,
  * and then merge it if available into a http config.
  */
-
 import { TalendRequestInit, TalendRequestInitSecurity } from './http.types';
 
 /**
@@ -57,10 +56,7 @@ function parseCookie(cookie: string): Map<string, string> {
  */
 function findCSRFToken({ CSRFTokenCookieKey = 'csrfToken' }: TalendRequestInitSecurity) {
 	return (cookieValues: Map<string, string>): string | undefined => {
-		if (cookieValues instanceof Map) {
-			return cookieValues.get(CSRFTokenCookieKey);
-		}
-		return undefined;
+		return cookieValues.get(CSRFTokenCookieKey);
 	};
 }
 

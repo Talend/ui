@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';
@@ -112,6 +112,9 @@ const BadgeSliderForm = ({
 								title={t('FACETED_SEARCH_EDIT_DIRECTLY', {
 									defaultValue: 'Edit directly',
 								})}
+								aria-label={t('FACETED_SEARCH_EDIT_DIRECTLY', {
+									defaultValue: 'Edit directly',
+								})}
 							>
 								{value}
 								{unit}
@@ -153,7 +156,7 @@ BadgeSliderForm.propTypes = {
 	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
-	value: PropTypes.string,
+	value: PropTypes.number,
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	unit: PropTypes.string,

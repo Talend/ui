@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import {
 	LineChart as RLineChart,
 	Line,
@@ -15,6 +15,7 @@ import { LineChartEntry, LineChartOptions, LineOptions, LineStatus } from './Lin
 
 import { CustomTooltip } from './LineChartTooltip.component';
 import { CustomLegend } from './LineChartLegend.component';
+import style from './LineChart.module.scss';
 
 export interface LineChartProps {
 	data: LineChartEntry[];
@@ -51,8 +52,8 @@ function LineChart({
 		tooltip,
 	} = chartOptions;
 
-	const [activeLine, setActiveLine] = React.useState<string | null>(null);
-	const [selectedLines, setSelectedLines] = React.useState<string[]>(initialSelectedLines);
+	const [activeLine, setActiveLine] = useState<string | null>(null);
+	const [selectedLines, setSelectedLines] = useState<string[]>(initialSelectedLines);
 	const hasOnlyOneValue = data?.length === 1;
 
 	const getLineStyleFromStatus = (status: LineStatus, key: string) => {
@@ -129,7 +130,7 @@ function LineChart({
 	return (
 		<>
 			<ResponsiveContainer width={width || '100%'} height={height || '100%'} debounce={1}>
-				<RLineChart data={data} margin={margin || {}}>
+				<RLineChart data={data} margin={margin || {}} className={style.container}>
 					{!!showGridLines && (
 						<CartesianGrid
 							stroke={tokens.coralColorNeutralBackgroundMedium}

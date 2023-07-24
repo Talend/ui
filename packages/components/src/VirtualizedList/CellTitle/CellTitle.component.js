@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component, Fragment } from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import Icon from '../../Icon';
@@ -20,7 +20,7 @@ const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
  * - a button with a click action (columnData.onClick)
  * - actions (rowData[columnData.actionsKey])
  */
-class CellTitle extends React.Component {
+class CellTitle extends Component {
 	shouldComponentUpdate(nextProps) {
 		return (
 			this.props.cellData !== nextProps.cellData ||
@@ -74,9 +74,8 @@ class CellTitle extends React.Component {
 				</TooltipTrigger>
 			);
 		}
-
 		const defaultTitle = (
-			<React.Fragment>
+			<Fragment>
 				<CellTitleSelector
 					id={titleId}
 					cellData={cellData}
@@ -98,7 +97,7 @@ class CellTitle extends React.Component {
 					displayMode={displayMode}
 					type={type}
 				/>
-			</React.Fragment>
+			</Fragment>
 		);
 
 		return (

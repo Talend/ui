@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import JSONLike from '../JSONLike';
 import theme from './List.module.scss';

@@ -1,17 +1,14 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import TimezoneList from './TimezoneList.component';
 
 jest.mock('../Datalist', () => {
-	return function DataList() {};
+	return function DataList(props) {
+		return <div data-testid="datalist" data-props={JSON.stringify(props, null, 2)} />;
+	};
 });
 
 describe('TimezoneList component', () => {
-	afterAll(() => {
-		jest.unmock('../Datalist');
-	});
-
 	it('should render the timezone dropdown widget', () => {
 		// given
 		const lang = 'fr';
@@ -41,17 +38,18 @@ describe('TimezoneList component', () => {
 		const props = { schema: { lang, cldrTimezones } };
 
 		// when
-		const wrapper = shallow(<TimezoneList {...props} />);
+		const { container } = render(<TimezoneList {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should throw an error if cldr translations are missing', () => {
 		// given
+		jest.spyOn(console, 'error').mockImplementation(() => {});
 		const props = { schema: { lang: 'en' } };
 
 		// when/then
-		expect(() => shallow(<TimezoneList {...props} />)).toThrow();
+		expect(() => render(<TimezoneList {...props} />)).toThrow();
 	});
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -9,7 +9,7 @@ import { TreeHeader } from '../Headers';
 import RecordsCellRenderer from './CellRenderer';
 import getDefaultT from '../../translate';
 
-export class RecordsViewer extends React.Component {
+export class RecordsViewer extends Component {
 	static propTypes = {
 		onCollapseAll: PropTypes.func.isRequired,
 		onVerticalScroll: PropTypes.func,
@@ -17,9 +17,11 @@ export class RecordsViewer extends React.Component {
 		t: PropTypes.func,
 		virtualized: PropTypes.bool,
 		displayHeader: PropTypes.bool,
+		disableHeight: PropTypes.bool,
 	};
 
 	static defaultProps = {
+		disableHeight: false,
 		virtualized: true,
 		t: getDefaultT(),
 		displayHeader: true,
@@ -28,7 +30,15 @@ export class RecordsViewer extends React.Component {
 	renderCellRenderer = args => <RecordsCellRenderer {...this.props} {...args} />;
 
 	render() {
-		const { onCollapseAll, onVerticalScroll, t, virtualized, displayHeader, ...props } = this.props;
+		const {
+			onCollapseAll,
+			onVerticalScroll,
+			t,
+			virtualized,
+			displayHeader,
+			disableHeight,
+			...props
+		} = this.props;
 		return (
 			<div className={classNames(theme['tc-records-viewer'], 'tc-records-viewer')}>
 				{displayHeader && (
@@ -48,6 +58,7 @@ export class RecordsViewer extends React.Component {
 						onVerticalScroll={onVerticalScroll}
 						paddingOffset={props.paddingOffset}
 						rowCount={get(props, 'value', []).length}
+						disableHeight={disableHeight}
 					/>
 				) : (
 					<Tree {...props} jsonpath="$" level={0} />

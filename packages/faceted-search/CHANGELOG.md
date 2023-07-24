@@ -1,5 +1,64 @@
 # Changelog
 
+## 10.0.1
+
+### Patch Changes
+
+- a17306fc9: TDOPS-4795 - [TUI] Faceted search display wrong plural label
+
+## 10.0.0
+
+### Major Changes
+
+- aab0eeb36: TDOPS-4704 - Faceted search : Allow to configure faceted search min/max input length for text badge
+
+  # BREAKING CHANGE
+
+  Faceted search : `quickSearchMinLength` configuration for quick search input is no more used and now detected from badge configuration
+
+## 9.4.0
+
+### Minor Changes
+
+- 93def65ae: TDOPS-4704 - Faceted search : Allow to configure faceted search min trigger length for quick search input
+
+### Patch Changes
+
+- bb0cd786e: fix(TDC-6575): badge size overlap with "Add Filter" button with some long values
+- 04167fe3d: fix(faceted-search): data-feature typo
+
+## 9.3.0
+
+### Minor Changes
+
+- d579821da: feat: added custom attributes to the faceted basic search
+
+### Patch Changes
+
+- 9ea9961bd: test: rewrite using react testing library
+
+## 9.2.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+
+## 9.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+## 9.1.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
 ## 9.1.0
 
 ### Minor Changes

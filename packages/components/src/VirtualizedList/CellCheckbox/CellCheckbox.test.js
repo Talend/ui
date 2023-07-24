@@ -1,7 +1,5 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { render, screen } from '@testing-library/react';
-
+import userEvent from '@testing-library/user-event';
 import CellCheckbox from './CellCheckbox.component';
 
 const columnData = {
@@ -13,20 +11,19 @@ const columnData = {
 describe('CellActions', () => {
 	it('should render checked checkbox', () => {
 		// when
-		const wrapper = shallow(<CellCheckbox cellData columnData={columnData} rowIndex={25} />);
+		const { container } = render(<CellCheckbox cellData columnData={columnData} rowIndex={25} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).toBeChecked();
 	});
 
 	it('should render unchecked checkbox', () => {
 		// when
-		const wrapper = shallow(
-			<CellCheckbox cellData={false} columnData={columnData} rowIndex={25} />,
-		);
+		render(<CellCheckbox cellData={false} columnData={columnData} rowIndex={25} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).not.toBeChecked();
 	});
 
 	it('should render disabled checkbox', () => {
@@ -45,7 +42,7 @@ describe('CellActions', () => {
 
 	it('should render radio button', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellCheckbox
 				cellData={false}
 				columnData={{ ...columnData, selectionMode: 'SINGLE' }}
@@ -54,21 +51,22 @@ describe('CellActions', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('radio')).toBeVisible();
+		expect(screen.getByRole('radio')).not.toBeChecked();
 	});
 
 	it('should trigger callback on checkbox toggle', () => {
 		// given
-		const event = { target: 'lol' };
 		const rowData = { id: 1 };
 
 		// when
-		const wrapper = shallow(
-			<CellCheckbox cellData columnData={columnData} rowData={rowData} rowIndex={25} />,
-		);
-		wrapper.find('#my-checkbox-25-check').simulate('change', event);
+		render(<CellCheckbox cellData columnData={columnData} rowData={rowData} rowIndex={25} />);
+		userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(columnData.onChange).toBeCalledWith(event, rowData);
+		expect(columnData.onChange).toBeCalledWith(
+			expect.anything({ type: 'click', target: 'lol' }),
+			rowData,
+		);
 	});
 });

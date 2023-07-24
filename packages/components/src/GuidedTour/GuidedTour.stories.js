@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import { Component, Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-
+import tokens from '@talend/design-tokens';
 import { withTranslation } from 'react-i18next';
 
 import GuidedTour from './GuidedTour.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-class ImportDemo extends React.Component {
+class ImportDemo extends Component {
 	state = {
 		loading: false,
 		finish: false,
@@ -47,7 +47,7 @@ class ImportDemo extends React.Component {
 	}
 }
 
-class GuidedTourContainer extends React.Component {
+class GuidedTourContainer extends Component {
 	state = {
 		isOpen: true,
 		controls: true,
@@ -140,7 +140,7 @@ function getSteps({ hideControls, showControls, t }) {
 				body: 'Highlighted text here',
 			},
 			style: {
-				backgroundColor: '#fdf3da',
+				backgroundColor: tokens.coralColorWarningBackground,
 			},
 		},
 		{
@@ -264,7 +264,7 @@ const getLayoutWithLoremIpsum = () => (
 				flexBasis: '100vw',
 				alignItems: 'center',
 				textAlign: 'right',
-				background: '#eee',
+				background: tokens.coralColorNeutralBackground,
 			}}
 		>
 			<span data-tour="my-fourth-step">🧸 Lorem ispum</span>
@@ -273,14 +273,14 @@ const getLayoutWithLoremIpsum = () => (
 );
 
 export default {
-	title: 'Messaging & Communication/GuidedTour',
+	title: 'Components/Messaging & Communication/GuidedTour',
 
 	decorators: [
 		story => (
-			<React.Fragment>
+			<Fragment>
 				{story()}
 				{getLayoutWithLoremIpsum()}
-			</React.Fragment>
+			</Fragment>
 		),
 	],
 };

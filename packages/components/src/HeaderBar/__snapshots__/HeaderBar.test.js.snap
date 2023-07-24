@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderBar should render 1`] = `
+<nav
+  class="tc-header-bar theme-tc-header-bar navbar theme-navbar navbar-inverse theme-navbar-inverse"
+>
+  <ul
+    class="tc-header-bar-actions theme-tc-header-bar-actions navbar-nav theme-navbar-nav"
+  >
+    <li
+      class="tc-app-switcher-action theme-tc-app-switcher-action"
+      role="presentation"
+    >
+      <span
+        aria-level="1"
+        role="heading"
+      >
+        <button
+          class="tc-app-switcher theme-tc-app-switcher btn-icon-only btn btn-link"
+          type="button"
+        >
+          <span />
+        </button>
+      </span>
+    </li>
+  </ul>
+  <ul
+    class="tc-header-bar-actions theme-tc-header-bar-actions navbar-nav theme-navbar-nav right theme-right"
+  />
+</nav>
+`;

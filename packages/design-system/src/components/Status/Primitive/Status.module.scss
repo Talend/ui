@@ -1,6 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .status {
+	display: flex;
 	font: tokens.$coral-paragraph-m-bold;
 	color: tokens.$coral-color-neutral-text-weak;
 

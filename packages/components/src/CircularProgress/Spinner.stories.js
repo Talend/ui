@@ -1,9 +1,7 @@
-import React from 'react';
-
 import CircularProgress from './CircularProgress.component';
 
 export default {
-	title: 'Design Principles/Loading Feedback/Spinner',
+	title: 'Components/Design Principles/Loading Feedback/Spinner',
 };
 
 export const Default = () => (

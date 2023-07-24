@@ -3,6 +3,13 @@ name: PR lint
 on:
   pull_request:
 
+permissions:
+  contents: write
+  deployments: read
+  pull-requests: write # needed to annotate code
+  statuses: write
+  checks: write
+
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
@@ -15,15 +22,15 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
-          node-version: 16
+          node-version: 18
           check-latest: true
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
@@ -37,12 +44,11 @@ jobs:
         id: eslint
         run: yarn lint
 
-
       - name: Merge lint
         run: yarn lint-merge-report master ${GITHUB_HEAD_REF}
 
       - name: Annotate Code Linting Results
-        uses: ataylorme/eslint-annotate-action@v2
+        uses: ataylorme/eslint-annotate-action@2c426a387ed738e9522e93abfcb4cfc57b46458a #v2.2.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json

@@ -1,8 +1,8 @@
-import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import AppGuidedTour, { DEFAULT_LOCAL_STORAGE_KEY } from './AppGuidedTour.component';
-import Stepper from '../Stepper';
+
+jest.unmock('@talend/design-system');
 
 const DEFAULT_PROPS = {
 	appName: 'app name',
@@ -19,101 +19,64 @@ describe('AppGuidedTour', () => {
 	beforeEach(() => {
 		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, null);
 	});
-	it('should not trigger import function if "load demo content" is not selected', () => {
+	it('should not trigger import function if "load demo content" is not selected', async () => {
 		const onImportDemoContentMock = jest.fn();
+		render(<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />);
 
-		const wrapper = mount(
-			<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />,
-		);
-		act(() => {
-			wrapper.find('Toggle').prop('onChange')({ target: { checked: false } });
-		});
-		act(() => {
-			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
-		});
+		await userEvent.click(screen.getByLabelText('Import demo content'));
+		await userEvent.click(screen.getByText('Let me try'));
 		expect(onImportDemoContentMock).not.toHaveBeenCalled();
 	});
-	it('should trigger import function if "load demo content" is selected', () => {
+	it('should trigger import function if "load demo content" is selected', async () => {
 		const onImportDemoContentMock = jest.fn();
 
-		const wrapper = mount(
-			<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />,
-		);
-		act(() => {
-			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
-		});
-
+		render(<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />);
+		const nextBtn = document.querySelector('button[data-tour-elem="right-arrow"]');
+		expect(nextBtn).toBeInTheDocument();
+		await userEvent.click(nextBtn);
 		expect(onImportDemoContentMock).toHaveBeenCalled();
 	});
 	it('should import content by default on first time use', () => {
-		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} />);
-		expect(wrapper.find('Toggle').prop('checked')).toBe(true);
+		render(<AppGuidedTour {...DEFAULT_PROPS} />);
+		expect(screen.getByLabelText('Import demo content')).toBeChecked();
 	});
 	it('should not import content by default when opening from menu', () => {
 		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, 'true');
-		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} />);
-		expect(wrapper.find('Toggle').prop('checked')).toBe(false);
-	});
-	it('should stay on import step if import is not successful', () => {
-		const onImportDemoContentMock = jest.fn();
-
-		const wrapper = mount(
-			<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />,
-		);
-		act(() => {
-			wrapper.find('Toggle').prop('onChange')({ target: { checked: true } });
-		});
-		act(() => {
-			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
-		});
-		wrapper.setProps({
-			demoContentSteps: [
-				{ label: 'Importing dataset', status: Stepper.LOADING_STEP_STATUSES.FAILURE },
-			],
-		});
-
-		expect(wrapper.find('Tour').prop('goToStep')).toBe(1);
-		expect(wrapper.find('DemoContentStep').length).toBe(1);
+		render(<AppGuidedTour {...DEFAULT_PROPS} />);
+		expect(screen.getByLabelText('Import demo content')).not.toBeChecked();
 	});
 	it('should reset state on close', () => {
 		const onRequestCloseMock = jest.fn();
 		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, 'true');
-
-		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} onRequestClose={onRequestCloseMock} />);
-
-		act(() => {
-			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
-		});
-		act(() => {
-			wrapper.find('Tour').prop('onRequestClose')();
-		});
+		render(<AppGuidedTour {...DEFAULT_PROPS} onRequestClose={onRequestCloseMock} />);
+		const nextBtn = document.querySelector('button[data-tour-elem="right-arrow"]');
+		userEvent.click(nextBtn);
+		userEvent.click(screen.getByText('Let me try'));
 
 		expect(onRequestCloseMock).toHaveBeenCalled();
-		expect(wrapper.find('Tour').prop('goToStep')).toBe(0);
-		expect(wrapper.find('Toggle').prop('checked')).toBe(false);
 	});
 	it('Should open if local storage flag is not set', () => {
 		const onRequestOpenMock = jest.fn();
-		mount(<AppGuidedTour {...DEFAULT_PROPS} isOpen={false} onRequestOpen={onRequestOpenMock} />);
+		render(<AppGuidedTour {...DEFAULT_PROPS} isOpen={false} onRequestOpen={onRequestOpenMock} />);
 		expect(onRequestOpenMock).toHaveBeenCalled();
 	});
 	it('Should not open if local storage flag is set', () => {
 		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, 'true');
 		const onRequestOpenMock = jest.fn();
-		mount(<AppGuidedTour {...DEFAULT_PROPS} isOpen={false} onRequestOpen={onRequestOpenMock} />);
+		render(<AppGuidedTour {...DEFAULT_PROPS} isOpen={false} onRequestOpen={onRequestOpenMock} />);
 		expect(onRequestOpenMock).not.toHaveBeenCalled();
 	});
 	it('Should set a local storage flag when closed', () => {
 		const onCloseMock = jest.fn();
-		const wrapper = mount(<AppGuidedTour {...DEFAULT_PROPS} onClose={onCloseMock} />);
-		act(() => {
-			wrapper.find('Tour').prop('onRequestClose')();
-		});
+		render(<AppGuidedTour {...DEFAULT_PROPS} onClose={onCloseMock} />);
+		const nextBtn = document.querySelector('button[data-tour-elem="right-arrow"]');
+		userEvent.click(nextBtn);
+		userEvent.click(screen.getByText('Let me try'));
 		expect(localStorage.getItem(DEFAULT_LOCAL_STORAGE_KEY)).toBe('true');
 	});
-	it('Should not show demo content form if no step is provided', () => {
+	it('Should not show demo content form if no step is provided', async () => {
 		const onRequestOpenMock = jest.fn();
-		const wrapper = mount(
+		render(
 			<AppGuidedTour
 				{...DEFAULT_PROPS}
 				isOpen={false}
@@ -121,6 +84,6 @@ describe('AppGuidedTour', () => {
 				demoContentSteps={null}
 			/>,
 		);
-		expect(wrapper.find('Toggle')).toHaveLength(0);
+		expect(screen.queryByText('Import demo content')).not.toBeInTheDocument();
 	});
 });

@@ -1,6 +1,5 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import isSameDay from 'date-fns/is_same_day';
 import isToday from 'date-fns/is_today';
 import DatePicker from './DatePicker.component';
@@ -18,8 +17,6 @@ function getDisabledChecker(disabledDates) {
 describe('DatePicker', () => {
 	const YEAR = 2018;
 	const MONTH_INDEX = 5; // month July
-	// last 4 days of May will be showed in current calendar month
-	const numOfPreviousDaysInCurrentCalendar = 4;
 
 	beforeEach(() => {
 		mockIsTodayWith(new Date(YEAR, MONTH_INDEX, 20));
@@ -35,7 +32,7 @@ describe('DatePicker', () => {
 		const selectedDate = new Date(YEAR, MONTH_INDEX, 12);
 
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<DatePicker
 				calendar={calendar}
 				isDisabledChecker={isDisabledChecker}
@@ -47,7 +44,7 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should highlight today', () => {
@@ -55,7 +52,7 @@ describe('DatePicker', () => {
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
 
 		// when
-		const wrapper = mount(
+		render(
 			<DatePicker
 				calendar={calendar}
 				onSelect={jest.fn()}
@@ -65,18 +62,7 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(1)
-				.prop('className'),
-		).not.toContain('theme-today');
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(19 + numOfPreviousDaysInCurrentCalendar) // isToday is mocked as 2018-06-20.
-				.prop('className'),
-		).toContain('theme-today');
+		expect(screen.getByText('20')).toHaveClass('theme-today');
 	});
 
 	it('should highlight selected date', () => {
@@ -85,7 +71,7 @@ describe('DatePicker', () => {
 		const selectedDate = new Date(YEAR, MONTH_INDEX, 12);
 
 		// when
-		const wrapper = mount(
+		render(
 			<DatePicker
 				calendar={calendar}
 				onSelect={jest.fn()}
@@ -96,27 +82,16 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('className'),
-		).not.toContain('theme-selected');
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(11 + numOfPreviousDaysInCurrentCalendar)
-				.prop('className'),
-		).toContain('theme-selected');
+		expect(screen.getByText('12')).toHaveClass('theme-selected');
 	});
 
-	it('should fade disable date', () => {
+	it('should disable date be a disabled button', () => {
 		// given
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
 		const isDisabledChecker = getDisabledChecker([new Date(YEAR, MONTH_INDEX, 6)]);
 
 		// when
-		const wrapper = mount(
+		render(
 			<DatePicker
 				calendar={calendar}
 				isDisabledChecker={isDisabledChecker}
@@ -127,25 +102,14 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('disabled'),
-		).toBe(false);
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(5 + numOfPreviousDaysInCurrentCalendar)
-				.prop('disabled'),
-		).toBe(true);
+		expect(screen.getAllByText('6')[0]).toBeDisabled();
 	});
 
-	it('should select date', () => {
+	it('should select date', async () => {
 		// given
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
 		const onSelect = jest.fn();
-		const wrapper = mount(
+		render(
 			<DatePicker
 				calendar={calendar}
 				onSelect={onSelect}
@@ -156,10 +120,7 @@ describe('DatePicker', () => {
 		expect(onSelect).not.toBeCalled();
 
 		// when
-		wrapper
-			.find('.tc-date-picker-day')
-			.at(0 + numOfPreviousDaysInCurrentCalendar)
-			.simulate('click');
+		userEvent.click(screen.getAllByText('1')[0]);
 
 		// then
 		expect(onSelect).toBeCalledWith(expect.anything(), new Date(YEAR, MONTH_INDEX, 1));
@@ -167,7 +128,7 @@ describe('DatePicker', () => {
 
 	it('should manage tabIndex', () => {
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
-		const wrapper = mount(
+		const { rerender } = render(
 			<DatePicker
 				calendar={calendar}
 				onSelect={jest.fn()}
@@ -175,34 +136,26 @@ describe('DatePicker', () => {
 				goToNextMonth={jest.fn()}
 			/>,
 		);
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
+		expect(screen.getAllByText('1')[0]).toHaveAttribute('tabIndex', '-1');
 
 		// when
-		wrapper.setProps({ allowFocus: true });
+		rerender(
+			<DatePicker
+				calendar={calendar}
+				onSelect={jest.fn()}
+				goToPreviousMonth={jest.fn()}
+				goToNextMonth={jest.fn()}
+				allowFocus
+			/>,
+		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
-		expect(
-			wrapper
-				.find('.tc-date-picker-day[data-value]')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(screen.getAllByText('1')[0]).toHaveAttribute('tabIndex', '0');
 	});
 
 	it('should have 6 weeks', () => {
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
-		const wrapper = mount(
+		render(
 			<DatePicker
 				calendar={calendar}
 				onSelect={jest.fn()}
@@ -210,11 +163,10 @@ describe('DatePicker', () => {
 				goToNextMonth={jest.fn()}
 			/>,
 		);
-
-		expect(wrapper.find('.tc-date-picker-day').length).toBe(6 * 7);
+		expect(screen.getAllByRole('button')).toHaveLength(6 * 7);
 	});
 
-	it('should go to next month if select a date of next month', () => {
+	it('should go to next month if select a date of next month', async () => {
 		const year = 2019;
 		const monthIndex = 11;
 		const calendar = { year, monthIndex };
@@ -225,12 +177,8 @@ describe('DatePicker', () => {
 			goToPreviousMonth: jest.fn(),
 			goToNextMonth: jest.fn(),
 		};
-		const wrapper = mount(<DatePicker {...props} />);
-		wrapper
-			.find('.tc-date-picker-day')
-			.at(40) // click 2020-01-04
-			.simulate('click');
-
+		render(<DatePicker {...props} />);
+		await userEvent.click(screen.getByLabelText('Saturday 04 January 2020'));
 		expect(props.onSelect).toBeCalledWith(expect.anything(), new Date(year + 1, 0, 4));
 		expect(props.goToNextMonth).toBeCalled();
 		expect(props.goToPreviousMonth).not.toBeCalled();

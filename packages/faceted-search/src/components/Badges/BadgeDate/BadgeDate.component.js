@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import format from 'date-fns/format';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';

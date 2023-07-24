@@ -1,4 +1,3 @@
-import React from 'react';
 import { Divider, StackVertical, Stepper } from '@talend/design-system';
 
 export default {

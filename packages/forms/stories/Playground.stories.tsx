@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { action } from '@storybook/addon-actions';
 import isEqual from 'lodash/isEqual';
 
@@ -24,7 +22,7 @@ const actions = [
 ];
 
 export default {
-	title: 'Playground',
+	title: 'Forms/Playground',
 };
 
 export function Default({ data }: { data: FormDefinition }) {

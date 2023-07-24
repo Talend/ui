@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { useCopyToClipboard } from 'react-use';
 import { useTranslation } from 'react-i18next';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';

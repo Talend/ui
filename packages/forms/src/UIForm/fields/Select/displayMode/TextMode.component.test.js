@@ -1,27 +1,30 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import TextMode from './TextMode.component';
 
 describe('Text field text display mode', () => {
-	const schema = {
-		title: 'My input title',
-		type: 'select',
+	const props = {
+		id: 'myForm',
+		schema: {
+			title: 'My input title',
+			type: 'select',
+		},
+		value: 'toto',
+		renderItem: jest.fn(),
 	};
 
 	it('should render input', () => {
 		// when
-		const wrapper = shallow(<TextMode id="myForm" schema={schema} value="toto" />);
+		const { container } = render(<TextMode {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render array input', () => {
 		// when
-		const wrapper = shallow(<TextMode id="myForm" schema={schema} value={['toto']} />);
+		render(<TextMode {...props} value={['toto', 'foo']} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getAllByRole('listitem')).toHaveLength(2);
 	});
 });

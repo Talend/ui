@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import words from 'lodash/words';
@@ -28,7 +28,7 @@ function buildRegExpJsonpath(jsonpath) {
 }
 
 export default {
-	title: 'Data/Tree/DataViewer',
+	title: 'Components/Tree/DataViewer',
 };
 
 export const DataTreeWithHighlight = () => {

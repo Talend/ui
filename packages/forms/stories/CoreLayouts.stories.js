@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { HeaderBar, Layout, Dialog, Drawer as DrawerComponent } from '@talend/react-components';
 import Form from '../src';
@@ -27,7 +26,7 @@ LayoutDrawer.propTypes = {
 };
 
 export default {
-	title: 'Core concepts/Layouts',
+	title: 'Forms/Layouts',
 };
 
 export const Default = () => (

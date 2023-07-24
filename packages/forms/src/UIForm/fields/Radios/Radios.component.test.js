@@ -1,7 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { screen, render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Radios from './Radios.component';
+
+jest.mock('ally.js');
+jest.unmock('@talend/design-system');
 
 describe('Radios field', () => {
 	const schema = {
@@ -19,7 +21,7 @@ describe('Radios field', () => {
 
 	it('should render radios', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<Radios
 				id="myForm"
 				isValid
@@ -32,7 +34,7 @@ describe('Radios field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render inline radios', () => {
@@ -43,7 +45,7 @@ describe('Radios field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Radios
 				id="myForm"
 				isValid
@@ -56,7 +58,8 @@ describe('Radios field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const radios = screen.getAllByRole('radio');
+		radios.forEach(radio => expect(radio.parentElement.parentElement).toHaveClass('radio-inline'));
 	});
 
 	it('should render disabled input', () => {
@@ -67,7 +70,7 @@ describe('Radios field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Radios
 				id="myForm"
 				isValid
@@ -80,13 +83,14 @@ describe('Radios field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const radios = screen.getAllByRole('radio');
+		radios.forEach(radio => expect(radio).toBeDisabled());
 	});
 
-	it('should trigger onChange', () => {
+	it('should trigger onChange', async () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = shallow(
+		render(
 			<Radios
 				id="myForm"
 				isValid
@@ -97,19 +101,18 @@ describe('Radios field', () => {
 				value="toto"
 			/>,
 		);
-		const event = { target: { value: 'foo' } };
 
 		// when
-		wrapper.find('input[type="radio"]').at(0).simulate('change', event);
+		await userEvent.click(screen.getAllByRole('radio')[0]);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema, value: 'foo' });
+		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: 'foo' });
 	});
 
-	it('should trigger onFinish on blur', () => {
+	it('should trigger onFinish on blur', async () => {
 		// given
 		const onFinish = jest.fn();
-		const wrapper = shallow(
+		render(
 			<Radios
 				id="myForm"
 				isValid
@@ -120,12 +123,11 @@ describe('Radios field', () => {
 				value="toto"
 			/>,
 		);
-		const event = { target: { value: 'foo' } };
 
 		// when
-		wrapper.find('input[type="radio"]').at(0).simulate('blur', event);
+		fireEvent.blur(screen.getAllByRole('radio')[0]);
 
 		// then
-		expect(onFinish).toBeCalledWith(event, { schema });
+		expect(onFinish).toBeCalledWith(expect.anything({ type: 'blur' }), { schema });
 	});
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import type { ReactElement } from 'react';
 import styles from './Card.module.scss';
 
 const Card = ({
@@ -7,10 +7,10 @@ const Card = ({
 	text,
 	link,
 }: {
-	icon: React.ReactElement;
+	icon: ReactElement;
 	title: string;
 	text: string;
-	link: React.ReactElement;
+	link: ReactElement;
 }) => (
 	<article className={styles.card}>
 		{icon}

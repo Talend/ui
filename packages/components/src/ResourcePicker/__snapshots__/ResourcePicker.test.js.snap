@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourcePicker component should render ResourceList 1`] = `
+<div
+  class="tc-resource-picker theme-tc-resource-picker"
+>
+  <div
+    class="tc-resource-list theme-tc-resource-list"
+  >
+    <div
+      class="tc-resource-picker-list theme-tc-resource-picker-list tc-resource-list-items theme-tc-resource-list-items"
+    >
+      <div
+        style="overflow: visible; height: 0px; width: 0px;"
+      >
+        <div
+          aria-label="list"
+          aria-readonly="true"
+          class="ReactVirtualized__Grid ReactVirtualized__List tc-list-list theme-tc-list-list"
+          role="group"
+          style="box-sizing: border-box; direction: ltr; height: 250px; position: relative; width: 0px; will-change: transform; overflow-x: hidden; overflow-y: hidden;"
+          tabindex="0"
+        />
+      </div>
+      <div
+        class="resize-triggers"
+      >
+        <div
+          class="expand-trigger"
+        >
+          <div
+            style="width: 1px; height: 1px;"
+          />
+        </div>
+        <div
+          class="contract-trigger"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

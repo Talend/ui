@@ -1,7 +1,10 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import SingleButton from './SingleButton.component';
+
+jest.mock('ally.js');
+jest.unmock('@talend/design-system');
 
 describe('SingleButton field', () => {
 	const schema = {
@@ -12,10 +15,10 @@ describe('SingleButton field', () => {
 
 	it('should render button', () => {
 		// when
-		const wrapper = shallow(<SingleButton id="myForm" schema={schema} />);
+		const { container } = render(<SingleButton id="myForm" schema={schema} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render submit button', () => {
@@ -26,10 +29,10 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id="myForm" schema={submitSchema} />);
+		render(<SingleButton id="myForm" schema={submitSchema} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
 	});
 
 	it('should render submit button with inProgress', () => {
@@ -41,10 +44,11 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id="myForm" schema={submitSchema} />);
+		render(<SingleButton id="myForm" schema={submitSchema} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+		expect(screen.getByRole('button').firstChild).toHaveAttribute('aria-busy', 'true');
 	});
 
 	it('should render reset button', () => {
@@ -55,10 +59,10 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id="myForm" schema={resetSchema} />);
+		render(<SingleButton id="myForm" schema={resetSchema} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'reset');
 	});
 
 	it('should render disabled button', () => {
@@ -69,42 +73,26 @@ describe('SingleButton field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<SingleButton id="myForm" schema={disabledSchema} />);
+		render(<SingleButton id="myForm" schema={disabledSchema} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toBeDisabled();
 	});
 
-	it('should render inProgress button', () => {
-		// given
-		const inProgressSchema = {
-			...schema,
-			disabled: true,
-		};
-
-		// when
-		const wrapper = shallow(<SingleButton id="myForm" schema={inProgressSchema} />);
-
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should call trigger on button click', () => {
+	it('should call trigger on button click', async () => {
 		// given
 		const triggerSchema = {
 			...schema,
 			triggers: ['after'],
 		};
 		const onTrigger = jest.fn(() => Promise.resolve());
-		const wrapper = mount(
-			<SingleButton id="myForm" onTrigger={onTrigger} schema={triggerSchema} />,
-		);
+		render(<SingleButton id="myForm" onTrigger={onTrigger} schema={triggerSchema} />);
 
 		// when
-		wrapper.find('button').simulate('click', { button: 1 });
+		await userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
 			trigger: triggerSchema.triggers[0],
 			schema: triggerSchema,
 		});

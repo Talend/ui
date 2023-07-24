@@ -1,7 +1,6 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { ErrorState, Link }  from '@talend/design-system';
+import { ErrorState, Link } from '@talend/design-system';
 
 export default { component: ErrorState };
 

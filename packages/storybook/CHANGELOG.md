@@ -1,5 +1,48 @@
 # @talend/ui-storybook
 
+## 1.2.0
+
+### Minor Changes
+
+- d8c9adc34: [DS] InlineEditing : allow to update value from default value prop
+
+### Patch Changes
+
+- Updated dependencies [d8c9adc34]
+  - @talend/design-system@7.11.0
+
+## 1.1.3
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- Updated dependencies [7a9f88147]
+  - @talend/design-system@7.9.0
+
+## 1.1.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- Updated dependencies [cf697de02]
+- Updated dependencies [be1095095]
+  - @talend/design-system@7.7.2
+
+## 1.1.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [616601fda]
+- Updated dependencies [285efb74a]
+  - @talend/design-system@7.7.1
+  - @talend/design-tokens@2.7.3
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,5 +1,5 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+
 import Component from './ColumnChooserRow.component';
 
 describe('ColumnChooserRow', () => {
@@ -8,12 +8,12 @@ describe('ColumnChooserRow', () => {
 		const id = 'row-renderer-context-id';
 		const Children = () => <div id="my-child">Hello World</div>;
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<Component id={id}>
 				<Children />
 			</Component>,
 		);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

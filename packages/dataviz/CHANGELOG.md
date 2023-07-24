@@ -1,5 +1,54 @@
 # Changelog
 
+## 2.9.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- Updated dependencies [52d4f2df3]
+- Updated dependencies [b326091d2]
+- Updated dependencies [85b04cc81]
+- Updated dependencies [9719af7af]
+  - @talend/react-components@10.3.3
+
+## 2.9.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- 7ef33c80b: chore: add ChartEntry to dataviz exported types
+- Updated dependencies [ae37dc329]
+  - @talend/react-components@10.3.0
+
+## 2.8.8
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- Updated dependencies [cf697de02]
+- Updated dependencies [708589ad4]
+  - @talend/react-components@10.2.3
+
+## 2.8.7
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/design-tokens@2.7.3
+
 ## 2.8.6
 
 ### Patch Changes

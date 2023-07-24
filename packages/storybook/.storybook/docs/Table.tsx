@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Table({ data }: { data: { [key: string]: string } }) {
 	const entries = Object.entries(data);
 

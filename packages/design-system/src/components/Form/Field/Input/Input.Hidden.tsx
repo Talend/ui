@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import Input, { TypedInputFieldProps } from './Input';
 
 type InputHiddenProps = Omit<TypedInputFieldProps, 'required'>;

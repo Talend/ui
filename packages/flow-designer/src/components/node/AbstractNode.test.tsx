@@ -1,5 +1,3 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import {
@@ -22,18 +20,18 @@ function noOp() {}
 
 describe('Testing <AbstractNode>', () => {
 	it('should create a bare node component with provided position', () => {
-		const wrapper = mount(
+		render(
 			<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 				<rect />
 			</AbstractNode>,
 		);
-		const rect = wrapper.find('g[transform]');
-		expect(rect.prop('transform')).toBe('translate(100, 50)');
+		const rect = document.querySelector('g[transform]');
+		expect(rect).toHaveAttribute('transform', 'translate(100, 50)');
 	});
 
 	it('call the injected onClick action when clicked', () => {
 		const onClick = jest.fn();
-		const wrapper = mount(
+		render(
 			<AbstractNode
 				node={node}
 				onClick={onClick}
@@ -44,7 +42,10 @@ describe('Testing <AbstractNode>', () => {
 				<rect />
 			</AbstractNode>,
 		);
-		wrapper.find('g[transform]').simulate('click');
+		const elem = document.querySelector('g[transform]');
+		if (elem) {
+			fireEvent.click(elem);
+		}
 		expect(onClick).toHaveBeenCalledTimes(1);
 	});
 
@@ -73,7 +74,7 @@ describe('Testing <AbstractNode>', () => {
 		const evt = document.createEvent('HTMLEvents');
 		evt.initEvent('click', false, true);
 		const onDragStart = jest.fn();
-		mount(
+		render(
 			<AbstractNode
 				node={node}
 				onClick={onDragStart}
@@ -83,7 +84,6 @@ describe('Testing <AbstractNode>', () => {
 			>
 				<rect />
 			</AbstractNode>,
-			{ attachTo: document.body },
 		);
 
 		const element = document.querySelector('g g') || new HTMLDivElement();
@@ -106,7 +106,7 @@ describe('Testing <AbstractNode>', () => {
 
 	it('should fire an error if its rendered without a children set up', () => {
 		expect(() => {
-			shallow(
+			render(
 				<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp} />,
 			);
 		}).toThrowError(ABSTRACT_NODE_INVARIANT);

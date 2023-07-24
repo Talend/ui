@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { List, Map } from 'immutable';
 import Component from '@talend/react-components/lib/Notification';
 import { cmfConnect } from '@talend/react-cmf';

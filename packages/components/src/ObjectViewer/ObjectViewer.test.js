@@ -1,45 +1,45 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
 import ObjectViewer from './ObjectViewer.component';
-import JSONLike from './JSONLike';
-import List from './List';
-import Table from './Table';
+
+jest.unmock('@talend/design-system');
 
 describe('ObjectViewer', () => {
+	beforeEach(() => {
+		Object.defineProperties(window.HTMLElement.prototype, {
+			offsetParent: {
+				get() {
+					return {
+						offsetWith: parseFloat(this.style.width) || 0,
+					};
+				},
+			},
+		});
+	});
 	it('should render Tree by default', () => {
-		const wrapper = shallow(<ObjectViewer id="my-viewer" data={[]} />);
-		expect(wrapper.find(ObjectViewer.Tree).length).toBe(1);
-		expect(wrapper.name()).toBe(JSONLike.displayName);
+		render(<ObjectViewer id="my-viewer" data={[]} />);
+		expect(screen.getByRole('tree')).toBeVisible();
 	});
 	it('should render List', () => {
-		const wrapper = shallow(<ObjectViewer id="my-viewer" displayMode="list" data={[]} />);
-		expect(wrapper.find(ObjectViewer.List).length).toBe(1);
-		expect(wrapper.name()).toBe(List.displayName);
+		render(<ObjectViewer id="my-viewer" displayMode="list" data={[]} />);
+		expect(screen.getByRole('list')).toBeVisible();
 	});
 	it('should render Tree', () => {
-		const wrapper = shallow(<ObjectViewer id="my-viewer" displayMode="tree" data={[]} />);
-		expect(wrapper.find(ObjectViewer.Tree).length).toBe(1);
-		expect(wrapper.name()).toBe(JSONLike.displayName);
+		render(<ObjectViewer id="my-viewer" displayMode="tree" data={[]} />);
+		expect(screen.getByRole('tree')).toBeVisible();
 	});
 	it('should render Table', () => {
-		const wrapper = shallow(
-			<ObjectViewer id="my-viewer" displayMode="table" data={[]} title="my-table" />,
-		);
-		expect(wrapper.find(ObjectViewer.Table).length).toBe(1);
-		expect(wrapper.name()).toBe(Table.displayName);
+		render(<ObjectViewer id="my-viewer" displayMode="table" data={[]} title="my-table" />);
+		expect(screen.getByRole('table')).toBeVisible();
 	});
-	it('should render when no data', () => {
-		const wrapper = mount(<ObjectViewer id="my-viewer" displayMode="table" title="my-table" />);
-		expect(wrapper.find(ObjectViewer).length).toBe(1);
+	it('should not render when no data', () => {
+		render(<ObjectViewer id="my-viewer" displayMode="table" title="my-table" />);
+		expect(screen.queryByRole('table')).not.toBeInTheDocument();
 	});
 	it('should render Tree when no data nor dataSchema values', () => {
-		const wrapper = mount(
+		render(
 			<ObjectViewer id="my-viewer" displayMode="tree" data={[]} dataSchema={[]} title="my-tree" />,
 		);
-		expect(wrapper.find(ObjectViewer).length).toBe(1);
-		expect(wrapper.name()).toBe(ObjectViewer.displayName);
-		expect(wrapper.find(JSONLike).props().data).toEqual([]);
+		expect(screen.getByRole('tree')).toBeVisible();
 	});
 	it('should not convert date when a type is unknown', () => {
 		const data = [{ id: '0019000000PCahjAAD', LastModifiedDate: 1565364308000 }];
@@ -55,18 +55,19 @@ describe('ObjectViewer', () => {
 				},
 			],
 		};
-		const wrapper = mount(
+		render(
 			<ObjectViewer
 				id="my-viewer"
 				displayMode="tree"
 				data={data}
+				opened={['$', '$[0]', "$[0]['LastModifiedDate']"]}
 				dataSchema={dataSchema}
 				title="my-tree"
 			/>,
 		);
-		expect(wrapper.find(JSONLike).props().data).toEqual([
-			{ id: '0019000000PCahjAAD', LastModifiedDate: 1565364308000 },
-		]);
+		expect(screen.getByRole('tree')).toBeVisible();
+		expect(screen.getByText('LastModifiedDate:')).toBeVisible();
+		expect(screen.getByText('1565364308000')).toBeVisible();
 	});
 	it('should correctely convert date when a type is known', () => {
 		const data = [{ id: '0019000000PCahjAAD', LastModifiedDate: 1565364308000 }];
@@ -83,18 +84,19 @@ describe('ObjectViewer', () => {
 			],
 		};
 
-		const convertedData = [
-			{ id: '0019000000PCahjAAD', LastModifiedDate: new Date(1565364308000).toISOString() },
-		];
-		const wrapper = mount(
+		const convertedData = new Date(1565364308000).toISOString();
+		render(
 			<ObjectViewer
 				id="my-viewer"
+				opened={['$', '$[0]', "$[0]['LastModifiedDate']"]}
 				displayMode="tree"
 				data={data}
 				dataSchema={dataSchema}
 				title="my-tree"
 			/>,
 		);
-		expect(wrapper.find(JSONLike).props().data).toEqual(convertedData);
+		expect(screen.getByRole('tree')).toBeVisible();
+		expect(screen.getByText('LastModifiedDate:')).toBeVisible();
+		expect(screen.getByText(convertedData)).toBeVisible();
 	});
 });

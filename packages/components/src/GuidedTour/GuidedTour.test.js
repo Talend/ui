@@ -1,6 +1,4 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import Tour from 'reactour';
+import { render } from '@testing-library/react';
 
 import GuidedTour from './GuidedTour.component';
 
@@ -9,25 +7,25 @@ describe('Guided Tour', () => {
 
 	it('should appear', () => {
 		// when
-		const wrapper = mount(<GuidedTour steps={steps} isOpen />);
+		render(<GuidedTour steps={steps} isOpen />);
 
 		// then
-		expect(wrapper.find(Tour).children()).toHaveLength(1);
+		expect(document.querySelector('#___reactour')).toBeVisible();
 	});
 
 	it('should not appear if steps are empty', () => {
 		// when
-		const wrapper = mount(<GuidedTour steps={[]} isOpen />);
+		render(<GuidedTour steps={[]} isOpen />);
 
 		// then
-		expect(wrapper.find(Tour).children()).toHaveLength(0);
+		expect(document.querySelector('#___reactour')).not.toBeInTheDocument();
 	});
 
 	it('should not appear if it is not open', () => {
 		// when
-		const wrapper = mount(<GuidedTour steps={steps} isOpen={false} />);
+		render(<GuidedTour steps={steps} isOpen={false} />);
 
 		// then
-		expect(wrapper.find(Tour).children()).toHaveLength(0);
+		expect(document.querySelector('#___reactour')).not.toBeInTheDocument();
 	});
 });

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactElement } from 'react';
+import type { HTMLAttributes, ReactElement, PropsWithChildren } from 'react';
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 
@@ -40,7 +40,7 @@ const Dont = ({ children, ...rest }: Omit<BlockTypes, 'icon' | 'title'>) => {
 	);
 };
 
-export const Use = ({ children }: React.PropsWithChildren<HTMLDivElement>) => (
+export const Use = ({ children }: PropsWithChildren<HTMLDivElement>) => (
 	<Grid columns={2}>{children}</Grid>
 );
 

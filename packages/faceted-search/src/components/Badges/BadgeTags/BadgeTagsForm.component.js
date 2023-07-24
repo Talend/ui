@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useState, useMemo } from 'react';
+import { Fragment, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { getTheme, Checkbox, Action, Rich, Loader, FilterBar } from '@talend/react-components';
@@ -14,7 +14,7 @@ const BadgeTag = ({ checked, id, label, onChange }) => {
 		onChange(event, id);
 	};
 	return (
-		<React.Fragment>
+		<Fragment>
 			<Checkbox
 				onChange={onChangeTag}
 				aria-describedby={describedby}
@@ -25,7 +25,7 @@ const BadgeTag = ({ checked, id, label, onChange }) => {
 			<div id={describedby} className="sr-only">
 				{label}
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 
@@ -92,7 +92,7 @@ const BadgeTagsForm = ({
 		: t('SHOW_ALL_TAGS', { defaultValue: 'Show all' });
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<FilterBar
 				autoFocus={false}
 				dockable={false}
@@ -163,7 +163,7 @@ const BadgeTagsForm = ({
 					</Rich.Layout.Footer>
 				</form>
 			)}
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

@@ -1,18 +1,17 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import NameFilter from './NameFilter.component';
 
 describe('NameFilter component snaps', () => {
-	it('should render NameFilter in default mode', () => {
+	it('should render', () => {
 		const props = {
 			onChange: () => {},
 			label: 'Example label',
 		};
 
-		const wrapper = shallow(<NameFilter {...props} />);
+		const { container } = render(<NameFilter {...props} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should reset the filter', () => {
@@ -22,11 +21,8 @@ describe('NameFilter component snaps', () => {
 			label: 'Example label',
 		};
 
-		const wrapper = shallow(<NameFilter {...props} />);
-		wrapper
-			.find('Action')
-			.props()
-			.onClick();
+		render(<NameFilter {...props} />);
+		userEvent.click(screen.getByLabelText('Remove filter'));
 
 		expect(onChange).toHaveBeenLastCalledWith({ target: { value: '' } });
 	});

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { cloneElement, useState, useRef } from 'react';
+import { Children, Fragment, cloneElement, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { randomUUID } from '@talend/utils';
@@ -198,8 +198,8 @@ function TooltipTrigger({
 	const { placement, style } = getTooltipPosition();
 
 	return (
-		<React.Fragment>
-			{React.Children.map(children, child =>
+		<Fragment>
+			{Children.map(children, child =>
 				cloneElement(child, {
 					'aria-describedby': id,
 					onFocus,
@@ -226,6 +226,7 @@ function TooltipTrigger({
 					<div
 						className={classNames(theme['tc-tooltip-container'], 'tc-tooltip-container', className)}
 						style={style}
+						role="tooltip"
 					>
 						<div
 							id={id}
@@ -242,7 +243,7 @@ function TooltipTrigger({
 					</div>,
 					document.body,
 				)}
-		</React.Fragment>
+		</Fragment>
 	);
 }
 

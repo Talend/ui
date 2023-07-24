@@ -1,5 +1,4 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import BadgeCategory from './BadgeCategory.component';
 
 describe('BadgeCategory', () => {
@@ -7,14 +6,8 @@ describe('BadgeCategory', () => {
 		// given
 		const label = 'my badge label';
 		// when
-		const wrapper = mount(<BadgeCategory label={label} />);
+		render(<BadgeCategory label={label} />);
 		// then
-		expect(
-			wrapper
-				.find('.tc-badge-category')
-				.at(0)
-				.text(),
-		).toBe(label);
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByText(label)).toBeInTheDocument();
 	});
 });

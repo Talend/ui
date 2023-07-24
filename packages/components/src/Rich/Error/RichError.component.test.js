@@ -1,11 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import RichError from './RichError.component';
 
 describe('RichLayout', () => {
 	it('should render RichLayout with header, content and footer', () => {
-		const wrapper = shallow(<RichError title="Pipelines" error="One error..." />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<RichError title="Pipelines" error="One error..." />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

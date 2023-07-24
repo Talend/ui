@@ -1,11 +1,12 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $default-height: 4rem !default;
 
 .tc-tree-header {
 	align-items: center;
-	border-bottom: 0.1rem solid $alto;
-	color: $dove-gray;
+	border-bottom: 0.1rem solid tokens.$coral-color-neutral-border;
+	color: tokens.$coral-color-neutral-text;
 	display: flex;
 	font-weight: 600;
 	height: $default-height;
@@ -17,7 +18,7 @@ $default-height: 4rem !default;
 		justify-content: space-between;
 
 		&-icon {
-			color: $dark-silver;
+			color: tokens.$coral-color-neutral-text;
 			text-transform: none;
 
 			:global(.tc-svg-icon) {
@@ -29,7 +30,7 @@ $default-height: 4rem !default;
 		:global(.btn) {
 			&:focus,
 			&:hover {
-				color: $scooter;
+				color: tokens.$coral-color-accent-text;
 			}
 		}
 	}

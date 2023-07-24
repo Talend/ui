@@ -2,7 +2,7 @@ import ThemeContext from './ThemeContext';
 import './ThemeProvider.module.scss';
 // eslint-disable-next-line @talend/import-depth
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
-import React, { PropsWithChildren, useContext, useState } from 'react';
+import { useEffect, PropsWithChildren, useContext, useState } from 'react';
 
 import 'typeface-source-sans-pro/index.css';
 import 'typeface-inconsolata/index.css';
@@ -17,11 +17,11 @@ const ThemeProvider = ({ theme = 'light', children }: ThemeProviderProps) => {
 	// Handle nested Providers: parent Provider doesn't have context, child does
 	const context = useContext(ThemeContext);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		document.body.dataset.theme = selectedTheme === 'light' ? 'light' : 'dark';
 	}, [selectedTheme]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setSelectedTheme(theme);
 	}, [theme]);
 

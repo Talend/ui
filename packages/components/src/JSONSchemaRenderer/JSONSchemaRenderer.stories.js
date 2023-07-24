@@ -1,5 +1,3 @@
-import React from 'react';
-
 import JSONSchemaRenderer from './JSONSchemaRenderer.component';
 
 const schema = {
@@ -106,7 +104,7 @@ const schema = {
 };
 
 export default {
-	title: 'Deprecated/JSONSchemaRenderer',
+	title: 'Components/Deprecated/JSONSchemaRenderer',
 };
 
 export const Default = () => (

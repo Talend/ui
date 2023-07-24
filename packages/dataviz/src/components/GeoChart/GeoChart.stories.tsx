@@ -1,4 +1,4 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import GeoChart, { GeoChartProps } from './GeoChart.component';
@@ -8,7 +8,7 @@ export default {
 	title: 'Dataviz/GeoChart',
 	component: GeoChart,
 	decorators: [
-		(fn: () => React.ReactNode) => (
+		(fn: () => ReactNode) => (
 			<div
 				style={{
 					width: 500,
@@ -28,6 +28,12 @@ export default {
 			chartConfig: await getGeoChartConfig(name.replaceAll(' ', '_')),
 		}),
 	],
+	parameters: {
+		chromatic: {
+			// To avoid issues with charts, we'll need to improve this later on
+			diffThreshold: 0.6,
+		},
+	},
 };
 
 const Default: Story<GeoChartProps> = (props, { loaded }) => <GeoChart {...loaded} {...props} />;

@@ -1,7 +1,8 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-listview-header-height: 28px !default;
-$tc-listview-svg-color: #666 !default;
+$tc-listview-svg-color: tokens.$coral-color-neutral-text !default;
 $tc-listview-font-size: 1.4rem !default;
 
 .tc-listview-header {
@@ -22,6 +23,10 @@ $tc-listview-font-size: 1.4rem !default;
 		flex-grow: 1;
 		height: 100%;
 		background-color: transparent;
+
+		&::placeholder {
+			color: tokens.$coral-color-neutral-text-weak;
+		}
 	}
 
 	:global(.actions) {

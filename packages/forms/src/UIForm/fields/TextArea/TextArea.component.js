@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 
 import PropTypes from 'prop-types';
-import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 

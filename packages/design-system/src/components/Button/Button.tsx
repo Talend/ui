@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 
 import ButtonPrimary, { ButtonPrimaryPropsType } from './variations/ButtonPrimary';
 import ButtonSecondary, { ButtonSecondaryPropsType } from './variations/ButtonSecondary';

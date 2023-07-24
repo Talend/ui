@@ -1,7 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
+
+jest.unmock('@talend/design-system');
 
 const item = {
 	id: 1,
@@ -85,6 +87,11 @@ const propsWithIcons = {
 	siblings: items,
 };
 
+function getIcon() {
+	return document.querySelector('.tc-icon');
+}
+jest.useFakeTimers();
+
 describe('getItemIcon', () => {
 	it('should return given icon when toggled', () => {
 		expect(getItemIcon('my', true)).toBe('my');
@@ -106,24 +113,27 @@ describe('getItemIcon', () => {
 describe('TreeView item', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(<TreeViewItem {...defaultProps} />);
+		const { container } = render(<TreeViewItem {...defaultProps} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render items with icon', () => {
 		// when
-		const wrapper = shallow(<TreeViewItem {...propsWithIcons} />);
+		render(<TreeViewItem {...propsWithIcons} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(getIcon()).toBeInTheDocument();
+		expect(getIcon()).toHaveAttribute(
+			'src',
+			'http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png',
+		);
 	});
 
 	it('test disabled item not calling onSelect', () => {
 		// when
 		const onSelect = jest.fn();
-		const stopPropagation = jest.fn();
 		const props = {
 			...defaultProps,
 			item: {
@@ -132,14 +142,13 @@ describe('TreeView item', () => {
 			},
 		};
 
-		const wrapper = shallow(<TreeViewItem {...props} onSelect={onSelect} />);
-		wrapper.find('li').simulate('click', { stopPropagation });
-		wrapper.find('li').simulate('keyDown', { keyCode: 13 });
+		render(<TreeViewItem {...props} onSelect={onSelect} />);
+		userEvent.click(screen.getByRole('treeitem'));
+		userEvent.keyboard('{Enter}');
 
 		// then
 		expect(onSelect.mock.calls.length).toBe(0);
-		expect(stopPropagation.mock.calls.length).toBe(1);
-		expect(wrapper.find('li').props()['aria-disabled']).toBeTruthy();
+		expect(screen.getByRole('treeitem')).toHaveAttribute('aria-disabled', 'true');
 	});
 
 	it('should render items with icon and tooltip', () => {
@@ -149,21 +158,24 @@ describe('TreeView item', () => {
 			item: itemWithIconAndTooltip,
 		};
 
-		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);
-
-		expect(wrapper.find('TreeViewIcon').dive().getElement()).toMatchSnapshot();
+		render(<TreeViewItem {...propsWithIconAndTooltip} />);
+		expect(getIcon()).toBeInTheDocument();
+		userEvent.hover(getIcon());
+		act(() => {
+			jest.runAllTimers();
+		});
+		expect(screen.getByText('New version of the Pokemon is available')).toBeInTheDocument();
 	});
 
 	it('should render items with classNames', () => {
 		// when
 		const propsWithIconAndTooltip = {
 			...propsWithIcons,
-			item: { ...itemWithIcon, className: 'test-class'},
+			item: { ...itemWithIcon, className: 'test-class' },
 		};
 
-		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);
-
-		expect(wrapper.find('li').props().className).toContain('test-class');
+		render(<TreeViewItem {...propsWithIconAndTooltip} />);
+		expect(screen.getByRole('treeitem')).toHaveClass('test-class');
 	});
 
 	it('should toggle item on toggle button click', () => {
@@ -172,15 +184,13 @@ describe('TreeView item', () => {
 			...defaultProps,
 			onToggle: jest.fn(),
 		};
-		const wrapper = shallow(<TreeViewItem {...props} />);
-		const event = { target: {}, stopPropagation: jest.fn() };
+		render(<TreeViewItem {...props} />);
 
 		// when
-		wrapper.find(`#${props.id}-toggle`).simulate('click', event);
+		userEvent.click(getIcon());
 
 		// then
-		expect(event.stopPropagation).toBeCalled();
-		expect(props.onToggle).toBeCalledWith(event, props.item);
+		expect(props.onToggle).toBeCalledWith(expect.anything({ type: 'click' }), props.item);
 	});
 
 	it('should select item on click', () => {
@@ -189,14 +199,12 @@ describe('TreeView item', () => {
 			...defaultProps,
 			onSelect: jest.fn(),
 		};
-		const wrapper = shallow(<TreeViewItem {...props} />);
-		const event = { target: {}, stopPropagation: jest.fn() };
+		render(<TreeViewItem {...props} />);
 
 		// when
-		wrapper.simulate('click', event);
+		userEvent.click(screen.getByRole('treeitem'));
 
 		// then
-		expect(event.stopPropagation).toBeCalled();
-		expect(props.onSelect).toBeCalledWith(event, props.item);
+		expect(props.onSelect).toBeCalledWith(expect.anything({ type: 'click' }), props.item);
 	});
 });

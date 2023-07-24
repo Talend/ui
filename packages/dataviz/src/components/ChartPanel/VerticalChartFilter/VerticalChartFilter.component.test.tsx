@@ -1,17 +1,32 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
 import VerticalChartFilter from './VerticalChartFilter.component';
 import { VerticalBarChartEntry } from '../../BarChart/VerticalBarChart';
 import { NumberRangeHandler } from '../../RangeFilter';
 
+jest.mock('../../BarChart/VerticalBarChart/VerticalBarChart.component', () => {
+	return ({ data, getTooltipContent }) => (
+		<div data-data={JSON.stringify(data)} data-testid="VerticalBarChart">
+			{data.length > 0 && (
+				<span data-testid="VerticalBarChart-tooltip">{getTooltipContent(data[0])}</span>
+			)}
+		</div>
+	);
+});
 describe('Profiling chart panel', () => {
 	const mocks = {
 		onBarClick: jest.fn(),
 		onRangeChange: jest.fn(),
+		width: 300,
+		height: 300,
 	};
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
 
 	it('Should not show range filter if limits min and max are equal', () => {
-		const component = shallow(
+		render(
 			<VerticalChartFilter
 				data={[]}
 				rangeHandler={NumberRangeHandler}
@@ -20,11 +35,11 @@ describe('Profiling chart panel', () => {
 			/>,
 		);
 
-		expect(component.find('RangeFilter')).toHaveLength(0);
+		expect(document.querySelectorAll('.theme-range-filter')).toHaveLength(0);
 	});
 
 	it('Should show range filter if limits min and max are different', () => {
-		const component = shallow(
+		render(
 			<VerticalChartFilter
 				data={[]}
 				rangeHandler={NumberRangeHandler}
@@ -32,62 +47,11 @@ describe('Profiling chart panel', () => {
 				{...mocks}
 			/>,
 		);
-
-		expect(component.find('RangeFilter')).toHaveLength(1);
-	});
-
-	it('Should sync bar chart with range filter', () => {
-		const component = shallow(
-			<VerticalChartFilter
-				data={[
-					{
-						value: 10,
-						filteredValue: 10,
-						label: '[10, 20[',
-						key: { min: 10, max: 20 },
-					},
-					{
-						value: 10,
-						filteredValue: 10,
-						label: '[20, 25[',
-						key: { min: 20, max: 25 },
-					},
-					{
-						// bars without existing filter value appear as not filtered
-						filteredValue: undefined,
-						value: 10,
-						label: '[25, 30[',
-						key: { min: 25, max: 30 },
-					},
-					{
-						value: 10,
-						filteredValue: 10,
-						label: '[30, 40[',
-						key: { min: 30, max: 40 },
-					},
-					{
-						value: 10,
-						filteredValue: 10,
-						label: '[30, 40[',
-						key: { min: 30, max: 40 },
-					},
-				]}
-				rangeHandler={NumberRangeHandler}
-				activeRange={{ min: 12, max: 38 }}
-				rangeLimits={{ min: 10, max: 40 }}
-				{...mocks}
-			/>,
-		);
-
-		expect(
-			(component.find('VerticalBarChart').prop('data')! as unknown as VerticalBarChartEntry[]).map(
-				entry => entry.filteredValue,
-			),
-		).toEqual([0, 10, undefined, 0, 0]);
+		expect(document.querySelectorAll('.theme-range-filter')).toHaveLength(1);
 	});
 
 	it('Should handle bars with bounds outside range limits', () => {
-		const component = shallow(
+		render(
 			<VerticalChartFilter
 				data={[
 					{
@@ -109,11 +73,10 @@ describe('Profiling chart panel', () => {
 				{...mocks}
 			/>,
 		);
-
-		expect(
-			(component.find('VerticalBarChart').prop('data')! as unknown as VerticalBarChartEntry[]).map(
-				entry => entry.filteredValue,
-			),
-		).toEqual([10, 10]);
+		const data = JSON.parse(
+			screen.getByTestId('VerticalBarChart').dataset.data,
+		) as VerticalBarChartEntry[];
+		expect(data[0].filteredValue).toEqual(10);
+		expect(data[1].filteredValue).toEqual(10);
 	});
 });

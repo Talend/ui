@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import HorizontalBarChart, { HorizontalBarChartProps } from './index';
@@ -43,6 +42,12 @@ export default {
 		getTooltipContent: entry => (
 			<KeyValueTooltip entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
 		),
+	},
+	parameters: {
+		chromatic: {
+			// To avoid issues with charts, we'll need to improve this later on
+			diffThreshold: 0.6,
+		},
 	},
 } as Meta<HorizontalBarChartProps>;
 

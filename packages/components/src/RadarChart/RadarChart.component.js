@@ -1,4 +1,3 @@
-import React from 'react';
 import {
 	RadarChart as RechartsRadarChart,
 	PolarGrid,
@@ -7,6 +6,7 @@ import {
 	Radar,
 	PolarAngleAxis,
 } from 'recharts';
+import tokens from '@talend/design-tokens';
 import PropTypes from 'prop-types';
 import radarChartCssModule from './RadarChart.module.scss';
 import { getTheme } from '../theme';
@@ -52,6 +52,7 @@ export function RadarChart({
 			width={width}
 			height={height}
 			data={data}
+			fill={tokens.coralColorNeutralBorder}
 		>
 			<PolarGrid />
 			<PolarRadiusAxis domain={domain} tick={tick} axisLine={tickLine} />
@@ -139,7 +140,7 @@ Dot.propTypes = {
  * @param {Object} props the current props of the Radar
  */
 function DotWithClick(props) {
-	const { activeAxis, fill, index, onClick, ...rest } = props;
+	const { activeAxis, fill = tokens.coralColorNeutralBorder, index, onClick, ...rest } = props;
 	const STATE = {
 		DEFAULT_RADIUS: 2,
 		DEFAULT_STROKE_WIDTH: 12,

@@ -1,6 +1,8 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+
 import Tag from './Tag.component';
+
+jest.unmock('@talend/design-system');
 
 describe('Tag', () => {
 	const props = {
@@ -8,7 +10,7 @@ describe('Tag', () => {
 	};
 
 	it('should render', () => {
-		const wrapper = shallow(<Tag {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<Tag {...props} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

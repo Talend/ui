@@ -1,5 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+// rewrite tests using react-testing-library
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import TreeView from './TreeView.component';
 
@@ -43,15 +44,10 @@ describe('TreeView', () => {
 
 	it('should render', () => {
 		// when
-		const wrapper = shallow(<TreeView {...defaultProps} />);
+		const { container } = render(<TreeView {...defaultProps} />);
 
 		// then
-		expect(
-			wrapper
-				.find('TreeView')
-				.shallow()
-				.getElement(),
-		).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('when a user click on the add Action it should call props.addAction', () => {
@@ -60,14 +56,11 @@ describe('TreeView', () => {
 			...defaultProps,
 			addAction: jest.fn(),
 		};
-		const wrapper = shallow(<TreeView {...props} />);
+		render(<TreeView {...props} />);
 		expect(props.addAction).not.toBeCalled();
 
 		// when
-		wrapper
-			.dive()
-			.find('Action')
-			.simulate('click');
+		userEvent.click(screen.getByLabelText('add element'));
 
 		// then
 		expect(props.addAction).toBeCalled();

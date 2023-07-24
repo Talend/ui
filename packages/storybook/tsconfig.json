@@ -12,7 +12,6 @@
     "paths": {
       "~docs": [".storybook/docs"]
     },
-    "jsx": "react",
     "module": "CommonJs",
     "rootDirs": [".storybook", "cypress", "src"],
     "types": ["cypress"]

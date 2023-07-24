@@ -1,3 +1,4 @@
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
@@ -9,7 +10,7 @@ import { initI18n } from './i18n';
 const { i18n: userI18n, cmf, ...userPreview } = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
 // msw
-initialize();
+initialize({ onUnhandledRequest: 'bypass' });
 
 // i18next
 const i18n = initI18n(userI18n);
@@ -43,6 +44,17 @@ const defaultPreview = {
 				],
 			},
 		},
+		theme: {
+			name: 'Theme',
+			description: 'Choose a theme to apply to the design system',
+			toolbar: {
+				icon: 'paintbrush',
+				items: [
+					{ value: 'light', left: '⚪️', title: 'Default theme' },
+					{ value: 'dark', left: '⚫️', title: 'Dark theme' },
+				],
+			},
+		},
 	},
 	loaders: [cmfLoader].filter(Boolean),
 	decorators: [
@@ -62,7 +74,8 @@ const defaultPreview = {
 					key: 'icons-provider-decorator'
 				}),
 				React.createElement(ThemeProvider, {
-					key: 'theme-provider-decorator'
+					key: 'theme-provider-decorator',
+					theme: context.globals.theme,
 				}, storyElement)
 			];
 		},

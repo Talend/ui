@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { InfiniteLoader } from 'react-virtualized';
 import debounce from 'lodash/debounce';

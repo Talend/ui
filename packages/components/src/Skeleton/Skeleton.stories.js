@@ -1,8 +1,7 @@
-import React from 'react';
 import Skeleton from './Skeleton.component';
 
 export default {
-	title: 'Design Principles/Loading Feedback/Skeleton',
+	title: 'Components/Design Principles/Loading Feedback/Skeleton',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 

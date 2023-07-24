@@ -2,7 +2,7 @@
 /* eslint-disable react/no-find-dom-node */
 /* eslint-disable no-underscore-dangle */
 import contains from 'dom-helpers/query/contains';
-import React, { cloneElement } from 'react';
+import { Children, Component, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import warning from 'warning';
@@ -98,7 +98,7 @@ const defaultProps = {
 	trigger: ['hover', 'focus'],
 };
 
-class OverlayTrigger extends React.Component {
+class OverlayTrigger extends Component {
 	constructor(props, context) {
 		super(props, context);
 
@@ -235,7 +235,7 @@ class OverlayTrigger extends React.Component {
 		delete props.delayHide;
 		delete props.defaultOverlayShown;
 
-		const child = React.Children.only(children);
+		const child = Children.only(children);
 		const childProps = child.props;
 		const triggerProps = {};
 

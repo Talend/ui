@@ -1,6 +1,7 @@
-import React from 'react';
-import { action as sbAction } from '@storybook/addon-actions';
 import { BrowserRouter, Link } from 'react-router-dom';
+
+import { action as sbAction } from '@storybook/addon-actions';
+
 import {
 	EmptyState,
 	EmptyStateLarge,
@@ -8,8 +9,6 @@ import {
 	EmptyStateSmall,
 	StackHorizontal,
 } from '@talend/design-system';
-
-import { EmptyStateProps } from '@talend/design-system/lib/components/EmptyState';
 
 export default {
 	component: EmptyStateLarge,
@@ -46,19 +45,64 @@ export const LargeWithLinkButton = () => (
 	</BrowserRouter>
 );
 
-export const MediumWithAction = () => (
-	<EmptyStateMedium
-		title="No dataset yet"
-		description="Add a preparation to clean, format, and transform data prior to processing."
-		action={{
+export const MediumWithAction = ({ illustration, title, description, link, action }: any) => {
+	return (
+		<EmptyStateMedium
+			illustration={illustration}
+			title={title}
+			description={description}
+			link={link}
+			action={action}
+		/>
+	);
+};
+
+MediumWithAction.argTypes = {
+	illustration: {
+		control: {
+			type: 'select',
+			options: [
+				'ACTIVITY',
+				'CHART',
+				'CHECKLIST',
+				'DEFAULT',
+				'FLASK',
+				'LIGHTBULB',
+				'MESSAGE',
+				'PLUG',
+				'ROCKET',
+				'SEARCH',
+				'SETTINGS',
+				'USER',
+				'WARNING',
+			],
+		},
+		defaultValue: 'DEFAULT',
+		description: 'Define the illustration',
+	},
+	title: {
+		control: { type: 'text' },
+		defaultValue: 'No dataset yet',
+	},
+	description: {
+		control: { type: 'text' },
+		defaultValue: 'Add a preparation to clean, format, and transform data prior to processing.',
+	},
+	link: {
+		control: { type: 'object' },
+		defaultValue: { href: 'https://talend.com', 'data-feature': 'Feature name' },
+		description: 'Optional for Large and Medium, unavailable for Small',
+	},
+	action: {
+		control: { type: 'object' },
+		defaultValue: {
 			children: 'Create a dataset',
 			onClick: () => sbAction('clicked'),
 			icon: 'plus',
 			actionType: 'button',
-		}}
-		link={{ href: 'https://talend.com' }}
-	/>
-);
+		},
+	},
+};
 
 export const Small = () => <EmptyStateSmall title="Create a preparation first" />;
 

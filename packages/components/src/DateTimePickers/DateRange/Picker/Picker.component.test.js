@@ -1,9 +1,8 @@
-import React from 'react';
-import { mount } from 'enzyme';
-
+/* eslint-disable react/prop-types */
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { DateRangeContext } from '../Context';
 import Picker from './Picker.component';
-import CalendarPicker from '../../pickers/CalendarPicker';
 
 describe('DateRange.Picker', () => {
 	it('should render', () => {
@@ -21,25 +20,19 @@ describe('DateRange.Picker', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<DateRangeContext.Provider value={managerValue}>
 				<Picker other="custom props" focusedInput="startDate" />
 			</DateRangeContext.Provider>,
 		);
+		// userEvent.click(screen.getByTestId('CalendarPicker'));
 
 		// then
-		expect(wrapper.find(CalendarPicker).at(0).props()).toMatchObject({
-			manageFocus: true,
-			onSubmit: managerValue.pickerManagement.onStartChange,
-			other: 'custom props',
-			selectedDate: new Date(2007, 0, 2),
-			endDate: new Date(2007, 1, 2),
-			t: expect.any(Function),
-			focusedInput: 'startDate',
-		});
+		expect(screen.getByLabelText('Date picker')).toBeVisible();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should call manager onSubmit callback on picker submission', () => {
+	it('should call manager onSubmit callback on picker submission', async () => {
 		// given
 		const managerValue = {
 			startDate: {
@@ -53,7 +46,7 @@ describe('DateRange.Picker', () => {
 			},
 		};
 
-		const wrapper = mount(
+		render(
 			<DateRangeContext.Provider value={managerValue}>
 				<Picker focusedInput="startDate" />
 			</DateRangeContext.Provider>,
@@ -61,7 +54,7 @@ describe('DateRange.Picker', () => {
 		expect(managerValue.pickerManagement.onStartChange).not.toBeCalled();
 
 		// when
-		wrapper.find(CalendarPicker).prop('onSubmit')();
+		await userEvent.click(screen.getByLabelText('Monday 01 January 2007'));
 
 		// then
 		expect(managerValue.pickerManagement.onStartChange).toBeCalled();

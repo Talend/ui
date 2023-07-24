@@ -1,5 +1,6 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
+import tokens from '@talend/design-tokens';
+
 import RadarChart from '.';
 
 const ExampleDataSingle = [
@@ -27,10 +28,10 @@ const ExampleDataClickable = [
 ];
 
 const chartDomain = [0, 5];
-const activeAxis = 2;
 
 export default {
-	title: 'Data/Dataviz/RadarChart',
+	title: 'Components/Dataviz/RadarChart',
+	parameters: { chromatic: { disableSnapshot: true } },
 };
 
 export const RadarChartSingle = () => (
@@ -43,8 +44,8 @@ export const RadarChartSingle = () => (
 				name="Trust score"
 				dataKey="A"
 				dot={true}
-				stroke="#19426c"
-				fill="#19426c"
+				stroke={tokens.coralColorChartsDefault}
+				fill={tokens.coralColorChartsDefault}
 				fillOpacity={0.1}
 			/>
 		</RadarChart>
@@ -61,16 +62,16 @@ export const RadarChartMultiple = () => (
 				name="Trust score 2019"
 				dataKey="A"
 				dot={false}
-				stroke="#19426c"
-				fill="#19426c"
+				stroke={tokens.coralColorChartsDefault}
+				fill={tokens.coralColorChartsDefault}
 				fillOpacity={0.1}
 			/>
 			<RadarChart.Radar
 				name="Trust score 2020"
 				dataKey="B"
 				dot={false}
-				stroke="#EA8330"
-				fill="#EA8330"
+				stroke={tokens.coralColorChartsWarning}
+				fill={tokens.coralColorChartsWarning}
 				fillOpacity={0.1}
 			/>
 		</RadarChart>
@@ -90,10 +91,10 @@ export const RadarChartClickableLabel = () => (
 			<RadarChart.Radar
 				dataKey="A"
 				dot={false}
-				fill="#19426c"
+				stroke={tokens.coralColorChartsDefault}
+				fill={tokens.coralColorChartsDefault}
 				fillOpacity={0.1}
 				name="Trust score"
-				stroke="#19426c"
 			/>
 		</RadarChart>
 	</div>
@@ -108,10 +109,10 @@ export const RadarChartClickableDot = () => (
 			<RadarChart.Radar
 				dataKey="A"
 				dot={<RadarChart.DotWithClick activeAxis={2} onClick={action('Axis dot was clicked')} />}
-				fill="#19426c"
+				stroke={tokens.coralColorChartsDefault}
+				fill={tokens.coralColorChartsDefault}
 				fillOpacity={0.1}
 				name="Trust score"
-				stroke="#19426c"
 			/>
 		</RadarChart>
 	</div>
@@ -126,10 +127,10 @@ export const RadarChartCustomDot = () => (
 			<RadarChart.Radar
 				dataKey="A"
 				dot={<RadarChart.Dot activeAxis={2} />}
-				fill="#19426c"
+				stroke={tokens.coralColorChartsDefault}
+				fill={tokens.coralColorChartsDefault}
 				fillOpacity={0.1}
 				name="Trust score"
-				stroke="#19426c"
 			/>
 		</RadarChart>
 

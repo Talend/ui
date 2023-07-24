@@ -1,5 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Toggle from './TextMode.component';
 
@@ -8,9 +7,15 @@ describe('Toggle field in text mode', () => {
 
 	it('should render the Toggle', () => {
 		// when
-		const wrapper = shallow(<Toggle id="myForm" schema={schema} value />);
+		const props = {
+			id: 'myForm',
+			schema,
+			value: true,
+			onChange: jest.fn(),
+		};
+		const { container } = render(<Toggle {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

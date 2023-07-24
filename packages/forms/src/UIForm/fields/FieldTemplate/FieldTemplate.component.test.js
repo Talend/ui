@@ -1,7 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 
 import FieldTemplate from './FieldTemplate.component';
+
+jest.unmock('@talend/design-system');
+jest.mock('ally.js');
 
 describe('FieldTemplate', () => {
 	const defaultProps = {
@@ -14,37 +16,40 @@ describe('FieldTemplate', () => {
 		label: 'My awesome label',
 	};
 
-	it('should render with label before', () => {
+	it('should render', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<FieldTemplate {...defaultProps}>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		const input = screen.getByRole('textbox');
+		const label = screen.getByText('My awesome label');
+		expect(label.nextSibling).toBe(input);
 	});
 
 	it('should render with label after', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<FieldTemplate {...defaultProps} labelAfter>
-				<input id="myAwesomeField" />
+				<input type="text" id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const input = screen.getByRole('textbox');
+		const label = screen.getByText('My awesome label');
+		expect(input.nextSibling).toBe(label);
 	});
 
 	it('should render with hint', () => {
-		const tooltipContent = (
-			<span>Tooltip content, which helps to understand what is the purpose of this field</span>
-		);
+		const tooltipContent = <span>Tooltip content</span>;
 
 		// when
-		const wrapper = shallow(
+		render(
 			<FieldTemplate
 				{...defaultProps}
 				hint={{
@@ -57,42 +62,43 @@ describe('FieldTemplate', () => {
 		);
 
 		// then
-		expect(wrapper.find('Popover').getElement()).toMatchSnapshot();
+		expect(screen.getByText('Tooltip content')).toBeInTheDocument();
 	});
 
 	it('should render invalid className', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<FieldTemplate {...defaultProps} isValid={false}>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toHaveClass('has-error');
 	});
 
 	it('should add animation on value with updating status', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<FieldTemplate {...defaultProps} isValid={false} valueIsUpdating>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toHaveAttribute('aria-busy', 'true');
+		expect(container.firstChild).toHaveClass('theme-updating');
 	});
 
 	it('should pass label props to the label', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<FieldTemplate {...defaultProps} labelProps={{ className: 'custom-label-class' }}>
 				<input id="myAwesomeField" />
 			</FieldTemplate>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('My awesome label')).toHaveClass('custom-label-class');
 	});
 });

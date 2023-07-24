@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { Token } from '../../../../../../src/tokens/types';
 import styles from './DefinitionListItem.module.scss';
 import TokenName from '../../../TokenName';

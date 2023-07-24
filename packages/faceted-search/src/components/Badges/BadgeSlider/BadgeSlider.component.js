@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 
@@ -88,7 +88,7 @@ BadgeSlider.propTypes = {
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
 	t: PropTypes.func.isRequired,
-	value: PropTypes.string,
+	value: PropTypes.number,
 	category: PropTypes.string,
 	defaultValue: PropTypes.number,
 	unit: PropTypes.string,

@@ -988,7 +988,7 @@
   "uuid": {
     "var": "uuid",
     "versions": {
-      ">= 7.0.0": {
+      ">= 7.0.0 < 9.0.0": {
         "development": "/dist/umd/uuid.min.js",
         "production": "/dist/umd/uuid.min.js"
       }

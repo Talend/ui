@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
+import { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line @talend/import-depth

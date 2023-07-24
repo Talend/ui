@@ -1,4 +1,3 @@
-import React from 'react';
 import '../dist/talend-icons-webfont.css';
 import { info as icons } from '../dist/info';
 
@@ -7,7 +6,7 @@ function I({ className }: { className: string }) {
 }
 
 export default {
-	title: 'Icons font',
+	title: 'Icons/Icons font',
 	parameters: {},
 	component: I,
 };

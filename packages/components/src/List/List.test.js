@@ -1,11 +1,16 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import List from './List.component';
-import toJsonWithoutI18n from '../../test/props-without-i18n';
 
 const listProps = {
-	columns: [{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }],
-	items: [{ id: 1, name: 'Hello world' }, { id: 2, name: 'Foo' }, { id: 3, name: 'Bar' }],
+	columns: [
+		{ key: 'id', label: 'Id' },
+		{ key: 'name', label: 'Name' },
+	],
+	items: [
+		{ id: 1, name: 'Hello world' },
+		{ id: 2, name: 'Foo' },
+		{ id: 3, name: 'Bar' },
+	],
 	itemProps: {
 		isSelected: () => false,
 		onToggleAll: jest.fn(),
@@ -23,7 +28,10 @@ const toolbarProps = {
 	sort: {
 		field: 'name',
 		onChange: jest.fn(),
-		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'name', name: 'Name' },
+		],
 	},
 	pagination: {
 		startIndex: 6,
@@ -45,21 +53,24 @@ const props = {
 
 describe('List', () => {
 	it('should render', () => {
-		const wrapper = mount(<List {...props} />);
-		expect(toJsonWithoutI18n(wrapper.find('.tc-list'))).toMatchSnapshot();
+		const { container } = render(<List {...props} />);
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('toolbar')).toBeInTheDocument();
+		expect(screen.getByRole('grid')).toBeInTheDocument();
 	});
 
-	it('should render id if provided', () => {
+	it('should render with computed id if provided', () => {
 		const tProps = {
 			id: 'context',
 			...props,
 		};
-		const wrapper = mount(<List {...tProps} />);
-		expect(toJsonWithoutI18n(wrapper.find('.tc-list'))).toMatchSnapshot();
+		render(<List {...tProps} />);
+		expect(screen.getByRole('grid')).toHaveAttribute('id', 'context');
+		expect(screen.getByRole('checkbox')).toHaveAttribute('id', 'context-header-check');
 	});
 
 	it('should not render the toolbar without toolbar props', () => {
-		const wrapper = mount(<List displayMode="table" list={listProps} />);
-		expect(toJsonWithoutI18n(wrapper.find('.tc-list'))).toMatchSnapshot();
+		render(<List displayMode="table" list={listProps} />);
+		expect(screen.queryByRole('toolbar')).not.toBeInTheDocument();
 	});
 });

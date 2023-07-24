@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
+import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 

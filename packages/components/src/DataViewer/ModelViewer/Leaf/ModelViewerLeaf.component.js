@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import noop from 'lodash/noop';
 import PropTypes from 'prop-types';
-import React from 'react';
 import getDefaultT from '../../../translate';
 import { SimpleTextKeyValue } from '../../Text';
 import theme from '../ModelViewer.module.scss';
@@ -71,7 +70,7 @@ export function ModelViewerLeaf({
 					theme['tc-model-leaf-button'],
 					'tc-model-leaf-button',
 				)}
-				key="main"
+				data-testid="model-leaf-button"
 				onClick={onClickLeaf}
 			/>
 			<SimpleTextKeyValue
@@ -81,7 +80,7 @@ export function ModelViewerLeaf({
 			/>
 
 			<span className={classNames(theme['tc-model-leaf-options'], 'tc-model-leaf-options')}>
-				{renderLeafOptions && renderLeafOptions(value)}
+				{renderLeafOptions ? renderLeafOptions(value) : null}
 			</span>
 		</span>
 	);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useMemo, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import debounce from 'lodash/debounce';
@@ -21,6 +21,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 	'startDateTime',
 	'endDateTime',
+	'isDisabledChecker',
 ];
 
 function InputDateTimeRangePicker(props) {
@@ -41,7 +42,7 @@ function InputDateTimeRangePicker(props) {
 		[theme['date-time-range-picker-inline']]: isDisplayInline,
 	});
 
-	const showHorizontalAndTest = React.useMemo(() => {
+	const showHorizontalAndTest = useMemo(() => {
 		return function showHorizontal() {
 			if (vertical) {
 				setVertical(false);
@@ -77,7 +78,7 @@ function InputDateTimeRangePicker(props) {
 			<DateTimeRangeContext.Consumer>
 				{({ startDateTime, endDateTime, onStartChange, onEndChange }) => (
 					<div className={className} ref={containerRef}>
-						<div className="range-input">
+						<div className="range-input" data-testid="range-start">
 							<label htmlFor={props.id} className="control-label">
 								{props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
 							</label>
@@ -96,7 +97,7 @@ function InputDateTimeRangePicker(props) {
 						<span className={classnames(theme.arrow, 'arrow')}>
 							<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
 						</span>
-						<div className="range-input">
+						<div className="range-input" data-testid="range-end">
 							<label htmlFor={props.id} className="control-label">
 								{props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
 							</label>

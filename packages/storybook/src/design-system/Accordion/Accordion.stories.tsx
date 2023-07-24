@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story } from '@storybook/react';
 
 import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '@talend/design-system';
@@ -21,6 +20,26 @@ const SampleParagraph = () => (
 export const SimpleCollapsiblePanel = () => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 		<CollapsiblePanel title="Simple panel">
+			<SampleParagraph />
+		</CollapsiblePanel>
+	</div>
+);
+
+export const StatusCollapsiblePanel = () => (
+	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+		<CollapsiblePanel status="successful">
+			<SampleParagraph />
+		</CollapsiblePanel>
+		<CollapsiblePanel status="failed">
+			<SampleParagraph />
+		</CollapsiblePanel>
+		<CollapsiblePanel status="inProgress">
+			<SampleParagraph />
+		</CollapsiblePanel>
+		<CollapsiblePanel status="warning">
+			<SampleParagraph />
+		</CollapsiblePanel>
+		<CollapsiblePanel status="canceled">
 			<SampleParagraph />
 		</CollapsiblePanel>
 	</div>
@@ -65,7 +84,7 @@ export const WithMetadata = () => (
 			</CollapsiblePanel>
 			<CollapsiblePanel
 				title="Simple panel with several metadata and action"
-				metadata={['Duration : 3sec', <TagSuccess key="successTag">Succes</TagSuccess>]}
+				metadata={['Duration : 3sec', <TagSuccess key="successTag">Success</TagSuccess>]}
 				action={{
 					icon: 'plus',
 					tooltip: 'action tooltip',

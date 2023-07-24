@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import { Tab as ReakitTab, TabState } from 'reakit';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth

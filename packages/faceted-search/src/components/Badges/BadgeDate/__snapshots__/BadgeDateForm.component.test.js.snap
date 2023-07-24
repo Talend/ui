@@ -1,0 +1,807 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeDateForm should mount a badge and change date 1`] = `
+<form
+  class="tc-badge-date-form theme-tc-badge-date-form"
+  id="customId-date-"
+>
+  <div
+    class="theme-body tc-tooltip-body tc-badge-date-form-body theme-tc-badge-date-form-body"
+    id="customId-badge-body"
+  >
+    <div
+      class="theme-content tc-tooltip-content"
+      id="customId-badge-body-content"
+    >
+      <div
+        class="tc-badge-date-form-input-container theme-tc-badge-date-form-input-container"
+      >
+        <label
+          class="tc-badge-date-form-label theme-tc-badge-date-form-label"
+          for="customId-date-input"
+        >
+          Select a date
+        </label>
+        <input
+          autocomplete="off"
+          class="form-control"
+          id="customId-date-input"
+          placeholder="Type here"
+          style="width: 5px;"
+          type="text"
+          value="2011-11-18"
+        />
+        <span
+          data-testid="InputSizer"
+          style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
+        >
+          YYYY-MM-DD
+        </span>
+      </div>
+      <div
+        class="tc-badge-date-form-picker-container theme-tc-badge-date-form-picker-container"
+      >
+        <div
+          aria-label="Date picker"
+          class="theme-container"
+          tabindex="-1"
+        >
+          <div
+            class="theme-container"
+          >
+            <div
+              class="theme-header"
+            >
+              <div
+                class="theme-element-container theme-left"
+              >
+                <button
+                  aria-describedby="id-42"
+                  aria-label="Go to previous month"
+                  class="theme-clickable theme-buttonIcon theme-size_S"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="theme-buttonIcon__icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      pointer-events="none"
+                      shape-rendering="geometricPrecision"
+                      style="width: 1.6rem; height: 1.6rem;"
+                    >
+                      <use
+                        xlink:href="#arrow-left:M"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div
+                class="theme-element-container theme-middle"
+              >
+                <button
+                  aria-label="Switch to month-and-year view"
+                  class="theme-common theme-button btn-tertiary btn-info btn btn-default"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span>
+                    November 2011
+                  </span>
+                </button>
+              </div>
+              <div
+                class="theme-element-container theme-right"
+              >
+                <button
+                  aria-describedby="id-42"
+                  aria-label="Go to next month"
+                  class="theme-clickable theme-buttonIcon theme-size_S"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="theme-buttonIcon__icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      pointer-events="none"
+                      shape-rendering="geometricPrecision"
+                      style="width: 1.6rem; height: 1.6rem;"
+                    >
+                      <use
+                        xlink:href="#arrow-right:M"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="theme-element-container theme-body"
+            >
+              <div
+                class="theme-body"
+              >
+                <div
+                  class="theme-date"
+                >
+                  <div>
+                    <table
+                      class="theme-container"
+                    >
+                      <caption
+                        class="sr-only"
+                      >
+                        November 2011
+                      </caption>
+                      <thead>
+                        <tr
+                          class="theme-calendar-header"
+                        >
+                          <th
+                            scope="col"
+                          >
+                            <abbr
+                              title="Monday"
+                            >
+                              M
+                            </abbr>
+                          </th>
+                          <th
+                            scope="col"
+                          >
+                            <abbr
+                              title="Tuesday"
+                            >
+                              T
+                            </abbr>
+                          </th>
+                          <th
+                            scope="col"
+                          >
+                            <abbr
+                              title="Wednesday"
+                            >
+                              W
+                            </abbr>
+                          </th>
+                          <th
+                            scope="col"
+                          >
+                            <abbr
+                              title="Thursday"
+                            >
+                              T
+                            </abbr>
+                          </th>
+                          <th
+                            scope="col"
+                          >
+                            <abbr
+                              title="Friday"
+                            >
+                              F
+                            </abbr>
+                          </th>
+                          <th
+                            scope="col"
+                          >
+                            <abbr
+                              title="Saturday"
+                            >
+                              S
+                            </abbr>
+                          </th>
+                          <th
+                            scope="col"
+                          >
+                            <abbr
+                              title="Sunday"
+                            >
+                              S
+                            </abbr>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          class="theme-calendar-row tc-date-picker-calendar-row"
+                        >
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Monday 31 October 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              31
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Tuesday 01 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="1"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              1
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Wednesday 02 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="2"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              2
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Thursday 03 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="3"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              3
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Friday 04 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="4"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              4
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Saturday 05 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="5"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              5
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Sunday 06 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="6"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              6
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="theme-calendar-row tc-date-picker-calendar-row"
+                        >
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Monday 07 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="7"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              7
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Tuesday 08 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="8"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              8
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Wednesday 09 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="9"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              9
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Thursday 10 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="10"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              10
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Friday 11 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="11"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              11
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Saturday 12 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="12"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              12
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Sunday 13 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="13"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              13
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="theme-calendar-row tc-date-picker-calendar-row"
+                        >
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Monday 14 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="14"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              14
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Tuesday 15 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="15"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              15
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Wednesday 16 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="16"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              16
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Thursday 17 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="17"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              17
+                            </button>
+                          </td>
+                          <td
+                            aria-current="date"
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Friday 18 November 2011, selected"
+                              class="theme-calendar-day theme-selected tc-date-picker-day"
+                              data-value="18"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              18
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Saturday 19 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="19"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              19
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Sunday 20 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="20"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              20
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="theme-calendar-row tc-date-picker-calendar-row"
+                        >
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Monday 21 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="21"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              21
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Tuesday 22 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="22"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              22
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Wednesday 23 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="23"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              23
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Thursday 24 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="24"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              24
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Friday 25 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="25"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              25
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Saturday 26 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="26"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              26
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Sunday 27 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="27"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              27
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="theme-calendar-row tc-date-picker-calendar-row"
+                        >
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Monday 28 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="28"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              28
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Tuesday 29 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="29"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              29
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Wednesday 30 November 2011"
+                              class="theme-calendar-day tc-date-picker-day"
+                              data-value="30"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              30
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Thursday 01 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              1
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Friday 02 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              2
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Saturday 03 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              3
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Sunday 04 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              4
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="theme-calendar-row tc-date-picker-calendar-row"
+                        >
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Monday 05 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              5
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Tuesday 06 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              6
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Wednesday 07 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              7
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Thursday 08 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              8
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Friday 09 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              9
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Saturday 10 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              10
+                            </button>
+                          </td>
+                          <td
+                            class="theme-calendar-col"
+                          >
+                            <button
+                              aria-label="Sunday 11 December 2011"
+                              class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              11
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="theme-footer theme-date-padding"
+          >
+            <button
+              aria-label="Pick Today"
+              class="btn-tertiary btn-info btn btn-default"
+              tabindex="-1"
+              type="button"
+            >
+              <span>
+                Today
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-label="Apply"
+        class="tc-badge-date-form-submit theme-tc-badge-date-form-submit btn btn-info"
+        data-feature="filter.data.add"
+        type="submit"
+      >
+        <span>
+          Apply
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;

@@ -1,4 +1,4 @@
-import React, { forwardRef, MouseEvent, ReactNode, Ref } from 'react';
+import { forwardRef, MouseEvent, ReactNode, Ref } from 'react';
 import classnames from 'classnames';
 import {
 	Clickable as ReakitClickable,

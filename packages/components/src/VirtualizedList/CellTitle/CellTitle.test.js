@@ -1,10 +1,18 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-
+/* eslint-disable mdx/no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { screen, render } from '@testing-library/react';
 import CellTitle from './CellTitle.component';
 
+jest.unmock('@talend/design-system');
+jest.mock('../../TooltipTrigger', () => props => (
+	<div data-testid="TooltipTrigger" aria-label={props.label}>
+		{props.children}
+	</div>
+));
 describe('CellTitle', () => {
-	it('should render title selector component', () => {
+	it('should render', () => {
 		// given
 		const columnData = {
 			iconKey: 'icon',
@@ -22,7 +30,7 @@ describe('CellTitle', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<CellTitle
 				cellData="my awesome title"
 				columnData={columnData}
@@ -33,7 +41,7 @@ describe('CellTitle', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should use column data as function', () => {
@@ -51,7 +59,7 @@ describe('CellTitle', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<CellTitle
 				cellData="my awesome title"
 				columnData={columnData}
@@ -62,10 +70,10 @@ describe('CellTitle', () => {
 		);
 
 		// then
-		expect(wrapper.find('button').at(0).prop('data-feature')).toBe('list.click.1');
+		expect(screen.getByRole('link')).toHaveAttribute('data-feature', 'list.click.1');
 	});
 
-	it('should render without active class if no onClick on the title', () => {
+	it('should render without button if no onClick on the title', () => {
 		// given
 		const columnData = {
 			iconKey: 'icon',
@@ -82,7 +90,7 @@ describe('CellTitle', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<CellTitle
 				cellData="my awesome title"
 				columnData={columnData}
@@ -93,7 +101,8 @@ describe('CellTitle', () => {
 		);
 
 		// then
-		expect(wrapper.props().className).toBe('theme-tc-list-title tc-list-title');
+		expect(screen.queryByRole('link')).not.toBeInTheDocument();
+		expect(screen.getByText('my awesome title')).toBeVisible();
 	});
 
 	describe('icon', () => {
@@ -111,7 +120,7 @@ describe('CellTitle', () => {
 			};
 
 			// when
-			const wrapper = shallow(
+			render(
 				<CellTitle
 					cellData="my awesome title"
 					columnData={columnData}
@@ -122,7 +131,8 @@ describe('CellTitle', () => {
 			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.getByText('my awesome title')).toBeVisible();
+			expect(document.querySelector('.tc-icon')).not.toBeInTheDocument();
 		});
 
 		it('should NOT render the icon when the rowData has no icon value', () => {
@@ -137,7 +147,7 @@ describe('CellTitle', () => {
 			};
 
 			// when
-			const wrapper = shallow(
+			render(
 				<CellTitle
 					cellData="my awesome title"
 					columnData={columnData}
@@ -148,7 +158,8 @@ describe('CellTitle', () => {
 			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.getByText('my awesome title')).toBeVisible();
+			expect(document.querySelector('.tc-icon')).not.toBeInTheDocument();
 		});
 
 		it('should render icon with tooltip when iconLabelKey is provided and the rowData has tooltip label value', () => {
@@ -161,7 +172,7 @@ describe('CellTitle', () => {
 				...rowData,
 				iconTooltipLabel: 'My tooltip label', // no icon name value
 			};
-			const wrapper = shallow(
+			render(
 				<CellTitle
 					cellData="my awesome title"
 					columnData={columnData}
@@ -170,7 +181,12 @@ describe('CellTitle', () => {
 					rowIndex={1}
 				/>,
 			);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.getByText('my awesome title')).toBeVisible();
+			expect(document.querySelector('.tc-icon')).toBeInTheDocument();
+			expect(screen.getAllByTestId('TooltipTrigger')[0]).toHaveAttribute(
+				'aria-label',
+				'My tooltip label',
+			);
 		});
 	});
 
@@ -191,6 +207,11 @@ describe('CellTitle', () => {
 				},
 			],
 		};
+		function getComponent() {
+			return ({ label, onClick }) => {
+				return <button onClick={onClick}>{label}</button>;
+			};
+		}
 
 		it('should render the actions', () => {
 			// given
@@ -200,18 +221,20 @@ describe('CellTitle', () => {
 			};
 
 			// when
-			const wrapper = shallow(
+			render(
 				<CellTitle
 					cellData="my awesome title"
 					columnData={columnData}
-					getComponent={jest.fn()}
+					getComponent={getComponent}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
 			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.getAllByRole('button')).toHaveLength(2);
+			expect(screen.getAllByRole('button')[0]).toHaveTextContent('edit');
+			expect(screen.getAllByRole('button')[1]).toHaveTextContent('delete');
 		});
 
 		it('should NOT render the actions when no actions key is provided', () => {
@@ -222,18 +245,18 @@ describe('CellTitle', () => {
 			};
 
 			// when
-			const wrapper = shallow(
+			render(
 				<CellTitle
 					cellData="my awesome title"
 					columnData={columnData}
-					getComponent={jest.fn()}
+					getComponent={getComponent}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
 			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.queryByRole('button')).not.toBeInTheDocument();
 		});
 
 		it('should NOT render the actions when cell is disabled', () => {
@@ -246,18 +269,18 @@ describe('CellTitle', () => {
 			};
 
 			// when
-			const wrapper = shallow(
+			render(
 				<CellTitle
 					cellData="my awesome title"
 					columnData={columnData}
-					getComponent={jest.fn()}
+					getComponent={getComponent}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
 			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.queryByRole('button')).not.toBeInTheDocument();
 		});
 
 		it('should NOT render the actions when rowData has no actions', () => {
@@ -272,18 +295,18 @@ describe('CellTitle', () => {
 			};
 
 			// when
-			const wrapper = shallow(
+			render(
 				<CellTitle
 					cellData="my awesome title"
 					columnData={columnData}
-					getComponent={jest.fn()}
+					getComponent={getComponent}
 					rowData={noActionsRowData}
 					rowIndex={1}
 				/>,
 			);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.queryByRole('button')).not.toBeInTheDocument();
 		});
 	});
 });

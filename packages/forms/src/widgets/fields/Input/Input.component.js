@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import FieldTemplate from '../../templates/FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../templates/utils';
 
-const Input = React.forwardRef((props, ref) => {
+const Input = forwardRef((props, ref) => {
 	const { className, description, error, inProgress, label, ...rest } = props;
 	const { id, required } = rest;
 
@@ -34,6 +34,8 @@ const Input = React.forwardRef((props, ref) => {
 		</FieldTemplate>
 	);
 });
+
+Input.displayName = 'Input';
 
 if (process.env.NODE_ENV !== 'production') {
 	Input.propTypes = {

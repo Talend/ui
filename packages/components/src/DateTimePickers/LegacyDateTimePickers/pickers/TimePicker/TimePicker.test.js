@@ -1,177 +1,136 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { FIELD_MINUTES, FIELD_HOURS } from '../../DateTime/constants';
-
-// ensure you're resetting modules before each test
-beforeEach(() => {
-	jest.resetModules();
-});
-
-// Takes the context data we want to test, or uses defaults
-const getTimePickerWithContext = (
-	errorContext = {
-		hasError: () => false,
-		onInputFocus: jest.fn(),
-		hoursErrorId: 'error-hours',
-		minutesErrorId: 'error-minutes',
-		secondsErrorId: 'error-seconds',
-	},
-) => {
-	// Will then mock the LocalizeContext module being used in our LanguageSelector component
-	/* eslint-disable */
-	jest.doMock('../../DateTime/Context', () => ({
-		DateTimeContext: {
-			Consumer: props =>
-				props.children({
-					errorManagement: errorContext,
-				}),
-		},
-	}));
-
-	// you need to re-require after calling jest.doMock.
-	// return the updated TimePicker module that now includes the mocked context
-	return require('./TimePicker.component').default;
-	/* eslint-enable */
-};
+import TimePicker from './TimePicker.component';
+import { DateTimeContext } from '../../DateTime/Context';
 
 describe('TimePicker', () => {
+	const providerValue = {
+		errorManagement: {
+			hasError: () => false,
+			onInputFocus: jest.fn(),
+			hoursErrorId: 'error-hours',
+			minutesErrorId: 'error-minutes',
+			secondsErrorId: 'error-seconds',
+		},
+	};
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 	it('should render', () => {
-		const TimePicker = getTimePickerWithContext();
 		// when
-		const wrapper = shallow(
-			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} />,
+		const { container } = render(
+			<DateTimeContext.Provider value={providerValue}>
+				<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} />
+			</DateTimeContext.Provider>,
 		);
 
 		// then
-		expect(
-			wrapper
-				.dive()
-				.find('.tc-date-picker-time')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render with error', () => {
-		const TimePicker = getTimePickerWithContext({
-			hasError: () => true,
-			hoursErrorId: 'hoursErrorId',
-			minutesErrorId: 'minutesErrorId',
-			secondsErrorId: 'secondsErrorId',
-		});
+		providerValue.errorManagement.hasError = () => true;
 		// when
-		const wrapper = shallow(
-			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useSeconds />,
+		render(
+			<DateTimeContext.Provider value={providerValue}>
+				<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useSeconds />,
+			</DateTimeContext.Provider>,
 		);
 
 		// then
-		expect(
-			wrapper
-				.dive()
-				.find('.tc-date-picker-time')
-				.getElement(),
-		).toMatchSnapshot();
+		const hour = screen.getByRole('textbox', { name: 'hours' });
+		expect(hour).toHaveAttribute('aria-invalid', 'true');
+		expect(hour).toHaveAttribute('aria-describedby', 'error-hours');
+		expect(hour).toHaveClass('theme-time-error');
+		const minutes = screen.getByRole('textbox', { name: 'minutes' });
+		expect(minutes).toHaveAttribute('aria-invalid', 'true');
+		expect(minutes).toHaveAttribute('aria-describedby', 'error-minutes');
+		expect(minutes).toHaveClass('theme-time-error');
 	});
 
 	it('should render UTC legend', () => {
 		// when
-		const TimePicker = getTimePickerWithContext();
-		const wrapper = shallow(
-			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useUTC />,
+		render(
+			<DateTimeContext.Provider value={providerValue}>
+				<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useUTC />
+			</DateTimeContext.Provider>,
 		);
 
 		// then
-		expect(
-			wrapper
-				.dive()
-				.find('legend')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(screen.getByText('UTC')).toBeVisible();
 	});
 
-	it('should trigger onChange on hours change', () => {
+	it('should trigger onChange on hours change', async () => {
 		// given
-		const TimePicker = getTimePickerWithContext({
-			hasError: () => true,
-			hoursErrorId: 'hoursErrorId',
-			minutesErrorId: 'minutesErrorId',
-			secondsErrorId: 'secondsErrorId',
-		});
+		jest.useFakeTimers();
+		providerValue.errorManagement.hasError = () => true;
 		const onChange = jest.fn();
-		const wrapper = shallow(
-			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
+		render(
+			<DateTimeContext.Provider value={providerValue}>
+				<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />
+			</DateTimeContext.Provider>,
 		);
 
-		const event = { target: { value: '17' } };
 		expect(onChange).not.toBeCalled();
 
 		// when
-		wrapper
-			.dive()
-			.find('DebounceInput')
-			.at(0)
-			.simulate('change', event);
+		const hours = screen.getAllByRole('textbox')[0];
+		hours.value = ''; // clear current value
+		await userEvent.click(hours);
+		await userEvent.keyboard('17');
+		jest.runAllTimers();
 
 		// then
-		expect(onChange).toBeCalledWith(event, { hours: '17', minutes: '38' }, FIELD_HOURS);
+		expect(onChange).toBeCalledWith(expect.anything(), { hours: '17', minutes: '38' }, FIELD_HOURS);
 	});
 
 	it('should trigger onChange on minutes change', () => {
 		// given
-		const TimePicker = getTimePickerWithContext();
+		jest.useFakeTimers();
 		const onChange = jest.fn();
-		const wrapper = shallow(
-			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
+		render(
+			<DateTimeContext.Provider value={providerValue}>
+				<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />
+			</DateTimeContext.Provider>,
 		);
-		const event = { target: { value: '17' } };
 		expect(onChange).not.toBeCalled();
 
 		// when
-		wrapper
-			.dive()
-			.find('DebounceInput')
-			.at(1)
-			.simulate('change', event);
+		const minutes = screen.getAllByRole('textbox')[1];
+		minutes.value = ''; // clear current value
+		userEvent.click(minutes);
+		userEvent.keyboard('17');
+		jest.runAllTimers();
 
 		// then
-		expect(onChange).toBeCalledWith(event, { hours: '15', minutes: '17' }, FIELD_MINUTES);
+		expect(onChange).toBeCalledWith(
+			expect.anything(),
+			{ hours: '15', minutes: '17' },
+			FIELD_MINUTES,
+		);
 	});
 
 	it('should manage tabIndex', () => {
 		// given
-		const TimePicker = getTimePickerWithContext();
-		const wrapper = shallow(<TimePicker onChange={jest.fn()} />);
-		expect(
-			wrapper
-				.dive()
-				.find('DebounceInput')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
-		expect(
-			wrapper
-				.dive()
-				.find('DebounceInput')
-				.at(1)
-				.prop('tabIndex'),
-		).toBe(-1);
+		const { rerender } = render(
+			<DateTimeContext.Provider value={providerValue}>
+				<TimePicker onChange={jest.fn()} />
+			</DateTimeContext.Provider>,
+		);
+		let [hours, minutes] = screen.getAllByRole('textbox');
+		expect(hours).toHaveAttribute('tabIndex', '-1');
+		expect(minutes).toHaveAttribute('tabIndex', '-1');
 
 		// when
-		wrapper.setProps({ allowFocus: true });
+		rerender(
+			<DateTimeContext.Provider value={providerValue}>
+				<TimePicker onChange={jest.fn()} allowFocus />
+			</DateTimeContext.Provider>,
+		);
 
 		// then
-		expect(
-			wrapper
-				.dive()
-				.find('DebounceInput')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(0);
-		expect(
-			wrapper
-				.dive()
-				.find('DebounceInput')
-				.at(1)
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(hours).toHaveAttribute('tabIndex', '0');
+		expect(minutes).toHaveAttribute('tabIndex', '0');
 	});
 });

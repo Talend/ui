@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src/UIForm';
 
@@ -213,7 +212,7 @@ const schema = {
 };
 
 export default {
-	title: 'Core Concepts/Display Mode',
+	title: 'Forms/Display Mode',
 };
 
 export function TextMode() {

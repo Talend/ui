@@ -1,18 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { mount } from 'enzyme';
+/* eslint-disable react/prop-types */
+import { screen, render, within } from '@testing-library/react';
 import useCollectionActions from './useCollectionActions.hook';
 
-const Div = () => <div />;
 function ActionComponent({ collection, actions, persistentActions }) {
 	const hookCollection = useCollectionActions(collection, actions, persistentActions);
-	return <Div id="mainChild" collection={hookCollection} />;
+	return (
+		<div data-testid="ActionComponent" data-collection={JSON.stringify(hookCollection)}>
+			{hookCollection.map(item => (
+				<div key={item.number} data-testid={item.number}>
+					{item.firstName}
+					{(item.actions || []).map(action => (
+						<button key={action.label} id={action.id} onClick={action.onClick}>
+							{action.label}
+						</button>
+					))}
+					{(item.persistentActions || []).map(action => (
+						<button key={action.label} id={action.id} onClick={action.onClick}>
+							{action.label}
+						</button>
+					))}
+				</div>
+			))}
+		</div>
+	);
 }
-ActionComponent.propTypes = {
-	collection: PropTypes.array,
-	actions: PropTypes.array,
-	persistentActions: PropTypes.array,
-};
 
 const collection = [
 	{
@@ -46,12 +57,12 @@ export const actions = [
 	{
 		id: 'edit',
 		label: 'Edit',
-		onClick: () => {},
+		onClick: jest.fn(),
 	},
 	{
 		id: 'delete',
 		label: 'Delete',
-		onClick: () => {},
+		onClick: jest.fn(),
 	},
 ];
 
@@ -59,19 +70,19 @@ export const persistentActions = [
 	{
 		label: 'favorite',
 		icon: 'talend-star',
-		onClick: () => {},
+		onClick: jest.fn(),
 	},
 	{
 		label: 'certify',
 		icon: 'talend-badge',
-		onClick: () => {},
+		onClick: jest.fn(),
 	},
 ];
 
 describe('useCollectionFilter', () => {
 	it('should insert actions in collection items', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<ActionComponent
 				collection={collection}
 				actions={actions}
@@ -80,10 +91,13 @@ describe('useCollectionFilter', () => {
 		);
 
 		// then
-		const hookCollection = wrapper.find('#mainChild').prop('collection');
-		hookCollection.forEach(item => {
-			expect(item.actions).toBe(actions);
-			expect(item.persistentActions).toBe(persistentActions);
+		collection.forEach(item => {
+			const itemElement = screen.getByText(item.firstName);
+			expect(itemElement).toBeVisible();
+			expect(within(itemElement).getByText('Edit')).toBeVisible();
+			expect(within(itemElement).getByText('Delete')).toBeVisible();
+			expect(within(itemElement).getByText('favorite')).toBeVisible();
+			expect(within(itemElement).getByText('certify')).toBeVisible();
 		});
 	});
 
@@ -115,7 +129,7 @@ describe('useCollectionFilter', () => {
 		];
 
 		// when
-		const wrapper = mount(
+		render(
 			<ActionComponent
 				collection={collection}
 				actions={getActions}
@@ -124,10 +138,9 @@ describe('useCollectionFilter', () => {
 		);
 
 		// then
-		const firstItem = wrapper.find('#mainChild').prop('collection')[0];
-		expect(firstItem.actions[0].label).toBe('Edit Watkins');
-		expect(firstItem.actions[1].label).toBe('Delete Watkins');
-		expect(firstItem.persistentActions[0].label).toBe('Set Watkins as favorite');
-		expect(firstItem.persistentActions[1].label).toBe('Request Watkins certification');
+		expect(screen.getByText('Edit Watkins')).toBeVisible();
+		expect(screen.getByText('Delete Watkins')).toBeVisible();
+		expect(screen.getByText('Set Watkins as favorite')).toBeVisible();
+		expect(screen.getByText('Request Watkins certification')).toBeVisible();
 	});
 });

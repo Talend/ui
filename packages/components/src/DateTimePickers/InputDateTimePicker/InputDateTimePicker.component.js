@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import InputDatePicker from '../InputDatePicker';
@@ -31,6 +30,7 @@ function InputDateTimePicker(props) {
 				{({ date, time, onDateChange, onTimeChange }) => (
 					<div className={theme['date-time-picker']}>
 						<InputDatePicker
+							data-testid="date-picker"
 							id={`${props.id}-date-picker`}
 							readOnly={props.readOnly}
 							disabled={props.disabled}
@@ -44,6 +44,7 @@ function InputDateTimePicker(props) {
 							isDisabledChecker={props.isDisabledChecker}
 						/>
 						<InputTimePicker
+							data-testid="time-picker"
 							id={`${props.id}-time-picker`}
 							readOnly={props.readOnly}
 							disabled={props.disabled}

@@ -1,5 +1,5 @@
-import { shallow } from 'enzyme';
-import React from 'react';
+import { screen, render } from '@testing-library/react';
+
 import Table, {
 	getKeys,
 	getAbsolutePath,
@@ -8,6 +8,18 @@ import Table, {
 } from './Table.component';
 
 describe('Table', () => {
+	beforeEach(() => {
+		Object.defineProperties(window.HTMLElement.prototype, {
+			offsetParent: {
+				get() {
+					return {
+						offsetWith: parseFloat(this.style.width) || 0,
+					};
+				},
+			},
+		});
+	});
+
 	const props = {
 		id: 'my-viewer',
 		title: 'my-viewer',
@@ -20,17 +32,17 @@ describe('Table', () => {
 			dataset: 'toto',
 		};
 		// When
-		const wrapper = shallow(<Table {...props} data={data} />);
+		render(<Table {...props} data={data} />);
 		// Then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.queryByRole('table')).not.toBeInTheDocument();
 	});
 	it('should render if data is empty', () => {
 		// Given
 		const data = [];
 		// When
-		const wrapper = shallow(<Table {...props} data={data} />);
+		render(<Table {...props} data={data} />);
 		// Then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('table')).toBeVisible();
 	});
 	it('should render Table with props data as an object', () => {
 		// Given
@@ -41,17 +53,20 @@ describe('Table', () => {
 			schema,
 		};
 		// When
-		const wrapper = shallow(<Table {...props} data={data} />);
+		const { container } = render(<Table {...props} data={data} />);
 		// Then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('table')).toBeVisible();
+		expect(screen.getAllByRole('row').length).toBe(3);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render Table with props data as an array', () => {
 		// Given
 		const data = [{ field0: 'header1' }, { field1: 'header2' }];
 		// When
-		const wrapper = shallow(<Table {...props} data={data} />);
+		render(<Table {...props} data={data} />);
 		// Then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('table')).toBeVisible();
+		expect(screen.getAllByRole('row').length).toBe(3);
 	});
 	describe('should render table header matching with each data object shape', () => {
 		const moreComplexDataShape = [
@@ -226,32 +241,30 @@ describe('Table', () => {
 
 		it('object with differents keys', () => {
 			// When
-			const wrapper = shallow(<Table {...props} data={moreComplexDataShape} />);
+			render(<Table {...props} data={moreComplexDataShape} />);
 			// Then
-			// control
-			expect(wrapper.find('th#my-viewer-order_id').length).toBe(1);
-			// test
-			expect(wrapper.find('th#my-viewer-phoneNumber').length).toBe(1);
+			expect(screen.getByText('order_id')).toBeVisible();
+			expect(document.querySelector('th#my-viewer-phoneNumber')).toHaveTextContent('phoneNumber');
 		});
 
 		it('object containing arrays of different length', () => {
 			// When
-			const wrapper = shallow(<Table {...props} data={moreComplexDataShape} />);
+			render(<Table {...props} data={moreComplexDataShape} />);
 			// Then
 			// control
-			expect(wrapper.find('th[id="my-viewer-products[0].id"]').length).toBe(1);
+			expect(document.querySelectorAll('th[id="my-viewer-products[0].id"]').length).toBe(1);
 			// test
-			expect(wrapper.find('th[id="my-viewer-products[4].id"]').length).toBe(1);
+			expect(document.querySelectorAll('th[id="my-viewer-products[4].id"]').length).toBe(1);
 		});
 
 		it('object containing arrays of object with differents keys', () => {
 			// When
-			const wrapper = shallow(<Table {...props} data={moreComplexDataShape} />);
+			render(<Table {...props} data={moreComplexDataShape} />);
 			// Then
 			// control
-			expect(wrapper.find('th[id="my-viewer-products[0].id"]').length).toBe(1);
+			expect(document.querySelectorAll('th[id="my-viewer-products[0].id"]').length).toBe(1);
 			// test
-			expect(wrapper.find('th[id="my-viewer-products[0].price"]').length).toBe(1);
+			expect(document.querySelectorAll('th[id="my-viewer-products[0].price"]').length).toBe(1);
 		});
 	});
 });

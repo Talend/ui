@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { PureComponent } from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
 import get from 'lodash/get';
@@ -13,7 +13,7 @@ const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 const virtualizedListClassName = 'ReactVirtualized__List';
 
-class Items extends React.PureComponent {
+class Items extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.lazyLoadingTimer = null;

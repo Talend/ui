@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import Icon from '../../Icon';
 import { getTheme } from '../../theme';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -49,7 +49,7 @@ function getCellIconTooltip({ cellData, rowData, columnData = {} }) {
 /**
  * Cell renderer that displays a boolean
  */
-class CellIconText extends React.Component {
+class CellIconText extends Component {
 	shouldComponentUpdate(nextProps) {
 		return this.props.cellData !== nextProps.cellData;
 	}
@@ -69,7 +69,9 @@ class CellIconText extends React.Component {
 							label={iconTooltip}
 							tooltipPlacement={columnData.tooltipPlacement || DEFAULT_TOOLTIP_PLACEMENT}
 						>
-							<span><Icon name={icon} /></span>
+							<span>
+								<Icon name={icon} />
+							</span>
 						</TooltipTrigger>
 					) : (
 						<Icon name={icon} />

@@ -1,281 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`] = `
+exports[`CollapsibleFieldset should render 1`] = `
 <fieldset
-  className="form-group theme-collapsible-panel collapsible-panel"
+  class="form-group theme-collapsible-panel collapsible-panel"
 >
-  <CollapsiblePanel
-    expanded={false}
-    header={
-      [
-        {
-          "label": "Jimmy, Somsanith",
-        },
-        [],
-      ]
-    }
+  <div
+    class="panel panel-default theme-tc-collapsible-panel theme-default-panel theme-open panel panel-default"
     id="my-fieldset"
-    onToggle={[Function]}
   >
-    <InlineMessageInformation
-      description="This is description"
-      id="my-fieldset-description"
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        {
-          "key": [
-            "firstname",
-          ],
-          "schema": {
-            "type": "string",
-          },
-          "title": "FirstName",
-          "type": "string",
-        }
-      }
-      value={
-        {
-          "firstname": "Jimmy",
-          "isClosed": true,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={{}}
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        {
-          "key": [
-            "lastname",
-          ],
-          "schema": {
-            "type": "string",
-          },
-          "title": "LastName",
-          "type": "string",
-        }
-      }
-      value={
-        {
-          "firstname": "Jimmy",
-          "isClosed": true,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={{}}
-    />
-  </CollapsiblePanel>
-</fieldset>
-`;
-
-exports[`CollapsibleFieldset should render a custom title 1`] = `
-<fieldset
-  className="form-group theme-collapsible-panel collapsible-panel"
->
-  <CollapsiblePanel
-    expanded={true}
-    header={
-      [
-        {
-          "label": "Basic: Jimmy Somsanith",
-        },
-        [],
-      ]
-    }
-    id="my-fieldset"
-    onToggle={[Function]}
-  >
-    <InlineMessageInformation
-      description="This is description"
-      id="my-fieldset-description"
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        {
-          "key": [
-            "firstname",
-          ],
-          "schema": {
-            "type": "string",
-          },
-          "title": "FirstName",
-          "type": "string",
-        }
-      }
-      value={
-        {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={{}}
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        {
-          "key": [
-            "lastname",
-          ],
-          "schema": {
-            "type": "string",
-          },
-          "title": "LastName",
-          "type": "string",
-        }
-      }
-      value={
-        {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={{}}
-    />
-  </CollapsiblePanel>
-</fieldset>
-`;
-
-exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`] = `
-<fieldset
-  className="form-group theme-collapsible-panel collapsible-panel"
->
-  <CollapsiblePanel
-    expanded={true}
-    header={
-      [
-        {
-          "label": "Jimmy, Somsanith",
-        },
-        [],
-      ]
-    }
-    id="my-fieldset"
-    onToggle={[Function]}
-  >
-    <InlineMessageInformation
-      description="This is description"
-      id="my-fieldset-description"
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        {
-          "key": [
-            "firstname",
-          ],
-          "schema": {
-            "type": "string",
-          },
-          "title": "FirstName",
-          "type": "string",
-        }
-      }
-      value={
-        {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={{}}
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        {
-          "key": [
-            "lastname",
-          ],
-          "schema": {
-            "type": "string",
-          },
-          "title": "LastName",
-          "type": "string",
-        }
-      }
-      value={
-        {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={{}}
-    />
-  </CollapsiblePanel>
-</fieldset>
-`;
-
-exports[`CollapsibleFieldset should render without value 1`] = `
-<fieldset
-  className="form-group theme-collapsible-panel collapsible-panel"
->
-  <CollapsiblePanel
-    expanded={true}
-    header={
-      [
-        {
-          "label": "Basic",
-        },
-        [],
-      ]
-    }
-    id="my-fieldset"
-    onToggle={[Function]}
-  >
-    <InlineMessageInformation
-      description="This is description"
-      id="my-fieldset-description"
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        {
-          "key": [
-            "firstname",
-          ],
-          "schema": {
-            "type": "string",
-          },
-          "title": "FirstName",
-          "type": "string",
-        }
-      }
-      value={
-        {
-          "isClosed": undefined,
-        }
-      }
-      widgets={{}}
-    />
-    <Widget
-      id="my-fieldset"
-      schema={
-        {
-          "key": [
-            "lastname",
-          ],
-          "schema": {
-            "type": "string",
-          },
-          "title": "LastName",
-          "type": "string",
-        }
-      }
-      value={
-        {
-          "isClosed": undefined,
-        }
-      }
-      widgets={{}}
-    />
-  </CollapsiblePanel>
+    <div
+      class="panel-heading"
+      id="my-fieldset--heading"
+      role="tab"
+    >
+      <div
+        class="panel-title"
+      >
+        <div
+          class="theme-panel-header-content panel-header-content"
+        >
+          <div
+            class="theme-panel-title"
+          >
+            <div
+              class="theme-undefined theme-col-2"
+            >
+              <div
+                aria-describedby="42"
+                class="theme-undefined"
+              >
+                Jimmy, Somsanith
+              </div>
+            </div>
+            <div
+              class="theme-group theme-col-2"
+            />
+          </div>
+          <button
+            aria-describedby="id-42"
+            aria-expanded="true"
+            class="theme-clickable theme-buttonIcon"
+            id="my-fieldset__collapse"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1.6rem; height: 1.6rem;"
+              >
+                <use
+                  xlink:href="#chevron-down-stroke:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-expanded="true"
+      aria-labelledby="my-fieldset--heading"
+      class="panel-collapse collapse in"
+      id="my-fieldset--body"
+      role="tabpanel"
+    >
+      <div
+        class="panel-body"
+      >
+        <div
+          aria-live="polite"
+          class="theme-inlineMessage"
+          id="my-fieldset-description"
+          role="status"
+        >
+          <span
+            class="theme-icon theme-information__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.6rem; height: 1.6rem;"
+            >
+              <use
+                xlink:href="#information-filled:M"
+              />
+            </svg>
+          </span>
+          <p
+            class="theme-inlineMessage__contents"
+          >
+            <span>
+              This is description
+            </span>
+          </p>
+        </div>
+        <p
+          class="text-danger"
+        >
+          Widget not found 
+          string
+        </p>
+        <p
+          class="text-danger"
+        >
+          Widget not found 
+          string
+        </p>
+      </div>
+    </div>
+  </div>
 </fieldset>
 `;

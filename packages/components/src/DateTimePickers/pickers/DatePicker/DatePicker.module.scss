@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
@@ -46,7 +47,7 @@
 			position: absolute;
 			height: 2.5rem;
 			z-index: -1;
-			background-color: tint($lochmara, 80%);
+			background-color: tokens.$coral-color-accent-background-weak;
 		}
 
 		&.range-end::after {
@@ -81,7 +82,6 @@
 	}
 
 	.calendar-day {
-
 		@include picker-action;
 
 		height: 2.4rem;
@@ -93,9 +93,9 @@
 		padding: 0;
 
 		&.today {
-			background-color: tint($lochmara, 90%);
-			color: $lochmara;
-			border: solid 1px $lochmara;
+			background-color: tokens.$coral-color-accent-background-weak;
+			color: tokens.$coral-color-accent-text;
+			border: solid 1px tokens.$coral-color-accent-border;
 		}
 
 		&.not-current-month {
@@ -103,7 +103,7 @@
 		}
 
 		&.range:hover {
-			background-color: tint($lochmara, 70%);
+			background-color: tokens.$coral-color-accent-background-weak;
 		}
 
 		&:disabled {

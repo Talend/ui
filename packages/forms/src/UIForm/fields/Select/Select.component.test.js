@@ -1,8 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { screen, render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import omit from 'lodash/omit';
 
 import Select from './Select.component';
+
+jest.mock('ally.js');
+jest.unmock('@talend/design-system');
 
 describe('Select field', () => {
 	const schema = {
@@ -25,7 +28,7 @@ describe('Select field', () => {
 
 	it('should render simple select', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<Select
 				id="mySelect"
 				isValid
@@ -38,7 +41,7 @@ describe('Select field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render simple select without placeholder', () => {
@@ -46,7 +49,7 @@ describe('Select field', () => {
 		const localSchema = omit(schema, 'placeholder');
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Select
 				id="mySelect"
 				isValid
@@ -59,7 +62,7 @@ describe('Select field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.queryByText('Please select a value')).not.toBeInTheDocument();
 	});
 
 	it('should render select multiple', () => {
@@ -75,7 +78,7 @@ describe('Select field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Select
 				id="mySelect"
 				isValid
@@ -88,7 +91,7 @@ describe('Select field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('listbox')).toHaveAttribute('multiple');
 	});
 
 	it('should render disabled input', () => {
@@ -99,7 +102,7 @@ describe('Select field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Select
 				id="mySelect"
 				isValid
@@ -112,7 +115,7 @@ describe('Select field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('combobox')).toBeDisabled();
 	});
 
 	it('should render readOnly input', () => {
@@ -123,7 +126,7 @@ describe('Select field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Select
 				id="mySelect"
 				isValid
@@ -136,13 +139,13 @@ describe('Select field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('combobox')).toHaveAttribute('readonly');
 	});
 
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = shallow(
+		render(
 			<Select
 				id="mySelect"
 				isValid
@@ -156,13 +159,13 @@ describe('Select field', () => {
 		const event = { target: { value: 'bar' } };
 
 		// when
-		wrapper.find('select').simulate('change', event);
+		fireEvent.change(screen.getByRole('combobox'), event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema, value: 'bar' });
+		expect(onChange).toBeCalledWith(expect.anything(event), { schema, value: 'bar' });
 	});
 
-	it('should trigger array onChange', () => {
+	it('should trigger array onChange', async () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
@@ -175,16 +178,7 @@ describe('Select field', () => {
 				items: schema.schema,
 			},
 		};
-		const event = {
-			target: {
-				options: [
-					{ value: 'foo', selected: true },
-					{ value: 'bar', selected: false },
-					{ value: 'lol', selected: true },
-				],
-			},
-		};
-		const wrapper = shallow(
+		render(
 			<Select
 				id="mySelect"
 				isValid
@@ -192,15 +186,29 @@ describe('Select field', () => {
 				onChange={onChange}
 				onFinish={onFinish}
 				schema={multipleSchema}
-				value={['foo', 'lol']}
+				value={[]}
 			/>,
 		);
 
 		// when
-		wrapper.find('select').simulate('change', event);
+		await userEvent.selectOptions(screen.getByRole('listbox'), ['foo', 'lol']);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema: multipleSchema, value: ['foo', 'lol'] });
-		expect(onFinish).toBeCalledWith(event, { schema: multipleSchema, value: ['foo', 'lol'] });
+		expect(onChange.mock.calls[0][1]).toMatchObject({
+			schema: multipleSchema,
+			value: ['foo'],
+		});
+		expect(onChange.mock.calls[1][1]).toMatchObject({
+			schema: multipleSchema,
+			value: ['lol'],
+		});
+		expect(onFinish.mock.calls[0][1]).toMatchObject({
+			schema: multipleSchema,
+			value: ['foo'],
+		});
+		expect(onFinish.mock.calls[1][1]).toMatchObject({
+			schema: multipleSchema,
+			value: ['lol'],
+		});
 	});
 });

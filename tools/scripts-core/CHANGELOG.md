@@ -1,5 +1,30 @@
 # @talend/scripts-core
 
+## 13.3.0
+
+### Minor Changes
+
+- 51206dfd6: Make scripts-core compliant with yarn v3.X
+
+## 13.2.0
+
+### Minor Changes
+
+- 7d816bb77: feat: add --fix support
+
+### Patch Changes
+
+- Updated dependencies [7d816bb77]
+  - @talend/eslint-config@12.1.1
+
+## 13.1.3
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+  - @talend/scripts-config-babel@13.0.0
+  - @talend/scripts-config-jest@12.1.2
+
 ## 13.1.2
 
 ### Patch Changes

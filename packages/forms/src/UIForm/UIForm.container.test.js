@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent, queryByAttribute, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -139,20 +138,23 @@ describe('UIForm container', () => {
 		);
 	});
 
-	it('should call onChange callback', () => {
+	it('should call onChange callback', async () => {
 		// given
 		const onChange = jest.fn();
 		render(<UIForm {...props} data={getMockData()} initialData={{}} onChange={onChange} />);
 
 		// when
-		userEvent.type(screen.getByRole('textbox', { name: 'Last Name (with description)' }), 'toto');
+		await userEvent.type(
+			screen.getByRole('textbox', { name: 'Last Name (with description)' }),
+			'toto',
+		);
 
 		// then
 		const lastCall = onChange.mock.calls.pop();
 		expect(lastCall[1].properties).toEqual({ lastname: 'toto' });
 	});
 
-	it('should reset', () => {
+	it('should reset', async () => {
 		// given
 		const onReset = jest.fn();
 		const mockedData = { ...getMockData(), properties: { lastname: 'toto' } };
@@ -174,8 +176,11 @@ describe('UIForm container', () => {
 		);
 
 		// when
-		userEvent.type(screen.getByRole('textbox', { name: 'Last Name (with description)' }), 'coucou');
-		userEvent.click(screen.getByRole('button', { name: 'Reset' }));
+		await userEvent.type(
+			screen.getByRole('textbox', { name: 'Last Name (with description)' }),
+			'coucou',
+		);
+		await userEvent.click(screen.getByRole('button', { name: 'Reset' }));
 
 		// then
 		expect(screen.getByRole('textbox', { name: 'Last Name (with description)' })).toHaveValue(
@@ -184,7 +189,7 @@ describe('UIForm container', () => {
 		expect(onReset).toHaveBeenCalled();
 	});
 
-	it('should set error', () => {
+	it('should set error', async () => {
 		// given
 
 		const onChange = jest.fn();
@@ -192,7 +197,7 @@ describe('UIForm container', () => {
 
 		// when
 		const lastnameInput = screen.getByRole('textbox', { name: 'Last Name (with description)' });
-		userEvent.type(lastnameInput, 'toto'); // min length is 10
+		await userEvent.type(lastnameInput, 'toto'); // min length is 10
 		fireEvent.blur(lastnameInput);
 
 		// then
@@ -223,7 +228,7 @@ describe('UIForm container', () => {
 
 		// when
 		const lastnameInput = screen.getByRole('textbox', { name: 'Last Name (with description)' });
-		userEvent.type(lastnameInput, 'abc_qoskdoqskdoqsk');
+		await userEvent.type(lastnameInput, 'abc_qoskdoqskdoqsk');
 		fireEvent.blur(lastnameInput);
 
 		// then
@@ -242,7 +247,7 @@ describe('UIForm container', () => {
 		expect(onTrigger).not.toBeCalled();
 
 		// when
-		userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
+		await userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
 		await waitFor(() => {
 			const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
 			expect(errorMessage).toBeInTheDocument();
@@ -253,14 +258,14 @@ describe('UIForm container', () => {
 		expect(errorMessage).toHaveAttribute('description', 'my firstname is invalid');
 	});
 
-	it('should call onTrigger from button', () => {
+	it('should call onTrigger from button', async () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve({}));
 		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
 		expect(onTrigger).not.toBeCalled();
 
 		// when
-		userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
+		await userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
@@ -276,7 +281,7 @@ describe('UIForm container', () => {
 		});
 	});
 
-	it('should call onTrigger from input type finish', () => {
+	it('should call onTrigger from input type finish', async () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve({}));
 		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
@@ -284,7 +289,7 @@ describe('UIForm container', () => {
 
 		// when
 		const firstnameInput = screen.getByRole('textbox', { name: 'First Name (with placeholder)' });
-		userEvent.type(firstnameInput, 'aze');
+		await userEvent.type(firstnameInput, 'aze');
 		fireEvent.blur(firstnameInput);
 
 		// then
@@ -296,7 +301,7 @@ describe('UIForm container', () => {
 		});
 	});
 
-	it('should handle submit mouse enter/leave callbacks', () => {
+	it('should handle submit mouse enter/leave callbacks', async () => {
 		// given
 		const onEnter = jest.fn();
 		const onLeave = jest.fn();
@@ -307,11 +312,11 @@ describe('UIForm container', () => {
 		expect(onLeave).not.toBeCalled();
 
 		// when / then
-		userEvent.hover(screen.getByRole('button', { name: 'Submit' }));
+		await userEvent.hover(screen.getByRole('button', { name: 'Submit' }));
 		expect(onEnter).toBeCalled();
 
 		// when / then
-		userEvent.unhover(screen.getByRole('button', { name: 'Submit' }));
+		await userEvent.unhover(screen.getByRole('button', { name: 'Submit' }));
 		expect(onLeave).toBeCalled();
 	});
 
@@ -326,12 +331,12 @@ describe('UIForm container', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('button', { name: 'Check the thing' })); // add error via trigger
+		await userEvent.click(screen.getByRole('button', { name: 'Check the thing' })); // add error via trigger
 		await waitFor(() => {
 			const checkMessage = queryByAttribute('id', dom.container, 'myFormId_check-error');
 			expect(checkMessage).toBeInTheDocument();
 		});
-		userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+		await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
 		// then
 		expect(onSubmit).not.toBeCalled();
@@ -346,7 +351,7 @@ describe('UIForm container', () => {
 		expect(checkMessage).toHaveAttribute('description', 'error added via a trigger');
 	});
 
-	it('should should take custom language error messages', () => {
+	it('should should take custom language error messages', async () => {
 		// given
 		const onSubmit = jest.fn();
 		const dom = render(
@@ -359,7 +364,7 @@ describe('UIForm container', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+		await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
 		// then
 		expect(onSubmit).not.toBeCalled();
@@ -368,19 +373,22 @@ describe('UIForm container', () => {
 		expect(errorMessage).toHaveAttribute('description', 'is required');
 	});
 
-	it('should submit with valid fields', () => {
+	it('should submit with valid fields', async () => {
 		// given
 		const onSubmit = jest.fn();
 		const onTrigger = jest.fn(() => Promise.resolve({}));
 		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} onSubmit={onSubmit} />);
 
 		// when
-		userEvent.type(
+		await userEvent.type(
 			screen.getByRole('textbox', { name: 'Last Name (with description)' }),
 			'long enough text',
 		);
-		userEvent.type(screen.getByRole('textbox', { name: 'First Name (with placeholder)' }), 'toto');
-		userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+		await userEvent.type(
+			screen.getByRole('textbox', { name: 'First Name (with placeholder)' }),
+			'toto',
+		);
+		await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
 		// then
 		expect(onSubmit).toBeCalledWith(

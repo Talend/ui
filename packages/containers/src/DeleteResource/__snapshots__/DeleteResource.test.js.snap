@@ -1,138 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container DeleteResource should render with proper resourceInfo params 1`] = `
-<ConfirmDialog
-  cancelAction={
-    {
-      "className": "btn-inverse",
-      "componentId": "dialog:delete:cancel",
-      "label": "CANCEL",
-      "model": {
-        "collectionId": undefined,
-        "found": true,
-        "id": undefined,
-        "label": "myLabel",
-        "onCancelRedirectUrl": undefined,
-        "redirectUrl": undefined,
-        "resource": Immutable.Map {
-          "label": "myLabel",
-        },
-        "resourceType": "myResourceType",
-        "resourceTypeLabel": "resourceLabel",
-        "uri": "/myEndpoint",
-      },
-      "onClickActionCreator": "DeleteResource#cancel",
-    }
-  }
-  header="My header title"
-  onHide={[Function]}
-  show={true}
-  validateAction={
-    {
-      "bsStyle": "danger",
-      "componentId": "dialog:delete:validate",
-      "label": "REMOVE",
-      "model": {
-        "collectionId": undefined,
-        "found": true,
-        "id": undefined,
-        "label": "myLabel",
-        "onCancelRedirectUrl": undefined,
-        "redirectUrl": undefined,
-        "resource": Immutable.Map {
-          "label": "myLabel",
-        },
-        "resourceType": "myResourceType",
-        "resourceTypeLabel": "resourceLabel",
-        "uri": "/myEndpoint",
-      },
-      "onClickActionCreator": "DeleteResource#validate",
-    }
-  }
+<div
+  role="dialog"
 >
-  <Trans
-    i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE"
-    tOptions={
-      {
-        "context": "female",
-      }
-    }
+  <div
+    class="fade modal-backdrop in"
+  />
+  <div
+    aria-labelledby="tc-dialog-header"
+    aria-modal="true"
+    class="fade in modal"
+    role="dialog"
+    style="display: block; padding-right: 0px;"
+    tabindex="-1"
   >
-    Are you sure you want to remove the 
-    {
-      "resourceTypeLabel": "resourceLabel",
-    }
-     
-    <strong>
-      {
-        "label": "myLabel",
-      }
-    </strong>
-    ?
-  </Trans>
-</ConfirmDialog>
-`;
-
-exports[`Container DeleteResource should render with wrong resourceInfo params 1`] = `
-<ConfirmDialog
-  cancelAction={
-    {
-      "className": "btn-inverse",
-      "componentId": "dialog:delete:cancel",
-      "label": "CANCEL",
-      "model": {
-        "collectionId": undefined,
-        "found": false,
-        "id": undefined,
-        "label": "",
-        "onCancelRedirectUrl": undefined,
-        "redirectUrl": undefined,
-        "resource": undefined,
-        "resourceType": "unknownResourceType",
-        "resourceTypeLabel": "unknownResourceType",
-        "uri": "/myEndpoint",
-      },
-      "onClickActionCreator": "DeleteResource#cancel",
-    }
-  }
-  header="My header title"
-  onHide={[Function]}
-  show={true}
-  validateAction={
-    {
-      "bsStyle": "danger",
-      "componentId": "dialog:delete:validate",
-      "label": "REMOVE",
-      "model": {
-        "collectionId": undefined,
-        "found": false,
-        "id": undefined,
-        "label": "",
-        "onCancelRedirectUrl": undefined,
-        "redirectUrl": undefined,
-        "resource": undefined,
-        "resourceType": "unknownResourceType",
-        "resourceTypeLabel": "unknownResourceType",
-        "uri": "/myEndpoint",
-      },
-      "onClickActionCreator": "DeleteResource#validate",
-    }
-  }
->
-  <Trans
-    i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE"
-  >
-    Are you sure you want to remove the 
-    {
-      "resourceTypeLabel": "unknownResourceType",
-    }
-     
-    <strong>
-      {
-        "label": "",
-      }
-    </strong>
-    ?
-  </Trans>
-</ConfirmDialog>
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+        role="document"
+      >
+        <div
+          class="modal-header"
+        >
+          <h1
+            class="modal-title"
+            id="tc-dialog-header"
+          >
+            My header title
+          </h1>
+        </div>
+        <div
+          class="modal-body"
+        >
+          Are you sure you want to remove the 
+          resourceLabel
+           
+          <strong>
+            myLabel
+          </strong>
+          ?
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <div
+            class="theme-tc-actionbar-container tc-actionbar-container nav"
+          >
+            <div
+              class="theme-navbar-left navbar-left"
+            >
+              <button
+                aria-label="CANCEL"
+                class="btn-inverse btn btn-default"
+                type="button"
+              >
+                <span>
+                  CANCEL
+                </span>
+              </button>
+            </div>
+            <div
+              class="theme-navbar-right navbar-right"
+            >
+              <button
+                aria-label="REMOVE"
+                class="btn btn-danger"
+                type="button"
+              >
+                <span>
+                  REMOVE
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

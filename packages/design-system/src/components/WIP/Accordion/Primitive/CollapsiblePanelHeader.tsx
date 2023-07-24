@@ -1,12 +1,14 @@
-import React, { forwardRef, ReactChild, Ref } from 'react';
+import { forwardRef, ReactChild, Ref } from 'react';
 import classnames from 'classnames';
+
+import tokens from '@talend/design-tokens';
 
 import { ButtonIcon } from '../../../ButtonIcon';
 import { SizedIcon } from '../../../Icon';
 import Divider from '../../../Divider';
 import { StackHorizontal } from '../../../Stack';
-
-import tokens from '@talend/design-tokens';
+import { Status } from '../../../Status';
+import { variants } from '../../../Status/Primitive/StatusPrimitive';
 
 import { PanelHeaderAction } from './types';
 import styles from './CollapsiblePanelHeader.module.scss';
@@ -16,7 +18,8 @@ export type CollapsiblePanelHeaderPropsType = {
 	sectionId: string;
 	size?: 'S' | 'M';
 	expanded: boolean;
-	title: string;
+	title?: ReactChild;
+	status?: keyof typeof variants;
 	metadata?: ReactChild[];
 	action?: PanelHeaderAction;
 	handleClick: () => unknown;
@@ -33,6 +36,7 @@ const CollapsiblePanelHeader = forwardRef(
 			action,
 			metadata,
 			title,
+			status,
 			size,
 			disabled = false,
 		}: CollapsiblePanelHeaderPropsType,
@@ -86,14 +90,18 @@ const CollapsiblePanelHeader = forwardRef(
 			<>
 				{!disabled && getChevron()}
 
-				<span
-					className={classnames(styles.headerTitle, {
-						[styles['headerTitle__size-s']]: size === 'S',
-						[styles.headerTitle__disabled]: disabled,
-					})}
-				>
-					{title}
-				</span>
+				{status ? (
+					<Status variant={status} />
+				) : (
+					<span
+						className={classnames(styles.headerTitle, {
+							[styles['headerTitle__size-s']]: size === 'S',
+							[styles.headerTitle__disabled]: disabled,
+						})}
+					>
+						{title}
+					</span>
+				)}
 				{metadata?.length && (
 					<StackHorizontal gap="S" align="center" justify="end">
 						{listMetadata}
@@ -105,6 +113,7 @@ const CollapsiblePanelHeader = forwardRef(
 						icon={action.icon}
 						onClick={action.callback}
 						data-test="action.button"
+						data-testid="action.button"
 					>
 						{action.tooltip}
 					</ButtonIcon>
@@ -119,6 +128,7 @@ const CollapsiblePanelHeader = forwardRef(
 						[styles['headerWrapper__size-s']]: size === 'S',
 					})}
 					data-test="panel.header"
+					data-testid="panel.header"
 				>
 					{getContent()}
 				</div>
@@ -137,6 +147,7 @@ const CollapsiblePanelHeader = forwardRef(
 				disabled={disabled}
 				ref={ref}
 				data-test="panel.header"
+				data-testid="panel.header"
 			>
 				{getContent()}
 			</button>

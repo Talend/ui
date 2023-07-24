@@ -1,12 +1,14 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { mock } from '@talend/react-cmf';
-import { ActionDropdown } from '@talend/react-components/lib/Actions';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import cmf, { mock } from '@talend/react-cmf';
+
 import Connected, {
 	mapStateToProps,
 	ContainerActionDropdown,
 	mergeProps,
 } from './ActionDropdown.connect';
+
+jest.unmock('@talend/design-system');
 
 describe('Connect(CMF(Container(ActionDropdown)))', () => {
 	const state = {
@@ -61,19 +63,31 @@ describe('Connect(CMF(Container(ActionDropdown)))', () => {
 });
 
 describe('Container(ActionDropdown)', () => {
-	it('should render', () => {
-		const wrapper = shallow(<ContainerActionDropdown />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+	let App;
+	beforeAll(async () => {
+		const config = await cmf.bootstrap({
+			render: false,
+			components: {},
+		});
+		App = config.App;
 	});
-	it('should render with items', () => {
-		const context = mock.store.context();
-		const actionIds = ['menu:article'];
-		const items = [{ label: 'Foo', actionCreator: 'menu:item' }];
-		const wrapper = shallow(
-			<ContainerActionDropdown foo="extra" actionIds={actionIds} items={items} />,
-			{ context },
+	it('should render', () => {
+		const { container } = render(
+			<App {...mock.store.context()}>
+				<ContainerActionDropdown id="foo" label="foo" />
+			</App>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find(ActionDropdown).length).toBe(1);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+	it('should render with items', async () => {
+		const context = mock.store.context();
+		const items = [{ label: 'Foo', onClick: jest.fn() }];
+		render(
+			<App {...context}>
+				<ContainerActionDropdown id="extra" label="foo" items={items} />
+			</App>,
+		);
+		await userEvent.click(screen.getByRole('button'));
+		expect(screen.getByRole('menuitem')).toHaveTextContent('Foo');
 	});
 });

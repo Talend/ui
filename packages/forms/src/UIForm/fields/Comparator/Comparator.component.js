@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import last from 'lodash/last';
 import classNames from 'classnames';
 
@@ -86,17 +86,14 @@ function OperatorListElement({ symbol, icon, name, selected }) {
 	);
 }
 
-class Comparator extends React.Component {
+// The 'Comparator' is not ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
+
+class Comparator extends Component {
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
-
-		// eslint-disable-next-line
-		console.warn(
-			"UNSTABLE WARNING: The 'Comparator' is not ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
-		);
 	}
 
 	onSelect(event, { value }) {
@@ -173,6 +170,7 @@ class Comparator extends React.Component {
 		return (
 			<div className={classNames(theme.comparator)}>
 				<ActionDropdown
+					id={`comparator-action-${this.props.id}`}
 					icon={current && current.icon}
 					hideLabel={!!(current && current.icon)}
 					label={current && (current.icon && current.name ? current.name : current.symbol)}

@@ -1,0 +1,49 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
+
+@mixin ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.tc-editable-text-title {
+	display: flex;
+	align-items: center;
+	max-width: 90rem;
+
+	:global(.tc-editable-text-wording-wrapper) {
+		@include ellipsis;
+	}
+
+	.tc-editable-text-wording {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	.tc-editable-text-pencil {
+		position: relative;
+		left: -2000px;
+		padding-left: $padding-smaller;
+		padding-right: $padding-smaller;
+		flex: 0 0 auto;
+		line-height: inherit;
+		min-height: inherit;
+
+		&:global(.btn-link) {
+			color: tokens.$coral-color-neutral-icon-weak;
+		}
+
+		&:focus,
+		&:hover {
+			position: static;
+		}
+	}
+
+	&:hover {
+		.tc-editable-text-pencil {
+			position: static;
+		}
+	}
+}

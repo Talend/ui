@@ -1,6 +1,7 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import Skeleton from './Skeleton.component';
+
+jest.unmock('@talend/design-system');
 
 describe('Skeleton', () => {
 	function t(msgid, options = {}) {
@@ -10,21 +11,25 @@ describe('Skeleton', () => {
 		return options.defaultValue || msgid;
 	}
 	it('should render span with aria label', () => {
-		const wrapper = mount(<Skeleton type="text" t={t} />);
-		const element = wrapper.find('.tc-skeleton');
-		expect(element.type()).toBe('span');
-		expect(element.props()['aria-label']).toBe('text Loading...');
+		render(<Skeleton type="text" t={t} />);
+		const element = document.querySelector('.tc-skeleton');
+		expect(element.tagName).toBe('SPAN');
+		expect(screen.getByLabelText('text Loading...')).toBeVisible();
 	});
 	it('should use style to apply with/height', () => {
-		const wrapper = mount(<Skeleton type="text" t={t} width={80} height={30} />);
-		expect(wrapper.find('.tc-skeleton').props().style).toEqual({ height: 30, width: 80 });
+		render(<Skeleton type="text" t={t} width={80} height={30} />);
+		expect(document.querySelector('.tc-skeleton')).toHaveStyle('height: 30px; width: 80px');
 	});
 	it('should use className to apply size', () => {
-		const wrapper = mount(<Skeleton type="text" t={t} size={Skeleton.SIZES.small} />);
-		expect(wrapper.find('.tc-skeleton-text-small')).not.toBeUndefined();
+		render(<Skeleton type="text" t={t} size={Skeleton.SIZES.small} />);
+		expect(document.querySelector('.tc-skeleton-text-small')).toBeVisible();
 	});
 	it('should render icon for type=icon', () => {
-		const wrapper = mount(<Skeleton type="icon" name="test-icon" t={t} />);
-		expect(wrapper.find('Icon')).not.toBeUndefined();
+		render(<Skeleton type="icon" name="test-icon" t={t} />);
+		const icon = document.querySelector('svg');
+		expect(icon).toBeVisible();
+		expect(icon).toHaveAttribute('aria-hidden', 'true');
+		expect(icon).toHaveAttribute('aria-label', 'icon Loading...');
+		expect(icon).toHaveAttribute('name', 'test-icon');
 	});
 });

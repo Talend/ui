@@ -1,7 +1,10 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import Typeahead from './Typeahead.component';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+function getHeaders() {
+	return document.querySelectorAll('.section-header');
+}
 
 describe('Typeahead', () => {
 	const initialProps = {
@@ -9,7 +12,6 @@ describe('Typeahead', () => {
 		icon: {
 			name: 'fa fa-search',
 			title: 'icon',
-			bsStyle: 'link',
 		},
 	};
 
@@ -121,12 +123,11 @@ describe('Typeahead', () => {
 				onToggle: jest.fn(),
 				docked: false,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
+			render(<Typeahead {...props} />);
 			// then
-			expect(typeaheadInstance.find('Action').length).toBe(0);
+			expect(screen.queryByRole('button')).not.toBeInTheDocument();
 		});
 
 		it('should be shown if docked property is true', () => {
@@ -136,13 +137,12 @@ describe('Typeahead', () => {
 				onToggle: jest.fn(),
 				docked: true,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
+			render(<Typeahead {...props} />);
 
 			// then
-			expect(typeaheadInstance.find('Action').length).toBe(1);
+			expect(screen.getByRole('button')).toBeVisible();
 		});
 
 		it('should call onToggle', () => {
@@ -152,11 +152,10 @@ describe('Typeahead', () => {
 				onToggle: jest.fn(),
 				docked: true,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Button.tc-typeahead-toggle').at(0).simulate('click');
+			render(<Typeahead {...props} />);
+			userEvent.click(screen.getByRole('button'));
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -171,12 +170,10 @@ describe('Typeahead', () => {
 				...initialProps,
 				onChange,
 			};
-			const typeahead = <Typeahead {...props} />;
-			const event = { target: { value: 'toto' } };
 
 			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('input').simulate('change', event);
+			render(<Typeahead {...props} />);
+			userEvent.type(screen.getByRole('textbox'), 'toto');
 
 			// then
 			expect(onChange).toBeCalled();
@@ -189,11 +186,11 @@ describe('Typeahead', () => {
 				...initialProps,
 				onBlur,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('input').simulate('blur');
+			render(<Typeahead {...props} />);
+			userEvent.click(screen.getByRole('textbox'));
+			userEvent.tab();
 
 			// then
 			expect(onBlur).toBeCalled();
@@ -209,14 +206,17 @@ describe('Typeahead', () => {
 				onSelect,
 				items,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Item').at(0).simulate('click');
+			render(<Typeahead {...props} />);
+			userEvent.click(screen.getAllByRole('option')[0]);
 
 			// then
 			expect(onSelect).toBeCalled();
+			expect(onSelect).toBeCalledWith(expect.anything({ type: 'click' }), {
+				itemIndex: 0,
+				sectionIndex: 0,
+			});
 		});
 
 		it('should render typeahead selected item by id', () => {
@@ -224,8 +224,9 @@ describe('Typeahead', () => {
 			const props = {
 				...initialProps,
 				value: 'le title 1',
-				valueId: 0,
+				valueId: '0',
 				items: itemsObjectWithId,
+				onChange: jest.fn(),
 			};
 
 			// when
@@ -244,6 +245,7 @@ describe('Typeahead', () => {
 				value: 'le title 1',
 				valueId: 'letitle1copy',
 				items: itemsObjectWithStringId,
+				onChange: jest.fn(),
 			};
 
 			// when
@@ -261,6 +263,7 @@ describe('Typeahead', () => {
 				id: 'my-search',
 				value: 'le title 1',
 				items: itemsObjectWithId,
+				onChange: jest.fn(),
 			};
 
 			// when
@@ -280,13 +283,12 @@ describe('Typeahead', () => {
 			docked: false,
 			items: noHeaderItems,
 		};
-		const typeahead = <Typeahead {...props} />;
 
 		// when
-		const typeaheadInstance = mount(typeahead);
+		render(<Typeahead {...props} />);
 
 		// then
-		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(0);
+		expect(getHeaders().length).toBe(0);
 	});
 	it('should display section header', () => {
 		// given
@@ -296,13 +298,15 @@ describe('Typeahead', () => {
 			docked: false,
 			items,
 		};
-		const typeahead = <Typeahead {...props} />;
 
 		// when
-		const typeaheadInstance = mount(typeahead);
+		render(<Typeahead {...props} />);
 
 		// then
-		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(2);
+		const headers = getHeaders();
+		expect(headers.length).toBe(2);
+		expect(headers[0]).toHaveTextContent('category 1');
+		expect(headers[1]).toHaveTextContent('category 2');
 	});
 
 	describe('render flatItems', () => {
@@ -315,13 +319,12 @@ describe('Typeahead', () => {
 				items: null,
 				multiSection: false,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
+			render(<Typeahead {...props} />);
 
 			// then
-			expect(typeaheadInstance.find('Item').length).toBe(0);
+			expect(screen.queryAllByRole('listitem').length).toBe(0);
 		});
 		it('should render empty if provided collection is undefined', () => {
 			// given
@@ -332,13 +335,12 @@ describe('Typeahead', () => {
 				items: undefined,
 				multiSection: false,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
+			render(<Typeahead {...props} />);
 
 			// then
-			expect(typeaheadInstance.find('Item').length).toBe(0);
+			expect(screen.queryAllByRole('listitem').length).toBe(0);
 		});
 		it('should render Items with data-feature attribute if provided collection is flat', () => {
 			// given
@@ -350,14 +352,26 @@ describe('Typeahead', () => {
 				dataFeature: 'smtg',
 				multiSection: false,
 			};
-			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadInstance = mount(typeahead);
+			render(<Typeahead {...props} />);
+
 			// then
-			expect(typeaheadInstance.find('li>div').at(0).prop('data-feature')).toEqual('smtg.item-1');
-			expect(typeaheadInstance.find('li>div').at(1).prop('data-feature')).toEqual('smtg.item-2');
-			expect(typeaheadInstance.find('li>div').at(2).prop('data-feature')).toEqual('smtg.item-3');
+			const typeaheadInstance = screen.getByRole('listbox');
+			expect(typeaheadInstance).toBeVisible();
+			expect(typeaheadInstance.children.length).toBe(3);
+			expect(typeaheadInstance.querySelectorAll('li>div')[0]).toHaveAttribute(
+				'data-feature',
+				'smtg.item-1',
+			);
+			expect(typeaheadInstance.querySelectorAll('li>div')[1]).toHaveAttribute(
+				'data-feature',
+				'smtg.item-2',
+			);
+			expect(typeaheadInstance.querySelectorAll('li>div')[2]).toHaveAttribute(
+				'data-feature',
+				'smtg.item-3',
+			);
 		});
 	});
 });

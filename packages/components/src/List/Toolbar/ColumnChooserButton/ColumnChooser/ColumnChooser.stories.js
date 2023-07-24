@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import ColumnChooser from './ColumnChooser.component';
 import { Card } from '@talend/design-system';
@@ -26,7 +25,7 @@ const defaultProps = {
 };
 
 export default {
-	title: 'Data/List/Column Chooser',
+	title: 'Components/List/Column Chooser',
 	render: props => (
 		<ColumnChooser
 			{...{

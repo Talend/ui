@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src/UIForm';
 
@@ -52,7 +52,7 @@ function UIFormWithOnSubmitHover() {
 }
 
 export default {
-	title: 'Core Concepts/Hover Submit',
+	title: 'Forms/Hover Submit',
 };
 
 export function Default() {

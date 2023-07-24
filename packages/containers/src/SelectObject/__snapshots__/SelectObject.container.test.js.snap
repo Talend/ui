@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container SelectObject should render 1`] = `
+<div
+  class="mock-provider"
+>
+  <div
+    data-testid="SelectObject"
+  >
+    <button>
+      getProps
+    </button>
+  </div>
+</div>
+`;

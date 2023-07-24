@@ -1,8 +1,18 @@
-import React from 'react';
-import { mount, shallow } from 'enzyme';
-
-import toJsonWithoutI18n from '../../../test/props-without-i18n';
+/* eslint-disable react/prop-types */
+import { screen, render } from '@testing-library/react';
+import { measure } from 'react-virtualized';
 import RowCollapsiblePanel from './RowCollapsiblePanel.component';
+
+jest.mock('react-virtualized', () => {
+	const mod = jest.requireActual('react-virtualized');
+	// eslint-disable-next-line @typescript-eslint/no-shadow
+	const measure = jest.fn();
+	return {
+		...mod,
+		CellMeasurer: props => <div data-testid="CellMeasurer">{props.children({ measure })}</div>,
+		measure,
+	};
+});
 
 const collection = [
 	{
@@ -17,12 +27,12 @@ const collection = [
 		],
 		content: [
 			{
-				label: 'Content1',
-				description: 'Description1',
+				label: 'Content a.1',
+				description: 'Description a.1',
 			},
 			{
-				label: 'Content2',
-				description: 'Description2',
+				label: 'Content a.2',
+				description: 'Description a.2',
 			},
 		],
 		expanded: true,
@@ -39,12 +49,12 @@ const collection = [
 		],
 		content: [
 			{
-				label: 'Content1',
-				description: 'Description1',
+				label: 'Content b.1',
+				description: 'Description b.1',
 			},
 			{
-				label: 'Content2',
-				description: 'Description2',
+				label: 'Content b.2',
+				description: 'Description b.2',
 			},
 		],
 		expanded: true,
@@ -61,12 +71,12 @@ const collection = [
 		],
 		content: [
 			{
-				label: 'Content1',
-				description: 'Description1',
+				label: 'Content c.1',
+				description: 'Description c.1',
 			},
 			{
-				label: 'Content2',
-				description: 'Description2',
+				label: 'Content c.2',
+				description: 'Description c.2',
 			},
 		],
 		expanded: true,
@@ -85,7 +95,7 @@ const parent = {
 describe('RowCollapsiblePanel', () => {
 	it('should render collapsible panel row', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<RowCollapsiblePanel
 				className="my-class-names"
 				index={1}
@@ -94,8 +104,15 @@ describe('RowCollapsiblePanel', () => {
 				style={{ background: 'red' }}
 			/>,
 		);
+		expect(screen.getByText('Content b.1')).toBeInTheDocument();
+		expect(screen.getByText('Content b.2')).toBeInTheDocument();
+		expect(screen.getByText('Description b.1')).toBeInTheDocument();
+		expect(screen.getByText('Description b.2')).toBeInTheDocument();
+		expect(screen.queryByText('Content a.1')).not.toBeInTheDocument();
+		expect(screen.queryByText('Content c.1')).not.toBeInTheDocument();
 
-		expect(wrapper.dive().getElement().props.children({ measure: jest.fn() })).toMatchSnapshot();
+		expect(measure).not.toHaveBeenCalled();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render a row with no data (loading)', () => {
@@ -109,9 +126,11 @@ describe('RowCollapsiblePanel', () => {
 		};
 
 		// when
-		const wrapper = mount(<RowCollapsiblePanel index={1} parent={noDataParent} />);
+		render(<RowCollapsiblePanel index={1} parent={noDataParent} />);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper.find('.tc-collapsible-row'))).toMatchSnapshot();
+		expect(document.querySelector('.theme-loading-collapsible-panel')).toBeVisible();
+		expect(screen.getByRole('listitem')).toBeVisible();
+		expect(screen.getByRole('listitem').firstChild).toHaveClass('theme-loading-collapsible-panel');
 	});
 });

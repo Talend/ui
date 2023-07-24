@@ -1,4 +1,4 @@
-import React, { forwardRef, Key, Ref } from 'react';
+import { forwardRef, Key, Ref } from 'react';
 import { unstable_useId as useId } from 'reakit';
 import {
 	FieldPrimitive,

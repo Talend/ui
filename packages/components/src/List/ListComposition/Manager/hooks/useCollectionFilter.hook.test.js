@@ -1,16 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+/* eslint-disable react/prop-types */
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { useCollectionFilter } from './useCollectionFilter.hook';
 
-const Div = () => <div />;
 function FilterComponent({
 	collection,
 	initialTextFilter,
 	filterFunctions,
 	initialVisibleColumns,
 	initialFilteredColumns,
+	...rest
 }) {
 	const hookReturn = useCollectionFilter(
 		collection,
@@ -19,15 +18,12 @@ function FilterComponent({
 		initialVisibleColumns,
 		initialFilteredColumns,
 	);
-	return <Div id="mainChild" {...hookReturn} />;
+	return (
+		<div data-testid="FilterComponent" data-props={JSON.stringify(hookReturn)}>
+			<button onClick={() => hookReturn.setTextFilter(rest.newValue)}>setTextFilter</button>
+		</div>
+	);
 }
-FilterComponent.propTypes = {
-	collection: PropTypes.array,
-	initialTextFilter: PropTypes.string,
-	filterFunctions: PropTypes.object,
-	initialVisibleColumns: PropTypes.arrayOf(PropTypes.string),
-	initialFilteredColumns: PropTypes.arrayOf(PropTypes.string),
-};
 
 const collection = [
 	{
@@ -65,28 +61,33 @@ const collection = [
 describe('useCollectionFilter', () => {
 	it('should not filter when no text filter is provided', () => {
 		// when
-		const wrapper = mount(<FilterComponent collection={collection} />);
+		render(<FilterComponent collection={collection} />);
 
 		// then
-		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toBe(collection);
+		const props = JSON.parse(screen.getByTestId('FilterComponent').dataset.props);
+		expect(props.filteredCollection.length).toBe(6);
+		expect(props.filteredCollection[0].firstName).toEqual('Watkins');
+		expect(props.filteredCollection[1].firstName).toEqual('Fannie');
+		expect(props.filteredCollection[2].firstName).toEqual('Madden');
+		expect(props.filteredCollection[3].firstName).toEqual('Ferrell');
+		expect(props.filteredCollection[4].firstName).toEqual('Carly');
 	});
 
 	it('should filter with provided initial text filter', () => {
 		// when
-		const wrapper = mount(<FilterComponent collection={collection} initialTextFilter="l" />);
+		render(<FilterComponent collection={collection} initialTextFilter="l" />);
 
 		// then
-		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toHaveLength(3);
-		expect(filteredCollection[0].firstName).toEqual('Madden');
-		expect(filteredCollection[1].firstName).toEqual('Ferrell');
-		expect(filteredCollection[2].firstName).toEqual('Carly');
+		const props = JSON.parse(screen.getByTestId('FilterComponent').dataset.props);
+		expect(props.filteredCollection).toHaveLength(3);
+		expect(props.filteredCollection[0].firstName).toEqual('Madden');
+		expect(props.filteredCollection[1].firstName).toEqual('Ferrell');
+		expect(props.filteredCollection[2].firstName).toEqual('Carly');
 	});
 
 	it('should filter with provided initial text filter using case insensitive and no accents', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<FilterComponent
 				collection={[
 					{ firstName: 'Léa' },
@@ -100,17 +101,17 @@ describe('useCollectionFilter', () => {
 		);
 
 		// then
-		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toHaveLength(4);
-		expect(filteredCollection[0].firstName).toEqual('Léa');
-		expect(filteredCollection[1].firstName).toEqual('Léo');
-		expect(filteredCollection[2].firstName).toEqual('Léon');
-		expect(filteredCollection[3].firstName).toEqual('Lee-Roy');
+		const props = JSON.parse(screen.getByTestId('FilterComponent').dataset.props);
+		expect(props.filteredCollection).toHaveLength(4);
+		expect(props.filteredCollection[0].firstName).toEqual('Léa');
+		expect(props.filteredCollection[1].firstName).toEqual('Léo');
+		expect(props.filteredCollection[2].firstName).toEqual('Léon');
+		expect(props.filteredCollection[3].firstName).toEqual('Lee-Roy');
 	});
 
 	it('should filter with provided initial text filter using case insensitive and no diacritics', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<FilterComponent
 				collection={[
 					{ firstName: 'Léa' },
@@ -124,54 +125,46 @@ describe('useCollectionFilter', () => {
 		);
 
 		// then
-		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toHaveLength(4);
-		expect(filteredCollection[0].firstName).toEqual('Léa');
-		expect(filteredCollection[1].firstName).toEqual('Léo');
-		expect(filteredCollection[2].firstName).toEqual('Léon');
-		expect(filteredCollection[3].firstName).toEqual('Lee-Roy');
+		const props = JSON.parse(screen.getByTestId('FilterComponent').dataset.props);
+		expect(props.filteredCollection).toHaveLength(4);
+		expect(props.filteredCollection[0].firstName).toEqual('Léa');
+		expect(props.filteredCollection[1].firstName).toEqual('Léo');
+		expect(props.filteredCollection[2].firstName).toEqual('Léon');
+		expect(props.filteredCollection[3].firstName).toEqual('Lee-Roy');
 	});
 
-	it('should filter with new text filter set', () => {
+	it('should filter with new text filter set', async () => {
 		// given
-		const wrapper = mount(<FilterComponent collection={collection} />);
-
-		let filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toBe(collection);
+		render(<FilterComponent collection={collection} newValue="l" />);
 
 		// when
-		act(() => {
-			wrapper.find('#mainChild').prop('setTextFilter')('l');
-		});
-		wrapper.update();
+		await userEvent.click(screen.getByText('setTextFilter'));
 
 		// then
-		filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toHaveLength(3);
-		expect(filteredCollection[0].firstName).toEqual('Madden');
-		expect(filteredCollection[1].firstName).toEqual('Ferrell');
-		expect(filteredCollection[2].firstName).toEqual('Carly');
+		const props = JSON.parse(screen.getByTestId('FilterComponent').dataset.props);
+		expect(props.filteredCollection).toHaveLength(3);
+		expect(props.filteredCollection[0].firstName).toEqual('Madden');
+		expect(props.filteredCollection[1].firstName).toEqual('Ferrell');
+		expect(props.filteredCollection[2].firstName).toEqual('Carly');
 	});
 
-	it('should filter with limited column list', () => {
+	it('should filter with limited column list', async () => {
 		// given
-		const wrapper = mount(
-			<FilterComponent collection={collection} initialFilteredColumns={['lastName']} />,
+		render(
+			<FilterComponent
+				collection={collection}
+				initialFilteredColumns={['lastName']}
+				newValue="l"
+			/>,
 		);
 
-		let filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toBe(collection);
-
 		// when
-		act(() => {
-			wrapper.find('#mainChild').prop('setTextFilter')('l');
-		});
-		wrapper.update();
+		await userEvent.click(screen.getByText('setTextFilter'));
 
 		// then
-		filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toHaveLength(1);
-		expect(filteredCollection[0].lastName).toEqual('Silva');
+		const props = JSON.parse(screen.getByTestId('FilterComponent').dataset.props);
+		expect(props.filteredCollection).toHaveLength(1);
+		expect(props.filteredCollection[0].lastName).toEqual('Silva');
 	});
 
 	it('should filter with custom filter function', () => {
@@ -185,7 +178,7 @@ describe('useCollectionFilter', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<FilterComponent
 				collection={collection}
 				initialTextFilter="four"
@@ -194,14 +187,14 @@ describe('useCollectionFilter', () => {
 		);
 
 		// then
-		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toHaveLength(1);
-		expect(filteredCollection[0].firstName).toEqual('Carly');
+		const props = JSON.parse(screen.getByTestId('FilterComponent').dataset.props);
+		expect(props.filteredCollection).toHaveLength(1);
+		expect(props.filteredCollection[0].firstName).toEqual('Carly');
 	});
 
 	it('should filter taking into account only object fields that are visible in list columns (if visible columns are provided)', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<FilterComponent
 				collection={collection}
 				initialTextFilter={collection[0].lastName}
@@ -210,7 +203,7 @@ describe('useCollectionFilter', () => {
 		);
 
 		// then
-		const filteredCollection = wrapper.find('#mainChild').prop('filteredCollection');
-		expect(filteredCollection).toHaveLength(0);
+		const props = JSON.parse(screen.getByTestId('FilterComponent').dataset.props);
+		expect(props.filteredCollection).toHaveLength(0);
 	});
 });

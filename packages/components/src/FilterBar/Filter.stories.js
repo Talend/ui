@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import ActionBar from '../ActionBar';
@@ -41,7 +40,7 @@ const divStyle = {
 };
 
 export default {
-	title: 'Form/Inline form/FilterBar',
+	title: 'Components/Form - Inline form/FilterBar',
 };
 
 export const DefaultDockAndDockable = () => (

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React from 'react';
+import { Component } from 'react';
 import { action } from '@storybook/addon-actions';
 import assetsApi from '@talend/assets-api';
 import Layout from '../Layout';
@@ -100,7 +100,7 @@ const other = [
 ];
 
 export default {
-	title: 'Navigation/SidePanel',
+	title: 'Components/Navigation/SidePanel',
 };
 
 export const Uncontrolled = () => (
@@ -193,7 +193,7 @@ export const ReverseLargeDocked = () => (
 );
 
 export const _WithLayout = () => {
-	class WithLayout extends React.Component {
+	class WithLayout extends Component {
 		constructor() {
 			super();
 			this.state = { docked: false };

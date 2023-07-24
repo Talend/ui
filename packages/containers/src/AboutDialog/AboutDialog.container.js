@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
@@ -10,7 +10,7 @@ export const DEFAULT_STATE = new Map({
 	expanded: false,
 });
 
-class AboutDialog extends React.Component {
+class AboutDialog extends RComponent {
 	static displayName = 'Container(AboutDialog)';
 
 	static propTypes = {

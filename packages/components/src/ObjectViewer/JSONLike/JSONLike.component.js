@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useCallback } from 'react';
+import { Component, useState, useCallback } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -9,7 +9,7 @@ import { Action } from '../../Actions';
 import TooltipTrigger from '../../TooltipTrigger';
 import theme from './JSONLike.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import withTreeGesture from '../../Gesture/withTreeGesture';
+import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../translate';
 
 function noop() {}
@@ -93,7 +93,7 @@ export function getName(name, t) {
 	);
 }
 
-export class LineItem extends React.Component {
+export class LineItem extends Component {
 	getTabIndex(isSelected) {
 		let shouldBeFocusable = false;
 		if (
@@ -606,4 +606,4 @@ JSONLike.propTypes = {
 	hideTooltip: PropTypes.bool,
 };
 
-export default withTreeGesture(JSONLike);
+export default Gesture.withTreeGesture(JSONLike);

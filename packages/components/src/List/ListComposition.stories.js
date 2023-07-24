@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { simpleCollection } from './ListComposition/collection';
@@ -93,7 +92,12 @@ function CustomListLazyLoading(props) {
 }
 
 export default {
-	title: 'Data/List/List Composition',
+	title: 'Components/List/List Composition',
+	parameters: {
+		chromatic: {
+			disableSnapshot: true,
+		},
+	},
 };
 
 export const Default = () => (

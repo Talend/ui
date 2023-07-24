@@ -1,7 +1,9 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import EnumerationWidget from './EnumerationWidget';
+
+jest.unmock('@talend/design-system');
+jest.mock('ally.js');
 
 describe('EnumerationWidget', () => {
 	it('should render items', () => {
@@ -33,6 +35,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// then
+
 		expect(screen.getByRole('link', { name: 'Search for specific values' })).toBeInTheDocument();
 		expect(screen.getByRole('link', { name: 'Add item' })).toBeInTheDocument();
 	});
@@ -51,11 +54,12 @@ describe('EnumerationWidget', () => {
 				onTrigger={jest.fn()}
 			/>,
 		);
+
 		expect(screen.getByRole('link', { name: 'Search for specific values' })).toBeInTheDocument();
 		expect(screen.queryByRole('link', { name: 'Add item' })).not.toBeInTheDocument();
 	});
 
-	it('should be in add mode', () => {
+	it('should be in add mode', async () => {
 		// given
 		render(
 			<EnumerationWidget
@@ -69,13 +73,14 @@ describe('EnumerationWidget', () => {
 		expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
 
 		// when
-		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
+		await userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
 
 		// then
+
 		expect(screen.getByRole('textbox', { name: 'Enter new entry name' })).toBeInTheDocument();
 	});
 
-	it('should be in search mode', () => {
+	it('should be in search mode', async () => {
 		// given
 		render(
 			<EnumerationWidget
@@ -89,13 +94,14 @@ describe('EnumerationWidget', () => {
 		expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
 
 		// when
-		userEvent.click(screen.queryByRole('link', { name: 'Search for specific values' }));
+		await userEvent.click(screen.queryByRole('link', { name: 'Search for specific values' }));
 
 		// then
+
 		expect(screen.getByRole('textbox', { name: 'Enter search term' })).toBeInTheDocument();
 	});
 
-	it('should be in edit mode', () => {
+	it('should be in edit mode', async () => {
 		// given
 		render(
 			<EnumerationWidget
@@ -108,14 +114,14 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.hover(screen.getByRole('row'));
-		userEvent.click(screen.getByRole('link', { name: 'Edit' }));
+		await userEvent.hover(screen.getByRole('row'));
+		await userEvent.click(screen.getByRole('link', { name: 'Edit' }));
 
 		// then
 		expect(screen.getByLabelText('Enter the new value')).toBeInTheDocument();
 	});
 
-	it('should call rename trigger on edit', () => {
+	it('should call rename trigger on edit', async () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve());
 		render(
@@ -130,11 +136,11 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.hover(screen.getByRole('row'));
-		userEvent.click(screen.getByRole('link', { name: 'Edit' }));
-		userEvent.clear(screen.getByLabelText('Enter the new value'));
-		userEvent.type(screen.getByLabelText('Enter the new value'), 'foo');
-		userEvent.click(screen.getByRole('link', { name: 'Validate' }));
+		await userEvent.hover(screen.getByRole('row'));
+		await userEvent.click(screen.getByRole('link', { name: 'Edit' }));
+		await userEvent.clear(screen.getByLabelText('Enter the new value'));
+		await userEvent.type(screen.getByLabelText('Enter the new value'), 'foo');
+		await userEvent.click(screen.getByRole('link', { name: 'Validate' }));
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
@@ -148,7 +154,7 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should call search trigger', () => {
+	it('should call search trigger', async () => {
 		// given
 		jest.useFakeTimers();
 		const onTrigger = jest.fn(() => Promise.resolve([]));
@@ -164,9 +170,12 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.click(screen.queryByRole('link', { name: 'Search for specific values' }));
-		userEvent.type(screen.queryByRole('textbox', { name: 'Enter search term' }), 'foo');
+		fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+		fireEvent.change(screen.getByRole('textbox', { name: 'Enter search term' }), {
+			target: { value: 'foo' },
+		});
 		jest.runAllTimers();
+		jest.useRealTimers();
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
@@ -178,7 +187,7 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should call add trigger', () => {
+	it('should call add trigger', async () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve([]));
 		render(
@@ -193,9 +202,9 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
-		userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo');
-		userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
+		await userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
+		await userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo');
+		await userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
@@ -207,7 +216,7 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should call add trigger with multiple values', () => {
+	it('should call add trigger with multiple values', async () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve([]));
 		render(
@@ -222,9 +231,12 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
-		userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo, tata');
-		userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
+		await userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
+		await userEvent.type(
+			screen.queryByRole('textbox', { name: 'Enter new entry name' }),
+			'foo, tata',
+		);
+		await userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
@@ -236,7 +248,7 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should call add trigger with disableSplit', () => {
+	it('should call add trigger with disableSplit', async () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve([]));
 		render(
@@ -251,9 +263,12 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
-		userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo, tata');
-		userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
+		await userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
+		await userEvent.type(
+			screen.queryByRole('textbox', { name: 'Enter new entry name' }),
+			'foo, tata',
+		);
+		await userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
@@ -267,7 +282,7 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should call delete trigger', () => {
+	it('should call delete trigger', async () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve({}));
 		render(
@@ -282,7 +297,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('link', { name: 'Remove value' }));
+		await userEvent.click(screen.getByRole('link', { name: 'Remove value' }));
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
@@ -294,7 +309,7 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should delete an item', () => {
+	it('should delete an item', async () => {
 		// given
 		const onChange = jest.fn();
 		render(
@@ -309,14 +324,14 @@ describe('EnumerationWidget', () => {
 		expect(screen.getByRole('gridcell', { name: /titi,tata/i })).toBeInTheDocument();
 
 		// when
-		userEvent.hover(screen.getByRole('gridcell', { name: /titi,tata/i }));
-		userEvent.click(screen.getByRole('link', { name: 'Remove value' }));
+		await userEvent.hover(screen.getByRole('gridcell', { name: /titi,tata/i }));
+		await userEvent.click(screen.getByRole('link', { name: 'Remove value' }));
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { schema: {}, value: [] });
 	});
 
-	it('should select an item', () => {
+	it('should select an item', async () => {
 		// given
 		render(
 			<EnumerationWidget
@@ -329,13 +344,13 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByText('titi,tata'));
+		await userEvent.click(screen.getByText('titi,tata'));
 
 		// then
 		expect(screen.getByText('1 selected value')).toBeInTheDocument();
 	});
 
-	it('should select multiple items', () => {
+	it('should select multiple items', async () => {
 		// given
 		render(
 			<EnumerationWidget
@@ -351,8 +366,8 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi,tata"' }));
-		userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi2,tata2"' }), {
+		fireEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi,tata"' }));
+		fireEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi2,tata2"' }), {
 			ctrlKey: true,
 		});
 
@@ -360,8 +375,9 @@ describe('EnumerationWidget', () => {
 		expect(screen.getByText('2 selected values')).toBeInTheDocument();
 	});
 
-	it('should delete all', () => {
+	it('should delete all', async () => {
 		// given
+		jest.useFakeTimers();
 		const onChange = jest.fn();
 		render(
 			<EnumerationWidget
@@ -377,11 +393,13 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi,tata"' }));
-		userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi2,tata2"' }), {
+		fireEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi,tata"' }));
+		fireEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi2,tata2"' }), {
 			ctrlKey: true,
 		});
-		userEvent.click(screen.getByRole('link', { name: 'Remove selected values' }));
+		fireEvent.click(screen.getByRole('link', { name: 'Remove selected values' }));
+		jest.runAllTimers();
+		jest.useRealTimers();
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { schema: {}, value: [] });

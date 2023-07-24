@@ -1,4 +1,3 @@
-import React from 'react';
 import VirtualizedList from '..';
 import { insertSelectionConfiguration, toColumns } from './tablerow';
 
