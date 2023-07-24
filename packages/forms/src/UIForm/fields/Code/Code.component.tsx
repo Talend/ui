@@ -24,13 +24,17 @@ declare const ace: any;
 
 const ReactAce = lazy(() =>
 	assetsApi.getUMD('react-ace').then((mod: any) => {
-		const extUrl = assetsApi.getURL('/src-noconflict/ext-language_tools.js', 'ace-builds');
+		const extUrl = assetsApi.getURL('/src-min-noconflict/ext-language_tools.js', 'ace-builds');
 		ace.config.set('basePath', extUrl.replace('ext-language_tools.js', ''));
 		assetsApi.addScript({ src: extUrl });
 		// wait for ext-language_tools.js to be loaded before return the ace module
 		return new Promise(resolve => {
-			setTimeout(() => {
-				resolve(assetsApi.toDefaultModule(mod.default));
+			const cancel = setInterval(() => {
+				if (ace.require('ace/ext/language_tools')) {
+					clearInterval(cancel);
+					debugger;
+					resolve(assetsApi.toDefaultModule(mod.default));
+				}
 			}, 100);
 		});
 	}),
