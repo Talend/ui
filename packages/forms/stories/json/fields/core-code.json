@@ -18,6 +18,7 @@
       "title": "Code with gutter and style",
       "options": {
         "showGutter": true,
+        "language": "sql",
         "style": {
           "border": 0,
           "font": "400 1.4rem/140% 'Inconsolata', monospace",
