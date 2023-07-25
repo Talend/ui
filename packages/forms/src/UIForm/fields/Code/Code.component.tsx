@@ -1,17 +1,6 @@
-import {
-	lazy,
-	DetailedHTMLProps,
-	KeyboardEvent,
-	LabelHTMLAttributes,
-	Suspense,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
+import { lazy, DetailedHTMLProps, LabelHTMLAttributes, Suspense, useEffect, useState } from 'react';
 import { IAceEditorProps } from 'react-ace';
 import { useTranslation } from 'react-i18next';
-
-import { isEventKey, codes } from 'keycode';
 
 import assetsApi from '@talend/assets-api';
 
@@ -89,7 +78,6 @@ export default function Code({
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const instructionsId = generateId(id, 'instructions');
-	const containerRef = useRef<any>(null);
 	const [editor, setEditor] = useState<any>(null);
 
 	useEffect(() => {
@@ -99,22 +87,6 @@ export default function Code({
 			textarea.setAttribute('aria-describedby', `${instructionsId} ${descriptionId} ${errorId}`);
 		}
 	}, [editor, instructionsId, descriptionId, errorId, id]);
-
-	function onKeyDown(event: KeyboardEvent) {
-		if (isEventKey(event.nativeEvent, codes.enter)) {
-			const now = Date.now();
-
-			if (containerRef.current.lastEsc && containerRef.current.lastEsc - now < 1000) {
-				containerRef.current.lastEsc = null;
-				containerRef.current.focus();
-				editor.textInput.getElement().setAttribute('tabindex', -1);
-			} else {
-				containerRef.current.lastEsc = now;
-			}
-		} else {
-			containerRef.current.lastEsc = null;
-		}
-	}
 
 	function onBlur() {
 		editor.textInput.getElement().removeAttribute('tabindex');
@@ -136,8 +108,6 @@ export default function Code({
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 				id={id && `${id}-editor-container`}
 				onBlur={onBlur}
-				onKeyDown={onKeyDown}
-				ref={containerRef}
 				tabIndex={-1}
 			>
 				<div id={instructionsId} className="sr-only">
