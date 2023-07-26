@@ -1,10 +1,12 @@
 import Stepper from '@talend/react-components/lib/Stepper';
-import stepperReducer from './service/Stepper.reducer';
-import { getStepperKey } from './service/Stepper.utils';
-import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
-import { getStepsForResource, isResourceLoading } from './service/Stepper.selectors';
+import StepperForm from './components/StepperForm';
 import StepperContainer from './containers/Stepper.connect';
+import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
+import stepperReducer from './service/Stepper.reducer';
+import { getStepsForResource, isResourceLoading } from './service/Stepper.selectors';
+import { getStepperKey } from './service/Stepper.utils';
 import * as constants from './Stepper.constants';
+import { useStepperForm } from './hooks/useStepperForm/useStepperForm.hook';
 
 const { isAllSuccessful, isStepsLoading, isErrorInSteps } = Stepper;
 
@@ -39,4 +41,5 @@ export const StepperUtils = {
 
 export const StepperConstants = constants;
 
-export default cmfModule;
+export { StepperForm, useStepperForm };
+export default { ...cmfModule };

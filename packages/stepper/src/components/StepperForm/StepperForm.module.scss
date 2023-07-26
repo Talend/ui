@@ -1,0 +1,50 @@
+@use '~@talend/design-tokens/lib/_tokens.scss';
+
+.stepper-form {
+	display: flex;
+	height: calc(100% - tokens.$coral-sizing-m * 2);
+	padding: tokens.$coral-sizing-m 0;
+
+	&__header {
+		&__title {
+			font: tokens.$coral-heading-l;
+		}
+
+		&__subtitle {
+			font: tokens.$coral-paragraph-m;
+			color: tokens.$coral-color-neutral-text-weak;
+		}
+	}
+
+	&__steps {
+		display: flex;
+		height: fit-content;
+		padding-right: tokens.$coral-spacing-l;
+		width: 20rem;
+	}
+
+	&__container {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: tokens.$coral-spacing-l;
+		padding-right: tokens.$coral-spacing-l;
+	}
+
+	&__content {
+		height: calc(100% - 11.5rem);
+	}
+
+	&__footer {
+		display: flex;
+		flex: 0;
+
+		hr {
+			max-height: tokens.$coral-sizing-xxxs;
+		}
+	}
+
+	&__loading {
+		width: 50%;
+	}
+}
