@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
+        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
           node-version: 18
           check-latest: true
@@ -44,12 +44,8 @@ jobs:
         id: eslint
         run: yarn lint
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@e1754a427f478b8778d349341b8f1d80f1f47f44 #v36.4.0
-
       - name: Merge lint
-        run: node merge-report.js ${{ steps.changed-files.outputs.all_changed_files }}
+        run: yarn lint-merge-report master ${GITHUB_HEAD_REF}
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@2c426a387ed738e9522e93abfcb4cfc57b46458a #v2.2.0

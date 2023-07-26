@@ -3,7 +3,6 @@
 
 $tc-headerbar-logo-width: 6rem !default;
 $tc-headerbar-logo-full-width: 8.5rem !default;
-$background-color-on-hover: rgba(255, 255, 255, 0.2);
 
 @keyframes fadeIn {
 	from {
@@ -22,10 +21,6 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 	top: 0;
 	width: 100%;
 	z-index: 1030;
-
-	:global(.btn) {
-		--t-button-color: var(--t-button-primary-color);
-	}
 
 	svg {
 		margin: 0;
@@ -49,13 +44,6 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 			margin-left: auto;
 		}
 
-		:global(.btn) {
-			&:hover,
-			&:focus {
-				box-shadow: 0 0 0 200px rgba(255, 255, 255, 0.12) inset;
-			}
-		}
-
 		.tc-header-bar-action {
 			list-style: none;
 			display: flex;
@@ -68,7 +56,7 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 				display: block;
 				width: 1px;
 				height: $font-size-large;
-				background-color: $white;
+				background-color: tokens.$coral-color-neutral-background;
 			}
 
 			:global {
@@ -106,12 +94,12 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 		.tc-header-bar-call-to-action {
 			:global {
 				.btn.btn-info.btn-inverse {
-					background-color: $white;
+					background-color: tokens.$coral-color-neutral-background;
 					border: none;
 					margin-right: $padding-normal;
 
 					&:hover {
-						background-color: $white;
+						background-color: tokens.$coral-color-neutral-background;
 					}
 				}
 			}
@@ -119,7 +107,6 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 	}
 
 	.tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
-		fill: $st-tropaz;
 		height: $svg-lg-size;
 		width: $svg-lg-size;
 	}
@@ -138,7 +125,7 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 		height: 100%;
 
 		:global(.caret) {
-			box-shadow: 2px -2px 0 $white;
+			box-shadow: 2px -2px 0 tokens.$coral-color-neutral-text-inverted;
 			border: none;
 			margin-left: $padding-small;
 			margin-bottom: $padding-smaller;
@@ -147,10 +134,6 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 		&:global(.open) {
 			:global(.caret) {
 				margin-top: $padding-small;
-			}
-
-			:global(.btn):global(.btn-link) {
-				background-color: $background-color-on-hover;
 			}
 		}
 	}
@@ -166,7 +149,7 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 
 				padding-right: $padding-large;
 				height: $navbar-height;
-				background: $white;
+				background: tokens.$coral-color-neutral-background;
 
 				:global(.form-control) {
 					font-style: italic;
@@ -179,7 +162,7 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 
 	.tc-header-bar-intercom-default-component {
 		border-radius: 50%;
-		background: $st-tropaz;
+		background: tokens.$coral-color-accent-text;
 		min-height: auto;
 		height: 3.2rem;
 		width: 3.2rem;

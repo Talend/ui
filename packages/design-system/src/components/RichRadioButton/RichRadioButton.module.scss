@@ -20,12 +20,13 @@
 
 	&__icon {
 		color: tokens.$coral-color-accent-icon;
-		height: tokens.$coral-sizing-xs;
+		min-height: tokens.$coral-sizing-xs;
+		min-width: tokens.$coral-sizing-xs;
 		transition: color tokens.$coral-transition-normal;
-		width: tokens.$coral-sizing-xs;
 	}
 
-	&__illustration {
+	&__illustration,
+	&__logo {
 		height: tokens.$coral-sizing-l;
 		width: tokens.$coral-sizing-l;
 	}
@@ -33,12 +34,17 @@
 	&__wrapper {
 		display: flex;
 		flex: 1;
+		height: 100%;
 		margin: 0;
 		max-width: 400px;
 		min-height: 77px;
 		min-width: 220px;
 		position: relative;
 		width: 100%;
+
+		input {
+			margin: 0;
+		}
 	}
 
 	&__input {
@@ -151,6 +157,11 @@
 
 		&:checked {
 			&:not(:disabled, [readonly]) {
+				+ .rich-radio-button {
+					background-color: tokens.$coral-color-accent-background-selected;
+					border: tokens.$coral-border-m-solid tokens.$coral-color-accent-border;
+				}
+
 				&:hover {
 					+ .rich-radio-button {
 						border-color: tokens.$coral-color-accent-border-hover;
@@ -163,9 +174,10 @@
 					}
 				}
 
-				+ .rich-radio-button {
-					background-color: tokens.$coral-color-accent-background-selected;
-					border: tokens.$coral-border-m-solid tokens.$coral-color-accent-border;
+				&:focus {
+					+ .rich-radio-button {
+						outline-offset: -2px;
+					}
 				}
 			}
 

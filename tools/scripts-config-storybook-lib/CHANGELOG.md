@@ -1,5 +1,16 @@
 # @talend/scripts-config-storybook-lib
 
+## 4.1.0
+
+### Minor Changes
+
+- bfc02c4fb: feat: add design token update in the toolbar
+
+### Patch Changes
+
+- Updated dependencies [bfc02c4fb]
+  - @talend/scripts-config-react-webpack@15.4.1
+
 ## 4.0.3
 
 ### Patch Changes

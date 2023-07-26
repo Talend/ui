@@ -71,7 +71,7 @@
 			box-shadow: 0 0 0 0.3rem tokens.$coral-color-accent-background;
 			z-index: 1;
 			transform: scale(1);
-			animation: pulse 2s infinite;
+			animation: pulse 2s 0.2s infinite;
 		}
 	}
 

@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.9.0
+
+### Minor Changes
+
+-   f65073eb9: feat: add ace-builds
+
 ## 9.8.5
 
 ### Patch Changes

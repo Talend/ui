@@ -1,16 +1,13 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+@use '~@talend/design-tokens/lib/tokens';
 
 // Toolbar styles
-$tc-list-toolbar-display-color: $silver !default;
-$tc-list-toolbar-background-color: $wild-sand !default;
 $tc-list-toolbar-height: 7rem !default;
 
 .tc-list-toolbar {
-	background: $tc-list-toolbar-background-color;
-	border-top: 1px solid $alto;
-	border-bottom: 1px solid $alto;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	margin-bottom: 0;
 	padding: 0 $padding-larger;
 
@@ -24,7 +21,7 @@ $tc-list-toolbar-height: 7rem !default;
 	}
 
 	:global(.navbar-text) {
-		color: $tc-list-toolbar-display-color;
+		color: tokens.$coral-color-neutral-text;
 		margin-right: 0;
 
 		label {
@@ -36,13 +33,13 @@ $tc-list-toolbar-height: 7rem !default;
 	:global(.nav) {
 		a[role='menuitem'],
 		a:global(.dropdown-toggle) {
-			color: $black;
+			color: tokens.$coral-color-neutral-text;
 			font-weight: normal;
 		}
 	}
 
 	:global(.tc-actionbar-container) {
-		background-color: $tc-list-toolbar-background-color;
+		background-color: tokens.$coral-color-neutral-background-medium;
 		padding: 0;
 		height: $tc-list-toolbar-height;
 
@@ -75,25 +72,23 @@ $tc-list-toolbar-height: 7rem !default;
 						padding-right: 0;
 					}
 
-					&:global(.separated):not(:first-child):before {
+					&:global(.separated):not(:first-child)::before {
 						content: '|';
-						color: $silver;
+						color: tokens.$coral-color-neutral-text-weak;
 					}
 
-					&:global(.select-sort-by) {
-						:global(.navbar-text) {
-							margin-bottom: $padding-normal;
-							margin-left: $padding-normal;
-							font-weight: normal;
-							color: $dove-gray;
-						}
+					&:global(.select-sort-by) :global(.navbar-text) {
+						margin-bottom: $padding-normal;
+						margin-left: $padding-normal;
+						font-weight: normal;
+						color: tokens.$coral-color-neutral-text;
 					}
 				}
 			}
 		}
 	}
 
-	:global(li.separated button[data-feature='column-chooser.open']) {
+	:global(.separated button[data-feature='column-chooser.open']) {
 		margin-left: tokens.$coral-spacing-m;
 	}
 }

@@ -143,27 +143,7 @@ function isValid({ payload }) {
 ## Build with webpack
 
 @talend/react-forms comes with react-ace lazy loaded.
-No modes are loaded with the build and ace is trying to fetch modes,
-this is why you need to add a copyconfig to your build to use the 'code' widget.
-
-Please adapt from this webpack config example:
-
-```javascript
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const buildFormUtils = require('@talend/react-forms/build-utils');
-
-const patterns = buildFormUtils.getWebpackCopyConfig();
-
-module.exports = {
-	entry: './src/app/index.js'
-	output: {
-		//...
-	},
-	plugins: [
-		new CopyWebpackPlugin({ patterns })
-	]
-}
-```
+Modes are loaded from CDN. No more additional config is required.
 
 ## LICENSE
 

@@ -1,0 +1,28 @@
+/* stylelint-disable selector-no-qualifying-type */
+@use '~@talend/design-tokens/lib/tokens';
+
+.pagination > li > a,
+.pagination > li > span {
+	color: tokens.$coral-color-accent-text;
+	border-color: tokens.$coral-color-neutral-border-weak;
+	background-color: tokens.$coral-color-neutral-background;
+}
+
+.pagination > li > a:hover,
+.pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus {
+	color: tokens.$coral-color-accent-text-hover;
+	background-color: tokens.$coral-color-neutral-background-medium;
+}
+
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+	color: tokens.$coral-color-neutral-text-disabled;
+	border-color: tokens.$coral-color-neutral-border-disabled;
+	background-color: tokens.$coral-color-neutral-background;
+}

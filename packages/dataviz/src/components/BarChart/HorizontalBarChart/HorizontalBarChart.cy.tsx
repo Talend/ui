@@ -24,6 +24,7 @@ context('<HorizontalBarChart />', () => {
 			/>,
 		);
 
+		// eslint-disable-next-line cypress/unsafe-to-chain-command
 		cy.get('.recharts-bar-rectangle')
 			.first()
 			.trigger('mousemove')
@@ -54,6 +55,7 @@ context('<HorizontalBarChart />', () => {
 			/>,
 		);
 
+		// eslint-disable-next-line cypress/unsafe-to-chain-command
 		cy.get('.recharts-bar-rectangle')
 			.first()
 			.trigger('mousemove')

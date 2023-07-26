@@ -29,17 +29,21 @@ function getFileSize(size: number, t: TFunction) {
 
 type InputType = Omit<InputPrimitiveProps, 'type' | 'className' | 'style' | 'prefix' | 'suffix'>;
 type FileProps = InputType & {
-	files?: string[] | FileList;
+	files?: string[] | FileList | null;
 };
 
 const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 	const [drag, setDrag] = useState(false);
-	const [files, setFiles] = useState(props.files || null);
+	const [files, setFiles] = useState<string[] | FileList | null>();
 
 	const inputRef = useRef<HTMLInputElement | null>(null);
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 	const { hasError, ...rest } = props;
+
+	useEffect(() => {
+		setFiles(props.files);
+	}, [props.files]);
 
 	function handleChange() {
 		const input = inputRef.current;
@@ -52,6 +56,7 @@ const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 		const input = inputRef.current;
 		if (input) {
 			input.value = '';
+			input.dispatchEvent(new Event('change', { bubbles: true }));
 		}
 		setFiles(() => null);
 	}

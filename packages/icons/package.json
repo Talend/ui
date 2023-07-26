@@ -44,13 +44,12 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "@svgr/webpack": "^5.5.0",
-    "@talend/scripts-core": "^13.3.0",
+    "@talend/scripts-core": "^14.0.0",
     "babel-loader": "^8.3.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^4.3.0",
     "mini-css-extract-plugin": "^2.7.6",
     "mkdirp": "^1.0.4",
-    "prettier": "^2.8.8",
     "react": "^17.0.2",
     "react-use": "^17.4.0",
     "string-replace-loader": "^2.3.0",
@@ -63,5 +62,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.58.1"
+  "version": "6.59.0"
 }

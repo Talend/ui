@@ -104,6 +104,9 @@ const BasicSearch = ({
 	const badgeFacetedContextValue = { state, dispatch, onSubmit };
 	// removable = undefined means badge can be removed (backward compatible change)
 	const hasRemovableBadge = state.badges.some(badge => badge.properties.removable !== false);
+	const quickSearchMinLength =
+		Math.max(quicksearchable.map(quicksearchableItem => quicksearchableItem.metadata?.minLength)) ||
+		1;
 
 	return (
 		<div id={basicSearchId} className={css('tc-basic-search')}>
@@ -127,6 +130,7 @@ const BasicSearch = ({
 					);
 				}}
 				inputProps={quickSearchInputProps}
+				minLength={quickSearchMinLength}
 			/>
 			<div className={css('tc-basic-search-content')}>
 				<BadgeFacetedProvider value={badgeFacetedContextValue}>

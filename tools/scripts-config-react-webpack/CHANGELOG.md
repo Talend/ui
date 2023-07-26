@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 15.4.1
+
+### Patch Changes
+
+- bfc02c4fb: fix: make the static AppLoader use design token if available
+
 ## 15.4.0
 
 ### Minor Changes

@@ -1,6 +1,7 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-$tc-listview-svg-color: $dove-gray !default;
+$tc-listview-svg-color: tokens.$coral-color-neutral-icon !default;
 $tc-listview-font-size: 1.4rem !default;
 
 .tc-listview {

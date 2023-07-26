@@ -1,14 +1,12 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-$tc-list-large-hover-bg: $white !default;
-$tc-list-large-field-value-color: $dove-gray !default;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tc-list-large {
 	padding: $padding-small;
 
 	.inner-box {
-		background: $tc-list-large-hover-bg;
-		border: 1px solid $alto;
+		background: tokens.$coral-color-neutral-background;
+		border: 1px solid tokens.$coral-color-neutral-border-weak;
 		border-radius: 3px;
 		height: 100%;
 
@@ -29,8 +27,6 @@ $tc-list-large-field-value-color: $dove-gray !default;
 			}
 
 			.cell-title-actions {
-				background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-large-hover-bg, 100%) 20px);
-
 				.btn-link {
 					padding: 0 $padding-smaller;
 				}
@@ -62,7 +58,7 @@ $tc-list-large-field-value-color: $dove-gray !default;
 	}
 
 	.field-value {
-		color: $tc-list-large-field-value-color;
+		color: tokens.$coral-color-neutral-text-weak;
 		margin-bottom: $padding-small;
 		overflow: hidden;
 		text-overflow: ellipsis;

@@ -1,12 +1,13 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .fs-badge-tags-form {
 	:global(.tc-tooltip-body) {
 		margin: $padding-normal 0 0;
 		padding: $padding-smaller $padding-large $padding-large;
 		overflow-y: auto;
-		background: #FCFCFC;
-		border-top: 1px solid $gallery;
+		background: tokens.$coral-color-neutral-background-medium;
+		border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 	}
 
 	&-body {
@@ -33,7 +34,7 @@
 	&-left-button,
 	&-left-button:focus {
 		text-transform: none;
-		color: $st-tropaz;
+		color: tokens.$coral-color-accent-text;
 		font-weight: 600;
 	}
 
