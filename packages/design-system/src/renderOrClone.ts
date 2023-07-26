@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { cloneElement, isValidElement, type ReactNode } from 'react';
 
 export type ChildrenOrFn = ReactNode | ((props: any) => ReactNode);
 
@@ -6,5 +6,10 @@ export function renderOrClone(children: ChildrenOrFn, props: any = {}): ReactNod
 	if (typeof children === 'function') {
 		return children(props);
 	}
-	return children && props ? React.cloneElement(children, props) : children;
+
+	if (isValidElement(children) && props) {
+		return cloneElement(children, props);
+	}
+
+	return children;
 }
