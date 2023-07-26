@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.1.0
+
+### Minor Changes
+
+- c15088d3b: TDOPS-4856 - Fix List colors taken from DS tokens
+
 ## 11.0.0
 
 ### Major Changes

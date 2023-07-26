@@ -1,5 +1,20 @@
 # @talend/react-forms
 
+## 10.1.0
+
+### Minor Changes
+
+- f65073eb9: Update react-ace lib and improve its lazy loading.
+  Fix auto-completion.
+  Remove the need to add a copy configuration in application to work.
+
+  New library no more use _brace_ but _ace-builds_ instead.
+
+### Patch Changes
+
+- Updated dependencies [c15088d3b]
+  - @talend/react-components@11.1.0
+
 ## 10.0.0
 
 ### Major Changes
