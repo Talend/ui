@@ -1,4 +1,3 @@
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
@@ -28,8 +27,28 @@ if (cmf) {
 	}
 }
 
+function ToggleBootstrap({ disabled }) {
+	React.useEffect(() => {
+		document.querySelectorAll('link[href*="bootstrap"]').forEach(link => link.disabled = disabled);
+	}, [disabled]);
+	return null;
+}
+
 const defaultPreview = {
 	globalTypes: {
+		bootstrapTheme: {
+			name: 'Bootstrap theme',
+			description: 'Activate bootstrap theme',
+			defaultValue: 'true',
+			toolbar: {
+				icon: 'paintbrush',
+				items: [
+					{ value: 'true', left: '✅', title: 'With Bootstrap' },
+					{ value: 'false', left: '❌', title: 'Without Bootstrap' },
+				],
+				dynamicTitle: true,
+			},
+		},
 		theme: {
 			name: 'Theme',
 			description: 'Choose a theme to apply to the design system',
@@ -74,6 +93,18 @@ const defaultPreview = {
 			return [
 				React.createElement(IconsProvider, {
 					key: 'icons-provider-decorator'
+				}),
+				React.createElement(ToggleBootstrap, {
+					disabled: context.globals.bootstrapTheme === 'false',
+				}),
+				React.createElement('link', {
+					key: 'bootstrap-theme-decorator',
+					rel: 'stylesheet',
+					id: 'bootstrap-theme',
+					// TODO: find a way to use it from bootstrap-theme build
+					href: 'https://unpkg.com/@talend/bootstrap-theme/dist/bootstrap.css',
+					media: 'screen',
+					disabled: context.globals.bootstrapTheme === 'false',
 				}),
 				React.createElement(ThemeProvider, {
 					key: 'theme-provider-decorator',
