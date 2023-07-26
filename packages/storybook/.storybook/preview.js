@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStorage } from 'react-use';
 
@@ -20,6 +20,10 @@ import {
 	Stories,
 	Markdown,
 } from '@storybook/blocks';
+import { useChannel } from '@storybook/preview-api';
+import { GLOBALS_UPDATED } from '@storybook/core-events';
+
+import { ThemeProvider, useTheme } from '@storybook/theming';
 
 import { SET_STORIES, UPDATE_GLOBALS } from '@storybook/core-events';
 import { BackToTop, TableOfContents } from 'storybook-docs-toc';
@@ -49,10 +53,9 @@ import {
 import 'focus-outline-manager';
 
 import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
-import { Divider, Form, StackVertical, ThemeProvider } from '@talend/design-system';
+import { Divider, Form, light, StackVertical } from '@talend/design-system';
 import { ensure, create, themes } from '@storybook/theming';
-import light from '@talend/storybook-docs/lib/themes/light';
-import logo from './logo.svg';
+import { themeDark, themeLight } from '@talend/storybook-docs';
 
 const TokenOrder = [
 	'Colors',
@@ -117,6 +120,31 @@ channel.once(SET_STORIES, eventData => {
 	);
 });
 
+const useThemeSwitcher = () => {
+	// fetch global to get current theme
+	const [theme, setTheme] = useState();
+
+	useEffect(() => {
+		const channel = addons.getChannel();
+		channel.on(GLOBALS_UPDATED, ({ globals: { theme } }) => {
+			console.log('[GNI]-- globals updated', theme);
+			setTheme(theme);
+		});
+		return () => channel.removeAllListeners(GLOBALS_UPDATED);
+	}, []);
+
+	const sbTheme = useMemo(() => {
+		if (theme) {
+			console.log('[GNI]-- theme changed', theme);
+			return create({ dark: themeDark, light: themeLight }[theme]);
+		}
+	}, [theme]);
+
+	return {
+		theme: sbTheme,
+	};
+};
+
 export const parameters = {
 	docs: {
 		// theme: create({ ...light, brandImage: logo }),
@@ -129,7 +157,7 @@ export const parameters = {
 		// 		orderedList: false,
 		// 	},
 		// },
-		container: props => {
+		container: ({ theme, ...props }) => {
 			// 	const [hasDarkMode, setDarkMode] = useLocalStorage('coral--has-dark-mode', false);
 			// 	const [hasBootstrapStylesheet, setBootstrapStylesheet] = useLocalStorage(
 			// 		'coral--has-bootstrap-stylesheet',
@@ -178,23 +206,17 @@ export const parameters = {
 			// 	// 	return <>{children}</>;
 			// 	// }
 
-			return (
-				<MDXProvider
-					components={{
-						h1: props => {
-							console.log('[GNI]-- render h1');
-							return <H1 {...props} />;
-						},
-						h2: H2,
-						h3: H3,
-						h4: H4,
-						h5: H5,
-						h6: H6,
-					}}
-				>
-					<DocsContainer {...props} />
-				</MDXProvider>
-			);
+			// useChannel({
+			// 	[GLOBALS_UPDATED]: event => {
+			// 		console.log('[GNI]-- global updated', event);
+			// 	},
+			// });
+
+			const { theme: previewTheme } = useThemeSwitcher();
+
+			console.log('[GNI]-- theme updated', theme);
+
+			return <DocsContainer {...props} theme={previewTheme} />;
 		},
 		source: {
 			state: 'open',
