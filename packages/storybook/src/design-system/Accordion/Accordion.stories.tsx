@@ -1,8 +1,19 @@
-import { Story } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '@talend/design-system';
 
-export default { component: Accordion };
+const meta: Meta<typeof Accordion> = {
+	title: 'Design System/Accordion',
+	component: Accordion,
+	parameters: {
+		status: { figma: 'OK', storybook: 'wip', react: 'wip', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion',
+	},
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Accordion>;
 
 const SampleParagraph = () => (
 	<p>

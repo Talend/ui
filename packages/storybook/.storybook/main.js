@@ -15,6 +15,7 @@ const STORIES = [
 	`${rootPath}src/content/docs/Conventions.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Capitalization.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Wording.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/design-system/**/*.stories.@(js|tsx)`,
 	`${rootPath}src/design-system/**/*.mdx`,
 	// `${rootPath}../components/**/*.stories.@(js|tsx|mdx)`,
 	// `${rootPath}../forms/**/*.stories.@(js|tsx|mdx)`,

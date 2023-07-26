@@ -228,12 +228,12 @@ html {
 		margin: 0 0 tokens.$coral-spacing-m 0;
 	}
 
-	.sbdocs-h1,
-	.sbdocs-h2,
-	.sbdocs-h3,
-	.sbdocs-h4,
-	.sbdocs-h5,
-	.sbdocs-h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		border: none;
 		margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
 		color: tokens.$coral-color-neutral-text;
@@ -363,13 +363,13 @@ html {
 
 	// stylelint-disable-next-line selector-no-qualifying-type
 	&.sbdocs-preview pre.prismjs {
-		background: #022E4D;
+		background: #022e4d;
 	}
 
 	kbd {
 		padding: 0.25rem 0.5rem;
 		color: #202020;
-		background-color: #EEE;
+		background-color: #eee;
 		border-radius: 0.4rem;
 		border: 1px solid #606060;
 		font-size: 1.2rem;
@@ -400,7 +400,7 @@ html {
 
 	& > dt::before {
 		content: '#';
-		color: #FF6D70;
+		color: #ff6d70;
 		padding-right: 1ch;
 	}
 

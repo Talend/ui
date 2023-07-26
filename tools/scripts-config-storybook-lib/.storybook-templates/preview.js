@@ -37,9 +37,10 @@ const defaultPreview = {
 			toolbar: {
 				icon: 'paintbrush',
 				items: [
-					{ value: 'light', left: '⚪️', title: 'Default theme' },
-					{ value: 'dark', left: '⚫️', title: 'Dark theme' },
+					{ value: 'light', left: '☀️', title: 'Light mode' },
+					{ value: 'dark', left: '🌑', title: 'Dark mode' },
 				],
+				dynamicTitle: true,
 			},
 		},
 		locale: {
@@ -82,6 +83,9 @@ const defaultPreview = {
 		},
 		cmfDecorator
 	].filter(Boolean),
+	parameters:{
+		
+	}
 };
 
 

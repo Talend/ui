@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStorage } from 'react-use';
 
@@ -7,7 +7,20 @@ import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 import { addons } from '@storybook/addons';
 
-import { DocsContainer } from '@storybook/addon-docs';
+import { DocsContainer, useGlobals } from '@storybook/blocks';
+import { H1, H2, H3, H4, H5, H6 } from '@storybook/components';
+import { MDXProvider } from '@mdx-js/react';
+import {
+	Meta,
+	Title,
+	Subtitle,
+	Description,
+	Primary,
+	Controls,
+	Stories,
+	Markdown,
+} from '@storybook/blocks';
+
 import { SET_STORIES, UPDATE_GLOBALS } from '@storybook/core-events';
 import { BackToTop, TableOfContents } from 'storybook-docs-toc';
 import '@talend/storybook-docs/dist/globalStyles.min.css';
@@ -37,8 +50,9 @@ import 'focus-outline-manager';
 
 import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
 import { Divider, Form, StackVertical, ThemeProvider } from '@talend/design-system';
-
-import { dark, light } from '@talend/design-system';
+import { ensure, create, themes } from '@storybook/theming';
+import light from '@talend/storybook-docs/lib/themes/light';
+import logo from './logo.svg';
 
 const TokenOrder = [
 	'Colors',
@@ -80,23 +94,6 @@ export const i18n = {
 	),
 };
 
-export const globalTypes = {
-	locale: {
-		name: 'Locale',
-		defaultValue: 'en',
-		toolbar: {
-			icon: 'globe',
-			items: [
-				{ value: 'zh', title: 'Chinese' },
-				{ value: 'en', title: 'English' },
-				{ value: 'fr', title: 'French' },
-				{ value: 'de', title: 'German' },
-				{ value: 'ja', title: 'Japanese' },
-			],
-		},
-	},
-};
-
 const channel = addons.getChannel();
 
 let statusByPage = {};
@@ -122,135 +119,81 @@ channel.once(SET_STORIES, eventData => {
 
 export const parameters = {
 	docs: {
+		// theme: create({ ...light, brandImage: logo }),
+		// toc: {
+		// 	// warning it's broken
+		// 	headingSelector: 'h1, h2, h3',
+		// 	title: 'Table of Contents',
+		// 	disable: false,
+		// 	unsafeTocbotOptions: {
+		// 		orderedList: false,
+		// 	},
+		// },
 		container: props => {
-			const [hasDarkMode, setDarkMode] = useLocalStorage('coral--has-dark-mode', false);
-			const [hasBootstrapStylesheet, setBootstrapStylesheet] = useLocalStorage(
-				'coral--has-bootstrap-stylesheet',
-				true,
-			);
+			// 	const [hasDarkMode, setDarkMode] = useLocalStorage('coral--has-dark-mode', false);
+			// 	const [hasBootstrapStylesheet, setBootstrapStylesheet] = useLocalStorage(
+			// 		'coral--has-bootstrap-stylesheet',
+			// 		true,
+			// 	);
 
-			// const { id, parameters, globals, title } = props.context;
-			// not shure about this but this is where i found the id, title and parameters variables
-			// globals is still missing
-			const { id, parameters, title } = props.context.attachedCSFFile?.meta;
-			const theme = props.context.store.globals.globals.theme;
-			const locale = props.context.store.globals.globals.locale;
+			// 	// const [{ theme, locale }] = useGlobals();
+			// 	const theme = props.context.store.globals.globals.theme;
+			// 	const locale = props.context.store.globals.globals.locale;
+			// 	console.log('[GNI]-- globals', { theme, locale });
 
-			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
+			// 	const hasDarkTheme = false; // title.toLocaleLowerCase().includes('dark');
 
-			// useEffect(() => {
-			// 	channel.emit(UPDATE_GLOBALS, {
-			// 		globals: { theme: hasDarkMode ? 'dark' : 'light' },
-			// 	});
-			// }, [hasDarkMode]);
+			// 	// useEffect(() => {
+			// 	// 	channel.emit(UPDATE_GLOBALS, {
+			// 	// 		globals: { theme: hasDarkMode ? 'dark' : 'light' },
+			// 	// 	});
+			// 	// }, [hasDarkMode]);
 
-			useEffect(() => {
-				channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
-			}, [statusByPage]);
+			// 	// useEffect(() => {
+			// 	// 	channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
+			// 	// }, [statusByPage]);
 
-			useEffect(() => {
-				const hasDarkModeFromToolbar = theme === 'dark';
-				if (hasDarkModeFromToolbar != hasDarkMode) {
-					setDarkMode(hasDarkModeFromToolbar);
-				}
-			}, [theme]);
+			// 	// useEffect(() => {
+			// 	// 	const hasDarkModeFromToolbar = theme === 'dark';
+			// 	// 	if (hasDarkModeFromToolbar != hasDarkMode) {
+			// 	// 		setDarkMode(hasDarkModeFromToolbar);
+			// 	// 	}
+			// 	// }, [theme]);
 
-			useEffect(() => {
-				document
-					.querySelectorAll('#bootstrap-theme')
-					.forEach(link => (link.disabled = !hasBootstrapStylesheet));
-			}, [hasBootstrapStylesheet]);
+			// 	// useEffect(() => {
+			// 	// 	document
+			// 	// 		.querySelectorAll('#bootstrap-theme')
+			// 	// 		.forEach(link => (link.disabled = !hasBootstrapStylesheet));
+			// 	// }, [hasBootstrapStylesheet]);
 
-			useEffect(() => {
-				i18next.changeLanguage(locale);
-			}, [locale]);
+			// 	// useEffect(() => {
+			// 	// 	i18next.changeLanguage(locale);
+			// 	// }, [locale]);
 
-			const titleArray = title?.split('/');
+			// 	// function DarkThemeWrapper({ children }) {
+			// 	// 	if (hasDarkTheme) {
+			// 	// 		return <div data-theme="dark">{children}</div>;
+			// 	// 	}
 
-			const docsTitle = title?.replaceAll(/\//gi, ' / ');
-			const docsCategory = titleArray[0];
-
-			const { status = {}, figmaLink } = parameters;
-
-			const githubLink =
-				'https://github.com/Talend/ui/tree/master/packages/design-system/' +
-				parameters.fileName
-					.split('/')
-					.slice(1, parameters.fileName.split('/').length - 1)
-					.join('/')
-					.replace('/docs', '');
-
-			const isDesignSystemElementPage = ['design system'].find(term => {
-				return title?.toLocaleLowerCase().startsWith(term);
-			});
-
-			function DarkThemeWrapper({ children }) {
-				if (hasDarkTheme) {
-					return <div data-theme="dark">{children}</div>;
-				}
-
-				return <>{children}</>;
-			}
+			// 	// 	return <>{children}</>;
+			// 	// }
 
 			return (
-				<>
-					<DarkThemeWrapper>
-						<Helmet>
-							<title>{docsTitle}</title>
-							<meta property="og:title" content={titleArray[titleArray.length - 1]} />
-							<meta property="og:type" content="article" />
-							<meta property="og:url" content={`https://design.talend.com/?path=/docs/${id}`} />
-							<meta
-								property="og:image"
-								content={`https://via.placeholder.com/1000x500/F3F3F3/FF6D70?text=${docsTitle}`}
-							/>
-							{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
-						</Helmet>
-
-						<TableOfContents>
-							{isDesignSystemElementPage && (
-								<StackVertical
-									gap="XXS"
-									padding={{ top: 'XS', left: '0', right: '0', bottom: '0' }}
-								>
-									<Divider />
-									<Form.ToggleSwitch
-										label={'Dark mode'}
-										onChange={() => {
-											setDarkMode(!hasDarkMode);
-										}}
-										checked={hasDarkMode}
-									/>
-									<Form.ToggleSwitch
-										label={'Bootstrap stylesheet'}
-										onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
-										checked={!!hasBootstrapStylesheet}
-									/>
-									{/*
-										<Form.Switch
-											label={'Figma iframes'}
-											onChange={() => setFigmaIframe(!hasFigmaIframe)}
-											checked={!!hasFigmaIframe}
-										/>
-										*/}
-								</StackVertical>
-							)}
-						</TableOfContents>
-
-						{isDesignSystemElementPage && status && (
-							<Badges>
-								<BadgeFigma status={status.figma} href={figmaLink} />
-								<BadgeStorybook status={status.storybook} />
-								<BadgeReact status={status.react} href={githubLink} />
-								<BadgeI18n status={status.i18n} />
-							</Badges>
-						)}
-
-						<DocsContainer {...props} />
-
-						<BackToTop />
-					</DarkThemeWrapper>
-				</>
+				<MDXProvider
+					components={{
+						h1: props => {
+							console.log('[GNI]-- render h1');
+							return <H1 {...props} />;
+						},
+						h2: H2,
+						h3: H3,
+						h4: H4,
+						h5: H5,
+						h6: H6,
+					}}
+				>
+					<DocsContainer {...props} />
+				</MDXProvider>
 			);
 		},
 		source: {
@@ -335,22 +278,6 @@ export const parameters = {
 					'Tooltip',
 				],
 			],
-		} /**/,
+		},
 	},
 };
-
-export const decorators = [
-	(Story, context) => {
-		const { globals = {} } = context;
-
-		const { locale: localeKey, theme: themeKey } = globals;
-		if (localeKey) i18next.changeLanguage(localeKey);
-		console.log('@@ decorator context : ', context);
-		//TODO: backport theme switcher to scripts-config-storybook and remove this
-		return (
-			<ThemeProvider theme={themeKey}>
-				<Story {...context} />
-			</ThemeProvider>
-		);
-	},
-];
