@@ -116,6 +116,9 @@ const defaultPreview = {
 		},
 		cmfDecorator
 	].filter(Boolean),
+	parameters:{
+		backgrounds: { disable: true, grid: { disable: true } },
+	}
 };
 
 
