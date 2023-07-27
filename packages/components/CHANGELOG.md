@@ -1,5 +1,12 @@
 # @talend/react-components
 
+## 11.1.1
+
+### Patch Changes
+
+- a38d7b28a: fix: change icon color to neutral in subheader as it's not an interactive component
+  fix: change the border color of the grid layout to be weaker
+
 ## 11.1.0
 
 ### Minor Changes
