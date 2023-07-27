@@ -77,17 +77,7 @@ const defaultPreview = {
 				dynamicTitle: true,
 			},
 		},
-		theme: {
-			name: 'Theme',
-			description: 'Choose a theme to apply to the design system',
-			toolbar: {
-				icon: 'paintbrush',
-				items: [
-					{ value: 'light', left: '⚪️', title: 'Default theme' },
-					{ value: 'dark', left: '⚫️', title: 'Dark theme' },
-				],
-			},
-		},
+		
 	},
 	loaders: [cmfLoader].filter(Boolean),
 	decorators: [
@@ -126,9 +116,6 @@ const defaultPreview = {
 		},
 		cmfDecorator
 	].filter(Boolean),
-	parameters:{
-		
-	}
 };
 
 

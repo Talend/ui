@@ -2,11 +2,9 @@ import React from 'react';
 
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
-import { addons } from '@storybook/addons';
 
 import { DocsContainer } from '@storybook/blocks';
 
-import { SET_STORIES } from '@storybook/core-events';
 import '@talend/storybook-docs/dist/globalStyles.min.css';
 
 import {
@@ -31,7 +29,8 @@ import {
 } from '@talend/locales-tui-forms';
 
 import 'focus-outline-manager';
-import { useThemeSwitcher } from './utils/ThemeSwitcher.hook';
+import { create } from '@storybook/theming';
+import { themeDark, themeLight } from '@talend/storybook-docs';
 
 export const i18n = {
 	namespaces: [
@@ -90,17 +89,24 @@ export const parameters = {
 		// 		orderedList: false,
 		// 	},
 		// },
-		container: ({ theme, ...props }) => {
+		container: ({ children, context }) => {
 			// 	// useEffect(() => {
 			// 	// 	channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
 			// 	// }, [statusByPage]);
 
-			const initialTheme = props.context.store.globals.globals.theme;
-			const { theme: previewTheme } = useThemeSwitcher(initialTheme);
+			const themeKey = context.store.globals.globals.theme || 'light';
+			const theme = create(
+				{
+					light: themeLight,
+					dark: themeDark,
+				}[themeKey],
+			);
 
 			return (
-				<div data-theme={previewTheme?.base || 'light'}>
-					<DocsContainer {...props} theme={previewTheme} />
+				<div data-theme={themeKey}>
+					<DocsContainer context={context} theme={theme}>
+						{children}
+					</DocsContainer>
 				</div>
 			);
 		},
