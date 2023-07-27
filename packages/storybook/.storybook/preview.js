@@ -99,7 +99,11 @@ export const parameters = {
 
 			const { theme: previewTheme } = useThemeSwitcher(initialTheme);
 
-			return <DocsContainer {...props} theme={previewTheme} />;
+			return (
+				<div data-theme={initialTheme}>
+					<DocsContainer {...props} theme={previewTheme} />
+				</div>
+			);
 		},
 		source: {
 			state: 'open',

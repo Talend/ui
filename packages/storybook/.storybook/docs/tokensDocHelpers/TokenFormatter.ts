@@ -65,5 +65,5 @@ export const getCssName = (token: Token) => {
 			}
 			return adapted;
 		})
-		.join('')}, ${value})`;
+		.join('')})`;
 };
