@@ -41,7 +41,7 @@ const defaultPreview = {
 			description: 'Activate bootstrap theme',
 			defaultValue: 'true',
 			toolbar: {
-				icon: 'paintbrush',
+				icon: 'beaker',
 				items: [
 					{ value: 'true', left: '✅', title: 'With Bootstrap' },
 					{ value: 'false', left: '❌', title: 'Without Bootstrap' },
@@ -68,12 +68,13 @@ const defaultPreview = {
 			toolbar: {
 				icon: 'globe',
 				items: [
-					{ value: 'zh', title: 'Chinese' },
-					{ value: 'en', title: 'English' },
-					{ value: 'fr', title: 'French' },
-					{ value: 'de', title: 'German' },
-					{ value: 'ja', title: 'Japanese' },
+					{ value: 'zh', left: "🇨🇳", title: 'Chinese' },
+					{ value: 'en', left: "🇬🇧", title: 'English' },
+					{ value: 'fr', left: "🇫🇷", title: 'French' },
+					{ value: 'de', left: "🇩🇪", title: 'German' },
+					{ value: 'ja', left: "🇯🇵", title: 'Japanese' },
 				],
+				dynamicTitle: true,
 			},
 		},
 	},

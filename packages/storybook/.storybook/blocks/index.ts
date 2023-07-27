@@ -1,1 +1,3 @@
-export { CustomBlock } from './CustomBlock';
+import { BadgesBlock as Badges } from './Badges';
+
+export { Badges };

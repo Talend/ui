@@ -1,32 +1,12 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet';
-import { useLocalStorage } from 'react-use';
+import React from 'react';
 
-import { default as i18next } from 'i18next';
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 import { addons } from '@storybook/addons';
 
-import { DocsContainer, useGlobals } from '@storybook/blocks';
-import { H1, H2, H3, H4, H5, H6 } from '@storybook/components';
-import { MDXProvider } from '@mdx-js/react';
-import {
-	Meta,
-	Title,
-	Subtitle,
-	Description,
-	Primary,
-	Controls,
-	Stories,
-	Markdown,
-} from '@storybook/blocks';
-import { useChannel } from '@storybook/preview-api';
-import { GLOBALS_UPDATED } from '@storybook/core-events';
+import { DocsContainer } from '@storybook/blocks';
 
-import { ThemeProvider, useTheme } from '@storybook/theming';
-
-import { SET_STORIES, UPDATE_GLOBALS } from '@storybook/core-events';
-import { BackToTop, TableOfContents } from 'storybook-docs-toc';
+import { SET_STORIES } from '@storybook/core-events';
 import '@talend/storybook-docs/dist/globalStyles.min.css';
 
 import {
@@ -51,28 +31,7 @@ import {
 } from '@talend/locales-tui-forms';
 
 import 'focus-outline-manager';
-
-import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
-import { Divider, Form, light, StackVertical } from '@talend/design-system';
-import { ensure, create, themes } from '@storybook/theming';
-import { themeDark, themeLight } from '@talend/storybook-docs';
-
-const TokenOrder = [
-	'Colors',
-	'Color Compositions',
-	'Color Charts',
-	'Branding',
-	'Gradients',
-	'Typography',
-	'Measures',
-	'Opacity',
-	'Radius',
-	'Borders',
-	'Shadows',
-	'Transitions',
-	'Elevations',
-	'Breakpoints',
-];
+import { useThemeSwitcher } from './utils/ThemeSwitcher.hook';
 
 export const i18n = {
 	namespaces: [
@@ -97,57 +56,32 @@ export const i18n = {
 	),
 };
 
-const channel = addons.getChannel();
+// const channel = addons.getChannel();
 
-let statusByPage = {};
-channel.once(SET_STORIES, eventData => {
-	statusByPage = Object.entries(eventData.stories).reduce(
-		(acc, [name, { title, componentId, parameters }]) => {
-			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {
-				if (name.toLocaleLowerCase().startsWith(prefix)) {
-					if (!acc[componentId]) {
-						acc[componentId] = {
-							title,
-							componentId,
-							parameters,
-						};
-					}
-				}
-			});
-			return acc;
-		},
-		{},
-	);
-});
-
-const useThemeSwitcher = () => {
-	// fetch global to get current theme
-	const [theme, setTheme] = useState();
-
-	useEffect(() => {
-		const channel = addons.getChannel();
-		channel.on(GLOBALS_UPDATED, ({ globals: { theme } }) => {
-			console.log('[GNI]-- globals updated', theme);
-			setTheme(theme);
-		});
-		return () => channel.removeAllListeners(GLOBALS_UPDATED);
-	}, []);
-
-	const sbTheme = useMemo(() => {
-		if (theme) {
-			console.log('[GNI]-- theme changed', theme);
-			return create({ dark: themeDark, light: themeLight }[theme]);
-		}
-	}, [theme]);
-
-	return {
-		theme: sbTheme,
-	};
-};
+// let statusByPage = {};
+// channel.once(SET_STORIES, eventData => {
+// 	console.log('[GNI]-- set stories', eventData);
+// 	statusByPage = Object.entries(eventData.stories).reduce(
+// 		(acc, [name, { title, componentId, parameters }]) => {
+// 			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {
+// 				if (name.toLocaleLowerCase().startsWith(prefix)) {
+// 					if (!acc[componentId]) {
+// 						acc[componentId] = {
+// 							title,
+// 							componentId,
+// 							parameters,
+// 						};
+// 					}
+// 				}
+// 			});
+// 			return acc;
+// 		},
+// 		{},
+// 	);
+// });
 
 export const parameters = {
 	docs: {
-		// theme: create({ ...light, brandImage: logo }),
 		// toc: {
 		// 	// warning it's broken
 		// 	headingSelector: 'h1, h2, h3',
@@ -158,63 +92,13 @@ export const parameters = {
 		// 	},
 		// },
 		container: ({ theme, ...props }) => {
-			// 	const [hasDarkMode, setDarkMode] = useLocalStorage('coral--has-dark-mode', false);
-			// 	const [hasBootstrapStylesheet, setBootstrapStylesheet] = useLocalStorage(
-			// 		'coral--has-bootstrap-stylesheet',
-			// 		true,
-			// 	);
-
-			// 	// const [{ theme, locale }] = useGlobals();
-			// 	const theme = props.context.store.globals.globals.theme;
-			// 	const locale = props.context.store.globals.globals.locale;
-			// 	console.log('[GNI]-- globals', { theme, locale });
-
-			// 	const hasDarkTheme = false; // title.toLocaleLowerCase().includes('dark');
-
-			// 	// useEffect(() => {
-			// 	// 	channel.emit(UPDATE_GLOBALS, {
-			// 	// 		globals: { theme: hasDarkMode ? 'dark' : 'light' },
-			// 	// 	});
-			// 	// }, [hasDarkMode]);
-
 			// 	// useEffect(() => {
 			// 	// 	channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
 			// 	// }, [statusByPage]);
 
-			// 	// useEffect(() => {
-			// 	// 	const hasDarkModeFromToolbar = theme === 'dark';
-			// 	// 	if (hasDarkModeFromToolbar != hasDarkMode) {
-			// 	// 		setDarkMode(hasDarkModeFromToolbar);
-			// 	// 	}
-			// 	// }, [theme]);
+			const initialTheme = props.context.store.globals.globals.theme;
 
-			// 	// useEffect(() => {
-			// 	// 	document
-			// 	// 		.querySelectorAll('#bootstrap-theme')
-			// 	// 		.forEach(link => (link.disabled = !hasBootstrapStylesheet));
-			// 	// }, [hasBootstrapStylesheet]);
-
-			// 	// useEffect(() => {
-			// 	// 	i18next.changeLanguage(locale);
-			// 	// }, [locale]);
-
-			// 	// function DarkThemeWrapper({ children }) {
-			// 	// 	if (hasDarkTheme) {
-			// 	// 		return <div data-theme="dark">{children}</div>;
-			// 	// 	}
-
-			// 	// 	return <>{children}</>;
-			// 	// }
-
-			// useChannel({
-			// 	[GLOBALS_UPDATED]: event => {
-			// 		console.log('[GNI]-- global updated', event);
-			// 	},
-			// });
-
-			const { theme: previewTheme } = useThemeSwitcher();
-
-			console.log('[GNI]-- theme updated', theme);
+			const { theme: previewTheme } = useThemeSwitcher(initialTheme);
 
 			return <DocsContainer {...props} theme={previewTheme} />;
 		},
@@ -255,7 +139,26 @@ export const parameters = {
 				'Component catalog',
 				'Content',
 				'Design Tokens',
-				['About tokens', 'Light', TokenOrder, 'Dark', TokenOrder],
+				[
+					'About tokens',
+					'Light',
+					[
+						'Colors',
+						'Color Compositions',
+						'Color Charts',
+						'Branding',
+						'Gradients',
+						'Typography',
+						'Measures',
+						'Opacity',
+						'Radius',
+						'Borders',
+						'Shadows',
+						'Transitions',
+						'Elevations',
+						'Breakpoints',
+					],
+				],
 				'Design System',
 				[
 					'Accordion',

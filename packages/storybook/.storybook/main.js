@@ -62,6 +62,7 @@ const config = {
 		config.resolve.alias = {
 			...existingAlias,
 			'~docs': path.resolve(__dirname, './docs'),
+			'~blocks': path.resolve(__dirname, './blocks'),
 		};
 
 		config.resolve.fallback = {

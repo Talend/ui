@@ -1,12 +1,15 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { CustomBlock } from '../../../.storybook/blocks/CustomBlock';
+import { Badges } from '~blocks';
 
 import * as Stories from './Accordion.stories';
 
 import { Accordion, StackVertical, InlineMessageWarning } from '@talend/design-system';
 
 <Meta of={Stories} />
-<CustomBlock />
+<Badges
+	status={{ figma: 'OK', storybook: 'wip', react: 'wip', i18n: 'na' }}
+	figmaLink="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion"
+/>
 
 # Accordion
 
@@ -29,8 +32,6 @@ import { Accordion, StackVertical, InlineMessageWarning } from '@talend/design-s
 Accordion is used to display expandable/collapsable cards with a title.
 
 ## Collapsible panel
-
-<button className="btn btn-default">foo</button>
 
 <Canvas of={Stories.SimpleCollapsiblePanel} />
 

@@ -7,6 +7,7 @@ import { BackToTop, TableOfContents } from 'storybook-docs-toc';
 import { Divider, Form, StackVertical } from '@talend/design-system';
 import { BadgeFigma, BadgeI18n, BadgeReact, BadgeStorybook, Badges } from '~docs';
 import { GLOBALS_UPDATED } from '@storybook/core-events';
+import { ComponentStatus, Status } from '.storybook/docs/StatusTable';
 
 const useGlobalsCustom = (context: DocsContextProps): [Globals] => {
 	const storyContext = context.getStoryContext(context.storyById());
@@ -23,7 +24,12 @@ const useGlobalsCustom = (context: DocsContextProps): [Globals] => {
 	return [globals];
 };
 
-export function CustomBlock() {
+type BadgesBlockProps = {
+	status?: ComponentStatus;
+	figmaLink?: string;
+};
+
+export function BadgesBlock({ status = {}, figmaLink }: BadgesBlockProps) {
 	const context = useContext(DocsContext);
 	const { story } = context.resolveOf('story', ['story']);
 	const { id, parameters, title } = story;
@@ -35,8 +41,7 @@ export function CustomBlock() {
 	const docsTitle = title.replace(/\//gi, ' / ');
 	const docsCategory = titleArray[0];
 
-	const { status = {}, figmaLink, dark = false } = parameters;
-
+	console.log('[GNI]-- stop');
 	const githubLink =
 		'https://github.com/Talend/ui/tree/master/packages/design-system/' +
 		parameters.fileName
@@ -63,32 +68,8 @@ export function CustomBlock() {
 				{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
 			</Helmet>
 
-			<TableOfContents>
-				<StackVertical gap="XXS" padding={{ top: 'XS', left: '0', right: '0', bottom: '0' }}>
-					<Divider />
-					<Form.ToggleSwitch
-						name="dark-mode"
-						label="Dark mode"
-						onChange={() => {
-							console.log('setDarkMode(!hasDarkMode);');
-						}}
-						checked={true}
-					/>
-					<Form.ToggleSwitch
-						name="bootstrap"
-						label={'Bootstrap stylesheet'}
-						onChange={() => console.log('setBootstrapStylesheet(!hasBootstrapStylesheet)')}
-						checked={true}
-					/>
-
-					<Form.ToggleSwitch
-						name="iframes"
-						label={'Figma iframes'}
-						onChange={() => console.log('setFigmaIframe(!hasFigmaIframe)')}
-						checked={true}
-					/>
-				</StackVertical>
-			</TableOfContents>
+			{/* <TableOfContents>
+			</TableOfContents> */}
 
 			<Badges>
 				<BadgeFigma status={status.figma} href={figmaLink} />

@@ -5,10 +5,6 @@ import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '@talend/
 const meta: Meta<typeof Accordion> = {
 	title: 'Design System/Accordion',
 	component: Accordion,
-	parameters: {
-		status: { figma: 'OK', storybook: 'wip', react: 'wip', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion',
-	},
 };
 
 export default meta;
