@@ -8,6 +8,8 @@ const {
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const { fixWindowsPaths } = require('./utils');
+const { createRequire } = require('module');
+
 
 const cwd = process.cwd();
 
@@ -17,7 +19,6 @@ function getFolderGlob(folderName) {
 
 function getStoriesFolders() {
 	const storiesFolders = [getFolderGlob('src')];
-
 	if (fs.existsSync(path.join(cwd, 'stories'))) {
 		storiesFolders.push(getFolderGlob('stories'));
 	}
@@ -25,9 +26,17 @@ function getStoriesFolders() {
 }
 
 const defaultMain = {
+	framework: {
+		name: '@storybook/react-webpack5',
+		options: {
+			builder: {
+				disableTelemetry: true,
+				enableCrashReports: false,
+			},
+		},
+	},
 	features: {
 		buildStoriesJson: true,
-		previewCsfV3: true,
 	},
 	stories: getStoriesFolders(),
 	staticDirs: [path.join(__dirname, 'msw')],
@@ -46,11 +55,6 @@ const defaultMain = {
 			},
 		},
 	],
-	core: {
-		builder: 'webpack5',
-		disableTelemetry: true,
-		enableCrashReports: false,
-	},
 	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
 		// by default storybook do not support scss without css module
@@ -79,7 +83,8 @@ const defaultMain = {
 				...config.plugins,
 				// use dynamic-cdn-webpack-plugin with default modules
 				new CDNPlugin({
-					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/))
+					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/)),
+                    disable: true, // temporaly disable the CDN pluggin, causing 404 on the cdn
 				}),
 			],
 			resolve: {
@@ -91,9 +96,11 @@ const defaultMain = {
 	},
 };
 
-const userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
+const temp_userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
-module.exports = {
+const userMain = temp_userMain.default || {};
+
+module.exports  = {
 	...defaultMain,
 	features: merge(defaultMain.features, userMain.features),
 	stories: fixWindowsPaths([...(userMain.stories || defaultMain.stories)]),
@@ -108,3 +115,4 @@ module.exports = {
 		return finalConfig
 	}
 };
+

@@ -1,17 +1,14 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { Use } from '~docs';
+import { Canvas, Meta } from '@storybook/blocks';
+import { Badges } from '~blocks';
 
 import * as Stories from './Accordion.stories';
 
-import { Accordion } from '@talend/design-system';
+import { Accordion, StackVertical, InlineMessageWarning } from '@talend/design-system';
 
-<Meta
-	title="Design System/Accordion"
-	component={Accordion}
-	parameters={{
-		status: { figma: 'OK', storybook: 'wip', react: 'wip', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion',
-	}}
+<Meta of={Stories} />
+<Badges
+	status={{ figma: 'OK', storybook: 'wip', react: 'wip', i18n: 'na' }}
+	figmaLink="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion"
 />
 
 # Accordion
@@ -36,15 +33,11 @@ Accordion is used to display expandable/collapsable cards with a title.
 
 ## Collapsible panel
 
-<Canvas>
-	<Story story={Stories.SimpleCollapsiblePanel} />
-</Canvas>
+<Canvas of={Stories.SimpleCollapsiblePanel} />
 
 ## Collapsible panel with status
 
-<Canvas>
-	<Story story={Stories.StatusCollapsiblePanel} />
-</Canvas>
+<Canvas of={Stories.StatusCollapsiblePanel} />
 
 ## Variations
 
@@ -52,9 +45,7 @@ Accordion is used to display expandable/collapsable cards with a title.
 
 A disabled panel will hide its chevron and action, will not be clickable and will display its title in `neutral-text-disabled`.
 
-<Canvas>
-	<Story story={Stories.DisabledPanel} />
-</Canvas>
+<Canvas of={Stories.DisabledPanel} />
 
 **Small size**
 
@@ -62,9 +53,7 @@ Use the prop `size` to change the height, font size and icon size of the panel h
 
 (currently there is only <b>M</b>(default) and <b>S</b> supported)
 
-<Canvas>
-	<Story story={Stories.SmallPanel} />
-</Canvas>
+<Canvas of={Stories.SmallPanel} />
 
 **With action**
 
@@ -74,9 +63,7 @@ The prop `action` takes an object with 3 attributes :
 - <b>title</b>: the content of the tooltip displayed on mouseOver
 - <b>callback</b>: a function called when the action is triggered
 
-<Canvas>
-	<Story story={Stories.WithAction} />
-</Canvas>
+<Canvas of={Stories.WithAction} />
 
 **With metadata**
 
@@ -86,9 +73,7 @@ A vertical divider is inserted between each metadata.
 
 Using Accordions that way is discouraged.
 
-<Canvas>
-	<Story story={Stories.WithMetadata} />
-</Canvas>
+<Canvas of={Stories.WithMetadata} />
 
 ## Accordion wrapper
 
@@ -96,15 +81,11 @@ You can wrap a group of panels with an <b>Accordion</b> component.
 
 It will control the expand/collapse of each panel so that only one is open at the same time.
 
-<Canvas>
-	<Story story={Stories.AccordionWrapper} />
-</Canvas>
+<Canvas of={Stories.AccordionWrapper} />
 
 ## group of panels
 
-<Canvas>
-	<Story story={Stories.GroupOfSimplePanels} />
-</Canvas>
+<Canvas of={Stories.GroupOfSimplePanels} />
 
 ## Accessibility
 

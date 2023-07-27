@@ -1,5 +1,5 @@
-const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+import path from 'path';
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 
 const rootPath = require.resolve('@talend/ui-storybook').replace('src/index.ts', '');
 
@@ -15,28 +15,30 @@ const STORIES = [
 	`${rootPath}src/content/docs/Conventions.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Capitalization.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Wording.stories.@(js|tsx|mdx)`,
-	`${rootPath}src/design-system/**/*.stories.mdx`,
-	`${rootPath}../components/**/*.stories.@(js|tsx|mdx)`,
-	`${rootPath}../forms/**/*.stories.@(js|tsx|mdx)`,
-	`${rootPath}../dataviz/**/*.stories.@(js|tsx|mdx)`,
-	`${rootPath}../icons/**/*.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/design-system/**/*.stories.@(js|tsx)`,
+	`${rootPath}src/design-system/**/*.mdx`,
+	// `${rootPath}../components/**/*.stories.@(js|tsx|mdx)`,
+	// `${rootPath}../forms/**/*.stories.@(js|tsx|mdx)`,
+	// `${rootPath}../dataviz/**/*.stories.@(js|tsx|mdx)`,
+	// `${rootPath}../icons/**/*.stories.@(js|tsx|mdx)`,
 ];
 
-module.exports = {
-	framework: '@storybook/react',
+const config = {
+	framework: {
+		name: '@storybook/react-webpack5',
+		options: {
+			builder: {
+				lazyCompilation: true,
+				fsCache: true,
+			},
+		},
+	},
 	stories: STORIES,
 	staticDirs: [`${rootPath}static`],
 	addons: ['storybook-addon-mdx-embed'],
 	typescript: {
 		reactDocgen: false,
 		check: true,
-	},
-	core: {
-		builder: 'webpack5',
-		options: {
-			lazyCompilation: true,
-			fsCache: true,
-		},
 	},
 	webpackFinal: async config => {
 		config.plugins.push(
@@ -60,7 +62,19 @@ module.exports = {
 		config.resolve.alias = {
 			...existingAlias,
 			'~docs': path.resolve(__dirname, './docs'),
+			'~blocks': path.resolve(__dirname, './blocks'),
 		};
+
+		config.resolve.fallback = {
+			...config.resolve.fallback,
+			fs: false,
+			stream: false,
+			constants: false,
+			path: false,
+		};
+
 		return config;
 	},
 };
+
+export default config;

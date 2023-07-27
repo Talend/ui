@@ -1,4 +1,4 @@
-import { addons } from '@storybook/addons';
+import { addons } from '@storybook/manager-api';
 import { create } from '@storybook/theming';
 import light from '@talend/storybook-docs/lib/themes/light';
 import '@talend/storybook-docs/dist/managerStyles.min.css';
