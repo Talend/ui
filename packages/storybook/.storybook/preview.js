@@ -55,23 +55,6 @@ export const i18n = {
 	),
 };
 
-const TokenOrder = [
-	'Colors',
-	'Color Compositions',
-	'Color Charts',
-	'Branding',
-	'Gradients',
-	'Typography',
-	'Measures',
-	'Opacity',
-	'Radius',
-	'Borders',
-	'Shadows',
-	'Transitions',
-	'Elevations',
-	'Breakpoints',
-];
-
 export const parameters = {
 	docs: {
 		// toc: {
@@ -126,67 +109,6 @@ export const parameters = {
 				// otherwise, return the same string
 				return input;
 			}
-		},
-	},
-};
-
-export default {
-	options: {
-		storySort: {
-			method: 'alphabetical',
-			order: [
-				'Welcome',
-				'Getting Started',
-				'Principles',
-				'Component status',
-				'Component catalog',
-				'Design Tokens',
-				['About tokens', 'Light', TokenOrder],
-				'Content',
-				'Design System',
-				[
-					'Accordion',
-					'Badge',
-					'Breadcrumbs',
-					'Clickable (Buttons)',
-					['About', 'Button', 'ButtonAsLink', 'ButtonIcon'],
-					'Combobox',
-					'Divider',
-					'Drawer',
-					'Dropdown',
-					'EmptyState',
-					'ErrorState',
-					'Form',
-					[
-						'About',
-						'Form',
-						'Form Fieldset',
-						'Form Fields',
-						['About', 'Prefix, Suffix'],
-						'Form Field Group',
-						'Fields',
-						'Form Buttons',
-					],
-					'HeaderBar',
-					'Icon',
-					['About', 'Icon (legacy)', 'SizedIcon'],
-					'Inline Editing',
-					'Inline Message',
-					'Layout',
-					'Link',
-					'Loading',
-					'Message',
-					'Menu',
-					'Modal',
-					'Popover',
-					'Skeleton',
-					'Stepper',
-					['Stepper', 'Step'],
-					'Tag',
-					'Tabs',
-					'Tooltip',
-				],
-			],
 		},
 	},
 };
