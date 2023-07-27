@@ -96,11 +96,10 @@ export const parameters = {
 			// 	// }, [statusByPage]);
 
 			const initialTheme = props.context.store.globals.globals.theme;
-
 			const { theme: previewTheme } = useThemeSwitcher(initialTheme);
 
 			return (
-				<div data-theme={initialTheme}>
+				<div data-theme={previewTheme?.base || 'light'}>
 					<DocsContainer {...props} theme={previewTheme} />
 				</div>
 			);
