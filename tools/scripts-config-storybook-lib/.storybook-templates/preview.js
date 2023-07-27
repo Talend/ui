@@ -99,15 +99,6 @@ const defaultPreview = {
 				React.createElement(ToggleBootstrap, {
 					disabled: context.globals.bootstrapTheme === 'false',
 				}),
-				React.createElement('link', {
-					key: 'bootstrap-theme-decorator',
-					rel: 'stylesheet',
-					id: 'bootstrap-theme',
-					// TODO: find a way to use it from bootstrap-theme build
-					href: 'https://unpkg.com/@talend/bootstrap-theme/dist/bootstrap.css',
-					media: 'screen',
-					disabled: context.globals.bootstrapTheme === 'false',
-				}),
 				React.createElement(ThemeProvider, {
 					key: 'theme-provider-decorator',
 					theme: context.globals.theme,

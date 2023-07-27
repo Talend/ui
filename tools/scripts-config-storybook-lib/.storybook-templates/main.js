@@ -14,7 +14,7 @@ const { createRequire } = require('module');
 const cwd = process.cwd();
 
 function getFolderGlob(folderName) {
-	return path.join(cwd, folderName, '**/*.stories.@(js|jsx|ts|tsx|mdx)');
+	return path.join(cwd, folderName, '**/*.@(stories.js|stories.jsx|stories.tsx|mdx)');
 }
 
 function getStoriesFolders() {
@@ -100,10 +100,15 @@ const temp_userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFileP
 
 const userMain = temp_userMain.default || {};
 
+let stories = fixWindowsPaths([...(userMain.stories || defaultMain.stories)]);
+if (stories.length === 0) {
+	stories = undefined;
+}
+
 module.exports  = {
 	...defaultMain,
 	features: merge(defaultMain.features, userMain.features),
-	stories: fixWindowsPaths([...(userMain.stories || defaultMain.stories)]),
+	stories,
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
 	staticDirs: fixWindowsPaths([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),

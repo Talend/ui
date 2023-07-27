@@ -55,6 +55,23 @@ export const i18n = {
 	),
 };
 
+const TokenOrder = [
+	'Colors',
+	'Color Compositions',
+	'Color Charts',
+	'Branding',
+	'Gradients',
+	'Typography',
+	'Measures',
+	'Opacity',
+	'Radius',
+	'Borders',
+	'Shadows',
+	'Transitions',
+	'Elevations',
+	'Breakpoints',
+];
+
 export const parameters = {
 	docs: {
 		// toc: {
@@ -111,35 +128,21 @@ export const parameters = {
 			}
 		},
 	},
+};
+
+export default {
 	options: {
 		storySort: {
 			method: 'alphabetical',
 			order: [
 				'Welcome',
 				'Getting Started',
+				'Principles',
+				'Component status',
 				'Component catalog',
-				'Content',
 				'Design Tokens',
-				[
-					'About tokens',
-					'Light',
-					[
-						'Colors',
-						'Color Compositions',
-						'Color Charts',
-						'Branding',
-						'Gradients',
-						'Typography',
-						'Measures',
-						'Opacity',
-						'Radius',
-						'Borders',
-						'Shadows',
-						'Transitions',
-						'Elevations',
-						'Breakpoints',
-					],
-				],
+				['About tokens', 'Light', TokenOrder],
+				'Content',
 				'Design System',
 				[
 					'Accordion',
