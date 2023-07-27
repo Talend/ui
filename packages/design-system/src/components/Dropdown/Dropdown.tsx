@@ -1,4 +1,5 @@
 import { cloneElement, MouseEvent, ReactElement, useState } from 'react';
+
 import {
 	useDismiss,
 	useInteractions,
@@ -7,14 +8,15 @@ import {
 	flip,
 	shift,
 } from '@floating-ui/react';
-import MenuButton from './Primitive/MenuButton';
+
+import { DataAttributes, DeprecatedIconNames } from '../../types';
+import Clickable, { ClickableProps } from '../Clickable';
+import { LinkableType } from '../Linkable';
+import DropdownDivider from './Primitive/DropdownDivider';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
 import DropdownTitle from './Primitive/DropdownTitle';
-import DropdownDivider from './Primitive/DropdownDivider';
-import Clickable, { ClickableProps } from '../Clickable';
-import { LinkableType } from '../Linkable';
-import { DataAttributes, DeprecatedIconNames } from '../../types';
+import MenuButton from './Primitive/MenuButton';
 
 type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 	label: string;
@@ -59,9 +61,10 @@ const Dropdown = ({
 	const [isOpen, setIsOpen] = useState(false);
 
 	const floating = useFloating({
+		placement: 'bottom-start',
 		open: isOpen,
 		onOpenChange: setIsOpen,
-		middleware: [/*offset(10),*/ flip(), shift()],
+		middleware: [flip(), shift()],
 		whileElementsMounted: autoUpdate,
 	});
 	const dismiss = useDismiss(floating.context, {
@@ -106,7 +109,6 @@ const Dropdown = ({
 								onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
 									entry.onClick(event);
 									setIsOpen(false);
-									console.log('closed but sent');
 								}}
 								key={id}
 								tabIndex={0}
