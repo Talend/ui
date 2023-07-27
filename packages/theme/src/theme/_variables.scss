@@ -308,11 +308,11 @@ $dropdown-header-color: $gray-light !default;
 // Note: These variables are not generated into the Customizer.
 
 $zindex-navbar: tokens.$coral-elevation-layer-flat !default;
-$zindex-dropdown: tokens.$coral-elevation-layer-standard-front !default;
+$zindex-dropdown: tokens.$coral-elevation-layer-interactive-front !default;
 $zindex-navbar-fixed: tokens.$coral-elevation-layer-standard-front !default;
-$zindex-modal-background: tokens.$coral-elevation-layer-interactive-front !default;
-$zindex-modal: tokens.$coral-elevation-layer-interactive-front !default;
-$zindex-popover: tokens.$coral-elevation-layer-overlay !default;
+$zindex-modal-background: tokens.$coral-elevation-layer-standard-front !default;
+$zindex-modal: tokens.$coral-elevation-layer-standard-front !default;
+$zindex-popover: tokens.$coral-elevation-layer-interactive-front !default;
 $zindex-tooltip: tokens.$coral-elevation-layer-overlay !default;
 $zindex-guidedtour: tokens.$coral-elevation-layer-overlay !default;
 $zindex-notification: tokens.$coral-elevation-layer-overlay !default;
