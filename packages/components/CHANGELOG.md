@@ -1,5 +1,61 @@
 # @talend/react-components
 
+## 11.1.0
+
+### Minor Changes
+
+- c15088d3b: TDOPS-4856 - Fix List colors taken from DS tokens
+
+## 11.0.0
+
+### Major Changes
+
+- bfc02c4fb: Style now use design tokens instead of bootstrap sass variables
+
+  We have updated the following components:
+
+  - ActionBar
+  - ActionIconToggle
+  - AppLoader
+  - Badge
+  - CollapsiblePanel
+  - Datalist
+  - DataViewer
+  - DateTimePickers + Legacy
+  - Drawer
+  - EditableText
+  - Enumeration (bug on buttons)
+  - FilterBar
+  - FormatValue
+  - GuidedTour
+  - GridLayout aka Dashboard
+  - HeaderBar
+  - List (Virtualized and Composition)
+  - ListView
+  - MultiSelect
+  - Notification
+  - ObjectViewer
+  - PieChart
+  - Progress
+  - RadarChart
+  - ResourceList
+  - ResourcePicker
+  - RichLayout
+  - Skeleton
+  - Slider
+  - Status
+  - SubHeaderBar
+  - Toggle
+  - Tooltip
+  - TreeView
+  - Typeahead
+
+### Patch Changes
+
+- 40e70c055: chore: remove devDependencies to typescript
+- Updated dependencies [bfc02c4fb]
+  - @talend/bootstrap-theme@8.0.0
+
 ## 10.3.5
 
 ### Patch Changes

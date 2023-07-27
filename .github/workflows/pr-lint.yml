@@ -44,12 +44,8 @@ jobs:
         id: eslint
         run: yarn lint
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@2a968ff601949c81b47d9c1fdb789b0d25ddeea2 #v37.1.2
-
       - name: Merge lint
-        run: node merge-report.js ${{ steps.changed-files.outputs.all_changed_files }}
+        run: yarn lint-merge-report master ${GITHUB_HEAD_REF}
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@2c426a387ed738e9522e93abfcb4cfc57b46458a #v2.2.0

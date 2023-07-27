@@ -1,0 +1,41 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.alert-warning {
+	color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-warning-background;
+	border-color: tokens.$coral-color-warning-border;
+
+	.alert-link {
+		color: tokens.$coral-color-warning-text;
+	}
+}
+
+.alert-danger {
+	color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-danger-background;
+	border-color: tokens.$coral-color-danger-border;
+
+	.alert-link {
+		color: tokens.$coral-color-danger-text;
+	}
+}
+
+.alert-success {
+	color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-success-background;
+	border-color: tokens.$coral-color-success-border;
+
+	.alert-link {
+		color: tokens.$coral-color-success-text;
+	}
+}
+
+.alert-info {
+	color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-accent-background;
+	border-color: tokens.$coral-color-accent-border;
+
+	.alert-link {
+		color: tokens.$coral-color-accent-text;
+	}
+}

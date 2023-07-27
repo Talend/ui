@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-header-title-font-size: 1.6rem !default;
 $tc-header-title-font-weight: 700 !default;
@@ -10,7 +11,7 @@ $tc-header-title-font-weight: 700 !default;
 }
 
 .title {
-	color: $black;
+	color: tokens.$coral-color-neutral-text;
 	flex-grow: 1;
 	margin: 0;
 	white-space: nowrap;

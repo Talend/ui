@@ -1,0 +1,39 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.popover {
+	background-color: tokens.$coral-color-neutral-background;
+	color: tokens.$coral-color-neutral-text;
+	border-color: tokens.$coral-color-neutral-border;
+}
+
+.popover.left .arrow {
+	border-left-color: tokens.$coral-color-neutral-border;
+}
+
+.popover.left .arrow::after {
+	border-left-color: tokens.$coral-color-neutral-background;
+}
+
+.popover.top .arrow {
+	border-top-color: tokens.$coral-color-neutral-border;
+}
+
+.popover.top .arrow::after {
+	border-top-color: tokens.$coral-color-neutral-background;
+}
+
+.popover.right .arrow {
+	border-right-color: tokens.$coral-color-neutral-border;
+}
+
+.popover.right .arrow::after {
+	border-right-color: tokens.$coral-color-neutral-background;
+}
+
+.popover.bottom .arrow {
+	border-bottom-color: tokens.$coral-color-neutral-border;
+}
+
+.popover.bottom .arrow::after {
+	border-bottom-color: tokens.$coral-color-neutral-background;
+}

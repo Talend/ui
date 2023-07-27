@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- eeac0f188: fix: bundle typing in the package that produce the following error:
+
+      Could not find a declaration file for module '@talend/react-dataviz' since the 3.0
+
+## 3.0.0
+
+### Major Changes
+
+- bfc02c4fb: feat: colors now use design-tokens
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
 ## 2.9.1
 
 ### Patch Changes

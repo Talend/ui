@@ -1,8 +1,9 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $svg-tab-width: 2.6rem !default;
 $svg-other-characters: 0.3rem !default;
-$svg-color: #CCC !default;
+$svg-color: tokens.$coral-color-neutral-icon-weak !default;
 
 .td-value {
 	white-space: pre;

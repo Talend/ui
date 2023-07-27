@@ -1,6 +1,6 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-$tc-popover-border-color: rgb(226, 226, 226) !default;
 $tc-popover-border-width: 0.1rem !default;
 $tc-icon-size: 1.2rem !default;
 $tc-height: 4rem;
@@ -50,12 +50,12 @@ $tc-height: 4rem;
 		min-height: $tc-height;
 
 		&-select-all {
-			border-bottom: $tc-popover-border-width solid $tc-popover-border-color;
+			border-bottom: $tc-popover-border-width solid tokens.$coral-color-neutral-border-weak;
 		}
 
 		&:global(.ally-focus-within),
 		&:hover {
-			background: $wild-sand;
+			background: tokens.$coral-color-neutral-background-medium;
 		}
 
 		:global(.checkbox.tc-toggle) {

@@ -60,7 +60,6 @@ export const i18n = {
 
 // let statusByPage = {};
 // channel.once(SET_STORIES, eventData => {
-// 	console.log('[GNI]-- set stories', eventData);
 // 	statusByPage = Object.entries(eventData.stories).reduce(
 // 		(acc, [name, { title, componentId, parameters }]) => {
 // 			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {

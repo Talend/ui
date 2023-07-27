@@ -1,0 +1,15 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.pager li > a,
+.pager li > span {
+	background-color: tokens.$coral-color-neutral-background;
+	border-color: tokens.$coral-color-neutral-border-weak;
+}
+
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+	color: tokens.$coral-color-neutral-text-disabled;
+	background-color: tokens.$coral-color-neutral-background-disabled;
+}

@@ -5,6 +5,7 @@ import { render, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ReactAce from 'react-ace';
 import Code, { CodeProps } from './Code.component';
+import 'ace-builds/src-noconflict/ext-language_tools';
 
 // fix cannot read appendChild of null;
 jest.mock('ally.js');

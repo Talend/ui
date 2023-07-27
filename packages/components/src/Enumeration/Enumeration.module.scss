@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-enumeration-height: 50vh !default;
 $tc-enumeration-font-size: 1.4rem !default;

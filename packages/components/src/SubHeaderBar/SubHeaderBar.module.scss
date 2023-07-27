@@ -1,18 +1,19 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens';
 
 @mixin input-icon($margin-left) {
 	margin-top: 1rem;
 	margin-left: $margin-left;
 }
 
-$tc-subheader-active-color: darken($scooter, 12%) !default;
-$tc-subheader-hover-focus-color: $scooter !default;
-$tc-subheader-color: $gray !default;
+$tc-subheader-active-color: tokens.$coral-color-accent-text-active !default;
+$tc-subheader-hover-focus-color: tokens.$coral-color-accent-text-hover !default;
+$tc-subheader-color: tokens.$coral-color-neutral-text !default;
 $tc-subheader-bar-height: 7rem !default;
 $tc-svg-icon-size: $padding-large !default;
 
 .tc-subheader {
-	border-bottom: 0.1rem solid $gallery;
+	border-bottom: 0.1rem solid tokens.$coral-color-neutral-border-weak;
 	width: 100%;
 
 	:global(.btn-link),
@@ -21,17 +22,17 @@ $tc-svg-icon-size: $padding-large !default;
 
 		&:focus,
 		&:hover {
-			color: $scooter;
+			color: tokens.$coral-color-accent-text-hover;
 		}
 
 		&:active {
-			color: darken($scooter, 12%);
+			color: tokens.$coral-color-accent-text-active;
 		}
 	}
 
 	&-navbar {
 		height: $tc-subheader-bar-height;
-		background-color: $wild-sand;
+		background-color: tokens.$coral-color-neutral-background-medium;
 		display: flex;
 		padding: {
 			left: 0;
@@ -73,8 +74,9 @@ $tc-svg-icon-size: $padding-large !default;
 	}
 
 	&-back-button {
-		color: $gray;
-		background-color: $gallery;
+		color: tokens.$coral-color-neutral-text;
+		/* stylelint-disable-next-line declaration-no-important */
+		background-color: tokens.$coral-color-neutral-background-strong !important;
 		width: $tc-subheader-bar-height;
 		height: $tc-subheader-bar-height;
 
@@ -82,7 +84,7 @@ $tc-svg-icon-size: $padding-large !default;
 		&:hover,
 		&:active {
 			color: $tc-subheader-hover-focus-color;
-			background-color: $wild-sand;
+			background-color: tokens.$coral-color-neutral-background-medium;
 		}
 
 		&:active {

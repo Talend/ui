@@ -1,7 +1,9 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 label {
 	font-size: $font-size-small;
 	font-weight: 600;
-	color: var(--t-form-color);
+	color: tokens.$coral-color-neutral-text;
 	cursor: pointer;
 }
 
@@ -11,6 +13,8 @@ label {
 }
 
 // Mandatory for being stronger than Bootstrap
+.has-success .control-label,
+.has-warning .control-label,
 .has-error .help-block,
 .has-error .control-label,
 .has-error .radio,
@@ -21,5 +25,5 @@ label {
 .has-error.checkbox label,
 .has-error.radio-inline label,
 .has-error.checkbox-inline label {
-	color: var(--t-form-color);
+	color: tokens.$coral-color-neutral-text;
 }

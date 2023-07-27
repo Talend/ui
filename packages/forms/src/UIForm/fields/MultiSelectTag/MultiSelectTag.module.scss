@@ -1,7 +1,6 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-$tf-datalist-items-background-color: $white !default;
-$tf-datalist-items-shadow-color: $shadow !default;
 $tf-typeahead-input-width: 135px !default;
 $tc-badge-margin: $padding-smaller !default;
 
@@ -11,7 +10,7 @@ $tc-badge-margin: $padding-smaller !default;
 	flex-wrap: wrap;
 	align-items: flex-end;
 
-	border: 1px solid $input-border;
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 	height: auto;
 	padding: 0;
 
@@ -40,9 +39,9 @@ $tc-badge-margin: $padding-smaller !default;
 			max-height: 70vh;
 			min-width: $tf-typeahead-input-width;
 			font-size: 1.5rem;
-			background-color: $tf-datalist-items-background-color;
+			background-color: tokens.$coral-color-neutral-background;
 			border-radius: $border-radius-base;
-			box-shadow: 0 1px 3px 0 $tf-datalist-items-shadow-color;
+			box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 		}
 
 		.items {

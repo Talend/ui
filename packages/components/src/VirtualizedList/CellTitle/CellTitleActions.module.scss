@@ -1,6 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@import '../colors';
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-list-title-actions-ellipsis: '\22ee';
 $tc-list-title-dropdown-menu-triangle: '\25b2';
@@ -16,14 +15,14 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 	height: $btn-line-height;
 
 	.cell-title-actions {
-		background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-hover-bg, 100%) $padding-large);
+		// background: linear-gradient(90deg, tokens.$coral-color-neutral-background, tokens.$coral-color-accent-background-hover $padding-large);
 		opacity: 0;
 		width: 0;
 		overflow: hidden;
 
 		&:not(:last-child)::after {
 			content: '|';
-			color: $dark-silver;
+			color: tokens.$coral-color-neutral-text;
 			padding-top: $padding-smaller;
 		}
 	}

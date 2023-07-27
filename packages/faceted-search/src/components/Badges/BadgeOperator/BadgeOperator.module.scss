@@ -1,11 +1,12 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $circle-size-large: 2.2rem !default;
 $circle-size-small: 1.8rem !default;
 
 .tc-badge-operator {
 	align-items: center;
-	background: rgba(255, 255, 255, 0.5);
+	background: tokens.$coral-color-neutral-background;
 	border-radius: 10rem;
 	display: inline-flex;
 	justify-content: center;

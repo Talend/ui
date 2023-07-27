@@ -17,6 +17,7 @@
     "release": "yarn pre-release && yarn changeset publish",
     "lint-staged": "lint-staged",
     "lint": "cross-env WORKSPACE_RUN_FAIL=no-bail talend-yarn-workspace run lint",
+    "lint-merge-report": "talend-yarn-workspace lint-merge-report",
     "test": "cross-env TZ=Europe/Paris talend-yarn-workspace run test --silent",
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris talend-yarn-workspace run test:cov",
@@ -33,8 +34,8 @@
   "resolutions": {
     "**/@types/react": "^17.0.2",
     "**/@types/react-dom": "^17.0.2",
-    "**/typescript": ">=4.6.3",
-    "**/i18next-scanner-typescript/typescript": "^4.9.5",
+    "**/i18next-scanner-typescript/typescript": "^5.0.4",
+    "**/browser-sync-client/typescript": "^5.0.4",
     "**/vinyl-fs/glob-parent": "^5.1.2",
     "**/fast-glob/glob-parent": "^5.1.2",
     "**/trim": "^1.0.1",
@@ -60,7 +61,7 @@
     "@types/react": "^17.0.62",
     "@types/react-dom": "^17.0.20",
     "terser-webpack-plugin": "^5.3.9",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.4",
     "webpack": "^5.87.0"
   }
 }

@@ -66,6 +66,10 @@ export const Default = () => (
 			Status is <code>canceled</code>
 		</h3>
 		<Status {...myStatus} status="canceled" label="Canceled" icon="talend-block" />
+		<h3>
+			Status is <code>skeleton</code>
+		</h3>
+		<Status status="skeleton" label="Skeleton" icon="talend-pencil" />
 		<h3>Status without actions</h3>
 		<Status {...{ ...myStatus, actions: [] }} />
 		<h3>

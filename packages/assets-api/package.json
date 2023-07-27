@@ -28,8 +28,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@talend/scripts-core": "^13.3.0",
-    "@talend/scripts-config-react-webpack": "^15.4.0",
+    "@talend/scripts-core": "^14.0.0",
+    "@talend/scripts-config-react-webpack": "^15.4.1",
     "read-pkg-up": "^7.0.1"
   },
   "publishConfig": {

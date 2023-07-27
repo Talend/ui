@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 ////
 /// Bootstrap dropdowns customization
 /// @group Dropdowns
@@ -33,13 +35,20 @@ $dropdown-caret-up-axis: -45deg !default;
 		margin: 0;
 		padding: $padding-small 0;
 		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.175);
+		background-color: tokens.$coral-color-neutral-background;
 
 		li > a {
+			color: tokens.$coral-color-neutral-text;
 			display: flex;
 			align-items: center;
 			flex-basis: 100%;
 			padding: calc(#{$padding-normal} / 2) $padding-large;
 			transition: 0.1s background-color ease-out;
+
+			&:hover {
+				background-color: tokens.$coral-color-neutral-background-medium;
+				color: tokens.$coral-color-neutral-text;
+			}
 
 			> svg:first-child {
 				margin-right: $padding-small;

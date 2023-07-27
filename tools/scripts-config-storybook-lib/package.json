@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-storybook-lib",
   "description": "Storybook configuration for @talend/scripts-core",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -28,7 +28,7 @@
     "@storybook/react": "^7.1.0",
     "@storybook/react-webpack5": "^7.1.0",
     "@storybook/testing-library": "^0.2.0",
-    "@talend/scripts-config-react-webpack": "^15.4.0",
+    "@talend/scripts-config-react-webpack": "^15.4.1",
     "@talend/dynamic-cdn-webpack-plugin": "^13.0.1",
     "assert": "^2.0.0",
     "i18next-http-backend": "^1.4.5",
