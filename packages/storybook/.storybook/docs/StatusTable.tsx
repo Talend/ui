@@ -1,10 +1,20 @@
-import { FunctionComponent, Suspense, useEffect, useState } from 'react';
-import { addons } from '@storybook/addons';
+import { FunctionComponent, Suspense, ReactNode } from 'react';
+
+import { Unstyled } from '@storybook/blocks';
 import tokens from '@talend/design-tokens';
 
 import theme from './StatusTable.module.scss';
 
-const channel = addons.getChannel();
+import statuses from '../../src/status.json';
+
+export type Statuses = Record<
+	string,
+	{
+		status?: ComponentStatus;
+		figmaLink?: string;
+		githubLink?: string;
+	}
+>;
 
 export enum Status {
 	OK = 'ok',
@@ -22,13 +32,22 @@ export type ComponentStatus = {
 	i18n?: Status;
 };
 
-type PageWithStatus = {
-	[pageIdentifier: string]: {
-		title: string;
-		componentId: string;
-		parameters: { status?: ComponentStatus };
-	};
-};
+function withLink(children: ReactNode, href?: string) {
+	return href ? (
+		<a
+			{...{
+				href,
+				target: '_blank',
+				rel: 'noopener noreferrer',
+			}}
+		>
+			{children}
+		</a>
+	) : (
+		{ children }
+	);
+}
+
 const getHTMLStatus = (status?: Status) => {
 	const attrs = {
 		className: theme.tag,
@@ -107,15 +126,8 @@ const getComputedHTMLStatus = (status?: ComponentStatus) => {
 };
 
 const StatusTable = (props: FunctionComponent & { filter?: string }) => {
-	const [statuses, setStatuses] = useState<PageWithStatus>();
-
-	useEffect(() => {
-		channel.on('SET_STATUSES_BY_PAGE', setStatuses);
-		return () => channel.off('SET_STATUSES_BY_PAGE', setStatuses);
-	}, [channel]);
-
 	return (
-		<>
+		<Unstyled>
 			<div className={theme.legend}>
 				<dl className={theme.dl}>
 					<dt>Figma</dt>
@@ -144,10 +156,8 @@ const StatusTable = (props: FunctionComponent & { filter?: string }) => {
 						</tr>
 					</thead>
 					<tbody>
-						{statuses &&
-							Object.entries(statuses).map(([name, pageDetails], key) => {
-								const { componentId, title, parameters } = pageDetails || {};
-								const { status } = parameters || {};
+						{Object.entries(statuses as Statuses).map(
+							([componentId, { status, figmaLink, githubLink }], key) => {
 								const { figma, react, storybook, i18n } = status || {};
 								if (props.filter) {
 									if (!componentId.includes(props.filter)) {
@@ -158,19 +168,20 @@ const StatusTable = (props: FunctionComponent & { filter?: string }) => {
 									<tr key={key}>
 										<td>
 											{getComputedHTMLStatus(status)}{' '}
-											<a href={`?path=/docs/${componentId}`}>{title}</a>
+											{withLink(componentId, `?path=/docs/${componentId}`)}
 										</td>
-										<td>{getHTMLStatus(figma)}</td>
+										<td>{withLink(getHTMLStatus(figma), figmaLink)}</td>
 										<td>{getHTMLStatus(storybook)}</td>
-										<td>{getHTMLStatus(react)}</td>
+										<td>{withLink(getHTMLStatus(react), githubLink)}</td>
 										<td>{getHTMLStatus(i18n)}</td>
 									</tr>
 								);
-							})}
+							},
+						)}
 					</tbody>
 				</table>
 			</Suspense>
-		</>
+		</Unstyled>
 	);
 };
 

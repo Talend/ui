@@ -55,29 +55,6 @@ export const i18n = {
 	),
 };
 
-// const channel = addons.getChannel();
-
-// let statusByPage = {};
-// channel.once(SET_STORIES, eventData => {
-// 	statusByPage = Object.entries(eventData.stories).reduce(
-// 		(acc, [name, { title, componentId, parameters }]) => {
-// 			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {
-// 				if (name.toLocaleLowerCase().startsWith(prefix)) {
-// 					if (!acc[componentId]) {
-// 						acc[componentId] = {
-// 							title,
-// 							componentId,
-// 							parameters,
-// 						};
-// 					}
-// 				}
-// 			});
-// 			return acc;
-// 		},
-// 		{},
-// 	);
-// });
-
 export const parameters = {
 	docs: {
 		// toc: {
@@ -90,10 +67,6 @@ export const parameters = {
 		// 	},
 		// },
 		container: ({ children, context }) => {
-			// 	// useEffect(() => {
-			// 	// 	channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
-			// 	// }, [statusByPage]);
-
 			const themeKey = context.store.globals.globals.theme || 'light';
 			const theme = create(
 				{

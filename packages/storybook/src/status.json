@@ -1,0 +1,7 @@
+{
+  "design-system-accordion": {
+    "status": { "figma": "ok", "storybook": "wip", "react": "wip", "i18n": "na" },
+    "figmaLink": "https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion",
+    "githubLink": "https://github.com/Talend/ui/tree/master/packages/design-system/src/components/WIP/Accordion/Accordion.tsx"
+  }
+}
