@@ -13,18 +13,18 @@ exports[`SubHeaderBar container should render 1`] = `
       <div
         class="theme-navbar-left navbar-left"
       >
-        <button
-          aria-describedby="42"
-          aria-label="Go back"
-          class="theme-tc-subheader-back-button tc-subheader-back-button btn-icon-only btn btn-link"
-          id="backArrow"
-          type="button"
+        <div
+          class="theme-tc-subheader-back-button tc-subheader-back-button"
         >
           <span
-            class="CoralIcon"
-            name="talend-arrow-left"
-          />
-        </button>
+            class="CoralButtonIcon"
+            data-testid="tc-subheader-backArrow"
+            icon="arrow-left"
+            id="backArrow"
+          >
+            Go back
+          </span>
+        </div>
         <div
           class="tc-subheader-details theme-tc-subheader-details"
         >

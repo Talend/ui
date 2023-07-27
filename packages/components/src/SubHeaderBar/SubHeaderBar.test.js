@@ -200,7 +200,7 @@ describe('SubHeaderBar', () => {
 		};
 		render(<SubHeaderBar {...props} />);
 		expect(screen.getByText('myTitle')).toBeVisible();
-		expect(screen.getByLabelText('Go back')).toBeVisible();
+		expect(screen.getByTestId('tc-subheader-backArrow')).toBeVisible();
 	});
 
 	it('Should render SubHeader component if right actions are in loading state', () => {
