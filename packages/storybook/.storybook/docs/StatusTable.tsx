@@ -1,6 +1,5 @@
 import { FunctionComponent, Suspense, ReactNode } from 'react';
 
-import { Unstyled } from '@storybook/blocks';
 import tokens from '@talend/design-tokens';
 
 import theme from './StatusTable.module.scss';
@@ -127,7 +126,7 @@ const getComputedHTMLStatus = (status?: ComponentStatus) => {
 
 const StatusTable = (props: FunctionComponent & { filter?: string }) => {
 	return (
-		<Unstyled>
+		<>
 			<div className={theme.legend}>
 				<dl className={theme.dl}>
 					<dt>Figma</dt>
@@ -181,7 +180,7 @@ const StatusTable = (props: FunctionComponent & { filter?: string }) => {
 					</tbody>
 				</table>
 			</Suspense>
-		</Unstyled>
+		</>
 	);
 };
 
