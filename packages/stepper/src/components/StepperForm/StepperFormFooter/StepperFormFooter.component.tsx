@@ -2,13 +2,13 @@ import { ButtonPrimary, ButtonSecondary, Divider, StackHorizontal } from '@talen
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import I18N from '../../../constants/i18n';
-import StepperFormContext from '../StepperForm.context';
+import { StepperFormContext } from '../StepperForm.context';
 import style from '../StepperForm.module.scss';
 import { StepperFormFooterProps } from './StepperFormFooter.types';
 
-export const StepperFormFooter = ({
+const StepperFormFooter = ({
+	children,
 	dataFeature,
-	extraActions,
 	isLoading,
 	onCancel,
 	onPrevious,
@@ -16,14 +16,14 @@ export const StepperFormFooter = ({
 	onSubmit,
 }: StepperFormFooterProps) => {
 	const { t } = useTranslation(I18N.STEPPER_NAMESPACE);
-	const hasRightButtons = onPrevious || onNext || extraActions;
-	const { currentStep, stepperSteps } = useContext(StepperFormContext);
+	const { currentStep, steps } = useContext(StepperFormContext);
 
-	const currentStepNavigation = stepperSteps[currentStep].navigation;
+	const currentStepNavigation = steps[currentStep].navigation;
 
-	const showNextButton = currentStepNavigation?.next && currentStep < stepperSteps.length - 1;
+	const showNextButton = currentStepNavigation?.next && currentStep < steps.length - 1;
 	const showPreviousButton = currentStepNavigation?.previous;
-	const showRunButton = currentStep === stepperSteps.length - 1;
+	const showRunButton = !currentStepNavigation?.next;
+	const hasRightButtons = showPreviousButton || showNextButton || children || showRunButton;
 
 	return (
 		<div className={style['stepper-form__footer']}>
@@ -39,7 +39,7 @@ export const StepperFormFooter = ({
 					</ButtonSecondary>
 				)}
 
-				{extraActions?.map(action => action)}
+				{children}
 
 				{showNextButton && onNext && (
 					<ButtonPrimary onClick={onNext} data-feature={dataFeature?.next} disabled={isLoading}>
@@ -56,3 +56,5 @@ export const StepperFormFooter = ({
 		</div>
 	);
 };
+
+export default StepperFormFooter;

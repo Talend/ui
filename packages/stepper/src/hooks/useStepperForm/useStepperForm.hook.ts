@@ -1,22 +1,6 @@
 import { useState } from 'react';
-import { StepperStep } from '../../components/StepperForm/StepperForm.types';
+import { getStepperState } from '../../components/StepperForm/StepperForm.utils';
 import { NavigationStep, StepperState } from './useStepperForm.types';
-
-const getStepperState = (initialSteps: StepperStep[]) => {
-	const steps: StepperState = [];
-
-	initialSteps.forEach((step: StepperStep, index: number) => {
-		steps.push({
-			...step,
-			navigation: {
-				previous: index - 1 >= 0 ? initialSteps[index - 1].key : undefined,
-				next: index + 1 < initialSteps.length ? initialSteps[index + 1].key : undefined,
-			},
-		});
-	});
-
-	return steps;
-};
 
 const setPrevious = (state: StepperState, navigation: NavigationStep): StepperState => {
 	const { from, to } = navigation;
@@ -71,9 +55,37 @@ const disableStep = (state: StepperState, stepKey: string, cause: string): Stepp
 		disableCause: cause,
 	};
 
-	if (nextStep && previousStep) {
+	if (nextStep) {
 		newState = setPrevious(newState, { from: nextStep, to: previousStep });
+	}
+
+	if (previousStep) {
 		newState = setNext(newState, { from: previousStep, to: nextStep });
+	}
+
+	return newState;
+};
+
+const enableStep = (state: StepperState, stepKey: string): StepperState => {
+	const stepState = state.find(step => step.key === stepKey);
+
+	if (!stepState) {
+		return state;
+	}
+
+	const nextStep = stepState.navigation?.next;
+	const previousStep = stepState.navigation?.previous;
+	const index = state.indexOf(stepState);
+	let newState: StepperState = [...state];
+
+	delete newState[index].navigation?.disableCause;
+
+	if (nextStep) {
+		newState = setPrevious(newState, { from: nextStep, to: stepKey });
+	}
+
+	if (previousStep) {
+		newState = setNext(newState, { from: previousStep, to: stepKey });
 	}
 
 	return newState;
@@ -89,24 +101,26 @@ const onChangeStep = (stepperState: StepperState, stepKey?: string) => {
 	return;
 };
 
-export const useStepperForm = (initialSteps: StepperStep[], initialStepIndex: number) => {
-	const [currentStep, setCurrentStep] = useState(initialStepIndex);
-	const [stepperState, setStepperState] = useState(getStepperState(initialSteps));
+export const useStepperForm = (steps: StepperState, stepIndex: number) => {
+	const [currentStep, setCurrentStep] = useState(stepIndex);
+	const [stepperSteps, setStepperSteps] = useState(getStepperState(steps));
 
-	const currentNavigation = stepperState[currentStep].navigation;
+	const currentNavigation = stepperSteps[currentStep].navigation;
 
 	return {
-		currentStep: currentStep,
-		steps: stepperState,
-		disableStep: (stepKey: string, cause: string) =>
-			setStepperState(disableStep(stepperState, stepKey, cause)),
+		stepperSteps,
+		currentStep,
+		onDisableStep: (stepKey: string, cause: string) =>
+			setStepperSteps(disableStep(stepperSteps, stepKey, cause)),
+
+		onEnableStep: (stepKey: string) => setStepperSteps(enableStep(stepperSteps, stepKey)),
 		onNextStep: () =>
 			setCurrentStep(
-				(currentNavigation && onChangeStep(stepperState, currentNavigation.next)) ?? currentStep,
+				(currentNavigation && onChangeStep(stepperSteps, currentNavigation.next)) ?? currentStep,
 			),
 		onPreviousStep: () =>
 			setCurrentStep(
-				(currentNavigation && onChangeStep(stepperState, currentNavigation.previous)) ??
+				(currentNavigation && onChangeStep(stepperSteps, currentNavigation.previous)) ??
 					currentStep,
 			),
 	};

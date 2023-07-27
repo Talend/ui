@@ -1,11 +1,13 @@
+import { ReactNode } from 'react';
+
 export interface StepperFormFooterProps {
+	children?: ReactNode;
 	dataFeature?: {
 		cancel?: string;
 		next?: string;
 		previous?: string;
 		submit?: string;
 	};
-	extraActions?: JSX.Element[];
 	isLoading?: boolean;
 	onCancel(): void;
 	onNext?(): void;

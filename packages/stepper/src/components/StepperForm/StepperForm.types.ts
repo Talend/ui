@@ -1,5 +1,4 @@
 import { ComponentType } from 'react';
-import { StepperFormFooter } from './StepperFormFooter/StepperFormFooter.types';
 import { StepperFormHeader } from './StepperFormHeader/StepperFormHeader.types';
 
 export interface StepperStepNavigation {
@@ -16,9 +15,6 @@ export interface StepperStep {
 }
 
 export interface StepperProps {
-	footer: StepperFormFooter;
 	header: StepperFormHeader;
-	initalStepIndex?: number;
 	isLoading?: boolean;
-	steps: StepperStep[];
 }

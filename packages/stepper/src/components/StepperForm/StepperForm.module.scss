@@ -33,6 +33,10 @@
 
 	&__content {
 		height: calc(100% - 11.5rem);
+
+		fieldset {
+			height: 100%;
+		}
 	}
 
 	&__footer {

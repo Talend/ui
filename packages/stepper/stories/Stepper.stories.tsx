@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import StepperForm from '../src/components/StepperForm/StepperForm.component';
-import { useStepperForm } from '../src/hooks/useStepperForm/useStepperForm.hook';
+import StepperForm from '../src/components/StepperForm';
 import { StepperState } from '../src/hooks/useStepperForm/useStepperForm.types';
-
+import {
+	BusinessContext,
+	FormComponentStep1,
+	FormComponentStep2,
+	FormComponentStep3,
+} from './Stepper.components';
 export default {
 	title: 'Stepper',
 	component: StepperForm,
@@ -16,43 +20,45 @@ export default {
 };
 
 export const DefaultStory = () => {
-	const [currentStep, setCurrentStep] = useState(1);
 	const initialSteps: StepperState = [
 		{
-			key: 'SELECTION',
-			title: 'Selection',
-			component: () => <>Selection</>,
+			key: 'STEP1',
+			title: 'Step 1',
+			component: () => <FormComponentStep1 />,
 		},
 		{
-			key: 'SHARING',
-			title: 'Sharing',
-			component: () => <>Sharing</>,
+			key: 'STEP2',
+			title: 'Step 2',
+			component: () => <FormComponentStep2 />,
 		},
 		{
-			key: 'SCHEDULING',
-			title: 'Scheduling',
-			component: () => <>Scheduling</>,
-		},
-		{
-			key: 'DETAILS',
-			title: 'Details',
-			component: () => <>Details</>,
+			key: 'STEP3',
+			title: 'Step 3',
+			component: () => <FormComponentStep3 />,
 		},
 	];
+	const [stepsData, setStepsData] = useState<any>({});
 
-	return (
-		<>
+	const BusinessComponent = () => {
+		return (
 			<StepperForm
-				initalStepIndex={0}
-				footer={{
-					onCancel: () => alert('Cancel action'),
-					onSubmit: () => alert('You did it!'),
-				}}
 				header={{
 					title: 'This is step 1 title',
 				}}
-				steps={initialSteps}
 			/>
-		</>
+		);
+	};
+
+	return (
+		<StepperForm.ContextProvider initialStepIndex={0} steps={initialSteps}>
+			<BusinessContext.Provider
+				value={{
+					setStepsData,
+					stepsData,
+				}}
+			>
+				<BusinessComponent />
+			</BusinessContext.Provider>
+		</StepperForm.ContextProvider>
 	);
 };
