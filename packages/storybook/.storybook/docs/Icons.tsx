@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import { IconGallery, IconItem } from '@storybook/components';
+import { IconGallery, IconItem } from '@storybook/blocks';
 
 import { Form, Icon, IconsProvider, ThemeProvider } from '@talend/design-system';
 
