@@ -1,4 +1,5 @@
 import { Token } from '../../../../../../src/tokens/types';
+import { getCssName } from '../../../TokenFormatter';
 import CardColor from '../../Card/CardColor';
 import DefinitionListItem from './DefinitionListItem';
 
@@ -9,7 +10,7 @@ function DefinitionListItemColor({ token }: { token: Token }) {
 
 	return (
 		<DefinitionListItem token={token}>
-			<CardColor color={token.value} />
+			<CardColor color={getCssName(token)} />
 		</DefinitionListItem>
 	);
 }

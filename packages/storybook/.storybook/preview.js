@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
-import { useLocalStorage } from 'react-use';
+import React from 'react';
 
-import { default as i18next } from 'i18next';
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 import { addons } from '@storybook/addons';
 
-import { DocsContainer } from '@storybook/addon-docs';
-import { SET_STORIES, UPDATE_GLOBALS } from '@storybook/core-events';
-import { BackToTop, TableOfContents } from 'storybook-docs-toc';
+import { DocsContainer } from '@storybook/blocks';
+
+import { SET_STORIES } from '@storybook/core-events';
 import '@talend/storybook-docs/dist/globalStyles.min.css';
 
 import {
@@ -34,28 +31,7 @@ import {
 } from '@talend/locales-tui-forms';
 
 import 'focus-outline-manager';
-
-import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
-import { Divider, Form, StackVertical, ThemeProvider } from '@talend/design-system';
-
-import { dark, light } from '@talend/design-system';
-
-const TokenOrder = [
-	'Colors',
-	'Color Compositions',
-	'Color Charts',
-	'Branding',
-	'Gradients',
-	'Typography',
-	'Measures',
-	'Opacity',
-	'Radius',
-	'Borders',
-	'Shadows',
-	'Transitions',
-	'Elevations',
-	'Breakpoints',
-];
+import { useThemeSwitcher } from './utils/ThemeSwitcher.hook';
 
 export const i18n = {
 	namespaces: [
@@ -80,160 +56,53 @@ export const i18n = {
 	),
 };
 
-const channel = addons.getChannel();
+// const channel = addons.getChannel();
 
-let statusByPage = {};
-channel.once(SET_STORIES, eventData => {
-	statusByPage = Object.entries(eventData.stories).reduce(
-		(acc, [name, { title, componentId, parameters }]) => {
-			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {
-				if (name.toLocaleLowerCase().startsWith(prefix)) {
-					if (!acc[componentId]) {
-						acc[componentId] = {
-							title,
-							componentId,
-							parameters,
-						};
-					}
-				}
-			});
-			return acc;
-		},
-		{},
-	);
-});
+// let statusByPage = {};
+// channel.once(SET_STORIES, eventData => {
+// 	statusByPage = Object.entries(eventData.stories).reduce(
+// 		(acc, [name, { title, componentId, parameters }]) => {
+// 			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {
+// 				if (name.toLocaleLowerCase().startsWith(prefix)) {
+// 					if (!acc[componentId]) {
+// 						acc[componentId] = {
+// 							title,
+// 							componentId,
+// 							parameters,
+// 						};
+// 					}
+// 				}
+// 			});
+// 			return acc;
+// 		},
+// 		{},
+// 	);
+// });
 
 export const parameters = {
 	docs: {
-		container: props => {
-			const [hasDarkMode, setDarkMode] = useLocalStorage('coral--has-dark-mode', false);
-			const [hasBootstrapStylesheet, setBootstrapStylesheet] = useLocalStorage(
-				'coral--has-bootstrap-stylesheet',
-				true,
-			);
+		// toc: {
+		// 	// warning it's broken
+		// 	headingSelector: 'h1, h2, h3',
+		// 	title: 'Table of Contents',
+		// 	disable: false,
+		// 	unsafeTocbotOptions: {
+		// 		orderedList: false,
+		// 	},
+		// },
+		container: ({ theme, ...props }) => {
+			// 	// useEffect(() => {
+			// 	// 	channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
+			// 	// }, [statusByPage]);
 
-			const { id, parameters, globals, title } = props.context;
+			const initialTheme = props.context.store.globals.globals.theme;
 
-			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
-
-			useEffect(() => {
-				channel.emit(UPDATE_GLOBALS, {
-					globals: { theme: hasDarkMode ? 'dark' : 'light' },
-				});
-			}, [hasDarkMode]);
-
-			useEffect(() => {
-				channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
-			}, [statusByPage]);
-
-			const { theme, locale } = globals;
-			useEffect(() => {
-				const hasDarkModeFromToolbar = theme === 'dark';
-				if (hasDarkModeFromToolbar != hasDarkMode) {
-					setDarkMode(hasDarkModeFromToolbar);
-				}
-			}, [theme]);
-
-			useEffect(() => {
-				document
-					.querySelectorAll('#bootstrap-theme')
-					.forEach(link => (link.disabled = !hasBootstrapStylesheet));
-			}, [hasBootstrapStylesheet]);
-
-			useEffect(() => {
-				i18next.changeLanguage(locale);
-			}, [locale]);
-
-			const titleArray = title?.split('/');
-
-			const docsTitle = title?.replaceAll(/\//gi, ' / ');
-			const docsCategory = titleArray[0];
-
-			const { status = {}, figmaLink } = parameters;
-
-			const githubLink =
-				'https://github.com/Talend/ui/tree/master/packages/design-system/' +
-				parameters.fileName
-					.split('/')
-					.slice(1, parameters.fileName.split('/').length - 1)
-					.join('/')
-					.replace('/docs', '');
-
-			const isDesignSystemElementPage = ['design system'].find(term => {
-				return title?.toLocaleLowerCase().startsWith(term);
-			});
-
-			function DarkThemeWrapper({ children }) {
-				if (hasDarkTheme) {
-					return <div data-theme="dark">{children}</div>;
-				}
-
-				return <>{children}</>;
-			}
+			const { theme: previewTheme } = useThemeSwitcher(initialTheme);
 
 			return (
-				<>
-					<DarkThemeWrapper>
-						<Helmet>
-							<title>{docsTitle}</title>
-							<meta property="og:title" content={titleArray[titleArray.length - 1]} />
-							<meta property="og:type" content="article" />
-							<meta property="og:url" content={`https://design.talend.com/?path=/docs/${id}`} />
-							<meta
-								property="og:image"
-								content={`https://via.placeholder.com/1000x500/F3F3F3/FF6D70?text=${docsTitle}`}
-							/>
-							{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
-						</Helmet>
-
-						<TableOfContents>
-							{isDesignSystemElementPage && (
-								<ThemeProvider theme={light}>
-									<StackVertical
-										gap="XXS"
-										padding={{ top: 'XS', left: '0', right: '0', bottom: '0' }}
-									>
-										<Divider />
-										<Form.ToggleSwitch
-											label={'Dark mode'}
-											onChange={() => {
-												setDarkMode(!hasDarkMode);
-											}}
-											checked={hasDarkMode}
-										/>
-										<Form.ToggleSwitch
-											label={'Bootstrap stylesheet'}
-											onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
-											checked={!!hasBootstrapStylesheet}
-										/>
-										{/*
-										<Form.Switch
-											label={'Figma iframes'}
-											onChange={() => setFigmaIframe(!hasFigmaIframe)}
-											checked={!!hasFigmaIframe}
-										/>
-										*/}
-									</StackVertical>
-								</ThemeProvider>
-							)}
-						</TableOfContents>
-
-						{isDesignSystemElementPage && status && (
-							<Badges>
-								<BadgeFigma status={status.figma} href={figmaLink} />
-								<BadgeStorybook status={status.storybook} />
-								<BadgeReact status={status.react} href={githubLink} />
-								<BadgeI18n status={status.i18n} />
-							</Badges>
-						)}
-
-						<ThemeProvider theme={hasDarkMode ? dark : light}>
-							<DocsContainer {...props} />
-						</ThemeProvider>
-
-						<BackToTop />
-					</DarkThemeWrapper>
-				</>
+				<div data-theme={initialTheme}>
+					<DocsContainer {...props} theme={previewTheme} />
+				</div>
 			);
 		},
 		source: {
@@ -273,7 +142,26 @@ export const parameters = {
 				'Component catalog',
 				'Content',
 				'Design Tokens',
-				['About tokens', 'Light', TokenOrder, 'Dark', TokenOrder],
+				[
+					'About tokens',
+					'Light',
+					[
+						'Colors',
+						'Color Compositions',
+						'Color Charts',
+						'Branding',
+						'Gradients',
+						'Typography',
+						'Measures',
+						'Opacity',
+						'Radius',
+						'Borders',
+						'Shadows',
+						'Transitions',
+						'Elevations',
+						'Breakpoints',
+					],
+				],
 				'Design System',
 				[
 					'Accordion',
@@ -318,21 +206,6 @@ export const parameters = {
 					'Tooltip',
 				],
 			],
-		} /**/,
+		},
 	},
 };
-
-export const decorators = [
-	(Story, context) => {
-		const { globals = {} } = context;
-
-		const { locale: localeKey, theme: themeKey } = globals;
-
-		//TODO: backport theme switcher to scripts-config-storybook and remove this
-		return (
-			<ThemeProvider theme={themeKey}>
-				<Story {...context} />
-			</ThemeProvider>
-		);
-	},
-];

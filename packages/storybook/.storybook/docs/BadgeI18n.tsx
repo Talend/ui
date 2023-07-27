@@ -1,9 +1,11 @@
 import { memo } from 'react';
 import type { FunctionComponent } from 'react';
 
-import Badge from './Badge';
+import Badge, { BadgeProps } from './Badge';
+import { Status } from './StatusTable';
 
-const I18nStatus = (props: FunctionComponent) => {
+type I18nStatusProps = Omit<BadgeProps, 'icon'>;
+const I18nStatus = (props: I18nStatusProps) => {
 	return (
 		<Badge {...props} icon="i18next">
 			i18n

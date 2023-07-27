@@ -27,7 +27,6 @@ function DefinitionListItem({ token, children }: { token: Token; children?: Reac
 			<div className={styles.listItem__values}>
 				<CopyValue>{getScssName(token?.name)}</CopyValue>
 				<code>{getCssName(token)}</code>
-				<code>{token?.value}</code>
 			</div>
 		</div>
 	);

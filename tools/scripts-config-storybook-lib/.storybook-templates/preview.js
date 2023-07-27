@@ -1,4 +1,3 @@
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
@@ -28,20 +27,54 @@ if (cmf) {
 	}
 }
 
+function ToggleBootstrap({ disabled }) {
+	React.useEffect(() => {
+		document.querySelectorAll('link[href*="bootstrap"]').forEach(link => link.disabled = disabled);
+	}, [disabled]);
+	return null;
+}
+
 const defaultPreview = {
 	globalTypes: {
+		bootstrapTheme: {
+			name: 'Bootstrap theme',
+			description: 'Activate bootstrap theme',
+			defaultValue: 'true',
+			toolbar: {
+				icon: 'beaker',
+				items: [
+					{ value: 'true', left: '✅', title: 'With Bootstrap' },
+					{ value: 'false', left: '❌', title: 'Without Bootstrap' },
+				],
+				dynamicTitle: true,
+			},
+		},
+		theme: {
+			name: 'Theme',
+			description: 'Choose a theme to apply to the design system',
+			defaultValue: 'light',
+			toolbar: {
+				icon: 'paintbrush',
+				items: [
+					{ value: 'light', left: '☀️', title: 'Light mode' },
+					{ value: 'dark', left: '🌑', title: 'Dark mode' },
+				],
+				dynamicTitle: true,
+			},
+		},
 		locale: {
 			name: 'Locale',
 			defaultValue: 'en',
 			toolbar: {
 				icon: 'globe',
 				items: [
-					{ value: 'zh', title: 'Chinese' },
-					{ value: 'en', title: 'English' },
-					{ value: 'fr', title: 'French' },
-					{ value: 'de', title: 'German' },
-					{ value: 'ja', title: 'Japanese' },
+					{ value: 'zh', left: "🇨🇳", title: 'Chinese' },
+					{ value: 'en', left: "🇬🇧", title: 'English' },
+					{ value: 'fr', left: "🇫🇷", title: 'French' },
+					{ value: 'de', left: "🇩🇪", title: 'German' },
+					{ value: 'ja', left: "🇯🇵", title: 'Japanese' },
 				],
+				dynamicTitle: true,
 			},
 		},
 		theme: {
@@ -73,6 +106,18 @@ const defaultPreview = {
 				React.createElement(IconsProvider, {
 					key: 'icons-provider-decorator'
 				}),
+				React.createElement(ToggleBootstrap, {
+					disabled: context.globals.bootstrapTheme === 'false',
+				}),
+				React.createElement('link', {
+					key: 'bootstrap-theme-decorator',
+					rel: 'stylesheet',
+					id: 'bootstrap-theme',
+					// TODO: find a way to use it from bootstrap-theme build
+					href: 'https://unpkg.com/@talend/bootstrap-theme/dist/bootstrap.css',
+					media: 'screen',
+					disabled: context.globals.bootstrapTheme === 'false',
+				}),
 				React.createElement(ThemeProvider, {
 					key: 'theme-provider-decorator',
 					theme: context.globals.theme,
@@ -81,6 +126,9 @@ const defaultPreview = {
 		},
 		cmfDecorator
 	].filter(Boolean),
+	parameters:{
+		
+	}
 };
 
 

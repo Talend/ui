@@ -5,6 +5,7 @@ import { ColorToken, GradientToken } from '../../../../../src/tokens/types';
 import ColorChecker from '../../ColorChecker';
 
 import styles from './Card.module.scss';
+import { getCssName } from '../../TokenFormatter';
 
 function CardComposition({
 	backgroundColor,
@@ -28,14 +29,16 @@ function CardComposition({
 				[styles.previewBox__composition__isHover]: isHover,
 			})}
 			style={{
-				background:
-					backgroundColor?.type === 'gradient' ? backgroundColor.value : backgroundColor.hsla,
-				borderColor: borderColor.hsla,
-				color: textColor.hsla,
+				background: getCssName(backgroundColor),
+				borderColor: getCssName(borderColor),
+				color: getCssName(textColor),
+				// backgroundColor?.type === 'gradient' ? backgroundColor.value : backgroundColor.hsla,
+				// borderColor: borderColor.hsla,
+				// color: textColor.hsla,
 			}}
 		>
 			<p className={styles.previewBox__composition_copy}>
-				<span style={{ color: iconColor?.hsla || textColor.hsla }}>
+				<span style={{ color: getCssName(iconColor) }}>
 					<SizedIcon size="S" name="overview" />
 				</span>
 				{isHover && <span>On hover</span>}

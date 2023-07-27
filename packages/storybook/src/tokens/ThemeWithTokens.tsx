@@ -30,7 +30,7 @@ export default function ThemeWithTokens() {
 				</p>
 			</StackVertical>
 			<StackHorizontal gap="M" align="center" justify="center">
-				<div data-theme={isDark ? 'dark' : 'light'}>
+				<div>
 					<div className={styles.card}>
 						<StackVertical gap="M" justify="stretch" align="stretch">
 							<StackHorizontal gap="M" justify="spaceBetween" align="center">

@@ -1,9 +1,12 @@
 import { memo } from 'react';
 import type { FunctionComponent } from 'react';
 
-import Badge from './Badge';
+import Badge, { BadgeProps } from './Badge';
+import { Status } from './StatusTable';
 
-const FigmaStatus = (props: FunctionComponent) => {
+type FigmaStatusProps = Omit<BadgeProps, 'icon'>;
+
+const FigmaStatus = (props: FigmaStatusProps) => {
 	return (
 		<Badge {...props} icon="figma">
 			Figma
