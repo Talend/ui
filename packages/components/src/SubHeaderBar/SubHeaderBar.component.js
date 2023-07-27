@@ -120,6 +120,7 @@ function SubHeaderBar({
 								size="M"
 								onClick={onGoBack}
 								id="backArrow"
+								data-testid="tc-subheader-backArrow"
 								data-feature={goBackDataFeature}
 							>
 								{t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go back' })}
