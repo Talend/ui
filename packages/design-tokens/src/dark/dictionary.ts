@@ -2016,6 +2016,438 @@ const dictionary = [
         id: 'S:e90340e641ca4e9da503dbae26e63f01ee15ba6a,'
     },
     {
+        name: 'coralColorBrandText',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:d9b4db049df4a13c6505a8245821011e32bed010,'
+    },
+    {
+        name: 'coralColorBrandTextHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:d1b7e7720cf0ed2ebe5dfa995b395f2fc051c72b,'
+    },
+    {
+        name: 'coralColorBrandTextActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:36357afae4a057baed96e9840d274a9798039129,'
+    },
+    {
+        name: 'coralColorBrandTextInverted',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 38%, 1)',
+        hex: '#616161',
+        value: 'hsla(0, 0%, 38%, 1)',
+        id: 'S:c1b0dcc4dfb5b0e6507f17eb566806be0437aba9,'
+    },
+    {
+        name: 'coralColorBrandTextInvertedHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 1)',
+        hex: '#202020',
+        value: 'hsla(0, 0%, 13%, 1)',
+        id: 'S:8b1aa5c9b617e6064abfa4ed095acdc6eb1e2865,'
+    },
+    {
+        name: 'coralColorBrandTextInvertedActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 1)',
+        hex: '#202020',
+        value: 'hsla(0, 0%, 13%, 1)',
+        id: 'S:cb0de99f17eb720080ebd854678df271d7c3c21a,'
+    },
+    {
+        name: 'coralColorBrandTextSelected',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(204, 96%, 18%, 1)',
+        hex: '#023659',
+        value: 'hsla(204, 96%, 18%, 1)',
+        id: 'S:d5964e997b2bf6332dc2b3fc4e636e0e2246f372,'
+    },
+    {
+        name: 'coralColorBrandBackgroundWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 0)',
+        hex: '#ffffff00',
+        value: 'hsla(0, 0%, 100%, 0)',
+        id: 'S:c3391e758de221c656756f472678d07818b8dcb8,'
+    },
+    {
+        name: 'coralColorBrandBackgroundWeakHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 0.1)',
+        hex: '#ffffff1f',
+        value: 'hsla(0, 0%, 100%, 0.1)',
+        id: 'S:46cd1240cbbd51a4920df09d91017e89614d2435,'
+    },
+    {
+        name: 'coralColorBrandBackgroundWeakActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 0.1)',
+        hex: '#ffffff1f',
+        value: 'hsla(0, 0%, 100%, 0.1)',
+        id: 'S:4056934c0f92ed878b14dcc69f1d06d43ca94315,'
+    },
+    {
+        name: 'coralColorBrandBackgroundSelected',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:12204f8141b2d867b7ed1fd4896c7899ca49a842,'
+    },
+    {
+        name: 'coralColorBrandBackgroundInverted',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 0)',
+        hex: '#20202000',
+        value: 'hsla(0, 0%, 13%, 0)',
+        id: 'S:4c6023974e1efb6fd9605ded5061dbe21efc52ac,'
+    },
+    {
+        name: 'coralColorBrandBackgroundInvertedHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 0.1)',
+        hex: '#2020201f',
+        value: 'hsla(0, 0%, 13%, 0.1)',
+        id: 'S:be496e916a988be4cd89a66c076f3d2a23eef370,'
+    },
+    {
+        name: 'coralColorBrandBackgroundInvertedActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 0.1)',
+        hex: '#2020201f',
+        value: 'hsla(0, 0%, 13%, 0.1)',
+        id: 'S:2f60f448e96ff45d0fd7e1b8c49d7255392e7216,'
+    },
+    {
+        name: 'coralColorBrandBorder',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:e9153d96d1349962e95db1a4420ee72e488c157a,'
+    },
+    {
+        name: 'coralColorBrandBorderHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:679f24a1a554ab833b1794ac795d6744c9252ca2,'
+    },
+    {
+        name: 'coralColorBrandBorderActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:55ca3f97765aa81f970cc305772d974d929094f9,'
+    },
+    {
+        name: 'coralColorInfoText',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 65%, 1)',
+        hex: '#66bfe6',
+        value: 'hsla(198, 72%, 65%, 1)',
+        id: 'S:6f3db30a46ffd296ab16f6ed8dc25bc2e03e697f,'
+    },
+    {
+        name: 'coralColorInfoTextHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 55%, 1)',
+        hex: '#3aaddf',
+        value: 'hsla(198, 72%, 55%, 1)',
+        id: 'S:7030b2c6e7b7e00b33aa9876cd64f3ffac9d291b,'
+    },
+    {
+        name: 'coralColorInfoTextActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 45%, 1)',
+        hex: '#2093c5',
+        value: 'hsla(198, 72%, 45%, 1)',
+        id: 'S:29a4e8bbd556ae686e212cfdec63568445c038f4,'
+    },
+    {
+        name: 'coralColorInfoIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 76%, 67%, 1)',
+        hex: '#69c4eb',
+        value: 'hsla(198, 76%, 67%, 1)',
+        id: 'S:2646d355a4861045e9c49269b5c31f576f958685,'
+    },
+    {
+        name: 'coralColorInfoTextWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(207, 18%, 24%, 1)',
+        hex: '#323e48',
+        value: 'hsla(207, 18%, 24%, 1)',
+        id: 'S:a8f7a13273f34a14fae5a21486d6b88f21ea78fd,'
+    },
+    {
+        name: 'coralColorInfoTextWeakHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(199, 71%, 15%, 1)',
+        hex: '#0b3142',
+        value: 'hsla(199, 71%, 15%, 1)',
+        id: 'S:a5c0f4e8600a443d2ad88e00fe975ba3d0897715,'
+    },
+    {
+        name: 'coralColorInfoTextWeakActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(199, 73%, 10%, 1)',
+        hex: '#07202c',
+        value: 'hsla(199, 73%, 10%, 1)',
+        id: 'S:4676af4e2e6f128d0d91a964f73b5007b3a95991,'
+    },
+    {
+        name: 'coralColorInfoTextStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 75%, 1)',
+        hex: '#91d1ed',
+        value: 'hsla(198, 72%, 75%, 1)',
+        id: 'S:9e79b3bdb022d479d862a328bea43869139fc5f6,'
+    },
+    {
+        name: 'coralColorInfoTextStrongHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 65%, 1)',
+        hex: '#66bfe6',
+        value: 'hsla(198, 72%, 65%, 1)',
+        id: 'S:2c61daf455b5d7b8f9d0079e2ed0bd86446c68ac,'
+    },
+    {
+        name: 'coralColorInfoTextStrongActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 55%, 1)',
+        hex: '#3aaddf',
+        value: 'hsla(198, 72%, 55%, 1)',
+        id: 'S:18cc5561d241cdcbde631bd6ce83cff5cfb66570,'
+    },
+    {
+        name: 'coralColorInfoBackground',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 25%, 1)',
+        hex: '#12516d',
+        value: 'hsla(198, 72%, 25%, 1)',
+        id: 'S:14870d03624d16eb044d220b5682225813fd667c,'
+    },
+    {
+        name: 'coralColorInfoBackgroundHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(199, 78%, 20%, 1)',
+        hex: '#0b425b',
+        value: 'hsla(199, 78%, 20%, 1)',
+        id: 'S:1af64da0d0a40561f4d06788de331cfc2727ead9,'
+    },
+    {
+        name: 'coralColorInfoBackgroundActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(199, 73%, 10%, 1)',
+        hex: '#07202c',
+        value: 'hsla(199, 73%, 10%, 1)',
+        id: 'S:5e66ec2e17b9a7538606b594e71c5ea4b921fb3b,'
+    },
+    {
+        name: 'coralColorInfoBackgroundWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(207, 18%, 24%, 1)',
+        hex: '#323e48',
+        value: 'hsla(207, 18%, 24%, 1)',
+        id: 'S:44020aee41cc9e6d79b3ffdc66e6ffbbfde3cdc7,'
+    },
+    {
+        name: 'coralColorInfoBackgroundWeakHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(199, 71%, 15%, 1)',
+        hex: '#0b3142',
+        value: 'hsla(199, 71%, 15%, 1)',
+        id: 'S:e5dc43139c3c12f4678023973e64d2a0b26b037a,'
+    },
+    {
+        name: 'coralColorInfoBackgroundWeakActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(199, 73%, 10%, 1)',
+        hex: '#07202c',
+        value: 'hsla(199, 73%, 10%, 1)',
+        id: 'S:9cc0c50389fcf2dafdf264e7ee6dee355388161b,'
+    },
+    {
+        name: 'coralColorInfoBackgroundStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 75%, 1)',
+        hex: '#91d1ed',
+        value: 'hsla(198, 72%, 75%, 1)',
+        id: 'S:39a095f257498829c89e0388367390aa0f7b709d,'
+    },
+    {
+        name: 'coralColorInfoBackgroundStrongHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 65%, 1)',
+        hex: '#66bfe6',
+        value: 'hsla(198, 72%, 65%, 1)',
+        id: 'S:09d37ecaf187980c51ccfcbb4ecf7eae4618ebc4,'
+    },
+    {
+        name: 'coralColorInfoBackgroundStrongActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 55%, 1)',
+        hex: '#3aaddf',
+        value: 'hsla(198, 72%, 55%, 1)',
+        id: 'S:b57fa6cbea76791efcd07bac6cf2ff5deb6c35c0,'
+    },
+    {
+        name: 'coralColorInfoBorder',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 75%, 1)',
+        hex: '#91d1ed',
+        value: 'hsla(198, 72%, 75%, 1)',
+        id: 'S:452a566bdcbe14b34791b553864b0ac722e1ad43,'
+    },
+    {
+        name: 'coralColorInfoBorderHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 72%, 65%, 1)',
+        hex: '#66bfe6',
+        value: 'hsla(198, 72%, 65%, 1)',
+        id: 'S:a25ce8d97f9486f8d747293df4b73c6ffa88c6a1,'
+    },
+    {
+        name: 'coralColorInfoBorderActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(199, 72%, 55%, 1)',
+        hex: '#3aacdf',
+        value: 'hsla(199, 72%, 55%, 1)',
+        id: 'S:a265bcbee6415fa251e00d2622acb4112913c5db,'
+    },
+    {
+        name: 'coralColorInfoIconHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 76%, 57%, 1)',
+        hex: '#3eb2e5',
+        value: 'hsla(198, 76%, 57%, 1)',
+        id: 'S:a10cbc0cfc8b0dcaebcdbec609557949e24bd24f,'
+    },
+    {
+        name: 'coralColorInfoIconActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 77%, 47%, 1)',
+        hex: '#1c9bd3',
+        value: 'hsla(198, 77%, 47%, 1)',
+        id: 'S:1101791c5475660c12c0360031f1bbbb9af53864,'
+    },
+    {
+        name: 'coralColorBrandIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:b7e520cce22bea7edc6e062c7e54e77fcd959940,'
+    },
+    {
+        name: 'coralColorBrandIconHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:09e7d13ffd997d1059f6030f05c4423ef16c4847,'
+    },
+    {
+        name: 'coralColorBrandIconActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:41d8fb8ddaed9dfdc9eb801dcb4e0886ef5dea6d,'
+    },
+    {
+        name: 'coralColorBrandIconInverted',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 38%, 1)',
+        hex: '#616161',
+        value: 'hsla(0, 0%, 38%, 1)',
+        id: 'S:b1f2e9c5e470901288e952e0bd2ea2467c1635f8,'
+    },
+    {
+        name: 'coralColorBrandIconInvertedHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 1)',
+        hex: '#202020',
+        value: 'hsla(0, 0%, 13%, 1)',
+        id: 'S:99b04f690cc807d8305f91a422dab138cf6e0ac4,'
+    },
+    {
+        name: 'coralColorBrandIconInvertedActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 1)',
+        hex: '#202020',
+        value: 'hsla(0, 0%, 13%, 1)',
+        id: 'S:47e36a0519e66c66b2c8258757f1dbc0cc1727ea,'
+    },
+    {
+        name: 'coralColorBrandIconSelected',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(204, 96%, 18%, 1)',
+        hex: '#023659',
+        value: 'hsla(204, 96%, 18%, 1)',
+        id: 'S:4f82d9b559d3c5db18c692a3869cc7e52657367c,'
+    },
+    {
         name: 'coralColorBrandingBackground',
         type: 'gradient',
         description: ``,
@@ -2028,6 +2460,13 @@ const dictionary = [
         description: ``,
         value: 'linear-gradient(133deg,hsla(222, 49%, 14%, 1) 0%, hsla(253, 46%, 8%, 1) 100%)',
         id: 'S:1fa5a7a976d98a462474b9f529662749f847cdd0,'
+    },
+    {
+        name: 'coralColorBrandBackground',
+        type: 'gradient',
+        description: ``,
+        value: 'linear-gradient(133deg,hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%)',
+        id: 'S:f3b995fb9442e71d002302b49f324dd0a277fbc3,'
     },
     {
         name: 'coralSpacingXxs',
@@ -2354,6 +2793,30 @@ const dictionary = [
         lineHeight: '140%',
         fontFamily: 'Inconsolata',
         id: 'S:7a19acd294788646fc2263162aa038f44307a9bb,'
+    },
+    {
+        name: 'coralLinkS',
+        type: 'typography',
+        description: ``,
+        value: `600 1.2rem/140% 'Source Sans Pro'`,
+        fontStyle: 'normal',
+        fontWeight: '600',
+        fontSize: '1.2rem',
+        lineHeight: '140%',
+        fontFamily: 'Source Sans Pro',
+        id: 'S:6a212dca74018c7d3a3c6b15de797bfdac01fbf4,'
+    },
+    {
+        name: 'coralLinkSUnderlined',
+        type: 'typography',
+        description: ``,
+        value: `600 1.2rem/140% 'Source Sans Pro'`,
+        fontStyle: 'normal',
+        fontWeight: '600',
+        fontSize: '1.2rem',
+        lineHeight: '140%',
+        fontFamily: 'Source Sans Pro',
+        id: 'S:c3d95ef306b71418c1519b0d7f1b51e7862ff56a,'
     },
     {
         name: 'coralRadiusM',
