@@ -198,7 +198,7 @@ Ex: InlineMessage`,
     {
         name: 'coralColorAccentBackgroundHover',
         type: 'color',
-        description: `Accent background color by default, on mouseover. `,
+        description: `Accent background color by default, on mouseover.`,
         hsla: 'hsla(205, 60%, 75%, 1)',
         hex: '#9bc7e6',
         value: 'hsla(205, 60%, 75%, 1)',
@@ -350,7 +350,7 @@ Use for text content without background that must carry a negative semantic valu
     {
         name: 'coralColorDangerTextHover',
         type: 'color',
-        description: `Danger text color on mouseover, if interactive. `,
+        description: `Danger text color on mouseover, if interactive.`,
         hsla: 'hsla(359, 52%, 43%, 1)',
         hex: '#a63537',
         value: 'hsla(359, 52%, 43%, 1)',
@@ -359,7 +359,7 @@ Use for text content without background that must carry a negative semantic valu
     {
         name: 'coralColorDangerTextActive',
         type: 'color',
-        description: `Danger text color while pressing, if interactive. `,
+        description: `Danger text color while pressing, if interactive.`,
         hsla: 'hsla(359, 51%, 33%, 1)',
         hex: '#7f292a',
         value: 'hsla(359, 51%, 33%, 1)',
@@ -379,7 +379,7 @@ Ex: InlineMessage`,
     {
         name: 'coralColorDangerBackgroundHover',
         type: 'color',
-        description: `Danger background on mouseover. `,
+        description: `Danger background on mouseover.`,
         hsla: 'hsla(359, 100%, 88%, 1)',
         hex: '#ffc4c5',
         value: 'hsla(359, 100%, 88%, 1)',
@@ -408,7 +408,7 @@ Use as placeholder to indicate that you want danger-tinted interactive states.`,
     {
         name: 'coralColorDangerBackgroundWeakHover',
         type: 'color',
-        description: `Weakest danger background color on mouseover. `,
+        description: `Weakest danger background color on mouseover.`,
         hsla: 'hsla(358, 100%, 94%, 1)',
         hex: '#ffe1e2',
         value: 'hsla(358, 100%, 94%, 1)',
@@ -496,7 +496,7 @@ Ex: InlineMessage `,
         type: 'color',
         description: `Strongest danger background color. Use on strong interactive elements with a negative semantic attached. Use with text-weak.
 
-Ex: ButtonDestructive `,
+Ex: ButtonDestructive`,
         hsla: 'hsla(359, 51%, 53%, 1)',
         hex: '#c4484a',
         value: 'hsla(359, 51%, 53%, 1)',
@@ -670,7 +670,7 @@ Use as placeholder to indicate that you want success-tinted interactive states.`
     {
         name: 'coralColorWarningText',
         type: 'color',
-        description: `Waring text color. 
+        description: `Warning text color. 
 Use for text content without background that must carry a warning semantic value on its own. 
 
 Ex: StatusWarning`,
@@ -928,7 +928,7 @@ Ex: Buttons on focus`,
     {
         name: 'coralColorDangerTextStrong',
         type: 'color',
-        description: `Danger text color on danger-background. `,
+        description: `Danger text color on danger-background.`,
         hsla: 'hsla(359, 47%, 44%, 1)',
         hex: '#a43b3d',
         value: 'hsla(359, 47%, 44%, 1)',
@@ -937,7 +937,7 @@ Ex: Buttons on focus`,
     {
         name: 'coralColorDangerTextStrongHover',
         type: 'color',
-        description: `Danger text color on mouseover. `,
+        description: `Danger text color on mouseover.`,
         hsla: 'hsla(359, 54%, 38%, 1)',
         hex: '#952d2f',
         value: 'hsla(359, 54%, 38%, 1)',
@@ -946,7 +946,7 @@ Ex: Buttons on focus`,
     {
         name: 'coralColorDangerTextStrongActive',
         type: 'color',
-        description: `Danger text color while pressing. `,
+        description: `Danger text color while pressing.`,
         hsla: 'hsla(359, 54%, 33%, 1)',
         hex: '#812729',
         value: 'hsla(359, 54%, 33%, 1)',
@@ -2193,6 +2193,447 @@ Ex: Selected column or line in a datagrid.`,
         id: 'S:8e41c9f17635925c89f424569bb6ac93eb5c008e,'
     },
     {
+        name: 'coralColorInfoText',
+        type: 'color',
+        description: `Information text color. 
+Use for text content without background that must carry a information semantic value on its own. 
+
+Ex: StatusInfo`,
+        hsla: 'hsla(204, 95%, 31%, 1)',
+        hex: '#045d9a',
+        value: 'hsla(204, 95%, 31%, 1)',
+        id: 'S:b2deed4800e24fca6ad29d1edb555f2b66874b47,'
+    },
+    {
+        name: 'coralColorInfoTextHover',
+        type: 'color',
+        description: `Info text color on mouseover, if interactive.`,
+        hsla: 'hsla(204, 96%, 18%, 1)',
+        hex: '#023659',
+        value: 'hsla(204, 96%, 18%, 1)',
+        id: 'S:1312ba264139ae787d57ffe659b91c732fe1dfc5,'
+    },
+    {
+        name: 'coralColorInfoTextActive',
+        type: 'color',
+        description: `Info text color while pressing, if interactive.`,
+        hsla: 'hsla(205, 94%, 13%, 1)',
+        hex: '#022741',
+        value: 'hsla(205, 94%, 13%, 1)',
+        id: 'S:987f732a250f767a4cad2e168eb626ab47b986bf,'
+    },
+    {
+        name: 'coralColorInfoTextWeak',
+        type: 'color',
+        description: `Info text color on infor-background-strong. `,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:5dcdc37bb6cec31f97c5d4b31f222c625b7b2c16,'
+    },
+    {
+        name: 'coralColorInfoTextWeakHover',
+        type: 'color',
+        description: `Info text color on mouseover. `,
+        hsla: 'hsla(204, 59%, 88%, 1)',
+        hex: '#cde3f2',
+        value: 'hsla(204, 59%, 88%, 1)',
+        id: 'S:7c28ac736af6a8c18b4c48d0a67fe2fc1ac4789d,'
+    },
+    {
+        name: 'coralColorInfoTextWeakActive',
+        type: 'color',
+        description: `Info text color while pressing.`,
+        hsla: 'hsla(205, 60%, 75%, 1)',
+        hex: '#9bc7e6',
+        value: 'hsla(205, 60%, 75%, 1)',
+        id: 'S:e4b2ba1853d230f03d2753da85e902d8befed989,'
+    },
+    {
+        name: 'coralColorInfoTextStrong',
+        type: 'color',
+        description: `Infor text color on info-background.`,
+        hsla: 'hsla(204, 96%, 18%, 1)',
+        hex: '#023659',
+        value: 'hsla(204, 96%, 18%, 1)',
+        id: 'S:92d7f8304451a4270a28b05924fcecb25f5da398,'
+    },
+    {
+        name: 'coralColorInfoTextStrongHover',
+        type: 'color',
+        description: `Info text color on mouseover.`,
+        hsla: 'hsla(204, 97%, 13%, 1)',
+        hex: '#012741',
+        value: 'hsla(204, 97%, 13%, 1)',
+        id: 'S:fcebcc7ffb00f0701b1038f855b846c461d55fd5,'
+    },
+    {
+        name: 'coralColorInfoTextStrongActive',
+        type: 'color',
+        description: `Info text color while pressing.`,
+        hsla: 'hsla(205, 95%, 8%, 1)',
+        hex: '#011828',
+        value: 'hsla(205, 95%, 8%, 1)',
+        id: 'S:be89a1c086681b7883654f5c6c12de293b62ef87,'
+    },
+    {
+        name: 'coralColorInfoBackgroundHover',
+        type: 'color',
+        description: `Accent background color by default, on mouseover.`,
+        hsla: 'hsla(205, 60%, 75%, 1)',
+        hex: '#9bc7e6',
+        value: 'hsla(205, 60%, 75%, 1)',
+        id: 'S:76dd12ff860c032d39c29b31877c087cf2df12a9,'
+    },
+    {
+        name: 'coralColorInfoBackgroundActive',
+        type: 'color',
+        description: `Info background while pressing.`,
+        hsla: 'hsla(204, 60%, 63%, 1)',
+        hex: '#69acd9',
+        value: 'hsla(204, 60%, 63%, 1)',
+        id: 'S:3029ecf251020fd474796f0c4991fc2d2375c8d0,'
+    },
+    {
+        name: 'coralColorInfoBackgroundWeak',
+        type: 'color',
+        description: `Weakest info background color. Same color as neutral-background but with info-tinted hover and active.
+
+Use as placeholder to indicate that you want info-tinted interactive states.`,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:c394fd25f49d3093fe0d900d6a27b274ead01cd4,'
+    },
+    {
+        name: 'coralColorInfoBackgroundWeakHover',
+        type: 'color',
+        description: `Weakest info background color on mouseover.`,
+        hsla: 'hsla(204, 59%, 88%, 1)',
+        hex: '#cde3f2',
+        value: 'hsla(204, 59%, 88%, 1)',
+        id: 'S:a8068fbc1d0bee44cf3e9b6bdb8578d66dc7bb8a,'
+    },
+    {
+        name: 'coralColorInfoBackgroundWeakActive',
+        type: 'color',
+        description: `Weakest info background color while pressed.`,
+        hsla: 'hsla(205, 60%, 75%, 1)',
+        hex: '#9bc7e6',
+        value: 'hsla(205, 60%, 75%, 1)',
+        id: 'S:5d9a6c09ecad18c5b633f4d849c9600df0701bf7,'
+    },
+    {
+        name: 'coralColorInfoBackgroundStrong',
+        type: 'color',
+        description: `Strongest info background color. Use on strong interactive elements with a informative semantic attached. Use with text-weak.`,
+        hsla: 'hsla(204, 95%, 31%, 1)',
+        hex: '#045d9a',
+        value: 'hsla(204, 95%, 31%, 1)',
+        id: 'S:f99a4555800d50aeb484d7073fce6d241075cc1d,'
+    },
+    {
+        name: 'coralColorInfoBackgroundStrongHover',
+        type: 'color',
+        description: `Strongest info background color on mouseover.`,
+        hsla: 'hsla(204, 95%, 23%, 1)',
+        hex: '#034673',
+        value: 'hsla(204, 95%, 23%, 1)',
+        id: 'S:2bcd08c5570401e31e78d51532fc19f96b986612,'
+    },
+    {
+        name: 'coralColorInfoBackgroundStrongActive',
+        type: 'color',
+        description: `Strongest info background color while pressed.`,
+        hsla: 'hsla(205, 95%, 15%, 1)',
+        hex: '#022e4d',
+        value: 'hsla(205, 95%, 15%, 1)',
+        id: 'S:4c34e648ed8bf1a55a6ac17bf2f5f9a886ae4a94,'
+    },
+    {
+        name: 'coralColorInfoBorder',
+        type: 'color',
+        description: `Border color with info semantic.`,
+        hsla: 'hsla(204, 95%, 31%, 1)',
+        hex: '#045d9a',
+        value: 'hsla(204, 95%, 31%, 1)',
+        id: 'S:01e0a0965fe6476498642d0603889a131018fb36,'
+    },
+    {
+        name: 'coralColorInfoBorderHover',
+        type: 'color',
+        description: `Border color with info semantic on mouseover.`,
+        hsla: 'hsla(204, 95%, 23%, 1)',
+        hex: '#034673',
+        value: 'hsla(204, 95%, 23%, 1)',
+        id: 'S:d5a7dfbf532630af47dbbbd9a427d66155ecad57,'
+    },
+    {
+        name: 'coralColorInfoBorderActive',
+        type: 'color',
+        description: `Border color with info semantic while pressing.`,
+        hsla: 'hsla(205, 95%, 15%, 1)',
+        hex: '#022e4d',
+        value: 'hsla(205, 95%, 15%, 1)',
+        id: 'S:6e7f204ea4f482d1c67d4a5e1e6c9459ae4e2d05,'
+    },
+    {
+        name: 'coralColorInfoIcon',
+        type: 'color',
+        description: `Icon with info color.
+
+Ex: StatusInprogress`,
+        hsla: 'hsla(204, 88%, 40%, 1)',
+        hex: '#0c78c2',
+        value: 'hsla(204, 88%, 40%, 1)',
+        id: 'S:467a79e6f77a857d9bc7c32c5650b47e74097460,'
+    },
+    {
+        name: 'coralColorInfoIconHover',
+        type: 'color',
+        description: `Icon with info color, on mouseover.`,
+        hsla: 'hsla(204, 88%, 30%, 1)',
+        hex: '#095990',
+        value: 'hsla(204, 88%, 30%, 1)',
+        id: 'S:3ff5b003395fa4cd87faa69f7f5f943e0845be49,'
+    },
+    {
+        name: 'coralColorInfoIconActive',
+        type: 'color',
+        description: `Icon with info color, while pressed.`,
+        hsla: 'hsla(205, 88%, 20%, 1)',
+        hex: '#063b60',
+        value: 'hsla(205, 88%, 20%, 1)',
+        id: 'S:d0a6491ad3b0f809155269842dd86a21437edf22,'
+    },
+    {
+        name: 'coralColorBrandText',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:6d9fa075aa9c22bbcc20b40c57df885385390edd,'
+    },
+    {
+        name: 'coralColorBrandTextHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:7d436fb42c27efda21ee7536005d6e3b04eb4785,'
+    },
+    {
+        name: 'coralColorBrandTextActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:5c176377aead0caca8154ef2e1ede4f43cd9fee1,'
+    },
+    {
+        name: 'coralColorBrandTextInverted',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 38%, 1)',
+        hex: '#616161',
+        value: 'hsla(0, 0%, 38%, 1)',
+        id: 'S:ae3cfc09978e97b8633571201dddb836a19c2967,'
+    },
+    {
+        name: 'coralColorBrandTextInvertedHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 1)',
+        hex: '#202020',
+        value: 'hsla(0, 0%, 13%, 1)',
+        id: 'S:19f4e2da901af5156394f8f9a449324d054653a4,'
+    },
+    {
+        name: 'coralColorBrandTextInvertedActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 1)',
+        hex: '#202020',
+        value: 'hsla(0, 0%, 13%, 1)',
+        id: 'S:2d031bb5dc1a6b2be354fa54490bc60396d4a99f,'
+    },
+    {
+        name: 'coralColorBrandTextSelected',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(204, 96%, 18%, 1)',
+        hex: '#023659',
+        value: 'hsla(204, 96%, 18%, 1)',
+        id: 'S:63362b1e8a368acaec1ca43ad2854ccc6a294478,'
+    },
+    {
+        name: 'coralColorBrandBackgroundWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 0)',
+        hex: '#ffffff00',
+        value: 'hsla(0, 0%, 100%, 0)',
+        id: 'S:2a8e319abe82b350fa7c7e3895d8e5435dd54288,'
+    },
+    {
+        name: 'coralColorBrandBackgroundWeakHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 0.1)',
+        hex: '#ffffff1f',
+        value: 'hsla(0, 0%, 100%, 0.1)',
+        id: 'S:1ffe230baf83e7d843d64e76f52a00ef330066e0,'
+    },
+    {
+        name: 'coralColorBrandBackgroundWeakActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 0.1)',
+        hex: '#ffffff1f',
+        value: 'hsla(0, 0%, 100%, 0.1)',
+        id: 'S:46182537a6afcca61653e328ee22cb5e120f04b9,'
+    },
+    {
+        name: 'coralColorBrandBackgroundSelected',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:c370ea7d697d90a829088818fc429f756cbe15d9,'
+    },
+    {
+        name: 'coralColorBrandBackgroundInverted',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 0)',
+        hex: '#20202000',
+        value: 'hsla(0, 0%, 13%, 0)',
+        id: 'S:97574a65cb605798a9efe63f4cfb914a3e186326,'
+    },
+    {
+        name: 'coralColorBrandBackgroundInvertedHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 0.1)',
+        hex: '#2020201f',
+        value: 'hsla(0, 0%, 13%, 0.1)',
+        id: 'S:e6c7b7cfeac0f2eaea1a4646ab8fa46ed67a77bf,'
+    },
+    {
+        name: 'coralColorBrandBackgroundInvertedActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 0.1)',
+        hex: '#2020201f',
+        value: 'hsla(0, 0%, 13%, 0.1)',
+        id: 'S:08b06b83beb4951a1546b253f10e06f2a72149fe,'
+    },
+    {
+        name: 'coralColorBrandBorder',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:d7590ff56f5769e88f26503e22ce1660599513ae,'
+    },
+    {
+        name: 'coralColorBrandBorderHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:1c1fbad3ca7e87defa986b7b87fc98849bca965a,'
+    },
+    {
+        name: 'coralColorBrandBorderActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:b8ed097f35fb2ece933fa1335e1083a1893cedbf,'
+    },
+    {
+        name: 'coralColorInfoBackground',
+        type: 'color',
+        description: `Info background color by default. Use with text-strong.
+
+Ex: InlineMessage`,
+        hsla: 'hsla(204, 59%, 88%, 1)',
+        hex: '#cde3f2',
+        value: 'hsla(204, 59%, 88%, 1)',
+        id: 'S:b64f52d5aa8e883f55d824a82ab8d279a53c53a7,'
+    },
+    {
+        name: 'coralColorBrandIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:029c4aa63f689fb7abee6a26e818ac8318429f82,'
+    },
+    {
+        name: 'coralColorBrandIconHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:55f38783aebb3574786c8f95d09aed86797e0db3,'
+    },
+    {
+        name: 'coralColorBrandIconActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 100%, 1)',
+        hex: '#ffffff',
+        value: 'hsla(0, 0%, 100%, 1)',
+        id: 'S:29c8c7280f33a19009c3c68debf4210525c118ef,'
+    },
+    {
+        name: 'coralColorBrandIconInverted',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 38%, 1)',
+        hex: '#616161',
+        value: 'hsla(0, 0%, 38%, 1)',
+        id: 'S:6569f93308869ec1cd44cfbfdf47e09e8a4d8d66,'
+    },
+    {
+        name: 'coralColorBrandIconInvertedHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 1)',
+        hex: '#202020',
+        value: 'hsla(0, 0%, 13%, 1)',
+        id: 'S:9576289e1e05d18ecd11f2d71dc117371705c07c,'
+    },
+    {
+        name: 'coralColorBrandIconInvertedActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0, 0%, 13%, 1)',
+        hex: '#202020',
+        value: 'hsla(0, 0%, 13%, 1)',
+        id: 'S:d53391b85e4493ad39a05255192884673f72d87f,'
+    },
+    {
+        name: 'coralColorBrandIconSelected',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(204, 96%, 18%, 1)',
+        hex: '#023659',
+        value: 'hsla(204, 96%, 18%, 1)',
+        id: 'S:1471f76ec8a42951247f6ecb12a56c6975806991,'
+    },
+    {
         name: 'coralColorBrandingBackground',
         type: 'gradient',
         description: `Main brand background. Used for heroes.`,
@@ -2205,6 +2646,13 @@ Ex: Selected column or line in a datagrid.`,
         description: `Main navigation background. Used for TopBar and branded Sidebar.`,
         value: 'linear-gradient(133deg,hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%)',
         id: 'S:901ebd713b6444217424da171789495f7e32c8d2,'
+    },
+    {
+        name: 'coralColorBrandBackground',
+        type: 'gradient',
+        description: ``,
+        value: 'linear-gradient(133deg,hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%)',
+        id: 'S:f25b5ea68800b1905f1842313f1c767700a92380,'
     },
     {
         name: 'coralSpacingXxs',
@@ -2576,6 +3024,30 @@ Developers: use Link component instead, you do not need to recreate styles.`,
         lineHeight: '140%',
         fontFamily: 'Inconsolata',
         id: 'S:6136688c80e14f3c6a44576a2d5b943c6ce76121,'
+    },
+    {
+        name: 'coralLinkS',
+        type: 'typography',
+        description: `For links included in paragraphs using paragraph/S or for small breadcrumbs`,
+        value: `600 1.2rem/140% 'Source Sans Pro'`,
+        fontStyle: 'normal',
+        fontWeight: '600',
+        fontSize: '1.2rem',
+        lineHeight: '140%',
+        fontFamily: 'Source Sans Pro',
+        id: 'S:6fe023511d622ae1addba3ad36962df23dcdf736,'
+    },
+    {
+        name: 'coralLinkSUnderlined',
+        type: 'typography',
+        description: `For links included in paragraphs using paragraph/S or for small breadcrumbs`,
+        value: `600 1.2rem/140% 'Source Sans Pro'`,
+        fontStyle: 'normal',
+        fontWeight: '600',
+        fontSize: '1.2rem',
+        lineHeight: '140%',
+        fontFamily: 'Source Sans Pro',
+        id: 'S:92f8c230bf3768ccc26f706abcfd5db498c78984,'
     },
     {
         name: 'coralRadiusM',
