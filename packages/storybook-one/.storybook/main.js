@@ -15,14 +15,15 @@ const STORIES = [
 	`${rootPath}../components/**/*.stories.@(js|tsx)`,
 	// `${rootPath}../forms/**/*.stories.@(js|tsx)`,
 	`${rootPath}../dataviz/src/**/*.stories.@(js|tsx)`,
-	// `${rootPath}../icons/stories/**/*.stories.@(js|tsx)`,
+	`${rootPath}../icons/stories/**/*.stories.@(js|tsx)`,
 ];
+
 const monoRepoFixSourceMap = [
 	'../design-system/src',
 	'../components/src',
 	'../dataviz/src',
 	'../forms/src',
-	'../icons/src',
+	'../icons/stories',
 ];
 const srcDirectories = monoRepoFixSourceMap.map(src => path.resolve(process.cwd(), src));
 
