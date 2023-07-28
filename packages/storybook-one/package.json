@@ -1,0 +1,59 @@
+{
+  "name": "@talend/ui-storybook-one",
+  "version": "1.2.0",
+  "description": "Package containing all stories from talend/ui repository",
+  "homepage": "https://github.com/Talend/ui#readme",
+  "main": "src/index.ts",
+  "scripts": {
+    "test:demo": "talend-scripts build-storybook",
+    "build-storybook": "talend-scripts build-storybook",
+    "start-storybook": "talend-scripts start-storybook",
+    "lint": "talend-scripts lint",
+    "start": "talend-scripts start-storybook -p 6006"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talend/ui.git"
+  },
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "dependencies": {
+    "@talend/design-system": "^7.11.0",
+    "@talend/design-tokens": "^2.7.3",
+    "@talend/icons": "^6.59.0",
+    "@talend/react-components": "^11.0.0",
+    "@talend/react-dataviz": "^3.0.1",
+    "react-hook-form": "^6.15.8"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@storybook/addon-a11y": "^7.1.0",
+    "@storybook/addon-actions": "^7.1.0",
+    "@storybook/addon-essentials": "^7.1.0",
+    "@storybook/addon-interactions": "^7.1.0",
+    "@storybook/addon-links": "^7.1.0",
+    "@storybook/addons": "^7.1.0",
+    "@storybook/core-events": "^7.1.0",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react-webpack5": "^7.1.0",
+    "@storybook/testing-library": "^0.2.0",
+    "@storybook/testing-react": "^2.0.1",
+    "@storybook/theming": "^7.1.0",
+    "@talend/locales-design-system": "^7.3.0",
+    "@talend/locales-tui-components": "^9.5.0",
+    "@talend/locales-tui-containers": "^8.0.2",
+    "@talend/locales-tui-faceted-search": "^8.1.0",
+    "@talend/locales-tui-forms": "^9.0.1",
+    "@talend/scripts-core": "^14.0.0",
+    "@types/react": "^17.0.62",
+    "i18next": "^20.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "~6.3.0"
+  },
+  "private": true
+}
