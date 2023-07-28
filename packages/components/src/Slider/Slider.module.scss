@@ -58,7 +58,7 @@ $tc-slider-line-height: 24px;
 			height: $tc-slider-line-height;
 			width: $tc-slider-line-height;
 			margin: 0;
-			fill: tokens.$coral-color-neutral-icon;
+			color: tokens.$coral-color-neutral-icon-weak;
 
 			&.selected {
 				fill: tokens.$coral-color-accent-icon;
@@ -76,7 +76,7 @@ $tc-slider-line-height: 24px;
 		}
 
 		:global(.rc-slider-rail) {
-			background-color: tokens.$coral-color-neutral-background-medium;
+			background-color: tokens.$coral-color-neutral-background-strong;
 		}
 
 		:global(.rc-slider-track) {
@@ -113,7 +113,7 @@ $tc-slider-line-height: 24px;
 			:global {
 				.rc-slider-rail,
 				.rc-slider-track {
-					background-color: tokens.$coral-color-neutral-background;
+					background-color: tokens.$coral-color-neutral-background-medium;
 				}
 
 				.rc-slider-handle {

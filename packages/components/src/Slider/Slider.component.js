@@ -7,6 +7,7 @@ import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
 import theme from './Slider.module.scss';
 import Action from '../Actions/Action';
+import { ButtonIcon } from '@talend/design-system';
 
 const noFormat = value => value;
 /**
@@ -68,18 +69,20 @@ export function renderActions(actions, value, min, max, onChange, disabled) {
 	return (
 		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="actions">
 			{actions.map((action, index) => (
-				<Action
-					{...action}
-					disabled={disabled}
-					key={index}
-					onClick={() => onChange(captions[index])}
-					className={classnames(
-						theme['tc-slider-captions-element'],
-						'tc-slider-captions-element',
-						{ [theme.selected]: index === position },
-						{ selected: index === position },
-					)}
-				/>
+				<ButtonIcon {...action} key={index} onClick={() => onChange(captions[index])}></ButtonIcon>
+
+				// <Action
+
+				// 	disabled={disabled}
+
+				// 	onClick={() => onChange(captions[index])}
+				// 	className={classnames(
+				// 		theme['tc-slider-captions-element'],
+				// 		'tc-slider-captions-element',
+				// 		{ [theme.selected]: index === position },
+				// 		{ selected: index === position },
+				// 	)}
+				// />
 			))}
 		</div>
 	);
