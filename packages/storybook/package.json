@@ -1,7 +1,7 @@
 {
   "name": "@talend/ui-storybook",
   "version": "1.2.0",
-  "description": "Package containing all stories from talend/ui repository",
+  "description": "Package containing design.talend.com stories",
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
   "scripts": {

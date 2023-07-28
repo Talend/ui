@@ -10,7 +10,6 @@ const {
 const { fixWindowsPaths } = require('./utils');
 const { createRequire } = require('module');
 
-
 const cwd = process.cwd();
 
 function getFolderGlob(folderName) {
@@ -46,16 +45,7 @@ const defaultMain = {
 		'@storybook/addon-essentials',
 		'@storybook/addon-links',
 		'@storybook/addon-interactions',
-		{
-			name: '@storybook/preset-scss',
-			options: {
-				cssLoaderOptions: {
-					modules: true,
-				},
-			},
-		},
 	],
-	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
 		// by default storybook do not support scss without css module
 		// here we remove storybook scss config and replace it by our config
@@ -88,7 +78,12 @@ const defaultMain = {
 				}),
 			],
 			resolve: {
-				extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
+				...config.resolve,
+				extensions: config.resolve.extensions.concat(['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss']),
+				fallback: {
+					...config.resolve.fallback,
+					path: false,
+				},
 			},
 		};
 
@@ -101,9 +96,6 @@ const temp_userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFileP
 const userMain = temp_userMain.default || {};
 
 let stories = fixWindowsPaths([...(userMain.stories || defaultMain.stories)]);
-if (stories.length === 0) {
-	stories = undefined;
-}
 
 module.exports  = {
 	...defaultMain,
