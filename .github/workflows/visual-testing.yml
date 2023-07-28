@@ -47,7 +47,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/storybook
+          workingDir: packages/storybook-one
           exitZeroOnChanges: true # Option to prevent the workflow from failing in PR
           # Handle monorepos https://www.chromatic.com/docs/monorepos
           forceRebuild: true
@@ -59,6 +59,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/storybook
+          workingDir: packages/storybook-one
           autoAcceptChanges: true # Option to accept any change for this baseline refresh
           forceRebuild: true
