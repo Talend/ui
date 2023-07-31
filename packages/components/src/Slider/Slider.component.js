@@ -6,7 +6,6 @@ import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
 import theme from './Slider.module.scss';
-import Action from '../Actions/Action';
 import { ButtonIcon } from '@talend/design-system';
 
 const noFormat = value => value;
@@ -65,24 +64,16 @@ export function getCaptionsValue(captionsLength, min, max) {
  */
 export function renderActions(actions, value, min, max, onChange, disabled) {
 	const captions = getCaptionsValue(actions.length, min, max);
-	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
 		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="actions">
 			{actions.map((action, index) => (
-				<ButtonIcon {...action} key={index} onClick={() => onChange(captions[index])}></ButtonIcon>
-
-				// <Action
-
-				// 	disabled={disabled}
-
-				// 	onClick={() => onChange(captions[index])}
-				// 	className={classnames(
-				// 		theme['tc-slider-captions-element'],
-				// 		'tc-slider-captions-element',
-				// 		{ [theme.selected]: index === position },
-				// 		{ selected: index === position },
-				// 	)}
-				// />
+				<ButtonIcon
+					tooltipPlacement="bottom"
+					{...action}
+					key={index}
+					onClick={() => onChange(captions[index])}
+					disabled={disabled}
+				/>
 			))}
 		</div>
 	);

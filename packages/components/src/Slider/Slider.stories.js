@@ -63,6 +63,39 @@ const actions = [
 	},
 ];
 
+const actionsDS = [
+	{
+		id: 'icon1',
+		children: 'this is the worst entity',
+		icon: 'smiley-angry',
+		'data-feature': 'slider-worst-entity',
+	},
+	{
+		id: 'icon2',
+		children: 'this is a bad entity',
+		icon: 'smiley-neutral',
+		'data-feature': 'slider-bad-entity',
+	},
+	{
+		id: 'icon3',
+		children: 'this is a meh entity',
+		icon: 'smiley-satisfied',
+		'data-feature': 'slider-meh-entity',
+	},
+	{
+		id: 'icon4',
+		children: 'this is a good entity',
+		icon: 'smiley-satisfied',
+		'data-feature': 'slider-good-entity',
+	},
+	{
+		id: 'icon5',
+		children: 'this is the best entity',
+		icon: 'smiley-satisfied',
+		'data-feature': 'slider-best-entity',
+	},
+];
+
 const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => `${Math.floor(value)}`;
 
@@ -121,6 +154,10 @@ export const Default = () => (
 			<div style={delimiterStyle}>
 				<p>with icon buttons</p>
 				<Slider onChange={action('onChange')} captionActions={actions} value={50} />
+			</div>
+			<div style={delimiterStyle}>
+				<p>with icon buttons from the DS </p>
+				<Slider onChange={action('onChange')} captionActions={actionsDS} value={50} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>with step number</p>
