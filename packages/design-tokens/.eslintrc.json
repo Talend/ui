@@ -2,6 +2,7 @@
   "root": true,
   "extends": ["@talend"],
   "rules": {
-    "react/display-name": "warn"
+    "react/display-name": "warn",
+    "@typescript-eslint/quotes": "off"
   }
 }
