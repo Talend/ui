@@ -9198,7 +9198,7 @@ exec-sh@^0.3.2:
   resolved "https://registry.yarnpkg.com/exec-sh/-/exec-sh-0.3.6.tgz#ff264f9e325519a60cb5e273692943483cca63bc"
   integrity sha512-nQn+hI3yp+oD0huYhKwvYI32+JFeq+XkNcD1GAo3Y/MjxsfVGmrrzrnzjWiNY6f+pUCP440fThsFh5gZrRAU/w==
 
-execa@4.1.0, execa@^4.1.0:
+execa@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
   integrity sha512-j5W0//W7f8UxAn8hXVnwG8tLwdiUy4FJLcSupCg6maBYZDpyBvTApK7KyuI4bKj8KOh1r2YH+6ucuYtJv1bTZA==
@@ -9241,10 +9241,10 @@ execa@^5.0.0, execa@^5.1.1:
     signal-exit "^3.0.3"
     strip-final-newline "^2.0.0"
 
-execa@^7.0.0:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-7.1.1.tgz#3eb3c83d239488e7b409d48e8813b76bb55c9c43"
-  integrity sha512-wH0eMf/UXckdUYnO21+HDztteVv05rq2GXksxT4fCGeHkBhw1DROXh40wcjMcRqDOWE7iPJ4n3M7e2+YFP+76Q==
+execa@^7.0.0, execa@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-7.2.0.tgz#657e75ba984f42a70f38928cedc87d6f2d4fe4e9"
+  integrity sha512-UduyVP7TLB5IcAQl+OzLyLcS/l32W/GLg+AhHJ+ow40FOk2U3SAllPwR44v4vmdFwIWqpdwxxpQbF1n5ta9seA==
   dependencies:
     cross-spawn "^7.0.3"
     get-stream "^6.0.1"
@@ -19365,9 +19365,9 @@ webpack-virtual-modules@^0.4.1:
   integrity sha512-5tyDlKLqPfMqjT3Q9TAqf2YqjwmnUleZwzJi1A5qXnlBCdj2AtOJ6wAWdglTIDOPgOiOrXeBeFcsQ8+aGQ6QbA==
 
 webpack@4, "webpack@>=4.43.0 <6.0.0", webpack@^5.73.0, webpack@^5.87.0, webpack@^5.9.0:
-  version "5.87.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.87.0.tgz#df8a9c094c6037f45e0d77598f9e59d33ca3a98c"
-  integrity sha512-GOu1tNbQ7p1bDEoFRs2YPcfyGs8xq52yyPBZ3m2VGnXGtV9MxjrkABHm4V9Ia280OefsSLzvbVoXcfLxjKY/Iw==
+  version "5.88.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.88.2.tgz#f62b4b842f1c6ff580f3fcb2ed4f0b579f4c210e"
+  integrity sha512-JmcgNZ1iKj+aiR0OvTYtWQqJwq37Pf683dY9bVORwVbUrDhLhdn/PlO2sHsFHPkj7sHNQF3JwaAkp49V+Sq1tQ==
   dependencies:
     "@types/eslint-scope" "^3.7.3"
     "@types/estree" "^1.0.0"
