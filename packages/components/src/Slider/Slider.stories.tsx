@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 
-import Slider from './Slider.component';
+import Slider, { SliderModes } from './Slider.component';
 
 const icons = [
 	'talend-activity',
@@ -116,23 +116,11 @@ export const Default = () => (
 			</div>
 			<div style={delimiterStyle}>
 				<p>Greater than usage</p>
-				<Slider
-					max={10}
-					min={0}
-					mode={Slider.MODES.GREATER_THAN}
-					onChange={action('onChange')}
-					value={3}
-				/>
+				<Slider max={10} min={0} mode="greaterThan" onChange={action('onChange')} value={3} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>Equals</p>
-				<Slider
-					max={10}
-					min={0}
-					mode={Slider.MODES.EQUALS}
-					onChange={action('onChange')}
-					value={5}
-				/>
+				<Slider max={10} min={0} mode="equals" onChange={action('onChange')} value={5} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>With disabled</p>
@@ -184,7 +172,7 @@ export const Default = () => (
 					onChange={action('onChange')}
 					min={0}
 					max={100}
-					mode={Slider.MODES.EXCLUSIVE}
+					mode="exclusive"
 					value={[25, 75]}
 					allowCross={false}
 				/>
