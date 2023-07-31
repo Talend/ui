@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import {
-	ButtonIconFloating,
+	ButtonIcon,
 	ButtonPrimary,
 	ButtonTertiary,
 	Modal,
@@ -89,9 +89,9 @@ export const DialogWithTooltipAndPopover = {
 				theme is death. Other major themes in the series include prejudice, corruption, and madness.
 				<Popover
 					disclosure={
-						<ButtonIconFloating icon="talend-question-circle" onClick={() => action('clicked')}>
+						<ButtonIcon icon="talend-question-circle" onClick={() => action('clicked')}>
 							Hover and click
-						</ButtonIconFloating>
+						</ButtonIcon>
 					}
 				>
 					Hey I am Popover

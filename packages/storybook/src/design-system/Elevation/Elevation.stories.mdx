@@ -1,19 +1,16 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '~docs';
 
-import { Modal } from '@talend/design-system';
-
 import * as Stories from './Elevation.stories';
 
 <Meta
 	title="Design System/Elevation"
 	parameters={{
 		status: { figma: 'ok', storybook: 'wip', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/0Jolh2prAAdfO5224n3OU3/Modal',
 	}}
 />
 
-# Combinations of Elevation of various components
+# Combinations of elevation of various components
 
 Different components overlay
 
@@ -27,19 +24,19 @@ Different components overlay
 
 ### Variations
 
-**Button with Popover**
+**Button with a Popover**
 
 <Canvas>
 	<Story height="7rem" story={Stories.ButtonWithPopover} />
 </Canvas>
 
-**Button with Tooltip**
+**Button with a Tooltip**
 
 <Canvas>
 	<Story height="7rem" story={Stories.ButtonWithTooltip} />
 </Canvas>
 
-**Modal with Tooltip and Popover**
+**Modal with a Tooltip and Popover**
 
 <Canvas>
 	<Story height="7rem" story={Stories.DialogWithTooltipAndPopover} />
