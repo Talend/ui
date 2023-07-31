@@ -1,3 +1,5 @@
+// stylelint-disable indentation
+// stylelint-disable scss/operator-no-unspaced
 $coral-color-neutral-text: #{var(--coral-color-neutral-text, hsla(0, 0%, 13%, 1))};
 $coral-color-neutral-text-weak: #{var(--coral-color-neutral-text-weak, hsla(0, 0%, 38%, 1))};
 $coral-color-neutral-text-disabled: #{var(--coral-color-neutral-text-disabled, hsla(0, 0%, 44%, 1))};
