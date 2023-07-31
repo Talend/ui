@@ -31,6 +31,7 @@ const InputCopy = forwardRef(
 		ref: Ref<HTMLInputElement | null>,
 	) => {
 		const [copiedValue, setCopiedValue] = useState('');
+		const [changedTime, setChangedTime] = useState<number | null | undefined>(null);
 		const [copyError, setCopyError] = useState<Error | undefined | null>(null);
 		const [{ value: clipboardValue, error: clipboardError }, copyToClipboard] =
 			useCopyToClipboard();
@@ -38,23 +39,38 @@ const InputCopy = forwardRef(
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const inputValue = value || defaultValue;
 
+		const updateChangeTime = (update: boolean) => {
+			setChangedTime(update ? Date.now() : null);
+		};
+		useEffect(() => {
+			if (inputValue) {
+				updateChangeTime(true);
+			}
+		}, [inputValue]);
 		useEffect(() => {
 			if (inputValue !== copiedValue) {
 				setCopiedValue('');
 				setCopyError(null);
+				updateChangeTime(false);
 			}
 		}, [inputValue, copiedValue]);
 
 		useEffect(() => {
-			setCopiedValue(clipboardValue as string);
-		}, [clipboardValue]);
+			if (changedTime && copiedValue !== inputValue) {
+				setCopiedValue(clipboardValue as string);
+				updateChangeTime(false);
+			}
+		}, [clipboardValue, changedTime]);
 
 		useEffect(() => {
 			setCopyError(clipboardError);
 		}, [clipboardError]);
 
 		useImperativeHandle(ref, () => inputRef.current);
-
+		const doCopy = () => {
+			copyToClipboard(inputRef.current?.value || '');
+			updateChangeTime(true);
+		};
 		const getDescriptionMessage = () => {
 			if (copyError) {
 				return copyError.message;
@@ -83,7 +99,7 @@ const InputCopy = forwardRef(
 					suffix={{
 						type: 'button',
 						icon: 'talend-files-o',
-						onClick: () => copyToClipboard(inputRef.current?.value || ''),
+						onClick: () => doCopy(),
 						disabled: !!disabled || !!readOnly,
 						children: t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard'),
 						hideText: true,
