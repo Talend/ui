@@ -1,5 +1,24 @@
 # @talend/react-components
 
+## 11.1.2
+
+### Patch Changes
+
+- 62bcde608: fix: setup the interactive stuff in accent color for the subheader bar
+
+## 11.1.1
+
+### Patch Changes
+
+- a38d7b28a: fix: change icon color to neutral in subheader as it's not an interactive component
+  fix: change the border color of the grid layout to be weaker
+
+## 11.1.0
+
+### Minor Changes
+
+- c15088d3b: TDOPS-4856 - Fix List colors taken from DS tokens
+
 ## 11.0.0
 
 ### Major Changes
