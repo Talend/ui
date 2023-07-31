@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.1.2
+
+### Patch Changes
+
+- 62bcde608: fix: setup the interactive stuff in accent color for the subheader bar
+
 ## 11.1.1
 
 ### Patch Changes
