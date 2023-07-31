@@ -96,8 +96,8 @@ const actionsDS = [
 	},
 ];
 
-const functionToFormat = value => `${value}-test`;
-const functionFormatFloor = value => `${Math.floor(value)}`;
+const functionToFormat = (value: any) => `${value}-test`;
+const functionFormatFloor = (value: any) => `${Math.floor(value)}`;
 
 export default {
 	title: 'Components/Form - Controls/Slider',
