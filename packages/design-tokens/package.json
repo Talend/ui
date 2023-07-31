@@ -13,7 +13,7 @@
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
     "test:umd": "jest scripts/umd.test.js",
-    "lint": "talend-scripts lint ./src ./scripts"
+    "lint": "talend-scripts lint"
   },
   "keywords": [
     "talend",
