@@ -21,16 +21,12 @@ export const SliderModes = {
  * this function check if we have icons to display
  * @param {array} icons array if icons to display
  */
-function isIconsAvailables(icons: string[]) {
+function isIconsAvailable(icons: string[]) {
 	return icons && Array.isArray(icons) && icons.length > 1;
 }
 
 /**
  * This function give the selected icon position if there is more than 1 icon
- * @param {array} icons - array of icons
- * @param {number} value - current value of the slider
- * @param {number} min - minimum value of the slider
- * @param {number} max - maximum value of the slider
  */
 export function getSelectedIconPosition(
 	icons: string[],
@@ -38,7 +34,7 @@ export function getSelectedIconPosition(
 	max: number,
 	value?: number | number[],
 ) {
-	if (Array.isArray(value) || value == null) {
+	if (Array.isArray(value) || value === undefined) {
 		return -1;
 	}
 	const interval = (max - min) / (icons.length - 1);
@@ -93,7 +89,7 @@ export function renderActions(
 }
 
 function renderIcons(icons: string[], min: number, max: number, value?: number | number[]) {
-	if (isIconsAvailables(icons)) {
+	if (isIconsAvailable(icons)) {
 		const position = getSelectedIconPosition(icons, min, max, value);
 		return (
 			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')} key="icons">
@@ -161,9 +157,11 @@ function getCaption(
 ) {
 	if (captionActions) {
 		return renderActions(captionActions, onChange, min, max, value, disabled);
-	} else if (captionIcons) {
+	}
+	if (captionIcons) {
 		return renderIcons(captionIcons, min, max, value);
-	} else if (captionTextStepNumber) {
+	}
+	if (captionTextStepNumber) {
 		return renderTextCaptions(captionTextStepNumber, captionsFormat, min, max);
 	}
 	return null;
