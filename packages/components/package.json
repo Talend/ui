@@ -36,7 +36,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@talend/bootstrap-theme": "^8.0.0",
-    "@talend/design-tokens": "^2.7.3",
+    "@talend/design-tokens": "^2.8.0",
     "@talend/react-a11y": "^1.1.0",
     "@talend/icons": "^6.58.1",
     "@talend/utils": "^2.5.1",
@@ -113,5 +113,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "11.1.2"
+  "version": "11.1.3"
 }

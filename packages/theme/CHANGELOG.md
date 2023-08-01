@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 8.0.1
+
+### Patch Changes
+
+- ae4916894: Bootstrap Theme : Fix various button border issues using Design System tokens
+
 ## 8.0.0
 
 ### Major Changes

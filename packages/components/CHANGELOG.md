@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 11.1.3
+
+### Patch Changes
+
+- 3345262d2: fix: tokens on the Slider component and migration to typescript
+- Updated dependencies [b36165add]
+  - @talend/design-tokens@2.8.0
+
 ## 11.1.2
 
 ### Patch Changes

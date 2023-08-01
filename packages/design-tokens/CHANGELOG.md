@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.8.0
+
+### Minor Changes
+
+- b36165add: feat: add brand & info tokens
+
 ## 2.7.3
 
 ### Patch Changes
