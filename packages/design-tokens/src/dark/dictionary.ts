@@ -2588,6 +2588,13 @@ const dictionary = [
 		id: 'S:8bf21eea402fda80510e8657d5d8db538640bd02,:shadow:0',
 	},
 	{
+		name: 'coralElevationShadowInfo',
+		type: 'shadow',
+		description: '',
+		value: '0rem 0.1rem 0.1rem 0rem hsla(198, 72%, 75%, 0.3)',
+		id: 'S:fe0699876a0912d91d178c69d81969b011a5eb59,:shadow:0',
+	},
+	{
 		name: 'coralElevationShadowAccent',
 		type: 'shadow',
 		description: '',

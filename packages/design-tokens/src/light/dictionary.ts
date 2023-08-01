@@ -2622,6 +2622,13 @@ const dictionary = [
 		id: 'S:34a756f910ffc665554a228b44d5eec1e9c463cb,:shadow:0',
 	},
 	{
+		name: 'coralElevationShadowInfo',
+		type: 'shadow',
+		description: 'Shadow with an info tint. Use for subtle highlights. Ex: InlineMessage',
+		value: '0rem 0.1rem 0.1rem 0rem hsla(204, 95%, 31%, 0.3)',
+		id: 'S:6361d40b509d112c733483b262d9b4929ad0e1a8,:shadow:0',
+	},
+	{
 		name: 'coralElevationShadowAccent',
 		type: 'shadow',
 		description: 'Shadow with an accent tint. Use for subtle highlights. Ex: InlineMessage',

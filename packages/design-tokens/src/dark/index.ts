@@ -292,6 +292,7 @@ const tokens = {
 	coralElevationShadowNeutralM: `var(--coral-elevation-shadow-neutral-m, 0rem 0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.5))`,
 	coralElevationShadowNeutralL: `var(--coral-elevation-shadow-neutral-l, 0rem 0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.5))`,
 	coralElevationShadowAccent: `var(--coral-elevation-shadow-accent, 0rem 0.1rem 0.1rem 0rem hsla(198, 72%, 75%, 0.3))`,
+	coralElevationShadowInfo: `var(--coral-elevation-shadow-info, 0rem 0.1rem 0.1rem 0rem hsla(198, 72%, 75%, 0.3))`,
 	coralElevationShadowSuccess: `var(--coral-elevation-shadow-success, 0rem 0.1rem 0.1rem 0rem hsla(110, 50%, 70%, 0.3))`,
 	coralElevationShadowDanger: `var(--coral-elevation-shadow-danger, 0rem 0.1rem 0.1rem 0rem hsla(359, 100%, 78%, 0.3))`,
 	coralElevationShadowWarning: `var(--coral-elevation-shadow-warning, 0rem 0.1rem 0.1rem 0rem hsla(27, 98%, 67%, 0.3))`,
