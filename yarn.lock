@@ -18666,6 +18666,11 @@ uncontrollable@^7.2.1:
     invariant "^2.2.4"
     react-lifecycles-compat "^3.0.4"
 
+uncontrollable@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/uncontrollable/-/uncontrollable-8.0.2.tgz#ed11b9b6c785b6a471365bcd9a6789cebc4c7849"
+  integrity sha512-/GDx+K1STGtpgTsj5Dj3J51YaKxZDblbCQHTH1zHLuoBEWodj6MjtRVv3TUijj1JYLRLSFsFzN8NV4M3QV4d9w==
+
 underscore@1.12.1:
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.12.1.tgz#7bb8cc9b3d397e201cf8553336d262544ead829e"

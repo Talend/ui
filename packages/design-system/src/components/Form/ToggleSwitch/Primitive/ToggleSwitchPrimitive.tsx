@@ -1,14 +1,16 @@
 import { forwardRef } from 'react';
 import type { Ref } from 'react';
+
 import classnames from 'classnames';
 
-import useCheckboxState from './hooks/useCheckboxState';
-import { CheckboxProps } from './Input.Checkbox';
-
-import styles from './Input.ToggleSwitch.module.scss';
 import { useId } from '../../../../useId';
+import { CheckboxPrimitiveType } from '../../Checkbox/Primitive/CheckboxPrimitive';
 
-const ToggleSwitch = forwardRef(
+import styles from './ToggleSwitchPrimitive.module.scss';
+
+export type ToggleSwitchPrimitiveType = CheckboxPrimitiveType;
+
+const ToggleSwitchPrimitive = forwardRef(
 	(
 		{
 			id,
@@ -20,18 +22,18 @@ const ToggleSwitch = forwardRef(
 			required,
 			children,
 			isInline,
+			onChange,
 			...rest
-		}: Omit<CheckboxProps, 'indeterminate'>,
+		}: Omit<ToggleSwitchPrimitiveType, 'indeterminate'>,
 		ref: Ref<HTMLInputElement>,
 	) => {
 		const switchId = useId(id, 'switch-');
-		const checkbox = useCheckboxState({ state: defaultChecked || checked, readOnly });
 
 		return (
 			<span
 				className={classnames(styles.switch, {
 					[styles.switch_readOnly]: !!readOnly,
-					[styles.switch_checked]: !!checkbox.state,
+					[styles.switch_checked]: !!checked,
 					[styles.switch_disabled]: !!disabled,
 					[styles.switch_inline]: !!isInline,
 				})}
@@ -43,8 +45,12 @@ const ToggleSwitch = forwardRef(
 						disabled={disabled}
 						readOnly={readOnly}
 						required={required}
-						aria-checked={checkbox.state === true}
-						onChange={() => checkbox.setState(!checkbox.state)}
+						aria-checked={checked}
+						checked={checked}
+						onChange={() =>
+							// If readonly, we return current check status ; Else we return opposite status as new status
+							onChange(Boolean(readOnly ? checked : !checked))
+						}
 						{...rest}
 						ref={ref}
 					/>
@@ -58,6 +64,6 @@ const ToggleSwitch = forwardRef(
 	},
 );
 
-ToggleSwitch.displayName = 'ToggleSwitch';
+ToggleSwitchPrimitive.displayName = 'ToggleSwitchPrimitive';
 
-export default ToggleSwitch;
+export default ToggleSwitchPrimitive;

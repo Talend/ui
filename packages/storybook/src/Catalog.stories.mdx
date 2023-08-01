@@ -1,4 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
 import {
 	ButtonDestructive,
 	ButtonIcon,
@@ -21,6 +22,8 @@ import {
 	TagSuccess,
 	TagWarning,
 	Toggle,
+	UncontrolledCheckbox,
+	UncontrolledToggleSwitch,
 } from '@talend/design-system';
 
 <Meta title="Component catalog" />
@@ -263,9 +266,9 @@ import {
 					<option selected>Foo</option>
 					<option selected>Bar</option>
 				</Form.Select>
-				<Form.Checkbox label="Checkbox" checked name="checkbox" />
+				<UncontrolledCheckbox label="Checkbox" defaultChecked name="checkbox" />
 				<Form.Radio label="Radio" checked name="radio" />
-				<Form.ToggleSwitch label="Switch" checked name="switch" />
+				<UncontrolledToggleSwitch label="Switch" defaultChecked name="switch" />
 			</Form.Fieldset>
 			<Form.Buttons>
 				<ButtonSecondary onClick={() => {}} type="reset">

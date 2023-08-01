@@ -43,7 +43,8 @@
     "polished": "^4.2.2",
     "react-use": "^17.4.0",
     "typeface-inconsolata": "^1.1.13",
-    "typeface-source-sans-pro": "^1.1.13"
+    "typeface-source-sans-pro": "^1.1.13",
+    "uncontrollable": "^8.0.2"
   },
   "devDependencies": {
     "@algolia/autocomplete-js": "^1.9.4",
@@ -65,8 +66,8 @@
     "@talend/bootstrap-theme": "^8.0.0",
     "@talend/icons": "^6.59.0",
     "@talend/locales-design-system": "^7.3.0",
-    "@talend/scripts-core": "^14.0.0",
     "@talend/scripts-config-react-webpack": "^15.4.1",
+    "@talend/scripts-core": "^14.0.0",
     "@testing-library/cypress": "^9.0.0",
     "@types/classnames": "^2.3.1",
     "@types/react": "^17.0.62",

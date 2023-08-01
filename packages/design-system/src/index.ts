@@ -1,3 +1,4 @@
+import { Accordion, CollapsiblePanel } from './components/Accordion';
 import { Badge, BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
@@ -38,7 +39,6 @@ import {
 	InlineMessageSuccess,
 	InlineMessageWarning,
 } from './components/InlineMessage';
-import Illustration from './components/illustrations';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
@@ -54,6 +54,7 @@ import {
 } from './components/Message';
 import Modal from './components/Modal';
 import Popover from './components/Popover';
+import RichRadioButton from './components/RichRadioButton';
 import Skeleton, {
 	SkeletonButton,
 	SkeletonButtonIcon,
@@ -72,7 +73,6 @@ import {
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
 import { Tabs, TabsAsLinkList, TabsKit } from './components/Tabs';
-import { Accordion, CollapsiblePanel } from './components/Accordion';
 import {
 	Tag,
 	TagBeta,
@@ -86,7 +86,7 @@ import {
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
-import RichRadioButton from './components/RichRadioButton';
+import Illustration from './components/illustrations';
 
 export * from './components/Stack';
 export * from './themes';
@@ -182,3 +182,6 @@ export {
 };
 
 export type { TooltipPlacement };
+
+export * from './components/Form/Checkbox';
+export * from './components/Form/ToggleSwitch';

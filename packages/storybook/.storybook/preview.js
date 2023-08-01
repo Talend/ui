@@ -1,17 +1,19 @@
+import 'focus-outline-manager';
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStorage } from 'react-use';
 
-import { default as i18next } from 'i18next';
-import prettier from 'prettier/standalone';
-import prettierBabel from 'prettier/parser-babel';
-import { addons } from '@storybook/addons';
-
 import { DocsContainer } from '@storybook/addon-docs';
+import { addons } from '@storybook/addons';
 import { SET_STORIES, UPDATE_GLOBALS } from '@storybook/core-events';
+import { default as i18next } from 'i18next';
+import prettierBabel from 'prettier/parser-babel';
+import prettier from 'prettier/standalone';
 import { BackToTop, TableOfContents } from 'storybook-docs-toc';
-import '@talend/storybook-docs/dist/globalStyles.min.css';
 
+import { Divider, StackVertical, ThemeProvider, ToggleSwitch } from '@talend/design-system';
+import { dark, light } from '@talend/design-system';
 import {
 	namespaces as designSystemNamespaces,
 	locales as designSystemLocales,
@@ -32,13 +34,9 @@ import {
 	namespaces as tuiFormsNamespaces,
 	locales as tuiFormsLocales,
 } from '@talend/locales-tui-forms';
-
-import 'focus-outline-manager';
+import '@talend/storybook-docs/dist/globalStyles.min.css';
 
 import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
-import { Divider, Form, StackVertical, ThemeProvider } from '@talend/design-system';
-
-import { dark, light } from '@talend/design-system';
 
 const TokenOrder = [
 	'Colors',
@@ -194,14 +192,14 @@ export const parameters = {
 										padding={{ top: 'XS', left: '0', right: '0', bottom: '0' }}
 									>
 										<Divider />
-										<Form.ToggleSwitch
+										<ToggleSwitch
 											label={'Dark mode'}
 											onChange={() => {
 												setDarkMode(!hasDarkMode);
 											}}
 											checked={hasDarkMode}
 										/>
-										<Form.ToggleSwitch
+										<ToggleSwitch
 											label={'Bootstrap stylesheet'}
 											onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
 											checked={!!hasBootstrapStylesheet}

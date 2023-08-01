@@ -1,12 +1,12 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
-import { Form } from '@talend/design-system';
+import { Form, ToggleSwitch } from '@talend/design-system';
 
-import * as Stories from '@talend/design-system/src/components/Form/Field/Input/Input.ToggleSwitch.stories';
+import * as Stories from './ToggleSwitch.stories';
 
 <Meta
 	title="Design System/Form/Form Fields/ToggleSwitch"
-	component={Form.ToggleSwitch}
+	component={ToggleSwitch}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
@@ -33,7 +33,7 @@ ToggleSwitches are a quick way to view and switch between two states or on-off s
 ## States
 
 <Canvas>
-	<Story story={Stories.ToggleSwitch} />
+	<Story story={Stories.ToggleSwitchStates} />
 </Canvas>
 
 ### Inline

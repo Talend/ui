@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
+
 import { IconGallery, IconItem } from '@storybook/components';
 
-import { Form, Icon, IconsProvider, ThemeProvider } from '@talend/design-system';
+import { Form, Icon, IconsProvider, ThemeProvider, ToggleSwitch } from '@talend/design-system';
 
 export const Icons = () => {
 	const [icons, setIds] = useState<(string | null)[]>([]);
@@ -61,7 +62,7 @@ export const Icons = () => {
 							<option>flip-vertical</option>
 						</Form.Select>
 						<div>
-							<Form.ToggleSwitch
+							<ToggleSwitch
 								label="Use color"
 								name="color"
 								onChange={() => setUseCurrentColor(!useCurrentColor)}
@@ -77,13 +78,13 @@ export const Icons = () => {
 								name="color"
 							/>
 						</div>
-						<Form.ToggleSwitch
+						<ToggleSwitch
 							label="Use border"
 							name="border"
 							onChange={() => setBorder(!border)}
 							checked={!!border}
 						/>
-						<Form.ToggleSwitch
+						<ToggleSwitch
 							name="grayscale"
 							label="Use grayscale filter"
 							onChange={() => setFilter(!filter)}

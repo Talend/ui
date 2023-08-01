@@ -1,17 +1,16 @@
-import Datalist from './Field/Datalist';
-import Fieldset from './Fieldset';
-import Form from './Form';
-import Row from './Row';
 import Buttons from './Buttons';
+import Datalist from './Field/Datalist';
 import Input from './Field/Input';
-import Label from './Label';
 import Select from './Field/Select';
 import Textarea from './Field/Textarea';
+import Fieldset from './Fieldset';
+import Form from './Form';
+import Label from './Label';
+import Row from './Row';
 
 export const FormComponent = Form as typeof Form & {
 	Row: typeof Row;
 	Color: typeof Input.Color;
-	Checkbox: typeof Input.Checkbox;
 	Datalist: typeof Datalist;
 	Date: typeof Input.Date;
 	DatetimeLocal: typeof Input.DatetimeLocal;
@@ -27,7 +26,6 @@ export const FormComponent = Form as typeof Form & {
 	Radio: typeof Input.Radio;
 	Search: typeof Input.Search;
 	Select: typeof Select;
-	ToggleSwitch: typeof Input.ToggleSwitch;
 	Tel: typeof Input.Tel;
 	Text: typeof Input.Text;
 	Textarea: typeof Textarea;
@@ -41,7 +39,6 @@ export const FormComponent = Form as typeof Form & {
 FormComponent.Row = Row;
 
 FormComponent.Color = Input.Color;
-FormComponent.Checkbox = Input.Checkbox;
 FormComponent.Datalist = Datalist;
 FormComponent.Date = Input.Date;
 FormComponent.DatetimeLocal = Input.DatetimeLocal;
@@ -57,7 +54,6 @@ FormComponent.Password = Input.Password;
 FormComponent.Radio = Input.Radio;
 FormComponent.Search = Input.Search;
 FormComponent.Select = Select;
-FormComponent.ToggleSwitch = Input.ToggleSwitch;
 FormComponent.Tel = Input.Tel;
 FormComponent.Text = Input.Text;
 FormComponent.Textarea = Textarea;

@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
 import {
 	ButtonPrimary,
 	ButtonSecondary,
 	Form,
 	InlineMessageDestructive,
 	InlineMessageInformation,
+	UncontrolledToggleSwitch,
 } from '@talend/design-system';
 
 export default {
@@ -175,7 +177,11 @@ export const ConditionalFieldset = () => {
 						ref={register({ required: 'This field is required' })}
 					/>
 				</Form.Row>
-				<Form.ToggleSwitch label="Send invite to admin user" name="withUser" ref={register()} />
+				<UncontrolledToggleSwitch
+					label="Send invite to admin user"
+					name="withUser"
+					ref={register()}
+				/>
 			</Form.Fieldset>
 			{withUser && (
 				<Form.Fieldset legend="Invite admin for this account">

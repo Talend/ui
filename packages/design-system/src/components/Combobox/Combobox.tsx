@@ -1,12 +1,4 @@
-import {
-	useState,
-	useCallback,
-	useEffect,
-	useRef,
-	DetailedHTMLProps,
-	HTMLAttributes,
-	FocusEvent,
-} from 'react';
+import { useState, useCallback, useEffect, useRef, FocusEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useId } from '../../useId';
@@ -34,15 +26,7 @@ const Combobox = ({ values, ...rest }: ComboboxProps) => {
 		}
 	}, []);
 
-	let comboboxRef: HTMLDivElement | null = null;
-
-	// const combobox = useReakitComboboxState({
-	// 	autoSelect: true,
-	// 	inline: true,
-	// 	list: true,
-	// 	gutter: 8,
-	// 	values,
-	// });
+	const comboboxRef = useRef<HTMLDivElement>(null);
 
 	// sync options with values and value
 	useEffect(() => {
@@ -58,7 +42,7 @@ const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	const onFocusOut = (event: FocusEvent<HTMLDivElement, Element>) => {
 		// Check if where user clicks out is part of combobox
 		let relatedTarget = event.relatedTarget;
-		while (relatedTarget !== null && relatedTarget !== comboboxRef) {
+		while (relatedTarget !== null && relatedTarget !== comboboxRef.current) {
 			relatedTarget = relatedTarget.parentElement;
 		}
 
@@ -70,7 +54,7 @@ const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	};
 
 	return (
-		<div className={styles.combobox} ref={ref => (comboboxRef = ref)} onBlur={onFocusOut}>
+		<div className={styles.combobox} ref={comboboxRef} onBlur={onFocusOut}>
 			<input
 				className={styles.combobox__input}
 				id={id}

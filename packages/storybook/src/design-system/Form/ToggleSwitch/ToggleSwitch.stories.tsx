@@ -1,37 +1,60 @@
 import { useState } from 'react';
-import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '../../../../';
 import { useForm } from 'react-hook-form';
 
+import {
+	ButtonPrimary,
+	Form,
+	InlineMessageInformation,
+	StackVertical,
+	ToggleSwitch,
+	UncontrolledToggleSwitch,
+} from '@talend/design-system';
+
 export default {
-	component: Form.ToggleSwitch,
+	component: ToggleSwitch,
 };
 
-export const ToggleSwitch = () => (
+export const ToggleSwitchStates = () => (
 	<StackVertical gap="M" justify="stretch" align="stretch">
-		<Form.ToggleSwitch placeholder="Placeholder" name="time" label="ToggleSwitch" />
-		<Form.ToggleSwitch
+		<UncontrolledToggleSwitch placeholder="Placeholder" name="time" label="ToggleSwitch" />
+		<UncontrolledToggleSwitch
 			placeholder="Placeholder"
 			name="time"
 			label="ToggleSwitch disabled"
 			disabled
 		/>
-		<Form.ToggleSwitch
+		<UncontrolledToggleSwitch
 			placeholder="Placeholder"
 			name="time"
 			label="ToggleSwitch read-only"
 			readOnly
 		/>
-		<Form.ToggleSwitch name="time" label="ToggleSwitch checked" defaultChecked />
-		<Form.ToggleSwitch name="time" label="ToggleSwitch checked disabled" defaultChecked disabled />
-		<Form.ToggleSwitch name="time" label="ToggleSwitch checked read-only" defaultChecked readOnly />
+		<UncontrolledToggleSwitch name="time" label="ToggleSwitch checked" defaultChecked />
+		<UncontrolledToggleSwitch
+			name="time"
+			label="ToggleSwitch checked disabled"
+			defaultChecked
+			disabled
+		/>
+		<UncontrolledToggleSwitch
+			name="time"
+			label="ToggleSwitch checked read-only"
+			defaultChecked
+			readOnly
+		/>
 	</StackVertical>
 );
 
 export const ToggleSwitchInline = () => (
 	<>
-		<Form.ToggleSwitch placeholder="Placeholder" name="time" label="ToggleSwitch inline" isInline />
+		<UncontrolledToggleSwitch
+			placeholder="Placeholder"
+			name="time"
+			label="ToggleSwitch inline"
+			isInline
+		/>
 		<span> </span>
-		<Form.ToggleSwitch
+		<UncontrolledToggleSwitch
 			placeholder="Placeholder"
 			name="time"
 			label="ToggleSwitch inline"
@@ -43,7 +66,7 @@ export const ToggleSwitchInline = () => (
 
 export const ToggleSwitchWithLongLabel = () => (
 	<div style={{ width: '200px' }}>
-		<Form.ToggleSwitch
+		<UncontrolledToggleSwitch
 			placeholder="Placeholder"
 			name="time"
 			label="Label with a lot of content, too much probably, and most certainly enough to generate a line break in this small box."
@@ -66,12 +89,13 @@ export const Controlled = () => {
 	return (
 		<Form>
 			<Form.Fieldset legend="Control switch state" required>
-				<Form.ToggleSwitch label="Toggle all" name="option-a" ref={register()} />
-				<Form.ToggleSwitch
+				<UncontrolledToggleSwitch label="Toggle all" name="option-a" ref={register()} />
+				<ToggleSwitch
 					label="Controlled switch"
 					name="option-b"
 					ref={register()}
 					checked={optionA}
+					onChange={() => {}}
 				/>
 			</Form.Fieldset>
 			<Form.Buttons>
@@ -96,16 +120,32 @@ export const ReactHooksForm = () => {
 				/>
 			)}
 			<Form.Fieldset legend="Enabled">
-				<Form.ToggleSwitch label="Option a" name="option-a" ref={register()} />
-				<Form.ToggleSwitch label="Option b" checked name="option-b" ref={register()} />
+				<UncontrolledToggleSwitch label="Option a" name="option-a" ref={register()} />
+				<UncontrolledToggleSwitch
+					label="Option b"
+					defaultChecked
+					name="option-b"
+					ref={register()}
+				/>
 			</Form.Fieldset>
 			<Form.Fieldset legend="Read only" readOnly>
-				<Form.ToggleSwitch label="Option c" name="option-c" ref={register()} />
-				<Form.ToggleSwitch label="Option d" checked name="option-d" ref={register()} />
+				<UncontrolledToggleSwitch label="Option c" name="option-c" ref={register()} />
+				<UncontrolledToggleSwitch
+					label="Option d"
+					defaultChecked
+					name="option-d"
+					ref={register()}
+				/>
 			</Form.Fieldset>
 			<Form.Fieldset legend="Disabled" disabled>
-				<Form.ToggleSwitch label="Option e" disabled name="option-e" ref={register()} />
-				<Form.ToggleSwitch label="Option f" checked disabled name="option-f" ref={register()} />
+				<UncontrolledToggleSwitch label="Option e" disabled name="option-e" ref={register()} />
+				<UncontrolledToggleSwitch
+					label="Option f"
+					defaultChecked
+					disabled
+					name="option-f"
+					ref={register()}
+				/>
 			</Form.Fieldset>
 			<Form.Buttons>
 				<ButtonPrimary onClick={() => {}} type="submit">
