@@ -1,7 +1,7 @@
 /* stylelint-disable color-hex-case */
 @use "sass:color";
+@use "sass:math";
 @use '~@talend/design-tokens/lib/tokens';
-// @use "sass:color";
 
 // This is a fork but try to keep it as close to the original as possible
 $bootstrap-sass-asset-helper: false !default;
@@ -15,7 +15,6 @@ $bootstrap-sass-asset-helper: false !default;
 
 $gray-base: $gray900 !default;
 $gray-darker: color.adjust($gray-base, $lightness: 13.5%) !default; // #222
-// $gray-darker: lighten($gray-base, 13.5%) !default; // #222
 $gray-dark: color.adjust($gray-base, $lightness: 20%) !default; // #333
 $gray: color.adjust($gray-base, $lightness: 33.5%) !default; // #555
 $gray-light: color.adjust($gray-base, $lightness: 46.7%) !default; // #777
@@ -62,11 +61,11 @@ $font-family-monospace: 'Inconsolata', monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
 $font-size-base: 14px !default;
-$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-large: math.ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small: math.ceil(($font-size-base * 0.85)) !default; // ~12px
 
 $font-size-h1: $font-size-large !default;
-$font-size-h2: ceil(($font-size-base * 1.14)) !default; // ~16px
+$font-size-h2: math.ceil(($font-size-base * 1.14)) !default; // ~16px
 $font-size-h3: $font-size-base !default;
 $font-size-h4: $font-size-small;
 $font-size-h5: $font-size-small;
@@ -79,7 +78,7 @@ $font-weight-regular: 400;
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base: 1.428571429 !default; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
+$line-height-computed: math.floor(($font-size-base * $line-height-base)) !default; // ~20px
 
 $form-label-base-color: $gray400 !default;
 $form-base-font-weight: $font-weight-regular !default;
@@ -523,8 +522,8 @@ $jumbotron-padding: 30px !default;
 $jumbotron-color: inherit !default;
 $jumbotron-bg: $gray-lighter !default;
 $jumbotron-heading-color: inherit !default;
-$jumbotron-font-size: ceil(($font-size-base * 1.5)) !default;
-$jumbotron-heading-font-size: ceil(($font-size-base * 4.5)) !default;
+$jumbotron-font-size: math.ceil(($font-size-base * 1.5)) !default;
+$jumbotron-heading-font-size: math.ceil(($font-size-base * 4.5)) !default;
 
 //== Form states and alerts
 //
@@ -713,7 +712,7 @@ $list-group-active-bg: $component-active-bg !default;
 //** Border color of active list elements
 $list-group-active-border: $list-group-active-bg !default;
 //** Text color for content within active list items
-$list-group-active-text-color: lighten($list-group-active-bg, 40%) !default;
+$list-group-active-text-color: color.adjust($list-group-active-bg, $lightness: 40%) !default;
 
 //** Text color of disabled list items
 $list-group-disabled-color: $gray-light !default;

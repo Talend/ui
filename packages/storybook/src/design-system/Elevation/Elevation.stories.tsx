@@ -95,5 +95,5 @@ const ModalWithButtons = () => {
 	);
 };
 export const DialogWithTooltipAndPopover = {
-	render: (props: Story) => <ModalWithButtons />,
+	render: () => <ModalWithButtons />,
 };
