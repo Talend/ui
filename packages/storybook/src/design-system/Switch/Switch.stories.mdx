@@ -2,7 +2,8 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
 
 import { Switch } from '@talend/design-system';
-import * as Stories from '@talend/design-system/src/components/Switch/Switch.stories';
+
+import * as Stories from './Switch.stories';
 
 <Meta
 	title="Design System/Switch"
@@ -28,6 +29,10 @@ Switches are a quick way to make a selection between two states (or three someti
 
 <Canvas>
 	<Story story={Stories.Default} />
+</Canvas>
+
+<Canvas>
+	<Story story={Stories.WithNoValues} />
 </Canvas>
 
 ## States

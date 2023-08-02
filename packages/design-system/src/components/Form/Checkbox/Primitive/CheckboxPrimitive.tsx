@@ -18,7 +18,7 @@ import styles from './Checkbox.module.scss';
 
 type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
 	// Redefine onChange
-	onChange: (isChecked: boolean) => void;
+	onChange?: (isChecked: boolean) => void;
 
 	value?: string | number;
 };
@@ -74,7 +74,7 @@ const CheckboxPrimitive = forwardRef(
 					aria-checked={indeterminate ? 'mixed' : checked}
 					onChange={() =>
 						// If readonly, we return current check status ; Else we return opposite status as new status
-						onChange(Boolean(readOnly ? checked : !checked))
+						onChange?.(Boolean(readOnly ? checked : !checked))
 					}
 					{...rest}
 				/>

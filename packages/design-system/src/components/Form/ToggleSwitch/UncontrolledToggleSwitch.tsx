@@ -6,20 +6,13 @@ import ToggleSwitchPrimitive, {
 	ToggleSwitchPrimitiveType,
 } from './Primitive/ToggleSwitchPrimitive';
 
-export type UncontrolledToggleSwitchProps = Omit<ToggleSwitchPrimitiveType, 'checked' | 'onChange'>;
-
-const noop = () => {};
+export type UncontrolledToggleSwitchProps = Omit<ToggleSwitchPrimitiveType, 'checked'>;
 
 const UncontrolledToggleSwitch = forwardRef(
 	(props: UncontrolledToggleSwitchProps, ref: Ref<HTMLInputElement>) => {
-		const controlledProps = useUncontrolled<ToggleSwitchPrimitiveType>(
-			// Typing trick : onChange is required for ToggleSwitchPrimitive but not wanted for UncontrolledToggleSwitchProps
-			// So give fake onChange that will be overridden with useUncontrolled hook mecanism
-			{ ...props, onChange: noop },
-			{
-				checked: 'onChange',
-			},
-		);
+		const controlledProps = useUncontrolled<ToggleSwitchPrimitiveType>(props, {
+			checked: 'onChange',
+		});
 
 		return <ToggleSwitchPrimitive {...controlledProps} ref={ref} />;
 	},

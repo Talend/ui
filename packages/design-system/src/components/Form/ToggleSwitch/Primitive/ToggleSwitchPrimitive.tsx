@@ -49,7 +49,7 @@ const ToggleSwitchPrimitive = forwardRef(
 						checked={checked}
 						onChange={() =>
 							// If readonly, we return current check status ; Else we return opposite status as new status
-							onChange(Boolean(readOnly ? checked : !checked))
+							onChange?.(Boolean(readOnly ? checked : !checked))
 						}
 						{...rest}
 						ref={ref}

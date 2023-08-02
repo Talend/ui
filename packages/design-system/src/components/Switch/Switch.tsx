@@ -1,24 +1,31 @@
 import { useLayoutEffect, useRef, useState, useEffect } from 'react';
-import type { PropsWithChildren, MouseEvent } from 'react';
-import { randomUUID } from '@talend/utils';
+import type { PropsWithChildren, HTMLAttributes } from 'react';
+
 import classnames from 'classnames';
+
+import { randomUUID } from '@talend/utils';
+
 import theme from './Switch.module.scss';
 
-export type SwitchProps = PropsWithChildren<any> & {
-	label: string;
+const emptyValues: string[] = [];
+
+export type SwitchProps = PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>> & {
+	label?: string;
 	value?: string;
 	defaultValue?: string;
-	values?: any[];
-	checked: boolean;
-	disabled: boolean;
-	readOnly: boolean;
+	values?: string[];
+	checked?: boolean;
+	disabled?: boolean;
+	readOnly?: boolean;
+	// Redefine onChange prop
+	onChange?: (selectedValue: string) => void;
 };
 
 const Switch = ({
 	label,
 	value,
 	defaultValue,
-	values,
+	values = emptyValues,
 	checked,
 	disabled,
 	readOnly,
@@ -26,20 +33,12 @@ const Switch = ({
 	...rest
 }: SwitchProps) => {
 	const [radio, setRadio] = useState(value || defaultValue || (values && values[0]));
-	const switchIndicator = useRef<PropsWithChildren<any>>();
-	const containerRef = useRef<PropsWithChildren<any>>();
+	const switchIndicator = useRef<PropsWithChildren<HTMLSpanElement>>(null);
+	const containerRef = useRef<PropsWithChildren<HTMLDivElement>>(null);
 	const [valueIds, setValueIds] = useState<string[]>(values.map(() => `id-${randomUUID()}`));
 	useEffect(() => {
 		setValueIds(values.map(() => `id-${randomUUID()}`));
 	}, [values]);
-	// const radio = useRadioState({
-	// 	state: value || defaultValue || (values && values[0]),
-	// 	loop: false,
-	// 	unstable_virtual: true,
-	// });
-
-	// const containerRef = useRef<PropsWithChildren<any>>();
-	// const switchIndicator = useRef<PropsWithChildren<any>>();
 
 	useLayoutEffect(() => {
 		const radioGroup = containerRef?.current;
@@ -62,7 +61,7 @@ const Switch = ({
 			switchIndicatorRef.style.transform = `translateX(${radioWidths
 				?.slice(0, checkedRadioIndex)
 				.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}px)`;
-			switchIndicatorRef.dataset.animated = true;
+			switchIndicatorRef.dataset.animated = 'true';
 		}
 	}, [radio, defaultValue, value, values, valueIds]);
 
@@ -81,7 +80,6 @@ const Switch = ({
 				aria-activedescendant={valueIds[values.indexOf(radio)]}
 				{...rest}
 				aria-label={label}
-				disabled={disabled}
 			>
 				{values.map((v: string, i: number) => {
 					const isChecked = radio === v;
@@ -89,11 +87,13 @@ const Switch = ({
 						<button
 							id={valueIds[i]}
 							className={theme.btn}
-							onChange={(event: MouseEvent<HTMLButtonElement>) => onChange && onChange(event, v)}
 							tabIndex={-1}
 							role="radio"
 							aria-checked={isChecked}
-							onClick={() => setRadio(v)}
+							onClick={() => {
+								setRadio(v);
+								onChange?.(v);
+							}}
 							value={v}
 							key={i}
 							data-checked={isChecked}

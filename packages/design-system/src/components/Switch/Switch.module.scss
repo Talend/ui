@@ -28,6 +28,19 @@
 			background: none;
 			border: none;
 			z-index: tokens.$coral-elevation-layer-interactive-front;
+
+			&[aria-checked='true'] {
+				color: tokens.$coral-color-accent-text-weak;
+				opacity: 1;
+			}
+
+			&[aria-checked] ~ .switchIndicator {
+				visibility: hidden;
+			}
+
+			&[aria-checked='true'] ~ .switchIndicator {
+				visibility: visible;
+			}
 		}
 	}
 
@@ -57,19 +70,6 @@
 
 	&.readOnly div .btn[aria-checked] {
 		transition: color tokens.$coral-transition-normal;
-	}
-
-	[aria-checked='true'] {
-		color: tokens.$coral-color-accent-text-weak;
-		opacity: 1;
-	}
-
-	[aria-checked] ~ .switchIndicator {
-		visibility: hidden;
-	}
-
-	[aria-checked='true'] ~ .switchIndicator {
-		visibility: visible;
 	}
 
 	&.disabled div {

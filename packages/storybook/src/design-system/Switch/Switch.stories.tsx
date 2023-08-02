@@ -1,14 +1,12 @@
-import { Story } from '@storybook/react';
 import { useState } from 'react';
-import { Switch } from '../../';
+
+import { Switch } from '@talend/design-system';
 
 export default { component: Switch };
 
-export const Default = (props: Story<typeof Switch>) => (
-	<Switch values={['input', 'both', 'output']} />
-);
+export const Default = () => <Switch values={['input', 'both', 'output']} />;
 
-export const UnControlled = (props: Story<typeof Switch>) => {
+export const UnControlled = () => {
 	const defaultValue = 'value f';
 	const [value, setValue] = useState(defaultValue);
 	return (
@@ -17,8 +15,10 @@ export const UnControlled = (props: Story<typeof Switch>) => {
 			<Switch
 				values={['value a', 'value b', 'value c', 'value d', 'value e', 'value f']}
 				defaultValue={defaultValue}
-				onChange={(e, v) => setValue(v)}
+				onChange={v => setValue(v)}
 			/>
 		</>
 	);
 };
+
+export const WithNoValues = () => <Switch />;

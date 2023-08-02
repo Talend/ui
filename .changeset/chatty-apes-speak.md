@@ -39,45 +39,58 @@ Components changed:
 
 * Checkbox component
 
-Checkbox has two versions now : controlled one and uncontrolled one.
+    Checkbox has two versions now : controlled one and uncontrolled one.
+    To use controlled version, import Checkbox component and provide `checked` and `onChange` props.
+    To use uncontrolled version, import UncontrolledCheckbox component and optionally provide `defaultChecked` prop.
 
-To use controlled version, import Checkbox component and provide `checked` and `onChange` props.
-To use uncontrolled version, import UncontrolledCheckbox component and optionally provide `defaultChecked` prop.
+    We also change way to import it to be less verbose.
 
-Old import and use
-```
-import { Form } from '@talend/design-system';
-(...)
-<Form.Checkbox (...) />
-```
+    Old use
+    ```
+    import { Form } from '@talend/design-system';
+    (...)
+    <Form.Checkbox (...) />
+    ```
 
-is now
-```
-import { Checkbox, UncontrolledCheckbox } from '@talend/design-system';
-(...)
-<Checkbox checked={isChecked} onChange={changeHandler} (...) />
-<UncontrolledCheckbox defaultChecked={isChecked} (...) />
-```
+    New use
+    ```
+    import { Checkbox, UncontrolledCheckbox } from '@talend/design-system';
+    (...)
+    <Checkbox checked={isChecked} onChange={changeHandler} (...) />
+    <UncontrolledCheckbox defaultChecked={isChecked} (...) />
+    ```
 
 * ToggleSwitch component
 
-ToggleSwitch has two versions now : controlled one and uncontrolled one.
+    ToggleSwitch has two versions now : controlled one and uncontrolled one.
+    To use controlled version, import ToggleSwitch component and provide `checked` and `onChange` props.
+    To use uncontrolled version, import UncontrolledToggleSwitch component and optionally provide `defaultChecked` prop.
 
-To use controlled version, import ToggleSwitch component and provide `checked` and `onChange` props.
-To use uncontrolled version, import UncontrolledToggleSwitch component and optionally provide `defaultChecked` prop.
+    We also change way to import it to be less verbose.
 
-Old import and use
-```
-import { Form } from '@talend/design-system';
-(...)
-<Form.ToggleSwitch (...) />
-```
+    Old use
+    ```
+    import { Form } from '@talend/design-system';
+    (...)
+    <Form.ToggleSwitch (...) />
+    ```
 
-is now
-```
-import { ToggleSwitch, UncontrolledToggleSwitch } from '@talend/design-system';
-(...)
-<ToggleSwitch checked={isChecked} onChange={changeHandler} (...) />
-<UncontrolledToggleSwitch defaultChecked={isChecked} (...) />
-```
+    New use
+    ```
+    import { ToggleSwitch, UncontrolledToggleSwitch } from '@talend/design-system';
+    (...)
+    <ToggleSwitch checked={isChecked} onChange={changeHandler} (...) />
+    <UncontrolledToggleSwitch defaultChecked={isChecked} (...) />
+    ```
+
+* Switch component
+
+    `onChange` prop's signature change from
+    ```
+    (event: React.MouseEvent<HTMLButtonElement>, value: string) => void
+    ```
+    to
+    ```
+    (value: string) => void
+    ```
 
