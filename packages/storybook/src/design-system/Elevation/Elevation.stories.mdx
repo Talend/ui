@@ -1,0 +1,55 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Use } from '~docs';
+
+import * as Stories from './Elevation.stories';
+
+<Meta
+	title="Design System/Elevation"
+	parameters={{
+		status: { figma: 'ok', storybook: 'wip', react: 'ok', i18n: 'na' },
+	}}
+/>
+
+# Combinations of elevation of various components
+
+Different components overlay
+
+## Zoning
+
+<FigmaImage src="https://www.figma.com/file/93AaDV2pC1tK9J1O6IbHho/Elevation" />
+
+## Style
+
+<FigmaImage src="https://www.figma.com/file/93AaDV2pC1tK9J1O6IbHho/Elevation" />
+
+### Variations
+
+**Button with a Popover**
+
+<Canvas>
+	<Story height="7rem" story={Stories.ButtonWithPopover} />
+</Canvas>
+
+**Button with a Tooltip**
+
+<Canvas>
+	<Story height="7rem" story={Stories.ButtonWithTooltip} />
+</Canvas>
+
+**Modal with a Tooltip and Popover**
+
+<Canvas>
+	<Story height="7rem" story={Stories.DialogWithTooltipAndPopover} />
+</Canvas>
+
+## Interactions
+
+N/A
+
+## Usage
+
+N/A
+
+## Accessibility
+
+N/A
