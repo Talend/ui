@@ -2,11 +2,11 @@
 
 .information {
 	&_withBackground {
-		background-color: tokens.$coral-color-accent-background;
-		box-shadow: tokens.$coral-elevation-shadow-accent;
+		background-color: tokens.$coral-color-info-background;
+		box-shadow: tokens.$coral-elevation-shadow-info;
 	}
 
 	&__icon {
-		color: tokens.$coral-color-accent-icon;
+		color: tokens.$coral-color-info-icon;
 	}
 }
