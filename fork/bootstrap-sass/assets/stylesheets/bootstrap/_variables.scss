@@ -274,14 +274,13 @@ $dropdown-caret-color:           #000 !default;
 //
 // Note: These variables are not generated into the Customizer.
 
-$zindex-navbar:            1000 !default;
-$zindex-dropdown:          1000 !default;
-$zindex-popover:           1060 !default;
-$zindex-tooltip:           1070 !default;
-$zindex-navbar-fixed:      1030 !default;
-$zindex-modal-background:  1040 !default;
-$zindex-modal:             1050 !default;
-
+$zindex-navbar:            tokens.$coral-elevation-layer-flat !default; // 0
+$zindex-dropdown:          tokens.$coral-elevation-layer-interactive-front !default; // 8
+$zindex-navbar-fixed:      tokens.$coral-elevation-layer-standard-front !default; // 4
+$zindex-modal-background:  tokens.$coral-elevation-layer-standard-front !default; // 4
+$zindex-modal:             tokens.$coral-elevation-layer-standard-front !default; // 4
+$zindex-popover:           tokens.$coral-elevation-layer-interactive-front !default; // 8
+$zindex-tooltip:           tokens.$coral-elevation-layer-overlay !default; // 16
 
 //== Media queries breakpoints
 //
