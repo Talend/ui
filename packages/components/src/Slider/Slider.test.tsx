@@ -6,6 +6,7 @@ import Slider, {
 	renderActions,
 } from './Slider.component';
 
+jest.unmock('@talend/design-system');
 const onChange = jest.fn();
 
 describe('Slider', () => {
@@ -57,7 +58,7 @@ describe('Slider', () => {
 			// when
 			render(<Slider {...props} />);
 			// then
-			const captions = document.querySelectorAll('.tc-slider-captions-element .CoralIcon');
+			const captions = document.querySelectorAll('.tc-slider-captions-element .tc-svg-icon');
 			expect(captions).toHaveLength(5);
 			expect(captions[0]).toHaveAttribute('name', 'talend-smiley-rating');
 			expect(captions[1]).toHaveAttribute('name', 'talend-most-trusted');
@@ -68,7 +69,7 @@ describe('Slider', () => {
 
 		it('should render Slider with captionTextStepNumber', () => {
 			// given
-			const captionsFormat = value => `${value}%`;
+			const captionsFormat = (value: any) => `${value}%`;
 			const props = {
 				id: 'selectable',
 				onChange,
@@ -121,14 +122,11 @@ describe('Slider', () => {
 			// when
 			render(<Slider captionActions={actions} value={76} onChange={onChange} />);
 			// then
-			const captions = screen.getAllByRole('link');
+			const captions = screen.getAllByRole('button');
 			expect(captions).toHaveLength(3);
-			expect(captions[0]).toHaveAttribute('aria-label', 'angry');
-			expect(captions[0]).toHaveClass('tc-slider-captions-element');
-			expect(captions[1]).toHaveAttribute('aria-label', 'neutral');
-			expect(captions[1]).toHaveClass('tc-slider-captions-element');
-			expect(captions[2]).toHaveAttribute('aria-label', 'satified');
-			expect(captions[2]).toHaveClass('tc-slider-captions-element');
+			expect(captions[0]).toHaveAttribute('label', 'angry');
+			expect(captions[1]).toHaveAttribute('label', 'neutral');
+			expect(captions[2]).toHaveAttribute('label', 'satified');
 		});
 		it('should render Slider disabled', () => {
 			// given
@@ -161,7 +159,7 @@ describe('Slider', () => {
 			// when
 			render(<Slider captionActions={actions} value={76} disabled onChange={onChange} />);
 			// then
-			const captions = screen.getAllByRole('link');
+			const captions = screen.getAllByRole('button');
 			expect(captions).toHaveLength(3);
 			expect(captions[0]).toBeDisabled();
 			expect(captions[1]).toBeDisabled();
@@ -173,25 +171,16 @@ describe('Slider', () => {
 			// given
 			const icons = ['icon1', 'icon2', 'icon3', 'icon4', 'icon5'];
 			// when
-			const result = getSelectedIconPosition(icons, 46, 0, 100);
+			const result = getSelectedIconPosition(icons, 0, 100, 46);
 			// then
 			expect(result).toBe(2);
-		});
-
-		it('should return -1 when value is null', () => {
-			// given
-			const icons = ['icon1', 'icon2', 'icon3', 'icon4', 'icon5'];
-			// when
-			const result = getSelectedIconPosition(icons, null, 0, 100);
-			// then
-			expect(result).toBe(-1);
 		});
 
 		it('should return -1 when value is undefined', () => {
 			// given
 			const icons = ['icon1', 'icon2', 'icon3', 'icon4', 'icon5'];
 			// when
-			const result = getSelectedIconPosition(icons, undefined, 0, 100);
+			const result = getSelectedIconPosition(icons, 0, 100, undefined);
 			// then
 			expect(result).toBe(-1);
 		});
@@ -228,12 +217,12 @@ describe('getActions', () => {
 			},
 		];
 		// When
-		render(renderActions(actions, 76, 0, 100, false));
+		render(renderActions(actions, onChange, 0, 100, 76, false));
 		// Then
-		expect(screen.getAllByRole('link')).toHaveLength(3);
-		expect(screen.getByLabelText('angry')).toBeVisible();
-		expect(screen.getByLabelText('neutral')).toBeVisible();
-		expect(screen.getByLabelText('satisfied')).toBeVisible();
+		expect(screen.getAllByRole('button')).toHaveLength(3);
+		expect(screen.getByText('angry')).toBeInTheDocument();
+		expect(screen.getByText('neutral')).toBeInTheDocument();
+		expect(screen.getByText('satisfied')).toBeInTheDocument();
 	});
 });
 

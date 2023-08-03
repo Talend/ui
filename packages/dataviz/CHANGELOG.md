@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- eeac0f188: fix: bundle typing in the package that produce the following error:
+
+      Could not find a declaration file for module '@talend/react-dataviz' since the 3.0
+
 ## 3.0.0
 
 ### Major Changes

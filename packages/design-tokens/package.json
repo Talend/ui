@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-tokens",
-  "version": "2.7.3",
+  "version": "2.8.0",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -13,7 +13,7 @@
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
     "test:umd": "jest scripts/umd.test.js",
-    "lint": "talend-scripts lint ./src ./scripts"
+    "lint": "talend-scripts lint"
   },
   "keywords": [
     "talend",

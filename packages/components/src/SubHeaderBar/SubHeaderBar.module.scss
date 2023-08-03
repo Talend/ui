@@ -18,15 +18,15 @@ $tc-svg-icon-size: $padding-large !default;
 
 	:global(.btn-link),
 	:global(.btn-icon-only) {
-		color: $tc-subheader-color;
+		color: tokens.$coral-color-accent-icon;
 
 		&:focus,
 		&:hover {
-			color: tokens.$coral-color-accent-text-hover;
+			color: tokens.$coral-color-accent-icon-hover;
 		}
 
 		&:active {
-			color: tokens.$coral-color-accent-text-active;
+			color: tokens.$coral-color-accent-icon-active;
 		}
 	}
 
@@ -79,6 +79,9 @@ $tc-svg-icon-size: $padding-large !default;
 		background-color: tokens.$coral-color-neutral-background-strong !important;
 		width: $tc-subheader-bar-height;
 		height: $tc-subheader-bar-height;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
 		&:focus,
 		&:hover,
