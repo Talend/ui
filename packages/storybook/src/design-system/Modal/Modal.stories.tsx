@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { ComponentStory } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
-import type { ModalPropsType } from './Modal';
-import { ButtonPrimary, Modal } from '../../';
+import { action } from '@storybook/addon-actions';
+import { ComponentStory } from '@storybook/react';
+
+import { ButtonPrimary, Modal, ModalPropsType } from '@talend/design-system';
 
 export default {
 	component: Modal,
 };
 
-function ModalStory(props: Partial<ModalPropsType>) {
+function ModalStory(props: ModalPropsType) {
 	const [modalOpen, setModalOpen] = useState(false);
 	const { children, ...rest } = props;
 	return (
@@ -20,7 +20,6 @@ function ModalStory(props: Partial<ModalPropsType>) {
 
 			{modalOpen && (
 				<Modal
-					header={{ title: '(Default story title)' }}
 					onClose={() => {
 						action('onClose');
 						setModalOpen(false);

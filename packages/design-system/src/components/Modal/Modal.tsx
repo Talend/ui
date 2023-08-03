@@ -1,19 +1,19 @@
 import { useEffect, useRef, cloneElement } from 'react';
-import type { ReactNode, ReactElement } from 'react';
+import type { ReactNode, ReactElement, MouseEvent as ReactMouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DeprecatedIconNames } from '../../types';
 import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
-import { Icon } from '../Icon';
-import { StackHorizontal, StackVertical } from '../Stack';
+import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructive';
 import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';
 import { ButtonSecondaryPropsType } from '../Button/variations/ButtonSecondary';
-import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructive';
-
-import styles from './Modal.module.scss';
+import { Disclosure } from '../Disclosure/Disclosure';
+import { Icon } from '../Icon';
+import { StackHorizontal, StackVertical } from '../Stack';
 import { Dialog, DialogPropsType, useDialogState } from './Primitives/Dialog';
 import { DialogBackdrop } from './Primitives/DialogBackdrop';
-import { Disclosure } from '../Disclosure/Disclosure';
+
+import styles from './Modal.module.scss';
 
 type IconProp = DeprecatedIconNames | ReactElement;
 
@@ -68,13 +68,21 @@ function Modal(props: ModalPropsType): ReactElement {
 	const hasDisclosure = 'disclosure' in props;
 	const { t } = useTranslation('design-system');
 	const dialog = useDialogState({ visible: !hasDisclosure });
-	const ref = useRef<HTMLDivElement>(null);
+
+	const backdropRef = useRef<HTMLDivElement>(null);
+	const dialogRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		ref.current?.focus();
-	}, [ref]);
+		dialogRef.current?.focus();
+	}, [dialogRef]);
 
 	const onCloseHandler = hasDisclosure ? () => dialog.hide() : () => onClose && onClose();
+
+	const onClickBackdropHandler = (event: ReactMouseEvent<HTMLDivElement, MouseEvent>) => {
+		if (event.target === backdropRef.current) {
+			onCloseHandler();
+		}
+	};
 
 	return (
 		<>
@@ -91,7 +99,12 @@ function Modal(props: ModalPropsType): ReactElement {
 				data-test="modal.backdrop"
 				data-testid="modal.backdrop"
 			>
-				<div className={styles['modal-container']}>
+				<div
+					aria-hidden
+					className={styles['modal-container']}
+					onClick={onClickBackdropHandler}
+					ref={backdropRef}
+				>
 					<Dialog
 						{...rest}
 						visible={dialog.visible}
@@ -99,7 +112,7 @@ function Modal(props: ModalPropsType): ReactElement {
 						data-testid="modal"
 						className={styles.modal}
 						hide={preventEscaping ? () => undefined : () => onCloseHandler()}
-						ref={ref}
+						ref={dialogRef}
 					>
 						<StackVertical gap={0}>
 							<div className={styles.modal__header}>
