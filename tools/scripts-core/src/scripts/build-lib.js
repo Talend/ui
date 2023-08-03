@@ -65,6 +65,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 				{
 					stdio: 'inherit',
 					env,
+					shell: process.platform === 'win32',
 				},
 			);
 			babelSpawn.on('exit', status => {
