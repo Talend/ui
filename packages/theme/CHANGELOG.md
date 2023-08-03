@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 8.1.0
+
+### Minor Changes
+
+- 275e7da72: feat: use design-tokens for elevation
+
 ## 8.0.1
 
 ### Patch Changes
