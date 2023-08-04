@@ -31,7 +31,6 @@ const InputCopy = forwardRef(
 		ref: Ref<HTMLInputElement | null>,
 	) => {
 		const [copiedValue, setCopiedValue] = useState('');
-		const [changedTime, setChangedTime] = useState<number | null | undefined>(null);
 		const [copyError, setCopyError] = useState<Error | undefined | null>(null);
 		const [{ value: clipboardValue, error: clipboardError }, copyToClipboard] =
 			useCopyToClipboard();
@@ -39,38 +38,23 @@ const InputCopy = forwardRef(
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const inputValue = value || defaultValue;
 
-		const updateChangeTime = (update: boolean) => {
-			setChangedTime(update ? Date.now() : null);
-		};
-		useEffect(() => {
-			if (inputValue) {
-				updateChangeTime(true);
-			}
-		}, [inputValue]);
 		useEffect(() => {
 			if (inputValue !== copiedValue) {
 				setCopiedValue('');
 				setCopyError(null);
-				updateChangeTime(false);
 			}
 		}, [inputValue, copiedValue]);
 
 		useEffect(() => {
-			if (changedTime && copiedValue !== inputValue) {
-				setCopiedValue(clipboardValue as string);
-				updateChangeTime(false);
-			}
-		}, [clipboardValue, changedTime]);
+			setCopiedValue(clipboardValue as string);
+		}, [clipboardValue]);
 
 		useEffect(() => {
 			setCopyError(clipboardError);
 		}, [clipboardError]);
 
 		useImperativeHandle(ref, () => inputRef.current);
-		const doCopy = () => {
-			copyToClipboard(inputRef.current?.value || '');
-			updateChangeTime(true);
-		};
+
 		const getDescriptionMessage = () => {
 			if (copyError) {
 				return copyError.message;
@@ -79,7 +63,11 @@ const InputCopy = forwardRef(
 			}
 			return '';
 		};
-
+		const doCopy = () => {
+			const inputValue = inputRef.current?.value || '';
+			copyToClipboard(inputValue);
+			setCopiedValue(inputValue);
+		};
 		return (
 			<FieldPrimitive
 				label={label}
@@ -99,7 +87,7 @@ const InputCopy = forwardRef(
 					suffix={{
 						type: 'button',
 						icon: 'talend-files-o',
-						onClick: () => doCopy(),
+						onClick: doCopy,
 						disabled: !!disabled || !!readOnly,
 						children: t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard'),
 						hideText: true,
