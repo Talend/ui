@@ -2,7 +2,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -11,7 +11,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextInverted',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(210, 7%, 79%, 1)',
 		hex: '#c5c9cd',
 		value: 'hsla(210, 7%, 79%, 1)',
@@ -20,7 +20,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(206, 17%, 82%, 1)',
 		hex: '#c9d2d9',
 		value: 'hsla(206, 17%, 82%, 1)',
@@ -29,7 +29,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextDisabled',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 11%, 64%, 1)',
 		hex: '#99a4ad',
 		value: 'hsla(207, 11%, 64%, 1)',
@@ -38,7 +38,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackground',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(206, 17%, 18%, 1)',
 		hex: '#262f36',
 		value: 'hsla(206, 17%, 18%, 1)',
@@ -47,7 +47,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackgroundDisabled',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(210, 17%, 16%, 1)',
 		hex: '#222930',
 		value: 'hsla(210, 17%, 16%, 1)',
@@ -56,7 +56,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackgroundMedium',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(208, 18%, 21%, 1)',
 		hex: '#2c363f',
 		value: 'hsla(208, 18%, 21%, 1)',
@@ -65,7 +65,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackgroundStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(208, 18%, 14%, 1)',
 		hex: '#1d242a',
 		value: 'hsla(208, 18%, 14%, 1)',
@@ -74,7 +74,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(206, 17%, 82%, 1)',
 		hex: '#c9d2d9',
 		value: 'hsla(206, 17%, 82%, 1)',
@@ -83,7 +83,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 34%, 1)',
 		hex: '#475866',
 		value: 'hsla(207, 18%, 34%, 1)',
@@ -92,7 +92,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 44%, 1)',
 		hex: '#5c7284',
 		value: 'hsla(207, 18%, 44%, 1)',
@@ -101,7 +101,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderDisabled',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(208, 11%, 35%, 1)',
 		hex: '#505a63',
 		value: 'hsla(208, 11%, 35%, 1)',
@@ -110,7 +110,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 65%, 1)',
 		hex: '#66bfe6',
 		value: 'hsla(198, 72%, 65%, 1)',
@@ -119,7 +119,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 55%, 1)',
 		hex: '#3aaddf',
 		value: 'hsla(198, 72%, 55%, 1)',
@@ -128,7 +128,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 45%, 1)',
 		hex: '#2093c5',
 		value: 'hsla(198, 72%, 45%, 1)',
@@ -137,7 +137,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -146,7 +146,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 71%, 15%, 1)',
 		hex: '#0b3142',
 		value: 'hsla(199, 71%, 15%, 1)',
@@ -155,7 +155,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 73%, 10%, 1)',
 		hex: '#07202c',
 		value: 'hsla(199, 73%, 10%, 1)',
@@ -164,7 +164,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 75%, 1)',
 		hex: '#91d1ed',
 		value: 'hsla(198, 72%, 75%, 1)',
@@ -173,7 +173,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 65%, 1)',
 		hex: '#66bfe6',
 		value: 'hsla(198, 72%, 65%, 1)',
@@ -182,7 +182,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 55%, 1)',
 		hex: '#3aaddf',
 		value: 'hsla(198, 72%, 55%, 1)',
@@ -191,7 +191,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackground',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 25%, 1)',
 		hex: '#12516d',
 		value: 'hsla(198, 72%, 25%, 1)',
@@ -200,7 +200,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 78%, 20%, 1)',
 		hex: '#0b425b',
 		value: 'hsla(199, 78%, 20%, 1)',
@@ -209,7 +209,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 73%, 10%, 1)',
 		hex: '#07202c',
 		value: 'hsla(199, 73%, 10%, 1)',
@@ -218,7 +218,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -227,7 +227,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 71%, 15%, 1)',
 		hex: '#0b3142',
 		value: 'hsla(199, 71%, 15%, 1)',
@@ -236,7 +236,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 73%, 10%, 1)',
 		hex: '#07202c',
 		value: 'hsla(199, 73%, 10%, 1)',
@@ -245,7 +245,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 75%, 1)',
 		hex: '#91d1ed',
 		value: 'hsla(198, 72%, 75%, 1)',
@@ -254,7 +254,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 65%, 1)',
 		hex: '#66bfe6',
 		value: 'hsla(198, 72%, 65%, 1)',
@@ -263,7 +263,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 55%, 1)',
 		hex: '#3aaddf',
 		value: 'hsla(198, 72%, 55%, 1)',
@@ -272,7 +272,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 75%, 1)',
 		hex: '#91d1ed',
 		value: 'hsla(198, 72%, 75%, 1)',
@@ -281,7 +281,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 65%, 1)',
 		hex: '#66bfe6',
 		value: 'hsla(198, 72%, 65%, 1)',
@@ -290,7 +290,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBorderActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 72%, 55%, 1)',
 		hex: '#3aacdf',
 		value: 'hsla(199, 72%, 55%, 1)',
@@ -299,7 +299,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(2, 95%, 74%, 1)',
 		hex: '#fc827e',
 		value: 'hsla(2, 95%, 74%, 1)',
@@ -308,7 +308,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(2, 95%, 69%, 1)',
 		hex: '#fb6964',
 		value: 'hsla(2, 95%, 69%, 1)',
@@ -317,7 +317,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(2, 96%, 64%, 1)',
 		hex: '#fb514c',
 		value: 'hsla(2, 96%, 64%, 1)',
@@ -326,7 +326,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -335,7 +335,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(358, 96%, 18%, 1)',
 		hex: '#590205',
 		value: 'hsla(358, 96%, 18%, 1)',
@@ -344,7 +344,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(357, 97%, 13%, 1)',
 		hex: '#410104',
 		value: 'hsla(357, 97%, 13%, 1)',
@@ -353,7 +353,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 78%, 1)',
 		hex: '#ff8f91',
 		value: 'hsla(359, 100%, 78%, 1)',
@@ -362,7 +362,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 73%, 1)',
 		hex: '#ff7578',
 		value: 'hsla(359, 100%, 73%, 1)',
@@ -371,7 +371,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 68%, 1)',
 		hex: '#ff5c5f',
 		value: 'hsla(359, 100%, 68%, 1)',
@@ -380,7 +380,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackground',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(358, 96%, 18%, 1)',
 		hex: '#590205',
 		value: 'hsla(358, 96%, 18%, 1)',
@@ -389,7 +389,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(357, 97%, 13%, 1)',
 		hex: '#410104',
 		value: 'hsla(357, 97%, 13%, 1)',
@@ -398,7 +398,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(358, 95%, 8%, 1)',
 		hex: '#280102',
 		value: 'hsla(358, 95%, 8%, 1)',
@@ -407,7 +407,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -416,7 +416,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(358, 96%, 18%, 1)',
 		hex: '#590205',
 		value: 'hsla(358, 96%, 18%, 1)',
@@ -425,7 +425,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(357, 97%, 13%, 1)',
 		hex: '#410104',
 		value: 'hsla(357, 97%, 13%, 1)',
@@ -434,7 +434,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 78%, 1)',
 		hex: '#ff8f91',
 		value: 'hsla(359, 100%, 78%, 1)',
@@ -443,7 +443,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 73%, 1)',
 		hex: '#ff7578',
 		value: 'hsla(359, 100%, 73%, 1)',
@@ -452,7 +452,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 68%, 1)',
 		hex: '#ff5c5f',
 		value: 'hsla(359, 100%, 68%, 1)',
@@ -461,7 +461,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 78%, 1)',
 		hex: '#ff8f91',
 		value: 'hsla(359, 100%, 78%, 1)',
@@ -470,7 +470,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 73%, 1)',
 		hex: '#ff7578',
 		value: 'hsla(359, 100%, 73%, 1)',
@@ -479,7 +479,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBorderActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 68%, 1)',
 		hex: '#ff5c5f',
 		value: 'hsla(359, 100%, 68%, 1)',
@@ -488,7 +488,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 60%, 1)',
 		hex: '#77cc66',
 		value: 'hsla(110, 50%, 60%, 1)',
@@ -497,7 +497,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 45%, 50%, 1)',
 		hex: '#59b946',
 		value: 'hsla(110, 45%, 50%, 1)',
@@ -506,7 +506,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 45%, 40%, 1)',
 		hex: '#479438',
 		value: 'hsla(110, 45%, 40%, 1)',
@@ -515,7 +515,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -524,7 +524,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(109, 50%, 20%, 1)',
 		hex: '#224c19',
 		value: 'hsla(109, 50%, 20%, 1)',
@@ -533,7 +533,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(109, 51%, 15%, 1)',
 		hex: '#1a3a13',
 		value: 'hsla(109, 51%, 15%, 1)',
@@ -542,7 +542,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 70%, 1)',
 		hex: '#99d98c',
 		value: 'hsla(110, 50%, 70%, 1)',
@@ -551,7 +551,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 60%, 1)',
 		hex: '#77cc66',
 		value: 'hsla(110, 50%, 60%, 1)',
@@ -560,7 +560,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 50%, 1)',
 		hex: '#55bf40',
 		value: 'hsla(110, 50%, 50%, 1)',
@@ -569,7 +569,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackground',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(109, 50%, 20%, 1)',
 		hex: '#224c19',
 		value: 'hsla(109, 50%, 20%, 1)',
@@ -578,7 +578,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(109, 51%, 15%, 1)',
 		hex: '#1a3a13',
 		value: 'hsla(109, 51%, 15%, 1)',
@@ -587,7 +587,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 49%, 10%, 1)',
 		hex: '#11260d',
 		value: 'hsla(110, 49%, 10%, 1)',
@@ -596,7 +596,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -605,7 +605,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(109, 50%, 20%, 1)',
 		hex: '#224c19',
 		value: 'hsla(109, 50%, 20%, 1)',
@@ -614,7 +614,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(109, 51%, 15%, 1)',
 		hex: '#1a3a13',
 		value: 'hsla(109, 51%, 15%, 1)',
@@ -623,7 +623,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 70%, 1)',
 		hex: '#99d98c',
 		value: 'hsla(110, 50%, 70%, 1)',
@@ -632,7 +632,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 60%, 1)',
 		hex: '#77cc66',
 		value: 'hsla(110, 50%, 60%, 1)',
@@ -641,7 +641,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 50%, 1)',
 		hex: '#55bf40',
 		value: 'hsla(110, 50%, 50%, 1)',
@@ -650,7 +650,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 70%, 1)',
 		hex: '#99d98c',
 		value: 'hsla(110, 50%, 70%, 1)',
@@ -659,7 +659,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 60%, 1)',
 		hex: '#77cc66',
 		value: 'hsla(110, 50%, 60%, 1)',
@@ -668,7 +668,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBorderActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 50%, 50%, 1)',
 		hex: '#55bf40',
 		value: 'hsla(110, 50%, 50%, 1)',
@@ -677,7 +677,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 97%, 57%, 1)',
 		hex: '#fc8727',
 		value: 'hsla(27, 97%, 57%, 1)',
@@ -686,7 +686,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 97%, 47%, 1)',
 		hex: '#ec6c03',
 		value: 'hsla(27, 97%, 47%, 1)',
@@ -695,7 +695,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 97%, 37%, 1)',
 		hex: '#ba5503',
 		value: 'hsla(27, 97%, 37%, 1)',
@@ -704,7 +704,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -713,7 +713,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 84%, 20%, 1)',
 		hex: '#5e2808',
 		value: 'hsla(22, 84%, 20%, 1)',
@@ -722,7 +722,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(23, 84%, 15%, 1)',
 		hex: '#461e06',
 		value: 'hsla(23, 84%, 15%, 1)',
@@ -731,7 +731,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 98%, 67%, 1)',
 		hex: '#fda359',
 		value: 'hsla(27, 98%, 67%, 1)',
@@ -740,7 +740,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 97%, 57%, 1)',
 		hex: '#fc8726',
 		value: 'hsla(27, 97%, 57%, 1)',
@@ -749,7 +749,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 98%, 47%, 1)',
 		hex: '#ed6c03',
 		value: 'hsla(27, 98%, 47%, 1)',
@@ -758,7 +758,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackground',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 84%, 20%, 1)',
 		hex: '#5e2808',
 		value: 'hsla(22, 84%, 20%, 1)',
@@ -767,7 +767,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 84%, 15%, 1)',
 		hex: '#471e06',
 		value: 'hsla(22, 84%, 15%, 1)',
@@ -776,7 +776,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 84%, 10%, 1)',
 		hex: '#2f1404',
 		value: 'hsla(22, 84%, 10%, 1)',
@@ -785,7 +785,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -794,7 +794,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 84%, 20%, 1)',
 		hex: '#5e2808',
 		value: 'hsla(22, 84%, 20%, 1)',
@@ -803,7 +803,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(23, 84%, 15%, 1)',
 		hex: '#461e06',
 		value: 'hsla(23, 84%, 15%, 1)',
@@ -812,7 +812,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 98%, 67%, 1)',
 		hex: '#fda359',
 		value: 'hsla(27, 98%, 67%, 1)',
@@ -821,7 +821,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 97%, 57%, 1)',
 		hex: '#fc8726',
 		value: 'hsla(27, 97%, 57%, 1)',
@@ -830,7 +830,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 98%, 47%, 1)',
 		hex: '#ed6c03',
 		value: 'hsla(27, 98%, 47%, 1)',
@@ -839,7 +839,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 98%, 67%, 1)',
 		hex: '#fda359',
 		value: 'hsla(27, 98%, 67%, 1)',
@@ -848,7 +848,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 97%, 57%, 1)',
 		hex: '#fc8726',
 		value: 'hsla(27, 97%, 57%, 1)',
@@ -857,7 +857,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBorderActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 98%, 47%, 1)',
 		hex: '#ed6c03',
 		value: 'hsla(27, 98%, 47%, 1)',
@@ -866,7 +866,7 @@ const dictionary = [
 	{
 		name: 'coralColorAssistiveBackground',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(208, 20%, 83%, 1)',
 		hex: '#ccd5dd',
 		value: 'hsla(208, 20%, 83%, 1)',
@@ -875,7 +875,7 @@ const dictionary = [
 	{
 		name: 'coralColorAssistiveText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(208, 18%, 14%, 1)',
 		hex: '#1d242a',
 		value: 'hsla(208, 18%, 14%, 1)',
@@ -884,7 +884,7 @@ const dictionary = [
 	{
 		name: 'coralColorAssistiveBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(208, 20%, 63%, 1)',
 		hex: '#8ea2b4',
 		value: 'hsla(208, 20%, 63%, 1)',
@@ -893,7 +893,7 @@ const dictionary = [
 	{
 		name: 'coralColorAssistiveBorderFocus',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(256, 66%, 76%, 1)',
 		hex: '#af9aea',
 		value: 'hsla(256, 66%, 76%, 1)',
@@ -902,7 +902,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandingBrand',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 71%, 1)',
 		hex: '#ff6d70',
 		value: 'hsla(359, 100%, 71%, 1)',
@@ -911,7 +911,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(206, 17%, 92%, 1)',
 		hex: '#e7ebee',
 		value: 'hsla(206, 17%, 92%, 1)',
@@ -920,7 +920,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 44%, 72%, 1)',
 		hex: '#c299d7',
 		value: 'hsla(280, 44%, 72%, 1)',
@@ -929,7 +929,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 43%, 62%, 1)',
 		hex: '#ac74c8',
 		value: 'hsla(280, 43%, 62%, 1)',
@@ -938,7 +938,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 44%, 52%, 1)',
 		hex: '#974fba',
 		value: 'hsla(280, 44%, 52%, 1)',
@@ -947,7 +947,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 68%, 61%, 1)',
 		hex: '#b258df',
 		value: 'hsla(280, 68%, 61%, 1)',
@@ -956,7 +956,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaIconHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 68%, 51%, 1)',
 		hex: '#9e2dd7',
 		value: 'hsla(280, 68%, 51%, 1)',
@@ -965,7 +965,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaIconActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 67%, 41%, 1)',
 		hex: '#8022af',
 		value: 'hsla(280, 67%, 41%, 1)',
@@ -974,7 +974,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -983,7 +983,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(281, 65%, 24%, 1)',
 		hex: '#4d1666',
 		value: 'hsla(281, 65%, 24%, 1)',
@@ -992,7 +992,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 64%, 14%, 1)',
 		hex: '#2c0d3b',
 		value: 'hsla(280, 64%, 14%, 1)',
@@ -1001,7 +1001,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 34%, 78%, 1)',
 		hex: '#cdb4da',
 		value: 'hsla(279, 34%, 78%, 1)',
@@ -1010,7 +1010,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 34%, 68%, 1)',
 		hex: '#b692c9',
 		value: 'hsla(279, 34%, 68%, 1)',
@@ -1019,7 +1019,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 34%, 48%, 1)',
 		hex: '#8851a4',
 		value: 'hsla(280, 34%, 48%, 1)',
@@ -1028,7 +1028,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackground',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(281, 65%, 24%, 1)',
 		hex: '#4d1666',
 		value: 'hsla(281, 65%, 24%, 1)',
@@ -1037,7 +1037,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 64%, 14%, 1)',
 		hex: '#2c0d3b',
 		value: 'hsla(280, 64%, 14%, 1)',
@@ -1046,7 +1046,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(277, 62%, 4%, 1)',
 		hex: '#0c0411',
 		value: 'hsla(277, 62%, 4%, 1)',
@@ -1055,7 +1055,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -1064,7 +1064,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(281, 65%, 24%, 1)',
 		hex: '#4d1666',
 		value: 'hsla(281, 65%, 24%, 1)',
@@ -1073,7 +1073,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 64%, 14%, 1)',
 		hex: '#2c0d3b',
 		value: 'hsla(280, 64%, 14%, 1)',
@@ -1082,7 +1082,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 34%, 78%, 1)',
 		hex: '#cdb4da',
 		value: 'hsla(279, 34%, 78%, 1)',
@@ -1091,7 +1091,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 34%, 68%, 1)',
 		hex: '#b692c9',
 		value: 'hsla(279, 34%, 68%, 1)',
@@ -1100,7 +1100,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 34%, 48%, 1)',
 		hex: '#8751a4',
 		value: 'hsla(279, 34%, 48%, 1)',
@@ -1109,7 +1109,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 34%, 78%, 1)',
 		hex: '#cdb4da',
 		value: 'hsla(279, 34%, 78%, 1)',
@@ -1118,7 +1118,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 34%, 68%, 1)',
 		hex: '#b692c9',
 		value: 'hsla(279, 34%, 68%, 1)',
@@ -1127,7 +1127,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBorderActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 34%, 48%, 1)',
 		hex: '#8751a4',
 		value: 'hsla(279, 34%, 48%, 1)',
@@ -1136,7 +1136,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 76%, 67%, 1)',
 		hex: '#69c4eb',
 		value: 'hsla(198, 76%, 67%, 1)',
@@ -1145,7 +1145,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentIconHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 76%, 57%, 1)',
 		hex: '#3eb2e5',
 		value: 'hsla(198, 76%, 57%, 1)',
@@ -1154,7 +1154,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentIconActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 77%, 47%, 1)',
 		hex: '#1c9bd3',
 		value: 'hsla(198, 77%, 47%, 1)',
@@ -1163,7 +1163,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(2, 96%, 67%, 1)',
 		hex: '#fc5d58',
 		value: 'hsla(2, 96%, 67%, 1)',
@@ -1172,7 +1172,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerIconHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(2, 96%, 57%, 1)',
 		hex: '#fb2f28',
 		value: 'hsla(2, 96%, 57%, 1)',
@@ -1181,7 +1181,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerIconActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(2, 97%, 47%, 1)',
 		hex: '#eb0c04',
 		value: 'hsla(2, 97%, 47%, 1)',
@@ -1190,7 +1190,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessIconActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 61%, 36%, 1)',
 		hex: '#369424',
 		value: 'hsla(110, 61%, 36%, 1)',
@@ -1199,7 +1199,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessIconHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 62%, 46%, 1)',
 		hex: '#45bd2d',
 		value: 'hsla(110, 62%, 46%, 1)',
@@ -1208,7 +1208,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(110, 61%, 56%, 1)',
 		hex: '#62d44b',
 		value: 'hsla(110, 61%, 56%, 1)',
@@ -1217,7 +1217,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningIconActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 98%, 19%, 1)',
 		hex: '#602c01',
 		value: 'hsla(27, 98%, 19%, 1)',
@@ -1226,7 +1226,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningIconHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 99%, 29%, 1)',
 		hex: '#934301',
 		value: 'hsla(27, 99%, 29%, 1)',
@@ -1235,7 +1235,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(27, 99%, 49%, 1)',
 		hex: '#f87001',
 		value: 'hsla(27, 99%, 49%, 1)',
@@ -1244,7 +1244,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsNeutral',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 75%, 1)',
 		hex: '#bebebe',
 		value: 'hsla(0, 0%, 75%, 1)',
@@ -1253,7 +1253,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsNeutralWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(206, 10%, 48%, 1)',
 		hex: '#6e7c87',
 		value: 'hsla(206, 10%, 48%, 1)',
@@ -1262,7 +1262,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsNeutralStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 88%, 1)',
 		hex: '#e0e0e0',
 		value: 'hsla(0, 0%, 88%, 1)',
@@ -1271,7 +1271,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsNeutralHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 88%, 1)',
 		hex: '#e0e0e0',
 		value: 'hsla(0, 0%, 88%, 1)',
@@ -1280,7 +1280,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsSuccess',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(148, 87%, 40%, 1)',
 		hex: '#0dbd5e',
 		value: 'hsla(148, 87%, 40%, 1)',
@@ -1289,7 +1289,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsSuccessWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(130, 52%, 91%, 1)',
 		hex: '#dcf4e0',
 		value: 'hsla(130, 52%, 91%, 1)',
@@ -1298,7 +1298,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsSuccessStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
 		value: 'hsla(139, 50%, 22%, 1)',
@@ -1307,7 +1307,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsSuccessHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
 		value: 'hsla(139, 50%, 22%, 1)',
@@ -1316,7 +1316,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDanger',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(4, 89%, 49%, 1)',
 		hex: '#ea1b0e',
 		value: 'hsla(4, 89%, 49%, 1)',
@@ -1325,7 +1325,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDangerWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 69%, 73%, 1)',
 		hex: '#e9898a',
 		value: 'hsla(359, 69%, 73%, 1)',
@@ -1334,7 +1334,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDangerStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
 		value: 'hsla(359, 62%, 43%, 1)',
@@ -1343,7 +1343,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDangerHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
 		value: 'hsla(359, 62%, 43%, 1)',
@@ -1352,7 +1352,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsWarning',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(32, 100%, 56%, 1)',
 		hex: '#ff9820',
 		value: 'hsla(32, 100%, 56%, 1)',
@@ -1361,7 +1361,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsWarningWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 88%, 84%, 1)',
 		hex: '#facbb0',
 		value: 'hsla(22, 88%, 84%, 1)',
@@ -1370,7 +1370,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsWarningStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
 		value: 'hsla(22, 75%, 42%, 1)',
@@ -1379,7 +1379,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsWarningHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
 		value: 'hsla(22, 75%, 42%, 1)',
@@ -1388,7 +1388,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefault',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(216, 82%, 48%, 1)',
 		hex: '#1667df',
 		value: 'hsla(216, 82%, 48%, 1)',
@@ -1397,7 +1397,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 59%, 73%, 1)',
 		hex: '#91c2e3',
 		value: 'hsla(204, 59%, 73%, 1)',
@@ -1406,7 +1406,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
 		value: 'hsla(204, 92%, 29%, 1)',
@@ -1415,7 +1415,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
 		value: 'hsla(204, 92%, 29%, 1)',
@@ -1424,7 +1424,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor00',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(48, 100%, 50%, 1)',
 		hex: '#ffcc00',
 		value: 'hsla(48, 100%, 50%, 1)',
@@ -1433,7 +1433,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor00Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(51, 91%, 82%, 1)',
 		hex: '#fbefa9',
 		value: 'hsla(51, 91%, 82%, 1)',
@@ -1442,7 +1442,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor00Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(48, 82%, 45%, 1)',
 		hex: '#d2ad15',
 		value: 'hsla(48, 82%, 45%, 1)',
@@ -1451,7 +1451,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor00Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(48, 82%, 45%, 1)',
 		hex: '#d2ad15',
 		value: 'hsla(48, 82%, 45%, 1)',
@@ -1460,7 +1460,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor01',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(216, 82%, 48%, 1)',
 		hex: '#1667df',
 		value: 'hsla(216, 82%, 48%, 1)',
@@ -1469,7 +1469,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor01Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 59%, 73%, 1)',
 		hex: '#91c2e3',
 		value: 'hsla(204, 59%, 73%, 1)',
@@ -1478,7 +1478,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor01Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
 		value: 'hsla(204, 92%, 29%, 1)',
@@ -1487,7 +1487,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor01Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
 		value: 'hsla(204, 92%, 29%, 1)',
@@ -1496,7 +1496,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor02',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(194, 92%, 50%, 1)',
 		hex: '#0abef5',
 		value: 'hsla(194, 92%, 50%, 1)',
@@ -1505,7 +1505,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor02Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(194, 91%, 91%, 1)',
 		hex: '#d2f3fd',
 		value: 'hsla(194, 91%, 91%, 1)',
@@ -1514,7 +1514,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor02Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(194, 93%, 32%, 1)',
 		hex: '#067b9f',
 		value: 'hsla(194, 93%, 32%, 1)',
@@ -1523,7 +1523,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor02Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(194, 93%, 32%, 1)',
 		hex: '#067b9f',
 		value: 'hsla(194, 93%, 32%, 1)',
@@ -1532,7 +1532,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor03',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(140, 39%, 79%, 1)',
 		hex: '#b3dec1',
 		value: 'hsla(140, 39%, 79%, 1)',
@@ -1541,7 +1541,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor03Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(138, 40%, 92%, 1)',
 		hex: '#e1f2e6',
 		value: 'hsla(138, 40%, 92%, 1)',
@@ -1550,7 +1550,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor03Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 11%, 35%, 1)',
 		hex: '#506356',
 		value: 'hsla(139, 11%, 35%, 1)',
@@ -1559,7 +1559,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor03Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 11%, 35%, 1)',
 		hex: '#506356',
 		value: 'hsla(139, 11%, 35%, 1)',
@@ -1568,7 +1568,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor04',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(148, 87%, 40%, 1)',
 		hex: '#0dbd5e',
 		value: 'hsla(148, 87%, 40%, 1)',
@@ -1577,7 +1577,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor04Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(130, 52%, 91%, 1)',
 		hex: '#dcf4e0',
 		value: 'hsla(130, 52%, 91%, 1)',
@@ -1586,7 +1586,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor04Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
 		value: 'hsla(139, 50%, 22%, 1)',
@@ -1595,7 +1595,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor04Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
 		value: 'hsla(139, 50%, 22%, 1)',
@@ -1604,7 +1604,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor05',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(324, 68%, 71%, 1)',
 		hex: '#e884c0',
 		value: 'hsla(324, 68%, 71%, 1)',
@@ -1613,7 +1613,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor05Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(323, 69%, 95%, 1)',
 		hex: '#fbe9f4',
 		value: 'hsla(323, 69%, 95%, 1)',
@@ -1622,7 +1622,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor05Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(324, 28%, 49%, 1)',
 		hex: '#a15b85',
 		value: 'hsla(324, 28%, 49%, 1)',
@@ -1631,7 +1631,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor05Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(324, 28%, 49%, 1)',
 		hex: '#a15b85',
 		value: 'hsla(324, 28%, 49%, 1)',
@@ -1640,7 +1640,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor06',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 75%, 58%, 1)',
 		hex: '#b045e5',
 		value: 'hsla(280, 75%, 58%, 1)',
@@ -1649,7 +1649,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor06Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 77%, 88%, 1)',
 		hex: '#e8caf8',
 		value: 'hsla(279, 77%, 88%, 1)',
@@ -1658,7 +1658,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor06Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 54%, 36%, 1)',
 		hex: '#6e2b8f',
 		value: 'hsla(280, 54%, 36%, 1)',
@@ -1667,7 +1667,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor06Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 54%, 36%, 1)',
 		hex: '#6e2b8f',
 		value: 'hsla(280, 54%, 36%, 1)',
@@ -1676,7 +1676,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor07',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(4, 89%, 49%, 1)',
 		hex: '#ea1b0e',
 		value: 'hsla(4, 89%, 49%, 1)',
@@ -1685,7 +1685,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor07Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 69%, 73%, 1)',
 		hex: '#e9898a',
 		value: 'hsla(359, 69%, 73%, 1)',
@@ -1694,7 +1694,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor07Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
 		value: 'hsla(359, 62%, 43%, 1)',
@@ -1703,7 +1703,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor07Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
 		value: 'hsla(359, 62%, 43%, 1)',
@@ -1712,7 +1712,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor08',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 88%, 54%, 1)',
 		hex: '#f16e23',
 		value: 'hsla(22, 88%, 54%, 1)',
@@ -1721,7 +1721,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor08Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 88%, 84%, 1)',
 		hex: '#facbb0',
 		value: 'hsla(22, 88%, 84%, 1)',
@@ -1730,7 +1730,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor08Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
 		value: 'hsla(22, 75%, 42%, 1)',
@@ -1739,7 +1739,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor08Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
 		value: 'hsla(22, 75%, 42%, 1)',
@@ -1748,7 +1748,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(34, 34%, 45%, 1)',
 		hex: '#99784c',
 		value: 'hsla(34, 34%, 45%, 1)',
@@ -1757,7 +1757,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(35, 28%, 82%, 1)',
 		hex: '#ded3c4',
 		value: 'hsla(35, 28%, 82%, 1)',
@@ -1766,7 +1766,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(35, 34%, 27%, 1)',
 		hex: '#5b482d',
 		value: 'hsla(35, 34%, 27%, 1)',
@@ -1775,7 +1775,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(35, 34%, 27%, 1)',
 		hex: '#5b482d',
 		value: 'hsla(35, 34%, 27%, 1)',
@@ -1784,7 +1784,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 92%, 1)',
 		hex: '#ebebeb',
 		value: 'hsla(0, 0%, 92%, 1)',
@@ -1793,7 +1793,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(216, 30%, 82%, 1)',
 		hex: '#c3cedf',
 		value: 'hsla(216, 30%, 82%, 1)',
@@ -1802,7 +1802,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(210, 17%, 93%, 1)',
 		hex: '#eaedf0',
 		value: 'hsla(210, 17%, 93%, 1)',
@@ -1811,7 +1811,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralIconInverted',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(210, 7%, 79%, 1)',
 		hex: '#c5c9cd',
 		value: 'hsla(210, 7%, 79%, 1)',
@@ -1820,7 +1820,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralIconWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(206, 24%, 83%, 1)',
 		hex: '#c8d4dd',
 		value: 'hsla(206, 24%, 83%, 1)',
@@ -1829,7 +1829,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(205, 87%, 94%, 1)',
 		hex: '#e3f2fd',
 		value: 'hsla(205, 87%, 94%, 1)',
@@ -1838,7 +1838,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultTextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(205, 93%, 22%, 1)',
 		hex: '#04426d',
 		value: 'hsla(205, 93%, 22%, 1)',
@@ -1847,7 +1847,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultTextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 93%, 94%, 1)',
 		hex: '#e3f2fe',
 		value: 'hsla(207, 93%, 94%, 1)',
@@ -1856,7 +1856,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09Text',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(36, 36%, 5%, 1)',
 		hex: '#130f09',
 		value: 'hsla(36, 36%, 5%, 1)',
@@ -1865,7 +1865,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09TextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(36, 36%, 5%, 1)',
 		hex: '#130f09',
 		value: 'hsla(36, 36%, 5%, 1)',
@@ -1874,7 +1874,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09TextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(35, 28%, 82%, 1)',
 		hex: '#ded3c4',
 		value: 'hsla(35, 28%, 82%, 1)',
@@ -1883,7 +1883,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackgroundHeavy',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 18%, 11%, 1)',
 		hex: '#171d21',
 		value: 'hsla(204, 18%, 11%, 1)',
@@ -1892,7 +1892,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor01',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(358, 40%, 53%, 1)',
 		hex: '#b8585c',
 		value: 'hsla(358, 40%, 53%, 1)',
@@ -1901,7 +1901,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor02',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(355, 39%, 61%, 1)',
 		hex: '#c2747a',
 		value: 'hsla(355, 39%, 61%, 1)',
@@ -1910,7 +1910,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor03',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(349, 15%, 71%, 1)',
 		hex: '#c1abaf',
 		value: 'hsla(349, 15%, 71%, 1)',
@@ -1919,7 +1919,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor04',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(211, 54%, 15%, 1)',
 		hex: '#12273d',
 		value: 'hsla(211, 54%, 15%, 1)',
@@ -1928,7 +1928,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor05',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(212, 28%, 37%, 1)',
 		hex: '#455e7a',
 		value: 'hsla(212, 28%, 37%, 1)',
@@ -1937,7 +1937,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor06',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(212, 29%, 61%, 1)',
 		hex: '#7d99b8',
 		value: 'hsla(212, 29%, 61%, 1)',
@@ -1946,7 +1946,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationSkintone01',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(20, 29%, 66%, 1)',
 		hex: '#c2a08f',
 		value: 'hsla(20, 29%, 66%, 1)',
@@ -1955,7 +1955,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationSkintone02',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(21, 23%, 49%, 1)',
 		hex: '#99735f',
 		value: 'hsla(21, 23%, 49%, 1)',
@@ -1964,7 +1964,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationSkintone03',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(17, 29%, 22%, 1)',
 		hex: '#473027',
 		value: 'hsla(17, 29%, 22%, 1)',
@@ -1973,7 +1973,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationShadow',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 0%, 0.1)',
 		hex: '#0000001f',
 		value: 'hsla(0, 0%, 0%, 0.1)',
@@ -1982,7 +1982,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor07',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(213, 13%, 35%, 1)',
 		hex: '#4e5966',
 		value: 'hsla(213, 13%, 35%, 1)',
@@ -1991,7 +1991,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor08',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(212, 13%, 19%, 1)',
 		hex: '#2b3138',
 		value: 'hsla(212, 13%, 19%, 1)',
@@ -2000,7 +2000,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor09',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(240, 3%, 12%, 1)',
 		hex: '#1d1d1f',
 		value: 'hsla(240, 3%, 12%, 1)',
@@ -2009,7 +2009,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundSelected',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 73%, 13%, 1)',
 		hex: '#092a39',
 		value: 'hsla(199, 73%, 13%, 1)',
@@ -2018,7 +2018,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2027,7 +2027,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2036,7 +2036,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2045,7 +2045,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextInverted',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
 		value: 'hsla(0, 0%, 38%, 1)',
@@ -2054,7 +2054,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextInvertedHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -2063,7 +2063,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextInvertedActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -2072,7 +2072,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextSelected',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 96%, 18%, 1)',
 		hex: '#023659',
 		value: 'hsla(204, 96%, 18%, 1)',
@@ -2081,7 +2081,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 0)',
 		hex: '#ffffff00',
 		value: 'hsla(0, 0%, 100%, 0)',
@@ -2090,7 +2090,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 0.1)',
 		hex: '#ffffff1f',
 		value: 'hsla(0, 0%, 100%, 0.1)',
@@ -2099,7 +2099,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 0.1)',
 		hex: '#ffffff1f',
 		value: 'hsla(0, 0%, 100%, 0.1)',
@@ -2108,7 +2108,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundSelected',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2117,7 +2117,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundInverted',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 0)',
 		hex: '#20202000',
 		value: 'hsla(0, 0%, 13%, 0)',
@@ -2126,7 +2126,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundInvertedHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 0.1)',
 		hex: '#2020201f',
 		value: 'hsla(0, 0%, 13%, 0.1)',
@@ -2135,7 +2135,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundInvertedActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 0.1)',
 		hex: '#2020201f',
 		value: 'hsla(0, 0%, 13%, 0.1)',
@@ -2144,7 +2144,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2153,7 +2153,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2162,7 +2162,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBorderActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2171,7 +2171,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 65%, 1)',
 		hex: '#66bfe6',
 		value: 'hsla(198, 72%, 65%, 1)',
@@ -2180,7 +2180,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 55%, 1)',
 		hex: '#3aaddf',
 		value: 'hsla(198, 72%, 55%, 1)',
@@ -2189,7 +2189,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 45%, 1)',
 		hex: '#2093c5',
 		value: 'hsla(198, 72%, 45%, 1)',
@@ -2198,7 +2198,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 76%, 67%, 1)',
 		hex: '#69c4eb',
 		value: 'hsla(198, 76%, 67%, 1)',
@@ -2207,7 +2207,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -2216,7 +2216,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 71%, 15%, 1)',
 		hex: '#0b3142',
 		value: 'hsla(199, 71%, 15%, 1)',
@@ -2225,7 +2225,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 73%, 10%, 1)',
 		hex: '#07202c',
 		value: 'hsla(199, 73%, 10%, 1)',
@@ -2234,7 +2234,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 75%, 1)',
 		hex: '#91d1ed',
 		value: 'hsla(198, 72%, 75%, 1)',
@@ -2243,7 +2243,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 65%, 1)',
 		hex: '#66bfe6',
 		value: 'hsla(198, 72%, 65%, 1)',
@@ -2252,7 +2252,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 55%, 1)',
 		hex: '#3aaddf',
 		value: 'hsla(198, 72%, 55%, 1)',
@@ -2261,7 +2261,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackground',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 25%, 1)',
 		hex: '#12516d',
 		value: 'hsla(198, 72%, 25%, 1)',
@@ -2270,7 +2270,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 78%, 20%, 1)',
 		hex: '#0b425b',
 		value: 'hsla(199, 78%, 20%, 1)',
@@ -2279,7 +2279,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 73%, 10%, 1)',
 		hex: '#07202c',
 		value: 'hsla(199, 73%, 10%, 1)',
@@ -2288,7 +2288,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(207, 18%, 24%, 1)',
 		hex: '#323e48',
 		value: 'hsla(207, 18%, 24%, 1)',
@@ -2297,7 +2297,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 71%, 15%, 1)',
 		hex: '#0b3142',
 		value: 'hsla(199, 71%, 15%, 1)',
@@ -2306,7 +2306,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 73%, 10%, 1)',
 		hex: '#07202c',
 		value: 'hsla(199, 73%, 10%, 1)',
@@ -2315,7 +2315,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 75%, 1)',
 		hex: '#91d1ed',
 		value: 'hsla(198, 72%, 75%, 1)',
@@ -2324,7 +2324,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundStrongHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 65%, 1)',
 		hex: '#66bfe6',
 		value: 'hsla(198, 72%, 65%, 1)',
@@ -2333,7 +2333,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundStrongActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 55%, 1)',
 		hex: '#3aaddf',
 		value: 'hsla(198, 72%, 55%, 1)',
@@ -2342,7 +2342,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 75%, 1)',
 		hex: '#91d1ed',
 		value: 'hsla(198, 72%, 75%, 1)',
@@ -2351,7 +2351,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 72%, 65%, 1)',
 		hex: '#66bfe6',
 		value: 'hsla(198, 72%, 65%, 1)',
@@ -2360,7 +2360,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBorderActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(199, 72%, 55%, 1)',
 		hex: '#3aacdf',
 		value: 'hsla(199, 72%, 55%, 1)',
@@ -2369,7 +2369,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoIconHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 76%, 57%, 1)',
 		hex: '#3eb2e5',
 		value: 'hsla(198, 76%, 57%, 1)',
@@ -2378,7 +2378,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoIconActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(198, 77%, 47%, 1)',
 		hex: '#1c9bd3',
 		value: 'hsla(198, 77%, 47%, 1)',
@@ -2387,7 +2387,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2396,7 +2396,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2405,7 +2405,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2414,7 +2414,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconInverted',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
 		value: 'hsla(0, 0%, 38%, 1)',
@@ -2423,7 +2423,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconInvertedHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -2432,7 +2432,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconInvertedActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -2441,7 +2441,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconSelected',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 96%, 18%, 1)',
 		hex: '#023659',
 		value: 'hsla(204, 96%, 18%, 1)',
@@ -2450,211 +2450,218 @@ const dictionary = [
 	{
 		name: 'coralColorBrandingBackground',
 		type: 'gradient',
-		description: '',
+		description: ``,
 		value: 'linear-gradient(133deg,hsla(226, 49%, 14%, 1) 0%, hsla(253, 46%, 8%, 1) 100%)',
 		id: 'S:bf314fa1e5204e02f67ed4064f24d642d1fc9efa,',
 	},
 	{
 		name: 'coralColorBrandingNavigation',
 		type: 'gradient',
-		description: '',
+		description: ``,
 		value: 'linear-gradient(133deg,hsla(222, 49%, 14%, 1) 0%, hsla(253, 46%, 8%, 1) 100%)',
 		id: 'S:1fa5a7a976d98a462474b9f529662749f847cdd0,',
 	},
 	{
 		name: 'coralColorBrandBackground',
 		type: 'gradient',
-		description: '',
+		description: ``,
 		value: 'linear-gradient(133deg,hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%)',
 		id: 'S:f3b995fb9442e71d002302b49f324dd0a277fbc3,',
 	},
 	{
 		name: 'coralSpacingXxs',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '0.4rem',
 		id: 'c1e38f11-415e-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralSpacingXs',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '0.8rem',
 		id: '7b7551d0-b4d6-11ec-a885-f33e1144cd00',
 	},
 	{
 		name: 'coralSpacingS',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '1.2rem',
 		id: '7ee76e20-b4d6-11ec-80ec-81d7ed62932a',
 	},
 	{
 		name: 'coralSpacingM',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '1.6rem',
 		id: '86ce70c0-b4d6-11ec-b76b-3da590a15504',
 	},
 	{
 		name: 'coralSpacingL',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '2.8rem',
 		id: '8aa3bbb0-b4d6-11ec-b930-0b6aacdff92c',
 	},
 	{
 		name: 'coralSpacingXl',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '3.6rem',
 		id: '8f1ac4e0-b4d6-11ec-9806-69893358e985',
 	},
 	{
 		name: 'coralSizingMinimal',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '1.2rem',
 		id: '9981e2b0-b4d6-11ec-ac1e-2b6d1d6a2c7f',
 	},
 	{
 		name: 'coralSizingXxxs',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '1.6rem',
 		id: 'bfda7990-b4d6-11ec-9c65-b1b879a05039',
 	},
 	{
 		name: 'coralSizingXxs',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '2rem',
 		id: 'c350b490-b4d6-11ec-9d5d-ad9dbd31768f',
 	},
 	{
 		name: 'coralSizingXs',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '2.4rem',
 		id: 'c8c1ae20-b4d6-11ec-a8ef-9de523cb52d2',
 	},
 	{
 		name: 'coralSizingS',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '2.8rem',
 		id: 'cc3b6b90-b4d6-11ec-8b31-1791d0a18d04',
 	},
 	{
 		name: 'coralSizingM',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '3.6rem',
 		id: 'd5d26820-b4d6-11ec-b6e7-13f783838bd4',
 	},
 	{
 		name: 'coralSizingL',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '4rem',
 		id: 'd9cb1990-b4d6-11ec-868e-75c32f231580',
 	},
 	{
 		name: 'coralSizingXxxl',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '22rem',
 		id: 'dddb71b0-b4d6-11ec-a762-a9e3930b8774',
 	},
 	{
 		name: 'coralSizingMaximal',
 		type: 'measure',
-		description: '',
+		description: ``,
 		value: '32rem',
 		id: 'e21f0ed0-b4d6-11ec-bb22-090b530f3237',
 	},
 	{
 		name: 'coralElevationShadowNeutralM',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem 0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.5)',
 		id: 'S:1e46bcc3593665ea527e656cb28e857f111e6864,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralL',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem 0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.5)',
 		id: 'S:8bf21eea402fda80510e8657d5d8db538640bd02,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowAccent',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(198, 72%, 75%, 0.3)',
 		id: 'S:fe0699876a0912d91d178c69d81969b011a5eb58,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowSuccess',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(110, 50%, 70%, 0.3)',
 		id: 'S:9ca8c51ead5e415ff9677d8bb4aeb39b28a7cb21,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowDanger',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(359, 100%, 78%, 0.3)',
 		id: 'S:96007327fd92b029a90eca0a30ca2b30249911e1,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowWarning',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(27, 98%, 67%, 0.3)',
 		id: 'S:f112889f1f57915b2f906b24fc07133ad0da4705,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowBeta',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(279, 34%, 78%, 0.3)',
 		id: 'S:2f8bea6090298b26e6c486703d4285e7b76433fc,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedM',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem -0.2rem 0.6rem 0rem hsla(0, 0%, 2%, 0.5)',
 		id: 'S:a5099a594218ccacd1f632af854309e6422c7f83,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedL',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem -0.4rem 0.8rem 0rem hsla(0, 0%, 5%, 0.5)',
 		id: 'S:4a469b9d512c8d4b89bd6f9cf8c40fc2a40b921d,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralS',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem 0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.5)',
 		id: 'S:c248e5315e126cc17860b114f6516a07a7832de1,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedS',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem -0.1rem 0.2rem 0rem hsla(0, 0%, 2%, 0.5)',
 		id: 'S:87123d2a6072733369a2eff12b6c5ddfbe208320,:shadow:0',
 	},
 	{
+		name: 'coralElevationShadowInfo',
+		type: 'shadow',
+		description: ``,
+		value: '0rem 0.1rem 0.1rem 0rem hsla(198, 72%, 75%, 0.3)',
+		id: 'S:639dbb4a79fe62ae490cc885e4bcfd2db617e481,:shadow:0',
+	},
+	{
 		name: 'coralHeadingL',
 		type: 'typography',
-		description: '',
-		value: '600 1.8rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.8rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.8rem',
@@ -2665,8 +2672,8 @@ const dictionary = [
 	{
 		name: 'coralHeadingM',
 		type: 'typography',
-		description: '',
-		value: '600 1.6rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.6rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.6rem',
@@ -2677,8 +2684,8 @@ const dictionary = [
 	{
 		name: 'coralHeadingS',
 		type: 'typography',
-		description: '',
-		value: '600 1.4rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.4rem',
@@ -2689,8 +2696,8 @@ const dictionary = [
 	{
 		name: 'coralParagraphM',
 		type: 'typography',
-		description: '',
-		value: '400 1.4rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `400 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
 		fontSize: '1.4rem',
@@ -2701,8 +2708,8 @@ const dictionary = [
 	{
 		name: 'coralParagraphMBold',
 		type: 'typography',
-		description: '',
-		value: '600 1.4rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.4rem',
@@ -2713,8 +2720,8 @@ const dictionary = [
 	{
 		name: 'coralParagraphS',
 		type: 'typography',
-		description: '',
-		value: '400 1.2rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `400 1.2rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
 		fontSize: '1.2rem',
@@ -2725,8 +2732,8 @@ const dictionary = [
 	{
 		name: 'coralParagraphSBold',
 		type: 'typography',
-		description: '',
-		value: '600 1.2rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.2rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.2rem',
@@ -2737,8 +2744,8 @@ const dictionary = [
 	{
 		name: 'coralDataM',
 		type: 'typography',
-		description: '',
-		value: "400 1.4rem/140% 'Inconsolata'",
+		description: ``,
+		value: `400 1.4rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
 		fontSize: '1.4rem',
@@ -2749,8 +2756,8 @@ const dictionary = [
 	{
 		name: 'coralDataMBold',
 		type: 'typography',
-		description: '',
-		value: "700 1.4rem/140% 'Inconsolata'",
+		description: ``,
+		value: `700 1.4rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '700',
 		fontSize: '1.4rem',
@@ -2761,8 +2768,8 @@ const dictionary = [
 	{
 		name: 'coralLinkMUnderlined',
 		type: 'typography',
-		description: '',
-		value: '600 1.4rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.4rem',
@@ -2773,8 +2780,8 @@ const dictionary = [
 	{
 		name: 'coralLinkM',
 		type: 'typography',
-		description: '',
-		value: '600 1.4rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.4rem',
@@ -2785,8 +2792,8 @@ const dictionary = [
 	{
 		name: 'coralDataXl',
 		type: 'typography',
-		description: '',
-		value: "400 2.4rem/140% 'Inconsolata'",
+		description: ``,
+		value: `400 2.4rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
 		fontSize: '2.4rem',
@@ -2797,8 +2804,8 @@ const dictionary = [
 	{
 		name: 'coralLinkS',
 		type: 'typography',
-		description: '',
-		value: '600 1.2rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.2rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.2rem',
@@ -2809,8 +2816,8 @@ const dictionary = [
 	{
 		name: 'coralLinkSUnderlined',
 		type: 'typography',
-		description: '',
-		value: '600 1.2rem/140% "Source Sans Pro"',
+		description: ``,
+		value: `600 1.2rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.2rem',
@@ -2821,177 +2828,176 @@ const dictionary = [
 	{
 		name: 'coralRadiusM',
 		type: 'radius',
-		description: '',
+		description: ``,
 		value: '0.8rem',
 		id: '85681e80-415d-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralRadiusL',
 		type: 'radius',
-		description: '',
+		description: ``,
 		value: '1.6rem',
 		id: '95ba6ef0-415d-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralRadiusRound',
 		type: 'radius',
-		description: '',
+		description: ``,
 		value: '9999.9rem',
 		id: '9bbf9231-415d-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralRadiusS',
 		type: 'radius',
-		description: '',
+		description: ``,
 		value: '0.4rem',
 		id: '65982381-4783-11ec-a826-6db8532cd4e8',
 	},
 	{
 		name: 'coralBorderSSolid',
 		type: 'border',
-		description: '',
-		value: '1px solid',
+		description: ``,
+		value: `1px solid`,
 		id: 'e53f87c1-415e-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBorderMSolid',
 		type: 'border',
-		description: '',
-		value: '2px solid',
+		description: ``,
+		value: `2px solid`,
 		id: 'e9d78671-415e-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBorderSDashed',
 		type: 'border',
-		description: '',
-		value: '1px dashed',
+		description: ``,
+		value: `1px dashed`,
 		id: 'ee9dc111-415e-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBorderMDashed',
 		type: 'border',
-		description: '',
-		value: '2px dashed',
+		description: ``,
+		value: `2px dashed`,
 		id: 'f6993610-415e-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralOpacityL',
 		type: 'opacity',
-		description: '',
-		value: '0.2',
+		description: ``,
+		value: `0.2`,
 		id: '0c7b52b0-415f-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralOpacityM',
 		type: 'opacity',
-		description: '',
-		value: '0.4',
+		description: ``,
+		value: `0.4`,
 		id: '10bd9041-415f-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralOpacityS',
 		type: 'opacity',
-		description: '',
-		value: '0.6',
+		description: ``,
+		value: `0.6`,
 		id: '15f35591-415f-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBreakpointS',
 		type: 'breakpoint',
-		description: '',
-		value: '40em',
+		description: ``,
+		value: `40em`,
 		id: '20cb0f81-415f-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBreakpointM',
 		type: 'breakpoint',
-		description: '',
-		value: '48em',
+		description: ``,
+		value: `48em`,
 		id: '27f774b1-415f-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBreakpointL',
 		type: 'breakpoint',
-		description: '',
-		value: '64em',
+		description: ``,
+		value: `64em`,
 		id: '2dc50d31-415f-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBreakpointXl',
 		type: 'breakpoint',
-		description: '',
-		value: '80em',
+		description: ``,
+		value: `80em`,
 		id: '36958571-415f-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBrandingLogo',
 		type: 'branding',
-		description: '',
-		value:
-			"url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==')",
+		description: ``,
+		value: `url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==')`,
 		id: 'bc401250-4789-11ec-a826-6db8532cd4e8',
 	},
 	{
 		name: 'coralTransitionInstant',
 		type: 'transition',
-		description: '',
-		value: '100ms ease-out',
+		description: ``,
+		value: `100ms ease-out`,
 		id: 'c40577a1-5d8c-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralTransitionFast',
 		type: 'transition',
-		description: '',
-		value: '250ms ease-in-out',
+		description: ``,
+		value: `250ms ease-in-out`,
 		id: 'cc39d6f1-5d8c-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralTransitionNormal',
 		type: 'transition',
-		description: '',
-		value: '300ms ease-in-out',
+		description: ``,
+		value: `300ms ease-in-out`,
 		id: 'd342ae91-5d8c-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralTransitionSlow',
 		type: 'transition',
-		description: '',
-		value: '400ms ease-in',
+		description: ``,
+		value: `400ms ease-in`,
 		id: 'e0c90dc1-5d8c-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralElevationLayerFlat',
 		type: 'elevation',
-		description: '',
-		value: '0',
+		description: ``,
+		value: `0`,
 		id: '058a62d1-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralElevationLayerStandardFront',
 		type: 'elevation',
-		description: '',
-		value: '4',
+		description: ``,
+		value: `4`,
 		id: '1356f2c1-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralElevationLayerInteractiveFront',
 		type: 'elevation',
-		description: '',
-		value: '8',
+		description: ``,
+		value: `8`,
 		id: '1aefae51-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralElevationLayerOverlay',
 		type: 'elevation',
-		description: '',
-		value: '16',
+		description: ``,
+		value: `16`,
 		id: '2096d311-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralAnimationHeartbeat',
 		type: 'animation',
-		description: '',
-		value: 'coral-dark-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite',
+		description: ``,
+		value: `coral-dark-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite`,
 		id: '1410db90-9401-11ec-a001-db4d7ae8c1be',
 	},
 ];
