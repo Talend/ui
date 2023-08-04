@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.9.0
+
+### Minor Changes
+
+- 3cfe50989: feat: update design tokens to add shadow info tokens
+
 ## 2.8.0
 
 ### Minor Changes
