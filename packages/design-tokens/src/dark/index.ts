@@ -300,6 +300,7 @@ const tokens = {
 	coralElevationShadowNeutralInvertedL: `var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0, 0%, 5%, 0.5))`,
 	coralElevationShadowNeutralS: `var(--coral-elevation-shadow-neutral-s, 0rem 0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.5))`,
 	coralElevationShadowNeutralInvertedS: `var(--coral-elevation-shadow-neutral-inverted-s, 0rem -0.1rem 0.2rem 0rem hsla(0, 0%, 2%, 0.5))`,
+	coralElevationShadowInfo: `var(--coral-elevation-shadow-info, 0rem 0.1rem 0.1rem 0rem hsla(198, 72%, 75%, 0.3))`,
 	coralHeadingL: `var(--coral-heading-l, 600 1.8rem/140% 'Source Sans Pro')`,
 	coralHeadingM: `var(--coral-heading-m, 600 1.6rem/140% 'Source Sans Pro')`,
 	coralHeadingS: `var(--coral-heading-s, 600 1.4rem/140% 'Source Sans Pro')`,

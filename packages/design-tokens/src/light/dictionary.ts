@@ -2,8 +2,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralText',
 		type: 'color',
-		description:
-			"Default text color. if you don't know which color to pick for text, then this is the safest bet.",
+		description: `Default text color. if you don't know which color to pick for text, then this is the safest bet.`,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -12,7 +11,8 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextWeak',
 		type: 'color',
-		description: 'Weak text color. Best used when there is regular neutral-text next to it.',
+		description: `Weak text color. 
+Best used when there is regular neutral-text next to it.`,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
 		value: 'hsla(0, 0%, 38%, 1)',
@@ -21,7 +21,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextDisabled',
 		type: 'color',
-		description: 'Disabled text color. Only use for interactive elements in their disabled state.',
+		description: `Disabled text color. 
+Only use for interactive elements in their disabled state.
+`,
 		hsla: 'hsla(0, 0%, 44%, 1)',
 		hex: '#707070',
 		value: 'hsla(0, 0%, 44%, 1)',
@@ -30,7 +32,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextInverted',
 		type: 'color',
-		description: 'Inverted text color. Only use on dark backgrounds.',
+		description: `Inverted text color. 
+Only use on dark backgrounds.
+`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -39,8 +43,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackground',
 		type: 'color',
-		description:
-			"Default background color. If there's no reason for a semantic background, then that is the one to use.",
+		description: `Default background color. If there's no reason for a semantic background, then that is the one to use.`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -49,7 +52,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackgroundMedium',
 		type: 'color',
-		description: 'Medium contrasting background color. Ex: SubHeader',
+		description: `Medium contrasting background color. 
+
+Ex: SubHeader`,
 		hsla: 'hsla(0, 0%, 97%, 1)',
 		hex: '#f7f7f7',
 		value: 'hsla(0, 0%, 97%, 1)',
@@ -58,7 +63,10 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackgroundStrong',
 		type: 'color',
-		description: 'Strongly contrasting background color. Use sparingly. Ex: SubHeader back button.',
+		description: `Strongly contrasting background color. 
+Use sparingly.
+
+Ex: SubHeader back button.`,
 		hsla: 'hsla(0, 0%, 88%, 1)',
 		hex: '#e0e0e0',
 		value: 'hsla(0, 0%, 88%, 1)',
@@ -67,7 +75,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackgroundDisabled',
 		type: 'color',
-		description: 'Background color for disabled interactive elements only. Ex: Buttons',
+		description: `Background color for disabled interactive elements only. 
+
+Ex: Buttons`,
 		hsla: 'hsla(0, 0%, 88%, 1)',
 		hex: '#e0e0e0',
 		value: 'hsla(0, 0%, 88%, 1)',
@@ -76,7 +86,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorder',
 		type: 'color',
-		description: 'Default border color. Ex: Inputs',
+		description: `Default border color. 
+
+Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 55%, 1)',
 		hex: '#8c8c8c',
 		value: 'hsla(0, 0%, 55%, 1)',
@@ -85,7 +97,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderWeak',
 		type: 'color',
-		description: 'Weaker border color, for discreet separatorsEx: Dividers',
+		description: `Weaker border color, for discreet separators
+
+Ex: Dividers`,
 		hsla: 'hsla(0, 0%, 82%, 1)',
 		hex: '#d2d2d2',
 		value: 'hsla(0, 0%, 82%, 1)',
@@ -94,7 +108,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderHover',
 		type: 'color',
-		description: 'Default border color, on mouseover. Ex: Inputs',
+		description: `Default border color, on mouseover. 
+
+Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 40%, 1)',
 		hex: '#666666',
 		value: 'hsla(0, 0%, 40%, 1)',
@@ -103,7 +119,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextWeak',
 		type: 'color',
-		description: 'Accent text color on accent-background-strong. Ex: ButtonPrimary',
+		description: `Accent text color on accent-background-strong. 
+
+Ex: ButtonPrimary`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -112,7 +130,10 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextWeakHover',
 		type: 'color',
-		description: 'Accent text color on accent-background-strong, on mouseover. Ex: ButtonPrimary',
+		description: `Accent text color on accent-background-strong, on mouseover. 
+
+Ex: ButtonPrimary
+`,
 		hsla: 'hsla(204, 59%, 88%, 1)',
 		hex: '#cde3f2',
 		value: 'hsla(204, 59%, 88%, 1)',
@@ -121,7 +142,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextWeakActive',
 		type: 'color',
-		description: 'Accent text color on accent-background-strong, while pressing. Ex: ButtonPrimary',
+		description: `Accent text color on accent-background-strong, while pressing. 
+
+Ex: ButtonPrimary`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
 		hex: '#9bc7e6',
 		value: 'hsla(205, 60%, 75%, 1)',
@@ -130,8 +153,10 @@ const dictionary = [
 	{
 		name: 'coralColorAccentText',
 		type: 'color',
-		description:
-			'Accent text color. Use for interactive text content without background. Ex: Links',
+		description: `Accent text color. 
+Use for interactive text content without background. 
+
+Ex: Links`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
 		hex: '#045d9a',
 		value: 'hsla(204, 95%, 31%, 1)',
@@ -140,7 +165,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextHover',
 		type: 'color',
-		description: 'Accent text color on mouseover. Ex: Links',
+		description: `Accent text color on mouseover. 
+
+Ex: Links`,
 		hsla: 'hsla(204, 96%, 18%, 1)',
 		hex: '#023659',
 		value: 'hsla(204, 96%, 18%, 1)',
@@ -149,7 +176,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextActive',
 		type: 'color',
-		description: 'Accent text color while pressed. Ex: Links',
+		description: `Accent text color while pressed. 
+
+Ex: Links`,
 		hsla: 'hsla(205, 94%, 13%, 1)',
 		hex: '#022741',
 		value: 'hsla(205, 94%, 13%, 1)',
@@ -158,7 +187,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackground',
 		type: 'color',
-		description: 'Accent background color by default. Use with text-strong. Ex: InlineMessage',
+		description: `Accent background color by default. Use with text-strong.
+
+Ex: InlineMessage`,
 		hsla: 'hsla(204, 59%, 88%, 1)',
 		hex: '#cde3f2',
 		value: 'hsla(204, 59%, 88%, 1)',
@@ -167,7 +198,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundHover',
 		type: 'color',
-		description: 'Accent background color by default, on mouseover.',
+		description: `Accent background color by default, on mouseover.`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
 		hex: '#9bc7e6',
 		value: 'hsla(205, 60%, 75%, 1)',
@@ -176,7 +207,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundActive',
 		type: 'color',
-		description: 'Accent background color by default, while pressing. ',
+		description: `Accent background color by default, while pressing. `,
 		hsla: 'hsla(204, 60%, 63%, 1)',
 		hex: '#69acd9',
 		value: 'hsla(204, 60%, 63%, 1)',
@@ -185,8 +216,11 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundWeak',
 		type: 'color',
-		description:
-			'Weakest accent background color. Same color as neutral-background but with accent-tinted hover and active. Use as placeholder to indicate that you want accent-tinted interactive states. Ex: ButtonTertiary',
+		description: `Weakest accent background color. Same color as neutral-background but with accent-tinted hover and active.
+
+Use as placeholder to indicate that you want accent-tinted interactive states.
+
+Ex: ButtonTertiary`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -195,7 +229,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundWeakHover',
 		type: 'color',
-		description: 'Weakest accent background color on mouseover. Ex: ButtonTertiary',
+		description: `Weakest accent background color on mouseover.
+
+Ex: ButtonTertiary`,
 		hsla: 'hsla(204, 59%, 88%, 1)',
 		hex: '#cde3f2',
 		value: 'hsla(204, 59%, 88%, 1)',
@@ -204,7 +240,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundWeakActive',
 		type: 'color',
-		description: 'Weakest accent background color on press. Ex: ButtonTertiary',
+		description: `Weakest accent background color on press.
+
+Ex: ButtonTertiary`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
 		hex: '#9bc7e6',
 		value: 'hsla(205, 60%, 75%, 1)',
@@ -213,8 +251,10 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundStrong',
 		type: 'color',
-		description:
-			'Strongest accent background color. Use for primary interactive items. Use with text-weak. Ex: ButtonPrimary',
+		description: `Strongest accent background color.
+Use for primary interactive items. Use with text-weak.
+
+Ex: ButtonPrimary`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
 		hex: '#045d9a',
 		value: 'hsla(204, 95%, 31%, 1)',
@@ -223,7 +263,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundStrongHover',
 		type: 'color',
-		description: 'Strongest accent background color on mouseover Ex: ButtonPrimary',
+		description: `Strongest accent background color on mouseover
+
+Ex: ButtonPrimary`,
 		hsla: 'hsla(204, 95%, 23%, 1)',
 		hex: '#034673',
 		value: 'hsla(204, 95%, 23%, 1)',
@@ -232,7 +274,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundStrongActive',
 		type: 'color',
-		description: 'Strongest accent background color on press. Ex: ButtonPrimary',
+		description: `Strongest accent background color on press.
+
+Ex: ButtonPrimary`,
 		hsla: 'hsla(205, 95%, 15%, 1)',
 		hex: '#022e4d',
 		value: 'hsla(205, 95%, 15%, 1)',
@@ -241,7 +285,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBorderHover',
 		type: 'color',
-		description: 'Border with accent color on mouseover. Ex: ButtonSecondary',
+		description: `Border with accent color on mouseover.
+
+Ex: ButtonSecondary`,
 		hsla: 'hsla(204, 95%, 23%, 1)',
 		hex: '#034673',
 		value: 'hsla(204, 95%, 23%, 1)',
@@ -250,7 +296,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBorderActive',
 		type: 'color',
-		description: 'Border with accent color while pressing. Ex: ButtonSecondary',
+		description: `Border with accent color while pressing.
+
+Ex: ButtonSecondary`,
 		hsla: 'hsla(205, 95%, 15%, 1)',
 		hex: '#022e4d',
 		value: 'hsla(205, 95%, 15%, 1)',
@@ -259,7 +307,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextWeak',
 		type: 'color',
-		description: 'Danger text color on danger-background-strong. Ex: ButtonDestructive',
+		description: `Danger text color on danger-background-strong. 
+
+Ex: ButtonDestructive`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -268,7 +318,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextWeakHover',
 		type: 'color',
-		description: 'Danger text color on mouseover. Ex: ButtonDestructive',
+		description: `Danger text color on mouseover. 
+
+Ex: ButtonDestructive`,
 		hsla: 'hsla(358, 100%, 94%, 1)',
 		hex: '#ffe1e2',
 		value: 'hsla(358, 100%, 94%, 1)',
@@ -277,7 +329,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextWeakActive',
 		type: 'color',
-		description: 'Danger text color while pressing. Ex: ButtonDestructive',
+		description: `Danger text color while pressing. 
+
+Ex: ButtonDestructive`,
 		hsla: 'hsla(359, 100%, 88%, 1)',
 		hex: '#ffc4c5',
 		value: 'hsla(359, 100%, 88%, 1)',
@@ -286,8 +340,8 @@ const dictionary = [
 	{
 		name: 'coralColorDangerText',
 		type: 'color',
-		description:
-			'Danger text color. Use for text content without background that must carry a negative semantic value on its own. ',
+		description: `Danger text color. 
+Use for text content without background that must carry a negative semantic value on its own. `,
 		hsla: 'hsla(359, 51%, 53%, 1)',
 		hex: '#c4484a',
 		value: 'hsla(359, 51%, 53%, 1)',
@@ -296,7 +350,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextHover',
 		type: 'color',
-		description: 'Danger text color on mouseover, if interactive.',
+		description: `Danger text color on mouseover, if interactive.`,
 		hsla: 'hsla(359, 52%, 43%, 1)',
 		hex: '#a63537',
 		value: 'hsla(359, 52%, 43%, 1)',
@@ -305,7 +359,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextActive',
 		type: 'color',
-		description: 'Danger text color while pressing, if interactive.',
+		description: `Danger text color while pressing, if interactive.`,
 		hsla: 'hsla(359, 51%, 33%, 1)',
 		hex: '#7f292a',
 		value: 'hsla(359, 51%, 33%, 1)',
@@ -314,7 +368,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackground',
 		type: 'color',
-		description: 'Danger background color by default. Use with text-strong. Ex: InlineMessage',
+		description: `Danger background color by default. Use with text-strong.
+
+Ex: InlineMessage`,
 		hsla: 'hsla(0, 100%, 96%, 1)',
 		hex: '#ffebeb',
 		value: 'hsla(0, 100%, 96%, 1)',
@@ -323,7 +379,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundHover',
 		type: 'color',
-		description: 'Danger background on mouseover.',
+		description: `Danger background on mouseover.`,
 		hsla: 'hsla(359, 100%, 88%, 1)',
 		hex: '#ffc4c5',
 		value: 'hsla(359, 100%, 88%, 1)',
@@ -332,7 +388,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundActive',
 		type: 'color',
-		description: 'Danger background while pressing.',
+		description: `Danger background while pressing.`,
 		hsla: 'hsla(359, 100%, 83%, 1)',
 		hex: '#ffa7a9',
 		value: 'hsla(359, 100%, 83%, 1)',
@@ -341,8 +397,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundWeak',
 		type: 'color',
-		description:
-			'Weakest danger background color. Same color as neutral-background but with danger-tinted hover and active. Use as placeholder to indicate that you want danger-tinted interactive states.',
+		description: `Weakest danger background color. Same color as neutral-background but with danger-tinted hover and active.
+
+Use as placeholder to indicate that you want danger-tinted interactive states.`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -351,7 +408,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundWeakHover',
 		type: 'color',
-		description: 'Weakest danger background color on mouseover.',
+		description: `Weakest danger background color on mouseover.`,
 		hsla: 'hsla(358, 100%, 94%, 1)',
 		hex: '#ffe1e2',
 		value: 'hsla(358, 100%, 94%, 1)',
@@ -360,7 +417,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundWeakActive',
 		type: 'color',
-		description: 'Weakest danger background color while pressed.',
+		description: `Weakest danger background color while pressed.`,
 		hsla: 'hsla(359, 100%, 88%, 1)',
 		hex: '#ffc4c5',
 		value: 'hsla(359, 100%, 88%, 1)',
@@ -369,7 +426,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextWeak',
 		type: 'color',
-		description: 'Success text color on success-background-strong. ',
+		description: `Success text color on success-background-strong. `,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -378,7 +435,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextWeakHover',
 		type: 'color',
-		description: 'Success text color on mouseover. ',
+		description: `Success text color on mouseover. `,
 		hsla: 'hsla(110, 49%, 90%, 1)',
 		hex: '#ddf2d9',
 		value: 'hsla(110, 49%, 90%, 1)',
@@ -387,7 +444,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextWeakActive',
 		type: 'color',
-		description: 'Success text color while pressed. ',
+		description: `Success text color while pressed. `,
 		hsla: 'hsla(110, 48%, 85%, 1)',
 		hex: '#ccebc6',
 		value: 'hsla(110, 48%, 85%, 1)',
@@ -396,8 +453,10 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessText',
 		type: 'color',
-		description:
-			'Success text color. Use for text content without background that must carry a positive semantic value on its own. Ex: StatusSuccessful',
+		description: `Success text color. 
+Use for text content without background that must carry a positive semantic value on its own. 
+
+Ex: StatusSuccessful`,
 		hsla: 'hsla(111, 49%, 34%, 1)',
 		hex: '#39812c',
 		value: 'hsla(111, 49%, 34%, 1)',
@@ -406,7 +465,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextHover',
 		type: 'color',
-		description: 'Success text color on mouseover.',
+		description: `Success text color on mouseover.`,
 		hsla: 'hsla(111, 49%, 29%, 1)',
 		hex: '#316e26',
 		value: 'hsla(111, 49%, 29%, 1)',
@@ -415,7 +474,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextActive',
 		type: 'color',
-		description: 'Success text color while pressed.',
+		description: `Success text color while pressed.`,
 		hsla: 'hsla(111, 49%, 24%, 1)',
 		hex: '#285b1f',
 		value: 'hsla(111, 49%, 24%, 1)',
@@ -424,7 +483,9 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackground',
 		type: 'color',
-		description: 'Success background color by default. Use with text-strong.  Ex: InlineMessage ',
+		description: `Success background color by default. Use with text-strong. 
+
+Ex: InlineMessage `,
 		hsla: 'hsla(110, 49%, 90%, 1)',
 		hex: '#ddf2d9',
 		value: 'hsla(110, 49%, 90%, 1)',
@@ -433,8 +494,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundStrong',
 		type: 'color',
-		description:
-			'Strongest danger background color. Use on strong interactive elements with a negative semantic attached. Use with text-weak. Ex: ButtonDestructive',
+		description: `Strongest danger background color. Use on strong interactive elements with a negative semantic attached. Use with text-weak.
+
+Ex: ButtonDestructive`,
 		hsla: 'hsla(359, 51%, 53%, 1)',
 		hex: '#c4484a',
 		value: 'hsla(359, 51%, 53%, 1)',
@@ -443,7 +505,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundStrongHover',
 		type: 'color',
-		description: 'Strongest danger background color on mouseover. Ex: ButtonDestructive',
+		description: `Strongest danger background color on mouseover.
+
+Ex: ButtonDestructive`,
 		hsla: 'hsla(359, 54%, 38%, 1)',
 		hex: '#952d2f',
 		value: 'hsla(359, 54%, 38%, 1)',
@@ -452,7 +516,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBackgroundStrongActive',
 		type: 'color',
-		description: 'Strongest danger background color while pressed. Ex: ButtonDestructive',
+		description: `Strongest danger background color while pressed.
+
+Ex: ButtonDestructive`,
 		hsla: 'hsla(359, 54%, 33%, 1)',
 		hex: '#812729',
 		value: 'hsla(359, 54%, 33%, 1)',
@@ -461,7 +527,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBorder',
 		type: 'color',
-		description: 'Border color with danger semantic. Ex: Input in error state',
+		description: `Border color with danger semantic.
+
+Ex: Input in error state`,
 		hsla: 'hsla(359, 51%, 53%, 1)',
 		hex: '#c4484a',
 		value: 'hsla(359, 51%, 53%, 1)',
@@ -470,7 +538,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundHover',
 		type: 'color',
-		description: 'Success background color on mouseover. ',
+		description: `Success background color on mouseover. `,
 		hsla: 'hsla(110, 48%, 85%, 1)',
 		hex: '#ccebc6',
 		value: 'hsla(110, 48%, 85%, 1)',
@@ -479,7 +547,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBorderHover',
 		type: 'color',
-		description: 'Border color with danger semantic on mouseover. Ex: Input in error state',
+		description: `Border color with danger semantic on mouseover.
+
+Ex: Input in error state`,
 		hsla: 'hsla(359, 54%, 38%, 1)',
 		hex: '#952d2f',
 		value: 'hsla(359, 54%, 38%, 1)',
@@ -488,7 +558,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundActive',
 		type: 'color',
-		description: 'Success background color while pressed. ',
+		description: `Success background color while pressed. `,
 		hsla: 'hsla(110, 49%, 80%, 1)',
 		hex: '#bbe5b3',
 		value: 'hsla(110, 49%, 80%, 1)',
@@ -497,7 +567,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerBorderActive',
 		type: 'color',
-		description: 'Border color with danger semantic while pressing. Ex: Input in error state',
+		description: `Border color with danger semantic while pressing.
+
+Ex: Input in error state`,
 		hsla: 'hsla(359, 54%, 33%, 1)',
 		hex: '#812729',
 		value: 'hsla(359, 54%, 33%, 1)',
@@ -506,8 +578,9 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundWeak',
 		type: 'color',
-		description:
-			'Weakest success background color. Same color as neutral-background but with success-tinted hover and active. Use as placeholder to indicate that you want success-tinted interactive states.',
+		description: `Weakest success background color. Same color as neutral-background but with success-tinted hover and active.
+
+Use as placeholder to indicate that you want success-tinted interactive states.`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -516,7 +589,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundWeakHover',
 		type: 'color',
-		description: 'Weakest success background color on mouseover.',
+		description: `Weakest success background color on mouseover.`,
 		hsla: 'hsla(110, 49%, 90%, 1)',
 		hex: '#ddf2d9',
 		value: 'hsla(110, 49%, 90%, 1)',
@@ -525,7 +598,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundWeakActive',
 		type: 'color',
-		description: 'Weakest success background color while pressed.',
+		description: `Weakest success background color while pressed.`,
 		hsla: 'hsla(110, 48%, 85%, 1)',
 		hex: '#ccebc6',
 		value: 'hsla(110, 48%, 85%, 1)',
@@ -534,8 +607,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundStrong',
 		type: 'color',
-		description:
-			'Strongest success background color. Use on strong interactive elements with a positive semantic attached. Use with text-weak.',
+		description: `Strongest success background color. Use on strong interactive elements with a positive semantic attached. Use with text-weak.`,
 		hsla: 'hsla(111, 49%, 34%, 1)',
 		hex: '#39812c',
 		value: 'hsla(111, 49%, 34%, 1)',
@@ -544,7 +616,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundStrongHover',
 		type: 'color',
-		description: 'Strongest success background color on mouseover.',
+		description: `Strongest success background color on mouseover.`,
 		hsla: 'hsla(111, 49%, 29%, 1)',
 		hex: '#316e26',
 		value: 'hsla(111, 49%, 29%, 1)',
@@ -553,7 +625,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBackgroundStrongActive',
 		type: 'color',
-		description: 'Strongest success background color while pressed.',
+		description: `Strongest success background color while pressed.`,
 		hsla: 'hsla(111, 49%, 24%, 1)',
 		hex: '#285b1f',
 		value: 'hsla(111, 49%, 24%, 1)',
@@ -562,7 +634,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextWeak',
 		type: 'color',
-		description: 'Warning text color on warning-background-strong. ',
+		description: `Warning text color on warning-background-strong. `,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -571,7 +643,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextWeakHover',
 		type: 'color',
-		description: 'Warning weak text color, on mouseover. ',
+		description: `Warning weak text color, on mouseover. `,
 		hsla: 'hsla(22, 85%, 92%, 1)',
 		hex: '#fce6d9',
 		value: 'hsla(22, 85%, 92%, 1)',
@@ -580,7 +652,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextWeakActive',
 		type: 'color',
-		description: 'Warning weak text color, while pressed. ',
+		description: `Warning weak text color, while pressed. `,
 		hsla: 'hsla(22, 85%, 82%, 1)',
 		hex: '#f8c7aa',
 		value: 'hsla(22, 85%, 82%, 1)',
@@ -589,7 +661,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBorder',
 		type: 'color',
-		description: 'Border color with success semantic.',
+		description: `Border color with success semantic.`,
 		hsla: 'hsla(111, 49%, 34%, 1)',
 		hex: '#39812c',
 		value: 'hsla(111, 49%, 34%, 1)',
@@ -598,8 +670,10 @@ const dictionary = [
 	{
 		name: 'coralColorWarningText',
 		type: 'color',
-		description:
-			'Warning text color. Use for text content without background that must carry a warning semantic value on its own. Ex: StatusWarning',
+		description: `Warning text color. 
+Use for text content without background that must carry a warning semantic value on its own. 
+
+Ex: StatusWarning`,
 		hsla: 'hsla(22, 93%, 41%, 1)',
 		hex: '#ca4d07',
 		value: 'hsla(22, 93%, 41%, 1)',
@@ -608,7 +682,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextHover',
 		type: 'color',
-		description: 'Waring text color, on mouseover.',
+		description: `Waring text color, on mouseover.`,
 		hsla: 'hsla(21, 94%, 31%, 1)',
 		hex: '#993a05',
 		value: 'hsla(21, 94%, 31%, 1)',
@@ -617,7 +691,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextActive',
 		type: 'color',
-		description: 'Warning text color, while pressed.',
+		description: `Warning text color, while pressed.`,
 		hsla: 'hsla(21, 93%, 21%, 1)',
 		hex: '#682704',
 		value: 'hsla(21, 93%, 21%, 1)',
@@ -626,7 +700,9 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackground',
 		type: 'color',
-		description: 'Warning background color by default. Use with text-strong. Ex: InlineMessage',
+		description: `Warning background color by default. Use with text-strong.
+
+Ex: InlineMessage`,
 		hsla: 'hsla(22, 85%, 92%, 1)',
 		hex: '#fce6d9',
 		value: 'hsla(22, 85%, 92%, 1)',
@@ -635,7 +711,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBorderHover',
 		type: 'color',
-		description: 'Border color with success semantic, on mouseover.',
+		description: `Border color with success semantic, on mouseover.`,
 		hsla: 'hsla(111, 49%, 29%, 1)',
 		hex: '#316e26',
 		value: 'hsla(111, 49%, 29%, 1)',
@@ -644,7 +720,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundHover',
 		type: 'color',
-		description: 'Warning background color, on mouseover.',
+		description: `Warning background color, on mouseover.`,
 		hsla: 'hsla(22, 85%, 82%, 1)',
 		hex: '#f8c7aa',
 		value: 'hsla(22, 85%, 82%, 1)',
@@ -653,7 +729,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessBorderActive',
 		type: 'color',
-		description: 'Border color with success semantic, while pressed.',
+		description: `Border color with success semantic, while pressed.`,
 		hsla: 'hsla(111, 49%, 24%, 1)',
 		hex: '#285b1f',
 		value: 'hsla(111, 49%, 24%, 1)',
@@ -662,7 +738,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundActive',
 		type: 'color',
-		description: 'Warning background color, while pressed.',
+		description: `Warning background color, while pressed.`,
 		hsla: 'hsla(22, 85%, 72%, 1)',
 		hex: '#f4a87b',
 		value: 'hsla(22, 85%, 72%, 1)',
@@ -671,8 +747,9 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundWeak',
 		type: 'color',
-		description:
-			'Weakest warning background color. Same color as neutral-background but with warning-tinted hover and active. Use as placeholder to indicate that you want warning-tinted interactive states.',
+		description: `Weakest warning background color. Same color as neutral-background but with warning-tinted hover and active.
+
+Use as placeholder to indicate that you want warning-tinted interactive states.`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -681,7 +758,9 @@ const dictionary = [
 	{
 		name: 'coralColorAssistiveText',
 		type: 'color',
-		description: 'Text for assistive elements. Use with assistive-background. Ex: Tooltip',
+		description: `Text for assistive elements. Use with assistive-background.
+
+Ex: Tooltip`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -690,7 +769,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundWeakHover',
 		type: 'color',
-		description: 'Weakest warning background color, on mouseover.',
+		description: `Weakest warning background color, on mouseover.`,
 		hsla: 'hsla(22, 85%, 92%, 1)',
 		hex: '#fce6d9',
 		value: 'hsla(22, 85%, 92%, 1)',
@@ -699,7 +778,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundWeakActive',
 		type: 'color',
-		description: 'Weakest warning background color, while pressed.',
+		description: `Weakest warning background color, while pressed.`,
 		hsla: 'hsla(22, 85%, 82%, 1)',
 		hex: '#f8c7aa',
 		value: 'hsla(22, 85%, 82%, 1)',
@@ -708,7 +787,9 @@ const dictionary = [
 	{
 		name: 'coralColorAssistiveBackground',
 		type: 'color',
-		description: 'Background for assistive elements. Use with assistive-text. Ex: Tooltip',
+		description: `Background for assistive elements. Use with assistive-text.
+
+Ex: Tooltip`,
 		hsla: 'hsla(210, 62%, 5%, 1)',
 		hex: '#050d15',
 		value: 'hsla(210, 62%, 5%, 1)',
@@ -717,8 +798,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundStrong',
 		type: 'color',
-		description:
-			'Strongest warning background color. Use on strong interactive elements with a warning semantic attached. Use with text-weak.',
+		description: `Strongest warning background color. Use on strong interactive elements with a warning semantic attached. Use with text-weak.`,
 		hsla: 'hsla(22, 93%, 41%, 1)',
 		hex: '#ca4d07',
 		value: 'hsla(22, 93%, 41%, 1)',
@@ -727,7 +807,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundStrongHover',
 		type: 'color',
-		description: 'Strongest warning background color, on mouseover.',
+		description: `Strongest warning background color, on mouseover.`,
 		hsla: 'hsla(21, 94%, 31%, 1)',
 		hex: '#993a05',
 		value: 'hsla(21, 94%, 31%, 1)',
@@ -736,7 +816,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBackgroundStrongActive',
 		type: 'color',
-		description: 'Strongest warning background color, while pressed.',
+		description: `Strongest warning background color, while pressed.`,
 		hsla: 'hsla(21, 93%, 21%, 1)',
 		hex: '#672704',
 		value: 'hsla(21, 93%, 21%, 1)',
@@ -745,7 +825,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBorder',
 		type: 'color',
-		description: 'Border color with warning semantic.',
+		description: `Border color with warning semantic.`,
 		hsla: 'hsla(22, 93%, 41%, 1)',
 		hex: '#ca4d07',
 		value: 'hsla(22, 93%, 41%, 1)',
@@ -754,7 +834,7 @@ const dictionary = [
 	{
 		name: 'coralColorAssistiveBorder',
 		type: 'color',
-		description: 'Border for assistive elements. ',
+		description: `Border for assistive elements. `,
 		hsla: 'hsla(0, 0%, 47%, 1)',
 		hex: '#797979',
 		value: 'hsla(0, 0%, 47%, 1)',
@@ -763,7 +843,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBorderHover',
 		type: 'color',
-		description: 'Border color with warning semantic, on mouseover.',
+		description: `Border color with warning semantic, on mouseover.`,
 		hsla: 'hsla(21, 94%, 31%, 1)',
 		hex: '#993a05',
 		value: 'hsla(21, 94%, 31%, 1)',
@@ -772,7 +852,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningBorderActive',
 		type: 'color',
-		description: 'Border color with warning semantic, while pressed.',
+		description: `Border color with warning semantic, while pressed.`,
 		hsla: 'hsla(21, 93%, 21%, 1)',
 		hex: '#672704',
 		value: 'hsla(21, 93%, 21%, 1)',
@@ -781,7 +861,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandingBrand',
 		type: 'color',
-		description: 'Main brand color. Used for logo.',
+		description: `Main brand color. Used for logo.`,
 		hsla: 'hsla(359, 100%, 71%, 1)',
 		hex: '#ff6d70',
 		value: 'hsla(359, 100%, 71%, 1)',
@@ -790,7 +870,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderDisabled',
 		type: 'color',
-		description: 'Disabled border color for interactive elements  Ex: Inputs',
+		description: `Disabled border color for interactive elements 
+
+Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 65%, 1)',
 		hex: '#a6a6a6',
 		value: 'hsla(0, 0%, 65%, 1)',
@@ -799,7 +881,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderWeakHover',
 		type: 'color',
-		description: 'Weaker border color on mouseover.',
+		description: `Weaker border color on mouseover.`,
 		hsla: 'hsla(0, 0%, 72%, 1)',
 		hex: '#b8b8b8',
 		value: 'hsla(0, 0%, 72%, 1)',
@@ -808,7 +890,9 @@ const dictionary = [
 	{
 		name: 'coralColorAssistiveBorderFocus',
 		type: 'color',
-		description: 'Focus color for focus rings across the products. Ex: Buttons on focus',
+		description: `Focus color for focus rings across the products.
+
+Ex: Buttons on focus`,
 		hsla: 'hsla(241, 54%, 61%, 1)',
 		hex: '#6664d1',
 		value: 'hsla(241, 54%, 61%, 1)',
@@ -817,7 +901,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextStrong',
 		type: 'color',
-		description: 'Accent text color on accent-background.',
+		description: `Accent text color on accent-background.`,
 		hsla: 'hsla(204, 96%, 18%, 1)',
 		hex: '#023659',
 		value: 'hsla(204, 96%, 18%, 1)',
@@ -826,7 +910,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextStrongHover',
 		type: 'color',
-		description: 'Accent text color on mouseover.',
+		description: `Accent text color on mouseover.`,
 		hsla: 'hsla(204, 97%, 13%, 1)',
 		hex: '#012741',
 		value: 'hsla(204, 97%, 13%, 1)',
@@ -835,7 +919,7 @@ const dictionary = [
 	{
 		name: 'coralColorAccentTextStrongActive',
 		type: 'color',
-		description: 'Accent text color while pressed.',
+		description: `Accent text color while pressed.`,
 		hsla: 'hsla(205, 95%, 8%, 1)',
 		hex: '#011828',
 		value: 'hsla(205, 95%, 8%, 1)',
@@ -844,7 +928,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextStrong',
 		type: 'color',
-		description: 'Danger text color on danger-background.',
+		description: `Danger text color on danger-background.`,
 		hsla: 'hsla(359, 47%, 44%, 1)',
 		hex: '#a43b3d',
 		value: 'hsla(359, 47%, 44%, 1)',
@@ -853,7 +937,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextStrongHover',
 		type: 'color',
-		description: 'Danger text color on mouseover.',
+		description: `Danger text color on mouseover.`,
 		hsla: 'hsla(359, 54%, 38%, 1)',
 		hex: '#952d2f',
 		value: 'hsla(359, 54%, 38%, 1)',
@@ -862,7 +946,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerTextStrongActive',
 		type: 'color',
-		description: 'Danger text color while pressing.',
+		description: `Danger text color while pressing.`,
 		hsla: 'hsla(359, 54%, 33%, 1)',
 		hex: '#812729',
 		value: 'hsla(359, 54%, 33%, 1)',
@@ -871,7 +955,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextStrong',
 		type: 'color',
-		description: 'Success text color on success-background. ',
+		description: `Success text color on success-background. `,
 		hsla: 'hsla(111, 49%, 29%, 1)',
 		hex: '#316e26',
 		value: 'hsla(111, 49%, 29%, 1)',
@@ -880,7 +964,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextStrongHover',
 		type: 'color',
-		description: 'Success text color on mouseover. ',
+		description: `Success text color on mouseover. `,
 		hsla: 'hsla(110, 49%, 24%, 1)',
 		hex: '#295b1f',
 		value: 'hsla(110, 49%, 24%, 1)',
@@ -889,7 +973,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessTextStrongActive',
 		type: 'color',
-		description: 'Success text color while pressed. ',
+		description: `Success text color while pressed. `,
 		hsla: 'hsla(111, 48%, 19%, 1)',
 		hex: '#204819',
 		value: 'hsla(111, 48%, 19%, 1)',
@@ -898,7 +982,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextStrong',
 		type: 'color',
-		description: 'Warning text color on warning-background.',
+		description: `Warning text color on warning-background.`,
 		hsla: 'hsla(22, 86%, 27%, 1)',
 		hex: '#80360a',
 		value: 'hsla(22, 86%, 27%, 1)',
@@ -907,7 +991,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextStrongHover',
 		type: 'color',
-		description: 'Warning strong text color, on mouseover. ',
+		description: `Warning strong text color, on mouseover. `,
 		hsla: 'hsla(23, 86%, 22%, 1)',
 		hex: '#682c08',
 		value: 'hsla(23, 86%, 22%, 1)',
@@ -916,7 +1000,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningTextStrongActive',
 		type: 'color',
-		description: 'Warning strong text color, while pressed.',
+		description: `Warning strong text color, while pressed.`,
 		hsla: 'hsla(23, 86%, 17%, 1)',
 		hex: '#502206',
 		value: 'hsla(23, 86%, 17%, 1)',
@@ -925,8 +1009,8 @@ const dictionary = [
 	{
 		name: 'coralColorBetaText',
 		type: 'color',
-		description:
-			'Beta text color, for things that are new or temporary. Use for text content without background that must carry a beta semantic value on its own. ',
+		description: `Beta text color, for things that are new or temporary.
+Use for text content without background that must carry a beta semantic value on its own. `,
 		hsla: 'hsla(280, 57%, 49%, 1)',
 		hex: '#9435c3',
 		value: 'hsla(280, 57%, 49%, 1)',
@@ -935,7 +1019,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextHover',
 		type: 'color',
-		description: 'Beta text color, on mouseover.',
+		description: `Beta text color, on mouseover.`,
 		hsla: 'hsla(281, 58%, 39%, 1)',
 		hex: '#772a9c',
 		value: 'hsla(281, 58%, 39%, 1)',
@@ -944,7 +1028,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextActive',
 		type: 'color',
-		description: 'Beta text color, while pressed.',
+		description: `Beta text color, while pressed.`,
 		hsla: 'hsla(281, 58%, 29%, 1)',
 		hex: '#591f74',
 		value: 'hsla(281, 58%, 29%, 1)',
@@ -953,7 +1037,9 @@ const dictionary = [
 	{
 		name: 'coralColorBetaIcon',
 		type: 'color',
-		description: 'Icon with beta color. Ex: InlineMessage',
+		description: `Icon with beta color.
+
+Ex: InlineMessage`,
 		hsla: 'hsla(280, 80%, 54%, 1)',
 		hex: '#aa2de8',
 		value: 'hsla(280, 80%, 54%, 1)',
@@ -962,7 +1048,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaIconHover',
 		type: 'color',
-		description: 'Icon with beta color, on mouseover.',
+		description: `Icon with beta color, on mouseover.`,
 		hsla: 'hsla(280, 80%, 44%, 1)',
 		hex: '#8e16ca',
 		value: 'hsla(280, 80%, 44%, 1)',
@@ -971,7 +1057,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaIconActive',
 		type: 'color',
-		description: 'Icon with beta color, while pressed.',
+		description: `Icon with beta color, while pressed.`,
 		hsla: 'hsla(280, 80%, 34%, 1)',
 		hex: '#6e119c',
 		value: 'hsla(280, 80%, 34%, 1)',
@@ -980,7 +1066,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextWeak',
 		type: 'color',
-		description: 'Beta text color on beta-background-strong. ',
+		description: `Beta text color on beta-background-strong. `,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -989,7 +1075,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextWeakHover',
 		type: 'color',
-		description: 'Beta weak text color, on mouseover.',
+		description: `Beta weak text color, on mouseover.`,
 		hsla: 'hsla(280, 56%, 83%, 1)',
 		hex: '#dcbbec',
 		value: 'hsla(280, 56%, 83%, 1)',
@@ -998,7 +1084,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextWeakActive',
 		type: 'color',
-		description: 'Beta weak text color, while pressed.',
+		description: `Beta weak text color, while pressed.`,
 		hsla: 'hsla(280, 57%, 73%, 1)',
 		hex: '#c793e1',
 		value: 'hsla(280, 57%, 73%, 1)',
@@ -1007,7 +1093,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextStrong',
 		type: 'color',
-		description: 'Beta text color on beta-background.',
+		description: `Beta text color on beta-background.`,
 		hsla: 'hsla(281, 58%, 29%, 1)',
 		hex: '#591f74',
 		value: 'hsla(281, 58%, 29%, 1)',
@@ -1016,7 +1102,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextStrongHover',
 		type: 'color',
-		description: 'Beta strong text color, on mouseover. ',
+		description: `Beta strong text color, on mouseover. `,
 		hsla: 'hsla(282, 58%, 19%, 1)',
 		hex: '#3b144c',
 		value: 'hsla(282, 58%, 19%, 1)',
@@ -1025,7 +1111,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaTextStrongActive',
 		type: 'color',
-		description: 'Beta strong text color, while pressed. ',
+		description: `Beta strong text color, while pressed. `,
 		hsla: 'hsla(282, 57%, 9%, 1)',
 		hex: '#1c0a24',
 		value: 'hsla(282, 57%, 9%, 1)',
@@ -1034,7 +1120,9 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackground',
 		type: 'color',
-		description: 'Beta background color by default. Use with text-strong. Ex: InlineMessage',
+		description: `Beta background color by default. Use with text-strong.
+
+Ex: InlineMessage`,
 		hsla: 'hsla(279, 57%, 90%, 1)',
 		hex: '#ead7f4',
 		value: 'hsla(279, 57%, 90%, 1)',
@@ -1043,7 +1131,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundHover',
 		type: 'color',
-		description: 'Beta background color, on mouseover.',
+		description: `Beta background color, on mouseover.`,
 		hsla: 'hsla(279, 57%, 81%, 1)',
 		hex: '#d7b3ea',
 		value: 'hsla(279, 57%, 81%, 1)',
@@ -1052,7 +1140,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundActive',
 		type: 'color',
-		description: 'Beta background color, while pressed.',
+		description: `Beta background color, while pressed.`,
 		hsla: 'hsla(279, 57%, 71%, 1)',
 		hex: '#c28bdf',
 		value: 'hsla(279, 57%, 71%, 1)',
@@ -1061,8 +1149,9 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundWeak',
 		type: 'color',
-		description:
-			'Weakest beta background color. Same color as neutral-background but with beta-tinted hover and active. Use as placeholder to indicate that you want beta-tinted interactive states.',
+		description: `Weakest beta background color. Same color as neutral-background but with beta-tinted hover and active.
+
+Use as placeholder to indicate that you want beta-tinted interactive states.`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -1071,7 +1160,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundWeakHover',
 		type: 'color',
-		description: 'Weakest beta background color, on mouseover.',
+		description: `Weakest beta background color, on mouseover.`,
 		hsla: 'hsla(279, 57%, 90%, 1)',
 		hex: '#ead7f4',
 		value: 'hsla(279, 57%, 90%, 1)',
@@ -1080,7 +1169,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundWeakActive',
 		type: 'color',
-		description: 'Weakest beta background color, while pressed.',
+		description: `Weakest beta background color, while pressed.`,
 		hsla: 'hsla(279, 57%, 80%, 1)',
 		hex: '#d5afe9',
 		value: 'hsla(279, 57%, 80%, 1)',
@@ -1089,8 +1178,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundStrong',
 		type: 'color',
-		description:
-			'Strongest beta background color. Use on strong interactive elements with a beta semantic attached. Use with text-weak.',
+		description: `Strongest beta background color. Use on strong interactive elements with a beta semantic attached. Use with text-weak.`,
 		hsla: 'hsla(281, 58%, 29%, 1)',
 		hex: '#591f74',
 		value: 'hsla(281, 58%, 29%, 1)',
@@ -1099,7 +1187,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundStrongHover',
 		type: 'color',
-		description: 'Strongest beta background color, on mouseover.',
+		description: `Strongest beta background color, on mouseover.`,
 		hsla: 'hsla(282, 58%, 19%, 1)',
 		hex: '#3b144c',
 		value: 'hsla(282, 58%, 19%, 1)',
@@ -1108,7 +1196,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBackgroundStrongActive',
 		type: 'color',
-		description: 'Strongest beta background color, while pressed.',
+		description: `Strongest beta background color, while pressed.`,
 		hsla: 'hsla(282, 57%, 9%, 1)',
 		hex: '#1c0a24',
 		value: 'hsla(282, 57%, 9%, 1)',
@@ -1117,7 +1205,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBorder',
 		type: 'color',
-		description: 'Border color with beta semantic.',
+		description: `Border color with beta semantic.`,
 		hsla: 'hsla(281, 58%, 29%, 1)',
 		hex: '#591f74',
 		value: 'hsla(281, 58%, 29%, 1)',
@@ -1126,7 +1214,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBorderHover',
 		type: 'color',
-		description: 'Border color with beta semantic, on mouseover.',
+		description: `Border color with beta semantic, on mouseover.`,
 		hsla: 'hsla(282, 58%, 19%, 1)',
 		hex: '#3b144c',
 		value: 'hsla(282, 58%, 19%, 1)',
@@ -1135,7 +1223,7 @@ const dictionary = [
 	{
 		name: 'coralColorBetaBorderActive',
 		type: 'color',
-		description: 'Border color with beta semantic, while pressed.',
+		description: `Border color with beta semantic, while pressed.`,
 		hsla: 'hsla(282, 57%, 9%, 1)',
 		hex: '#1c0a24',
 		value: 'hsla(282, 57%, 9%, 1)',
@@ -1144,8 +1232,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderStrong',
 		type: 'color',
-		description:
-			'Strongest border color. Use on strong backgrounds (neutral-background-medium, -strong or -heavy).',
+		description: `Strongest border color.
+
+Use on strong backgrounds (neutral-background-medium, -strong or -heavy).`,
 		hsla: 'hsla(0, 0%, 25%, 1)',
 		hex: '#404040',
 		value: 'hsla(0, 0%, 25%, 1)',
@@ -1154,7 +1243,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBorderStrongHover',
 		type: 'color',
-		description: 'Strongest border color on mouseover.',
+		description: `Strongest border color on mouseover.`,
 		hsla: 'hsla(0, 0%, 15%, 1)',
 		hex: '#262626',
 		value: 'hsla(0, 0%, 15%, 1)',
@@ -1163,7 +1252,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralIconInverted',
 		type: 'color',
-		description: 'Neutral icon color on dark backgrounds.',
+		description: `Neutral icon color on dark backgrounds.`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -1172,7 +1261,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralIcon',
 		type: 'color',
-		description: "Default icon color. Best used when the icon doesn't expect interactivity. ",
+		description: `Default icon color.
+
+Best used when the icon doesn't expect interactivity. `,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -1181,8 +1272,9 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralIconWeak',
 		type: 'color',
-		description:
-			'Weakly contrasting icon color. Best used when there is regular neutral-text or neutral-icon colors nearby for efficient hierarchy.',
+		description: `Weakly contrasting icon color.
+
+Best used when there is regular neutral-text or neutral-icon colors nearby for efficient hierarchy.`,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
 		value: 'hsla(0, 0%, 38%, 1)',
@@ -1191,7 +1283,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentIcon',
 		type: 'color',
-		description: 'Icon with accent color. Ex: ButtonIcon',
+		description: `Icon with accent color.
+
+Ex: ButtonIcon`,
 		hsla: 'hsla(204, 88%, 40%, 1)',
 		hex: '#0c78c2',
 		value: 'hsla(204, 88%, 40%, 1)',
@@ -1200,7 +1294,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentIconHover',
 		type: 'color',
-		description: 'Icon with accent color on mouseover. Ex: ButtonIcon',
+		description: `Icon with accent color on mouseover.
+
+Ex: ButtonIcon`,
 		hsla: 'hsla(204, 88%, 30%, 1)',
 		hex: '#095990',
 		value: 'hsla(204, 88%, 30%, 1)',
@@ -1209,7 +1305,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentIconActive',
 		type: 'color',
-		description: 'Icon with accent color while pressing. Ex: ButtonIcon',
+		description: `Icon with accent color while pressing.
+
+Ex: ButtonIcon`,
 		hsla: 'hsla(205, 88%, 20%, 1)',
 		hex: '#063b60',
 		value: 'hsla(205, 88%, 20%, 1)',
@@ -1218,7 +1316,9 @@ const dictionary = [
 	{
 		name: 'coralColorDangerIcon',
 		type: 'color',
-		description: 'Icon with danger color. Ex: Status',
+		description: `Icon with danger color.
+
+Ex: Status`,
 		hsla: 'hsla(359, 69%, 53%, 1)',
 		hex: '#d93335',
 		value: 'hsla(359, 69%, 53%, 1)',
@@ -1227,7 +1327,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerIconHover',
 		type: 'color',
-		description: 'Icon with danger color on mouseover.',
+		description: `Icon with danger color on mouseover.`,
 		hsla: 'hsla(359, 69%, 43%, 1)',
 		hex: '#b92224',
 		value: 'hsla(359, 69%, 43%, 1)',
@@ -1236,7 +1336,7 @@ const dictionary = [
 	{
 		name: 'coralColorDangerIconActive',
 		type: 'color',
-		description: 'Icon with danger color while pressed.',
+		description: `Icon with danger color while pressed.`,
 		hsla: 'hsla(359, 69%, 33%, 1)',
 		hex: '#8e1a1c',
 		value: 'hsla(359, 69%, 33%, 1)',
@@ -1245,7 +1345,9 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessIcon',
 		type: 'color',
-		description: 'Icon with success color. Ex: StatusSuccessful',
+		description: `Icon with success color.
+
+Ex: StatusSuccessful`,
 		hsla: 'hsla(111, 53%, 40%, 1)',
 		hex: '#409c30',
 		value: 'hsla(111, 53%, 40%, 1)',
@@ -1254,7 +1356,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessIconHover',
 		type: 'color',
-		description: 'Icon with success color, on mouseover.',
+		description: `Icon with success color, on mouseover.`,
 		hsla: 'hsla(111, 53%, 30%, 1)',
 		hex: '#307524',
 		value: 'hsla(111, 53%, 30%, 1)',
@@ -1263,7 +1365,7 @@ const dictionary = [
 	{
 		name: 'coralColorSuccessIconActive',
 		type: 'color',
-		description: 'Icon with success color, while pressed.',
+		description: `Icon with success color, while pressed.`,
 		hsla: 'hsla(111, 53%, 20%, 1)',
 		hex: '#204e18',
 		value: 'hsla(111, 53%, 20%, 1)',
@@ -1272,7 +1374,9 @@ const dictionary = [
 	{
 		name: 'coralColorWarningIcon',
 		type: 'color',
-		description: 'Icon with warning color. Ex: StatusWarning',
+		description: `Icon with warning color.
+
+Ex: StatusWarning`,
 		hsla: 'hsla(22, 87%, 47%, 1)',
 		hex: '#e25c10',
 		value: 'hsla(22, 87%, 47%, 1)',
@@ -1281,7 +1385,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningIconHover',
 		type: 'color',
-		description: 'Icon with warning color, on mouseover.',
+		description: `Icon with warning color, on mouseover.`,
 		hsla: 'hsla(22, 87%, 37%, 1)',
 		hex: '#b0480c',
 		value: 'hsla(22, 87%, 37%, 1)',
@@ -1290,7 +1394,7 @@ const dictionary = [
 	{
 		name: 'coralColorWarningIconActive',
 		type: 'color',
-		description: 'Icon with warning color, while pressed.',
+		description: `Icon with warning color, while pressed.`,
 		hsla: 'hsla(22, 87%, 27%, 1)',
 		hex: '#813409',
 		value: 'hsla(22, 87%, 27%, 1)',
@@ -1299,7 +1403,10 @@ const dictionary = [
 	{
 		name: 'coralColorChartsNeutral',
 		type: 'color',
-		description: 'Chart color: Neutral. Use for neutral / empty semantic values. Ex: QualityBar',
+		description: `Chart color: Neutral. 
+Use for neutral / empty semantic values. 
+
+Ex: QualityBar`,
 		hsla: 'hsla(0, 0%, 22%, 1)',
 		hex: '#383838',
 		value: 'hsla(0, 0%, 22%, 1)',
@@ -1308,7 +1415,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsNeutralWeak',
 		type: 'color',
-		description: 'Chart color: Neutral-weak. Weak contrast for neutral / empty semantic values.',
+		description: `Chart color: Neutral-weak. 
+Weak contrast for neutral / empty semantic values.`,
 		hsla: 'hsla(0, 0%, 83%, 1)',
 		hex: '#d4d4d4',
 		value: 'hsla(0, 0%, 83%, 1)',
@@ -1317,8 +1425,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsNeutralStrong',
 		type: 'color',
-		description:
-			'Chart color: Neutral-strong. Strong contrast for neutral / empty semantic values.',
+		description: `Chart color: Neutral-strong. 
+Strong contrast for neutral / empty semantic values.`,
 		hsla: 'hsla(0, 0%, 12%, 1)',
 		hex: '#1f1f1f',
 		value: 'hsla(0, 0%, 12%, 1)',
@@ -1327,7 +1435,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsNeutralHover',
 		type: 'color',
-		description: 'Chart color: Neutral on mouseover for interactive charts.',
+		description: `Chart color: Neutral on mouseover for interactive charts.`,
 		hsla: 'hsla(0, 0%, 12%, 1)',
 		hex: '#1f1f1f',
 		value: 'hsla(0, 0%, 12%, 1)',
@@ -1336,7 +1444,10 @@ const dictionary = [
 	{
 		name: 'coralColorChartsSuccess',
 		type: 'color',
-		description: 'Chart color: Success. Use for success / positive semantic values. Ex: QualityBar',
+		description: `Chart color: Success. 
+Use for success / positive semantic values. 
+
+Ex: QualityBar`,
 		hsla: 'hsla(148, 87%, 40%, 1)',
 		hex: '#0dbd5e',
 		value: 'hsla(148, 87%, 40%, 1)',
@@ -1345,7 +1456,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsSuccessWeak',
 		type: 'color',
-		description: 'Chart color: Success-weak. Weak contrast for positive / success semantic values.',
+		description: `Chart color: Success-weak. 
+Weak contrast for positive / success semantic values.`,
 		hsla: 'hsla(130, 52%, 91%, 1)',
 		hex: '#dcf4e0',
 		value: 'hsla(130, 52%, 91%, 1)',
@@ -1354,8 +1466,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsSuccessStrong',
 		type: 'color',
-		description:
-			'Chart color: Success-strong. Strong contrast for positive / success semantic values.',
+		description: `Chart color: Success-strong. 
+Strong contrast for positive / success semantic values.`,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
 		value: 'hsla(139, 50%, 22%, 1)',
@@ -1364,7 +1476,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsSuccessHover',
 		type: 'color',
-		description: 'Chart color: Success on mouseover for interactive charts.',
+		description: `Chart color: Success on mouseover for interactive charts.`,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
 		value: 'hsla(139, 50%, 22%, 1)',
@@ -1373,7 +1485,10 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDanger',
 		type: 'color',
-		description: 'Chart color: Danger. Use for danger / negative semantic values. Ex: QualityBar',
+		description: `Chart color: Danger. 
+Use for danger / negative semantic values. 
+
+Ex: QualityBar`,
 		hsla: 'hsla(4, 89%, 49%, 1)',
 		hex: '#ea1b0e',
 		value: 'hsla(4, 89%, 49%, 1)',
@@ -1382,7 +1497,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDangerWeak',
 		type: 'color',
-		description: 'Chart color: Danger-weak. Weak contrast for negative / danger semantic values.',
+		description: `Chart color: Danger-weak. 
+Weak contrast for negative / danger semantic values.`,
 		hsla: 'hsla(359, 69%, 73%, 1)',
 		hex: '#e9898a',
 		value: 'hsla(359, 69%, 73%, 1)',
@@ -1391,8 +1507,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDangerStrong',
 		type: 'color',
-		description:
-			'Chart color: Danger-strong. Strong contrast for negative / danger semantic values.',
+		description: `Chart color: Danger-strong. 
+Strong contrast for negative / danger semantic values.`,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
 		value: 'hsla(359, 62%, 43%, 1)',
@@ -1401,7 +1517,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDangerHover',
 		type: 'color',
-		description: 'Chart color: Danger on mouseover for interactive charts.',
+		description: `Chart color: Danger on mouseover for interactive charts.`,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
 		value: 'hsla(359, 62%, 43%, 1)',
@@ -1410,7 +1526,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsWarning',
 		type: 'color',
-		description: 'Chart color: Warning. Use for warning semantic values.',
+		description: `Chart color: Warning. 
+Use for warning semantic values.`,
 		hsla: 'hsla(32, 100%, 56%, 1)',
 		hex: '#ff9820',
 		value: 'hsla(32, 100%, 56%, 1)',
@@ -1419,7 +1536,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsWarningWeak',
 		type: 'color',
-		description: 'Chart color: Warning-weak. Weak contrast for warning semantic values.',
+		description: `Chart color: Warning-weak. 
+Weak contrast for warning semantic values.`,
 		hsla: 'hsla(22, 88%, 84%, 1)',
 		hex: '#facbb0',
 		value: 'hsla(22, 88%, 84%, 1)',
@@ -1428,7 +1546,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsWarningStrong',
 		type: 'color',
-		description: 'Chart color: Warning-strong. Strong contrast for warning semantic values.',
+		description: `Chart color: Warning-strong. 
+Strong contrast for warning semantic values.`,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
 		value: 'hsla(22, 75%, 42%, 1)',
@@ -1437,7 +1556,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsWarningHover',
 		type: 'color',
-		description: 'Chart color: Warning on mouseover for interactive charts.',
+		description: `Chart color: Warning on mouseover for interactive charts.`,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
 		value: 'hsla(22, 75%, 42%, 1)',
@@ -1446,8 +1565,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefault',
 		type: 'color',
-		description:
-			'Chart color by default. If the chart only has one set of value, and not a semantic (danger / warning / success) then use this colorset.',
+		description: `Chart color by default. 
+If the chart only has one set of value, and not a semantic (danger / warning / success) then use this colorset.`,
 		hsla: 'hsla(216, 82%, 48%, 1)',
 		hex: '#1667df',
 		value: 'hsla(216, 82%, 48%, 1)',
@@ -1456,7 +1575,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultWeak',
 		type: 'color',
-		description: 'Chart color: default-weak. Weak contrast for basic chart values.',
+		description: `Chart color: default-weak. 
+Weak contrast for basic chart values.`,
 		hsla: 'hsla(204, 59%, 73%, 1)',
 		hex: '#91c2e3',
 		value: 'hsla(204, 59%, 73%, 1)',
@@ -1465,7 +1585,8 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultStrong',
 		type: 'color',
-		description: 'Chart color: default-strong. Strong contrast for basic chart values. ',
+		description: `Chart color: default-strong. 
+Strong contrast for basic chart values. `,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
 		value: 'hsla(204, 92%, 29%, 1)',
@@ -1474,8 +1595,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultHover',
 		type: 'color',
-		description:
-			'Chart color: default on mouseover for interactive charts. if there is text on top if this, use default-text-weak.',
+		description: `Chart color: default on mouseover for interactive charts.
+
+if there is text on top if this, use default-text-weak.`,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
 		value: 'hsla(204, 92%, 29%, 1)',
@@ -1484,8 +1606,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor00',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(48, 100%, 50%, 1)',
 		hex: '#ffcc00',
 		value: 'hsla(48, 100%, 50%, 1)',
@@ -1494,7 +1617,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor00Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(51, 91%, 82%, 1)',
 		hex: '#fbefa9',
 		value: 'hsla(51, 91%, 82%, 1)',
@@ -1503,7 +1626,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor00Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(48, 82%, 45%, 1)',
 		hex: '#d2ad15',
 		value: 'hsla(48, 82%, 45%, 1)',
@@ -1512,7 +1635,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor00Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(48, 82%, 45%, 1)',
 		hex: '#d2ad15',
 		value: 'hsla(48, 82%, 45%, 1)',
@@ -1521,8 +1644,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor01',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(216, 82%, 48%, 1)',
 		hex: '#1667df',
 		value: 'hsla(216, 82%, 48%, 1)',
@@ -1531,7 +1655,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor01Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 59%, 73%, 1)',
 		hex: '#91c2e3',
 		value: 'hsla(204, 59%, 73%, 1)',
@@ -1540,7 +1664,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor01Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
 		value: 'hsla(204, 92%, 29%, 1)',
@@ -1549,7 +1673,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor01Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
 		value: 'hsla(204, 92%, 29%, 1)',
@@ -1558,8 +1682,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor02',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(194, 92%, 50%, 1)',
 		hex: '#0abef5',
 		value: 'hsla(194, 92%, 50%, 1)',
@@ -1568,7 +1693,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor02Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(194, 91%, 91%, 1)',
 		hex: '#d2f3fd',
 		value: 'hsla(194, 91%, 91%, 1)',
@@ -1577,7 +1702,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor02Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(194, 93%, 32%, 1)',
 		hex: '#067b9f',
 		value: 'hsla(194, 93%, 32%, 1)',
@@ -1586,7 +1711,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor02Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(194, 93%, 32%, 1)',
 		hex: '#067b9f',
 		value: 'hsla(194, 93%, 32%, 1)',
@@ -1595,8 +1720,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor03',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(140, 39%, 79%, 1)',
 		hex: '#b3dec1',
 		value: 'hsla(140, 39%, 79%, 1)',
@@ -1605,7 +1731,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor03Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(138, 40%, 92%, 1)',
 		hex: '#e1f2e6',
 		value: 'hsla(138, 40%, 92%, 1)',
@@ -1614,7 +1740,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor03Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 11%, 35%, 1)',
 		hex: '#506356',
 		value: 'hsla(139, 11%, 35%, 1)',
@@ -1623,7 +1749,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor03Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 11%, 35%, 1)',
 		hex: '#506356',
 		value: 'hsla(139, 11%, 35%, 1)',
@@ -1632,8 +1758,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor04',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(148, 87%, 40%, 1)',
 		hex: '#0dbd5e',
 		value: 'hsla(148, 87%, 40%, 1)',
@@ -1642,7 +1769,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor04Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(130, 52%, 91%, 1)',
 		hex: '#dcf4e0',
 		value: 'hsla(130, 52%, 91%, 1)',
@@ -1651,7 +1778,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor04Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
 		value: 'hsla(139, 50%, 22%, 1)',
@@ -1660,7 +1787,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor04Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
 		value: 'hsla(139, 50%, 22%, 1)',
@@ -1669,8 +1796,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor05',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(324, 68%, 71%, 1)',
 		hex: '#e884c0',
 		value: 'hsla(324, 68%, 71%, 1)',
@@ -1679,7 +1807,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor05Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(323, 69%, 95%, 1)',
 		hex: '#fbe9f4',
 		value: 'hsla(323, 69%, 95%, 1)',
@@ -1688,7 +1816,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor05Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(324, 28%, 49%, 1)',
 		hex: '#a15b85',
 		value: 'hsla(324, 28%, 49%, 1)',
@@ -1697,7 +1825,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor05Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(324, 28%, 49%, 1)',
 		hex: '#a15b85',
 		value: 'hsla(324, 28%, 49%, 1)',
@@ -1706,8 +1834,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor06',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(280, 75%, 58%, 1)',
 		hex: '#b045e5',
 		value: 'hsla(280, 75%, 58%, 1)',
@@ -1716,7 +1845,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor06Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(279, 77%, 88%, 1)',
 		hex: '#e8caf8',
 		value: 'hsla(279, 77%, 88%, 1)',
@@ -1725,7 +1854,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor06Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 54%, 36%, 1)',
 		hex: '#6e2b8f',
 		value: 'hsla(280, 54%, 36%, 1)',
@@ -1734,7 +1863,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor06Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(280, 54%, 36%, 1)',
 		hex: '#6e2b8f',
 		value: 'hsla(280, 54%, 36%, 1)',
@@ -1743,8 +1872,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor07',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(4, 89%, 49%, 1)',
 		hex: '#ea1b0e',
 		value: 'hsla(4, 89%, 49%, 1)',
@@ -1753,7 +1883,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor07Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 69%, 73%, 1)',
 		hex: '#e9898a',
 		value: 'hsla(359, 69%, 73%, 1)',
@@ -1762,7 +1892,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor07Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
 		value: 'hsla(359, 62%, 43%, 1)',
@@ -1771,7 +1901,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor07Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
 		value: 'hsla(359, 62%, 43%, 1)',
@@ -1780,8 +1910,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor08',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(22, 88%, 54%, 1)',
 		hex: '#f16e23',
 		value: 'hsla(22, 88%, 54%, 1)',
@@ -1790,7 +1921,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor08Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 88%, 84%, 1)',
 		hex: '#facbb0',
 		value: 'hsla(22, 88%, 84%, 1)',
@@ -1799,7 +1930,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor08Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
 		value: 'hsla(22, 75%, 42%, 1)',
@@ -1808,7 +1939,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor08Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
 		value: 'hsla(22, 75%, 42%, 1)',
@@ -1817,8 +1948,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09',
 		type: 'color',
-		description:
-			'Chart color used in combinations with the other numerical chart colors. Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.',
+		description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(34, 34%, 45%, 1)',
 		hex: '#99784c',
 		value: 'hsla(34, 34%, 45%, 1)',
@@ -1827,7 +1959,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09Weak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(35, 28%, 82%, 1)',
 		hex: '#ded3c4',
 		value: 'hsla(35, 28%, 82%, 1)',
@@ -1836,7 +1968,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09Strong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(35, 34%, 27%, 1)',
 		hex: '#5b482d',
 		value: 'hsla(35, 34%, 27%, 1)',
@@ -1845,7 +1977,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09Hover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(35, 34%, 27%, 1)',
 		hex: '#5b482d',
 		value: 'hsla(35, 34%, 27%, 1)',
@@ -1854,7 +1986,10 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBorder',
 		type: 'color',
-		description: 'Border with accent color. Use for interactive items. Ex: ButtonSecondary',
+		description: `Border with accent color.
+Use for interactive items.
+
+Ex: ButtonSecondary`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
 		hex: '#045d9a',
 		value: 'hsla(204, 95%, 31%, 1)',
@@ -1863,8 +1998,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultText',
 		type: 'color',
-		description:
-			'Text color for chart-default. Text on a chart is discouraged, but if you must, then use this with chart-default.',
+		description: `Text color for chart-default. 
+
+Text on a chart is discouraged, but if you must, then use this with chart-default.`,
 		hsla: 'hsla(205, 87%, 94%, 1)',
 		hex: '#e3f2fd',
 		value: 'hsla(205, 87%, 94%, 1)',
@@ -1873,8 +2009,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultTextStrong',
 		type: 'color',
-		description:
-			'Strong text color for chart-default-weak. Text on a chart is discouraged, but if you must, then use this with chart-default-weak.',
+		description: `Strong text color for chart-default-weak. 
+
+Text on a chart is discouraged, but if you must, then use this with chart-default-weak.`,
 		hsla: 'hsla(205, 93%, 22%, 1)',
 		hex: '#04426d',
 		value: 'hsla(205, 93%, 22%, 1)',
@@ -1883,8 +2020,9 @@ const dictionary = [
 	{
 		name: 'coralColorChartsDefaultTextWeak',
 		type: 'color',
-		description:
-			'Weak text color for chart-default-strong. Text on a chart is discouraged, but if you must, then use this with chart-default-strong.',
+		description: `Weak text color for chart-default-strong. 
+
+Text on a chart is discouraged, but if you must, then use this with chart-default-strong.`,
 		hsla: 'hsla(207, 93%, 94%, 1)',
 		hex: '#e3f2fe',
 		value: 'hsla(207, 93%, 94%, 1)',
@@ -1893,7 +2031,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09Text',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(36, 36%, 5%, 1)',
 		hex: '#130f09',
 		value: 'hsla(36, 36%, 5%, 1)',
@@ -1902,7 +2040,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09TextStrong',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(36, 36%, 5%, 1)',
 		hex: '#130f09',
 		value: 'hsla(36, 36%, 5%, 1)',
@@ -1911,7 +2049,7 @@ const dictionary = [
 	{
 		name: 'coralColorChartsColor09TextWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(35, 28%, 82%, 1)',
 		hex: '#ded3c4',
 		value: 'hsla(35, 28%, 82%, 1)',
@@ -1920,7 +2058,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralBackgroundHeavy',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 78%, 1)',
 		hex: '#c7c7c7',
 		value: 'hsla(0, 0%, 78%, 1)',
@@ -1929,7 +2067,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor01',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(211, 62%, 26%, 1)',
 		hex: '#19416c',
 		value: 'hsla(211, 62%, 26%, 1)',
@@ -1938,7 +2076,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor02',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(211, 43%, 47%, 1)',
 		hex: '#4577ac',
 		value: 'hsla(211, 43%, 47%, 1)',
@@ -1947,7 +2085,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor03',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(201, 31%, 85%, 1)',
 		hex: '#cedde5',
 		value: 'hsla(201, 31%, 85%, 1)',
@@ -1956,7 +2094,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor05',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 82%, 81%, 1)',
 		hex: '#f6a5a6',
 		value: 'hsla(359, 82%, 81%, 1)',
@@ -1965,7 +2103,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor04',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(359, 100%, 72%, 1)',
 		hex: '#ff6e70',
 		value: 'hsla(359, 100%, 72%, 1)',
@@ -1974,7 +2112,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor06',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(358, 100%, 93%, 1)',
 		hex: '#ffdadb',
 		value: 'hsla(358, 100%, 93%, 1)',
@@ -1983,7 +2121,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationSkintone01',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(20, 91%, 83%, 1)',
 		hex: '#fbc6ab',
 		value: 'hsla(20, 91%, 83%, 1)',
@@ -1992,7 +2130,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationSkintone02',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(21, 34%, 55%, 1)',
 		hex: '#b27f64',
 		value: 'hsla(21, 34%, 55%, 1)',
@@ -2001,7 +2139,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationSkintone03',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(17, 33%, 28%, 1)',
 		hex: '#5f3d30',
 		value: 'hsla(17, 33%, 28%, 1)',
@@ -2010,7 +2148,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationShadow',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 0%, 0.1)',
 		hex: '#0000001a',
 		value: 'hsla(0, 0%, 0%, 0.1)',
@@ -2019,7 +2157,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor07',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(192, 33%, 97%, 1)',
 		hex: '#f5f9fa',
 		value: 'hsla(192, 33%, 97%, 1)',
@@ -2028,7 +2166,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor08',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(211, 23%, 74%, 1)',
 		hex: '#adbccc',
 		value: 'hsla(211, 23%, 74%, 1)',
@@ -2037,7 +2175,7 @@ const dictionary = [
 	{
 		name: 'coralColorIllustrationColor09',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(245, 10%, 23%, 1)',
 		hex: '#35343f',
 		value: 'hsla(245, 10%, 23%, 1)',
@@ -2046,8 +2184,9 @@ const dictionary = [
 	{
 		name: 'coralColorAccentBackgroundSelected',
 		type: 'color',
-		description:
-			'Accent background for currently selected elements: Ex: Selected column or line in a datagrid.',
+		description: `Accent background for currently selected elements: 
+
+Ex: Selected column or line in a datagrid.`,
 		hsla: 'hsla(204, 100%, 95%, 1)',
 		hex: '#e3f4ff',
 		value: 'hsla(204, 100%, 95%, 1)',
@@ -2056,8 +2195,10 @@ const dictionary = [
 	{
 		name: 'coralColorInfoText',
 		type: 'color',
-		description:
-			'Information text color. Use for text content without background that must carry a information semantic value on its own. Ex: StatusInfo',
+		description: `Information text color. 
+Use for text content without background that must carry a information semantic value on its own. 
+
+Ex: StatusInfo`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
 		hex: '#045d9a',
 		value: 'hsla(204, 95%, 31%, 1)',
@@ -2066,7 +2207,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextHover',
 		type: 'color',
-		description: 'Info text color on mouseover, if interactive.',
+		description: `Info text color on mouseover, if interactive.`,
 		hsla: 'hsla(204, 96%, 18%, 1)',
 		hex: '#023659',
 		value: 'hsla(204, 96%, 18%, 1)',
@@ -2075,7 +2216,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextActive',
 		type: 'color',
-		description: 'Info text color while pressing, if interactive.',
+		description: `Info text color while pressing, if interactive.`,
 		hsla: 'hsla(205, 94%, 13%, 1)',
 		hex: '#022741',
 		value: 'hsla(205, 94%, 13%, 1)',
@@ -2084,7 +2225,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextWeak',
 		type: 'color',
-		description: 'Info text color on infor-background-strong. ',
+		description: `Info text color on infor-background-strong. `,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2093,7 +2234,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextWeakHover',
 		type: 'color',
-		description: 'Info text color on mouseover. ',
+		description: `Info text color on mouseover. `,
 		hsla: 'hsla(204, 59%, 88%, 1)',
 		hex: '#cde3f2',
 		value: 'hsla(204, 59%, 88%, 1)',
@@ -2102,7 +2243,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextWeakActive',
 		type: 'color',
-		description: 'Info text color while pressing.',
+		description: `Info text color while pressing.`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
 		hex: '#9bc7e6',
 		value: 'hsla(205, 60%, 75%, 1)',
@@ -2111,7 +2252,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextStrong',
 		type: 'color',
-		description: 'Infor text color on info-background.',
+		description: `Infor text color on info-background.`,
 		hsla: 'hsla(204, 96%, 18%, 1)',
 		hex: '#023659',
 		value: 'hsla(204, 96%, 18%, 1)',
@@ -2120,7 +2261,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextStrongHover',
 		type: 'color',
-		description: 'Info text color on mouseover.',
+		description: `Info text color on mouseover.`,
 		hsla: 'hsla(204, 97%, 13%, 1)',
 		hex: '#012741',
 		value: 'hsla(204, 97%, 13%, 1)',
@@ -2129,7 +2270,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoTextStrongActive',
 		type: 'color',
-		description: 'Info text color while pressing.',
+		description: `Info text color while pressing.`,
 		hsla: 'hsla(205, 95%, 8%, 1)',
 		hex: '#011828',
 		value: 'hsla(205, 95%, 8%, 1)',
@@ -2138,7 +2279,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundHover',
 		type: 'color',
-		description: 'Accent background color by default, on mouseover.',
+		description: `Accent background color by default, on mouseover.`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
 		hex: '#9bc7e6',
 		value: 'hsla(205, 60%, 75%, 1)',
@@ -2147,7 +2288,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundActive',
 		type: 'color',
-		description: 'Info background while pressing.',
+		description: `Info background while pressing.`,
 		hsla: 'hsla(204, 60%, 63%, 1)',
 		hex: '#69acd9',
 		value: 'hsla(204, 60%, 63%, 1)',
@@ -2156,8 +2297,9 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundWeak',
 		type: 'color',
-		description:
-			'Weakest info background color. Same color as neutral-background but with info-tinted hover and active. Use as placeholder to indicate that you want info-tinted interactive states.',
+		description: `Weakest info background color. Same color as neutral-background but with info-tinted hover and active.
+
+Use as placeholder to indicate that you want info-tinted interactive states.`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2166,7 +2308,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundWeakHover',
 		type: 'color',
-		description: 'Weakest info background color on mouseover.',
+		description: `Weakest info background color on mouseover.`,
 		hsla: 'hsla(204, 59%, 88%, 1)',
 		hex: '#cde3f2',
 		value: 'hsla(204, 59%, 88%, 1)',
@@ -2175,7 +2317,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundWeakActive',
 		type: 'color',
-		description: 'Weakest info background color while pressed.',
+		description: `Weakest info background color while pressed.`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
 		hex: '#9bc7e6',
 		value: 'hsla(205, 60%, 75%, 1)',
@@ -2184,8 +2326,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundStrong',
 		type: 'color',
-		description:
-			'Strongest info background color. Use on strong interactive elements with a informative semantic attached. Use with text-weak.',
+		description: `Strongest info background color. Use on strong interactive elements with a informative semantic attached. Use with text-weak.`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
 		hex: '#045d9a',
 		value: 'hsla(204, 95%, 31%, 1)',
@@ -2194,7 +2335,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundStrongHover',
 		type: 'color',
-		description: 'Strongest info background color on mouseover.',
+		description: `Strongest info background color on mouseover.`,
 		hsla: 'hsla(204, 95%, 23%, 1)',
 		hex: '#034673',
 		value: 'hsla(204, 95%, 23%, 1)',
@@ -2203,7 +2344,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackgroundStrongActive',
 		type: 'color',
-		description: 'Strongest info background color while pressed.',
+		description: `Strongest info background color while pressed.`,
 		hsla: 'hsla(205, 95%, 15%, 1)',
 		hex: '#022e4d',
 		value: 'hsla(205, 95%, 15%, 1)',
@@ -2212,7 +2353,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBorder',
 		type: 'color',
-		description: 'Border color with info semantic.',
+		description: `Border color with info semantic.`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
 		hex: '#045d9a',
 		value: 'hsla(204, 95%, 31%, 1)',
@@ -2221,7 +2362,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBorderHover',
 		type: 'color',
-		description: 'Border color with info semantic on mouseover.',
+		description: `Border color with info semantic on mouseover.`,
 		hsla: 'hsla(204, 95%, 23%, 1)',
 		hex: '#034673',
 		value: 'hsla(204, 95%, 23%, 1)',
@@ -2230,7 +2371,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBorderActive',
 		type: 'color',
-		description: 'Border color with info semantic while pressing.',
+		description: `Border color with info semantic while pressing.`,
 		hsla: 'hsla(205, 95%, 15%, 1)',
 		hex: '#022e4d',
 		value: 'hsla(205, 95%, 15%, 1)',
@@ -2239,7 +2380,9 @@ const dictionary = [
 	{
 		name: 'coralColorInfoIcon',
 		type: 'color',
-		description: 'Icon with info color. Ex: StatusInprogress',
+		description: `Icon with info color.
+
+Ex: StatusInprogress`,
 		hsla: 'hsla(204, 88%, 40%, 1)',
 		hex: '#0c78c2',
 		value: 'hsla(204, 88%, 40%, 1)',
@@ -2248,7 +2391,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoIconHover',
 		type: 'color',
-		description: 'Icon with info color, on mouseover.',
+		description: `Icon with info color, on mouseover.`,
 		hsla: 'hsla(204, 88%, 30%, 1)',
 		hex: '#095990',
 		value: 'hsla(204, 88%, 30%, 1)',
@@ -2257,7 +2400,7 @@ const dictionary = [
 	{
 		name: 'coralColorInfoIconActive',
 		type: 'color',
-		description: 'Icon with info color, while pressed.',
+		description: `Icon with info color, while pressed.`,
 		hsla: 'hsla(205, 88%, 20%, 1)',
 		hex: '#063b60',
 		value: 'hsla(205, 88%, 20%, 1)',
@@ -2266,7 +2409,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandText',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2275,7 +2418,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2284,7 +2427,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2293,7 +2436,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextInverted',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
 		value: 'hsla(0, 0%, 38%, 1)',
@@ -2302,7 +2445,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextInvertedHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -2311,7 +2454,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextInvertedActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -2320,7 +2463,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandTextSelected',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 96%, 18%, 1)',
 		hex: '#023659',
 		value: 'hsla(204, 96%, 18%, 1)',
@@ -2329,7 +2472,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundWeak',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 0)',
 		hex: '#ffffff00',
 		value: 'hsla(0, 0%, 100%, 0)',
@@ -2338,7 +2481,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundWeakHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 0.1)',
 		hex: '#ffffff1f',
 		value: 'hsla(0, 0%, 100%, 0.1)',
@@ -2347,7 +2490,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundWeakActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 0.1)',
 		hex: '#ffffff1f',
 		value: 'hsla(0, 0%, 100%, 0.1)',
@@ -2356,7 +2499,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundSelected',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2365,7 +2508,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundInverted',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 0)',
 		hex: '#20202000',
 		value: 'hsla(0, 0%, 13%, 0)',
@@ -2374,7 +2517,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundInvertedHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 0.1)',
 		hex: '#2020201f',
 		value: 'hsla(0, 0%, 13%, 0.1)',
@@ -2383,7 +2526,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBackgroundInvertedActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 0.1)',
 		hex: '#2020201f',
 		value: 'hsla(0, 0%, 13%, 0.1)',
@@ -2392,7 +2535,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBorder',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2401,7 +2544,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBorderHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2410,7 +2553,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandBorderActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2419,7 +2562,9 @@ const dictionary = [
 	{
 		name: 'coralColorInfoBackground',
 		type: 'color',
-		description: 'Info background color by default. Use with text-strong. Ex: InlineMessage',
+		description: `Info background color by default. Use with text-strong.
+
+Ex: InlineMessage`,
 		hsla: 'hsla(204, 59%, 88%, 1)',
 		hex: '#cde3f2',
 		value: 'hsla(204, 59%, 88%, 1)',
@@ -2428,7 +2573,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIcon',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2437,7 +2582,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2446,7 +2591,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 100%, 1)',
 		hex: '#ffffff',
 		value: 'hsla(0, 0%, 100%, 1)',
@@ -2455,7 +2600,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconInverted',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
 		value: 'hsla(0, 0%, 38%, 1)',
@@ -2464,7 +2609,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconInvertedHover',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -2473,7 +2618,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconInvertedActive',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(0, 0%, 13%, 1)',
 		hex: '#202020',
 		value: 'hsla(0, 0%, 13%, 1)',
@@ -2482,7 +2627,7 @@ const dictionary = [
 	{
 		name: 'coralColorBrandIconSelected',
 		type: 'color',
-		description: '',
+		description: ``,
 		hsla: 'hsla(204, 96%, 18%, 1)',
 		hex: '#023659',
 		value: 'hsla(204, 96%, 18%, 1)',
@@ -2491,214 +2636,259 @@ const dictionary = [
 	{
 		name: 'coralColorBrandingBackground',
 		type: 'gradient',
-		description: 'Main brand background. Used for heroes.',
+		description: `Main brand background. Used for heroes.`,
 		value: 'linear-gradient(133deg,hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%)',
 		id: 'S:48da8b40c9b41977ec986642cfb91febb77cc536,',
 	},
 	{
 		name: 'coralColorBrandingNavigation',
 		type: 'gradient',
-		description: 'Main navigation background. Used for TopBar and branded Sidebar.',
+		description: `Main navigation background. Used for TopBar and branded Sidebar.`,
 		value: 'linear-gradient(133deg,hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%)',
 		id: 'S:901ebd713b6444217424da171789495f7e32c8d2,',
 	},
 	{
 		name: 'coralColorBrandBackground',
 		type: 'gradient',
-		description: '',
+		description: ``,
 		value: 'linear-gradient(133deg,hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%)',
 		id: 'S:f25b5ea68800b1905f1842313f1c767700a92380,',
 	},
 	{
 		name: 'coralSpacingXxs',
 		type: 'measure',
-		description: 'Use for paddings or margins',
+		description: `Use for paddings or margins`,
 		value: '0.4rem',
 		id: '16bfe560-b4c3-11ec-8521-cbbf4c303d59',
 	},
 	{
 		name: 'coralSpacingXs',
 		type: 'measure',
-		description: 'Use for paddings or margins',
+		description: `Use for paddings or margins`,
 		value: '0.8rem',
 		id: '1ca7bca0-b4c3-11ec-b522-2f15f0dfcaeb',
 	},
 	{
 		name: 'coralSpacingS',
 		type: 'measure',
-		description: 'Use for paddings or margins',
+		description: `Use for paddings or margins`,
 		value: '1.2rem',
 		id: '2c35d2b0-b4c3-11ec-96ab-01d033d945fb',
 	},
 	{
 		name: 'coralSpacingM',
 		type: 'measure',
-		description: 'Use for paddings or margins',
+		description: `Use for paddings or margins`,
 		value: '1.6rem',
 		id: '35c79f20-b4c3-11ec-84df-e5bfacc479f2',
 	},
 	{
 		name: 'coralSpacingL',
 		type: 'measure',
-		description: 'Use for margins, paddings of really necessary',
+		description: `Use for margins, paddings of really necessary`,
 		value: '2.8rem',
 		id: '3b3dc8d0-b4c3-11ec-b3c9-73d93683841a',
 	},
 	{
 		name: 'coralSpacingXl',
 		type: 'measure',
-		description: 'Use for margins, paddings of really necessary',
+		description: `Use for margins, paddings of really necessary`,
 		value: '3.6rem',
 		id: '4247b1e0-b4c3-11ec-8804-23bba7614e8e',
 	},
 	{
 		name: 'coralSizingMinimal',
 		type: 'measure',
-		description: 'Use for fixed-size elements',
+		description: `Use for fixed-size elements`,
 		value: '1.2rem',
 		id: 'c3717da0-b4c3-11ec-8909-db885780505b',
 	},
 	{
 		name: 'coralSizingXxxs',
 		type: 'measure',
-		description: 'For fixed-size elements. Minimal size for interactive elements.',
+		description: `For fixed-size elements. Minimal size for interactive elements.`,
 		value: '1.6rem',
 		id: 'ed784f70-b4c3-11ec-b3b5-d3127ac3649e',
 	},
 	{
 		name: 'coralSizingXxs',
 		type: 'measure',
-		description: 'Use for fixed-size elements',
+		description: `Use for fixed-size elements`,
 		value: '2rem',
 		id: '08dc2e80-b4c4-11ec-8350-c9f2819e7422',
 	},
 	{
 		name: 'coralSizingXs',
 		type: 'measure',
-		description: 'Use for fixed-size elements',
+		description: `Use for fixed-size elements`,
 		value: '2.4rem',
 		id: '0e48e250-b4c4-11ec-b383-adf02fe16153',
 	},
 	{
 		name: 'coralSizingS',
 		type: 'measure',
-		description: 'Use for fixed-size elements. Ex: Small Buttons',
+		description: `Use for fixed-size elements. 
+
+Ex: Small Buttons`,
 		value: '2.8rem',
 		id: '12bf4f40-b4c4-11ec-ae8c-a93a8912678c',
 	},
 	{
 		name: 'coralSizingM',
 		type: 'measure',
-		description: 'Use for fixed-size elements. Ex: Buttons',
+		description: `Use for fixed-size elements.
+
+Ex: Buttons`,
 		value: '3.6rem',
 		id: '1c14d600-b4c4-11ec-9b40-6fc6b8a4ad7a',
 	},
 	{
 		name: 'coralSizingL',
 		type: 'measure',
-		description: 'Use for fixed-size elements. Ex: Icon illustration',
+		description: `Use for fixed-size elements.
+
+Ex: Icon illustration`,
 		value: '4rem',
 		id: '21129b60-b4c4-11ec-a702-27e439bbf696',
 	},
 	{
 		name: 'coralSizingXxxl',
 		type: 'measure',
-		description: 'Use for fixed-size elements. Ex: Spot illustration height',
+		description: `Use for fixed-size elements.
+
+Ex: Spot illustration height`,
 		value: '22rem',
 		id: '292e1b80-b4c4-11ec-800e-5bc0e3562a54',
 	},
 	{
 		name: 'coralSizingMaximal',
 		type: 'measure',
-		description: 'Use for fixed-size elements. Ex: Spot illustration width',
+		description: `Use for fixed-size elements.
+
+Ex: Spot illustration width`,
 		value: '32rem',
 		id: '2e751ee0-b4c4-11ec-9f9f-75ac4ca4ac00',
 	},
 	{
 		name: 'coralElevationShadowNeutralM',
 		type: 'shadow',
-		description: 'Default shadow. Use on "first layer" of elevation.',
+		description: `Default shadow. 
+
+Use on "first layer" of elevation. `,
 		value: '0rem 0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:34a756f910ffc665554a228b44d5eec1e9c463cb,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowAccent',
 		type: 'shadow',
-		description: 'Shadow with an accent tint. Use for subtle highlights. Ex: InlineMessage',
+		description: `Shadow with an accent tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(204, 95%, 31%, 0.3)',
 		id: 'S:6361d40b509d112c733483b262d9b4929ad0e1a9,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowSuccess',
 		type: 'shadow',
-		description: 'Shadow with a success tint. Use for subtle highlights. Ex: InlineMessage',
+		description: `Shadow with a success tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(111, 49%, 34%, 0.3)',
 		id: 'S:1ccb355087e7a77695f62496bf7eb5c597e51b63,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowDanger',
 		type: 'shadow',
-		description: 'Shadow with a danger tint. Use for subtle highlights. Ex: InlineMessage',
+		description: `Shadow with a danger tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(359, 51%, 53%, 0.3)',
 		id: 'S:127a019202b5a99380f18aeda574499aa518d902,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowWarning',
 		type: 'shadow',
-		description: 'Shadow with a warning tint. Use for subtle highlights. Ex: InlineMessage',
+		description: `Shadow with a warning tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(22, 93%, 41%, 0.3)',
 		id: 'S:b336004b0f814ea5dea03c146da768f78dbe6495,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowBeta',
 		type: 'shadow',
-		description: 'Shadow with a beta tint. Use for subtle highlights. Ex: InlineMessage',
+		description: `Shadow with a beta tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
 		value: '0rem 0.1rem 0.1rem 0rem hsla(281, 58%, 29%, 0.3)',
 		id: 'S:8b514aff6b0d1ad3862f3d1f04d9f0a7d9ee6f3e,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedM',
 		type: 'shadow',
-		description:
-			'Default shadow. Use on "first layer" of elevation. Reserve it for elements sticking to the bottom of the viewport.',
+		description: `Default shadow. 
+
+Use on "first layer" of elevation. Reserve it for elements sticking to the bottom of the viewport.`,
 		value: '0rem -0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:1402e349bd668e8e2765a70a5b3c9d4aa261f6ac,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedL',
 		type: 'shadow',
-		description:
-			'Large shadow. Use on "second layer" of elevation - something that need to be "above" anything else. Reserve it for elements sticking to the bottom of the viewport.',
+		description: `Large shadow. 
+
+Use on "second layer" of elevation - something that need to be "above" anything else.
+Reserve it for elements sticking to the bottom of the viewport.`,
 		value: '0rem -0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:2442aa4ab53dacae61024bae62200ad42e042707,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralL',
 		type: 'shadow',
-		description:
-			'Large shadow. Use on "second layer" of elevation - something that need to be "above" anything else.',
+		description: `Large shadow. 
+
+Use on "second layer" of elevation - something that need to be "above" anything else.`,
 		value: '0rem 0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:a2f6e4c6b17f0f6fcf8525d14fbd34f992350375,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralS',
 		type: 'shadow',
-		description: 'Small shadow. Use for small elements such as accordion.',
+		description: `Small shadow.
+
+Use for small elements such as accordion.`,
 		value: '0rem 0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.5)',
 		id: 'S:c1c3ef7a3bd771214c8c2dbaa2991e62a9f42f60,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedS',
 		type: 'shadow',
-		description: '',
+		description: ``,
 		value: '0rem -0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:42035c14a5e1e8cc9bf3ce9173099f5df7f59780,:shadow:0',
 	},
 	{
+		name: 'coralElevationShadowInfo',
+		type: 'shadow',
+		description: ``,
+		value: '0rem 0.1rem 0.1rem 0rem hsla(204, 95%, 31%, 0.3)',
+		id: 'S:438e8db6ed4fd2dd2a98b57092688b9951159a9a,:shadow:0',
+	},
+	{
 		name: 'coralHeadingL',
 		type: 'typography',
-		description: 'Heading text - Use for highest level headings.',
-		value: "600 1.8rem/140% 'Source Sans Pro'",
+		description: `Heading text - Use for highest level headings.`,
+		value: `600 1.8rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.8rem',
@@ -2709,8 +2899,8 @@ const dictionary = [
 	{
 		name: 'coralParagraphM',
 		type: 'typography',
-		description: 'Paragraph text - Standard size.',
-		value: "400 1.4rem/140% 'Source Sans Pro'",
+		description: `Paragraph text - Standard size.`,
+		value: `400 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
 		fontSize: '1.4rem',
@@ -2721,8 +2911,8 @@ const dictionary = [
 	{
 		name: 'coralParagraphMBold',
 		type: 'typography',
-		description: 'Paragraph text - Standard size, bold.',
-		value: "600 1.4rem/140% 'Source Sans Pro'",
+		description: `Paragraph text - Standard size, bold.`,
+		value: `600 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.4rem',
@@ -2733,8 +2923,8 @@ const dictionary = [
 	{
 		name: 'coralParagraphS',
 		type: 'typography',
-		description: 'Paragraph text - Small size.',
-		value: "400 1.2rem/140% 'Source Sans Pro'",
+		description: `Paragraph text - Small size.`,
+		value: `400 1.2rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
 		fontSize: '1.2rem',
@@ -2745,8 +2935,8 @@ const dictionary = [
 	{
 		name: 'coralParagraphSBold',
 		type: 'typography',
-		description: 'Paragraph text - Standard size bold.',
-		value: "600 1.2rem/140% 'Source Sans Pro'",
+		description: `Paragraph text - Standard size bold.`,
+		value: `600 1.2rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.2rem',
@@ -2757,8 +2947,8 @@ const dictionary = [
 	{
 		name: 'coralHeadingM',
 		type: 'typography',
-		description: 'Heading text - Use for medium level headings, most current ones.',
-		value: "600 1.6rem/140% 'Source Sans Pro'",
+		description: `Heading text - Use for medium level headings, most current ones.`,
+		value: `600 1.6rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.6rem',
@@ -2769,9 +2959,8 @@ const dictionary = [
 	{
 		name: 'coralHeadingS',
 		type: 'typography',
-		description:
-			'Heading text - Use for small level headings. Use with caution, this can clash with bold paragraphs.',
-		value: "600 1.4rem/140% 'Source Sans Pro'",
+		description: `Heading text - Use for small level headings. Use with caution, this can clash with bold paragraphs.`,
+		value: `600 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.4rem',
@@ -2782,8 +2971,8 @@ const dictionary = [
 	{
 		name: 'coralDataM',
 		type: 'typography',
-		description: '',
-		value: "400 1.4rem/140% 'Inconsolata'",
+		description: ``,
+		value: `400 1.4rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
 		fontSize: '1.4rem',
@@ -2794,8 +2983,8 @@ const dictionary = [
 	{
 		name: 'coralDataMBold',
 		type: 'typography',
-		description: '',
-		value: "700 1.4rem/140% 'Inconsolata'",
+		description: ``,
+		value: `700 1.4rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '700',
 		fontSize: '1.4rem',
@@ -2806,9 +2995,10 @@ const dictionary = [
 	{
 		name: 'coralLinkMUnderlined',
 		type: 'typography',
-		description:
-			'Use only with accent/text-hover Developers: use Link component instead, you do not need to recreate styles.',
-		value: "600 1.4rem/140% 'Source Sans Pro'",
+		description: `Use only with accent/text-hover
+
+Developers: use Link component instead, you do not need to recreate styles.`,
+		value: `600 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.4rem',
@@ -2819,9 +3009,10 @@ const dictionary = [
 	{
 		name: 'coralLinkM',
 		type: 'typography',
-		description:
-			'Use only with accent/text. Developers: use Link component instead, you do not need to recreate styles.',
-		value: "600 1.4rem/140% 'Source Sans Pro'",
+		description: `Use only with accent/text.
+
+Developers: use Link component instead, you do not need to recreate styles.`,
+		value: `600 1.4rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.4rem',
@@ -2832,8 +3023,8 @@ const dictionary = [
 	{
 		name: 'coralDataXl',
 		type: 'typography',
-		description: 'Data text style - use for large display of metrics.',
-		value: "400 2.4rem/140% 'Inconsolata'",
+		description: `Data text style - use for large display of metrics.`,
+		value: `400 2.4rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
 		fontSize: '2.4rem',
@@ -2844,8 +3035,8 @@ const dictionary = [
 	{
 		name: 'coralLinkS',
 		type: 'typography',
-		description: 'For links included in paragraphs using paragraph/S or for small breadcrumbs',
-		value: "600 1.2rem/140% 'Source Sans Pro'",
+		description: `For links included in paragraphs using paragraph/S or for small breadcrumbs`,
+		value: `600 1.2rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.2rem',
@@ -2856,8 +3047,8 @@ const dictionary = [
 	{
 		name: 'coralLinkSUnderlined',
 		type: 'typography',
-		description: 'For links included in paragraphs using paragraph/S or for small breadcrumbs',
-		value: "600 1.2rem/140% 'Source Sans Pro'",
+		description: `For links included in paragraphs using paragraph/S or for small breadcrumbs`,
+		value: `600 1.2rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
 		fontSize: '1.2rem',
@@ -2868,181 +3059,196 @@ const dictionary = [
 	{
 		name: 'coralRadiusM',
 		type: 'radius',
-		description: 'Radius for molecules (Accordion, Fieldset, Popover, etc.)',
+		description: `Radius for molecules (Accordion, Fieldset, Popover, etc.)`,
 		value: '0.8rem',
 		id: '73293f90-3e58-11ec-94da-6d5db9104cfa',
 	},
 	{
 		name: 'coralRadiusL',
 		type: 'radius',
-		description: 'Radius for layout components (Card, Modal, etc.)',
+		description: `Radius for layout components (Card, Modal, etc.)`,
 		value: '1.6rem',
 		id: '7ba9c311-3e58-11ec-94da-6d5db9104cfa',
 	},
 	{
 		name: 'coralRadiusRound',
 		type: 'radius',
-		description: 'Radius for immediate actions (badges, switch, etc.)',
+		description: `Radius for immediate actions (badges, switch, etc.)`,
 		value: '9999.9rem',
 		id: '887c1481-3e58-11ec-94da-6d5db9104cfa',
 	},
 	{
 		name: 'coralRadiusS',
 		type: 'radius',
-		description: 'Radius for atomic components (button, tag, tooltip, etc.) ',
+		description: `Radius for atomic components (button, tag, tooltip, etc.) `,
 		value: '0.4rem',
 		id: '52824640-4783-11ec-a826-6db8532cd4e8',
 	},
 	{
 		name: 'coralBorderSSolid',
 		type: 'border',
-		description: 'Solid border to visually separate elements',
-		value: '1px solid',
+		description: `Solid border to visually separate elements`,
+		value: `1px solid`,
 		id: '2856c970-40b4-11ec-a696-dbb292a77d6e',
 	},
 	{
 		name: 'coralBorderMSolid',
 		type: 'border',
-		description: 'Solid border to visually identify a selection',
-		value: '2px solid',
+		description: `Solid border to visually identify a selection`,
+		value: `2px solid`,
 		id: '3105aff1-40b4-11ec-a696-dbb292a77d6e',
 	},
 	{
 		name: 'coralBorderSDashed',
 		type: 'border',
-		description:
-			'Dashed border to visually identify potentially interactive components. Ex: Droppable zone',
-		value: '1px dashed',
+		description: `Dashed border to visually identify potentially interactive components.
+
+Ex: Droppable zone`,
+		value: `1px dashed`,
 		id: '37916851-40b4-11ec-a696-dbb292a77d6e',
 	},
 	{
 		name: 'coralBorderMDashed',
 		type: 'border',
-		description: 'Dashed border to visually identify a possible selection. Ex: Ongoing mapper link',
-		value: '2px dashed',
+		description: `Dashed border to visually identify a possible selection.
+
+Ex: Ongoing mapper link`,
+		value: `2px dashed`,
 		id: '43602c71-40b4-11ec-a696-dbb292a77d6e',
 	},
 	{
 		name: 'coralOpacityL',
 		type: 'opacity',
-		description: 'Very transparent. Opacity for components that are not currently enabled.',
-		value: '0.2',
+		description: `Very transparent.
+
+Opacity for components that are not currently enabled.`,
+		value: `0.2`,
 		id: 'ddfa9d50-40b5-11ec-a696-dbb292a77d6e',
 	},
 	{
 		name: 'coralOpacityM',
 		type: 'opacity',
-		description: 'Transparent. Opacity for components that are only temporarily disabled.',
-		value: '0.4',
+		description: `Transparent.
+
+Opacity for components that are only temporarily disabled.`,
+		value: `0.4`,
 		id: 'e9be8c01-40b5-11ec-a696-dbb292a77d6e',
 	},
 	{
 		name: 'coralOpacityS',
 		type: 'opacity',
-		description: 'Barely transparent.',
-		value: '0.6',
+		description: `Barely transparent.`,
+		value: `0.6`,
 		id: 'f65d4a51-40b5-11ec-a696-dbb292a77d6e',
 	},
 	{
 		name: 'coralBreakpointS',
 		type: 'breakpoint',
-		description: 'Small screen (Portrait)',
-		value: '40em',
+		description: `Small screen (Portrait)`,
+		value: `40em`,
 		id: 'e8d1aad0-4140-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBreakpointM',
 		type: 'breakpoint',
-		description: 'Small screen (Landscape)',
-		value: '48em',
+		description: `Small screen (Landscape)`,
+		value: `48em`,
 		id: 'f70c8cf1-4140-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBreakpointL',
 		type: 'breakpoint',
-		description: 'Wide screen (Portrait)',
-		value: '64em',
+		description: `Wide screen (Portrait)`,
+		value: `64em`,
 		id: '034adbc1-4141-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBreakpointXl',
 		type: 'breakpoint',
-		description: 'Wide screen (Landscape)',
-		value: '80em',
+		description: `Wide screen (Landscape)`,
+		value: `80em`,
 		id: '12525cb1-4141-11ec-8de5-f7dcd20b9ace',
 	},
 	{
 		name: 'coralBrandingLogo',
 		type: 'branding',
-		description: 'Brand logo in App heading',
-		value:
-			"url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==')",
+		description: `Brand logo in App heading`,
+		value: `url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==')`,
 		id: 'ee8df300-4787-11ec-a826-6db8532cd4e8',
 	},
 	{
 		name: 'coralTransitionInstant',
 		type: 'transition',
-		description: 'Instant transition for hovering effects (opacity, color...)',
-		value: '100ms ease-out',
+		description: `Instant transition for hovering effects (opacity, color...)`,
+		value: `100ms ease-out`,
 		id: 'fde4cb70-5d8b-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralTransitionFast',
 		type: 'transition',
-		description: 'Fast transition for "out" effects (closing menu, hide modal...)',
-		value: '250ms ease-in-out',
+		description: `Fast transition for "out" effects (closing menu, hide modal...)`,
+		value: `250ms ease-in-out`,
 		id: '087f7c61-5d8c-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralTransitionNormal',
 		type: 'transition',
-		description: 'Normal transition for "in" effects (opening menu, show modal...)',
-		value: '300ms ease-in-out',
+		description: `Normal transition for "in" effects (opening menu, show modal...)`,
+		value: `300ms ease-in-out`,
 		id: '1f78fc71-5d8c-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralTransitionSlow',
 		type: 'transition',
-		description: 'Slow transition for background illustrations with movement.',
-		value: '400ms ease-in',
+		description: `Slow transition for background illustrations with movement.`,
+		value: `400ms ease-in`,
 		id: '31b8ec11-5d8c-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralElevationLayerFlat',
 		type: 'elevation',
-		description: 'Default content elevation',
-		value: '0',
+		description: `Default content elevation`,
+		value: `0`,
 		id: '26c8aba1-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralElevationLayerStandardFront',
 		type: 'elevation',
-		description:
-			'First elevation layer. Just above the default content (Drawer, Modal, Fixed layout...)',
-		value: '4',
+		description: `First elevation layer.
+
+Just above the default content (Drawer, Modal, Fixed layout...)`,
+		value: `4`,
 		id: '2d995c41-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralElevationLayerInteractiveFront',
 		type: 'elevation',
-		description: 'Second elevation layer. For elements above any layout (Dropdown, Popover).',
-		value: '8',
+		description: `Second elevation layer. 
+
+For elements above any layout (Dropdown, Popover).`,
+		value: `8`,
 		id: '334e63b1-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralElevationLayerOverlay',
 		type: 'elevation',
-		description:
-			'Topmost layer. For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)',
-		value: '16',
+		description: `Topmost layer.
+
+For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)`,
+		value: `16`,
 		id: '3853ca31-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
 		name: 'coralAnimationHeartbeat',
 		type: 'animation',
-		description:
-			'Heartbeat animation. Ex: Skeletons : Usage: animate: tokens.$animation-heartbeat;',
-		value: 'coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite',
+		description: `Heartbeat animation. 
+
+Ex: Skeletons 
+
+Usage: 
+
+animate: tokens.$animation-heartbeat;`,
+		value: `coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite`,
 		id: '4c3ea510-93cf-11ec-969d-2dcd5665e329',
 	},
 ];
