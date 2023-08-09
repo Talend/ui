@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 7.14.1
+
+### Patch Changes
+
+- 6391fc8b6: Form.Copy - Fix no copied message after switching back
+- Updated dependencies [3cfe50989]
+  - @talend/design-tokens@2.9.0
+
 ## 7.14.0
 
 ### Minor Changes

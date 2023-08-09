@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 14.0.1
+
+### Patch Changes
+
+- d9616e484: Fix the use of spawn on windows
+
 ## 14.0.0
 
 ### Major Changes

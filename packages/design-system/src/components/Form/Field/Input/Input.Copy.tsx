@@ -63,7 +63,11 @@ const InputCopy = forwardRef(
 			}
 			return '';
 		};
-
+		const doCopy = () => {
+			const value = inputRef.current?.value || '';
+			copyToClipboard(value);
+			setCopiedValue(value);
+		};
 		return (
 			<FieldPrimitive
 				label={label}
@@ -83,7 +87,7 @@ const InputCopy = forwardRef(
 					suffix={{
 						type: 'button',
 						icon: 'talend-files-o',
-						onClick: () => copyToClipboard(inputRef.current?.value || ''),
+						onClick: doCopy,
 						disabled: !!disabled || !!readOnly,
 						children: t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard'),
 						hideText: true,
