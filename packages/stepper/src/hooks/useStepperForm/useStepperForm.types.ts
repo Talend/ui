@@ -6,3 +6,7 @@ export interface StepState extends StepperStep {
 
 export type StepperState = StepState[];
 export type NavigationStep = { from: string; to?: string };
+export enum NavigationDirection {
+	NEXT = 'next',
+	PREVIOUS = 'previous',
+}

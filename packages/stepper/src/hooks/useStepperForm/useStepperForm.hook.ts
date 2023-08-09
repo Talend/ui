@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { getStepperState } from '../../components/StepperForm/StepperForm.utils';
-import { NavigationStep, StepperState } from './useStepperForm.types';
+import { NavigationDirection, NavigationStep, StepperState } from './useStepperForm.types';
 
-const setPrevious = (state: StepperState, navigation: NavigationStep): StepperState => {
+const handleStepChange = (
+	state: StepperState,
+	navigation: NavigationStep,
+	direction: NavigationDirection,
+): StepperState => {
 	const { from, to } = navigation;
 	const stepState = state.find(step => step.key === from);
 
@@ -15,24 +19,7 @@ const setPrevious = (state: StepperState, navigation: NavigationStep): StepperSt
 
 	newState[index].navigation = {
 		...stepState.navigation,
-		previous: to,
-	};
-
-	return newState;
-};
-
-const setNext = (state: StepperState, navigation: NavigationStep): StepperState => {
-	const { from, to } = navigation;
-	const stepState = state.find(step => step.key === from);
-	if (!stepState) {
-		return state;
-	}
-	const newState: StepperState = [...state];
-	const index = state.indexOf(stepState);
-
-	newState[index].navigation = {
-		...stepState.navigation,
-		next: to,
+		...(direction === NavigationDirection.NEXT ? { next: to } : { previous: to }),
 	};
 
 	return newState;
@@ -56,11 +43,19 @@ const disableStep = (state: StepperState, stepKey: string, cause: string): Stepp
 	};
 
 	if (nextStep) {
-		newState = setPrevious(newState, { from: nextStep, to: previousStep });
+		newState = handleStepChange(
+			newState,
+			{ from: nextStep, to: previousStep },
+			NavigationDirection.PREVIOUS,
+		);
 	}
 
 	if (previousStep) {
-		newState = setNext(newState, { from: previousStep, to: nextStep });
+		newState = handleStepChange(
+			newState,
+			{ from: previousStep, to: nextStep },
+			NavigationDirection.NEXT,
+		);
 	}
 
 	return newState;
@@ -81,11 +76,19 @@ const enableStep = (state: StepperState, stepKey: string): StepperState => {
 	delete newState[index].navigation?.disableCause;
 
 	if (nextStep) {
-		newState = setPrevious(newState, { from: nextStep, to: stepKey });
+		newState = handleStepChange(
+			newState,
+			{ from: nextStep, to: stepKey },
+			NavigationDirection.PREVIOUS,
+		);
 	}
 
 	if (previousStep) {
-		newState = setNext(newState, { from: previousStep, to: stepKey });
+		newState = handleStepChange(
+			newState,
+			{ from: previousStep, to: stepKey },
+			NavigationDirection.NEXT,
+		);
 	}
 
 	return newState;
