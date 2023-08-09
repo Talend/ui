@@ -34,21 +34,21 @@ $tc-notification-icon-size: $svg-md-size !default;
 	}
 
 	&-info,
-	&-info p,
+	&-info &-message,
 	&-info &-title {
 		background: tokens.$coral-color-success-background;
 		color: tokens.$coral-color-success-text-strong;
 	}
 
 	&-warning,
-	&-warning p,
+	&-warning &-message,
 	&-warning &-title {
 		background: tokens.$coral-color-warning-background;
 		color: tokens.$coral-color-warning-text-strong;
 	}
 
 	&-error,
-	&-error p,
+	&-error &-message,
 	&-error &-title {
 		background: tokens.$coral-color-danger-background;
 		color: tokens.$coral-color-danger-text-strong;
