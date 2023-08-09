@@ -1,4 +1,4 @@
-import Stepper from '@talend/react-components/lib/Stepper';
+import { Stepper } from '@talend/react-components';
 import StepperForm from './components/StepperForm';
 import StepperContainer from './containers/Stepper.connect';
 import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';

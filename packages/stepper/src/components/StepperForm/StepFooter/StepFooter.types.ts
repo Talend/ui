@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export interface StepperFormFooterProps {
+export interface StepFooterProps {
 	children?: ReactNode;
 	dataFeature?: {
 		cancel?: string;
@@ -15,4 +15,4 @@ export interface StepperFormFooterProps {
 	onSubmit?(): void;
 }
 
-export type StepperFormFooter = StepperFormFooterProps;
+export type StepFooter = StepFooterProps;

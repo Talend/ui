@@ -3,6 +3,7 @@
   "description": "Provide a stepper component",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
+  "types": "lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",

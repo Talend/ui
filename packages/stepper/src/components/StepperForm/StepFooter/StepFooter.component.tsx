@@ -4,26 +4,20 @@ import { useTranslation } from 'react-i18next';
 import I18N from '../../../constants/i18n';
 import { StepperFormContext } from '../StepperForm.context';
 import style from '../StepperForm.module.scss';
-import { StepperFormFooterProps } from './StepperFormFooter.types';
+import { StepFooterProps } from './StepFooter.types';
 
-const StepperFormFooter = ({
+const StepFooter = ({
 	children,
 	dataFeature,
 	isLoading,
 	onCancel,
 	onPrevious,
 	onNext,
-	onSubmit,
-}: StepperFormFooterProps) => {
+}: StepFooterProps) => {
 	const { t } = useTranslation(I18N.STEPPER_NAMESPACE);
 	const { currentStep, steps } = useContext(StepperFormContext);
 
 	const currentStepNavigation = steps[currentStep].navigation;
-
-	const showNextButton = currentStepNavigation?.next && currentStep < steps.length - 1;
-	const showPreviousButton = currentStepNavigation?.previous;
-	const showRunButton = !currentStepNavigation?.next;
-	const hasRightButtons = showPreviousButton || showNextButton || children || showRunButton;
 
 	return (
 		<div className={style['stepper-form__footer']}>
@@ -31,9 +25,10 @@ const StepperFormFooter = ({
 				<ButtonSecondary onClick={onCancel} data-feature={dataFeature?.cancel}>
 					{t('CANCEL', 'Cancel')}
 				</ButtonSecondary>
-				{hasRightButtons && <Divider orientation="vertical" />}
 
-				{showPreviousButton && onPrevious && (
+				<Divider orientation="vertical" />
+
+				{onPrevious && (
 					<ButtonSecondary onClick={onPrevious} data-feature={dataFeature?.previous}>
 						{t('PREVIOUS', 'Previous')}
 					</ButtonSecondary>
@@ -41,15 +36,9 @@ const StepperFormFooter = ({
 
 				{children}
 
-				{showNextButton && onNext && (
+				{onNext && (
 					<ButtonPrimary onClick={onNext} data-feature={dataFeature?.next} disabled={isLoading}>
-						{t('NEXT', 'Next')}
-					</ButtonPrimary>
-				)}
-
-				{showRunButton && onSubmit && (
-					<ButtonPrimary onClick={onSubmit} data-feature={dataFeature?.submit} disabled={isLoading}>
-						{t('VALIDATE', 'Validate')}
+						{currentStepNavigation?.next ? t('NEXT', 'Next') : t('VALIDATE', 'Validate')}
 					</ButtonPrimary>
 				)}
 			</StackHorizontal>
@@ -57,4 +46,4 @@ const StepperFormFooter = ({
 	);
 };
 
-export default StepperFormFooter;
+export default StepFooter;

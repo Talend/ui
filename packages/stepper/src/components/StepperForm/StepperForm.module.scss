@@ -25,23 +25,22 @@
 
 	&__container {
 		display: flex;
-		flex: 1;
 		flex-direction: column;
-		gap: tokens.$coral-spacing-l;
+		flex: 1;
 		padding-right: tokens.$coral-spacing-l;
 	}
 
 	&__content {
-		height: calc(100% - 11.5rem);
-
-		fieldset {
-			height: 100%;
-		}
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		height: 100%;
+		padding-top: tokens.$coral-spacing-l;
+		overflow: hidden;
 	}
 
 	&__footer {
 		display: flex;
-		flex: 0;
 
 		hr {
 			max-height: tokens.$coral-sizing-xxxs;

@@ -1,13 +1,15 @@
 import StepperForm from './StepperForm.component';
-import StepperFormFooter from './StepperFormFooter';
-import { StepperFormContextProvider } from './StepperForm.context';
+import StepFooter from './StepFooter';
+import { StepperFormProvider, StepperFormContext } from './StepperForm.context';
 
 const StepperFormComponent = StepperForm as typeof StepperForm & {
-	ContextProvider: typeof StepperFormContextProvider;
-	Footer: typeof StepperFormFooter;
+	Context: typeof StepperFormContext;
+	Provider: typeof StepperFormProvider;
+	Footer: typeof StepFooter;
 };
 
-StepperFormComponent.ContextProvider = StepperFormContextProvider;
-StepperFormComponent.Footer = StepperFormFooter;
+StepperFormComponent.Context = StepperFormContext;
+StepperFormComponent.Provider = StepperFormProvider;
+StepperFormComponent.Footer = StepFooter;
 
 export default StepperFormComponent;

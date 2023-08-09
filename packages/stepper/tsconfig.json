@@ -1,12 +1,10 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["stories/**/*", "src/**/*", "custom.d.ts"],
+  "include": ["src/**/*", "custom.d.ts"],
   "compilerOptions": {
-    "target": "ES6",
+    "allowJs": true,
+    "checkJs": false,
     "declaration": true,
-    "allowJs": false,
-    "jsx": "react-jsx",
-    "module": "CommonJs",
-    "rootDirs": [".storybook", "src"]
+    "noEmit": false
   }
 }

@@ -4,35 +4,42 @@ import { StepperFormContext } from './StepperForm.context';
 import style from './StepperForm.module.scss';
 import { StepperProps } from './StepperForm.types';
 import { getStepComponent } from './StepperForm.utils';
-import { StepperFormHeader } from './StepperFormHeader/StepperFormHeader.component';
+import { StepHeader } from './StepHeader/StepHeader.component';
 
-const StepperForm = ({ header, isLoading }: StepperProps) => {
+const StepperForm = ({ isLoading }: StepperProps) => {
 	const { steps, currentStep } = useContext(StepperFormContext);
-	const Component = steps[currentStep].component;
+	const currentStepData = steps[currentStep];
+	const Component = currentStepData.component;
 
 	return (
 		<div className={style['stepper-form']}>
 			<div className={style['stepper-form__steps']}>
 				<StepperDS currentStepIndex={currentStep} loading={isLoading}>
 					{steps.map((step, index) => {
-						const { key, navigation, tooltip, ...rest } = step;
+						const { key, navigation, tooltip, name } = step;
 						const Step = getStepComponent(currentStep, index, !!navigation?.disableCause);
 
 						return (
-							<Step key={`step-${key}`} tooltip={navigation?.disableCause ?? tooltip} {...rest} />
+							<Step
+								key={`step-${key}`}
+								tooltip={navigation?.disableCause ?? tooltip}
+								title={name}
+							/>
 						);
 					})}
 				</StepperDS>
 			</div>
 			<div className={style['stepper-form__container']}>
-				<StepperFormHeader {...header} />
+				<StepHeader {...currentStepData.header} />
 
-				<div className={style['stepper-form__content']}>
+				<section className={style['stepper-form__content']}>
 					<Component />
-				</div>
+				</section>
 			</div>
 		</div>
 	);
 };
+
+StepperForm.displayName = 'StepperForm';
 
 export default StepperForm;

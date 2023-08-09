@@ -6,7 +6,7 @@ import { StepperStep } from './StepperForm.types';
 
 const emptyFn = () => {};
 
-interface StepperFormValues {
+export interface StepperFormValues {
 	currentStep: number;
 	onDisableStep: (stepKey: string, cause: string) => void;
 	onEnableStep: (stepKey: string) => void;
@@ -30,7 +30,7 @@ export interface StepperFormProviderProps {
 	steps: StepperStep[];
 }
 
-export const StepperFormContextProvider = ({
+export const StepperFormProvider = ({
 	children,
 	initialStepIndex,
 	steps,

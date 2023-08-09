@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { StepperFormHeader } from './StepperFormHeader/StepperFormHeader.types';
+import { StepHeader } from './StepHeader/StepHeader.types';
 
 export interface StepperStepNavigation {
 	disableCause?: string;
@@ -10,11 +10,11 @@ export interface StepperStepNavigation {
 export interface StepperStep {
 	component: ComponentType;
 	key: string;
-	title: string;
+	name: string;
 	tooltip?: string;
+	header: StepHeader;
 }
 
 export interface StepperProps {
-	header: StepperFormHeader;
 	isLoading?: boolean;
 }

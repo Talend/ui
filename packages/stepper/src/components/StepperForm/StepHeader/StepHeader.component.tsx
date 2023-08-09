@@ -1,7 +1,7 @@
-import { StepperFormHeaderProps } from './StepperFormHeader.types';
+import { StepHeaderProps } from './StepHeader.types';
 import style from '../StepperForm.module.scss';
 
-export const StepperFormHeader = ({ title, subtitle }: StepperFormHeaderProps) => {
+export const StepHeader = ({ title, subtitle }: StepHeaderProps) => {
 	return (
 		<>
 			<h2 className={style['stepper-form__header__title']}>{title}</h2>
