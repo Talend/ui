@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.2.0
+
+### Minor Changes
+
+- c65edb127: fix(TDP-12557): use lighter gray for format value whitespace
+
 ## 11.1.3
 
 ### Patch Changes
