@@ -1,4 +1,5 @@
 /* eslint-disable testing-library/prefer-screen-queries */
+
 /* eslint-disable testing-library/await-async-query */
 import { Popover, ButtonPrimary, CollapsiblePanel } from '../../';
 
@@ -6,11 +7,8 @@ context('<Popover />', () => {
 	describe('default', () => {
 		it('should show a popover', () => {
 			cy.mount(
-				<Popover
-					disclosure={<ButtonPrimary data-testid="my.button">Open popover</ButtonPrimary>}
-					data-testid="my.popover"
-				>
-					Popover content
+				<Popover data-testid="my.popover" popup="Popover content">
+					<ButtonPrimary data-testid="my.button">Open popover</ButtonPrimary>
 				</Popover>,
 			);
 
@@ -25,16 +23,10 @@ context('<Popover />', () => {
 				<CollapsiblePanel
 					title="panel"
 					metadata={[
-						<Popover
-							key="my.popover"
-							disclosure={
-								<ButtonPrimary onClick={() => {}} data-testid="my.button">
-									Open popover
-								</ButtonPrimary>
-							}
-							data-testid="my.popover"
-						>
-							<p>Popover content</p>
+						<Popover key="my.popover" data-testid="my.popover" popup={<p>Popover content</p>}>
+							<ButtonPrimary onClick={() => {}} data-testid="my.button">
+								Open popover
+							</ButtonPrimary>
 						</Popover>,
 					]}
 				>

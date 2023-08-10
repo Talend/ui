@@ -1,11 +1,15 @@
 import { useRef, Fragment } from 'react';
 import type { ReactNode, MouseEvent } from 'react';
-import tokens from '@talend/design-tokens';
 
 import { Placement, FloatingArrow, FloatingPortal } from '@floating-ui/react';
+import classNames from 'classnames';
+
+import tokens from '@talend/design-tokens';
+
+import { renderOrClone, ChildOrGenerator } from '../../renderOrClone';
 import { usePopover } from './usePopover';
+
 import theme from './Popover.module.scss';
-import { renderOrClone, ChildrenOrFn } from '../../renderOrClone';
 
 type PopoverOptions = {
 	popup: ReactNode | ((props: any) => ReactNode);
@@ -15,10 +19,11 @@ type PopoverOptions = {
 	open?: boolean;
 	isFixed?: boolean;
 	onOpenChange?: (open: boolean) => void;
+	hasPadding?: boolean;
 };
 
 export type PopoverProps = {
-	children: ChildrenOrFn;
+	children: ChildOrGenerator<ReactNode, object>;
 } & PopoverOptions;
 
 export function Popover({
@@ -26,6 +31,7 @@ export function Popover({
 	modal = true,
 	isFixed = false,
 	popup,
+	hasPadding = true,
 	...restOptions
 }: PopoverProps) {
 	// This can accept any props as options, e.g. `placement`,
@@ -36,15 +42,17 @@ export function Popover({
 	const Wrapper = isFixed ? FloatingPortal : Fragment;
 	const onClick = (e: MouseEvent<HTMLElement>) => {
 		e.preventDefault();
+		e.stopPropagation();
 	};
 	const childrenProps = popover.getReferenceProps({ onClick });
+
 	return (
 		<>
 			{renderOrClone(children, { ...childrenProps, ref: popover.refs.setReference })}
 			<Wrapper>
 				<div
 					ref={popover.refs.setFloating}
-					className={theme.popover}
+					className={classNames(theme.popover, { [theme.withPadding]: hasPadding })}
 					style={{ ...popover.floatingStyles, display: popover.open ? 'block' : 'none' }}
 					aria-labelledby={popover.labelId}
 					aria-describedby={popover.descriptionId}
@@ -57,7 +65,9 @@ export function Popover({
 						stroke={tokens.coralColorIllustrationShadow}
 						fill={tokens.coralColorNeutralBackground}
 					/>
-					{typeof popup === 'function' ? popup(popover.getFloatingProps()) : popup}
+					{typeof popup === 'function'
+						? popup({ ...popover.getFloatingProps(), setOpen: popover.setOpen })
+						: popup}
 				</div>
 			</Wrapper>
 		</>

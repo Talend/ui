@@ -1,8 +1,9 @@
-import { cloneElement } from 'react';
-import type { Ref, ReactNode } from 'react';
+import type { Ref } from 'react';
+
+import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
 
 export type DisclosureProps = {
-	children: ReactNode | ((props: DisclosureFnProps) => ReactNode);
+	children: ChildOrGenerator<JSX.Element, DisclosureFnProps>;
 	popref?: Ref<HTMLButtonElement>;
 };
 
@@ -18,15 +19,6 @@ export function Disclosure({ children, popref, ...rest }: DisclosureProps) {
 	const props: DisclosureButtonProps = {
 		ref: popref,
 	};
-	if (typeof children === 'function') {
-		return children({
-			ref: popref,
-			...rest,
-		});
-	}
-	if (!children) {
-		return null;
-	}
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	return cloneElement(children as any, { ...props, ...rest });
+
+	return renderOrClone(children, { ...props, ...rest }) || null;
 }

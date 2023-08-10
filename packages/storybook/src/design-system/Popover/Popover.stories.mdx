@@ -1,6 +1,8 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import * as Stories from '@talend/design-system/src/components/Popover/Popover.stories';
+
 import { StackVertical, InlineMessageWarning } from '@talend/design-system';
+
+import * as Stories from './Popover.stories';
 
 <Meta
 	title="Design System/Popover"
@@ -51,6 +53,10 @@ You can use any of the design system's "Clickable" or "Form" component as a disc
 
 <Canvas>
 	<Story height="12rem" story={Stories.DisclosureStory} />
+</Canvas>
+
+<Canvas>
+	<Story height="12rem" story={Stories.InInteractiveComponentStory} />
 </Canvas>
 
 <Canvas>

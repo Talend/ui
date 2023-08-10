@@ -1,7 +1,16 @@
 import { forwardRef, Ref } from 'react';
+
 import { action } from '@storybook/addon-actions';
-import { Popover, ButtonPrimary, ButtonIcon, StackVertical, Form } from '../../';
-import { PopoverTriggerProps } from './';
+
+import {
+	ButtonPrimary,
+	ButtonIcon,
+	StackVertical,
+	Form,
+	CollapsiblePanel,
+	PopoverTriggerProps,
+	Popover,
+} from '@talend/design-system';
 
 export default {
 	component: Popover,
@@ -10,7 +19,7 @@ export default {
 const EasyPopover = () => <StackVertical gap="S">Hello hello</StackVertical>;
 
 /* eslint-disable-next-line react/display-name */
-const OpenPopover = forwardRef(({ onClick, ...props }: any, ref: Ref) => {
+const OpenPopover = forwardRef(({ onClick, ...props }: any, ref: Ref<HTMLButtonElement>) => {
 	return (
 		<ButtonPrimary
 			onClick={() => {
@@ -37,17 +46,27 @@ export const DefaultStory = () => (
 
 export const DisclosureStory = () => (
 	<div style={{ padding: '1.2rem' }}>
-		<Popover
-			aria-label="Custom popover"
-			disclosure={
-				<ButtonIcon onClick={action('Clicked disclosure')} icon="question-filled">
-					Open popover
-				</ButtonIcon>
-			}
-		>
-			Text Content
+		<Popover aria-label="Custom popover" popup="Text Content">
+			<ButtonIcon onClick={action('Clicked disclosure')} icon="question-filled" size="M">
+				Open popover
+			</ButtonIcon>
 		</Popover>
 	</div>
+);
+
+export const InInteractiveComponentStory = () => (
+	<CollapsiblePanel
+		title="panel"
+		metadata={[
+			<Popover key="my.popover" data-testid="my.popover" popup={<p>Popover content</p>}>
+				<ButtonPrimary onClick={() => {}} data-testid="my.button">
+					Open popover
+				</ButtonPrimary>
+			</Popover>,
+		]}
+	>
+		Some text
+	</CollapsiblePanel>
 );
 
 export const ChildrenAsFunctionStory = () => (
@@ -78,7 +97,7 @@ export const WithFunctionAsChildren = () => (
 	<div style={{ padding: '1.2rem' }}>
 		<Popover
 			aria-label="Custom popover"
-			popup={(popover: DisclosureFnProps) => (
+			popup={popover => (
 				<>
 					<StackVertical gap="S">
 						There is some content
@@ -95,8 +114,13 @@ export const WithFunctionAsChildren = () => (
 
 export const WithoutPaddingStory = () => (
 	<div style={{ padding: '1.2rem' }}>
-		<Popover aria-label="Custom popover" disclosure={<OpenPopover />} isFixed hasPadding={false}>
-			Text Content without padding
+		<Popover
+			aria-label="Custom popover"
+			popup="Text Content without padding"
+			isFixed
+			hasPadding={false}
+		>
+			<OpenPopover />
 		</Popover>
 	</div>
 );

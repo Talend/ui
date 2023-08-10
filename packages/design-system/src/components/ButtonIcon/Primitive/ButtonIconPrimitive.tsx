@@ -2,18 +2,18 @@ import { forwardRef } from 'react';
 import type { MouseEvent, ReactElement, ButtonHTMLAttributes, Ref } from 'react';
 
 import classnames from 'classnames';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
-import { useId } from '../../../useId';
+import { mergeRefs } from '../../../mergeRef';
 import { DeprecatedIconNames } from '../../../types';
 import Button from '../../Clickable';
-import Tooltip, { TooltipPlacement } from '../../Tooltip';
-import Loading from '../../Loading';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
+import Loading from '../../Loading';
+import Tooltip, { TooltipPlacement } from '../../Tooltip';
 
 import styles from './ButtonIcon.module.scss';
-import { mergeRefs } from '../../../mergeRef';
 
 export type AvailableSizes = 'M' | 'S' | 'XS';
 export type PossibleVariants = 'toggle' | 'floating' | 'default';
@@ -37,10 +37,12 @@ export type ToggleTypes<S extends Partial<AvailableSizes>> = CommonTypes<S> & {
 
 export type FloatingTypes<S extends Partial<AvailableSizes>> = CommonTypes<S> & {
 	variant: 'floating';
+	isActive?: never;
 };
 
 export type DefaultTypes<S extends AvailableSizes> = CommonTypes<S> & {
 	variant: 'default';
+	isActive?: never;
 };
 
 export type ButtonIconProps<S extends AvailableSizes> =
@@ -60,9 +62,10 @@ function Primitive<S extends AvailableSizes>(
 		icon,
 		disabled,
 		tooltipPlacement,
+		isActive = false,
 		...rest
 	} = props;
-	const activeButtonIconPrimitive = props.variant === 'toggle' ? props.isActive : false;
+	const activeButtonIconPrimitive = props.variant === 'toggle' ? isActive : false;
 
 	return (
 		<Tooltip title={children} placement={tooltipPlacement || 'top'}>

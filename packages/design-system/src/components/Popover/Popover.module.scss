@@ -6,6 +6,8 @@
 	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 	border-radius: tokens.$coral-radius-s;
 	opacity: 1;
+}
 
+.withPadding {
 	padding: tokens.$coral-spacing-m;
 }

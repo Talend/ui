@@ -53,7 +53,7 @@ import {
 	MessageCollectionWarning,
 } from './components/Message';
 import Modal, { ModalPropsType } from './components/Modal';
-import Popover from './components/Popover';
+import Popover, { PopoverProps, PopoverTriggerProps } from './components/Popover';
 import RichRadioButton from './components/RichRadioButton';
 import Skeleton, {
 	SkeletonButton,
@@ -181,7 +181,8 @@ export {
 	VisuallyHidden,
 };
 
-export type { ModalPropsType, TooltipPlacement };
+export type { ModalPropsType, PopoverProps, PopoverTriggerProps, TooltipPlacement };
 
+export * from './components/Form/ToggleSwitch';
 export * from './components/Form/Checkbox';
 export * from './components/Form/ToggleSwitch';

@@ -5,7 +5,7 @@
     "cypress/**/*",
     "src/**/*",
     "custom.d.ts",
-    "../storybook/src/design-system/Switch/Switch.stories.tsx"
+    "../storybook/src/design-system/Popover/Popover.stories.tsx"
   ],
   "files": [],
   "compilerOptions": {

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useRef } from 'react';
-import type { ReactNode, MutableRefObject, RefCallback } from 'react';
+import type { MutableRefObject, RefCallback, ReactElement, ReactNode } from 'react';
+
 import {
 	arrow,
 	FloatingArrow,
@@ -17,10 +18,10 @@ import {
 	shift,
 } from '@floating-ui/react';
 
+import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
 import { useId } from '../../useId';
 
 import styles from './Tooltip.module.scss';
-import { renderOrClone } from '../../renderOrClone';
 
 export type Placement =
 	| 'top-start'
@@ -49,10 +50,10 @@ export type TooltipChildrenFnRef =
 	| RefCallback<HTMLButtonElement>;
 
 export type TooltipProps = {
-	title?: string;
+	title?: ReactNode;
 	placement?: Placement;
 	id?: string;
-	children: (props: TooltipChildrenFnProps, ref: any) => ReactNode;
+	children: ChildOrGenerator<ReactElement, TooltipChildrenFnProps, TooltipChildrenFnRef>;
 };
 
 const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipProps) => {
@@ -85,11 +86,14 @@ const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipPro
 
 	return (
 		<>
-			{renderOrClone(children, {
-				...getReferenceProps(),
-				'aria-describedby': safeId,
-				ref: floating.refs.setReference,
-			})}
+			{renderOrClone(
+				children,
+				{
+					...getReferenceProps(),
+					'aria-describedby': safeId,
+				},
+				floating.refs.setReference,
+			)}
 			<FloatingPortal>
 				<div
 					{...getFloatingProps()}
