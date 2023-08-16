@@ -72,7 +72,7 @@ import {
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import { Tabs, TabsAsLinkList, TabsKit } from './components/Tabs';
+import { Tab, Tabs, TabsAsLinkList, TabsKit } from './components/Tabs';
 import {
 	Tag,
 	TagBeta,
@@ -165,6 +165,7 @@ export {
 	StatusWarning,
 	Stepper,
 	Switch,
+	Tab,
 	Tabs,
 	TabsAsLinkList,
 	TabsKit,

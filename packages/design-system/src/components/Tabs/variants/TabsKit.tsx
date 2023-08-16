@@ -2,8 +2,8 @@ import { createContext, forwardRef, ReactNode, Ref, useContext, useMemo } from '
 
 import { IconNameWithSize } from '@talend/icons';
 
-import Tab from '../Primitive/Tab';
 import TabList from '../Primitive/TabList';
+import TabNavigation from '../Primitive/TabNavigation';
 import TabPanel from '../Primitive/TabPanel';
 import { TabStateReturn, useTabState } from '../Primitive/TabState';
 
@@ -51,7 +51,7 @@ const TabComponent = forwardRef(
 		if (!tabs) {
 			return null;
 		}
-		return <Tab {...tabs} ref={ref} {...props} />;
+		return null; //<TabNavigation {...tabs} ref={ref} {...props} />;
 	},
 );
 TabComponent.displayName = 'Tab';
@@ -66,7 +66,7 @@ const TabPanelComponent = forwardRef((props: TabPanelProps, ref: Ref<HTMLDivElem
 	if (!tab) {
 		return null;
 	}
-	return <TabPanel {...tab} ref={ref} {...props} />;
+	return null; //<TabPanel {...tab} ref={ref} {...props} />;
 });
 TabPanelComponent.displayName = 'TabPanel';
 

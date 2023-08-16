@@ -1,7 +1,8 @@
+import Tab from './Primitive/TabElement';
 import Tabs from './variants/Tabs';
-import TabsKit from './variants/TabsKit';
 import TabsAsLinkList from './variants/TabsAsLinkList';
+import TabsKit from './variants/TabsKit';
 
-export { Tabs, TabsKit, TabsAsLinkList };
+export { Tab, Tabs, TabsKit, TabsAsLinkList };
 
 export default TabsKit;
