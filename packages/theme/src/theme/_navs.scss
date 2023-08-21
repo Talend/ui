@@ -33,12 +33,22 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 				margin: 0;
 			}
 
-			&:hover,
+			.btn-link {
+				color: tokens.$coral-color-accent-text-weak;
+			}
+
+			&:hover {
+				.btn-link {
+					// TODO: replace with token
+					background-color: rgba(255, 255, 255, 0.12);
+				}
+			}
+
 			&.active,
 			&.open {
 				.btn-link {
-					color: tokens.$coral-color-accent-text-weak;
-					background-color: tokens.$coral-color-accent-background-strong;
+					background-color: tokens.$coral-color-accent-text-weak;
+					color: tokens.$coral-color-accent-background-strong;
 				}
 			}
 
@@ -82,19 +92,17 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			.btn.btn-link {
 				width: 100%;
 				text-align: left;
-
-				&:focus,
-				&:hover,
-				&:active {
-					background-color: tokens.$coral-color-accent-background-strong;
-					color: tokens.$coral-color-accent-text-weak;
-				}
 			}
 		}
 	}
 
 	&-pills.nav-inverse {
 		> li {
+
+			.btn-link {
+				color: tokens.$coral-color-accent-text;
+			}
+
 			&:focus,
 			&:hover {
 				background-color: tokens.$coral-color-accent-background-hover;
@@ -108,7 +116,7 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			&:active,
 			&.active,
 			&.open {
-				background-color: tokens.$coral-color-accent-background-strong;
+				background-color: tokens.$coral-color-accent-background-weak;
 			}
 		}
 	}

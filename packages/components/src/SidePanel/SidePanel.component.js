@@ -101,9 +101,7 @@ function SidePanel({
 		[theme.reverse]: reverse,
 		[theme.animate]: animation,
 	});
-	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
-		'nav-inverse': !reverse,
-	});
+	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list');
 
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand menu' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse menu' });
