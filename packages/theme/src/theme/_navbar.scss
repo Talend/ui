@@ -9,11 +9,16 @@
 	color: tokens.$coral-color-neutral-text;
 	background: tokens.$coral-color-neutral-background-medium;
 
+	.navbar-nav > li > a {
+		color: tokens.$coral-color-neutral-text;
+	}
+
 	.btn-link:hover,
 	.btn-link:focus,
 	.navbar-nav > li > a:hover,
 	.navbar-nav > li > a:focus {
 		color: tokens.$coral-color-neutral-text;
+		background: tokens.$coral-color-neutral-background-strong;
 	}
 }
 
