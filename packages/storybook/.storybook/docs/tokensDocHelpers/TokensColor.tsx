@@ -6,6 +6,7 @@ import DefinitionListColors from './components/DefinitionList/DefinitionListColo
 const colorOrder = [
 	'neutral',
 	'accent',
+	'info',
 	'success',
 	'warning',
 	'danger',

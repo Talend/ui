@@ -7,6 +7,7 @@ const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	const filteredTokens = {
 		neutral: tokens.filter((token: Token) => token.name.includes('ColorNeutral')),
 		accent: tokens.filter((token: Token) => token.name.includes('ColorAccent')),
+		info: tokens.filter((token: Token) => token.name.includes('ColorInfo')),
 		success: tokens.filter((token: Token) => token.name.includes('ColorSuccess')),
 		danger: tokens.filter((token: Token) => token.name.includes('ColorDanger')),
 		warning: tokens.filter((token: Token) => token.name.includes('ColorWarning')),
