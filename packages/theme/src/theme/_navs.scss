@@ -49,8 +49,8 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			&.active,
 			&.open {
 				.btn-link {
-					background-color: tokens.$coral-color-accent-text-weak;
-					color: tokens.$coral-color-accent-background-strong;
+					background-color: tokens.$coral-color-neutral-background;
+					color: tokens.$coral-color-accent-text;
 				}
 			}
 
