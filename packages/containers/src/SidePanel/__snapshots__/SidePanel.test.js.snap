@@ -31,7 +31,7 @@ exports[`SidePanel should render 1`] = `
     data-simplebar="true"
   >
     <ul
-      class="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse nav-inverse"
+      class="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
     />
   </div>
 </nav>
