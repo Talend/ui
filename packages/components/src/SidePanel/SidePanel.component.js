@@ -73,7 +73,7 @@ function SidePanel({
 			const actionList = ref.current.querySelector('.tc-action-list');
 			setWidth(actionList.offsetWidth);
 		}
-	}, [ref, docked]);
+	}, [ref, docked, minimised, large]);
 
 	useEffect(() => {
 		// animation is disabled at first to avoid the panel to be animated at first render
@@ -81,7 +81,7 @@ function SidePanel({
 		if (!animation && width) {
 			setAnimation(true);
 		}
-	}, [width]);
+	}, [animation, width]);
 
 	const onToggle = (...args) => {
 		if (onToggleDock) {
@@ -101,9 +101,7 @@ function SidePanel({
 		[theme.reverse]: reverse,
 		[theme.animate]: animation,
 	});
-	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
-		'nav-inverse': !reverse,
-	});
+	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list');
 
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand menu' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse menu' });
