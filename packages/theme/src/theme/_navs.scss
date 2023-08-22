@@ -15,8 +15,8 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			text-decoration: none;
 		}
 
-		>*,
-		>span>* {
+		> *,
+		> span > * {
 			vertical-align: middle;
 		}
 	}
@@ -27,10 +27,9 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 	}
 
 	&-pills {
-		>li {
-
+		> li {
 			&,
-			+li {
+			+ li {
 				margin: 0;
 			}
 
@@ -56,7 +55,6 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			}
 
 			&.disabled .btn {
-
 				&:focus,
 				&:hover {
 					// background-color: tokens.$coral-color-accent-background-weak;
@@ -64,9 +62,9 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 				}
 			}
 
-			&.active>a,
-			&.active>a:hover,
-			&.active>a:focus {
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:focus {
 				background-color: tokens.$coral-color-accent-background-strong;
 			}
 		}
@@ -101,8 +99,7 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 	}
 
 	&-pills.nav-inverse {
-		>li {
-
+		> li {
 			.btn-link {
 				color: tokens.$coral-color-accent-text;
 			}
@@ -128,11 +125,11 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 	&-tabs {
 		border: none;
 
-		>li {
+		> li {
 			margin: 0;
 
-			>a,
-			>button {
+			> a,
+			> button {
 				background: transparent;
 				border: none;
 				border-radius: 0;
@@ -154,9 +151,8 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			}
 
 			&.active {
-
-				>a,
-				>button {
+				> a,
+				> button {
 					color: tokens.$coral-color-accent-text;
 					font-weight: $font-weight-semi-bold;
 
@@ -184,9 +180,8 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			}
 
 			&.disabled {
-
-				>a,
-				>button {
+				> a,
+				> button {
 					cursor: not-allowed;
 					color: tokens.$coral-color-neutral-text-disabled;
 					opacity: 0.54;
@@ -201,7 +196,7 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			}
 		}
 
-		+.tab-content {
+		+ .tab-content {
 			padding-top: $padding-large;
 		}
 	}
