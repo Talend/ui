@@ -1,5 +1,4 @@
 ---
-'@talend/bootstrap-sass': patch
 '@talend/react-components': patch
 '@talend/bootstrap-theme': patch
 ---
