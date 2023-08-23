@@ -4,7 +4,6 @@
 '@talend/bootstrap-theme': patch
 ---
 
-### Design System / Components / Bootstrap Theme
 Improve usage of design tokens for info variants
 
 
