@@ -4,13 +4,7 @@
 
 ### Patch Changes
 
-- 58f8ff666: ## @talend/bootstrap-theme
-  Fix focus and active state colors for bootstrap buttons
-
-  ## @talend/react-components
-
-  Fix button style for filter bar clear button
-
+- 58f8ff666: Fix button style for filter bar clear button
 - a5348a439: TDOPS-4964 - Fix SidePanel colors
 - 82e08d6e5: TDOPS-4890 - Fix Notifications text color
 - Updated dependencies [58f8ff666]
