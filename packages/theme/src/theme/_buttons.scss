@@ -79,6 +79,12 @@
 		background: tokens.$coral-color-accent-background-strong;
 		color: tokens.$coral-color-accent-text-weak;
 
+		&:focus,
+		&.focus {
+			color: tokens.$coral-color-accent-text-weak;
+			background-color: tokens.$coral-color-accent-background-strong;
+		}
+
 		&:hover {
 			background: tokens.$coral-color-accent-background-strong-hover;
 			color: tokens.$coral-color-accent-text-weak-hover;
@@ -106,6 +112,13 @@
 		background-color: transparent;
 		border-color: tokens.$coral-color-accent-border;
 		color: tokens.$coral-color-accent-text;
+
+		&:focus,
+		&.focus {
+			background-color: transparent;
+			border-color: tokens.$coral-color-accent-border;
+			color: tokens.$coral-color-accent-text;
+		}
 
 		&:hover {
 			background: tokens.$coral-color-accent-background-weak-hover;
@@ -137,6 +150,13 @@
 		border-color: tokens.$coral-color-accent-border;
 		color: tokens.$coral-color-accent-text;
 
+		&:focus,
+		&.focus {
+			background-color: transparent;
+			border-color: tokens.$coral-color-accent-border;
+			color: tokens.$coral-color-accent-text;
+		}
+
 		&:hover {
 			background: tokens.$coral-color-accent-background-weak-hover;
 			border-color: tokens.$coral-color-accent-border-hover;
@@ -167,6 +187,12 @@
 		background-color: transparent;
 		color: tokens.$coral-color-accent-text;
 
+		&:focus,
+		&.focus {
+			background-color: transparent;
+			color: tokens.$coral-color-accent-text;
+		}
+
 		&:hover {
 			background: tokens.$coral-color-accent-background-weak-hover;
 			color: tokens.$coral-color-accent-text-strong-hover;
@@ -193,6 +219,11 @@
 	&-link {
 		color: tokens.$coral-color-accent-text;
 
+		&:focus,
+		&.focus {
+			color: tokens.$coral-color-accent-text;
+		}
+
 		&:hover {
 			color: tokens.$coral-color-accent-text-strong-hover;
 		}
@@ -218,6 +249,13 @@
 		background: tokens.$coral-color-danger-background-strong;
 		border-color: tokens.$coral-color-danger-border;
 		color: tokens.$coral-color-danger-text-weak;
+
+		&:focus,
+		&.focus {
+			background: tokens.$coral-color-danger-background-strong;
+			border-color: tokens.$coral-color-danger-border;
+			color: tokens.$coral-color-danger-text-weak;
+		}
 
 		&:hover {
 			background: tokens.$coral-color-danger-background-strong-hover;

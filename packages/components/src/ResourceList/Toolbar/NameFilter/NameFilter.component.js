@@ -35,7 +35,6 @@ function NameFilter({ label, value, onChange }) {
 			/>
 			<Action
 				className={theme.remove}
-				bsStyle="link"
 				icon="talend-cross"
 				label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
 				hideLabel

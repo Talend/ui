@@ -212,7 +212,6 @@ export default function FilterBar(props) {
 						id={props.id && `${props.id}-cross-icon`}
 						data-test={props['data-test'] && `${props['data-test']}-reset`}
 						data-feature={props['data-feature'] && `${props['data-feature']}-reset`}
-						bsStyle="link"
 						icon="talend-cross"
 						label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
 						hideLabel
