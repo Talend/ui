@@ -1,5 +1,12 @@
 # @talend/bootstrap-theme
 
+## 8.1.1
+
+### Patch Changes
+
+- 58f8ff666: Fix focus and active state colors for bootstrap buttons
+- a5348a439: TDOPS-4964 - Fix SidePanel colors
+
 ## 8.1.0
 
 ### Minor Changes
