@@ -32,7 +32,7 @@ const StepperForm = ({ isLoading }: StepperProps) => {
 			<div className={style['stepper-form__container']}>
 				<StepHeader {...currentStepData.header} />
 
-				<section className={style['stepper-form__content']}>
+				<section className={style['stepper-form__content']} data-testid={currentStepData.key}>
 					<Component />
 				</section>
 			</div>
