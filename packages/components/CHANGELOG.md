@@ -1,5 +1,22 @@
 # @talend/react-components
 
+## 11.2.2
+
+### Patch Changes
+
+- 79cc47c03: Use elevation token for headerbar to be in line with other components
+
+## 11.2.1
+
+### Patch Changes
+
+- 58f8ff666: Fix button style for filter bar clear button
+- a5348a439: TDOPS-4964 - Fix SidePanel colors
+- 82e08d6e5: TDOPS-4890 - Fix Notifications text color
+- Updated dependencies [58f8ff666]
+- Updated dependencies [a5348a439]
+  - @talend/bootstrap-theme@8.1.1
+
 ## 11.2.0
 
 ### Minor Changes

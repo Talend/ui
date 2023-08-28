@@ -89,7 +89,7 @@ function ActionList(props) {
 				'tc-action-list',
 				className,
 				{
-					'nav-inverse': props.reverse,
+					'nav-inverse': !props.reverse,
 				},
 			)}
 		>
