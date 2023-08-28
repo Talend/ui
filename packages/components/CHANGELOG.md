@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.2.2
+
+### Patch Changes
+
+- 79cc47c03: Use elevation token for headerbar to be in line with other components
+
 ## 11.2.1
 
 ### Patch Changes
