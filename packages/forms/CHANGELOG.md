@@ -1,5 +1,18 @@
 # @talend/react-forms
 
+## 10.2.0
+
+### Minor Changes
+
+- 619d22798: Export component Code
+
+### Patch Changes
+
+- Updated dependencies [58f8ff666]
+- Updated dependencies [a5348a439]
+- Updated dependencies [82e08d6e5]
+  - @talend/react-components@11.2.1
+
 ## 10.1.0
 
 ### Minor Changes
