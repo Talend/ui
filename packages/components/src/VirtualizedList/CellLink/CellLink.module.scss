@@ -4,8 +4,9 @@
 .cell-link-container {
 	> a {
 		color: tokens.$coral-color-neutral-text;
+
 		> span {
-			border-bottom: none !important;
+			border-bottom: none !important; /* stylelint-disable-line declaration-no-important */
 		}
 	}
 }
