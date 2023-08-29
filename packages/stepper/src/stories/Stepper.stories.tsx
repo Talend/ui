@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import StepperForm from '../components/StepperForm';
+
+import { StepperFormContainer as StepperForm } from '../components/StepperForm/StepperFormContainer';
 import { StepperState } from '../hooks/useStepperForm/useStepperForm.types';
 import {
 	BusinessContext,
@@ -11,13 +12,6 @@ import {
 export default {
 	title: 'Stepper',
 	component: StepperForm,
-	parameters: {
-		docs: {
-			description: {
-				component: 'Deprecated icons will be removed in the next major version.',
-			},
-		},
-	},
 };
 
 export const DefaultStory = () => {
@@ -50,15 +44,13 @@ export const DefaultStory = () => {
 	const [stepsData, setStepsData] = useState<any>({});
 
 	return (
-		<StepperForm.Provider initialStepIndex={0} steps={initialSteps}>
-			<BusinessContext.Provider
-				value={{
-					setStepsData,
-					stepsData,
-				}}
-			>
-				<StepperForm />
-			</BusinessContext.Provider>
-		</StepperForm.Provider>
+		<BusinessContext.Provider
+			value={{
+				setStepsData,
+				stepsData,
+			}}
+		>
+			<StepperForm steps={initialSteps} onSubmit={() => alert('You did it')} />
+		</BusinessContext.Provider>
 	);
 };

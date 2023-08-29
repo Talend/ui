@@ -8,16 +8,16 @@ const emptyFn = () => {};
 
 export interface StepperFormValues {
 	currentStep: number;
-	onDisableStep: (stepKey: string, cause: string) => void;
-	onEnableStep: (stepKey: string) => void;
+	disableStep: (stepKey: string, cause: string) => void;
+	enableStep: (stepKey: string) => void;
 	onNext: () => void;
 	onPrevious: () => void;
 	steps: StepperState;
 }
 
 export const StepperFormContext = createContext<StepperFormValues>({
-	onDisableStep: emptyFn,
-	onEnableStep: emptyFn,
+	disableStep: emptyFn,
+	enableStep: emptyFn,
 	onNext: emptyFn,
 	onPrevious: emptyFn,
 	steps: [],
@@ -26,24 +26,26 @@ export const StepperFormContext = createContext<StepperFormValues>({
 
 export interface StepperFormProviderProps {
 	children: ReactNode;
-	initialStepIndex: number;
+	initialStepIndex?: number;
 	steps: StepperStep[];
+	onSubmit: (currentStep: number) => void;
 }
 
 export const StepperFormProvider = ({
 	children,
-	initialStepIndex,
+	initialStepIndex = 0,
 	steps,
+	onSubmit,
 }: StepperFormProviderProps) => {
-	const { currentStep, onDisableStep, onEnableStep, onNextStep, onPreviousStep, stepperSteps } =
-		useStepperForm(steps, initialStepIndex);
+	const { currentStep, disableStep, enableStep, onNextStep, onPreviousStep, stepperSteps } =
+		useStepperForm(steps, initialStepIndex, onSubmit);
 
 	return (
 		<StepperFormContext.Provider
 			value={{
 				currentStep,
-				onDisableStep,
-				onEnableStep,
+				disableStep,
+				enableStep,
 				onNext: onNextStep,
 				onPrevious: onPreviousStep,
 				steps: stepperSteps,

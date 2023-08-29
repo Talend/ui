@@ -1,5 +1,5 @@
-import StepperForm from './StepperForm.component';
-import StepFooter from './StepFooter';
+import { StepperFormContainer as StepperForm } from './StepperFormContainer';
+import { StepFooter } from './StepFooter';
 import { StepperFormProvider, StepperFormContext } from './StepperForm.context';
 
 const StepperFormComponent = StepperForm as typeof StepperForm & {

@@ -1,10 +1,13 @@
-import { Stepper as StepperDS } from '@talend/design-system';
 import { useContext } from 'react';
+
+import { Stepper as StepperDS } from '@talend/design-system';
+
+import { StepHeader } from './StepHeader';
 import { StepperFormContext } from './StepperForm.context';
-import style from './StepperForm.module.scss';
 import { StepperProps } from './StepperForm.types';
 import { getStepComponent } from './StepperForm.utils';
-import { StepHeader } from './StepHeader/StepHeader.component';
+
+import style from './StepperForm.module.scss';
 
 const StepperForm = ({ isLoading }: StepperProps) => {
 	const { steps, currentStep } = useContext(StepperFormContext);

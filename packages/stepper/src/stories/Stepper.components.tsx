@@ -1,7 +1,9 @@
-import { Form, InlineMessageDestructive } from '@talend/design-system';
 import { createContext, useContext, useEffect } from 'react';
-import StepperForm from '../components/StepperForm';
 import { FormProvider, useController, useForm } from 'react-hook-form';
+
+import { Form, InlineMessageDestructive } from '@talend/design-system';
+
+import StepperForm from '../components/StepperForm';
 
 interface BusinessContextApi {
 	setStepsData: (stepData: any) => void;
@@ -11,11 +13,8 @@ interface BusinessContextApi {
 export const BusinessContext = createContext({} as BusinessContextApi);
 
 export const FormComponentStep1 = () => {
-	const { onDisableStep, onEnableStep, onNext, steps, currentStep } = useContext(
-		StepperForm.Context,
-	);
+	const { disableStep, enableStep, onNext } = useContext(StepperForm.Context);
 	const { stepsData, setStepsData } = useContext(BusinessContext);
-	const currentStepNavigation = steps[currentStep].navigation;
 
 	const rhf = useForm<any>({
 		defaultValues: { ...stepsData[0] },
@@ -45,9 +44,9 @@ export const FormComponentStep1 = () => {
 						label="Disable step 2"
 						onChange={e => {
 							if (e.target.checked) {
-								onDisableStep('STEP2', 'Just because');
+								disableStep('STEP2', 'Disabled cause');
 							} else {
-								onEnableStep('STEP2');
+								enableStep('STEP2');
 							}
 						}}
 					/>
@@ -57,9 +56,9 @@ export const FormComponentStep1 = () => {
 						label="Disable step 3"
 						onChange={e => {
 							if (e.target.checked) {
-								onDisableStep('STEP3', 'Just because');
+								disableStep('STEP3', 'Just because');
 							} else {
-								onEnableStep('STEP3');
+								enableStep('STEP3');
 							}
 						}}
 					/>
@@ -79,11 +78,7 @@ export const FormComponentStep1 = () => {
 				</Form.Fieldset>
 				<StepperForm.Footer
 					onCancel={() => alert('Cancel action')}
-					onNext={() =>
-						currentStepNavigation?.next
-							? rhf.handleSubmit(onNext)()
-							: rhf.handleSubmit(() => alert('You did it!'))()
-					}
+					onNext={() => rhf.handleSubmit(onNext)()}
 				/>
 			</Form>
 		</FormProvider>
@@ -91,12 +86,8 @@ export const FormComponentStep1 = () => {
 };
 
 export const FormComponentStep2 = () => {
-	const { onDisableStep, onEnableStep, onNext, onPrevious, steps, currentStep } = useContext(
-		StepperForm.Context,
-	);
+	const { disableStep, enableStep, onNext, onPrevious } = useContext(StepperForm.Context);
 	const { stepsData, setStepsData } = useContext(BusinessContext);
-
-	const currentStepNavigation = steps[currentStep].navigation;
 
 	const rhf = useForm<{ randomInput: string }>({
 		defaultValues: { ...stepsData[1] },
@@ -126,9 +117,9 @@ export const FormComponentStep2 = () => {
 						label="Disable step 3"
 						onChange={e => {
 							if (e.target.checked) {
-								onDisableStep('STEP3', 'Just because');
+								disableStep('STEP3', 'Disabled cause');
 							} else {
-								onEnableStep('STEP3');
+								enableStep('STEP3');
 							}
 						}}
 					/>
@@ -146,11 +137,7 @@ export const FormComponentStep2 = () => {
 				</Form.Fieldset>
 				<StepperForm.Footer
 					onCancel={() => alert('Cancel action')}
-					onNext={() =>
-						currentStepNavigation?.next
-							? rhf.handleSubmit(onNext)()
-							: rhf.handleSubmit(() => alert('You did it!'))()
-					}
+					onNext={() => rhf.handleSubmit(onNext)()}
 					onPrevious={onPrevious}
 				/>
 			</Form>
@@ -159,10 +146,8 @@ export const FormComponentStep2 = () => {
 };
 
 export const FormComponentStep3 = () => {
-	const { onNext, onPrevious, steps, currentStep } = useContext(StepperForm.Context);
+	const { onNext, onPrevious } = useContext(StepperForm.Context);
 	const { stepsData, setStepsData } = useContext(BusinessContext);
-
-	const currentStepNavigation = steps[currentStep].navigation;
 
 	const rhf = useForm<{ randomInput: string }>({
 		defaultValues: { ...stepsData[2] },
@@ -199,11 +184,7 @@ export const FormComponentStep3 = () => {
 				</Form.Fieldset>
 				<StepperForm.Footer
 					onCancel={() => alert('Cancel action')}
-					onNext={() =>
-						currentStepNavigation?.next
-							? rhf.handleSubmit(onNext)()
-							: rhf.handleSubmit(() => alert('You did it!'))()
-					}
+					onNext={() => rhf.handleSubmit(onNext)()}
 					onPrevious={onPrevious}
 				/>
 			</Form>

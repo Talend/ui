@@ -1,3 +1,1 @@
-import StepFooter from './StepFooter.component';
-
-export default StepFooter;
+export { StepFooter } from './StepFooter.component';

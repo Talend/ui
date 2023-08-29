@@ -1,4 +1,6 @@
 import { useState } from 'react';
+
+import { StepperStep } from '../../components/StepperForm/StepperForm.types';
 import { getStepperState } from '../../components/StepperForm/StepperForm.utils';
 import { NavigationDirection, NavigationStep, StepperState } from './useStepperForm.types';
 
@@ -104,27 +106,36 @@ const onChangeStep = (stepperState: StepperState, stepKey?: string) => {
 	return;
 };
 
-export const useStepperForm = (steps: StepperState, stepIndex: number) => {
+export const useStepperForm = (
+	steps: StepperStep[],
+	stepIndex: number,
+	onSubmit: (currentStep: number) => void,
+) => {
 	const [currentStep, setCurrentStep] = useState(stepIndex);
 	const [stepperSteps, setStepperSteps] = useState(getStepperState(steps));
 
 	const currentNavigation = stepperSteps[currentStep].navigation;
 
 	return {
-		stepperSteps,
 		currentStep,
-		onDisableStep: (stepKey: string, cause: string) =>
+		disableStep: (stepKey: string, cause: string) =>
 			setStepperSteps(disableStep(stepperSteps, stepKey, cause)),
 
-		onEnableStep: (stepKey: string) => setStepperSteps(enableStep(stepperSteps, stepKey)),
-		onNextStep: () =>
+		enableStep: (stepKey: string) => setStepperSteps(enableStep(stepperSteps, stepKey)),
+		onNextStep: () => {
 			setCurrentStep(
 				(currentNavigation && onChangeStep(stepperSteps, currentNavigation.next)) ?? currentStep,
-			),
+			);
+
+			if (!currentNavigation?.next) {
+				onSubmit(currentStep);
+			}
+		},
 		onPreviousStep: () =>
 			setCurrentStep(
 				(currentNavigation && onChangeStep(stepperSteps, currentNavigation.previous)) ??
 					currentStep,
 			),
+		stepperSteps,
 	};
 };

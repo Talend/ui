@@ -1,12 +1,28 @@
-import { ButtonPrimary, ButtonSecondary, Divider, StackHorizontal } from '@talend/design-system';
-import { useContext } from 'react';
+import { ReactNode, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ButtonPrimary, ButtonSecondary, Divider, StackHorizontal } from '@talend/design-system';
+
 import I18N from '../../../constants/i18n';
 import { StepperFormContext } from '../StepperForm.context';
-import style from '../StepperForm.module.scss';
-import { StepFooterProps } from './StepFooter.types';
 
-const StepFooter = ({
+import style from '../StepperForm.module.scss';
+
+interface StepFooterProps {
+	children?: ReactNode;
+	dataFeature?: {
+		cancel?: string;
+		next?: string;
+		previous?: string;
+		submit?: string;
+	};
+	isLoading?: boolean;
+	onCancel(): void;
+	onNext?(): void;
+	onPrevious?(): void;
+}
+
+export const StepFooter = ({
 	children,
 	dataFeature,
 	isLoading,
@@ -45,5 +61,3 @@ const StepFooter = ({
 		</div>
 	);
 };
-
-export default StepFooter;

@@ -1,12 +1,13 @@
 import { Stepper } from '@talend/react-components';
-import StepperForm from './components/StepperForm';
+
+import * as constants from './Stepper.constants';
+import StepperForm from './components/StepperForm/StepperFormContainer';
 import StepperContainer from './containers/Stepper.connect';
+import { useStepperForm } from './hooks/useStepperForm/useStepperForm.hook';
 import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
 import stepperReducer from './service/Stepper.reducer';
 import { getStepsForResource, isResourceLoading } from './service/Stepper.selectors';
 import { getStepperKey } from './service/Stepper.utils';
-import * as constants from './Stepper.constants';
-import { useStepperForm } from './hooks/useStepperForm/useStepperForm.hook';
 
 const { isAllSuccessful, isStepsLoading, isErrorInSteps } = Stepper;
 
