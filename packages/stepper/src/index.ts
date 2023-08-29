@@ -1,7 +1,7 @@
 import { Stepper } from '@talend/react-components';
 
 import * as constants from './Stepper.constants';
-import StepperForm from './components/StepperForm/StepperFormContainer';
+import StepperForm from './components/StepperForm';
 import StepperContainer from './containers/Stepper.connect';
 import { useStepperForm } from './hooks/useStepperForm/useStepperForm.hook';
 import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
