@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 
 import { useStepperForm } from './useStepperForm.hook';
 import { StepperState } from './useStepperForm.types';
@@ -39,27 +39,38 @@ const initialSteps: StepperState = [
 describe('useStepperForm', () => {
 	it('should change to the next step', async () => {
 		const { result } = renderHook(() => useStepperForm(initialSteps, 0, jest.fn()));
-		result.current.onNextStep();
+
+		act(() => {
+			result.current.onNextStep();
+		});
 
 		expect(result.current.currentStep).toBe(1);
 	});
 
 	it('should change to the previous step', async () => {
 		const { result } = renderHook(() => useStepperForm(initialSteps, 1, jest.fn()));
-		result.current.onPreviousStep();
+
+		act(() => {
+			result.current.onPreviousStep();
+		});
 
 		expect(result.current.currentStep).toBe(0);
 	});
 
 	it('should disable and enable step', async () => {
 		const { result } = renderHook(() => useStepperForm(initialSteps, 1, jest.fn()));
-		result.current.disableStep('STEP2', 'cause');
+
+		act(() => {
+			result.current.disableStep('STEP2', 'cause');
+		});
 
 		expect(result.current.stepperSteps[0].navigation?.next).toBe('STEP3');
 		expect(result.current.stepperSteps[1].navigation?.disableCause).toBe('cause');
 		expect(result.current.stepperSteps[2].navigation?.previous).toBe('STEP1');
 
-		result.current.enableStep('STEP2');
+		act(() => {
+			result.current.enableStep('STEP2');
+		});
 
 		expect(result.current.stepperSteps[0].navigation?.next).toBe('STEP2');
 		expect(result.current.stepperSteps[1].navigation?.disableCause).toBeUndefined();
