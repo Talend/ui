@@ -32,10 +32,10 @@
 
 .alert-info {
 	color: tokens.$coral-color-neutral-text;
-	background-color: tokens.$coral-color-accent-background;
-	border-color: tokens.$coral-color-accent-border;
+	background-color: tokens.$coral-color-info-background;
+	border-color: tokens.$coral-color-info-border;
 
 	.alert-link {
-		color: tokens.$coral-color-accent-text;
+		color: tokens.$coral-color-info-text;
 	}
 }
