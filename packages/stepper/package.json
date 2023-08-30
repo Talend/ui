@@ -31,15 +31,15 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-components": "^11.0.0",
+    "@talend/react-components": "^11.2.2",
     "classnames": "^2.3.2",
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^6.58.1",
-    "@talend/scripts-core": "^14.0.0",
+    "@talend/icons": "^6.59.0",
+    "@talend/scripts-core": "^14.0.1",
     "@talend/scripts-config-react-webpack": "^15.4.1",
     "i18next": "^20.6.1",
     "immutable": "^3.8.2",
