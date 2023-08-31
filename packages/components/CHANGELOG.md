@@ -1,5 +1,37 @@
 # @talend/react-components
 
+## 11.2.3
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+- 72b95c880: TDOPS-5081 - Fixed FilterBar in VList header having wrong style on hover
+- Updated dependencies [fbce059c2]
+  - @talend/bootstrap-theme@8.1.2
+
+## 11.2.2
+
+### Patch Changes
+
+- 79cc47c03: Use elevation token for headerbar to be in line with other components
+
+## 11.2.1
+
+### Patch Changes
+
+- 58f8ff666: Fix button style for filter bar clear button
+- a5348a439: TDOPS-4964 - Fix SidePanel colors
+- 82e08d6e5: TDOPS-4890 - Fix Notifications text color
+- Updated dependencies [58f8ff666]
+- Updated dependencies [a5348a439]
+  - @talend/bootstrap-theme@8.1.1
+
+## 11.2.0
+
+### Minor Changes
+
+- c65edb127: fix(TDP-12557): use lighter gray for format value whitespace
+
 ## 11.1.3
 
 ### Patch Changes

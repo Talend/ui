@@ -41,11 +41,11 @@
 }
 
 .panel-info {
-	border-color: tokens.$coral-color-accent-border;
+	border-color: tokens.$coral-color-info-border;
 
 	.panel-heading {
-		color: tokens.$coral-color-accent-text;
-		background-color: tokens.$coral-color-accent-background;
+		color: tokens.$coral-color-info-text;
+		background-color: tokens.$coral-color-info-background;
 	}
 }
 

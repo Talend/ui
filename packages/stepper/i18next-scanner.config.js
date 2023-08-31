@@ -1,5 +1,7 @@
+const typescriptTransform = require('i18next-scanner-typescript');
+
 module.exports = {
-	input: ['src/**/*.js'],
+	input: ['src/**/*.{js,ts,tsx}'],
 	options: {
 		debug: true,
 		func: {
@@ -13,4 +15,5 @@ module.exports = {
 			savePath: 'i18n/{{ns}}.json',
 		},
 	},
+	transform: typescriptTransform(),
 };

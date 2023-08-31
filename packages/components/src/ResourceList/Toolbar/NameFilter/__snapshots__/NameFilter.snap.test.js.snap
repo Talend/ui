@@ -22,7 +22,7 @@ exports[`NameFilter component snaps should render 1`] = `
   <button
     aria-describedby="42"
     aria-label="Remove filter"
-    class="theme-remove btn-icon-only btn btn-link"
+    class="theme-remove btn-icon-only btn btn-default"
     type="button"
   >
     <span
