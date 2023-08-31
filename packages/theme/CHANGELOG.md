@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 8.1.2
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+
 ## 8.1.1
 
 ### Patch Changes
