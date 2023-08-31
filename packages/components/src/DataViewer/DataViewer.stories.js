@@ -1,10 +1,15 @@
 import { useState } from 'react';
+
 import classNames from 'classnames';
 import get from 'lodash/get';
 import words from 'lodash/words';
+
 import ModelViewer from './ModelViewer';
 import RecordsViewer from './RecordsViewer';
+import mockCommonRecords from './mock-common-records.json';
+import mockCommonSchema from './mock-common-schema.json';
 import hierarchicSample from './sample.raw.json';
+
 import theme from './theme.module.scss';
 
 /**
@@ -120,6 +125,46 @@ export const DataTreeWithTypeDisplayOnRecords = () => {
 				displayTypes
 				typesRenderer={schema => <>- of type {schema.type[0].type}</>}
 			/>
+		</div>
+	);
+};
+
+export const DataViewerWithCommonSchema = () => {
+	const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
+	const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
+
+	const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
+	const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
+	const isUnion = item => Array.isArray(item.type);
+	const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
+
+	return (
+		<div className={layoutCn}>
+			<div className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}>
+				<ModelViewer
+					componentId="ModelViewer"
+					highlighted={highlighted}
+					jsonPathSelection={jsonPathSelection}
+					onSelect={onSelect}
+					commonSchema={mockCommonSchema}
+					renderLeafOptions={() => {}}
+					getDisplayValue={getDisplayValue}
+					isUnion={isUnion}
+					hasSemanticAwareness
+				/>
+			</div>
+			<div
+				className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
+			>
+				<RecordsViewer
+					componentId="RecordsViewer"
+					highlighted={highlighted}
+					onVerticalScroll={() => {}}
+					commonRecords={mockCommonRecords}
+					renderLeafAdditionalValue={() => {}}
+					renderBranchAdditionalValue={() => {}}
+				/>
+			</div>
 		</div>
 	);
 };

@@ -1,0 +1,245 @@
+[
+  {
+    "fields": [
+      {
+        "name": "employees",
+        "items": [
+          {
+            "fields": [
+              {
+                "name": "name",
+                "fields": [
+                  {
+                    "name": "firstName",
+                    "value": "John",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  },
+                  {
+                    "name": "lastName",
+                    "value": "Doe",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  }
+                ]
+              },
+              {
+                "name": "country",
+                "value": "Sweden",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              }
+            ]
+          },
+          {
+            "fields": [
+              {
+                "name": "name",
+                "fields": [
+                  {
+                    "name": "firstName",
+                    "value": "Anna",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  },
+                  {
+                    "name": "lastName",
+                    "value": "Smith",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  }
+                ]
+              },
+              {
+                "name": "country",
+                "value": "France",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              }
+            ]
+          },
+          {
+            "fields": [
+              {
+                "name": "name",
+                "fields": [
+                  {
+                    "name": "firstName",
+                    "value": "Peter",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  },
+                  {
+                    "name": "lastName",
+                    "value": "Jones",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  }
+                ]
+              },
+              {
+                "name": "country",
+                "value": "NA",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "vehicles",
+        "items": [
+          {
+            "fields": [
+              {
+                "name": "type",
+                "value": "car",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              },
+              {
+                "name": "model",
+                "value": "Honda Civic",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              },
+              {
+                "name": "insurance",
+                "fields": [
+                  {
+                    "name": "company",
+                    "value": "ABC Insurance",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  },
+                  {
+                    "name": "policy_num",
+                    "value": "12345",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  }
+                ]
+              },
+              {
+                "name": "maintenance",
+                "items": [
+                  {
+                    "fields": [
+                      {
+                        "name": "date",
+                        "value": "07-17-2017",
+                        "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                      },
+                      {
+                        "name": "desc",
+                        "value": "oil change",
+                        "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "date",
+                        "value": "01-03-2018",
+                        "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                      },
+                      {
+                        "name": "desc",
+                        "value": "new tires",
+                        "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fields": [
+              {
+                "name": "type",
+                "value": "truck",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              },
+              {
+                "name": "model",
+                "value": "Dodge Ram",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              },
+              {
+                "name": "insurance",
+                "fields": [
+                  {
+                    "name": "company",
+                    "value": "ABC Insurance",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  },
+                  {
+                    "name": "policy_num",
+                    "value": "12345",
+                    "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                  }
+                ]
+              },
+              {
+                "name": "maintenance",
+                "items": [
+                  {
+                    "fields": [
+                      {
+                        "name": "date",
+                        "value": "08-27-2017",
+                        "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                      },
+                      {
+                        "name": "desc",
+                        "value": "new tires",
+                        "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "date",
+                        "value": "01-08-2018",
+                        "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                      },
+                      {
+                        "name": "desc",
+                        "value": "oil change",
+                        "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "country",
+        "items": [
+          {
+            "fields": [
+              {
+                "name": "code",
+                "value": "FR",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              },
+              {
+                "name": "label",
+                "value": "France",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              }
+            ]
+          },
+          {
+            "fields": [
+              {
+                "name": "code",
+                "value": "DE",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              },
+              {
+                "name": "label",
+                "value": "Germany",
+                "quality": { "aggregated": "VALID", "dqType": "VALID", "dqRules": [] }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

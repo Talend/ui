@@ -1,13 +1,15 @@
-import noop from 'lodash/noop';
-import get from 'lodash/get';
-import head from 'lodash/head';
-import PropTypes from 'prop-types';
 import { Component as RComponent } from 'react';
 import { withTranslation } from 'react-i18next';
+
+import get from 'lodash/get';
+import head from 'lodash/head';
+import noop from 'lodash/noop';
+import PropTypes from 'prop-types';
+
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import formatJSONPath from '../jsonPath';
 import { TreeManager } from '../Managers';
+import formatJSONPath from '../jsonPath';
 import Branch from './Branch';
 import Leaf from './Leaf';
 import Component from './ModelViewer.component';
@@ -135,6 +137,8 @@ export class ModelViewer extends RComponent {
 
 	static propTypes = {
 		componentId: PropTypes.string,
+		// commonRecords: PropTypes.any,
+		commonSchema: PropTypes.any,
 		getChilds: PropTypes.func,
 		getDisplayKey: PropTypes.func,
 		getDisplayValue: PropTypes.func,
@@ -201,6 +205,10 @@ export class ModelViewer extends RComponent {
 	};
 
 	render() {
+		if (this.props.commonSchema) {
+			return null;
+		}
+
 		return (
 			<TreeManager
 				componentId={this.props.componentId || 'ModelViewer'}
