@@ -21,7 +21,7 @@ $tc-status-space-btn-icon-label: 5px !default;
 		}
 
 		&.info {
-			color: tokens.$coral-color-accent-icon;
+			color: tokens.$coral-color-info-icon;
 		}
 
 		&.success {
@@ -45,7 +45,7 @@ $tc-status-space-btn-icon-label: 5px !default;
 		font-weight: 600;
 
 		&.info {
-			color: tokens.$coral-color-accent-text;
+			color: tokens.$coral-color-info-text;
 		}
 
 		&.success {

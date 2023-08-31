@@ -1,0 +1,12 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
+
+.cell-link-container {
+	> a {
+		color: tokens.$coral-color-neutral-text;
+
+		> span {
+			border-bottom: none !important; /* stylelint-disable-line declaration-no-important */
+		}
+	}
+}

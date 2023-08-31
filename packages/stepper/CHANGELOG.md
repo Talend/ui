@@ -1,5 +1,18 @@
 # @talend/react-stepper
 
+## 8.1.0
+
+### Minor Changes
+
+- a6da3c974: feat(TDC-7256/StepperForm) - Added new StepperForm component to centralize all the logic related to a Stepper flow
+
+### Patch Changes
+
+- Updated dependencies [fbce059c2]
+- Updated dependencies [72b95c880]
+  - @talend/design-system@7.14.2
+  - @talend/react-components@11.2.3
+
 ## 8.0.0
 
 ### Major Changes

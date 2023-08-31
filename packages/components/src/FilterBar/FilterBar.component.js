@@ -157,12 +157,11 @@ export default function FilterBar(props) {
 		return (
 			<Action
 				id={props.id}
-				className={props.className}
+				className={classNames(props.className, theme['button-docked'])}
 				onClick={props.onToggle}
 				label={t('LIST_FILTER_TOGGLE', { defaultValue: 'Toggle filter' })}
 				hideLabel
 				icon="talend-search"
-				bsStyle="link"
 				data-feature={props['data-feature']}
 				tooltipPlacement={props.tooltipPlacement}
 				role="search"

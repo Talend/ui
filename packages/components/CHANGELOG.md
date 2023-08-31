@@ -1,5 +1,14 @@
 # @talend/react-components
 
+## 11.2.3
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+- 72b95c880: TDOPS-5081 - Fixed FilterBar in VList header having wrong style on hover
+- Updated dependencies [fbce059c2]
+  - @talend/bootstrap-theme@8.1.2
+
 ## 11.2.2
 
 ### Patch Changes

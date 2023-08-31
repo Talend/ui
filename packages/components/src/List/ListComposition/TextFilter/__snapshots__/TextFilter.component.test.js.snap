@@ -4,7 +4,7 @@ exports[`TextFilter should render text filter component 1`] = `
 <button
   aria-describedby="42"
   aria-label="Toggle filter"
-  class="btn-icon-only btn btn-link"
+  class="theme-button-docked btn-icon-only btn btn-default"
   id="myTextFilter"
   role="search"
   type="button"

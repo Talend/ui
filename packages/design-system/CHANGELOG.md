@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.14.2
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+
 ## 7.14.1
 
 ### Patch Changes
