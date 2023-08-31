@@ -36,7 +36,10 @@ function addToCopyConfig(info, config) {
 		}
 		let to = path.relative(
 			process.cwd(),
-			path.resolve(`cdn/${info.name}/${info.version}${info.path}`, '../'),
+			path.resolve(
+				`cdn/${info.name}/${info.version}${info.path}`,
+				info.path.endsWith('/') ? '' : '../',
+			),
 		);
 		if (!to.endsWith('/')) {
 			to += '/';
