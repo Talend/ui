@@ -515,7 +515,7 @@
         "production": "/dist/react-ace.min.js"
       },
       ">= 9.4.0": {
-        "development": "/dist/react-ace.js/main.js",
+        "development": "/dist/react-ace.min.js/main.js",
         "production": "/dist/react-ace.min.js/main.js"
       }
     }
