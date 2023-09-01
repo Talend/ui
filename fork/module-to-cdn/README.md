@@ -127,6 +127,35 @@ LIMIT=";ag-grid;ag-grid-community;ag-grid-enterprise;" ava -v
 
 -   hoist-non-react-statics: the umd build contains JS errors (process.env.NODE and require) on every versions.
 
+## style-versions
+
+For the sake of simplicity, range must match between js and styles.
+Here is the line in the code that read it:
+
+```javascript
+const styleConfig = moduleConf['style-versions'] && moduleConf['style-versions'][range];
+```
+
+So take it as a constraint, for example:
+
+```json
+  "@talend/design-tokens": {
+    "var": "TalendDesignTokens",
+    "versions": {
+      "> 2.6.0": {
+        "development": "/dist/TalendDesignTokens.js",
+        "production": "/dist/TalendDesignTokens.min.js"
+      }
+    },
+    "style-versions": {
+      "> 2.6.0": {
+        "development": "/dist/TalendDesignTokens.css",
+        "production": "/dist/TalendDesignTokens.min.css"
+      }
+    }
+  }
+```
+
 ## Contribute
 
 To add your modules you have to
