@@ -1,4 +1,5 @@
 {
+  "$schema": "../../fork/module-to-cdn/jsonschema.json",
   "@talend/assets-api": {
     "var": "TalendAssetsApi",
     "versions": {

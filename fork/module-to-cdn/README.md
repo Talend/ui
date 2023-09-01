@@ -1,37 +1,20 @@
 # @talend/module-to-cdn
 
-[![Build Status](https://travis-ci.org/toutpt/module-to-cdn.svg?branch=jmfrancois/chore/fork)](https://travis-ci.org/toutpt/module-to-cdn)
-[![NPM][npm-icon] ][npm-url]
-[![dependencies][dependencies-image] ][dependencies-url]
-[![devdependencies][devdependencies-image] ][devdependencies-url]
-
-[npm-icon]: https://img.shields.io/npm/v/@talend/module-to-cdn.svg
-[npm-url]: https://npmjs.org/package/@talend/module-to-cdn
-[travis-ci-image]: https://travis-ci.org/toutpt/module-to-cdn.svg?branch=jmfrancois/chore/fork
-[travis-ci-url]: https://travis-ci.org/toutpt/module-to-cdn
-[dependencies-image]: https://david-dm.org/toutpt/module-to-cdn/status.svg
-[dependencies-url]: https://david-dm.org/toutpt/module-to-cdn
-[devdependencies-image]: https://david-dm.org/toutpt/module-to-cdn/dev-status.svg
-[devdependencies-url]: https://david-dm.org/toutpt/module-to-cdn?type=dev
-
-
 > Get cdn config from npm module name
 
 ## Fork
 
 This module is fork of module-to-cdn from [Thomas Sileghem](http://mastilver.com).
 
-Because unpkg is great for free usage [but not for production usage](https://kentcdodds.com/blog/unpkg-an-open-source-cdn-for-npm) we decided to made some changes to go forward.
+Because unpkg is great for free usage [but not for production usage](https://kentcdodds.com/blog/unpkg-an-open-source-cdn-for-npm) we decided to made some changes to going forward.
 
-After the following [big PR]() on the repository  and an email to the author we have got no news from the author as all other PRs. So we decided to fork.
-
+After big PR on the repository and an email to the author we have got no news as all other PRs. So we decided to fork.
 
 ## Install
 
 ```
 $ npm install --save @talend/module-to-cdn
 ```
-
 
 ## Usage
 
@@ -50,6 +33,7 @@ moduleToCdn('react', '15.3.0');
 */
 ```
 
+Note if the package comes with css you will have them under `styleUrl` and `stylePath` properties
 
 ## API
 
@@ -79,12 +63,12 @@ Default: `development`
 
 ### Result
 
-* `name`: name of the module
-* `var`: name of the global variable exposing the module
-* `url`: url where the module is available
-* `version`: the version asked for
-* `path`: relative path of the umd file in the distributed package
-* `local`: absolute path on the current system to the file
+-   `name`: name of the module
+-   `var`: name of the global variable exposing the module
+-   `url`: url where the module is available
+-   `version`: the version asked for
+-   `path`: relative path of the umd file in the distributed package
+-   `local`: absolute path on the current system to the file
 
 ## Configuration of the resolver
 
@@ -118,9 +102,9 @@ moduleToCdn.add({
     '@talend/my-private-module': {
         var: 'TalendMyPrivateModule',
         versions: {
-            '>= 0.0.0' : {
-                'development': '/dist/build.js',
-                'production': '/dist/build.min.js',
+            '>= 0.0.0': {
+                development: '/dist/build.js',
+                production: '/dist/build.min.js'
             }
         }
     }
@@ -141,17 +125,16 @@ LIMIT=";ag-grid;ag-grid-community;ag-grid-enterprise;" ava -v
 
 ## Excluded modules
 
-
-* hoist-non-react-statics: the umd build contains JS errors (process.env.NODE and require) on every versions.
+-   hoist-non-react-statics: the umd build contains JS errors (process.env.NODE and require) on every versions.
 
 ## Contribute
 
 To add your modules you have to
 
-* checkout this package on github
-* install and run the tests (it will load the cache for the tests)
-* add your module in the module.json file
-* ensure everytime the provided umd path exists and is valid.
+-   checkout this package on github
+-   install and run the tests (it will load the cache for the tests)
+-   add your module in the module.json file
+-   ensure everytime the provided umd path exists and is valid.
 
 Example of not valid umd: https://unpkg.com/browse/react-popper@1.3.7/dist/index.umd.js
 createContext,deepEqual dependencies are always null.
