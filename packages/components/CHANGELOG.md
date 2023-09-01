@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.3.0
+
+### Minor Changes
+
+- a6ac16f28: TDOPS-4488 - Allow to have links in VirtualList in Title cell and dedicated Link cell
+
 ## 11.2.3
 
 ### Patch Changes
