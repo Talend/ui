@@ -89,7 +89,7 @@ export default function Code({
 	}, [editor, instructionsId, descriptionId, errorId, id]);
 
 	function onBlur() {
-		editor.textInput.getElement().removeAttribute('tabindex');
+		editor?.textInput?.getElement()?.removeAttribute('tabindex');
 	}
 
 	return (
