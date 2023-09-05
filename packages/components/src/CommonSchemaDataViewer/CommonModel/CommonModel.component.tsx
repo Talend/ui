@@ -4,6 +4,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { CommonSchemaSampled, FieldMetadata } from '../CommonDataViewer.types';
 
 import theme from './CommonModel.module.scss';
+import { renderField } from './CommonModel.utils';
 
 type CommonModelProps = {
 	metadata?: FieldMetadata[];
@@ -18,12 +19,7 @@ export function CommonModel({ metadata, schema }: CommonModelProps) {
 				{t('MODEL_VIEWER_HEADER_TITLE', 'Data model')}
 			</header>
 			<Divider />
-			{schema.fields.map(field => (
-				<>
-					{field.name}
-					{/* {field.name} - {field?.type} */}
-				</>
-			))}
+			{schema.fields.map(renderField)}
 		</div>
 	);
 }

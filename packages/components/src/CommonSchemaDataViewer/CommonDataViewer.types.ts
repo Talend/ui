@@ -23,10 +23,6 @@ export interface SampleArray {
 	items: SampleHierarchicalRow[];
 }
 
-export interface SampleHierarchicalRow {
-	fields: SampleItem[];
-}
-
 export interface SampleNode {
 	name: string;
 	fields: SampleItem[];
@@ -34,6 +30,9 @@ export interface SampleNode {
 
 type SampleItem = SampleNode | SampleLeaf | SampleArray;
 
+export interface SampleHierarchicalRow {
+	fields: SampleItem[];
+}
 export type HierarchicalSample = SampleHierarchicalRow[];
 
 // METADATA
@@ -90,6 +89,11 @@ export type FieldMetadata = {
 
 // SCHEMA
 
+export type CommonSchemaOriginalFieldMetadata = {
+	type: string;
+	size: number;
+};
+
 export type RecordType = {
 	type: 'record';
 	namespace: string;
@@ -112,11 +116,6 @@ export type ValueType = {
 };
 
 export type CommonSchemaSampledFieldType = RecordType | ArrayType | ValueType;
-
-export type CommonSchemaOriginalFieldMetadata = {
-	type: string;
-	size: number;
-};
 
 export type CommonSchemaSampledField = {
 	name: string;
