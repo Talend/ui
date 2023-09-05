@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 10.2.2
+
+### Patch Changes
+
+- 9fa1679ad: components/Code: add flag to show/hide instructions div
+- 90dc6e87e: Fix undefined value on component Code when mounting
+- Updated dependencies [8277e1f39]
+  - @talend/react-components@11.3.1
+
 ## 10.2.1
 
 ### Patch Changes
