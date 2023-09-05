@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.3.1
+
+### Patch Changes
+
+- 8277e1f39: TDOPS-4488: Add VList Link column to disctionary
+
 ## 11.3.0
 
 ### Minor Changes
