@@ -5,8 +5,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { DuplicatesPlugin } = require('inspectpack/plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
-const cdn = require('@talend/scripts-config-cdn');
-
 const utils = require('@talend/scripts-utils');
 
 const {
@@ -17,10 +15,7 @@ const {
 	getAssetsRules,
 } = require('./webpack.config.common');
 
-cdn.configureTalendModules();
-
 module.exports = options => {
-	const dcwpConfig = options.getUserConfig('dynamic-cdn-webpack-plugin');
 	const cssModulesEnabled = options.getUserConfig(['css', 'modules'], true);
 	const userCopyConfig = options.getUserConfig('copy', []);
 	const useTypescript = utils.fs.tsConfig();
@@ -87,7 +82,6 @@ module.exports = options => {
 					filename: isEnvProd ? `${name}.min.css` : `${name}.css`,
 					chunkFilename: isEnvProd ? `${name}.min.css` : `${name}.css`,
 				}),
-				cdn.getWebpackPlugin(env, dcwpConfig),
 				userCopyConfig.length > 0 && new CopyWebpackPlugin({ patterns: userCopyConfig }),
 			].filter(Boolean),
 		};
