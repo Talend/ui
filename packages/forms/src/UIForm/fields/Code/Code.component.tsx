@@ -61,6 +61,7 @@ export interface CodeProps {
 	schema?: Partial<CodeSchema>;
 	value?: string | number;
 	valueIsUpdating?: boolean;
+	showInstructions?: boolean;
 }
 
 export default function Code({
@@ -72,6 +73,7 @@ export default function Code({
 	valueIsUpdating,
 	onChange,
 	onFinish,
+	showInstructions = true,
 }: CodeProps) {
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const { autoFocus, description, options, readOnly = false, title, labelProps } = schema;
@@ -110,11 +112,14 @@ export default function Code({
 				onBlur={onBlur}
 				tabIndex={-1}
 			>
-				<div id={instructionsId} className="sr-only">
-					{t('TF_CODE_ESCAPE', {
-						defaultValue: 'To focus out of the editor, press ESC key twice.',
-					})}
-				</div>
+				{showInstructions && (
+					<div id={instructionsId} data-testid="widget-code-instructions" className="sr-only">
+						{t('TF_CODE_ESCAPE', {
+							defaultValue: 'To focus out of the editor, press ESC key twice.',
+						})}
+					</div>
+				)}
+
 				<Suspense fallback={<CodeSkeleton />}>
 					<ReactAce
 						key="ace"
