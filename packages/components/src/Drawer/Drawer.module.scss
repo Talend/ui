@@ -9,7 +9,8 @@ $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
 $tc-drawer-padding: $padding-large !default;
 $tc-drawer-header-height: 5.5rem !default;
 $tc-drawer-header-color: tokens.$coral-color-neutral-text !default;
-$tc-drawer-header-background: tokens.$coral-color-accent-background !default;
+$tc-drawer-header-background: tokens.$coral-color-neutral-background !default;
+$tc-drawer-header-border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak !default;
 $tc-drawer-tabs-background: tokens.$coral-color-accent-background-weak !default;
 $tc-drawer-content-max-width: 65rem !default;
 $tc-action-bar-background-color: tokens.$coral-color-neutral-background-medium !default;
@@ -80,6 +81,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 .tc-drawer-header {
 	background-color: $tc-drawer-header-background;
+	border-bottom: $tc-drawer-header-border;
 
 	:global {
 		.tc-editable-text {
@@ -110,9 +112,9 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			overflow: hidden;
 
 			h1 {
+				font: tokens.$coral-heading-m;
 				flex: 1;
 				margin: 0;
-				font-size: $font-size-h2;
 				color: $tc-drawer-header-color;
 				text-overflow: ellipsis;
 				white-space: nowrap;
