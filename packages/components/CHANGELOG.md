@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.3.2
+
+### Patch Changes
+
+- f73fdbc46: fix: change drawer header color
+
 ## 11.3.1
 
 ### Patch Changes
