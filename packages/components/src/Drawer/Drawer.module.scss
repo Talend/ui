@@ -112,9 +112,9 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			overflow: hidden;
 
 			h1 {
+				font: tokens.$coral-heading-m;
 				flex: 1;
 				margin: 0;
-				font-size: $font-size-h2;
 				color: $tc-drawer-header-color;
 				text-overflow: ellipsis;
 				white-space: nowrap;
