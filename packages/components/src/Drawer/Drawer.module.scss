@@ -81,7 +81,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 .tc-drawer-header {
 	background-color: $tc-drawer-header-background;
-	border: $tc-drawer-header-border;
+	border-bottom: $tc-drawer-header-border;
 
 	:global {
 		.tc-editable-text {
