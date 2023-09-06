@@ -15657,7 +15657,7 @@ react-a11y@^0.3.4:
   dependencies:
     object.assign "^4.0.3"
 
-react-ace@^10.1.0:
+react-ace@10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/react-ace/-/react-ace-10.1.0.tgz#d348eac2b16475231779070b6cd16768deed565f"
   integrity sha512-VkvUjZNhdYTuKOKQpMIZi7uzZZVgzCjM7cLYu6F64V0mejY8a2XTyPUIMszC6A4trbeMIHbK5fYFcT/wkP/8VA==
