@@ -1,0 +1,9 @@
+{
+  "extends": "@talend/scripts-config-typescript/tsconfig.json",
+  "include": ["src/**/*", "../components/src/**/*"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "CommonJs",
+    "rootDirs": [".storybook", "src"]
+  }
+}

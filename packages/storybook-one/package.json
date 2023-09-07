@@ -1,15 +1,15 @@
 {
-  "name": "@talend/ui-storybook",
+  "name": "@talend/ui-storybook-one",
   "version": "1.2.0",
-  "description": "Package containing design.talend.com stories",
+  "description": "Package containing all stories from talend/ui repository",
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
   "scripts": {
-    "test:demo": "talend-scripts build-storybook --docs && node ./scripts/sitemap.js",
+    "test:demo": "talend-scripts build-storybook",
     "build-storybook": "talend-scripts build-storybook",
     "start-storybook": "talend-scripts start-storybook",
     "lint": "talend-scripts lint",
-    "start": "cross-env BROWSER=none talend-scripts start-storybook -p 6006 --docs"
+    "start": "talend-scripts start-storybook -p 6006"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,15 @@
   "dependencies": {
     "@talend/design-system": "^7.11.0",
     "@talend/design-tokens": "^2.7.3",
+    "@talend/icons": "^6.59.0",
+    "@talend/react-components": "^11.0.0",
+    "@talend/react-dataviz": "^3.0.1",
     "react-hook-form": "^6.15.8"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@storybook/addon-a11y": "^7.1.0",
     "@storybook/addon-actions": "^7.1.0",
     "@storybook/addon-essentials": "^7.1.0",
@@ -45,12 +51,9 @@
     "@talend/scripts-core": "^14.0.0",
     "@types/react": "^17.0.62",
     "i18next": "^20.6.1",
-    "mdx-embed": "^1.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "~6.3.0",
-    "storybook-addon-mdx-embed": "^1.1.1",
-    "storybook-docs-toc": "^1.7.0"
+    "react-router-dom": "~6.3.0"
   },
   "private": true
 }

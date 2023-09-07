@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { ColorPalette, ColorItem } from '@storybook/components';
+import { ColorPalette, ColorItem } from '@storybook/blocks';
 
 function ColorSwatches({
 	color,

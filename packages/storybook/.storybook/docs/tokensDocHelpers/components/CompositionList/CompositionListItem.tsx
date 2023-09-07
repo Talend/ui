@@ -5,6 +5,7 @@ import { StackHorizontal, StackVertical } from '@talend/design-system';
 import CardComposition from '../Card/CardComposition';
 
 import styles from './CompositionListItem.module.scss';
+import { getCssName } from '../../TokenFormatter';
 
 type CompositionListItemPropTypes = {
 	background: string;
@@ -50,7 +51,7 @@ const CompositionListItem = forwardRef(
 												<StackHorizontal gap="XS" align="center">
 													<span
 														style={{
-															background: tokenCodex[t.icon]?.hsla || tokenCodex[t.icon]?.value,
+															background: getCssName(tokenCodex[t.icon]),
 														}}
 														className={styles.colorSwatch}
 													/>
@@ -63,7 +64,7 @@ const CompositionListItem = forwardRef(
 												<StackHorizontal gap="XS" align="center">
 													<span
 														style={{
-															background: tokenCodex[t.color]?.hsla || tokenCodex[t.color]?.value,
+															background: getCssName(tokenCodex[t.color]),
 														}}
 														className={styles.colorSwatch}
 													/>
@@ -76,7 +77,7 @@ const CompositionListItem = forwardRef(
 												<StackHorizontal gap="XS" align="center">
 													<span
 														style={{
-															background: tokenCodex[t.border]?.hsla || tokenCodex[t.border]?.value,
+															background: getCssName(tokenCodex[t.border]),
 														}}
 														className={styles.colorSwatch}
 													/>
@@ -160,9 +161,7 @@ const CompositionListItem = forwardRef(
 														<StackHorizontal gap="XS" align="center">
 															<span
 																style={{
-																	background:
-																		tokenCodex[`${t.icon}Active`]?.hsla ||
-																		tokenCodex[`${t.color}Active`]?.value,
+																	background: getCssName(tokenCodex[`${t.icon}Active`]),
 																}}
 																className={styles.colorSwatch}
 															/>
@@ -175,9 +174,7 @@ const CompositionListItem = forwardRef(
 														<StackHorizontal gap="XS" align="center">
 															<span
 																style={{
-																	background:
-																		tokenCodex[`${t.color}Active`]?.hsla ||
-																		tokenCodex[`${t.color}Active`]?.value,
+																	background: getCssName(tokenCodex[`${t.color}Active`]),
 																}}
 																className={styles.colorSwatch}
 															/>
