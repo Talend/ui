@@ -2,74 +2,52 @@
 
 exports[`SelectAll should be unchecked when there is no items 1`] = `
 <form
-  className="theme-container navbar-form navbar-left"
+  className="theme-container"
 >
-  <div
-    className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
-  >
-    <label
-      className="tc-list-toolbar-select-all"
-    >
-      <input
-        checked={false}
-        disabled={true}
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span>
-        Select all
-      </span>
-    </label>
-  </div>
+  <label>
+    <span
+      checked={false}
+      className="CoralFormCheckbox"
+      disabled={true}
+      label="Select all"
+      onChange={[Function]}
+    />
+  </label>
 </form>
 `;
 
 exports[`SelectAll should render 1`] = `
 <form
-  className="theme-container navbar-form navbar-left"
+  className="theme-container"
 >
-  <div
-    className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
-  >
-    <label
-      className="tc-list-toolbar-select-all"
-    >
-      <input
-        checked={false}
-        disabled={false}
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span>
-        Select all
-      </span>
-    </label>
-  </div>
+  <label>
+    <span
+      checked={false}
+      className="CoralFormCheckbox"
+      disabled={false}
+      label="Select all"
+      onChange={[Function]}
+    />
+  </label>
 </form>
 `;
 
 exports[`SelectAll should render id if provided 1`] = `
 <form
-  className="theme-container navbar-form navbar-left"
+  className="theme-container"
 >
-  <div
-    className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
+  <label
+    htmlFor="list-toolbar-check-all"
   >
-    <label
-      className="tc-list-toolbar-select-all"
-      htmlFor="list-toolbar-check-all"
-    >
-      <input
-        checked={false}
-        disabled={false}
-        id="list-toolbar-check-all"
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span>
-        Select all
-      </span>
-    </label>
-  </div>
+    <span
+      checked={false}
+      className="CoralFormCheckbox"
+      disabled={false}
+      id="list-toolbar-check-all"
+      label="Select all"
+      name="list-toolbar-check-all"
+      onChange={[Function]}
+    />
+  </label>
 </form>
 `;
