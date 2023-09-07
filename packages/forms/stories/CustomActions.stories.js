@@ -3,6 +3,9 @@ import { UIForm } from '../src/UIForm';
 
 export default {
 	title: 'Forms/Custom actions',
+	parameters: {
+		centeredLayout: true,
+	},
 };
 
 export function Default() {

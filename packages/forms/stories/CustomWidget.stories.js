@@ -24,6 +24,9 @@ CustomWidget.propTypes = {
 
 export default {
 	title: 'Forms/Custom Widget',
+	parameters: {
+		centeredLayout: true,
+	},
 };
 
 export function Default() {

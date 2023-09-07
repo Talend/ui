@@ -187,6 +187,9 @@ const updating = schema.uiSchema.map(w => w.key);
 
 export default {
 	title: 'Forms/Updating',
+	parameters: {
+		centeredLayout: true,
+	},
 };
 
 export function Default() {

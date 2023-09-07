@@ -2,11 +2,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { randomUUID } from '@talend/utils';
 
-import Form from '../../src';
 import { PRESIGNED_URL_TRIGGER_ACTION } from '../../src/UIForm/fields/File/File.component';
 
 function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
@@ -90,15 +89,15 @@ function getFilteredCollection({ name, selection, certified, favorites, selected
 	return c;
 }
 
-function stringToB64(string) {
+function stringToB64(value) {
 	return window.btoa(
-		encodeURIComponent(string).replace(/%([0-9A-F]{2})/g, (match, p1) => {
+		encodeURIComponent(value).replace(/%([0-9A-F]{2})/g, (_, p1) => {
 			return String.fromCharCode(`0x${p1}`);
 		}),
 	);
 }
 
-function createCommonProps() {
+export function createCommonProps() {
 	return {
 		autocomplete: 'off',
 		customValidation(schema, value, properties) {
@@ -192,7 +191,7 @@ function createCommonProps() {
 	};
 }
 
-export default function FormStoryWithDisplayMode({ category, doc, ...restProps }) {
+export function FormStoryWithDisplayMode({ children, category, doc, ...restProps }) {
 	const [displayMode, setDisplayMode] = useState();
 
 	function toggleDisplayModeText(event) {
@@ -200,41 +199,48 @@ export default function FormStoryWithDisplayMode({ category, doc, ...restProps }
 	}
 
 	return (
-		<section>
-			{doc && (
-				<a
-					href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Documentation
-				</a>
-			)}
-			<div className="container-fluid">
-				<div className="col-md-6">
-					<h2>Form</h2>
-					<Form.UIForm {...createCommonProps()} {...restProps} displayMode={displayMode} />
-				</div>
-				<div className="col-md-6">
-					<h2>Display mode</h2>
-					<form>
-						<div className="form-group">
-							<div className="checkbox">
-								<label>
-									<input
-										type="checkbox"
-										checked={displayMode === 'text'}
-										onChange={toggleDisplayModeText}
-									/>
-									Text mode
-								</label>
-							</div>
+		<div className="container-fluid">
+			<div
+				className="col-md-offset-1 col-md-11"
+				style={{ marginTop: '20px', marginBottom: '20px' }}
+			>
+				<section>
+					{doc && (
+						<a
+							href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Documentation
+						</a>
+					)}
+					<div className="container-fluid">
+						<div className="col-md-6">
+							<h2>Form</h2>
+							{children({ ...createCommonProps(), ...restProps, displayMode })}
 						</div>
-					</form>
-					<h2>UI Spec / schema</h2>
-					<pre>{JSON.stringify(restProps.data, null, 2)}</pre>
-				</div>
+						<div className="col-md-6">
+							<h2>Display mode</h2>
+							<form>
+								<div className="form-group">
+									<div className="checkbox">
+										<label>
+											<input
+												type="checkbox"
+												checked={displayMode === 'text'}
+												onChange={toggleDisplayModeText}
+											/>
+											Text mode
+										</label>
+									</div>
+								</div>
+							</form>
+							<h2>UI Spec / schema</h2>
+							<pre>{JSON.stringify(restProps.data, null, 2)}</pre>
+						</div>
+					</div>
+				</section>
 			</div>
-		</section>
+		</div>
 	);
 }

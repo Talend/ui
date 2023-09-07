@@ -85,6 +85,9 @@ CustomArrayTemplate.propTypes = {
 
 export default {
 	title: 'Forms/Custom Template',
+	parameters: {
+		centeredLayout: true,
+	},
 };
 
 export function Array() {
