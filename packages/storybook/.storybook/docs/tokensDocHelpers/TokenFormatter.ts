@@ -23,7 +23,7 @@ export const getDisplayName = (name: string) => {
 	const nameArray = name
 		.replace(/^coral/i, '')
 		.replace(/^color/i, '')
-		.split(/(?=[A-Z])/);
+		.split(/(?=[A-Z0])/);
 	return nameArray
 		.map((word: string, index: number, words: string[]) => {
 			let adapted = tShirtSizes.some(tShirtSize => word.toLocaleLowerCase() === tShirtSize)
@@ -41,7 +41,7 @@ export const getDisplayName = (name: string) => {
 
 export const getScssName = (name?: string) => {
 	if (!name) return '';
-	const nameArray = name.split(/(?=[A-Z])/);
+	const nameArray = name.split(/(?=[A-Z0])/);
 	return `tokens.$${nameArray
 		.map((word: string, index: number, words: string[]) => {
 			let adapted = word.toLocaleLowerCase();
@@ -56,7 +56,7 @@ export const getScssName = (name?: string) => {
 export const getCssName = (token: Token) => {
 	if (!token.name) return '';
 	const { name, value } = token;
-	const nameArray = name.split(/(?=[A-Z])/);
+	const nameArray = name.split(/(?=[A-Z0])/);
 	return `var(--${nameArray
 		.map((word: string, index: number, words: string[]) => {
 			let adapted = word.toLocaleLowerCase();
@@ -65,5 +65,5 @@ export const getCssName = (token: Token) => {
 			}
 			return adapted;
 		})
-		.join('')}, ${value})`;
+		.join('')})`;
 };

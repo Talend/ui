@@ -23,6 +23,9 @@ const actions = [
 
 export default {
 	title: 'Forms/Playground',
+	parameters: {
+		centeredLayout: true,
+	},
 };
 
 export function Default({ data }: { data: FormDefinition }) {

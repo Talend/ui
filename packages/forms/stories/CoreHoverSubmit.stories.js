@@ -53,6 +53,9 @@ function UIFormWithOnSubmitHover() {
 
 export default {
 	title: 'Forms/Hover Submit',
+	parameters: {
+		centeredLayout: true,
+	},
 };
 
 export function Default() {

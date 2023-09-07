@@ -1,5 +1,4 @@
 {
-  "doc": "ComparatorInput/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Comparator Input",

@@ -213,6 +213,9 @@ const schema = {
 
 export default {
 	title: 'Forms/Display Mode',
+	parameters: {
+		centeredLayout: true,
+	},
 };
 
 export function TextMode() {

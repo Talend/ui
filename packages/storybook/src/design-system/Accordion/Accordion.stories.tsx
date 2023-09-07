@@ -1,8 +1,15 @@
-import { Story } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '@talend/design-system';
 
-export default { component: Accordion };
+const meta: Meta<typeof Accordion> = {
+	title: 'Design System/Accordion',
+	component: Accordion,
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Accordion>;
 
 const SampleParagraph = () => (
 	<p>

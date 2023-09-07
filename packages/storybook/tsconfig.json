@@ -4,13 +4,15 @@
     "../../node_modules/cypress",
     "cypress/**/*",
     ".storybook/docs/**/*",
+    ".storybook/blocks/**/*",
     "src/**/*",
     "custom.d.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~docs": [".storybook/docs"]
+      "~docs": [".storybook/docs"],
+      "~blocks": [".storybook/blocks"]
     },
     "module": "CommonJs",
     "rootDirs": [".storybook", "cypress", "src"],

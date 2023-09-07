@@ -198,6 +198,9 @@ const errors = schema.uiSchema.reduce(
 
 export default {
 	title: 'Forms/Errors',
+	parameters: {
+		centeredLayout: true,
+	},
 };
 
 export function Default() {
