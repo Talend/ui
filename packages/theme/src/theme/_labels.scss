@@ -81,13 +81,13 @@ a.label {
 }
 
 .label-info {
-	color: tokens.$coral-color-accent-text;
-	background: tokens.$coral-color-accent-background;
+	color: tokens.$coral-color-info-text;
+	background: tokens.$coral-color-info-background;
 
 	&[href] {
 		&:hover,
 		&:focus {
-			background: tokens.$coral-color-accent-background;
+			background: tokens.$coral-color-info-background;
 		}
 	}
 }

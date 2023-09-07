@@ -4,6 +4,7 @@
 /* eslint-disable react/display-name */
 import { screen, render } from '@testing-library/react';
 import CellTitle from './CellTitle.component';
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 jest.unmock('@talend/design-system');
 jest.mock('../../TooltipTrigger', () => props => (
@@ -103,6 +104,38 @@ describe('CellTitle', () => {
 		// then
 		expect(screen.queryByRole('link')).not.toBeInTheDocument();
 		expect(screen.getByText('my awesome title')).toBeVisible();
+	});
+
+	it('should render a link if linkAs props is provided', () => {
+		// given
+		const columnData = {
+			id: 'my-title',
+			linkAs: <RouterLink to="/documentation"></RouterLink>,
+		};
+		const rowData = {
+			id: 1,
+			displayMode: 'text',
+			title: 'my awesome title',
+		};
+
+		// when
+		render(
+			<BrowserRouter>
+				<CellTitle
+					cellData="my awesome title"
+					columnData={columnData}
+					getComponent={jest.fn()}
+					rowData={rowData}
+					rowIndex={1}
+				/>
+			</BrowserRouter>,
+		);
+
+		// then
+		expect(screen.getByRole('link', { name: 'my awesome title' })).toHaveAttribute(
+			'href',
+			'/documentation',
+		);
 	});
 
 	describe('icon', () => {

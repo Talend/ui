@@ -1,5 +1,19 @@
 # Changelog
 
+## 11.0.2
+
+### Patch Changes
+
+- Updated dependencies [3cfe50989]
+  - @talend/design-tokens@2.9.0
+
+## 11.0.1
+
+### Patch Changes
+
+- Updated dependencies [b36165add]
+  - @talend/design-tokens@2.8.0
+
 ## 11.0.0
 
 ### Major Changes

@@ -86,6 +86,10 @@ $tc-filter-bar-width: 250px !default;
 	}
 }
 
+.button-docked {
+	color: tokens.$coral-color-neutral-icon-weak;
+}
+
 @keyframes reveal {
 	0% {
 		opacity: 0;

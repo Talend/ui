@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 
-import Slider from './Slider.component';
+import Slider, { SliderModes } from './Slider.component';
 
 const icons = [
 	'talend-activity',
@@ -63,8 +63,41 @@ const actions = [
 	},
 ];
 
-const functionToFormat = value => `${value}-test`;
-const functionFormatFloor = value => `${Math.floor(value)}`;
+const actionsDS = [
+	{
+		id: 'icon1',
+		children: 'this is the worst entity',
+		icon: 'smiley-angry',
+		'data-feature': 'slider-worst-entity',
+	},
+	{
+		id: 'icon2',
+		children: 'this is a bad entity',
+		icon: 'smiley-neutral',
+		'data-feature': 'slider-bad-entity',
+	},
+	{
+		id: 'icon3',
+		children: 'this is a meh entity',
+		icon: 'smiley-satisfied',
+		'data-feature': 'slider-meh-entity',
+	},
+	{
+		id: 'icon4',
+		children: 'this is a good entity',
+		icon: 'smiley-satisfied',
+		'data-feature': 'slider-good-entity',
+	},
+	{
+		id: 'icon5',
+		children: 'this is the best entity',
+		icon: 'smiley-satisfied',
+		'data-feature': 'slider-best-entity',
+	},
+];
+
+const functionToFormat = (value: any) => `${value}-test`;
+const functionFormatFloor = (value: any) => `${Math.floor(value)}`;
 
 export default {
 	title: 'Components/Form - Controls/Slider',
@@ -83,23 +116,11 @@ export const Default = () => (
 			</div>
 			<div style={delimiterStyle}>
 				<p>Greater than usage</p>
-				<Slider
-					max={10}
-					min={0}
-					mode={Slider.MODES.GREATER_THAN}
-					onChange={action('onChange')}
-					value={3}
-				/>
+				<Slider max={10} min={0} mode="greaterThan" onChange={action('onChange')} value={3} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>Equals</p>
-				<Slider
-					max={10}
-					min={0}
-					mode={Slider.MODES.EQUALS}
-					onChange={action('onChange')}
-					value={5}
-				/>
+				<Slider max={10} min={0} mode="equals" onChange={action('onChange')} value={5} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>With disabled</p>
@@ -121,6 +142,10 @@ export const Default = () => (
 			<div style={delimiterStyle}>
 				<p>with icon buttons</p>
 				<Slider onChange={action('onChange')} captionActions={actions} value={50} />
+			</div>
+			<div style={delimiterStyle}>
+				<p>with icon buttons from the DS </p>
+				<Slider onChange={action('onChange')} captionActions={actionsDS} value={50} />
 			</div>
 			<div style={delimiterStyle}>
 				<p>with step number</p>
@@ -147,7 +172,7 @@ export const Default = () => (
 					onChange={action('onChange')}
 					min={0}
 					max={100}
-					mode={Slider.MODES.EXCLUSIVE}
+					mode="exclusive"
 					value={[25, 75]}
 					allowCross={false}
 				/>

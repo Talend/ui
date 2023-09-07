@@ -157,12 +157,11 @@ export default function FilterBar(props) {
 		return (
 			<Action
 				id={props.id}
-				className={props.className}
+				className={classNames(props.className, theme['button-docked'])}
 				onClick={props.onToggle}
 				label={t('LIST_FILTER_TOGGLE', { defaultValue: 'Toggle filter' })}
 				hideLabel
 				icon="talend-search"
-				bsStyle="link"
 				data-feature={props['data-feature']}
 				tooltipPlacement={props.tooltipPlacement}
 				role="search"
@@ -212,7 +211,6 @@ export default function FilterBar(props) {
 						id={props.id && `${props.id}-cross-icon`}
 						data-test={props['data-test'] && `${props['data-test']}-reset`}
 						data-feature={props['data-feature'] && `${props['data-feature']}-reset`}
-						bsStyle="link"
 						icon="talend-cross"
 						label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
 						hideLabel

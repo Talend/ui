@@ -1,4 +1,6 @@
 /* stylelint-disable color-hex-case */
+@use "sass:color";
+@use "sass:math";
 @use '~@talend/design-tokens/lib/tokens';
 
 // This is a fork but try to keep it as close to the original as possible
@@ -12,15 +14,16 @@ $bootstrap-sass-asset-helper: false !default;
 //## Gray and brand colors for use across Bootstrap.
 
 $gray-base: $gray900 !default;
-$gray-darker: lighten($gray-base, 13.5%) !default; // #222
-$gray-dark: lighten($gray-base, 20%) !default; // #333
-$gray: lighten($gray-base, 33.5%) !default; // #555
-$gray-light: lighten($gray-base, 46.7%) !default; // #777
-$gray-lighter: lighten($gray-base, 85%) !default; // #bfbfbf
+$gray-darker: color.adjust($gray-base, $lightness: 13.5%) !default; // #222
+$gray-dark: color.adjust($gray-base, $lightness: 20%) !default; // #333
+$gray: color.adjust($gray-base, $lightness: 33.5%) !default; // #555
+$gray-light: color.adjust($gray-base, $lightness: 46.7%) !default; // #777
+$gray-lighter: color.adjust($gray-base, $lightness: 85%) !default; // #bfbfbf
 
 $brand-primary: $deep-blue500;
 $brand-primary-lighter: tint($brand-primary, 25) !default;
 $brand-primary-light: tint($brand-primary, 12) !default;
+
 $brand-primary-dark: shade($brand-primary, 12) !default;
 $brand-primary-darker: shade($brand-primary, 25) !default;
 $brand-secondary: $deep-blue500 !default;
@@ -58,11 +61,11 @@ $font-family-monospace: 'Inconsolata', monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
 $font-size-base: 14px !default;
-$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-large: math.ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small: math.ceil(($font-size-base * 0.85)) !default; // ~12px
 
 $font-size-h1: $font-size-large !default;
-$font-size-h2: ceil(($font-size-base * 1.14)) !default; // ~16px
+$font-size-h2: math.ceil(($font-size-base * 1.14)) !default; // ~16px
 $font-size-h3: $font-size-base !default;
 $font-size-h4: $font-size-small;
 $font-size-h5: $font-size-small;
@@ -75,7 +78,7 @@ $font-weight-regular: 400;
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base: 1.428571429 !default; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
+$line-height-computed: math.floor(($font-size-base * $line-height-base)) !default; // ~20px
 
 $form-label-base-color: $gray400 !default;
 $form-base-font-weight: $font-weight-regular !default;
@@ -307,15 +310,15 @@ $dropdown-header-color: $gray-light !default;
 //
 // Note: These variables are not generated into the Customizer.
 
-$zindex-navbar: 1000 !default;
-$zindex-dropdown: 1000 !default;
-$zindex-navbar-fixed: 1030 !default;
-$zindex-modal-background: 1040 !default;
-$zindex-modal: 1050 !default;
-$zindex-popover: 1060 !default;
-$zindex-tooltip: 1070 !default;
-$zindex-guidedtour: 1080 !default;
-$zindex-notification: 1090 !default;
+$zindex-navbar: tokens.$coral-elevation-layer-flat !default; // 0
+$zindex-dropdown: tokens.$coral-elevation-layer-interactive-front !default; // 8
+$zindex-navbar-fixed: tokens.$coral-elevation-layer-standard-front !default; // 4
+$zindex-modal-background: tokens.$coral-elevation-layer-standard-front !default; // 4
+$zindex-modal: tokens.$coral-elevation-layer-standard-front !default; // 4
+$zindex-popover: tokens.$coral-elevation-layer-interactive-front !default; // 8
+$zindex-tooltip: tokens.$coral-elevation-layer-overlay !default; // 16
+$zindex-guidedtour: tokens.$coral-elevation-layer-overlay !default; // 16
+$zindex-notification: tokens.$coral-elevation-layer-overlay !default; // 16
 
 //== Media queries breakpoints
 //
@@ -402,7 +405,7 @@ $navbar-collapse-max-height: 340px !default;
 
 $navbar-default-color: #777 !default;
 $navbar-default-bg: #f8f8f8 !default;
-$navbar-default-border: darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-border: color.adjust($navbar-default-bg, $lightness: -6.5%) !default;
 
 // Navbar links
 $navbar-default-link-color: #777 !default;
@@ -415,7 +418,7 @@ $navbar-default-link-disabled-bg: transparent !default;
 
 // Navbar brand label
 $navbar-default-brand-color: $navbar-default-link-color !default;
-$navbar-default-brand-hover-color: darken($navbar-default-brand-color, 10%) !default;
+$navbar-default-brand-hover-color: color.adjust($navbar-default-brand-color, $lightness: -10%) !default;
 $navbar-default-brand-hover-bg: transparent !default;
 
 // Navbar toggle
@@ -427,7 +430,7 @@ $navbar-default-toggle-border-color: #ddd !default;
 // Reset inverted navbar basics
 $navbar-inverse-color: $white !default;
 $navbar-inverse-bg: $brand-primary-darker !default;
-$navbar-inverse-border: darken($navbar-inverse-bg, 10%) !default;
+$navbar-inverse-border: color.adjust($navbar-inverse-bg, $lightness: -10%) !default;
 
 // Inverted navbar links
 $navbar-inverse-link-color: $gray0 !default;
@@ -519,8 +522,8 @@ $jumbotron-padding: 30px !default;
 $jumbotron-color: inherit !default;
 $jumbotron-bg: $gray-lighter !default;
 $jumbotron-heading-color: inherit !default;
-$jumbotron-font-size: ceil(($font-size-base * 1.5)) !default;
-$jumbotron-heading-font-size: ceil(($font-size-base * 4.5)) !default;
+$jumbotron-font-size: math.ceil(($font-size-base * 1.5)) !default;
+$jumbotron-heading-font-size: math.ceil(($font-size-base * 4.5)) !default;
 
 //== Form states and alerts
 //
@@ -528,19 +531,19 @@ $jumbotron-heading-font-size: ceil(($font-size-base * 4.5)) !default;
 
 $state-success-text: shade($brand-success, 20%) !default;
 $state-success-bg: tint($brand-success, 80%) !default;
-$state-success-border: darken(adjust-hue($state-success-bg, -10), 5%) !default;
+$state-success-border: color.adjust(color.adjust($state-success-bg, $hue: -10), $lightness: -5%) !default;
 
 $state-info-text: shade($brand-info, 20%) !default;
 $state-info-bg: tint($brand-info, 80%) !default;
-$state-info-border: darken(adjust-hue($state-info-bg, -10), 7%) !default;
+$state-info-border: color.adjust(color.adjust($state-info-bg, $hue: -10), $lightness: -7%) !default;
 
 $state-warning-text: shade($brand-warning, 20%) !default;
 $state-warning-bg: tint($brand-warning, 80%) !default;
-$state-warning-border: darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+$state-warning-border: color.adjust(color.adjust($state-warning-bg, $hue: -10), $lightness: -5%) !default;
 
 $state-danger-text: shade($brand-danger, 20%) !default;
 $state-danger-bg: tint($brand-danger, 80%) !default;
-$state-danger-border: darken(adjust-hue($state-danger-bg, -10), 5%) !default;
+$state-danger-border: color.adjust(color.adjust($state-danger-bg, $hue: -10), $lightness: -5%) !default;
 
 //== Tooltips
 //
@@ -573,7 +576,7 @@ $popover-border-color: $shadow !default;
 $popover-fallback-border-color: #ccc !default;
 
 //** Popover title background color
-$popover-title-bg: darken($popover-bg, 3%) !default;
+$popover-title-bg: color.adjust($popover-bg, $lightness: -3%) !default;
 
 //** Popover arrow width
 $popover-arrow-width: 10px !default;
@@ -585,7 +588,7 @@ $popover-arrow-outer-width: ($popover-arrow-width + 1) !default;
 //** Popover outer arrow color
 $popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;
 //** Popover outer arrow fallback color
-$popover-arrow-outer-fallback-color: darken($popover-fallback-border-color, 20%) !default;
+$popover-arrow-outer-fallback-color: color.adjust($popover-fallback-border-color, $lightness: -20%) !default;
 
 //== Labels
 //
@@ -687,7 +690,7 @@ $progress-bar-warning-bg: tokens.$coral-color-warning-background-strong !default
 //** Danger progress bar color
 $progress-bar-danger-bg: tokens.$coral-color-danger-background-strong !default;
 //** Info progress bar color
-$progress-bar-info-bg: tokens.$coral-color-accent-background-strong !default;
+$progress-bar-info-bg: tokens.$coral-color-info-background-strong !default;
 
 //== List group
 //
@@ -709,7 +712,7 @@ $list-group-active-bg: $component-active-bg !default;
 //** Border color of active list elements
 $list-group-active-border: $list-group-active-bg !default;
 //** Text color for content within active list items
-$list-group-active-text-color: lighten($list-group-active-bg, 40%) !default;
+$list-group-active-text-color: color.adjust($list-group-active-bg, $lightness: 40%) !default;
 
 //** Text color of disabled list items
 $list-group-disabled-color: $gray-light !default;
@@ -783,7 +786,7 @@ $thumbnail-caption-padding: 9px !default;
 //##
 
 $well-bg: $gray50 !default;
-$well-border: darken($well-bg, 7%) !default;
+$well-border: color.adjust($well-bg, $lightness: -7%) !default;
 
 //== Badges
 //

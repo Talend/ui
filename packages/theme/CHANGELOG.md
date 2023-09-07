@@ -1,5 +1,30 @@
 # @talend/bootstrap-theme
 
+## 8.1.2
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+
+## 8.1.1
+
+### Patch Changes
+
+- 58f8ff666: Fix focus and active state colors for bootstrap buttons
+- a5348a439: TDOPS-4964 - Fix SidePanel colors
+
+## 8.1.0
+
+### Minor Changes
+
+- 275e7da72: feat: use design-tokens for elevation
+
+## 8.0.1
+
+### Patch Changes
+
+- ae4916894: Bootstrap Theme : Fix various button border issues using Design System tokens
+
 ## 8.0.0
 
 ### Major Changes

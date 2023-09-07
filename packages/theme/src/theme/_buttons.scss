@@ -24,21 +24,13 @@
 	&,
 	&:focus,
 	&:hover {
-		color: currentColor;
-		background-color: transparent;
 		border-color: transparent;
 	}
 
 	&:active,
 	.open > &.dropdown-toggle {
 		box-shadow: none;
-
-		&,
-		&:hover {
-			color: var(--t-button-color);
-			background-color: var(--t-button-background-color);
-			border-color: var(--t-button-border-color);
-		}
+		border-color: transparent;
 	}
 
 	&,
@@ -56,9 +48,6 @@
 		&:hover,
 		&:focus,
 		&.focus {
-			color: var(--t-button-color);
-			background-color: var(--t-button-background-color);
-			border-color: var(--t-button-border-color);
 			opacity: 0.54;
 			cursor: not-allowed;
 		}
@@ -90,6 +79,12 @@
 		background: tokens.$coral-color-accent-background-strong;
 		color: tokens.$coral-color-accent-text-weak;
 
+		&:focus,
+		&.focus {
+			color: tokens.$coral-color-accent-text-weak;
+			background-color: tokens.$coral-color-accent-background-strong;
+		}
+
 		&:hover {
 			background: tokens.$coral-color-accent-background-strong-hover;
 			color: tokens.$coral-color-accent-text-weak-hover;
@@ -99,16 +94,35 @@
 			background: tokens.$coral-color-accent-background-strong-active;
 			color: tokens.$coral-color-accent-text-weak-active;
 		}
+
+		&.disabled,
+		&[disabled],
+		&[aria-disabled='true'],
+		&[aria-busy='true'] {
+			background: tokens.$coral-color-accent-background-strong;
+			color: tokens.$coral-color-accent-text-weak;
+
+			&:hover {
+				background-color: tokens.$coral-color-accent-background-strong;
+			}
+		}
 	}
 
 	&-inverse {
 		background-color: transparent;
-		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+		border-color: tokens.$coral-color-accent-border;
 		color: tokens.$coral-color-accent-text;
+
+		&:focus,
+		&.focus {
+			background-color: transparent;
+			border-color: tokens.$coral-color-accent-border;
+			color: tokens.$coral-color-accent-text;
+		}
 
 		&:hover {
 			background: tokens.$coral-color-accent-background-weak-hover;
-			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+			border-color: tokens.$coral-color-accent-border-hover;
 			color: tokens.$coral-color-accent-text-strong-hover;
 		}
 
@@ -117,12 +131,13 @@
 			color: tokens.$coral-color-accent-text-strong-active;
 		}
 
-		&:disabled,
+		&.disabled,
+		&[disabled],
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
 			background: transparent;
-			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
-			color: tokens.$coral-color-neutral-text-disabled;
+			border-color: tokens.$coral-color-accent-border;
+			color: tokens.$coral-color-accent-text;
 
 			&:hover {
 				background-color: transparent;
@@ -132,12 +147,19 @@
 
 	&--secondary {
 		background-color: transparent;
-		border-color: tokens.$coral-color-accent-text;
+		border-color: tokens.$coral-color-accent-border;
 		color: tokens.$coral-color-accent-text;
+
+		&:focus,
+		&.focus {
+			background-color: transparent;
+			border-color: tokens.$coral-color-accent-border;
+			color: tokens.$coral-color-accent-text;
+		}
 
 		&:hover {
 			background: tokens.$coral-color-accent-background-weak-hover;
-			border-color: tokens.$coral-color-accent-text;
+			border-color: tokens.$coral-color-accent-border-hover;
 			color: tokens.$coral-color-accent-text-strong-hover;
 		}
 
@@ -146,12 +168,13 @@
 			color: tokens.$coral-color-accent-text-strong-active;
 		}
 
-		&:disabled,
+		&.disabled,
+		&[disabled],
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
 			background: transparent;
-			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
-			color: tokens.$coral-color-neutral-text-disabled;
+			border-color: tokens.$coral-color-accent-border;
+			color: tokens.$coral-color-accent-text;
 
 			&:hover {
 				background-color: transparent;
@@ -164,6 +187,12 @@
 		background-color: transparent;
 		color: tokens.$coral-color-accent-text;
 
+		&:focus,
+		&.focus {
+			background-color: transparent;
+			color: tokens.$coral-color-accent-text;
+		}
+
 		&:hover {
 			background: tokens.$coral-color-accent-background-weak-hover;
 			color: tokens.$coral-color-accent-text-strong-hover;
@@ -174,12 +203,12 @@
 			color: tokens.$coral-color-accent-text-strong-active;
 		}
 
-		&:disabled,
+		&.disabled,
+		&[disabled],
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
 			background: transparent;
-			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
-			color: tokens.$coral-color-neutral-text-disabled;
+			color: tokens.$coral-color-accent-text;
 
 			&:hover {
 				background-color: transparent;
@@ -190,6 +219,11 @@
 	&-link {
 		color: tokens.$coral-color-accent-text;
 
+		&:focus,
+		&.focus {
+			color: tokens.$coral-color-accent-text;
+		}
+
 		&:hover {
 			color: tokens.$coral-color-accent-text-strong-hover;
 		}
@@ -198,22 +232,34 @@
 			color: tokens.$coral-color-accent-text-strong-active;
 		}
 
-		&:disabled,
+		&.disabled,
+		&[disabled],
 		&[aria-disabled='true'],
 		&[aria-busy='true'] {
-			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
-			color: tokens.$coral-color-neutral-text-disabled;
+			color: tokens.$coral-color-accent-text;
+
+			&:hover {
+				color: tokens.$coral-color-accent-text;
+			}
 		}
 	}
 
 	&.btn-danger,
 	&.btn--destructive {
 		background: tokens.$coral-color-danger-background-strong;
-		border: tokens.$coral-color-danger-background-strong;
+		border-color: tokens.$coral-color-danger-border;
 		color: tokens.$coral-color-danger-text-weak;
+
+		&:focus,
+		&.focus {
+			background: tokens.$coral-color-danger-background-strong;
+			border-color: tokens.$coral-color-danger-border;
+			color: tokens.$coral-color-danger-text-weak;
+		}
 
 		&:hover {
 			background: tokens.$coral-color-danger-background-strong-hover;
+			border-color: tokens.$coral-color-danger-border-hover;
 			color: tokens.$coral-color-danger-text-weak-hover;
 		}
 
@@ -222,10 +268,17 @@
 			color: tokens.$coral-color-danger-text-weak-active;
 		}
 
-		&[disabled] &:hover,
-		.disabled &:hover {
-			background: tokens.$coral-color-neutral-background-disabled;
-			color: tokens.$coral-color-neutral-text-disabled;
+		&[disabled],
+		.disabled,
+		&[aria-disabled='true'],
+		&[aria-busy='true'] {
+			background: tokens.$coral-color-danger-background-strong;
+			border-color: tokens.$coral-color-danger-border;
+			color: tokens.$coral-color-danger-text-weak;
+
+			&:hover {
+				background-color: tokens.$coral-color-danger-background-strong;
+			}
 		}
 	}
 
