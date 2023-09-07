@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 10.2.3
+
+### Patch Changes
+
+- ac48bdb6b: fix: pin react-ace
+- Updated dependencies [f73fdbc46]
+  - @talend/react-components@11.3.2
+
 ## 10.2.2
 
 ### Patch Changes
