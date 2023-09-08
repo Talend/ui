@@ -8,6 +8,7 @@ import {
 
 export default {
 	component: StatusInProgress,
+	title: 'Feedback/Status',
 };
 
 export const InProgress = () => <StatusInProgress />;

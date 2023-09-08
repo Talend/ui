@@ -2,6 +2,7 @@ import { Illustration, RichRadioButton } from '../';
 
 export default {
 	component: RichRadioButton,
+	title: 'Form/RichRadioButton',
 };
 
 export const DefaultStory = () => (

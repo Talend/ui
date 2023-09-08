@@ -7,6 +7,7 @@ import { InlineEditing, StackVertical } from '../';
 
 export default {
 	component: InlineEditing,
+	title: 'Form/InlineEditing',
 };
 
 export const Text = {

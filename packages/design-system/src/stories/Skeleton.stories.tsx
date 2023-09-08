@@ -14,6 +14,7 @@ import {
 import SkeletonPrimitive from '..//components/Skeleton/Primitive/Skeleton.Primitive';
 
 export default {
+	title: 'Feedback/Skeleton',
 	component: SkeletonPrimitive,
 };
 

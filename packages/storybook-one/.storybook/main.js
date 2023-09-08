@@ -11,7 +11,11 @@ const {
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const STORIES = [
-	// `${rootPath}../design-system/src/**/*.stories.@(js|tsx)`,
+	{
+		titlePrefix: 'Design System',
+		directory: `${rootPath}../design-system/src`,
+	},
+	//	`${rootPath}../design-system/src/**/*.stories.@(js|tsx)`,
 	`${rootPath}../components/**/*.stories.@(js|tsx)`,
 	// `${rootPath}../forms/**/*.stories.@(js|tsx)`,
 	`${rootPath}../dataviz/src/**/*.stories.@(js|tsx)`,

@@ -57,6 +57,7 @@ const commonArgTypes = {
 
 export default {
 	component: ButtonPrimary,
+	title: 'Click/Button',
 	parameters: {
 		actions: { argTypesRegex: '^on[A-Z].*' },
 	},

@@ -2,6 +2,7 @@ import { Form } from '../';
 
 export default {
 	component: Form.Text,
+	title: 'Form/Text',
 };
 
 export const FormFieldError = () => (

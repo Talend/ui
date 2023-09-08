@@ -1,6 +1,7 @@
 import { Divider, StackVertical, Stepper } from '../';
 
 export default {
+	title: 'Layout/Stepper',
 	component: Stepper,
 };
 

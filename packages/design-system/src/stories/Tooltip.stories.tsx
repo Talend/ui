@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 import { ButtonPrimary, Tooltip } from '../';
 
-export default { component: Tooltip };
+export default { component: Tooltip, title: 'Messaging/Tooltip' };
 
 // eslint-disable-next-line storybook/prefer-pascal-case
 export const render = (props: Story<typeof Tooltip>) => (

@@ -11,6 +11,7 @@ import { manualStackArgs } from './StackHorizontal.stories';
 
 export default {
 	component: StackVertical,
+	title: 'Layout/StackVertical',
 	subcomponents: { StackHorizontal, StackItem },
 } as ComponentMeta<typeof StackVertical>;
 

@@ -12,14 +12,20 @@ import {
 	Tooltip,
 } from '../';
 
+const defaultArgs = {
+	children: 'Link label',
+	href: './',
+	target: '_blank',
+	icon: 'talend-plus',
+	size: 'M',
+};
+
 const commonLinkArgTypes = {
 	children: {
 		control: { type: 'text' },
-		defaultValue: 'Link label',
 	},
 	href: {
 		control: { type: 'text' },
-		defaultValue: './',
 	},
 	target: {
 		control: { type: 'select', options: ['_blank', '_self', '_parent', '_top'] },
@@ -27,21 +33,21 @@ const commonLinkArgTypes = {
 	},
 	icon: {
 		control: { type: 'text' },
-		defaultValue: 'talend-plus',
 		description: 'optional',
 	},
 	size: {
 		control: { type: 'select', options: ['M', 'S'] },
-		defaultValue: 'M',
 		description: 'optional (default is "M")',
 	},
 };
 
 export default {
 	component: ButtonPrimaryAsLink,
+	title: 'Click/ButtonAsLink',
 	parameters: {
 		actions: { argTypesRegex: '^on[A-Z].*' },
 	},
+	args: defaultArgs,
 };
 
 const PrimaryLinkTemplate: ComponentStory<typeof ButtonPrimaryAsLink> = args => {
@@ -62,15 +68,19 @@ const DestructiveLinkTemplate: ComponentStory<typeof ButtonDestructiveAsLink> = 
 
 export const PrimaryAsLink = PrimaryLinkTemplate.bind({});
 PrimaryAsLink.argTypes = commonLinkArgTypes;
+PrimaryAsLink.args = defaultArgs;
 
 export const DestructiveAsLink = DestructiveLinkTemplate.bind({});
 DestructiveAsLink.argTypes = commonLinkArgTypes;
+DestructiveAsLink.args = defaultArgs;
 
 export const SecondaryAsLink = SecondaryLinkTemplate.bind({});
 SecondaryAsLink.argTypes = commonLinkArgTypes;
+SecondaryAsLink.args = defaultArgs;
 
 export const TertiaryAsLink = TertiaryLinkTemplate.bind({});
 TertiaryAsLink.argTypes = commonLinkArgTypes;
+TertiaryAsLink.args = defaultArgs;
 
 export const TooltipButton = (props: Story) => (
 	<Tooltip title="Relevant information about contacting the support">

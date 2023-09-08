@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 export default {
 	component: Form.Text,
+	title: 'Form/Affix',
 };
 
 export const QuickStart = () => (

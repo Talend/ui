@@ -5,6 +5,7 @@ import { SizedIcon } from '../';
 import tokens from '@talend/design-tokens';
 
 export default {
+	title: 'Icons/SizedIcon',
 	component: SizedIcon,
 };
 

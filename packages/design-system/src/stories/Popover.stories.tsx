@@ -7,6 +7,7 @@ import { PopoverDisclosureHTMLProps } from 'reakit';
 
 export default {
 	component: Popover,
+	title: 'Messaging/Popover',
 };
 
 const EasyPopover = () => <StackVertical gap="S">Hello hello</StackVertical>;

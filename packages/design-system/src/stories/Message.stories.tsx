@@ -20,7 +20,7 @@ import {
 
 import { MessagePrimitive } from '..//components/Message/Primitive/MessagePrimitive';
 
-export default { component: MessagePrimitive };
+export default { component: MessagePrimitive, title: 'Messaging/Message' };
 export const DefaultMessageDemo = () => (
 	<StackHorizontal gap="M">
 		<MessageSuccess

@@ -4,6 +4,7 @@ import { Card } from '../';
 
 export default {
 	component: Card,
+	title: 'Layout/Card',
 };
 
 export const DefaultCard = (): ReactNode => (

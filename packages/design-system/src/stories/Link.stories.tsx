@@ -7,6 +7,7 @@ import { LinkProps } from '..//components/Link';
 
 export default {
 	component: Link,
+	title: 'Click/Link',
 };
 
 export const Default = {

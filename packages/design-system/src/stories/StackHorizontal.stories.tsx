@@ -15,6 +15,7 @@ import {
 
 export default {
 	component: StackHorizontal,
+	title: 'Layout/StackHorizontal',
 } as ComponentMeta<typeof StackHorizontal>;
 
 // eslint-disable-next-line storybook/prefer-pascal-case

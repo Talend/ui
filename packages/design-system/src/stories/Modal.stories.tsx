@@ -7,6 +7,7 @@ import { ModalPropsType } from '../components/Modal';
 
 export default {
 	component: Modal,
+	title: 'Layout/Modal',
 };
 
 function ModalStory(props: Partial<ModalPropsType>) {

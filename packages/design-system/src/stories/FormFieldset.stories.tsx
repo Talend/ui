@@ -10,6 +10,7 @@ import {
 
 export default {
 	component: Form.Fieldset,
+	title: 'Form/Fieldset',
 };
 
 export const Default = () => {

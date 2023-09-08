@@ -4,6 +4,7 @@ import { ButtonPrimary, ButtonSecondary, Form, Skeleton } from '../';
 
 export default {
 	component: Form.Buttons,
+	title: 'Form/Buttons',
 };
 
 export const FormButtonsSkeleton = () => (

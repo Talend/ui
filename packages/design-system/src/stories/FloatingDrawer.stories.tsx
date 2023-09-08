@@ -7,6 +7,7 @@ import { FloatingDrawer, ButtonPrimary } from '../';
 
 export default {
 	component: FloatingDrawer,
+	title: 'Navigation/FloatingDrawer',
 };
 
 const defaultProps = {

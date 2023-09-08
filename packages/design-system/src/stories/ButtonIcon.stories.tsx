@@ -12,32 +12,35 @@ import {
 
 export default {
 	component: ButtonIcon,
+	title: 'Click/ButtonIcon',
 } as ComponentMeta<typeof ButtonIcon>;
+
+const defaultArgs = {
+	children: 'Action label',
+	icon: 'plus',
+	action: action('Button clicked'),
+	size: 'M',
+};
 
 const commonArgTypes = {
 	children: {
 		control: { type: 'text' },
-		defaultValue: 'Action label',
 	},
 	icon: {
 		control: { type: 'text' },
-		defaultValue: 'plus',
 		description:
 			'In regular size, it supports both Icon (legacy) and SizedIcon<"M"> names. In size "XS", it supports the legacy icon name still, and the SizedIcon<"S"> names.',
 	},
 	onClick: {
 		disabled: true,
 		description: 'A callback function',
-		defaultValue: action('Button clicked'),
 	},
 	isLoading: {
 		control: { type: 'boolean' },
-		defaultValue: false,
 		description: 'optional',
 	},
 	disabled: {
 		control: { type: 'boolean' },
-		defaultValue: false,
 		description: 'optional',
 	},
 };
@@ -58,17 +61,18 @@ const TemplateFloating: ComponentStory<typeof ButtonIconFloating> = args => {
 };
 
 export const Default = TemplateIcon.bind({});
+Default.args = defaultArgs;
 Default.argTypes = {
 	...commonArgTypes,
 	size: {
 		options: ['XS', 'S', 'M'],
 		control: { type: 'select' },
-		defaultValue: 'M',
 		description: 'optional, defaults to M',
 	},
 };
 
 export const Toggle = TemplateToggle.bind({});
+Toggle.args = defaultArgs;
 Toggle.argTypes = {
 	...commonArgTypes,
 	size: {
@@ -83,14 +87,17 @@ Toggle.argTypes = {
 	},
 };
 export const ToggleActive = TemplateToggle.bind({});
+
 ToggleActive.argTypes = {
 	...Toggle.argTypes,
 };
 ToggleActive.args = {
+	...defaultArgs,
 	isActive: true,
 };
 
 export const Floating = TemplateFloating.bind({});
+Floating.args = defaultArgs;
 Floating.argTypes = {
 	...commonArgTypes,
 	size: {
@@ -122,6 +129,7 @@ export const NaturalButtonProps = () => {
 		</StackHorizontal>
 	);
 };
+NaturalButtonProps.args = defaultArgs;
 
 export const Loading = () => {
 	const [isActive, setActive] = useState<boolean>(false);

@@ -4,6 +4,7 @@ import { LinkAsButton } from '../';
 
 export default {
 	component: LinkAsButton,
+	title: 'Click/LinkAsButton',
 };
 
 const LinkAsButtonTemplate: ComponentStory<typeof LinkAsButton> = args => {

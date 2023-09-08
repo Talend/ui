@@ -5,6 +5,7 @@ import { ButtonIcon, ButtonPrimary, ButtonSecondary, ButtonTertiary, Dropdown } 
 
 export default {
 	component: Dropdown,
+	title: 'Click/Dropdown',
 };
 
 export const WithIcons = {

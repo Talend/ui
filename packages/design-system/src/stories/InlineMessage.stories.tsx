@@ -10,7 +10,7 @@ import {
 import { ComponentStory } from '@storybook/react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
-export default { component: InlineMessage };
+export default { component: InlineMessage, title: 'Messaging/InlineMessage' };
 
 export const DefaultDemo = () => (
 	<StackVertical gap="XS">

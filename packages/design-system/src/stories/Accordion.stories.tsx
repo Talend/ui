@@ -4,6 +4,7 @@ import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '../';
 
 const meta: Meta<typeof Accordion> = {
 	component: Accordion,
+	title: 'Navigation/Accordion',
 };
 
 export default meta;

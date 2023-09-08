@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 
 import { ErrorState, Link } from '../';
 
-export default { component: ErrorState };
+export default { component: ErrorState, title: 'Feedback/ErrorState' };
 
 export const DefaultStory = () => (
 	<ErrorState

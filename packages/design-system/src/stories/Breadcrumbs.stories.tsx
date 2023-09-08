@@ -3,6 +3,7 @@ import { Breadcrumbs } from '../';
 
 export default {
 	component: Breadcrumbs,
+	title: 'Navigation/Breadcrumbs',
 };
 
 export const Basic = () => (

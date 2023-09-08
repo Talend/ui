@@ -9,7 +9,7 @@ import {
 	InlineMessage,
 } from '../';
 
-export default { component: Tabs };
+export default { component: Tabs, title: 'Navigation/Tabs' };
 
 export const Styles = () => (
 	<StackHorizontal gap="M" justify="spaceBetween">

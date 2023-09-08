@@ -16,6 +16,7 @@ import CountryCodes from './docs/data/CountryCodes.json';
 
 export default {
 	component: Form,
+	title: 'Form/Form',
 };
 
 function getCountryCodes() {

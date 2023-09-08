@@ -11,6 +11,7 @@ import { useState } from 'react';
 
 export default {
 	component: Badge,
+	title: 'Messaging/Badge',
 };
 
 export const StoryBadgeValue = () => (

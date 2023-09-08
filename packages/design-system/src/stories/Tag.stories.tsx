@@ -13,6 +13,7 @@ import {
 
 export default {
 	component: Tag,
+	title: 'Messaging/Tag',
 };
 
 export const Default: ComponentStory<typeof TagDefault> = props => (

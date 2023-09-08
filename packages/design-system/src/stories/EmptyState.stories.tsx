@@ -12,6 +12,7 @@ import {
 
 export default {
 	component: EmptyStateLarge,
+	title: 'Feedback/EmptyState',
 };
 
 export const Large = () => (
