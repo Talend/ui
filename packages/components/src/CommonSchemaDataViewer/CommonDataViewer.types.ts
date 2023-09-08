@@ -95,14 +95,14 @@ export type CommonSchemaOriginalFieldMetadata = {
 };
 
 export type RecordType = {
-	type: 'record';
+	type: string; //'record';
 	namespace: string;
-	fields: CommonSchemaSampledField[];
+	fields: CommonSchemaSampledField<CommonSchemaSampledFieldType>[];
 	'talend.fields.order': string;
 };
 
 export type ArrayType = {
-	type: 'array';
+	type: string; //'array';
 	items: (CommonSchemaSampledFieldType | 'null')[];
 };
 
@@ -117,17 +117,13 @@ export type ValueType = {
 
 export type CommonSchemaSampledFieldType = RecordType | ArrayType | ValueType;
 
-export type CommonSchemaSampledField = {
+export type CommonSchemaSampledField<T extends CommonSchemaSampledFieldType> = {
 	name: string;
-	type: (CommonSchemaSampledFieldType | 'null')[] | CommonSchemaSampledFieldType;
+	type: (T | 'null')[] | T;
 	originalFieldName?: string;
 	originalFieldMetadata?: CommonSchemaOriginalFieldMetadata;
 };
 
 export type CommonSchemaSampled = {
 	name: string;
-	type: string;
-	namespace: string;
-	fields: CommonSchemaSampledField[];
-	'talend.fields.order': string;
-};
+} & RecordType;
