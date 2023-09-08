@@ -12,6 +12,7 @@
     "watch": "talend-scripts build --watch",
     "test": "echo Tests are managed by Cypress using yarn test:cy",
     "test:cy": "cypress run --component --spec **.cy.tsx",
+    "test:demo": "talend-scripts build-storybook --quiet",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint": "talend-scripts lint",
     "start": "talend-scripts start-storybook"
