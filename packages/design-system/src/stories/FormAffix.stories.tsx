@@ -1,4 +1,4 @@
-import { Form, StackVertical } from '@talend/design-system';
+import { Form, StackVertical } from '../';
 import { action } from '@storybook/addon-actions';
 
 export default {

@@ -6,7 +6,7 @@ import {
 	Form,
 	InlineMessageDestructive,
 	InlineMessageInformation,
-} from '@talend/design-system';
+} from '../';
 
 export default {
 	component: Form.Fieldset,

@@ -1,4 +1,4 @@
-import { Form } from '@talend/design-system';
+import { Form } from '../';
 
 export default {
 	component: Form.Text,

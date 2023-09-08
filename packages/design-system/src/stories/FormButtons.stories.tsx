@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 
-import { ButtonPrimary, ButtonSecondary, Form, Skeleton } from '@talend/design-system';
+import { ButtonPrimary, ButtonSecondary, Form, Skeleton } from '../';
 
 export default {
 	component: Form.Buttons,
