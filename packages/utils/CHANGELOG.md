@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 2.5.2
+
+### Patch Changes
+
+- 20388beea: fix(TDOPS-3587) - update email validation pattern
+
 ## 2.5.1
 
 ### Patch Changes
