@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ComponentStory } from '@storybook/react';
-import { Area } from './docs';
+import { Area } from './docs/Area';
 import { screen, userEvent } from '@storybook/testing-library';
 
 import { FloatingDrawer, ButtonPrimary } from '../';

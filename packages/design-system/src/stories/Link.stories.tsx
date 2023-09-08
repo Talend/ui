@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { WithSelector } from './docs';
+import { WithSelector } from './docs/WithSelector';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 import { Link } from '../';

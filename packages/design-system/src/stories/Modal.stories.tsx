@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Tooltip, ButtonPrimary, Modal } from '../';
-import { ModalPropsType } from '..//components/Modal';
+import { ButtonPrimary, Modal } from '../';
+import { ModalPropsType } from '../components/Modal';
 
 export default {
 	component: Modal,
@@ -21,7 +21,6 @@ function ModalStory(props: Partial<ModalPropsType>) {
 			{modalOpen && (
 				<Modal
 					header={{ title: '(Default story title)' }}
-					children="(Default story child)"
 					onClose={() => {
 						action('onClose');
 						setModalOpen(false);

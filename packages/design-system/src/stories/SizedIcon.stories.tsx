@@ -1,3 +1,4 @@
+// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize, icons } from '@talend/icons/dist/typeUtils';
 
 import { SizedIcon } from '../';
@@ -29,41 +30,46 @@ const colorOptions = {
 		tokens.coralColorWarningIcon,
 	],
 	control: { type: 'select' },
-	defaultValue: tokens.coralColorNeutralIcon,
+};
+const defaultColor = tokens.coralColorNeutralIcon;
+const defaultName = 'pencil';
+const defaultArgs = {
+	color: defaultColor,
+	name: defaultName,
 };
 
 IconXS.argTypes = {
 	name: {
 		options: icons.XS,
 		control: { type: 'select' },
-		defaultValue: 'pencil',
 	},
 	color: colorOptions,
 };
+IconXS.args = defaultArgs;
 
 IconS.argTypes = {
 	name: {
 		options: icons.S,
 		control: { type: 'select' },
-		defaultValue: 'pencil',
 	},
 	color: colorOptions,
 };
+IconS.args = defaultArgs;
 
 IconM.argTypes = {
 	name: {
 		options: icons.M,
 		control: { type: 'select' },
-		defaultValue: 'pencil',
 	},
 	color: colorOptions,
 };
+IconM.args = defaultArgs;
 
 IconL.argTypes = {
 	name: {
 		options: icons.L,
 		control: { type: 'select' },
-		defaultValue: 'pencil',
 	},
 	color: colorOptions,
 };
+IconL.args = defaultArgs;

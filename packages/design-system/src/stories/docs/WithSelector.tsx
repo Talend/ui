@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, cloneElement } from 'react';
 import type { PropsWithChildren } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Args, ReactFramework, StoryContext, StoryFn } from '@storybook/react';
 
 type Selector = ':hover' | ':focus' | ':active';

@@ -3,9 +3,9 @@ import EmptyStateMedium, { EmptyStateMediumProps } from './variants/EmptyStateMe
 import EmptyStateSmall, { EmptyStateSmallProps } from './variants/EmptyStateSmall';
 import { forwardRef, Ref } from 'react';
 
-type availableVariantsTypes = 'L' | 'M' | 'S';
+type AvailableVariantsTypes = 'L' | 'M' | 'S';
 
-export type VariantType<T extends availableVariantsTypes, P extends object> = {
+export type VariantType<T extends AvailableVariantsTypes, P extends object> = {
 	variant: T;
 } & P;
 
