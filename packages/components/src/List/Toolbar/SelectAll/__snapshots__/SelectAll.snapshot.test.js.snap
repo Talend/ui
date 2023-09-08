@@ -4,15 +4,13 @@ exports[`SelectAll should be unchecked when there is no items 1`] = `
 <form
   className="theme-container"
 >
-  <label>
-    <span
-      checked={false}
-      className="CoralFormCheckbox"
-      disabled={true}
-      label="Select all"
-      onChange={[Function]}
-    />
-  </label>
+  <span
+    checked={false}
+    className="CoralFormCheckbox"
+    disabled={true}
+    label="Select all"
+    onChange={[Function]}
+  />
 </form>
 `;
 
@@ -20,15 +18,13 @@ exports[`SelectAll should render 1`] = `
 <form
   className="theme-container"
 >
-  <label>
-    <span
-      checked={false}
-      className="CoralFormCheckbox"
-      disabled={false}
-      label="Select all"
-      onChange={[Function]}
-    />
-  </label>
+  <span
+    checked={false}
+    className="CoralFormCheckbox"
+    disabled={false}
+    label="Select all"
+    onChange={[Function]}
+  />
 </form>
 `;
 
@@ -36,18 +32,14 @@ exports[`SelectAll should render id if provided 1`] = `
 <form
   className="theme-container"
 >
-  <label
-    htmlFor="list-toolbar-check-all"
-  >
-    <span
-      checked={false}
-      className="CoralFormCheckbox"
-      disabled={false}
-      id="list-toolbar-check-all"
-      label="Select all"
-      name="list-toolbar-check-all"
-      onChange={[Function]}
-    />
-  </label>
+  <span
+    checked={false}
+    className="CoralFormCheckbox"
+    disabled={false}
+    id="list-toolbar-check-all"
+    label="Select all"
+    name="list-toolbar-check-all"
+    onChange={[Function]}
+  />
 </form>
 `;

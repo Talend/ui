@@ -12,18 +12,16 @@ function SelectAll({ id, items, isSelected, onToggleAll }) {
 
 	return (
 		<form className={theme.container}>
-			<label htmlFor={checkboxId}>
-				<Form.Checkbox
-					name={checkboxId}
-					id={checkboxId}
-					onChange={event => {
-						onToggleAll(event, items);
-					}}
-					checked={isAllSelected()}
-					disabled={!items.length}
-					label={t('LIST_SELECT_ALL', { defaultValue: 'Select all' })}
-				/>
-			</label>
+			<Form.Checkbox
+				name={checkboxId}
+				id={checkboxId}
+				onChange={event => {
+					onToggleAll(event, items);
+				}}
+				checked={isAllSelected()}
+				disabled={!items.length}
+				label={t('LIST_SELECT_ALL', { defaultValue: 'Select all' })}
+			/>
 		</form>
 	);
 }
