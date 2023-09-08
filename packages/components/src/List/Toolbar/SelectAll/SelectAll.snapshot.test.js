@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import SelectAll from './SelectAll.component';
 
 jest.mock('react-dom');
+jest.unmock('@talend/design-system');
 
 const props = {
 	items: [{ id: 1 }, { id: 2 }],

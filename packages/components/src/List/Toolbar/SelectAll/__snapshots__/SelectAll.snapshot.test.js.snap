@@ -5,12 +5,37 @@ exports[`SelectAll should be unchecked when there is no items 1`] = `
   className="theme-container"
 >
   <span
-    checked={false}
-    className="CoralFormCheckbox"
-    disabled={true}
-    label="Select all"
-    onChange={[Function]}
-  />
+    className="theme-checkbox"
+  >
+    <input
+      aria-checked={false}
+      aria-disabled={true}
+      checked={false}
+      disabled={true}
+      id="checkbox--id-42"
+      onChange={[Function]}
+      onClick={[Function]}
+      onClickCapture={[Function]}
+      onKeyDown={[Function]}
+      onKeyPressCapture={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseDownCapture={[Function]}
+      readOnly={false}
+      style={
+        {
+          "pointerEvents": "none",
+        }
+      }
+      type="checkbox"
+    />
+    <label
+      className="theme-label theme-label_inline"
+      htmlFor="checkbox--id-42"
+    >
+      Select all
+    </label>
+  </span>
 </form>
 `;
 
@@ -19,12 +44,30 @@ exports[`SelectAll should render 1`] = `
   className="theme-container"
 >
   <span
-    checked={false}
-    className="CoralFormCheckbox"
-    disabled={false}
-    label="Select all"
-    onChange={[Function]}
-  />
+    className="theme-checkbox"
+  >
+    <input
+      aria-checked={false}
+      checked={false}
+      id="checkbox--id-42"
+      onChange={[Function]}
+      onClick={[Function]}
+      onClickCapture={[Function]}
+      onKeyDown={[Function]}
+      onKeyPressCapture={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseDownCapture={[Function]}
+      readOnly={false}
+      type="checkbox"
+    />
+    <label
+      className="theme-label theme-label_inline"
+      htmlFor="checkbox--id-42"
+    >
+      Select all
+    </label>
+  </span>
 </form>
 `;
 
@@ -33,13 +76,30 @@ exports[`SelectAll should render id if provided 1`] = `
   className="theme-container"
 >
   <span
-    checked={false}
-    className="CoralFormCheckbox"
-    disabled={false}
-    id="list-toolbar-check-all"
-    label="Select all"
-    name="list-toolbar-check-all"
-    onChange={[Function]}
-  />
+    className="theme-checkbox"
+  >
+    <input
+      aria-checked={false}
+      checked={false}
+      id="list-toolbar-check-all"
+      name="list-toolbar-check-all"
+      onChange={[Function]}
+      onClick={[Function]}
+      onClickCapture={[Function]}
+      onKeyDown={[Function]}
+      onKeyPressCapture={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseDownCapture={[Function]}
+      readOnly={false}
+      type="checkbox"
+    />
+    <label
+      className="theme-label theme-label_inline"
+      htmlFor="list-toolbar-check-all"
+    >
+      Select all
+    </label>
+  </span>
 </form>
 `;
