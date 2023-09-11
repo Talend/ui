@@ -1,76 +1,12 @@
-import { useState, useCallback } from 'react';
-import { within, userEvent } from '@storybook/testing-library';
-import { action } from '@storybook/addon-actions';
 import { Badge } from '@talend/react-components';
 import { useTranslation } from 'react-i18next';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
-import times from 'lodash/times';
 
 import FacetedSearch from '../src';
 import { BadgeFacetedProvider } from '../src/components/context/badgeFaceted.context';
 import { BadgesGenerator } from '../src/components/BadgesGenerator';
 import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dictionary';
-
-import {
-	badgeConnectionType,
-	badgeName,
-	badgeConnectionName,
-	badgeAuthor,
-	badgeAll,
-	badgePrice,
-	badgeValid,
-	badgeEmpty,
-	badgeInvalid,
-	badgeTags,
-	badgeCreationDate,
-	badgeWithVeryLongName,
-	badgeEnumWithLotOfValues,
-	badgeTextAsCategory,
-	badgeTextAsCustomAttribute,
-	badgeEnumsAsCustomAttribute,
-	badgePriceAsCustomAttribute,
-	badgeEmptyLabel,
-	badgeConnectionTypeAllSelector,
-} from './badgesDefinitions';
-
-const badgesDefinitions = [
-	badgeAll,
-	badgeName,
-	badgeConnectionName,
-	badgeAuthor,
-	badgeConnectionType,
-	badgeTags,
-	badgePrice,
-	badgeValid,
-	badgeEmpty,
-	badgeInvalid,
-	badgeCreationDate,
-];
-
-const callbacks = {
-	getTags: () =>
-		new Promise(resolve =>
-			setTimeout(resolve, 2000, [
-				'clean',
-				'production',
-				'last chunk',
-				'salesforce',
-				'outdated',
-				'extracted',
-				'security',
-				'in processing',
-				'deep learning',
-				'sql',
-				'cluster',
-				'visualization',
-				'analytics',
-				'users',
-				'warehouse',
-				'api',
-			]),
-		),
-};
 
 const badgesFaceted = {
 	badges: [
@@ -122,31 +58,6 @@ const badgesFaceted = {
 				],
 				operators: ['in'],
 				badgeId: 'connection.type-9f0e5bc7-c687-4198-9635-d0fc7724dfd1',
-				isInCreation: false,
-			},
-		},
-	],
-};
-
-const badgesWithAll = {
-	badges: [
-		{
-			properties: {
-				attribute: 'all',
-				initialOperatorOpened: false,
-				initialValueOpened: false,
-				label: 'All',
-				operator: { label: 'Contains', name: 'containsIgnoreCase', iconName: 'contains' },
-				operators: [],
-				type: 'text',
-				value: 'test',
-			},
-			metadata: {
-				isAvailableForFacetList: false,
-				badgePerFacet: 'N',
-				entitiesPerBadge: '1',
-				operators: ['containsIgnoreCase'],
-				badgeId: 'all-b6c04e3d-1d72-4aca-9565-09d206f76d88',
 				isInCreation: false,
 			},
 		},
