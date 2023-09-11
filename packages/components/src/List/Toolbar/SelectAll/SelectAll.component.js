@@ -11,7 +11,7 @@ function SelectAll({ id, items, isSelected, onToggleAll }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	return (
-		<form className={theme.container}>
+		<form className={theme.container} data-testId={id}>
 			<Form.Checkbox
 				name={checkboxId}
 				id={checkboxId}
