@@ -13,7 +13,7 @@
     "postinstall": "talend-yarn-workspace run build:lib",
     "pre-release": "talend-yarn-workspace run pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
-    "start-storybook": "yarn workspace @talend/ui-storybook run start",
+    "start-storybook": "yarn workspace @talend/ui-storybook-one run start",
     "release": "yarn pre-release && yarn changeset publish",
     "lint-staged": "lint-staged",
     "lint": "cross-env WORKSPACE_RUN_FAIL=no-bail talend-yarn-workspace run lint",

@@ -5,7 +5,6 @@
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
   "scripts": {
-    "test:demo": "echo on hold",
     "build-storybook": "echo on hold",
     "start-storybook": "echo on hold",
     "lint": "talend-scripts lint",

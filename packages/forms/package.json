@@ -14,7 +14,6 @@
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "talend-scripts build-storybook --quiet",
     "lint": "talend-scripts lint",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
