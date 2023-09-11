@@ -19,12 +19,15 @@ const STORIES = [
 	`${rootPath}../forms/**/*.stories.@(js|tsx)`,
 	`${rootPath}../dataviz/src/**/*.stories.@(js|tsx)`,
 	`${rootPath}../icons/stories/**/*.stories.@(js|tsx)`,
+	`${rootPath}../faceted-search/stories/**/*.stories.@(js|tsx)`,
 ];
 
 const monoRepoFixSourceMap = [
-	'../design-system/src',
 	'../components/src',
 	'../dataviz/src',
+	'../design-system/src',
+	'../faceted-search/stories',
+	'../faceted-search/src',
 	'../forms/src',
 	'../forms/stories',
 	'../icons/stories',
