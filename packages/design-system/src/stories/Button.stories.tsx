@@ -46,11 +46,13 @@ const commonArgTypes = {
 		description: 'optional',
 	},
 	size: {
-		control: { type: 'select', options: ['M', 'S'] },
+		options: ['M', 'S'],
+		control: { type: 'select' },
 		description: 'optional (default is "M")',
 	},
 	type: {
-		control: { type: 'select', options: ['button', 'submit', 'reset'] },
+		options: ['button', 'submit', 'reset'],
+		control: { type: 'select' },
 		description: 'optional (default is "button")',
 	},
 };

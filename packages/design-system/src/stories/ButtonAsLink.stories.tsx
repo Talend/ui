@@ -28,7 +28,8 @@ const commonLinkArgTypes = {
 		control: { type: 'text' },
 	},
 	target: {
-		control: { type: 'select', options: ['_blank', '_self', '_parent', '_top'] },
+		options: ['_blank', '_self', '_parent', '_top'],
+		control: { type: 'select' },
 		description: 'optional',
 	},
 	icon: {
@@ -36,7 +37,8 @@ const commonLinkArgTypes = {
 		description: 'optional',
 	},
 	size: {
-		control: { type: 'select', options: ['M', 'S'] },
+		options: ['M', 'S'],
+		control: { type: 'select' },
 		description: 'optional (default is "M")',
 	},
 };

@@ -167,7 +167,8 @@ Usage.args = {
 
 Usage.argTypes = {
 	variant: {
-		control: { type: 'select', options: ['L', 'M', 'S'] },
+		options: ['L', 'M', 'S'],
+		control: { type: 'select' },
 		description:
 			'Used for `<EmptyState>`. Use `<EmptyStateLarge>`, `<EmptyStateMedium>` and `<EmptyStateSmall>` instead',
 	},
