@@ -19,14 +19,13 @@ export default {
 } as ComponentMeta<typeof StackHorizontal>;
 
 // eslint-disable-next-line storybook/prefer-pascal-case
-export const manualStackArgs = {
-	as: { options: [...possibleAsTypes], control: { type: 'select' }, defaultValue: 'div' },
+const manualStackArgs = {
+	as: { options: [...possibleAsTypes], control: { type: 'select' } },
 	justify: {
 		options: Object.keys(justifyOptions),
 		control: { type: 'select' },
-		defaultValue: 'start',
 	},
-	align: { options: Object.keys(alignOptions), control: { type: 'select' }, defaultValue: 'start' },
+	align: { options: Object.keys(alignOptions), control: { type: 'select' } },
 	gap: {
 		options: Object.keys(sizeOptions),
 		control: { type: 'select' },
@@ -47,15 +46,14 @@ export const manualStackArgs = {
 	wrap: {
 		options: ['nowrap', 'wrap', 'wrapReverse'],
 		control: { type: 'select' },
-		defaultValue: 'nowrap',
 	},
-	isFullWidth: { control: { type: 'boolean' }, defaultValue: false },
+	isFullWidth: { control: { type: 'boolean' } },
 	height: {
 		options: Object.keys(heightOptions),
 		control: { type: 'select' },
 	},
 	alignContent: { options: Object.keys(alignContentOptions), control: { type: 'select' } },
-	display: { options: ['block', 'inline'], control: { type: 'select' }, defaultValue: 'block' },
+	display: { options: ['block', 'inline'], control: { type: 'select' } },
 	role: { control: { type: 'text' } },
 };
 
@@ -83,7 +81,18 @@ const Template: ComponentStory<typeof StackHorizontal> = args => (
 
 export const TestHorizontal = Template.bind({});
 TestHorizontal.argTypes = manualStackArgs;
-TestHorizontal.args = { gap: 'S' };
+TestHorizontal.args = {
+	as: 'div',
+	gap: 'S',
+	justify: 'start',
+	align: 'start',
+	wrap: 'nowrap',
+	isFullWidth: false,
+	height: 'auto',
+	alignContent: 'start',
+	display: 'block',
+	role: '',
+};
 
 export const TestHorizontalWithExplicitSpacing = Template.bind({});
 TestHorizontalWithExplicitSpacing.args = {

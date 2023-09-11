@@ -96,39 +96,41 @@ const MessageInformationTemplate: ComponentStory<typeof MessageInformation> = ar
 };
 
 export const MessageInformationTemplateStory = MessageInformationTemplate.bind({});
+
 MessageInformationTemplateStory.argTypes = {
 	action: {
 		control: { type: 'object' },
-		defaultValue: { children: 'See', onClick: () => {} },
 	},
 	additionalActions: {
 		control: { type: 'object' },
-		defaultValue: {
-			'aria-label': 'Additional actions',
-			items: [
-				{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
-				{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
-				{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
-			],
-		},
 	},
 	title: {
 		control: { type: 'text' },
-		defaultValue: 'Information Title',
 	},
 	description: {
 		control: { type: 'text' },
-		defaultValue: 'Maybe resolve this issue before doing anything else',
 	},
 	link: {
 		control: { type: 'object' },
-		defaultValue: { href: 'https://talend.com', children: 'Learn more' },
 	},
 	children: {
 		control: { type: 'text' },
-		defaultValue: undefined,
 		description: 'optional',
 	},
+};
+MessageInformationTemplateStory.args = {
+	action: { children: 'See', onClick: () => {} },
+	additionalActions: {
+		'aria-label': 'Additional actions',
+		items: [
+			{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+			{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+			{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+		],
+	},
+	title: 'Information Title',
+	description: 'Maybe resolve this issue before doing anything else',
+	link: { href: 'https://talend.com', children: 'Learn more' },
 };
 
 // Message Collection
@@ -222,28 +224,31 @@ const MessageCollectionInformationTemplate: ComponentStory<
 export const MessageCollectionInformationTemplateStory = MessageCollectionInformationTemplate.bind(
 	{},
 );
+MessageCollectionInformationTemplateStory.args = {
+	action: { children: 'See', onClick: () => {} },
+	title: 'Information Title',
+	description: 'Maybe resolve this issue before doing anything else',
+	additionalActions: {
+		'aria-label': 'Additional actions',
+		items: [
+			{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+			{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+			{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+		],
+	},
+};
+
 MessageCollectionInformationTemplateStory.argTypes = {
 	action: {
 		control: { type: 'object' },
-		defaultValue: { children: 'See', onClick: () => {} },
 	},
 	title: {
 		control: { type: 'text' },
-		defaultValue: 'Information Title',
 	},
 	description: {
 		control: { type: 'text' },
-		defaultValue: 'Maybe resolve this issue before doing anything else',
 	},
 	additionalActions: {
 		control: { type: 'object' },
-		defaultValue: {
-			'aria-label': 'Additional actions',
-			items: [
-				{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
-				{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
-				{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
-			],
-		},
 	},
 };

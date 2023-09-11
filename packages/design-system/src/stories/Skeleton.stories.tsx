@@ -39,36 +39,48 @@ const SkeletonInputTemplate: ComponentStory<typeof SkeletonInput> = args => {
 };
 
 export const SkeletonButtonStory = SkeletonButtonTemplate.bind({});
+SkeletonButtonStory.args = {
+	size: 'M',
+};
 SkeletonButtonStory.argTypes = {
 	size: {
-		control: { type: 'select', options: ['M', 'S'] },
-		defaultValue: 'M',
+		options: ['M', 'S'],
+		control: { type: 'select' },
 		description: 'optional (default is "M")',
 	},
 };
 
 export const SkeletonButtonIconStory = SkeletonButtonIconTemplate.bind({});
+SkeletonButtonIconStory.args = {
+	size: 'M',
+};
 SkeletonButtonIconStory.argTypes = {
 	size: {
-		control: { type: 'select', options: ['M', 'S', 'XS'] },
-		defaultValue: 'M',
+		options: ['M', 'S', 'XS'],
+		control: { type: 'select' },
 		description: 'optional (default is "M")',
 	},
 };
 export const SkeletonHeadingStory = SkeletonHeadingTemplate.bind({});
+SkeletonHeadingStory.args = {
+	size: 'L',
+};
 SkeletonHeadingStory.argTypes = {
 	size: {
-		control: { type: 'select', options: ['L', 'M', 'S'] },
-		defaultValue: 'L',
+		options: ['L', 'M', 'S'],
+		control: { type: 'select' },
 		description: 'optional (default is "L")',
 	},
 };
 
 export const SkeletonParagraphStory = SkeletonParagraphTemplate.bind({});
+SkeletonParagraphStory.args = {
+	size: 'M',
+};
 SkeletonParagraphStory.argTypes = {
 	size: {
-		control: { type: 'select', options: ['M', 'S'] },
-		defaultValue: 'M',
+		options: ['M', 'S'],
+		control: { type: 'select' },
 		description: 'optional (default is "M")',
 	},
 };

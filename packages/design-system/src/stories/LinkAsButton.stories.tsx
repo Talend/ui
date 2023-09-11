@@ -12,29 +12,31 @@ const LinkAsButtonTemplate: ComponentStory<typeof LinkAsButton> = args => {
 };
 
 export const LinkAsButtonStory = LinkAsButtonTemplate.bind({});
+LinkAsButtonStory.args = {
+	children: 'Link label',
+	onClick: action('Button clicked'),
+	icon: 'talend-info-circle',
+	disabled: false,
+	focusable: false,
+};
 LinkAsButtonStory.argTypes = {
 	children: {
 		control: { type: 'text' },
-		defaultValue: 'Link label',
 	},
 	onClick: {
 		disabled: true,
 		description: 'A callback function',
-		defaultValue: action('Button clicked'),
 	},
 	icon: {
 		control: { type: 'text' },
-		defaultValue: 'talend-info-circle',
 		description: 'optional',
 	},
 	disabled: {
 		control: { type: 'boolean' },
-		defaultValue: false,
 		description: 'optional',
 	},
 	focusable: {
 		control: { type: 'boolean' },
-		defaultValue: false,
 		description: 'optional',
 	},
 };

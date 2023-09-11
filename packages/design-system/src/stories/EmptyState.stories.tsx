@@ -58,6 +58,19 @@ export const MediumWithAction = ({ illustration, title, description, link, actio
 	);
 };
 
+MediumWithAction.args = {
+	illustration: 'DEFAULT',
+	title: 'No dataset yet',
+	description: 'Add a preparation to clean, format, and transform data prior to processing.',
+	link: { href: 'https://talend.com', 'data-feature': 'Feature name' },
+	action: {
+		children: 'Create a dataset',
+		onClick: () => sbAction('clicked'),
+		icon: 'plus',
+		actionType: 'button',
+	},
+};
+
 MediumWithAction.argTypes = {
 	illustration: {
 		control: {
@@ -78,30 +91,20 @@ MediumWithAction.argTypes = {
 				'WARNING',
 			],
 		},
-		defaultValue: 'DEFAULT',
 		description: 'Define the illustration',
 	},
 	title: {
 		control: { type: 'text' },
-		defaultValue: 'No dataset yet',
 	},
 	description: {
 		control: { type: 'text' },
-		defaultValue: 'Add a preparation to clean, format, and transform data prior to processing.',
 	},
 	link: {
 		control: { type: 'object' },
-		defaultValue: { href: 'https://talend.com', 'data-feature': 'Feature name' },
 		description: 'Optional for Large and Medium, unavailable for Small',
 	},
 	action: {
 		control: { type: 'object' },
-		defaultValue: {
-			children: 'Create a dataset',
-			onClick: () => sbAction('clicked'),
-			icon: 'plus',
-			actionType: 'button',
-		},
 	},
 };
 
@@ -150,37 +153,38 @@ export const Usage = (args: EmptyStateProps) => {
 		}
 	}
 };
+Usage.args = {
+	variant: 'L',
+	title: 'Title copy',
+	description: 'Description copy',
+	link: { href: 'https://talend.com', 'data-feature': 'Feature name' },
+	action: {
+		children: 'Action',
+		onClick: () => sbAction('clicked'),
+		actionType: 'button',
+	},
+};
 
 Usage.argTypes = {
 	variant: {
 		control: { type: 'select', options: ['L', 'M', 'S'] },
-		defaultValue: 'L',
 		description:
 			'Used for `<EmptyState>`. Use `<EmptyStateLarge>`, `<EmptyStateMedium>` and `<EmptyStateSmall>` instead',
 	},
 	title: {
 		control: { type: 'text' },
-		defaultValue: 'Title copy',
 		description: 'Mandatory across variants',
 	},
 	description: {
 		control: { type: 'text' },
-		defaultValue: 'Description copy',
 		description: 'Mandatory for Large and Medium, unavailable for Small',
 	},
 	link: {
 		control: { type: 'object' },
-		defaultValue: { href: 'https://talend.com', 'data-feature': 'Feature name' },
 		description: 'Optional for Large and Medium, unavailable for Small',
 	},
 	action: {
 		control: { type: 'object' },
-		defaultValue: {
-			children: 'Action',
-			onClick: () => {},
-			actionType: 'button',
-			'data-feature': 'Feature name',
-		},
 		description: 'Optional for Large and Medium. Unavailable for Small',
 	},
 	illustration: {

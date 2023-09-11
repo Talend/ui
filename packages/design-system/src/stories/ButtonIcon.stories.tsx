@@ -31,6 +31,11 @@ const commonArgTypes = {
 		description:
 			'In regular size, it supports both Icon (legacy) and SizedIcon<"M"> names. In size "XS", it supports the legacy icon name still, and the SizedIcon<"S"> names.',
 	},
+	size: {
+		options: ['XS', 'S', 'M'],
+		control: { type: 'select' },
+		description: 'optional, defaults to M',
+	},
 	onClick: {
 		disabled: true,
 		description: 'A callback function',
@@ -64,26 +69,14 @@ export const Default = TemplateIcon.bind({});
 Default.args = defaultArgs;
 Default.argTypes = {
 	...commonArgTypes,
-	size: {
-		options: ['XS', 'S', 'M'],
-		control: { type: 'select' },
-		description: 'optional, defaults to M',
-	},
 };
 
 export const Toggle = TemplateToggle.bind({});
 Toggle.args = defaultArgs;
 Toggle.argTypes = {
 	...commonArgTypes,
-	size: {
-		options: ['S', 'M'],
-		control: { type: 'select' },
-		defaultValue: 'M',
-		description: 'optional, defaults to M',
-	},
 	isActive: {
 		control: { type: 'boolean' },
-		defaultValue: false,
 	},
 };
 export const ToggleActive = TemplateToggle.bind({});
@@ -103,7 +96,6 @@ Floating.argTypes = {
 	size: {
 		options: ['S', 'M'],
 		control: { type: 'select' },
-		defaultValue: 'M',
 		description: 'optional, defaults to M',
 	},
 };
@@ -129,7 +121,6 @@ export const NaturalButtonProps = () => {
 		</StackHorizontal>
 	);
 };
-NaturalButtonProps.args = defaultArgs;
 
 export const Loading = () => {
 	const [isActive, setActive] = useState<boolean>(false);

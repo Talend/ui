@@ -90,22 +90,27 @@ export const StackWithStackItem: ComponentStory<typeof StackItem> = args => {
 		</StackVertical>
 	);
 };
+StackWithStackItem.args = {
+	grow: true,
+	shrink: false,
+	align: 'center',
+	overflow: 'auto',
+	as: 'li',
+};
+
 StackWithStackItem.argTypes = {
-	grow: { control: { type: 'boolean' }, defaultValue: true },
-	shrink: { control: { type: 'boolean' }, defaultValue: false },
+	grow: { control: { type: 'boolean' } },
+	shrink: { control: { type: 'boolean' } },
 	align: {
 		options: Object.keys(alignOptions),
 		control: { type: 'select' },
-		defaultValue: 'center',
 	},
 	overflow: {
 		options: Object.keys(overflowOptions),
 		control: { type: 'select' },
-		defaultValue: 'auto',
 	},
 	as: {
 		options: [...possibleAsTypes],
 		control: { type: 'select' },
-		defaultValue: 'li',
 	},
 };
