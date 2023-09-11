@@ -1,6 +1,6 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/**/*", "../components/src/**/*"],
+  "include": ["src/**/*", "../components/src/**/*", "../forms/src/**/*"],
   "compilerOptions": {
     "baseUrl": ".",
     "module": "CommonJs",
