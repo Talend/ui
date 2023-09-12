@@ -59,7 +59,7 @@ function CellTitleSelector(props) {
 			<CellLink
 				cellData={cellData}
 				rowData={rowData}
-				columnData={{ id, linkAs, tooltip }}
+				columnData={{ ...columnData, id, linkAs, tooltip }}
 				className={className}
 			></CellLink>
 		);
