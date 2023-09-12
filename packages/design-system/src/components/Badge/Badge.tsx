@@ -11,6 +11,7 @@ type BadgeDropdownType = BadgeVariantType<'dropdown', BadgeDropdownProps>;
 type BadgePopoverType = BadgeVariantType<'popover', BadgePopoverProps>;
 
 export type BadgeProps = BadgeValueType | BadgeTagType | BadgeDropdownType | BadgePopoverType;
+export type BadgeType = BadgeProps; // compat
 
 export const Badge = forwardRef((props: BadgeProps, ref: Ref<HTMLSpanElement>) => {
 	switch (props.variant) {
