@@ -14,6 +14,24 @@ export default {
 	title: 'Messaging/Badge',
 };
 
+export const Overview = (props: any) => <Badge {...props} />;
+Overview.args = {
+	label: 'Badge',
+	value: ['Feature'],
+	semantic: 'none',
+};
+Overview.argTypes = {
+	label: { control: { type: 'text' } },
+	value: { control: { type: 'text' } },
+	variant: {
+		control: { type: 'select' },
+		options: ['badge', 'tag', 'dropdown', 'popover'],
+	},
+	value: {
+		control: { type: 'object' },
+	},
+};
+
 export const StoryBadgeValue = () => (
 	<StackVertical gap="S" justify="spaceBetween">
 		<StackHorizontal align="center" gap="S" justify="spaceBetween">

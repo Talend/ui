@@ -1,13 +1,11 @@
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 
 import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '../';
 
-const meta: Meta<typeof Accordion> = {
+export default {
 	component: Accordion,
 	title: 'Navigation/Accordion',
 };
-
-export default meta;
 
 type Story = StoryObj<typeof Accordion>;
 
@@ -24,13 +22,26 @@ const SampleParagraph = () => (
 	</p>
 );
 
-export const SimpleCollapsiblePanel = () => (
+export const SimpleCollapsiblePanel = (props: any) => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
-		<CollapsiblePanel title="Simple panel">
+		<CollapsiblePanel {...props}>
 			<SampleParagraph />
 		</CollapsiblePanel>
 	</div>
 );
+SimpleCollapsiblePanel.args = {
+	id: 'simple-panel',
+	title: 'simple panel',
+};
+SimpleCollapsiblePanel.argTypes = {
+	id: { control: { type: 'text' } },
+	title: { control: { type: 'text' } },
+	status: {
+		control: { type: 'select' },
+		options: ['successful', 'failed', 'inProgress', 'warning', 'canceled'],
+	},
+	disabled: { control: { type: 'boolean' } },
+};
 
 export const StatusCollapsiblePanel = () => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>

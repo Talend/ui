@@ -68,7 +68,7 @@
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.4.0",
+    "@storybook/addon-actions": "^7.4.1",
     "@talend/bootstrap-theme": "^8.1.2",
     "@talend/design-system": "^7.14.2",
     "@talend/icons": "^6.58.1",

@@ -10,11 +10,6 @@ import {
 	StackVertical,
 } from '../';
 
-export default {
-	component: ButtonIcon,
-	title: 'Click/ButtonIcon',
-} as ComponentMeta<typeof ButtonIcon>;
-
 const defaultArgs = {
 	children: 'Action label',
 	icon: 'plus',
@@ -49,6 +44,13 @@ const commonArgTypes = {
 		description: 'optional',
 	},
 };
+
+export default {
+	component: ButtonIcon,
+	title: 'Click/ButtonIcon',
+	args: defaultArgs,
+	argTypes: commonArgTypes,
+} as ComponentMeta<typeof ButtonIcon>;
 
 const TemplateIcon: ComponentStory<typeof ButtonIcon> = args => {
 	const { children, ...rest } = args;

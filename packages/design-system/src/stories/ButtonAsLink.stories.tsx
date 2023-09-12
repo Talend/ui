@@ -50,6 +50,7 @@ export default {
 		actions: { argTypesRegex: '^on[A-Z].*' },
 	},
 	args: defaultArgs,
+	argTypes: commonLinkArgTypes,
 };
 
 const PrimaryLinkTemplate: ComponentStory<typeof ButtonPrimaryAsLink> = args => {

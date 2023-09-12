@@ -40,6 +40,7 @@ const defaultMain = {
 	stories: getStoriesFolders(),
 	staticDirs: [path.join(__dirname, 'msw')],
 	addons: [
+		'@storybook/addon-storysource',
 		'@storybook/addon-a11y',
 		'@storybook/addon-controls',
 		'@storybook/addon-essentials',
