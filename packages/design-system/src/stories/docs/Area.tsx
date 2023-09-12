@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react';
 import classnames from 'classnames';
 import styles from './Area.module.scss';
 
-const Area = (props: HTMLAttributes<HTMLDivElement>) => {
+export const Area = (props: HTMLAttributes<HTMLDivElement>) => {
 	const { children, className, ...rest } = props;
 	return (
 		<div {...rest} className={classnames(styles.area, className)}>
@@ -10,5 +10,3 @@ const Area = (props: HTMLAttributes<HTMLDivElement>) => {
 		</div>
 	);
 };
-
-export default Area;
