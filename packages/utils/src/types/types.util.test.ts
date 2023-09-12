@@ -1,11 +1,9 @@
-import { filterUndefinedOrNull } from './types.util';
+import { valued } from './types.util';
 
 describe('types.util', () => {
-	describe('filterUndefinedOrNull', () => {
+	describe('valued', () => {
 		it('Filter array with null and undefined values', () => {
-			const result = ['Terra', undefined, 'Mars', 'Baal', null, 'Valhalla'].filter(
-				filterUndefinedOrNull,
-			);
+			const result = ['Terra', undefined, 'Mars', 'Baal', null, 'Valhalla'].filter(valued);
 
 			expect(result).toBeDefined();
 			expect(result.length).toEqual(4);

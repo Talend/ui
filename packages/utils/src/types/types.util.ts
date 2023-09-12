@@ -3,5 +3,4 @@
  * So result is typed without "| null" nor "| undefined".
  * This is not possible with a simple function like ".filter(v => !!v)" or ".filter(Boolean)"
  */
-export const filterUndefinedOrNull = <T>(val: T | undefined | null): val is T =>
-	val !== undefined && val !== null;
+export const valued = <T>(val: T | undefined | null): val is T => val !== undefined && val !== null;
