@@ -27,7 +27,14 @@ const DropdownButton = forwardRef(
 					</span>
 				)}
 				<span className={styles.buttonContent}>{children}</span>
-				{checked && <SizedIcon name="check" size="M" />}
+				{checked && (
+					<SizedIcon
+						name="check"
+						size="M"
+						data-test="dropdown.menuItem.Button.checked"
+						data-testid="dropdown.menuItem.Button.checked"
+					/>
+				)}
 			</MenuItem>
 		);
 	},
