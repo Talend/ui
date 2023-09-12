@@ -4,7 +4,8 @@ $icon-alignment-offset-m: -0.3rem;
 
 .dropdownEntry {
 	background: tokens.$coral-color-accent-background-weak;
-	display: block;
+	display: flex;
+	align-items: baseline;
 	width: 100%;
 	min-width: 0;
 	color: tokens.$coral-color-neutral-text;
@@ -19,8 +20,6 @@ $icon-alignment-offset-m: -0.3rem;
 	}
 
 	.buttonIcon {
-		height: tokens.$coral-sizing-xxxs;
-		width: tokens.$coral-sizing-xxxs;
 		margin-right: tokens.$coral-spacing-xxs;
 		flex-shrink: 0;
 		position: relative;
@@ -29,6 +28,7 @@ $icon-alignment-offset-m: -0.3rem;
 
 	.buttonContent {
 		min-width: 0;
+		flex: 1;
 	}
 
 	&:hover,

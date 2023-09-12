@@ -19,7 +19,7 @@ import Card from './components/WIP/Card';
 import Combobox from './components/WIP/Combobox';
 import Divider from './components/Divider';
 import { FloatingDrawer } from './components/WIP/Drawer';
-import Dropdown from './components/Dropdown';
+import Dropdown, { DropdownButton } from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
 	EmptyStateMedium,
@@ -122,6 +122,7 @@ export {
 	Divider,
 	FloatingDrawer,
 	Dropdown,
+	DropdownButton,
 	EmptyState,
 	EmptyStateMedium,
 	EmptyStateSmall,
