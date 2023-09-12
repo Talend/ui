@@ -56,7 +56,16 @@ export function renderField(
 	const type = getFieldType(field);
 
 	if (type === FieldTypes.Record) {
-		return <ModelRecordField field={field as RecordType} path={path} metadata={metadata} />;
+		if (field.hasOwnProperty('name')) {
+			return (
+				<ModelRecordField
+					field={field as CommonSchemaSampledField<RecordType>}
+					path={path}
+					metadata={metadata}
+				/>
+			);
+		}
+		return <ModelRecordField type={field as RecordType} path={path} metadata={metadata} />;
 	}
 
 	if (type === FieldTypes.Array) {

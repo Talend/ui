@@ -53,8 +53,8 @@ export function ModelArrayField({ field, path, metadata }: ModelArrayFieldProps)
 			</StackHorizontal>
 			{isCurrentPathExpanded
 				? arrayType.items
-						.filter(item => item !== 'null')
-						.map(item => renderField(item as CommonSchemaSampledFieldType, fieldPath, metadata))
+						.filter((item): item is CommonSchemaSampledFieldType => item !== 'null')
+						.map(item => renderField(item, fieldPath, metadata))
 				: null}
 		</StackVertical>
 	);
