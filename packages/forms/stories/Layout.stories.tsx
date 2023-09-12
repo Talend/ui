@@ -6,7 +6,7 @@ import Form from '../src';
 const simple = require('./json/concepts/simple.json');
 
 const meta: Meta<typeof Form> = {
-	title: 'Forms/Form',
+	title: 'Forms/Schema/Layout',
 	component: Form,
 	parameters: {
 		centeredLayout: true,

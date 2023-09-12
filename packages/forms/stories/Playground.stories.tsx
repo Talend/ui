@@ -59,7 +59,7 @@ function Playground({ data }: { data: FormDefinition }) {
 }
 
 const meta: Meta<typeof Playground> = {
-	title: 'Forms/Playground',
+	title: 'Forms/Schema/Playground',
 	component: Playground,
 	parameters: {
 		centeredLayout: true,

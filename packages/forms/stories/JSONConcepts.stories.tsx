@@ -3,7 +3,7 @@ import { UIForm } from '../src';
 import { concepts } from './json';
 
 export default {
-	title: 'Forms/Core concepts',
+	title: 'Forms/Schema/Core',
 	component: UIForm,
 	parameters: {
 		formStoryDisplayMode: {

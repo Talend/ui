@@ -3,7 +3,7 @@ import { UIForm } from '../src';
 import { fieldsets } from './json';
 
 export default {
-	title: 'Forms/Fieldsets',
+	title: 'Forms/Schema/Fieldsets',
 	component: UIForm,
 	parameters: {
 		formStoryDisplayMode: {

@@ -3,7 +3,7 @@ import { UIForm } from '../src';
 import { fields } from './json';
 
 export default {
-	title: 'Forms/Fields',
+	title: 'Forms/Schema/Fields',
 	component: UIForm,
 	parameters: {
 		formStoryDisplayMode: {

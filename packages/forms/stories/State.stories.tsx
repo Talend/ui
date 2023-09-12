@@ -14,7 +14,7 @@ import { customWidgetSchema } from './UIFormStoriesSchemas/customWidget.schema';
 import { CustomArrayTemplate } from './CustomArrayTemplate.component';
 
 const meta: Meta<typeof UIForm> = {
-	title: 'Forms/UIForm',
+	title: 'Forms/Schema/State',
 	component: UIForm,
 	args: {
 		onChange: action('Change'),
