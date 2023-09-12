@@ -13,7 +13,9 @@ function CellLink({ cellData, rowData, columnData, className }) {
 	}
 	const linkRender = (
 		<div className={classNames(className, styles['cell-link-container'])}>
-			<Link as={cellColumnData.linkAs}>{cellData}</Link>
+			<Link {...columnData} as={cellColumnData.linkAs}>
+				{cellData}
+			</Link>
 		</div>
 	);
 
