@@ -20,10 +20,10 @@ const playOpenDrawer = async () => {
 	const openButton = screen.getByRole('button');
 	await userEvent.click(openButton);
 };
-
-export const Simple: ComponentStory<typeof FloatingDrawer> = () => (
-	<FloatingDrawer {...defaultProps} visible />
+export const Simple: ComponentStory<typeof FloatingDrawer> = (props: any) => (
+	<FloatingDrawer {...props} />
 );
+Simple.args = defaultProps;
 
 export const WithDisclosure: ComponentStory<typeof FloatingDrawer> = () => (
 	<FloatingDrawer

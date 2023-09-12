@@ -1,5 +1,6 @@
 import {
 	Badge,
+	BadgeProps,
 	BadgeDropdown,
 	BadgePopover,
 	BadgeTag,
@@ -14,7 +15,7 @@ export default {
 	title: 'Messaging/Badge',
 };
 
-export const Overview = (props: any) => <Badge {...props} />;
+export const Overview = (props: BadgeProps) => <Badge {...props} />;
 Overview.args = {
 	label: 'Badge',
 	value: ['Feature'],
