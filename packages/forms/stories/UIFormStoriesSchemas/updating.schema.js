@@ -1,7 +1,4 @@
-import { action } from '@storybook/addon-actions';
-import { UIForm } from '../src/UIForm';
-
-const schema = {
+export const updatingSchema = {
 	jsonSchema: {
 		type: 'object',
 		title: 'Comment',
@@ -182,30 +179,3 @@ const schema = {
 		arrayOfObjects: [{ string: 'string', number: 3 }],
 	},
 };
-
-const updating = schema.uiSchema.map(w => w.key);
-
-export default {
-	title: 'Forms/Updating',
-	parameters: {
-		centeredLayout: true,
-	},
-};
-
-export function Default() {
-	return (
-		<div>
-			<h2>Updating status</h2>
-			<p>
-				Form can disable and add an animation feedback on the widgets. To do so, you need to pass a
-				UIForm "updating" prop which is an array of the schema keys where to apply
-			</p>
-			<UIForm
-				data={schema}
-				onChange={action('Change')}
-				onSubmit={action('onSubmit')}
-				updating={updating}
-			/>
-		</div>
-	);
-}

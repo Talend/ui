@@ -1,7 +1,4 @@
-import { action } from '@storybook/addon-actions';
-import { UIForm } from '../src/UIForm';
-
-const schema = {
+export const errorsSchema = {
 	jsonSchema: {
 		type: 'object',
 		title: 'Comment',
@@ -182,53 +179,8 @@ const schema = {
 			title: 'Multiple choices list',
 			widget: 'select',
 		},
-		{
-			widget: 'button',
-			bsStyle: 'primary',
-			label: 'I am a button',
-			type: 'button',
-		},
 	],
 	properties: {
 		arrayOfObjects: [{ string: 'string', number: 3 }],
-		root: {
-			string: 'I am a string',
-			number: 2,
-			textarea: `I am a multiline text.
-            proof !`,
-			checkbox: true,
-			multicheckbox: ['foo', 'bar'],
-			code: 'console.log("Hello World")',
-			datalist: 'Apple',
-			date: '02/06/2018',
-			// file: ?
-			multiSelectTag: ['Apple'],
-			radios: 'foo',
-			toggle: true,
-			select: 'foo',
-			selectmulti: ['foo', 'bar'],
-		},
 	},
 };
-
-export default {
-	title: 'Forms/Display Mode',
-	parameters: {
-		centeredLayout: true,
-	},
-};
-
-export function TextMode() {
-	return (
-		<>
-			<p style={{ marginBottom: '2rem' }}>Form can be used to display data in read only</p>
-
-			<UIForm
-				data={schema}
-				onChange={action('Change')}
-				onSubmit={action('onSubmit')}
-				displayMode="text"
-			/>
-		</>
-	);
-}

@@ -1,7 +1,4 @@
-import { action } from '@storybook/addon-actions';
-import { UIForm } from '../src/UIForm';
-
-const schema = {
+export const displayModeSchema = {
 	jsonSchema: {
 		type: 'object',
 		title: 'Comment',
@@ -182,41 +179,31 @@ const schema = {
 			title: 'Multiple choices list',
 			widget: 'select',
 		},
+		{
+			widget: 'button',
+			bsStyle: 'primary',
+			label: 'I am a button',
+			type: 'button',
+		},
 	],
 	properties: {
 		arrayOfObjects: [{ string: 'string', number: 3 }],
+		root: {
+			string: 'I am a string',
+			number: 2,
+			textarea: `I am a multiline text.
+            proof !`,
+			checkbox: true,
+			multicheckbox: ['foo', 'bar'],
+			code: 'console.log("Hello World")',
+			datalist: 'Apple',
+			date: '02/06/2018',
+			// file: ?
+			multiSelectTag: ['Apple'],
+			radios: 'foo',
+			toggle: true,
+			select: 'foo',
+			selectmulti: ['foo', 'bar'],
+		},
 	},
 };
-
-const errors = schema.uiSchema.reduce(
-	(acc, current) => ({
-		...acc,
-		[current.key.split('.').join(',')]: 'There is an error',
-	}),
-	{},
-);
-
-export default {
-	title: 'Forms/Errors',
-	parameters: {
-		centeredLayout: true,
-	},
-};
-
-export function Default() {
-	return (
-		<div>
-			<h2>Updating status</h2>
-			<p>
-				Form can disable and add an animation feedback on the widgets. To do so, you need to pass a
-				UIForm "updating" prop which is an array of the schema keys where to apply
-			</p>
-			<UIForm
-				data={schema}
-				onChange={action('Change')}
-				onSubmit={action('onSubmit')}
-				errors={errors}
-			/>
-		</div>
-	);
-}
