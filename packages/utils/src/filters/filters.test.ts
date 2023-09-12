@@ -1,6 +1,6 @@
-import { valued } from './types.util';
+import { valued } from './filters';
 
-describe('types.util', () => {
+describe('Filters', () => {
 	describe('valued', () => {
 		it('Filter array with null and undefined values', () => {
 			const result = ['Terra', undefined, 'Mars', 'Baal', null, 'Valhalla'].filter(valued);
