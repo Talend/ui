@@ -3,7 +3,8 @@
 .legend {
 	margin: tokens.$coral-spacing-m 0;
 	padding: tokens.$coral-spacing-xs tokens.$coral-spacing-m;
-	color: tokens.$coral-color-neutral-text-weak;
+	/* stylelint-disable-next-line declaration-no-important */
+	color: tokens.$coral-color-neutral-text-weak !important;
 	background: tokens.$coral-color-neutral-background-medium;
 	border-radius: tokens.$coral-radius-s;
 }
@@ -12,6 +13,10 @@
 	display: grid;
 	gap: 1ch;
 	grid-template: auto / auto 1fr;
+
+	dt {
+		font: tokens.$coral-paragraph-m-bold;
+	}
 }
 
 .table.table {

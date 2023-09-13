@@ -13,7 +13,6 @@
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
-    "test:demo": "talend-scripts build-storybook --quiet",
     "lint": "talend-scripts lint",
     "start": "talend-scripts start -p 6006",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
@@ -69,7 +68,7 @@
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-actions": "^7.4.1",
     "@talend/bootstrap-theme": "^8.1.2",
     "@talend/design-system": "^7.14.2",
     "@talend/icons": "^6.58.1",

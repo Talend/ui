@@ -83,7 +83,7 @@ type Inputs = {
 	'option-f'?: boolean;
 };
 
-export const Controlled = () => {
+export const ToggleSwitchControlled = () => {
 	const { register, watch } = useForm();
 	const optionA = watch('option-a');
 	return (
@@ -107,7 +107,7 @@ export const Controlled = () => {
 	);
 };
 
-export const ReactHooksForm = () => {
+export const ToggleSwitchReactHooksForm = () => {
 	const { register, handleSubmit } = useForm<Inputs>();
 	const [formData, setFormData] = useState<null | Inputs>();
 	return (

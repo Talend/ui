@@ -2,15 +2,17 @@ import type { ReactElement, PropsWithChildren } from 'react';
 
 import Badge from './Badge';
 
-import theme from './Badges.module.scss';
+import { StackHorizontal, StackItem } from '../../';
 
 const StatusList = ({ children }: PropsWithChildren<any>) => {
 	return (
-		<ul className={theme.badges} role="list">
+		<StackHorizontal gap="XS" as="ul" role="list" align="center" margin={{ x: 0, y: 'M' }}>
 			{children.map((child: ReactElement<typeof Badge>, key: number) => (
-				<li key={key}>{child}</li>
+				<StackItem as="li" key={key}>
+					{child}
+				</StackItem>
 			))}
-		</ul>
+		</StackHorizontal>
 	);
 };
 

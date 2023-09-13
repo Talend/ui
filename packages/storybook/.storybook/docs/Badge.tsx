@@ -65,13 +65,12 @@ export const renderStatus = (status?: Status) => {
 	}
 };
 
-const Badge = ({
-	href,
-	icon,
-	children,
-	status,
-	...props
-}: AnchorHTMLAttributes<HTMLAnchorElement> & { icon: string; status?: Status }) => {
+export type BadgeProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+	icon: string;
+	status?: Status;
+};
+
+const Badge = ({ href, icon, children, status, ...props }: BadgeProps) => {
 	let attrs;
 	if (href) {
 		attrs = {

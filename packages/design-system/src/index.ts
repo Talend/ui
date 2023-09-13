@@ -1,5 +1,3 @@
-import { Accordion, CollapsiblePanel } from './components/Accordion';
-import { Badge, BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
@@ -52,7 +50,6 @@ import {
 	MessageCollectionInformation,
 	MessageCollectionWarning,
 } from './components/Message';
-import Modal, { ModalPropsType } from './components/Modal';
 import Popover, { PopoverProps, PopoverTriggerProps } from './components/Popover';
 import RichRadioButton from './components/RichRadioButton';
 import Skeleton, {
@@ -88,18 +85,19 @@ import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 import Illustration from './components/illustrations';
 
+export * from './components/Badge';
 export * from './components/Stack';
+export * from './components/Modal';
+export * from './components/Drawer';
 export * from './themes';
+
+export type * from './components/Badge';
+export type * from './components/Modal';
+
 export {
-	Accordion,
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
-	Badge,
-	BadgeValue,
-	BadgeTag,
-	BadgeDropdown,
-	BadgePopover,
 	Breadcrumbs,
 	Button,
 	ButtonAsLink,
@@ -116,7 +114,6 @@ export {
 	ButtonTertiary,
 	ButtonTertiaryAsLink,
 	Card,
-	CollapsiblePanel,
 	Combobox,
 	Divider,
 	Dropdown,
@@ -147,7 +144,6 @@ export {
 	MessageDestructive,
 	MessageInformation,
 	MessageWarning,
-	Modal,
 	Popover,
 	RichRadioButton,
 	SizedIcon,
@@ -182,7 +178,7 @@ export {
 	VisuallyHidden,
 };
 
-export type { ModalPropsType, PopoverProps, PopoverTriggerProps, TooltipPlacement };
+export type { PopoverProps, PopoverTriggerProps, TooltipPlacement };
 
 export * from './components/Form/ToggleSwitch';
 export * from './components/Form/Checkbox';

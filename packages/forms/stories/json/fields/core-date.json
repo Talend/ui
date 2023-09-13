@@ -1,5 +1,4 @@
 {
-  "doc": "Date/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Date",

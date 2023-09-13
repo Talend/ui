@@ -154,7 +154,7 @@ const badgesWithAll = {
 };
 
 export default {
-	title: 'Faceted search',
+	title: 'Faceted search/Main',
 	component: FacetedSearch.Faceted,
 	parameters: {
 		docs: {

@@ -64,9 +64,9 @@ const InputCopy = forwardRef(
 			return '';
 		};
 		const doCopy = () => {
-			const value = inputRef.current?.value || '';
-			copyToClipboard(value);
-			setCopiedValue(value);
+			const newValue = inputRef.current?.value || '';
+			copyToClipboard(newValue);
+			setCopiedValue(newValue);
 		};
 		return (
 			<FieldPrimitive
