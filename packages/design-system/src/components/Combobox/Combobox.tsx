@@ -12,7 +12,7 @@ export type ComboboxProps = {
 	initialValue?: string;
 };
 
-const Combobox = ({ values, ...rest }: ComboboxProps) => {
+export const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	const [show, setShow] = useState<boolean>(false);
 	const [options, setOptions] = useState<string[]>(values || []);
@@ -102,5 +102,3 @@ const Combobox = ({ values, ...rest }: ComboboxProps) => {
 		</div>
 	);
 };
-
-export default Combobox;

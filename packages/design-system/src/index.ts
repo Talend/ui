@@ -17,7 +17,7 @@ import {
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
 import Card from './components/Card';
-import Combobox from './components/Combobox';
+export * from './components/Combobox';
 import Divider from './components/Divider';
 import Dropdown from './components/Dropdown';
 import EmptyState, {
@@ -114,7 +114,6 @@ export {
 	ButtonTertiary,
 	ButtonTertiaryAsLink,
 	Card,
-	Combobox,
 	Divider,
 	Dropdown,
 	EmptyState,
