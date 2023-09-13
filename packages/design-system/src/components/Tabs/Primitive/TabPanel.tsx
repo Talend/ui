@@ -1,31 +1,18 @@
-import { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
+import { forwardRef, ReactNode, Ref } from 'react';
 
-import { DataAttributes } from '../../../types';
-import { TabStateReturn } from './TabState';
+export type TabPanelProps = {
+	children: ReactNode;
+	id: string;
+};
 
-export type TabPanelPropsTypesWithoutState = DataAttributes &
-	HTMLAttributes<HTMLDivElement> & { children: ReactNode | ReactNode[] };
-
-type TabPanelPropsTypes = TabPanelPropsTypesWithoutState &
-	TabStateReturn & {
-		id: string;
-	};
-
-const TabPanel = forwardRef((props: TabPanelPropsTypes, ref: Ref<HTMLDivElement>) => {
-	// Extract selectedId & setSelectedId from props to pass rest to div element
-	const { selectedId, setSelectedId, ...rest } = props;
-
-	if (props.id !== props.selectedId) {
-		return null;
-	}
-
+const TabPanel = forwardRef(({ children, id }: TabPanelProps, ref: Ref<HTMLDivElement>) => {
 	return (
-		<div {...rest} ref={ref} role="tabpanel" tabIndex={0}>
-			{props.children}
+		<div ref={ref} id={id} role="tabpanel" tabIndex={0}>
+			{children}
 		</div>
 	);
 });
 
-TabPanel.displayName = 'Tab';
+TabPanel.displayName = 'TabPanel';
 
 export default TabPanel;
