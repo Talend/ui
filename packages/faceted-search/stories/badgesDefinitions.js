@@ -98,6 +98,30 @@ export const badgeAll = {
 	},
 };
 
+export const badgeMenu = {
+	properties: {
+		attribute: 'workspaceId',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Workspace',
+		operator: {},
+		operators: [],
+		type: 'menu',
+		filterBarPlaceholder: 'Find a workspace',
+	},
+	metadata: {
+		badgePerFacet: '1',
+		entitiesPerBadge: 'N',
+		values: [
+			{ id: 'personal', label: 'Personal' },
+			{ id: 'shared', label: 'Shared' },
+			{ id: 'custom', label: 'Custom' },
+		],
+		operators: ['equals', 'notEquals'],
+		'data-feature': 'faceted-badge-workspace',
+	},
+};
+
 export const badgeConnectionType = {
 	properties: {
 		attribute: 'connection.type',
