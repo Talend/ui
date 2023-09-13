@@ -5,14 +5,13 @@ $icon-alignment-offset-m: -0.3rem;
 .dropdownEntry {
 	background: tokens.$coral-color-accent-background-weak;
 	display: flex;
-	align-items: baseline;
+	align-items: center;
 	width: 100%;
 	min-width: 0;
 	color: tokens.$coral-color-neutral-text;
 	font: tokens.$coral-paragraph-m;
 	transition: tokens.$coral-transition-fast;
 	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
-	max-width: tokens.$coral-sizing-maximal;
 	text-align: start;
 
 	> span {
