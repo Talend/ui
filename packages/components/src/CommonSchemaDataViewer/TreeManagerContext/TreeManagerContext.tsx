@@ -1,28 +1,32 @@
 import { createContext, ReactNode, useState } from 'react';
 
 type TreeManagerContextValues = {
-	expandedPaths: string[];
-	highlightPath?: string;
 	closeAllPath: () => void;
-	togglePath: (path: string) => void;
+	expandedPaths: string[];
+	hasSemanticAwareness: boolean;
+	highlightPath?: string;
 	isPathExpanded: (path: string) => boolean;
 	setHighlightPath: (path?: string) => void;
+	togglePath: (path: string) => void;
 };
 
 export const TreeManagerContext = createContext<TreeManagerContextValues>({
-	expandedPaths: [],
-	highlightPath: undefined,
 	closeAllPath: () => {},
-	togglePath: () => {},
+	expandedPaths: [],
+	hasSemanticAwareness: false,
+	highlightPath: undefined,
 	isPathExpanded: () => false,
 	setHighlightPath: () => {},
+	togglePath: () => {},
 });
 
 export function TreeManagerContextProvider({
 	children,
+	hasSemanticAwareness = true,
 	initialExpandedPaths = [],
 }: {
 	children: ReactNode;
+	hasSemanticAwareness?: boolean;
 	initialExpandedPaths?: string[];
 }) {
 	const [expandedPaths, setExpandedPath] = useState<string[]>(initialExpandedPaths);
@@ -45,12 +49,13 @@ export function TreeManagerContextProvider({
 	return (
 		<TreeManagerContext.Provider
 			value={{
-				expandedPaths,
-				togglePath,
 				closeAllPath,
+				expandedPaths,
+				hasSemanticAwareness,
 				highlightPath,
-				setHighlightPath,
 				isPathExpanded,
+				setHighlightPath,
+				togglePath,
 			}}
 		>
 			{children}

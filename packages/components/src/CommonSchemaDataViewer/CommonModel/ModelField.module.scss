@@ -1,0 +1,15 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.model-field-clickable {
+	cursor: pointer;
+	padding: tokens.$coral-spacing-xxs;
+	border-radius: tokens.$coral-radius-s;
+
+	&.selected {
+		background-color: tokens.$coral-color-accent-background-weak-active;
+	}
+
+	&:hover {
+		background-color: tokens.$coral-color-accent-background-weak-hover;
+	}
+}
