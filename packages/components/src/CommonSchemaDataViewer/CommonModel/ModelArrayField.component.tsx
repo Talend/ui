@@ -30,7 +30,8 @@ function getArrayCompositionLabel(
 	}
 
 	if (arrayComposedBy.type === 'record') {
-		return `- (${t('MODEL_VIEWER_ARRAY_RECORD', 'Array of records')})`;
+		// return `- (${t('MODEL_VIEWER_ARRAY_RECORD', 'Array of records')})`;
+		return `- (${t('MODEL_VIEWER_ARRAY_RECORD', 'Array')})`;
 	}
 	return '';
 }

@@ -50,7 +50,7 @@ export function ModelRecordField({ field, path, metadata, type }: ModelRecordFie
 				<DataViewerDivider path={path} />
 				<ButtonIcon
 					size="XS"
-					icon={isCurrentPathExpanded ? 'chevron-down' : 'chevron-right'}
+					icon={isCurrentPathExpanded ? 'minus-stroke' : 'plus-stroke'}
 					onClick={() => toggleModelPath(fieldPath)}
 				>
 					{isCurrentPathExpanded
