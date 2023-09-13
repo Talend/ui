@@ -36,11 +36,11 @@ function getFieldRecordType(field?: CommonSchemaSampledField<RecordType>) {
 
 export function ModelRecordField({ field, path, metadata, type }: ModelRecordFieldProps) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const { isPathExpanded, togglePath } = useContext(TreeManagerContext);
+	const { isModelPathClosed, toggleModelPath } = useContext(TreeManagerContext);
 	const nodeName = field?.name || 'record';
 
 	const fieldPath = [...path, nodeName];
-	const isCurrentPathExpanded = isPathExpanded(fieldPath.join('.'));
+	const isCurrentPathExpanded = !isModelPathClosed(fieldPath);
 
 	const currentType = getFieldRecordType(field) || type;
 
@@ -51,7 +51,7 @@ export function ModelRecordField({ field, path, metadata, type }: ModelRecordFie
 				<ButtonIcon
 					size="XS"
 					icon={isCurrentPathExpanded ? 'chevron-down' : 'chevron-right'}
-					onClick={() => togglePath(fieldPath.join('.'))}
+					onClick={() => toggleModelPath(fieldPath)}
 				>
 					{isCurrentPathExpanded
 						? t('MODEL_VIEWER_COLLAPSE_NODE', 'Collapse')

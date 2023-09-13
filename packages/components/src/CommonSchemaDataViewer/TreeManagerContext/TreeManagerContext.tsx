@@ -1,61 +1,61 @@
 import { createContext, ReactNode, useState } from 'react';
 
 type TreeManagerContextValues = {
-	closeAllPath: () => void;
-	expandedPaths: string[];
+	modelClosedPath: string[];
+
 	hasSemanticAwareness: boolean;
-	highlightPath?: string;
-	isPathExpanded: (path: string) => boolean;
-	setHighlightPath: (path?: string) => void;
-	togglePath: (path: string) => void;
+	highlightedPath?: string;
+	isModelPathClosed: (path: string[]) => boolean;
+	setHighlightedPath: (path?: string[]) => void;
+	toggleModelPath: (path: string[]) => void;
 };
 
 export const TreeManagerContext = createContext<TreeManagerContextValues>({
-	closeAllPath: () => {},
-	expandedPaths: [],
+	modelClosedPath: [],
 	hasSemanticAwareness: false,
-	highlightPath: undefined,
-	isPathExpanded: () => false,
-	setHighlightPath: () => {},
-	togglePath: () => {},
+	highlightedPath: undefined,
+	isModelPathClosed: () => false,
+	setHighlightedPath: () => {},
+	toggleModelPath: () => {},
 });
 
 export function TreeManagerContextProvider({
 	children,
 	hasSemanticAwareness = true,
-	initialExpandedPaths = [],
 }: {
 	children: ReactNode;
 	hasSemanticAwareness?: boolean;
-	initialExpandedPaths?: string[];
 }) {
-	const [expandedPaths, setExpandedPath] = useState<string[]>(initialExpandedPaths);
-	const [highlightPath, setHighlightPath] = useState<string>();
+	const [modelClosedPath, setModelClosedPath] = useState<string[]>([]);
+	const [highlightedPath, internalSetHighlightedPath] = useState<string>();
 
-	const isPathExpanded = (path: string) => expandedPaths.includes(path);
-
-	const togglePath = (path: string) => {
-		if (expandedPaths.includes(path)) {
-			setExpandedPath(expandedPaths.filter(p => p !== path));
+	const isModelPathClosed = (path: string[]) => modelClosedPath.includes(path.join('.'));
+	const toggleModelPath = (arrayPath: string[]) => {
+		const path = arrayPath.join('.');
+		if (modelClosedPath.includes(path)) {
+			setModelClosedPath(modelClosedPath.filter(p => p !== path));
 		} else {
-			setExpandedPath([...expandedPaths, path]);
+			setModelClosedPath([...modelClosedPath, path]);
 		}
 	};
 
-	const closeAllPath = () => {
-		setExpandedPath([]);
+	const setHighlightedPath = (path?: string[]) => {
+		if (!path) {
+			internalSetHighlightedPath(undefined);
+			return;
+		}
+		internalSetHighlightedPath(path.join('.'));
 	};
 
 	return (
 		<TreeManagerContext.Provider
 			value={{
-				closeAllPath,
-				expandedPaths,
+				modelClosedPath,
 				hasSemanticAwareness,
-				highlightPath,
-				isPathExpanded,
-				setHighlightPath,
-				togglePath,
+				highlightedPath,
+				isModelPathClosed,
+				setHighlightedPath,
+				toggleModelPath,
 			}}
 		>
 			{children}

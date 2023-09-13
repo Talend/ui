@@ -17,14 +17,15 @@ type ModelValueFieldProps = {
 
 export function ModelValueField({ field, path, metadata }: ModelValueFieldProps) {
 	const fieldPath = [...path, field.name];
-	const { hasSemanticAwareness, setHighlightPath, highlightPath } = useContext(TreeManagerContext);
+	const { hasSemanticAwareness, setHighlightedPath, highlightedPath } =
+		useContext(TreeManagerContext);
 	const type = getFieldType(field);
 	const isNullable = isFieldNullable(field);
 
 	return (
 		<StackHorizontal noGrow gap="XS" align="center">
 			<DataViewerDivider path={path} />
-			<Clickable type="button" onClick={() => setHighlightPath(fieldPath)}>
+			<Clickable type="button" onClick={() => setHighlightedPath(fieldPath)}>
 				<div className={theme['model-field-clickable']}>
 					<StackHorizontal noGrow gap="XS" align="center">
 						<div>

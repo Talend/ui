@@ -10,15 +10,15 @@ import { ModelArrayField } from './ModelArrayField.component';
 import { ModelRecordField } from './ModelRecordField.component';
 import { ModelValueField } from './ModelValueField.component';
 
-enum FieldTypes {
+export enum FieldCategory {
 	Record = 'record',
 	Array = 'array',
 	Value = 'value',
 }
 
-function getFieldType(
+export function getFieldCategory(
 	field: CommonSchemaSampledField<CommonSchemaSampledFieldType> | CommonSchemaSampledFieldType,
-): FieldTypes {
+): FieldCategory {
 	let fieldCommonType: CommonSchemaSampledFieldType;
 
 	if (field.hasOwnProperty('name')) {
@@ -32,20 +32,20 @@ function getFieldType(
 		}
 
 		if (fieldCommonType.type === 'record') {
-			return FieldTypes.Record;
+			return FieldCategory.Record;
 		} else if (fieldCommonType.type === 'array') {
-			return FieldTypes.Array;
+			return FieldCategory.Array;
 		}
-		return FieldTypes.Value;
+		return FieldCategory.Value;
 	}
 
 	const commonField = field as CommonSchemaSampledFieldType;
 	if (commonField.type === 'record') {
-		return FieldTypes.Record;
+		return FieldCategory.Record;
 	} else if (commonField.type === 'array') {
-		return FieldTypes.Array;
+		return FieldCategory.Array;
 	}
-	return FieldTypes.Value;
+	return FieldCategory.Value;
 }
 
 export function renderField(
@@ -53,9 +53,9 @@ export function renderField(
 	path: string[],
 	metadata?: FieldMetadata[],
 ) {
-	const type = getFieldType(field);
+	const type = getFieldCategory(field);
 
-	if (type === FieldTypes.Record) {
+	if (type === FieldCategory.Record) {
 		if (field.hasOwnProperty('name')) {
 			return (
 				<ModelRecordField
@@ -68,7 +68,7 @@ export function renderField(
 		return <ModelRecordField type={field as RecordType} path={path} metadata={metadata} />;
 	}
 
-	if (type === FieldTypes.Array) {
+	if (type === FieldCategory.Array) {
 		return (
 			<ModelArrayField
 				field={field as CommonSchemaSampledField<ArrayType>}
@@ -78,7 +78,7 @@ export function renderField(
 		);
 	}
 
-	if (type === FieldTypes.Value) {
+	if (type === FieldCategory.Value) {
 		return (
 			<ModelValueField
 				field={field as CommonSchemaSampledField<ValueType>}
