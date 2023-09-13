@@ -75,6 +75,7 @@ const fruits = [
 
 export default {
 	component: Combobox,
+	title: 'Form/Combobox',
 };
 
 export const Default = {

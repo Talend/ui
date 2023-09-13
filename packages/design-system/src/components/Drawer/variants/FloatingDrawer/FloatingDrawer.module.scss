@@ -1,0 +1,34 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.primitive-drawer {
+	width: tokens.$coral-sizing-maximal;
+	height: 100%;
+	background: tokens.$coral-color-neutral-background;
+	display: flex;
+
+	&__header {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: tokens.$coral-sizing-l;
+		font: tokens.$coral-heading-m;
+
+		display: flex;
+	}
+
+	&__body {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 0;
+		overflow: auto;
+
+		display: flex;
+	}
+
+	&__footer {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: calc(tokens.$coral-sizing-l + 2 * tokens.$coral-spacing-xs);
+
+		display: flex;
+	}
+}

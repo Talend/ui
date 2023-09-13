@@ -24,20 +24,20 @@ type CollapsiblePanelCommonPropsType = {
 } & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'> &
 	DataAttributes;
 
-export type CollapsiblePanelWithTitlePropsType = {
+type CollapsiblePanelWithTitlePropsType = {
 	title: ReactChild;
 	status?: never;
 };
 
-export type CollapsiblePanelWithStatusPropsType = {
+type CollapsiblePanelWithStatusPropsType = {
 	title?: never;
 	status: keyof typeof variants;
 };
 
-export type CollapsiblePanelPropsType = CollapsiblePanelCommonPropsType &
+export type CollapsiblePanelProps = CollapsiblePanelCommonPropsType &
 	(CollapsiblePanelWithTitlePropsType | CollapsiblePanelWithStatusPropsType);
 
-const CollapsiblePanel = forwardRef(
+export const CollapsiblePanel = forwardRef(
 	(
 		{
 			id,
@@ -55,7 +55,7 @@ const CollapsiblePanel = forwardRef(
 			isLast = false,
 			disabled = false,
 			...rest
-		}: CollapsiblePanelPropsType,
+		}: CollapsiblePanelProps,
 		ref: Ref<HTMLButtonElement>,
 	) => {
 		const [localExpanded, setLocalExpanded] = useState(!!expanded);
@@ -119,5 +119,3 @@ const CollapsiblePanel = forwardRef(
 );
 
 CollapsiblePanel.displayName = 'CollapsiblePanel';
-
-export default CollapsiblePanel;

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import type { Ref, ReactNode } from 'react';
-import { StackVertical } from '../../../Stack';
+import { StackVertical } from '../../Stack';
 
 import theme from './PrimitiveDrawer.module.scss';
 

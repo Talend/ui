@@ -1,6 +1,6 @@
 import { forwardRef, Ref } from 'react';
 
-import ButtonPrimary, { ButtonPrimaryPropsType } from './variations/ButtonPrimary';
+import { ButtonPrimary, ButtonPrimaryPropsType } from './variations/ButtonPrimary';
 import ButtonSecondary, { ButtonSecondaryPropsType } from './variations/ButtonSecondary';
 import ButtonTertiary, { ButtonTertiaryPropsType } from './variations/ButtonTertiary';
 import ButtonDestructive, { ButtonDestructivePropsType } from './variations/ButtonDestructive';

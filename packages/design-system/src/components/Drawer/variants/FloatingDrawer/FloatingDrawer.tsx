@@ -1,6 +1,5 @@
 import { useEffect, useRef, cloneElement } from 'react';
 import type { ReactElement, ReactNode } from 'react';
-import { Dialog, DialogDisclosure, DialogStateReturn, useDialogState } from 'reakit';
 import { PrimitiveDrawer } from '../../Primitive/PrimitiveDrawer';
 
 import theme from './FloatingDrawer.module.scss';
@@ -15,11 +14,12 @@ type Controlled = {
 };
 
 export type FloatingDrawerProps = {
-	header?: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
-	children: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
-	footer?: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
+	header?: ((dialog: any) => ReactNode) | ReactNode;
+	children: ((dialog: any) => ReactNode) | ReactNode;
+	footer?: ((dialog: any) => ReactNode) | ReactNode;
 	onClose?: () => void;
 } & (WithDisclosure | Controlled);
+
 // backward compatibility
 export type DrawerProps = FloatingDrawerProps;
 
@@ -32,25 +32,20 @@ export const FloatingDrawer = ({
 	onClose,
 }: DrawerProps) => {
 	const ref = useRef(null);
-	const dialog = useDialogState({ modal: false, visible: visibleProps ?? false, animated: true });
+	// const dialog = useDialogState({ modal: false, visible: visibleProps ?? false, animated: true });
 
 	useEffect(() => {
 		if (visibleProps !== undefined) {
-			dialog.setVisible(visibleProps);
+			// dialog.setVisible(visibleProps);
 		}
-	}, [visibleProps, dialog]);
+	}, [visibleProps]);
 
-	const onCloseHandler = disclosure ? () => dialog.setVisible(false) : () => onClose && onClose();
+	const onCloseHandler = () => onClose && onClose();
 
 	return (
 		<>
-			{disclosure && (
-				<DialogDisclosure {...dialog}>
-					{disclosureProps => cloneElement(disclosure, disclosureProps)}
-				</DialogDisclosure>
-			)}
-			<Dialog
-				{...dialog}
+			{disclosure && <div>{disclosureProps => cloneElement(disclosure, disclosureProps)}</div>}
+			<div
 				data-test="drawer"
 				ref={ref}
 				hideOnClickOutside={false}
@@ -58,12 +53,12 @@ export const FloatingDrawer = ({
 				className={theme['floating-drawer']}
 			>
 				<PrimitiveDrawer
-					header={typeof header === 'function' ? header(dialog) : header}
-					footer={typeof footer === 'function' ? footer(dialog) : footer}
+					header={typeof header === 'function' ? header({}) : header}
+					footer={typeof footer === 'function' ? footer({}) : footer}
 				>
-					{typeof children === 'function' ? children(dialog) : children}
+					{typeof children === 'function' ? children({}) : children}
 				</PrimitiveDrawer>
-			</Dialog>
+			</div>
 		</>
 	);
 };

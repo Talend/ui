@@ -1,4 +1,4 @@
-import ButtonPrimary from './variations/ButtonPrimary';
+import { ButtonPrimary } from './variations/ButtonPrimary';
 import ButtonSecondary from './variations/ButtonSecondary';
 import ButtonTertiary from './variations/ButtonTertiary';
 import ButtonDestructive from './variations/ButtonDestructive';

@@ -1,11 +1,11 @@
 import { Children, cloneElement, useState } from 'react';
 import type { ReactElement } from 'react';
 
-export type AccordionPropsType = {
+export type AccordionProps = {
 	children: ReactElement[];
 };
 
-const Accordion = ({ children }: AccordionPropsType) => {
+export const Accordion = ({ children }: AccordionProps) => {
 	const panelCount = Children.count(children);
 	const [openedPanelIndex, setOpenedPanelIndex] = useState<number | null>(null);
 
@@ -38,5 +38,3 @@ const Accordion = ({ children }: AccordionPropsType) => {
 };
 
 Accordion.displayName = 'Accordion';
-
-export default Accordion;

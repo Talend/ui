@@ -3,11 +3,7 @@ import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 
-<<<<<<<< HEAD:packages/design-system/src/components/InlineEditing/InlineEditing.stories.tsx
-import { InlineEditing, StackVertical } from '../../';
-========
 import { InlineEditing, StackVertical } from '../';
->>>>>>>> jmfrancois/chore/storybook-beta:packages/design-system/src/stories/InlineEditing.stories.tsx
 
 export default {
 	component: InlineEditing,

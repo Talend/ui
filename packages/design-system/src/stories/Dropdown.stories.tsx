@@ -1,11 +1,7 @@
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
-<<<<<<<< HEAD:packages/design-system/src/components/Dropdown/Dropdown.stories.tsx
-import { ButtonIcon, ButtonPrimary, ButtonSecondary, ButtonTertiary, Dropdown } from '../../index';
-========
 import { ButtonIcon, ButtonPrimary, ButtonSecondary, ButtonTertiary, Dropdown } from '../';
->>>>>>>> jmfrancois/chore/storybook-beta:packages/design-system/src/stories/Dropdown.stories.tsx
 
 export default {
 	component: Dropdown,

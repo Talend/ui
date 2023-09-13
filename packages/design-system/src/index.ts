@@ -1,4 +1,6 @@
-import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
+export * from './components/Accordion';
+export * from './components/Badge';
+export * from './components/Breadcrumbs';
 import {
 	Button,
 	ButtonDestructive,
@@ -85,7 +87,6 @@ import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 import Illustration from './components/illustrations';
 
-export * from './components/Badge';
 export * from './components/Stack';
 export * from './components/Modal';
 export * from './components/Drawer';
@@ -98,7 +99,6 @@ export {
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
-	Breadcrumbs,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,

@@ -1,6 +1,2 @@
-import Accordion from './Accordion';
-import CollapsiblePanel from './Primitive/CollapsiblePanel';
-
-export { Accordion, CollapsiblePanel };
-
-export default Accordion;
+export * from './Accordion';
+export * from './Primitive/CollapsiblePanel';
