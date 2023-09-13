@@ -1,5 +1,30 @@
 # @talend/react-components
 
+## 11.3.3
+
+### Patch Changes
+
+- a958d95ae: TDOPS-4488 - Components VList can handle data attributes for Link column
+- 8f1196fb0: fix(TDC-7310) - fixed select all checkbox disappearing by replacing with TUI Checkbox
+
+## 11.3.2
+
+### Patch Changes
+
+- f73fdbc46: fix: change drawer header color
+
+## 11.3.1
+
+### Patch Changes
+
+- 8277e1f39: TDOPS-4488: Add VList Link column to disctionary
+
+## 11.3.0
+
+### Minor Changes
+
+- a6ac16f28: TDOPS-4488 - Allow to have links in VirtualList in Title cell and dedicated Link cell
+
 ## 11.2.3
 
 ### Patch Changes

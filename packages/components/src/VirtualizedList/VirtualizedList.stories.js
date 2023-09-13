@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 
 import { SortIndicator } from 'react-virtualized';
-
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 import VirtualizedList from '.';
 
 function MyCustomRow(props) {
@@ -502,6 +502,30 @@ export const ListTableWithRadioButtonTitle = () => (
 	</div>
 );
 
+export const ListTableWithLinkTitle = () => (
+	<BrowserRouter>
+		<div className="virtualized-list">
+			<h1>Virtualized List with link title</h1>
+
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collection} id="my-list">
+					<VirtualizedList.Title
+						label="Name"
+						dataKey="name"
+						columnData={{ linkAs: <RouterLink to="/doc"></RouterLink> }}
+					/>
+					<VirtualizedList.Text label="Author" dataKey="author" />
+					<VirtualizedList.Datetime
+						label="Modified"
+						dataKey="modified"
+						columnData={{ mode: 'format' }}
+					/>
+				</VirtualizedList>
+			</section>
+		</div>
+	</BrowserRouter>
+);
+
 export const ListTableWithLabelAuthor = () => (
 	<div className="virtualized-list">
 		<h1>Virtualized List with radio button title</h1>
@@ -691,7 +715,7 @@ export const ListTableResizable = () => (
 				<VirtualizedList.Text
 					dataKey="description"
 					disableSort
-					headerRenderer={VirtualizedList.headerDictionary['resizable']}
+					headerRenderer={VirtualizedList.headerDictionary.resizable}
 					label="Description"
 					resizable
 					width={650}
@@ -701,13 +725,13 @@ export const ListTableResizable = () => (
 						iconName: 'talend-badge',
 					}}
 					label="Author"
-					{...VirtualizedList.headerDictionary['icon']}
+					{...VirtualizedList.headerDictionary.icon}
 					dataKey="author"
 					width={80}
 				/>
 				<VirtualizedList.Datetime
 					dataKey="created"
-					headerRenderer={VirtualizedList.headerDictionary['resizable']}
+					headerRenderer={VirtualizedList.headerDictionary.resizable}
 					label="Created"
 					resizable
 					width={100}

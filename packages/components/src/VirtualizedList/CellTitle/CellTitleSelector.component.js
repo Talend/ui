@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Action } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
 import CellTitleInput from './CellTitleInput.component';
+import CellLink from '../CellLink/CellLink.component';
 import TooltipTrigger from '../../TooltipTrigger';
 
 const { TITLE_MODE_TEXT, TITLE_MODE_INPUT } = cellTitleDisplayModes;
@@ -16,6 +17,7 @@ function CellTitleSelector(props) {
 		className,
 		displayMode,
 		onClick,
+		linkAs,
 		onEditSubmit,
 		onEditCancel,
 		rowData,
@@ -52,6 +54,17 @@ function CellTitleSelector(props) {
 		);
 	}
 
+	if (linkAs) {
+		return (
+			<CellLink
+				cellData={cellData}
+				rowData={rowData}
+				columnData={{ ...columnData, id, linkAs, tooltip }}
+				className={className}
+			></CellLink>
+		);
+	}
+
 	return (
 		<TooltipTrigger label={tooltip || cellData} tooltipPlacement="top">
 			<span id={id} className={className}>
@@ -72,6 +85,8 @@ CellTitleSelector.propTypes = {
 	displayMode: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_INPUT]),
 	/** The onClick callback triggered on title main button click. */
 	onClick: PropTypes.func,
+	// The "as" property expected in a Link to generate a simple href.
+	linkAs: PropTypes.element,
 	/** Input mode : the cancel callback on ESC keydown. */
 	onEditCancel: PropTypes.func,
 	/** Input mode : the submit callback on ENTER keydown or blur. */

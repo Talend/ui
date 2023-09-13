@@ -95,6 +95,7 @@
     "react": "^17.0.2",
     "react-a11y": "^0.3.4",
     "react-dom": "^17.0.2",
+    "react-router-dom": "~6.3.0",
     "react-i18next": "^11.18.6",
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^17.0.2"
@@ -113,5 +114,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "11.2.3"
+  "version": "11.3.3"
 }

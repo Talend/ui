@@ -42,18 +42,13 @@ export const invalidNames: Array<string> = [
 export const validEmails: Array<string> = [
 	'sarah@something',
 	'sarah@something.fr',
+	'sarah.connor@trmn.com',
 ];
 
-export const invalidEmails: Array<string> = [
-	'john',
-	'john@',
-	'john @',
-];
+export const invalidEmails: Array<string> = ['john', 'john@', 'john @', 'john\\@re'];
 
 // Phones
-export const validPhones: Array<string> = [
-	'+33102030405',
-];
+export const validPhones: Array<string> = ['+33102030405'];
 
 export const invalidPhones: Array<string> = [
 	'john',
