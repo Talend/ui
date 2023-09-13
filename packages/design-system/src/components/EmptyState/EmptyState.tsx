@@ -38,4 +38,6 @@ const EmptyState = forwardRef((props: EmptyStateProps, ref: Ref<HTMLElement>) =>
 	}
 });
 
+EmptyState.displayName = 'EmptyState';
+
 export default EmptyState;
