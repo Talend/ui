@@ -2,7 +2,7 @@
 import { useCallback, useState } from 'react';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
-import { DropdownButton, SizedIcon } from '@talend/design-system';
+import { DropdownButton } from '@talend/design-system';
 import { Action } from '@talend/react-components/lib/Actions';
 import FilterBar from '@talend/react-components/lib/FilterBar';
 import Rich from '@talend/react-components/lib/Rich';
