@@ -8,15 +8,15 @@ export const mockDonutsMetadata: FieldMetadata[] = [
 			originalType: 'string',
 			status: 'NOT_FORCED',
 			primitiveType: 'INTEGER',
-			semanticType: '',
+			semanticType: '64d34b3a2e74387aa4cc148f',
 		},
 		dqRules: [],
 		qualities: {
-			aggregated: { valid: 12, invalid: 0, empty: 0, total: 12 },
-			type: { valid: 12, invalid: 0, empty: 0, total: 12 },
+			aggregated: { valid: 10, invalid: 0, empty: 0, total: 10 },
+			type: { valid: 10, invalid: 0, empty: 0, total: 10 },
 			dqRules: [],
 		},
-		matchings: [{ id: '6272907c18429d4ea549511a', name: 'Year', score: 100.0 }],
+		matchings: [{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 }],
 	},
 	{
 		path: 'batter.id',
@@ -25,7 +25,7 @@ export const mockDonutsMetadata: FieldMetadata[] = [
 			originalType: 'string',
 			status: 'NOT_FORCED',
 			primitiveType: 'INTEGER',
-			semanticType: '',
+			semanticType: '64d34b3a2e74387aa4cc148f',
 		},
 		dqRules: [],
 		qualities: {
@@ -33,7 +33,10 @@ export const mockDonutsMetadata: FieldMetadata[] = [
 			type: { valid: 0, invalid: 0, empty: 0, total: 0 },
 			dqRules: [],
 		},
-		matchings: [{ id: '6272907c18429d4ea549511a', name: 'Year', score: 100.0 }],
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
 	},
 	{
 		path: 'topping.id',
@@ -42,7 +45,7 @@ export const mockDonutsMetadata: FieldMetadata[] = [
 			originalType: 'string',
 			status: 'NOT_FORCED',
 			primitiveType: 'INTEGER',
-			semanticType: '',
+			semanticType: '64d34b3a2e74387aa4cc148f',
 		},
 		dqRules: [],
 		qualities: {
@@ -50,7 +53,10 @@ export const mockDonutsMetadata: FieldMetadata[] = [
 			type: { valid: 0, invalid: 0, empty: 0, total: 0 },
 			dqRules: [],
 		},
-		matchings: [{ id: '6272907c18429d4ea549511a', name: 'Year', score: 100.0 }],
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
 	},
 	{
 		path: 'type',
@@ -63,8 +69,8 @@ export const mockDonutsMetadata: FieldMetadata[] = [
 		},
 		dqRules: [],
 		qualities: {
-			aggregated: { valid: 12, invalid: 0, empty: 0, total: 12 },
-			type: { valid: 12, invalid: 0, empty: 0, total: 12 },
+			aggregated: { valid: 10, invalid: 0, empty: 0, total: 10 },
+			type: { valid: 10, invalid: 0, empty: 0, total: 10 },
 			dqRules: [],
 		},
 		matchings: [],
@@ -114,8 +120,8 @@ export const mockDonutsMetadata: FieldMetadata[] = [
 		},
 		dqRules: [],
 		qualities: {
-			aggregated: { valid: 12, invalid: 0, empty: 0, total: 12 },
-			type: { valid: 12, invalid: 0, empty: 0, total: 12 },
+			aggregated: { valid: 10, invalid: 0, empty: 0, total: 10 },
+			type: { valid: 10, invalid: 0, empty: 0, total: 10 },
 			dqRules: [],
 		},
 		matchings: [],
@@ -131,10 +137,47 @@ export const mockDonutsMetadata: FieldMetadata[] = [
 		},
 		dqRules: [],
 		qualities: {
-			aggregated: { valid: 12, invalid: 0, empty: 0, total: 12 },
-			type: { valid: 12, invalid: 0, empty: 0, total: 12 },
+			aggregated: { valid: 10, invalid: 0, empty: 0, total: 10 },
+			type: { valid: 10, invalid: 0, empty: 0, total: 10 },
+			dqRules: [],
+		},
+		matchings: [{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 }],
+	},
+	{
+		path: 'labels',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 0, invalid: 0, empty: 0, total: 0 },
+			type: { valid: 0, invalid: 0, empty: 0, total: 0 },
 			dqRules: [],
 		},
 		matchings: [],
+	},
+	{
+		path: 'categories',
+		description: '',
+		type: {
+			originalType: 'long',
+			status: 'NOT_FORCED',
+			primitiveType: 'INTEGER',
+			semanticType: '64d34b3a2e74387aa4cc148f',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 0, invalid: 0, empty: 0, total: 0 },
+			type: { valid: 0, invalid: 0, empty: 0, total: 0 },
+			dqRules: [],
+		},
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
 	},
 ];

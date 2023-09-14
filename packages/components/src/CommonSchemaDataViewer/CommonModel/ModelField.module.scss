@@ -13,3 +13,13 @@
 		background-color: tokens.$coral-color-accent-background-weak-hover;
 	}
 }
+
+.model-field-button {
+	width: 100%;
+}
+
+.model-record-field,
+.model-array-field {
+	display: grid;
+	width: 100%;
+}

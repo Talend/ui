@@ -14,7 +14,7 @@ export interface SampleQuality {
 
 export interface SampleLeaf {
 	name: string;
-	value: string;
+	value: string | string[];
 	quality: SampleQuality;
 }
 

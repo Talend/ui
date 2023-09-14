@@ -2,10 +2,10 @@ import { createContext, ReactNode, useState } from 'react';
 
 type TreeManagerContextValues = {
 	modelClosedPath: string[];
-
 	hasSemanticAwareness: boolean;
 	highlightedPath?: string;
 	isModelPathClosed: (path: string[]) => boolean;
+	isHighlightedPath: (path: string[]) => boolean;
 	setHighlightedPath: (path?: string[]) => void;
 	toggleModelPath: (path: string[]) => void;
 };
@@ -15,6 +15,7 @@ export const TreeManagerContext = createContext<TreeManagerContextValues>({
 	hasSemanticAwareness: false,
 	highlightedPath: undefined,
 	isModelPathClosed: () => false,
+	isHighlightedPath: () => false,
 	setHighlightedPath: () => {},
 	toggleModelPath: () => {},
 });
@@ -40,11 +41,18 @@ export function TreeManagerContextProvider({
 	};
 
 	const setHighlightedPath = (path?: string[]) => {
-		if (!path) {
+		if (!path || path.join('.') === highlightedPath) {
 			internalSetHighlightedPath(undefined);
 			return;
 		}
 		internalSetHighlightedPath(path.join('.'));
+	};
+
+	const isHighlightedPath = (path: string[]) => {
+		if (!highlightedPath) {
+			return false;
+		}
+		return highlightedPath === path.join('.');
 	};
 
 	return (
@@ -54,6 +62,7 @@ export function TreeManagerContextProvider({
 				hasSemanticAwareness,
 				highlightedPath,
 				isModelPathClosed,
+				isHighlightedPath,
 				setHighlightedPath,
 				toggleModelPath,
 			}}

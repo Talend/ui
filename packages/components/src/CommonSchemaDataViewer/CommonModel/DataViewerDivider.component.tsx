@@ -1,13 +1,12 @@
 import { Divider } from '@talend/design-system';
 
+import theme from './CommonModel.module.scss';
+
 export function DataViewerDivider({ path }: { path: string[] }) {
 	return (
 		<>
 			{path.map((p, i) => (
-				<div
-					style={{ display: 'flex', width: '1.5rem', justifyContent: 'center', height: '100%' }}
-					key={i}
-				>
+				<div className={theme['model-path-divider']} key={i}>
 					<Divider orientation="vertical" />
 				</div>
 			))}

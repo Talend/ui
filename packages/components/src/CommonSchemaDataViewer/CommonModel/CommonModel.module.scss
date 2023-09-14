@@ -4,6 +4,9 @@
 	width: 47rem;
 	height: 100%;
 	background-color: tokens.$coral-color-neutral-background-medium;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
 
 	&_header {
 		align-items: center;
@@ -13,4 +16,17 @@
 		justify-content: space-between;
 		padding: tokens.$coral-spacing-s 0 tokens.$coral-spacing-s tokens.$coral-spacing-l;
 	}
+}
+
+.model-dq-type {
+	font: tokens.$coral-paragraph-s-bold;
+	color: tokens.$coral-color-neutral-text-weak;
+}
+
+.model-path-divider {
+	// display: flex;
+	padding-left: 0.8rem;
+	width: 1.8rem;
+	justify-content: center;
+	height: 100%;
 }

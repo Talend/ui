@@ -1,7 +1,7 @@
 import { CommonSchemaSampled } from '../CommonDataViewer.types';
 
 export const mockDonutsSchema: CommonSchemaSampled = {
-	name: 'Record_6_n_1048095076742141837',
+	name: 'Record_8_5312720653861358315',
 	type: 'record',
 	namespace: 'org.talend.sdk.component.schema.generated',
 	fields: [
@@ -11,8 +11,8 @@ export const mockDonutsSchema: CommonSchemaSampled = {
 				'null',
 				{
 					type: 'string',
-					dqType: 'Year',
-					dqTypeId: 'Year',
+					dqType: 'ST2 INTS',
+					dqTypeId: 'ST2 INTS',
 					dqNativeType: 'INTEGER',
 					isForced: false,
 					isNativeForced: false,
@@ -53,8 +53,8 @@ export const mockDonutsSchema: CommonSchemaSampled = {
 				'null',
 				{
 					type: 'double',
-					dqType: '',
-					dqTypeId: '',
+					dqType: 'GPS',
+					dqTypeId: 'doubles',
 					dqNativeType: 'DOUBLE',
 					isForced: false,
 					isNativeForced: false,
@@ -79,8 +79,8 @@ export const mockDonutsSchema: CommonSchemaSampled = {
 										'null',
 										{
 											type: 'string',
-											dqType: 'Year',
-											dqTypeId: 'Year',
+											dqType: 'ST2 INTS',
+											dqTypeId: 'ST2 INTS',
 											dqNativeType: 'INTEGER',
 											isForced: false,
 											isNativeForced: false,
@@ -109,6 +109,46 @@ export const mockDonutsSchema: CommonSchemaSampled = {
 			],
 		},
 		{
+			name: 'labels',
+			type: [
+				'null',
+				{
+					type: 'array',
+					items: [
+						'null',
+						{
+							type: 'string',
+							dqType: '',
+							dqTypeId: '',
+							dqNativeType: 'STRING',
+							isForced: false,
+							isNativeForced: false,
+						},
+					],
+				},
+			],
+		},
+		{
+			name: 'categories',
+			type: [
+				'null',
+				{
+					type: 'array',
+					items: [
+						'null',
+						{
+							type: 'long',
+							dqType: 'ST2 INTS',
+							dqTypeId: 'ST2 INTS',
+							dqNativeType: 'INTEGER',
+							isForced: false,
+							isNativeForced: false,
+						},
+					],
+				},
+			],
+		},
+		{
 			name: 'topping',
 			type: [
 				'null',
@@ -126,8 +166,8 @@ export const mockDonutsSchema: CommonSchemaSampled = {
 										'null',
 										{
 											type: 'string',
-											dqType: 'Year',
-											dqTypeId: 'Year',
+											dqType: 'ST2 INTS',
+											dqTypeId: 'ST2 INTS',
 											dqNativeType: 'INTEGER',
 											isForced: false,
 											isNativeForced: false,
@@ -156,5 +196,5 @@ export const mockDonutsSchema: CommonSchemaSampled = {
 			],
 		},
 	],
-	'talend.fields.order': 'id,type,name,ppu,batter,topping',
+	'talend.fields.order': 'id,type,name,ppu,batter,labels,categories,topping',
 };

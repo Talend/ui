@@ -3,9 +3,11 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { CommonSchemaSampledField, FieldMetadata, RecordType } from '../CommonDataViewer.types';
-import { DataViewerDivider } from '../DataViewerDivider.component';
+import { DataViewerDivider } from './DataViewerDivider.component';
 import { TreeManagerContext } from '../TreeManagerContext';
 import { renderField } from './CommonModel.utils';
+
+import theme from './ModelField.module.scss';
 
 type ModelRecordWithType = {
 	field?: never;
@@ -45,23 +47,25 @@ export function ModelRecordField({ field, path, metadata, type }: ModelRecordFie
 	const currentType = getFieldRecordType(field) || type;
 
 	return (
-		<StackVertical gap={0} noGrow>
-			<StackHorizontal noGrow gap="XS" align="center">
-				<DataViewerDivider path={path} />
-				<ButtonIcon
-					size="XS"
-					icon={isCurrentPathExpanded ? 'minus-stroke' : 'plus-stroke'}
-					onClick={() => toggleModelPath(fieldPath)}
-				>
-					{isCurrentPathExpanded
-						? t('MODEL_VIEWER_COLLAPSE_NODE', 'Collapse')
-						: t('MODEL_VIEWER_EXPAND_NODE', 'Expand')}
-				</ButtonIcon>
-				{field?.name || t('MODEL_VIEWER_RECORD', 'Object')}
-			</StackHorizontal>
-			{isCurrentPathExpanded
-				? currentType?.fields?.map(item => renderField(item, fieldPath, metadata))
-				: null}
-		</StackVertical>
+		<div className={theme['model-record-field']}>
+			<StackVertical gap={0} noGrow>
+				<StackHorizontal noGrow gap="XS" align="center">
+					<DataViewerDivider path={path} />
+					<ButtonIcon
+						size="XS"
+						icon={isCurrentPathExpanded ? 'minus-stroke' : 'plus-stroke'}
+						onClick={() => toggleModelPath(fieldPath)}
+					>
+						{isCurrentPathExpanded
+							? t('MODEL_VIEWER_COLLAPSE_NODE', 'Collapse')
+							: t('MODEL_VIEWER_EXPAND_NODE', 'Expand')}
+					</ButtonIcon>
+					{field?.name || t('MODEL_VIEWER_RECORD', 'Object')}
+				</StackHorizontal>
+				{isCurrentPathExpanded
+					? currentType?.fields?.map(item => renderField(item, fieldPath, metadata))
+					: null}
+			</StackVertical>
+		</div>
 	);
 }
