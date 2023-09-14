@@ -58,7 +58,7 @@ export const WithDisclosure: ComponentStory<typeof FloatingDrawer> = () => (
 		}
 	/>
 );
-WithDisclosure.play = playOpenDrawer;
+// WithDisclosure.play = playOpenDrawer;
 
 const ControlledFloatingDrawer = () => {
 	const [visible, setVisible] = useState(false);

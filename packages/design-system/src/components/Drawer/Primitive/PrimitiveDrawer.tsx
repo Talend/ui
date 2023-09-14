@@ -12,11 +12,11 @@ export type DrawerProps = {
 
 export const PrimitiveDrawer = forwardRef(
 	({ header, children, footer }: DrawerProps, ref: Ref<HTMLDivElement>) => (
-		<div className={theme['primitive-drawer']} ref={ref}>
+		<div className={theme.drawer} ref={ref}>
 			<StackVertical gap={0} align="stretch" justify="stretch">
-				{header && <div className={theme['primitive-drawer__header']}>{header}</div>}
-				<div className={theme['primitive-drawer__body']}>{children}</div>
-				{footer && <div className={theme['primitive-drawer__footer']}>{footer}</div>}
+				{header && <div className={theme.header}>{header}</div>}
+				<div className={theme.body}>{children}</div>
+				{footer && <div className={theme.footer}>{footer}</div>}
 			</StackVertical>
 		</div>
 	),

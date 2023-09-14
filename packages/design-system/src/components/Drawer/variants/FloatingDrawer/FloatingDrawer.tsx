@@ -1,8 +1,9 @@
-import { useEffect, useRef, cloneElement } from 'react';
+import { useEffect, useState, cloneElement } from 'react';
 import type { ReactElement, ReactNode } from 'react';
 import { PrimitiveDrawer } from '../../Primitive/PrimitiveDrawer';
 
 import theme from './FloatingDrawer.module.scss';
+import { useId } from '../../../../useId';
 
 type WithDisclosure = {
 	disclosure: ReactElement;
@@ -13,10 +14,14 @@ type Controlled = {
 	visible: boolean;
 };
 
+type DialogFnProps = {
+	onClose: () => void;
+};
+
 export type FloatingDrawerProps = {
-	header?: ((dialog: any) => ReactNode) | ReactNode;
-	children: ((dialog: any) => ReactNode) | ReactNode;
-	footer?: ((dialog: any) => ReactNode) | ReactNode;
+	header?: ((dialog: DialogFnProps) => ReactNode) | ReactNode;
+	children: ((dialog: DialogFnProps) => ReactNode) | ReactNode;
+	footer?: ((dialog: DialogFnProps) => ReactNode) | ReactNode;
 	onClose?: () => void;
 } & (WithDisclosure | Controlled);
 
@@ -24,41 +29,48 @@ export type FloatingDrawerProps = {
 export type DrawerProps = FloatingDrawerProps;
 
 export const FloatingDrawer = ({
+	id,
 	disclosure,
 	header,
 	children,
 	footer,
-	visible: visibleProps,
+	visible,
 	onClose,
 }: DrawerProps) => {
-	const ref = useRef(null);
-	// const dialog = useDialogState({ modal: false, visible: visibleProps ?? false, animated: true });
-
+	const uuid = useId(id, 'drawer');
+	const [isVisible, setVisible] = useState(visible === undefined ? false : visible);
+	// sync with the props
 	useEffect(() => {
-		if (visibleProps !== undefined) {
-			// dialog.setVisible(visibleProps);
+		if (visible !== undefined && visible !== isVisible) {
+			setVisible(visible);
 		}
-	}, [visibleProps]);
+	}, [visible, isVisible]);
+	const onCloseHandler = () => {
+		if (onClose) {
+			onClose();
+		} else {
+			setVisible(false);
+		}
+	};
 
-	const onCloseHandler = () => onClose && onClose();
-
+	const disclosureProps = {
+		onClick: () => setVisible(!isVisible),
+		['aria-expanded']: isVisible,
+		['aria-controls']: uuid,
+	};
 	return (
 		<>
-			{disclosure && <div>{disclosureProps => cloneElement(disclosure, disclosureProps)}</div>}
-			<div
-				data-test="drawer"
-				ref={ref}
-				hideOnClickOutside={false}
-				hide={onCloseHandler}
-				className={theme['floating-drawer']}
-			>
-				<PrimitiveDrawer
-					header={typeof header === 'function' ? header({}) : header}
-					footer={typeof footer === 'function' ? footer({}) : footer}
-				>
-					{typeof children === 'function' ? children({}) : children}
-				</PrimitiveDrawer>
-			</div>
+			{disclosure && <div>{cloneElement(disclosure, disclosureProps)}</div>}
+			{isVisible && (
+				<div data-test="drawer" id={uuid} role="dialog" className={theme.drawer}>
+					<PrimitiveDrawer
+						header={typeof header === 'function' ? header({ onClose: onCloseHandler }) : header}
+						footer={typeof footer === 'function' ? footer({ onClose: onCloseHandler }) : footer}
+					>
+						{typeof children === 'function' ? children({ onClose: onCloseHandler }) : children}
+					</PrimitiveDrawer>
+				</div>
+			)}
 		</>
 	);
 };

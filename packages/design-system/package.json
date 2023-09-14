@@ -41,6 +41,7 @@
     "modern-css-reset": "^1.4.0",
     "polished": "^4.2.2",
     "react-use": "^17.4.0",
+    "react-transition-group": "^2.2.9",
     "typeface-inconsolata": "^1.1.13",
     "typeface-source-sans-pro": "^1.1.13",
     "uncontrollable": "^8.0.2"
