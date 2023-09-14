@@ -43,20 +43,31 @@ const playOpenDrawer = async () => {
 	const openButton = screen.getByRole('button');
 	await userEvent.click(openButton);
 };
+const containerStyle = {
+	...FloatingDrawer.containerStyle,
+	// body of the preview has a padding of 1rem
+	width: 'calc(100vw - 2rem)',
+	height: 'calc(100vh - 2rem)',
+};
+
 export const Simple: ComponentStory<typeof FloatingDrawer> = (props: any) => (
-	<FloatingDrawer visible {...props} />
+	<div style={containerStyle}>
+		<FloatingDrawer visible {...props} />
+	</div>
 );
 Simple.args = defaultProps;
 
 export const WithDisclosure: ComponentStory<typeof FloatingDrawer> = () => (
-	<FloatingDrawer
-		{...defaultProps}
-		disclosure={
-			<ButtonPrimary data-test="drawer-disclosure" onClick={() => {}}>
-				Open the modal
-			</ButtonPrimary>
-		}
-	/>
+	<div style={containerStyle}>
+		<FloatingDrawer
+			{...defaultProps}
+			disclosure={
+				<ButtonPrimary data-test="drawer-disclosure" onClick={() => {}}>
+					Open the modal
+				</ButtonPrimary>
+			}
+		/>
+	</div>
 );
 // WithDisclosure.play = playOpenDrawer;
 

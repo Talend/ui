@@ -107,3 +107,4 @@ export const FloatingDrawer = ({
 };
 
 FloatingDrawer.displayName = 'FloatingDrawer';
+FloatingDrawer.containerStyle = { overflowX: 'hidden', position: 'relative' };
