@@ -1,4 +1,5 @@
 import { forwardRef, Ref } from 'react';
+import classNames from 'classnames';
 import { MenuItem, MenuItemProps } from 'reakit';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
@@ -32,7 +33,7 @@ const DropdownButton = forwardRef(
 						})}
 					</span>
 				)}
-				<span className={styles.buttonContent}>{children}</span>
+				<span className={classNames(styles.buttonContent, { checked })}>{children}</span>
 				{checked && (
 					<SizedIcon
 						name="check"

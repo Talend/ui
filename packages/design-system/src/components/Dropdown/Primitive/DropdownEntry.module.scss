@@ -16,6 +16,10 @@ $icon-alignment-offset-m: -0.3rem;
 
 	> span {
 		min-width: 0;
+
+		&:global(.checked) {
+			font-weight: 600;
+		}
 	}
 
 	.buttonIcon {
