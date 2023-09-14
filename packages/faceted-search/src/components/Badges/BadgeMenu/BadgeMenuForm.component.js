@@ -45,24 +45,27 @@ const BadgeMenuForm = ({
 	const items = useCallback(getRows(values, value, filter), [values, value, filter]);
 	return (
 		<>
-			<FilterBar
-				autoFocus={false}
-				dockable={false}
-				docked={false}
-				iconAlwaysVisible
-				id={`${badgeMenuFormId}-filter`}
-				placeholder={
-					filterBarPlaceholder ||
-					t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-						defaultValue: 'Find a column',
-					})
-				}
-				onToggle={() => setFilter('')}
-				onFilter={(_, filterValue) => setFilter(filterValue)}
-				value={filter}
-				data-test="badge-menu-filter"
-				data-testid="badge-menu-filter"
-			/>
+			<Rich.Layout.Header className={theme('fs-badge-menu-form-header')}>
+				<FilterBar
+					className={theme('menu-items-filter')}
+					autoFocus={false}
+					dockable={false}
+					docked={false}
+					iconAlwaysVisible
+					id={`${badgeMenuFormId}-filter`}
+					placeholder={
+						filterBarPlaceholder ||
+						t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+							defaultValue: 'Find a column',
+						})
+					}
+					onToggle={() => setFilter('')}
+					onFilter={(_, filterValue) => setFilter(filterValue)}
+					value={filter}
+					data-test="badge-menu-filter"
+					data-testid="badge-menu-filter"
+				/>
+			</Rich.Layout.Header>
 			<form
 				className={theme('fs-badge-menu-form')}
 				id={`${badgeMenuFormId}-form`}
