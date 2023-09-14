@@ -6,7 +6,6 @@
 	background-color: tokens.$coral-color-neutral-background-medium;
 	display: flex;
 	flex-direction: column;
-	overflow: auto;
 
 	&_header {
 		align-items: center;
@@ -24,7 +23,6 @@
 }
 
 .model-path-divider {
-	// display: flex;
 	padding-left: 0.8rem;
 	width: 1.8rem;
 	justify-content: center;

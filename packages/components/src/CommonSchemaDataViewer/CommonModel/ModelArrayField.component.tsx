@@ -68,24 +68,26 @@ export function ModelArrayField({ field, path, metadata }: ModelArrayFieldProps)
 	return (
 		<div className={theme['model-array-field']}>
 			<StackVertical gap={0} noGrow>
-				<StackHorizontal noGrow gap="XS" align="center">
-					<DataViewerDivider path={path} />
+				<div className={theme['model-array-field-name']}>
 					<StackHorizontal noGrow gap="XS" align="center">
-						{category === FieldCategory.Record ? (
-							<ButtonIcon
-								size="XS"
-								icon={isCurrentPathExpanded ? 'chevron-down' : 'chevron-right'}
-								onClick={() => toggleModelPath(fieldPath)}
-							>
-								{isCurrentPathExpanded
-									? t('MODEL_VIEWER_COLLAPSE_NODE', 'Collapse')
-									: t('MODEL_VIEWER_EXPAND_NODE', 'Expand')}
-							</ButtonIcon>
-						) : null}
-						{field.name}
-						<ModelDQType label={getArrayCompositionLabel(category, arrayComposedBy, t)} />
+						<DataViewerDivider path={path} />
+						<StackHorizontal noGrow gap="XS" align="center">
+							{category === FieldCategory.Record ? (
+								<ButtonIcon
+									size="XS"
+									icon={isCurrentPathExpanded ? 'chevron-down' : 'chevron-right'}
+									onClick={() => toggleModelPath(fieldPath)}
+								>
+									{isCurrentPathExpanded
+										? t('MODEL_VIEWER_COLLAPSE_NODE', 'Collapse')
+										: t('MODEL_VIEWER_EXPAND_NODE', 'Expand')}
+								</ButtonIcon>
+							) : null}
+							{field.name}
+							<ModelDQType label={getArrayCompositionLabel(category, arrayComposedBy, t)} />
+						</StackHorizontal>
 					</StackHorizontal>
-				</StackHorizontal>
+				</div>
 				{category && isCurrentPathExpanded && category === FieldCategory.Record
 					? (arrayComposedBy as RecordType).fields.map(item =>
 							renderField(item, fieldPath, metadata),

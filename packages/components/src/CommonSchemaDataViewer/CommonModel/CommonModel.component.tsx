@@ -20,9 +20,11 @@ export function CommonModel({ metadata, schema }: CommonModelProps) {
 				{t('MODEL_VIEWER_HEADER_TITLE', 'Data model')}
 			</header>
 			<Divider />
-			<StackVertical gap={0} height="100%" justify="start" padding="S">
-				{schema.fields.map(field => renderField(field, path, metadata))}
-			</StackVertical>
+			<div style={{ overflow: 'auto' }}>
+				<StackVertical gap={0} height="100%" justify="start" padding="S">
+					{schema.fields.map(field => renderField(field, path, metadata))}
+				</StackVertical>
+			</div>
 		</div>
 	);
 }

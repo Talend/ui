@@ -55,6 +55,8 @@ export function TreeManagerContextProvider({
 		return highlightedPath === path.join('.');
 	};
 
+	console.log('highlightedPath', highlightedPath);
+
 	return (
 		<TreeManagerContext.Provider
 			value={{

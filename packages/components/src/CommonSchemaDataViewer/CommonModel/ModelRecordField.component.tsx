@@ -49,19 +49,21 @@ export function ModelRecordField({ field, path, metadata, type }: ModelRecordFie
 	return (
 		<div className={theme['model-record-field']}>
 			<StackVertical gap={0} noGrow>
-				<StackHorizontal noGrow gap="XS" align="center">
-					<DataViewerDivider path={path} />
-					<ButtonIcon
-						size="XS"
-						icon={isCurrentPathExpanded ? 'minus-stroke' : 'plus-stroke'}
-						onClick={() => toggleModelPath(fieldPath)}
-					>
-						{isCurrentPathExpanded
-							? t('MODEL_VIEWER_COLLAPSE_NODE', 'Collapse')
-							: t('MODEL_VIEWER_EXPAND_NODE', 'Expand')}
-					</ButtonIcon>
-					{field?.name || t('MODEL_VIEWER_RECORD', 'Object')}
-				</StackHorizontal>
+				<div className={theme['model-record-field-name']}>
+					<StackHorizontal noGrow gap="XS" align="center">
+						<DataViewerDivider path={path} />
+						<ButtonIcon
+							size="XS"
+							icon={isCurrentPathExpanded ? 'minus-stroke' : 'plus-stroke'}
+							onClick={() => toggleModelPath(fieldPath)}
+						>
+							{isCurrentPathExpanded
+								? t('MODEL_VIEWER_COLLAPSE_NODE', 'Collapse')
+								: t('MODEL_VIEWER_EXPAND_NODE', 'Expand')}
+						</ButtonIcon>
+						{field?.name || t('MODEL_VIEWER_RECORD', 'Object')}
+					</StackHorizontal>
+				</div>
 				{isCurrentPathExpanded
 					? currentType?.fields?.map(item => renderField(item, fieldPath, metadata))
 					: null}
