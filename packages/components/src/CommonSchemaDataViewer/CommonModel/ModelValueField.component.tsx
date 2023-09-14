@@ -23,6 +23,8 @@ export function ModelValueField({ field, path, metadata }: ModelValueFieldProps)
 	const type = getFieldType(field);
 	const isNullable = isFieldNullable(field);
 
+	console.log(fieldPath, metadata);
+
 	return (
 		<StackHorizontal noGrow gap="XS" align="center" isFullWidth>
 			<DataViewerDivider path={path} />

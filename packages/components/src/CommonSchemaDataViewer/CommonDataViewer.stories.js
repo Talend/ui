@@ -1,5 +1,4 @@
 import { mockRecords } from './mock-data/mock-common-records';
-import { mockSchema } from './mock-data/mock-common-schema';
 import { mockMetadata } from './mock-data/mock-metadata';
 
 import { CommonDataViewer } from './CommonDataViewer.component';
@@ -7,6 +6,9 @@ import { mockSchema2 } from './mock-data/mock-common-schema2';
 import { mockDonutsRecords } from './mock-data/mock-donuts-records';
 import { mockDonutsMetadata } from './mock-data/mock-donuts-metadata';
 import { mockDonutsSchema } from './mock-data/mock-donuts-schema';
+import { mockEmployeesSchema } from './mock-data/mock-employees-schema';
+import { mockEmployeesMetadata } from './mock-data/mock-employees-metadata';
+import { mockEmployeesRecords } from './mock-data/mock-employees-records';
 
 export default {
 	title: 'Components/Tree/CommonDataViewer',
@@ -40,10 +42,14 @@ export const DataViewerWithDonuts = () => {
 	);
 };
 
-export const DataViewerWithCommonSchema = () => {
+export const DataViewerWithEmployees = () => {
 	return (
 		<div style={{ height: '80vh' }}>
-			<CommonDataViewer records={mockRecords} metadata={mockMetadata} schema={mockSchema} />
+			<CommonDataViewer
+				records={mockEmployeesRecords}
+				metadata={mockEmployeesMetadata}
+				schema={mockEmployeesSchema}
+			/>
 		</div>
 	);
 };

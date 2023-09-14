@@ -1,6 +1,6 @@
 import { CommonSchemaSampled } from '../CommonDataViewer.types';
 
-export const mockSchema: CommonSchemaSampled = {
+export const mockEmployeesSchema: CommonSchemaSampled = {
 	name: 'Record_3_n_2523327838463021400',
 	type: 'record',
 	namespace: 'org.talend.sdk.component.schema.generated',
@@ -64,8 +64,8 @@ export const mockSchema: CommonSchemaSampled = {
 										'null',
 										{
 											type: 'string',
-											dqType: 'Country',
-											dqTypeId: 'COUNTRY',
+											dqType: 'Country_List_Hackathon',
+											dqTypeId: 'Country_List_Hackathon',
 											dqNativeType: 'STRING',
 											isForced: false,
 											isNativeForced: false,
@@ -92,6 +92,20 @@ export const mockSchema: CommonSchemaSampled = {
 							namespace: 'org.talend.sdk.component.schema.generated',
 							fields: [
 								{
+									name: 'type',
+									type: [
+										'null',
+										{
+											type: 'string',
+											dqType: 'Constellation Abbrev',
+											dqTypeId: 'Constellation Abbrev',
+											dqNativeType: 'STRING',
+											isForced: false,
+											isNativeForced: false,
+										},
+									],
+								},
+								{
 									name: 'insurance',
 									type: [
 										'null',
@@ -105,8 +119,8 @@ export const mockSchema: CommonSchemaSampled = {
 														'null',
 														{
 															type: 'string',
-															dqType: '',
-															dqTypeId: '',
+															dqType: '_shouldrecompute',
+															dqTypeId: '_shouldrecompute',
 															dqNativeType: 'STRING',
 															isForced: false,
 															isNativeForced: false,
@@ -164,8 +178,8 @@ export const mockSchema: CommonSchemaSampled = {
 																'null',
 																{
 																	type: 'string',
-																	dqType: '',
-																	dqTypeId: '',
+																	dqType: 'new',
+																	dqTypeId: 'new',
 																	dqNativeType: 'STRING',
 																	isForced: false,
 																	isNativeForced: false,
@@ -176,20 +190,6 @@ export const mockSchema: CommonSchemaSampled = {
 													'talend.fields.order': 'date,desc',
 												},
 											],
-										},
-									],
-								},
-								{
-									name: 'type',
-									type: [
-										'null',
-										{
-											type: 'string',
-											dqType: 'Airport Code',
-											dqTypeId: 'AIRPORT_CODE',
-											dqNativeType: 'STRING',
-											isForced: false,
-											isNativeForced: false,
 										},
 									],
 								},
@@ -246,8 +246,8 @@ export const mockSchema: CommonSchemaSampled = {
 										'null',
 										{
 											type: 'string',
-											dqType: 'Country',
-											dqTypeId: 'COUNTRY',
+											dqType: 'Country_List_Hackathon',
+											dqTypeId: 'Country_List_Hackathon',
 											dqNativeType: 'STRING',
 											isForced: false,
 											isNativeForced: false,
