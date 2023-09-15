@@ -49,23 +49,23 @@ export function getModelNodeCategory(
 }
 
 export function renderModelNode(
-	field: CommonSchemaSampledField<CommonSchemaSampledFieldType> | CommonSchemaSampledFieldType,
+	field: CommonSchemaSampledField<CommonSchemaSampledFieldType>,
 	path: string[],
 	metadata?: FieldMetadata[],
 ) {
 	const type = getModelNodeCategory(field);
 
 	if (type === FieldCategory.Record) {
-		if (field.hasOwnProperty('name')) {
-			return (
-				<DataModelRecordNode
-					field={field as CommonSchemaSampledField<RecordType>}
-					path={path}
-					metadata={metadata}
-				/>
-			);
-		}
-		return <DataModelRecordNode type={field as RecordType} path={path} metadata={metadata} />;
+		// if (field.hasOwnProperty('name')) {
+		return (
+			<DataModelRecordNode
+				field={field as CommonSchemaSampledField<RecordType>}
+				path={path}
+				metadata={metadata}
+			/>
+		);
+		// }
+		// return <DataModelRecordNode type={field as RecordType} path={path} metadata={metadata} />;
 	}
 
 	if (type === FieldCategory.Array) {

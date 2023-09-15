@@ -1,8 +1,11 @@
 import { Component } from 'react';
 import { AutoSizer, CellMeasurerCache, List } from 'react-virtualized';
-import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import TreeCellMeasurer from '../TreeCellMeasurer';
+
 import theme from './VirtualizedTree.module.scss';
 
 const DEFAULT_HEIGHT = 40;
