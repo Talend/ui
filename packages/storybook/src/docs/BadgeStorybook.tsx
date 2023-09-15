@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import type { FunctionComponent } from 'react';
 
 import Badge, { BadgeProps } from './Badge';
 

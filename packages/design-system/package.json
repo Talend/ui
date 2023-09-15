@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "7.14.2",
+  "version": "7.15.0",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -43,7 +43,6 @@
     "typeface-source-sans-pro": "^1.1.13"
   },
   "devDependencies": {
-    "@algolia/autocomplete-js": "^1.9.4",
     "@babel/core": "^7.22.5",
     "@cypress/react": "^7.0.3",
     "@cypress/webpack-dev-server": "^3.4.1",
@@ -69,14 +68,12 @@
     "@types/react": "^17.0.62",
     "@types/react-dom": "^17.0.20",
     "@types/react-is": "^16.7.2",
-    "algoliasearch": "^4.17.2",
     "browser-sync": "^2.29.3",
     "browser-sync-webpack-plugin": "^2.3.0",
     "color-contrast-checker": "^2.1.0",
     "concurrently": "^7.6.0",
     "core-js": "^3.31.0",
     "cypress": "^12.15.0",
-    "figma-js": "^1.16.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^20.6.1",
     "i18next-scanner": "^4.2.0",

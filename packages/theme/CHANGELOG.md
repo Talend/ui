@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 8.1.3
+
+### Patch Changes
+
+- a7eb1a831: fix(TDOPS-5103): Fix the notification is covered by detail drawer
+
 ## 8.1.2
 
 ### Patch Changes

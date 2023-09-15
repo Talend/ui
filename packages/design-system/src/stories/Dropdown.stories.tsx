@@ -202,6 +202,14 @@ export const Basic = () => (
 						},
 					},
 					{
+						label: 'Button selected',
+						type: 'button',
+						onClick: () => {
+							action('clicked');
+						},
+						checked: true,
+					},
+					{
 						label: 'Button with icon',
 						type: 'button',
 						icon: 'zoom-plus',

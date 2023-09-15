@@ -34,6 +34,7 @@ const FigmaImagePlaceholder = memo(() => {
 		</div>
 	);
 });
+FigmaImagePlaceholder.displayName = 'FigmaImagePlaceholder';
 
 const FigmaImage = ({
 	src,

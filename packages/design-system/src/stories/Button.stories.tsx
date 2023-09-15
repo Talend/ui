@@ -14,7 +14,7 @@ import {
 	Tooltip,
 } from '../';
 
-import { BaseButtonProps, AvailableSizes } from '..//components/Button/Primitive/ButtonPrimitive';
+import { BaseButtonProps, AvailableSizes } from '../components/Button/Primitive/ButtonPrimitive';
 
 const commonArgTypes = {
 	children: {

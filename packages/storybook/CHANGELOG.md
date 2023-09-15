@@ -1,5 +1,16 @@
 # @talend/ui-storybook
 
+## 1.3.0
+
+### Minor Changes
+
+- 076d96234: Add BadgeMenu to faceted search for single selection
+
+### Patch Changes
+
+- Updated dependencies [076d96234]
+  - @talend/design-system@7.15.0
+
 ## 1.2.0
 
 ### Minor Changes

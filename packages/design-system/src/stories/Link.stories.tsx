@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 import { Link } from '../';
-import { LinkProps } from '..//components/Link';
+import { LinkProps } from '../components/Link';
 
 export default {
 	component: Link,

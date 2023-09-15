@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactElement, PropsWithChildren } from 'react';
+// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 

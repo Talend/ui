@@ -3,9 +3,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ButtonPrimary, Divider, StackHorizontal, StackVertical, StackItem } from '../';
 
-import { alignOptions, possibleAsTypes } from '..//components/Stack/Primitive/StackPrimitive';
+import { alignOptions, possibleAsTypes } from '../components/Stack/Primitive/StackPrimitive';
 
-import { overflowOptions } from '..//components/Stack/StackItem';
+import { overflowOptions } from '../components/Stack/StackItem';
 
 import { manualStackArgs } from './StackHorizontal.stories';
 

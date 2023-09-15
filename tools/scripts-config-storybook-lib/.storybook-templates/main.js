@@ -72,11 +72,6 @@ const defaultMain = {
 			},
 			plugins: [
 				...config.plugins,
-				// use dynamic-cdn-webpack-plugin with default modules
-				new CDNPlugin({
-					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/)),
-                    disable: true, // temporaly disable the CDN pluggin, causing 404 on the cdn
-				}),
 			],
 			resolve: {
 				...config.resolve,

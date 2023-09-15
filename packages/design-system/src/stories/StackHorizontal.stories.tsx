@@ -11,7 +11,7 @@ import {
 	possibleAsTypes,
 	sizeOptions,
 	sizeOptionsWithAuto,
-} from '..//components/Stack/Primitive/StackPrimitive';
+} from '../components/Stack/Primitive/StackPrimitive';
 
 export default {
 	component: StackHorizontal,

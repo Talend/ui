@@ -57,7 +57,8 @@ export default async function build(env, presetApi, unsafeOptions) {
 					'--source-maps',
 					'--ignore',
 					// @see https://github.com/babel/babel/issues/12008
-					'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
+					// '**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
+					'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx',
 					'--extensions',
 					'.js,.ts,.tsx,.jsx',
 					...options,

@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { DocsContext, Unstyled } from '@storybook/blocks';
-import { BackToTop } from 'storybook-docs-toc';
 import { BadgeFigma, BadgeI18n, BadgeReact, BadgeStorybook, Badges } from '~docs';
 import { Statuses } from '.storybook/docs/StatusTable';
 import statuses from '../../src/status.json';
@@ -47,8 +46,6 @@ export function BadgesBlock() {
 				<BadgeReact status={status.react} href={githubLink} />
 				<BadgeI18n status={status.i18n} />
 			</Badges>
-
-			<BackToTop />
 		</Unstyled>
 	);
 }

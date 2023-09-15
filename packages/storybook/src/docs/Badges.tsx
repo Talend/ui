@@ -2,7 +2,7 @@ import type { ReactElement, PropsWithChildren } from 'react';
 
 import Badge from './Badge';
 
-import { StackHorizontal, StackItem } from '../../';
+import { StackHorizontal, StackItem } from '@talend/design-system';
 
 const StatusList = ({ children }: PropsWithChildren<any>) => {
 	return (

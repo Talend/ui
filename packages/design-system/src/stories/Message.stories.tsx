@@ -18,7 +18,7 @@ import {
 	TagWarning,
 } from '../';
 
-import { MessagePrimitive } from '..//components/Message/Primitive/MessagePrimitive';
+import { MessagePrimitive } from '../components/Message/Primitive/MessagePrimitive';
 
 export default { component: MessagePrimitive, title: 'Messaging/Message' };
 export const DefaultMessageDemo = () => (

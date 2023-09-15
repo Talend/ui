@@ -6,13 +6,14 @@
     ".storybook/docs/**/*",
     ".storybook/blocks/**/*",
     "src/**/*",
+    "../design-system/src/**/*",
     "custom.d.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~docs": [".storybook/docs"],
-      "~blocks": [".storybook/blocks"]
+      "~docs": ["src/docs"],
+      "~blocks": ["src/blocks"]
     },
     "module": "CommonJs",
     "rootDirs": [".storybook", "cypress", "src"],

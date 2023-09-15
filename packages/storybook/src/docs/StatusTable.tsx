@@ -4,7 +4,7 @@ import tokens from '@talend/design-tokens';
 
 import theme from './StatusTable.module.scss';
 
-import statuses from '../status.json';
+import statuses from '../../../design-system/src/stories/status.json';
 
 export type Statuses = Record<
 	string,
