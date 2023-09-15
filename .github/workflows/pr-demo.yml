@@ -62,6 +62,8 @@ jobs:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
+      # since storybook 7 our docs is broken so we unplug netlify
+      # and we want to publish it on github page instead 
       # - name: Deploy to Netlify production
       #   if: github.ref == 'refs/heads/master'
       #   uses: netlify/actions/cli@master
