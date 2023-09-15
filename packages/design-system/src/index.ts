@@ -54,7 +54,7 @@ import {
 	MessageCollectionInformation,
 	MessageCollectionWarning,
 } from './components/Message';
-import Modal from './components/Modal';
+export * from './components/Modal';
 import Popover from './components/WIP/Popover';
 import Skeleton, {
 	SkeletonButton,
@@ -146,7 +146,6 @@ export {
 	MessageDestructive,
 	MessageInformation,
 	MessageWarning,
-	Modal,
 	Popover,
 	RichRadioButton,
 	SizedIcon,

@@ -1,4 +1,4 @@
-import { ComponentStory } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { LinkAsButton } from '../';
 
@@ -7,7 +7,7 @@ export default {
 	title: 'Click/LinkAsButton',
 };
 
-const LinkAsButtonTemplate: ComponentStory<typeof LinkAsButton> = args => {
+const LinkAsButtonTemplate: StoryFn<typeof LinkAsButton> = args => {
 	return <LinkAsButton {...args} />;
 };
 

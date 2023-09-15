@@ -1,4 +1,4 @@
-import { ComponentStory, Story } from '@storybook/react';
+import { StoryFn, Story } from '@storybook/react';
 import { BrowserRouter, Link } from 'react-router-dom';
 
 import {
@@ -53,19 +53,19 @@ export default {
 	argTypes: commonLinkArgTypes,
 };
 
-const PrimaryLinkTemplate: ComponentStory<typeof ButtonPrimaryAsLink> = args => {
+const PrimaryLinkTemplate: StoryFn<typeof ButtonPrimaryAsLink> = args => {
 	return <ButtonPrimaryAsLink {...args} />;
 };
 
-const SecondaryLinkTemplate: ComponentStory<typeof ButtonSecondaryAsLink> = args => {
+const SecondaryLinkTemplate: StoryFn<typeof ButtonSecondaryAsLink> = args => {
 	return <ButtonSecondaryAsLink {...args} />;
 };
 
-const TertiaryLinkTemplate: ComponentStory<typeof ButtonTertiaryAsLink> = args => {
+const TertiaryLinkTemplate: StoryFn<typeof ButtonTertiaryAsLink> = args => {
 	return <ButtonTertiaryAsLink {...args} />;
 };
 
-const DestructiveLinkTemplate: ComponentStory<typeof ButtonDestructiveAsLink> = args => {
+const DestructiveLinkTemplate: StoryFn<typeof ButtonDestructiveAsLink> = args => {
 	return <ButtonDestructiveAsLink {...args} />;
 };
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ComponentStory } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Area } from './docs/Area';
 import { screen, userEvent } from '@storybook/testing-library';
 
@@ -43,12 +43,12 @@ const playOpenDrawer = async () => {
 	const openButton = screen.getByRole('button');
 	await userEvent.click(openButton);
 };
-export const Simple: ComponentStory<typeof FloatingDrawer> = (props: any) => (
+export const Simple: StoryFn<typeof FloatingDrawer> = (props: any) => (
 	<FloatingDrawer visible {...props} />
 );
 Simple.args = defaultProps;
 
-export const WithDisclosure: ComponentStory<typeof FloatingDrawer> = () => (
+export const WithDisclosure: StoryFn<typeof FloatingDrawer> = () => (
 	<FloatingDrawer
 		{...defaultProps}
 		disclosure={
@@ -71,12 +71,12 @@ const ControlledFloatingDrawer = () => {
 		</>
 	);
 };
-export const WithControlledVisibility: ComponentStory<typeof FloatingDrawer> = () => (
+export const WithControlledVisibility: StoryFn<typeof FloatingDrawer> = () => (
 	<ControlledFloatingDrawer />
 );
 WithControlledVisibility.play = playOpenDrawer;
 
-export const Usage: ComponentStory<typeof FloatingDrawer> = () => (
+export const Usage: StoryFn<typeof FloatingDrawer> = () => (
 	<FloatingDrawer
 		header={<Area>Heading</Area>}
 		footer={<Area>Footer</Area>}

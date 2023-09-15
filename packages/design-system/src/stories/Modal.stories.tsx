@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { ComponentStory } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { ButtonPrimary, Modal } from '../';
-import { ModalPropsType } from '../components/Modal';
+import { type ModalPropsType } from '../components/Modal';
 
 export default {
 	component: Modal,
@@ -135,13 +135,13 @@ function QuicheRecipe() {
 	);
 }
 
-export const NoDisclosure: ComponentStory<typeof Modal> = props => (
+export const NoDisclosure: StoryFn<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'No disclosure modal' }}>
 		<p>A basic modal with only a title and a text content.</p>
 	</ModalStory>
 );
 
-export const WithDisclosure: ComponentStory<typeof Modal> = props => (
+export const WithDisclosure: StoryFn<typeof Modal> = props => (
 	<Modal
 		{...props}
 		header={{ title: 'With disclosure' }}
@@ -155,20 +155,20 @@ export const WithDisclosure: ComponentStory<typeof Modal> = props => (
 	</Modal>
 );
 
-export const WithIcon: ComponentStory<typeof Modal> = props => (
+export const WithIcon: StoryFn<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'With icon', icon: 'talend-file-hdfs-o' }}>
 		<p>A basic modal with title, a text content and an icon.</p>
 	</ModalStory>
 );
 
 const customIcon = <span>👋</span>;
-export const WithCustomIcon: ComponentStory<typeof Modal> = props => (
+export const WithCustomIcon: StoryFn<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'With custom icon', icon: customIcon }}>
 		<p>A basic modal with title, a text content and a custom icon.</p>
 	</ModalStory>
 );
 
-export const WithDescription: ComponentStory<typeof Modal> = props => (
+export const WithDescription: StoryFn<typeof Modal> = props => (
 	<ModalStory
 		{...props}
 		header={{ title: 'With description', description: 'That is the description' }}
@@ -177,7 +177,7 @@ export const WithDescription: ComponentStory<typeof Modal> = props => (
 	</ModalStory>
 );
 
-export const WithActions: ComponentStory<typeof Modal> = props => (
+export const WithActions: StoryFn<typeof Modal> = props => (
 	<ModalStory
 		{...props}
 		header={{ title: 'With actions' }}
@@ -197,7 +197,7 @@ export const WithActions: ComponentStory<typeof Modal> = props => (
 	</ModalStory>
 );
 
-export const WithDestructivePrimaryAction: ComponentStory<typeof Modal> = props => (
+export const WithDestructivePrimaryAction: StoryFn<typeof Modal> = props => (
 	<ModalStory
 		{...props}
 		header={{ title: 'With actions' }}
@@ -211,7 +211,7 @@ export const WithDestructivePrimaryAction: ComponentStory<typeof Modal> = props 
 	</ModalStory>
 );
 
-export const WithNonClosingBackdrop: ComponentStory<typeof Modal> = props => (
+export const WithNonClosingBackdrop: StoryFn<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'A blocking modal' }} preventEscaping>
 		<p>
 			A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked and without the
@@ -220,7 +220,7 @@ export const WithNonClosingBackdrop: ComponentStory<typeof Modal> = props => (
 	</ModalStory>
 );
 
-export const WithOverflowingHeader: ComponentStory<typeof Modal> = props => (
+export const WithOverflowingHeader: StoryFn<typeof Modal> = props => (
 	<ModalStory
 		{...props}
 		header={{
@@ -234,13 +234,13 @@ export const WithOverflowingHeader: ComponentStory<typeof Modal> = props => (
 	</ModalStory>
 );
 
-export const WithOverflowingContent: ComponentStory<typeof Modal> = props => (
+export const WithOverflowingContent: StoryFn<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'With overflowing content' }}>
 		<QuicheRecipe />
 	</ModalStory>
 );
 
-export const WithEverything: ComponentStory<typeof Modal> = props => (
+export const WithEverything: StoryFn<typeof Modal> = props => (
 	<ModalStory
 		{...props}
 		header={{

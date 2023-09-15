@@ -7,7 +7,7 @@ import {
 	StackVertical,
 	InlineMessageBeta,
 } from '../';
-import { ComponentStory } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 export default { component: InlineMessage, title: 'Messaging/InlineMessage' };
@@ -77,7 +77,7 @@ export const BackgroundDemo = () => (
 	</StackVertical>
 );
 
-const VariantTemplate: ComponentStory<typeof InlineMessage> = args => {
+const VariantTemplate: StoryFn<typeof InlineMessage> = args => {
 	const { variant = 'information', ...rest } = args;
 	return <InlineMessage {...rest} variant={variant} />;
 };

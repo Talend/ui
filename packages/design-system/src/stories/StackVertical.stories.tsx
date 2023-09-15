@@ -1,19 +1,63 @@
 import tokens from '@talend/design-tokens';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoryFn, StoryObj } from '@storybook/react';
 
 import { ButtonPrimary, Divider, StackHorizontal, StackVertical, StackItem } from '../';
 
-import { alignOptions, possibleAsTypes } from '../components/Stack/Primitive/StackPrimitive';
+import {
+	alignOptions,
+	possibleAsTypes,
+	justifyOptions,
+	sizeOptionsWithAuto,
+	heightOptions,
+	alignContentOptions,
+	sizeOptions,
+} from '../components/Stack/Primitive/StackPrimitive';
 
 import { overflowOptions } from '../components/Stack/StackItem';
-
-import { manualStackArgs } from './StackHorizontal.stories';
 
 export default {
 	component: StackVertical,
 	title: 'Layout/StackVertical',
 	subcomponents: { StackHorizontal, StackItem },
-} as ComponentMeta<typeof StackVertical>;
+} as StoryObj<typeof StackVertical>;
+
+const manualStackArgs = {
+	as: { options: [...possibleAsTypes], control: { type: 'select' } },
+	justify: {
+		options: Object.keys(justifyOptions),
+		control: { type: 'select' },
+	},
+	align: { options: Object.keys(alignOptions), control: { type: 'select' } },
+	gap: {
+		options: Object.keys(sizeOptions),
+		control: { type: 'select' },
+		description: 'MANDATORY. Can also be set as an object `{ x: SizeToken, y: SizeToken }`',
+	},
+	padding: {
+		options: Object.keys(sizeOptions),
+		control: { type: 'select' },
+		description:
+			'Can also be set as an object `{ x: SizeToken, y: SizeToken }` or `{top: SizeToken, left: SizeToken, right: SizeToken, bottom: SizeToken}`',
+	},
+	margin: {
+		options: Object.keys(sizeOptionsWithAuto),
+		control: { type: 'select' },
+		description:
+			'Can also be set as an object `{ x: SizeToken, y: SizeToken }` or `{top: SizeToken, left: SizeToken, right: SizeToken, bottom: SizeToken}`',
+	},
+	wrap: {
+		options: ['nowrap', 'wrap', 'wrapReverse'],
+		control: { type: 'select' },
+	},
+	isFullWidth: { control: { type: 'boolean' } },
+	height: {
+		options: Object.keys(heightOptions),
+		control: { type: 'select' },
+	},
+	alignContent: { options: Object.keys(alignContentOptions), control: { type: 'select' } },
+	display: { options: ['block', 'inline'], control: { type: 'select' } },
+	role: { control: { type: 'text' } },
+};
 
 function Block({ width }: { width: string }) {
 	return (
@@ -29,7 +73,7 @@ function Block({ width }: { width: string }) {
 	);
 }
 
-const Template: ComponentStory<typeof StackVertical> = args => (
+const Template: StoryFn<typeof StackVertical> = args => (
 	<StackVertical {...args}>
 		<Block width="60%" />
 		<Block width="40%" />
@@ -75,7 +119,7 @@ export const StackNesting = () => {
 	);
 };
 
-export const StackWithStackItem: ComponentStory<typeof StackItem> = args => {
+export const StackWithStackItem: StoryFn<typeof StackItem> = args => {
 	return (
 		<StackVertical gap="XS" as="ul" align="stretch">
 			<li>

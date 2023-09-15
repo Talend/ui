@@ -1,4 +1,4 @@
-import { ComponentStory } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 
 import {
 	Tag,
@@ -8,7 +8,6 @@ import {
 	TagSuccess,
 	TagWarning,
 	TagBeta,
-	tagDestructive,
 } from '../';
 
 export default {
@@ -16,67 +15,65 @@ export default {
 	title: 'Messaging/Tag',
 };
 
-export const Default: ComponentStory<typeof TagDefault> = props => (
+export const Default: StoryFn<typeof TagDefault> = props => (
 	<TagDefault {...props}>Example</TagDefault>
 );
 
-export const Information: ComponentStory<typeof TagInformation> = props => (
+export const Information: StoryFn<typeof TagInformation> = props => (
 	<TagInformation {...props}>Example</TagInformation>
 );
 
-export const Success: ComponentStory<typeof TagSuccess> = props => (
+export const Success: StoryFn<typeof TagSuccess> = props => (
 	<TagSuccess {...props}>Example</TagSuccess>
 );
 
-export const Warning: ComponentStory<typeof TagWarning> = props => (
+export const Warning: StoryFn<typeof TagWarning> = props => (
 	<TagWarning {...props}>Example</TagWarning>
 );
 
-export const Destructive: ComponentStory<typeof tagDestructive> = props => (
+export const Destructive: StoryFn<typeof TagDestructive> = props => (
 	<TagDestructive {...props}>Example</TagDestructive>
 );
 
-export const Beta: ComponentStory<typeof tagDestructive> = props => (
-	<TagBeta {...props}>Example</TagBeta>
-);
+export const Beta: StoryFn<typeof TagDestructive> = props => <TagBeta {...props}>Example</TagBeta>;
 
-export const VariantDefault: ComponentStory<typeof Tag> = props => (
+export const VariantDefault: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="default">
 		Example
 	</Tag>
 );
 
-export const VariantInformation: ComponentStory<typeof Tag> = props => (
+export const VariantInformation: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="information">
 		Example
 	</Tag>
 );
 
-export const VariantSuccess: ComponentStory<typeof Tag> = props => (
+export const VariantSuccess: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="success">
 		Example
 	</Tag>
 );
 
-export const VariantWarning: ComponentStory<typeof Tag> = props => (
+export const VariantWarning: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="warning">
 		Example
 	</Tag>
 );
 
-export const VariantDestructive: ComponentStory<typeof Tag> = props => (
+export const VariantDestructive: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="destructive">
 		Example
 	</Tag>
 );
 
-export const VariantBeta: ComponentStory<typeof Tag> = props => (
+export const VariantBeta: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="beta">
 		Example
 	</Tag>
 );
 
-export const Ellipsis: ComponentStory<typeof TagDefault> = props => (
+export const Ellipsis: StoryFn<typeof TagDefault> = props => (
 	<TagDefault {...props}>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum nunc non diam vehicula
 		gravida. Pellentesque nisi velit, porttitor nec facilisis at, egestas quis magna. Sed tempus

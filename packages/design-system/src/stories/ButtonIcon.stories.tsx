@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import {
 	ButtonIcon,
@@ -50,19 +50,19 @@ export default {
 	title: 'Click/ButtonIcon',
 	args: defaultArgs,
 	argTypes: commonArgTypes,
-} as ComponentMeta<typeof ButtonIcon>;
+} as Meta<typeof ButtonIcon>;
 
-const TemplateIcon: ComponentStory<typeof ButtonIcon> = args => {
+const TemplateIcon: StoryFn<typeof ButtonIcon> = args => {
 	const { children, ...rest } = args;
 	return <ButtonIcon {...rest}>{children}</ButtonIcon>;
 };
 
-const TemplateToggle: ComponentStory<typeof ButtonIconToggle> = args => {
+const TemplateToggle: StoryFn<typeof ButtonIconToggle> = args => {
 	const { children, ...rest } = args;
 	return <ButtonIconToggle {...rest}>{children}</ButtonIconToggle>;
 };
 
-const TemplateFloating: ComponentStory<typeof ButtonIconFloating> = args => {
+const TemplateFloating: StoryFn<typeof ButtonIconFloating> = args => {
 	const { children, ...rest } = args;
 	return <ButtonIconFloating {...rest}>{children}</ButtonIconFloating>;
 };

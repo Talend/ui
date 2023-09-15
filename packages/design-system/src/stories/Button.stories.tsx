@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ComponentStory, Story } from '@storybook/react';
+import { StoryFn, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import {
@@ -65,18 +65,18 @@ export default {
 	},
 };
 
-const PrimaryTemplate: ComponentStory<typeof ButtonPrimary> = args => {
+const PrimaryTemplate: StoryFn<typeof ButtonPrimary> = args => {
 	return <ButtonPrimary {...args} />;
 };
-const DestructiveTemplate: ComponentStory<typeof ButtonDestructive> = args => {
+const DestructiveTemplate: StoryFn<typeof ButtonDestructive> = args => {
 	return <ButtonDestructive {...args} />;
 };
 
-const SecondaryTemplate: ComponentStory<typeof ButtonSecondary> = args => {
+const SecondaryTemplate: StoryFn<typeof ButtonSecondary> = args => {
 	return <ButtonSecondary {...args} />;
 };
 
-const TertiaryTemplate: ComponentStory<typeof ButtonTertiary> = args => {
+const TertiaryTemplate: StoryFn<typeof ButtonTertiary> = args => {
 	return <ButtonTertiary {...args} />;
 };
 

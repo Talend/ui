@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { ComponentStory } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 
 import {
 	MessageCollectionDestructive,
@@ -91,7 +91,7 @@ export const WithPropVariation = () => (
 	</StackHorizontal>
 );
 
-const MessageInformationTemplate: ComponentStory<typeof MessageInformation> = args => {
+const MessageInformationTemplate: StoryFn<typeof MessageInformation> = args => {
 	return <MessageInformation {...args} />;
 };
 
@@ -215,9 +215,7 @@ export const MessageCollectionWithPropVariation = () => (
 	</StackHorizontal>
 );
 
-const MessageCollectionInformationTemplate: ComponentStory<
-	typeof MessageCollectionInformation
-> = args => {
+const MessageCollectionInformationTemplate: StoryFn<typeof MessageCollectionInformation> = args => {
 	return <MessageCollectionInformation {...args} />;
 };
 

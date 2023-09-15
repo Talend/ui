@@ -1,5 +1,5 @@
 import tokens from '@talend/design-tokens';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { StackHorizontal } from '../';
 
@@ -16,7 +16,7 @@ import {
 export default {
 	component: StackHorizontal,
 	title: 'Layout/StackHorizontal',
-} as ComponentMeta<typeof StackHorizontal>;
+} as Meta<typeof StackHorizontal>;
 
 // eslint-disable-next-line storybook/prefer-pascal-case
 const manualStackArgs = {
@@ -71,7 +71,7 @@ function Block({ width }: { width: string }) {
 	);
 }
 
-const Template: ComponentStory<typeof StackHorizontal> = args => (
+const Template: StoryFn<typeof StackHorizontal> = args => (
 	<StackHorizontal {...args}>
 		<Block width="60%" />
 		<Block width="40%" />

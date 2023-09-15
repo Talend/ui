@@ -1,4 +1,4 @@
-import { ComponentStory } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 
 import {
 	Skeleton,
@@ -18,23 +18,23 @@ export default {
 	component: SkeletonPrimitive,
 };
 
-const SkeletonButtonTemplate: ComponentStory<typeof SkeletonButton> = args => {
+const SkeletonButtonTemplate: StoryFn<typeof SkeletonButton> = args => {
 	return <SkeletonButton {...args} />;
 };
 
-const SkeletonButtonIconTemplate: ComponentStory<typeof SkeletonButtonIcon> = args => {
+const SkeletonButtonIconTemplate: StoryFn<typeof SkeletonButtonIcon> = args => {
 	return <SkeletonButtonIcon {...args} />;
 };
 
-const SkeletonHeadingTemplate: ComponentStory<typeof SkeletonHeading> = args => {
+const SkeletonHeadingTemplate: StoryFn<typeof SkeletonHeading> = args => {
 	return <SkeletonHeading {...args} />;
 };
 
-const SkeletonParagraphTemplate: ComponentStory<typeof SkeletonParagraph> = args => {
+const SkeletonParagraphTemplate: StoryFn<typeof SkeletonParagraph> = args => {
 	return <SkeletonParagraph {...args} />;
 };
 
-const SkeletonInputTemplate: ComponentStory<typeof SkeletonInput> = args => {
+const SkeletonInputTemplate: StoryFn<typeof SkeletonInput> = args => {
 	return <SkeletonInput {...args} />;
 };
 
