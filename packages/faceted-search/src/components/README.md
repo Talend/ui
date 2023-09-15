@@ -75,7 +75,6 @@ Init the **badgeFaceted context** (see [BadgeFacetedContext](#BadgeFacetedContex
 | setFacetedBadges          | func                              | callback trigger to sync the badges at every state change               |
 | badgesDefinitionsSort     | func                              | "Add filter" entries comparator, falls back to label sort               |
 
-
 ---
 
 ### FacetedManager
@@ -174,6 +173,14 @@ A badges with **checkboxes**
 | Default Operators | implemented |
 | ----------------- | ----------- |
 | in                | DONE        |
+
+### BadgeMenu
+
+A badge for single selection.
+
+| Default Operators | implemented |
+| ----------------- | ----------- |
+| equals            | DONE        |
 
 ## Badges API
 

@@ -98,6 +98,44 @@ export const badgeAll = {
 	},
 };
 
+export const badgeMenu = {
+	properties: {
+		attribute: 'workspaceId',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Workspace',
+		operator: {},
+		operators: [],
+		type: 'menu',
+		filterBarPlaceholder: 'Find a workspace',
+	},
+	metadata: {
+		badgePerFacet: '1',
+		entitiesPerBadge: 'N',
+		values: [
+			{ id: 'personal', label: 'Personal' },
+			{ id: 'shared', label: 'Shared' },
+			{ id: 'custom', label: 'Custom' },
+			{
+				id: 'ws1',
+				label:
+					"Long long workspace name can't fit in one line. Long long workspace name can't fit in one line. ",
+			},
+			{ id: 'ws2', label: 'Workspace 2' },
+			{ id: 'ws3', label: 'Workspace 3' },
+			{ id: 'ws4', label: 'Workspace 4' },
+			{ id: 'ws5', label: 'Workspace 5' },
+			{ id: 'ws6', label: 'Workspace 6' },
+			{ id: 'ws7', label: 'Workspace 7' },
+			{ id: 'ws8', label: 'Workspace 8' },
+			{ id: 'ws9', label: 'Workspace 9' },
+			{ id: 'ws10', label: 'Workspace Test' },
+		],
+		operators: ['equals', 'notEquals'],
+		'data-feature': 'faceted-badge-workspace',
+	},
+};
+
 export const badgeConnectionType = {
 	properties: {
 		attribute: 'connection.type',
