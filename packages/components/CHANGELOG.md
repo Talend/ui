@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.4.0
+
+### Minor Changes
+
+- f0c98a7e6: Components - Layout can now be given a theme directly from props by parent app
+
 ## 11.3.3
 
 ### Patch Changes
