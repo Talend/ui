@@ -4,30 +4,32 @@ import { StackHorizontal } from '@talend/design-system';
 import Clickable from '@talend/design-system/lib/components/Clickable';
 import { useContext } from 'react';
 import { CommonSchemaSampledField, FieldMetadata, ValueType } from '../CommonDataViewer.types';
-import { getFieldType, isFieldNullable } from '../CommonDataViewer.utils';
-import { DataViewerDivider } from './DataViewerDivider.component';
+import { DataModelDivider } from './DataModelDivider.component';
 import { TreeManagerContext } from '../TreeManagerContext';
-import { ModelDQType } from './ModelDqType.component';
-import theme from './ModelField.module.scss';
+import { DataModelDqType } from './DataModelDqType.component';
+import theme from './DataModelNode.module.scss';
 import classNames from 'classnames';
+import { QualityBar } from '../../QualityBar';
+import { getFieldType, isFieldNullable } from './DataModel.utils';
 
-type ModelValueFieldProps = {
+type DataModelValueNodeProps = {
 	field: CommonSchemaSampledField<ValueType>;
 	path: string[];
 	metadata?: FieldMetadata[];
 };
 
-export function ModelValueField({ field, path, metadata }: ModelValueFieldProps) {
+export function DataModelValueNode({ field, path, metadata }: DataModelValueNodeProps) {
 	const fieldPath = [...path, field.name];
 	const { setHighlightedPath, isHighlightedPath } = useContext(TreeManagerContext);
 	const type = getFieldType(field);
 	const isNullable = isFieldNullable(field);
 
-	console.log(fieldPath, metadata);
+	const fieldAggregatedMetadata = metadata?.find(m => m.path === fieldPath.join('.'))?.qualities
+		.aggregated;
 
 	return (
 		<StackHorizontal noGrow gap="XS" align="center" isFullWidth>
-			<DataViewerDivider path={path} />
+			<DataModelDivider path={path} />
 			<Clickable
 				type="button"
 				onClick={() => setHighlightedPath(fieldPath)}
@@ -49,7 +51,17 @@ export function ModelValueField({ field, path, metadata }: ModelValueFieldProps)
 							{field.name}
 							{isNullable ? null : '*'}
 						</div>
-						<ModelDQType label={type.dqType || type.type} />
+						<DataModelDqType label={type.dqType || type.type} />
+
+						{fieldAggregatedMetadata ? (
+							<div className={theme['model-field-quality']}>
+								<QualityBar
+									valid={fieldAggregatedMetadata.valid || 0}
+									invalid={fieldAggregatedMetadata.invalid || 0}
+									empty={fieldAggregatedMetadata.empty || 0}
+								/>
+							</div>
+						) : null}
 					</StackHorizontal>
 				</div>
 			</Clickable>

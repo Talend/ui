@@ -9,16 +9,20 @@ import {
 	FieldMetadata,
 	RecordType,
 } from '../CommonDataViewer.types';
-import { DataViewerDivider } from './DataViewerDivider.component';
-import { getFieldType } from '../CommonDataViewer.utils';
+import { DataModelDivider } from './DataModelDivider.component';
 import { TreeManagerContext } from '../TreeManagerContext';
-import { FieldCategory, getFieldCategory, renderField } from './CommonModel.utils';
+import {
+	FieldCategory,
+	getFieldType,
+	getModelNodeCategory,
+	renderModelNode,
+} from './DataModel.utils';
 import { TFunction } from 'i18next';
 
-import theme from './ModelField.module.scss';
-import { ModelDQType } from './ModelDqType.component';
+import theme from './DataModelNode.module.scss';
+import { DataModelDqType } from './DataModelDqType.component';
 
-type ModelArrayFieldProps = {
+type DataModelArrayNodeProps = {
 	field: CommonSchemaSampledField<ArrayType>;
 	path: string[];
 	metadata?: FieldMetadata[];
@@ -34,10 +38,6 @@ function getArrayCompositionLabel(
 	}
 
 	if (category === FieldCategory.Value) {
-		// return `- (${t('MODEL_VIEWER_ARRAY_VALUE', {
-		// 	defaultValue: 'Array of {{type}}',
-		// 	type: arrayComposedBy?.type,
-		// })})`;
 		return t('MODEL_VIEWER_ARRAY_VALUE', {
 			defaultValue: '{{type}} []',
 			type: arrayComposedBy?.type,
@@ -45,14 +45,12 @@ function getArrayCompositionLabel(
 	}
 
 	if (category === FieldCategory.Record) {
-		// return `- (${t('MODEL_VIEWER_ARRAY_RECORD', 'Array of records')})`;
-		// return `- (${t('MODEL_VIEWER_ARRAY_RECORD', 'Array')})`;
 		return t('MODEL_VIEWER_ARRAY_RECORD', 'Object []');
 	}
 	return '';
 }
 
-export function ModelArrayField({ field, path, metadata }: ModelArrayFieldProps) {
+export function DataModelArrayNode({ field, path, metadata }: DataModelArrayNodeProps) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const { isModelPathClosed, toggleModelPath } = useContext(TreeManagerContext);
 	const fieldPath = [...path, field.name];
@@ -63,14 +61,14 @@ export function ModelArrayField({ field, path, metadata }: ModelArrayFieldProps)
 		.filter((item): item is CommonSchemaSampledFieldType => item !== 'null')
 		.find(() => true);
 
-	const category = arrayComposedBy && getFieldCategory(arrayComposedBy);
+	const category = arrayComposedBy && getModelNodeCategory(arrayComposedBy);
 
 	return (
 		<div className={theme['model-array-field']}>
 			<StackVertical gap={0} noGrow>
 				<div className={theme['model-array-field-name']}>
 					<StackHorizontal noGrow gap="XS" align="center">
-						<DataViewerDivider path={path} />
+						<DataModelDivider path={path} />
 						<StackHorizontal noGrow gap="XS" align="center">
 							{category === FieldCategory.Record ? (
 								<ButtonIcon
@@ -84,20 +82,15 @@ export function ModelArrayField({ field, path, metadata }: ModelArrayFieldProps)
 								</ButtonIcon>
 							) : null}
 							{field.name}
-							<ModelDQType label={getArrayCompositionLabel(category, arrayComposedBy, t)} />
+							<DataModelDqType label={getArrayCompositionLabel(category, arrayComposedBy, t)} />
 						</StackHorizontal>
 					</StackHorizontal>
 				</div>
 				{category && isCurrentPathExpanded && category === FieldCategory.Record
 					? (arrayComposedBy as RecordType).fields.map(item =>
-							renderField(item, fieldPath, metadata),
+							renderModelNode(item, fieldPath, metadata),
 					  )
 					: null}
-				{/* {isCurrentPathExpanded && category === FieldCategory.Record
-				? arrayType.items
-						.filter((item): item is CommonSchemaSampledFieldType => item !== 'null')
-						.map(item => renderField(item, fieldPath, metadata))
-				: null} */}
 			</StackVertical>
 		</div>
 	);

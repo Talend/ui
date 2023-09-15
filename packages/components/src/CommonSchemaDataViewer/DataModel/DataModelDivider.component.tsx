@@ -1,8 +1,8 @@
 import { Divider } from '@talend/design-system';
 
-import theme from './CommonModel.module.scss';
+import theme from './DataModel.module.scss';
 
-export function DataViewerDivider({ path }: { path: string[] }) {
+export function DataModelDivider({ path }: { path: string[] }) {
 	return (
 		<>
 			{path.map((p, i) => (

@@ -6,9 +6,9 @@ import {
 	RecordType,
 	ValueType,
 } from '../CommonDataViewer.types';
-import { ModelArrayField } from './ModelArrayField.component';
-import { ModelRecordField } from './ModelRecordField.component';
-import { ModelValueField } from './ModelValueField.component';
+import { DataModelArrayNode } from './DataModelArrayNode.component';
+import { DataModelRecordNode } from './DataModelRecordNode.component';
+import { DataModelValueNode } from './DataModelValueNode.component';
 
 export enum FieldCategory {
 	Record = 'record',
@@ -16,7 +16,7 @@ export enum FieldCategory {
 	Value = 'value',
 }
 
-export function getFieldCategory(
+export function getModelNodeCategory(
 	field: CommonSchemaSampledField<CommonSchemaSampledFieldType> | CommonSchemaSampledFieldType,
 ): FieldCategory {
 	let fieldCommonType: CommonSchemaSampledFieldType;
@@ -48,29 +48,29 @@ export function getFieldCategory(
 	return FieldCategory.Value;
 }
 
-export function renderField(
+export function renderModelNode(
 	field: CommonSchemaSampledField<CommonSchemaSampledFieldType> | CommonSchemaSampledFieldType,
 	path: string[],
 	metadata?: FieldMetadata[],
 ) {
-	const type = getFieldCategory(field);
+	const type = getModelNodeCategory(field);
 
 	if (type === FieldCategory.Record) {
 		if (field.hasOwnProperty('name')) {
 			return (
-				<ModelRecordField
+				<DataModelRecordNode
 					field={field as CommonSchemaSampledField<RecordType>}
 					path={path}
 					metadata={metadata}
 				/>
 			);
 		}
-		return <ModelRecordField type={field as RecordType} path={path} metadata={metadata} />;
+		return <DataModelRecordNode type={field as RecordType} path={path} metadata={metadata} />;
 	}
 
 	if (type === FieldCategory.Array) {
 		return (
-			<ModelArrayField
+			<DataModelArrayNode
 				field={field as CommonSchemaSampledField<ArrayType>}
 				path={path}
 				metadata={metadata}
@@ -80,7 +80,7 @@ export function renderField(
 
 	if (type === FieldCategory.Value) {
 		return (
-			<ModelValueField
+			<DataModelValueNode
 				field={field as CommonSchemaSampledField<ValueType>}
 				path={path}
 				metadata={metadata}
@@ -89,4 +89,27 @@ export function renderField(
 	}
 
 	return null;
+}
+
+export function isFieldNullable(field: CommonSchemaSampledField<CommonSchemaSampledFieldType>) {
+	if (Array.isArray(field.type)) {
+		return field.type.find(type => type === 'null') !== undefined;
+	}
+	return false;
+}
+
+function findType<T>(type: T | 'null' | undefined): type is T {
+	return type !== undefined && type !== 'null';
+}
+
+export function getFieldType<T extends CommonSchemaSampledFieldType>(
+	field: CommonSchemaSampledField<T>,
+): T {
+	if (Array.isArray(field.type)) {
+		const type = field.type.find(findType);
+		if (type === undefined) throw new Error('No type found');
+
+		return type;
+	}
+	return field.type;
 }

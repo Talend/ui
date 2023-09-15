@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { TreeManagerContext } from '../TreeManagerContext';
 
-import theme from './CommonModel.module.scss';
+import theme from './DataModel.module.scss';
 
-type ModelDQTypeProps = {
+type DataModelDqTypeProps = {
 	label?: string;
 };
 
-export function ModelDQType({ label }: ModelDQTypeProps) {
+export function DataModelDqType({ label }: DataModelDqTypeProps) {
 	const { hasSemanticAwareness } = useContext(TreeManagerContext);
 	if (!label || !hasSemanticAwareness) {
 		return null;

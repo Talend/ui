@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { CommonSchemaSampled, FieldMetadata } from '../CommonDataViewer.types';
 
-import theme from './CommonModel.module.scss';
-import { renderField } from './CommonModel.utils';
+import theme from './DataModel.module.scss';
+import { renderModelNode } from './DataModel.utils';
 
-type CommonModelProps = {
+type DataModelProps = {
 	metadata?: FieldMetadata[];
 	schema: CommonSchemaSampled;
 };
 
-export function CommonModel({ metadata, schema }: CommonModelProps) {
+export function DataModel({ metadata, schema }: DataModelProps) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const path: string[] = [];
 	return (
@@ -22,7 +22,7 @@ export function CommonModel({ metadata, schema }: CommonModelProps) {
 			<Divider />
 			<div style={{ overflow: 'auto' }}>
 				<StackVertical gap={0} height="100%" justify="start" padding="S">
-					{schema.fields.map(field => renderField(field, path, metadata))}
+					{schema.fields.map(field => renderModelNode(field, path, metadata))}
 				</StackVertical>
 			</div>
 		</div>

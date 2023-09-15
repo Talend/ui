@@ -3,11 +3,11 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { CommonSchemaSampledField, FieldMetadata, RecordType } from '../CommonDataViewer.types';
-import { DataViewerDivider } from './DataViewerDivider.component';
+import { DataModelDivider } from './DataModelDivider.component';
 import { TreeManagerContext } from '../TreeManagerContext';
-import { renderField } from './CommonModel.utils';
+import { renderModelNode } from './DataModel.utils';
 
-import theme from './ModelField.module.scss';
+import theme from './DataModelNode.module.scss';
 
 type ModelRecordWithType = {
 	field?: never;
@@ -23,7 +23,7 @@ type ModelRecordWithField = {
 	metadata?: FieldMetadata[];
 };
 
-type ModelRecordFieldProps = ModelRecordWithType | ModelRecordWithField;
+type DataModelRecordNodeProps = ModelRecordWithType | ModelRecordWithField;
 
 function getFieldRecordType(field?: CommonSchemaSampledField<RecordType>) {
 	if (!field) {
@@ -36,7 +36,7 @@ function getFieldRecordType(field?: CommonSchemaSampledField<RecordType>) {
 	return field.type;
 }
 
-export function ModelRecordField({ field, path, metadata, type }: ModelRecordFieldProps) {
+export function DataModelRecordNode({ field, path, metadata, type }: DataModelRecordNodeProps) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const { isModelPathClosed, toggleModelPath } = useContext(TreeManagerContext);
 	const nodeName = field?.name || 'record';
@@ -51,7 +51,7 @@ export function ModelRecordField({ field, path, metadata, type }: ModelRecordFie
 			<StackVertical gap={0} noGrow>
 				<div className={theme['model-record-field-name']}>
 					<StackHorizontal noGrow gap="XS" align="center">
-						<DataViewerDivider path={path} />
+						<DataModelDivider path={path} />
 						<ButtonIcon
 							size="XS"
 							icon={isCurrentPathExpanded ? 'minus-stroke' : 'plus-stroke'}
@@ -65,7 +65,7 @@ export function ModelRecordField({ field, path, metadata, type }: ModelRecordFie
 					</StackHorizontal>
 				</div>
 				{isCurrentPathExpanded
-					? currentType?.fields?.map(item => renderField(item, fieldPath, metadata))
+					? currentType?.fields?.map(item => renderModelNode(item, fieldPath, metadata))
 					: null}
 			</StackVertical>
 		</div>

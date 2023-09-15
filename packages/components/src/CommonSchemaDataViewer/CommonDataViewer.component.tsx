@@ -1,7 +1,7 @@
-import { StackHorizontal } from '@talend/design-system';
+import { Divider, StackHorizontal } from '@talend/design-system';
 import { CommonSchemaSampled, FieldMetadata, HierarchicalSample } from './CommonDataViewer.types';
-import { CommonModel } from './CommonModel';
-import { CommonRecords } from './CommonRecords';
+import { DataModel } from './DataModel';
+import { Records } from './Records';
 import { TreeManagerContextProvider } from './TreeManagerContext';
 
 type CommonDataViewerProps = {
@@ -15,8 +15,9 @@ export function CommonDataViewer({ records, metadata, schema }: CommonDataViewer
 		<TreeManagerContextProvider>
 			<div style={{ display: 'flex', height: '100%' }}>
 				<StackHorizontal gap={0}>
-					{schema ? <CommonModel metadata={metadata} schema={schema} /> : null}
-					<CommonRecords records={records} />
+					{schema ? <DataModel metadata={metadata} schema={schema} /> : null}
+					<Divider orientation="vertical" />
+					<Records records={records} />
 				</StackHorizontal>
 			</div>
 		</TreeManagerContextProvider>

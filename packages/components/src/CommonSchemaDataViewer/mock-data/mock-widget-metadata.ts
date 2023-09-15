@@ -1,0 +1,331 @@
+import { FieldMetadata } from '../CommonDataViewer.types';
+
+export const mockWidgetMetadata: FieldMetadata[] = [
+	{
+		path: 'widget.debug',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.window.title',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.image.src',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.text.data',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.window.name',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.image.name',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.text.size',
+		description: '',
+		type: {
+			originalType: 'long',
+			status: 'NOT_FORCED',
+			primitiveType: 'INTEGER',
+			semanticType: '64d34b3a2e74387aa4cc148f',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
+	},
+	{
+		path: 'widget.window.width',
+		description: '',
+		type: {
+			originalType: 'long',
+			status: 'NOT_FORCED',
+			primitiveType: 'INTEGER',
+			semanticType: '64d34b3a2e74387aa4cc148f',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
+	},
+	{
+		path: 'widget.image.hOffset',
+		description: '',
+		type: {
+			originalType: 'long',
+			status: 'NOT_FORCED',
+			primitiveType: 'INTEGER',
+			semanticType: '64d34b3a2e74387aa4cc148f',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
+	},
+	{
+		path: 'widget.text.style',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.window.height',
+		description: '',
+		type: {
+			originalType: 'long',
+			status: 'NOT_FORCED',
+			primitiveType: 'INTEGER',
+			semanticType: '64d34b3a2e74387aa4cc148f',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
+	},
+	{
+		path: 'widget.image.vOffset',
+		description: '',
+		type: {
+			originalType: 'long',
+			status: 'NOT_FORCED',
+			primitiveType: 'INTEGER',
+			semanticType: '64d34b3a2e74387aa4cc148f',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
+	},
+	{
+		path: 'widget.text.name',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.image.alignment',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.text.hOffset',
+		description: '',
+		type: {
+			originalType: 'long',
+			status: 'NOT_FORCED',
+			primitiveType: 'INTEGER',
+			semanticType: '64d34b3a2e74387aa4cc148f',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
+	},
+	{
+		path: 'widget.text.vOffset',
+		description: '',
+		type: {
+			originalType: 'long',
+			status: 'NOT_FORCED',
+			primitiveType: 'INTEGER',
+			semanticType: '64d34b3a2e74387aa4cc148f',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [
+			{ id: '64d34b3a2e74387aa4cc148f', name: 'ST2 INTS', score: 100.0 },
+			{ id: '6478462f3a07a94c71a604cd', name: 'doubles', score: 100.0 },
+		],
+	},
+	{
+		path: 'widget.text.alignment',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+	{
+		path: 'widget.text.onMouseUp',
+		description: '',
+		type: {
+			originalType: 'string',
+			status: 'NOT_FORCED',
+			primitiveType: 'STRING',
+			semanticType: '',
+		},
+		dqRules: [],
+		qualities: {
+			aggregated: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			type: { valid: 1, invalid: 0, empty: 0, total: 1 },
+			dqRules: [],
+		},
+		matchings: [],
+	},
+];
