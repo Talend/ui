@@ -18,6 +18,7 @@ import {
 	FieldCategory,
 	getFieldType,
 	getModelNodeCategory,
+	getSampledFieldTypeCategory,
 	renderModelNode,
 } from './DataModel.utils';
 import { DataModelDivider } from './DataModelDivider.component';
@@ -64,7 +65,7 @@ export function DataModelArrayNode({ field, path, metadata }: DataModelArrayNode
 		.filter((item): item is CommonSchemaSampledFieldType => item !== 'null')
 		.find(() => true);
 
-	const category = arrayComposedBy && getModelNodeCategory(arrayComposedBy);
+	const category = arrayComposedBy && getSampledFieldTypeCategory(arrayComposedBy);
 
 	return (
 		<div className={theme['model-array-field']}>

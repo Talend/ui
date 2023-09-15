@@ -16,33 +16,25 @@ export enum FieldCategory {
 	Value = 'value',
 }
 
-export function getModelNodeCategory(
-	field: CommonSchemaSampledField<CommonSchemaSampledFieldType> | CommonSchemaSampledFieldType,
-): FieldCategory {
-	let fieldCommonType: CommonSchemaSampledFieldType;
-
-	if (field.hasOwnProperty('name')) {
-		const commonField = field as CommonSchemaSampledField<CommonSchemaSampledFieldType>;
-		if (Array.isArray(commonField.type)) {
-			fieldCommonType = commonField.type.find(
-				type => type !== 'null',
-			) as CommonSchemaSampledFieldType;
-		} else {
-			fieldCommonType = commonField.type;
-		}
-
-		if (fieldCommonType.type === 'record') {
-			return FieldCategory.Record;
-		} else if (fieldCommonType.type === 'array') {
-			return FieldCategory.Array;
-		}
-		return FieldCategory.Value;
-	}
-
-	const commonField = field as CommonSchemaSampledFieldType;
-	if (commonField.type === 'record') {
+export function getSampledFieldTypeCategory(field: CommonSchemaSampledFieldType): FieldCategory {
+	if (field.type === 'record') {
 		return FieldCategory.Record;
-	} else if (commonField.type === 'array') {
+	} else if (field.type === 'array') {
+		return FieldCategory.Array;
+	}
+	return FieldCategory.Value;
+}
+
+export function getModelNodeCategory(
+	field: CommonSchemaSampledField<CommonSchemaSampledFieldType>,
+): FieldCategory {
+	const fieldCommonType: CommonSchemaSampledFieldType = Array.isArray(field.type)
+		? (field.type.find(type => type !== 'null') as CommonSchemaSampledFieldType)
+		: field.type;
+
+	if (fieldCommonType.type === 'record') {
+		return FieldCategory.Record;
+	} else if (fieldCommonType.type === 'array') {
 		return FieldCategory.Array;
 	}
 	return FieldCategory.Value;
@@ -56,7 +48,6 @@ export function renderModelNode(
 	const type = getModelNodeCategory(field);
 
 	if (type === FieldCategory.Record) {
-		// if (field.hasOwnProperty('name')) {
 		return (
 			<DataModelRecordNode
 				field={field as CommonSchemaSampledField<RecordType>}
@@ -64,8 +55,6 @@ export function renderModelNode(
 				metadata={metadata}
 			/>
 		);
-		// }
-		// return <DataModelRecordNode type={field as RecordType} path={path} metadata={metadata} />;
 	}
 
 	if (type === FieldCategory.Array) {

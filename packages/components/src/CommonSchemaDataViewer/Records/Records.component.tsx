@@ -4,6 +4,7 @@ import { Divider } from '@talend/design-system';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { HierarchicalSample } from '../CommonDataViewer.types';
+import { RecordRow } from './RecordRow.component';
 import { VirtualizedRecordTree } from './VirtualizedRecordTree.component';
 
 import theme from './Records.module.scss';
@@ -24,13 +25,9 @@ export function Records({ records }: RecordsProps) {
 			{/* <div style={{ overflow: 'auto' }}> */}
 			<VirtualizedRecordTree
 				onVerticalScroll={() => {}}
-				renderNode={() => <>coucou</>}
+				renderNode={({ index, measure }) => <RecordRow index={index} row={records[index]} />}
 				rowCount={records.length}
 			/>
-			{/* <StackVertical gap={0} height="100%" justify="start" padding="S">
-					{schema.fields.map(field => renderField(field, path, metadata))}
-				</StackVertical> */}
-			{/* </div> */}
 		</div>
 	);
 }

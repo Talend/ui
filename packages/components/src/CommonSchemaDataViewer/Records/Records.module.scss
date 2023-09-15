@@ -19,4 +19,15 @@
 
 .tc-records {
 	flex: 1 1 auto;
+	padding: tokens.$coral-spacing-s;
+}
+
+.record-item {
+	height: 3rem;
+	display: flex;
+
+	&__value {
+		font: tokens.$coral-data-m;
+		color: tokens.$coral-color-accent-text;
+	}
 }

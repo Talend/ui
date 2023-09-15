@@ -28,7 +28,7 @@ export interface SampleNode {
 	fields: SampleItem[];
 }
 
-type SampleItem = SampleNode | SampleLeaf | SampleArray;
+export type SampleItem = SampleNode | SampleLeaf | SampleArray;
 
 export interface SampleHierarchicalRow {
 	fields: SampleItem[];
