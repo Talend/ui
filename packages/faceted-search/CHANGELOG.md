@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.1.0
+
+### Minor Changes
+
+- 076d96234: Add BadgeMenu to faceted search for single selection
+
 ## 11.0.2
 
 ### Patch Changes

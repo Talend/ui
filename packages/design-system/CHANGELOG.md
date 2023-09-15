@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.15.0
+
+### Minor Changes
+
+- 076d96234: Add BadgeMenu to faceted search for single selection
+
 ## 7.14.2
 
 ### Patch Changes
