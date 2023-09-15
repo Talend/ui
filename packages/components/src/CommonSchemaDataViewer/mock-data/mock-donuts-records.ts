@@ -915,6 +915,7 @@ export const mockDonutsRecords: HierarchicalSample = [
 			},
 			{
 				name: 'categories',
+				value: ['1', '8', '13', '10'],
 				quality: { aggregated: QualityStatus.Valid, dqType: QualityStatus.Valid, dqRules: [] },
 			},
 			{

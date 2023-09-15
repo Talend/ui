@@ -1,16 +1,19 @@
-import { StackHorizontal } from '@talend/design-system';
+import { useContext } from 'react';
 
+import classNames from 'classnames';
+
+import { StackHorizontal } from '@talend/design-system';
 //eslint-disable-next-line
 import Clickable from '@talend/design-system/lib/components/Clickable';
-import { useContext } from 'react';
-import { CommonSchemaSampledField, FieldMetadata, ValueType } from '../CommonDataViewer.types';
-import { DataModelDivider } from './DataModelDivider.component';
-import { TreeManagerContext } from '../TreeManagerContext';
-import { DataModelDqType } from './DataModelDqType.component';
-import theme from './DataModelNode.module.scss';
-import classNames from 'classnames';
+
 import { QualityBar } from '../../QualityBar';
+import { CommonSchemaSampledField, FieldMetadata, ValueType } from '../CommonDataViewer.types';
+import { TreeManagerContext } from '../TreeManagerContext';
 import { getFieldType, isFieldNullable } from './DataModel.utils';
+import { DataModelDivider } from './DataModelDivider.component';
+import { DataModelDqType } from './DataModelDqType.component';
+
+import theme from './DataModelNode.module.scss';
 
 type DataModelValueNodeProps = {
 	field: CommonSchemaSampledField<ValueType>;

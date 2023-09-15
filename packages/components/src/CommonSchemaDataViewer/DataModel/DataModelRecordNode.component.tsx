@@ -1,11 +1,13 @@
-import { ButtonIcon, StackHorizontal, StackVertical } from '@talend/design-system';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ButtonIcon, StackHorizontal, StackVertical } from '@talend/design-system';
+
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { CommonSchemaSampledField, FieldMetadata, RecordType } from '../CommonDataViewer.types';
-import { DataModelDivider } from './DataModelDivider.component';
 import { TreeManagerContext } from '../TreeManagerContext';
 import { renderModelNode } from './DataModel.utils';
+import { DataModelDivider } from './DataModelDivider.component';
 
 import theme from './DataModelNode.module.scss';
 

@@ -1,4 +1,5 @@
 import { Divider, StackHorizontal } from '@talend/design-system';
+
 import { CommonSchemaSampled, FieldMetadata, HierarchicalSample } from './CommonDataViewer.types';
 import { DataModel } from './DataModel';
 import { Records } from './Records';

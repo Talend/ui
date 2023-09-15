@@ -80,6 +80,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0",
     "@types/classnames": "^2.3.1",
     "@types/d3": "^7.4.0",
     "@types/date-fns": "^0.0.2",

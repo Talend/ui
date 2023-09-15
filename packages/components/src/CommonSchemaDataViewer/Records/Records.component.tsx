@@ -1,5 +1,7 @@
-import { Divider } from '@talend/design-system';
 import { useTranslation } from 'react-i18next';
+
+import { Divider } from '@talend/design-system';
+
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { HierarchicalSample } from '../CommonDataViewer.types';
 

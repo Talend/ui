@@ -1,1 +1,1 @@
-export * from './CommonSchemaDataViewer.component';
+export * from './CommonDataViewer.component';

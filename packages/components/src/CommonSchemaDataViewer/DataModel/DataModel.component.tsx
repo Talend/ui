@@ -1,10 +1,12 @@
-import { Divider, StackVertical } from '@talend/design-system';
 import { useTranslation } from 'react-i18next';
+
+import { Divider, StackVertical } from '@talend/design-system';
+
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { CommonSchemaSampled, FieldMetadata } from '../CommonDataViewer.types';
+import { renderModelNode } from './DataModel.utils';
 
 import theme from './DataModel.module.scss';
-import { renderModelNode } from './DataModel.utils';
 
 type DataModelProps = {
 	metadata?: FieldMetadata[];

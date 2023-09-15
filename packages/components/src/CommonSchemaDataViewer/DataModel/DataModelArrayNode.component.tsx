@@ -1,6 +1,10 @@
-import { ButtonIcon, StackHorizontal, StackVertical } from '@talend/design-system';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { TFunction } from 'i18next';
+
+import { ButtonIcon, StackHorizontal, StackVertical } from '@talend/design-system';
+
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import {
 	ArrayType,
@@ -9,7 +13,6 @@ import {
 	FieldMetadata,
 	RecordType,
 } from '../CommonDataViewer.types';
-import { DataModelDivider } from './DataModelDivider.component';
 import { TreeManagerContext } from '../TreeManagerContext';
 import {
 	FieldCategory,
@@ -17,10 +20,10 @@ import {
 	getModelNodeCategory,
 	renderModelNode,
 } from './DataModel.utils';
-import { TFunction } from 'i18next';
+import { DataModelDivider } from './DataModelDivider.component';
+import { DataModelDqType } from './DataModelDqType.component';
 
 import theme from './DataModelNode.module.scss';
-import { DataModelDqType } from './DataModelDqType.component';
 
 type DataModelArrayNodeProps = {
 	field: CommonSchemaSampledField<ArrayType>;
