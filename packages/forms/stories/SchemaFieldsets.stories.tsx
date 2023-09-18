@@ -1,10 +1,12 @@
 import type { Meta } from '@storybook/react';
 import { UIForm } from '../src';
 import { fieldsets } from './json';
+import { argTypes } from './argTypes';
 
 export default {
 	title: 'Forms/Schema/Fieldsets',
 	component: UIForm,
+	argTypes,
 	parameters: {
 		formStoryDisplayMode: {
 			category: 'fieldsets',

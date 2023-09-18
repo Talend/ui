@@ -56,7 +56,7 @@ const defaultPreview = {
 			toolbar: {
 				icon: 'paintbrush',
 				items: [
-					{ value: 'light', left: '☀️', title: 'Light mode' },
+					{ value: 'light', left: '⚪', title: 'Light mode' },
 					{ value: 'dark', left: '🌑', title: 'Dark mode' },
 				],
 				dynamicTitle: true,

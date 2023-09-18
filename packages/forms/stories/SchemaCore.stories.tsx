@@ -1,10 +1,12 @@
 import type { Meta } from '@storybook/react';
 import { UIForm } from '../src';
 import { concepts } from './json';
+import { argTypes } from './argTypes';
 
 export default {
 	title: 'Forms/Schema/Core',
 	component: UIForm,
+	argTypes,
 	parameters: {
 		formStoryDisplayMode: {
 			category: 'concepts',
@@ -17,6 +19,7 @@ export const ConditionalRender = {
 		data: concepts.conditionalRender,
 	},
 };
+
 export const CustomValidation = {
 	args: {
 		data: concepts.customValidation,

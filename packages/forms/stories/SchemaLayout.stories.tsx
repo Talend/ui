@@ -2,12 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { HeaderBar, Layout, Dialog, Drawer as DrawerComponent } from '@talend/react-components';
 import Form from '../src';
+import { argTypes } from './argTypes';
 
 const simple = require('./json/concepts/simple.json');
 
 const meta: Meta<typeof Form> = {
 	title: 'Forms/Schema/Layout',
 	component: Form,
+	argTypes,
 	parameters: {
 		centeredLayout: true,
 	},
@@ -40,12 +42,15 @@ const LayoutDrawer = ({ title, stacked = false, ...props }: LayoutDrawerProps) =
 type Story = StoryObj<typeof Form>;
 
 export const Default: Story = {
-	render: () => (
+	render: props => (
 		<div>
 			<h1>Form by default take 100% width of the container</h1>
-			<Form data={simple} />
+			<Form {...props} />
 		</div>
 	),
+};
+Default.args = {
+	data: simple,
 };
 
 export const Drawer: Story = {
@@ -53,7 +58,10 @@ export const Drawer: Story = {
 		title: 'UIForm in a drawer',
 		data: simple,
 	},
-	render: ({ title, data }) => <LayoutDrawer title={title} data={data} />,
+	render: ({ title, ...props }) => <LayoutDrawer title={title} {...props} />,
+};
+Drawer.args = {
+	data: simple,
 };
 
 export const DrawerStacked: Story = {
@@ -62,8 +70,8 @@ export const DrawerStacked: Story = {
 		data: simple,
 		stacked: true,
 	},
-	render: ({ title, data, stacked }) => (
-		<LayoutDrawer title={title} data={data} stacked={stacked} />
+	render: ({ title, stacked, ...props }) => (
+		<LayoutDrawer title={title} {...props} stacked={stacked} />
 	),
 };
 
@@ -71,9 +79,9 @@ export const Modal: Story = {
 	args: {
 		data: simple,
 	},
-	render: ({ data }) => (
+	render: props => (
 		<Dialog header="UIForm in a Modal" flex show>
-			<Form data={data} />
+			<Form {...props} />
 		</Dialog>
 	),
 };
@@ -81,6 +89,7 @@ export const Modal: Story = {
 export const Skeleton: Story = {
 	args: {
 		loading: true,
+		data: simple, // in case the user switch to loading: false
 	},
 };
 
@@ -88,6 +97,7 @@ export const NoButton: Story = {
 	args: {
 		loading: true,
 		actions: [],
+		data: simple, // in case the user switch to loading: false
 	},
 };
 
@@ -95,17 +105,19 @@ export const SkeletonDrawer: Story = {
 	args: {
 		loading: true,
 		title: 'Form in loading in drawer',
+		data: simple, // in case the user switch to loading: false
 	},
-	render: ({ loading, title }) => <LayoutDrawer loading={loading} title={title} />,
+	render: ({ title, ...props }) => <LayoutDrawer {...props} title={title} />,
 };
 
 export const SkeletonDrawerStacked: Story = {
 	args: {
 		loading: true,
+		data: simple, // in case the user switch to loading: false
 		title: 'Form in loading in drawer',
 		stacked: true,
 	},
-	render: ({ loading, title, stacked }) => (
-		<LayoutDrawer loading={loading} title={title} stacked={stacked} />
+	render: ({ title, stacked, ...props }) => (
+		<LayoutDrawer {...props} title={title} stacked={stacked} />
 	),
 };

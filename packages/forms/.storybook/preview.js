@@ -1,8 +1,6 @@
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 import { namespaces as componentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as formsNamespaces } from '@talend/locales-tui-forms/namespaces';
-import { withCenteredLayout } from './decorators/withCenteredLayout.decorator';
-import { withFormStoryDisplayMode } from './decorators/withFormStoryDisplayMode.decorator';
 
 export const i18n = {
 	namespaces: [...dsNamespaces, ...componentsNamespaces, ...formsNamespaces],
@@ -17,5 +15,3 @@ export const i18n = {
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 };
-
-export const decorators = [withCenteredLayout, withFormStoryDisplayMode];

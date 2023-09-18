@@ -12,10 +12,23 @@ import { customTemplateSchema } from './UIFormStoriesSchemas/customTemplate.sche
 import { customWidgetSchema } from './UIFormStoriesSchemas/customWidget.schema';
 
 import { CustomArrayTemplate } from './CustomArrayTemplate.component';
+import { argTypes } from './argTypes';
 
 const meta: Meta<typeof UIForm> = {
 	title: 'Forms/Schema/State',
 	component: UIForm,
+	argTypes: {
+		...argTypes,
+		updating: {
+			table: { disable: true },
+		},
+		onSubmit: {
+			table: { disable: true },
+		},
+		onReset: {
+			table: { disable: true },
+		},
+	},
 	args: {
 		onChange: action('Change'),
 		onSubmit: action('onSubmit'),
@@ -34,30 +47,31 @@ type Story = StoryObj<typeof UIForm>;
 const updatingProps = updatingSchema.uiSchema.map(w => w.key);
 export const Updating: Story = {
 	args: {
-		schema: updatingSchema,
+		data: updatingSchema,
 		updating: updatingProps,
 	},
-	render: ({ schema, onChange, onSubmit, updating }) => (
+	render: ({ onChange, onSubmit, updating, ...props }) => (
 		<div>
 			<h2>Updating status</h2>
 			<p>
 				Form can disable and add an animation feedback on the widgets. To do so, you need to pass a
 				UIForm "updating" prop which is an array of the schema keys where to apply
 			</p>
-			<UIForm data={schema} onChange={onChange} onSubmit={onSubmit} updating={updating} />
+			<UIForm {...props} onChange={onChange} onSubmit={onSubmit} updating={updating} />
 		</div>
 	),
 };
 
 export const DisplayMode: Story = {
 	args: {
-		schema: displayModeSchema,
+		data: displayModeSchema,
+		displayMode: 'text',
 	},
-	render: ({ schema, onChange, onSubmit }) => (
+	render: ({ onChange, onSubmit, ...props }) => (
 		<>
 			<p style={{ marginBottom: '2rem' }}>Form can be used to display data in read only</p>
 
-			<UIForm data={schema} onChange={onChange} onSubmit={onSubmit} displayMode="text" />
+			<UIForm {...props} onChange={onChange} onSubmit={onSubmit} />
 		</>
 	),
 };
@@ -72,22 +86,22 @@ const errorsProps = errorsSchema.uiSchema.reduce(
 
 export const Errors: Story = {
 	args: {
-		schema: errorsSchema,
+		data: errorsSchema,
 		errors: errorsProps,
 	},
-	render: ({ schema, onChange, onSubmit, errors }) => (
+	render: ({ onChange, onSubmit, ...props }) => (
 		<div>
 			<h2>Updating status</h2>
 			<p>
 				Form can disable and add an animation feedback on the widgets. To do so, you need to pass a
 				UIForm "updating" prop which is an array of the schema keys where to apply
 			</p>
-			<UIForm data={schema} onChange={onChange} onSubmit={onSubmit} errors={errors} />
+			<UIForm {...props} onChange={onChange} onSubmit={onSubmit} />
 		</div>
 	),
 };
 
-function UIFormWithOnSubmitHover() {
+function UIFormWithOnSubmitHover(props: any) {
 	const [hover, setHover] = useState(false);
 	return (
 		<div
@@ -99,7 +113,7 @@ function UIFormWithOnSubmitHover() {
 			}}
 		>
 			<UIForm
-				data={hoverSubmitSchema}
+				{...props}
 				onSubmit={action('onSubmit')}
 				onSubmitEnter={(...args: any) => {
 					action('onSubmitEnter')(...args);
@@ -115,16 +129,19 @@ function UIFormWithOnSubmitHover() {
 }
 
 export const HoverSubmit: Story = {
-	render: () => (
+	render: props => (
 		<div>
 			<h2>Hover submit handler</h2>
 			<p style={{ marginBottom: '2rem' }}>
 				Submit can detect if mouse enters or leaves by using <code>onSubmitEnter</code> and{' '}
 				<code>onSubmitLeave</code>
 			</p>
-			<UIFormWithOnSubmitHover />
+			<UIFormWithOnSubmitHover {...props} />
 		</div>
 	),
+};
+HoverSubmit.args = {
+	data: hoverSubmitSchema,
 };
 
 export const CustomActions: Story = {
