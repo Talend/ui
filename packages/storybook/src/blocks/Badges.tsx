@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { DocsContext, Unstyled } from '@storybook/blocks';
 import { BadgeFigma, BadgeI18n, BadgeReact, BadgeStorybook, Badges } from '~docs';
-import { Statuses } from '.storybook/docs/StatusTable';
-import statuses from '../../src/status.json';
+import { Statuses } from '../docs/StatusTable';
+// eslint-disable-next-line @talend/import-depth
+import statuses from '@talend/design-system/src/stories/status.json';
 
 export function BadgesBlock() {
 	const context = useContext(DocsContext);
