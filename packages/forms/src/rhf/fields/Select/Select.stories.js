@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-extraneous-dependencies */
 import { useForm, FormProvider } from 'react-hook-form';
 import { action } from '@storybook/addon-actions';
