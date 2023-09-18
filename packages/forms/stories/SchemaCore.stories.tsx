@@ -7,11 +7,6 @@ export default {
 	title: 'Forms/Schema/Core',
 	component: UIForm,
 	argTypes,
-	parameters: {
-		formStoryDisplayMode: {
-			category: 'concepts',
-		},
-	},
 } as Meta<typeof UIForm>;
 
 export const ConditionalRender = {
