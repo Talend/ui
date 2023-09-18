@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-property-value-disallowed-list */
 @use '@talend/design-tokens/lib/tokens';
 
 .colorScale {
@@ -76,6 +77,7 @@
 				background: tokens.$coral-color-accent-background-weak-hover;
 			}
 		}
+
 		&:active {
 			.icons {
 				color: tokens.$coral-color-accent-text-strong-active;

@@ -210,4 +210,5 @@ const CompositionListItem = forwardRef(
 	},
 );
 
+CompositionListItem.displayName = 'CompositionListItem';
 export default CompositionListItem;

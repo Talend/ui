@@ -70,7 +70,6 @@
     "@types/react-is": "^16.7.2",
     "browser-sync": "^2.29.3",
     "browser-sync-webpack-plugin": "^2.3.0",
-    "color-contrast-checker": "^2.1.0",
     "concurrently": "^7.6.0",
     "core-js": "^3.32.2",
     "cypress": "^12.17.4",
@@ -86,8 +85,7 @@
     "react-is": "^16.13.1",
     "react-router-dom": "~6.3.0",
     "storybook-addon-mdx-embed": "^1.1.1",
-    "storybook-docs-toc": "^1.7.0",
-    "use-overflow": "^1.2.0"
+    "storybook-docs-toc": "^1.7.0"
   },
   "peerDependencies": {
     "@talend/icons": "^6.52.0",

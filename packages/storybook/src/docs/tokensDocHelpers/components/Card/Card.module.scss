@@ -68,7 +68,7 @@
 		position: relative;
 		color: tokens.$coral-color-accent-text;
 
-		&:after {
+		&::after {
 			content: 'hover me';
 			position: absolute;
 			bottom: 0;

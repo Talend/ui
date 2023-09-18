@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-property-value-disallowed-list */
 @use '@talend/design-tokens/lib/tokens';
 
 .breakpointScale {
@@ -36,8 +37,8 @@
 		color: tokens.$coral-color-accent-text-strong;
 		scrollbar-width: thin;
 
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			content: '';
 			display: block;
 			width: calc(#{tokens.$coral-sizing-l} * 2);
@@ -49,21 +50,21 @@
 			transition: opacity tokens.$coral-transition-fast;
 		}
 
-		&:before {
+		&::before {
 			left: 0;
 			background: linear-gradient(to right, #{tokens.$coral-color-neutral-background}, transparent);
 		}
 
-		&:after {
+		&::after {
 			right: 0;
 			background: linear-gradient(to left, #{tokens.$coral-color-neutral-background}, transparent);
 		}
 
-		&__overflowRight:after {
+		&__overflowRight::after {
 			opacity: 1;
 		}
 
-		&__overflowLeft:before {
+		&__overflowLeft::before {
 			opacity: 1;
 		}
 
@@ -124,6 +125,7 @@
 				border-top: tokens.$coral-border-m-solid tokens.$coral-color-accent-border-hover;
 			}
 		}
+
 		&:active {
 			.icons {
 				color: tokens.$coral-color-accent-text-strong-active;

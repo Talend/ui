@@ -32,8 +32,8 @@ const TokensDefinitionList = ({ tokens }: TokensProps) => {
 				{Object.values(filteredTokens).map((entries: Token[], index) => (
 					<Tabs.TabPanel key={index}>
 						<StackVertical gap="S">
-							{entries.map((token, index) => (
-								<DefinitionListItemColor key={`${token.name}-${index}`} token={token} />
+							{entries.map((token, jindex) => (
+								<DefinitionListItemColor key={`${token.name}-${jindex}`} token={token} />
 							))}
 						</StackVertical>
 					</Tabs.TabPanel>

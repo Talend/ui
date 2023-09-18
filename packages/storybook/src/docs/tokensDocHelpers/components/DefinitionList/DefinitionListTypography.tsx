@@ -18,8 +18,8 @@ const DefinitionListTypography = ({ tokens }: TokensProps) => {
 				<StackVertical gap="M" key={index}>
 					<h2 className={styles.title}>{Object.keys(filteredTokens)[index]}</h2>
 					<StackVertical gap="S">
-						{entries.map((token, index) => (
-							<DefinitionListItemTypography key={`${token.name}-${index}`} token={token} />
+						{entries.map((token, jindex) => (
+							<DefinitionListItemTypography key={`${token.name}-${jindex}`} token={token} />
 						))}
 					</StackVertical>
 				</StackVertical>
