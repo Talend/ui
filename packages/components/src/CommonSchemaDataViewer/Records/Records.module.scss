@@ -23,8 +23,13 @@
 }
 
 .record-item {
-	height: 3rem;
+	min-height: 3rem;
+	width: 100%;
 	display: flex;
+
+	&.selected {
+		background-color: tokens.$coral-color-accent-background-selected;
+	}
 
 	&__value {
 		font: tokens.$coral-data-m;

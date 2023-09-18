@@ -17,7 +17,6 @@ import { TreeManagerContext } from '../TreeManagerContext';
 import {
 	FieldCategory,
 	getFieldType,
-	getModelNodeCategory,
 	getSampledFieldTypeCategory,
 	renderModelNode,
 } from './DataModel.utils';
