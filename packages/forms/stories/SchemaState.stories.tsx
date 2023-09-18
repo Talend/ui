@@ -95,22 +95,6 @@ export const Errors: Story = {
 	},
 };
 
-function UIFormWithOnSubmitHover(props: any) {
-	const [hover, setHover] = useState(false);
-	return (
-		<div
-			style={{
-				margin: '-5px',
-				padding: '5px',
-				borderRadius: '5px',
-				background: hover ? '#EFEFEF' : 'transparent',
-			}}
-		>
-			<UIForm {...props} onSubmit={action('onSubmit')} />
-		</div>
-	);
-}
-
 export const HoverSubmit: Story = {
 	args: {
 		data: hoverSubmitSchema,
