@@ -48,10 +48,6 @@ const manualStackArgs = {
 		control: { type: 'select' },
 	},
 	isFullWidth: { control: { type: 'boolean' } },
-	height: {
-		options: Object.keys(heightOptions),
-		control: { type: 'select' },
-	},
 	alignContent: { options: Object.keys(alignContentOptions), control: { type: 'select' } },
 	display: { options: ['block', 'inline'], control: { type: 'select' } },
 	role: { control: { type: 'text' } },
@@ -88,13 +84,13 @@ TestHorizontal.args = {
 	align: 'start',
 	wrap: 'nowrap',
 	isFullWidth: false,
-	height: 'auto',
 	alignContent: 'start',
 	display: 'block',
 	role: '',
 };
 
 export const TestHorizontalWithExplicitSpacing = Template.bind({});
+TestHorizontalWithExplicitSpacing.argTypes = manualStackArgs;
 TestHorizontalWithExplicitSpacing.args = {
 	gap: { x: 'S', y: 'XS' },
 	padding: { top: 0, right: 'M', bottom: 'S', left: 'S' },

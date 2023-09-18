@@ -1,4 +1,4 @@
-import { StoryFn, Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { BrowserRouter, Link } from 'react-router-dom';
 
 import {
@@ -70,22 +70,31 @@ const DestructiveLinkTemplate: StoryFn<typeof ButtonDestructiveAsLink> = args =>
 };
 
 export const PrimaryAsLink = PrimaryLinkTemplate.bind({});
-PrimaryAsLink.argTypes = commonLinkArgTypes;
-PrimaryAsLink.args = defaultArgs;
+Object.assign(PrimaryAsLink, {
+	args: defaultArgs,
+	argTypes: commonLinkArgTypes,
+});
 
 export const DestructiveAsLink = DestructiveLinkTemplate.bind({});
-DestructiveAsLink.argTypes = commonLinkArgTypes;
-DestructiveAsLink.args = defaultArgs;
+Object.assign(DestructiveAsLink, {
+	args: defaultArgs,
+	argTypes: commonLinkArgTypes,
+});
 
 export const SecondaryAsLink = SecondaryLinkTemplate.bind({});
-SecondaryAsLink.argTypes = commonLinkArgTypes;
-SecondaryAsLink.args = defaultArgs;
+Object.assign(SecondaryAsLink, {
+	args: defaultArgs,
+	argTypes: commonLinkArgTypes,
+});
 
 export const TertiaryAsLink = TertiaryLinkTemplate.bind({});
-TertiaryAsLink.argTypes = commonLinkArgTypes;
-TertiaryAsLink.args = defaultArgs;
+Object.assign(TertiaryAsLink, {
+	args: defaultArgs,
+	argTypes: commonLinkArgTypes,
+});
 
-export const TooltipButton = (props: Story) => (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const TooltipButton = (props: any) => (
 	<Tooltip title="Relevant information about contacting the support">
 		<ButtonPrimaryAsLink href="/support" target="_blank" icon="talend-bubbles" {...props}>
 			Contact support

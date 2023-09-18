@@ -10,7 +10,11 @@ export default {
 	title: 'Layout/Modal',
 };
 
-function ModalStory(props: Partial<ModalPropsType>) {
+function ModalStory(
+	props: Omit<ModalPropsType, 'header' | 'onClose'> & {
+		header?: ModalPropsType['header'];
+	},
+) {
 	const [modalOpen, setModalOpen] = useState(false);
 
 	return (
