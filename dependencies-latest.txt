@@ -1,6 +1,7 @@
 yarn run v1.22.19
 $ /home/runner/work/ui/ui/node_modules/.bin/talend-upgrade-deps --latest --dry
 
+
 check versions of /home/runner/work/ui/ui/package.json using latest
 "@types/react": "^17.0.2" => "^18.2.21"
 "@types/react-dom": "^17.0.20" => "^18.2.7"
