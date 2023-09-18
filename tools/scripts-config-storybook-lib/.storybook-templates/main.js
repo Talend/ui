@@ -40,12 +40,11 @@ const defaultMain = {
 	stories: getStoriesFolders(),
 	staticDirs: [path.join(__dirname, 'msw')],
 	addons: [
-		'@storybook/addon-storysource',
-		'@storybook/addon-a11y',
-		'@storybook/addon-controls',
 		'@storybook/addon-essentials',
+		'@storybook/addon-a11y',
 		'@storybook/addon-links',
 		'@storybook/addon-interactions',
+		'@storybook/addon-storysource',
 	],
 	webpackFinal: async (config) => {
 		// by default storybook do not support scss without css module
