@@ -8,6 +8,7 @@ mkdir .static/components
 mkdir .static/containers
 mkdir .static/dataviz
 mkdir .static/design-system
+mkdir .static/design-system-docs
 mkdir .static/faceted-search
 mkdir .static/forms
 mkdir .static/icons
@@ -18,6 +19,7 @@ cp .surge/index.html .static
 cp -R packages/cmf/jsdoc .static/cmf
 cp -R packages/containers/storybook-static/* .static/containers
 cp -R packages/storybook-one/storybook-static/* .static/storybook-one
+cp -R packages/design-system-docs/storybook-static/* .static/design-system
 cp -R packages/icons/dist .static/icons
 cp -R packages/theme/dist/* .static/theme
 cp -R packages/theme/dist .static/theme

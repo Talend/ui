@@ -8,7 +8,8 @@
     "build-storybook": "echo on hold",
     "start-storybook": "talend-scripts start-storybook -p 6006 --docs",
     "lint": "talend-scripts lint",
-    "start": "talend-scripts start-storybook -p 6006 --docs"
+    "start": "talend-scripts start-storybook -p 6006 --docs",
+    "test:demo": "talend-scripts build-storybook --docs"
   },
   "repository": {
     "type": "git",
