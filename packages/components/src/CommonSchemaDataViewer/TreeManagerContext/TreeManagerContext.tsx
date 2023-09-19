@@ -5,6 +5,7 @@ type TreeManagerContextValues = {
 	recordsOpenedPath: string[];
 	hasSemanticAwareness: boolean;
 	highlightedPath?: string;
+	isRecordPathOpened: (path: string[]) => boolean;
 	isModelPathClosed: (path: string[]) => boolean;
 	isHighlightedPath: (path: string[]) => boolean;
 	setHighlightedPath: (path?: string[]) => void;
@@ -17,6 +18,7 @@ export const TreeManagerContext = createContext<TreeManagerContextValues>({
 	recordsOpenedPath: [],
 	hasSemanticAwareness: false,
 	highlightedPath: undefined,
+	isRecordPathOpened: () => false,
 	isModelPathClosed: () => false,
 	isHighlightedPath: () => false,
 	setHighlightedPath: () => {},
@@ -45,6 +47,7 @@ export function TreeManagerContextProvider({
 		}
 	};
 
+	const isRecordPathOpened = (path: string[]) => recordsOpenedPath.includes(path.join('.'));
 	const toggleRecordPath = (arrayPath: string[]) => {
 		const path = arrayPath.join('.');
 		if (recordsOpenedPath.includes(path)) {
@@ -61,15 +64,12 @@ export function TreeManagerContextProvider({
 		}
 		internalSetHighlightedPath(path.join('.'));
 	};
-
 	const isHighlightedPath = (path: string[]) => {
 		if (!highlightedPath) {
 			return false;
 		}
 		return highlightedPath === path.join('.');
 	};
-
-	// console.log('highlightedPath', highlightedPath);
 
 	return (
 		<TreeManagerContext.Provider
@@ -80,6 +80,7 @@ export function TreeManagerContextProvider({
 				highlightedPath,
 				isModelPathClosed,
 				isHighlightedPath,
+				isRecordPathOpened,
 				setHighlightedPath,
 				toggleRecordPath,
 				toggleModelPath,

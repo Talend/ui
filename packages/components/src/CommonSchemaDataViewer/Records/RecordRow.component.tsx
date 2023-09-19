@@ -22,10 +22,10 @@ export function RecordRow({ row, index, path }: RecordRowProps) {
 	const isCurrentPathExpanded = false;
 
 	return (
-		<StackHorizontal noGrow gap="XS" align="center">
+		<StackHorizontal noGrow gap="XS" align="center" isFullWidth>
 			{path ? <DataModelDivider path={fieldPath} /> : null}
 
-			<StackVertical gap={0} noGrow>
+			<StackVertical gap={0}>
 				<StackHorizontal gap="S" align="center">
 					<ButtonIcon
 						size="XS"

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
 
-import { ButtonIcon, StackHorizontal, StackVertical } from '@talend/design-system';
+import { ButtonIcon, StackHorizontal, StackVertical, Tag } from '@talend/design-system';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { SampleArray } from '../CommonDataViewer.types';
@@ -20,14 +20,12 @@ export type RecordArrayProps = {
 
 export function RecordArray({ array, path }: RecordArrayProps) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const { isHighlightedPath, toggleRecordPath } = useContext(TreeManagerContext);
+	const { toggleRecordPath, isRecordPathOpened } = useContext(TreeManagerContext);
 	const fieldPath = [...path, array.name];
-	const isHighlighted = isHighlightedPath(fieldPath.slice(1));
-
-	const isCurrentPathExpanded = true;
+	const isCurrentPathExpanded = isRecordPathOpened(fieldPath);
 
 	return (
-		<div className={classNames(theme['record-item'], { [theme.selected]: isHighlighted })}>
+		<div className={classNames(theme['record-item'])}>
 			<StackVertical gap={0} noGrow>
 				<StackHorizontal noGrow gap="XS" align="center">
 					<DataModelDivider path={path} />
@@ -41,6 +39,7 @@ export function RecordArray({ array, path }: RecordArrayProps) {
 							: t('MODEL_VIEWER_EXPAND_NODE', 'Expand')}
 					</ButtonIcon>
 					{array.name}
+					<Tag>{array.items.length}</Tag>
 				</StackHorizontal>
 				{isCurrentPathExpanded &&
 					array.items.map((item, index) => (
