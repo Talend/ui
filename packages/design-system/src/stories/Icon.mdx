@@ -1,14 +1,21 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { IconItem } from '@storybook/blocks';
+import { IconItem, Canvas, Meta, Story } from '@storybook/blocks';
 import { Icons } from '@talend/storybook-docs';
-import { StackVertical, InlineMessageWarning, Icon } from '../';
+import { IconsProvider, StackVertical, InlineMessageWarning, Icon } from '../';
 
 <Meta
-	title="Design System/Icon/Icon (legacy)"
+	title="Icons/Icon"
 	component={Icon}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
+	decorators={[
+		story => (
+			<Canvas>
+				<IconsProvider />
+				<Story>{story()}</Story>
+			</Canvas>
+		),
+	]}
 />
 
 # Icons
