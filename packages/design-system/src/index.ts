@@ -17,7 +17,7 @@ import {
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
 import Card from './components/WIP/Card';
-import Combobox from './components/WIP/Combobox';
+import Combobox, { ComboboxProps } from './components/WIP/Combobox';
 import Divider from './components/Divider';
 import { FloatingDrawer } from './components/WIP/Drawer';
 import Dropdown, { DropdownButton } from './components/Dropdown';
@@ -179,4 +179,4 @@ export {
 	VisuallyHidden,
 };
 
-export type { TooltipPlacement };
+export type { TooltipPlacement, ComboboxProps };

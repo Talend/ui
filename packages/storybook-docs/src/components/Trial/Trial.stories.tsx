@@ -1,4 +1,4 @@
-import Trial from './Trial';
+import { Trial } from './Trial';
 
 import { Meta, StoryFn } from '@storybook/react';
 

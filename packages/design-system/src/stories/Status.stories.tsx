@@ -4,6 +4,7 @@ import {
 	StatusInProgress,
 	StatusSuccessful,
 	StatusWarning,
+	Status,
 } from '../';
 
 export default {
@@ -26,3 +27,31 @@ export const CanceledIcon = () => <StatusCanceled hideText />;
 export const CustomInProgressIcon = () => (
 	<StatusInProgress hideText>Wait until it's done loading</StatusInProgress>
 );
+
+export const Usage = (props: any) => <Status {...props} />;
+Usage.args = {
+	variant: 'warning',
+	hideText: false,
+	children: 'Done',
+};
+Usage.argTypes = {
+	variant: {
+		description: 'Status variation',
+		control: {
+			type: 'select',
+			options: Object.values(variants),
+		},
+	},
+	hideText: {
+		description: 'If Status should hide text or not',
+		control: {
+			type: 'boolean',
+		},
+	},
+	children: {
+		description: 'Status text',
+		control: {
+			type: 'text',
+		},
+	},
+};

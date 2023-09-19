@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
-import { Link } from '../';
+import { Link, IconsProvider } from '../';
 import { LinkProps } from '../components/Link';
 
 export default {
@@ -66,3 +66,37 @@ export const RouterLinkStory = () => (
 		</Link>
 	</BrowserRouter>
 );
+
+export const Usage = (args: any) => <Link {...args} />;
+Usage.args = {
+	icon: 'talend-info-circle',
+	children: 'Help',
+	href: 'https://help.talend.com',
+	disabled: false,
+	hideExternalIcon: false,
+};
+Usage.argTypes = {
+	icon: {
+		description: 'Link icon before text as illustration',
+		control: {
+			type: 'select',
+			options: [''].concat(IconsProvider.getCurrentIconIds()),
+		},
+	},
+	href: {
+		description: 'Link reference',
+		control: {
+			type: 'text',
+		},
+	},
+	hideExternalIcon: {
+		description: 'Button has hidden text',
+		control: {
+			type: 'boolean',
+		},
+	},
+	as: {
+		description: 'Polymorphic prop to give this style to a button. `string` `ReactComponentType`.',
+		control: false,
+	},
+};

@@ -83,3 +83,18 @@ export const Ellipsis: StoryFn<typeof TagDefault> = props => (
 		venenatis faucibus, quam justo molestie libero, bibendum feugiat sapien turpis in neque.
 	</TagDefault>
 );
+
+export const Usage: StoryFn<typeof Tag> = props => <Tag {...props}>Example</Tag>;
+Usage.args = {
+	variant: 'default',
+	children: 'Lorem ipsum',
+};
+Usage.argTypes = {
+	variant: {
+		control: 'select',
+		options: ['default', 'information', 'success', 'warning', 'destructive'],
+	},
+	children: {
+		description: 'Tag content',
+	},
+};

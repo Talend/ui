@@ -54,3 +54,35 @@ export const Overflows = () => (
 		</Stepper.Horizontal>
 	</StackVertical>
 );
+
+export const Usage = ({ currentStepIndex, variant }: any) => {
+	const StepperComponent = Stepper[variant];
+	StepperComponent.displayName = `Stepper.${variant}`;
+	return (
+		<StepperComponent currentStepIndex={currentStepIndex}>
+			<Stepper.Step.Validated title="Validated" />
+			<Stepper.Step.InProgress title="In progress" />
+			<Stepper.Step.Enabled title="Enabled" />
+		</StepperComponent>
+	);
+};
+
+Usage.args = {
+	variant: 'Vertical',
+	currentStepIndex: 1,
+};
+Usage.argTypes = {
+	variant: {
+		description: 'Stepper variation',
+		control: {
+			type: 'select',
+			options: ['Vertical', 'Horizontal'],
+		},
+	},
+	currentStepIndex: {
+		description: 'Current step index',
+		control: {
+			type: 'number',
+		},
+	},
+};

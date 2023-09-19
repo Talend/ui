@@ -1,0 +1,104 @@
+import { ArgTypes, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../';
+import StatusPrimitive, {
+	variants,
+} from '@talend/design-system/lib/components/Status/Primitive/StatusPrimitive';
+import * as Stories from './Status.stories';
+
+<Meta
+	title="Feedback/Status"
+	component={StatusPrimitive}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
+		figmaLink: 'https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A72',
+	}}
+/>
+
+# Status
+
+The status component displays state information using semantic colors and icons.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/📐-Zoning?node-id=853%3A230"
+	alt="zoning image for status"
+/>
+
+## Style
+
+### Variations
+
+<FigmaImage
+	src="https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A73"
+	alt="variations image for status"
+/>
+
+#### With text
+
+<Canvas>
+	<Story story={Stories.InProgress} />
+	<Story story={Stories.Successful} />
+	<Story story={Stories.Failed} />
+	<Story story={Stories.Warning} />
+	<Story story={Stories.Canceled} />
+</Canvas>
+
+#### Without text
+
+<Canvas>
+	<Story story={Stories.InProgressIcon} />
+	<Story story={Stories.SuccessfulIcon} />
+	<Story story={Stories.FailedIcon} />
+	<Story story={Stories.WarningIcon} />
+	<Story story={Stories.CanceledIcon} />
+</Canvas>
+
+## States
+
+### Skeleton
+
+<FigmaImage
+	src="https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=67%3A9626"
+	alt="skeleton image for status"
+/>
+
+// TODO
+
+## Interaction
+
+N/C
+
+## Content
+
+By default, each Status variants has a label:
+
+- In progress for `StatusInProgress`
+- Successful for `StatusSuccessful`
+- Failed for `StatusFailed`
+- Warning for `StatusWarning`
+- Canceled for `StatusCanceled`
+
+Depending on the use case, it is possible to have another label instead but keeping the same meaning.
+
+<Canvas>
+	<Story story={Stories.CustomSuccessful} />
+	<Story story={Stories.CustomInProgressIcon} />
+</Canvas>
+
+## Usage
+
+You can directly use the presets `StatusInProgress` etc... but in some cases you may want to handle the variant through a prop.
+
+You can.
+
+<Canvas>
+	<Story story={Stories.Usage} />
+</Canvas>
+
+<ArgTypes story={Stories.Usage} />
+
+## Accessibility
+
+N/C

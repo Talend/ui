@@ -89,6 +89,7 @@ Primary.args = {
 	isLoading: false,
 	size: 'M',
 };
+
 export const Destructive = DestructiveTemplate.bind({});
 Destructive.argTypes = commonArgTypes;
 Destructive.args = {
