@@ -184,4 +184,18 @@ describe('calculatePortsPosition behavior', () => {
 		});
 		expect(calculatePortPosition.mock.calls.length).toEqual(0);
 	});
+
+	it('should trigger using action with port id', () => {
+		const calculatePortPosition = jest.fn();
+		const givenState = state.setIn(['nodeTypes', '42', 'component'], { calculatePortPosition });
+		const action = {
+			type: 'FLOWDESIGNER_PORT_SET_DATA',
+			portId: '42',
+			data: {
+				flowType: '__default__',
+			},
+		};
+		calculatePortsPosition(givenState, action);
+		expect(calculatePortPosition.mock.calls.length).toEqual(1);
+	});
 });
