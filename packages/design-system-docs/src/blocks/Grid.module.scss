@@ -1,0 +1,8 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.grid {
+	display: grid;
+	gap: tokens.$coral-spacing-l calc(#{tokens.$coral-spacing-l} * 2);
+	/* stylelint-disable-next-line declaration-no-important */
+	margin: calc(#{tokens.$coral-spacing-l} * 2) 0 !important;
+}

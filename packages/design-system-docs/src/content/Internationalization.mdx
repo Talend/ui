@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Content/Internationalization" />
+
+# Internationalization
+
+## Naming conventions for string IDs
+
+Currently, not all string IDs visible in XTM give hints to what is the string.
+We need to have an identifier in the ID which says what is the string.
+This will help giving some context during the validation process in XTM.
+
+Please follow any of the below templates when adding IDs to your strings:
+
+- Standalone strings: `<feature*or_element>*<qualifier>_<anything_you_want>` examples: notification\*title_success, preparation_import_tooltip, job_submit_engine_error
+- Fragmented strings: `<feature_or_element>*<qualifier>_frag_<anything_you_want>` ex: Where`<qualifier>` gives a hint to what or where is the string in the UI and frag indicates that th string is part of larger string.
+
+## Updating default values on dev repositories
+
+Currently, if engineers or developers do any updates to defaultValues on their branches, they can test and validate their updates only after the strings go through the localization process because we publish the `*_en` files from the `i18n-product` repo.
+In case you'll need an urgent testing for your updates on your repo, you can use new keys for the strings you want to modify:
+
+- Update the text of the existing string according to your needs.
+- Modify the ID of the string by adding a numeric suffix preceded by an underscore to its end: `<initial ID>_1`.
+- This helps the system processing the string as if it were new while we keep trace of the changes made.
+  This helps you testing and validating your changes shortly.
+- Delete the string with the legacy ID.
+- If there are multiple occurrences of the same string, update all of them and their IDs similarly and delete the legacy strings.
+- Use sequential numeric suffixes to update the same string more than once: `<initial ID>_2`, `<initial ID>_3`, etc.
+- If you think the change you're doing is important or big, create a Jira ticket to the loc team in the I18N project.
+- Perform the final QA on the `*_en` files as usual at the end of the loc process.

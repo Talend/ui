@@ -1,31 +1,18 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { Badges } from '../blocks';
 
-import * as Stories from '@talend/design-system/src/stories/Accordion.stories';
+import * as Stories from './Accordion.stories';
 
-import { Accordion, StackVertical, InlineMessageWarning } from '@talend/design-system';
+import { Accordion, StackVertical, InlineMessageWarning } from '../';
 
 <Meta of={Stories} />
 
 # Accordion
 
-<Badges />
-
-<StackVertical
-	gap="XS"
-	margin={{
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 'M',
-	}}
->
-	<InlineMessageWarning
-		title="Work in progress"
-		withBackground
-		description="This component is still in work in progress, it's API can change in breaking ways in the coming weeks."
-	/>
-</StackVertical>
+<InlineMessageWarning
+	title="Work in progress"
+	withBackground
+	description="This component is still in work in progress, it's API can change in breaking ways in the coming weeks."
+/>
 
 Accordion is used to display expandable/collapsable cards with a title.
 

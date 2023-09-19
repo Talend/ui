@@ -2,12 +2,7 @@ import path from 'path';
 const iconConfig = require('@talend/icons/.storybook/main.js');
 const rootPath = require.resolve('@talend/ui-storybook-one').replace('src/index.ts', '');
 const {
-	getCommonStyleLoaders,
-	getSassLoaders,
 	getJSAndTSLoader,
-	getSassData,
-	getAssetsRules,
-	getFileNameForExtension,
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const STORIES = [

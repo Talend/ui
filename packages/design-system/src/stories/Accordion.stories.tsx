@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
 import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '../';
 

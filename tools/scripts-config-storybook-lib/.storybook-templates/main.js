@@ -1,14 +1,11 @@
 const fs = require('fs');
 const { merge } = require('lodash');
 const path = require('path');
-const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
-const { getAllModules } = require('@talend/module-to-cdn');
 const {
 	getSassLoaders,
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const { fixWindowsPaths } = require('./utils');
-const { createRequire } = require('module');
 
 const cwd = process.cwd();
 

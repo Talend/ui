@@ -28,9 +28,6 @@ Overview.argTypes = {
 		control: { type: 'select' },
 		options: ['badge', 'tag', 'dropdown', 'popover'],
 	},
-	value: {
-		control: { type: 'object' },
-	},
 };
 
 export const StoryBadgeValue = () => (
