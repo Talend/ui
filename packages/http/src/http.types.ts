@@ -10,6 +10,7 @@ export type TalendRequestInitSecurity = {
 
 export interface TalendRequestInit extends RequestInit {
 	security?: TalendRequestInitSecurity;
+	context?: Record<string, unknown>;
 }
 
 export type TalendRequest = {

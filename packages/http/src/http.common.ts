@@ -118,7 +118,7 @@ export async function httpFetch<T>(
 		},
 	};
 
-	const init = handleCSRFToken({
+	const { context, ...init } = handleCSRFToken({
 		...params,
 		body: encodePayload(params.headers || {}, payload),
 	});
@@ -128,6 +128,7 @@ export async function httpFetch<T>(
 			{
 				url,
 				...init,
+				context,
 			},
 			resp,
 		),
