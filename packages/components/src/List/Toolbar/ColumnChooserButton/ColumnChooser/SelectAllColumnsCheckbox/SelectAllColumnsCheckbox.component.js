@@ -18,6 +18,7 @@ const getLabels = (checked, t) => {
 };
 
 const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => {
+	console.log(value);
 	const { label, description } = getLabels(value, t);
 	return (
 		<ColumnChooserRow className={theme('tc-column-chooser-row-select-all')}>

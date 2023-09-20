@@ -16,10 +16,9 @@ describe('RowCheckBox', () => {
 			onChange: jest.fn(),
 		};
 		// When
-		const { container } = render(<Component {...props} />);
+		render(<Component {...props} />);
 		// Then
-		expect(screen.getByRole('checkbox')).toBeVisible();
-		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('checkbox', { name: 'column-label' })).not.toBeChecked();
 	});
 	it('should render a locked item', () => {
 		// Given
@@ -35,7 +34,7 @@ describe('RowCheckBox', () => {
 		// When
 		render(<Component {...props} />);
 		// Then
-		expect(document.querySelectorAll('svg[name="talend-locked"]')).toHaveLength(1);
+		expect(document.querySelectorAll('use[xlink:href="#locker-closed:M"]')).toHaveLength(1);
 	});
 	it('should call the onClick when checkbox trigger change', () => {
 		// Given
