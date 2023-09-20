@@ -34,7 +34,6 @@ const config = {
 	},
 	stories: STORIES,
 	staticDirs: [`${rootPath}static`],
-	// addons: ['storybook-addon-mdx-embed'],
 	typescript: {
 		reactDocgen: false,
 		check: true,

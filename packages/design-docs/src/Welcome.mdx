@@ -1,0 +1,56 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import { Card, Grid, SearchBar } from '@talend/storybook-docs';
+
+import Welcome from './WelcomeImage';
+
+<Meta title="Welcome" />
+
+<Welcome id="diveinto" />
+
+<center>
+
+    <h1>Welcome</h1>
+
+    Dive into the single source of truth for building [Talend](https://www.talend.com) products. <br/>
+    Coral is a series of assets and components documentation used to create unified user experiences at Talend.
+
+</center>
+
+<SearchBar />
+
+## Coral goals
+
+<Grid columns={2} as="dl">
+	<div>
+		<dt>Scalable</dt>
+		<dd>
+			Building an interface is easier by using components that are already implemented and
+			documented in Coral.
+		</dd>
+	</div>
+	<div>
+		<dt>Documented</dt>
+		<dd>
+			No matter of which team you are from, you should find all the information related to Talend
+			here.
+		</dd>
+	</div>
+	<div>
+		<dt>Accessible</dt>
+		<dd>
+			At Talend, we believe that for an inclusive experience our products should be accessible for
+			everyone.
+		</dd>
+	</div>
+	<div>
+		<dt>Playful</dt>
+		<dd>
+			With Coral, it’s easy to play in real-time with the component to test wording, translation or
+			even the responsive.
+		</dd>
+	</div>
+</Grid>
+
+<footer style={{ marginTop: '9rem' }}>
+	Made by the <b>Talend team</b> — 2021
+</footer>

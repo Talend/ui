@@ -1,0 +1,71 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import { FigmaImage, Use } from '@talend/storybook-docs';
+
+import { Switch } from '../../';
+import * as Stories from './Switch.stories';
+
+<Meta
+	of={Stories}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		chromatic: { disableSnapshot: true },
+	}}
+/>
+
+# Switch
+
+Switches are a quick way to make a selection between two states (or three sometimes) or on-off state instantly. There is always a default selection for switches.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=36%3A0"
+	alt="zoning image for switch"
+/>
+
+## Style
+
+<Canvas>
+	<Story story={Stories.Default} />
+</Canvas>
+
+## States
+
+## Content
+
+Labels for switches should give users a strong indication of what they are selecting. Limit the label placed inside the switch to one word, a noun or an adjective, that describes the functionality of the control.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in switch labels.</li>
+			<li>Keep labels for switches short and direct.</li>
+			<li>
+				For on/off switches, use the label to describe what the control will do when the switch is
+				on.
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don't use neutral or ambiguous labels.</li>
+			<li>Don't use title case or all caps in switch labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+## Accessibility
+
+## Usage
+
+<Canvas>
+	<Story story={Stories.Uncontrolled} />
+</Canvas>
+
+## Changelog
+
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 08/04/2020 | Fabien Rassinier | Init page   |
