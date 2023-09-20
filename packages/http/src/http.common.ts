@@ -1,4 +1,4 @@
-import { HTTP, HTTP_RESPONSE_INTERCEPTORS } from './config';
+import { applyInterceptors, HTTP } from './config';
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
 import { TalendHttpResponse, TalendRequestInit } from './http.types';
@@ -118,17 +118,20 @@ export async function httpFetch<T>(
 		},
 	};
 
-	const response = await fetch(
-		url,
-		handleCSRFToken({
-			...params,
-			body: encodePayload(params.headers || {}, payload),
-		}),
-	);
-
-	Object.values(HTTP_RESPONSE_INTERCEPTORS).forEach(interceptor => {
-		interceptor(response);
+	const init = handleCSRFToken({
+		...params,
+		body: encodePayload(params.headers || {}, payload),
 	});
+
+	const response = await fetch(url, init).then(resp =>
+		applyInterceptors(
+			{
+				url,
+				...init,
+			},
+			resp,
+		),
+	);
 
 	return handleHttpResponse(response);
 }

@@ -1,7 +1,13 @@
 import fetchMock from 'fetch-mock';
 import { Response, Headers } from 'node-fetch';
 
-import { HTTP, getDefaultConfig, setDefaultConfig } from './config';
+import {
+	HTTP,
+	getDefaultConfig,
+	setDefaultConfig,
+	HTTP_RESPONSE_INTERCEPTORS,
+	addHttpResponseInterceptor,
+} from './config';
 import { httpFetch, handleBody, encodePayload, handleHttpResponse } from './http.common';
 import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
 import { TalendHttpError } from './http.types';
@@ -326,5 +332,30 @@ describe('#httpFetch', () => {
 		const mockCalls = fetchMock.calls();
 		expect(mockCalls[0][1]?.credentials).toEqual('same-origin');
 		expect(mockCalls[0][1]?.headers).toEqual({ Accept: 'application/json' });
+	});
+});
+
+describe('#httpFetch with interceptors', () => {
+	beforeEach(() => {
+		for (const key in HTTP_RESPONSE_INTERCEPTORS) {
+			if (HTTP_RESPONSE_INTERCEPTORS.hasOwnProperty(key)) {
+				delete HTTP_RESPONSE_INTERCEPTORS[key];
+			}
+		}
+	});
+
+	afterEach(() => {
+		fetchMock.restore();
+	});
+
+	it('should call interceptors', async () => {
+		const interceptor = jest.fn();
+		addHttpResponseInterceptor('interceptor', interceptor);
+
+		const url = '/foo';
+		fetchMock.mock(url, { status: 200 });
+
+		await httpFetch(url, {}, HTTP_METHODS.GET, {});
+		expect(interceptor).toHaveBeenCalled();
 	});
 });
