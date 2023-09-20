@@ -75,7 +75,7 @@ const fruits = [
 
 export default {
 	component: Combobox,
-	title: 'Form/Combobox',
+	title: 'Form/Fields/Combobox',
 	argTypes: {
 		values: { control: 'array' },
 	},

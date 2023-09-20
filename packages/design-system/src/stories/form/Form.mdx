@@ -1,6 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
-import { Form, Tabs } from '../../';
+import { Tabs } from '../../';
 import * as Stories from './Form.stories.tsx';
 
 <Meta
@@ -39,7 +39,7 @@ The `Form` component is a slightly opinionated `<form>` tag with a flex layout a
 />
 
 <Canvas>
-	<Story story={stories.FormSkeleton} />
+	<Story story={Stories.FormSkeleton} />
 </Canvas>
 
 ### Field states
@@ -77,7 +77,7 @@ The `Form` component is a slightly opinionated `<form>` tag with a flex layout a
 />
 
 <Canvas>
-	<Story story={stories.Default} />
+	<Story story={Stories.Default} />
 </Canvas>
 
 ### Error
@@ -90,7 +90,7 @@ When an error occurs at a level that is not specific to one field, use `InlineMe
 />
 
 <Canvas>
-	<Story story={stories.Error} />
+	<Story story={Stories.Error} />
 </Canvas>
 
 [The InlineMessage docs can be found here.](/docs/components-inline-message--default-demo)
@@ -107,7 +107,7 @@ Consider using an [Inline message](/?path=/docs/components-inlinemessage--inform
 />
 
 <Canvas>
-	<Story story={stories.InlineHelp} />
+	<Story story={Stories.InlineHelp} />
 </Canvas>
 
 ## Interactions
@@ -120,7 +120,7 @@ Consider using an [Inline message](/?path=/docs/components-inlinemessage--inform
 />
 
 <Canvas>
-	<Story story={stories.Loading} />
+	<Story story={Stories.Loading} />
 </Canvas>
 
 ### Data loss message

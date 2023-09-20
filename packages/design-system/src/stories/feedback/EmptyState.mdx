@@ -1,13 +1,10 @@
 import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 
-import { EmptyStatePrimitive } from '../../';
-
 import * as Stories from './EmptyState.stories';
 
 <Meta
-	title="Feedback/EmptyState"
-	component={EmptyStatePrimitive}
+	of={Stories}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'wip' },
 		figmaLink: 'https://www.figma.com/file/6XBBCBVOhyX6yTaNcZQiti/Empty-States',
