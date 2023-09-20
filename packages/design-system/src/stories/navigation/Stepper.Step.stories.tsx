@@ -1,6 +1,7 @@
-import { StackVertical, Stepper } from '@talend/design-system';
+import { StackVertical, Stepper } from '../../';
 
 export default {
+	title: 'Navigation/Stepper/Step',
 	component: Stepper.Step,
 };
 
@@ -28,3 +29,35 @@ export const Overflow = () => (
 		/>
 	</StackVertical>
 );
+
+export const Usage = ({ variant, index, title }) => {
+	const StepComponent = Stepper.Step[variant];
+	StepComponent.displayName = `Step.${variant}`;
+	return <StepComponent data-index={index} title={title} />;
+};
+Usage.argTypes = {
+	variant: {
+		description: 'Step variation',
+		control: {
+			type: 'select',
+			options: ['Skeleton', 'Enabled', 'Validated', 'InProgress'],
+		},
+	},
+	index: {
+		description: 'Step number',
+		control: {
+			type: 'number',
+		},
+	},
+	title: {
+		description: 'Step title',
+		control: {
+			type: 'text',
+		},
+	},
+};
+Usage.args = {
+	variant: 'Skeleton',
+	index: 1,
+	title: 'Lorem ipsum',
+};
