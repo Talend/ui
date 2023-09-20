@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectAllColumnsCheckbox should render by default 1`] = `
+<div
+  class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
+>
+  <span
+    class="theme-checkbox"
+  >
+    <input
+      aria-checked="mixed"
+      aria-describedby="select-all-id-display all the columns"
+      checked=""
+      data-feature="column-chooser.select.all"
+      id="select-all-id-checkbox-Select-all"
+      type="checkbox"
+    />
+    <label
+      class="theme-label theme-label_inline"
+      for="select-all-id-checkbox-Select-all"
+    >
+      Select all
+    </label>
+  </span>
+  <div
+    class="sr-only"
+    id="select-all-id-display all the columns"
+  >
+    display all the columns
+  </div>
+</div>
+`;

@@ -28,48 +28,17 @@ describe('ColumnChooserBody', () => {
 			t: getDefaultT(),
 		};
 		// When
-		render(
+		const { container } = render(
 			<ColumnChooserProvider value={contextValues}>
 				<Component />
 			</ColumnChooserProvider>,
 		);
-		// Then select all is available and checked
-		const selectAll = screen.getByLabelText(/select all/i);
-		expect(selectAll).toBeChecked();
-
-		// Then items are listed
+		// Then
 		expect(
-			screen.queryByRole('checkbox', {
-				name: 'col1',
-			}),
-		).not.toBeInTheDocument();
-		expect(
-			screen.queryByRole('checkbox', {
-				name: 'col2',
-			}),
-		).not.toBeInTheDocument();
-		expect(document.querySelectorAll('use[xlink:href="#locker-closed:M"]')).toHaveLength(2);
-
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'col3',
-			}),
-		).toBeChecked();
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'col4',
-			}),
-		).not.toBeChecked();
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'col5',
-			}),
-		).toBeChecked();
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'col6',
-			}),
-		).not.toBeChecked();
+			// eslint-disable-next-line testing-library/no-container
+			container.querySelectorAll('.tc-column-chooser-row.theme-tc-column-chooser-row'),
+		).toHaveLength(columns.length + 1);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render with children', () => {
 		// Given

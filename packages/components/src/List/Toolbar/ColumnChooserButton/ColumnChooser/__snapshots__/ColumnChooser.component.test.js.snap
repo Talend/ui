@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooser should render with default props 1`] = `
+<div>
+  <header
+    class="theme-header tc-tooltip-header tc-column-chooser-header theme-tc-column-chooser-header"
+    id="column-chooser-header"
+  >
+    <div>
+      <div
+        class="tc-column-chooser-header-title theme-tc-column-chooser-header-title"
+      >
+        Select columns to display
+      </div>
+      <div
+        id="selected-columns-text"
+      >
+        5/6 selected
+      </div>
+    </div>
+  </header>
+  <form
+    class="theme-filter tc-column-chooser-filter theme-tc-column-chooser-filter theme-navbar"
+    role="search"
+  >
+    <div
+      class="form-group"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
+        focusable="false"
+        name="talend-search"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+      <input
+        aria-label="Find a column"
+        autocomplete="off"
+        class="theme-search form-control"
+        id="my-id-filter-input"
+        name="search"
+        placeholder="Find a column"
+        role="searchbox"
+        type="search"
+        value=""
+      />
+    </div>
+  </form>
+  <form
+    class="tc-column-chooser theme-tc-column-chooser"
+    id="my-id-form"
+  >
+    <div
+      class="theme-body tc-tooltip-body"
+      id="column-chooser-body"
+    >
+      <div
+        class="theme-content tc-tooltip-content"
+        id="column-chooser-body-content"
+      >
+        <div
+          class="tc-column-chooser-body theme-tc-column-chooser-body"
+        >
+          <div
+            class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
+          >
+            <span
+              class="theme-checkbox"
+            >
+              <input
+                aria-checked="mixed"
+                aria-describedby="my-id-body-display all the columns"
+                checked=""
+                data-feature="column-chooser.select.all"
+                id="my-id-body-checkbox-Select-all"
+                type="checkbox"
+              />
+              <label
+                class="theme-label theme-label_inline"
+                for="my-id-body-checkbox-Select-all"
+              >
+                Select all
+              </label>
+            </span>
+            <div
+              class="sr-only"
+              id="my-id-body-display all the columns"
+            >
+              display all the columns
+            </div>
+          </div>
+          <div
+            class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list"
+          >
+            <div
+              class="tc-column-chooser-row theme-tc-column-chooser-row"
+            >
+              <span
+                class="theme-checkbox"
+              >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Id"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Id"
+                  type="checkbox"
+                />
+                <label
+                  class="theme-label theme-label_inline"
+                  for="my-id-body-checkbox-Id"
+                >
+                  Id
+                </label>
+              </span>
+              <div
+                class="sr-only"
+                id="my-id-body-display the column Id"
+              >
+                display the column Id
+              </div>
+            </div>
+            <div
+              class="tc-column-chooser-row theme-tc-column-chooser-row"
+            >
+              <span
+                class="theme-checkbox"
+              >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Name"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Name"
+                  type="checkbox"
+                />
+                <label
+                  class="theme-label theme-label_inline"
+                  for="my-id-body-checkbox-Name"
+                >
+                  Name
+                </label>
+              </span>
+              <div
+                class="sr-only"
+                id="my-id-body-display the column Name"
+              >
+                display the column Name
+              </div>
+            </div>
+            <div
+              class="tc-column-chooser-row theme-tc-column-chooser-row"
+            >
+              <span
+                class="theme-checkbox"
+              >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Author"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Author"
+                  type="checkbox"
+                />
+                <label
+                  class="theme-label theme-label_inline"
+                  for="my-id-body-checkbox-Author"
+                >
+                  Author
+                </label>
+              </span>
+              <div
+                class="sr-only"
+                id="my-id-body-display the column Author"
+              >
+                display the column Author
+              </div>
+            </div>
+            <div
+              class="tc-column-chooser-row theme-tc-column-chooser-row"
+            >
+              <span
+                class="theme-checkbox"
+              >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
+                  type="checkbox"
+                />
+                <label
+                  class="theme-label theme-label_inline"
+                  for="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
+                >
+                  Very long name long name long name long name long name
+                </label>
+              </span>
+              <div
+                class="sr-only"
+                id="my-id-body-display the column Very long name long name long name long name long name"
+              >
+                display the column Very long name long name long name long name long name
+              </div>
+            </div>
+            <div
+              class="tc-column-chooser-row theme-tc-column-chooser-row"
+            >
+              <span
+                class="theme-checkbox"
+              >
+                <input
+                  aria-checked="false"
+                  aria-describedby="my-id-body-display the column Icon"
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Icon"
+                  type="checkbox"
+                />
+                <label
+                  class="theme-label theme-label_inline"
+                  for="my-id-body-checkbox-Icon"
+                >
+                  Icon
+                </label>
+              </span>
+              <div
+                class="sr-only"
+                id="my-id-body-display the column Icon"
+              >
+                display the column Icon
+              </div>
+            </div>
+            <div
+              class="tc-column-chooser-row theme-tc-column-chooser-row"
+            >
+              <span
+                class="theme-checkbox"
+              >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Created"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Created"
+                  type="checkbox"
+                />
+                <label
+                  class="theme-label theme-label_inline"
+                  for="my-id-body-checkbox-Created"
+                >
+                  Created
+                </label>
+              </span>
+              <div
+                class="sr-only"
+                id="my-id-body-display the column Created"
+              >
+                display the column Created
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="theme-footer tc-tooltip-footer tc-column-chooser-footer theme-tc-column-chooser-footer"
+      id="column-chooser-footer"
+    >
+      <button
+        aria-label="Apply"
+        class="btn btn-info"
+        data-feature="column-chooser.submit"
+        id="my-id-submit-button"
+        type="submit"
+      >
+        <span>
+          Apply
+        </span>
+      </button>
+    </footer>
+  </form>
+</div>
+`;

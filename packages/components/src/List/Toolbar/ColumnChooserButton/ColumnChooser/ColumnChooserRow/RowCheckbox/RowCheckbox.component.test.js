@@ -16,9 +16,10 @@ describe('RowCheckBox', () => {
 			onChange: jest.fn(),
 		};
 		// When
-		render(<Component {...props} />);
+		const { container } = render(<Component {...props} />);
 		// Then
-		expect(screen.getByRole('checkbox', { name: 'column-label' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox')).toBeVisible();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render a locked item', () => {
 		// Given

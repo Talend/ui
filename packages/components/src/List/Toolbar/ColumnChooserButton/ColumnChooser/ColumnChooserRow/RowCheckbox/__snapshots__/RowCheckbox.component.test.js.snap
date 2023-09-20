@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowCheckBox should render a checked checkbox input by default 1`] = `
+<span
+  class="theme-checkbox"
+>
+  <input
+    aria-checked="false"
+    aria-describedby="some-id-this is my checkbox"
+    data-feature="my-feature"
+    id="some-id-checkbox-column-label"
+    type="checkbox"
+  />
+  <label
+    class="theme-label theme-label_inline"
+    for="some-id-checkbox-column-label"
+  >
+    column-label
+  </label>
+</span>
+`;

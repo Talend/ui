@@ -14,9 +14,9 @@ describe('SelectAllColumnsCheckbox', () => {
 			t: getDefaultT(),
 		};
 		// when
-		render(<Component {...props} />);
-		// then select all checkbox is available
-		expect(screen.getByRole('checkbox', { name: /select all/i })).toBeVisible();
+		const { container } = render(<Component {...props} />);
+		// then
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should call the onSelectAll when onChange is triggered by a checked checkbox', () => {
 		// Given

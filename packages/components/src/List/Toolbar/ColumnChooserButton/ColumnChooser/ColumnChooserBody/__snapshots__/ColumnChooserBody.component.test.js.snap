@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooserBody should render the columns rows and the column select all 1`] = `
+<div
+  class="theme-body tc-tooltip-body"
+  id="column-chooser-body"
+>
+  <div
+    class="theme-content tc-tooltip-content"
+    id="column-chooser-body-content"
+  >
+    <div
+      class="tc-column-chooser-body theme-tc-column-chooser-body"
+    >
+      <div
+        class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
+      >
+        <span
+          class="theme-checkbox"
+        >
+          <input
+            aria-checked="true"
+            aria-describedby="body-context-id-body-hide all the columns"
+            checked=""
+            data-feature="column-chooser.select.all"
+            id="body-context-id-body-checkbox-Unselect-all"
+            type="checkbox"
+          />
+          <label
+            class="theme-label theme-label_inline"
+            for="body-context-id-body-checkbox-Unselect-all"
+          >
+            Unselect all
+          </label>
+        </span>
+        <div
+          class="sr-only"
+          id="body-context-id-body-hide all the columns"
+        >
+          hide all the columns
+        </div>
+      </div>
+      <div
+        class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list"
+      >
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.6rem; height: 1.6rem;"
+          >
+            <use
+              xlink:href="#locker-closed:M"
+            />
+          </svg>
+          <span
+            class="tc-column-chooser-row-label theme-tc-column-chooser-row-label"
+          >
+            col1
+          </span>
+        </div>
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.6rem; height: 1.6rem;"
+          >
+            <use
+              xlink:href="#locker-closed:M"
+            />
+          </svg>
+          <span
+            class="tc-column-chooser-row-label theme-tc-column-chooser-row-label"
+          >
+            col2
+          </span>
+        </div>
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <span
+            class="theme-checkbox"
+          >
+            <input
+              aria-checked="true"
+              aria-describedby="body-context-id-body-display the column col3"
+              checked=""
+              data-feature="column-chooser.select"
+              id="body-context-id-body-checkbox-col3"
+              type="checkbox"
+            />
+            <label
+              class="theme-label theme-label_inline"
+              for="body-context-id-body-checkbox-col3"
+            >
+              col3
+            </label>
+          </span>
+          <div
+            class="sr-only"
+            id="body-context-id-body-display the column col3"
+          >
+            display the column col3
+          </div>
+        </div>
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <span
+            class="theme-checkbox"
+          >
+            <input
+              aria-checked="false"
+              aria-describedby="body-context-id-body-display the column col4"
+              data-feature="column-chooser.select"
+              id="body-context-id-body-checkbox-col4"
+              type="checkbox"
+            />
+            <label
+              class="theme-label theme-label_inline"
+              for="body-context-id-body-checkbox-col4"
+            >
+              col4
+            </label>
+          </span>
+          <div
+            class="sr-only"
+            id="body-context-id-body-display the column col4"
+          >
+            display the column col4
+          </div>
+        </div>
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <span
+            class="theme-checkbox"
+          >
+            <input
+              aria-checked="true"
+              aria-describedby="body-context-id-body-display the column col5"
+              checked=""
+              data-feature="column-chooser.select"
+              id="body-context-id-body-checkbox-col5"
+              type="checkbox"
+            />
+            <label
+              class="theme-label theme-label_inline"
+              for="body-context-id-body-checkbox-col5"
+            >
+              col5
+            </label>
+          </span>
+          <div
+            class="sr-only"
+            id="body-context-id-body-display the column col5"
+          >
+            display the column col5
+          </div>
+        </div>
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <span
+            class="theme-checkbox"
+          >
+            <input
+              aria-checked="false"
+              aria-describedby="body-context-id-body-display the column col6"
+              data-feature="column-chooser.select"
+              id="body-context-id-body-checkbox-col6"
+              type="checkbox"
+            />
+            <label
+              class="theme-label theme-label_inline"
+              for="body-context-id-body-checkbox-col6"
+            >
+              col6
+            </label>
+          </span>
+          <div
+            class="sr-only"
+            id="body-context-id-body-display the column col6"
+          >
+            display the column col6
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

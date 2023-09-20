@@ -28,65 +28,9 @@ describe('ColumnChooser', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		render(<Component {...props} />);
-
-		// Then it should the display the number of selected items
-		expect(
-			screen.getByText(
-				`${columns.filter(column => !column.hidden).length}/${columns.length} selected`,
-			),
-		).toBeVisible();
-
-		// Then a searchbox should be there
-		expect(
-			screen.getByRole('searchbox', {
-				name: /find a column/i,
-			}),
-		).toBeVisible();
-
-		// Then select all should have indeterminate state
-		const selectAll = screen.getByLabelText(/select all/i);
-		expect(selectAll).toBeChecked();
-		expect(selectAll).toHaveAttribute('aria-checked', 'mixed'); // eslint-disable-line jest-dom/prefer-checked
-
-		// Then items are listed
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'Id',
-			}),
-		).toBeChecked();
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'Name',
-			}),
-		).toBeChecked();
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'Author',
-			}),
-		).toBeChecked();
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'Created',
-			}),
-		).toBeChecked();
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'Very long name long name long name long name long name',
-			}),
-		).toBeChecked();
-		expect(
-			screen.getByRole('checkbox', {
-				name: 'Icon',
-			}),
-		).not.toBeChecked();
-
-		// Then there should be an apply button
-		expect(
-			screen.getByRole('button', {
-				name: /apply/i,
-			}),
-		).toBeVisible();
+		const { container } = render(<Component {...props} />);
+		// Then
+		expect(container).toMatchSnapshot();
 	});
 	it('should render with children', () => {
 		// Given
