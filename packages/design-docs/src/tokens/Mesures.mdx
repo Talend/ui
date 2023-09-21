@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks';
+import tokens from '@talend/design-tokens';
+import { Divider, StackHorizontal, StackVertical } from '@talend/design-system';
+import dictionary from '@talend/design-tokens/lib/light/dictionary';
+import * as utils from './TokenFormatter';
+import { TokenList } from './TokenValue';
+
+<Meta title="Design Tokens/Measures" />
+
+# Measures
+
+<Divider />
+
+## Spacing
+
+<TokenList
+	style={token => ({
+		padding: token.value,
+		backgroundColor: tokens.coralColorAccentBackground,
+	})}
+	type="measure"
+	category="spacing"
+>
+	<div
+		style={{
+			border: `${tokens.coralBorderSDashed} ${tokens.coralColorAccentBorder}`,
+			borderRadius: tokens.coralRadiusM,
+			backgroundColor: tokens.coralColorNeutralBackground,
+			width: '100%',
+			minHeight: '100%',
+		}}
+	/>
+</TokenList>
+
+## Sizing
+
+<TokenList style={token => ({})} type="measure" category="sizing">
+	{token => `${token.value}`}
+</TokenList>

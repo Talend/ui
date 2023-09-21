@@ -1,4 +1,6 @@
 .btn {
+	display: flex;
+	font-size: 0.5rem !important;
 	svg {
 		visibility: hidden;
 	}
@@ -10,6 +12,7 @@
 
 .lang {
 	text-align: left;
-	width: 5rem;
 	display: inline-block;
+	padding-right: 4px;
+	display: none;
 }
