@@ -24,10 +24,10 @@ function DefaultRenderer({ cellData, columnData, rowData }) {
 	);
 }
 DefaultRenderer.propTypes = {
-	cellData: PropTypes.string,
+	cellData: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	rowData: PropTypes.object,
 	columnData: PropTypes.shape({
-		tooltipLabel: PropTypes.string,
+		tooltipLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		tooltipPlacement: PropTypes.string,
 		getTooltipLabel: PropTypes.func,
 	}),
@@ -47,11 +47,11 @@ export default function Content() {
 Content.displayName = 'Content';
 Content.defaultProps = defaultColumnConfiguration;
 Content.propTypes = {
-	label: PropTypes.string.isRequired,
+	label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 	dataKey: PropTypes.string.isRequired,
 	width: PropTypes.number.isRequired,
 	columnData: PropTypes.shape({
-		tooltipLabel: PropTypes.string,
+		tooltipLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		tooltipPlacement: PropTypes.string,
 		getTooltipLabel: PropTypes.func,
 	}).isRequired,

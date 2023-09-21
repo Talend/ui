@@ -141,7 +141,10 @@ exports[`VirtualizedList should render 1`] = `
             style="overflow: hidden; flex: 0 0 50px;"
           >
             <div
+              aria-describedby="42"
               class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
             >
               0
             </div>
@@ -155,6 +158,8 @@ exports[`VirtualizedList should render 1`] = `
             <div
               aria-describedby="42"
               class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
             >
               Title with icon and actions
             </div>
@@ -168,6 +173,8 @@ exports[`VirtualizedList should render 1`] = `
             <div
               aria-describedby="42"
               class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
             >
               Simple row with icon and actions
             </div>
@@ -221,6 +228,8 @@ exports[`VirtualizedList should render 1`] = `
             <div
               aria-describedby="42"
               class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
             >
               1
             </div>
@@ -234,6 +243,8 @@ exports[`VirtualizedList should render 1`] = `
             <div
               aria-describedby="42"
               class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
             >
               Title without actions
             </div>
@@ -247,6 +258,8 @@ exports[`VirtualizedList should render 1`] = `
             <div
               aria-describedby="42"
               class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
             >
               Simple row without actions
             </div>
