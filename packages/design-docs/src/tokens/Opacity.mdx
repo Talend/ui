@@ -5,18 +5,18 @@ import dictionary from '@talend/design-tokens/lib/light/dictionary';
 import * as utils from './TokenFormatter';
 import { TokenList } from './TokenValue';
 
-<Meta title="Design Tokens/Borders" />
+<Meta title="Design Tokens/Opacity" />
 
-# Borders
+# Opacity
 
 <Divider />
 
-<TokenList
-	style={token => ({
-		background: tokens.coralColorAccentBackground,
-		border: `${token.value} ${tokens.coralColorAccentBorder}`,
-	})}
-	type="border"
->
-	{token => token.value}
+<TokenList style={token => ({})} type="opacity" sortOnValue>
+	{token => (
+		<>
+			<p style={{ opacity: token.value }}>
+				London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall
+			</p>
+		</>
+	)}
 </TokenList>

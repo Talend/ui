@@ -5,18 +5,17 @@ import dictionary from '@talend/design-tokens/lib/light/dictionary';
 import * as utils from './TokenFormatter';
 import { TokenList } from './TokenValue';
 
-<Meta title="Design Tokens/Borders" />
+<Meta title="Design Tokens/Shadows" />
 
-# Borders
+# Shadows
 
 <Divider />
 
 <TokenList
 	style={token => ({
-		background: tokens.coralColorAccentBackground,
-		border: `${token.value} ${tokens.coralColorAccentBorder}`,
+		backgroundColor: tokens.coralColorAccentBackground,
+		boxShadow: token.value,
 	})}
-	type="border"
->
-	{token => token.value}
-</TokenList>
+	type="shadow"
+	sortOnValue
+></TokenList>
