@@ -5,13 +5,19 @@ import TooltipTrigger from '../TooltipTrigger';
 
 function DefaultRenderer({ cellData, columnData, rowData }) {
 	const { getTooltipLabel } = columnData;
-	let tooltipLabel = columnData.tooltipLabel || cellData;
+	let tooltipLabel = columnData.tooltipLabel != null ? columnData.tooltipLabel : cellData;
 	if (typeof getTooltipLabel === 'function') {
 		tooltipLabel = getTooltipLabel(rowData);
 	}
-	return tooltipLabel ? (
+	return tooltipLabel != null ? (
 		<TooltipTrigger label={tooltipLabel} tooltipPlacement={columnData.tooltipPlacement || 'top'}>
-			<div className="tc-virtualizedlist-default-cell">{cellData}</div>
+			<div
+				className="tc-virtualizedlist-default-cell"
+				data-test="tc-virtualizedlist-default-cell-tooltip"
+				data-testid="tc-virtualizedlist-default-cell-tooltip"
+			>
+				{cellData}
+			</div>
 		</TooltipTrigger>
 	) : (
 		<div className="tc-virtualizedlist-default-cell">{cellData}</div>
