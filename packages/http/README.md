@@ -56,7 +56,7 @@ You can add global response interceptors to catch or modify responses before res
 import { addHttpResponseInterceptor, http, HTTP_METHODS } from '@talend/http';
 import type { TalendRequest } from '@talend/http';
 
-addHttpResponseInterceptor('my-interceptor', async (request: TalendRequest, response: Response) => {
+addHttpResponseInterceptor('my-interceptor', async (response: Response, request: TalendRequest) => {
 	if (request.method === HTTP_METHODS.GET) {
 		// your custom logic here
 	}
@@ -65,7 +65,7 @@ addHttpResponseInterceptor('my-interceptor', async (request: TalendRequest, resp
 });
 ```
 
-You can add multiple interceptors. Each will be called in the order of registration and will receive the same request parameter, but response parameter will be the one returned by previous interceptor.
+You can add multiple interceptors. Each will be called in the order of registration and will receive the same request parameter, but response parameter will be the one returned by previous interceptor. If interceptor returns void, then it'll return received response.
 
 Once your interceptor is not needed anymore, you can unregister it with `removeHttpResponseInterceptor` function of `@talend/http` package.
 
@@ -76,7 +76,7 @@ import { addHttpResponseInterceptor, http, HTTP_METHODS } from '@talend/http';
 
 http.get('/api/v1/data', { context: { intercept: true } });
 
-addHttpResponseInterceptor('my-interceptor', async (request: TalendRequest, response: Response) => {
+addHttpResponseInterceptor('my-interceptor', async (response: Response, request: TalendRequest) => {
 	const { context } = request;
 	if (request.method === HTTP_METHODS.GET && context.intercept) {
 		// your custom logic here

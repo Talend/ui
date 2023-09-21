@@ -109,10 +109,10 @@ describe('Configuration service', () => {
 
 			const interceptor1 = jest
 				.fn()
-				.mockImplementation((_, resp) => Promise.resolve({ ...resp, body: [...resp.body, 4] }));
+				.mockImplementation((resp, _) => Promise.resolve({ ...resp, body: [...resp.body, 4] }));
 			addHttpResponseInterceptor('interceptor-1', interceptor1);
 
-			const interceptor2 = jest.fn().mockImplementation((req, resp) =>
+			const interceptor2 = jest.fn().mockImplementation((resp, req) =>
 				Promise.resolve({
 					...resp,
 					body: { interceptor: `interceptor2-${req.method}`, original: resp.body },
@@ -122,10 +122,10 @@ describe('Configuration service', () => {
 
 			const interceptedResponse = await applyInterceptors(request, response);
 
-			expect(interceptor1).toHaveBeenCalledWith(request, response);
+			expect(interceptor1).toHaveBeenCalledWith(response, request);
 			expect(interceptor2).toHaveBeenLastCalledWith(
-				request,
 				expect.objectContaining({ body: [1, 2, 3, 4] }),
+				request,
 			);
 			expect(interceptedResponse).toEqual({
 				...response,
@@ -144,6 +144,22 @@ describe('Configuration service', () => {
 			} as unknown as Response;
 
 			expect(applyInterceptors(request, response)).resolves.toEqual(response);
+		});
+		it('should return response if interceptor returns void', async () => {
+			const request: TalendRequest = {
+				url: '/api/v1/data',
+				method: HTTP_METHODS.GET,
+			};
+			const response = {
+				ok: true,
+				status: HTTP_STATUS.OK,
+				body: [1, 2, 3],
+			} as unknown as Response;
+			const interceptor = jest.fn().mockImplementation(() => {});
+			addHttpResponseInterceptor('interceptor', interceptor);
+			const gotResponse = await applyInterceptors(request, response);
+			expect(gotResponse).toEqual(response);
+			expect(interceptor).toHaveBeenCalledWith(response, request);
 		});
 	});
 });

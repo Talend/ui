@@ -349,7 +349,7 @@ describe('#httpFetch with interceptors', () => {
 	});
 
 	it('should call interceptor', async () => {
-		const interceptor = jest.fn().mockImplementation((_, res) => res);
+		const interceptor = jest.fn().mockImplementation((res, _) => res);
 		addHttpResponseInterceptor('interceptor', interceptor);
 
 		const url = '/foo';
@@ -360,7 +360,7 @@ describe('#httpFetch with interceptors', () => {
 	});
 
 	it('should have access to context in interceptor', async () => {
-		const interceptor = jest.fn().mockImplementation((_, res) => res);
+		const interceptor = jest.fn().mockImplementation((res, _) => res);
 		addHttpResponseInterceptor('interceptor', interceptor);
 
 		const url = '/foo';
@@ -370,8 +370,8 @@ describe('#httpFetch with interceptors', () => {
 
 		await httpFetch(url, { context }, HTTP_METHODS.GET, {});
 		expect(interceptor).toHaveBeenCalledWith(
-			expect.objectContaining({ url, context, method: HTTP_METHODS.GET }),
 			expect.anything(),
+			expect.objectContaining({ url, context, method: HTTP_METHODS.GET }),
 		);
 	});
 });

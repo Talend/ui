@@ -7,7 +7,7 @@ export const HTTP: { defaultConfig?: TalendRequestInit | null } = {
 	defaultConfig: null,
 };
 
-export type Interceptor = (request: TalendRequest, response: Response) => Promise<Response>;
+export type Interceptor = (response: Response, request: TalendRequest) => Promise<Response> | void;
 
 export const HTTP_RESPONSE_INTERCEPTORS: Record<string, Interceptor> = {};
 
@@ -27,7 +27,8 @@ export function removeHttpResponseInterceptor(name: string) {
 
 export function applyInterceptors(request: TalendRequest, response: Response): Promise<Response> {
 	return Object.values(HTTP_RESPONSE_INTERCEPTORS).reduce(
-		(promise, interceptor) => promise.then(resp => interceptor(request, resp)),
+		(promise, interceptor) =>
+			promise.then(resp => interceptor(resp, request) || Promise.resolve(response)),
 		Promise.resolve(response),
 	);
 }
