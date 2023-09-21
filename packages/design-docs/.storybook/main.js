@@ -16,7 +16,7 @@ const STORIES = [
 	`${rootPath}src/Principles.mdx`,
 	// `${rootPath}src/Status.mdx`,
 	// `${rootPath}src/Catalog.mdx`,
-	// `${rootPath}src/tokens/**/*.mdx`,
+	`${rootPath}src/tokens/**/*.mdx`,
 	`${rootPath}src/content/VoiceAndTone.@(js|tsx|mdx)`,
 	`${rootPath}src/content/Internationalization.@(js|tsx|mdx)`,
 	`${rootPath}src/content/Conventions.@(js|tsx|mdx)`,
