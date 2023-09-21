@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/blocks';
+import tokens from '@talend/design-tokens';
+import { StackHorizontal, StackVertical } from '@talend/design-system';
+import dictionary from '@talend/design-tokens/lib/light/dictionary';
+import * as utils from './TokenFormatter';
+import { TokenValue } from './TokenValue';
+
+<Meta title="Design Tokens/Gradients" />
+
+<StackVertical gap="M">
+	{dictionary
+		.filter(t => t.type === 'gradient')
+		.map(token => (
+			<StackHorizontal gap="M" align="stretch" key={token.name}>
+				<div
+					style={{
+						minHeight: '8.4rem',
+						width: tokens.coralSizingXxxl,
+						background: token.value,
+						borderRadius: tokens.coralRadiusM,
+					}}
+				></div>
+				<dl style={{ float: 'right' }}>
+					<dt>{utils.getDisplayName(token.name)}</dt>
+					<dd style={{ width: 400 }}>{token.description}</dd>
+				</dl>
+				<ul style={{ listStyleType: 'none' }}>
+					<li>
+						<TokenValue lang="SCSS">{utils.getScssName(token.name)}</TokenValue>
+					</li>
+					<li>
+						<TokenValue lang="CSS">{utils.getCssName(token)}</TokenValue>
+					</li>
+					<li>
+						<TokenValue lang="JS">{`tokens.${token.name}`}</TokenValue>
+					</li>
+				</ul>
+			</StackHorizontal>
+		))}
+</StackVertical>

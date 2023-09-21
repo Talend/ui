@@ -1,0 +1,15 @@
+.btn {
+	svg {
+		visibility: hidden;
+	}
+
+	&:hover svg {
+		visibility: visible;
+	}
+}
+
+.lang {
+	text-align: left;
+	width: 5rem;
+	display: inline-block;
+}
