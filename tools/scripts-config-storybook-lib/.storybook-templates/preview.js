@@ -109,6 +109,9 @@ const defaultPreview = {
 	].filter(Boolean),
 	parameters:{
 		backgrounds: { disable: true, grid: { disable: true } },
+		doc: {
+			toc: true, // 👈 Enables the table of contents
+		}
 	}
 };
 

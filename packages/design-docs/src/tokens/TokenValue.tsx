@@ -3,12 +3,8 @@ import { ReactNode, useState } from 'react';
 import { SizedIcon, StackVertical, StackHorizontal, ButtonTertiary } from '@talend/design-system';
 import tokens from '@talend/design-tokens';
 import dictionary from '@talend/design-tokens/lib/light/dictionary';
-import { ColorToken } from '@talend/design-tokens/lib/types';
 import * as utils from './TokenFormatter';
 import theme from './TokenValue.module.scss';
-import ColorChecker from './ColorChecker';
-import colorCompositionData from './ColorCompositions.json';
-import { background } from '@storybook/theming';
 
 type TokenValueProps = {
 	children: string;
@@ -119,78 +115,4 @@ export function TokenList({
 			</StackVertical>
 		</>
 	);
-}
-
-export function CardComposition({
-	backgroundColor,
-	textColor,
-	borderColor,
-	iconColor,
-	isActive = false,
-	isHover = false,
-	...props
-}: {
-	textColor: ColorToken;
-	backgroundColor: ColorToken;
-	borderColor: ColorToken;
-	iconColor?: ColorToken;
-	isActive?: boolean;
-	isHover?: boolean;
-}) {
-	return (
-		<div
-			{...props}
-			style={{
-				border: '1px solid',
-				borderRadius: tokens.coralRadiusM,
-				background: backgroundColor.value,
-				borderColor: borderColor.value,
-				color: textColor.value,
-			}}
-		>
-			<p>
-				<span style={{ color: iconColor.value }}>
-					<SizedIcon size="S" name="overview" />
-				</span>
-				{isHover && <span>On hover</span>}
-				{isActive && <span>While clicked</span>}
-				{!isHover && !isActive && <span>Lorem ipsum</span>}
-			</p>
-			{textColor && backgroundColor && (
-				<span>
-					<ColorChecker text={textColor} background={backgroundColor} />
-				</span>
-			)}
-		</div>
-	);
-}
-
-function onlyUnique(value, index, array) {
-	return array.indexOf(value) === index;
-}
-
-export function ColorComposition() {
-	const [search, setSearch] = useState('Neutral');
-	const backgrounds = colorCompositionData.map(c => c.background).filter(onlyUnique);
-	const currentBackgrounds = backgrounds.filter(b => b.startsWith(search));
-
-	return currentBackgrounds.map(bg => {
-		const allComposition = colorCompositionData.filter(c => c.background === bg);
-		return (
-			<StackVertical key={bg} gap="M">
-				<h2>{bg}</h2>
-				<StackHorizontal gap="M">
-					{allComposition.map(compo => (
-						<CardComposition
-							key={JSON.stringify(compo)}
-							textColor={dictionary.find(t => t.name === `coralColor${compo.color}`)}
-							backgroundColor={dictionary.find(t => t.name === `coralColor${compo.background}`)}
-							borderColor={dictionary.find(t => t.name === `coralColor${compo.border}`)}
-							iconColor={dictionary.find(t => t.name === `coralColor${compo.icon}`)}
-						/>
-					))}
-				</StackHorizontal>
-			</StackVertical>
-		);
-	});
 }
