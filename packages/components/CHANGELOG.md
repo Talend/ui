@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 11.4.1
+
+### Patch Changes
+
+- b60f5b5c1: TDOPS-2619 - Align column chooser style with Design System
+- a5e724a5b: TDOPS-5105 - Components badge now have the right separator color
+- 387afd9fd: TDOPS-872 - VList cell content should display a tooltip for 0 value as well
+
 ## 11.4.0
 
 ### Minor Changes
