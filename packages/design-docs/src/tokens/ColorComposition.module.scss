@@ -7,14 +7,14 @@
 	position: relative;
 
 	display: inline-flex;
-	border-radius: var(--coral-radius-m, 0.8rem);
+	border-radius: tokens.$coral-radius-m;
 	min-height: 8.4rem;
 }
 
 .score {
 	position: absolute;
-	top: var(--coral-spacing-xs, 0.8rem);
-	left: var(--coral-spacing-xs, 0.8rem);
+	top: tokens.$coral-spacing-xs;
+	left: tokens.$coral-spacing-xs;
 }
 
 .grid {

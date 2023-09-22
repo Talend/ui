@@ -1,6 +1,12 @@
 /* eslint-disable @talend/import-depth */
 import { ReactNode, useState } from 'react';
-import { SizedIcon, StackVertical, StackHorizontal, ButtonTertiary } from '@talend/design-system';
+import {
+	SizedIcon,
+	StackVertical,
+	StackHorizontal,
+	ButtonTertiary,
+	Tooltip,
+} from '@talend/design-system';
 import tokens from '@talend/design-tokens';
 import dictionary from '@talend/design-tokens/lib/light/dictionary';
 import * as utils from './TokenFormatter';
@@ -95,10 +101,11 @@ export function TokenList({
 						>
 							{typeof children === 'function' ? children(token) : children}
 						</div>
-						<dl style={{ margin: 0 }}>
-							<dt>{utils.getDisplayName(token.name)}</dt>
-							<dd style={{ width: 300 }}>{token.description}</dd>
-						</dl>
+						<div style={{ width: tokens.coralSizingXxxl, paddingTop: tokens.coralSpacingL }}>
+							<Tooltip title={token.description}>
+								<span>{utils.getDisplayName(token.name)}</span>
+							</Tooltip>
+						</div>
 						<ul style={{ listStyleType: 'none' }}>
 							<li>
 								<TokenValue lang="SCSS">{utils.getScssName(token.name)}</TokenValue>

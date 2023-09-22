@@ -21,19 +21,37 @@ import { TokenList } from './TokenValue';
 	type="measure"
 	category="spacing"
 >
-	<div
-		style={{
-			border: `${tokens.coralBorderSDashed} ${tokens.coralColorAccentBorder}`,
-			borderRadius: tokens.coralRadiusM,
-			backgroundColor: tokens.coralColorNeutralBackground,
-			width: '100%',
-			minHeight: '100%',
-		}}
-	/>
+	{token => (
+		<div
+			style={{
+				border: `${tokens.coralBorderSDashed} ${tokens.coralColorAccentBorder}`,
+				borderRadius: tokens.coralRadiusM,
+				backgroundColor: tokens.coralColorNeutralBackground,
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				width: '100%',
+				minHeight: '100%',
+			}}
+		>
+			{token.value}
+		</div>
+	)}
 </TokenList>
 
 ## Sizing
 
 <TokenList style={token => ({})} type="measure" category="sizing">
-	{token => `${token.value}`}
+	{token => (
+		<div
+			style={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				minHeight: '100%',
+			}}
+		>
+			{token.value}
+		</div>
+	)}
 </TokenList>

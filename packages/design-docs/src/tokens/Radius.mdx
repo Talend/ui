@@ -18,4 +18,17 @@ import { TokenList } from './TokenValue';
 	})}
 	type="radius"
 	sortOnValue
-></TokenList>
+>
+	{token => (
+		<div
+			style={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				minHeight: '100%',
+			}}
+		>
+			{token.value}
+		</div>
+	)}
+</TokenList>
