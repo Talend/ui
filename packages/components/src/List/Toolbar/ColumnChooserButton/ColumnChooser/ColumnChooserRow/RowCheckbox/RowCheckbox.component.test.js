@@ -35,7 +35,7 @@ describe('RowCheckBox', () => {
 		// When
 		render(<Component {...props} />);
 		// Then
-		expect(document.querySelectorAll('svg[name="talend-locked"]')).toHaveLength(1);
+		expect(document.querySelectorAll('use[xlink:href="#locker-closed:M"]')).toHaveLength(1);
 	});
 	it('should call the onClick when checkbox trigger change', () => {
 		// Given
