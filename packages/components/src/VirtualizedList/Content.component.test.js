@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { defaultColumnConfiguration } from './Content.component';
-import userEvent from '@testing-library/user-event';
+
 jest.unmock('@talend/design-system');
 
 describe('CellLabel', () => {
