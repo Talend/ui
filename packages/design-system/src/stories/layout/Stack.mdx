@@ -76,7 +76,7 @@ function myComponent() {
 ### Simple StackHorizontal
 
 <Canvas>
-	<Story story={Stories.TestHorizontal} />
+	<Story of={Stories.TestHorizontal} />
 </Canvas>
 
 <ArgTypes story={Stories.TestHorizontal} />
@@ -86,7 +86,7 @@ function myComponent() {
 Spacing can also be set as an object `{ x: SizeToken, y: SizeToken }` or `{top: SizeToken, left: SizeToken, right: SizeToken, bottom: SizeToken}` like this:
 
 <Canvas>
-	<Story story={Stories.TestHorizontalWithExplicitSpacing} />
+	<Story of={Stories.TestHorizontalWithExplicitSpacing} />
 </Canvas>
 
 <ArgTypes story={Stories.TestHorizontalWithExplicitSpacing} />
@@ -96,7 +96,7 @@ You do need to set all the values for each of these objects when using them.
 ### Simple StackVertical
 
 <Canvas>
-	<Story story={Stories.TestVertical} />
+	<Story of={Stories.TestVertical} />
 </Canvas>
 
 <ArgTypes story={Stories.TestVertical} />
@@ -104,13 +104,13 @@ You do need to set all the values for each of these objects when using them.
 ### Nesting Stacks to compose a layout
 
 <Canvas>
-	<Story story={Stories.StackNesting} />
+	<Story of={Stories.StackNesting} />
 </Canvas>
 
 ### Using StackItem
 
 <Canvas>
-	<Story story={Stories.StackWithStackItem} />
+	<Story of={Stories.StackWithStackItem} />
 </Canvas>
 
 <ArgTypes story={Stories.StackWithStackItem} />

@@ -42,7 +42,7 @@ User can perform inline editing by using inline form.
 />
 
 <Canvas>
-	<Story story={Stories.Text} />
+	<Story of={Stories.Text} />
 </Canvas>
 
 **Empty single line with a placeholder**
@@ -53,7 +53,7 @@ User can perform inline editing by using inline form.
 />
 
 <Canvas>
-	<Story story={Stories.EmptyTextWithPlaceholder} />
+	<Story of={Stories.EmptyTextWithPlaceholder} />
 </Canvas>
 
 **Controlled component**
@@ -64,7 +64,7 @@ User can perform inline editing by using inline form.
 />
 
 <Canvas>
-	<Story story={Stories.ControlledComponent} />
+	<Story of={Stories.ControlledComponent} />
 </Canvas>
 
 **Multi lines**
@@ -75,7 +75,7 @@ User can perform inline editing by using inline form.
 />
 
 <Canvas>
-	<Story story={Stories.Textarea} />
+	<Story of={Stories.Textarea} />
 </Canvas>
 
 ## States
@@ -88,7 +88,7 @@ User can perform inline editing by using inline form.
 />
 
 <Canvas>
-	<Story story={Stories.LoadingMode} />
+	<Story of={Stories.LoadingMode} />
 </Canvas>
 
 ### Error
@@ -101,7 +101,7 @@ User can perform inline editing by using inline form.
 In this example, async submit will always end up with an error.
 
 <Canvas>
-	<Story story={Stories.InUse} />
+	<Story of={Stories.InUse} />
 </Canvas>
 
 ## Interactions
@@ -123,11 +123,11 @@ Non-regression testing can be performed using:
 ## Usage
 
 <Canvas>
-	<Story story={Stories.Default} />
-	<Story story={Stories.WithEllipsis} />
-	<Story story={Stories.WithTextarea} />
-	<Story story={Stories.LongTextInTextarea} />
-	<Story story={Stories.AsHeading} />
+	<Story of={Stories.Default} />
+	<Story of={Stories.WithEllipsis} />
+	<Story of={Stories.WithTextarea} />
+	<Story of={Stories.LongTextInTextarea} />
+	<Story of={Stories.AsHeading} />
 </Canvas>
 
 ## Accessibility

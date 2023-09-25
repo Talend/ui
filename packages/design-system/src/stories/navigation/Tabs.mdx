@@ -46,7 +46,7 @@ Tabs are used for switching between different views, functional aspects or categ
 />
 
 <Canvas>
-	<Story story={Stories.Styles} />
+	<Story of={Stories.Styles} />
 </Canvas>
 
 ### Variations
@@ -72,7 +72,7 @@ Only use the large size when tabs act as a second level of navigation on page-wi
 Icons can be used with tabs to help users differentiate among them. Tabs with icons has the same behaviours.
 
 <Canvas>
-	<Story story={Stories.TabsWithIcon} />
+	<Story of={Stories.TabsWithIcon} />
 </Canvas>
 
 #### Tabs with tags
@@ -89,7 +89,7 @@ The default max value of an item is 999. When the value to display is greater th
 Mouse over the label will display the exact number item.
 
 <Canvas>
-	<Story story={Stories.TabsWithTag} />
+	<Story of={Stories.TabsWithTag} />
 </Canvas>
 
 ## States
@@ -101,7 +101,7 @@ Please display a tooltip on hover that contains the full name.
 Max width item: 22rem (token: $coral-sizing-xxl).
 
 <Canvas>
-	<Story story={Stories.TabsWithLongTitles} />
+	<Story of={Stories.TabsWithLongTitles} />
 </Canvas>
 
 ## Content
@@ -142,13 +142,13 @@ To accommodate these two options, we provide two ways to implement Tabs in your 
 This is the standard, most straightforward way to use Tabs.
 
 <Canvas>
-	<Story story={Stories.TabStandalone} />
+	<Story of={Stories.TabStandalone} />
 </Canvas>
 
 It also works for large Tabs if needed:
 
 <Canvas withSource="closed">
-	<Story story={Stories.TabStandaloneLarge} />
+	<Story of={Stories.TabStandaloneLarge} />
 </Canvas>
 
 #### Composition
@@ -158,13 +158,13 @@ This is the "I know what I am doing" mode. It lets you build the Tabs through co
 This is also the implementation that is most likely to break. Use only when necessary!
 
 <Canvas>
-	<Story story={Stories.TabsWithComposition} />
+	<Story of={Stories.TabsWithComposition} />
 </Canvas>
 
 This method supports the same features as the API one:
 
 <Canvas withSource="closed">
-	<Story story={Stories.TabsWithCompositionLarge} />
+	<Story of={Stories.TabsWithCompositionLarge} />
 </Canvas>
 
 ### Default tab mode
@@ -172,13 +172,13 @@ This method supports the same features as the API one:
 You may need to set a default opened tab from the outside. You can:
 
 <Canvas>
-	<Story story={Stories.TabStandaloneControlled} />
+	<Story of={Stories.TabStandaloneControlled} />
 </Canvas>
 
 or in composition mode:
 
 <Canvas withSource="closed">
-	<Story story={Stories.TabsWithCompositionControlled} />
+	<Story of={Stories.TabsWithCompositionControlled} />
 </Canvas>
 
 ### Use Tabs as router links
@@ -188,5 +188,5 @@ You may need something that looks like tabs but is actually a navigation pattern
 For this we have a dedicated component that gives you a list of links and make them look like tabs:
 
 <Canvas>
-	<Story story={Stories.TabsAsLinks} />
+	<Story of={Stories.TabsAsLinks} />
 </Canvas>

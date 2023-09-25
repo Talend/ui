@@ -33,19 +33,19 @@ Still need to be convinced? Please, take the time to read [this article written 
 ### Default
 
 <Canvas>
-	<Story story={Stories.Default} />
+	<Story of={Stories.Default} />
 </Canvas>
 
 ### With icon
 
 <Canvas>
-	<Story story={Stories.WithIcon} />
+	<Story of={Stories.WithIcon} />
 </Canvas>
 
 ### Multi lines
 
 <Canvas>
-	<Story story={Stories.MultiLines} />
+	<Story of={Stories.MultiLines} />
 </Canvas>
 
 ### Disabled
@@ -53,7 +53,7 @@ Still need to be convinced? Please, take the time to read [this article written 
 When the link is disabled the whole component is displayed with $opacity.disabled.
 
 <Canvas>
-	<Story story={Stories.Disabled} />
+	<Story of={Stories.Disabled} />
 </Canvas>
 
 ### External
@@ -61,13 +61,13 @@ When the link is disabled the whole component is displayed with $opacity.disable
 When the link targets a new domain, we add an external-link icon right after.
 
 <Canvas>
-	<Story story={Stories.External} />
+	<Story of={Stories.External} />
 </Canvas>
 
 Even if it's the same domain, when the link opens in a new window or tab, the title `open in a new tab` is added or appended to an existing title.
 
 <Canvas>
-	<Story story={Stories.TargetBlank} />
+	<Story of={Stories.TargetBlank} />
 </Canvas>
 
 The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
@@ -77,7 +77,7 @@ The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 In React SPAs, most links are handled by libraries such as React Router. `Link` takes that into account.
 
 <Canvas>
-	<Story story={Stories.RouterLinkStory} />
+	<Story of={Stories.RouterLinkStory} />
 </Canvas>
 
 ### As a button
@@ -86,7 +86,7 @@ In extreme cases we do not condone, you may need the style of a link but the beh
 If your action open a new tab, you can use the `openInNewTab` props to trigger the display of the `external-link` icon, and add `open in a new tab` in the link title.
 
 <Canvas>
-	<Story story={StoriesButton.LinkAsButtonStory} />
+	<Story of={StoriesButton.LinkAsButtonStory} />
 </Canvas>
 
 <ArgTypes of={StoriesButton.LinkAsButtonStory} />

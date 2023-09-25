@@ -43,13 +43,13 @@ They are otherwise available in the same sizes and with the same iconset.
 />
 
 <Canvas withSource="closed">
-	<Story story={Stories.Variations} />
+	<Story of={Stories.Variations} />
 </Canvas>
 
 #### ButtonPrimaryAsLink
 
 <Canvas>
-	<Story story={Stories.PrimaryAsLink} />
+	<Story of={Stories.PrimaryAsLink} />
 </Canvas>
 
 <ArgTypes of={Stories.PrimaryAsLink} />
@@ -57,7 +57,7 @@ They are otherwise available in the same sizes and with the same iconset.
 #### ButtonDestructiveAsLink
 
 <Canvas>
-	<Story story={Stories.DestructiveAsLink} />
+	<Story of={Stories.DestructiveAsLink} />
 </Canvas>
 
 <ArgTypes of={Stories.DestructiveAsLink} />
@@ -65,7 +65,7 @@ They are otherwise available in the same sizes and with the same iconset.
 #### ButtonSecondaryAsLink
 
 <Canvas>
-	<Story story={Stories.SecondaryAsLink} />
+	<Story of={Stories.SecondaryAsLink} />
 </Canvas>
 
 <ArgTypes of={Stories.SecondaryAsLink} />
@@ -73,7 +73,7 @@ They are otherwise available in the same sizes and with the same iconset.
 #### ButtonTertiaryAsLink
 
 <Canvas>
-	<Story story={Stories.TertiaryAsLink} />
+	<Story of={Stories.TertiaryAsLink} />
 </Canvas>
 
 <ArgTypes of={Stories.TertiaryAsLink} />
@@ -85,7 +85,7 @@ If you need to switch from one variant to another, using a prop can be easier th
 `ButtonAsLink` is a standalone component made just for that.
 
 <Canvas>
-	<Story story={Stories.VariantComponent} />
+	<Story of={Stories.VariantComponent} />
 </Canvas>
 
 ## States
@@ -103,7 +103,7 @@ The loading state has been removed as well.
 Use the same Skeletons as `Button`.
 
 <Canvas>
-	<Story story={ButtonStories.SkeletonButton} />
+	<Story of={ButtonStories.SkeletonButton} />
 </Canvas>
 
 [The Skeleton Documentation is over there!](/docs/feedback-skeleton--docs)
@@ -113,7 +113,7 @@ Use the same Skeletons as `Button`.
 ButtonsAsLinks can also have a tooltip on hover displaying additional description.
 
 <Canvas>
-	<Story story={Stories.TooltipButton} />
+	<Story of={Stories.TooltipButton} />
 </Canvas>
 
 ## Content
@@ -127,13 +127,13 @@ Links in React SPAs are often handled through React Router and similar packages.
 Each `ButtonAsLink` is therefore able to shape itself around them, here React Router's `<Link />` for instance:
 
 <Canvas>
-	<Story story={Stories.ButtonAsRouterLink} />
+	<Story of={Stories.ButtonAsRouterLink} />
 </Canvas>
 
 The usual `ButtonAsLink` collection component also enables the same behaviour, if you prefer props to standalone variants.
 
 <Canvas>
-	<Story story={Stories.ButtonAsRouterLinkVariant} />
+	<Story of={Stories.ButtonAsRouterLinkVariant} />
 </Canvas>
 
 ## Accessibility
