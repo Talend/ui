@@ -3,6 +3,7 @@
 exports[`BadgeOverlay should render the html output in the default state 1`] = `
 <div>
   <button
+    aria-describedby="42"
     aria-label="my label"
     class="btn btn-link"
     id="my-id-action-overlay"

@@ -43,6 +43,7 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
       class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
     >
       <button
+        aria-describedby="42"
         aria-label="All"
         class="btn btn-link"
         id="my-id-action-overlay"
