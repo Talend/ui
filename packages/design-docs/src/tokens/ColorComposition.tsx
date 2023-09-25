@@ -116,7 +116,7 @@ function ColorCompositionItem({ tokenComposition }: { tokenComposition: Composit
 					textColor={tokenByName[`coralColor${tokenComposition.color}`]}
 					iconColor={iconToken}
 				/>
-				<ul style={{ listStyleType: 'none' }}>
+				<ul style={{ listStyleType: 'none', marginTop: tokens.coralSpacingS }}>
 					<li>
 						<TokenDisplay token={iconToken} />
 					</li>
@@ -138,7 +138,7 @@ function ColorCompositionItem({ tokenComposition }: { tokenComposition: Composit
 							iconColor={tokenByName[`coralColor${tokenComposition.icon}Hover`]}
 							isHover
 						/>
-						<ul style={{ listStyleType: 'none' }}>
+						<ul style={{ listStyleType: 'none', marginTop: tokens.coralSpacingS }}>
 							<li>
 								<TokenDisplay token={tokenByName[`coralColor${tokenComposition.icon}Hover`]} />
 							</li>
