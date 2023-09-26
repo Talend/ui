@@ -15,20 +15,12 @@ import { TokenList } from './TokenValue';
 	style={token => ({
 		borderRadius: token.value,
 		backgroundColor: tokens.coralColorAccentBackground,
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
 	})}
 	type="radius"
 	sortOnValue
 >
-	{token => (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				minHeight: '100%',
-			}}
-		>
-			{token.value}
-		</div>
-	)}
+	{token => token.value}
 </TokenList>

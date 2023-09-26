@@ -11,6 +11,7 @@ import tokens from '@talend/design-tokens';
 import dictionary from '@talend/design-tokens/lib/light/dictionary';
 import * as utils from './TokenFormatter';
 import theme from './TokenValue.module.scss';
+import { Unstyled } from '@storybook/blocks';
 
 type TokenValueProps = {
 	children: string;
@@ -32,7 +33,7 @@ export function TokenValue({ children, lang }: TokenValueProps) {
 	return (
 		<button
 			className={theme.btn}
-			style={{ border: 'none', background: 'none' }}
+			style={{ border: 'none', background: 'none', textAlign: 'start' }}
 			onClick={() => copy(children)}
 		>
 			<span className={theme.lang}>{lang}</span>
@@ -76,37 +77,39 @@ export function TokenList({
 		filtered.sort(compareTokensByValue);
 	}
 	return (
-		<>
-			<div>
+		<StackVertical gap="S">
+			<StackHorizontal gap="M">
 				{safeCategories.map(categ => (
 					<ButtonTertiary key={categ} onClick={() => setSearch(categ)} disabled={categ === search}>
 						{categ}
 					</ButtonTertiary>
 				))}
-			</div>
+			</StackHorizontal>
 			<StackVertical gap="M">
 				{filtered.map(token => (
-					<StackHorizontal gap="M" align="stretch" key={token.name}>
-						<div
-							style={{
-								minHeight: '8rem',
-								width: 200,
-								verticalAlign: 'middle',
-								border: '1px solid #ccc',
-								borderRadius: tokens.coralRadiusM,
-								boxShadow: tokens.coralElevationShadowNeutralM,
-								padding: tokens.coralSpacingS,
-								...style(token),
-							}}
-						>
-							{typeof children === 'function' ? children(token) : children}
-						</div>
-						<div style={{ width: tokens.coralSizingXxxl, paddingTop: tokens.coralSpacingL }}>
+					<StackHorizontal gap="M" align="center" key={token.name}>
+						<Unstyled>
+							<div
+								style={{
+									minHeight: '8rem',
+									width: 200,
+									verticalAlign: 'middle',
+									border: '1px solid #ccc',
+									borderRadius: tokens.coralRadiusM,
+									boxShadow: tokens.coralElevationShadowNeutralM,
+									padding: tokens.coralSpacingS,
+									...style(token),
+								}}
+							>
+								{typeof children === 'function' ? children(token) : children}
+							</div>
+						</Unstyled>
+						<div style={{ width: tokens.coralSizingXxxl, font: tokens.coralParagraphSBold }}>
 							<Tooltip title={token.description}>
 								<span>{utils.getDisplayName(token.name)}</span>
 							</Tooltip>
 						</div>
-						<ul style={{ listStyleType: 'none', marginTop: tokens.coralSpacingS }}>
+						<ul style={{ listStyleType: 'none' }}>
 							<li>
 								<TokenValue lang="SCSS">{utils.getScssName(token.name)}</TokenValue>
 							</li>
@@ -120,6 +123,6 @@ export function TokenList({
 					</StackHorizontal>
 				))}
 			</StackVertical>
-		</>
+		</StackVertical>
 	);
 }

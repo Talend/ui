@@ -17,38 +17,43 @@ import { TokenList } from './TokenValue';
 	style={token => ({
 		padding: token.value,
 		backgroundColor: tokens.coralColorAccentBackground,
-	})}
-	type="measure"
-	category="spacing"
+		minHeight: '100%',
+
+    })}
+    type="measure"
+    category="spacing"
+
 >
-	{token => (
-		<div
-			style={{
-				border: `${tokens.coralBorderSDashed} ${tokens.coralColorAccentBorder}`,
-				borderRadius: tokens.coralRadiusM,
-				backgroundColor: tokens.coralColorNeutralBackground,
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				width: '100%',
-				minHeight: '100%',
-			}}
-		>
-			{token.value}
-		</div>
-	)}
+
+    {token => (
+    	<div
+    		style={{
+    			border: `${tokens.coralBorderSDashed} ${tokens.coralColorAccentBorder}`,
+    			borderRadius: tokens.coralRadiusM,
+    			backgroundColor: tokens.coralColorNeutralBackground,
+    			display: 'flex',
+    			justifyContent: 'center',
+    			alignItems: 'center',
+    			width: '100%',
+    			minHeight: '100%',
+    		}}
+    	>
+    		{token.value}
+    	</div>
+    )}
+
 </TokenList>
 
 ## Sizing
 
-<TokenList style={token => ({})} type="measure" category="sizing">
+<TokenList style={token => ({ minHeight: '100%' })} type="measure" category="sizing">
 	{token => (
 		<div
 			style={{
 				display: 'flex',
 				justifyContent: 'center',
 				alignItems: 'center',
-				minHeight: '100%',
+				height: token.value,
 			}}
 		>
 			{token.value}

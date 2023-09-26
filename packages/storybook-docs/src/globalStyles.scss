@@ -189,20 +189,20 @@ html {
 		font: tokens.$coral-data-m;
 	}
 
-	content,
-	div,
-	p,
-	ul,
-	ol {
-		margin-top: 0;
-		font: tokens.$coral-paragraph-m;
-		color: tokens.$coral-color-neutral-text;
-	}
+	// content,
+	// div,
+	// p,
+	// ul,
+	// ol {
+	// 	margin-top: 0;
+	// 	font: tokens.$coral-paragraph-m;
+	// 	color: tokens.$coral-color-neutral-text;
+	// }
 
-	li {
-		font: tokens.$coral-paragraph-m;
-		color: tokens.$coral-color-neutral-text;
-	}
+	// li {
+	// 	font: tokens.$coral-paragraph-m;
+	// 	color: tokens.$coral-color-neutral-text;
+	// }
 
 	blockquote {
 		border-left: 4px solid tokens.$coral-color-accent-icon;
@@ -235,30 +235,30 @@ html {
 	h5,
 	h6 {
 		border: none;
-		margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
+		// margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
 		color: tokens.$coral-color-neutral-text;
 
-		&:first-of-type {
-			margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
-		}
+		// &:first-of-type {
+		// 	margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
+		// }
 
-		&:first-child {
-			margin-top: 0;
-		}
+		// &:first-child {
+		// 	margin-top: 0;
+		// }
 	}
 
 	h1 {
 		font: tokens.$coral-heading-l;
 		font-size: 3.2rem;
-		margin-bottom: tokens.$coral-spacing-xs;
+		// margin-bottom: tokens.$coral-spacing-xs;
 
-		&:first-of-type {
-			margin-top: 0;
-		}
+		// &:first-of-type {
+		// 	margin-top: 0;
+		// }
 
-		+ * {
-			margin-top: tokens.$coral-spacing-l;
-		}
+		// + * {
+		// 	margin-top: tokens.$coral-spacing-l;
+		// }
 
 		+ p {
 			font: tokens.$coral-heading-m;
@@ -273,7 +273,7 @@ html {
 	h2 {
 		font: tokens.$coral-heading-l;
 		font-size: 2rem;
-		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		// border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 
 	h3 {
@@ -293,11 +293,11 @@ html {
 	}
 
 	p {
-		margin-bottom: tokens.$coral-spacing-m;
+		// margin-bottom: tokens.$coral-spacing-m;
 
-		+ .p {
-			margin-top: calc(#{tokens.$coral-spacing-xs} * -1);
-		}
+		// + .p {
+		// 	margin-top: calc(#{tokens.$coral-spacing-xs} * -1);
+		// }
 
 		code {
 			font: tokens.$coral-data-m;
