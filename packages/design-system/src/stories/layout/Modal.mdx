@@ -2,18 +2,15 @@ import { Meta, Story, Canvas } from '@storybook/blocks';
 import { FigmaImage, FigmaLink, Use } from '@talend/storybook-docs';
 
 import { Modal } from '../../';
+import { Status } from '../Status.block';
 
 import * as Stories from './Modal.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'wip', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/0Jolh2prAAdfO5224n3OU3/Modal',
-	}}
-/>
+<Meta of={Stories} />
 
 # Modal
+
+<Status id="modal" />
 
 A modal serves as a root component for all varieties of dialog (confirm ...).
 

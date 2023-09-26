@@ -14,7 +14,7 @@ const STORIES = [
 	`${rootPath}src/Welcome.mdx`,
 	`${rootPath}src/GettingStarted.mdx`,
 	`${rootPath}src/Principles.mdx`,
-	// `${rootPath}src/Status.mdx`,
+	`${rootPath}src/Statuses.mdx`,
 	// `${rootPath}src/Catalog.mdx`,
 	`${rootPath}src/tokens/**/*.mdx`,
 	`${rootPath}src/content/VoiceAndTone.@(js|tsx|mdx)`,

@@ -1,17 +1,15 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import { Tabs } from '../../';
+import { Status } from '../Status.block';
+
 import * as Stories from './Form.stories.tsx';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=58%3A0',
-	}}
-/>
+<Meta of={Stories} />
 
 # Form
+
+<Status id="form" />
 
 The `Form` component is a slightly opinionated `<form>` tag with a flex layout and set vertical gap.
 

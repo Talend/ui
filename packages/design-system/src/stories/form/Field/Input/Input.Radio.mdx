@@ -1,16 +1,14 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Radio.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Radio
+
+<Status id="formFieldInputRadio" />
 
 `Form.Radio` inputs are used when a question has only one answer. Radio only lets users select one option from a set.
 

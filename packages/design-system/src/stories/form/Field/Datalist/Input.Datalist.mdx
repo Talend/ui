@@ -1,16 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Datalist.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Datalist
+
+<Status id="formFieldDatalist" />
 
 `Form.Datalist` binds a set of options to an input you can fill with a custom value.
 

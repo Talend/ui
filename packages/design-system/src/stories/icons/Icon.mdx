@@ -1,13 +1,11 @@
 import { IconItem, Canvas, Meta, Story } from '@storybook/blocks';
 import { Icons } from '@talend/storybook-docs';
 import { IconsProvider, StackVertical, InlineMessageWarning, Icon } from '../../';
+import { Status } from '../Status.block';
 import * as Stories from './Icon.stories';
 
 <Meta
 	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
 	decorators={[
 		story => (
 			<Canvas>
@@ -19,6 +17,8 @@ import * as Stories from './Icon.stories';
 />
 
 # Icons
+
+<Status id="icon" />
 
 All icons can be found below and you can apply transformations on them.
 

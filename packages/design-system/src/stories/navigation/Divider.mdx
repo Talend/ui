@@ -1,17 +1,14 @@
 import { Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../Status.block';
 
 import * as Stories from './Divider.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		figmaLink: 'https://www.figma.com/file/OGrnGJ6dCVvU0CRYsOuiTZ/Divider',
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Divider
+
+<Status id="divider" />
 
 A divider that separates and distinguishes sections of content or groups of menu items.
 

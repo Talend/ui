@@ -1,15 +1,13 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 import * as Stories from './Input.Text.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Input text
+
+<Status id="formFieldInputText" />
 
 `Form.Text` is a user input for short content and data.
 

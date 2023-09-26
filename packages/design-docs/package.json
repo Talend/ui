@@ -25,6 +25,7 @@
     "@storybook/react": "^7.4.1",
     "@talend/design-system": "^7.15.0",
     "@talend/design-tokens": "^2.9.0",
+    "@talend/storybook-docs": "^1.1.6",
     "@talend/icons": "^6.59.0",
     "algoliasearch": "^4.17.2",
     "classnames": "^2.3.1",

@@ -1,5 +1,6 @@
 import { Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Status } from '../Status.block';
 
 import { Switch } from '../../';
 import * as Stories from './Switch.stories';
@@ -7,12 +8,13 @@ import * as Stories from './Switch.stories';
 <Meta
 	of={Stories}
 	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 		chromatic: { disableSnapshot: true },
 	}}
 />
 
 # Switch
+
+<Status id="switch" />
 
 Switches are a quick way to make a selection between two states (or three sometimes) or on-off state instantly. There is always a default selection for switches.
 

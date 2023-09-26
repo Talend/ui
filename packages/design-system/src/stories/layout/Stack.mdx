@@ -1,16 +1,13 @@
 import { ArgTypes, Meta, Story, Canvas } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../Status.block';
 import * as Stories from './Stack.stories';
 
-<Meta
-	of={Stories}
-	title="Layout/Stack"
-	parameters={{
-		status: { figma: 'na', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} title="Layout/Stack" />
 
 # Stack (aka "Autolayout")
+
+<Status id="stack" />
 
 `StackVertical` and `StackHorizontal` are opinionated layout components. They serve has wrappers for most layout needs that would otherwise require manual CSS.
 

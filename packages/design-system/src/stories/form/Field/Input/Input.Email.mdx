@@ -1,16 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Email.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Email
+
+<Status id="formFieldInputEmail" />
 
 `Form.Email` is an alias for the HTML native email input. It's used to let the user enter and edit an email and will validate its format.
 

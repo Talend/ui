@@ -2,15 +2,12 @@ import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, FigmaIframe } from '@talend/storybook-docs';
 
 import { FloatingDrawer, StackVertical, InlineMessageWarning } from '../../';
+import { Status } from '../Status.block';
 
 import * as Stories from './FloatingDrawer.stories';
 
 <Meta
 	of={Stories}
-	parameters={{
-		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/x0RxG7E0CzVWDycXtNgq7H/Drawer',
-	}}
 	decorators={[
 		storyFn => (
 			<div
@@ -27,6 +24,8 @@ import * as Stories from './FloatingDrawer.stories';
 />
 
 # Drawer
+
+<Status id="floatingDrawer" />
 
 <StackVertical
 	gap="XS"

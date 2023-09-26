@@ -1,17 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import { Tabs, InlineMessageWarning, StackVertical } from '../../';
+import { Status } from '../Status.block';
 import * as Stories from './Tabs.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'wip', react: 'wip', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs',
-	}}
-/>
+<Meta of={Stories} />
 
 # Tabs
+
+<Status id="tabs" />
 
 <StackVertical
 	gap="XS"

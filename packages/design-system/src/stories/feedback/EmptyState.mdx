@@ -1,17 +1,14 @@
 import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Status } from '../Status.block';
 
 import * as Stories from './EmptyState.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'wip' },
-		figmaLink: 'https://www.figma.com/file/6XBBCBVOhyX6yTaNcZQiti/Empty-States',
-	}}
-/>
+<Meta of={Stories} />
 
 # EmptyState
+
+<Status id="emptyState" />
 
 They describe the “empty” screens in an application when a system does not have anything to show.
 

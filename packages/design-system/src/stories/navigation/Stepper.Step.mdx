@@ -1,17 +1,14 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../Status.block';
 
 import * as Stories from './Stepper.Step.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A4',
-	}}
-/>
+<Meta of={Stories} />
 
 # Step
+
+<Status id="stepperStep" />
 
 Steps are the main elements for the stepper.
 

@@ -1,19 +1,15 @@
 import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import { Stepper } from '../../';
+import { Status } from '../Status.block';
 
 import * as Stories from './Stepper.stories';
 
-<Meta
-	of={Stories}
-	component={Stepper}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
-		figmaLink: 'https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A5',
-	}}
-/>
+<Meta of={Stories} component={Stepper} />
 
 # Stepper
+
+<Status id="stepper" />
 
 `Stepper` is used to display the different steps needed to complete an action.
 

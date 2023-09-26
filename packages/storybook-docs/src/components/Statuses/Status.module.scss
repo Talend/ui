@@ -1,0 +1,75 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	font: tokens.$coral-paragraph-s-bold;
+	color: tokens.$coral-color-neutral-text !important;
+
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none !important;
+	}
+
+	&:not([href]) {
+		span:first-child {
+			background-color: tokens.$coral-color-neutral-background-disabled;
+		}
+	}
+
+	&[href] {
+		cursor: pointer;
+	}
+
+	span {
+		padding: 0 tokens.$coral-spacing-xxs;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+
+		&:first-child {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1ch;
+			background: tokens.$coral-color-neutral-background;
+			border-right: none;
+			border-radius: tokens.$coral-radius-s 0 0 tokens.$coral-radius-s;
+		}
+
+		&:last-child {
+			border-left: none;
+			border-radius: 0 tokens.$coral-radius-s tokens.$coral-radius-s 0;
+			text-transform: uppercase;
+		}
+	}
+
+	img {
+		height: tokens.$coral-sizing-minimal;
+		width: tokens.$coral-sizing-minimal;
+	}
+
+	.status {
+		&-ok {
+			color: tokens.$coral-color-success-text-weak;
+			background: tokens.$coral-color-success-background-strong;
+		}
+		&-wip {
+			color: tokens.$coral-color-beta-text-weak;
+			background: tokens.$coral-color-beta-background-strong;
+		}
+		&-deprecated {
+			color: tokens.$coral-color-warning-text-weak;
+			background: tokens.$coral-color-warning-background-strong;
+		}
+		&-ko {
+			color: tokens.$coral-color-danger-text-weak;
+			background: tokens.$coral-color-danger-background-strong;
+		}
+		&-na {
+			color: tokens.$coral-color-neutral-text-weak;
+			background: tokens.$coral-color-neutral-background-strong;
+		}
+	}
+}

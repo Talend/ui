@@ -1,16 +1,13 @@
 import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Status } from '../Status.block';
 import * as Stories from './Message.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=122%3A42331',
-	}}
-/>
+<Meta of={Stories} />
 
 # Message
+
+<Status id="message" />
 
 Message is a component that displays some information to the user and provide actions to interact with it.
 
@@ -19,6 +16,11 @@ Message is a component that displays some information to the user and provide ac
 TODO : FIGMA TO LINK
 
 ## Style
+
+<FigmaImage
+	src="https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=122%3A42331"
+	alt="image for messages"
+/>
 
 ### Text
 

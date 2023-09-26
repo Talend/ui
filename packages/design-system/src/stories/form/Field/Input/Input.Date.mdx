@@ -1,15 +1,13 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 import * as Stories from './Input.Date.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Date
+
+<Status id="formFieldInputDate" />
 
 It creates input fields that let the user enter a date, either with a textbox that validates the input or a special date picker interface.
 

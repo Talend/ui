@@ -1,6 +1,7 @@
 import { Canvas, Meta } from '@storybook/blocks';
 
 import * as Stories from './Accordion.stories';
+import { Status } from '../Status.block';
 
 import { InlineMessageWarning } from '../../';
 
@@ -8,11 +9,7 @@ import { InlineMessageWarning } from '../../';
 
 # Accordion
 
-<InlineMessageWarning
-	title="Work in progress"
-	withBackground
-	description="This component is still in work in progress, it's API can change in breaking ways in the coming weeks."
-/>
+<Status id="accordion" />
 
 Accordion is used to display expandable/collapsable cards with a title.
 

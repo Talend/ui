@@ -1,16 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Week.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Week
+
+<Status id="formFieldInputWeek" />
 
 `Form.Week` allows easy entry of a year plus the ISO 8601 week number during that year (i.e., week 1 to 52 or 53).
 

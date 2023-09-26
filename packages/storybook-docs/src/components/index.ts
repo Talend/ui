@@ -4,3 +4,4 @@ export * from './Card';
 export * from './FigmaImage';
 export * from './Grid';
 export * from './Use';
+export * from './Statuses';

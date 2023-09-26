@@ -1,16 +1,13 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import * as Stories from './FormButtons.stories';
+import { Status } from '../../Status.block';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/?node-id=34%3A4932',
-	}}
-/>
+<Meta of={Stories} />
 
 # Form buttons
+
+<Status id="formButton" />
 
 A Form always displays buttons in order to be cancelled or validated.
 

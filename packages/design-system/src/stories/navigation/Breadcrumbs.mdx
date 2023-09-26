@@ -1,16 +1,13 @@
 import { Meta, Story, Canvas } from '@storybook/blocks';
 import { FigmaImage, FigmaLink, Use } from '@talend/storybook-docs';
+import { Status } from '../Status.block';
 import * as Stories from './Breadcrumbs.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/8ifUyNjdZkWBmKKrgfB675/Breadcrumbs',
-	}}
-/>
+<Meta of={Stories} />
 
 # Breadcrumbs
+
+<Status id="breadcrumbs" />
 
 Breadcrumbs are navigation elements providing comprehensive context to users.
 

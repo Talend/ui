@@ -1,17 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Copy.stories';
 
-<Meta
-	of={Stories}
-    parameters={{
-    	status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
-    }}
-
-/>
+<Meta of={Stories} />
 
 # Copy
+
+<Status id="formFieldInputCopy" />
 
 A shortcut to a read-only `Form.Text` field with prefix and a state, it's used to let the user copy a generated text to clipboard.
 

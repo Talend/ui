@@ -1,16 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Month.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Month
+
+<Status id="formFieldInputMonth" />
 
 `Form.Month` lets users input a month and year. The value is a string formatted "YYYY-MM", where YYYY is the four-digit year and MM is the month number.
 
