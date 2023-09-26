@@ -16,7 +16,7 @@ export function Status({ icon, label, link, status }: StatusProps) {
 	return (
 		<a className={theme.badge} {...attrs}>
 			<span>
-				<img src={icon} alt="" />
+				<img src={icon} alt={`${label} icon`} />
 				{label}
 			</span>
 			<span className={theme[`status-${status}`]}>{status}</span>
