@@ -2,18 +2,15 @@ import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 
 import { Tag } from '../../';
+import { Status } from '../Status.block';
 
 import * as Stories from './Tag.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		figmaLink: 'https://www.figma.com/file/wggW0Nf0ZujylGaXt5Snnn/Tags',
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Tag
+
+<Status id="tag" />
 
 The Tag component is useful to emphasize information to the user, works best with single word values.
 

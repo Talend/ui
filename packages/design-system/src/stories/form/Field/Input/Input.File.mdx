@@ -1,16 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.File.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
-	}}
-/>
+<Meta of={Stories} />
 
 # File
+
+<Status id="formFieldInputFile" />
 
 The `Form.File` inputs allows users to select a file through drag and drop or by clicking on the input.
 

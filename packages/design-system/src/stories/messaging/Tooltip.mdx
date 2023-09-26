@@ -2,18 +2,15 @@ import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 
 import { Tooltip } from '../../';
+import { Status } from '../Status.block';
 
 import * as Stories from './Tooltip.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		figmaLink: 'https://www.figma.com/file/93AaDV2pC1tK9J1O6IbHho/Tooltips',
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Tooltip
+
+<Status id="tooltip" />
 
 Tooltips provide helpful, additional content for their paired elements on hover. They are contextual and specific to the element and don't provide the big picture.
 

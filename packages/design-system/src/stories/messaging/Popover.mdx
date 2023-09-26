@@ -1,15 +1,13 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import * as Stories from './Popover.stories';
 import { StackVertical, InlineMessageWarning } from '../../';
+import { Status } from '../Status.block';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Popover
+
+<Status id="popover" />
 
 <StackVertical
 	gap="XS"

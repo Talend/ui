@@ -1,20 +1,17 @@
 import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import * as Stories from './Status.stories';
+import { Status } from '../Status.block';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
-		figmaLink: 'https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A72',
-	}}
-/>
+<Meta of={Stories} />
 
 # Status
 
 The status component displays state information using semantic colors and icons.
 
 ## Zoning
+
+<Status id="status" />
 
 <FigmaImage
 	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/📐-Zoning?node-id=853%3A230"

@@ -1,14 +1,12 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Status } from '../Status.block';
 import * as Stories from './RichRadioButton.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'wip', react: 'wip', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Rich Radio Button
+
+<Status id="richRadioButton" />
 
 Selectable card with the same behavior as a radio button with multiple parameters to allow multiple combinations between title, description tags and icon/illustration
 

@@ -1,15 +1,13 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../Status.block';
 import * as Stories from './FormField.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Form Fields common rules
+
+<Status id="formField" />
 
 A Form Field features a label, an input and an optional [small inline message](docs/messaging-inlinemessage--docs) for text-based inputs.
 

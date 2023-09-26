@@ -1,16 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.DatetimeLocal.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Datetime Local
+
+<Status id="formFieldInputDateTimeLocal" />
 
 `Form.DatetimeLocal` lets users easily enter both a date and a time, including the year, month, and day as well as the time in hours and minutes.
 

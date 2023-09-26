@@ -3,17 +3,13 @@ import { FigmaImage, Use } from '@talend/storybook-docs';
 import { Link, IconsProvider } from '../../';
 import * as Stories from './Link.stories';
 import * as StoriesButton from './LinkAsButton.stories';
+import { Status } from '../Status.block';
 
-<Meta
-	title="Clickable/Link"
-	component={Link}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
-		figmaLink: 'https://www.figma.com/file/l3FmBFqbeqqSlz9TBZKgWS/Links',
-	}}
-/>
+<Meta title="Clickable/Link" component={Link} />
 
 # Link
+
+<Status id="link" />
 
 Link is used for navigation.
 

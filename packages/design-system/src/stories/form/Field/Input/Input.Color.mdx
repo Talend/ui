@@ -1,16 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Color.stories';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'wip', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Color
+
+<Status id="formFieldInputColor" />
 
 `<Form.Color />` lets users specify a color, either by using a visual color picker interface or by entering the color into a text field in #rrggbb hexadecimal format.
 

@@ -1,16 +1,14 @@
 import { ArgTypes, IconItem, Canvas, Meta, Story } from '@storybook/blocks';
 import { IconsProvider, InlineMessageWarning, Icon } from '../../';
+import { Status } from '../Status.block';
 import * as Stories from './Icon.stories';
 import { AllIconsDocs } from './Icons';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Icon
+
+<Status id="icon" />
 
 This component is generic and can be seens as a Primitive to display SVG, img, remote or not.
 

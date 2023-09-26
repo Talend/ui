@@ -2,16 +2,13 @@ import { Meta, Canvas, Story } from '@storybook/blocks';
 import { ArgTypes } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import * as Stories from './Button.stories';
+import { Status } from '../Status.block';
 
-<Meta
-	title="Clickable/Button"
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons',
-	}}
-/>
+<Meta title="Clickable/Button" />
 
 # Button
+
+<Status id="button" />
 
 Buttons are clickable items used for actions. They can have different styles depending on the needs.
 

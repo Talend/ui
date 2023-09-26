@@ -1,15 +1,11 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import { InlineEditing } from '../../';
+import { Status } from '../Status.block';
 import * as Stories from './InlineEditing.stories';
 
 <Meta
 	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
-		figmaLink:
-			'https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=422%3A3426',
-	}}
 	decorators={[
 		Story => (
 			<div>
@@ -20,6 +16,8 @@ import * as Stories from './InlineEditing.stories';
 />
 
 # Inline Editing
+
+<Status id="inlineEditing" />
 
 User can perform inline editing by using inline form.
 

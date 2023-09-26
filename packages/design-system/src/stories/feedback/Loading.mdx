@@ -1,14 +1,12 @@
 import { Meta, Canvas, Story } from '@storybook/blocks';
 import * as Stories from './Loading.stories';
+import { Status } from '../Status.block';
 
-<Meta
-	of={Stories}
-	parameters={{
-		status: { figma: 'ok', storybook: 'wip', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # Loading
+
+<Status id="loading" />
 
 ## Zoning
 

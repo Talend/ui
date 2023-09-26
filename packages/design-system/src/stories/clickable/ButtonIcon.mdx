@@ -1,16 +1,13 @@
 import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, FigmaLink, Links } from '@talend/storybook-docs';
 import * as Stories from './ButtonIcon.stories';
+import { Status } from '../Status.block';
 
-<Meta
-	of={Stories}
-	parameters={{
-		figmaLink: 'https://www.figma.com/file/KuJ1PlP77uyXlfOhdniqsZ/ButtonIcon?node-id=1%3A75',
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-	}}
-/>
+<Meta of={Stories} />
 
 # ButtonIcon
+
+<Status id="buttonIcon" />
 
 This component should be used when icons are meant to be clicked on.
 
