@@ -106,7 +106,7 @@ export function TokenList({
 								<span>{utils.getDisplayName(token.name)}</span>
 							</Tooltip>
 						</div>
-						<ul style={{ listStyleType: 'none' }}>
+						<ul style={{ listStyleType: 'none', marginTop: tokens.coralSpacingS }}>
 							<li>
 								<TokenValue lang="SCSS">{utils.getScssName(token.name)}</TokenValue>
 							</li>

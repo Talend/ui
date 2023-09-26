@@ -25,7 +25,7 @@ Buttons are clickable items used for actions. They can have different styles dep
 
 Coral supports two button sizes: `M` and `S`.
 
-The small size can only display icons from [SizedIcon's "S" batch](/docs/components-icon-sizedicon--icon-xs).
+The small size can only display icons from [SizedIcon's "S" batch](/docs/icons-sizedicon--docs).
 
 ### Variations
 
@@ -35,17 +35,17 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/compone
 />
 
 <Canvas withSource="closed">
-	<Story story={Stories.Variations} />
+	<Story of={Stories.Variations} />
 </Canvas>
 
 #### Primary
 
 <Canvas withSource="closed">
-	<Story story={Stories.PrimaryVariations} />
+	<Story of={Stories.PrimaryVariations} />
 </Canvas>
 
 <Canvas>
-	<Story story={Stories.Primary} />
+	<Story of={Stories.Primary} />
 </Canvas>
 
 <ArgTypes of={Stories.Primary} />
@@ -53,11 +53,11 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/compone
 #### Destructive
 
 <Canvas withSource="closed">
-	<Story story={Stories.DestructiveVariations} />
+	<Story of={Stories.DestructiveVariations} />
 </Canvas>
 
 <Canvas>
-	<Story story={Stories.Destructive} />
+	<Story of={Stories.Destructive} />
 </Canvas>
 
 <ArgTypes of={Stories.Destructive} />
@@ -65,11 +65,11 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/compone
 #### Secondary
 
 <Canvas withSource="closed">
-	<Story story={Stories.SecondaryVariations} />
+	<Story of={Stories.SecondaryVariations} />
 </Canvas>
 
 <Canvas>
-	<Story story={Stories.Secondary} />
+	<Story of={Stories.Secondary} />
 </Canvas>
 
 <ArgTypes of={Stories.Secondary} />
@@ -77,11 +77,11 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/compone
 #### Tertiary
 
 <Canvas withSource="closed">
-	<Story story={Stories.TertiaryVariations} />
+	<Story of={Stories.TertiaryVariations} />
 </Canvas>
 
 <Canvas>
-	<Story story={Stories.Tertiary} />
+	<Story of={Stories.Tertiary} />
 </Canvas>
 
 <ArgTypes of={Stories.Tertiary} />
@@ -95,17 +95,17 @@ All buttons have interactive states for "hover", "active" and "disabled". A focu
 Use `SkeletonButton` or `Skeleton variant="button"` to represent a placeholder for a button.
 
 <Canvas>
-	<Story story={Stories.SkeletonButton} />
+	<Story of={Stories.SkeletonButton} />
 </Canvas>
 
-[The Skeleton Documentation is over there!](/docs/components-skeleton--skeleton-button-story)
+[The Skeleton Documentation is over there!](/docs/feedback-skeleton--docs)
 
 ### Button tooltips
 
 Buttons can have a tooltip on hover displaying additional description.
 
 <Canvas>
-	<Story story={Stories.TooltipButton} />
+	<Story of={Stories.TooltipButton} />
 </Canvas>
 
 ### Async buttons
@@ -115,7 +115,7 @@ If the button has an icon, the spinner will temporarily replace this icon as lon
 No action will be possible until it's done.
 
 <Canvas>
-	<Story story={Stories.Loading} />
+	<Story of={Stories.Loading} />
 </Canvas>
 
 ## Usage
@@ -124,7 +124,7 @@ As you've seen, each variant has its own component. But you may want to switch f
 You can, using the `<Button>` generic component.
 
 <Canvas>
-	<Story story={Stories.VariantComponent} />
+	<Story of={Stories.VariantComponent} />
 </Canvas>
 
 Each variant has the same usage rules as their standalone component counterparts seen above.

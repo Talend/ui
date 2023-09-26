@@ -30,21 +30,21 @@ The status component displays state information using semantic colors and icons.
 #### With text
 
 <Canvas>
-	<Story story={Stories.InProgress} />
-	<Story story={Stories.Successful} />
-	<Story story={Stories.Failed} />
-	<Story story={Stories.Warning} />
-	<Story story={Stories.Canceled} />
+	<Story of={Stories.InProgress} />
+	<Story of={Stories.Successful} />
+	<Story of={Stories.Failed} />
+	<Story of={Stories.Warning} />
+	<Story of={Stories.Canceled} />
 </Canvas>
 
 #### Without text
 
 <Canvas>
-	<Story story={Stories.InProgressIcon} />
-	<Story story={Stories.SuccessfulIcon} />
-	<Story story={Stories.FailedIcon} />
-	<Story story={Stories.WarningIcon} />
-	<Story story={Stories.CanceledIcon} />
+	<Story of={Stories.InProgressIcon} />
+	<Story of={Stories.SuccessfulIcon} />
+	<Story of={Stories.FailedIcon} />
+	<Story of={Stories.WarningIcon} />
+	<Story of={Stories.CanceledIcon} />
 </Canvas>
 
 ## States
@@ -75,8 +75,8 @@ By default, each Status variants has a label:
 Depending on the use case, it is possible to have another label instead but keeping the same meaning.
 
 <Canvas>
-	<Story story={Stories.CustomSuccessful} />
-	<Story story={Stories.CustomInProgressIcon} />
+	<Story of={Stories.CustomSuccessful} />
+	<Story of={Stories.CustomInProgressIcon} />
 </Canvas>
 
 ## Usage
@@ -86,7 +86,7 @@ You can directly use the presets `StatusInProgress` etc... but in some cases you
 You can.
 
 <Canvas>
-	<Story story={Stories.Usage} />
+	<Story of={Stories.Usage} />
 </Canvas>
 
 <ArgTypes story={Stories.Usage} />

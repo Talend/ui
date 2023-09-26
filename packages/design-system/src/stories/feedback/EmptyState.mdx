@@ -26,7 +26,7 @@ Use empty states to communicate about the current state of the system or to tell
 />
 
 <Canvas withSource="closed">
-	<Story story={Stories.Demo} />
+	<Story of={Stories.Demo} />
 </Canvas>
 
 ### Purposes
@@ -45,7 +45,7 @@ Empty states come in different sizes to accommodate to empty state types and pag
 #### EmptyStateLarge (with Spot illustration)
 
 <Canvas>
-	<Story story={Stories.Large} />
+	<Story of={Stories.Large} />
 </Canvas>
 
 **Content guidelines**
@@ -63,7 +63,7 @@ Use large empty states when the empty content area on screen takes up at least 5
 #### EmptyStateMedium (with Icon illustration)
 
 <Canvas>
-	<Story story={Stories.MediumWithAction} />
+	<Story of={Stories.MediumWithAction} />
 </Canvas>
 
 <ArgTypes of={Stories.MediumWithAction} />
@@ -83,7 +83,7 @@ Use medium empty states when the empty content area on screen takes up less than
 #### EmptyStateSmall (with no Icon illustration)
 
 <Canvas>
-	<Story story={Stories.Small} />
+	<Story of={Stories.Small} />
 </Canvas>
 
 **Content guidelines**
@@ -161,7 +161,7 @@ N/A
 ### Components props
 
 <Canvas withSource="closed">
-	<Story story={Stories.Usage} />
+	<Story of={Stories.Usage} />
 </Canvas>
 
 <ArgTypes of={Stories.Usage} />
@@ -173,5 +173,5 @@ You may need your CTA to redirect to a page. The `action` props is tailored to m
 You can therefore easily set-up a button that's actually a link:
 
 <Canvas>
-	<Story story={Stories.LargeWithLinkButton} />
+	<Story of={Stories.LargeWithLinkButton} />
 </Canvas>

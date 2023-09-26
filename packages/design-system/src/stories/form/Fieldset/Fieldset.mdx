@@ -33,7 +33,7 @@ If the fields are even more closely related, display them on the same line using
 />
 
 <Canvas>
-	<Story story={Stories.Default} />
+	<Story of={Stories.Default} />
 </Canvas>
 
 ## States
@@ -48,7 +48,7 @@ A fieldset usually does not carry error state. Its individual fields do.
 />
 
 <Canvas>
-	<Story story={Stories.Error} />
+	<Story of={Stories.Error} />
 </Canvas>
 
 In case of more than one error or a horizontal fieldset, display the errors under each affected field.
@@ -59,7 +59,7 @@ In case of more than one error or a horizontal fieldset, display the errors unde
 />
 
 <Canvas>
-	<Story story={Stories.Errors} />
+	<Story of={Stories.Errors} />
 </Canvas>
 
 ## Content
@@ -98,7 +98,7 @@ The trigger can be any "on / off" interactions available in a form:
 Use sparingly as it makes a form harder to predict and understand at a glance.
 
 <Canvas>
-	<Story story={Stories.ConditionalFieldset} />
+	<Story of={Stories.ConditionalFieldset} />
 </Canvas>
 
 ## Usage

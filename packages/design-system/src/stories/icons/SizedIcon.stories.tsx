@@ -30,7 +30,16 @@ const colorOptions = {
 		tokens.coralColorNeutralIcon,
 		tokens.coralColorWarningIcon,
 	],
-	control: { type: 'select' },
+	control: {
+		type: 'select',
+		labels: {
+			[tokens.coralColorSuccessIcon]: 'Success',
+			[tokens.coralColorAccentIcon]: 'Accent',
+			[tokens.coralColorDangerIcon]: 'Danger',
+			[tokens.coralColorNeutralIcon]: 'Neutral',
+			[tokens.coralColorWarningIcon]: 'Warning',
+		},
+	},
 };
 const defaultColor = tokens.coralColorNeutralIcon;
 const defaultName = 'pencil';
@@ -45,6 +54,11 @@ IconXS.argTypes = {
 		control: { type: 'select' },
 	},
 	color: colorOptions,
+	size: {
+		table: {
+			disable: true,
+		},
+	},
 };
 IconXS.args = defaultArgs;
 
@@ -54,6 +68,11 @@ IconS.argTypes = {
 		control: { type: 'select' },
 	},
 	color: colorOptions,
+	size: {
+		table: {
+			disable: true,
+		},
+	},
 };
 IconS.args = defaultArgs;
 
@@ -63,6 +82,11 @@ IconM.argTypes = {
 		control: { type: 'select' },
 	},
 	color: colorOptions,
+	size: {
+		table: {
+			disable: true,
+		},
+	},
 };
 IconM.args = defaultArgs;
 
@@ -72,6 +96,11 @@ IconL.argTypes = {
 		control: { type: 'select' },
 	},
 	color: colorOptions,
+	size: {
+		table: {
+			disable: true,
+		},
+	},
 };
 IconL.args = defaultArgs;
 

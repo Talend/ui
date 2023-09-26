@@ -20,7 +20,7 @@ A Form always displays buttons in order to be cancelled or validated.
 
 ## Style
 
-- The gap between buttons should be `spacing-m` ([read the tokens doc here](/docs/design-tokens-light-measures--page)).
+- The gap between buttons should be `spacing-m` ([read the tokens doc here](/docs/design-tokens-measures--docs)).
 
 ## States
 
@@ -32,7 +32,7 @@ A Form always displays buttons in order to be cancelled or validated.
 />
 
 <Canvas>
-	<Story story={Stories.FormButtonsSkeleton} />
+	<Story of={Stories.FormButtonsSkeleton} />
 </Canvas>
 
 ### Default
@@ -43,7 +43,7 @@ A Form always displays buttons in order to be cancelled or validated.
 />
 
 <Canvas>
-	<Story story={Stories.FormButtonsDefault} />
+	<Story of={Stories.FormButtonsDefault} />
 </Canvas>
 
 ### Loading
@@ -54,7 +54,7 @@ A Form always displays buttons in order to be cancelled or validated.
 />
 
 <Canvas>
-	<Story story={Stories.FormButtonsLoading} />
+	<Story of={Stories.FormButtonsLoading} />
 </Canvas>
 
 ## Content
@@ -75,13 +75,13 @@ Sort the buttons from the least to the most important.
 />
 
 <Canvas>
-	<Story story={Stories.FormButtonsOrder} />
+	<Story of={Stories.FormButtonsOrder} />
 </Canvas>
 
 If there is only one button accompanying the form, then it should stick to the right.
 
 <Canvas withSource="closed">
-	<Story story={Stories.FormButtonsSingle} />
+	<Story of={Stories.FormButtonsSingle} />
 </Canvas>
 
 ### Buttons with icons

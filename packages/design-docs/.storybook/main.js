@@ -16,12 +16,12 @@ const STORIES = [
 	`${rootPath}src/Principles.mdx`,
 	`${rootPath}src/Statuses.mdx`,
 	// `${rootPath}src/Catalog.mdx`,
-	`${rootPath}src/tokens/**/*.mdx`,
 	`${rootPath}src/content/VoiceAndTone.@(js|tsx|mdx)`,
 	`${rootPath}src/content/Internationalization.@(js|tsx|mdx)`,
 	`${rootPath}src/content/Conventions.@(js|tsx|mdx)`,
 	`${rootPath}src/content/Capitalization.@(js|tsx|mdx)`,
 	`${rootPath}src/content/Wording.@(js|tsx|mdx)`,
+	`${rootPath}src/tokens/**/*.mdx`,
 	`${rootPath}../design-system/src/stories/**/*.@(stories.tsx|mdx)`,
 	// `${rootPath}src/components/**/*.@(stories.tsx|mdx)`,
 ];

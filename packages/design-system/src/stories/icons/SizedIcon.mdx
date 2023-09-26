@@ -1,4 +1,4 @@
-import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
+import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
 import { SizedIcon } from '../../';
 import { Status } from '../Status.block';
 import * as Stories from './SizedIcon.stories';
@@ -26,34 +26,34 @@ You may need to wrap your icon with a `span` node to target it specifically.
 #### Size XS
 
 <Canvas>
-	<Story story={Stories.IconXS} />
+	<Story of={Stories.IconXS} />
 </Canvas>
 
-<ArgTypes of={Stories.IconXS} />
+<Controls of={Stories.IconXS} />
 
 #### Size S
 
 <Canvas>
-	<Story story={Stories.IconS} />
+	<Story of={Stories.IconS} />
 </Canvas>
 
-<ArgTypes of={Stories.IconS} />
+<Controls of={Stories.IconS} />
 
 #### Size M
 
 <Canvas>
-	<Story story={Stories.IconM} />
+	<Story of={Stories.IconM} />
 </Canvas>
 
-<ArgTypes of={Stories.IconM} />
+<Controls of={Stories.IconM} />
 
 #### Size L
 
 <Canvas>
-	<Story story={Stories.IconL} />
+	<Story of={Stories.IconL} />
 </Canvas>
 
-<ArgTypes of={Stories.IconL} />
+<Controls of={Stories.IconL} />
 
 ## States
 
@@ -69,7 +69,7 @@ NA
 
 ## Usage
 
-Icons are illustrative elements, not interactive. If you need a clickable icon, check out [the ButtonIcon docs here.](/docs/components-clickable-buttons-buttonicon--variations)
+Icons are illustrative elements, not interactive. If you need a clickable icon, check out [the ButtonIcon docs here.](/docs/clickable-buttonicon--docs)
 
 ## Accessibility
 

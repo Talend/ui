@@ -40,7 +40,7 @@ Consider using a vertical stepper when there are workflows greater than 3 steps.
 />
 
 <Canvas>
-	<Story story={Stories.Vertical} />
+	<Story of={Stories.Vertical} />
 </Canvas>
 
 **Horizontal**
@@ -55,7 +55,7 @@ A horizontal stepper should not have more than 3 steps.
 />
 
 <Canvas>
-	<Story story={Stories.Horizontal} />
+	<Story of={Stories.Horizontal} />
 </Canvas>
 
 ## States
@@ -65,13 +65,13 @@ A horizontal stepper should not have more than 3 steps.
 **Vertical**
 
 <Canvas>
-	<Story story={Stories.VerticalLoading} />
+	<Story of={Stories.VerticalLoading} />
 </Canvas>
 
 **Horizontal**
 
 <Canvas>
-	<Story story={Stories.HorizontalLoading} />
+	<Story of={Stories.HorizontalLoading} />
 </Canvas>
 
 ### Overflowing steps
@@ -79,7 +79,7 @@ A horizontal stepper should not have more than 3 steps.
 The space dedicated to step is limited. No reflow strategy has been put in place, so text overflow is truncated with an ellipsis.
 
 <Canvas>
-	<Story story={Stories.Overflows} />
+	<Story of={Stories.Overflows} />
 </Canvas>
 
 ## Content
@@ -138,7 +138,7 @@ In case of an error in the current step, please inform the user by using an inli
 ## Usage
 
 <Canvas>
-	<Story story={Stories.Usage}></Story>
+	<Story of={Stories.Usage}></Story>
 </Canvas>
 
 <ArgTypes story={Stories.Usage} />

@@ -9,7 +9,7 @@ import * as Stories from './FormField.stories';
 
 <Status id="formField" />
 
-A Form Field features a label, an input and an optional [small inline message](docs/components-inline-message--default-demo) for text-based inputs.
+A Form Field features a label, an input and an optional [small inline message](docs/messaging-inlinemessage--docs) for text-based inputs.
 
 ## Zoning
 
@@ -32,7 +32,7 @@ The user must correct the error within the field. Once the error is corrected, t
 />
 
 <Canvas>
-	<Story story={Stories.FormFieldError} />
+	<Story of={Stories.FormFieldError} />
 </Canvas>
 
 ## Content
@@ -47,7 +47,7 @@ The default behavior is to highlight the mandatory fields by using the asterisk 
 />
 
 <Canvas>
-	<Story story={Stories.FormFieldRequired} />
+	<Story of={Stories.FormFieldRequired} />
 </Canvas>
 
 ### Information
@@ -60,7 +60,7 @@ A message can be displayed below the input to help the user by recommending appr
 />
 
 <Canvas>
-	<Story story={Stories.FormFieldInformation} />
+	<Story of={Stories.FormFieldInformation} />
 </Canvas>
 
 ### Link
@@ -75,7 +75,7 @@ If a description or an error is applied to the field, it must be displayed betwe
 />
 
 <Canvas>
-	<Story story={Stories.FormFieldPassword} />
+	<Story of={Stories.FormFieldPassword} />
 </Canvas>
 
 ## Usage
