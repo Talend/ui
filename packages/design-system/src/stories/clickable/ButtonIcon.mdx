@@ -1,13 +1,12 @@
-import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
 import { FigmaImage, FigmaLink, Links } from '@talend/storybook-docs';
 import * as Stories from './ButtonIcon.stories';
 import { Status } from '../Status.block';
 
 <Meta of={Stories} />
+<Status id="buttonIcon" />
 
 # ButtonIcon
-
-<Status id="buttonIcon" />
 
 This component should be used when icons are meant to be clicked on.
 
@@ -112,7 +111,7 @@ You have access to three components with curated props for each.
 	<Story of={Stories.Default} />
 </Canvas>
 
-<ArgTypes of={Stories.Default} />
+<Controls of={Stories.Default} />
 
 ### ButtonIconToggle
 
@@ -120,7 +119,7 @@ You have access to three components with curated props for each.
 	<Story of={Stories.Toggle} />
 </Canvas>
 
-<ArgTypes of={Stories.Toggle} />
+<Controls of={Stories.Toggle} />
 
 ### ButtonIconFloating
 
@@ -128,7 +127,7 @@ You have access to three components with curated props for each.
 	<Story of={Stories.Floating} />
 </Canvas>
 
-<ArgTypes of={Stories.Floating} />
+<Controls of={Stories.Floating} />
 
 ### Button props
 

@@ -1,14 +1,13 @@
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/blocks';
+import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import { Status } from '../Status.block';
 
 import * as Stories from './Stepper.Step.stories';
 
 <Meta of={Stories} />
+<Status id="stepperStep" />
 
 # Step
-
-<Status id="stepperStep" />
 
 Steps are the main elements for the stepper.
 
@@ -54,7 +53,7 @@ N/C
 	<Story of={Stories.Usage} />
 </Canvas>
 
-<ArgsTable story="usage" />
+<Controls of={Stories.Usage} />
 
 ## Accessibility
 

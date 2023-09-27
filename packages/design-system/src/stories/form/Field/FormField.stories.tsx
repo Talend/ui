@@ -2,7 +2,7 @@ import { Form } from '../../../../';
 
 export default {
 	component: Form.Text,
-	title: 'Form/Fields',
+	title: 'Form/Fields/About',
 };
 
 export const FormFieldError = () => (

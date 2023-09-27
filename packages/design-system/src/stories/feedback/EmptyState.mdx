@@ -1,14 +1,13 @@
-import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
+import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import { Status } from '../Status.block';
 
 import * as Stories from './EmptyState.stories';
 
 <Meta of={Stories} />
+<Status id="emptyState" />
 
 # EmptyState
-
-<Status id="emptyState" />
 
 They describe the “empty” screens in an application when a system does not have anything to show.
 
@@ -66,7 +65,7 @@ Use large empty states when the empty content area on screen takes up at least 5
 	<Story of={Stories.MediumWithAction} />
 </Canvas>
 
-<ArgTypes of={Stories.MediumWithAction} />
+<Controls of={Stories.MediumWithAction} />
 
 **Content guidelines**
 
@@ -164,7 +163,7 @@ N/A
 	<Story of={Stories.Usage} />
 </Canvas>
 
-<ArgTypes of={Stories.Usage} />
+<Controls of={Stories.Usage} />
 
 ### Button as Link
 

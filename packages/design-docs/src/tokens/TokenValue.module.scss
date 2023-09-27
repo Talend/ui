@@ -1,12 +1,21 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 .btn {
 	display: flex;
 	font-size: 0.5rem !important;
+	align-items: center;
+	gap: 4px;
+
 	svg {
 		visibility: hidden;
 	}
 
-	&:hover svg {
-		visibility: visible;
+	&:hover {
+		color: tokens.$coral-color-accent-text;
+		font-weight: bold;
+		svg {
+			visibility: visible;
+		}
 	}
 }
 

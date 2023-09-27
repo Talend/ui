@@ -50,6 +50,7 @@ export default {
 	title: 'Clickable/ButtonIcon',
 	args: defaultArgs,
 	argTypes: commonArgTypes,
+	withToolbar: true,
 } as Meta<typeof ButtonIcon>;
 
 const TemplateIcon: StoryFn<typeof ButtonIcon> = args => {

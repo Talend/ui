@@ -1,7 +1,6 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Unstyled } from '@storybook/blocks';
 import { StackHorizontal, StackVertical } from '@talend/design-system';
 import TokenDefinition from './definition.png';
-// import WhatAreTokens from './WhatAreTokens';
 import ExampleCard from './ExampleCard';
 
 <Meta title="Design Tokens/About" />
@@ -13,33 +12,21 @@ They are exported from Figma using [Supernova](https://www.supernova.io/).
 
 ## What are design tokens?
 
-<StackHorizontal
-    gap="XL"
-    justify="spaceBetween"
-    align="start"
-    margin={{ top: 0, bottom: 'L', left: 0, right: 0 }}
->
-    <StackVertical gap="M">
-        <p>
-            Design tokens are the foundations of a strong Design System — they are «the visual atoms
-            of the Design System». Tokens are a set of <strong>visual properties</strong> such as
-            colors, sizes, shadows, animations...
-        </p>
-        <p>
-            Ours are using a <strong>semantic</strong> nomenclature instead of a simple description.
-            That way, they create a common language not depending on the component type or the
-            platform where it lives. It ensures developers and designers speak the same language.
-            Tokens make it easier to build our product by improving communication and design-to-code
-            handoff, enforcing a logical approach behind every design decisions they can target.
-        </p>
-    </StackVertical>
-    <img
-        src={TokenDefinition}
-        alt="This graph shows that for one token name, depending on a theme, the value can be different"
-        width="464px"
-    />
+<img
+	src={TokenDefinition}
+	alt="This graph shows that for one token name, depending on a theme, the value can be different"
+	width="464px"
+/>
 
-</StackHorizontal>
+Design tokens are the foundations of a strong Design System — they are «the visual atoms
+of the Design System». Tokens are a set of <strong>visual properties</strong> such as
+colors, sizes, shadows, animations...
+
+Ours are using a <strong>semantic</strong> nomenclature instead of a simple description.
+That way, they create a common language not depending on the component type or the
+platform where it lives. It ensures developers and designers speak the same language.
+Tokens make it easier to build our product by improving communication and design-to-code
+handoff, enforcing a logical approach behind every design decisions they can target.
 
 ## Theming with design tokens
 
@@ -52,7 +39,9 @@ stylesheet and update the <code>data-theme</code> attribute and you’re done.
 With tokens, designing and implementing once works for every possible theme.
 Components built with tokens are resilient.
 
-<ExampleCard />
+<Unstyled>
+	<ExampleCard />
+</Unstyled>
 
 ## Coral design tokens
 
@@ -60,7 +49,7 @@ Components built with tokens are resilient.
 - [Branding](/docs/design-tokens-branding--docs)
 - [Breakpoints](/docs/design-tokens-breakpoints--docs)
 - [Colors](/docs/design-tokens-colors--docs)
-- [Color Compositions](/docs/design-tokens-color-compositions--docs)
+- [Color Compositions](/docs/design-tokens-color-composition--docs)
 - [Elevations](/docs/design-tokens-elevations--docs)
 - [Gradients](/docs/design-tokens-gradients--docs)
 - [Opacity](/docs/design-tokens-opacity--docs)

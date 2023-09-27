@@ -1,14 +1,12 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
-import { ArgTypes } from '@storybook/blocks';
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import * as Stories from './Button.stories';
 import { Status } from '../Status.block';
 
 <Meta title="Clickable/Button" />
+<Status id="button" />
 
 # Button
-
-<Status id="button" />
 
 Buttons are clickable items used for actions. They can have different styles depending on the needs.
 
@@ -48,7 +46,7 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/icons-s
 	<Story of={Stories.Primary} />
 </Canvas>
 
-<ArgTypes of={Stories.Primary} />
+<Controls of={Stories.Primary} />
 
 #### Destructive
 
@@ -60,7 +58,7 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/icons-s
 	<Story of={Stories.Destructive} />
 </Canvas>
 
-<ArgTypes of={Stories.Destructive} />
+<Controls of={Stories.Destructive} />
 
 #### Secondary
 
@@ -72,7 +70,7 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/icons-s
 	<Story of={Stories.Secondary} />
 </Canvas>
 
-<ArgTypes of={Stories.Secondary} />
+<Controls of={Stories.Secondary} />
 
 #### Tertiary
 
@@ -84,7 +82,7 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/icons-s
 	<Story of={Stories.Tertiary} />
 </Canvas>
 
-<ArgTypes of={Stories.Tertiary} />
+<Controls of={Stories.Tertiary} />
 
 ## Interactions
 

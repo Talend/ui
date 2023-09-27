@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story, ArgTypes } from '@storybook/blocks';
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import {
 	SkeletonButton,
@@ -14,10 +14,9 @@ import { Status } from '../Status.block';
 import * as Stories from './Skeleton.stories';
 
 <Meta of={Stories} />
+<Status id="skeleton" />
 
 # Skeleton
-
-<Status id="skeleton" />
 
 Skeleton is used as placeholder to fill the space while the real content is loading.
 
@@ -35,7 +34,7 @@ Skeleton is used as placeholder to fill the space while the real content is load
 	<Story of={Stories.SkeletonButtonStory} />
 </Canvas>
 
-<ArgTypes of={Stories.SkeletonButtonStory} />
+<Controls of={Stories.SkeletonButtonStory} />
 
 ### ButtonIcon
 
@@ -45,7 +44,7 @@ Skeleton is used as placeholder to fill the space while the real content is load
 	<Story of={Stories.SkeletonButtonIconStory} />
 </Canvas>
 
-<ArgTypes story={Stories.SkeletonButtonIconStory} />
+<Controls of={Stories.SkeletonButtonIconStory} />
 
 ### Text
 
@@ -59,7 +58,7 @@ It illustrates any heading element.
 	<Story of={Stories.SkeletonHeadingStory} />
 </Canvas>
 
-<ArgTypes story={Stories.SkeletonHeadingStory} />
+<Controls of={Stories.SkeletonHeadingStory} />
 
 #### Paragraph
 
@@ -71,7 +70,7 @@ It illustrates any paragraph or small copy element.
 	<Story of={Stories.SkeletonParagraphStory} />
 </Canvas>
 
-<ArgTypes story={Stories.SkeletonParagraphStory} />
+<Controls of={Stories.SkeletonParagraphStory} />
 
 #### Input
 

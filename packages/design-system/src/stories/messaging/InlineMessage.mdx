@@ -1,14 +1,13 @@
-import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
+import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import { InlineMessage } from '../../';
 import { Status } from '../Status.block';
 import * as Stories from './InlineMessage.stories';
 
 <Meta of={Stories} />
+<Status id="inlineMessage" />
 
 # Inline Message
-
-<Status id="inlineMessage" />
 
 Inline Message semantically highlights necessary information to the user in different contexts.
 
@@ -114,7 +113,7 @@ If you need a message to change from one semantic type to another, a prop may be
 
 It behaves like the standalone components but with a `variant` prop.
 
-<ArgTypes of={Stories.Variant} />
+<Controls of={Stories.Variant} />
 
 ### With a Router link
 

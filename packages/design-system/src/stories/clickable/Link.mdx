@@ -1,4 +1,4 @@
-import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
+import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import { Link, IconsProvider } from '../../';
 import * as Stories from './Link.stories';
@@ -6,10 +6,9 @@ import * as StoriesButton from './LinkAsButton.stories';
 import { Status } from '../Status.block';
 
 <Meta title="Clickable/Link" component={Link} />
+<Status id="link" />
 
 # Link
-
-<Status id="link" />
 
 Link is used for navigation.
 
@@ -85,7 +84,7 @@ If your action open a new tab, you can use the `openInNewTab` props to trigger t
 	<Story of={StoriesButton.LinkAsButtonStory} />
 </Canvas>
 
-<ArgTypes of={StoriesButton.LinkAsButtonStory} />
+<Controls of={StoriesButton.LinkAsButtonStory} />
 
 ## Content
 
@@ -135,4 +134,4 @@ Press <kbd>ENTER</kbd> to open a link
 	<Story of={Stories.Usage} />
 </Canvas>
 
-<ArgTypes of={Stories.Usage} />
+<Controls of={Stories.Usage} />

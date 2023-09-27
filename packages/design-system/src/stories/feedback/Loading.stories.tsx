@@ -1,3 +1,4 @@
+import tokens from '@talend/design-tokens';
 import { Loading } from '../..';
 
 export default {
@@ -5,4 +6,8 @@ export default {
 	title: 'Feedback/Loading',
 };
 
-export const Default = () => <Loading />;
+export const Default = () => (
+	<div style={{ maxWidth: tokens.coralSizingMaximal }}>
+		<Loading />
+	</div>
+);
