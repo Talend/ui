@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import { useCallback, useState } from 'react';
+import { useMemo, useState } from 'react';
 import get from 'lodash/get';
+import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import { DropdownButton } from '@talend/design-system';
 import { Action } from '@talend/react-components/lib/Actions';
@@ -21,12 +22,15 @@ const createRowItemEntity = value => option => {
 	};
 };
 
-const getRows = (values, value, filterValue) => {
-	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
+const getRows = (values, value) => {
+	return values.map(createRowItemEntity(value));
+};
 
-	return values
+const getVisibleRows = (rows, filterValue, showAll) => {
+	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
+	return rows
 		.filter(option => get(option, 'label', '').toLocaleLowerCase().includes(formatFilterValue))
-		.map(createRowItemEntity(value));
+		.filter(row => (showAll ? true : row.checked));
 };
 
 const BadgeMenuForm = ({
@@ -40,9 +44,17 @@ const BadgeMenuForm = ({
 	...rest
 }) => {
 	const [filter, setFilter] = useState('');
+	const [showAll, setShowAll] = useState(true);
 
 	const badgeMenuFormId = `${id}-menu-form`;
-	const items = useCallback(getRows(values, value, filter), [values, value, filter]);
+	const items = useMemo(() => getRows(values, value), [values, value]);
+	const visibleItems = useMemo(
+		() => getVisibleRows(items, filter, showAll),
+		[items, filter, showAll],
+	);
+	const showSelectedToggleLabel = showAll
+		? t('SHOW_SELECTED_ITEM', { defaultValue: 'Selected' })
+		: t('SHOW_ALL_ITMES', { defaultValue: 'Show all' });
 	return (
 		<>
 			<Rich.Layout.Header className={theme('fs-badge-menu-form-header')}>
@@ -72,7 +84,7 @@ const BadgeMenuForm = ({
 				onSubmit={onSubmit}
 			>
 				<Rich.Layout.Body id={badgeMenuFormId} className={theme('fs-badge-menu-form-body')}>
-					{items.map(rowItem => {
+					{visibleItems.map(rowItem => {
 						return (
 							<DropdownButton
 								key={rowItem.id}
@@ -89,6 +101,20 @@ const BadgeMenuForm = ({
 					})}
 				</Rich.Layout.Body>
 				<Rich.Layout.Footer id={id} className={theme('fs-badge-menu-form-footer')}>
+					<div>
+						{!isEmpty(value) && (
+							<Action
+								type="button"
+								onClick={() => {
+									setShowAll(!showAll);
+									setFilter('');
+								}}
+								label={showSelectedToggleLabel}
+								bsStyle="link"
+								className={theme('fs-badge-menu-form-left-button')}
+							/>
+						)}
+					</div>
 					<Action
 						type="submit"
 						label={t('APPLY', { defaultValue: 'Apply' })}
