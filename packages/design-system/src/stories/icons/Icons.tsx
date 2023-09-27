@@ -1,23 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { IconGallery, IconItem } from '@storybook/blocks';
 
-import { Form, Icon, IconsProvider } from '../../';
+import { StackHorizontal, Form, Icon, IconsProvider } from '../../';
 
 type TemplateProps = {
 	name: string;
 	size: number;
 	transform: string;
-	border: boolean;
-	filter: boolean;
-	useCurrentColor: boolean;
+	border?: boolean;
+	filter?: boolean;
+	useCurrentColor?: boolean;
 };
 
 type AllIconsTemplateProps = {
 	children: (props: TemplateProps) => React.ReactNode;
+	docs?: boolean;
 };
 
-export const AllIconsTemplate = ({ children }: AllIconsTemplateProps) => {
+export const AllIconsTemplate = ({ children, docs }: AllIconsTemplateProps) => {
 	const [icons, setIds] = useState<(string | null)[]>([]);
 	const [query, setQuery] = useState<string>('');
 	const [size, setSize] = useState<number>(2);
@@ -45,13 +47,19 @@ export const AllIconsTemplate = ({ children }: AllIconsTemplateProps) => {
 	const onChangeTransform = (event: ChangeEvent<HTMLSelectElement>) => {
 		setTransform(event.currentTarget.value);
 	};
+	const Wrapper = (props: { children: ReactNode }) => {
+		if (docs) {
+			return <IconGallery>{props.children}</IconGallery>;
+		}
+		return <div>{props.children}</div>;
+	};
 
 	return (
 		<>
 			<Form>
-				<Form.Search name="search" label="Search" onChange={onChangeQuery} />
-				<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-					<Form.Select name="Size" label="Size" onChange={onChangeSize}>
+				<StackHorizontal gap="M">
+					<Form.Search name="search" label="Search" onChange={onChangeQuery} />
+					<Form.Select name="Size" label="Size" onChange={onChangeSize} value={size}>
 						<option value="1">S</option>
 						<option value="2">M</option>
 						<option value="3">L</option>
@@ -69,23 +77,14 @@ export const AllIconsTemplate = ({ children }: AllIconsTemplateProps) => {
 						<option>flip-horizontal</option>
 						<option>flip-vertical</option>
 					</Form.Select>
-					<div>
-						<Form.ToggleSwitch
-							label="Use color"
-							name="color"
-							onChange={() => setUseCurrentColor(!useCurrentColor)}
-							checked={!!useCurrentColor}
-						/>
-						<Form.Color
-							label="Color"
-							onChange={(event: FormEvent<HTMLInputElement>) =>
-								setCurrentColor(event.currentTarget.value)
-							}
-							value={currentColor}
-							disabled={!useCurrentColor}
-							name="color"
-						/>
-					</div>
+				</StackHorizontal>
+				<StackHorizontal gap="M">
+					<Form.ToggleSwitch
+						label="Use color"
+						name="color"
+						onChange={() => setUseCurrentColor(!useCurrentColor)}
+						checked={!!useCurrentColor}
+					/>
 					<Form.ToggleSwitch
 						label="Use border"
 						name="border"
@@ -98,16 +97,28 @@ export const AllIconsTemplate = ({ children }: AllIconsTemplateProps) => {
 						onChange={() => setFilter(!filter)}
 						checked={!!filter}
 					/>
-				</div>
+				</StackHorizontal>
+				{useCurrentColor ? (
+					<Form.Color
+						label="Color"
+						onChange={(event: FormEvent<HTMLInputElement>) =>
+							setCurrentColor(event.currentTarget.value)
+						}
+						value={currentColor}
+						name="color"
+					/>
+				) : null}
 			</Form>
 			<div style={{ marginTop: '3rem', color: currentColor }}>
-				{icons
-					.filter(iconName => iconName && iconName.includes(query))
-					.map(
-						iconName =>
-							iconName &&
-							children({ name: iconName, size, transform, useCurrentColor, border, filter }),
-					)}
+				<Wrapper>
+					{icons
+						.filter(iconName => iconName && iconName.includes(query))
+						.map(
+							iconName =>
+								iconName &&
+								children({ name: iconName, size, transform, useCurrentColor, border, filter }),
+						)}
+				</Wrapper>
 			</div>
 		</>
 	);
@@ -115,24 +126,22 @@ export const AllIconsTemplate = ({ children }: AllIconsTemplateProps) => {
 
 export const AllIconsDocs = () => {
 	return (
-		<IconGallery>
-			<AllIconsTemplate>
-				{({ name, size, transform, border, filter, useCurrentColor }) => (
-					<IconItem key={name} name={name}>
-						<Icon
-							name={name}
-							style={{
-								width: `${size}rem`,
-								height: `${size}rem`,
-								filter: filter ? "url('#talend-grayscale')" : 'none',
-							}}
-							transform={transform}
-							preserveColor={!useCurrentColor}
-							border={border}
-						/>
-					</IconItem>
-				)}
-			</AllIconsTemplate>
-		</IconGallery>
+		<AllIconsTemplate docs>
+			{({ name, size, transform, border, filter, useCurrentColor }) => (
+				<IconItem key={name} name={name}>
+					<Icon
+						name={name}
+						style={{
+							width: `${size}rem`,
+							height: `${size}rem`,
+							filter: filter ? "url('#talend-grayscale')" : 'none',
+						}}
+						transform={transform}
+						preserveColor={!useCurrentColor}
+						border={border}
+					/>
+				</IconItem>
+			)}
+		</AllIconsTemplate>
 	);
 };
