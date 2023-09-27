@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.3.0
+
+### Minor Changes
+
+- 8361389eb: "Show selected" toggle on BadgeMenu
+
 ## 11.2.0
 
 ### Minor Changes
