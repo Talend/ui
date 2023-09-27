@@ -1,13 +1,12 @@
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/blocks';
+import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import { Status } from '../../Status.block';
 import * as Stories from './FormField.stories';
 
 <Meta of={Stories} />
+<Status id="formField" />
 
 # Form Fields common rules
-
-<Status id="formField" />
 
 A Form Field features a label, an input and an optional [small inline message](docs/messaging-inlinemessage--docs) for text-based inputs.
 
@@ -84,7 +83,7 @@ If a description or an error is applied to the field, it must be displayed betwe
 	<Story of={Stories.Usage} />
 </Canvas>
 
-<ArgsTable of={Stories.Usage} />
+<Controls of={Stories.Usage} />
 
 ## Accessibility
 

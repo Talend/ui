@@ -1,4 +1,4 @@
-import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
+import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 
 import { Tooltip } from '../../';
@@ -7,10 +7,9 @@ import { Status } from '../Status.block';
 import * as Stories from './Tooltip.stories';
 
 <Meta of={Stories} />
+<Status id="tooltip" />
 
 # Tooltip
-
-<Status id="tooltip" />
 
 Tooltips provide helpful, additional content for their paired elements on hover. They are contextual and specific to the element and don't provide the big picture.
 
@@ -71,7 +70,7 @@ Otherwise, you’ll just add information pollution to your UI and waste the time
 	<Story of={Stories.Usage} />
 </Canvas>
 
-<ArgTypes of={Stories.Usage} />
+<Controls of={Stories.Usage} />
 
 For more info about Tooltip props, refer to [documentation](https://reakit.io/docs/tooltip/) of Reakit.
 

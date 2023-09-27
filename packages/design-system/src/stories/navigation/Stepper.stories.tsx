@@ -22,23 +22,6 @@ export const Horizontal = () => (
 	</Stepper.Horizontal>
 );
 
-export const VerticalLoading = () => (
-	<Stepper>
-		<Stepper.Step.Skeleton />
-		<Stepper.Step.Skeleton />
-		<Stepper.Step.Skeleton />
-		<Stepper.Step.Skeleton />
-	</Stepper>
-);
-
-export const HorizontalLoading = () => (
-	<Stepper.Horizontal>
-		<Stepper.Step.Skeleton />
-		<Stepper.Step.Skeleton />
-		<Stepper.Step.Skeleton />
-	</Stepper.Horizontal>
-);
-
 export const Overflows = () => (
 	<StackVertical gap="M" justify="center" align="center">
 		<h4>Vertical stepper</h4>
@@ -55,11 +38,11 @@ export const Overflows = () => (
 	</StackVertical>
 );
 
-export const Usage = ({ currentStepIndex, variant }: any) => {
+export const Usage = ({ variant, ...props }: any) => {
 	const StepperComponent = Stepper[variant];
 	StepperComponent.displayName = `Stepper.${variant}`;
 	return (
-		<StepperComponent currentStepIndex={currentStepIndex}>
+		<StepperComponent {...props}>
 			<Stepper.Step.Validated title="Validated" />
 			<Stepper.Step.InProgress title="In progress" />
 			<Stepper.Step.Enabled title="Enabled" />
@@ -74,9 +57,9 @@ Usage.args = {
 Usage.argTypes = {
 	variant: {
 		description: 'Stepper variation',
+		options: ['Vertical', 'Horizontal'],
 		control: {
 			type: 'select',
-			options: ['Vertical', 'Horizontal'],
 		},
 	},
 	currentStepIndex: {

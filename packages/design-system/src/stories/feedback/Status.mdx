@@ -1,17 +1,16 @@
-import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
+import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import * as Stories from './Status.stories';
 import { Status } from '../Status.block';
 
 <Meta of={Stories} />
+<Status id="status" />
 
 # Status
 
 The status component displays state information using semantic colors and icons.
 
 ## Zoning
-
-<Status id="status" />
 
 <FigmaImage
 	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/📐-Zoning?node-id=853%3A230"
@@ -89,7 +88,7 @@ You can.
 	<Story of={Stories.Usage} />
 </Canvas>
 
-<ArgTypes story={Stories.Usage} />
+<Controls of={Stories.Usage} />
 
 ## Accessibility
 

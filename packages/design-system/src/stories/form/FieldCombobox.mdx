@@ -1,5 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
-import { ArgTypes } from '@storybook/blocks';
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import { Combobox, StackVertical, InlineMessageWarning } from '../../';
 import { Status } from '../Status.block';
@@ -7,26 +6,9 @@ import { Status } from '../Status.block';
 import * as Stories from './Combobox.stories';
 
 <Meta of={Stories} />
-
-# Combobox
-
 <Status id="combobox" />
 
-<StackVertical
-	gap="XS"
-	margin={{
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 'M',
-	}}
->
-	<InlineMessageWarning
-		title="Not ready"
-		withBackground
-		description="Work on this component has only just started. Do not use in your projects."
-	/>
-</StackVertical>
+# Combobox
 
 Combobox is used to suggest items using rich preview.
 Custom values are still possible like a datalist.
@@ -67,7 +49,7 @@ Custom values are still possible like a datalist.
 	<Story of={Stories.Default} />
 </Canvas>
 
-<ArgTypes of={Stories.Default} />
+<Controls of={Stories.Default} />
 
 ## States
 
@@ -112,10 +94,3 @@ If a value is not available in the predefined list options the user may have the
 ## Accessibility
 
 ## Usage
-
-## Changelog
-
-| Date       | Author           | Description  |
-| ---------- | ---------------- | ------------ |
-| 09/09/2021 | Benoit Rajalu    | Edited props |
-| 09/30/2020 | Fabien Rassinier | Init page    |

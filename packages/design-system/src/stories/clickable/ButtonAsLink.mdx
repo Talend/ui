@@ -1,15 +1,13 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
-import { ArgTypes } from '@storybook/blocks';
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import * as Stories from './ButtonAsLink.stories';
 import * as ButtonStories from './Button.stories';
 import { Status } from '../Status.block';
 
 <Meta title="Clickable/ButtonAsLink" />
+<Status id="buttonAsLink" />
 
 # Button as links
-
-<Status id="buttonAsLink" />
 
 Despite your complete reliance on best practices, you may be forced into situations that require a button that is actually a link.
 
@@ -49,7 +47,7 @@ They are otherwise available in the same sizes and with the same iconset.
 	<Story of={Stories.PrimaryAsLink} />
 </Canvas>
 
-<ArgTypes of={Stories.PrimaryAsLink} />
+<Controls of={Stories.PrimaryAsLink} />
 
 #### ButtonDestructiveAsLink
 
@@ -57,7 +55,7 @@ They are otherwise available in the same sizes and with the same iconset.
 	<Story of={Stories.DestructiveAsLink} />
 </Canvas>
 
-<ArgTypes of={Stories.DestructiveAsLink} />
+<Controls of={Stories.DestructiveAsLink} />
 
 #### ButtonSecondaryAsLink
 
@@ -65,7 +63,7 @@ They are otherwise available in the same sizes and with the same iconset.
 	<Story of={Stories.SecondaryAsLink} />
 </Canvas>
 
-<ArgTypes of={Stories.SecondaryAsLink} />
+<Controls of={Stories.SecondaryAsLink} />
 
 #### ButtonTertiaryAsLink
 
@@ -73,7 +71,7 @@ They are otherwise available in the same sizes and with the same iconset.
 	<Story of={Stories.TertiaryAsLink} />
 </Canvas>
 
-<ArgTypes of={Stories.TertiaryAsLink} />
+<Controls of={Stories.TertiaryAsLink} />
 
 #### ButtonAsLink
 

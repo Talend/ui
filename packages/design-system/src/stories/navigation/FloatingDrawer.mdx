@@ -6,42 +6,10 @@ import { Status } from '../Status.block';
 
 import * as Stories from './FloatingDrawer.stories';
 
-<Meta
-	of={Stories}
-	decorators={[
-		storyFn => (
-			<div
-				style={{
-					position: 'relative',
-					height: '500px',
-					overflow: 'hidden',
-				}}
-			>
-				{storyFn()}
-			</div>
-		),
-	]}
-/>
-
-# Drawer
-
+<Meta of={Stories} />
 <Status id="floatingDrawer" />
 
-<StackVertical
-	gap="XS"
-	margin={{
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 'M',
-	}}
->
-	<InlineMessageWarning
-		title="Work in progress"
-		withBackground
-		description="The Figma specs and overall documentation is not ready for this component. Use at your own risk."
-	/>
-</StackVertical>
+# Drawer
 
 Drawer slides into the screen from the right side and is placed visually over the content of the page.
 

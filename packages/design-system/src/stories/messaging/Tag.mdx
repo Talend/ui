@@ -1,4 +1,4 @@
-import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
+import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 
 import { Tag } from '../../';
@@ -7,10 +7,9 @@ import { Status } from '../Status.block';
 import * as Stories from './Tag.stories';
 
 <Meta of={Stories} />
+<Status id="tag" />
 
 # Tag
-
-<Status id="tag" />
 
 The Tag component is useful to emphasize information to the user, works best with single word values.
 
@@ -90,4 +89,4 @@ N/A
 	<Story of={Stories.Usage} />
 </Canvas>
 
-<ArgTypes story={Stories.Usage} />
+<Controls of={Stories.Usage} />

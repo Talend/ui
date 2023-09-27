@@ -1,4 +1,4 @@
-import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
+import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import { Stepper } from '../../';
 import { Status } from '../Status.block';
@@ -6,10 +6,9 @@ import { Status } from '../Status.block';
 import * as Stories from './Stepper.stories';
 
 <Meta of={Stories} component={Stepper} />
+<Status id="stepper" />
 
 # Stepper
-
-<Status id="stepper" />
 
 `Stepper` is used to display the different steps needed to complete an action.
 
@@ -59,20 +58,6 @@ A horizontal stepper should not have more than 3 steps.
 </Canvas>
 
 ## States
-
-### Loading
-
-**Vertical**
-
-<Canvas>
-	<Story of={Stories.VerticalLoading} />
-</Canvas>
-
-**Horizontal**
-
-<Canvas>
-	<Story of={Stories.HorizontalLoading} />
-</Canvas>
 
 ### Overflowing steps
 
@@ -141,7 +126,7 @@ In case of an error in the current step, please inform the user by using an inli
 	<Story of={Stories.Usage}></Story>
 </Canvas>
 
-<ArgTypes story={Stories.Usage} />
+<Controls of={Stories.Usage} exclude={['loading']} />
 
 ## Accessibility
 

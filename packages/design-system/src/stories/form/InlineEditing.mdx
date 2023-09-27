@@ -4,20 +4,10 @@ import { InlineEditing } from '../../';
 import { Status } from '../Status.block';
 import * as Stories from './InlineEditing.stories';
 
-<Meta
-	of={Stories}
-	decorators={[
-		Story => (
-			<div>
-				<Story />
-			</div>
-		),
-	]}
-/>
+<Meta of={Stories} />
+<Status id="inlineEditing" />
 
 # Inline Editing
-
-<Status id="inlineEditing" />
 
 User can perform inline editing by using inline form.
 
@@ -110,13 +100,32 @@ The edit mode can be triggered by clicking on the pencil icon, or by double-clic
 
 Non-regression testing can be performed using:
 
-| data-test                                         | description                                                                   |
-| ------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `inlineediting`                                   | Container containing value and actions                                        |
-| `inlineediting.button.edit`                       | Edit button to pass into "editing" mode                                       |
-| `inlineediting.input` or `inlineediting.textarea` | Control to change its value in "editing" mode depending on the variant in use |
-| `inlineediting.button.cancel`                     | Cancel button to quit "editing" mode                                          |
-| `inlineediting.button.submit`                     | Submit button to validate edition in "editing" mode                           |
+<table>
+	<tr>
+		<th>data-test</th>
+		<th>description</th>
+	</tr>
+	<tr>
+		<td>`inlineediting`</td>
+		<td>Container containing value and actions</td>
+	</tr>
+	<tr>
+		<td>`inlineediting.button.edit`</td>
+		<td>Edit button to pass into "editing" mode</td>
+	</tr>
+	<tr>
+		<td>`inlineediting.input` or `inlineediting.textarea`</td>
+		<td>Control to change its value in "editing" mode depending on the variant in use</td>
+	</tr>
+	<tr>
+		<td>`inlineediting.button.cancel`</td>
+		<td>Cancel button to quit "editing" mode</td>
+	</tr>
+	<tr>
+		<td>`inlineediting.button.submit`</td>
+		<td>Submit button to validate edition in "editing" mode</td>
+	</tr>
+</table>
 
 ## Usage
 

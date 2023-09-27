@@ -30,18 +30,18 @@ export const Overflow = () => (
 	</StackVertical>
 );
 
-export const Usage = ({ variant, index, title }) => {
+export const Usage = ({ variant, index, ...props }: any) => {
 	const StepComponent = Stepper.Step[variant];
 	StepComponent.displayName = `Step.${variant}`;
-	return <StepComponent data-index={index} title={title} />;
+	return <StepComponent data-index={index} {...props} />;
 };
 Usage.argTypes = {
 	variant: {
 		description: 'Step variation',
 		control: {
 			type: 'select',
-			options: ['Skeleton', 'Enabled', 'Validated', 'InProgress'],
 		},
+		options: ['Skeleton', 'Enabled', 'Validated', 'InProgress'],
 	},
 	index: {
 		description: 'Step number',

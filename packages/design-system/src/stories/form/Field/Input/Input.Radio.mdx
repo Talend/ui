@@ -1,14 +1,13 @@
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/blocks';
+import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Radio.stories';
 
 <Meta of={Stories} />
+<Status id="formFieldInputRadio" />
 
 # Radio
-
-<Status id="formFieldInputRadio" />
 
 `Form.Radio` inputs are used when a question has only one answer. Radio only lets users select one option from a set.
 
@@ -91,7 +90,7 @@ Radio buttons appear as a list of two or more options where users can select onl
 	<Story of={Stories.Basic} />
 </Canvas>
 
-<ArgsTable of={Stories.Basic} />
+<Controls of={Stories.Basic} />
 
 ## Accessibility
 

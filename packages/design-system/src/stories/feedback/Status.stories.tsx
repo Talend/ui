@@ -38,9 +38,9 @@ Usage.args = {
 Usage.argTypes = {
 	variant: {
 		description: 'Status variation',
+		options: Object.values(variants),
 		control: {
 			type: 'select',
-			options: Object.values(variants),
 		},
 	},
 	hideText: {

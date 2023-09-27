@@ -1,13 +1,12 @@
-import { ArgTypes, Meta, Story, Canvas } from '@storybook/blocks';
+import { Controls, Meta, Story, Canvas } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import { Status } from '../Status.block';
 import * as Stories from './Stack.stories';
 
 <Meta of={Stories} title="Layout/Stack" />
+<Status id="stack" />
 
 # Stack (aka "Autolayout")
-
-<Status id="stack" />
 
 `StackVertical` and `StackHorizontal` are opinionated layout components. They serve has wrappers for most layout needs that would otherwise require manual CSS.
 
@@ -76,7 +75,7 @@ function myComponent() {
 	<Story of={Stories.TestHorizontal} />
 </Canvas>
 
-<ArgTypes story={Stories.TestHorizontal} />
+<Controls of={Stories.TestHorizontal} />
 
 ### Simple StackHorizontal with complex spacing
 
@@ -86,7 +85,7 @@ Spacing can also be set as an object `{ x: SizeToken, y: SizeToken }` or `{top: 
 	<Story of={Stories.TestHorizontalWithExplicitSpacing} />
 </Canvas>
 
-<ArgTypes story={Stories.TestHorizontalWithExplicitSpacing} />
+<Controls of={Stories.TestHorizontalWithExplicitSpacing} />
 
 You do need to set all the values for each of these objects when using them.
 
@@ -96,7 +95,7 @@ You do need to set all the values for each of these objects when using them.
 	<Story of={Stories.TestVertical} />
 </Canvas>
 
-<ArgTypes story={Stories.TestVertical} />
+<Controls of={Stories.TestVertical} />
 
 ### Nesting Stacks to compose a layout
 
@@ -110,6 +109,6 @@ You do need to set all the values for each of these objects when using them.
 	<Story of={Stories.StackWithStackItem} />
 </Canvas>
 
-<ArgTypes story={Stories.StackWithStackItem} />
+<Controls of={Stories.StackWithStackItem} />
 
 ## Accessibility

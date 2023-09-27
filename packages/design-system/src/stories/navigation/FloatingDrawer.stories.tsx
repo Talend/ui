@@ -31,6 +31,19 @@ export default {
 			},
 		},
 	},
+	decorators: [
+		(Story: any) => (
+			<div
+				style={{
+					position: 'relative',
+					height: '500px',
+					overflow: 'hidden',
+				}}
+			>
+				<Story />
+			</div>
+		),
+	],
 };
 
 const defaultProps = {
