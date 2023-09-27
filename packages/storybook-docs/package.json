@@ -7,7 +7,6 @@
   "scripts": {
     "build:styles": "webpack --config webpack.custom.js --mode=production",
     "build:lib": "talend-scripts build && npm run build:styles",
-    "pre-release": "npm run build:lib",
     "start": "npm run storybook",
     "lint": "talend-scripts lint",
     "test": "echo no test",

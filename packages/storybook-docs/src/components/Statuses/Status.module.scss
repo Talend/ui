@@ -3,9 +3,9 @@
 .badge {
 	display: inline-flex;
 	align-items: center;
-	justify-content: space-between;
 	font: tokens.$coral-paragraph-s-bold;
-	color: tokens.$coral-color-neutral-text !important;
+	// color: tokens.$coral-color-neutral-text !important;
+	width: 100px;
 
 	&,
 	&:hover,
@@ -16,7 +16,7 @@
 
 	&:not([href]) {
 		span:first-child {
-			background-color: tokens.$coral-color-neutral-background-disabled;
+			// background-color: tokens.$coral-color-neutral-background-disabled;
 		}
 	}
 
@@ -33,7 +33,7 @@
 			align-items: center;
 			justify-content: center;
 			gap: 1ch;
-			background: tokens.$coral-color-neutral-background;
+			// background: tokens.$coral-color-neutral-background;
 			border-right: none;
 			border-radius: tokens.$coral-radius-s 0 0 tokens.$coral-radius-s;
 		}
@@ -55,18 +55,22 @@
 			color: tokens.$coral-color-success-text-weak;
 			background: tokens.$coral-color-success-background-strong;
 		}
+
 		&-wip {
 			color: tokens.$coral-color-beta-text-weak;
 			background: tokens.$coral-color-beta-background-strong;
 		}
+
 		&-deprecated {
 			color: tokens.$coral-color-warning-text-weak;
 			background: tokens.$coral-color-warning-background-strong;
 		}
+
 		&-ko {
 			color: tokens.$coral-color-danger-text-weak;
 			background: tokens.$coral-color-danger-background-strong;
 		}
+
 		&-na {
 			color: tokens.$coral-color-neutral-text-weak;
 			background: tokens.$coral-color-neutral-background-strong;
