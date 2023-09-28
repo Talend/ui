@@ -11,6 +11,7 @@ export const Grid = (
 	const { children, columns = 3, className, ...rest } = props;
 	return (
 		<div
+			data-theme="light"
 			className={classnames(styles.grid, className)}
 			{...rest}
 			style={{
