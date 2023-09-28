@@ -1,10 +1,12 @@
+/* stylelint-disable declaration-no-important */
 @use '~@talend/design-tokens/lib/tokens';
 
 .badge {
 	display: inline-flex;
 	align-items: center;
 	font: tokens.$coral-paragraph-s-bold;
-	// color: tokens.$coral-color-neutral-text !important;
+	background-color: white;
+	color: hsl(0, 0%, 13%) !important;
 	width: 100px;
 
 	&,
@@ -14,26 +16,19 @@
 		text-decoration: none !important;
 	}
 
-	&:not([href]) {
-		span:first-child {
-			// background-color: tokens.$coral-color-neutral-background-disabled;
-		}
-	}
-
 	&[href] {
 		cursor: pointer;
 	}
 
 	span {
 		padding: 0 tokens.$coral-spacing-xxs;
-		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+		border: tokens.$coral-border-s-solid hsl(0, 0%, 55%);
 
 		&:first-child {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
 			gap: 1ch;
-			// background: tokens.$coral-color-neutral-background;
 			border-right: none;
 			border-radius: tokens.$coral-radius-s 0 0 tokens.$coral-radius-s;
 		}
@@ -52,28 +47,28 @@
 
 	.status {
 		&-ok {
-			color: tokens.$coral-color-success-text-weak;
-			background: tokens.$coral-color-success-background-strong;
+			color: white;
+			background: hsl(111, 49%, 34%);
 		}
 
 		&-wip {
-			color: tokens.$coral-color-beta-text-weak;
-			background: tokens.$coral-color-beta-background-strong;
+			color: white;
+			background: hsla(281, 58%, 29%, 1);
 		}
 
 		&-deprecated {
-			color: tokens.$coral-color-warning-text-weak;
-			background: tokens.$coral-color-warning-background-strong;
+			color: white;
+			background: hsla(22, 93%, 41%, 1);
 		}
 
 		&-ko {
-			color: tokens.$coral-color-danger-text-weak;
-			background: tokens.$coral-color-danger-background-strong;
+			color: white;
+			background: hsla(359, 51%, 53%, 1);
 		}
 
 		&-na {
-			color: tokens.$coral-color-neutral-text-weak;
-			background: tokens.$coral-color-neutral-background-strong;
+			color: hsla(0, 0%, 38%, 1);
+			background: hsla(0, 0%, 88%, 1);
 		}
 	}
 }

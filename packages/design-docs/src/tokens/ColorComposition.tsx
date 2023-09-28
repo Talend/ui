@@ -1,13 +1,15 @@
 /* eslint-disable @talend/import-depth */
-import { useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import { SizedIcon, StackVertical, StackHorizontal, ButtonTertiary } from '@talend/design-system';
 import tokens from '@talend/design-tokens';
-import dictionary from '@talend/design-tokens/lib/light/dictionary';
+import dictionaryLight from '@talend/design-tokens/lib/light/dictionary';
+import dictionaryDark from '@talend/design-tokens/lib/dark/dictionary';
 import { Token, ColorToken } from '@talend/design-tokens/lib/types';
 import * as utils from './TokenFormatter';
 import ColorChecker from './ColorChecker';
 import colorCompositionData from './ColorCompositions.json';
 import theme from './ColorComposition.module.scss';
+import { copy } from './TokenValue';
 
 const PADDING = '3rem';
 
@@ -27,6 +29,11 @@ export function CardComposition({
 	isActive?: boolean;
 	isHover?: boolean;
 }) {
+	const fullValue = `background-color: ${utils.getScssName(
+		backgroundColor.name,
+	)};\ncolor: ${utils.getScssName(textColor.name)};\nborder-color: ${utils.getScssName(
+		borderColor.name,
+	)};`;
 	return (
 		<div
 			{...props}
@@ -43,6 +50,14 @@ export function CardComposition({
 						: tokens.coralSizingXxxl,
 				marginLeft: isActive || isHover ? PADDING : 0,
 			}}
+			role="button"
+			tabIndex={0}
+			onKeyDown={(e: KeyboardEvent) => {
+				if (e.code === 'Enter') {
+					copy(fullValue);
+				}
+			}}
+			onClick={() => copy(fullValue)}
 		>
 			<span style={{ color: iconColor.value }}>
 				<SizedIcon size="S" name="overview" />
@@ -75,13 +90,6 @@ type CompositionItem = {
 
 type TokenByName = Record<string, ColorToken>;
 
-const colorDict = dictionary.filter(t => t.type === 'color') as ColorToken[];
-
-const tokenByName = colorDict.reduce<TokenByName>((acc, token) => {
-	acc[token.name] = token;
-	return acc;
-}, {});
-
 function TokenDisplay({ token }: { token: Token }) {
 	return (
 		<>
@@ -95,12 +103,38 @@ function TokenDisplay({ token }: { token: Token }) {
 					background: token.value,
 				}}
 			/>
-			{utils.getDisplayName(token.name)}
+			<span
+				className={theme.neutral}
+				role="button"
+				tabIndex={0}
+				onKeyDown={(e: KeyboardEvent) => {
+					if (e.code === 'Enter') {
+						copy(utils.getScssName(token.name));
+					}
+				}}
+				onClick={() => copy(utils.getScssName(token.name))}
+			>
+				{utils.getDisplayName(token.name)}
+			</span>
 		</>
 	);
 }
 
-function ColorCompositionItem({ tokenComposition }: { tokenComposition: CompositionItem }) {
+function ColorCompositionItem({
+	tokenComposition,
+	light,
+}: {
+	tokenComposition: CompositionItem;
+	light: boolean;
+}) {
+	const dictionary = light ? dictionaryLight : dictionaryDark;
+	const colorDict = dictionary.filter(t => t.type === 'color') as ColorToken[];
+
+	const tokenByName = colorDict.reduce<TokenByName>((acc, token) => {
+		acc[token.name] = token;
+		return acc;
+	}, {});
+
 	const isSemantic =
 		!tokenComposition.color.includes('Neutral') && !tokenComposition.color.includes('Assistive');
 	const iconToken = tokenByName[`coralColor${tokenComposition.icon}`];
@@ -179,29 +213,50 @@ function ColorCompositionItem({ tokenComposition }: { tokenComposition: Composit
 export function ColorComposition() {
 	const [search, setSearch] = useState('neutral');
 	const currentBackgrounds = backgrounds.filter(b => b.toLowerCase().startsWith(search));
+	const [isLIght, setIsLight] = useState(true);
 
 	return (
-		<StackVertical gap="S">
-			<StackHorizontal gap="M">
-				{categories.map(categ => (
-					<ButtonTertiary key={categ} onClick={() => setSearch(categ)} disabled={categ === search}>
-						{categ}
+		<div
+			data-theme={isLIght ? 'light' : 'dark'}
+			style={{
+				backgroundColor: tokens.coralColorNeutralBackground,
+				color: tokens.coralColorNeutralText,
+			}}
+			className="sb-unstyled"
+		>
+			<StackVertical gap="S">
+				<StackHorizontal gap="M">
+					{categories.map(categ => (
+						<ButtonTertiary
+							key={categ}
+							onClick={() => setSearch(categ)}
+							disabled={categ === search}
+						>
+							{categ}
+						</ButtonTertiary>
+					))}
+					<ButtonTertiary onClick={() => setIsLight(!isLIght)}>
+						Switch to {isLIght ? 'dark' : 'light'}
 					</ButtonTertiary>
-				))}
-			</StackHorizontal>
-			{currentBackgrounds.map(bg => {
-				const allComposition = colorCompositionData.filter(c => c.background === bg);
-				return (
-					<StackVertical key={bg} gap="M">
-						<h2>{bg}</h2>
-						<div className={theme.grid}>
-							{allComposition.map(compo => (
-								<ColorCompositionItem key={JSON.stringify(compo)} tokenComposition={compo} />
-							))}
-						</div>
-					</StackVertical>
-				);
-			})}
-		</StackVertical>
+				</StackHorizontal>
+				{currentBackgrounds.map(bg => {
+					const allComposition = colorCompositionData.filter(c => c.background === bg);
+					return (
+						<StackVertical key={bg} gap="M">
+							<h2 className={theme.neutral}>{bg}</h2>
+							<div className={theme.grid}>
+								{allComposition.map(compo => (
+									<ColorCompositionItem
+										key={JSON.stringify(compo)}
+										tokenComposition={compo}
+										light={isLIght}
+									/>
+								))}
+							</div>
+						</StackVertical>
+					);
+				})}
+			</StackVertical>
+		</div>
 	);
 }

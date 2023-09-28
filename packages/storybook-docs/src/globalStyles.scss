@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-no-important */
 @use '~@talend/design-tokens/lib/tokens';
 
 // stylelint-disable scss/selector-no-redundant-nesting-selector
@@ -10,6 +11,11 @@
 html {
 	font-size: 62.5%;
 	scroll-behavior: smooth;
+}
+
+body {
+	color: hsl(0, 0%, 13%) !important;
+	background-color: white !important;
 }
 
 #docs-root {

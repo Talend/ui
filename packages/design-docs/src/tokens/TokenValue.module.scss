@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-no-important */
 @use '~@talend/design-tokens/lib/tokens';
 
 .btn {
@@ -11,8 +12,9 @@
 	}
 
 	&:hover {
-		color: tokens.$coral-color-accent-text;
+		color: hsla(204, 95%, 31%, 1);
 		font-weight: bold;
+
 		svg {
 			visibility: visible;
 		}
@@ -21,7 +23,6 @@
 
 .lang {
 	text-align: left;
-	display: inline-block;
 	padding-right: 4px;
 	display: none;
 }

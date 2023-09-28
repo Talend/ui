@@ -18,7 +18,7 @@ type TokenValueProps = {
 	lang?: string;
 };
 
-function copy(svalue: string) {
+export function copy(svalue: string) {
 	let value = svalue;
 	if (Array.isArray(svalue)) {
 		value = svalue.join('');
