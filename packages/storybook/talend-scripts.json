@@ -1,4 +1,0 @@
-{
-  "copy": [{ "from": "src/images", "to": "images" }],
-  "webpack": {}
-}
