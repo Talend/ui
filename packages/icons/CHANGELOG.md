@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.60.0
+
+### Minor Changes
+
+- 6af561463: feat: add Talend Qlik white and dark logos
+
 ## 6.59.0
 
 ### Minor Changes

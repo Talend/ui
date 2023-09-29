@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 11.4.2
+
+### Patch Changes
+
+- 4f8429b41: TDOPS-1878 - Notification container now has a max height to handle long and multiple notifications not overflowing the screen
+- Updated dependencies [6af561463]
+  - @talend/icons@6.60.0
+
 ## 11.4.1
 
 ### Patch Changes
