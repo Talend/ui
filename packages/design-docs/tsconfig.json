@@ -1,0 +1,15 @@
+{
+  "extends": "@talend/scripts-config-typescript/tsconfig.json",
+  "include": [
+    "src/**/*",
+    "../design-system/src/**/*",
+    "../components/src/**/*",
+    "../forms/src/**/*",
+    "../faceted-search/src/**/*"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "CommonJs",
+    "rootDirs": [".storybook", "src"]
+  }
+}

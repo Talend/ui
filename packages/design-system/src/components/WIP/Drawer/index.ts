@@ -1,3 +1,1 @@
-import { FloatingDrawer } from './variants/FloatingDrawer/FloatingDrawer';
-
-export { FloatingDrawer };
+export * from './variants/FloatingDrawer/FloatingDrawer';

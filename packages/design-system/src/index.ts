@@ -1,4 +1,5 @@
-import { Badge, BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
+export type * from './components/Badge';
+export * from './components/Badge';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
@@ -16,7 +17,7 @@ import {
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
 import Card from './components/WIP/Card';
-import Combobox from './components/WIP/Combobox';
+import Combobox, { ComboboxProps } from './components/WIP/Combobox';
 import Divider from './components/Divider';
 import { FloatingDrawer } from './components/WIP/Drawer';
 import Dropdown, { DropdownButton } from './components/Dropdown';
@@ -53,7 +54,7 @@ import {
 	MessageCollectionInformation,
 	MessageCollectionWarning,
 } from './components/Message';
-import Modal from './components/Modal';
+export * from './components/Modal';
 import Popover from './components/WIP/Popover';
 import Skeleton, {
 	SkeletonButton,
@@ -96,11 +97,6 @@ export {
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
-	Badge,
-	BadgeValue,
-	BadgeTag,
-	BadgeDropdown,
-	BadgePopover,
 	Breadcrumbs,
 	Button,
 	ButtonAsLink,
@@ -150,7 +146,6 @@ export {
 	MessageDestructive,
 	MessageInformation,
 	MessageWarning,
-	Modal,
 	Popover,
 	RichRadioButton,
 	SizedIcon,
@@ -184,4 +179,4 @@ export {
 	VisuallyHidden,
 };
 
-export type { TooltipPlacement };
+export type { TooltipPlacement, ComboboxProps };

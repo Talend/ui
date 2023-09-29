@@ -145,7 +145,6 @@ describe('CollapsibleFieldset', () => {
 				<CollapsibleFieldset {...props} actions={actions} />
 			</WidgetContext.Provider>,
 		);
-		screen.debug();
 		expect(screen.getByRole('button', { name: 'Action1' })).toBeVisible();
 		expect(screen.getByRole('button', { name: 'Action 2' })).toBeVisible();
 	});

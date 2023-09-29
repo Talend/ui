@@ -1,0 +1,30 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.card {
+	justify-content: center;
+	align-items: center;
+	border: tokens.$coral-border-s-solid rgba(0, 0, 0, 0);
+	position: relative;
+
+	display: inline-flex;
+	border-radius: tokens.$coral-radius-m;
+	min-height: 8.4rem;
+}
+
+.score {
+	position: absolute;
+	top: tokens.$coral-spacing-xs;
+	left: tokens.$coral-spacing-xs;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 100%;
+	gap: tokens.$coral-spacing-m;
+}
+
+.neutral {
+	background-color: tokens.$coral-color-neutral-background;
+	color: tokens.$coral-color-neutral-text;
+}
