@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 10.2.4
+
+### Patch Changes
+
+- 3b058ef7d: chore: fix some lint errors
+- Updated dependencies [3b058ef7d]
+  - @talend/design-system@7.15.1
+
 ## 10.2.3
 
 ### Patch Changes

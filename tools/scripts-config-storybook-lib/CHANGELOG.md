@@ -1,5 +1,17 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade configuration to run storybook 7.
+  So once you have upgrade you can remove the resolution.
+
+### Patch Changes
+
+- Updated dependencies [3b058ef7d]
+  - @talend/scripts-config-react-webpack@16.0.0
+
 ## 4.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.60.1
+
+### Patch Changes
+
+- 8d73923b3: Update Qlik icons with the one provided by Qlik
+
 ## 6.60.0
 
 ### Minor Changes

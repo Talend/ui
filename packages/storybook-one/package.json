@@ -20,9 +20,9 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
-    "@talend/design-system": "^7.11.0",
+    "@talend/design-system": "^7.15.1",
     "@talend/design-tokens": "^2.7.3",
-    "@talend/icons": "^6.59.0",
+    "@talend/icons": "^6.60.1",
     "@talend/react-components": "^11.0.0",
     "@talend/react-dataviz": "^3.0.1",
     "react-hook-form": "^6.15.8"
@@ -48,7 +48,7 @@
     "@talend/locales-tui-containers": "^8.0.2",
     "@talend/locales-tui-faceted-search": "^8.1.0",
     "@talend/locales-tui-forms": "^9.0.1",
-    "@talend/scripts-core": "^14.0.0",
+    "@talend/scripts-core": "^15.0.0",
     "@types/react": "^17.0.62",
     "i18next": "^20.6.1",
     "react": "^17.0.2",

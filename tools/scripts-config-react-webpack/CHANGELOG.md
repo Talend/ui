@@ -1,5 +1,14 @@
 # @talend/scripts-config-react-webpack
 
+## 16.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade dependencies to latest
+
+  - babel-loader from 8 to 9
+  - fork-ts-checker-webpack-plugin from 7 to 8
+
 ## 15.4.1
 
 ### Patch Changes
