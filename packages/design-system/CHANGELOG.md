@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.15.1
+
+### Patch Changes
+
+- 3b058ef7d: fix: some lint errors. Start to export types for some components.
+
 ## 7.15.0
 
 ### Minor Changes
