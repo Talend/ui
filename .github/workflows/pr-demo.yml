@@ -63,7 +63,7 @@ jobs:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: Deploy to Netlify production
-        if: github.ref != 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         uses: netlify/actions/cli@master
         with:
           args: deploy --dir=packages/design-docs/storybook-static --prod
