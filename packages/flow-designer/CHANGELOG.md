@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.0
+
+### Minor Changes
+
+- d583f7639: fix(TFD-15974): Fix calculate port position with portId action
+
 ## 5.5.0
 
 ### Minor Changes

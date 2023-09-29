@@ -1,5 +1,17 @@
 # Changelog
 
+## 11.3.0
+
+### Minor Changes
+
+- 8361389eb: "Show selected" toggle on BadgeMenu
+
+## 11.2.0
+
+### Minor Changes
+
+- 08b8257ed: chore(TDP-12538): always show tooltip on faceted badge overlay
+
 ## 11.1.0
 
 ### Minor Changes

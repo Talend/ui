@@ -1,5 +1,21 @@
 # @talend/react-components
 
+## 11.4.2
+
+### Patch Changes
+
+- 4f8429b41: TDOPS-1878 - Notification container now has a max height to handle long and multiple notifications not overflowing the screen
+- Updated dependencies [6af561463]
+  - @talend/icons@6.60.0
+
+## 11.4.1
+
+### Patch Changes
+
+- b60f5b5c1: TDOPS-2619 - Align column chooser style with Design System
+- a5e724a5b: TDOPS-5105 - Components badge now have the right separator color
+- 387afd9fd: TDOPS-872 - VList cell content should display a tooltip for 0 value as well
+
 ## 11.4.0
 
 ### Minor Changes

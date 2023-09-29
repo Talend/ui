@@ -65,24 +65,24 @@ exports[`ColumnChooser should render with default props 1`] = `
           <div
             class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
           >
-            <div
-              class="checkbox tc-checkbox"
+            <span
+              class="theme-checkbox"
             >
+              <input
+                aria-checked="mixed"
+                aria-describedby="my-id-body-display all the columns"
+                checked=""
+                data-feature="column-chooser.select.all"
+                id="my-id-body-checkbox-Select-all"
+                type="checkbox"
+              />
               <label
-                data-feature="column-chooser.select.all.enable"
+                class="theme-label theme-label_inline"
                 for="my-id-body-checkbox-Select-all"
               >
-                <input
-                  aria-describedby="my-id-body-display all the columns"
-                  data-checked="1"
-                  id="my-id-body-checkbox-Select-all"
-                  type="checkbox"
-                />
-                <span>
-                  Select all
-                </span>
+                Select all
               </label>
-            </div>
+            </span>
             <div
               class="sr-only"
               id="my-id-body-display all the columns"
@@ -96,25 +96,24 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <div
-                class="checkbox tc-checkbox"
+              <span
+                class="theme-checkbox"
               >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Id"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Id"
+                  type="checkbox"
+                />
                 <label
-                  data-feature="column-chooser.select.disable"
+                  class="theme-label theme-label_inline"
                   for="my-id-body-checkbox-Id"
                 >
-                  <input
-                    aria-describedby="my-id-body-display the column Id"
-                    checked=""
-                    data-checked="2"
-                    id="my-id-body-checkbox-Id"
-                    type="checkbox"
-                  />
-                  <span>
-                    Id
-                  </span>
+                  Id
                 </label>
-              </div>
+              </span>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Id"
@@ -125,25 +124,24 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <div
-                class="checkbox tc-checkbox"
+              <span
+                class="theme-checkbox"
               >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Name"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Name"
+                  type="checkbox"
+                />
                 <label
-                  data-feature="column-chooser.select.disable"
+                  class="theme-label theme-label_inline"
                   for="my-id-body-checkbox-Name"
                 >
-                  <input
-                    aria-describedby="my-id-body-display the column Name"
-                    checked=""
-                    data-checked="2"
-                    id="my-id-body-checkbox-Name"
-                    type="checkbox"
-                  />
-                  <span>
-                    Name
-                  </span>
+                  Name
                 </label>
-              </div>
+              </span>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Name"
@@ -154,25 +152,24 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <div
-                class="checkbox tc-checkbox"
+              <span
+                class="theme-checkbox"
               >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Author"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Author"
+                  type="checkbox"
+                />
                 <label
-                  data-feature="column-chooser.select.disable"
+                  class="theme-label theme-label_inline"
                   for="my-id-body-checkbox-Author"
                 >
-                  <input
-                    aria-describedby="my-id-body-display the column Author"
-                    checked=""
-                    data-checked="2"
-                    id="my-id-body-checkbox-Author"
-                    type="checkbox"
-                  />
-                  <span>
-                    Author
-                  </span>
+                  Author
                 </label>
-              </div>
+              </span>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Author"
@@ -183,25 +180,24 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <div
-                class="checkbox tc-checkbox"
+              <span
+                class="theme-checkbox"
               >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
+                  type="checkbox"
+                />
                 <label
-                  data-feature="column-chooser.select.disable"
+                  class="theme-label theme-label_inline"
                   for="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
                 >
-                  <input
-                    aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
-                    checked=""
-                    data-checked="2"
-                    id="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
-                    type="checkbox"
-                  />
-                  <span>
-                    Very long name long name long name long name long name
-                  </span>
+                  Very long name long name long name long name long name
                 </label>
-              </div>
+              </span>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Very long name long name long name long name long name"
@@ -212,24 +208,23 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <div
-                class="checkbox tc-checkbox"
+              <span
+                class="theme-checkbox"
               >
+                <input
+                  aria-checked="false"
+                  aria-describedby="my-id-body-display the column Icon"
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Icon"
+                  type="checkbox"
+                />
                 <label
-                  data-feature="column-chooser.select.enable"
+                  class="theme-label theme-label_inline"
                   for="my-id-body-checkbox-Icon"
                 >
-                  <input
-                    aria-describedby="my-id-body-display the column Icon"
-                    data-checked="0"
-                    id="my-id-body-checkbox-Icon"
-                    type="checkbox"
-                  />
-                  <span>
-                    Icon
-                  </span>
+                  Icon
                 </label>
-              </div>
+              </span>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Icon"
@@ -240,25 +235,24 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <div
-                class="checkbox tc-checkbox"
+              <span
+                class="theme-checkbox"
               >
+                <input
+                  aria-checked="true"
+                  aria-describedby="my-id-body-display the column Created"
+                  checked=""
+                  data-feature="column-chooser.select"
+                  id="my-id-body-checkbox-Created"
+                  type="checkbox"
+                />
                 <label
-                  data-feature="column-chooser.select.disable"
+                  class="theme-label theme-label_inline"
                   for="my-id-body-checkbox-Created"
                 >
-                  <input
-                    aria-describedby="my-id-body-display the column Created"
-                    checked=""
-                    data-checked="2"
-                    id="my-id-body-checkbox-Created"
-                    type="checkbox"
-                  />
-                  <span>
-                    Created
-                  </span>
+                  Created
                 </label>
-              </div>
+              </span>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Created"
