@@ -1,9 +1,8 @@
 import { Suspense } from 'react';
-
-import theme from './StatusTable.module.scss';
-
+// eslint-disable-next-line @talend/import-depth
 import statuses from '@talend/design-system/src/stories/status.json';
 import { Statuses, ComponentStatuses } from '@talend/storybook-docs';
+import theme from './StatusTable.module.scss';
 
 function toTitleCase(value: string) {
 	return value

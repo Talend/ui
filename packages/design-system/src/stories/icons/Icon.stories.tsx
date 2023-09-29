@@ -1,7 +1,3 @@
-import { useState, useEffect } from 'react';
-import type { ChangeEvent, FormEvent } from 'react';
-import { IconGallery, IconItem } from '@storybook/blocks';
-
 import { StackHorizontal, Icon } from '../../';
 import { AllIconsTemplate } from './Icons';
 
