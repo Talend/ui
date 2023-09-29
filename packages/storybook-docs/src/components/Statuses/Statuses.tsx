@@ -17,9 +17,9 @@ function getIcon(statusType: StatusType) {
 export function ComponentStatuses(statuses: Statuses) {
 	return (
 		<Unstyled>
-			<StackHorizontal gap="XS" as="ul" role="list" align="start">
+			<ul style={{ listStyleType: 'none', width: 400 }}>
 				{Object.entries(statuses).map(([statusType, { status, link }]) => (
-					<StackItem as="li" key={statusType}>
+					<li key={statusType} style={{ display: 'inline', marginRight: 4 }}>
 						<Status
 							{...{
 								status,
@@ -28,9 +28,9 @@ export function ComponentStatuses(statuses: Statuses) {
 								label: statusType,
 							}}
 						/>
-					</StackItem>
+					</li>
 				))}
-			</StackHorizontal>
+			</ul>
 		</Unstyled>
 	);
 }

@@ -5,7 +5,7 @@ rm -rf .static
 mkdir .static
 mkdir .static/cmf
 mkdir .static/containers
-mkdir .static/design-docs
+mkdir .static/design-system
 mkdir .static/faceted-search
 mkdir .static/theme
 mkdir .static/storybook-one
