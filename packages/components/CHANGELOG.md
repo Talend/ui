@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.4.3
+
+### Patch Changes
+
+- 941231e01: fix(TDP-12616): fix checkbox mark style on multi-select
+
 ## 11.4.2
 
 ### Patch Changes
