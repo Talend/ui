@@ -48,6 +48,15 @@ const config = {
 		config.module.rules = rules;
 		return config;
 	},
+	typescript: {
+		reactDocgen: false,
+		skipBabel: true,
+		check: false,
+	},
+	core: {
+		enableCrashReports: false,
+		disableTelemetry: true,
+	},
 };
 
 export default config;

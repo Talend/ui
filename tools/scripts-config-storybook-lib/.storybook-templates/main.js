@@ -26,10 +26,19 @@ const defaultMain = {
 		name: '@storybook/react-webpack5',
 		options: {
 			builder: {
-				disableTelemetry: true,
-				enableCrashReports: false,
+				fsCache: true,
+				//lazyCompilation: true
 			},
 		},
+	},
+	typescript: {
+		reactDocgen: false,
+		skipBabel: true,
+		check: false,
+	},
+	core: {
+		enableCrashReports: false,
+		disableTelemetry: true,
 	},
 	features: {
 		buildStoriesJson: true,
@@ -95,6 +104,7 @@ module.exports  = {
 	stories,
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
+	typescript: merge(defaultMain.typescript, userMain.typescript),
 	staticDirs: fixWindowsPaths([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
 	webpackFinal: async (config) => {
 		let finalConfig = await defaultMain.webpackFinal(config);
@@ -103,8 +113,5 @@ module.exports  = {
 		}
 		return finalConfig
 	},
-	typescript: {
-		reactDocgen: false,
-	}
 };
 
