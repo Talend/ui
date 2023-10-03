@@ -102,6 +102,9 @@ module.exports  = {
 			finalConfig = await userMain.webpackFinal(finalConfig);
 		}
 		return finalConfig
+	},
+	typescript: {
+		reactDocgen: false,
 	}
 };
 
