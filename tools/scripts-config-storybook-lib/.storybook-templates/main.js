@@ -33,7 +33,6 @@ const defaultMain = {
 	},
 	typescript: {
 		reactDocgen: false,
-		skipBabel: true,
 		check: false,
 	},
 	core: {
