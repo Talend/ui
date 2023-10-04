@@ -78,7 +78,17 @@ const defaultMain = {
 				},
 			},
 		};
-
+		mergedConfig.externals = {
+			// we must update also the preview-head.html
+			...(mergedConfig.externals || {}),
+			react: 'React',
+			'react-dom': 'ReactDOM',
+			'prop-types': 'PropTypes',
+			lodash: '_',
+			'd3': 'D3',
+			immutable: 'Immutable',
+			recharts: 'Recharts',
+		}
 		return mergedConfig;
 	},
 };
