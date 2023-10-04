@@ -51,7 +51,8 @@ const defaultMain = {
 		'@storybook/addon-interactions',
 		'@storybook/addon-storysource',
 	],
-	webpackFinal: async (config) => {
+	webpackFinal: async (config, options) => {
+		const { configType } = options;
 		// by default storybook do not support scss without css module
 		// here we remove storybook scss config and replace it by our config
 		const rules = [
@@ -68,6 +69,9 @@ const defaultMain = {
 				use: getSassLoaders(true, '', true),
 			},
 		];
+		if (configType === 'PRODUCTION') {
+			config.mode = 'production';
+		}
 		const mergedConfig = {
 			...config,
 			module: {
@@ -105,10 +109,10 @@ module.exports  = {
 	core: merge(defaultMain.core, userMain.core),
 	typescript: merge(defaultMain.typescript, userMain.typescript),
 	staticDirs: fixWindowsPaths([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
-	webpackFinal: async (config) => {
-		let finalConfig = await defaultMain.webpackFinal(config);
+	webpackFinal: async (config, options) => {
+		let finalConfig = await defaultMain.webpackFinal(config, options);
 		if(userMain.webpackFinal) {
-			finalConfig = await userMain.webpackFinal(finalConfig);
+			finalConfig = await userMain.webpackFinal(finalConfig, options);
 		}
 		return finalConfig
 	},
