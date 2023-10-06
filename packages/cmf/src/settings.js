@@ -30,7 +30,8 @@ export function generateDefaultViewId(viewId, componentName, componentId) {
  * @return {String} MyComponent
  */
 function withoutHOC(componentName) {
-	return componentName.match(/.*\((.*?)\)/)[1];
+	const match = componentName.match(/(\([^)]+\))/);
+	return match ? match[1] : null;
 }
 
 /**
