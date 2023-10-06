@@ -8,7 +8,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import theme from './FormatValue.module.scss';
 
-export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
+export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /^\s*([\s\S]*?)\s*$/;
 const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;
 const REG_EXP_CAPTUR_LINE_FEEDING = /(\n)/g;
 const REG_EXP_LINE_FEEDING = /\n/;
