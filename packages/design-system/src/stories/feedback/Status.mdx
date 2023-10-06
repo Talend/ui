@@ -1,21 +1,3 @@
-<<<<<<< HEAD:packages/storybook/src/design-system/Status/Status.mdx
-import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaImage } from '~docs';
-import { Status } from '@talend/design-system';
-import StatusPrimitive, {
-	variants,
-} from '@talend/design-system/lib/components/Status/Primitive/StatusPrimitive';
-import * as Stories from './Status.stories';
-
-<Meta
-	title="Design System/Status"
-	component={StatusPrimitive}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
-		figmaLink: 'https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A72',
-	}}
-/>
-=======
 import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
 import { FigmaImage } from '@talend/storybook-docs';
 import * as Stories from './Status.stories';
@@ -23,7 +5,6 @@ import { Status } from '../Status.block';
 
 <Meta of={Stories} />
 <Status id="status" />
->>>>>>> master:packages/design-system/src/stories/feedback/Status.mdx
 
 # Status
 
@@ -48,37 +29,21 @@ The status component displays state information using semantic colors and icons.
 #### With text
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Status/Status.mdx
-	<Story story={Stories.InProgress} />
-	<Story story={Stories.Successful} />
-	<Story story={Stories.Failed} />
-	<Story story={Stories.Warning} />
-	<Story story={Stories.Canceled} />
-=======
 	<Story of={Stories.InProgress} />
 	<Story of={Stories.Successful} />
 	<Story of={Stories.Failed} />
 	<Story of={Stories.Warning} />
 	<Story of={Stories.Canceled} />
->>>>>>> master:packages/design-system/src/stories/feedback/Status.mdx
 </Canvas>
 
 #### Without text
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Status/Status.mdx
-	<Story story={Stories.InProgressIcon} />
-	<Story story={Stories.SuccessfulIcon} />
-	<Story story={Stories.FailedIcon} />
-	<Story story={Stories.WarningIcon} />
-	<Story story={Stories.CanceledIcon} />
-=======
 	<Story of={Stories.InProgressIcon} />
 	<Story of={Stories.SuccessfulIcon} />
 	<Story of={Stories.FailedIcon} />
 	<Story of={Stories.WarningIcon} />
 	<Story of={Stories.CanceledIcon} />
->>>>>>> master:packages/design-system/src/stories/feedback/Status.mdx
 </Canvas>
 
 ## States
@@ -109,13 +74,8 @@ By default, each Status variants has a label:
 Depending on the use case, it is possible to have another label instead but keeping the same meaning.
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Status/Status.mdx
-	<Story story={Stories.CustomSuccessful} />
-	<Story story={Stories.CustomInProgressIcon} />
-=======
 	<Story of={Stories.CustomSuccessful} />
 	<Story of={Stories.CustomInProgressIcon} />
->>>>>>> master:packages/design-system/src/stories/feedback/Status.mdx
 </Canvas>
 
 ## Usage
@@ -125,51 +85,10 @@ You can directly use the presets `StatusInProgress` etc... but in some cases you
 You can.
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Status/Status.mdx
-	<Story
-		name="usage"
-		args={{
-			variant: 'warning',
-			hideText: false,
-			children: 'Done',
-		}}
-		argTypes={{
-			variant: {
-				description: 'Status variation',
-				control: {
-					type: 'select',
-					options: Object.values(variants),
-				},
-			},
-			hideText: {
-				description: 'If Status should hide text or not',
-				control: {
-					type: 'boolean',
-				},
-			},
-			children: {
-				description: 'Status text',
-				control: {
-					type: 'text',
-				},
-			},
-		}}
-	>
-		{({ variant, ...rest }) => {
-			const Component = Status;
-			Component.displayName = 'Status';
-			return <Component variant={variant} {...rest} />;
-		}}
-	</Story>
-</Canvas>
-
-<ArgsTable story="usage" />
-=======
 	<Story of={Stories.Usage} />
 </Canvas>
 
 <Controls of={Stories.Usage} />
->>>>>>> master:packages/design-system/src/stories/feedback/Status.mdx
 
 ## Accessibility
 

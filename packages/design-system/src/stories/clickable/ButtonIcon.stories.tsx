@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import {
 	ButtonIcon,
@@ -8,11 +8,7 @@ import {
 	Skeleton,
 	StackHorizontal,
 	StackVertical,
-<<<<<<<< HEAD:packages/design-system/src/stories/ButtonIcon.stories.tsx
-} from '../';
-========
 } from '../../';
->>>>>>>> master:packages/design-system/src/stories/clickable/ButtonIcon.stories.tsx
 
 const defaultArgs = {
 	children: 'Action label',
@@ -51,21 +47,12 @@ const commonArgTypes = {
 
 export default {
 	component: ButtonIcon,
-<<<<<<<< HEAD:packages/design-system/src/stories/ButtonIcon.stories.tsx
-	title: 'Click/ButtonIcon',
-	args: defaultArgs,
-	argTypes: commonArgTypes,
-} as ComponentMeta<typeof ButtonIcon>;
-
-const TemplateIcon: ComponentStory<typeof ButtonIcon> = args => {
-========
 	title: 'Clickable/ButtonIcon',
 	args: defaultArgs,
 	argTypes: commonArgTypes,
-} as Meta<typeof ButtonIcon>;
+} as StoryObj<typeof ButtonIcon>;
 
 const TemplateIcon: StoryFn<typeof ButtonIcon> = args => {
->>>>>>>> master:packages/design-system/src/stories/clickable/ButtonIcon.stories.tsx
 	const { children, ...rest } = args;
 	return <ButtonIcon {...rest}>{children}</ButtonIcon>;
 };

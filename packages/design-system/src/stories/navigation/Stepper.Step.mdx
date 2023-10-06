@@ -28,11 +28,7 @@ Steps are the main elements for the stepper.
 />
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Stepper/Step/Stepper.Step.mdx
-	<Story story={Stories.Default} />
-=======
 	<Story of={Stories.Default} />
->>>>>>> master:packages/design-system/src/stories/navigation/Stepper.Step.mdx
 </Canvas>
 
 ### Sizes
@@ -40,11 +36,7 @@ Steps are the main elements for the stepper.
 The max-width for a step is 20rem, if the label is longer we display an ellipsis.
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Stepper/Step/Stepper.Step.mdx
-	<Story story={Stories.Overflow} />
-=======
 	<Story of={Stories.Overflow} />
->>>>>>> master:packages/design-system/src/stories/navigation/Stepper.Step.mdx
 </Canvas>
 
 ## States
@@ -58,52 +50,10 @@ N/C
 ## Usage
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Stepper/Step/Stepper.Step.mdx
-	<Story
-		name="usage"
-		args={{
-			variant: 'Skeleton',
-			index: 1,
-			title: 'Lorem ipsum',
-		}}
-		argTypes={{
-			variant: {
-				description: 'Step variation',
-				control: {
-					type: 'select',
-					options: ['Skeleton', 'Enabled', 'Validated', 'InProgress'],
-				},
-			},
-			index: {
-				description: 'Step number',
-				control: {
-					type: 'number',
-				},
-			},
-			title: {
-				description: 'Step title',
-				control: {
-					type: 'text',
-				},
-			},
-		}}
-	>
-		{({ variant, index, title }) => {
-			const StepComponent = Stepper.Step[variant];
-			StepComponent.displayName = `Step.${variant}`;
-			return <StepComponent data-index={index} title={title} />;
-		}}
-	</Story>
-</Canvas>
-
-# <ArgsTable story="usage" />
-
-    <Story of={Stories.Usage} />
-
+	<Story of={Stories.Usage} />
 </Canvas>
 
 <Controls of={Stories.Usage} />
->>>>>>> master:packages/design-system/src/stories/navigation/Stepper.Step.mdx
 
 ## Accessibility
 

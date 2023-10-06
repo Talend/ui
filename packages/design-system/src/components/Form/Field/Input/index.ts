@@ -10,6 +10,7 @@ import InputMonth from './Input.Month';
 import InputNumber from './Input.Number';
 import InputRadio from './Input.Radio';
 import InputSearch from './Input.Search';
+// import InputToggleSwitch from './Input.ToggleSwitch';
 import InputTel from './Input.Tel';
 import InputText from './Input.Text';
 import InputTime from './Input.Time';
@@ -33,6 +34,7 @@ const InputComponent = Input as typeof Input & {
 	Tel: typeof InputTel;
 	Text: typeof InputText;
 	Time: typeof InputTime;
+	// ToggleSwitch: typeof InputToggleSwitch;
 	Url: typeof InputUrl;
 	Week: typeof InputWeek;
 };
@@ -52,6 +54,7 @@ InputComponent.Search = InputSearch;
 InputComponent.Tel = InputTel;
 InputComponent.Text = InputText;
 InputComponent.Time = InputTime;
+// InputComponent.ToggleSwitch = InputToggleSwitch;
 InputComponent.Url = InputUrl;
 InputComponent.Week = InputWeek;
 

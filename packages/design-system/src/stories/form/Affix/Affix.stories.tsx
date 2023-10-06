@@ -1,9 +1,5 @@
-<<<<<<<< HEAD:packages/design-system/src/stories/FormAffix.stories.tsx
-import { Form, StackVertical } from '../';
-========
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
->>>>>>>> master:packages/design-system/src/stories/form/Affix/Affix.stories.tsx
 import { action } from '@storybook/addon-actions';
 import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '../../../';
 

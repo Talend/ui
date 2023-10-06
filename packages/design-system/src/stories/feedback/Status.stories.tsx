@@ -4,13 +4,9 @@ import {
 	StatusInProgress,
 	StatusSuccessful,
 	StatusWarning,
-<<<<<<<< HEAD:packages/design-system/src/stories/Status.stories.tsx
-} from '../';
-========
 	Status,
 } from '../../';
 import { variants } from '../../components/Status/Primitive/StatusPrimitive';
->>>>>>>> master:packages/design-system/src/stories/feedback/Status.stories.tsx
 
 export default {
 	component: StatusInProgress,

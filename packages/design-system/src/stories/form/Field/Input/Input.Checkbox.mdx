@@ -1,32 +1,11 @@
-<<<<<<< HEAD:packages/storybook/src/design-system/Form/Field/Input/Input.Checkbox.mdx
-=======
-<<<<<<<< HEAD:packages/design-system/src/stories/form/Checkbox/Checkbox.stories.mdx
->>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
-import { FigmaImage, Use } from '~docs';
-import { Checkbox, Form } from '@talend/design-system';
-import * as Stories from './Checkbox.stories';
-
-<Meta
-	title="Design System/Form/Form Fields/Checkbox"
-	component={Checkbox}
-	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=0%3A1',
-	}}
-/>
-<<<<<<< HEAD:packages/storybook/src/design-system/Form/Field/Input/Input.Checkbox.mdx
-=======
-========
 import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
 import { FigmaImage, Use } from '@talend/storybook-docs';
 import * as Stories from './Input.Checkbox.stories';
 import { Status } from '../../../Status.block';
+import { Form } from '../../../';
 
 <Meta of={Stories} />
 <Status id="formFieldInputCheckbox" />
->>>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
->>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
 
 # Checkbox
 
@@ -51,59 +30,31 @@ If there is only two options (on/off), consider using a SwitchToggle. If the use
 ### Default
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Form/Field/Input/Input.Checkbox.mdx
-	<Story story={Stories.CheckboxFillStates} />
-=======
 	<Story of={Stories.CheckboxFillStates} />
->>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
 </Canvas>
 
 ### Disabled
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Form/Field/Input/Input.Checkbox.mdx
-	<Story story={Stories.CheckboxFillStatesDisabled} />
-=======
 	<Story of={Stories.CheckboxFillStatesDisabled} />
->>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
 </Canvas>
 
 ### Read only
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Form/Field/Input/Input.Checkbox.mdx
-	<Story story={Stories.CheckboxFillStatesReadonly} />
-=======
 	<Story of={Stories.CheckboxFillStatesReadonly} />
->>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
 </Canvas>
 
 ### Multiple checkboxes
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Form/Field/Input/Input.Checkbox.mdx
-	<Story story={Stories.CheckboxReactHooksForm} />
-=======
-<<<<<<<< HEAD:packages/design-system/src/stories/form/Checkbox/Checkbox.stories.mdx
-	<Story story={Stories.CheckboxReactHooksForm} />
-========
 	<Story of={Stories.CheckboxReactHooksForm} />
->>>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
->>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
 </Canvas>
 
 ### Controlled checkbox
 
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Form/Field/Input/Input.Checkbox.mdx
-	<Story story={Stories.CheckboxControlled} />
-=======
-<<<<<<<< HEAD:packages/design-system/src/stories/form/Checkbox/Checkbox.stories.mdx
-	<Story story={Stories.CheckboxControlled} />
-========
 	<Story of={Stories.CheckboxControlled} />
->>>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
->>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
 </Canvas>
 
 ## Content
@@ -140,66 +91,11 @@ Aim for parallelism but not at the expense of comprehension.
 
 ## Usage
 
-export const Template = args => {
-	const Component = Checkbox;
-	Component.displayName = 'Checkbox';
-	return <Component {...args} />;
-};
-
 <Canvas>
-<<<<<<< HEAD:packages/storybook/src/design-system/Form/Field/Input/Input.Checkbox.mdx
-	<Story
-		name="basic"
-		args={{
-			label: 'Checkbox',
-			indeterminate: false,
-			readOnly: false,
-			disabled: false,
-		}}
-		argTypes={{
-			label: {
-				description: 'Checkbox label',
-				control: {
-					type: 'text',
-				},
-			},
-			indeterminate: {
-				description: 'Checkbox is indeterminate or  not',
-				control: {
-					type: 'boolean',
-				},
-			},
-			checked: {
-				description: 'Checkbox is checked or not',
-				control: {
-					type: 'boolean',
-				},
-			},
-			readOnly: {
-				description: 'Checkbox is read only or not',
-				control: {
-					type: 'boolean',
-				},
-			},
-			disabled: {
-				description: 'Checkbox is disabled or not',
-				control: {
-					type: 'boolean',
-				},
-			},
-		}}
-	>
-		{Template.bind({})}
-	</Story>
-</Canvas>
-
-<ArgsTable story="basic" />
-=======
 	<Story of={Stories.Basic} />
 </Canvas>
 
 <Controls of={Stories.Basic} />
->>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.Checkbox.mdx
 
 ## Accessibility
 

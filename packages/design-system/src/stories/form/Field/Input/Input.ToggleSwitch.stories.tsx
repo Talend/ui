@@ -1,26 +1,10 @@
 import { useState } from 'react';
-<<<<<<<< HEAD:packages/design-system/src/stories/form/ToggleSwitch/ToggleSwitch.stories.tsx
-import { useForm } from 'react-hook-form';
-
-import {
-	ButtonPrimary,
-	Form,
-	InlineMessageInformation,
-	StackVertical,
-	ToggleSwitch,
-	UncontrolledToggleSwitch,
-} from '@talend/design-system';
-
-export default {
-	component: ToggleSwitch,
-========
 import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '../../../../';
 import { useForm } from 'react-hook-form';
 
 export default {
 	title: 'Form/Fields/ToggleSwitch',
 	component: Form.ToggleSwitch,
->>>>>>>> master:packages/design-system/src/stories/form/Field/Input/Input.ToggleSwitch.stories.tsx
 };
 
 export const ToggleSwitchStates = () => (
@@ -99,7 +83,7 @@ export const ToggleSwitchControlled = () => {
 		<Form>
 			<Form.Fieldset legend="Control switch state" required>
 				<UncontrolledToggleSwitch label="Toggle all" name="option-a" ref={register()} />
-				<ToggleSwitch
+				<Form.ToggleSwitch
 					label="Controlled switch"
 					name="option-b"
 					ref={register()}

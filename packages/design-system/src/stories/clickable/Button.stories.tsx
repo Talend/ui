@@ -12,15 +12,9 @@ import {
 	StackHorizontal,
 	StackVertical,
 	Tooltip,
-<<<<<<<< HEAD:packages/design-system/src/stories/Button.stories.tsx
-} from '../';
-
-import { BaseButtonProps, AvailableSizes } from '../components/Button/Primitive/ButtonPrimitive';
-========
 } from '../../';
 
 import { BaseButtonProps, AvailableSizes } from '../../components/Button/Primitive/ButtonPrimitive';
->>>>>>>> master:packages/design-system/src/stories/clickable/Button.stories.tsx
 
 const commonArgTypes = {
 	children: {
@@ -65,11 +59,7 @@ const commonArgTypes = {
 
 export default {
 	component: ButtonPrimary,
-<<<<<<<< HEAD:packages/design-system/src/stories/Button.stories.tsx
-	title: 'Click/Button',
-========
 	title: 'Clickable/Button',
->>>>>>>> master:packages/design-system/src/stories/clickable/Button.stories.tsx
 	parameters: {
 		actions: { argTypesRegex: '^on[A-Z].*' },
 	},
@@ -99,10 +89,7 @@ Primary.args = {
 	isLoading: false,
 	size: 'M',
 };
-<<<<<<<< HEAD:packages/design-system/src/stories/Button.stories.tsx
-========
 
->>>>>>>> master:packages/design-system/src/stories/clickable/Button.stories.tsx
 export const Destructive = DestructiveTemplate.bind({});
 Destructive.argTypes = commonArgTypes;
 Destructive.args = {

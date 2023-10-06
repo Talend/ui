@@ -1,18 +1,10 @@
 import { StoryFn } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-<<<<<<<< HEAD:packages/design-system/src/stories/LinkAsButton.stories.tsx
-import { LinkAsButton } from '../';
-
-export default {
-	component: LinkAsButton,
-	title: 'Click/LinkAsButton',
-========
 import { LinkAsButton } from '../../';
 
 export default {
 	component: LinkAsButton,
 	title: 'Clickable/LinkAsButton',
->>>>>>>> master:packages/design-system/src/stories/clickable/LinkAsButton.stories.tsx
 };
 
 const LinkAsButtonTemplate: StoryFn<typeof LinkAsButton> = args => {

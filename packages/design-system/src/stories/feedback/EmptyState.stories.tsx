@@ -8,11 +8,7 @@ import {
 	EmptyStateMedium,
 	EmptyStateSmall,
 	StackHorizontal,
-<<<<<<<< HEAD:packages/design-system/src/stories/EmptyState.stories.tsx
-} from '../';
-========
 } from '../../';
->>>>>>>> master:packages/design-system/src/stories/feedback/EmptyState.stories.tsx
 
 export default {
 	component: EmptyStateLarge,

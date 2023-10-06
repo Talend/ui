@@ -9,15 +9,9 @@ import {
 	SkeletonParagraph,
 	StackHorizontal,
 	StackVertical,
-<<<<<<<< HEAD:packages/design-system/src/stories/Skeleton.stories.tsx
-} from '../';
-
-import SkeletonPrimitive from '..//components/Skeleton/Primitive/Skeleton.Primitive';
-========
 } from '../../';
 
 import SkeletonPrimitive from '../../components/Skeleton/Primitive/Skeleton.Primitive';
->>>>>>>> master:packages/design-system/src/stories/feedback/Skeleton.stories.tsx
 
 export default {
 	title: 'Feedback/Skeleton',

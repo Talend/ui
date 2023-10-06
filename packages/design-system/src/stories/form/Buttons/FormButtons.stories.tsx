@@ -1,10 +1,6 @@
 import { action } from '@storybook/addon-actions';
 
-<<<<<<<< HEAD:packages/design-system/src/stories/FormButtons.stories.tsx
-import { ButtonPrimary, ButtonSecondary, Form, Skeleton } from '../';
-========
 import { ButtonPrimary, ButtonSecondary, Form, Skeleton } from '../../../';
->>>>>>>> master:packages/design-system/src/stories/form/Buttons/FormButtons.stories.tsx
 
 export default {
 	component: Form.Buttons,

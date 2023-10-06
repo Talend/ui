@@ -10,11 +10,7 @@ import {
 	StackHorizontal,
 	StackVertical,
 	Tooltip,
-<<<<<<<< HEAD:packages/design-system/src/stories/ButtonAsLink.stories.tsx
-} from '../';
-========
 } from '../../';
->>>>>>>> master:packages/design-system/src/stories/clickable/ButtonAsLink.stories.tsx
 
 const defaultArgs = {
 	children: 'Link label',
@@ -49,11 +45,7 @@ const commonLinkArgTypes = {
 
 export default {
 	component: ButtonPrimaryAsLink,
-<<<<<<<< HEAD:packages/design-system/src/stories/ButtonAsLink.stories.tsx
-	title: 'Click/ButtonAsLink',
-========
 	title: 'Clickable/ButtonAsLink',
->>>>>>>> master:packages/design-system/src/stories/clickable/ButtonAsLink.stories.tsx
 	parameters: {
 		actions: { argTypesRegex: '^on[A-Z].*' },
 	},
@@ -78,22 +70,7 @@ const DestructiveLinkTemplate: StoryFn<typeof ButtonDestructiveAsLink> = args =>
 };
 
 export const PrimaryAsLink = PrimaryLinkTemplate.bind({});
-<<<<<<<< HEAD:packages/design-system/src/stories/ButtonAsLink.stories.tsx
-PrimaryAsLink.argTypes = commonLinkArgTypes;
-PrimaryAsLink.args = defaultArgs;
 
-export const DestructiveAsLink = DestructiveLinkTemplate.bind({});
-DestructiveAsLink.argTypes = commonLinkArgTypes;
-DestructiveAsLink.args = defaultArgs;
-
-export const SecondaryAsLink = SecondaryLinkTemplate.bind({});
-SecondaryAsLink.argTypes = commonLinkArgTypes;
-SecondaryAsLink.args = defaultArgs;
-
-export const TertiaryAsLink = TertiaryLinkTemplate.bind({});
-TertiaryAsLink.argTypes = commonLinkArgTypes;
-TertiaryAsLink.args = defaultArgs;
-========
 Object.assign(PrimaryAsLink, {
 	args: defaultArgs,
 	argTypes: commonLinkArgTypes,
@@ -116,7 +93,6 @@ Object.assign(TertiaryAsLink, {
 	args: defaultArgs,
 	argTypes: commonLinkArgTypes,
 });
->>>>>>>> master:packages/design-system/src/stories/clickable/ButtonAsLink.stories.tsx
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const TooltipButton = (props: any) => (

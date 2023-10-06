@@ -1,10 +1,6 @@
 import { action } from '@storybook/addon-actions';
 
-<<<<<<<< HEAD:packages/design-system/src/stories/ErrorState.stories.tsx
-import { ErrorState, Link } from '../';
-========
 import { ErrorState, Link } from '../../';
->>>>>>>> master:packages/design-system/src/stories/feedback/ErrorState.stories.tsx
 
 export default { component: ErrorState, title: 'Feedback/ErrorState' };
 

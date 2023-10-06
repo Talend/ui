@@ -1,19 +1,11 @@
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
-<<<<<<<< HEAD:packages/design-system/src/stories/Dropdown.stories.tsx
-import { ButtonIcon, ButtonPrimary, ButtonSecondary, ButtonTertiary, Dropdown } from '../';
-
-export default {
-	component: Dropdown,
-	title: 'Click/Dropdown',
-========
 import { ButtonIcon, ButtonPrimary, ButtonSecondary, ButtonTertiary, Dropdown } from '../../';
 
 export default {
 	component: Dropdown,
 	title: 'Clickable/Dropdown',
->>>>>>>> master:packages/design-system/src/stories/clickable/Dropdown.stories.tsx
 };
 
 export const WithIcons = {
