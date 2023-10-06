@@ -20,6 +20,7 @@ type DialogFnProps = {
 };
 
 export type FloatingDrawerProps = {
+	id?: string;
 	header?: ((dialog: DialogFnProps) => ReactNode) | ReactNode;
 	children: ((dialog: DialogFnProps) => ReactNode) | ReactNode;
 	footer?: ((dialog: DialogFnProps) => ReactNode) | ReactNode;
@@ -35,6 +36,7 @@ const STYLES = {
 	entered: { transform: 'translateX(0%)' },
 	exiting: { transform: 'translateX(100%)' },
 	exited: { transform: 'translateX(100%)' },
+	unmounted: { transform: 'translateX(100%)' },
 };
 
 export const FloatingDrawer = ({
@@ -76,7 +78,6 @@ export const FloatingDrawer = ({
 				<Transition in appear timeout={withTransition ? 500 : 0}>
 					{transitionState => {
 						const style = {
-							transform: 'translateX(100%)',
 							...STYLES[transitionState],
 						};
 						const childrenProps = {
