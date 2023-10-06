@@ -7,7 +7,7 @@ export function traverseSchema(schema, fn, path, ignoreArrays) {
 
 	path = path || [];
 
-	const traverse = function(
+	const traverse = function (
 		schemaObject: any,
 		processorFunction: Function,
 		pathArray: Array<string>,
