@@ -11,7 +11,7 @@ import { useForm } from 'react-hook-form';
 
 export default {
 	title: 'Form/Fields/ToggleSwitch',
-	component: Form.ToggleSwitch,
+	component: ToggleSwitch,
 };
 
 export const ToggleSwitchStates = () => (
