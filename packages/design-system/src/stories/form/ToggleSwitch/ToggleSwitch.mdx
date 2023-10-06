@@ -1,11 +1,16 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '@talend/storybook-docs';
-import { Status } from '../../../Status.block';
+import { Form, ToggleSwitch } from '@talend/design-system';
 
 import * as Stories from './ToggleSwitch.stories';
 
-<Meta of={Stories} />
-<Status id="formFieldInputToggleSwitch" />
+<Meta
+	title="Design System/Form/Form Fields/ToggleSwitch"
+	component={ToggleSwitch}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
 
 # ToggleSwitch
 
@@ -28,19 +33,19 @@ ToggleSwitches are a quick way to view and switch between two states or on-off s
 ## States
 
 <Canvas>
-	<Story of={Stories.ToggleSwitch} />
+	<Story story={Stories.ToggleSwitchStates} />
 </Canvas>
 
 ### Inline
 
 <Canvas>
-	<Story of={Stories.ToggleSwitchInline} />
+	<Story story={Stories.ToggleSwitchInline} />
 </Canvas>
 
 ### Long content
 
 <Canvas>
-	<Story of={Stories.ToggleSwitchWithLongLabel} />
+	<Story story={Stories.ToggleSwitchWithLongLabel} />
 </Canvas>
 
 ## Content
@@ -74,13 +79,13 @@ Labels for switches should give users a strong indication of what they are selec
 ### Controlled switch
 
 <Canvas>
-	<Story of={Stories.ToggleSwitchControlled} />
+	<Story story={Stories.ToggleSwitchControlled} />
 </Canvas>
 
 ## Usage
 
 <Canvas>
-	<Story of={Stories.ToggleSwitchReactHooksForm} />
+	<Story story={Stories.ToggleSwitchReactHooksForm} />
 </Canvas>
 
 ## Accessibility

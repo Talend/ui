@@ -1,3 +1,4 @@
+import { ToggleSwitch, UncontrolledToggleSwitch } from './ToggleSwitch';
 import Buttons from './Buttons';
 import Datalist from './Field/Datalist';
 import Input from './Field/Input';
@@ -34,6 +35,7 @@ export const FormComponent = Form as typeof Form & {
 	Week: typeof Input.Week;
 	Buttons: typeof Buttons;
 	Input: typeof Input;
+	ToggleSwitch: typeof ToggleSwitch;
 };
 
 FormComponent.Row = Row;
@@ -61,6 +63,7 @@ FormComponent.Time = Input.Time;
 FormComponent.Url = Input.Url;
 FormComponent.Week = Input.Week;
 FormComponent.Input = Input;
+FormComponent.ToggleSwitch = ToggleSwitch;
 
 FormComponent.Buttons = Buttons;
 

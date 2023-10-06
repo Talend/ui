@@ -181,4 +181,3 @@ export type { PopoverProps, PopoverTriggerProps, TooltipPlacement };
 
 export * from './components/Form/ToggleSwitch';
 export * from './components/Form/Checkbox';
-export * from './components/Form/ToggleSwitch';
