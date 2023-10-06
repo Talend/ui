@@ -22,6 +22,12 @@ const WithIcons = () => (
 				onClick: () => console.log('fou'),
 				type: 'button',
 			},
+			{
+				label: 'Button with checked state',
+				onClick: () => console.log('fou'),
+				type: 'button',
+				checked: true,
+			},
 		]}
 	>
 		<ButtonTertiary isDropdown onClick={() => {}}>
@@ -81,6 +87,7 @@ context('<Dropdown />', () => {
 		cy.findByTestId('dropdown.menu').should('be.visible');
 		cy.findByTestId('dropdown.menuitem.Link with icon-0').should('be.visible');
 		cy.findByTestId('dropdown.menuitem.Button with icon-1').should('be.visible');
+		cy.findByTestId('dropdown.menuItem.Button.checked').should('be.visible');
 		cy.get('body').click(0, 0);
 		cy.findByTestId('dropdown.menu').should('not.be.visible');
 	});

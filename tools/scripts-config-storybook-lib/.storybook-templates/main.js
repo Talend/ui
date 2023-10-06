@@ -1,14 +1,11 @@
 const fs = require('fs');
 const { merge } = require('lodash');
 const path = require('path');
-const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
-const { getAllModules } = require('@talend/module-to-cdn');
 const {
 	getSassLoaders,
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const { fixWindowsPaths } = require('./utils');
-const { createRequire } = require('module');
 
 const cwd = process.cwd();
 
@@ -40,12 +37,11 @@ const defaultMain = {
 	stories: getStoriesFolders(),
 	staticDirs: [path.join(__dirname, 'msw')],
 	addons: [
-		'@storybook/addon-storysource',
-		'@storybook/addon-a11y',
-		'@storybook/addon-controls',
 		'@storybook/addon-essentials',
+		'@storybook/addon-a11y',
 		'@storybook/addon-links',
 		'@storybook/addon-interactions',
+		'@storybook/addon-storysource',
 	],
 	webpackFinal: async (config) => {
 		// by default storybook do not support scss without css module
@@ -72,11 +68,6 @@ const defaultMain = {
 			},
 			plugins: [
 				...config.plugins,
-				// use dynamic-cdn-webpack-plugin with default modules
-				new CDNPlugin({
-					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/)),
-                    disable: true, // temporaly disable the CDN pluggin, causing 404 on the cdn
-				}),
 			],
 			resolve: {
 				...config.resolve,

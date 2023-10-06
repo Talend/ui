@@ -21,9 +21,18 @@
 	}
 
 	input[type='checkbox'],
-	:global(.checkbox input + ::before),
-	:global(.checkbox input + ::after) {
+	:global(.checkbox input + ::before) {
 		top: calc($padding-normal / 2);
+	}
+
+	:global(.checkbox input + ::after) {
+		/* tricky calculation to center the checkmark
+		 * $padding-normal / 2 = top gap, same as the input (see above)
+		 * tokens.$coral-sizing-xxxs = checkbox size
+		 * tokens.$coral-sizing-xxxs / 2 = mark size
+		 * 2px = 2 * 1px (the border width)
+		 */
+		top: calc($padding-normal / 2 + (tokens.$coral-sizing-xxxs - tokens.$coral-sizing-xxxs / 2 - 2px) / 2) !important; /* stylelint-disable-line declaration-no-important */
 	}
 }
 

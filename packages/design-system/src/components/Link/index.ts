@@ -1,5 +1,5 @@
-import Link, { LinkComponentProps } from './Link';
+import Link, { LinkProps, LinkComponentProps } from './Link';
 
-export type { LinkComponentProps };
-
+export type { LinkProps, LinkComponentProps };
+export { Link };
 export default Link;

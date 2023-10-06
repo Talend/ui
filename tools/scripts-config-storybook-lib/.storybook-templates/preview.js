@@ -56,7 +56,7 @@ const defaultPreview = {
 			toolbar: {
 				icon: 'paintbrush',
 				items: [
-					{ value: 'light', left: '☀️', title: 'Light mode' },
+					{ value: 'light', left: '⚪', title: 'Light mode' },
 					{ value: 'dark', left: '🌑', title: 'Dark mode' },
 				],
 				dynamicTitle: true,
@@ -109,6 +109,11 @@ const defaultPreview = {
 	].filter(Boolean),
 	parameters:{
 		backgrounds: { disable: true, grid: { disable: true } },
+		docs: {
+			canvas: {
+				withToolbar: true,
+			},
+		}
 	}
 };
 

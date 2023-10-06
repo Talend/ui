@@ -43,6 +43,7 @@ exports[`BadgeSlider should mount a default badge 1`] = `
       class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
     >
       <button
+        aria-describedby="42"
         aria-label="0"
         class="btn btn-link"
         id="myId-badge-slider-action-overlay"

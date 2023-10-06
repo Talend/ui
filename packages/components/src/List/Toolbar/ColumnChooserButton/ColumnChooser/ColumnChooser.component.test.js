@@ -99,6 +99,6 @@ describe('ColumnChooser', () => {
 		// When
 		render(<Component {...props} />);
 		// Then
-		expect(document.querySelectorAll('svg[name="talend-locked"]')).toHaveLength(2);
+		expect(document.querySelectorAll('use[xlink:href="#locker-closed:M"]')).toHaveLength(2);
 	});
 });

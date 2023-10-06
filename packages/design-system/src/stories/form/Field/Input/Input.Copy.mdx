@@ -1,0 +1,59 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import { FigmaImage } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
+
+import * as Stories from './Input.Copy.stories';
+
+<Meta of={Stories} />
+<Status id="formFieldInputCopy" />
+
+# Copy
+
+A shortcut to a read-only `Form.Text` field with prefix and a state, it's used to let the user copy a generated text to clipboard.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=548%3A11"
+	alt="zoning image for copy input"
+/>
+
+## Style
+
+## States
+
+### Default
+
+<Canvas>
+	<Story of={Stories.CopyStates} />
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story of={Stories.CopyStatesWithContents} />
+</Canvas>
+
+### Prefix
+
+`Form.Copy` uses `Form.Text` internally and is therefore able to display a prefix as well.
+
+<Canvas>
+	<Story of={Stories.CopyWithPrefix} />
+</Canvas>
+
+Read the [Affixes documentation here](/docs/form-affic-affixes) for more details.
+
+## Interactions
+
+## Usage with react-hook-form
+
+When using Rhf, if you want the confirmation message to disappear in case of input change, you must use `watch` on the value or defaultValue.
+
+<Canvas>
+	<Story of={Stories.ReactHookForm} />
+</Canvas>
+
+## Accessibility
+
+N/C

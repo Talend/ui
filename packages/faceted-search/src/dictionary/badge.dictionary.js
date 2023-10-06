@@ -4,6 +4,7 @@ import { BadgeNumber } from '../components/Badges/BadgeNumber/BadgeNumber.compon
 import { BadgeSlider } from '../components/Badges/BadgeSlider/BadgeSlider.component';
 import { BadgeTags } from '../components/Badges/BadgeTags/BadgeTags.component';
 import { BadgeDate } from '../components/Badges/BadgeDate/BadgeDate.component';
+import { BadgeMenu } from '../components/Badges/BadgeMenu/BadgeMenu.component';
 
 const standardBadgeTypeNames = {
 	text: 'text',
@@ -12,6 +13,7 @@ const standardBadgeTypeNames = {
 	slider: 'slider',
 	tags: 'tags',
 	date: 'date',
+	menu: 'menu',
 };
 
 const standardBadges = {
@@ -21,6 +23,7 @@ const standardBadges = {
 	[standardBadgeTypeNames.slider]: BadgeSlider,
 	[standardBadgeTypeNames.tags]: BadgeTags,
 	[standardBadgeTypeNames.date]: BadgeDate,
+	[standardBadgeTypeNames.menu]: BadgeMenu,
 };
 
 export const filterBadgeDefinitionsWithDictionary = (badgesDictionary, badgeDefinition) => {

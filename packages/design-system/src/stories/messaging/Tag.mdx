@@ -1,0 +1,136 @@
+import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
+import { FigmaImage, Use } from '@talend/storybook-docs';
+
+import { Tag } from '../../';
+import { Status } from '../Status.block';
+
+import * as Stories from './Tag.stories';
+
+<Meta of={Stories} />
+<Status id="tag" />
+
+# Tag
+
+The Tag component is useful to emphasize information to the user, works best with single word values.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/wggW0Nf0ZujylGaXt5Snnn/Tags?node-id=1306%3A65"
+	alt="zoning image for tags"
+/>
+
+## Style
+
+<FigmaImage src="https://www.figma.com/file/wggW0Nf0ZujylGaXt5Snnn/Tags?node-id=0%3A43" alt="" />
+
+### Variations
+
+<Canvas>
+<<<<<<< HEAD:packages/storybook/src/design-system/Tag/Tag.mdx
+	<Story story={Stories.Default} />
+	<Story story={Stories.Information} />
+	<Story story={Stories.Success} />
+	<Story story={Stories.Warning} />
+	<Story story={Stories.Destructive} />
+	<Story story={Stories.Beta} />
+=======
+	<Story of={Stories.Default} />
+	<Story of={Stories.Information} />
+	<Story of={Stories.Success} />
+	<Story of={Stories.Warning} />
+	<Story of={Stories.Destructive} />
+	<Story of={Stories.Beta} />
+>>>>>>> master:packages/design-system/src/stories/messaging/Tag.mdx
+</Canvas>
+
+Or you can use variant props as well
+
+<Canvas>
+<<<<<<< HEAD:packages/storybook/src/design-system/Tag/Tag.mdx
+	<Story story={Stories.VariantDefault} />
+	<Story story={Stories.VariantInformation} />
+	<Story story={Stories.VariantSuccess} />
+	<Story story={Stories.VariantWarning} />
+	<Story story={Stories.VariantDestructive} />
+	<Story story={Stories.VariantBeta} />
+=======
+	<Story of={Stories.VariantDefault} />
+	<Story of={Stories.VariantInformation} />
+	<Story of={Stories.VariantSuccess} />
+	<Story of={Stories.VariantWarning} />
+	<Story of={Stories.VariantDestructive} />
+	<Story of={Stories.VariantBeta} />
+>>>>>>> master:packages/design-system/src/stories/messaging/Tag.mdx
+</Canvas>
+
+## States
+
+### Default
+
+<Canvas>
+<<<<<<< HEAD:packages/storybook/src/design-system/Tag/Tag.mdx
+	<Story story={Stories.Ellipsis} />
+=======
+	<Story of={Stories.Ellipsis} />
+>>>>>>> master:packages/design-system/src/stories/messaging/Tag.mdx
+</Canvas>
+
+## Content
+
+Tags label UI items with keywords that help organize and categorize the items or draw more attention to them.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in tag labels.</li>
+			<li>Use short labels on tags for easy scanning.</li>
+			<li>Use clear and concise text.</li>
+			<li>Use adjectives or nouns.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don't use verbs.</li>
+			<li>Don't use all caps in labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+N/A
+
+## Accessibility
+
+N/A
+
+## Usage
+
+<Canvas>
+<<<<<<< HEAD:packages/storybook/src/design-system/Tag/Tag.mdx
+	<Story
+		name="usage"
+		args={{
+			variant: 'Default',
+			children: 'Lorem ipsum',
+		}}
+		argTypes={{
+			variant: {},
+			children: {
+				description: 'Tag content',
+			},
+		}}
+	>
+		{props => <Tag {...props} />}
+	</Story>
+</Canvas>
+
+# <ArgsTable story="usage" />
+
+    <Story of={Stories.Usage} />
+
+</Canvas>
+
+<Controls of={Stories.Usage} />
+>>>>>>> master:packages/design-system/src/stories/messaging/Tag.mdx

@@ -17,5 +17,3 @@ export const i18n = {
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 };
-
-export const decorators = [withCenteredLayout, withFormStoryDisplayMode];

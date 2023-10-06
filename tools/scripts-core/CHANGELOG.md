@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 15.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade storybook to 7.x major release
+
 ## 14.0.1
 
 ### Patch Changes

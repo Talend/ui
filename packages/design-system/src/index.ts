@@ -19,7 +19,7 @@ import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/B
 import Card from './components/Card';
 export * from './components/Combobox';
 import Divider from './components/Divider';
-import Dropdown from './components/Dropdown';
+import Dropdown, { DropdownButton } from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
 	EmptyStateMedium,
@@ -116,6 +116,7 @@ export {
 	Card,
 	Divider,
 	Dropdown,
+	DropdownButton,
 	EmptyState,
 	EmptyStateMedium,
 	EmptyStateSmall,
