@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.1.0
+
+### Minor Changes
+
+- 9d137cb98: feat: upgrade some webpack loader
+
 ## 16.0.0
 
 ### Major Changes

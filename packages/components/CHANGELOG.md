@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 11.4.4
+
+### Patch Changes
+
+- 1cb4b7b29: fix(TFD-16296): Add ellipsis on collapsible panel header
+- Updated dependencies [9d137cb98]
+  - @talend/bootstrap-theme@8.2.0
+
 ## 11.4.3
 
 ### Patch Changes
