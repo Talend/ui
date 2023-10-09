@@ -40,17 +40,18 @@ export function encodePayload(headers: HeadersInit, payload: any) {
  * @return {Promise}           A promise that resolves with the result of parsing the body
  */
 export async function handleBody(response: Response) {
+	const clonedResponse = response.clone();
 	const { headers } = response;
 	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
-		return response.json().then(data => ({ data, response }));
+		return clonedResponse.json().then(data => ({ data, response }));
 	}
 
 	if (contentType && contentType.includes('application/zip')) {
-		return response.blob().then(data => ({ data, response }));
+		return clonedResponse.blob().then(data => ({ data, response }));
 	}
 
-	return response.text().then(data => ({ data, response }));
+	return clonedResponse.text().then(data => ({ data, response }));
 }
 
 /**

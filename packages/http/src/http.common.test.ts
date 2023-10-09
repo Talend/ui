@@ -54,7 +54,10 @@ describe('handleBody', () => {
 
 		const blob = jest.fn(() => Promise.resolve());
 
-		await handleBody({ blob, headers } as any);
+		await handleBody({
+			headers,
+			clone: jest.fn().mockReturnValue({ blob }),
+		} as any);
 
 		expect(blob).toHaveBeenCalled();
 	});
@@ -75,6 +78,12 @@ describe('handleBody', () => {
 	it('should manage the body of the response like a text by default', async () => {
 		const result = await handleBody(new Response('') as any);
 		expect(result.data).toBe('');
+	});
+
+	it("should manage response's body and return a clone with unused body", async () => {
+		const result = await handleBody(new Response('ok') as any);
+		expect(result.data).toBe('ok');
+		expect(result.response.bodyUsed).toBe(false);
 	});
 
 	describe('#handleHttpResponse', () => {
