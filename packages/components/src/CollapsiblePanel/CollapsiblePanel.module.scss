@@ -173,6 +173,13 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				min-width: 0; // trick to avoid conflict between flex and overflow
+
+				> * {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
 			}
 		}
 	}
