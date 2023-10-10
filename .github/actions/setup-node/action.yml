@@ -1,0 +1,32 @@
+name: 'Setup nodejs'
+description: 'Setup nodejs'
+author: 'Talend'
+secrets:
+  NPM_TOKEN:
+    description: 'The NPM token to use'
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d #v3.8.1
+      with:
+        node-version: '20'
+        registry-url: 'https://registry.npmjs.org/'
+        scope: '@talend'
+
+    - name: Install yarn
+      shell: bash
+      run: npm i -g yarn
+
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      shell: bash
+      run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+    - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 #v3.3.2
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
