@@ -16,6 +16,7 @@ type TabChildren =
 			title: string;
 			icon?: IconNameWithSize<'S'>;
 			tag?: string | number;
+			error?: boolean;
 	  }
 	| { children: string };
 
@@ -53,13 +54,16 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 			);
 		}
 
-		const { icon, title, tag, size, ...rest } = otherProps;
+		const { icon, title, tag, size, error, ...rest } = otherProps;
 		return (
 			<ReakitTab
 				{...rest}
 				type="button"
 				ref={ref}
-				className={classnames(styles.tab, { [styles.tab_large]: size === 'L' })}
+				className={classnames(styles.tab, {
+					[styles.tab_large]: size === 'L',
+					[styles.tab_error]: error === true,
+				})}
 			>
 				<StackHorizontal gap="XXS" align="center" display="inline">
 					{icon && <SizedIcon size="S" name={icon} />}

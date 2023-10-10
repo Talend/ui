@@ -82,4 +82,8 @@
 			margin-right: tokens.$coral-spacing-s;
 		}
 	}
+
+	&_error{
+		color: tokens.$coral-color-danger-text;
+	}
 }
