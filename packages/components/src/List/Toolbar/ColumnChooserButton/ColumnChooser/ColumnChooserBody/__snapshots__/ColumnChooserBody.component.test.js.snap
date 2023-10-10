@@ -15,7 +15,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
       <div
         class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
       >
-        <span
+        <div
           class="theme-checkbox"
         >
           <input
@@ -32,7 +32,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             Unselect all
           </label>
-        </span>
+        </div>
         <div
           class="sr-only"
           id="body-context-id-body-hide all the columns"
@@ -84,7 +84,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
         <div
           class="tc-column-chooser-row theme-tc-column-chooser-row"
         >
-          <span
+          <div
             class="theme-checkbox"
           >
             <input
@@ -101,7 +101,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             >
               col3
             </label>
-          </span>
+          </div>
           <div
             class="sr-only"
             id="body-context-id-body-display the column col3"
@@ -112,7 +112,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
         <div
           class="tc-column-chooser-row theme-tc-column-chooser-row"
         >
-          <span
+          <div
             class="theme-checkbox"
           >
             <input
@@ -128,7 +128,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             >
               col4
             </label>
-          </span>
+          </div>
           <div
             class="sr-only"
             id="body-context-id-body-display the column col4"
@@ -139,7 +139,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
         <div
           class="tc-column-chooser-row theme-tc-column-chooser-row"
         >
-          <span
+          <div
             class="theme-checkbox"
           >
             <input
@@ -156,7 +156,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             >
               col5
             </label>
-          </span>
+          </div>
           <div
             class="sr-only"
             id="body-context-id-body-display the column col5"
@@ -167,7 +167,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
         <div
           class="tc-column-chooser-row theme-tc-column-chooser-row"
         >
-          <span
+          <div
             class="theme-checkbox"
           >
             <input
@@ -183,7 +183,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             >
               col6
             </label>
-          </span>
+          </div>
           <div
             class="sr-only"
             id="body-context-id-body-display the column col6"
