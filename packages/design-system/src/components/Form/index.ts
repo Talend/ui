@@ -8,10 +8,12 @@ import Fieldset from './Fieldset';
 import Form from './Form';
 import Label from './Label';
 import Row from './Row';
+import { Checkbox } from './Checkbox';
 
 export const FormComponent = Form as typeof Form & {
 	Row: typeof Row;
 	Color: typeof Input.Color;
+	Checkbox: typeof Checkbox;
 	Datalist: typeof Datalist;
 	Date: typeof Input.Date;
 	DatetimeLocal: typeof Input.DatetimeLocal;
@@ -41,6 +43,8 @@ export const FormComponent = Form as typeof Form & {
 FormComponent.Row = Row;
 
 FormComponent.Color = Input.Color;
+FormComponent.Copy = Input.Copy;
+FormComponent.Checkbox = Checkbox;
 FormComponent.Datalist = Datalist;
 FormComponent.Date = Input.Date;
 FormComponent.DatetimeLocal = Input.DatetimeLocal;
@@ -48,7 +52,6 @@ FormComponent.Email = Input.Email;
 FormComponent.Fieldset = Fieldset;
 FormComponent.File = Input.File;
 FormComponent.Hidden = Input.Hidden;
-FormComponent.Copy = Input.Copy;
 FormComponent.Label = Label;
 FormComponent.Month = Input.Month;
 FormComponent.Number = Input.Number;
@@ -56,6 +59,7 @@ FormComponent.Password = Input.Password;
 FormComponent.Radio = Input.Radio;
 FormComponent.Search = Input.Search;
 FormComponent.Select = Select;
+FormComponent.ToggleSwitch = ToggleSwitch;
 FormComponent.Tel = Input.Tel;
 FormComponent.Text = Input.Text;
 FormComponent.Textarea = Textarea;
@@ -63,7 +67,6 @@ FormComponent.Time = Input.Time;
 FormComponent.Url = Input.Url;
 FormComponent.Week = Input.Week;
 FormComponent.Input = Input;
-FormComponent.ToggleSwitch = ToggleSwitch;
 
 FormComponent.Buttons = Buttons;
 

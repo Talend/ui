@@ -16,10 +16,7 @@ import Label from '../../Label';
 
 import styles from './Checkbox.module.scss';
 
-type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
-	// Redefine onChange
-	onChange?: (isChecked: boolean) => void;
-
+type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
 	value?: string | number;
 };
 
@@ -72,10 +69,9 @@ const CheckboxPrimitive = forwardRef(
 					id={checkboxId}
 					checked={checked}
 					aria-checked={indeterminate ? 'mixed' : checked}
-					onChange={() =>
-						// If readonly, we return current check status ; Else we return opposite status as new status
-						onChange?.(Boolean(readOnly ? checked : !checked))
-					}
+					onChange={e => {
+						onChange?.(e);
+					}}
 					{...rest}
 				/>
 				<Label htmlFor={checkboxId} inline>

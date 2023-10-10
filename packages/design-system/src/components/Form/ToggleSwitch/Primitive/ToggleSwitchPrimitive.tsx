@@ -8,7 +8,9 @@ import { CheckboxPrimitiveType } from '../../Checkbox/Primitive/CheckboxPrimitiv
 
 import styles from './ToggleSwitchPrimitive.module.scss';
 
-export type ToggleSwitchPrimitiveType = CheckboxPrimitiveType;
+export type ToggleSwitchPrimitiveType = Omit<CheckboxPrimitiveType, 'onChange'> & {
+	onChange?: (checked: boolean) => void;
+};
 
 const ToggleSwitchPrimitive = forwardRef(
 	(
