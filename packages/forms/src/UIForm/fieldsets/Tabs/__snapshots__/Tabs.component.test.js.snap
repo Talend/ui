@@ -1,147 +1,127 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs widget should render tabs 1`] = `
-<div
-  class="theme-tf-tabs tf-tabs"
-  id="undefined-tabs"
->
+<div>
   <div
-    class="theme-tc-tab-bar-menu tc-tab-bar-menu"
+    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M"
+    id="id-42"
+    role="tablist"
   >
-    <ul
-      class="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
-      role="tablist"
+    <button
+      aria-controls="id-42-3"
+      aria-selected="true"
+      class="theme-tab"
+      id="undefined-tabs-0"
+      role="tab"
+      tabindex="0"
+      type="button"
     >
-      <li
-        class="active"
-        role="presentation"
+      <div
+        class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
       >
-        <button
-          aria-controls="undefined-tabs-pane-0"
-          aria-selected="true"
-          href="#"
-          id="undefined-tabs-tab-0"
-          label="User"
-          role="tab"
-        >
-          <span
-            aria-describedby="42"
-            class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
-          >
-            <span
-              class="theme-tc-tab-bar-item-label"
-            >
-              User
-            </span>
-          </span>
-        </button>
-      </li>
-      <li
-        class=""
-        role="presentation"
-      >
-        <button
-          aria-controls="undefined-tabs-pane-1"
-          aria-selected="false"
-          href="#"
-          id="undefined-tabs-tab-1"
-          label="Other"
-          role="tab"
-          tabindex="-1"
-        >
-          <span
-            aria-describedby="42"
-            class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
-          >
-            <span
-              class="theme-tc-tab-bar-item-label"
-            >
-              Other
-            </span>
-          </span>
-        </button>
-      </li>
-    </ul>
-  </div>
-  <div
-    class="tab-content"
-  >
-    <div
-      aria-hidden="false"
-      aria-labelledby="undefined-tabs-tab-0"
-      class="fade tab-pane active in"
-      id="undefined-tabs-pane-0"
-      role="tabpanel"
-    >
-      <fieldset
-        class="form-group"
-      >
-        <legend
-          class="sr-only"
+        <span
+          class="theme-tab__copy"
         >
           User
-        </legend>
-        <div
-          aria-busy="false"
-          class="form-group theme-template"
-        >
-          <input
-            aria-describedby="user_firstname-description user_firstname-error"
-            aria-invalid="false"
-            class="form-control"
-            id="user_firstname"
-            type="text"
-            value=""
-          />
-          <div />
-        </div>
-        <div
-          aria-busy="false"
-          class="form-group theme-template"
-        >
-          <input
-            aria-describedby="user_lastname-description user_lastname-error"
-            aria-invalid="false"
-            class="form-control"
-            id="user_lastname"
-            type="text"
-            value=""
-          />
-          <div />
-        </div>
-      </fieldset>
-    </div>
-    <div
-      aria-hidden="true"
-      aria-labelledby="undefined-tabs-tab-1"
-      class="fade tab-pane"
-      id="undefined-tabs-pane-1"
-      role="tabpanel"
+        </span>
+      </div>
+    </button>
+    <button
+      aria-controls="id-42-4"
+      aria-selected="false"
+      class="theme-tab"
+      id="undefined-tabs-1"
+      role="tab"
+      tabindex="-1"
+      type="button"
     >
-      <fieldset
-        class="form-group"
+      <div
+        class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
       >
-        <legend
-          class="sr-only"
+        <span
+          class="theme-tab__copy"
         >
           Other
-        </legend>
-        <div
-          aria-busy="false"
-          class="form-group theme-template"
-        >
-          <input
-            aria-describedby="comment-description comment-error"
-            aria-invalid="false"
-            class="form-control"
-            id="comment"
-            type="text"
-            value=""
-          />
-          <div />
-        </div>
-      </fieldset>
-    </div>
+        </span>
+      </div>
+    </button>
+  </div>
+  <div
+    aria-labelledby="undefined-tabs-0"
+    id="id-42-3"
+    role="tabpanel"
+    style=""
+    tabindex="0"
+  >
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="sr-only"
+      >
+        User
+      </legend>
+      <div
+        aria-busy="false"
+        class="form-group theme-template"
+      >
+        <input
+          aria-describedby="user_firstname-description user_firstname-error"
+          aria-invalid="false"
+          class="form-control"
+          id="user_firstname"
+          type="text"
+          value=""
+        />
+        <div />
+      </div>
+      <div
+        aria-busy="false"
+        class="form-group theme-template"
+      >
+        <input
+          aria-describedby="user_lastname-description user_lastname-error"
+          aria-invalid="false"
+          class="form-control"
+          id="user_lastname"
+          type="text"
+          value=""
+        />
+        <div />
+      </div>
+    </fieldset>
+  </div>
+  <div
+    aria-labelledby="undefined-tabs-1"
+    hidden=""
+    id="id-42-4"
+    role="tabpanel"
+    style="display: none;"
+    tabindex="0"
+  >
+    <fieldset
+      class="form-group"
+    >
+      <legend
+        class="sr-only"
+      >
+        Other
+      </legend>
+      <div
+        aria-busy="false"
+        class="form-group theme-template"
+      >
+        <input
+          aria-describedby="comment-description comment-error"
+          aria-invalid="false"
+          class="form-control"
+          id="comment"
+          type="text"
+          value=""
+        />
+        <div />
+      </div>
+    </fieldset>
   </div>
 </div>
 `;
