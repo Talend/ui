@@ -108,7 +108,7 @@ export const Default = () => {
 					<option>Foo</option>
 					<option>Bar</option>
 				</Form.Select>
-				<UncontrolledCheckbox
+				<Form.ToggleSwitch
 					defaultChecked
 					required
 					id="test-checkbox"
@@ -116,7 +116,7 @@ export const Default = () => {
 					label="Checkbox"
 				/>
 				<Form.Radio label="Radio" name="radio" checked />
-				<UncontrolledToggleSwitch label="Switch" defaultChecked name="Switch" />
+				<Form.ToggleSwitch label="Switch" defaultChecked name="Switch" />
 				<Form.Buttons>
 					<ButtonSecondary type="reset" onClick={action('cancel')}>
 						Reset

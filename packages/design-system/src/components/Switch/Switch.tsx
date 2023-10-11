@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, useEffect } from 'react';
+import { MouseEvent, useLayoutEffect, useRef, useState, useEffect } from 'react';
 import type { PropsWithChildren, HTMLAttributes } from 'react';
 
 import classnames from 'classnames';
@@ -18,7 +18,7 @@ export type SwitchProps = PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>,
 	disabled?: boolean;
 	readOnly?: boolean;
 	// Redefine onChange prop
-	onChange?: (selectedValue: string) => void;
+	onChange?: (event: MouseEvent<HTMLButtonElement>, selectedValue: string) => void;
 };
 
 const Switch = ({
@@ -90,9 +90,9 @@ const Switch = ({
 							tabIndex={-1}
 							role="radio"
 							aria-checked={isChecked}
-							onClick={() => {
+							onClick={(e: MouseEvent<HTMLButtonElement>) => {
 								setRadio(v);
-								onChange?.(v);
+								onChange?.(e, v);
 							}}
 							value={v}
 							key={i}

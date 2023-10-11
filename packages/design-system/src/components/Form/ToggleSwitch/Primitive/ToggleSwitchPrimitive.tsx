@@ -5,6 +5,7 @@ import classnames from 'classnames';
 
 import { useId } from '../../../../useId';
 import { CheckboxPrimitiveType } from '../../Checkbox/Primitive/CheckboxPrimitive';
+import { useControl } from '../../../../useControl';
 
 import styles from './ToggleSwitchPrimitive.module.scss';
 
@@ -13,8 +14,8 @@ export type ToggleSwitchPrimitiveType = Omit<CheckboxPrimitiveType, 'onChange'> 
 };
 
 const ToggleSwitchPrimitive = forwardRef(
-	(
-		{
+	(props: Omit<ToggleSwitchPrimitiveType, 'indeterminate'>, ref: Ref<HTMLInputElement>) => {
+		const {
 			id,
 			label,
 			defaultChecked,
@@ -26,10 +27,15 @@ const ToggleSwitchPrimitive = forwardRef(
 			isInline,
 			onChange,
 			...rest
-		}: Omit<ToggleSwitchPrimitiveType, 'indeterminate'>,
-		ref: Ref<HTMLInputElement>,
-	) => {
+		} = props;
 		const switchId = useId(id, 'switch-');
+		const controlled = useControl<boolean>(props, {
+			onChangeKey: 'onChange',
+			valueKey: 'checked',
+			defaultValueKey: 'defaultChecked',
+			selector: e => e.target.checked,
+			defaultValue: false,
+		});
 
 		return (
 			<span
@@ -48,11 +54,8 @@ const ToggleSwitchPrimitive = forwardRef(
 						readOnly={readOnly}
 						required={required}
 						aria-checked={checked}
-						checked={checked}
-						onChange={() =>
-							// If readonly, we return current check status ; Else we return opposite status as new status
-							onChange?.(Boolean(readOnly ? checked : !checked))
-						}
+						checked={controlled.value}
+						onChange={e => controlled.onChange(e)}
 						{...rest}
 						ref={ref}
 					/>

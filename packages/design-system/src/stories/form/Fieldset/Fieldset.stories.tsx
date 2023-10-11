@@ -7,7 +7,6 @@ import {
 	Form,
 	InlineMessageDestructive,
 	InlineMessageInformation,
-	UncontrolledToggleSwitch,
 } from '../../../';
 
 export default {
@@ -178,11 +177,7 @@ export const ConditionalFieldset = () => {
 						ref={register({ required: 'This field is required' })}
 					/>
 				</Form.Row>
-				<UncontrolledToggleSwitch
-					label="Send invite to admin user"
-					name="withUser"
-					ref={register()}
-				/>
+				<Form.ToggleSwitch label="Send invite to admin user" name="withUser" ref={register()} />
 			</Form.Fieldset>
 			{withUser && (
 				<Form.Fieldset legend="Invite admin for this account">

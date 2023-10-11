@@ -1,4 +1,4 @@
-import { ToggleSwitch, UncontrolledToggleSwitch } from './ToggleSwitch';
+import { ToggleSwitch } from './ToggleSwitch';
 import Buttons from './Buttons';
 import Datalist from './Field/Datalist';
 import Input from './Field/Input';
