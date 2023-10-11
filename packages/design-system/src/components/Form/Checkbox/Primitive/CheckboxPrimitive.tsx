@@ -8,10 +8,10 @@ import {
 	useImperativeHandle,
 } from 'react';
 import { ReactI18NextChild } from 'react-i18next';
-
 import classnames from 'classnames';
 
 import { useId } from '../../../../useId';
+import { useControl } from '../../../../useControl';
 import Label from '../../Label';
 
 import styles from './Checkbox.module.scss';
@@ -48,11 +48,20 @@ const CheckboxPrimitive = forwardRef(
 
 		const checkboxId = useId(id, 'checkbox-');
 
+		const controlled = useControl<boolean>(props, {
+			onChangeKey: 'onChange',
+			valueKey: 'checked',
+			defaultValueKey: 'defaultChecked',
+			selector: e => e.target.checked,
+			defaultValue: false,
+		});
+
 		useEffect(() => {
+			// indeterminate is a controlled value only
 			if (checkboxRef?.current) {
 				checkboxRef.current.indeterminate = !!indeterminate;
 			}
-		}, [checkboxRef, indeterminate]);
+		}, [checkboxRef, indeterminate, controlled.value]);
 
 		return (
 			<div
@@ -67,11 +76,9 @@ const CheckboxPrimitive = forwardRef(
 					readOnly={readOnly}
 					ref={checkboxRef}
 					id={checkboxId}
-					checked={checked}
-					aria-checked={indeterminate ? 'mixed' : checked}
-					onChange={e => {
-						onChange?.(e);
-					}}
+					aria-checked={indeterminate ? 'mixed' : controlled.value}
+					checked={controlled.value}
+					onChange={e => controlled.onChange(e)}
 					{...rest}
 				/>
 				<Label htmlFor={checkboxId} inline>
