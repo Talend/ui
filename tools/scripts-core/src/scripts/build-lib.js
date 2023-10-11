@@ -23,10 +23,13 @@ export default async function build(env, presetApi, unsafeOptions) {
 	});
 
 	const babelRootPath = utils.path.getPkgRootPath('@talend/scripts-config-babel');
+	const swcRootPath = utils.path.getPkgRootPath('@talend/scripts-config-swc');
 	const tsRootPath = utils.path.getPkgRootPath('@talend/scripts-config-typescript');
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
 		path.join(babelRootPath, '.babelrc.json');
+	const swcConfigPath =
+		getUserConfigFile(['.swcrc']) || path.join(swcRootPath, '.swcrc-typescript');
 	const tscConfigPath =
 		getUserConfigFile(['tsconfig.build.json', 'tsconfig.json']) ||
 		path.join(tsRootPath, 'tsconfig.json');
@@ -44,13 +47,14 @@ export default async function build(env, presetApi, unsafeOptions) {
 				resolve({ status: 0 });
 				return;
 			}
-			console.log('Compiling with babel...');
+			console.log('Compiling with swc...', swcConfigPath);
+			const startTime = Date.now();
 			const babelSpawn = await utils.process.spawn(
 				'npx',
 				[
-					'babel',
+					'swc',
 					'--config-file',
-					babelConfigPath,
+					swcConfigPath,
 					'-d',
 					targetFolder,
 					srcFolder,
@@ -69,11 +73,12 @@ export default async function build(env, presetApi, unsafeOptions) {
 				},
 			);
 			babelSpawn.on('exit', status => {
+				const endTime = Date.now();
 				if (parseInt(status, 10) !== 0) {
-					console.error(`Babel exit error: ${status}`);
+					console.error(`SWC exit error: ${status}`);
 					reject(new Error(status));
 				} else {
-					console.log(`Babel exit: ${status}`);
+					console.log(`SWC exit: ${status} in ${endTime - startTime}ms`);
 					resolve({ status });
 				}
 			});

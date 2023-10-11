@@ -1,0 +1,6 @@
+{
+  "name": "@talend/scripts-config-swc",
+  "version": "1.0.0",
+  "description": "Talend scripts config for swc web compiler",
+  "main": "index.js"
+}
