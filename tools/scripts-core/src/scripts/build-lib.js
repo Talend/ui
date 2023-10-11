@@ -28,8 +28,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
 		path.join(babelRootPath, '.babelrc.json');
-	const swcConfigPath =
-		getUserConfigFile(['.swcrc']) || path.join(swcRootPath, '.swcrc-typescript');
+	const swcConfigPath = getUserConfigFile(['.swcrc']) || path.join(swcRootPath, '.swcrc');
 	const tscConfigPath =
 		getUserConfigFile(['tsconfig.build.json', 'tsconfig.json']) ||
 		path.join(tsRootPath, 'tsconfig.json');
@@ -63,7 +62,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 					// @see https://github.com/babel/babel/issues/12008
 					'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
 					'--extensions',
-					'.js,.ts,.tsx,.jsx',
+					'.js,.jsx',
 					...options,
 				],
 				{

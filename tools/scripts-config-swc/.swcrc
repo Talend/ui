@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/swcrc",
   "jsc": {
     "parser": {
-      "syntax": "typescript",
+      "syntax": "ecmascript",
       "jsx": true,
       "dynamicImport": false,
       "privateMethod": false,
