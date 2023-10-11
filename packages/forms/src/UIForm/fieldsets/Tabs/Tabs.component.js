@@ -19,6 +19,7 @@ function TabsAdapter(props) {
 			tabTitle: {
 				title: item.title,
 				id: `${restProps.id}-tabs-${index}`,
+				error: !tabIsValid,
 			},
 			tabContent: tabIsValid ? (
 				<Widget
