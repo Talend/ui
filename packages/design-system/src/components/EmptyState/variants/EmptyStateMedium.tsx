@@ -1,6 +1,6 @@
 import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
 import { forwardRef, Ref } from 'react';
-import Illustration from '../../illustrations';
+import { Illustration } from '../../illustrations';
 
 export type EmptyStateMediumIcon =
 	| 'ACTIVITY'

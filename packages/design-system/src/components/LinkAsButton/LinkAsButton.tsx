@@ -10,10 +10,10 @@ import linkStyles from '../Link/Link.module.scss';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { SizedIcon } from '../Icon';
 
-type LinkAsButtonProps = Omit<ClickableProps, 'className'> &
+export type LinkAsButtonProps = Omit<ClickableProps, 'className'> &
 	Omit<LinkComponentProps, 'hideExternalIcon'> & { openInNewTab?: boolean };
 
-const LinkAsButton = forwardRef(
+export const LinkAsButton = forwardRef(
 	(
 		{ disabled, title, icon, children, openInNewTab, ...rest }: LinkAsButtonProps,
 		ref: Ref<HTMLButtonElement>,
@@ -85,5 +85,3 @@ const LinkAsButton = forwardRef(
 );
 
 LinkAsButton.displayName = 'LinkAsButton';
-
-export default LinkAsButton;

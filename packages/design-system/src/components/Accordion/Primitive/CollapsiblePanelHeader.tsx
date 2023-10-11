@@ -5,7 +5,7 @@ import tokens from '@talend/design-tokens';
 
 import { ButtonIcon } from '../../ButtonIcon';
 import { SizedIcon } from '../../Icon';
-import Divider from '../../Divider';
+import { Divider } from '../../Divider';
 import { StackHorizontal } from '../../Stack';
 import { Status } from '../../Status';
 import { variants } from '../../Status/Primitive/StatusPrimitive';

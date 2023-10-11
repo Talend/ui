@@ -37,6 +37,7 @@ export type Placement =
 	| 'left'
 	| 'left-start';
 
+export type TooltipPlacement = Placement;
 export type TooltipChildrenFnProps = {
 	onHover?: (event: any) => void;
 	onFocus?: (event: any) => void;
@@ -56,7 +57,7 @@ export type TooltipProps = {
 	children: ChildOrGenerator<ReactElement, TooltipChildrenFnProps, TooltipChildrenFnRef>;
 };
 
-const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipProps) => {
+export const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipProps) => {
 	const safeId = useId(id);
 	const [isOpen, setIsOpen] = useState(false);
 	const arrowRef = useRef(null);
@@ -110,5 +111,3 @@ const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipPro
 		</>
 	);
 };
-
-export default Tooltip;

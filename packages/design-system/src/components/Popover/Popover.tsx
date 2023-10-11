@@ -26,6 +26,10 @@ export type PopoverProps = {
 	children: ChildOrGenerator<ReactNode, object>;
 } & PopoverOptions;
 
+export type PopoverStateReturn = {
+	hide: () => void;
+};
+
 export function Popover({
 	children,
 	modal = true,

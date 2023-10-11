@@ -6,7 +6,7 @@ import { ClickableProps } from '../../Clickable';
 
 import { DataAttributes, DeprecatedIconNames } from '../../../types';
 import { StackHorizontal } from '../../Stack';
-import Loading from '../../Loading';
+import { Loading } from '../../Loading';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './ButtonStyles.module.scss';

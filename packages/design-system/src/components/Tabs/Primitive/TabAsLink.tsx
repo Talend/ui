@@ -7,10 +7,9 @@ import { StackHorizontal } from '../../Stack';
 import { SizedIcon } from '../../Icon';
 
 import styles from './TabStyles.module.scss';
-import Tooltip from '../../Tooltip';
+import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip';
 import { TagDefault } from '../../Tag';
 import Linkable, { LinkableType } from '../../Linkable';
-import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip/Tooltip';
 import { mergeRefs } from '../../../mergeRef';
 
 type TabChildren = Omit<LinkableType, 'icon' | 'children' | 'as'> & {

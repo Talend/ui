@@ -1,183 +1,45 @@
 export * from './components/Accordion';
 export * from './components/Badge';
 export * from './components/Breadcrumbs';
-import {
-	Button,
-	ButtonDestructive,
-	ButtonPrimary,
-	ButtonSecondary,
-	ButtonTertiary,
-} from './components/Button';
-import {
-	ButtonAsLink,
-	ButtonDestructiveAsLink,
-	ButtonPrimaryAsLink,
-	ButtonSecondaryAsLink,
-	ButtonTertiaryAsLink,
-} from './components/ButtonAsLink';
-import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
-import Card from './components/Card';
-export * from './components/Combobox';
-import Divider from './components/Divider';
-import Dropdown from './components/Dropdown';
-import EmptyState, {
-	EmptyStateLarge,
-	EmptyStateMedium,
-	EmptyStateSmall,
-} from './components/EmptyState';
-import ErrorState from './components/ErrorState';
-import Form from './components/Form';
-import { AffixButton, AffixReadOnly, AffixSelect } from './components/Form/Affix';
-import { Icon, SizedIcon } from './components/Icon';
-import { IconsProvider } from './components/IconsProvider';
-import InlineEditing from './components/InlineEditing';
-import {
-	InlineMessage,
-	InlineMessageBeta,
-	InlineMessageDestructive,
-	InlineMessageInformation,
-	InlineMessageSuccess,
-	InlineMessageWarning,
-} from './components/InlineMessage';
-import Link from './components/Link';
-import { LinkAsButton } from './components/LinkAsButton';
-import Loading from './components/Loading';
-import {
-	MessageSuccess,
-	MessageDestructive,
-	MessageInformation,
-	MessageWarning,
-	MessageCollectionSuccess,
-	MessageCollectionDestructive,
-	MessageCollectionInformation,
-	MessageCollectionWarning,
-} from './components/Message';
-import Popover, { PopoverProps, PopoverTriggerProps } from './components/Popover';
-import RichRadioButton from './components/RichRadioButton';
-import Skeleton, {
-	SkeletonButton,
-	SkeletonButtonIcon,
-	SkeletonHeading,
-	SkeletonInput,
-	SkeletonParagraph,
-} from './components/Skeleton';
-import {
-	Status,
-	StatusCanceled,
-	StatusFailed,
-	StatusInProgress,
-	StatusSuccessful,
-	StatusWarning,
-} from './components/Status';
-import Stepper from './components/Stepper';
-import Switch from './components/Switch';
-import { Tab, Tabs, TabsAsLinkList, TabsKit } from './components/Tabs';
-import {
-	Tag,
-	TagBeta,
-	TagDefault,
-	TagDestructive,
-	TagInformation,
-	TagSuccess,
-	TagVariantsNames,
-	TagWarning,
-} from './components/Tag';
-import ThemeProvider from './components/ThemeProvider';
-import Tooltip, { TooltipPlacement } from './components/Tooltip';
-import VisuallyHidden from './components/VisuallyHidden';
-import Illustration from './components/illustrations';
+export * from './components/Button';
+export * from './components/ButtonAsLink';
 
+export * from './components/ButtonIcon';
+export * from './components/Card';
+export * from './components/Combobox';
+export * from './components/Divider';
+export * from './components/Dropdown';
+export * from './components/EmptyState';
+export * from './components/ErrorState';
+export * from './components/Form';
+export * from './components/Form/Affix';
+export * from './components/Form/ToggleSwitch';
+export * from './components/Form/Checkbox';
+export * from './components/Icon';
+export * from './components/IconsProvider';
+export * from './components/InlineEditing';
+export * from './components/InlineMessage';
+export * from './components/Link';
+export * from './components/LinkAsButton';
+export * from './components/Loading';
+export * from './components/Message';
+export * from './components/RichRadioButton';
+export * from './components/Skeleton';
+export * from './components/Status';
+export * from './components/Stepper';
+export * from './components/Switch';
+export * from './components/Tabs';
+export * from './components/Tag';
+export * from './components/ThemeProvider';
+export * from './components/VisuallyHidden';
+export * from './components/illustrations';
+
+export * from './components/Drawer';
 export * from './components/Stack';
 export * from './components/Modal';
-export * from './components/Drawer';
+export * from './components/Popover';
+export * from './components/Tooltip';
 export * from './themes';
 
 export type * from './components/Badge';
 export type * from './components/Modal';
-
-export {
-	AffixButton,
-	AffixReadOnly,
-	AffixSelect,
-	Button,
-	ButtonAsLink,
-	ButtonDestructive,
-	ButtonDestructiveAsLink,
-	ButtonIcon,
-	ButtonIconFloating,
-	ButtonIconToggle as Toggle,
-	ButtonIconToggle,
-	ButtonPrimary,
-	ButtonPrimaryAsLink,
-	ButtonSecondary,
-	ButtonSecondaryAsLink,
-	ButtonTertiary,
-	ButtonTertiaryAsLink,
-	Card,
-	Divider,
-	Dropdown,
-	EmptyState,
-	EmptyStateMedium,
-	EmptyStateSmall,
-	EmptyStateLarge,
-	ErrorState,
-	Form,
-	Icon,
-	IconsProvider,
-	InlineEditing,
-	InlineMessage,
-	InlineMessageInformation,
-	InlineMessageSuccess,
-	InlineMessageWarning,
-	InlineMessageDestructive,
-	InlineMessageBeta,
-	Illustration,
-	Link,
-	LinkAsButton,
-	Loading,
-	MessageCollectionSuccess,
-	MessageCollectionDestructive,
-	MessageCollectionInformation,
-	MessageCollectionWarning,
-	MessageSuccess,
-	MessageDestructive,
-	MessageInformation,
-	MessageWarning,
-	Popover,
-	RichRadioButton,
-	SizedIcon,
-	Skeleton,
-	SkeletonButton,
-	SkeletonButtonIcon,
-	SkeletonHeading,
-	SkeletonInput,
-	SkeletonParagraph,
-	Status,
-	StatusCanceled,
-	StatusFailed,
-	StatusInProgress,
-	StatusSuccessful,
-	StatusWarning,
-	Stepper,
-	Switch,
-	Tab,
-	Tabs,
-	TabsAsLinkList,
-	TabsKit,
-	Tag,
-	TagBeta,
-	TagDefault,
-	TagDestructive,
-	TagInformation,
-	TagSuccess,
-	TagVariantsNames,
-	TagWarning,
-	ThemeProvider,
-	Tooltip,
-	VisuallyHidden,
-};
-
-export type { PopoverProps, PopoverTriggerProps, TooltipPlacement };
-
-export * from './components/Form/ToggleSwitch';
-export * from './components/Form/Checkbox';

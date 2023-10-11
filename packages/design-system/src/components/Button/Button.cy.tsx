@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import ButtonPrimitive from './Primitive/ButtonPrimitive';
 import { ButtonPrimary } from './';
-import Tooltip from '../../components/Tooltip';
+import { Tooltip } from '../../components/Tooltip';
 
 const Loading = ({ 'data-testid': dataTestId }: { 'data-testid': string }) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks

@@ -21,7 +21,7 @@ export type SwitchProps = PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>,
 	onChange?: (event: MouseEvent<HTMLButtonElement>, selectedValue: string) => void;
 };
 
-const Switch = ({
+export const Switch = ({
 	label,
 	value,
 	defaultValue,
@@ -115,4 +115,4 @@ const Switch = ({
 	);
 };
 
-export default Switch;
+Switch.displayName = 'Switch';

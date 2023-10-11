@@ -10,8 +10,8 @@ import { mergeRefs } from '../../../mergeRef';
 import { DeprecatedIconNames } from '../../../types';
 import Button from '../../Clickable';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
-import Loading from '../../Loading';
-import Tooltip, { TooltipPlacement } from '../../Tooltip';
+import { Loading } from '../../Loading';
+import { Tooltip, TooltipPlacement } from '../../Tooltip';
 
 import styles from './ButtonIcon.module.scss';
 

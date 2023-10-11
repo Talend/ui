@@ -52,7 +52,7 @@ export type DropdownPropsType = {
 	'aria-label': string;
 } & Partial<DataAttributes>;
 
-const Dropdown = ({
+export const Dropdown = ({
 	children,
 	'data-test': dataTest,
 	'data-testid': dataTestId,
@@ -176,5 +176,3 @@ const Dropdown = ({
 };
 
 Dropdown.displayName = 'Dropdown';
-
-export default Dropdown;

@@ -4,13 +4,12 @@ import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
-import Tooltip from '../../Tooltip';
-import Loading from '../../Loading';
+import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip';
+import { Loading } from '../../Loading';
 import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 
 import styles from './Status.module.scss';
-import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip/Tooltip';
 import { mergeRefs } from '../../../mergeRef';
 
 export const variants = {

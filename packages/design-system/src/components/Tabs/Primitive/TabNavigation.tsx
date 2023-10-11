@@ -10,8 +10,7 @@ import { DataAttributes } from '../../../types';
 import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 import { TagDefault } from '../../Tag';
-import Tooltip from '../../Tooltip';
-import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip/Tooltip';
+import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip';
 
 import styles from './TabStyles.module.scss';
 

@@ -4,7 +4,7 @@ import Link, { LinkProps } from '../../../Link/Link';
 import { StackVertical } from '../../../Stack';
 import Label, { LabelPrimitiveProps } from '../Label/Label';
 import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
-import VisuallyHidden from '../../../VisuallyHidden';
+import { VisuallyHidden } from '../../../VisuallyHidden';
 import { useId } from '../../../../useId';
 
 export type FieldStatusProps =

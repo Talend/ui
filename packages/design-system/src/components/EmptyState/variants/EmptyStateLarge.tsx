@@ -1,5 +1,5 @@
 import { forwardRef, Ref } from 'react';
-import Illustration from '../../illustrations';
+import { Illustration } from '../../illustrations';
 import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
 
 export type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {

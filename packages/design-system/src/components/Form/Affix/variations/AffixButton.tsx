@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { DeprecatedIconNames } from '../../../../types';
-import Tooltip from '../../../Tooltip';
+import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip';
 import { StackHorizontal } from '../../../Stack';
 import Clickable, { ClickableProps } from '../../../Clickable';
 import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
@@ -13,7 +13,6 @@ import { SizedIcon } from '../../../Icon';
 
 import styles from '../AffixStyles.module.scss';
 import { mergeRefs } from '../../../../mergeRef';
-import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip/Tooltip';
 
 type CommonAffixButtonPropsType = {
 	children: string;

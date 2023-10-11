@@ -2,7 +2,7 @@ import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 
-import VisuallyHidden from '../../../VisuallyHidden';
+import { VisuallyHidden } from '../../../VisuallyHidden';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 
 import styles from './Progress.module.scss';

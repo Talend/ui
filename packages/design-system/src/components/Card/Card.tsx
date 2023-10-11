@@ -4,12 +4,12 @@ import { StackVertical } from '../Stack';
 
 import theme from './Card.module.scss';
 
-interface CardPropsType {
+export type CardPropsType = {
 	header?: ReactNode;
 	children: ReactNode;
-}
+};
 
-function Card({ header, children }: CardPropsType) {
+export function Card({ header, children }: CardPropsType) {
 	return (
 		<div className={theme.card}>
 			<StackVertical gap="L" alignContent="center">
@@ -19,5 +19,3 @@ function Card({ header, children }: CardPropsType) {
 		</div>
 	);
 }
-
-export default Card;

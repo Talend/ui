@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
 import Clickable from '../../../../Clickable';
-import Tooltip from '../../../../Tooltip';
+import { Tooltip } from '../../../../Tooltip';
 import { SizedIcon } from '../../../../Icon';
 import styles from './passwordButton.module.scss';
 import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../../Tooltip/Tooltip';

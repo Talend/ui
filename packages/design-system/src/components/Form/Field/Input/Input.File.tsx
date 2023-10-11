@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 import { ButtonIcon } from '../../../ButtonIcon';
 import { SizedIcon } from '../../../Icon';
-import VisuallyHidden from '../../../VisuallyHidden';
+import { VisuallyHidden } from '../../../VisuallyHidden';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,

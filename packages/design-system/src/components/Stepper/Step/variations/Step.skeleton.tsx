@@ -1,5 +1,5 @@
 import { memo, forwardRef, Ref } from 'react';
-import Skeleton from '../../../Skeleton';
+import { Skeleton } from '../../../Skeleton';
 import classnames from 'classnames';
 
 import stepStyles from '../Primitive/Step.module.scss';

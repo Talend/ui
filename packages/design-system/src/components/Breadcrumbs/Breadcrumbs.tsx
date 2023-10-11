@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 
 import styles from './Breadcrumbs.module.scss';
-import Link from '../Link';
-import Dropdown from '../Dropdown/Dropdown';
+import { Link } from '../Link';
+import { Dropdown } from '../Dropdown/Dropdown';
 import { ButtonTertiary } from '../Button';
 import { StackHorizontal } from '../Stack';
-import Divider from '../Divider';
-import VisuallyHidden from '../VisuallyHidden';
+import { Divider } from '../Divider';
+import { VisuallyHidden } from '../VisuallyHidden';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 
 type BreadcrumbsLink = {
