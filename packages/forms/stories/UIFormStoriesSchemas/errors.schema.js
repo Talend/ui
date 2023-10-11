@@ -4,6 +4,14 @@ export const errorsSchema = {
 		title: 'Comment',
 		required: ['fieldname'],
 		properties: {
+			tabConfiguration: {
+				type: 'object',
+				properties: {
+					fieldname: {
+						type: 'string',
+					},
+				},
+			},
 			fieldname: {
 				type: 'string',
 			},
@@ -100,7 +108,7 @@ export const errorsSchema = {
 			widget: 'tabs',
 			items: [
 				{
-					key: 'tab-settings-tab-main',
+					key: 'tabConfiguration',
 					title: 'Configuration',
 					widget: 'fieldset',
 					items: [
@@ -111,7 +119,7 @@ export const errorsSchema = {
 					],
 				},
 				{
-					key: 'tab-info',
+					key: 'tabInfo',
 					title: 'Info',
 					widget: 'fieldset',
 					items: [
