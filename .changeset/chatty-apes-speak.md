@@ -6,6 +6,7 @@ chore: remove reakit
 
 * Rewrite components without reakit
 * use `@floating-ui/react` for tooltip, popover
+* export all types and components from the root
 
 Breaking changes:
 * HTML structure output may have changed
@@ -18,6 +19,7 @@ Components changed:
 * Combobox (add as primitive)
 * Disclosure (add as primitive)
 * Divider (rewrite)
+* Drawer (rewrite using `react-transition-group`)
 * Dropdown (rewrite using `@floating-ui/react`)
 * Form/Affix/Button (typings)
 * Form/Affix/Select (useId)
