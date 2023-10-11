@@ -21,7 +21,19 @@
     "lint": "talend-scripts lint",
     "test": "talend-scripts test"
   },
-  "devDependencies": {},
+  "peerDependencies": {
+    "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@talend/scripts-config-storybook-lib": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@talend/scripts-config-react-webpack": {
+      "optional": true
+    },
+    "@talend/scripts-config-storybook-lib": {
+      "optional": true
+    }
+
+  },
   "dependencies": {
     "@babel/cli": "^7.22.15",
     "@babel/core": "^7.22.20",
@@ -29,6 +41,7 @@
     "@talend/scripts-utils": "^2.0.2",
     "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-jest": "^12.2.0",
+    "@talend/scripts-config-stylelint": "^4.0.0",
     "@talend/scripts-config-typescript": "^11.1.0",
     "cpx2": "^3.0.2",
     "fs-extra": "^10.1.0",

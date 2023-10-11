@@ -27,28 +27,24 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/bootstrap-sass": "^3.5.0",
-    "@talend/design-tokens": "^2.9.0",
-    "@talend/icons": "^6.60.1"
+    "@talend/bootstrap-sass": "^3.4.8",
+    "@talend/design-tokens": "^2.9.0"
   },
   "devDependencies": {
-    "@talend/icons": "^6.60.1",
     "@talend/scripts-core": "^15.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-minimizer-webpack-plugin": "^4.2.2",
-    "css-loader": "^4.3.0",
-    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
-    "mini-css-extract-plugin": "^2.7.6",
-    "postcss": "^8.4.31",
-    "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^7.8.3",
     "rimraf": "^3.0.2",
-    "sass": "^1.68.0",
-    "sass-loader": "^13.3.2",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^4.10.0"
+    "mini-css-extract-plugin":"2.7.6",
+    "webpack": "^5.58.2",
+    "file-loader":"^6.2.0",
+    "sass-loader":"^12.6.0",
+    "sass":"^1.67.0",
+    "style-loader":"^3.3.3",
+    "css-loader": "^4.3.0",
+    "postcss-loader": "^7.3.3"
   },
   "peerDependencies": {},
   "publishConfig": {

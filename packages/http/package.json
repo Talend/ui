@@ -27,8 +27,11 @@
     "lint": "talend-scripts lint"
   },
   "devDependencies": {
+    "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-core": "^15.0.0",
+    "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@talend/scripts-config-typescript": "^11.1.0",
     "fetch-mock": "^9.11.0",
     "node-fetch": "^2.7.0",
     "react": "^17.0.2",

@@ -34,14 +34,15 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 				// just add the path to the found list
 				return accu.concat(subFolderPath);
 			}
-			// the scope or package name is not the one we look for
-			// if there is a nested node modules folder, we dive into it for the search
-			const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
-			if (fs.existsSync(nestedNodeModulesPath)) {
-				return accu.concat(
-					findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []),
-				);
-			}
+			// NOT COMPATIBLE WITH PNPM
+			// // the scope or package name is not the one we look for
+			// // if there is a nested node modules folder, we dive into it for the search
+			// const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
+			// if (fs.existsSync(nestedNodeModulesPath)) {
+			// 	return accu.concat(
+			// 		findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []),
+			// 	);
+			// }
 			return accu;
 		}, []);
 }
