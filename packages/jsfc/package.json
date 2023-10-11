@@ -40,9 +40,9 @@
   ],
   "devDependencies": {
     "@talend/scripts-core": "^15.0.0",
-    "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@talend/scripts-config-react-webpack": "^16.1.0",
     "@talend/scripts-config-typescript": "^11.1.0",
-    "@talend/babel-plugin-import-from-index":"^1.5.1",
+    "@talend/babel-plugin-import-from-index": "^1.5.1",
     "@talend/babel-plugin-assets-api": "^1.1.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",

@@ -57,7 +57,7 @@
     "@talend/locales-tui-containers": "^8.0.2",
     "@talend/react-storybook-cmf": "^7.2.0",
     "@talend/scripts-core": "^15.0.0",
-    "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@talend/scripts-config-react-webpack": "^16.1.0",
     "i18next": "^20.6.1",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.8.1",

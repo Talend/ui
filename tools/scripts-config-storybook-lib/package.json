@@ -29,7 +29,7 @@
     "@storybook/react": "^7.4.1",
     "@storybook/react-webpack5": "^7.4.1",
     "@storybook/testing-library": "^0.2.0",
-    "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@talend/scripts-config-react-webpack": "^16.1.0",
     "@talend/dynamic-cdn-webpack-plugin": "^13.0.1",
     "assert": "^2.1.0",
     "i18next-http-backend": "^1.4.5",
