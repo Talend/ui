@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types';
 import { Tabs } from '@talend/design-system';
-import { useTranslation } from 'react-i18next';
 
 import Widget from '../../Widget';
 import { isValid } from '../../utils/validation';
-import theme from './Tabs.module.scss';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 function TabsAdapter(props) {
 	const { schema, ...restProps } = props;
-
-	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 
 	const tabs = schema.items.map((item, index) => {
 		const tabIsValid = isValid(item, restProps.errors);
@@ -21,21 +16,11 @@ function TabsAdapter(props) {
 				id: `${restProps.id}-tabs-${index}`,
 				error: !tabIsValid,
 			},
-			tabContent: tabIsValid ? (
+			tabContent: (
 				<Widget
 					{...restProps}
 					schema={{ widget: 'fieldset', ...item, options: { ...item.options, hideTitle: true } }}
 				/>
-			) : (
-				<div
-					className={theme['has-error']}
-					aria-label={`${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`}
-				>
-					<Widget
-						{...restProps}
-						schema={{ widget: 'fieldset', ...item, options: { ...item.options, hideTitle: true } }}
-					/>
-				</div>
 			),
 		};
 	});
