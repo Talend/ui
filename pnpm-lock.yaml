@@ -234,9 +234,6 @@ importers:
       '@talend/icons':
         specifier: ^6.60.1
         version: link:../icons
-      '@talend/scripts-config-babel':
-        specifier: ^13.0.0
-        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -316,9 +313,6 @@ importers:
       '@redux-saga/testing-utils':
         specifier: ^1.1.5
         version: 1.1.5
-      '@talend/scripts-config-jest':
-        specifier: ^12.2.0
-        version: link:../../tools/scripts-config-jest
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -992,9 +986,6 @@ importers:
         specifier: ^1.1.13
         version: 1.1.13
     devDependencies:
-      '@babel/core':
-        specifier: ^7.22.20
-        version: 7.22.20
       '@cypress/react':
         specifier: ^7.0.3
         version: 7.0.3(@types/react@17.0.65)(cypress@12.17.4)(react-dom@17.0.2)(react@17.0.2)
@@ -1255,9 +1246,6 @@ importers:
       '@talend/babel-plugin-import-from-index':
         specifier: ^1.5.1
         version: link:../../tools/babel-plugin-import-from-index
-      '@talend/scripts-config-jest':
-        specifier: ^12.2.0
-        version: link:../../tools/scripts-config-jest
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -1451,9 +1439,6 @@ importers:
 
   packages/http:
     devDependencies:
-      '@talend/scripts-config-babel':
-        specifier: ^13.0.0
-        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -1475,9 +1460,6 @@ importers:
 
   packages/icons:
     devDependencies:
-      '@babel/core':
-        specifier: ^7.22.20
-        version: 7.22.20
       '@babel/preset-env':
         specifier: ^7.22.20
         version: 7.22.20(@babel/core@7.22.20)
@@ -1496,9 +1478,6 @@ importers:
       '@talend/design-tokens':
         specifier: ^2.9.0
         version: link:../design-tokens
-      '@talend/scripts-config-babel':
-        specifier: ^13.0.0
-        version: link:../../tools/scripts-config-babel
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -2380,9 +2359,6 @@ importers:
       '@talend/react-cmf-webpack-plugin':
         specifier: ^6.37.0
         version: link:../cmf-webpack-plugin
-      '@talend/scripts-config-babel':
-        specifier: ^13.0.0
-        version: link:../scripts-config-babel
       '@talend/scripts-config-cdn':
         specifier: ^10.8.0
         version: link:../scripts-config-cdn
