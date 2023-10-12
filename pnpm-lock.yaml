@@ -362,6 +362,9 @@ importers:
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1130,6 +1133,9 @@ importers:
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1249,6 +1255,9 @@ importers:
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1394,6 +1403,9 @@ importers:
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1442,6 +1454,9 @@ importers:
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1542,6 +1557,9 @@ importers:
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1722,6 +1740,9 @@ importers:
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1802,6 +1823,9 @@ importers:
         specifier: ^17.0.2
         version: 17.0.2
     devDependencies:
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1902,6 +1926,9 @@ importers:
       '@talend/scripts-config-storybook-lib':
         specifier: ^5.0.0
         version: link:../../tools/scripts-config-storybook-lib
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1988,6 +2015,9 @@ importers:
         specifier: ^4.17.21
         version: 4.17.21
     devDependencies:
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core

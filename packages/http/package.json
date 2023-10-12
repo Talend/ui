@@ -28,6 +28,7 @@
   "devDependencies": {
     "@talend/scripts-core": "^15.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@talend/scripts-config-typescript": "^11.1.0",
     "fetch-mock": "^9.11.0",
     "node-fetch": "^2.7.0",
     "react": "^17.0.2",
