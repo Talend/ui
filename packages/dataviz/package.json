@@ -56,6 +56,7 @@
     "@talend/locales-tui-dataviz": "^0.4.6",
     "@talend/react-components": "^11.4.0",
     "@talend/scripts-core": "^15.0.0",
+    "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
     "@talend/scripts-config-typescript": "^11.1.0",
     "@testing-library/react": "^12.1.5",

@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^15.0.0",
+    "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",

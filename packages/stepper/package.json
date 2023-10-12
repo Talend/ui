@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@talend/icons": "^6.60.1",
+    "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-prettier": "^12.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
     "@talend/scripts-config-typescript": "^11.1.0",

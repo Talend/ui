@@ -18,6 +18,9 @@ importers:
       '@changesets/cli':
         specifier: ^2.26.2
         version: 2.26.2
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:tools/scripts-config-babel
       '@talend/scripts-config-prettier':
         specifier: ^12.0.0
         version: link:tools/scripts-config-prettier
@@ -155,6 +158,9 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
     devDependencies:
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -313,6 +319,9 @@ importers:
       '@redux-saga/testing-utils':
         specifier: ^1.1.5
         version: 1.1.5
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -359,6 +368,9 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3
     devDependencies:
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -423,6 +435,9 @@ importers:
       '@redux-saga/testing-utils':
         specifier: ^1.1.5
         version: 1.1.5
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -556,6 +571,9 @@ importers:
       '@talend/locales-tui-components':
         specifier: ^9.5.0
         version: 9.5.0
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.1.0
         version: link:../../tools/scripts-config-react-webpack
@@ -695,6 +713,9 @@ importers:
       '@talend/react-storybook-cmf':
         specifier: ^7.2.0
         version: link:../storybook-cmf
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -780,6 +801,9 @@ importers:
       '@talend/locales-tui-dataviz':
         specifier: ^0.4.6
         version: 0.4.6
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -934,6 +958,9 @@ importers:
       '@talend/locales-tui-forms':
         specifier: ^9.0.1
         version: 9.0.1
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-typescript':
         specifier: ^11.1.0
         version: link:../../tools/scripts-config-typescript
@@ -1043,6 +1070,9 @@ importers:
       '@talend/locales-design-system':
         specifier: ^7.3.0
         version: 7.3.0
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -1197,6 +1227,9 @@ importers:
       '@talend/react-components':
         specifier: ^11.4.0
         version: link:../components
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -1400,6 +1433,9 @@ importers:
       '@talend/locales-tui-forms':
         specifier: ^9.0.1
         version: 9.0.1
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -1451,6 +1487,9 @@ importers:
 
   packages/http:
     devDependencies:
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -1493,6 +1532,12 @@ importers:
       '@talend/design-tokens':
         specifier: ^2.9.0
         version: link:../design-tokens
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
+      '@talend/scripts-config-typescript':
+        specifier: ^11.1.0
+        version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1642,6 +1687,9 @@ importers:
         specifier: ^3.0.6
         version: 3.0.6
     devDependencies:
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1660,6 +1708,9 @@ importers:
 
   packages/router-bridge:
     devDependencies:
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -1691,6 +1742,9 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3
     devDependencies:
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack
@@ -1734,6 +1788,9 @@ importers:
       '@talend/icons':
         specifier: ^6.60.1
         version: link:../icons
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-prettier':
         specifier: ^12.0.0
         version: link:../../tools/scripts-config-prettier
@@ -1789,6 +1846,9 @@ importers:
       '@talend/react-cmf':
         specifier: ^7.3.0
         version: link:../cmf
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
@@ -1823,6 +1883,9 @@ importers:
         specifier: ^17.0.2
         version: 17.0.2
     devDependencies:
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-typescript':
         specifier: ^11.1.0
         version: link:../../tools/scripts-config-typescript
@@ -1923,6 +1986,9 @@ importers:
       '@talend/locales-tui-forms':
         specifier: ^9.0.1
         version: 9.0.1
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-storybook-lib':
         specifier: ^5.0.0
         version: link:../../tools/scripts-config-storybook-lib
@@ -2120,6 +2186,10 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+    devDependencies:
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../scripts-config-babel
 
   tools/cypress-api-mock-plugin:
     dependencies:
@@ -2389,6 +2459,9 @@ importers:
       '@talend/react-cmf-webpack-plugin':
         specifier: ^6.37.0
         version: link:../cmf-webpack-plugin
+      '@talend/scripts-config-babel':
+        specifier: ^13.0.0
+        version: link:../scripts-config-babel
       '@talend/scripts-config-cdn':
         specifier: ^10.8.0
         version: link:../scripts-config-cdn
