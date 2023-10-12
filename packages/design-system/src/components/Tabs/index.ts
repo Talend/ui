@@ -4,5 +4,3 @@ import TabsAsLinkList from './variants/TabsAsLinkList';
 import TabsKit from './variants/TabsKit';
 
 export { Tab, Tabs, TabsKit, TabsAsLinkList };
-
-export default TabsKit;
