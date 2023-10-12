@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/await-async-query */
 /* eslint-disable no-console */
-import Dropdown from './';
+import { Dropdown } from './';
 
 import { ButtonTertiary } from '../../components/Button';
 import { IconsProvider } from '../../components/IconsProvider';

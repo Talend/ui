@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/await-async-query */
-import Tooltip from './Tooltip';
+import { Tooltip } from './Tooltip';
 
 context('<Tooltip />', () => {
 	describe('default', () => {

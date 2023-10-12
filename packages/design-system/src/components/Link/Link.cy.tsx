@@ -1,6 +1,7 @@
 /* eslint-disable testing-library/await-async-query */
 /* eslint-disable testing-library/prefer-screen-queries */
-import Link from './';
+import { Link } from './';
+
 context('<Link />', () => {
 	it('should render', () => {
 		cy.mount(

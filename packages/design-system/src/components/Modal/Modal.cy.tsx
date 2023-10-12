@@ -4,7 +4,7 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import { useState } from 'react';
 import { ButtonPrimary } from '../Button';
-import Modal, { ModalPropsType } from './Modal';
+import { Modal, ModalPropsType } from './Modal';
 
 function ModalStory(props: Partial<ModalPropsType>) {
 	const [modalOpen, setModalOpen] = useState(false);

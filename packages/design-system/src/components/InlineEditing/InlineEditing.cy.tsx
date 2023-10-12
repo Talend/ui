@@ -1,7 +1,7 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
 /* eslint-disable testing-library/await-async-query */
 /* eslint-disable testing-library/prefer-screen-queries */
-import InlineEditing from './';
+import { InlineEditing } from './';
 
 context('<InlineEditing />', () => {
 	it('should go to edit mode when clicking on the button', () => {
