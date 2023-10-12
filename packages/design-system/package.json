@@ -43,7 +43,6 @@
     "typeface-source-sans-pro": "^1.1.13"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.20",
     "@cypress/react": "^7.0.3",
     "@cypress/webpack-dev-server": "^3.6.1",
     "@storybook/addon-a11y": "^7.4.1",
