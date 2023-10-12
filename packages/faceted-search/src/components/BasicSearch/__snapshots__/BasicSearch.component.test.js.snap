@@ -126,80 +126,34 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     <div
       class="tc-basic-search-content-popover theme-tc-basic-search-content-popover"
     >
-      <div
-        class="tc-add-facet-popover theme-tc-add-facet-popover"
-        id="manager-id-basic-search-add-facet-popover"
+      <button
+        aria-busy="false"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        class="theme-clickable theme-button theme-secondary theme-size-S"
+        data-feature="filter.basic.add"
+        type="button"
       >
-        <div
-          class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
-          id="manager-id-basic-search-add-facet-popover"
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
         >
-          <div>
-            <header
-              class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-              id="manager-id-basic-search-add-facet-popover-null-header"
+          Add filter
+          <span
+            class="theme-button__caret"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.2rem; height: 1.2rem;"
             >
-              <form
-                class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                role="search"
-              >
-                <div
-                  class="form-group"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
-                    focusable="false"
-                    name="talend-search"
-                    pointer-events="none"
-                    shape-rendering="geometricPrecision"
-                  />
-                  <input
-                    aria-label="Find a filter"
-                    autocomplete="off"
-                    class="theme-search form-control"
-                    id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                    name="search"
-                    placeholder="Find a filter"
-                    role="searchbox"
-                    type="search"
-                    value=""
-                  />
-                </div>
-              </form>
-            </header>
-            <div
-              class="theme-body tc-tooltip-body"
-              id="manager-id-basic-search-add-facet-popover-null-body"
-            >
-              <div
-                class="theme-content tc-tooltip-content"
-                id="manager-id-basic-search-add-facet-popover-null-body-content"
-              >
-                <div
-                  class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container"
-                >
-                  <button
-                    class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                    id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                    tabindex="0"
-                  >
-                    <div
-                      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S"
-                    >
-                      <div
-                        class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink"
-                      >
-                        Name
-                      </div>
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              <use
+                xlink:href="#chevron-down:S"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
     </div>
   </div>
   <div

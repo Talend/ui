@@ -16,7 +16,7 @@ import DropdownDivider from './Primitive/DropdownDivider';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
 import DropdownTitle from './Primitive/DropdownTitle';
-import MenuButton from './Primitive/MenuButton';
+import { DropdownButton } from './Primitive/DropdownButton';
 
 type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 	label: string;
@@ -104,7 +104,7 @@ export const Dropdown = ({
 						const { label, ...entryRest } = entry;
 						const id = `${label}-${index}`;
 						return (
-							<MenuButton
+							<DropdownButton
 								{...entryRest}
 								// {...menu}
 								onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
@@ -118,7 +118,7 @@ export const Dropdown = ({
 								data-test={`${menuItemTest}.${id}`}
 							>
 								{label}
-							</MenuButton>
+							</DropdownButton>
 						);
 					}
 

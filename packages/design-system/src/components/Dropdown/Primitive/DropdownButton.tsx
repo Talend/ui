@@ -9,12 +9,12 @@ import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './DropdownEntry.module.scss';
 
-export type MenuButtonType = ClickableProps & /*MenuItemProps &*/ {
+export type DropdownButtonType = ClickableProps & /*MenuItemProps &*/ {
 	icon?: DeprecatedIconNames | IconNameWithSize<'M'>;
 };
 
-const MenuButton = forwardRef(
-	({ children, icon, ...props }: MenuButtonType, ref: Ref<HTMLButtonElement>) => {
+export const DropdownButton = forwardRef(
+	({ children, icon, ...props }: DropdownButtonType, ref: Ref<HTMLButtonElement>) => {
 		return (
 			<Clickable {...props} ref={ref}>
 				<div className={styles.dropdownEntry}>
@@ -34,6 +34,4 @@ const MenuButton = forwardRef(
 	},
 );
 
-MenuButton.displayName = 'MenuButton';
-
-export default MenuButton;
+DropdownButton.displayName = 'DropdownButton';
