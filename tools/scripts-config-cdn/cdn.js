@@ -169,7 +169,6 @@ function getModulesFromLockFile(dir) {
 		const json = yaml.load(fs.readFileSync(lockTypeMap.pnpm.path, 'utf-8'));
 		infos = Object.keys(json.packages)
 			.map(moduleAndversion => {
-				console.log(moduleAndversion);
 				const moduleName = getModuleName(moduleAndversion, true);
 				return moduleToCdn(moduleName, getModuleVersion(moduleAndversion, true), {
 					env: 'development',
