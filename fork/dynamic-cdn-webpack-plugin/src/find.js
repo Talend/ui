@@ -34,6 +34,7 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 				// just add the path to the found list
 				return accu.concat(subFolderPath);
 			}
+			// TODO CHECKJM Not compatible with pnpm
 			// the scope or package name is not the one we look for
 			// if there is a nested node modules folder, we dive into it for the search
 			const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
@@ -54,6 +55,9 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 			if (subFolder.name === '.bin') {
 				return accu;
 			}
+			// if (subFolder.name === '.pnpm') {
+			// 	return accu;
+			// }
 			if (subFolder.name.startsWith('@')) {
 				// for scope folders, we need a special treatment to avoid getting scoped packages when we don't want a scoped one.
 				// ex: search for `classnames`, we don't want to find `@types/classnames` in the result
@@ -83,6 +87,7 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 }
 
 function findPackages(scope, name, buff = []) {
+	console.log('findPackages', scope, name, buff)
 	// https://nodejs.org/dist/latest-v14.x/docs/api/modules.html#modules_require_resolve_paths_request
 	const roots = require.resolve.paths(name).filter(p => fs.existsSync(p));
 	if (roots === null) {

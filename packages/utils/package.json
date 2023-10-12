@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^15.0.0",
+    "@types/date-fns": "^0.0.2",
     "cross-env": "^7.0.3"
   },
   "dependencies": {

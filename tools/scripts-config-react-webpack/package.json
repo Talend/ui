@@ -58,10 +58,6 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.1"
   },
-  "peerDependencies": {
-    "@talend/icons": "*",
-    "react": "*"
-  },
   "publishConfig": {
     "access": "public"
   }

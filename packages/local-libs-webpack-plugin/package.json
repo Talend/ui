@@ -27,6 +27,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@talend/scripts-core": "^15.0.0",
     "jest-cli": "^29.7.0"
   }
 }

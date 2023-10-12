@@ -7,7 +7,7 @@
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
+    "pre-release": "pnpm build:dev && pnpm build:prod",
     "build:lib": "talend-scripts build",
     "start": "talend-scripts start-storybook -p 6007",
     "test": "talend-scripts test",
@@ -33,6 +33,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/design-system": "^7.15.1",
     "@talend/react-bootstrap": "^1.35.2",
     "@talend/react-cmf": "^7.3.0",
     "@talend/react-components": "^11.4.0",

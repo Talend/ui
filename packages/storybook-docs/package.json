@@ -27,7 +27,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/design-system": "^7.15.1",
     "@talend/design-tokens": "^2.9.0",
     "classnames": "^2.3.1",
     "figma-js": "^1.16.0",
@@ -35,8 +34,5 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^15.0.0"
-  },
-  "peerDependencies": {
-    "@talend/icons": "^6.42.0"
   }
 }

@@ -7,7 +7,7 @@
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
+    "pre-release": "pnpm build:dev && pnpm build:prod",
     "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
@@ -33,7 +33,7 @@
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
     "@talend/react-cmf": "^7.3.0",
-    "@talend/utils": "2.6.0",
+    "@talend/utils": "^2.6.0",
     "immutable": "^3.8.2",
     "redux-saga": "^1.2.3"
   },

@@ -6,7 +6,7 @@
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
+    "pre-release": "pnpm build:dev && pnpm build:prod",
     "build:lib": "talend-scripts build",
     "build": "talend-scripts build",
     "lint": "talend-scripts lint",
