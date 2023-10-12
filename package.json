@@ -1,5 +1,4 @@
 {
-
   "scripts": {
     "postinstall": "talend-yarn-workspace run build:lib",
     "pre-release": "talend-yarn-workspace run pre-release",
@@ -59,7 +58,7 @@
     "husky": "^8.0.3",
     "i18next-scanner": "^4.4.0",
     "lint-staged": "^13.3.0",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.3",
     "rimraf": "^3.0.2",
     "terser-webpack-plugin": "^5.3.9",
     "typescript": "^5.0.4",

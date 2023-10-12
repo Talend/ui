@@ -16,7 +16,6 @@
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-core": "^15.0.0"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
