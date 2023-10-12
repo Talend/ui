@@ -5,66 +5,56 @@ import userEvent from '@testing-library/user-event';
 
 import ResourcePicker from './ResourcePicker.component';
 
+const ResourcePickerMock =
+	() =>
+	({ toolbar, onRowClick, isSelected, collection, ...props }) => (
+		<div data-testid="ResourcePicker" data-props={JSON.stringify(props, null, 2)}>
+			<div data-testid="toolbar" data-props={JSON.stringify(toolbar, null, 2)}>
+				<div>
+					<label htmlFor="toolbar-name">{toolbar.name.label}</label>
+					<input
+						id="toolbar-name"
+						type="text"
+						onChange={e => toolbar.name.onChange(e)}
+						value={toolbar.name.value}
+					/>
+				</div>
+				<div className="tc-resource-picker-state-filters">
+					<button onClick={() => toolbar.state.onChange('selection', true)}>state filter</button>
+					<button onClick={() => toolbar.state.onChange('certified', true)}>
+						certified filter
+					</button>
+					<button onClick={() => toolbar.state.onChange('favorites', true)}>
+						favorites filter
+					</button>
+				</div>
+				<div className="tc-resource-picker-sort-options">
+					<button onClick={() => toolbar.sort.onChange('name', 'asc')}>sort by name</button>
+					<button onClick={() => toolbar.sort.onChange('date', 'asc')}>sort by date</button>
+
+					<button onClick={() => toolbar.sort.onChange('name', 'desc')}>sort by name desc</button>
+					<button onClick={() => toolbar.sort.onChange('date', 'desc')}>sort by date desc</button>
+				</div>
+			</div>
+			<button type="button" onClick={e => onRowClick(e, { id: '0' })}>
+				onRowClick
+			</button>
+			<button type="button" onClick={e => onRowClick(e, { id: '1' })}>
+				onRowClick first
+			</button>
+			<button type="button" onClick={e => isSelected(e)}>
+				isSelected
+			</button>
+			{collection && (
+				<span data-testid="collection" data-collection={JSON.stringify(collection, null, 2)}></span>
+			)}
+			ResourcePicker
+		</div>
+	);
+
 jest.mock('ally.js');
 jest.unmock('@talend/design-system');
-jest.mock(
-	'@talend/react-components/lib/ResourcePicker',
-	() =>
-		({ toolbar, onRowClick, isSelected, collection, ...props }) =>
-			(
-				<div data-testid="ResourcePicker" data-props={JSON.stringify(props, null, 2)}>
-					<div data-testid="toolbar" data-props={JSON.stringify(toolbar, null, 2)}>
-						<div>
-							<label htmlFor="toolbar-name">{toolbar.name.label}</label>
-							<input
-								id="toolbar-name"
-								type="text"
-								onChange={e => toolbar.name.onChange(e)}
-								value={toolbar.name.value}
-							/>
-						</div>
-						<div className="tc-resource-picker-state-filters">
-							<button onClick={() => toolbar.state.onChange('selection', true)}>
-								state filter
-							</button>
-							<button onClick={() => toolbar.state.onChange('certified', true)}>
-								certified filter
-							</button>
-							<button onClick={() => toolbar.state.onChange('favorites', true)}>
-								favorites filter
-							</button>
-						</div>
-						<div className="tc-resource-picker-sort-options">
-							<button onClick={() => toolbar.sort.onChange('name', 'asc')}>sort by name</button>
-							<button onClick={() => toolbar.sort.onChange('date', 'asc')}>sort by date</button>
-
-							<button onClick={() => toolbar.sort.onChange('name', 'desc')}>
-								sort by name desc
-							</button>
-							<button onClick={() => toolbar.sort.onChange('date', 'desc')}>
-								sort by date desc
-							</button>
-						</div>
-					</div>
-					<button type="button" onClick={e => onRowClick(e, { id: '0' })}>
-						onRowClick
-					</button>
-					<button type="button" onClick={e => onRowClick(e, { id: '1' })}>
-						onRowClick first
-					</button>
-					<button type="button" onClick={e => isSelected(e)}>
-						isSelected
-					</button>
-					{collection && (
-						<span
-							data-testid="collection"
-							data-collection={JSON.stringify(collection, null, 2)}
-						></span>
-					)}
-					ResourcePicker
-				</div>
-			),
-);
+jest.mock('@talend/react-components/lib/ResourcePicker', ResourcePickerMock);
 
 describe('ResourcePicker field', () => {
 	const collection = [
