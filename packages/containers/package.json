@@ -58,6 +58,8 @@
     "@talend/scripts-core": "^15.0.0",
     "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
     "i18next": "^20.6.1",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.8.1",

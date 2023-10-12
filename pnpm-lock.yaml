@@ -225,6 +225,9 @@ importers:
       '@testing-library/react':
         specifier: ^12.1.5
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
+      '@testing-library/user-event':
+        specifier: ^13.5.0
+        version: 13.5.0(@testing-library/dom@9.3.1)
       react:
         specifier: ^17.0.2
         version: 17.0.2
@@ -380,6 +383,9 @@ importers:
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
+      '@testing-library/react':
+        specifier: ^12.1.5
+        version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
       '@testing-library/react-hooks':
         specifier: ^8.0.1
         version: 8.0.1(@types/react@17.0.65)(react-dom@17.0.2)(react@17.0.2)
@@ -722,6 +728,12 @@ importers:
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
+      '@testing-library/react':
+        specifier: ^12.1.5
+        version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
+      '@testing-library/user-event':
+        specifier: ^13.5.0
+        version: 13.5.0(@testing-library/dom@9.3.1)
       i18next:
         specifier: ^20.6.1
         version: 20.6.1
@@ -813,9 +825,15 @@ importers:
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
+      '@testing-library/cypress':
+        specifier: ^9.0.0
+        version: 9.0.0(cypress@12.17.4)
       '@testing-library/react':
         specifier: ^12.1.5
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
+      '@testing-library/user-event':
+        specifier: ^13.5.0
+        version: 13.5.0(@testing-library/dom@9.3.1)
       '@types/classnames':
         specifier: ^2.3.1
         version: 2.3.1
@@ -1236,6 +1254,12 @@ importers:
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
+      '@testing-library/react':
+        specifier: ^12.1.5
+        version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
+      '@testing-library/user-event':
+        specifier: ^13.5.0
+        version: 13.5.0(@testing-library/dom@9.3.1)
       babel-plugin-angularjs-annotate:
         specifier: ^0.10.0
         version: 0.10.0
@@ -1294,6 +1318,9 @@ importers:
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
+      '@testing-library/react':
+        specifier: ^12.1.5
+        version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
       '@types/d3':
         specifier: ^7.4.0
         version: 7.4.0
@@ -1803,6 +1830,9 @@ importers:
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
+      '@testing-library/react-hooks':
+        specifier: ^8.0.1
+        version: 8.0.1(@types/react@17.0.65)(react-dom@17.0.2)(react@17.0.2)
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^3.4.0
         version: 3.4.0(prettier@3.0.3)
