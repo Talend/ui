@@ -51,7 +51,6 @@
     "@cypress/webpack-dev-server": "^3.6.1",
     "@talend/bootstrap-theme": "^8.2.0",
     "@talend/design-system": "^7.15.1",
-    "@talend/eslint-plugin": "^1.0.1",
     "@talend/icons": "^6.60.1",
     "@talend/locales-tui-components": "^9.5.0",
     "@talend/locales-tui-dataviz": "^0.4.6",

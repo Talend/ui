@@ -59,7 +59,6 @@
     "@storybook/addon-actions": "^7.4.1",
     "@storybook/addon-controls": "^7.4.1",
     "@talend/bootstrap-theme": "^8.2.0",
-    "@talend/eslint-plugin": "^1.0.1",
     "@talend/icons": "^6.60.1",
     "@talend/locales-tui-forms": "^9.0.1",
     "@talend/react-components": "^11.4.0",

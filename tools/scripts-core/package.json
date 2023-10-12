@@ -18,8 +18,8 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint",
-    "test": "talend-scripts test"
+    "lint": "./src/index.js lint",
+    "test": "./src/index.js test"
   },
   "peerDependencies": {
     "@talend/scripts-config-react-webpack": "^16.1.0",
@@ -40,6 +40,7 @@
     "@talend/scripts-utils": "^2.0.2",
     "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-jest": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-config-stylelint": "^4.0.0",
     "@talend/scripts-config-typescript": "^11.1.0",
     "cpx2": "^3.0.2",

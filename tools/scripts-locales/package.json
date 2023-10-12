@@ -10,7 +10,6 @@
     "lint": "talend-scripts lint"
   },
   "dependencies": {
-    "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-core": "^15.0.0",
     "@talend/scripts-utils": "^2.0.2",
     "cross-spawn": "^7.0.3"

@@ -73,7 +73,6 @@
     "@talend/bootstrap-theme": "^8.2.0",
     "@talend/design-system": "^7.15.1",
     "@talend/icons": "^6.60.1",
-    "@talend/eslint-plugin": "^1.0.1",
     "@talend/locales-design-system": "^7.3.0",
     "@talend/locales-tui-components": "^9.5.0",
     "@talend/scripts-config-stylelint": "^4.0.0",

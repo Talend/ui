@@ -1,3 +1,1 @@
-{
-    "extends": "@talend/scripts-config-babel/.babelrc.json"
-}
+{}

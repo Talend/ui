@@ -35,14 +35,13 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 				return accu.concat(subFolderPath);
 			}
 			// NOT COMPATIBLE WITH PNPM
-			// // the scope or package name is not the one we look for
-			// // if there is a nested node modules folder, we dive into it for the search
-			// const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
-			// if (fs.existsSync(nestedNodeModulesPath)) {
-			// 	return accu.concat(
-			// 		findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []),
-			// 	);
-			// }
+			// the scope or package name is not the one we look for
+			// if there is a nested node modules folder, we dive into it for the search
+			const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
+			if (fs.existsSync(nestedNodeModulesPath)) {
+				// eslint-disable-next-line no-use-before-define
+				return accu.concat(findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []));
+			}
 			return accu;
 		}, []);
 }
@@ -59,25 +58,15 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 				// for scope folders, we need a special treatment to avoid getting scoped packages when we don't want a scoped one.
 				// ex: search for `classnames`, we don't want to find `@types/classnames` in the result
 				return accu.concat(
-					findPackagesFromScopeFolder(
-						scope,
-						name,
-						path.join(nonScopeFolderPath, subFolder.name),
-					),
+					findPackagesFromScopeFolder(scope, name, path.join(nonScopeFolderPath, subFolder.name)),
 				);
 			} else if (!scope && subFolder.name === name) {
 				// we want a NON scoped package, we are in a non scoped folder, and the names match
 				return accu.concat(path.join(nonScopeFolderPath, subFolder.name));
 			}
-			const nestedNodeModulesPath = path.join(
-				nonScopeFolderPath,
-				subFolder.name,
-				'node_modules',
-			);
+			const nestedNodeModulesPath = path.join(nonScopeFolderPath, subFolder.name, 'node_modules');
 			if (fs.existsSync(nestedNodeModulesPath)) {
-				return accu.concat(
-					findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath),
-				);
+				return accu.concat(findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath));
 			}
 			return accu;
 		}, []);

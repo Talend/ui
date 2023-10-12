@@ -29,8 +29,9 @@ describe('assets-api', () => {
 		it('should prevent // as start url', () => {
 			const original = window.Talend.CDN_URL;
 			window.Talend.CDN_URL = '/cdn';
-			const mockedBaseElement = { getAttribute: jest.fn().mockReturnValueOnce('/') };
-			// @ts-ignore
+			const mockedBaseElement = {
+				getAttribute: jest.fn().mockReturnValueOnce('/'),
+			} as unknown as Element;
 			jest.spyOn(document, 'querySelector').mockImplementation(() => mockedBaseElement);
 			const url = assetsApi.getURL(bundlePath, '@talend/icons', iconsInfo?.packageJson.version);
 			expect(url).toBe(`/cdn/@talend/icons/${iconsInfo?.packageJson.version}${bundlePath}`);

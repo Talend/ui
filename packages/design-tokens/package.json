@@ -39,7 +39,6 @@
     "@talend/scripts-config-typescript": "^11.1.0",
     "@talend/babel-plugin-import-from-index": "^1.5.1",
     "@talend/babel-plugin-assets-api": "^1.1.0",
-    "@talend/eslint-plugin": "^1.0.1",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}
