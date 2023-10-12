@@ -86,7 +86,6 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 }
 
 function findPackages(scope, name, buff = []) {
-	console.log('findPackages', scope, name, buff);
 	// https://nodejs.org/dist/latest-v14.x/docs/api/modules.html#modules_require_resolve_paths_request
 	const roots = require.resolve.paths(name).filter(p => fs.existsSync(p));
 	if (roots === null) {
