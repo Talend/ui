@@ -13,10 +13,8 @@ jobs:
     environment: pull_request_unsafe
 
     steps:
-      - name: Use Node.js
-        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
-        with:
-          node-version: 18
-
-      - name: Push to surge
-        run: npx surge teardown ${{ github.event.pull_request.number }}.talend.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+    - name: Use Node.js
+      uses: ./.github/actions/setup-node
+     
+    - name: Push to surge
+      run: npx surge teardown ${{ github.event.pull_request.number }}.talend.surge.sh --token ${{ secrets.SURGE_TOKEN }}

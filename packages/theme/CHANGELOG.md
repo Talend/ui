@@ -1,5 +1,16 @@
 # @talend/bootstrap-theme
 
+## 8.2.0
+
+### Minor Changes
+
+- 9d137cb98: feat: upgrade some webpack loader
+
+### Patch Changes
+
+- Updated dependencies [9d137cb98]
+  - @talend/bootstrap-sass@3.5.0
+
 ## 8.1.3
 
 ### Patch Changes

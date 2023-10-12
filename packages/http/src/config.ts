@@ -1,4 +1,4 @@
-import { TalendRequestInit } from './http.types';
+import { TalendRequest, TalendRequestInit } from './http.types';
 
 /**
  * Storage point for the doc setup using `setDefaultConfig`
@@ -7,12 +7,11 @@ export const HTTP: { defaultConfig?: TalendRequestInit | null } = {
 	defaultConfig: null,
 };
 
-export const HTTP_RESPONSE_INTERCEPTORS: Record<string, (response: Response) => void> = {};
+export type Interceptor = (response: Response, request: TalendRequest) => Promise<Response> | void;
 
-export function addHttpResponseInterceptor(
-	name: string,
-	interceptor: (response: Response) => void,
-) {
+export const HTTP_RESPONSE_INTERCEPTORS: Record<string, Interceptor> = {};
+
+export function addHttpResponseInterceptor(name: string, interceptor: Interceptor) {
 	if (HTTP_RESPONSE_INTERCEPTORS[name]) {
 		throw new Error(`Interceptor ${name} already exists`);
 	}
@@ -24,6 +23,14 @@ export function removeHttpResponseInterceptor(name: string) {
 		throw new Error(`Interceptor ${name} does not exist`);
 	}
 	delete HTTP_RESPONSE_INTERCEPTORS[name];
+}
+
+export function applyInterceptors(request: TalendRequest, response: Response): Promise<Response> {
+	return Object.values(HTTP_RESPONSE_INTERCEPTORS).reduce(
+		(promise, interceptor) =>
+			promise.then(resp => interceptor(resp, request) || Promise.resolve(response)),
+		Promise.resolve(response),
+	);
 }
 
 /**

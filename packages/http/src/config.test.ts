@@ -6,7 +6,10 @@ import {
 	removeHttpResponseInterceptor,
 	setDefaultConfig,
 	setDefaultLanguage,
+	applyInterceptors,
 } from './config';
+import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
+import { TalendRequest } from './http.types';
 
 describe('Configuration service', () => {
 	describe('setDefaultLanguage', () => {
@@ -92,6 +95,71 @@ describe('Configuration service', () => {
 				'Interceptor myInterceptor does not exist',
 			);
 			expect(HTTP_RESPONSE_INTERCEPTORS).toEqual({ myInterceptor2: interceptor2 });
+		});
+		it('should apply all interceptors', async () => {
+			const request: TalendRequest = {
+				url: '/api/v1/data',
+				method: HTTP_METHODS.GET,
+			};
+			const response = {
+				ok: true,
+				status: HTTP_STATUS.OK,
+				body: [1, 2, 3],
+			} as unknown as Response;
+
+			const interceptor1 = jest
+				.fn()
+				.mockImplementation((resp, _) => Promise.resolve({ ...resp, body: [...resp.body, 4] }));
+			addHttpResponseInterceptor('interceptor-1', interceptor1);
+
+			const interceptor2 = jest.fn().mockImplementation((resp, req) =>
+				Promise.resolve({
+					...resp,
+					body: { interceptor: `interceptor2-${req.method}`, original: resp.body },
+				}),
+			);
+			addHttpResponseInterceptor('interceptor-2', interceptor2);
+
+			const interceptedResponse = await applyInterceptors(request, response);
+
+			expect(interceptor1).toHaveBeenCalledWith(response, request);
+			expect(interceptor2).toHaveBeenLastCalledWith(
+				expect.objectContaining({ body: [1, 2, 3, 4] }),
+				request,
+			);
+			expect(interceptedResponse).toEqual({
+				...response,
+				body: { interceptor: 'interceptor2-GET', original: [1, 2, 3, 4] },
+			});
+		});
+		it('should return response if no interceptors', () => {
+			const request: TalendRequest = {
+				url: '/api/v1/data',
+				method: HTTP_METHODS.GET,
+			};
+			const response = {
+				ok: true,
+				status: HTTP_STATUS.OK,
+				body: [1, 2, 3],
+			} as unknown as Response;
+
+			expect(applyInterceptors(request, response)).resolves.toEqual(response);
+		});
+		it('should return response if interceptor returns void', async () => {
+			const request: TalendRequest = {
+				url: '/api/v1/data',
+				method: HTTP_METHODS.GET,
+			};
+			const response = {
+				ok: true,
+				status: HTTP_STATUS.OK,
+				body: [1, 2, 3],
+			} as unknown as Response;
+			const interceptor = jest.fn().mockImplementation(() => {});
+			addHttpResponseInterceptor('interceptor', interceptor);
+			const gotResponse = await applyInterceptors(request, response);
+			expect(gotResponse).toEqual(response);
+			expect(interceptor).toHaveBeenCalledWith(response, request);
 		});
 	});
 });
