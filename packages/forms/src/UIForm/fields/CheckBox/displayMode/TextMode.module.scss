@@ -17,6 +17,7 @@
 }
 
 // override bootstrap style. This for is needed to write a bigger weight selector
+/* stylelint-disable-next-line selector-no-qualifying-type */
 form div:not(.has-success):not(.has-warning):not(.has-error).checkbox label {
 	color: inherit;
 	font-size: inherit;
