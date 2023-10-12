@@ -21,13 +21,13 @@ export function installApiMockCommands(options = {}) {
 	const recordMode = Cypress.env('record-api');
 
 	if (recordMode) {
-		Cypress.Commands.add('beforeApiMock', (options = {}) => {
-			cy.recordHar({ options });
+		Cypress.Commands.add('beforeApiMock', (opt = {}) => {
+			cy.recordHar({ opt });
 		});
 
-		Cypress.Commands.add('afterApiMock', (options = {}) => {
-			const { fileName, harPath } = getFileNames(options);
-			cy.saveHar({ outDir: HAR_FOLDER, fileName, ...options });
+		Cypress.Commands.add('afterApiMock', (opt = {}) => {
+			const { fileName, harPath } = getFileNames(opt);
+			cy.saveHar({ outDir: HAR_FOLDER, fileName, ...opt });
 			cy.task('optimiseHar', {
 				interceptUrl,
 				harPath,
@@ -35,8 +35,8 @@ export function installApiMockCommands(options = {}) {
 		});
 	} else {
 		// Load the corresponding har before executing the test file
-		Cypress.Commands.add('beforeApiMock', (options = {}) => {
-			const fileName = harFileName(options.fileName || Cypress.spec.name);
+		Cypress.Commands.add('beforeApiMock', (opt = {}) => {
+			const fileName = harFileName(opt.fileName || Cypress.spec.name);
 			const harPath = `./${path.join(HAR_FOLDER, fileName)}`;
 			cy.readFile(harPath)
 				.then(harContent => JSON.parse(harContent))

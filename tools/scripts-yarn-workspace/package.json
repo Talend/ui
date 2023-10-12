@@ -10,7 +10,10 @@
     "lint": "talend-scripts lint"
   },
   "author": "frontend@talend.com",
-  "dependencies": {},
+  "devDependencies": {
+    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/scripts-core": "^15.0.0"
+  },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

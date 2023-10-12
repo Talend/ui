@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import { utils } from '@talend/scripts-utils';
 import { getUserConfigFile } from '../utils/env.js';
 
 const { template } = _;
@@ -68,7 +69,7 @@ function generateConfigFile({ configFileNames, defaultConfigFilePath, generateCo
 	console.log(`✅ ${fileName} created.`);
 }
 
-export default async function extend(env, presetApi) {
+export default async function extend() {
 	const rootPath = process.cwd();
 	const nodeModulesPath = path.join(rootPath, 'node_modules');
 	generateConfigFile({

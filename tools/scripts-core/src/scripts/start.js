@@ -25,4 +25,5 @@ export default async function start(env, _, options) {
 	if (packageType.isLib) {
 		return startStorybook(env, _, options);
 	}
+	return null;
 }

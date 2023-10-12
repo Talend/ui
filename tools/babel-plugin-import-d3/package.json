@@ -18,6 +18,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@talend/scripts-core": "^15.0.0",
     "@babel/core": "^7.22.20",
     "@babel/preset-env": "^7.22.20",
     "babel-jest": "^29.7.0",
