@@ -46,6 +46,7 @@
     "@talend/babel-plugin-assets-api": "^1.1.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
+    "babel-loader": "^9.1.3",
     "json-refs": "^3.0.15",
     "rimraf": "^3.0.2"
   },
