@@ -55,9 +55,8 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 	];
 }
 
-function getJSAndTSLoader(env, useTypescript) {
+function getJSAndTSLoader() {
 	return [
-		!env.nocache && { loader: 'cache-loader' },
 		{
 			loader: 'babel-loader',
 			options: getBabelLoaderOptions(babelConfig),
@@ -117,7 +116,7 @@ function getWebpackRules(srcDirectories, useTypescript, devMode) {
 			test: /\.(js|ts|tsx)$/,
 			exclude: /node_modules/,
 			include: srcDirectories,
-			use: getJSAndTSLoader(process.env, useTypescript),
+			use: getJSAndTSLoader(),
 		},
 		{
 			test: /\.css$/,
