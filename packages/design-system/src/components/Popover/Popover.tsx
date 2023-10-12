@@ -12,7 +12,6 @@ import { usePopover } from './usePopover';
 import theme from './Popover.module.scss';
 
 type PopoverOptions = {
-	popup: ReactNode | ((props: any) => ReactNode);
 	initialOpen?: boolean;
 	placement?: Placement;
 	modal?: boolean;
@@ -23,7 +22,8 @@ type PopoverOptions = {
 };
 
 export type PopoverProps = {
-	children: ChildOrGenerator<ReactNode, object>;
+	disclosure: ChildOrGenerator<ReactNode, object>;
+	children: ReactNode | ((props: any) => ReactNode);
 } & PopoverOptions;
 
 export type PopoverStateReturn = {
@@ -34,7 +34,7 @@ export function Popover({
 	children,
 	modal = true,
 	isFixed = false,
-	popup,
+	disclosure,
 	hasPadding = true,
 	...restOptions
 }: PopoverProps) {
@@ -52,7 +52,7 @@ export function Popover({
 
 	return (
 		<>
-			{renderOrClone(children, { ...childrenProps, ref: popover.refs.setReference })}
+			{renderOrClone(disclosure, { ...childrenProps, ref: popover.refs.setReference })}
 			<Wrapper>
 				<div
 					ref={popover.refs.setFloating}
@@ -69,9 +69,9 @@ export function Popover({
 						stroke={tokens.coralColorIllustrationShadow}
 						fill={tokens.coralColorNeutralBackground}
 					/>
-					{typeof popup === 'function'
-						? popup({ ...popover.getFloatingProps(), setOpen: popover.setOpen })
-						: popup}
+					{typeof children === 'function'
+						? children({ ...popover.getFloatingProps(), setOpen: popover.setOpen })
+						: children}
 				</div>
 			</Wrapper>
 		</>

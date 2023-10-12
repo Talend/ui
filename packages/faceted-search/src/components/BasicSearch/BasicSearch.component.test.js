@@ -5,6 +5,8 @@ import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
 
+jest.unmock('@talend/design-system');
+
 describe('BasicSearch', () => {
 	const badgeText = {
 		properties: {

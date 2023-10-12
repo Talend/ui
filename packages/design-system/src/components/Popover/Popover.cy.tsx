@@ -7,8 +7,11 @@ context('<Popover />', () => {
 	describe('default', () => {
 		it('should show a popover', () => {
 			cy.mount(
-				<Popover data-testid="my.popover" popup="Popover content">
-					<ButtonPrimary data-testid="my.button">Open popover</ButtonPrimary>
+				<Popover
+					data-testid="my.popover"
+					disclosure={<ButtonPrimary data-testid="my.button">Open popover</ButtonPrimary>}
+				>
+					Popover content
 				</Popover>,
 			);
 
@@ -23,10 +26,16 @@ context('<Popover />', () => {
 				<CollapsiblePanel
 					title="panel"
 					metadata={[
-						<Popover key="my.popover" data-testid="my.popover" popup={<p>Popover content</p>}>
-							<ButtonPrimary onClick={() => {}} data-testid="my.button">
-								Open popover
-							</ButtonPrimary>
+						<Popover
+							key="my.popover"
+							data-testid="my.popover"
+							disclosure={
+								<ButtonPrimary onClick={() => {}} data-testid="my.button">
+									Open popover
+								</ButtonPrimary>
+							}
+						>
+							<p>Popover content</p>
 						</Popover>,
 					]}
 				>
