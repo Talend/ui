@@ -22,7 +22,7 @@ export function installApiMockCommands(options = {}) {
 
 	if (recordMode) {
 		Cypress.Commands.add('beforeApiMock', (opt = {}) => {
-			cy.recordHar({ opt });
+			cy.recordHar({ options: opt });
 		});
 
 		Cypress.Commands.add('afterApiMock', (opt = {}) => {
