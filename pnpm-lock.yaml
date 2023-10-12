@@ -2120,6 +2120,9 @@ importers:
       '@types/date-fns':
         specifier: ^0.0.2
         version: 0.0.2
+      '@types/lodash':
+        specifier: ^4.14.198
+        version: 4.14.198
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
