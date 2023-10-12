@@ -24,5 +24,8 @@
   },
   "dependencies": {
     "@neuralegion/cypress-har-generator": "^5.16.4"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^15.0.0"
   }
 }

@@ -22,6 +22,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@octokit/rest": "^18.12.0",
+    "@talend/scripts-core": "^15.0.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "commander": "^6.2.1",
     "dotenv": "^8.6.0",

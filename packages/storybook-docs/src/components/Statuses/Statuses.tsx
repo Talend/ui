@@ -1,5 +1,4 @@
 import { Unstyled } from '@storybook/blocks';
-import { StackHorizontal, StackItem } from '@talend/design-system';
 import { Status } from './Status';
 import { Statuses, StatusType } from './Statuses.types';
 

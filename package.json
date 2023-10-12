@@ -1,45 +1,48 @@
 {
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
+    "@talend/scripts-config-prettier": "^12.0.0",
+    "@talend/scripts-config-babel": "^13.0.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.20",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
     "eslint": "^7.32.0",
     "husky": "^8.0.3",
     "i18next-scanner": "^4.4.0",
     "lint-staged": "^13.3.0",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.3",
+    "rimraf": "^3.0.2",
+    "terser-webpack-plugin": "^5.3.9",
+    "typescript": "^5.0.4",
+    "webpack": "^5.73.0"
   },
   "scripts": {
-    "postinstall": "talend-yarn-workspace run build:lib",
-    "pre-release": "talend-yarn-workspace run pre-release",
-    "start": "yarn workspace @talend/ui-playground run start",
-    "start-storybook": "yarn workspace @talend/ui-storybook-one run start",
-    "release": "yarn pre-release && yarn changeset publish",
+    "postinstall": "pnpm --sort -r run build:lib",
+    "pre-release": "pnpm -r run pre-release",
+    "start": "pnpm --filter @talend/ui-playground run start",
+    "start-storybook": "pnpm --filter @talend/ui-storybook-one run start",
+    "release": "pnpm run pre-release && pnpm changeset publish",
     "lint-staged": "lint-staged",
-    "lint": "cross-env WORKSPACE_RUN_FAIL=no-bail talend-yarn-workspace run lint",
-    "lint-merge-report": "talend-yarn-workspace lint-merge-report",
-    "test": "cross-env TZ=Europe/Paris talend-yarn-workspace run test --silent",
-    "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
-    "test:cov": "cross-env TZ=Europe/Paris talend-yarn-workspace run test:cov",
-    "test:demo": "talend-yarn-workspace run test:demo",
-    "test:cron": "talend-yarn-workspace run test:cron",
-    "start-components": "yarn workspace @talend/react-components run start",
-    "start-containers": "yarn workspace  @talend/react-containers run start",
-    "start-stepper": "yarn workspace  @talend/react-stepper run start",
-    "start-forms": "yarn workspace  @talend/react-forms run start",
-    "start-theme": "yarn workspace @talend/bootstrap-theme run start",
+    "lint": "pnpm -r --no-bail run lint",
+    "lint-merge-report": "pnpm -r lint-merge-report",
+    "test": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test --silent",
+    "test:update": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test --silent -u",
+    "test:cov": "cross-env TZ=Europe/Paris pnpm -r run test:cov",
+    "test:demo": "pnpm -r run test:demo",
+    "test:cron": "pnpm -r run test:cron",
+    "start-components": "pnpm --filter @talend/react-components run start",
+    "start-containers": "pnpm --filter  @talend/react-containers run start",
+    "start-stepper": "pnpm --filter  @talend/react-stepper run start",
+    "start-forms": "pnpm --filter  @talend/react-forms run start",
+    "start-theme": "pnpm --filter @talend/bootstrap-theme run start",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
-    "prepare": "husky install"
-  },
-  "resolutions": {
-    "**/@types/react": "^17.0.2",
-    "**/@types/react-dom": "^17.0.2",
-    "**/i18next-scanner-typescript/typescript": "^5.0.4",
-    "**/browser-sync-client/typescript": "^5.0.4",
-    "**/vinyl-fs/glob-parent": "^5.1.2",
-    "**/fast-glob/glob-parent": "^5.1.2",
-    "**/trim": "^1.0.1",
-    "**/x-default-browser": "^0.5.2"
+    "clean": "pnpm -r exec npx rimraf node_modules && npx rimraf node_modules",
+    "clean:dist": "pnpm -r exec npx rimraf dist && npx rimraf dist",
+    "clean:lib": "pnpm -r exec npx rimraf lib && npx rimraf lib",
+    "clean:cache": "pnpm store prune",
+    "prepare": "husky install",
+    "preinstall": "npx only-allow pnpm"
   },
   "repository": {
     "type": "git",
@@ -47,21 +50,19 @@
   },
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "tools/*",
-    "fork/*"
-  ],
+  "packageManager": "pnpm@8.8.0",
+  "pnpm": {
+    "overrides": {
+      "@cypress/request@<=2.88.12": ">=3.0.0",
+      "@types/react": "^17.0.2",
+      "@types/react-dom": "^17.0.2",
+      "nth-check@<2.0.1": ">=2.0.1",
+      "postcss@<8.4.31": ">=8.4.31"
+    }
+  },
   "lint-staged": {
     "*.{json,md,mdx,html,js,jsx,ts,tsx}": [
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.20",
-    "terser-webpack-plugin": "^5.3.9",
-    "typescript": "^5.0.4",
-    "webpack": "^5.73.0"
   }
 }

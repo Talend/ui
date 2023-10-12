@@ -10,8 +10,9 @@
     "lint": "talend-scripts lint"
   },
   "dependencies": {
-    "cross-spawn": "^7.0.3",
-    "@talend/scripts-utils": "^2.0.2"
+    "@talend/scripts-core": "^15.0.0",
+    "@talend/scripts-utils": "^2.0.2",
+    "cross-spawn": "^7.0.3"
   },
   "keywords": [
     "i18next",

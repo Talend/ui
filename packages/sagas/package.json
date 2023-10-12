@@ -8,7 +8,7 @@
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
+    "pre-release": "pnpm build:dev && pnpm build:prod",
     "build:lib": "talend-scripts build",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^15.0.0",
+    "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",

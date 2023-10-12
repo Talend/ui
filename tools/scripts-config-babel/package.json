@@ -14,7 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "echo \"Not possible to use talend-scripts here (risk of circular dependency)\" && exit 0",
     "test": "jest"
   },
   "dependencies": {

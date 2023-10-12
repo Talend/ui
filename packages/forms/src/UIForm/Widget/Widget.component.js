@@ -9,6 +9,7 @@ import shouldRender from '../utils/condition';
 import theme from './Widget.component.module.scss';
 import { useWidget } from '../context';
 
+// eslint-disable-next-line @typescript-eslint/default-param-last
 function isUpdating(updatingKeys = [], key) {
 	if (updatingKeys.length === 0 || !key) {
 		return false;

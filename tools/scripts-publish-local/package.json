@@ -11,6 +11,7 @@
     "test": "echo nothing to test"
   },
   "dependencies": {
+    "@talend/scripts-core": "^15.0.0",
     "cross-spawn": "^7.0.3",
     "generate-password": "^1.7.0",
     "rimraf": "^3.0.2"
