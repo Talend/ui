@@ -6,6 +6,6 @@
     "allowJs": false,
     "incremental": true,
     "module": "CommonJs",
-    "typeRoots": ["src/customTypings/index.d", "../../node_modules/@types"]
+    "typeRoots": ["src/customTypings/index.d", "node_modules/@types"]
   }
 }
