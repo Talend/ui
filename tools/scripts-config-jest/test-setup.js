@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
 require('@testing-library/jest-dom');
+require('@testing-library/jest-dom/extend-expect');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
