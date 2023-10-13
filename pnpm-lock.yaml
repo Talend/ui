@@ -2746,6 +2746,9 @@ importers:
       jest:
         specifier: ^29.7.0
         version: 29.7.0
+      jest-cli:
+        specifier: ^29.7.0
+        version: 29.7.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
