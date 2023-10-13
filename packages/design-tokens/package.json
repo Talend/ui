@@ -12,7 +12,7 @@
     "build:lib": "talend-scripts build && pnpm build:umd:dev && pnpm build:umd:prod && pnpm test:umd",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
-    "test:umd": "jest scripts/umd.test.js",
+    "test:umd": "talend-scripts test scripts/umd.test.js",
     "lint": "talend-scripts lint"
   },
   "keywords": [
