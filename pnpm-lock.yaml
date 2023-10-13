@@ -240,9 +240,6 @@ importers:
       '@talend/babel-plugin-import-from-index':
         specifier: ^1.5.1
         version: link:../../tools/babel-plugin-import-from-index
-      '@talend/icons':
-        specifier: ^6.60.1
-        version: link:../icons
       '@talend/scripts-config-react-webpack':
         specifier: ^16.0.0
         version: link:../../tools/scripts-config-react-webpack

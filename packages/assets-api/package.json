@@ -29,7 +29,6 @@
   "dependencies": {},
   "devDependencies": {
     "@talend/babel-plugin-import-from-index": "^1.5.1",
-    "@talend/icons": "^6.60.1",
     "@talend/scripts-core": "^15.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
     "@talend/scripts-config-typescript": "^11.1.0",
