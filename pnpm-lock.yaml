@@ -249,6 +249,12 @@ importers:
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
+      '@types/jest':
+        specifier: ^29.5.5
+        version: 29.5.5
+      '@types/node':
+        specifier: ^6.14.13
+        version: 6.14.13
       read-pkg-up:
         specifier: ^7.0.1
         version: 7.0.1
@@ -1559,6 +1565,9 @@ importers:
 
   packages/icons:
     devDependencies:
+      '@babel/core':
+        specifier: ^7.23.2
+        version: 7.23.2
       '@babel/preset-env':
         specifier: ^7.22.20
         version: 7.23.2(@babel/core@7.23.2)
