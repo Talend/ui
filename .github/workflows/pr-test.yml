@@ -30,7 +30,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Test
-        run: pnpm test --coverage --coverageReporters json-summary
+        run: pnpm run test --coverage --coverageReporters json-summary
 
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@41b5ca01d1250de84537448d248b8d18152cb277 #1.0.23

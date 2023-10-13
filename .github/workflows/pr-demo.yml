@@ -38,7 +38,7 @@ jobs:
 
       - name: Build
         run: |
-          pnpm test:demo
+          pnpm run test:demo
           ./.github/workflows/before-surge.sh
         env:
           STORYBOOK_FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
