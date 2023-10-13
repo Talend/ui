@@ -21,7 +21,7 @@ export type DropdownButtonType = ClickableProps & {
 export const DropdownButton = forwardRef(
 	({ children, icon, checked, ...props }: DropdownButtonType, ref: Ref<HTMLButtonElement>) => {
 		return (
-			<Clickable {...props} ref={ref} aria-selected={checked}>
+			<Clickable {...props} ref={ref} role="menuitem">
 				<div className={styles.dropdownEntry}>
 					{icon && (
 						<span className={styles.buttonIcon}>
