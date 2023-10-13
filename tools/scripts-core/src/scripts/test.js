@@ -22,9 +22,12 @@ export default async function test(env, presetApi, options) {
 	const jestConfigPath =
 		getUserConfigFile('jest.config.js') || path.join(configPath, 'jest.config.js');
 
-	const jest = utils.path.resolveBin('jest');
-	return utils.process.spawn(jest, ['--config', jestConfigPath].concat(options), {
-		stdio: 'inherit',
-		env,
-	});
+	return utils.process.spawn(
+		new URL(import.meta.resolve('jest-cli/bin/jest')).pathname,
+		['--config', jestConfigPath].concat(options),
+		{
+			stdio: 'inherit',
+			env,
+		},
+	);
 }
