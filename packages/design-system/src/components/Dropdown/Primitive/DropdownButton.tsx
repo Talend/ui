@@ -5,18 +5,23 @@ import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { DeprecatedIconNames } from '../../../types';
 import Clickable, { ClickableProps } from '../../Clickable';
+import { SizedIcon } from '../../Icon';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './DropdownEntry.module.scss';
 
-export type DropdownButtonType = ClickableProps & /*MenuItemProps &*/ {
+/**
+ * This is in fact a Menu Item
+ */
+
+export type DropdownButtonType = ClickableProps & {
 	icon?: DeprecatedIconNames | IconNameWithSize<'M'>;
 };
 
 export const DropdownButton = forwardRef(
-	({ children, icon, ...props }: DropdownButtonType, ref: Ref<HTMLButtonElement>) => {
+	({ children, icon, checked, ...props }: DropdownButtonType, ref: Ref<HTMLButtonElement>) => {
 		return (
-			<Clickable {...props} ref={ref}>
+			<Clickable {...props} ref={ref} aria-selected={checked}>
 				<div className={styles.dropdownEntry}>
 					{icon && (
 						<span className={styles.buttonIcon}>
@@ -28,6 +33,14 @@ export const DropdownButton = forwardRef(
 						</span>
 					)}
 					<span className={styles.buttonContent}>{children}</span>
+					{checked && (
+						<SizedIcon
+							name="check"
+							size="M"
+							data-test="dropdown.menuItem.Button.checked"
+							data-testid="dropdown.menuItem.Button.checked"
+						/>
+					)}
 				</div>
 			</Clickable>
 		);
