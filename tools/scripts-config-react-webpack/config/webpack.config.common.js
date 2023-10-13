@@ -58,7 +58,7 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 function getJSAndTSLoader() {
 	return [
 		{
-			loader: 'babel-loader',
+			loader: require.resolve('babel-loader'),
 			options: getBabelLoaderOptions(babelConfig),
 		},
 	].filter(Boolean);
