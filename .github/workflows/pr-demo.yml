@@ -20,7 +20,7 @@ jobs:
   build:
     name: Build demo on PR
     environment: pull_request_unsafe
-    runs-on: [medium]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout sources
