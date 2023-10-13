@@ -18,7 +18,13 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "react": ">= 16.14.0"
+    "react": ">= 16.14.0",
+    "@talend/design-system": "*"
+  },
+  "peerDependenciesMeta": {
+    "@talend/design-system": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@talend/scripts-config-babel": "^13.0.0",

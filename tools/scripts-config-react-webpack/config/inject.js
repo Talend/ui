@@ -1,7 +1,7 @@
 const babel = require('@babel/core');
 const fs = require('fs');
 const path = require('path');
-const defaultOptions = require('@talend/scripts-config-babel/.babelrc.json');
+const defaultOptions = require('@talend/scripts-config-babel/babel.config.js');
 const { minify } = require('terser');
 
 // terser.minify is an async function, we use deasync to make it used as synced function within webpack

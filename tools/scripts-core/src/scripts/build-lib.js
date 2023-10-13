@@ -26,7 +26,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 	const tsRootPath = utils.path.getPkgRootPath('@talend/scripts-config-typescript');
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
-		path.join(babelRootPath, '.babelrc.json');
+		path.join(babelRootPath, 'babel.config.js');
 	const tscConfigPath =
 		getUserConfigFile(['tsconfig.build.json', 'tsconfig.json']) ||
 		path.join(tsRootPath, 'tsconfig.json');
