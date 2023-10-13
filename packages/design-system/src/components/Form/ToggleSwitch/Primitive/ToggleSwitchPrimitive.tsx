@@ -41,7 +41,7 @@ const ToggleSwitchPrimitive = forwardRef(
 			<span
 				className={classnames(styles.switch, {
 					[styles.switch_readOnly]: !!readOnly,
-					[styles.switch_checked]: !!checked,
+					[styles.switch_checked]: controlled.value,
 					[styles.switch_disabled]: !!disabled,
 					[styles.switch_inline]: !!isInline,
 				})}
@@ -53,7 +53,7 @@ const ToggleSwitchPrimitive = forwardRef(
 						disabled={disabled}
 						readOnly={readOnly}
 						required={required}
-						aria-checked={checked}
+						aria-checked={controlled.value}
 						checked={controlled.value}
 						onChange={e => controlled.onChange(e)}
 						{...rest}

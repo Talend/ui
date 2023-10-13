@@ -9,6 +9,7 @@ type UseControlOptions = {
 };
 
 export function useControl<T>(props: any, opts: UseControlOptions) {
+	const isControlled = props[opts.valueKey] !== undefined && props[opts.onChangeKey] !== undefined;
 	let defaultValue = props[opts.defaultValueKey];
 	if (defaultValue === undefined) {
 		if (props[opts.valueKey] !== undefined) {
@@ -18,7 +19,6 @@ export function useControl<T>(props: any, opts: UseControlOptions) {
 		}
 	}
 	const [state, setState] = useState<T>(defaultValue);
-	const isControlled = props[opts.valueKey] !== undefined && props[opts.onChangeKey] !== undefined;
 
 	const onChange = (value: any) => {
 		let safeValue = value;
@@ -31,9 +31,12 @@ export function useControl<T>(props: any, opts: UseControlOptions) {
 			setState(safeValue);
 		}
 	};
-
+	let value = isControlled ? props[opts.valueKey] : state;
+	if (value === undefined) {
+		value = defaultValue;
+	}
 	return {
-		value: isControlled ? props[opts.valueKey] : state,
+		value,
 		onChange: isControlled ? props[opts.onChangeKey] : onChange,
 	};
 }

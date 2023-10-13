@@ -26,10 +26,18 @@ const defaultMain = {
 		name: '@storybook/react-webpack5',
 		options: {
 			builder: {
-				disableTelemetry: true,
-				enableCrashReports: false,
+				fsCache: true,
+				//lazyCompilation: true
 			},
 		},
+	},
+	typescript: {
+		reactDocgen: false,
+		check: false,
+	},
+	core: {
+		enableCrashReports: false,
+		disableTelemetry: true,
 	},
 	features: {
 		buildStoriesJson: true,
@@ -43,12 +51,12 @@ const defaultMain = {
 		'@storybook/addon-interactions',
 		'@storybook/addon-storysource',
 	],
-	webpackFinal: async (config) => {
+	webpackFinal: async (config, { configType }) => {
 		// by default storybook do not support scss without css module
 		// here we remove storybook scss config and replace it by our config
 		const rules = [
 			...config.module.rules.filter(rule => {
-				return !rule.test?.toString().includes('s[ca]ss');
+				return !rule.te?.toString().includes('s[ca]ss');
 			}),
 			{
 				test: /\.scss$/,
@@ -60,6 +68,14 @@ const defaultMain = {
 				use: getSassLoaders(true, '', true),
 			},
 		];
+		// commented to have devtools back
+		// if (configType === 'PRODUCTION') {
+		// 	config.mode = 'production';
+		// }
+		// config.optimization = {
+		// 	minimize: false,
+		// 	minimizer: [],
+		// };
 		const mergedConfig = {
 			...config,
 			module: {
@@ -95,11 +111,12 @@ module.exports  = {
 	stories,
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
+	typescript: merge(defaultMain.typescript, userMain.typescript),
 	staticDirs: fixWindowsPaths([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
-	webpackFinal: async (config) => {
-		let finalConfig = await defaultMain.webpackFinal(config);
+	webpackFinal: async (config, options) => {
+		let finalConfig = await defaultMain.webpackFinal(config, options);
 		if(userMain.webpackFinal) {
-			finalConfig = await userMain.webpackFinal(finalConfig);
+			finalConfig = await userMain.webpackFinal(finalConfig, options);
 		}
 		return finalConfig
 	}

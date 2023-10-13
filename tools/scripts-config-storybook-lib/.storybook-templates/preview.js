@@ -98,6 +98,7 @@ const defaultPreview = {
 				}),
 				React.createElement(ToggleBootstrap, {
 					disabled: context.globals.bootstrapTheme === 'false',
+					key: 'toggle-bootstrap-decorator'
 				}),
 				React.createElement(ThemeProvider, {
 					key: 'theme-provider-decorator',
