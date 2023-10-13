@@ -87,6 +87,7 @@ export const Dropdown = ({
 				'aria-pressed': `${isOpen}`,
 				'data-testid': menuButtonTestId,
 				'data-test': menuButtonTest,
+				'aria-expanded': `${isOpen}`,
 				ref: floating.refs.setReference,
 				...getReferenceProps(),
 			})}
