@@ -2369,10 +2369,6 @@ importers:
       mkdirp:
         specifier: ^1.0.4
         version: 1.0.4
-    devDependencies:
-      '@talend/scripts-core':
-        specifier: ^15.0.0
-        version: link:../scripts-core
 
   tools/scripts-config-babel:
     dependencies:

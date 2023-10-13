@@ -1,4 +1,5 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import * as utils from '@talend/scripts-utils';
 import { getUserConfigFile } from '../utils/env.js';
 
@@ -18,7 +19,9 @@ export default async function test(env, presetApi, options) {
 	if (packageType.isAngular) {
 		return testKarma(env, presetApi, options);
 	}
-	const configPath = utils.path.getPkgRootPath('@talend/scripts-config-jest');
+	const configPath = path.dirname(
+		fileURLToPath(import.meta.resolve('@talend/scripts-config-jest')),
+	);
 	const jestConfigPath =
 		getUserConfigFile('jest.config.js') || path.join(configPath, 'jest.config.js');
 

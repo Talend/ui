@@ -22,7 +22,6 @@ function findPackage(info) {
 	});
 }
 let warnPNPMonce = true;
-let pnpmMaxSubLevel = 0;
 
 function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 	const isWantedScope = scopeFolderPath.endsWith(`${path.sep}${scope}`);
@@ -39,11 +38,7 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 				return accu.concat(subFolderPath);
 			}
 
-			if ((isPNPMProcess && pnpmMaxSubLevel < 4) || !isPNPMProcess) {
-				if (isPNPMProcess) {
-					pnpmMaxSubLevel++;
-					console.warn('Executed with PNPM: !!');
-				}
+			if (!isPNPMProcess) {
 				// TODO NOT COMPATIBLE WITH PNPM
 				// the scope or package name is not the one we look for
 				// if there is a nested node modules folder, we dive into it for the search
@@ -55,8 +50,9 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 				}
 			} else if (warnPNPMonce) {
 				warnPNPMonce = false;
-				console.warn('Executed with PNPM: Not compatible with deep search of dependencies!!');
-				console.warn('Executed with PNPM: Certainly due to circular dependencies');
+				console.warn(
+					'Executed with PNPM: Not compatible with deep search of dependencies (Certainly due to circular dependencies)!!',
+				);
 			}
 			return accu;
 		}, []);

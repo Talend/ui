@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
+import { fileURLToPath } from 'url';
 import cpx from 'cpx2';
 import * as utils from '@talend/scripts-utils';
 
@@ -22,8 +23,12 @@ export default async function build(env, presetApi, unsafeOptions) {
 		return true;
 	});
 
-	const babelRootPath = utils.path.getPkgRootPath('@talend/scripts-config-babel');
-	const tsRootPath = utils.path.getPkgRootPath('@talend/scripts-config-typescript');
+	const babelRootPath = path.dirname(
+		fileURLToPath(import.meta.resolve('@talend/scripts-config-babel')),
+	);
+	const tsRootPath = path.dirname(
+		fileURLToPath(import.meta.resolve('@talend/scripts-config-typescript')),
+	);
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
 		path.join(babelRootPath, 'babel.config.js');
