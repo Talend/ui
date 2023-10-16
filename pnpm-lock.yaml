@@ -1205,6 +1205,9 @@ importers:
       '@talend/scripts-core':
         specifier: ^15.0.0
         version: link:../../tools/scripts-core
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0
       typeface-source-sans-pro:
         specifier: ^1.1.13
         version: 1.1.13
