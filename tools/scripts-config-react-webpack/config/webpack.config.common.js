@@ -39,12 +39,14 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 			importLoaders: 1,
 		};
 	}
-	const styleLoader = isEnvDevelopmentServe ? 'style-loader' : MiniCssExtractPlugin.loader;
+	const styleLoader = isEnvDevelopmentServe
+		? require.resolve('style-loader')
+		: MiniCssExtractPlugin.loader;
 	return [
 		{ loader: styleLoader, options: { esModule: false } },
-		{ loader: 'css-loader', options: cssOptions },
+		{ loader: require.resolve('css-loader'), options: cssOptions },
 		{
-			loader: 'postcss-loader',
+			loader: require.resolve('postcss-loader'),
 			options: {
 				postcssOptions: {
 					plugins: ['autoprefixer'],
@@ -58,7 +60,7 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 function getJSAndTSLoader() {
 	return [
 		{
-			loader: 'babel-loader',
+			loader: require.resolve('babel-loader'),
 			options: getBabelLoaderOptions(babelConfig),
 		},
 	].filter(Boolean);
@@ -67,9 +69,9 @@ function getJSAndTSLoader() {
 function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 	const sourceMap = true;
 	return getCommonStyleLoaders(enableModules, isEnvDevelopmentServe).concat(
-		{ loader: 'resolve-url-loader', options: { sourceMap } },
+		{ loader: require.resolve('resolve-url-loader'), options: { sourceMap } },
 		{
-			loader: 'sass-loader',
+			loader: require.resolve('sass-loader'),
 			options: { sourceMap, additionalData: sassData },
 		},
 	);
