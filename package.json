@@ -37,10 +37,11 @@
     "start-forms": "pnpm --filter  @talend/react-forms run start",
     "start-theme": "pnpm --filter @talend/bootstrap-theme run start",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
-    "clean": "pnpm -r exec npx rimraf node_modules && npx rimraf node_modules",
+    "clean": "pnpm run clean:node_modules && pnpm run clean:dist && pnpm run clean:lib && pnpm run clean:cache ",
     "clean:dist": "pnpm -r exec npx rimraf dist && npx rimraf dist",
     "clean:lib": "pnpm -r exec npx rimraf lib && npx rimraf lib",
     "clean:cache": "pnpm store prune",
+    "clean:node_modules": "pnpm -r exec npx rimraf node_modules && npx rimraf node_modules",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
   },
@@ -50,7 +51,7 @@
   },
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@8.8.0",
+  "packageManager": "pnpm@8.9.2",
   "pnpm": {
     "overrides": {
       "@cypress/request@<=2.88.12": ">=3.0.0",
