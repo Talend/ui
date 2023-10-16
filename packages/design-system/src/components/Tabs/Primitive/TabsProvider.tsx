@@ -29,10 +29,12 @@ export function TabsProvider(props: TabsProviderPropTypes & WithChildren) {
 		},
 	});
 	return (
-		<StackVertical gap="M">
-			<TabsInternalContext.Provider value={{ size: props.size, ...controlled }}>
-				{props.children}
-			</TabsInternalContext.Provider>
-		</StackVertical>
+		<nav>
+			<StackVertical gap="M">
+				<TabsInternalContext.Provider value={{ size: props.size, ...controlled }}>
+					{props.children}
+				</TabsInternalContext.Provider>
+			</StackVertical>
+		</nav>
 	);
 }

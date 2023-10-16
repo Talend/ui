@@ -1,6 +1,6 @@
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
-import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './';
+import { ButtonIcon } from './';
 
 describe('ButtonIcon', () => {
 	it('should render accessible button', async () => {

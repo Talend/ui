@@ -14,9 +14,9 @@ export type TabsPropTypes = {
 
 export function Tabs({ children }: TabsPropTypes) {
 	return (
-		<ul className={style.tablist} role="tablist">
+		<StackHorizontal gap="M" role="tablist">
 			{children}
-		</ul>
+		</StackHorizontal>
 	);
 }
 Tabs.displayName = 'Tabs';
@@ -32,14 +32,14 @@ export type TabPropTypes = {
 
 export function Tab(props: TabPropTypes) {
 	const context = useContext(TabsInternalContext);
-	const content = (
+	let content = (
 		<button
 			role="tab"
-			className={classNames(style.tab, { [style.tab_large]: context?.size === 'L' })}
-			type="button"
 			aria-selected={props['aria-controls'] === context?.value}
+			className={classNames(style.tab, { [style.tab_large]: context?.size === 'L' })}
 			onClick={e => context?.onChange(e, props['aria-controls'])}
 			disabled={props.disabled}
+			type="button"
 		>
 			<StackHorizontal gap="XXS" align="center" display="inline">
 				{props.icon && <SizedIcon size="S" name={props.icon} />}
@@ -49,10 +49,8 @@ export function Tab(props: TabPropTypes) {
 		</button>
 	);
 	if (props.tooltip) {
-		<li>
-			<Tooltip title={props.tooltip}>{content}</Tooltip>
-		</li>;
+		content = <Tooltip title={props.tooltip}>{content}</Tooltip>;
 	}
-	return <li>{content}</li>;
+	return content;
 }
 Tab.displayName = 'Tab';
