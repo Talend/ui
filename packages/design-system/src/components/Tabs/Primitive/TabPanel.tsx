@@ -1,18 +1,28 @@
-import { forwardRef, ReactNode, Ref } from 'react';
+import { useContext } from 'react';
+import { TabsInternalContext } from './TabsProvider';
 
-export type TabPanelProps = {
-	children: ReactNode;
+type TabPanelPropTypes = {
 	id: string;
+	children: React.ReactNode | React.ReactNode[];
+	renderIf?: boolean;
 };
 
-const TabPanel = forwardRef(({ children, id }: TabPanelProps, ref: Ref<HTMLDivElement>) => {
+export function TabPanel({ children, id, renderIf }: TabPanelPropTypes): JSX.Element {
+	const context = useContext(TabsInternalContext);
+	const style = {
+		display: '',
+	};
+	if (id !== context?.value) {
+		if (renderIf) {
+			return <></>;
+		}
+		style.display = 'none';
+	}
 	return (
-		<div ref={ref} id={id} role="tabpanel" tabIndex={0}>
+		<div id={id} role="tabpanel" style={style} tabIndex={0}>
 			{children}
 		</div>
 	);
-});
+}
 
 TabPanel.displayName = 'TabPanel';
-
-export default TabPanel;

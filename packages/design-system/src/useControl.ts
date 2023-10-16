@@ -7,8 +7,12 @@ type UseControlOptions = {
 	selector?: (...args: any) => any;
 	defaultValue?: any;
 };
+export type UseControlReturns<T> = {
+	value: T | undefined;
+	onChange: (...args: any) => void;
+};
 
-export function useControl<T>(props: any, opts: UseControlOptions) {
+export function useControl<T>(props: any, opts: UseControlOptions): UseControlReturns<T> {
 	const isControlled = props[opts.valueKey] !== undefined && props[opts.onChangeKey] !== undefined;
 	let defaultValue = props[opts.defaultValueKey];
 	if (defaultValue === undefined) {
@@ -20,10 +24,10 @@ export function useControl<T>(props: any, opts: UseControlOptions) {
 	}
 	const [state, setState] = useState<T>(defaultValue);
 
-	const onChange = (value: any) => {
+	const onChange = (value: any, ...args: any) => {
 		let safeValue = value;
 		if (opts.selector) {
-			safeValue = opts.selector(value);
+			safeValue = opts.selector(value, ...args);
 		}
 		if (props[opts.onChangeKey]) {
 			props[opts.onChangeKey](value);

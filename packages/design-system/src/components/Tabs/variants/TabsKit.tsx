@@ -3,8 +3,6 @@ import { createContext, forwardRef, ReactNode, Ref, useContext, useMemo } from '
 import { IconNameWithSize } from '@talend/icons';
 
 import TabList from '../Primitive/TabList';
-import TabNavigation from '../Primitive/TabNavigation';
-import TabPanel from '../Primitive/TabPanel';
 import { TabStateReturn, useTabState } from '../Primitive/TabState';
 
 export type TabsProps = {
