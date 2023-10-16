@@ -1,15 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
-import {
-	TabsAsLinkList,
-	StackHorizontal,
-	StackVertical,
-	Tabs,
-	TabsProvider,
-	Tab,
-	TabPanel,
-	InlineMessage,
-} from '../../';
+import { StackHorizontal, StackVertical, Tabs, TabsProvider, Tab, TabPanel } from '../../';
 
 export default { component: Tabs, title: 'Navigation/Tabs' };
 
