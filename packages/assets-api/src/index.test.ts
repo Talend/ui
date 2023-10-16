@@ -1,7 +1,6 @@
 import readPackageUp from 'read-pkg-up';
 import assetsApi, { Asset } from '.';
 
-const iconsInfo = readPackageUp.sync({ cwd: require.resolve('@talend/icons') });
 const currentInfo = readPackageUp.sync({ cwd: __dirname });
 const bundlePath = '/dist/svg-bundles/all.svg';
 
@@ -12,17 +11,15 @@ describe('assets-api', () => {
 		});
 
 		it('should return unpkg url', () => {
-			const url = assetsApi.getURL(bundlePath, '@talend/icons', iconsInfo?.packageJson.version);
-			expect(url).toBe(
-				`https://unpkg.com/@talend/icons@${iconsInfo?.packageJson.version}${bundlePath}`,
-			);
+			const url = assetsApi.getURL(bundlePath, '@talend/icons', '6.60.1');
+			expect(url).toBe(`https://unpkg.com/@talend/icons@6.60.1${bundlePath}`);
 		});
 
 		it('should return /cdn url', () => {
 			const original = window.Talend.CDN_URL;
 			window.Talend.CDN_URL = '/cdn';
-			const url = assetsApi.getURL(bundlePath, '@talend/icons', iconsInfo?.packageJson.version);
-			expect(url).toBe(`/cdn/@talend/icons/${iconsInfo?.packageJson.version}${bundlePath}`);
+			const url = assetsApi.getURL(bundlePath, '@talend/icons', '6.60.1');
+			expect(url).toBe(`/cdn/@talend/icons/6.60.1${bundlePath}`);
 			window.Talend.CDN_URL = original;
 		});
 
@@ -33,8 +30,8 @@ describe('assets-api', () => {
 				getAttribute: jest.fn().mockReturnValueOnce('/'),
 			} as unknown as Element;
 			jest.spyOn(document, 'querySelector').mockImplementation(() => mockedBaseElement);
-			const url = assetsApi.getURL(bundlePath, '@talend/icons', iconsInfo?.packageJson.version);
-			expect(url).toBe(`/cdn/@talend/icons/${iconsInfo?.packageJson.version}${bundlePath}`);
+			const url = assetsApi.getURL(bundlePath, '@talend/icons', '6.60.1');
+			expect(url).toBe(`/cdn/@talend/icons/6.60.1${bundlePath}`);
 			window.Talend.CDN_URL = original;
 		});
 

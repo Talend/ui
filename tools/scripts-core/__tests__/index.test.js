@@ -7,8 +7,7 @@ const rimraf = require('rimraf');
 
 const fixture = path.join(__dirname, 'fixture');
 const bin = path.resolve(__dirname, '../src/index.js');
-const isPNPMProcess =
-	process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('pnpm');
+
 function getTmpDirectory(prefix) {
 	const date = new Date();
 	const tmp = path.join(
@@ -34,10 +33,7 @@ describe('talend-scripts', () => {
 			expect(logs).toContain('Talend scripts mode : production');
 			expect(logs).toContain('Talend scripts configuration file found and loaded');
 			expect(logs).toContain('RUN ------------');
-			const expectedConsole = isPNPMProcess
-				? 'Executed with PNPM: Not compatible with deep search of dependencies (Certainly due to circular dependencies)!!'
-				: '';
-			expect(output.stderr.toString()).toContain(expectedConsole);
+			expect(output.stderr.toString()).toContain('');
 			fs.existsSync(path.join(tmp, 'dist', 'TalendTestScriptsCore.min.js'));
 			fs.existsSync(path.join(tmp, 'dist', 'TalendTestScriptsCore.min.js.dependencies.json'));
 			fs.existsSync(path.join(tmp, 'dist', 'TalendTestScriptsCore.min.js.map'));

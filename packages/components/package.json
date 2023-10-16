@@ -37,8 +37,9 @@
     "@talend/assets-api": "^1.2.2",
     "@talend/bootstrap-theme": "^8.2.0",
     "@talend/design-tokens": "^2.9.0",
-    "@talend/react-a11y": "^1.1.0",
     "@talend/icons": "^6.60.1",
+    "@talend/react-a11y": "^1.1.0",
+    "@talend/react-bootstrap": "^1.35.2",
     "@talend/utils": "^2.6.0",
     "ally.js": "^1.4.1",
     "classnames": "^2.3.2",
@@ -52,7 +53,6 @@
     "memoize-one": "^6.0.0",
     "rc-slider": "^10.2.1",
     "react-autowhatever": "10.2.0",
-    "@talend/react-bootstrap": "^1.35.2",
     "react-debounce-input": "^3.3.0",
     "react-draggable": "^4.4.5",
     "react-grid-layout": "^1.4.1",
@@ -103,7 +103,7 @@
     "react-test-renderer": "^17.0.2"
   },
   "peerDependencies": {
-    "@talend/design-system": "^7.5.0",
+    "@talend/design-system": "^7.15.1",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0",
