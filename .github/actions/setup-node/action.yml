@@ -10,7 +10,6 @@ runs:
     - uses: pnpm/action-setup@v2
       with:
         version: 8
-
     - name: Set up Node.js
       uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d #v3.8.1
       with:
@@ -19,15 +18,15 @@ runs:
         scope: '@talend'
         cache: 'pnpm'
 
-    - name: Get pnpm cache directory path
-      id: pnpm-cache-dir-path
-      shell: bash
-      run: echo "dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+    # - name: Get pnpm cache directory path
+    #   id: pnpm-cache-dir-path
+    #   shell: bash
+    #   run: echo "dir=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-    - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 #v3.3.2
-      id: pnpm-cache # use this to check for `cache-hit` (`steps.pnpm-cache.outputs.cache-hit != 'true'`)
-      with:
-        path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-
+    # - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 #v3.3.2
+    #   id: pnpm-cache # use this to check for `cache-hit` (`steps.pnpm-cache.outputs.cache-hit != 'true'`)
+    #   with:
+    #     path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+    #     key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-pnpm-

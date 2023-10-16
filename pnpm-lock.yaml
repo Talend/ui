@@ -2232,6 +2232,9 @@ importers:
       babel-plugin-tester:
         specifier: ^10.1.0
         version: 10.1.0(@babel/core@7.23.2)
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0
 
   tools/babel-plugin-import-from-index:
     dependencies:
@@ -2267,6 +2270,9 @@ importers:
       babel-plugin-tester:
         specifier: ^10.1.0
         version: 10.1.0(@babel/core@7.23.2)
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0
 
   tools/cmf-webpack-plugin:
     dependencies:
@@ -2420,6 +2426,9 @@ importers:
       babel-plugin-angularjs-annotate:
         specifier: ^0.10.0
         version: 0.10.0
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0
 
   tools/scripts-config-cdn:
     dependencies:
@@ -2495,6 +2504,10 @@ importers:
       eslint-plugin-testing-library:
         specifier: ^5.11.1
         version: 5.11.1(eslint@7.32.0)(typescript@5.2.2)
+    devDependencies:
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0
 
   tools/scripts-config-jest:
     dependencies:
@@ -2873,6 +2886,9 @@ importers:
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
         version: link:../scripts-config-babel
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0
 
   tools/scripts-yarn-workspace:
     dependencies:
