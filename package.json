@@ -18,7 +18,7 @@
     "webpack": "^5.73.0"
   },
   "scripts": {
-    "postinstall": "pnpm --sort -r --stream run build:lib",
+    "postinstall": "pnpm -r --stream run build:lib",
     "pre-release": "pnpm -r run pre-release",
     "start": "pnpm --filter @talend/ui-playground run start",
     "start-storybook": "pnpm --filter @talend/ui-storybook-one run start",
@@ -26,7 +26,7 @@
     "lint-staged": "lint-staged",
     "lint": "pnpm -r --no-bail run lint",
     "lint-merge-report": "pnpm -r lint-merge-report",
-    "test": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test",
+    "test": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test --silent",
     "test:update": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test:cov",
     "test:demo": "pnpm -r --no-bail run test:demo",

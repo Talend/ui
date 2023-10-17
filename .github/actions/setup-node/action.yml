@@ -7,10 +7,6 @@ secrets:
 runs:
   using: 'composite'
   steps:
-    - uses: pnpm/action-setup@v2
-      with:
-        version: 8
-
     - name: Set up Node.js
       uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d #v3.8.1
       with:
@@ -18,6 +14,9 @@ runs:
         registry-url: 'https://registry.npmjs.org/'
         scope: '@talend'
         cache: 'pnpm'
+
+    - name: Install PNPM
+      run: npm install -g pnpm@8.9.2
 
     - name: Get pnpm cache directory path
       id: pnpm-cache-dir-path
