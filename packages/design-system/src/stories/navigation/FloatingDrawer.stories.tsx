@@ -3,13 +3,13 @@ import { StoryFn } from '@storybook/react';
 import { screen, userEvent } from '@storybook/testing-library';
 import { Area } from '../docs/Area';
 
-import { FloatingDrawer, ButtonPrimary } from '../../';
-import { container } from 'webpack';
+import { FloatingDrawer, ButtonPrimary, FloatingDrawerProps } from '../../';
 
 export default {
 	component: FloatingDrawer,
 	title: 'Navigation/FloatingDrawer',
 	argTypes: {
+		['aria-label']: { control: { type: 'text' } },
 		visible: { control: { type: 'boolean' } },
 		header: {
 			table: {
@@ -48,6 +48,7 @@ export default {
 };
 
 const defaultProps = {
+	['aria-label']: 'simple label for a11y',
 	header: <Area>Heading</Area>,
 	children: <Area>Body</Area>,
 	footer: <Area>Footer</Area>,
@@ -63,9 +64,12 @@ const containerStyle = {
 	height: 'calc(100vh - 2rem)',
 };
 
-export const Simple: StoryFn<typeof FloatingDrawer> = (props: any) => (
+export const Simple: StoryFn<typeof FloatingDrawer> = (
+	//	props: Omit<FloatingDrawerProps, 'visible' | 'aria-label'>,
+	{ disclosure, visible, ...props }: FloatingDrawerProps,
+) => (
 	<FloatingDrawer.Container style={containerStyle}>
-		<FloatingDrawer visible {...props} />
+		<FloatingDrawer {...props} visible />
 	</FloatingDrawer.Container>
 );
 Simple.args = defaultProps;
@@ -104,6 +108,7 @@ WithControlledVisibility.play = playOpenDrawer;
 export const Usage: StoryFn<typeof FloatingDrawer> = () => (
 	<FloatingDrawer.Container>
 		<FloatingDrawer
+			aria-label="usage example"
 			header={<Area>Heading</Area>}
 			footer={<Area>Footer</Area>}
 			disclosure={

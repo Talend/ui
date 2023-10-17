@@ -10,6 +10,7 @@ type WithDisclosure = {
 	disclosure: ReactElement;
 	visible?: never;
 };
+
 type Controlled = {
 	disclosure?: never;
 	visible: boolean;
