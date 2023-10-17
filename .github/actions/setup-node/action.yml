@@ -13,7 +13,6 @@ runs:
         node-version: '20'
         registry-url: 'https://registry.npmjs.org/'
         scope: '@talend'
-        cache: 'pnpm'
 
     - name: Install PNPM
       shell: bash
