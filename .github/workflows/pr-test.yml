@@ -27,7 +27,7 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Install
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Test
         run: pnpm run test --coverage --coverageReporters json-summary

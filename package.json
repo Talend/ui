@@ -26,7 +26,7 @@
     "lint-staged": "lint-staged",
     "lint": "pnpm -r --no-bail run lint",
     "lint-merge-report": "pnpm -r lint-merge-report",
-    "test": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test --silent",
+    "test": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test",
     "test:update": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris pnpm -r --no-bail run test:cov",
     "test:demo": "pnpm -r --no-bail run test:demo",
