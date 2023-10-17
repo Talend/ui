@@ -33,9 +33,13 @@ const Status = forwardRef(
 		{ children, icon, inProgress, hideText, variant, ...rest }: StatusProps,
 		ref: Ref<HTMLSpanElement>,
 	) => {
-		const text = <span className={styles.status__text}>{children}</span>;
+		const text = (
+			<span className={styles.status__text} key="text">
+				{children}
+			</span>
+		);
 		const picto = (
-			<span className={styles.status__icon}>
+			<span className={styles.status__icon} key="picto">
 				{inProgress ? <Loading /> : icon ? <SizedIcon name={icon} size="M" /> : null}
 			</span>
 		);
