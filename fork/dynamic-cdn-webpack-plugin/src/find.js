@@ -39,7 +39,7 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 			// the scope or package name is not the one we look for
 			// if there is a nested node modules folder, we dive into it for the search
 			const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
-			if (fs.existsSync(nestedNodeModulesPath) && !subFolderPath.endsWith('tools/scripts-core')) {
+			if (fs.existsSync(nestedNodeModulesPath)) {
 				// eslint-disable-next-line no-use-before-define
 				return accu.concat(findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []));
 			}
@@ -56,7 +56,10 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 				return accu;
 			}
 			// TODO NOT COMPATIBLE WITH PNPM WHEN deps is @talend/scripts-...
-			if (subFolder.name.startsWith('@')) {
+			if (
+				subFolder.name.startsWith('@') &&
+				!subFolder?.path?.endsWith('tools/scripts-core/node_modules')
+			) {
 				// for scope folders, we need a special treatment to avoid getting scoped packages when we don't want a scoped one.
 				// ex: search for `classnames`, we don't want to find `@types/classnames` in the result
 				return accu.concat(
