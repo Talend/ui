@@ -16,6 +16,7 @@ runs:
         cache: 'pnpm'
 
     - name: Install PNPM
+      shell: bash
       run: npm install -g pnpm@8.9.2
 
     - name: Get pnpm cache directory path
