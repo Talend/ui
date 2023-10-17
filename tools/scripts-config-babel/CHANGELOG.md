@@ -16,7 +16,7 @@
 
   ```diff
   {
-  -	"extends": "@talend/scripts-config-babel/.babelrc.json"
+  -	"extends": "@talend/scripts-config-babel/babel.config.js"
   +	"extends": "@talend/scripts-config-babel"
   }
   ```

@@ -37,6 +37,9 @@
     "eslint-plugin-storybook": "^0.5.13",
     "eslint-plugin-testing-library": "^5.11.1"
   },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
   "publishConfig": {
     "access": "public"
   }

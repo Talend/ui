@@ -131,10 +131,10 @@ export default async function extend() {
 
 	generateConfigFile({
 		configFileNames: ['.babelrc', '.babelrc.json', 'babel.config.js'],
-		defaultConfigFilePath: path.join(rootPath, '.babelrc.json'),
+		defaultConfigFilePath: path.join(rootPath, 'babel.config.js'),
 		generateContent() {
 			const configPath = utils.path.getPkgRootPath('@talend/scripts-config-babel');
-			const presetConfigPath = path.join(configPath, '.babelrc.json');
+			const presetConfigPath = path.join(configPath, 'babel.config.js');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return babelExtendsTemplate({ presetConfigRelativePath });
 		},

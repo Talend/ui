@@ -9,6 +9,7 @@ function findPackage(info) {
 	if (name.startsWith('@')) {
 		[scope, name] = info.name.split('/');
 	}
+	// eslint-disable-next-line no-use-before-define
 	return findPackages(scope, name).find(cwd => {
 		const {
 			packageJson: { version },
@@ -21,13 +22,9 @@ function findPackage(info) {
 		return semver.satisfies(version, range);
 	});
 }
-let warnPNPMonce = true;
-let pnpmMaxSubLevel = 0;
 
 function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 	const isWantedScope = scopeFolderPath.endsWith(`${path.sep}${scope}`);
-	const isPNPMProcess =
-		process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('pnpm');
 	return fs
 		.readdirSync(scopeFolderPath, { withFileTypes: true })
 		.filter(f => f.isDirectory() || f.isSymbolicLink())
@@ -39,24 +36,12 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 				return accu.concat(subFolderPath);
 			}
 
-			if ((isPNPMProcess && pnpmMaxSubLevel < 4) || !isPNPMProcess) {
-				if (isPNPMProcess) {
-					pnpmMaxSubLevel++;
-					console.warn('Executed with PNPM: !!');
-				}
-				// TODO NOT COMPATIBLE WITH PNPM
-				// the scope or package name is not the one we look for
-				// if there is a nested node modules folder, we dive into it for the search
-				const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
-				if (fs.existsSync(nestedNodeModulesPath)) {
-					return accu.concat(
-						findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []),
-					);
-				}
-			} else if (warnPNPMonce) {
-				warnPNPMonce = false;
-				console.warn('Executed with PNPM: Not compatible with deep search of dependencies!!');
-				console.warn('Executed with PNPM: Certainly due to circular dependencies');
+			// the scope or package name is not the one we look for
+			// if there is a nested node modules folder, we dive into it for the search
+			const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
+			if (fs.existsSync(nestedNodeModulesPath)) {
+				// eslint-disable-next-line no-use-before-define
+				return accu.concat(findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []));
 			}
 			return accu;
 		}, []);
@@ -70,7 +55,11 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 			if (subFolder.name === '.bin') {
 				return accu;
 			}
-			if (subFolder.name.startsWith('@')) {
+			// TODO NOT COMPATIBLE WITH PNPM WHEN deps is @talend/scripts-...
+			if (
+				subFolder.name.startsWith('@') &&
+				!subFolder?.path?.endsWith('tools/scripts-core/node_modules')
+			) {
 				// for scope folders, we need a special treatment to avoid getting scoped packages when we don't want a scoped one.
 				// ex: search for `classnames`, we don't want to find `@types/classnames` in the result
 				return accu.concat(
@@ -94,7 +83,10 @@ function findPackages(scope, name, buff = []) {
 	if (roots === null) {
 		return buff;
 	}
-	return buff.concat(...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)));
+	const result = buff.concat(
+		...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)),
+	);
+	return [...new Set(result)];
 }
 
 module.exports = {
