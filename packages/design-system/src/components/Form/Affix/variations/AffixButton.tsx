@@ -7,7 +7,7 @@ import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import { DeprecatedIconNames } from '../../../../types';
 import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip';
 import { StackHorizontal } from '../../../Stack';
-import Clickable, { ClickableProps } from '../../../Clickable';
+import { Clickable, ClickableProps } from '../../../Clickable';
 import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
 import { SizedIcon } from '../../../Icon';
 

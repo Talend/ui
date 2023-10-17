@@ -4,7 +4,7 @@ import { forwardRef, Ref } from 'react';
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { DeprecatedIconNames } from '../../../types';
-import Clickable, { ClickableProps } from '../../Clickable';
+import { Clickable, ClickableProps } from '../../Clickable';
 import { SizedIcon } from '../../Icon';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 

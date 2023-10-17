@@ -1,4 +1,4 @@
-import { cloneElement, MouseEvent, ReactElement, useState } from 'react';
+import { cloneElement, MouseEvent, ReactElement, useEffect, useState } from 'react';
 
 import {
 	useDismiss,
@@ -10,13 +10,14 @@ import {
 } from '@floating-ui/react';
 
 import { DataAttributes, DeprecatedIconNames } from '../../types';
-import Clickable, { ClickableProps } from '../Clickable';
+import { Clickable, ClickableProps } from '../Clickable';
 import { LinkableType } from '../Linkable';
 import DropdownDivider from './Primitive/DropdownDivider';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
 import DropdownTitle from './Primitive/DropdownTitle';
 import { DropdownButton } from './Primitive/DropdownButton';
+import { randomUUID } from '@talend/utils';
 
 type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 	label: string;
@@ -60,6 +61,11 @@ export const Dropdown = ({
 	...rest
 }: DropdownPropsType) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [itemIds, setItemIds] = useState<string[]>(items.map(() => randomUUID()));
+
+	useEffect(() => {
+		setItemIds(items.map(() => randomUUID()));
+	}, [items]);
 
 	const floating = useFloating({
 		placement: 'bottom-start',
@@ -101,6 +107,7 @@ export const Dropdown = ({
 				{...getFloatingProps()}
 			>
 				{items.map((entry, index) => {
+					const uuid = itemIds[index];
 					if (entry.type === 'button') {
 						const { label, ...entryRest } = entry;
 						const id = `${label}-${index}`;
@@ -112,9 +119,9 @@ export const Dropdown = ({
 									entry.onClick(event);
 									setIsOpen(false);
 								}}
-								key={id}
+								key={uuid}
 								tabIndex={0}
-								id={id}
+								id={uuid}
 								data-testid={`${menuItemTestId}.${id}`}
 								data-test={`${menuItemTest}.${id}`}
 							>
@@ -128,7 +135,7 @@ export const Dropdown = ({
 						const id = `${label}-${index}`;
 						return (
 							<DropdownTitle
-								key={id}
+								key={uuid}
 								data-testid={`${menuItemTestId}.${id}`}
 								data-test={`${menuItemTest}.${id}`}
 							>
@@ -142,7 +149,7 @@ export const Dropdown = ({
 						return (
 							<DropdownDivider
 								// {...menu}
-								key={id}
+								key={uuid}
 								data-testid={`${menuItemTestId}.${id}`}
 								data-test={`${menuItemTest}.${id}`}
 							/>
@@ -156,8 +163,8 @@ export const Dropdown = ({
 							as={as}
 							{...entryRest}
 							// {...menu}
-							key={id}
-							id={id}
+							key={uuid}
+							id={uuid}
 							onClick={(event: MouseEvent<HTMLAnchorElement>) => {
 								setIsOpen(false);
 								if (entry.onClick) {

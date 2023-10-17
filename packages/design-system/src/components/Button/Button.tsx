@@ -54,8 +54,6 @@ function ButtonPlatform<S extends AvailableSizes>(
 	}
 }
 
-const Button = forwardRef(ButtonPlatform) as <S extends AvailableSizes>(
+export const Button = forwardRef(ButtonPlatform) as <S extends AvailableSizes>(
 	props: ButtonType<S> & { ref?: Ref<HTMLButtonElement> },
 ) => ReturnType<typeof ButtonPlatform>;
-
-export default Button;

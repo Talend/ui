@@ -8,7 +8,7 @@ import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { mergeRefs } from '../../../mergeRef';
 import { DeprecatedIconNames } from '../../../types';
-import Button from '../../Clickable';
+import { Clickable } from '../../Clickable';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 import { Loading } from '../../Loading';
 import { Tooltip, TooltipPlacement } from '../../Tooltip';
@@ -70,7 +70,7 @@ function Primitive<S extends AvailableSizes>(
 	return (
 		<Tooltip title={children} placement={tooltipPlacement || 'top'}>
 			{(triggerProps, triggerRef) => (
-				<Button
+				<Clickable
 					{...triggerProps}
 					{...rest}
 					tabIndex={rest.tabIndex || 0}
@@ -89,7 +89,7 @@ function Primitive<S extends AvailableSizes>(
 							getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'XS' ? 'S' : 'M' })}
 						{isLoading && <Loading />}
 					</span>
-				</Button>
+				</Clickable>
 			)}
 		</Tooltip>
 	);

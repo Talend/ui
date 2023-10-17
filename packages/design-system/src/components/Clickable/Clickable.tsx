@@ -12,7 +12,7 @@ export type ClickableProps = Omit<
 	onClick?: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 };
 
-const Clickable = forwardRef(
+export const Clickable = forwardRef(
 	// Ref<any>: Clickable is polymorphic. Could be any HTML element
 	({ type = 'button', className, ...props }: ClickableProps, ref: Ref<any>) => {
 		return (
@@ -26,4 +26,3 @@ const Clickable = forwardRef(
 	},
 );
 Clickable.displayName = 'Clickable';
-export default Clickable;

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider should render a11y html 1`] = `
+<main>
+  <div>
+    <h1>
+      test
+    </h1>
+    <hr
+      aria-orientation="horizontal"
+      class="theme-divider"
+    />
+    <p>
+      lorem ipsum
+    </p>
+  </div>
+  <hr
+    aria-orientation="vertical"
+    class="theme-divider"
+    orientation="vertical"
+  />
+  <div>
+    <h2>
+      Side
+    </h2>
+    <p>
+      lorem ipsum content
+    </p>
+  </div>
+</main>
+`;

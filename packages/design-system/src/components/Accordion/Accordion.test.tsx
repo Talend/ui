@@ -13,8 +13,6 @@ jest.mock('@talend/utils', () => {
 
 describe('Accordion', () => {
 	it('should render a11y html', async () => {
-		// note we need to add the aria-label to be accessible
-		// TODO: make it required
 		const { container } = render(
 			<main>
 				<Accordion>
