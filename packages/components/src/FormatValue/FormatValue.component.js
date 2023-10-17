@@ -12,7 +12,7 @@ export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?
 const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;
 const REG_EXP_CAPTUR_LINE_FEEDING = /(\n)/g;
 const REG_EXP_LINE_FEEDING = /\n/;
-const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s/;
+const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s+/;
 
 /**
  * replaceCharacterByIcon - replace a character by the corresponding icon
@@ -54,30 +54,31 @@ function replaceCharacterByIcon(value, index, t) {
 						className={classNames(theme['td-white-space-character'], 'td-white-space-character')}
 						name="talend-carriage-return"
 					/>
-					{'\n'}
 				</span>
 			);
 		default:
-			if (REG_EXP_WHITE_SPACE_CHARACTERS.test(value)) {
-				return (
-					<Icon
-						key={index}
-						aria-label={t('FORMAT_VALUE_WHITE_SPACE_CHARACTER', {
-							defaultValue: 'whitespace character',
-						})}
-						className={classNames(
-							theme['td-white-space-character'],
-							theme['td-other-characters'],
-							'td-white-space-character',
-						)}
-						name="talend-empty-char"
-					/>
-				);
-			}
+			const whitespaces = value.match(REG_EXP_WHITE_SPACE_CHARACTERS)?.[0];
 			return (
-				<span key={index} className={classNames(theme['td-value'], 'td-value')}>
-					{value}
-				</span>
+				<>
+					{whitespaces &&
+						[...whitespaces]?.map(() => (
+							<Icon
+								key={index}
+								aria-label={t('FORMAT_VALUE_WHITE_SPACE_CHARACTER', {
+									defaultValue: 'whitespace character',
+								})}
+								className={classNames(
+									theme['td-white-space-character'],
+									theme['td-other-characters'],
+									'td-white-space-character',
+								)}
+								name="talend-empty-char"
+							/>
+						))}
+					<span key={index} className={classNames(theme['td-value'], 'td-value')}>
+						{value.trimStart()}
+					</span>
+				</>
 			);
 	}
 }
@@ -125,3 +126,5 @@ FormatValueComponent.propTypes = {
 };
 
 export default FormatValueComponent;
+
+// const value = '<?xml version="1.0" encoding="UTF-8"?>\n<ServiceResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://qualysapi.qualys.com/qps/xsd/version.xsd">\n  <responseCode>SUCCESS</responseCode>\n  <count>1</count>\n  <data>\n    <Portal-Version>\n      <PortalApplication-VERSION>3.16.0.0-9 OFFICIAL #127 (2023-08-29T14:15:40Z)</PortalApplication-VERSION>\n      <QWEB__VM-VERSION>2.16.0-2</QWEB__VM-VERSION>\n      <CA-VERSION>3.16.0.1</CA-VERSION>\n    </Portal-Version>\n    <QWeb-Version>\n      <WEB-VERSION>10.23.3.0-2</WEB-VERSION>\n      <SCANNER-VERSION>12.15.57-1</SCANNER-VERSION>\n      <VULNSIGS-VERSION>2.5.889-3</VULNSIGS-VERSION>\n    </QWeb-Version>\n  </data>\n</ServiceResponse>');
