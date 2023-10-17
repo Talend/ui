@@ -27,7 +27,7 @@ describe('findPackages', () => {
 		require('fs').__setMockFiles(MOCK_FILE_INFO);
 	});
 
-	test.only('should find root and nested package', () => {
+	test('should find root and nested package', () => {
 		// when
 		const result = findPackages(undefined, 'react');
 

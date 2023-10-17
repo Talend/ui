@@ -18,7 +18,7 @@
     "webpack": "^5.73.0"
   },
   "scripts": {
-    "postinstall": "pnpm --sort -r run build:lib",
+    "postinstall": "pnpm --sort -r --stream run build:lib",
     "pre-release": "pnpm -r run pre-release",
     "start": "pnpm --filter @talend/ui-playground run start",
     "start-storybook": "pnpm --filter @talend/ui-storybook-one run start",
