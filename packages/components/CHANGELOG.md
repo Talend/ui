@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 11.4.5
+
+### Patch Changes
+
+- b0f7bbf70: fix(TDC-7364): FormatValue component - fix content not appearing when there were leading whitespaces
+
 ## 11.4.4
 
 ### Patch Changes
