@@ -4,6 +4,7 @@ import { screen, userEvent } from '@storybook/testing-library';
 import { Area } from '../docs/Area';
 
 import { FloatingDrawer, ButtonPrimary } from '../../';
+import { container } from 'webpack';
 
 export default {
 	component: FloatingDrawer,
@@ -57,21 +58,20 @@ const playOpenDrawer = async () => {
 	await userEvent.click(openButton);
 };
 const containerStyle = {
-	...FloatingDrawer.containerStyle,
 	// body of the preview has a padding of 1rem
 	width: 'calc(100vw - 2rem)',
 	height: 'calc(100vh - 2rem)',
 };
 
 export const Simple: StoryFn<typeof FloatingDrawer> = (props: any) => (
-	<div style={containerStyle}>
+	<FloatingDrawer.Container style={containerStyle}>
 		<FloatingDrawer visible {...props} />
-	</div>
+	</FloatingDrawer.Container>
 );
 Simple.args = defaultProps;
 
 export const WithDisclosure: StoryFn<typeof FloatingDrawer> = () => (
-	<div style={containerStyle}>
+	<FloatingDrawer.Container style={containerStyle}>
 		<FloatingDrawer
 			{...defaultProps}
 			disclosure={
@@ -80,7 +80,7 @@ export const WithDisclosure: StoryFn<typeof FloatingDrawer> = () => (
 				</ButtonPrimary>
 			}
 		/>
-	</div>
+	</FloatingDrawer.Container>
 );
 
 // WithDisclosure.play = playOpenDrawer;
@@ -88,12 +88,12 @@ export const WithDisclosure: StoryFn<typeof FloatingDrawer> = () => (
 const ControlledFloatingDrawer = () => {
 	const [visible, setVisible] = useState(false);
 	return (
-		<>
+		<FloatingDrawer.Container>
 			<ButtonPrimary data-test="drawer-disclosure" onClick={() => setVisible(!visible)}>
 				Open the modal
 			</ButtonPrimary>
 			<FloatingDrawer {...defaultProps} visible={visible} />
-		</>
+		</FloatingDrawer.Container>
 	);
 };
 export const WithControlledVisibility: StoryFn<typeof FloatingDrawer> = () => (
@@ -102,16 +102,19 @@ export const WithControlledVisibility: StoryFn<typeof FloatingDrawer> = () => (
 WithControlledVisibility.play = playOpenDrawer;
 
 export const Usage: StoryFn<typeof FloatingDrawer> = () => (
-	<FloatingDrawer
-		header={<Area>Heading</Area>}
-		footer={<Area>Footer</Area>}
-		disclosure={
-			<ButtonPrimary data-test="drawer-disclosure" onClick={() => {}}>
-				Open the modal
-			</ButtonPrimary>
-		}
-	>
-		<Area>Body</Area>
-	</FloatingDrawer>
+	<FloatingDrawer.Container>
+		<FloatingDrawer
+			header={<Area>Heading</Area>}
+			footer={<Area>Footer</Area>}
+			disclosure={
+				<ButtonPrimary data-test="drawer-disclosure" onClick={() => {}}>
+					Open the modal
+				</ButtonPrimary>
+			}
+		>
+			<Area>Body</Area>
+		</FloatingDrawer>
+	</FloatingDrawer.Container>
 );
+
 Usage.play = playOpenDrawer;

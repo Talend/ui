@@ -1,22 +1,18 @@
 import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
-import { Divider } from './';
+import { FloatingDrawer } from './';
 
-describe('Divider', () => {
+describe('FloatingDrawer', () => {
 	it('should render a11y html', async () => {
 		const { container } = render(
 			<main>
-				<div>
+				<FloatingDrawer.Container>
 					<h1>test</h1>
-					<Divider />
-					<p>lorem ipsum</p>
-				</div>
-				<Divider orientation="vertical" />
-				<div>
-					<h2>Side</h2>
-					<p>lorem ipsum content</p>
-				</div>
+					<FloatingDrawer aria-label="label is required" visible>
+						<p>content of the drawer</p>
+					</FloatingDrawer>
+				</FloatingDrawer.Container>
 			</main>,
 		);
 		expect(container.firstChild).toMatchSnapshot();

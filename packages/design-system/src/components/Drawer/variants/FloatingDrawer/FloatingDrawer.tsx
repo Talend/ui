@@ -1,5 +1,5 @@
 import { useEffect, useState, cloneElement } from 'react';
-import type { ReactElement, ReactNode } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { Transition } from 'react-transition-group';
 import { PrimitiveDrawer } from '../../Primitive/PrimitiveDrawer';
 
@@ -26,6 +26,7 @@ export type FloatingDrawerProps = {
 	footer?: ((dialog: DialogFnProps) => ReactNode) | ReactNode;
 	withTransition?: boolean;
 	onClose?: () => void;
+	['aria-label']: string;
 } & (WithDisclosure | Controlled);
 
 // backward compatibility
@@ -48,6 +49,7 @@ export const FloatingDrawer = ({
 	footer,
 	visible,
 	onClose,
+	...props
 }: DrawerProps) => {
 	const uuid = useId(id, 'drawer');
 	const [isVisible, setVisible] = useState(visible === undefined ? false : visible);
@@ -89,6 +91,7 @@ export const FloatingDrawer = ({
 								data-testid="drawer"
 								id={uuid}
 								role="dialog"
+								aria-label={props['aria-label']}
 								className={theme.drawer}
 								style={style}
 							>
@@ -108,4 +111,18 @@ export const FloatingDrawer = ({
 };
 
 FloatingDrawer.displayName = 'FloatingDrawer';
-FloatingDrawer.containerStyle = { overflowX: 'hidden', position: 'relative' };
+
+type ContainerPropTypes = HTMLAttributes<HTMLDivElement> & {
+	children: ReactNode | ReactNode[];
+	style?: Omit<CSSProperties, 'overflowX' | 'position'>;
+};
+
+const Container = ({ children, style, ...props }: ContainerPropTypes) => (
+	<div {...props} style={{ overflowX: 'hidden', position: 'relative', ...style }}>
+		{children}
+	</div>
+);
+
+Container.displayName = 'FloatingDrawer.Container';
+
+FloatingDrawer.Container = Container;
