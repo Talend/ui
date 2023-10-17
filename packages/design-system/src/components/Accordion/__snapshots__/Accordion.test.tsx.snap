@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonIcon should render accessible button 1`] = `
+exports[`Accordion should render a11y html 1`] = `
 <main>
   <div
     class="theme-panelWrapper theme-panelWrapper__first theme-panelWrapper__notLast"

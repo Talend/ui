@@ -1,9 +1,10 @@
+import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { ButtonIcon } from './';
 
 describe('ButtonIcon', () => {
-	it('should render accessible button', async () => {
+	it('should render accessible html', async () => {
 		// note we need to add the aria-label to be accessible
 		// TODO: make it required
 		const { container } = render(

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Switch should render accessible button 1`] = `
+exports[`Switch should render accessible html 1`] = `
 <main>
   <div
     class="theme-switch"

@@ -11,8 +11,8 @@ jest.mock('@talend/utils', () => {
 	};
 });
 
-describe('ButtonIcon', () => {
-	it('should render accessible button', async () => {
+describe('Accordion', () => {
+	it('should render a11y html', async () => {
 		// note we need to add the aria-label to be accessible
 		// TODO: make it required
 		const { container } = render(

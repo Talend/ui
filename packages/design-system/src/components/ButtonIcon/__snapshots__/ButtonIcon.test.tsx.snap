@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonIcon should render accessible button 1`] = `
+exports[`ButtonIcon should render accessible html 1`] = `
 <button
   aria-describedby="id-42"
   aria-label="should be required"

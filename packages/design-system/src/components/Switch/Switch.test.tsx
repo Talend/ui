@@ -12,7 +12,7 @@ jest.mock('@talend/utils', () => {
 });
 
 describe('Switch', () => {
-	it('should render accessible button', async () => {
+	it('should render accessible html', async () => {
 		// note we need to add the aria-label to be accessible
 		// TODO: make it required
 		const { container } = render(
