@@ -882,6 +882,9 @@ importers:
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
+      cypress:
+        specifier: ^12.17.4
+        version: 12.17.4
       i18next:
         specifier: ^20.6.1
         version: 20.6.1
