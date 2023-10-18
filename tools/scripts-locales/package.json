@@ -14,6 +14,10 @@
     "@talend/scripts-utils": "^2.0.2",
     "cross-spawn": "^7.0.3"
   },
+  "devDependencies": {
+    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-plugin": "^1.0.1"
+  },
   "keywords": [
     "i18next",
     "talend"

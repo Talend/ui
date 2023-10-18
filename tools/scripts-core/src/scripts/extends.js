@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import _ from 'lodash';
 import * as utils from '@talend/scripts-utils';
 import { getUserConfigFile } from '../utils/env.js';
@@ -105,7 +106,9 @@ export default async function extend() {
 		],
 		defaultConfigFilePath: path.join(rootPath, '.stylelintrc'),
 		generateContent() {
-			const configPath = utils.path.getPkgRootPath('@talend/scripts-config-stylelint');
+			const configPath = path.dirname(
+				fileURLToPath(import.meta.resolve('@talend/scripts-config-stylelint')),
+			);
 			const presetConfigPath = path.join(configPath, '.stylelintrc');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return stylelintExtendsTemplate({ presetConfigRelativePath });
