@@ -172,7 +172,7 @@ try {
 		};
 	});
 } catch (e) {
-	console.warn('JEST MOCK ERROR: i18next not resolved');
+	console.warn('JEST MOCK WARN: i18next not resolved');
 }
 
 try {
@@ -231,7 +231,7 @@ try {
 		return mocks;
 	});
 } catch {
-	console.warn('JEST MOCK ERROR: @talend/design-system not resolved');
+	console.warn('JEST MOCK WARN: @talend/design-system not resolved');
 }
 
 try {
@@ -241,5 +241,5 @@ try {
 		unstable_IdContext: jest.requireActual('react').createContext(() => 'id-42'),
 	}));
 } catch {
-	console.warn('JEST MOCK ERROR: reakit/lib/Id/IdProvider not resolved');
+	console.warn('JEST MOCK WARN: reakit/lib/Id/IdProvider not resolved');
 }
