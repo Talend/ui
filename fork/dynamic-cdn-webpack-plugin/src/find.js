@@ -86,7 +86,8 @@ function findPackages(scope, name, buff = []) {
 	const result = buff.concat(
 		...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)),
 	);
-	return [...new Set(result)];
+	// return [...new Set(result)];
+	return result;
 }
 
 module.exports = {

@@ -2,3 +2,4 @@ packages:
   - "tools/*"
   - "fork/*"
   - "packages/*"
+  - '!**/fixtures/**'

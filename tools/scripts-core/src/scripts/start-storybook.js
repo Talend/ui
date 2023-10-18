@@ -4,7 +4,6 @@ import * as utils from '@talend/scripts-utils';
 import { getStorybookConfiguration } from '../utils/storybook.js';
 
 export default async function start(env, presetApi, options) {
-	utils.pkg.checkPackageIsInstalled('@talend/scripts-config-storybook-lib');
 	const sbConfigPath = getStorybookConfiguration(presetApi);
 
 	return utils.process.spawn(
