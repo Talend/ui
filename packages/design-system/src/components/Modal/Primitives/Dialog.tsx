@@ -22,8 +22,8 @@ function BaseDialog(props: DialogPropsType, ref: Ref<HTMLDivElement>) {
 		if (hide && event.key === 'Escape') {
 			hide();
 		}
-		if (onKeyDown) {
-			onKeyDown(event);
+		if (props.onKeyDown) {
+			props.onKeyDown(event);
 		}
 	};
 	return (
