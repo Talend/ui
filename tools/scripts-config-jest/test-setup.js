@@ -65,6 +65,11 @@ try {
 				if (config.response) {
 					return resolve(config.response);
 				}
+				if (global.self.fetch.mockResponse) {
+					const res = global.self.fetch.mockResponse;
+					delete global.self.fetch.mockResponse;
+					return resolve(res);
+				}
 				return resolve();
 			}),
 	);

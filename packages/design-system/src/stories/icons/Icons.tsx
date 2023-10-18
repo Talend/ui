@@ -3,13 +3,10 @@ import type { ChangeEvent, FormEvent } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { IconGallery, IconItem } from '@storybook/blocks';
 
-import { StackHorizontal, Form, Icon, IconsProvider } from '../../';
+import { StackHorizontal, Form, Icon, IconsProvider, IconProps } from '../../';
 
-type TemplateProps = {
-	name: string;
+type TemplateProps = IconProps & {
 	size: number;
-	transform: string;
-	border?: boolean;
 	filter?: boolean;
 	useCurrentColor?: boolean;
 };
@@ -137,7 +134,6 @@ export const AllIconsDocs = () => {
 							filter: filter ? "url('#talend-grayscale')" : 'none',
 						}}
 						transform={transform}
-						preserveColor={!useCurrentColor}
 						border={border}
 					/>
 				</IconItem>

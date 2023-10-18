@@ -20,7 +20,7 @@ export type PossibleVariants = 'toggle' | 'floating' | 'default';
 
 type CommonTypes<S extends Partial<AvailableSizes>> = Omit<
 	ButtonHTMLAttributes<HTMLButtonElement>,
-	'className' | 'style'
+	'className' | 'style' | 'aria-label'
 > & {
 	children: string;
 	isLoading?: boolean;
@@ -71,6 +71,7 @@ function Primitive<S extends AvailableSizes>(
 		<Tooltip title={children} placement={tooltipPlacement || 'top'}>
 			{(triggerProps, triggerRef) => (
 				<Clickable
+					aria-label={children}
 					{...triggerProps}
 					{...rest}
 					tabIndex={rest.tabIndex || 0}
