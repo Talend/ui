@@ -27,7 +27,7 @@ function getSmartOptions(opts, categories) {
 }
 
 async function lintEs(env, presetApi, options) {
-	const configRootPath = utils.path.getPkgRootPath('@talend/eslint-config');
+	const configRootPath = path.dirname(fileURLToPath(import.meta.resolve('@talend/eslint-config')));
 
 	const eslintConfigPath =
 		getUserConfigFile([

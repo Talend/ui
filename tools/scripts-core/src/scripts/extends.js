@@ -77,7 +77,9 @@ export default async function extend() {
 		configFileNames: ['jest.config.js'],
 		defaultConfigFilePath: path.join(rootPath, 'jest.config.js'),
 		generateContent() {
-			const configPath = utils.path.getPkgRootPath('@talend/scripts-config-jest');
+			const configPath = path.dirname(
+				fileURLToPath(import.meta.resolve('@talend/scripts-config-jest')),
+			);
 			const presetConfigPath = path.join(configPath, 'jest.config.js');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return jestExtendsTemplate({ presetConfigRelativePath });
@@ -88,7 +90,9 @@ export default async function extend() {
 		configFileNames: ['.prettierrc.js'],
 		defaultConfigFilePath: path.join(rootPath, '.prettierrc.js'),
 		generateContent() {
-			const configPath = utils.path.getPkgRootPath('@talend/scripts-config-prettier');
+			const configPath = path.dirname(
+				fileURLToPath(import.meta.resolve('@talend/scripts-config-prettier')),
+			);
 			const presetConfigPath = path.join(configPath, '.prettierrc.js');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return prettierExtendsTemplate({ presetConfigRelativePath });
@@ -125,7 +129,7 @@ export default async function extend() {
 		],
 		defaultConfigFilePath: path.join(rootPath, '.eslintrc'),
 		generateContent() {
-			const configPath = utils.path.getPkgRootPath('@talend/eslint-config');
+			const configPath = path.dirname(fileURLToPath(import.meta.resolve('@talend/eslint-config')));
 			const presetConfigPath = path.join(configPath, '.eslintrc.js');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return eslintExtendsTemplate({ presetConfigRelativePath });
@@ -136,7 +140,9 @@ export default async function extend() {
 		configFileNames: ['.babelrc', '.babelrc.json', 'babel.config.js'],
 		defaultConfigFilePath: path.join(rootPath, 'babel.config.js'),
 		generateContent() {
-			const configPath = utils.path.getPkgRootPath('@talend/scripts-config-babel');
+			const configPath = path.dirname(
+				fileURLToPath(import.meta.resolve('@talend/scripts-config-babel')),
+			);
 			const presetConfigPath = path.join(configPath, 'babel.config.js');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return babelExtendsTemplate({ presetConfigRelativePath });
@@ -147,7 +153,9 @@ export default async function extend() {
 		configFileNames: ['tsconfig.json'],
 		defaultConfigFilePath: path.join(rootPath, 'tsconfig.json'),
 		generateContent() {
-			const configPath = utils.path.getPkgRootPath('@talend/scripts-config-typescript');
+			const configPath = path.dirname(
+				fileURLToPath(import.meta.resolve('@talend/scripts-config-typescript')),
+			);
 			const presetConfigPath = path.join(configPath, 'tsconfig.json');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return typescriptExtendsTemplate({ presetConfigRelativePath });
