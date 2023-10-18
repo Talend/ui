@@ -79,7 +79,7 @@ function Skeleton({
 		type: getTranslatedType(t, type),
 	});
 
-	if (type === 'icon') {
+	if (type === 'icon' && name) {
 		return <Icon className={classes} name={name} aria-label={ariaLabel} />;
 	}
 	return <span style={{ width, height }} className={classes} aria-label={ariaLabel} />;

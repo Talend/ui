@@ -34,7 +34,7 @@ const accessibility = {
 };
 
 // eslint-disable-next-line react/display-name
-export const Icon = forwardRef(
+const IconBase = forwardRef(
 	(
 		{ className, name = 'talend-empty-space', transform, border, ...rest }: IconProps,
 		ref: Ref<SVGSVGElement>,
@@ -153,6 +153,6 @@ export const Icon = forwardRef(
 	},
 );
 
-export const IconMemo = memo(Icon);
+export const Icon = memo(IconBase);
 
-IconMemo.displayName = 'Icon';
+Icon.displayName = 'Icon';
