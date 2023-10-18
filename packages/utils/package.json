@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^15.0.0",
+    "@talend/scripts-config-jest": "^12.2.0",
     "@talend/scripts-config-typescript": "^11.1.0",
     "@types/date-fns": "^0.0.2",
     "@types/lodash": "^4.14.198",
