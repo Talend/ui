@@ -1,8 +1,8 @@
 import { HTMLAttributes, forwardRef } from 'react';
 
-export type LoadingProps = HTMLAttributes<SVGElement>;
+export type LoadingProps = HTMLAttributes<SVGSVGElement>;
 
-export const Loading = forwardRef<SVGElement, LoadingProps>((props, ref) => (
+export const Loading = forwardRef<SVGSVGElement, LoadingProps>((props, ref) => (
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" ref={ref} {...props}>
 		<g>
 			<path

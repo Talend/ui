@@ -4,7 +4,7 @@ import type { Ref, KeyboardEvent } from 'react';
 import { DialogState, DialogAction } from './DialogState';
 
 type A11yDialogPropsType = {
-	onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => void;
+	onKeyDown?: (event: KeyboardEvent<HTMLDivElement>) => void;
 };
 
 export type DialogPropsType = React.HTMLAttributes<HTMLDivElement> & {
@@ -21,6 +21,9 @@ function BaseDialog(props: DialogPropsType, ref: Ref<HTMLDivElement>) {
 	const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
 		if (hide && event.key === 'Escape') {
 			hide();
+		}
+		if (onKeyDown) {
+			onKeyDown(event);
 		}
 	};
 	return (
