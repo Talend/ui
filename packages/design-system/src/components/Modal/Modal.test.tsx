@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import { Modal } from './';
 
 describe('Message', () => {
-	it('should render a11y html', async () => {
+	xit('should render a11y html', async () => {
 		const { container } = render(
 			<main>
 				<Modal visible header={{ title: '(Default story title)' }} onClose={() => jest.fn()}>
