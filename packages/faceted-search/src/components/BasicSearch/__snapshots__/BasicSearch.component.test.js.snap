@@ -161,6 +161,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
   >
     <button
       aria-describedby="id-42"
+      aria-label="Remove all filters"
       class="theme-clickable theme-buttonIcon theme-size_S"
       data-feature="filter.basic.clear"
       tabindex="0"
