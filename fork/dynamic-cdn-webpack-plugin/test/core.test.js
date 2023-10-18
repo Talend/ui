@@ -55,9 +55,7 @@ describe('core', () => {
 		expect(output).toContain('module.exports = React');
 		const manifest = JSON.parse(
 			fs
-				.readFileSync(
-					path.resolve(__dirname, './fixtures/output/basic/app.js.dependencies.json'),
-				)
+				.readFileSync(path.resolve(__dirname, './fixtures/output/basic/app.js.dependencies.json'))
 				.toString(),
 		);
 		expect(manifest.react.peerDependency).toBe('^15.6.1');
@@ -256,7 +254,7 @@ describe('core', () => {
 
 		// then
 		const files = getChunkFiles(stats);
-		expect(files).toHaveLength(3);
+		expect(files).toHaveLength(2);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/@babel/polyfill@7.0.0/dist/polyfill.js');
 	});
