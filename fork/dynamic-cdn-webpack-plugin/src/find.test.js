@@ -27,12 +27,11 @@ describe('findPackages', () => {
 		require('fs').__setMockFiles(MOCK_FILE_INFO);
 	});
 
-	test.only('should find root and nested package', () => {
+	test('should find root and nested package', () => {
 		// when
 		const result = findPackages(undefined, 'react');
 
 		// then
-		console.log('LIST OF RESULT: ', result);
 		expect(result.length).toBe(2);
 		expect(result[0]).toBe('/node_modules/react');
 		expect(result[1]).toBe('/node_modules/@talend/react-components/node_modules/react');

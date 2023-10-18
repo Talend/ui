@@ -26,7 +26,8 @@
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
     "@talend/scripts-cmf": "^1.1.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "webpack-sources": "^3.2.3"
   },
   "devDependencies": {
     "@talend/scripts-config-babel": "^13.0.0"
