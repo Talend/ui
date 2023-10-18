@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
-import { utils } from '@talend/scripts-utils';
+import * as utils from '@talend/scripts-utils';
 import { getUserConfigFile } from '../utils/env.js';
 
 const { template } = _;
