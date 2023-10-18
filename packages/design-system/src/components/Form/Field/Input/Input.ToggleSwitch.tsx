@@ -7,7 +7,7 @@ import { useId } from '../../../../useId';
 import { CheckboxPrimitiveType } from '../../Primitives';
 import { useControl } from '../../../../useControl';
 
-import styles from './ToggleSwitchPrimitive.module.scss';
+import styles from './Input.ToggleSwitch.module.scss';
 
 export type ToggleSwitchPropTypes = Omit<CheckboxPrimitiveType, 'onChange'> & {
 	onChange?: (checked: boolean) => void;
