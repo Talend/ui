@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link should render a11y html 1`] = `
+<main>
+  <a
+    class="theme-linkable theme-link"
+    data-testid="my.link"
+    href="#"
+  >
+    <span
+      class="theme-link__text"
+    >
+      Link example
+    </span>
+  </a>
+  <a
+    class="theme-linkable theme-link"
+    href="#"
+  >
+    <span
+      class="theme-link__icon"
+    >
+      <svg
+        aria-hidden="true"
+        data-test="link.icon.before"
+        data-testid="link.icon.before"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.6rem; height: 1.6rem;"
+      >
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <span
+      class="theme-link__text"
+    >
+      Link example
+    </span>
+  </a>
+  <a
+    class="theme-linkable theme-link"
+    href="https://www.talend.com"
+  >
+    <span
+      class="theme-link__text"
+    >
+      Link example
+    </span>
+    <span
+      class="theme-link__iconExternal"
+      data-test="link.icon.external"
+      data-testid="link.icon.external"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.2rem; height: 1.2rem;"
+      >
+        <use
+          xlink:href="#external-link:S"
+        />
+      </svg>
+    </span>
+  </a>
+</main>
+`;

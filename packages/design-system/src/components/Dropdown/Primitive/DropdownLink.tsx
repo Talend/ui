@@ -1,5 +1,5 @@
 import { forwardRef, ReactElement, Ref } from 'react';
-import Linkable, { LinkableType } from '../../Linkable';
+import { Linkable, LinkableType } from '../../Linkable';
 
 import styles from './DropdownEntry.module.scss';
 

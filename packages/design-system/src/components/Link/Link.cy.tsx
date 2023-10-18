@@ -13,17 +13,25 @@ context('<Link />', () => {
 	});
 
 	it('should render icon before', () => {
-		cy.mount(<Link href="#" icon="information-filled" />);
+		cy.mount(
+			<Link href="#" icon="information-filled">
+				Link example
+			</Link>,
+		);
 		cy.findByTestId('link.icon.before').should('be.visible');
 	});
 
 	it('should render external', () => {
-		cy.mount(<Link href="https://www.talend.com" />);
+		cy.mount(<Link href="https://www.talend.com">Link example</Link>);
 		cy.findByTestId('link.icon.external').should('be.visible');
 	});
 
 	it('should render disabled', () => {
-		cy.mount(<Link href="#" icon="information-filled" disabled data-testid="my.link" />);
+		cy.mount(
+			<Link href="#" icon="information-filled" disabled data-testid="my.link">
+				Link example
+			</Link>,
+		);
 		cy.findByTestId('my.link').should('have.attr', 'aria-disabled');
 	});
 
