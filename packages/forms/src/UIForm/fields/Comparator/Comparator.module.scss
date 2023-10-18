@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tf-comparator-operator-height: 3.2rem !default;
 $tf-comparator-operator-width: 5rem !default;
@@ -15,7 +16,6 @@ $tf-comparator-operator-top: 2.4rem !default;
 
 			&-menu {
 				min-width: auto;
-
 			}
 
 			.tc-svg-icon {
@@ -26,9 +26,9 @@ $tf-comparator-operator-top: 2.4rem !default;
 				height: $tf-comparator-operator-height;
 				min-height: $tf-comparator-operator-height;
 				width: $tf-comparator-operator-width;
-				color: var(--t-form-group-interactive-color);
-				background: var(--t-form-group-interactive-background-color);
-				border: 1px solid var(--t-form-border-color);
+				color: tokens.$coral-color-neutral-text;
+				background: tokens.$coral-color-accent-background;
+				border: 1px solid tokens.$coral-color-neutral-border;
 				border-radius: $input-border-radius 0 0 $input-border-radius;
 				z-index: 1;
 				padding: {

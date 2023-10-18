@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
@@ -34,7 +35,6 @@
 	text-align: center;
 
 	.calendar-day {
-
 		@include picker-action;
 
 		height: 2.4rem;
@@ -46,9 +46,9 @@
 		padding: 0;
 
 		&.today {
-			background-color: tint($lochmara, 90%);
-			color: $lochmara;
-			border: solid 1px $lochmara;
+			background-color: tokens.$coral-color-accent-background;
+			color: tokens.$coral-color-accent-text-strong;
+			border: solid 1px tokens.$coral-color-accent-border;
 		}
 
 		&.not-current-month {

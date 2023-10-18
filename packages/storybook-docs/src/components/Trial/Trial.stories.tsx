@@ -1,11 +1,11 @@
-import Trial from './Trial';
+import { Trial } from './Trial';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 export default {
 	component: Trial,
-} as ComponentMeta<typeof Trial>;
+} as Meta<typeof Trial>;
 
-export const Story: ComponentStory<typeof Trial> = () => {
+export const Story: StoryFn<typeof Trial> = () => {
 	return <Trial>Trial component</Trial>;
 };

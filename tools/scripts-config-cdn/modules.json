@@ -245,13 +245,21 @@
         "development": "/dist/TalendReactStepper.js",
         "production": "/dist/TalendReactStepper.min.js"
       },
-      ">= 5.31.0": {
+      ">= 5.31.0 < 8.1.0": {
+        "development": "/dist/TalendReactStepper.js",
+        "production": "/dist/TalendReactStepper.min.js"
+      },
+      ">= 8.1.0": {
         "development": "/dist/TalendReactStepper.js",
         "production": "/dist/TalendReactStepper.min.js"
       }
     },
     "style-versions": {
       ">= 5.27.0 < 5.31.0": {
+        "development": "/dist/TalendReactStepper.css",
+        "production": "/dist/TalendReactStepper.css"
+      },
+      ">= 8.1.0": {
         "development": "/dist/TalendReactStepper.css",
         "production": "/dist/TalendReactStepper.css"
       }

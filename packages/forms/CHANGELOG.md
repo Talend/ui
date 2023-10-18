@@ -1,5 +1,115 @@
 # @talend/react-forms
 
+## 10.2.4
+
+### Patch Changes
+
+- 3b058ef7d: chore: fix some lint errors
+- Updated dependencies [3b058ef7d]
+  - @talend/design-system@7.15.1
+
+## 10.2.3
+
+### Patch Changes
+
+- ac48bdb6b: fix: pin react-ace
+- Updated dependencies [f73fdbc46]
+  - @talend/react-components@11.3.2
+
+## 10.2.2
+
+### Patch Changes
+
+- 9fa1679ad: components/Code: add flag to show/hide instructions div
+- 90dc6e87e: Fix undefined value on component Code when mounting
+- Updated dependencies [8277e1f39]
+  - @talend/react-components@11.3.1
+
+## 10.2.1
+
+### Patch Changes
+
+- d465adb68: fix: ace code editor
+
+  Issue1: 404 on react-ace min in dev mode.
+  The copy of the assets during the build is not able to support different forlders and this is the case for react-ace.
+  The getUMD point to the production version (becaue of babel) but we are in dev so this make a 404.
+  Fix: point to prod for both versions
+
+  Issue 2: function f is not defined (trace in ace-build).
+  Fix: pin ace-builds in react-forms because there is a bug in the latest version
+
+- Updated dependencies [a6ac16f28]
+  - @talend/react-components@11.3.0
+
+## 10.2.0
+
+### Minor Changes
+
+- 619d22798: Export component Code
+
+### Patch Changes
+
+- Updated dependencies [58f8ff666]
+- Updated dependencies [a5348a439]
+- Updated dependencies [82e08d6e5]
+  - @talend/react-components@11.2.1
+
+## 10.1.0
+
+### Minor Changes
+
+- f65073eb9: Update react-ace lib and improve its lazy loading.
+  Fix auto-completion.
+  Remove the need to add a copy configuration in application to work.
+
+  New library no more use _brace_ but _ace-builds_ instead.
+
+### Patch Changes
+
+- Updated dependencies [c15088d3b]
+  - @talend/react-components@11.1.0
+
+## 10.0.0
+
+### Major Changes
+
+- bfc02c4fb: All colors are now based on design-tokens
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
+## 9.3.0
+
+### Minor Changes
+
+- 7a9a8db40: Forms - Allow to disable a single checkbox for checkbox widget list
+
+## 9.2.3
+
+### Patch Changes
+
+- eefc711c0: fix: remove jest from runtime
+
+## 9.2.2
+
+### Patch Changes
+
+- 3099c427a: chore: rewrite tests using react-testing-library
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- Updated dependencies [a90c12b34]
+- Updated dependencies [fcd8daf3c]
+- Updated dependencies [c7f316d7c]
+- Updated dependencies [b8c4161d2]
+- Updated dependencies [c54e10157]
+- Updated dependencies [3099c427a]
+  - @talend/design-system@7.10.0
+  - @talend/react-components@10.3.5
+
 ## 9.2.1
 
 ### Patch Changes

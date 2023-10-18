@@ -1,5 +1,205 @@
 # @talend/react-components
 
+## 11.4.5
+
+### Patch Changes
+
+- b0f7bbf70: fix(TDC-7364): FormatValue component - fix content not appearing when there were leading whitespaces
+
+## 11.4.4
+
+### Patch Changes
+
+- 1cb4b7b29: fix(TFD-16296): Add ellipsis on collapsible panel header
+- Updated dependencies [9d137cb98]
+  - @talend/bootstrap-theme@8.2.0
+
+## 11.4.3
+
+### Patch Changes
+
+- 941231e01: fix(TDP-12616): fix checkbox mark style on multi-select
+
+## 11.4.2
+
+### Patch Changes
+
+- 4f8429b41: TDOPS-1878 - Notification container now has a max height to handle long and multiple notifications not overflowing the screen
+- Updated dependencies [6af561463]
+  - @talend/icons@6.60.0
+
+## 11.4.1
+
+### Patch Changes
+
+- b60f5b5c1: TDOPS-2619 - Align column chooser style with Design System
+- a5e724a5b: TDOPS-5105 - Components badge now have the right separator color
+- 387afd9fd: TDOPS-872 - VList cell content should display a tooltip for 0 value as well
+
+## 11.4.0
+
+### Minor Changes
+
+- f0c98a7e6: Components - Layout can now be given a theme directly from props by parent app
+
+## 11.3.3
+
+### Patch Changes
+
+- a958d95ae: TDOPS-4488 - Components VList can handle data attributes for Link column
+- 8f1196fb0: fix(TDC-7310) - fixed select all checkbox disappearing by replacing with TUI Checkbox
+
+## 11.3.2
+
+### Patch Changes
+
+- f73fdbc46: fix: change drawer header color
+
+## 11.3.1
+
+### Patch Changes
+
+- 8277e1f39: TDOPS-4488: Add VList Link column to disctionary
+
+## 11.3.0
+
+### Minor Changes
+
+- a6ac16f28: TDOPS-4488 - Allow to have links in VirtualList in Title cell and dedicated Link cell
+
+## 11.2.3
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+- 72b95c880: TDOPS-5081 - Fixed FilterBar in VList header having wrong style on hover
+- Updated dependencies [fbce059c2]
+  - @talend/bootstrap-theme@8.1.2
+
+## 11.2.2
+
+### Patch Changes
+
+- 79cc47c03: Use elevation token for headerbar to be in line with other components
+
+## 11.2.1
+
+### Patch Changes
+
+- 58f8ff666: Fix button style for filter bar clear button
+- a5348a439: TDOPS-4964 - Fix SidePanel colors
+- 82e08d6e5: TDOPS-4890 - Fix Notifications text color
+- Updated dependencies [58f8ff666]
+- Updated dependencies [a5348a439]
+  - @talend/bootstrap-theme@8.1.1
+
+## 11.2.0
+
+### Minor Changes
+
+- c65edb127: fix(TDP-12557): use lighter gray for format value whitespace
+
+## 11.1.3
+
+### Patch Changes
+
+- 3345262d2: fix: tokens on the Slider component and migration to typescript
+- Updated dependencies [b36165add]
+  - @talend/design-tokens@2.8.0
+
+## 11.1.2
+
+### Patch Changes
+
+- 62bcde608: fix: setup the interactive stuff in accent color for the subheader bar
+
+## 11.1.1
+
+### Patch Changes
+
+- a38d7b28a: fix: change icon color to neutral in subheader as it's not an interactive component
+  fix: change the border color of the grid layout to be weaker
+
+## 11.1.0
+
+### Minor Changes
+
+- c15088d3b: TDOPS-4856 - Fix List colors taken from DS tokens
+
+## 11.0.0
+
+### Major Changes
+
+- bfc02c4fb: Style now use design tokens instead of bootstrap sass variables
+
+  We have updated the following components:
+
+  - ActionBar
+  - ActionIconToggle
+  - AppLoader
+  - Badge
+  - CollapsiblePanel
+  - Datalist
+  - DataViewer
+  - DateTimePickers + Legacy
+  - Drawer
+  - EditableText
+  - Enumeration (bug on buttons)
+  - FilterBar
+  - FormatValue
+  - GuidedTour
+  - GridLayout aka Dashboard
+  - HeaderBar
+  - List (Virtualized and Composition)
+  - ListView
+  - MultiSelect
+  - Notification
+  - ObjectViewer
+  - PieChart
+  - Progress
+  - RadarChart
+  - ResourceList
+  - ResourcePicker
+  - RichLayout
+  - Skeleton
+  - Slider
+  - Status
+  - SubHeaderBar
+  - Toggle
+  - Tooltip
+  - TreeView
+  - Typeahead
+
+### Patch Changes
+
+- 40e70c055: chore: remove devDependencies to typescript
+- Updated dependencies [bfc02c4fb]
+  - @talend/bootstrap-theme@8.0.0
+
+## 10.3.5
+
+### Patch Changes
+
+- fcd8daf3c: fix: VirtualizedList.CellLabel support empty CellData
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- b8c4161d2: - fix: add missing proptypes on Inject
+  - fix(dropdown): propagate missing id for a11y
+  - chore: treeview remove unknow props key
+- 3099c427a: fix: remove wrong propTypes from Checkbox component
+
+  fix: remove active props to Button which was responsible for the following error:
+
+  ```
+  Warning: Received `true` for a non-boolean attribute `active`.
+
+      If you want to write it to the DOM, pass a string instead: active="true" or active={value.toString()}.
+  ```
+
+  fix: Columns fieldset propTypes
+  fix: Fieldset propTypes
+  fix: omit isDisabledChecker from input in Date/Time pickers
+
 ## 10.3.4
 
 ### Patch Changes

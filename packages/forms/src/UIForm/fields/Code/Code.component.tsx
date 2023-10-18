@@ -1,25 +1,35 @@
-import {
-	lazy,
-	DetailedHTMLProps,
-	KeyboardEvent,
-	LabelHTMLAttributes,
-	Suspense,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
+import { lazy, DetailedHTMLProps, LabelHTMLAttributes, Suspense, useEffect, useState } from 'react';
+import { IAceEditorProps } from 'react-ace';
 import { useTranslation } from 'react-i18next';
-import { isEventKey, codes } from 'keycode';
+
 import assetsApi from '@talend/assets-api';
-import { AceEditorProps } from 'react-ace';
-import FieldTemplate from '../FieldTemplate';
-import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
+import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import FieldTemplate from '../FieldTemplate';
 import CodeSkeleton from './CodeSkeleton.component';
 
+// Define ace namespace to avoid compiler error
+// And use it during react-ace lazy load without importing it (that will break lazy loading)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare const ace: any;
+
 const ReactAce = lazy(() =>
-	assetsApi.getUMD('react-ace').then((mod: any) => assetsApi.toDefaultModule(mod.default)),
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	assetsApi.getUMD('react-ace').then((mod: any) => {
+		const extUrl = assetsApi.getURL('/src-min-noconflict/ext-language_tools.js', 'ace-builds');
+		ace.config.set('basePath', extUrl.replace('ext-language_tools.js', ''));
+		assetsApi.addScript({ src: extUrl });
+		// wait for ext-language_tools.js to be loaded before return the ace module
+		return new Promise(resolve => {
+			const cancel = setInterval(() => {
+				if (ace.require('ace/ext/language_tools')) {
+					clearInterval(cancel);
+					resolve(assetsApi.toDefaultModule(mod.default));
+				}
+			}, 100);
+		});
+	}),
 );
 
 const DEFAULT_SET_OPTIONS = {
@@ -32,7 +42,7 @@ interface CodeSchema {
 	autoFocus: boolean;
 	description: string;
 	disabled: boolean;
-	options: AceEditorProps & { language?: string };
+	options: IAceEditorProps & { language?: string };
 	readOnly: boolean;
 	required: boolean;
 	title: string;
@@ -51,6 +61,7 @@ export interface CodeProps {
 	schema?: Partial<CodeSchema>;
 	value?: string | number;
 	valueIsUpdating?: boolean;
+	showInstructions?: boolean;
 }
 
 export default function Code({
@@ -62,13 +73,13 @@ export default function Code({
 	valueIsUpdating,
 	onChange,
 	onFinish,
+	showInstructions = true,
 }: CodeProps) {
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const { autoFocus, description, options, readOnly = false, title, labelProps } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const instructionsId = generateId(id, 'instructions');
-	const containerRef = useRef<any>(null);
 	const [editor, setEditor] = useState<any>(null);
 
 	useEffect(() => {
@@ -79,24 +90,8 @@ export default function Code({
 		}
 	}, [editor, instructionsId, descriptionId, errorId, id]);
 
-	function onKeyDown(event: KeyboardEvent) {
-		if (isEventKey(event.nativeEvent, codes.enter)) {
-			const now = Date.now();
-
-			if (containerRef.current.lastEsc && containerRef.current.lastEsc - now < 1000) {
-				containerRef.current.lastEsc = null;
-				containerRef.current.focus();
-				editor.textInput.getElement().setAttribute('tabindex', -1);
-			} else {
-				containerRef.current.lastEsc = now;
-			}
-		} else {
-			containerRef.current.lastEsc = null;
-		}
-	}
-
 	function onBlur() {
-		editor.textInput.getElement().removeAttribute('tabindex');
+		editor?.textInput?.getElement()?.removeAttribute('tabindex');
 	}
 
 	return (
@@ -115,15 +110,16 @@ export default function Code({
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 				id={id && `${id}-editor-container`}
 				onBlur={onBlur}
-				onKeyDown={onKeyDown}
-				ref={containerRef}
 				tabIndex={-1}
 			>
-				<div id={instructionsId} className="sr-only">
-					{t('TF_CODE_ESCAPE', {
-						defaultValue: 'To focus out of the editor, press ESC key twice.',
-					})}
-				</div>
+				{showInstructions && (
+					<div id={instructionsId} data-testid="widget-code-instructions" className="sr-only">
+						{t('TF_CODE_ESCAPE', {
+							defaultValue: 'To focus out of the editor, press ESC key twice.',
+						})}
+					</div>
+				)}
+
 				<Suspense fallback={<CodeSkeleton />}>
 					<ReactAce
 						key="ace"
@@ -133,7 +129,7 @@ export default function Code({
 						name={`${id}_wrapper`}
 						mode={options?.language}
 						onBlur={(event: Event) => onFinish(event, { schema })}
-						onLoad={(ace: any) => setEditor(ace)}
+						onLoad={(component: unknown) => setEditor(component)}
 						onChange={(newValue: string | number, event: Event) =>
 							onChange(event, { schema: schema, value: newValue })
 						}

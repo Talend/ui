@@ -1,5 +1,17 @@
 # @talend/utils
 
+## 2.6.0
+
+### Minor Changes
+
+- 8520b05f9: Types (Typescript) add util function to filter undefined or null values from array
+
+## 2.5.2
+
+### Patch Changes
+
+- 20388beea: fix(TDOPS-3587) - update email validation pattern
+
 ## 2.5.1
 
 ### Patch Changes

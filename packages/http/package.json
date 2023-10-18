@@ -1,6 +1,6 @@
 {
   "name": "@talend/http",
-  "version": "2.2.0",
+  "version": "2.4.0",
   "description": "HTTP helper",
   "license": "Apache-2.0",
   "repository": {
@@ -27,12 +27,12 @@
     "lint": "talend-scripts lint"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^13.1.2",
-    "@talend/scripts-config-react-webpack": "^15.3.3",
+    "@talend/scripts-core": "^15.0.0",
+    "@talend/scripts-config-react-webpack": "^16.0.0",
     "fetch-mock": "^9.11.0",
-    "node-fetch": "^2.6.9",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "node-fetch": "^2.7.0",
+    "react-dom": "^18.2.0",
+    "react": "^18.2.0"
   },
   "jest": {
     "collectCoverageFrom": [

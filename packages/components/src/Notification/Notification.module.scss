@@ -1,13 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-$tc-notification-info-color: #3C763D !default;
-$tc-notification-info-bgcolor: #E8F2CC !default;
-
-$tc-notification-warning-color: #8A6D3B !default;
-$tc-notification-warning-bgcolor: #FDEECC !default;
-
-$tc-notification-error-color: #A94442 !default;
-$tc-notification-error-bgcolor: #F5E0E0 !default;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-notification-animation-duration: 0.3s !default;
 
@@ -29,9 +21,12 @@ $tc-notification-icon-size: $svg-md-size !default;
 	&-container {
 		position: absolute;
 		top: 48px;
-		right: $padding-normal;
+		right: 0;
+		padding: tokens.$coral-spacing-s tokens.$coral-spacing-m 0 tokens.$coral-spacing-m;
 		z-index: $zindex-notification;
 		left: auto;
+		max-height: calc(100vh - 48px);
+		overflow-y: auto;
 
 		.tc-notification[pin='true'] {
 			.tc-notification-timer-bar {
@@ -42,21 +37,24 @@ $tc-notification-icon-size: $svg-md-size !default;
 	}
 
 	&-info,
+	&-info &-message,
 	&-info &-title {
-		background: $tc-notification-info-bgcolor;
-		color: $tc-notification-info-color;
+		background: tokens.$coral-color-success-background;
+		color: tokens.$coral-color-success-text-strong;
 	}
 
 	&-warning,
+	&-warning &-message,
 	&-warning &-title {
-		background: $tc-notification-warning-bgcolor;
-		color: $tc-notification-warning-color;
+		background: tokens.$coral-color-warning-background;
+		color: tokens.$coral-color-warning-text-strong;
 	}
 
 	&-error,
+	&-error &-message,
 	&-error &-title {
-		background: $tc-notification-error-bgcolor;
-		color: $tc-notification-error-color;
+		background: tokens.$coral-color-danger-background;
+		color: tokens.$coral-color-danger-text-strong;
 	}
 
 	&-title {
@@ -93,7 +91,7 @@ $tc-notification-icon-size: $svg-md-size !default;
 		}
 
 		&-action {
-			color: #1BABCD;
+			color: tokens.$coral-color-accent-text;
 			padding: 0 $padding-small;
 
 			svg {

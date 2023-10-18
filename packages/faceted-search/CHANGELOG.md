@@ -1,5 +1,86 @@
 # Changelog
 
+## 11.3.0
+
+### Minor Changes
+
+- 8361389eb: "Show selected" toggle on BadgeMenu
+
+## 11.2.0
+
+### Minor Changes
+
+- 08b8257ed: chore(TDP-12538): always show tooltip on faceted badge overlay
+
+## 11.1.0
+
+### Minor Changes
+
+- 076d96234: Add BadgeMenu to faceted search for single selection
+
+## 11.0.2
+
+### Patch Changes
+
+- Updated dependencies [3cfe50989]
+  - @talend/design-tokens@2.9.0
+
+## 11.0.1
+
+### Patch Changes
+
+- Updated dependencies [b36165add]
+  - @talend/design-tokens@2.8.0
+
+## 11.0.0
+
+### Major Changes
+
+- bfc02c4fb: feat: use design-tokens for colors
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
+## 10.0.1
+
+### Patch Changes
+
+- a17306fc9: TDOPS-4795 - [TUI] Faceted search display wrong plural label
+
+## 10.0.0
+
+### Major Changes
+
+- aab0eeb36: TDOPS-4704 - Faceted search : Allow to configure faceted search min/max input length for text badge
+
+  # BREAKING CHANGE
+
+  Faceted search : `quickSearchMinLength` configuration for quick search input is no more used and now detected from badge configuration
+
+## 9.4.0
+
+### Minor Changes
+
+- 93def65ae: TDOPS-4704 - Faceted search : Allow to configure faceted search min trigger length for quick search input
+
+### Patch Changes
+
+- bb0cd786e: fix(TDC-6575): badge size overlap with "Add Filter" button with some long values
+- 04167fe3d: fix(faceted-search): data-feature typo
+
+## 9.3.0
+
+### Minor Changes
+
+- d579821da: feat: added custom attributes to the faceted basic search
+
+### Patch Changes
+
+- 9ea9961bd: test: rewrite using react testing library
+
 ## 9.2.1
 
 ### Patch Changes

@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 .radio input[type='radio'],
 .radio-inline input[type='radio'],
 .checkbox input[type='checkbox'],
@@ -12,35 +14,40 @@ input::-ms-clear {
 .form-control {
 	padding: 0 10px;
 	margin-bottom: $padding-smaller;
-	color: var(--t-form-color);
-	background-color: var(--t-form-background-color);
-	border: 1px solid var(--t-form-border-color);
+	color: tokens.$coral-color-neutral-text;
+	background-color: transparent;
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 	font-weight: normal;
 	box-shadow: none;
 
 	&:hover {
-		border-color: var(--t-form-border-color--hover);
+		border-color: tokens.$coral-color-neutral-border-strong-hover;
 	}
 
 	&:focus {
 		border-width: 2px;
-		border-color: var(--t-form-border-color--focus);
+		border-color: tokens.$coral-color-accent-border;
 		box-shadow: none;
 	}
 
 	&[disabled] {
-		border-color: var(--t-form-border-color--disabled);
+		border-color: tokens.$coral-color-neutral-border-disabled;
 	}
 
+	&[disabled],
 	&[readonly],
 	&[readonly]:focus {
 		border-width: 0;
-		color: var(--t-form-color--readonly);
-		background-color: var(--t-form-background-color--readonly);
-		border-color: var(--t-form-border-color--readonly);
+		color: tokens.$coral-color-neutral-text;
+		background-color: tokens.$coral-color-neutral-background-strong;
+		border-color: tokens.$coral-color-neutral-border-weak;
 	}
 
 	&::placeholder {
-		color: var(--t-form-placeholder-color);
+		color: tokens.$coral-color-neutral-text-weak;
 	}
+}
+
+.has-error .form-control {
+	border-color: tokens.$coral-color-danger-border;
 }

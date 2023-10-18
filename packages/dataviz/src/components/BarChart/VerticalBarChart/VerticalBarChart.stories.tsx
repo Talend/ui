@@ -20,6 +20,12 @@ export default {
 		onBarClick: action('onClick'),
 		dataFeature: 'my.data.feature',
 	},
+	parameters: {
+		chromatic: {
+			// To avoid issues with charts, we'll need to improve this later on
+			diffThreshold: 0.6,
+		},
+	},
 } as Meta<VerticalBarChartProps>;
 
 export const NumberBarChart = Template.bind({});

@@ -1,5 +1,36 @@
 # @talend/scripts-config-react-webpack
 
+## 16.1.0
+
+### Minor Changes
+
+- 9d137cb98: feat: upgrade some webpack loader
+
+## 16.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade dependencies to latest
+
+  - babel-loader from 8 to 9
+  - fork-ts-checker-webpack-plugin from 7 to 8
+
+## 15.4.1
+
+### Patch Changes
+
+- bfc02c4fb: fix: make the static AppLoader use design token if available
+
+## 15.4.0
+
+### Minor Changes
+
+- 5fd268ed6: feat: support publicPath auto option
+
+### Patch Changes
+
+- ee828e0b0: fix: remove circular dependencies on react-components
+
 ## 15.3.3
 
 ### Patch Changes

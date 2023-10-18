@@ -173,6 +173,18 @@ export const Header = () => (
 		<h1>Collapsible Panel Headers</h1>
 		<CollapsiblePanel id="panel-header-1" header={[{ label: 'Simple header' }]} />
 		<CollapsiblePanel
+			id="panel-header-1"
+			header={[
+				{
+					label:
+						'Simple header with a very very very very long label that should not completly appear and not push other element outside the headerSimple header with a very very very very long label that should not completly appear and not push other element outside the header',
+				},
+				buttonDownload,
+			]}
+		>
+			Panel content
+		</CollapsiblePanel>
+		<CollapsiblePanel
 			id="panel-header-2"
 			header={[{ label: 'Header with actions' }, { element }]}
 		/>

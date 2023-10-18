@@ -4,6 +4,7 @@ import RowCollapsiblePanel, { rowType as rowCollapsiblePanelType } from '../RowC
 import CellActionsRenderer, { cellType as cellActionsType } from '../CellActions';
 import CellCheckboxRenderer, { cellType as cellCheckboxType } from '../CellCheckbox';
 import CellTitleRenderer, { cellType as cellTitleType } from '../CellTitle';
+import CellLinkRenderer, { cellType as cellLinkType } from '../CellLink';
 import CellBadgeRenderer, { cellType as cellBadgeType } from '../CellBadge';
 import CellLabelRenderer, { cellType as cellLabelType } from '../CellLabel';
 import CellDatetimeRenderer, { cellType as cellDatetimeType } from '../CellDatetime';
@@ -17,6 +18,7 @@ export const cellDictionary = {
 	[cellActionsType]: CellActionsRenderer,
 	[cellCheckboxType]: CellCheckboxRenderer,
 	[cellTitleType]: CellTitleRenderer,
+	[cellLinkType]: CellLinkRenderer,
 	[cellBadgeType]: CellBadgeRenderer,
 	[cellLabelType]: CellLabelRenderer,
 	[cellTextType]: CellTextIconRenderer,

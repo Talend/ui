@@ -1,13 +1,13 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 // Filter styles
-$tc-filter-bar-highlight-color: rgba($lightning-yellow, 0.75) !default;
 $tc-filter-bar-width: 250px !default;
 
 .filter {
 	display: flex;
 	height: $padding-larger;
-	background-color: rgba($silver, 0.2);
+	background-color: tokens.$coral-color-neutral-background-medium;
 	padding: 0;
 	border-radius: $border-radius-base;
 
@@ -17,7 +17,7 @@ $tc-filter-bar-width: 250px !default;
 		margin: 8px 0;
 		height: $svg-md-size;
 		width: $padding-larger;
-		fill: $gray;
+		fill: tokens.$coral-color-neutral-icon-weak;
 	}
 
 	> :global(.form-group) {
@@ -38,11 +38,11 @@ $tc-filter-bar-width: 250px !default;
 
 	.search {
 		box-shadow: none;
-		color: $dove-gray;
+		color: tokens.$coral-color-neutral-text;
 		font-size: $font-size-base;
 
 		&::placeholder {
-			color: $dark-silver;
+			color: tokens.$coral-color-neutral-icon-weak;
 		}
 
 		&::-ms-clear {
@@ -52,7 +52,7 @@ $tc-filter-bar-width: 250px !default;
 
 	.remove {
 		display: inline-block;
-		color: opacify($gray, 0.2);
+		color: tokens.$coral-color-neutral-text;
 		padding: $padding-smaller;
 		line-height: 2rem;
 		height: 100%;
@@ -78,12 +78,16 @@ $tc-filter-bar-width: 250px !default;
 }
 
 .highlight {
-	background-color: $tc-filter-bar-highlight-color;
+	background-color: tokens.$coral-color-warning-background;
 
 	.search-icon,
 	.search {
-		fill: rgba($black, 0.5);
+		fill: tokens.$coral-color-neutral-text;
 	}
+}
+
+.button-docked {
+	color: tokens.$coral-color-neutral-icon-weak;
 }
 
 @keyframes reveal {

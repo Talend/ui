@@ -9,6 +9,7 @@ const moduleToCdn = require('@talend/module-to-cdn');
 const DynamicCdnWebpackPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 const { findPackage } = require('@talend/dynamic-cdn-webpack-plugin/src/find');
 const lockfile = require('@yarnpkg/lockfile');
+const yaml = require('js-yaml');
 const modules = require('./modules.json');
 const umds = require('./umds.json');
 const { download } = require('./utils');
@@ -35,7 +36,10 @@ function addToCopyConfig(info, config) {
 		}
 		let to = path.relative(
 			process.cwd(),
-			path.resolve(`cdn/${info.name}/${info.version}${info.path}`, '../'),
+			path.resolve(
+				`cdn/${info.name}/${info.version}${info.path}`,
+				info.path.endsWith('/') ? '' : '../',
+			),
 		);
 		if (!to.endsWith('/')) {
 			to += '/';
@@ -117,11 +121,21 @@ function getModulesFromLockFile(dir) {
 		lockType = 'yarn.lock';
 		lockPath = path.join(cwd, lockType);
 		if (fs.existsSync(lockPath)) {
-			const json = lockfile.parse(fs.readFileSync(lockPath, 'utf-8'));
-			infos = Object.keys(json.object)
+			let yarnv1;
+			let yarnv3;
+			try {
+				yarnv1 = lockfile.parse(fs.readFileSync(lockPath, 'utf-8'));
+			} catch (e) {
+				yarnv3 = yaml.load(fs.readFileSync(lockPath, 'utf-8'));
+				// eslint-disable-next-line no-underscore-dangle
+				delete yarnv3.__metadata;
+			}
+
+			const json = yarnv1 ? yarnv1.object : yarnv3;
+			infos = Object.keys(json)
 				.map(moduleAndversion => {
 					const moduleName = getModuleName(moduleAndversion);
-					return moduleToCdn(moduleName, json.object[moduleAndversion].version, {
+					return moduleToCdn(moduleName, json[moduleAndversion].version, {
 						env: 'development',
 					});
 				})

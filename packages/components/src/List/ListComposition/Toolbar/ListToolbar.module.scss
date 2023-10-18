@@ -1,7 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-$tc-list-toolbar-display-color: $silver !default;
-$tc-list-toolbar-background-color: $wild-sand !default;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-toolbar-height: 7rem;
 
@@ -13,9 +11,9 @@ $tc-toolbar-height: 7rem;
 	padding-left: $padding-larger;
 	padding-right: $padding-larger;
 
-	background: $tc-list-toolbar-background-color;
-	border-top: 1px solid $alto;
-	border-bottom: 1px solid $alto;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	margin-bottom: 0;
 	flex-shrink: 0;
 	flex-grow: 0;
@@ -42,7 +40,7 @@ $tc-toolbar-height: 7rem;
 	&-separated:not(:first-child)::before {
 		align-self: center;
 		content: '|';
-		color: $silver;
+		color: tokens.$coral-color-neutral-border-strong;
 		padding: 0 $padding-normal;
 	}
 

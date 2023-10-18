@@ -1,24 +1,25 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .container {
 	padding: $padding-smaller 0;
-	background-color: $white;
+	background-color: tokens.$coral-color-neutral-background;
 
 	button {
 		width: 100%;
 		border: none;
-		color: $dove-gray;
+		color: tokens.$coral-color-neutral-text;
 		font-size: 1.4rem;
 		font-weight: normal;
-		background-color: $white;
+		background-color: tokens.$coral-color-neutral-background;
 
 		&:global(.highlight) {
-			background-color: tint($lochmara, 90%);
+			background-color: tokens.$coral-color-accent-background-weak;
 		}
 
 		&:hover,
 		&:focus {
-			background-color: $wild-sand;
+			background-color: tokens.$coral-color-neutral-background-medium;
 			outline: none;
 		}
 	}

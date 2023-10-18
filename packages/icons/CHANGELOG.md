@@ -1,5 +1,23 @@
 # @talend/icons
 
+## 6.60.1
+
+### Patch Changes
+
+- 8d73923b3: Update Qlik icons with the one provided by Qlik
+
+## 6.60.0
+
+### Minor Changes
+
+- 6af561463: feat: add Talend Qlik white and dark logos
+
+## 6.59.0
+
+### Minor Changes
+
+- 6cc954983: feat: add qlik icon
+
 ## 6.58.1
 
 ### Patch Changes

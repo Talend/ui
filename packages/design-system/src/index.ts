@@ -1,4 +1,5 @@
-import { Badge, BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
+export type * from './components/Badge';
+export * from './components/Badge';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
@@ -16,10 +17,10 @@ import {
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
 import Card from './components/WIP/Card';
-import Combobox from './components/WIP/Combobox';
+import Combobox, { ComboboxProps } from './components/WIP/Combobox';
 import Divider from './components/Divider';
 import { FloatingDrawer } from './components/WIP/Drawer';
-import Dropdown from './components/Dropdown';
+import Dropdown, { DropdownButton } from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
 	EmptyStateMedium,
@@ -39,6 +40,7 @@ import {
 	InlineMessageSuccess,
 	InlineMessageWarning,
 } from './components/InlineMessage';
+import Illustration from './components/illustrations';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
@@ -52,7 +54,7 @@ import {
 	MessageCollectionInformation,
 	MessageCollectionWarning,
 } from './components/Message';
-import Modal from './components/Modal';
+export * from './components/Modal';
 import Popover from './components/WIP/Popover';
 import Skeleton, {
 	SkeletonButton,
@@ -86,6 +88,7 @@ import {
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
+import RichRadioButton from './components/RichRadioButton';
 
 export * from './components/Stack';
 export * from './themes';
@@ -94,11 +97,6 @@ export {
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
-	Badge,
-	BadgeValue,
-	BadgeTag,
-	BadgeDropdown,
-	BadgePopover,
 	Breadcrumbs,
 	Button,
 	ButtonAsLink,
@@ -120,6 +118,7 @@ export {
 	Divider,
 	FloatingDrawer,
 	Dropdown,
+	DropdownButton,
 	EmptyState,
 	EmptyStateMedium,
 	EmptyStateSmall,
@@ -135,6 +134,7 @@ export {
 	InlineMessageWarning,
 	InlineMessageDestructive,
 	InlineMessageBeta,
+	Illustration,
 	Link,
 	LinkAsButton,
 	Loading,
@@ -146,8 +146,8 @@ export {
 	MessageDestructive,
 	MessageInformation,
 	MessageWarning,
-	Modal,
 	Popover,
+	RichRadioButton,
 	SizedIcon,
 	Skeleton,
 	SkeletonButton,
@@ -179,4 +179,4 @@ export {
 	VisuallyHidden,
 };
 
-export type { TooltipPlacement };
+export type { TooltipPlacement, ComboboxProps };

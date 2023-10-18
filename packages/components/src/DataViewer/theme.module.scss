@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-layout-skeleton-width: 9.6rem !default;
 $tc-layout-skeleton-height: 9.6rem !default;
@@ -21,11 +22,11 @@ $tc-layout-skeleton-height: 9.6rem !default;
 
 	&-left,
 	&-right {
-		background-color: $wild-sand;
+		background-color: tokens.$coral-color-neutral-background-medium;
 	}
 
 	&-left {
-		border-right: 0.5rem solid white;
+		border-right: 0.5rem solid tokens.$coral-color-neutral-border-weak;
 		width: 47rem;
 	}
 

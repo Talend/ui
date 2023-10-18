@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/blocks';
+import tokens from '@talend/design-tokens';
+import { Divider, StackHorizontal, StackVertical } from '@talend/design-system';
+import dictionary from '@talend/design-tokens/lib/light/dictionary';
+import * as utils from './TokenFormatter';
+import { TokenList } from './TokenValue';
+
+<Meta title="Design Tokens/Typography" />
+
+# Typography
+
+<Divider />
+
+## Heading
+
+<TokenList
+	style={token => ({
+		font: token.value,
+	})}
+	type="typography"
+	category="heading"
+>
+	<p>The quick brown dog jumps over the lazy fox</p>
+</TokenList>
+
+## Paragraph
+
+<TokenList
+	style={token => ({
+		font: token.value,
+	})}
+	type="typography"
+	category="paragraph"
+>
+	<p>The quick brown dog jumps over the lazy fox</p>
+</TokenList>
+
+## Data
+
+<TokenList
+	style={token => ({
+		font: token.value,
+	})}
+	type="typography"
+	category="data"
+>
+	<p>The quick brown dog jumps over the lazy fox</p>
+</TokenList>

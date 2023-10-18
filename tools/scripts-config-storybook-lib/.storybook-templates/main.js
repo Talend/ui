@@ -1,8 +1,6 @@
 const fs = require('fs');
 const { merge } = require('lodash');
 const path = require('path');
-const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
-const { getAllModules } = require('@talend/module-to-cdn');
 const {
 	getSassLoaders,
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
@@ -12,12 +10,11 @@ const { fixWindowsPaths } = require('./utils');
 const cwd = process.cwd();
 
 function getFolderGlob(folderName) {
-	return path.join(cwd, folderName, '**/*.stories.@(js|jsx|ts|tsx|mdx)');
+	return path.join(cwd, folderName, '**/*.@(stories.js|stories.jsx|stories.tsx|mdx)');
 }
 
 function getStoriesFolders() {
 	const storiesFolders = [getFolderGlob('src')];
-
 	if (fs.existsSync(path.join(cwd, 'stories'))) {
 		storiesFolders.push(getFolderGlob('stories'));
 	}
@@ -25,32 +22,27 @@ function getStoriesFolders() {
 }
 
 const defaultMain = {
+	framework: {
+		name: '@storybook/react-webpack5',
+		options: {
+			builder: {
+				disableTelemetry: true,
+				enableCrashReports: false,
+			},
+		},
+	},
 	features: {
 		buildStoriesJson: true,
-		previewCsfV3: true,
 	},
 	stories: getStoriesFolders(),
 	staticDirs: [path.join(__dirname, 'msw')],
 	addons: [
-		'@storybook/addon-a11y',
 		'@storybook/addon-essentials',
+		'@storybook/addon-a11y',
 		'@storybook/addon-links',
 		'@storybook/addon-interactions',
-		{
-			name: '@storybook/preset-scss',
-			options: {
-				cssLoaderOptions: {
-					modules: true,
-				},
-			},
-		},
+		'@storybook/addon-storysource',
 	],
-	core: {
-		builder: 'webpack5',
-		disableTelemetry: true,
-		enableCrashReports: false,
-	},
-	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
 		// by default storybook do not support scss without css module
 		// here we remove storybook scss config and replace it by our config
@@ -76,13 +68,14 @@ const defaultMain = {
 			},
 			plugins: [
 				...config.plugins,
-				// use dynamic-cdn-webpack-plugin with default modules
-				new CDNPlugin({
-					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/))
-				}),
 			],
 			resolve: {
-				extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
+				...config.resolve,
+				extensions: config.resolve.extensions.concat(['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss']),
+				fallback: {
+					...config.resolve.fallback,
+					path: false,
+				},
 			},
 		};
 
@@ -90,12 +83,16 @@ const defaultMain = {
 	},
 };
 
-const userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
+const temp_userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
-module.exports = {
+const userMain = temp_userMain.default || {};
+
+let stories = fixWindowsPaths([...(userMain.stories || defaultMain.stories)]);
+
+module.exports  = {
 	...defaultMain,
 	features: merge(defaultMain.features, userMain.features),
-	stories: fixWindowsPaths([...(userMain.stories || defaultMain.stories)]),
+	stories,
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
 	staticDirs: fixWindowsPaths([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
@@ -107,3 +104,4 @@ module.exports = {
 		return finalConfig
 	}
 };
+

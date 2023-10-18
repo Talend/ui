@@ -1,4 +1,4 @@
-import { HTTP } from './config';
+import { applyInterceptors, HTTP } from './config';
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
 import { TalendHttpResponse, TalendRequestInit } from './http.types';
@@ -40,17 +40,18 @@ export function encodePayload(headers: HeadersInit, payload: any) {
  * @return {Promise}           A promise that resolves with the result of parsing the body
  */
 export async function handleBody(response: Response) {
+	const clonedResponse = response.clone();
 	const { headers } = response;
 	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
-		return response.json().then(data => ({ data, response }));
+		return clonedResponse.json().then(data => ({ data, response }));
 	}
 
 	if (contentType && contentType.includes('application/zip')) {
-		return response.blob().then(data => ({ data, response }));
+		return clonedResponse.blob().then(data => ({ data, response }));
 	}
 
-	return response.text().then(data => ({ data, response }));
+	return clonedResponse.text().then(data => ({ data, response }));
 }
 
 /**
@@ -118,12 +119,21 @@ export async function httpFetch<T>(
 		},
 	};
 
-	const response = await fetch(
-		url,
-		handleCSRFToken({
-			...params,
-			body: encodePayload(params.headers || {}, payload),
-		}),
+	const { context, ...init } = handleCSRFToken({
+		...params,
+		body: encodePayload(params.headers || {}, payload),
+	});
+
+	const response = await fetch(url, init).then(resp =>
+		applyInterceptors(
+			{
+				url,
+				...init,
+				context,
+			},
+			resp,
+		),
 	);
+
 	return handleHttpResponse(response);
 }

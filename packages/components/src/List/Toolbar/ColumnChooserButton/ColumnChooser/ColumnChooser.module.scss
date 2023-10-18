@@ -1,8 +1,7 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-$tc-popover-border-color: rgb(226, 226, 226) !default;
 $tc-popover-border-width: 0.1rem !default;
-$tc-icon-size: 1.2rem !default;
 $tc-height: 4rem;
 
 .tc-column-chooser {
@@ -50,41 +49,16 @@ $tc-height: 4rem;
 		min-height: $tc-height;
 
 		&-select-all {
-			border-bottom: $tc-popover-border-width solid $tc-popover-border-color;
+			border-bottom: $tc-popover-border-width solid tokens.$coral-color-neutral-border-weak;
 		}
 
 		&:global(.ally-focus-within),
 		&:hover {
-			background: $wild-sand;
+			background: tokens.$coral-color-neutral-background-medium;
 		}
 
-		:global(.checkbox.tc-toggle) {
-			display: flex;
-			margin-bottom: 0;
-		}
-
-		&-label,
-		:global(.checkbox.tc-toggle > label span) {
-			font-size: 1.4rem;
-			padding-left: $padding-normal;
-		}
-
-		:global(.checkbox.tc-toggle > label) {
-			padding-left: $padding-normal;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			max-width: 21rem;
-			margin-bottom: 0;
-		}
-
-		:global(.tc-checkbox) {
-			word-break: break-all;
-		}
-
-		&-locked-icon {
-			height: $tc-icon-size;
-			width: $tc-icon-size;
+		&-label {
+			padding-left: tokens.$coral-spacing-xs;
 		}
 	}
 }

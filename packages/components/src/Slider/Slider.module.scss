@@ -32,7 +32,7 @@ $tc-slider-line-height: 24px;
 		justify-content: space-between;
 		width: 100%;
 		margin-top: $padding-small;
-		color: $gray;
+		color: tokens.$coral-color-neutral-text;
 		font-size: $tc-slider-font-size;
 
 		&-element {
@@ -42,6 +42,17 @@ $tc-slider-line-height: 24px;
 			min-height: $tc-slider-line-height;
 			display: flex;
 			justify-content: center;
+
+			:global(svg) {
+				height: $tc-slider-line-height;
+				width: $tc-slider-line-height;
+				margin: 0;
+				color: tokens.$coral-color-neutral-icon-weak;
+
+				&.selected {
+					fill: tokens.$coral-color-accent-icon;
+				}
+			}
 		}
 
 		:global(.btn) {
@@ -49,19 +60,8 @@ $tc-slider-line-height: 24px;
 
 			&.selected {
 				:global(.tc-svg-icon) {
-					fill: $brand-primary;
+					fill: tokens.$coral-color-accent-text;
 				}
-			}
-		}
-
-		:global(svg) {
-			height: $tc-slider-line-height;
-			width: $tc-slider-line-height;
-			margin: 0;
-			fill: $gray;
-
-			&.selected {
-				fill: $brand-primary;
 			}
 		}
 	}
@@ -76,22 +76,22 @@ $tc-slider-line-height: 24px;
 		}
 
 		:global(.rc-slider-rail) {
-			background-color: $alto;
+			background-color: tokens.$coral-color-neutral-background-strong;
 		}
 
 		:global(.rc-slider-track) {
-			background-color: $brand-primary;
+			background-color: tokens.$coral-color-accent-text;
 		}
 
 		:global(.rc-slider-handle) {
-			border: 1px solid $alto;
+			border: 1px solid tokens.$coral-color-neutral-border;
 			box-shadow: $tc-slider-thumb-shadow;
-			background-color: $wild-sand;
+			background-color: tokens.$coral-color-neutral-background-medium;
 			opacity: 1;
 
 			&:hover,
 			&:focus {
-				background-color: $white;
+				background-color: tokens.$coral-color-neutral-background;
 				box-shadow: $tc-slider-thumb-shadow-focused;
 			}
 		}
@@ -100,11 +100,11 @@ $tc-slider-line-height: 24px;
 		&--track-exclusive {
 			:global {
 				.rc-slider-rail {
-					background-color: $brand-primary;
+					background-color: tokens.$coral-color-accent-text;
 				}
 
 				.rc-slider-track {
-					background-color: $alto;
+					background-color: tokens.$coral-color-neutral-background-medium;
 				}
 			}
 		}
@@ -113,12 +113,12 @@ $tc-slider-line-height: 24px;
 			:global {
 				.rc-slider-rail,
 				.rc-slider-track {
-					background-color: $alto;
+					background-color: tokens.$coral-color-neutral-background-medium;
 				}
 
 				.rc-slider-handle {
 					box-shadow: $tc-slider-thumb-shadow;
-					background-color: $brand-primary;
+					background-color: tokens.$coral-color-accent-text;
 				}
 			}
 		}

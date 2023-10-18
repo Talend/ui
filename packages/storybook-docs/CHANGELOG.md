@@ -1,5 +1,16 @@
 # @talend/storybook-docs
 
+## 1.2.0
+
+### Minor Changes
+
+- 3b058ef7d: feat: add most of the design-system docs components
+
+### Patch Changes
+
+- Updated dependencies [3b058ef7d]
+  - @talend/design-system@7.15.1
+
 ## 1.1.6
 
 ### Patch Changes

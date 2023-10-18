@@ -1,17 +1,15 @@
 {
   "name": "@talend/storybook-docs",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "Talend Storybook Docs component library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build:styles": "webpack --config webpack.custom.js --mode=production",
     "build:lib": "talend-scripts build && npm run build:styles",
-    "pre-release": "npm run build:lib",
     "start": "npm run storybook",
     "lint": "talend-scripts lint",
     "test": "echo no test",
-    "test:demo": "npm run build-storybook",
     "storybook": "npm run build:lib && talend-scripts start-storybook -p 6106",
     "build-storybook": "talend-scripts build-storybook --docs"
   },
@@ -29,11 +27,14 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/design-system": "^7.7.1",
-    "@talend/design-tokens": "^2.7.3"
+    "@talend/design-system": "^7.15.1",
+    "@talend/design-tokens": "^2.9.0",
+    "classnames": "^2.3.1",
+    "figma-js": "^1.16.0",
+    "react": "^17.0.2"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^13.1.2"
+    "@talend/scripts-core": "^15.0.0"
   },
   "peerDependencies": {
     "@talend/icons": "^6.42.0"

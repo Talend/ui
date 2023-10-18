@@ -20,7 +20,6 @@ export const decorators = [
 					height: '100%',
 					width: '100%',
 					overflow: 'auto',
-					backgroundColor: 'rgba(145, 209, 237, 0.1)',
 				}}
 			>
 				<ThemeProvider>

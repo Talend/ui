@@ -1,5 +1,29 @@
 # @talend/http
 
+## 2.4.0
+
+### Minor Changes
+
+- 72a8f20dc: feat(TDP-12106): improve interceptors to return a promise, have access to request and a business context from caller
+
+## 2.3.0
+
+### Minor Changes
+
+- 67144d23d: feat(http): add the possibility to add global interceptors for every calls that got through @talend/http calls
+
+  Usage:
+
+  ```typescript
+  import { addHttpResponseInterceptor, HTTP_STATUS } from '@talend/http';
+
+  addHttpResponseInterceptor('logout', (response: Response): void => {
+  	if (response.status === HTTP_STATUS.UNAUTHORIZED) {
+  		logout();
+  	}
+  });
+  ```
+
 ## 2.2.0
 
 ### Minor Changes

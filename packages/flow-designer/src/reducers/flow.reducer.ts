@@ -166,7 +166,7 @@ export function calculatePortsPosition(state: State, action: any) {
 		if (action.nodeId) {
 			nodes.push(state.getIn(['nodes', action.nodeId]));
 		} else if (action.portId) {
-			nodes.push(state.getIn(['nodes'], state.getIn(['ports', action.portId]).nodeId));
+			nodes.push(state.getIn(['nodes', state.getIn(['ports', action.portId]).nodeId]));
 		} else {
 			nodes = state.get('nodes');
 		}

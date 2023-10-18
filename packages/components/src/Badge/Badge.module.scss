@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens';
 
 $tc-badge-large-label-font-size: 1.4rem !default;
 $tc-badge-large-label-font-weight: normal !default;
@@ -22,10 +23,11 @@ $tc-badge-small-padding: 0.8rem;
 
 $tc-badge-disabled-opacity: 0.62;
 
-@mixin colored-badge($background-color, $color) {
+@mixin colored-badge($background-color, $color, $border) {
 	.tc-badge-button {
 		background-color: $background-color;
 		color: $color;
+		border-color: $border;
 
 		.tc-badge-separator {
 			background-color: $color;
@@ -49,20 +51,20 @@ $tc-badge-disabled-opacity: 0.62;
 
 	.tc-badge-button {
 		display: inline-flex;
-		background-color: rgba($wild-sand, 0.5);
+		background-color: tokens.$coral-color-neutral-background-medium;
 		border: solid 1px;
-		border-color: $gallery;
+		border-color: tokens.$coral-color-neutral-border-weak;
 		border-radius: 25px;
 		max-width: 100%;
 
 		&.tc-badge-white {
-			background-color: $white;
+			background-color: tokens.$coral-color-neutral-background;
 		}
 
 		.tc-badge-category {
 			flex-grow: 0;
 			flex-shrink: 0;
-			color: black;
+			color: tokens.$coral-color-neutral-text;
 			max-width: 110px;
 			overflow: hidden;
 			white-space: pre;
@@ -74,7 +76,7 @@ $tc-badge-disabled-opacity: 0.62;
 			flex-shrink: 0;
 			height: 12px;
 			width: 1px;
-			background-color: $gallery;
+			background-color: tokens.$coral-color-neutral-border-weak;
 			margin: $padding-smaller;
 
 			&.tc-badge-separator-icon {
@@ -92,13 +94,13 @@ $tc-badge-disabled-opacity: 0.62;
 
 			&-text,
 			&-text-with-categ {
-				color: black;
+				color: tokens.$coral-color-neutral-text;
 				text-overflow: ellipsis;
 				overflow: hidden;
 			}
 
 			&-icon {
-				color: black;
+				color: tokens.$coral-color-neutral-icon;
 				flex-grow: 0;
 				flex-shrink: 0;
 				margin-left: $padding-smaller;
@@ -115,12 +117,12 @@ $tc-badge-disabled-opacity: 0.62;
 			padding-left: $padding-smaller;
 
 			svg {
-				color: $slate-gray;
+				color: tokens.$coral-color-neutral-icon-weak;
 				display: block;
 				margin: 0;
 
 				&:hover {
-					color: $lochmara;
+					color: tokens.$coral-color-accent-text;
 				}
 			}
 		}
@@ -132,7 +134,7 @@ $tc-badge-disabled-opacity: 0.62;
 			padding: 0;
 			padding-left: $padding-smaller;
 			text-transform: none;
-			color: black;
+			color: tokens.$coral-color-neutral-text;
 
 			span {
 				max-width: 16rem;
@@ -146,7 +148,7 @@ $tc-badge-disabled-opacity: 0.62;
 				margin: $padding-smaller;
 
 				&:hover {
-					color: $lochmara;
+					color: tokens.$coral-color-accent-text;
 				}
 			}
 
@@ -280,7 +282,7 @@ $tc-badge-disabled-opacity: 0.62;
 
 	&-aslink {
 		.tc-badge-button {
-			border-color: rgba($lochmara, 0.25);
+			border-color: tokens.$coral-color-accent-border;
 
 			.tc-badge-category {
 				display: none;
@@ -293,14 +295,14 @@ $tc-badge-disabled-opacity: 0.62;
 			.tc-badge-label {
 				.tc-badge-label-text,
 				.tc-badge-label-icon {
-					color: $lochmara;
+					color: tokens.$coral-color-accent-text;
 				}
 			}
 		}
 
 		&:hover:not(.tc-badge-disabled) {
 			.tc-badge-button {
-				border-color: rgba($lochmara, 1);
+				border-color: tokens.$coral-color-accent-border;
 			}
 		}
 	}
@@ -310,7 +312,7 @@ $tc-badge-disabled-opacity: 0.62;
 			.tc-badge-label-text,
 			.tc-badge-label-text-with-categ,
 			.tc-badge-label-icon {
-				color: $lochmara;
+				color: tokens.$coral-color-accent-text;
 			}
 		}
 	}
@@ -320,7 +322,7 @@ $tc-badge-disabled-opacity: 0.62;
 			.tc-badge-label-text,
 			.tc-badge-label-text-with-categ,
 			.tc-badge-label-icon {
-				color: $lochmara;
+				color: tokens.$coral-color-accent-text;
 			}
 		}
 	}
@@ -332,30 +334,30 @@ $tc-badge-disabled-opacity: 0.62;
 	}
 
 	&--valid {
-		@include colored-badge(tint($rio-grande, 70%), shade($rio-grande, 30%));
+		@include colored-badge(tokens.$coral-color-success-background, tokens.$coral-color-success-text, tokens.$coral-color-success-border);
 	}
 
 	&--invalid {
-		@include colored-badge(tint($chestnut-rose, 70%), shade($chestnut-rose, 30%));
+		@include colored-badge(tokens.$coral-color-danger-background, tokens.$coral-color-danger-text, tokens.$coral-color-danger-border);
 	}
 
 	&--empty {
-		@include colored-badge($alto, $dove-gray);
+		@include colored-badge(tokens.$coral-color-neutral-background-medium, tokens.$coral-color-neutral-text, tokens.$coral-color-neutral-border);
 	}
 
 	&--pattern {
-		@include colored-badge(tint($jaffa, 70%), shade($jaffa, 30%));
+		@include colored-badge(tokens.$coral-color-warning-background, tokens.$coral-color-warning-text, tokens.$coral-color-warning-border);
 	}
 
 	&--value {
-		@include colored-badge(tint($lochmara, 70%), shade($lochmara, 30%));
+		@include colored-badge(tokens.$coral-color-accent-background, tokens.$coral-color-accent-text, tokens.$coral-color-accent-border);
 	}
 
 	&-dropdown {
 		.tc-badge-button {
 			&:not(.tc-badge-disabled) {
 				&:global(.ally-focus-within) {
-					border-color: $lochmara;
+					border-color: tokens.$coral-color-accent-border;
 				}
 			}
 		}

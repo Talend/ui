@@ -5,23 +5,29 @@ import TooltipTrigger from '../TooltipTrigger';
 
 function DefaultRenderer({ cellData, columnData, rowData }) {
 	const { getTooltipLabel } = columnData;
-	let tooltipLabel = columnData.tooltipLabel || cellData;
+	let tooltipLabel = columnData.tooltipLabel != null ? columnData.tooltipLabel : cellData;
 	if (typeof getTooltipLabel === 'function') {
 		tooltipLabel = getTooltipLabel(rowData);
 	}
-	return tooltipLabel ? (
+	return tooltipLabel != null ? (
 		<TooltipTrigger label={tooltipLabel} tooltipPlacement={columnData.tooltipPlacement || 'top'}>
-			<div className="tc-virtualizedlist-default-cell">{cellData}</div>
+			<div
+				className="tc-virtualizedlist-default-cell"
+				data-test="tc-virtualizedlist-default-cell-tooltip"
+				data-testid="tc-virtualizedlist-default-cell-tooltip"
+			>
+				{cellData}
+			</div>
 		</TooltipTrigger>
 	) : (
 		<div className="tc-virtualizedlist-default-cell">{cellData}</div>
 	);
 }
 DefaultRenderer.propTypes = {
-	cellData: PropTypes.string,
+	cellData: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	rowData: PropTypes.object,
 	columnData: PropTypes.shape({
-		tooltipLabel: PropTypes.string,
+		tooltipLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		tooltipPlacement: PropTypes.string,
 		getTooltipLabel: PropTypes.func,
 	}),
@@ -41,11 +47,11 @@ export default function Content() {
 Content.displayName = 'Content';
 Content.defaultProps = defaultColumnConfiguration;
 Content.propTypes = {
-	label: PropTypes.string.isRequired,
+	label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 	dataKey: PropTypes.string.isRequired,
 	width: PropTypes.number.isRequired,
 	columnData: PropTypes.shape({
-		tooltipLabel: PropTypes.string,
+		tooltipLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		tooltipPlacement: PropTypes.string,
 		getTooltipLabel: PropTypes.func,
 	}).isRequired,

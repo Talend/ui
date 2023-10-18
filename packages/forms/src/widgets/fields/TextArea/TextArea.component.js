@@ -36,6 +36,7 @@ const TextArea = forwardRef((props, ref) => {
 	);
 });
 
+TextArea.displayName = 'TextArea';
 TextArea.propTypes = {
 	id: PropTypes.string.isRequired,
 	className: PropTypes.string,

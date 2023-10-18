@@ -51,7 +51,7 @@ function PrimaryAction(props: PrimaryActionPropsType) {
 	return <ButtonDestructive {...(buttonProps as ButtonDestructivePropsType<'M'>)} />;
 }
 
-function Modal(props: ModalPropsType): ReactElement {
+export function Modal(props: ModalPropsType): ReactElement {
 	const {
 		header,
 		primaryAction,

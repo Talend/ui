@@ -1,7 +1,7 @@
 import { useEffect, useRef, cloneElement } from 'react';
 import type { ReactElement, ReactNode } from 'react';
 import { Dialog, DialogDisclosure, DialogStateReturn, useDialogState } from 'reakit';
-import PrimitiveDrawer from '../../Primitive/PrimitiveDrawer';
+import { PrimitiveDrawer } from '../../Primitive/PrimitiveDrawer';
 
 import theme from './FloatingDrawer.module.scss';
 
@@ -14,12 +14,14 @@ type Controlled = {
 	visible: boolean;
 };
 
-export type DrawerProps = {
+export type FloatingDrawerProps = {
 	header?: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
 	children: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
 	footer?: ((dialog: DialogStateReturn) => ReactNode) | ReactNode;
 	onClose?: () => void;
 } & (WithDisclosure | Controlled);
+// backward compatibility
+export type DrawerProps = FloatingDrawerProps;
 
 export const FloatingDrawer = ({
 	disclosure,
@@ -65,3 +67,5 @@ export const FloatingDrawer = ({
 		</>
 	);
 };
+
+FloatingDrawer.displayName = 'FloatingDrawer';

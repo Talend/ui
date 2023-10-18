@@ -22,8 +22,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@talend/babel-plugin-import-d3": "^0.2.1",
-    "@talend/module-to-cdn": "^9.8.4",
-    "@talend/scripts-config-cdn": "^10.6.0",
+    "@talend/module-to-cdn": "^9.9.1",
+    "@talend/scripts-config-cdn": "^10.8.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "commander": "^6.2.1",
     "cpx2": "^3.0.2",
@@ -31,9 +31,9 @@
     "mkdirp": "^1.0.4",
     "queue": "^6.0.2",
     "rimraf": "^3.0.2",
-    "semver": "^7.3.8",
-    "webpack": "^5.76.3",
-    "webpack-bundle-analyzer": "^4.7.0",
+    "semver": "^7.5.4",
+    "webpack": "^5.88.2",
+    "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^4.10.0"
   },
   "publishConfig": {

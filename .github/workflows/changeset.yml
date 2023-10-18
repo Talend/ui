@@ -23,26 +23,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab #v3.5.2
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
-        with:
-          node-version: 16
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: "yarn"
-
+      - name: Use Node.js
+        uses: ./.github/actions/setup-node
+  
       - name: Install Dependencies
         run: yarn --frozen-lockfile
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@d89c1de63c7f28ac47ec85ed395f5f1d045d4697 #v1.4.4
+        uses: changesets/action@f13b1baaa620fde937751f5d2c3572b9da32af23 #v1.4.5
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release

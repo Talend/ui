@@ -1,5 +1,39 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade configuration to run storybook 7.
+  So once you have upgrade you can remove the resolution.
+
+### Patch Changes
+
+- Updated dependencies [3b058ef7d]
+  - @talend/scripts-config-react-webpack@16.0.0
+
+## 4.1.0
+
+### Minor Changes
+
+- bfc02c4fb: feat: add design token update in the toolbar
+
+### Patch Changes
+
+- Updated dependencies [bfc02c4fb]
+  - @talend/scripts-config-react-webpack@15.4.1
+
+## 4.0.3
+
+### Patch Changes
+
+- 05043227a: fix(msw): add option onUnhandledRequest: 'bypass' to forward calls if not match
+- fcd8daf3c: fix: use bootstrap.css at build instead of rely on surge
+- fcd8daf3c: fix: add missing dependencies
+- Updated dependencies [ee828e0b0]
+- Updated dependencies [5fd268ed6]
+  - @talend/scripts-config-react-webpack@15.4.0
+
 ## 4.0.2
 
 ### Patch Changes

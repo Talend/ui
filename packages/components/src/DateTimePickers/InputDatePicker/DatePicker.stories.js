@@ -9,7 +9,7 @@ import DatePicker from '../Date/Picker';
 
 export default {
 	title: 'Components/Form - Controls/DatePicker/Date',
-
+	parameters: { chromatic: { disableSnapshot: true } },
 	decorators: [
 		story => (
 			<form

@@ -1,0 +1,11 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.well,
+.jumbotron {
+	background-color: tokens.$coral-color-neutral-background;
+}
+
+.well {
+	background-color: tokens.$coral-color-neutral-background-medium;
+	border-color: tokens.$coral-color-neutral-border-weak;
+}

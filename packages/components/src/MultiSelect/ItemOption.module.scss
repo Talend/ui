@@ -1,14 +1,17 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .row {
 	padding-left: $padding-normal;
+
 	&:hover {
-		background-color: $concrete;
+		background-color: tokens.$coral-color-neutral-background-medium;
 	}
 
 	:global(.checkbox) {
 		margin: 0;
 	}
+
 	label {
 		height: 3rem;
 		width: 100%;
@@ -16,14 +19,26 @@
 		margin-bottom: 0;
 		align-items: center;
 	}
+
 	input[type='checkbox'],
-	:global(.checkbox input + :before),
-	:global(.checkbox input + :after) {
-		top: calc($padding-normal/2);
+	:global(.checkbox input + ::before) {
+		top: calc($padding-normal / 2);
+	}
+
+	:global(.checkbox input + ::after) {
+		/* tricky calculation to center the checkmark
+		 * $padding-normal / 2 = top gap, same as the input (see above)
+		 * tokens.$coral-sizing-xxxs = checkbox size
+		 * tokens.$coral-sizing-xxxs / 2 = mark size
+		 * 2px = 2 * 1px (the border width)
+		 */
+		top: calc($padding-normal / 2 + (tokens.$coral-sizing-xxxs - tokens.$coral-sizing-xxxs / 2 - 2px) / 2) !important; /* stylelint-disable-line declaration-no-important */
 	}
 }
+
 .item {
-	color: $dove-gray;
+	color: tokens.$coral-color-neutral-text;
+
 	&[for='checkbox-create-new'],
 	&[for='checkbox-select-all'] {
 		font-style: italic;

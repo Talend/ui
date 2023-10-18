@@ -2,6 +2,7 @@ import has from 'lodash/has';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { ButtonIcon } from '@talend/design-system';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import { Action } from '../Actions';
@@ -111,16 +112,20 @@ function SubHeaderBar({
 				<SubHeaderBarActions left>
 					{injected('before-back')}
 					{onGoBack && (
-						<Renderer.Action
-							id="backArrow"
-							onClick={onGoBack}
-							label={t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go back' })}
-							icon="talend-arrow-left"
-							bsStyle="link"
-							data-feature={goBackDataFeature}
+						<div
 							className={classNames(theme['tc-subheader-back-button'], 'tc-subheader-back-button')}
-							hideLabel
-						/>
+						>
+							<ButtonIcon
+								icon="arrow-left"
+								size="M"
+								onClick={onGoBack}
+								id="backArrow"
+								data-testid="tc-subheader-backArrow"
+								data-feature={goBackDataFeature}
+							>
+								{t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go back' })}
+							</ButtonIcon>
+						</div>
 					)}
 					{injected('before-title')}
 					<TitleSubHeader t={t} getComponent={getComponent} {...rest} />

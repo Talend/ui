@@ -1,8 +1,9 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 // MultiSelect styles
 .container {
-	color: black;
+	color: tokens.$coral-color-neutral-text;
 	position: relative;
 
 	// this is the overlaytrigger span
@@ -20,14 +21,14 @@
 	right: 25px;
 	top: 7px;
 	padding: 0;
-	color: $chestnut-rose;
+	color: tokens.$coral-color-danger-text;
 }
 
 .caret {
 	// add this selector to force override of width defined in Icon
 	&:global(.tc-svg-icon) {
 		position: absolute;
-		color: $silver;
+		color: tokens.$coral-color-neutral-icon;
 		top: 10px;
 		right: 0;
 		width: $padding-larger;

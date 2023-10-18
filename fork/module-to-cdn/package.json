@@ -1,6 +1,6 @@
 {
   "name": "@talend/module-to-cdn",
-  "version": "9.8.5",
+  "version": "9.9.1",
   "description": "Get cdn config from npm module name",
   "license": "MIT",
   "repository": "https://github.com/Talend/ui",
@@ -35,10 +35,10 @@
   "dependencies": {
     "execa": "^4.1.0",
     "mkdirp": "^1.0.4",
-    "semver": "^7.3.8"
+    "semver": "^7.5.4"
   },
   "devDependencies": {
-    "jest": "^29.4.1"
+    "jest": "^29.7.0"
   },
   "publishConfig": {
     "access": "public"

@@ -1,5 +1,4 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
 @use '~@talend/design-tokens/lib/tokens';
 
 $tc-drawer-content-max-width: 65rem !default;
@@ -45,7 +44,7 @@ $tc-drawer-padding: $padding-large !default;
 	}
 
 	.submit {
-		background-color: $wild-sand;
+		background-color: tokens.$coral-color-neutral-background-medium;
 	}
 }
 

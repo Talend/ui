@@ -28,7 +28,122 @@ class NotificationWrapper extends Component {
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
 				{
-					id: 'story-2',
+					id: 'story-232',
+					type: 'error',
+					title: 'Story 2 example title ',
+					message: [
+						'This is a feedback of your operation2',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+					],
+					action: {
+						label: 'undo',
+						icon: 'talend-undo',
+						onClick: action('click undo'),
+					},
+				},
+			]);
+			this.setState({ counter: this.state.counter + 1 });
+		}, 1000);
+		setTimeout(() => {
+			this.notifications = this.notifications.concat([
+				{
+					id: 'story-234',
+					type: 'error',
+					title: 'Story 2 example title ',
+					message: [
+						'This is a feedback of your operation2',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+					],
+					action: {
+						label: 'undo',
+						icon: 'talend-undo',
+						onClick: action('click undo'),
+					},
+				},
+			]);
+			this.setState({ counter: this.state.counter + 1 });
+		}, 1000);
+		setTimeout(() => {
+			this.notifications = this.notifications.concat([
+				{
+					id: 'story-2444',
+					type: 'error',
+					title: 'Story 2 example title ',
+					message: [
+						'This is a feedback of your operation2',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+					],
+					action: {
+						label: 'undo',
+						icon: 'talend-undo',
+						onClick: action('click undo'),
+					},
+				},
+			]);
+			this.setState({ counter: this.state.counter + 1 });
+		}, 1000);
+		setTimeout(() => {
+			this.notifications = this.notifications.concat([
+				{
+					id: 'story-2333',
+					type: 'error',
+					title: 'Story 2 example title ',
+					message: [
+						'This is a feedback of your operation2',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+					],
+					action: {
+						label: 'undo',
+						icon: 'talend-undo',
+						onClick: action('click undo'),
+					},
+				},
+			]);
+			this.setState({ counter: this.state.counter + 1 });
+		}, 1000);
+		setTimeout(() => {
+			this.notifications = this.notifications.concat([
+				{
+					id: 'story-2222',
+					type: 'error',
+					title: 'Story 2 example title ',
+					message: [
+						'This is a feedback of your operation2',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+					],
+					action: {
+						label: 'undo',
+						icon: 'talend-undo',
+						onClick: action('click undo'),
+					},
+				},
+			]);
+			this.setState({ counter: this.state.counter + 1 });
+		}, 1000);
+		setTimeout(() => {
+			this.notifications = this.notifications.concat([
+				{
+					id: 'story-22',
 					type: 'error',
 					title: 'Story 2 example title ',
 					message: [
@@ -88,6 +203,10 @@ class NotificationWrapper extends Component {
 
 export default {
 	title: 'Components/Messaging & Communication/Notification',
+	parameters: {
+		// Disables Chromatic's snapshotting on a story level
+		chromatic: { disableSnapshot: true },
+	},
 };
 
 export const Default = () => (

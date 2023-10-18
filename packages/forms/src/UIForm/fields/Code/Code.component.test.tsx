@@ -1,9 +1,12 @@
 /* eslint-disable testing-library/no-container */
 import * as React from 'react';
-import ReactDOM from 'react-dom';
-import { render, waitFor, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import ReactAce from 'react-ace';
+import ReactDOM from 'react-dom';
+
+import '@testing-library/jest-dom';
+import { render, waitFor, screen } from '@testing-library/react';
+import 'ace-builds/src-noconflict/ext-language_tools';
+
 import Code, { CodeProps } from './Code.component';
 
 // fix cannot read appendChild of null;
@@ -45,6 +48,7 @@ describe('Code field', () => {
 				}),
 		);
 	}
+
 	it('should render ace-editor in FieldTemplate', async () => {
 		// when
 
@@ -52,5 +56,16 @@ describe('Code field', () => {
 		const input = await screen.findByLabelText('My input title');
 		expect(input).toBeInTheDocument();
 		expect(input.tagName).toBe('TEXTAREA');
+
+		expect(screen.getByTestId('widget-code-instructions')).toBeInTheDocument();
+	});
+
+	it('should render without instructions', async () => {
+		await initWith({ ...props, showInstructions: false });
+		const input = await screen.findByLabelText('My input title');
+		expect(input).toBeInTheDocument();
+		expect(input.tagName).toBe('TEXTAREA');
+
+		expect(screen.queryByTestId('widget-code-instructions')).not.toBeInTheDocument();
 	});
 });

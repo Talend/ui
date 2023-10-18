@@ -1,5 +1,29 @@
 # @talend/scripts-core
 
+## 15.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade storybook to 7.x major release
+
+## 14.0.1
+
+### Patch Changes
+
+- d9616e484: Fix the use of spawn on windows
+
+## 14.0.0
+
+### Major Changes
+
+- 40e70c055: Upgrade typescript to 5.0
+
+## 13.3.0
+
+### Minor Changes
+
+- 51206dfd6: Make scripts-core compliant with yarn v3.X
+
 ## 13.2.0
 
 ### Minor Changes

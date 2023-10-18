@@ -8,18 +8,29 @@ exports[`Grid.component should render a grid by default 1`] = `
       height={40}
       id="grid"
       patternUnits="userSpaceOnUse"
-      stroke="#BFBDBD"
+      stroke="var(--coral-color-neutral-border, hsla(0, 0%, 55%, 1))"
       strokeWidth="0.5"
       width={40}
       x={0}
       y={0}
     >
-      <rect
-        height={40}
-        width={40}
+      <path
+        d="M 0 0 V 3.3333333333333335"
       />
       <path
-        d="M 40 0 L 0 0 0 40"
+        d="M 0 0 H 3.3333333333333335"
+      />
+      <line
+        x1="0"
+        x2="0"
+        y1={40}
+        y2={36.666666666666664}
+      />
+      <line
+        x1={40}
+        x2={36.666666666666664}
+        y1="0"
+        y2="0"
       />
     </pattern>
   </defs>

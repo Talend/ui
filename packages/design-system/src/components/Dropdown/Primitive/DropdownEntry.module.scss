@@ -4,23 +4,25 @@ $icon-alignment-offset-m: -0.3rem;
 
 .dropdownEntry {
 	background: tokens.$coral-color-accent-background-weak;
-	display: block;
+	display: flex;
+	align-items: center;
 	width: 100%;
 	min-width: 0;
 	color: tokens.$coral-color-neutral-text;
 	font: tokens.$coral-paragraph-m;
 	transition: tokens.$coral-transition-fast;
 	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
-	max-width: tokens.$coral-sizing-maximal;
 	text-align: start;
 
 	> span {
 		min-width: 0;
+
+		&:global(.checked) {
+			font-weight: 600;
+		}
 	}
 
 	.buttonIcon {
-		height: tokens.$coral-sizing-xxxs;
-		width: tokens.$coral-sizing-xxxs;
 		margin-right: tokens.$coral-spacing-xxs;
 		flex-shrink: 0;
 		position: relative;
@@ -29,6 +31,7 @@ $icon-alignment-offset-m: -0.3rem;
 
 	.buttonContent {
 		min-width: 0;
+		flex: 1;
 	}
 
 	&:hover,

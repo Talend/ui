@@ -1,8 +1,14 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $module: range-filter;
 
 .#{$module} {
+	:global(.rc-slider-mark-text),
+	:global(.rc-slider-mark-text-active) {
+		color: tokens.$coral-color-neutral-text;
+	}
+
 	&__slider {
 		margin: 20px 0 30px;
 	}

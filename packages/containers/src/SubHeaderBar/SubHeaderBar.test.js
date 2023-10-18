@@ -23,7 +23,8 @@ describe('SubHeaderBar container', () => {
 		};
 		// When
 		render(<Container {...props} />);
-		fireEvent.click(screen.getByLabelText('Go back'));
+
+		fireEvent.click(screen.getByTestId('tc-subheader-backArrow'));
 		// Then
 		expect(props.onGoBack).toHaveBeenCalled();
 	});
@@ -35,7 +36,7 @@ describe('SubHeaderBar container', () => {
 		};
 		// When
 		render(<Container {...props} />);
-		fireEvent.click(screen.getByLabelText('Go back'));
+		fireEvent.click(screen.getByTestId('tc-subheader-backArrow'));
 		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 			props.actionCreatorGoBack,
