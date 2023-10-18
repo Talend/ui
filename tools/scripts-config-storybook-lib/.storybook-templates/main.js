@@ -56,7 +56,7 @@ const defaultMain = {
 		// here we remove storybook scss config and replace it by our config
 		const rules = [
 			...config.module.rules.filter(rule => {
-				return !rule.te?.toString().includes('s[ca]ss');
+				return !rule.test?.toString().includes('s[ca]ss');
 			}),
 			{
 				test: /\.scss$/,
@@ -68,14 +68,7 @@ const defaultMain = {
 				use: getSassLoaders(true, '', true),
 			},
 		];
-		// commented to have devtools back
-		// if (configType === 'PRODUCTION') {
-		// 	config.mode = 'production';
-		// }
-		// config.optimization = {
-		// 	minimize: false,
-		// 	minimizer: [],
-		// };
+
 		const mergedConfig = {
 			...config,
 			module: {

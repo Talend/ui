@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from 'react';
 
-import { Mandatory } from '../../../types';
-import CheckboxPrimitive, { CheckboxPrimitiveType } from './Primitive/CheckboxPrimitive';
+import { Mandatory } from '../../../../types';
+import { CheckboxPrimitive, CheckboxPrimitiveType } from '../../Primitives';
 
 export type CheckboxProps = Mandatory<
 	Omit<CheckboxPrimitiveType, 'className' | 'style'>,

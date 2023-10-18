@@ -10,7 +10,9 @@ require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
+
 const jestAxe = require('jest-axe');
+
 jest.mock('ally.js');
 
 expect.extend(jestAxe.toHaveNoViolations);
@@ -100,7 +102,7 @@ try {
 	// Mock session storage
 	delete window.sessionStorage;
 	Object.defineProperty(window, 'sessionStorage', {
-		value: (function () {
+		value: (function valueFn() {
 			let store = {};
 			return {
 				getItem(key) {

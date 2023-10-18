@@ -13,8 +13,6 @@ export * from './components/EmptyState';
 export * from './components/ErrorState';
 export * from './components/Form';
 export * from './components/Form/Affix';
-export * from './components/Form/ToggleSwitch';
-export * from './components/Form/Checkbox';
 export * from './components/Icon';
 export * from './components/IconsProvider';
 export * from './components/InlineEditing';

@@ -1,4 +1,4 @@
-import { ToggleSwitch } from './ToggleSwitch';
+import { ToggleSwitch } from './Field/Input/Input.ToggleSwitch';
 import Buttons from './Buttons';
 import Datalist from './Field/Datalist';
 import Input from './Field/Input';
@@ -8,13 +8,12 @@ import Fieldset from './Fieldset';
 import { Form as FormBase, FormProps } from './Form';
 import Label from './Label';
 import Row from './Row';
-import { Checkbox } from './Checkbox';
 
 export type { FormProps };
 export type FormType = typeof FormBase & {
 	Row: typeof Row;
 	Color: typeof Input.Color;
-	Checkbox: typeof Checkbox;
+	Checkbox: typeof Input.Checkbox;
 	Datalist: typeof Datalist;
 	Date: typeof Input.Date;
 	DatetimeLocal: typeof Input.DatetimeLocal;
@@ -38,14 +37,14 @@ export type FormType = typeof FormBase & {
 	Week: typeof Input.Week;
 	Buttons: typeof Buttons;
 	Input: typeof Input;
-	ToggleSwitch: typeof ToggleSwitch;
+	ToggleSwitch: typeof Input.ToggleSwitch;
 };
 
 export const Form = FormBase as FormType;
 Form.Row = Row;
 Form.Color = Input.Color;
 Form.Copy = Input.Copy;
-Form.Checkbox = Checkbox;
+Form.Checkbox = Input.Checkbox;
 Form.Datalist = Datalist;
 Form.Date = Input.Date;
 Form.DatetimeLocal = Input.DatetimeLocal;
@@ -60,7 +59,7 @@ Form.Password = Input.Password;
 Form.Radio = Input.Radio;
 Form.Search = Input.Search;
 Form.Select = Select;
-Form.ToggleSwitch = ToggleSwitch;
+Form.ToggleSwitch = Input.ToggleSwitch;
 Form.Tel = Input.Tel;
 Form.Text = Input.Text;
 Form.Textarea = Textarea;

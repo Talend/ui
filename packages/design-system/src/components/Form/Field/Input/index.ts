@@ -1,4 +1,6 @@
 import Input from './Input';
+
+import Checkbox from './Input.Checkbox';
 import InputColor from './Input.Color';
 import InputCopy from './Input.Copy';
 import InputDate from './Input.Date';
@@ -10,7 +12,7 @@ import InputMonth from './Input.Month';
 import InputNumber from './Input.Number';
 import InputRadio from './Input.Radio';
 import InputSearch from './Input.Search';
-// import InputToggleSwitch from './Input.ToggleSwitch';
+import { ToggleSwitch } from './Input.ToggleSwitch';
 import InputTel from './Input.Tel';
 import InputText from './Input.Text';
 import InputTime from './Input.Time';
@@ -19,6 +21,7 @@ import InputWeek from './Input.Week';
 import InputPassword from './Password';
 
 const InputComponent = Input as typeof Input & {
+	Checkbox: typeof Checkbox;
 	Color: typeof InputColor;
 	Copy: typeof InputCopy;
 	Date: typeof InputDate;
@@ -34,11 +37,12 @@ const InputComponent = Input as typeof Input & {
 	Tel: typeof InputTel;
 	Text: typeof InputText;
 	Time: typeof InputTime;
-	// ToggleSwitch: typeof InputToggleSwitch;
+	ToggleSwitch: typeof ToggleSwitch;
 	Url: typeof InputUrl;
 	Week: typeof InputWeek;
 };
 
+InputComponent.Checkbox = Checkbox;
 InputComponent.Color = InputColor;
 InputComponent.Copy = InputCopy;
 InputComponent.Date = InputDate;
@@ -54,7 +58,7 @@ InputComponent.Search = InputSearch;
 InputComponent.Tel = InputTel;
 InputComponent.Text = InputText;
 InputComponent.Time = InputTime;
-// InputComponent.ToggleSwitch = InputToggleSwitch;
+InputComponent.ToggleSwitch = ToggleSwitch;
 InputComponent.Url = InputUrl;
 InputComponent.Week = InputWeek;
 

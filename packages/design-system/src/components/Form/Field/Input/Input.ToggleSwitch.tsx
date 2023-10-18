@@ -4,17 +4,17 @@ import type { Ref } from 'react';
 import classnames from 'classnames';
 
 import { useId } from '../../../../useId';
-import { CheckboxPrimitiveType } from '../../Checkbox/Primitive/CheckboxPrimitive';
+import { CheckboxPrimitiveType } from '../../Primitives';
 import { useControl } from '../../../../useControl';
 
 import styles from './ToggleSwitchPrimitive.module.scss';
 
-export type ToggleSwitchPrimitiveType = Omit<CheckboxPrimitiveType, 'onChange'> & {
+export type ToggleSwitchPropTypes = Omit<CheckboxPrimitiveType, 'onChange'> & {
 	onChange?: (checked: boolean) => void;
 };
 
-const ToggleSwitchPrimitive = forwardRef(
-	(props: Omit<ToggleSwitchPrimitiveType, 'indeterminate'>, ref: Ref<HTMLInputElement>) => {
+export const ToggleSwitch = forwardRef(
+	(props: Omit<ToggleSwitchPropTypes, 'indeterminate'>, ref: Ref<HTMLInputElement>) => {
 		const {
 			id,
 			label,
@@ -69,6 +69,4 @@ const ToggleSwitchPrimitive = forwardRef(
 	},
 );
 
-ToggleSwitchPrimitive.displayName = 'ToggleSwitchPrimitive';
-
-export default ToggleSwitchPrimitive;
+ToggleSwitch.displayName = 'ToggleSwitchPrimitive';
