@@ -15,7 +15,7 @@ import classnames from 'classnames';
 import keycode from 'keycode';
 
 import { ButtonIcon } from '../../ButtonIcon';
-import Form from '../../Form';
+import { Form } from '../../Form';
 import { StackHorizontal } from '../../Stack';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 

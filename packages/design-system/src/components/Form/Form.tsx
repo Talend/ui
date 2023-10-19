@@ -5,12 +5,12 @@ import { isElement } from 'react-is';
 
 import styles from './Form.module.scss';
 
-type FormProps = FormHTMLAttributes<HTMLFormElement> & {
+export type FormProps = FormHTMLAttributes<HTMLFormElement> & {
 	disabled?: boolean;
 	readOnly?: boolean;
 };
 
-const Form = forwardRef(
+export const Form = forwardRef(
 	({ disabled, readOnly, children, ...rest }: FormProps, ref: Ref<HTMLFormElement>) => {
 		const childrenProps: { disabled?: boolean; readOnly?: boolean } = {};
 		if (disabled) childrenProps.disabled = true;
@@ -27,5 +27,3 @@ const Form = forwardRef(
 );
 
 Form.displayName = 'Form';
-
-export default Form;

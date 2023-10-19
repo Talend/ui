@@ -16,7 +16,7 @@ function ModalStory(
 	},
 ) {
 	const [modalOpen, setModalOpen] = useState(false);
-
+	const { children, ...rest } = props;
 	return (
 		<>
 			<ButtonPrimary onClick={() => setModalOpen(true)} data-test="open-modal">
@@ -30,8 +30,10 @@ function ModalStory(
 						action('onClose');
 						setModalOpen(false);
 					}}
-					{...props}
-				/>
+					{...rest}
+				>
+					{children || '(Default story child)'}
+				</Modal>
 			)}
 		</>
 	);

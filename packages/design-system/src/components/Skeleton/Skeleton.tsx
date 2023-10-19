@@ -6,14 +6,14 @@ import SkeletonHeading, { SkeletonHeadingProps } from './variations/SkeletonHead
 import SkeletonInput, { SkeletonInputProps } from './variations/SkeletonInput';
 import SkeletonParagraph, { SkeletonParagraphProps } from './variations/SkeletonParagraph';
 
-type SkeletonProps =
+export type SkeletonProps =
 	| ({ variant: 'button' } & SkeletonButtonProps)
 	| ({ variant: 'buttonIcon' } & SkeletonButtonIconProps)
 	| ({ variant: 'heading' } & SkeletonHeadingProps)
 	| ({ variant: 'paragraph' } & SkeletonParagraphProps)
 	| ({ variant: 'input' } & SkeletonInputProps);
 
-const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLSpanElement>) => {
+export const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLSpanElement>) => {
 	switch (props.variant) {
 		case 'button': {
 			const { variant, ...rest } = props;
@@ -45,5 +45,4 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLSpanElement>) =>
 		}
 	}
 });
-
-export default Skeleton;
+Skeleton.displayName = 'Skeleton';

@@ -1,5 +1,5 @@
-import { USAGE_TRACKING_TAGS } from '../constants';
 import { pick } from 'lodash';
+import { USAGE_TRACKING_TAGS } from '../constants';
 
 export const getApplyDataFeature = feature => {
 	const formatedFeature = feature.toLowerCase().replace(' ', '_');

@@ -1,0 +1,5 @@
+{
+  "dynamic-cdn-webpack-plugin": {
+    "exclude": ["react-is", "styled-components"]
+  }
+}

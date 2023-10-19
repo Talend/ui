@@ -70,6 +70,7 @@ const DestructiveLinkTemplate: StoryFn<typeof ButtonDestructiveAsLink> = args =>
 };
 
 export const PrimaryAsLink = PrimaryLinkTemplate.bind({});
+
 Object.assign(PrimaryAsLink, {
 	args: defaultArgs,
 	argTypes: commonLinkArgTypes,

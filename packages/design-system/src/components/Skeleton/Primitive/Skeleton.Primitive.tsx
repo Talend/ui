@@ -19,5 +19,5 @@ const SkeletonPrimitive = forwardRef(
 		);
 	},
 );
-
+SkeletonPrimitive.displayName = 'SkeletonPrimitive';
 export default SkeletonPrimitive;

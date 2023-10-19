@@ -1,3 +1,1 @@
-import LinkAsButton from './LinkAsButton';
-
-export { LinkAsButton };
+export * from './LinkAsButton';

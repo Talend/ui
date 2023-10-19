@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion should render a11y html 1`] = `
+<main>
+  <div
+    class="theme-panelWrapper theme-panelWrapper__first theme-panelWrapper__notLast"
+  >
+    <button
+      aria-controls="CollapsiblePanel__content--id-mocked-uuid-0"
+      aria-expanded="false"
+      class="theme-headerWrapper theme-headerWrapper__clickable"
+      data-test="panel.header"
+      data-testid="panel.header"
+      id="CollapsiblePanel__control--id-mocked-uuid-0"
+    >
+      <div
+        class="theme-iconWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#chevron-down:M"
+          />
+        </svg>
+      </div>
+      <span
+        class="theme-status theme-successful"
+      >
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-status__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.6rem; height: 1.6rem;"
+            >
+              <use
+                xlink:href="#check-filled:M"
+              />
+            </svg>
+          </span>
+          <span
+            class="theme-status__text"
+          >
+            Successful
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="theme-panelWrapper theme-panelWrapper__notLast"
+  >
+    <button
+      aria-controls="CollapsiblePanel__content--id-mocked-uuid-1"
+      aria-expanded="false"
+      class="theme-headerWrapper theme-headerWrapper__clickable"
+      data-test="panel.header"
+      data-testid="panel.header"
+      id="CollapsiblePanel__control--id-mocked-uuid-1"
+    >
+      <div
+        class="theme-iconWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#chevron-down:M"
+          />
+        </svg>
+      </div>
+      <span
+        class="theme-status theme-failed"
+      >
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-status__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.6rem; height: 1.6rem;"
+            >
+              <use
+                xlink:href="#square-cross:M"
+              />
+            </svg>
+          </span>
+          <span
+            class="theme-status__text"
+          >
+            Failed
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="theme-panelWrapper theme-panelWrapper__notLast"
+  >
+    <button
+      aria-controls="CollapsiblePanel__content--id-mocked-uuid-2"
+      aria-expanded="false"
+      class="theme-headerWrapper theme-headerWrapper__clickable"
+      data-test="panel.header"
+      data-testid="panel.header"
+      id="CollapsiblePanel__control--id-mocked-uuid-2"
+    >
+      <div
+        class="theme-iconWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#chevron-down:M"
+          />
+        </svg>
+      </div>
+      <span
+        class="theme-status theme-inProgress"
+      >
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-status__icon"
+          >
+            <svg
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 14.227A6.227 6.227 0 118 1.773a6.227 6.227 0 010 12.454z"
+                  fill="currentColor"
+                  opacity=".2"
+                />
+                <path
+                  d="M11.11 2.611l.886-1.534A7.951 7.951 0 008 0v1.773c1.134 0 2.195.308 3.11.838z"
+                  fill="currentColor"
+                >
+                  <animatetransform
+                    attributeName="transform"
+                    dur=".85s"
+                    from="0 8 8"
+                    repeatCount="indefinite"
+                    to="360 8 8"
+                    type="rotate"
+                  />
+                </path>
+              </g>
+            </svg>
+          </span>
+          <span
+            class="theme-status__text"
+          >
+            In progress
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="theme-panelWrapper theme-panelWrapper__notLast"
+  >
+    <button
+      aria-controls="CollapsiblePanel__content--id-mocked-uuid-3"
+      aria-expanded="false"
+      class="theme-headerWrapper theme-headerWrapper__clickable"
+      data-test="panel.header"
+      data-testid="panel.header"
+      id="CollapsiblePanel__control--id-mocked-uuid-3"
+    >
+      <div
+        class="theme-iconWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#chevron-down:M"
+          />
+        </svg>
+      </div>
+      <span
+        class="theme-status theme-warning"
+      >
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-status__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.6rem; height: 1.6rem;"
+            >
+              <use
+                xlink:href="#exclamation:M"
+              />
+            </svg>
+          </span>
+          <span
+            class="theme-status__text"
+          >
+            Warning
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="theme-panelWrapper theme-panelWrapper__last"
+  >
+    <button
+      aria-controls="CollapsiblePanel__content--id-mocked-uuid-4"
+      aria-expanded="false"
+      class="theme-headerWrapper theme-headerWrapper__clickable"
+      data-test="panel.header"
+      data-testid="panel.header"
+      id="CollapsiblePanel__control--id-mocked-uuid-4"
+    >
+      <div
+        class="theme-iconWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#chevron-down:M"
+          />
+        </svg>
+      </div>
+      <span
+        class="theme-status theme-canceled"
+      >
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-status__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.6rem; height: 1.6rem;"
+            >
+              <use
+                xlink:href="#circle-slash:M"
+              />
+            </svg>
+          </span>
+          <span
+            class="theme-status__text"
+          >
+            Canceled
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
+  ,
+</main>
+`;

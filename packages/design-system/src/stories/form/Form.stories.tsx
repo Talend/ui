@@ -1,5 +1,7 @@
 import { useState } from 'react';
+
 import { action } from '@storybook/addon-actions';
+
 import {
 	ButtonPrimary,
 	ButtonSecondary,
@@ -106,9 +108,15 @@ export const Default = () => {
 					<option>Foo</option>
 					<option>Bar</option>
 				</Form.Select>
-				<Form.Checkbox checked required id="test-checkbox" name="test-checkbox" label="Checkbox" />
+				<Form.ToggleSwitch
+					defaultChecked
+					required
+					id="test-checkbox"
+					name="test-checkbox"
+					label="Checkbox"
+				/>
 				<Form.Radio label="Radio" name="radio" checked />
-				<Form.ToggleSwitch label="Switch" checked name="Switch" />
+				<Form.ToggleSwitch label="Switch" defaultChecked name="Switch" />
 				<Form.Buttons>
 					<ButtonSecondary type="reset" onClick={action('cancel')}>
 						Reset

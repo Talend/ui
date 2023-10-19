@@ -26,6 +26,10 @@ If there is only two options (on/off), consider using a SwitchToggle. If the use
 	alt="Checkbox inputs for form in various states"
 />
 
+Note on [indeterminate](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes) state. It is a controlled only state.
+
+> This is a state in which it's impossible to say whether the item is toggled on or off. This is set using the HTMLInputElement object's indeterminate property via JavaScript (it cannot be set using an HTML attribute)
+
 ### Default
 
 <Canvas>
@@ -89,12 +93,6 @@ Aim for parallelism but not at the expense of comprehension.
 - The label must always be clickable to check or uncheck.
 
 ## Usage
-
-export const Template = args => {
-	const Component = Form.Checkbox;
-	Component.displayName = 'Form.Checkbox';
-	return <Component {...args} />;
-};
 
 <Canvas>
 	<Story of={Stories.Basic} />

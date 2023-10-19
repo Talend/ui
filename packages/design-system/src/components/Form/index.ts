@@ -1,14 +1,15 @@
-import Datalist from './Field/Datalist';
-import Fieldset from './Fieldset';
-import Form from './Form';
-import Row from './Row';
 import Buttons from './Buttons';
+import Datalist from './Field/Datalist';
 import Input from './Field/Input';
-import Label from './Label';
 import Select from './Field/Select';
 import Textarea from './Field/Textarea';
+import Fieldset from './Fieldset';
+import { Form as FormBase, FormProps } from './Form';
+import Label from './Label';
+import Row from './Row';
 
-export const FormComponent = Form as typeof Form & {
+export type { FormProps };
+export type FormType = typeof FormBase & {
 	Row: typeof Row;
 	Color: typeof Input.Color;
 	Checkbox: typeof Input.Checkbox;
@@ -27,7 +28,6 @@ export const FormComponent = Form as typeof Form & {
 	Radio: typeof Input.Radio;
 	Search: typeof Input.Search;
 	Select: typeof Select;
-	ToggleSwitch: typeof Input.ToggleSwitch;
 	Tel: typeof Input.Tel;
 	Text: typeof Input.Text;
 	Textarea: typeof Textarea;
@@ -36,36 +36,35 @@ export const FormComponent = Form as typeof Form & {
 	Week: typeof Input.Week;
 	Buttons: typeof Buttons;
 	Input: typeof Input;
+	ToggleSwitch: typeof Input.ToggleSwitch;
 };
 
-FormComponent.Row = Row;
+export const Form = FormBase as FormType;
+Form.Row = Row;
+Form.Color = Input.Color;
+Form.Copy = Input.Copy;
+Form.Checkbox = Input.Checkbox;
+Form.Datalist = Datalist;
+Form.Date = Input.Date;
+Form.DatetimeLocal = Input.DatetimeLocal;
+Form.Email = Input.Email;
+Form.Fieldset = Fieldset;
+Form.File = Input.File;
+Form.Hidden = Input.Hidden;
+Form.Label = Label;
+Form.Month = Input.Month;
+Form.Number = Input.Number;
+Form.Password = Input.Password;
+Form.Radio = Input.Radio;
+Form.Search = Input.Search;
+Form.Select = Select;
+Form.ToggleSwitch = Input.ToggleSwitch;
+Form.Tel = Input.Tel;
+Form.Text = Input.Text;
+Form.Textarea = Textarea;
+Form.Time = Input.Time;
+Form.Url = Input.Url;
+Form.Week = Input.Week;
+Form.Input = Input;
 
-FormComponent.Color = Input.Color;
-FormComponent.Checkbox = Input.Checkbox;
-FormComponent.Datalist = Datalist;
-FormComponent.Date = Input.Date;
-FormComponent.DatetimeLocal = Input.DatetimeLocal;
-FormComponent.Email = Input.Email;
-FormComponent.Fieldset = Fieldset;
-FormComponent.File = Input.File;
-FormComponent.Hidden = Input.Hidden;
-FormComponent.Copy = Input.Copy;
-FormComponent.Label = Label;
-FormComponent.Month = Input.Month;
-FormComponent.Number = Input.Number;
-FormComponent.Password = Input.Password;
-FormComponent.Radio = Input.Radio;
-FormComponent.Search = Input.Search;
-FormComponent.Select = Select;
-FormComponent.ToggleSwitch = Input.ToggleSwitch;
-FormComponent.Tel = Input.Tel;
-FormComponent.Text = Input.Text;
-FormComponent.Textarea = Textarea;
-FormComponent.Time = Input.Time;
-FormComponent.Url = Input.Url;
-FormComponent.Week = Input.Week;
-FormComponent.Input = Input;
-
-FormComponent.Buttons = Buttons;
-
-export default FormComponent;
+Form.Buttons = Buttons;

@@ -1,5 +1,4 @@
-import { Story, StoryFn } from '@storybook/react';
-import { Combobox, ComboboxProps } from '../../';
+import { Combobox } from '../../';
 
 const fruits = [
 	'Acerola',
