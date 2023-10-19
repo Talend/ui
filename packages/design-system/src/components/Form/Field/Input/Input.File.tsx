@@ -11,7 +11,7 @@ import {
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
 
 import styles from './Input.File.module.scss';
 import { useId } from '../../../../useId';

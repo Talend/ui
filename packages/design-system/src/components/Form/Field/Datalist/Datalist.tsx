@@ -4,7 +4,7 @@ import {
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
 import { useId } from '../../../../useId';
 
 export type DatalistProps = {

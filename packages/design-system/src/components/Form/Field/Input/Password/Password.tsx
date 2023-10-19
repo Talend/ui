@@ -1,5 +1,5 @@
 import { forwardRef, Ref } from 'react';
-import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../Primitives/index';
+import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../Primitives';
 import Input from '../Input';
 
 type InputPasswordProps = FieldPropsPrimitive &
