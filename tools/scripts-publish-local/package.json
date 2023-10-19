@@ -16,6 +16,10 @@
     "generate-password": "^1.7.0",
     "rimraf": "^3.0.2"
   },
+  "devDependencies": {
+    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-plugin": "^1.0.1"
+  },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "publishConfig": {

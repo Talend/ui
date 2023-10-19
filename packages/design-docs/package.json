@@ -50,6 +50,8 @@
     "@storybook/testing-library": "^0.2.0",
     "@storybook/testing-react": "^2.0.1",
     "@storybook/theming": "^7.4.1",
+    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-plugin": "^1.0.1",
     "@talend/locales-design-system": "^7.3.0",
     "@talend/locales-tui-components": "^9.5.0",
     "@talend/locales-tui-containers": "^8.0.2",

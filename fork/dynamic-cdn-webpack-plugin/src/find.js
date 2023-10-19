@@ -58,7 +58,9 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 			// TODO NOT COMPATIBLE WITH PNPM WHEN deps is @talend/scripts-...
 			if (
 				subFolder.name.startsWith('@') &&
-				!subFolder?.path?.endsWith('tools/scripts-core/node_modules')
+				!subFolder?.path?.endsWith('tools/scripts-core/node_modules') &&
+				!subFolder?.path?.endsWith('@talend/scripts-yarn-workspace/node_modules') &&
+				!subFolder?.path?.endsWith('tools/eslint-config/node_modules')
 			) {
 				// for scope folders, we need a special treatment to avoid getting scoped packages when we don't want a scoped one.
 				// ex: search for `classnames`, we don't want to find `@types/classnames` in the result
@@ -86,7 +88,8 @@ function findPackages(scope, name, buff = []) {
 	const result = buff.concat(
 		...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)),
 	);
-	return [...new Set(result)];
+	// return [...new Set(result)];
+	return result;
 }
 
 module.exports = {

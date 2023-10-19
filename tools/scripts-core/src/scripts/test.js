@@ -5,7 +5,9 @@ import { getUserConfigFile } from '../utils/env.js';
 
 async function testKarma(env, presetApi, options) {
 	const karma = utils.path.resolveBin('karma');
-	const configPath = utils.path.getPkgRootPath('@talend/scripts-config-karma');
+	const configPath = path.dirname(
+		fileURLToPath(import.meta.resolve('@talend/scripts-config-karma')),
+	);
 	const karmaConfigPath = path.join(configPath, 'karma.conf.js');
 
 	return utils.process.spawn(karma, ['start', karmaConfigPath].concat(options), {
