@@ -3,9 +3,6 @@ import { createRef, useState, useLayoutEffect, useEffect } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
-import 'simplebar';
-import 'simplebar/dist/simplebar.css';
-
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';
 import Action from '../Actions/Action';
@@ -149,7 +146,6 @@ function SidePanel({
 			{injected('before-actions')}
 			{actions && (
 				<div
-					data-simplebar
 					className={classNames(
 						theme['action-list-container'],
 						'tc-side-panel-action-list-container',

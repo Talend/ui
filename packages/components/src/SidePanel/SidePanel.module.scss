@@ -36,8 +36,9 @@ $large-docked-width: 7rem;
 	}
 
 	.action-list-container {
-		flex: 1;
 		height: calc(100vh - 12rem); // specific to Safari
+		overflow-y: auto;
+		overflow-x: hidden;
 
 		:global .tc-side-panel-list {
 			background: transparent;
