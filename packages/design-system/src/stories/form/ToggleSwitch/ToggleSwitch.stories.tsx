@@ -1,16 +1,10 @@
 import { useState } from 'react';
-import {
-	ButtonPrimary,
-	Form,
-	InlineMessageInformation,
-	StackVertical,
-	ToggleSwitch,
-} from '../../../../';
+import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '../../../../';
 import { useForm } from 'react-hook-form';
 
 export default {
 	title: 'Form/Fields/ToggleSwitch',
-	component: ToggleSwitch,
+	component: Form.ToggleSwitch,
 };
 
 export const ToggleSwitchStates = () => (
@@ -74,7 +68,7 @@ export const ToggleSwitchControlled = () => {
 		<Form>
 			<Form.Fieldset legend="Control switch state" required>
 				<Form.ToggleSwitch label="Toggle all" name="option-a" ref={register()} />
-				<ToggleSwitch
+				<Form.ToggleSwitch
 					label="Controlled switch"
 					name="option-b"
 					ref={register()}
