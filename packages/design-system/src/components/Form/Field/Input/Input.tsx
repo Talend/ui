@@ -4,7 +4,7 @@ import {
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
 
 export type InputFieldProps = FieldPropsPrimitive &
 	Omit<InputPrimitiveProps, 'className' | 'styles'>;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon should render a11y html 1`] = `
+<main>
+  <svg
+    aria-hidden="true"
+    class="tc-svg-icon tc-icon theme-svg tc-icon-name-pencil"
+    focusable="false"
+    name="pencil"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+  />
+  <img
+    alt="icon"
+    aria-hidden="true"
+    class="tc-icon theme-svg"
+    focusable="false"
+    src="https://statics-dev.cloud.talend.com/@talend/common/images/favicon-logo-square.ico"
+  />
+  <svg
+    aria-hidden="true"
+    class="tc-svg-icon tc-icon theme-svg"
+    focusable="false"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+  />
+</main>
+`;

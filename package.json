@@ -32,14 +32,15 @@
     "prepare": "husky install"
   },
   "resolutions": {
-    "**/@types/react": "^17.0.2",
-    "**/@types/react-dom": "^17.0.2",
+    "**/@types/react": "^18.2.7",
+    "**/@types/react-dom": "^18.2.7",
     "**/i18next-scanner-typescript/typescript": "^5.0.4",
     "**/browser-sync-client/typescript": "^5.0.4",
     "**/vinyl-fs/glob-parent": "^5.1.2",
     "**/fast-glob/glob-parent": "^5.1.2",
     "**/trim": "^1.0.1",
-    "**/x-default-browser": "^0.5.2"
+    "**/x-default-browser": "^0.5.2",
+    "**/reactour/prop-types": "^15.7.2"
   },
   "repository": {
     "type": "git",
@@ -59,7 +60,7 @@
   },
   "dependencies": {
     "@types/react": "^18.2.7",
-    "@types/react-dom": "^18.2.4",
+    "@types/react-dom": "^18.2.7",
     "terser-webpack-plugin": "^5.3.9",
     "typescript": "^5.0.4",
     "webpack": "^5.76.3"

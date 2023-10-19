@@ -90,9 +90,14 @@ const propsWithIcons = {
 function getIcon() {
 	return document.querySelector('.tc-icon');
 }
-jest.useFakeTimers();
 
 describe('getItemIcon', () => {
+	beforeAll(() => {
+		jest.useFakeTimers();
+	});
+	afterAll(() => {
+		jest.useRealTimers();
+	});
 	it('should return given icon when toggled', () => {
 		expect(getItemIcon('my', true)).toBe('my');
 	});
@@ -111,6 +116,12 @@ describe('getItemIcon', () => {
 });
 
 describe('TreeView item', () => {
+	beforeAll(() => {
+		jest.useFakeTimers();
+	});
+	afterAll(() => {
+		jest.useRealTimers();
+	});
 	it('should render', () => {
 		// when
 		const { container } = render(<TreeViewItem {...defaultProps} />);

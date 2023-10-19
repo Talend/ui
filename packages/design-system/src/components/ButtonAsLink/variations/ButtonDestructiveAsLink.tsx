@@ -17,7 +17,7 @@ function DestructiveAsLink<S extends AvailableSizes>(
 }
 
 const ButtonDestructiveAsLink = forwardRef(DestructiveAsLink) as <S extends AvailableSizes>(
-	props: ButtonDestructiveAsLinkPropsType<S> & { ref?: Ref<HTMLAnchorElement> },
+	props: ButtonDestructiveAsLinkPropsType<S> & { ref: Ref<HTMLAnchorElement> },
 ) => ReturnType<typeof DestructiveAsLink>;
 
 export default ButtonDestructiveAsLink;

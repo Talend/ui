@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement, Ref } from 'react';
 import classnames from 'classnames';
-import Tooltip from '../../../Tooltip';
+import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip';
 
 import styles from './Step.module.scss';
 
@@ -22,9 +22,11 @@ const Step = forwardRef(
 		{ title, tooltip, children, status, orientation = 'horizontal', ...rest }: StepPrimitiveProps,
 		ref: Ref<HTMLLIElement>,
 	) => {
-		const step = (
+		const step = (triggerProps?: TooltipChildrenFnProps, triggerRef?: TooltipChildrenFnRef) => (
 			<div
 				{...rest}
+				{...triggerProps}
+				ref={triggerRef}
 				className={classnames(styles.step, [
 					styles[`step_${status}`],
 					[styles[`step_${orientation}`]],
@@ -42,7 +44,7 @@ const Step = forwardRef(
 				className={styles.stepWrapper}
 				ref={ref}
 			>
-				{tooltip ? <Tooltip title={tooltip}>{step}</Tooltip> : step}
+				{tooltip ? <Tooltip title={tooltip}>{step}</Tooltip> : step({})}
 			</li>
 		);
 	},

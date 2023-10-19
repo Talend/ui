@@ -1,12 +1,12 @@
 import { forwardRef, Ref } from 'react';
 import Stepper, { StepperProps } from '../Stepper';
 
-type StepperVerticalProps = Omit<StepperProps, 'orientation'>;
+export type StepperVerticalProps = Omit<StepperProps, 'orientation'>;
 
-const StepperVertical = forwardRef((props: StepperVerticalProps, ref: Ref<HTMLDivElement>) => (
-	<Stepper {...props} ref={ref} orientation="vertical" />
-));
+export const StepperVertical = forwardRef(
+	(props: StepperVerticalProps, ref: Ref<HTMLDivElement>) => (
+		<Stepper {...props} ref={ref} orientation="vertical" />
+	),
+);
 
 StepperVertical.displayName = 'StepperVertical';
-
-export default StepperVertical;
