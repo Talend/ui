@@ -140,6 +140,7 @@ describe('<Carousel>', () => {
 
     // then
     expect(screen.getByText('Item 2 content')).toHaveClass('active');
+    jest.useRealTimers();
   });
 
   it('Should show next button control on the last image if wrap is true', () => {
@@ -158,6 +159,7 @@ describe('<Carousel>', () => {
 
     // then
     expect(screen.getByText('Item 1 content')).toHaveClass('active');
+    jest.useRealTimers();
   });
 
   it('Should not show the prev button on the first image if wrap is false', () => {

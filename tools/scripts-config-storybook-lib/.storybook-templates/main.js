@@ -68,13 +68,7 @@ const defaultMain = {
 				use: getSassLoaders(true, '', true),
 			},
 		];
-		if (configType === 'PRODUCTION') {
-			config.mode = 'production';
-		}
-		config.optimization = {
-			minimize: false,
-			minimizer: [],
-		};
+
 		const mergedConfig = {
 			...config,
 			module: {

@@ -1,10 +1,11 @@
 import { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+
 import Link, { LinkProps } from '../../../Link/Link';
 import { StackVertical } from '../../../Stack';
 import Label, { LabelPrimitiveProps } from '../Label/Label';
 import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
-import VisuallyHidden from '../../../VisuallyHidden';
-import { unstable_useId as useId } from 'reakit';
+import { VisuallyHidden } from '../../../VisuallyHidden';
+import { useId } from '../../../../useId';
 
 export type FieldStatusProps =
 	| {
@@ -42,8 +43,7 @@ const Field = forwardRef(
 			...rest
 		} = props;
 
-		const { id: reakitId } = useId();
-		const fieldID = id || `field--${reakitId}`;
+		const fieldID = useId(id, 'field-');
 
 		const labelProps = typeof label === 'string' ? { children: label } : { ...label };
 

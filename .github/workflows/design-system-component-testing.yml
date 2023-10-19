@@ -37,6 +37,7 @@ jobs:
           pnpm install --frozen-lockfile --ignore-scripts
           pnpm cypress install
           pnpm --filter @talend/assets-api run build:lib
+          pnpm --filter @talend/utils run build:lib
           pnpm --filter @talend/icons run build:lib
           pnpm --filter @talend/design-tokens run build:lib
 

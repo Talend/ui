@@ -2,14 +2,16 @@ import { forwardRef } from 'react';
 import type { MouseEvent, ReactElement, ButtonHTMLAttributes, Ref } from 'react';
 
 import classnames from 'classnames';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
+import { mergeRefs } from '../../../mergeRef';
 import { DeprecatedIconNames } from '../../../types';
-import Button from '../../Clickable';
-import Tooltip, { TooltipPlacement } from '../../Tooltip';
-import Loading from '../../Loading';
+import { Clickable } from '../../Clickable';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
+import { Loading } from '../../Loading';
+import { Tooltip, TooltipPlacement } from '../../Tooltip';
 
 import styles from './ButtonIcon.module.scss';
 
@@ -18,7 +20,7 @@ export type PossibleVariants = 'toggle' | 'floating' | 'default';
 
 type CommonTypes<S extends Partial<AvailableSizes>> = Omit<
 	ButtonHTMLAttributes<HTMLButtonElement>,
-	'className' | 'style'
+	'className' | 'style' | 'aria-label'
 > & {
 	children: string;
 	isLoading?: boolean;
@@ -35,10 +37,12 @@ export type ToggleTypes<S extends Partial<AvailableSizes>> = CommonTypes<S> & {
 
 export type FloatingTypes<S extends Partial<AvailableSizes>> = CommonTypes<S> & {
 	variant: 'floating';
+	isActive?: never;
 };
 
 export type DefaultTypes<S extends AvailableSizes> = CommonTypes<S> & {
 	variant: 'default';
+	isActive?: never;
 };
 
 export type ButtonIconProps<S extends AvailableSizes> =
@@ -58,30 +62,36 @@ function Primitive<S extends AvailableSizes>(
 		icon,
 		disabled,
 		tooltipPlacement,
+		isActive = false,
 		...rest
 	} = props;
-	const activeButtonIconPrimitive = props.variant === 'toggle' ? props.isActive : false;
+	const activeButtonIconPrimitive = props.variant === 'toggle' ? isActive : false;
 
 	return (
 		<Tooltip title={children} placement={tooltipPlacement || 'top'}>
-			<Button
-				{...rest}
-				className={classnames(styles.buttonIcon, {
-					[styles.floating]: variant === 'floating',
-					[styles.toggle]: variant === 'toggle',
-					[styles.size_S]: size === 'S',
-					[styles.size_XS]: size === 'XS',
-				})}
-				ref={ref}
-				disabled={disabled || isLoading}
-				{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
-			>
-				<span className={styles.buttonIcon__icon} aria-hidden>
-					{!isLoading &&
-						getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'XS' ? 'S' : 'M' })}
-					{isLoading && <Loading />}
-				</span>
-			</Button>
+			{(triggerProps, triggerRef) => (
+				<Clickable
+					aria-label={children}
+					{...triggerProps}
+					{...rest}
+					tabIndex={rest.tabIndex || 0}
+					className={classnames(styles.buttonIcon, {
+						[styles.floating]: variant === 'floating',
+						[styles.toggle]: variant === 'toggle',
+						[styles.size_S]: size === 'S',
+						[styles.size_XS]: size === 'XS',
+					})}
+					ref={mergeRefs([ref, triggerRef])}
+					disabled={disabled || isLoading}
+					{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
+				>
+					<span className={styles.buttonIcon__icon} aria-hidden>
+						{!isLoading &&
+							getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'XS' ? 'S' : 'M' })}
+						{isLoading && <Loading />}
+					</span>
+				</Clickable>
+			)}
 		</Tooltip>
 	);
 }

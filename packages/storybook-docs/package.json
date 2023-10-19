@@ -10,7 +10,7 @@
     "start": "npm run storybook",
     "lint": "talend-scripts lint",
     "test": "echo no test",
-    "storybook": "npm run build:lib && talend-scripts start-storybook -p 6106",
+    "storybook": "talend-scripts start-storybook -p 6106",
     "build-storybook": "talend-scripts build-storybook --docs"
   },
   "repository": {

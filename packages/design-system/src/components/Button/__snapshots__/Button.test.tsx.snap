@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render a11y html 1`] = `
+<main>
+  <button
+    aria-busy="false"
+    class="theme-clickable theme-button theme-primary"
+    type="button"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      Primary
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    class="theme-clickable theme-button theme-destructive"
+    type="button"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      <span
+        class="theme-button__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#trash:M"
+          />
+        </svg>
+      </span>
+      Destructive
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    class="theme-clickable theme-button theme-secondary"
+    disabled=""
+    type="button"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      Secondary disabled
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    class="theme-clickable theme-button theme-tertiary"
+    type="submit"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      Tertiary submit
+    </span>
+  </button>
+  <button
+    aria-busy="true"
+    class="theme-clickable theme-button theme-tertiary"
+    type="button"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      <span
+        class="theme-button__loading"
+      >
+        <svg
+          aria-hidden="true"
+          data-test="button.loading"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 14.227A6.227 6.227 0 118 1.773a6.227 6.227 0 010 12.454z"
+              fill="currentColor"
+              opacity=".2"
+            />
+            <path
+              d="M11.11 2.611l.886-1.534A7.951 7.951 0 008 0v1.773c1.134 0 2.195.308 3.11.838z"
+              fill="currentColor"
+            >
+              <animatetransform
+                attributeName="transform"
+                dur=".85s"
+                from="0 8 8"
+                repeatCount="indefinite"
+                to="360 8 8"
+                type="rotate"
+              />
+            </path>
+          </g>
+        </svg>
+      </span>
+      Tertiary isLoading
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    class="theme-clickable theme-button theme-tertiary"
+    type="button"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      Tertiary isDropdown
+      <span
+        class="theme-button__caret"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.2rem; height: 1.2rem;"
+        >
+          <use
+            xlink:href="#chevron-down:S"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</main>
+`;

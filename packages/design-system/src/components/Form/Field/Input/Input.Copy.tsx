@@ -7,7 +7,7 @@ import {
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
 
 type InputCopyProps = Omit<FieldPropsPrimitive, 'hasError'> &
 	Omit<InputPrimitiveProps, 'style' | 'className' | 'suffix'>;

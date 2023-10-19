@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Combobox should render a11y html 1`] = `
+<main>
+  <div
+    class="theme-combobox"
+  >
+    <input
+      aria-controls="id-mocked-uuid-1"
+      aria-expanded="false"
+      autocomplete="off"
+      class="theme-combobox__input"
+      id="id-mocked-uuid-0"
+      placeholder="Search"
+      role="combobox"
+      value=""
+    />
+    <div
+      aria-labelledby="id-mocked-uuid-0"
+      data-dialog="true"
+      hidden=""
+      id="id-mocked-uuid-1"
+      role="listbox"
+    >
+      <div
+        aria-selected="false"
+        role="option"
+      >
+        No results found
+      </div>
+    </div>
+  </div>
+</main>
+`;

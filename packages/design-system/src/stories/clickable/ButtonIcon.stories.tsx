@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import {
 	ButtonIcon,
@@ -50,7 +50,7 @@ export default {
 	title: 'Clickable/ButtonIcon',
 	args: defaultArgs,
 	argTypes: commonArgTypes,
-} as Meta<typeof ButtonIcon>;
+} as StoryObj<typeof ButtonIcon>;
 
 const TemplateIcon: StoryFn<typeof ButtonIcon> = args => {
 	const { children, ...rest } = args;

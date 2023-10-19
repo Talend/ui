@@ -1,12 +1,24 @@
-import { forwardRef, ReactElement, Ref } from 'react';
-import { Checkbox as ReakitCheckbox, CheckboxProps, unstable_useId as useId } from 'reakit';
+import {
+	forwardRef,
+	ReactElement,
+	Ref,
+	InputHTMLAttributes,
+	useEffect,
+	useRef,
+	useImperativeHandle,
+} from 'react';
 import { ReactI18NextChild } from 'react-i18next';
 import classnames from 'classnames';
 
-import useCheckboxState from '../../../Form/Field/Input/hooks/useCheckboxState';
-import Label from '../Label/Label';
+import { useId } from '../../../../useId';
+import { useControl } from '../../../../useControl';
+import Label from '../../Label';
 
 import styles from './Checkbox.module.scss';
+
+type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
+	value?: string | number;
+};
 
 export type CheckboxPrimitiveType = Omit<CheckboxProps, 'type' | 'prefix'> & {
 	id?: string;
@@ -16,49 +28,67 @@ export type CheckboxPrimitiveType = Omit<CheckboxProps, 'type' | 'prefix'> & {
 	name: string;
 };
 
-const Checkbox = forwardRef((props: CheckboxPrimitiveType, ref: Ref<HTMLInputElement>) => {
-	const {
-		id,
-		label,
-		readOnly = false,
-		disabled = false,
-		isInline = false,
-		checked,
-		defaultChecked,
-		indeterminate,
-		...rest
-	} = props;
-	const { id: reakitId } = useId();
-	const checkboxId = id || `checkbox--${reakitId}`;
-	const state = (indeterminate && 'indeterminate') || defaultChecked || checked;
-	const checkboxState = useCheckboxState({
-		state,
-		readOnly: readOnly,
-	});
+const CheckboxPrimitive = forwardRef(
+	(props: CheckboxPrimitiveType, ref: Ref<HTMLInputElement | null>) => {
+		const checkboxRef = useRef<HTMLInputElement | null>(null);
+		// Forward ref to parent ref
+		useImperativeHandle(ref, () => checkboxRef.current);
 
-	return (
-		<span
-			className={classnames(styles.checkbox, {
-				[styles.checkbox_readOnly]: readOnly,
-				[styles.checkbox_isInline]: isInline,
-			})}
-		>
-			<ReakitCheckbox
-				{...checkboxState}
-				type="checkbox"
-				disabled={disabled}
-				readOnly={readOnly}
-				ref={ref}
-				id={checkboxId}
-				{...rest}
-			/>
-			<Label htmlFor={checkboxId} inline>
-				{label}
-			</Label>
-		</span>
-	);
-});
+		const {
+			id,
+			label,
+			readOnly = false,
+			disabled = false,
+			isInline = false,
+			checked,
+			indeterminate,
+			onChange,
+			...rest
+		} = props;
 
-Checkbox.displayName = 'Checkbox';
+		const checkboxId = useId(id, 'checkbox-');
 
-export default Checkbox;
+		const controlled = useControl<boolean>(props, {
+			onChangeKey: 'onChange',
+			valueKey: 'checked',
+			defaultValueKey: 'defaultChecked',
+			selector: e => e.target.checked,
+			defaultValue: false,
+		});
+
+		useEffect(() => {
+			// indeterminate is a controlled value only
+			if (checkboxRef?.current) {
+				checkboxRef.current.indeterminate = !!indeterminate;
+			}
+		}, [checkboxRef, indeterminate, controlled.value]);
+
+		return (
+			<div
+				className={classnames(styles.checkbox, {
+					[styles.checkbox_readOnly]: readOnly,
+					[styles.checkbox_isInline]: isInline,
+				})}
+			>
+				<input
+					type="checkbox"
+					disabled={disabled}
+					readOnly={readOnly}
+					ref={checkboxRef}
+					id={checkboxId}
+					aria-checked={indeterminate ? 'mixed' : controlled.value}
+					checked={controlled.value}
+					onChange={e => controlled.onChange(e)}
+					{...rest}
+				/>
+				<Label htmlFor={checkboxId} inline>
+					{label}
+				</Label>
+			</div>
+		);
+	},
+);
+
+CheckboxPrimitive.displayName = 'CheckboxPrimtive';
+
+export default CheckboxPrimitive;
