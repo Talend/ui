@@ -12,7 +12,7 @@
     "build:umd:prod": "talend-scripts build --umd",
     "build:lib": "talend-scripts build",
     "build-storybook": "talend-scripts build-storybook",
-    "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner && rm -rf tmp",
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint": "talend-scripts lint",
     "start": "talend-scripts start-storybook -p 6006",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
