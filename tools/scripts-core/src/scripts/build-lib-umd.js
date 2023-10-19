@@ -14,7 +14,6 @@ async function buildUMD(env, presetApi, options = []) {
 }
 
 export default async function build(env, presetApi, options) {
-	utils.pkg.checkPackageIsInstalled('@talend/scripts-config-react-webpack');
 	const packageJSON = JSON.parse(fs.readFileSync(getUserConfigFile(['package.json'])));
 	const UMDName = packageJSON.name
 		.replace(/[^a-zA-Z0-9]/g, ' ')

@@ -3,6 +3,6 @@
   "include": ["src/**/*", "custom.d.ts"],
   "files": [],
   "compilerOptions": {
-    "declaration": true,
+    "declaration": true
   }
 }

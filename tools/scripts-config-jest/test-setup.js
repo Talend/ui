@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
 require('@testing-library/jest-dom');
+require('@testing-library/jest-dom/extend-expect');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
@@ -170,7 +171,9 @@ try {
 				Array.isArray(children) ? renderNodes(children) : renderNodes([children]),
 		};
 	});
-} catch (e) {}
+} catch (e) {
+	console.warn('JEST MOCK WARN: i18next not resolved');
+}
 
 try {
 	jest.mock('@talend/design-system', () => {
@@ -227,7 +230,9 @@ try {
 
 		return mocks;
 	});
-} catch {}
+} catch {
+	console.warn('JEST MOCK WARN: @talend/design-system not resolved');
+}
 
 try {
 	// in the case we unmock design-system we don't want id to be random
@@ -235,4 +240,6 @@ try {
 		...jest.requireActual('reakit/lib/Id/IdProvider'),
 		unstable_IdContext: jest.requireActual('react').createContext(() => 'id-42'),
 	}));
-} catch {}
+} catch {
+	console.warn('JEST MOCK WARN: reakit/lib/Id/IdProvider not resolved');
+}

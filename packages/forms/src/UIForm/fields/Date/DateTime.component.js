@@ -53,6 +53,7 @@ export default function DateTimeWidget(props) {
 		>
 			<InputDateTimePicker
 				id={id}
+				// eslint-disable-next-line jsx-a11y/no-autofocus
 				autoFocus={schema.autoFocus}
 				disabled={schema.disabled || valueIsUpdating}
 				readOnly={schema.readOnly}
