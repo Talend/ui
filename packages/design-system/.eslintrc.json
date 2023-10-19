@@ -1,4 +1,4 @@
 {
   "root": true,
-  "extends": ["@talend/eslint-config"]
+  "extends": "@talend"
 }
