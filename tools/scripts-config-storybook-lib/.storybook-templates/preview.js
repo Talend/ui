@@ -96,11 +96,11 @@ const defaultPreview = {
 				React.createElement(IconsProvider, {
 					key: 'icons-provider-decorator',
 					bundles: [
-						'/all.svg',
-						'/XS.svg',
-						'/S.svg',
-						'/M.svg',
-						'/L.svg',
+						'all.svg',
+						'XS.svg',
+						'S.svg',
+						'M.svg',
+						'L.svg',
 					]
 				}),
 				React.createElement(ToggleBootstrap, {
