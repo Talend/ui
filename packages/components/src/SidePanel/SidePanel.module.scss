@@ -40,6 +40,11 @@ $large-docked-width: 7rem;
 		overflow-y: auto;
 		overflow-x: hidden;
 
+		&::-webkit-scrollbar {
+			background-color: tokens.$coral-color-branding-navigation;
+			width: tokens.$coral-sizing-minimal;
+		}
+
 		:global .tc-side-panel-list {
 			background: transparent;
 		}
