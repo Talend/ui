@@ -215,6 +215,7 @@ describe('smart websocket tests', () => {
 
 			// then
 			expect(options.onPingTimeout).toBeCalled();
+			jest.useRealTimers();
 		});
 	});
 });

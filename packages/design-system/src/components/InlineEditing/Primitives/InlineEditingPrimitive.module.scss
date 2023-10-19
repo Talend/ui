@@ -71,6 +71,7 @@
 			}
 
 			&:hover,
+			&:focus-within,
 			&:active,
 			&:focus {
 				opacity: 1;

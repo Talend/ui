@@ -1,6 +1,6 @@
 import { Fragment, forwardRef, Ref } from 'react';
 
-import Divider from '../../Divider';
+import { Divider } from '../../Divider';
 import { StackHorizontal } from '../../Stack';
 import BadgeButton from '../button/BadgeButton';
 import BadgePrimitive, { BadgePopoverItem, BadgePrimitiveProps } from '../primitive/BadgePrimitive';

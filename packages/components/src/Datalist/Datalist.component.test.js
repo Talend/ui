@@ -171,6 +171,7 @@ describe('Datalist component', () => {
 
 		// then
 		expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+		jest.useRealTimers();
 	});
 
 	it('should close suggestions on enter', () => {
@@ -218,6 +219,7 @@ describe('Datalist component', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
+		jest.useRealTimers();
 	});
 
 	it('should reset previous value on ESC keydown', () => {
@@ -368,6 +370,7 @@ describe('Datalist component', () => {
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
+			jest.useRealTimers();
 		});
 
 		it('should persist unknown value on blur', () => {
@@ -384,6 +387,7 @@ describe('Datalist component', () => {
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not a known value' });
+			jest.useRealTimers();
 		});
 
 		it('should persist known value on enter', () => {
@@ -431,6 +435,7 @@ describe('Datalist component', () => {
 
 			// // then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not there' });
+			jest.useRealTimers();
 		});
 	});
 
@@ -450,6 +455,7 @@ describe('Datalist component', () => {
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
+			jest.useRealTimers();
 		});
 
 		it('should reset unknown value on blur', () => {
@@ -467,6 +473,7 @@ describe('Datalist component', () => {
 			// then
 			expect(onChange).not.toBeCalled();
 			expect(input).toHaveValue('My foo');
+			jest.useRealTimers();
 		});
 
 		it('should persist known value on enter', () => {
@@ -527,6 +534,7 @@ describe('Datalist component', () => {
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
+			jest.useRealTimers();
 		});
 	});
 });

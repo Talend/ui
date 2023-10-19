@@ -1,11 +1,21 @@
-/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-shadow */
+/* eslint-disable no-promise-executor-return */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable global-require */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-empty */
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/no-var-requires */
 require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
 
+const jestAxe = require('jest-axe');
+
+jest.mock('ally.js');
+
+expect.extend(jestAxe.toHaveNoViolations);
 // add missing ResizeObserver
 class ResizeObserver {
 	observe() {
@@ -57,6 +67,11 @@ try {
 				if (config.response) {
 					return resolve(config.response);
 				}
+				if (global.self.fetch.mockResponse) {
+					const res = global.self.fetch.mockResponse;
+					delete global.self.fetch.mockResponse;
+					return resolve(res);
+				}
 				return resolve();
 			}),
 	);
@@ -74,10 +89,20 @@ try {
 }
 
 try {
+	Object.defineProperty(global.self, 'crypto', {
+		value: {
+			randomUUID: () => '42',
+		},
+	});
+} catch (e) {
+	console.error(e);
+}
+
+try {
 	// Mock session storage
 	delete window.sessionStorage;
 	Object.defineProperty(window, 'sessionStorage', {
-		value: (function () {
+		value: (function valueFn() {
 			let store = {};
 			return {
 				getItem(key) {
@@ -236,3 +261,8 @@ try {
 		unstable_IdContext: jest.requireActual('react').createContext(() => 'id-42'),
 	}));
 } catch {}
+
+// @floating-ui/react
+// https://github.com/floating-ui/floating-ui/issues/1908
+// eslint-disable-next-line no-promise-executor-return
+afterAll(() => new Promise(resolve => setTimeout(resolve, 0)));

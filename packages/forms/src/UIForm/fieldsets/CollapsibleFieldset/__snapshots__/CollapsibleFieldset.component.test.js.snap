@@ -39,6 +39,7 @@ exports[`CollapsibleFieldset should render 1`] = `
           <button
             aria-describedby="id-42"
             aria-expanded="true"
+            aria-label="Collapse panel"
             class="theme-clickable theme-buttonIcon"
             id="my-fieldset__collapse"
             tabindex="0"

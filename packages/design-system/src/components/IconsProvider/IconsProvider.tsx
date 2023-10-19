@@ -1,4 +1,4 @@
-import VisuallyHidden from '../VisuallyHidden';
+import { VisuallyHidden } from '../VisuallyHidden';
 import assetsAPI from '@talend/assets-api';
 import { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
 

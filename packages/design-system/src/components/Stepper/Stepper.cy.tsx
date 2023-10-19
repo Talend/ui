@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/await-async-query */
-import Stepper from '.';
+import { Stepper } from '.';
 
 context('<Stepper />', () => {
 	it('should render first step as current step', () => {

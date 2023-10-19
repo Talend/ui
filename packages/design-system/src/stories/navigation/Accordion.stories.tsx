@@ -1,6 +1,12 @@
 import { StoryObj } from '@storybook/react';
 
-import { Accordion, CollapsiblePanel, StackVertical, TagSuccess } from '../../';
+import {
+	Accordion,
+	CollapsiblePanel,
+	CollapsiblePanelProps,
+	StackVertical,
+	TagSuccess,
+} from '../../';
 
 export default {
 	component: Accordion,
@@ -22,7 +28,7 @@ const SampleParagraph = () => (
 	</p>
 );
 
-export const SimpleCollapsiblePanel = (props: any) => (
+export const SimpleCollapsiblePanel = (props: CollapsiblePanelProps) => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 		<CollapsiblePanel {...props}>
 			<SampleParagraph />

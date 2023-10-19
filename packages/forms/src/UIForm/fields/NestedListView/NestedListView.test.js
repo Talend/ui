@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import { NestedListViewWidget } from './NestedListView.component';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 
-jest.useFakeTimers();
 jest.unmock('@talend/design-system');
+jest.useFakeTimers();
 jest.spyOn(global, 'setTimeout');
 
 describe('NestedListView component', () => {
+	beforeAll(() => {});
+	afterAll(() => {
+		setTimeout.mockRestore();
+		jest.useRealTimers();
+	});
 	let props;
 
 	beforeEach(() => {
