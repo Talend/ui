@@ -12,11 +12,19 @@ require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
 
-const jestAxe = require('jest-axe');
+try {
+	const jestAxe = require('jest-axe');
+	expect.extend(jestAxe.toHaveNoViolations);
+} catch (e) {
+	console.warn('JEST MOCK WARN: jestAxe not resolved');
+}
 
-jest.mock('ally.js');
+try {
+	jest.mock('ally.js');
+} catch (e) {
+	console.warn('JEST MOCK WARN: ally.js not resolved');
+}
 
-expect.extend(jestAxe.toHaveNoViolations);
 // add missing ResizeObserver
 class ResizeObserver {
 	observe() {
