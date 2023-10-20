@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-empty-function */
 /* eslint-disable react/prop-types */
 import { render, screen } from '@testing-library/react';
