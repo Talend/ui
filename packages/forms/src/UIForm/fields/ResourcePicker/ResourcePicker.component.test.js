@@ -5,7 +5,6 @@ import userEvent from '@testing-library/user-event';
 
 import ResourcePicker from './ResourcePicker.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 jest.mock(
 	'@talend/react-components/lib/ResourcePicker',
