@@ -2,7 +2,6 @@ import { screen, render } from '@testing-library/react';
 import DefaultArrayTemplate from './DefaultArrayTemplate.component';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 const schema = {
 	description: 'Tnstructions to fill it',

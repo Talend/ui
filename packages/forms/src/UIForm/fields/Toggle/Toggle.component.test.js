@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import Toggle from './Toggle.component';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 describe('Toggle field', () => {
 	const schema = {

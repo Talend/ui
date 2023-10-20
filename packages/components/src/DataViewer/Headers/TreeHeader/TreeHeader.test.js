@@ -2,13 +2,6 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Component from './TreeHeader.component';
 
-jest.mock('react-i18next', () => {
-	// eslint-disable-next-line global-require
-	const mockTranslations = require('../../../../test/i18nMock').default;
-
-	return mockTranslations();
-});
-
 describe('TreeHeader', () => {
 	it('should render a simple tree header', () => {
 		const { container } = render(<Component title="myTitle" />);
