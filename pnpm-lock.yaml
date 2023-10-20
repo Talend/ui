@@ -1425,9 +1425,6 @@ importers:
       '@testing-library/user-event':
         specifier: ^13.5.0
         version: 13.5.0(@testing-library/dom@9.3.3)
-      ally.js:
-        specifier: ^1.4.1
-        version: 1.4.1
       babel-plugin-angularjs-annotate:
         specifier: ^0.10.0
         version: 0.10.0
@@ -2824,7 +2821,7 @@ importers:
   tools/scripts-config-jest:
     dependencies:
       '@talend/design-system':
-        specifier: ^7.15.1
+        specifier: '>= 7.15.1'
         version: link:../../packages/design-system
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
@@ -2836,22 +2833,25 @@ importers:
         specifier: ^29.5.5
         version: 29.5.5
       ally.js:
-        specifier: ^1.4.1
+        specifier: '>= 1.4.1'
         version: 1.4.1
       babel-jest:
         specifier: ^29.7.0
         version: 29.7.0(@babel/core@7.23.2)
       classnames:
-        specifier: ^2.3.2
+        specifier: '>= 2.3.2'
         version: 2.3.2
       core-js:
         specifier: ^3.32.2
         version: 3.33.0
+      i18next:
+        specifier: '>= 20.6.1'
+        version: 20.6.1
       jest:
         specifier: ^29.7.0
         version: 29.7.0
       jest-axe:
-        specifier: ^8.0.0
+        specifier: '>= 8.0.0'
         version: 8.0.0
       jest-environment-jsdom:
         specifier: ^29.7.0
@@ -2862,12 +2862,18 @@ importers:
       jest-serializer-html:
         specifier: ^7.1.0
         version: 7.1.0
+      prop-types:
+        specifier: '>= 15.8.1'
+        version: 15.8.1
       raf:
         specifier: ^3.4.1
         version: 3.4.1
       react:
         specifier: '>= 16.14.0'
         version: 17.0.2
+      react-i18next:
+        specifier: '>= 11.18.6'
+        version: 11.18.6(i18next@20.6.1)(react-dom@17.0.2)(react@17.0.2)
       regenerator-runtime:
         specifier: ^0.13.11
         version: 0.13.11

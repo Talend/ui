@@ -12,17 +12,34 @@ require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
 
+const warnMessageOptionalDep = (mainDepToMock, depList = []) => {
+	if (depList.length === 0) {
+		console.warn(
+			`JEST MOCK WARN: ${mainDepToMock} is not resolved.` +
+				'\nThis is an optional dependency.' +
+				'\nPlease add it in your dependencies if you need it',
+		);
+	} else if (depList.length > 0) {
+		console.warn(
+			`JEST MOCK WARN: one or more of those deps are not resolved: ${depList.join(', ')}` +
+				'These are optional dependencies but work together.' +
+				`\nIt's needed to mock ${mainDepToMock}` +
+				'\nPlease add them in your dependencies if you need them',
+		);
+	}
+};
+
 try {
 	const jestAxe = require('jest-axe');
 	expect.extend(jestAxe.toHaveNoViolations);
 } catch (e) {
-	console.warn('JEST MOCK WARN: jestAxe not resolved');
+	warnMessageOptionalDep('jest-axe');
 }
 
 try {
 	jest.mock('ally.js');
 } catch (e) {
-	console.warn('JEST MOCK WARN: ally.js not resolved');
+	warnMessageOptionalDep('ally.js');
 }
 
 // add missing ResizeObserver
@@ -49,24 +66,6 @@ if (!global.self.TextEncoder) {
 	global.self.TextEncoder = require('util').TextEncoder;
 	global.self.TextDecoder = require('util').TextDecoder;
 }
-// enzyme adapter configuration
-let React;
-try {
-	React = require('react');
-} catch (e) {}
-
-try {
-	const version = React && React.version;
-	if (version && version.startsWith('16.')) {
-		const configure = require('enzyme').configure;
-		const Adapter = require('enzyme-adapter-react-16');
-		configure({ adapter: new Adapter() });
-	} else if (version && version.startsWith('17.')) {
-		const configure = require('enzyme').configure;
-		const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
-		configure({ adapter: new Adapter() });
-	}
-} catch (e) {}
 
 // Mock fetch
 try {
@@ -86,16 +85,6 @@ try {
 	);
 	global.self.fetch = fetch;
 } catch (e) {}
-
-try {
-	Object.defineProperty(global.self, 'crypto', {
-		value: {
-			randomUUID: () => '42',
-		},
-	});
-} catch (e) {
-	console.error(e);
-}
 
 try {
 	Object.defineProperty(global.self, 'crypto', {
@@ -154,7 +143,11 @@ try {
 		i18nextMock.addResources = () => {};
 		return i18nextMock;
 	});
+} catch (e) {
+	warnMessageOptionalDep('i18next');
+}
 
+try {
 	jest.mock('react-i18next', () => {
 		// from https://github.com/i18next/react-i18next/blob/master/example/test-jest/__mocks__/react-i18next.js
 		const React = require('react');
@@ -205,7 +198,7 @@ try {
 		};
 	});
 } catch (e) {
-	console.warn('JEST MOCK WARN: i18next not resolved');
+	warnMessageOptionalDep('react-i18next', ['react-i18next', 'i18next', 'react']);
 }
 
 try {
@@ -264,17 +257,12 @@ try {
 		return mocks;
 	});
 } catch {
-	console.warn('JEST MOCK WARN: @talend/design-system not resolved');
-}
-
-try {
-	// in the case we unmock design-system we don't want id to be random
-	jest.mock('reakit/lib/Id/IdProvider', () => ({
-		...jest.requireActual('reakit/lib/Id/IdProvider'),
-		unstable_IdContext: jest.requireActual('react').createContext(() => 'id-42'),
-	}));
-} catch {
-	console.warn('JEST MOCK WARN: reakit/lib/Id/IdProvider not resolved');
+	warnMessageOptionalDep('@talend/design-system', [
+		'@talend/design-system',
+		'react',
+		'prop-types',
+		'classnames',
+	]);
 }
 
 // @floating-ui/react

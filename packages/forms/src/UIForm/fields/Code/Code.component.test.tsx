@@ -9,9 +9,6 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 
 import Code, { CodeProps } from './Code.component';
 
-// fix cannot read appendChild of null;
-jest.mock('ally.js');
-
 declare global {
 	interface Window {
 		ReactAce: { default: typeof ReactAce };

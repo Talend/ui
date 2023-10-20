@@ -3,7 +3,6 @@ import { screen, render } from '@testing-library/react';
 import { WidgetContext } from '../../context';
 import KeyValue from './KeyValue.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 const widgets = {

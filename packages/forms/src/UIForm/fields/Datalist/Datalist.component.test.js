@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 
 import Datalist from './Datalist.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 const schema = {

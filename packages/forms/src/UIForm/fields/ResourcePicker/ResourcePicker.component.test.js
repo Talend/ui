@@ -46,7 +46,6 @@ const ResourcePickerMock = ({ toolbar, onRowClick, isSelected, collection, ...pr
 	</div>
 );
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 jest.mock('@talend/react-components/lib/ResourcePicker', () => ResourcePickerMock);
 
