@@ -6,7 +6,6 @@ import { WidgetContext } from '../context';
 import Widget from './Widget.component';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 describe('Widget component', () => {
 	const schema = {
