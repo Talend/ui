@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 import ArrayItem from './ArrayItem.component';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 describe('Array Item component', () => {
 	it('should render control panel with item content', () => {
