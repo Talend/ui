@@ -11,9 +11,8 @@ import Link, { LinkProps } from '../../Link/Link';
 import { StackHorizontal, StackVertical } from '../../Stack';
 import { ButtonTertiaryPropsType } from '../../Button/variations/ButtonTertiary';
 import { ButtonTertiary } from '../../Button';
-import Dropdown from '../../Dropdown';
+import { Dropdown, DropdownPropsType } from '../../Dropdown';
 import { ButtonIcon } from '../../ButtonIcon';
-import { DropdownPropsType } from '../../Dropdown/Dropdown';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 import styles from './MessageStyles.module.scss';

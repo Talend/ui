@@ -1,61 +1,69 @@
-import { useLayoutEffect, useRef } from 'react';
-import type { PropsWithChildren, MouseEvent } from 'react';
-import { Radio, RadioGroup, useRadioState } from 'reakit';
+import { MouseEvent, useLayoutEffect, useRef, useState, useEffect } from 'react';
+import type { PropsWithChildren, HTMLAttributes } from 'react';
+
 import classnames from 'classnames';
+
+import { randomUUID } from '@talend/utils';
+
 import theme from './Switch.module.scss';
 
-export type SwitchProps = PropsWithChildren<any> & {
-	label: string;
+const emptyValues: string[] = [];
+
+export type SwitchProps = PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>> & {
+	label?: string;
 	value?: string;
 	defaultValue?: string;
-	values?: any[];
-	checked: boolean;
-	disabled: boolean;
-	readOnly: boolean;
+	values?: string[];
+	checked?: boolean;
+	disabled?: boolean;
+	readOnly?: boolean;
+	// Redefine onChange prop
+	onChange?: (event: MouseEvent<HTMLButtonElement>, selectedValue: string) => void;
 };
 
-const Switch = ({
+export const Switch = ({
 	label,
 	value,
 	defaultValue,
-	values,
+	values = emptyValues,
 	checked,
 	disabled,
 	readOnly,
 	onChange,
 	...rest
 }: SwitchProps) => {
-	const radio = useRadioState({
-		state: value || defaultValue || (values && values[0]),
-		loop: false,
-		unstable_virtual: true,
-	});
-
-	const containerRef = useRef<PropsWithChildren<any>>();
-	const switchIndicator = useRef<PropsWithChildren<any>>();
+	const [radio, setRadio] = useState(value || defaultValue || (values && values[0]));
+	const switchIndicator = useRef<PropsWithChildren<HTMLSpanElement>>(null);
+	const containerRef = useRef<PropsWithChildren<HTMLDivElement>>(null);
+	const [valueIds, setValueIds] = useState<string[]>(values.map(() => `id-${randomUUID()}`));
+	useEffect(() => {
+		setValueIds(values.map(() => `id-${randomUUID()}`));
+	}, [values]);
 
 	useLayoutEffect(() => {
 		const radioGroup = containerRef?.current;
 		if (!radioGroup) {
 			return;
 		}
-		const radioGroupChildren = Array.prototype.slice.call(radioGroup.children);
-		const checkedElement = radioGroup.querySelector(`#${radio.currentId}`);
+		const checkedRadioIndex = values.indexOf(radio);
+		const currentId = valueIds[checkedRadioIndex];
+
+		const checkedElement = radioGroup.querySelector(`#${currentId}`);
+		const items = Array.from<HTMLOptionElement>(radioGroup.querySelectorAll(`.${theme.btn}`));
 		if (!checkedElement) {
 			return;
 		}
-		const checkedRadioIndex = radioGroupChildren.indexOf(checkedElement);
 		const checkedRadioSpanWidth = checkedElement.scrollWidth;
 		const switchIndicatorRef = switchIndicator?.current;
 		if (switchIndicatorRef) {
 			switchIndicatorRef.style.width = `${checkedRadioSpanWidth}px`;
-			const radioWidths = radio.items.map(item => item.ref.current?.scrollWidth || 0);
+			const radioWidths = items.map(item => item?.scrollWidth || 0);
 			switchIndicatorRef.style.transform = `translateX(${radioWidths
 				?.slice(0, checkedRadioIndex)
 				.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}px)`;
-			switchIndicatorRef.dataset.animated = true;
+			switchIndicatorRef.dataset.animated = 'true';
 		}
-	}, [radio, defaultValue, radio.items]);
+	}, [radio, defaultValue, value, values, valueIds]);
 
 	return (
 		<div
@@ -64,20 +72,34 @@ const Switch = ({
 				[theme.disabled]: disabled,
 			})}
 		>
-			<RadioGroup {...rest} {...radio} ref={containerRef} aria-label={label} disabled={disabled}>
+			<div
+				className={theme.container}
+				role="radiogroup"
+				tabIndex={0}
+				ref={containerRef}
+				aria-activedescendant={valueIds[values.indexOf(radio)]}
+				{...rest}
+				aria-label={label}
+			>
 				{values.map((v: string, i: number) => {
-					const isChecked = radio.state === v;
+					const isChecked = radio === v;
 					return (
-						<Radio
-							onChange={(event: MouseEvent<HTMLButtonElement>) => onChange && onChange(event, v)}
-							{...radio}
+						<button
+							id={valueIds[i]}
+							className={theme.btn}
+							tabIndex={-1}
+							role="radio"
+							aria-checked={isChecked}
+							onClick={(e: MouseEvent<HTMLButtonElement>) => {
+								setRadio(v);
+								onChange?.(e, v);
+							}}
 							value={v}
-							as="button"
 							key={i}
 							data-checked={isChecked}
 						>
 							{v}
-						</Radio>
+						</button>
 					);
 				})}
 				<span
@@ -88,9 +110,9 @@ const Switch = ({
 				>
 					<em />
 				</span>
-			</RadioGroup>
+			</div>
 		</div>
 	);
 };
 
-export default Switch;
+Switch.displayName = 'Switch';

@@ -9,5 +9,6 @@ type TagProps = Omit<PrimitiveTagProps, 'className'>;
 const TagSuccess = forwardRef((props: TagProps, ref: Ref<HTMLSpanElement>) => (
 	<TagPrimitive {...props} ref={ref} className={style.tag} />
 ));
+TagSuccess.displayName = 'TagSuccess';
 
 export default TagSuccess;

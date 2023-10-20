@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonAsLink should render a11y html 1`] = `
+<main>
+  <a
+    class="theme-linkable theme-button theme-button theme-primary"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      Primary
+    </span>
+  </a>
+  <a
+    class="theme-linkable theme-button theme-button theme-destructive"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <span
+        class="theme-button__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#trash:M"
+          />
+        </svg>
+      </span>
+      Destructive
+    </span>
+  </a>
+  <a
+    class="theme-linkable theme-button theme-button theme-secondary"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      Secondary
+    </span>
+  </a>
+  <a
+    class="theme-linkable theme-button theme-button theme-tertiary"
+    type="submit"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      Tertiary submit
+    </span>
+  </a>
+  <a
+    class="theme-linkable theme-button theme-button theme-tertiary"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      Tertiary
+    </span>
+  </a>
+  <a
+    class="theme-linkable theme-button theme-button theme-tertiary"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      Tertiary
+    </span>
+  </a>
+</main>
+`;

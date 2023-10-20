@@ -23,5 +23,6 @@ const SkeletonParagraph = forwardRef(
 		);
 	},
 );
+SkeletonParagraph.displayName = 'SkeletonParagraph';
 
 export default SkeletonParagraph;

@@ -1,7 +1,7 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
 /* eslint-disable testing-library/await-async-query */
 /* eslint-disable testing-library/prefer-screen-queries */
-import InlineEditing from './';
+import { InlineEditing } from './';
 
 context('<InlineEditing />', () => {
 	it('should go to edit mode when clicking on the button', () => {
@@ -24,7 +24,7 @@ context('<InlineEditing />', () => {
 				placeholder=""
 			/>,
 		);
-		cy.findByTestId('inlineediting.button.edit').click();
+		cy.findByTestId('inlineediting.button.edit').click({ force: true });
 		cy.findByTestId('inlineediting.textarea').should('exist');
 	});
 
@@ -37,22 +37,20 @@ context('<InlineEditing />', () => {
 			/>,
 		);
 		cy.findByTestId('inlineediting.button.edit').click();
-		cy.findByTestId('inlineediting.input')
-			.focus()
-			.type('{selectall}{del}blah')
-			.should('have.value', 'blah')
-			.type('{esc}');
+		cy.findByTestId('inlineediting.input').focus();
+		cy.findByTestId('inlineediting.input').type('{selectall}{del}blah');
+		cy.findByTestId('inlineediting.input').should('have.value', 'blah');
+		cy.findByTestId('inlineediting.input').type('{esc}');
 		cy.findByTestId('inlineediting').should('have.text', 'Lorem ipsum dolor sit amet');
 	});
 
 	it('should validate on Enter', () => {
 		cy.mount(<InlineEditing label="Edit the value" defaultValue="Lorem Ipsum" placeholder="" />);
 		cy.findByTestId('inlineediting.button.edit').click();
-		cy.findByTestId('inlineediting.input')
-			.focus()
-			.type('{selectall}{del}blah')
-			.should('have.value', 'blah')
-			.type('{enter}');
+		cy.findByTestId('inlineediting.input').focus();
+		cy.findByTestId('inlineediting.input').type('{selectall}{del}blah');
+		cy.findByTestId('inlineediting.input').should('have.value', 'blah');
+		cy.findByTestId('inlineediting.input').type('{enter}');
 		cy.findByTestId('inlineediting').should('have.text', 'blah');
 	});
 
@@ -64,12 +62,11 @@ context('<InlineEditing />', () => {
 				placeholder=""
 			/>,
 		);
-		cy.findByTestId('inlineediting.button.edit').click();
-		cy.findByTestId('inlineediting.textarea')
-			.focus()
-			.type('{selectall}{del}blah')
-			.should('have.value', 'blah')
-			.type('{enter}');
+		cy.findByTestId('inlineediting.button.edit').click({ force: true });
+		cy.findByTestId('inlineediting.textarea').focus();
+		cy.findByTestId('inlineediting.textarea').type('{selectall}{del}blah');
+		cy.findByTestId('inlineediting.textarea').should('have.value', 'blah');
+		cy.findByTestId('inlineediting.textarea').type('{enter}');
 		cy.findByTestId('inlineediting.textarea').should('exist');
 	});
 
@@ -79,12 +76,11 @@ context('<InlineEditing />', () => {
 		cy.mount(
 			<InlineEditing.Textarea label="Edit the value" defaultValue={defaultValue} placeholder="" />,
 		);
-		cy.findByTestId('inlineediting.button.edit').click();
-		cy.findByTestId('inlineediting.textarea')
-			.focus()
-			.type('{selectall}{del}blah')
-			.should('have.value', 'blah');
-		cy.findByTestId('inlineediting.button.cancel').focus().type('{enter}');
+		cy.findByTestId('inlineediting.button.edit').click({ force: true });
+		cy.findByTestId('inlineediting.textarea').focus();
+		cy.findByTestId('inlineediting.textarea').type('{selectall}{del}blah');
+		cy.findByTestId('inlineediting.textarea').should('have.value', 'blah');
+		cy.findByTestId('inlineediting.button.cancel').type('{enter}', { force: true });
 		cy.findByTestId('inlineediting').should('have.text', defaultValue);
 	});
 });

@@ -18,40 +18,40 @@ type Warning = InlineMessageVariantType<'warning', InlineMessageWarningProps>;
 type Destructive = InlineMessageVariantType<'destructive', InlineMessageDestructiveProps>;
 type Beta = InlineMessageVariantType<'beta', InlineMessageBetaProps>;
 
-export type InlineMessageType = Information | Success | Warning | Destructive | Beta;
+export type InlineMessagePropTypes = Information | Success | Warning | Destructive | Beta;
 
-const InlineMessage = forwardRef((props: InlineMessageType, ref: Ref<HTMLDivElement>) => {
-	switch (props.variant) {
-		case 'information': {
-			const { variant, ...rest } = props;
-			return <InlineMessageInformation {...rest} ref={ref} />;
+export const InlineMessage = forwardRef(
+	(props: InlineMessagePropTypes, ref: Ref<HTMLDivElement>) => {
+		switch (props.variant) {
+			case 'information': {
+				const { variant, ...rest } = props;
+				return <InlineMessageInformation {...rest} ref={ref} />;
+			}
+
+			case 'destructive': {
+				const { variant, ...rest } = props;
+				return <InlineMessageDestructive {...rest} ref={ref} />;
+			}
+
+			case 'success': {
+				const { variant, ...rest } = props;
+				return <InlineMessageSuccess {...rest} ref={ref} />;
+			}
+
+			case 'warning': {
+				const { variant, ...rest } = props;
+				return <InlineMessageWarning {...rest} ref={ref} />;
+			}
+
+			case 'beta': {
+				const { variant, ...rest } = props;
+				return <InlineMessageBeta {...rest} ref={ref} />;
+			}
+
+			default:
+				throw new Error("InlineMessage needs a 'variant' prop");
 		}
-
-		case 'destructive': {
-			const { variant, ...rest } = props;
-			return <InlineMessageDestructive {...rest} ref={ref} />;
-		}
-
-		case 'success': {
-			const { variant, ...rest } = props;
-			return <InlineMessageSuccess {...rest} ref={ref} />;
-		}
-
-		case 'warning': {
-			const { variant, ...rest } = props;
-			return <InlineMessageWarning {...rest} ref={ref} />;
-		}
-
-		case 'beta': {
-			const { variant, ...rest } = props;
-			return <InlineMessageBeta {...rest} ref={ref} />;
-		}
-
-		default:
-			throw new Error("InlineMessage needs a 'variant' prop");
-	}
-});
+	},
+);
 
 InlineMessage.displayName = 'InlineMessage';
-
-export default InlineMessage;

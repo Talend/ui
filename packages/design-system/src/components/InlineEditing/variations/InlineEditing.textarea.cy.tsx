@@ -1,4 +1,4 @@
-import InlineEditingMulti from './InlineEditing.textarea';
+import { InlineEditingTextarea } from './InlineEditing.textarea';
 
 context('<InlineEditing.Textarea />', () => {
 	const defaultProps = {
@@ -7,14 +7,14 @@ context('<InlineEditing.Textarea />', () => {
 	};
 
 	it('should render with filled value', () => {
-		cy.mount(<InlineEditingMulti {...defaultProps} defaultValue="Some text" />);
+		cy.mount(<InlineEditingTextarea {...defaultProps} defaultValue="Some text" />);
 
 		cy.get('[data-testid="inlineediting.button.edit"]').should('exist');
 		cy.get('p').should('have.text', 'Some text');
 	});
 
 	it('should allow inline editing', () => {
-		cy.mount(<InlineEditingMulti {...defaultProps} />);
+		cy.mount(<InlineEditingTextarea {...defaultProps} />);
 
 		// Switch to edit mode
 		cy.get('[data-testid="inlineediting.button.edit"]').click();
@@ -30,7 +30,7 @@ context('<InlineEditing.Textarea />', () => {
 	});
 
 	it('should allow to have some constraints', () => {
-		cy.mount(<InlineEditingMulti {...defaultProps} required={true} maxLength={10} />);
+		cy.mount(<InlineEditingTextarea {...defaultProps} required={true} maxLength={10} />);
 
 		cy.get('[data-testid="inlineediting.button.edit"]').click();
 		cy.get('[data-testid="inlineediting.textarea"]').should('have.attr', 'required');

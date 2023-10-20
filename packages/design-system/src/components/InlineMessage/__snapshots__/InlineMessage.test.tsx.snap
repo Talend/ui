@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineMessage should render a11y html 1`] = `
+<main>
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-information__icon"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.6rem; height: 1.6rem;"
+      >
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        The information message value
+      </span>
+    </p>
+  </div>
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-destructive__icon"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.6rem; height: 1.6rem;"
+      >
+        <use
+          xlink:href="#square-cross:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        The destructive message value
+      </span>
+    </p>
+  </div>
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-success__icon"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.6rem; height: 1.6rem;"
+      >
+        <use
+          xlink:href="#check-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        The success message value
+      </span>
+    </p>
+  </div>
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-warning__icon"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.6rem; height: 1.6rem;"
+      >
+        <use
+          xlink:href="#exclamation:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        The warning message value
+      </span>
+    </p>
+  </div>
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-beta__icon"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.6rem; height: 1.6rem;"
+      >
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        The beta message value
+      </span>
+    </p>
+  </div>
+</main>
+`;
