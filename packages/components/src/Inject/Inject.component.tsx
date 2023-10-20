@@ -50,7 +50,7 @@ function Inject({ getComponent, component, ...props }: InjectProps) {
 Inject.map = function injectMap(
 	getComponent: GetComponentType,
 	array: InjectConfig[],
-	CustomInject: (props: InjectProps) => JSX.Element | null = Inject,
+	CustomInject: FunctionComponent<InjectProps> = Inject,
 ): JSX.Element[] {
 	return array.map((props, index) => (
 		<CustomInject key={index} getComponent={getComponent} {...props} />
@@ -162,7 +162,7 @@ Inject.getReactElement = function getReactElement(
 		}
 		return <CustomInject {...props} key={key} />;
 	}
-	return data; // We do not throw anything, proptypes should do the job
+	return null; // We do not throw anything, proptypes should do the job
 };
 // @ts-ignore
 Inject.getReactElement.propTypes = PropTypes.oneOfType([
