@@ -2,7 +2,6 @@ import { act, render, screen, fireEvent } from '@testing-library/react';
 import TimeWidget from './Time.component';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 describe('Time component', () => {
 	beforeEach(() => {

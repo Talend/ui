@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Form, ToggleSwitch } from '@talend/design-system';
+import { Form } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { FACETED_MODE, USAGE_TRACKING_TAGS } from '../../constants';
@@ -11,7 +11,7 @@ const theme = getTheme(cssModule);
 
 const SwitchFacetedMode = ({ facetedMode, onChange, t }) => (
 	<Form className={theme('tc-faceted-switch-mode')}>
-		<ToggleSwitch
+		<Form.ToggleSwitch
 			label={t('FACETED_SEARCH_QUERY', 'Query')}
 			checked={facetedMode === FACETED_MODE.ADVANCED}
 			onChange={() =>

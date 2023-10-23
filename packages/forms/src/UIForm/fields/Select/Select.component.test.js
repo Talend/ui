@@ -4,7 +4,6 @@ import omit from 'lodash/omit';
 
 import Select from './Select.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('Select field', () => {

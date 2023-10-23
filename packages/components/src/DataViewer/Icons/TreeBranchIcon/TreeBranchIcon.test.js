@@ -1,12 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Component, { getDefaultIcon } from './TreeBranchIcon.component';
 jest.unmock('@talend/design-system');
-jest.mock('react-i18next', () => {
-	// eslint-disable-next-line global-require
-	const mockTranslations = require('../../../../test/i18nMock').default;
-
-	return mockTranslations();
-});
 
 describe('getDefaultIcon', () => {
 	it('should return a custom object icon', () => {
