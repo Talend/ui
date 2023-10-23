@@ -259,7 +259,6 @@ describe('mergeModule', () => {
 
 		// when
 		const cmfModule = mergeModules(module1, module2, module3);
-		console.error('$$$', cmfModule);
 		render(<cmfModule.RootComponent />);
 
 		// then
