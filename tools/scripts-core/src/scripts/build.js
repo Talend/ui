@@ -6,7 +6,6 @@ import buildUMD from './build-lib-umd.js';
 export default async function build(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 	if (packageType.isApp) {
-		utils.pkg.checkPackageIsInstalled('@talend/scripts-config-react-webpack');
 		const webpack = utils.path.resolveBin('webpack');
 		return utils.process.spawn(
 			webpack,
@@ -25,7 +24,6 @@ export default async function build(env, _, options) {
 	if (packageType.isLib) {
 		// detect UMD here
 		if (options.includes('--umd')) {
-			utils.pkg.checkPackageIsInstalled('@talend/scripts-config-react-webpack');
 			return buildUMD(
 				env,
 				_,

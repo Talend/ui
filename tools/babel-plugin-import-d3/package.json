@@ -18,7 +18,10 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.20",
+    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/scripts-core": "^15.0.0",
+    "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.22.20",
     "babel-jest": "^29.7.0",
     "babel-plugin-tester": "^10.1.0",

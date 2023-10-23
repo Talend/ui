@@ -55,9 +55,7 @@ describe('core', () => {
 		expect(output).toContain('module.exports = React');
 		const manifest = JSON.parse(
 			fs
-				.readFileSync(
-					path.resolve(__dirname, './fixtures/output/basic/app.js.dependencies.json'),
-				)
+				.readFileSync(path.resolve(__dirname, './fixtures/output/basic/app.js.dependencies.json'))
 				.toString(),
 		);
 		expect(manifest.react.peerDependency).toBe('^15.6.1');

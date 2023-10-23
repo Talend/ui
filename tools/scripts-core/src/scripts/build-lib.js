@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
+import { fileURLToPath } from 'url';
 import cpx from 'cpx2';
 import * as utils from '@talend/scripts-utils';
 
@@ -22,11 +23,15 @@ export default async function build(env, presetApi, unsafeOptions) {
 		return true;
 	});
 
-	const babelRootPath = utils.path.getPkgRootPath('@talend/scripts-config-babel');
-	const tsRootPath = utils.path.getPkgRootPath('@talend/scripts-config-typescript');
+	const babelRootPath = path.dirname(
+		fileURLToPath(import.meta.resolve('@talend/scripts-config-babel')),
+	);
+	const tsRootPath = path.dirname(
+		fileURLToPath(import.meta.resolve('@talend/scripts-config-typescript')),
+	);
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
-		path.join(babelRootPath, '.babelrc.json');
+		path.join(babelRootPath, 'babel.config.js');
 	const tscConfigPath =
 		getUserConfigFile(['tsconfig.build.json', 'tsconfig.json']) ||
 		path.join(tsRootPath, 'tsconfig.json');
@@ -39,48 +44,54 @@ export default async function build(env, presetApi, unsafeOptions) {
 		rimraf.sync(targetFolder);
 	}
 	const babelPromise = () =>
-		new Promise(async (resolve, reject) => {
+		new Promise((resolve, reject) => {
 			if (useTsc) {
 				resolve({ status: 0 });
 				return;
 			}
 			console.log('Compiling with babel...');
-			const babelSpawn = await utils.process.spawn(
-				'npx',
-				[
-					'babel',
-					'--config-file',
-					babelConfigPath,
-					'-d',
-					targetFolder,
-					srcFolder,
-					'--source-maps',
-					'--ignore',
-					// @see https://github.com/babel/babel/issues/12008
-					'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
-					'--extensions',
-					'.js,.ts,.tsx,.jsx',
-					...options,
-				],
-				{
-					stdio: 'inherit',
-					env,
-					shell: process.platform === 'win32',
-				},
-			);
-			babelSpawn.on('exit', status => {
-				if (parseInt(status, 10) !== 0) {
-					console.error(`Babel exit error: ${status}`);
-					reject(new Error(status));
-				} else {
-					console.log(`Babel exit: ${status}`);
-					resolve({ status });
-				}
-			});
+			utils.process
+				.spawn(
+					new URL(import.meta.resolve('@babel/cli/bin/babel.js')).pathname,
+					[
+						'--config-file',
+						babelConfigPath,
+						'-d',
+						targetFolder,
+						srcFolder,
+						'--source-maps',
+						'--ignore',
+						// @see https://github.com/babel/babel/issues/12008
+						'**/__mocks__,**/__tests__,**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
+						'--extensions',
+						'.js,.ts,.tsx,.jsx',
+						...options,
+					],
+					{
+						stdio: 'inherit',
+						env,
+						shell: process.platform === 'win32',
+					},
+				)
+				.then(babelSpawn => {
+					babelSpawn.on('exit', status => {
+						if (parseInt(status, 10) !== 0) {
+							console.error(`Babel exit error: ${status}`);
+							reject(new Error(status));
+						} else {
+							console.log(`Babel exit: ${status}`);
+							resolve({ status });
+						}
+					});
+				})
+				.catch(error => {
+					console.error('Spawn error:', error);
+					reject(error);
+				});
 		});
 
 	const tscPromise = () =>
-		new Promise(async (resolve, reject) => {
+		new Promise((resolve, reject) => {
 			if (!isTSLib) {
 				resolve({ status: 0 });
 				return;
@@ -92,32 +103,39 @@ export default async function build(env, presetApi, unsafeOptions) {
 			} else {
 				console.log('Building with tsc');
 			}
-			args = ['tsc'].concat(args);
 
-			const tscSpawn = await utils.process.spawn('npx', args, { stdio: 'inherit', env });
-
-			tscSpawn.on('exit', status => {
-				if (parseInt(status, 10) !== 0) {
-					console.error(`TSC exit error: ${status}`);
-					reject(new Error(status));
-				} else {
-					console.log(`TSC exit: ${status}`);
-					if (!types) {
-						const msg = `Entry "types", referencing your declaration file (index.d.ts), must be defined in ${pkgPath}`;
-						console.error(msg);
-						reject(new Error(msg));
-					} else {
-						const absoluteTypes = path.join(process.cwd(), types);
-						if (!fs.existsSync(absoluteTypes)) {
-							const msg = `Declaration file, referenced in package.json, not found ${absoluteTypes}`;
-							console.error(msg);
-							reject(new Error(msg));
+			const tsc = new URL(import.meta.resolve('typescript/bin/tsc')).pathname;
+			console.log('####TSC', args);
+			utils.process
+				.spawn(tsc, args, { stdio: 'inherit', env })
+				.then(tscSpawn => {
+					tscSpawn.on('exit', status => {
+						if (parseInt(status, 10) !== 0) {
+							console.error(`TSC exit error: ${status}`);
+							reject(new Error(status));
 						} else {
-							resolve({ status });
+							console.log(`TSC exit: ${status}`);
+							if (!types) {
+								const msg = `Entry "types", referencing your declaration file (index.d.ts), must be defined in ${pkgPath}`;
+								console.error(msg);
+								reject(new Error(msg));
+							} else {
+								const absoluteTypes = path.join(process.cwd(), types);
+								if (!fs.existsSync(absoluteTypes)) {
+									const msg = `Declaration file, referenced in package.json, not found ${absoluteTypes}`;
+									console.error(msg);
+									reject(new Error(msg));
+								} else {
+									resolve({ status });
+								}
+							}
 						}
-					}
-				}
-			});
+					});
+				})
+				.catch(error => {
+					console.error('Spawn error:', error);
+					reject(error);
+				});
 		});
 
 	const copyPromise = () =>
@@ -135,7 +153,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 				cpx.copy(`${srcFolder}/**/*.{scss,json}`, targetFolder, err => {
 					if (err) {
 						console.error(err);
-						reject(error);
+						reject(err);
 					} else {
 						resolve();
 					}

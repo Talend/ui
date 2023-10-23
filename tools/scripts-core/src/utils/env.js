@@ -3,7 +3,8 @@ import _ from 'lodash';
 import path from 'path';
 import { createRequire } from 'module';
 
-const require = createRequire(import.meta.url);
+const requireCustom = createRequire(import.meta.url);
+
 const { get } = _;
 /**
  * Get talend-scripts configuration
@@ -14,7 +15,7 @@ function getScriptsConfig() {
 
 	if (fs.existsSync(configFilePath)) {
 		// Load and return first config file found
-		return require(configFilePath);
+		return requireCustom(configFilePath);
 	}
 	configFilePath = path.join(process.cwd(), 'talend-scripts.json');
 	if (fs.existsSync(configFilePath)) {
