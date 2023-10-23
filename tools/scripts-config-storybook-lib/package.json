@@ -47,7 +47,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/scripts-core": "^15.0.0"
+  },
   "msw": {
     "workerDirectory": ".storybook-templates/msw"
   }

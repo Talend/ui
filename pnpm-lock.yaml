@@ -3075,6 +3075,16 @@ importers:
       util:
         specifier: ^0.12.5
         version: 0.12.5
+    devDependencies:
+      '@talend/eslint-config':
+        specifier: ^12.1.1
+        version: link:../scripts-config-eslint
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../eslint-plugin
+      '@talend/scripts-core':
+        specifier: ^15.0.0
+        version: link:../scripts-core
 
   tools/scripts-config-stylelint:
     dependencies:
@@ -21548,7 +21558,7 @@ packages:
       jiti: 1.20.0
       postcss: 8.4.31
       semver: 7.5.4
-      webpack: 5.88.2(esbuild@0.18.20)(webpack-cli@4.10.0)
+      webpack: 5.88.2(webpack-cli@4.10.0)
     transitivePeerDependencies:
       - typescript
 
@@ -23797,7 +23807,7 @@ packages:
     dependencies:
       neo-async: 2.6.2
       sass: 1.69.3
-      webpack: 5.88.2(esbuild@0.18.20)(webpack-cli@4.10.0)
+      webpack: 5.88.2(webpack-cli@4.10.0)
 
   /sass-loader@13.3.2(webpack@5.88.2):
     resolution: {integrity: sha512-CQbKl57kdEv+KDLquhC+gE3pXt74LEAzm+tzywcA0/aHZuub8wTErbjAoNI57rPUWRYRNC5WUnNl8eGJNbDdwg==}
@@ -25382,6 +25392,7 @@ packages:
       serialize-javascript: 6.0.1
       terser: 5.21.0
       webpack: 5.88.2(esbuild@0.18.20)(webpack-cli@4.10.0)
+    dev: true
 
   /terser-webpack-plugin@5.3.9(webpack@5.88.2):
     resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
@@ -26838,6 +26849,7 @@ packages:
       - '@swc/core'
       - esbuild
       - uglify-js
+    dev: true
 
   /webpack@5.88.2(webpack-cli@4.10.0):
     resolution: {integrity: sha512-JmcgNZ1iKj+aiR0OvTYtWQqJwq37Pf683dY9bVORwVbUrDhLhdn/PlO2sHsFHPkj7sHNQF3JwaAkp49V+Sq1tQ==}
