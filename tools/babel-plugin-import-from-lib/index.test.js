@@ -10,10 +10,10 @@ pluginTester({
 			code: `
 			import { SidePanel, Actions, ActionButton, ActionDropdown, List } from '@talend/react-components';`,
 			output: `
-			import List from '@talend/react-components/lib/List';
 			import { ActionDropdown } from '@talend/react-components/lib/Actions';
 			import { ActionButton } from '@talend/react-components/lib/Actions';
 			import { Actions } from '@talend/react-components/lib/Actions';
+			import List from '@talend/react-components/lib/List';
 			import SidePanel from '@talend/react-components/lib/SidePanel';`,
 		},
 		{
