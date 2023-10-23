@@ -28,7 +28,6 @@ exports[`SidePanel should render 1`] = `
   </div>
   <div
     class="theme-action-list-container tc-side-panel-action-list-container"
-    data-simplebar="true"
   >
     <ul
       class="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
