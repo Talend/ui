@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { TabsInternalContext } from './TabsProvider';
 
-type TabPanelPropTypes = {
+export type TabPanelPropTypes = {
 	id: string;
 	children: React.ReactNode | React.ReactNode[];
 	renderIf?: boolean;
