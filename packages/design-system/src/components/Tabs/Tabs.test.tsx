@@ -32,7 +32,7 @@ describe('Tabs', () => {
 		expect(results).toHaveNoViolations();
 	});
 	it('should render accessible html with old api', async () => {
-		const { container } = render(
+		render(
 			<Tabs
 				id="old"
 				tabs={[
