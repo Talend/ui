@@ -150,7 +150,7 @@ export default async function bootstrap(appOptions = {}) {
 	if (options.render !== false) {
 		saga.run();
 
-		const root = ReactDOM.createRoot(document.getElementById(element));
+		const root = ReactDOM.createRoot(element);
 		root.render(
 			<App
 				store={store}
