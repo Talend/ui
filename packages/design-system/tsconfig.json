@@ -1,6 +1,6 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["../../node_modules/cypress", "cypress/**/*", "src/**/*", "custom.d.ts"],
+  "include": ["node_modules/cypress", "cypress/**/*", "src/**/*", "custom.d.ts"],
   "files": [],
   "compilerOptions": {
     "baseUrl": ".",
