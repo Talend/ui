@@ -116,6 +116,8 @@ export const TabAPI = () => (
 				tabTitle: {
 					title: 'Tabs 3',
 					icon: 'user',
+					tag: '999+',
+					tooltip: '1534 Favorite',
 				},
 				tabContent: <>Tab 3</>,
 			},

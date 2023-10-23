@@ -1,53 +1,67 @@
-import { TabsProvider } from './Primitive/TabsProvider';
-import { Tabs as TabList, Tab } from './Primitive/Tabs';
-import { TabPanel } from './Primitive/TabPanel';
+import { TabsProvider, TabsProviderPropTypes } from '../Primitive/TabsProvider';
+import { Tabs as TabList, Tab, TabPropTypes } from '../Primitive/Tabs';
+import { TabPanel, TabPanelPropTypes } from '../Primitive/TabPanel';
 
-type TabTitlePropTypes = {
-	id?: string;
-	title: string;
-	icon?: string;
-	tag?: string | number;
-	tooltip?: string;
-	disabled?: boolean;
+type TabTitlePropTypes = TabPropTypes & {
+	id: string;
 };
+
 type TabItemPropTypes = {
-	tabTitle: string | TabTitlePropTypes;
+	tabTitle?: TabTitlePropTypes | string;
 	tabContent: React.ReactNode;
 };
 
 export type TabsProps = {
 	tabs: TabItemPropTypes[];
-	defaultActiveKey?: string;
+	selectedId?: string;
 	size?: 'S' | 'M' | 'L';
 };
 
 export function Tabs(props: TabsProps) {
 	if (props.tabs) {
+		const tabProviderProps: Partial<TabsProviderPropTypes> = {
+			size: props.size,
+			defaultActiveKey: props.selectedId,
+		};
+		if (props.tabs.length > 0 && !props.selectedId) {
+			if (typeof props.tabs[0].tabTitle === 'string') {
+				tabProviderProps.defaultActiveKey = props.tabs[0].tabTitle;
+			} else if (typeof props.tabs[0].tabTitle === 'object') {
+				tabProviderProps.defaultActiveKey = props.tabs[0].tabTitle.id;
+			}
+		}
 		return (
-			<TabsProvider
-				size={props.size}
-				defaultActiveKey={
-					props.defaultActiveKey || props.tabs[0].tabTitle?.id || props.tabs[0].tabTitle
-				}
-			>
+			<TabsProvider {...tabProviderProps}>
 				<TabList>
-					{props.tabs.map((tab: TabItemPropTypes, index: number) => (
-						<Tab
-							key={index}
-							aria-controls={tab.tabTitle?.id || tab.tabTitle}
-							title={tab.tabTitle?.title || tab.tabTitle}
-							icon={tab.tabTitle?.icon}
-							tag={tab.tabTitle?.tag}
-							tooltip={tab.tabTitle?.tooltip}
-							disabled={tab.tabTitle?.disabled}
-						/>
-					))}
+					{props.tabs.map((tab: TabItemPropTypes, index: number) => {
+						const tabProps: Partial<TabPropTypes> = {};
+						if (typeof tab.tabTitle === 'string') {
+							tabProps['aria-controls'] = tab.tabTitle;
+							tabProps.title = tab.tabTitle;
+						} else if (typeof tab.tabTitle === 'object') {
+							tabProps['aria-controls'] = tab.tabTitle.id;
+							tabProps.title = tab.tabTitle.title;
+							tabProps.icon = tab.tabTitle.icon;
+							tabProps.tag = tab.tabTitle.tag;
+							tabProps.tooltip = tab.tabTitle.tooltip;
+							tabProps.disabled = tab.tabTitle.disabled;
+						}
+						return <Tab key={index} {...(tabProps as TabPropTypes)} />;
+					})}
 				</TabList>
-				{props.tabs.map((tab: TabItemPropTypes, index: number) => (
-					<TabPanel key={index} id={tab.tabTitle?.id || tab.tabTitle}>
-						{tab.tabContent}
-					</TabPanel>
-				))}
+				{props.tabs.map((tab: TabItemPropTypes, index: number) => {
+					const tabPanelProps: Partial<TabPanelPropTypes> = {};
+					if (typeof tab.tabTitle === 'string') {
+						tabPanelProps.id = tab.tabTitle;
+					} else if (typeof tab.tabTitle === 'object') {
+						tabPanelProps.id = tab.tabTitle.id;
+					}
+					return (
+						<TabPanel key={index} {...(tabPanelProps as TabPanelPropTypes)}>
+							{tab.tabContent}
+						</TabPanel>
+					);
+				})}
 			</TabsProvider>
 		);
 	}
