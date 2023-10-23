@@ -18,5 +18,8 @@
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0"
   }
 }

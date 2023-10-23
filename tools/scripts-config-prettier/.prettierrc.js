@@ -3,6 +3,7 @@ const path = require('path');
 const isTS = fs.existsSync(path.join(process.cwd(), 'tsconfig.json'));
 
 module.exports = {
+	plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')],
 	importOrder: [
 		'^@babel/polyfill',
 		'jquery', // jquery needs to be imported before angular
@@ -15,7 +16,7 @@ module.exports = {
 		'.*scss',
 	],
 	importOrderSeparation: true,
-	experimentalBabelParserPluginsList: ['jsx', isTS && 'typescript'].filter(Boolean),
+	importOrderParserPlugins: ['jsx', isTS && 'typescript'].filter(Boolean),
 	printWidth: 100,
 	singleQuote: true,
 	trailingComma: 'all',
