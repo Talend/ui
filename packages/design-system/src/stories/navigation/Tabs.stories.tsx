@@ -109,7 +109,9 @@ export const TabAPI = () => (
 				tabContent: <>Tab 1</>,
 			},
 			{
-				tabTitle: 'Tabs 2',
+				tabTitle: {
+					title: 'Tabs 2',
+				},
 				tabContent: <>Tab 2</>,
 			},
 			{

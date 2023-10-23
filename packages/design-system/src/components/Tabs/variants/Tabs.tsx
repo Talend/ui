@@ -1,9 +1,11 @@
 import { TabsProvider, TabsProviderPropTypes } from '../Primitive/TabsProvider';
 import { Tabs as TabList, Tab, TabPropTypes } from '../Primitive/Tabs';
 import { TabPanel, TabPanelPropTypes } from '../Primitive/TabPanel';
+import { useEffect, useState } from 'react';
+import { randomUUID } from '@talend/utils';
 
-type TabTitlePropTypes = TabPropTypes & {
-	id: string;
+type TabTitlePropTypes = Omit<TabPropTypes, 'aria-controls'> & {
+	id?: string;
 };
 
 type TabItemPropTypes = {
@@ -12,14 +14,23 @@ type TabItemPropTypes = {
 };
 
 export type TabsProps = {
+	id?: string;
 	tabs: TabItemPropTypes[];
 	selectedId?: string;
 	size?: 'S' | 'M' | 'L';
 };
 
 export function Tabs(props: TabsProps) {
+	const [ids, setIds] = useState<string[]>([]);
+	useEffect(() => {
+		if (ids.length !== props.tabs.length) {
+			setIds(props.tabs.map(() => randomUUID()));
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [props.tabs]);
 	if (props.tabs) {
 		const tabProviderProps: Partial<TabsProviderPropTypes> = {
+			id: props.id,
 			size: props.size,
 			defaultActiveKey: props.selectedId,
 		};
@@ -36,10 +47,10 @@ export function Tabs(props: TabsProps) {
 					{props.tabs.map((tab: TabItemPropTypes, index: number) => {
 						const tabProps: Partial<TabPropTypes> = {};
 						if (typeof tab.tabTitle === 'string') {
-							tabProps['aria-controls'] = tab.tabTitle;
+							tabProps['aria-controls'] = ids[index];
 							tabProps.title = tab.tabTitle;
 						} else if (typeof tab.tabTitle === 'object') {
-							tabProps['aria-controls'] = tab.tabTitle.id;
+							tabProps['aria-controls'] = tab.tabTitle.id || ids[index];
 							tabProps.title = tab.tabTitle.title;
 							tabProps.icon = tab.tabTitle.icon;
 							tabProps.tag = tab.tabTitle.tag;
@@ -52,9 +63,9 @@ export function Tabs(props: TabsProps) {
 				{props.tabs.map((tab: TabItemPropTypes, index: number) => {
 					const tabPanelProps: Partial<TabPanelPropTypes> = {};
 					if (typeof tab.tabTitle === 'string') {
-						tabPanelProps.id = tab.tabTitle;
+						tabPanelProps.id = ids[index];
 					} else if (typeof tab.tabTitle === 'object') {
-						tabPanelProps.id = tab.tabTitle.id;
+						tabPanelProps.id = tab.tabTitle.id || ids[index];
 					}
 					return (
 						<TabPanel key={index} {...(tabPanelProps as TabPanelPropTypes)}>

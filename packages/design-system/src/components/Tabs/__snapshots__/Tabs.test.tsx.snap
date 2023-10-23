@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs should render accessible html 1`] = `
-<nav>
+<nav
+  id="kit"
+>
   <div
     class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
   >
