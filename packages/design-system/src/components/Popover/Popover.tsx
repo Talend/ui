@@ -27,7 +27,7 @@ export type PopoverProps = {
 } & PopoverOptions;
 
 export type PopoverStateReturn = {
-	setOpen: () => void;
+	hide: () => void;
 };
 
 export function Popover({
@@ -73,6 +73,7 @@ export function Popover({
 						? children({
 								...popover.getFloatingProps(),
 								setOpen: popover.setOpen,
+								hide: () => popover.setOpen(false),
 						  })
 						: children}
 				</div>

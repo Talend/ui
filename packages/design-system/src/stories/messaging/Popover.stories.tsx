@@ -76,7 +76,7 @@ export const WithFunctionAsChildren = () => (
 			{(popover: PopoverStateReturn) => (
 				<StackVertical gap="S">
 					There is some content
-					<ButtonPrimary onClick={() => popover?.setOpen(false)}>Close Me please</ButtonPrimary>
+					<ButtonPrimary onClick={() => popover?.hide()}>Close Me please</ButtonPrimary>
 				</StackVertical>
 			)}
 			<EasyPopover />
