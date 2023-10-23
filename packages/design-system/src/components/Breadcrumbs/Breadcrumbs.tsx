@@ -25,10 +25,10 @@ type BreadcrumbsRouterLink = {
 	as: ReactElement;
 };
 
-type BreadcrumbsItem = BreadcrumbsRouterLink | BreadcrumbsLink;
+type BreadcrumbsItem = (BreadcrumbsRouterLink | BreadcrumbsLink)[];
 
 export type BreadCrumbsProps = Omit<HTMLAttributes<HTMLElement>, 'className' | 'style'> & {
-	items: BreadcrumbsItem[];
+	items: BreadcrumbsItem;
 };
 
 const maxBreadcrumbsItemLength = 4;
@@ -40,7 +40,6 @@ function BreadcrumbLink({
 	link: BreadcrumbsLink | BreadcrumbsRouterLink;
 	isLastLink: boolean;
 }) {
-	// const destinationProps = 'href' in link ? { href: link.href } : { as: link.as };
 	return (
 		<li className={styles.entry}>
 			<StackHorizontal gap="S" align="center" wrap="nowrap">
@@ -82,13 +81,7 @@ export const Breadcrumbs = forwardRef(
 								<Dropdown
 									aria-label={t('COLLAPSED_LINKS_MENU', 'Collapsed links')}
 									items={collapsed.map(collapsedLinks => {
-										// const refinedProp =
-										// 	'href' in collapsedLinks
-										// 		? { href: collapsedLinks.href }
-										// 		: { as: collapsedLinks.as };
 										return {
-											// label: collapsedLinks.label,
-											// target: collapsedLinks.target,
 											type: 'link',
 											...collapsedLinks,
 										};

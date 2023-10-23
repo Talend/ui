@@ -165,8 +165,10 @@ class NestedListViewWidget extends Component {
 	 * @param { Object } item
 	 */
 	onInputChange(event, item) {
+		console.error('### onInputChange1');
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
+			console.error('### onInputChange2');
 			const { value: searchCriteria } = item;
 			this.setState({
 				searchCriteria,
