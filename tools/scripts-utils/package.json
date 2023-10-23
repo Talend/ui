@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "lint": "talend-scripts lint",
-    "test": "talend-scripts test"
+    "lint": "eslint ./",
+    "test": "jest .test.js"
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
@@ -23,6 +23,10 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.22.15",
+    "eslint": "^7.32.0"
   },
   "homepage": "https://github.com/Talend/ui#readme"
 }
