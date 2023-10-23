@@ -67,6 +67,10 @@ if (!global.self.TextEncoder) {
 	global.self.TextDecoder = require('util').TextDecoder;
 }
 
+if (!global.URL?.revokeObjectURL) {
+	global.URL.revokeObjectURL = jest.fn();
+}
+
 // Mock fetch
 try {
 	const fetch = jest.fn(

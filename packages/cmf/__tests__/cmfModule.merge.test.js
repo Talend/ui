@@ -10,6 +10,7 @@ describe('mergeModule', () => {
 	beforeEach(() => {
 		// eslint-disable-next-line no-console
 		global.console = {
+			...originalLog,
 			warn: jest.fn(),
 			log: jest.fn(),
 		};
@@ -257,8 +258,9 @@ describe('mergeModule', () => {
 		};
 
 		// when
-		const { RootComponent } = mergeModules(module1, module2, module3);
-		render(<RootComponent />);
+		const cmfModule = mergeModules(module1, module2, module3);
+		console.error('$$$', cmfModule);
+		render(<cmfModule.RootComponent />);
 
 		// then
 		const mod1 = screen.getByText('first');
