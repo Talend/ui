@@ -50,7 +50,7 @@ function Inject({ getComponent, component, ...props }: InjectProps) {
 Inject.map = function injectMap(
 	getComponent: GetComponentType,
 	array: InjectConfig[],
-	CustomInject: (props: InjectProps) => JSX.Element | null = Inject,
+	CustomInject: FunctionComponent<InjectProps> = Inject,
 ): JSX.Element[] {
 	return array.map((props, index) => (
 		<CustomInject key={index} getComponent={getComponent} {...props} />
@@ -138,7 +138,7 @@ Inject.getAll = function injectGetAll(
  */
 Inject.getReactElement = function getReactElement(
 	getComponent: GetComponentType,
-	data: InjectedComponentType | InjectedComponentType[] | InjectConfig,
+	data: InjectedComponentType | InjectedComponentType[] | InjectConfig | any,
 	CustomInject: FunctionComponent<InjectProps> = Inject,
 	withKey = false,
 ): ReactNode {

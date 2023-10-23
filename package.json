@@ -32,8 +32,8 @@
     "prepare": "husky install"
   },
   "resolutions": {
-    "**/@types/react": "^17.0.2",
-    "**/@types/react-dom": "^17.0.2",
+    "**/@types/react": "^18.2.7",
+    "**/@types/react-dom": "^18.2.7",
     "**/i18next-scanner-typescript/typescript": "^5.0.4",
     "**/browser-sync-client/typescript": "^5.0.4",
     "**/vinyl-fs/glob-parent": "^5.1.2",
@@ -59,10 +59,10 @@
     ]
   },
   "dependencies": {
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.20",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.7",
     "terser-webpack-plugin": "^5.3.9",
     "typescript": "^5.0.4",
-    "webpack": "^5.73.0"
+    "webpack": "^5.76.3"
   }
 }

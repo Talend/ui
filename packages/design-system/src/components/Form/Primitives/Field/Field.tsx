@@ -69,7 +69,7 @@ const Field = forwardRef(
 		return (
 			<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
 				{LabelComponent}
-				{cloneElement(children, { id: fieldID, hasError, name, required, ...rest }, ref)}
+				{cloneElement(children, { id: fieldID, hasError, name, required, ref, ...rest })}
 				{link && <Link {...link} />}
 				{description && <Description />}
 			</StackVertical>
