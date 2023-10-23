@@ -104,7 +104,13 @@ export const Validation = props => {
 
 				<Select
 					id="notBlue"
-					{...props}
+					name="notBlue"
+					label="Not blue"
+					placeholde="Select a color"
+					options={[
+						{ value: 'blue', name: 'Blue color' },
+						{ value: 'red', name: 'Red color' },
+					]}
 					rules={{
 						validate(value) {
 							return value === 'blue' ? 'This should not be blue' : null;
@@ -122,8 +128,8 @@ export const Validation = props => {
 };
 
 Validation.args = {
+	...States.args,
 	name: 'required',
 	label: 'Required',
 	required: true,
-	options: States.args.options,
 };

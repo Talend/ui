@@ -32,7 +32,7 @@ export interface PortGraphicalAttributes {
 
 export interface PortData {
 	flowType: string;
-	properties?: {};
+	properties?: object;
 }
 
 export interface Port {
@@ -48,15 +48,15 @@ export interface NodeGraphicalAttributes {
 	nodeType: string;
 	label: string;
 	description: string;
-	properties?: {};
+	properties?: object;
 }
 
 export interface NodeData {
 	datasetId: Id;
-	properties?: {};
+	properties?: object;
 	label: string;
 	description: string;
-	datasetInfo?: {};
+	datasetInfo?: object;
 }
 
 export interface Node {
@@ -69,11 +69,11 @@ export interface Node {
 
 export interface LinkGraphicalAttributes {
 	linkType: string;
-	properties?: {};
+	properties?: object;
 }
 
 export interface LinkData {
-	properties?: {};
+	properties?: object;
 }
 
 export interface Link {
@@ -118,14 +118,14 @@ export type LinkRecord = Record<Link> & {
 /** $STATE */
 
 export type PortRecordMap = Map<Id, PortRecord>;
-export type NodeRecordMap = Map<Id, NodeRecord|NestedNodeRecord>;
+export type NodeRecordMap = Map<Id, NodeRecord | NestedNodeRecord>;
 export type LinkRecordMap = Map<Id, LinkRecord>;
 
-type getStateNodes = (selector: ['nodes', Id]) => NodeRecord;
-type getStatePorts = (selector: ['ports', Id]) => PortRecord;
-type getStateLinks = (selector: ['links', Id]) => LinkRecord;
-type getStateIn = (selector: ['in', Id]) => Id;
-type getStateOut = (selector: ['out', Id]) => Id;
+type GetStateNodes = (selector: ['nodes', Id]) => NodeRecord;
+type GetStatePorts = (selector: ['ports', Id]) => PortRecord;
+type GetStateLinks = (selector: ['links', Id]) => LinkRecord;
+type GetStateIn = (selector: ['in', Id]) => Id;
+type GetStateOut = (selector: ['out', Id]) => Id;
 
 export type State = {
 	in: Map<string, Map<Id, Id>>;
@@ -133,7 +133,7 @@ export type State = {
 	transform: Transform;
 	transformToApply?: Transform;
 	out: Map<string, Map<Id, Id>>;
-	nodes: Map<string, Map<Id, NodeRecord|NestedNodeRecord>>;
+	nodes: Map<string, Map<Id, NodeRecord | NestedNodeRecord>>;
 	ports: Map<string, Map<Id, PortRecord>>;
 	children: Map<string, Map<Id, Id>>;
 	nodeTypes: Map<string, Map<Id, any>>;
@@ -169,7 +169,7 @@ export type PortAction =
 	| {
 			type: 'FLOWDESIGNER_PORT_SET_DATA';
 			portId: Id;
-			data: Object;
+			data: object;
 	  }
 	| {
 			type: 'FLOWDESIGNER_PORT_REMOVE_DATA';

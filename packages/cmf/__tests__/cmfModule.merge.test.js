@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-empty-function */
 /* eslint-disable react/prop-types */
 import { render, screen } from '@testing-library/react';
@@ -11,6 +10,7 @@ describe('mergeModule', () => {
 	beforeEach(() => {
 		// eslint-disable-next-line no-console
 		global.console = {
+			...originalLog,
 			warn: jest.fn(),
 			log: jest.fn(),
 		};
@@ -258,8 +258,8 @@ describe('mergeModule', () => {
 		};
 
 		// when
-		const { RootComponent } = mergeModules(module1, module2, module3);
-		render(<RootComponent />);
+		const cmfModule = mergeModules(module1, module2, module3);
+		render(<cmfModule.RootComponent />);
 
 		// then
 		const mod1 = screen.getByText('first');

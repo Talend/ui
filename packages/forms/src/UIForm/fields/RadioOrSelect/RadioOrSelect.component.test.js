@@ -2,7 +2,6 @@ import { screen, render } from '@testing-library/react';
 
 import RadioOrSelect from './RadioOrSelect.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('RadioOrSelect field', () => {
