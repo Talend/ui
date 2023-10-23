@@ -52,6 +52,7 @@ storybook-static
 yarn.lock
 
 .babelrc.json
+babel.config.js
 eslint-report.json
 i18next-scanner.config.js
 stylelint-report.json
