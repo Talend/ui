@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import DatalistTextMode from './TextMode.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 const schema = {
 	title: 'My List',
