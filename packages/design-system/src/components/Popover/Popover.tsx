@@ -70,7 +70,11 @@ export function Popover({
 						fill={tokens.coralColorNeutralBackground}
 					/>
 					{typeof children === 'function'
-						? children({ ...popover.getFloatingProps(), setOpen: popover.setOpen })
+						? children({
+								...popover.getFloatingProps(),
+								setOpen: popover.setOpen,
+								hide: () => popover.setOpen(false),
+						  })
 						: children}
 				</div>
 			</Wrapper>

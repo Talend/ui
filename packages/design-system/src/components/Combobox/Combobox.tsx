@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef, FocusEvent } from 'react';
+import { useState, useCallback, useEffect, useRef, FocusEvent, KeyboardEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useId } from '../../useId';
@@ -20,7 +20,7 @@ export const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	const id = useId(rest.id);
 	const boxId = useId();
 	const noValue = t('COMBOBOX_NOT_RESULT', 'No results found');
-	const onKeydown = useCallback(e => {
+	const onKeydown = useCallback((e: KeyboardEvent) => {
 		if (e.key === 'Escape') {
 			setShow(false);
 		}
