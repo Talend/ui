@@ -169,7 +169,7 @@ const BasicSearch = ({
 									initialFilterValue={initialFilterValue}
 									onClick={(...args) => {
 										onClickOverlayRow(...args);
-										popover?.hide();
+										popover?.setOpen(false);
 									}}
 									t={t}
 								/>

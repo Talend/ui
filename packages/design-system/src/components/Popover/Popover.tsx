@@ -27,7 +27,7 @@ export type PopoverProps = {
 } & PopoverOptions;
 
 export type PopoverStateReturn = {
-	hide: () => void;
+	setOpen: () => void;
 };
 
 export function Popover({
@@ -70,7 +70,10 @@ export function Popover({
 						fill={tokens.coralColorNeutralBackground}
 					/>
 					{typeof children === 'function'
-						? children({ ...popover.getFloatingProps(), setOpen: popover.setOpen })
+						? children({
+								...popover.getFloatingProps(),
+								setOpen: popover.setOpen,
+						  })
 						: children}
 				</div>
 			</Wrapper>
