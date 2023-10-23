@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
+import cpx from 'cpx2';
 import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
-import cpx from 'cpx2';
+
 import * as utils from '@talend/scripts-utils';
 
 import { getUserConfigFile } from '../utils/env.js';
@@ -26,7 +27,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 	const tsRootPath = utils.path.getPkgRootPath('@talend/scripts-config-typescript');
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
-		path.join(babelRootPath, '.babelrc.json');
+		path.join(babelRootPath, 'babel.config.js');
 	const tscConfigPath =
 		getUserConfigFile(['tsconfig.build.json', 'tsconfig.json']) ||
 		path.join(tsRootPath, 'tsconfig.json');
