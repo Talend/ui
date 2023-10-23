@@ -2824,7 +2824,7 @@ importers:
   tools/scripts-config-jest:
     dependencies:
       '@talend/design-system':
-        specifier: ^7.15.1
+        specifier: '>= 7.15.1'
         version: link:../../packages/design-system
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
@@ -2836,22 +2836,25 @@ importers:
         specifier: ^29.5.5
         version: 29.5.5
       ally.js:
-        specifier: ^1.4.1
+        specifier: '>= 1.4.1'
         version: 1.4.1
       babel-jest:
         specifier: ^29.7.0
         version: 29.7.0(@babel/core@7.23.2)
       classnames:
-        specifier: ^2.3.2
+        specifier: '>= 2.3.2'
         version: 2.3.2
       core-js:
         specifier: ^3.32.2
         version: 3.33.0
+      i18next:
+        specifier: '>= 20.6.1'
+        version: 20.6.1
       jest:
         specifier: ^29.7.0
         version: 29.7.0
       jest-axe:
-        specifier: ^8.0.0
+        specifier: '>= 8.0.0'
         version: 8.0.0
       jest-environment-jsdom:
         specifier: ^29.7.0
@@ -2862,12 +2865,18 @@ importers:
       jest-serializer-html:
         specifier: ^7.1.0
         version: 7.1.0
+      prop-types:
+        specifier: '>= 15.8.1'
+        version: 15.8.1
       raf:
         specifier: ^3.4.1
         version: 3.4.1
       react:
         specifier: '>= 16.14.0'
         version: 17.0.2
+      react-i18next:
+        specifier: '>= 11.18.6'
+        version: 11.18.6(i18next@20.6.1)(react-dom@17.0.2)(react@17.0.2)
       regenerator-runtime:
         specifier: ^0.13.11
         version: 0.13.11
@@ -9513,7 +9522,7 @@ packages:
       style-loader: '*'
     dependencies:
       css-loader: 4.3.0(webpack@5.88.2)
-      sass-loader: 13.3.2(webpack@5.88.2)
+      sass-loader: 13.3.2(sass@1.69.3)(webpack@5.88.2)
       style-loader: 3.3.3(webpack@5.88.2)
 
   /@storybook/preview-api@7.4.6:
@@ -12332,7 +12341,7 @@ packages:
       loader-utils: 2.0.4
       make-dir: 3.1.0
       schema-utils: 2.7.1
-      webpack: 5.88.2(@swc/core@1.3.93)(esbuild@0.18.20)
+      webpack: 5.88.2(esbuild@0.18.20)(webpack-cli@4.10.0)
     dev: true
 
   /babel-loader@9.1.3(@babel/core@7.23.2)(webpack@5.88.2):
@@ -14004,7 +14013,7 @@ packages:
       postcss-value-parser: 4.2.0
       schema-utils: 2.7.1
       semver: 7.5.4
-      webpack: 5.88.2(@swc/core@1.3.93)(esbuild@0.18.20)
+      webpack: 5.88.2(esbuild@0.18.20)(webpack-cli@4.10.0)
 
   /css-loader@6.8.1(webpack@5.88.2):
     resolution: {integrity: sha512-xDAXtEVGlD0gJ07iclwWVkLoZOpEvAWaSyf6W18S2pOC//K8+qUDIx8IIT3D+HjnmkJPQeesOPv5aiUaJsCM2g==}
@@ -23783,28 +23792,6 @@ packages:
       sass: 1.69.3
       webpack: 5.88.2(esbuild@0.18.20)(webpack-cli@4.10.0)
 
-  /sass-loader@13.3.2(webpack@5.88.2):
-    resolution: {integrity: sha512-CQbKl57kdEv+KDLquhC+gE3pXt74LEAzm+tzywcA0/aHZuub8wTErbjAoNI57rPUWRYRNC5WUnNl8eGJNbDdwg==}
-    engines: {node: '>= 14.15.0'}
-    peerDependencies:
-      fibers: '>= 3.1.0'
-      node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
-      sass: ^1.3.0
-      sass-embedded: '*'
-      webpack: ^5.0.0
-    peerDependenciesMeta:
-      fibers:
-        optional: true
-      node-sass:
-        optional: true
-      sass:
-        optional: true
-      sass-embedded:
-        optional: true
-    dependencies:
-      neo-async: 2.6.2
-      webpack: 5.88.2(@swc/core@1.3.93)(esbuild@0.18.20)
-
   /sass@1.69.3:
     resolution: {integrity: sha512-X99+a2iGdXkdWn1akFPs0ZmelUzyAQfvqYc2P/MPTrJRuIRoTffGzT9W9nFqG00S+c8hXzVmgxhUuHFdrwxkhQ==}
     engines: {node: '>=14.0.0'}
@@ -24863,7 +24850,7 @@ packages:
     peerDependencies:
       webpack: ^5.0.0
     dependencies:
-      webpack: 5.88.2(@swc/core@1.3.93)(esbuild@0.18.20)
+      webpack: 5.88.2(esbuild@0.18.20)(webpack-cli@4.10.0)
 
   /style-search@0.1.0:
     resolution: {integrity: sha512-Dj1Okke1C3uKKwQcetra4jSuk0DqbzbYtXipzFlFMZtowbF1x7BKJwB9AayVMyFARvU8EDrZdcax4At/452cAg==}
