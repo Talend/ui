@@ -18,7 +18,7 @@ exports[`InlineEditing should render a11y html 1`] = `
         >
           <label
             class="theme-label"
-            for="field--mocked-uuid-5"
+            for="field--mocked-uuid-4"
           >
             Edit the value
           </label>
@@ -31,7 +31,7 @@ exports[`InlineEditing should render a11y html 1`] = `
             data-padding-override="true"
             data-test="inlineediting.input"
             data-testid="inlineediting.input"
-            id="field--mocked-uuid-5"
+            id="field--mocked-uuid-4"
             name="Editthevalue"
             placeholder="What is your Lorem Ipsum?"
             type="text"
@@ -46,7 +46,7 @@ exports[`InlineEditing should render a11y html 1`] = `
           class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS theme-padding-top-0 theme-padding-right-XXS theme-padding-bottom-0 theme-padding-left-XXS"
         >
           <button
-            aria-describedby="id-mocked-uuid-6"
+            aria-describedby="id-mocked-uuid-5"
             aria-label="Cancel"
             class="theme-clickable theme-buttonIcon theme-size_XS"
             data-test="inlineediting.button.cancel"
@@ -71,7 +71,7 @@ exports[`InlineEditing should render a11y html 1`] = `
             </span>
           </button>
           <button
-            aria-describedby="id-mocked-uuid-7"
+            aria-describedby="id-mocked-uuid-6"
             aria-label="Submit"
             class="theme-clickable theme-buttonIcon theme-size_XS"
             data-test="inlineediting.button.submit"

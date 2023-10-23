@@ -58,8 +58,8 @@
     "cross-env": "^7.0.3",
     "i18next": "^23.5.1",
     "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-i18next": "^13.3.0"
   },
   "peerDependencies": {
