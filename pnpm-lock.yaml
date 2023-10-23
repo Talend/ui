@@ -112,6 +112,12 @@ importers:
         specifier: ^7.5.4
         version: 7.5.4
     devDependencies:
+      '@babel/eslint-parser':
+        specifier: ^7.22.15
+        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
       jest:
         specifier: ^29.7.0
         version: 29.7.0

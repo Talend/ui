@@ -1,3 +1,16 @@
 {
-  "root": true
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "plugin:import/recommended"],
+  "env": {
+    "es6": true,
+    "node": true,
+    "jasmine": true,
+    "jest": true
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "requireConfigFile": false
+  }
 }
