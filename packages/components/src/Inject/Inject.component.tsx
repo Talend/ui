@@ -138,7 +138,7 @@ Inject.getAll = function injectGetAll(
  */
 Inject.getReactElement = function getReactElement(
 	getComponent: GetComponentType,
-	data: InjectedComponentType | InjectedComponentType[] | InjectConfig,
+	data: InjectedComponentType | InjectedComponentType[] | InjectConfig | any,
 	CustomInject: FunctionComponent<InjectProps> = Inject,
 	withKey = false,
 ): ReactNode {
@@ -162,7 +162,7 @@ Inject.getReactElement = function getReactElement(
 		}
 		return <CustomInject {...props} key={key} />;
 	}
-	return null; // We do not throw anything, proptypes should do the job
+	return data; // We do not throw anything, proptypes should do the job
 };
 // @ts-ignore
 Inject.getReactElement.propTypes = PropTypes.oneOfType([
