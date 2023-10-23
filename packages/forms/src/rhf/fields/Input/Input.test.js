@@ -5,7 +5,6 @@ import { useForm, FormProvider } from 'react-hook-form';
 import Input from './RHFInput.component';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 /* eslint-disable-next-line react/prop-types */
 function FormWrapper({ children, onSubmit }) {

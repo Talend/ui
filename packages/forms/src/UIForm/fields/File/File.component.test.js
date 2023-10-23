@@ -2,7 +2,6 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import File, { FileWidget, base64Decode } from './File.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('File field', () => {
