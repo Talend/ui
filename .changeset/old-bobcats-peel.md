@@ -1,5 +1,5 @@
 ---
-'@talend/scripts-config-babel': major
+'@talend/scripts-config-babel': minor
 '@talend/scripts-config-react-webpack': minor
 '@talend/react-cmf-webpack-plugin': minor
 '@talend/react-faceted-search': minor
@@ -13,7 +13,6 @@
 '@talend/react-cmf-router': minor
 '@talend/react-components': minor
 '@talend/react-containers': minor
-'@talend/ui-playground': minor
 '@talend/scripts-utils': minor
 '@talend/module-to-cdn': minor
 '@talend/scripts-core': minor
