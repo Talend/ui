@@ -4155,35 +4155,35 @@
   resolved "https://registry.yarnpkg.com/@talend/daikon-tql-client/-/daikon-tql-client-1.3.1.tgz#75a764ec14b06355af3924f3b2d65ff8e61db4f0"
   integrity sha512-trwueNzgISaN2jSNBxuiHw76jWX2G/vtSrCtlTaoeS3NzsCIVUlGryqKZnuBLfZWJyVWeImx9xm34mBOHITMIQ==
 
-"@talend/locales-design-system@^7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-7.3.0.tgz#6b1527dfb1583c98a00654c044cc669b5ce50251"
-  integrity sha512-J5RwvcwW++SC7LGvkxG/MNGNuCe1gUc1mYscAOzZUAxz1VvrlVIWQTaqtfFhdpHsaoKJ3ZPlvOlUOm4GvMKKlw==
+"@talend/locales-design-system@^7.15.1":
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-7.15.1.tgz#decf29fc64fa075c3612586a55947cbd6e56b191"
+  integrity sha512-kBXaGxzhSHkX9YLJ5ikJ1OzS85oFtOeo8dv0vX3YQ9ZE8UP24znpJE9XHHaFNiA+Z+Z5av8I1qpzN4GJqnMxFQ==
 
-"@talend/locales-tui-components@^9.5.0":
-  version "9.5.0"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-components/-/locales-tui-components-9.5.0.tgz#ed16d42d0ddec7bd8e71dd91af63428f5cce3804"
-  integrity sha512-m+Ct7na5uSNBnQG7a869NkbZqQLglQVpspGj/QhfE4SxIwjdUA0zlZauNUThqo7n5LUWm6dNB3F1os6ZZM1lVg==
+"@talend/locales-tui-components@^11.4.5":
+  version "11.4.5"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-components/-/locales-tui-components-11.4.5.tgz#1e7f87f70ecb4e145f4c3b2e28e688091f89ed6a"
+  integrity sha512-BRxRQereUfBEitfu9exRbiE4fsUkJTPKlgG7SSQuTdBHIFizspRBgzfyqhXpwWIw/AsohrOTDEah43J7Iulguw==
 
-"@talend/locales-tui-containers@^8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-containers/-/locales-tui-containers-8.0.2.tgz#a6f4ecef036f51d6fdc706358a52f0beb1570b03"
-  integrity sha512-pBqTK4FHTd3olbujW1Rm2Y6A4z7EZpQ0lTjowK0/4loi5uqXTJXtFuiL2UoGQ7zCWf8b1ILJrvtFi81DpCgvQg==
+"@talend/locales-tui-containers@^9.1.3":
+  version "9.1.3"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-containers/-/locales-tui-containers-9.1.3.tgz#a85c1ef0fd77bc6ba409e8ef7dcbc7fcc4ccb123"
+  integrity sha512-ekeGAyfbpAGdaKNQ3UKJkZI0sOy8Wm9vxA6edakTsd8EDsLW0ZIRXtiaVrHDATJ8crc5g3+59jXlDidw0eFbQQ==
 
-"@talend/locales-tui-dataviz@^0.4.6":
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-dataviz/-/locales-tui-dataviz-0.4.6.tgz#fe51013b25b9c2eaae362d50729449d641627de2"
-  integrity sha512-JxG7Nm7EEbjrU6jZMik1rdHCDivZfcW6T4/YiodaR6PYOivUP5gnPKIn1LxgbgbS69cK/x6RJ5dAaJPg/W7uyA==
+"@talend/locales-tui-dataviz@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-dataviz/-/locales-tui-dataviz-3.0.1.tgz#c90fa243a125fb3552be13e897f2d09d704304b1"
+  integrity sha512-IGBLd7HKoOwQYeh5CAi361x35siO8ZuwuJiiGRTgllXIESkJACoUW1xvUBavaEgwnQsRGP9Y8rFRdh2C/2k7Fg==
 
-"@talend/locales-tui-faceted-search@^8.1.0", "@talend/locales-tui-faceted-search@^8.1.2":
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-faceted-search/-/locales-tui-faceted-search-8.1.2.tgz#c57e3352823d3dbecf36b60012119f7336f668db"
-  integrity sha512-D2z/duk7il+Yk5l9ASYjDAggSAmVPZQ44gADW9of+4dKIB6uqmvvsjIsbLKHzKrsJyxsX+NcWb5a/uUorGKDgA==
+"@talend/locales-tui-faceted-search@^11.3.0":
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-faceted-search/-/locales-tui-faceted-search-11.3.0.tgz#6a8d6e256ac9082cd3e3187f68cd67459b105107"
+  integrity sha512-Wj1t2puu/0vsNLHDgYwMiOCAh4vcHSfA76++vxSfQ0oZLnwXYoIDERcT1NaEnwu6Cpleue5MAuTKgDHryvWiqw==
 
-"@talend/locales-tui-forms@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-9.0.1.tgz#617170646d6f98a572efcccd2caf857ccdfd7e86"
-  integrity sha512-iGTiNoLRkySwyuqZBWeMxWs1qgtTxVxl6qbbLBNpLCEmDkGYMAqvawnOSb+/3E+PHbo7MlzeINDrvIV8pogzOQ==
+"@talend/locales-tui-forms@^10.2.4":
+  version "10.2.4"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-10.2.4.tgz#ea71b0d4876a82bea209d85f7da9d7b5c9bf248c"
+  integrity sha512-3rHgRKv9bc4rpLA3p4CQ7cGEWbHVITv6aRDLjhca6ZFmlQECC0JsghrqUYZ3GZeJmHezWGZm0LLRw4nNXBHwUA==
 
 "@testing-library/cypress@^9.0.0":
   version "9.0.0"
