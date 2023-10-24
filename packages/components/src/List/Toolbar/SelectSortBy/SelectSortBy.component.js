@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import getDefaultT from '../../../translate';
 import theme from './SelectSortBy.module.scss';
-import Icon from '../../../Icon';
+import { Icon } from '@talend/design-system';
 
 function SortByItem({ option, id, t }) {
 	const optionLabel = option.name || option.id;

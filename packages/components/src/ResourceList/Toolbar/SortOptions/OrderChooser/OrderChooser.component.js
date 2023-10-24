@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
-import OverlayTrigger from '../../../../OverlayTrigger';
 import getPropsFrom from '../../../../utils/getPropsFrom';
 
 import theme from './OrderChooser.module.scss';
 import { Icon, Tooltip } from '@talend/design-system';
 
-function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) {
+function OrderChooser({ icon, asc, label, onClick, ...rest }) {
 	return (
 		<Tooltip title={label}>
 			<Button
@@ -42,7 +41,6 @@ OrderChooser.propTypes = {
 	asc: PropTypes.bool,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
-	tooltipPlacement: OverlayTrigger.propTypes.overlayPlacement,
 };
 
 OrderChooser.defaultProps = {

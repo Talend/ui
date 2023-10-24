@@ -2,10 +2,10 @@ import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
-import Icon from '../../../Icon';
 import theme from './TreeBranchIcon.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
+import { Icon } from '@talend/design-system';
 
 /**
  * Allow to use custom get icon function.

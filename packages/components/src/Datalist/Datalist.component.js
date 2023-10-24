@@ -8,9 +8,9 @@ import get from 'lodash/get';
 import Typeahead from '../Typeahead';
 import theme from './Datalist.module.scss';
 import FocusManager from '../FocusManager';
-import Icon from '../Icon';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import { Icon } from '@talend/design-system';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

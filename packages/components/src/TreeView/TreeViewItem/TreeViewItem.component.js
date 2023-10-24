@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import { Component } from 'react';
 import classNames from 'classnames';
 
-import TooltipTrigger from '../../TooltipTrigger';
 import { Action } from '../../Actions';
 import Badge from '../../Badge';
 
 import css from './TreeViewItem.module.scss';
-import { Icon } from '@talend/design-system';
+import { Icon, Tooltip } from '@talend/design-system';
 
 const BASE_PADDING = 30;
 const CARET_WIDTH = 12;
@@ -34,11 +33,11 @@ export function getItemIcon(iconName = 'talend-folder', isOpened) {
 function TreeViewIcon({ icon, isOpened }) {
 	if (typeof icon === 'object') {
 		return icon.tooltipLabel ? (
-			<TooltipTrigger label={icon.tooltipLabel} tooltipPlacement={icon.tooltipPlacement || 'top'}>
+			<Tooltip title={icon.tooltipLabel}>
 				<span>
 					<Icon name={icon.name} className={classNames(css['tc-treeview-img'], icon.className)} />
 				</span>
-			</TooltipTrigger>
+			</Tooltip>
 		) : (
 			<Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />
 		);

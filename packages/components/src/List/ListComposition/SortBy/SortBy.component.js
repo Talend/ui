@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { Navbar, MenuItem, NavDropdown, Nav, Button } from '@talend/react-bootstrap';
 import { randomUUID } from '@talend/utils';
-import Icon from '../../../Icon';
 
 import { useListContext } from '../context';
 
 import cssModule from './SortBy.module.scss';
 import { getTheme } from '../../../theme';
+import { Icon } from '@talend/design-system';
 
 const theme = getTheme(cssModule);
 

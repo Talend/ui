@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import Icon from '../Icon';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import theme from './FormatValue.module.scss';
+import { Icon } from '@talend/design-system';
 
 export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
 const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;

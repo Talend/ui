@@ -6,9 +6,9 @@ import { FormControl } from '@talend/react-bootstrap';
 import keycode from 'keycode';
 import { useTranslation } from 'react-i18next';
 import { Action } from '../Actions';
-import Icon from '../Icon';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import theme from './FilterBar.module.scss';
+import { Icon } from '@talend/design-system';
 
 function forceBlur(event) {
 	event.target.blur();

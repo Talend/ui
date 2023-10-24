@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ThemeProvider } from '@talend/design-system';
 import Inject from '../Inject';
-import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
 import SkipLinks from './SkipLinks';
@@ -116,7 +115,6 @@ Layout.propTypes = {
 	subHeader: Inject.getReactElement.propTypes,
 	mode: PropTypes.oneOf([DISPLAY_MODES.ONE_COLUMN, DISPLAY_MODES.TWO_COLUMNS]),
 	drawers: PropTypes.arrayOf(PropTypes.element),
-	tabs: PropTypes.shape(TabBar.propTypes),
 	hasTheme: PropTypes.bool,
 	theme: PropTypes.string,
 	children: PropTypes.node,

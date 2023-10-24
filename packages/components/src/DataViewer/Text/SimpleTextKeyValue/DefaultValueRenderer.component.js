@@ -2,10 +2,10 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import has from 'lodash/has';
-import TooltipTrigger from '../../../TooltipTrigger';
 import FormatValue from '../../../FormatValue/FormatValue.component';
 
 import theme from './DefaultValueRenderer.module.scss';
+import { Tooltip } from '@talend/design-system';
 
 export const DEFAULT_VALUE_PROP_TYPES = PropTypes.oneOfType([
 	PropTypes.string,
@@ -50,11 +50,7 @@ export default class DefaultValueRenderer extends Component {
 		);
 
 		if (this.props.isValueOverflown) {
-			return (
-				<TooltipTrigger tooltipPlacement="bottom" label={formattedContent}>
-					{content}
-				</TooltipTrigger>
-			);
+			return <Tooltip title={formattedContent}>{content}</Tooltip>;
 		}
 
 		return content;

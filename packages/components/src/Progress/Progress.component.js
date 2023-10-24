@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import TooltipTrigger from '../TooltipTrigger';
-
 import theme from './Progress.module.scss';
+import { Tooltip } from '@talend/design-system';
 
 function normalize(percent) {
 	if (percent > 100) {
@@ -32,11 +31,7 @@ function Progress({ id, percent, tooltip, infinite, contained }) {
 	);
 
 	if (tooltip) {
-		progress = (
-			<TooltipTrigger label={tooltip} tooltipPlacement="bottom">
-				{progress}
-			</TooltipTrigger>
-		);
+		progress = <Tooltip label={tooltip}>{progress}</Tooltip>;
 	}
 
 	let a11yProps;

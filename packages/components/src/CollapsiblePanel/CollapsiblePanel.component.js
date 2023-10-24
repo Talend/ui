@@ -2,14 +2,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Panel, Button } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { ButtonIcon } from '@talend/design-system';
+import { ButtonIcon, Tooltip } from '@talend/design-system';
 
 import OverlayTrigger from '../OverlayTrigger';
 import Action from '../Actions/Action';
 import Status from '../Status';
 import Tag from '../Tag';
-import TooltipTrigger from '../TooltipTrigger';
-
 import css from './CollapsiblePanel.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
@@ -76,11 +74,11 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 		case TYPE_BADGE: {
 			const { label, tooltipLabel, tooltipPlacement, ...rest } = headerItem;
 			return (
-				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+				<Tooltip key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 					<Tag {...rest} className={css[className]}>
 						{label}
 					</Tag>
-				</TooltipTrigger>
+				</Tooltip>
 			);
 		}
 		default: {
@@ -88,9 +86,9 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			const labelExist = tooltipLabel || label;
 			if (labelExist) {
 				return (
-					<TooltipTrigger key={key} label={labelExist} tooltipPlacement={tooltipPlacement}>
+					<Tooltip key={key} label={labelExist} tooltipPlacement={tooltipPlacement}>
 						<div className={css[className]}>{element || label}</div>
-					</TooltipTrigger>
+					</Tooltip>
 				);
 			}
 			return <div className={css[className]}>{element || label}</div>;
@@ -202,13 +200,9 @@ function getTextualContent(content) {
 				{content.head.map((item, index) => {
 					const { label, tooltipPlacement, tooltipLabel, className } = item;
 					return (
-						<TooltipTrigger
-							key={index}
-							label={tooltipLabel || label}
-							tooltipPlacement={tooltipPlacement}
-						>
+						<Tooltip key={index} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 							<span className={className}>{label}</span>
-						</TooltipTrigger>
+						</Tooltip>
 					);
 				})}
 			</div>

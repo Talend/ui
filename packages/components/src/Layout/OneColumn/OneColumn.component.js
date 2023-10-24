@@ -3,8 +3,7 @@ import classnames from 'classnames';
 import omit from 'lodash/omit';
 
 import theme from './OneColumn.module.scss';
-import TabBar from '../../TabBar';
-import WithDrawer from '../../WithDrawer';
+import { FloatingDrawer, Tabs } from '@talend/design-system';
 
 /**
  * @param {object} props react props
@@ -27,10 +26,15 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 			className={container}
 			{...omit(props, 'getComponent')}
 		>
-			<WithDrawer drawers={drawers}>
-				{tabs && <TabBar {...tabs} />}
+			<FloatingDrawer.Container>
+				{tabs && <Tabs {...tabs} />}
 				<div style={style}>{children}</div>
-			</WithDrawer>
+				{drawers.map((drawer, index) => (
+					<FloatingDrawer key={index} visible>
+						{drawer}
+					</FloatingDrawer>
+				))}
+			</FloatingDrawer.Container>
 		</div>
 	);
 }

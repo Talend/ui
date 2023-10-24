@@ -8,8 +8,7 @@ import theme from './Item.module.scss';
 import Checkbox from '../../../Checkbox';
 import ItemPropTypes from './Item.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import Icon from '../../../Icon';
-import TooltipTrigger from '../../../TooltipTrigger';
+import { Icon, Tooltip } from '@talend/design-system';
 
 function itemClasses(isSelected) {
 	return classNames({
@@ -112,11 +111,11 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				)}
 				<span>{actualLabel}</span>
 				{item.icon && (
-					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+					<Tooltip label={item.icon.title}>
 						<span>
 							<Icon {...item.icon} aria-hidden="false" />
 						</span>
-					</TooltipTrigger>
+					</Tooltip>
 				)}
 			</Button>
 		);

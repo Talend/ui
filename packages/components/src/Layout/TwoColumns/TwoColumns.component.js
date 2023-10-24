@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
 
-import TabBar from '../../TabBar';
-import WithDrawer from '../../WithDrawer';
 import Inject from '../../Inject';
 import theme from './TwoColumns.module.scss';
+import { FloatingDrawer, Tabs } from '@talend/design-system';
 
 /**
  * @param {object} props react props
@@ -30,10 +29,15 @@ function TwoColumns({ one, drawers, children, tabs, getComponent, ...props }) {
 				{safeOne}
 			</div>
 			<div className={mainCSS} role="main" id="tc-layout-main" tabIndex="-1">
-				<WithDrawer drawers={drawers}>
-					{tabs && <TabBar {...tabs} />}
+				<FloatingDrawer.Container>
+					{tabs && <Tabs {...tabs} />}
 					<div style={style}>{children}</div>
-				</WithDrawer>
+					{drawers.map((drawer, index) => (
+						<FloatingDrawer key={index} visible>
+							{drawer}
+						</FloatingDrawer>
+					))}
+				</FloatingDrawer.Container>
 			</div>
 		</div>
 	);
@@ -45,7 +49,6 @@ TwoColumns.propTypes = {
 	one: Inject.getReactElement.propTypes,
 	children: PropTypes.node,
 	drawers: PropTypes.arrayOf(PropTypes.node),
-	tabs: PropTypes.shape(TabBar.propTypes),
 	getComponent: PropTypes.func,
 };
 
