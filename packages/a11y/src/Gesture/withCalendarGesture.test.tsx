@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import userEventLib from '@testing-library/user-event';
 import { withCalendarGesture } from './withCalendarGesture';
 import DayCalendar from '../__mocks__/day-calendar';
 import { CalendarGestureProps } from './propTypes';
@@ -71,14 +71,19 @@ describe('withCalendarGesture', () => {
 		goToPreviousMonth: jest.fn(),
 		goToNextMonth: jest.fn(),
 	};
+	let userEvent: any;
+
 	beforeEach(() => {
+		userEvent = userEventLib.setup();
 		jest.clearAllMocks();
 	});
+
 	describe('LEFT keydown', () => {
 		it('should focus on previous day in same week', async () => {
 			// given
 			render(<DayCalendarWithGesture {...props} />);
 			// when
+
 			await userEvent.click(screen.getByTestId('12'));
 			expect(screen.getByTestId('12')).toHaveFocus();
 
