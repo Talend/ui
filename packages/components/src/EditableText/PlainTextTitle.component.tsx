@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import classNames from 'classnames';
 import { TFunction } from 'i18next';
-import TooltipTrigger from '../TooltipTrigger';
 import { Action } from '../Actions';
 import getDefaultT from '../translate';
 import theme from './PlainTextTitle.module.scss';
+import { Tooltip } from '@talend/design-system';
 
 type PlainTextTitleProps = {
 	id?: string;
@@ -31,11 +31,7 @@ export function PlainTextTitle({
 	const ComponentClass = componentClass;
 	return (
 		<div className={theme['tc-editable-text-title']}>
-			<TooltipTrigger
-				label={text}
-				tooltipPlacement="bottom"
-				className="tc-editable-text-wording-wrapper"
-			>
+			<Tooltip title={text}>
 				<ComponentClass
 					id={id}
 					className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
@@ -43,7 +39,7 @@ export function PlainTextTitle({
 				>
 					{text}
 				</ComponentClass>
-			</TooltipTrigger>
+			</Tooltip>
 			<Action
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 				// @ts-ignore

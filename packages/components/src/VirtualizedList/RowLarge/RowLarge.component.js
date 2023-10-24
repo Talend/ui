@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import isEmpty from 'lodash/isEmpty';
 import { Gesture } from '@talend/react-a11y';
-
-import Skeleton from '../../Skeleton';
+import { SkeletonParagraph } from '@talend/design-system';
 
 import {
 	extractSpecialFields,
@@ -26,14 +25,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 const { LARGE } = listTypes;
 
-const SKELETON_SIZES = [Skeleton.SIZES.xlarge, Skeleton.SIZES.large, Skeleton.SIZES.medium];
 const LOADING_ROW_COLUMNS_COUNT = 3;
-
-function RandomSizeSkeleton() {
-	const size = Skeleton.SIZES[SKELETON_SIZES[Math.floor(Math.random() * SKELETON_SIZES.length)]];
-
-	return <Skeleton size={size} />;
-}
 
 function LargeInnerRowLoading({ columns, rows }) {
 	return (
@@ -45,7 +37,7 @@ function LargeInnerRowLoading({ columns, rows }) {
 						{Array(rows)
 							.fill(0)
 							.map((__, innerIndex) => (
-								<RandomSizeSkeleton key={innerIndex} />
+								<SkeletonParagraph key={innerIndex} />
 							))}
 					</div>
 				))}
