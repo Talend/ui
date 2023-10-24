@@ -57,7 +57,7 @@
     "@redux-saga/testing-utils": "^1.1.5",
     "@talend/scripts-core": "^16.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^14.0.0",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.11",
     "node-fetch": "^2.7.0",
