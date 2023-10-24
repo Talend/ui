@@ -5,13 +5,14 @@ import classnames from 'classnames';
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { DeprecatedIconNames } from '../../../../types';
-import Tooltip from '../../../Tooltip';
+import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip';
 import { StackHorizontal } from '../../../Stack';
-import Clickable, { ClickableProps } from '../../../Clickable';
+import { Clickable, ClickableProps } from '../../../Clickable';
 import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
 import { SizedIcon } from '../../../Icon';
 
 import styles from '../AffixStyles.module.scss';
+import { mergeRefs } from '../../../../mergeRef';
 
 type CommonAffixButtonPropsType = {
 	children: string;
@@ -34,7 +35,7 @@ export type AffixButtonPropsType = Omit<ClickableProps, 'className' | 'children'
 	CommonAffixButtonPropsType &
 	(AffixButtonHideTextProps | AffixButtonShowTextProps);
 
-const AffixButton = forwardRef(
+const AffixButton = forwardRef<HTMLButtonElement, AffixButtonPropsType>(
 	(
 		{
 			children,
@@ -47,11 +48,12 @@ const AffixButton = forwardRef(
 		}: AffixButtonPropsType,
 		ref: Ref<HTMLButtonElement>,
 	) => {
-		const element = (
+		const element = (subProps: TooltipChildrenFnProps, subRef: TooltipChildrenFnRef) => (
 			<Clickable
+				{...subProps}
 				type="button"
 				onClick={onClick}
-				ref={ref}
+				ref={subRef}
 				{...rest}
 				className={classnames(styles.affix, styles.button, { [styles.affix_isSuffix]: isSuffix })}
 			>
@@ -74,12 +76,14 @@ const AffixButton = forwardRef(
 		if (hideText) {
 			return (
 				<Tooltip title={children} placement="top">
-					{element}
+					{(triggerProps: TooltipChildrenFnProps, triggerRef: TooltipChildrenFnRef) =>
+						element(triggerProps, mergeRefs<HTMLButtonElement>([triggerRef, ref]))
+					}
 				</Tooltip>
 			);
 		}
 
-		return element;
+		return element({}, ref);
 	},
 );
 

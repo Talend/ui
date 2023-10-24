@@ -28,8 +28,6 @@ $mark-size: calc(#{tokens.$coral-sizing-xxs} / 2);
 		&::before,
 		&::after {
 			content: '';
-			width: $radio-size;
-			height: $radio-size;
 			border-radius: tokens.$coral-radius-round;
 			transition: tokens.$coral-transition-fast;
 			display: block;
@@ -42,6 +40,8 @@ $mark-size: calc(#{tokens.$coral-sizing-xxs} / 2);
 		// Radio
 		&::before {
 			z-index: 1;
+			width: $radio-size;
+			height: $radio-size;
 			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 			background: tokens.$coral-color-neutral-background-medium;
 		}
@@ -113,7 +113,6 @@ $mark-size: calc(#{tokens.$coral-sizing-xxs} / 2);
 			background: tokens.$coral-color-accent-background-strong-active;
 		}
 	}
-
 
 	// Disabled and read-only cases
 

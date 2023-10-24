@@ -4,7 +4,7 @@ import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive
 import classnames from 'classnames';
 import styles from './BadgeValue.module.scss';
 import { StackHorizontal } from '../../Stack';
-import Divider from '../../Divider';
+import { Divider } from '../../Divider';
 
 export type BadgeValueProps = BadgePrimitiveProps & {
 	/**

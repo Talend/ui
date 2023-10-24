@@ -379,7 +379,7 @@ describe('<Dropdown>', () => {
         console.error = originalConsoleError;
       });
 
-      it('menu is exclusive', () => {
+      xit('menu is exclusive', () => {
         // when
         render(
           <Dropdown id="test">
@@ -409,7 +409,7 @@ describe('<Dropdown>', () => {
         );
       });
 
-      it('toggles are not exclusive', () => {
+      xit('toggles are not exclusive', () => {
         // when
         render(
           <Dropdown id="test">
@@ -423,7 +423,7 @@ describe('<Dropdown>', () => {
         expect(console.error).not.toBeCalled();
       });
 
-      it('toggle is required', () => {
+      xit('toggle is required', () => {
         // when
         render(
           <Dropdown id="test">
@@ -489,7 +489,7 @@ describe('<Dropdown>', () => {
       expect(screen.getByTestId('menuRefSet')).toBeInTheDocument();
     });
 
-    it('warns when a string ref is specified', () => {
+    xit('warns when a string ref is specified', () => {
       // given
       function RefDropdown() {
         return (

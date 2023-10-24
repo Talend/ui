@@ -6,6 +6,7 @@ exports[`DisplayModeToggle should render 1`] = `
 >
   <button
     aria-describedby="id-42"
+    aria-label="Set Table as current display mode."
     aria-pressed="false"
     class="theme-clickable theme-buttonIcon theme-toggle theme-size_S"
     id="undefined-table"
@@ -28,6 +29,7 @@ exports[`DisplayModeToggle should render 1`] = `
   </button>
   <button
     aria-describedby="id-42"
+    aria-label="Set Expanded as current display mode."
     aria-pressed="false"
     class="theme-clickable theme-buttonIcon theme-toggle theme-size_S"
     id="undefined-large"

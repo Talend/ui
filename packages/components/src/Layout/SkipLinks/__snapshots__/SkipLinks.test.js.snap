@@ -16,7 +16,6 @@ exports[`Skip links should render 1`] = `
           <span
             class="CoralIcon"
             name="talend-arrow-left"
-            transform="rotate-270"
           />
         </span>
         <span
@@ -36,7 +35,6 @@ exports[`Skip links should render 1`] = `
           <span
             class="CoralIcon"
             name="talend-arrow-left"
-            transform="rotate-270"
           />
         </span>
         <span

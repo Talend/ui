@@ -65,13 +65,12 @@ exports[`ColumnChooser should render with default props 1`] = `
           <div
             class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
           >
-            <span
+            <div
               class="theme-checkbox"
             >
               <input
                 aria-checked="mixed"
                 aria-describedby="my-id-body-display all the columns"
-                checked=""
                 data-feature="column-chooser.select.all"
                 id="my-id-body-checkbox-Select-all"
                 type="checkbox"
@@ -82,7 +81,7 @@ exports[`ColumnChooser should render with default props 1`] = `
               >
                 Select all
               </label>
-            </span>
+            </div>
             <div
               class="sr-only"
               id="my-id-body-display all the columns"
@@ -96,7 +95,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <span
+              <div
                 class="theme-checkbox"
               >
                 <input
@@ -113,7 +112,7 @@ exports[`ColumnChooser should render with default props 1`] = `
                 >
                   Id
                 </label>
-              </span>
+              </div>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Id"
@@ -124,7 +123,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <span
+              <div
                 class="theme-checkbox"
               >
                 <input
@@ -141,7 +140,7 @@ exports[`ColumnChooser should render with default props 1`] = `
                 >
                   Name
                 </label>
-              </span>
+              </div>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Name"
@@ -152,7 +151,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <span
+              <div
                 class="theme-checkbox"
               >
                 <input
@@ -169,7 +168,7 @@ exports[`ColumnChooser should render with default props 1`] = `
                 >
                   Author
                 </label>
-              </span>
+              </div>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Author"
@@ -180,7 +179,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <span
+              <div
                 class="theme-checkbox"
               >
                 <input
@@ -197,7 +196,7 @@ exports[`ColumnChooser should render with default props 1`] = `
                 >
                   Very long name long name long name long name long name
                 </label>
-              </span>
+              </div>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Very long name long name long name long name long name"
@@ -208,7 +207,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <span
+              <div
                 class="theme-checkbox"
               >
                 <input
@@ -224,7 +223,7 @@ exports[`ColumnChooser should render with default props 1`] = `
                 >
                   Icon
                 </label>
-              </span>
+              </div>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Icon"
@@ -235,7 +234,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <div
               class="tc-column-chooser-row theme-tc-column-chooser-row"
             >
-              <span
+              <div
                 class="theme-checkbox"
               >
                 <input
@@ -252,7 +251,7 @@ exports[`ColumnChooser should render with default props 1`] = `
                 >
                   Created
                 </label>
-              </span>
+              </div>
               <div
                 class="sr-only"
                 id="my-id-body-display the column Created"

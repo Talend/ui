@@ -1,4 +1,5 @@
 import type { Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src';
 import { concepts } from './json';
 import { argTypes } from './argTypes';
@@ -18,6 +19,10 @@ export const ConditionalRender = {
 export const CustomValidation = {
 	args: {
 		data: concepts.customValidation,
+		CustomValidation: (schema: any, value: any, properties: any) => {
+			action('customValidation')(schema, value, properties);
+			return value.length >= 5 && 'Custom validation : The value should be less than 5 chars';
+		},
 	},
 };
 export const FormatValidation = {

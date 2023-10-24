@@ -36,8 +36,8 @@ function RichRadioButtonIcon({ asset }: { asset?: LogoAsset | IllustrationAsset 
 
 	return null;
 }
-
-const RichRadioButton = ({
+export type { RichRadioButtonProps };
+export const RichRadioButton = ({
 	dataFeature,
 	description,
 	asset,

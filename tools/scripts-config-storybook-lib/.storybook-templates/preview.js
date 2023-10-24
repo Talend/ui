@@ -94,10 +94,18 @@ const defaultPreview = {
 			const storyElement = React.createElement(Story, {...context, key: 'story'});
 			return [
 				React.createElement(IconsProvider, {
-					key: 'icons-provider-decorator'
+					key: 'icons-provider-decorator',
+					bundles: [
+						'all.svg',
+						'XS.svg',
+						'S.svg',
+						'M.svg',
+						'L.svg',
+					]
 				}),
 				React.createElement(ToggleBootstrap, {
 					disabled: context.globals.bootstrapTheme === 'false',
+					key: 'toggle-bootstrap-decorator'
 				}),
 				React.createElement(ThemeProvider, {
 					key: 'theme-provider-decorator',

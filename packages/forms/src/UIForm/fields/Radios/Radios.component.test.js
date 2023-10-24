@@ -2,7 +2,6 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Radios from './Radios.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('Radios field', () => {

@@ -1,6 +1,6 @@
 import { Children, PropsWithChildren, Ref } from 'react';
 
-import Divider from '../../Divider';
+import { Divider } from '../../Divider';
 
 import classnames from 'classnames';
 import styles from './BadgePrimitive.module.scss';

@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import createSagaMiddleware from 'redux-saga';
 
 import bootstrap, * as internals from '../src/bootstrap';
@@ -11,9 +11,12 @@ import storeAPI from '../src/store';
 import sagas from '../src/sagas';
 import onError from '../src/onError';
 
-jest.mock('react-dom', () => ({
-	render: jest.fn(),
+jest.mock('react-dom/client', () => ({
+	createRoot: jest.fn().mockImplementation(() => ({
+		render: jest.fn(),
+	})),
 }));
+
 jest.mock('redux-saga', () => ({
 	__esModule: true, // this property makes it work
 	default: (() => {
@@ -60,7 +63,7 @@ jest.mock('../src/store', () => ({
 describe('bootstrap', () => {
 	beforeEach(() => {
 		onError.bootstrap.mockClear();
-		ReactDOM.render.mockClear();
+		jest.clearAllMocks();
 	});
 	describe('error management', () => {
 		it('should bootstrap onError', async () => {
@@ -205,11 +208,9 @@ describe('bootstrap', () => {
 			const options = {
 				root: div,
 			};
-			expect(ReactDOM.render).not.toHaveBeenCalled();
+			expect(ReactDOM.createRoot).not.toHaveBeenCalled();
 			await bootstrap(options);
-			expect(ReactDOM.render).toHaveBeenCalled();
-			const args = ReactDOM.render.mock.calls[0];
-			expect(args[1]).toBe(div);
+			expect(ReactDOM.createRoot).toHaveBeenCalled();
 		});
 	});
 });

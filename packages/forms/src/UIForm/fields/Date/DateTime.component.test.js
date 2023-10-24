@@ -1,7 +1,6 @@
 import { act, render, screen, fireEvent } from '@testing-library/react';
 import DateTimeWidget from './DateTime.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('DateTime widget', () => {

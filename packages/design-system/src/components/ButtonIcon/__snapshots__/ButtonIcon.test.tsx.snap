@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonIcon should render accessible html 1`] = `
+<button
+  aria-describedby="id-42"
+  aria-label="should be required"
+  class="theme-clickable theme-buttonIcon"
+  tabindex="0"
+  type="button"
+>
+  <span
+    aria-hidden="true"
+    class="theme-buttonIcon__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left"
+      focusable="false"
+      name="talend-arrow-left"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </span>
+</button>
+`;

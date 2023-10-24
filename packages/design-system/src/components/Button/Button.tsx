@@ -1,6 +1,6 @@
 import { forwardRef, Ref } from 'react';
 
-import ButtonPrimary, { ButtonPrimaryPropsType } from './variations/ButtonPrimary';
+import { ButtonPrimary, ButtonPrimaryPropsType } from './variations/ButtonPrimary';
 import ButtonSecondary, { ButtonSecondaryPropsType } from './variations/ButtonSecondary';
 import ButtonTertiary, { ButtonTertiaryPropsType } from './variations/ButtonTertiary';
 import ButtonDestructive, { ButtonDestructivePropsType } from './variations/ButtonDestructive';
@@ -54,8 +54,6 @@ function ButtonPlatform<S extends AvailableSizes>(
 	}
 }
 
-const Button = forwardRef(ButtonPlatform) as <S extends AvailableSizes>(
+export const Button = forwardRef(ButtonPlatform) as <S extends AvailableSizes>(
 	props: ButtonType<S> & { ref?: Ref<HTMLButtonElement> },
 ) => ReturnType<typeof ButtonPlatform>;
-
-export default Button;
