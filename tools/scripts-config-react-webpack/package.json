@@ -14,7 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "echo \"Not possible to use talend-scripts here (risk of circular dependency)\" && exit 0",
+    "lint": "eslint ./",
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
@@ -57,6 +57,10 @@
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.1"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.22.15",
+    "eslint": "^7.32.0"
   },
   "publishConfig": {
     "access": "public"

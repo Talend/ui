@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-jest",
   "description": "Jest configuration for @talend/scripts-core",
-  "version": "12.2.0",
+  "version": "13.0.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -33,12 +33,12 @@
   "peerDependencies": {
     "@talend/design-system": ">= 7.15.1",
     "ally.js": ">= 1.4.1",
-    "i18next": ">= 20.6.1",
+    "i18next": ">= 23.5.1",
     "classnames": ">= 2.3.2",
     "jest-axe": ">= 8.0.0",
     "prop-types": ">= 15.8.1",
     "react": ">= 16.14.0",
-    "react-i18next": ">= 11.18.6"
+    "react-i18next": ">= 13.3.0"
   },
   "peerDependenciesMeta": {
     "@talend/design-system": {

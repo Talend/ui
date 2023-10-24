@@ -14,12 +14,15 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "echo \"Not possible to use talend-scripts here (risk of circular dependency)\" && exit 0",
+    "lint": "eslint index.js __tests__",
     "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.22.15",
-    "@talend/scripts-utils": "^2.0.2",
+    "@talend/eslint-plugin": "^1.0.1",
     "@typescript-eslint/parser": "^5.62.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "eslint": "^7.32.0",
@@ -37,9 +40,6 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "eslint-plugin-storybook": "^0.5.13",
     "eslint-plugin-testing-library": "^5.11.1"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
   },
   "publishConfig": {
     "access": "public"

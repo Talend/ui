@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import cpx from 'cpx2';
 import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';

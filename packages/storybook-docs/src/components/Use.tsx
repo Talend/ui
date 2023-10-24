@@ -13,9 +13,7 @@ type BlockTypes = {
 const Block = ({ title, children, className, ...rest }: BlockTypes) => {
 	return (
 		<div className={classnames(styles.block, className)} {...rest}>
-			<strong className={styles.block__title}>
-				{title}
-			</strong>
+			<strong className={styles.block__title}>{title}</strong>
 			{children}
 		</div>
 	);

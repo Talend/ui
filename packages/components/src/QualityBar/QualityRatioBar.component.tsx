@@ -60,7 +60,7 @@ export function QualityInvalidLine({ percentage, value, ...rest }: SpecificQuali
 			type={QualityType.INVALID}
 			tooltipLabel={t('INVALID_VALUES', {
 				defaultValue: '{{value}} invalid value ({{percentage}}%)',
-				defaultValue_plural: '{{value}} invalid values ({{percentage}}%)',
+				defaultValue_other: '{{value}} invalid values ({{percentage}}%)',
 				count: value,
 				percentage,
 				value: formatNumber(value),
@@ -80,7 +80,7 @@ export function QualityValidLine({ percentage, value, ...rest }: SpecificQuality
 			type={QualityType.VALID}
 			tooltipLabel={t('VALID_VALUES', {
 				defaultValue: '{{value}} valid value ({{percentage}}%)',
-				defaultValue_plural: '{{value}} valid values ({{percentage}}%)',
+				defaultValue_other: '{{value}} valid values ({{percentage}}%)',
 				count: value,
 				percentage,
 				value: formatNumber(value),
@@ -100,7 +100,7 @@ export function QualityEmptyLine({ percentage, value, ...rest }: SpecificQuality
 			type={QualityType.EMPTY}
 			tooltipLabel={t('EMPTY_VALUES', {
 				defaultValue: '{{value}} empty value ({{percentage}}%)',
-				defaultValue_plural: '{{value}} empty values ({{percentage}}%)',
+				defaultValue_other: '{{value}} empty values ({{percentage}}%)',
 				count: value,
 				percentage,
 				value: formatNumber(value),
@@ -120,7 +120,7 @@ export function QualityNotApplicableLine({ percentage, value, ...rest }: Specifi
 			type={QualityType.NA}
 			tooltipLabel={t('NOT_APPLICABLE_VALUES', {
 				defaultValue: '{{value}} not applicable value ({{percentage}}%)',
-				defaultValue_plural: '{{value}} not applicable values ({{percentage}}%)',
+				defaultValue_other: '{{value}} not applicable values ({{percentage}}%)',
 				count: value,
 				percentage,
 				value: formatNumber(value),
