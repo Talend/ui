@@ -7,7 +7,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build:lib": "talend-scripts build",
-    "test": "talend-scripts test",
+    "test": "talend-scripts test ./src",
     "lint": "talend-scripts lint"
   },
   "keywords": [
