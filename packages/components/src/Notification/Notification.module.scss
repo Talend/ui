@@ -85,6 +85,7 @@ $tc-notification-icon-size: $svg-md-size !default;
 	&-message {
 		margin-right: $padding-larger;
 		font-size: $font-size-small;
+		word-break: break-all;
 
 		&:last-of-type {
 			margin-bottom: 0;

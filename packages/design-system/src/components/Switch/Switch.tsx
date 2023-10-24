@@ -17,7 +17,6 @@ export type SwitchProps = PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>,
 	checked?: boolean;
 	disabled?: boolean;
 	readOnly?: boolean;
-	// Redefine onChange prop
 	onChange?: (event: MouseEvent<HTMLButtonElement>, selectedValue: string) => void;
 };
 

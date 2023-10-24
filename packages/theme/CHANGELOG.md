@@ -1,5 +1,12 @@
 # @talend/bootstrap-theme
 
+## 8.2.1
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+  - @talend/icons@7.0.0
+
 ## 8.2.0
 
 ### Minor Changes
