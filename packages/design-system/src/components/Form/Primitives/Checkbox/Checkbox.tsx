@@ -7,7 +7,6 @@ import {
 	useRef,
 	useImperativeHandle,
 } from 'react';
-import { ReactI18NextChild } from 'react-i18next';
 import classnames from 'classnames';
 
 import { useId } from '../../../../useId';
@@ -23,7 +22,7 @@ type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
 export type CheckboxPrimitiveType = Omit<CheckboxProps, 'type' | 'prefix'> & {
 	id?: string;
 	indeterminate?: boolean;
-	label: string | ReactElement | ReactI18NextChild;
+	label: string | ReactElement;
 	isInline?: boolean;
 	name: string;
 };

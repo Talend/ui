@@ -50,7 +50,7 @@
     "@talend/locales-tui-forms": "^9.0.1",
     "@talend/scripts-core": "^15.0.0",
     "@types/react": "^18.2.0",
-    "i18next": "^20.6.1",
+    "i18next": "^23.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "~6.3.0"
