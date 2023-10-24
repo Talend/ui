@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import utils from '../src';
+const utils = require('../src');
 
 describe('utils.path', () => {
 	describe('hereRelative', () => {
