@@ -12,7 +12,7 @@ import VirtualizedList from '../VirtualizedList';
 import getRowSelectionRenderer from '../VirtualizedList/RowSelection';
 
 import cssModule from './ResourceList.module.scss';
-import Icon from '../Icon';
+import { Icon } from '@talend/design-system';
 
 const theme = getTheme(cssModule);
 

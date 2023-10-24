@@ -3,7 +3,7 @@ import { Action } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
 import CellTitleInput from './CellTitleInput.component';
 import CellLink from '../CellLink/CellLink.component';
-import TooltipTrigger from '../../TooltipTrigger';
+import { Tooltip } from '@talend/design-system';
 
 const { TITLE_MODE_TEXT, TITLE_MODE_INPUT } = cellTitleDisplayModes;
 
@@ -66,11 +66,11 @@ function CellTitleSelector(props) {
 	}
 
 	return (
-		<TooltipTrigger label={tooltip || cellData} tooltipPlacement="top">
+		<Tooltip title={tooltip || cellData}>
 			<span id={id} className={className}>
 				{cellData}
 			</span>
-		</TooltipTrigger>
+		</Tooltip>
 	);
 }
 

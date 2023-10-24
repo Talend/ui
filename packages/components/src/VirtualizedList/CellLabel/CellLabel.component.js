@@ -1,13 +1,14 @@
+import { Tag } from '@talend/design-system';
 import PropTypes from 'prop-types';
-import Tag from '../../Tag';
 
 /**
  * Cell renderer that displays a label
  */
 function CellLabel({ cellData, rowIndex }) {
 	const label = typeof cellData === 'string' ? cellData : cellData?.label;
+	const variant = cellData?.style || 'information';
 	return (
-		<Tag id={`${rowIndex}`} bsStyle={cellData?.style || 'info'} title={label}>
+		<Tag id={`${rowIndex}`} variant={variant} title={label}>
 			{label}
 		</Tag>
 	);

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { SortIndicator } from 'react-virtualized';
 
-import Icon from '../../Icon';
+import { Icon } from '@talend/design-system';
 import theme from './HeaderIcon.module.scss';
 
 /**

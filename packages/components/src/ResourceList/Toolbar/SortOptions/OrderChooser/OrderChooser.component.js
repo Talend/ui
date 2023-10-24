@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
-import Icon from '../../../../Icon';
-import TooltipTrigger from '../../../../TooltipTrigger';
 import OverlayTrigger from '../../../../OverlayTrigger';
 import getPropsFrom from '../../../../utils/getPropsFrom';
 
 import theme from './OrderChooser.module.scss';
+import { Icon, Tooltip } from '@talend/design-system';
 
 function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) {
 	return (
-		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
+		<Tooltip title={label}>
 			<Button
 				{...getPropsFrom(Button, rest)}
 				aria-label={label}
@@ -33,7 +32,7 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 					)}
 				/>
 			</Button>
-		</TooltipTrigger>
+		</Tooltip>
 	);
 }
 

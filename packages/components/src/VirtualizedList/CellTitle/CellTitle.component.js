@@ -2,13 +2,12 @@ import PropTypes from 'prop-types';
 import { Component, Fragment } from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
-import Icon from '../../Icon';
-import TooltipTrigger from '../../TooltipTrigger';
 import CellTitleSelector from './CellTitleSelector.component';
 import CellTitleActions from './CellTitleActions.component';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
 
 import theme from './CellTitle.module.scss';
+import { Icon, Tooltip } from '@talend/design-system';
 
 const { LARGE } = listTypes;
 const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
@@ -69,11 +68,11 @@ class CellTitle extends Component {
 		}
 		if (icon && iconLabelKey && rowData[iconLabelKey]) {
 			icon = (
-				<TooltipTrigger label={rowData[iconLabelKey]} tooltipPlacement="top">
+				<Tooltip title={rowData[iconLabelKey]}>
 					<span>
 						<Icon name={rowData[iconKey]} className={theme.icon} />
 					</span>
-				</TooltipTrigger>
+				</Tooltip>
 			);
 		}
 		const defaultTitle = (
@@ -114,11 +113,11 @@ class CellTitle extends Component {
 			>
 				{icon}
 				{disabled ? (
-					<TooltipTrigger label={tooltip || cellData} tooltipPlacement="top">
+					<Tooltip title={tooltip || cellData}>
 						<span id={titleId} className={theme['main-title']}>
 							{cellData}
 						</span>
-					</TooltipTrigger>
+					</Tooltip>
 				) : (
 					defaultTitle
 				)}

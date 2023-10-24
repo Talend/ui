@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import { InlineEditing } from '@talend/design-system';
 
-import Skeleton from '../../Skeleton';
 import titleSubHeaderCssModule from './TitleSubHeader.module.scss';
-import Icon from '../../Icon';
 import Inject from '../../Inject';
 import getDefaultT from '../../translate';
-import TooltipTrigger from '../../TooltipTrigger';
 import { getTheme } from '../../theme';
 import { SubTitle } from './SubTitle.component';
+import { Tooltip } from '@talend/design-system';
+import { Icon } from '@talend/design-system';
+import { SkeletonParagraph } from '@talend/design-system';
 const theme = getTheme(titleSubHeaderCssModule);
 
 function TitleSubHeader({
@@ -33,7 +33,7 @@ function TitleSubHeader({
 	}
 
 	if (loading) {
-		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
+		return <SkeletonParagraph />;
 	}
 
 	const InjectedInlineEditingText = Inject.get(getComponent, 'InlineEditing', InlineEditing.Text);
@@ -61,11 +61,11 @@ function TitleSubHeader({
 							{...rest}
 						/>
 					) : (
-						<TooltipTrigger label={title} tooltipPlacement="bottom">
+						<Tooltip title={title}>
 							<h1 className={theme('tc-subheader-details-text-title-wording')} {...rest.titleProps}>
 								{title}
 							</h1>
-						</TooltipTrigger>
+						</Tooltip>
 					)}
 				</div>
 				{!isEditMode ? <SubTitle {...rest} /> : null}

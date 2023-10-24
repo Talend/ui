@@ -2,14 +2,13 @@ import has from 'lodash/has';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { ButtonIcon } from '@talend/design-system';
+import { ButtonIcon, SkeletonParagraph } from '@talend/design-system';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import TitleSubHeader from './TitleSubHeader';
 import Inject from '../Inject';
-import Skeleton from '../Skeleton';
 import theme from './SubHeaderBar.module.scss';
 
 function SubHeaderBarActions({ children, tag, left, right, center, hasRight }) {
@@ -85,7 +84,7 @@ function SubHeaderBar({
 				className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
 				right
 			>
-				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+				<SkeletonParagraph />
 			</SubHeaderBarActions>
 		);
 	} else {

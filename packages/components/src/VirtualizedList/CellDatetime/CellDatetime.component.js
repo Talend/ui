@@ -14,7 +14,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
 import styles from './CellDatetime.module.scss';
-import TooltipTrigger from '../../TooltipTrigger';
+import { Tooltip } from '@talend/design-system';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
@@ -85,14 +85,7 @@ export class CellDatetimeComponent extends Component {
 			</div>
 		);
 
-		return (
-			<TooltipTrigger
-				label={tooltipLabel || computedValue}
-				tooltipPlacement={columnData.tooltipPlacement || 'top'}
-			>
-				{cell}
-			</TooltipTrigger>
-		);
+		return <Tooltip title={tooltipLabel || computedValue}>{cell}</Tooltip>;
 	}
 }
 

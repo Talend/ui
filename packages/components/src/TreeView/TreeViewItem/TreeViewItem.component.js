@@ -4,10 +4,10 @@ import classNames from 'classnames';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import { Action } from '../../Actions';
-import Icon from '../../Icon';
 import Badge from '../../Badge';
 
 import css from './TreeViewItem.module.scss';
+import { Icon } from '@talend/design-system';
 
 const BASE_PADDING = 30;
 const CARET_WIDTH = 12;
