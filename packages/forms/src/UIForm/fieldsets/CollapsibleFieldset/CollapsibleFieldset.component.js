@@ -71,7 +71,8 @@ export function defaultTitle(formData, schema, options) {
  * @param {function} title the function called by the component to compute the title
  * @return {function} CollapsibleFieldset react component
  */
-export default function createCollapsibleFieldset(title = defaultTitle) {
+// eslint-disable-next-line @typescript-eslint/default-param-last
+export default function createCollapsibleFieldset(title = defaultTitle, managed) {
 	function CollapsibleFieldset(props) {
 		function toggle(event) {
 			// event.stopPropagation();
@@ -98,7 +99,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					onToggleExpanded={toggle}
 					onToggle={toggle}
 					index={index}
-					managed
+					managed={!!managed}
 					expanded={!value.isClosed}
 					action={
 						actions?.[0] && {
@@ -143,6 +144,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			}).isRequired,
 			value: PropTypes.object,
 			actions: PropTypes.array,
+			managed: PropTypes.bool,
 		};
 	}
 
