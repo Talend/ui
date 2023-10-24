@@ -5,15 +5,16 @@ import get from 'lodash/get';
 import Input from '../../../widgets/fields/Input';
 
 function RHFInput(props) {
-	const { rules = {}, ...rest } = props;
+	const { rules = {}, name = '', ...rest } = props;
 	const { errors, register } = useFormContext();
 	const error = get(errors, rest.name)?.message;
-	return <Input {...rest} ref={register(rules)} error={error} />;
+	return <Input {...rest} {...register(name, rules)} error={error} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	RHFInput.propTypes = {
 		rules: PropTypes.object,
+		name: PropTypes.string,
 	};
 }
 

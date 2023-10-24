@@ -5,15 +5,16 @@ import get from 'lodash/get';
 import Select from '../../../widgets/fields/Select';
 
 function RHFSelect(props) {
-	const { rules = {}, ...rest } = props;
+	const { rules = {}, name = '', ...rest } = props;
 	const { errors, register } = useFormContext();
 	const error = get(errors, rest.name)?.message;
-	return <Select {...rest} ref={register(rules)} error={error} />;
+	return <Select {...rest} {...register(name, rules)} error={error} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	RHFSelect.propTypes = {
 		rules: PropTypes.object,
+		name: PropTypes.string,
 	};
 }
 
