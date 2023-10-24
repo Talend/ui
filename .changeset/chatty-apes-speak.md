@@ -32,67 +32,42 @@ Components changed:
 * Modal (rewrite Dialog as primitive)
 * Popover (rewrite using `@floating-ui/react`)
 * Switch (rewrite)
-* Tabs (rewrite + props changed)
+* Tabs (rewrite + props changed with old API support)
 * Tooltip (rewrite using `@floating-ui/react` + API Change)
 * VisuallyHidden (rewrite)
 
 
-**Migration Guide**
+## Migration Guide
 
-* Checkbox component
+### Checkbox component
 
-    Checkbox has two versions now : controlled one and uncontrolled one.
-    To use controlled version, import Checkbox component and provide `checked` and `onChange` props.
-    To use uncontrolled version, import UncontrolledCheckbox component and optionally provide `defaultChecked` prop.
+Checkbox support now control and uncontrolled mode.
+To use controlled version, provide `checked` and `onChange` props.
+To use uncontrolled version, you can provide optional `defaultChecked` prop.
 
-    We also change way to import it to be less verbose.
+We also change way to import it to be less verbose.
 
-    Old use
-    ```
-    import { Form } from '@talend/design-system';
-    (...)
-    <Form.Checkbox (...) />
-    ```
 
-    New use
-    ```
-    import { Checkbox, UncontrolledCheckbox } from '@talend/design-system';
-    (...)
-    <Checkbox checked={isChecked} onChange={changeHandler} (...) />
-    <UncontrolledCheckbox defaultChecked={isChecked} (...) />
-    ```
+### ToggleSwitch component
 
-* ToggleSwitch component
+ToggleSwitch now support controlled and uncontrolled mode.
+To use controlled version provide `checked` and `onChange` props.
+To use uncontrolled version, you can just provide optional provide `defaultChecked` prop.
 
-    ToggleSwitch has two versions now : controlled one and uncontrolled one.
-    To use controlled version, import ToggleSwitch component and provide `checked` and `onChange` props.
-    To use uncontrolled version, import UncontrolledToggleSwitch component and optionally provide `defaultChecked` prop.
 
-    We also change way to import it to be less verbose.
+### Tabs component
 
-    Old use
-    ```
-    import { Form } from '@talend/design-system';
-    (...)
-    <Form.ToggleSwitch (...) />
-    ```
+Previous API with the `tabs` props. TabsKit has been removed. We encourage you to use the following API:
 
-    New use
-    ```
-    import { ToggleSwitch, UncontrolledToggleSwitch } from '@talend/design-system';
-    (...)
-    <ToggleSwitch checked={isChecked} onChange={changeHandler} (...) />
-    <UncontrolledToggleSwitch defaultChecked={isChecked} (...) />
-    ```
-
-* Switch component
-
-    `onChange` prop's signature change from
-    ```
-    (event: React.MouseEvent<HTMLButtonElement>, value: string) => void
-    ```
-    to
-    ```
-    (value: string) => void
-    ```
-
+```javascript
+<Tabs.Container defaultActiveKey="profile">
+    <Tabs.List>
+        <Tabs.Tab aria-controls="home" title="Home" />
+        <Tabs.Tab aria-controls="profile" title="Profile" />
+        <Tabs.Tab aria-controls="contact" title="Contact" disabled />
+    </Tabs.List>
+    <Tabs.Panel id="home">Tab content for Home</Tabs.Panel>
+    <Tabs.Panel id="profile">Tab content for Profile</Tabs.Panel>
+    <Tabs.Panel id="contact">Tab content for Contact</Tabs.Panel>
+</Tabs.Container>
+```
