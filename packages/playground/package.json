@@ -46,11 +46,11 @@
     "@talend/react-faceted-search": "^11.1.0",
     "@talend/react-forms": "^10.2.4",
     "history": "^5.3.0",
-    "i18next": "^20.6.1",
+    "i18next": "^23.5.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^11.18.6",
+    "react-i18next": "^13.3.0",
     "redux-logger": "^3.0.6"
   }
 }

@@ -38,3 +38,4 @@ export * from './components/Modal';
 export * from './components/Popover';
 export * from './components/Tooltip';
 export * from './themes';
+export * from './useControl';
