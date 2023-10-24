@@ -15,7 +15,7 @@ class NotificationWrapper extends Component {
 					type: 'info',
 					title: 'Story 1 example title',
 					message:
-						'This is a feedback of your operation1, This is a feedback of your operation1, This is a feedback of your operation1',
+						'This is a feedback of your operationlongnameverylongnamethatwhillbreakwork1, This is a feedback of your operation1, This is a feedback of your operation1',
 					action: {
 						label: 'Haha',
 						icon: 'talend-undo',
