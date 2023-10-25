@@ -9,7 +9,6 @@ import { DropdownButton, MenuItem } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
-import OverlayTrigger from '../../OverlayTrigger';
 import theme from './ActionDropdown.module.scss';
 import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
@@ -204,7 +203,6 @@ class ActionDropdown extends Component {
 			label,
 			link,
 			onSelect,
-			tooltipPlacement = 'top',
 			tooltipLabel,
 			getComponent,
 			components,
@@ -330,7 +328,6 @@ ActionDropdown.propTypes = {
 	ellipsis: PropTypes.bool,
 	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltipLabel: PropTypes.string,
 	getComponent: PropTypes.func,
 	components: PropTypes.shape({

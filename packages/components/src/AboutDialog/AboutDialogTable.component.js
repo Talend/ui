@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Skeleton from '../Skeleton';
 import { getI18nInstance } from '../translate';
 import theme from './AboutDialog.module.scss';
+import { SkeletonParagraph } from '@talend/design-system';
 
 const i18n = getI18nInstance();
 
@@ -12,8 +12,8 @@ export const getColumnHeaders = () => ({
 	version: { key: 'version', label: i18n.t('tui-components:VERSION', { defaultValue: 'Version' }) },
 });
 
-export function Text({ text = '', loading, size = Skeleton.SIZES.medium }) {
-	return loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text;
+export function Text({ text = '', loading = false }) {
+	return loading ? <SkeletonParagraph /> : text;
 }
 
 export function AboutDialogTable({
@@ -55,7 +55,6 @@ export function AboutDialogTable({
 Text.propTypes = {
 	text: PropTypes.string,
 	loading: PropTypes.bool,
-	size: PropTypes.string,
 };
 
 AboutDialogTable.propTypes = {

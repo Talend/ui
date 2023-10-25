@@ -4,7 +4,6 @@ import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 
 import CircularProgress from '../../CircularProgress';
-import Skeleton from '../../Skeleton';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -12,6 +11,7 @@ import getDefaultT from '../../translate';
 import {
 	Icon,
 	SizedIcon,
+	SkeletonButton,
 	SkeletonButtonIcon,
 	SkeletonParagraph,
 	Tooltip,
@@ -132,7 +132,7 @@ function ActionButton(props) {
 	}
 
 	if (loading && !link) {
-		return <Skeleton type="button" />;
+		return <SkeletonButton />;
 	}
 
 	const buttonProps = getPropsFrom(Button, rest);
