@@ -41,7 +41,7 @@
     "modern-css-reset": "^1.4.0",
     "polished": "^4.2.2",
     "react-use": "^17.4.0",
-    "react-transition-group": "^2.2.9",
+    "react-transition-group": "^4.4.5",
     "typeface-inconsolata": "^1.1.13",
     "typeface-source-sans-pro": "^1.1.13"
   },
@@ -74,7 +74,7 @@
     "@types/react-is": "^18.2.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "@types/react-transition-group": "^2.9.2",
+    "@types/react-transition-group": "^4.4.8",
     "browser-sync": "^2.29.3",
     "browser-sync-webpack-plugin": "^2.3.0",
     "concurrently": "^7.6.0",
