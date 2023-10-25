@@ -15,7 +15,6 @@ import AppGuidedTour from './AppGuidedTour';
 import AppLoader from './AppLoader';
 import AppSwitcher from './AppSwitcher';
 import Badge from './Badge';
-import Checkbox from './Checkbox';
 import CircularProgress from './CircularProgress';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
@@ -84,7 +83,6 @@ export {
 	AppLoader,
 	AppSwitcher,
 	Badge,
-	Checkbox,
 	CircularProgress,
 	ConfirmDialog,
 	Datalist,

@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
-import { Icon, Tooltip } from '@talend/design-system';
+import { Icon, Tooltip, Form } from '@talend/design-system';
 import ItemPropTypes from './Item.propTypes';
 import Action from '../../../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import Checkbox from '../../../Checkbox';
+
+const Checkbox = Form.Checkbox;
 
 class Item extends Component {
 	componentDidUpdate(prevProps) {
