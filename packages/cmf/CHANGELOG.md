@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 8.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+
 ## 7.3.0
 
 ### Minor Changes

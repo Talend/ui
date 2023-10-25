@@ -1,16 +1,20 @@
+const typescriptTransform = require('i18next-scanner-typescript');
+
 module.exports = {
-	input: ['tmp/**/*.{js,jsx}'],
+	input: ['src/**/*.{js,ts,tsx}', '!src/**/*stories.{js,ts,tsx}'],
 	options: {
+		compatibilityJSON: 'v4',
 		debug: true,
 		func: {
-			list: ['t'],
-			extensions: ['.js', '.jsx'],
+			list: ['t', 'i18next.t'],
+			extensions: ['.js', '.ts', '.tsx'],
 		},
 		lngs: ['en'],
 		defaultNs: 'tui-dataviz',
 		defaultValue: '__STRING_NOT_TRANSLATED__',
 		resource: {
-			savePath: 'i18n-extract/{{ns}}.json',
+			savePath: 'i18n/{{ns}}.json',
 		},
 	},
+	transform: typescriptTransform(),
 };

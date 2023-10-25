@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from 'react';
-import { unstable_useId as useId } from 'reakit';
 import FieldPrimitive, { FieldPropsPrimitive } from '../../Primitives/Field/Field';
 import SelectNoWrapper, { SelectNoWrapperProps } from '../../Primitives/Select/SelectNoWrapper';
+import { useId } from '../../../../useId';
 
 export type AffixSelectPropsType = Omit<FieldPropsPrimitive, 'hasError' | 'description'> &
 	Omit<SelectNoWrapperProps, 'isAffix' | 'className' | 'style'> & {
@@ -12,8 +12,7 @@ const AffixSelect = forwardRef((props: AffixSelectPropsType, ref: Ref<HTMLSelect
 	const { label, children, name, id, isSuffix, ...rest } = props;
 
 	function SelectAffixComponent({ affixId }: { affixId?: string }) {
-		const { id: reakitId } = useId();
-		const fieldID = affixId || `field--${reakitId}`;
+		const fieldID = useId(affixId, 'field-');
 
 		function AffixSelectComponent(
 			selectProps: Omit<SelectNoWrapperProps, 'hasError' | 'name' | 'children' | 'label'>,

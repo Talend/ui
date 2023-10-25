@@ -1,12 +1,17 @@
-import InlineEditingText from './variations/InlineEditing.text';
-import InlineEditingTextarea from './variations/InlineEditing.textarea';
+import { InlineEditingText, InlineEditingTextProps } from './variations/InlineEditing.text';
+import {
+	InlineEditingTextarea,
+	InlineEditingTextareaProps,
+} from './variations/InlineEditing.textarea';
 
-const InlineEditingComponent = InlineEditingText as typeof InlineEditingText & {
+const InlineEditing = InlineEditingText as typeof InlineEditingText & {
 	Text: typeof InlineEditingText;
 	Textarea: typeof InlineEditingTextarea;
 };
 
-InlineEditingComponent.Text = InlineEditingText;
-InlineEditingComponent.Textarea = InlineEditingTextarea;
+InlineEditing.Text = InlineEditingText;
+InlineEditing.Textarea = InlineEditingTextarea;
 
-export default InlineEditingComponent;
+export type InlineEditingProps = InlineEditingTextProps;
+export { InlineEditing };
+export type { InlineEditingTextProps, InlineEditingTextareaProps };

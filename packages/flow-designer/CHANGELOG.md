@@ -1,5 +1,12 @@
 # Changelog
 
+## 6.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
 ## 5.6.0
 
 ### Minor Changes

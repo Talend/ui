@@ -64,4 +64,6 @@ const InlineMessagePrimitive = forwardRef(
 	},
 );
 
+InlineMessagePrimitive.displayName = 'InlineMessagePrimitive';
+
 export default InlineMessagePrimitive;

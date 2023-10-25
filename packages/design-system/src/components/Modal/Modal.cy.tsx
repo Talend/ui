@@ -4,7 +4,7 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import { useState } from 'react';
 import { ButtonPrimary } from '../Button';
-import Modal, { ModalPropsType } from './Modal';
+import { Modal, ModalPropsType } from './Modal';
 
 function ModalStory(props: Partial<ModalPropsType>) {
 	const [modalOpen, setModalOpen] = useState(false);
@@ -63,12 +63,8 @@ context('<Modal />', () => {
 			</ModalStory>,
 		);
 		cy.findByTestId('open-modal').click();
-		cy.findByTestId('modal.buttons.close')
-			.click()
-			.then(() => {
-				// then
-				cy.findByTestId('modal').should('not.exist');
-			});
+		cy.findByTestId('modal.buttons.close').click();
+		cy.findByTestId('modal').should('not.exist');
 	});
 
 	it('should not have cancel/close action when preventEscaping is passed', () => {
@@ -90,12 +86,8 @@ context('<Modal />', () => {
 			</ModalStory>,
 		);
 		cy.findByTestId('open-modal').click();
-		cy.findByTestId('modal')
-			.type('{esc}')
-			.then(() => {
-				// then
-				cy.findByTestId('modal').should('not.exist');
-			});
+		cy.findByTestId('modal').type('{esc}');
+		cy.findByTestId('modal').should('not.exist');
 	});
 
 	it('should not close the modal on ESC key', () => {
@@ -108,11 +100,7 @@ context('<Modal />', () => {
 			</ModalStory>,
 		);
 		cy.findByTestId('open-modal').click();
-		cy.findByTestId('modal')
-			.type('{esc}')
-			.then(() => {
-				// then
-				cy.findByTestId('modal').should('exist');
-			});
+		cy.findByTestId('modal').type('{esc}');
+		cy.findByTestId('modal').should('exist');
 	});
 });

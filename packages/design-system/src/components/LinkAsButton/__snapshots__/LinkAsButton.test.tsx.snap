@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkAsButton should render a11y html 1`] = `
+<main>
+  <button
+    class="theme-clickable theme-link"
+    data-testid="my.link"
+    type="button"
+  >
+    <span
+      class="theme-link__text"
+    >
+      Link example
+    </span>
+  </button>
+  <button
+    class="theme-clickable theme-link"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg theme-link__icon tc-icon-name-information-filled"
+      data-test="link.icon.before"
+      data-testid="link.icon.before"
+      focusable="false"
+      name="information-filled"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span
+      class="theme-link__text"
+    >
+      Link example
+    </span>
+  </button>
+  <button
+    class="theme-clickable theme-link"
+    title="Open in a new tab"
+    type="button"
+  >
+    <span
+      class="theme-link__text"
+    >
+      Link example
+    </span>
+    <span
+      class="theme-link__iconExternal"
+      data-test="link.icon.external"
+      data-testid="link.icon.external"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.2rem; height: 1.2rem;"
+      >
+        <use
+          xlink:href="#external-link:S"
+        />
+      </svg>
+    </span>
+  </button>
+</main>
+`;

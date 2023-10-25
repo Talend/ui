@@ -3,10 +3,11 @@ import type { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
-import Clickable from '../../../../Clickable';
-import Tooltip from '../../../../Tooltip';
+import { Clickable } from '../../../../Clickable';
+import { Tooltip } from '../../../../Tooltip';
 import { SizedIcon } from '../../../../Icon';
 import styles from './passwordButton.module.scss';
+import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../../Tooltip/Tooltip';
 
 export default function useRevealPassword() {
 	const [revealed, setRevealed] = useState(false);
@@ -31,21 +32,25 @@ export default function useRevealPassword() {
 		const { onClick, disabled } = props;
 		return (
 			<Tooltip title={revealed ? hideMsg : showMsg} placement="top">
-				<Clickable
-					className={styles.button}
-					onMouseDown={e => {
-						onReveal(e);
-						if (onClick) {
-							onClick(e);
-						}
-					}}
-					tabIndex={-1}
-					aria-hidden
-					data-testid="form.password.reveal"
-					disabled={disabled}
-				>
-					<SizedIcon size="M" name={revealed ? 'eye-slash' : 'eye'} />
-				</Clickable>
+				{(triggerProps: TooltipChildrenFnProps, ref: TooltipChildrenFnRef) => (
+					<Clickable
+						{...triggerProps}
+						ref={ref}
+						className={styles.button}
+						onMouseDown={e => {
+							onReveal(e);
+							if (onClick) {
+								onClick(e);
+							}
+						}}
+						tabIndex={-1}
+						aria-hidden
+						data-testid="form.password.reveal"
+						disabled={disabled}
+					>
+						<SizedIcon size="M" name={revealed ? 'eye-slash' : 'eye'} />
+					</Clickable>
+				)}
 			</Tooltip>
 		);
 	}

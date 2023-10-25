@@ -6,10 +6,8 @@ import { ButtonDestructivePropsType } from './ButtonDestructive';
 
 export type ButtonTertiaryPropsType<S extends AvailableSizes> = Omit<
 	BaseButtonProps<S>,
-	'className' | 'size'
-> & {
-	size?: S;
-};
+	'className'
+>;
 
 function Tertiary<S extends AvailableSizes>(
 	props: ButtonTertiaryPropsType<S>,

@@ -19,7 +19,6 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf 1`] = `
       toto
        
     </span>
-    
   </span>
   <span
     class="theme-tc-model-leaf-options tc-model-leaf-options"

@@ -1,6 +1,8 @@
 import path from 'path';
+import { packageDirectorySync } from 'pkg-dir';
+
 const iconConfig = require('@talend/icons/.storybook/main.js');
-const rootPath = require.resolve('@talend/ui-storybook-one').replace('src/index.ts', '');
+const rootPath = packageDirectorySync();
 const {
 	getJSAndTSLoader,
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
@@ -8,24 +10,24 @@ const {
 const STORIES = [
 	{
 		titlePrefix: 'Design System',
-		directory: `${rootPath}../design-system/src`,
+		directory: `${rootPath}/../design-system/src`,
 	},
-	`${rootPath}../components/**/*.stories.@(js|tsx)`,
-	`${rootPath}../forms/**/*.stories.@(js|tsx)`,
-	`${rootPath}../dataviz/src/**/*.stories.@(js|tsx)`,
-	`${rootPath}../icons/stories/**/*.stories.@(js|tsx)`,
-	`${rootPath}../faceted-search/stories/**/*.stories.@(js|tsx)`,
+	`${rootPath}/../components/**/*.stories.@(js|tsx)`,
+	`${rootPath}/../forms/**/*.stories.@(js|tsx)`,
+	`${rootPath}/../dataviz/src/**/*.stories.@(js|tsx)`,
+	`${rootPath}/../icons/stories/**/*.stories.@(js|tsx)`,
+	`${rootPath}/../faceted-search/stories/**/*.stories.@(js|tsx)`,
 ];
 
 const monoRepoFixSourceMap = [
-	'../components/src',
-	'../dataviz/src',
 	'../design-system/src',
-	'../faceted-search/stories',
-	'../faceted-search/src',
+	'../components/src',
 	'../forms/src',
 	'../forms/stories',
+	'../dataviz/src',
 	'../icons/stories',
+	'../faceted-search/stories',
+	'../faceted-search/src',
 ];
 const srcDirectories = monoRepoFixSourceMap.map(src => path.resolve(process.cwd(), src));
 

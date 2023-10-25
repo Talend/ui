@@ -1,5 +1,45 @@
 # @talend/react-components
 
+## 12.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Minor Changes
+
+- 9a0732ec5: feat: upgrade react-is
+
+### Patch Changes
+
+- da4cf2971: TDOPS-762 - Allow notification message to have long labels with proper overflow
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-bootstrap@2.0.0
+  - @talend/icons@7.0.0
+  - @talend/react-a11y@2.0.0
+  - @talend/bootstrap-theme@8.2.1
+
+## 11.4.5
+
+### Patch Changes
+
+- b0f7bbf70: fix(TDC-7364): FormatValue component - fix content not appearing when there were leading whitespaces
+
+## 11.4.4
+
+### Patch Changes
+
+- 1cb4b7b29: fix(TFD-16296): Add ellipsis on collapsible panel header
+- Updated dependencies [9d137cb98]
+  - @talend/bootstrap-theme@8.2.0
+
 ## 11.4.3
 
 ### Patch Changes

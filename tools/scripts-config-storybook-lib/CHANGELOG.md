@@ -1,5 +1,17 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.1.0
+
+### Minor Changes
+
+- 6efd54301: feat: use icons from talend/icons and not from unpkg
+
+### Patch Changes
+
+- 9a0732ec5: fix: add keys on all items in the decorators
+  fix: improve build performance copy/pasted from #4931
+- 35263dfcb: fix: icon url to support prefix
+
 ## 5.0.0
 
 ### Major Changes

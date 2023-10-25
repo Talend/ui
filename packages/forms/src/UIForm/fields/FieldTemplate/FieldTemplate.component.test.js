@@ -3,7 +3,6 @@ import { screen, render } from '@testing-library/react';
 import FieldTemplate from './FieldTemplate.component';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 describe('FieldTemplate', () => {
 	const defaultProps = {
