@@ -1,9 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-import { createRequire } from 'module';
 import { createUserConfigGetter } from './env.js';
-
-const require = createRequire(import.meta.url);
 
 /**
  * Get the preset arguments

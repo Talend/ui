@@ -1,4 +1,5 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import * as utils from '@talend/scripts-utils';
 import { getUserConfigFile } from '../utils/env.js';
 
@@ -26,7 +27,7 @@ function getSmartOptions(opts, categories) {
 }
 
 async function lintEs(env, presetApi, options) {
-	const configRootPath = utils.path.getPkgRootPath('@talend/eslint-config');
+	const configRootPath = path.dirname(fileURLToPath(import.meta.resolve('@talend/eslint-config')));
 
 	const eslintConfigPath =
 		getUserConfigFile([
@@ -65,7 +66,9 @@ async function lintEs(env, presetApi, options) {
 }
 
 async function lintStyle(env, presetApi, options) {
-	const configRootPath = utils.path.getPkgRootPath('@talend/scripts-config-stylelint');
+	const configRootPath = path.dirname(
+		fileURLToPath(import.meta.resolve('@talend/scripts-config-stylelint')),
+	);
 	const stylelintConfigPath =
 		getUserConfigFile([
 			'.stylelintrc.js',
@@ -95,13 +98,15 @@ async function lintStyle(env, presetApi, options) {
 			args.push('-f', 'json');
 		}
 	}
-	utils.pkg.checkPackageIsInstalled('@talend/scripts-config-stylelint');
-	const stylelint = utils.path.resolveBin('stylelint');
 
-	return utils.process.spawn(stylelint, args, {
-		stdio: 'inherit',
-		env,
-	});
+	return utils.process.spawn(
+		new URL(import.meta.resolve('stylelint/bin/stylelint.mjs')).pathname,
+		args,
+		{
+			stdio: 'inherit',
+			env,
+		},
+	);
 }
 
 export default async function lint(env, presetApi, options) {

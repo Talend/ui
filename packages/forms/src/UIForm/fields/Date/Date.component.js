@@ -55,6 +55,7 @@ function DateWidget(props) {
 			valueIsUpdating={valueIsUpdating}
 		>
 			<InputDatePicker
+				// eslint-disable-next-line jsx-a11y/no-autofocus
 				autoFocus={schema.autoFocus}
 				dateFormat={options.dateFormat}
 				disabled={schema.disabled || valueIsUpdating}
