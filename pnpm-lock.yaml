@@ -644,11 +644,11 @@ importers:
         specifier: ^1.0.1
         version: link:../../tools/eslint-plugin
       '@talend/locales-design-system':
-        specifier: ^7.3.0
-        version: 7.3.0
+        specifier: ^7.15.1
+        version: 7.15.1
       '@talend/locales-tui-components':
-        specifier: ^9.5.0
-        version: 9.5.0
+        specifier: ^11.4.5
+        version: 11.4.5
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
         version: link:../../tools/scripts-config-babel
@@ -801,8 +801,8 @@ importers:
         specifier: ^7.0.0
         version: link:../icons
       '@talend/locales-tui-containers':
-        specifier: ^8.0.2
-        version: 8.0.2
+        specifier: ^9.1.3
+        version: 9.1.3
       '@talend/react-storybook-cmf':
         specifier: ^8.0.0
         version: link:../storybook-cmf
@@ -904,11 +904,11 @@ importers:
         specifier: ^7.0.0
         version: link:../icons
       '@talend/locales-tui-components':
-        specifier: ^9.5.0
-        version: 9.5.0
+        specifier: ^11.4.5
+        version: 11.4.5
       '@talend/locales-tui-dataviz':
-        specifier: ^0.4.6
-        version: 0.4.6
+        specifier: ^3.0.1
+        version: 3.0.1
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
         version: link:../../tools/scripts-config-babel
@@ -1073,20 +1073,20 @@ importers:
         specifier: ^1.0.1
         version: link:../../tools/eslint-plugin
       '@talend/locales-design-system':
-        specifier: ^7.3.0
-        version: 7.3.0
+        specifier: ^7.15.1
+        version: 7.15.1
       '@talend/locales-tui-components':
-        specifier: ^9.5.0
-        version: 9.5.0
+        specifier: ^11.4.5
+        version: 11.4.5
       '@talend/locales-tui-containers':
-        specifier: ^8.0.2
-        version: 8.0.2
+        specifier: ^9.1.3
+        version: 9.1.3
       '@talend/locales-tui-faceted-search':
-        specifier: ^8.1.2
-        version: 8.1.2
+        specifier: ^11.3.0
+        version: 11.3.0
       '@talend/locales-tui-forms':
-        specifier: ^9.0.1
-        version: 9.0.1
+        specifier: ^10.2.4
+        version: 10.2.4
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
         version: link:../../tools/scripts-config-babel
@@ -1218,8 +1218,8 @@ importers:
         specifier: ^7.0.0
         version: link:../icons
       '@talend/locales-design-system':
-        specifier: ^7.3.0
-        version: 7.3.0
+        specifier: ^7.15.1
+        version: 7.15.1
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
         version: link:../../tools/scripts-config-babel
@@ -1402,11 +1402,11 @@ importers:
         specifier: ^7.0.0
         version: link:../icons
       '@talend/locales-tui-components':
-        specifier: ^9.5.0
-        version: 9.5.0
+        specifier: ^11.4.5
+        version: 11.4.5
       '@talend/locales-tui-faceted-search':
-        specifier: ^8.1.2
-        version: 8.1.2
+        specifier: ^11.3.0
+        version: 11.3.0
       '@talend/react-components':
         specifier: ^12.0.0
         version: link:../components
@@ -1431,9 +1431,6 @@ importers:
       '@testing-library/user-event':
         specifier: ^13.5.0
         version: 13.5.0(@testing-library/dom@9.3.3)
-      ally.js:
-        specifier: ^1.4.1
-        version: 1.4.1
       babel-plugin-angularjs-annotate:
         specifier: ^0.10.0
         version: 0.10.0
@@ -1656,8 +1653,8 @@ importers:
         specifier: ^1.0.1
         version: link:../../tools/eslint-plugin
       '@talend/locales-tui-forms':
-        specifier: ^9.0.1
-        version: 9.0.1
+        specifier: ^10.2.4
+        version: 10.2.4
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
         version: link:../../tools/scripts-config-babel
@@ -2338,20 +2335,20 @@ importers:
         specifier: ^1.0.1
         version: link:../../tools/eslint-plugin
       '@talend/locales-design-system':
-        specifier: ^7.3.0
-        version: 7.3.0
+        specifier: ^7.15.1
+        version: 7.15.1
       '@talend/locales-tui-components':
-        specifier: ^9.5.0
-        version: 9.5.0
+        specifier: ^11.4.5
+        version: 11.4.5
       '@talend/locales-tui-containers':
-        specifier: ^8.0.2
-        version: 8.0.2
+        specifier: ^9.1.3
+        version: 9.1.3
       '@talend/locales-tui-faceted-search':
-        specifier: ^8.1.0
-        version: 8.1.2
+        specifier: ^11.3.0
+        version: 11.3.0
       '@talend/locales-tui-forms':
-        specifier: ^9.0.1
-        version: 9.0.1
+        specifier: ^10.2.4
+        version: 10.2.4
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
         version: link:../../tools/scripts-config-babel
@@ -2598,6 +2595,9 @@ importers:
       '@babel/eslint-parser':
         specifier: ^7.22.15
         version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
+      '@talend/eslint-config':
+        specifier: ^12.1.1
+        version: link:../scripts-config-eslint
       '@talend/scripts-config-babel':
         specifier: ^13.0.0
         version: link:../scripts-config-babel
@@ -3032,6 +3032,9 @@ importers:
       '@babel/eslint-parser':
         specifier: ^7.22.15
         version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
+      '@talend/eslint-config':
+        specifier: ^12.1.1
+        version: link:../scripts-config-eslint
       eslint:
         specifier: ^7.32.0
         version: 7.32.0
@@ -10204,28 +10207,28 @@ packages:
     transitivePeerDependencies:
       - webpack
 
-  /@talend/locales-design-system@7.3.0:
-    resolution: {integrity: sha512-J5RwvcwW++SC7LGvkxG/MNGNuCe1gUc1mYscAOzZUAxz1VvrlVIWQTaqtfFhdpHsaoKJ3ZPlvOlUOm4GvMKKlw==}
+  /@talend/locales-design-system@7.15.1:
+    resolution: {integrity: sha512-kBXaGxzhSHkX9YLJ5ikJ1OzS85oFtOeo8dv0vX3YQ9ZE8UP24znpJE9XHHaFNiA+Z+Z5av8I1qpzN4GJqnMxFQ==}
     dev: true
 
-  /@talend/locales-tui-components@9.5.0:
-    resolution: {integrity: sha512-m+Ct7na5uSNBnQG7a869NkbZqQLglQVpspGj/QhfE4SxIwjdUA0zlZauNUThqo7n5LUWm6dNB3F1os6ZZM1lVg==}
+  /@talend/locales-tui-components@11.4.5:
+    resolution: {integrity: sha512-BRxRQereUfBEitfu9exRbiE4fsUkJTPKlgG7SSQuTdBHIFizspRBgzfyqhXpwWIw/AsohrOTDEah43J7Iulguw==}
     dev: true
 
-  /@talend/locales-tui-containers@8.0.2:
-    resolution: {integrity: sha512-pBqTK4FHTd3olbujW1Rm2Y6A4z7EZpQ0lTjowK0/4loi5uqXTJXtFuiL2UoGQ7zCWf8b1ILJrvtFi81DpCgvQg==}
+  /@talend/locales-tui-containers@9.1.3:
+    resolution: {integrity: sha512-ekeGAyfbpAGdaKNQ3UKJkZI0sOy8Wm9vxA6edakTsd8EDsLW0ZIRXtiaVrHDATJ8crc5g3+59jXlDidw0eFbQQ==}
     dev: true
 
-  /@talend/locales-tui-dataviz@0.4.6:
-    resolution: {integrity: sha512-JxG7Nm7EEbjrU6jZMik1rdHCDivZfcW6T4/YiodaR6PYOivUP5gnPKIn1LxgbgbS69cK/x6RJ5dAaJPg/W7uyA==}
+  /@talend/locales-tui-dataviz@3.0.1:
+    resolution: {integrity: sha512-IGBLd7HKoOwQYeh5CAi361x35siO8ZuwuJiiGRTgllXIESkJACoUW1xvUBavaEgwnQsRGP9Y8rFRdh2C/2k7Fg==}
     dev: true
 
-  /@talend/locales-tui-faceted-search@8.1.2:
-    resolution: {integrity: sha512-D2z/duk7il+Yk5l9ASYjDAggSAmVPZQ44gADW9of+4dKIB6uqmvvsjIsbLKHzKrsJyxsX+NcWb5a/uUorGKDgA==}
+  /@talend/locales-tui-faceted-search@11.3.0:
+    resolution: {integrity: sha512-Wj1t2puu/0vsNLHDgYwMiOCAh4vcHSfA76++vxSfQ0oZLnwXYoIDERcT1NaEnwu6Cpleue5MAuTKgDHryvWiqw==}
     dev: true
 
-  /@talend/locales-tui-forms@9.0.1:
-    resolution: {integrity: sha512-iGTiNoLRkySwyuqZBWeMxWs1qgtTxVxl6qbbLBNpLCEmDkGYMAqvawnOSb+/3E+PHbo7MlzeINDrvIV8pogzOQ==}
+  /@talend/locales-tui-forms@10.2.4:
+    resolution: {integrity: sha512-3rHgRKv9bc4rpLA3p4CQ7cGEWbHVITv6aRDLjhca6ZFmlQECC0JsghrqUYZ3GZeJmHezWGZm0LLRw4nNXBHwUA==}
     dev: true
 
   /@talend/module-to-cdn@9.9.1:
