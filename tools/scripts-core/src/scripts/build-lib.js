@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
 import { fileURLToPath } from 'url';
-import cpx from 'cpx2';
+
 import * as utils from '@talend/scripts-utils';
 
 import { getUserConfigFile } from '../utils/env.js';

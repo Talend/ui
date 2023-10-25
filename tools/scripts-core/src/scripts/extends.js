@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 import fs from 'fs';
+import _ from 'lodash';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import _ from 'lodash';
+
 import * as utils from '@talend/scripts-utils';
+
 import { getUserConfigFile } from '../utils/env.js';
 
 const { template } = _;

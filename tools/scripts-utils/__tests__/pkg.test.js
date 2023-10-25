@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import path from 'path';
-import utils from '../src';
+const path = require('path');
+const utils = require('../src');
 
 describe('utils.pkg', () => {
 	const globalProcessCwd = global.process.cwd;
