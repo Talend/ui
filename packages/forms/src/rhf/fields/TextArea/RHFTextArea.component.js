@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
-import get from 'lodash/get';
 
 import TextArea from '../../../widgets/fields/TextArea';
 
 function RHFTextArea(props) {
 	const { rules = {}, name = '', ...rest } = props;
-	const { errors, register } = useFormContext();
-	const error = get(errors, rest.name)?.message;
+	const { register, formState } = useFormContext();
+	const error = formState?.errors?.[name]?.message || null;
+
 	return <TextArea {...rest} {...register(name, rules)} error={error} />;
 }
 
