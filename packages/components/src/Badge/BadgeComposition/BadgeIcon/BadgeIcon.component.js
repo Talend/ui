@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Icon from '../../../Icon';
+import { Icon } from '@talend/design-system';
 import badgeCssModule from '../../Badge.module.scss';
 import { getTheme } from '../../../theme';
 

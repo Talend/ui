@@ -2,26 +2,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
 
-import Icon from '../../Icon';
-import TooltipTrigger from '../../TooltipTrigger';
 import getPropsFrom from '../../utils/getPropsFrom';
-import OverlayTrigger from '../../OverlayTrigger';
 
 import theme from './ActionIconToggle.module.scss';
+import { Icon, Tooltip } from '@talend/design-system';
 
 function ActionIconToggle(props) {
-	const {
-		active,
-		tick,
-		className,
-		icon,
-		iconTransform,
-		id,
-		label,
-		tooltipPlacement,
-		buttonRef,
-		...rest
-	} = props;
+	const { active, tick, className, icon, iconTransform, id, label, buttonRef, ...rest } = props;
 
 	const cn = classNames(className, 'tc-icon-toggle', theme['tc-icon-toggle'], {
 		[theme.active]: active,
@@ -31,7 +18,7 @@ function ActionIconToggle(props) {
 	});
 
 	return (
-		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
+		<Tooltip label={label} tooltipPlacement={tooltipPlacement}>
 			<Button
 				{...getPropsFrom(Button, rest)}
 				id={id}
@@ -43,7 +30,7 @@ function ActionIconToggle(props) {
 			>
 				<Icon name={icon} transform={iconTransform} />
 			</Button>
-		</TooltipTrigger>
+		</Tooltip>
 	);
 }
 
@@ -56,7 +43,6 @@ ActionIconToggle.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	buttonRef: PropTypes.func,
 };
 

@@ -11,14 +11,12 @@ import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import OverlayTrigger from '../../OverlayTrigger';
 import theme from './ActionDropdown.module.scss';
-import Tag from '../../Tag';
-import TooltipTrigger from '../../TooltipTrigger';
-import Icon from '../../Icon';
 import wrapOnClick from '../wrapOnClick';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getTabBarBadgeLabel from '../../utils/getTabBarBadgeLabel';
+import { Icon, Tag, Tooltip } from '@talend/design-system';
 
 export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
 
@@ -86,7 +84,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 			{item.badge && (
 				<Tag
 					className={classNames(theme['tc-dropdown-item-badge'], 'tc-dropdown-item-badge')}
-					bsStyle={item.badge.bsStyle || 'default'}
+					variant={item.badge.bsStyle || 'default'}
 				>
 					{getTabBarBadgeLabel(item.badge.label)}
 				</Tag>
@@ -293,11 +291,7 @@ class ActionDropdown extends Component {
 		);
 
 		if (hideLabel || tooltipLabel || ellipsis) {
-			return (
-				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					{dropdown}
-				</TooltipTrigger>
-			);
+			return <Tooltip label={tooltipLabel || label}>{dropdown}</Tooltip>;
 		}
 		return dropdown;
 	}

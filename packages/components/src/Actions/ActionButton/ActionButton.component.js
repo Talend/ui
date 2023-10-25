@@ -3,16 +3,19 @@ import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 
-import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
 import Skeleton from '../../Skeleton';
-import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import OverlayTrigger from '../../OverlayTrigger';
-import { SizedIcon } from '@talend/design-system';
+import {
+	Icon,
+	SizedIcon,
+	SkeletonButtonIcon,
+	SkeletonParagraph,
+	Tooltip,
+} from '@talend/design-system';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -23,17 +26,7 @@ function getIcon({ icon, iconName, iconTransform, inProgress, loading }) {
 	}
 
 	if (loading) {
-		return (
-			<Skeleton
-				key="icon-skeleton"
-				size="small"
-				type="circle"
-				className={classNames(
-					theme['tc-action-button-skeleton-circle'],
-					'tc-action-button-skeleton-circle',
-				)}
-			/>
-		);
+		return <SkeletonButtonIcon />;
 	}
 
 	if (iconName) {
@@ -57,9 +50,9 @@ function getLabel({ hideLabel, label, loading }) {
 		return null;
 	}
 	if (loading) {
-		return <Skeleton key="label-skeleton" type="text" size="medium" />;
+		return <SkeletonParagraph />;
 	}
-	return <span key="label">{label}</span>;
+	return <span>{label}</span>;
 }
 
 getLabel.propTypes = {
@@ -216,15 +209,7 @@ function ActionButton(props) {
 	// warning: when `tooltip` is set to false, then no tooltip even if `hideLabel` is set
 	const shouldDisplayTooltip = (hideLabel || tooltip || tooltipLabel) && tooltip !== false;
 	if (ariaLabel && shouldDisplayTooltip) {
-		btn = (
-			<TooltipTrigger
-				label={ariaLabel}
-				tooltipPlacement={tooltipPlacement}
-				className={tooltipClassName}
-			>
-				{btn}
-			</TooltipTrigger>
-		);
+		btn = <Tooltip label={ariaLabel}>{btn}</Tooltip>;
 	}
 	return btn;
 }
@@ -247,7 +232,6 @@ ActionButton.propTypes = {
 	name: PropTypes.string,
 	onClick: PropTypes.func,
 	iconName: PropTypes.string,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,

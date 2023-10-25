@@ -7,12 +7,11 @@ import classNames from 'classnames';
 import { CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 import isEmpty from 'lodash/isEmpty';
 
-import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
 import { Gesture } from '@talend/react-a11y';
 import theme from './RowCollapsiblePanel.module.scss';
-import { SkeletonButtonIcon, SkeletonParagraph } from '@talend/design-system';
+import { CollapsiblePanel, SkeletonButtonIcon, SkeletonParagraph } from '@talend/design-system';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
 const options = {
@@ -87,12 +86,7 @@ class RowCollapsiblePanel extends Component {
 						{isEmpty(rowData) ? (
 							<MemoLoadingCollapsiblePanel />
 						) : (
-							<CollapsiblePanel
-								onEntered={measure}
-								onExited={measure}
-								onToggle={this.onToggle}
-								{...rowData}
-							/>
+							<CollapsiblePanel onToggleExpanded={measure} onToggle={this.onToggle} {...rowData} />
 						)}
 					</div>
 				)}

@@ -18,7 +18,6 @@ import Badge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
 import Checkbox from './Checkbox';
 import CircularProgress from './CircularProgress';
-import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import { ModelViewer, RecordsViewer } from './DataViewer';
@@ -89,7 +88,6 @@ export {
 	Breadcrumbs,
 	Checkbox,
 	CircularProgress,
-	CollapsiblePanel,
 	ConfirmDialog,
 	Datalist,
 	DatePicker,

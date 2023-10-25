@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 import { useTranslation } from 'react-i18next';
 import GuidedTour from '../GuidedTour';
-import Toggle from '../Toggle';
 import Stepper from '../Stepper';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import DemoContentStep from './DemoContentStep.component';
+import { Form } from '@talend/design-system';
 
 const DEMO_CONTENT_STEP_ID = 1;
 export const DEFAULT_LOCAL_STORAGE_KEY = 'app-guided-tour-viewed';
+const ToggleSwitch = Form.ToggleSwitch;
 
 function AppGuidedTour({
 	isOpen,
@@ -91,7 +92,7 @@ function AppGuidedTour({
 										})}
 										{demoContentSteps && (
 											<form>
-												<Toggle
+												<ToggleSwitch
 													id="app-guided-tour__import-demo-content-toggle"
 													label={t('GUIDED_TOUR_IMPORT_DEMO_CONTENT', {
 														defaultValue: 'Import demo content',

@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import { randomUUID } from '@talend/utils';
+import { SkeletonButtonIcon, SkeletonParagraph } from '@talend/design-system';
 
 import theme from './Breadcrumbs.module.scss';
 import { Action, ActionDropdown } from '../Actions';
-import Skeleton from '../Skeleton/Skeleton.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 
@@ -47,9 +47,9 @@ export function BreadcrumbsComponent({ loading, id, items, maxItems, t }) {
 					'tc-breadcrumb--loading',
 				)}
 			>
-				{BREADCRUMB_SKELETON.map(({ size, type }, index) => (
-					<Skeleton key={index} size={size} type={type} />
-				))}
+				<SkeletonParagraph />
+				<SkeletonButtonIcon />
+				<SkeletonParagraph />
 			</div>
 		);
 	}
