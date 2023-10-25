@@ -7,11 +7,11 @@ import CellTitle from './CellTitle.component';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 jest.unmock('@talend/design-system');
-jest.mock('../../TooltipTrigger', () => props => (
-	<div data-testid="TooltipTrigger" aria-label={props.label}>
-		{props.children}
-	</div>
-));
+// jest.mock('../../TooltipTrigger', () => props => (
+// 	<div data-testid="TooltipTrigger" aria-label={props.label}>
+// 		{props.children}
+// 	</div>
+// ));
 describe('CellTitle', () => {
 	it('should render', () => {
 		// given

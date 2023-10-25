@@ -9,14 +9,6 @@ jest.mock('../../../FormatValue/FormatValue.component', () => {
 		</span>
 	));
 });
-jest.mock('../../../TooltipTrigger', () => {
-	return jest.fn(props => (
-		<span data-testid="tooltip-trigger">
-			<span data-testid="tooltip-label">{props.label}</span>
-			<span>{props.children}</span>
-		</span>
-	));
-});
 
 describe('#DefaultValueRenderer', () => {
 	it('should render without the tooltip', () => {

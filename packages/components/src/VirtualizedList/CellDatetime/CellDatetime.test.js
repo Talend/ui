@@ -20,15 +20,15 @@ jest.mock('date-fns/format', () => ({
 	default: jest.fn(() => '2016-09-22 09:00:00'),
 }));
 
-jest.mock('../../TooltipTrigger', () => props => (
-	<div
-		data-testid="TooltipTrigger"
-		aria-label={props.label}
-		data-placement={props.tooltipPlacement}
-	>
-		{props.children}
-	</div>
-));
+// jest.mock('../../TooltipTrigger', () => props => (
+// 	<div
+// 		data-testid="TooltipTrigger"
+// 		aria-label={props.label}
+// 		data-placement={props.tooltipPlacement}
+// 	>
+// 		{props.children}
+// 	</div>
+// ));
 
 jest.mock('@talend/utils', () => {
 	const actualUtils = jest.requireActual('@talend/utils');

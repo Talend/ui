@@ -17,15 +17,6 @@ const callbacksProps = {
 	onToggle: jest.fn(),
 	onToggleAllSiblings: jest.fn(),
 };
-jest.mock('../../TooltipTrigger', () => {
-	const PropTypes = require('prop-types');
-	const TooltipTriggerMock = props => <div data-testid="tooltipTrigger">{props.label}</div>;
-	TooltipTriggerMock.displayName = 'TooltipTriggerMock';
-	TooltipTriggerMock.propTypes = {
-		label: PropTypes.string.isRequired,
-	};
-	return TooltipTriggerMock;
-});
 
 jest.mock('react', () => {
 	const realReact = jest.requireActual('react');
