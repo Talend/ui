@@ -1,5 +1,3 @@
-import React from 'react';
-
 import SelectObject from '.';
 
 const props = {

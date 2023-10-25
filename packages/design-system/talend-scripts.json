@@ -1,5 +1,7 @@
 {
-  "preset": "@talend/scripts-preset-react-lib",
   "copy": [{ "from": "src/images", "to": "images" }],
+  "dynamic-cdn-webpack-plugin": {
+    "exclude": ["react-is"]
+  },
   "webpack": {}
 }

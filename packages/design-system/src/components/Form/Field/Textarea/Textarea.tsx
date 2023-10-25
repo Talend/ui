@@ -1,10 +1,10 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	TextareaPrimitive,
 	TextareaPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
 
 export type InputTextareaProps = FieldPropsPrimitive &
 	Omit<TextareaPrimitiveProps, 'className' | 'styles'> & { children?: string };

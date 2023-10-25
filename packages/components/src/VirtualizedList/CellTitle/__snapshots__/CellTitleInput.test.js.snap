@@ -1,35 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CellTitleInput should render the input 1`] = `
-<CellTitleInput
-  cellData="my value"
-  id="my-cell"
-  onEditCancel={[MockFunction]}
-  onEditSubmit={[MockFunction]}
-  rowData={
-    {
-      "id": 1,
-    }
-  }
+<form
+  class="theme-edit-form"
 >
-  <form
-    className="theme-edit-form"
-    onSubmit={[Function]}
+  <label
+    aria-hidden="true"
+    class="sr-only"
+    for="my-cell"
+    hidden=""
   >
-    <label
-      aria-hidden="true"
-      className="sr-only"
-      hidden={true}
-      htmlFor="my-cell"
-    >
-      title
-    </label>
-    <input
-      autoFocus={true}
-      id="my-cell"
-      onBlur={[Function]}
-      onKeyUp={[Function]}
-    />
-  </form>
-</CellTitleInput>
+    title
+  </label>
+  <input
+    id="my-cell"
+  />
+</form>
 `;

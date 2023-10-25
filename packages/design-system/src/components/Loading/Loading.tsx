@@ -1,6 +1,8 @@
-import React from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-const Loading = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>((props, ref) => (
+export type LoadingProps = HTMLAttributes<SVGSVGElement>;
+
+export const Loading = forwardRef<SVGSVGElement, LoadingProps>((props, ref) => (
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" ref={ref} {...props}>
 		<g>
 			<path
@@ -25,4 +27,4 @@ const Loading = React.forwardRef<React.ReactElement, React.PropsWithChildren<any
 	</svg>
 ));
 
-export default Loading;
+Loading.displayName = 'Loading';

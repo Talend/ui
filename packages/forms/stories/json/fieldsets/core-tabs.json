@@ -1,5 +1,4 @@
 {
-  "doc": "Tabs/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Comment",

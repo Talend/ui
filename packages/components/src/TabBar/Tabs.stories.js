@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { ActionButton } from '../Actions';
@@ -143,7 +143,7 @@ function renderContent() {
 }
 
 export default {
-	title: 'Navigation/Tabs',
+	title: 'Components/Navigation/Tabs',
 };
 
 export const Default = () => (

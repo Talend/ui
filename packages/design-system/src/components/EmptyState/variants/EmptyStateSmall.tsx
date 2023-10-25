@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
 
 export type EmptyStateSmallProps = Omit<
@@ -12,4 +12,5 @@ const EmptyStateSmall = forwardRef((props: EmptyStateSmallProps, ref: Ref<HTMLEl
 	return <EmptyStatePrimitive {...props} ref={ref} />;
 });
 
+EmptyStateSmall.displayName = 'EmptyStateSmall';
 export default EmptyStateSmall;

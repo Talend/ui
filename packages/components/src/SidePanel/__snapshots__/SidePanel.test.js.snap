@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SidePanel should render 1`] = `
+<nav
+  class="theme-tc-side-panel tc-side-panel"
+  data-theme="light"
+  id="sp"
+  role="navigation"
+  style="width: 0px;"
+>
+  <div
+    class="theme-toggle-btn tc-side-panel-toggle-btn"
+  >
+    <button
+      aria-controls="sp"
+      aria-describedby="42"
+      aria-label="Collapse menu"
+      class="btn-icon-only btn btn-link"
+      id="sp-toggle-dock"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="talend-opener"
+      />
+    </button>
+  </div>
+  <div
+    class="theme-action-list-container tc-side-panel-action-list-container"
+    data-simplebar="true"
+  >
+    <ul
+      class="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
+    >
+      <li
+        class="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+      >
+        <button
+          aria-label="Preparations"
+          class="btn btn-link"
+          id="sp-nav-preparations"
+          role="link"
+          type="button"
+        >
+          <span
+            class="CoralIcon"
+            name="fa fa-asterisk"
+          />
+          <span>
+            Preparations
+          </span>
+        </button>
+      </li>
+      <li
+        class="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+      >
+        <button
+          aria-label="Datasets"
+          class="btn btn-link"
+          id="sp-nav-datasets"
+          role="link"
+          type="button"
+        >
+          <span
+            class="CoralIcon"
+            name="fa fa-file-excel-o"
+          />
+          <span>
+            Datasets
+          </span>
+        </button>
+      </li>
+      <li
+        class="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+      >
+        <button
+          aria-label="Favorites"
+          class="btn btn-link"
+          id="sp-nav-favorites"
+          role="link"
+          type="button"
+        >
+          <span
+            class="CoralIcon"
+            name="fa fa-star"
+          />
+          <span>
+            Favorites
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

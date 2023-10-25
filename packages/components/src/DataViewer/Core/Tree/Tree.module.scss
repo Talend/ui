@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 :global(.tc-model .tc-tree) {
 	overflow: auto;
@@ -15,10 +16,15 @@
 	}
 
 	&-node-border {
-		border-left: 1px solid $alto;
+		border-left: 1px solid tokens.$coral-color-neutral-border;
 		margin-left: calc($svg-sm-size / 2);
+
 		&:hover {
-			border-left-color: $silver-chalice;
+			border-left-color: tokens.$coral-color-neutral-border;
 		}
+	}
+
+	li:hover {
+		background-color: tokens.$coral-color-neutral-background-strong;
 	}
 }

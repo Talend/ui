@@ -1,8 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RecordsViewer should render recordsViewer 1`] = `
-<Container(TreeManager)
-  componentId="RecordsViewer"
-  wrappedComponent={[Function]}
-/>
+<div
+  class="theme-tc-records-viewer tc-records-viewer"
+>
+  <div
+    class="theme-tc-tree-header tc-tree-header"
+  >
+    Records
+    <div
+      class="theme-tc-tree-header-actions tc-tree-header-actions"
+    >
+      <button
+        aria-describedby="42"
+        aria-label="Close all"
+        class="theme-tc-tree-header-actions-icon tc-tree-header-actions-icon btn-icon-only btn btn-link"
+        data-testid="collapse-all"
+        id="CollapseAllRecords"
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-minus-circle"
+          focusable="false"
+          name="talend-minus-circle"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    class="theme-tc-virtualized-tree tc-virtualized-tree theme-tc-records-viewer-tree tc-records-viewer-tree"
+  >
+    <div
+      style="overflow: visible; height: 0px; width: 0px;"
+    >
+      <div
+        aria-label="grid"
+        aria-readonly="true"
+        class="ReactVirtualized__Grid ReactVirtualized__List theme-tc-records-viewer-tree tc-records-viewer-tree"
+        role="grid"
+        style="box-sizing: border-box; direction: ltr; height: 0px; position: relative; width: 0px; will-change: transform; overflow-x: hidden; overflow-y: auto;"
+        tabindex="0"
+      />
+    </div>
+    <div
+      class="resize-triggers"
+    >
+      <div
+        class="expand-trigger"
+      >
+        <div
+          style="width: 1px; height: 1px;"
+        />
+      </div>
+      <div
+        class="contract-trigger"
+      />
+    </div>
+  </div>
+</div>
 `;

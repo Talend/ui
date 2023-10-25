@@ -1,6 +1,6 @@
 import { ButtonIcon } from '@talend/design-system';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Overlay, Popover } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
@@ -31,7 +31,7 @@ export default function ColumnChooserButton({
 	const ActionButtonRenderer = buttonRenderer || ButtonIcon;
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<ActionButtonRenderer
 				icon="talend-column-chooser"
 				ref={setButtonRef}
@@ -65,7 +65,7 @@ export default function ColumnChooserButton({
 					)}
 				</Popover>
 			</Overlay>
-		</React.Fragment>
+		</Fragment>
 	);
 }
 

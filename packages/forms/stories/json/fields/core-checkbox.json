@@ -1,5 +1,4 @@
 {
-  "doc": "CheckBox/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Booleans",

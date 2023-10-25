@@ -1,5 +1,31 @@
 # @talend/react-cmf
 
+## 8.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+
+## 7.3.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+## 7.2.0
+
+### Minor Changes
+
+- f47e34dd0: feat: provide API for react testing library
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
 ## 7.1.4
 
 ### Patch Changes

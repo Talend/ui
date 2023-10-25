@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
+import { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line @talend/import-depth
@@ -11,9 +11,8 @@ import Link, { LinkProps } from '../../Link/Link';
 import { StackHorizontal, StackVertical } from '../../Stack';
 import { ButtonTertiaryPropsType } from '../../Button/variations/ButtonTertiary';
 import { ButtonTertiary } from '../../Button';
-import Dropdown from '../../Dropdown';
+import { Dropdown, DropdownPropsType } from '../../Dropdown';
 import { ButtonIcon } from '../../ButtonIcon';
-import { DropdownPropsType } from '../../Dropdown/Dropdown';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 import styles from './MessageStyles.module.scss';

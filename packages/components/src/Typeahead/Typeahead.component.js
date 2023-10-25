@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
@@ -228,7 +228,8 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 		},
 	};
 
-	const noResultText = rest.noResultText || t('NO_RESULT_FOUND', { defaultValue: 'No result.' });
+	const noResultText =
+		rest.noResultText || t('NO_RESULT_FOUND', { defaultValue: 'No results found' });
 	const searchingText =
 		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
 	const isLoadingText =

@@ -1,11 +1,11 @@
-import React from 'react';
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ErrorPanel from '../ErrorPanel';
 
 function ErrorFeedBack(props) {
 	const content = props.errors.map(error => <ErrorPanel key={error} error={error} />);
 	if (!props.fullPage) {
-		return <React.Fragment>{content}</React.Fragment>;
+		return <Fragment>{content}</Fragment>;
 	}
 	const style = {
 		overflowY: 'auto',

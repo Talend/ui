@@ -1,6 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from '@testing-library/react';
 import ViewLayout from './ViewLayout.component';
 
 describe('ViewLayout', () => {
@@ -14,9 +12,9 @@ describe('ViewLayout', () => {
 		const bodyElement = <whateverBodyElement />;
 
 		// when
-		const wrapper = shallow(<ViewLayout header={header} bodyElement={bodyElement} />);
+		const { container } = render(<ViewLayout header={header} bodyElement={bodyElement} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

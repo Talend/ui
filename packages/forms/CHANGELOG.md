@@ -1,5 +1,255 @@
 # @talend/react-forms
 
+## 11.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [da4cf2971]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-bootstrap@2.0.0
+  - @talend/react-components@12.0.0
+
+## 10.2.4
+
+### Patch Changes
+
+- 3b058ef7d: chore: fix some lint errors
+- Updated dependencies [3b058ef7d]
+  - @talend/design-system@7.15.1
+
+## 10.2.3
+
+### Patch Changes
+
+- ac48bdb6b: fix: pin react-ace
+- Updated dependencies [f73fdbc46]
+  - @talend/react-components@11.3.2
+
+## 10.2.2
+
+### Patch Changes
+
+- 9fa1679ad: components/Code: add flag to show/hide instructions div
+- 90dc6e87e: Fix undefined value on component Code when mounting
+- Updated dependencies [8277e1f39]
+  - @talend/react-components@11.3.1
+
+## 10.2.1
+
+### Patch Changes
+
+- d465adb68: fix: ace code editor
+
+  Issue1: 404 on react-ace min in dev mode.
+  The copy of the assets during the build is not able to support different forlders and this is the case for react-ace.
+  The getUMD point to the production version (becaue of babel) but we are in dev so this make a 404.
+  Fix: point to prod for both versions
+
+  Issue 2: function f is not defined (trace in ace-build).
+  Fix: pin ace-builds in react-forms because there is a bug in the latest version
+
+- Updated dependencies [a6ac16f28]
+  - @talend/react-components@11.3.0
+
+## 10.2.0
+
+### Minor Changes
+
+- 619d22798: Export component Code
+
+### Patch Changes
+
+- Updated dependencies [58f8ff666]
+- Updated dependencies [a5348a439]
+- Updated dependencies [82e08d6e5]
+  - @talend/react-components@11.2.1
+
+## 10.1.0
+
+### Minor Changes
+
+- f65073eb9: Update react-ace lib and improve its lazy loading.
+  Fix auto-completion.
+  Remove the need to add a copy configuration in application to work.
+
+  New library no more use _brace_ but _ace-builds_ instead.
+
+### Patch Changes
+
+- Updated dependencies [c15088d3b]
+  - @talend/react-components@11.1.0
+
+## 10.0.0
+
+### Major Changes
+
+- bfc02c4fb: All colors are now based on design-tokens
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
+## 9.3.0
+
+### Minor Changes
+
+- 7a9a8db40: Forms - Allow to disable a single checkbox for checkbox widget list
+
+## 9.2.3
+
+### Patch Changes
+
+- eefc711c0: fix: remove jest from runtime
+
+## 9.2.2
+
+### Patch Changes
+
+- 3099c427a: chore: rewrite tests using react-testing-library
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- Updated dependencies [a90c12b34]
+- Updated dependencies [fcd8daf3c]
+- Updated dependencies [c7f316d7c]
+- Updated dependencies [b8c4161d2]
+- Updated dependencies [c54e10157]
+- Updated dependencies [3099c427a]
+  - @talend/design-system@7.10.0
+  - @talend/react-components@10.3.5
+
+## 9.2.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- Updated dependencies [52d4f2df3]
+- Updated dependencies [b326091d2]
+- Updated dependencies [7a9f88147]
+- Updated dependencies [85b04cc81]
+- Updated dependencies [9719af7af]
+  - @talend/react-components@10.3.3
+  - @talend/design-system@7.9.0
+
+## 9.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- 0103ec63f: fix(TDOPS-4264/NestedList): expand list based on the schema options
+- Updated dependencies [ae37dc329]
+  - @talend/react-components@10.3.0
+
+## 9.1.0
+
+### Minor Changes
+
+- 321bd07d7: feat(TDOPS-4043/NestedList): expand the list if any item is checked
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+- Updated dependencies [be1095095]
+- Updated dependencies [708589ad4]
+  - @talend/design-system@7.7.2
+  - @talend/react-components@10.2.3
+
+## 9.0.4
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [285efb74a]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/design-system@7.7.1
+
+## 9.0.3
+
+### Patch Changes
+
+- df24c6210: fix(TDOPS-3373/NestedListView): include searchCriteria in component update
+
+## 9.0.2
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+- Updated dependencies [a01e81852]
+  - @talend/react-components@10.0.0
+  - @talend/design-system@7.7.0
+
+## 9.0.1
+
+### Patch Changes
+
+- fd25b7d23: Forms - UI Form hint can now change position to fixed with a new **overlayIsFixed** parameter
+- Updated dependencies [e79dfc100]
+  - @talend/react-components@9.4.2
+
+## 9.0.0
+
+### Major Changes
+
+- 5e4aad637: Forms - Change UI Form hint to use design system popover and **fix alignement**
+
+  ## Breaking changes :
+
+  UI Forms hint definition does not support some properties anymore
+
+  - **id** has been removed, you should rely on **data-test** attributes to target elements
+  - **className** has been removed because design system component should not be customized
+
+  ```diff
+  hint: {
+      overlayComponent: ...,
+  -   id: "id",
+  -   className: "class",
+  }
+  ```
+
+  ## New additions :
+
+  UI Forms hint definition can now handle some **data-test** attributes
+
+  - **data-test** has been added to target the hint popover content
+  - **icon-data-test** has been added to target the hint icon
+
+  ```diff
+  hint: {
+      overlayComponent: ...,
+  +   "data-test": "my-popover-content",
+  +   "icon-data-test": "my-popover-icon",
+  }
+  ```
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+
 ## 8.2.0
 
 ### Minor Changes

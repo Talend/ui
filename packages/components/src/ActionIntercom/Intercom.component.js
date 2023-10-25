@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
+import { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -39,6 +39,7 @@ function Intercom({ id, className, config, t, tooltipPlacement }) {
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<button
 				data-feature={show ? 'ipc.close' : 'ipc.open'}
+				data-test={show ? 'close' : 'open'}
 				ref={ref}
 				id={id}
 				className={classnames('btn', 'btn-link', 'tc-intercom', theme['tc-intercom'], className, {

@@ -1,10 +1,10 @@
-import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import classnames from 'classnames';
 import { IconNameWithSize } from '@talend/icons';
 
 import { DeprecatedIconNames } from '../../../../types';
 import { StackHorizontal } from '../../../Stack';
-import VisuallyHidden from '../../../VisuallyHidden';
+import { VisuallyHidden } from '../../../VisuallyHidden';
 import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
 
 import styles from '../AffixStyles.module.scss';

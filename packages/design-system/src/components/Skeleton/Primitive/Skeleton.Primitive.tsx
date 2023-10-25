@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import classNames from 'classnames';
 
 import styles from './Skeleton.module.scss';
@@ -19,5 +19,5 @@ const SkeletonPrimitive = forwardRef(
 		);
 	},
 );
-
+SkeletonPrimitive.displayName = 'SkeletonPrimitive';
 export default SkeletonPrimitive;

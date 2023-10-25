@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { useCopyToClipboard } from 'react-use';
 import { useTranslation } from 'react-i18next';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
@@ -7,7 +7,7 @@ import {
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
 
 type InputCopyProps = Omit<FieldPropsPrimitive, 'hasError'> &
 	Omit<InputPrimitiveProps, 'style' | 'className' | 'suffix'>;
@@ -63,7 +63,11 @@ const InputCopy = forwardRef(
 			}
 			return '';
 		};
-
+		const doCopy = () => {
+			const newValue = inputRef.current?.value || '';
+			copyToClipboard(newValue);
+			setCopiedValue(newValue);
+		};
 		return (
 			<FieldPrimitive
 				label={label}
@@ -83,7 +87,7 @@ const InputCopy = forwardRef(
 					suffix={{
 						type: 'button',
 						icon: 'talend-files-o',
-						onClick: () => copyToClipboard(inputRef.current?.value || ''),
+						onClick: doCopy,
 						disabled: !!disabled || !!readOnly,
 						children: t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard'),
 						hideText: true,

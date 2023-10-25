@@ -1,30 +1,37 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import DisplayModeToggle from './DisplayModeToggle.component';
 
+jest.unmock('@talend/design-system');
 const props = {
 	onChange: jest.fn(),
 };
+
 describe('DisplayModeToggle', () => {
 	it('should render', () => {
 		// when
-		const wrapper = mount(<DisplayModeToggle {...props} />);
+		const { container } = render(<DisplayModeToggle {...props} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render table mode selected', () => {
+		// given
+		render(<DisplayModeToggle {...props} mode="table" />);
+
 		// when
-		const wrapper = mount(<DisplayModeToggle {...props} mode="table" />);
+		const btn = screen.getAllByRole('button')[0];
 		// then
-		expect(wrapper.find('ButtonIconToggle').at(0).prop('isActive')).toEqual(true);
+		expect(btn).toHaveAttribute('aria-pressed', 'true');
+		expect(btn.querySelector('svg')).toHaveAttribute('name', 'talend-table');
 	});
 	it('should call onChange when change display mode', () => {
-		// when
-		const wrapper = mount(<DisplayModeToggle {...props} mode="table" />);
+		// given
+		render(<DisplayModeToggle {...props} mode="table" />);
 
-		wrapper.find('ButtonIconToggle').at(1).simulate('click', {});
+		// when
+		const btn = screen.getAllByRole('button')[1];
+		userEvent.click(btn);
 
 		// then
 		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), 'large');

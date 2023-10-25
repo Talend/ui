@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import Action from '../Actions/Action';
 import TreeViewItem from './TreeViewItem';
 
 import theme from './TreeView.module.scss';
-import withTreeGesture from '../Gesture/withTreeGesture';
+import { Gesture } from '@talend/react-a11y';
 
 /**
  * A view component to display any tree structure, like folders or categories.
@@ -123,4 +122,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTreeGesture(TreeView);
+export default Gesture.withTreeGesture(TreeView);

@@ -1,4 +1,3 @@
-import React from 'react';
 import CellBadge from './CellBadge.component';
 import { defaultColumnConfiguration } from '../Content.component';
 

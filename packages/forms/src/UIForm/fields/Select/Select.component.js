@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 
 import PropTypes from 'prop-types';
-import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
@@ -82,11 +81,11 @@ export default function Select({
 				) : null}
 				{schema.titleMap &&
 					schema.titleMap.map((option, index) => {
-						const optionProps = {
-							key: index,
-							value: option.value,
-						};
-						return <option {...optionProps}>{option.name}</option>;
+						return (
+							<option key={option.value || option.name || index} value={option.value}>
+								{option.name}
+							</option>
+						);
 					})}
 			</select>
 		</FieldTemplate>

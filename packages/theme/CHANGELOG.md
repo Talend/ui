@@ -1,5 +1,94 @@
 # @talend/bootstrap-theme
 
+## 8.2.1
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+  - @talend/icons@7.0.0
+
+## 8.2.0
+
+### Minor Changes
+
+- 9d137cb98: feat: upgrade some webpack loader
+
+### Patch Changes
+
+- Updated dependencies [9d137cb98]
+  - @talend/bootstrap-sass@3.5.0
+
+## 8.1.3
+
+### Patch Changes
+
+- a7eb1a831: fix(TDOPS-5103): Fix the notification is covered by detail drawer
+
+## 8.1.2
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+
+## 8.1.1
+
+### Patch Changes
+
+- 58f8ff666: Fix focus and active state colors for bootstrap buttons
+- a5348a439: TDOPS-4964 - Fix SidePanel colors
+
+## 8.1.0
+
+### Minor Changes
+
+- 275e7da72: feat: use design-tokens for elevation
+
+## 8.0.1
+
+### Patch Changes
+
+- ae4916894: Bootstrap Theme : Fix various button border issues using Design System tokens
+
+## 8.0.0
+
+### Major Changes
+
+- bfc02c4fb: Use @talend/design-tokens for all colors
+
+  This is considered as a BREAKING CHANGE.
+
+  To be aligned with this theme you should:
+
+  - replace all hardcoded colors used in your project and use `@talend/design-tokens`
+  - test your application with the dark theme
+
+  We have updated the following bootstrap styles:
+
+  - Button
+  - Table
+  - Form (control)
+  - Navbar
+  - Modal
+  - Tooltip
+  - Popover
+  - Alert
+  - Label
+  - Breadcrumb
+  - Tabs
+  - Progress bar
+  - Panel
+  - Weel
+  - List group
+  - Pagination
+  - Badge
+  - Pills
+
+## 7.0.1
+
+### Patch Changes
+
+- ab0bd21cf: chore: apply code style
+
 ## 7.0.0
 
 ### Major Changes

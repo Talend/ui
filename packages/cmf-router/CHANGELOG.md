@@ -1,5 +1,41 @@
 # Changelog
 
+## 6.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+  - @talend/react-cmf@8.0.0
+
+## 5.3.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [ae37dc329]
+  - @talend/react-cmf@7.3.0
+
+## 5.2.6
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [616601fda]
+- Updated dependencies [f47e34dd0]
+  - @talend/react-cmf@7.2.0
+
 ## 5.2.5
 
 ### Patch Changes

@@ -1,15 +1,17 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import defaultWidgets from '../utils/widgets';
 import { WidgetContext } from '../context';
 
 import Widget from './Widget.component';
 
+jest.unmock('@talend/design-system');
+
 describe('Widget component', () => {
 	const schema = {
 		key: ['user', 'firstname'],
 		type: 'text',
+		title: 'First Name',
 	};
 	const errors = {
 		'user,firstname': 'This is not ok',
@@ -22,66 +24,59 @@ describe('Widget component', () => {
 		comment: '',
 	};
 	const customWidgets = {
-		customWidget: () => <div>my widget</div>,
-		customWidget_text: () => <div>my widget in text display mode</div>,
+		customWidget: () => <div data-testid="customWidget">my widget</div>,
+		customWidget_text: () => (
+			<div data-testid="customWidget_text">my widget in text display mode</div>
+		),
 	};
+	const props = {
+		id: 'myForm',
+		schema,
+		errors,
+		properties,
+		onChange: jest.fn(),
+		onFinish: jest.fn(),
+		onTrigger: jest.fn(),
+	};
+
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
 	it('should render widget', () => {
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget
-					id="myForm"
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-					onTrigger={jest.fn('onTrigger')}
-					properties={properties}
-					schema={schema}
-					errors={errors}
-				/>
+				<Widget {...props} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should wrapper widget into a tooltip trigger', () => {
-		const wrapper = mount(
+	it('should wrapper widget into a tooltip trigger', async () => {
+		const { container } = render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget
-					id="myForm"
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-					onTrigger={jest.fn('onTrigger')}
-					properties={properties}
-					schema={{ ...schema, tooltip: 'example tooltip' }}
-					errors={errors}
-				/>
+				<Widget {...props} schema={{ ...schema, tooltip: 'example tooltip' }} />
 			</WidgetContext.Provider>,
 		);
-		expect(wrapper.find(TooltipTrigger)).toBeDefined();
+		await userEvent.hover(container.firstChild);
+		await screen.findByText('example tooltip');
+		expect(screen.getByRole('tooltip')).toHaveTextContent('example tooltip');
 	});
 
 	it('should render widget with the specific displayMode', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget
-					id="myForm"
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-					onTrigger={jest.fn('onTrigger')}
-					properties={properties}
-					schema={schema}
-					errors={errors}
-					displayMode="text"
-				/>
+				<Widget {...props} id="myForm" displayMode="text" />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('term')).toHaveTextContent('First Name');
+		expect(screen.getByRole('definition')).toHaveTextContent('my firstname');
 	});
 
 	it('should render nothing if widget does not exist', () => {
@@ -92,14 +87,15 @@ describe('Widget component', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<WidgetContext.Provider value={defaultWidgets}>
 				<Widget properties={properties} schema={unknownWidgetSchema} errors={errors} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByText('Widget not found unknown')).toBeVisible();
+		expect(screen.getByText('Widget not found unknown')).toHaveClass('text-danger');
 	});
 
 	it('should render custom widget', () => {
@@ -110,23 +106,15 @@ describe('Widget component', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<WidgetContext.Provider value={{ ...defaultWidgets, ...customWidgets }}>
-				<Widget
-					id="myForm"
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-					onTrigger={jest.fn('onTrigger')}
-					properties={properties}
-					schema={customWidgetSchema}
-					errors={errors}
-					value={customWidgets}
-				/>
+				<Widget {...props} schema={customWidgetSchema} value={customWidgets} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByTestId('customWidget')).toBeVisible();
+		expect(screen.getByTestId('customWidget')).toHaveTextContent('my widget');
 	});
 
 	it('should render custom widget in specific display mode', () => {
@@ -137,24 +125,15 @@ describe('Widget component', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<WidgetContext.Provider value={{ ...defaultWidgets, ...customWidgets }}>
-				<Widget
-					id="myForm"
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-					onTrigger={jest.fn('onTrigger')}
-					properties={properties}
-					schema={customWidgetSchema}
-					errors={errors}
-					value={customWidgets}
-					displayMode="text"
-				/>
+				<Widget {...props} schema={customWidgetSchema} value={customWidgets} displayMode="text" />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByTestId('customWidget_text')).toBeVisible();
+		expect(screen.getByTestId('customWidget_text')).toHaveTextContent('my widget');
 	});
 
 	it('should pass validation message from schema over message from errors', () => {
@@ -165,59 +144,39 @@ describe('Widget component', () => {
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget
-					id="myForm"
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-					onTrigger={jest.fn('onTrigger')}
-					properties={properties}
-					schema={customValidationMessageSchema}
-					errors={errors}
-				/>
+				<Widget {...props} schema={customValidationMessageSchema} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(
-			wrapper.find('[data-test="fieldTemplate.inlineMessageError"]').at(0).props().description,
-		).toBe('My custom validation message');
+		expect(screen.getByText('My custom validation message')).toBeVisible();
 	});
 
 	it('should pass message from errors when there is no validation message in schema', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget
-					id="myForm"
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-					onTrigger={jest.fn('onTrigger')}
-					properties={properties}
-					schema={schema}
-					errors={errors}
-				/>
+				<Widget {...props} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(
-			wrapper.find('[data-test="fieldTemplate.inlineMessageError"]').at(0).props().description,
-		).toBe('This is not ok');
+		expect(screen.getByText('This is not ok')).toBeVisible();
 	});
 
 	it("should render null when widgetId is 'hidden'", () => {
 		// when
 		const hidden = { ...schema, widget: 'hidden' };
-		const wrapper = mount(
+		const { container } = render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget schema={hidden} />
+				<Widget {...props} schema={hidden} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.html()).toBe(null);
+		expect(container).toBeEmptyDOMElement();
 	});
 
 	it('should render widget when conditions are met', () => {
@@ -231,21 +190,15 @@ describe('Widget component', () => {
 				],
 			},
 		};
-		const wrapper = mount(
+		render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget
-					schema={withConditions}
-					properties={properties}
-					errors={errors}
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-				/>
-				,
+				<Widget {...props} schema={withConditions} />,
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find('input#user_firstname').length).toBe(1);
+		expect(screen.getByRole('textbox')).toBeVisible();
+		expect(screen.getByRole('textbox')).toHaveValue('my firstname');
 	});
 
 	it('should render null when conditions are not met', () => {
@@ -259,40 +212,27 @@ describe('Widget component', () => {
 				],
 			},
 		};
-		const wrapper = mount(
+		const { container } = render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget
-					schema={withConditions}
-					properties={properties}
-					errors={errors}
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-				/>
+				<Widget {...props} schema={withConditions} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.html()).toBe(null);
+		expect(container).toBeEmptyDOMElement();
 	});
 
 	it('should pass value updating status', () => {
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<WidgetContext.Provider value={defaultWidgets}>
-				<Widget
-					id="myForm"
-					onChange={jest.fn('onChange')}
-					onFinish={jest.fn('onFinish')}
-					onTrigger={jest.fn('onTrigger')}
-					properties={properties}
-					schema={schema}
-					errors={errors}
-					updating={[schema.key.join('.')]}
-				/>
+				<Widget {...props} updating={[schema.key.join('.')]} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find('.form-group.theme-updating').length).toBe(1);
+		expect(container.firstChild).toHaveClass('theme-updating');
+		expect(container.firstChild).toHaveAttribute('aria-busy', 'true');
+		expect(screen.getByRole('textbox')).toBeDisabled();
 	});
 });

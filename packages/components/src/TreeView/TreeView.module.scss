@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 // TreeView styles
 
@@ -8,15 +9,15 @@
 		justify-content: space-between;
 		align-items: center;
 
-		color: $brand-primary;
+		color: tokens.$coral-color-accent-text;
 		line-height: 6rem;
 		font-weight: bold;
 
 		padding-left: $padding-large;
-		border-bottom: 1px rgba(0, 0, 0, 0.12) solid;
+		border-bottom: 1px solid tokens.$coral-color-neutral-border;
 
 		:global(.btn-link .tc-svg-icon) {
-			stroke: $brand-primary;
+			stroke: tokens.$coral-color-accent-text;
 		}
 	}
 

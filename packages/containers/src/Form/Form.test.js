@@ -1,46 +1,45 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import { fromJS } from 'immutable';
 
 import Container from './Form.container';
 import Connected from './Form.connect';
 
+jest.unmock('@talend/design-system');
+
+const jsonSchema = {
+	type: 'object',
+	title: 'Comment',
+	properties: {
+		name: {
+			type: 'string',
+		},
+	},
+};
+const uiSchema = [
+	{
+		key: 'name',
+		title: 'Name',
+	},
+];
 describe('Container(Form)', () => {
 	const noOp = jest.fn();
 	const defaultProps = {
+		formId: 'test-form',
 		initState: noOp,
 		deleteState: noOp,
+		className: 'foo',
+		onSubmit: jest.fn(),
+		onChange: jest.fn(),
+		onErrors: jest.fn(),
+		onTrigger: jest.fn(),
+		formProps: { 'data-testid': 'Form' }, // extra props
 	};
-	it('should pass props to Form lib', () => {
-		const wrapper = shallow(
-			<Container
-				formId="test-form"
-				jsonSchema={{ schema: true }}
-				uiSchema={{ uiSchema: true }}
-				actions={[]}
-				className="foo"
-				onTrigger={jest.fn()}
-				formProps={{ other: true }} // extra props
-				loading
-				{...defaultProps}
-			/>,
-		);
-		const props = wrapper.props();
-		expect(props).toMatchSnapshot();
-	});
 
 	it('should render a Form', () => {
-		const wrapper = shallow(
-			<Container
-				formId="test-form"
-				jsonSchema={{ schema: true }}
-				uiSchema={{ uiSchema: true }}
-				actions={[]}
-				formProps={{ other: true }} // extra props
-				{...defaultProps}
-			/>,
+		const { container } = render(
+			<Container jsonSchema={jsonSchema} uiSchema={uiSchema} actions={[]} {...defaultProps} />,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should use props.onError', () => {
@@ -127,7 +126,6 @@ describe('Container(Form)', () => {
 	});
 
 	it('should jsonSchema return call results from props.jsonSchema function', () => {
-		const jsonSchema = { foo: 'bar' };
 		const jsonSchemaFunc = () => jsonSchema;
 		const form = new Container({
 			jsonSchema: jsonSchemaFunc,
@@ -136,7 +134,6 @@ describe('Container(Form)', () => {
 	});
 
 	it('should jsonSchema return call results from props.jsonSchema function', () => {
-		const jsonSchema = { foo: 'bar' };
 		const jsonSchemaFunc = () => jsonSchema;
 		const form = new Container({
 			jsonSchema: jsonSchemaFunc,
@@ -145,7 +142,6 @@ describe('Container(Form)', () => {
 	});
 
 	it('should uiSchema return call results from props.uiSchema function', () => {
-		const uiSchema = { foo: 'bar' };
 		const uiSchemaFunc = () => uiSchema;
 		const form = new Container({
 			uiSchema: uiSchemaFunc,
@@ -154,29 +150,11 @@ describe('Container(Form)', () => {
 	});
 
 	it('should uiSchema return call results from props.uiSchema function', () => {
-		const uiSchema = { foo: 'bar' };
 		const uiSchemaFunc = () => uiSchema;
 		const form = new Container({
 			uiSchema: uiSchemaFunc,
 		});
 		expect(form.uiSchema()).toBe(uiSchema);
-	});
-
-	it('use ArrayFieldTemplate given by props over default ArrayFieldTemplate', () => {
-		const wrapper = shallow(
-			<Container
-				ArrayFieldTemplate="ArrayFieldTemplate"
-				formId="test-form"
-				jsonSchema={{ schema: true }}
-				uiSchema={{ uiSchema: true }}
-				actions={[]}
-				className="foo"
-				formProps={{ other: true }} // extra props
-				{...defaultProps}
-			/>,
-		);
-		const props = wrapper.props();
-		expect(props).toHaveProperty('ArrayFieldTemplate', 'ArrayFieldTemplate');
 	});
 });
 

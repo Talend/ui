@@ -1,44 +1,50 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import SidePanel from './SidePanel.component';
 
+const onClick = jest.fn();
+const onToggleDock = jest.fn();
+const props = {
+	actions: [
+		{ label: 'Preparations', icon: 'fa fa-asterisk', onClick },
+		{ label: 'Datasets', icon: 'fa fa-file-excel-o', onClick },
+		{ label: 'Favorites', icon: 'fa fa-star', onClick },
+	],
+};
+
 describe('SidePanel', () => {
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
+
+	it('should render', () => {
+		const { container } = render(<SidePanel id="sp" {...props} />);
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('navigation')).toHaveClass('tc-side-panel');
+		expect(screen.getByRole('list')).toBeVisible();
+		expect(screen.getAllByRole('presentation')).toHaveLength(3);
+	});
+
 	it('should trigger callback on toggle click (controlled)', () => {
 		// given
-		const onClick = jest.fn();
-		const onToggleDock = jest.fn();
-		const actions = [
-			{ label: 'Preparations', icon: 'fa fa-asterisk', onClick },
-			{ label: 'Datasets', icon: 'fa fa-file-excel-o', onClick },
-			{ label: 'Favorites', icon: 'fa fa-star', onClick },
-		];
+		render(<SidePanel id="sp" {...props} onToggleDock={onToggleDock} docked />);
 
 		// when
-		const wrapper = mount(
-			<SidePanel id="sp" actions={actions} onToggleDock={onToggleDock} docked />,
-		);
-		expect(wrapper.find('nav').prop('className')).toEqual(expect.stringContaining('docked'));
-		wrapper.find('button#sp-toggle-dock').simulate('click');
+		userEvent.click(screen.getByLabelText('Expand menu'));
 
 		// then
 		expect(onToggleDock).toBeCalled();
-		expect(wrapper.find('nav').prop('className')).toEqual(expect.stringContaining('docked'));
+		expect(screen.getByRole('navigation')).toHaveClass('docked');
 	});
 
 	it('should toggle panel (uncontrolled)', () => {
 		// given
-		const actions = [
-			{ label: 'Preparations', icon: 'fa fa-asterisk', href: '/preparations' },
-			{ label: 'Datasets', icon: 'fa fa-file-excel-o', href: '/datasets' },
-			{ label: 'Favorites', icon: 'fa fa-star', href: '/favorites' },
-		];
 
 		// when
-		const wrapper = mount(<SidePanel id="sp" actions={actions} docked />);
-		expect(wrapper.find('nav').prop('className')).toEqual(expect.stringContaining('docked'));
-		wrapper.find('button#sp-toggle-dock').simulate('click');
+		render(<SidePanel id="sp" {...props} docked />);
+		userEvent.click(screen.getByLabelText('Expand menu'));
 
 		// then
-		expect(wrapper.find('nav').prop('className')).toEqual(expect.not.stringContaining('docked'));
+		expect(screen.getByRole('navigation')).not.toHaveClass('docked');
 	});
 });

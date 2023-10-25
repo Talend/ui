@@ -1,14 +1,14 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import InlineEditingPrimitive, {
 	InlineEditingPrimitiveProps,
 } from '../Primitives/InlineEditingPrimitive';
 
-const InlineEditingText = forwardRef(
-	(props: Omit<InlineEditingPrimitiveProps, 'mode'>, ref: Ref<HTMLDivElement>) => {
+export type InlineEditingTextProps = Omit<InlineEditingPrimitiveProps, 'mode'>;
+
+export const InlineEditingText = forwardRef(
+	(props: InlineEditingTextProps, ref: Ref<HTMLDivElement>) => {
 		return <InlineEditingPrimitive {...props} ref={ref} mode="single" />;
 	},
 );
 
 InlineEditingText.displayName = 'InlineEditing.Text';
-
-export default InlineEditingText;

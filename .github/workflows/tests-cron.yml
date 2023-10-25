@@ -5,6 +5,11 @@ on:
   schedule:
     - cron: "0 9 * * 1-5" # At 09:00 AM, Monday through Friday
 
+permissions:
+  issues: write
+  content: read
+
+
 jobs:
   tests:
     name: Long running Tests
@@ -12,15 +17,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: "yarn"
+        uses: ./.github/actions/setup-node
 
       - name: Install and tests
         run: |
@@ -29,7 +29,7 @@ jobs:
 
       - name: Create Issue on Failed workflow
         if: ${{ failure() }}
-        uses: dacbd/create-issue-action@v1
+        uses: dacbd/create-issue-action@ba4d1c45cccf9c483f2720cefb40e437f0ee6f7d #v1.2.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: module-to-cdn configuration fails

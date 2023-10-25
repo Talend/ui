@@ -1,9 +1,9 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-$border-default: 0.1rem solid $gallery !default;
+$border-default: 0.1rem solid tokens.$coral-color-neutral-border !default;
 
 $tc-datepicker-width: 31rem !default;
-$tc-datepicker-background: $white !default;
 $tc-datepicker-box-shadow: $shadow-default !default;
 $tc-datepicker-z-index: $zindex-dropdown !default;
 

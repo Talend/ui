@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import ActionList from './ActionList.component';
 
@@ -44,7 +43,7 @@ const actions = [
 ];
 
 export default {
-	title: 'Navigation/ActionList',
+	title: 'Components/Navigation/ActionList',
 };
 
 export const Default = () => (
@@ -55,6 +54,19 @@ export const Default = () => (
 			onSelect={action('onItemSelect')}
 			onToggleDock={action('onToggleDock')}
 			tooltipPlacement="top"
+		/>
+	</div>
+);
+
+export const Reverse = () => (
+	<div style={{ display: 'inline-table' }}>
+		<ActionList
+			id="context"
+			actions={actions}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			tooltipPlacement="top"
+			reverse
 		/>
 	</div>
 );

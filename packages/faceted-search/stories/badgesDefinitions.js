@@ -14,7 +14,14 @@ export const badgeName = {
 		isAvailableForFacetList: true,
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		operators: [
+			'containsIgnoreCase',
+			'notContainsIgnoreCase',
+			'equals',
+			'notEquals',
+			'match a regexp',
+		],
+		'data-feature': 'faceted-badge-name',
 	},
 };
 
@@ -34,7 +41,14 @@ export const badgeConnectionName = {
 		isAvailableForFacetList: true,
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		operators: [
+			'containsIgnoreCase',
+			'notContainsIgnoreCase',
+			'equals',
+			'notEquals',
+			'match a regexp',
+		],
+		'data-feature': 'faceted-badge-connection-name',
 	},
 };
 
@@ -54,7 +68,14 @@ export const badgeAuthor = {
 		isAvailableForFacetList: true,
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		operators: [
+			'containsIgnoreCase',
+			'notContainsIgnoreCase',
+			'equals',
+			'notEquals',
+			'match a regexp',
+		],
+		'data-feature': 'faceted-badge-author',
 	},
 };
 
@@ -72,7 +93,46 @@ export const badgeAll = {
 		isAvailableForFacetList: false,
 		badgePerFacet: '1',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase'],
+		operators: ['containsIgnoreCase', 'notContainsIgnoreCase'],
+		'data-feature': 'faceted-badge-all',
+	},
+};
+
+export const badgeMenu = {
+	properties: {
+		attribute: 'workspaceId',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Workspace',
+		operator: {},
+		operators: [],
+		type: 'menu',
+		filterBarPlaceholder: 'Find a workspace',
+	},
+	metadata: {
+		badgePerFacet: '1',
+		entitiesPerBadge: 'N',
+		values: [
+			{ id: 'personal', label: 'Personal' },
+			{ id: 'shared', label: 'Shared' },
+			{ id: 'custom', label: 'Custom' },
+			{
+				id: 'ws1',
+				label:
+					"Long long workspace name can't fit in one line. Long long workspace name can't fit in one line. ",
+			},
+			{ id: 'ws2', label: 'Workspace 2' },
+			{ id: 'ws3', label: 'Workspace 3' },
+			{ id: 'ws4', label: 'Workspace 4' },
+			{ id: 'ws5', label: 'Workspace 5' },
+			{ id: 'ws6', label: 'Workspace 6' },
+			{ id: 'ws7', label: 'Workspace 7' },
+			{ id: 'ws8', label: 'Workspace 8' },
+			{ id: 'ws9', label: 'Workspace 9' },
+			{ id: 'ws10', label: 'Workspace Test' },
+		],
+		operators: ['equals', 'notEquals'],
+		'data-feature': 'faceted-badge-workspace',
 	},
 };
 
@@ -98,7 +158,35 @@ export const badgeConnectionType = {
 			{ id: 'salesforce', label: 'Salesforce' },
 			{ id: 'aws_kinesis', label: 'AWS kinesis' },
 		],
-		operators: ['in'],
+		operators: ['in', 'notIn'],
+		'data-feature': 'faceted-badge-connection-type',
+	},
+};
+
+export const badgeConnectionTypeAllSelector = {
+	properties: {
+		attribute: 'connection.type',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Connection type',
+		operator: {},
+		operators: [],
+		type: 'checkbox',
+		filterBarPlaceholder: 'Find a connection type',
+	},
+	metadata: {
+		badgePerFacet: '1',
+		entitiesPerBadge: 'N',
+		values: [
+			{ id: 'amazon_s3', label: 'Amazon S3' },
+			{ id: 'hdfs', label: 'HDFS' },
+			{ id: 'kafka', label: 'Kafka' },
+			{ id: 'localcon', label: 'Local connection' },
+			{ id: 'salesforce', label: 'Salesforce' },
+			{ id: 'aws_kinesis', label: 'AWS kinesis' },
+		],
+		operators: ['in', 'notIn'],
+		allSelector: true,
 	},
 };
 
@@ -123,6 +211,7 @@ export const badgePrice = {
 			'lessThan',
 			'lessThanOrEquals',
 		],
+		'data-feature': 'faceted-badge-price',
 	},
 };
 
@@ -207,7 +296,8 @@ export const badgeTags = {
 	metadata: {
 		badgePerFacet: '1',
 		entitiesPerBadge: 'N',
-		operators: ['in'],
+		operators: ['in', 'notIn'],
+		'data-feature': 'faceted-badge-tags',
 	},
 };
 
@@ -275,7 +365,7 @@ export const badgeEnumWithLotOfValues = {
 			{ id: 'salesforce_classic', label: 'Salesforce Classic' },
 			{ id: 'aws_kinesis_classic', label: 'AWS kinesis Classic' },
 		],
-		operators: ['in'],
+		operators: ['in', 'notIn'],
 	},
 };
 
@@ -294,7 +384,13 @@ export const badgeTextAsCustomAttribute = {
 		category: 'Custom attributes',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		operators: [
+			'containsIgnoreCase',
+			'notContainsIgnoreCase',
+			'equals',
+			'notEquals',
+			'match a regexp',
+		],
 	},
 };
 
@@ -317,7 +413,7 @@ export const badgeEnumsAsCustomAttribute = {
 			{ id: 'internal', label: 'Internal' },
 			{ id: 'public', label: 'Public' },
 		],
-		operators: ['in'],
+		operators: ['in', 'notIn'],
 	},
 };
 
@@ -336,7 +432,7 @@ export const badgeTextAsCategory = {
 		category: 'Very long long long long long long long category',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals'],
+		operators: ['containsIgnoreCase', 'notContainsIgnoreCase', 'equals'],
 	},
 };
 
@@ -353,7 +449,7 @@ export const badgeEmptyLabel = {
 	metadata: {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals'],
+		operators: ['containsIgnoreCase', 'notContainsIgnoreCase', 'equals'],
 	},
 };
 
@@ -403,5 +499,6 @@ export const badgeCreationDate = {
 			'lessThan',
 			'lessThanOrEquals',
 		],
+		'data-feature': 'faceted-badge-creation-date',
 	},
 };

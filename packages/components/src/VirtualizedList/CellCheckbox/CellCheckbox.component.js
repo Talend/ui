@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import classnames from 'classnames';
 import theme from './CellCheckbox.module.scss';
 
@@ -8,7 +8,7 @@ import { SELECTION_MODE } from '../utils/constants';
 /**
  * Cell renderer that displays a checkbox
  */
-class CellCheckbox extends React.Component {
+class CellCheckbox extends Component {
 	shouldComponentUpdate(nextProps) {
 		return (
 			this.props.cellData !== nextProps.cellData ||
@@ -26,7 +26,7 @@ class CellCheckbox extends React.Component {
 
 		return (
 			<div className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
-				<div className="checkbox">
+				<div className={classnames('checkbox', { disabled })}>
 					<label htmlFor={id && `${id}-${rowIndex}-check`}>
 						<input
 							id={id && `${id}-${rowIndex}-check`}

@@ -1,9 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgeNumber should mount a default badge 1`] = `
-<BadgeNumber
-  id="myId"
-  label="Price"
-  t={[Function]}
-/>
+<div
+  class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
+>
+  <div
+    class="tc-badge-button theme-tc-badge-button"
+    id="tc-badge-select-myId-badge-number"
+  >
+    <span
+      aria-describedby="42"
+      aria-label="Price"
+      class="tc-badge-category theme-tc-badge-category"
+    >
+      Price
+    </span>
+    <div
+      class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large"
+    >
+      <div
+        class="tc-badge-operator-button theme-tc-badge-operator-button"
+      >
+        <button
+          aria-describedby="42"
+          aria-label="Does not contain"
+          class="btn btn-link"
+          id="myId-badge-number-operator-action-overlay"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-not-equal"
+            focusable="false"
+            name="talend-not-equal"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
+    >
+      <button
+        aria-describedby="42"
+        aria-label="All"
+        class="btn btn-link"
+        id="myId-badge-number-action-overlay"
+        type="button"
+      >
+        <span>
+          All
+        </span>
+      </button>
+    </div>
+    <button
+      aria-describedby="42"
+      aria-label="Remove filter"
+      class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+      data-feature="filter.remove"
+      id="tc-badge-delete-myId-badge-number"
+      role="button"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
+        focusable="false"
+        name="talend-cross"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+</div>
 `;

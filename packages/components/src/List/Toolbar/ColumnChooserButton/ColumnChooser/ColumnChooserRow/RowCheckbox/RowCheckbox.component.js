@@ -1,12 +1,7 @@
-import React from 'react';
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
-import cssModule from '../../ColumnChooser.module.scss';
-import { getTheme } from '../../../../../../theme';
-import Checkbox from '../../../../../../Checkbox';
-
-const theme = getTheme(cssModule);
+import { Form, SizedIcon } from '@talend/design-system';
 
 const RowCheckbox = ({
 	dataFeature,
@@ -19,29 +14,31 @@ const RowCheckbox = ({
 	intermediate = false,
 }) => {
 	const onChangeCheckbox = event => {
-		onChange(event.target.checked, label);
+		// Force to pass a checked state in case of intermediate checkbox
+		const checkedState = intermediate ? true : event.target.checked;
+		onChange(checkedState, label);
 	};
 	const describedby = `${id}-${description}`;
 	return locked ? (
-		<React.Fragment>
-			<Icon name="talend-locked" className={theme('tc-column-chooser-row-locked-icon')} />
+		<Fragment>
+			<SizedIcon name="locker-closed" size="M"/>
 			<RowLabel label={label} />
-		</React.Fragment>
+		</Fragment>
 	) : (
-		<React.Fragment>
-			<Checkbox
+		<Fragment>
+			<Form.Checkbox
 				checked={checked}
 				data-feature={dataFeature}
 				aria-describedby={describedby}
 				id={`${id}-checkbox-${label.replace(/\s+/g, '-')}`}
 				label={label}
 				onChange={onChangeCheckbox}
-				intermediate={intermediate}
+				indeterminate={intermediate}
 			/>
 			<div id={describedby} className="sr-only">
 				{description}
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

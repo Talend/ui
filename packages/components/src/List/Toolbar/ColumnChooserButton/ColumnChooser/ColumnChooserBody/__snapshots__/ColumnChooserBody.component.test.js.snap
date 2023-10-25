@@ -1,136 +1,192 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ColumnChooserBody should render the columns rows and the column select all 1`] = `
-<div id="column-chooser-body"
-     class="theme-body tc-tooltip-body"
+<div
+  class="theme-body tc-tooltip-body"
+  id="column-chooser-body"
 >
-  <div id="column-chooser-body-content"
-       class="theme-content tc-tooltip-content"
+  <div
+    class="theme-content tc-tooltip-content"
+    id="column-chooser-body-content"
   >
-    <div class="tc-column-chooser-body theme-tc-column-chooser-body">
-      <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
-        <div class="checkbox tc-checkbox">
-          <label for="body-context-id-body-checkbox-Unselect-all"
-                 data-feature="column-chooser.select.all.disable"
+    <div
+      class="tc-column-chooser-body theme-tc-column-chooser-body"
+    >
+      <div
+        class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
+      >
+        <div
+          class="theme-checkbox"
+        >
+          <input
+            aria-checked="true"
+            aria-describedby="body-context-id-body-hide all the columns"
+            checked=""
+            data-feature="column-chooser.select.all"
+            id="body-context-id-body-checkbox-Unselect-all"
+            type="checkbox"
+          />
+          <label
+            class="theme-label theme-label_inline"
+            for="body-context-id-body-checkbox-Unselect-all"
           >
-            <input type="checkbox"
-                   id="body-context-id-body-checkbox-Unselect-all"
-                   data-checked="2"
-                   aria-describedby="body-context-id-body-hide all the columns"
-                   checked
-            >
-            <span>
-              Unselect all
-            </span>
+            Unselect all
           </label>
         </div>
-        <div id="body-context-id-body-hide all the columns"
-             class="sr-only"
+        <div
+          class="sr-only"
+          id="body-context-id-body-hide all the columns"
         >
           hide all the columns
         </div>
       </div>
-      <div class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list">
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <span name="talend-locked"
-                class="CoralIcon tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
+      <div
+        class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list"
+      >
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.6rem; height: 1.6rem;"
           >
-          </span>
-          <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
+            <use
+              xlink:href="#locker-closed:M"
+            />
+          </svg>
+          <span
+            class="tc-column-chooser-row-label theme-tc-column-chooser-row-label"
+          >
             col1
           </span>
         </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <span name="talend-locked"
-                class="CoralIcon tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.6rem; height: 1.6rem;"
           >
-          </span>
-          <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
+            <use
+              xlink:href="#locker-closed:M"
+            />
+          </svg>
+          <span
+            class="tc-column-chooser-row-label theme-tc-column-chooser-row-label"
+          >
             col2
           </span>
         </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-checkbox">
-            <label for="body-context-id-body-checkbox-col3"
-                   data-feature="column-chooser.select.disable"
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <div
+            class="theme-checkbox"
+          >
+            <input
+              aria-checked="true"
+              aria-describedby="body-context-id-body-display the column col3"
+              checked=""
+              data-feature="column-chooser.select"
+              id="body-context-id-body-checkbox-col3"
+              type="checkbox"
+            />
+            <label
+              class="theme-label theme-label_inline"
+              for="body-context-id-body-checkbox-col3"
             >
-              <input type="checkbox"
-                     id="body-context-id-body-checkbox-col3"
-                     data-checked="2"
-                     aria-describedby="body-context-id-body-display the column col3"
-                     checked
-              >
-              <span>
-                col3
-              </span>
+              col3
             </label>
           </div>
-          <div id="body-context-id-body-display the column col3"
-               class="sr-only"
+          <div
+            class="sr-only"
+            id="body-context-id-body-display the column col3"
           >
             display the column col3
           </div>
         </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-checkbox">
-            <label for="body-context-id-body-checkbox-col4"
-                   data-feature="column-chooser.select.enable"
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <div
+            class="theme-checkbox"
+          >
+            <input
+              aria-checked="false"
+              aria-describedby="body-context-id-body-display the column col4"
+              data-feature="column-chooser.select"
+              id="body-context-id-body-checkbox-col4"
+              type="checkbox"
+            />
+            <label
+              class="theme-label theme-label_inline"
+              for="body-context-id-body-checkbox-col4"
             >
-              <input type="checkbox"
-                     id="body-context-id-body-checkbox-col4"
-                     data-checked="0"
-                     aria-describedby="body-context-id-body-display the column col4"
-              >
-              <span>
-                col4
-              </span>
+              col4
             </label>
           </div>
-          <div id="body-context-id-body-display the column col4"
-               class="sr-only"
+          <div
+            class="sr-only"
+            id="body-context-id-body-display the column col4"
           >
             display the column col4
           </div>
         </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-checkbox">
-            <label for="body-context-id-body-checkbox-col5"
-                   data-feature="column-chooser.select.disable"
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <div
+            class="theme-checkbox"
+          >
+            <input
+              aria-checked="true"
+              aria-describedby="body-context-id-body-display the column col5"
+              checked=""
+              data-feature="column-chooser.select"
+              id="body-context-id-body-checkbox-col5"
+              type="checkbox"
+            />
+            <label
+              class="theme-label theme-label_inline"
+              for="body-context-id-body-checkbox-col5"
             >
-              <input type="checkbox"
-                     id="body-context-id-body-checkbox-col5"
-                     data-checked="2"
-                     aria-describedby="body-context-id-body-display the column col5"
-                     checked
-              >
-              <span>
-                col5
-              </span>
+              col5
             </label>
           </div>
-          <div id="body-context-id-body-display the column col5"
-               class="sr-only"
+          <div
+            class="sr-only"
+            id="body-context-id-body-display the column col5"
           >
             display the column col5
           </div>
         </div>
-        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-checkbox">
-            <label for="body-context-id-body-checkbox-col6"
-                   data-feature="column-chooser.select.enable"
+        <div
+          class="tc-column-chooser-row theme-tc-column-chooser-row"
+        >
+          <div
+            class="theme-checkbox"
+          >
+            <input
+              aria-checked="false"
+              aria-describedby="body-context-id-body-display the column col6"
+              data-feature="column-chooser.select"
+              id="body-context-id-body-checkbox-col6"
+              type="checkbox"
+            />
+            <label
+              class="theme-label theme-label_inline"
+              for="body-context-id-body-checkbox-col6"
             >
-              <input type="checkbox"
-                     id="body-context-id-body-checkbox-col6"
-                     data-checked="0"
-                     aria-describedby="body-context-id-body-display the column col6"
-              >
-              <span>
-                col6
-              </span>
+              col6
             </label>
           </div>
-          <div id="body-context-id-body-display the column col6"
-               class="sr-only"
+          <div
+            class="sr-only"
+            id="body-context-id-body-display the column col6"
           >
             display the column col6
           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { Actions, Action } from '../../Actions';
@@ -28,10 +28,10 @@ const addInfo = {
 };
 
 const header = (
-	<React.Fragment>
+	<Fragment>
 		<HeaderTitle title="Pipelines" />
 		<Action {...addInfo} />
-	</React.Fragment>
+	</Fragment>
 );
 const headerWithActions = [
 	<HeaderTitle title="Pipelines" />,
@@ -85,7 +85,7 @@ const footer = (
 const customBody = <div>my custom body rich tolltip</div>;
 
 export default {
-	title: 'Layout/RichLayout',
+	title: 'Components/Layout/RichLayout',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 

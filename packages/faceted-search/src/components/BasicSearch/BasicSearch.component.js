@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { get, isEqual } from 'lodash';
+import { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 
 import { ButtonIcon, ButtonSecondary, Popover } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
@@ -46,6 +46,8 @@ const BasicSearch = ({
 	badgesDefinitionsSort,
 	quickSearchPlaceholder,
 	quickSearchFacetsFilter,
+	quickSearchInputProps,
+	disclosureProps,
 }) => {
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(
@@ -66,8 +68,11 @@ const BasicSearch = ({
 		[badgesDefinitions],
 	);
 
+	const [badgeState, setBadgeState] = useState(state.badges);
+
 	useEffect(() => {
-		if (!state.badges.some(isInCreation)) {
+		if (!state.badges.some(isInCreation) && !isEqual(badgeState, state.badges)) {
+			setBadgeState(state.badges);
 			onSubmit({}, state.badges);
 		}
 	}, [state.badges, onSubmit]);
@@ -99,6 +104,9 @@ const BasicSearch = ({
 	const badgeFacetedContextValue = { state, dispatch, onSubmit };
 	// removable = undefined means badge can be removed (backward compatible change)
 	const hasRemovableBadge = state.badges.some(badge => badge.properties.removable !== false);
+	const quickSearchMinLength =
+		Math.max(quicksearchable.map(quicksearchableItem => quicksearchableItem.metadata?.minLength)) ||
+		1;
 
 	return (
 		<div id={basicSearchId} className={css('tc-basic-search')}>
@@ -121,6 +129,8 @@ const BasicSearch = ({
 						),
 					);
 				}}
+				inputProps={quickSearchInputProps}
+				minLength={quickSearchMinLength}
 			/>
 			<div className={css('tc-basic-search-content')}>
 				<BadgeFacetedProvider value={badgeFacetedContextValue}>
@@ -140,7 +150,12 @@ const BasicSearch = ({
 							isFixed
 							hasPadding={false}
 							disclosure={
-								<ButtonSecondary size="S" isDropdown data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}>
+								<ButtonSecondary
+									size="S"
+									isDropdown
+									data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}
+									{...disclosureProps}
+								>
 									{t('BASIC_SEARCH_ADD_FILTER', 'Add filter')}
 								</ButtonSecondary>
 							}
@@ -202,6 +217,8 @@ BasicSearch.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	setBadgesFaceted: PropTypes.func,
 	callbacks: callbacksPropTypes,
+	quickSearchInputProps: PropTypes.object,
+	disclosureProps: PropTypes.object,
 };
 
 export { BasicSearch };

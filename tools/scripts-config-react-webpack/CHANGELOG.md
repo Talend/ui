@@ -1,5 +1,92 @@
 # @talend/scripts-config-react-webpack
 
+## 16.1.0
+
+### Minor Changes
+
+- 9d137cb98: feat: upgrade some webpack loader
+
+## 16.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade dependencies to latest
+
+  - babel-loader from 8 to 9
+  - fork-ts-checker-webpack-plugin from 7 to 8
+
+## 15.4.1
+
+### Patch Changes
+
+- bfc02c4fb: fix: make the static AppLoader use design token if available
+
+## 15.4.0
+
+### Minor Changes
+
+- 5fd268ed6: feat: support publicPath auto option
+
+### Patch Changes
+
+- ee828e0b0: fix: remove circular dependencies on react-components
+
+## 15.3.3
+
+### Patch Changes
+
+- fb81e1ed2: fix: support package-lock format 1
+
+## 15.3.2
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+  - @talend/scripts-config-babel@13.0.0
+
+## 15.3.1
+
+### Patch Changes
+
+- 285efb74a: chore: minor upgrade of webpack-dev-server
+- b0193afbd: chore: upgrade webpack
+
+## 15.3.0
+
+### Minor Changes
+
+- 0bc6a9ee1: feat: add options to fix sourcemaps in mono repository.
+  chore: upgrade fork-ts-checker-webpack-plugin@^7.3.0
+
+## 15.2.6
+
+### Patch Changes
+
+- 464f7207d: Webpack react config - Fix sass HMR on file change for dev mode
+
+## 15.2.5
+
+### Patch Changes
+
+- 093ce8530: fix: add meta in head if inject is false
+- Updated dependencies [c7152471f]
+  - @talend/scripts-utils@2.0.2
+
+## 15.2.4
+
+### Patch Changes
+
+- 65c8ad05c: fix: apply breaking changes on talend/scripts-utils
+- Updated dependencies [65c8ad05c]
+  - @talend/scripts-utils@2.0.0
+
+## 15.2.3
+
+### Patch Changes
+
+- Updated dependencies [c18aabb97]
+  - @talend/scripts-config-babel@12.0.0
+
 ## 15.2.2
 
 ### Patch Changes

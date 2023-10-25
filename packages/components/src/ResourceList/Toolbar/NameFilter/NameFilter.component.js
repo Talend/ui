@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
@@ -36,7 +35,6 @@ function NameFilter({ label, value, onChange }) {
 			/>
 			<Action
 				className={theme.remove}
-				bsStyle="link"
 				icon="talend-cross"
 				label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
 				hideLabel

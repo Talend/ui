@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineForm should render 1`] = `
+<div
+  tabindex="-1"
+>
+  <form
+    class="theme-tc-editable-text-form tc-editable-text-form"
+  >
+    <div
+      class="form-group"
+    >
+      <input
+        class="theme-tc-editable-text-form-input tc-editable-text-form-input form-control"
+        id="inputTitle"
+        type="text"
+        value="my text"
+      />
+    </div>
+    <div
+      class="theme-tc-editable-text-form-buttons tc-editable-text-form-buttons"
+    >
+      <button
+        aria-describedby="42"
+        class="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel btn-icon-only btn btn-link"
+        data-feature="my.custom.feature.cancel"
+        name="action-cancel-title"
+        type="button"
+      >
+        <span
+          class="CoralIcon"
+          name="talend-cross"
+        />
+      </button>
+      <button
+        aria-describedby="42"
+        class="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-submit tc-editable-text-form-buttons-submit btn-icon-only btn btn-link"
+        data-feature="my.custom.feature.submit"
+        name="action-submit-title"
+        type="submit"
+      >
+        <span
+          class="CoralIcon"
+          name="talend-check"
+        />
+      </button>
+    </div>
+  </form>
+</div>
+`;

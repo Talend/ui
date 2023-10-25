@@ -1,7 +1,6 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
+import { Illustration } from '../../illustrations';
 import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
-
-import SpotDefault from '../illustrations/SpotDefault';
 
 export type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {
 	description: string;
@@ -9,8 +8,14 @@ export type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'
 
 const EmptyStateLarge = forwardRef((props: EmptyStateLargeProps, ref: Ref<HTMLElement>) => {
 	return (
-		<EmptyStatePrimitive aria-live="polite" {...props} illustration={<SpotDefault />} ref={ref} />
+		<EmptyStatePrimitive
+			aria-live="polite"
+			{...props}
+			illustration={<Illustration.IconSpotDefault />}
+			ref={ref}
+		/>
 	);
 });
 
+EmptyStateLarge.displayName = 'EmptyStateLarge';
 export default EmptyStateLarge;

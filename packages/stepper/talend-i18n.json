@@ -1,0 +1,17 @@
+{
+  "extract": {
+    "method": "yarn",
+    "script": "extract-i18n",
+    "target": "./i18n",
+    "transform": "flatten"
+  },
+  "load": {
+    "project": "tui-stepper"
+  },
+  "module": {
+    "type": "npm"
+  },
+  "github": {
+    "url": "https://github.com/Talend/i18n-product.git"
+  }
+}

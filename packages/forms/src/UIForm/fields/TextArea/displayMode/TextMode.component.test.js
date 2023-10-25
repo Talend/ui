@@ -1,5 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 
 import TextArea from './TextMode.component';
 
@@ -10,10 +9,10 @@ describe('TextArea field text display mode', () => {
 
 	it('should render textarea', () => {
 		// when
-		const wrapper = shallow(<TextArea id="myForm" schema={schema} value="toto" />);
+		const { container } = render(<TextArea id="myForm" schema={schema} value="toto" />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render provided rows', () => {
@@ -24,9 +23,12 @@ describe('TextArea field text display mode', () => {
 		};
 
 		// when
-		const wrapper = shallow(<TextArea id="myForm" schema={schemaWithRows} value="toto" />);
+		render(<TextArea id="myForm" schema={schemaWithRows} value="toto" />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+
+		expect(screen.getByRole('definition')).toHaveTextContent('toto');
+		expect(screen.getByRole('term')).toHaveTextContent('My input title');
+		expect(screen.getByText('toto')).toHaveStyle('height: 20rem');
 	});
 });

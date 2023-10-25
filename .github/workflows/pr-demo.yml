@@ -5,6 +5,18 @@ on:
   push:
     branches: [master]
 
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: write # needed to write a comment
+  statuses: write
+
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,18 +25,18 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
-          node-version: 16
+          node-version: 18
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
           cache: "yarn"
 
       - name: cache for storybook
-        uses: actions/cache@v3
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 #v3.3.2
         with:
           path: packages/*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
@@ -49,6 +61,15 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+      - name: Deploy to Netlify production
+        if: github.ref == 'refs/heads/master'
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=packages/design-docs/storybook-static --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'

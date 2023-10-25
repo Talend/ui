@@ -1,7 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from '@testing-library/react';
 import Columns from './Columns.component';
+import { WidgetContext } from '../../context';
+import widgets from '../../utils/widgets';
+
+jest.unmock('@talend/design-system');
 
 describe('Columns widget', () => {
 	it('should render columns', () => {
@@ -53,9 +55,13 @@ describe('Columns widget', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Columns schema={schema} />);
+		const { container } = render(
+			<WidgetContext.Provider value={widgets}>
+				<Columns schema={schema} errors={{}} onChange={jest.fn()} onFinish={jest.fn()} />
+			</WidgetContext.Provider>,
+		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

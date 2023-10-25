@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component, Fragment } from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import Icon from '../../Icon';
@@ -20,7 +20,7 @@ const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
  * - a button with a click action (columnData.onClick)
  * - actions (rowData[columnData.actionsKey])
  */
-class CellTitle extends React.Component {
+class CellTitle extends Component {
 	shouldComponentUpdate(nextProps) {
 		return (
 			this.props.cellData !== nextProps.cellData ||
@@ -46,9 +46,8 @@ class CellTitle extends React.Component {
 			actionsKey,
 			persistentActionsKey,
 			displayModeKey,
-
+			linkAs,
 			getRowState,
-
 			iconKey,
 			iconLabelKey,
 			onEditCancel,
@@ -57,7 +56,10 @@ class CellTitle extends React.Component {
 		} = cellColumnData;
 
 		const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
-		const { disabled = false, tooltip } = (getRowState && getRowState(rowData)) || {};
+		const { disabled = false, tooltip } = (getRowState && getRowState(rowData)) || {
+			disabled: !!columnDataRest.disabled,
+			tooltip: columnDataRest.tooltip,
+		};
 		const titleId = id && `${id}-${rowIndex}-title-cell`;
 		const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
@@ -74,15 +76,15 @@ class CellTitle extends React.Component {
 				</TooltipTrigger>
 			);
 		}
-
 		const defaultTitle = (
-			<React.Fragment>
+			<Fragment>
 				<CellTitleSelector
 					id={titleId}
 					cellData={cellData}
 					className={theme['main-title']}
 					displayMode={displayMode}
 					onClick={onClick}
+					linkAs={linkAs}
 					onEditCancel={onEditCancel}
 					onEditSubmit={onEditSubmit}
 					rowData={rowData}
@@ -98,7 +100,7 @@ class CellTitle extends React.Component {
 					displayMode={displayMode}
 					type={type}
 				/>
-			</React.Fragment>
+			</Fragment>
 		);
 
 		return (
@@ -137,6 +139,8 @@ CellTitle.propTypes = {
 			id: PropTypes.string,
 			// The onClick callback triggered on title main button click.
 			onClick: PropTypes.func,
+			// The "as" property expected in a Link to generate a simple href.
+			linkAs: PropTypes.element,
 			// The actions property key. Actions = props.rowData[props.actionsKey]
 			actionsKey: PropTypes.string,
 			// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]

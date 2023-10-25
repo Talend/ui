@@ -1,24 +1,25 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 // SelectSortBy styles
-
-$tc-list-toolbar-display-color: $dove-gray !default;
 $tc-order-chooser-icon-size: 0.6rem !default;
 
 .tc-sort-by {
 	display: flex;
 	align-items: center;
+
 	:global(.navbar-text) {
 		margin: 0;
 	}
+
 	&-label {
 		margin: 0;
 		font-weight: normal;
-		color: $dove-gray;
+		color: tokens.$coral-color-neutral-text-weak;
 	}
 
 	:global(.navbar-btn.btn) {
-		color: $tc-list-toolbar-display-color;
+		color: tokens.$coral-color-neutral-text-weak;
 		font-size: 1em;
 		margin: 0;
 	}
@@ -27,10 +28,11 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		display: flex;
 		align-items: center;
 		padding: 0;
+
 		&:hover,
 		&:focus,
 		&:active {
-			color: $black;
+			color: tokens.$coral-color-neutral-text;
 			box-shadow: none;
 		}
 
@@ -44,10 +46,12 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		display: flex;
 		align-items: center;
 	}
+
 	&-items > a[role='button'] {
 		display: inline-block;
 		text-transform: lowercase;
 		white-space: nowrap;
+
 		&::first-letter {
 			text-transform: uppercase;
 		}

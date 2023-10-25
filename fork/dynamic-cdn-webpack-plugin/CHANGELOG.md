@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 13.0.1
+
+### Patch Changes
+
+- b0193afbd: chore: upgrade webpack
+
 ## 13.0.0
 
 ### Major Changes

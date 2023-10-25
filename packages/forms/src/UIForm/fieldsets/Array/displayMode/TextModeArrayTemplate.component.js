@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import theme from './TextModeArrayTemplate.module.scss';
@@ -33,7 +32,7 @@ export default function TextModeArrayTemplate(props) {
 if (process.env.NODE_ENV !== 'production') {
 	TextModeArrayTemplate.propTypes = {
 		id: PropTypes.string,
-		renderItem: PropTypes.func.isRequired,
+		renderItem: PropTypes.func,
 		schema: PropTypes.object.isRequired,
 		value: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])).isRequired,
 	};

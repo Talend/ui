@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from 'react';
+import { forwardRef, createRef, useState, useEffect, memo } from 'react';
+import type { CSSProperties, Ref } from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
-import { DeprecatedIconNames } from '../../types';
 import { IconsProvider } from '../IconsProvider';
 import style from './Icon.module.scss';
 
@@ -19,28 +19,30 @@ export enum SVG_TRANSFORMS {
 	FlipVertical = 'flip-vertical',
 }
 
-export type IconProps = PropsWithChildren<any> & {
-	name: DeprecatedIconNames;
-	transform: SVG_TRANSFORMS;
-	preserveColor: boolean;
-	border: boolean;
+export type IconProps = {
+	name: string;
+	className?: string;
+	id?: string;
+	style?: CSSProperties;
+	transform?: SVG_TRANSFORMS;
+	border?: boolean;
 };
 
 const accessibility = {
-	focusable: 'false',
-	'aria-hidden': 'true',
+	focusable: false,
+	'aria-hidden': true,
 };
 
 // eslint-disable-next-line react/display-name
-export const Icon = React.forwardRef(
+const IconBase = forwardRef(
 	(
 		{ className, name = 'talend-empty-space', transform, border, ...rest }: IconProps,
-		ref: React.Ref<SVGSVGElement>,
+		ref: Ref<SVGSVGElement>,
 	) => {
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
-		const safeRef = React.createRef<SVGSVGElement>(ref);
-		const [content, setContent] = React.useState<string>();
+		const safeRef = createRef<SVGSVGElement>(ref);
+		const [content, setContent] = useState<string>();
 
 		const isRemote = name.startsWith('remote-');
 		const isImg = name.startsWith('src-');
@@ -48,7 +50,7 @@ export const Icon = React.forwardRef(
 		const isRemoteSVG =
 			isRemote && content && content.includes('svg') && !content.includes('script');
 
-		React.useEffect(() => {
+		useEffect(() => {
 			if (isRemote) {
 				fetch(imgSrc, {
 					headers: {
@@ -74,7 +76,7 @@ export const Icon = React.forwardRef(
 			}
 		}, [imgSrc, isRemote]);
 
-		React.useEffect(() => {
+		useEffect(() => {
 			const current = safeRef?.current;
 			if (current && isRemoteSVG && content) {
 				// eslint-disable-next-line no-param-reassign
@@ -84,7 +86,7 @@ export const Icon = React.forwardRef(
 			}
 		}, [isRemoteSVG, safeRef, content, name, isRemote]);
 
-		React.useEffect(() => {
+		useEffect(() => {
 			if (border) {
 				const svgContainer = safeRef?.current;
 				if (svgContainer) {
@@ -110,19 +112,25 @@ export const Icon = React.forwardRef(
 		const classname = classnames('tc-icon', style.svg, className, {
 			[`tc-icon-name-${name}`]: !(isImg || isRemote),
 			[style.border]: border,
-			[style[transform]]: !!transform,
+			[style[transform || '']]: !!transform,
 		});
 
 		if (isImg) {
 			return (
-				<img alt="" src={name.substring(4)} className={classname} {...accessibility} {...rest} />
+				<img
+					alt="icon"
+					src={name.substring(4)}
+					className={classname}
+					{...accessibility}
+					{...rest}
+				/>
 			);
 		}
 
 		if (isRemote && content && !isRemoteSVG) {
 			return (
 				<img
-					alt=""
+					alt="remote icon"
 					src={name.replace('remote-', '')}
 					className={className}
 					{...accessibility}
@@ -134,7 +142,7 @@ export const Icon = React.forwardRef(
 		return (
 			<svg
 				{...rest}
-				name={!(isImg || isRemote) ? name : null}
+				name={!(isImg || isRemote) ? name : undefined}
 				{...accessibility}
 				className={classnames('tc-svg-icon', classname)}
 				ref={safeRef}
@@ -145,6 +153,6 @@ export const Icon = React.forwardRef(
 	},
 );
 
-export const IconMemo = React.memo(Icon);
+export const Icon = memo(IconBase);
 
-IconMemo.displayName = 'Icon';
+Icon.displayName = 'Icon';

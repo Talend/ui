@@ -2,7 +2,7 @@ import ListView from '@talend/react-components/lib/ListView';
 import keycode from 'keycode';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -17,7 +17,7 @@ const DEFAULT_ITEM_HEIGHT = 33;
 
 const getItemHeight = () => DEFAULT_ITEM_HEIGHT;
 
-class NestedListViewWidget extends React.Component {
+class NestedListViewWidget extends Component {
 	constructor(props) {
 		super(props);
 
@@ -50,7 +50,7 @@ class NestedListViewWidget extends React.Component {
 			onCheck: this.onCheck.bind(this),
 		};
 
-		this.items = prepareItemsFromSchema(schema, callbacks);
+		this.items = prepareItemsFromSchema(schema, callbacks, value);
 		this.value = value;
 
 		this.state = {
@@ -66,9 +66,20 @@ class NestedListViewWidget extends React.Component {
 	componentDidUpdate(prevProps) {
 		// If props.value if different from previous prop and this.value, refresh the displayed items
 		if (!isEqual(prevProps.value, this.props.value) && !isEqual(this.value, this.props.value)) {
+			if (this.props.schema.options?.expandChecked) {
+				this.items = this.items.map(item => {
+					const values = this.props.value[item.key] || [];
+					return {
+						...item,
+						expanded: values.length > 0 && values.length !== item.children.length,
+					};
+				});
+			}
 			this.value = this.props.value;
 			// eslint-disable-next-line react/no-did-update-set-state
-			this.setState({ displayedItems: getDisplayedItems(this.items, this.value) });
+			this.setState({
+				displayedItems: getDisplayedItems(this.items, this.value, this.state.searchCriteria),
+			});
 		}
 	}
 
@@ -261,6 +272,10 @@ if (process.env.NODE_ENV !== 'production') {
 			labelProps: PropTypes.object,
 			dataTest: PropTypes.string,
 			autosize: PropTypes.bool,
+			items: PropTypes.array,
+			options: PropTypes.shape({
+				expandChecked: PropTypes.bool,
+			}),
 		}),
 		value: PropTypes.object,
 		valueIsUpdating: PropTypes.bool,

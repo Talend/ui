@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classnames from 'classnames';
 import { ThemeProvider } from '@talend/design-system';
 import Inject from '../Inject';
@@ -8,7 +7,7 @@ import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
 import SkipLinks from './SkipLinks';
 
-import theme from './Layout.module.scss';
+import style from './Layout.module.scss';
 
 const DISPLAY_MODES = {
 	ONE_COLUMN: 'OneColumn',
@@ -43,13 +42,14 @@ function Layout({
 	drawers,
 	tabs,
 	hasTheme,
+	theme,
 	children,
 	getComponent,
 	...rest
 }) {
-	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
-	const headerCSS = classnames('tc-layout-header', theme.header);
-	const footerCSS = classnames('tc-layout-footer', theme.footer);
+	const appCSS = classnames('tc-layout', style.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
+	const headerCSS = classnames('tc-layout-header', style.header);
+	const footerCSS = classnames('tc-layout-footer', style.footer);
 	let Component;
 	let skipLinkNavigationId;
 	switch (mode) {
@@ -71,9 +71,9 @@ function Layout({
 	const safeFooter = Inject.getReactElement(getComponent, footer);
 
 	return (
-		<ThemeProvider>
+		<ThemeProvider theme={theme}>
 			<div id={id} className={appCSS}>
-				<div className={theme['skip-links']}>
+				<div className={style['skip-links']}>
 					<SkipLinks navigationId={skipLinkNavigationId} mainId="#tc-layout-main" />
 				</div>
 				{safeHeader && (
@@ -118,6 +118,7 @@ Layout.propTypes = {
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	hasTheme: PropTypes.bool,
+	theme: PropTypes.string,
 	children: PropTypes.node,
 	getComponent: PropTypes.func,
 };

@@ -1,14 +1,14 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import InlineEditingPrimitive, {
 	InlineEditingPrimitiveProps,
 } from '../Primitives/InlineEditingPrimitive';
 
-const InlineEditingMulti = forwardRef(
-	(props: Omit<InlineEditingPrimitiveProps, 'mode'>, ref: Ref<HTMLDivElement>) => {
+export type InlineEditingTextareaProps = Omit<InlineEditingPrimitiveProps, 'mode'>;
+
+export const InlineEditingTextarea = forwardRef(
+	(props: InlineEditingTextareaProps, ref: Ref<HTMLDivElement>) => {
 		return <InlineEditingPrimitive {...props} ref={ref} mode="multi" />;
 	},
 );
 
-InlineEditingMulti.displayName = 'InlineEditing.Multi';
-
-export default InlineEditingMulti;
+InlineEditingTextarea.displayName = 'InlineEditing.Multi';

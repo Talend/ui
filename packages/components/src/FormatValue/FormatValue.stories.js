@@ -1,8 +1,7 @@
-import React from 'react';
 import FormatValue from './FormatValue.component';
 
 export default {
-	title: 'Data/Formatter/FormatValue',
+	title: 'Components/Formatter/FormatValue',
 };
 
 export const Default = () => {

@@ -1,13 +1,16 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { useCollectionSort } from './useCollectionSort.hook';
 
-const Div = () => <div />;
-function SortComponent({ collection, initialSortParams, sortFunctions }) {
+function SortComponent({ collection, initialSortParams, sortFunctions, ...props }) {
 	const hookReturn = useCollectionSort(collection, initialSortParams, sortFunctions);
-	return <Div id="mainChild" {...hookReturn} />;
+	return (
+		<div data-testid="SortComponent" data-props={JSON.stringify(hookReturn)}>
+			<button onClick={() => hookReturn.setSortParams(props.newValue)}>setSortParams</button>
+		</div>
+	);
 }
 SortComponent.propTypes = {
 	collection: PropTypes.array,
@@ -72,10 +75,12 @@ const natural = [
 describe('useCollectionSort', () => {
 	it('should not sort when no sort params is provided', () => {
 		// when
-		const wrapper = mount(<SortComponent collection={collection} />);
+		render(<SortComponent collection={collection} />);
 
 		// then
-		const sortedCollection = wrapper.find('#mainChild').prop('sortedCollection');
+		const sortedCollection = JSON.parse(
+			screen.getByTestId('SortComponent').dataset.props,
+		).sortedCollection;
 		expect(sortedCollection[0].firstName).toEqual(collection[0].firstName);
 		expect(sortedCollection[1].firstName).toEqual(collection[1].firstName);
 		expect(sortedCollection[2].firstName).toEqual(collection[2].firstName);
@@ -91,10 +96,12 @@ describe('useCollectionSort', () => {
 		};
 
 		// when
-		const wrapper = mount(<SortComponent collection={collection} initialSortParams={sortParams} />);
+		render(<SortComponent collection={collection} initialSortParams={sortParams} />);
 
 		// then
-		const sortedCollection = wrapper.find('#mainChild').prop('sortedCollection');
+		const sortedCollection = JSON.parse(
+			screen.getByTestId('SortComponent').dataset.props,
+		).sortedCollection;
 		expect(sortedCollection[0].firstName).toEqual('1');
 		expect(sortedCollection[1].firstName).toEqual('5');
 		expect(sortedCollection[2].firstName).toEqual('11');
@@ -107,20 +114,19 @@ describe('useCollectionSort', () => {
 
 	it('should sort with new sort params set', () => {
 		// given
-		const wrapper = mount(<SortComponent collection={collection} />);
 		const sortParams = {
 			sortBy: 'firstName',
 			isDescending: true,
 		};
+		render(<SortComponent collection={collection} newValue={sortParams} />);
 
 		// when
-		act(() => {
-			wrapper.find('#mainChild').prop('setSortParams')(sortParams);
-		});
-		wrapper.update();
+		userEvent.click(screen.getByText('setSortParams'));
 
 		// then
-		const sortedCollection = wrapper.find('#mainChild').prop('sortedCollection');
+		const sortedCollection = JSON.parse(
+			screen.getByTestId('SortComponent').dataset.props,
+		).sortedCollection;
 		expect(sortedCollection[0].firstName).toEqual('Shelly');
 		expect(sortedCollection[1].firstName).toEqual('Luann');
 		expect(sortedCollection[2].firstName).toEqual('Louisa');
@@ -136,15 +142,17 @@ describe('useCollectionSort', () => {
 		};
 
 		const sortFunctions = {
-			firstName: ({ sortBy }) => (a, b) => {
-				const aValue = a[sortBy];
-				const bValue = b[sortBy];
-				return aValue[aValue.length - 1].localeCompare(bValue[bValue.length - 1]);
-			},
+			firstName:
+				({ sortBy }) =>
+				(a, b) => {
+					const aValue = a[sortBy];
+					const bValue = b[sortBy];
+					return aValue[aValue.length - 1].localeCompare(bValue[bValue.length - 1]);
+				},
 		};
 
 		// when
-		const wrapper = mount(
+		render(
 			<SortComponent
 				collection={collection}
 				initialSortParams={sortParams}
@@ -153,7 +161,9 @@ describe('useCollectionSort', () => {
 		);
 
 		// then
-		const sortedCollection = wrapper.find('#mainChild').prop('sortedCollection');
+		const sortedCollection = JSON.parse(
+			screen.getByTestId('SortComponent').dataset.props,
+		).sortedCollection;
 		expect(sortedCollection[0].firstName).toEqual('1');
 		expect(sortedCollection[1].firstName).toEqual('11');
 		expect(sortedCollection[2].firstName).toEqual('5');
@@ -169,7 +179,17 @@ describe('useCollectionSort', () => {
 			sortBy: 'label',
 			isDescending: false,
 		};
-		const wrapper = mount(<SortComponent collection={natural} initialSortParams={sortParams} />);
-		expect(wrapper.find('#mainChild').prop('sortedCollection')).toMatchSnapshot();
+		render(<SortComponent collection={natural} initialSortParams={sortParams} />);
+		const sortedCollection = JSON.parse(
+			screen.getByTestId('SortComponent').dataset.props,
+		).sortedCollection;
+		expect(sortedCollection[0].label).toEqual('Demo 1');
+		expect(sortedCollection[1].label).toEqual('Demo 2');
+		expect(sortedCollection[2].label).toEqual('Demo 3');
+		expect(sortedCollection[3].label).toEqual('Demo 10');
+		expect(sortedCollection[4].label).toEqual('Demo 11');
+		expect(sortedCollection[5].label).toEqual('Demo 20');
+		expect(sortedCollection[6].label).toEqual('Demo 22');
+		expect(sortedCollection[7].label).toEqual('Demo 102');
 	});
 });

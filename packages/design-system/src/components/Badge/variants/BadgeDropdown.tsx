@@ -1,9 +1,8 @@
-import React, { forwardRef, Ref, useState } from 'react';
+import { forwardRef, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
-import Dropdown from '../../Dropdown';
-import { DropdownItemType } from '../../Dropdown/Dropdown';
+import { Dropdown, DropdownItemType } from '../../Dropdown';
 import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 
@@ -15,14 +14,15 @@ import BadgePrimitive, {
 import classnames from 'classnames';
 import styles from './BadgeDropdown.module.scss';
 import BadgeButton from '../button/BadgeButton';
+import { DataAttributes } from 'src/types';
 
 // --------------------------------------------------
 // Badge Dropdown button
 // --------------------------------------------------
 
-interface BadgeDropdownButtonProps {
+type BadgeDropdownButtonProps = {
 	children?: string;
-}
+} & Partial<DataAttributes>;
 
 // Note : need to use forwardRef and pass destructuring unknown parameters to be able using with dropdown component
 const BadgeDropdownButton = forwardRef(
@@ -52,16 +52,11 @@ BadgeDropdownButton.displayName = 'BadgeDropdownButton';
  * @param setSelectedValue React.Dispatch action called when click on one Dropdown item
  * @returns Dropdown compatible item
  */
-function mapBadgeItemToDropdownItem(
-	setSelectedValue: React.Dispatch<React.SetStateAction<BadgeDropdownItem | undefined>>,
-	onChange?: (selectedId: string) => void,
-) {
+function mapBadgeItemToDropdownItem(onChange?: (selectedId: string) => void) {
 	return (item: BadgeDropdownItem): DropdownItemType => ({
 		type: 'button',
 		label: item.label,
 		onClick: () => {
-			setSelectedValue(item);
-
 			if (onChange) {
 				onChange(item.id);
 			}
@@ -69,39 +64,53 @@ function mapBadgeItemToDropdownItem(
 	});
 }
 
-export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children'> & {
-	/**
-	 * (optional) Listener for item selection.
-	 */
-	onChange?: (selectedId: string) => void;
+export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children'> &
+	Partial<DataAttributes> & {
+		/**
+		 * Listener for item selection.
+		 */
+		onChange: (selectedId: string) => void;
 
-	/**
-	 * (optional) ID of item to select by default. If not filled, first one is selected.
-	 */
-	selectedId?: string;
+		/**
+		 * (Optional) ID of selected item. If not filled, first one is selected.
+		 */
+		selectedId?: string;
 
-	/**
-	 * List of items available in dropdown menu.
-	 */
-	value: BadgeDropdownItem[];
-};
+		/**
+		 * List of items available in dropdown menu.
+		 */
+		value: BadgeDropdownItem[];
+	};
 
 const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanElement>) => {
-	const { onChange, selectedId, value } = props;
-
+	const {
+		onChange,
+		selectedId,
+		value,
+		'data-testid': dataTestId,
+		'data-test': dataTest,
+		'data-feature': dataFeature,
+	} = props;
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-	const [selectedValue, setSelectedValue] = useState(
-		selectedId ? value.find(v => v.id === selectedId) : value[0],
-	);
+	const selectedValue = value.find(v => v.id === selectedId) || value[0];
 
 	return (
 		<BadgePrimitive {...props} ref={ref}>
 			<Dropdown
 				aria-label={t('BADGE_ARIA_lABEL_SELECT_ITEM', 'Select item')}
-				items={value.map(mapBadgeItemToDropdownItem(setSelectedValue, onChange))}
+				items={value.map(mapBadgeItemToDropdownItem(onChange))}
+				data-testid={dataTestId}
+				data-test={dataTest}
+				data-feature={dataFeature}
 			>
-				<BadgeDropdownButton>{selectedValue?.label}</BadgeDropdownButton>
+				<BadgeDropdownButton
+					data-testid={dataTestId}
+					data-test={dataTest}
+					data-feature={dataFeature}
+				>
+					{selectedValue?.label}
+				</BadgeDropdownButton>
 			</Dropdown>
 		</BadgePrimitive>
 	);

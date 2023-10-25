@@ -1,24 +1,24 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@import '../colors';
+@use '~@talend/design-tokens/lib/tokens';
 
 :global(.tc-list-table) {
 	.row-selection.selected {
-		background: $tc-list-row-selected-bg;
+		background: tokens.$coral-color-accent-background;
 
 		&:hover,
 		&:focus,
 		&:global(.ally-focus-within) {
-			background: $tc-list-row-selected-hover-bg;
+			background: tokens.$coral-color-accent-background-hover;
 		}
 	}
+
 	.row-selection.active {
-		background: $tc-list-row-active-bg;
+		background: tokens.$coral-color-accent-background-active;
 
 		&:hover,
 		&:focus,
 		&:global(.ally-focus-within) {
-			background: $tc-list-row-active-hover-bg;
+			background: tokens.$coral-color-accent-background-hover;
 		}
 	}
 
@@ -31,21 +31,22 @@
 
 :global(.tc-list-list) {
 	.row-selection.selected :global(.tc-list-large-inner-box) {
-		background: $tc-list-row-selected-bg;
+		background: tokens.$coral-color-accent-background;
 
 		&:hover,
 		&:focus,
 		&:global(.ally-focus-within) {
-			background: $tc-list-row-selected-hover-bg;
+			background: tokens.$coral-color-accent-background-hover;
 		}
 	}
+
 	.row-selection.active :global(.tc-list-large-inner-box) {
-		background: $tc-list-row-active-bg;
+		background: tokens.$coral-color-accent-background-active;
 
 		&:hover,
 		&:focus,
 		&:global(.ally-focus-within) {
-			background: $tc-list-row-active-hover-bg;
+			background: tokens.$coral-color-accent-background-hover;
 		}
 	}
 

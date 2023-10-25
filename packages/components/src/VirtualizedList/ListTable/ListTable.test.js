@@ -1,6 +1,4 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render } from '@testing-library/react';
 
 import VirtualizedList from '..';
 import ListTable from './ListTable.component';
@@ -9,39 +7,39 @@ import collection from '../collection';
 describe('ListGrid', () => {
 	it('should render react-virtualized table', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<ListTable collection={collection} height={600} id="my-list" width={1024}>
-				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
-				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
-				<VirtualizedList.Content label="" dataKey="description" width={0} />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} columnData={{}} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} columnData={{}} />
+				<VirtualizedList.Content label="" dataKey="description" width={0} columnData={{}} />
 			</ListTable>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getAllByRole('row')).toHaveLength(3);
 
-		expect(wrapper.find('Table').props().rowRenderer.displayName).not.toBe(
-			'RowSelection(undefined)',
-		);
+		expect(screen.getAllByRole('row')[0]).toHaveClass('tc-list-headerRow');
 	});
 
 	it('should render react-virtualized table without header', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<ListTable collection={collection} height={600} id="my-list" width={1024} disableHeader>
-				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
-				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
-				<VirtualizedList.Content label="" dataKey="description" width={0} />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} columnData={{}} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} columnData={{}} />
+				<VirtualizedList.Content label="" dataKey="description" width={0} columnData={{}} />
 			</ListTable>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getAllByRole('row')[0]).not.toHaveClass('tc-list-headerRow');
+		expect(screen.getAllByRole('row')[0]).toHaveClass('tc-list-item');
 	});
 
 	it('should render table with sort props', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<ListTable
 				collection={collection}
 				height={600}
@@ -51,55 +49,36 @@ describe('ListGrid', () => {
 				sortDirection="DESC"
 				width={1024}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
-				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
-				<VirtualizedList.Content label="" dataKey="description" width={0} />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} columnData={{}} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} columnData={{}} />
+				<VirtualizedList.Content label="" dataKey="description" width={0} columnData={{}} />
 			</ListTable>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should enhance the default rowRenderer with selection Higher Order renderer', () => {
-		// when
-		const wrapper = shallow(
-			<ListTable
-				collection={collection}
-				height={600}
-				id="my-list"
-				isActive={jest.fn()}
-				isSelected={jest.fn()}
-				onRowClick={jest.fn()}
-				onRowDoubleClick={jest.fn()}
-				width={1024}
-			>
-				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
-				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
-			</ListTable>,
-		);
-
-		// then
-		expect(wrapper.find('Table').props().rowRenderer.displayName).toBe('RowSelection(undefined)');
+		const headers = screen.getAllByRole('columnheader');
+		expect(headers[0]).toHaveAttribute('aria-sort', 'none');
+		expect(headers[1]).toHaveAttribute('aria-sort', 'descending');
+		expect(headers[2]).toHaveAttribute('aria-sort', 'none');
 	});
 
 	it('should render noRows', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<ListTable
 				collection={[]}
 				height={600}
 				id="my-list"
 				isSelected={jest.fn()}
 				width={1024}
-				noRowsRenderer={() => <div>No rows</div>}
+				noRowsRenderer={() => <div data-testid="noRowsRenderer">No rows</div>}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
-				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} columnData={{}} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} columnData={{}} />
 			</ListTable>,
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByTestId('noRowsRenderer')).toBeVisible();
 	});
 });

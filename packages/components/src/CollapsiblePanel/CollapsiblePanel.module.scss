@@ -1,12 +1,9 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-collapsible-panel-padding-smaller: $padding-smaller !default;
 $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
-$tc-collapsible-panel-btn-color: #555964;
-$tc-collapsible-descriptive-panel-content-description-color: #808080 !default;
-$tc-toggle-color: #555964 !default;
-$tc-skeleton-background-color: #dfdfdf !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -23,7 +20,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 @mixin col-style {
 	> :global(.btn) {
 		line-height: 1em;
-		color: $tc-collapsible-panel-btn-color;
+		color: tokens.$coral-color-accent-text;
 	}
 
 	&.col-4 {
@@ -64,7 +61,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 	position: relative;
 
 	&.selected {
-		border-left: 5px solid $brand-primary;
+		border-left: 5px solid tokens.$coral-color-accent-border;
 		padding-left: 1px;
 	}
 
@@ -88,53 +85,59 @@ $tc-skeleton-background-color: #dfdfdf !default;
 
 	&.info {
 		:global(.panel-heading) {
-			border-left-color: $brand-info;
+			border-left-color: tokens.$coral-color-info-text;
 		}
+
 		:global(.tc-status-label) {
-			color: $brand-info;
+			color: tokens.$coral-color-info-text;
 		}
 	}
 
 	&.success {
 		:global(.panel-heading) {
-			border-left-color: $brand-success;
+			border-left-color: tokens.$coral-color-success-text;
 		}
+
 		:global(.tc-status-label) {
-			color: $brand-success;
+			color: tokens.$coral-color-success-text;
 		}
 	}
 
 	&.danger {
-		border-color: $brand-danger;
+		border-color: tokens.$coral-color-danger-text;
+
 		:global(.panel-heading) {
-			border-color: $brand-danger;
+			border-color: tokens.$coral-color-danger-text;
 		}
+
 		:global(.tc-status-label) {
-			color: $brand-danger;
+			color: tokens.$coral-color-danger-text;
 		}
 	}
 
 	&.muted {
 		:global(.panel-heading) {
-			border-left-color: $gray;
+			border-left-color: tokens.$coral-color-neutral-text-disabled;
 		}
+
 		:global(.tc-status-label) {
-			color: $gray;
+			color: tokens.$coral-color-neutral-text-disabled;
 		}
 	}
 
 	&.warning {
 		:global(.panel-heading) {
-			border-left-color: $brand-warning;
+			border-left-color: tokens.$coral-color-warning-text;
 		}
+
 		:global(.tc-status-label) {
-			color: $brand-warning;
+			color: tokens.$coral-color-warning-text;
 		}
 	}
 
 	&.skeleton {
 		:global(.panel-heading) {
-			border-color: $tc-skeleton-background-color;
+			border-color: tokens.$coral-color-neutral-background-strong;
 		}
 	}
 
@@ -143,9 +146,11 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		height: 4rem;
 		align-items: center;
 		padding: 0 $padding-normal;
-		& > a {
+
+		> a {
 			width: 100%;
 		}
+
 		.panel-title {
 			padding: 0;
 			display: flex;
@@ -156,13 +161,25 @@ $tc-skeleton-background-color: #dfdfdf !default;
 			font-size: 1.4rem;
 			width: 100%;
 			padding-right: $padding-smaller;
+
+			&:hover {
+				background: transparent;
+			}
+
 			> * {
+				@include col-style;
 				padding: 0;
 				text-decoration: none;
-				@include col-style;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				min-width: 0; // trick to avoid conflict between flex and overflow
+
+				> * {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
 			}
 		}
 	}
@@ -171,6 +188,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 		height: 1.6rem;
 		width: 1.6rem;
 		transform-origin: center;
+
 		svg {
 			height: 1rem;
 			width: 1rem;
@@ -186,11 +204,13 @@ $tc-skeleton-background-color: #dfdfdf !default;
 			display: flex;
 			justify-content: space-between;
 			padding: 0;
+
 			.panel-title {
 				width: 100%;
 			}
+
 			&:hover {
-				background: $white;
+				background: tokens.$coral-color-neutral-background;
 				cursor: pointer;
 
 				.tc-status-label {
@@ -252,35 +272,28 @@ $tc-skeleton-background-color: #dfdfdf !default;
 
 	:global(.toggle) {
 		svg {
-			fill: $tc-toggle-color;
+			fill: tokens.$coral-color-accent-text;
 			height: 10px;
 			width: 10px;
-		}
-	}
-
-	&.open {
-		:global(.toggle) {
-			svg {
-				fill: $white;
-			}
 		}
 	}
 
 	&.selected {
 		.title,
 		.detail {
-			color: $brand-primary;
+			color: tokens.$coral-color-accent-text;
 		}
 	}
 
 	:global(.panel-heading) {
 		padding: 0;
-		background-color: $white;
+		background-color: tokens.$coral-color-neutral-background-medium;
 		border-color: transparent;
 	}
 
 	.group {
 		justify-content: flex-start;
+
 		> * {
 			margin-right: $padding-smaller;
 		}
@@ -325,7 +338,7 @@ $tc-skeleton-background-color: #dfdfdf !default;
 			.content-description {
 				white-space: pre-wrap;
 				padding-top: 5px;
-				color: $tc-collapsible-descriptive-panel-content-description-color;
+				color: tokens.$coral-color-neutral-text-weak;
 			}
 		}
 	}

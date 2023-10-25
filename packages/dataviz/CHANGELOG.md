@@ -1,5 +1,104 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [da4cf2971]
+- Updated dependencies [4044f6198]
+  - @talend/react-components@12.0.0
+
+## 3.0.1
+
+### Patch Changes
+
+- eeac0f188: fix: bundle typing in the package that produce the following error:
+
+      Could not find a declaration file for module '@talend/react-dataviz' since the 3.0
+
+## 3.0.0
+
+### Major Changes
+
+- bfc02c4fb: feat: colors now use design-tokens
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
+## 2.9.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- Updated dependencies [52d4f2df3]
+- Updated dependencies [b326091d2]
+- Updated dependencies [85b04cc81]
+- Updated dependencies [9719af7af]
+  - @talend/react-components@10.3.3
+
+## 2.9.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- 7ef33c80b: chore: add ChartEntry to dataviz exported types
+- Updated dependencies [ae37dc329]
+  - @talend/react-components@10.3.0
+
+## 2.8.8
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- Updated dependencies [cf697de02]
+- Updated dependencies [708589ad4]
+  - @talend/react-components@10.2.3
+
+## 2.8.7
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/design-tokens@2.7.3
+
+## 2.8.6
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
+## 2.8.5
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+- Updated dependencies [99398080f]
+  - @talend/design-tokens@2.7.2
+
 ## 2.8.4
 
 ### Patch Changes

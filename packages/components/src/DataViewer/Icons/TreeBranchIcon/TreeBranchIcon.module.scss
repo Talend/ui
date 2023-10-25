@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tc-tree-branch-icon {
 	display: flex;
@@ -7,19 +8,22 @@
 	&-caret {
 		height: $svg-sm-size;
 		width: $svg-sm-size;
+
 		&-right {
 			transform: rotate(180deg);
 		}
 	}
+
 	:global(.tc-svg-anchor) {
 		background: transparent;
 		border: none;
 		padding: 0;
-		color: $brand-primary;
+		color: tokens.$coral-color-accent-text;
 		display: flex;
+
 		&:focus,
 		&:hover {
-			color: $scooter;
+			color: tokens.$coral-color-accent-text-hover;
 		}
 	}
 }

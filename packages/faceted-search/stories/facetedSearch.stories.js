@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useCallback } from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { action } from '@storybook/addon-actions';
 import { Badge } from '@talend/react-components';
@@ -13,6 +13,7 @@ import { BadgesGenerator } from '../src/components/BadgesGenerator';
 import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dictionary';
 
 import {
+	badgeMenu,
 	badgeConnectionType,
 	badgeName,
 	badgeConnectionName,
@@ -31,9 +32,11 @@ import {
 	badgeEnumsAsCustomAttribute,
 	badgePriceAsCustomAttribute,
 	badgeEmptyLabel,
+	badgeConnectionTypeAllSelector,
 } from './badgesDefinitions';
 
 const badgesDefinitions = [
+	badgeMenu,
 	badgeAll,
 	badgeName,
 	badgeConnectionName,
@@ -96,6 +99,16 @@ const badgesFaceted = {
 						label: 'Amazon S3',
 						checked: true,
 					},
+					{
+						id: 'hdfs',
+						label: 'HDFS',
+						checked: true,
+					},
+					{
+						id: 'localcon',
+						label: 'Local connection',
+						checked: true,
+					},
 				],
 			},
 			metadata: {
@@ -143,7 +156,7 @@ const badgesWithAll = {
 };
 
 export default {
-	title: 'Faceted search',
+	title: 'Faceted search/Main',
 	component: FacetedSearch.Faceted,
 	parameters: {
 		docs: {
@@ -156,25 +169,6 @@ export default {
 	decorators: [
 		(Story, context) => (
 			<div>
-				<style>
-					{`
-				#talend-pie-charts path[class^='ti-slice-'] {
-					fill: #C6C6C6;
-				}
-				#talend-pie-charts path.ti-slice-right {
-					fill: currentColor;
-				}
-				.tc-badge-slider-form .invalid {
-					color: #EA8330;
-				}
-				.tc-badge-slider-form .valid {
-					color: #82BD41;
-				}
-				.tc-badge-slider-form .empty {
-					color: #202020;
-				}
-				`}
-				</style>
 				<Story {...context} />
 			</div>
 		),
@@ -192,6 +186,9 @@ export const Default = () => (
 					badgesDefinitions={badgesDefinitions}
 					callbacks={callbacks}
 					onSubmit={action('onSubmit')}
+					quickSearchInputProps={{
+						'data-feature': 'faceted-badge-name',
+					}}
 				/>
 			))
 		}
@@ -316,8 +313,8 @@ export const ReadOnly = () => {
 };
 
 export const WithExternalState = () => {
-	const [state, setState] = React.useState(badgesFaceted);
-	const onSubmit = React.useCallback(
+	const [state, setState] = useState(badgesFaceted);
+	const onSubmit = useCallback(
 		(_, badges) => setState(previousState => ({ ...previousState, badges })),
 		[setState],
 	);
@@ -385,6 +382,16 @@ export const BasicSearchWithBadgeWithVeryLongName = {
 		await userEvent.type(within(canvasElement).getByRole('searchbox'), 'lorem ipsum');
 	},
 };
+
+export const BasicSearchWithBadgeWithAllSelector = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.BasicSearch
+			badgesDefinitions={[badgeConnectionTypeAllSelector]}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);
 
 export const BasicSearchInABadgeWithALotOfValues = () => (
 	<FacetedSearch.Faceted id="my-faceted-search">
@@ -498,3 +505,47 @@ export const WithQuickSearchFilter = () => (
 		/>
 	</FacetedSearch.Faceted>
 );
+
+export const WithQuickSearchFilterCustomizableInputTriggerLength = () => {
+	const badgeNameWithLength = {
+		properties: {
+			attribute: 'name',
+			initialOperatorOpened: true,
+			initialValueOpened: false,
+			label: 'Name',
+			operator: {},
+			operators: [],
+			type: 'text',
+			placeholder: 'Enter a dataset name',
+		},
+		metadata: {
+			isAvailableForQuickSearch: true,
+			isAvailableForFacetList: true,
+			badgePerFacet: 'N',
+			entitiesPerBadge: '1',
+			operators: [
+				'containsIgnoreCase',
+				'notContainsIgnoreCase',
+				'equals',
+				'notEquals',
+				'match a regexp',
+			],
+			'data-feature': 'faceted-badge-name',
+			minLength: 5,
+		},
+	};
+	return (
+		<FacetedSearch.Faceted id="my-faceted-search">
+			<p>
+				Quick search will trigger after a minimum input length that can be customized based on badge
+				definition
+			</p>
+			<br />
+			<FacetedSearch.BasicSearch
+				badgesDefinitions={[badgeNameWithLength]}
+				callbacks={callbacks}
+				onSubmit={action('onSubmit')}
+			/>
+		</FacetedSearch.Faceted>
+	);
+};

@@ -1,106 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RowLarge should render large row 1`] = `
-<withI18nextTranslation(VirtualizedList(RowLarge))
-  className="my-class-names"
-  index={1}
-  onKeyDown={[Function]}
-  parent={
-    {
-      "props": {
-        "children": [
-          <Content
-            cellDataGetter={[Function]}
-            cellRenderer={[Function]}
-            dataKey="id"
-            defaultSortDirection="ASC"
-            flexGrow={0}
-            flexShrink={0}
-            headerRenderer={[Function]}
-            label="Id"
-            style={{}}
-            width={50}
-          />,
-          <Content
-            cellDataGetter={[Function]}
-            cellRenderer={[Function]}
-            cellType="title"
-            className="tc-list-title-cell"
-            columnData={
-              {
-                "actionsKey": "titleActions",
-                "displayModeKey": "display",
-                "iconKey": "icon",
-              }
-            }
-            dataKey="name"
-            defaultSortDirection="ASC"
-            flexGrow={0}
-            flexShrink={0}
-            headerRenderer={[Function]}
-            label="Name"
-            style={{}}
-            width={350}
-          />,
-          <Content
-            cellDataGetter={[Function]}
-            cellRenderer={[Function]}
-            dataKey="name"
-            defaultSortDirection="ASC"
-            flexGrow={0}
-            flexShrink={0}
-            headerRenderer={[Function]}
-            label="Description"
-            style={{}}
-            width={350}
-          />,
-        ],
-        "collection": [
-          {
-            "description": "This comes from first element in collection",
-            "id": 0,
-            "name": "Title from first item",
-            "titleActions": [
-              {
-                "icon": "talend-pencil",
-                "label": "edit",
-                "onClick": [MockFunction],
-              },
-              {
-                "icon": "talend-trash",
-                "label": "delete",
-                "onClick": [MockFunction],
-              },
-            ],
-          },
-          {
-            "description": "This comes from second element in collection",
-            "id": 1,
-            "name": "Title from second item",
-            "titleActions": [
-              {
-                "icon": "talend-pencil",
-                "label": "edit",
-                "onClick": [MockFunction],
-              },
-              {
-                "icon": "talend-trash",
-                "label": "delete",
-                "onClick": [MockFunction],
-              },
-            ],
-          },
-        ],
-        "id": "my-list",
-        "rowGetter": [Function],
-      },
-    }
-  }
-  style={
-    {
-      "background": "red",
-    }
-  }
-  t={[Function]}
-/>
+<div
+  aria-label="Title from second item"
+  aria-posinset="2"
+  class="tc-list-item tc-list-large-row tc-list-large theme-tc-list-large theme-row my-class-names"
+  id="my-list-1"
+  role="listitem"
+  style="background: red;"
+  tabindex="0"
+>
+  <div
+    class="tc-list-large-inner-box theme-inner-box"
+  >
+    <div
+      class="theme-header"
+    >
+      <div
+        class="theme-tc-list-title tc-list-title"
+        id="my-list-1-title-cell"
+      >
+        <span
+          aria-describedby="42"
+          class="theme-main-title"
+          id="my-list-1-title-cell"
+        >
+          Title from second item
+        </span>
+        <div
+          class="main-title-actions-group theme-main-title-actions-group"
+          id="my-list-1-title-actions"
+        >
+          <div
+            class="tc-actions cell-title-actions theme-cell-title-actions btn-group"
+          >
+            <button
+              aria-describedby="42"
+              aria-label="edit"
+              class="btn-icon-only btn btn-link"
+              id="edit"
+              role="link"
+              type="button"
+            >
+              <span
+                class="CoralIcon"
+                name="talend-pencil"
+              />
+            </button>
+            <button
+              aria-describedby="42"
+              aria-label="delete"
+              class="btn-icon-only btn btn-link"
+              id="delete"
+              role="link"
+              type="button"
+            >
+              <span
+                class="CoralIcon"
+                name="talend-trash"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <dl
+      class="tc-list-large-content theme-content"
+    >
+      <div
+        class="theme-field-group"
+        role="group"
+      >
+        <dt
+          class="theme-field-label"
+        >
+          Id
+          :
+        </dt>
+        <dd
+          class="theme-field-value"
+        >
+          <div
+            aria-describedby="42"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            1
+          </div>
+        </dd>
+      </div>
+      <div
+        class="theme-field-group"
+        role="group"
+      >
+        <dt
+          class="theme-field-label"
+        >
+          Description
+          :
+        </dt>
+        <dd
+          class="theme-field-value"
+        >
+          <div
+            aria-describedby="42"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            Title from second item
+          </div>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
 `;

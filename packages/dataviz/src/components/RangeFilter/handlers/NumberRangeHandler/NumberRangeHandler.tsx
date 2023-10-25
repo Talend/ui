@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import { scaleLinear } from 'd3';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';

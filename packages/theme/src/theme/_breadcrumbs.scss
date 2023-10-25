@@ -1,3 +1,4 @@
+@use '~@talend/design-tokens/lib/tokens';
 ////
 /// Bootstrap breadcrumbs customization
 /// @group Breadcrumbs
@@ -10,8 +11,9 @@
 	padding: 0 $padding-normal;
 	height: $breadcrumb-height;
 	white-space: nowrap;
-	color: $breadcrumb-items-color;
+	color: tokens.$coral-color-neutral-text;
 	border-radius: 0;
+	background-color: tokens.$coral-color-neutral-background;
 
 	> li {
 		display: flex;
@@ -28,24 +30,26 @@
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
+			color: tokens.$coral-color-accent-text;
 		}
 
-		& + li {
+		+ li {
 			// https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html
-			&:before {
+			&::before {
 				display: block;
 				content: '';
 				margin: 0 $padding-small $padding-smaller $padding-smaller;
 				padding: 0 0 0 $padding-small;
 				transform: rotate(30deg);
-				border-right: 0.1rem solid $breadcrumb-items-separator-color;
+				border-right: 0.1rem solid tokens.$coral-color-neutral-border;
 				height: 1.25rem;
 			}
 		}
 
+		// stylelint-disable-next-line selector-no-qualifying-type
 		&.active span {
 			font-weight: $font-weight-semi-bold;
-			color: $breadcrumb-items-active-color;
+			color: tokens.$coral-color-neutral-text;
 		}
 	}
 
@@ -58,12 +62,13 @@
 		background: transparent;
 		border: none;
 
+		// stylelint-disable-next-line selector-no-qualifying-type
 		&:focus,
 		&:hover,
 		&:active,
 		&:active:focus,
 		&.active {
-			color: $breadcrumb-items-color-hover;
+			color: tokens.$coral-color-accent-text-active;
 			background: transparent;
 			text-decoration: none;
 		}

@@ -1,24 +1,20 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
 import HeaderTitle from './HeaderTitle.component';
-import { ActionDropdown } from '../../../../Actions';
 
 describe('HeaderTitle', () => {
-	it('should render a span and ActionDropdown', () => {
+	it('should render', () => {
 		// When
-		const wrapper = shallow(<HeaderTitle monthIndex={8} year={2012} onSelectYear={jest.fn()} />);
+		const { container } = render(
+			<HeaderTitle monthIndex={8} year={2012} onSelectYear={jest.fn()} />,
+		);
 
 		// Then
-		expect(wrapper.name()).toEqual('div');
-		expect(wrapper.find('span').exists()).toBe(true);
-		expect(wrapper.find(ActionDropdown).exists()).toBe(true);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render a button', () => {
 		// When
-		const wrapper = shallow(
+		render(
 			<HeaderTitle
 				monthIndex={8}
 				year={2012}
@@ -28,15 +24,18 @@ describe('HeaderTitle', () => {
 		);
 
 		// Then
-		expect(wrapper.name()).toEqual('Action');
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toBeVisible();
+		expect(screen.getByRole('button')).toHaveTextContent('2012');
+		expect(screen.getByRole('button')).toHaveAttribute('aria-label', 'September 2012');
 	});
 
 	it('should render the correct date and format', () => {
-		const wrapperSpanAction = shallow(
+		const { rerender } = render(
 			<HeaderTitle monthIndex={2} year={2001} onSelectYear={jest.fn()} />,
 		);
-		const wrapperButton = shallow(
+		expect(screen.getByText('March')).toBeVisible();
+		expect(screen.getByText('2001')).toBeVisible();
+		rerender(
 			<HeaderTitle
 				monthIndex={11}
 				year={2002}
@@ -44,8 +43,6 @@ describe('HeaderTitle', () => {
 				onSelectYear={jest.fn()}
 			/>,
 		);
-		expect(wrapperSpanAction.find('span').first().text()).toEqual('March');
-		expect(wrapperSpanAction.find(ActionDropdown).first().props().label).toEqual('2001');
-		expect(wrapperButton.prop('label')).toBe('December 2002');
+		expect(screen.getByLabelText('December 2002')).toBeVisible();
 	});
 });

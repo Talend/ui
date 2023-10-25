@@ -1,78 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SubHeaderBar should render without i18n 1`] = `
+exports[`SubHeaderBar should render 1`] = `
 <header
-  className="theme-tc-subheader tc-subheader myClassName"
+  class="theme-tc-subheader tc-subheader myClassName"
 >
-  <ActionBar
-    className="theme-tc-subheader-navbar tc-subheader-navbar"
-    components={{}}
+  <div
+    class="theme-tc-actionbar-container tc-actionbar-container nav theme-tc-subheader-navbar tc-subheader-navbar"
   >
-    <SubHeaderBarActions
-      left={true}
+    <div
+      class="tc-subheader-left theme-tc-subheader-navbar-left"
     >
-      <Action
-        bsStyle="link"
-        className="theme-tc-subheader-back-button tc-subheader-back-button"
-        hideLabel={true}
-        icon="talend-arrow-left"
-        id="backArrow"
-        label="Go Back"
-        onClick={[MockFunction]}
-      />
-      <TitleSubHeader
-        editable={false}
-        inProgress={false}
-        loading={false}
-        t={[Function]}
-        title="myTitle"
-      />
-    </SubHeaderBarActions>
-    <SubHeaderBarActions
-      left={true}
+      <div
+        class="theme-navbar-left navbar-left"
+      >
+        <div
+          class="theme-tc-subheader-back-button tc-subheader-back-button"
+        >
+          <span
+            class="CoralButtonIcon"
+            data-testid="tc-subheader-backArrow"
+            icon="arrow-left"
+            id="backArrow"
+          >
+            Go back
+          </span>
+        </div>
+        <div
+          class="tc-subheader-details theme-tc-subheader-details"
+        >
+          <div
+            class="tc-subheader-details-text theme-tc-subheader-details-text"
+          >
+            <div
+              class="tc-subheader-details-text-title theme-tc-subheader-details-text-title"
+            >
+              <h1
+                aria-describedby="42"
+                class="tc-subheader-details-text-title-wording theme-tc-subheader-details-text-title-wording"
+              >
+                myTitle
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tc-subheader-left theme-tc-subheader-navbar-left"
     >
-      <Action
-        bsStyle="link"
-        hideLabel={true}
-        icon="talend-share-alt"
-        label="action1"
-        onClick={[MockFunction]}
-      />
-      <Action
-        bsStyle="link"
-        component="Action"
-        hideLabel={true}
-        icon="talend-activity"
-        label="action2"
-        onClick={[MockFunction]}
-      />
-    </SubHeaderBarActions>
-    <SubHeaderBarActions
-      center={true}
-      hasRight={true}
+      <div
+        class="theme-navbar-left navbar-left"
+      >
+        <button
+          aria-describedby="42"
+          aria-label="action1"
+          class="btn-icon-only btn btn-link"
+          type="button"
+        >
+          <span
+            class="CoralIcon"
+            name="talend-share-alt"
+          />
+        </button>
+        <button
+          aria-describedby="42"
+          aria-label="action2"
+          class="btn-icon-only btn btn-link"
+          type="button"
+        >
+          <span
+            class="CoralIcon"
+            name="talend-activity"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="tc-subheader-center tc-subheader-right-no-margin-right theme-tc-subheader-navbar-center theme-tc-subheader-navbar-center-no-margin-right"
     >
-      <Action
-        bsStyle="link"
-        component="Action"
-        hideLabel={true}
-        icon="talend-activity"
-        label="action3"
-        onClick={[MockFunction]}
-      />
-    </SubHeaderBarActions>
-    <SubHeaderBarActions
-      className="theme-tc-subheader-navbar-right tc-subheader-navbar-right"
-      right={true}
+      <div
+        class="theme-navbar-center"
+      >
+        <button
+          aria-describedby="42"
+          aria-label="action3"
+          class="btn-icon-only btn btn-link"
+          type="button"
+        >
+          <span
+            class="CoralIcon"
+            name="talend-activity"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="tc-subheader-right theme-tc-subheader-navbar-right"
     >
-      <Action
-        bsStyle="link"
-        component="Action"
-        hideLabel={true}
-        icon="talend-activity"
-        label="action3"
-        onClick={[MockFunction]}
-      />
-    </SubHeaderBarActions>
-  </ActionBar>
+      <div
+        class="theme-navbar-right navbar-right"
+      >
+        <button
+          aria-describedby="42"
+          aria-label="action4"
+          class="btn-icon-only btn btn-link"
+          type="button"
+        >
+          <span
+            class="CoralIcon"
+            name="talend-activity"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
 </header>
 `;

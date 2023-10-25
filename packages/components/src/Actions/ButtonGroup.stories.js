@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Actions from './Actions.component';
@@ -64,7 +63,7 @@ const actions = [
 ];
 
 export default {
-	title: 'Buttons/ButtonGroup',
+	title: 'Components/Actions/ButtonGroup',
 };
 
 export const Default = () => (

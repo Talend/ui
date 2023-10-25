@@ -1,20 +1,20 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
+@use '~@talend/design-tokens/lib/tokens';
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
-$tc-typeahead-input-color: $black !default;
+$tc-typeahead-input-color: tokens.$coral-color-neutral-text !default;
 $tc-typeahead-input-width: 26rem !default;
 
-$tc-typeahead-opened-items-container-color: $gray300 !default;
-$tc-typeahead-opened-items-container-background-color: $white !default;
+$tc-typeahead-opened-items-container-color: tokens.$coral-color-neutral-text !default;
+$tc-typeahead-opened-items-container-background-color: tokens.$coral-color-neutral-background !default;
 
-$tc-typeahead-section-border-color: $gray75 !default;
+$tc-typeahead-section-border-color: tokens.$coral-color-neutral-border !default;
 
-$tc-typeahead-icon-color: $gray !default;
-$tc-typeahead-only-icon-color: $gray200 !default;
-$tc-typeahead-section-header-color: #63aebd !default;
+$tc-typeahead-icon-color: tokens.$coral-color-neutral-text !default;
+$tc-typeahead-only-icon-color: tokens.$coral-color-neutral-text !default;
+$tc-typeahead-section-header-color: tokens.$coral-color-accent-text-weak !default;
 
-$tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
+$tc-typeahead-items-box-shadow: tokens.$coral-elevation-shadow-neutral-m !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
 $tc-typeahead-items-font-size: 1.4rem !default;
 $tc-typeahead-items-zindex: 1035 !default;
@@ -141,7 +141,7 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	color: $black;
+	color: tokens.$coral-color-neutral-text;
 }
 
 .section-container:not(:first-of-type) {
@@ -151,7 +151,7 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 }
 
 .section-header {
-	color: $black;
+	color: tokens.$coral-color-neutral-text;
 	display: flex;
 	align-items: center;
 	height: $tc-typeahead-item-height;
@@ -178,7 +178,7 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 	svg {
 		width: $svg-md-size;
 		height: $svg-md-size;
-		color: $dove-gray;
+		color: tokens.$coral-color-neutral-icon;
 	}
 }
 
@@ -220,15 +220,15 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 
 	&-highlighted,
 	&:hover {
-		background-color: rgba($lochmara, 0.1);
+		background-color: tokens.$coral-color-accent-background-weak;
 
 		&.selected {
-			background-color: rgba($lochmara, 0.2);
+			background-color: tokens.$coral-color-accent-background-weak-active;
 		}
 	}
 
 	&.disabled {
-		color: $silver-chalice;
+		color: tokens.$coral-color-neutral-text-disabled;
 		cursor: not-allowed;
 
 		&:hover {
@@ -237,6 +237,6 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 	}
 
 	&.selected {
-		background-color: rgba($lochmara, 0.2);
+		background-color: tokens.$coral-color-accent-background-hover;
 	}
 }

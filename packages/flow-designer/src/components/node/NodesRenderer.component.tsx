@@ -1,18 +1,18 @@
-import React from 'react';
+import { Component } from 'react';
 import invariant from 'invariant';
 import get from 'lodash/get';
 import { NodeRecordMap, NodeRecord, Id, Position } from '../../customTypings/index.d';
 
 type Props = {
 	nodes: NodeRecordMap;
-	nodeTypeMap: Object;
+	nodeTypeMap: object;
 	startMoveNodeTo: (nodeId: Id, nodePosition: string) => void;
 	moveNodeTo: (nodeId: Id, nodePosition: Position) => void;
 	moveNodeToEnd: (nodeId: Id, nodePosition: Position) => void;
 	snapToGrid: boolean;
 };
 
-class NodesRenderer extends React.Component<Props> {
+class NodesRenderer extends Component<Props> {
 	constructor(props: Props) {
 		super(props);
 		this.renderNode = this.renderNode.bind(this);
@@ -41,7 +41,7 @@ class NodesRenderer extends React.Component<Props> {
 	}
 
 	render() {
-		return <g>{this.props.nodes.valueSeq().map(this.renderNode)}</g>;
+		return <g>{this.props.nodes.toArray().map(this.renderNode)}</g>;
 	}
 }
 

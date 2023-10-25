@@ -1,6 +1,4 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { mount } from 'enzyme';
+import { screen, render, fireEvent } from '@testing-library/react';
 import { BadgeNumberForm } from './BadgeNumberForm.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 import getDefaultT from '../../../translate';
@@ -21,13 +19,13 @@ describe('BadgeNumberForm', () => {
 			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeNumberForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should mount a badge with some other values', () => {
@@ -41,16 +39,17 @@ describe('BadgeNumberForm', () => {
 			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeNumberForm {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.find('input[type="number"]').first().props().value).toEqual('i230982903');
+		// eslint-disable-next-line jest-dom/prefer-to-have-value
+		expect(document.querySelector('input[type="number"]')).toHaveAttribute('value', 'i230982903');
+		expect(document.querySelector('input[type="number"]')).toHaveValue(null);
 
-		const submitButton = wrapper.find('button[type="submit"]').first();
-		submitButton.simulate('submit');
+		fireEvent.submit(document.querySelector('button[type="submit"]'));
 
 		expect(onSubmit).toHaveBeenCalled();
 	});

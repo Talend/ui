@@ -1,6 +1,6 @@
+import { applyInterceptors, HTTP } from './config';
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
-import { HTTP } from './config';
 import { TalendHttpResponse, TalendRequestInit } from './http.types';
 
 /**
@@ -16,15 +16,14 @@ export function handleCSRFToken(config: TalendRequestInit) {
 }
 
 /**
- * encodePayload - encore the payload if necessary
+ * encodePayload - encode the payload if necessary
  *
  * @param  {object} headers request headers
  * @param  {object} payload payload to send with the request
  * @return {string|FormData} The encoded payload.
  */
 export function encodePayload(headers: HeadersInit, payload: any) {
-	// @ts-ignore
-	const type: string = headers['Content-Type'];
+	const type = 'Content-Type' in headers ? headers['Content-Type'] : undefined;
 
 	if (payload instanceof FormData || typeof payload === 'string') {
 		return payload;
@@ -41,20 +40,18 @@ export function encodePayload(headers: HeadersInit, payload: any) {
  * @return {Promise}           A promise that resolves with the result of parsing the body
  */
 export async function handleBody(response: Response) {
-	let methodBody = 'text';
-
-	const headers = response?.headers || new Headers();
+	const clonedResponse = response.clone();
+	const { headers } = response;
 	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
-		methodBody = 'json';
+		return clonedResponse.json().then(data => ({ data, response }));
 	}
 
 	if (contentType && contentType.includes('application/zip')) {
-		methodBody = 'blob';
+		return clonedResponse.blob().then(data => ({ data, response }));
 	}
 
-	// @ts-ignore
-	return response[methodBody]().then(data => ({ data, response }));
+	return clonedResponse.text().then(data => ({ data, response }));
 }
 
 /**
@@ -122,13 +119,21 @@ export async function httpFetch<T>(
 		},
 	};
 
-	const response = await fetch(
-		url,
-		handleCSRFToken({
-			...params,
-			// @ts-ignore
-			body: encodePayload(params.headers, payload),
-		}),
+	const { context, ...init } = handleCSRFToken({
+		...params,
+		body: encodePayload(params.headers || {}, payload),
+	});
+
+	const response = await fetch(url, init).then(resp =>
+		applyInterceptors(
+			{
+				url,
+				...init,
+				context,
+			},
+			resp,
+		),
 	);
+
 	return handleHttpResponse(response);
 }

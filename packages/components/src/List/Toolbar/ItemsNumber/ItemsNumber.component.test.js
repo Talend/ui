@@ -1,5 +1,4 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import ItemsNumber from './ItemsNumber.component';
 
 const props = {
@@ -9,10 +8,10 @@ const props = {
 describe('ItemsNumber', () => {
 	it('should render total number of items', () => {
 		// when
-		const wrapper = mount(<ItemsNumber {...props} />);
+		render(<ItemsNumber {...props} />);
 
 		// then
-		expect(wrapper.find('div#list-items-number').text()).toEqual(`${props.totalItems} items`);
+		expect(screen.getByText(`${props.totalItems} item`)).toBeVisible();
 	});
 	it('should render total number of items + customized title', () => {
 		// given
@@ -22,10 +21,10 @@ describe('ItemsNumber', () => {
 		};
 
 		// when
-		const wrapper = mount(<ItemsNumber {...newProps} />);
+		render(<ItemsNumber {...newProps} />);
 
 		// then
-		expect(wrapper.find('div#list-items-number').text()).toEqual(`${newProps.totalItems} bananas`);
+		expect(screen.getByText(`${newProps.totalItems} bananas`)).toBeVisible();
 	});
 	it('should render total number of items + number of selected items with default label', () => {
 		// given
@@ -35,12 +34,10 @@ describe('ItemsNumber', () => {
 		};
 
 		// when
-		const wrapper = mount(<ItemsNumber {...newProps} />);
+		render(<ItemsNumber {...newProps} />);
 
 		// then
-		expect(wrapper.find('div#list-items-number').text()).toEqual(
-			`${newProps.selected}/${newProps.totalItems} items`,
-		);
+		expect(screen.getByText(`${newProps.selected}/${newProps.totalItems} item`)).toBeVisible();
 	});
 
 	it('should render total number of items + number of selected items with customized label', () => {
@@ -53,11 +50,9 @@ describe('ItemsNumber', () => {
 		};
 
 		// when
-		const wrapper = mount(<ItemsNumber {...newProps} />);
+		render(<ItemsNumber {...newProps} />);
 
 		// then
-		expect(wrapper.find('div#list-items-number').text()).toEqual(
-			`${newProps.selected}/${newProps.totalItems} bananas`,
-		);
+		expect(screen.getByText(`${newProps.selected}/${newProps.totalItems} bananas`)).toBeVisible();
 	});
 });

@@ -1,8 +1,8 @@
-import React, { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
+import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StackVertical } from '../../Stack';
 
-import Link from '../../Link';
+import { Link } from '../../Link';
 import { ButtonPrimary } from '../../Button';
 import { ButtonPrimaryAsLink } from '../../ButtonAsLink';
 import { ButtonPrimaryPropsType } from '../../Button/variations/ButtonPrimary';
@@ -61,5 +61,5 @@ const EmptyStatePrimitive = forwardRef((props: EmptyStatePrimitiveProps, ref: Re
 		</article>
 	);
 });
-
+EmptyStatePrimitive.displayName = 'EmptyStatePrimitive';
 export default EmptyStatePrimitive;

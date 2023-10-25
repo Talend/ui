@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import { getTheme } from '@talend/react-components/lib/theme';
+import { isEqual } from 'lodash';
 
 import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';
@@ -46,6 +47,15 @@ const BadgeFaceted = ({
 	const { dispatch } = useBadgeFacetedContext();
 	const [badgeOperator, setBadgeOperator] = useState(operator);
 	const [badgeValue, setBadgeValue] = useState(value);
+
+	useEffect(() => {
+		if (!isEqual(value, badgeValue)) {
+			setBadgeValue(value);
+		}
+		if (!isEqual(operator, badgeOperator)) {
+			setBadgeOperator(operator);
+		}
+	}, [value, operator]);
 
 	const onChangeOperator = (_, operatorName) => {
 		const foundOperator = operators.find(findOperatorByName(operatorName));

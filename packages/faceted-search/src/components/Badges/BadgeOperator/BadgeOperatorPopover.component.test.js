@@ -1,7 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import { mount } from 'enzyme';
-
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BadgeOperatorPopover } from './BadgeOperatorPopover.component';
 
 describe('BadgeOperatorPopover', () => {
@@ -25,9 +22,9 @@ describe('BadgeOperatorPopover', () => {
 			onClick: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<BadgeOperatorPopover {...props} />);
+		const { container } = render(<BadgeOperatorPopover {...props} />);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render a button with icon per operators', () => {
 		// Given
@@ -37,14 +34,20 @@ describe('BadgeOperatorPopover', () => {
 			onClick: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<BadgeOperatorPopover {...props} />);
+		render(<BadgeOperatorPopover {...props} />);
 		// Then
-		expect(wrapper.find('button').at(0).prop('aria-label')).toEqual('My icon operator equal');
-		expect(wrapper.find('Icon').at(0).prop('name')).toEqual('talend-my-icon-equal');
-		expect(wrapper.find('button').at(1).prop('aria-label')).toEqual('My icon operator not equal');
-		expect(wrapper.find('Icon').at(1).prop('name')).toEqual('talend-my-icon-not-equal');
-		expect(wrapper.find('button')).toHaveLength(2);
-		expect(wrapper.find('Icon')).toHaveLength(2);
+		expect(document.querySelectorAll('button')[0]).toHaveAttribute(
+			'aria-label',
+			'My icon operator equal',
+		);
+		expect(document.querySelectorAll('svg')[0]).toHaveAttribute('name', 'talend-my-icon-equal');
+		expect(document.querySelectorAll('button')[1]).toHaveAttribute(
+			'aria-label',
+			'My icon operator not equal',
+		);
+		expect(document.querySelectorAll('svg')[1]).toHaveAttribute('name', 'talend-my-icon-not-equal');
+		expect(document.querySelectorAll('button')).toHaveLength(2);
+		expect(document.querySelectorAll('svg')).toHaveLength(2);
 	});
 	it('should render a button with text as operator', () => {
 		// Given
@@ -59,10 +62,10 @@ describe('BadgeOperatorPopover', () => {
 			onClick: jest.fn(),
 		};
 		// When
-		const wrapper = mount(<BadgeOperatorPopover {...props} />);
+		render(<BadgeOperatorPopover {...props} />);
 		// Then
-		expect(wrapper.find('button').at(0).prop('aria-label')).toEqual('Label');
-		expect(wrapper.find('button')).toHaveLength(1);
+		expect(screen.getByLabelText('Label')).toBeVisible();
+		expect(document.querySelectorAll('button')).toHaveLength(1);
 	});
 	it('should trigger on click', () => {
 		// Given
@@ -73,8 +76,8 @@ describe('BadgeOperatorPopover', () => {
 			onClick,
 		};
 		// When
-		const wrapper = mount(<BadgeOperatorPopover {...props} />);
-		wrapper.find('button').at(0).simulate('click');
+		render(<BadgeOperatorPopover {...props} />);
+		fireEvent.click(document.querySelectorAll('button')[0]);
 		// Then
 		expect(onClick.mock.calls.length).toBe(1);
 		expect(onClick.mock.calls[0][1]).toBe('operatorIconEqual');

@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-datalist-items-max-height: 32rem !default;
 $tc-datalist-item-height: 4rem !default;
@@ -33,7 +34,7 @@ $tc-datalist-item-height: 4rem !default;
 	.tc-datalist-item-icon {
 		width: $svg-md-size;
 		height: $svg-md-size;
-		color: $black;
+		color: tokens.$coral-color-neutral-icon;
 		margin-right: $padding-normal;
 	}
 }
@@ -46,8 +47,9 @@ $tc-datalist-item-height: 4rem !default;
 	> li > div {
 		display: flex;
 		height: $tc-datalist-item-height;
+
 		&:hover {
-			background-color: $concrete;
+			background-color: tokens.$coral-color-neutral-background-medium;
 		}
 	}
 }

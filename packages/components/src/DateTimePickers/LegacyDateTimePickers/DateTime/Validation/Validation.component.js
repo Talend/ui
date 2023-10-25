@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
@@ -62,7 +62,7 @@ function Validation({ t }) {
 				className="btn btn-primary"
 				type="button"
 				aria-label={t('DATEPICKER_VALIDATE_DESC', {
-					defaultValue: 'Validate the date picker value',
+					defaultValue: 'Validate date value',
 				})}
 				onClick={formManagement.onSubmit}
 			>

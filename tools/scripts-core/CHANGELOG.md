@@ -1,5 +1,160 @@
 # @talend/scripts-core
 
+## 16.0.0
+
+### Major Changes
+
+- 9a0732ec5: - fix: enforce timer at the end of all tests.
+
+  - feat: mock ally.js has it uses unsupported dom method from jsdom.
+  - feat: add jest-axe configuration
+
+  To support floating-ui/react following issue we have decided to add an afterAll to let floating-ui finish stuff
+  https://github.com/floating-ui/floating-ui/issues/1908
+
+  Breaking changes:
+
+  you may have tests where you ask for jest.useFakeTimer without go back to real at some point. This is a side effect and it is not compatible with our change to support floating-ui.
+
+  ```diff
+  jest.useFakeTimers()
+  render(<Tooltip><button></Tooltip>)
+  +jest.useRealTimers()
+  ```
+
+  This will fix an error said your test is still pending after 5000 ms.
+
+### Patch Changes
+
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [e83b74b7c]
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+  - @talend/scripts-config-jest@13.0.0
+
+## 15.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade storybook to 7.x major release
+
+## 14.0.1
+
+### Patch Changes
+
+- d9616e484: Fix the use of spawn on windows
+
+## 14.0.0
+
+### Major Changes
+
+- 40e70c055: Upgrade typescript to 5.0
+
+## 13.3.0
+
+### Minor Changes
+
+- 51206dfd6: Make scripts-core compliant with yarn v3.X
+
+## 13.2.0
+
+### Minor Changes
+
+- 7d816bb77: feat: add --fix support
+
+### Patch Changes
+
+- Updated dependencies [7d816bb77]
+  - @talend/eslint-config@12.1.1
+
+## 13.1.3
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+  - @talend/scripts-config-babel@13.0.0
+  - @talend/scripts-config-jest@12.1.2
+
+## 13.1.2
+
+### Patch Changes
+
+- 007624821: fix: do not require storybook until function calls
+
+## 13.1.1
+
+### Patch Changes
+
+- c21e5b699: fix: win32 platform
+- Updated dependencies [c21e5b699]
+  - @talend/scripts-utils@2.0.1
+
+## 13.1.0
+
+### Minor Changes
+
+- 65c8ad05c: chore: refactor using @talend/scripts-utils
+  feat: log error of the scripts if there is a JS error from the script itself
+  chore: re-organise files using src folder to use talend-script on talend-scripts
+
+### Patch Changes
+
+- Updated dependencies [65c8ad05c]
+- Updated dependencies [65c8ad05c]
+- Updated dependencies [65c8ad05c]
+  - @talend/eslint-config@12.0.2
+  - @talend/scripts-config-jest@12.1.0
+  - @talend/scripts-utils@2.0.0
+
+## 13.0.0
+
+### Major Changes
+
+- c18aabb97: Most of the following changes are breaking changes
+
+  feat: move the package to pure ESM
+
+  Read more on the subject: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+  feat: webpack, stylelint, storybook are now optional. The goal here is to target simple nodejs package.
+
+  feat: add `talend-scripts lint` command which trigger eslint and stylelint.
+
+  feat: `talend-scripts test` now detect if the project as angular. in this case it trigger karma instead of jest.
+
+  feat: `talend-scripts build` now detect if the project is a library. in this case it trigger babel/typescripts.
+
+  chore: **remove** `talend-scripts upgrade:deps`. Please use `talend-upgrade-deps` binary after having added it (`@talend/upgrade-deps`) to your dev dependencies.
+
+  chore: **remove** `talend-scripts postinstall` subcommand.
+  It has never been used as it breaks the reproductability of an install.
+
+  chore: **remove** `talend-scripts publish:local` scripts. You can use the dedicated `talend-publish-local` bin by adding it (`@talend/scripts-publish-local`) to your dev dependencies.
+
+  chore: **remove** preset. Config can already been overide.
+
+  chore: **remove** `talend-scripts lint:es` use `lint` script instead.
+
+  chore: **remove** `talend-scripts lint:style` use `lint` script instead.
+
+  chore: **remove** `talend-scripts test:ng` use `test` script instead.
+
+  chore: **remove** `talend-scripts build:lib` use `build` script instead.
+
+  chore: **remove** `talend-scripts build:lib:umd` use `build --umd` script instead.
+
+  To migrate your project please refer to the [migration-guide](./doc/migration-13-preset.md)
+
+### Patch Changes
+
+- Updated dependencies [c18aabb97]
+- Updated dependencies [d73871906]
+- Updated dependencies [c18aabb97]
+- Updated dependencies [c18aabb97]
+  - @talend/eslint-config@12.0.0
+  - @talend/scripts-config-jest@12.0.0
+  - @talend/scripts-config-babel@12.0.0
+
 ## 12.2.0
 
 ### Minor Changes

@@ -1,29 +1,24 @@
-import React from 'react';
 import keycode from 'keycode';
 import { Map } from 'immutable';
-import { shallow, mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 
 import Container from './ShortcutManager.container';
 import Connected from './ShortcutManager.connect';
 
 describe('Shortcut container', () => {
-	let wrapper;
-	const context = { router: { getCurrentLocation: () => ({ pathname: '/test' }) } };
-	afterEach(() => {
-		wrapper.unmount();
-	});
-
 	it('should render', () => {
-		wrapper = shallow(<Container redirectMap={{}} />, { context });
-		expect(wrapper.getElement()).toBeNull();
+		const { container } = render(<Container redirectMap={{}} />);
+		expect(container).toBeEmptyDOMElement();
 	});
 });
 
 describe('handles routes', () => {
 	const state = mock.store.state();
 	state.cmf.settings.props.shortcuts = {
-		redirectMap: {},
+		redirectMap: {
+			esc: { '/test': '/test/next' },
+		},
 	};
 	state.cmf.components = new Map();
 	state.routing = {
@@ -32,20 +27,10 @@ describe('handles routes', () => {
 		},
 	};
 
-	it('should get the redirectMap', () => {
-		const { Provider } = mock;
-		const wrapper = mount(
-			<Provider state={state}>
-				<Connected view="shortcuts" />
-			</Provider>,
-		);
-		expect(wrapper.find(Container.displayName).props().redirectMap).toBeDefined();
-	});
-
 	it('should handle global keypresses', () => {
 		const spy = jest.spyOn(Container.prototype, 'handleKeyPress');
 
-		mount(<Container redirectMap={{}} />);
+		render(<Container redirectMap={{}} />);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
@@ -58,7 +43,7 @@ describe('handles routes', () => {
 	it('should call redirect actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '/test': '/test/next' } };
-		mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test" />);
+		render(<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test" />);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
@@ -70,7 +55,7 @@ describe('handles routes', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '^[/]test[/].*$': 'test' } };
 
-		mount(
+		render(
 			<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test/12345" />,
 		);
 

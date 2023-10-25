@@ -1,4 +1,3 @@
-import React from 'react';
 import { spawn } from 'redux-saga/effects';
 import _merge from 'lodash/merge';
 import { assertValueTypeOf } from './assert';
@@ -103,11 +102,13 @@ function composeComponents(RootComponent, NestedRootComponent) {
 		return NestedRootComponent;
 	}
 	// eslint-disable-next-line react/prop-types
-	return ({ children }) => (
+	const CMFComposition = ({ children }) => (
 		<RootComponent>
 			<NestedRootComponent>{children}</NestedRootComponent>
 		</RootComponent>
 	);
+	CMFComposition.displayName = 'CMFComposition';
+	return CMFComposition;
 }
 
 const MERGE_FNS = {

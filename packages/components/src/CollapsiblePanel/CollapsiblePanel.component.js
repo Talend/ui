@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Panel, Button } from '@talend/react-bootstrap';
@@ -166,7 +165,6 @@ function CollapsiblePanelHeader(props) {
 				onClick={onToggle}
 				id={id && `${id}__collapse`}
 				type="button"
-				active={expanded}
 				icon={expanded ? 'chevron-down-stroke' : 'chevron-up-filled'}
 				data-feature={dataFeature}
 			>

@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
 import Skeleton from '../Skeleton';
 import { getI18nInstance } from '../translate';
 import theme from './AboutDialog.module.scss';

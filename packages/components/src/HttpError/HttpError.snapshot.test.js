@@ -1,5 +1,4 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 
 import HttpError from './HttpError.component';
 
@@ -22,17 +21,19 @@ const notFoundProps = {
 describe('HttpError', () => {
 	it('should render a forbidden http error message', () => {
 		// when
-		const wrapper = renderer.create(<HttpError {...forbiddenProps} />).toJSON();
+		const { container } = render(<HttpError {...forbiddenProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render a notFound http error page with action', () => {
 		// when
-		const wrapper = renderer.create(<HttpError {...notFoundProps} />).toJSON();
+		render(<HttpError {...notFoundProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		const element = screen.getByRole('link');
+		expect(element).toBeVisible();
+		expect(element).toHaveTextContent(notFoundProps.action.label);
 	});
 });

@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import ButtonIconPrimitive, {
 	AvailableSizes,
 	DefaultTypes,
@@ -10,8 +10,6 @@ function Button<S extends AvailableSizes>(props: ButtonIconType<S>, ref: Ref<HTM
 	return <ButtonIconPrimitive {...props} variant="default" ref={ref} />;
 }
 
-const ButtonIcon = forwardRef(Button) as <S extends AvailableSizes>(
+export const ButtonIcon = forwardRef(Button) as <S extends AvailableSizes>(
 	props: ButtonIconType<S> & { ref?: Ref<HTMLButtonElement> },
 ) => ReturnType<typeof Button>;
-
-export default ButtonIcon;

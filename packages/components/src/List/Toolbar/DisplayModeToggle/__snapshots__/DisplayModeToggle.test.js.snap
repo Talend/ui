@@ -1,84 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DisplayModeToggle should render 1`] = `
-<DisplayModeToggle
-  onChange={[MockFunction]}
-  t={[Function]}
+<div
+  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS theme-padding-top-0 theme-padding-right-S theme-padding-bottom-0 theme-padding-left-S"
 >
-  <StackHorizontal
-    gap="XS"
-    padding={
-      {
-        "x": "S",
-        "y": 0,
-      }
-    }
+  <button
+    aria-describedby="id-42"
+    aria-label="Set Table as current display mode."
+    aria-pressed="false"
+    class="theme-clickable theme-buttonIcon theme-toggle theme-size_S"
+    id="undefined-table"
+    tabindex="0"
+    type="button"
   >
     <span
-      className="CoralStackHorizontal"
-      gap="XS"
-      padding={
-        {
-          "x": "S",
-          "y": 0,
-        }
-      }
+      aria-hidden="true"
+      class="theme-buttonIcon__icon"
     >
-      <Memo()
-        displayMode="table"
-        icon="talend-table"
-        key="table"
-        label="Set Table as current display mode."
-        onSelect={[MockFunction]}
-      >
-        <ButtonIconToggle
-          icon="talend-table"
-          id="undefined-table"
-          isActive={false}
-          key="table"
-          onClick={[Function]}
-          size="S"
-        >
-          <span
-            className="CoralButtonIconToggle"
-            icon="talend-table"
-            id="undefined-table"
-            isActive={false}
-            onClick={[Function]}
-            size="S"
-          >
-            Set Table as current display mode.
-          </span>
-        </ButtonIconToggle>
-      </Memo()>
-      <Memo()
-        displayMode="large"
-        icon="talend-expanded"
-        key="large"
-        label="Set Expanded as current display mode."
-        onSelect={[MockFunction]}
-      >
-        <ButtonIconToggle
-          icon="talend-expanded"
-          id="undefined-large"
-          isActive={false}
-          key="large"
-          onClick={[Function]}
-          size="S"
-        >
-          <span
-            className="CoralButtonIconToggle"
-            icon="talend-expanded"
-            id="undefined-large"
-            isActive={false}
-            onClick={[Function]}
-            size="S"
-          >
-            Set Expanded as current display mode.
-          </span>
-        </ButtonIconToggle>
-      </Memo()>
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-table"
+        focusable="false"
+        name="talend-table"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
     </span>
-  </StackHorizontal>
-</DisplayModeToggle>
+  </button>
+  <button
+    aria-describedby="id-42"
+    aria-label="Set Expanded as current display mode."
+    aria-pressed="false"
+    class="theme-clickable theme-buttonIcon theme-toggle theme-size_S"
+    id="undefined-large"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+      class="theme-buttonIcon__icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-expanded"
+        focusable="false"
+        name="talend-expanded"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </span>
+  </button>
+</div>
 `;

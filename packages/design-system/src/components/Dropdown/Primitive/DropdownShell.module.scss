@@ -2,6 +2,10 @@
 
 .dropdownShell {
 	z-index: tokens.$coral-elevation-layer-interactive-front;
+	position: absolute;
+	width: max-content;
+	top: 0;
+	left: 0;
 
 	.animatedZone {
 		background: tokens.$coral-color-neutral-background;
@@ -11,15 +15,6 @@
 		overflow: auto;
 		min-width: calc(#{tokens.$coral-sizing-maximal} / 2);
 		max-width: tokens.$coral-sizing-maximal;
-		transition: all tokens.$coral-transition-fast;
-		opacity: 0;
-		transform: translateY(-10%);
-	}
-
-	&[data-enter] {
-		.animatedZone {
-			opacity: 1;
-			transform: translateY(0%);
-		}
+		transition: tokens.$coral-transition-fast;
 	}
 }

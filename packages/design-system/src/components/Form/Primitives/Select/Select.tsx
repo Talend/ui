@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref, SelectHTMLAttributes } from 'react';
+import { forwardRef, ReactElement, Ref, SelectHTMLAttributes } from 'react';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 import SelectNoWrapper from './SelectNoWrapper';
 

@@ -31,7 +31,7 @@ function getCmfconfig(cmfconfigPath, onError) {
  * @param {function} errorCallback
  * @return Array<string> source files used
  */
-function merge(options, errorCallback) {
+function merge(options, errorCallback, writeToFs = true) {
 	const onErrorCallback = errorCallback || Function.prototype;
 	function onError(...args) {
 		console.error(args); // eslint-disable-line no-console
@@ -126,9 +126,12 @@ function merge(options, errorCallback) {
 		const i18next = getI18Next(languages, cmfconfig.settings.i18n['namespace-paths']);
 
 		if (i18next) {
-			languages.forEach(locale => {
-				saveSettings(i18next, settings, locale, destination);
-			});
+			return {
+				sources: jsonFiles,
+				destination: languages.map(locale =>
+					saveSettings(i18next, settings, locale, destination, writeToFs),
+				),
+			};
 		}
 	}
 
@@ -140,15 +143,21 @@ function merge(options, errorCallback) {
 			},
 			settings,
 		);
-		// Write the merged file
-		logger(`Merge to ${destination}`);
-		mkdirp.sync(path.dirname(destination));
-		const file = fs.createWriteStream(destination);
-		file.write(JSON.stringify(settingWithoutI18n) + String.fromCharCode(10));
-		file.end();
-		logger('CMF settings has been merged');
+		if (writeToFs) {
+			// Write the merged file
+			logger(`Merge to ${destination}`);
+			mkdirp.sync(path.dirname(destination));
+			const file = fs.createWriteStream(destination);
+			file.write(JSON.stringify(settingWithoutI18n) + String.fromCharCode(10));
+			file.end();
+			logger('CMF settings has been merged');
+			return jsonFiles;
+		}
+		return {
+			sources: jsonFiles,
+			destination: [{ path: destination, content: settingWithoutI18n }],
+		};
 	}
-	return jsonFiles;
 }
 
 module.exports = merge;

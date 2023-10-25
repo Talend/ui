@@ -1,10 +1,10 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
 
 export type InputFieldProps = FieldPropsPrimitive &
 	Omit<InputPrimitiveProps, 'className' | 'styles'>;

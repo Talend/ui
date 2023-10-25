@@ -1,14 +1,12 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import ButtonPrimitive, { AvailableSizes, BaseButtonProps } from '../Primitive/ButtonPrimitive';
 
 import styles from './ButtonDestructive.module.scss';
 
 export type ButtonDestructivePropsType<S extends AvailableSizes> = Omit<
 	BaseButtonProps<S>,
-	'className' | 'size'
-> & {
-	size?: S;
-};
+	'className'
+>;
 
 function Destructive<S extends AvailableSizes>(
 	props: ButtonDestructivePropsType<S>,

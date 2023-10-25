@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
@@ -126,7 +125,7 @@ const element = (
 );
 
 export default {
-	title: 'Layout/CollapsiblePanel',
+	title: 'Components/Layout/CollapsiblePanel',
 };
 
 export const Default = () => (
@@ -173,6 +172,18 @@ export const Header = () => (
 	<div className="col-lg-offset-1 col-lg-10">
 		<h1>Collapsible Panel Headers</h1>
 		<CollapsiblePanel id="panel-header-1" header={[{ label: 'Simple header' }]} />
+		<CollapsiblePanel
+			id="panel-header-1"
+			header={[
+				{
+					label:
+						'Simple header with a very very very very long label that should not completly appear and not push other element outside the headerSimple header with a very very very very long label that should not completly appear and not push other element outside the header',
+				},
+				buttonDownload,
+			]}
+		>
+			Panel content
+		</CollapsiblePanel>
 		<CollapsiblePanel
 			id="panel-header-2"
 			header={[{ label: 'Header with actions' }, { element }]}

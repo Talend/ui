@@ -1,6 +1,7 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import DefaultArrayTemplate from './DefaultArrayTemplate.component';
+
+jest.unmock('@talend/design-system');
 
 const schema = {
 	description: 'Tnstructions to fill it',
@@ -89,7 +90,7 @@ const value = [
 describe('Default Array Template component', () => {
 	it('should render default array template', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<DefaultArrayTemplate
 				canReorder
 				id="my-template"
@@ -105,12 +106,12 @@ describe('Default Array Template component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render error with error classname', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<DefaultArrayTemplate
 				canReorder
 				id="my-template"
@@ -126,12 +127,11 @@ describe('Default Array Template component', () => {
 		);
 
 		// then
-		const message = wrapper.find('Message');
-		expect(message.prop('className')).toBe('has-error');
+		expect(screen.getByRole('status').parentElement).toHaveClass('has-error');
 	});
 	it('should support readonly', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<DefaultArrayTemplate
 				canReorder
 				id="my-template"
@@ -146,6 +146,7 @@ describe('Default Array Template component', () => {
 		);
 
 		// then
-		expect(wrapper.find('Action').length).toBe(0);
+		// eslint-disable-next-line jest-dom/prefer-in-document
+		expect(screen.queryAllByRole('button')).toHaveLength(0);
 	});
 });

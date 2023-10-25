@@ -1,6 +1,5 @@
 {
-  "preset": "@talend/scripts-preset-react-lib",
   "dynamic-cdn-webpack-plugin": {
-    "exclude": ["react-transition-group"]
+    "exclude": ["react-is", "styled-components"]
   }
 }

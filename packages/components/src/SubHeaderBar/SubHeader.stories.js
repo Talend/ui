@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import FilterBar from '../FilterBar';
 import Tag from '../Tag';
@@ -68,7 +67,7 @@ const center = (
 );
 
 export default {
-	title: 'Navigation/SubHeader',
+	title: 'Components/Navigation/SubHeader',
 };
 
 export const WithDefault = () => (

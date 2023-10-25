@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 
 import styles from './DropdownTitle.module.scss';
 
@@ -14,4 +14,5 @@ const DropdownTitle = forwardRef(
 	},
 );
 
+DropdownTitle.displayName = 'DropdownTitle';
 export default DropdownTitle;

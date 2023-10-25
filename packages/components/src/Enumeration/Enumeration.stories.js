@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Enumeration from './Enumeration.component';
 
 import theme from './Enumeration.stories.module.scss';
+import { DISPLAY_MODE_SEARCH } from './displayModes';
 
 const addItemAction = {
 	label: 'Add item',
@@ -131,7 +132,7 @@ const props = {
 
 const defaultEmptyListProps = { ...props, items: [] };
 
-const searchModeEmptyListProps = { ...defaultEmptyListProps, displayMode: 'DISPLAY_MODE_SEARCH' };
+const searchModeEmptyListProps = { ...defaultEmptyListProps, displayMode: DISPLAY_MODE_SEARCH };
 
 const dropDownActionsProps = {
 	...props,
@@ -174,7 +175,7 @@ const selectedValuesProps = {
 };
 const searchProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_SEARCH',
+	displayMode: DISPLAY_MODE_SEARCH,
 	searchCriteria: 'lorem',
 };
 
@@ -335,8 +336,50 @@ const withCustomActions = {
 	},
 };
 
+const EnumerationDynamicHeight = () => {
+	const [list, setList] = useState([]);
+	const ROW_HEIGHT = 30;
+	const enumerationProps = {
+		displayMode: 'DISPLAY_MODE_ADD',
+		inputPlaceholder: 'New entry',
+		headerDefault: [],
+		headerInput: [
+			{
+				label: 'Validate',
+				icon: 'talend-check',
+				id: 'validate',
+				onClick: (_, input) => {
+					const tmp = [...list];
+					tmp.push({ values: [input.value] });
+					setList(tmp);
+				},
+			},
+			{
+				label: 'Abort',
+				icon: 'talend-cross',
+				id: 'abort',
+				onClick: () => {
+					const tmp = [...list];
+					tmp.pop();
+					setList(tmp);
+				},
+			},
+		],
+		items: list,
+		onAddChange: () => {},
+		onAddKeyDown: () => {},
+		itemsProp: {
+			calculateListHeight: listItems => (listItems.length ? listItems.length * ROW_HEIGHT : 0),
+			getItemHeight: () => ROW_HEIGHT,
+			actionsDefault: [],
+			key: 'values',
+		},
+	};
+	return <Enumeration {...enumerationProps} />;
+};
+
 export default {
-	title: 'Form/Controls/Enumeration',
+	title: 'Components/Form - Controls/Enumeration',
 };
 
 export const Default = () => (
@@ -495,45 +538,3 @@ export const WithCustomActions = () => (
 		<Enumeration {...withCustomActions} />
 	</div>
 );
-
-const EnumerationDynamicHeight = () => {
-	const [list, setList] = useState([]);
-	const ROW_HEIGHT = 30;
-	const enumerationProps = {
-		displayMode: 'DISPLAY_MODE_ADD',
-		inputPlaceholder: 'New entry',
-		headerDefault: [],
-		headerInput: [
-			{
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: (_, input) => {
-					const tmp = [...list];
-					tmp.push({ values: [input.value] });
-					setList(tmp);
-				},
-			},
-			{
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: () => {
-					const tmp = [...list];
-					tmp.pop();
-					setList(tmp);
-				},
-			},
-		],
-		items: list,
-		onAddChange: () => {},
-		onAddKeyDown: () => {},
-		itemsProp: {
-			calculateListHeight: listItems => (listItems.length ? listItems.length * ROW_HEIGHT : 0),
-			getItemHeight: () => ROW_HEIGHT,
-			actionsDefault: [],
-			key: 'values',
-		},
-	};
-	return <Enumeration {...enumerationProps} />;
-};

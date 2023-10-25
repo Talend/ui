@@ -1,11 +1,11 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';
 import Slider from '@talend/react-components/lib/Slider';
 import { getTheme } from '@talend/react-components/lib/theme';
 import { Rich } from '@talend/react-components';
-import { getApplyDataFeature } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeSlider.module.scss';
 
@@ -55,6 +55,7 @@ const BadgeSliderForm = ({
 	step = 1,
 	value: initialValue = min,
 	defaultValue,
+	...rest
 }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const [value, setValue] = useState(initialValue);
@@ -111,6 +112,9 @@ const BadgeSliderForm = ({
 								title={t('FACETED_SEARCH_EDIT_DIRECTLY', {
 									defaultValue: 'Edit directly',
 								})}
+								aria-label={t('FACETED_SEARCH_EDIT_DIRECTLY', {
+									defaultValue: 'Edit directly',
+								})}
 							>
 								{value}
 								{unit}
@@ -141,6 +145,7 @@ const BadgeSliderForm = ({
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
 					disabled={!!error}
+					{...getDataAttributesFrom(rest)}
 				/>
 			</Rich.Layout.Footer>
 		</form>
@@ -151,7 +156,7 @@ BadgeSliderForm.propTypes = {
 	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
-	value: PropTypes.string,
+	value: PropTypes.number,
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	unit: PropTypes.string,

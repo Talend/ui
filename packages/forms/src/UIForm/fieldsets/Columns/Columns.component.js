@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 
 import Widget from '../../Widget';
@@ -26,5 +25,6 @@ if (process.env.NODE_ENV !== 'production') {
 			items: PropTypes.array.isRequired,
 			title: PropTypes.string,
 		}).isRequired,
+		...Widget.propTypes,
 	};
 }

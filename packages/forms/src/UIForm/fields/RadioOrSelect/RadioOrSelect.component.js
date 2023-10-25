@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import Radio from '../Radios';
 import Select from '../Select';
 

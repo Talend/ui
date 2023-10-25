@@ -1,5 +1,5 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+// rewrite test using react-testing-library
+import { screen, render } from '@testing-library/react';
 import {
 	distributePercentages,
 	getAngle,
@@ -39,26 +39,26 @@ describe('PieChart', () => {
 		];
 
 		it('should render a Skeleton when the state is loading', () => {
-			const wrapper = shallow(<PieChartIconComponent loading model={pieChartData} />);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			render(<PieChartIconComponent loading model={pieChartData} />);
+			expect(screen.getByLabelText('Loading chart')).toBeVisible();
+			expect(screen.getByLabelText('circle Loading...')).toBeVisible();
+			expect(screen.getByLabelText('text Loading...')).toBeVisible();
 		});
 		it('should render a PieChart', () => {
-			const wrapper = shallow(
+			const { container } = render(
 				<PieChartIconComponent display={PIECHART_SIZES.SMALL} model={pieChartData} />,
 			);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(container.firstChild).toMatchSnapshot();
 		});
 		it('should spread extra props on svg', () => {
 			// given
 			const ariaLabel = 'Invalid values: 50%. Empty values: 14%. Valid values: 36%';
 
 			// when
-			const wrapper = shallow(
-				<PieChartIconComponent model={pieChartData} aria-label={ariaLabel} />,
-			);
+			render(<PieChartIconComponent model={pieChartData} aria-label={ariaLabel} />);
 
 			// then
-			expect(wrapper.find('svg').prop('aria-label')).toBe(ariaLabel);
+			expect(screen.getByLabelText(ariaLabel)).toBeVisible();
 		});
 	});
 

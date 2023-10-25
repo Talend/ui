@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import ConfirmDialog from '@talend/react-components/lib/ConfirmDialog';
@@ -23,7 +23,7 @@ function getLabel(resource) {
  * When the component is mounted, it opens a confirm dialog.
  * It uses the saga matching pattern to launch a race between the cancel and validate action.
  */
-export class DeleteResource extends React.Component {
+export class DeleteResource extends Component {
 	static displayName = 'Container(DeleteResource)';
 
 	static propTypes = {
@@ -34,15 +34,10 @@ export class DeleteResource extends React.Component {
 		resourceTypeLabel: PropTypes.string,
 		resourceId: PropTypes.string,
 		collectionId: PropTypes.string,
-		female: PropTypes.string,
+		female: PropTypes.bool,
 		onCancelRedirectUrl: PropTypes.string,
 		validateActionProps: PropTypes.object,
 		t: PropTypes.func,
-	};
-
-	static contextTypes = {
-		registry: PropTypes.object.isRequired,
-		store: PropTypes.object.isRequired,
 	};
 
 	static defaultProps = {
@@ -50,8 +45,8 @@ export class DeleteResource extends React.Component {
 		t: getDefaultT(),
 	};
 
-	constructor(props, context) {
-		super(props, context);
+	constructor(props) {
+		super(props);
 		this.getLabelInfo = this.getLabelInfo.bind(this);
 		this.getResourceInfo = this.getResourceInfo.bind(this);
 		this.onHide = this.onHide.bind(this);

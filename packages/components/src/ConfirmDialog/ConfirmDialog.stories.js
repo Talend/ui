@@ -1,5 +1,4 @@
 /* eslint-disable no-plusplus */
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import ConfirmDialog from './ConfirmDialog.component';
@@ -85,7 +84,7 @@ const withProgressBarProps = {
 const children = <div>BODY content. You can put what ever you want here</div>;
 
 export default {
-	title: 'Layout/Modals/ConfirmDialog',
+	title: 'Components/Layout/Modals/ConfirmDialog',
 };
 
 export const Default = () => (

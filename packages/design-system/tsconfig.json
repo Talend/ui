@@ -1,21 +1,12 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": [
-    "../../node_modules/cypress",
-    "cypress/**/*",
-    ".storybook/docs/**/*",
-    "src/**/*",
-    "custom.d.ts"
-  ],
+  "include": ["../../node_modules/cypress", "cypress/**/*", "src/**/*", "custom.d.ts"],
   "files": [],
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "~docs": [".storybook/docs"]
-    },
-    "jsx": "react",
+    "paths": {},
     "module": "CommonJs",
-    "rootDirs": [".storybook", "cypress", "src"],
+    "rootDirs": ["cypress", "@testing-library/cypress", "src"],
     "types": ["cypress"]
   }
 }

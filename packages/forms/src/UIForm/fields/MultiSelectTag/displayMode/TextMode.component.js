@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import Badge from '@talend/react-components/lib/Badge';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
@@ -20,8 +19,8 @@ export default function MultiSelectTagTextMode({ id, schema, value }) {
 		<FieldTemplate id={id} label={title} labelProps={labelProps}>
 			<ul aria-labelledby={id} className={theme['tc-badge-list']}>
 				{value.map((val, index) => (
-					<li>
-						<Badge key={index} label={getLabel(schema.titleMap, val)} />
+					<li key={value || index}>
+						<Badge label={getLabel(schema.titleMap, val)} />
 					</li>
 				))}
 			</ul>

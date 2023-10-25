@@ -1,5 +1,11 @@
 # @talend/scripts-config-typescript
 
+## 11.1.0
+
+### Minor Changes
+
+- 616601fda: feat: change jsx config to "react-jsx" to remove React imports
+
 ## 11.0.0
 
 ### Major Changes

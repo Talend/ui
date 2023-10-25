@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 import TextModeArrayTemplate from '../../../fieldsets/Array/displayMode/TextModeArrayTemplate.component';
 
@@ -23,7 +22,11 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 			labelProps: PropTypes.object,
 		}),
-		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		value: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number,
+			PropTypes.arrayOf(PropTypes.string),
+		]),
 	};
 }
 

@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
 
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -43,7 +42,7 @@ export default function Radios({
 		>
 			{schema.titleMap &&
 				schema.titleMap.map((option, index) => (
-					<div className={radioClassNames} key={index}>
+					<div className={radioClassNames} key={option.value || option.name}>
 						<label>
 							{/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
 							<input

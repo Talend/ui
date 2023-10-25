@@ -1,9 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CellBadge should render 1`] = `
-<Badge
-  id="25"
-  label="streaming"
-  selected={true}
-/>
+<div
+  class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-selected theme-tc-badge-selected tc-badge-readonly theme-tc-badge-readonly"
+>
+  <div
+    class="tc-badge-button theme-tc-badge-button"
+    id="tc-badge-select-25"
+  >
+    <div
+      class="tc-badge-label theme-tc-badge-label"
+    >
+      <span
+        aria-describedby="42"
+        class="tc-badge-label-text theme-tc-badge-label-text"
+      >
+        streaming
+      </span>
+    </div>
+  </div>
+</div>
 `;

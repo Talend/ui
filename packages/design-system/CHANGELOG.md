@@ -1,5 +1,243 @@
 # @talend/design-system
 
+## 8.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 9a0732ec5: chore: remove reakit
+
+  - Rewrite components without reakit
+  - use `@floating-ui/react` for tooltip, popover
+  - export all types and components from the root
+
+  Breaking changes:
+
+  - HTML structure output may have changed
+  - Some passed props from our component to reakit and not documented as a usage as been removed. If you need a different usage let us knwow, now we own the code
+  - Tabs props API has been completly changed
+
+  Components changed:
+
+  - Accordion (useId)
+  - Clickable (rewrite)
+  - Combobox (add as primitive)
+  - Disclosure (add as primitive)
+  - Divider (rewrite)
+  - Drawer (rewrite using `react-transition-group`)
+  - Dropdown (rewrite using `@floating-ui/react`)
+  - Form/Affix/Button (typings)
+  - Form/Affix/Select (useId)
+  - Form/Field/Datalist (useId)
+  - Form/Field/InputFile (useId)
+  - Form/Field/InputToggleSwitch (rewrite)
+  - Form/Primitives/Checkbox (rewrite)
+  - Form/Primitives/Field (useId)
+  - Form/Primitives/Radio (useId)
+  - Modal (rewrite Dialog as primitive)
+  - Popover (rewrite using `@floating-ui/react`)
+  - Switch (rewrite)
+  - Tabs (rewrite + props changed with old API support)
+  - Tooltip (rewrite using `@floating-ui/react` + API Change)
+  - VisuallyHidden (rewrite)
+
+  ## Migration Guide
+
+  ### Checkbox component
+
+  Checkbox support now control and uncontrolled mode.
+  To use controlled version, provide `checked` and `onChange` props.
+  To use uncontrolled version, you can provide optional `defaultChecked` prop.
+
+  We also change way to import it to be less verbose.
+
+  ### ToggleSwitch component
+
+  ToggleSwitch now support controlled and uncontrolled mode.
+  To use controlled version provide `checked` and `onChange` props.
+  To use uncontrolled version, you can just provide optional provide `defaultChecked` prop.
+
+  ### Tabs component
+
+  Previous API with the `tabs` props. TabsKit has been removed. We encourage you to use the following API:
+
+  ```javascript
+  <Tabs.Container defaultActiveKey="profile">
+  	<Tabs.List>
+  		<Tabs.Tab aria-controls="home" title="Home" />
+  		<Tabs.Tab aria-controls="profile" title="Profile" />
+  		<Tabs.Tab aria-controls="contact" title="Contact" disabled />
+  	</Tabs.List>
+  	<Tabs.Panel id="home">Tab content for Home</Tabs.Panel>
+  	<Tabs.Panel id="profile">Tab content for Profile</Tabs.Panel>
+  	<Tabs.Panel id="contact">Tab content for Contact</Tabs.Panel>
+  </Tabs.Container>
+  ```
+
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Minor Changes
+
+- 9a0732ec5: feat: upgrade react-is
+
+### Patch Changes
+
+- bacaa4b31: fix TypeError: popover.hide is not a function on close Popover
+- 9a0732ec5: fix: some lint errors
+- Updated dependencies [96d688489]
+  - @talend/icons@7.0.0
+
+## 7.15.1
+
+### Patch Changes
+
+- 3b058ef7d: fix: some lint errors. Start to export types for some components.
+
+## 7.15.0
+
+### Minor Changes
+
+- 076d96234: Add BadgeMenu to faceted search for single selection
+
+## 7.14.2
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+
+## 7.14.1
+
+### Patch Changes
+
+- 6391fc8b6: Form.Copy - Fix no copied message after switching back
+- Updated dependencies [3cfe50989]
+  - @talend/design-tokens@2.9.0
+
+## 7.14.0
+
+### Minor Changes
+
+- cd79a04a8: Design System - InlineEdit and InlineEditMulti can now have a maxLength attribute
+
+### Patch Changes
+
+- 0789cda91: Design system - Form file will now update on files prop change and will trigger onChange when file is cleared
+
+## 7.13.0
+
+### Minor Changes
+
+- 4292de3ea: feat(TDC-7254/Stepper): Add a new props `currentStepIndex` to control current step. Set to zero by default.
+
+  This fix an issue as the previous code is based on react ref which is not updated when dom is changed. As we don't want to observe mutation on the DOM, let's go back on classic react patterns, make it pure and ask for a state
+
+## 7.12.2
+
+### Patch Changes
+
+- 1c53807b7: chore: update rich radio button
+
+## 7.12.1
+
+### Patch Changes
+
+- b10ae79ed: fix(design-system): add data attributes to RichRadioButton
+- 5bfab7ded: feat(tdc-7258): added data-checked attribute so automated tests can select the checked card
+
+## 7.12.0
+
+### Minor Changes
+
+- 7de53ccf0: feat(design-system): Handle logos in RichRadioButton
+
+## 7.11.0
+
+### Minor Changes
+
+- d8c9adc34: [DS] InlineEditing : allow to update value from default value prop
+
+## 7.10.0
+
+### Minor Changes
+
+- a90c12b34: feat: add data attributes to the BadgeDropdown component
+- c54e10157: feat(TDC-6804): added rich radio button component
+
+## 7.9.0
+
+### Minor Changes
+
+- 7a9f88147: chore(TFD-15534): Add status to accordion header
+
+## 7.8.0
+
+### Minor Changes
+
+- d5c2f9409: feat: Add other illustrations for EmptyStateMedium
+
+## 7.7.3
+
+### Patch Changes
+
+- e5a326ffb: fix(TFD-15547): Drawer is under Modal
+
+## 7.7.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- be1095095: fix(design-system): Button style while compacted by layout
+
+## 7.7.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 285efb74a: fix: add data-test to buttons in modal
+- Updated dependencies [616601fda]
+  - @talend/design-tokens@2.7.3
+
+## 7.7.0
+
+### Minor Changes
+
+- a01e81852: feat(design-system): Modal have no close button if preventEscaping is on
+
+## 7.6.0
+
+### Minor Changes
+
+- 00869855d: Popover - Add `focusOnDisclosure` option to allow focus on disclosure when popover is opened
+
+## 7.5.1
+
+### Patch Changes
+
+- 4c3495e12: chore: apply code style
+
+## 7.5.0
+
+### Minor Changes
+
+- 4cfbf226b: feat(Tabs&Dropdown): add new data-feature & data-testid capabilities
+
+## 7.4.1
+
+### Patch Changes
+
+- 6c6133860: TDOPS-3536 - Fix passing props to popover disclosure on Design System
+
+## 7.4.0
+
+### Minor Changes
+
+- 79c2d5165: feat(TFD-14857): BadgeDropdown is now controlled
+
 ## 7.3.0
 
 ### Minor Changes

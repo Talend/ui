@@ -1,37 +1,33 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Form from './Form';
 import FormGroup from './FormGroup';
 
 describe('<Form>', () => {
-  xit('should support horizontal', () => {
-    shallow(
+  it('should support horizontal', () => {
+    render(
       <Form horizontal className="my-form">
         <FormGroup />
       </Form>
-    )
-      .assertSingle('form.form-horizontal.my-form')
-      .assertSingle(FormGroup);
+    );
+    expect(document.querySelector('form')).toHaveClass('form-horizontal');
   });
 
-  xit('should support inline', () => {
-    shallow(
+  it('should support inline', () => {
+    render(
       <Form inline className="my-form">
         <FormGroup />
       </Form>
-    )
-      .assertSingle('form.form-inline.my-form')
-      .assertSingle(FormGroup);
+    );
+    expect(document.querySelector('form')).toHaveClass('form-inline');
   });
 
-  xit('should support custom componentClass', () => {
-    shallow(
+  it('should support custom componentClass', () => {
+    render(
       <Form componentClass="fieldset" horizontal className="my-form">
         <FormGroup />
       </Form>
-    )
-      .assertSingle('fieldset.form-horizontal.my-form')
-      .assertSingle(FormGroup);
+    );
+    expect(document.querySelector('fieldset')).toHaveClass('form-horizontal');
   });
 });

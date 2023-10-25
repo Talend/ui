@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WithDrawer should render 1`] = `
+<div
+  class="theme-tc-with-drawer"
+>
+  <div
+    data-testid="Children"
+  />
+  <div
+    class="theme-tc-with-drawer-container"
+  >
+    <div
+      class="tc-with-drawer-wrapper"
+      style="transition: transform 350ms ease-in-out; transform: translateX(0%);"
+    >
+      <div
+        aria-labelledby="42"
+        class="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
+        role="dialog"
+      >
+        <div
+          class="tc-drawer-container theme-tc-drawer-container"
+        >
+          <div
+            class="tc-drawer-header theme-tc-drawer-header"
+          >
+            <div
+              class="tc-drawer-header-menu theme-tc-drawer-header-menu"
+            >
+              <div
+                class="tc-drawer-header-title theme-tc-drawer-header-title"
+              >
+                <h1
+                  id="42"
+                  title="drawerTitle"
+                >
+                  drawerTitle
+                </h1>
+              </div>
+            </div>
+            <div
+              class="tc-drawer-header-with-tabs theme-tc-drawer-header-with-tabs"
+            />
+          </div>
+          <div
+            style="display: flex; flex-direction: column; flex-grow: 1; overflow: hidden;"
+          >
+            <div
+              class="tc-drawer-content theme-tc-drawer-content"
+            >
+              <div
+                class="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+              >
+                test
+              </div>
+            </div>
+            <div
+              class="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+            >
+              <div
+                class="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

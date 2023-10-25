@@ -1,4 +1,3 @@
-import React from 'react';
 import Immutable from 'immutable';
 import { action } from '@storybook/addon-actions';
 
@@ -196,7 +195,7 @@ const oneEventAction = {
 };
 
 export default {
-	title: 'Buttons/Dropdown',
+	title: 'Components/Actions/Dropdown',
 };
 
 export const Default = () => (

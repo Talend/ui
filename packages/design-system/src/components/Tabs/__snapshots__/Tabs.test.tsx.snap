@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs should render accessible html 1`] = `
+<nav
+  id="kit"
+>
+  <div
+    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
+  >
+    <div
+      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M"
+      role="tablist"
+    >
+      <button
+        aria-selected="false"
+        class="theme-tab"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-tab__copy"
+          >
+            Home
+          </span>
+        </div>
+      </button>
+      <button
+        aria-selected="true"
+        class="theme-tab"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-tab__copy"
+          >
+            Profile
+          </span>
+        </div>
+      </button>
+      <button
+        aria-selected="false"
+        class="theme-tab"
+        disabled=""
+        role="tab"
+        type="button"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-tab__copy"
+          >
+            Contact
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      id="home"
+      role="tabpanel"
+      style="display: none;"
+      tabindex="0"
+    >
+      Tab content for Home
+    </div>
+    <div
+      id="profile"
+      role="tabpanel"
+      tabindex="0"
+    >
+      Tab content for Profile
+    </div>
+    <div
+      id="contact"
+      role="tabpanel"
+      style="display: none;"
+      tabindex="0"
+    >
+      Tab content for Contact
+    </div>
+  </div>
+</nav>
+`;

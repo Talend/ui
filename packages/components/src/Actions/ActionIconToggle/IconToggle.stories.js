@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component, Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import ActionIconToggle from './ActionIconToggle.component';
@@ -25,7 +25,7 @@ const activeIconToggle = {
 const ACTION1 = 'Action 1';
 const ACTION2 = 'Action 2';
 
-class DisableActionIconToggle extends React.Component {
+class DisableActionIconToggle extends Component {
 	constructor(props) {
 		super(props);
 
@@ -40,7 +40,7 @@ class DisableActionIconToggle extends React.Component {
 			tooltipPlacement: 'top',
 		};
 		return (
-			<React.Fragment>
+			<Fragment>
 				<p>Switch Button</p>
 				<ActionIconToggle
 					{...props}
@@ -56,13 +56,13 @@ class DisableActionIconToggle extends React.Component {
 					disabled={this.state.active === ACTION2}
 					onClick={() => this.setState({ active: ACTION2 })}
 				/>
-			</React.Fragment>
+			</Fragment>
 		);
 	}
 }
 
 export default {
-	title: 'Buttons/IconToggle',
+	title: 'Components/Actions/IconToggle',
 	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
 };
 

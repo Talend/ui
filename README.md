@@ -20,15 +20,13 @@ That repository was created in an effort to simplify the development of Talend's
 
 ## Tools (dev environment)
 
-:warning: If you've used `lerna bootstrap` in the past, please start by running `lerna clean` or you will have bad behavior with the following tools.
-
 We have quick access from the root to the following npm scripts:
 
-* prepublishOnly
-* test
-* lint
-
-In each packages you will also find a start command to play with the package.
+- postinstall (trigger build of every package)
+- pre-release (trigger build of UMD of supported package)
+- start (start the playground)
+- test
+- lint
 
 The CI will ensure on each PR that test and lint are OK before you can merge your pull request. It will also provide you a demo so reviewers can play with your change and try to find impact of your PR on other packages.
 

@@ -1,41 +1,62 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { action } from '@storybook/addon-actions';
 import Select from '.';
 
 export default {
-	title: 'RHF/Select',
-
-	parameters: {
-		component: Select,
+	title: 'Forms/RHF/Select',
+	component: Select,
+	argTypes: {
+		rules: {
+			table: {
+				disable: true,
+			},
+		},
+		name: {
+			control: {
+				type: 'text',
+			},
+		},
+		label: {
+			control: {
+				type: 'text',
+			},
+		},
+		placeholder: {
+			control: {
+				type: 'text',
+			},
+		},
+		options: {
+			control: {
+				type: 'object',
+			},
+		},
+		description: {
+			control: {
+				type: 'text',
+			},
+		},
+		disabled: {
+			control: 'boolean',
+		},
+		readOnly: {
+			control: 'boolean',
+		},
+		required: {
+			control: 'boolean',
+		},
 	},
 };
 
-export const States = () => {
+export const States = props => {
 	const rhf = useForm();
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
-				<Select
-					id="name"
-					name="default"
-					label="Default"
-					options={[
-						{ value: 'blue', name: 'Blue color' },
-						{ value: 'red', name: 'Red color' },
-					]}
-				/>
-				<Select
-					id="disabled"
-					name="disabled"
-					label="Disabled"
-					options={[
-						{ value: 'blue', name: 'Blue color' },
-						{ value: 'red', name: 'Red color' },
-					]}
-					disabled
-				/>
+				<Select id="name" {...props} />
+				<Select id="disabled" name="disabled" label="Disabled" options={props.options} disabled />
 				<button type="submit" className="btn btn-primary">
 					Submit
 				</button>
@@ -44,23 +65,22 @@ export const States = () => {
 	);
 };
 
-export const Description = () => {
+States.args = {
+	name: 'default',
+	label: 'Default',
+	options: [
+		{ value: 'blue', name: 'Blue color' },
+		{ value: 'red', name: 'Red color' },
+	],
+};
+
+export const Description = props => {
 	const rhf = useForm();
 
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
-				<Select
-					id="name"
-					type="text"
-					name="default"
-					label="Default"
-					options={[
-						{ value: 'blue', name: 'Blue color' },
-						{ value: 'red', name: 'Red color' },
-					]}
-					description="This field has a description"
-				/>
+				<Select id="name" {...props} />
 				<button type="submit" className="btn btn-primary">
 					Submit
 				</button>
@@ -69,29 +89,24 @@ export const Description = () => {
 	);
 };
 
-export const Validation = () => {
+Description.args = {
+	...States.args,
+	description: 'This is a description',
+};
+
+export const Validation = props => {
 	const rhf = useForm({ mode: 'onBlur' });
 
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
-				<Select
-					id="required"
-					name="required"
-					label="Required"
-					placeholder="Choose an option"
-					options={[
-						{ value: 'blue', name: 'Blue color' },
-						{ value: 'red', name: 'Red color' },
-					]}
-					rules={{ required: 'This is required' }}
-					required
-				/>
+				<Select id="required" {...props} rules={{ required: 'This is required' }} />
 
 				<Select
 					id="notBlue"
 					name="notBlue"
 					label="Not blue"
+					placeholde="Select a color"
 					options={[
 						{ value: 'blue', name: 'Blue color' },
 						{ value: 'red', name: 'Red color' },
@@ -110,4 +125,11 @@ export const Validation = () => {
 			</form>
 		</FormProvider>
 	);
+};
+
+Validation.args = {
+	...States.args,
+	name: 'required',
+	label: 'Required',
+	required: true,
 };

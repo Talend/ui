@@ -1,29 +1,9 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render, screen } from '@testing-library/react';
 
 import JSONSchemaRenderer from './JSONSchemaRenderer.component';
 
 describe('JSONSchemaRenderer', () => {
 	it('should render the empty properties list', () => {
-		const schema = { jsonSchema: {}, properties: {} };
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(toJson(wrapper)).toMatchSnapshot();
-	});
-
-	it('should support custom className', () => {
-		const schema = { jsonSchema: {}, properties: {} };
-		const wrapper = shallow(<JSONSchemaRenderer schema={schema} className="custom-test" />);
-		expect(wrapper.props().className).toContain('custom-test');
-	});
-
-	it('should support custom props', () => {
-		const schema = { jsonSchema: {}, properties: {} };
-		const wrapper = shallow(<JSONSchemaRenderer schema={schema} extra="foo" />);
-		expect(wrapper.props().extra).toBe('foo');
-	});
-
-	it('should render strings and integers', () => {
 		const schema = {
 			jsonSchema: {
 				properties: {
@@ -42,8 +22,20 @@ describe('JSONSchemaRenderer', () => {
 				b: 42,
 			},
 		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(toJson(wrapper)).toMatchSnapshot();
+		const { container } = render(<JSONSchemaRenderer schema={schema} />);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	it('should support custom className', () => {
+		const schema = { jsonSchema: {}, properties: {} };
+		const { container } = render(<JSONSchemaRenderer schema={schema} className="custom-test" />);
+		expect(container.firstChild).toHaveClass('custom-test');
+	});
+
+	it('should support custom props', () => {
+		const schema = { jsonSchema: {}, properties: {} };
+		const { container } = render(<JSONSchemaRenderer schema={schema} data-extra="foo" />);
+		expect(container.firstChild.dataset.extra).toBe('foo');
 	});
 
 	it('should render passwords', () => {
@@ -62,8 +54,9 @@ describe('JSONSchemaRenderer', () => {
 				credentials: password,
 			},
 		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dd').first().text()).toEqual(hiddenPassword);
+		render(<JSONSchemaRenderer schema={schema} />);
+		expect(screen.getByText('credentials')).toBeVisible();
+		expect(screen.getByText('credentials').nextElementSibling).toHaveTextContent(hiddenPassword);
 	});
 
 	it('should not render hidden fields', () => {
@@ -87,8 +80,11 @@ describe('JSONSchemaRenderer', () => {
 				d: 'test d',
 			},
 		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt').map(item => item.text())).toEqual(['b', 'd']);
+		render(<JSONSchemaRenderer schema={schema} />);
+		expect(screen.getByText('b')).toBeVisible();
+		expect(screen.getByText('d')).toBeVisible();
+		expect(screen.queryByText('a')).not.toBeInTheDocument();
+		expect(screen.queryByText('c')).not.toBeInTheDocument();
 	});
 
 	it('should render arrays', () => {
@@ -108,8 +104,13 @@ describe('JSONSchemaRenderer', () => {
 				a: ['b', 'd', 'f'],
 			},
 		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(toJson(wrapper)).toMatchSnapshot();
+		render(<JSONSchemaRenderer schema={schema} />);
+		expect(screen.getByText('b')).toBeVisible();
+		expect(screen.getByText('b')).toHaveClass('theme-array-value');
+		expect(screen.getByText('d')).toBeVisible();
+		expect(screen.getByText('d')).toHaveClass('theme-array-value');
+		expect(screen.getByText('f')).toBeVisible();
+		expect(screen.getByText('f')).toHaveClass('theme-array-value');
 	});
 
 	it('should handle nested objects', () => {
@@ -137,8 +138,15 @@ describe('JSONSchemaRenderer', () => {
 			},
 			uiSchema: {},
 		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(toJson(wrapper)).toMatchSnapshot();
+		render(<JSONSchemaRenderer schema={schema} />);
+		expect(screen.getByText('a')).toBeVisible();
+		expect(screen.getByText('a')).toBe(screen.getByRole('heading', { level: 2 }));
+		expect(screen.getByText('b')).toBeVisible();
+		expect(screen.getByText('c')).toBeVisible();
+		expect(screen.getByText('test')).toBeVisible();
+		expect(screen.getByText('test 2')).toBeVisible();
+		expect(screen.getByText('test')).toBe(screen.getByText('b').nextElementSibling);
+		expect(screen.getByText('test 2')).toBe(screen.getByText('c').nextElementSibling);
 	});
 
 	it('should handle order', () => {
@@ -161,8 +169,13 @@ describe('JSONSchemaRenderer', () => {
 				a: 'test a',
 			},
 		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt').map(item => item.text())).toEqual(['a', 'd', 'b', 'c']);
+		render(<JSONSchemaRenderer schema={schema} />);
+		expect(screen.getByText('a')).toBeVisible();
+		expect(screen.getByText('a').nextElementSibling).toHaveTextContent('test a');
+		expect(screen.getByText('a').nextElementSibling.nextElementSibling).toHaveTextContent('d');
+
+		expect(screen.getByText('d').nextElementSibling.nextElementSibling).toHaveTextContent('b');
+		expect(screen.getByText('b').nextElementSibling.nextElementSibling).toHaveTextContent('c');
 	});
 
 	it('should handle object level order', () => {
@@ -192,8 +205,11 @@ describe('JSONSchemaRenderer', () => {
 				},
 			},
 		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dl.theme-nested dt').map(item => item.text())).toEqual(['a', 'c', 'b']);
+		render(<JSONSchemaRenderer schema={schema} />);
+		// check a is after d
+		expect(screen.getByText('a').closest('dd').previousSibling.previousSibling).toBe(
+			screen.getByText('test d'),
+		);
 	});
 
 	it('should not render properties without a schema', () => {
@@ -208,13 +224,12 @@ describe('JSONSchemaRenderer', () => {
 				b: 'test b',
 			},
 		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt')).toHaveLength(1);
-		expect(wrapper.find('dt').first().text()).toBe('a');
+		render(<JSONSchemaRenderer schema={schema} />);
+		expect(screen.queryByText('b')).not.toBeInTheDocument();
 	});
 
 	it('should throw an exception in case of invalid schema', () => {
-		const wrapper = () => shallow(<JSONSchemaRenderer schema={{}} />);
+		const wrapper = () => render(<JSONSchemaRenderer schema={{}} />);
 		expect(wrapper).toThrow('Invalid Schema');
 	});
 
@@ -231,7 +246,7 @@ describe('JSONSchemaRenderer', () => {
 				a: 'test',
 			},
 		};
-		const wrapper = () => shallow(<JSONSchemaRenderer schema={schema} />);
+		const wrapper = () => render(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper).toThrow('Unknown type: unknown');
 	});
 });

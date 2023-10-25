@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { BadgeDate } from './BadgeDate.component';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 import getDefaultT from '../../../translate';
@@ -21,12 +19,15 @@ describe('BadgeDate', () => {
 			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgeDate {...props} />
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(wrapper.find('button#myId-badge-date-action-overlay').text()).toEqual('2011-10-01');
+		expect(container.firstChild).toMatchSnapshot();
+		expect(document.querySelector('button#myId-badge-date-action-overlay')).toHaveTextContent(
+			'2011-10-01',
+		);
 	});
 });

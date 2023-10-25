@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { Component } from 'react';
 import keycode from 'keycode';
 import keys from 'lodash/keys';
 import { cmfConnect } from '@talend/react-cmf';
@@ -10,15 +9,11 @@ import { cmfConnect } from '@talend/react-cmf';
  *
  * @extends {React}
  */
-class ShortcutManager extends React.Component {
+class ShortcutManager extends Component {
 	static displayName = 'Container(ShortcutManager)';
 
 	static propTypes = {
 		...cmfConnect.propTypes,
-	};
-
-	static contextTypes = {
-		store: PropTypes.object.isRequired,
 	};
 
 	constructor(props) {

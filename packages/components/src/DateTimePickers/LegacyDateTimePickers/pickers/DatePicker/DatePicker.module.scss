@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
@@ -9,7 +10,7 @@
 }
 
 .calendar-header {
-	&:after {
+	&::after {
 		@include picker-underline;
 		width: 100%;
 		position: absolute;
@@ -34,12 +35,6 @@
 	text-align: center;
 
 	.calendar-day {
-		&.today {
-			background-color: tint($lochmara, 90%);
-			color: $lochmara;
-			border: solid 1px $lochmara;
-		}
-
 		@include picker-action;
 
 		height: 2.4rem;
@@ -49,6 +44,12 @@
 		border-radius: 50%;
 		line-height: 2.4rem;
 		padding: 0;
+
+		&.today {
+			background-color: tokens.$coral-color-accent-background;
+			color: tokens.$coral-color-accent-text-strong;
+			border: solid 1px tokens.$coral-color-accent-border;
+		}
 
 		&.not-current-month {
 			opacity: 0.54;

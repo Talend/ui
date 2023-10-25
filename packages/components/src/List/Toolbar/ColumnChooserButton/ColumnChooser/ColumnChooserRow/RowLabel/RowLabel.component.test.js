@@ -1,5 +1,4 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import Component from './RowLabel.component';
 
 describe('RowLabel', () => {
@@ -7,8 +6,8 @@ describe('RowLabel', () => {
 		// Given
 		const label = 'Hello world';
 		// When
-		const wrapper = mount(<Component label={label} />);
+		const { container } = render(<Component label={label} />);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

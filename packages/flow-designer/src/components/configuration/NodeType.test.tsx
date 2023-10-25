@@ -1,13 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import NodeType from './NodeType.component';
 
-const mockComponent = () => <div />;
+const MockComponent = () => <div />;
+MockComponent.displayName = 'MockComponent';
 
 describe('Testing <NodeType>', () => {
 	it('should log an error if rendered', () => {
 		expect(() => {
-			shallow(<NodeType type="string" component={mockComponent} />);
+			render(<NodeType type="string" component={MockComponent} />);
 		}).toThrowError(
 			'<NodeType> elements are for DataFlow configuration only and should not be rendered',
 		);

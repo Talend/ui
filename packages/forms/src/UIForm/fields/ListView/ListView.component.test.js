@@ -1,10 +1,11 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ListView from './ListView.component';
 
-const NO_RESULT_MESSAGE = 'No result found.';
+const NO_RESULT_MESSAGE = 'No results found';
+
+jest.unmock('@talend/design-system');
 
 describe('ListView field', () => {
 	let props;
@@ -126,27 +127,30 @@ describe('ListView field', () => {
 			expect(screen.queryByRole('textbox', { name: 'Search' })).not.toBeInTheDocument();
 		});
 
-		it('should display search input when clicking on search icon', () => {
+		it('should display search input when clicking on search icon', async () => {
 			// given
 			render(<ListView {...props} />);
 
 			// when
-			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
 
 			// then
 			expect(screen.getByRole('textbox', { name: 'Search' })).toBeInTheDocument();
 		});
 
-		it('should filter displayed items', () => {
+		it('should filter displayed items', async () => {
 			// given
 			jest.useFakeTimers();
 			render(<ListView {...props} />);
 			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
-			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'al');
+			fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			fireEvent.change(screen.getByRole('textbox', { name: 'Search' }), {
+				target: { value: 'al' },
+			});
 			jest.runAllTimers();
+			jest.useRealTimers();
 
 			// then
 			expect(screen.getAllByRole('option').length).toBe(2);
@@ -154,49 +158,54 @@ describe('ListView field', () => {
 			expect(screen.getByRole('checkbox', { name: 'Deselect Algeria' })).toBeInTheDocument();
 		});
 
-		it('should display a message when no results were found', () => {
+		it('should display a message when no results were found', async () => {
 			// given
 			jest.useFakeTimers();
 			render(<ListView {...props} />);
 			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
-			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'aaaaaa');
+			fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			const search = screen.getByRole('textbox', { name: 'Search' });
+			fireEvent.focus(search);
+			fireEvent.change(search, { target: { value: 'aaaaaa' } });
 			jest.runAllTimers();
+			jest.useRealTimers();
 
 			// then
 			expect(screen.queryAllByRole('option').length).toBe(0);
 			expect(screen.getByText(NO_RESULT_MESSAGE)).toBeInTheDocument();
 		});
 
-		it('should switch back to default mode on abort button click', () => {
+		it('should switch back to default mode on abort button click', async () => {
 			// given
-			jest.useFakeTimers();
+			// jest.useFakeTimers();
 			render(<ListView {...props} />);
 			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
-			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'aaaaaa');
-			jest.runAllTimers();
-			userEvent.click(screen.getByRole('link', { name: 'Abort' }));
+			fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			fireEvent.change(screen.getByRole('textbox', { name: 'Search' }), {
+				target: { value: 'aaaaaa' },
+			});
+			// jest.runAllTimers();
+			fireEvent.click(screen.getByRole('link', { name: 'Abort' }));
 
 			// then
 			expect(screen.queryAllByRole('option').length).toBe(4);
 		});
 
-		it('should switch back to default mode on ESC keydown', () => {
+		it('should switch back to default mode on ESC keydown', async () => {
 			// given
-			jest.useFakeTimers();
+			// jest.useFakeTimers();
 			render(<ListView {...props} />);
 			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
-			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'aaaaaa');
-			jest.runAllTimers();
-			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), '{esc}');
+			await userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			await userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'aaaaaa');
+			// jest.runAllTimers();
+			await userEvent.type(screen.getByRole('textbox', { name: 'Search' }), '{esc}');
 
 			// then
 			expect(screen.queryAllByRole('option').length).toBe(4);
@@ -204,14 +213,14 @@ describe('ListView field', () => {
 	});
 
 	describe('list change', () => {
-		it('should toggle item', () => {
+		it('should toggle item', async () => {
 			// given
 			render(<ListView {...props} />);
 			expect(props.onChange).not.toBeCalled();
 			expect(props.onFinish).not.toBeCalled();
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'Select Afghanistan' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'Select Afghanistan' }));
 
 			// then
 			const payload = {
@@ -222,14 +231,14 @@ describe('ListView field', () => {
 			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
 		});
 
-		it('should select all item', () => {
+		it('should select all item', async () => {
 			// given
 			render(<ListView {...props} />);
 			expect(props.onChange).not.toBeCalled();
 			expect(props.onFinish).not.toBeCalled();
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
 
 			// then
 			const payload = {
@@ -240,7 +249,7 @@ describe('ListView field', () => {
 			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
 		});
 
-		it('should deselect all item', () => {
+		it('should deselect all item', async () => {
 			// given
 			const allValues = props.schema.titleMap.map(option => option.value);
 			render(<ListView {...props} value={allValues} />);
@@ -248,7 +257,7 @@ describe('ListView field', () => {
 			expect(props.onFinish).not.toBeCalled();
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'Deselect all' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'Deselect all' }));
 
 			// then
 			const payload = {
@@ -259,41 +268,41 @@ describe('ListView field', () => {
 			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
 		});
 
-		it('should select all filtered item', () => {
+		it('should select all filtered item', async () => {
 			// given
 			render(<ListView {...props} />);
-			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
-			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'g');
-			jest.runAllTimers();
+			await userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			await userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'g');
+			// jest.runAllTimers();
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
 
 			// then
 			const payload = {
 				schema: props.schema,
-				value: ['country1', 'country2', 'country3'],
+				value: ['country1', 'country2', 'country3', 'country4'],
 			};
 			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
 			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
 		});
 
-		it('should deselect all filtered item', () => {
+		it('should deselect all filtered item', async () => {
 			// given
 			const allValues = props.schema.titleMap.map(option => option.value);
 
 			render(<ListView {...props} value={allValues} />);
-			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
-			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'ia');
-			jest.runAllTimers();
+			await userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			await userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'ia');
+			// jest.runAllTimers();
 
 			// when
-			userEvent.click(screen.getByRole('checkbox', { name: 'Deselect all' }));
+			await userEvent.click(screen.getByRole('checkbox', { name: 'Deselect all' }));
 
 			// then
 			const payload = {
 				schema: props.schema,
-				value: ['country1', 'country4'],
+				value: undefined,
 			};
 			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
 			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);

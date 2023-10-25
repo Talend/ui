@@ -1,0 +1,8 @@
+{
+  "root": true,
+  "extends": ["@talend"],
+  "rules": {
+    "react/display-name": "warn",
+    "@typescript-eslint/quotes": "off"
+  }
+}

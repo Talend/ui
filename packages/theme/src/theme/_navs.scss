@@ -1,10 +1,11 @@
 /* stylelint-disable selector-no-qualifying-type */
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-tabbar-active-border-size: 0.2rem !default;
-$tc-tabbar-active-color: $lochmara;
 
 .nav {
 	.btn-link {
+		background-color: inherit;
 		color: inherit;
 		display: inline-block;
 
@@ -21,8 +22,8 @@ $tc-tabbar-active-color: $lochmara;
 	}
 
 	&-inverse {
-		color: $navbar-inverse-color;
-		background-color: $brand-primary;
+		color: tokens.$coral-color-accent-text-weak;
+		background-color: tokens.$coral-color-accent-background-strong;
 	}
 
 	&-pills {
@@ -32,18 +33,39 @@ $tc-tabbar-active-color: $lochmara;
 				margin: 0;
 			}
 
+			.btn-link {
+				color: tokens.$coral-color-accent-text-weak;
+			}
+
+			&:focus,
 			&:hover,
+			&:active {
+				.btn-link {
+					// TODO: replace with token
+					background-color: rgba(255, 255, 255, 0.12);
+				}
+			}
+
 			&.active,
 			&.open {
-				color: $navbar-inverse-color;
-				background-color: $brand-primary-dark;
+				.btn-link {
+					background-color: tokens.$coral-color-neutral-background;
+					color: tokens.$coral-color-accent-text;
+				}
 			}
 
 			&.disabled .btn {
 				&:focus,
 				&:hover {
-					color: shade($navbar-inverse-color, 10);
+					// background-color: tokens.$coral-color-accent-background-weak;
+					color: tokens.$coral-color-accent-text-weak;
 				}
+			}
+
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:focus {
+				background-color: tokens.$coral-color-accent-background-strong;
 			}
 		}
 
@@ -72,28 +94,30 @@ $tc-tabbar-active-color: $lochmara;
 			.btn.btn-link {
 				width: 100%;
 				text-align: left;
-				background-color: transparent;
-
-				&:focus,
-				&:hover,
-				&:active {
-					--t-button-color: var(--t-button-color-primary);
-				}
 			}
 		}
 	}
 
 	&-pills.nav-inverse {
 		> li {
+			.btn-link {
+				color: tokens.$coral-color-accent-text;
+			}
+
 			&:focus,
 			&:hover {
-				background-color: rgba($white, 0.12);
+				background-color: tokens.$coral-color-accent-background-hover;
+
+				.btn-link:hover {
+					color: tokens.$coral-color-accent-text;
+					background-color: tokens.$coral-color-accent-background-hover;
+				}
 			}
 
 			&:active,
 			&.active,
 			&.open {
-				background-color: rgba($white, 0.25);
+				background-color: tokens.$coral-color-accent-background-weak;
 			}
 		}
 	}
@@ -109,7 +133,7 @@ $tc-tabbar-active-color: $lochmara;
 				background: transparent;
 				border: none;
 				border-radius: 0;
-				color: $black;
+				color: tokens.$coral-color-neutral-text;
 				margin-bottom: 0.5rem;
 				outline: none;
 				padding: $padding-smaller $padding-small;
@@ -122,14 +146,14 @@ $tc-tabbar-active-color: $lochmara;
 
 				&:hover,
 				&:focus {
-					color: $lochmara;
+					color: tokens.$coral-color-accent-text;
 				}
 			}
 
 			&.active {
 				> a,
 				> button {
-					color: $lochmara;
+					color: tokens.$coral-color-accent-text;
 					font-weight: $font-weight-semi-bold;
 
 					position: relative;
@@ -142,15 +166,15 @@ $tc-tabbar-active-color: $lochmara;
 						right: $padding-small;
 						bottom: 0;
 
-						border-bottom: solid $tc-tabbar-active-border-size $lochmara;
+						border-bottom: solid $tc-tabbar-active-border-size tokens.$coral-color-accent-text;
 					}
 
 					&:focus {
-						color: $scooter;
+						color: tokens.$coral-color-accent-text-hover;
 					}
 
 					&:hover {
-						color: $lochmara;
+						color: tokens.$coral-color-accent-text-hover;
 					}
 				}
 			}
@@ -159,13 +183,13 @@ $tc-tabbar-active-color: $lochmara;
 				> a,
 				> button {
 					cursor: not-allowed;
-					color: $black;
+					color: tokens.$coral-color-neutral-text-disabled;
 					opacity: 0.54;
 
 					&,
 					&:focus,
 					&:hover {
-						background: transparent;
+						background-color: tokens.$coral-color-neutral-background-disabled;
 						border: none;
 					}
 				}

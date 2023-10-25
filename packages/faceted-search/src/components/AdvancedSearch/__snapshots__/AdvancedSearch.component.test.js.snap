@@ -1,146 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdvancedSearch should render by default 1`] = `
-<div id="some-id-adv-search"
-     class="adv-search theme-adv-search"
+<div
+  class="adv-search theme-adv-search"
+  id="some-id-adv-search"
 >
-  <form id="some-id-adv-search-form">
-    <svg name="talend-filter"
-         focusable="false"
-         aria-hidden="true"
-         class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
-         pointer-events="none"
-         shape-rendering="geometricPrecision"
-    >
-    </svg>
-    <input name="advanced-search-faceted"
-           placeholder="Enter your query"
-           autocomplete="off"
-           aria-label="Advanced Faceted Search"
-           role="search"
-           type="search"
-           id="some-id-form"
-           class="adv-search-input theme-adv-search-input form-control"
-           value
-    >
-    <div class="adv-search-buttons theme-adv-search-buttons">
-      <button tabindex="0"
-              name="action-cancel-title"
-              data-feature="filter.advanced.clear"
-              aria-describedby="id-42"
-              class="theme-clickable theme-buttonIcon theme-size_S"
-              type="button"
-      >
-        <span class="theme-buttonIcon__icon"
-              aria-hidden="true"
-        >
-          <svg style="width: 1.6rem; height: 1.6rem;"
-               aria-hidden="true"
-               shape-rendering="geometricPrecision"
-               pointer-events="none"
-          >
-            <use xlink:href="#cross-filled:M">
-            </use>
-          </svg>
-        </span>
-      </button>
-      <button tabindex="0"
-              name="action-submit-title"
-              data-feature="filter.advanced.apply"
-              aria-describedby="id-42"
-              class="theme-clickable theme-buttonIcon theme-size_S"
-              type="submit"
-      >
-        <span class="theme-buttonIcon__icon"
-              aria-hidden="true"
-        >
-          <svg style="width: 1.6rem; height: 1.6rem;"
-               aria-hidden="true"
-               shape-rendering="geometricPrecision"
-               pointer-events="none"
-          >
-            <use xlink:href="#check-filled:M">
-            </use>
-          </svg>
-        </span>
-      </button>
-    </div>
-  </form>
-</div>
-`;
-
-exports[`AdvancedSearch should render with an explicit error 1`] = `
-<div id="some-id-adv-search"
-     class="adv-search theme-adv-search"
->
-  <form id="some-id-adv-search-form">
-    <svg name="talend-filter"
-         focusable="false"
-         aria-hidden="true"
-         class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
-         pointer-events="none"
-         shape-rendering="geometricPrecision"
-    >
-    </svg>
-    <input name="advanced-search-faceted"
-           placeholder="Enter your query"
-           autocomplete="off"
-           aria-label="Advanced Faceted Search"
-           role="search"
-           type="search"
-           id="some-id-form"
-           class="adv-search-input theme-adv-search-input has-error theme-has-error form-control"
-           value
-    >
-    <div class="adv-search-buttons theme-adv-search-buttons">
-      <button tabindex="0"
-              name="action-cancel-title"
-              data-feature="filter.advanced.clear"
-              aria-describedby="id-42"
-              class="theme-clickable theme-buttonIcon theme-size_S"
-              type="button"
-      >
-        <span class="theme-buttonIcon__icon"
-              aria-hidden="true"
-        >
-          <svg style="width: 1.6rem; height: 1.6rem;"
-               aria-hidden="true"
-               shape-rendering="geometricPrecision"
-               pointer-events="none"
-          >
-            <use xlink:href="#cross-filled:M">
-            </use>
-          </svg>
-        </span>
-      </button>
-      <button tabindex="0"
-              name="action-submit-title"
-              data-feature="filter.advanced.apply"
-              aria-describedby="id-42"
-              class="theme-clickable theme-buttonIcon theme-size_S"
-              type="submit"
-      >
-        <span class="theme-buttonIcon__icon"
-              aria-hidden="true"
-        >
-          <svg style="width: 1.6rem; height: 1.6rem;"
-               aria-hidden="true"
-               shape-rendering="geometricPrecision"
-               pointer-events="none"
-          >
-            <use xlink:href="#check-filled:M">
-            </use>
-          </svg>
-        </span>
-      </button>
-    </div>
-  </form>
-  <p aria-live="assertive"
-     class="adv-search-error theme-adv-search-error"
-     id="some-id-adv-search-error"
-     role="status"
+  <form
+    id="some-id-adv-search-form"
   >
-    my Explicit Error
-  </p>
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+      focusable="false"
+      name="talend-filter"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <input
+      aria-label="Advanced Faceted Search"
+      autocomplete="off"
+      class="adv-search-input theme-adv-search-input form-control"
+      id="some-id-form"
+      name="advanced-search-faceted"
+      placeholder="Enter your query"
+      role="search"
+      type="search"
+      value=""
+    />
+    <div
+      class="adv-search-buttons theme-adv-search-buttons"
+    >
+      <button
+        aria-describedby="id-42"
+        aria-label="Cancel"
+        class="theme-clickable theme-buttonIcon theme-size_S"
+        data-feature="filter.advanced.clear"
+        name="action-cancel-title"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          aria-hidden="true"
+          class="theme-buttonIcon__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.6rem; height: 1.6rem;"
+          >
+            <use
+              xlink:href="#cross-filled:M"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        aria-describedby="id-42"
+        aria-label="Submit"
+        class="theme-clickable theme-buttonIcon theme-size_S"
+        data-feature="filter.advanced.apply"
+        name="action-submit-title"
+        tabindex="0"
+        type="submit"
+      >
+        <span
+          aria-hidden="true"
+          class="theme-buttonIcon__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.6rem; height: 1.6rem;"
+          >
+            <use
+              xlink:href="#check-filled:M"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </form>
 </div>
 `;

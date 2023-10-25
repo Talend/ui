@@ -1,25 +1,24 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render } from '@testing-library/react';
 
 import SkipLinks from './SkipLinks.component';
 
 describe('Skip links', () => {
-	it('should render only main link', () => {
+	it('should render', () => {
 		// when
-		const wrapper = mount(<SkipLinks mainId="#my-custom-main-id" />);
-
-		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
-	});
-
-	it('should render navigation link', () => {
-		// when
-		const wrapper = mount(
+		const { container } = render(
 			<SkipLinks mainId="#my-custom-main-id" navigationId="#my-custom-nav-id" />,
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	it('should render only main link', () => {
+		// when
+		render(<SkipLinks mainId="#my-custom-main-id" />);
+
+		// then
+		expect(screen.getByText('Skip to main content')).toBeVisible();
+		expect(screen.queryByText('Skip to navigation')).not.toBeInTheDocument();
 	});
 });

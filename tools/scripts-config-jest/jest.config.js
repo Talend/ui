@@ -51,7 +51,7 @@ module.exports = {
 	rootDir: process.cwd(),
 	setupFilesAfterEnv: [path.join(__dirname, 'test-setup.js')],
 	testEnvironment: 'jest-environment-jsdom-global',
-	testRegex: 'src/.*\\.test.(js|ts|tsx)$',
+	testRegex: '(/__tests__/.*|src/).*\\.test.(js|ts|tsx)$',
 	transform: {
 		// match mjs js jsx ts tsx
 		'^.+\\.m?[jt]sx?$': ['babel-jest', { configFile: getBabelConfigPath() }],
@@ -59,9 +59,9 @@ module.exports = {
 	// stop ignore node_modules transform since d3 and others start to put es6 as main of packages
 	transformIgnorePatterns: [
 		// option 2, stop ignore transform on es6 packages
-		`/node_modules/(?!${d3Pkgs.join(
+		`node_modules/(?!(?:.pnpm/)?(${d3Pkgs.join(
 			'|',
-		)}|internmap|d3-delaunay|delaunator|robust-predicates|@talend/tql/index)`,
+		)}|internmap|d3-delaunay|delaunator|robust-predicates|@talend/tql/index))`,
 		// we can't have it twice (double negative patterns cancel each other),
 		// so you can import addToIgnorePatterns from './utils' to add more pkgs
 

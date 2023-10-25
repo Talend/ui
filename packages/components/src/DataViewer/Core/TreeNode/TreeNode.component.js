@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
@@ -50,7 +50,7 @@ export function isDeepNodeHighlighted(opened, nodeHighlighted, type) {
  * Render a branch or a leaf.
  * It gives the recursiveTree func to the branch to help render another tree.
  */
-export default class TreeNode extends React.Component {
+export default class TreeNode extends Component {
 	static propTypes = {
 		branch: PropTypes.func.isRequired,
 		getItemType: PropTypes.func.isRequired,

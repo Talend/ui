@@ -1,11 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import Container, { getIcon } from './RecordsViewer.container';
+jest.unmock('@talend/design-system');
 
 describe('RecordsViewer', () => {
 	it('should render recordsViewer', () => {
-		const wrapper = shallow(<Container />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<Container sample={{ data: [{ data: 'foo' }] }} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
 

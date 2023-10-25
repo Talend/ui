@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
@@ -9,7 +9,7 @@ import { FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from '../../DateTime/consta
 
 import theme from './TimePicker.module.scss';
 
-class TimePicker extends React.PureComponent {
+class TimePicker extends PureComponent {
 	static defaultProps = {
 		value: {},
 		t: getDefaultT(),
@@ -72,7 +72,7 @@ class TimePicker extends React.PureComponent {
 							</legend>
 
 							<label key="hour-label" htmlFor={this.hourId} className="sr-only">
-								{t('DATEPICKER_TIME_HOURS', { defaultValue: 'Hours' })}
+								{t('DATEPICKER_TIME_HOURS', { defaultValue: 'hours' })}
 							</label>
 							<DebounceInput
 								key="hour-input"
@@ -92,7 +92,7 @@ class TimePicker extends React.PureComponent {
 							/>
 							<hr key="hr-minutes" />
 							<label key="minutes-label" htmlFor={this.minuteId} className="sr-only">
-								{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'Minutes' })}
+								{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'minutes' })}
 							</label>
 							<DebounceInput
 								key="minutes-input"

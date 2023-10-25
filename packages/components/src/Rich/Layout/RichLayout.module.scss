@@ -1,19 +1,20 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-popover-border-width: 0.1rem !default;
-$tc-popover-border-color: rgb(226, 226, 226) !default;
+$tc-popover-border-color: tokens.$coral-color-neutral-border-weak !default;
 $tc-popover-box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2) !default;
 $tc-popover-body-min-height: 10rem !default;
 $tc-popover-body-max-height: 30rem !default;
 $tc-popover-max-width: 40rem !default;
-$tc-popover-header-border-color: #ededed !default;
+$tc-popover-header-border-color: tokens.$coral-color-neutral-border-weak !default;
 $tc-popover-header-footer-height: 7rem !default;
 
 :global(.popover) {
 	padding: 0;
 	border: $tc-popover-border-width solid $tc-popover-border-color;
 	border-radius: $border-radius-base;
-	background-color: $white;
+	background-color: tokens.$coral-color-neutral-background;
 	box-shadow: $tc-popover-box-shadow;
 	max-width: $tc-popover-max-width;
 }
@@ -42,7 +43,7 @@ $tc-popover-header-footer-height: 7rem !default;
 	align-items: center;
 
 	> :global(.tc-actionbar-container) {
-		background-color: $white;
+		background-color: tokens.$coral-color-neutral-background;
 		padding: 0;
 	}
 }
@@ -65,7 +66,7 @@ $tc-popover-header-footer-height: 7rem !default;
 	display: flex;
 	flex-direction: row;
 	margin: $padding-large;
-	color: $dove-gray;
+	color: tokens.$coral-color-neutral-text;
 }
 
 .content:not(:empty) {

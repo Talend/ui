@@ -2,13 +2,6 @@ name: Visual testing
 
 on:
   workflow_dispatch:
-    inputs:
-      sha:
-        description: The SHA-1 hash referring to the commit to check.
-        required: true
-      ref:
-        description: The head branch associated with the pull request.
-        required: true
   pull_request:
     # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened
     types: [labeled, synchronize, opened, reopened, ready_for_review]
@@ -18,75 +11,52 @@ on:
     branches:
       - master
 
-jobs:
-  changes:
-    # Trigger on ready PRs or draft with label
-    # if: ( !github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
-    # We ran out of screenshots, trigger only on label
-    if: ( github.ref == 'refs/heads/master' || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
-    runs-on: ubuntu-latest
-    outputs:
-      packages: ${{ steps.filter.outputs.changes }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            storybook:
-             - 'packages/design-tokens/**'
-             - 'packages/design-system/**'
-            dataviz: packages/dataviz/**
-            forms: packages/forms/**
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: write
+  statuses: write
+
+jobs:
   build:
-    needs: changes
-    strategy:
-      # Avoid // deploys when multiple packages are changed
-      max-parallel: 1
-      fail-fast: false
-      matrix:
-        package: ${{ fromJSON(needs.changes.outputs.packages) }}
     runs-on: ubuntu-latest
     environment: pull_request_unsafe
-    if: needs.changes.outputs.packages != '[]'
+    if: ( github.ref == 'refs/heads/master' || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "yarn"
+      - name: Use Node.js
+        uses: ./.github/actions/setup-node
 
       - name: Install dependencies
-        run: yarn --frozen-lock --ignore-scripts
-
-      - name: Build @talend/*
-        run: |
-          # We need to build all dependencies (cmf, components...)
-          yarn postinstall
+        run: yarn --frozen-lock
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
+        # https://github.com/chromaui/chromatic-cli/issues/739
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/${{ matrix.package }}
+          workingDir: packages/storybook-one
           exitZeroOnChanges: true # Option to prevent the workflow from failing in PR
           # Handle monorepos https://www.chromatic.com/docs/monorepos
-          preserveMissing: true
           forceRebuild: true
 
       - name: Publish Master to DS Chromatic
         if: github.ref == 'refs/heads/master'
+        # https://github.com/chromaui/chromatic-cli/issues/739
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/${{ matrix.package }}
+          workingDir: packages/storybook-one
           autoAcceptChanges: true # Option to accept any change for this baseline refresh
-          preserveMissing: true
           forceRebuild: true

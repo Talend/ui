@@ -1,81 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TimezoneList component should render the timezone dropdown widget 1`] = `
-<DataList
-  schema={
-    {
-      "cldrTimezones": {
-        "fr": {
-          "main": {
-            "fr": {
-              "dates": {
-                "timeZoneNames": {
-                  "zone": {
-                    "Africa": {
-                      "Abidjan": {
-                        "exemplarCity": "Abidjan",
-                      },
-                      "Freetown": {
-                        "exemplarCity": "Freetown",
-                      },
+<div
+  data-props="{
+  "schema": {
+    "lang": "fr",
+    "cldrTimezones": {
+      "fr": {
+        "main": {
+          "fr": {
+            "dates": {
+              "timeZoneNames": {
+                "zone": {
+                  "Africa": {
+                    "Abidjan": {
+                      "exemplarCity": "Abidjan"
                     },
-                    "Europe": {
-                      "Istanbul": {
-                        "exemplarCity": "Istanbul",
-                      },
-                    },
+                    "Freetown": {
+                      "exemplarCity": "Freetown"
+                    }
                   },
-                },
-              },
-            },
-          },
-        },
+                  "Europe": {
+                    "Istanbul": {
+                      "exemplarCity": "Istanbul"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "restricted": true,
+    "titleMap": [
+      {
+        "name": "(UTC +00:00) Abidjan",
+        "timezoneName": "Abidjan",
+        "offset": 0,
+        "value": "Africa/Abidjan"
       },
-      "lang": "fr",
-      "options": {
-        "titleMap": [
-          {
-            "name": "(UTC +00:00) Abidjan",
-            "offset": 0,
-            "timezoneName": "Abidjan",
-            "value": "Africa/Abidjan",
-          },
-          {
-            "name": "(UTC +00:00) Freetown",
-            "offset": 0,
-            "timezoneName": "Freetown",
-            "value": "Africa/Freetown",
-          },
-          {
-            "name": "(UTC +03:00) Istanbul",
-            "offset": 180,
-            "timezoneName": "Istanbul",
-            "value": "Europe/Istanbul",
-          },
-        ],
+      {
+        "name": "(UTC +00:00) Freetown",
+        "timezoneName": "Freetown",
+        "offset": 0,
+        "value": "Africa/Freetown"
       },
-      "restricted": true,
+      {
+        "name": "(UTC +03:00) Istanbul",
+        "timezoneName": "Istanbul",
+        "offset": 180,
+        "value": "Europe/Istanbul"
+      }
+    ],
+    "options": {
       "titleMap": [
         {
           "name": "(UTC +00:00) Abidjan",
-          "offset": 0,
           "timezoneName": "Abidjan",
-          "value": "Africa/Abidjan",
+          "offset": 0,
+          "value": "Africa/Abidjan"
         },
         {
           "name": "(UTC +00:00) Freetown",
-          "offset": 0,
           "timezoneName": "Freetown",
-          "value": "Africa/Freetown",
+          "offset": 0,
+          "value": "Africa/Freetown"
         },
         {
           "name": "(UTC +03:00) Istanbul",
-          "offset": 180,
           "timezoneName": "Istanbul",
-          "value": "Europe/Istanbul",
-        },
-      ],
+          "offset": 180,
+          "value": "Europe/Istanbul"
+        }
+      ]
     }
   }
+}"
+  data-testid="datalist"
 />
 `;

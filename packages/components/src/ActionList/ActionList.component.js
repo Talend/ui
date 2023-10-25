@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
@@ -89,6 +88,9 @@ function ActionList(props) {
 				theme['tc-action-list'],
 				'tc-action-list',
 				className,
+				{
+					'nav-inverse': !props.reverse,
+				},
 			)}
 		>
 			{actions.map((action, index) => (
@@ -136,6 +138,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		selected: actionPropType,
 		className: PropTypes.string,
+		reverse: PropTypes.bool,
 	};
 }
 

@@ -2,7 +2,7 @@
 @use '../../Form/Primitives/mixins' as Form;
 
 .skeleton-input {
-	height: Form.$standardInputHeight;
+	height: Form.$standard-input-height;
 
 	&__label {
 		width: 100%;

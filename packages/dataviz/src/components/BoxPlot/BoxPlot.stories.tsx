@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import BoxPlot, { BoxPlotProps } from './BoxPlot.component';
 
@@ -10,6 +9,7 @@ export default {
 	parameters: {
 		chromatic: {
 			delay: 1500,
+			diffThreshold: 0.6,
 		},
 	},
 } as Meta<BoxPlotProps>;

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
@@ -12,7 +11,7 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
+import OverlayTrigger from '../../OverlayTrigger';
 import { SizedIcon } from '@talend/design-system';
 
 const LEFT = 'left';
@@ -166,7 +165,7 @@ function ActionButton(props) {
 		});
 	}
 	if (loading) {
-		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} (loading)', type: ariaLabel });
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} Loading...', type: ariaLabel });
 	}
 
 	const hasPopup = !inProgress && overlayComponent;
@@ -253,7 +252,6 @@ ActionButton.propTypes = {
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
 	tooltipClassName: PropTypes.string,
-	...overlayPropTypes,
 };
 
 ActionButton.defaultProps = {

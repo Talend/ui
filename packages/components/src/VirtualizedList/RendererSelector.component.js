@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 
 import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
@@ -31,7 +31,7 @@ function getRowRenderer(type, renderers = {}) {
 /**
  * Component that maps list types to the corresponding component
  */
-class RendererSelector extends React.Component {
+class RendererSelector extends Component {
 	constructor(props) {
 		super(props);
 		this.noRowsRenderer = this.noRowsRenderer.bind(this);
@@ -71,6 +71,7 @@ class RendererSelector extends React.Component {
 			scrollToIndex,
 			scrollToAlignment,
 			headerAction,
+			headerHeight,
 		} = this.props;
 
 		const collection = inProgress ? [] : this.props.collection;
@@ -106,6 +107,7 @@ class RendererSelector extends React.Component {
 				sortBy,
 				sortDirection,
 				headerAction,
+				headerHeight,
 			};
 		} else {
 			ListRenderer = ListGrid;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Popover, Button, Overlay } from '@talend/react-bootstrap';
 import { Icon, TooltipTrigger, FormatValue, getTheme } from '@talend/react-components/lib/Icon';
@@ -88,17 +88,11 @@ const BadgeOverlay = ({
 		</Button>
 	);
 
-	const buttonToRender = iconName ? (
-		<TooltipTrigger label={label} tooltipPlacement="top">
-			{button}
-		</TooltipTrigger>
-	) : (
-		button
-	);
-
 	return (
 		<div className={className}>
-			{buttonToRender}
+			<TooltipTrigger label={label} tooltipPlacement="top">
+				{button}
+			</TooltipTrigger>
 
 			<Overlay
 				id={`${id}-overlay`}

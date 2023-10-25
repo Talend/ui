@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
 import FieldTemplate from '../FieldTemplate';
@@ -103,7 +103,7 @@ class ResourcePicker extends Component {
 					[option]: value,
 				},
 			}),
-			() => this.onFilter(null, this.state),
+			() => this.onFilter(null),
 		);
 	}
 
@@ -119,7 +119,7 @@ class ResourcePicker extends Component {
 						name: target.value || '',
 					},
 				}),
-				() => this.onFilter(null, this.state),
+				() => this.onFilter(null),
 			);
 		}
 	}

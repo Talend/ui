@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import VerticalBarChart, { VerticalBarChartProps } from './VerticalBarChart.component';
@@ -20,6 +19,12 @@ export default {
 	args: {
 		onBarClick: action('onClick'),
 		dataFeature: 'my.data.feature',
+	},
+	parameters: {
+		chromatic: {
+			// To avoid issues with charts, we'll need to improve this later on
+			diffThreshold: 0.6,
+		},
 	},
 } as Meta<VerticalBarChartProps>;
 

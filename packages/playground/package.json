@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-playground",
-  "version": "1.1.10",
+  "version": "2.0.0",
   "description": "Showcase Talend/UI",
   "private": true,
   "main": "app/index.js",
@@ -9,7 +9,8 @@
     "test": "echo nothing to test in playground",
     "test:demo:umd": "cross-env BASENAME='/playground/' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
     "start": "cross-env BASENAME='/' INITIATOR_URL='/inject.js' talend-scripts start --open http://localhost:3000",
-    "start-dist": "talend-scripts build && node serve-dist"
+    "start-dist": "talend-scripts build && node serve-dist",
+    "lint": "talend-scripts lint"
   },
   "repository": {
     "type": "git",
@@ -22,30 +23,29 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react": "^15.0.1",
+    "@talend/scripts-core": "^16.0.0",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.18.2",
     "i18next-http-backend": "^1.4.5"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "^7.0.0",
-    "@talend/react-bootstrap": "^1.35.2",
-    "@talend/icons": "^6.51.1",
-    "@talend/react-cmf": "^7.1.4",
-    "@talend/react-cmf-router": "^5.2.5",
-    "@talend/react-components": "^9.3.0",
-    "@talend/react-containers": "^8.0.1",
-    "@talend/react-dataviz": "^2.8.4",
-    "@talend/react-faceted-search": "^8.0.3",
-    "@talend/react-forms": "^8.2.0",
+    "@talend/bootstrap-theme": "^8.2.1",
+    "@talend/react-bootstrap": "^2.0.0",
+    "@talend/icons": "^7.0.0",
+    "@talend/react-cmf": "^8.0.0",
+    "@talend/react-cmf-router": "^6.0.0",
+    "@talend/react-components": "^12.0.0",
+    "@talend/react-containers": "^10.0.0",
+    "@talend/react-dataviz": "^4.0.0",
+    "@talend/react-faceted-search": "^12.0.0",
+    "@talend/react-forms": "^11.0.0",
     "history": "^5.3.0",
-    "i18next": "^20.6.1",
+    "i18next": "^23.5.1",
     "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-i18next": "^11.18.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^13.3.0",
     "redux-logger": "^3.0.6"
   }
 }

@@ -1,10 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Typeahead } from '@talend/react-components/lib/Typeahead';
 import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 
-const MINIMUM_LENGTH = 2;
 export const DEFAULT_QUICKSEARCH_OPERATOR = 'containsIgnoreCase';
 
 const getDefaultFacet = (facets = []) =>
@@ -17,6 +16,8 @@ export const QuickSearchInput = ({
 	className,
 	onSelect = () => {},
 	facetsFilter,
+	inputProps,
+	minLength,
 }) => {
 	const defaultFacet = useMemo(() => getDefaultFacet(facets), [facets]);
 	const [opened, setOpened] = useState(false);
@@ -31,7 +32,7 @@ export const QuickSearchInput = ({
 	return (
 		<Typeahead
 			placeholder={placeholder || t('QUICKSEARCH_PLACEHOLDER', 'Find in a column...')}
-			onFocus={() => setOpened(value.length >= MINIMUM_LENGTH)}
+			onFocus={() => setOpened(value.length >= minLength)}
 			onBlur={() => {
 				setValue('');
 				setOpened(false);
@@ -39,10 +40,10 @@ export const QuickSearchInput = ({
 			focusedItemIndex={2}
 			onChange={(_, { value: val }) => {
 				setValue(val);
-				setOpened(val.length >= MINIMUM_LENGTH);
+				setOpened(val.length >= minLength);
 			}}
 			onSelect={(_, { itemIndex }) => {
-				if (value.length >= MINIMUM_LENGTH) {
+				if (value.length >= minLength) {
 					onSelect(filteredFacets[itemIndex] || defaultFacet, value);
 					setValue('');
 					setOpened(false);
@@ -52,19 +53,22 @@ export const QuickSearchInput = ({
 				name: 'talend-search',
 			}}
 			items={
-				opened && [
-					{
-						hint: true,
-						title: t('QUICKSEARCH_ITEM_TOOLTIP', {
-							defaultValue: 'Search in',
-						}),
-						suggestions: filteredFacets.map(a => get(a, ['properties', 'label'], null)),
-					},
-				]
+				opened
+					? [
+							{
+								hint: true,
+								title: t('QUICKSEARCH_ITEM_TOOLTIP', {
+									defaultValue: 'Search in',
+								}),
+								suggestions: filteredFacets.map(a => get(a, ['properties', 'label'], null)),
+							},
+					  ]
+					: undefined
 			}
 			value={value}
 			role="searchbox"
 			className={className}
+			inputProps={inputProps}
 		/>
 	);
 };
@@ -76,4 +80,6 @@ QuickSearchInput.propTypes = {
 	onSelect: PropTypes.func,
 	facetsFilter: PropTypes.func,
 	t: PropTypes.func,
+	inputProps: PropTypes.object,
+	minLength: PropTypes.number,
 };

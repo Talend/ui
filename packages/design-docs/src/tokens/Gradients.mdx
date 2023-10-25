@@ -1,0 +1,19 @@
+import { Meta } from '@storybook/blocks';
+import tokens from '@talend/design-tokens';
+import { Divider, StackHorizontal, StackVertical } from '@talend/design-system';
+import dictionary from '@talend/design-tokens/lib/light/dictionary';
+import * as utils from './TokenFormatter';
+import { TokenList } from './TokenValue';
+
+<Meta title="Design Tokens/Gradients" />
+
+# Gradients
+
+<Divider />
+
+<TokenList
+	style={token => ({
+		background: token.value,
+	})}
+	type="gradient"
+/>

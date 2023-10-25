@@ -1,6 +1,5 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
-
+import tokens from '@talend/design-tokens';
 import { Button } from '@talend/react-bootstrap';
 import TooltipTrigger from './TooltipTrigger.component';
 
@@ -20,7 +19,7 @@ function generateButtonWithTooltip(label, tooltipPlacement) {
 }
 
 export default {
-	title: 'Messaging & Communication/Tooltip',
+	title: 'Components/Messaging & Communication/Tooltip',
 };
 
 export const Default = () => {
@@ -66,7 +65,7 @@ export const Default = () => {
 							height: '30rem',
 							width: '100rem',
 							overflow: 'auto',
-							background: '#EEE',
+							background: tokens.coralColorNeutralBackgroundMedium,
 							border: '1px solid',
 						}}
 					>

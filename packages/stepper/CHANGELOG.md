@@ -1,5 +1,67 @@
 # @talend/react-stepper
 
+## 9.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [da4cf2971]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-components@12.0.0
+
+## 8.1.0
+
+### Minor Changes
+
+- a6da3c974: feat(TDC-7256/StepperForm) - Added new StepperForm component to centralize all the logic related to a Stepper flow
+
+### Patch Changes
+
+- Updated dependencies [fbce059c2]
+- Updated dependencies [72b95c880]
+  - @talend/design-system@7.14.2
+  - @talend/react-components@11.2.3
+
+## 8.0.0
+
+### Major Changes
+
+- bfc02c4fb: feat: upgrade major dependency @talend/react-components
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
+## 7.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [ae37dc329]
+  - @talend/react-components@10.3.0
+
+## 7.1.5
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
 ## 7.1.4
 
 ### Patch Changes

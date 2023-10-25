@@ -1,17 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Filter container should render 1`] = `
-<FilterBar
-  autoFocus={true}
-  className=""
-  collectionToFilter="myCollectionToFilter"
-  disabled={false}
-  dockable={true}
-  docked={false}
-  navbar={true}
-  onFilter={[Function]}
-  onToggle={[Function]}
-  t={[Function]}
-  value="a filter"
-/>
+<form
+  class="theme-filter theme-navbar"
+  role="search"
+>
+  <div
+    class="form-group theme-animate"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg theme-search-icon theme-search-focused tc-icon-name-talend-search"
+      focusable="false"
+      name="talend-search"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <input
+      aria-label="Filter"
+      autocomplete="off"
+      class="theme-search form-control"
+      name="search"
+      placeholder="Filter"
+      role="searchbox"
+      type="search"
+      value="a filter"
+    />
+    <button
+      aria-describedby="42"
+      aria-label="Remove filter"
+      class="theme-remove btn-icon-only btn btn-default"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
+        focusable="false"
+        name="talend-cross"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+</form>
 `;

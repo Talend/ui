@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status should render a label with Icon 1`] = `
+<div
+  class="theme-tc-status tc-status theme-action"
+  role="status"
+>
+  <span
+    class="theme-tc-status-icon tc-status-icon theme-success"
+  >
+    <span
+      class="CoralIcon"
+      name="fa fa-check"
+    />
+  </span>
+  <span
+    aria-describedby="42"
+    class="theme-tc-status-label tc-status-label theme-success"
+  >
+    Successful
+  </span>
+  <div
+    class="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  >
+    <button
+      aria-label="cancel"
+      class="btn btn-sm btn-default"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="fa fa-cancel"
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      class="btn btn-sm btn-default"
+      type="button"
+    >
+      <span
+        class="CoralIcon"
+        name="fa fa-delete"
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
+</div>
+`;

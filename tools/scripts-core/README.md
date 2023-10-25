@@ -4,28 +4,40 @@
 
 This project, inspired by `react-scripts` and `kcd-scripts`, aims to abstract all tools and configuration from your project.
 
-* build, dev-serve, analyze: based on webpack
-* build-lib-umd: based on webpack with target umd
-* build-lib: based on babel
-* lint: based on eslint
-* test: based on jest and enzyme
-* test-ng: based on karma
-* extends: customised Talend scripts configuration for your project needs
-* postinstall: doing local update for CDN
-* upgrade:deps: update your dependencies
+It will expose basic scripts:
+
+- start
+- test
+- build
+- lint
+
+By default no configuration is needed but you can at any time create a configuration file and extends from the default config.
+
+`talend-scripts` will detect the kind of package you are in.
+
+- **app**: if you have src/app folder
+- **lib**: if not an app
+- **angular**: if there is a dependencies on angularjs
+- **public** project: you have a publishConfig: { access : 'public' } in your package.json
+
+Depending on this the sub command will use a real command like `webpack` and apply either custom configuration or default configuration.
+
+| command | app                | lib                | angular |
+| ------- | ------------------ | ------------------ | ------- |
+| build   | webpack            | babel              |         |
+| lint    | eslint + stylelint | eslint + stylelint |         |
+| test    | jest               | jest               | karma   |
+| start   | webpack            | start-storybook    |         |
 
 ## Table of content
 
-*Basic usage*
+_Basic usage_
 
 1. [Getting started](./doc/getting-started.md)
-2. [Presets](./doc/presets.md)
 
-*Advanced*
+_Advanced_
 
-3. [Preset customisation](./doc/customisation.md)
-4. [Talend preset](../preset-react/README.md)
-
+3. [config customisation](./doc/customisation.md)
 
 ## Possible issues
 
@@ -35,17 +47,19 @@ While building a huge app, you can run into a `JavaScript heap out of memory`, e
 You can increase the node space size to overcome this issue.
 
 Package.json
+
 ```json
 {
-    "scripts": {
-        "build": "NODE_OPTIONS=--max_old_space_size=4096 talend-scripts build"
-    }
+	"scripts": {
+		"build": "NODE_OPTIONS=--max_old_space_size=4096 talend-scripts build"
+	}
 }
 ```
 
 ### Test
 
 @talend/scripts-core uses `jest` to run tests. On mac and watch mode, if you have a lot of files to watch, you can bump into this error
+
 ```
 $ jest --watch
 2016-09-22 10:49 node[79167] (FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
@@ -64,27 +78,11 @@ The issue is well known, still not fixed in the lib or any of its dependencies.
 This [github issue](https://github.com/facebook/jest/issues/1767) brings you a lot of info.
 
 As a workaround, consider installing [`watchman`](https://facebook.github.io/watchman/).
+
 ```
 brew install watchman
 ```
 
-## postinstall
+## Extra scripts
 
-To support custom UMD build for some libraries we face the need to download that build and install it into your node_modules.
-The best to do so is to provide a postinstall hook.
-
-`talend-scripts postinstall`
-
-it does the following:
-
-* update the configuration (modules supported in UMDs)
-* download all umd custom builds of modules installed
-
-In some condition you may need to use one of the following options:
-
-| name | description
-| -- | -- |
-| -v | verbose to display progress |
-| -f | force to download custom builds even if present on the system |
-| --no-umd-config-update | escape the download of the config |
-| --no-install-custom-builds | escape the download and install of custom builds |
+We have added two scripts to be as simple as possible

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
@@ -12,8 +12,7 @@ const getSelectBadgeLabel = (value, t) => {
 		if (checkedCheckboxes.length > 3) {
 			return t('FACETED_SEARCH_VALUES_COUNT', {
 				count: checkedCheckboxes.length,
-				defaultValue: '{{count}} value',
-				defaultValue_plural: '{{count}} values',
+				defaultValue: '{{count}} values',
 			});
 		} else if (!checkedCheckboxes.length) {
 			return labelAll;
@@ -39,7 +38,9 @@ export const BadgeCheckboxes = ({
 	values,
 	displayType,
 	filterBarPlaceholder,
+	allSelector,
 	t,
+	...rest
 }) => {
 	const currentOperators = useMemo(() => operators, [operators]);
 	const currentOperator = operator || (currentOperators && currentOperators[0]);
@@ -71,7 +72,9 @@ export const BadgeCheckboxes = ({
 					checkboxValues={values}
 					feature={category || label}
 					filterBarPlaceholder={filterBarPlaceholder}
+					allSelector={allSelector}
 					t={t}
+					{...rest}
 				/>
 			)}
 		</BadgeFaceted>
@@ -103,4 +106,5 @@ BadgeCheckboxes.propTypes = {
 	t: PropTypes.func.isRequired,
 	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 	filterBarPlaceholder: PropTypes.string,
+	allSelector: PropTypes.bool,
 };

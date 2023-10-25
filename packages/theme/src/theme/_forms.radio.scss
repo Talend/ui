@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 $tt-radio-size: 1.4rem !default;
 
 input[type='radio'] {
@@ -14,26 +16,26 @@ input[type='radio'] {
 	&::before,
 	+ *::before {
 		@include scale(0);
-		background-color: var(--t-form-background-color);
+		background-color: tokens.$coral-color-neutral-background-medium;
 		z-index: 1;
 	}
 
 	&::after,
 	+ *::after {
-		background-color: var(--t-form-background-color);
-		border: 1px solid var(--t-form-border-color);
+		background-color: tokens.$coral-color-neutral-background-medium;
+		border: 1px solid tokens.$coral-color-neutral-border;
 	}
 
 	&:checked {
 		&::before,
 		+ *::before {
 			@include scale(0.5);
-			background-color: var(--t-form-border-color--focus);
+			background-color: tokens.$coral-color-accent-border;
 		}
 
 		&::after,
 		+ *::after {
-			border-color: var(--t-form-border-color--focus);
+			border-color: tokens.$coral-color-accent-border;
 		}
 	}
 
@@ -43,7 +45,7 @@ input[type='radio'] {
 		&:checked {
 			&::after,
 			+ *::after {
-				border-color: var(--t-form-border-color--focus);
+				border-color: tokens.$coral-color-accent-border;
 			}
 		}
 	}
@@ -51,14 +53,14 @@ input[type='radio'] {
 	&:disabled {
 		&:checked::before,
 		&:checked + *::before {
-			background-color: var(--t-form-border-color--disabled);
+			background-color: tokens.$coral-color-neutral-background-disabled;
 		}
 
 		&::after,
 		+ *::after,
 		&:checked::after,
 		&:checked + *::after {
-			border-color: var(--t-form-border-color--disabled);
+			border-color: tokens.$coral-color-neutral-background-disabled;
 		}
 	}
 }

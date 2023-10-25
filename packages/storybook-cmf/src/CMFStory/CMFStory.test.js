@@ -1,15 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from '@testing-library/react';
 import CMFStory from './CMFStory.component';
 
 describe('CMFStory', () => {
 	it('should render its name', () => {
-		const wrapper = shallow(
-			<CMFStory name="Hello world">
+		const { container } = render(
+			<CMFStory>
 				<div>My Story</div>
 			</CMFStory>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

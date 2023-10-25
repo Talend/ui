@@ -1,5 +1,4 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import getDefaultT from '../../../../../translate';
 import Component from './ColumnChooserHeader.component';
 import { ColumnChooserProvider } from '../columnChooser.context';
@@ -18,7 +17,7 @@ describe('ColumnChooserHeader', () => {
 		// Given
 		const id = 'col-chooser-id';
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<ColumnChooserProvider
 				value={{
 					id,
@@ -30,19 +29,19 @@ describe('ColumnChooserHeader', () => {
 			</ColumnChooserProvider>,
 		);
 		// Then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render the children', () => {
 		// Given
-		const Children = () => <div id="my-child">Hello world</div>;
+		const Children = () => <div data-testid="my-child">Hello world</div>;
 		// When
-		const wrapper = mount(
+		render(
 			<Component>
 				<Children />
 			</Component>,
 		);
 		// Then
-		expect(wrapper.find('div#my-child').text()).toBe('Hello world');
+		expect(screen.getByTestId('my-child')).toBeVisible();
 	});
 });

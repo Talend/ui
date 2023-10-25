@@ -1,10 +1,11 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-.layout	{
+.layout {
 	:global(.react-grid-item) {
 		display: flex;
 		flex-direction: column;
-		border: 1px solid $gallery;
+		border: 1px solid tokens.$coral-color-neutral-border-weak;
 		border-radius: 4px;
 	}
 
@@ -15,7 +16,7 @@
 	&.draggable {
 		:global(.react-grid-item) {
 			&:global(.react-grid-placeholder) {
-				background: $scooter;
+				background: tokens.$coral-color-accent-background;
 			}
 
 			&:hover {

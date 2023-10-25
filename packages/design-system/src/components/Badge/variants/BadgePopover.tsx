@@ -1,6 +1,6 @@
-import React, { forwardRef, Ref } from 'react';
+import { Fragment, forwardRef, Ref } from 'react';
 
-import Divider from '../../Divider';
+import { Divider } from '../../Divider';
 import { StackHorizontal } from '../../Stack';
 import BadgeButton from '../button/BadgeButton';
 import BadgePrimitive, { BadgePopoverItem, BadgePrimitiveProps } from '../primitive/BadgePrimitive';
@@ -20,15 +20,20 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 			{
 				<StackHorizontal gap="XXS" as="span" align="center">
 					{value.map((item: BadgePopoverItem, idx: number) => (
-						<React.Fragment key={`badgepopover-fragment-${item.id}`}>
+						<Fragment key={`badgepopover-fragment-${item.id}`}>
 							{idx > 0 && (
 								<Divider key={`badgepopover-divider-${item.id}`} orientation="vertical" />
 							)}
 
-							<BadgeButton componentId={`badgepopover-button-${item.id}`} onClick={item.onClick}>
+							<BadgeButton
+								componentId={`badgepopover-button-${item.id}`}
+								onClick={item.onClick}
+								data-testid={props['data-testid'] ? `${props['data-testid']}.${item.id}` : item.id}
+								data-test={props['data-test'] ? `${props['data-test']}.${item.id}` : item.id}
+							>
 								{item.label}
 							</BadgeButton>
-						</React.Fragment>
+						</Fragment>
 					))}
 				</StackHorizontal>
 			}

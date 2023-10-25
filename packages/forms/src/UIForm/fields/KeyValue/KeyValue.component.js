@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import last from 'lodash/last';
 
 import Widget from '../../Widget';
@@ -57,6 +56,8 @@ function KeyValue({
 		<FieldTemplate
 			description={description}
 			errorMessage={errorMessage}
+			errorId={restProps.errorId}
+			descriptionId={restProps.descriptionId}
 			id={id}
 			isValid={isValid}
 			label={title}

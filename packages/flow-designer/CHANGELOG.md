@@ -1,5 +1,46 @@
 # Changelog
 
+## 6.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+## 5.6.0
+
+### Minor Changes
+
+- d583f7639: fix(TFD-15974): Fix calculate port position with portId action
+
+## 5.5.0
+
+### Minor Changes
+
+- 95670ed73: Lighten grid background
+
+## 5.4.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+## 5.3.2
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+
+## 5.3.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
 ## 5.3.0
 
 ### Minor Changes

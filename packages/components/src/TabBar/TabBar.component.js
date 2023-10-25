@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-find-dom-node */
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -160,6 +160,7 @@ function TabBar(props) {
 					<NavItem
 						className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item', item.className)}
 						{...item}
+						key={item.key}
 						eventKey={item.key}
 						componentClass="button"
 					>

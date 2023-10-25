@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens';
 
 $tc-resource-picker-toolbar-height: 3.5rem !default;
 $tc-resource-picker-height: 25rem !default;
@@ -25,10 +26,7 @@ $tc-resource-picker-height: 25rem !default;
 		}
 
 		.resource-item {
-			border-bottom: 0.1rem solid $gallery;
-			.tc-svg-icon {
-				color: $dove-gray;
-			}
+			border-bottom: 0.1rem solid tokens.$coral-color-neutral-border;
 		}
 	}
 }

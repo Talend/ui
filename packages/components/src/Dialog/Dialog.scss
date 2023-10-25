@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 :global {
 	.modal-flex .modal-body {
@@ -13,6 +14,7 @@
 
 	.modal-footer {
 		padding-bottom: $padding-larger;
+
 		.tc-actionbar-container {
 			padding: 0;
 		}
@@ -48,13 +50,13 @@
 			top: 1rem;
 			right: 1rem;
 			font-weight: normal;
-			color: $gray;
+			color: tokens.$coral-color-neutral-text-weak;
 
 			&:hover,
 			&:focus,
 			&:active {
 				font-weight: bold;
-				color: $black;
+				color: tokens.$coral-color-neutral-text;
 			}
 		}
 	}

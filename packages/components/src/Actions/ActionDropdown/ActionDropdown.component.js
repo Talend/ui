@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
@@ -142,7 +142,7 @@ function getDropdownContainer(dropdownElement) {
 };
  <ActionDropdown {...props} />
  */
-class ActionDropdown extends React.Component {
+class ActionDropdown extends Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
@@ -249,6 +249,7 @@ class ActionDropdown extends React.Component {
 
 		const dropdown = (
 			<Renderers.DropdownButton
+				id={this.props.id}
 				title={title}
 				bsStyle={style}
 				role="button"
@@ -305,6 +306,7 @@ class ActionDropdown extends React.Component {
 ActionDropdown.displayName = 'ActionDropdown';
 
 ActionDropdown.propTypes = {
+	id: PropTypes.string,
 	bsStyle: PropTypes.string,
 	className: PropTypes.string,
 	dropup: PropTypes.bool,

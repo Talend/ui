@@ -1,8 +1,8 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import ErrorFeedBack from '../ErrorFeedBack';
 
-export default class ErrorBoundary extends React.Component {
+export default class ErrorBoundary extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { errors: [] };

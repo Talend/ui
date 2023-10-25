@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import ListDisplayMode, { DisplayModeIcon } from './ListDisplayMode.component';
+import ListDisplayMode from './ListDisplayMode.component';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
+
+jest.unmock('@talend/design-system');
 
 describe('List DisplayMode', () => {
 	it('should render', () => {
@@ -14,55 +14,39 @@ describe('List DisplayMode', () => {
 		const contextValue = { displayMode: 'table', setDisplayMode: jest.fn(), t: getDefaultT() };
 
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<ListContext.Provider value={contextValue}>
 				<ListDisplayMode id="myDisplayMode" />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should render custom display modes', () => {
+	it('should render children', () => {
 		// given
 		const contextValue = {
 			displayMode: 'table',
 			setDisplayMode: jest.fn(),
 			t: getDefaultT(),
 		};
-
+		const onClickOne = jest.fn();
+		const onChange = jest.fn();
 		// when
-		const wrapper = mount(
+		render(
 			<ListContext.Provider value={contextValue}>
-				<ListDisplayMode id="myDisplayMode">
-					<DisplayModeIcon
-						displayMode="custom1"
-						displayModeOption="custom2"
-						icon="iconCustom1"
-						id="myId"
-						label="myCustomLabel1"
-						onSelect={jest.fn()}
-					/>
-					<DisplayModeIcon
-						displayMode="custom2"
-						displayModeOption="custom2"
-						icon="iconCustom2"
-						id="myId"
-						label="myCustomLabel2"
-						onSelect={jest.fn()}
-					/>
+				<ListDisplayMode id="myDisplayMode" onChange={onChange}>
+					<button type="button" onClick={onClickOne}>
+						my button
+					</button>
 				</ListDisplayMode>
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find('ButtonIconToggle#myId-custom1 .CoralButtonIconToggle').text()).toEqual(
-			'myCustomLabel1',
-		);
-		expect(wrapper.find('ButtonIconToggle#myId-custom2 .CoralButtonIconToggle').text()).toEqual(
-			'myCustomLabel2',
-		);
+		userEvent.click(screen.getByText('my button'));
+		expect(onClickOne).toHaveBeenCalled();
 	});
 
 	describe('uncontrolled mode', () => {
@@ -71,32 +55,28 @@ describe('List DisplayMode', () => {
 			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
 			// when
-			const wrapper = mount(
+			render(
 				<ListContext.Provider initialDisplayMode="large" value={contextValue}>
 					<ListDisplayMode id="myDisplayMode" />
 				</ListContext.Provider>,
 			);
 
 			// then
-			expect(wrapper.find('ButtonIconToggle .CoralButtonIconToggle').at(0).text()).toBe(
-				'Set Table as current display mode.',
-			);
+			screen.getAllByRole('button')[0].focus();
+			expect(screen.getByText('Set Table as current display mode.')).toBeVisible();
 		});
 
 		it('should propagate display mode', () => {
 			// given
 			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
-			const wrapper = mount(
+			render(
 				<ListContext.Provider value={contextValue}>
 					<ListDisplayMode id="myDisplayMode" />
 				</ListContext.Provider>,
 			);
 
-			const event = { target: {} };
-			act(() => {
-				wrapper.find('ButtonIconToggle#myDisplayMode-large').prop('onClick')(event, 'large');
-			});
+			userEvent.click(screen.getAllByRole('button')[1]);
 
 			// then
 			expect(contextValue.setDisplayMode).toHaveBeenNthCalledWith(1, 'large');
@@ -109,18 +89,16 @@ describe('List DisplayMode', () => {
 			const contextValue = { displayMode: 'table', setDisplayMode: jest.fn(), t: getDefaultT() };
 
 			// when
-			const wrapper = mount(
+			render(
 				<ListContext.Provider value={contextValue}>
 					<ListDisplayMode id="myDisplayMode" selectedDisplayMode="large" />
 				</ListContext.Provider>,
 			);
+			userEvent.click(screen.getAllByRole('button')[1]);
 
 			// then
-			const buttonLarge = wrapper.find(
-				'ButtonIconToggle#myDisplayMode-large .CoralButtonIconToggle',
-			);
-			expect(buttonLarge.text()).toBe('Set Expanded as current display mode.');
-			expect(buttonLarge.prop('isActive')).toBe(true);
+			expect(screen.getAllByRole('button')[1]).toHaveAttribute('aria-pressed', 'true');
+			expect(screen.getAllByRole('button')[0]).toHaveAttribute('aria-pressed', 'false');
 		});
 
 		it('should call props.onChange with new display mode', () => {
@@ -128,23 +106,20 @@ describe('List DisplayMode', () => {
 			const contextValue = { displayMode: 'table', setDisplayMode: jest.fn(), t: getDefaultT() };
 			const onChange = jest.fn();
 
-			const wrapper = mount(
+			render(
 				<ListContext.Provider value={contextValue}>
 					<ListDisplayMode id="myDisplayMode" selectedDisplayMode="large" onChange={onChange} />
 				</ListContext.Provider>,
 			);
 
-			const event = { target: {} };
 			expect(contextValue.setDisplayMode).not.toBeCalled();
 
 			// when: react-bootstrap use value-event instead of event-value
-			act(() => {
-				wrapper.find('ButtonIconToggle#myDisplayMode-large').prop('onClick')(event, 'large');
-			});
+			userEvent.click(screen.getAllByRole('button')[1]);
 
 			// then
 			expect(contextValue.setDisplayMode).not.toBeCalled();
-			expect(onChange).toBeCalledWith(event, 'large');
+			expect(onChange).toBeCalledWith(expect.anything(), 'large');
 		});
 	});
 });

@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import { Tooltip } from '../Tooltip/Tooltip.component';
 import styles from './LineChart.module.scss';

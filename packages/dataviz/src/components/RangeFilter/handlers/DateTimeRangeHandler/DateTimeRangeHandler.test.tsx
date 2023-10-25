@@ -1,45 +1,54 @@
-import React from 'react';
-import { mount } from 'enzyme';
+/* eslint-disable react/prop-types */
+import { screen, render, fireEvent } from '@testing-library/react';
 import { DateTimeInputField, DateTimeRangeHandler } from './DateTimeRangeHandler';
 import { DateRangeHandler } from '../DateRangeHandler/DateRangeHandler';
+
+jest.mock('@talend/react-components', () => ({
+	InputDateTimePicker: ({ onChange, useSeconds, ...props }) => (
+		<div data-testid="InputDateTimePicker">
+			<button
+				onClick={() =>
+					onChange(
+						{},
+						{
+							textInput: '2015-01-01 02:00:00',
+						},
+					)
+				}
+			>
+				InputDateTimePicker.onChange 1
+			</button>
+			<button onClick={() => onChange({}, { textInput: '2010-24-24 02:00:00' })}>
+				InputDateTimePicker.onChange invalid
+			</button>
+			<input {...props} onChange={() => {}} />
+		</div>
+	),
+}));
 
 describe('DateTimeRangeHandler', () => {
 	it('Should submit value on blur', () => {
 		const onChange = jest.fn();
-		const component = mount(<DateTimeInputField id="" value={1262300400000} onChange={onChange} />);
-
-		const inputOnChange = component.find('InputDateTimePicker').invoke('onChange') as any;
-		inputOnChange(
-			{},
-			{
-				textInput: '2015-01-01 02:00:00',
-			},
-		);
+		render(<DateTimeInputField id="" value={1262300400000} onChange={onChange} />);
+		fireEvent.click(screen.getByText('InputDateTimePicker.onChange 1'));
 		expect(onChange).not.toHaveBeenCalled();
-
-		component.find('InputDateTimePicker').invoke('onBlur')!({} as any);
+		fireEvent.blur(screen.getByRole('textbox'));
 		expect(onChange).toHaveBeenCalledWith(new Date('2015-01-01T02:00:00').getTime());
 	});
 
 	it('Should reset value on Esc', () => {
 		const onChange = jest.fn();
-		const component = mount(<DateTimeInputField id="" value={1262300400000} onChange={onChange} />);
+		render(<DateTimeInputField id="" value={1262300400000} onChange={onChange} />);
 
-		const inputOnChange = component.find('InputDateTimePicker').invoke('onChange') as any;
-		inputOnChange(
-			{},
-			{
-				textInput: '2015-01-01 02:00:00',
-			},
-		);
-		component.find('InputDateTimePicker').invoke('onKeyDown')!({ key: 'Escape' } as any);
+		fireEvent.click(screen.getByText('InputDateTimePicker.onChange 1'));
+		fireEvent.keyDown(screen.getByRole('textbox'), { key: 'Escape' });
 
-		expect(component.find('InputDateTimePicker').prop('value')).toBe('2010-01-01 00:00:00');
+		expect(screen.getByRole('textbox')).toHaveValue('2010-01-01 00:00:00');
 	});
 
 	it('Should reset value on blur with invalid input', () => {
 		const onChange = jest.fn();
-		const component = mount(
+		render(
 			<DateTimeInputField
 				id=""
 				value={new Date('2010-01-01T02:00:00').getTime()}
@@ -47,27 +56,21 @@ describe('DateTimeRangeHandler', () => {
 			/>,
 		);
 
-		const inputOnChange = component.find('InputDateTimePicker').invoke('onChange') as any;
-		inputOnChange(
-			{},
-			{
-				textInput: '2010-24-24 02:00:00',
-			},
-		);
-		component.find('InputDateTimePicker').invoke('onBlur')!({} as any);
+		fireEvent.click(screen.getByText('InputDateTimePicker.onChange invalid'));
+		fireEvent.blur(screen.getByRole('textbox'));
 
-		expect(component.find('InputDateTimePicker').prop('value')).toBe('2010-01-01 02:00:00');
+		expect(screen.getByRole('textbox')).toHaveValue('2010-01-01 02:00:00');
 	});
 
 	it('Should set min value to current timezone second start', () => {
-		const min = DateTimeRangeHandler.getMinValue!(
+		const min = DateTimeRangeHandler.getMinValue(
 			new Date('2015-01-01T12:01T12:01T12.200').getTime(),
 		);
 		expect(min).toEqual(new Date('2015-01-01T12:01T12:01T12.000').getTime());
 	});
 
 	it('Should set max value to current timezone second end', () => {
-		const max = DateTimeRangeHandler.getMaxValue!(new Date('2015-01-01T12:12:12.000').getTime());
+		const max = DateTimeRangeHandler.getMaxValue(new Date('2015-01-01T12:12:12.000').getTime());
 		expect(max).toEqual(new Date('2015-01-01T12:12:12.999').getTime());
 	});
 

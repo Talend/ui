@@ -1,6 +1,6 @@
-import React from 'react';
+/* eslint-disable testing-library/no-container */
 import { Map } from 'immutable';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import Container, { DISPLAY_NAME } from './Slider.container';
 import Connected from './Slider.connect';
 import { getComponentState, getValue } from './Slider.selectors';
@@ -20,9 +20,8 @@ describe('Filter container', () => {
 		const initialState = new Map({
 			value: 15,
 		});
-		expect(
-			shallow(<Container props={props} initialState={initialState} />).getElement(),
-		).toMatchSnapshot();
+		const { container } = render(<Container props={props} initialState={initialState} />);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	describe('onAfterChange', () => {

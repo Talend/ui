@@ -133,19 +133,22 @@ function parseSettings(i18next, settings, locale) {
   * @param  {string} locale   locale to apply
   * @param  {string} destination destination to write the settings
  */
-function saveSettings(i18next, settings, locale, destination) {
+function saveSettings(i18next, settings, locale, destination, writeToFs = true) {
 	const translatedSetting = parseSettings(i18next, settings, locale);
 
-	mkdirp.sync(path.dirname(destination));
 	const basename = `${path.basename(
 		destination,
 		path.extname(destination),
 	)}.${locale}${path.extname(destination)}`;
 	const filePath = path.join(path.dirname(destination), basename);
-	const file = fs.createWriteStream(filePath);
-	file.write(JSON.stringify(translatedSetting) + String.fromCharCode(10));
-	file.end();
-	getLogger()('Settings created:', `${filePath}  settings has been created`);
+	if (writeToFs) {
+		mkdirp.sync(path.dirname(destination));
+		const file = fs.createWriteStream(filePath);
+		file.write(JSON.stringify(translatedSetting) + String.fromCharCode(10));
+		file.end();
+		getLogger()('Settings created:', `${filePath}  settings has been created`);
+	}
+	return { path: filePath, content: translatedSetting };
 }
 
 /**

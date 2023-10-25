@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import Icon from '@talend/react-components/lib/Icon';
 import { ICONS_MAPPING } from '../Comparator.component';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';

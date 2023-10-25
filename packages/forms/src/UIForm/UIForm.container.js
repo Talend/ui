@@ -1,6 +1,6 @@
 import omit from 'lodash/omit';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 
 import UIFormTranslatedComponent from './UIForm.component';
 import { formPropTypes } from './utils/propTypes';
@@ -81,7 +81,7 @@ const setInitialStateAsLiveState = prevState => ({
 	liveState: prevState.initialState,
 });
 
-export default class UIForm extends React.Component {
+export default class UIForm extends Component {
 	static displayName = 'Container(UIForm)';
 
 	static FormTemplate = FormTemplate;

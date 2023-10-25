@@ -1,7 +1,7 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-
-import Component from '@talend/react-components/lib/ObjectViewer';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+// rewrite this test using react-testing-library
+import { screen, render, fireEvent } from '@testing-library/react';
 import Container, {
 	DEFAULT_STATE,
 	toggleState,
@@ -11,8 +11,13 @@ import Container, {
 } from './ObjectViewer.container';
 import Connected from './ObjectViewer.connect';
 
+jest.mock('@talend/react-components/lib/ObjectViewer', () => ({ getProps, ...props }) => (
+	<div data-testid="ObjectViewer">
+		<button onClick={() => getProps(props)}>getProps</button>
+	</div>
+));
+
 const path = "$[0]['arrayInt']";
-const kTrue = true;
 const data = [
 	{
 		int: 1,
@@ -38,9 +43,10 @@ const data = [
 describe('Container ObjectViewer', () => {
 	it('should pass needed props to pure component', () => {
 		const setState = jest.fn();
-		const wrapper = shallow(<Container data={data} state={DEFAULT_STATE} setState={setState} />);
-		expect(wrapper.find(Component).length).toBe(1);
-		const props = wrapper.props();
+		const getProps = jest.fn();
+		render(<Container data={data} state={DEFAULT_STATE} setState={setState} getProps={getProps} />);
+		fireEvent.click(screen.getByText('getProps'));
+		const props = getProps.mock.calls[0][0];
 		expect(props.onChange).toBe(undefined);
 		expect(props.onSubmit).toBe(undefined);
 		expect(props.data).toBe(data);
@@ -59,27 +65,21 @@ describe('Container ObjectViewer', () => {
 
 		expect(typeof setState.mock.calls[0][0]).toBe('function');
 	});
-	xit('should not display types by default', () => {
-		const setState = jest.fn();
-		const wrapper = shallow(<Container data={data} state={DEFAULT_STATE} setState={setState} />);
-
-		expect(wrapper.find('.tc-object-viewer-line-type').length).toBe(0);
-	});
-	xit('should display types', () => {
-		const setState = jest.fn();
-		const wrapper = mount(
-			<Container data={data} state={DEFAULT_STATE} setState={setState} showType={kTrue} />,
-		);
-
-		expect(wrapper.find('.tc-object-viewer-line-type').length).not.toBe(0);
-	});
 	it('should add onChange is onSubmit', () => {
 		const onSubmit = jest.fn();
 		const setState = jest.fn();
-		const wrapper = shallow(
-			<Container data={data} state={DEFAULT_STATE} setState={setState} onSubmit={onSubmit} />,
+		const getProps = jest.fn();
+		render(
+			<Container
+				data={data}
+				state={DEFAULT_STATE}
+				setState={setState}
+				onSubmit={onSubmit}
+				getProps={getProps}
+			/>,
 		);
-		const props = wrapper.props();
+		fireEvent.click(screen.getByText('getProps'));
+		const props = getProps.mock.calls[0][0];
 
 		expect(typeof props.onChange).toBe('function');
 		expect(typeof props.onEdit).toBe('function');

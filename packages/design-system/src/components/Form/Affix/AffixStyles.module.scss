@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-@mixin ButtonAffixStyles() {
+@mixin button-affix-styles() {
 	color: tokens.$coral-color-accent-text;
 	background: tokens.$coral-color-accent-background;
 	cursor: pointer;
@@ -22,7 +22,7 @@
 	}
 }
 
-@mixin BaseAffixStyles() {
+@mixin base-affix-styles() {
 	display: inline-flex;
 	flex-grow: 1;
 	flex-shrink: 0;
@@ -77,10 +77,10 @@
 }
 
 .affix {
-	@include BaseAffixStyles();
+	@include base-affix-styles();
 
 
 	&.button {
-		@include ButtonAffixStyles();
+		@include button-affix-styles();
 	}
 }

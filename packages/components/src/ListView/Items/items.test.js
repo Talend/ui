@@ -1,7 +1,6 @@
-import React from 'react';
-import { mount } from 'enzyme';
+/* eslint-disable react/display-name */
+import { screen, render } from '@testing-library/react';
 import { ItemsComponent } from './Items.component';
-import toJsonWithoutI18n from '../../../test/props-without-i18n';
 
 jest.mock(
 	'react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
@@ -15,7 +14,7 @@ describe('Items', () => {
 			{ label: 'Lorem ipsum dolor sit amet 1', checked: true },
 			{ label: 'Lorem ipsum dolor sit amet 2' },
 		],
-		dataTest:'item',
+		dataTest: 'item',
 		getItemHeight: () => 42,
 	};
 
@@ -24,39 +23,40 @@ describe('Items', () => {
 			{ label: 'Lorem ipsum dolor default' },
 			{ label: 'Lorem ipsum dolor Parent', checked: true, children: props.items },
 		],
-		dataTest:'item',
+		dataTest: 'item',
 		getItemHeight: () => 42,
 	};
 
 	it('should render', () => {
 		// when
-		const wrapper = mount(<ItemsComponent {...props} />);
+		const { container } = render(<ItemsComponent {...props} />);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render with provided id', () => {
 		// when
-		const wrapper = mount(<ItemsComponent {...props} id="my-widget" />);
+		render(<ItemsComponent {...props} id="my-widget" />);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(screen.getByTestId('item-0')).toHaveAttribute('id', 'my-widget-1-item');
 	});
 
 	it('should render without toggleAll checkbox', () => {
 		// when
-		const wrapper = mount(<ItemsComponent {...props} showToggleAll={false} />);
+		render(<ItemsComponent {...props} showToggleAll={false} />);
 
 		// then
-		expect(wrapper.find('#tc-listview-toggle-all').exists()).toBeFalsy();
+		expect(screen.queryByText('Select all')).not.toBeInTheDocument();
 	});
 
 	it('should render with nested items', () => {
 		// when
-		const wrapper = mount(<ItemsComponent {...propsNested} />);
+		render(<ItemsComponent {...propsNested} />);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(screen.getByText('Lorem ipsum dolor default')).toBeInTheDocument();
+		expect(screen.getByText('Lorem ipsum dolor Parent')).toBeInTheDocument();
 	});
 });

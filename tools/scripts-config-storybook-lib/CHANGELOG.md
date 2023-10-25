@@ -1,5 +1,73 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.1.0
+
+### Minor Changes
+
+- 6efd54301: feat: use icons from talend/icons and not from unpkg
+
+### Patch Changes
+
+- 9a0732ec5: fix: add keys on all items in the decorators
+  fix: improve build performance copy/pasted from #4931
+- 35263dfcb: fix: icon url to support prefix
+
+## 5.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade configuration to run storybook 7.
+  So once you have upgrade you can remove the resolution.
+
+### Patch Changes
+
+- Updated dependencies [3b058ef7d]
+  - @talend/scripts-config-react-webpack@16.0.0
+
+## 4.1.0
+
+### Minor Changes
+
+- bfc02c4fb: feat: add design token update in the toolbar
+
+### Patch Changes
+
+- Updated dependencies [bfc02c4fb]
+  - @talend/scripts-config-react-webpack@15.4.1
+
+## 4.0.3
+
+### Patch Changes
+
+- 05043227a: fix(msw): add option onUnhandledRequest: 'bypass' to forward calls if not match
+- fcd8daf3c: fix: use bootstrap.css at build instead of rely on surge
+- fcd8daf3c: fix: add missing dependencies
+- Updated dependencies [ee828e0b0]
+- Updated dependencies [5fd268ed6]
+  - @talend/scripts-config-react-webpack@15.4.0
+
+## 4.0.2
+
+### Patch Changes
+
+- b1cb432e5: fix: support for import of scss file without css module
+
+## 4.0.1
+
+### Patch Changes
+
+- c7152471f: fix: msw is broken
+
+## 4.0.0
+
+### Major Changes
+
+- c18aabb97: chore: simplify it, it just hold the configuration
+
+  BREAKING CHANGE: it do not expose anything from outside.
+
+  This new version do not work with previous talend-scripts version
+
 ## 3.0.2
 
 ### Patch Changes

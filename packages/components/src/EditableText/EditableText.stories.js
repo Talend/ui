@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import EditableText from './EditableText.component';
 
@@ -11,7 +10,7 @@ const props = {
 };
 
 export default {
-	title: 'Form/Inline form/EditableText',
+	title: 'Components/Form - Inline form/EditableText',
 
 	decorators: [
 		story => (

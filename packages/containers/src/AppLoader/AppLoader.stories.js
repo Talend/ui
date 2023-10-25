@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppLoader as AppLoaderComponent } from '@talend/react-components';
 import { Inject } from '@talend/react-cmf';
 import AppLoader from '.';

@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 
 import LazyLoadingList from './LazyLoadingList.component';
 import { ListContext } from '../context';
@@ -11,13 +9,13 @@ describe('LazyLoadingList', () => {
 
 	it('should render lazy loading list component', () => {
 		// when
-		const wrapper = mount(
+		const { container } = render(
 			<ListContext.Provider value={defaultContext}>
 				<LazyLoadingList id="myLazyLoadingList" />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

@@ -1,10 +1,46 @@
-/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-shadow */
+/* eslint-disable no-promise-executor-return */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable global-require */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-empty */
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/no-var-requires */
 require('@testing-library/jest-dom');
+require('@testing-library/jest-dom/extend-expect');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
+
+const warnMessageOptionalDep = (mainDepToMock, depList = []) => {
+	if (depList.length === 0) {
+		console.warn(
+			`JEST MOCK WARN: ${mainDepToMock} is not resolved.` +
+				'\nThis is an optional dependency.' +
+				'\nPlease add it in your dependencies if you need it',
+		);
+	} else if (depList.length > 0) {
+		console.warn(
+			`JEST MOCK WARN: one or more of those deps are not resolved: ${depList.join(', ')}` +
+				'These are optional dependencies but work together.' +
+				`\nIt's needed to mock ${mainDepToMock}` +
+				'\nPlease add them in your dependencies if you need them',
+		);
+	}
+};
+
+try {
+	const jestAxe = require('jest-axe');
+	expect.extend(jestAxe.toHaveNoViolations);
+} catch (e) {
+	warnMessageOptionalDep('jest-axe');
+}
+
+try {
+	jest.mock('ally.js');
+} catch (e) {
+	warnMessageOptionalDep('ally.js');
+}
 
 // add missing ResizeObserver
 class ResizeObserver {
@@ -30,24 +66,10 @@ if (!global.self.TextEncoder) {
 	global.self.TextEncoder = require('util').TextEncoder;
 	global.self.TextDecoder = require('util').TextDecoder;
 }
-// enzyme adapter configuration
-let React;
-try {
-	React = require('react');
-} catch (e) {}
 
-try {
-	const version = React && React.version;
-	if (version && version.startsWith('16.')) {
-		const configure = require('enzyme').configure;
-		const Adapter = require('enzyme-adapter-react-16');
-		configure({ adapter: new Adapter() });
-	} else if (version && version.startsWith('17.')) {
-		const configure = require('enzyme').configure;
-		const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
-		configure({ adapter: new Adapter() });
-	}
-} catch (e) {}
+if (!global.URL?.revokeObjectURL) {
+	global.URL.revokeObjectURL = jest.fn();
+}
 
 // Mock fetch
 try {
@@ -56,6 +78,11 @@ try {
 			new Promise(resolve => {
 				if (config.response) {
 					return resolve(config.response);
+				}
+				if (global.self.fetch.mockResponse) {
+					const res = global.self.fetch.mockResponse;
+					delete global.self.fetch.mockResponse;
+					return resolve(res);
 				}
 				return resolve();
 			}),
@@ -77,7 +104,7 @@ try {
 	// Mock session storage
 	delete window.sessionStorage;
 	Object.defineProperty(window, 'sessionStorage', {
-		value: (function () {
+		value: (function valueFn() {
 			let store = {};
 			return {
 				getItem(key) {
@@ -120,7 +147,11 @@ try {
 		i18nextMock.addResources = () => {};
 		return i18nextMock;
 	});
+} catch (e) {
+	warnMessageOptionalDep('i18next');
+}
 
+try {
 	jest.mock('react-i18next', () => {
 		// from https://github.com/i18next/react-i18next/blob/master/example/test-jest/__mocks__/react-i18next.js
 		const React = require('react');
@@ -170,7 +201,9 @@ try {
 				Array.isArray(children) ? renderNodes(children) : renderNodes([children]),
 		};
 	});
-} catch (e) {}
+} catch (e) {
+	warnMessageOptionalDep('react-i18next', ['react-i18next', 'i18next', 'react']);
+}
 
 try {
 	jest.mock('@talend/design-system', () => {
@@ -187,14 +220,21 @@ try {
 
 		function getMock(name) {
 			const mockName = `Coral${name}`;
-			function Component(props) {
-				return React.createElement('span', {
-					...props,
-					className: classnames(mockName, props.className),
-				});
+			function Component({ disclosure, children, ...props }) {
+				return React.createElement(
+					'span',
+					{
+						...props,
+						className: classnames(mockName, props.className),
+					},
+					disclosure,
+					children,
+				);
 			}
 			Component.displayName = name;
 			Component.propTypes = {
+				disclosure: propTypes.element,
+				children: propTypes.element,
 				className: propTypes.string,
 			};
 			return Component;
@@ -220,12 +260,16 @@ try {
 
 		return mocks;
 	});
-} catch {}
+} catch {
+	warnMessageOptionalDep('@talend/design-system', [
+		'@talend/design-system',
+		'react',
+		'prop-types',
+		'classnames',
+	]);
+}
 
-try {
-	// in the case we unmock design-system we don't want id to be random
-	jest.mock('reakit/lib/Id/IdProvider', () => ({
-		...jest.requireActual('reakit/lib/Id/IdProvider'),
-		unstable_IdContext: jest.requireActual('react').createContext(() => 'id-42'),
-	}));
-} catch {}
+// @floating-ui/react
+// https://github.com/floating-ui/floating-ui/issues/1908
+// eslint-disable-next-line no-promise-executor-return
+afterAll(() => new Promise(resolve => setTimeout(resolve, 0)));

@@ -1,3 +1,1 @@
-const path = require('path');
-
-module.exports = () => path.join(__dirname, 'jest.config.js');
+module.exports = require('./jest.config');

@@ -1,5 +1,162 @@
 # Changelog
 
+## 12.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [da4cf2971]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-bootstrap@2.0.0
+  - @talend/react-components@12.0.0
+
+## 11.3.0
+
+### Minor Changes
+
+- 8361389eb: "Show selected" toggle on BadgeMenu
+
+## 11.2.0
+
+### Minor Changes
+
+- 08b8257ed: chore(TDP-12538): always show tooltip on faceted badge overlay
+
+## 11.1.0
+
+### Minor Changes
+
+- 076d96234: Add BadgeMenu to faceted search for single selection
+
+## 11.0.2
+
+### Patch Changes
+
+- Updated dependencies [3cfe50989]
+  - @talend/design-tokens@2.9.0
+
+## 11.0.1
+
+### Patch Changes
+
+- Updated dependencies [b36165add]
+  - @talend/design-tokens@2.8.0
+
+## 11.0.0
+
+### Major Changes
+
+- bfc02c4fb: feat: use design-tokens for colors
+
+### Patch Changes
+
+- Updated dependencies [40e70c055]
+- Updated dependencies [bfc02c4fb]
+  - @talend/react-components@11.0.0
+
+## 10.0.1
+
+### Patch Changes
+
+- a17306fc9: TDOPS-4795 - [TUI] Faceted search display wrong plural label
+
+## 10.0.0
+
+### Major Changes
+
+- aab0eeb36: TDOPS-4704 - Faceted search : Allow to configure faceted search min/max input length for text badge
+
+  # BREAKING CHANGE
+
+  Faceted search : `quickSearchMinLength` configuration for quick search input is no more used and now detected from badge configuration
+
+## 9.4.0
+
+### Minor Changes
+
+- 93def65ae: TDOPS-4704 - Faceted search : Allow to configure faceted search min trigger length for quick search input
+
+### Patch Changes
+
+- bb0cd786e: fix(TDC-6575): badge size overlap with "Add Filter" button with some long values
+- 04167fe3d: fix(faceted-search): data-feature typo
+
+## 9.3.0
+
+### Minor Changes
+
+- d579821da: feat: added custom attributes to the faceted basic search
+
+### Patch Changes
+
+- 9ea9961bd: test: rewrite using react testing library
+
+## 9.2.1
+
+### Patch Changes
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+
+## 9.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+## 9.1.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+## 9.1.0
+
+### Minor Changes
+
+- b7f25227c: TDOPS-421 - Allow data attributes to be passed to faceted search components
+
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
+## 8.1.1
+
+### Patch Changes
+
+- 12d329322: TDOPS-421 - Fix faceted search submit at launch and badge sync on value and operator
+
+## 8.1.0
+
+### Minor Changes
+
+- 705ff3066: Faceted search - Tags faceted should allow a list of flat tags or objects
+- 06e45a74c: Faceted search
+  - Add new `Not in` and `Not contains` operators
+  - On badge checkbox faceted, added an optional checkbox to select all items with the `metadata.allSelector` property
+
+## 8.0.4
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
 ## 8.0.3
 
 ### Patch Changes

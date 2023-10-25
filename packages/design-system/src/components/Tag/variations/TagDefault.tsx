@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 
 import TagPrimitive, { TagProps as PrimitiveTagProps } from '../primitive';
 
@@ -9,5 +9,6 @@ type TagProps = Omit<PrimitiveTagProps, 'className'>;
 const TagDefault = forwardRef((props: TagProps, ref: Ref<HTMLSpanElement>) => (
 	<TagPrimitive {...props} ref={ref} className={style.tag} />
 ));
+TagDefault.displayName = 'TagDefault';
 
 export default TagDefault;

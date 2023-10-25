@@ -1,5 +1,5 @@
-import React, { forwardRef, Ref } from 'react';
-import Skeleton from '../../../Skeleton';
+import { memo, forwardRef, Ref } from 'react';
+import { Skeleton } from '../../../Skeleton';
 import classnames from 'classnames';
 
 import stepStyles from '../Primitive/Step.module.scss';
@@ -21,5 +21,6 @@ const StepSkeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLLIElement>) 
 		</li>
 	);
 });
+StepSkeleton.displayName = 'StepSkeleton';
 
-export default React.memo(StepSkeleton);
+export default memo(StepSkeleton);

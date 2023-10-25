@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { cloneElement, ReactElement } from 'react';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import { DataAttributes } from '../../types';
@@ -20,5 +20,5 @@ export function getIconWithDeprecatedSupport({
 		return <SizedIcon size={size} name={iconSrc as IconNameWithSize<typeof size>} {...rest} />;
 	}
 
-	return React.cloneElement(iconSrc, {});
+	return cloneElement(iconSrc, {});
 }

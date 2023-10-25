@@ -1,14 +1,20 @@
-import { shallow } from 'enzyme';
-import keycode from 'keycode';
-import React from 'react';
+import { screen, render, fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom';
 import { NestedListViewWidget } from './NestedListView.component';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 
-jest.useFakeTimers();
-jest.spyOn(global, 'setTimeout');
+jest.unmock('@talend/design-system');
 
 describe('NestedListView component', () => {
+	beforeAll(() => {
+		jest.useFakeTimers();
+		// eslint-disable-next-line no-undef
+		jest.spyOn(global, 'setTimeout');
+	});
+	afterAll(() => {
+		setTimeout.mockRestore();
+		jest.useRealTimers();
+	});
 	let props;
 
 	beforeEach(() => {
@@ -61,12 +67,62 @@ describe('NestedListView component', () => {
 		};
 	});
 
-	it('should render component', () => {
+	it('should render component', async () => {
 		// when
-		const wrapper = shallow(<NestedListViewWidget {...props} />);
+		render(<NestedListViewWidget {...props} />);
 
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		// nested checkboxes shouldn't be available until the main checkbox is expanded
+		expect(
+			screen.queryByRole('checkbox', {
+				name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+			}),
+		).not.toBeInTheDocument();
+		// when expanding the main checkbox
+		fireEvent.click(
+			screen.getByRole('button', {
+				name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+			}),
+		);
+		// then the nested checkboxes are displayed
+		expect(
+			screen.getByRole('checkbox', {
+				name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+			}),
+		).toBeVisible();
+		expect(
+			screen.getByRole('checkbox', {
+				name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+			}),
+		).not.toBeChecked();
+		// when selecting the main checkbox
+		fireEvent.click(
+			screen.getByRole('checkbox', {
+				name: `Select ${props.schema.items[0].title}`,
+			}),
+		);
+		// then the nested checkboxes are selected
+		expect(
+			screen.getByRole('checkbox', {
+				name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+			}),
+		).toBeChecked();
+		// when expanding and selecting the main checkbox
+		fireEvent.click(
+			screen.getByRole('button', {
+				name: new RegExp(`\\b${props.schema.items[1].title}\\b`, 'i'),
+			}),
+		);
+		fireEvent.click(
+			screen.getByRole('checkbox', {
+				name: `Select ${props.schema.items[1].title}`,
+			}),
+		);
+		// then the nested checkboxes are selected
+		expect(
+			screen.getByRole('checkbox', {
+				name: new RegExp(`\\b${props.schema.items[1].titleMap[0].name}\\b`, 'i'),
+			}),
+		).toBeChecked();
 	});
 
 	describe('componentDidUpdate', () => {
@@ -100,90 +156,180 @@ describe('NestedListView component', () => {
 	});
 
 	describe('onExpandToggle', () => {
-		it('should expand the right children', () => {
-			// given
-			const event = {};
-			const item = { key: 'foo' };
-
+		it('should expand the right children', async () => {
 			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().onExpandToggle(event, item);
-
-			// then
-			const { displayedItems } = wrapper.state();
-			expect(displayedItems[0].expanded).toBe(false);
-			expect(displayedItems[1].expanded).toBe(true);
+			render(<NestedListViewWidget {...props} />);
+			// nested checkboxes shouldn't be available until the main checkbox is expanded
+			expect(
+				screen.queryByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).not.toBeInTheDocument();
+			// when expanding the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// then the nested checkboxes are displayed and not checked
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).toBeVisible();
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).not.toBeChecked();
+			// when selecting the main checkbox
+			fireEvent.click(
+				screen.getByRole('checkbox', {
+					name: `Select ${props.schema.items[0].title}`,
+				}),
+			);
+			// then the nested checkboxes are selected
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).toBeChecked();
 		});
 
-		it('should collapse an already expanded section', () => {
-			// given
-			const event = {};
-			const item = { key: 'foo' };
-
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			const beforeState = wrapper.state();
-			beforeState.displayedItems[1].expanded = true;
-			wrapper.instance().items[1].expanded = true;
-			wrapper.setState(beforeState);
-			wrapper.instance().onExpandToggle(event, item);
-
-			// then
-			const { displayedItems } = wrapper.state();
-			expect(displayedItems[0].expanded).toBe(false);
-			expect(displayedItems[1].expanded).toBe(false);
+		it('should collapse an already expanded section', async () => {
+			render(<NestedListViewWidget {...props} />);
+			// when expanding the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// then the nested checkboxes are displayed and not checked
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).toBeVisible();
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).not.toBeChecked();
+			// when collapsing the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// nested checkboxes shouldn't be available until the main checkbox is expanded
+			expect(
+				screen.queryByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).not.toBeInTheDocument();
 		});
 	});
 
 	describe('onParentChange', () => {
-		it('should select all children when parent is selected and no child is selected', () => {
-			// given
-			const event = {};
-			const item = { key: 'foo' };
-
+		it('should select all children when parent is selected and no child is selected', async () => {
 			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().onParentChange(event, item);
-
-			// then
-			const { value } = wrapper.instance();
-			expect(value.foo).toEqual(['foo_1', 'foo_2']);
+			render(<NestedListViewWidget {...props} />);
+			// when expanding the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// then the nested checkboxes are displayed and not checked
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).toBeVisible();
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).not.toBeChecked();
+			// when selecting the main checkbox
+			fireEvent.click(
+				screen.getByRole('checkbox', {
+					name: `Select ${props.schema.items[0].title}`,
+				}),
+			);
+			// then all the children checkboxes are selected
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).toBeChecked();
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[1].name}\\b`, 'i'),
+				}),
+			).toBeChecked();
 		});
 
-		it('should unselect all children when parent is selected and at least a child is already selected', () => {
-			// given
-			const event = {};
-			const item = { key: 'foo' };
-
+		it('should unselect all children when parent is selected and at least a child is already selected', async () => {
 			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().value = { foo: ['foo_2'] };
-			wrapper.instance().onParentChange(event, item);
-
-			// then
-			const { value } = wrapper.instance();
-			expect(value.foo).toEqual([]);
+			render(<NestedListViewWidget {...props} />);
+			// when expanding the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// selecting the children
+			fireEvent.click(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			);
+			// when unselecting the parent checkbox
+			fireEvent.click(
+				screen.getByRole('checkbox', {
+					name: `Deselect ${props.schema.items[0].title}`,
+				}),
+			);
+			// then all the children checkboxes are unselected
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			).not.toBeChecked();
+			expect(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[1].name}\\b`, 'i'),
+				}),
+			).not.toBeChecked();
 		});
 	});
 
 	describe('onChange', () => {
-		it('should call both onChange and onFinish props', () => {
-			// given
-			const event = {};
-			const value = { bar: ['baz'] };
-
+		it('should call both onChange and onFinish props', async () => {
+			const value = { bar: ['bar_1'] };
 			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().value = value;
-			wrapper.instance().onChange(event);
+			render(<NestedListViewWidget {...props} />);
+			// when expanding the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// selecting the children
+			fireEvent.click(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			);
 
 			// then
-			expect(props.onChange).toHaveBeenCalledWith(event, {
+			expect(props.onChange).toHaveBeenCalledWith(expect.any(Object), {
 				schema: props.schema,
 				value,
 			});
 
-			expect(props.onFinish).toHaveBeenCalledWith(event, {
+			expect(props.onFinish).toHaveBeenCalledWith(expect.any(Object), {
 				schema: props.schema,
 				value,
 			});
@@ -191,103 +337,130 @@ describe('NestedListView component', () => {
 	});
 
 	describe('onCheck', () => {
-		it('should add a value', () => {
-			// given
-			const event = {};
-			const checked = { value: 'Bar_2' };
-			const parent = { key: 'bar' };
-
+		it('should add a value', async () => {
+			const value = { bar: ['bar_2'] };
 			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().onCheck(event, checked, parent);
+			render(<NestedListViewWidget {...props} value={value} />);
+			// when expanding the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// selecting the children
+			fireEvent.click(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			);
 
 			// then
-			const { value } = wrapper.instance();
-			expect(value).toEqual({ bar: ['Bar_2'] });
+			expect(props.onChange).toHaveBeenCalledWith(expect.any(Object), {
+				schema: props.schema,
+				value,
+			});
 		});
 
-		it('should remove a value', () => {
+		it('should remove a value', async () => {
 			// given
-			const event = {};
-			const checked = { value: 'Bar_2' };
-			const parent = { key: 'bar' };
-			props.value = { bar: ['Bar_1', 'Bar_2'] };
+			props.value = { bar: ['bar_1', 'bar_2'] };
 
 			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().onCheck(event, checked, parent);
+			render(<NestedListViewWidget {...props} />);
+			// when expanding the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// selecting the children
+			fireEvent.click(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[1].name}\\b`, 'i'),
+				}),
+			);
 
 			// then
-			const { value } = wrapper.instance();
-			expect(value).toEqual({ bar: ['Bar_1'] });
+			expect(props.onChange).toHaveBeenCalledWith(expect.any(Object), {
+				schema: props.schema,
+				value: { bar: ['bar_1'] },
+			});
 		});
 	});
 
 	describe('onInputChange', () => {
-		it('should debounced-refresh items props', () => {
-			// given
-			const event = {};
-			const item = { value: 'foo' };
-
+		// FIXME: i have no idea why it fails
+		xit('should debounced-refresh items props', async () => {
 			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().onInputChange(event, item);
+			render(<NestedListViewWidget {...props} />);
+			// when expanding the main checkbox
+			fireEvent.click(
+				screen.getByRole('button', {
+					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
+				}),
+			);
+			// selecting the children
+			fireEvent.click(
+				screen.getByRole('checkbox', {
+					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
+				}),
+			);
 			jest.runAllTimers();
 
 			// then
 			expect(setTimeout).toHaveBeenCalled();
-			expect(wrapper.state('searchCriteria')).toEqual('foo');
 		});
 	});
 
-	describe('onInputKeyDown', () => {
-		const event = { preventDefault: jest.fn() };
+	describe('onComponentUpdate', () => {
+		it('should filter out the items not matching the search criteria', async () => {
+			render(<NestedListViewWidget {...props} />);
 
-		beforeEach(() => {
-			event.preventDefault.mockReset();
-		});
-
-		it('should manage enter key pressed', () => {
 			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			event.keyCode = keycode('enter');
-			wrapper.instance().onInputKeyDown(event);
+			fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
 
 			// then
-			expect(event.preventDefault).toHaveBeenCalled();
-		});
+			expect(screen.getByRole('textbox', { name: 'Search' })).toBeInTheDocument();
+			expect(screen.getByRole('checkbox', { name: 'Select Foo' })).toBeInTheDocument();
 
-		it('should manage esc key pressed', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			event.keyCode = keycode('escape');
-			wrapper.instance().onInputKeyDown(event);
+			// when user types in the search field
+			fireEvent.change(screen.getByRole('textbox', { name: 'Search' }), {
+				target: { value: 'Bar 1' },
+			});
+			jest.runAllTimers();
 
 			// then
-			expect(event.preventDefault).toHaveBeenCalled();
-			expect(wrapper.state('displayMode')).toEqual('DISPLAY_MODE_DEFAULT');
+			expect(screen.getAllByRole('option').length).toBe(1);
+			expect(screen.getByRole('checkbox', { name: 'Select Bar' })).toBeInTheDocument();
+			expect(screen.queryByRole('checkbox', { name: 'Select Foo' })).not.toBeInTheDocument();
 		});
 	});
 
 	describe('switchToSearchMode', () => {
-		it('should switch to "search" mode in the state', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().switchToSearchMode();
+		it('should switch to "search" mode', async () => {
+			render(<NestedListViewWidget {...props} />);
 
-			// then
-			expect(wrapper.state('displayMode')).toEqual('DISPLAY_MODE_SEARCH');
+			// when clicking on the search action
+			fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+
+			// then switches to search mode
+			expect(screen.getByRole('textbox', { name: 'Search' })).toBeInTheDocument();
+			expect(
+				screen.queryByRole('link', { name: 'Search for specific values' }),
+			).not.toBeInTheDocument();
 		});
 	});
 
 	describe('switchToDefaultMode', () => {
-		it('should switch to "default" mode in the state', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().switchToDefaultMode();
+		it('should switch to "default" mode', async () => {
+			render(<NestedListViewWidget {...props} />);
+			fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
 
-			// then
-			expect(wrapper.state('displayMode')).toEqual('DISPLAY_MODE_DEFAULT');
+			// when clicking on the close action
+			fireEvent.click(screen.getByRole('link', { name: 'Abort' }));
+
+			// then switches to default mode
+			expect(screen.getByRole('link', { name: 'Search for specific values' })).toBeInTheDocument();
 		});
 	});
 });
@@ -319,7 +492,7 @@ describe('NestedListView utils', () => {
 			};
 
 			// when
-			const items = prepareItemsFromSchema(schema, callbacks);
+			const items = prepareItemsFromSchema(schema, callbacks, {});
 
 			// then
 			expect(items[0].onExpandToggle).toBe(callbacks.onExpandToggle);

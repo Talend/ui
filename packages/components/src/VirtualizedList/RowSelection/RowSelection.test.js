@@ -1,7 +1,5 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
-import RowSelection from './RowSelection.component';
+import { screen, render } from '@testing-library/react';
+import getRowSelectionRenderer from './RowSelection.component';
 
 function RowRenderer(props) {
 	return <div {...props} />;
@@ -17,26 +15,39 @@ function isActive(rowData) {
 }
 
 describe('RowSelection', () => {
+	it('should render', () => {
+		// given
+		function getRowData() {
+			return selectedRowData;
+		}
+		const Row = getRowSelectionRenderer(RowRenderer, { isSelected, getRowData });
+
+		// when
+		const { container } = render(<Row index={1} style={{ background: 'red' }} />);
+
+		// then
+		expect(container.firstChild).toMatchSnapshot();
+	});
 	it('should enhance classname with selection class on selected row', () => {
 		// given
 		function getRowData() {
 			return selectedRowData;
 		}
-		const Row = new RowSelection(RowRenderer, { isSelected, getRowData });
+		const Row = getRowSelectionRenderer(RowRenderer, { isSelected, getRowData });
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Row
+				data-testid="Row"
 				className="my-class-names"
 				index={1}
 				key={18}
-				parent={{}}
 				style={{ background: 'red' }}
 			/>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('Row')).toHaveClass('selected my-class-names');
 	});
 
 	it('should enhance classname without selection class on non selected row', () => {
@@ -44,21 +55,22 @@ describe('RowSelection', () => {
 		function getRowData() {
 			return notSelectedRowData;
 		}
-		const Row = new RowSelection(RowRenderer, { isSelected, getRowData });
+		const Row = getRowSelectionRenderer(RowRenderer, { isSelected, getRowData });
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Row
+				data-testid="Row"
 				className="my-class-names"
 				index={1}
 				key={18}
-				parent={{}}
 				style={{ background: 'red' }}
 			/>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('Row')).toHaveClass('my-class-names');
+		expect(screen.getByTestId('Row')).not.toHaveClass('selected');
 	});
 
 	it('should enhance classname with active class on active row', () => {
@@ -66,20 +78,20 @@ describe('RowSelection', () => {
 		function getRowData() {
 			return selectedRowData;
 		}
-		const Row = new RowSelection(RowRenderer, { isActive, getRowData });
+		const Row = getRowSelectionRenderer(RowRenderer, { isActive, getRowData });
 
 		// when
-		const wrapper = shallow(
+		render(
 			<Row
+				data-testid="Row"
 				className="my-class-names"
 				index={1}
 				key={18}
-				parent={{}}
 				style={{ background: 'blue' }}
 			/>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('Row')).toHaveClass('active my-class-names');
 	});
 });

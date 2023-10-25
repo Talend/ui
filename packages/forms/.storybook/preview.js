@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 import { namespaces as componentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as formsNamespaces } from '@talend/locales-tui-forms/namespaces';
@@ -17,20 +15,3 @@ export const i18n = {
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 };
-
-const withFormLayout = (story, options) => {
-	if (options.kind.includes('Layout')) {
-		return story();
-	}
-	return (
-		<div className="container-fluid">
-			<div
-				className="col-md-offset-1 col-md-11"
-				style={{ marginTop: '20px', marginBottom: '20px' }}
-			>
-				{story()}
-			</div>
-		</div>
-	);
-};
-export const decorators = [withFormLayout];

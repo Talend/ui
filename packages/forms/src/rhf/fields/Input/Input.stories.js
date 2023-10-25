@@ -1,23 +1,51 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { action } from '@storybook/addon-actions';
 import Input from '.';
 
 export default {
-	title: 'RHF/Input',
-
-	parameters: {
-		component: Input,
+	title: 'Forms/RHF/Input',
+	component: Input,
+	argTypes: {
+		rules: {
+			table: {
+				disable: true,
+			},
+		},
+		name: {
+			control: 'text',
+		},
+		label: {
+			control: 'text',
+		},
+		defaultValue: {
+			control: 'text',
+			description: 'You must reload the story if you change this value',
+		},
+		placeholder: {
+			control: 'text',
+		},
+		description: {
+			control: 'text',
+		},
+		disabled: {
+			control: 'boolean',
+		},
+		readOnly: {
+			control: 'boolean',
+		},
+		required: {
+			control: 'boolean',
+		},
 	},
 };
 
-export const States = () => {
+export const States = props => {
 	const rhf = useForm();
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
-				<Input id="name" type="text" name="default" label="Default" defaultValue="Jimmy" />
+				<Input id="name" type="text" {...props} />
 				<Input
 					id="disabled"
 					type="text"
@@ -41,14 +69,19 @@ export const States = () => {
 		</FormProvider>
 	);
 };
+States.args = {
+	name: 'default',
+	label: 'Default',
+	defaultValue: 'Jimmy',
+};
 
-export const Types = () => {
+export const Types = props => {
 	const rhf = useForm();
 
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
-				<Input id="text" type="text" name="text" label="Text" />
+				<Input id="text" type="text" {...props} />
 				<Input id="number" type="number" name="number" label="Number" />
 				<Input id="password" type="password" name="password" label="Password" />
 				<button type="submit" className="btn btn-primary">
@@ -59,13 +92,19 @@ export const Types = () => {
 	);
 };
 
-export const DefaultValue = () => {
+Types.args = {
+	label: 'Text',
+	name: 'text',
+	defaultValue: 'Text value',
+};
+
+export const DefaultValue = props => {
 	const rhf = useForm();
 
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
-				<Input id="defaultValue" type="text" name="name" label="Name" defaultValue="Jimmy" />
+				<Input id="defaultValue" type="text" {...props} />
 				<button type="submit" className="btn btn-primary">
 					Submit
 				</button>
@@ -73,20 +112,20 @@ export const DefaultValue = () => {
 		</FormProvider>
 	);
 };
+DefaultValue.args = {
+	label: 'Text',
+	name: 'text',
+	description: 'You must reload the story if you change the defaultValue',
+	defaultValue: 'Text value',
+};
 
-export const Description = () => {
+export const Description = props => {
 	const rhf = useForm();
 
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
-				<Input
-					id="description"
-					type="text"
-					name="name"
-					label="Name"
-					description="This field has a description"
-				/>
+				<Input id="description" {...props} />
 				<button type="submit" className="btn btn-primary">
 					Submit
 				</button>
@@ -94,25 +133,24 @@ export const Description = () => {
 		</FormProvider>
 	);
 };
+Description.args = {
+	label: 'Text',
+	name: 'text',
+	description: 'This field has a description',
+};
 
-export const Validation = () => {
+export const Validation = props => {
 	const rhf = useForm({ mode: 'onBlur' });
 
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
-				<Input
-					id="required"
-					type="text"
-					name="required"
-					label="Required"
-					rules={{ required: 'This is required' }}
-					required
-				/>
+				<Input id="required" type="text" {...props} rules={{ required: 'This is required' }} />
 				<Input
 					id="notLol"
 					type="text"
 					name="notLol"
+					description="This field should not have the value lol"
 					label="Not lol"
 					rules={{
 						validate(value) {
@@ -127,4 +165,10 @@ export const Validation = () => {
 			</form>
 		</FormProvider>
 	);
+};
+
+Validation.args = {
+	label: 'Required',
+	name: 'required',
+	required: true,
 };

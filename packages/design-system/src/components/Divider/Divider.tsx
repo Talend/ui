@@ -1,12 +1,22 @@
-import React, { forwardRef, Ref } from 'react';
-import { Separator as ReakitSeparator, SeparatorProps as ReakitSeparatorProps } from 'reakit';
+import { forwardRef, Ref, HTMLAttributes, RefAttributes } from 'react';
 
 import style from './Divider.module.scss';
 
-type DividerProps = Omit<ReakitSeparatorProps, 'style' | 'className'>;
+export type DividerOptions = {
+	/**
+	 * Separator's orientation.
+	 */
+	orientation?: 'horizontal' | 'vertical';
+};
 
-const Divider = forwardRef((props: DividerProps, ref: Ref<HTMLHRElement>) => {
-	return <ReakitSeparator {...props} ref={ref} className={style.divider} />;
+export type DividerHTMLProps = HTMLAttributes<HTMLHRElement> & RefAttributes<HTMLHRElement>;
+
+export type DividerProps = DividerOptions & DividerHTMLProps;
+
+export const Divider = forwardRef((props: DividerProps, ref: Ref<HTMLHRElement>) => {
+	const ruleOrientation = props.orientation || 'horizontal';
+
+	return <hr {...props} aria-orientation={ruleOrientation} ref={ref} className={style.divider} />;
 });
 
-export default Divider;
+Divider.displayName = 'Divider';

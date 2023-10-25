@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { isValidElement } from 'react';
 import Inject from '@talend/react-components/lib/Inject';
 import Layout from '@talend/react-components/lib/Layout';
 import HeaderBar from '@talend/react-components/lib/HeaderBar';
@@ -8,7 +8,7 @@ import List from '../List';
 import SidePanel from '../SidePanel';
 
 function getContent(Component, props) {
-	if (React.isValidElement(props)) {
+	if (isValidElement(props)) {
 		return props;
 	}
 	return <Component {...props} />;
@@ -66,9 +66,9 @@ HomeListView.propTypes = {
 	id: PropTypes.string,
 	hasTheme: PropTypes.bool,
 	components: PropTypes.object,
-	header: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
-	sidepanel: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
-	list: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
+	header: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+	sidepanel: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
+	list: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
 	children: PropTypes.node,
 };
 

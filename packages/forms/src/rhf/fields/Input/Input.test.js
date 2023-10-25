@@ -1,10 +1,10 @@
-import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+/* eslint-disable testing-library/no-unnecessary-act */
+import { render, screen, act, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { useForm, FormProvider } from 'react-hook-form';
 import Input from './RHFInput.component';
 
-jest.mock('ally.js');
+jest.unmock('@talend/design-system');
 
 /* eslint-disable-next-line react/prop-types */
 function FormWrapper({ children, onSubmit }) {
@@ -24,24 +24,30 @@ describe('Input RHF widget', () => {
 		// given
 		const onSubmit = jest.fn();
 		// when
-		const wrapper = mount(
-			<FormWrapper onSubmit={onSubmit}>
-				<Input type="text" id="name" name="name" label="name" defaultValue="12" />
-			</FormWrapper>,
-		);
-		// then
 		await act(async () => {
-			wrapper.find('form').simulate('submit');
+			render(
+				<FormWrapper onSubmit={onSubmit}>
+					<Input type="text" id="name" name="name" label="name" defaultValue="12" />
+				</FormWrapper>,
+			);
+			const input = screen.getByLabelText('name');
+			fireEvent.click(input);
+			fireEvent.submit(input.form);
 		});
+
+		// then
+		expect(onSubmit).toHaveBeenCalledTimes(1);
 		expect(onSubmit.mock.calls[0][0]).toEqual({ name: '12' });
 
+		// when
 		await act(async () => {
-			const input = wrapper.find('input').at(0);
-			input.getDOMNode().value = 'test';
-			input.getDOMNode().dispatchEvent(new Event('input'));
-			wrapper.find('form').simulate('submit');
+			const input = screen.getByLabelText('name');
+			await userEvent.click(input);
+			await userEvent.clear(input);
+			await userEvent.keyboard('test{Enter}');
 		});
 
+		// then
 		expect(onSubmit.mock.calls[1][0]).toEqual({ name: 'test' });
 	});
 
@@ -49,31 +55,27 @@ describe('Input RHF widget', () => {
 		// given
 		const onSubmit = jest.fn();
 		// when
-		const wrapper = mount(
-			<FormWrapper onSubmit={onSubmit}>
-				<Input
-					type="text"
-					id="name"
-					name="name"
-					label="name"
-					defaultValue="12"
-					required
-					rules={{
-						required: 'This should not be empty',
-					}}
-				/>
-			</FormWrapper>,
-		);
-		// then
 		await act(async () => {
-			const input = wrapper.find('input').at(0);
-			input.getDOMNode().value = '';
-			input.getDOMNode().dispatchEvent(new Event('input'));
+			render(
+				<FormWrapper onSubmit={onSubmit}>
+					<Input
+						type="text"
+						id="name"
+						name="name"
+						label="name"
+						defaultValue="12"
+						required
+						rules={{
+							required: 'This should not be empty',
+						}}
+					/>
+				</FormWrapper>,
+			);
+			// then
+			const input = screen.getByLabelText('name');
+			await userEvent.clear(input);
 		});
 
-		wrapper.update();
-		expect(wrapper.find('InlineMessageDestructive').at(0).props().description).toBe(
-			'This should not be empty',
-		);
+		expect(screen.getByText('This should not be empty')).toBeInTheDocument();
 	});
 });

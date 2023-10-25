@@ -9,8 +9,7 @@
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",
-    "lint:style": "talend-scripts lint:style",
-    "lint": "yarn lint:style"
+    "lint": "talend-scripts lint"
   },
   "keywords": [
     "talend",
@@ -28,22 +27,32 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/bootstrap-sass": "^3.4.8",
-    "@talend/icons": "^6.51.1"
+    "@talend/bootstrap-sass": "^3.5.0",
+    "@talend/design-tokens": "^2.9.0",
+    "@talend/icons": "^7.0.0"
   },
   "devDependencies": {
-    "@talend/icons": "^6.51.1",
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/icons": "^7.0.0",
+    "@talend/scripts-core": "^16.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-minimizer-webpack-plugin": "^4.2.2",
-    "html-webpack-plugin": "^5.5.0",
+    "css-loader": "^4.3.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss": "^8.4.31",
+    "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^7.8.3",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "sass": "^1.68.0",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^4.10.0"
   },
   "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.0"
+  "version": "8.2.1"
 }

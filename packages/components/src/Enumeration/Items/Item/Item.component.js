@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';

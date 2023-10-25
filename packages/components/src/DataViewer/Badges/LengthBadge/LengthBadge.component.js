@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import theme from './LengthBadge.module.scss';

@@ -1,5 +1,451 @@
 # @talend/react-components
 
+## 12.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Minor Changes
+
+- 9a0732ec5: feat: upgrade react-is
+
+### Patch Changes
+
+- da4cf2971: TDOPS-762 - Allow notification message to have long labels with proper overflow
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-bootstrap@2.0.0
+  - @talend/icons@7.0.0
+  - @talend/react-a11y@2.0.0
+  - @talend/bootstrap-theme@8.2.1
+
+## 11.4.5
+
+### Patch Changes
+
+- b0f7bbf70: fix(TDC-7364): FormatValue component - fix content not appearing when there were leading whitespaces
+
+## 11.4.4
+
+### Patch Changes
+
+- 1cb4b7b29: fix(TFD-16296): Add ellipsis on collapsible panel header
+- Updated dependencies [9d137cb98]
+  - @talend/bootstrap-theme@8.2.0
+
+## 11.4.3
+
+### Patch Changes
+
+- 941231e01: fix(TDP-12616): fix checkbox mark style on multi-select
+
+## 11.4.2
+
+### Patch Changes
+
+- 4f8429b41: TDOPS-1878 - Notification container now has a max height to handle long and multiple notifications not overflowing the screen
+- Updated dependencies [6af561463]
+  - @talend/icons@6.60.0
+
+## 11.4.1
+
+### Patch Changes
+
+- b60f5b5c1: TDOPS-2619 - Align column chooser style with Design System
+- a5e724a5b: TDOPS-5105 - Components badge now have the right separator color
+- 387afd9fd: TDOPS-872 - VList cell content should display a tooltip for 0 value as well
+
+## 11.4.0
+
+### Minor Changes
+
+- f0c98a7e6: Components - Layout can now be given a theme directly from props by parent app
+
+## 11.3.3
+
+### Patch Changes
+
+- a958d95ae: TDOPS-4488 - Components VList can handle data attributes for Link column
+- 8f1196fb0: fix(TDC-7310) - fixed select all checkbox disappearing by replacing with TUI Checkbox
+
+## 11.3.2
+
+### Patch Changes
+
+- f73fdbc46: fix: change drawer header color
+
+## 11.3.1
+
+### Patch Changes
+
+- 8277e1f39: TDOPS-4488: Add VList Link column to disctionary
+
+## 11.3.0
+
+### Minor Changes
+
+- a6ac16f28: TDOPS-4488 - Allow to have links in VirtualList in Title cell and dedicated Link cell
+
+## 11.2.3
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+- 72b95c880: TDOPS-5081 - Fixed FilterBar in VList header having wrong style on hover
+- Updated dependencies [fbce059c2]
+  - @talend/bootstrap-theme@8.1.2
+
+## 11.2.2
+
+### Patch Changes
+
+- 79cc47c03: Use elevation token for headerbar to be in line with other components
+
+## 11.2.1
+
+### Patch Changes
+
+- 58f8ff666: Fix button style for filter bar clear button
+- a5348a439: TDOPS-4964 - Fix SidePanel colors
+- 82e08d6e5: TDOPS-4890 - Fix Notifications text color
+- Updated dependencies [58f8ff666]
+- Updated dependencies [a5348a439]
+  - @talend/bootstrap-theme@8.1.1
+
+## 11.2.0
+
+### Minor Changes
+
+- c65edb127: fix(TDP-12557): use lighter gray for format value whitespace
+
+## 11.1.3
+
+### Patch Changes
+
+- 3345262d2: fix: tokens on the Slider component and migration to typescript
+- Updated dependencies [b36165add]
+  - @talend/design-tokens@2.8.0
+
+## 11.1.2
+
+### Patch Changes
+
+- 62bcde608: fix: setup the interactive stuff in accent color for the subheader bar
+
+## 11.1.1
+
+### Patch Changes
+
+- a38d7b28a: fix: change icon color to neutral in subheader as it's not an interactive component
+  fix: change the border color of the grid layout to be weaker
+
+## 11.1.0
+
+### Minor Changes
+
+- c15088d3b: TDOPS-4856 - Fix List colors taken from DS tokens
+
+## 11.0.0
+
+### Major Changes
+
+- bfc02c4fb: Style now use design tokens instead of bootstrap sass variables
+
+  We have updated the following components:
+
+  - ActionBar
+  - ActionIconToggle
+  - AppLoader
+  - Badge
+  - CollapsiblePanel
+  - Datalist
+  - DataViewer
+  - DateTimePickers + Legacy
+  - Drawer
+  - EditableText
+  - Enumeration (bug on buttons)
+  - FilterBar
+  - FormatValue
+  - GuidedTour
+  - GridLayout aka Dashboard
+  - HeaderBar
+  - List (Virtualized and Composition)
+  - ListView
+  - MultiSelect
+  - Notification
+  - ObjectViewer
+  - PieChart
+  - Progress
+  - RadarChart
+  - ResourceList
+  - ResourcePicker
+  - RichLayout
+  - Skeleton
+  - Slider
+  - Status
+  - SubHeaderBar
+  - Toggle
+  - Tooltip
+  - TreeView
+  - Typeahead
+
+### Patch Changes
+
+- 40e70c055: chore: remove devDependencies to typescript
+- Updated dependencies [bfc02c4fb]
+  - @talend/bootstrap-theme@8.0.0
+
+## 10.3.5
+
+### Patch Changes
+
+- fcd8daf3c: fix: VirtualizedList.CellLabel support empty CellData
+- c7f316d7c: - chore: remove enzyme devDependencies
+  - chore: remove **mocks**/props-without-i18n.js
+- b8c4161d2: - fix: add missing proptypes on Inject
+  - fix(dropdown): propagate missing id for a11y
+  - chore: treeview remove unknow props key
+- 3099c427a: fix: remove wrong propTypes from Checkbox component
+
+  fix: remove active props to Button which was responsible for the following error:
+
+  ```
+  Warning: Received `true` for a non-boolean attribute `active`.
+
+      If you want to write it to the DOM, pass a string instead: active="true" or active={value.toString()}.
+  ```
+
+  fix: Columns fieldset propTypes
+  fix: Fieldset propTypes
+  fix: omit isDisabledChecker from input in Date/Time pickers
+
+## 10.3.4
+
+### Patch Changes
+
+- b99957a47: test: rewrite all tests using react-testing-library
+- 0ccc2592e: test: rewrite using react testing-library the following components:
+
+  - TabBar
+  - Tag
+  - Toggle
+  - TooltipTrigger
+  - TreeView
+  - Typeahead
+  - withDrawer
+
+  Rewrite theme utility in Typescript
+
+## 10.3.3
+
+### Patch Changes
+
+- 52d4f2df3: test: rewrite tests using testing-library of the following components:
+
+  - ResourceList
+  - ResourcePicker
+  - Rich
+  - SidePanel
+  - Skeleton
+  - Slider
+  - SubHeaderBar
+
+- b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
+- 85b04cc81: test(List): rewrite using RTL
+- 9719af7af: test: rewrite test using RTL of the following components:
+
+  - ObjectViewer
+  - OverlayTrigger
+  - PieChart
+  - RadarChart
+  - RatioBar
+
+- Updated dependencies [fca736c31]
+- Updated dependencies [fca736c31]
+  - @talend/icons@6.58.1
+
+## 10.3.2
+
+### Patch Changes
+
+- b96328ad4: - chore: rewrite Skeleton & GridLayout in TS
+  - test rewrite tests from enzyme to RTL of FocusManager, GridLayout
+- d44f9deb3: fix(ResourceList): fix some sizing issue
+- 2fa0bd46c: test: rewrite tests using RTL of:
+
+  - JSONSchemaRenderer
+  - Layout
+  - Loader
+
+  chore(Link): rename index.js into index.ts
+
+  chore(Layout): migrate to TS part of internals
+
+- 56948ce94: - rewrite tests using RTL of Dialog, Drawer, EditableText, Enumeration
+  - refactor the EditableText component
+  - refactor Enumeration
+- c94aceb65: - fix: Remove wrong proptypes from Action (overlay).
+  Make a lots of noise for nothing the overlay is not required on Action.
+
+  - chore: refactor HeaderBar. move into private primitives each internal components
+  - tests: rewrite tests of Inject and HTTPError
+  - chore: rewrite Inject using Typescript
+  - chore: rename index files of Icons and IconsProvider to index.ts
+
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+- Updated dependencies [49d174081]
+  - @talend/icons@6.58.0
+
+## 10.3.1
+
+### Patch Changes
+
+- 37f6f9f14: chore: rewrite tests of DateTimePickers
+
+## 10.3.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+### Patch Changes
+
+- Updated dependencies [ae37dc329]
+  - @talend/react-a11y@1.1.0
+
+## 10.2.4
+
+### Patch Changes
+
+- 96194d436: rewrite test using RTL and add some data-testid
+
+## 10.2.3
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- 708589ad4: chore: Move Gesture into a dedicated package written in typescript
+- Updated dependencies [cf697de02]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+- Updated dependencies [9a5d93e5b]
+  - @talend/icons@6.57.0
+
+## 10.2.2
+
+### Patch Changes
+
+- e7d785a6a: fix: rewrite wrap fn using typescript
+- 7a097213f: chore: add some data-test to rewrite test using RTL
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 7a097213f: test: add data-test to circular-progress
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [b0193afbd]
+- Updated dependencies [616601fda]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+  - @talend/icons@6.55.0
+
+## 10.2.1
+
+### Patch Changes
+
+- 6d2d52b79: fix(stepper): bring back a css selector and setup a width
+
+## 10.2.0
+
+### Minor Changes
+
+- 3604ba4f6: feat(components): add disabled mode for the quality bar
+- 691e07a11: feat(components): use ErrorState in the Stepper
+- 3604ba4f6: feat(components): change the color for the non applicables elements in the quality bar
+
+## 10.1.1
+
+### Patch Changes
+
+- 20f8526e9: test: rewrite using RTL
+
+## 10.1.0
+
+### Minor Changes
+
+- 44b408dc4: feat(components): List - disable item selection & disable "select all"
+
+## 10.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+## 9.6.0
+
+### Minor Changes
+
+- d2f5bd835: feat(TDP-11751): adding the possibility to set a specific height to the table and disable autosizer
+
+### Patch Changes
+
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+  - @talend/icons@6.54.0
+
+## 9.5.0
+
+### Minor Changes
+
+- 120d02173: Supports hiding tooltip for ObjectViewer(JSONLike)
+
+## 9.4.2
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
+## 9.4.1
+
+### Patch Changes
+
+- 21d87a111: fix: apply code style
+- Updated dependencies [ab0bd21cf]
+  - @talend/bootstrap-theme@7.0.1
+
 ## 9.4.0
 
 ### Minor Changes

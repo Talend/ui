@@ -1,14 +1,14 @@
-import React from 'react';
+import { Fragment } from 'react';
 import ActionIntercom from './Intercom.component';
 
 const config = { app_id: 'fyq3wodw', email: 'toto@gmail.com' };
 
 export default {
-	title: 'Messaging & Communication/Intercom',
+	title: 'Components/Messaging & Communication/Intercom',
 };
 
 export const Default = () => (
-	<React.Fragment>
+	<Fragment>
 		<ActionIntercom id="intercom" config={config} />
-	</React.Fragment>
+	</Fragment>
 );

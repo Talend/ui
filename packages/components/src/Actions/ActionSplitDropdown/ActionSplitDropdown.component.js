@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { SplitButton, MenuItem } from '@talend/react-bootstrap';
 import { randomUUID } from '@talend/utils';
@@ -49,7 +48,7 @@ export default function ActionSplitDropdown(props) {
 			id={randomUUID()}
 			className={classNames(className, theme['tc-split-dropdown'])}
 			aria-label={label}
-			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open "{{label}}" menu', label })}
+			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open {{label}} menu', label })}
 			{...rest}
 		>
 			{items.length ? (

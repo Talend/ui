@@ -1,5 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
+@use '~@talend/design-tokens/lib/tokens';
 @import '../../shared/styles/mixins';
 
 .common {
@@ -19,10 +19,12 @@
 
 .button {
 	@include nav-action;
+
 	&:hover {
-		color: $scooter;
+		color: tokens.$coral-color-accent-text;
 	}
+
 	&:active {
-		color: darken($scooter, 12%);
+		color: tokens.$coral-color-accent-text-active;
 	}
 }

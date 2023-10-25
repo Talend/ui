@@ -1,4 +1,3 @@
-import React from 'react';
 import isValid from 'date-fns/isValid';
 import startOfDay from 'date-fns/startOfDay';
 import endOfDay from 'date-fns/endOfDay';

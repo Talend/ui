@@ -212,12 +212,10 @@ exports[`Container List should put default props 1`] = `
       "onChange": [Function],
     },
     "titleProps": {
-      "actionsKey": "actions",
       "key": "label",
       "onClick": [Function],
       "onEditCancel": [Function],
       "onEditSubmit": [Function],
-      "persistentActionsKey": "persistentActions",
     },
   },
   "toolbar": {
@@ -230,7 +228,6 @@ exports[`Container List should put default props 1`] = `
         "large",
         "table",
       ],
-      "mode": "table",
       "onChange": [Function],
     },
     "filter": {

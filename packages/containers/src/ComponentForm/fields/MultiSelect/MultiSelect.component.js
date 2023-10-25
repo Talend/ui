@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import MultiSelect from '@talend/react-components/lib/MultiSelect';
 import Form from '@talend/react-forms';
 
 const FieldTemplate = Form.UIForm.FieldTemplate;
 
-export default class MultiSelectField extends React.Component {
+export default class MultiSelectField extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};

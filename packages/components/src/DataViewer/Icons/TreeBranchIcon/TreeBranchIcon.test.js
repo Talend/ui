@@ -1,13 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import Component, { getDefaultIcon } from './TreeBranchIcon.component';
-
-jest.mock('react-i18next', () => {
-	// eslint-disable-next-line global-require
-	const mockTranslations = require('../../../../test/i18nMock').default;
-
-	return mockTranslations();
-});
+jest.unmock('@talend/design-system');
 
 describe('getDefaultIcon', () => {
 	it('should return a custom object icon', () => {
@@ -32,7 +25,7 @@ describe('getDefaultIcon', () => {
 
 describe('TreeBranchIcon', () => {
 	it('should render an opened icon', () => {
-		const wrapper = shallow(
+		render(
 			<Component
 				dataKey="myDataKey"
 				jsonpath="myJsonPath"
@@ -41,10 +34,11 @@ describe('TreeBranchIcon', () => {
 				value={{ value: 'myValue' }}
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByTestId('tree-branch-icon')).toBeVisible();
+		expect(screen.getByTitle('Collapse myDataKey (myJsonPath)')).toBeVisible();
 	});
 	it('should render an closed icon', () => {
-		const wrapper = shallow(
+		render(
 			<Component
 				dataKey="myDataKey"
 				jsonpath="myJsonPath"
@@ -53,6 +47,7 @@ describe('TreeBranchIcon', () => {
 				value={{ value: 'myValue' }}
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const icon = screen.getByTitle('Expand myDataKey (myJsonPath)');
+		expect(icon).toHaveAttribute('name', 'talend-chevron-left');
 	});
 });

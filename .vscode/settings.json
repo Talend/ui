@@ -1,0 +1,15 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "pattern": "packages/**"
+    },
+    {
+      "pattern": "tools/**"
+    },
+    {
+      "pattern": "fork/**"
+    }
+  ],
+  "typescript.validate.enable": true,
+  "javascript.validate.enable": true
+}

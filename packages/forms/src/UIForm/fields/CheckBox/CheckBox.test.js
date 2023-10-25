@@ -1,7 +1,9 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import CheckBox from './CheckBox.component';
+
+jest.unmock('@talend/design-system');
 
 describe('CheckBox field', () => {
 	const schema = {
@@ -13,7 +15,7 @@ describe('CheckBox field', () => {
 
 	it('should render input', () => {
 		// when
-		const wrapper = shallow(
+		const { container } = render(
 			<CheckBox
 				id="myForm"
 				isValid
@@ -26,7 +28,7 @@ describe('CheckBox field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -37,7 +39,7 @@ describe('CheckBox field', () => {
 		};
 
 		// when
-		const wrapper = shallow(
+		render(
 			<CheckBox
 				id="myForm"
 				isValid
@@ -50,52 +52,30 @@ describe('CheckBox field', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('checkbox')).toBeDisabled();
 	});
 
-	it('should trigger onChange on input change', () => {
+	it('should trigger onChange and onFinish on click', async () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = mount(
+		const onFinish = jest.fn();
+		render(
 			<CheckBox
 				id="myForm"
 				isValid
 				errorMessage="My error message"
 				onChange={onChange}
-				onFinish={jest.fn()}
-				schema={schema}
-				value
-			/>,
-		);
-		const event = { target: { checked: false } };
-
-		// when
-		wrapper.find('input').simulate('change', event);
-
-		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });
-	});
-
-	it('should trigger onFinish on input change', () => {
-		// given
-		const onFinish = jest.fn();
-		const wrapper = mount(
-			<CheckBox
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={jest.fn()}
 				onFinish={onFinish}
 				schema={schema}
 				value
 			/>,
 		);
-		const event = { target: { checked: false } };
 
 		// when
-		wrapper.find('input').simulate('change', event);
+		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });
+		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: false });
+		expect(onFinish).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: false });
 	});
 });

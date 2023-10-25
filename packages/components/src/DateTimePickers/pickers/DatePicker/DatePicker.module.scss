@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
@@ -9,7 +10,7 @@
 }
 
 .calendar-header {
-	&:after {
+	&::after {
 		@include picker-underline;
 		width: 100%;
 		position: absolute;
@@ -36,27 +37,27 @@
 	.date-range {
 		position: relative;
 
-		&.range-end:after,
-		&.range-start:before,
-		&.range-start:after,
-		&.range-middle:after,
-		&.range-end:before,
-		&.range-middle:before {
+		&.range-end::after,
+		&.range-start::before,
+		&.range-start::after,
+		&.range-middle::after,
+		&.range-end::before,
+		&.range-middle::before {
 			content: ' ';
 			position: absolute;
 			height: 2.5rem;
 			z-index: -1;
-			background-color: tint($lochmara, 80%);
+			background-color: tokens.$coral-color-accent-background-weak;
 		}
 
-		&.range-end:after {
+		&.range-end::after {
 			width: 2.4rem;
 			left: 0.65rem;
 			border-top-right-radius: 50%;
 			border-bottom-right-radius: 50%;
 		}
 
-		&.range-start:before {
+		&.range-start::before {
 			width: 2.4rem;
 			right: 0.65rem;
 			border-top-left-radius: 50%;
@@ -65,14 +66,15 @@
 
 		&.range-start,
 		&.range-middle {
-			&:after {
+			&::after {
 				width: 50%;
 				right: 0;
 			}
 		}
+
 		&.range-end,
 		&.range-middle {
-			&:before {
+			&::before {
 				width: 50%;
 				left: 0;
 			}
@@ -80,12 +82,6 @@
 	}
 
 	.calendar-day {
-		&.today {
-			background-color: tint($lochmara, 90%);
-			color: $lochmara;
-			border: solid 1px $lochmara;
-		}
-
 		@include picker-action;
 
 		height: 2.4rem;
@@ -96,12 +92,18 @@
 		line-height: 2.4rem;
 		padding: 0;
 
+		&.today {
+			background-color: tokens.$coral-color-accent-background-weak;
+			color: tokens.$coral-color-accent-text;
+			border: solid 1px tokens.$coral-color-accent-border;
+		}
+
 		&.not-current-month {
 			opacity: 0.54;
 		}
 
 		&.range:hover {
-			background-color: tint($lochmara, 70%);
+			background-color: tokens.$coral-color-accent-background-weak;
 		}
 
 		&:disabled {

@@ -1,23 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CMFStory should render its name 1`] = `
-<Provider
-  store={
-    {
-      "@@observable": [Function],
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Context.Provider
-    value={{}}
-  >
-    <div>
-      My Story
-    </div>
-  </Context.Provider>
-</Provider>
+<div>
+  My Story
+</div>
 `;

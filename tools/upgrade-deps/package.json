@@ -1,6 +1,6 @@
 {
   "name": "@talend/upgrade-deps",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "description": "CLI to help management of dependencies",
   "type": "module",
   "bin": {
@@ -9,12 +9,12 @@
   "main": "src/index.js",
   "dependencies": {
     "@yarnpkg/lockfile": "^1.1.0",
-    "semver": "^7.3.8",
-    "strip-ansi": "^7.0.1",
-    "yarn-deduplicate": "^6.0.1"
+    "semver": "^7.5.4",
+    "strip-ansi": "^7.1.0",
+    "yarn-deduplicate": "^6.0.2"
   },
   "devDependencies": {
-    "jest": "^29.3.1"
+    "jest": "^29.7.0"
   },
   "license": "Apache-2.0",
   "homepage": "https://github.com/Talend/ui",
@@ -26,6 +26,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test:cron": "jest"
   },
   "publishConfig": {

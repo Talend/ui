@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Action } from '../Actions';
 import ActionBar from './ActionBar.component';
@@ -251,7 +250,7 @@ const appMassActions = {
 };
 
 export default {
-	title: 'Form/Controls/ActionBar',
+	title: 'Components/Form - Controls/ActionBar',
 };
 
 export const Default = () => (

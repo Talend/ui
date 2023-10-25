@@ -4,6 +4,16 @@
 
 $module: line-chart;
 
+.container {
+	:global(.recharts-cartesian-axis-line) {
+		stroke: tokens.$coral-color-neutral-text;
+	}
+
+	:global(.recharts-text) {
+		fill: tokens.$coral-color-neutral-text;
+	}
+}
+
 .#{$module} {
 	&-custom-tooltip {
 		list-style: none;
@@ -54,8 +64,10 @@ $module: line-chart;
 		&__button--selection-enabled:hover {
 			background-color: tokens.$coral-color-accent-background-hover;
 		}
+
 		&__button--selected {
 			background-color: tokens.$coral-color-accent-background-selected;
+
 			&:hover {
 				background-color: tokens.$coral-color-accent-background-selected;
 			}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
 	select as d3select,
@@ -31,7 +31,7 @@ export interface BoxPlotProps {
  */
 function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element {
 	const { t } = useTranslation();
-	const containerRef = React.useRef<HTMLDivElement>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (boxPlotData && containerRef.current) {

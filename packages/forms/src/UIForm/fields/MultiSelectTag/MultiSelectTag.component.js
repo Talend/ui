@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '@talend/react-components/lib/Typeahead';
@@ -27,7 +27,7 @@ function getLabel(titleMap, value, defaultName) {
 	return defaultName || value;
 }
 
-export default class MultiSelectTag extends React.Component {
+export default class MultiSelectTag extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { value: '' };

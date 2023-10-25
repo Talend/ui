@@ -1,5 +1,85 @@
 # @talend/scripts-config-jest
 
+## 13.0.0
+
+### Major Changes
+
+- 9a0732ec5: - fix: enforce timer at the end of all tests.
+
+  - feat: mock ally.js has it uses unsupported dom method from jsdom.
+  - feat: add jest-axe configuration
+
+  To support floating-ui/react following issue we have decided to add an afterAll to let floating-ui finish stuff
+  https://github.com/floating-ui/floating-ui/issues/1908
+
+  Breaking changes:
+
+  you may have tests where you ask for jest.useFakeTimer without go back to real at some point. This is a side effect and it is not compatible with our change to support floating-ui.
+
+  ```diff
+  jest.useFakeTimers()
+  render(<Tooltip><button></Tooltip>)
+  +jest.useRealTimers()
+  ```
+
+  This will fix an error said your test is still pending after 5000 ms.
+
+### Minor Changes
+
+- e83b74b7c: Fix peer dependencies and adapt code to be compatible with pnpm
+- 96d688489: feat: mock revokeURL
+- 9a0732ec5: feat: add api to set a fetch MockResponse
+  feat: add jest-axe integration
+
+## 12.2.0
+
+### Minor Changes
+
+- ae37dc329: feat: update peerDependencies to accept react-18
+
+## 12.1.2
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+  - @talend/scripts-config-babel@13.0.0
+
+## 12.1.1
+
+### Patch Changes
+
+- 29e95e8f6: Add popover disclosure to rendered unit test
+
+## 12.1.0
+
+### Minor Changes
+
+- 65c8ad05c: feat: add \***\*tests\*\*** folder in target (like the default jest config)
+
+## 12.0.0
+
+### Major Changes
+
+- d73871906: feat: upgrade to jest 29
+
+  changelog blog https://jestjs.io/blog/2022/08/25/jest-29
+  changelog full: https://github.com/facebook/jest/blob/main/CHANGELOG.md#2900
+  upgrade guide: https://jestjs.io/docs/upgrading-to-jest29
+
+- c18aabb97: feat: export config from main
+
+  Breaking change: this package can not be used by old talend-scripts preset. But now you can extends from it direclty.
+
+  ```diff
+  - const defaults = require('@talend/scripts-config-jest/jest.config.js');
+  + const defaults = require('@talend/scripts-config-jest');
+  ```
+
+### Patch Changes
+
+- Updated dependencies [c18aabb97]
+  - @talend/scripts-config-babel@12.0.0
+
 ## 11.6.1
 
 ### Patch Changes

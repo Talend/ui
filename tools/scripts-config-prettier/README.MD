@@ -6,7 +6,7 @@ To use the jest configuration in your IDE, or to add customisation
 2. Make it extend the one from talend preset
 
 ```javascript
-const defaults = require('@talend/scripts-config-prettier/.prettierrc.js');
+const defaults = require('@talend/scripts-config-prettier');
 
 module.exports = {
 	...defaults,
@@ -14,4 +14,5 @@ module.exports = {
 	// add/change default config here
 };
 ```
+
 3. Config includes import order configuration for `@trivago/prettier-plugin-sort-imports`

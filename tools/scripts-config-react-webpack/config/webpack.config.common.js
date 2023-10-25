@@ -1,6 +1,9 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
-const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
+const utils = require('@talend/scripts-utils');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+const { getBabelLoaderOptions } = utils.babel;
 
 const babelConfig = getBabelConfig();
 
@@ -22,7 +25,7 @@ function getSassData(userSassData) {
 	return sassData;
 }
 
-function getCommonStyleLoaders(enableModules, mode) {
+function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 	const sourceMap = true;
 	let cssOptions = {
 		sourceMap,
@@ -36,8 +39,9 @@ function getCommonStyleLoaders(enableModules, mode) {
 			importLoaders: 1,
 		};
 	}
+	const styleLoader = isEnvDevelopmentServe ? 'style-loader' : MiniCssExtractPlugin.loader;
 	return [
-		{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
+		{ loader: styleLoader, options: { esModule: false } },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
@@ -61,9 +65,9 @@ function getJSAndTSLoader(env, useTypescript) {
 	].filter(Boolean);
 }
 
-function getSassLoaders(enableModules, sassData, mode) {
+function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 	const sourceMap = true;
-	return getCommonStyleLoaders(enableModules, mode).concat(
+	return getCommonStyleLoaders(enableModules, isEnvDevelopmentServe).concat(
 		{ loader: 'resolve-url-loader', options: { sourceMap } },
 		{
 			loader: 'sass-loader',
@@ -71,6 +75,8 @@ function getSassLoaders(enableModules, sassData, mode) {
 		},
 	);
 }
+const getFileNameForExtension = (extension, prefix) =>
+	`${prefix || ''}[name]-[contenthash].${extension}`;
 
 function getAssetsRules(hashed = true) {
 	const name = `[name]${hashed ? '-[hash]' : ''}[ext]`;
@@ -99,10 +105,63 @@ function getAssetsRules(hashed = true) {
 	];
 }
 
+function getWebpackRules(srcDirectories, useTypescript, devMode) {
+	return [
+		devMode && {
+			test: /\.js$/,
+			include: /node_modules/,
+			use: ['source-map-loader'],
+			enforce: 'pre',
+		},
+		{
+			test: /\.(js|ts|tsx)$/,
+			exclude: /node_modules/,
+			include: srcDirectories,
+			use: getJSAndTSLoader(process.env, useTypescript),
+		},
+		{
+			test: /\.css$/,
+			exclude: /\.module\.css$/,
+			// include: srcDirectories,
+			use: getCommonStyleLoaders(false, devMode),
+		},
+		{
+			test: /\.module\.css$/,
+			// include: srcDirectories,
+			use: getCommonStyleLoaders(true, devMode),
+		},
+		{
+			test: /\.scss$/,
+			exclude: /\.module\.scss$/,
+			// include: srcDirectories,
+			use: getSassLoaders(false, '', devMode),
+		},
+		{
+			test: /\.module\.scss$/,
+			// include: srcDirectories,
+			use: getSassLoaders(true, '', devMode),
+		},
+		...getAssetsRules(true),
+	].filter(Boolean);
+}
+
+function getWebpackPlugins(useTypescript) {
+	return [
+		new MiniCssExtractPlugin({
+			filename: getFileNameForExtension('css'),
+			chunkFilename: getFileNameForExtension('css'),
+		}),
+		useTypescript && new ForkTsCheckerWebpackPlugin(),
+	].filter(Boolean);
+}
+
 module.exports = {
 	getSassData,
 	getCommonStyleLoaders,
 	getSassLoaders,
 	getJSAndTSLoader,
 	getAssetsRules,
+	getFileNameForExtension,
+	getWebpackRules,
+	getWebpackPlugins,
 };

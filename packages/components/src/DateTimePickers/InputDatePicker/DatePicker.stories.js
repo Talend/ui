@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import isBefore from 'date-fns/is_before';
 import startOfDay from 'date-fns/start_of_day';
@@ -9,8 +8,8 @@ import DateManager from '../Date/Manager';
 import DatePicker from '../Date/Picker';
 
 export default {
-	title: 'Form/Controls/DatePicker/Date',
-
+	title: 'Components/Form - Controls/DatePicker/Date',
+	parameters: { chromatic: { disableSnapshot: true } },
 	decorators: [
 		story => (
 			<form

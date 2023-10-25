@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message should render a11y html 1`] = `
+<main>
+  <div
+    aria-live="polite"
+    class="theme-message theme-success_border"
+    role="status"
+  >
+    <div
+      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-XS theme-gap-y-XS theme-padding-top-S theme-padding-right-M theme-padding-bottom-S theme-padding-left-M"
+    >
+      <header
+        class="theme-message__title"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
+          All good
+        </div>
+      </header>
+      <p
+        class="theme-message__description"
+      >
+        This component is well configured
+      </p>
+      <a
+        class="theme-linkable theme-link"
+        href="https://talend.com"
+      >
+        <span
+          class="theme-link__text"
+        >
+          Learn more
+        </span>
+        <span
+          class="theme-link__iconExternal"
+          data-test="link.icon.external"
+          data-testid="link.icon.external"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.2rem; height: 1.2rem;"
+          >
+            <use
+              xlink:href="#external-link:S"
+            />
+          </svg>
+        </span>
+      </a>
+      Success
+      <div
+        class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-0 theme-gap-y-0"
+      >
+        <button
+          aria-busy="false"
+          class="theme-clickable theme-button theme-tertiary"
+          type="button"
+        >
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          >
+            See
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-live="polite"
+    class="theme-message theme-destructive_border"
+    role="status"
+  >
+    <div
+      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-XS theme-gap-y-XS theme-padding-top-S theme-padding-right-M theme-padding-bottom-S theme-padding-left-M"
+    >
+      <header
+        class="theme-message__title"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
+          Something went wrong
+        </div>
+      </header>
+      <p
+        class="theme-message__description"
+      >
+        There is an issue with the component configuration
+      </p>
+      <a
+        class="theme-linkable theme-link"
+        href="https://talend.com"
+      >
+        <span
+          class="theme-link__text"
+        >
+          Learn more
+        </span>
+        <span
+          class="theme-link__iconExternal"
+          data-test="link.icon.external"
+          data-testid="link.icon.external"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.2rem; height: 1.2rem;"
+          >
+            <use
+              xlink:href="#external-link:S"
+            />
+          </svg>
+        </span>
+      </a>
+      Destructive
+      <div
+        class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-0 theme-gap-y-0"
+      >
+        <button
+          aria-busy="false"
+          class="theme-clickable theme-button theme-tertiary"
+          type="button"
+        >
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          >
+            See
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-live="polite"
+    class="theme-message theme-warning_border"
+    role="status"
+  >
+    <div
+      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-XS theme-gap-y-XS theme-padding-top-S theme-padding-right-M theme-padding-bottom-S theme-padding-left-M"
+    >
+      <header
+        class="theme-message__title"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
+          Type incompatibilities
+        </div>
+      </header>
+      <p
+        class="theme-message__description"
+      >
+        Maybe resolve this issue before doing anything else
+      </p>
+      <a
+        class="theme-linkable theme-link"
+        href="https://talend.com"
+      >
+        <span
+          class="theme-link__text"
+        >
+          Learn more
+        </span>
+        <span
+          class="theme-link__iconExternal"
+          data-test="link.icon.external"
+          data-testid="link.icon.external"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.2rem; height: 1.2rem;"
+          >
+            <use
+              xlink:href="#external-link:S"
+            />
+          </svg>
+        </span>
+      </a>
+      Warning
+      <div
+        class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-0 theme-gap-y-0"
+      >
+        <button
+          aria-busy="false"
+          class="theme-clickable theme-button theme-tertiary"
+          type="button"
+        >
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          >
+            See
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-live="polite"
+    class="theme-message theme-information_border"
+    role="status"
+  >
+    <div
+      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-XS theme-gap-y-XS theme-padding-top-S theme-padding-right-M theme-padding-bottom-S theme-padding-left-M"
+    >
+      <header
+        class="theme-message__title"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
+          Auto mapping
+        </div>
+      </header>
+      <p
+        class="theme-message__description"
+      >
+        Some fields has been auto mapped
+      </p>
+      <a
+        class="theme-linkable theme-link"
+        href="https://talend.com"
+      >
+        <span
+          class="theme-link__text"
+        >
+          Learn more
+        </span>
+        <span
+          class="theme-link__iconExternal"
+          data-test="link.icon.external"
+          data-testid="link.icon.external"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1.2rem; height: 1.2rem;"
+          >
+            <use
+              xlink:href="#external-link:S"
+            />
+          </svg>
+        </span>
+      </a>
+      Information
+      <div
+        class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-0 theme-gap-y-0"
+      >
+        <button
+          aria-busy="false"
+          class="theme-clickable theme-button theme-tertiary"
+          type="button"
+        >
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          >
+            Dismiss
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+`;

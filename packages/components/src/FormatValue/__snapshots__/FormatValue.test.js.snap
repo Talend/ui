@@ -10,9 +10,12 @@ exports[`FormatValue should handle leading empty space in the string 1`] = `
 <DocumentFragment>
   <span>
     <span
-      aria-label="white space character"
+      aria-label="whitespace character"
       class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
       name="talend-empty-char"
+    />
+    <span
+      class="theme-td-value td-value"
     />
     <span
       class="theme-td-value td-value"
@@ -37,8 +40,6 @@ exports[`FormatValue should handle line feeding in the string 1`] = `
         class="CoralIcon theme-td-white-space-character td-white-space-character"
         name="talend-carriage-return"
       />
-      
-
     </span>
     <span
       class="theme-td-value td-value"
@@ -66,8 +67,6 @@ exports[`FormatValue should handle single line feed 1`] = `
         class="CoralIcon theme-td-white-space-character td-white-space-character"
         name="talend-carriage-return"
       />
-      
-
     </span>
   </span>
 </DocumentFragment>
@@ -102,9 +101,12 @@ exports[`FormatValue should handle trailing empty space in the string 1`] = `
       l
     </span>
     <span
-      aria-label="white space character"
+      aria-label="whitespace character"
       class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
       name="talend-empty-char"
+    />
+    <span
+      class="theme-td-value td-value"
     />
   </span>
 </DocumentFragment>
@@ -122,9 +124,42 @@ exports[`FormatValue should replace the leading/trailing white space and the lin
 <DocumentFragment>
   <span>
     <span
-      aria-label="white space character"
+      aria-label="whitespace character"
       class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
       name="talend-empty-char"
+    />
+    <span
+      aria-label="whitespace character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      aria-label="whitespace character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      aria-label="whitespace character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      aria-label="whitespace character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      aria-label="whitespace character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      aria-label="whitespace character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      class="theme-td-value td-value"
     />
     <span
       aria-label="space character"
@@ -147,14 +182,22 @@ exports[`FormatValue should replace the leading/trailing white space and the lin
         class="CoralIcon theme-td-white-space-character td-white-space-character"
         name="talend-carriage-return"
       />
-      
-
     </span>
     <span
-      aria-label="white space character"
+      aria-label="whitespace character"
       class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
       name="talend-empty-char"
     />
+    <span
+      aria-label="whitespace character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      class="theme-td-value td-value"
+    >
+      psum
+    </span>
     <span
       aria-label="tab character"
       class="CoralIcon theme-td-white-space-character theme-td-tab-character td-white-space-character"

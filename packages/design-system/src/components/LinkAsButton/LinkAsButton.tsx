@@ -1,7 +1,7 @@
-import React, { cloneElement, forwardRef, Ref } from 'react';
+import { cloneElement, forwardRef, Ref } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import Clickable, { ClickableProps } from '../Clickable';
+import { Clickable, ClickableProps } from '../Clickable';
 import { Icon } from '../Icon/Icon';
 import { LinkComponentProps } from '../Link';
 
@@ -10,10 +10,10 @@ import linkStyles from '../Link/Link.module.scss';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { SizedIcon } from '../Icon';
 
-type LinkAsButtonProps = Omit<ClickableProps, 'className'> &
+export type LinkAsButtonProps = Omit<ClickableProps, 'className'> &
 	Omit<LinkComponentProps, 'hideExternalIcon'> & { openInNewTab?: boolean };
 
-const LinkAsButton = forwardRef(
+export const LinkAsButton = forwardRef(
 	(
 		{ disabled, title, icon, children, openInNewTab, ...rest }: LinkAsButtonProps,
 		ref: Ref<HTMLButtonElement>,
@@ -60,16 +60,22 @@ const LinkAsButton = forwardRef(
 							className={sharedLinkableStyles.link__icon}
 							name={icon}
 							data-test="link.icon.before"
+							data-testid="link.icon.before"
 						/>
 					) : (
 						cloneElement(icon, {
 							'data-test': 'link.icon.before',
+							'data-testid': 'link.icon.before',
 							className: classnames(icon.props?.className, sharedLinkableStyles.link__icon),
 						})
 					))}
 				<span className={linkStyles.link__text}>{children}</span>
 				{openInNewTab && (
-					<span className={sharedLinkableStyles.link__iconExternal} data-test="link.icon.external">
+					<span
+						className={sharedLinkableStyles.link__iconExternal}
+						data-test="link.icon.external"
+						data-testid="link.icon.external"
+					>
 						<SizedIcon size="S" name="external-link" />
 					</span>
 				)}
@@ -79,5 +85,3 @@ const LinkAsButton = forwardRef(
 );
 
 LinkAsButton.displayName = 'LinkAsButton';
-
-export default LinkAsButton;

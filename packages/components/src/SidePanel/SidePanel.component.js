@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useLayoutEffect, useEffect } from 'react';
+import { createRef, useState, useLayoutEffect, useEffect } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
@@ -64,7 +64,7 @@ function SidePanel({
 	const docked = onToggleDock ? dockedProp : dockState;
 	const [width, setWidth] = useState(() => getInitialWidth(docked, large));
 	const [animation, setAnimation] = useState(false);
-	const ref = React.createRef();
+	const ref = createRef();
 
 	useLayoutEffect(() => {
 		if (docked || minimised) {
@@ -73,7 +73,7 @@ function SidePanel({
 			const actionList = ref.current.querySelector('.tc-action-list');
 			setWidth(actionList.offsetWidth);
 		}
-	}, [ref, docked]);
+	}, [ref, docked, minimised, large]);
 
 	useEffect(() => {
 		// animation is disabled at first to avoid the panel to be animated at first render
@@ -81,7 +81,7 @@ function SidePanel({
 		if (!animation && width) {
 			setAnimation(true);
 		}
-	}, [width]);
+	}, [animation, width]);
 
 	const onToggle = (...args) => {
 		if (onToggleDock) {
@@ -101,16 +101,21 @@ function SidePanel({
 		[theme.reverse]: reverse,
 		[theme.animate]: animation,
 	});
-	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
-		'nav-inverse': !reverse,
-	});
+	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list');
 
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand menu' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse menu' });
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav id={id} className={navCSS} role="navigation" ref={ref} style={{ width }}>
+		<nav
+			id={id}
+			className={navCSS}
+			role="navigation"
+			ref={ref}
+			style={{ width }}
+			data-theme="light"
+		>
 			{backgroundIcon && (
 				<style>
 					{`#${id}::before {
@@ -155,6 +160,7 @@ function SidePanel({
 						onSelect={onSelect}
 						selected={selected}
 						actions={actions}
+						reverse={!reverse}
 						id={id}
 						isNav
 					/>

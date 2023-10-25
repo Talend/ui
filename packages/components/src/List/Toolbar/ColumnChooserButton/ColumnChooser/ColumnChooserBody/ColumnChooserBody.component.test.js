@@ -1,10 +1,11 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ColumnChooserProvider } from '../columnChooser.context';
 import getDefaultT from '../../../../../translate';
 
 import Component from './ColumnChooserBody.component';
+
+jest.unmock('@talend/design-system');
 
 const columns = [
 	{ visible: true, label: 'col1', locked: true, order: 1 },
@@ -27,33 +28,34 @@ describe('ColumnChooserBody', () => {
 			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(
+		const { container } = render(
 			<ColumnChooserProvider value={contextValues}>
 				<Component />
 			</ColumnChooserProvider>,
 		);
 		// Then
-		expect(wrapper.find('.tc-column-chooser-row.theme-tc-column-chooser-row')).toHaveLength(
-			columns.length + 1,
-		);
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(
+			// eslint-disable-next-line testing-library/no-container
+			container.querySelectorAll('.tc-column-chooser-row.theme-tc-column-chooser-row'),
+		).toHaveLength(columns.length + 1);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render with children', () => {
 		// Given
 		const contextValues = {
 			columns,
 		};
-		const Children = <div id="my-child">Hello</div>;
+		const Children = <div data-testid="my-child">Hello</div>;
 		// When
-		const wrapper = mount(
+		render(
 			<ColumnChooserProvider value={contextValues}>
 				<Component>{Children}</Component>
 			</ColumnChooserProvider>,
 		);
 		// Then
-		expect(wrapper.find('div#my-child')).toHaveLength(1);
+		expect(screen.getByTestId('my-child')).toBeVisible();
 	});
-	it('should call the onChangeVisibility when onChange is triggered on the column chooser table', () => {
+	it('should call the onChangeVisibility when onChange is triggered on the column chooser table', async () => {
 		const onChangeVisibility = jest.fn();
 		// Given
 		const contextValues = {
@@ -65,17 +67,15 @@ describe('ColumnChooserBody', () => {
 			t: getDefaultT(),
 		};
 		// When
-		const wrapper = mount(
+		render(
 			<ColumnChooserProvider value={contextValues}>
 				<Component />
 			</ColumnChooserProvider>,
 		);
-		expect(wrapper.find('input#body-context-id-body-checkbox-col3').prop('checked')).toBe(true);
-		act(() => {
-			wrapper.find('input#body-context-id-body-checkbox-col3').simulate('change');
-		});
-		wrapper.update();
-		// Then
-		expect(onChangeVisibility).toHaveBeenNthCalledWith(1, true, 'col3');
+		expect(screen.getByText('col3').previousSibling).toBeChecked();
+		userEvent.click(screen.getByText('col3').previousSibling);
+
+		// then
+		expect(onChangeVisibility).toHaveBeenNthCalledWith(1, false, 'col3');
 	});
 });

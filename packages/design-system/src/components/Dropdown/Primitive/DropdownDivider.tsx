@@ -1,12 +1,13 @@
-import React, { forwardRef, Ref } from 'react';
-import { MenuItemProps, MenuSeparator } from 'reakit';
+import { forwardRef, Ref, HTMLAttributes } from 'react';
 
 import styles from './DropdownDivider.module.scss';
 
-export type DropdownDividerType = MenuItemProps;
+export type DropdownDividerType = HTMLAttributes<HTMLHRElement>;
 
 const DropdownDivider = forwardRef((props: DropdownDividerType, ref: Ref<HTMLHRElement>) => {
-	return <MenuSeparator {...props} orientation="horizontal" className={styles.divider} ref={ref} />;
+	return <hr {...props} aria-orientation="horizontal" className={styles.divider} ref={ref} />;
 });
+
+DropdownDivider.displayName = 'DropdownDivider';
 
 export default DropdownDivider;

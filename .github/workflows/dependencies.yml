@@ -5,6 +5,12 @@ on:
   schedule:
     - cron: "0 10 * * WED"
 
+permissions:
+  contents: write
+  deployments: read
+  pull-requests: write
+  statuses: write
+
 jobs:
   upgrade:
     name: Upgrade dependencies
@@ -13,15 +19,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: "yarn"
+        uses: ./.github/actions/setup-node
 
       - name: Upgrade dependencies
         run: |
@@ -32,7 +33,7 @@ jobs:
           git add dependencies-latest.txt
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 #v5.0.2
         with:
           assignees: jmfrancois
           reviewers: jmfrancois

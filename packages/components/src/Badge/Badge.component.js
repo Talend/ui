@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import badgeCssModule from './Badge.module.scss';
 import { getTheme } from '../theme';
@@ -22,7 +22,7 @@ const TYPES = {
 };
 
 const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, dropdown }) => (
-	<React.Fragment>
+	<Fragment>
 		{category && <BadgeLib.Category label={category} />}
 		{category && <BadgeLib.Separator />}
 		<BadgeLib.Label aslink={aslink} category={category} label={label}>
@@ -31,7 +31,7 @@ const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, d
 		{icon && onDelete && <BadgeLib.Separator iconSeparator />}
 		{dropdown && <BadgeLib.Dropdown id={id} props={dropdown} />}
 		{onDelete && <BadgeLib.DeleteAction id={id} onClick={onDelete} disabled={disabled} />}
-	</React.Fragment>
+	</Fragment>
 );
 
 DefaultBadge.propTypes = {

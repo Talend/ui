@@ -1,5 +1,4 @@
-import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import createSagaMiddleware from 'redux-saga';
 import { batchedSubscribe } from 'redux-batched-subscribe';
 import { spawn } from 'redux-saga/effects';
@@ -151,7 +150,8 @@ export default async function bootstrap(appOptions = {}) {
 	if (options.render !== false) {
 		saga.run();
 
-		render(
+		const root = ReactDOM.createRoot(element);
+		root.render(
 			<App
 				store={store}
 				loading={options.AppLoader}
@@ -160,7 +160,6 @@ export default async function bootstrap(appOptions = {}) {
 			>
 				<RootComponent />
 			</App>,
-			element,
 		);
 	}
 

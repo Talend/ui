@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 
 import Form from '.';
 
@@ -36,7 +36,7 @@ const SCHEMA = `{
   }
 `;
 
-class SchemaInState extends React.Component {
+class SchemaInState extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { schema: SCHEMA };

@@ -1,4 +1,3 @@
-
 /**
  * Focus management on time picker.
  * - try to focus on the selected item

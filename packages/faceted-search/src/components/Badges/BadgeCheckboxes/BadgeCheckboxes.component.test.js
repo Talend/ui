@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 
 import { BadgeCheckboxes } from './BadgeCheckboxes.component';
@@ -36,9 +34,10 @@ describe('BadgeCheckboxes', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<BadgeWithContext {...props} />);
+		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(wrapper.find('span').at(2).text()).toBe('All');
+
+		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
 	});
 	it('should return "All" when value is empty', () => {
 		// Given
@@ -51,9 +50,9 @@ describe('BadgeCheckboxes', () => {
 			value: [],
 		};
 		// When
-		const wrapper = mount(<BadgeWithContext {...props} />);
+		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(wrapper.find('span').at(2).text()).toBe('All');
+		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
 	});
 	it('should return the amount of values when values are equal or greater than 4', () => {
 		// Given
@@ -72,9 +71,9 @@ describe('BadgeCheckboxes', () => {
 			],
 		};
 		// When
-		const wrapper = mount(<BadgeWithContext {...props} />);
+		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(wrapper.find('span').at(2).text()).toBe('5 value');
+		expect(document.querySelectorAll('span')[2]).toHaveTextContent('5 value');
 	});
 	it('should return only the checked values', () => {
 		// Given
@@ -93,10 +92,10 @@ describe('BadgeCheckboxes', () => {
 			],
 		};
 		// When
-		const wrapper = mount(<BadgeWithContext {...props} />);
+		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(wrapper.find('span').at(2).text()).toEqual('one');
-		expect(wrapper.find('span').at(3).text()).toEqual('two');
-		expect(wrapper.find('span').at(4).text()).toEqual('five');
+		expect(document.querySelectorAll('span')[2]).toHaveTextContent('one');
+		expect(document.querySelectorAll('span')[3]).toHaveTextContent('two');
+		expect(document.querySelectorAll('span')[4]).toHaveTextContent('five');
 	});
 });

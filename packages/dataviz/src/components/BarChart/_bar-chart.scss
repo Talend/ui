@@ -1,12 +1,13 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
-$pattern-bar-primary-color: tint($jaffa, 70%);
-$pattern-bar-secondary-color: shade($jaffa, 30%);
+$pattern-bar-primary-color: tokens.$coral-color-charts-warning-weak;
+$pattern-bar-secondary-color: tokens.$coral-color-charts-warning-strong;
 
-$value-bar-primary-color: tint($lochmara, 70%);
-$value-bar-secondary-color: shade($lochmara, 30%);
+$value-bar-primary-color: tokens.$coral-color-charts-default-weak;
+$value-bar-secondary-color: tokens.$coral-color-charts-default-strong;
 
-$grey-bar-color: $alto;
+$grey-bar-color: tokens.$coral-color-charts-neutral-weak;
 
 @mixin override-recharts-styles() {
 	// We can't use custom classname on axis
@@ -19,11 +20,11 @@ $grey-bar-color: $alto;
 		.recharts-yAxis {
 			text {
 				font-size: 1.2rem;
-				fill: $gray;
+				fill: tokens.$coral-color-neutral-text;
 			}
 
 			line {
-				stroke: $gray;
+				stroke: tokens.$coral-color-neutral-text;
 			}
 		}
 

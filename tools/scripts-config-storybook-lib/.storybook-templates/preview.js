@@ -9,7 +9,7 @@ import { initI18n } from './i18n';
 const { i18n: userI18n, cmf, ...userPreview } = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
 // msw
-initialize();
+initialize({ onUnhandledRequest: 'bypass' });
 
 // i18next
 const i18n = initI18n(userI18n);
@@ -27,22 +27,57 @@ if (cmf) {
 	}
 }
 
+function ToggleBootstrap({ disabled }) {
+	React.useEffect(() => {
+		document.querySelectorAll('link[href*="bootstrap"]').forEach(link => link.disabled = disabled);
+	}, [disabled]);
+	return null;
+}
+
 const defaultPreview = {
 	globalTypes: {
+		bootstrapTheme: {
+			name: 'Bootstrap theme',
+			description: 'Activate bootstrap theme',
+			defaultValue: 'true',
+			toolbar: {
+				icon: 'beaker',
+				items: [
+					{ value: 'true', left: '✅', title: 'With Bootstrap' },
+					{ value: 'false', left: '❌', title: 'Without Bootstrap' },
+				],
+				dynamicTitle: true,
+			},
+		},
+		theme: {
+			name: 'Theme',
+			description: 'Choose a theme to apply to the design system',
+			defaultValue: 'light',
+			toolbar: {
+				icon: 'paintbrush',
+				items: [
+					{ value: 'light', left: '⚪', title: 'Light mode' },
+					{ value: 'dark', left: '🌑', title: 'Dark mode' },
+				],
+				dynamicTitle: true,
+			},
+		},
 		locale: {
 			name: 'Locale',
 			defaultValue: 'en',
 			toolbar: {
 				icon: 'globe',
 				items: [
-					{ value: 'zh', title: 'Chinese' },
-					{ value: 'en', title: 'English' },
-					{ value: 'fr', title: 'French' },
-					{ value: 'de', title: 'German' },
-					{ value: 'ja', title: 'Japanese' },
+					{ value: 'zh', left: "🇨🇳", title: 'Chinese' },
+					{ value: 'en', left: "🇬🇧", title: 'English' },
+					{ value: 'fr', left: "🇫🇷", title: 'French' },
+					{ value: 'de', left: "🇩🇪", title: 'German' },
+					{ value: 'ja', left: "🇯🇵", title: 'Japanese' },
 				],
+				dynamicTitle: true,
 			},
 		},
+		
 	},
 	loaders: [cmfLoader].filter(Boolean),
 	decorators: [
@@ -59,15 +94,35 @@ const defaultPreview = {
 			const storyElement = React.createElement(Story, {...context, key: 'story'});
 			return [
 				React.createElement(IconsProvider, {
-					key: 'icons-provider-decorator'
+					key: 'icons-provider-decorator',
+					bundles: [
+						'all.svg',
+						'XS.svg',
+						'S.svg',
+						'M.svg',
+						'L.svg',
+					]
+				}),
+				React.createElement(ToggleBootstrap, {
+					disabled: context.globals.bootstrapTheme === 'false',
+					key: 'toggle-bootstrap-decorator'
 				}),
 				React.createElement(ThemeProvider, {
-					key: 'theme-provider-decorator'
+					key: 'theme-provider-decorator',
+					theme: context.globals.theme,
 				}, storyElement)
 			];
 		},
 		cmfDecorator
 	].filter(Boolean),
+	parameters:{
+		backgrounds: { disable: true, grid: { disable: true } },
+		docs: {
+			canvas: {
+				withToolbar: true,
+			},
+		}
+	}
 };
 
 

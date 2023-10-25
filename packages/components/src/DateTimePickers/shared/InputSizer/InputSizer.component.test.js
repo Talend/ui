@@ -1,6 +1,5 @@
-import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { shallow, mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
+
 import InputSizer from './InputSizer.component';
 
 describe('InputSizer', () => {
@@ -11,9 +10,7 @@ describe('InputSizer', () => {
 		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
 
 		// when
-		act(() => {
-			mount(<InputSizer placeholder={placeholder}>{children}</InputSizer>);
-		});
+		render(<InputSizer placeholder={placeholder}>{children}</InputSizer>);
 
 		// then
 		expect(children).toHaveBeenCalledWith(47);
@@ -22,18 +19,15 @@ describe('InputSizer', () => {
 		// given
 		const children = jest.fn();
 		// when
-		const wrapper = shallow(
+		render(
 			<InputSizer placeholder="HH:mm" inputText="2019-08-21">
 				{children}
 			</InputSizer>,
 		);
 		// then
-		const style = wrapper.find('span').prop('style');
-		expect(style).toEqual({
-			padding: '0 1rem',
-			fontSize: '1.4rem',
-			visibility: 'hidden',
-			position: 'absolute',
-		});
+		const style = screen.getByTestId('InputSizer').getAttribute('style');
+		expect(style).toEqual(
+			'padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;',
+		);
 	});
 });

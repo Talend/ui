@@ -1,37 +1,38 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { Action } from '../index';
+import { render, screen } from '@testing-library/react';
+import { Action } from '../Actions';
 
 import Inject from './Inject.component';
 
-const error = { message: 'MyError' };
+const error = new Error('MyError');
 
 describe('Inject', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Inject />);
-		expect(wrapper.getElement()).toEqual(null);
+		const { container } = render(<Inject />);
+		expect(container).toBeEmptyDOMElement();
 	});
 	it('should render an Action component', () => {
-		const getComponent = jest.fn(() => Action);
+		const getComponent = jest.fn(() => 'button');
 		const props = {
 			getComponent,
 			component: 'Action',
-			label: 'MyLabel',
-			icon: 'MyIcon',
+			children: 'MyLabel',
+			disabled: true,
 		};
-		const wrapper = shallow(<Inject {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Inject {...props} />);
+		expect(screen.getByRole('button')).toBeVisible();
+		expect(screen.getByText('MyLabel')).toBeVisible();
 	});
 	it('should render NotFoundComponent', () => {
 		const getComponent = jest.fn(() => {
-			throw error;
+			throw new Error('error');
 		});
 		const props = {
 			getComponent,
 			component: 'Action',
 		};
-		const wrapper = shallow(<Inject {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		render(<Inject {...props} />);
+		expect(screen.getByText('error')).toBeVisible();
+		expect(screen.getByText('error')).toHaveClass('alert alert-danger');
 	});
 });
 
@@ -251,7 +252,8 @@ describe('Inject.getReactElement', () => {
 
 describe('NotFoundComponent', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Inject.NotFound error="MyError" />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const { container } = render(<Inject.NotFound error="MyError" />);
+
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });

@@ -1,20 +1,9 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 $tc-status-icon-size: $svg-md-size !default;
 $tc-status-action-min-size: 23px !default;
 $tc-status-space-btn-icon-label: 5px !default;
-
-$tc-status-info-icon-color: $lochmara !default;
-$tc-status-success-icon-color: $rio-grande500 !default;
-$tc-status-danger-icon-color: $coral !default;
-$tc-status-muted-icon-color: $gray500 !default;
-$tc-status-warning-icon-color: $jaffa !default;
-
-$tc-status-info-label-color: $lochmara700 !default;
-$tc-status-success-label-color: $rio-grande700 !default;
-$tc-status-danger-label-color: $coral700 !default;
-$tc-status-muted-label-color: $gray700 !default;
-$tc-status-warning-label-color: $jaffa700 !default;
 
 .tc-status {
 	position: relative;
@@ -32,27 +21,23 @@ $tc-status-warning-label-color: $jaffa700 !default;
 		}
 
 		&.info {
-			color: $tc-status-info-icon-color;
+			color: tokens.$coral-color-info-icon;
 		}
 
 		&.success {
-			color: $tc-status-success-icon-color;
+			color: tokens.$coral-color-success-icon;
 		}
 
 		&.danger {
-			color: $tc-status-danger-icon-color;
+			color: tokens.$coral-color-danger-icon;
 		}
 
 		&.muted {
-			color: $tc-status-muted-icon-color;
+			color: tokens.$coral-color-neutral-text-disabled;
 		}
 
 		&.warning {
-			color: $tc-status-warning-icon-color;
-		}
-
-		&.skeleton {
-			color: $gray;
+			color: tokens.$coral-color-warning-icon;
 		}
 	}
 
@@ -60,23 +45,23 @@ $tc-status-warning-label-color: $jaffa700 !default;
 		font-weight: 600;
 
 		&.info {
-			color: $tc-status-info-label-color;
+			color: tokens.$coral-color-info-text;
 		}
 
 		&.success {
-			color: $tc-status-success-label-color;
+			color: tokens.$coral-color-success-text;
 		}
 
 		&.danger {
-			color: $tc-status-danger-label-color;
+			color: tokens.$coral-color-danger-text;
 		}
 
 		&.muted {
-			color: $tc-status-muted-label-color;
+			color: tokens.$coral-color-neutral-text-disabled;
 		}
 
 		&.warning {
-			color: $tc-status-warning-label-color;
+			color: tokens.$coral-color-warning-text;
 		}
 	}
 
