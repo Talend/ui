@@ -10,7 +10,7 @@ import { FloatingDrawer, Tabs } from '@talend/design-system';
  * @example
  <OneColumn name="Hello world"></OneColumn>
  */
-function OneColumn({ drawers, children, tabs, ...props }) {
+function OneColumn({ drawers = [], children, tabs, ...props }) {
 	const container = classnames('tc-layout-one-column', theme.main);
 	const style = {
 		overflow: 'auto',
@@ -44,7 +44,7 @@ OneColumn.displayName = 'OneColumn';
 OneColumn.propTypes = {
 	children: PropTypes.node,
 	drawers: PropTypes.arrayOf(PropTypes.node),
-	tabs: PropTypes.shape(TabBar.propTypes),
+	tabs: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default OneColumn;

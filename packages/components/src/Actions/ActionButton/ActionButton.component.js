@@ -10,12 +10,14 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import {
 	Icon,
+	Popover,
 	SizedIcon,
 	SkeletonButton,
 	SkeletonButtonIcon,
 	SkeletonParagraph,
 	Tooltip,
 } from '@talend/design-system';
+import Inject from '../../Inject';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -189,19 +191,20 @@ function ActionButton(props) {
 	);
 	if (hasPopup) {
 		btn = (
-			<OverlayTrigger
-				onClick={rClick}
-				onMouseEnter={rMouseEnter}
-				onMouseLeave={rMouseLeave}
-				overlayRef={overlayRef}
-				overlayId={overlayId}
-				overlayPlacement={overlayPlacement}
-				overlayComponent={props.overlayComponent}
-				getComponent={props.getComponent}
-				preventScrolling={props.preventScrolling}
+			<Popover
+				// onClick={rClick}
+				// onMouseEnter={rMouseEnter}
+				// onMouseLeave={rMouseLeave}
+				// preventScrolling={props.preventScrolling}
+				disclosure={btn}
 			>
-				{btn}
-			</OverlayTrigger>
+				<Inject
+					component={props.overlayComponent}
+					getComponent={props.getComponent}
+					id={overlayId}
+					ref={overlayRef}
+				/>
+			</Popover>
 		);
 	}
 

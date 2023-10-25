@@ -18,7 +18,7 @@ function ActionIconToggle(props) {
 	});
 
 	return (
-		<Tooltip label={label} tooltipPlacement={tooltipPlacement}>
+		<Tooltip label={label}>
 			<Button
 				{...getPropsFrom(Button, rest)}
 				id={id}

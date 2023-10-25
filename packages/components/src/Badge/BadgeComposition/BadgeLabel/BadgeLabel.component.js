@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
 import { Badge } from '@talend/design-system';
+import badgeCssModule from '../../Badge.module.scss';
+import { getTheme } from '../../../theme';
+
+const theme = getTheme(badgeCssModule);
 
 const BadgeLabel = ({ aslink, category, label, children }) => {
 	return (
