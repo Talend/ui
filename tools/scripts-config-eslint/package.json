@@ -14,12 +14,14 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
-    "test": "talend-scripts test"
+    "lint": "eslint index.js __tests__",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.22.15",
-    "@talend/scripts-utils": "^2.0.2",
     "@talend/eslint-plugin": "^1.0.1",
     "@typescript-eslint/parser": "^5.62.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
