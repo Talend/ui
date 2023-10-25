@@ -1,4 +1,4 @@
-import { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import { forwardRef, ReactElement, Ref } from 'react';
 
 import Link, { LinkProps } from '../../../Link/Link';
 import { StackVertical } from '../../../Stack';
@@ -35,12 +35,10 @@ const Field = forwardRef(
 			link,
 			id,
 			label,
-			name,
 			hasError = false,
 			hideLabel = false,
 			required = false,
 			description,
-			...rest
 		} = props;
 
 		const fieldID = useId(id, 'field-');
@@ -69,7 +67,7 @@ const Field = forwardRef(
 		return (
 			<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
 				{LabelComponent}
-				{cloneElement(children, { id: fieldID, hasError, name, required, ref, ...rest })}
+				{children}
 				{link && <Link {...link} />}
 				{description && <Description />}
 			</StackVertical>
