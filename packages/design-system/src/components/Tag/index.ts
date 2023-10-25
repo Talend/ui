@@ -1,4 +1,4 @@
-import Tag, { TagVariantsNames } from './Tag';
+import { Tag, TagVariantsNames, TagProps, TagVariant } from './Tag';
 
 import {
 	TagDefault,
@@ -19,3 +19,5 @@ export {
 	TagBeta,
 	TagVariantsNames,
 };
+
+export type { TagProps, TagVariant };

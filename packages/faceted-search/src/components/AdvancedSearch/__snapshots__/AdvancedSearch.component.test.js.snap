@@ -32,6 +32,7 @@ exports[`AdvancedSearch should render by default 1`] = `
     >
       <button
         aria-describedby="id-42"
+        aria-label="Cancel"
         class="theme-clickable theme-buttonIcon theme-size_S"
         data-feature="filter.advanced.clear"
         name="action-cancel-title"
@@ -56,6 +57,7 @@ exports[`AdvancedSearch should render by default 1`] = `
       </button>
       <button
         aria-describedby="id-42"
+        aria-label="Submit"
         class="theme-clickable theme-buttonIcon theme-size_S"
         data-feature="filter.advanced.apply"
         name="action-submit-title"

@@ -36,6 +36,7 @@ describe('InputDateTimePicker', () => {
 
 			// then
 			expect(getPopup()).not.toBeInTheDocument();
+			jest.useRealTimers();
 		});
 
 		it('should trigger props.onBlur', async () => {
@@ -52,6 +53,7 @@ describe('InputDateTimePicker', () => {
 
 			// then
 			expect(onBlur).toBeCalled();
+			jest.useRealTimers();
 		});
 	});
 
@@ -93,6 +95,7 @@ describe('InputDateTimePicker', () => {
 
 			// then
 			expect(document.activeElement).toHaveClass('tc-date-picker-day');
+			jest.useRealTimers();
 		});
 	});
 

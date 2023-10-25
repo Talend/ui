@@ -18,11 +18,11 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@babel/preset-env": "^7.22.5",
-    "babel-jest": "^29.5.0",
+    "@babel/core": "^7.22.20",
+    "@babel/preset-env": "^7.22.20",
+    "babel-jest": "^29.7.0",
     "babel-plugin-tester": "^10.1.0",
-    "jest": "^29.5.0"
+    "jest": "^29.7.0"
   },
   "jest": {
     "transform": {

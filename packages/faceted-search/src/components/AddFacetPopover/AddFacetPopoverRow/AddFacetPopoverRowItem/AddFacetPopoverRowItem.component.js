@@ -44,7 +44,7 @@ export const AddFacetPopoverRowItem = ({
 		count: occurrences,
 		badgeLabel: label,
 		defaultValue: 'You can only apply the {{badgeLabel}} filter once',
-		defaultValue_plural: 'You can only apply the {{badgeLabel}} filter {{count}} times',
+		defaultValue_other: 'You can only apply the {{badgeLabel}} filter {{count}} times',
 	});
 
 	return (

@@ -5,10 +5,8 @@ import styles from './ButtonDestructive.module.scss';
 
 export type ButtonDestructivePropsType<S extends AvailableSizes> = Omit<
 	BaseButtonProps<S>,
-	'className' | 'size'
-> & {
-	size?: S;
-};
+	'className'
+>;
 
 function Destructive<S extends AvailableSizes>(
 	props: ButtonDestructivePropsType<S>,

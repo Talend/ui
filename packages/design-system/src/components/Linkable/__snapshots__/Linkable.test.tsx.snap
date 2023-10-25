@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Linkable should render a11y html 1`] = `
+<main>
+  <a
+    class="theme-linkable"
+    data-testid="my.Linkable"
+    href="#"
+  >
+    Linkable example
+  </a>
+  <a
+    class="theme-linkable"
+    href="#"
+  >
+    <span
+      class="theme-link__icon"
+    >
+      <svg
+        aria-hidden="true"
+        data-test="link.icon.before"
+        data-testid="link.icon.before"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.6rem; height: 1.6rem;"
+      >
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    Linkable example
+  </a>
+  <a
+    class="theme-linkable"
+    href="https://www.talend.com"
+  >
+    Linkable example
+    <span
+      class="theme-link__iconExternal"
+      data-test="link.icon.external"
+      data-testid="link.icon.external"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1.2rem; height: 1.2rem;"
+      >
+        <use
+          xlink:href="#external-link:S"
+        />
+      </svg>
+    </span>
+  </a>
+</main>
+`;

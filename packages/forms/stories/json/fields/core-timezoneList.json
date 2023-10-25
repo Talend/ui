@@ -1,5 +1,4 @@
 {
-  "doc": "TimezoneList/README.md",
   "jsonSchema": {
     "type": "object",
     "properties": {

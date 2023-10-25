@@ -7,7 +7,6 @@ import { WidgetContext } from '../../context';
 import widgets from '../../utils/widgets';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 function customTitle(value, schema) {
 	return `${schema.title}: ${value.firstname} ${value.lastname}`;
@@ -145,7 +144,6 @@ describe('CollapsibleFieldset', () => {
 				<CollapsibleFieldset {...props} actions={actions} />
 			</WidgetContext.Provider>,
 		);
-		screen.debug();
 		expect(screen.getByRole('button', { name: 'Action1' })).toBeVisible();
 		expect(screen.getByRole('button', { name: 'Action 2' })).toBeVisible();
 	});

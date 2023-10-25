@@ -1,5 +1,41 @@
 # @talend/react-forms
 
+## 11.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [da4cf2971]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-bootstrap@2.0.0
+  - @talend/react-components@12.0.0
+
+## 10.2.4
+
+### Patch Changes
+
+- 3b058ef7d: chore: fix some lint errors
+- Updated dependencies [3b058ef7d]
+  - @talend/design-system@7.15.1
+
+## 10.2.3
+
+### Patch Changes
+
+- ac48bdb6b: fix: pin react-ace
+- Updated dependencies [f73fdbc46]
+  - @talend/react-components@11.3.2
+
 ## 10.2.2
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @talend/http
 
+## 3.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+
+## 2.4.0
+
+### Minor Changes
+
+- 72a8f20dc: feat(TDP-12106): improve interceptors to return a promise, have access to request and a business context from caller
+
 ## 2.3.0
 
 ### Minor Changes

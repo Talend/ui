@@ -3,7 +3,7 @@ const fs = require('fs');
 
 function checkBabelJsonExtension(babelConfigJsonPath) {
 	const babelrc = JSON.parse(fs.readFileSync(babelConfigJsonPath, 'utf8'));
-	const babelrcExtends = '@talend/scripts-config-babel/.babelrc.json';
+	const babelrcExtends = '@talend/scripts-config-babel/babel.config.js';
 	if (babelrc.extends !== babelrcExtends) {
 		throw new Error(`
 			You have your own babelrc. Please extends our babelrc:
@@ -16,7 +16,7 @@ function getBabelConfigPath() {
 	const userBabelrc = path.join(process.cwd(), '.babelrc');
 	const userBabelrcJson = path.join(process.cwd(), '.babelrc.json');
 	const userBabelJs = path.join(process.cwd(), 'babel.config.js');
-	const defaultBabelrc = path.join(__dirname, '.babelrc.json');
+	const defaultBabelrc = path.join(__dirname, 'babel.config.js');
 
 	if (fs.existsSync(userBabelrc)) {
 		checkBabelJsonExtension(userBabelrc);

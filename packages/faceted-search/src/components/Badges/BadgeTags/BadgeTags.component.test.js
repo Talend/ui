@@ -1,10 +1,8 @@
-import { BadgeTags } from './BadgeTags.component';
-import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { BadgeTags } from './BadgeTags.component';
+import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
 import getDefaultT from '../../../translate';
-
-jest.mock('ally.js');
 
 const badgeFacetedContextValue = {
 	dispatch: jest.fn(),

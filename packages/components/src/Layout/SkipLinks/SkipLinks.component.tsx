@@ -1,7 +1,6 @@
 import { TFunction } from 'i18next';
 import { withTranslation } from 'react-i18next';
-
-import Icon from '../../Icon';
+import { Icon, SVG_TRANSFORMS } from '@talend/design-system';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 
@@ -16,7 +15,7 @@ function SkipTo({ href, label }: SkipToProps) {
 	return (
 		<a href={href}>
 			<span className={theme.icon}>
-				<Icon transform="rotate-270" name="talend-arrow-left" />
+				<Icon transform={SVG_TRANSFORMS.Rotate270} name="talend-arrow-left" />
 			</span>
 			<span className={theme.text}>{label}</span>
 		</a>

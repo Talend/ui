@@ -1,6 +1,6 @@
 import { act, render, screen, fireEvent } from '@testing-library/react';
 import DateWidget from './Date.component';
-jest.mock('ally.js');
+
 jest.unmock('@talend/design-system');
 
 describe('Date widget', () => {

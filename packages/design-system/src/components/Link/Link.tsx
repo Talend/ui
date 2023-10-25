@@ -3,7 +3,7 @@ import { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { DeprecatedIconNames } from '../../types';
-import Linkable, { LinkableType, isBlank as targetCheck } from '../Linkable';
+import { Linkable, LinkableType, isBlank as targetCheck } from '../Linkable';
 
 import style from './Link.module.scss';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';

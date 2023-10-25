@@ -1,5 +1,4 @@
 {
-  "doc": "Fieldset/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Comment",

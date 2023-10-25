@@ -65,7 +65,7 @@ export function getStorybookConfiguration() {
 
 	// create target tmp folder that will contain the configuration files
 	if (fs.existsSync(TMP_PATH)) {
-		fs.rmdirSync(TMP_PATH, { recursive: true, force: true });
+		fs.rmSync(TMP_PATH, { recursive: true, force: true });
 	}
 	fs.mkdirSync(TMP_PATH, { recursive: true });
 

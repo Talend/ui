@@ -1,10 +1,10 @@
 import ThemeSwitcher from './ThemeSwitcher';
-import ThemeProvider from './ThemeProvider';
+import { ThemeProvider as BaseThemeProvider, ThemeProviderProps } from './ThemeProvider';
 
-const TalendThemeProvider = ThemeProvider as typeof ThemeProvider & {
+export const ThemeProvider = BaseThemeProvider as typeof BaseThemeProvider & {
 	ThemeSwitcher: typeof ThemeSwitcher;
 };
 
-TalendThemeProvider.ThemeSwitcher = ThemeSwitcher;
+ThemeProvider.ThemeSwitcher = ThemeSwitcher;
 
-export default TalendThemeProvider;
+export type { ThemeProviderProps };

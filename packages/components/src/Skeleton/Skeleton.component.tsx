@@ -3,6 +3,7 @@ import Icon from '../Icon';
 import skeletonCssModule from './Skeleton.module.scss';
 import { getTheme } from '../theme';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import { TFunction } from 'i18next';
 
 const theme = getTheme(skeletonCssModule);
 const TYPES = {
@@ -19,11 +20,7 @@ const SIZES = {
 	small: 'small',
 };
 
-function getTranslatedType(
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	t: (msgId: string, opts: any) => string,
-	type: (typeof TYPES)[keyof typeof TYPES],
-) {
+function getTranslatedType(t: TFunction, type: (typeof TYPES)[keyof typeof TYPES]) {
 	switch (type) {
 		case TYPES.button:
 			return t('SKELETON_TYPE_BUTTON', { defaultValue: 'button' });
@@ -79,7 +76,7 @@ function Skeleton({
 		type: getTranslatedType(t, type),
 	});
 
-	if (type === 'icon') {
+	if (type === 'icon' && name) {
 		return <Icon className={classes} name={name} aria-label={ariaLabel} />;
 	}
 	return <span style={{ width, height }} className={classes} aria-label={ariaLabel} />;

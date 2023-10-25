@@ -5,21 +5,20 @@ exports[`SelectAllColumnsCheckbox should render by default 1`] = `
   class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all"
 >
   <div
-    class="checkbox tc-checkbox"
+    class="theme-checkbox"
   >
+    <input
+      aria-checked="mixed"
+      aria-describedby="select-all-id-display all the columns"
+      data-feature="column-chooser.select.all"
+      id="select-all-id-checkbox-Select-all"
+      type="checkbox"
+    />
     <label
-      data-feature="column-chooser.select.all.enable"
+      class="theme-label theme-label_inline"
       for="select-all-id-checkbox-Select-all"
     >
-      <input
-        aria-describedby="select-all-id-display all the columns"
-        data-checked="1"
-        id="select-all-id-checkbox-Select-all"
-        type="checkbox"
-      />
-      <span>
-        Select all
-      </span>
+      Select all
     </label>
   </div>
   <div

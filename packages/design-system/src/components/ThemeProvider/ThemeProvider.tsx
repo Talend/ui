@@ -12,7 +12,7 @@ export type ThemeProviderProps = PropsWithChildren<{
 	theme?: string;
 }>;
 
-const ThemeProvider = ({ theme = 'light', children }: ThemeProviderProps) => {
+export const ThemeProvider = ({ theme = 'light', children }: ThemeProviderProps) => {
 	const [selectedTheme, setSelectedTheme] = useState(theme);
 	// Handle nested Providers: parent Provider doesn't have context, child does
 	const context = useContext(ThemeContext);
@@ -32,5 +32,3 @@ const ThemeProvider = ({ theme = 'light', children }: ThemeProviderProps) => {
 		</ThemeContext.Provider>
 	);
 };
-
-export default ThemeProvider;

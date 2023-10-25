@@ -1,25 +1,36 @@
-import { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
-import { Menu, MenuButton, useMenuState } from 'reakit';
-// eslint-disable-next-line @talend/import-depth
-import DropdownButton from './Primitive/DropdownButton';
+import { cloneElement, MouseEvent, ReactElement, useEffect, useState } from 'react';
+
+import {
+	useDismiss,
+	useInteractions,
+	useFloating,
+	autoUpdate,
+	flip,
+	shift,
+} from '@floating-ui/react';
+
+import { DataAttributes, DeprecatedIconNames } from '../../types';
+import { Clickable, ClickableProps } from '../Clickable';
+import { LinkableType } from '../Linkable';
+import DropdownDivider from './Primitive/DropdownDivider';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
 import DropdownTitle from './Primitive/DropdownTitle';
-import DropdownDivider from './Primitive/DropdownDivider';
-import Clickable, { ClickableProps } from '../Clickable';
-import { LinkableType } from '../Linkable';
-import { DataAttributes, DeprecatedIconNames } from '../../types';
+import { DropdownButton } from './Primitive/DropdownButton';
+import { randomUUID } from '@talend/utils';
 
-type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
+type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 	label: string;
 	onClick: () => void;
 	icon?: DeprecatedIconNames;
 	type: 'button';
+	checked?: boolean;
 } & DataAttributes;
 
 type DropdownLinkType = Omit<LinkableType, 'children'> & {
 	label: string;
 	type: 'link';
+	as: ReactElement;
 } & DataAttributes;
 
 type DropdownLabelType = {
@@ -43,119 +54,134 @@ export type DropdownPropsType = {
 	'aria-label': string;
 } & Partial<DataAttributes>;
 
-const Dropdown = forwardRef(
-	(
-		{
-			children,
-			'data-test': dataTest,
-			'data-testid': dataTestId,
-			items,
-			...rest
-		}: DropdownPropsType,
-		ref: Ref<HTMLDivElement>,
-	) => {
-		const menu = useMenuState({
-			animated: 250,
-			gutter: 4,
-			loop: true,
-		});
+export const Dropdown = ({
+	children,
+	'data-test': dataTest,
+	'data-testid': dataTestId,
+	items,
+	...rest
+}: DropdownPropsType) => {
+	const [isOpen, setIsOpen] = useState(false);
+	const [itemIds, setItemIds] = useState<string[]>(items.map(() => randomUUID()));
 
-		const menuButtonTestId = dataTestId ? `${dataTestId}.dropdown.button` : 'dropdown.button';
-		const menuTestId = dataTestId ? `${dataTestId}.dropdown.menu` : 'dropdown.menu';
-		const menuItemTestId = dataTestId ? `${dataTestId}.dropdown.menuitem` : 'dropdown.menuitem';
-		const menuButtonTest = dataTest ? `${dataTest}.dropdown.button` : 'dropdown.button';
-		const menuTest = dataTest ? `${dataTest}.dropdown.menu` : 'dropdown.menu';
-		const menuItemTest = dataTest ? `${dataTest}.dropdown.menuitem` : 'dropdown.menuitem';
+	useEffect(() => {
+		setItemIds(items.map(() => randomUUID()));
+	}, [items]);
 
-		return (
-			<>
-				<MenuButton {...menu} data-testid={menuButtonTestId} data-test={menuButtonTest}>
-					{disclosureProps => cloneElement(children, disclosureProps)}
-				</MenuButton>
-				<Menu
-					{...menu}
-					as={DropdownShell}
-					{...rest}
-					ref={ref}
-					data-testid={menuTestId}
-					data-test={menuTest}
-				>
-					{items.map((entry, index) => {
-						if (entry.type === 'button') {
-							const { label, ...entryRest } = entry;
-							const id = `${label}-${index}`;
-							return (
-								<DropdownButton
-									{...entryRest}
-									{...menu}
-									onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-										menu.hide();
-										entry.onClick(event);
-									}}
-									key={id}
-									id={id}
-									data-testid={`${menuItemTestId}.${id}`}
-									data-test={`${menuItemTest}.${id}`}
-								>
-									{label}
-								</DropdownButton>
-							);
-						}
+	const floating = useFloating({
+		placement: 'bottom-start',
+		open: isOpen,
+		onOpenChange: setIsOpen,
+		middleware: [flip(), shift()],
+		whileElementsMounted: autoUpdate,
+	});
+	const dismiss = useDismiss(floating.context, {
+		escapeKey: true,
+		outsidePressEvent: 'mousedown',
+	});
+	const { getReferenceProps, getFloatingProps } = useInteractions([dismiss]);
+	const menuButtonTestId = dataTestId ? `${dataTestId}.dropdown.button` : 'dropdown.button';
+	const menuTestId = dataTestId ? `${dataTestId}.dropdown.menu` : 'dropdown.menu';
+	const menuItemTestId = dataTestId ? `${dataTestId}.dropdown.menuitem` : 'dropdown.menuitem';
+	const menuButtonTest = dataTest ? `${dataTest}.dropdown.button` : 'dropdown.button';
+	const menuTest = dataTest ? `${dataTest}.dropdown.menu` : 'dropdown.menu';
+	const menuItemTest = dataTest ? `${dataTest}.dropdown.menuitem` : 'dropdown.menuitem';
 
-						if (entry.type === 'title') {
-							const { label } = entry;
-							const id = `${label}-${index}`;
-							return (
-								<DropdownTitle
-									key={id}
-									data-testid={`${menuItemTestId}.${id}`}
-									data-test={`${menuItemTest}.${id}`}
-								>
-									{label}
-								</DropdownTitle>
-							);
-						}
-
-						if (entry.type === 'divider') {
-							const id = `divider-${index}`;
-							return (
-								<DropdownDivider
-									{...menu}
-									key={id}
-									data-testid={`${menuItemTestId}.${id}`}
-									data-test={`${menuItemTest}.${id}`}
-								/>
-							);
-						}
-
-						const { label, as, type, ...entryRest } = entry;
+	return (
+		<>
+			{cloneElement(children as any, {
+				onClick: () => setIsOpen(!isOpen),
+				'aria-pressed': `${isOpen}`,
+				'data-testid': menuButtonTestId,
+				'data-test': menuButtonTest,
+				'aria-expanded': `${isOpen}`,
+				ref: floating.refs.setReference,
+				...getReferenceProps(),
+			})}
+			<DropdownShell
+				{...rest}
+				ref={floating.refs.setFloating}
+				onClick={() => setIsOpen(false)}
+				style={{ ...floating.floatingStyles, display: isOpen ? 'block' : 'none' }}
+				data-testid={menuTestId}
+				data-test={menuTest}
+				{...getFloatingProps()}
+			>
+				{items.map((entry, index) => {
+					const uuid = itemIds[index];
+					if (entry.type === 'button') {
+						const { label, ...entryRest } = entry;
 						const id = `${label}-${index}`;
 						return (
-							<DropdownLink
-								as={as}
+							<DropdownButton
 								{...entryRest}
-								{...menu}
-								key={id}
-								id={id}
-								onClick={(event: MouseEvent<HTMLAnchorElement>) => {
-									menu.hide();
-									if (entry.onClick) {
-										entry.onClick(event);
-									}
+								// {...menu}
+								onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
+									entry.onClick(event);
+									setIsOpen(false);
 								}}
+								key={uuid}
+								tabIndex={0}
+								id={uuid}
 								data-testid={`${menuItemTestId}.${id}`}
 								data-test={`${menuItemTest}.${id}`}
 							>
 								{label}
-							</DropdownLink>
+							</DropdownButton>
 						);
-					})}
-				</Menu>
-			</>
-		);
-	},
-);
+					}
+
+					if (entry.type === 'title') {
+						const { label } = entry;
+						const id = `${label}-${index}`;
+						return (
+							<DropdownTitle
+								key={uuid}
+								data-testid={`${menuItemTestId}.${id}`}
+								data-test={`${menuItemTest}.${id}`}
+							>
+								{label}
+							</DropdownTitle>
+						);
+					}
+
+					if (entry.type === 'divider') {
+						const id = `divider-${index}`;
+						return (
+							<DropdownDivider
+								// {...menu}
+								key={uuid}
+								data-testid={`${menuItemTestId}.${id}`}
+								data-test={`${menuItemTest}.${id}`}
+							/>
+						);
+					}
+
+					const { label, as, type, ...entryRest } = entry;
+					const id = `${label}-${index}`;
+					return (
+						<DropdownLink
+							as={as}
+							{...entryRest}
+							// {...menu}
+							key={uuid}
+							id={uuid}
+							onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+								setIsOpen(false);
+								if (entry.onClick) {
+									entry.onClick(event);
+								}
+							}}
+							data-testid={`${menuItemTestId}.${id}`}
+							data-test={`${menuItemTest}.${id}`}
+						>
+							{label}
+						</DropdownLink>
+					);
+				})}
+			</DropdownShell>
+		</>
+	);
+};
 
 Dropdown.displayName = 'Dropdown';
-
-export default Dropdown;

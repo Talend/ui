@@ -1,5 +1,23 @@
 # @talend/icons
 
+## 7.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+
+## 6.60.1
+
+### Patch Changes
+
+- 8d73923b3: Update Qlik icons with the one provided by Qlik
+
+## 6.60.0
+
+### Minor Changes
+
+- 6af561463: feat: add Talend Qlik white and dark logos
+
 ## 6.59.0
 
 ### Minor Changes

@@ -1,7 +1,13 @@
 import fetchMock from 'fetch-mock';
 import { Response, Headers } from 'node-fetch';
 
-import { HTTP, getDefaultConfig, setDefaultConfig } from './config';
+import {
+	HTTP,
+	getDefaultConfig,
+	setDefaultConfig,
+	HTTP_RESPONSE_INTERCEPTORS,
+	addHttpResponseInterceptor,
+} from './config';
 import { httpFetch, handleBody, encodePayload, handleHttpResponse } from './http.common';
 import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
 import { TalendHttpError } from './http.types';
@@ -48,7 +54,10 @@ describe('handleBody', () => {
 
 		const blob = jest.fn(() => Promise.resolve());
 
-		await handleBody({ blob, headers } as any);
+		await handleBody({
+			headers,
+			clone: jest.fn().mockReturnValue({ blob }),
+		} as any);
 
 		expect(blob).toHaveBeenCalled();
 	});
@@ -69,6 +78,12 @@ describe('handleBody', () => {
 	it('should manage the body of the response like a text by default', async () => {
 		const result = await handleBody(new Response('') as any);
 		expect(result.data).toBe('');
+	});
+
+	it("should manage response's body and return a clone with unused body", async () => {
+		const result = await handleBody(new Response('ok') as any);
+		expect(result.data).toBe('ok');
+		expect(result.response.bodyUsed).toBe(false);
 	});
 
 	describe('#handleHttpResponse', () => {
@@ -326,5 +341,46 @@ describe('#httpFetch', () => {
 		const mockCalls = fetchMock.calls();
 		expect(mockCalls[0][1]?.credentials).toEqual('same-origin');
 		expect(mockCalls[0][1]?.headers).toEqual({ Accept: 'application/json' });
+	});
+});
+
+describe('#httpFetch with interceptors', () => {
+	beforeEach(() => {
+		for (const key in HTTP_RESPONSE_INTERCEPTORS) {
+			if (HTTP_RESPONSE_INTERCEPTORS.hasOwnProperty(key)) {
+				delete HTTP_RESPONSE_INTERCEPTORS[key];
+			}
+		}
+	});
+
+	afterEach(() => {
+		fetchMock.restore();
+	});
+
+	it('should call interceptor', async () => {
+		const interceptor = jest.fn().mockImplementation((res, _) => res);
+		addHttpResponseInterceptor('interceptor', interceptor);
+
+		const url = '/foo';
+		fetchMock.mock(url, { body: defaultBody, status: 200 });
+
+		await httpFetch(url, {}, HTTP_METHODS.GET, {});
+		expect(interceptor).toHaveBeenCalled();
+	});
+
+	it('should have access to context in interceptor', async () => {
+		const interceptor = jest.fn().mockImplementation((res, _) => res);
+		addHttpResponseInterceptor('interceptor', interceptor);
+
+		const url = '/foo';
+		const context = { async: true };
+		const response = { body: defaultBody, status: 200 };
+		fetchMock.mock(url, response);
+
+		await httpFetch(url, { context }, HTTP_METHODS.GET, {});
+		expect(interceptor).toHaveBeenCalledWith(
+			expect.anything(),
+			expect.objectContaining({ url, context, method: HTTP_METHODS.GET }),
+		);
 	});
 });

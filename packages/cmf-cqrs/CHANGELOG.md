@@ -1,5 +1,30 @@
 # @talend/react-cmf-cqrs
 
+## 10.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+  - @talend/react-cmf@8.0.0
+
+## 9.0.2
+
+### Patch Changes
+
+- Updated dependencies [8520b05f9]
+  - @talend/utils@2.6.0
+
+## 9.0.1
+
+### Patch Changes
+
+- Updated dependencies [20388beea]
+  - @talend/utils@2.5.2
+
 ## 9.0.0
 
 ### Major Changes
