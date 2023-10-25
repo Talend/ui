@@ -31,7 +31,6 @@ exports[`InlineEditing should render a11y html 1`] = `
             data-padding-override="true"
             data-test="inlineediting.input"
             data-testid="inlineediting.input"
-            id="field--mocked-uuid-4"
             name="Editthevalue"
             placeholder="What is your Lorem Ipsum?"
             type="text"

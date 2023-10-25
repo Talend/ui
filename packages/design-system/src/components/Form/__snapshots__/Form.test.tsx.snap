@@ -28,7 +28,6 @@ exports[`Form should render a11y html 1`] = `
         >
           <input
             class="theme-input"
-            id="field--mocked-uuid-0"
             name="input"
             required=""
             type="text"
@@ -50,7 +49,6 @@ exports[`Form should render a11y html 1`] = `
         >
           <input
             class="theme-input"
-            id="field--mocked-uuid-1"
             name="tel"
             required=""
             type="tel"
@@ -80,7 +78,6 @@ exports[`Form should render a11y html 1`] = `
           </span>
           <input
             class="theme-input"
-            id="field--mocked-uuid-2"
             name="amount"
             type="number"
           />
@@ -114,8 +111,6 @@ exports[`Form should render a11y html 1`] = `
           >
             <input
               class="theme-inputFile__input theme-input"
-              id="field--mocked-uuid-3"
-              name="file"
               type="file"
             />
             <div
@@ -158,7 +153,6 @@ exports[`Form should render a11y html 1`] = `
         >
           <input
             class="theme-input"
-            id="field--mocked-uuid-5"
             name="password"
             type="password"
           />
@@ -211,7 +205,6 @@ exports[`Form should render a11y html 1`] = `
           </span>
           <input
             class="theme-input"
-            id="field--mocked-uuid-7"
             name="search"
             type="search"
           />
@@ -228,8 +221,6 @@ exports[`Form should render a11y html 1`] = `
         </label>
         <textarea
           class="theme-textarea"
-          id="field--mocked-uuid-8"
-          name="textarea"
         />
       </div>
       <div
@@ -249,7 +240,7 @@ exports[`Form should render a11y html 1`] = `
           >
             <select
               class="theme-select"
-              id="field--mocked-uuid-9"
+              label="Select"
               name="select"
             >
               <option

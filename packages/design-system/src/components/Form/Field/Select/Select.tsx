@@ -66,7 +66,7 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 		);
 	}
 
-	function SelectField(fieldProps: Omit<SelectProps, 'hasError' | 'name' | 'children' | 'label'>) {
+	function SelectField(fieldProps: Omit<SelectProps, 'children'>) {
 		return (
 			<SelectPrimitive
 				hasError={hasError || false}
@@ -89,7 +89,14 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 			hideLabel={hideLabel}
 			required={required}
 		>
-			<SelectField defaultValue={defaultValue} {...rest} />
+			<SelectField
+				defaultValue={defaultValue}
+				hasError={hasError || false}
+				name={name}
+				label={label}
+				required={required}
+				{...rest}
+			/>
 		</FieldPrimitive>
 	);
 });
