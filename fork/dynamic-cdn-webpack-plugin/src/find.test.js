@@ -17,12 +17,9 @@ describe('findPackages', () => {
 		'/node_modules/react/index.js': 'console.log("react");',
 		'/node_modules/react/package.json': '{"name": "react", "version": "16.14.0"}',
 		'/node_modules/@types/classnames/index.js': 'console.log("@types/classnames");',
-		'/node_modules/@talend/react-components/index.js':
-			'console.log("@talend/react-components");',
-		'/node_modules/@talend/react-components/node_modules/react/index.js':
-			'console.log("react");',
-		'/node_modules/@talend/react-containers/index.js':
-			'console.log("@talend/react-containers");',
+		'/node_modules/@talend/react-components/index.js': 'console.log("@talend/react-components");',
+		'/node_modules/@talend/react-components/node_modules/react/index.js': 'console.log("react");',
+		'/node_modules/@talend/react-containers/index.js': 'console.log("@talend/react-containers");',
 	};
 
 	beforeEach(() => {

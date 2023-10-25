@@ -45,9 +45,11 @@ describe('File field', () => {
 			],
 		},
 	};
+
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
+
 	it('should render default File', () => {
 		// when
 		const { container } = render(<File {...props} />);
@@ -88,6 +90,7 @@ describe('File field', () => {
 	it('should trigger onChange when user select file', async () => {
 		// given
 		// jest.useFakeTimers();
+		const user = userEvent.setup({ delay: 10 });
 		render(<File {...props} />);
 
 		const testContent = { test: 'content' };
@@ -99,12 +102,13 @@ describe('File field', () => {
 
 		// when
 		const fileInput = document.querySelector('input[type="file"]');
-		await userEvent.upload(fileInput, blob);
+		await user.upload(fileInput, blob);
 		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), { schema, value });
 	});
 
 	it('should trigger pre-signed url related onChange when user select file', async () => {
 		// given
+		const user = userEvent.setup({ delay: 10 });
 		render(<File {...propsWithPresignedUrlTrigger} />);
 		const testContent = { test: 'content' };
 		const blob = new Blob([JSON.stringify(testContent, null, 2)], {
@@ -114,7 +118,7 @@ describe('File field', () => {
 
 		// when
 		const fileInput = document.querySelector('input[type="file"]');
-		await userEvent.upload(fileInput, blob);
+		await user.upload(fileInput, blob);
 
 		expect(propsWithPresignedUrlTrigger.onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			schema: propsWithPresignedUrlTrigger.schema,

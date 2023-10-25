@@ -34,6 +34,7 @@ export function convertValue(type, value) {
  * @param {any} value The value to set
  * @returns {object} The new mutated properties.
  */
+// eslint-disable-next-line @typescript-eslint/default-param-last
 function mutateValueFromKey(properties = {}, key, value) {
 	if (!key || !key.length) {
 		return value;

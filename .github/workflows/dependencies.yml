@@ -26,10 +26,10 @@ jobs:
 
       - name: Upgrade dependencies
         run: |
-          yarn --frozen-lockfile --ignore-scripts
-          yarn talend-upgrade-deps --ignore-scripts
-          yarn talend-upgrade-deps --scope=@talend --latest --ignore-scripts
-          yarn talend-upgrade-deps --latest --dry > dependencies-latest.txt
+          pnpm --frozen-lockfile --ignore-scripts
+          npx talend-upgrade-deps --ignore-scripts
+          npx talend-upgrade-deps --scope=@talend --latest --ignore-scripts
+          npx talend-upgrade-deps --latest --dry > dependencies-latest.txt
           git add dependencies-latest.txt
 
       - name: Create Pull Request

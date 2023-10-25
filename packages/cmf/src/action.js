@@ -79,7 +79,7 @@ function getActionObject(context, action, event, data) {
  */
 function getOnProps(props) {
 	return Object.keys(props).filter(
-		name => ({}.hasOwnProperty.call(props, name) && /^on.+/.test(name)),
+		name => ({}).hasOwnProperty.call(props, name) && /^on.+/.test(name),
 	);
 }
 

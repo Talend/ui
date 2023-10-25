@@ -7,6 +7,7 @@ const {
 	getJSAndTSLoader,
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
+
 const STORIES = [
 	{
 		titlePrefix: 'Design System',

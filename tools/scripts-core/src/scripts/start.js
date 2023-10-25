@@ -5,7 +5,6 @@ export default async function start(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 
 	if (packageType.isApp) {
-		utils.pkg.checkPackageIsInstalled('@talend/scripts-config-react-webpack');
 		const webpack = utils.path.resolveBin('webpack');
 		return utils.process.spawn(
 			webpack,
@@ -25,4 +24,5 @@ export default async function start(env, _, options) {
 	if (packageType.isLib) {
 		return startStorybook(env, _, options);
 	}
+	return null;
 }
