@@ -7,7 +7,7 @@
     "husky": "^8.0.3",
     "i18next-scanner": "^4.4.0",
     "lint-staged": "^13.3.0",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.3"
   },
   "scripts": {
     "postinstall": "talend-yarn-workspace run build:lib",

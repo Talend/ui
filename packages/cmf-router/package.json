@@ -34,7 +34,10 @@
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.1.5",
+    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-core": "^16.0.0",
+    "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-react-webpack": "^16.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
