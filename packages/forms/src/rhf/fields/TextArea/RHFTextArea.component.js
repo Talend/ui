@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types';
-import { useFormContext } from 'react-hook-form';
+import { useController, useFormContext } from 'react-hook-form';
 
 import TextArea from '../../../widgets/fields/TextArea';
 
 function RHFTextArea(props) {
 	const { rules = {}, name = '', ...rest } = props;
-	const { register, formState } = useFormContext();
-	const error = formState?.errors?.[name]?.message || null;
+	const { control } = useFormContext();
+	const { field, fieldState } = useController({
+		control,
+		name,
+		rules,
+	});
 
-	return <TextArea {...rest} {...register(name, rules)} error={error} />;
+	return <TextArea {...rest} {...field} error={fieldState.error?.message} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {

@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
-import { useFormContext } from 'react-hook-form';
+import { useController, useFormContext } from 'react-hook-form';
 
 import Select from '../../../widgets/fields/Select';
 
 function RHFSelect(props) {
 	const { rules = {}, name = '', ...rest } = props;
-	const { formState, register } = useFormContext();
-	const error = formState?.errors?.[name]?.message || null;
-	return <Select {...rest} {...register(name, rules)} error={error} />;
+	const { control } = useFormContext();
+	const { field, fieldState } = useController({
+		control,
+		name,
+		rules,
+	});
+	return <Select {...rest} {...field} error={fieldState.error?.message} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {

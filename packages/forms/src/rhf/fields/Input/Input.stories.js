@@ -41,7 +41,7 @@ export default {
 };
 
 export const States = props => {
-	const { control, ...rhf } = useForm();
+	const rhf = useForm();
 	return (
 		<FormProvider {...rhf}>
 			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
@@ -76,7 +76,7 @@ States.args = {
 };
 
 export const Types = props => {
-	const { control, ...rhf } = useForm();
+	const rhf = useForm();
 
 	return (
 		<FormProvider {...rhf}>
@@ -99,7 +99,7 @@ Types.args = {
 };
 
 export const DefaultValue = props => {
-	const { control, ...rhf } = useForm();
+	const rhf = useForm();
 
 	return (
 		<FormProvider {...rhf}>
@@ -140,7 +140,7 @@ Description.args = {
 };
 
 export const Validation = props => {
-	const { control, ...rhf } = useForm({ mode: 'onBlur' });
+	const rhf = useForm({ mode: 'onBlur' });
 
 	return (
 		<FormProvider {...rhf}>
