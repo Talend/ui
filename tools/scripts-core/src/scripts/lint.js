@@ -1,6 +1,8 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+
 import * as utils from '@talend/scripts-utils';
+
 import { getUserConfigFile } from '../utils/env.js';
 
 function getSmartOptions(opts, categories) {
@@ -57,9 +59,7 @@ async function lintEs(env, presetApi, options) {
 		}
 	}
 
-	const eslint = utils.path.resolveBin('eslint');
-
-	return utils.process.spawn(eslint, args, {
+	return utils.process.spawn(new URL(import.meta.resolve('eslint/bin/eslint.js')).pathname, args, {
 		stdio: 'inherit',
 		env,
 	});

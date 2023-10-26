@@ -6,6 +6,6 @@
     "declaration": true,
     "target": "ES5",
     "module": "CommonJs",
-    "types": ["jest"]
+    "types": ["jest", "@testing-library/jest-dom"]
   }
 }

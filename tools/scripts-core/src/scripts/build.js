@@ -1,14 +1,14 @@
 import * as utils from '@talend/scripts-utils';
-import buildLib from './build-lib.js';
+
 import buildUMD from './build-lib-umd.js';
+import buildLib from './build-lib.js';
 
 // eslint-disable-next-line consistent-return
 export default async function build(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 	if (packageType.isApp) {
-		const webpack = utils.path.resolveBin('webpack');
 		return utils.process.spawn(
-			webpack,
+			new URL(import.meta.resolve('webpack/bin/webpack.js')).pathname,
 			[
 				'--config',
 				utils.path.hereRelative(

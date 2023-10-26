@@ -25,8 +25,7 @@
   },
   "dependencies": {
     "@talend/utils": "^2.6.0",
-    "keycode": "^2.2.1",
-    "lodash": "^4.17.21"
+    "keycode": "^2.2.1"
   },
   "devDependencies": {
     "@talend/eslint-config": "^12.1.1",

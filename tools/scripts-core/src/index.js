@@ -1,9 +1,7 @@
-#!/usr/bin/env node
 /* eslint-disable no-console */
-
 import { getEnv } from './utils/env.js';
-import { getPresetApi } from './utils/preset.js';
 import { printSeparator } from './utils/log.js';
+import { getPresetApi } from './utils/preset.js';
 
 const command = process.argv[2];
 const options = process.argv.slice(3);

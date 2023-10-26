@@ -18,18 +18,26 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "./src/index.js lint",
-    "test": "./src/index.js test"
+    "lint": "node ./src/index.js lint",
+    "test": "node ./src/index.js test ./__tests__"
   },
   "peerDependencies": {
-    "@talend/scripts-config-react-webpack": "^16.0.0",
-    "@talend/scripts-config-storybook-lib": "^5.0.0"
+    "@talend/scripts-config-react-webpack": ">=16.0.0",
+    "@talend/scripts-config-storybook-lib": ">=5.0.0",
+    "karma": ">=6.4.2",
+    "storybook": ">=7.4.0"
   },
   "peerDependenciesMeta": {
     "@talend/scripts-config-react-webpack": {
       "optional": true
     },
     "@talend/scripts-config-storybook-lib": {
+      "optional": true
+    },
+    "karma": {
+      "optional": true
+    },
+    "storybook": {
       "optional": true
     }
   },

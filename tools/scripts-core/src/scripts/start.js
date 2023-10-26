@@ -1,13 +1,13 @@
 import * as utils from '@talend/scripts-utils';
+
 import startStorybook from './start-storybook.js';
 
 export default async function start(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 
 	if (packageType.isApp) {
-		const webpack = utils.path.resolveBin('webpack');
 		return utils.process.spawn(
-			webpack,
+			new URL(import.meta.resolve('webpack/bin/webpack.js')).pathname,
 			[
 				'serve',
 				'--config',

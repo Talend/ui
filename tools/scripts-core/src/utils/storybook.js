@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
-import path from 'path';
 import fs from 'fs';
 import fse from 'fs-extra';
 import _ from 'lodash';
-import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import * as utils from '@talend/scripts-utils';
 
 const require = createRequire(import.meta.url);

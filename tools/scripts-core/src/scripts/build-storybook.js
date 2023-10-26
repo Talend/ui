@@ -1,4 +1,5 @@
 import * as utils from '@talend/scripts-utils';
+
 import { getStorybookConfiguration } from '../utils/storybook.js';
 
 export default async function build(env, presetApi, options) {

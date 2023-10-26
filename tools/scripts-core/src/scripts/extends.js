@@ -4,8 +4,6 @@ import _ from 'lodash';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import * as utils from '@talend/scripts-utils';
-
 import { getUserConfigFile } from '../utils/env.js';
 
 const { template } = _;

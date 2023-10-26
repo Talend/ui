@@ -1,7 +1,7 @@
 import fs from 'fs';
 import _ from 'lodash';
-import path from 'path';
 import { createRequire } from 'module';
+import path from 'path';
 
 const requireCustom = createRequire(import.meta.url);
 
