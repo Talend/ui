@@ -71,6 +71,7 @@ export function Modal(props: ModalPropsType): ReactElement {
 
 	const backdropRef = useRef<HTMLDivElement>(null);
 	const dialogRef = useRef<HTMLDivElement>(null);
+	const titleId = 'modal-header-text-title';
 
 	useEffect(() => {
 		dialogRef.current?.focus();
@@ -108,6 +109,7 @@ export function Modal(props: ModalPropsType): ReactElement {
 					data-testid="modal"
 					className={styles.modal}
 					hide={preventEscaping ? () => undefined : () => onCloseHandler()}
+					aria-labelledby={titleId}
 					ref={dialogRef}
 				>
 					<StackVertical gap={0}>
@@ -120,7 +122,11 @@ export function Modal(props: ModalPropsType): ReactElement {
 								/>
 							)}
 							<div className={styles['modal-header-text']}>
-								<span className={styles['modal-header-text__title']} data-test="modal.header.title">
+								<span
+									id={titleId}
+									className={styles['modal-header-text__title']}
+									data-test="modal.header.title"
+								>
 									{header.title}
 								</span>
 								{header.description && (
