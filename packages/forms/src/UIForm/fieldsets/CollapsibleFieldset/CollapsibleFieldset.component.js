@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { InlineMessageInformation, CollapsiblePanel } from '@talend/design-system';
@@ -74,21 +76,41 @@ export function defaultTitle(formData, schema, options) {
 // eslint-disable-next-line @typescript-eslint/default-param-last
 export default function createCollapsibleFieldset(title = defaultTitle, managed) {
 	function CollapsibleFieldset(props) {
-		function toggle(event) {
-			// event.stopPropagation();
-			// event.preventDefault();
-			const payload = {
-				schema: props.schema,
-				value: {
-					...props.value,
-					isClosed: !props.value.isClosed,
-				},
-			};
-			props.onChange(undefined, payload);
-		}
-
 		const { id, schema, value, actions, index, ...restProps } = props;
 		const { items } = schema;
+
+		const onToggleClick = useCallback(
+			event => {
+				if (event) {
+					event.stopPropagation();
+					event.preventDefault();
+				}
+
+				const payload = {
+					schema: props.schema,
+					value: {
+						...props.value,
+						isClosed: !props.value.isClosed,
+					},
+				};
+				props.onChange(undefined, payload);
+			},
+			[props],
+		);
+
+		const getAction = useCallback(() => {
+			if (!actions || actions.length === 0 || actions[0] === undefined) {
+				return undefined;
+			}
+
+			const action = actions[0];
+
+			return {
+				...action,
+				tooltip: action.tooltip || action.label,
+				callback: action.onClick,
+			};
+		}, [actions]);
 
 		return (
 			<fieldset
@@ -96,17 +118,12 @@ export default function createCollapsibleFieldset(title = defaultTitle, managed)
 			>
 				<CollapsiblePanel
 					title={title(value, schema)}
-					onToggleExpanded={toggle}
-					onToggle={toggle}
+					onToggleExpanded={onToggleClick}
+					onToggle={onToggleClick}
 					index={index}
 					managed={!!managed}
 					expanded={!value.isClosed}
-					action={
-						actions?.[0] && {
-							...actions[0],
-							callback: actions[0].onClick,
-						}
-					}
+					action={getAction()}
 				>
 					{schema.description ? (
 						<InlineMessageInformation
@@ -120,7 +137,7 @@ export default function createCollapsibleFieldset(title = defaultTitle, managed)
 						''
 					)}
 					{items.map((itemSchema, idx) => (
-						<Widget {...restProps} id={id} key={idx} schema={itemSchema} value={value} />
+						<Widget {...restProps} id={id} key={`${id}-${idx}`} schema={itemSchema} value={value} />
 					))}
 				</CollapsiblePanel>
 			</fieldset>
