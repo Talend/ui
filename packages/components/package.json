@@ -15,7 +15,7 @@
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
     "lint": "talend-scripts lint",
     "start": "talend-scripts start -p 6006",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [
     "react",
@@ -34,15 +34,18 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@talend/bootstrap-theme": "^8.2.0",
+    "@talend/assets-api": "^1.2.2",
+    "@talend/bootstrap-theme": "^8.2.1",
     "@talend/design-tokens": "^2.9.0",
-    "@talend/react-a11y": "^1.1.0",
-    "@talend/icons": "^6.60.1",
+    "@talend/icons": "^7.0.0",
+    "@talend/react-a11y": "^2.0.0",
+    "@talend/react-bootstrap": "^2.0.0",
     "@talend/utils": "^2.6.0",
     "ally.js": "^1.4.1",
     "classnames": "^2.3.2",
     "d3": "^7.8.5",
     "date-fns": "^1.30.1",
+    "dom-helpers": "^3.4.0",
     "focus-outline-manager": "^1.0.2",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
@@ -51,7 +54,6 @@
     "memoize-one": "^6.0.0",
     "rc-slider": "^10.2.1",
     "react-autowhatever": "10.2.0",
-    "@talend/react-bootstrap": "^1.35.2",
     "react-debounce-input": "^3.3.0",
     "react-draggable": "^4.4.5",
     "react-grid-layout": "^1.4.1",
@@ -65,47 +67,54 @@
     "recharts": "^2.8.0",
     "simplebar": "^5.3.9",
     "simplebar-react": "^2.4.3",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "warning": "^3.0.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^7.4.1",
-    "@talend/bootstrap-theme": "^8.2.0",
-    "@talend/design-system": "^7.15.1",
-    "@talend/icons": "^6.60.1",
-    "@talend/locales-design-system": "^7.3.0",
-    "@talend/locales-tui-components": "^9.5.0",
-    "@talend/scripts-core": "^15.0.0",
+    "@talend/bootstrap-theme": "^8.2.1",
+    "@talend/design-system": "^8.0.0",
+    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/locales-design-system": "^7.15.1",
+    "@talend/locales-tui-components": "^11.4.5",
+    "@talend/scripts-core": "^16.0.0",
+    "@talend/scripts-config-babel": "^13.0.0",
     "@talend/scripts-config-react-webpack": "^16.1.0",
+    "@talend/scripts-config-storybook-lib": "^5.1.0",
+    "@talend/scripts-config-typescript": "^11.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/classnames": "^2.3.1",
     "@types/d3": "^7.4.0",
     "@types/date-fns": "^0.0.2",
-    "@types/enzyme": "^3.10.13",
+    "@types/jest": "^29.5.5",
     "@types/lodash": "^4.14.198",
     "@types/prop-types": "^15.7.5",
-    "@types/react": "^17.0.65",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
     "cross-env": "^7.0.3",
-    "i18next": "^20.6.1",
+    "i18next": "^23.5.1",
     "jest-in-case": "^1.0.2",
     "jsdom": "^20.0.3",
     "prop-types": "^15.8.1",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-a11y": "^0.3.4",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-router-dom": "~6.3.0",
-    "react-i18next": "^11.18.6",
+    "react-i18next": "^13.3.0",
     "react-storybook-addon-props-combinations": "^1.1.0",
-    "react-test-renderer": "^17.0.2"
+    "react-test-renderer": "^18.2.0"
   },
   "peerDependencies": {
-    "@talend/design-system": "^7.5.0",
-    "i18next": "^20.1.0",
+    "@talend/design-system": "^8.0.0",
+    "i18next": "^23.5.1",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",
-    "react-i18next": "^11.18.6"
+    "react-i18next": "^13.3.0"
   },
   "resolutions": {
     "minimist": "^1.2.5"
@@ -113,5 +122,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "11.4.5"
+  "version": "12.0.0"
 }

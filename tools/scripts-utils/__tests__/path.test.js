@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
-import path from 'path';
-import utils from '../src';
+const utils = require('../src');
 
 describe('utils.path', () => {
 	describe('hereRelative', () => {
@@ -10,8 +9,8 @@ describe('utils.path', () => {
 	});
 	describe('getPkgRootPath', () => {
 		it('should', () => {
-			expect(utils.path.getPkgRootPath('@talend/scripts-utils')).toMatch(
-				/ui\/tools\/scripts-utils/,
+			expect(utils.path.getPkgRootPath('@talend/scripts-config-babel')).toMatch(
+				/.*\/tools\/scripts-config-babel$/,
 			);
 		});
 	});

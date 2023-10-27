@@ -1,5 +1,18 @@
 # @talend/storybook-docs
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/icons@7.0.0
+
 ## 1.2.0
 
 ### Minor Changes

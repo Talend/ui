@@ -86,7 +86,6 @@ exports[`ListGrid should render react-virtualized list 1`] = `
             <dt
               class="theme-field-label"
             >
-              
               :
             </dt>
             <dd
@@ -176,7 +175,6 @@ exports[`ListGrid should render react-virtualized list 1`] = `
             <dt
               class="theme-field-label"
             >
-              
               :
             </dt>
             <dd

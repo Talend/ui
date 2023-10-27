@@ -1,14 +1,13 @@
-// eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
 const typescriptTransform = require('i18next-scanner-typescript');
 
 module.exports = {
-	input: ['src/**/*.{js,ts,tsx}'],
+	input: ['src/**/*.{js,ts,tsx}', '!src/**/*stories.{js,ts,tsx}'],
 	options: {
+		compatibilityJSON: 'v4',
 		debug: true,
-		sort: true,
 		func: {
-			list: ['t'],
-			extensions: ['.js'],
+			list: ['t', 'i18next.t'],
+			extensions: ['.js', '.ts', '.tsx'],
 		},
 		lngs: ['en'],
 		defaultNs: 'tui-forms',
