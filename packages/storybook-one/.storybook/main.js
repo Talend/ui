@@ -7,14 +7,13 @@ const {
 	getJSAndTSLoader,
 } = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
-
 const STORIES = [
 	{
 		titlePrefix: 'Design System',
 		directory: `${rootPath}/../design-system/src`,
 	},
-	`${rootPath}/../components/**/*.stories.@(js|tsx)`,
-	`${rootPath}/../forms/**/*.stories.@(js|tsx)`,
+	`${rootPath}/../components/src/**/*.stories.@(js|tsx)`,
+	`${rootPath}/../forms/src/**/*.stories.@(js|tsx)`,
 	`${rootPath}/../dataviz/src/**/*.stories.@(js|tsx)`,
 	`${rootPath}/../icons/stories/**/*.stories.@(js|tsx)`,
 	`${rootPath}/../faceted-search/stories/**/*.stories.@(js|tsx)`,
