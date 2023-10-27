@@ -274,7 +274,6 @@ describe('Text field', () => {
 		// when
 		render(<Text {...props} />);
 
-		screen.debug();
 		// then
 		expect(screen.getByTitle(link.title)).toHaveTextContent(link.children);
 		expect(screen.getByTestId('link.icon.external')).toBeVisible();
