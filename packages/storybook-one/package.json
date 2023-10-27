@@ -44,7 +44,6 @@
     "@storybook/addons": "^7.4.1",
     "@storybook/core-events": "^7.4.1",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react-webpack5": "^7.4.1",
     "@storybook/testing-library": "^0.2.0",
     "@storybook/testing-react": "^2.0.1",
     "@storybook/theming": "^7.4.1",
