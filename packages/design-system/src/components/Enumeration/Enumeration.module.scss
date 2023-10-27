@@ -1,0 +1,41 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.enumeration {
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+	border-radius: tokens.$coral-radius-m;
+	min-width: 300px;
+	width: fit-content;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__header {
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+		padding: tokens.$coral-spacing-s;
+
+		h4 {
+			font: tokens.$coral-heading-m;
+		}
+
+		.enumeration__title {
+			align-items: center;
+			display: flex;
+			margin-bottom: tokens.$coral-spacing-s;
+
+			hr {
+				margin-left: tokens.$coral-spacing-xs;
+			}
+		}
+	}
+
+	&__body {
+		padding: tokens.$coral-spacing-xxs 0;
+
+		&--item {
+			padding: tokens.$coral-spacing-xs tokens.$coral-spacing-s;
+		}
+	}
+}
