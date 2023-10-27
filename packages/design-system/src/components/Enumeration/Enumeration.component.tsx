@@ -1,36 +1,30 @@
-import { EnumerationItem, EnumerationProps } from './Enumeration.types';
+import { EnumerationItem, EnumerationProps, EnumerationMode } from './Enumeration.types';
 
-import { ButtonIcon, ButtonIconToggle } from '../ButtonIcon';
 import { useTranslation } from 'react-i18next';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { ChangeEvent, useState } from 'react';
 import { Form } from '../Form';
 import { AutoSizer, InfiniteLoader, List } from 'react-virtualized';
-import { Divider } from '../Divider';
+import { ButtonIcon, ButtonIconToggle } from '../ButtonIcon';
 
-import style from './Enumeration.module.scss';
+import { Divider } from '../Divider';
 import { StackHorizontal } from '../Stack';
 import { EmptyState } from '../EmptyState';
 
+import style from './Enumeration.module.scss';
+
 export const Enumeration = ({ items, loadMoreRows, onImport, title }: EnumerationProps) => {
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
-	const [seletedAction, setSelectedAction] = useState<string>();
+	const [mode, setMode] = useState<string>();
 	const [filteredItems, setFilteredItems] = useState<EnumerationItem[]>(items);
 
 	const rowRenderer = ({ index }: { index: number }) => (
-		<StackHorizontal
-			align={'center'}
-			as="ul"
-			gap={0}
-			justify="spaceBetween"
-			key={filteredItems[index].id}
-			padding={{ x: 'S', y: 'XXS' }}
-		>
+		<div className={style['enumeration__body--item']}>
 			<p>{filteredItems[index].label}</p>
 			<ButtonIcon icon="dots-vertical" onClick={() => {}} size="S">
 				{t('ENUMERATION_IMPORT', 'Import items')}
 			</ButtonIcon>
-		</StackHorizontal>
+		</div>
 	);
 
 	const ListEmptyState = () => (
@@ -52,10 +46,6 @@ export const Enumeration = ({ items, loadMoreRows, onImport, title }: Enumeratio
 		}
 	};
 
-	const isRowLoaded = ({ index }: { index: number }) => {
-		return !!items[index];
-	};
-
 	return (
 		<div className={style.enumeration}>
 			<div className={style.enumeration__header}>
@@ -73,11 +63,13 @@ export const Enumeration = ({ items, loadMoreRows, onImport, title }: Enumeratio
 						)}
 						<li>
 							<ButtonIconToggle
-								disabled={!!seletedAction && seletedAction !== 'add'}
+								disabled={!!mode && mode !== EnumerationMode.CREATE}
 								icon="plus"
-								isActive={seletedAction === 'add'}
+								isActive={mode === EnumerationMode.CREATE}
 								onClick={() => {
-									setSelectedAction(seletedAction === 'add' ? undefined : 'add');
+									setMode(
+										mode === EnumerationMode.CREATE ? EnumerationMode.VIEW : EnumerationMode.CREATE,
+									);
 								}}
 								size="S"
 							>
@@ -86,11 +78,13 @@ export const Enumeration = ({ items, loadMoreRows, onImport, title }: Enumeratio
 						</li>
 						<li>
 							<ButtonIconToggle
-								disabled={!!seletedAction && seletedAction !== 'edit'}
+								disabled={!!mode && mode === EnumerationMode.EDIT}
 								icon="pencil"
-								isActive={seletedAction === 'edit'}
+								isActive={mode === EnumerationMode.EDIT}
 								onClick={() => {
-									setSelectedAction(seletedAction === 'edit' ? undefined : 'edit');
+									setMode(
+										mode === EnumerationMode.EDIT ? EnumerationMode.VIEW : EnumerationMode.EDIT,
+									);
 								}}
 								size="S"
 							>
@@ -116,7 +110,7 @@ export const Enumeration = ({ items, loadMoreRows, onImport, title }: Enumeratio
 
 						return (
 							<InfiniteLoader
-								isRowLoaded={isRowLoaded}
+								isRowLoaded={({ index }) => !!items[index]}
 								loadMoreRows={loadMoreRows}
 								rowCount={filteredItems.length}
 							>

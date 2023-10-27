@@ -9,3 +9,9 @@ export interface EnumerationProps {
 	onImport?: (...params: unknown[]) => void;
 	title: string;
 }
+
+export enum EnumerationMode {
+	CREATE = 'create',
+	EDIT = 'edit',
+	VIEW = 'view',
+}

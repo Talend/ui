@@ -4,6 +4,8 @@
 	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 	border-radius: tokens.$coral-radius-m;
 	min-width: 300px;
+	max-width: 100%;
+	overflow: hidden;
 	width: fit-content;
 
 	ul {
@@ -19,23 +21,38 @@
 		h4 {
 			font: tokens.$coral-heading-m;
 		}
+	}
 
-		.enumeration__title {
-			align-items: center;
-			display: flex;
-			margin-bottom: tokens.$coral-spacing-s;
+	&__title {
+		align-items: center;
+		display: flex;
+		margin-bottom: tokens.$coral-spacing-s;
 
-			hr {
-				margin-left: tokens.$coral-spacing-xs;
-			}
+		hr {
+			margin-left: tokens.$coral-spacing-xs;
 		}
 	}
 
-	&__body {
-		padding: tokens.$coral-spacing-xxs 0;
+	&__title h4,
+	p {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		padding-right: tokens.$coral-spacing-xxs;
+	}
 
+	&__body {
 		&--item {
-			padding: tokens.$coral-spacing-xs tokens.$coral-spacing-s;
+			align-items: center;
+			background-color: tokens.$coral-color-neutral-background;
+			display: flex;
+			justify-content: space-between;
+			padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
+			transition: background-color tokens.$coral-transition-fast;
+
+			&:hover {
+				background-color: tokens.$coral-color-neutral-background-medium;
+			}
 		}
 	}
 }
