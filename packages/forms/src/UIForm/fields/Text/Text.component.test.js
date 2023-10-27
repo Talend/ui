@@ -232,7 +232,7 @@ describe('Text field', () => {
 		expect(screen.getByLabelText('My input title')).toHaveAttribute('autoComplete', 'off');
 	});
 
-	it('should pass labelProps to FieldTemplate', () => {
+	it('should pass labelProps to Text field', () => {
 		// given
 		const labelProps = { className: 'hello' };
 		const props = {
@@ -248,5 +248,35 @@ describe('Text field', () => {
 
 		// then
 		expect(screen.getByText('My input title')).toHaveClass('hello');
+	});
+
+	it('should pass link props and password type to Text field', () => {
+		// given
+		const link = {
+			href: 'https://talend.com',
+			title: 'Helps to reset your password',
+			children: 'Need help to log in?',
+			'aria-label': 'Need help to log in?',
+		};
+
+		const props = {
+			...defaultProps,
+			schema: {
+				autoFocus: true,
+				placeholder: 'Enter your password',
+				required: true,
+				title: 'Password',
+				type: 'password',
+				link,
+			},
+		};
+
+		// when
+		render(<Text {...props} />);
+
+		screen.debug();
+		// then
+		expect(screen.getByTitle(link.title)).toHaveTextContent(link.children);
+		expect(screen.getByTestId('link.icon.external')).toBeVisible();
 	});
 });
