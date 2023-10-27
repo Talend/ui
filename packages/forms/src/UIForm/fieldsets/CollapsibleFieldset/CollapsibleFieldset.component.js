@@ -74,29 +74,26 @@ export function defaultTitle(formData, schema, options) {
  * @return {function} CollapsibleFieldset react component
  */
 // eslint-disable-next-line @typescript-eslint/default-param-last
-export default function createCollapsibleFieldset(title = defaultTitle, managed) {
+export default function createCollapsibleFieldset(title = defaultTitle) {
 	function CollapsibleFieldset(props) {
 		const { id, schema, value, actions, index, ...restProps } = props;
-		const { items } = schema;
+		const { items, managed } = schema;
 
-		const onToggleClick = useCallback(
-			event => {
-				if (event) {
-					event.stopPropagation();
-					event.preventDefault();
-				}
+		function onToggleClick(event) {
+			if (event) {
+				event.stopPropagation();
+				event.preventDefault();
+			}
 
-				const payload = {
-					schema: props.schema,
-					value: {
-						...props.value,
-						isClosed: !props.value.isClosed,
-					},
-				};
-				props.onChange(undefined, payload);
-			},
-			[props],
-		);
+			const payload = {
+				schema: props.schema,
+				value: {
+					...props.value,
+					isClosed: !props.value.isClosed,
+				},
+			};
+			props.onChange(event, payload);
+		}
 
 		const getAction = useCallback(() => {
 			if (!actions || actions.length === 0 || actions[0] === undefined) {
@@ -119,7 +116,6 @@ export default function createCollapsibleFieldset(title = defaultTitle, managed)
 				<CollapsiblePanel
 					title={title(value, schema)}
 					onToggleExpanded={onToggleClick}
-					onToggle={onToggleClick}
 					index={index}
 					managed={!!managed}
 					expanded={!value.isClosed}
@@ -157,11 +153,11 @@ export default function createCollapsibleFieldset(title = defaultTitle, managed)
 			onChange: PropTypes.func.isRequired,
 			schema: PropTypes.shape({
 				items: PropTypes.array.isRequired,
+				managed: PropTypes.bool,
 				description: PropTypes.string,
 			}).isRequired,
 			value: PropTypes.object,
 			actions: PropTypes.array,
-			managed: PropTypes.bool,
 		};
 	}
 

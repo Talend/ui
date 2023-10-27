@@ -43,6 +43,7 @@
       "key": "operations",
       "title": "Operations",
       "itemWidget": "collapsibleFieldset",
+      "itemManaged": false,
       "items": [
         {
           "key": "operations[].fieldName",
