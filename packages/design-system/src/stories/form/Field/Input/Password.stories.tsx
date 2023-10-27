@@ -47,5 +47,14 @@ export const Password = () => (
 			readOnly
 			defaultValue="TalendPassword2012"
 		/>
+		<Form.Password
+			name="password"
+			label="Password with link"
+			defaultValue="TalendPassword2012"
+			link={{
+				href: 'https://talend.com/reset/password',
+				children: 'Need help to log in?',
+			}}
+		/>
 	</StackVertical>
 );
