@@ -20,7 +20,9 @@ runs:
 
     - name: Setup PNPM
       shell: bash
-      run: pnpm config set store-dir .pnpm-store
+      run: |
+        pnpm setup
+        source ~/.bashrc
 
     - name: Get pnpm cache directory path
       id: pnpm-cache-dir-path
