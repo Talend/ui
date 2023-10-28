@@ -18,6 +18,10 @@ runs:
       shell: bash
       run: npm install -g pnpm@8.9.2
 
+    - name: Setup PNPM
+      shell: bash
+      run: pnpm setup
+
     - name: Get pnpm cache directory path
       id: pnpm-cache-dir-path
       shell: bash
