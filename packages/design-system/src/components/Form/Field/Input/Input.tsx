@@ -5,6 +5,7 @@ import {
 	InputPrimitive,
 	InputPrimitiveProps,
 } from '../../Primitives';
+import { useId } from '../../../../useId';
 
 export type InputFieldProps = FieldPropsPrimitive &
 	Omit<InputPrimitiveProps, 'className' | 'styles'>;
@@ -24,6 +25,9 @@ const Field = forwardRef((props: InputFieldProps, ref: Ref<HTMLInputElement>) =>
 		required,
 		...rest
 	} = props;
+
+	const fieldID = useId(id, 'field-');
+
 	return (
 		<FieldPrimitive
 			label={label}
@@ -32,11 +36,13 @@ const Field = forwardRef((props: InputFieldProps, ref: Ref<HTMLInputElement>) =>
 			description={description}
 			id={id}
 			hideLabel={hideLabel}
+			fieldId={fieldID}
 			name={name}
 			required={required}
 		>
 			<InputPrimitive
 				{...rest}
+				id={fieldID}
 				type={type}
 				ref={ref}
 				hasError={hasError || false}

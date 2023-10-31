@@ -21,6 +21,7 @@ export type FieldPropsPrimitive = {
 	link?: LinkProps;
 	hideLabel?: boolean;
 	label: LabelPrimitiveProps | string;
+	fieldId?: string;
 	id?: string;
 	name: string;
 	required?: boolean;
@@ -39,9 +40,12 @@ const Field = forwardRef(
 			hideLabel = false,
 			required = false,
 			description,
+			fieldId,
 		} = props;
 
-		const fieldID = useId(id, 'field-');
+		// TODO to remove
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		const fieldID = fieldId || useId(id, 'field-');
 
 		const labelProps = typeof label === 'string' ? { children: label } : { ...label };
 

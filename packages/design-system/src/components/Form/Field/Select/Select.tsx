@@ -8,6 +8,7 @@ import {
 	SelectPrimitive,
 	SelectPrimitiveProps,
 } from '../../Primitives';
+import { useId } from '../../../../useId';
 
 export type SelectProps = FieldPropsPrimitive &
 	Omit<SelectPrimitiveProps, 'className' | 'style' | 'isAffix'> & { readOnly?: boolean };
@@ -27,6 +28,8 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 		defaultValue,
 		...rest
 	} = props;
+
+	const fieldID = useId(id, 'field-');
 
 	if (readOnly) {
 		const values = Children.toArray(children).reduce((acc: string[], current) => {
@@ -86,6 +89,7 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 			description={description}
 			id={id}
 			name={name}
+			fieldId={fieldID}
 			hideLabel={hideLabel}
 			required={required}
 		>
