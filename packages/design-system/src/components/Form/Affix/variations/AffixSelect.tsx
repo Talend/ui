@@ -24,7 +24,7 @@ const AffixSelect = forwardRef((props: AffixSelectPropsType, ref: Ref<HTMLSelect
 			);
 		}
 		return (
-			<FieldPrimitive label={label} name={name} id={fieldID} hideLabel>
+			<FieldPrimitive label={label} name={name} id={fieldID} fieldId={fieldID} hideLabel>
 				<AffixSelectComponent {...rest} />
 			</FieldPrimitive>
 		);

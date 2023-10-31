@@ -20,7 +20,7 @@ export type FieldPropsPrimitive = {
 	link?: LinkProps;
 	hideLabel?: boolean;
 	label: LabelPrimitiveProps | string;
-	fieldId?: string;
+	fieldId: string;
 	id?: string;
 	name: string;
 	required?: boolean;
