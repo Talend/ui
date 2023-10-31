@@ -292,7 +292,7 @@ module.exports = ({ getUserConfig, mode }) => {
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
 						include: srcDirectories,
-						use: getJSAndTSLoader(env, useTypescript),
+						use: getJSAndTSLoader(),
 					},
 					{
 						test: /\.css$/,

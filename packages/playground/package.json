@@ -23,7 +23,11 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-core": "^16.0.0",
+    "@talend/scripts-config-babel": "^13.0.0",
+    "@talend/scripts-config-stylelint": "^4.0.0",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.18.2",
@@ -32,6 +36,7 @@
   "dependencies": {
     "@talend/bootstrap-theme": "^8.2.1",
     "@talend/react-bootstrap": "^2.0.0",
+    "@talend/assets-api": "^1.2.2",
     "@talend/icons": "^7.0.0",
     "@talend/react-cmf": "^8.0.0",
     "@talend/react-cmf-router": "^6.0.0",

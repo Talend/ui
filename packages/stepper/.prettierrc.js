@@ -11,5 +11,5 @@ module.exports = {
 		'.*scss',
 	],
 	importOrderSeparation: true,
-	experimentalBabelParserPluginsList: ['jsx', 'typescript'],
+	importOrderParserPlugins: ['jsx', 'typescript'],
 };
