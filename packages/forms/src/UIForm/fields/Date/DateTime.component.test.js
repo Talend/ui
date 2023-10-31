@@ -121,7 +121,7 @@ describe('DateTime widget', () => {
 
 			expect(props.onChange.mock.calls[1][1]).toMatchObject({
 				schema: timestampSchema,
-				value: new Date(2015, 8, 21, 2, 30, 0).getTime(),
+				value: new Date(2015, 8, 21, 3, 30, 0).getTime(),
 			});
 		});
 
