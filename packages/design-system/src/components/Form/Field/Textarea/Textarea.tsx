@@ -5,6 +5,7 @@ import {
 	TextareaPrimitive,
 	TextareaPrimitiveProps,
 } from '../../Primitives';
+import { useId } from '../../../../useId';
 
 export type InputTextareaProps = FieldPropsPrimitive &
 	Omit<TextareaPrimitiveProps, 'className' | 'styles'> & { children?: string };
@@ -23,6 +24,9 @@ const Textarea = forwardRef((props: InputTextareaProps, ref: Ref<HTMLTextAreaEle
 		children,
 		...rest
 	} = props;
+
+	const fieldID = useId(id, 'field-');
+
 	return (
 		<FieldPrimitive
 			label={label}
@@ -30,11 +34,12 @@ const Textarea = forwardRef((props: InputTextareaProps, ref: Ref<HTMLTextAreaEle
 			link={link}
 			description={description}
 			id={id}
+			fieldId={fieldID}
 			name={name}
 			hideLabel={hideLabel}
 			required={required}
 		>
-			<TextareaPrimitive defaultValue={defaultValue || children} {...rest} ref={ref} />
+			<TextareaPrimitive defaultValue={defaultValue || children} {...rest} id={fieldID} ref={ref} />
 		</FieldPrimitive>
 	);
 });
