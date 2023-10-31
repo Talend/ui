@@ -39,7 +39,13 @@ const Textarea = forwardRef((props: InputTextareaProps, ref: Ref<HTMLTextAreaEle
 			hideLabel={hideLabel}
 			required={required}
 		>
-			<TextareaPrimitive defaultValue={defaultValue || children} {...rest} id={fieldID} ref={ref} />
+			<TextareaPrimitive
+				defaultValue={defaultValue || children}
+				{...rest}
+				required={required}
+				id={fieldID}
+				ref={ref}
+			/>
 		</FieldPrimitive>
 	);
 });
