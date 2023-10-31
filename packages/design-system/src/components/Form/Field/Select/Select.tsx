@@ -60,7 +60,7 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 				hasError={hasError || false}
 				link={link}
 				description={description}
-				id={(id = { fieldID })}
+				id={fieldID}
 				name={name}
 				hideLabel={hideLabel}
 				required={required}

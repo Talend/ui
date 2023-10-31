@@ -5,7 +5,6 @@ import { StackVertical } from '../../../Stack';
 import Label, { LabelPrimitiveProps } from '../Label/Label';
 import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
 import { VisuallyHidden } from '../../../VisuallyHidden';
-import { useId } from '../../../../useId';
 
 export type FieldStatusProps =
 	| {
@@ -34,7 +33,6 @@ const Field = forwardRef(
 		const {
 			children,
 			link,
-			id,
 			label,
 			hasError = false,
 			hideLabel = false,
@@ -43,18 +41,14 @@ const Field = forwardRef(
 			fieldId,
 		} = props;
 
-		// TODO to remove
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		const fieldID = fieldId || useId(id, 'field-');
-
 		const labelProps = typeof label === 'string' ? { children: label } : { ...label };
 
 		const LabelComponent = hideLabel ? (
 			<VisuallyHidden>
-				<Label {...labelProps} htmlFor={fieldID} required={required} />
+				<Label {...labelProps} htmlFor={fieldId} required={required} />
 			</VisuallyHidden>
 		) : (
-			<Label {...labelProps} htmlFor={fieldID} required={required} />
+			<Label {...labelProps} htmlFor={fieldId} required={required} />
 		);
 
 		const Description = () => {
