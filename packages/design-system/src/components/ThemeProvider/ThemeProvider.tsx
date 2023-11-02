@@ -1,5 +1,5 @@
 import ThemeContext from './ThemeContext';
-import './ThemeProvider.module.scss';
+import './ThemeProvider.scss';
 // eslint-disable-next-line @talend/import-depth
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
 import { useEffect, PropsWithChildren, useContext, useState } from 'react';
