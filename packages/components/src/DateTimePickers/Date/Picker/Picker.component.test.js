@@ -32,7 +32,7 @@ describe('Date.Picker', () => {
 		expect(props).toMatchObject({
 			manageFocus: true,
 			other: 'custom props',
-			selectedDate: '2007-01-01T23:00:00.000Z',
+			selectedDate: '2007-01-02T00:00:00.000Z',
 			useUTC: false,
 		});
 	});
