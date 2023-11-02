@@ -38,7 +38,7 @@
     "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-core": "^16.0.0",
     "@talend/scripts-config-babel": "^13.0.0",
-    "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@talend/scripts-config-react-webpack": "^16.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "redux-saga-tester": "^1.0.874"
