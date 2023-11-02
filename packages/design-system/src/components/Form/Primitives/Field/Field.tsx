@@ -20,13 +20,15 @@ export type FieldPropsPrimitive = {
 	link?: LinkProps;
 	hideLabel?: boolean;
 	label: LabelPrimitiveProps | string;
-	fieldId: string;
 	id?: string;
 	name: string;
 	required?: boolean;
 } & FieldStatusProps;
 
-type FieldPropsPrimitiveWithChildren = FieldPropsPrimitive & { children: ReactElement };
+type FieldPropsPrimitiveWithChildren = FieldPropsPrimitive & {
+	children: ReactElement;
+	fieldId: string;
+};
 
 const Field = forwardRef(
 	(props: FieldPropsPrimitiveWithChildren, ref: Ref<HTMLInputElement | HTMLTextAreaElement>) => {
