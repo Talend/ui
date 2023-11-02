@@ -158,7 +158,7 @@ describe('Date widget', () => {
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(event), {
 				schema: timestampSchema,
-				value: 1442786400000,
+				value: 1442793600000,
 			});
 		});
 
@@ -227,7 +227,7 @@ describe('Date widget', () => {
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(event), {
 				schema: isoSchema,
-				value: '2015-09-20T22:00:00.000Z',
+				value: '2015-09-21T00:00:00.000Z',
 			});
 		});
 
