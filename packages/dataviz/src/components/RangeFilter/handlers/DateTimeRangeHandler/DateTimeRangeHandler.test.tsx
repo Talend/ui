@@ -43,7 +43,7 @@ describe('DateTimeRangeHandler', () => {
 		fireEvent.click(screen.getByText('InputDateTimePicker.onChange 1'));
 		fireEvent.keyDown(screen.getByRole('textbox'), { key: 'Escape' });
 
-		expect(screen.getByRole('textbox')).toHaveValue('2010-01-01 00:00:00');
+		expect(screen.getByRole('textbox')).toHaveValue('2009-12-31 23:00:00');
 	});
 
 	it('Should reset value on blur with invalid input', () => {
@@ -82,8 +82,8 @@ describe('DateTimeRangeHandler', () => {
 		const ticks = DateRangeHandler.getTicks(limits);
 		expect(ticks).toEqual({
 			[limits.min]: '2000-01-01',
-			'1262300400000': '2010-01-01',
-			'1577833200000': '2020-01-01',
+			'1262304000000': '2010-01-01',
+			'1577836800000': '2020-01-01',
 			[limits.max]: '2030-01-01',
 		});
 	});

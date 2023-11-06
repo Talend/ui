@@ -1,5 +1,12 @@
 # @talend/scripts-config-babel
 
+## 13.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: adapt code to be compatible with pnpm
+  add missing deps
+
 ## 13.0.0
 
 ### Major Changes

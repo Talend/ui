@@ -42,6 +42,7 @@ describe('Form', () => {
 				</Form>
 			</main>,
 		);
+
 		expect(container.firstChild).toMatchSnapshot();
 		const results = await axe(document.body);
 		expect(results).toHaveNoViolations();

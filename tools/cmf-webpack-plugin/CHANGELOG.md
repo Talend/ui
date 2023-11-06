@@ -1,5 +1,12 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.38.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+
 ## 6.37.0
 
 ### Minor Changes

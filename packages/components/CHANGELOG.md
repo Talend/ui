@@ -1,5 +1,21 @@
 # @talend/react-components
 
+## 12.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  add a tsconfig.build.json to exclude test files
+
+### Patch Changes
+
+- 2177ddfb3: PlainTextTitle component: pass data atrributes
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/icons@7.1.0
+  - @talend/react-bootstrap@2.1.0
+
 ## 12.0.0
 
 ### Major Changes

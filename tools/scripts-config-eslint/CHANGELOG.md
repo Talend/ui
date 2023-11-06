@@ -1,5 +1,12 @@
 # @talend/scripts-config-eslint
 
+## 12.2.0
+
+### Minor Changes
+
+- 3f9c8a7bb: remove link to scripts-utils (circular dep)
+  add missing deps
+
 ## 12.1.1
 
 ### Patch Changes
