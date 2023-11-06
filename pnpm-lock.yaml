@@ -1911,6 +1911,12 @@ importers:
       '@talend/bootstrap-theme':
         specifier: ^8.2.1
         version: link:../theme
+      '@talend/design-system':
+        specifier: ^8.0.0
+        version: link:../design-system
+      '@talend/design-tokens':
+        specifier: ^2.9.0
+        version: link:../design-tokens
       '@talend/icons':
         specifier: ^7.0.0
         version: link:../icons
@@ -1960,6 +1966,9 @@ importers:
         specifier: ^3.0.6
         version: 3.0.6
     devDependencies:
+      '@talend/dynamic-cdn-webpack-plugin':
+        specifier: ^13.0.1
+        version: link:../../fork/dynamic-cdn-webpack-plugin
       '@talend/eslint-config':
         specifier: ^12.1.1
         version: link:../../tools/scripts-config-eslint
@@ -1975,9 +1984,15 @@ importers:
       '@talend/scripts-core':
         specifier: ^16.0.0
         version: link:../../tools/scripts-core
+      body-parser:
+        specifier: 1.20.1
+        version: 1.20.1
       compression:
         specifier: ^1.7.4
         version: 1.7.4
+      copy-webpack-plugin:
+        specifier: ^10.2.4
+        version: 10.2.4(webpack@5.88.2)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -1987,6 +2002,9 @@ importers:
       i18next-http-backend:
         specifier: ^1.4.5
         version: 1.4.5
+      webpack:
+        specifier: ^5.88.2
+        version: 5.88.2(webpack-cli@4.10.0)
 
   packages/router-bridge:
     devDependencies:
