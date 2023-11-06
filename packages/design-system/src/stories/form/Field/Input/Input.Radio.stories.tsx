@@ -48,57 +48,37 @@ export const RadioReactHooksForm = () => {
 				/>
 			)}
 			<Form.Fieldset legend="Pick one option" required>
-				<Form.Radio label="Option A" value="option-a" name="option" ref={register()} />
-				<Form.Radio
-					label="Option B"
-					value="option-b"
-					defaultChecked
-					name="option"
-					ref={register()}
-				/>
+				<Form.Radio label="Option A" value="option-a" {...register('option')} />
+				<Form.Radio label="Option B" value="option-b" defaultChecked {...register('option')} />
 			</Form.Fieldset>
 			<Form.Fieldset legend="Pick one inline option" required>
 				<Form.Row>
-					<Form.Radio
-						label="Inline option A"
-						value="option-a"
-						name="inline-option"
-						ref={register()}
-					/>
+					<Form.Radio label="Inline option A" value="option-a" {...register('inline-option')} />
 					<Form.Radio
 						label="Inline option B"
 						value="option-b"
 						defaultChecked
-						name="inline-option"
-						ref={register()}
+						{...register('inline-option')}
 					/>
 				</Form.Row>
 			</Form.Fieldset>
 			<Form.Fieldset legend="Read only are sent" required readOnly>
-				<Form.Radio label="Option C" value="option-c" name="readonly-option" ref={register()} />
-				<Form.Radio
-					label="Option D"
-					value="option-d"
-					checked
-					name="readonly-option"
-					ref={register()}
-				/>
+				<Form.Radio label="Option C" value="option-c" {...register('readonly-option')} />
+				<Form.Radio label="Option D" value="option-d" checked {...register('readonly-option')} />
 			</Form.Fieldset>
 			<Form.Fieldset legend="Disabled are not sent" required disabled>
 				<Form.Radio
 					label="Option E"
 					value="option-e"
-					name="disabled-inline-option"
 					disabled
-					ref={register()}
+					{...register('disabled-inline-option')}
 				/>
 				<Form.Radio
 					label="Option F"
 					value="option-f"
 					checked
-					name="disabled-inline-option"
 					disabled
-					ref={register()}
+					{...register('disabled-inline-option')}
 				/>
 			</Form.Fieldset>
 			<Form.Buttons>

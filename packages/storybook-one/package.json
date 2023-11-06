@@ -29,7 +29,8 @@
     "@talend/react-forms": "^11.1.0",
     "@talend/react-dataviz": "^4.1.0",
     "pkg-dir": "^7.0.0",
-    "react-hook-form": "^6.15.8"
+    "react-hook-form": "^7.47.0",
+    "pkg-dir": "^7.0.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.2",

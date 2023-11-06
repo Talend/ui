@@ -18,6 +18,7 @@ import { ButtonIcon } from '../../ButtonIcon';
 import { Form } from '../../Form';
 import { StackHorizontal } from '../../Stack';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import { useId } from '../../../useId';
 
 import styles from './InlineEditingPrimitive.module.scss';
 
@@ -103,6 +104,7 @@ const InlineEditingPrimitive = forwardRef(
 
 		const [isEditing, setEditing] = useState<boolean>(false);
 		const [internalValue, setInternalValue] = useState<string | undefined>(defaultValue);
+		const inlineEditingId = useId(rest.id, 'inline-edit-');
 
 		// Displayed content depends on current mode
 		// Controlled mode - display value prop
@@ -177,6 +179,7 @@ const InlineEditingPrimitive = forwardRef(
 			description,
 			label,
 			name: label.replace(/\s/g, ''),
+			fieldId: inlineEditingId,
 			required,
 			maxLength,
 			placeholder,

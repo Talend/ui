@@ -116,20 +116,14 @@ type FormDataWithUser = {
 };
 
 export const ConditionalFieldset = () => {
-	const [withUser, setWithUser] = useState(false);
 	const [formData, setFormData] = useState<string | null>(null);
-	const {
-		register,
-		watch,
-		handleSubmit,
-		unregister,
-		formState: { errors },
-	} = useForm<FormDataWithUser>();
+	const { register, watch, handleSubmit, unregister, formState } = useForm<FormDataWithUser>();
+	const { errors } = formState;
+
 	const withUserFormSelection = watch('withUser', false);
 	const hasMultipleErrors = Object.keys(errors).length > 1;
 
 	useEffect(() => {
-		setWithUser(withUserFormSelection);
 		if (!withUserFormSelection) {
 			unregister('name');
 			unregister('email');
@@ -166,20 +160,24 @@ export const ConditionalFieldset = () => {
 						suffix=".info"
 						hasError={!!errors.accountName}
 						description={(!hasMultipleErrors && errors.accountName?.message) || undefined}
-						name="accountName"
-						ref={register({ required: 'This field is required' })}
+						required
+						{...register('accountName', { required: 'This field is required' })}
 					/>
 					<Form.Number
 						label="Slots"
 						hasError={!!errors.numberOfSlots}
 						description={(!hasMultipleErrors && errors.numberOfSlots?.message) || undefined}
-						name="numberOfSlots"
-						ref={register({ required: 'This field is required' })}
+						required
+						{...register('numberOfSlots', { required: 'This field is required' })}
 					/>
 				</Form.Row>
-				<Form.ToggleSwitch label="Send invite to admin user" name="withUser" ref={register()} />
+				<Form.ToggleSwitch
+					label="Send invite to admin user"
+					{...register('withUser')}
+					checked={withUserFormSelection}
+				/>
 			</Form.Fieldset>
-			{withUser && (
+			{withUserFormSelection && (
 				<Form.Fieldset legend="Invite admin for this account">
 					<Form.Text
 						label="Username"
@@ -187,8 +185,7 @@ export const ConditionalFieldset = () => {
 						description={
 							(!hasMultipleErrors && 'name' in errors && errors.name?.message) || undefined
 						}
-						name="name"
-						ref={register({ required: 'This field is required' })}
+						{...register('name', { required: 'This field is required' })}
 					/>
 					<Form.Email
 						label="User email"
@@ -196,8 +193,7 @@ export const ConditionalFieldset = () => {
 						description={
 							(!hasMultipleErrors && 'email' in errors && errors.email?.message) || undefined
 						}
-						name="email"
-						ref={register({ required: 'This field is required' })}
+						{...register('email', { required: 'This field is required' })}
 					/>
 				</Form.Fieldset>
 			)}
