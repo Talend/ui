@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-core",
   "description": "Set of scripts",
-  "version": "16.0.0",
+  "version": "16.1.0",
   "license": "Apache-2.0",
   "exports": "./src/index.js",
   "type": "module",
@@ -23,11 +23,11 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@babel/cli": "^7.22.15",
-    "@babel/core": "^7.22.20",
-    "@talend/eslint-config": "^12.1.1",
-    "@talend/scripts-utils": "^2.0.2",
-    "@talend/scripts-config-babel": "^13.0.0",
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/scripts-utils": "^2.1.0",
+    "@talend/scripts-config-babel": "^13.1.0",
     "@talend/scripts-config-jest": "^13.0.0",
     "@talend/scripts-config-typescript": "^11.1.0",
     "cpx2": "^3.0.2",
@@ -35,7 +35,7 @@
     "lodash": "^4.17.21",
     "rimraf": "^3.0.2",
     "typescript": "^5.2.2",
-    "webpack-merge": "^5.9.0",
+    "webpack-merge": "^5.10.0",
     "yargs": "^15.4.1"
   },
   "publishConfig": {

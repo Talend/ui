@@ -1,5 +1,22 @@
 # @talend/scripts-config-react-webpack
 
+## 16.2.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  adapt code for pnpm
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/scripts-config-babel@13.1.0
+  - @talend/scripts-utils@2.1.0
+  - @talend/react-cmf-webpack-plugin@6.38.0
+
 ## 16.1.0
 
 ### Minor Changes

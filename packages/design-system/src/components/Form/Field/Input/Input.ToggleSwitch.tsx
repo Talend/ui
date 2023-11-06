@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import type { Ref } from 'react';
+import type { ChangeEvent, Ref } from 'react';
 
 import classnames from 'classnames';
 
@@ -10,7 +10,7 @@ import { useControl } from '../../../../useControl';
 import styles from './Input.ToggleSwitch.module.scss';
 
 export type ToggleSwitchPropTypes = Omit<CheckboxPrimitiveType, 'onChange'> & {
-	onChange?: (checked: boolean) => void;
+	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const ToggleSwitch = forwardRef(
@@ -33,7 +33,6 @@ export const ToggleSwitch = forwardRef(
 			onChangeKey: 'onChange',
 			valueKey: 'checked',
 			defaultValueKey: 'defaultChecked',
-			selector: e => e.target.checked,
 			defaultValue: false,
 		});
 

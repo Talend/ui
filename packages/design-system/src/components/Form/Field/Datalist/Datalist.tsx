@@ -43,6 +43,7 @@ const Datalist = forwardRef(
 			<>
 				<FieldPrimitive
 					id={datalistId}
+					fieldId={datalistId}
 					label={label}
 					hasError={hasError || false}
 					link={link}

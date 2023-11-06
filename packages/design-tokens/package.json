@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^16.0.0",
-    "@talend/scripts-config-react-webpack": "^16.0.0",
+    "@talend/scripts-config-react-webpack": "^16.1.0",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}

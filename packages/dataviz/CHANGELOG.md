@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove useless config of jest (use the common)
+  fix config issue in tsconfig.json
+
+### Patch Changes
+
+- Updated dependencies [2177ddfb3]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/react-components@12.1.0
+
 ## 4.0.0
 
 ### Major Changes

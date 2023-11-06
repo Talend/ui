@@ -1,5 +1,35 @@
 # @talend/design-docs
 
+## 3.0.0
+
+### Major Changes
+
+- 8ec56028a: deps: bump react-hook-form to 7.X
+
+  So if you are using rhf in your project you should also bump it and apply the migration guide
+  https://legacy.react-hook-form.com/migrate-v6-to-v7/
+
+## 2.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove link to design system (circular dep)
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [c76a700a4]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [b8406b6e5]
+- Updated dependencies [6b9f49e81]
+- Updated dependencies [41bd1b586]
+  - @talend/storybook-docs@2.1.0
+  - @talend/design-system@8.1.0
+  - @talend/icons@7.1.0
+
 ## 2.0.0
 
 ### Major Changes
