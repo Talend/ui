@@ -2063,6 +2063,9 @@ importers:
       '@talend/design-system':
         specifier: ^8.0.0
         version: link:../design-system
+      '@talend/design-tokens':
+        specifier: ^2.9.0
+        version: link:../design-tokens
       '@talend/react-components':
         specifier: ^12.0.0
         version: link:../components
