@@ -20,7 +20,9 @@ runs:
 
     - name: Setup PNPM
       shell: bash
-      run: pnpm config set global-bin-dir ~/.local/share/pnpm
+      run: |
+        mkdir ~/.local/share/pnpm
+        pnpm config set global-bin-dir ~/.local/share/pnpm
 
     - name: Get pnpm cache directory path
       id: pnpm-cache-dir-path
