@@ -97,8 +97,8 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 				defaultValue={defaultValue}
 				hasError={hasError || false}
 				name={name}
-				label={label}
 				required={required}
+				label={label}
 				id={fieldID}
 				{...rest}
 			/>
