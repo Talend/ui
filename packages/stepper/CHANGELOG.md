@@ -1,5 +1,26 @@
 # @talend/react-stepper
 
+## 9.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  add tsconfig.build.json to exclude test
+  fix prettier config
+
+### Patch Changes
+
+- Updated dependencies [c76a700a4]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [2177ddfb3]
+- Updated dependencies [b8406b6e5]
+- Updated dependencies [6b9f49e81]
+- Updated dependencies [41bd1b586]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/design-system@8.1.0
+  - @talend/react-components@12.1.0
+
 ## 9.0.0
 
 ### Major Changes

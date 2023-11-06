@@ -1,5 +1,12 @@
 ## [v0.32.5]
 
+## 2.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+
 ## 2.0.0
 
 ### Major Changes

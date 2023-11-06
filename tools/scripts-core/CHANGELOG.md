@@ -1,5 +1,21 @@
 # @talend/scripts-core
 
+## 16.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  update scripts following changes made in scripts-config-babel
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/scripts-config-babel@13.1.0
+  - @talend/eslint-config@12.2.0
+  - @talend/scripts-utils@2.1.0
+
 ## 16.0.0
 
 ### Major Changes
