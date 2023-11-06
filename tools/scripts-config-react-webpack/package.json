@@ -18,7 +18,7 @@
     "test": "echo \"Nothing to test\""
   },
   "peerDependencies": {
-    "@talend/icons": "^7.0.0"
+    "@talend/icons": "^7.1.0"
   },
   "dependencies": {
     "@babel/core": "^7.23.2",

@@ -18,7 +18,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@talend/scripts-config-babel": "^13.0.0",
+    "@talend/scripts-config-babel": "^13.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@types/jest": "^29.5.7",
     "babel-jest": "^29.7.0",
@@ -31,7 +31,7 @@
     "regenerator-runtime": "^0.13.11"
   },
   "peerDependencies": {
-    "@talend/design-system": ">= 7.15.1",
+    "@talend/design-system": ">= 8.1.0",
     "ally.js": ">= 1.4.1",
     "i18next": ">= 23.5.1",
     "classnames": ">= 2.3.2",

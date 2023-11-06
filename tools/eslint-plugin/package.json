@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.15",
-    "@talend/scripts-config-babel": "^13.0.0",
+    "@talend/scripts-config-babel": "^13.1.0",
     "eslint": "^7.32.0",
     "jest": "^29.7.0"
   },

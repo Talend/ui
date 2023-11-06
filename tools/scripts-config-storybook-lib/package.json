@@ -29,7 +29,7 @@
     "@storybook/react": "^7.5.2",
     "@storybook/react-webpack5": "^7.5.2",
     "@storybook/testing-library": "^0.2.2",
-    "@talend/scripts-config-react-webpack": "^16.1.0",
+    "@talend/scripts-config-react-webpack": "^16.2.0",
     "@talend/dynamic-cdn-webpack-plugin": "^13.0.1",
     "assert": "^2.1.0",
     "i18next-http-backend": "^1.4.5",
@@ -48,9 +48,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-config": "^12.2.0",
     "@talend/eslint-plugin": "^1.0.1",
-    "@talend/scripts-core": "^15.0.0"
+    "@talend/scripts-core": "^16.1.0"
   },
   "msw": {
     "workerDirectory": ".storybook-templates/msw"

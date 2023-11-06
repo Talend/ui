@@ -39,7 +39,7 @@
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^8.0.0",
+    "@talend/react-cmf": "^8.1.0",
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",
     "react-redux": "^7.2.9",

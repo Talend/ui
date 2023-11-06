@@ -101,7 +101,7 @@
     "storybook-docs-toc": "^1.7.0"
   },
   "peerDependencies": {
-    "@talend/icons": "^7.0.0",
+    "@talend/icons": "^7.1.0",
     "@talend/locales-design-system": "^7.15.1",
     "@testing-library/react": "^12.1.5",
     "i18next": "^23.6.0",
