@@ -43,11 +43,11 @@ const Field = forwardRef((props: InputFieldProps, ref: Ref<HTMLInputElement>) =>
 			<InputPrimitive
 				{...rest}
 				id={fieldID}
+				name={name}
+				required={required}
 				type={type}
 				ref={ref}
 				hasError={hasError || false}
-				name={name}
-				required={required}
 			/>
 		</FieldPrimitive>
 	);

@@ -193,7 +193,14 @@ const FieldFile = forwardRef(
 				hideLabel={hideLabel}
 				required={required}
 			>
-				<InputFile {...rest} id={fieldID} ref={ref} />
+				<InputFile
+					{...rest}
+					name={name}
+					required={required}
+					hasError={hasError || false}
+					id={fieldID}
+					ref={ref}
+				/>
 			</FieldPrimitive>
 		);
 	},

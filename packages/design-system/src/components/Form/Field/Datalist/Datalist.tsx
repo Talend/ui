@@ -55,6 +55,9 @@ const Datalist = forwardRef(
 					<InputPrimitive
 						{...rest}
 						list={datalistListId}
+						name={name}
+						required={required}
+						hasError={hasError || false}
 						disabled={!!disabled}
 						readOnly={!!readOnly}
 						value={value}
