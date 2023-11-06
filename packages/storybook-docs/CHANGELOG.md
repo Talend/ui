@@ -1,5 +1,14 @@
 # @talend/storybook-docs
 
+## 2.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove ref to design-system and icons(circular dep)
+  adapt code for pnpm
+
 ## 2.0.0
 
 ### Patch Changes
