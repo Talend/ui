@@ -1,5 +1,32 @@
 # @talend/react-containers
 
+## 10.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  add a tsconfig.build.json to exclude test files
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [c76a700a4]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [2177ddfb3]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [b8406b6e5]
+- Updated dependencies [6b9f49e81]
+- Updated dependencies [41bd1b586]
+- Updated dependencies [77826b091]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/react-cmf@8.1.0
+  - @talend/design-system@8.1.0
+  - @talend/react-components@12.1.0
+  - @talend/react-forms@11.1.0
+  - @talend/react-bootstrap@2.1.0
+
 ## 10.0.0
 
 ### Major Changes

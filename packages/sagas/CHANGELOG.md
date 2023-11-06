@@ -1,5 +1,17 @@
 # @talend/react-sagas
 
+## 8.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+  - @talend/react-cmf@8.1.0
+
 ## 8.0.0
 
 ### Major Changes

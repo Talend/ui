@@ -1,5 +1,29 @@
 # @talend/react-forms
 
+## 11.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+
+### Patch Changes
+
+- 77826b091: TDOPS-5409 - fix Link render below Password/Text field
+- Updated dependencies [c76a700a4]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [2177ddfb3]
+- Updated dependencies [b8406b6e5]
+- Updated dependencies [6b9f49e81]
+- Updated dependencies [41bd1b586]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/design-system@8.1.0
+  - @talend/icons@7.1.0
+  - @talend/react-components@12.1.0
+  - @talend/react-bootstrap@2.1.0
+
 ## 11.0.0
 
 ### Major Changes

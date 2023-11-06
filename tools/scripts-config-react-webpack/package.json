@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-react-webpack",
   "description": "Webpack configuration for @talend/scripts-core",
-  "version": "16.1.0",
+  "version": "16.2.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -20,10 +20,10 @@
   "dependencies": {
     "@babel/core": "^7.23.2",
     "@sentry/webpack-plugin": "^1.20.1",
-    "@talend/react-cmf-webpack-plugin": "^6.37.0",
-    "@talend/scripts-config-babel": "^13.0.0",
+    "@talend/react-cmf-webpack-plugin": "^6.38.0",
+    "@talend/scripts-config-babel": "^13.1.0",
     "@talend/scripts-config-cdn": "^10.8.0",
-    "@talend/scripts-utils": "^2.0.2",
+    "@talend/scripts-utils": "^2.1.0",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
     "autoprefixer": "^10.4.16",
@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.15",
-    "@talend/eslint-config": "^12.1.1",
+    "@talend/eslint-config": "^12.2.0",
     "eslint": "^7.32.0"
   },
   "publishConfig": {

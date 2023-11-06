@@ -1,5 +1,20 @@
 # @talend/design-system
 
+## 8.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove useless cypress config (toto.cypress.config.js)
+
+### Patch Changes
+
+- c76a700a4: fix: ThemeProvider use a module.scss but this is a global css
+- b8406b6e5: Fix Design System accessibility for Modal
+- 6b9f49e81: proper export of Icon enums
+- 41bd1b586: chore: remove unused polished dependency
+
 ## 8.0.0
 
 ### Major Changes
