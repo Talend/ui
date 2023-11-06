@@ -1,5 +1,12 @@
 # @talend/react-containers
 
+## 10.1.1
+
+### Patch Changes
+
+- Updated dependencies [8ec56028a]
+  - @talend/react-forms@12.0.0
+
 ## 10.1.0
 
 ### Minor Changes

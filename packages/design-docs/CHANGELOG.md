@@ -1,5 +1,14 @@
 # @talend/design-docs
 
+## 3.0.0
+
+### Major Changes
+
+- 8ec56028a: deps: bump react-hook-form to 7.X
+
+  So if you are using rhf in your project you should also bump it and apply the migration guide
+  https://legacy.react-hook-form.com/migrate-v6-to-v7/
+
 ## 2.1.0
 
 ### Minor Changes
