@@ -115,6 +115,7 @@ exports[`Form should render a11y html 1`] = `
             <input
               class="theme-inputFile__input theme-input"
               id="field--mocked-uuid-3"
+              name="file"
               type="file"
             />
             <div
@@ -228,6 +229,7 @@ exports[`Form should render a11y html 1`] = `
         <textarea
           class="theme-textarea"
           id="field--mocked-uuid-8"
+          name="textarea"
         />
       </div>
       <div
