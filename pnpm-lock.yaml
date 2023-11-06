@@ -1920,6 +1920,15 @@ importers:
       '@talend/icons':
         specifier: ^7.0.0
         version: link:../icons
+      '@talend/locales-tui-components':
+        specifier: ^11.4.5
+        version: 11.4.5
+      '@talend/locales-tui-containers':
+        specifier: ^9.1.3
+        version: 9.1.3
+      '@talend/locales-tui-forms':
+        specifier: ^10.2.4
+        version: 10.2.4
       '@talend/react-bootstrap':
         specifier: ^2.0.0
         version: link:../../fork/react-bootstrap
@@ -2953,6 +2962,9 @@ importers:
       '@sentry/webpack-plugin':
         specifier: ^1.20.1
         version: 1.20.1
+      '@talend/icons':
+        specifier: ^7.0.0
+        version: link:../../packages/icons
       '@talend/react-cmf-webpack-plugin':
         specifier: ^6.37.0
         version: link:../cmf-webpack-plugin
@@ -10168,11 +10180,9 @@ packages:
 
   /@talend/locales-tui-components@11.4.5:
     resolution: {integrity: sha512-BRxRQereUfBEitfu9exRbiE4fsUkJTPKlgG7SSQuTdBHIFizspRBgzfyqhXpwWIw/AsohrOTDEah43J7Iulguw==}
-    dev: true
 
   /@talend/locales-tui-containers@9.1.3:
     resolution: {integrity: sha512-ekeGAyfbpAGdaKNQ3UKJkZI0sOy8Wm9vxA6edakTsd8EDsLW0ZIRXtiaVrHDATJ8crc5g3+59jXlDidw0eFbQQ==}
-    dev: true
 
   /@talend/locales-tui-dataviz@3.0.1:
     resolution: {integrity: sha512-IGBLd7HKoOwQYeh5CAi361x35siO8ZuwuJiiGRTgllXIESkJACoUW1xvUBavaEgwnQsRGP9Y8rFRdh2C/2k7Fg==}
@@ -10184,7 +10194,6 @@ packages:
 
   /@talend/locales-tui-forms@10.2.4:
     resolution: {integrity: sha512-3rHgRKv9bc4rpLA3p4CQ7cGEWbHVITv6aRDLjhca6ZFmlQECC0JsghrqUYZ3GZeJmHezWGZm0LLRw4nNXBHwUA==}
-    dev: true
 
   /@talend/module-to-cdn@9.9.1:
     resolution: {integrity: sha512-OUGeTcoooJGdMFS162/swcajpHC4OYuYW0tV7ZWFoiiyLAH7UfSjFSWWRSMid1I7u7AjpvW19ifviFo9p51SSQ==}
