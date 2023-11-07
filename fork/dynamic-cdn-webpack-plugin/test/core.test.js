@@ -254,7 +254,6 @@ describe('core', () => {
 
 		// then
 		const files = getChunkFiles(stats);
-		console.log('TOTOTOTOTOTOT', files);
 		expect(files).toHaveLength(3);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/@babel/polyfill@7.0.0/dist/polyfill.js');

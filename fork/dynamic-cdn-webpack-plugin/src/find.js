@@ -81,7 +81,10 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 
 function findPackages(scope, name, buff = []) {
 	// https://nodejs.org/dist/latest-v14.x/docs/api/modules.html#modules_require_resolve_paths_request
-	const roots = require.resolve.paths(name).filter(p => fs.existsSync(p));
+	//Add condition for the github action (using pnpm/action-setup action a folder setup-pnpm is created to manage the store and the script see it, we need to skip it)
+	const roots = require.resolve
+		.paths(name)
+		.filter(p => fs.existsSync(p) && !p.includes('setup-pnpm/node_modules'));
 	if (roots === null) {
 		return buff;
 	}
