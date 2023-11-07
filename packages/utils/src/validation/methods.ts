@@ -1,4 +1,4 @@
-import { NAME, EMAIL, DOMAIN, PHONE } from './regexp';
+import { NAME, EMAIL, DOMAIN } from './regexp';
 
 /**
  * Build a validation method along a given regular expression
