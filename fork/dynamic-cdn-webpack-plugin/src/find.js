@@ -91,8 +91,8 @@ function findPackages(scope, name, buff = []) {
 	const result = buff.concat(
 		...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)),
 	);
-	// return [...new Set(result)];
-	return result;
+	// Return a new Set to remove duplicate values (case possible in GHA, due to pnpm/action-setup)
+	return [...new Set(result)];
 }
 
 module.exports = {
