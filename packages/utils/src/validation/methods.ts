@@ -36,10 +36,3 @@ export const validEmail: Function = getValidationMethod(EMAIL);
  * @returns {boolean}
  */
 export const validDomain: Function = getValidationMethod(DOMAIN);
-
-/**
- * Check that a given value is a valid phone number
- * @param {string} value
- * @returns {boolean}
- */
-export const validPhone: Function = getValidationMethod(PHONE);
