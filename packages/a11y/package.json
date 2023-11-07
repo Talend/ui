@@ -7,7 +7,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build:lib": "talend-scripts build",
-    "test": "talend-scripts test ./src",
+    "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },
   "keywords": [
@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "@talend/utils": "^2.6.0",
-    "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

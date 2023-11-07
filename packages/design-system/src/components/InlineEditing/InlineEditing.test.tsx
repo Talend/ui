@@ -24,6 +24,7 @@ describe('InlineEditing', () => {
 				/>
 			</main>,
 		);
+
 		// eslint-disable-next-line testing-library/no-container
 		container.querySelector('button')?.click();
 		expect(container.firstChild).toMatchSnapshot();

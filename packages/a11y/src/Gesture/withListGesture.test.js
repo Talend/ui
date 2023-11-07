@@ -16,13 +16,15 @@ describe('List Gesture HOC', () => {
 	});
 
 	async function testFocus({ elementPosition, expectedActivePosition, keyCode, loop }) {
+		const user = userEvent.setup();
+
 		// given
 		const ComponentWithGesture = getComponentWithGesture(loop);
 		render(<ComponentWithGesture />);
 		const element = screen.getByTestId(`item-${elementPosition}`);
 		// when
-		await userEvent.click(element);
-		await userEvent.keyboard(`[${keyCode}]`);
+		await user.click(element);
+		await user.keyboard(`[${keyCode}]`);
 
 		// then
 		expect(screen.getByTestId(`item-${expectedActivePosition}`)).toHaveFocus();

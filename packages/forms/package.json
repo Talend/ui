@@ -36,7 +36,6 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.2",
-    "@talend/icons": "^7.1.0",
     "@talend/json-schema-form-core": "^1.1.1",
     "@talend/react-components": "^12.1.0",
     "@talend/design-system": "^8.1.0",
@@ -60,7 +59,6 @@
     "@storybook/addon-actions": "^7.5.2",
     "@storybook/addon-controls": "^7.5.2",
     "@talend/bootstrap-theme": "^8.2.1",
-    "@talend/icons": "^7.0.0",
     "@talend/locales-tui-forms": "^10.2.4",
     "@talend/react-components": "^12.1.0",
     "@talend/eslint-config": "^12.2.0",

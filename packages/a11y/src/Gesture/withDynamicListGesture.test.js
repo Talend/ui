@@ -54,13 +54,15 @@ class ComponentWithGesture extends Component {
 
 describe('List Gesture HOC', () => {
 	async function testFocus({ elementIndex, expectedActiveIndex, keyCode }) {
+		const user = userEvent.setup();
+
 		// given
 		render(<ComponentWithGesture />);
 		const element = screen.getByTestId(`item-${elementIndex}`);
 
 		// when
-		await userEvent.click(element);
-		await userEvent.keyboard(`[${keyCode}]`);
+		await user.click(element);
+		await user.keyboard(`[${keyCode}]`);
 
 		// then
 		expect(screen.getByTestId(`item-${expectedActiveIndex}`)).toHaveFocus();
