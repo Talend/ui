@@ -1,5 +1,6 @@
 import pluginTester, { prettierFormatter } from 'babel-plugin-tester';
 import path from 'path';
+
 import babelPlugin from '.';
 
 pluginTester({

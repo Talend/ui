@@ -10,7 +10,7 @@
     "cmf-settings": "./cmf-settings.js"
   },
   "scripts": {
-    "lint": "echo \"Not possible to use talend-scripts here (risk of circular dependency)\" && exit 0"
+    "lint": "eslint ./"
   },
   "dependencies": {
     "i18next": "^23.5.1",
@@ -18,6 +18,10 @@
     "jsonpath": "^1.1.1",
     "lodash": "^4.17.21",
     "mkdirp": "^1.0.4"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.22.15",
+    "eslint": "^7.32.0"
   },
   "repository": {
     "type": "git",

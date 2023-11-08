@@ -12,7 +12,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "echo \"Not possible to use talend-scripts here (risk of circular dependency)\" && exit 0",
+    "lint": "eslint ./",
     "test": "echo \"Nothing to test\""
   },
   "license": "Apache-2.0",
@@ -21,5 +21,9 @@
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.22.15",
+    "eslint": "^7.32.0"
   }
 }

@@ -10,7 +10,7 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
-    "lint": "echo \"Not possible to use talend-scripts here (risk of circular dependency)\" && exit 0",
+    "lint": "eslint ./",
     "test": "echo \"Nothing to test\""
   },
   "repository": {
@@ -21,6 +21,10 @@
     "stylelint": "^15.11.0",
     "stylelint-config-sass-guidelines": "^10.0.0",
     "stylelint-config-standard": "^34.0.0"
+  },
+  "devDependencies": {
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1"
   },
   "publishConfig": {
     "access": "public"

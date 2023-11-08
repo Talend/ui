@@ -14,7 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "echo \"Not possible to use talend-scripts here (risk of circular dependency)\" && exit 0",
+    "lint": "eslint ./",
     "test": "jest"
   },
   "dependencies": {
@@ -29,6 +29,10 @@
     "jest-serializer-html": "^7.1.0",
     "raf": "^3.4.1",
     "regenerator-runtime": "^0.13.11"
+  },
+  "devDependencies": {
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1"
   },
   "peerDependencies": {
     "@talend/design-system": ">= 8.1.0",

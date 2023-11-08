@@ -55,7 +55,14 @@ importers:
         specifier: ^5.0.4
         version: 5.2.2
 
-  fork/bootstrap-sass: {}
+  fork/bootstrap-sass:
+    devDependencies:
+      '@babel/eslint-parser':
+        specifier: ^7.22.15
+        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
 
   fork/dynamic-cdn-webpack-plugin:
     dependencies:
@@ -72,12 +79,18 @@ importers:
         specifier: ^3.2.3
         version: 3.2.3
     devDependencies:
+      '@babel/eslint-parser':
+        specifier: ^7.22.15
+        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
       all-contributors-cli:
         specifier: ^6.26.1
         version: 6.26.1
       codecov:
         specifier: ^3.8.3
         version: 3.8.3
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
       html-webpack-plugin:
         specifier: ^5.5.3
         version: 5.5.3(webpack@5.89.0)
@@ -1787,6 +1800,12 @@ importers:
       '@talend/design-tokens':
         specifier: ^2.9.0
         version: link:../design-tokens
+      '@talend/eslint-config':
+        specifier: ^12.2.0
+        version: link:../../tools/scripts-config-eslint
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../../tools/eslint-plugin
       '@talend/scripts-config-babel':
         specifier: ^13.1.0
         version: link:../../tools/scripts-config-babel
@@ -1860,6 +1879,12 @@ importers:
       '@talend/babel-plugin-import-from-index':
         specifier: ^1.5.1
         version: link:../../tools/babel-plugin-import-from-index
+      '@talend/eslint-config':
+        specifier: ^12.2.0
+        version: link:../../tools/scripts-config-eslint
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../../tools/eslint-plugin
       '@talend/scripts-config-react-webpack':
         specifier: ^16.2.0
         version: link:../../tools/scripts-config-react-webpack
@@ -2535,6 +2560,9 @@ importers:
       '@babel/core':
         specifier: ^7.23.2
         version: 7.23.2
+      '@babel/eslint-parser':
+        specifier: ^7.22.15
+        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
       '@babel/preset-env':
         specifier: ^7.23.2
         version: 7.23.2(@babel/core@7.23.2)
@@ -2544,6 +2572,9 @@ importers:
       babel-plugin-tester:
         specifier: ^10.1.0
         version: 10.1.0(@babel/core@7.23.2)
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
       jest:
         specifier: ^29.7.0
         version: 29.7.0
@@ -2587,6 +2618,9 @@ importers:
       '@babel/core':
         specifier: ^7.23.2
         version: 7.23.2
+      '@babel/eslint-parser':
+        specifier: ^7.22.15
+        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
       '@babel/preset-env':
         specifier: ^7.23.2
         version: 7.23.2(@babel/core@7.23.2)
@@ -2596,6 +2630,9 @@ importers:
       babel-plugin-tester:
         specifier: ^10.1.0
         version: 10.1.0(@babel/core@7.23.2)
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
       jest:
         specifier: ^29.7.0
         version: 29.7.0
@@ -2729,6 +2766,13 @@ importers:
       webpack-cli:
         specifier: ^4.10.0
         version: 4.10.0(webpack-bundle-analyzer@4.9.1)(webpack@5.89.0)
+    devDependencies:
+      '@talend/eslint-config':
+        specifier: ^12.2.0
+        version: link:../scripts-config-eslint
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../eslint-plugin
 
   tools/scripts-cmf:
     dependencies:
@@ -2747,6 +2791,13 @@ importers:
       mkdirp:
         specifier: ^1.0.4
         version: 1.0.4
+    devDependencies:
+      '@babel/eslint-parser':
+        specifier: ^7.22.15
+        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
 
   tools/scripts-config-babel:
     dependencies:
@@ -2820,6 +2871,13 @@ importers:
       read-pkg-up:
         specifier: ^7.0.1
         version: 7.0.1
+    devDependencies:
+      '@babel/eslint-parser':
+        specifier: ^7.22.15
+        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
 
   tools/scripts-config-eslint:
     dependencies:
@@ -2944,12 +3002,26 @@ importers:
       regenerator-runtime:
         specifier: ^0.13.11
         version: 0.13.11
+    devDependencies:
+      '@talend/eslint-config':
+        specifier: ^12.2.0
+        version: link:../scripts-config-eslint
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../eslint-plugin
 
   tools/scripts-config-prettier:
     dependencies:
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^3.4.0
         version: 3.4.0(prettier@2.8.8)
+    devDependencies:
+      '@babel/eslint-parser':
+        specifier: ^7.22.15
+        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
 
   tools/scripts-config-react-webpack:
     dependencies:
@@ -3074,15 +3146,12 @@ importers:
         specifier: ^4.15.1
         version: 4.15.1(webpack-cli@4.10.0)(webpack@5.89.0)
     devDependencies:
-      '@babel/eslint-parser':
-        specifier: ^7.22.15
-        version: 7.22.15(@babel/core@7.23.2)(eslint@7.32.0)
       '@talend/eslint-config':
         specifier: ^12.2.0
         version: link:../scripts-config-eslint
-      eslint:
-        specifier: ^7.32.0
-        version: 7.32.0
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../eslint-plugin
 
   tools/scripts-config-storybook-lib:
     dependencies:
@@ -3174,8 +3243,22 @@ importers:
       stylelint-config-standard:
         specifier: ^34.0.0
         version: 34.0.0(stylelint@15.11.0)
+    devDependencies:
+      '@talend/eslint-config':
+        specifier: ^12.2.0
+        version: link:../scripts-config-eslint
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../eslint-plugin
 
-  tools/scripts-config-typescript: {}
+  tools/scripts-config-typescript:
+    devDependencies:
+      '@talend/eslint-config':
+        specifier: ^12.2.0
+        version: link:../scripts-config-eslint
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../eslint-plugin
 
   tools/scripts-core:
     dependencies:

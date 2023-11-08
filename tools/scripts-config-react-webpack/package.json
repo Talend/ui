@@ -62,9 +62,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.15",
     "@talend/eslint-config": "^12.2.0",
-    "eslint": "^7.32.0"
+    "@talend/eslint-plugin": "^1.0.1"
   },
   "publishConfig": {
     "access": "public"
