@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
 import { ComponentType, createRef, Component, KeyboardEvent as ReactKeyboardEvent } from 'react';
-import keycode from 'keycode';
 import { focusWithinCurrentCalendar } from './focus';
 import { FIRST, LAST } from './constants';
 import { WithCalendarGestureInjectedProps } from './propTypes';
@@ -29,28 +28,32 @@ export function withMonthCalendarGesture<P extends WithCalendarGestureInjectedPr
 			calendarRef: HTMLElement,
 			monthIndex: number,
 		) {
-			switch (event.keyCode) {
-				case keycode.codes.left:
+			switch (event.key) {
+				case 'Left':
+				case 'ArrowLeft':
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, monthIndex - 1);
 					break;
-				case keycode.codes.right:
+				case 'Right':
+				case 'ArrowRight':
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, monthIndex + 1);
 					break;
-				case keycode.codes.up:
+				case 'Up':
+				case 'ArrowUp':
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, monthIndex - rowSize);
 					break;
-				case keycode.codes.down:
+				case 'Down':
+				case 'ArrowDown':
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, monthIndex + rowSize);
 					break;
-				case keycode.codes.home:
+				case 'Home':
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, FIRST);
 					break;
-				case keycode.codes.end:
+				case 'End':
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, LAST);
 					break;

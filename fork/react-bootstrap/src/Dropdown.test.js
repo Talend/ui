@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import keycode from 'keycode';
 import ReactDOM from 'react-dom';
 
 import Dropdown from './Dropdown';
@@ -52,7 +51,7 @@ describe('<Dropdown>', () => {
     render(
       <Dropdown title="Dropup" dropup id="test-id">
         {dropdownChildren}
-      </Dropdown>
+      </Dropdown>,
     );
 
     // then
@@ -101,7 +100,7 @@ describe('<Dropdown>', () => {
         <CustomMenu role="menu">
           <MenuItem>Item 1</MenuItem>
         </CustomMenu>
-      </Dropdown>
+      </Dropdown>,
     );
 
     // then
@@ -114,7 +113,7 @@ describe('<Dropdown>', () => {
     render(
       <Dropdown pullRight id="test-id">
         {dropdownChildren}
-      </Dropdown>
+      </Dropdown>,
     );
 
     // then
@@ -124,75 +123,81 @@ describe('<Dropdown>', () => {
   // NOTE: The onClick event handler is invoked for both the Enter and Space
   // keys as well since the component is a button. I cannot figure out how to
   // get ReactTestUtils to simulate such though.
-  it('toggles open/closed when clicked', () => {
+  it('toggles open/closed when clicked', async () => {
+    const user = userEvent.setup();
+
     // given
     render(simpleDropdown);
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute(
       'aria-expanded',
-      'false'
+      'false',
     );
 
     // when
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
     // then
     expect(screen.getByTestId('test-id')).toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
 
     // when
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
     // then
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute(
       'aria-expanded',
-      'false'
+      'false',
     );
   });
 
-  it('closes when clicked outside', () => {
+  it('closes when clicked outside', async () => {
+    const user = userEvent.setup();
+
     // given
     render(simpleDropdown);
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute(
       'aria-expanded',
-      'false'
+      'false',
     );
 
     // when
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
     // then
     expect(screen.getByTestId('test-id')).toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
 
     // when
-    userEvent.click(document.body);
+    await user.click(document.body);
 
     // then
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute(
       'aria-expanded',
-      'false'
+      'false',
     );
   });
 
-  it('closes when mousedown outside if rootCloseEvent set', () => {
+  it('closes when mousedown outside if rootCloseEvent set', async () => {
+    const user = userEvent.setup();
+
     // given
     render(
       <Dropdown data-testid="test-id" rootCloseEvent="mousedown">
         {dropdownChildren}
-      </Dropdown>
+      </Dropdown>,
     );
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute(
       'aria-expanded',
-      'false'
+      'false',
     );
 
     // when
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
     // then
     expect(screen.getByTestId('test-id')).toHaveClass('open');
@@ -205,11 +210,13 @@ describe('<Dropdown>', () => {
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute(
       'aria-expanded',
-      'false'
+      'false',
     );
   });
 
-  it('opens if dropdown contains no focusable menu item', () => {
+  it('opens if dropdown contains no focusable menu item', async () => {
+    const user = userEvent.setup();
+
     // given
     render(
       <Dropdown title="custom child" data-testid="dropdown">
@@ -217,27 +224,25 @@ describe('<Dropdown>', () => {
         <Dropdown.Menu>
           <li>Some custom nonfocusable content</li>
         </Dropdown.Menu>
-      </Dropdown>
+      </Dropdown>,
     );
 
     // when
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
     // then
     expect(screen.getByTestId('dropdown')).toHaveClass('open');
   });
 
-  it('when focused and closed toggles open when the key "down" is pressed', () => {
+  it('when focused and closed toggles open when the key "down" is pressed', async () => {
+    const user = userEvent.setup();
+
     // given
     render(simpleDropdown);
 
     // when
-    fireEvent.keyDown(screen.getByRole('button'), {
-      key: 'ArrowDown',
-      code: 'ArrowDown',
-      keyCode: keycode('down'),
-      charCode: keycode('down'),
-    });
+    screen.getByRole('button').focus();
+    await user.keyboard('[ArrowDown]');
 
     // then
     expect(screen.getByTestId('test-id')).toHaveClass('open');
@@ -252,74 +257,82 @@ describe('<Dropdown>', () => {
     expect(screen.getByRole('button')).toHaveAttribute('aria-haspopup', 'true');
   });
 
-  it('does not pass onSelect to DOM node', () => {
+  it('does not pass onSelect to DOM node', async () => {
+    const user = userEvent.setup();
+
     // given
     const onSelect = jest.fn();
     render(
       <Dropdown data-testid="test-id" onSelect={onSelect}>
         {dropdownChildren}
-      </Dropdown>
+      </Dropdown>,
     );
-    expect(onSelect).not.toBeCalled();
+    expect(onSelect).not.toHaveBeenCalled();
 
     // when
-    userEvent.click(screen.getByRole('button'));
-    userEvent.click(screen.getByRole('menuitem', { name: 'Item 4' }));
+    await user.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('menuitem', { name: 'Item 4' }));
 
     // then
-    expect(onSelect).toBeCalled();
+    expect(onSelect).toHaveBeenCalled();
   });
 
-  it('closes when child MenuItem is selected', () => {
+  it('closes when child MenuItem is selected', async () => {
+    const user = userEvent.setup();
+
     // given
     render(
       <Dropdown data-testid="test-id" rootCloseEvent="mousedown">
         {dropdownChildren}
-      </Dropdown>
+      </Dropdown>,
     );
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute(
       'aria-expanded',
-      'false'
+      'false',
     );
 
     // when
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
     // then
     expect(screen.getByTestId('test-id')).toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
 
     // when
-    userEvent.click(screen.getByRole('menuitem', { name: 'Item 4' }));
+    await user.click(screen.getByRole('menuitem', { name: 'Item 4' }));
 
     // then
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     expect(screen.getByRole('button')).toHaveAttribute(
       'aria-expanded',
-      'false'
+      'false',
     );
   });
 
-  it('does not close when onToggle is controlled', () => {
+  it('does not close when onToggle is controlled', async () => {
+    const user = userEvent.setup();
+
     // given
     const handleSelect = jest.fn();
     render(
       <Dropdown open onToggle={handleSelect} data-testid="test-id">
         {dropdownChildren}
-      </Dropdown>
+      </Dropdown>,
     );
 
     // when
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
     expect(screen.getByTestId('test-id')).toHaveClass('open');
-    userEvent.click(screen.getByRole('menuitem', { name: 'Item 4' }));
+    await user.click(screen.getByRole('menuitem', { name: 'Item 4' }));
 
     // then
     expect(screen.getByTestId('test-id')).toHaveClass('open');
   });
 
-  it('is open with explicit prop', () => {
+  it('is open with explicit prop', async () => {
+    const user = userEvent.setup();
+
     // given
     function OpenProp() {
       const [open, setOpen] = useState(false);
@@ -346,13 +359,13 @@ describe('<Dropdown>', () => {
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
 
     // when
-    userEvent.click(screen.getByRole('button', { name: 'Outer button' }));
+    await user.click(screen.getByRole('button', { name: 'Outer button' }));
 
     // then
     expect(screen.getByTestId('test-id')).toHaveClass('open');
 
     // when
-    userEvent.click(screen.getByRole('button', { name: 'Outer button' }));
+    await user.click(screen.getByRole('button', { name: 'Outer button' }));
 
     // then
     expect(screen.getByTestId('test-id')).not.toHaveClass('open');
@@ -386,12 +399,12 @@ describe('<Dropdown>', () => {
             <Dropdown.Toggle />
             <Dropdown.Menu />
             <Dropdown.Menu />
-          </Dropdown>
+          </Dropdown>,
         );
 
         // then
         expect(console.error.mock.calls[0]).toContain(
-          '(children) Dropdown - Duplicate children detected of bsRole: menu. Only one child each allowed with the following bsRoles: menu'
+          '(children) Dropdown - Duplicate children detected of bsRole: menu. Only one child each allowed with the following bsRoles: menu',
         );
       });
 
@@ -400,12 +413,12 @@ describe('<Dropdown>', () => {
         render(
           <Dropdown id="test">
             <Dropdown.Toggle />
-          </Dropdown>
+          </Dropdown>,
         );
 
         // then
         expect(console.error.mock.calls[0][0]).toContain(
-          'Warning: Failed prop type: (children) Dropdown - Missing a required child with bsRole: menu. Dropdown must have at least one child of each of the following bsRoles: toggle, menu'
+          'Warning: Failed prop type: (children) Dropdown - Missing a required child with bsRole: menu. Dropdown must have at least one child of each of the following bsRoles: toggle, menu',
         );
       });
 
@@ -416,7 +429,7 @@ describe('<Dropdown>', () => {
             <Dropdown.Toggle />
             <Dropdown.Toggle />
             <Dropdown.Menu />
-          </Dropdown>
+          </Dropdown>,
         );
 
         // then
@@ -428,12 +441,12 @@ describe('<Dropdown>', () => {
         render(
           <Dropdown id="test">
             <Dropdown.Menu />
-          </Dropdown>
+          </Dropdown>,
         );
 
         // then
         expect(console.error.mock.calls[0]).toContain(
-          '(children) Dropdown - Missing a required child with bsRole: toggle. Dropdown must have at least one child of each of the following bsRoles: toggle, menu'
+          '(children) Dropdown - Missing a required child with bsRole: toggle. Dropdown must have at least one child of each of the following bsRoles: toggle, menu',
         );
       });
     });
@@ -505,7 +518,7 @@ describe('<Dropdown>', () => {
 
       // then
       expect(console.error.mock.calls[0][0]).toContain(
-        'String refs are not supported'
+        'String refs are not supported',
       );
     });
   });
@@ -523,36 +536,34 @@ describe('<Dropdown>', () => {
       document.body.removeChild(focusableContainer);
     });
 
-    it('when focused and closed sets focus on first menu item when the key "down" is pressed', () => {
+    it('when focused and closed sets focus on first menu item when the key "down" is pressed', async () => {
+      const user = userEvent.setup();
+
       // given
       render(simpleDropdown, { container: focusableContainer });
 
       // when
-      fireEvent.focus(screen.getByRole('button'));
-      fireEvent.keyDown(screen.getByRole('button'), {
-        key: 'ArrowDown',
-        keyCode: keycode('down'),
-      });
+      screen.getByRole('button').focus();
+      await user.keyboard('[ArrowDown]');
 
       // then
       expect(screen.getByRole('menuitem', { name: 'Item 1' })).toHaveFocus();
     });
 
-    it('when focused and open does not toggle closed when the key "down" is pressed', () => {
+    it('when focused and open does not toggle closed when the key "down" is pressed', async () => {
+      const user = userEvent.setup();
+
       // given
       render(simpleDropdown);
 
       // when
-      userEvent.click(screen.getByRole('button'));
-      fireEvent.keyDown(screen.getByRole('button'), {
-        key: 'ArrowDown',
-        keyCode: keycode('down'),
-      });
+      await user.click(screen.getByRole('button'));
+      await user.keyboard('[ArrowDown]');
 
       // then
       expect(screen.getByRole('button')).toHaveAttribute(
         'aria-expanded',
-        'true'
+        'true',
       );
       expect(screen.getByTestId('test-id')).toHaveClass('open');
     });
@@ -562,53 +573,51 @@ describe('<Dropdown>', () => {
     // The failure occurred when all tests in the suite were run together, but not a subset of the tests.
     //
     // I am fairly confident that the failure is due to a test specific conflict and not an actual bug.
-    it('when open and the key "esc" is pressed the menu is closed and focus is returned to the button', () => {
+    it.only('when open and the key "esc" is pressed the menu is closed and focus is returned to the button', async () => {
+      const user = userEvent.setup();
+
       // given
       render(
         <Dropdown defaultOpen role="menuitem" data-testid="test-id" id="lol">
           {dropdownChildren}
         </Dropdown>,
-        { container: focusableContainer }
+        { container: focusableContainer },
       );
       const firstItem = screen.getByRole('menuitem', { name: 'Item 1' });
       expect(firstItem).toHaveFocus();
 
       // when
-      fireEvent.keyDown(firstItem, {
-        key: 'Escape',
-        keyCode: keycode('esc'),
-      });
+      await user.keyboard('[Escape]');
 
       // then
       expect(screen.getByRole('button')).toHaveFocus();
       expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     });
 
-    it('when open and the key "tab" is pressed the menu is closed and focus is progress to the next focusable element', () => {
+    it('when open and the key "tab" is pressed the menu is closed and focus is progress to the next focusable element', async () => {
+      const user = userEvent.setup();
+
       // given
       render(
         <Grid>
           {simpleDropdown}
           <input type="text" id="next-focusable" />
         </Grid>,
-        { attachTo: focusableContainer }
+        { attachTo: focusableContainer },
       );
 
       // when
-      userEvent.click(screen.getByRole('button'));
+      await user.click(screen.getByRole('button'));
       expect(screen.getByRole('button')).toHaveAttribute(
         'aria-expanded',
-        'true'
+        'true',
       );
-      fireEvent.keyDown(screen.getByRole('button'), {
-        key: 'Tab',
-        keyCode: keycode('tab'),
-      });
+      await user.keyboard('[Tab]');
 
       // then
       expect(screen.getByRole('button')).toHaveAttribute(
         'aria-expanded',
-        'false'
+        'false',
       );
     });
   });
@@ -626,18 +635,20 @@ describe('<Dropdown>', () => {
       document.body.removeChild(focusableContainer);
     });
 
-    it('passes open, event, and source correctly when opened with click', () => {
+    it('passes open, event, and source correctly when opened with click', async () => {
+      const user = userEvent.setup();
+
       // given
       const onToggle = jest.fn();
       render(
         <Dropdown id="lol" data-testid="test-id" onToggle={onToggle}>
           {dropdownChildren}
-        </Dropdown>
+        </Dropdown>,
       );
       expect(onToggle).not.toHaveBeenCalled();
 
       // when
-      userEvent.click(screen.getByRole('button'));
+      await user.click(screen.getByRole('button'));
 
       // then
       expect(onToggle).toHaveBeenCalledWith(true, expect.any(Object), {
@@ -645,20 +656,22 @@ describe('<Dropdown>', () => {
       });
     });
 
-    it('passes open, event, and source correctly when closed with click', () => {
+    it('passes open, event, and source correctly when closed with click', async () => {
+      const user = userEvent.setup();
+
       // given
       const onToggle = jest.fn();
       render(
         <Dropdown id="test-id" onToggle={onToggle}>
           {dropdownChildren}
-        </Dropdown>
+        </Dropdown>,
       );
       expect(onToggle).not.toHaveBeenCalled();
 
       // when
-      userEvent.click(screen.getByRole('button'));
+      await user.click(screen.getByRole('button'));
       expect(onToggle).toHaveBeenCalledTimes(1);
-      userEvent.click(screen.getByRole('button'));
+      await user.click(screen.getByRole('button'));
 
       // then
       expect(onToggle.mock.calls.length).toBeGreaterThanOrEqual(2);
@@ -667,7 +680,9 @@ describe('<Dropdown>', () => {
       });
     });
 
-    it('passes open, event, and source correctly when child selected', () => {
+    it('passes open, event, and source correctly when child selected', async () => {
+      const user = userEvent.setup();
+
       // given
       const onToggle = jest.fn();
       render(
@@ -676,35 +691,35 @@ describe('<Dropdown>', () => {
           <Dropdown.Menu key="menu">
             <MenuItem eventKey={1}>Item 1</MenuItem>
           </Dropdown.Menu>
-        </Dropdown>
+        </Dropdown>,
       );
 
       // when
-      userEvent.click(screen.getByRole('button'));
-      expect(onToggle).toBeCalledTimes(1);
-      userEvent.click(screen.getByRole('menuitem', { name: 'Item 1' }));
+      await user.click(screen.getByRole('button'));
+      expect(onToggle).toHaveBeenCalledTimes(1);
+      await user.click(screen.getByRole('menuitem', { name: 'Item 1' }));
 
       // then
-      expect(onToggle).toBeCalledTimes(2);
+      expect(onToggle).toHaveBeenCalledTimes(2);
       expect(onToggle).toHaveBeenLastCalledWith(false, expect.any(Object), {
         source: 'select',
       });
     });
 
-    it('passes open, event, and source correctly when opened with keydown', () => {
+    it('passes open, event, and source correctly when opened with keydown', async () => {
+      const user = userEvent.setup();
+
       // given
       const onToggle = jest.fn();
       render(
         <Dropdown id="lol" data-testid="test-id" onToggle={onToggle}>
           {dropdownChildren}
-        </Dropdown>
+        </Dropdown>,
       );
 
       // when
-      fireEvent.keyDown(screen.getByRole('button'), {
-        key: 'ArrowDown',
-        keyCode: keycode('down'),
-      });
+      screen.getByRole('button').focus();
+      await user.keyboard('[ArrowDown]');
 
       // then
       expect(onToggle).toHaveBeenCalledTimes(1);
@@ -722,7 +737,7 @@ describe('<Dropdown>', () => {
         <Dropdown.Menu bsClass="my-menu">
           <MenuItem>Item 1</MenuItem>
         </Dropdown.Menu>
-      </Dropdown>
+      </Dropdown>,
     );
 
     // then

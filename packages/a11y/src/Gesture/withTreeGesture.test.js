@@ -49,40 +49,46 @@ describe('TreeGesture HOC', () => {
 	});
 
 	it('should select item on enter keydown', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			...treeProps,
 			onSelect: jest.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
-		expect(props.onSelect).not.toBeCalled();
+		expect(props.onSelect).not.toHaveBeenCalled();
 
 		// when
 		screen.getByText('Zero').focus();
-		await userEvent.keyboard('[Enter]');
+		await user.keyboard('[Enter]');
 
 		// then
-		expect(props.onSelect).toBeCalledWith(expect.anything(), props.items[0]);
+		expect(props.onSelect).toHaveBeenCalledWith(expect.anything(), props.items[0]);
 	});
 
 	it('should select item on space keydown', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			...treeProps,
 			onSelect: jest.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
-		expect(props.onSelect).not.toBeCalled();
+		expect(props.onSelect).not.toHaveBeenCalled();
 
 		// when
 		screen.getByText('Zero').focus();
-		await userEvent.keyboard('[Space]');
+		await user.keyboard('[Space]');
 
 		// then
-		expect(props.onSelect).toBeCalledWith(expect.anything(), props.items[0]);
+		expect(props.onSelect).toHaveBeenCalledWith(expect.anything(), props.items[0]);
 	});
 
 	it('should toggle opened item on left keydown', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			...treeProps,
@@ -90,36 +96,40 @@ describe('TreeGesture HOC', () => {
 		};
 		render(<ComponentWithGesture {...props} />);
 		// const event = { keyCode: keycode.codes.left, stopPropagation: jest.fn() };
-		expect(props.onToggle).not.toBeCalled();
+		expect(props.onToggle).not.toHaveBeenCalled();
 
 		// when
 		screen.getByText('First').focus();
-		await userEvent.keyboard('[ArrowLeft]');
+		await user.keyboard('[ArrowLeft]');
 
 		// wrapper.find(getSelector({ level: 0, posinset: 1 })).simulate('keydown', event);
 
 		// then
-		expect(props.onToggle).toBeCalledWith(expect.anything(), props.items[1]);
+		expect(props.onToggle).toHaveBeenCalledWith(expect.anything(), props.items[1]);
 	});
 
 	it('should toggle closed item on right keydown', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			...treeProps,
 			onToggle: jest.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
-		expect(props.onToggle).not.toBeCalled();
+		expect(props.onToggle).not.toHaveBeenCalled();
 
 		// when
 		screen.getByText('Eleven').focus();
-		await userEvent.keyboard('[ArrowRight]');
+		await user.keyboard('[ArrowRight]');
 
 		// then
-		expect(props.onToggle).toBeCalledWith(expect.anything(), props.items[1].children[1]);
+		expect(props.onToggle).toHaveBeenCalledWith(expect.anything(), props.items[1].children[1]);
 	});
 
 	it('should open all siblings on * keydown', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const items = treeProps.items.slice();
 		items[0] = { ...items[0], siblings: items };
@@ -129,23 +139,25 @@ describe('TreeGesture HOC', () => {
 			onToggleAllSiblings: jest.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
-		expect(props.onToggleAllSiblings).not.toBeCalled();
+		expect(props.onToggleAllSiblings).not.toHaveBeenCalled();
 
 		// when
 		screen.getByText('Zero').focus();
-		await userEvent.keyboard('*');
+		await user.keyboard('*');
 
 		// then
-		expect(props.onToggleAllSiblings).toBeCalledWith(expect.anything(), items);
+		expect(props.onToggleAllSiblings).toHaveBeenCalledWith(expect.anything(), items);
 	});
 
 	async function testFocus({ elementPosition, expectedActivePosition, keyCode }) {
+		const user = userEvent.setup();
+
 		// given
 		render(<ComponentWithGesture {...treeProps} />);
 		screen.getByText(elementPosition).focus();
 
 		// when
-		await userEvent.keyboard(`[${keyCode}]`);
+		await user.keyboard(`[${keyCode}]`);
 
 		// then
 		expect(screen.getByText(expectedActivePosition)).toHaveFocus();

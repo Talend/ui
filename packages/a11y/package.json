@@ -7,7 +7,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build:lib": "talend-scripts build",
-    "test": "talend-scripts test ./src",
+    "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },
   "keywords": [
@@ -25,12 +25,12 @@
   },
   "dependencies": {
     "@talend/utils": "^2.6.0",
-    "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@talend/scripts-core": "^16.0.0",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^14.5.1",
+    "@testing-library/react": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
