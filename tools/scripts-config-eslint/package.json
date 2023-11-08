@@ -23,22 +23,24 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.22.15",
     "@talend/eslint-plugin": "^1.0.1",
+    "@testing-library/dom": "^9.3.3",
     "@typescript-eslint/parser": "^5.62.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.53.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-angular": "^4.1.0",
     "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-jest-dom": "^4.0.3",
+    "eslint-plugin-jest-dom": "^5.1.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-mdx": "^1.17.1",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^2.5.1",
-    "eslint-plugin-storybook": "^0.5.13",
-    "eslint-plugin-testing-library": "^5.11.1"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.15",
+    "eslint-plugin-testing-library": "^6.1.0"
   },
   "publishConfig": {
     "access": "public"
