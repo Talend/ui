@@ -83,6 +83,8 @@ const InputCopy = forwardRef(
 				<InputPrimitive
 					{...rest}
 					id={inputId}
+					name={name}
+					required={required}
 					ref={inputRef}
 					value={value}
 					defaultValue={defaultValue}

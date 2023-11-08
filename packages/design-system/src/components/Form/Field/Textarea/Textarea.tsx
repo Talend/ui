@@ -44,6 +44,7 @@ const Textarea = forwardRef((props: InputTextareaProps, ref: Ref<HTMLTextAreaEle
 				{...rest}
 				required={required}
 				id={fieldID}
+				name={name}
 				ref={ref}
 			/>
 		</FieldPrimitive>
