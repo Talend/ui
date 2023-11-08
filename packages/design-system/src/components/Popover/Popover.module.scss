@@ -5,6 +5,7 @@
 	transition: opacity tokens.$coral-transition-fast;
 	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 	border-radius: tokens.$coral-radius-s;
+	z-index: tokens.$coral-elevation-layer-interactive-front;
 	opacity: 1;
 }
 
