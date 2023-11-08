@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 8.1.2
+
+### Patch Changes
+
+- 02cc11768: fix: add z-index to Popover.module.scss
+- Updated dependencies [841be39f3]
+  - @talend/utils@2.7.0
+
 ## 8.1.1
 
 ### Patch Changes
