@@ -36,6 +36,3 @@ Updated lib with breaking changes :
   "eslint-plugin-testing-library": "^5.11.1"
 }
 ```
-
-**Breaking changes coming from updates :**
-
