@@ -6,7 +6,7 @@ import Modal from '../src/Modal';
 
 describe('Modal', () => {
   it('Should be rendered on the server side', () => {
-    let noOp = () => {};
+    const noOp = () => {};
 
     assert.doesNotThrow(() =>
       ReactDOMServer.renderToString(
