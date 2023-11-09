@@ -81,17 +81,17 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 
 function findPackages(scope, name, buff = []) {
 	// https://nodejs.org/dist/latest-v14.x/docs/api/modules.html#modules_require_resolve_paths_request
-	//Add condition for the github action (using pnpm/action-setup action a folder setup-pnpm is created to manage the store and the script see it, we need to skip it)
-	const roots = require.resolve
-		.paths(name)
-		.filter(p => fs.existsSync(p) && !p.includes('setup-pnpm/node_modules'));
+	const roots = require.resolve.paths(name).filter(p => fs.existsSync(p));
 	if (roots === null) {
 		return buff;
 	}
 	const result = buff.concat(
 		...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)),
 	);
-	// Return a new Set to remove duplicate values (case possible in GHA, due to pnpm/action-setup)
+	// Return a new Set to remove duplicate values: case possible with PNPM in GHA, due to pnpm/action-setup
+	// With the action, a folder setup-pnpm is created to manage the store and the script see it and try to scan it, and this generate duplicate entry
+	// TODO: Manage pnpm installation manually (not repoduce the issue in this case but need to find solution to install global dep like surge)
+	// Before we returned directly result of buff.concat...
 	return [...new Set(result)];
 }
 
