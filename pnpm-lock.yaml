@@ -1146,7 +1146,7 @@ importers:
         specifier: ^2.9.0
         version: link:../design-tokens
       '@talend/utils':
-        specifier: ^2.6.0
+        specifier: ^2.7.0
         version: link:../utils
       '@testing-library/react':
         specifier: ^12.1.5
