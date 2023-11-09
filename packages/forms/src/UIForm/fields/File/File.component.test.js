@@ -1,5 +1,6 @@
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import File, { FileWidget, base64Decode } from './File.component';
 
 jest.unmock('@talend/design-system');
@@ -90,7 +91,7 @@ describe('File field', () => {
 	it('should trigger onChange when user select file', async () => {
 		// given
 		// jest.useFakeTimers();
-		const user = userEvent.setup({ delay: 10 });
+		const user = userEvent.setup({ delay: 50 });
 		render(<File {...props} />);
 
 		const testContent = { test: 'content' };
@@ -108,7 +109,7 @@ describe('File field', () => {
 
 	it('should trigger pre-signed url related onChange when user select file', async () => {
 		// given
-		const user = userEvent.setup({ delay: 10 });
+		const user = userEvent.setup({ delay: 50 });
 		render(<File {...propsWithPresignedUrlTrigger} />);
 		const testContent = { test: 'content' };
 		const blob = new Blob([JSON.stringify(testContent, null, 2)], {
