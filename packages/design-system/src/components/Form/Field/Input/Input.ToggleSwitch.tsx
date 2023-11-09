@@ -33,6 +33,7 @@ export const ToggleSwitch = forwardRef(
 			onChangeKey: 'onChange',
 			valueKey: 'checked',
 			defaultValueKey: 'defaultChecked',
+			selector: e => e.target.checked,
 			defaultValue: false,
 		});
 
