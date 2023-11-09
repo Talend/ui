@@ -2,9 +2,12 @@
 '@talend/eslint-config': major
 ---
 
-**Upgrade some dependencies to latest version.**
+Upgrade some dependencies to latest version.
+
+__NOTE : Some lint rules may have their severity updated.__
 
 Updated lib with breaking changes :
+
 ```
 "dependencies": {
   (...)
