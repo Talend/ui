@@ -7,7 +7,7 @@
     "talend-cdn": "./index.js"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "eslint ./",
     "start": "node index.js --debug --exclude ';@angular;' 2> error.log",
     "test": "echo \"Nothing to test\""
   },
@@ -22,7 +22,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@talend/babel-plugin-import-d3": "^0.2.1",
-    "@talend/module-to-cdn": "^9.9.1",
+    "@talend/module-to-cdn": "^9.10.0",
     "@talend/scripts-config-cdn": "^10.8.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "commander": "^6.2.1",
@@ -35,6 +35,10 @@
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^4.10.0"
+  },
+  "devDependencies": {
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1"
   },
   "publishConfig": {
     "access": "public"

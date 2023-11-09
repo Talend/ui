@@ -36,16 +36,19 @@
     "externals"
   ],
   "dependencies": {
-    "@talend/module-to-cdn": "^9.9.1",
+    "@talend/module-to-cdn": "^9.10.0",
     "read-pkg-up": "^7.0.1",
+    "semver": "^7.5.4",
     "webpack-sources": "^3.2.3"
   },
   "peerDependencies": {
     "webpack": "^5.89.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.22.15",
     "all-contributors-cli": "^6.26.1",
     "codecov": "^3.8.3",
+    "eslint": "^7.32.0",
     "html-webpack-plugin": "^5.5.3",
     "jest": "^29.7.0",
     "mz": "^2.7.0",

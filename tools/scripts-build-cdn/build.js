@@ -60,10 +60,7 @@ async function main(args) {
 			const patchPath = `${__dirname}/patch/${packageName}/${version}`;
 			const UMDFileName = packageCdnConfig.path.replace(`/${TARGET}/`, '');
 
-			if (
-				fs.existsSync(`${packagePath}/${version}/${TARGET}/${UMDFileName}`) &&
-				!program.force
-			) {
+			if (fs.existsSync(`${packagePath}/${version}/${TARGET}/${UMDFileName}`) && !program.force) {
 				await cleanup(packagePath, version);
 				continue;
 			}
@@ -73,7 +70,7 @@ async function main(args) {
 			}
 
 			const devDependencies = {
-				'd3': '^6.5.0' // so we can support d3-x babel plugin
+				d3: '^6.5.0', // so we can support d3-x babel plugin
 			};
 
 			if (packageName.includes('react') || packageName.includes('rc-')) {
@@ -129,7 +126,7 @@ module.exports = {
 		{
 			test: /\.js$/,
 			use: {
-				loader: 'babel-loader',
+				loader: require.resolve('babel-loader'),
 				options: {
 					plugins: ['@talend/babel-plugin-import-d3']
 				}
@@ -156,7 +153,7 @@ module.exports = {
 					`${packagePath}/${version}/webpack.index.js`,
 					`export { default } from '${packageName}';
 					export * from '${packageName}';
-					`
+					`,
 				);
 			}
 
@@ -167,7 +164,9 @@ module.exports = {
 				console.error(error);
 				return;
 			}
-			const info = require(`${process.cwd()}/${packagePath}/${version}/node_modules/${packageName}/package.json`);
+			const info = require(
+				`${process.cwd()}/${packagePath}/${version}/node_modules/${packageName}/package.json`,
+			);
 			if (info.peerDependencies) {
 				pjson.devDependencies = Object.keys(info.peerDependencies).reduce((acc, key) => {
 					acc[key] = info.peerDependencies[key];

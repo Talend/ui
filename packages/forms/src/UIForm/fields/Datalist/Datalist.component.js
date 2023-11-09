@@ -218,6 +218,7 @@ class Datalist extends Component {
 					{...this.state}
 					dataFeature={this.props.schema.dataFeature}
 					className="form-control-container"
+					// eslint-disable-next-line jsx-a11y/no-autofocus
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || this.props.valueIsUpdating}
 					multiSection={get(this.props, 'schema.options.isMultiSection', false)}

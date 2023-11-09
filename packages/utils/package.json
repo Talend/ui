@@ -20,7 +20,14 @@
     "extends": "talend-scripts extends"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^16.0.0",
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/scripts-core": "^16.1.0",
+    "@talend/scripts-config-jest": "^13.0.0",
+    "@talend/scripts-config-stylelint": "^4.0.0",
+    "@talend/scripts-config-typescript": "^11.1.0",
+    "@types/date-fns": "^0.0.2",
+    "@types/lodash": "^4.14.198",
     "cross-env": "^7.0.3"
   },
   "dependencies": {

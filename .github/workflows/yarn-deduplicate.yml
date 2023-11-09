@@ -1,9 +1,9 @@
-name: yarn-deduplicate
+name: pnpm-deduplicate
 
 on:
   pull_request:
     paths:
-      - "yarn.lock"
+      - "pnpm-lock.yaml"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -31,17 +31,16 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
 
-      - name: yarn-deduplicate
+      - name: pnpm-deduplicate
         id: deduplicate
         run: |
-          yarn
-          yarn yarn-deduplicate
-          echo "::set-output name=diff::$(git status --short yarn.lock)"
+          pnpm dedupe --ignore-scripts
+          echo "::set-output name=diff::$(git status --short pnpm-lock.yaml)"
 
       - name: Commit dedupe
         if: steps.deduplicate.outputs.diff
         uses: actions-js/push@156f2b10c3aa000c44dbe75ea7018f32ae999772 #1.4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: yarn-deduplicate"
+          message: "chore: pnpm-deduplicate"
           branch: ${{ github.head_ref }}
