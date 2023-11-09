@@ -3340,9 +3340,6 @@ importers:
 
   tools/scripts-locales:
     dependencies:
-      '@talend/scripts-core':
-        specifier: ^16.1.0
-        version: link:../scripts-core
       '@talend/scripts-utils':
         specifier: ^2.1.0
         version: link:../scripts-utils
@@ -3356,12 +3353,12 @@ importers:
       '@talend/eslint-plugin':
         specifier: ^1.0.1
         version: link:../eslint-plugin
-
-  tools/scripts-publish-local:
-    dependencies:
       '@talend/scripts-core':
         specifier: ^16.1.0
         version: link:../scripts-core
+
+  tools/scripts-publish-local:
+    dependencies:
       cross-spawn:
         specifier: ^7.0.3
         version: 7.0.3
@@ -3378,15 +3375,15 @@ importers:
       '@talend/eslint-plugin':
         specifier: ^1.0.1
         version: link:../eslint-plugin
+      '@talend/scripts-core':
+        specifier: ^16.1.0
+        version: link:../scripts-core
 
   tools/scripts-teorem:
     dependencies:
       '@octokit/rest':
         specifier: ^18.12.0
         version: 18.12.0
-      '@talend/scripts-core':
-        specifier: ^16.1.0
-        version: link:../scripts-core
       '@yarnpkg/lockfile':
         specifier: ^1.1.0
         version: 1.1.0
@@ -3409,6 +3406,9 @@ importers:
       '@talend/eslint-plugin':
         specifier: ^1.0.1
         version: link:../eslint-plugin
+      '@talend/scripts-core':
+        specifier: ^16.1.0
+        version: link:../scripts-core
 
   tools/scripts-utils:
     dependencies:
@@ -3433,10 +3433,6 @@ importers:
         version: 29.7.0
 
   tools/scripts-yarn-workspace:
-    dependencies:
-      '@talend/scripts-core':
-        specifier: ^16.1.0
-        version: link:../scripts-core
     devDependencies:
       '@talend/eslint-config':
         specifier: ^12.2.0
@@ -3444,6 +3440,9 @@ importers:
       '@talend/eslint-plugin':
         specifier: ^1.0.1
         version: link:../eslint-plugin
+      '@talend/scripts-core':
+        specifier: ^16.1.0
+        version: link:../scripts-core
 
   tools/upgrade-deps:
     dependencies:
