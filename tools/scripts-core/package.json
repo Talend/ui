@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@babel/cli": "^7.23.0",
-    "@babel/core": "^7.23.2",
+    "@babel/core": "^7.23.3",
     "@talend/eslint-config": "^12.2.0",
     "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-utils": "^2.1.0",

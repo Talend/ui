@@ -12,9 +12,9 @@
     "@talend/module-to-cdn": "^9.10.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
+    "@babel/core": "^7.23.3",
     "@babel/eslint-parser": "^7.22.15",
-    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-env": "^7.23.3",
     "babel-jest": "^29.7.0",
     "babel-plugin-tester": "^10.1.0",
     "eslint": "^7.32.0",
