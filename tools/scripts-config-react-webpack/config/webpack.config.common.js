@@ -111,7 +111,7 @@ function getWebpackRules(srcDirectories, useTypescript, devMode) {
 		devMode && {
 			test: /\.js$/,
 			include: /node_modules/,
-			use: ['source-map-loader'],
+			use: [require.resolve('source-map-loader')],
 			enforce: 'pre',
 		},
 		{
