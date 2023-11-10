@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/types": "^7.23.0"
+    "@babel/types": "^7.23.3"
   },
   "devDependencies": {
     "babel-plugin-tester": "^10.1.0",
