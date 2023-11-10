@@ -36,7 +36,7 @@
     "externals"
   ],
   "dependencies": {
-    "@talend/module-to-cdn": "^9.9.1",
+    "@talend/module-to-cdn": "^9.10.0",
     "read-pkg-up": "^7.0.1",
     "webpack-sources": "^3.2.3"
   },

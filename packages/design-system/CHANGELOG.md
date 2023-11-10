@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.1.3
+
+### Patch Changes
+
+- c286d9844: fix(TDOPS-5582/designSystem): checkbox state change on click
+
 ## 8.1.2
 
 ### Patch Changes
