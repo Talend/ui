@@ -32,6 +32,7 @@
     "prepare": "husky install"
   },
   "resolutions": {
+    "**/cypress": "^12.17.4",
     "**/@types/react": "^18.2.7",
     "**/@types/react-dom": "^18.2.7",
     "**/i18next-scanner-typescript/typescript": "^5.0.4",
