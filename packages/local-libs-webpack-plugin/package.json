@@ -27,6 +27,9 @@
     "access": "public"
   },
   "devDependencies": {
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/scripts-core": "^16.1.0",
     "jest-cli": "^29.7.0"
   }
 }

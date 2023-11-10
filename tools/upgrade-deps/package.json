@@ -14,7 +14,9 @@
     "yarn-deduplicate": "^6.0.2"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/scripts-core": "^16.1.0"
   },
   "license": "Apache-2.0",
   "homepage": "https://github.com/Talend/ui",
@@ -27,7 +29,7 @@
   },
   "scripts": {
     "lint": "talend-scripts lint ./",
-    "test:cron": "jest"
+    "test:cron": "talend-scripts test"
   },
   "publishConfig": {
     "access": "public"

@@ -12,11 +12,18 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "eslint ./",
     "test": "echo \"Nothing to test\""
   },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.23.3",
+    "eslint": "^8.53.0"
   }
 }

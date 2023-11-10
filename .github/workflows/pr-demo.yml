@@ -28,36 +28,24 @@ jobs:
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
 
       - name: Use Node.js
-        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
-        with:
-          node-version: 18
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: "yarn"
-
-      - name: cache for storybook
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 #v3.3.2
-        with:
-          path: packages/*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+        uses: ./.github/actions/setup-node
 
       - name: Install
         run: |
-          yarn install --frozen-lockfile
-          yarn global add surge
-          echo "$(yarn global bin)" >> $GITHUB_PATH
+          pnpm install --frozen-lockfile
+          pnpm add -g surge
 
 
       - name: Build
         run: |
-          yarn test:demo
+          pnpm run test:demo
           ./.github/workflows/before-surge.sh
         env:
           STORYBOOK_FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
 
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
-        run: surge --project .static --domain "talend.surge.sh"
+        run: npx surge --project .static --domain "talend.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -74,7 +62,7 @@ jobs:
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: |
-          surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
+          npx surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

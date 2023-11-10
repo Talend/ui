@@ -30,23 +30,23 @@ jobs:
       - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 #v3.3.2
         with:
           path: ~/.cache/Cypress
-          key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: my-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies
         run: |
-          yarn --frozen-lock --ignore-scripts
-          yarn cypress install
-          yarn workspace @talend/assets-api run build:lib
-          yarn workspace @talend/utils run build:lib
-          yarn workspace @talend/icons run build:lib
-          yarn workspace @talend/design-tokens run build:lib
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm cypress install
+          pnpm --filter @talend/assets-api run build:lib
+          pnpm --filter @talend/utils run build:lib
+          pnpm --filter @talend/icons run build:lib
+          pnpm --filter @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@59810ebfa5a5ac6fcfdcfdf036d1cd4d083a88f2 #v6.5.0
         with:
           install: false
           browser: ${{ matrix.browser }}
-          command: yarn workspace @talend/design-system run test:cy
+          command: pnpm --filter @talend/design-system run test:cy
 
       - name: Cypress screenshots upload
         uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 #v3.1.3

@@ -7,8 +7,8 @@
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build && yarn run tsc",
+    "pre-release": "pnpm build:dev && pnpm build:prod",
+    "build:lib": "talend-scripts build && pnpm run tsc",
     "tsc": "tsc --emitDeclarationOnly --project ./tsconfig.json --outDir ./types",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
@@ -105,7 +105,6 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "~6.3.0",
     "react-i18next": "^13.3.1",
-    "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^18.2.0"
   },
   "peerDependencies": {
@@ -115,9 +114,6 @@
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",
     "react-i18next": "^13.3.1"
-  },
-  "resolutions": {
-    "minimist": "^1.2.5"
   },
   "publishConfig": {
     "access": "public"
