@@ -6,7 +6,7 @@ Upgrade some dependencies to latest version.
 
 __NOTE : Some lint rules may have their severity updated.__
 
-Updated lib with breaking changes :
+Updated libs with breaking changes :
 
 ```
 "dependencies": {
