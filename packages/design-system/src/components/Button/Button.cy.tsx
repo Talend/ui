@@ -1,6 +1,6 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
 /* eslint-disable testing-library/prefer-screen-queries */
-/* eslint-disable testing-library/await-async-query */
+/* eslint-disable testing-library/await-async-queries */
 import { useState } from 'react';
 
 import ButtonPrimitive from './Primitive/ButtonPrimitive';
