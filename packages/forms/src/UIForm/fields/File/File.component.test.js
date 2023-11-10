@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import File, { FileWidget, base64Decode } from './File.component';
 
@@ -100,7 +100,9 @@ describe('File field', () => {
 		// when
 		const fileInput = document.querySelector('input[type="file"]');
 		await userEvent.upload(fileInput, blob);
-		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), { schema, value });
+		await waitFor(() =>
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), { schema, value }),
+		);
 	});
 
 	it('should trigger pre-signed url related onChange when user select file', async () => {

@@ -7,7 +7,7 @@ const findByMetadataBadgeId =
 	({ metadata }) =>
 		get(metadata, 'badgeId') === badgeId;
 
-// eslint-disable-next-line testing-library/await-async-query
+// eslint-disable-next-line testing-library/await-async-queries
 const getBadgeIndexFromId = badgeId => badges => badges.findIndex(findByMetadataBadgeId(badgeId));
 
 const getBadge = index => badges => badges[index];
