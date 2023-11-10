@@ -21,6 +21,7 @@ function ToggleWidget(props) {
 			valueIsUpdating={valueIsUpdating}
 		>
 			<Toggle
+				// eslint-disable-next-line jsx-a11y/no-autofocus
 				autoFocus={autoFocus}
 				checked={value}
 				disabled={disabled || valueIsUpdating}

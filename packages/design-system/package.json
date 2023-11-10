@@ -62,6 +62,7 @@
     "@storybook/theming": "^7.5.3",
     "@svgr/webpack": "^5.5.0",
     "@talend/bootstrap-theme": "^8.2.1",
+    "@talend/design-system": "*",
     "@talend/eslint-config": "^12.2.0",
     "@talend/eslint-plugin": "^1.0.1",
     "@talend/icons": "^7.1.0",

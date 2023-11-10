@@ -28,6 +28,7 @@
     "@talend/react-components": "^12.1.0",
     "@talend/react-forms": "^12.0.0",
     "@talend/react-dataviz": "^4.1.0",
+    "lodash": "^4.17.21",
     "pkg-dir": "^7.0.0",
     "react-hook-form": "^7.48.2"
   },
@@ -43,7 +44,6 @@
     "@storybook/addons": "^7.5.3",
     "@storybook/core-events": "^7.5.3",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react-webpack5": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/testing-react": "^2.0.1",
     "@storybook/theming": "^7.5.3",
@@ -55,6 +55,7 @@
     "@talend/locales-tui-faceted-search": "^11.3.0",
     "@talend/locales-tui-forms": "^10.2.4",
     "@talend/scripts-config-babel": "^13.1.0",
+    "@talend/scripts-config-react-webpack": "^16.2.0",
     "@talend/scripts-config-storybook-lib": "^5.1.0",
     "@talend/scripts-config-typescript": "^11.1.0",
     "@talend/scripts-core": "^16.1.0",

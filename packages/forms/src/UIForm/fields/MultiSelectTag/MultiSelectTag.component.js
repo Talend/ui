@@ -254,6 +254,7 @@ export default class MultiSelectTag extends Component {
 					<FocusManager onFocusOut={this.resetSuggestions} className={theme['focus-manager']}>
 						<Typeahead
 							id={id}
+							// eslint-disable-next-line jsx-a11y/no-autofocus
 							autoFocus={schema.autoFocus || false}
 							disabled={schema.disabled || valueIsUpdating}
 							focusedItemIndex={this.state.focusedItemIndex}
