@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
-    "@babel/eslint-parser": "^7.22.15",
+    "@babel/eslint-parser": "^7.23.3",
     "@babel/preset-env": "^7.23.3",
     "babel-jest": "^29.7.0",
     "babel-plugin-tester": "^10.1.0",

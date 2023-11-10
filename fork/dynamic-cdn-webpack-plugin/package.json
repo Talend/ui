@@ -45,7 +45,7 @@
     "webpack": "^5.89.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.15",
+    "@babel/eslint-parser": "^7.23.3",
     "all-contributors-cli": "^6.26.1",
     "codecov": "^3.8.3",
     "eslint": "^7.32.0",

@@ -40,7 +40,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.15",
+    "@babel/eslint-parser": "^7.23.3",
     "eslint": "^7.32.0"
   }
 }

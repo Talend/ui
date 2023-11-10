@@ -27,7 +27,7 @@
     "@talend/scripts-config-stylelint": "^4.0.0",
     "@talend/scripts-config-typescript": "^11.1.0",
     "@types/date-fns": "^0.0.2",
-    "@types/lodash": "^4.14.198",
+    "@types/lodash": "^4.14.201",
     "cross-env": "^7.0.3"
   },
   "dependencies": {
