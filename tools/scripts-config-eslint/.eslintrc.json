@@ -88,7 +88,9 @@
     "testing-library/custom-renders": "off",
     "testing-library/custom-queries": "off",
     "testing-library/no-node-access": "off",
-    "testing-library/render-result-naming-convention": "off"
+    "testing-library/render-result-naming-convention": "off",
+
+    "@typescript-eslint/no-explicit-any": 1
   },
   "overrides": [
     {
@@ -112,5 +114,7 @@
     "react": {
       "version": "detect"
     }
-  }
+  },
+  // Ignore some JS at project's rool level
+  "ignorePatterns": ["index.js", ".eslintrc.js"]
 }
