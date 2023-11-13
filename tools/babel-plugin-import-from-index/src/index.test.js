@@ -1,4 +1,5 @@
 import pluginTester from 'babel-plugin-tester';
+
 import babelPlugin from '.';
 
 pluginTester({
@@ -33,6 +34,7 @@ pluginTester({
 				_.toUpper('foo');`,
 			output: `
 				import _ from 'lodash';
+
 				_.toUpper('foo');`,
 		},
 		{
@@ -43,6 +45,7 @@ pluginTester({
                  import List from '@talend/react-components/lib/List';`,
 			output: `
                  import React from 'react';
+
                  import { SidePanel, Actions, ActionButton, ActionDropdown, List } from '@talend/react-components';`,
 		},
 		{
@@ -56,6 +59,7 @@ pluginTester({
 		 		import { ModelViewer as ModelViewerComponent } from '@talend/react-components';`,
 			output: `
 		 		import React from 'react';
+
 		 		import { SidePanel, ModelViewer as ModelViewerComponent } from '@talend/react-components';`,
 		},
 		{
