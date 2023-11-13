@@ -1,5 +1,11 @@
 # @talend/local-libs-webpack-plugin
 
+## 0.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and fix lint issue
+
 ## 0.1.5
 
 ### Patch Changes
