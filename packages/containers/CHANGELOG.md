@@ -1,5 +1,22 @@
 # @talend/react-containers
 
+## 10.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and fix some lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/utils@2.8.0
+  - @talend/design-system@8.2.0
+  - @talend/react-cmf@8.2.0
+  - @talend/react-forms@12.1.0
+
 ## 10.1.1
 
 ### Patch Changes

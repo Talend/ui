@@ -6,6 +6,7 @@
     "allowJs": false,
     "declaration": true,
     "target": "ES5",
-    "module": "CommonJs"
+    "module": "CommonJs",
+    "types": ["jest", "@testing-library/jest-dom"]
   }
 }

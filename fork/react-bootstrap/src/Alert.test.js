@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -10,7 +9,7 @@ describe('<Alert>', () => {
     render(
       <Alert>
         <strong>Message</strong>
-      </Alert>
+      </Alert>,
     );
 
     // then
@@ -23,7 +22,7 @@ describe('<Alert>', () => {
     render(
       <Alert>
         <strong>Message</strong>
-      </Alert>
+      </Alert>,
     );
 
     // then
@@ -35,28 +34,28 @@ describe('<Alert>', () => {
     render(
       <Alert onDismiss={jest.fn()}>
         <strong>Message</strong>
-      </Alert>
+      </Alert>,
     );
 
     // then
     expect(screen.getByRole('alert')).toHaveClass('alert-dismissable');
   });
 
-  it('Should call onDismiss callback on dismiss click', () => {
+  it('Should call onDismiss callback on dismiss click', async () => {
     // given
     const onDismiss = jest.fn();
     render(
       <Alert onDismiss={onDismiss} closeLabel="close">
         <strong>Message</strong>
-      </Alert>
+      </Alert>,
     );
-    expect(onDismiss).not.toBeCalled();
+    expect(onDismiss).not.toHaveBeenCalled();
 
     // when
-    userEvent.click(screen.getByRole('button', { name: 'close' }));
+    await userEvent.click(screen.getByRole('button', { name: 'close' }));
 
     // then
-    expect(onDismiss).toBeCalled();
+    expect(onDismiss).toHaveBeenCalled();
   });
 
   it('Should have a default bsStyle class', () => {
@@ -76,17 +75,19 @@ describe('<Alert>', () => {
   });
 
   describe('Web Accessibility', () => {
-    it('Should call onDismiss callback when the sr-only dismiss link is activated', () => {
+    it('Should call onDismiss callback when the sr-only dismiss link is activated', async () => {
       // given
       const onDismiss = jest.fn();
       render(<Alert onDismiss={onDismiss}>Message</Alert>);
-      expect(onDismiss).not.toBeCalled();
+      expect(onDismiss).not.toHaveBeenCalled();
 
       // when
-      userEvent.click(screen.getByRole('button', { name: 'Close alert' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Close alert' }),
+      );
 
       // then
-      expect(onDismiss).toBeCalled();
+      expect(onDismiss).toHaveBeenCalled();
     });
   });
 });

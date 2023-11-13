@@ -42,6 +42,7 @@
     "import/prefer-default-export": 0,
     "import/extensions": 0,
     "import/no-named-as-default": "off",
+    "indent": 0,
     "jsx-a11y/label-has-associated-control": 2,
     "jsx-a11y/label-has-for": 0, // deprecated and buggy, replaced by jsx-a11y/label-has-associated-control
     "max-classes-per-file": 0,
@@ -90,9 +91,24 @@
     "testing-library/no-node-access": "off",
     "testing-library/render-result-naming-convention": "off",
 
-    "@typescript-eslint/no-explicit-any": 1
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "endOfLine": "auto",
+        "tabWidth": 4,
+        "useTabs": true,
+        "printWidth": 100
+      }
+    ]
   },
   "overrides": [
+    {
+      "files": ["**/*.tsx", "**/*.ts*"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": 1
+      }
+    },
     {
       "files": ["**/*.test.js", "**/*.test.ts*", "**/*.stories.js", "**/*.stories.ts*"],
       "rules": {

@@ -1,5 +1,26 @@
 # @talend/react-forms
 
+## 12.1.0
+
+### Minor Changes
+
+- b9cc5b097: Fix lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/utils@2.8.0
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+  - @talend/design-system@8.2.0
+  - @talend/icons@7.2.0
+  - @talend/json-schema-form-core@1.2.0
+
 ## 12.0.0
 
 ### Major Changes

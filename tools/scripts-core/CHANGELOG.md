@@ -1,5 +1,12 @@
 # @talend/scripts-core
 
+## 16.1.1
+
+### Patch Changes
+
+- Updated dependencies [e82cc7f30]
+  - @talend/eslint-config@13.0.0
+
 ## 16.1.0
 
 ### Minor Changes

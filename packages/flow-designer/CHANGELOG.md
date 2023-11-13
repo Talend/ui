@@ -1,5 +1,16 @@
 # Changelog
 
+## 6.1.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps, fix tsconfig file and fix some lint issue
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+  - @talend/design-tokens@2.10.0
+
 ## 6.0.0
 
 ### Major Changes

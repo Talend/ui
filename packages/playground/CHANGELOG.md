@@ -1,5 +1,32 @@
 # @talend/ui-playground
 
+## 2.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and fix webpack.config file
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/react-containers@10.2.0
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+  - @talend/react-dataviz@4.2.0
+  - @talend/design-system@8.2.0
+  - @talend/react-cmf@8.2.0
+  - @talend/icons@7.2.0
+  - @talend/react-forms@12.1.0
+  - @talend/bootstrap-theme@8.3.0
+
 ## 2.1.1
 
 ### Patch Changes
