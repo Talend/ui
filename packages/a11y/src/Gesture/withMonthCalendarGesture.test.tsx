@@ -39,120 +39,145 @@ describe('withMonthCalendarGesture', () => {
 	});
 	describe('LEFT keydown', () => {
 		it('should focus on previous month in the same set of months', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('MAY').focus();
-			await userEvent.keyboard('[ArrowLeft]');
+			expect(screen.getByText('MAY')).toHaveFocus();
+			await user.keyboard('[ArrowLeft]');
 			// then
 			expect(screen.getByText('APR')).toHaveFocus();
 		});
 		it('should focus on the previous month in the previous set of months', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('APR').focus();
-			await userEvent.keyboard('[ArrowLeft]');
+			await user.keyboard('[ArrowLeft]');
 			// then
 			expect(screen.getByText('MAR')).toHaveFocus();
 		});
 		it('should block focus on first month', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('JAN').focus();
-			await userEvent.keyboard('[ArrowLeft]');
+			await user.keyboard('[ArrowLeft]');
 			// then
 			expect(screen.getByText('JAN')).toHaveFocus();
 		});
 	});
 	describe('RIGHT keydown', () => {
 		it('should focus on next month in the same set of months', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('MAY').focus();
-			await userEvent.keyboard('[ArrowRight]');
+			await user.keyboard('[ArrowRight]');
 			// then
 			expect(screen.getByText('JUN')).toHaveFocus();
 		});
 		it('should focus on the next month in the next set of months', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('JUN').focus();
-			await userEvent.keyboard('[ArrowRight]');
+			await user.keyboard('[ArrowRight]');
 			// then
 			expect(screen.getByText('JULY')).toHaveFocus();
 		});
 		it('should block focus on last month', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('DEC').focus();
-			await userEvent.keyboard('[ArrowRight]');
+			await user.keyboard('[ArrowRight]');
 			// then
 			expect(screen.getByText('DEC')).toHaveFocus();
 		});
 	});
 	describe('UP keydown', () => {
 		it('should focus on previous set of month', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('MAY').focus();
-			await userEvent.keyboard('[ArrowUp]');
+			await user.keyboard('[ArrowUp]');
 			// then
 			expect(screen.getByText('FEB')).toHaveFocus();
 		});
 		it('should block focus when there is no previous set of month', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('FEB').focus();
-			await userEvent.keyboard('[ArrowUp]');
+			await user.keyboard('[ArrowUp]');
 			// then
 			expect(screen.getByText('JAN')).toHaveFocus();
 		});
 	});
 	describe('DOWN keydown', () => {
 		it('should focus on next set of month', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('MAY').focus();
-			await userEvent.keyboard('[ArrowDown]');
+			await user.keyboard('[ArrowDown]');
 			// then
 			expect(screen.getByText('AUG')).toHaveFocus();
 		});
 		it('should block focus when there is no following set of month', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('NOV').focus();
-			await userEvent.keyboard('[ArrowDown]');
+			await user.keyboard('[ArrowDown]');
 			// then
 			expect(screen.getByText('DEC')).toHaveFocus();
 		});
 	});
 	describe('HOME keydown', () => {
 		it('should focus on first month', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('MAY').focus();
-			await userEvent.keyboard('[Home]');
+			await user.keyboard('[Home]');
 			// then
 			expect(screen.getByText('JAN')).toHaveFocus();
 		});
 	});
 	describe('END keydown', () => {
 		it('should focus on last month', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<MonthCalendarWithGesture {...props} />);
 			// when
 			screen.getByText('MAY').focus();
-			await userEvent.keyboard('[End]');
+			await user.keyboard('[End]');
 			// then
 			expect(screen.getByText('DEC')).toHaveFocus();
 		});

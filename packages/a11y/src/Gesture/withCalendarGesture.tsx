@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
 import { ComponentType, Component, createRef, KeyboardEvent } from 'react';
-import keycode from 'keycode';
 import { focusOnDay, focusWithinCurrentCalendar } from './focus';
 import { FIRST, LAST } from './constants';
 import { WithCalendarGestureInjectedProps } from './propTypes';
@@ -43,36 +42,40 @@ export function withCalendarGesture<P extends WithCalendarGestureInjectedProps>(
 		}
 
 		onKeyDown(event: KeyboardEvent<HTMLInputElement>, calendarRef: HTMLElement, dayIndex: number) {
-			switch (event.keyCode) {
-				case keycode.codes.left:
+			switch (event.key) {
+				case 'Left':
+				case 'ArrowLeft':
 					event.stopPropagation();
 					focusOnDay(calendarRef, dayIndex - 1, this.props);
 					break;
-				case keycode.codes.right:
+				case 'Right':
+				case 'ArrowRight':
 					event.stopPropagation();
 					focusOnDay(calendarRef, dayIndex + 1, this.props);
 					break;
-				case keycode.codes.up:
+				case 'Up':
+				case 'ArrowUp':
 					event.stopPropagation();
 					focusOnDay(calendarRef, dayIndex - 7, this.props);
 					break;
-				case keycode.codes.down:
+				case 'Down':
+				case 'ArrowDown':
 					event.stopPropagation();
 					focusOnDay(calendarRef, dayIndex + 7, this.props);
 					break;
-				case keycode.codes.home:
+				case 'Home':
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, FIRST);
 					break;
-				case keycode.codes.end:
+				case 'End':
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, LAST);
 					break;
-				case keycode.codes['page up']:
+				case 'PageUp':
 					event.stopPropagation();
 					switchMonth(calendarRef, dayIndex, this.props.goToPreviousMonth);
 					break;
-				case keycode.codes['page down']:
+				case 'PageDown':
 					event.stopPropagation();
 					switchMonth(calendarRef, dayIndex, this.props.goToNextMonth);
 					break;

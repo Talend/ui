@@ -2,6 +2,7 @@
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
   "include": ["src/**/*"],
   "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
     "allowJs": false,
     "declaration": true,
     "target": "ES5",

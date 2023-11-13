@@ -62,7 +62,7 @@
     "@talend/scripts-config-react-webpack": "^16.2.0",
     "@talend/scripts-config-storybook-lib": "^5.1.0",
     "@talend/scripts-config-typescript": "^11.1.0",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/cypress": "^9.0.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/classnames": "^2.3.1",

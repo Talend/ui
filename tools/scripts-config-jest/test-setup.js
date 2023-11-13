@@ -7,7 +7,7 @@
 /* eslint-disable no-empty */
 /* eslint-disable import/no-extraneous-dependencies */
 require('@testing-library/jest-dom');
-require('@testing-library/jest-dom/extend-expect');
+require('@testing-library/jest-dom/jest-globals');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
