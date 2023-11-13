@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 8.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps
+
 ## 8.1.0
 
 ### Minor Changes

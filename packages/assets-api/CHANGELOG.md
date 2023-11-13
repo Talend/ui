@@ -1,5 +1,11 @@
 # @talend/assets-api
 
+## 1.3.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and remove link to @talend/icons (circular deps)
+
 ## 1.2.2
 
 ### Patch Changes

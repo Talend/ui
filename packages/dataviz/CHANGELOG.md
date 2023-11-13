@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+
 ## 4.1.0
 
 ### Minor Changes

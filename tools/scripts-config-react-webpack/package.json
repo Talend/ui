@@ -62,7 +62,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-config": "^13.0.0",
     "@talend/eslint-plugin": "^1.0.1"
   },
   "publishConfig": {

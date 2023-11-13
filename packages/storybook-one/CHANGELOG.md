@@ -1,5 +1,26 @@
 # @talend/ui-storybook-one
 
+## 2.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps, fix code for PNPM
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/design-tokens@2.10.0
+  - @talend/react-dataviz@4.2.0
+  - @talend/design-system@8.2.0
+  - @talend/storybook-docs@2.2.0
+  - @talend/icons@7.2.0
+  - @talend/react-forms@12.1.0
+
 ## 2.1.1
 
 ### Patch Changes

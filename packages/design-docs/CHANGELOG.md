@@ -1,5 +1,22 @@
 # @talend/design-docs
 
+## 3.1.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and remove unnecessary one
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/design-tokens@2.10.0
+  - @talend/design-system@8.2.0
+  - @talend/storybook-docs@2.2.0
+  - @talend/icons@7.2.0
+
 ## 3.0.0
 
 ### Major Changes
