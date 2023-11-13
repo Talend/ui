@@ -24,11 +24,11 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/utils": "^2.6.0",
+    "@talend/utils": "^2.7.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^16.0.0",
+    "@talend/scripts-core": "^16.1.0",
     "@testing-library/user-event": "^14.5.1",
     "@testing-library/react": "^14.0.0",
     "react": "^18.2.0",

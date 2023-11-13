@@ -22,7 +22,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@talend/babel-plugin-import-d3": "^0.2.1",
-    "@talend/module-to-cdn": "^9.9.1",
+    "@talend/module-to-cdn": "^9.10.0",
     "@talend/scripts-config-cdn": "^10.8.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "commander": "^6.2.1",
