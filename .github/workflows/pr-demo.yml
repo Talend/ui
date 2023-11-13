@@ -50,6 +50,7 @@ jobs:
 
       - name: Build
         run: |
+          node --version
           yarn test:demo
           ./.github/workflows/before-surge.sh
         env:
