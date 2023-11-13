@@ -39,19 +39,21 @@ jobs:
             ${{ runner.os }}-storybook-
 
       - name: Install
-        shell: bash
         run: |
           node --version
           yarn install --frozen-lockfile
-          yarn global add surge
-          echo "$(yarn global bin)" >> $GITHUB_PATH
 
-
-      - name: Build
-        shell: bash
+      - name: Run test:demo
         run: |
           node --version
           yarn test:demo
+
+      - name: Before surge
+        run: |
+          node --version
+          yarn global add surge
+          echo "$(yarn global bin)" >> $GITHUB_PATH
+          node --version
           ./.github/workflows/before-surge.sh
         env:
           STORYBOOK_FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
