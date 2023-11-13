@@ -39,6 +39,7 @@ jobs:
             ${{ runner.os }}-storybook-
 
       - name: Install
+        shell: bash
         run: |
           node --version
           yarn install --frozen-lockfile
@@ -47,6 +48,7 @@ jobs:
 
 
       - name: Build
+        shell: bash
         run: |
           node --version
           yarn test:demo
