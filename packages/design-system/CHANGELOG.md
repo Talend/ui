@@ -1,5 +1,20 @@
 # @talend/design-system
 
+## 8.2.0
+
+### Minor Changes
+
+- b9cc5b097: Fix lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/utils@2.8.0
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+
 ## 8.1.3
 
 ### Patch Changes

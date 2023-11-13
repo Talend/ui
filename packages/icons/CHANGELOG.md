@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps
+
 ## 7.1.0
 
 ### Minor Changes

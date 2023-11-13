@@ -1,5 +1,16 @@
 # @talend/bootstrap-theme
 
+## 8.3.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and fix webpack.config file
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+  - @talend/design-tokens@2.10.0
+
 ## 8.2.1
 
 ### Patch Changes
