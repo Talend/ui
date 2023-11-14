@@ -30,15 +30,30 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
 
+      - name: cache for storybook
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 #v3.3.2
+        with:
+          path: packages/*/node_modules
+          key: ${{ runner.os }}-storybook-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-storybook-
+
       - name: Install
         run: |
+          node --version
           pnpm install --frozen-lockfile
-          pnpm add -g surge
 
-
-      - name: Build
+      - name: Run test:demo
         run: |
+          node --version
           pnpm run test:demo
+
+      - name: Before surge
+        run: |
+          node --version
+          pnpm add -g surge
+          # echo "$(yarn global bin)" >> $GITHUB_PATH
+          node --version
           ./.github/workflows/before-surge.sh
         env:
           STORYBOOK_FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}

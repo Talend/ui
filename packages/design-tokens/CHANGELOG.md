@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.10.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and missing jest config file
+
 ## 2.9.0
 
 ### Minor Changes

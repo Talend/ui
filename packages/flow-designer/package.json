@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-flow-designer",
   "description": "Flow designer for react and redux",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -20,10 +20,10 @@
   "devDependencies": {
     "@talend/babel-plugin-import-from-index": "^1.5.1",
     "@talend/babel-plugin-assets-api": "^1.1.0",
-    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-config": "^13.0.0",
     "@talend/eslint-plugin": "^1.0.1",
     "@talend/scripts-config-jest": "^13.0.0",
-    "@talend/scripts-core": "^16.1.0",
+    "@talend/scripts-core": "^16.1.1",
     "@talend/scripts-config-typescript": "^11.1.0",
     "@talend/scripts-config-react-webpack": "^16.2.0",
     "@testing-library/react": "^12.1.5",
@@ -63,7 +63,7 @@
     "reselect": "^4.1.8"
   },
   "dependencies": {
-    "@talend/design-tokens": "^2.9.0",
+    "@talend/design-tokens": "^2.10.0",
     "classnames": "^2.3.2",
     "d3": "^7.8.5",
     "invariant": "^2.2.4",

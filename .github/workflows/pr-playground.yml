@@ -74,6 +74,10 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
 
+      - name: Check node version
+        run: |
+          node --version
+
       - name: Check UMD files size diff
         uses: preactjs/compressed-size-action@8119d3d31b6e57b167e09c81dfa877eada3bcb35 #v2.5.0
         if: github.ref != 'refs/heads/master'
