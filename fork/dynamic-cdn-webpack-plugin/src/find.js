@@ -55,13 +55,9 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 			if (subFolder.name === '.bin') {
 				return accu;
 			}
-			// TODO NOT COMPATIBLE WITH PNPM WHEN deps is @talend/scripts-...
-			if (
-				subFolder.name.startsWith('@') &&
-				!subFolder?.path?.endsWith('tools/scripts-core/node_modules') &&
-				!subFolder?.path?.endsWith('@talend/scripts-yarn-workspace/node_modules') &&
-				!subFolder?.path?.endsWith('tools/eslint-config/node_modules')
-			) {
+			// MAKE IT COMPATIBLE WITH PNPM (especially for test) WHEN deps is @talend/scripts-...
+			let regex = /@talend\/(scripts|babel|eslint)-.*\/node_modules$/;
+			if (subFolder.name.startsWith('@') && !regex.test(subFolder?.path)) {
 				// for scope folders, we need a special treatment to avoid getting scoped packages when we don't want a scoped one.
 				// ex: search for `classnames`, we don't want to find `@types/classnames` in the result
 				return accu.concat(
@@ -85,14 +81,7 @@ function findPackages(scope, name, buff = []) {
 	if (roots === null) {
 		return buff;
 	}
-	const result = buff.concat(
-		...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)),
-	);
-	// Return a new Set to remove duplicate values: case possible with PNPM in GHA, due to pnpm/action-setup
-	// With the action, a folder setup-pnpm is created to manage the store and the script see it and try to scan it, and this generate duplicate entry
-	// TODO: Manage pnpm installation manually (not repoduce the issue in this case but need to find solution to install global dep like surge)
-	// Before we returned directly result of buff.concat...
-	return [...new Set(result)];
+	return buff.concat(...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)));
 }
 
 module.exports = {
