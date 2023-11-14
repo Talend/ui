@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /* eslint-disable no-console */
 import { getEnv } from './utils/env.js';
 import { printSeparator } from './utils/log.js';
