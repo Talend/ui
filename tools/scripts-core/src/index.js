@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 
+/* eslint-disable no-console */
 import { getEnv } from './utils/env.js';
-import { getPresetApi } from './utils/preset.js';
 import { printSeparator } from './utils/log.js';
+import { getPresetApi } from './utils/preset.js';
 
 const command = process.argv[2];
 const options = process.argv.slice(3);
@@ -89,23 +89,28 @@ switch (command) {
 	case 'build:lib:umd':
 		console.log('This command do not exists anymore, please use just "build" command');
 		process.exit(-1);
+		break;
 	case 'lint:es':
 	case 'lint:style':
 		console.log('This command do not exists anymore, please use just "lint" command');
 		process.exit(-1);
+		break;
 	case 'test:ng':
 		console.log('This command do not exists anymore, please use just "test" command');
 		process.exit(-1);
+		break;
 	case 'upgrade:deps':
 		console.log(
 			'This command do not exists anymore, please use just "talend-upgrade-deps" binary from "@talend/upgrade-deps" package',
 		);
 		process.exit(-1);
+		break;
 	case 'publish:local':
 		console.log(
 			'This command do not exists anymore, please use just "talend-publish-local" bin from "@talend/scripts-publish-local" package',
 		);
 		process.exit(-1);
+		break;
 	default:
 		console.log(`Command ${command} not found.`);
 		process.exit(-1);

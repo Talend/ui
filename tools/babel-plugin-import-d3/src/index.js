@@ -37,14 +37,6 @@ function findD3RelatedPackageName(importDeclarationPath) {
 	return found;
 }
 
-function getLastNameInPath(path) {
-	const splited = path.split('/');
-	if (splited.length === 1) {
-		return false;
-	}
-	return splited.pop();
-}
-
 function sortImports(a, b) {
 	if (a.type === 'ImportDefaultSpecifier') {
 		return -1;
@@ -62,7 +54,6 @@ module.exports = function transform({ types }) {
 				const d3Packages = [];
 				const requireCalls = [];
 				let lastImport;
-				let realLastImport;
 
 				path.traverse({
 					CallExpression: {
@@ -70,27 +61,24 @@ module.exports = function transform({ types }) {
 							if (callExpression.node.callee.name === 'require') {
 								if (PACKAGES.indexOf(callExpression.node.arguments[0].value) !== -1) {
 									const mod = callExpression.node.arguments[0].value.replace('d3-', '');
+									// eslint-disable-next-line no-param-reassign
 									callExpression.node.arguments[0] = types.stringLiteral('d3');
 									// we must wrap callexpression into memberexpression
 									requireCalls.push({
 										callExpression,
-										replace: types.memberExpression(
-											callExpression.node,
-											types.identifier(mod),
-										)
+										replace: types.memberExpression(callExpression.node, types.identifier(mod)),
 									});
 									callExpression.remove();
 								}
 							}
-						}
+						},
 					},
 					ImportDeclaration: {
 						exit(importDeclarationPath) {
-							realLastImport = importDeclarationPath;
 							const packageName = findD3RelatedPackageName(importDeclarationPath);
 							if (packageName) {
 								d3Packages.push(
-									...importDeclarationPath.node.specifiers.map(({ local, imported, type }) => {
+									...importDeclarationPath.node.specifiers.map(({ local, imported }) => {
 										const localName = local.name;
 										let importedName = localName;
 										if (imported) {
@@ -112,13 +100,9 @@ module.exports = function transform({ types }) {
 				requireCalls.forEach(info => {
 					info.callExpression.insertAfter(info.replace);
 				});
-				const packageName = 'd3';
 				if (d3Packages.length > 0) {
 					const source = types.stringLiteral('d3');
-					const imp = types.importDeclaration(
-						d3Packages.filter(Boolean).sort(sortImports),
-						source,
-					);
+					const imp = types.importDeclaration(d3Packages.filter(Boolean).sort(sortImports), source);
 					if (lastImport) {
 						lastImport.insertAfter(imp);
 					}

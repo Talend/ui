@@ -7,7 +7,7 @@
     "talend-cdn": "./index.js"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "eslint ./",
     "start": "node index.js --debug --exclude ';@angular;' 2> error.log",
     "test": "echo \"Nothing to test\""
   },
@@ -35,6 +35,10 @@
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^4.10.0"
+  },
+  "devDependencies": {
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1"
   },
   "publishConfig": {
     "access": "public"

@@ -17,6 +17,9 @@
     "lint": "eslint ./",
     "test": "echo \"Nothing to test\""
   },
+  "peerDependencies": {
+    "@talend/icons": "^7.1.0"
+  },
   "dependencies": {
     "@babel/core": "^7.23.3",
     "@sentry/webpack-plugin": "^1.20.1",
@@ -59,9 +62,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.23.3",
     "@talend/eslint-config": "^13.0.0",
-    "eslint": "^8.53.0"
+    "@talend/eslint-plugin": "^1.0.1"
   },
   "publishConfig": {
     "access": "public"

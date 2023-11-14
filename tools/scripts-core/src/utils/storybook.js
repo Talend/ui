@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
-import path from 'path';
 import fs from 'fs';
 import fse from 'fs-extra';
 import _ from 'lodash';
 import { createRequire } from 'module';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import * as utils from '@talend/scripts-utils';
 
 const require = createRequire(import.meta.url);
@@ -14,7 +16,9 @@ const TMP_PATH = path.join(CWD, 'node_modules', '.cache', '.talend-storybook');
 const USER_SB_PATH = path.join(CWD, '.storybook');
 
 function getTemplatePath() {
-	const configSBPath = utils.path.getPkgRootPath('@talend/scripts-config-storybook-lib');
+	const configSBPath = path.dirname(
+		fileURLToPath(import.meta.resolve('@talend/scripts-config-storybook-lib')),
+	);
 	return path.join(configSBPath, '.storybook-templates');
 }
 

@@ -10,12 +10,16 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "eslint ./",
     "test": "echo \"Nothing to test\""
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
+  },
+  "devDependencies": {
+    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-plugin": "^1.0.1"
   },
   "publishConfig": {
     "access": "public"
