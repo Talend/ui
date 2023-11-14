@@ -2795,6 +2795,9 @@ importers:
       '@babel/eslint-parser':
         specifier: ^7.23.3
         version: 7.23.3(@babel/core@7.23.3)(eslint@8.53.0)
+      '@talend/eslint-config':
+        specifier: ^12.2.0
+        version: link:../scripts-config-eslint
       eslint:
         specifier: ^8.53.0
         version: 8.53.0

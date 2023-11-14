@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
+    "@talend/eslint-config": "^12.2.0",
     "eslint": "^8.53.0"
   },
   "repository": {
