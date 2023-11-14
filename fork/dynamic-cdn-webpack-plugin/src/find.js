@@ -81,7 +81,14 @@ function findPackages(scope, name, buff = []) {
 	if (roots === null) {
 		return buff;
 	}
-	return buff.concat(...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)));
+	const result = buff.concat(
+		...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)),
+	);
+	// Return a new Set to remove duplicate values: case possible with PNPM in GHA, due to pnpm/action-setup
+	// With the action, a folder setup-pnpm is created to manage the store and the script see it and try to scan it, and this generate duplicate entry
+	// Before we returned directly result of buff.concat...
+	// TODO: Manage pnpm installation manually (not repoduce the issue in this case but need to find solution to install global dep like surge)
+	return [...new Set(result)];
 }
 
 module.exports = {
