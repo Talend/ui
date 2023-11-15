@@ -59,7 +59,9 @@ async function lintEs(env, presetApi, options) {
 		}
 	}
 
-	return utils.process.spawn(new URL(import.meta.resolve('eslint/bin/eslint.js')).pathname, args, {
+	const eslint = utils.path.resolveBin('eslint');
+
+	return utils.process.spawn(eslint, args, {
 		stdio: 'inherit',
 		env,
 	});
