@@ -21,7 +21,7 @@
   "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
   "devDependencies": {
     "@talend/eslint-config": "^13.0.0",
-    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/eslint-plugin": "^1.1.0",
     "@talend/scripts-core": "^16.1.1",
     "@talend/scripts-config-babel": "^13.1.0",
     "@talend/scripts-config-jest": "^13.0.0",

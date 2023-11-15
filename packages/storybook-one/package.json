@@ -48,7 +48,7 @@
     "@storybook/testing-react": "^2.0.1",
     "@storybook/theming": "^7.5.3",
     "@talend/eslint-config": "^13.0.0",
-    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/eslint-plugin": "^1.1.0",
     "@talend/locales-design-system": "^7.15.1",
     "@talend/locales-tui-components": "^11.4.5",
     "@talend/locales-tui-containers": "^9.1.3",

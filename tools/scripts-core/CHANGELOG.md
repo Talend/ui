@@ -1,5 +1,31 @@
 # @talend/scripts-core
 
+## 16.2.0
+
+### Minor Changes
+
+- 673984929: Improve peerDependencies and add missing deps to not have circular dependency, adapt code to be compatible with PNPM and fix tests
+
+### Patch Changes
+
+- f2ef85811: Fix script for lint
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+  - @talend/scripts-utils@2.2.0
+  - @talend/eslint-plugin@1.1.0
+  - @talend/scripts-config-jest@13.1.0
+  - @talend/scripts-config-stylelint@4.1.0
+  - @talend/scripts-config-typescript@11.2.0
+  - @talend/scripts-config-babel@13.2.0
+
 ## 16.1.1
 
 ### Patch Changes
