@@ -26,8 +26,8 @@
     "@neuralegion/cypress-har-generator": "^5.16.4"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-config": "^13.0.0",
     "@talend/eslint-plugin": "^1.0.1",
-    "@talend/scripts-core": "^16.1.0"
+    "@talend/scripts-core": "^16.1.1"
   }
 }

@@ -14,7 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "talend-scripts lint ./.storybook-templates",
     "on-msw-upgrade": "msw init ./.storybook-templates/msw --save",
     "test": "echo \"Nothing to test\""
   },
@@ -48,9 +48,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^12.2.0",
+    "@talend/eslint-config": "^13.0.0",
     "@talend/eslint-plugin": "^1.0.1",
-    "@talend/scripts-core": "^16.1.0"
+    "@talend/scripts-core": "^16.1.1"
   },
   "msw": {
     "workerDirectory": ".storybook-templates/msw"
