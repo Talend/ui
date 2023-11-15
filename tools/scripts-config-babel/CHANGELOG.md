@@ -1,5 +1,18 @@
 # @talend/scripts-config-babel
 
+## 13.2.0
+
+### Minor Changes
+
+- 673984929: fix plugin order for eslint and fix eslint config (circular dep)
+
+### Patch Changes
+
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+  - @talend/babel-plugin-import-from-index@1.6.0
+  - @talend/babel-plugin-assets-api@1.2.0
+
 ## 13.1.0
 
 ### Minor Changes

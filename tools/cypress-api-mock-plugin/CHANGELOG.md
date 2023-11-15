@@ -1,5 +1,15 @@
 # @talend/cypress-api-mock-plugin
 
+## 1.2.0
+
+### Minor Changes
+
+- 673984929: Add missing deps and fix lint issues
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 1.1.5
 
 ### Patch Changes
