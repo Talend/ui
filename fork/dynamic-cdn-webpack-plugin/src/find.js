@@ -9,6 +9,7 @@ function findPackage(info) {
 	if (name.startsWith('@')) {
 		[scope, name] = info.name.split('/');
 	}
+	// eslint-disable-next-line no-use-before-define
 	return findPackages(scope, name).find(cwd => {
 		const {
 			packageJson: { version },
@@ -34,13 +35,13 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 				// just add the path to the found list
 				return accu.concat(subFolderPath);
 			}
+
 			// the scope or package name is not the one we look for
 			// if there is a nested node modules folder, we dive into it for the search
 			const nestedNodeModulesPath = path.join(subFolderPath, 'node_modules');
 			if (fs.existsSync(nestedNodeModulesPath)) {
-				return accu.concat(
-					findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []),
-				);
+				// eslint-disable-next-line no-use-before-define
+				return accu.concat(findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath, []));
 			}
 			return accu;
 		}, []);
@@ -54,29 +55,21 @@ function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 			if (subFolder.name === '.bin') {
 				return accu;
 			}
-			if (subFolder.name.startsWith('@')) {
+			// MAKE IT COMPATIBLE WITH PNPM (especially for test) WHEN deps is @talend/scripts-...
+			let regex = /@talend\/(scripts|babel|eslint)-.*\/node_modules$/;
+			if (subFolder.name.startsWith('@') && !regex.test(subFolder?.path)) {
 				// for scope folders, we need a special treatment to avoid getting scoped packages when we don't want a scoped one.
 				// ex: search for `classnames`, we don't want to find `@types/classnames` in the result
 				return accu.concat(
-					findPackagesFromScopeFolder(
-						scope,
-						name,
-						path.join(nonScopeFolderPath, subFolder.name),
-					),
+					findPackagesFromScopeFolder(scope, name, path.join(nonScopeFolderPath, subFolder.name)),
 				);
 			} else if (!scope && subFolder.name === name) {
 				// we want a NON scoped package, we are in a non scoped folder, and the names match
 				return accu.concat(path.join(nonScopeFolderPath, subFolder.name));
 			}
-			const nestedNodeModulesPath = path.join(
-				nonScopeFolderPath,
-				subFolder.name,
-				'node_modules',
-			);
+			const nestedNodeModulesPath = path.join(nonScopeFolderPath, subFolder.name, 'node_modules');
 			if (fs.existsSync(nestedNodeModulesPath)) {
-				return accu.concat(
-					findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath),
-				);
+				return accu.concat(findPackagesFromNonScopeFolder(scope, name, nestedNodeModulesPath));
 			}
 			return accu;
 		}, []);
@@ -88,7 +81,14 @@ function findPackages(scope, name, buff = []) {
 	if (roots === null) {
 		return buff;
 	}
-	return buff.concat(...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)));
+	const result = buff.concat(
+		...roots.map(root => findPackagesFromNonScopeFolder(scope, name, root)),
+	);
+	// Return a new Set to remove duplicate values: case possible with PNPM in GHA, due to pnpm/action-setup
+	// With the action, a folder setup-pnpm is created to manage the store and the script see it and try to scan it, and this generate duplicate entry
+	// Before we returned directly result of buff.concat...
+	// TODO: Manage pnpm installation manually (not repoduce the issue in this case but need to find solution to install global dep like surge)
+	return [...new Set(result)];
 }
 
 module.exports = {

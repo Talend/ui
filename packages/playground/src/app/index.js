@@ -1,24 +1,26 @@
 /* eslint-disable no-console */
+
 /**
  * Import theme.
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-import '@talend/bootstrap-theme';
-import getRouter from '@talend/react-cmf-router';
+// eslint-disable-next-line @talend/import-depth
+import { initI18n } from './i18n';
+
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 import cmf from '@talend/react-cmf';
+import getRouter from '@talend/react-cmf-router';
 import { AppLoader, IconsProvider as BaseIconsProvider } from '@talend/react-components';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
-import { initI18n } from './i18n';
-import ComponentFormSandbox from './components/ComponentFormSandbox';
-import { FacetedSearchPlayground } from './components/FacetedSearch';
-import { Icons } from './components/Icons';
-
-import { LeaguesList } from './components/List';
-import { Dataviz } from './components/Dataviz';
 
 import actions from './actions';
+import ComponentFormSandbox from './components/ComponentFormSandbox';
+import { Dataviz } from './components/Dataviz';
+import { FacetedSearchPlayground } from './components/FacetedSearch';
+import { Icons } from './components/Icons';
+import { LeaguesList } from './components/List';
 
 // thanks ui-scripts
 let basename = window.basename;

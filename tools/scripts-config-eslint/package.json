@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.23.3",
-    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/eslint-plugin": "^1.1.0",
     "@testing-library/dom": "^9.3.3",
     "@typescript-eslint/parser": "^6.10.0",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
