@@ -25,10 +25,10 @@
   "mainSrc": "src/index.js",
   "devDependencies": {
     "@talend/eslint-config": "^13.0.0",
-    "@talend/eslint-plugin": "^1.0.1",
+    "@talend/eslint-plugin": "^1.1.0",
     "@talend/react-cmf": "^8.2.0",
-    "@talend/scripts-core": "^16.1.1",
-    "@talend/scripts-config-babel": "^13.1.0",
+    "@talend/scripts-core": "^16.2.0",
+    "@talend/scripts-config-babel": "^13.2.0",
     "@testing-library/react": "^12.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
