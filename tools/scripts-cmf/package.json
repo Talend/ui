@@ -13,7 +13,7 @@
     "lint": "eslint ./"
   },
   "dependencies": {
-    "i18next": "^23.5.1",
+    "i18next": "^23.7.6",
     "deepmerge": "^1.5.2",
     "jsonpath": "^1.1.1",
     "lodash": "^4.17.21",
