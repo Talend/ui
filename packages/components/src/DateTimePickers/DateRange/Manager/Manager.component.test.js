@@ -380,14 +380,14 @@ describe('DateRange.Manager', () => {
 							<DateRangeConsumer />
 						</Manager>,
 					);
-					expect(onChange).not.toBeCalled();
+					expect(onChange).not.toHaveBeenCalled();
 
 					// when
 					await userEvent.click(screen.getByTestId(field));
 					await userEvent.keyboard(inputText);
 
 					// then
-					expect(onChange).toBeCalledWith(expect.anything(), {
+					expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 						startDate: expectedStartDate,
 						endDate: expectedEndDate,
 						errors: [],
@@ -425,13 +425,13 @@ describe('DateRange.Manager', () => {
 							<DateRangeConsumer />
 						</Manager>,
 					);
-					expect(onChange).not.toBeCalled();
+					expect(onChange).not.toHaveBeenCalled();
 					//when
 					await userEvent.click(screen.getByTestId(field));
 					await userEvent.keyboard(inputText);
 
 					// then
-					expect(onChange).toBeCalled();
+					expect(onChange).toHaveBeenCalled();
 					const args = onChange.mock.calls[0];
 					expect(args[1].errorMessage).toBe(errorMessage);
 					expect(args[1].errors).toEqual(errors);
@@ -516,13 +516,13 @@ describe('DateRange.Manager', () => {
 							/>
 						</Manager>,
 					);
-					expect(onChange).not.toBeCalled();
+					expect(onChange).not.toHaveBeenCalled();
 
 					// when
 					await userEvent.click(screen.getByTestId(`picker-${field}`));
 
 					// then
-					expect(onChange).toBeCalledWith(
+					expect(onChange).toHaveBeenCalledWith(
 						expect.anything({
 							type: 'change',
 						}),

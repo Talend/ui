@@ -21,6 +21,6 @@ describe('Header input', () => {
 		userEvent.click(screen.getByLabelText('Abort'));
 
 		// then
-		expect(props.headerInput[0].onClick).toBeCalled();
+		expect(props.headerInput[0].onClick).toHaveBeenCalled();
 	});
 });

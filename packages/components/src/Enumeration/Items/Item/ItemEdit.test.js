@@ -47,7 +47,7 @@ describe('Item', () => {
 		userEvent.click(screen.getByLabelText('Cancel'));
 
 		// then
-		expect(props.item.itemProps.actions[1].onClick).toBeCalled();
+		expect(props.item.itemProps.actions[1].onClick).toHaveBeenCalled();
 	});
 
 	it('should trigger callback on input title ENTER', () => {
@@ -89,7 +89,7 @@ describe('Item', () => {
 		userEvent.keyboard('{Enter}');
 
 		// then
-		expect(props.item.itemProps.onSubmitItem).toBeCalled();
+		expect(props.item.itemProps.onSubmitItem).toHaveBeenCalled();
 		const callArgs = props.item.itemProps.onSubmitItem.mock.calls[0];
 		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item, index: 0 });
 	});
@@ -128,7 +128,7 @@ describe('Item', () => {
 		userEvent.keyboard('{Escape}');
 
 		// then
-		expect(props.item.itemProps.onAbortItem).toBeCalled();
+		expect(props.item.itemProps.onAbortItem).toHaveBeenCalled();
 		const callArgs = props.item.itemProps.onAbortItem.mock.calls[0];
 		expect(callArgs[1]).toEqual({ value: 'toto', model: props.item, index: 0 });
 	});

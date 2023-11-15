@@ -41,13 +41,13 @@ describe('Item', () => {
 
 		// then
 		userEvent.click(screen.getByLabelText('Delete'));
-		expect(props.item.itemProps.actions[1].onClick).toBeCalled();
+		expect(props.item.itemProps.actions[1].onClick).toHaveBeenCalled();
 
 		userEvent.click(screen.getByLabelText('Edit'));
-		expect(props.item.itemProps.actions[0].onClick).toBeCalled();
+		expect(props.item.itemProps.actions[0].onClick).toHaveBeenCalled();
 
 		userEvent.click(screen.getByText('toto'));
-		expect(props.item.itemProps.onSelectItem).toBeCalled();
+		expect(props.item.itemProps.onSelectItem).toHaveBeenCalled();
 	});
 
 	it('should display value with only button which are not disabled', () => {

@@ -244,7 +244,7 @@ describe('ListToVirtualizedList', () => {
 		virtualizedProps.sort({ sortBy: 'name', sortDirection: VirtualizedList.SORT_BY.DESC });
 
 		// then
-		expect(onChange).toBeCalledWith(null, { field: 'name', isDescending: true });
+		expect(onChange).toHaveBeenCalledWith(null, { field: 'name', isDescending: true });
 	});
 
 	it('should adapt selection isSelected', () => {
@@ -258,7 +258,7 @@ describe('ListToVirtualizedList', () => {
 		virtualizedProps.isSelected(props.items[0]);
 
 		// then
-		expect(isSelected).toBeCalledWith(props.items[0]);
+		expect(isSelected).toHaveBeenCalledWith(props.items[0]);
 	});
 
 	it('should adapt selection onToggle', () => {
@@ -273,7 +273,7 @@ describe('ListToVirtualizedList', () => {
 		virtualizedProps.selectionToggle(event, props.items[0]);
 
 		// then
-		expect(onToggle).toBeCalledWith(event, props.items[0]);
+		expect(onToggle).toHaveBeenCalledWith(event, props.items[0]);
 	});
 
 	it('should adapt click onRowClick', () => {
@@ -288,7 +288,7 @@ describe('ListToVirtualizedList', () => {
 		virtualizedProps.onRowClick(event, props.items[0]);
 
 		// then
-		expect(onRowClick).toBeCalledWith(event, props.items[0]);
+		expect(onRowClick).toHaveBeenCalledWith(event, props.items[0]);
 	});
 
 	it('should adapt click onRowDoubleClick', () => {
@@ -303,7 +303,7 @@ describe('ListToVirtualizedList', () => {
 		virtualizedProps.onRowDoubleClick(event, props.items[0]);
 
 		// then
-		expect(props.titleProps.onClick).toBeCalledWith(event, props.items[0]);
+		expect(props.titleProps.onClick).toHaveBeenCalledWith(event, props.items[0]);
 	});
 
 	it('should adapt selection isActive', () => {
@@ -317,7 +317,7 @@ describe('ListToVirtualizedList', () => {
 		virtualizedProps.isActive(props.items[0]);
 
 		// then
-		expect(isActive).toBeCalledWith(props.items[0]);
+		expect(isActive).toHaveBeenCalledWith(props.items[0]);
 	});
 
 	describe('compareOrder function', () => {

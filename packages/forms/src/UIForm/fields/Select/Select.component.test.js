@@ -161,7 +161,7 @@ describe('Select field', () => {
 		fireEvent.change(screen.getByRole('combobox'), event);
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(event), { schema, value: 'bar' });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(event), { schema, value: 'bar' });
 	});
 
 	it('should trigger array onChange', async () => {

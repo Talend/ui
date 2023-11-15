@@ -74,13 +74,13 @@ describe('Filter', () => {
 		const onToggle = jest.fn();
 		render(<FilterBar onFilter={noOp} onToggle={onToggle} docked />);
 
-		expect(onToggle).not.toBeCalled();
+		expect(onToggle).not.toHaveBeenCalled();
 
 		// then
 		userEvent.click(screen.queryByRole('search'));
 
 		// then
-		expect(onToggle).toBeCalled();
+		expect(onToggle).toHaveBeenCalled();
 	});
 
 	it('should take props value change', () => {
@@ -151,54 +151,54 @@ describe('Filter', () => {
 				autoFocus={false}
 			/>,
 		);
-		expect(onFocus).not.toBeCalled();
+		expect(onFocus).not.toHaveBeenCalled();
 
 		// when
 		userEvent.click(screen.getByRole('searchbox'));
 
 		// then
-		expect(onFocus).toBeCalled();
+		expect(onFocus).toHaveBeenCalled();
 	});
 
 	it('should call onBlur callback', () => {
 		// given
 		const onBlur = jest.fn();
 		render(<FilterBar onFilter={noOp} onToggle={noOp} onBlur={onBlur} docked={false} />);
-		expect(onBlur).not.toBeCalled();
+		expect(onBlur).not.toHaveBeenCalled();
 
 		// when
 		fireEvent.blur(screen.getByRole('searchbox'));
 
 		// then
-		expect(onBlur).toBeCalled();
+		expect(onBlur).toHaveBeenCalled();
 	});
 
 	it('should call onFilter callback', () => {
 		// given
 		const onFilter = jest.fn();
 		render(<FilterBar onToggle={noOp} onFilter={onFilter} docked={false} value="" />);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
 		userEvent.type(screen.getByRole('searchbox'), 'coucou');
 
 		// then
-		expect(onFilter).toBeCalledWith(expect.anything(), 'coucou');
+		expect(onFilter).toHaveBeenCalledWith(expect.anything(), 'coucou');
 	});
 
 	it('should call onFilter callback with debounce time', done => {
 		// given
 		const onFilter = jest.fn();
 		render(<FilterBar onToggle={noOp} onFilter={onFilter} docked={false} debounceTimeout={300} />);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
 		userEvent.type(screen.getByRole('searchbox'), 'coucou');
 
 		// then
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 		setTimeout(() => {
-			expect(onFilter).toBeCalledWith(expect.anything(), 'coucou');
+			expect(onFilter).toHaveBeenCalledWith(expect.anything(), 'coucou');
 			done();
 		}, 500);
 	});
@@ -214,15 +214,15 @@ describe('Filter', () => {
 				debounceTimeout={300}
 			/>,
 		);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
 		userEvent.type(screen.getByRole('searchbox'), 'c');
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// then
 		setTimeout(() => {
-			expect(onFilter).not.toBeCalled();
+			expect(onFilter).not.toHaveBeenCalled();
 			done();
 		}, 500);
 	});
@@ -239,15 +239,15 @@ describe('Filter', () => {
 				debounceTimeout={debounceTimeout}
 			/>,
 		);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
 		userEvent.type(screen.getByRole('searchbox'), 'couc');
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// then
 		setTimeout(() => {
-			expect(onFilter).toBeCalledWith(expect.anything(), 'couc');
+			expect(onFilter).toHaveBeenCalledWith(expect.anything(), 'couc');
 			done();
 		}, debounceTimeout + 100);
 	});
@@ -256,14 +256,14 @@ describe('Filter', () => {
 		// given
 		const onFilter = jest.fn();
 		render(<FilterBar onToggle={noOp} onFilter={onFilter} docked={false} value="whatever" />);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 		expect(screen.getByRole('searchbox')).toHaveValue('whatever');
 
 		// when
 		userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(onFilter).toBeCalledWith(expect.anything(), '');
+		expect(onFilter).toHaveBeenCalledWith(expect.anything(), '');
 		expect(screen.getByRole('searchbox')).toHaveValue('');
 	});
 
@@ -271,13 +271,13 @@ describe('Filter', () => {
 		// given
 		const onFilter = jest.fn();
 		render(<FilterBar onToggle={noOp} onFilter={onFilter} docked={false} value="whatever" />);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
 		userEvent.type(screen.getByRole('searchbox'), '{esc}');
 
 		// then
-		expect(onFilter).toBeCalledWith(expect.anything(), '');
+		expect(onFilter).toHaveBeenCalledWith(expect.anything(), '');
 		expect(screen.getByRole('searchbox')).toHaveValue('');
 	});
 
@@ -287,12 +287,12 @@ describe('Filter', () => {
 		render(
 			<FilterBar onToggle={noOp} onFilter={noOp} onBlur={onBlur} docked={false} value="whatever" />,
 		);
-		expect(onBlur).not.toBeCalled();
+		expect(onBlur).not.toHaveBeenCalled();
 
 		// when
 		userEvent.type(screen.getByRole('searchbox'), '{enter}');
 
 		// then
-		expect(onBlur).toBeCalled();
+		expect(onBlur).toHaveBeenCalled();
 	});
 });

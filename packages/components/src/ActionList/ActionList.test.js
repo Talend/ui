@@ -18,9 +18,9 @@ describe('ActionList', () => {
 		screen.getByText('Favorites').click();
 
 		// then
-		expect(onPreparationsClick).not.toBeCalled();
-		expect(onDatasetsClick).not.toBeCalled();
-		expect(onFavoritesClick).toBeCalled();
+		expect(onPreparationsClick).not.toHaveBeenCalled();
+		expect(onDatasetsClick).not.toHaveBeenCalled();
+		expect(onFavoritesClick).toHaveBeenCalled();
 	});
 
 	it('should accept custom action ids', () => {

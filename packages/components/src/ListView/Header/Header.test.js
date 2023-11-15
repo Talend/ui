@@ -40,6 +40,6 @@ describe('Header', () => {
 
 		// then
 		expect(screen.getAllByRole('link').length).toBe(1);
-		expect(props.headerDefault[0].onClick).toBeCalled();
+		expect(props.headerDefault[0].onClick).toHaveBeenCalled();
 	});
 });

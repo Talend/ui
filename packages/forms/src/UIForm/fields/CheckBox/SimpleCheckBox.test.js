@@ -74,7 +74,10 @@ describe('SimpleCheckBox field', () => {
 		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: false });
+		expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
+			schema,
+			value: false,
+		});
 	});
 
 	it('should trigger onFinish on checkbox change', async () => {
@@ -97,7 +100,7 @@ describe('SimpleCheckBox field', () => {
 		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), { schema, value: false });
 	});
 
 	describe('data-feature', () => {

@@ -302,13 +302,13 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByTestId('onDateChange'));
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toEqual(expect.anything({ type: 'click' }));
 				// expect(isNaN(args[1].datetime.getTime())).toBe(true);
@@ -333,13 +333,13 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByTestId('onDateChange'));
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].textInput).toBe('2015-01-15 01:02'); // default time included
@@ -359,12 +359,12 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByTestId('onDateChange'));
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[1].errorMessage).toBe('Date format is invalid');
 				expect(args[1].errors).toEqual([
@@ -387,7 +387,7 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByTestId('onDateChange'));
@@ -421,7 +421,7 @@ describe('DateTime.Manager', () => {
 						<DateTimeConsumer getProps={getProps} />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 				await userEvent.click(screen.getByTestId('getProps'));
 				const contextValue = getProps.mock.calls[0][0];
 				expect(contextValue.date).toEqual('2015-01-15');
@@ -466,7 +466,7 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByTestId('onDateChange'));

@@ -112,14 +112,14 @@ describe('List DisplayMode', () => {
 				</ListContext.Provider>,
 			);
 
-			expect(contextValue.setDisplayMode).not.toBeCalled();
+			expect(contextValue.setDisplayMode).not.toHaveBeenCalled();
 
 			// when: react-bootstrap use value-event instead of event-value
 			userEvent.click(screen.getAllByRole('button')[1]);
 
 			// then
-			expect(contextValue.setDisplayMode).not.toBeCalled();
-			expect(onChange).toBeCalledWith(expect.anything(), 'large');
+			expect(contextValue.setDisplayMode).not.toHaveBeenCalled();
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), 'large');
 		});
 	});
 });

@@ -13,39 +13,43 @@ const props = {
 jest.unmock('@talend/design-system');
 
 describe('Pagination', () => {
-	it('should navigate to first page', () => {
+	it('should navigate to first page', async () => {
+		const user = userEvent.setup();
 		// given
 		render(<Pagination {...props} />);
 		// when
-		userEvent.click(screen.getByLabelText('Go to first page.'));
+		await user.click(screen.getByLabelText('Go to first page.'));
 		// then
-		expect(props.onChange).toBeCalledWith(1, 5);
+		expect(props.onChange).toHaveBeenCalledWith(1, 5);
 	});
 
-	it('should navigate to previous page', () => {
+	it('should navigate to previous page', async () => {
+		const user = userEvent.setup();
 		// given
 		render(<Pagination {...props} />);
 		// when
-		userEvent.click(screen.getByLabelText('Go to previous page. Current page: 3.'));
+		await user.click(screen.getByLabelText('Go to previous page. Current page: 3.'));
 		// then
-		expect(props.onChange).toBeCalledWith(6, 5);
+		expect(props.onChange).toHaveBeenCalledWith(6, 5);
 	});
 
-	it('should navigate to next page', () => {
+	it('should navigate to next page', async () => {
+		const user = userEvent.setup();
 		// given
 		render(<Pagination {...props} />);
 		// when
-		userEvent.click(screen.getByLabelText('Go to next page. Current page: 3.'));
+		await user.click(screen.getByLabelText('Go to next page. Current page: 3.'));
 		// then
-		expect(props.onChange).toBeCalledWith(16, 5);
+		expect(props.onChange).toHaveBeenCalledWith(16, 5);
 	});
 
-	it('should navigate to last page', () => {
+	it('should navigate to last page', async () => {
+		const user = userEvent.setup();
 		// given
 		render(<Pagination {...props} />);
 		// when
-		userEvent.click(screen.getByLabelText('Go to last page.'));
+		await user.click(screen.getByLabelText('Go to last page.'));
 		// then
-		expect(props.onChange).toBeCalledWith(21, 5);
+		expect(props.onChange).toHaveBeenCalledWith(21, 5);
 	});
 });

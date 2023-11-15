@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import wrap from './wrap';
@@ -9,14 +8,16 @@ describe('wrap', () => {
 	);
 	Button.displayName = 'Button';
 	Button.foo = 'bar';
-	it('should create a component', () => {
+	it('should create a component', async () => {
+		const user = userEvent.setup();
+
 		const WrappedButton = wrap(Button, 'MyButton');
 		expect(WrappedButton.displayName).toBe('MyButton');
 		const onClick = jest.fn();
 		render(<WrappedButton text="hello" onClick={onClick} />);
 		expect(screen.getByText('hello')).toBeInTheDocument();
 		expect(screen.getByRole('button')).toBeInTheDocument();
-		userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 		expect(onClick).toHaveBeenCalled();
 	});
 

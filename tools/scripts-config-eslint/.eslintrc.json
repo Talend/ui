@@ -89,18 +89,7 @@
     "testing-library/custom-renders": "off",
     "testing-library/custom-queries": "off",
     "testing-library/no-node-access": "off",
-    "testing-library/render-result-naming-convention": "off",
-
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "endOfLine": "auto",
-        "tabWidth": 4,
-        "useTabs": true,
-        "printWidth": 100
-      }
-    ]
+    "testing-library/render-result-naming-convention": "off"
   },
   "overrides": [
     {

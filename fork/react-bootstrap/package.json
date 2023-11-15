@@ -19,9 +19,6 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "prettier": {
-    "singleQuote": true
-  },
   "files": [
     "CHANGELOG.md",
     "lib",

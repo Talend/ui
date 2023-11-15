@@ -46,13 +46,13 @@ describe('DateView', () => {
 				onTitleClick={onTitleClick}
 			/>,
 		);
-		expect(onTitleClick).not.toBeCalled();
+		expect(onTitleClick).not.toHaveBeenCalled();
 
 		// when
 		userEvent.click(screen.getByLabelText('Switch to month-and-year view'));
 
 		// then
-		expect(onTitleClick).toBeCalled();
+		expect(onTitleClick).toHaveBeenCalled();
 	});
 
 	it('should manage tabIndex', () => {
@@ -130,7 +130,7 @@ describe('DateView', () => {
 				onSelectTime={jest.fn()}
 			/>,
 		);
-		expect(onSelectMonthYear).not.toBeCalled();
+		expect(onSelectMonthYear).not.toHaveBeenCalled();
 
 		// when
 		if (button === 'previous') {
@@ -140,6 +140,6 @@ describe('DateView', () => {
 		}
 
 		// then
-		expect(onSelectMonthYear).toBeCalledWith(expectedMonthYear, undefined);
+		expect(onSelectMonthYear).toHaveBeenCalledWith(expectedMonthYear, undefined);
 	});
 });

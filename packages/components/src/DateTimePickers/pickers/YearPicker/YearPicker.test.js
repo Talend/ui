@@ -40,12 +40,12 @@ describe('YearPicker', () => {
 		const selectedYear = 2014;
 		const onSelect = jest.fn();
 		render(<YearPicker selectedYear={selectedYear} onSelect={onSelect} />);
-		expect(onSelect).not.toBeCalled();
+		expect(onSelect).not.toHaveBeenCalled();
 
 		// when
 		userEvent.click(screen.getByText(firstSelectableYear));
 
-		expect(onSelect).toBeCalledWith(expect.anything({ type: 'click' }), firstSelectableYear);
+		expect(onSelect).toHaveBeenCalledWith(expect.anything({ type: 'click' }), firstSelectableYear);
 	});
 
 	it('should scroll up by 1 year', () => {

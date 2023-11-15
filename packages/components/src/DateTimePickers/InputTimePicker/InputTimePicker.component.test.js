@@ -48,7 +48,7 @@ describe('InputTimePicker', () => {
 			// given
 			const onChange = jest.fn();
 			render(<InputTimePicker id="my-picker" onChange={onChange} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			await userEvent.click(screen.getByRole('textbox'));
@@ -56,7 +56,7 @@ describe('InputTimePicker', () => {
 			await userEvent.click(screen.getByText('HH:mm'));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), {
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 				time: { hours: '15', minutes: '45', seconds: '00' },
 				origin: 'INPUT',
 				textInput: '15:45',

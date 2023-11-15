@@ -152,7 +152,7 @@ describe('DateTime.Manager', () => {
 				await userEvent.click(screen.getByTestId('callme'));
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[1][field]).toBe(expected);
 			});

@@ -183,13 +183,13 @@ describe('DatePicker', () => {
 				goToNextMonth={jest.fn()}
 			/>,
 		);
-		expect(onSelect).not.toBeCalled();
+		expect(onSelect).not.toHaveBeenCalled();
 
 		// when
 		userEvent.click(screen.getAllByText('1')[0]);
 
 		// then
-		expect(onSelect).toBeCalledWith(expect.anything(), new Date(YEAR, MONTH_INDEX, 1));
+		expect(onSelect).toHaveBeenCalledWith(expect.anything(), new Date(YEAR, MONTH_INDEX, 1));
 	});
 
 	it('should manage tabIndex', () => {
@@ -248,8 +248,8 @@ describe('DatePicker', () => {
 		render(<DatePicker {...props} />);
 		userEvent.click(screen.getAllByText('4')[1]);
 		const selectedDate = new Date(year + 1, 0, 4);
-		expect(props.onSelect).toBeCalledWith(expect.anything(), selectedDate);
-		expect(props.goToNextMonth).toBeCalled();
-		expect(props.goToPreviousMonth).not.toBeCalled();
+		expect(props.onSelect).toHaveBeenCalledWith(expect.anything(), selectedDate);
+		expect(props.goToNextMonth).toHaveBeenCalled();
+		expect(props.goToPreviousMonth).not.toHaveBeenCalled();
 	});
 });

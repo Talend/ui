@@ -36,12 +36,12 @@ describe('ActionIconToggle', () => {
 	it('should call click callback', () => {
 		// given
 		render(<ActionIconToggle {...inactiveIconToggle} />);
-		expect(inactiveIconToggle.onClick).not.toBeCalled();
+		expect(inactiveIconToggle.onClick).not.toHaveBeenCalled();
 
 		// when
 		userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(inactiveIconToggle.onClick).toBeCalled();
+		expect(inactiveIconToggle.onClick).toHaveBeenCalled();
 	});
 });

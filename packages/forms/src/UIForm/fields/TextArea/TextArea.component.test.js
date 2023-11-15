@@ -126,7 +126,7 @@ describe('TextArea field', () => {
 		await userEvent.type(screen.getByRole('textbox'), value);
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(event), { schema, value });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(event), { schema, value });
 	});
 
 	it('should trigger onFinish on input blur', async () => {
@@ -151,6 +151,6 @@ describe('TextArea field', () => {
 		await userEvent.tab();
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything(event), { schema });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(event), { schema });
 	});
 });

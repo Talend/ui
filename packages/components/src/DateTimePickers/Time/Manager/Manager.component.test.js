@@ -126,14 +126,14 @@ describe('Time.Manager', () => {
 						<TimeConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				userEvent.click(screen.getByRole('textbox'));
 				userEvent.keyboard('15:45');
 
 				// then
-				expect(onChange).toBeCalledWith(expect.anything(), {
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 					time: {
 						hours: '15',
 						minutes: '45',
@@ -154,14 +154,14 @@ describe('Time.Manager', () => {
 						<TimeConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				userEvent.click(screen.getByRole('textbox'));
 				userEvent.keyboard('ddrer');
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[1].errorMessage).toBe('Time is invalid');
 				expect(args[1].errors).toEqual([
@@ -221,13 +221,13 @@ describe('Time.Manager', () => {
 					</Manager>,
 				);
 
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				userEvent.click(screen.getByText('Picker'));
 
 				// then
-				expect(onChange).toBeCalledWith(expect.anything(), {
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 					origin: 'PICKER',
 					textInput: '15:45',
 					time: { hours: '15', minutes: '45', seconds: '00' },

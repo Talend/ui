@@ -32,8 +32,8 @@ describe('Header input', () => {
 		userEvent.click(buttons[1]);
 
 		// then
-		expect(props.headerInput[0].onClick).toBeCalled();
-		expect(props.headerInput[1].onClick).toBeCalled();
+		expect(props.headerInput[0].onClick).toHaveBeenCalled();
+		expect(props.headerInput[1].onClick).toHaveBeenCalled();
 	});
 	it('should render only button which are not disabled', () => {
 		// given

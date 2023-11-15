@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
-import keycode from 'keycode';
 import theme from './CellTitle.module.scss';
 
 /**
@@ -21,7 +20,7 @@ export default class CellTitleInput extends Component {
 	}
 
 	onKeyUp(event) {
-		if (event.keyCode === keycode('escape')) {
+		if (event.key === 'Esc' || event.key === 'Escape') {
 			this.props.onEditCancel(event, this.props.rowData);
 		}
 	}
@@ -51,6 +50,7 @@ export default class CellTitleInput extends Component {
 					}}
 					onBlur={this.onBlur}
 					onKeyUp={this.onKeyUp}
+					// eslint-disable-next-line jsx-a11y/no-autofocus
 					autoFocus
 				/>
 			</form>

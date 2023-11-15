@@ -102,12 +102,12 @@ describe('SortOptions', () => {
 			/>,
 		);
 
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 
 		userEvent.click(screen.getByLabelText('Sort by name (current order: asc)'));
-		expect(onChange).toBeCalledWith(TYPES.NAME, ORDERS.DESC);
+		expect(onChange).toHaveBeenCalledWith(TYPES.NAME, ORDERS.DESC);
 
 		userEvent.click(screen.getByLabelText('Sort by date (current order: desc)'));
-		expect(onChange).toBeCalledWith(TYPES.DATE, ORDERS.ASC);
+		expect(onChange).toHaveBeenCalledWith(TYPES.DATE, ORDERS.ASC);
 	});
 });

@@ -158,7 +158,7 @@ describe('Typeahead', () => {
 			userEvent.click(screen.getByRole('button'));
 
 			// then
-			expect(props.onToggle).toBeCalled();
+			expect(props.onToggle).toHaveBeenCalled();
 		});
 	});
 
@@ -176,7 +176,7 @@ describe('Typeahead', () => {
 			userEvent.type(screen.getByRole('textbox'), 'toto');
 
 			// then
-			expect(onChange).toBeCalled();
+			expect(onChange).toHaveBeenCalled();
 		});
 
 		it('should call onBlur', () => {
@@ -193,7 +193,7 @@ describe('Typeahead', () => {
 			userEvent.tab();
 
 			// then
-			expect(onBlur).toBeCalled();
+			expect(onBlur).toHaveBeenCalled();
 		});
 	});
 
@@ -212,8 +212,8 @@ describe('Typeahead', () => {
 			userEvent.click(screen.getAllByRole('option')[0]);
 
 			// then
-			expect(onSelect).toBeCalled();
-			expect(onSelect).toBeCalledWith(expect.anything({ type: 'click' }), {
+			expect(onSelect).toHaveBeenCalled();
+			expect(onSelect).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
 				itemIndex: 0,
 				sectionIndex: 0,
 			});

@@ -70,7 +70,7 @@ describe('CellTitleSelector', () => {
 		userEvent.click(screen.getByRole('link'));
 
 		// then
-		expect(onClick).toBeCalledWith(expect.anything(clickEvent), rowData);
+		expect(onClick).toHaveBeenCalledWith(expect.anything(clickEvent), rowData);
 	});
 
 	it('should render the simple text', () => {

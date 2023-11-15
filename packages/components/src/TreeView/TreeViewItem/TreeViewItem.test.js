@@ -201,7 +201,7 @@ describe('TreeView item', () => {
 		userEvent.click(getIcon());
 
 		// then
-		expect(props.onToggle).toBeCalledWith(expect.anything({ type: 'click' }), props.item);
+		expect(props.onToggle).toHaveBeenCalledWith(expect.anything({ type: 'click' }), props.item);
 	});
 
 	it('should select item on click', () => {
@@ -216,6 +216,6 @@ describe('TreeView item', () => {
 		userEvent.click(screen.getByRole('treeitem'));
 
 		// then
-		expect(props.onSelect).toBeCalledWith(expect.anything({ type: 'click' }), props.item);
+		expect(props.onSelect).toHaveBeenCalledWith(expect.anything({ type: 'click' }), props.item);
 	});
 });

@@ -26,7 +26,7 @@ describe('Header selected', () => {
 		userEvent.click(buttons[0]);
 
 		// then
-		expect(props.headerSelected[0].onClick).toBeCalled();
+		expect(props.headerSelected[0].onClick).toHaveBeenCalled();
 	});
 	it('should render only button which are not disabled', () => {
 		// given

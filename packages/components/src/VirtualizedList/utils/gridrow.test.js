@@ -159,7 +159,7 @@ describe('gridrow', () => {
 			const cellData = getCellData(field, parent, 1);
 
 			// then
-			expect(cellDataGetter).toBeCalledWith({
+			expect(cellDataGetter).toHaveBeenCalledWith({
 				columnData,
 				dataKey: 'name',
 				rowData: collection[1],

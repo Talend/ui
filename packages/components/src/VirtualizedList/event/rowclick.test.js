@@ -21,7 +21,7 @@ describe('rowclick', () => {
 
 				// when / then
 				decoratedRowDoubleClick({ event });
-				expect(onRowDoubleClick).not.toBeCalled();
+				expect(onRowDoubleClick).not.toHaveBeenCalled();
 			},
 			[
 				{ name: 'checkbox', event: checkboxEvent },
@@ -41,7 +41,7 @@ describe('rowclick', () => {
 
 			// then
 			decoratedRowDoubleClick({ event: nonActionEvent });
-			expect(onRowDoubleClick).toBeCalled();
+			expect(onRowDoubleClick).toHaveBeenCalled();
 		});
 
 		it('should return null when there is no rowClick callback', () => {
@@ -65,7 +65,7 @@ describe('rowclick', () => {
 			decoratedRowClick({ event, rowData });
 
 			// then
-			expect(onRowClick).toBeCalledWith(event, rowData);
+			expect(onRowClick).toHaveBeenCalledWith(event, rowData);
 		});
 
 		it('should return null when there is no rowClick callback', () => {

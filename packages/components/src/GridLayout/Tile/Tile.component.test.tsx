@@ -22,7 +22,9 @@ function Consumer() {
 }
 
 describe('Grid tiles', () => {
-	it('should render children and setup context', () => {
+	it('should render children and setup context', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(
 			<Tile>
@@ -30,7 +32,7 @@ describe('Grid tiles', () => {
 			</Tile>,
 		);
 		// when
-		userEvent.click(screen.getByText('edit'));
+		await user.click(screen.getByText('edit'));
 
 		// then
 		expect(screen.getByTestId('TestComponent')).toBeVisible();

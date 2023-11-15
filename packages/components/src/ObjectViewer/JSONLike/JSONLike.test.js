@@ -312,8 +312,8 @@ describe('JSONLike', () => {
 				</form>,
 			);
 			// THEN
-			expect(mockOnToggle).not.toBeCalled();
-			expect(mockOnSubmitClick).not.toBeCalled();
+			expect(mockOnToggle).not.toHaveBeenCalled();
+			expect(mockOnSubmitClick).not.toHaveBeenCalled();
 			// WHEN
 			userEvent.click(
 				screen.getByRole('link', {
@@ -321,8 +321,8 @@ describe('JSONLike', () => {
 				}),
 			);
 			// THEN
-			expect(mockOnToggle).toBeCalled();
-			expect(mockOnSubmitClick).not.toBeCalled();
+			expect(mockOnToggle).toHaveBeenCalled();
+			expect(mockOnSubmitClick).not.toHaveBeenCalled();
 		});
 
 		it('should select item', () => {
@@ -340,12 +340,12 @@ describe('JSONLike', () => {
 				/>,
 			);
 			// THEN
-			expect(mockOnSelect).not.toBeCalled();
+			expect(mockOnSelect).not.toHaveBeenCalled();
 
 			// WHEN
 			userEvent.click(screen.getByRole('treeitem'));
 			// THEN
-			expect(mockOnSelect).toBeCalled();
+			expect(mockOnSelect).toHaveBeenCalled();
 		});
 	});
 

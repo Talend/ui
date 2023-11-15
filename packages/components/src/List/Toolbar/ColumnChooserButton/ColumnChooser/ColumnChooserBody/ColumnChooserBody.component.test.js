@@ -56,6 +56,8 @@ describe('ColumnChooserBody', () => {
 		expect(screen.getByTestId('my-child')).toBeVisible();
 	});
 	it('should call the onChangeVisibility when onChange is triggered on the column chooser table', async () => {
+		const user = userEvent.setup();
+
 		const onChangeVisibility = jest.fn();
 		// Given
 		const contextValues = {
@@ -73,7 +75,7 @@ describe('ColumnChooserBody', () => {
 			</ColumnChooserProvider>,
 		);
 		expect(screen.getByText('col3').previousSibling).toBeChecked();
-		userEvent.click(screen.getByText('col3').previousSibling);
+		await user.click(screen.getByText('col3').previousSibling);
 
 		// then
 		expect(onChangeVisibility).toHaveBeenNthCalledWith(1, false, 'col3');

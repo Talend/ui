@@ -181,8 +181,8 @@ describe('Array component', () => {
 			await userEvent.click(screen.getByText('Add'));
 			// then
 			const payload = { schema, value: value.concat({}) };
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 		});
 
 		it('should close all items with closeable item widget', async () => {
@@ -240,8 +240,8 @@ describe('Array component', () => {
 
 			// then
 			const payload = { schema: selectSchema, value: ['White'] };
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 		});
 	});
 
@@ -259,8 +259,8 @@ describe('Array component', () => {
 
 			// then
 			const payload = { schema, value: [value[0], value[2]] };
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload, expect.anything());
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload, expect.anything());
 		});
 
 		it('should pass widget hook function to shift errors indexes', async () => {
@@ -307,8 +307,8 @@ describe('Array component', () => {
 
 			// then
 			const payload = { schema, value: [value[1], value[0], value[2]] };
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload, expect.anything());
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload, expect.anything());
 		});
 
 		it('should pass widget hook function to shift errors indexes', async () => {

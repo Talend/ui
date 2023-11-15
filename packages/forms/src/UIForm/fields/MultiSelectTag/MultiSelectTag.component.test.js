@@ -153,8 +153,8 @@ describe('MultiSelectTag field', () => {
 
 		// then
 		const payload = { schema: props.schema, value: props.value.concat('titi') };
-		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(onFinish).toBeCalledWith(expect.anything(), payload);
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), payload);
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 	});
 
 	it('should remove tag', async () => {
@@ -169,8 +169,8 @@ describe('MultiSelectTag field', () => {
 
 		// then
 		const payload = { schema: props.schema, value: props.value.slice(1) };
-		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(onFinish).toBeCalledWith(expect.anything(), payload);
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), payload);
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 	});
 
 	it('should call onTrigger on focus', async () => {
@@ -191,7 +191,7 @@ describe('MultiSelectTag field', () => {
 		await userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(triggerProps.onTrigger).toBeCalledWith(expect.anything(), {
+		expect(triggerProps.onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			trigger: triggerProps.schema.triggers[0],
 			schema: triggerProps.schema,
 			errors: triggerProps.errors,

@@ -172,11 +172,11 @@ describe('Notification', () => {
 		render(
 			<Notification notifications={[notification]} leaveFn={leaveFn} autoLeaveTimeout={2000} />,
 		);
-		expect(leaveFn).not.toBeCalled();
+		expect(leaveFn).not.toHaveBeenCalled();
 		jest.advanceTimersByTime(2000);
 
 		// then
-		expect(leaveFn).toBeCalled();
+		expect(leaveFn).toHaveBeenCalled();
 	});
 
 	it('should not call leaveFn after timeout on error', () => {
@@ -189,11 +189,11 @@ describe('Notification', () => {
 		render(
 			<Notification notifications={[notification]} leaveFn={leaveFn} autoLeaveTimeout={2000} />,
 		);
-		expect(leaveFn).not.toBeCalled();
+		expect(leaveFn).not.toHaveBeenCalled();
 		jest.advanceTimersByTime(2000);
 
 		// then
-		expect(leaveFn).not.toBeCalled();
+		expect(leaveFn).not.toHaveBeenCalled();
 	});
 
 	it('should pause/resume timer on hover/leave', () => {
@@ -210,13 +210,13 @@ describe('Notification', () => {
 		jest.advanceTimersByTime(2000);
 
 		// then
-		expect(leaveFn).not.toBeCalled();
+		expect(leaveFn).not.toHaveBeenCalled();
 
 		// when
 		fireEvent.mouseOut(screen.getByText('foo'));
 		jest.advanceTimersByTime(2000);
 
 		// then
-		expect(leaveFn).toBeCalled();
+		expect(leaveFn).toHaveBeenCalled();
 	});
 });

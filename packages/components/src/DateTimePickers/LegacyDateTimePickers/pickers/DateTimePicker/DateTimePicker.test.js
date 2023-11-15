@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/no-container */
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import startOfDay from 'date-fns/start_of_day';
 import DateTimePicker from './DateTimePicker.component';
@@ -81,13 +81,13 @@ describe('DateTimePicker', () => {
 			expect(container.firstChild).toHaveAttribute('tabIndex', '-1');
 		});
 
-		it('should disable focus when active element is out of picker', () => {
+		it('should disable focus when active element is out of picker', async () => {
 			// given
 			const { container } = render(<DateTimePicker manageFocus onSubmit={() => {}} />);
 			container.firstChild.dispatchEvent(new Event('focusin'));
-			expect(container.firstChild).toHaveAttribute('tabIndex', '0');
+			await waitFor(() => expect(container.firstChild).toHaveAttribute('tabIndex', '0'));
 			container.firstChild.dispatchEvent(new Event('focusout'));
-			expect(container.firstChild).toHaveAttribute('tabIndex', '-1');
+			await waitFor(() => expect(container.firstChild).toHaveAttribute('tabIndex', '-1'));
 		});
 
 		it('should NOT allow focus when active element is outside of picker', () => {});

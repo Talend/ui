@@ -201,7 +201,7 @@ describe('CalendarPicker', () => {
 			userEvent.click(screen.getByText('onSelectDate'));
 
 			// then
-			expect(onSubmit).toBeCalledWith(expect.anything({ type: 'click' }), { date });
+			expect(onSubmit).toHaveBeenCalledWith(expect.anything({ type: 'click' }), { date });
 		});
 	});
 

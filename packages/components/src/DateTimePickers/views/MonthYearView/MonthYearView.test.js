@@ -70,12 +70,12 @@ describe('MonthYearView', () => {
 				selectedYear={2012}
 			/>,
 		);
-		expect(onBackClick).not.toBeCalled();
+		expect(onBackClick).not.toHaveBeenCalled();
 
 		// when
 		userEvent.click(screen.getByLabelText('Switch to date-and-time view'));
 
 		// then
-		expect(onBackClick).toBeCalledWith(expect.anything({ type: 'click' }), expect.anything());
+		expect(onBackClick).toHaveBeenCalledWith(expect.anything({ type: 'click' }), expect.anything());
 	});
 });

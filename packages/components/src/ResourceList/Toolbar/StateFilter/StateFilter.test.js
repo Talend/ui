@@ -52,17 +52,19 @@ describe('StateFilter', () => {
 		expect(screen.getByLabelText('Certified')).toHaveAttribute('aria-pressed', 'false');
 		expect(screen.queryByLabelText('Favorites')).not.toBeInTheDocument();
 	});
-	it('should trigger onChange callback with the new state on click', () => {
+	it('should trigger onChange callback with the new state on click', async () => {
+		const user = userEvent.setup();
+
 		const onChange = jest.fn();
 		render(
 			<StateFilter onChange={onChange} types={[TYPES.FAVORITES, TYPES.CERTIFIED]} certified />,
 		);
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 
-		userEvent.click(screen.getByLabelText('Certified'));
-		expect(onChange).toBeCalledWith(TYPES.CERTIFIED, false);
+		await user.click(screen.getByLabelText('Certified'));
+		expect(onChange).toHaveBeenCalledWith(TYPES.CERTIFIED, false);
 
-		userEvent.click(screen.getByLabelText('Favorites'));
-		expect(onChange).toBeCalledWith(TYPES.FAVORITES, true);
+		await user.click(screen.getByLabelText('Favorites'));
+		expect(onChange).toHaveBeenCalledWith(TYPES.FAVORITES, true);
 	});
 });

@@ -92,7 +92,7 @@ describe('SelectSortBy', () => {
 		userEvent.click(screen.getByLabelText('Change sort order. Current order: Ascending.'));
 
 		// then
-		expect(props.onChange).toBeCalledWith(expect.anything(), {
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 			field: 'id',
 			isDescending: true,
 		});

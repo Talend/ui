@@ -86,13 +86,13 @@ describe('DateTimeView', () => {
 				onTitleClick={onTitleClick}
 			/>,
 		);
-		expect(onTitleClick).not.toBeCalled();
+		expect(onTitleClick).not.toHaveBeenCalled();
 
 		// when
 		userEvent.click(screen.getByText('June 2006'));
 
 		// then
-		expect(onTitleClick).toBeCalled();
+		expect(onTitleClick).toHaveBeenCalled();
 	});
 
 	it('should manage tabIndex', () => {
@@ -167,7 +167,7 @@ describe('DateTimeView', () => {
 				onSelectTime={jest.fn()}
 			/>,
 		);
-		expect(onSelectMonthYear).not.toBeCalled();
+		expect(onSelectMonthYear).not.toHaveBeenCalled();
 
 		// when
 		if (button === 'previous') {
@@ -177,6 +177,6 @@ describe('DateTimeView', () => {
 		}
 
 		// then
-		expect(onSelectMonthYear).toBeCalledWith(expectedMonthYear, undefined);
+		expect(onSelectMonthYear).toHaveBeenCalledWith(expectedMonthYear, undefined);
 	});
 });

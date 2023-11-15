@@ -37,13 +37,13 @@ describe('ActionDropdown', () => {
 		userEvent.click(dropdownButton);
 
 		// then
-		expect(onToggle).toBeCalledWith(true);
+		expect(onToggle).toHaveBeenCalledWith(true);
 
 		// when
 		userEvent.click(dropdownButton);
 
 		// then
-		expect(onToggle).toBeCalledWith(false);
+		expect(onToggle).toHaveBeenCalledWith(false);
 	});
 
 	it('should call onSelect callback when click on item', () => {
@@ -65,7 +65,7 @@ describe('ActionDropdown', () => {
 		userEvent.click(screen.getByRole('menuitem', { name: 'Item 1' }));
 
 		// then
-		expect(onSelectClick).toBeCalledWith(expect.anything(), props.items[0]);
+		expect(onSelectClick).toHaveBeenCalledWith(expect.anything(), props.items[0]);
 		expect(onItemClick.mock.calls[0][1]).toEqual({
 			action: { id: 'item1', label: 'Item 1' },
 			model: 'model',
@@ -76,7 +76,7 @@ describe('ActionDropdown', () => {
 		userEvent.click(screen.getByRole('menuitem', { name: 'Item 2' }));
 
 		// then
-		expect(onSelectClick).toBeCalledWith(expect.anything(), props.items[1]);
+		expect(onSelectClick).toHaveBeenCalledWith(expect.anything(), props.items[1]);
 		expect(onItemClick.mock.calls[1][1]).toEqual({
 			action: { id: 'item2', label: 'Item 2' },
 			model: 'model',

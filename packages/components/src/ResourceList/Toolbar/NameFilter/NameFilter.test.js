@@ -13,13 +13,13 @@ describe('NameFilter', () => {
 		};
 
 		render(<NameFilter label="label" onChange={onChange} />);
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 
 		userEvent.click(screen.getByRole('textbox'));
 		userEvent.keyboard('titi');
 		jest.runAllTimers();
 
-		expect(onChange).toBeCalledWith(expect.anything(payload));
+		expect(onChange).toHaveBeenCalledWith(expect.anything(payload));
 		jest.useRealTimers();
 	});
 });

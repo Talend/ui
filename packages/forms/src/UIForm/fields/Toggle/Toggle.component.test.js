@@ -98,7 +98,7 @@ describe('Toggle field', () => {
 		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema, value: false });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), { schema, value: false });
 	});
 });

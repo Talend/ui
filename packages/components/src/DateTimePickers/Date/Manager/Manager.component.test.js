@@ -222,14 +222,14 @@ describe('Date.Manager', () => {
 						<DateConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
 				await userEvent.keyboard('2015-01-15');
 
 				// then
-				expect(onChange).toBeCalledWith(expect.anything(), {
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 					date: new Date(2015, 0, 15),
 					origin: 'INPUT',
 					textInput: '2015-01-15',
@@ -246,14 +246,14 @@ describe('Date.Manager', () => {
 						<DateConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
 				await userEvent.keyboard('2015-01-15');
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toMatchObject({
 					type: 'change',
@@ -309,7 +309,7 @@ describe('Date.Manager', () => {
 					</Manager>,
 				);
 
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
@@ -317,7 +317,7 @@ describe('Date.Manager', () => {
 				await userEvent.click(screen.getByRole('button'));
 
 				// then
-				expect(onChange).toBeCalledWith(
+				expect(onChange).toHaveBeenCalledWith(
 					expect.anything({
 						type: 'change',
 						target: expect.anything({

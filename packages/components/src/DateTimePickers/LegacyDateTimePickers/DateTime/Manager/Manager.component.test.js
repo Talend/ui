@@ -280,14 +280,14 @@ describe('DateTime.Manager', () => {
 						<DateTimeConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByRole('textbox'));
 				await userEvent.keyboard('2015-01-15 15:45');
 
 				// then
-				expect(onChange).toBeCalledWith(expect.anything(), {
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 					datetime: new Date(2015, 0, 15, 15, 45),
 					origin: 'INPUT',
 					textInput: '2015-01-15 15:45',
@@ -304,14 +304,14 @@ describe('DateTime.Manager', () => {
 						<DateTimeConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByRole('textbox'));
 				await userEvent.keyboard('2015-01-15 15:45');
 
 				// then
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 			});
 
 			it('should trigger props.onChange with invalid date', async () => {
@@ -322,14 +322,14 @@ describe('DateTime.Manager', () => {
 						<DateTimeConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByRole('textbox'));
 				await userEvent.keyboard('2015aze-01-15 15:45');
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[1].errorMessage).toBe('Datetime is invalid');
 				expect(args[1].errors).toEqual([
@@ -396,13 +396,13 @@ describe('DateTime.Manager', () => {
 					</Manager>,
 				);
 
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByText('submit'));
 
 				// then
-				expect(onChange).toBeCalledWith(expect.anything(), {
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 					datetime: new Date(2015, 0, 15, 15, 45),
 					origin: 'PICKER',
 					textInput: '2015-01-15 15:45',
@@ -425,13 +425,13 @@ describe('DateTime.Manager', () => {
 					</Manager>,
 				);
 
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByText('submit'));
 
 				// then
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 			});
 
 			it('should trigger props.onChange with invalid time', async () => {
@@ -448,13 +448,13 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
 				await userEvent.click(screen.getByText('submit'));
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
@@ -565,13 +565,13 @@ describe('DateTime.Manager', () => {
 			await userEvent.click(screen.getByRole('textbox'));
 			screen.getByRole('textbox').value = '';
 			await userEvent.keyboard('2001-01-02');
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			await userEvent.click(screen.getByText('form submit'));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), {
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 				datetime: new Date(2001, 0, 2),
 				errorMessage: '',
 				errors: [],

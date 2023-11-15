@@ -119,13 +119,13 @@ describe('Datalist component', () => {
 		const onFocus = jest.fn();
 		render(<Datalist id="my-datalist" onChange={jest.fn()} onFocus={onFocus} {...props} />);
 		const input = screen.getByRole('textbox');
-		expect(onFocus).not.toBeCalled();
+		expect(onFocus).not.toHaveBeenCalled();
 
 		// when
 		userEvent.click(input);
 
 		// then
-		expect(onFocus).toBeCalled();
+		expect(onFocus).toHaveBeenCalled();
 	});
 
 	it('should call callback on input live change', () => {
@@ -140,7 +140,7 @@ describe('Datalist component', () => {
 		userEvent.type(input, 'lo');
 
 		// then
-		expect(onLiveChange).toBeCalledWith(expect.anything(), 'lo');
+		expect(onLiveChange).toHaveBeenCalledWith(expect.anything(), 'lo');
 	});
 
 	it('should call callback on blur', () => {
@@ -153,7 +153,7 @@ describe('Datalist component', () => {
 		fireEvent.blur(input);
 
 		// then
-		expect(onBlur).toBeCalled();
+		expect(onBlur).toHaveBeenCalled();
 	});
 
 	it('should close suggestions on blur', () => {
@@ -218,7 +218,7 @@ describe('Datalist component', () => {
 		jest.runAllTimers(); // focus manager
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: '' });
 		jest.useRealTimers();
 	});
 
@@ -232,7 +232,7 @@ describe('Datalist component', () => {
 		userEvent.type(input, 'whatever{esc}');
 
 		// then
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 		expect(input).toHaveValue('My foo');
 	});
 
@@ -360,7 +360,7 @@ describe('Datalist component', () => {
 			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			const input = screen.getByRole('textbox');
@@ -369,7 +369,7 @@ describe('Datalist component', () => {
 			jest.runAllTimers(); // focus manager
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
 			jest.useRealTimers();
 		});
 
@@ -386,7 +386,7 @@ describe('Datalist component', () => {
 			jest.runAllTimers(); // focus manager
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not a known value' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'not a known value' });
 			jest.useRealTimers();
 		});
 
@@ -394,14 +394,14 @@ describe('Datalist component', () => {
 			// given
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			const input = screen.getByRole('textbox');
 			userEvent.type(input, 'foo{enter}');
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
 		});
 
 		it('should persist unknown value on enter', () => {
@@ -414,7 +414,7 @@ describe('Datalist component', () => {
 			userEvent.type(input, 'not a known value{enter}');
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not a known value' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'not a known value' });
 		});
 	});
 
@@ -424,7 +424,7 @@ describe('Datalist component', () => {
 			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" allowAddNewElements onChange={onChange} {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 			const input = screen.getByRole('textbox');
 
 			// when
@@ -434,7 +434,7 @@ describe('Datalist component', () => {
 			jest.runAllTimers(); // focus manager
 
 			// // then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not there' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'not there' });
 			jest.useRealTimers();
 		});
 	});
@@ -445,7 +445,7 @@ describe('Datalist component', () => {
 			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} restricted {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 			const input = screen.getByRole('textbox');
 
 			// when
@@ -454,7 +454,7 @@ describe('Datalist component', () => {
 			jest.runAllTimers(); // focus manager
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
 			jest.useRealTimers();
 		});
 
@@ -471,7 +471,7 @@ describe('Datalist component', () => {
 			jest.runAllTimers(); // focus manager
 
 			// then
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 			expect(input).toHaveValue('My foo');
 			jest.useRealTimers();
 		});
@@ -480,14 +480,14 @@ describe('Datalist component', () => {
 			// given
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} restricted {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			const input = screen.getByRole('textbox');
 			userEvent.type(input, 'foo{enter}');
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
 		});
 
 		it('should reset unknown value on enter', () => {
@@ -500,7 +500,7 @@ describe('Datalist component', () => {
 			userEvent.type(input, 'not a known value{enter}');
 
 			// then
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 			expect(input).toHaveValue('My foo');
 		});
 
@@ -508,7 +508,7 @@ describe('Datalist component', () => {
 			// given
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" value="foo" onChange={onChange} restricted {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			const input = screen.getByRole('textbox');
@@ -516,7 +516,7 @@ describe('Datalist component', () => {
 			userEvent.type(input, '{enter}');
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: '' });
 		});
 
 		it('should persist empty value on blur', () => {
@@ -524,7 +524,7 @@ describe('Datalist component', () => {
 			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" value="foo" onChange={onChange} restricted {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			const input = screen.getByRole('textbox');
@@ -533,7 +533,7 @@ describe('Datalist component', () => {
 			jest.runAllTimers(); // focus manager
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: '' });
 			jest.useRealTimers();
 		});
 	});
