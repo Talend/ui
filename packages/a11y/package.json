@@ -35,7 +35,7 @@
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
     "@types/date-fns": "^0.0.2",
-    "@types/jest": "^29.5.5",
+    "@types/jest": "^29.5.8",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "date-fns": "^1.30.1",

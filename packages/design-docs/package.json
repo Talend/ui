@@ -62,7 +62,7 @@
     "@talend/scripts-config-storybook-lib": "^5.2.0",
     "@talend/scripts-config-typescript": "^11.2.0",
     "@types/react": "^18.2.37",
-    "i18next": "^23.6.0",
+    "i18next": "^23.7.6",
     "mdx-embed": "^1.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

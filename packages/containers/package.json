@@ -66,22 +66,22 @@
     "@talend/scripts-config-react-webpack": "^16.3.0",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
-    "i18next": "^23.6.0",
+    "i18next": "^23.7.6",
     "jest-in-case": "^1.0.2",
     "msw": "^1.3.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^13.3.1",
+    "react-i18next": "^13.4.1",
     "react-test-renderer": "^18.2.0",
     "redux-saga-tester": "^1.0.874"
   },
   "peerDependencies": {
-    "i18next": "^23.6.0",
+    "i18next": "^23.7.6",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",
-    "react-i18next": "^13.3.1"
+    "react-i18next": "^13.4.1"
   },
   "publishConfig": {
     "access": "public"
