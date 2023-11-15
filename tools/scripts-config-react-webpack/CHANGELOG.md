@@ -1,5 +1,21 @@
 # @talend/scripts-config-react-webpack
 
+## 16.3.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, make talend/icons as peerDependency to remove circular dependency and adapt webpack config files for pnpm
+
+### Patch Changes
+
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+  - @talend/scripts-utils@2.2.0
+  - @talend/scripts-config-cdn@10.9.0
+  - @talend/scripts-config-babel@13.2.0
+
 ## 16.2.0
 
 ### Minor Changes

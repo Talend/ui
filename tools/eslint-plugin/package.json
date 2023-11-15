@@ -1,6 +1,6 @@
 {
   "name": "@talend/eslint-plugin",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Contains internal rules used at Talend",
   "keywords": [
     "eslint",
@@ -14,12 +14,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@talend/scripts-config-cdn": "^10.8.0",
+    "@talend/scripts-config-cdn": "^10.9.0",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
-    "@talend/scripts-config-babel": "^13.1.0",
+    "@talend/scripts-config-babel": "^13.2.0",
     "eslint": "^8.53.0",
     "jest": "^29.7.0"
   },

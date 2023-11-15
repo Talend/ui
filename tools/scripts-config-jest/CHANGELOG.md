@@ -1,5 +1,17 @@
 # @talend/scripts-config-jest
 
+## 13.1.0
+
+### Minor Changes
+
+- 673984929: Fix peer dependencies, Add lint
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+- Updated dependencies [673984929]
+  - @talend/scripts-config-babel@13.2.0
+
 ## 13.0.0
 
 ### Major Changes

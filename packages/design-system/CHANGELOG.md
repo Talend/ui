@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.3.0
+
+### Minor Changes
+
+- b53bc8134: fix(DFD-274): Update tab panel component to use classname and remove useless gap
+
 ## 8.2.0
 
 ### Minor Changes
