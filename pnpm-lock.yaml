@@ -57,12 +57,12 @@ importers:
 
   fork/bootstrap-sass:
     devDependencies:
-      '@babel/eslint-parser':
-        specifier: ^7.23.3
-        version: 7.23.3(@babel/core@7.23.3)(eslint@8.53.0)
       '@talend/eslint-config':
         specifier: ^12.2.0
         version: 12.2.0(@babel/core@7.23.3)(prettier@3.0.3)(typescript@5.2.2)(webpack@5.89.0)
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../../tools/eslint-plugin
       eslint:
         specifier: ^8.53.0
         version: 8.53.0
@@ -3031,6 +3031,9 @@ importers:
       '@talend/eslint-config':
         specifier: ^12.2.0
         version: 12.2.0(@babel/core@7.23.3)(prettier@2.8.8)(typescript@5.2.2)(webpack@5.89.0)
+      '@talend/eslint-plugin':
+        specifier: ^1.0.1
+        version: link:../eslint-plugin
       eslint:
         specifier: ^8.53.0
         version: 8.53.0
