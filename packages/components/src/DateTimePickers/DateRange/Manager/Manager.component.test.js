@@ -289,15 +289,15 @@ describe('DateRange.Manager', () => {
 					expectedDate: undefined,
 				},
 				{
-					name: 'startDate - with empty string',
+					name: 'startDate - with space',
 					field: 'startDate',
-					textInput: '',
+					textInput: ' ',
 					expectedDate: undefined,
 				},
 				{
-					name: 'endDate - with empty string',
+					name: 'endDate - with space',
 					field: 'endDate',
-					textInput: '',
+					textInput: ' ',
 					expectedDate: undefined,
 				},
 				{
@@ -315,6 +315,8 @@ describe('DateRange.Manager', () => {
 					dateFormat: 'DD/MM/YYYY',
 				},
 			])('$name', async ({ field, textInput, expectedDate, dateFormat }) => {
+				const user = userEvent.setup();
+
 				// given
 				// let onChange = 'onEndChange';
 				// if (field === 'startDate') {
@@ -345,8 +347,8 @@ describe('DateRange.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByTestId(field));
-				await userEvent.keyboard(textInput);
+				await user.click(screen.getByTestId(field));
+				await user.keyboard(textInput);
 
 				// then
 				const props = JSON.parse(screen.getByTestId('DateRangeConsumerDiv').dataset.props);
@@ -373,6 +375,7 @@ describe('DateRange.Manager', () => {
 			])(
 				'$name',
 				async ({ field, inputText, expectedStartDate, expectedEndDate, expectedOrigin }) => {
+					const user = userEvent.setup();
 					// given
 					const onChange = jest.fn();
 					render(
@@ -383,8 +386,8 @@ describe('DateRange.Manager', () => {
 					expect(onChange).not.toHaveBeenCalled();
 
 					// when
-					await userEvent.click(screen.getByTestId(field));
-					await userEvent.keyboard(inputText);
+					await user.click(screen.getByTestId(field));
+					await user.keyboard(inputText);
 
 					// then
 					expect(onChange).toHaveBeenCalledWith(expect.anything(), {
@@ -417,6 +420,8 @@ describe('DateRange.Manager', () => {
 			])(
 				'$name',
 				async ({ field, inputText, errors, errorMessage, expectedStartDate, expectedEndDate }) => {
+					const user = userEvent.setup();
+
 					// given
 					const onChange = jest.fn();
 
@@ -427,8 +432,8 @@ describe('DateRange.Manager', () => {
 					);
 					expect(onChange).not.toHaveBeenCalled();
 					//when
-					await userEvent.click(screen.getByTestId(field));
-					await userEvent.keyboard(inputText);
+					await user.click(screen.getByTestId(field));
+					await user.keyboard(inputText);
 
 					// then
 					expect(onChange).toHaveBeenCalled();
@@ -469,6 +474,7 @@ describe('DateRange.Manager', () => {
 					expectedTextInput: '15/01/2015',
 				},
 			])('$name', async ({ field, date, expectedTextInput, dateFormat }) => {
+				const user = userEvent.setup();
 				// given
 				const pickerHandler = field === 'endDate' ? 'onEndChange' : 'onStartChange';
 				render(
@@ -481,7 +487,7 @@ describe('DateRange.Manager', () => {
 					</Manager>,
 				);
 				// when
-				await userEvent.click(screen.getByTestId(`picker-${field}`));
+				await user.click(screen.getByTestId(`picker-${field}`));
 				const props = JSON.parse(screen.getByTestId('DateRangeConsumerDiv').dataset.props);
 				expect(props[field].textInput).toBe(expectedTextInput);
 				expect(props[field].value).toEqual(date?.toISOString());
@@ -504,6 +510,7 @@ describe('DateRange.Manager', () => {
 			])(
 				'$name',
 				async ({ field, selectedDate, expectedStartDate, expectedEndDate, expectedOrigin }) => {
+					const user = userEvent.setup();
 					// given
 					const pickerHandler = field === 'endDate' ? 'onEndChange' : 'onStartChange';
 					const onChange = jest.fn();
@@ -519,7 +526,7 @@ describe('DateRange.Manager', () => {
 					expect(onChange).not.toHaveBeenCalled();
 
 					// when
-					await userEvent.click(screen.getByTestId(`picker-${field}`));
+					await user.click(screen.getByTestId(`picker-${field}`));
 
 					// then
 					expect(onChange).toHaveBeenCalledWith(

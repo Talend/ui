@@ -32,7 +32,9 @@ describe('Item', () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
-	it('should display value with three buttons and trigger callback on button title click', () => {
+	it('should display value with three buttons and trigger callback on button title click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			item,
@@ -40,13 +42,13 @@ describe('Item', () => {
 		render(<Item {...props} />);
 
 		// then
-		userEvent.click(screen.getByLabelText('Delete'));
+		await user.click(screen.getByLabelText('Delete'));
 		expect(props.item.itemProps.actions[1].onClick).toHaveBeenCalled();
 
-		userEvent.click(screen.getByLabelText('Edit'));
+		await user.click(screen.getByLabelText('Edit'));
 		expect(props.item.itemProps.actions[0].onClick).toHaveBeenCalled();
 
-		userEvent.click(screen.getByText('toto'));
+		await user.click(screen.getByText('toto'));
 		expect(props.item.itemProps.onSelectItem).toHaveBeenCalled();
 	});
 

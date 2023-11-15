@@ -17,7 +17,9 @@ function getComponent(key) {
 }
 
 describe('ActionDropdown', () => {
-	it('should call onToggle callback when click on trigger', () => {
+	it('should call onToggle callback when click on trigger', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onToggle = jest.fn();
 		const props = {
@@ -34,19 +36,21 @@ describe('ActionDropdown', () => {
 		const dropdownButton = screen.getByRole('button');
 
 		// when
-		userEvent.click(dropdownButton);
+		await user.click(dropdownButton);
 
 		// then
 		expect(onToggle).toHaveBeenCalledWith(true);
 
 		// when
-		userEvent.click(dropdownButton);
+		await user.click(dropdownButton);
 
 		// then
 		expect(onToggle).toHaveBeenCalledWith(false);
 	});
 
-	it('should call onSelect callback when click on item', () => {
+	it('should call onSelect callback when click on item', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onSelectClick = jest.fn();
 		const onItemClick = jest.fn();
@@ -62,7 +66,7 @@ describe('ActionDropdown', () => {
 		render(<ActionDropdown {...props} />);
 
 		// when
-		userEvent.click(screen.getByRole('menuitem', { name: 'Item 1' }));
+		await user.click(screen.getByRole('menuitem', { name: 'Item 1' }));
 
 		// then
 		expect(onSelectClick).toHaveBeenCalledWith(expect.anything(), props.items[0]);
@@ -73,7 +77,7 @@ describe('ActionDropdown', () => {
 		expect(onItemClick.mock.calls[0][0].type).toBe('click');
 
 		// when
-		userEvent.click(screen.getByRole('menuitem', { name: 'Item 2' }));
+		await user.click(screen.getByRole('menuitem', { name: 'Item 2' }));
 
 		// then
 		expect(onSelectClick).toHaveBeenCalledWith(expect.anything(), props.items[1]);
@@ -162,7 +166,14 @@ describe('InjectDropdownMenuItem', () => {
 });
 
 describe('Dropup', () => {
-	function testSwitch({ containerPosition, menuPosition, isInitialDropup, isDropupExpected }) {
+	async function testSwitch({
+		containerPosition,
+		menuPosition,
+		isInitialDropup,
+		isDropupExpected,
+	}) {
+		const user = userEvent.setup();
+
 		// given
 		const { container } = render(
 			<div className="tc-dropdown-container">
@@ -180,7 +191,7 @@ describe('Dropup', () => {
 		container.querySelector('.dropdown-menu').getBoundingClientRect = () => menuPosition;
 
 		// when
-		userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 
 		// then
 		if (!isDropupExpected) {

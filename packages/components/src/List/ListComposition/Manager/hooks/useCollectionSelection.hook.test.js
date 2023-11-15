@@ -127,7 +127,9 @@ describe('useCollectionSelection', () => {
 		expect(isSelected(collection[4])).toBe(true);
 	});
 
-	it('should provide a function to check an item selection that supports unloaded items', () => {
+	it('should provide a function to check an item selection that supports unloaded items', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const initialSelectedIds = [1, 4];
 		const testIsSelected = jest.fn();
@@ -140,7 +142,7 @@ describe('useCollectionSelection', () => {
 				testIsSelected={testIsSelected}
 			/>,
 		);
-		userEvent.click(screen.getByText('isSelected'));
+		await user.click(screen.getByText('isSelected'));
 
 		// then
 		const isSelected = testIsSelected.mock.calls[0][0];

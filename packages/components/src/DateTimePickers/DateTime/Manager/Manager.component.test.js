@@ -170,6 +170,8 @@ describe('DateTime.Manager', () => {
 				newDate: new Date(2015, 1, 5, 21, 52),
 			},
 		])('$name', async ({ initialDate, newDate }) => {
+			const user = userEvent.setup();
+
 			// given
 			const getProps = jest.fn();
 			const { rerender } = render(
@@ -177,7 +179,7 @@ describe('DateTime.Manager', () => {
 					<DateTimeConsumer getProps={getProps} />
 				</Manager>,
 			);
-			userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const previousState = getProps.mock.calls[0][0];
 
 			// when
@@ -186,7 +188,7 @@ describe('DateTime.Manager', () => {
 					<DateTimeConsumer getProps={getProps} />
 				</Manager>,
 			);
-			userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 
 			// then
 			const nextState = getProps.mock.calls[1][0];

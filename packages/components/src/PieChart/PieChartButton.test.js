@@ -60,7 +60,9 @@ describe('PieChartButton', () => {
 			);
 			expect(screen.queryByRole('button')).not.toBeInTheDocument();
 		});
-		it('should trigger onClick', () => {
+		it('should trigger onClick', async () => {
+			const user = userEvent.setup();
+
 			const onClick = jest.fn();
 			render(
 				<PieChartButton
@@ -70,7 +72,7 @@ describe('PieChartButton', () => {
 					onClick={onClick}
 				/>,
 			);
-			userEvent.click(screen.getByRole('button'));
+			await user.click(screen.getByRole('button'));
 
 			expect(onClick).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
 				action: {

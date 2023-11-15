@@ -49,7 +49,9 @@ describe('MonthYearView', () => {
 		expect(screen.getByLabelText('Switch to date-and-time view')).toHaveAttribute('tabIndex', '0');
 	});
 
-	it('should trigger props.onBackClick', () => {
+	it('should trigger props.onBackClick', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onBackClick = jest.fn();
 		render(
@@ -64,7 +66,7 @@ describe('MonthYearView', () => {
 		expect(onBackClick).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByLabelText('Switch to date-and-time view'));
+		await user.click(screen.getByLabelText('Switch to date-and-time view'));
 
 		// then
 		expect(onBackClick).toHaveBeenCalled();

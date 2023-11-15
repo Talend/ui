@@ -87,6 +87,8 @@ describe('DateTime.Manager', () => {
 				expectedTime: { hours: '12', minutes: '36', seconds: '00' },
 			},
 		])('$name', async ({ initialDate, expectedTextInput, expectedDate, expectedTime }) => {
+			const user = userEvent.setup();
+
 			// when
 			const getProps = jest.fn();
 			render(
@@ -96,7 +98,7 @@ describe('DateTime.Manager', () => {
 			);
 
 			// then
-			await userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const contextValue = getProps.mock.calls[0][0];
 			expect(contextValue.datetime.textInput).toBe(expectedTextInput);
 			expect(contextValue.datetime.date).toEqual(expectedDate);
@@ -147,6 +149,8 @@ describe('DateTime.Manager', () => {
 				expectedTime,
 				useSeconds,
 			}) => {
+				const user = userEvent.setup();
+
 				// given
 				const getProps = jest.fn();
 				const { rerender } = render(
@@ -163,7 +167,7 @@ describe('DateTime.Manager', () => {
 				);
 
 				// then
-				await userEvent.click(screen.getByTestId('getProps'));
+				await user.click(screen.getByTestId('getProps'));
 				const contextValue = getProps.mock.calls[0][0];
 				expect(contextValue.datetime.textInput).toBe(expectedTextInput);
 				expect(contextValue.datetime.date).toEqual(expectedDate);
@@ -183,6 +187,8 @@ describe('DateTime.Manager', () => {
 				newDate: new Date(2015, 1, 5, 21, 52),
 			},
 		])('$name', async ({ initialDate, newDate }) => {
+			const user = userEvent.setup();
+
 			// given
 			const getProps = jest.fn();
 			const { rerender } = render(
@@ -190,7 +196,7 @@ describe('DateTime.Manager', () => {
 					<DateTimeConsumer getProps={getProps} />
 				</Manager>,
 			);
-			await userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const previousState = getProps.mock.calls[0][0].datetime;
 
 			// when
@@ -201,7 +207,7 @@ describe('DateTime.Manager', () => {
 			);
 
 			// then
-			await userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const nextState = getProps.mock.calls[1][0].datetime;
 			expect(previousState.textInput).toBe(nextState.textInput);
 			expect(previousState.date).toBe(nextState.date);
@@ -236,8 +242,8 @@ describe('DateTime.Manager', () => {
 					expectedTime: { hours: '15aze', minutes: '45', seconds: '00' },
 				},
 				{
-					name: 'with empty string',
-					textInput: '',
+					name: 'with space',
+					textInput: ' ',
 					expectedDate: undefined,
 					expectedTime: { hours: '', minutes: '', seconds: '00' },
 				},
@@ -249,6 +255,8 @@ describe('DateTime.Manager', () => {
 					dateFormat: 'DD/MM/YYYY',
 				},
 			])('$name', async ({ textInput, expectedDate, expectedTime, dateFormat, useSeconds }) => {
+				const user = userEvent.setup();
+
 				// given
 				// const event = { target: { value: textInput } };
 				const getProps = jest.fn();
@@ -259,9 +267,9 @@ describe('DateTime.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByRole('textbox'));
-				await userEvent.keyboard(textInput);
-				await userEvent.click(screen.getByTestId('getProps'));
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard(textInput);
+				await user.click(screen.getByTestId('getProps'));
 
 				// then
 				const contextValue = getProps.mock.calls[0][0];
@@ -273,6 +281,8 @@ describe('DateTime.Manager', () => {
 			});
 
 			it('should trigger props.onChange with valid datetime', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -283,8 +293,8 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByRole('textbox'));
-				await userEvent.keyboard('2015-01-15 15:45');
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard('2015-01-15 15:45');
 
 				// then
 				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
@@ -297,6 +307,8 @@ describe('DateTime.Manager', () => {
 			});
 
 			it('should not trigger props.onChange when in formMode', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -307,14 +319,16 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByRole('textbox'));
-				await userEvent.keyboard('2015-01-15 15:45');
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard('2015-01-15 15:45');
 
 				// then
 				expect(onChange).not.toHaveBeenCalled();
 			});
 
 			it('should trigger props.onChange with invalid date', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -325,8 +339,8 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByRole('textbox'));
-				await userEvent.keyboard('2015aze-01-15 15:45');
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard('2015aze-01-15 15:45');
 
 				// then
 				expect(onChange).toHaveBeenCalled();
@@ -363,6 +377,8 @@ describe('DateTime.Manager', () => {
 					dateFormat: 'DD/MM/YYYY',
 				},
 			])('$name', async ({ date, time, expectedTextInput, dateFormat, field = '' }) => {
+				const user = userEvent.setup();
+
 				// given
 				const getProps = jest.fn();
 				render(
@@ -372,8 +388,8 @@ describe('DateTime.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByText('submit'));
-				await userEvent.click(screen.getByTestId('getProps'));
+				await user.click(screen.getByText('submit'));
+				await user.click(screen.getByTestId('getProps'));
 
 				// then
 				const datetime = getProps.mock.calls[0][0].datetime;
@@ -383,6 +399,8 @@ describe('DateTime.Manager', () => {
 			});
 
 			it('should trigger props.onChange with valid datetime', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -399,7 +417,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByText('submit'));
+				await user.click(screen.getByText('submit'));
 
 				// then
 				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
@@ -412,6 +430,8 @@ describe('DateTime.Manager', () => {
 			});
 
 			it('should trigger not props.onChange in formMode', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -428,13 +448,15 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByText('submit'));
+				await user.click(screen.getByText('submit'));
 
 				// then
 				expect(onChange).not.toHaveBeenCalled();
 			});
 
 			it('should trigger props.onChange with invalid time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -451,7 +473,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByText('submit'));
+				await user.click(screen.getByText('submit'));
 
 				// then
 				expect(onChange).toHaveBeenCalled();
@@ -511,6 +533,8 @@ describe('DateTime.Manager', () => {
 
 	describe('picker management', () => {
 		it('should pass date options', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const getProps = jest.fn();
 			render(
@@ -519,7 +543,7 @@ describe('DateTime.Manager', () => {
 				</Manager>,
 			);
 			// when
-			await userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 
 			// then
 			const props = getProps.mock.calls[0][0];
@@ -532,6 +556,8 @@ describe('DateTime.Manager', () => {
 
 	describe('form management', () => {
 		it('should reset value', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const initialDate = new Date(2017, 3, 4);
 			render(
@@ -540,20 +566,22 @@ describe('DateTime.Manager', () => {
 				</Manager>,
 			);
 
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 			screen.getByRole('textbox').value = '';
-			await userEvent.keyboard('2001-01-02');
+			await user.keyboard('2001-01-02');
 
 			expect(screen.getByRole('textbox')).toHaveValue('2001-01-02');
 
 			// when
-			await userEvent.click(screen.getByText('reset'));
+			await user.click(screen.getByText('reset'));
 
 			// then
 			expect(screen.getByRole('textbox')).toHaveValue('2017-04-04');
 		});
 
 		it('should submit value in formMode', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const initialDate = new Date(2017, 3, 4);
 			const onChange = jest.fn();
@@ -562,13 +590,13 @@ describe('DateTime.Manager', () => {
 					<DateTimeConsumer testSubmit="PICKER" />
 				</Manager>,
 			);
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 			screen.getByRole('textbox').value = '';
-			await userEvent.keyboard('2001-01-02');
+			await user.keyboard('2001-01-02');
 			expect(onChange).not.toHaveBeenCalled();
 
 			// when
-			await userEvent.click(screen.getByText('form submit'));
+			await user.click(screen.getByText('form submit'));
 
 			// then
 			expect(onChange).toHaveBeenCalledWith(expect.anything(), {
@@ -612,6 +640,8 @@ describe('DateTime.Manager', () => {
 		});
 
 		it('should pass errors and error getter', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const getProps = jest.fn();
 			render(
@@ -621,12 +651,12 @@ describe('DateTime.Manager', () => {
 			);
 
 			// when
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 			screen.getByRole('textbox').value = '';
-			await userEvent.keyboard('lol');
+			await user.keyboard('lol');
 
 			// then
-			await userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const props = getProps.mock.calls[0][0];
 			const { errors, hasError } = props.errorManagement;
 			expect(errors).toEqual([{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' }]);
@@ -635,6 +665,8 @@ describe('DateTime.Manager', () => {
 		});
 
 		it('should pass focused input and its modifier', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(
 				<Manager id={DEFAULT_ID} formMode>
@@ -644,7 +676,7 @@ describe('DateTime.Manager', () => {
 			expect(screen.getByTestId('errorManagement').dataset.focused).toBe(undefined);
 
 			// when
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 			expect(screen.getByTestId('errorManagement').dataset.focused).toBe('focusHardId');
 		});
 	});

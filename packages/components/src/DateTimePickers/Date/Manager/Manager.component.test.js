@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -302,7 +304,6 @@ describe('Date.Manager', () => {
 			it('should trigger props.onChange with valid date', async () => {
 				// given
 				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
 				render(
 					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateConsumer />

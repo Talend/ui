@@ -33,13 +33,15 @@ describe('ActionIconToggle', () => {
 		expect(screen.getByRole('button')).toHaveClass('active');
 	});
 
-	it('should call click callback', () => {
+	it('should call click callback', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<ActionIconToggle {...inactiveIconToggle} />);
 		expect(inactiveIconToggle.onClick).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 
 		// then
 		expect(inactiveIconToggle.onClick).toHaveBeenCalled();

@@ -2,7 +2,6 @@ import { Component } from 'react';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import keycode from 'keycode';
 import Skeleton from '../../../Skeleton';
 import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
@@ -38,9 +37,10 @@ export class RecordsViewerBranch extends Component {
 	};
 
 	onKeyDown = event => {
-		switch (event.keyCode) {
-			case keycode.codes.enter:
-			case keycode.codes.space:
+		switch (event.key) {
+			case 'Enter':
+			case ' ':
+			case 'Space':
 				event.preventDefault(); // prevent scroll with space
 				event.stopPropagation();
 				this.onClickRecordsBranch(event);

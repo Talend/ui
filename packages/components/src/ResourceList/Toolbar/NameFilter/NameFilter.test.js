@@ -1,10 +1,11 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import NameFilter from './NameFilter.component';
 
 describe('NameFilter', () => {
-	it('should trigger onChange callback on change', () => {
-		jest.useFakeTimers();
+	it('should trigger onChange callback on change', async () => {
+		const user = userEvent.setup();
+
 		const onChange = jest.fn();
 		const payload = {
 			target: {
@@ -15,11 +16,9 @@ describe('NameFilter', () => {
 		render(<NameFilter label="label" onChange={onChange} />);
 		expect(onChange).not.toHaveBeenCalled();
 
-		userEvent.click(screen.getByRole('textbox'));
-		userEvent.keyboard('titi');
-		jest.runAllTimers();
+		await user.click(screen.getByRole('textbox'));
+		await user.keyboard('titi');
 
-		expect(onChange).toHaveBeenCalledWith(expect.anything(payload));
-		jest.useRealTimers();
+		await waitFor(() => expect(onChange).toHaveBeenCalledWith(expect.anything(payload)));
 	});
 });

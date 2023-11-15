@@ -95,13 +95,15 @@ describe('TabBar component', () => {
 		expect(screen.getByRole('tabpanel')).toHaveTextContent('child 2');
 	});
 
-	it('should select item on click', () => {
+	it('should select item on click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onSelect = jest.fn();
 		render(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		userEvent.click(screen.getByText('Tab1'));
+		await user.click(screen.getByText('Tab1'));
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);

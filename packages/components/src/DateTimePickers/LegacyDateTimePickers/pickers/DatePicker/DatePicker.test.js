@@ -106,6 +106,8 @@ describe('DatePicker', () => {
 	});
 
 	it('should select date', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
 		const onSelect = jest.fn();
@@ -120,7 +122,7 @@ describe('DatePicker', () => {
 		expect(onSelect).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getAllByText('1')[0]);
+		await user.click(screen.getAllByText('1')[0]);
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), new Date(YEAR, MONTH_INDEX, 1));

@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
@@ -116,12 +115,6 @@ describe('getItemIcon', () => {
 });
 
 describe('TreeView item', () => {
-	beforeAll(() => {
-		jest.useFakeTimers();
-	});
-	afterAll(() => {
-		jest.useRealTimers();
-	});
 	it('should render', () => {
 		// when
 		const { container } = render(<TreeViewItem {...defaultProps} />);
@@ -142,7 +135,9 @@ describe('TreeView item', () => {
 		);
 	});
 
-	it('test disabled item not calling onSelect', () => {
+	it('test disabled item not calling onSelect', async () => {
+		const user = userEvent.setup();
+
 		// when
 		const onSelect = jest.fn();
 		const props = {
@@ -154,15 +149,17 @@ describe('TreeView item', () => {
 		};
 
 		render(<TreeViewItem {...props} onSelect={onSelect} />);
-		userEvent.click(screen.getByRole('treeitem'));
-		userEvent.keyboard('{Enter}');
+		await user.click(screen.getByRole('treeitem'));
+		await user.keyboard('{Enter}');
 
 		// then
 		expect(onSelect.mock.calls.length).toBe(0);
 		expect(screen.getByRole('treeitem')).toHaveAttribute('aria-disabled', 'true');
 	});
 
-	it('should render items with icon and tooltip', () => {
+	it('should render items with icon and tooltip', async () => {
+		const user = userEvent.setup();
+
 		// when
 		const propsWithIconAndTooltip = {
 			...propsWithIcons,
@@ -171,11 +168,8 @@ describe('TreeView item', () => {
 
 		render(<TreeViewItem {...propsWithIconAndTooltip} />);
 		expect(getIcon()).toBeInTheDocument();
-		userEvent.hover(getIcon());
-		act(() => {
-			jest.runAllTimers();
-		});
-		expect(screen.getByText('New version of the Pokemon is available')).toBeInTheDocument();
+		await user.hover(getIcon());
+		expect(await screen.findByText('New version of the Pokemon is available')).toBeInTheDocument();
 	});
 
 	it('should render items with classNames', () => {
@@ -189,7 +183,9 @@ describe('TreeView item', () => {
 		expect(screen.getByRole('treeitem')).toHaveClass('test-class');
 	});
 
-	it('should toggle item on toggle button click', () => {
+	it('should toggle item on toggle button click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			...defaultProps,
@@ -198,13 +194,15 @@ describe('TreeView item', () => {
 		render(<TreeViewItem {...props} />);
 
 		// when
-		userEvent.click(getIcon());
+		await user.click(getIcon());
 
 		// then
 		expect(props.onToggle).toHaveBeenCalledWith(expect.anything({ type: 'click' }), props.item);
 	});
 
-	it('should select item on click', () => {
+	it('should select item on click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			...defaultProps,
@@ -213,7 +211,7 @@ describe('TreeView item', () => {
 		render(<TreeViewItem {...props} />);
 
 		// when
-		userEvent.click(screen.getByRole('treeitem'));
+		await user.click(screen.getByRole('treeitem'));
 
 		// then
 		expect(props.onSelect).toHaveBeenCalledWith(expect.anything({ type: 'click' }), props.item);

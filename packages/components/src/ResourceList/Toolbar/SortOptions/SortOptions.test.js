@@ -86,7 +86,9 @@ describe('SortOptions', () => {
 		expect(screen.queryByLabelText('Sort by date (current order: asc)')).not.toBeInTheDocument();
 	});
 
-	it('should trigger onChange callback with the new state on click', () => {
+	it('should trigger onChange callback with the new state on click', async () => {
+		const user = userEvent.setup();
+
 		const onChange = jest.fn();
 		render(
 			<SortOptions
@@ -104,10 +106,10 @@ describe('SortOptions', () => {
 
 		expect(onChange).not.toHaveBeenCalled();
 
-		userEvent.click(screen.getByLabelText('Sort by name (current order: asc)'));
+		await user.click(screen.getByLabelText('Sort by name (current order: asc)'));
 		expect(onChange).toHaveBeenCalledWith(TYPES.NAME, ORDERS.DESC);
 
-		userEvent.click(screen.getByLabelText('Sort by date (current order: desc)'));
+		await user.click(screen.getByLabelText('Sort by date (current order: desc)'));
 		expect(onChange).toHaveBeenCalledWith(TYPES.DATE, ORDERS.ASC);
 	});
 });

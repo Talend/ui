@@ -118,7 +118,9 @@ describe('Time.Manager', () => {
 				expect(contextValue.time.textInput).toBe(expectedValue);
 				expect(contextValue.time.time).toEqual(expectedTime);
 			});
-			it('should trigger props.onChange with valid time', () => {
+			it('should trigger props.onChange with valid time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -129,8 +131,8 @@ describe('Time.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				userEvent.click(screen.getByRole('textbox'));
-				userEvent.keyboard('15:45');
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard('15:45');
 
 				// then
 				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
@@ -146,7 +148,9 @@ describe('Time.Manager', () => {
 				});
 			});
 
-			it('should trigger props.onChange with invalid time', () => {
+			it('should trigger props.onChange with invalid time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -157,8 +161,8 @@ describe('Time.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				userEvent.click(screen.getByRole('textbox'));
-				userEvent.keyboard('ddrer');
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard('ddrer');
 
 				// then
 				expect(onChange).toHaveBeenCalled();
@@ -186,7 +190,9 @@ describe('Time.Manager', () => {
 					expectedTextInput: '15:45:00',
 					useSeconds: true,
 				},
-			])('$name', ({ time, textInput, expectedTextInput, useSeconds }) => {
+			])('$name', async ({ time, textInput, expectedTextInput, useSeconds }) => {
+				const user = userEvent.setup();
+
 				// given
 
 				render(
@@ -196,10 +202,10 @@ describe('Time.Manager', () => {
 				);
 
 				// when
-				userEvent.click(screen.getByRole('textbox'));
-				userEvent.keyboard(textInput);
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard(textInput);
 
-				userEvent.click(screen.getByText('Picker'));
+				await user.click(screen.getByText('Picker'));
 
 				// then
 				const props = JSON.parse(screen.getByTestId('TimeConsumerDiv').dataset.props);
@@ -207,7 +213,9 @@ describe('Time.Manager', () => {
 				expect(props.time.time).toEqual(time);
 			});
 
-			it('should trigger props.onChange with valid time', () => {
+			it('should trigger props.onChange with valid time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -224,7 +232,7 @@ describe('Time.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				userEvent.click(screen.getByText('Picker'));
+				await user.click(screen.getByText('Picker'));
 
 				// then
 				expect(onChange).toHaveBeenCalledWith(expect.anything(), {

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { screen, render } from '@testing-library/react';
+import { screen, render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ListDisplayMode from './ListDisplayMode.component';
@@ -24,7 +24,9 @@ describe('List DisplayMode', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should render children', () => {
+	it('should render children', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const contextValue = {
 			displayMode: 'table',
@@ -45,12 +47,12 @@ describe('List DisplayMode', () => {
 		);
 
 		// then
-		userEvent.click(screen.getByText('my button'));
+		await user.click(screen.getByText('my button'));
 		expect(onClickOne).toHaveBeenCalled();
 	});
 
 	describe('uncontrolled mode', () => {
-		it('should propagate initial value', () => {
+		it('should propagate initial value', async () => {
 			// given
 			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
@@ -62,11 +64,13 @@ describe('List DisplayMode', () => {
 			);
 
 			// then
-			screen.getAllByRole('button')[0].focus();
+			act(() => screen.getAllByRole('button')[0].focus());
 			expect(screen.getByText('Set Table as current display mode.')).toBeVisible();
 		});
 
-		it('should propagate display mode', () => {
+		it('should propagate display mode', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
@@ -76,7 +80,7 @@ describe('List DisplayMode', () => {
 				</ListContext.Provider>,
 			);
 
-			userEvent.click(screen.getAllByRole('button')[1]);
+			await user.click(screen.getAllByRole('button')[1]);
 
 			// then
 			expect(contextValue.setDisplayMode).toHaveBeenNthCalledWith(1, 'large');
@@ -84,7 +88,8 @@ describe('List DisplayMode', () => {
 	});
 
 	describe('controlled mode', () => {
-		it('should render selected display mode', () => {
+		it('should render selected display mode', async () => {
+			const user = userEvent.setup();
 			// given
 			const contextValue = { displayMode: 'table', setDisplayMode: jest.fn(), t: getDefaultT() };
 
@@ -94,14 +99,16 @@ describe('List DisplayMode', () => {
 					<ListDisplayMode id="myDisplayMode" selectedDisplayMode="large" />
 				</ListContext.Provider>,
 			);
-			userEvent.click(screen.getAllByRole('button')[1]);
+			await user.click(screen.getAllByRole('button')[1]);
 
 			// then
 			expect(screen.getAllByRole('button')[1]).toHaveAttribute('aria-pressed', 'true');
 			expect(screen.getAllByRole('button')[0]).toHaveAttribute('aria-pressed', 'false');
 		});
 
-		it('should call props.onChange with new display mode', () => {
+		it('should call props.onChange with new display mode', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const contextValue = { displayMode: 'table', setDisplayMode: jest.fn(), t: getDefaultT() };
 			const onChange = jest.fn();
@@ -115,7 +122,7 @@ describe('List DisplayMode', () => {
 			expect(contextValue.setDisplayMode).not.toHaveBeenCalled();
 
 			// when: react-bootstrap use value-event instead of event-value
-			userEvent.click(screen.getAllByRole('button')[1]);
+			await user.click(screen.getAllByRole('button')[1]);
 
 			// then
 			expect(contextValue.setDisplayMode).not.toHaveBeenCalled();

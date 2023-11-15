@@ -33,7 +33,9 @@ describe('RadarChart', () => {
 
 		expect(container.firstChild).toMatchSnapshot();
 	});
-	it('should render a chart with clickable labels', () => {
+	it('should render a chart with clickable labels', async () => {
+		const user = userEvent.setup();
+
 		const props = {
 			data: [
 				{ axis: 'Validity', A: 4 },
@@ -68,7 +70,7 @@ describe('RadarChart', () => {
 		);
 
 		// when
-		userEvent.click(document.querySelectorAll('.recharts-polar-angle-axis-tick')[0]);
+		await user.click(document.querySelectorAll('.recharts-polar-angle-axis-tick')[0]);
 
 		// then
 		expect(props.clickMock).toHaveBeenCalledWith(
@@ -79,7 +81,9 @@ describe('RadarChart', () => {
 			expect.any(Object),
 		);
 	});
-	it('should render a chart with clickable dots', () => {
+	it('should render a chart with clickable dots', async () => {
+		const user = userEvent.setup();
+
 		const props = {
 			data: [
 				{ axis: 'Validity', A: 4 },
@@ -110,7 +114,7 @@ describe('RadarChart', () => {
 		);
 
 		// when
-		userEvent.click(document.querySelectorAll('.recharts-dot')[0]);
+		await user.click(document.querySelectorAll('.recharts-dot')[0]);
 
 		// then
 		expect(props.clickMock).toHaveBeenCalledWith(

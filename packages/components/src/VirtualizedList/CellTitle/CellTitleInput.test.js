@@ -100,7 +100,7 @@ describe('CellTitleInput', () => {
 
 		// when
 		await user.click(screen.getByRole('textbox'));
-		await user.keyboard('{esc}');
+		await user.keyboard('{Esc}');
 
 		// then
 		expect(onEditCancel).toHaveBeenCalledWith(expect.anything(), rowData);

@@ -100,7 +100,9 @@ describe('ActionSplitDropdown', () => {
 		expect(screen.getByText('No option')).toBeInTheDocument();
 	});
 
-	it('should render trigger event', () => {
+	it('should render trigger event', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onItemClick = jest.fn();
 		const props = {
@@ -124,7 +126,7 @@ describe('ActionSplitDropdown', () => {
 
 		// when
 		render(<ActionSplitDropdown {...props} />);
-		userEvent.click(screen.getByRole('menuitem', { name: 'Item 1' }));
+		await user.click(screen.getByRole('menuitem', { name: 'Item 1' }));
 
 		// then
 		expect(onItemClick.mock.calls[0][1]).toEqual({
@@ -134,7 +136,7 @@ describe('ActionSplitDropdown', () => {
 		expect(onItemClick.mock.calls[0][0].type).toEqual('click');
 
 		// when
-		userEvent.click(screen.getByRole('menuitem', { name: 'Item 2' }));
+		await user.click(screen.getByRole('menuitem', { name: 'Item 2' }));
 
 		// then
 		expect(onItemClick.mock.calls[1][1]).toEqual({
