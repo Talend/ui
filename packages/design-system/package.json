@@ -101,7 +101,7 @@
   "peerDependencies": {
     "@talend/icons": "^7.0.0",
     "@talend/locales-design-system": "^7.15.1",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^14.0.0",
     "i18next": "^23.6.0",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0",

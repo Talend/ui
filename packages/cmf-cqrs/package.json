@@ -44,7 +44,7 @@
     "@talend/scripts-config-babel": "^13.1.0",
     "@talend/scripts-config-react-webpack": "^16.2.0",
     "@talend/scripts-config-typescript": "^11.1.0",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "mock-socket": "^9.3.1",
     "prop-types": "^15.8.1",

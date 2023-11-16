@@ -102,6 +102,8 @@ describe('Time.Manager', () => {
 					expectedValue: '25:20',
 				},
 			])('$name', async ({ textInput, expectedTime, expectedValue }) => {
+				const user = userEvent.setup();
+
 				// given
 				render(
 					<Manager id={DEFAULT_ID}>
@@ -110,8 +112,8 @@ describe('Time.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByRole('textbox'));
-				await userEvent.keyboard(textInput);
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard(textInput);
 
 				// then
 				const contextValue = JSON.parse(screen.getByTestId('TimeConsumerDiv').dataset.props);

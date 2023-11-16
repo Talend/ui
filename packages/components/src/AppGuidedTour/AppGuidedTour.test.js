@@ -20,20 +20,24 @@ describe('AppGuidedTour', () => {
 		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, null);
 	});
 	it('should not trigger import function if "load demo content" is not selected', async () => {
+		const user = userEvent.setup();
+
 		const onImportDemoContentMock = jest.fn();
 		render(<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />);
 
-		await userEvent.click(screen.getByLabelText('Import demo content'));
-		await userEvent.click(screen.getByText('Let me try'));
+		await user.click(screen.getByLabelText('Import demo content'));
+		await user.click(screen.getByText('Let me try'));
 		expect(onImportDemoContentMock).not.toHaveBeenCalled();
 	});
 	it('should trigger import function if "load demo content" is selected', async () => {
+		const user = userEvent.setup();
+
 		const onImportDemoContentMock = jest.fn();
 
 		render(<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />);
 		const nextBtn = document.querySelector('button[data-tour-elem="right-arrow"]');
 		expect(nextBtn).toBeInTheDocument();
-		await userEvent.click(nextBtn);
+		await user.click(nextBtn);
 		expect(onImportDemoContentMock).toHaveBeenCalled();
 	});
 	it('should import content by default on first time use', () => {

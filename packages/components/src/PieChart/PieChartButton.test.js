@@ -83,6 +83,8 @@ describe('PieChartButton', () => {
 		});
 
 		it('should render a PieChartButton with an overlay', async () => {
+			const user = userEvent.setup();
+
 			const overlayComponent = <div data-testid="TestOverlay">I am an overlay</div>;
 			render(
 				<PieChartButton
@@ -93,7 +95,7 @@ describe('PieChartButton', () => {
 					overlayId="id-popover"
 				/>,
 			);
-			await userEvent.click(screen.getByRole('button'));
+			await user.click(screen.getByRole('button'));
 			expect(screen.getByRole('tooltip')).toBeVisible();
 		});
 		it('should called refs methods', () => {

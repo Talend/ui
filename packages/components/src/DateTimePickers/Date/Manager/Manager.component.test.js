@@ -197,6 +197,8 @@ describe('Date.Manager', () => {
 					dateFormat: 'DD/MM/YYYY',
 				},
 			])('$name', async ({ textInput, expectedDate, dateFormat }) => {
+				const user = userEvent.setup();
+
 				// given
 				render(
 					<Manager id={DEFAULT_ID} dateFormat={dateFormat}>
@@ -205,8 +207,8 @@ describe('Date.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
-				await userEvent.keyboard(textInput);
+				await user.click(screen.getByTestId('DateConsumerDivInput'));
+				await user.keyboard(textInput);
 
 				// then
 				const props = JSON.parse(screen.getByTestId('DateConsumerDiv').dataset.props);
@@ -217,6 +219,8 @@ describe('Date.Manager', () => {
 			});
 
 			it('should trigger props.onChange with valid date', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -227,8 +231,8 @@ describe('Date.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
-				await userEvent.keyboard('2015-01-15');
+				await user.click(screen.getByTestId('DateConsumerDivInput'));
+				await user.keyboard('2015-01-15');
 
 				// then
 				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
@@ -241,6 +245,8 @@ describe('Date.Manager', () => {
 			});
 
 			it('should trigger props.onChange with invalid date', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -251,8 +257,8 @@ describe('Date.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
-				await userEvent.keyboard('2015-01-15');
+				await user.click(screen.getByTestId('DateConsumerDivInput'));
+				await user.keyboard('2015-01-15');
 
 				// then
 				expect(onChange).toHaveBeenCalled();
@@ -286,6 +292,8 @@ describe('Date.Manager', () => {
 					expectedTextInput: '15/01/2015',
 				},
 			])('$name', async ({ date, expectedTextInput, dateFormat }) => {
+				const user = userEvent.setup();
+
 				// given
 				render(
 					<Manager id={DEFAULT_ID} dateFormat={dateFormat} value={date}>
@@ -294,7 +302,7 @@ describe('Date.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByRole('button'));
+				await user.click(screen.getByRole('button'));
 
 				// then
 				const props = JSON.parse(screen.getByTestId('DateConsumerDiv').dataset.props);
@@ -302,6 +310,8 @@ describe('Date.Manager', () => {
 			});
 
 			it('should trigger props.onChange with valid date', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -313,9 +323,9 @@ describe('Date.Manager', () => {
 				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
-				await userEvent.keyboard('2015-01-15');
-				await userEvent.click(screen.getByRole('button'));
+				await user.click(screen.getByTestId('DateConsumerDivInput'));
+				await user.keyboard('2015-01-15');
+				await user.click(screen.getByRole('button'));
 
 				// then
 				expect(onChange).toHaveBeenCalledWith(

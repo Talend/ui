@@ -45,6 +45,8 @@ describe('TextFilter', () => {
 	});
 
 	it('should handle text filter changes (uncontrolled mode)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const context = {
 			...defaultContext,
@@ -58,8 +60,8 @@ describe('TextFilter', () => {
 				<TextFilter id="myTextFilter" initialDocked debounceTimeout={0} />
 			</ListContext.Provider>,
 		);
-		await userEvent.click(screen.getByRole('search'));
-		await userEvent.type(screen.getByRole('searchbox'), 'my-filter-value');
+		await user.click(screen.getByRole('search'));
+		await user.type(screen.getByRole('searchbox'), 'my-filter-value');
 
 		// then
 		expect(context.setTextFilter).toHaveBeenCalledWith('my-filter-value');
@@ -78,6 +80,8 @@ describe('TextFilter', () => {
 	});
 
 	it('should call the toggle callback when they are provided (controlled mode)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onToggle = jest.fn();
 
@@ -87,7 +91,7 @@ describe('TextFilter', () => {
 				<TextFilter id="myTextFilter" initialDocked onToggle={onToggle} />
 			</ListContext.Provider>,
 		);
-		await userEvent.click(screen.getByRole('search'));
+		await user.click(screen.getByRole('search'));
 
 		// then
 		expect(onToggle).toHaveBeenCalled();

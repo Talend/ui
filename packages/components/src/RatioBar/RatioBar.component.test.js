@@ -48,7 +48,9 @@ describe('RatioBar', () => {
 			expect(getCounter()).toHaveTextContent('N/A');
 		});
 
-		it('should render an full sized chart', () => {
+		it('should render an full sized chart', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const props = {
 				amount: 12,
@@ -57,7 +59,7 @@ describe('RatioBar', () => {
 			// when
 			render(<RatioBar {...props} />);
 			// then
-			userEvent.tab();
+			await user.tab();
 			expect(getCounter()).toHaveTextContent('12/12');
 			expect(getRatioBarLine()).toHaveStyle('flex-basis: 100%');
 		});

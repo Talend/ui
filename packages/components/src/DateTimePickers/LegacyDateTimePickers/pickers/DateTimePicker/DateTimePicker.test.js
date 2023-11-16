@@ -95,24 +95,28 @@ describe('DateTimePicker', () => {
 
 	describe('view switching', () => {
 		it('should switch state to MonthYearView when header title of DateTimeView is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<DateTimePicker onSubmit={() => {}} />);
 
 			// when
-			await userEvent.click(screen.getByText('Select MonthYearView'));
+			await user.click(screen.getByText('Select MonthYearView'));
 
 			// then
 			expect(screen.getByText('Select DateTimeView')).toBeVisible();
 		});
 
 		it('should switch state to DateTimeView when header back action of MonthYearView is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<DateTimePicker onSubmit={() => {}} />);
-			await userEvent.click(screen.getByText('Select MonthYearView'));
+			await user.click(screen.getByText('Select MonthYearView'));
 			expect(screen.queryByText('Select MonthYearView')).not.toBeInTheDocument();
 
 			// when
-			await userEvent.click(screen.getByText('Select DateTimeView'));
+			await user.click(screen.getByText('Select DateTimeView'));
 			jest.runAllTimers();
 
 			// then
@@ -156,12 +160,14 @@ describe('DateTimePicker', () => {
 
 	describe('today function', () => {
 		it('should switch state to DateTimeView when Today is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const today = new Date();
 			render(<DateTimePicker onSubmit={() => {}} />);
 
 			// when
-			await userEvent.click(screen.getByText('Today'));
+			await user.click(screen.getByText('Today'));
 
 			// then
 			const props = JSON.parse(screen.getByTestId('DateTimeView').dataset.props);
