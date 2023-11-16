@@ -1,5 +1,61 @@
 # @talend/design-system
 
+## 8.3.0
+
+### Minor Changes
+
+- b53bc8134: fix(DFD-274): Update tab panel component to use classname and remove useless gap
+
+## 8.2.0
+
+### Minor Changes
+
+- b9cc5b097: Fix lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/utils@2.8.0
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+
+## 8.1.3
+
+### Patch Changes
+
+- c286d9844: fix(TDOPS-5582/designSystem): checkbox state change on click
+
+## 8.1.2
+
+### Patch Changes
+
+- 02cc11768: fix: add z-index to Popover.module.scss
+- Updated dependencies [841be39f3]
+  - @talend/utils@2.7.0
+
+## 8.1.1
+
+### Patch Changes
+
+- 6816365dc: fix: binding in forms
+
+## 8.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove useless cypress config (toto.cypress.config.js)
+
+### Patch Changes
+
+- c76a700a4: fix: ThemeProvider use a module.scss but this is a global css
+- b8406b6e5: Fix Design System accessibility for Modal
+- 6b9f49e81: proper export of Icon enums
+- 41bd1b586: chore: remove unused polished dependency
+
 ## 8.0.0
 
 ### Major Changes

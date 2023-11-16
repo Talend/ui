@@ -39,7 +39,6 @@ exports[`Horizontal bar chart should render 1`] = `
           <line
             fill="none"
             height="260"
-            offset="[object Object]"
             stroke="#ccc"
             stroke-dasharray="3 3"
             width="390"
@@ -53,7 +52,6 @@ exports[`Horizontal bar chart should render 1`] = `
           <line
             fill="none"
             height="260"
-            offset="[object Object]"
             stroke="#ccc"
             stroke-dasharray="3 3"
             width="390"
@@ -67,7 +65,6 @@ exports[`Horizontal bar chart should render 1`] = `
           <line
             fill="none"
             height="260"
-            offset="[object Object]"
             stroke="#ccc"
             stroke-dasharray="3 3"
             width="390"
@@ -81,7 +78,6 @@ exports[`Horizontal bar chart should render 1`] = `
           <line
             fill="none"
             height="260"
-            offset="[object Object]"
             stroke="#ccc"
             stroke-dasharray="3 3"
             width="390"
@@ -95,7 +91,6 @@ exports[`Horizontal bar chart should render 1`] = `
           <line
             fill="none"
             height="260"
-            offset="[object Object]"
             stroke="#ccc"
             stroke-dasharray="3 3"
             width="390"

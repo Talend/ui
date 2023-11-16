@@ -51,11 +51,11 @@ describe('DateRange.Manager', () => {
 		const consumer = screen.getByTestId('DateRangeConsumerDiv');
 		const props = JSON.parse(consumer.getAttribute('data-props'));
 		expect(props.startDate).toEqual({
-			value: '2017-04-03T22:00:00.000Z',
+			value: '2017-04-04T00:00:00.000Z',
 			textInput: '2017-04-04',
 		});
 		expect(props.endDate).toEqual({
-			value: '2017-04-09T22:00:00.000Z',
+			value: '2017-04-10T00:00:00.000Z',
 			textInput: '2017-04-10',
 		});
 	});

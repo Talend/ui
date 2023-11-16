@@ -250,6 +250,7 @@ exports[`Form should render a11y html 1`] = `
             <select
               class="theme-select"
               id="field--mocked-uuid-9"
+              label="Select"
               name="select"
             >
               <option

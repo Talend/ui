@@ -1,6 +1,6 @@
 {
   "name": "@talend/local-libs-webpack-plugin",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Easier development on local libraries",
   "main": "lib/index.js",
   "license": "Apache-2.0",
@@ -27,6 +27,9 @@
     "access": "public"
   },
   "devDependencies": {
+    "@talend/eslint-config": "^13.0.0",
+    "@talend/eslint-plugin": "^1.1.0",
+    "@talend/scripts-core": "^16.2.0",
     "jest-cli": "^29.7.0"
   }
 }

@@ -1,5 +1,15 @@
 # @talend/scripts-config-prettier
 
+## 12.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, remove link with scripts-core (circular dependency) and fix prettier config to be compatible with prettier 3
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 12.0.0
 
 ### Major Changes

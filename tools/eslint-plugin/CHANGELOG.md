@@ -1,5 +1,16 @@
 # @talend/eslint-plugin
 
+## 1.1.0
+
+### Minor Changes
+
+- 673984929: remove dep with scripts-core and fix eslint config (circular dependency)
+
+### Patch Changes
+
+- Updated dependencies [673984929]
+  - @talend/scripts-config-cdn@10.9.0
+
 ## 1.0.1
 
 ### Patch Changes

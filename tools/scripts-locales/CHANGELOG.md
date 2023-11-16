@@ -1,5 +1,18 @@
 # @talend/scripts-locales
 
+## 1.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps and fix lint
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+  - @talend/scripts-utils@2.2.0
+
 ## 1.0.2
 
 ### Patch Changes

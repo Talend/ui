@@ -1,5 +1,13 @@
 # @talend/http
 
+## 3.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  fix tsconfig
+
 ## 3.0.0
 
 ### Major Changes

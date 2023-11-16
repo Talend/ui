@@ -1,5 +1,24 @@
 # @talend/scripts-utils
 
+## 2.2.0
+
+### Minor Changes
+
+- 673984929: Add missing deps and revert change about eslint config to use the talend one
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
+## 2.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: fix test to use package existing in the package.json
+  remove link to scripts-core (circular dep)
+  add missing deps
+  adapt code for pnpm
+
 ## 2.0.2
 
 ### Patch Changes

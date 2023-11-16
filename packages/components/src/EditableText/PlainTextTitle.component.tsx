@@ -15,6 +15,11 @@ type PlainTextTitleProps = {
 	onEdit: () => void;
 	text: string;
 	t: TFunction;
+	[key: string]: any;
+};
+
+type DataProps = {
+	[key: string]: string;
 };
 
 export function PlainTextTitle({
@@ -26,9 +31,16 @@ export function PlainTextTitle({
 	inProgress,
 	feature,
 	t = getDefaultT(),
+	...rest
 }: PlainTextTitleProps) {
 	const isDisabled = disabled || inProgress;
 	const ComponentClass = componentClass;
+	const dataProps: DataProps = Object.keys(rest).reduce<DataProps>((acc, propName) => {
+		if (propName.startsWith('data-')) {
+			acc[propName] = rest[propName];
+		}
+		return acc;
+	}, {});
 	return (
 		<div className={theme['tc-editable-text-title']}>
 			<TooltipTrigger
@@ -58,6 +70,7 @@ export function PlainTextTitle({
 				disabled={disabled || inProgress}
 				hideLabel
 				data-feature={feature}
+				{...dataProps}
 			/>
 		</div>
 	);

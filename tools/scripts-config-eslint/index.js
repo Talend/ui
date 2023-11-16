@@ -31,7 +31,7 @@ if (isTS) {
 			.filter(i => !TO_REMOVE.includes(i)),
 		plugins: config.plugins.concat(['@typescript-eslint']),
 		parserOptions: {
-			project: './tsconfig.json',
+			project: true,
 			tsconfigRootDir: cwd,
 		},
 		rules: {

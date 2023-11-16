@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-index
 
+## 1.6.0
+
+### Minor Changes
+
+- 673984929: add missing deps, fix eslint config (circular dependency) and fix lint issues
+
 ## 1.5.1
 
 ### Patch Changes
