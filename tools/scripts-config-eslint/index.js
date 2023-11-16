@@ -37,7 +37,8 @@ if (isTS) {
 		rules: {
 			...config.rules,
 			'@typescript-eslint/indent': 0,
-			'@typescript-eslint/no-var-requires': 0, // we have a lot of CJS files to lint
+			'@typescript-eslint/no-var-requires': 0, // we have a lot of CJS files to lint,
+			'@typescript-eslint/no-explicit-any': 1,
 		},
 		overrides: [
 			...(config.overrides || []),
