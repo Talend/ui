@@ -36,7 +36,9 @@ describe('YearPicker', () => {
 		expect(buttons[3]).toHaveTextContent('2025');
 	});
 
-	it('should callback with the year picked', () => {
+	it('should callback with the year picked', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const firstSelectableYear = 2011;
 		const selectedYear = 2014;
@@ -45,30 +47,34 @@ describe('YearPicker', () => {
 		expect(onSelect).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByText('2011'));
+		await user.click(screen.getByText('2011'));
 
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), firstSelectableYear);
 	});
 
-	it('should scroll up by 1 year', () => {
+	it('should scroll up by 1 year', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 		expect(screen.getAllByRole('button')[0]).toHaveTextContent('2009');
 
 		// when
-		userEvent.click(screen.getByLabelText('Go to previous year'));
+		await user.click(screen.getByLabelText('Go to previous year'));
 
 		// then
 		expect(screen.getAllByRole('button')[0]).toHaveTextContent('2008');
 	});
 
-	it('should scroll down by 1 year', () => {
+	it('should scroll down by 1 year', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 		expect(screen.getAllByRole('button')[6]).toHaveTextContent('2015');
 
 		// when
-		userEvent.click(screen.getByLabelText('Go to next year'));
+		await user.click(screen.getByLabelText('Go to next year'));
 
 		// then
 		expect(screen.getAllByRole('button')[6]).toHaveTextContent('2016');

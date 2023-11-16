@@ -291,7 +291,9 @@ describe('JSONLike', () => {
 			expect(screen.getByTestId('injected')).toHaveTextContent('hello world');
 		});
 
-		it("should toggle item but don't trigger form submit", () => {
+		it("should toggle item but don't trigger form submit", async () => {
+			const user = userEvent.setup();
+
 			// GIVEN
 			const mockOnToggle = jest.fn();
 			const mockOnSubmitClick = jest.fn();
@@ -315,7 +317,7 @@ describe('JSONLike', () => {
 			expect(mockOnToggle).not.toHaveBeenCalled();
 			expect(mockOnSubmitClick).not.toHaveBeenCalled();
 			// WHEN
-			userEvent.click(
+			await user.click(
 				screen.getByRole('link', {
 					hidden: true,
 				}),
@@ -325,7 +327,9 @@ describe('JSONLike', () => {
 			expect(mockOnSubmitClick).not.toHaveBeenCalled();
 		});
 
-		it('should select item', () => {
+		it('should select item', async () => {
+			const user = userEvent.setup();
+
 			// GIVEN
 			const mockOnSelect = jest.fn();
 			// WHEN
@@ -343,7 +347,7 @@ describe('JSONLike', () => {
 			expect(mockOnSelect).not.toHaveBeenCalled();
 
 			// WHEN
-			userEvent.click(screen.getByRole('treeitem'));
+			await user.click(screen.getByRole('treeitem'));
 			// THEN
 			expect(mockOnSelect).toHaveBeenCalled();
 		});

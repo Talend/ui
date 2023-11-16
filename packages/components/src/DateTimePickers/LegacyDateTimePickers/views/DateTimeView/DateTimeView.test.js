@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ButtonIcon } from '@talend/design-system';
 
 import DateTimeView from './DateTimeView.component';
 
@@ -12,18 +11,6 @@ jest.mock('../../pickers/DatePicker', () => props => (
 jest.mock('../../pickers/TimePicker', () => props => (
 	<div data-testid="TimePicker" data-props={JSON.stringify(props)} />
 ));
-
-function getActions(wrapper) {
-	return wrapper.find('ViewLayout').shallow().find(ButtonIcon);
-}
-
-function clickOnPreviousMonth(wrapper) {
-	getActions(wrapper).first().simulate('click');
-}
-
-function clickOnNextMonth(wrapper) {
-	getActions(wrapper).last().simulate('click');
-}
 
 describe('DateTimeView', () => {
 	it('should render', () => {
@@ -71,7 +58,8 @@ describe('DateTimeView', () => {
 		expect(screen.queryByTestId('TimePicker')).not.toBeInTheDocument();
 	});
 
-	it('should trigger props.onTitleClick when title is clicked', () => {
+	it('should trigger props.onTitleClick when title is clicked', async () => {
+		const user = userEvent.setup();
 		// given
 		const onTitleClick = jest.fn();
 		render(
@@ -89,7 +77,7 @@ describe('DateTimeView', () => {
 		expect(onTitleClick).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByText('June 2006'));
+		await user.click(screen.getByText('June 2006'));
 
 		// then
 		expect(onTitleClick).toHaveBeenCalled();
@@ -155,7 +143,9 @@ describe('DateTimeView', () => {
 			button: 'next',
 			expectedMonthYear: { monthIndex: 0, year: 2007 },
 		},
-	])('$name', ({ calendar, button, expectedMonthYear }) => {
+	])('$name', async ({ calendar, button, expectedMonthYear }) => {
+		const user = userEvent.setup();
+
 		// given
 		const onSelectMonthYear = jest.fn();
 		render(
@@ -171,9 +161,9 @@ describe('DateTimeView', () => {
 
 		// when
 		if (button === 'previous') {
-			userEvent.click(screen.getByLabelText('Go to previous month'));
+			await user.click(screen.getByLabelText('Go to previous month'));
 		} else if (button === 'next') {
-			userEvent.click(screen.getByLabelText('Go to next month'));
+			await user.click(screen.getByLabelText('Go to next month'));
 		}
 
 		// then

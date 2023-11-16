@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ColumnChooser from './ColumnChooser.component';
 import { ListContext } from '../context';
@@ -30,7 +30,7 @@ describe('ColumnChooser', () => {
 
 		// then
 		expect(screen.getByRole('button')).toBeVisible();
-		screen.getByRole('button').focus(); // trigger the tooltip
+		act(() => screen.getByRole('button').focus()); // trigger the tooltip
 		expect(screen.getByText('Open the column chooser')).toBeVisible();
 	});
 

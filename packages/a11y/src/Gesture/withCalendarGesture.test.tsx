@@ -110,7 +110,7 @@ describe('withCalendarGesture', () => {
 			// 				.simulate('keydown', { keyCode: keycode.codes.left });
 
 			// 			// then
-			// await userEvent.keyboard('[ArrowLeft]');
+			// await user.keyboard('[ArrowLeft]');
 
 			expect(screen.getByTestId('10')).toHaveFocus();
 			// 			expect(document.activeElement.innerHTML).toBe('11');

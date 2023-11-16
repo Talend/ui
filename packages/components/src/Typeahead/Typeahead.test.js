@@ -145,7 +145,9 @@ describe('Typeahead', () => {
 			expect(screen.getByRole('button')).toBeVisible();
 		});
 
-		it('should call onToggle', () => {
+		it('should call onToggle', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const props = {
 				...initialProps,
@@ -155,7 +157,7 @@ describe('Typeahead', () => {
 
 			// when
 			render(<Typeahead {...props} />);
-			userEvent.click(screen.getByRole('button'));
+			await user.click(screen.getByRole('button'));
 
 			// then
 			expect(props.onToggle).toHaveBeenCalled();
@@ -163,7 +165,9 @@ describe('Typeahead', () => {
 	});
 
 	describe('input', () => {
-		it('should call onChange', () => {
+		it('should call onChange', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onChange = jest.fn();
 			const props = {
@@ -173,13 +177,15 @@ describe('Typeahead', () => {
 
 			// when
 			render(<Typeahead {...props} />);
-			userEvent.type(screen.getByRole('textbox'), 'toto');
+			await user.type(screen.getByRole('textbox'), 'toto');
 
 			// then
 			expect(onChange).toHaveBeenCalled();
 		});
 
-		it('should call onBlur', () => {
+		it('should call onBlur', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onBlur = jest.fn();
 			const props = {
@@ -189,8 +195,8 @@ describe('Typeahead', () => {
 
 			// when
 			render(<Typeahead {...props} />);
-			userEvent.click(screen.getByRole('textbox'));
-			userEvent.tab();
+			await user.click(screen.getByRole('textbox'));
+			await user.tab();
 
 			// then
 			expect(onBlur).toHaveBeenCalled();
@@ -198,7 +204,9 @@ describe('Typeahead', () => {
 	});
 
 	describe('item', () => {
-		it('should call onSelect', () => {
+		it('should call onSelect', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onSelect = jest.fn();
 			const props = {
@@ -209,7 +217,7 @@ describe('Typeahead', () => {
 
 			// when
 			render(<Typeahead {...props} />);
-			userEvent.click(screen.getAllByRole('option')[0]);
+			await user.click(screen.getAllByRole('option')[0]);
 
 			// then
 			expect(onSelect).toHaveBeenCalled();

@@ -171,7 +171,9 @@ describe('DatePicker', () => {
 		expect(startDateTableCell).toHaveClass('theme-date-range');
 	});
 
-	it('should select date', () => {
+	it('should select date', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
 		const onSelect = jest.fn();
@@ -186,7 +188,7 @@ describe('DatePicker', () => {
 		expect(onSelect).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getAllByText('1')[0]);
+		await user.click(screen.getAllByText('1')[0]);
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), new Date(YEAR, MONTH_INDEX, 1));
@@ -234,7 +236,9 @@ describe('DatePicker', () => {
 		expect(screen.getAllByRole('button')).toHaveLength(6 * 7);
 	});
 
-	it('should go to next month if select a date of next month', () => {
+	it('should go to next month if select a date of next month', async () => {
+		const user = userEvent.setup();
+
 		const year = 2019;
 		const monthIndex = 11;
 		const calendar = { year, monthIndex };
@@ -246,7 +250,7 @@ describe('DatePicker', () => {
 			goToNextMonth: jest.fn(),
 		};
 		render(<DatePicker {...props} />);
-		userEvent.click(screen.getAllByText('4')[1]);
+		await user.click(screen.getAllByText('4')[1]);
 		const selectedDate = new Date(year + 1, 0, 4);
 		expect(props.onSelect).toHaveBeenCalledWith(expect.anything(), selectedDate);
 		expect(props.goToNextMonth).toHaveBeenCalled();

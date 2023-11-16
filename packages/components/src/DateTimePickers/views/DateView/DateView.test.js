@@ -31,7 +31,9 @@ describe('DateView', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should trigger props.onTitleClick when title is clicked', () => {
+	it('should trigger props.onTitleClick when title is clicked', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onTitleClick = jest.fn();
 		render(
@@ -49,7 +51,7 @@ describe('DateView', () => {
 		expect(onTitleClick).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByLabelText('Switch to month-and-year view'));
+		await user.click(screen.getByLabelText('Switch to month-and-year view'));
 
 		// then
 		expect(onTitleClick).toHaveBeenCalled();
@@ -118,7 +120,9 @@ describe('DateView', () => {
 			button: 'next',
 			expectedMonthYear: { monthIndex: 0, year: 2007 },
 		},
-	])('$name', ({ calendar, button, expectedMonthYear }) => {
+	])('$name', async ({ calendar, button, expectedMonthYear }) => {
+		const user = userEvent.setup();
+
 		// given
 		const onSelectMonthYear = jest.fn();
 		render(
@@ -134,9 +138,9 @@ describe('DateView', () => {
 
 		// when
 		if (button === 'previous') {
-			userEvent.click(screen.getByLabelText('Go to previous month'));
+			await user.click(screen.getByLabelText('Go to previous month'));
 		} else if (button === 'next') {
-			userEvent.click(screen.getByLabelText('Go to next month'));
+			await user.click(screen.getByLabelText('Go to next month'));
 		}
 
 		// then

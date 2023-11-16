@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import keycode from 'keycode';
 
 export default function useInputPickerHandlers({
 	disabled = false,
@@ -46,12 +45,14 @@ export default function useInputPickerHandlers({
 		}
 	}
 	function onKeyDown(event, inputRef) {
-		switch (event.keyCode) {
-			case keycode.codes.esc:
+		switch (event.key) {
+			case 'Esc':
+			case 'Escape':
 				inputRef.focus();
 				closePicker();
 				break;
-			case keycode.codes.down:
+			case 'Down':
+			case 'ArrowDown':
 				if (event.target !== inputRef) {
 					return;
 				}

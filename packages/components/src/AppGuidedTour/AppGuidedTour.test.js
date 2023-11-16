@@ -45,13 +45,15 @@ describe('AppGuidedTour', () => {
 		render(<AppGuidedTour {...DEFAULT_PROPS} />);
 		expect(screen.getByLabelText('Import demo content')).not.toBeChecked();
 	});
-	it('should reset state on close', () => {
+	it('should reset state on close', async () => {
+		const user = userEvent.setup();
+
 		const onRequestCloseMock = jest.fn();
 		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, 'true');
 		render(<AppGuidedTour {...DEFAULT_PROPS} onRequestClose={onRequestCloseMock} />);
 		const nextBtn = document.querySelector('button[data-tour-elem="right-arrow"]');
-		userEvent.click(nextBtn);
-		userEvent.click(screen.getByText('Let me try'));
+		await user.click(nextBtn);
+		await user.click(screen.getByText('Let me try'));
 
 		expect(onRequestCloseMock).toHaveBeenCalled();
 	});
@@ -66,12 +68,14 @@ describe('AppGuidedTour', () => {
 		render(<AppGuidedTour {...DEFAULT_PROPS} isOpen={false} onRequestOpen={onRequestOpenMock} />);
 		expect(onRequestOpenMock).not.toHaveBeenCalled();
 	});
-	it('Should set a local storage flag when closed', () => {
+	it('Should set a local storage flag when closed', async () => {
+		const user = userEvent.setup();
+
 		const onCloseMock = jest.fn();
 		render(<AppGuidedTour {...DEFAULT_PROPS} onClose={onCloseMock} />);
 		const nextBtn = document.querySelector('button[data-tour-elem="right-arrow"]');
-		userEvent.click(nextBtn);
-		userEvent.click(screen.getByText('Let me try'));
+		await user.click(nextBtn);
+		await user.click(screen.getByText('Let me try'));
 		expect(localStorage.getItem(DEFAULT_LOCAL_STORAGE_KEY)).toBe('true');
 	});
 	it('Should not show demo content form if no step is provided', async () => {
