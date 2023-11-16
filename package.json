@@ -48,7 +48,6 @@
   },
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@8.10.2",
   "pnpm": {
     "overrides": {
       "@cypress/request@<=2.88.12": ">=3.0.0",
