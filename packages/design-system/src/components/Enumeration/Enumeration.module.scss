@@ -14,27 +14,9 @@
 		padding: 0;
 	}
 
-	&__header {
-		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
-		padding: tokens.$coral-spacing-s;
-
-		h4 {
-			font: tokens.$coral-heading-m;
-		}
-	}
-
-	&__title {
-		align-items: center;
-		display: flex;
-		margin-bottom: tokens.$coral-spacing-s;
-
-		hr {
-			margin-left: tokens.$coral-spacing-xs;
-		}
-	}
-
-	&__title h4,
-	p {
+	h4,
+	p,
+	label {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -42,17 +24,7 @@
 	}
 
 	&__body {
-		&--item {
-			align-items: center;
-			background-color: tokens.$coral-color-neutral-background;
-			display: flex;
-			justify-content: space-between;
-			padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
-			transition: background-color tokens.$coral-transition-fast;
-
-			&:hover {
-				background-color: tokens.$coral-color-neutral-background-medium;
-			}
-		}
+		max-height: 400px;
+		overflow: hidden auto;
 	}
 }

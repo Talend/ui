@@ -1,136 +1,103 @@
-import { EnumerationItem, EnumerationProps, EnumerationMode } from './Enumeration.types';
-
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
-import { ChangeEvent, useState } from 'react';
-import { Form } from '../Form';
 import { AutoSizer, InfiniteLoader, List } from 'react-virtualized';
-import { ButtonIcon, ButtonIconToggle } from '../ButtonIcon';
 
-import { Divider } from '../Divider';
-import { StackHorizontal } from '../Stack';
 import { EmptyState } from '../EmptyState';
+import { StackHorizontal } from '../Stack';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
+import { EnumerationMode, EnumerationProps } from './Enumeration.types';
+import { EnumerationHeader } from './EnumerationHeader/EnumerationHeader.component';
+import { EnumerationItem } from './EnumerationItem/EnumerationItem.component';
 
-import style from './Enumeration.module.scss';
+import styles from './Enumeration.module.scss';
 
-export const Enumeration = ({ items, loadMoreRows, onImport, title }: EnumerationProps) => {
+export const Enumeration = ({
+	id,
+	items,
+	loadMoreRows,
+	onCreate,
+	onChange,
+	onImport,
+	onRemove,
+	title,
+}: EnumerationProps) => {
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
-	const [mode, setMode] = useState<string>();
-	const [filteredItems, setFilteredItems] = useState<EnumerationItem[]>(items);
 
-	const rowRenderer = ({ index }: { index: number }) => (
-		<div className={style['enumeration__body--item']}>
-			<p>{filteredItems[index].label}</p>
-			<ButtonIcon icon="dots-vertical" onClick={() => {}} size="S">
-				{t('ENUMERATION_IMPORT', 'Import items')}
-			</ButtonIcon>
-		</div>
-	);
-
-	const ListEmptyState = () => (
-		<StackHorizontal gap={0} padding={{ x: 0, y: 'M' }}>
-			<EmptyState
-				description={t('ENUMERATION_EMPTY_LIST_DESCRIPTION', 'Any additional details here.')}
-				title={t('ENUMERATION_EMPTY_LIST_TITLE', 'The list is empty.')}
-				variant={'M'}
-			/>
-		</StackHorizontal>
-	);
-
-	const filterList = (event: ChangeEvent<HTMLInputElement>) => {
-		const value = event.target.value;
-		if (!value) {
-			setFilteredItems(items);
-		} else {
-			setFilteredItems(items.filter(item => item.id.includes(value)));
-		}
-	};
+	const [mode, setMode] = useState(EnumerationMode.VIEW);
+	const [selectedItems, setSelectedItems] = useState<string[]>([]);
+	const [filteredItems, setFilteredItems] = useState(items);
 
 	return (
-		<div className={style.enumeration}>
-			<div className={style.enumeration__header}>
-				<div className={style.enumeration__title}>
-					<h4>{title}</h4>
-
-					<StackHorizontal as="ul" gap={'XS'} justify="end">
-						{onImport && (
-							<li>
-								<ButtonIcon icon="import" onClick={() => {}} size="S">
-									{t('ENUMERATION_IMPORT', 'Import items')}
-								</ButtonIcon>
-								<Divider orientation="vertical" />
-							</li>
-						)}
-						<li>
-							<ButtonIconToggle
-								disabled={!!mode && mode !== EnumerationMode.CREATE}
-								icon="plus"
-								isActive={mode === EnumerationMode.CREATE}
-								onClick={() => {
-									setMode(
-										mode === EnumerationMode.CREATE ? EnumerationMode.VIEW : EnumerationMode.CREATE,
-									);
-								}}
-								size="S"
-							>
-								{t('ENUMERATION_ADD', 'Add item')}
-							</ButtonIconToggle>
-						</li>
-						<li>
-							<ButtonIconToggle
-								disabled={!!mode && mode === EnumerationMode.EDIT}
-								icon="pencil"
-								isActive={mode === EnumerationMode.EDIT}
-								onClick={() => {
-									setMode(
-										mode === EnumerationMode.EDIT ? EnumerationMode.VIEW : EnumerationMode.EDIT,
-									);
-								}}
-								size="S"
-							>
-								{t('ENUMERATION_EDIT', 'Edit item')}
-							</ButtonIconToggle>
-						</li>
-					</StackHorizontal>
-				</div>
-
-				<Form.Search
-					placeholder="Search"
-					name="search"
-					label="Search"
-					onChange={filterList}
-					hideLabel
-				/>
-			</div>
+		<div className={styles.enumeration}>
+			<EnumerationHeader
+				filteredItems={filteredItems}
+				id={id}
+				items={items}
+				mode={mode}
+				onChange={onChange}
+				onCreate={onCreate}
+				onImport={onImport}
+				onRemove={onRemove}
+				selectedItems={selectedItems}
+				setFilteredItems={setFilteredItems}
+				setMode={setMode}
+				setSelectedItems={setSelectedItems}
+				title={title}
+			/>
 
 			{filteredItems.length ? (
-				<AutoSizer disableHeight={true}>
-					{({ width }) => {
-						const itemHeight = 36;
+				<div className={styles.enumeration__body}>
+					<AutoSizer disableHeight={true}>
+						{({ width }) => {
+							const itemHeight = 38;
 
-						return (
-							<InfiniteLoader
-								isRowLoaded={({ index }) => !!items[index]}
-								loadMoreRows={loadMoreRows}
-								rowCount={filteredItems.length}
-							>
-								{({ onRowsRendered, registerChild }) => (
-									<List
-										height={filteredItems.length * itemHeight}
-										onRowsRendered={onRowsRendered}
-										ref={registerChild}
-										rowCount={filteredItems.length}
-										rowHeight={itemHeight}
-										rowRenderer={rowRenderer}
-										width={width}
-									/>
-								)}
-							</InfiniteLoader>
-						);
-					}}
-				</AutoSizer>
+							return (
+								<InfiniteLoader
+									isRowLoaded={({ index }) => !!items[index]}
+									loadMoreRows={loadMoreRows}
+									rowCount={filteredItems.length}
+								>
+									{({ onRowsRendered, registerChild }) => (
+										<List
+											height={filteredItems.length * itemHeight}
+											onRowsRendered={onRowsRendered}
+											ref={registerChild}
+											rowCount={filteredItems.length}
+											rowHeight={itemHeight}
+											rowRenderer={({ index }) => (
+												<EnumerationItem
+													mode={mode}
+													onChange={value => {
+														const indexToReplace = items.indexOf(filteredItems[index]);
+
+														if (indexToReplace !== -1) {
+															const newItems = [...items];
+															newItems[indexToReplace] = value;
+															onChange(newItems);
+														}
+													}}
+													onRemove={onRemove}
+													selectedItems={selectedItems}
+													setSelectedItems={setSelectedItems}
+													value={filteredItems[index]}
+												/>
+											)}
+											width={width}
+										/>
+									)}
+								</InfiniteLoader>
+							);
+						}}
+					</AutoSizer>
+				</div>
 			) : (
-				<ListEmptyState />
+				<StackHorizontal gap={0} padding={{ x: 0, y: 'M' }}>
+					<EmptyState
+						description={t('ENUMERATION_EMPTY_LIST_DESCRIPTION', 'Any additional details here.')}
+						title={t('ENUMERATION_EMPTY_LIST_TITLE', 'The list is empty.')}
+						variant={'M'}
+					/>
+				</StackHorizontal>
 			)}
 		</div>
 	);

@@ -14,11 +14,11 @@ import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 import keycode from 'keycode';
 
+import { useId } from '../../../useId';
 import { ButtonIcon } from '../../ButtonIcon';
 import { Form } from '../../Form';
 import { StackHorizontal } from '../../Stack';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
-import { useId } from '../../../useId';
 
 import styles from './InlineEditingPrimitive.module.scss';
 
@@ -39,6 +39,7 @@ export type OnEditEvent =
 	| RKeyboardEvent;
 
 export type InlineEditingPrimitiveProps = {
+	isEditionMode?: boolean;
 	loading?: boolean;
 	onCancel?: () => void;
 	onToggle?: (isEditionMode: boolean) => void;
@@ -81,6 +82,7 @@ export type InlineEditingPrimitiveProps = {
 const InlineEditingPrimitive = forwardRef(
 	(props: InlineEditingPrimitiveProps, ref: Ref<HTMLDivElement>) => {
 		const {
+			isEditionMode = false,
 			loading,
 			ariaLabel,
 			mode,
@@ -102,7 +104,7 @@ const InlineEditingPrimitive = forwardRef(
 
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-		const [isEditing, setEditing] = useState<boolean>(false);
+		const [isEditing, setEditing] = useState<boolean>(isEditionMode);
 		const [internalValue, setInternalValue] = useState<string | undefined>(defaultValue);
 		const inlineEditingId = useId(rest.id, 'inline-edit-');
 
@@ -129,11 +131,13 @@ const InlineEditingPrimitive = forwardRef(
 		const handleSubmit = (event: OnEditEvent) => {
 			event.stopPropagation();
 
-			if (onEdit) {
-				onEdit(event, getValue() || '');
-			}
+			if (!hasError) {
+				if (onEdit) {
+					onEdit(event, getValue() || '');
+				}
 
-			toggleEditionMode(false);
+				toggleEditionMode(false);
+			}
 		};
 
 		const handleCancel = () => {

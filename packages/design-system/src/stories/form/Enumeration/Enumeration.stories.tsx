@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Enumeration as EnumerationComponent } from '../../../components/Enumeration';
 
 export default {
@@ -11,15 +13,36 @@ const Enumeration = (args: any) => (
 	</div>
 );
 
-export const Default = () => (
-	<Enumeration
-		title="This is a title"
-		items={[
-			{ id: 'item1', label: 'Item 1' },
-			{ id: 'item2', label: 'Item 2' },
-			{ id: 'item3', label: 'Item 3' },
-		]}
-	/>
-);
+export const Default = () => {
+	const [items, setItems] = useState([
+		'Item 1',
+		'Item 2',
+		'Item 3',
+		'Item 4',
+		'Item 5',
+		'Item 6',
+		'Item 7',
+		'Item 8',
+		'Item 9',
+		'Item 10',
+		'Item 11',
+		'Item 12',
+	]);
 
-export const Empty = () => <Enumeration title="This is a title" items={[]} />;
+	return (
+		<Enumeration
+			id={'default'}
+			items={items}
+			loadMoreRows={() => new Promise(resolve => resolve([]))}
+			onChange={setItems}
+			onImport={(data: string) => {
+				console.log(data);
+				setItems([...data.split('\n').filter(Boolean), ...items]);
+			}}
+			onRemove={(ids: string[]) => setItems(items.filter(item => !ids.includes(item)))}
+			title="This is a title"
+		/>
+	);
+};
+
+export const Empty = () => <Enumeration title="This is a title" items={[]} id={'empty'} />;
