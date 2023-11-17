@@ -1,7 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-const isTS = fs.existsSync(path.join(process.cwd(), 'tsconfig.json'));
-
 module.exports = {
 	plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')],
 	importOrder: [
@@ -16,7 +12,7 @@ module.exports = {
 		'.*scss',
 	],
 	importOrderSeparation: true,
-	importOrderParserPlugins: ['jsx', isTS && 'typescript'].filter(Boolean),
+	importOrderParserPlugins: ['jsx', 'typescript'],
 	printWidth: 100,
 	singleQuote: true,
 	trailingComma: 'all',
