@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
-import { spawn } from 'child_process';
 import fs from 'fs';
+
+import * as utils from '@talend/scripts-utils';
 
 const reports = ['eslint-report.json', 'stylelint-report.json'];
 
@@ -39,13 +40,14 @@ function getPackages() {
 	);
 }
 
-export function mergeReport(args) {
+export default function mergeReport(env, presetApi, options) {
 	const packages = getPackages();
 	// https://stackoverflow.com/questions/65944700/how-to-run-git-diff-in-github-actions
-	const diff = spawn({
-		name: 'git',
-		args: ['diff', '--name-only', `origin/${args[0]}`, `origin/${args[1]}`],
-	})
+	const diff = utils.process
+		.spawn('git', ['diff', '--name-only', `origin/${options[0]}`, `origin/${options[1]}`], {
+			stdio: 'inherit',
+			env,
+		})
 		.then(out =>
 			out
 				.split('\n')
