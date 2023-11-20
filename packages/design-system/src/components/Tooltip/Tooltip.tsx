@@ -91,7 +91,7 @@ export const Tooltip = ({ id, children, title, placement = 'top', ...rest }: Too
 				children,
 				{
 					...getReferenceProps(),
-					'aria-describedby': safeId,
+					...(title && { 'aria-describedby': safeId }),
 				},
 				floating.refs.setReference,
 			)}
