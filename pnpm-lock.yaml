@@ -24,6 +24,9 @@ importers:
       '@talend/scripts-config-prettier':
         specifier: ^12.1.0
         version: link:tools/scripts-config-prettier
+      '@talend/scripts-core':
+        specifier: ^16.2.0
+        version: link:tools/scripts-core
       '@talend/scripts-yarn-workspace':
         specifier: ^1.3.0
         version: link:tools/scripts-yarn-workspace
