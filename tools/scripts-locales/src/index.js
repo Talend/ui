@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import * as utils from '@talend/scripts-utils';
 import { updateCode } from './update-code.js';
 
 const command = process.argv[2];

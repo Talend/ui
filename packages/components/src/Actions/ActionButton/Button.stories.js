@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
+
 import { action } from '@storybook/addon-actions';
-import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
 import ActionButton from './ActionButton.component';
 
@@ -158,25 +158,3 @@ export const Default = () => (
 		</div>
 	</div>
 );
-
-export const Combinations = withPropsCombinations(ActionButton, {
-	label: ['Click me'],
-	bsStyle: [
-		'default',
-		'primary',
-		'success',
-		'info',
-		'warning',
-		'danger',
-		'link',
-		'info btn-inverse',
-	],
-	icon: ['talend-dataprep'],
-	'data-feature': ['my.feature'],
-	onClick: [action('You clicked me')],
-	hideLabel: [false, true],
-	inProgress: [true, false],
-	disabled: [false, true],
-	tooltip: [true],
-	tooltipLabel: ['Tooltip custom label'],
-});

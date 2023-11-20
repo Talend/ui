@@ -1,5 +1,15 @@
 # @talend/scripts-yarn-workspace
 
+## 1.3.0
+
+### Minor Changes
+
+- 673984929: Add missing deps
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 1.2.0
 
 ### Minor Changes

@@ -197,6 +197,11 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata || [])%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata || [])%> };
 			${await inject.getMinified()}
 		</script>`;
+	} else {
+		headScript = `${renderMeta()}<base href="${BASENAME}" />
+		<script type="text/javascript">
+			window.basename = '${BASENAME}';
+		</script>`;
 	}
 	const header = `${customHead}
 		<link rel="icon" type="image/svg+xml" href="<%= htmlWebpackPlugin.options.favicon || htmlWebpackPlugin.options.b64favicon %>">
@@ -285,7 +290,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					isEnvDevelopment && {
 						test: /\.js$/,
 						include: /node_modules/,
-						use: ['source-map-loader'],
+						use: [require.resolve('source-map-loader')],
 						enforce: 'pre',
 					},
 					{

@@ -13,6 +13,15 @@
 	column-gap: var(--coral-spacing-m, 1.6rem);
 }
 
+.tabpanel {
+	width: 100%;
+	height: 100%;
+
+	&--hidden {
+		display: none;
+	}
+}
+
 .tab {
 	font: tokens.$coral-heading-s;
 	height: tokens.$coral-sizing-xs;

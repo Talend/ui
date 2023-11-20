@@ -1,5 +1,15 @@
 # @talend/scripts-utils
 
+## 2.2.0
+
+### Minor Changes
+
+- 673984929: Add missing deps and revert change about eslint config to use the talend one
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 2.1.0
 
 ### Minor Changes

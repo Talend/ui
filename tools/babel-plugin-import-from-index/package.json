@@ -1,6 +1,6 @@
 {
   "name": "@talend/babel-plugin-import-from-index",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Transform default imports from specific path to named import from index",
   "main": "src/index.js",
   "license": "Apache-2.0",
@@ -14,7 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint",
+    "lint": "eslint ./src",
     "test": "jest"
   },
   "dependencies": {
@@ -22,9 +22,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
+    "@babel/eslint-parser": "^7.23.3",
     "@babel/preset-env": "^7.23.3",
     "babel-jest": "^29.7.0",
     "babel-plugin-tester": "^10.1.0",
+    "eslint": "^8.53.0",
     "jest": "^29.7.0"
   },
   "jest": {

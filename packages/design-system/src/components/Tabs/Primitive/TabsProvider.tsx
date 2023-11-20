@@ -31,7 +31,7 @@ export function TabsProvider(props: TabsProviderPropTypes & WithChildren) {
 	});
 	return (
 		<nav id={props.id}>
-			<StackVertical gap="M">
+			<StackVertical gap={0}>
 				<TabsInternalContext.Provider value={{ size: props.size, ...controlled }}>
 					{props.children}
 				</TabsInternalContext.Provider>

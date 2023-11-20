@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.9.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, adapt cdn code for pnpm and fix eslint config (circular dependency)
+
 ## 10.8.0
 
 ### Minor Changes

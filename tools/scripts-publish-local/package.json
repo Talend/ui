@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-publish-local",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "",
   "bin": {
     "talend-publish-local": "./bin/cli.js"
@@ -14,6 +14,11 @@
     "cross-spawn": "^7.0.3",
     "generate-password": "^1.7.1",
     "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@talend/eslint-config": "^13.0.0",
+    "@talend/eslint-plugin": "^1.1.0",
+    "@talend/scripts-core": "^16.2.0"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",

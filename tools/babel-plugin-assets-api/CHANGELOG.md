@@ -1,5 +1,11 @@
 # @talend/babel-plugin-assets-api
 
+## 1.2.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, fix eslint config (circular dependency) and fix lint issues
+
 ## 1.1.0
 
 ### Minor Changes
