@@ -81,6 +81,7 @@ switch (command) {
 	case 'build':
 	case 'build-storybook':
 	case 'lint':
+	case 'lint:merge-report':
 	case 'start':
 	case 'start-storybook':
 	case 'test':
