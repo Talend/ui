@@ -4,9 +4,10 @@ import { spawn } from 'child_process';
 /* eslint-disable no-param-reassign */
 import fs from 'fs';
 
-const reports = ['eslint-report.json', 'stylelint-report.json'];
+import { getEnv } from '../utils/env.js';
+import { getPresetApi } from '../utils/preset.js';
 
-const packageDirs = ['packages', 'fork', 'tools'];
+const reports = ['eslint-report.json', 'stylelint-report.json'];
 
 let buff = [];
 
@@ -85,7 +86,7 @@ function transform(item) {
 	return item;
 }
 
-function getPackages() {
+function getPackages(packageDirs = []) {
 	return packageDirs.flatMap(dir =>
 		fs.readdirSync(dir).map(subDir => ({
 			name: subDir,
@@ -95,7 +96,25 @@ function getPackages() {
 }
 
 export default function mergeReport(options) {
-	const packages = getPackages();
+	// current env vars and talend scripts configuration in <project-folder>/talend-scripts.(js/json)
+	const env = getEnv(options);
+	env.TALEND_MODE = 'production';
+	console.log(`Talend scripts mode : ${env.TALEND_MODE}`);
+	if (env.TALEND_SCRIPTS_CONFIG) {
+		console.log('Talend scripts configuration file found and loaded');
+	} else {
+		console.log('Talend scripts configuration file not found');
+	}
+	const presetApi = getPresetApi(env);
+	const rootPackageDirs = presetApi.getUserConfig('lintMergeReport', {})?.packageDirs || [];
+	const packages = getPackages(rootPackageDirs);
+
+	if (packages.length === 0) {
+		throw new Error(
+			'No packages has been retrieved, check if the talend-scripts.json is well configured',
+		);
+	}
+
 	// https://stackoverflow.com/questions/65944700/how-to-run-git-diff-in-github-actions
 	const diff = run({
 		name: 'git',
