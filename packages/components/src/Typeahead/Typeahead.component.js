@@ -3,7 +3,6 @@ import { useMemo, useState } from 'react';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
-import keycode from 'keycode';
 import { usePopper } from 'react-popper';
 import { randomUUID } from '@talend/utils';
 
@@ -145,14 +144,16 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 	}
 
 	const handleKeyDown = (event, data) => {
-		switch (event.which) {
-			case keycode.codes.down:
-			case keycode.codes.up:
+		switch (event.key) {
+			case 'Down':
+			case 'ArrowDown':
+			case 'Up':
+			case 'ArrowUp':
 				event.preventDefault();
 				setHighlightedSectionIndex(data.newHighlightedSectionIndex);
 				setHighlightedItemIndex(data.newHighlightedItemIndex);
 				break;
-			case keycode.codes.enter:
+			case 'Enter':
 				event.preventDefault();
 				if (highlightedItemIndex !== null && highlightedItemIndex !== null) {
 					rest.onSelect(event, {
@@ -161,7 +162,8 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 					});
 				}
 				break;
-			case keycode.codes.esc:
+			case 'Esc':
+			case 'Escape':
 				event.preventDefault();
 				rest.onBlur(event);
 				break;

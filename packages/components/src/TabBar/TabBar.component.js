@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Tab, Nav, NavItem } from '@talend/react-bootstrap';
-import keycode from 'keycode';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 
@@ -96,12 +95,12 @@ function TabBar(props) {
 
 	function handleKeyDown(event) {
 		const { items } = props;
-		switch (event.which) {
-			case keycode.codes.home:
+		switch (event.key) {
+			case 'Home':
 				needsRefocus.current = true;
 				handleSelect(items[0].key, event);
 				break;
-			case keycode.codes.end:
+			case 'End':
 				needsRefocus.current = true;
 				handleSelect(items[items.length - 1].key, event);
 				break;

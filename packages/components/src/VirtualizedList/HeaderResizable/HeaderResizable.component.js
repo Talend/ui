@@ -3,7 +3,6 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Draggable from 'react-draggable';
-import keycode from 'keycode';
 import { defaultTableHeaderRenderer } from 'react-virtualized';
 import { ConsumerVirtualizedList } from '../virtualizedListContext';
 import headerResizableCssModule from './HeaderResizable.module.scss';
@@ -28,7 +27,7 @@ export class HeaderResizable extends Component {
 	};
 
 	onKeyDownResizeColumn = (event, resizeFn) => {
-		resizeFn(this.props.dataKey, this.getDeltaFromKeyCode(event));
+		resizeFn(this.props.dataKey, this.getDeltaFromKey(event));
 	};
 
 	setResizing = resizing => () => {
@@ -38,11 +37,13 @@ export class HeaderResizable extends Component {
 		}));
 	};
 
-	getDeltaFromKeyCode = event => {
-		switch (event.keyCode) {
-			case keycode.codes.left:
+	getDeltaFromKey = event => {
+		switch (event.key) {
+			case 'Left':
+			case 'ArrowLeft':
 				return -10;
-			case keycode.codes.right:
+			case 'Right':
+			case 'ArrowRight':
 				return 10;
 			default:
 				return 0;

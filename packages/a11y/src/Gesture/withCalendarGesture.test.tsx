@@ -107,7 +107,7 @@ describe('withCalendarGesture', () => {
 			// 			wrapper
 			// 				.find('button[data-value]')
 			// 				.at(11) // 2018-03-12
-			// 				.simulate('keydown', { keyCode: keycode.codes.left });
+			// 				.simulate('keydown', { key: 'ArrowLeft' });
 
 			// 			// then
 			// await user.keyboard('[ArrowLeft]');

@@ -49,7 +49,6 @@
     "focus-outline-manager": "^1.0.2",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
-    "keycode": "^2.2.1",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
     "rc-slider": "^10.4.0",

@@ -1,4 +1,3 @@
-import keycode from 'keycode';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TabBar from './TabBar.component';
@@ -117,7 +116,7 @@ describe('TabBar component', () => {
 		// when
 		const root = document.querySelector('#my-tabs > div');
 		fireEvent.keyDown(root, {
-			keyCode: keycode.codes.home,
+			key: 'Home',
 		});
 
 		// then
@@ -132,7 +131,7 @@ describe('TabBar component', () => {
 		// when
 		const root = document.querySelector('#my-tabs > div');
 		fireEvent.keyDown(root, {
-			keyCode: keycode.codes.end,
+			key: 'End',
 		});
 
 		// then

@@ -95,7 +95,7 @@ describe('TreeGesture HOC', () => {
 			onToggle: jest.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
-		// const event = { keyCode: keycode.codes.left, stopPropagation: jest.fn() };
+		// const event = { key: 'ArrowLeft', stopPropagation: jest.fn() };
 		expect(props.onToggle).not.toHaveBeenCalled();
 
 		// when
@@ -149,7 +149,7 @@ describe('TreeGesture HOC', () => {
 		expect(props.onToggleAllSiblings).toHaveBeenCalledWith(expect.anything(), items);
 	});
 
-	async function testFocus({ elementPosition, expectedActivePosition, keyCode }) {
+	async function testFocus({ elementPosition, expectedActivePosition, key }) {
 		const user = userEvent.setup();
 
 		// given
@@ -157,7 +157,7 @@ describe('TreeGesture HOC', () => {
 		screen.getByText(elementPosition).focus();
 
 		// when
-		await user.keyboard(`[${keyCode}]`);
+		await user.keyboard(`[${key}]`);
 
 		// then
 		expect(screen.getByText(expectedActivePosition)).toHaveFocus();
@@ -168,37 +168,37 @@ describe('TreeGesture HOC', () => {
 			name: 'should focus its parent on left keydown',
 			elementPosition: 'Eleven',
 			expectedActivePosition: 'First',
-			keyCode: 'ArrowLeft',
+			key: 'ArrowLeft',
 		},
 		{
 			name: "should focus opened item's first child on right keydown",
 			elementPosition: 'First',
 			expectedActivePosition: 'Ten',
-			keyCode: 'ArrowRight',
+			key: 'ArrowRight',
 		},
 		{
 			name: 'should focus next item on down keydown',
 			elementPosition: 'Twelve',
 			expectedActivePosition: 'Two',
-			keyCode: 'ArrowDown',
+			key: 'ArrowDown',
 		},
 		{
 			name: 'should focus previous item on up keydown',
 			elementPosition: 'Two',
 			expectedActivePosition: 'Twelve',
-			keyCode: 'ArrowUp',
+			key: 'ArrowUp',
 		},
 		{
 			name: 'should focus first item on home keydown',
 			elementPosition: 'Twelve',
 			expectedActivePosition: 'Zero',
-			keyCode: 'Home',
+			key: 'Home',
 		},
 		{
 			name: 'should focus last item on end keydown',
 			elementPosition: 'Ten',
 			expectedActivePosition: 'Three',
-			keyCode: 'End',
+			key: 'End',
 		},
 	]);
 });

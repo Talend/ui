@@ -37,7 +37,6 @@
     "@talend/design-tokens": "^2.10.0",
     "@talend/utils": "^2.8.0",
     "classnames": "^2.3.2",
-    "keycode": "^2.2.1",
     "modern-css-reset": "^1.4.0",
     "react-use": "^17.4.0",
     "react-transition-group": "^2.9.0",

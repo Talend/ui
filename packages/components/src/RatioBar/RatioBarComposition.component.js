@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import keycode from 'keycode';
 import { Tooltip } from '@talend/design-system';
 import { getTheme } from '../theme';
 import ratioBarTheme from './RatioBar.module.scss';
@@ -21,11 +20,12 @@ export function RatioBarLine({
 	if (!value || value < 0) return null;
 
 	function onKeyDown(event) {
-		switch (event.keyCode) {
-			case keycode.codes.enter:
+		switch (event.key) {
+			case 'Enter':
 				onClick(event);
 				break;
-			case keycode.codes.space:
+			case ' ':
+			case 'Spacebar':
 				event.preventDefault(); // prevent scroll with space
 				event.stopPropagation();
 				onClick(event);

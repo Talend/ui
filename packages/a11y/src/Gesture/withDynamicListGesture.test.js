@@ -53,7 +53,7 @@ class ComponentWithGesture extends Component {
 }
 
 describe('List Gesture HOC', () => {
-	async function testFocus({ elementIndex, expectedActiveIndex, keyCode }) {
+	async function testFocus({ elementIndex, expectedActiveIndex, key }) {
 		const user = userEvent.setup();
 
 		// given
@@ -62,7 +62,7 @@ describe('List Gesture HOC', () => {
 
 		// when
 		await user.click(element);
-		await user.keyboard(`[${keyCode}]`);
+		await user.keyboard(`[${key}]`);
 
 		// then
 		expect(screen.getByTestId(`item-${expectedActiveIndex}`)).toHaveFocus();
@@ -73,37 +73,37 @@ describe('List Gesture HOC', () => {
 			name: 'should focus previous item on up keydown',
 			elementIndex: 22,
 			expectedActiveIndex: 21,
-			keyCode: 'ArrowUp',
+			key: 'ArrowUp',
 		},
 		{
 			name: 'should focus next item on down keydown',
 			elementIndex: 22,
 			expectedActiveIndex: 23,
-			keyCode: 'ArrowDown',
+			key: 'ArrowDown',
 		},
 		{
 			name: 'should go to previous page on up keydown',
 			elementIndex: 20,
 			expectedActiveIndex: 19,
-			keyCode: 'ArrowUp',
+			key: 'ArrowUp',
 		},
 		{
 			name: 'should go to previous page on down keydown',
 			elementIndex: 24,
 			expectedActiveIndex: 25,
-			keyCode: 'ArrowDown',
+			key: 'ArrowDown',
 		},
 		{
 			name: 'should go to previous page on pageUp keydown',
 			elementIndex: 22,
 			expectedActiveIndex: 17,
-			keyCode: 'PageUp',
+			key: 'PageUp',
 		},
 		{
 			name: 'should go to previous page on pageDown keydown',
 			elementIndex: 22,
 			expectedActiveIndex: 27,
-			keyCode: 'PageDown',
+			key: 'PageDown',
 		},
 	]);
 });

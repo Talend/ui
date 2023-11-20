@@ -21,38 +21,37 @@ function FormWrapper({ children, onSubmit }) {
 
 describe('Input RHF widget', () => {
 	it('should integrate with RHF', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onSubmit = jest.fn();
 		// when
-		await act(async () => {
-			render(
-				<FormWrapper onSubmit={onSubmit}>
-					<Select
-						id="name"
-						name="name"
-						label="name"
-						options={[
-							{ value: 'blue', name: 'Blue color' },
-							{ value: 'red', name: 'Red color' },
-						]}
-						required
-						rules={{
-							required: 'This should not be empty',
-						}}
-					/>{' '}
-				</FormWrapper>,
-			);
-			// then
-			await userEvent.selectOptions(screen.getByRole('combobox'), 'blue');
-			await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
-		});
+		render(
+			<FormWrapper onSubmit={onSubmit}>
+				<Select
+					id="name"
+					name="name"
+					label="name"
+					options={[
+						{ value: 'blue', name: 'Blue color' },
+						{ value: 'red', name: 'Red color' },
+					]}
+					required
+					rules={{
+						required: 'This should not be empty',
+					}}
+				/>{' '}
+			</FormWrapper>,
+		);
+		// then
+		await user.selectOptions(screen.getByRole('combobox'), 'blue');
+		await user.click(screen.getByRole('button', { name: 'Submit' }));
+
 		expect(onSubmit).toHaveBeenCalledTimes(1);
 		expect(onSubmit.mock.calls[0][0]).toEqual({ name: 'blue' });
 
-		await act(async () => {
-			await userEvent.selectOptions(screen.getByRole('combobox'), 'red');
-			await userEvent.click(screen.getByText('Submit'));
-		});
+		await user.selectOptions(screen.getByRole('combobox'), 'red');
+		await user.click(screen.getByText('Submit'));
 
 		expect(onSubmit.mock.calls[1][0]).toEqual({ name: 'red' });
 	});
@@ -60,28 +59,28 @@ describe('Input RHF widget', () => {
 	it('should render RHF error', async () => {
 		// given
 		const onSubmit = jest.fn();
-		await act(async () => {
-			render(
-				<FormWrapper onSubmit={onSubmit}>
-					<Select
-						id="name"
-						name="name"
-						label="name"
-						options={[
-							{ value: 'blue', name: 'Blue color' },
-							{ value: 'red', name: 'Red color' },
-						]}
-						required
-						rules={{
-							required: 'This should not be empty',
-						}}
-					/>
-				</FormWrapper>,
-			);
-			// then
-			screen.getByRole('combobox').value = '';
-			fireEvent.change(screen.getByRole('combobox'));
-		});
+		render(
+			<FormWrapper onSubmit={onSubmit}>
+				<Select
+					id="name"
+					name="name"
+					label="name"
+					options={[
+						{ value: 'blue', name: 'Blue color' },
+						{ value: 'red', name: 'Red color' },
+					]}
+					required
+					rules={{
+						required: 'This should not be empty',
+					}}
+					placeholder="Please select"
+				/>
+			</FormWrapper>,
+		);
+
+		// then
+		await act(() => (screen.getByRole('combobox').value = ''));
+		fireEvent.change(screen.getByRole('combobox'));
 
 		// then
 		expect(screen.getByText('Red color').selected).toBe(false);
