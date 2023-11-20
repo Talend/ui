@@ -15,7 +15,7 @@ if (command === '--help' || command === '-h' || command === 'help') {
 * build
 * build-storybook
 * lint
-* lint:merge-report
+* lint-merge-report
 * test
 * extends
 * start-storybook

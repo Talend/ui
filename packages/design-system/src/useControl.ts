@@ -11,7 +11,6 @@ export type UseControlReturns<T> = {
 	value: T | undefined;
 	onChange: (...args: any) => void;
 };
-console.log('this is a test');
 
 export function useControl<T>(props: any, opts: UseControlOptions): UseControlReturns<T> {
 	const isControlled = props[opts.valueKey] !== undefined && props[opts.onChangeKey] !== undefined;

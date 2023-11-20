@@ -4,8 +4,6 @@ import { spawn } from 'child_process';
 /* eslint-disable no-param-reassign */
 import fs from 'fs';
 
-import * as utils from '@talend/scripts-utils';
-
 const reports = ['eslint-report.json', 'stylelint-report.json'];
 
 const packageDirs = ['packages', 'fork', 'tools'];
