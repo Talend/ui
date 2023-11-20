@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 /* eslint-disable no-console */
+import mergeReport from './scripts/lint-merge-report.js';
 import { getEnv } from './utils/env.js';
 import { printSeparator } from './utils/log.js';
 import { getPresetApi } from './utils/preset.js';
@@ -81,11 +82,13 @@ switch (command) {
 	case 'build':
 	case 'build-storybook':
 	case 'lint':
-	case 'lint-merge-report':
 	case 'start':
 	case 'start-storybook':
 	case 'test':
 		runScript(command, options);
+		break;
+	case 'lint-merge-report':
+		mergeReport(options);
 		break;
 	case 'build:lib':
 	case 'build:lib:umd':

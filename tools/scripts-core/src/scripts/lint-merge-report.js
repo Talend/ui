@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+import { spawn } from 'child_process';
+
 /* eslint-disable no-param-reassign */
 import fs from 'fs';
 
@@ -8,6 +11,59 @@ const reports = ['eslint-report.json', 'stylelint-report.json'];
 const packageDirs = ['packages', 'fork', 'tools'];
 
 let buff = [];
+
+async function run(cmd, opts = {}) {
+	if (opts.verbose) {
+		console.log(`\n#### RUNNER: ${cmd.name} ${cmd.args.join(' ')}`);
+	}
+	const start = Date.now();
+	return new Promise(async (resolve, reject) => {
+		const out = spawn(cmd.name, cmd.args);
+		let stdout = '';
+		let stderr = '';
+		out.on('error', error => {
+			console.error(error);
+			reject(error);
+		});
+		out.on('close', () => {
+			resolve(stdout);
+		});
+		out.on('exit', code => {
+			if (opts.verbose && stderr) {
+				console.error(`#### RUNNER: Child Process STDERR: ${stderr}`);
+			}
+			if (opts.verbose && stdout) {
+				console.error(`#### RUNNER: Child Process STDOUT: ${stdout}`);
+			}
+			if (code > 0) {
+				run.exitCode += 1;
+				console.error(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
+				reject(`STDOUT: ${stdout}\n\nSTDERR: ${stderr}`);
+				return;
+			}
+			const end = Date.now();
+			console.log(
+				`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code} in ${
+					(end - start) / 1000
+				} seconds`,
+			);
+			resolve(stdout);
+		});
+		out.stdout.on('data', data => {
+			const datastr = data.toString();
+			if (data && datastr) {
+				stdout += datastr;
+			}
+		});
+
+		out.stderr.on('data', data => {
+			const datastr = data.toString();
+			if (data && datastr) {
+				stderr += datastr;
+			}
+		});
+	});
+}
 
 function transform(item) {
 	if (item.source && !item.filePath) {
@@ -40,14 +96,13 @@ function getPackages() {
 	);
 }
 
-export default function mergeReport(env, presetApi, options) {
+export default function mergeReport(options) {
 	const packages = getPackages();
 	// https://stackoverflow.com/questions/65944700/how-to-run-git-diff-in-github-actions
-	const diff = utils.process
-		.spawn('git', ['diff', '--name-only', `origin/${options[0]}`, `origin/${options[1]}`], {
-			stdio: 'inherit',
-			env,
-		})
+	const diff = run({
+		name: 'git',
+		args: ['diff', '--name-only', `origin/${options[0]}`, `origin/${options[1]}`],
+	})
 		.then(out =>
 			out
 				.split('\n')
