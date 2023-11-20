@@ -63,7 +63,7 @@ async function runScript() {
 		console.error(e);
 	}
 
-	if (result.then) {
+	if (result?.then) {
 		result
 			.then(() => {
 				process.exit(0);
