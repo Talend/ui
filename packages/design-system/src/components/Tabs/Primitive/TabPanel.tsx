@@ -1,7 +1,9 @@
 import { useContext } from 'react';
+
 import classNames from 'classnames';
 
-import { TabsInternalContext } from './TabsProvider'; 
+import { TabsInternalContext } from './TabsProvider';
+
 import style from './TabStyles.module.scss';
 
 export type TabPanelPropTypes = {
