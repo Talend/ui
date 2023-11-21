@@ -72,6 +72,7 @@ export function Popover({
 					{typeof children === 'function'
 						? children({
 								...popover.getFloatingProps(),
+								open: popover.open,
 								setOpen: popover.setOpen,
 								hide: () => popover.setOpen(false),
 						  })
