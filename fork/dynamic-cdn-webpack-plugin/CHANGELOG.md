@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 13.1.0
+
+### Minor Changes
+
+- f14ebbe23: Add missing deps, adapt code to keep test working with pnpm and use custom eslint config to not have circular dependency
+
 ## 13.0.1
 
 ### Patch Changes
