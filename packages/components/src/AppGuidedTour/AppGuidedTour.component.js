@@ -21,6 +21,7 @@ function AppGuidedTour({
 	onImportDemoContent,
 	onRequestClose,
 	welcomeStepBody = null,
+	tourId,
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
@@ -52,6 +53,7 @@ function AppGuidedTour({
 
 	return (
 		<GuidedTour
+			tourId={tourId}
 			isOpen={isOpen}
 			showButtons={!isNavigationDisabled}
 			showCloseButton={!isNavigationDisabled}
@@ -100,6 +102,7 @@ function AppGuidedTour({
 														setImportDemoContent(event.target.checked);
 													}}
 													checked={importDemoContent}
+													data-feature={tourId && `guidedtour.${tourId}.demo`}
 												/>
 											</form>
 										)}
@@ -134,6 +137,7 @@ AppGuidedTour.propTypes = {
 	onRequestOpen: PropTypes.func.isRequired,
 	onImportDemoContent: PropTypes.func,
 	onRequestClose: PropTypes.func.isRequired,
+	tourId: PropTypes.string,
 };
 
 export default AppGuidedTour;
