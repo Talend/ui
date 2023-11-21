@@ -27,6 +27,7 @@ With the cli you have multiple commands:
 - **build** build a project using webpack (src/app/index.js)
 - **start** start your project using webpack-dev-server or storyook
 - **lint** execute eslint and stylelint on your project
+- **lint-merge-report** merge eslint and stylelint report (made to be used in GHA to display lint issue with a monorepo)
 - **extends** generate configuration files which extend the talend-scripts ones
 
 5. Define the npm scripts you need.
@@ -106,3 +107,15 @@ _--fix_: fix the corresponding issues that can be automatically fixed.
 ## tests options
 
 This command is a pass through jest / karma. So you can pass anything you want.
+
+## lint-merge-report config
+
+To be able to use lint-merge-report, you will have to add config in talend-scripts.json. As example, for tui, we have this:
+
+```
+{
+  "lintMergeReport": {
+    "packageDirs": ["fork", "packages", "tools"]
+  }
+}
+```

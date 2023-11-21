@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 /* eslint-disable no-console */
+import mergeReport from './scripts/lint-merge-report.js';
 import { getEnv } from './utils/env.js';
 import { printSeparator } from './utils/log.js';
 import { getPresetApi } from './utils/preset.js';
@@ -12,11 +13,12 @@ if (command === '--help' || command === '-h' || command === 'help') {
 	console.log(`Please use one of the following commands:
 * start
 * build
-* build:lib:umd
+* build-storybook
+* lint
+* lint-merge-report
 * test
 * extends
 * start-storybook
-* build-storybook
 `);
 	process.exit(0);
 }
@@ -62,7 +64,7 @@ async function runScript() {
 		console.error(e);
 	}
 
-	if (result.then) {
+	if (result?.then) {
 		result
 			.then(() => {
 				process.exit(0);
@@ -84,6 +86,9 @@ switch (command) {
 	case 'start-storybook':
 	case 'test':
 		runScript(command, options);
+		break;
+	case 'lint-merge-report':
+		mergeReport(options);
 		break;
 	case 'build:lib':
 	case 'build:lib:umd':
