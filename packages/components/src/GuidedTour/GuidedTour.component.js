@@ -3,8 +3,8 @@ import Tour from 'reactour';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { ButtonIcon, ButtonPrimary } from '@talend/design-system';
 
-import Action from '../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import theme from './GuidedTour.module.scss';
@@ -35,12 +35,15 @@ function GuidedTour({
 	disableAllInteractions,
 	steps,
 	lastStepNextButtonDataFeature,
+	tourId,
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	if (!steps.length) {
 		return null;
 	}
+
+	const dataFeature = action => tourId && `guidedtour.${tourId}.${action}`;
 
 	return (
 		<Tour
@@ -56,11 +59,29 @@ function GuidedTour({
 			disableInteraction
 			highlightedMaskClassName="tc-guided-tour__highlighted-mask"
 			lastStepNextButton={
-				<Action
-					bsStyle="info"
-					label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })}
-					data-feature={lastStepNextButtonDataFeature}
-				/>
+				<ButtonPrimary data-feature={lastStepNextButtonDataFeature ?? dataFeature('last')}>
+					{t('GUIDEDTOUR_LAST_STEP', 'Let me try')}
+				</ButtonPrimary>
+			}
+			nextButton={
+				<ButtonIcon
+					size="S"
+					onClick={() => {}}
+					icon="arrow-right"
+					data-feature={dataFeature('next')}
+				>
+					{t('GUIDEDTOUR_NEXT_STEP', 'Next')}
+				</ButtonIcon>
+			}
+			prevButton={
+				<ButtonIcon
+					size="S"
+					onClick={() => {}}
+					icon="arrow-left"
+					data-feature={dataFeature('prev')}
+				>
+					{t('GUIDEDTOUR_PREV_STEP', 'Previous')}
+				</ButtonIcon>
 			}
 			maskSpace={10}
 			rounded={4}
@@ -98,6 +119,7 @@ GuidedTour.propTypes = {
 	onRequestClose: PropTypes.func,
 	disableAllInteractions: PropTypes.bool,
 	lastStepNextButtonDataFeature: PropTypes.string,
+	tourId: PropTypes.string,
 };
 
 export default GuidedTour;

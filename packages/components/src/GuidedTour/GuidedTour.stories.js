@@ -76,6 +76,7 @@ class GuidedTourContainer extends Component {
 					t: this.props.t,
 				})}
 				lastStepNextButtonDataFeature="HOHOOO"
+				tourId="my-tour"
 				onRequestClose={this.closeTour}
 				isOpen={isOpen}
 				showCloseButton={controls}

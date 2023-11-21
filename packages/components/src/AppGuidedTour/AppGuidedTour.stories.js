@@ -22,6 +22,7 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 
 	return (
 		<AppGuidedTour
+			tourId="preparation"
 			isOpen
 			appName="Data Preparation"
 			steps={[
