@@ -32,25 +32,12 @@ export const EnumerationHeader = ({
 	const importRef = useRef<HTMLInputElement>(null);
 	const [searchValue, setSearchValue] = useState<string>();
 	const [hasError, setHasError] = useState(false);
-	const enumerationItemsRef = useRef<HTMLDivElement>(null);
-
-	const filterList = () => {
-		if (searchValue) {
-			setFilteredItems(items.filter(item => item.includes(searchValue)));
-		} else {
-			setFilteredItems(items);
-		}
-	};
 
 	const handleOnCreate = async (newValue?: string) => {
 		try {
 			if (newValue) {
 				await onCreate?.(newValue);
-				enumerationItemsRef.current?.scrollTo({
-					top: 0,
-					behavior: 'smooth',
-				});
-				onChange([newValue, ...items]);
+				onChange(newValue);
 			}
 		} catch (e) {
 			//The parent component must do the error handling
@@ -59,16 +46,14 @@ export const EnumerationHeader = ({
 
 	const isAllChecked = () => selectedItems.length > 0 || selectedItems.length === items.length;
 
-	const onToggleAll = (isChecked: boolean) => {
-		if (isChecked) {
-			setSelectedItems(items);
-		} else {
-			setSelectedItems([]);
-		}
-	};
+	const onToggleAll = (isChecked: boolean) => setSelectedItems(isChecked ? items : []);
 
 	useEffect(() => {
-		filterList();
+		if (searchValue) {
+			setFilteredItems(items.filter(item => item.includes(searchValue)));
+		} else {
+			setFilteredItems(items);
+		}
 	}, [searchValue, items]);
 
 	return (
@@ -136,7 +121,7 @@ export const EnumerationHeader = ({
 
 										if (file) {
 											fr.readAsText(file);
-											fr.onload = () => onImport(fr.result);
+											fr.onload = () => onImport(fr.result as string);
 										}
 									}}
 								/>
@@ -157,7 +142,7 @@ export const EnumerationHeader = ({
 			{mode === EnumerationMode.CREATE ? (
 				<StackVertical gap={'XXS'} align={'stretch'}>
 					<InlineEditing.Text
-						isEditionMode={true}
+						isEditMode={true}
 						label={t('ENUMERATION_ADD_INPUT_PLACEHOLDER', 'Enter a value')}
 						placeholder={t('ENUMERATION_ADD_INPUT_PLACEHOLDER', 'Enter a value')}
 						onEdit={(_, value) => {

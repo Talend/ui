@@ -1,25 +1,12 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
-import { FigmaImage } from '@talend/storybook-docs';
-import * as Stories from './Enumeration.stories';
+
 import { Status } from '../../Status.block';
+import * as Stories from './Enumeration.stories';
 
 <Meta of={Stories} />
-<Status id="formAffix" />
+<Status id="formEnumeration" />
 
-# Affixes: `prefix` and `suffix` props
-
-All the base inputs (`Form.Text`, `Form.Select`, `Form.Email`, `Form.Number` etc...) sport the ability to display affixes.
-
-Fill in their `prefix` or `suffix` prop and the deed is done.
-
-`Form.Textarea` and "on/off" inputs (`Radio`, `Checkbox` etc...) are not compatible with affixes.
-
-## Zoning
-
-<FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=249%3A129"
-	alt="zoning image for field groups"
-/>
+# Enumeration
 
 ## Style
 
@@ -30,5 +17,5 @@ Fill in their `prefix` or `suffix` prop and the deed is done.
 Affixes are either `prefix` or `suffix`. They are one of the following types:
 
 <Canvas>
-	<Story of={Stories.Default} />
+	<Story of={Stories.QuickStart} />
 </Canvas>

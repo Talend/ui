@@ -39,7 +39,7 @@ export type OnEditEvent =
 	| RKeyboardEvent;
 
 export type InlineEditingPrimitiveProps = {
-	isEditionMode?: boolean;
+	isEditMode?: boolean;
 	loading?: boolean;
 	onCancel?: () => void;
 	onToggle?: (isEditionMode: boolean) => void;
@@ -82,7 +82,7 @@ export type InlineEditingPrimitiveProps = {
 const InlineEditingPrimitive = forwardRef(
 	(props: InlineEditingPrimitiveProps, ref: Ref<HTMLDivElement>) => {
 		const {
-			isEditionMode = false,
+			isEditMode = false,
 			loading,
 			ariaLabel,
 			mode,
@@ -104,7 +104,7 @@ const InlineEditingPrimitive = forwardRef(
 
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-		const [isEditing, setEditing] = useState<boolean>(isEditionMode);
+		const [isEditing, setEditing] = useState<boolean>(isEditMode);
 		const [internalValue, setInternalValue] = useState<string | undefined>(defaultValue);
 		const inlineEditingId = useId(rest.id, 'inline-edit-');
 
@@ -131,11 +131,11 @@ const InlineEditingPrimitive = forwardRef(
 		const handleSubmit = (event: OnEditEvent) => {
 			event.stopPropagation();
 
-			if (!hasError) {
-				if (onEdit) {
-					onEdit(event, getValue() || '');
-				}
+			if (onEdit) {
+				onEdit(event, getValue() || '');
+			}
 
+			if (!hasError) {
 				toggleEditionMode(false);
 			}
 		};

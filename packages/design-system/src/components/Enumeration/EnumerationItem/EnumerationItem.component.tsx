@@ -8,6 +8,7 @@ import { ButtonIcon } from '../../ButtonIcon';
 import { Dropdown } from '../../Dropdown';
 import { Form } from '../../Form';
 import { InlineEditing } from '../../InlineEditing';
+import { Skeleton } from '../../Skeleton';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { EnumerationMode } from '../Enumeration.types';
 import { EnumerationItemProps } from './EnumerationItem.types';
@@ -15,6 +16,7 @@ import { EnumerationItemProps } from './EnumerationItem.types';
 import styles from './EnumerationItem.module.scss';
 
 export const EnumerationItem = ({
+	isToAnimate,
 	mode,
 	onChange,
 	onRemove,
@@ -24,38 +26,38 @@ export const EnumerationItem = ({
 }: EnumerationItemProps) => {
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	const id = useId();
-
 	const [isEdit, setIsEdit] = useState(false);
 
-	const isChecked = (id: string) => selectedItems.includes(id);
+	const isChecked = (itemId: string) => selectedItems.includes(itemId);
 
-	const onToggleItem = (value: string, isChecked: boolean) => {
-		if (isChecked) {
-			setSelectedItems([...selectedItems, value]);
-		} else {
-			setSelectedItems(selectedItems.filter(item => item !== value));
-		}
+	const onToggleItem = (itemValue: string, isItemChecked: boolean) => {
+		setSelectedItems(
+			isItemChecked
+				? [...selectedItems, itemValue]
+				: selectedItems.filter(item => item !== itemValue),
+		);
 	};
 
 	return (
 		<div
-			className={classNames(styles['enumeration__item'], {
+			className={classNames(styles.enumeration__item, {
 				[styles['enumeration__item--edit']]: isEdit,
+				[styles['enumeration__item--animate']]: isToAnimate,
 			})}
 		>
 			{isEdit ? (
 				<InlineEditing.Text
 					defaultValue={value}
-					isEditionMode={true}
+					isEditMode={true}
 					label={`${value}`}
 					onCancel={() => setIsEdit(false)}
-					onEdit={(_, value) => {
-						onChange(value);
+					onEdit={(_, newValue) => {
+						onChange(newValue);
 						setIsEdit(false);
 					}}
 					placeholder={value}
 				/>
-			) : (
+			) : value ? (
 				<>
 					{mode === EnumerationMode.EDIT ? (
 						<Form.Checkbox
@@ -79,7 +81,7 @@ export const EnumerationItem = ({
 							{
 								label: t('ENUMERATION_DROPDOWN_REMOVE', 'Remove'),
 								icon: 'trash',
-								onClick: async () => await onRemove?.([value]),
+								onClick: () => onRemove?.([value]),
 								type: 'button',
 							},
 						]}
@@ -94,6 +96,8 @@ export const EnumerationItem = ({
 						</ButtonIcon>
 					</Dropdown>
 				</>
+			) : (
+				<Skeleton variant="paragraph" />
 			)}
 		</div>
 	);

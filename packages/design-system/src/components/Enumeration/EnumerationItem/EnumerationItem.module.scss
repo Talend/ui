@@ -6,7 +6,7 @@
 	display: flex;
 	height: 38px;
 	justify-content: space-between;
-	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-m tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
+	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
 	transition: background-color tokens.$coral-transition-fast;
 
 	&:hover {
@@ -22,6 +22,20 @@
 	}
 
 	&--edit {
-		padding: 0 tokens.$coral-spacing-m 0 tokens.$coral-spacing-xxs;
+		padding: 0 tokens.$coral-spacing-xxs;
+	}
+
+	&--animate {
+		animation: highlight 1500ms both 100ms;
+	}
+}
+
+@keyframes highlight {
+	0% {
+		background-color: tokens.$coral-color-neutral-background;
+	}
+
+	75% {
+		background-color: tokens.$coral-color-accent-background;
 	}
 }

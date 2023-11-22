@@ -10,6 +10,11 @@ export interface EnumerationProps {
 	title: string;
 }
 
+export interface UiEnumerationItem {
+	value: string;
+	isToAnimate: boolean;
+}
+
 export enum EnumerationMode {
 	CREATE = 'create',
 	EDIT = 'edit',
