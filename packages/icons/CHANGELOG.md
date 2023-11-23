@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.3.0
+
+### Minor Changes
+
+- 02e2d012c: fix(DFD-336): Update field remover processor icon to remove default filling
+
 ## 7.2.0
 
 ### Minor Changes

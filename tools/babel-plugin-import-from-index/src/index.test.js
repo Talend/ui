@@ -46,7 +46,7 @@ pluginTester({
 			output: `
                  import React from 'react';
 
-                 import { SidePanel, Actions, ActionButton, ActionDropdown, List } from '@talend/react-components';`,
+                 import { ActionButton, ActionDropdown, Actions, List, SidePanel } from '@talend/react-components';`,
 		},
 		{
 			code: "import React from 'react';",
@@ -60,7 +60,7 @@ pluginTester({
 			output: `
 		 		import React from 'react';
 
-		 		import { SidePanel, ModelViewer as ModelViewerComponent } from '@talend/react-components';`,
+		 		import { ModelViewer as ModelViewerComponent, SidePanel } from '@talend/react-components';`,
 		},
 		{
 			code: "import { RecordsViewer as RecordsViewerComponent, TooltipTrigger } from '@talend/react-components';",

@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import useLocalStorage from 'react-use/lib/useLocalStorage';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import GuidedTour from '../GuidedTour';
-import Toggle from '../Toggle';
-import Stepper from '../Stepper';
+import useLocalStorage from 'react-use/lib/useLocalStorage';
+
+import PropTypes from 'prop-types';
+
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import GuidedTour from '../GuidedTour';
+import Stepper from '../Stepper';
+import Toggle from '../Toggle';
 import DemoContentStep from './DemoContentStep.component';
 
 const DEMO_CONTENT_STEP_ID = 1;
@@ -21,6 +23,7 @@ function AppGuidedTour({
 	onImportDemoContent,
 	onRequestClose,
 	welcomeStepBody = null,
+	tourId,
 	...rest
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
@@ -52,6 +55,7 @@ function AppGuidedTour({
 
 	return (
 		<GuidedTour
+			tourId={tourId}
 			isOpen={isOpen}
 			showButtons={!isNavigationDisabled}
 			showCloseButton={!isNavigationDisabled}
@@ -100,6 +104,7 @@ function AppGuidedTour({
 														setImportDemoContent(event.target.checked);
 													}}
 													checked={importDemoContent}
+													data-feature={tourId && `guidedtour.${tourId}.demo`}
 												/>
 											</form>
 										)}
@@ -134,6 +139,7 @@ AppGuidedTour.propTypes = {
 	onRequestOpen: PropTypes.func.isRequired,
 	onImportDemoContent: PropTypes.func,
 	onRequestClose: PropTypes.func.isRequired,
+	tourId: PropTypes.string,
 };
 
 export default AppGuidedTour;

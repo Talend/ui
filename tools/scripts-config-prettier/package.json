@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-config-prettier",
-  "version": "12.1.0",
+  "version": "12.1.1",
   "description": "Shared Prettier config",
   "main": ".prettierrc.js",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
-    "@talend/eslint-config": "^13.0.0",
+    "@talend/eslint-config": "^13.0.1",
     "@talend/eslint-plugin": "^1.1.0",
     "eslint": "^8.53.0"
   }

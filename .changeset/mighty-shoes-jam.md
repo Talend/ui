@@ -2,4 +2,4 @@
 '@talend/scripts-config-prettier': patch
 ---
 
-Add missing deps
+fix: prettier configuration for sort imports
