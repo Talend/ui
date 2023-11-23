@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AutoSizer, InfiniteLoader, List } from 'react-virtualized';
 
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { EmptyState } from '../EmptyState';
 import { StackHorizontal } from '../Stack';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { EnumerationMode, EnumerationProps, UiEnumerationItem } from './Enumeration.types';
 import { EnumerationHeader } from './EnumerationHeader/EnumerationHeader.component';
 import { EnumerationItem } from './EnumerationItem/EnumerationItem.component';
@@ -17,6 +17,7 @@ export const Enumeration = ({
 	loadMoreRows,
 	onCreate,
 	onChange,
+	onEdit,
 	onImport,
 	onRemove,
 	title,
@@ -62,6 +63,42 @@ export const Enumeration = ({
 		}, 2500);
 	};
 
+	const handleOnCreate = async (newItem: string) => {
+		try {
+			if (newItem) {
+				await onCreate?.(newItem);
+				onChange([newItem, ...items]);
+				onAnimate([newItem]);
+			}
+		} catch (e) {
+			//The parent component must do the error handling
+		}
+	};
+
+	const handleOnEdit = async (value: string, index: number) => {
+		try {
+			const indexToReplace = items.indexOf(filteredItems[index]);
+
+			if (indexToReplace !== -1) {
+				const newItems = [...items];
+				newItems[indexToReplace] = value;
+				onChange(newItems);
+				onEdit?.(value);
+			}
+		} catch (e) {
+			//The parent component must do the error handling
+		}
+	};
+
+	const handleOnRemove = async (itemsToRemove: string[]) => {
+		try {
+			await onRemove?.(itemsToRemove);
+			onChange(items.filter(item => !selectedItems.includes(item)));
+		} catch (e) {
+			//The parent component must do the error handling
+		}
+	};
+
 	return (
 		<div className={styles.enumeration}>
 			<EnumerationHeader
@@ -69,17 +106,13 @@ export const Enumeration = ({
 				id={id}
 				items={items}
 				mode={mode}
-				onChange={(newItem: string) => {
-					onChange([newItem, ...items]);
-					onAnimate([newItem]);
-				}}
-				onCreate={onCreate}
+				onCreate={handleOnCreate}
 				onImport={(data: string) => {
 					const newItems = data.split('\n').filter(Boolean);
 					onImport?.(newItems);
 					onAnimate(newItems);
 				}}
-				onRemove={onRemove}
+				onRemove={handleOnRemove}
 				selectedItems={selectedItems}
 				setFilteredItems={setFilteredItems}
 				setMode={setMode}
@@ -87,7 +120,7 @@ export const Enumeration = ({
 				title={title}
 			/>
 
-			{filteredItems.length ? (
+			{loadMoreRows && filteredItems.length ? (
 				<InfiniteLoader
 					isRowLoaded={({ index }) => !!filteredItems[index]}
 					loadMoreRows={loadMoreRows}
@@ -112,16 +145,8 @@ export const Enumeration = ({
 													isToAnimate={uiItems[index]?.isToAnimate}
 													key={key}
 													mode={mode}
-													onChange={value => {
-														const indexToReplace = items.indexOf(filteredItems[index]);
-
-														if (indexToReplace !== -1) {
-															const newItems = [...items];
-															newItems[indexToReplace] = value;
-															onChange(newItems);
-														}
-													}}
-													onRemove={onRemove}
+													onEdit={value => handleOnEdit(value, index)}
+													onRemove={handleOnRemove}
 													selectedItems={selectedItems}
 													setSelectedItems={setSelectedItems}
 													value={filteredItems[index]}

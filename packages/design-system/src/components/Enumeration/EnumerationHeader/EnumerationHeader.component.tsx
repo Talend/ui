@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { ButtonDestructive } from '../../Button';
 import { ButtonIcon, ButtonIconToggle } from '../../ButtonIcon';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { Form } from '../../Form';
 import { InlineEditing } from '../../InlineEditing';
 import { InlineMessageDestructive } from '../../InlineMessage';
 import { StackHorizontal, StackVertical } from '../../Stack';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { EnumerationMode } from '../Enumeration.types';
 import { EnumerationHeaderProps } from './EnumerationIHeader.types';
 
@@ -19,7 +19,6 @@ export const EnumerationHeader = ({
 	items,
 	mode,
 	onCreate,
-	onChange,
 	onImport,
 	onRemove,
 	setFilteredItems,
@@ -32,17 +31,6 @@ export const EnumerationHeader = ({
 	const importRef = useRef<HTMLInputElement>(null);
 	const [searchValue, setSearchValue] = useState<string>();
 	const [hasError, setHasError] = useState(false);
-
-	const handleOnCreate = async (newValue?: string) => {
-		try {
-			if (newValue) {
-				await onCreate?.(newValue);
-				onChange(newValue);
-			}
-		} catch (e) {
-			//The parent component must do the error handling
-		}
-	};
 
 	const isAllChecked = () => selectedItems.length > 0 || selectedItems.length === items.length;
 
@@ -64,8 +52,9 @@ export const EnumerationHeader = ({
 				{selectedItems.length ? (
 					<ButtonDestructive
 						onClick={async () => {
-							await onRemove?.(selectedItems);
+							onRemove(selectedItems);
 							setSelectedItems([]);
+							setMode(EnumerationMode.VIEW);
 						}}
 					>
 						{t('ENUMERATION_REMOVE_BUTTON', {
@@ -147,7 +136,7 @@ export const EnumerationHeader = ({
 						placeholder={t('ENUMERATION_ADD_INPUT_PLACEHOLDER', 'Enter a value')}
 						onEdit={(_, value) => {
 							if (value) {
-								handleOnCreate(value);
+								onCreate(value);
 								setMode(EnumerationMode.VIEW);
 							}
 

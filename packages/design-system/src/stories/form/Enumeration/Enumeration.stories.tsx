@@ -1,17 +1,11 @@
 import { useState } from 'react';
 
-import { Enumeration as EnumerationComponent } from '../../../components/Enumeration';
+import { Enumeration } from '../../../components/Enumeration';
 
 export default {
-	component: EnumerationComponent,
+	component: Enumeration,
 	title: 'Form/Enumeration',
 };
-
-const Enumeration = (args: any) => (
-	<div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-		<EnumerationComponent {...args} />
-	</div>
-);
 
 const getItems = (numItems: number, totalItems: number) => {
 	const itemsToAdd = [];
@@ -26,24 +20,30 @@ const getItems = (numItems: number, totalItems: number) => {
 
 	return itemsToAdd;
 };
-export const EnumeraionDefault = () => {
+export const Default = () => {
 	const [items, setItems] = useState([...getItems(100, 500)]);
 
 	return (
 		<Enumeration
 			id={'default'}
 			items={items}
-			loadMoreRows={({ stopIndex }: { startIndex: number; stopIndex: number }) => {
-				setItems([...getItems(stopIndex, 500)]);
-			}}
+			loadMoreRows={({ stopIndex }) =>
+				new Promise<void>(resolve => {
+					setItems([...getItems(stopIndex, 500)]);
+					resolve();
+				})
+			}
 			onChange={setItems}
 			onImport={(data: string[]) => {
 				setItems([...data, ...items]);
 			}}
-			onRemove={(ids: string[]) => setItems(items.filter(item => !ids.includes(item)))}
 			title="This is a title"
 		/>
 	);
 };
 
-export const Empty = () => <Enumeration title="This is a title" items={[]} id={'empty'} />;
+export const Empty = () => {
+	const [items, setItems] = useState<string[]>([]);
+
+	return <Enumeration title="This is a title" items={items} id={'empty'} onChange={setItems} />;
+};

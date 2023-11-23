@@ -5,11 +5,11 @@ import classNames from 'classnames';
 
 import { useId } from '../../../useId';
 import { ButtonIcon } from '../../ButtonIcon';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { Dropdown } from '../../Dropdown';
 import { Form } from '../../Form';
 import { InlineEditing } from '../../InlineEditing';
 import { Skeleton } from '../../Skeleton';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { EnumerationMode } from '../Enumeration.types';
 import { EnumerationItemProps } from './EnumerationItem.types';
 
@@ -18,7 +18,7 @@ import styles from './EnumerationItem.module.scss';
 export const EnumerationItem = ({
 	isToAnimate,
 	mode,
-	onChange,
+	onEdit,
 	onRemove,
 	selectedItems,
 	setSelectedItems,
@@ -52,7 +52,7 @@ export const EnumerationItem = ({
 					label={`${value}`}
 					onCancel={() => setIsEdit(false)}
 					onEdit={(_, newValue) => {
-						onChange(newValue);
+						onEdit(newValue);
 						setIsEdit(false);
 					}}
 					placeholder={value}

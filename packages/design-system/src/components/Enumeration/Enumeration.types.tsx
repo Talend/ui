@@ -2,10 +2,11 @@ export interface EnumerationProps {
 	error?: string;
 	id: string;
 	items: string[];
-	loadMoreRows: (params: { startIndex: number; stopIndex: number }) => Promise<void>;
+	loadMoreRows?: (params: { startIndex: number; stopIndex: number }) => Promise<void>;
 	onChange: (items: string[]) => void;
 	onCreate?: (value: string) => Promise<unknown>;
-	onImport?: (...params: unknown[]) => void;
+	onEdit?: (value: string) => Promise<unknown>;
+	onImport?: (data: string[]) => void;
 	onRemove?: (entries: string[]) => Promise<unknown>;
 	title: string;
 }

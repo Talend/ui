@@ -5,10 +5,9 @@ export interface EnumerationHeaderProps {
 	id: string;
 	items: string[];
 	mode: EnumerationMode;
-	onChange: (item: string) => void;
-	onCreate?: (value: string) => Promise<unknown>;
+	onCreate: (value: string) => Promise<unknown>;
 	onImport?: (data: string) => void;
-	onRemove?: (entries: string[]) => Promise<unknown>;
+	onRemove: (entries: string[]) => Promise<unknown>;
 	selectedItems: string[];
 	setFilteredItems: (filteredItems: string[]) => void;
 	setMode: (mode: EnumerationMode) => void;
