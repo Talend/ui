@@ -1,5 +1,16 @@
 # @talend/scripts-core
 
+## 16.3.0
+
+### Minor Changes
+
+- e77b32c35: Add option lint-merge-report
+
+### Patch Changes
+
+- Updated dependencies [f14ebbe23]
+  - @talend/eslint-config@13.0.1
+
 ## 16.2.0
 
 ### Minor Changes

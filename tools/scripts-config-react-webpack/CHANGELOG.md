@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.3.1
+
+### Patch Changes
+
+- f14ebbe23: Fix possibility to use BASENAME even if we are not using the cdn
+
 ## 16.3.0
 
 ### Minor Changes

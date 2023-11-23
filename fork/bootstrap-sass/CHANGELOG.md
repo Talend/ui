@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.1
+
+### Patch Changes
+
+- f14ebbe23: Add missing deps
+
 ## 3.5.0
 
 ### Minor Changes

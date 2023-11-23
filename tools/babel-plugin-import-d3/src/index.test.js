@@ -16,7 +16,7 @@ pluginTester({
 				import { csv } from 'd3-fetch'`,
 			output: `
 				import { brush } from 'd3';
-				import { select, event, shape, scale as foo, csv } from 'd3';
+				import { csv, event, scale as foo, select, shape } from 'd3';
 				import get from 'lodash/get';`,
 		},
 		// should work in already compiled project

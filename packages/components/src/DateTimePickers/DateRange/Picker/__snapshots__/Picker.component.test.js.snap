@@ -16,11 +16,12 @@ exports[`DateRange.Picker should render 1`] = `
         class="theme-element-container theme-left"
       >
         <span
-          aria-label="Go to previous month"
           class="CoralButtonIcon"
           icon="arrow-left"
           tabindex="-1"
-        />
+        >
+          Go to previous month
+        </span>
       </div>
       <div
         class="theme-element-container theme-middle"
@@ -40,11 +41,12 @@ exports[`DateRange.Picker should render 1`] = `
         class="theme-element-container theme-right"
       >
         <span
-          aria-label="Go to next month"
           class="CoralButtonIcon"
           icon="arrow-right"
           tabindex="-1"
-        />
+        >
+          Go to next month
+        </span>
       </div>
     </div>
     <div

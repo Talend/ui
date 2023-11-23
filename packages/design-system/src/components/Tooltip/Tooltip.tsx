@@ -91,23 +91,25 @@ export const Tooltip = ({ id, children, title, placement = 'top', ...rest }: Too
 				children,
 				{
 					...getReferenceProps(),
-					'aria-describedby': safeId,
+					...(title && { 'aria-describedby': safeId }),
 				},
 				floating.refs.setReference,
 			)}
-			<FloatingPortal>
-				<div
-					{...getFloatingProps()}
-					id={safeId}
-					ref={floating.refs.setFloating}
-					className={styles.container}
-					style={{ display: isOpen ? 'block' : 'none', ...floating.floatingStyles }}
-					{...rest}
-				>
-					<FloatingArrow ref={arrowRef} context={floating.context} />
-					{title}
-				</div>
-			</FloatingPortal>
+			{!!title && (
+				<FloatingPortal>
+					<div
+						{...getFloatingProps()}
+						id={safeId}
+						ref={floating.refs.setFloating}
+						className={styles.container}
+						style={{ display: isOpen ? 'block' : 'none', ...floating.floatingStyles }}
+						{...rest}
+					>
+						<FloatingArrow ref={arrowRef} context={floating.context} />
+						{title}
+					</div>
+				</FloatingPortal>
+			)}
 		</>
 	);
 };

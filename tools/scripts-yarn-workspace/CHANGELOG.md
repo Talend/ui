@@ -1,5 +1,11 @@
 # @talend/scripts-yarn-workspace
 
+## 2.0.0
+
+### Major Changes
+
+- e77b32c35: [BREAKING CHANGE]Remove option lint-merge-report
+
 ## 1.3.0
 
 ### Minor Changes
