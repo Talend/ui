@@ -30,6 +30,9 @@ importers:
       '@talend/scripts-yarn-workspace':
         specifier: ^1.3.0
         version: link:tools/scripts-yarn-workspace
+      '@talend/upgrade-deps':
+        specifier: ^2.1.0
+        version: link:tools/upgrade-deps
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
