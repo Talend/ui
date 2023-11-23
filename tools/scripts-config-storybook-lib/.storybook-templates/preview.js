@@ -110,6 +110,9 @@ const defaultPreview = {
 				React.createElement(ThemeProvider, {
 					key: 'theme-provider-decorator',
 					theme: context.globals.theme,
+					// tokensOverride: {
+					// 	"--coral-color-accent-background-strong": "red"
+					// }
 				}, storyElement)
 			];
 		},
