@@ -29,10 +29,7 @@ importers:
         version: link:tools/scripts-core
       '@talend/scripts-yarn-workspace':
         specifier: ^1.3.0
-        version: link:tools/scripts-yarn-workspace
-      '@talend/upgrade-deps':
-        specifier: ^2.1.0
-        version: link:tools/upgrade-deps
+        version: 1.3.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -64,7 +61,7 @@ importers:
   fork/bootstrap-sass:
     devDependencies:
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../../tools/scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
@@ -181,7 +178,7 @@ importers:
         version: 3.0.0
     devDependencies:
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../../tools/scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
@@ -190,10 +187,10 @@ importers:
         specifier: ^13.2.0
         version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
-        specifier: ^16.3.0
+        specifier: ^16.3.1
         version: link:../../tools/scripts-config-react-webpack
       '@talend/scripts-core':
-        specifier: ^16.2.0
+        specifier: ^16.3.0
         version: link:../../tools/scripts-core
       '@testing-library/jest-dom':
         specifier: ^5.17.0
@@ -554,13 +551,13 @@ importers:
         specifier: ^2.10.0
         version: link:../design-tokens
       '@talend/icons':
-        specifier: ^7.2.0
+        specifier: ^7.3.0
         version: link:../icons
       '@talend/react-a11y':
         specifier: ^2.1.0
         version: link:../a11y
       '@talend/react-bootstrap':
-        specifier: ^2.1.0
+        specifier: ^2.1.1
         version: link:../../fork/react-bootstrap
       '@talend/utils':
         specifier: ^2.8.0
@@ -654,10 +651,10 @@ importers:
         specifier: ^7.5.3
         version: 7.5.3(@types/react-dom@17.0.21)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
       '@talend/design-system':
-        specifier: ^8.3.0
+        specifier: ^8.3.1
         version: link:../design-system
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../../tools/scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
@@ -672,7 +669,7 @@ importers:
         specifier: ^13.2.0
         version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
-        specifier: ^16.3.0
+        specifier: ^16.3.1
         version: link:../../tools/scripts-config-react-webpack
       '@talend/scripts-config-storybook-lib':
         specifier: ^5.2.0
@@ -681,7 +678,7 @@ importers:
         specifier: ^11.2.0
         version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
-        specifier: ^16.2.0
+        specifier: ^16.3.0
         version: link:../../tools/scripts-core
       '@testing-library/jest-dom':
         specifier: ^5.17.0
@@ -1237,13 +1234,13 @@ importers:
         specifier: '*'
         version: 'link:'
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../../tools/scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
         version: link:../../tools/eslint-plugin
       '@talend/icons':
-        specifier: ^7.2.0
+        specifier: ^7.3.0
         version: link:../icons
       '@talend/locales-design-system':
         specifier: ^7.15.1
@@ -1252,7 +1249,7 @@ importers:
         specifier: ^13.2.0
         version: link:../../tools/scripts-config-babel
       '@talend/scripts-config-react-webpack':
-        specifier: ^16.3.0
+        specifier: ^16.3.1
         version: link:../../tools/scripts-config-react-webpack
       '@talend/scripts-config-storybook-lib':
         specifier: ^5.2.0
@@ -1261,7 +1258,7 @@ importers:
         specifier: ^11.2.0
         version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
-        specifier: ^16.2.0
+        specifier: ^16.3.0
         version: link:../../tools/scripts-core
       '@talend/storybook-docs':
         specifier: ^2.2.0
@@ -1813,7 +1810,7 @@ importers:
         specifier: ^2.10.0
         version: link:../design-tokens
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../../tools/scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
@@ -1828,7 +1825,7 @@ importers:
         specifier: ^11.2.0
         version: link:../../tools/scripts-config-typescript
       '@talend/scripts-core':
-        specifier: ^16.2.0
+        specifier: ^16.3.0
         version: link:../../tools/scripts-core
       babel-loader:
         specifier: ^9.1.3
@@ -2808,7 +2805,7 @@ importers:
         specifier: ^7.23.3
         version: 7.23.3(@babel/core@7.23.3)(eslint@8.53.0)
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
@@ -3041,7 +3038,7 @@ importers:
         specifier: ^7.23.3
         version: 7.23.3(@babel/core@7.23.3)(eslint@8.53.0)
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
@@ -3174,7 +3171,7 @@ importers:
         version: 4.15.1(webpack-cli@4.10.0)(webpack@5.89.0)
     devDependencies:
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
@@ -3296,7 +3293,7 @@ importers:
         specifier: ^7.23.3
         version: 7.23.3
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
@@ -3465,13 +3462,13 @@ importers:
   tools/scripts-yarn-workspace:
     devDependencies:
       '@talend/eslint-config':
-        specifier: ^13.0.0
+        specifier: ^13.0.1
         version: link:../scripts-config-eslint
       '@talend/eslint-plugin':
         specifier: ^1.1.0
         version: link:../eslint-plugin
       '@talend/scripts-core':
-        specifier: ^16.2.0
+        specifier: ^16.3.0
         version: link:../scripts-core
 
   tools/upgrade-deps:
@@ -10267,6 +10264,11 @@ packages:
 
   /@talend/locales-tui-forms@10.2.4:
     resolution: {integrity: sha512-3rHgRKv9bc4rpLA3p4CQ7cGEWbHVITv6aRDLjhca6ZFmlQECC0JsghrqUYZ3GZeJmHezWGZm0LLRw4nNXBHwUA==}
+
+  /@talend/scripts-yarn-workspace@1.3.0:
+    resolution: {integrity: sha512-Pbsj0SKJIluYQILQgNpWJYAc+aCLK91rlFfaz7RiXB+HbouHc3OgDj+P8XnkiPQWOr5qF/Y+YT2OtBzGjT2c4Q==}
+    hasBin: true
+    dev: true
 
   /@testing-library/cypress@9.0.0(cypress@12.17.4):
     resolution: {integrity: sha512-c1XiCGeHGGTWn0LAU12sFUfoX3qfId5gcSE2yHode+vsyHDWraxDPALjVnHd4/Fa3j4KBcc5k++Ccy6A9qnkMA==}
