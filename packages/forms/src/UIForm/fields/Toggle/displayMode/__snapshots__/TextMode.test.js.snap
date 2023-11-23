@@ -15,7 +15,7 @@ exports[`Toggle field in text mode should render the Toggle 1`] = `
       aria-hidden="true"
     >
       <div
-        class="checkbox tc-checkbox tc-checkbox-disabled switch tc-toggle tc-toggle-disabled"
+        class="checkbox tc-checkbox disabled switch tc-toggle tc-toggle-disabled"
       >
         <label
           for="myForm"

@@ -25,6 +25,7 @@ exports[`Time component should render an InputTimePicker 1`] = `
       value="12:34"
     />
     <span
+      data-testid="InputSizer"
       style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
     >
       HH:mm

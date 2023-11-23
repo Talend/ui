@@ -171,20 +171,22 @@ exports[`Guided Tour Container should render 1`] = `
         data-tour-elem="controls"
       >
         <button
-          class="sc-aXZVg cdorhc sc-eqUAAy jLJOIm"
+          class="sc-aXZVg cdorhc sc-eqUAAy cTnNMO"
           data-tour-elem="left-arrow"
           disabled=""
         >
-          <span
-            class="sc-gEvEer fZNxWp"
+          <svg
+            viewBox="0 0 18.4 14.4"
           >
-            <span
-              class="CoralButtonIcon"
-              icon="arrow-left"
-            >
-              Previous
-            </span>
-          </span>
+            <path
+              d="M1.4 7.2h16M7.6 1L1.4 7.2l6.2 6.2"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="2"
+            />
+          </svg>
         </button>
         <nav
           class="sc-kAyceB cIhnUi"
@@ -207,19 +209,21 @@ exports[`Guided Tour Container should render 1`] = `
           />
         </nav>
         <button
-          class="sc-aXZVg dbJwZj sc-eqUAAy gcKufz"
+          class="sc-aXZVg dbJwZj sc-eqUAAy eqHGdD"
           data-tour-elem="right-arrow"
         >
-          <span
-            class="sc-gEvEer fZNxWp"
+          <svg
+            viewBox="0 0 18.4 14.4"
           >
-            <span
-              class="CoralButtonIcon"
-              icon="arrow-right"
-            >
-              Next
-            </span>
-          </span>
+            <path
+              d="M17 7.2H1M10.8 1L17 7.2l-6.2 6.2"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="2"
+            />
+          </svg>
         </button>
       </div>
       <button
