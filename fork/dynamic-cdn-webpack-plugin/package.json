@@ -1,66 +1,66 @@
 {
-  "name": "@talend/dynamic-cdn-webpack-plugin",
-  "version": "13.0.1",
-  "description": "Dynamically get your dependencies from a cdn rather than bundling them in your app",
-  "license": "MIT",
-  "repository": "Talend/dynamic-cdn-webpack-plugin",
-  "author": {
-    "name": "Thomas Sileghem",
-    "email": "th.sileghem@gmail.com",
-    "url": "https://mastilver.com"
-  },
-  "engines": {
-    "node": ">=14"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "jest",
-    "version": "all-contributors generate",
-    "add-contributor": "all-contributors add"
-  },
-  "files": [
-    "index.js",
-    "src"
-  ],
-  "keywords": [
-    "webpack",
-    "cdn",
-    "unpkg.com",
-    "html-webpack-plugin",
-    "webpack-manifest-plugin",
-    "html",
-    "script",
-    "assets",
-    "externals"
-  ],
-  "dependencies": {
-    "@talend/module-to-cdn": "^9.10.0",
-    "read-pkg-up": "^7.0.1",
-    "semver": "^7.5.4",
-    "webpack-sources": "^3.2.3"
-  },
-  "peerDependencies": {
-    "webpack": "^5.89.0"
-  },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.23.3",
-    "all-contributors-cli": "^6.26.1",
-    "codecov": "^3.8.3",
-    "eslint": "^8.53.0",
-    "html-webpack-plugin": "^5.5.3",
-    "jest": "^29.7.0",
-    "mz": "^2.7.0",
-    "rimraf": "^3.0.2",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-manifest-plugin": "^5.0.0"
-  },
-  "jest": {
-    "testMatch": [
-      "<rootDir>/src/**/*.test.js",
-      "<rootDir>/test/**/*.test.js"
-    ]
-  }
+	"name": "@talend/dynamic-cdn-webpack-plugin",
+	"version": "13.1.0",
+	"description": "Dynamically get your dependencies from a cdn rather than bundling them in your app",
+	"license": "MIT",
+	"repository": "Talend/dynamic-cdn-webpack-plugin",
+	"author": {
+		"name": "Thomas Sileghem",
+		"email": "th.sileghem@gmail.com",
+		"url": "https://mastilver.com"
+	},
+	"engines": {
+		"node": ">=14"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"test": "jest",
+		"version": "all-contributors generate",
+		"add-contributor": "all-contributors add"
+	},
+	"files": [
+		"index.js",
+		"src"
+	],
+	"keywords": [
+		"webpack",
+		"cdn",
+		"unpkg.com",
+		"html-webpack-plugin",
+		"webpack-manifest-plugin",
+		"html",
+		"script",
+		"assets",
+		"externals"
+	],
+	"dependencies": {
+		"@talend/module-to-cdn": "^9.10.0",
+		"read-pkg-up": "^7.0.1",
+		"semver": "^7.5.4",
+		"webpack-sources": "^3.2.3"
+	},
+	"peerDependencies": {
+		"webpack": "^5.89.0"
+	},
+	"devDependencies": {
+		"@babel/eslint-parser": "^7.23.3",
+		"all-contributors-cli": "^6.26.1",
+		"codecov": "^3.8.3",
+		"eslint": "^8.53.0",
+		"html-webpack-plugin": "^5.5.3",
+		"jest": "^29.7.0",
+		"mz": "^2.7.0",
+		"rimraf": "^3.0.2",
+		"webpack": "^5.89.0",
+		"webpack-cli": "^4.10.0",
+		"webpack-manifest-plugin": "^5.0.0"
+	},
+	"jest": {
+		"testMatch": [
+			"<rootDir>/src/**/*.test.js",
+			"<rootDir>/test/**/*.test.js"
+		]
+	}
 }

@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 2.1.1
+
+### Patch Changes
+
+- f14ebbe23: Fix lint issue
+
 ## 2.1.0
 
 ### Minor Changes
