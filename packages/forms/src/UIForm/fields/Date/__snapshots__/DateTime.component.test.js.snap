@@ -20,7 +20,6 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
       <input
         autocomplete="off"
         class="form-control"
-        data-testid="date-picker"
         id="talend-date-time-date-picker-input"
         placeholder="YYYY-MM-DD"
         style="width: 47px;"
@@ -28,7 +27,6 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
         value=""
       />
       <span
-        data-testid="InputSizer"
         style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
       >
         YYYY-MM-DD
@@ -41,7 +39,6 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
       <input
         autocomplete="off"
         class="form-control theme-time-picker-input"
-        data-testid="time-picker"
         id="talend-date-time-time-picker-input"
         maxlength="5"
         placeholder="HH:mm"
@@ -50,7 +47,6 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
         value=""
       />
       <span
-        data-testid="InputSizer"
         style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
       >
         HH:mm

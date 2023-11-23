@@ -27,7 +27,6 @@ exports[`Date widget should render date picker 1`] = `
       value="15/02/2018 23:55:32"
     />
     <span
-      data-testid="InputSizer"
       style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
     >
       DD/MM/YYYY
@@ -214,7 +213,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Monday 29 January 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -226,7 +225,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Tuesday 30 January 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -238,7 +237,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Wednesday 31 January 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -250,7 +249,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Thursday 01 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="1"
                             tabindex="-1"
                             type="button"
@@ -263,7 +262,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Friday 02 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="2"
                             tabindex="-1"
                             type="button"
@@ -276,7 +275,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Saturday 03 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="3"
                             tabindex="-1"
                             type="button"
@@ -289,7 +288,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Sunday 04 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="4"
                             tabindex="-1"
                             type="button"
@@ -306,7 +305,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Monday 05 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="5"
                             tabindex="-1"
                             type="button"
@@ -319,7 +318,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Tuesday 06 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="6"
                             tabindex="-1"
                             type="button"
@@ -332,7 +331,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Wednesday 07 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="7"
                             tabindex="-1"
                             type="button"
@@ -345,7 +344,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Thursday 08 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="8"
                             tabindex="-1"
                             type="button"
@@ -358,7 +357,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Friday 09 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="9"
                             tabindex="-1"
                             type="button"
@@ -371,7 +370,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Saturday 10 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="10"
                             tabindex="-1"
                             type="button"
@@ -384,7 +383,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Sunday 11 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="11"
                             tabindex="-1"
                             type="button"
@@ -401,7 +400,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Monday 12 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="12"
                             tabindex="-1"
                             type="button"
@@ -414,7 +413,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Tuesday 13 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="13"
                             tabindex="-1"
                             type="button"
@@ -427,7 +426,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Wednesday 14 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="14"
                             tabindex="-1"
                             type="button"
@@ -440,7 +439,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Today, Thursday 15 February 2018"
-                            class="theme-calendar-day theme-today tc-date-picker-day"
+                            class="theme-calendar-day theme-today tc-date-picker-day btn-tertiary btn-default"
                             data-value="15"
                             tabindex="-1"
                             type="button"
@@ -453,7 +452,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Friday 16 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="16"
                             tabindex="-1"
                             type="button"
@@ -466,7 +465,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Saturday 17 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="17"
                             tabindex="-1"
                             type="button"
@@ -479,7 +478,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Sunday 18 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="18"
                             tabindex="-1"
                             type="button"
@@ -496,7 +495,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Monday 19 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="19"
                             tabindex="-1"
                             type="button"
@@ -509,7 +508,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Tuesday 20 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="20"
                             tabindex="-1"
                             type="button"
@@ -522,7 +521,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Wednesday 21 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="21"
                             tabindex="-1"
                             type="button"
@@ -535,7 +534,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Thursday 22 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="22"
                             tabindex="-1"
                             type="button"
@@ -548,7 +547,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Friday 23 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="23"
                             tabindex="-1"
                             type="button"
@@ -561,7 +560,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Saturday 24 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="24"
                             tabindex="-1"
                             type="button"
@@ -574,7 +573,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Sunday 25 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="25"
                             tabindex="-1"
                             type="button"
@@ -591,7 +590,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Monday 26 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="26"
                             tabindex="-1"
                             type="button"
@@ -604,7 +603,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Tuesday 27 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="27"
                             tabindex="-1"
                             type="button"
@@ -617,7 +616,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Wednesday 28 February 2018"
-                            class="theme-calendar-day tc-date-picker-day"
+                            class="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                             data-value="28"
                             tabindex="-1"
                             type="button"
@@ -630,7 +629,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Thursday 01 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -642,7 +641,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Friday 02 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -654,7 +653,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Saturday 03 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -666,7 +665,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Sunday 04 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -682,7 +681,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Monday 05 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -694,7 +693,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Tuesday 06 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -706,7 +705,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Wednesday 07 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -718,7 +717,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Thursday 08 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -730,7 +729,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Friday 09 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -742,7 +741,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Saturday 10 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
@@ -754,7 +753,7 @@ exports[`Date widget should render date picker 1`] = `
                         >
                           <button
                             aria-label="Sunday 11 March 2018"
-                            class="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                            class="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
                             tabindex="-1"
                             type="button"
                           >
