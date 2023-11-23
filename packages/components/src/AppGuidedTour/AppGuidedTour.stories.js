@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import AppGuidedTour from './AppGuidedTour.component';
+
 import Stepper from '../Stepper';
+import AppGuidedTour from './AppGuidedTour.component';
 
 // eslint-disable-next-line react/prop-types
 function AppGuidedTourContainer({ withDemoContent = false }) {

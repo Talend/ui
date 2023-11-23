@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Component, Fragment } from 'react';
-import { action } from '@storybook/addon-actions';
-import tokens from '@talend/design-tokens';
 import { withTranslation } from 'react-i18next';
 
-import GuidedTour from './GuidedTour.component';
+import { action } from '@storybook/addon-actions';
+
+import tokens from '@talend/design-tokens';
+
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import GuidedTour from './GuidedTour.component';
 
 class ImportDemo extends Component {
 	state = {

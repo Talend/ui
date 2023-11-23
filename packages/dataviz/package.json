@@ -7,7 +7,7 @@
   "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "yarn build:umd:dev && yarn build:umd:prod",
+    "pre-release": "pnpm build:umd:dev && pnpm build:umd:prod",
     "build:umd:dev": "talend-scripts build --umd --dev",
     "build:umd:prod": "talend-scripts build --umd",
     "build:lib": "talend-scripts build",

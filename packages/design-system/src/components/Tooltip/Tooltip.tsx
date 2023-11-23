@@ -1,21 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useRef } from 'react';
-import type { MutableRefObject, RefCallback, ReactElement, ReactNode } from 'react';
+import { useRef, useState } from 'react';
+import type { MutableRefObject, ReactElement, ReactNode, RefCallback } from 'react';
 
 import {
 	arrow,
-	FloatingArrow,
-	FloatingPortal,
-	useFloating,
-	useHover,
-	useFocus,
-	useDismiss,
-	useRole,
-	useInteractions,
 	autoUpdate,
 	flip,
+	FloatingArrow,
+	FloatingPortal,
 	offset,
 	shift,
+	useDismiss,
+	useFloating,
+	useFocus,
+	useHover,
+	useInteractions,
+	useRole,
 } from '@floating-ui/react';
 
 import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';

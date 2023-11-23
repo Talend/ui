@@ -1,8 +1,10 @@
 import { Fragment } from 'react';
-import Tour from 'reactour';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import Tour from 'reactour';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import { ButtonIcon, ButtonPrimary } from '@talend/design-system';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
