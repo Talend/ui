@@ -93,7 +93,7 @@ export const Enumeration = ({
 	const handleOnRemove = async (itemsToRemove: string[]) => {
 		try {
 			await onRemove?.(itemsToRemove);
-			onChange(items.filter(item => !selectedItems.includes(item)));
+			onChange(items.filter(item => !itemsToRemove.includes(item)));
 		} catch (e) {
 			//The parent component must do the error handling
 		}
