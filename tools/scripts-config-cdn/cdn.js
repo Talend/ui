@@ -140,7 +140,7 @@ function getModulesFromLockFile(dir) {
 
 	let infos = [];
 	if (fs.existsSync(lockTypeMap.npm.path)) {
-		const packagelock = require(lockTypeMap.npm.lockfile);
+		const packagelock = require(lockTypeMap.npm.path);
 		infos = getAllFlattenDependencies(packagelock)
 			.map(({ name, version }) => moduleToCdn(name, version, { env: 'development' }))
 			.map(addLocal);
