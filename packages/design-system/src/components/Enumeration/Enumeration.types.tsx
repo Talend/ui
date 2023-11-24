@@ -1,5 +1,4 @@
 export interface EnumerationProps {
-	error?: string;
 	id: string;
 	items: string[];
 	loadMoreRows?: (params: { startIndex: number; stopIndex: number }) => Promise<void>;
