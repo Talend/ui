@@ -4,13 +4,10 @@
 
 /* eslint no-console: 0 */
 import { exec, spawnSync } from 'child_process';
-import fs from 'fs';
-import path from 'path';
 
 import changeset from './changeset.js';
 import colors from './colors.js';
 import npm from './npm.js';
-import pnpm from './pnpm.js';
 import yarn from './yarn.js';
 
 const CWD = process.cwd();
@@ -98,7 +95,6 @@ export async function upgradeYarnProject(program) {
 export async function upgradePnpmProject(program) {
 	const commands = [];
 	const opts = getOptions(program);
-	console.log('GET OPTIONS:', opts);
 
 	if (program.changeset && changeset.isSetup()) {
 		changeset.add(opts);
@@ -114,7 +110,6 @@ export async function upgradePnpmProject(program) {
 				commands.unshift(`pnpm install ${pnpmOpts}`);
 			}
 		} else {
-			await pnpm.removeFromLockFile(opts);
 			commands.unshift(`pnpm install ${pnpmOpts}`);
 		}
 		spawnSync('pnpm dedupe');
