@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.4.0
+
+### Minor Changes
+
+- 4dc277f42: feat: allow token override with theme provider
+
 ## 8.3.1
 
 ### Patch Changes
