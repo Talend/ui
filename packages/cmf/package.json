@@ -31,7 +31,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/scripts-cmf": "^1.2.0",
+    "@talend/scripts-cmf": "^1.2.1",
     "@talend/utils": "^2.8.0",
     "hoist-non-react-statics": "^3.3.2",
     "immutable": "^3.8.2",
@@ -54,12 +54,12 @@
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.1.5",
-    "@talend/eslint-config": "^13.0.0",
+    "@talend/eslint-config": "^13.0.1",
     "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-core": "^16.2.0",
+    "@talend/scripts-core": "^16.3.0",
     "@talend/scripts-config-babel": "^13.2.0",
-    "@talend/scripts-config-jest": "^13.1.0",
-    "@talend/scripts-config-react-webpack": "^16.3.0",
+    "@talend/scripts-config-jest": "^13.1.1",
+    "@talend/scripts-config-react-webpack": "^16.3.1",
     "@testing-library/react": "^12.1.5",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.11",

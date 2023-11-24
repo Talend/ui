@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@cypress/react": "^7.0.3",
-    "@cypress/webpack-dev-server": "^3.7.0",
+    "@cypress/webpack-dev-server": "^3.7.1",
     "@jest/globals": "^29.7.0",
     "@storybook/addon-a11y": "^7.5.3",
     "@storybook/addon-actions": "^7.5.3",
@@ -78,13 +78,13 @@
     "@types/cypress": "^1.1.3",
     "@types/jest-axe": "^3.5.8",
     "@types/react-is": "^18.2.4",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.17",
     "@types/react-transition-group": "^2.9.2",
     "browser-sync": "^2.29.3",
     "browser-sync-webpack-plugin": "^2.3.0",
     "concurrently": "^7.6.0",
-    "core-js": "^3.33.2",
+    "core-js": "^3.33.3",
     "cypress": "^12.17.4",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^23.7.6",
@@ -96,7 +96,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.48.2",
-    "react-i18next": "^13.4.1",
+    "react-i18next": "^13.5.0",
     "react-is": "^17.0.2",
     "react-router-dom": "~6.3.0",
     "storybook-docs-toc": "^1.7.0"
@@ -108,7 +108,7 @@
     "i18next": "^23.7.6",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0",
-    "react-i18next": "^13.4.1",
+    "react-i18next": "^13.5.0",
     "react-is": "^17.0.2"
   }
 }
