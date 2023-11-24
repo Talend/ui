@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 13.1.1
+
+### Patch Changes
+
+- 06598a0c0: fix(TDP-12694): broken applyBabelTransformOn after pnpm use-case
+
 ## 13.1.0
 
 ### Minor Changes

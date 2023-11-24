@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.9.1
+
+### Patch Changes
+
+- 06598a0c0: fix(TDP-12694): require valid package-lock file path
+
 ## 10.9.0
 
 ### Minor Changes
