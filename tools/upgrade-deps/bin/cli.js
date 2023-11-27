@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import fs from 'fs';
 
-import { upgradeYarnProject, upgradeNpmProject, upgradePnpmProject } from '../src/index.js';
+import { upgradeNpmProject, upgradePnpmProject, upgradeYarnProject } from '../src/index.js';
 
 const CWD = process.cwd();
 
