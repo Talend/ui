@@ -17,7 +17,6 @@ import {
 	TagSuccess,
 	TagWarning,
 } from '../../';
-
 import { MessagePrimitive } from '../../components/Message/Primitive/MessagePrimitive';
 
 export default { component: MessagePrimitive, title: 'Messaging/Message' };
@@ -28,6 +27,7 @@ export const DefaultMessageDemo = () => (
 			description="This component is well configured"
 			link={{ href: 'https://talend.com', children: 'Learn more' }}
 			action={{ children: 'See', onClick: action('action clicked') }}
+			additionalAction={{ children: 'Dismiss', onClick: action('dismiss clicked'), icon: 'trash' }}
 		>
 			<StackHorizontal gap="S">
 				<TagSuccess>Good</TagSuccess> <TagDefault>Default</TagDefault>

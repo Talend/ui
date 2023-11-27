@@ -1,19 +1,23 @@
 import { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
+import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import classnames from 'classnames';
+import { StackItem } from 'lib';
+
+import tokens from '@talend/design-tokens';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
-import tokens from '@talend/design-tokens';
-import classnames from 'classnames';
 
+import { ButtonTertiary } from '../../Button';
+import { ButtonTertiaryPropsType } from '../../Button/variations/ButtonTertiary';
+import { ButtonIcon } from '../../ButtonIcon';
+import type { ButtonIconType } from '../../ButtonIcon/variations/ButtonIcon';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import { Dropdown, DropdownPropsType } from '../../Dropdown';
 import { SizedIcon } from '../../Icon';
 import Link, { LinkProps } from '../../Link/Link';
 import { StackHorizontal, StackVertical } from '../../Stack';
-import { ButtonTertiaryPropsType } from '../../Button/variations/ButtonTertiary';
-import { ButtonTertiary } from '../../Button';
-import { Dropdown, DropdownPropsType } from '../../Dropdown';
-import { ButtonIcon } from '../../ButtonIcon';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 import styles from './MessageStyles.module.scss';
 
@@ -23,18 +27,29 @@ export type SharedMessageCollectionProps = Omit<
 > & {
 	action: ButtonTertiaryPropsType<'S'>;
 	additionalActions?: Omit<DropdownPropsType, 'children'>;
-	description: string;
+	description: string | ReactElement | string[] | ReactElement[];
 	title: string;
+};
+
+type SharedMessageWithActionsPropsType = {
+	additionalAction?: ButtonIconType<'XS'>;
+	additionalActions?: never;
+};
+
+type SharedMessageWithActionPropsType = {
+	additionalAction?: never;
+	additionalActions?: Omit<DropdownPropsType, 'children'>;
 };
 
 export type SharedMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style' | 'className'> & {
 	action?: ButtonTertiaryPropsType<'S'>;
+	additionalAction?: ButtonIconType<'XS'>;
 	additionalActions?: Omit<DropdownPropsType, 'children'>;
 	children?: ReactNode | ReactNode[];
 	description: string;
 	link?: LinkProps;
 	title?: string;
-};
+} & (SharedMessageWithActionPropsType | SharedMessageWithActionsPropsType);
 
 export type BaseMessageProps = Omit<SharedMessageCollectionProps, 'action' | 'title'> &
 	SharedMessageProps & {
@@ -52,6 +67,7 @@ export const MessagePrimitive = forwardRef(
 			icon,
 			children,
 			action,
+			additionalAction,
 			additionalActions,
 			...props
 		}: BaseMessageProps,
@@ -75,6 +91,7 @@ export const MessagePrimitive = forwardRef(
 									<SizedIcon name={icon} size="S" color={tokens.coralColorNeutralIconWeak} />
 								)}
 								{title}
+								<StackItem align="end">test</StackItem>
 							</StackHorizontal>
 						</header>
 					)}
@@ -83,6 +100,7 @@ export const MessagePrimitive = forwardRef(
 					{children}
 					<StackHorizontal gap={0} isFullWidth align="center" justify="spaceBetween">
 						{action && <ButtonTertiary {...action} />}
+						{additionalAction && <ButtonIcon {...additionalAction} size="XS" />}
 						{additionalActions && (
 							<Dropdown {...additionalActions}>
 								<ButtonIcon size="XS" icon="dots-vertical" onClick={() => {}}>

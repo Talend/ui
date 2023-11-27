@@ -3,10 +3,9 @@
 .message {
 	display: flex;
 	border-radius: tokens.$coral-radius-s;
-	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	background-color: tokens.$coral-color-neutral-background;
 	height: 100%;
-	width: 28rem;
 
 	border-top-left-radius: tokens.$coral-radius-s;
 	border-bottom-left-radius: tokens.$coral-radius-s;
