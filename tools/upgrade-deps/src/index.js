@@ -1,15 +1,14 @@
 /* eslint-disable no-await-in-loop */
+
 /* eslint-disable no-restricted-syntax */
+
 /* eslint no-console: 0 */
 import { exec, spawnSync } from 'child_process';
-import fs from 'fs';
-import path from 'path';
 
+import changeset from './changeset.js';
 import colors from './colors.js';
 import npm from './npm.js';
 import yarn from './yarn.js';
-import changeset from './changeset.js';
-import { upgradeSecurityVersion } from './security.js';
 
 const CWD = process.cwd();
 
@@ -55,14 +54,6 @@ function getOptions(program) {
 		message: program.message,
 		ignoreScripts: program['ignore-scripts'],
 	};
-	if (program['talend-major']) {
-		opts.scope = '@talend';
-		opts.latest = true;
-	}
-	if (program.check) {
-		opts.latest = true;
-		opts.dry = true;
-	}
 	return opts;
 }
 
@@ -73,47 +64,6 @@ export async function upgradeYarnProject(program) {
 	if (program.changeset && changeset.isSetup()) {
 		changeset.add(opts);
 		return true;
-	}
-
-	if (program.security) {
-		if (opts.scope) {
-			throw new Error('Deps security fix mode is incompatible with "scope" option.');
-		}
-		if (opts.package) {
-			throw new Error('Deps security fix mode is incompatible with "package" option.');
-		}
-		if (opts.startsWith) {
-			throw new Error('Deps security fix mode is incompatible with "starts-with" option.');
-		}
-		if (opts.dry) {
-			throw new Error('Deps security fix mode is incompatible with "dry" option.');
-		}
-		if (opts.latest) {
-			throw new Error('Deps security fix mode is incompatible with "latest" option.');
-		}
-		if (opts.next) {
-			throw new Error('Deps security fix mode is incompatible with "next" option.');
-		}
-
-		const securityConfPath = path.join(CWD, program.security);
-		if (!fs.existsSync(securityConfPath)) {
-			throw new Error(
-				`Deps security fix mode requires a configuration file. "${program.security}" does not exist. Check the following link to get the configuration file format: https://github.com/Talend/ui-scripts/tree/master/packages/upgrade//README.md#security-mode`,
-			);
-		}
-		const packageMetadata = JSON.parse(fs.readFileSync(securityConfPath));
-		console.log('Security configuration found', packageMetadata);
-
-		const reportFilePath = path.join(process.cwd(), 'talend-security-report.json');
-		if (fs.existsSync(reportFilePath)) {
-			fs.rmSync(reportFilePath);
-		}
-
-		const { changed, reports } = await upgradeSecurityVersion(packageMetadata);
-		fs.writeFileSync(reportFilePath, JSON.stringify(reports, null, 2));
-		const reportLog = `echo "Dependency security done. Check the report: ${reportFilePath}"`;
-
-		return changed ? executeAll(['yarn install', reportLog]) : executeAll([reportLog]);
 	}
 
 	const changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
@@ -129,6 +79,33 @@ export async function upgradeYarnProject(program) {
 			commands.unshift(`yarn install ${yarnOpts}`);
 		}
 		spawnSync(yarn.getYarnDedupBin());
+		return executeAll(commands);
+	}
+
+	return true;
+}
+
+export async function upgradePnpmProject(program) {
+	const commands = [];
+	const opts = getOptions(program);
+
+	if (program.changeset && changeset.isSetup()) {
+		changeset.add(opts);
+		return true;
+	}
+
+	const changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
+	let pnpmOpts = opts.ignoreScripts ? '--ignore-scripts' : '';
+	if (!opts.dry) {
+		if (!opts.scope && !opts.package && !opts.startsWith) {
+			commands.unshift(`pnpm update ${pnpmOpts}`);
+			if (changed) {
+				commands.unshift(`pnpm install ${pnpmOpts}`);
+			}
+		} else {
+			commands.unshift(`pnpm install ${pnpmOpts}`);
+		}
+		spawnSync('pnpm dedupe');
 		return executeAll(commands);
 	}
 
