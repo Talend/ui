@@ -50,7 +50,7 @@ describe('Date.Manager', () => {
 		expect(props).toEqual({
 			value: {
 				textInput: '2017-04-04',
-				date: '2017-04-03T22:00:00.000Z',
+				date: '2017-04-04T00:00:00.000Z',
 			},
 			inputManagement: {
 				placeholder: 'YYYY-MM-DD',
@@ -79,7 +79,7 @@ describe('Date.Manager', () => {
 				name: 'should init state from props',
 				initialDate: new Date(2015, 3, 4),
 				expectedTextInput: '2015-04-04',
-				expectedDate: '2015-04-03T22:00:00.000Z',
+				expectedDate: '2015-04-04T00:00:00.000Z',
 			},
 		])('$name', ({ initialDate, expectedTextInput, expectedDate }) => {
 			// when
@@ -115,7 +115,7 @@ describe('Date.Manager', () => {
 				initialDate: new Date(),
 				newDate: new Date(2015, 3, 4),
 				expectedTextInput: '2015-04-04',
-				expectedDate: '2015-04-03T22:00:00.000Z',
+				expectedDate: '2015-04-04T00:00:00.000Z',
 			},
 		])('$name', ({ initialDate, newDate, expectedTextInput, expectedDate }) => {
 			// given
@@ -176,7 +176,7 @@ describe('Date.Manager', () => {
 				{
 					name: 'with valid date',
 					textInput: '2015-01-15',
-					expectedDate: '2015-01-14T23:00:00.000Z',
+					expectedDate: '2015-01-15T00:00:00.000Z',
 				},
 				{
 					name: 'with invalid date',
@@ -191,7 +191,7 @@ describe('Date.Manager', () => {
 				{
 					name: 'with custom date format',
 					textInput: '15/01/2015',
-					expectedDate: '2015-01-14T23:00:00.000Z',
+					expectedDate: '2015-01-15T00:00:00.000Z',
 					dateFormat: 'DD/MM/YYYY',
 				},
 			])('$name', async ({ textInput, expectedDate, dateFormat }) => {

@@ -35,8 +35,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 #v5.0.2
         with:
-          assignees: jmfrancois
-          reviewers: jmfrancois
+          reviewers: "@Talend/frontend-admins"
           commit-message: "chore: upgrade dependencies"
           title: "chore: upgrade dependencies"
           body: "Upgrade dependencies using `talend-scripts upgrade:deps`"

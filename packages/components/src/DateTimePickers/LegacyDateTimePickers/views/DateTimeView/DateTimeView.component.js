@@ -1,14 +1,16 @@
 import { PureComponent } from 'react';
+
 import PropTypes from 'prop-types';
 
 import { ButtonIcon } from '@talend/design-system';
 
+import getDefaultT from '../../../../translate';
 import DatePicker from '../../pickers/DatePicker';
 import TimePicker from '../../pickers/TimePicker';
-import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
+import ViewLayout from '../ViewLayout';
+
 import theme from './DateTimeView.module.scss';
-import getDefaultT from '../../../../translate';
 
 /**
  * Get the positive euclidean modulo number from a dividend and a divisor
@@ -89,11 +91,12 @@ class DateTimeView extends PureComponent {
 			leftElement: (
 				<ButtonIcon
 					size="S"
-					aria-label={t('DATEPICKER_MONTH_PREVIOUS', 'Go to previous month')}
 					icon="arrow-left"
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
-				></ButtonIcon>
+				>
+					{t('DATEPICKER_MONTH_PREVIOUS', 'Go to previous month')}
+				</ButtonIcon>
 			),
 			middleElement: (
 				<HeaderTitle
@@ -109,13 +112,9 @@ class DateTimeView extends PureComponent {
 				/>
 			),
 			rightElement: (
-				<ButtonIcon
-					size="S"
-					aria-label={t('DATEPICKER_MONTH_NEXT', 'Go to next month')}
-					icon="arrow-right"
-					onClick={() => this.goToNextMonth()}
-					tabIndex="-1"
-				></ButtonIcon>
+				<ButtonIcon size="S" icon="arrow-right" onClick={() => this.goToNextMonth()} tabIndex="-1">
+					{t('DATEPICKER_MONTH_NEXT', 'Go to next month')}
+				</ButtonIcon>
 			),
 		};
 

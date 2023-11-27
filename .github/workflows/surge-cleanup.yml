@@ -2,7 +2,7 @@ name: Cleanup - Remove surge demo
 
 on:
   pull_request:
-    types: [closed]
+    types: [ closed ]
 
 permissions: {}
 

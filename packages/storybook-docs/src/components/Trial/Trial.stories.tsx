@@ -2,9 +2,11 @@ import { Trial } from './Trial';
 
 import { Meta, StoryFn } from '@storybook/react';
 
-export default {
+const meta: Meta<typeof Trial> = {
 	component: Trial,
-} as Meta<typeof Trial>;
+};
+
+export default meta;
 
 export const Story: StoryFn<typeof Trial> = () => {
 	return <Trial>Trial component</Trial>;

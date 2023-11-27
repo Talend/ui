@@ -112,5 +112,7 @@
     "react": {
       "version": "detect"
     }
-  }
+  },
+  // Ignore some JS at project's rool level
+  "ignorePatterns": ["index.js", ".eslintrc.js"]
 }

@@ -26,6 +26,7 @@ export function useControl<T>(props: any, opts: UseControlOptions): UseControlRe
 
 	const onChange = (value: any, ...args: any) => {
 		let safeValue = value;
+
 		if (opts.selector) {
 			safeValue = opts.selector(value, ...args);
 		}
@@ -35,10 +36,12 @@ export function useControl<T>(props: any, opts: UseControlOptions): UseControlRe
 			setState(safeValue);
 		}
 	};
+
 	let value = isControlled ? props[opts.valueKey] : state;
 	if (value === undefined) {
 		value = defaultValue;
 	}
+
 	return {
 		value,
 		onChange: isControlled ? props[opts.onChangeKey] : onChange,

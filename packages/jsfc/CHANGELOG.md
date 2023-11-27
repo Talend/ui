@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps, fix lint issue and fix tsconfig file
+
 ## 1.1.1
 
 ### Patch Changes

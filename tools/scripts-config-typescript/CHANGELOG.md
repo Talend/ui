@@ -1,5 +1,15 @@
 # @talend/scripts-config-typescript
 
+## 11.2.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, Remove link with scripts-core (circular dependency) and fix tsconfig file
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 11.1.0
 
 ### Minor Changes

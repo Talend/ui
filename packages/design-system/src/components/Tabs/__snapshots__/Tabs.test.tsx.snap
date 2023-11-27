@@ -5,7 +5,7 @@ exports[`Tabs should render accessible html 1`] = `
   id="kit"
 >
   <div
-    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
+    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
   >
     <div
       class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M"
@@ -62,14 +62,15 @@ exports[`Tabs should render accessible html 1`] = `
       </button>
     </div>
     <div
+      class="theme-tabpanel theme-tabpanel--hidden"
       id="home"
       role="tabpanel"
-      style="display: none;"
       tabindex="0"
     >
       Tab content for Home
     </div>
     <div
+      class="theme-tabpanel"
       id="profile"
       role="tabpanel"
       tabindex="0"
@@ -77,9 +78,9 @@ exports[`Tabs should render accessible html 1`] = `
       Tab content for Profile
     </div>
     <div
+      class="theme-tabpanel theme-tabpanel--hidden"
       id="contact"
       role="tabpanel"
-      style="display: none;"
       tabindex="0"
     >
       Tab content for Contact

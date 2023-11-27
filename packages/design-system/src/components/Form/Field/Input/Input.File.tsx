@@ -180,6 +180,7 @@ const FieldFile = forwardRef(
 		ref: Ref<HTMLInputElement>,
 	) => {
 		const { label, hasError, link, description, id, name, hideLabel, required, ...rest } = props;
+		const fieldID = useId(id, 'field-');
 		return (
 			<FieldPrimitive
 				label={label}
@@ -187,11 +188,19 @@ const FieldFile = forwardRef(
 				link={link}
 				description={description}
 				id={id}
+				fieldId={fieldID}
 				name={name}
 				hideLabel={hideLabel}
 				required={required}
 			>
-				<InputFile {...rest} ref={ref} />
+				<InputFile
+					{...rest}
+					name={name}
+					required={required}
+					hasError={hasError || false}
+					id={fieldID}
+					ref={ref}
+				/>
 			</FieldPrimitive>
 		);
 	},

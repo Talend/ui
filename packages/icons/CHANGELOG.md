@@ -1,5 +1,26 @@
 # @talend/icons
 
+## 7.3.0
+
+### Minor Changes
+
+- 02e2d012c: fix(DFD-336): Update field remover processor icon to remove default filling
+
+## 7.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps
+
+## 7.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  prepare scripts for pnpm
+  adapt scripts following changes made in scripts-config-babel
+
 ## 7.0.0
 
 ### Major Changes

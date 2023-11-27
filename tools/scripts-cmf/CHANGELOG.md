@@ -1,5 +1,21 @@
 # @talend/scripts-cmf
 
+## 1.2.1
+
+### Patch Changes
+
+- f14ebbe23: Add missing deps
+
+## 1.2.0
+
+### Minor Changes
+
+- 673984929: add missing deps, remove link with scripts-core (circular dependency)
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 1.1.0
 
 ### Minor Changes

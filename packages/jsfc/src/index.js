@@ -1,7 +1,12 @@
 import tv4index from 'tv4';
-import * as schemaDefaultsImp from './lib/schema-defaults';
-import * as sfPathImp from './lib/sf-path';
+
+// eslint-disable-next-line prettier/prettier
 import canonicalTitleMapImp from './lib/canonical-title-map';
+// eslint-disable-next-line prettier/prettier
+import * as schemaDefaultsImp from './lib/schema-defaults';
+// eslint-disable-next-line prettier/prettier
+import * as sfPathImp from './lib/sf-path';
+
 export { merge } from './lib/merge';
 export { select } from './lib/select';
 export { jsonref } from './lib/resolve';

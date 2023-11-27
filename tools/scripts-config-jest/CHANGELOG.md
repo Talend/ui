@@ -1,5 +1,23 @@
 # @talend/scripts-config-jest
 
+## 13.1.1
+
+### Patch Changes
+
+- 06598a0c0: fix(TDP-12694): broken applyBabelTransformOn after pnpm use-case
+
+## 13.1.0
+
+### Minor Changes
+
+- 673984929: Fix peer dependencies, Add lint
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+- Updated dependencies [673984929]
+  - @talend/scripts-config-babel@13.2.0
+
 ## 13.0.0
 
 ### Major Changes

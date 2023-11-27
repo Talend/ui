@@ -1,5 +1,35 @@
 # @talend/react-components
 
+## 12.2.0
+
+### Minor Changes
+
+- e87f8e091: feat(TDP-12694): add pendo trackers to guided-tour actions
+
+### Patch Changes
+
+- 8b1dc1fac: TDOPS-5671 - Fix tooltip display on date time ranger picker
+- Updated dependencies [f14ebbe23]
+- Updated dependencies [02e2d012c]
+  - @talend/react-bootstrap@2.1.1
+  - @talend/icons@7.3.0
+
+## 12.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  add a tsconfig.build.json to exclude test files
+
+### Patch Changes
+
+- 2177ddfb3: PlainTextTitle component: pass data atrributes
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/icons@7.1.0
+  - @talend/react-bootstrap@2.1.0
+
 ## 12.0.0
 
 ### Major Changes

@@ -10,8 +10,9 @@ It will expose basic scripts:
 - test
 - build
 - lint
+- lint-merge-report
 
-By default no configuration is needed but you can at any time create a configuration file and extends from the default config.
+By default no configuration is needed (except for lint-merge-report) but you can at any time create a configuration file and extends from the default config.
 
 `talend-scripts` will detect the kind of package you are in.
 

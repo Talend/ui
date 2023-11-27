@@ -15,7 +15,7 @@ const AffixSelect = forwardRef((props: AffixSelectPropsType, ref: Ref<HTMLSelect
 		const fieldID = useId(affixId, 'field-');
 
 		function AffixSelectComponent(
-			selectProps: Omit<SelectNoWrapperProps, 'hasError' | 'name' | 'children' | 'label'>,
+			selectProps: Omit<SelectNoWrapperProps, 'hasError' | 'children' | 'label'>,
 		) {
 			return (
 				<SelectNoWrapper id={fieldID} {...selectProps} isAffix isSuffix={isSuffix} ref={ref}>
@@ -24,8 +24,8 @@ const AffixSelect = forwardRef((props: AffixSelectPropsType, ref: Ref<HTMLSelect
 			);
 		}
 		return (
-			<FieldPrimitive label={label} name={name} id={fieldID} hideLabel>
-				<AffixSelectComponent {...rest} />
+			<FieldPrimitive label={label} name={name} id={fieldID} fieldId={fieldID} hideLabel>
+				<AffixSelectComponent name={name} {...rest} />
 			</FieldPrimitive>
 		);
 	}

@@ -1,5 +1,65 @@
 # @talend/scripts-core
 
+## 16.3.0
+
+### Minor Changes
+
+- e77b32c35: Add option lint-merge-report
+
+### Patch Changes
+
+- Updated dependencies [f14ebbe23]
+  - @talend/eslint-config@13.0.1
+
+## 16.2.0
+
+### Minor Changes
+
+- 673984929: Improve peerDependencies and add missing deps to not have circular dependency, adapt code to be compatible with PNPM and fix tests
+
+### Patch Changes
+
+- f2ef85811: Fix script for lint
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+  - @talend/scripts-utils@2.2.0
+  - @talend/eslint-plugin@1.1.0
+  - @talend/scripts-config-jest@13.1.0
+  - @talend/scripts-config-stylelint@4.1.0
+  - @talend/scripts-config-typescript@11.2.0
+  - @talend/scripts-config-babel@13.2.0
+
+## 16.1.1
+
+### Patch Changes
+
+- Updated dependencies [e82cc7f30]
+  - @talend/eslint-config@13.0.0
+
+## 16.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  update scripts following changes made in scripts-config-babel
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/scripts-config-babel@13.1.0
+  - @talend/eslint-config@12.2.0
+  - @talend/scripts-utils@2.1.0
+
 ## 16.0.0
 
 ### Major Changes

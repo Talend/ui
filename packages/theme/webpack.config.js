@@ -25,7 +25,7 @@ module.exports = (env, argv) => {
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
 					use: [
 						{
-							loader: 'file-loader',
+							loader: require.resolve('file-loader'),
 							options: {
 								outputPath: 'fonts',
 								name: '[name].[ext]',
@@ -38,17 +38,17 @@ module.exports = (env, argv) => {
 					test: /bootstrap\.scss$/,
 					use: [
 						{
-							loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+							loader: isDev ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
 						},
 						{
-							loader: 'css-loader',
+							loader: require.resolve('css-loader'),
 							options: {
 								importLoaders: 3,
 								sourceMap: true,
 							},
 						},
 						{
-							loader: 'postcss-loader',
+							loader: require.resolve('postcss-loader'),
 							options: {
 								postcssOptions: {
 									plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
@@ -57,7 +57,7 @@ module.exports = (env, argv) => {
 							},
 						},
 						{
-							loader: 'sass-loader',
+							loader: require.resolve('sass-loader'),
 							options: {
 								sourceMap: true,
 							},

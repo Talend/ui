@@ -1,5 +1,44 @@
 # @talend/scripts-config-react-webpack
 
+## 16.3.1
+
+### Patch Changes
+
+- f14ebbe23: Fix possibility to use BASENAME even if we are not using the cdn
+
+## 16.3.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, make talend/icons as peerDependency to remove circular dependency and adapt webpack config files for pnpm
+
+### Patch Changes
+
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+  - @talend/scripts-utils@2.2.0
+  - @talend/scripts-config-cdn@10.9.0
+  - @talend/scripts-config-babel@13.2.0
+
+## 16.2.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  adapt code for pnpm
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/scripts-config-babel@13.1.0
+  - @talend/scripts-utils@2.1.0
+  - @talend/react-cmf-webpack-plugin@6.38.0
+
 ## 16.1.0
 
 ### Minor Changes

@@ -1,5 +1,24 @@
 # @talend/react-cmf
 
+## 8.2.0
+
+### Minor Changes
+
+- b9cc5b097: Fix lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+  - @talend/utils@2.8.0
+
+## 8.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  fix import of scripts-config-jest
+
 ## 8.0.0
 
 ### Major Changes

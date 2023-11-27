@@ -1,5 +1,15 @@
 # @talend/upgrade-deps
 
+## 2.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 2.0.0
 
 ### Major Changes
