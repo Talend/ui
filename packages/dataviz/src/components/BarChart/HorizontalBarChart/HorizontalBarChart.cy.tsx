@@ -1,8 +1,8 @@
 /* eslint-disable testing-library/await-async-queries */
-/* eslint-disable testing-library/prefer-screen-queries */
 
-import HorizontalBarChart from './HorizontalBarChart.component';
+/* eslint-disable testing-library/prefer-screen-queries */
 import { ChartStyle } from '../../../types';
+import HorizontalBarChart from './HorizontalBarChart.component';
 
 context('<HorizontalBarChart />', () => {
 	it('Should trigger onBarClick', () => {
@@ -60,7 +60,7 @@ context('<HorizontalBarChart />', () => {
 			.first()
 			.trigger('mousemove')
 			.trigger('click', { force: true });
-		cy.get('[data-test="myTooltipContent"]').should('be.visible');
+		cy.get('[data-test="tooltip"]').should('be.visible');
 	});
 	it('Should not grow to available size if not enough data provided', () => {
 		const onBarClick = cy.stub().as('onBarClick');
