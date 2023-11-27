@@ -54,13 +54,6 @@ function getOptions(program) {
 		message: program.message,
 		ignoreScripts: program['ignore-scripts'],
 	};
-
-	// Add way to manage pnpm workspace
-	const userAgent = process.env.npm_config_user_agent;
-	if (userAgent.startsWith('pnpm')) {
-		opts.workspace = program.workspace;
-	}
-
 	return opts;
 }
 
