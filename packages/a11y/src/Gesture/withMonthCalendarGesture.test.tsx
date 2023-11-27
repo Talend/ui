@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { withMonthCalendarGesture } from './withMonthCalendarGesture';
+
 import MonthCalendar from '../__mocks__/month-calendar';
+import { withMonthCalendarGesture } from './withMonthCalendarGesture';
 
 /**
  * Mock on a 3-month sets of months

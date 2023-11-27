@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { preventScroll } from './preventScroll';
 import userEvent from '@testing-library/user-event';
+
+import { preventScroll } from './preventScroll';
 
 describe('preventScroll', () => {
 	it('Prevent arrow keys', async () => {
