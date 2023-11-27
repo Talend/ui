@@ -3,7 +3,6 @@
 import '@testing-library/cypress/add-commands';
 import { mount } from 'cypress/react';
 
-// import IconsProvider from '../../src/components/IconsProvider';
 
 Cypress.Commands.add('mount', (component, options) => {
 	const wrapper = component;
