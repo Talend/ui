@@ -1,12 +1,12 @@
-import { Fragment, useRef } from 'react';
-import type { MouseEvent, ReactNode } from 'react';
+import { useRef, Fragment } from 'react';
+import type { ReactNode, MouseEvent } from 'react';
 
-import { FloatingArrow, FloatingPortal, Placement } from '@floating-ui/react';
+import { Placement, FloatingArrow, FloatingPortal } from '@floating-ui/react';
 import classNames from 'classnames';
 
 import tokens from '@talend/design-tokens';
 
-import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
+import { renderOrClone, ChildOrGenerator } from '../../renderOrClone';
 import { usePopover } from './usePopover';
 
 import theme from './Popover.module.scss';

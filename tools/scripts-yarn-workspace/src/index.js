@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { workspaceRun } from './workspace-run.js';
 
 const command = process.argv[2];

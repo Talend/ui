@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /* eslint-disable no-console */
 import mergeReport from './scripts/lint-merge-report.js';
 import { getEnv } from './utils/env.js';
