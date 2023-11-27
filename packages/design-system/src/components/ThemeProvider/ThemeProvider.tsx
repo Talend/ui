@@ -33,14 +33,18 @@ export const ThemeProvider = ({
 		setSelectedTheme(theme);
 	}, [theme]);
 
+	useEffect(() => {
+		if (tokensOverride) {
+			Object.keys(tokensOverride).forEach(key => {
+				document.body.style.setProperty(key, tokensOverride[key].toString());
+			});
+		}
+	}, [tokensOverride]);
+
 	const switchTheme = (newTheme: string) => setSelectedTheme(newTheme);
 	return (
 		<ThemeContext.Provider value={context.theme ? context : { switchTheme, theme: selectedTheme }}>
-			{tokensOverride ? (
-				<div style={{ ...tokensOverride, width: '100%', height: '100%' }}>{children}</div>
-			) : (
-				children
-			)}
+			{children}
 		</ThemeContext.Provider>
 	);
 };
