@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.4.1
+
+### Patch Changes
+
+- 88a17d7e7: fix: theme provider override is not working as expected
+
 ## 8.4.0
 
 ### Minor Changes
