@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { defineConfig } from 'cypress';
-import path from 'path';
+const { defineConfig } = require('cypress');
+const path = require('path');
 
-import {
+const {
 	getWebpackRules,
 	getWebpackPlugins,
-} from '@talend/scripts-config-react-webpack/config/webpack.config.common';
+} = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const webpack = require('webpack');
 const srcDirectories = [
@@ -34,7 +34,7 @@ const webpackConfig = {
 		},
 	},
 	module: {
-		rules: getWebpackRules(srcDirectories, true, true),
+		rules: getWebpackRules([path.resolve(process.cwd(), './src/')], true, true),
 	},
 	plugins: getWebpackPlugins().concat([
 		new webpack.ProvidePlugin({
@@ -43,7 +43,7 @@ const webpackConfig = {
 	]),
 };
 
-export default defineConfig({
+module.exports = defineConfig({
 	viewportWidth: 400,
 	viewportHeight: 400,
 	video: false,
