@@ -13,7 +13,7 @@ import './ThemeProvider.scss';
 
 export type ThemeProviderProps = PropsWithChildren<{
 	theme?: string;
-	tokensOverride?: React.CSSProperties;
+	tokensOverride?: Record<string, string | number>;
 }>;
 
 export const ThemeProvider = ({
@@ -36,7 +36,11 @@ export const ThemeProvider = ({
 	const switchTheme = (newTheme: string) => setSelectedTheme(newTheme);
 	return (
 		<ThemeContext.Provider value={context.theme ? context : { switchTheme, theme: selectedTheme }}>
-			{tokensOverride ? <div style={tokensOverride}>{children}</div> : children}
+			{tokensOverride ? (
+				<div style={{ ...tokensOverride, width: '100%', height: '100%' }}>{children}</div>
+			) : (
+				children
+			)}
 		</ThemeContext.Provider>
 	);
 };
