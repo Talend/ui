@@ -5,7 +5,7 @@ exports[`Tabs widget should render tabs 1`] = `
   id="undefined-tabs"
 >
   <div
-    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
+    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
   >
     <div
       class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M"
@@ -45,6 +45,7 @@ exports[`Tabs widget should render tabs 1`] = `
       </button>
     </div>
     <div
+      class="theme-tabpanel"
       id="undefined-tabs-0"
       role="tabpanel"
       tabindex="0"
@@ -88,9 +89,9 @@ exports[`Tabs widget should render tabs 1`] = `
       </fieldset>
     </div>
     <div
+      class="theme-tabpanel theme-tabpanel--hidden"
       id="undefined-tabs-1"
       role="tabpanel"
-      style="display: none;"
       tabindex="0"
     >
       <fieldset
