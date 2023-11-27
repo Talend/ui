@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 13.0.1
+
+### Patch Changes
+
+- f14ebbe23: Fix issue with eslint config
+
 ## 13.0.0
 
 ### Major Changes

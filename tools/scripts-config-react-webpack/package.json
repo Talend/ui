@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-react-webpack",
   "description": "Webpack configuration for @talend/scripts-core",
-  "version": "16.3.0",
+  "version": "16.3.1",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -22,10 +22,10 @@
   },
   "dependencies": {
     "@babel/core": "^7.23.3",
-    "@sentry/webpack-plugin": "^1.20.1",
+    "@sentry/webpack-plugin": "^1.21.0",
     "@talend/react-cmf-webpack-plugin": "^6.38.0",
     "@talend/scripts-config-babel": "^13.2.0",
-    "@talend/scripts-config-cdn": "^10.9.0",
+    "@talend/scripts-config-cdn": "^10.9.1",
     "@talend/scripts-utils": "^2.2.0",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
@@ -34,7 +34,7 @@
     "circular-dependency-plugin": "^5.2.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
-    "core-js-bundle": "^3.33.2",
+    "core-js-bundle": "^3.33.3",
     "css-loader": "^4.3.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
@@ -57,12 +57,12 @@
     "url": "^0.11.3",
     "url-loader": "^4.1.1",
     "webpack": "^5.89.0",
-    "webpack-bundle-analyzer": "^4.10.0",
+    "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.0",
+    "@talend/eslint-config": "^13.0.1",
     "@talend/eslint-plugin": "^1.1.0"
   },
   "publishConfig": {

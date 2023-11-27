@@ -1,5 +1,19 @@
 # @talend/design-system
 
+## 8.4.0
+
+### Minor Changes
+
+- 4dc277f42: feat: allow token override with theme provider
+
+## 8.3.1
+
+### Patch Changes
+
+- f43609cd2: TDOPS-5671 - Fix Design System tooltip display in case of empty value
+- e798efb92: Export "open" prop to children of Popover component
+- f14ebbe23: Add missing deps
+
 ## 8.3.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @talend/scripts-config-prettier
 
+## 12.1.2
+
+### Patch Changes
+
+- 5455b6517: fix: prettier configuration for sort imports
+
+## 12.1.1
+
+### Patch Changes
+
+- f14ebbe23: Add missing deps
+
 ## 12.1.0
 
 ### Minor Changes
