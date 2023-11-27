@@ -3,7 +3,6 @@ import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
-import { StackItem } from 'lib';
 
 import tokens from '@talend/design-tokens';
 // eslint-disable-next-line @talend/import-depth
@@ -17,7 +16,7 @@ import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { Dropdown, DropdownPropsType } from '../../Dropdown';
 import { SizedIcon } from '../../Icon';
 import Link, { LinkProps } from '../../Link/Link';
-import { StackHorizontal, StackVertical } from '../../Stack';
+import { StackHorizontal, StackItem, StackVertical } from '../../Stack';
 
 import styles from './MessageStyles.module.scss';
 
@@ -46,7 +45,7 @@ export type SharedMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style' | 
 	additionalAction?: ButtonIconType<'XS'>;
 	additionalActions?: Omit<DropdownPropsType, 'children'>;
 	children?: ReactNode | ReactNode[];
-	description: string;
+	description: string | ReactElement | string[] | ReactElement[];
 	link?: LinkProps;
 	title?: string;
 } & (SharedMessageWithActionPropsType | SharedMessageWithActionsPropsType);
@@ -91,7 +90,7 @@ export const MessagePrimitive = forwardRef(
 									<SizedIcon name={icon} size="S" color={tokens.coralColorNeutralIconWeak} />
 								)}
 								{title}
-								<StackItem align="end">test</StackItem>
+								{/* <StackItem align="end">edfefefef</StackItem> */}
 							</StackHorizontal>
 						</header>
 					)}
