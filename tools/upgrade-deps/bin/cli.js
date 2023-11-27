@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /* eslint-disable import/extensions */
-
 import fs from 'fs';
-import { upgradeYarnProject, upgradeNpmProject } from '../src/index.js';
+
+import { upgradeNpmProject, upgradePnpmProject, upgradeYarnProject } from '../src/index.js';
 
 const CWD = process.cwd();
 
@@ -13,13 +13,9 @@ const HELP_MSG = `talend-scripts upgrade [options]
 --starts-with=* to limit the check done in package.json and lock file. For example --scope=@talend/scripts-
 --dry changes are not applied
 --latest to force update regardeless of the package.json
---security=* the dependency security configuration. This mode is not compatible with any other option. For example --security=./security-conf.json
 --message=* the message you want in the changeset
 --ignore-scripts Do not run script on yarn/npm install and upgrade commands
 
-ALIASES:
---talend-major: equal to --filter=@talend --latest
---check: equal to --latest --dry
 
 Without any options you will upgrade your package.json respecting the current condition (so this is safe)
 So only the lock file should be changed after this command.`;
@@ -54,8 +50,12 @@ function upgradeDeps(options) {
 		upgradeYarnProject(program).then(() => process.exit(0));
 	} else if (fs.existsSync(`${CWD}/package-lock.json`)) {
 		upgradeNpmProject(program).then(() => process.exit(0));
+	} else if (fs.existsSync(`${CWD}/pnpm-lock.yaml`)) {
+		upgradePnpmProject(program).then(() => process.exit(0));
 	} else {
-		throw new Error('Update project without yarn.lock is not supported');
+		throw new Error(
+			'Update project without yarn.lock, package-lock.json or pnpm-lock.yaml is not supported',
+		);
 	}
 }
 
