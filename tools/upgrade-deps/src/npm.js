@@ -1,14 +1,17 @@
 /* eslint-disable no-console */
+
 /* eslint-disable no-param-reassign */
+
 /* eslint-disable no-await-in-loop, no-restricted-syntax */
+import { exec } from 'child_process';
 import fs from 'fs';
 import fsprom from 'fs/promises';
 import os from 'os';
-import util from 'util';
 import path from 'path';
-import { exec } from 'child_process';
 import semver from 'semver';
 import stripAnsi from 'strip-ansi';
+import util from 'util';
+
 import colors from './colors.js';
 
 const execProm = util.promisify(exec);
@@ -203,6 +206,24 @@ async function checkPackageJson(filePath, opts) {
 				for (const pkgInfo of Object.values(objInfo)) {
 					const result = await checkPackageJson(path.join(pkgInfo.location, 'package.json'), opts);
 					changed = changed || result;
+				}
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	} else if (
+		fs.existsSync(`${path.dirname(filePath)}/pnpm-workspace.yaml`) &&
+		fs.existsSync(`${path.dirname(filePath)}/pnpm-lock.yaml`)
+	) {
+		try {
+			const list = await execProm('pnpm list -r --depth -1 --json');
+			if (list.stdout) {
+				const objInfo = JSON.parse(stripAnsi(list.stdout));
+				for (const pkgInfo of Object.values(objInfo)) {
+					if (path.join(pkgInfo.path, 'package.json') !== filePath) {
+						const result = await checkPackageJson(path.join(pkgInfo.path, 'package.json'), opts);
+						changed = changed || result;
+					}
 				}
 			}
 		} catch (error) {

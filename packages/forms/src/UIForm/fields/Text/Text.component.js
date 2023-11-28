@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
-import { get, omit } from 'lodash';
-import { Link } from '@talend/design-system';
+import get from 'lodash/get';
+import { Form } from '@talend/design-system';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import PasswordWidget from './PasswordWidget';
 
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 
@@ -63,12 +62,12 @@ export default function Text(props) {
 			valueIsUpdating={valueIsUpdating}
 		>
 			{type === 'password' ? (
-				<PasswordWidget
+				<Form.Password
 					{...fieldProps}
 					aria-invalid={!isValid}
 					aria-required={get(schema, 'required')}
 					aria-describedby={`${descriptionId} ${errorId}`}
-					link={link && <Link {...omit(link, ['label'])}> {link.label} </Link>}
+					link={link}
 				/>
 			) : (
 				<input

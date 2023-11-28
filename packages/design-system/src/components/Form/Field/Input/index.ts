@@ -1,6 +1,6 @@
 import Input from './Input';
 
-import InputCheckbox from './Input.Checkbox';
+import Checkbox from './Input.Checkbox';
 import InputColor from './Input.Color';
 import InputCopy from './Input.Copy';
 import InputDate from './Input.Date';
@@ -10,18 +10,18 @@ import InputFile from './Input.File';
 import InputHidden from './Input.Hidden';
 import InputMonth from './Input.Month';
 import InputNumber from './Input.Number';
-import InputPassword from './Password';
 import InputRadio from './Input.Radio';
 import InputSearch from './Input.Search';
-import InputToggleSwitch from './Input.ToggleSwitch';
+import { ToggleSwitch } from './Input.ToggleSwitch';
 import InputTel from './Input.Tel';
 import InputText from './Input.Text';
 import InputTime from './Input.Time';
 import InputUrl from './Input.Url';
 import InputWeek from './Input.Week';
+import InputPassword from './Password';
 
 const InputComponent = Input as typeof Input & {
-	Checkbox: typeof InputCheckbox;
+	Checkbox: typeof Checkbox;
 	Color: typeof InputColor;
 	Copy: typeof InputCopy;
 	Date: typeof InputDate;
@@ -34,15 +34,15 @@ const InputComponent = Input as typeof Input & {
 	Password: typeof InputPassword;
 	Radio: typeof InputRadio;
 	Search: typeof InputSearch;
-	ToggleSwitch: typeof InputToggleSwitch;
 	Tel: typeof InputTel;
 	Text: typeof InputText;
 	Time: typeof InputTime;
+	ToggleSwitch: typeof ToggleSwitch;
 	Url: typeof InputUrl;
 	Week: typeof InputWeek;
 };
 
-InputComponent.Checkbox = InputCheckbox;
+InputComponent.Checkbox = Checkbox;
 InputComponent.Color = InputColor;
 InputComponent.Copy = InputCopy;
 InputComponent.Date = InputDate;
@@ -55,10 +55,10 @@ InputComponent.Number = InputNumber;
 InputComponent.Password = InputPassword;
 InputComponent.Radio = InputRadio;
 InputComponent.Search = InputSearch;
-InputComponent.ToggleSwitch = InputToggleSwitch;
 InputComponent.Tel = InputTel;
 InputComponent.Text = InputText;
 InputComponent.Time = InputTime;
+InputComponent.ToggleSwitch = ToggleSwitch;
 InputComponent.Url = InputUrl;
 InputComponent.Week = InputWeek;
 

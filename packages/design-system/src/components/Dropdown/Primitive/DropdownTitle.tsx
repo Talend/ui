@@ -14,4 +14,5 @@ const DropdownTitle = forwardRef(
 	},
 );
 
+DropdownTitle.displayName = 'DropdownTitle';
 export default DropdownTitle;

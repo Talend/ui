@@ -1,6 +1,7 @@
 {
   "root": true,
   "extends": [
+    "eslint:recommended",
     "airbnb-base",
     "plugin:prettier/recommended",
     "plugin:jest-dom/recommended",
@@ -111,5 +112,7 @@
     "react": {
       "version": "detect"
     }
-  }
+  },
+  // Ignore some JS at project's rool level
+  "ignorePatterns": ["index.js", ".eslintrc.js"]
 }

@@ -1,5 +1,4 @@
 {
-  "doc": "Toggle/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Booleans",

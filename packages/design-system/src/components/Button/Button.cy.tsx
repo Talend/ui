@@ -1,10 +1,11 @@
+/* eslint-disable cypress/unsafe-to-chain-command */
 /* eslint-disable testing-library/prefer-screen-queries */
-/* eslint-disable testing-library/await-async-query */
+/* eslint-disable testing-library/await-async-queries */
 import { useState } from 'react';
 
 import ButtonPrimitive from './Primitive/ButtonPrimitive';
 import { ButtonPrimary } from './';
-import Tooltip from '../../components/Tooltip';
+import { Tooltip } from '../../components/Tooltip';
 
 const Loading = ({ 'data-testid': dataTestId }: { 'data-testid': string }) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
@@ -54,21 +55,20 @@ context('<Button />', () => {
 	describe('loading state', () => {
 		it('should load', () => {
 			cy.mount(<Loading data-testid="my.button" />);
-			cy.findByTestId('my.button')
-				.should('have.attr', 'aria-busy', 'false')
-				.click()
-				.should('have.attr', 'aria-busy', 'true');
+			cy.findByTestId('my.button').should('have.attr', 'aria-busy', 'false');
+			cy.findByTestId('my.button').click({ force: true });
+			cy.findByTestId('my.button').should('have.attr', 'aria-busy', 'true');
 			cy.get('button').should('have.attr', 'aria-busy', 'false');
 		});
 
 		it('should have a tooltip', () => {
 			cy.mount(<Loading data-testid="my.button" />);
+			cy.findByTestId('my.button').focus();
 			cy.findByTestId('my.button')
-				.focus()
 				.should('have.attr', 'aria-describedby')
-				.then(describedBy =>
-					cy.get(`#${describedBy}`).should('have.text', 'Relevant description of the basic button'),
-				);
+				.then(describedBy => {
+					cy.get(`#${describedBy}`).should('have.text', 'Relevant description of the basic button');
+				});
 		});
 	});
 });

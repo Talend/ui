@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import EnumerationWidget from './EnumerationWidget';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 describe('EnumerationWidget', () => {
 	it('should render items', () => {

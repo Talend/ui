@@ -5,7 +5,7 @@ import { NodeRecordMap, NodeRecord, Id, Position } from '../../customTypings/ind
 
 type Props = {
 	nodes: NodeRecordMap;
-	nodeTypeMap: Object;
+	nodeTypeMap: object;
 	startMoveNodeTo: (nodeId: Id, nodePosition: string) => void;
 	moveNodeTo: (nodeId: Id, nodePosition: Position) => void;
 	moveNodeToEnd: (nodeId: Id, nodePosition: Position) => void;
@@ -41,7 +41,7 @@ class NodesRenderer extends Component<Props> {
 	}
 
 	render() {
-		return <g>{this.props.nodes.valueSeq().map(this.renderNode)}</g>;
+		return <g>{this.props.nodes.toArray().map(this.renderNode)}</g>;
 	}
 }
 

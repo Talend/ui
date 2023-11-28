@@ -24,5 +24,5 @@ const SkeletonHeading = forwardRef(
 		);
 	},
 );
-
+SkeletonHeading.displayName = 'SkeletonHeading';
 export default SkeletonHeading;

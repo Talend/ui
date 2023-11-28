@@ -3,8 +3,6 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TooltipTrigger from './TooltipTrigger.component';
 
-jest.useFakeTimers();
-
 function runAllTimers() {
 	act(() => {
 		jest.runAllTimers();
@@ -12,6 +10,13 @@ function runAllTimers() {
 }
 
 describe('ActionTooltip', () => {
+	beforeEach(() => {
+		jest.useFakeTimers();
+	});
+	afterEach(() => {
+		jest.useRealTimers();
+	});
+
 	it('should render only the children', () => {
 		// given
 		const props = {

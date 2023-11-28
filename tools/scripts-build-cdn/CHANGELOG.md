@@ -1,5 +1,20 @@
 # @talend/scripts-build-cdn
 
+## 11.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, remove dependency with scripts-core (circular dependency) and adapt code for PNPM
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+- Updated dependencies [673984929]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+  - @talend/babel-plugin-import-d3@0.3.0
+  - @talend/scripts-config-cdn@10.9.0
+
 ## 11.0.1
 
 ### Patch Changes

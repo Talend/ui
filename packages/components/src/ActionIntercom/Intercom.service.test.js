@@ -160,6 +160,7 @@ describe('Intercom service', () => {
 			expect(styleElement.textContent.trim().replace(/\s/g, ' ')).toBe(
 				'.intercom-namespace .intercom-app div.intercom-messenger-frame {     top: 39px;     left: 427px;     right: 221px;     margin-top: 2rem;    }',
 			);
+			jest.useRealTimers();
 		});
 
 		it('should remove custom style with cleanup return function', () => {
@@ -182,6 +183,7 @@ describe('Intercom service', () => {
 
 			// then
 			expect(intercomContainer.querySelector('style')).toBeFalsy();
+			jest.useRealTimers();
 		});
 	});
 });

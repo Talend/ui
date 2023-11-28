@@ -1,5 +1,15 @@
 # @talend/babel-plugin-import-d3
 
+## 0.3.0
+
+### Minor Changes
+
+- 673984929: Add missing deps and fix lint issues
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 0.2.1
 
 ### Patch Changes

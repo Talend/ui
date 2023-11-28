@@ -1,21 +1,29 @@
-import { cloneElement } from 'react';
-import type { PropsWithChildren, FC } from 'react';
-import {
-	Tooltip as ReakitTooltip,
-	TooltipArrow as ReakitTooltipArrow,
-	TooltipProps as ReakitTooltipProps,
-	TooltipReference as ReakitTooltipReference,
-	useTooltipState as useReakitTooltipState,
-} from 'reakit/Tooltip';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState, useRef } from 'react';
+import type { MutableRefObject, RefCallback, ReactElement, ReactNode } from 'react';
 
-import { unstable_useId as useId } from 'reakit/Id';
+import {
+	arrow,
+	FloatingArrow,
+	FloatingPortal,
+	useFloating,
+	useHover,
+	useFocus,
+	useDismiss,
+	useRole,
+	useInteractions,
+	autoUpdate,
+	flip,
+	offset,
+	shift,
+} from '@floating-ui/react';
+
+import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
+import { useId } from '../../useId';
 
 import styles from './Tooltip.module.scss';
 
 export type Placement =
-	| 'auto-start'
-	| 'auto'
-	| 'auto-end'
 	| 'top-start'
 	| 'top'
 	| 'top-end'
@@ -29,37 +37,79 @@ export type Placement =
 	| 'left'
 	| 'left-start';
 
-export type TooltipProps = PropsWithChildren<any> &
-	ReakitTooltipProps & {
-		title?: string;
-	};
+export type TooltipPlacement = Placement;
+export type TooltipChildrenFnProps = {
+	onHover?: (event: any) => void;
+	onFocus?: (event: any) => void;
+	onBlur?: (event: any) => void;
+	'aria-describedby'?: string;
+};
 
-const Tooltip: FC<TooltipProps> = ({ children, title, baseId, ...rest }: TooltipProps) => {
-	const { id: reakitId } = useId();
-	const tooltipState = useReakitTooltipState({
-		...rest,
-		animated: 250,
-		gutter: 15,
-		unstable_flip: true,
-		unstable_preventOverflow: true,
-		baseId: baseId || reakitId,
+export type TooltipChildrenFnRef =
+	| any
+	| MutableRefObject<HTMLButtonElement>
+	| RefCallback<HTMLButtonElement>;
+
+export type TooltipProps = {
+	title?: ReactNode;
+	placement?: Placement;
+	id?: string;
+	children: ChildOrGenerator<ReactElement, TooltipChildrenFnProps, TooltipChildrenFnRef>;
+};
+
+export const Tooltip = ({ id, children, title, placement = 'top', ...rest }: TooltipProps) => {
+	const safeId = useId(id);
+	const [isOpen, setIsOpen] = useState(false);
+	const arrowRef = useRef(null);
+	const floating = useFloating({
+		placement: placement || 'top',
+		open: isOpen,
+		onOpenChange: setIsOpen,
+		middleware: [
+			arrow({
+				element: arrowRef,
+			}),
+			offset(10),
+			flip({
+				crossAxis: placement.includes('-'),
+				fallbackAxisSideDirection: 'start',
+				padding: 5,
+			}),
+			shift({ padding: 4 }),
+		],
+		whileElementsMounted: autoUpdate,
 	});
+	const hover = useHover(floating.context, { move: false });
+	const focus = useFocus(floating.context);
+	const dismiss = useDismiss(floating.context);
+	const role = useRole(floating.context, { role: 'tooltip' });
+	const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
 
 	return (
 		<>
-			<ReakitTooltipReference {...tooltipState} ref={children.ref} {...children.props}>
-				{referenceProps => cloneElement(children, referenceProps)}
-			</ReakitTooltipReference>
-			{title && (
-				<ReakitTooltip className={styles.tooltip} {...tooltipState} {...rest}>
-					<div className={styles.container}>
-						<ReakitTooltipArrow className={styles.arrow} {...tooltipState} />
+			{renderOrClone(
+				children,
+				{
+					...getReferenceProps(),
+					...(title && { 'aria-describedby': safeId }),
+				},
+				floating.refs.setReference,
+			)}
+			{!!title && (
+				<FloatingPortal>
+					<div
+						{...getFloatingProps()}
+						id={safeId}
+						ref={floating.refs.setFloating}
+						className={styles.container}
+						style={{ display: isOpen ? 'block' : 'none', ...floating.floatingStyles }}
+						{...rest}
+					>
+						<FloatingArrow ref={arrowRef} context={floating.context} />
 						{title}
 					</div>
-				</ReakitTooltip>
+				</FloatingPortal>
 			)}
 		</>
 	);
 };
-
-export default Tooltip;

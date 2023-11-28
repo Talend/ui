@@ -373,6 +373,30 @@ const Icon = ({ name, size }: { name: string; size?: keyof typeof iconSizes }) =
 	);
 };
 
+export const StyleIcon = () => (
+	<style>
+		{`
+			svg {
+				max-width: 2.4rem;
+				max-height: 2.4rem;
+			}
+			svg path {
+				shape-rendering: geometricPrecision;
+			}
+			.colormapping > svg {
+				filter: url(#colormapping);
+			}
+			.grayscale > svg {
+				filter: url(#talend-grayscale);
+			}
+			.colormapping:hover > svg,
+			.grayscale:hover > svg {
+				filter: none;
+			}
+		`}
+	</style>
+);
+
 Icon.displayName = 'Icon';
 
 export default Icon;

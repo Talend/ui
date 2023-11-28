@@ -1,16 +1,17 @@
-import StepperVertical from './variations/Stepper.vertical';
-import StepperHorizontal from './variations/Stepper.horizontal';
+import { StepperVertical, StepperVerticalProps } from './variations/Stepper.vertical';
+import { StepperHorizontal, StepperHorizontalProps } from './variations/Stepper.horizontal';
 import Step from './Step';
 
-const StepperComponent = StepperVertical as typeof StepperVertical & {
+const Stepper = StepperVertical as typeof StepperVertical & {
 	Vertical: typeof StepperVertical;
 	Horizontal: typeof StepperHorizontal;
 	Step: typeof Step;
 };
 
-StepperComponent.Vertical = StepperVertical;
-StepperComponent.Horizontal = StepperHorizontal;
+Stepper.Vertical = StepperVertical;
+Stepper.Horizontal = StepperHorizontal;
 
-StepperComponent.Step = Step;
+Stepper.Step = Step;
 
-export default StepperComponent;
+export type { StepperVerticalProps, StepperHorizontalProps };
+export { Stepper };

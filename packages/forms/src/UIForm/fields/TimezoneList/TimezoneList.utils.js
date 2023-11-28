@@ -4,7 +4,7 @@ import { date as dateUtils } from '@talend/utils';
 /**
  * Get the sorted list of timezones in a given language.
  * Sort is done by UTC offset first, then by timezone name.
- * @param {String} lang 
+ * @param {String} lang
  * @returns {Array}
  */
 export function getTimezones(lang, cldrTimezones) {
@@ -22,45 +22,48 @@ export function getTimezones(lang, cldrTimezones) {
 	 * @returns {Object}
 	 */
 	const getTimezoneInfo = (timezone, translatedName) => {
-		const timezoneName = translatedName || get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
+		const timezoneName =
+			translatedName || get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
 		const offset = dateUtils.getUTCOffset(timezone);
 		const name = `(UTC ${dateUtils.formatReadableUTCOffset(offset)}) ${timezoneName}`;
 
 		return { name, timezoneName, offset, value: timezone };
 	};
 
-	return Object.keys(zones)
-		.reduce((collectedTimezones, region) => {
-			const newTimezones = [];
+	return (
+		Object.keys(zones)
+			.reduce((collectedTimezones, region) => {
+				const newTimezones = [];
 
-			if (region === 'Etc') {
-				// Only keep "Etc/UTC" for "Etc" region
-				newTimezones.push(getTimezoneInfo('Etc/UTC', zones.Etc.UTC.long.standard));
-			} else {
-				Object.keys(zones[region]).forEach(city => {
-					if (
-						'exemplarCity' in zones[region][city] ||
-						city === 'Honolulu' // Honolulu contains sub-keys but they are deprecated in IANA references ("HST"/"HDT")
-					) {
-						// Ex: Europe/Paris, Asia/Yerevan ...
-						const timezone = `${region}/${city}`;
-						newTimezones.push(getTimezoneInfo(timezone));
-					} else {
-						// Ex: America/Argentina/Buenos_Aires ...
-						Object.keys(zones[region][city]).forEach(city2 => {
-							const timezone = `${region}/${city}/${city2}`;
+				if (region === 'Etc') {
+					// Only keep "Etc/UTC" for "Etc" region
+					newTimezones.push(getTimezoneInfo('Etc/UTC', zones.Etc.UTC.long.standard));
+				} else {
+					Object.keys(zones[region]).forEach(city => {
+						if (
+							'exemplarCity' in zones[region][city] ||
+							city === 'Honolulu' // Honolulu contains sub-keys but they are deprecated in IANA references ("HST"/"HDT")
+						) {
+							// Ex: Europe/Paris, Asia/Yerevan ...
+							const timezone = `${region}/${city}`;
 							newTimezones.push(getTimezoneInfo(timezone));
-						});
-					}
-				});
-			}
+						} else {
+							// Ex: America/Argentina/Buenos_Aires ...
+							Object.keys(zones[region][city]).forEach(city2 => {
+								const timezone = `${region}/${city}/${city2}`;
+								newTimezones.push(getTimezoneInfo(timezone));
+							});
+						}
+					});
+				}
 
-			return [...collectedTimezones, ...newTimezones];
-		}, [])
-		// Sort by UTC offset, then by name
-		.sort((a, b) => {
-			return a.offset !== b.offset
-				? a.offset - b.offset
-				: a.timezoneName.localeCompare(b.timezoneName);
-		});
-};
+				return [...collectedTimezones, ...newTimezones];
+			}, [])
+			// Sort by UTC offset, then by name
+			.sort((a, b) => {
+				return a.offset !== b.offset
+					? a.offset - b.offset
+					: a.timezoneName.localeCompare(b.timezoneName);
+			})
+	);
+}

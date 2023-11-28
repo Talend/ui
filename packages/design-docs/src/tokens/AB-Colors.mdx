@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/blocks';
+import tokens from '@talend/design-tokens';
+import { Divider } from '@talend/design-system';
+import * as utils from './TokenFormatter';
+import { TokenValue, TokenList } from './TokenValue';
+
+<Meta title="Design Tokens/Colors" />
+
+# Colors
+
+<Divider />
+
+<TokenList
+	style={token => ({
+		backgroundColor: token.value,
+	})}
+	type="color"
+	category="neutral"
+	categories={[
+		'neutral',
+		'accent',
+		'info',
+		'success',
+		'warning',
+		'beta',
+		'charts',
+		'illustration',
+		'assistive',
+		'branding',
+	]}
+/>

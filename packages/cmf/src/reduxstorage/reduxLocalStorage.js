@@ -3,7 +3,10 @@ import createEngine from 'redux-storage-engine-localstorage';
 import filter from 'redux-storage-decorator-filter';
 import immutablejs from './redux-storage-decorator-immutablejs';
 
-const CMF_IMMUTABLE_PATHS = [['cmf', 'components'], ['cmf', 'collections']];
+const CMF_IMMUTABLE_PATHS = [
+	['cmf', 'components'],
+	['cmf', 'collections'],
+];
 
 const CMF_MIDDLEWARE_BLACK_LIST = ['@@INIT', '@@router/LOCATION_CHANGE'];
 

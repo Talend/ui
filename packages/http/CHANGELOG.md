@@ -1,5 +1,25 @@
 # @talend/http
 
+## 3.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  fix tsconfig
+
+## 3.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+
+## 2.4.0
+
+### Minor Changes
+
+- 72a8f20dc: feat(TDP-12106): improve interceptors to return a promise, have access to request and a business context from caller
+
 ## 2.3.0
 
 ### Minor Changes

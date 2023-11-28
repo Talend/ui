@@ -3,9 +3,9 @@ import EmptyStateMedium, { EmptyStateMediumProps } from './variants/EmptyStateMe
 import EmptyStateSmall, { EmptyStateSmallProps } from './variants/EmptyStateSmall';
 import { forwardRef, Ref } from 'react';
 
-type availableVariantsTypes = 'L' | 'M' | 'S';
+type AvailableVariantsTypes = 'L' | 'M' | 'S';
 
-export type VariantType<T extends availableVariantsTypes, P extends object> = {
+export type VariantType<T extends AvailableVariantsTypes, P extends object> = {
 	variant: T;
 } & P;
 
@@ -15,7 +15,7 @@ type Small = VariantType<'S', EmptyStateSmallProps>;
 
 export type EmptyStateProps = Large | Medium | Small;
 
-const EmptyState = forwardRef((props: EmptyStateProps, ref: Ref<HTMLElement>) => {
+export const EmptyState = forwardRef((props: EmptyStateProps, ref: Ref<HTMLElement>) => {
 	switch (props.variant) {
 		case 'L': {
 			const { variant, ...rest } = props;
@@ -38,4 +38,4 @@ const EmptyState = forwardRef((props: EmptyStateProps, ref: Ref<HTMLElement>) =>
 	}
 });
 
-export default EmptyState;
+EmptyState.displayName = 'EmptyState';

@@ -22,14 +22,14 @@ export enum TagVariant {
 // This const allows JS component to type props with restricted list of tag variations
 export const TagVariantsNames = Object.values(TagVariant);
 
-type TagProps = Omit<PrimitiveTagProps, 'className'> & {
+export type TagProps = Omit<PrimitiveTagProps, 'className'> & {
 	/**
 	 * Tag variation depending on its semantic
 	 */
 	variant?: keyof typeof TagVariant;
 };
 
-const Tag = forwardRef(({ variant, ...rest }: TagProps, ref: Ref<HTMLSpanElement>) => {
+export const Tag = forwardRef(({ variant, ...rest }: TagProps, ref: Ref<HTMLSpanElement>) => {
 	switch (variant) {
 		case TagVariant.information:
 			return <TagInformation {...rest} ref={ref} />;
@@ -45,5 +45,4 @@ const Tag = forwardRef(({ variant, ...rest }: TagProps, ref: Ref<HTMLSpanElement
 			return <TagDefault {...rest} ref={ref} />;
 	}
 });
-
-export default Tag;
+Tag.displayName = 'Tag';

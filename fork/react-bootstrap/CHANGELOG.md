@@ -1,5 +1,24 @@
 ## [v0.32.5]
 
+## 2.1.1
+
+### Patch Changes
+
+- f14ebbe23: Fix lint issue
+
+## 2.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+
+## 2.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+
 ## 1.35.2
 
 ### Patch Changes

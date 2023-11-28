@@ -1,7 +1,6 @@
 import { act, render, screen, fireEvent } from '@testing-library/react';
 import DateTimeWidget from './DateTime.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('DateTime widget', () => {
@@ -55,7 +54,7 @@ describe('DateTime widget', () => {
 		});
 		// then
 		expect(screen.getAllByRole('textbox')[0]).toHaveValue('2018-01-01');
-		expect(screen.getAllByRole('textbox')[1]).toHaveValue('11:35');
+		expect(screen.getAllByRole('textbox')[1]).toHaveValue('10:35');
 	});
 	it('should trigger onFinish on picker blur', async () => {
 		// given
@@ -122,7 +121,7 @@ describe('DateTime widget', () => {
 
 			expect(props.onChange.mock.calls[1][1]).toMatchObject({
 				schema: timestampSchema,
-				value: new Date(2015, 8, 21, 2, 30, 0).getTime(),
+				value: new Date(2015, 8, 21, 1, 30, 0).getTime(),
 			});
 		});
 

@@ -1,4 +1,5 @@
 import pluginTester from 'babel-plugin-tester';
+
 import babelPlugin from '.';
 
 pluginTester({
@@ -14,9 +15,9 @@ pluginTester({
 				import { brush } from 'd3';
 				import { csv } from 'd3-fetch'`,
 			output: `
-				import get from 'lodash/get';
 				import { brush } from 'd3';
-				import { select, event, shape, scale as foo, csv } from 'd3';`,
+				import { csv, event, scale as foo, select, shape } from 'd3';
+				import get from 'lodash/get';`,
 		},
 		// should work in already compiled project
 		{

@@ -1,5 +1,5 @@
 const babel = require('@babel/core');
-const options = require('../.babelrc.json');
+const options = require('../babel.config');
 
 describe('@babel/plugin-syntax-nullish-coalescing-operator is installed', () => {
 	it('should transpile nullish', () => {

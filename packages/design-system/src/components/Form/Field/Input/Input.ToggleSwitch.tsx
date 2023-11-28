@@ -1,17 +1,21 @@
 import { forwardRef } from 'react';
-import type { Ref } from 'react';
+import type { ChangeEvent, Ref } from 'react';
 
-import { Checkbox as ReakitCheckbox, unstable_useId as useId } from 'reakit';
 import classnames from 'classnames';
 
-import useCheckboxState from './hooks/useCheckboxState';
-import { CheckboxProps } from './Input.Checkbox';
+import { useId } from '../../../../useId';
+import { CheckboxPrimitiveType } from '../../Primitives';
+import { useControl } from '../../../../useControl';
 
 import styles from './Input.ToggleSwitch.module.scss';
 
-const ToggleSwitch = forwardRef(
-	(
-		{
+export type ToggleSwitchPropTypes = Omit<CheckboxPrimitiveType, 'onChange'> & {
+	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+};
+
+export const ToggleSwitch = forwardRef(
+	(props: Omit<ToggleSwitchPropTypes, 'indeterminate'>, ref: Ref<HTMLInputElement>) => {
+		const {
 			id,
 			label,
 			defaultChecked,
@@ -21,34 +25,38 @@ const ToggleSwitch = forwardRef(
 			required,
 			children,
 			isInline,
+			onChange,
 			...rest
-		}: Omit<CheckboxProps, 'indeterminate'>,
-		ref: Ref<HTMLInputElement>,
-	) => {
-		const { id: reakitId } = useId();
-		const switchId = id || `switch--${reakitId}`;
-		const checkbox = useCheckboxState({ state: defaultChecked || checked, readOnly });
+		} = props;
+		const switchId = useId(id, 'switch-');
+		const controlled = useControl<boolean>(props, {
+			onChangeKey: 'onChange',
+			valueKey: 'checked',
+			defaultValueKey: 'defaultChecked',
+			selector: e => e.target.checked,
+			defaultValue: false,
+		});
 
 		return (
 			<span
 				className={classnames(styles.switch, {
 					[styles.switch_readOnly]: !!readOnly,
-					[styles.switch_checked]: !!checkbox.state,
+					[styles.switch_checked]: controlled.value,
 					[styles.switch_disabled]: !!disabled,
 					[styles.switch_inline]: !!isInline,
 				})}
 			>
 				<label htmlFor={switchId} style={readOnly ? { pointerEvents: 'none' } : {}}>
-					{/*
-					// ReakitCheckbox is not based on HTMLInputElement despite working like one
-					// @ts-ignore */}
-					<ReakitCheckbox
+					<input
+						type="checkbox"
 						id={switchId}
 						disabled={disabled}
 						readOnly={readOnly}
 						required={required}
+						aria-checked={controlled.value}
+						checked={controlled.value}
+						onChange={e => controlled.onChange(e)}
 						{...rest}
-						{...checkbox}
 						ref={ref}
 					/>
 					<span className={styles.legend}>
@@ -61,6 +69,4 @@ const ToggleSwitch = forwardRef(
 	},
 );
 
-ToggleSwitch.displayName = 'ToggleSwitch';
-
-export default ToggleSwitch;
+ToggleSwitch.displayName = 'ToggleSwitchPrimitive';
