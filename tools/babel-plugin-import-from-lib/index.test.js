@@ -9,25 +9,25 @@ pluginTester({
 		{
 			code: `
 			import { SidePanel, Actions, ActionButton, ActionDropdown, List } from '@talend/react-components';`,
-		output: `
-			import List from '@talend/react-components/lib/List';
+			output: `
 			import { ActionDropdown } from '@talend/react-components/lib/Actions';
 			import { ActionButton } from '@talend/react-components/lib/Actions';
 			import { Actions } from '@talend/react-components/lib/Actions';
-			import SidePanel from '@talend/react-components/lib/SidePanel';`
+			import List from '@talend/react-components/lib/List';
+			import SidePanel from '@talend/react-components/lib/SidePanel';`,
 		},
 		{
 			code: "import { SidePanel as Component } from '@talend/react-components';",
-			output: "import Component from '@talend/react-components/lib/SidePanel';"
+			output: "import Component from '@talend/react-components/lib/SidePanel';",
 		},
 		{
 			code: "import { Actions as Component } from '@talend/react-components';",
-			output: "import { Actions as Component } from '@talend/react-components/lib/Actions';"
+			output: "import { Actions as Component } from '@talend/react-components/lib/Actions';",
 		},
 		{
 			// do not change existing /lib
 			code: "import getLocale from '@talend/react-components/lib/DateFnsLocale/locale';",
-			output: "import getLocale from '@talend/react-components/lib/DateFnsLocale/locale';"
+			output: "import getLocale from '@talend/react-components/lib/DateFnsLocale/locale';",
 		},
 		{
 			code: "import React from 'react';",
@@ -57,13 +57,13 @@ pluginTester({
 	title: 'options',
 	pluginOptions: {
 		rules: {
-			'@material-ui/core': {}
-		}
+			'@material-ui/core': {},
+		},
 	},
 	tests: [
 		{
 			code: "import { Button } from '@material-ui/core';",
 			output: "import Button from '@material-ui/core/Button';",
-		}
-	]
+		},
+	],
 });

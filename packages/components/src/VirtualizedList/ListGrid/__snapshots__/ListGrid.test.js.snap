@@ -47,7 +47,10 @@ exports[`ListGrid should render react-virtualized list 1`] = `
               class="theme-field-value"
             >
               <div
+                aria-describedby="42"
                 class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
               >
                 0
               </div>
@@ -69,6 +72,8 @@ exports[`ListGrid should render react-virtualized list 1`] = `
               <div
                 aria-describedby="42"
                 class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
               >
                 Title with icon and actions
               </div>
@@ -81,7 +86,6 @@ exports[`ListGrid should render react-virtualized list 1`] = `
             <dt
               class="theme-field-label"
             >
-              
               :
             </dt>
             <dd
@@ -90,6 +94,8 @@ exports[`ListGrid should render react-virtualized list 1`] = `
               <div
                 aria-describedby="42"
                 class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
               >
                 Simple row with icon and actions
               </div>
@@ -132,6 +138,8 @@ exports[`ListGrid should render react-virtualized list 1`] = `
               <div
                 aria-describedby="42"
                 class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
               >
                 1
               </div>
@@ -153,6 +161,8 @@ exports[`ListGrid should render react-virtualized list 1`] = `
               <div
                 aria-describedby="42"
                 class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
               >
                 Title without actions
               </div>
@@ -165,7 +175,6 @@ exports[`ListGrid should render react-virtualized list 1`] = `
             <dt
               class="theme-field-label"
             >
-              
               :
             </dt>
             <dd
@@ -174,6 +183,8 @@ exports[`ListGrid should render react-virtualized list 1`] = `
               <div
                 aria-describedby="42"
                 class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
               >
                 Simple row without actions
               </div>

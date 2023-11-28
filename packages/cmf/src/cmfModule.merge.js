@@ -102,11 +102,13 @@ function composeComponents(RootComponent, NestedRootComponent) {
 		return NestedRootComponent;
 	}
 	// eslint-disable-next-line react/prop-types
-	return ({ children }) => (
+	const CMFComposition = ({ children }) => (
 		<RootComponent>
 			<NestedRootComponent>{children}</NestedRootComponent>
 		</RootComponent>
 	);
+	CMFComposition.displayName = 'CMFComposition';
+	return CMFComposition;
 }
 
 const MERGE_FNS = {

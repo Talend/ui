@@ -1,5 +1,4 @@
 {
-  "doc": "Text/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Text",
@@ -53,8 +52,9 @@
       "type": "password",
       "link": {
         "href": "https://talend.com",
-        "label": "Forget?",
-        "aria-label": "Need help to log in?"
+        "title": "Forget?",
+        "aria-label": "Need help to log in?",
+        "children": "Need help to log in?"
       }
     }
   ],

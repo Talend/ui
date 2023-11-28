@@ -81,11 +81,11 @@ export default function Select({
 				) : null}
 				{schema.titleMap &&
 					schema.titleMap.map((option, index) => {
-						const optionProps = {
-							key: index,
-							value: option.value,
-						};
-						return <option {...optionProps}>{option.name}</option>;
+						return (
+							<option key={option.value || option.name || index} value={option.value}>
+								{option.name}
+							</option>
+						);
 					})}
 			</select>
 		</FieldTemplate>

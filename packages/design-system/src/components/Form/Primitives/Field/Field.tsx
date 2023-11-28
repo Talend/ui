@@ -1,10 +1,10 @@
-import { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import { forwardRef, ReactElement, Ref } from 'react';
+
 import Link, { LinkProps } from '../../../Link/Link';
 import { StackVertical } from '../../../Stack';
 import Label, { LabelPrimitiveProps } from '../Label/Label';
 import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
-import VisuallyHidden from '../../../VisuallyHidden';
-import { unstable_useId as useId } from 'reakit';
+import { VisuallyHidden } from '../../../VisuallyHidden';
 
 export type FieldStatusProps =
 	| {
@@ -25,34 +25,32 @@ export type FieldPropsPrimitive = {
 	required?: boolean;
 } & FieldStatusProps;
 
-type FieldPropsPrimitiveWithChildren = FieldPropsPrimitive & { children: ReactElement };
+type FieldPropsPrimitiveWithChildren = FieldPropsPrimitive & {
+	children: ReactElement;
+	fieldId: string;
+};
 
 const Field = forwardRef(
 	(props: FieldPropsPrimitiveWithChildren, ref: Ref<HTMLInputElement | HTMLTextAreaElement>) => {
 		const {
 			children,
 			link,
-			id,
 			label,
-			name,
 			hasError = false,
 			hideLabel = false,
 			required = false,
 			description,
-			...rest
+			fieldId,
 		} = props;
-
-		const { id: reakitId } = useId();
-		const fieldID = id || `field--${reakitId}`;
 
 		const labelProps = typeof label === 'string' ? { children: label } : { ...label };
 
 		const LabelComponent = hideLabel ? (
 			<VisuallyHidden>
-				<Label {...labelProps} htmlFor={fieldID} required={required} />
+				<Label {...labelProps} htmlFor={fieldId} required={required} />
 			</VisuallyHidden>
 		) : (
-			<Label {...labelProps} htmlFor={fieldID} required={required} />
+			<Label {...labelProps} htmlFor={fieldId} required={required} />
 		);
 
 		const Description = () => {
@@ -69,7 +67,7 @@ const Field = forwardRef(
 		return (
 			<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
 				{LabelComponent}
-				{cloneElement(children, { id: fieldID, hasError, name, required, ...rest }, ref)}
+				{children}
 				{link && <Link {...link} />}
 				{description && <Description />}
 			</StackVertical>

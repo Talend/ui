@@ -1,11 +1,10 @@
 import { forwardRef, LabelHTMLAttributes, ReactElement, Ref } from 'react';
 import classnames from 'classnames';
 import styles from './Label.module.scss';
-import { ReactI18NextChild } from 'react-i18next';
 
 export type LabelPrimitiveProps =
 	| LabelHTMLAttributes<any> & {
-			children: string | ReactElement | ReactI18NextChild;
+			children: string | ReactElement;
 			inline?: boolean;
 			required?: boolean;
 	  };

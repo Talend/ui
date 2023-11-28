@@ -1,8 +1,8 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import File, { FileWidget, base64Decode } from './File.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('File field', () => {
@@ -46,9 +46,11 @@ describe('File field', () => {
 			],
 		},
 	};
+
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
+
 	it('should render default File', () => {
 		// when
 		const { container } = render(<File {...props} />);
@@ -101,7 +103,9 @@ describe('File field', () => {
 		// when
 		const fileInput = document.querySelector('input[type="file"]');
 		await userEvent.upload(fileInput, blob);
-		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), { schema, value });
+		await waitFor(() =>
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), { schema, value }),
+		);
 	});
 
 	it('should trigger pre-signed url related onChange when user select file', async () => {
@@ -117,10 +121,12 @@ describe('File field', () => {
 		const fileInput = document.querySelector('input[type="file"]');
 		await userEvent.upload(fileInput, blob);
 
-		expect(propsWithPresignedUrlTrigger.onTrigger).toHaveBeenCalledWith(expect.anything(), {
-			schema: propsWithPresignedUrlTrigger.schema,
-			trigger: propsWithPresignedUrlTrigger.schema.triggers[0],
-		});
+		await waitFor(() =>
+			expect(propsWithPresignedUrlTrigger.onTrigger).toHaveBeenCalledWith(expect.anything(), {
+				schema: propsWithPresignedUrlTrigger.schema,
+				trigger: propsWithPresignedUrlTrigger.schema.triggers[0],
+			}),
+		);
 	});
 
 	it('should not change filename in state when props are not updated', () => {

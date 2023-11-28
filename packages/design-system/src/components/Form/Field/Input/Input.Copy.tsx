@@ -7,7 +7,8 @@ import {
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
+import { useId } from '../../../../useId';
 
 type InputCopyProps = Omit<FieldPropsPrimitive, 'hasError'> &
 	Omit<InputPrimitiveProps, 'style' | 'className' | 'suffix'>;
@@ -30,6 +31,7 @@ const InputCopy = forwardRef(
 		}: InputCopyProps,
 		ref: Ref<HTMLInputElement | null>,
 	) => {
+		const inputId = useId(id, 'input-copy-');
 		const [copiedValue, setCopiedValue] = useState('');
 		const [copyError, setCopyError] = useState<Error | undefined | null>(null);
 		const [{ value: clipboardValue, error: clipboardError }, copyToClipboard] =
@@ -64,9 +66,9 @@ const InputCopy = forwardRef(
 			return '';
 		};
 		const doCopy = () => {
-			const value = inputRef.current?.value || '';
-			copyToClipboard(value);
-			setCopiedValue(value);
+			const newValue = inputRef.current?.value || '';
+			copyToClipboard(newValue);
+			setCopiedValue(newValue);
 		};
 		return (
 			<FieldPrimitive
@@ -75,10 +77,14 @@ const InputCopy = forwardRef(
 				hasError={!!copyError}
 				hideLabel={hideLabel}
 				required={required}
+				fieldId={inputId}
 				name={name}
 			>
 				<InputPrimitive
 					{...rest}
+					id={inputId}
+					name={name}
+					required={required}
 					ref={inputRef}
 					value={value}
 					defaultValue={defaultValue}

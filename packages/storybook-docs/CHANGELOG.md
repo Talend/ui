@@ -1,5 +1,49 @@
 # @talend/storybook-docs
 
+## 2.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and fix lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+  - @talend/design-tokens@2.10.0
+
+## 2.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove ref to design-system and icons(circular dep)
+  adapt code for pnpm
+
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/icons@7.0.0
+
+## 1.2.0
+
+### Minor Changes
+
+- 3b058ef7d: feat: add most of the design-system docs components
+
+### Patch Changes
+
+- Updated dependencies [3b058ef7d]
+  - @talend/design-system@7.15.1
+
 ## 1.1.6
 
 ### Patch Changes

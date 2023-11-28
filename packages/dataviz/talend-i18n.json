@@ -2,7 +2,7 @@
   "extract": {
     "method": "yarn",
     "script": "extract-i18n",
-    "target": "./i18n-extract",
+    "target": "./i18n",
     "transform": "flatten"
   },
   "load": {

@@ -23,3 +23,5 @@ assetsAPI.getURL('/', 'react', '16.14.0');
 assetsAPI.getJSON('/foo.json', 'react', '16.14.0');
 assetsAPI.getUMD('react', '16.14.0', 'React', '/umd/react.production.min.js');
 ```
+
+As you can see it uses production path in the getUMD.

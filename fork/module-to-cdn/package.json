@@ -1,6 +1,6 @@
 {
   "name": "@talend/module-to-cdn",
-  "version": "9.9.0",
+  "version": "9.10.0",
   "description": "Get cdn config from npm module name",
   "license": "MIT",
   "repository": "https://github.com/Talend/ui",
@@ -20,7 +20,7 @@
   "scripts": {
     "test": "jest index.test.js",
     "test:cron": "jest modules.test.js",
-    "lint": "talend-scripts lint ./"
+    "lint": "eslint ./"
   },
   "files": [
     "index.js",
@@ -35,10 +35,12 @@
   "dependencies": {
     "execa": "^4.1.0",
     "mkdirp": "^1.0.4",
-    "semver": "^7.5.2"
+    "semver": "^7.5.4"
   },
   "devDependencies": {
-    "jest": "^29.5.0"
+    "@babel/eslint-parser": "^7.23.3",
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0"
   },
   "publishConfig": {
     "access": "public"

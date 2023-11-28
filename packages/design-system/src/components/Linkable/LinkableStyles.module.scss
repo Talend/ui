@@ -10,8 +10,6 @@ $icon-alignment-offset-s: 0.1rem;
 .link__icon {
 	position: relative;
 	bottom: $icon-alignment-offset-m;
-	height: tokens.$coral-sizing-xxxs;
-	width: tokens.$coral-sizing-xxxs;
 	margin-right: tokens.$coral-spacing-xxs;
 	flex-shrink: 0;
 }

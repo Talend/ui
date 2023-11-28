@@ -1,5 +1,46 @@
 # @talend/bootstrap-theme
 
+## 8.3.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and fix webpack.config file
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+  - @talend/design-tokens@2.10.0
+
+## 8.2.1
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+  - @talend/icons@7.0.0
+
+## 8.2.0
+
+### Minor Changes
+
+- 9d137cb98: feat: upgrade some webpack loader
+
+### Patch Changes
+
+- Updated dependencies [9d137cb98]
+  - @talend/bootstrap-sass@3.5.0
+
+## 8.1.3
+
+### Patch Changes
+
+- a7eb1a831: fix(TDOPS-5103): Fix the notification is covered by detail drawer
+
+## 8.1.2
+
+### Patch Changes
+
+- fbce059c2: Improve usage of design tokens for info variants
+
 ## 8.1.1
 
 ### Patch Changes

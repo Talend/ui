@@ -1,5 +1,4 @@
 {
-  "doc": "ListView/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "ListView",

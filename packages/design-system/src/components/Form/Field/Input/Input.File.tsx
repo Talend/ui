@@ -1,20 +1,20 @@
 import { forwardRef, Key, Ref, useEffect, useRef, useState } from 'react';
-import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 import classnames from 'classnames';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 import { ButtonIcon } from '../../../ButtonIcon';
 import { SizedIcon } from '../../../Icon';
-import VisuallyHidden from '../../../VisuallyHidden';
+import { VisuallyHidden } from '../../../VisuallyHidden';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
 
 import styles from './Input.File.module.scss';
+import { useId } from '../../../../useId';
 
 function getFileSize(size: number, t: TFunction) {
 	if (size < 1024) {
@@ -93,8 +93,7 @@ const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 			}
 		};
 	}, []);
-	const { id: reakitId } = useId();
-	const fileInfoId = `info--${reakitId}`;
+	const fileInfoId = useId(undefined, 'info-');
 
 	const filesValue = () => {
 		if (files) {
@@ -181,6 +180,7 @@ const FieldFile = forwardRef(
 		ref: Ref<HTMLInputElement>,
 	) => {
 		const { label, hasError, link, description, id, name, hideLabel, required, ...rest } = props;
+		const fieldID = useId(id, 'field-');
 		return (
 			<FieldPrimitive
 				label={label}
@@ -188,11 +188,19 @@ const FieldFile = forwardRef(
 				link={link}
 				description={description}
 				id={id}
+				fieldId={fieldID}
 				name={name}
 				hideLabel={hideLabel}
 				required={required}
 			>
-				<InputFile {...rest} ref={ref} />
+				<InputFile
+					{...rest}
+					name={name}
+					required={required}
+					hasError={hasError || false}
+					id={fieldID}
+					ref={ref}
+				/>
 			</FieldPrimitive>
 		);
 	},

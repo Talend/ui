@@ -88,17 +88,11 @@ const BadgeOverlay = ({
 		</Button>
 	);
 
-	const buttonToRender = iconName ? (
-		<TooltipTrigger label={label} tooltipPlacement="top">
-			{button}
-		</TooltipTrigger>
-	) : (
-		button
-	);
-
 	return (
 		<div className={className}>
-			{buttonToRender}
+			<TooltipTrigger label={label} tooltipPlacement="top">
+				{button}
+			</TooltipTrigger>
 
 			<Overlay
 				id={`${id}-overlay`}

@@ -1,6 +1,7 @@
 /* eslint-disable testing-library/prefer-screen-queries */
-/* eslint-disable testing-library/await-async-query */
-import Tooltip from './Tooltip';
+
+/* eslint-disable testing-library/await-async-queries */
+import { Tooltip } from './Tooltip';
 
 context('<Tooltip />', () => {
 	describe('default', () => {
@@ -16,10 +17,22 @@ context('<Tooltip />', () => {
 			cy.findByTestId('my.tooltip').should('be.visible');
 		});
 
+		it('should not show a tooltip when empty title', () => {
+			cy.mount(
+				<Tooltip title="" data-testid="my.tooltip">
+					<button>button</button>
+				</Tooltip>,
+			);
+
+			cy.findByTestId('my.tooltip').should('not.exist');
+			cy.get('button').click();
+			cy.findByTestId('my.tooltip').should('not.exist');
+		});
+
 		it('Should be able to override baseId', () => {
 			const tooltipBaseId = 'base-id';
 			cy.mount(
-				<Tooltip title="click me" data-testid="my.tooltip" baseId={tooltipBaseId}>
+				<Tooltip title="click me" data-testid="my.tooltip" id={tooltipBaseId}>
 					<button>button</button>
 				</Tooltip>,
 			);

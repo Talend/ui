@@ -46,9 +46,8 @@ class CellTitle extends Component {
 			actionsKey,
 			persistentActionsKey,
 			displayModeKey,
-
+			linkAs,
 			getRowState,
-
 			iconKey,
 			iconLabelKey,
 			onEditCancel,
@@ -57,7 +56,10 @@ class CellTitle extends Component {
 		} = cellColumnData;
 
 		const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
-		const { disabled = false, tooltip } = (getRowState && getRowState(rowData)) || {};
+		const { disabled = false, tooltip } = (getRowState && getRowState(rowData)) || {
+			disabled: !!columnDataRest.disabled,
+			tooltip: columnDataRest.tooltip,
+		};
 		const titleId = id && `${id}-${rowIndex}-title-cell`;
 		const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
@@ -82,6 +84,7 @@ class CellTitle extends Component {
 					className={theme['main-title']}
 					displayMode={displayMode}
 					onClick={onClick}
+					linkAs={linkAs}
 					onEditCancel={onEditCancel}
 					onEditSubmit={onEditSubmit}
 					rowData={rowData}
@@ -136,6 +139,8 @@ CellTitle.propTypes = {
 			id: PropTypes.string,
 			// The onClick callback triggered on title main button click.
 			onClick: PropTypes.func,
+			// The "as" property expected in a Link to generate a simple href.
+			linkAs: PropTypes.element,
 			// The actions property key. Actions = props.rowData[props.actionsKey]
 			actionsKey: PropTypes.string,
 			// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]

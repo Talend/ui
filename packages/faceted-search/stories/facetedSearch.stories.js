@@ -13,6 +13,7 @@ import { BadgesGenerator } from '../src/components/BadgesGenerator';
 import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dictionary';
 
 import {
+	badgeMenu,
 	badgeConnectionType,
 	badgeName,
 	badgeConnectionName,
@@ -35,6 +36,7 @@ import {
 } from './badgesDefinitions';
 
 const badgesDefinitions = [
+	badgeMenu,
 	badgeAll,
 	badgeName,
 	badgeConnectionName,
@@ -154,7 +156,7 @@ const badgesWithAll = {
 };
 
 export default {
-	title: 'Faceted search',
+	title: 'Faceted search/Main',
 	component: FacetedSearch.Faceted,
 	parameters: {
 		docs: {

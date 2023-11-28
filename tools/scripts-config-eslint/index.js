@@ -1,9 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-const utils = require('@talend/scripts-utils');
+
+function tsConfig() {
+	const appDirectory = fs.realpathSync(process.cwd());
+	const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+
+	return fs.existsSync(resolveApp('tsconfig.json'));
+}
 
 const cwd = process.cwd();
-const isTS = utils.fs.tsConfig();
+const isTS = tsConfig();
 const commentsRegex = /\/\/.*/g;
 const content = fs
 	.readFileSync(path.join(__dirname, '.eslintrc.json'))
@@ -25,13 +31,14 @@ if (isTS) {
 			.filter(i => !TO_REMOVE.includes(i)),
 		plugins: config.plugins.concat(['@typescript-eslint']),
 		parserOptions: {
-			project: './tsconfig.json',
+			project: true,
 			tsconfigRootDir: cwd,
 		},
 		rules: {
 			...config.rules,
 			'@typescript-eslint/indent': 0,
-			'@typescript-eslint/no-var-requires': 0, // we have a lot of CJS files to lint
+			'@typescript-eslint/no-var-requires': 0, // we have a lot of CJS files to lint,
+			'@typescript-eslint/no-explicit-any': 1,
 		},
 		overrides: [
 			...(config.overrides || []),

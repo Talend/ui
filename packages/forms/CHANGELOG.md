@@ -1,5 +1,121 @@
 # @talend/react-forms
 
+## 12.1.0
+
+### Minor Changes
+
+- b9cc5b097: Fix lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/utils@2.8.0
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+  - @talend/design-system@8.2.0
+  - @talend/icons@7.2.0
+  - @talend/json-schema-form-core@1.2.0
+
+## 12.0.0
+
+### Major Changes
+
+- 8ec56028a: deps: bump react-hook-form to 7.X
+
+  So if you are using rhf in your project you should also bump it and apply the migration guide
+  https://legacy.react-hook-form.com/migrate-v6-to-v7/
+
+## 11.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+
+### Patch Changes
+
+- 77826b091: TDOPS-5409 - fix Link render below Password/Text field
+- Updated dependencies [c76a700a4]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [2177ddfb3]
+- Updated dependencies [b8406b6e5]
+- Updated dependencies [6b9f49e81]
+- Updated dependencies [41bd1b586]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/design-system@8.1.0
+  - @talend/icons@7.1.0
+  - @talend/react-components@12.1.0
+  - @talend/react-bootstrap@2.1.0
+
+## 11.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [da4cf2971]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-bootstrap@2.0.0
+  - @talend/react-components@12.0.0
+
+## 10.2.4
+
+### Patch Changes
+
+- 3b058ef7d: chore: fix some lint errors
+- Updated dependencies [3b058ef7d]
+  - @talend/design-system@7.15.1
+
+## 10.2.3
+
+### Patch Changes
+
+- ac48bdb6b: fix: pin react-ace
+- Updated dependencies [f73fdbc46]
+  - @talend/react-components@11.3.2
+
+## 10.2.2
+
+### Patch Changes
+
+- 9fa1679ad: components/Code: add flag to show/hide instructions div
+- 90dc6e87e: Fix undefined value on component Code when mounting
+- Updated dependencies [8277e1f39]
+  - @talend/react-components@11.3.1
+
+## 10.2.1
+
+### Patch Changes
+
+- d465adb68: fix: ace code editor
+
+  Issue1: 404 on react-ace min in dev mode.
+  The copy of the assets during the build is not able to support different forlders and this is the case for react-ace.
+  The getUMD point to the production version (becaue of babel) but we are in dev so this make a 404.
+  Fix: point to prod for both versions
+
+  Issue 2: function f is not defined (trace in ace-build).
+  Fix: pin ace-builds in react-forms because there is a bug in the latest version
+
+- Updated dependencies [a6ac16f28]
+  - @talend/react-components@11.3.0
+
 ## 10.2.0
 
 ### Minor Changes

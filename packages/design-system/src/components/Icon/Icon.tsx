@@ -1,8 +1,7 @@
 import { forwardRef, createRef, useState, useEffect, memo } from 'react';
-import type { PropsWithChildren, Ref } from 'react';
+import type { CSSProperties, Ref } from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
-import { DeprecatedIconNames } from '../../types';
 import { IconsProvider } from '../IconsProvider';
 import style from './Icon.module.scss';
 
@@ -20,20 +19,22 @@ export enum SVG_TRANSFORMS {
 	FlipVertical = 'flip-vertical',
 }
 
-export type IconProps = PropsWithChildren<any> & {
-	name: DeprecatedIconNames;
-	transform: SVG_TRANSFORMS;
-	preserveColor: boolean;
-	border: boolean;
+export type IconProps = {
+	name: string;
+	className?: string;
+	id?: string;
+	style?: CSSProperties;
+	transform?: SVG_TRANSFORMS;
+	border?: boolean;
 };
 
 const accessibility = {
-	focusable: 'false',
-	'aria-hidden': 'true',
+	focusable: false,
+	'aria-hidden': true,
 };
 
 // eslint-disable-next-line react/display-name
-export const Icon = forwardRef(
+const IconBase = forwardRef(
 	(
 		{ className, name = 'talend-empty-space', transform, border, ...rest }: IconProps,
 		ref: Ref<SVGSVGElement>,
@@ -111,19 +112,25 @@ export const Icon = forwardRef(
 		const classname = classnames('tc-icon', style.svg, className, {
 			[`tc-icon-name-${name}`]: !(isImg || isRemote),
 			[style.border]: border,
-			[style[transform]]: !!transform,
+			[style[transform || '']]: !!transform,
 		});
 
 		if (isImg) {
 			return (
-				<img alt="" src={name.substring(4)} className={classname} {...accessibility} {...rest} />
+				<img
+					alt="icon"
+					src={name.substring(4)}
+					className={classname}
+					{...accessibility}
+					{...rest}
+				/>
 			);
 		}
 
 		if (isRemote && content && !isRemoteSVG) {
 			return (
 				<img
-					alt=""
+					alt="remote icon"
 					src={name.replace('remote-', '')}
 					className={className}
 					{...accessibility}
@@ -135,7 +142,7 @@ export const Icon = forwardRef(
 		return (
 			<svg
 				{...rest}
-				name={!(isImg || isRemote) ? name : null}
+				name={!(isImg || isRemote) ? name : undefined}
 				{...accessibility}
 				className={classnames('tc-svg-icon', classname)}
 				ref={safeRef}
@@ -146,6 +153,6 @@ export const Icon = forwardRef(
 	},
 );
 
-export const IconMemo = memo(Icon);
+export const Icon = memo(IconBase);
 
-IconMemo.displayName = 'Icon';
+Icon.displayName = 'Icon';

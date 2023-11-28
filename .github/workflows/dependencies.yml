@@ -19,15 +19,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
 
       - name: Use Node.js
-        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
-        with:
-          node-version: 18
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: "yarn"
+        uses: ./.github/actions/setup-node
 
       - name: Upgrade dependencies
         run: |
@@ -40,8 +35,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 #v5.0.2
         with:
-          assignees: jmfrancois
-          reviewers: jmfrancois
+          reviewers: "@Talend/frontend-admins"
           commit-message: "chore: upgrade dependencies"
           title: "chore: upgrade dependencies"
           body: "Upgrade dependencies using `talend-scripts upgrade:deps`"

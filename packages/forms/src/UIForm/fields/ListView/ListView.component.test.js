@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import ListView from './ListView.component';
 
 const NO_RESULT_MESSAGE = 'No results found';
-jest.mock('ally.js');
+
 jest.unmock('@talend/design-system');
 
 describe('ListView field', () => {

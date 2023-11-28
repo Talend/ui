@@ -1,5 +1,28 @@
 # @talend/module-to-cdn
 
+## 9.10.0
+
+### Minor Changes
+
+-   3f9c8a7bb: remove babel config: there is no build task on this package
+    remove link to scripts-core to run lint (circular dependency),
+    remove link to tools/eslint-config and add it's own eslint config (circular dependency: fork/module-to-cdn > tools/eslint-config > tools/scripts-config-cdn > fork/module-to-cdn)
+    add missing deps
+
+## 9.9.1
+
+### Patch Changes
+
+-   d465adb68: fix: ace code editor
+
+    Issue1: 404 on react-ace min in dev mode.
+    The copy of the assets during the build is not able to support different forlders and this is the case for react-ace.
+    The getUMD point to the production version (becaue of babel) but we are in dev so this make a 404.
+    Fix: point to prod for both versions
+
+    Issue 2: function f is not defined (trace in ace-build).
+    Fix: pin ace-builds in react-forms because there is a bug in the latest version
+
 ## 9.9.0
 
 ### Minor Changes

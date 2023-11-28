@@ -2,21 +2,20 @@
 
 exports[`RowCheckBox should render a checked checkbox input by default 1`] = `
 <div
-  class="checkbox tc-checkbox"
+  class="theme-checkbox"
 >
+  <input
+    aria-checked="false"
+    aria-describedby="some-id-this is my checkbox"
+    data-feature="my-feature"
+    id="some-id-checkbox-column-label"
+    type="checkbox"
+  />
   <label
-    data-feature="my-feature.enable"
+    class="theme-label theme-label_inline"
     for="some-id-checkbox-column-label"
   >
-    <input
-      aria-describedby="some-id-this is my checkbox"
-      data-checked="0"
-      id="some-id-checkbox-column-label"
-      type="checkbox"
-    />
-    <span>
-      column-label
-    </span>
+    column-label
   </label>
 </div>
 `;

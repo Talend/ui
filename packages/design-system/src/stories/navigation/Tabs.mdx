@@ -1,0 +1,122 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Tabs, InlineMessageWarning, StackVertical } from '../../';
+import { Status } from '../Status.block';
+import * as Stories from './Tabs.stories';
+
+<Meta of={Stories} />
+<Status id="tabs" />
+
+# Tabs
+
+Tabs are used for switching between different views, functional aspects or categorized data sets.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=46%3A63"
+	alt="zoning for tabs"
+/>
+
+## Style
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=1750%3A22158"
+	alt="image for tabs"
+/>
+
+<Canvas>
+	<Story of={Stories.Styles} />
+</Canvas>
+
+### Variations
+
+#### Sizes
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=1750%3A22158"
+	alt="image for tabs"
+/>
+
+As you have seen above, Tabs can exist in regular ("M") or Large ("L") sizes.
+
+Only use the large size when tabs act as a second level of navigation on page-wide basis. Do not use in nested elements (drawers, modals etc...).
+
+#### Tabs with icons
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A145"
+	alt="image for tabs with icons"
+/>
+
+Icons can be used with tabs to help users differentiate among them. Tabs with icons has the same behaviours.
+
+<Canvas>
+	<Story of={Stories.TabsWithIcon} />
+</Canvas>
+
+#### Tabs with tags
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A156"
+	alt="image for tabs with tags"
+/>
+
+Labels can be used with tabs to indicate the number of items inside a category. Please refer to the labels guideline for more information.
+
+The default max value of an item is 999. When the value to display is greater than 999, display a + after.
+
+Mouse over the label will display the exact number item.
+
+<Canvas>
+	<Story of={Stories.TabsWithTag} />
+</Canvas>
+
+## States
+
+**Super long item names are truncated.**
+
+Please display a tooltip on hover that contains the full name.
+
+Max width item: 22rem (token: $coral-sizing-xxl).
+
+<Canvas>
+	<Story of={Stories.TabsWithLongTitles} />
+</Canvas>
+
+## Content
+
+The word/words on tabs should be accurate, specific, and explicit to help users smoothly switching to the right view or functional aspect. A good tab label should clearly describe the content contained within it.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in tab labels.</li>
+			<li>Use labels which clearly describe the content behind the tab.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don’t use more than 3 words on a tab: keep it short and simple.</li>
+			<li>Don't use title case or all caps in tab labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+NA
+
+## Accessibility
+
+## Usage
+
+#### API
+
+### Default tab mode
+
+You may need to set a default opened tab from the outside. You can achive it like this:
+
+<Canvas>
+	<Story of={Stories.TabStandaloneControlled} />
+</Canvas>

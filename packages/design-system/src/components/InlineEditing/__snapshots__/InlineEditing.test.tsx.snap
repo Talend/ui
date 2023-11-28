@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineEditing should render a11y html 1`] = `
+<main>
+  <div
+    class="theme-inlineEditor"
+    data-test="inlineediting"
+    data-testid="inlineediting"
+  >
+    <div
+      class="theme-inlineEditor__editor"
+    >
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      >
+        <span
+          class="theme-hidden"
+        >
+          <label
+            class="theme-label"
+            for="field--mocked-uuid-6"
+          >
+            Edit the value
+          </label>
+        </span>
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            class="theme-input"
+            data-padding-override="true"
+            data-test="inlineediting.input"
+            data-testid="inlineediting.input"
+            fieldid="inline-edit--mocked-uuid-0"
+            id="field--mocked-uuid-6"
+            name="Editthevalue"
+            placeholder="What is your Lorem Ipsum?"
+            type="text"
+            value="Lorem Ipsum"
+          />
+        </div>
+      </div>
+      <div
+        class="theme-inlineEditor__editor__actions"
+      >
+        <div
+          class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS theme-padding-top-0 theme-padding-right-XXS theme-padding-bottom-0 theme-padding-left-XXS"
+        >
+          <button
+            aria-describedby="id-mocked-uuid-7"
+            aria-label="Cancel"
+            class="theme-clickable theme-buttonIcon theme-size_XS"
+            data-test="inlineediting.button.cancel"
+            data-testid="inlineediting.button.cancel"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1.2rem; height: 1.2rem;"
+              >
+                <use
+                  xlink:href="#cross-filled:S"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            aria-describedby="id-mocked-uuid-8"
+            aria-label="Submit"
+            class="theme-clickable theme-buttonIcon theme-size_XS"
+            data-test="inlineediting.button.submit"
+            data-testid="inlineediting.button.submit"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1.2rem; height: 1.2rem;"
+              >
+                <use
+                  xlink:href="#check-filled:S"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;

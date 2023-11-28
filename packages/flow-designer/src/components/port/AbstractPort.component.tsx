@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import type { MouseEventHandler, ReactChildren } from 'react';
+import type { MouseEventHandler, ReactNode } from 'react';
 import { select } from 'd3';
 
 import { Port, Position } from '../../api';
@@ -8,7 +8,7 @@ import { PortRecord } from '../../customTypings/index.d';
 type Props = {
 	port?: PortRecord;
 	onClick?: MouseEventHandler;
-	children?: ReactChildren;
+	children?: ReactNode | ReactNode[];
 };
 
 class AbstractPort extends Component<Props> {

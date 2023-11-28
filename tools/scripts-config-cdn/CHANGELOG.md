@@ -1,5 +1,38 @@
 # CHANGELOG
 
+## 10.9.1
+
+### Patch Changes
+
+- 06598a0c0: fix(TDP-12694): require valid package-lock file path
+
+## 10.9.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, adapt cdn code for pnpm and fix eslint config (circular dependency)
+
+## 10.8.0
+
+### Minor Changes
+
+- a904f3535: feat(tdc-7256): changed react-stepper style-version range
+
+### Patch Changes
+
+- d465adb68: fix: ace code editor
+
+  Issue1: 404 on react-ace min in dev mode.
+  The copy of the assets during the build is not able to support different forlders and this is the case for react-ace.
+  The getUMD point to the production version (becaue of babel) but we are in dev so this make a 404.
+  Fix: point to prod for both versions
+
+  Issue 2: function f is not defined (trace in ace-build).
+  Fix: pin ace-builds in react-forms because there is a bug in the latest version
+
+- Updated dependencies [d465adb68]
+  - @talend/module-to-cdn@9.9.1
+
 ## 10.7.0
 
 ### Minor Changes

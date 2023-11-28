@@ -21,9 +21,12 @@ $tc-notification-icon-size: $svg-md-size !default;
 	&-container {
 		position: absolute;
 		top: 48px;
-		right: $padding-normal;
+		right: 0;
+		padding: tokens.$coral-spacing-s tokens.$coral-spacing-m 0 tokens.$coral-spacing-m;
 		z-index: $zindex-notification;
 		left: auto;
+		max-height: calc(100vh - 48px);
+		overflow-y: auto;
 
 		.tc-notification[pin='true'] {
 			.tc-notification-timer-bar {
@@ -82,6 +85,7 @@ $tc-notification-icon-size: $svg-md-size !default;
 	&-message {
 		margin-right: $padding-larger;
 		font-size: $font-size-small;
+		word-break: break-all;
 
 		&:last-of-type {
 			margin-bottom: 0;

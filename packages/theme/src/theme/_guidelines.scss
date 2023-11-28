@@ -2,6 +2,7 @@
 /// Talend spec from the guidelines
 /// @group Guidelines
 ////
+@use '~@talend/design-tokens/lib/tokens';
 
 @import './helpers';
 @import './colors';
@@ -53,7 +54,7 @@ $navbar-brand-logo-width: 75px !default;
 /// Drawer z-index
 /// should always stay lower than dialog z-index which is set to 1040
 /// @type Number (Unitless)
-$drawer-z-index: 100 !default;
+$drawer-z-index: tokens.$coral-elevation-layer-standard-front !default; // 4
 
 /// Navbar form top and bottom width
 /// @type Number (Unit)

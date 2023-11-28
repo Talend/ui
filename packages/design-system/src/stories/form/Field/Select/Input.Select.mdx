@@ -1,0 +1,89 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Status } from '../../../Status.block';
+
+import * as Stories from './Input.Select.stories';
+
+<Meta of={Stories} />
+<Status id="formFieldInputSelect" />
+
+# Select
+
+`Form.Select` lets users choose one option or multiple options from a list.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A211"
+	alt="zoning image for input select"
+/>
+
+## Style
+
+<FigmaImage
+	src="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=363%3A1476"
+	alt="Mockup for input select"
+/>
+
+## States
+
+### Default
+
+<Canvas>
+	<Story of={Stories.Select} />
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story of={Stories.SelectWithValue} />
+</Canvas>
+
+### Multiple
+
+<Canvas>
+	<Story of={Stories.SelectMultiple} />
+</Canvas>
+
+### With option groups
+
+<Canvas>
+	<Story of={Stories.SelectOptionGroups} />
+</Canvas>
+
+## Content
+
+When you use clear terms and order them logically in the list, you enable users to scan quickly and select what they need.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Aim for terms and words which are very familiar to users.</li>
+			<li>
+				Write items/option in order (alphabetical order or any other order which makes sense).
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Don’t use vague or misleading options that are difficult to understand by average users.
+			</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interactions
+
+- When a user clicks into the text input field, they trigger the selection menu which is the browser default one (for compatibility reason).
+
+## Usage
+
+To do
+
+## Accessibility
+
+The keyboard gestures are the default ones, such as:
+
+- Press arrows keys to display and navigate into the menu.
+- Press <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to select the option.

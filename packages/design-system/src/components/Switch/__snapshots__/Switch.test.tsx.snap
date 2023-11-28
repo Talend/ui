@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch should render accessible html 1`] = `
+<main>
+  <div
+    class="theme-switch"
+  >
+    <div
+      aria-activedescendant="id-mocked-uuid-11"
+      class="theme-container"
+      role="radiogroup"
+      tabindex="0"
+    >
+      <button
+        aria-checked="false"
+        class="theme-btn"
+        data-checked="false"
+        id="id-mocked-uuid-6"
+        role="radio"
+        tabindex="-1"
+        value="value a"
+      >
+        value a
+      </button>
+      <button
+        aria-checked="false"
+        class="theme-btn"
+        data-checked="false"
+        id="id-mocked-uuid-7"
+        role="radio"
+        tabindex="-1"
+        value="value b"
+      >
+        value b
+      </button>
+      <button
+        aria-checked="false"
+        class="theme-btn"
+        data-checked="false"
+        id="id-mocked-uuid-8"
+        role="radio"
+        tabindex="-1"
+        value="value c"
+      >
+        value c
+      </button>
+      <button
+        aria-checked="false"
+        class="theme-btn"
+        data-checked="false"
+        id="id-mocked-uuid-9"
+        role="radio"
+        tabindex="-1"
+        value="value d"
+      >
+        value d
+      </button>
+      <button
+        aria-checked="false"
+        class="theme-btn"
+        data-checked="false"
+        id="id-mocked-uuid-10"
+        role="radio"
+        tabindex="-1"
+        value="value e"
+      >
+        value e
+      </button>
+      <button
+        aria-checked="true"
+        class="theme-btn"
+        data-checked="true"
+        id="id-mocked-uuid-11"
+        role="radio"
+        tabindex="-1"
+        value="value f"
+      >
+        value f
+      </button>
+      <span
+        aria-hidden="true"
+        class="theme-switchIndicator"
+        data-animated="true"
+        style="width: 0px; transform: translateX(0px);"
+      >
+        <em />
+      </span>
+    </div>
+  </div>
+  ,
+</main>
+`;

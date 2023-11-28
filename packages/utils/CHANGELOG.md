@@ -1,5 +1,29 @@
 # @talend/utils
 
+## 2.8.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and fix tsconfig
+
+## 2.7.0
+
+### Minor Changes
+
+- 841be39f3: TDOPS-5386 - remove phone validation as not in use
+
+## 2.6.0
+
+### Minor Changes
+
+- 8520b05f9: Types (Typescript) add util function to filter undefined or null values from array
+
+## 2.5.2
+
+### Patch Changes
+
+- 20388beea: fix(TDOPS-3587) - update email validation pattern
+
 ## 2.5.1
 
 ### Patch Changes

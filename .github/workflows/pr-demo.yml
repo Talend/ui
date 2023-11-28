@@ -25,32 +25,35 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
 
       - name: Use Node.js
-        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
-        with:
-          node-version: 18
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: "yarn"
+        uses: ./.github/actions/setup-node
 
       - name: cache for storybook
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 #v3.3.1
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 #v3.3.2
         with:
           path: packages/*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-storybook-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-storybook-
 
       - name: Install
         run: |
+          node --version
           yarn install --frozen-lockfile
+
+      - name: Run test:demo
+        run: |
+          node --version
+          yarn test:demo
+
+      - name: Before surge
+        run: |
+          node --version
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
-
-
-      - name: Build
-        run: |
-          yarn test:demo
+          node --version
           ./.github/workflows/before-surge.sh
         env:
           STORYBOOK_FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
@@ -66,11 +69,10 @@ jobs:
         if: github.ref == 'refs/heads/master'
         uses: netlify/actions/cli@master
         with:
-          args: deploy --prod --dir=packages/storybook/storybook-static
+          args: deploy --dir=packages/design-docs/storybook-static --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
 
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'

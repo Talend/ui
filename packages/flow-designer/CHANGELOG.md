@@ -1,5 +1,29 @@
 # Changelog
 
+## 6.1.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps, fix tsconfig file and fix some lint issue
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+  - @talend/design-tokens@2.10.0
+
+## 6.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+## 5.6.0
+
+### Minor Changes
+
+- d583f7639: fix(TFD-15974): Fix calculate port position with portId action
+
 ## 5.5.0
 
 ### Minor Changes
