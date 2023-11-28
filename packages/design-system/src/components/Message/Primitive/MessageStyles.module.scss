@@ -6,6 +6,7 @@
 	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	background-color: tokens.$coral-color-neutral-background;
 	height: 100%;
+	width: 100%;
 
 	border-top-left-radius: tokens.$coral-radius-s;
 	border-bottom-left-radius: tokens.$coral-radius-s;
@@ -21,6 +22,10 @@
 			white-space: nowrap;
 			margin-left: auto;
 		}
+	}
+
+	&__actions {
+		margin-left: auto;
 	}
 
 	&__description {
