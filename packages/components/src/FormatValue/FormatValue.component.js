@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
+import { escapeRegExp } from 'lodash';
 import PropTypes from 'prop-types';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -103,14 +104,14 @@ export function FormatValueComponent({ value, className }) {
 
 	let formattedValue = value;
 	if (typeof value === 'string') {
-		const regExp = new RegExp('(' + value.trim() + ')');
-		const hiddenCharsRegExpMatch = value.split(regExp);
+		const regExp = new RegExp(`(${escapeRegExp(value.trim())})`);
+		const hiddenCharsRegExpSplit = value.split(regExp);
 		if (
-			hiddenCharsRegExpMatch[0] ||
-			hiddenCharsRegExpMatch[2] ||
+			hiddenCharsRegExpSplit[0] ||
+			hiddenCharsRegExpSplit[2] ||
 			REG_EXP_LINE_FEEDING.test(value)
 		) {
-			formattedValue = hiddenCharsRegExpMatch
+			formattedValue = hiddenCharsRegExpSplit
 				.flatMap((flatMapValue, index) => flatMapValue?.split(SPLIT_REGEX[index]))
 				.filter(isEmptyCharacter)
 				.map((mappedValue, index) => replaceCharacterByIcon(mappedValue, index, t));
