@@ -1,11 +1,11 @@
 import { forwardRef, Key, Ref } from 'react';
-import { unstable_useId as useId } from 'reakit';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../Primitives/index';
+} from '../../Primitives';
+import { useId } from '../../../../useId';
 
 export type DatalistProps = {
 	values: string[];
@@ -36,14 +36,14 @@ const Datalist = forwardRef(
 		}: DatalistProps,
 		ref: Ref<HTMLInputElement> | undefined,
 	) => {
-		const { id: reakitId } = useId();
-		const datalistId = id || `datalist--${reakitId}`;
-		const datalistListId = `datalist__list--${reakitId}`;
+		const datalistId = useId(id, 'datalist-');
+		const datalistListId = useId(undefined, 'datalist__list-');
 
 		return (
 			<>
 				<FieldPrimitive
 					id={datalistId}
+					fieldId={datalistId}
 					label={label}
 					hasError={hasError || false}
 					link={link}
@@ -55,6 +55,9 @@ const Datalist = forwardRef(
 					<InputPrimitive
 						{...rest}
 						list={datalistListId}
+						name={name}
+						required={required}
+						hasError={hasError || false}
 						disabled={!!disabled}
 						readOnly={!!readOnly}
 						value={value}

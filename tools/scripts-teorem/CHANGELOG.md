@@ -1,5 +1,15 @@
 # @talend/scripts-teorem
 
+## 1.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 1.0.1
 
 ### Patch Changes

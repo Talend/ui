@@ -4,8 +4,7 @@ This package contains internal rules used at Talend.
 
 ## Installation
 
-You have nothing to do if you use Talend/ui-scripts.
-
+You have nothing to do if you use Talend/ui-scripts. If not this can be used as any other eslint plugin
 
 ## Usage
 
@@ -13,29 +12,21 @@ Add `talend` to the plugins section of your `.eslintrc` configuration file. You 
 
 ```json
 {
-    "plugins": [
-        "@talend"
-    ]
+	"plugins": ["@talend"]
 }
 ```
-
 
 Then configure the rules you want to use under the rules section.
 
 ```json
 {
-    "rules": {
-        "@talend/import-depth": 2
-    }
+	"rules": {
+		"@talend/import-depth": 2
+	}
 }
 ```
 
 ## Supported Rules
 
-* [talend/import-depth](./docs/rules/talend-import-depth.md)
-* [talend/import-d3](./docs/rules/talend-import-d3.md)
-
-
-
-
-
+- [talend/import-depth](./docs/rules/talend-import-depth.md)
+- [talend/import-d3](./docs/rules/talend-import-d3.md)

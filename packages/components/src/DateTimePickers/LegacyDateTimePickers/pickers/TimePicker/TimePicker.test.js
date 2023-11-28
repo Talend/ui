@@ -83,6 +83,7 @@ describe('TimePicker', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { hours: '17', minutes: '38' }, FIELD_HOURS);
+		jest.useRealTimers();
 	});
 
 	it('should trigger onChange on minutes change', () => {
@@ -109,6 +110,7 @@ describe('TimePicker', () => {
 			{ hours: '15', minutes: '17' },
 			FIELD_MINUTES,
 		);
+		jest.useRealTimers();
 	});
 
 	it('should manage tabIndex', () => {

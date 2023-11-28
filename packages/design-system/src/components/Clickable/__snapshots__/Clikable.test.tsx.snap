@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Clickable should render a11y html 1`] = `
+<main>
+  <button
+    class="theme-clickable"
+    type="button"
+  >
+    <p>
+      Content
+    </p>
+  </button>
+</main>
+`;

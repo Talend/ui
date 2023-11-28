@@ -6,6 +6,7 @@ jest.unmock('@talend/design-system');
 const props = {
 	onChange: jest.fn(),
 };
+
 describe('DisplayModeToggle', () => {
 	it('should render', () => {
 		// when

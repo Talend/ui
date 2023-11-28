@@ -1,6 +1,6 @@
 {
   "name": "@talend/utils",
-  "version": "2.6.0",
+  "version": "2.8.0",
   "description": "Various utilities",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -13,14 +13,21 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "lint": "talend-scripts lint",
-    "test": "cross-env TZ=Europe/Paris talend-scripts test",
-    "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage --silent",
-    "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
-    "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
+    "test": "cross-env TZ=UTC talend-scripts test",
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --silent",
+    "test:noisy": "cross-env TZ=UTC talend-scripts test",
+    "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "extends": "talend-scripts extends"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^14.0.1",
+    "@talend/eslint-config": "^13.0.1",
+    "@talend/eslint-plugin": "^1.1.0",
+    "@talend/scripts-core": "^16.3.0",
+    "@talend/scripts-config-jest": "^13.1.1",
+    "@talend/scripts-config-stylelint": "^4.1.0",
+    "@talend/scripts-config-typescript": "^11.2.0",
+    "@types/date-fns": "^0.0.2",
+    "@types/lodash": "^4.14.202",
     "cross-env": "^7.0.3"
   },
   "dependencies": {

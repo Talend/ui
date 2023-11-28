@@ -67,4 +67,13 @@ describe('PlainTextTitle', () => {
 
 		expect(screen.getByRole('button')).toHaveClass('theme-tc-editable-text-empty-pencil');
 	});
+	it('should pass data attributes to the button', () => {
+		const props = {
+			text: 'text',
+			onEdit: jest.fn(),
+			'data-tracking': 'my.tracking',
+		};
+		render(<PlainTextTitle {...props} />);
+		expect(screen.getByRole('button')).toHaveAttribute('data-tracking', 'my.tracking');
+	});
 });

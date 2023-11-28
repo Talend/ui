@@ -28,14 +28,12 @@ jobs:
     environment: pull_request_unsafe
     if: ( github.ref == 'refs/heads/master' || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
     steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
-        with:
-          node-version: 18
-          cache: "yarn"
+      - name: Use Node.js
+        uses: ./.github/actions/setup-node
 
       - name: Install dependencies
         run: yarn --frozen-lock
@@ -47,7 +45,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/storybook
+          workingDir: packages/storybook-one
           exitZeroOnChanges: true # Option to prevent the workflow from failing in PR
           # Handle monorepos https://www.chromatic.com/docs/monorepos
           forceRebuild: true
@@ -59,6 +57,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/storybook
+          workingDir: packages/storybook-one
           autoAcceptChanges: true # Option to accept any change for this baseline refresh
           forceRebuild: true

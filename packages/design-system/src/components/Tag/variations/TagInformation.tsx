@@ -9,5 +9,6 @@ type TagProps = Omit<PrimitiveTagProps, 'className'>;
 const TagInformation = forwardRef((props: TagProps, ref: Ref<HTMLSpanElement>) => (
 	<TagPrimitive {...props} ref={ref} className={style.tag} />
 ));
+TagInformation.displayName = 'TagInformation';
 
 export default TagInformation;

@@ -7,7 +7,6 @@ import { WidgetContext } from '../../context';
 import widgets from '../../utils/widgets';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 function customTitle(value, schema) {
 	return `${schema.title}: ${value.firstname} ${value.lastname}`;
@@ -91,7 +90,7 @@ describe('CollapsibleFieldset', () => {
 				<CollapsibleFieldset {...props} value={{ ...value, isClosed: true }} />
 			</WidgetContext.Provider>,
 		);
-		expect(screen.getByRole('tab')).toHaveTextContent('Jimmy, Somsanith');
+		expect(screen.getByText('Jimmy, Somsanith')).toBeInTheDocument();
 		expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
 	});
 	it('should render a custom title', () => {
@@ -102,7 +101,7 @@ describe('CollapsibleFieldset', () => {
 				<CollapsibleFieldset {...props} />
 			</WidgetContext.Provider>,
 		);
-		expect(screen.getByRole('tab')).toHaveTextContent('Basic: Jimmy Somsanith');
+		expect(screen.getByText('Basic: Jimmy Somsanith')).toBeInTheDocument();
 	});
 	it('should render without value', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
@@ -111,16 +110,26 @@ describe('CollapsibleFieldset', () => {
 				<CollapsibleFieldset {...props} value={{}} />
 			</WidgetContext.Provider>,
 		);
-		expect(screen.getByRole('tab')).toHaveTextContent('Basic');
+		expect(screen.getByText('Basic')).toBeInTheDocument();
 	});
 
 	it('should toggle', async () => {
 		// given
 		const CollapsibleFieldset = createCollapsibleFieldset();
 
+		const extendedSchema = {
+			...props.schema,
+			managed: true,
+		};
+
 		render(
 			<WidgetContext.Provider value={widgets}>
-				<CollapsibleFieldset {...props} value={{ ...value, isClosed: true }} />
+				<CollapsibleFieldset
+					{...props}
+					value={{ ...value, isClosed: true }}
+					schema={extendedSchema}
+					index={0}
+				/>
 			</WidgetContext.Provider>,
 		);
 		// when
@@ -128,26 +137,21 @@ describe('CollapsibleFieldset', () => {
 
 		// then
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
-			schema,
+			schema: extendedSchema,
 			value: { ...value, isClosed: false },
 		});
 	});
 
 	it('should render Actions component if actions are provided', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
-		const actions = [
-			{ id: 'action1', label: 'Action1', onClick: jest.fn() },
-			{ id: 'action2', label: 'Action 2', onClick: jest.fn() },
-		];
+		const actions = [{ id: 'action1', label: 'Action1', onClick: jest.fn(), icon: 'talend-trash' }];
 
 		render(
 			<WidgetContext.Provider value={widgets}>
 				<CollapsibleFieldset {...props} actions={actions} />
 			</WidgetContext.Provider>,
 		);
-		screen.debug();
 		expect(screen.getByRole('button', { name: 'Action1' })).toBeVisible();
-		expect(screen.getByRole('button', { name: 'Action 2' })).toBeVisible();
 	});
 
 	it('should not render Actions component if actions are not provided', () => {

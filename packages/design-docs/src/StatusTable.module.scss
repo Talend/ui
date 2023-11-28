@@ -1,0 +1,50 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.legend {
+	margin: tokens.$coral-spacing-m 0;
+	padding: tokens.$coral-spacing-xs tokens.$coral-spacing-m;
+	/* stylelint-disable-next-line declaration-no-important */
+	background: hsl(0, 0%, 97%);
+	border-radius: tokens.$coral-radius-s;
+}
+
+.dl {
+	display: grid;
+	gap: 1ch;
+	grid-template: auto / auto 1fr;
+
+	dt {
+		font: tokens.$coral-paragraph-m-bold;
+	}
+}
+
+.table {
+	overflow: auto;
+
+	th + th,
+	td + td {
+		width: 20rem;
+	}
+
+	th {
+		border-top: 1px solid hsl(0, 0%, 82%);
+	}
+
+	th,
+	td {
+		border-left: 1px solid hsl(0, 0%, 82%);
+		border-bottom: 1px solid hsl(0, 0%, 82%);
+		padding: 8px;
+	}
+
+	td:last-child,
+	th:last-child {
+		border-right: 1px solid hsl(0, 0%, 82%);
+		padding-right: 8px;
+	}
+}
+
+.tag {
+	padding: 0 tokens.$coral-spacing-xxs;
+	border-radius: tokens.$coral-radius-s;
+}

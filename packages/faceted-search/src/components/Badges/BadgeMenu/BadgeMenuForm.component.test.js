@@ -4,6 +4,8 @@ import userEvent from '@testing-library/user-event';
 import { BadgeMenuForm } from './BadgeMenuForm.component';
 import getDefaultT from '../../../translate';
 
+jest.unmock('@talend/design-system');
+
 const menuItems = [
 	{
 		id: 'item-one',
@@ -108,6 +110,38 @@ describe('BadgeMenuForm', () => {
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
 		expect(screen.queryByTestId('badge-menu-form-item-item-two')).not.toBeInTheDocument();
 		expect(screen.queryByTestId('badge-menu-form-item-item-three')).not.toBeInTheDocument();
+	});
+	it('should show selected item when click on "Selected" button', () => {
+		// Given
+		const props = {
+			id: 'myId',
+			value: {
+				id: 'item-one',
+				label: 'Item One',
+			},
+			values: menuItems,
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			t,
+		};
+		// When
+		render(<BadgeMenuForm {...props} />);
+		// Then all items are visible by default
+		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
+		expect(screen.getByTestId('badge-menu-form-item-item-two')).toBeVisible();
+		expect(screen.getByTestId('badge-menu-form-item-item-three')).toBeVisible();
+		// When click on "Selected" button
+		userEvent.click(screen.getByRole('button', { name: /selected/i }));
+		// Then only item One is visible
+		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
+		expect(screen.queryByTestId('badge-menu-form-item-item-two')).not.toBeInTheDocument();
+		expect(screen.queryByTestId('badge-menu-form-item-item-three')).not.toBeInTheDocument();
+		// When click on "Show all" button
+		userEvent.click(screen.getByRole('button', { name: /show all/i }));
+		// Then all items are visible
+		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
+		expect(screen.getByTestId('badge-menu-form-item-item-two')).toBeVisible();
+		expect(screen.getByTestId('badge-menu-form-item-item-three')).toBeVisible();
 	});
 
 	it('should call the submit callback', () => {

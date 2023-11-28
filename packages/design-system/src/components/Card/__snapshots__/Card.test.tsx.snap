@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render a11y html 1`] = `
+<main>
+  <div
+    class="theme-card"
+  >
+    <div
+      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-align-content-center theme-gap-x-L theme-gap-y-L"
+    >
+      <header
+        class="theme-card__header"
+      >
+        header
+      </header>
+      <div
+        class="theme-card__body"
+      >
+        <p>
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+`;

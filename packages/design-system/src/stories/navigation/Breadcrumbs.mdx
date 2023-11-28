@@ -1,0 +1,77 @@
+import { Meta, Story, Canvas } from '@storybook/blocks';
+import { FigmaImage, FigmaLink, Use } from '@talend/storybook-docs';
+import { Status } from '../Status.block';
+import * as Stories from './Breadcrumbs.stories';
+
+<Meta of={Stories} />
+<Status id="breadcrumbs" />
+
+# Breadcrumbs
+
+Breadcrumbs are navigation elements providing comprehensive context to users.
+
+It helps them locate the current page within a larger workflow.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/8ifUyNjdZkWBmKKrgfB675/Breadcrumbs?node-id=53%3A353"
+	alt="zoning image"
+/>
+
+## Style
+
+<FigmaImage
+	src="https://www.figma.com/file/8ifUyNjdZkWBmKKrgfB675/Breadcrumbs?node-id=53%3A435"
+	alt="Breadcrumb in various states"
+/>
+<Canvas>
+	<Story of={Stories.Basic} />
+</Canvas>
+
+### Variations
+
+Breadcrumbs cannot display more than 4 items without collapsing the "crumbs" somewhat. Here's how it behaves above 4 links.
+
+<Canvas>
+	<Story height="15rem" story={Stories.Advanced} />
+</Canvas>
+
+## States
+
+### Overflow
+
+The individual items of a `Breadcrumbs` component have a max-width of 320px.
+
+If they do not have enough space to spread that wide, the text-overflow sets in as needed:
+
+<Canvas>
+	<Story of={Stories.FullWidth} />
+</Canvas>
+
+## Interactions
+
+## Content
+
+## Usage
+
+### With Router Links
+
+`Breadcrumb` uses `Link` components in the background. You can use a subset of `Link`'s props, including `as`.
+
+This enables third-party router links to be used in a breadcrumb.
+
+<Canvas>
+	<Story of={Stories.Usage} />
+</Canvas>
+
+## Accessibility
+
+Breadcrumbs have:
+
+- `aria-label="breadcrumb"` on their outer `nav` DOM element
+- `aria-current="page"` on the last link it shows
+- The button triggering the dropdown for collapsed links has screen-ready specific text: `Display collapsed links`
+- The dropdown with the collapsed links has `aria-label="Collapsed links"`
+
+[Learn more here.](https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html)

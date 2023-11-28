@@ -19,7 +19,6 @@ The binary installed in this package is `talend-upgrade-deps`.
 | latest         | false     | If true, it forces the update to use **latest** tag on npm.                      |
 | next           | false     | If true, it forces the update to use **next** tag on npm.                        |
 | dry            | false     | Do not change anything, just look at what could be changed in your package.json. |
-| security       | undefined | Activates dependencies security mode, providing a configuration file path.       |
 | changeset      | undefined | Create a changeset file based on git diff of each package.json.                  |
 | ignore-scripts | undefined | force npm and yarn to not trigger scripts                                        |
 
@@ -108,95 +107,3 @@ For example in the following project I pin angular and jquery
 
 `talend-upgrade-deps` take care of this syntax.
 And because we use `yarn-deduplicate` the output should stick to theses pinned versions.
-
-## Security mode
-
-### Run automatic fix on a package
-
-```
-talend-upgrade-deps --security=<path-to-configuration file>
-```
-
-The configuration file must provide the info on a vulnerable package to fix.
-
-Example
-
-```
-{
-  "name": "ansi-regex",
-  "vulnerableVersions": [
-    {
-      "range": "6.0.0",
-      "fixVersion": "6.0.1"
-    },
-    {
-      "range": ["0.1.0", "5.0.0"],
-      "fixVersion": "5.0.1"
-    }
-  ]
-}
-```
-
-| Attribute                       | Type            | Description                                                                                                                                                |
-| ------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name                            | string          | Name of the package to fix                                                                                                                                 |
-| vulnerableVersions[].range      | string or array | The version or the range of version to fix                                                                                                                 |
-| vulnerableVersions[].fixVersion | string          | The target version with the vulnerability fix. This doesn't ensure that this specific version will be used, some use cases can bring more recent versions. |
-
-### Manual fix
-
-In some cases, the security mode won't succeed to solve some dependencies vulnerabilities.
-The run will output a `talend-security-report.json` file.
-
-Example:
-
-```json
-{
-	"ansi-regex@^2.0.0": {
-		"installed": "2.1.1",
-		"fixVersion": "5.0.1",
-		"details": [
-			"Upgraded package.json dev dependencies with @talend/scripts-preset-react-lib@^9.9.2",
-			"Removed entry with @talend/scripts-config-react-webpack@^9.9.6 in yarn.lock"
-		],
-		"depType": "Transitive",
-		"fixed": "❌",
-		"resolved": [
-			"@talend/scripts-preset-react-lib@^9.8.2 > @talend/scripts-config-react-webpack@^9.9.6 > webpack-dev-server@^3.11.2 > strip-ansi@^3.0.1 > ansi-regex@^2.0.0"
-		],
-		"unresolved": [
-			"@talend/scripts-preset-react-lib@^9.8.2 > @talend/scripts-config-react-webpack@^9.9.6 > html-webpack-plugin@^4.5.0 > pretty-error@^2.1.1 > renderkid@^2.0.4 > strip-ansi@^3.0.0 > ansi-regex@^2.0.0"
-		]
-	}
-}
-```
-
-The report above explains that
-
-- it upgraded `@talend/scripts-preset-react-lib`, that solved a dependency hierarchy that leads to `ansi-regex@^2.0.0`
-- one dependency hierarchy still leads to `ansi-regex@^2.0.0` with no automatic solution found.
-
-Most of the time the vulnerability is not on a direct dependencies, but a transitive one, with possible lots of levels in the dependency hierarchy.
-The report gives you the hierarchies to investigate. Alternatively, you can have the same info via
-
-    yarn why ansi-regex
-
-It will output:
-
-```
-=> Found "webpack-dev-server#ansi-regex@2.1.1"
-info Reasons this module exists
-   - "_project_#@talend#copylib#@talend#scripts-preset-react-lib#@talend#scripts-config-react-webpack#webpack-dev-server#strip-ansi" depends on it
-   - Hoisted from "_project_#@talend#copylib#@talend#scripts-preset-react-lib#@talend#scripts-config-react-webpack#webpack-dev-server#strip-ansi#ansi-regex"
-```
-
-The first line shows you where to investigate. In the example,
-
-- @talend#scripts-preset-react-lib
-- @talend#scripts-config-react-webpack
-- webpack-dev-server
-- strip-ansi
-
-The automatic fix run already tried to upgrade in a safe semver manner those dependencies. So we now know we need to try a major upgrade one of these to make it rely on a more recent non-vulnerable ansi-regex package !
-
-And so you can iterate over all your security issues.

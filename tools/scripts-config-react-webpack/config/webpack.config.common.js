@@ -39,12 +39,14 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 			importLoaders: 1,
 		};
 	}
-	const styleLoader = isEnvDevelopmentServe ? 'style-loader' : MiniCssExtractPlugin.loader;
+	const styleLoader = isEnvDevelopmentServe
+		? require.resolve('style-loader')
+		: MiniCssExtractPlugin.loader;
 	return [
 		{ loader: styleLoader, options: { esModule: false } },
-		{ loader: 'css-loader', options: cssOptions },
+		{ loader: require.resolve('css-loader'), options: cssOptions },
 		{
-			loader: 'postcss-loader',
+			loader: require.resolve('postcss-loader'),
 			options: {
 				postcssOptions: {
 					plugins: ['autoprefixer'],
@@ -55,11 +57,10 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 	];
 }
 
-function getJSAndTSLoader(env, useTypescript) {
+function getJSAndTSLoader() {
 	return [
-		!env.nocache && { loader: 'cache-loader' },
 		{
-			loader: 'babel-loader',
+			loader: require.resolve('babel-loader'),
 			options: getBabelLoaderOptions(babelConfig),
 		},
 	].filter(Boolean);
@@ -68,10 +69,16 @@ function getJSAndTSLoader(env, useTypescript) {
 function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 	const sourceMap = true;
 	return getCommonStyleLoaders(enableModules, isEnvDevelopmentServe).concat(
-		{ loader: 'resolve-url-loader', options: { sourceMap } },
+		{ loader: require.resolve('resolve-url-loader'), options: { sourceMap } },
 		{
-			loader: 'sass-loader',
-			options: { sourceMap, additionalData: sassData },
+			loader: require.resolve('sass-loader'),
+			options: {
+				sourceMap,
+				additionalData: sassData,
+				sassOptions: {
+					quietDeps: true,
+				},
+			},
 		},
 	);
 }
@@ -110,14 +117,14 @@ function getWebpackRules(srcDirectories, useTypescript, devMode) {
 		devMode && {
 			test: /\.js$/,
 			include: /node_modules/,
-			use: ['source-map-loader'],
+			use: [require.resolve('source-map-loader')],
 			enforce: 'pre',
 		},
 		{
 			test: /\.(js|ts|tsx)$/,
 			exclude: /node_modules/,
 			include: srcDirectories,
-			use: getJSAndTSLoader(process.env, useTypescript),
+			use: getJSAndTSLoader(),
 		},
 		{
 			test: /\.css$/,

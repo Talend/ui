@@ -1,5 +1,103 @@
 # @talend/scripts-core
 
+## 16.3.0
+
+### Minor Changes
+
+- e77b32c35: Add option lint-merge-report
+
+### Patch Changes
+
+- Updated dependencies [f14ebbe23]
+  - @talend/eslint-config@13.0.1
+
+## 16.2.0
+
+### Minor Changes
+
+- 673984929: Improve peerDependencies and add missing deps to not have circular dependency, adapt code to be compatible with PNPM and fix tests
+
+### Patch Changes
+
+- f2ef85811: Fix script for lint
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+  - @talend/scripts-utils@2.2.0
+  - @talend/eslint-plugin@1.1.0
+  - @talend/scripts-config-jest@13.1.0
+  - @talend/scripts-config-stylelint@4.1.0
+  - @talend/scripts-config-typescript@11.2.0
+  - @talend/scripts-config-babel@13.2.0
+
+## 16.1.1
+
+### Patch Changes
+
+- Updated dependencies [e82cc7f30]
+  - @talend/eslint-config@13.0.0
+
+## 16.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  update scripts following changes made in scripts-config-babel
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/scripts-config-babel@13.1.0
+  - @talend/eslint-config@12.2.0
+  - @talend/scripts-utils@2.1.0
+
+## 16.0.0
+
+### Major Changes
+
+- 9a0732ec5: - fix: enforce timer at the end of all tests.
+
+  - feat: mock ally.js has it uses unsupported dom method from jsdom.
+  - feat: add jest-axe configuration
+
+  To support floating-ui/react following issue we have decided to add an afterAll to let floating-ui finish stuff
+  https://github.com/floating-ui/floating-ui/issues/1908
+
+  Breaking changes:
+
+  you may have tests where you ask for jest.useFakeTimer without go back to real at some point. This is a side effect and it is not compatible with our change to support floating-ui.
+
+  ```diff
+  jest.useFakeTimers()
+  render(<Tooltip><button></Tooltip>)
+  +jest.useRealTimers()
+  ```
+
+  This will fix an error said your test is still pending after 5000 ms.
+
+### Patch Changes
+
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [e83b74b7c]
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+  - @talend/scripts-config-jest@13.0.0
+
+## 15.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade storybook to 7.x major release
+
 ## 14.0.1
 
 ### Patch Changes

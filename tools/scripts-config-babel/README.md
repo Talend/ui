@@ -1,4 +1,6 @@
-# Babel config customisation
+This package contains the main babel configuration used everywhere else in Talend.
+
+## Babel config customisation
 
 You can use your own babelrc but it is not recommanded. To do so, you will need to extend the preset babelrc.
 

@@ -20,7 +20,7 @@ export const FormComponentStep1 = () => {
 		defaultValues: { ...stepsData[0] },
 	});
 
-	const { field, meta } = useController({
+	const { field, fieldState } = useController({
 		control: rhf.control,
 		name: 'randomInput',
 		rules: {
@@ -63,7 +63,7 @@ export const FormComponentStep1 = () => {
 						}}
 					/>
 
-					{meta.invalid && (
+					{fieldState.invalid && (
 						<InlineMessageDestructive description={'This field is required'} withBackground />
 					)}
 					<Form.Input
@@ -93,7 +93,7 @@ export const FormComponentStep2 = () => {
 		defaultValues: { ...stepsData[1] },
 	});
 
-	const { field, meta } = useController({
+	const { field, fieldState } = useController({
 		control: rhf.control,
 		name: 'randomInput',
 		rules: {
@@ -124,7 +124,7 @@ export const FormComponentStep2 = () => {
 						}}
 					/>
 
-					{meta.invalid && (
+					{fieldState.invalid && (
 						<InlineMessageDestructive description={'This field is required'} withBackground />
 					)}
 					<Form.Input
@@ -153,7 +153,7 @@ export const FormComponentStep3 = () => {
 		defaultValues: { ...stepsData[2] },
 	});
 
-	const { field, meta } = useController({
+	const { field, fieldState } = useController({
 		control: rhf.control,
 		name: 'randomInput',
 		rules: {
@@ -171,7 +171,7 @@ export const FormComponentStep3 = () => {
 		<FormProvider {...rhf}>
 			<Form>
 				<Form.Fieldset>
-					{meta.invalid && (
+					{fieldState.invalid && (
 						<InlineMessageDestructive description={'This field is required'} withBackground />
 					)}
 					<Form.Input

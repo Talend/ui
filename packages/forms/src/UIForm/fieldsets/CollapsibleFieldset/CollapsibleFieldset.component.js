@@ -1,7 +1,8 @@
+import { useCallback } from 'react';
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { InlineMessageInformation } from '@talend/design-system';
-import CollapsiblePanel from '@talend/react-components/lib/CollapsiblePanel';
+import { InlineMessageInformation, CollapsiblePanel } from '@talend/design-system';
 import get from 'lodash/get';
 import Widget from '../../Widget';
 import { generateDescriptionId } from '../../Message/generateId';
@@ -72,11 +73,18 @@ export function defaultTitle(formData, schema, options) {
  * @param {function} title the function called by the component to compute the title
  * @return {function} CollapsibleFieldset react component
  */
+// eslint-disable-next-line @typescript-eslint/default-param-last
 export default function createCollapsibleFieldset(title = defaultTitle) {
 	function CollapsibleFieldset(props) {
-		function toggle(event) {
-			event.stopPropagation();
-			event.preventDefault();
+		const { id, schema, value, actions, index, ...restProps } = props;
+		const { items, managed } = schema;
+
+		function onToggleClick(event) {
+			if (event) {
+				event.stopPropagation();
+				event.preventDefault();
+			}
+
 			const payload = {
 				schema: props.schema,
 				value: {
@@ -87,22 +95,31 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			props.onChange(event, payload);
 		}
 
-		const { id, schema, value, actions, ...restProps } = props;
-		const { items } = schema;
-		const displayAction = actions.map(action => ({
-			...action,
-			displayMode: CollapsiblePanel.displayModes.TYPE_ACTION,
-		}));
+		const getAction = useCallback(() => {
+			if (!actions || actions.length === 0 || actions[0] === undefined) {
+				return undefined;
+			}
+
+			const action = actions[0];
+
+			return {
+				...action,
+				tooltip: action.tooltip || action.label,
+				callback: action.onClick,
+			};
+		}, [actions]);
 
 		return (
 			<fieldset
 				className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}
 			>
 				<CollapsiblePanel
-					id={`${id}`}
-					header={[{ label: title(value, schema) }, displayAction]}
-					onToggle={toggle}
+					title={title(value, schema)}
+					onToggleExpanded={onToggleClick}
+					index={index}
+					managed={!!managed}
 					expanded={!value.isClosed}
+					action={getAction()}
 				>
 					{schema.description ? (
 						<InlineMessageInformation
@@ -115,8 +132,8 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					) : (
 						''
 					)}
-					{items.map((itemSchema, index) => (
-						<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
+					{items.map((itemSchema, idx) => (
+						<Widget {...restProps} id={id} key={`${id}-${idx}`} schema={itemSchema} value={value} />
 					))}
 				</CollapsiblePanel>
 			</fieldset>
@@ -132,9 +149,11 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 	if (process.env.NODE_ENV !== 'production') {
 		CollapsibleFieldset.propTypes = {
 			id: PropTypes.string,
+			index: PropTypes.number,
 			onChange: PropTypes.func.isRequired,
 			schema: PropTypes.shape({
 				items: PropTypes.array.isRequired,
+				managed: PropTypes.bool,
 				description: PropTypes.string,
 			}).isRequired,
 			value: PropTypes.object,

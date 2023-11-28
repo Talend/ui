@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Talend/ui/modules.schema.json",
+  "title": "cdn modules schema",
+  "description": "Help you edit the file in vscode",
+  "type": "object",
+  "patternProperties": {
+    ".*": {
+      "type": "object",
+
+      "properties": {
+        "var": {
+          "type": "string"
+        },
+        "versions": {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "object",
+              "properties": {
+                "development": {
+                  "type": "string"
+                },
+                "production": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

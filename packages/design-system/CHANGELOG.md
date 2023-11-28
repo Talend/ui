@@ -1,5 +1,174 @@
 # @talend/design-system
 
+## 8.4.1
+
+### Patch Changes
+
+- 88a17d7e7: fix: theme provider override is not working as expected
+
+## 8.4.0
+
+### Minor Changes
+
+- 4dc277f42: feat: allow token override with theme provider
+
+## 8.3.1
+
+### Patch Changes
+
+- f43609cd2: TDOPS-5671 - Fix Design System tooltip display in case of empty value
+- e798efb92: Export "open" prop to children of Popover component
+- f14ebbe23: Add missing deps
+
+## 8.3.0
+
+### Minor Changes
+
+- b53bc8134: fix(DFD-274): Update tab panel component to use classname and remove useless gap
+
+## 8.2.0
+
+### Minor Changes
+
+- b9cc5b097: Fix lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/utils@2.8.0
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+
+## 8.1.3
+
+### Patch Changes
+
+- c286d9844: fix(TDOPS-5582/designSystem): checkbox state change on click
+
+## 8.1.2
+
+### Patch Changes
+
+- 02cc11768: fix: add z-index to Popover.module.scss
+- Updated dependencies [841be39f3]
+  - @talend/utils@2.7.0
+
+## 8.1.1
+
+### Patch Changes
+
+- 6816365dc: fix: binding in forms
+
+## 8.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove useless cypress config (toto.cypress.config.js)
+
+### Patch Changes
+
+- c76a700a4: fix: ThemeProvider use a module.scss but this is a global css
+- b8406b6e5: Fix Design System accessibility for Modal
+- 6b9f49e81: proper export of Icon enums
+- 41bd1b586: chore: remove unused polished dependency
+
+## 8.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 9a0732ec5: chore: remove reakit
+
+  - Rewrite components without reakit
+  - use `@floating-ui/react` for tooltip, popover
+  - export all types and components from the root
+
+  Breaking changes:
+
+  - HTML structure output may have changed
+  - Some passed props from our component to reakit and not documented as a usage as been removed. If you need a different usage let us knwow, now we own the code
+  - Tabs props API has been completly changed
+
+  Components changed:
+
+  - Accordion (useId)
+  - Clickable (rewrite)
+  - Combobox (add as primitive)
+  - Disclosure (add as primitive)
+  - Divider (rewrite)
+  - Drawer (rewrite using `react-transition-group`)
+  - Dropdown (rewrite using `@floating-ui/react`)
+  - Form/Affix/Button (typings)
+  - Form/Affix/Select (useId)
+  - Form/Field/Datalist (useId)
+  - Form/Field/InputFile (useId)
+  - Form/Field/InputToggleSwitch (rewrite)
+  - Form/Primitives/Checkbox (rewrite)
+  - Form/Primitives/Field (useId)
+  - Form/Primitives/Radio (useId)
+  - Modal (rewrite Dialog as primitive)
+  - Popover (rewrite using `@floating-ui/react`)
+  - Switch (rewrite)
+  - Tabs (rewrite + props changed with old API support)
+  - Tooltip (rewrite using `@floating-ui/react` + API Change)
+  - VisuallyHidden (rewrite)
+
+  ## Migration Guide
+
+  ### Checkbox component
+
+  Checkbox support now control and uncontrolled mode.
+  To use controlled version, provide `checked` and `onChange` props.
+  To use uncontrolled version, you can provide optional `defaultChecked` prop.
+
+  We also change way to import it to be less verbose.
+
+  ### ToggleSwitch component
+
+  ToggleSwitch now support controlled and uncontrolled mode.
+  To use controlled version provide `checked` and `onChange` props.
+  To use uncontrolled version, you can just provide optional provide `defaultChecked` prop.
+
+  ### Tabs component
+
+  Previous API with the `tabs` props. TabsKit has been removed. We encourage you to use the following API:
+
+  ```javascript
+  <Tabs.Container defaultActiveKey="profile">
+  	<Tabs.List>
+  		<Tabs.Tab aria-controls="home" title="Home" />
+  		<Tabs.Tab aria-controls="profile" title="Profile" />
+  		<Tabs.Tab aria-controls="contact" title="Contact" disabled />
+  	</Tabs.List>
+  	<Tabs.Panel id="home">Tab content for Home</Tabs.Panel>
+  	<Tabs.Panel id="profile">Tab content for Profile</Tabs.Panel>
+  	<Tabs.Panel id="contact">Tab content for Contact</Tabs.Panel>
+  </Tabs.Container>
+  ```
+
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Minor Changes
+
+- 9a0732ec5: feat: upgrade react-is
+
+### Patch Changes
+
+- bacaa4b31: fix TypeError: popover.hide is not a function on close Popover
+- 9a0732ec5: fix: some lint errors
+- Updated dependencies [96d688489]
+  - @talend/icons@7.0.0
+
+## 7.15.1
+
+### Patch Changes
+
+- 3b058ef7d: fix: some lint errors. Start to export types for some components.
+
 ## 7.15.0
 
 ### Minor Changes

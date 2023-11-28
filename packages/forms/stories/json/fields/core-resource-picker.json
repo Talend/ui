@@ -1,5 +1,4 @@
 {
-  "doc": "ResourcePicker/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "ResourcePicker",

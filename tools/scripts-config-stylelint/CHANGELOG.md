@@ -1,5 +1,15 @@
 # @talend/scripts-config-stylelint
 
+## 4.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 4.0.0
 
 ### Major Changes

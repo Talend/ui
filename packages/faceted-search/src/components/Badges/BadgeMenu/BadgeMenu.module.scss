@@ -21,6 +21,10 @@ $popover-screen-width: tokens.$coral-sizing-maximal;
 
 		.menu-items-filter {
 			margin: 0;
+
+			:global(.btn) {
+				margin: 0;
+			}
 		}
 	}
 
@@ -42,5 +46,6 @@ $popover-screen-width: tokens.$coral-sizing-maximal;
 	:global(.tc-tooltip-footer) {
 		min-width: auto;
 		width: $popover-screen-width;
+		padding-left: 0;
 	}
 }

@@ -2,8 +2,7 @@ import { forwardRef, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
-import Dropdown from '../../Dropdown';
-import { DropdownItemType } from '../../Dropdown/Dropdown';
+import { Dropdown, DropdownItemType } from '../../Dropdown';
 import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 

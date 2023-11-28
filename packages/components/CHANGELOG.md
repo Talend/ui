@@ -1,5 +1,97 @@
 # @talend/react-components
 
+## 12.2.0
+
+### Minor Changes
+
+- e87f8e091: feat(TDP-12694): add pendo trackers to guided-tour actions
+
+### Patch Changes
+
+- 8b1dc1fac: TDOPS-5671 - Fix tooltip display on date time ranger picker
+- Updated dependencies [f14ebbe23]
+- Updated dependencies [02e2d012c]
+  - @talend/react-bootstrap@2.1.1
+  - @talend/icons@7.3.0
+
+## 12.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  add a tsconfig.build.json to exclude test files
+
+### Patch Changes
+
+- 2177ddfb3: PlainTextTitle component: pass data atrributes
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/icons@7.1.0
+  - @talend/react-bootstrap@2.1.0
+
+## 12.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Minor Changes
+
+- 9a0732ec5: feat: upgrade react-is
+
+### Patch Changes
+
+- da4cf2971: TDOPS-762 - Allow notification message to have long labels with proper overflow
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-bootstrap@2.0.0
+  - @talend/icons@7.0.0
+  - @talend/react-a11y@2.0.0
+  - @talend/bootstrap-theme@8.2.1
+
+## 11.4.5
+
+### Patch Changes
+
+- b0f7bbf70: fix(TDC-7364): FormatValue component - fix content not appearing when there were leading whitespaces
+
+## 11.4.4
+
+### Patch Changes
+
+- 1cb4b7b29: fix(TFD-16296): Add ellipsis on collapsible panel header
+- Updated dependencies [9d137cb98]
+  - @talend/bootstrap-theme@8.2.0
+
+## 11.4.3
+
+### Patch Changes
+
+- 941231e01: fix(TDP-12616): fix checkbox mark style on multi-select
+
+## 11.4.2
+
+### Patch Changes
+
+- 4f8429b41: TDOPS-1878 - Notification container now has a max height to handle long and multiple notifications not overflowing the screen
+- Updated dependencies [6af561463]
+  - @talend/icons@6.60.0
+
+## 11.4.1
+
+### Patch Changes
+
+- b60f5b5c1: TDOPS-2619 - Align column chooser style with Design System
+- a5e724a5b: TDOPS-5105 - Components badge now have the right separator color
+- 387afd9fd: TDOPS-872 - VList cell content should display a tooltip for 0 value as well
+
 ## 11.4.0
 
 ### Minor Changes

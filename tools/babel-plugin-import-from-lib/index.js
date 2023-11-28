@@ -20,7 +20,6 @@ module.exports = function transform({ types: t }) {
 			return true;
 		}
 		if (RULES[root][name].default !== undefined) {
-			
 			return RULES[root][name].default;
 		}
 		return true;
@@ -47,18 +46,32 @@ module.exports = function transform({ types: t }) {
 							const source = t.stringLiteral(getPath(spec.imported.name, base));
 							let specifier = t.importDefaultSpecifier(t.identifier(spec.local.name));
 							if (!isDefault(spec.local.name, base)) {
-								specifier = t.importSpecifier(t.identifier(spec.local.name), t.identifier(spec.local.name));
+								specifier = t.importSpecifier(
+									t.identifier(spec.local.name),
+									t.identifier(spec.local.name),
+								);
 							} else if (spec.imported && !isDefault(spec.imported.name, base)) {
-								specifier = t.importSpecifier(t.identifier(spec.imported.name), t.identifier(spec.local.name));
+								specifier = t.importSpecifier(
+									t.identifier(spec.imported.name),
+									t.identifier(spec.local.name),
+								);
 							}
 							const imp = t.importDeclaration([specifier], source);
 							path.insertAfter(imp);
 						} else {
 							// is last so we replace
+							// eslint-disable-next-line no-param-reassign
 							path.node.specifiers = [t.importDefaultSpecifier(t.identifier(spec.local.name))];
 							if (!isDefault(spec.imported.name, base)) {
-								path.node.specifiers = [t.importSpecifier(t.identifier(spec.local.name), t.identifier(spec.imported.name))];
+								// eslint-disable-next-line no-param-reassign
+								path.node.specifiers = [
+									t.importSpecifier(
+										t.identifier(spec.local.name),
+										t.identifier(spec.imported.name),
+									),
+								];
 							}
+							// eslint-disable-next-line no-param-reassign
 							path.node.source = t.stringLiteral(getPath(spec.imported.name, base));
 						}
 					} else {

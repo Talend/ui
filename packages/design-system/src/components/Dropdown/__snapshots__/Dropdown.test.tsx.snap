@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render a11y html 1`] = `
+<main>
+  <button
+    aria-busy="false"
+    aria-expanded="false"
+    aria-pressed="false"
+    class="theme-clickable theme-button theme-tertiary"
+    data-test="dropdown.button"
+    data-testid="dropdown.button"
+    type="button"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      Dropdown
+      <span
+        class="theme-button__caret"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.2rem; height: 1.2rem;"
+        >
+          <use
+            xlink:href="#chevron-down:S"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+  <div
+    aria-label="Custom menu"
+    aria-orientation="vertical"
+    class="theme-dropdownShell"
+    data-test="dropdown.menu"
+    data-testid="dropdown.menu"
+    role="menu"
+    style="position: absolute; left: 0px; top: 0px; display: none; transform: translate(0px, 0px);"
+    tabindex="-1"
+  >
+    <div
+      class="theme-animatedZone"
+    >
+      <div
+        class="theme-stack theme-justify-stretch theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+      >
+        <a
+          class="theme-linkable theme-dropdownEntry"
+          data-test="dropdown.menuitem.External link-0"
+          data-testid="dropdown.menuitem.External link-0"
+          href="https://community.talend.com/s/?language=en_US"
+          id="mocked-uuid-5"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          External link
+          <span
+            class="theme-link__iconExternal"
+            data-test="link.icon.external"
+            data-testid="link.icon.external"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1.2rem; height: 1.2rem;"
+            >
+              <use
+                xlink:href="#external-link:S"
+              />
+            </svg>
+          </span>
+        </a>
+        <hr
+          aria-orientation="horizontal"
+          class="theme-divider"
+          data-test="dropdown.menuitem.divider-1"
+          data-testid="dropdown.menuitem.divider-1"
+        />
+        <a
+          class="theme-linkable theme-dropdownEntry"
+          data-test="dropdown.menuitem.Link-2"
+          data-testid="dropdown.menuitem.Link-2"
+          href="/download"
+          id="mocked-uuid-7"
+        >
+          Link
+        </a>
+        <hr
+          aria-orientation="horizontal"
+          class="theme-divider"
+          data-test="dropdown.menuitem.divider-3"
+          data-testid="dropdown.menuitem.divider-3"
+        />
+        <button
+          class="theme-clickable"
+          data-test="dropdown.menuitem.Button-4"
+          data-testid="dropdown.menuitem.Button-4"
+          id="mocked-uuid-9"
+          role="menuitem"
+          tabindex="0"
+          type="button"
+        >
+          <div
+            class="theme-dropdownEntry"
+          >
+            <span
+              class="theme-buttonContent"
+            >
+              Button
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+`;

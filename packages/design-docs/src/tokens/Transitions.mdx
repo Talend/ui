@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/blocks';
+import tokens from '@talend/design-tokens';
+import { Divider, StackHorizontal, StackVertical } from '@talend/design-system';
+import dictionary from '@talend/design-tokens/lib/light/dictionary';
+import * as utils from './TokenFormatter';
+import { TokenList } from './TokenValue';
+import style from './Transitions.module.scss';
+
+<Meta title="Design Tokens/Transitions" />
+
+# Transitions
+
+<Divider />
+
+<TokenList
+	style={token => ({
+		display: 'inline-flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+	})}
+	type="transition"
+	sortOnValue
+>
+	{token => (
+		<div className={style.container} style={{ transition: `all ${token.value}` }}>
+			<p
+				style={{
+					transition: `transform ${token.value}`,
+				}}
+			>
+				🐠
+			</p>
+		</div>
+	)}
+</TokenList>

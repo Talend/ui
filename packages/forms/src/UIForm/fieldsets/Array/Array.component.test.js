@@ -7,7 +7,6 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 jest.unmock('@talend/design-system');
-jest.mock('ally.js');
 
 function TestArray(props) {
 	return <div data-testid="array" data-props={JSON.stringify(props, null, 2)} />;

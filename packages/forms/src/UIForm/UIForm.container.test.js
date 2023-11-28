@@ -4,8 +4,6 @@ import userEvent from '@testing-library/user-event';
 import { actions, getMockData, getMockNestedData, initProps } from '../../__mocks__/data';
 import UIForm from './UIForm.container';
 
-jest.mock('ally.js');
-
 describe('UIForm container', () => {
 	let props;
 	beforeEach(() => {

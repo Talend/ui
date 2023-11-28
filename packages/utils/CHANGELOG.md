@@ -1,5 +1,17 @@
 # @talend/utils
 
+## 2.8.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and fix tsconfig
+
+## 2.7.0
+
+### Minor Changes
+
+- 841be39f3: TDOPS-5386 - remove phone validation as not in use
+
 ## 2.6.0
 
 ### Minor Changes

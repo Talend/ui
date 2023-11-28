@@ -33,5 +33,5 @@ const Row = forwardRef(
 		);
 	},
 );
-
+Row.displayName = 'Row';
 export default Row;

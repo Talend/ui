@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs should render a11y html 1`] = `
+<main>
+  <nav
+    aria-label="breadcrumb"
+    class="theme-breadcrumbs"
+  >
+    <ul
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+      role="list"
+    >
+      <li
+        class="theme-entry"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+        >
+          <a
+            class="theme-linkable theme-link theme-with_ellipsis"
+            href="/"
+          >
+            <span
+              class="theme-link__text"
+            >
+              Link example
+            </span>
+          </a>
+          <span
+            aria-hidden="true"
+            class="theme-divider"
+          >
+            <hr
+              aria-orientation="vertical"
+              class="theme-divider"
+              orientation="vertical"
+            />
+          </span>
+        </div>
+      </li>
+      <li
+        class="theme-entry theme-entry__collapsed"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+        >
+          <button
+            aria-busy="false"
+            aria-expanded="false"
+            aria-pressed="false"
+            class="theme-clickable theme-button theme-tertiary theme-size-S"
+            data-test="dropdown.button"
+            data-testid="dropdown.button"
+            type="button"
+          >
+            <span
+              class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+            >
+              <span
+                class="theme-hidden"
+              >
+                Display collapsed links
+              </span>
+              <span
+                aria-hidden="true"
+              >
+                …
+              </span>
+              <span
+                class="theme-button__caret"
+              >
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1.2rem; height: 1.2rem;"
+                >
+                  <use
+                    xlink:href="#chevron-down:S"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            aria-label="Collapsed links"
+            aria-orientation="vertical"
+            class="theme-dropdownShell"
+            data-test="dropdown.menu"
+            data-testid="dropdown.menu"
+            role="menu"
+            style="position: absolute; left: 0px; top: 0px; display: none; transform: translate(0px, 0px);"
+            tabindex="-1"
+          >
+            <div
+              class="theme-animatedZone"
+            >
+              <div
+                class="theme-stack theme-justify-stretch theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+              >
+                <a
+                  class="theme-linkable theme-dropdownEntry"
+                  data-test="dropdown.menuitem.Link example-0"
+                  data-testid="dropdown.menuitem.Link example-0"
+                  href="/here"
+                  id="mocked-uuid-3"
+                >
+                  Link example
+                </a>
+                <a
+                  class="theme-linkable theme-dropdownEntry"
+                  data-test="dropdown.menuitem.Link example-1"
+                  data-testid="dropdown.menuitem.Link example-1"
+                  href="/there"
+                  id="mocked-uuid-4"
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  Link example
+                </a>
+                <a
+                  class="theme-linkable theme-dropdownEntry"
+                  data-test="dropdown.menuitem.Link example-2"
+                  data-testid="dropdown.menuitem.Link example-2"
+                  href="/away"
+                  id="mocked-uuid-5"
+                >
+                  Link example
+                </a>
+              </div>
+            </div>
+          </div>
+          <span
+            aria-hidden="true"
+            class="theme-divider"
+          >
+            <hr
+              aria-orientation="vertical"
+              class="theme-divider"
+              orientation="vertical"
+            />
+          </span>
+        </div>
+      </li>
+      <li
+        class="theme-entry"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+        >
+          <a
+            class="theme-linkable theme-link theme-with_ellipsis"
+            href="/more"
+          >
+            <span
+              class="theme-link__text"
+            >
+              Link example that is much too long and should create an ellipsis if all is well
+            </span>
+          </a>
+          <span
+            aria-hidden="true"
+            class="theme-divider"
+          >
+            <hr
+              aria-orientation="vertical"
+              class="theme-divider"
+              orientation="vertical"
+            />
+          </span>
+        </div>
+      </li>
+      <li
+        class="theme-entry"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+        >
+          <a
+            aria-current="page"
+            class="theme-linkable theme-link theme-with_ellipsis"
+            href="/here"
+          >
+            <span
+              class="theme-link__text"
+            >
+              Label
+            </span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</main>
+`;

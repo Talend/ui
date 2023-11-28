@@ -12,4 +12,5 @@ const EmptyStateSmall = forwardRef((props: EmptyStateSmallProps, ref: Ref<HTMLEl
 	return <EmptyStatePrimitive {...props} ref={ref} />;
 });
 
+EmptyStateSmall.displayName = 'EmptyStateSmall';
 export default EmptyStateSmall;

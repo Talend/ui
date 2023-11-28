@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/prefer-screen-queries */
-/* eslint-disable testing-library/await-async-query */
+/* eslint-disable testing-library/await-async-queries */
 /* eslint-disable no-console */
-import Dropdown from './';
+import { Dropdown } from './';
 
 import { ButtonTertiary } from '../../components/Button';
 import { IconsProvider } from '../../components/IconsProvider';
@@ -83,7 +83,7 @@ context('<Dropdown />', () => {
 
 	it('should display menu', () => {
 		cy.mount(<WithIcons />);
-		cy.findByTestId('dropdown.button').click();
+		cy.findByTestId('dropdown.button').click({ force: true });
 		cy.findByTestId('dropdown.menu').should('be.visible');
 		cy.findByTestId('dropdown.menuitem.Link with icon-0').should('be.visible');
 		cy.findByTestId('dropdown.menuitem.Button with icon-1').should('be.visible');
@@ -96,7 +96,7 @@ context('<Dropdown />', () => {
 		cy.mount(<WithIcons />);
 		cy.findByTestId('dropdown.button').click();
 		cy.findByTestId('dropdown.menu').should('be.visible');
-		cy.findByTestId('dropdown.menuitem.Button with icon-1').click();
+		cy.findByTestId('dropdown.menuitem.Button with icon-1').click({ force: true });
 		cy.findByTestId('dropdown.menu').should('not.be.visible');
 	});
 

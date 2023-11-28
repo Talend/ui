@@ -1,6 +1,6 @@
 import { forwardRef, Ref } from 'react';
 import classnames from 'classnames';
-import Linkable, { LinkableType } from '../../Linkable';
+import { Linkable, LinkableType } from '../../Linkable';
 
 import { StackHorizontal } from '../../Stack';
 

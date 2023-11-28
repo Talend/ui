@@ -1,5 +1,41 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.2.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, upgrade msw to v1.3.2
+
+### Patch Changes
+
+- f2ef85811: Update dependencies and fix script for lint
+- Updated dependencies [673984929]
+  - @talend/scripts-config-react-webpack@16.3.0
+
+## 5.1.0
+
+### Minor Changes
+
+- 6efd54301: feat: use icons from talend/icons and not from unpkg
+
+### Patch Changes
+
+- 9a0732ec5: fix: add keys on all items in the decorators
+  fix: improve build performance copy/pasted from #4931
+- 35263dfcb: fix: icon url to support prefix
+
+## 5.0.0
+
+### Major Changes
+
+- 3b058ef7d: feat: upgrade configuration to run storybook 7.
+  So once you have upgrade you can remove the resolution.
+
+### Patch Changes
+
+- Updated dependencies [3b058ef7d]
+  - @talend/scripts-config-react-webpack@16.0.0
+
 ## 4.1.0
 
 ### Minor Changes

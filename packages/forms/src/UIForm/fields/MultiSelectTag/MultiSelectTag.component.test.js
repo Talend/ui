@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import MultiSelectTag from './MultiSelectTag.component';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 describe('MultiSelectTag field', () => {

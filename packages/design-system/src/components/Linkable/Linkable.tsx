@@ -29,7 +29,7 @@ export function isBlank(target: string | undefined): boolean {
 	return !!target && !['_self', '_parent', '_top'].includes(target.toLowerCase());
 }
 
-const Linkable = forwardRef(
+export const Linkable = forwardRef(
 	(
 		{
 			as = 'a',
@@ -127,4 +127,3 @@ const Linkable = forwardRef(
 );
 
 Linkable.displayName = 'Linkable';
-export default Linkable;

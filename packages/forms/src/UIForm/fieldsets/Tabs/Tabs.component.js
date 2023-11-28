@@ -1,29 +1,22 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import TabBar from '@talend/react-components/lib/TabBar';
-import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
+import { Tabs } from '@talend/design-system';
 
 import Widget from '../../Widget';
 import { isValid } from '../../utils/validation';
-import theme from './Tabs.module.scss';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-function Tabs(props) {
-	const [selectedKey, setSelectedKey] = useState(0);
-	const { t } = useTranslation(I18N_DOMAIN_FORMS);
-
+function TabsAdapter(props) {
 	const { schema, ...restProps } = props;
+
 	const tabs = schema.items.map((item, index) => {
 		const tabIsValid = isValid(item, restProps.errors);
 		return {
 			key: index,
-			label: item.title,
-			className: classNames({ [theme['has-error']]: !tabIsValid }),
-			'aria-label': tabIsValid
-				? undefined
-				: `${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`,
-			children: (
+			tabTitle: {
+				title: item.title,
+				id: `${restProps.id}-tabs-${index}`,
+				error: !tabIsValid,
+			},
+			tabContent: (
 				<Widget
 					{...restProps}
 					schema={{ widget: 'fieldset', ...item, options: { ...item.options, hideTitle: true } }}
@@ -32,19 +25,11 @@ function Tabs(props) {
 		};
 	});
 
-	return (
-		<TabBar
-			className={classNames(theme['tf-tabs'], 'tf-tabs')}
-			id={`${restProps.id}-tabs`}
-			items={tabs}
-			onSelect={(_, item) => setSelectedKey(item.key)}
-			selectedKey={selectedKey}
-		/>
-	);
+	return <Tabs id={`${restProps.id}-tabs`} tabs={tabs} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	Tabs.propTypes = {
+	TabsAdapter.propTypes = {
 		errors: PropTypes.object,
 		schema: PropTypes.shape({
 			items: PropTypes.arrayOf(
@@ -57,4 +42,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default Tabs;
+export default TabsAdapter;

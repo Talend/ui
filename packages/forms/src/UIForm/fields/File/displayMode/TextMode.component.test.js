@@ -1,6 +1,5 @@
 import { screen, render } from '@testing-library/react';
 
-jest.mock('ally.js');
 jest.unmock('@talend/design-system');
 
 import TextMode from './TextMode.component';

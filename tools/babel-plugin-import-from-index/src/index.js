@@ -8,7 +8,7 @@ const PACKAGES = Object.keys(rules);
 function getPackageVersion(packageName) {
 	let currentPath = require.resolve(packageName);
 	let pjson;
-	while(!pjson) {
+	while (!pjson) {
 		const pjsonPath = `${currentPath}/package.json`;
 		if (fs.existsSync(pjsonPath)) {
 			pjson = pjsonPath;
@@ -18,7 +18,7 @@ function getPackageVersion(packageName) {
 	}
 	try {
 		return require(pjson).version;
-	} catch(error) {
+	} catch (error) {
 		console.error(`${packageName} NOT FOUND`, error);
 	}
 }
@@ -80,8 +80,7 @@ module.exports = function transform({ types }) {
 						exit(importDeclarationPath) {
 							realLastImport = importDeclarationPath;
 							const packageName = find(importDeclarationPath);
-							const isPackageFrom =
-								PACKAGES.includes(importDeclarationPath.node.source.value);
+							const isPackageFrom = PACKAGES.includes(importDeclarationPath.node.source.value);
 							if (packageName && !importSpecifiers[packageName]) {
 								importSpecifiers[packageName] = [];
 							}

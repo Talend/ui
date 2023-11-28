@@ -131,5 +131,6 @@ export function getArrayElementSchema(arraySchema, elementIndex) {
 		items: getArrayElementItems(arraySchema, elementIndex),
 		widget: arraySchema.itemWidget || 'fieldset',
 		title: arraySchema.itemTitle,
+		managed: arraySchema.itemManaged,
 	};
 }

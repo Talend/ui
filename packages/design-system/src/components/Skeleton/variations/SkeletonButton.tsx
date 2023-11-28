@@ -24,5 +24,5 @@ const SkeletonButton = forwardRef(
 		);
 	},
 );
-
+SkeletonButton.displayName = 'SkeletonButton';
 export default SkeletonButton;

@@ -55,7 +55,7 @@ module.exports = options => {
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
-						use: getJSAndTSLoader(env, useTypescript),
+						use: getJSAndTSLoader(),
 					},
 					{
 						test: /\.scss$/,
