@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.5.1
+
+### Patch Changes
+
+- 5c5924af7: fix: Messages adjustments
+
 ## 8.5.0
 
 ### Minor Changes
