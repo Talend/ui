@@ -1,8 +1,10 @@
-import { TabsProvider, TabsProviderPropTypes } from '../Primitive/TabsProvider';
-import { Tabs as TabList, Tab, TabPropTypes } from '../Primitive/Tabs';
-import { TabPanel, TabPanelPropTypes } from '../Primitive/TabPanel';
 import { useEffect, useState } from 'react';
+
 import { randomUUID } from '@talend/utils';
+
+import { TabPanel, TabPanelPropTypes } from '../Primitive/TabPanel';
+import { Tab, Tabs as TabList, TabPropTypes } from '../Primitive/Tabs';
+import { TabsProvider, TabsProviderPropTypes } from '../Primitive/TabsProvider';
 
 type TabTitlePropTypes = Omit<TabPropTypes, 'aria-controls'> & {
 	id?: string;
