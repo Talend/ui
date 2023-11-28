@@ -1,8 +1,10 @@
-import { TabsProvider, TabsProviderPropTypes } from '../Primitive/TabsProvider';
-import { Tabs as TabList, Tab, TabPropTypes } from '../Primitive/Tabs';
-import { TabPanel, TabPanelPropTypes } from '../Primitive/TabPanel';
 import { useEffect, useState } from 'react';
+
 import { randomUUID } from '@talend/utils';
+
+import { TabPanel, TabPanelPropTypes } from '../Primitive/TabPanel';
+import { Tab, Tabs as TabList, TabPropTypes } from '../Primitive/Tabs';
+import { TabsProvider, TabsProviderPropTypes } from '../Primitive/TabsProvider';
 
 type TabTitlePropTypes = Omit<TabPropTypes, 'aria-controls'> & {
 	id?: string;
@@ -50,12 +52,9 @@ export function Tabs(props: TabsProps) {
 							tabProps['aria-controls'] = ids[index];
 							tabProps.title = tab.tabTitle;
 						} else if (typeof tab.tabTitle === 'object') {
-							tabProps['aria-controls'] = tab.tabTitle.id || ids[index];
-							tabProps.title = tab.tabTitle.title;
-							tabProps.icon = tab.tabTitle.icon;
-							tabProps.tag = tab.tabTitle.tag;
-							tabProps.tooltip = tab.tabTitle.tooltip;
-							tabProps.disabled = tab.tabTitle.disabled;
+							const { id, ...rest } = tab.tabTitle;
+							tabProps['aria-controls'] = id || ids[index];
+							Object.assign(tabProps, rest);
 						}
 						return <Tab key={index} {...(tabProps as TabPropTypes)} />;
 					})}

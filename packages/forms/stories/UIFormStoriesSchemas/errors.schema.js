@@ -2,7 +2,25 @@ export const errorsSchema = {
 	jsonSchema: {
 		type: 'object',
 		title: 'Comment',
+		required: ['fieldname'],
 		properties: {
+			tabConfiguration: {
+				type: 'object',
+				properties: {
+					fieldname: {
+						type: 'string',
+					},
+				},
+			},
+			fieldname: {
+				type: 'string',
+			},
+			description: {
+				type: 'string',
+			},
+			tabs: {
+				type: 'tabs',
+			},
 			arrayOfObjects: {
 				type: 'array',
 				items: {
@@ -84,6 +102,35 @@ export const errorsSchema = {
 		},
 	},
 	uiSchema: [
+		{
+			key: 'tabs',
+			title: '2 Tabs',
+			widget: 'tabs',
+			items: [
+				{
+					key: 'tabConfiguration',
+					title: 'Configuration',
+					widget: 'fieldset',
+					items: [
+						{
+							key: 'fieldname',
+							title: 'Field Name',
+						},
+					],
+				},
+				{
+					key: 'tabInfo',
+					title: 'Info',
+					widget: 'fieldset',
+					items: [
+						{
+							key: 'description',
+							title: 'Description',
+						},
+					],
+				},
+			],
+		},
 		{
 			key: 'arrayOfObjects',
 			title: 'Array of objects',

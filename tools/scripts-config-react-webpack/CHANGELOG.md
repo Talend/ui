@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.3.2
+
+### Patch Changes
+
+- db246251d: fix: prevent display log of lot of warnings related to sass loader
+
 ## 16.3.1
 
 ### Patch Changes

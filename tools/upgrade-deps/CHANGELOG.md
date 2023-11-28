@@ -1,5 +1,12 @@
 # @talend/upgrade-deps
 
+## 3.0.0
+
+### Major Changes
+
+- e8c64eb49: Make upgrade-deps compatible with pnpm
+  [Breaking Change]remove security option (has it's not used)
+
 ## 2.1.0
 
 ### Minor Changes

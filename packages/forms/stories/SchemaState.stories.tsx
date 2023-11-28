@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { UIForm } from '../src/UIForm';
 
-import { updatingSchema } from './UIFormStoriesSchemas/updating.schema';
-import { displayModeSchema } from './UIFormStoriesSchemas/displayMode.schema';
-import { errorsSchema } from './UIFormStoriesSchemas/errors.schema';
-import { hoverSubmitSchema } from './UIFormStoriesSchemas/hoverSubmit.schema';
+import { action } from '@storybook/addon-actions';
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { UIForm } from '../src/UIForm';
+import { argTypes } from './argTypes';
+import { CustomArrayTemplate } from './CustomArrayTemplate.component';
 import { customActionsSchema } from './UIFormStoriesSchemas/customActions.schema';
 import { customTemplateSchema } from './UIFormStoriesSchemas/customTemplate.schema';
 import { customWidgetSchema } from './UIFormStoriesSchemas/customWidget.schema';
-
-import { CustomArrayTemplate } from './CustomArrayTemplate.component';
-import { argTypes } from './argTypes';
+import { displayModeSchema } from './UIFormStoriesSchemas/displayMode.schema';
+import { errorsSchema } from './UIFormStoriesSchemas/errors.schema';
+import { hoverSubmitSchema } from './UIFormStoriesSchemas/hoverSubmit.schema';
+import { updatingSchema } from './UIFormStoriesSchemas/updating.schema';
 
 function Template({ introduction, ...props }: any) {
 	return (
@@ -85,7 +85,9 @@ const errorsProps = errorsSchema.uiSchema.reduce(
 		...acc,
 		[current.key.split('.').join(',')]: 'There is an error',
 	}),
-	{},
+	{
+		tabConfiguration: 'There is an error',
+	},
 );
 
 export const Errors: Story = {

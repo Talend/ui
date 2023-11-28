@@ -72,7 +72,13 @@ function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 		{ loader: require.resolve('resolve-url-loader'), options: { sourceMap } },
 		{
 			loader: require.resolve('sass-loader'),
-			options: { sourceMap, additionalData: sassData },
+			options: {
+				sourceMap,
+				additionalData: sassData,
+				sassOptions: {
+					quietDeps: true,
+				},
+			},
 		},
 	);
 }

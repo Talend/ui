@@ -39,7 +39,7 @@
     "@talend/icons": "^7.3.0",
     "@talend/json-schema-form-core": "^1.2.0",
     "@talend/react-components": "^12.2.0",
-    "@talend/design-system": "^8.4.0",
+    "@talend/design-system": "^8.5.0",
     "@talend/design-tokens": "^2.10.0",
     "@talend/react-bootstrap": "^2.1.1",
     "@talend/utils": "^2.8.0",
@@ -66,7 +66,7 @@
     "@talend/eslint-plugin": "^1.1.0",
     "@talend/scripts-core": "^16.3.0",
     "@talend/scripts-config-babel": "^13.2.0",
-    "@talend/scripts-config-react-webpack": "^16.3.1",
+    "@talend/scripts-config-react-webpack": "^16.3.2",
     "@talend/scripts-config-storybook-lib": "^5.2.0",
     "@talend/scripts-config-typescript": "^11.2.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -95,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "12.1.0"
+  "version": "12.2.0"
 }

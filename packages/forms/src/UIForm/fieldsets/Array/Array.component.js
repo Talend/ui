@@ -1,10 +1,12 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import { head, get } from 'lodash';
-import Widget from '../../Widget';
-import { shiftArrayErrorsKeys } from '../../utils/validation';
-import defaultTemplates from '../../utils/templates';
+
+import { get, head } from 'lodash';
+import PropTypes from 'prop-types';
+
 import { getArrayElementSchema } from '../../utils/array';
+import defaultTemplates from '../../utils/templates';
+import { shiftArrayErrorsKeys } from '../../utils/validation';
+import Widget from '../../Widget';
 
 function getRange(previousIndex, nextIndex) {
 	if (previousIndex < nextIndex) {
@@ -124,6 +126,7 @@ export default class ArrayWidget extends Component {
 			<Widget
 				{...this.props}
 				{...extraProps}
+				index={index}
 				disabled={this.props.schema.disabled}
 				id={this.props.id && `${this.props.id}-${index}`}
 				schema={getArrayElementSchema(this.props.schema, index)}
