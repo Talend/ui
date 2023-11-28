@@ -11,6 +11,8 @@ import { EnumerationItem } from './EnumerationItem/EnumerationItem.component';
 
 import styles from './Enumeration.module.scss';
 
+const ENUMERATION_ITEM_HEIGHT = 38;
+
 export const Enumeration = ({
 	id,
 	items,
@@ -126,46 +128,43 @@ export const Enumeration = ({
 					loadMoreRows={loadMoreRows}
 					rowCount={filteredItems.length}
 				>
-					{({ onRowsRendered, registerChild }) => {
-						const itemHeight = 38;
-						return (
-							<AutoSizer disableHeight={true}>
-								{({ width }) => (
-									<List
-										scrollToIndex={scrollToIndex}
-										height={Math.min(filteredItems.length * itemHeight, 400)}
-										onRowsRendered={onRowsRendered}
-										overscanRowCount={25}
-										ref={registerChild}
-										rowCount={filteredItems.length}
-										rowHeight={itemHeight}
-										rowRenderer={({ index, key, style }) => (
-											<div style={style}>
-												<EnumerationItem
-													isToAnimate={uiItems[index]?.isToAnimate}
-													key={key}
-													mode={mode}
-													onEdit={value => handleOnEdit(value, index)}
-													onRemove={handleOnRemove}
-													selectedItems={selectedItems}
-													setSelectedItems={setSelectedItems}
-													value={filteredItems[index]}
-												/>
-											</div>
-										)}
-										width={width}
-									/>
-								)}
-							</AutoSizer>
-						);
-					}}
+					{({ onRowsRendered, registerChild }) => (
+						<AutoSizer disableHeight={true}>
+							{({ width }) => (
+								<List
+									scrollToIndex={scrollToIndex}
+									height={Math.min(filteredItems.length * ENUMERATION_ITEM_HEIGHT, 400)}
+									onRowsRendered={onRowsRendered}
+									overscanRowCount={25}
+									ref={registerChild}
+									rowCount={filteredItems.length}
+									rowHeight={ENUMERATION_ITEM_HEIGHT}
+									rowRenderer={({ index, key, style }) => (
+										<div style={style}>
+											<EnumerationItem
+												isToAnimate={uiItems[index]?.isToAnimate}
+												key={key}
+												mode={mode}
+												onEdit={value => handleOnEdit(value, index)}
+												onRemove={handleOnRemove}
+												selectedItems={selectedItems}
+												setSelectedItems={setSelectedItems}
+												value={filteredItems[index]}
+											/>
+										</div>
+									)}
+									width={width}
+								/>
+							)}
+						</AutoSizer>
+					)}
 				</InfiniteLoader>
 			) : (
 				<StackHorizontal gap={0} padding={{ x: 0, y: 'M' }}>
 					<EmptyState
 						description={t('ENUMERATION_EMPTY_LIST_DESCRIPTION', 'Any additional details here.')}
 						title={t('ENUMERATION_EMPTY_LIST_TITLE', 'The list is empty.')}
-						variant={'M'}
+						variant="M"
 					/>
 				</StackHorizontal>
 			)}

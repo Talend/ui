@@ -63,7 +63,7 @@ export const EnumerationHeader = ({
 						})}
 					</ButtonDestructive>
 				) : (
-					<StackHorizontal as="ul" gap={'XS'} justify="end">
+					<StackHorizontal as="ul" gap="XS" justify="end">
 						<li>
 							<ButtonIconToggle
 								disabled={![EnumerationMode.VIEW, EnumerationMode.CREATE].includes(mode)}
@@ -103,14 +103,19 @@ export const EnumerationHeader = ({
 							<li>
 								<input
 									type="file"
+									accept=".txt, .csv"
 									ref={importRef}
 									onChange={e => {
 										const fr = new FileReader();
 										const file = e.target.files?.[0];
 
 										if (file) {
-											fr.readAsText(file);
-											fr.onload = () => onImport(fr.result as string);
+											try {
+												fr.readAsText(file);
+												fr.onload = () => onImport(fr.result as string);
+											} catch (error) {
+												//The parent component must do the error handling
+											}
 										}
 									}}
 								/>
