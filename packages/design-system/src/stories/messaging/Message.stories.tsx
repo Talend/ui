@@ -24,17 +24,23 @@ export const DefaultMessageDemo = () => (
 	<StackHorizontal gap="M">
 		<MessageSuccess
 			title="All good"
+			titleInfo="system"
 			description="This component is well configured"
 			link={{ href: 'https://talend.com', children: 'Learn more' }}
 			action={{ children: 'See', onClick: action('action clicked') }}
-			additionalAction={{ children: 'Dismiss', onClick: action('dismiss clicked'), icon: 'trash' }}
+			additionalIconAction={{
+				children: 'Dismiss',
+				onClick: action('dismiss clicked'),
+				icon: 'trash',
+			}}
 		>
 			<StackHorizontal gap="S">
 				<TagSuccess>Good</TagSuccess> <TagDefault>Default</TagDefault>
 			</StackHorizontal>
 		</MessageSuccess>
 		<MessageDestructive
-			title="Something went wrong"
+			title="Very very long title with reflow because it’s too long please don’t do that it’s way too long."
+			titleInfo="1 minute ago"
 			description="There is an issue with the component configuration"
 			link={{ href: 'https://talend.com', children: 'Learn more' }}
 			action={{ children: 'See', onClick: action('action clicked') }}
@@ -77,7 +83,7 @@ export const WithPropVariation = () => (
 		<MessageDestructive
 			description="There is an issue with the component configuration"
 			action={{ children: 'See', onClick: action('action clicked') }}
-			additionalActions={{
+			additionalDropdownActions={{
 				'aria-label': 'Additional actions',
 				items: [
 					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
@@ -101,7 +107,7 @@ MessageInformationTemplateStory.argTypes = {
 	action: {
 		control: { type: 'object' },
 	},
-	additionalActions: {
+	additionalDropdownActions: {
 		control: { type: 'object' },
 	},
 	title: {
@@ -120,7 +126,7 @@ MessageInformationTemplateStory.argTypes = {
 };
 MessageInformationTemplateStory.args = {
 	action: { children: 'See', onClick: () => {} },
-	additionalActions: {
+	additionalDropdownActions: {
 		'aria-label': 'Additional actions',
 		items: [
 			{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
@@ -141,7 +147,7 @@ export const DefaultMessageCollectionDemo = () => (
 			description="Try resolving it this way or consult the documentation for more info."
 			title="Success"
 			action={{ children: 'See all (3)', onClick: action('action clicked') }}
-			additionalActions={{
+			additionalDropdownActions={{
 				'aria-label': 'Additional actions',
 				items: [
 					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
@@ -154,7 +160,7 @@ export const DefaultMessageCollectionDemo = () => (
 			title="Error"
 			description="(n) input fields have been automatically mapped to an output."
 			action={{ children: 'See all (3)', onClick: action('action clicked') }}
-			additionalActions={{
+			additionalDropdownActions={{
 				'aria-label': 'Additional actions',
 				items: [
 					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
@@ -167,7 +173,7 @@ export const DefaultMessageCollectionDemo = () => (
 			title="Warning"
 			description="Try resolving it this way or consult the documentation for more info."
 			action={{ children: 'See all (3)', onClick: action('action clicked') }}
-			additionalActions={{
+			additionalDropdownActions={{
 				'aria-label': 'Additional actions',
 				items: [
 					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
@@ -180,7 +186,7 @@ export const DefaultMessageCollectionDemo = () => (
 			description="(n) input fields have been automatically mapped to an output."
 			title="Information"
 			action={{ children: 'See all (3)', onClick: action('action clicked') }}
-			additionalActions={{
+			additionalDropdownActions={{
 				'aria-label': 'Additional actions',
 				items: [
 					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
@@ -203,7 +209,7 @@ export const MessageCollectionWithPropVariation = () => (
 			title="Warning"
 			description="Try resolving it this way or consult the documentation for more info."
 			action={{ children: 'See all (3)', onClick: action('action clicked') }}
-			additionalActions={{
+			additionalDropdownActions={{
 				'aria-label': 'Additional actions',
 				items: [
 					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
@@ -226,7 +232,7 @@ MessageCollectionInformationTemplateStory.args = {
 	action: { children: 'See', onClick: () => {} },
 	title: 'Information Title',
 	description: 'Maybe resolve this issue before doing anything else',
-	additionalActions: {
+	additionalDropdownActions: {
 		'aria-label': 'Additional actions',
 		items: [
 			{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
@@ -246,7 +252,7 @@ MessageCollectionInformationTemplateStory.argTypes = {
 	description: {
 		control: { type: 'text' },
 	},
-	additionalActions: {
+	additionalDropdownActions: {
 		control: { type: 'object' },
 	},
 };

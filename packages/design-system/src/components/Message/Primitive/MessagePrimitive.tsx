@@ -16,38 +16,40 @@ import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { Dropdown, DropdownPropsType } from '../../Dropdown';
 import { SizedIcon } from '../../Icon';
 import Link, { LinkProps } from '../../Link/Link';
-import { StackHorizontal, StackItem, StackVertical } from '../../Stack';
+import { StackHorizontal, StackVertical } from '../../Stack';
 
 import styles from './MessageStyles.module.scss';
+
+type SharedMessageWithActionsPropsType = {
+	additionalIconAction?: ButtonIconType<'XS'>;
+	additionalDropdownActions?: never;
+};
+
+type SharedMessageWithActionPropsType = {
+	additionalIconAction?: never;
+	additionalDropdownActions?: Omit<DropdownPropsType, 'children'>;
+};
 
 export type SharedMessageCollectionProps = Omit<
 	HTMLAttributes<HTMLDivElement>,
 	'style' | 'children' | 'className'
 > & {
 	action: ButtonTertiaryPropsType<'S'>;
-	additionalActions?: Omit<DropdownPropsType, 'children'>;
+	additionalIconAction?: ButtonIconType<'XS'>;
+	additionalDropdownActions?: Omit<DropdownPropsType, 'children'>;
 	description: string | ReactElement | string[] | ReactElement[];
 	title: string;
-};
-
-type SharedMessageWithActionsPropsType = {
-	additionalAction?: ButtonIconType<'XS'>;
-	additionalActions?: never;
-};
-
-type SharedMessageWithActionPropsType = {
-	additionalAction?: never;
-	additionalActions?: Omit<DropdownPropsType, 'children'>;
-};
+} & (SharedMessageWithActionPropsType | SharedMessageWithActionsPropsType);
 
 export type SharedMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style' | 'className'> & {
 	action?: ButtonTertiaryPropsType<'S'>;
-	additionalAction?: ButtonIconType<'XS'>;
-	additionalActions?: Omit<DropdownPropsType, 'children'>;
+	additionalIconAction?: ButtonIconType<'XS'>;
+	additionalDropdownActions?: Omit<DropdownPropsType, 'children'>;
 	children?: ReactNode | ReactNode[];
 	description: string | ReactElement | string[] | ReactElement[];
 	link?: LinkProps;
 	title?: string;
+	titleInfo?: string;
 } & (SharedMessageWithActionPropsType | SharedMessageWithActionsPropsType);
 
 export type BaseMessageProps = Omit<SharedMessageCollectionProps, 'action' | 'title'> &
@@ -62,12 +64,13 @@ export const MessagePrimitive = forwardRef(
 			borderClassname,
 			description,
 			title,
+			titleInfo,
 			link,
 			icon,
 			children,
 			action,
-			additionalAction,
-			additionalActions,
+			additionalIconAction,
+			additionalDropdownActions,
 			...props
 		}: BaseMessageProps,
 		ref: Ref<HTMLDivElement>,
@@ -83,14 +86,14 @@ export const MessagePrimitive = forwardRef(
 				ref={ref}
 			>
 				<StackVertical gap="XS" padding={{ top: 'S', bottom: 'S', left: 'M', right: 'M' }}>
-					{title && (
+					{(title || titleInfo) && (
 						<header className={styles.message__title}>
-							<StackHorizontal gap="XS" align="center">
+							<StackHorizontal gap="XS" align="center" isFullWidth>
 								{icon && (
 									<SizedIcon name={icon} size="S" color={tokens.coralColorNeutralIconWeak} />
 								)}
 								{title}
-								{/* <StackItem align="end">edfefefef</StackItem> */}
+								<div className={styles.message__title__info}>{titleInfo}</div>
 							</StackHorizontal>
 						</header>
 					)}
@@ -99,9 +102,9 @@ export const MessagePrimitive = forwardRef(
 					{children}
 					<StackHorizontal gap={0} isFullWidth align="center" justify="spaceBetween">
 						{action && <ButtonTertiary {...action} />}
-						{additionalAction && <ButtonIcon {...additionalAction} size="XS" />}
-						{additionalActions && (
-							<Dropdown {...additionalActions}>
+						{additionalIconAction && <ButtonIcon {...additionalIconAction} size="XS" />}
+						{additionalDropdownActions && (
+							<Dropdown {...additionalDropdownActions}>
 								<ButtonIcon size="XS" icon="dots-vertical" onClick={() => {}}>
 									{t('ADDITIONAL_ACTIONS', 'Additional actions')}
 								</ButtonIcon>
