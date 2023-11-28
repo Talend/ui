@@ -54,6 +54,16 @@ export const CoreCollapsibleFieldset = {
 		data: fieldsets.coreCollapsibleFieldset,
 	},
 };
+export const CoreArraysCollapsibleFieldset = {
+	parameters: {
+		formStoryDisplayMode: {
+			doc: 'ArraysCollapsibleFieldset/README.md',
+		},
+	},
+	args: {
+		data: fieldsets.coreArraysCollapsibleFieldset,
+	},
+};
 export const CoreColumns = {
 	parameters: {
 		formStoryDisplayMode: {

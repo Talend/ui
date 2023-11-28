@@ -85,7 +85,9 @@ const errorsProps = errorsSchema.uiSchema.reduce(
 		...acc,
 		[current.key.split('.').join(',')]: 'There is an error',
 	}),
-	{},
+	{
+		tabConfiguration: 'There is an error',
+	},
 );
 
 export const Errors: Story = {

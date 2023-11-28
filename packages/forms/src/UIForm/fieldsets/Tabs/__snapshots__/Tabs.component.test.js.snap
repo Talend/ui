@@ -1,77 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs widget should render tabs 1`] = `
-<div
-  class="theme-tf-tabs tf-tabs"
+<nav
   id="undefined-tabs"
 >
   <div
-    class="theme-tc-tab-bar-menu tc-tab-bar-menu"
-  >
-    <ul
-      class="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
-      role="tablist"
-    >
-      <li
-        class="active"
-        role="presentation"
-      >
-        <button
-          aria-controls="undefined-tabs-pane-0"
-          aria-selected="true"
-          href="#"
-          id="undefined-tabs-tab-0"
-          label="User"
-          role="tab"
-        >
-          <span
-            aria-describedby="42"
-            class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
-          >
-            <span
-              class="theme-tc-tab-bar-item-label"
-            >
-              User
-            </span>
-          </span>
-        </button>
-      </li>
-      <li
-        class=""
-        role="presentation"
-      >
-        <button
-          aria-controls="undefined-tabs-pane-1"
-          aria-selected="false"
-          href="#"
-          id="undefined-tabs-tab-1"
-          label="Other"
-          role="tab"
-          tabindex="-1"
-        >
-          <span
-            aria-describedby="42"
-            class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
-          >
-            <span
-              class="theme-tc-tab-bar-item-label"
-            >
-              Other
-            </span>
-          </span>
-        </button>
-      </li>
-    </ul>
-  </div>
-  <div
-    class="tab-content"
+    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
   >
     <div
-      aria-hidden="false"
-      aria-labelledby="undefined-tabs-tab-0"
-      class="fade tab-pane active in"
-      id="undefined-tabs-pane-0"
+      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M"
+      role="tablist"
+    >
+      <button
+        aria-selected="true"
+        class="theme-tab"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-tab__copy"
+          >
+            User
+          </span>
+        </div>
+      </button>
+      <button
+        aria-selected="false"
+        class="theme-tab"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-tab__copy"
+          >
+            Other
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      class="theme-tabpanel"
+      id="undefined-tabs-0"
       role="tabpanel"
+      tabindex="0"
     >
       <fieldset
         class="form-group"
@@ -112,11 +89,10 @@ exports[`Tabs widget should render tabs 1`] = `
       </fieldset>
     </div>
     <div
-      aria-hidden="true"
-      aria-labelledby="undefined-tabs-tab-1"
-      class="fade tab-pane"
-      id="undefined-tabs-pane-1"
+      class="theme-tabpanel theme-tabpanel--hidden"
+      id="undefined-tabs-1"
       role="tabpanel"
+      tabindex="0"
     >
       <fieldset
         class="form-group"
@@ -143,5 +119,5 @@ exports[`Tabs widget should render tabs 1`] = `
       </fieldset>
     </div>
   </div>
-</div>
+</nav>
 `;

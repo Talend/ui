@@ -50,12 +50,9 @@ export function Tabs(props: TabsProps) {
 							tabProps['aria-controls'] = ids[index];
 							tabProps.title = tab.tabTitle;
 						} else if (typeof tab.tabTitle === 'object') {
-							tabProps['aria-controls'] = tab.tabTitle.id || ids[index];
-							tabProps.title = tab.tabTitle.title;
-							tabProps.icon = tab.tabTitle.icon;
-							tabProps.tag = tab.tabTitle.tag;
-							tabProps.tooltip = tab.tabTitle.tooltip;
-							tabProps.disabled = tab.tabTitle.disabled;
+							const { id, ...rest } = tab.tabTitle;
+							tabProps['aria-controls'] = id || ids[index];
+							Object.assign(tabProps, rest);
 						}
 						return <Tab key={index} {...(tabProps as TabPropTypes)} />;
 					})}

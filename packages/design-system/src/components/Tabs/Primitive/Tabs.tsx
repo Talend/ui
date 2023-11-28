@@ -28,6 +28,7 @@ export type TabPropTypes = {
 	icon?: IconNameWithSize<'S'>;
 	tag?: string | number;
 	tooltip?: string;
+	error?: boolean;
 };
 
 export function Tab(props: TabPropTypes) {
@@ -36,7 +37,10 @@ export function Tab(props: TabPropTypes) {
 		<button
 			role="tab"
 			aria-selected={props['aria-controls'] === context?.value}
-			className={classNames(style.tab, { [style.tab_large]: context?.size === 'L' })}
+			className={classNames(style.tab, {
+				[style.tab_large]: context?.size === 'L',
+				[style.tab_error]: props.error === true,
+			})}
 			onClick={e => context?.onChange(e, props['aria-controls'])}
 			disabled={props.disabled}
 			type="button"
