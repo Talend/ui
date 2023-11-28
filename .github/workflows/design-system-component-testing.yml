@@ -22,7 +22,7 @@ jobs:
         browser: ["chrome", "firefox"]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
@@ -42,7 +42,7 @@ jobs:
           yarn workspace @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing
-        uses: cypress-io/github-action@59810ebfa5a5ac6fcfdcfdf036d1cd4d083a88f2 #v6.5.0
+        uses: cypress-io/github-action@ebe8b24c4428922d0f793a5c4c96853a633180e3 #v6.6.0
         with:
           install: false
           browser: ${{ matrix.browser }}

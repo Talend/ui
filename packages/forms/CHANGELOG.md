@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 12.2.0
+
+### Minor Changes
+
+- ea026ec12: Use DS tabs in UIForm
+
+### Patch Changes
+
+- Updated dependencies [0e6c82e25]
+- Updated dependencies [ea026ec12]
+  - @talend/design-system@8.5.0
+
 ## 12.1.0
 
 ### Minor Changes

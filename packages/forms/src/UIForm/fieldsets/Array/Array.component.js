@@ -124,6 +124,7 @@ export default class ArrayWidget extends Component {
 			<Widget
 				{...this.props}
 				{...extraProps}
+				index={index}
 				disabled={this.props.schema.disabled}
 				id={this.props.id && `${this.props.id}-${index}`}
 				schema={getArrayElementSchema(this.props.schema, index)}

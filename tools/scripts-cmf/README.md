@@ -2,15 +2,15 @@
 
 ## Usage
 
-launch the command below to build your webapp. you can add it into `prepublish` npm script.
+```
+npx @talend/scripts-cmf
+```
+
+You can also launch the command below to build your webapp. you can add it into `prepublish` npm script.
 
 ```
 yarn cmf-settings
 ```
-
-Note: If you add `node_modules/.bin` into your env _PATH_ you can directly type `cmf-settings`.
-
-## cmf-settings
 
 This script merge a set of settings `sources` into a `destination` file.
 Each sources is a path to eiter a folder or a file.

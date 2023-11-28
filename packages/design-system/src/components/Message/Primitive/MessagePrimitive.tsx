@@ -102,13 +102,19 @@ export const MessagePrimitive = forwardRef(
 					{children}
 					<StackHorizontal gap={0} isFullWidth align="center" justify="spaceBetween">
 						{action && <ButtonTertiary {...action} />}
-						{additionalIconAction && <ButtonIcon {...additionalIconAction} size="XS" />}
+						{additionalIconAction && (
+							<div className={styles.message__actions}>
+								<ButtonIcon {...additionalIconAction} size="XS" />
+							</div>
+						)}
 						{additionalDropdownActions && (
-							<Dropdown {...additionalDropdownActions}>
-								<ButtonIcon size="XS" icon="dots-vertical" onClick={() => {}}>
-									{t('ADDITIONAL_ACTIONS', 'Additional actions')}
-								</ButtonIcon>
-							</Dropdown>
+							<div className={styles.message__actions}>
+								<Dropdown {...additionalDropdownActions}>
+									<ButtonIcon size="XS" icon="dots-vertical" onClick={() => {}}>
+										{t('ADDITIONAL_ACTIONS', 'Additional actions')}
+									</ButtonIcon>
+								</Dropdown>
+							</div>
 						)}
 					</StackHorizontal>
 				</StackVertical>
