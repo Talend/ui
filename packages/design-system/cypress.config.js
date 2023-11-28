@@ -1,11 +1,11 @@
-import { defineConfig } from 'cypress';
+const { defineConfig } = require('cypress');
 
-import path from 'path';
+const path = require('path');
 
-import {
+const {
 	getWebpackRules,
 	getWebpackPlugins,
-} from '@talend/scripts-config-react-webpack/config/webpack.config.common';
+} = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const webpackConfig = {
 	mode: 'development',
@@ -26,7 +26,7 @@ const webpackConfig = {
 	plugins: getWebpackPlugins(),
 };
 
-export default defineConfig({
+module.exports = defineConfig({
 	component: {
 		devServer: {
 			framework: 'react',
