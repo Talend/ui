@@ -86,17 +86,17 @@ export const MessagePrimitive = forwardRef(
 				ref={ref}
 			>
 				<StackVertical gap="XS" padding={{ top: 'S', bottom: 'S', left: 'M', right: 'M' }}>
-					{(title || titleInfo) && (
+					{title || titleInfo ? (
 						<header className={styles.message__title}>
 							<StackHorizontal gap="XS" align="center" isFullWidth>
 								{icon && (
 									<SizedIcon name={icon} size="S" color={tokens.coralColorNeutralIconWeak} />
 								)}
 								{title}
-								<div className={styles.message__title__info}>{titleInfo}</div>
+								{titleInfo ? <div className={styles.message__title__info}>{titleInfo}</div> : null}
 							</StackHorizontal>
 						</header>
-					)}
+					) : null}
 					<p className={styles.message__description}>{description}</p>
 					{link && <Link {...link} />}
 					{children}
