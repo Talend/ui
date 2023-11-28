@@ -1,8 +1,7 @@
 import { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { ErrorState, StackVertical, Stepper as CoralStepper } from '@talend/design-system';
-import Icon from '../Icon';
+import { Icon, ErrorState, StackVertical, Stepper as CoralStepper } from '@talend/design-system';
 import CircularProgress from '../CircularProgress';
 import { getTheme } from '../theme';
 import theme from './Stepper.component.module.scss';

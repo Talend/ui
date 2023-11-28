@@ -6,7 +6,6 @@ import { usePopper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import { focus } from '@talend/react-a11y';
-import Icon from '../../Icon';
 
 import DateRange from '../DateRange';
 import { DateRangeContext } from '../DateRange/Context';
@@ -15,6 +14,7 @@ import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import getDefaultT from '../../translate';
 
 import theme from './InputDateRangePicker.module.scss';
+import { Icon } from '@talend/design-system';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',

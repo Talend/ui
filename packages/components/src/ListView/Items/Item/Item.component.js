@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
+import { Icon, Tooltip, Form } from '@talend/design-system';
 import ItemPropTypes from './Item.propTypes';
 import Action from '../../../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import Checkbox from '../../../Checkbox';
-import Icon from '../../../Icon';
-import TooltipTrigger from '../../../TooltipTrigger';
+
+const Checkbox = Form.Checkbox;
 
 class Item extends Component {
 	componentDidUpdate(prevProps) {
@@ -71,11 +71,11 @@ class Item extends Component {
 						<>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}
 							{item.icon && (
-								<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+								<Tooltip label={item.icon.title} tooltipPlacement="bottom">
 									<span>
 										<Icon {...item.icon} />
 									</span>
-								</TooltipTrigger>
+								</Tooltip>
 							)}
 						</>
 					}

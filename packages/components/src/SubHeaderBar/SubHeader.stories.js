@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import FilterBar from '../FilterBar';
-import Tag from '../Tag';
 import SubHeaderBar from './SubHeaderBar.component';
+import { Tag } from '@talend/design-system';
 
 const viewProps = {
 	title:
@@ -112,7 +112,7 @@ export const WithCustomSubtitle = () => (
 			{...viewProps}
 			subTitle="mySubTitle"
 			onGoBack={backAction}
-			subTitleAs={({ subTitle }) => <Tag bsStyle="info">{subTitle}</Tag>}
+			subTitleAs={({ subTitle }) => <Tag variant="information">{subTitle}</Tag>}
 		/>
 	</div>
 );

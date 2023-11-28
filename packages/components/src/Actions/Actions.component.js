@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { ButtonGroup } from '@talend/react-bootstrap';
 import classNames from 'classnames';
 import Action from './Action';
-import OverlayTrigger from '../OverlayTrigger';
 import Inject from '../Inject';
 
 function getButtonGroupProps(props) {
@@ -92,7 +91,6 @@ Actions.propTypes = {
 	actions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.shape(Action.propTypes)])),
 	className: PropTypes.string,
 	hideLabel: PropTypes.bool,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	link: PropTypes.bool,
 	...ButtonGroup.propTypes,
 };

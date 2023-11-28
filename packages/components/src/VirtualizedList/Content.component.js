@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-prop-types */
 import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
-import TooltipTrigger from '../TooltipTrigger';
+import { Tooltip } from '@talend/design-system';
 
 function DefaultRenderer({ cellData, columnData, rowData }) {
 	const { getTooltipLabel } = columnData;
@@ -10,7 +10,7 @@ function DefaultRenderer({ cellData, columnData, rowData }) {
 		tooltipLabel = getTooltipLabel(rowData);
 	}
 	return tooltipLabel != null ? (
-		<TooltipTrigger label={tooltipLabel} tooltipPlacement={columnData.tooltipPlacement || 'top'}>
+		<Tooltip title={tooltipLabel}>
 			<div
 				className="tc-virtualizedlist-default-cell"
 				data-test="tc-virtualizedlist-default-cell-tooltip"
@@ -18,7 +18,7 @@ function DefaultRenderer({ cellData, columnData, rowData }) {
 			>
 				{cellData}
 			</div>
-		</TooltipTrigger>
+		</Tooltip>
 	) : (
 		<div className="tc-virtualizedlist-default-cell">{cellData}</div>
 	);

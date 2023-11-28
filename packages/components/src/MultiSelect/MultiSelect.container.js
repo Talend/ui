@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import keycode from 'keycode';
 import memoizeOne from 'memoize-one';
+import { Icon } from '@talend/design-system';
 
 import theme from './MultiSelect.module.scss';
 import VirtualizedList from '../VirtualizedList';
@@ -14,7 +15,6 @@ import { ItemView } from './ItemView.component';
 import Dropdown from './Dropdown.container';
 import { SELECT_ALL_VALUE, CREATE_NEW_VALUE } from './constants';
 import { ActionButton } from '../Actions';
-import Icon from '../Icon';
 
 function initSelectedMap(selected) {
 	return selected.reduce((acc, current) => {

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { Link } from '@talend/design-system';
-import TooltipTrigger from '../../TooltipTrigger';
 import styles from './CellLink.module.scss';
 import classNames from 'classnames';
 /**
@@ -20,9 +19,7 @@ function CellLink({ cellData, rowData, columnData, className }) {
 	);
 
 	return !!cellColumnData.tooltip ? (
-		<TooltipTrigger label={cellColumnData.tooltip} tooltipPlacement="top">
-			{linkRender}
-		</TooltipTrigger>
+		<Tooltip title={cellColumnData.tooltip}>{linkRender}</Tooltip>
 	) : (
 		linkRender
 	);

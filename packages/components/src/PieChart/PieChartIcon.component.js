@@ -4,9 +4,9 @@ import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
-import Skeleton from '../Skeleton';
 import pieChartCssModule from './PieChart.module.scss';
 import { getTheme } from '../theme';
+import { SkeletonButton, SkeletonParagraph } from '@talend/design-system';
 
 const theme = getTheme(pieChartCssModule);
 export const PIECHART_CONSTANTS = {
@@ -279,13 +279,8 @@ export function PieChartIconComponent({
 				aria-busy="true"
 				aria-label={t('PIE_CHART_LOADING', { defaultValue: 'Loading chart' })}
 			>
-				<Skeleton
-					type={Skeleton.TYPES.circle}
-					width={sizeObject.svgSize}
-					height={sizeObject.svgSize}
-					className={theme('tc-pie-chart-loading-circle')}
-				/>
-				{!hideLabel && <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />}
+				<SkeletonButton />
+				{!hideLabel && <SkeletonParagraph />}
 			</span>
 		);
 	}

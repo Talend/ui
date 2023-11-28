@@ -3,8 +3,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import { action } from '@storybook/addon-actions';
 
 import ObjectViewer from './ObjectViewer.component';
-import Icon from '../Icon';
-import TooltipTrigger from '../TooltipTrigger';
+import { Icon, Tooltip } from '@talend/design-system';
 
 const schema = new Map();
 schema.set('business_id', 'integer').set('name', 'CAFE_NAME').set('rating', 'integer');
@@ -427,11 +426,11 @@ const withTagOnly = (
 const withTagAndLink = (
 	<span style={{ marginLeft: '10px' }}>
 		<span className="label label-info">REPLACE</span>
-		<TooltipTrigger label="link to artifact" tooltipPlacement="right">
+		<Tooltip label="link to artifact">
 			<a href="">
 				<Icon name="talend-chain" style={{ marginLeft: '10px', verticalAlign: 'text-bottom' }} />
 			</a>
-		</TooltipTrigger>
+		</Tooltip>
 	</span>
 );
 

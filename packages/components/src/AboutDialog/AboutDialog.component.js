@@ -2,12 +2,11 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import Dialog from '../Dialog';
-import Icon from '../Icon';
-import Skeleton from '../Skeleton';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import theme from './AboutDialog.module.scss';
 import { AboutDialogTable, Text } from './AboutDialogTable.component';
+import { Icon } from '@talend/design-system';
 
 function AboutDialog({
 	services,
@@ -61,7 +60,6 @@ function AboutDialog({
 									version,
 									interpolation: { escapeValue: false },
 								})}
-								size={Skeleton.SIZES.xlarge}
 								loading={loading}
 							/>
 						</div>
@@ -75,7 +73,6 @@ function AboutDialog({
 									year: new Date().getFullYear(),
 								})
 							}
-							size={Skeleton.SIZES.large}
 							loading={loading}
 						/>
 					</div>

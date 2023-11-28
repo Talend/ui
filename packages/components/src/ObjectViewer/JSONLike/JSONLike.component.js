@@ -6,10 +6,10 @@ import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
 import { Action } from '../../Actions';
-import TooltipTrigger from '../../TooltipTrigger';
 import theme from './JSONLike.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { Gesture } from '@talend/react-a11y';
+import { Tooltip } from '@talend/design-system';
 import getDefaultT from '../../translate';
 
 function noop() {}
@@ -367,14 +367,7 @@ function UntranslatedComplexItem(props) {
 				props.hideTooltip ? (
 					childCount
 				) : (
-					<TooltipTrigger
-						key="badge-tooltip"
-						className="offset"
-						label={getDataAbstract(data)}
-						tooltipPlacement="right"
-					>
-						{childCount}
-					</TooltipTrigger>
+					<Tooltip title={getDataAbstract(data)}>{childCount}</Tooltip>
 				)
 			}
 			type={props.showType ? info.type : null}

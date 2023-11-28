@@ -7,12 +7,11 @@ import classNames from 'classnames';
 import { CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 import isEmpty from 'lodash/isEmpty';
 
-import Skeleton from '../../Skeleton';
-import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
 import { Gesture } from '@talend/react-a11y';
 import theme from './RowCollapsiblePanel.module.scss';
+import { CollapsiblePanel, SkeletonButtonIcon, SkeletonParagraph } from '@talend/design-system';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
 const options = {
@@ -24,18 +23,18 @@ function LoadingCollapsiblePanel() {
 	return (
 		<div className={theme['loading-collapsible-panel']}>
 			<span>
-				<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />
-				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.xlarge} />
+				<SkeletonButtonIcon />
+				<SkeletonParagraph />
 			</span>
 			<span>
-				<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />
-				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.medium} />
+				<SkeletonButtonIcon />
+				<SkeletonParagraph />
 			</span>
 			<span>
-				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />
+				<SkeletonParagraph />
 			</span>
 			<span>
-				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.medium} />
+				<SkeletonParagraph />
 			</span>
 		</div>
 	);
@@ -87,12 +86,7 @@ class RowCollapsiblePanel extends Component {
 						{isEmpty(rowData) ? (
 							<MemoLoadingCollapsiblePanel />
 						) : (
-							<CollapsiblePanel
-								onEntered={measure}
-								onExited={measure}
-								onToggle={this.onToggle}
-								{...rowData}
-							/>
+							<CollapsiblePanel onToggleExpanded={measure} onToggle={this.onToggle} {...rowData} />
 						)}
 					</div>
 				)}

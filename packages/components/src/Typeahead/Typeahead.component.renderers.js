@@ -6,10 +6,10 @@ import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
 
 import { getTheme } from '../theme';
-import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.module.scss';
+import { Icon } from '@talend/design-system';
 
 const css = getTheme(theme);
 

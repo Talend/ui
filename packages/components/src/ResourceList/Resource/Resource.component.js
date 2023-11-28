@@ -2,12 +2,12 @@ import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import { Icon } from '@talend/design-system';
 import { withTranslation } from 'react-i18next';
 import { getRowData } from '../../VirtualizedList/utils/gridrow';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
-import Icon from '../../Icon';
 
 import theme from './Resource.module.scss';
 

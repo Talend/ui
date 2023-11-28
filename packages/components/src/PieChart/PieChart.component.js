@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import PieChartIcon from './PieChartIcon.component';
 import PieChartButton from './PieChartButton.component';
-import TooltipTrigger from '../TooltipTrigger';
-import OverlayTrigger from '../OverlayTrigger';
+import { Tooltip } from '@talend/design-system';
 
 /**
  * This function wrap the button with a TooltipTrigger
@@ -11,17 +10,17 @@ import OverlayTrigger from '../OverlayTrigger';
  * @param {string} label the label to show on the tooltip
  * @param {string} tooltipPlacement the tooltip placement
  */
-function decorateWithTooltip(tooltip, label, tooltipPlacement, Component, props) {
+function decorateWithTooltip(tooltip, label, Component, props) {
 	if (!tooltip || !label) {
 		return <Component {...props} />;
 	}
 
 	return (
-		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
+		<Tooltip title={label}>
 			<span>
 				<Component {...props} />
 			</span>
-		</TooltipTrigger>
+		</Tooltip>
 	);
 }
 
@@ -30,24 +29,13 @@ function getPieChartComponent(onClick) {
 }
 
 export default function PieChart({ tooltip, tooltipPlacement, ...props }) {
-	return decorateWithTooltip(
-		tooltip,
-		props.label,
-		tooltipPlacement,
-		getPieChartComponent(props.onClick),
-		props,
-	);
+	return decorateWithTooltip(tooltip, props.label, getPieChartComponent(props.onClick), props);
 }
 
 PieChart.propTypes = {
 	label: PropTypes.string,
 	onClick: PropTypes.func,
 	tooltip: PropTypes.bool,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
-};
-
-PieChart.defaultProps = {
-	tooltipPlacement: 'top',
 };
 
 PieChart.displayName = 'PieChart';

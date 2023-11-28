@@ -7,26 +7,26 @@ import isEmpty from 'lodash/isEmpty';
 
 import getRowSelectionRenderer from '../RowSelection';
 import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
-import Skeleton from '../../Skeleton';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import { getTheme } from '../../theme';
 import theme from './ListTable.module.scss';
 import rowThemes from './RowThemes';
+import { SkeletonParagraph } from '@talend/design-system';
 
 const css = getTheme(theme);
 
 function SkeletonRow({ columns }) {
 	return columns.map(column => (
 		<div key={column.key} {...column.props}>
-			<Skeleton type="text" size="xlarge" />
+			<SkeletonParagraph />
 		</div>
 	));
 }
 
 function ListTableRowRenderer(props) {
 	return isEmpty(props.rowData) ? (
-		<DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
+		<DefaultTableRowRenderer {...props} columns={[<SkeletonRow key="one" {...props} />]} />
 	) : (
 		<DefaultTableRowRenderer {...props} />
 	);

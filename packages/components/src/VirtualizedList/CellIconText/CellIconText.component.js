@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
-import Icon from '../../Icon';
 import { getTheme } from '../../theme';
-import TooltipTrigger from '../../TooltipTrigger';
 import theme from './CellIconText.module.scss';
+import { Icon, Tooltip } from '@talend/design-system';
 
 const css = getTheme(theme);
-
-const DEFAULT_TOOLTIP_PLACEMENT = 'top';
 
 function getCellIcon({ cellData, rowData, columnData = {} }) {
 	const { getIcon } = columnData;
@@ -65,23 +62,17 @@ class CellIconText extends Component {
 			<div className={css('tc-icon-text')}>
 				{icon &&
 					(iconTooltip ? (
-						<TooltipTrigger
-							label={iconTooltip}
-							tooltipPlacement={columnData.tooltipPlacement || DEFAULT_TOOLTIP_PLACEMENT}
-						>
+						<Tooltip title={iconTooltip}>
 							<span>
 								<Icon name={icon} />
 							</span>
-						</TooltipTrigger>
+						</Tooltip>
 					) : (
 						<Icon name={icon} />
 					))}
-				<TooltipTrigger
-					label={labelTooltip || label}
-					tooltipPlacement={columnData.tooltipPlacement || DEFAULT_TOOLTIP_PLACEMENT}
-				>
+				<Tooltip title={labelTooltip || label}>
 					<span className={theme.label}>{label}</span>
-				</TooltipTrigger>
+				</Tooltip>
 			</div>
 		);
 	}

@@ -1,12 +1,11 @@
 import { action } from '@storybook/addon-actions';
-import { makeDecorator } from '@storybook/addons';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 
-import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
 import AppSwitcher from '../AppSwitcher';
 import assetsApi from '@talend/assets-api';
+import { Icon } from '@talend/design-system';
 
 const props = {
 	brand: {

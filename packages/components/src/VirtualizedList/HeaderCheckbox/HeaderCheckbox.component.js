@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import classnames from 'classnames';
-import Checkbox from '../../Checkbox';
+import { Form } from '@talend/design-system';
 import theme from './HeaderCheckbox.module.scss';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
+
+const Checkbox = Form.Checkbox;
 
 /**
  * Header renderer that displays a "Select All" checkbox on header

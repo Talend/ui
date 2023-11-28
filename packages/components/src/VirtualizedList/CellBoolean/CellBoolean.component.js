@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
-import Icon from '../../Icon';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import { getTheme } from '../../theme';
 
 import theme from './CellBoolean.module.scss';
+import { Icon } from '@talend/design-system';
 
 const css = getTheme(theme);
 export const DISPLAY_MODE = {

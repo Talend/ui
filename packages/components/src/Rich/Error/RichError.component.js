@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon from '../../Icon';
 
 import theme from './RichError.module.scss';
+import { Icon } from '@talend/design-system';
 
 export default function RichError(props) {
 	return (

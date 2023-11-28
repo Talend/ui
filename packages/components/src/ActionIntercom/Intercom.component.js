@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
-import TooltipTrigger from '../TooltipTrigger';
-import Icon from '../Icon';
 import IntercomService from './Intercom.service';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import theme from './Intercom.module.scss';
+import { Icon, Tooltip } from '@talend/design-system';
 
 function Intercom({ id, className, config, t, tooltipPlacement }) {
 	const [show, setShow] = useState(false);
@@ -36,7 +35,7 @@ function Intercom({ id, className, config, t, tooltipPlacement }) {
 		: t('TC_INTERCOM_OPEN', { defaultValue: 'Chat with Talend Support' });
 
 	return (
-		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
+		<Tooltip label={label} tooltipPlacement={tooltipPlacement}>
 			<button
 				data-feature={show ? 'ipc.close' : 'ipc.open'}
 				data-test={show ? 'close' : 'open'}
@@ -48,7 +47,7 @@ function Intercom({ id, className, config, t, tooltipPlacement }) {
 			>
 				<Icon name="talend-bubbles" />
 			</button>
-		</TooltipTrigger>
+		</Tooltip>
 	);
 }
 

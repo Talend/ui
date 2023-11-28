@@ -4,8 +4,6 @@ import classnames from 'classnames';
 import debounce from 'lodash/debounce';
 import omit from 'lodash/omit';
 
-import Icon from '../../Icon';
-
 import InputDateTimePicker from '../InputDateTimePicker';
 import DateTimeRange from '../DateTimeRange';
 import { DateTimeRangeContext } from '../DateTimeRange/Context';
@@ -13,6 +11,7 @@ import { DateTimeRangeContext } from '../DateTimeRange/Context';
 import getDefaultT from '../../translate';
 
 import theme from './InputDateTimeRangePicker.module.scss';
+import { Icon } from '@talend/design-system';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',

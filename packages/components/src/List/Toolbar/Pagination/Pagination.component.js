@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import { Nav, NavItem, NavDropdown, MenuItem } from '@talend/react-bootstrap';
 import { randomUUID } from '@talend/utils';
 
-import Icon from '../../../Icon';
-
 import theme from './Pagination.module.scss';
 import getDefaultT from '../../../translate';
+import { Icon } from '@talend/design-system';
 
 const FIRST = 'first';
 const PREV = 'prev';

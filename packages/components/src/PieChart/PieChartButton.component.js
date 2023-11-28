@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { Button, Popover } from '@talend/react-bootstrap';
+import { Button } from '@talend/react-bootstrap';
+import { Popover } from '@talend/design-system';
 import PieChartIcon, { pieChartIconPropTypes } from './PieChartIcon.component';
 import pieChartCssModule from './PieChart.module.scss';
-import OverlayTrigger from '../OverlayTrigger';
 import { getTheme } from '../theme';
 
 const theme = getTheme(pieChartCssModule);
@@ -27,15 +27,9 @@ export function decorateWithOverlay(
 	}
 	return (
 		<span>
-			<OverlayTrigger
-				trigger="click"
-				rootClose
-				placement={overlayPlacement}
-				overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
-				ref={overlayRef}
-			>
-				{btn}
-			</OverlayTrigger>
+			<Popover disclosure={btn} id={overlayId} ref={overlayRef}>
+				{overlayComponent}
+			</Popover>
 		</span>
 	);
 }
@@ -119,7 +113,6 @@ PieChartButtonComponent.propTypes = {
 	onMouseDown: PropTypes.func,
 	overlayComponent: PropTypes.element,
 	overlayId: PropTypes.string,
-	overlayPlacement: OverlayTrigger.propTypes.placement,
 	overlayRef: PropTypes.func,
 };
 

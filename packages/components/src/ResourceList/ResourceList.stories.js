@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { action } from '@storybook/addon-actions';
 
 import ResourceList from './ResourceList.component';
-import Icon from '../Icon';
+import { Icon } from '@talend/design-system';
 
 const collection = [
 	{

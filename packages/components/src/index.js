@@ -15,10 +15,7 @@ import AppGuidedTour from './AppGuidedTour';
 import AppLoader from './AppLoader';
 import AppSwitcher from './AppSwitcher';
 import Badge from './Badge';
-import Breadcrumbs from './Breadcrumbs';
-import Checkbox from './Checkbox';
 import CircularProgress from './CircularProgress';
-import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import { ModelViewer, RecordsViewer } from './DataViewer';
@@ -31,7 +28,6 @@ import {
 	InputDateTimeRangePicker,
 } from './DateTimePickers';
 import Dialog from './Dialog';
-import Drawer from './Drawer';
 import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
@@ -43,8 +39,6 @@ import Gesture from './Gesture';
 import GuidedTour from './GuidedTour';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
-import Icon from './Icon';
-import IconsProvider from './IconsProvider';
 import i18n from './i18n';
 import Inject from './Inject';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
@@ -56,7 +50,6 @@ import Loader from './Loader';
 import MultiSelect from './MultiSelect';
 import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
-import OverlayTrigger from './OverlayTrigger';
 import PieChart from './PieChart';
 import Progress from './Progress';
 import { QualityBar, QualityType } from './QualityBar';
@@ -66,19 +59,12 @@ import ResourcePicker from './ResourcePicker';
 import RatioBar from './RatioBar';
 import Rich from './Rich';
 import SidePanel from './SidePanel';
-import Skeleton from './Skeleton';
 import Slider from './Slider';
-import Status from './Status';
 import Stepper from './Stepper';
 import SubHeaderBar from './SubHeaderBar';
-import TabBar from './TabBar';
-import Tag from './Tag';
-import Toggle from './Toggle';
-import TooltipTrigger from './TooltipTrigger';
 import TreeView from './TreeView';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
-import WithDrawer from './WithDrawer';
 import getTheme from './theme';
 
 export {
@@ -97,10 +83,7 @@ export {
 	AppLoader,
 	AppSwitcher,
 	Badge,
-	Breadcrumbs,
-	Checkbox,
 	CircularProgress,
-	CollapsiblePanel,
 	ConfirmDialog,
 	Datalist,
 	DatePicker,
@@ -112,7 +95,6 @@ export {
 	InputDateTimeRangePicker,
 	InputTimePicker,
 	Dialog,
-	Drawer,
 	EditableText,
 	Emphasis,
 	Enumeration,
@@ -125,8 +107,6 @@ export {
 	HeaderBar,
 	HttpError,
 	i18n,
-	Icon,
-	IconsProvider,
 	Inject,
 	JSONSchemaRenderer,
 	Layout,
@@ -137,7 +117,6 @@ export {
 	MultiSelect,
 	Notification,
 	ObjectViewer,
-	OverlayTrigger,
 	PieChart,
 	Progress,
 	QualityBar,
@@ -148,18 +127,11 @@ export {
 	ResourcePicker,
 	Rich,
 	SidePanel,
-	Skeleton,
 	Slider,
-	Status,
 	Stepper,
 	SubHeaderBar,
-	TabBar,
-	Tag,
-	Toggle,
-	TooltipTrigger,
 	TreeView,
 	Typeahead,
 	VirtualizedList,
-	WithDrawer,
 	getTheme,
 };

@@ -3,11 +3,9 @@ import { Component } from 'react';
 import classNames from 'classnames';
 import { randomUUID } from '@talend/utils';
 
-import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
-import OverlayTrigger from '../../OverlayTrigger';
-import Icon from '../../Icon';
 import theme from './ActionFile.module.scss';
+import { Icon, Tooltip } from '@talend/design-system';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -39,7 +37,6 @@ class ActionFile extends Component {
 		label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element.isRequired]),
 		name: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
-		tooltipPlacement: OverlayTrigger.propTypes.placement,
 		tooltip: PropTypes.bool,
 		tooltipLabel: PropTypes.string,
 		'data-feature': PropTypes.string,
@@ -85,7 +82,6 @@ class ActionFile extends Component {
 			name,
 			tooltip,
 			tooltipLabel,
-			tooltipPlacement,
 		} = this.props;
 		if (!available) {
 			return null;
@@ -121,11 +117,7 @@ class ActionFile extends Component {
 			</span>
 		);
 		if (hideLabel || tooltip || tooltipLabel) {
-			return (
-				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					{btn}
-				</TooltipTrigger>
-			);
+			return <Tooltip label={tooltipLabel || label}>{btn}</Tooltip>;
 		}
 		return btn;
 	}

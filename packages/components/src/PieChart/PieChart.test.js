@@ -2,24 +2,6 @@
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import PieChart from './PieChart.component';
-jest.mock('../TooltipTrigger', () => {
-	const TooltipTrigger = ({ children, ...props }) => (
-		<div data-testid="TooltipTrigger" data-props={JSON.stringify(props)}>
-			{children}
-		</div>
-	);
-	TooltipTrigger.propTypes = {};
-	return TooltipTrigger;
-});
-jest.mock('../OverlayTrigger', () => {
-	const OverlayTrigger = ({ children, ...props }) => (
-		<div data-testid="OverlayTrigger" data-props={JSON.stringify(props)}>
-			{children}
-		</div>
-	);
-	OverlayTrigger.propTypes = {};
-	return OverlayTrigger;
-});
 
 describe('PieChart', () => {
 	it('should render a PieChartButton', () => {

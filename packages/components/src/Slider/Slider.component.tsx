@@ -4,8 +4,7 @@ import RcSlider, { SliderRef } from 'rc-slider';
 import { HandleProps } from 'rc-slider/lib/Handles/Handle';
 import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
-import { ButtonIcon } from '@talend/design-system';
-import Icon from '../Icon';
+import { ButtonIcon, Icon } from '@talend/design-system';
 import theme from './Slider.module.scss';
 
 /**

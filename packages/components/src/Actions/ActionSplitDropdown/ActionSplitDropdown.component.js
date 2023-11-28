@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import { SplitButton, MenuItem } from '@talend/react-bootstrap';
 import { randomUUID } from '@talend/utils';
 import { useTranslation } from 'react-i18next';
-import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.module.scss';
 import wrapOnClick from '../wrapOnClick';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
+import { Icon } from '@talend/design-system';
 
 /**
  * @param {object} props react props

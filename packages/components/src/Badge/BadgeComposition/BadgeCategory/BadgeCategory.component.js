@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-import TooltipTrigger from '../../../TooltipTrigger';
 import badgeCssModule from '../../Badge.module.scss';
 import { getTheme } from '../../../theme';
+import { Tooltip } from '@talend/design-system';
 
 const theme = getTheme(badgeCssModule);
 
 const BadgeCategory = ({ label }) => (
-	<TooltipTrigger label={label} tooltipPlacement="top">
-		<span key="category" aria-label={label} className={theme('tc-badge-category')}>
+	<Tooltip label={label}>
+		<span aria-label={label} className={theme('tc-badge-category')}>
 			{label}
 		</span>
-	</TooltipTrigger>
+	</Tooltip>
 );
 
 BadgeCategory.propTypes = {

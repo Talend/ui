@@ -1,11 +1,11 @@
 import { action } from '@storybook/addon-actions';
 
-import Drawer from '../Drawer';
 import HeaderBar from '../HeaderBar';
 import Layout from '.';
 import SidePanel from '../SidePanel';
 import SubHeaderBar from '../SubHeaderBar';
 import List from '../List/ListComposition';
+import { FloatingDrawer } from '@talend/design-system';
 
 const actions = [
 	{
@@ -26,12 +26,12 @@ const actions = [
 ];
 
 const drawers = [
-	<Drawer stacked title="Hello drawers" footerActions={{}}>
+	<FloatingDrawer key="first" title="Hello drawers" footerActions={{}}>
 		<p>You should not being able to read this because I&apos;m first</p>
-	</Drawer>,
-	<Drawer title="Hello drawers" footerActions={{}}>
+	</FloatingDrawer>,
+	<FloatingDrawer key="second" title="Hello FloatingDrawers" footerActions={{}}>
 		<p>The content dictate the width</p>
-	</Drawer>,
+	</FloatingDrawer>,
 ];
 
 const content = (

@@ -1,4 +1,4 @@
-import Skeleton from '../../../Skeleton';
+import { SkeletonParagraph } from '@talend/design-system';
 import Tile from '../Tile.component';
 import TileBody from '../Body/TileBody.component';
 
@@ -6,7 +6,7 @@ export default function SkeletonTile() {
 	return (
 		<Tile>
 			<TileBody>
-				<Skeleton width="100%" height="100%" />
+				<SkeletonParagraph />
 			</TileBody>
 		</Tile>
 	);
