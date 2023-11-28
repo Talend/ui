@@ -14,7 +14,7 @@ exports[`Message should render a11y html 1`] = `
         class="theme-message__title"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-XS theme-gap-y-XS"
         >
           All good
         </div>
@@ -80,7 +80,7 @@ exports[`Message should render a11y html 1`] = `
         class="theme-message__title"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-XS theme-gap-y-XS"
         >
           Something went wrong
         </div>
@@ -146,7 +146,7 @@ exports[`Message should render a11y html 1`] = `
         class="theme-message__title"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-XS theme-gap-y-XS"
         >
           Type incompatibilities
         </div>
@@ -212,7 +212,7 @@ exports[`Message should render a11y html 1`] = `
         class="theme-message__title"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-XS theme-gap-y-XS"
         >
           Auto mapping
         </div>
