@@ -83,8 +83,7 @@ describe('resolve.js', () => {
 		type: 'object',
 		properties: {
 			relative: {
-				$ref:
-					'https://raw.githubusercontent.com/json-schema-org/json-schema-org.github.io/master/geo',
+				$ref: 'https://raw.githubusercontent.com/json-schema-org/json-schema-org.github.io/master/geo',
 			},
 		},
 	};
@@ -112,7 +111,7 @@ describe('resolve.js', () => {
 		});
 
 		it('should resolve relative json-ref via callback', done => {
-			jsonref(schema, function(error, resolved) {
+			jsonref(schema, function (error, resolved) {
 				if (error) done(error);
 				resolved.properties.storage.oneOf[0].properties.should.have.property('device');
 				done();
@@ -121,7 +120,7 @@ describe('resolve.js', () => {
 
 		//I believe this only fails in phantomjs due to https://github.com/ariya/phantomjs/issues/11195
 		it('should resolve remote json-ref via callback', done => {
-			jsonref(remote, function(error, resolved) {
+			jsonref(remote, function (error, resolved) {
 				if (error) done(error);
 				//resolved.properties.relative.latitude.type.should.equal('number');
 				done();

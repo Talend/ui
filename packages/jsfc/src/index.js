@@ -1,17 +1,17 @@
 import tv4index from 'tv4';
 
 // eslint-disable-next-line prettier/prettier
-import canonicalTitleMapImp from './lib/canonical-title-map';
+import * as schemaDefaultsImp from './schema-defaults';
 // eslint-disable-next-line prettier/prettier
-import * as schemaDefaultsImp from './lib/schema-defaults';
+import * as sfPathImp from './sf-path';
 // eslint-disable-next-line prettier/prettier
-import * as sfPathImp from './lib/sf-path';
+import canonicalTitleMapImp from './canonical-title-map';
 
-export { merge } from './lib/merge';
-export { select } from './lib/select';
-export { jsonref } from './lib/resolve';
-export { traverseSchema, traverseForm } from './lib/traverse';
-export { validate } from './lib/validate';
+export { merge } from './merge';
+export { select } from './select';
+export { jsonref } from './resolve';
+export { traverseSchema, traverseForm } from './traverse';
+export { validate } from './validate';
 
 export const sfPath = sfPathImp;
 export const schemaDefaults = schemaDefaultsImp;

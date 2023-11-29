@@ -1,8 +1,4 @@
-import chai from 'chai';
-import { describe, it } from 'mocha';
 import { select } from './select';
-
-chai.should();
 
 describe('select.js', () => {
 	const data = {
@@ -36,28 +32,31 @@ describe('select.js', () => {
 	};
 
 	it('should provide a function for getting and setting an object value', () => {
-		select.should.be.an('function');
+		expect(typeof select).toBe('function');
 	});
 
 	describe('select', () => {
 		it('should get a value from an object', () => {
 			let value = select('frienemies[1].weapon.boomstick.method[0]', data);
-			value.should.eq('boom');
+			expect(value).toBe('boom');
 		});
 
 		it('should set a value on an object', () => {
 			let value = select('weapon.glove.method[1]', data, 'slice');
-			data.weapon.glove.method.should.be.deep.equal(['stab', 'slice']);
+			expect(value).toBe('slice');
+			expect(data.weapon.glove.method[1]).toBe('slice');
+			expect(data.weapon.glove.method).toEqual(['stab', 'slice']);
 		});
 
 		it('should create any undefined objects or arrays in the path when setting a value', () => {
 			let data = {};
 			let value = select('property.array[1].value', data, 'something');
-			data.should.be.deep.equal({
+			expect(data).toMatchObject({
 				property: {
 					array: [, { value: 'something' }],
 				},
 			});
+			expect(value).toBe('something');
 		});
 	});
 });
