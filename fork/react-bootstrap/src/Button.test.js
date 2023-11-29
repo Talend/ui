@@ -1,119 +1,120 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Button from './Button';
 
 describe('<Button>', () => {
-  it('Should output a button', () => {
-    // when
-    render(<Button>Title</Button>);
+	it('Should output a button', () => {
+		// when
+		render(<Button>Title</Button>);
 
-    // then
-    expect(screen.getByRole('button')).toBeInTheDocument();
-  });
+		// then
+		expect(screen.getByRole('button')).toBeInTheDocument();
+	});
 
-  it('Should have type=button by default', () => {
-    // when
-    render(<Button>Title</Button>);
+	it('Should have type=button by default', () => {
+		// when
+		render(<Button>Title</Button>);
 
-    // then
-    expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
-  });
+		// then
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+	});
 
-  it('Should show the type if passed one', () => {
-    // when
-    render(<Button type="submit">Title</Button>);
+	it('Should show the type if passed one', () => {
+		// when
+		render(<Button type="submit">Title</Button>);
 
-    // then
-    expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
-  });
+		// then
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+	});
 
-  it('Should output an anchor if called with a href', () => {
-    // when
-    const href = '/url';
-    render(<Button href={href}>Title</Button>);
+	it('Should output an anchor if called with a href', () => {
+		// when
+		const href = '/url';
+		render(<Button href={href}>Title</Button>);
 
-    // then
-    expect(screen.getByRole('link')).toHaveAttribute('href', href);
-  });
+		// then
+		expect(screen.getByRole('link')).toHaveAttribute('href', href);
+	});
 
-  it('Should call onClick callback', () => {
-    // given
-    const onClick = jest.fn();
-    render(<Button onClick={onClick}>Title</Button>);
+	it('Should call onClick callback', async () => {
+		const user = userEvent.setup();
 
-    // when
-    userEvent.click(screen.getByRole('button'));
+		// given
+		const onClick = jest.fn();
+		render(<Button onClick={onClick}>Title</Button>);
 
-    // then
-    expect(onClick).toHaveBeenCalled();
-  });
+		// when
+		await user.click(screen.getByRole('button'));
 
-  it('Should be disabled', () => {
-    // when
-    render(<Button disabled>Title</Button>);
+		// then
+		expect(onClick).toHaveBeenCalled();
+	});
 
-    // then
-    expect(screen.getByRole('button')).toBeDisabled();
-  });
+	it('Should be disabled', () => {
+		// when
+		render(<Button disabled>Title</Button>);
 
-  it('Should be disabled link', () => {
-    // when
-    render(
-      <Button disabled href="#">
-        Title
-      </Button>
-    );
+		// then
+		expect(screen.getByRole('button')).toBeDisabled();
+	});
 
-    // then
-    const link = screen.getByRole('button');
-    expect(link.tagName).toBe('A');
-    expect(link).toHaveClass('disabled');
-  });
+	it('Should be disabled link', () => {
+		// when
+		render(
+			<Button disabled href="#">
+				Title
+			</Button>,
+		);
 
-  it('Should have block class', () => {
-    // when
-    render(<Button block>Title</Button>);
+		// then
+		const link = screen.getByRole('button');
+		expect(link.tagName).toBe('A');
+		expect(link).toHaveClass('disabled');
+	});
 
-    // then
-    expect(screen.getByRole('button')).toHaveClass('btn-block');
-  });
+	it('Should have block class', () => {
+		// when
+		render(<Button block>Title</Button>);
 
-  it('Should apply bsStyle class', () => {
-    // when
-    render(<Button bsStyle="danger">Title</Button>);
+		// then
+		expect(screen.getByRole('button')).toHaveClass('btn-block');
+	});
 
-    // then
-    expect(screen.getByRole('button')).toHaveClass('btn-danger');
-  });
+	it('Should apply bsStyle class', () => {
+		// when
+		render(<Button bsStyle="danger">Title</Button>);
 
-  it('Should honour additional classes passed in, adding not overriding', () => {
-    // when
-    render(
-      <Button className="bob" bsStyle="danger">
-        Title
-      </Button>
-    );
+		// then
+		expect(screen.getByRole('button')).toHaveClass('btn-danger');
+	});
 
-    // then
-    expect(screen.getByRole('button')).toHaveClass('btn-danger');
-    expect(screen.getByRole('button')).toHaveClass('bob');
-  });
+	it('Should honour additional classes passed in, adding not overriding', () => {
+		// when
+		render(
+			<Button className="bob" bsStyle="danger">
+				Title
+			</Button>,
+		);
 
-  it('Should default to bsStyle="default"', () => {
-    // when
-    render(<Button bsStyle="default">Title</Button>);
+		// then
+		expect(screen.getByRole('button')).toHaveClass('btn-danger');
+		expect(screen.getByRole('button')).toHaveClass('bob');
+	});
 
-    // then
-    expect(screen.getByRole('button')).toHaveClass('btn-default');
-  });
+	it('Should default to bsStyle="default"', () => {
+		// when
+		render(<Button bsStyle="default">Title</Button>);
 
-  it('Should be active', () => {
-    // when
-    render(<Button active>Title</Button>);
+		// then
+		expect(screen.getByRole('button')).toHaveClass('btn-default');
+	});
 
-    // then
-    expect(screen.getByRole('button')).toHaveClass('active');
-  });
+	it('Should be active', () => {
+		// when
+		render(<Button active>Title</Button>);
+
+		// then
+		expect(screen.getByRole('button')).toHaveClass('active');
+	});
 });

@@ -105,7 +105,10 @@ describe('Radios field', () => {
 		await userEvent.click(screen.getAllByRole('radio')[0]);
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: 'foo' });
+		expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
+			schema,
+			value: 'foo',
+		});
 	});
 
 	it('should trigger onFinish on blur', async () => {
@@ -127,6 +130,6 @@ describe('Radios field', () => {
 		fireEvent.blur(screen.getAllByRole('radio')[0]);
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything({ type: 'blur' }), { schema });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything({ type: 'blur' }), { schema });
 	});
 });

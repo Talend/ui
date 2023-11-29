@@ -32,14 +32,16 @@ describe('<CloseButton>', () => {
     expect(screen.getByRole('button')).toHaveClass('close');
   });
 
-  it('Should call onClick callback', () => {
+  it('Should call onClick callback', async () => {
+    const user = userEvent.setup();
+
     // given
     const onClick = jest.fn();
     render(<CloseButton onClick={onClick} />);
     expect(onClick).not.toHaveBeenCalled();
 
     // when
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
 
     // then
     expect(onClick).toHaveBeenCalled();

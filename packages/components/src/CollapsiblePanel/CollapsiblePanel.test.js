@@ -34,7 +34,9 @@ const propsPanelWithActions = {
 };
 
 describe('CollapsiblePanel', () => {
-	it('should trigger onSelect callback on header click', () => {
+	it('should trigger onSelect callback on header click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const propsDescriptivePanel = {
 			header: [[version1, readOnlyLabel], timeStamp],
@@ -61,22 +63,24 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		render(panelInstance);
-		userEvent.click(screen.getByText('Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182'));
+		await user.click(screen.getByText('Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182'));
 
 		// then
-		expect(propsDescriptivePanel.onSelect).toBeCalled();
+		expect(propsDescriptivePanel.onSelect).toHaveBeenCalled();
 	});
 
-	it('should trigger onToggle callback on header click', () => {
+	it('should trigger onToggle callback on header click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const panelInstance = <CollapsiblePanel {...propsPanelWithActions} />;
 
 		// when
 		render(panelInstance);
-		userEvent.click(screen.getByText('Successful'));
+		await user.click(screen.getByText('Successful'));
 
 		// then
-		expect(propsPanelWithActions.onToggle).toBeCalled();
+		expect(propsPanelWithActions.onToggle).toHaveBeenCalled();
 	});
 
 	it('should render custom content in panel body', () => {

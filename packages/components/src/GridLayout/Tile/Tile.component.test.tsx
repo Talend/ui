@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Tile from './Tile.component';
+
 import { TileContext, TileContextType } from './context';
+import Tile from './Tile.component';
 
 type TestComponentProps = {
 	context: TileContextType;
@@ -22,7 +23,9 @@ function Consumer() {
 }
 
 describe('Grid tiles', () => {
-	it('should render children and setup context', () => {
+	it('should render children and setup context', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(
 			<Tile>
@@ -30,7 +33,7 @@ describe('Grid tiles', () => {
 			</Tile>,
 		);
 		// when
-		userEvent.click(screen.getByText('edit'));
+		await user.click(screen.getByText('edit'));
 
 		// then
 		expect(screen.getByTestId('TestComponent')).toBeVisible();

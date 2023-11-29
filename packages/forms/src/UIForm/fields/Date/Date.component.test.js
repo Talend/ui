@@ -86,7 +86,7 @@ describe('Date widget', () => {
 				value="15/02/2018"
 			/>,
 		);
-		expect(onFinish).not.toBeCalled();
+		expect(onFinish).not.toHaveBeenCalled();
 
 		// when
 		fireEvent.click(screen.getByRole('textbox'));
@@ -96,7 +96,7 @@ describe('Date widget', () => {
 		});
 
 		// then
-		expect(onFinish).toBeCalled();
+		expect(onFinish).toHaveBeenCalled();
 	});
 
 	describe('onChange', () => {
@@ -115,7 +115,7 @@ describe('Date widget', () => {
 					value="15/02/2018"
 				/>,
 			);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 			const event = { target: { value: '21/09/2015' } };
 
 			// when
@@ -126,7 +126,10 @@ describe('Date widget', () => {
 				jest.runAllTimers();
 			});
 
-			expect(onChange).toBeCalledWith(expect.anything(event), { schema, value: '21/09/2015' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(event), {
+				schema,
+				value: '21/09/2015',
+			});
 		});
 
 		it('should convert valid date to timestamp', async () => {
@@ -156,7 +159,7 @@ describe('Date widget', () => {
 				jest.runAllTimers();
 			});
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(event), {
+			expect(onChange).toHaveBeenCalledWith(expect.anything(event), {
 				schema: timestampSchema,
 				value: 1442793600000,
 			});
@@ -189,7 +192,7 @@ describe('Date widget', () => {
 				jest.runAllTimers();
 			});
 			// then
-			expect(onChange).toBeCalledWith(
+			expect(onChange).toHaveBeenCalledWith(
 				expect.anything(event),
 				expect.anything({
 					schema: timestampSchema,
@@ -225,7 +228,7 @@ describe('Date widget', () => {
 				jest.runAllTimers();
 			});
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(event), {
+			expect(onChange).toHaveBeenCalledWith(expect.anything(event), {
 				schema: isoSchema,
 				value: '2015-09-21T00:00:00.000Z',
 			});
@@ -255,7 +258,10 @@ describe('Date widget', () => {
 				jest.runAllTimers();
 			});
 			// then
-			expect(onFinish).toBeCalledWith(expect.anything(event), { schema, value: '21/09/2015' });
+			expect(onFinish).toHaveBeenCalledWith(expect.anything(event), {
+				schema,
+				value: '21/09/2015',
+			});
 		});
 
 		it('should NOT call props onFinish when there is an error', async () => {
@@ -273,7 +279,7 @@ describe('Date widget', () => {
 					value="15/02/2018"
 				/>,
 			);
-			expect(onFinish).not.toBeCalled();
+			expect(onFinish).not.toHaveBeenCalled();
 			const event = { target: { value: '2015-09-aa' } };
 
 			// when
@@ -283,7 +289,7 @@ describe('Date widget', () => {
 				jest.runAllTimers();
 			});
 			// then
-			expect(onFinish).not.toBeCalled();
+			expect(onFinish).not.toHaveBeenCalled();
 		});
 	});
 });

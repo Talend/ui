@@ -164,6 +164,8 @@ describe('EditableText container', () => {
 		);
 	});
 	it('should call onChange when change event trigger', async () => {
+		const user = userEvent.setup();
+
 		const props = {
 			setState: jest.fn(),
 			state: Map({ editMode: true }),
@@ -171,11 +173,15 @@ describe('EditableText container', () => {
 			text: 'my text',
 		};
 		render(<Container {...props} />);
-		await userEvent.click(screen.getByRole('textbox'));
-		await userEvent.keyboard('my onChangeTitle');
+		const textbox = screen.getByRole('textbox');
+		await user.click(textbox);
+		await user.clear(textbox);
+		await user.keyboard('my onChangeTitle');
 		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), 'my onChangeTitle');
 	});
-	it('should call onChange when change event tigger', async () => {
+	it('should call onChange when change event trigger - actionCreatorChange', async () => {
+		const user = userEvent.setup();
+
 		const props = {
 			setState: jest.fn(),
 			state: Map({ editMode: true }),
@@ -184,8 +190,10 @@ describe('EditableText container', () => {
 			text: 'my text',
 		};
 		render(<Container {...props} />);
-		await userEvent.click(screen.getByRole('textbox'));
-		await userEvent.keyboard('my onChangeTitle');
+		const textbox = screen.getByRole('textbox');
+		await user.click(textbox);
+		await user.clear(textbox);
+		await user.keyboard('my onChangeTitle');
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 			props.actionCreatorChange,
 			expect.anything(),

@@ -32,8 +32,8 @@ describe('CMF App', () => {
 			</App>,
 		);
 		expect(screen.getByText('I am a child')).toBeInTheDocument();
-		expect(Provider).toBeCalledWith(expect.objectContaining({ store }), {});
-		expect(RegistryProvider).toBeCalled();
-		expect(ErrorBoundary).toBeCalled();
+		expect(Provider).toHaveBeenCalledWith(expect.objectContaining({ store }), {});
+		expect(RegistryProvider).toHaveBeenCalled();
+		expect(ErrorBoundary).toHaveBeenCalled();
 	});
 });

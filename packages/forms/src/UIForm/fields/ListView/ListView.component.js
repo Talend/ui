@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
-import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
 import { withTranslation } from 'react-i18next';
 
@@ -91,10 +90,10 @@ class ListViewWidget extends Component {
 	 * @param { Object } event The keydown event
 	 */
 	onInputKeyDown(event) {
-		if (event.keyCode === keycode('enter')) {
+		if (event.key === 'Enter') {
 			event.stopPropagation();
 			event.preventDefault();
-		} else if (event.keyCode === keycode('escape')) {
+		} else if (event.key === 'Esc' || event.key === 'Escape') {
 			clearTimeout(this.timerSearch);
 			event.stopPropagation();
 			event.preventDefault();
@@ -206,6 +205,7 @@ ListViewWidget.defaultProps = {
 	value: [],
 	t: getDefaultT(),
 };
+// eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
 		id: PropTypes.string,

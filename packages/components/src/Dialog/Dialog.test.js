@@ -55,7 +55,9 @@ describe('Dialog', () => {
 		expect(screen.getByText('Vestibulum')).toBeVisible();
 		expect(screen.queryByText('Lorem ipsum')).not.toBeInTheDocument();
 	});
-	it('should render action', () => {
+	it('should render action', async () => {
+		const user = userEvent.setup();
+
 		const action = {
 			label: 'OK',
 			onClick: jest.fn(),
@@ -65,7 +67,7 @@ describe('Dialog', () => {
 				{children}
 			</Dialog>,
 		);
-		userEvent.click(screen.getByText('OK'));
+		await user.click(screen.getByText('OK'));
 		expect(action.onClick).toHaveBeenCalled();
 	});
 	it('should render small', () => {

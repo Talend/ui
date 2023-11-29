@@ -84,22 +84,26 @@ describe('CalendarPicker', () => {
 			expect(screen.getByLabelText('Date picker')).toHaveAttribute('tabIndex', '-1');
 		});
 
-		it('should allow focus when active element is in picker', () => {
+		it('should allow focus when active element is in picker', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<CalendarPicker manageFocus onSubmit={() => {}} />);
-			userEvent.click(screen.getByLabelText('Date picker')); // focus by click
+			await user.click(screen.getByLabelText('Date picker')); // focus by click
 
 			// then
 			expect(screen.getByLabelText('Date picker')).toHaveAttribute('tabIndex', '0');
 		});
 
-		it('should disable focus when active element is out of picker', () => {
+		it('should disable focus when active element is out of picker', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<CalendarPicker manageFocus onSubmit={() => {}} />);
-			userEvent.click(screen.getByLabelText('Date picker')); // focus by click
+			await user.click(screen.getByLabelText('Date picker')); // focus by click
 
 			// when
-			userEvent.click(document.body); // focus out of picker
+			await user.click(document.body); // focus out of picker
 
 			// then
 			expect(screen.getByLabelText('Date picker')).toHaveAttribute('tabIndex', '-1');
@@ -107,37 +111,43 @@ describe('CalendarPicker', () => {
 	});
 
 	describe('view switching', () => {
-		it('should switch state to MonthYearView when header title of DateView is clicked', () => {
+		it('should switch state to MonthYearView when header title of DateView is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<CalendarPicker onSubmit={() => {}} />);
 
 			// when
-			userEvent.click(screen.getByText('onTitleClick'));
+			await user.click(screen.getByText('onTitleClick'));
 
 			// then
 			expect(screen.getByTestId('MonthYearView')).toBeInTheDocument();
 			expect(screen.queryByTestId('DateView')).not.toBeInTheDocument();
 		});
 
-		it('should switch state to DateView when header back action of MonthYearView is clicked', () => {
+		it('should switch state to DateView when header back action of MonthYearView is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<CalendarPicker onSubmit={() => {}} />);
-			userEvent.click(screen.getByText('onTitleClick'));
+			await user.click(screen.getByText('onTitleClick'));
 
 			// when
-			userEvent.click(screen.getByText('onBackClick'));
+			await user.click(screen.getByText('onBackClick'));
 
 			// then
 			expect(screen.getByTestId('DateView')).toBeInTheDocument();
 			expect(screen.queryByTestId('MonthYearView')).not.toBeInTheDocument();
 		});
 
-		it('should switch to new month/year value from day picker', () => {
+		it('should switch to new month/year value from day picker', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<CalendarPicker onSubmit={() => {}} />);
 
 			// when
-			userEvent.click(screen.getByText('onSelectMonthYear'));
+			await user.click(screen.getByText('onSelectMonthYear'));
 
 			// then`
 			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
@@ -145,28 +155,32 @@ describe('CalendarPicker', () => {
 			expect(props.calendar.year).toBe(2019);
 		});
 
-		it('should switch to new month from monthYear picker', () => {
+		it('should switch to new month from monthYear picker', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const selectedDate = new Date(2018, 10, 12);
 			render(<CalendarPicker onSubmit={() => {}} selectedDate={selectedDate} />);
-			userEvent.click(screen.getByText('onTitleClick'));
+			await user.click(screen.getByText('onTitleClick'));
 
 			// when
-			userEvent.click(screen.getByText('onSelectMonth'));
+			await user.click(screen.getByText('onSelectMonth'));
 
 			// then
 			const props = JSON.parse(screen.getByTestId('MonthYearView').getAttribute('data-props'));
 			expect(props.selectedMonthIndex).toBe(5);
 		});
 
-		it('should switch to new year from monthYear picker', () => {
+		it('should switch to new year from monthYear picker', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const selectedDate = new Date(2018, 10, 12);
 			render(<CalendarPicker onSubmit={() => {}} selectedDate={selectedDate} />);
-			userEvent.click(screen.getByText('onTitleClick'));
+			await user.click(screen.getByText('onTitleClick'));
 
 			// when
-			userEvent.click(screen.getByText('onSelectYear'));
+			await user.click(screen.getByText('onSelectYear'));
 
 			// then
 			const props = JSON.parse(screen.getByTestId('MonthYearView').getAttribute('data-props'));
@@ -189,7 +203,9 @@ describe('CalendarPicker', () => {
 			expect(props.selectedDate).toBe(d2.toISOString());
 		});
 
-		it('should update state and submit on date picked', () => {
+		it('should update state and submit on date picked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const initialDate = new Date(2015, 10, 18);
 			const date = new Date(2018, 2, 5);
@@ -198,21 +214,23 @@ describe('CalendarPicker', () => {
 			render(<CalendarPicker selectedDate={initialDate} onSubmit={onSubmit} />);
 
 			// when
-			userEvent.click(screen.getByText('onSelectDate'));
+			await user.click(screen.getByText('onSelectDate'));
 
 			// then
-			expect(onSubmit).toBeCalledWith(expect.anything({ type: 'click' }), { date });
+			expect(onSubmit).toHaveBeenCalledWith(expect.anything({ type: 'click' }), { date });
 		});
 	});
 
 	describe('today function', () => {
-		it('should switch state to DateTimeView when Today is clicked', () => {
+		it('should switch state to DateTimeView when Today is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<CalendarPicker onSubmit={() => {}} />);
-			userEvent.click(screen.getByText('onTitleClick'));
+			await user.click(screen.getByText('onTitleClick'));
 
 			// when
-			userEvent.click(screen.getByText('Today'));
+			await user.click(screen.getByText('Today'));
 
 			// then
 			expect(screen.getByTestId('DateView')).toBeInTheDocument();

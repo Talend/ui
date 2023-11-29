@@ -4,7 +4,9 @@ import userEvent from '@testing-library/user-event';
 import HeaderSelected from './HeaderSelected.component';
 
 describe('Header selected', () => {
-	it('should trigger callback when clicking on header action', () => {
+	it('should trigger callback when clicking on header action', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			headerSelected: [
@@ -23,10 +25,10 @@ describe('Header selected', () => {
 		// when
 		const buttons = screen.getAllByRole('link');
 
-		userEvent.click(buttons[0]);
+		await user.click(buttons[0]);
 
 		// then
-		expect(props.headerSelected[0].onClick).toBeCalled();
+		expect(props.headerSelected[0].onClick).toHaveBeenCalled();
 	});
 	it('should render only button which are not disabled', () => {
 		// given

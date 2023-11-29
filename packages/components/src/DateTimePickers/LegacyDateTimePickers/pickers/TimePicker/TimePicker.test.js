@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FIELD_MINUTES, FIELD_HOURS } from '../../DateTime/constants';
 import TimePicker from './TimePicker.component';
@@ -62,8 +62,9 @@ describe('TimePicker', () => {
 	});
 
 	it('should trigger onChange on hours change', async () => {
+		const user = userEvent.setup();
+
 		// given
-		jest.useFakeTimers();
 		providerValue.errorManagement.hasError = () => true;
 		const onChange = jest.fn();
 		render(
@@ -72,45 +73,50 @@ describe('TimePicker', () => {
 			</DateTimeContext.Provider>,
 		);
 
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 
 		// when
 		const hours = screen.getAllByRole('textbox')[0];
 		hours.value = ''; // clear current value
-		await userEvent.click(hours);
-		await userEvent.keyboard('17');
-		jest.runAllTimers();
+		await user.click(hours);
+		await user.keyboard('17');
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { hours: '17', minutes: '38' }, FIELD_HOURS);
-		jest.useRealTimers();
+		await waitFor(() =>
+			expect(onChange).toHaveBeenCalledWith(
+				expect.anything(),
+				{ hours: '17', minutes: '38' },
+				FIELD_HOURS,
+			),
+		);
 	});
 
-	it('should trigger onChange on minutes change', () => {
+	it('should trigger onChange on minutes change', async () => {
+		const user = userEvent.setup();
+
 		// given
-		jest.useFakeTimers();
 		const onChange = jest.fn();
 		render(
 			<DateTimeContext.Provider value={providerValue}>
 				<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />
 			</DateTimeContext.Provider>,
 		);
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 
 		// when
 		const minutes = screen.getAllByRole('textbox')[1];
 		minutes.value = ''; // clear current value
-		userEvent.click(minutes);
-		userEvent.keyboard('17');
-		jest.runAllTimers();
+		await user.click(minutes);
+		await user.keyboard('17');
 
 		// then
-		expect(onChange).toBeCalledWith(
-			expect.anything(),
-			{ hours: '15', minutes: '17' },
-			FIELD_MINUTES,
+		await waitFor(() =>
+			expect(onChange).toHaveBeenCalledWith(
+				expect.anything(),
+				{ hours: '15', minutes: '17' },
+				FIELD_MINUTES,
+			),
 		);
-		jest.useRealTimers();
 	});
 
 	it('should manage tabIndex', () => {

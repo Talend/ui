@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import activeElement from 'dom-helpers/activeElement';
 import contains from 'dom-helpers/query/contains';
-import keycode from 'keycode';
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
@@ -34,7 +33,7 @@ const propTypes = {
    * @required
    */
   id: isRequiredForA11y(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ),
 
   componentClass: elementType,
@@ -45,7 +44,7 @@ const propTypes = {
    */
   children: all(
     requiredRoles(TOGGLE_ROLE, MENU_ROLE),
-    exclusiveRoles(MENU_ROLE)
+    exclusiveRoles(MENU_ROLE),
   ),
 
   /**
@@ -143,7 +142,7 @@ class Dropdown extends React.Component {
     if (!open && prevOpen) {
       this._focusInDropdown = contains(
         ReactDOM.findDOMNode(this.menu),
-        activeElement(document)
+        activeElement(document),
       );
       // if focus hasn't already moved from the menu let's return it
       // to the toggle
@@ -198,8 +197,9 @@ class Dropdown extends React.Component {
       return;
     }
 
-    switch (event.keyCode) {
-      case keycode.codes.down:
+    switch (event.key) {
+      case 'Down':
+      case 'ArrowDown':
         if (!this.props.open) {
           this.toggleOpen(event, { source: 'keydown' });
         } else if (this.menu.focusNext) {
@@ -207,8 +207,9 @@ class Dropdown extends React.Component {
         }
         event.preventDefault();
         break;
-      case keycode.codes.esc:
-      case keycode.codes.tab:
+      case 'Esc':
+      case 'Escape':
+      case 'Tab':
         this.handleClose(event, { source: 'keydown' });
         break;
       default:
@@ -237,7 +238,7 @@ class Dropdown extends React.Component {
         false,
         'String refs are not supported on `<Dropdown.Menu>` components. ' +
           'To apply a ref to the component use the callback signature:\n\n ' +
-          'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute'
+          'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute',
       );
     } else {
       ref = createChainedFunction(child.ref, ref);
@@ -252,7 +253,7 @@ class Dropdown extends React.Component {
       onSelect: createChainedFunction(
         child.props.onSelect,
         onSelect,
-        (key, event) => this.handleClose(event, { source: 'select' })
+        (key, event) => this.handleClose(event, { source: 'select' }),
       ),
       rootCloseEvent,
     });
@@ -268,7 +269,7 @@ class Dropdown extends React.Component {
         false,
         'String refs are not supported on `<Dropdown.Toggle>` components. ' +
           'To apply a ref to the component use the callback signature:\n\n ' +
-          'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute'
+          'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute',
       );
     } else {
       ref = createChainedFunction(child.ref, ref);
@@ -281,7 +282,7 @@ class Dropdown extends React.Component {
       onClick: createChainedFunction(child.props.onClick, this.handleClick),
       onKeyDown: createChainedFunction(
         child.props.onKeyDown,
-        this.handleKeyDown
+        this.handleKeyDown,
       ),
     });
   }

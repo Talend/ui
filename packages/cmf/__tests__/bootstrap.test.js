@@ -198,7 +198,7 @@ describe('bootstrap', () => {
 		it('should work without settings', async () => {
 			const options = {
 				storeCallback: store => {
-					expect(store.dispatch).not.toBeCalled();
+					expect(store.dispatch).not.toHaveBeenCalled();
 				},
 			};
 			await bootstrap(options);

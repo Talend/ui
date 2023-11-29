@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { screen, render } from '@testing-library/react';
+import { screen, render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextFilter from './TextFilter.component';
 import { ListContext } from '../context';
@@ -45,6 +45,8 @@ describe('TextFilter', () => {
 	});
 
 	it('should handle text filter changes (uncontrolled mode)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const context = {
 			...defaultContext,
@@ -58,8 +60,8 @@ describe('TextFilter', () => {
 				<TextFilter id="myTextFilter" initialDocked debounceTimeout={0} />
 			</ListContext.Provider>,
 		);
-		await userEvent.click(screen.getByRole('search'));
-		await userEvent.type(screen.getByRole('searchbox'), 'my-filter-value');
+		await user.click(screen.getByRole('search'));
+		await user.type(screen.getByRole('searchbox'), 'my-filter-value');
 
 		// then
 		expect(context.setTextFilter).toHaveBeenCalledWith('my-filter-value');
@@ -78,6 +80,8 @@ describe('TextFilter', () => {
 	});
 
 	it('should call the toggle callback when they are provided (controlled mode)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onToggle = jest.fn();
 
@@ -87,13 +91,15 @@ describe('TextFilter', () => {
 				<TextFilter id="myTextFilter" initialDocked onToggle={onToggle} />
 			</ListContext.Provider>,
 		);
-		await userEvent.click(screen.getByRole('search'));
+		await user.click(screen.getByRole('search'));
 
 		// then
 		expect(onToggle).toHaveBeenCalled();
 	});
 
-	it('should call the callback on change (controlled mode)', () => {
+	it('should call the callback on change (controlled mode)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onChange = jest.fn();
 		render(
@@ -109,15 +115,17 @@ describe('TextFilter', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('search'));
-		userEvent.clear(screen.getByRole('searchbox'));
-		userEvent.type(screen.getByRole('searchbox'), 'my-filter-value');
+		await user.click(screen.getByRole('search'));
+		await user.clear(screen.getByRole('searchbox'));
+		await user.type(screen.getByRole('searchbox'), 'my-filter-value');
 
 		// then
 		expect(onChange).toHaveBeenCalledWith(expect.anything(), 'my-filter-value');
 	});
 
-	it('should not be docked when text filter is not empty', () => {
+	it('should not be docked when text filter is not empty', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const context = {
 			...defaultContext,
@@ -132,7 +140,7 @@ describe('TextFilter', () => {
 			</ListContext.Provider>,
 		);
 
-		userEvent.click(screen.getByRole('search'));
+		await user.click(screen.getByRole('search'));
 
 		// then
 		expect(screen.queryByRole('search').tagName).toBe('FORM'); // this not anymore a button
@@ -141,14 +149,16 @@ describe('TextFilter', () => {
 		expect(screen.getByRole('searchbox')).toHaveValue('my-filter-value');
 
 		// when
-		screen.getByRole('searchbox').blur();
+		act(() => screen.getByRole('searchbox').blur());
 
 		// then
 		expect(screen.queryByRole('search').tagName).toBe('FORM'); // this not anymore a button
 		expect(screen.getByRole('searchbox')).toBeInTheDocument();
 	});
 
-	it('should be docked when text filter is empty', () => {
+	it('should be docked when text filter is empty', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const context = {
 			...defaultContext,
@@ -162,14 +172,14 @@ describe('TextFilter', () => {
 				<TextFilter id="myTextFilter" initialDocked />
 			</ListContext.Provider>,
 		);
-		userEvent.click(screen.getByRole('search'));
+		await user.click(screen.getByRole('search'));
 
 		// then
 		expect(screen.getByRole('search').tagName).toBe('FORM');
 		expect(screen.getByRole('searchbox')).toBeInTheDocument();
 
 		// when
-		screen.getByRole('searchbox').blur();
+		act(() => screen.getByRole('searchbox').blur());
 
 		// then
 		expect(screen.queryByRole('search').tagName).toBe('BUTTON'); // this not anymore a button

@@ -104,6 +104,8 @@ describe('useCollectionSelection', () => {
 	});
 
 	it('should provide a function to check an item selection', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const initialSelectedIds = [1, 4];
 		const testIsSelected = jest.fn();
@@ -116,7 +118,7 @@ describe('useCollectionSelection', () => {
 				testIsSelected={testIsSelected}
 			/>,
 		);
-		await userEvent.click(screen.getByText('isSelected'));
+		await user.click(screen.getByText('isSelected'));
 
 		// then
 		const isSelected = testIsSelected.mock.calls[0][0];
@@ -127,7 +129,9 @@ describe('useCollectionSelection', () => {
 		expect(isSelected(collection[4])).toBe(true);
 	});
 
-	it('should provide a function to check an item selection that supports unloaded items', () => {
+	it('should provide a function to check an item selection that supports unloaded items', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const initialSelectedIds = [1, 4];
 		const testIsSelected = jest.fn();
@@ -140,7 +144,7 @@ describe('useCollectionSelection', () => {
 				testIsSelected={testIsSelected}
 			/>,
 		);
-		userEvent.click(screen.getByText('isSelected'));
+		await user.click(screen.getByText('isSelected'));
 
 		// then
 		const isSelected = testIsSelected.mock.calls[0][0];
@@ -153,6 +157,8 @@ describe('useCollectionSelection', () => {
 	});
 
 	it('should set new item selection', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<SelectionComponent collection={collection} idKey="number" />);
 		let selectedIds = JSON.parse(
@@ -161,21 +167,21 @@ describe('useCollectionSelection', () => {
 		expect(selectedIds).toEqual([]);
 
 		// when
-		await userEvent.click(screen.getByTestId('onToggle-0'));
+		await user.click(screen.getByTestId('onToggle-0'));
 
 		// then
 		selectedIds = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props).selectedIds;
 		expect(selectedIds).toEqual([0]);
 
 		// when
-		await userEvent.click(screen.getByTestId('onToggle-4'));
+		await user.click(screen.getByTestId('onToggle-4'));
 
 		// then
 		selectedIds = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props).selectedIds;
 		expect(selectedIds).toEqual([0, 4]);
 
 		// when
-		await userEvent.click(screen.getByTestId('onToggle-0'));
+		await user.click(screen.getByTestId('onToggle-0'));
 
 		// then
 		selectedIds = JSON.parse(screen.getByTestId('SelectionComponent').dataset.props).selectedIds;
@@ -183,6 +189,8 @@ describe('useCollectionSelection', () => {
 	});
 
 	it('should provide the "select all" status', async () => {
+		const user = userEvent.setup();
+
 		// when
 		render(
 			<SelectionComponent
@@ -199,7 +207,7 @@ describe('useCollectionSelection', () => {
 		expect(allIsSelected).toBe(true);
 
 		// when
-		await userEvent.click(screen.getByTestId('onToggle-0'));
+		await user.click(screen.getByTestId('onToggle-0'));
 
 		// then
 		allIsSelected = JSON.parse(
@@ -230,11 +238,13 @@ describe('useCollectionSelection', () => {
 	});
 
 	it('should toggle all', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<SelectionComponent collection={collection} idKey="number" />);
 
 		// when
-		await userEvent.click(screen.getByText('onToggleAll'));
+		await user.click(screen.getByText('onToggleAll'));
 
 		// then
 		const allIsSelected = JSON.parse(

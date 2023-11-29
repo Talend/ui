@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/no-container */
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import startOfDay from 'date-fns/start_of_day';
 import DateTimePicker from './DateTimePicker.component';
@@ -81,13 +81,13 @@ describe('DateTimePicker', () => {
 			expect(container.firstChild).toHaveAttribute('tabIndex', '-1');
 		});
 
-		it('should disable focus when active element is out of picker', () => {
+		it('should disable focus when active element is out of picker', async () => {
 			// given
 			const { container } = render(<DateTimePicker manageFocus onSubmit={() => {}} />);
 			container.firstChild.dispatchEvent(new Event('focusin'));
-			expect(container.firstChild).toHaveAttribute('tabIndex', '0');
+			await waitFor(() => expect(container.firstChild).toHaveAttribute('tabIndex', '0'));
 			container.firstChild.dispatchEvent(new Event('focusout'));
-			expect(container.firstChild).toHaveAttribute('tabIndex', '-1');
+			await waitFor(() => expect(container.firstChild).toHaveAttribute('tabIndex', '-1'));
 		});
 
 		it('should NOT allow focus when active element is outside of picker', () => {});
@@ -95,24 +95,28 @@ describe('DateTimePicker', () => {
 
 	describe('view switching', () => {
 		it('should switch state to MonthYearView when header title of DateTimeView is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<DateTimePicker onSubmit={() => {}} />);
 
 			// when
-			await userEvent.click(screen.getByText('Select MonthYearView'));
+			await user.click(screen.getByText('Select MonthYearView'));
 
 			// then
 			expect(screen.getByText('Select DateTimeView')).toBeVisible();
 		});
 
 		it('should switch state to DateTimeView when header back action of MonthYearView is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<DateTimePicker onSubmit={() => {}} />);
-			await userEvent.click(screen.getByText('Select MonthYearView'));
+			await user.click(screen.getByText('Select MonthYearView'));
 			expect(screen.queryByText('Select MonthYearView')).not.toBeInTheDocument();
 
 			// when
-			await userEvent.click(screen.getByText('Select DateTimeView'));
+			await user.click(screen.getByText('Select DateTimeView'));
 			jest.runAllTimers();
 
 			// then
@@ -156,12 +160,14 @@ describe('DateTimePicker', () => {
 
 	describe('today function', () => {
 		it('should switch state to DateTimeView when Today is clicked', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const today = new Date();
 			render(<DateTimePicker onSubmit={() => {}} />);
 
 			// when
-			await userEvent.click(screen.getByText('Today'));
+			await user.click(screen.getByText('Today'));
 
 			// then
 			const props = JSON.parse(screen.getByTestId('DateTimeView').dataset.props);

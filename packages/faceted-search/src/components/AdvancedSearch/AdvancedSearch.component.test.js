@@ -1,5 +1,4 @@
 import { screen, render, fireEvent } from '@testing-library/react';
-import keycode from 'keycode';
 
 import { FacetedManager } from '../FacetedManager';
 import { AdvancedSearch } from './AdvancedSearch.component';
@@ -68,7 +67,7 @@ describe('AdvancedSearch', () => {
 				<AdvancedSearch onSubmit={onSubmit} />
 			</FacetedManager>,
 		);
-		fireEvent.keyDown(screen.getByRole('search'), { keyCode: keycode.codes.enter });
+		fireEvent.keyDown(screen.getByRole('search'), { key: 'Enter' });
 		// then
 		expect(onSubmit).toHaveBeenCalled();
 		expect(onSubmit.mock.calls.length).toBe(1);
@@ -82,7 +81,7 @@ describe('AdvancedSearch', () => {
 				<AdvancedSearch onKeyDown={onKeyDown} onSubmit={onSubmit} />
 			</FacetedManager>,
 		);
-		fireEvent.keyDown(screen.getByRole('search'), { keyCode: keycode.codes.enter });
+		fireEvent.keyDown(screen.getByRole('search'), { key: 'Enter' });
 		// then
 		expect(onKeyDown).toHaveBeenCalled();
 		expect(onKeyDown.mock.calls.length).toBe(1);

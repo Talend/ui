@@ -139,7 +139,7 @@ describe('CheckBoxes field', () => {
 			await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
+			expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
 				schema,
 				value: ['foo', 'bar', 'lol'],
 			});
@@ -163,7 +163,7 @@ describe('CheckBoxes field', () => {
 			await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['lol'] });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema, value: ['lol'] });
 		});
 
 		it('should trigger callback, removing a value to existing multi values', async () => {
@@ -186,7 +186,7 @@ describe('CheckBoxes field', () => {
 			await userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
+			expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
 				schema,
 				value: ['bar'],
 			});
@@ -212,7 +212,7 @@ describe('CheckBoxes field', () => {
 			await userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), {
+			expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
 				schema,
 				value: undefined,
 			});
@@ -240,6 +240,9 @@ describe('CheckBoxes field', () => {
 		await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), {
+			schema,
+			value: ['foo', 'bar', 'lol'],
+		});
 	});
 });

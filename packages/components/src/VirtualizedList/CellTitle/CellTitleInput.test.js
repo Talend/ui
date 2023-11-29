@@ -24,7 +24,9 @@ describe('CellTitleInput', () => {
 		expect(screen.getByRole('textbox')).toHaveValue('my value');
 	});
 
-	it('should call submit callback on blur', () => {
+	it('should call submit callback on blur', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const rowData = { id: 1 };
 		const onEditCancel = jest.fn();
@@ -41,11 +43,11 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('textbox'));
+		await user.click(screen.getByRole('textbox'));
 		screen.getByRole('textbox').blur();
 
 		// then
-		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
+		expect(onEditSubmit).toHaveBeenCalledWith(expect.anything(), {
 			value: 'my value',
 			model: rowData,
 		});
@@ -72,13 +74,15 @@ describe('CellTitleInput', () => {
 		form.submit();
 
 		// then
-		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
+		expect(onEditSubmit).toHaveBeenCalledWith(expect.anything(), {
 			value: 'my value',
 			model: rowData,
 		});
 	});
 
-	it('should call cancel callback on ESC keyup', () => {
+	it('should call cancel callback on ESC keyup', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const rowData = { id: 1 };
 		const onEditCancel = jest.fn();
@@ -95,10 +99,10 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('textbox'));
-		userEvent.keyboard('{esc}');
+		await user.click(screen.getByRole('textbox'));
+		await user.keyboard('{Esc}');
 
 		// then
-		expect(onEditCancel).toBeCalledWith(expect.anything(), rowData);
+		expect(onEditCancel).toHaveBeenCalledWith(expect.anything(), rowData);
 	});
 });

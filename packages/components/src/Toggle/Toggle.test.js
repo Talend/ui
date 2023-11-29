@@ -121,12 +121,14 @@ describe('Toggle', () => {
 		expect(screen.getByRole('checkbox')).toHaveAttribute('aria-describedby', 'my-error-id');
 	});
 
-	it('should trigger a change event', () => {
+	it('should trigger a change event', async () => {
+		const user = userEvent.setup();
+
 		// given
 
 		// when
 		render(<Toggle {...defaultProps} />);
-		userEvent.click(screen.getByRole('checkbox'));
+		await user.click(screen.getByRole('checkbox'));
 
 		// then
 		expect(defaultProps.onChange).toHaveBeenCalled();

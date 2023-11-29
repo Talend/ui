@@ -83,7 +83,7 @@ describe('Action Icon Toggle', () => {
 		await userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(dispatch).toBeCalledWith(payload);
+		expect(dispatch).toHaveBeenCalledWith(payload);
 	});
 
 	it('#mapStateToProps should resolve action props from actionIf', () => {

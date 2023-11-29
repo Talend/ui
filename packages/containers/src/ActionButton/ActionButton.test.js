@@ -81,7 +81,7 @@ describe('CMF(Container(ActionButton))', () => {
 				<ContainerActionButton {...props} />
 			</App>,
 		);
-		userEvent.click(screen.getByRole('button'));
+		await userEvent.click(screen.getByRole('button'));
 		expect(dispatch).toHaveBeenCalledWith({
 			model: props.model,
 			...props.payload,

@@ -68,7 +68,7 @@ describe('DateTime widget', () => {
 		});
 
 		// then
-		expect(props.onFinish).toBeCalled();
+		expect(props.onFinish).toHaveBeenCalled();
 	});
 	describe('onChange', () => {
 		it('should call props onChange', async () => {
@@ -143,7 +143,7 @@ describe('DateTime widget', () => {
 			});
 
 			// then
-			expect(props.onChange).not.toBeCalledWith();
+			expect(props.onChange).not.toHaveBeenCalledWith();
 		});
 
 		it('should convert valid date to iso-datetime', async () => {
@@ -154,7 +154,7 @@ describe('DateTime widget', () => {
 				schema: { format: 'iso-datetime' },
 			};
 			render(<DateTimeWidget {...props} schema={isoSchema} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: '2015-09-21' } });
@@ -166,7 +166,7 @@ describe('DateTime widget', () => {
 			});
 
 			// then
-			expect(props.onChange).toBeCalledWith(expect.anything(), {
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 				schema: isoSchema,
 				value: new Date(2015, 8, 21, 2, 30).toISOString(),
 			});
@@ -185,7 +185,7 @@ describe('DateTime widget', () => {
 			});
 
 			// then
-			expect(props.onFinish).toBeCalledWith(expect.anything(), {
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), {
 				schema,
 				value: '2015-09-21 02:30',
 			});
@@ -203,7 +203,7 @@ describe('DateTime widget', () => {
 			});
 
 			// then
-			expect(props.onFinish).toBeCalledWith(expect.anything(), {
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), {
 				schema,
 				value: undefined,
 			});

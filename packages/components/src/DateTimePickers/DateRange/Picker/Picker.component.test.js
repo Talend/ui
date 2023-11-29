@@ -51,12 +51,12 @@ describe('DateRange.Picker', () => {
 				<Picker focusedInput="startDate" />
 			</DateRangeContext.Provider>,
 		);
-		expect(managerValue.pickerManagement.onStartChange).not.toBeCalled();
+		expect(managerValue.pickerManagement.onStartChange).not.toHaveBeenCalled();
 
 		// when
 		await userEvent.click(screen.getByLabelText('Monday 01 January 2007'));
 
 		// then
-		expect(managerValue.pickerManagement.onStartChange).toBeCalled();
+		expect(managerValue.pickerManagement.onStartChange).toHaveBeenCalled();
 	});
 });

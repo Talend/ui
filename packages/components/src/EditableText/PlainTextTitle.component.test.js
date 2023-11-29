@@ -45,14 +45,16 @@ describe('PlainTextTitle', () => {
 		expect(screen.getByRole('button')).toBeDisabled();
 	});
 
-	it('should trigger onEdit when click on the action', () => {
+	it('should trigger onEdit when click on the action', async () => {
+		const user = userEvent.setup();
+
 		const onEdit = jest.fn();
 		const props = {
 			text: 'text',
 			onEdit,
 		};
 		render(<PlainTextTitle {...props} />);
-		userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 		expect(onEdit).toHaveBeenCalled();
 	});
 

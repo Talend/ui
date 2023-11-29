@@ -40,7 +40,7 @@ describe('Time component', () => {
 			jest.useRealTimers();
 		});
 		// then
-		expect(props.onFinish).toBeCalled();
+		expect(props.onFinish).toHaveBeenCalled();
 	});
 	describe('onChange', () => {
 		beforeEach(() => {
@@ -66,7 +66,7 @@ describe('Time component', () => {
 			});
 
 			// then
-			expect(props.onChange).toBeCalledWith(expect.anything(), { schema, value: '12:34' });
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), { schema, value: '12:34' });
 		});
 
 		it('should call props onFinish when there is no error', async () => {
@@ -87,7 +87,7 @@ describe('Time component', () => {
 			});
 
 			// then
-			expect(props.onFinish).toBeCalledWith(expect.anything(), { schema, value: '12:34' });
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), { schema, value: '12:34' });
 		});
 		it('should NOT call props onFinish when there is an error', async () => {
 			// given
@@ -107,8 +107,8 @@ describe('Time component', () => {
 			});
 
 			// then
-			expect(props.onChange).toBeCalled();
-			expect(props.onFinish).not.toBeCalled();
+			expect(props.onChange).toHaveBeenCalled();
+			expect(props.onFinish).not.toHaveBeenCalled();
 		});
 	});
 });

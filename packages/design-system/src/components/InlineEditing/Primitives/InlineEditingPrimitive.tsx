@@ -12,7 +12,6 @@ import type {
 import { useTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
-import keycode from 'keycode';
 
 import { ButtonIcon } from '../../ButtonIcon';
 import { Form } from '../../Form';
@@ -192,11 +191,11 @@ const InlineEditingPrimitive = forwardRef(
 			},
 			// Keyboard shortcuts
 			onKeyDown: (event: RKeyboardEvent) => {
-				if (event.keyCode === keycode.codes.enter && mode !== 'multi') {
+				if (event.key === 'Enter' && mode !== 'multi') {
 					// Enter
 					handleSubmit(event);
 				}
-				if (event.keyCode === keycode.codes.esc) {
+				if (event.key === 'Escape' || event.key === 'Esc') {
 					handleCancel();
 				}
 			},

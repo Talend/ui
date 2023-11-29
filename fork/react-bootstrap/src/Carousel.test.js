@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Carousel from './Carousel';
@@ -48,7 +48,7 @@ describe('<Carousel>', () => {
         {null}
         {false}
         <Carousel.Item>Item 2 content</Carousel.Item>
-      </Carousel>
+      </Carousel>,
     );
 
     // then
@@ -64,41 +64,47 @@ describe('<Carousel>', () => {
     expect(list.querySelectorAll('li')).toHaveLength(2);
   });
 
-  it('Should call onSelect when indicator selected', () => {
+  it('Should call onSelect when indicator selected', async () => {
+    const user = userEvent.setup();
+
     // given
     const onSelect = jest.fn();
     render(
       <Carousel activeIndex={1} onSelect={onSelect}>
         {items}
-      </Carousel>
+      </Carousel>,
     );
 
     // when
-    userEvent.click(screen.getAllByRole('listitem')[0]);
+    await user.click(screen.getAllByRole('listitem')[0]);
 
     // then
-    expect(onSelect).toBeCalledWith(0);
+    expect(onSelect).toHaveBeenCalledWith(0);
   });
 
-  it('Should call onSelect with direction', () => {
+  it('Should call onSelect with direction', async () => {
+    const user = userEvent.setup();
+
     // given
     const onSelect = jest.fn((index, event) => {}); // force the event with direction by requiring event in callback
     render(
       <Carousel activeIndex={1} onSelect={onSelect}>
         {items}
-      </Carousel>
+      </Carousel>,
     );
 
     // when
-    userEvent.click(screen.getAllByRole('listitem')[0]);
+    await user.click(screen.getAllByRole('listitem')[0]);
 
     // then
-    expect(onSelect).toBeCalled();
+    expect(onSelect).toHaveBeenCalled();
     expect(onSelect.mock.calls[0][0]).toBe(0);
     expect(onSelect.mock.calls[0][1].direction).toBe('prev');
   });
 
-  it('Should call onSelect with direction when there is no event', () => {
+  it('Should call onSelect with direction when there is no event', async () => {
+    const user = userEvent.setup();
+
     // function onSelect(index, event) {
     //   expect(index).to.equal(0);
     //   expect(event.direction).to.equal('next');
@@ -112,54 +118,56 @@ describe('<Carousel>', () => {
     render(
       <Carousel activeIndex={1} onSelect={onSelect}>
         {items}
-      </Carousel>
+      </Carousel>,
     );
 
     // when
-    userEvent.click(screen.getByRole('button', { name: 'Next' }));
+    await user.click(screen.getByRole('button', { name: 'Next' }));
 
     // then
-    expect(onSelect).toBeCalled();
+    expect(onSelect).toHaveBeenCalled();
     expect(onSelect.mock.calls[0][0]).toBe(0);
     expect(onSelect.mock.calls[0][1].direction).toBe('next');
   });
 
-  it('Should show back button control on the first image if wrap is true', () => {
+  it('Should show back button control on the first image if wrap is true', async () => {
+    const user = userEvent.setup();
+
     // given
-    jest.useFakeTimers();
     render(
       <Carousel defaultActiveIndex={0} controls wrap>
         {items}
-      </Carousel>
+      </Carousel>,
     );
     expect(screen.getByText('Item 1 content')).toHaveClass('active');
 
     // when
-    userEvent.click(screen.getByRole('button', { name: 'Previous' }));
-    jest.runAllTimers();
+    await user.click(screen.getByRole('button', { name: 'Previous' }));
 
     // then
-    expect(screen.getByText('Item 2 content')).toHaveClass('active');
-    jest.useRealTimers();
+    await waitFor(() =>
+      expect(screen.getByText('Item 2 content')).toHaveClass('active'),
+    );
   });
 
-  it('Should show next button control on the last image if wrap is true', () => {
+  it('Should show next button control on the last image if wrap is true', async () => {
+    const user = userEvent.setup();
+
     // given
-    jest.useFakeTimers();
     render(
       <Carousel defaultActiveIndex={1} controls wrap>
         {items}
-      </Carousel>
+      </Carousel>,
     );
     expect(screen.getByText('Item 2 content')).toHaveClass('active');
 
     // when
-    userEvent.click(screen.getByRole('button', { name: 'Next' }));
-    jest.runAllTimers();
+    await user.click(screen.getByRole('button', { name: 'Next' }));
 
     // then
-    expect(screen.getByText('Item 1 content')).toHaveClass('active');
-    jest.useRealTimers();
+    await waitFor(() =>
+      expect(screen.getByText('Item 1 content')).toHaveClass('active'),
+    );
   });
 
   it('Should not show the prev button on the first image if wrap is false', () => {
@@ -167,12 +175,12 @@ describe('<Carousel>', () => {
     render(
       <Carousel defaultActiveIndex={0} controls wrap={false}>
         {items}
-      </Carousel>
+      </Carousel>,
     );
 
     // then
     expect(
-      screen.queryByRole('button', { name: 'Previous' })
+      screen.queryByRole('button', { name: 'Previous' }),
     ).not.toBeInTheDocument();
   });
 
@@ -181,12 +189,12 @@ describe('<Carousel>', () => {
     render(
       <Carousel defaultActiveIndex={1} controls wrap={false}>
         {items}
-      </Carousel>
+      </Carousel>,
     );
 
     // then
     expect(
-      screen.queryByRole('button', { name: 'Next' })
+      screen.queryByRole('button', { name: 'Next' }),
     ).not.toBeInTheDocument();
   });
 
@@ -203,15 +211,15 @@ describe('<Carousel>', () => {
         <Carousel.Item>Item 1 content</Carousel.Item>
         <Carousel.Item>Item 2 content</Carousel.Item>
         <Carousel.Item>Item 3 content</Carousel.Item>
-      </Carousel>
+      </Carousel>,
     );
 
     // then
     expect(
-      screen.getByRole('button', { name: 'Previous' }).firstChild
+      screen.getByRole('button', { name: 'Previous' }).firstChild,
     ).toHaveClass('ficon-left');
     expect(screen.getByRole('button', { name: 'Next' }).firstChild).toHaveClass(
-      'ficon-right'
+      'ficon-right',
     );
   });
 
@@ -228,35 +236,37 @@ describe('<Carousel>', () => {
         <Carousel.Item>Item 1 content</Carousel.Item>
         <Carousel.Item>Item 2 content</Carousel.Item>
         <Carousel.Item>Item 3 content</Carousel.Item>
-      </Carousel>
+      </Carousel>,
     );
 
     // then
     expect(
-      screen.getByRole('button', { name: 'Previous awesomeness' })
+      screen.getByRole('button', { name: 'Previous awesomeness' }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: 'Next awesomeness' })
+      screen.getByRole('button', { name: 'Next awesomeness' }),
     ).toBeInTheDocument();
   });
 
-  it('Should transition properly when slide animation is disabled', () => {
+  it('Should transition properly when slide animation is disabled', async () => {
+    const user = userEvent.setup();
+
     // given
     render(
       <Carousel defaultActiveIndex={0} slide={false}>
         {items}
-      </Carousel>
+      </Carousel>,
     );
     expect(screen.getByText('Item 1 content')).toHaveClass('active');
 
     // when
-    userEvent.click(screen.getByRole('button', { name: 'Next' }));
+    await user.click(screen.getByRole('button', { name: 'Next' }));
 
     // then
     expect(screen.getByText('Item 2 content')).toHaveClass('active');
 
     // when
-    userEvent.click(screen.getByRole('button', { name: 'Previous' }));
+    await user.click(screen.getByRole('button', { name: 'Previous' }));
 
     // then
     expect(screen.getByText('Item 1 content')).toHaveClass('active');
@@ -267,7 +277,7 @@ describe('<Carousel>', () => {
     // default active is the 2nd item, which will be removed on
     // subsequent render
     const { rerender } = render(
-      <Carousel defaultActiveIndex={1}>{items}</Carousel>
+      <Carousel defaultActiveIndex={1}>{items}</Carousel>,
     );
 
     expect(screen.getByText('Item 1 content')).not.toHaveClass('active');

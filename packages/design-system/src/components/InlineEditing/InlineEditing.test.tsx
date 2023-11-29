@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
-import { render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { InlineEditing } from './';
 
 jest.mock('@talend/utils', () => {
@@ -24,8 +24,8 @@ describe('InlineEditing', () => {
 				/>
 			</main>,
 		);
-		// eslint-disable-next-line testing-library/no-container
-		container.querySelector('button')?.click();
+
+		fireEvent.click(screen.getByTestId('inlineediting.button.edit'));
 		expect(container.firstChild).toMatchSnapshot();
 		const results = await axe(document.body);
 		expect(results).toHaveNoViolations();

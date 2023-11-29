@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import keycode from 'keycode';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
@@ -9,7 +8,7 @@ import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsPropsAndOmit
+  splitBsPropsAndOmit,
 } from './utils/bootstrapUtils';
 import createChainedFunction from './utils/createChainedFunction';
 import ValidComponentChildren from './utils/ValidComponentChildren';
@@ -20,12 +19,12 @@ const propTypes = {
   onClose: PropTypes.func,
   labelledBy: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onSelect: PropTypes.func,
-  rootCloseEvent: PropTypes.oneOf(['click', 'mousedown'])
+  rootCloseEvent: PropTypes.oneOf(['click', 'mousedown']),
 };
 
 const defaultProps = {
   bsRole: 'menu',
-  pullRight: false
+  pullRight: false,
 };
 
 class DropdownMenu extends React.Component {
@@ -73,17 +72,20 @@ class DropdownMenu extends React.Component {
   }
 
   handleKeyDown(event) {
-    switch (event.keyCode) {
-      case keycode.codes.down:
+    switch (event.key) {
+      case 'Down':
+      case 'ArrowDown':
         this.focusNext();
         event.preventDefault();
         break;
-      case keycode.codes.up:
+      case 'Up':
+      case 'ArrowUp':
         this.focusPrevious();
         event.preventDefault();
         break;
-      case keycode.codes.esc:
-      case keycode.codes.tab:
+      case 'Esc':
+      case 'Escape':
+      case 'Tab':
         this.props.onClose(event, { source: 'keydown' });
         break;
       default:
@@ -110,7 +112,7 @@ class DropdownMenu extends React.Component {
 
     const classes = {
       ...getClassSet(bsProps),
-      [prefix(bsProps, 'right')]: pullRight
+      [prefix(bsProps, 'right')]: pullRight,
     };
 
     return (
@@ -125,14 +127,14 @@ class DropdownMenu extends React.Component {
           className={classNames(className, classes)}
           aria-labelledby={labelledBy}
         >
-          {ValidComponentChildren.map(children, child =>
+          {ValidComponentChildren.map(children, (child) =>
             React.cloneElement(child, {
               onKeyDown: createChainedFunction(
                 child.props.onKeyDown,
-                this.handleKeyDown
+                this.handleKeyDown,
               ),
-              onSelect: createChainedFunction(child.props.onSelect, onSelect)
-            })
+              onSelect: createChainedFunction(child.props.onSelect, onSelect),
+            }),
           )}
         </ul>
       </RootCloseWrapper>

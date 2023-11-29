@@ -234,7 +234,7 @@ describe('cmfConnect', () => {
 					<CMFConnected />
 				</mock.Provider>,
 			);
-			expect(TestComponent).toBeCalled();
+			expect(TestComponent).toHaveBeenCalled();
 		});
 
 		it('should expose getState static function to get the state', () => {
@@ -772,9 +772,9 @@ describe('cmfConnect', () => {
 			);
 			const btn = screen.getByRole('button');
 			expect(btn.dataset.progress).toBe('false');
-			expect(context.store.dispatch).not.toBeCalled();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
 			fireEvent.click(btn, { type: 'click' });
-			expect(context.store.dispatch).toBeCalled();
+			expect(context.store.dispatch).toHaveBeenCalled();
 			const handler = context.store.dispatch.mock.calls[0][0];
 			handler();
 			const action = context.store.dispatch.mock.calls[1][0];

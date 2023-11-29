@@ -70,19 +70,21 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text C', onClick: onTextCClick },
 		];
 
-		it('should trigger action callback on item click', () => {
+		it('should trigger action callback on item click', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const clickedElementIndex = 1;
 
 			// when
 			const breadcrumbs = <Breadcrumbs items={actions} />;
 			render(breadcrumbs);
-			userEvent.click(screen.getByText(actions[clickedElementIndex].text));
+			await user.click(screen.getByText(actions[clickedElementIndex].text));
 
 			// then
-			expect(onTextAClick).not.toBeCalled();
-			expect(onTextBClick).toBeCalled();
-			expect(onTextCClick).not.toBeCalled();
+			expect(onTextAClick).not.toHaveBeenCalled();
+			expect(onTextBClick).toHaveBeenCalled();
+			expect(onTextCClick).not.toHaveBeenCalled();
 
 			const callArgs = onTextBClick.mock.calls[0];
 			expect(callArgs[1]).toBe(actions[clickedElementIndex]);

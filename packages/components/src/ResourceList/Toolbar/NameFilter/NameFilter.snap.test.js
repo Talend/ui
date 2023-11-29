@@ -14,7 +14,9 @@ describe('NameFilter component snaps', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should reset the filter', () => {
+	it('should reset the filter', async () => {
+		const user = userEvent.setup();
+
 		const onChange = jest.fn();
 		const props = {
 			onChange,
@@ -22,7 +24,7 @@ describe('NameFilter component snaps', () => {
 		};
 
 		render(<NameFilter {...props} />);
-		userEvent.click(screen.getByLabelText('Remove filter'));
+		await user.click(screen.getByLabelText('Remove filter'));
 
 		expect(onChange).toHaveBeenLastCalledWith({ target: { value: '' } });
 	});

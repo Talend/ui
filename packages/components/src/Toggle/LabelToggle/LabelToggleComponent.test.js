@@ -30,9 +30,10 @@ describe('LabelToggle', () => {
 		expect(screen.getByRole('radio', { name: 'B' })).toBeChecked();
 		expect(onChange).toHaveBeenCalledTimes(0);
 	});
-	it('should change the default value', () => {
+	it('should change the default value', async () => {
+		const user = userEvent.setup();
 		render(<LabelToggle {...props} />);
-		userEvent.click(screen.getByRole('radio', { name: 'A' }));
+		await user.click(screen.getByRole('radio', { name: 'A' }));
 		expect(onChange).toHaveBeenCalledTimes(1);
 		expect(onChange).toHaveBeenCalledWith('a');
 	});

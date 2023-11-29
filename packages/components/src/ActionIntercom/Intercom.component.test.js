@@ -46,13 +46,13 @@ describe('Intercom button', () => {
 
 	it('should boot intercom at mount', () => {
 		// given
-		expect(IntercomService.boot).not.toBeCalled();
+		expect(IntercomService.boot).not.toHaveBeenCalled();
 
 		// when
 		render(<Intercom id="my-intercom" config={config} />);
 
 		// then
-		expect(IntercomService.boot).toBeCalledWith('#my-intercom', config);
+		expect(IntercomService.boot).toHaveBeenCalledWith('#my-intercom', config);
 	});
 
 	it('should update intercom on config change', () => {
@@ -67,19 +67,19 @@ describe('Intercom button', () => {
 
 		// then
 		expect(IntercomService.boot.mock.calls.length).toBe(2);
-		expect(IntercomService.boot).toBeCalledWith('#my-intercom', newConfig);
+		expect(IntercomService.boot).toHaveBeenCalledWith('#my-intercom', newConfig);
 	});
 
 	it('should shutdown intercom at unmount', () => {
 		// given
 		const { rerender } = render(<Intercom id="my-intercom" config={config} />);
-		expect(IntercomService.shutdown).not.toBeCalled();
+		expect(IntercomService.shutdown).not.toHaveBeenCalled();
 
 		// when
 		rerender(<span>Unmounted</span>);
 
 		// then
-		expect(IntercomService.shutdown).toBeCalled();
+		expect(IntercomService.shutdown).toHaveBeenCalled();
 	});
 
 	it('should change label on open/close', () => {
@@ -87,7 +87,7 @@ describe('Intercom button', () => {
 		const { rerender } = render(<Intercom id="my-intercom" config={config} />);
 		const onShow = IntercomService.onShow.mock.calls[0][0];
 		const onHide = IntercomService.onHide.mock.calls[0][0];
-		expect(IntercomService.onShow).toBeCalled();
+		expect(IntercomService.onShow).toHaveBeenCalled();
 		expect(screen.getByRole('button')).toHaveAttribute('data-test', 'open');
 		// when/then show
 		act(() => {
@@ -106,13 +106,13 @@ describe('Intercom button', () => {
 
 	it('should set messenger position', () => {
 		// given
-		expect(IntercomService.setPosition).not.toBeCalled();
+		expect(IntercomService.setPosition).not.toHaveBeenCalled();
 
 		// when
 		render(<Intercom id="my-intercom" config={config} />);
 
 		// then
-		expect(IntercomService.setPosition).toBeCalled();
+		expect(IntercomService.setPosition).toHaveBeenCalled();
 	});
 
 	it('should focus on trigger button on hide', () => {

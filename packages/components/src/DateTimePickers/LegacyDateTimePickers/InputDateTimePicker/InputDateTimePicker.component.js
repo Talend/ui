@@ -2,7 +2,6 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import keycode from 'keycode';
 import { usePopper } from 'react-popper';
 import { randomUUID } from '@talend/utils';
 
@@ -57,13 +56,15 @@ function InputDateTimePicker(props) {
 	const closePicker = isPicked => setPickerVisibility(false, isPicked);
 
 	function onKeyDown(event, { onReset }) {
-		switch (event.keyCode) {
-			case keycode.codes.esc:
+		switch (event.key) {
+			case 'Esc':
+			case 'Escape':
 				onReset();
 				referenceElement.focus();
 				closePicker();
 				break;
-			case keycode.codes.down:
+			case 'Down':
+			case 'ArrowDown':
 				if (event.target !== referenceElement) {
 					return;
 				}

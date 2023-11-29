@@ -75,7 +75,13 @@ describe('CheckBox field', () => {
 		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: false });
-		expect(onFinish).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: false });
+		expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
+			schema,
+			value: false,
+		});
+		expect(onFinish).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
+			schema,
+			value: false,
+		});
 	});
 });

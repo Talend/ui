@@ -112,7 +112,9 @@ describe('useCollectionSort', () => {
 		expect(sortedCollection[7].firstName).toEqual('Shelly');
 	});
 
-	it('should sort with new sort params set', () => {
+	it('should sort with new sort params set', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const sortParams = {
 			sortBy: 'firstName',
@@ -121,7 +123,7 @@ describe('useCollectionSort', () => {
 		render(<SortComponent collection={collection} newValue={sortParams} />);
 
 		// when
-		userEvent.click(screen.getByText('setSortParams'));
+		await user.click(screen.getByText('setSortParams'));
 
 		// then
 		const sortedCollection = JSON.parse(

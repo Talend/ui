@@ -55,13 +55,15 @@ describe('MultiSelectTag field', () => {
 	});
 
 	it('should update suggestion on input change', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<MultiSelectTag {...props} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		await userEvent.click(input);
-		await userEvent.type(input, 'mobile');
+		await user.click(input);
+		await user.type(input, 'mobile');
 
 		// then
 		expect(screen.getByRole('listbox')).toBeInTheDocument();
@@ -87,59 +89,69 @@ describe('MultiSelectTag field', () => {
 	});
 
 	it('should suggest new item creation when widget is not restricted', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<MultiSelectTag {...props} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		await userEvent.click(input);
-		await userEvent.type(input, 'titi');
+		await user.click(input);
+		await user.type(input, 'titi');
 
 		// then
 		expect(screen.getByRole('option', { name: 'titi (new)' })).toBeInTheDocument();
 	});
 
 	it('should NOT suggest new item creation when widget is restricted', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const restrictedSchema = { ...props.schema, restricted: true };
 		render(<MultiSelectTag {...props} schema={restrictedSchema} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		await userEvent.click(input);
-		await userEvent.type(input, 'az');
+		await user.click(input);
+		await user.type(input, 'az');
 
 		// then
 		expect(screen.queryByRole('option', { name: 'az (new)' })).not.toBeInTheDocument();
 	});
 
 	it('should NOT suggest new item creation when a value already matches', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<MultiSelectTag {...props} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		await userEvent.click(input);
-		await userEvent.type(input, 'aze');
+		await user.click(input);
+		await user.type(input, 'aze');
 
 		// then
 		expect(screen.queryByRole('option', { name: 'aze (new)' })).not.toBeInTheDocument();
 	});
 
 	it('should NOT suggest new item creation when a suggestion matches', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<MultiSelectTag {...props} />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		await userEvent.click(input);
-		await userEvent.type(input, 'toto');
+		await user.click(input);
+		await user.type(input, 'toto');
 
 		// then
 		expect(screen.queryByRole('option', { name: 'toto (new)' })).not.toBeInTheDocument();
 	});
 
 	it('should add tag', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
@@ -147,14 +159,14 @@ describe('MultiSelectTag field', () => {
 		const input = screen.getByRole('textbox');
 
 		// when
-		await userEvent.click(input);
-		await userEvent.keyboard('titi');
-		await userEvent.click(screen.getByRole('option'));
+		await user.click(input);
+		await user.keyboard('titi');
+		await user.click(screen.getByRole('option'));
 
 		// then
 		const payload = { schema: props.schema, value: props.value.concat('titi') };
-		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(onFinish).toBeCalledWith(expect.anything(), payload);
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), payload);
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 	});
 
 	it('should remove tag', async () => {
@@ -169,8 +181,8 @@ describe('MultiSelectTag field', () => {
 
 		// then
 		const payload = { schema: props.schema, value: props.value.slice(1) };
-		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(onFinish).toBeCalledWith(expect.anything(), payload);
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), payload);
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 	});
 
 	it('should call onTrigger on focus', async () => {
@@ -183,6 +195,7 @@ describe('MultiSelectTag field', () => {
 			schema: {
 				...props.schema,
 				triggers: [{ onEvent: 'focus' }],
+				titleMap: data.titleMap,
 			},
 		};
 		render(<MultiSelectTag {...triggerProps} />);
@@ -191,7 +204,7 @@ describe('MultiSelectTag field', () => {
 		await userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(triggerProps.onTrigger).toBeCalledWith(expect.anything(), {
+		expect(triggerProps.onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			trigger: triggerProps.schema.triggers[0],
 			schema: triggerProps.schema,
 			errors: triggerProps.errors,
@@ -201,7 +214,7 @@ describe('MultiSelectTag field', () => {
 		expect(option).toBeInTheDocument();
 	});
 
-	it('should resolve name from value', () => {
+	it('should resolve name from value', async () => {
 		// given
 		const nameResolverProps = {
 			...props,
@@ -210,7 +223,7 @@ describe('MultiSelectTag field', () => {
 		render(<MultiSelectTag {...nameResolverProps} />);
 
 		// when
-		userEvent.click(screen.getByRole('textbox'));
+		await userEvent.click(screen.getByRole('textbox'));
 
 		// then
 		expect(screen.getByText('aze_name')).toBeInTheDocument();
@@ -223,7 +236,7 @@ describe('MultiSelectTag field', () => {
 		render(<MultiSelectTag {...propsWithBlur} />);
 
 		// when
-		await fireEvent.blur(screen.getByRole('textbox'));
+		fireEvent.blur(screen.getByRole('textbox'));
 
 		// then
 		expect(onBlur).toHaveBeenCalled();

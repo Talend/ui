@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import { FormControl } from '@talend/react-bootstrap';
-import keycode from 'keycode';
 import { useTranslation } from 'react-i18next';
 import { Action } from '../Actions';
 import Icon from '../Icon';
@@ -15,13 +14,14 @@ function forceBlur(event) {
 }
 
 function onKeyDown(event, escAction, enterAction) {
-	switch (event.keyCode) {
-		case keycode.codes.enter:
+	switch (event.key) {
+		case 'Enter':
 			if (enterAction) {
 				enterAction(event);
 			}
 			break;
-		case keycode.codes.esc:
+		case 'Esc':
+		case 'Escape':
 			if (escAction) {
 				escAction(event);
 			}
@@ -191,6 +191,7 @@ export default function FilterBar(props) {
 					disabled={props.disabled}
 					data-feature={props['data-feature']}
 					data-test={props['data-test']}
+					// eslint-disable-next-line jsx-a11y/no-autofocus
 					autoFocus={props.autoFocus}
 					id={props.id && `${props.id}-input`}
 					debounceMinLength={props.debounceMinLength}

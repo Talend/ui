@@ -37,7 +37,9 @@ const schema = {
 
 describe('RecordsViewerBranch', () => {
 	const dataKey = 'myDataKey';
-	it('should render the branch with children', () => {
+	it('should render the branch with children', async () => {
+		const user = userEvent.setup();
+
 		const onToggle = jest.fn();
 
 		const props = {
@@ -58,9 +60,9 @@ describe('RecordsViewerBranch', () => {
 		};
 		const { container } = render(<Component {...props} />);
 		expect(container.firstChild).toMatchSnapshot();
-		userEvent.click(screen.getByTestId('records-branch'));
-		userEvent.keyboard('{enter}');
-		userEvent.keyboard('{space}');
+		await user.click(screen.getByTestId('records-branch'));
+		await user.keyboard('{Enter}');
+		await user.keyboard('{Space}');
 
 		expect(onToggle).toHaveBeenCalledWith(
 			expect.anything(),
