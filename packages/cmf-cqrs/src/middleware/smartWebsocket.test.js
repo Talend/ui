@@ -208,13 +208,13 @@ describe('smart websocket tests', () => {
 			};
 			const result = SmartWebsocket(url, options); // eslint-disable-line
 			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			expect(options.onPingTimeout).not.toBeCalled();
+			expect(options.onPingTimeout).not.toHaveBeenCalled();
 
 			// when
 			jest.advanceTimersByTime(1);
 
 			// then
-			expect(options.onPingTimeout).toBeCalled();
+			expect(options.onPingTimeout).toHaveBeenCalled();
 			jest.useRealTimers();
 		});
 	});

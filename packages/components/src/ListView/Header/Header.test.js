@@ -20,7 +20,9 @@ describe('Header', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should trigger callback when clicking on header button', () => {
+	it('should trigger callback when clicking on header button', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			headerDefault: [
@@ -36,10 +38,10 @@ describe('Header', () => {
 
 		// when
 		render(<Header {...props} />);
-		userEvent.click(screen.getByLabelText('Search for specific values'));
+		await user.click(screen.getByLabelText('Search for specific values'));
 
 		// then
 		expect(screen.getAllByRole('link').length).toBe(1);
-		expect(props.headerDefault[0].onClick).toBeCalled();
+		expect(props.headerDefault[0].onClick).toHaveBeenCalled();
 	});
 });

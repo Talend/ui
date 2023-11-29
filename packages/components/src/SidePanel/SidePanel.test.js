@@ -25,24 +25,28 @@ describe('SidePanel', () => {
 		expect(screen.getAllByRole('presentation')).toHaveLength(3);
 	});
 
-	it('should trigger callback on toggle click (controlled)', () => {
+	it('should trigger callback on toggle click (controlled)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<SidePanel id="sp" {...props} onToggleDock={onToggleDock} docked />);
 
 		// when
-		userEvent.click(screen.getByLabelText('Expand menu'));
+		await user.click(screen.getByLabelText('Expand menu'));
 
 		// then
-		expect(onToggleDock).toBeCalled();
+		expect(onToggleDock).toHaveBeenCalled();
 		expect(screen.getByRole('navigation')).toHaveClass('docked');
 	});
 
-	it('should toggle panel (uncontrolled)', () => {
+	it('should toggle panel (uncontrolled)', async () => {
+		const user = userEvent.setup();
+
 		// given
 
 		// when
 		render(<SidePanel id="sp" {...props} docked />);
-		userEvent.click(screen.getByLabelText('Expand menu'));
+		await user.click(screen.getByLabelText('Expand menu'));
 
 		// then
 		expect(screen.getByRole('navigation')).not.toHaveClass('docked');

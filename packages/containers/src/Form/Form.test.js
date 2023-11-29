@@ -52,8 +52,8 @@ describe('Container(Form)', () => {
 			setState,
 		});
 		form.onErrors(event, { foo: 'bar' });
-		expect(onErrors).toBeCalledWith(event, { foo: 'bar' });
-		expect(setState).toBeCalledWith({ errors: { foo: 'bar' } });
+		expect(onErrors).toHaveBeenCalledWith(event, { foo: 'bar' });
+		expect(setState).toHaveBeenCalledWith({ errors: { foo: 'bar' } });
 	});
 
 	it('should use props.onSubmit', () => {

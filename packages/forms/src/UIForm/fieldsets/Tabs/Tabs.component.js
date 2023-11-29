@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+
 import { Tabs } from '@talend/design-system';
 
-import Widget from '../../Widget';
 import { isValid } from '../../utils/validation';
+import Widget from '../../Widget';
 
 function TabsAdapter(props) {
 	const { schema, ...restProps } = props;

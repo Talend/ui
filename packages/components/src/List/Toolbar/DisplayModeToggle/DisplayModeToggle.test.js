@@ -25,13 +25,15 @@ describe('DisplayModeToggle', () => {
 		expect(btn).toHaveAttribute('aria-pressed', 'true');
 		expect(btn.querySelector('svg')).toHaveAttribute('name', 'talend-table');
 	});
-	it('should call onChange when change display mode', () => {
+	it('should call onChange when change display mode', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<DisplayModeToggle {...props} mode="table" />);
 
 		// when
 		const btn = screen.getAllByRole('button')[1];
-		userEvent.click(btn);
+		await user.click(btn);
 
 		// then
 		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), 'large');

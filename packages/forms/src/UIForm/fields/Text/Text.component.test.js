@@ -195,7 +195,7 @@ describe('Text field', () => {
 		screen.getByLabelText('My input title').blur();
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything(event), { schema: defaultSchema });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(event), { schema: defaultSchema });
 	});
 
 	it('should render hidden input', () => {

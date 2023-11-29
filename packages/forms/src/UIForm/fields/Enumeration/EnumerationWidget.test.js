@@ -142,7 +142,7 @@ describe('EnumerationWidget', () => {
 		await userEvent.click(screen.getByRole('link', { name: 'Validate' }));
 
 		// then
-		expect(onTrigger).toBeCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_RENAME_ACTION',
@@ -177,7 +177,7 @@ describe('EnumerationWidget', () => {
 		jest.useRealTimers();
 
 		// then
-		expect(onTrigger).toBeCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_SEARCH_ACTION',
@@ -206,7 +206,7 @@ describe('EnumerationWidget', () => {
 		await userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
 
 		// then
-		expect(onTrigger).toBeCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_ADD_ACTION',
@@ -238,7 +238,7 @@ describe('EnumerationWidget', () => {
 		await userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
 
 		// then
-		expect(onTrigger).toBeCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_ADD_ACTION',
@@ -270,7 +270,7 @@ describe('EnumerationWidget', () => {
 		await userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
 
 		// then
-		expect(onTrigger).toBeCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			schema: {
 				disableSplit: true,
 			},
@@ -299,7 +299,7 @@ describe('EnumerationWidget', () => {
 		await userEvent.click(screen.getByRole('link', { name: 'Remove value' }));
 
 		// then
-		expect(onTrigger).toBeCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_REMOVE_ACTION',
@@ -327,7 +327,7 @@ describe('EnumerationWidget', () => {
 		await userEvent.click(screen.getByRole('link', { name: 'Remove value' }));
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { schema: {}, value: [] });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema: {}, value: [] });
 	});
 
 	it('should select an item', async () => {
@@ -401,7 +401,7 @@ describe('EnumerationWidget', () => {
 		jest.useRealTimers();
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { schema: {}, value: [] });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema: {}, value: [] });
 	});
 
 	describe('upload file', () => {

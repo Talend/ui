@@ -21,16 +21,19 @@ function FormWrapper({ children, onSubmit }) {
 
 describe('Input RHF widget', () => {
 	it('should integrate with RHF', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onSubmit = jest.fn();
 		// when
+		render(
+			<FormWrapper onSubmit={onSubmit}>
+				<Input type="text" id="name" name="name" label="name" defaultValue="12" />
+			</FormWrapper>,
+		);
+		const input = screen.getByLabelText('name');
+
 		await act(async () => {
-			render(
-				<FormWrapper onSubmit={onSubmit}>
-					<Input type="text" id="name" name="name" label="name" defaultValue="12" />
-				</FormWrapper>,
-			);
-			const input = screen.getByLabelText('name');
 			fireEvent.click(input);
 			fireEvent.submit(input.form);
 		});
@@ -40,12 +43,9 @@ describe('Input RHF widget', () => {
 		expect(onSubmit.mock.calls[0][0]).toEqual({ name: '12' });
 
 		// when
-		await act(async () => {
-			const input = screen.getByLabelText('name');
-			await userEvent.click(input);
-			await userEvent.clear(input);
-			await userEvent.keyboard('test{Enter}');
-		});
+		await user.click(input);
+		await user.clear(input);
+		await user.keyboard('test{Enter}');
 
 		// then
 		expect(onSubmit.mock.calls[1][0]).toEqual({ name: 'test' });
@@ -55,26 +55,24 @@ describe('Input RHF widget', () => {
 		// given
 		const onSubmit = jest.fn();
 		// when
-		await act(async () => {
-			render(
-				<FormWrapper onSubmit={onSubmit}>
-					<Input
-						type="text"
-						id="name"
-						name="name"
-						label="name"
-						defaultValue="12"
-						required
-						rules={{
-							required: 'This should not be empty',
-						}}
-					/>
-				</FormWrapper>,
-			);
-			// then
-			const input = screen.getByLabelText('name');
-			await userEvent.clear(input);
-		});
+		render(
+			<FormWrapper onSubmit={onSubmit}>
+				<Input
+					type="text"
+					id="name"
+					name="name"
+					label="name"
+					defaultValue="12"
+					required
+					rules={{
+						required: 'This should not be empty',
+					}}
+				/>
+			</FormWrapper>,
+		);
+		// then
+		const input = screen.getByLabelText('name');
+		await userEvent.clear(input);
 
 		expect(screen.getByText('This should not be empty')).toBeInTheDocument();
 	});

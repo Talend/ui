@@ -45,7 +45,9 @@ describe('ColumnChooser', () => {
 		// Then
 		expect(screen.getByTestId('my-child')).toBeVisible();
 	});
-	it('should trigger the onSubmit props', () => {
+	it('should trigger the onSubmit props', async () => {
+		const user = userEvent.setup();
+
 		// Given
 		const onSubmit = jest.fn();
 		const props = {
@@ -55,7 +57,7 @@ describe('ColumnChooser', () => {
 		};
 		// When
 		render(<Component {...props} />);
-		userEvent.click(screen.getByLabelText('Apply'));
+		await user.click(screen.getByLabelText('Apply'));
 
 		// Then
 		expect(onSubmit).toHaveBeenCalled();

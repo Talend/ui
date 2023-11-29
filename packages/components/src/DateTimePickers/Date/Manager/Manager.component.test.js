@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -195,6 +197,8 @@ describe('Date.Manager', () => {
 					dateFormat: 'DD/MM/YYYY',
 				},
 			])('$name', async ({ textInput, expectedDate, dateFormat }) => {
+				const user = userEvent.setup();
+
 				// given
 				render(
 					<Manager id={DEFAULT_ID} dateFormat={dateFormat}>
@@ -203,8 +207,8 @@ describe('Date.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
-				await userEvent.keyboard(textInput);
+				await user.click(screen.getByTestId('DateConsumerDivInput'));
+				await user.keyboard(textInput);
 
 				// then
 				const props = JSON.parse(screen.getByTestId('DateConsumerDiv').dataset.props);
@@ -215,6 +219,8 @@ describe('Date.Manager', () => {
 			});
 
 			it('should trigger props.onChange with valid date', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -222,14 +228,14 @@ describe('Date.Manager', () => {
 						<DateConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
-				await userEvent.keyboard('2015-01-15');
+				await user.click(screen.getByTestId('DateConsumerDivInput'));
+				await user.keyboard('2015-01-15');
 
 				// then
-				expect(onChange).toBeCalledWith(expect.anything(), {
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 					date: new Date(2015, 0, 15),
 					origin: 'INPUT',
 					textInput: '2015-01-15',
@@ -239,6 +245,8 @@ describe('Date.Manager', () => {
 			});
 
 			it('should trigger props.onChange with invalid date', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -246,14 +254,14 @@ describe('Date.Manager', () => {
 						<DateConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
-				await userEvent.keyboard('2015-01-15');
+				await user.click(screen.getByTestId('DateConsumerDivInput'));
+				await user.keyboard('2015-01-15');
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toMatchObject({
 					type: 'change',
@@ -284,6 +292,8 @@ describe('Date.Manager', () => {
 					expectedTextInput: '15/01/2015',
 				},
 			])('$name', async ({ date, expectedTextInput, dateFormat }) => {
+				const user = userEvent.setup();
+
 				// given
 				render(
 					<Manager id={DEFAULT_ID} dateFormat={dateFormat} value={date}>
@@ -292,7 +302,7 @@ describe('Date.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByRole('button'));
+				await user.click(screen.getByRole('button'));
 
 				// then
 				const props = JSON.parse(screen.getByTestId('DateConsumerDiv').dataset.props);
@@ -300,24 +310,25 @@ describe('Date.Manager', () => {
 			});
 
 			it('should trigger props.onChange with valid date', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
-				const event = { target: {}, preventDefault: () => {} };
 				render(
 					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateConsumer />
 					</Manager>,
 				);
 
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('DateConsumerDivInput'));
-				await userEvent.keyboard('2015-01-15');
-				await userEvent.click(screen.getByRole('button'));
+				await user.click(screen.getByTestId('DateConsumerDivInput'));
+				await user.keyboard('2015-01-15');
+				await user.click(screen.getByRole('button'));
 
 				// then
-				expect(onChange).toBeCalledWith(
+				expect(onChange).toHaveBeenCalledWith(
 					expect.anything({
 						type: 'change',
 						target: expect.anything({

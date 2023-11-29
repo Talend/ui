@@ -3,7 +3,6 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
-import keycode from 'keycode';
 import memoizeOne from 'memoize-one';
 
 import theme from './MultiSelect.module.scss';
@@ -98,7 +97,7 @@ class MultiSelect extends Component {
 	}
 
 	onInputKeyDown(event) {
-		if (event.which === keycode.codes.esc) {
+		if (event.key === 'Esc' || event.key === 'Escape') {
 			event.preventDefault();
 			this.setState({ showDropdown: false });
 		}

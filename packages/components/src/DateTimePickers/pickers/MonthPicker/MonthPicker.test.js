@@ -21,16 +21,18 @@ describe('MonthPicker', () => {
 		expect(screen.getByText('May')).toHaveClass('theme-selected');
 	});
 
-	it('should trigger props.onSelect on selection', () => {
+	it('should trigger props.onSelect on selection', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onSelect = jest.fn();
 		render(<MonthPicker onSelect={onSelect} />);
 
 		// when
-		userEvent.click(screen.getByText('May'));
+		await user.click(screen.getByText('May'));
 
 		// then
-		expect(onSelect).toBeCalledWith(expect.anything(), 4);
+		expect(onSelect).toHaveBeenCalledWith(expect.anything(), 4);
 	});
 
 	it('should manage tabIndex', () => {

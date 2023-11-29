@@ -1,23 +1,9 @@
-import { act } from 'react-dom/test-utils';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TooltipTrigger from './TooltipTrigger.component';
 
-function runAllTimers() {
-	act(() => {
-		jest.runAllTimers();
-	});
-}
-
 describe('ActionTooltip', () => {
-	beforeEach(() => {
-		jest.useFakeTimers();
-	});
-	afterEach(() => {
-		jest.useRealTimers();
-	});
-
-	it('should render only the children', () => {
+	it('should render only the children', async () => {
 		// given
 		const props = {
 			label: 'toto',
@@ -33,9 +19,9 @@ describe('ActionTooltip', () => {
 				</TooltipTrigger>
 			</div>,
 		);
-		runAllTimers();
+
 		// then
-		expect(screen.getByText('Action')).toBeVisible();
+		expect(await screen.findByText('Action')).toBeVisible();
 		expect(screen.queryByText('toto')).not.toBeInTheDocument();
 	});
 
@@ -55,13 +41,12 @@ describe('ActionTooltip', () => {
 		);
 
 		await userEvent.hover(screen.getByText('Action'));
-		runAllTimers();
 
 		// then
 		expect(await screen.findByText('toto')).toBeVisible();
 	});
 
-	it('should render custom tooltip when focus the children', () => {
+	it('should render custom tooltip when focus the children', async () => {
 		// given
 		const props = {
 			label: <div>a custom tooltip</div>,
@@ -76,9 +61,8 @@ describe('ActionTooltip', () => {
 			</TooltipTrigger>,
 		);
 		screen.getByText('Action').focus();
-		runAllTimers();
 
 		// then
-		expect(screen.getByText('a custom tooltip')).toBeVisible();
+		expect(await screen.findByText('a custom tooltip')).toBeVisible();
 	});
 });

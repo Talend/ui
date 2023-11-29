@@ -1,10 +1,11 @@
-import set from 'lodash/set';
-import cloneDeep from 'lodash/cloneDeep';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import createCollapsibleFieldset, { defaultTitle } from './CollapsibleFieldset.component';
+import cloneDeep from 'lodash/cloneDeep';
+import set from 'lodash/set';
+
 import { WidgetContext } from '../../context';
 import widgets from '../../utils/widgets';
+import createCollapsibleFieldset, { defaultTitle } from './CollapsibleFieldset.component';
 
 jest.unmock('@talend/design-system');
 
@@ -136,7 +137,7 @@ describe('CollapsibleFieldset', () => {
 		await userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(props.onChange).toBeCalledWith(expect.anything(), {
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 			schema: extendedSchema,
 			value: { ...value, isClosed: false },
 		});

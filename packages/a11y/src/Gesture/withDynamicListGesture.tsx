@@ -1,5 +1,4 @@
 import { Component, createRef } from 'react';
-import keycode from 'keycode';
 import { focusOn, WithFocus } from './focus';
 
 function getAllItems(ref: HTMLElement): NodeListOf<HTMLButtonElement> {
@@ -76,29 +75,31 @@ export class WithDynamicListGesture extends Component<WithDynamicListGestureProp
 	}
 
 	onKeyDown(event: KeyboardEvent, options: FocusOnOption) {
-		switch (event.keyCode) {
-			case keycode.codes.up:
+		switch (event.key) {
+			case 'Up':
+			case 'ArrowUp':
 				event.preventDefault();
 				event.stopPropagation();
 				if (this.myRef?.current) {
 					focusOnPreviousItem(this.myRef.current, options, this.props.goToPreviousPage);
 				}
 				break;
-			case keycode.codes.down:
+			case 'Down':
+			case 'ArrowDown':
 				event.preventDefault();
 				event.stopPropagation();
 				if (this.myRef?.current) {
 					focusOnNextItem(this.myRef.current, options, this.props.goToNextPage);
 				}
 				break;
-			case keycode.codes['page up']:
+			case 'PageUp':
 				event.preventDefault();
 				event.stopPropagation();
 				if (this.myRef?.current) {
 					focusOnNextPage(this.myRef.current, options, this.props.goToPreviousPage);
 				}
 				break;
-			case keycode.codes['page down']:
+			case 'PageDown':
 				event.preventDefault();
 				event.stopPropagation();
 				if (this.myRef?.current) {

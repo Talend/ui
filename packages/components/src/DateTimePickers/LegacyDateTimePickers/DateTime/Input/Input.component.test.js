@@ -35,7 +35,9 @@ describe('DateTime.Input', () => {
 		expect(input).toHaveValue('2007-01-02');
 	});
 
-	it('should call manager focus callback in input focus', () => {
+	it('should call manager focus callback in input focus', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const managerValue = {
 			errorManagement: {
@@ -51,12 +53,12 @@ describe('DateTime.Input', () => {
 				<Input aria-labelledby="labelId" />
 			</DateTimeContext.Provider>,
 		);
-		expect(managerValue.errorManagement.onInputFocus).not.toBeCalled();
+		expect(managerValue.errorManagement.onInputFocus).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByRole('textbox'));
+		await user.click(screen.getByRole('textbox'));
 
 		// then
-		expect(managerValue.errorManagement.onInputFocus).toBeCalled();
+		expect(managerValue.errorManagement.onInputFocus).toHaveBeenCalled();
 	});
 });

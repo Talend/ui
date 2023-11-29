@@ -40,26 +40,26 @@ export function merge(
 	//simple case, we have a "...", just put the formItemRest there
 	if (stdForm.form && idxRest !== -1) {
 		let formKeys = form
-			.map(function(obj) {
+			.map(function (obj) {
 				if (typeof obj === 'string') {
 					return obj;
 				} else if (obj.key) {
 					return obj.key;
 				}
 			})
-			.filter(function(element) {
+			.filter(function (element) {
 				return element !== undefined;
 			});
 
 		formItemRest = formItemRest.concat(
 			stdForm.form
-				.map(function(obj) {
+				.map(function (obj) {
 					let isInside = formKeys.indexOf(obj.key[0]) !== -1;
 					if (!isInside) {
 						return obj;
 					}
 				})
-				.filter(function(element) {
+				.filter(function (element) {
 					return element !== undefined;
 				}),
 		);

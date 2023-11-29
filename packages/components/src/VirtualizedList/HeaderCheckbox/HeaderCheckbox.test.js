@@ -24,11 +24,13 @@ describe('Header "Select All" checkbox', () => {
 		expect(container.firstChild).toMatchSnapshot();
 		expect(screen.getByText('Select all')).toBeVisible();
 	});
-	it('should trigger onToggleAll callback on checkbox toggle', () => {
+	it('should trigger onToggleAll callback on checkbox toggle', async () => {
+		const user = userEvent.setup();
+
 		// when
 		render(<HeaderCheckbox columnData={columnData} />);
 
-		userEvent.click(screen.getByRole('checkbox'));
+		await user.click(screen.getByRole('checkbox'));
 
 		// then
 		expect(columnData.onToggleAll).toHaveBeenCalled();

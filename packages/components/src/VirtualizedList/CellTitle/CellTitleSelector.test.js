@@ -50,7 +50,9 @@ describe('CellTitleSelector', () => {
 		expect(screen.getByRole('link')).toHaveTextContent('my value');
 	});
 
-	it('should trigger callback on link click', () => {
+	it('should trigger callback on link click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const rowData = { id: 1 };
 		const onClick = jest.fn();
@@ -67,10 +69,10 @@ describe('CellTitleSelector', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('link'));
+		await user.click(screen.getByRole('link'));
 
 		// then
-		expect(onClick).toBeCalledWith(expect.anything(clickEvent), rowData);
+		expect(onClick).toHaveBeenCalledWith(expect.anything(clickEvent), rowData);
 	});
 
 	it('should render the simple text', () => {

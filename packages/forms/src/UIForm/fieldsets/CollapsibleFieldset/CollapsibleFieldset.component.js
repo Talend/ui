@@ -1,11 +1,13 @@
 import { useCallback } from 'react';
 
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { InlineMessageInformation, CollapsiblePanel } from '@talend/design-system';
 import get from 'lodash/get';
-import Widget from '../../Widget';
+import PropTypes from 'prop-types';
+
+import { CollapsiblePanel, InlineMessageInformation } from '@talend/design-system';
+
 import { generateDescriptionId } from '../../Message/generateId';
+import Widget from '../../Widget';
 
 import theme from './CollapsibleFieldset.module.scss';
 

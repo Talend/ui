@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import keycode from 'keycode';
 import { FormControl } from '@talend/react-bootstrap';
 
 import { ButtonIcon, Icon } from '@talend/design-system';
@@ -43,8 +42,8 @@ export function AdvancedSearch({
 		if (onKeyDown) {
 			onKeyDown(event, query);
 		} else {
-			switch (event.keyCode) {
-				case keycode.codes.enter:
+			switch (event.key) {
+				case 'Enter':
 					formSubmit(event);
 					break;
 				default:

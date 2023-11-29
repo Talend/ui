@@ -95,7 +95,7 @@ describe('HeaderResizable', () => {
 
 		// when
 		fireEvent.mouseDown(screen.getByTestId('resize-input-button-ally'));
-		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { keyCode: 39 });
+		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { key: 'ArrowRight' });
 		// then
 		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, 10);
 	});
@@ -110,7 +110,7 @@ describe('HeaderResizable', () => {
 			</virtualizedListContext.Provider>,
 		);
 		// when
-		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { keyCode: 'something' });
+		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { key: 'something' });
 		// then
 		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, 0);
 	});
@@ -125,7 +125,7 @@ describe('HeaderResizable', () => {
 			</virtualizedListContext.Provider>,
 		);
 		// when
-		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { keyCode: 37 });
+		fireEvent.keyDown(screen.getByTestId('resize-input-button-ally'), { key: 'ArrowLeft' });
 		// then
 		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, -10);
 	});

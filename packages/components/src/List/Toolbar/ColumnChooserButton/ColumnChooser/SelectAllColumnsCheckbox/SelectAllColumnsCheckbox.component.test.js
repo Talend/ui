@@ -18,7 +18,9 @@ describe('SelectAllColumnsCheckbox', () => {
 		// then
 		expect(container.firstChild).toMatchSnapshot();
 	});
-	it('should call the onSelectAll when onChange is triggered by a checked checkbox', () => {
+	it('should call the onSelectAll when onChange is triggered by a checked checkbox', async () => {
+		const user = userEvent.setup();
+
 		// Given
 		const onChange = jest.fn();
 		const props = {
@@ -30,13 +32,15 @@ describe('SelectAllColumnsCheckbox', () => {
 
 		// When
 		render(<Component {...props} />);
-		userEvent.click(screen.getByRole('checkbox'));
+		await user.click(screen.getByRole('checkbox'));
 
 		// Then
 		expect(onChange).toHaveBeenNthCalledWith(1, false, 'Unselect all');
 	});
 
-	it('should call the onSelectAll when onChange is triggered by an indeterminate checkbox', () => {
+	it('should call the onSelectAll when onChange is triggered by an indeterminate checkbox', async () => {
+		const user = userEvent.setup();
+
 		// Given
 		const onChange = jest.fn();
 		const props = {
@@ -49,7 +53,7 @@ describe('SelectAllColumnsCheckbox', () => {
 
 		// When
 		render(<Component {...props} />);
-		userEvent.click(screen.getByRole('checkbox'));
+		await user.click(screen.getByRole('checkbox'));
 
 		// Then
 		expect(onChange).toHaveBeenNthCalledWith(1, true, 'Select all');

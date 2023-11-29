@@ -14,13 +14,15 @@ jest.mock('../../Core', () => ({
 jest.unmock('@talend/design-system');
 
 describe('RecordsCellRenderer', () => {
-	it('should render Tree from Core', () => {
+	it('should render Tree from Core', async () => {
+		const user = userEvent.setup();
+
 		const onToggle = jest.fn();
 		render(
 			<Component index={0} value={[{ data: 'myData' }]} onToggle={onToggle} measure={jest.fn()} />,
 		);
 		expect(screen.getByTestId('tree')).toBeInTheDocument();
-		userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 		expect(onToggle).toHaveBeenCalled();
 		const props = JSON.parse(screen.getByTestId('props').dataset.props);
 		expect(props).toMatchSnapshot();

@@ -1,17 +1,21 @@
-import keycode from 'keycode';
 import { KeyboardEvent } from 'react';
 
 export function preventScroll(evt: KeyboardEvent<HTMLElement>) {
 	const arrows = [
-		keycode.codes.left,
-		keycode.codes.right,
-		keycode.codes.up,
-		keycode.codes.down,
-		keycode.codes.home,
-		keycode.codes['page up'],
-		keycode.codes['page down'],
+		'ArrowLeft',
+		'ArrowRight',
+		'ArrowUp',
+		'ArrowDown',
+		'Home',
+		'PageUp',
+		'PageDown',
+		// Arrow key management for old browsers
+		'Left',
+		'Right',
+		'Up',
+		'Down',
 	];
-	if (arrows.includes(evt.keyCode)) {
+	if (arrows.includes(evt.key)) {
 		evt.preventDefault();
 	}
 }

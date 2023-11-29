@@ -2,7 +2,7 @@ import { cloneElement } from 'react';
 import ReactDOM from 'react-dom';
 
 export function shouldWarn(about) {
-  console.error.expected.push(about); // eslint-disable-line no-console
+	console.error.expected.push(about); // eslint-disable-line no-console
 }
 
 /**
@@ -13,18 +13,17 @@ export function shouldWarn(about) {
  * @return {ComponentInstance}        The instance, with a new method `renderWithProps` which will return a new instance with updated props
  */
 export function render(element, mountPoint) {
-  let mount = mountPoint || document.createElement('div');
-  let instance = ReactDOM.render(element, mount);
+	const mount = mountPoint || document.createElement('div');
+	const instance = ReactDOM.createRoot(element, mount);
 
-  if (instance && !instance.renderWithProps) {
-    instance.renderWithProps = newProps =>
-      render(cloneElement(element, newProps), mount);
-  }
+	if (instance && !instance.renderWithProps) {
+		instance.renderWithProps = newProps => render(cloneElement(element, newProps), mount);
+	}
 
-  return instance;
+	return instance;
 }
 
 export function getOne(collection) {
-  expect(collection.length).to.equal(1);
-  return collection[0];
+	expect(collection.length).to.equal(1);
+	return collection[0];
 }
