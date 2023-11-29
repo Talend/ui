@@ -85,7 +85,7 @@ export const Enumeration = ({
 				const newItems = [...items];
 				newItems[indexToReplace] = value;
 				onChange(newItems);
-				onEdit?.(value);
+				await onEdit?.(value);
 			}
 		} catch (e) {
 			//The parent component must do the error handling
