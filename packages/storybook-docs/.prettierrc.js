@@ -20,4 +20,5 @@ module.exports = {
 			},
 		},
 	],
+	importOrderParserPlugins: ['jsx', 'typescript'],
 };

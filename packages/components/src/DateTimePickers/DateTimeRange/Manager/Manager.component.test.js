@@ -2,8 +2,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Manager from './Manager.component';
 import { DateTimeRangeContext } from '../Context';
+import Manager from './Manager.component';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
@@ -65,6 +65,8 @@ describe('DateTime.Manager', () => {
 				next: new Date(2019, 11, 11),
 			},
 		])('$name', async ({ prev, field, next }) => {
+			const user = userEvent.setup();
+
 			// given
 			const getProps = jest.fn();
 			const { rerender } = render(
@@ -82,7 +84,7 @@ describe('DateTime.Manager', () => {
 			);
 
 			// then
-			await userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const contextValue = getProps.mock.calls[0][0];
 			expect(contextValue[field]).toEqual(next);
 		});
@@ -102,6 +104,8 @@ describe('DateTime.Manager', () => {
 					expected: new Date(2015, 0, 15),
 				},
 			])('$name', async ({ field, prop, expected }) => {
+				const user = userEvent.setup();
+
 				// given
 				const getProps = jest.fn();
 				render(
@@ -117,8 +121,8 @@ describe('DateTime.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByTestId('callme'));
-				await userEvent.click(screen.getByTestId('getProps'));
+				await user.click(screen.getByTestId('callme'));
+				await user.click(screen.getByTestId('getProps'));
 
 				// then
 				const props = getProps.mock.calls[0][0];
@@ -140,6 +144,8 @@ describe('DateTime.Manager', () => {
 					expected: new Date(2015, 0, 15),
 				},
 			])('$name', async ({ prop, field, expected }) => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -149,10 +155,10 @@ describe('DateTime.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByTestId('callme'));
+				await user.click(screen.getByTestId('callme'));
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[1][field]).toBe(expected);
 			});

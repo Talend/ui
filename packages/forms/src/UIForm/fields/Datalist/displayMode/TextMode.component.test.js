@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import DatalistTextMode from './TextMode.component';
 
 jest.unmock('@talend/design-system');
@@ -66,7 +67,7 @@ describe('Datalist component in text display mode', () => {
 		render(<DatalistTextMode {...props} value="foo" />);
 
 		// then
-		expect(props.onTrigger).toBeCalledWith(null, {
+		expect(props.onTrigger).toHaveBeenCalledWith(null, {
 			trigger: props.schema.triggers[0],
 			schema: props.schema,
 			errors: props.errors,

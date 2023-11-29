@@ -52,13 +52,13 @@ describe('CMF registry', () => {
 		console.warn = jest.fn();
 		registry.addToRegistry('jso', 'value');
 
-		expect(console.warn).not.toBeCalled();
+		expect(console.warn).not.toHaveBeenCalled();
 
 		// when
 		registry.addToRegistry('jso', 'otherValue');
 
 		// then
-		expect(console.warn).not.toBeCalledWith(
+		expect(console.warn).not.toHaveBeenCalledWith(
 			"CMF: The 'key' object is registered, overriding and existing 'key' object. " +
 				'Please check your CMF configuration, you might not want that.',
 		);

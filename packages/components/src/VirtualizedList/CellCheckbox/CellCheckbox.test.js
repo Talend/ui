@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import CellCheckbox from './CellCheckbox.component';
 
 const columnData = {
@@ -55,16 +56,18 @@ describe('CellActions', () => {
 		expect(screen.getByRole('radio')).not.toBeChecked();
 	});
 
-	it('should trigger callback on checkbox toggle', () => {
+	it('should trigger callback on checkbox toggle', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const rowData = { id: 1 };
 
 		// when
 		render(<CellCheckbox cellData columnData={columnData} rowData={rowData} rowIndex={25} />);
-		userEvent.click(screen.getByRole('checkbox'));
+		await user.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(columnData.onChange).toBeCalledWith(
+		expect(columnData.onChange).toHaveBeenCalledWith(
 			expect.anything({ type: 'click', target: 'lol' }),
 			rowData,
 		);

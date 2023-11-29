@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import OrderChooser from './OrderChooser.component';
@@ -28,7 +28,9 @@ describe('OrderChooser', () => {
 
 		expect(screen.getByLabelText('Sort by date').children[1]).toHaveClass('theme-asc');
 	});
-	it('should pass onClick', () => {
+	it('should pass onClick', async () => {
+		const user = userEvent.setup();
+
 		const props = {
 			icon: 'talend-sort-asc',
 			label: 'Sort by date',
@@ -36,7 +38,7 @@ describe('OrderChooser', () => {
 			onClick: jest.fn(),
 		};
 		render(<OrderChooser {...props} />);
-		userEvent.click(screen.getByLabelText('Sort by date'));
+		await user.click(screen.getByLabelText('Sort by date'));
 		expect(props.onClick).toHaveBeenCalled();
 	});
 });

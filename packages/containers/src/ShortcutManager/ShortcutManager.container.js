@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import keycode from 'keycode';
+
 import keys from 'lodash/keys';
+
 import { cmfConnect } from '@talend/react-cmf';
 
 /**
@@ -48,7 +49,10 @@ class ShortcutManager extends Component {
 	}
 
 	handleKeyPress(event) {
-		const redirectMap = this.props.redirectMap[keycode(event.keyCode)];
+		// toLowerCase allows to handle retro-compatibility
+		const redirectMap =
+			this.props.redirectMap[event.key] || this.props.redirectMap[event.key.toLowerCase()];
+
 		if (redirectMap) {
 			if (redirectMap[this.props.pathname]) {
 				this.redirect(event, redirectMap[this.props.pathname]);

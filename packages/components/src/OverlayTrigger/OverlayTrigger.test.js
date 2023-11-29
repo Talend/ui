@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import OverlayTrigger from './OverlayTrigger.component';
 
 jest.mock('./overlay', () => ({
@@ -22,7 +23,9 @@ jest.mock('./overlay', () => ({
 const Overlay = <div data-testid="TestOverlay">Overlay</div>;
 
 describe('OverlayTrigger', () => {
-	it('should wrap the children with an overlay', () => {
+	it('should wrap the children with an overlay', async () => {
+		const user = userEvent.setup();
+
 		const overlayPlacement = 'top';
 		render(
 			<OverlayTrigger
@@ -35,11 +38,13 @@ describe('OverlayTrigger', () => {
 			</OverlayTrigger>,
 		);
 		expect(screen.queryByTestId('TestOverlay')).not.toBeInTheDocument();
-		userEvent.click(screen.getByText('wrap me'));
+		await user.click(screen.getByText('wrap me'));
 		expect(screen.getByTestId('TestOverlay')).toBeInTheDocument();
 	});
 
-	it('should determinate the adapted position when the overlay is open', () => {
+	it('should determinate the adapted position when the overlay is open', async () => {
+		const user = userEvent.setup();
+
 		render(
 			<OverlayTrigger
 				overlayId="myId"
@@ -50,7 +55,7 @@ describe('OverlayTrigger', () => {
 				<div>wrap me</div>
 			</OverlayTrigger>,
 		);
-		userEvent.click(screen.getByText('wrap me'));
+		await user.click(screen.getByText('wrap me'));
 		expect(screen.getByRole('tooltip')).toHaveClass('top');
 	});
 });

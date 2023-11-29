@@ -1,6 +1,7 @@
-import Immutable from 'immutable';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import Immutable from 'immutable';
+
 import TreeManager, {
 	addPathsToCollection,
 	removePathsFromCollection,
@@ -29,6 +30,8 @@ describe('TreeManager#onToggle', () => {
 		setState: jest.fn(),
 	};
 	it('when the handler emitter is an union, and has been click for the first time', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const options = {
 			firstClickUnion: true,
@@ -45,11 +48,13 @@ describe('TreeManager#onToggle', () => {
 				)}
 			/>,
 		);
-		await userEvent.click(screen.getByTestId('btn'));
+		await user.click(screen.getByTestId('btn'));
 		// then nothing
 		expect(setStateSpy).not.toHaveBeenCalled();
 	});
 	it('default', async () => {
+		const user = userEvent.setup();
+
 		// when
 		const options = {
 			firstClickUnion: false,
@@ -66,7 +71,7 @@ describe('TreeManager#onToggle', () => {
 				)}
 			/>,
 		);
-		await userEvent.click(screen.getByTestId('btn'));
+		await user.click(screen.getByTestId('btn'));
 		// then
 		expect(setStateSpy).toHaveBeenCalled();
 	});

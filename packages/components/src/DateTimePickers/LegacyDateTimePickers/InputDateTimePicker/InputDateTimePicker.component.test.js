@@ -1,5 +1,5 @@
 // rewrite using rtl
-import { screen, render } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
@@ -11,13 +11,15 @@ function getPopup() {
 describe('InputDateTimePicker', () => {
 	describe('focus/blur', () => {
 		it('should open picker on focus', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<InputDateTimePicker id="my-picker" />);
 			expect(screen.getByRole('textbox')).toBeVisible();
 			expect(getPopup()).not.toBeInTheDocument();
 
 			// when
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 
 			// then
 			expect(screen.getByRole('textbox')).toHaveFocus();
@@ -25,82 +27,85 @@ describe('InputDateTimePicker', () => {
 		});
 
 		it('should close picker on blur', async () => {
+			const user = userEvent.setup();
+
 			// given
-			jest.useFakeTimers();
 			render(<InputDateTimePicker id="my-picker" />);
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 
 			// when
 			screen.getByRole('textbox').blur();
-			jest.runAllTimers();
 
 			// then
-			expect(getPopup()).not.toBeInTheDocument();
-			jest.useRealTimers();
+			await waitFor(() => expect(getPopup()).not.toBeInTheDocument());
 		});
 
 		it('should trigger props.onBlur', async () => {
+			const user = userEvent.setup();
+
 			// given
-			jest.useFakeTimers();
 			const onBlur = jest.fn();
 			render(<InputDateTimePicker id="my-picker" onBlur={onBlur} />);
-			await userEvent.click(screen.getByRole('textbox'));
-			expect(onBlur).not.toBeCalled();
+			await user.click(screen.getByRole('textbox'));
+			expect(onBlur).not.toHaveBeenCalled();
 
 			// when
 			screen.getByRole('textbox').blur();
-			jest.runAllTimers();
 
 			// then
-			expect(onBlur).toBeCalled();
-			jest.useRealTimers();
+			await waitFor(() => expect(onBlur).toHaveBeenCalled());
 		});
 	});
 
 	describe('keydown', () => {
 		it('should close the picker and focus on input with ESC', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<InputDateTimePicker id="my-picker" />);
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 
 			// when
-			await userEvent.keyboard('{Escape}');
+			await user.keyboard('{Escape}');
 
 			// then
-			expect(getPopup()).toBeNull();
+			await waitFor(() => expect(getPopup()).toBeNull());
 		});
 
 		it('should open picker if it is closed with DOWN on input', async () => {
+			const user = userEvent.setup();
+
 			// given
 			render(<InputDateTimePicker id="my-picker" />);
 
 			// when
-			await userEvent.click(screen.getByRole('textbox'));
-			await userEvent.keyboard('{Escape}');
-			await userEvent.keyboard('{ArrowDown}');
+			await user.click(screen.getByRole('textbox'));
+			await user.keyboard('{Escape}');
+			await user.keyboard('{ArrowDown}');
 
 			// then
 			expect(getPopup()).not.toBeNull();
 		});
 
 		it('should focus on calendar day if it is open with input DOWN', async () => {
+			const user = userEvent.setup();
+
 			// given
-			jest.useFakeTimers();
 			render(<InputDateTimePicker id="my-picker" />);
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 
 			// when
-			await userEvent.keyboard('{ArrowDown}'); //open
-			jest.runAllTimers();
+			await user.keyboard('{ArrowDown}'); //open
 
 			// then
-			expect(document.activeElement).toHaveClass('tc-date-picker-day');
-			jest.useRealTimers();
+			await waitFor(() => expect(document.activeElement).toHaveClass('tc-date-picker-day'));
 		});
 	});
 
 	describe('onChange', () => {
 		it('should trigger props.onChange', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onChange = jest.fn();
 			const payload = {
@@ -111,16 +116,16 @@ describe('InputDateTimePicker', () => {
 				errorMessage: null,
 			};
 			render(<InputDateTimePicker id="my-picker" onChange={onChange} useTime />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
-			await userEvent.click(screen.getByRole('textbox'));
-			await userEvent.keyboard('2015-01-15 15:45');
+			await user.click(screen.getByRole('textbox'));
+			await user.keyboard('2015-01-15 15:45');
 			// blur
-			await userEvent.keyboard('{Enter}');
+			await user.keyboard('{Enter}');
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), payload);
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), payload);
 		});
 
 		test.each([
@@ -137,6 +142,8 @@ describe('InputDateTimePicker', () => {
 				useTime: true,
 			},
 		])('$name', async ({ expectedOverlay, formMode, useTime }) => {
+			const user = userEvent.setup();
+
 			// given
 			render(
 				<InputDateTimePicker
@@ -147,7 +154,7 @@ describe('InputDateTimePicker', () => {
 				/>,
 			);
 			// when
-			await userEvent.click(screen.getByRole('textbox'));
+			await user.click(screen.getByRole('textbox'));
 
 			// then
 			expect(getPopup() !== null).toBe(expectedOverlay);

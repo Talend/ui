@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Datalist from './Datalist.component';
@@ -39,12 +39,14 @@ describe('Datalist component', () => {
 		expect(screen.getByRole('textbox')).toBeInTheDocument();
 	});
 
-	it('should show all suggestions on focus (even with a value)', () => {
+	it('should show all suggestions on focus (even with a value)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<Datalist id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />);
 
 		// when
-		fireEvent.click(screen.getByRole('textbox'));
+		await user.click(screen.getByRole('textbox'));
 
 		// then
 		// container.getElementsByClassName('');
@@ -54,12 +56,14 @@ describe('Datalist component', () => {
 		expect(screen.getByTitle('My mdr')).toBeInTheDocument();
 	});
 
-	it('should show all suggestions on down press (even with a value)', () => {
+	it('should show all suggestions on down press (even with a value)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<Datalist id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />);
 
 		// when
-		userEvent.type(screen.getByRole('textbox'), '{down}');
+		await user.type(screen.getByRole('textbox'), '{Down}');
 
 		// then
 		// container.getElementsByClassName('');
@@ -69,12 +73,14 @@ describe('Datalist component', () => {
 		expect(screen.getByTitle('My mdr')).toBeInTheDocument();
 	});
 
-	it('should show all suggestions on up press (even with a value)', () => {
+	it('should show all suggestions on up press (even with a value)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<Datalist id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />);
 
 		// when
-		userEvent.type(screen.getByRole('textbox'), '{up}');
+		await user.type(screen.getByRole('textbox'), '{Up}');
 
 		// then
 		// container.getElementsByClassName('');
@@ -84,12 +90,15 @@ describe('Datalist component', () => {
 		expect(screen.getByTitle('My mdr')).toBeInTheDocument();
 	});
 
-	it('should show suggestions that match filter', () => {
+	it('should show suggestions that match filter', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<Datalist id="my-datalist" isValid onChange={jest.fn()} {...props} />);
 
 		// when
-		userEvent.type(screen.getByRole('textbox'), 'foo');
+		const textbox = screen.getByRole('textbox');
+		await user.type(textbox, 'foo');
 
 		// then
 		// container.getElementsByClassName('');
@@ -99,13 +108,16 @@ describe('Datalist component', () => {
 		expect(screen.queryByTitle('My mdr')).not.toBeInTheDocument();
 	});
 
-	it('should show suggestions in group that match filter', () => {
+	it('should show suggestions in group that match filter', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const multiSectionProps = { ...props, titleMap: multiSectionMap };
 		render(<Datalist id="my-datalist" multiSection onChange={jest.fn()} {...multiSectionProps} />);
 
 		// when
-		userEvent.type(screen.getByRole('textbox'), 'foo');
+		const textbox = screen.getByRole('textbox');
+		await user.type(textbox, 'foo');
 
 		// then
 		expect(screen.getByTitle('My foo')).toBeInTheDocument();
@@ -114,21 +126,25 @@ describe('Datalist component', () => {
 		expect(screen.queryByTitle('My lol')).not.toBeInTheDocument();
 	});
 
-	it('should call callback on focus event', () => {
+	it('should call callback on focus event', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onFocus = jest.fn();
 		render(<Datalist id="my-datalist" onChange={jest.fn()} onFocus={onFocus} {...props} />);
 		const input = screen.getByRole('textbox');
-		expect(onFocus).not.toBeCalled();
+		expect(onFocus).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(input);
+		await user.click(input);
 
 		// then
-		expect(onFocus).toBeCalled();
+		expect(onFocus).toHaveBeenCalled();
 	});
 
-	it('should call callback on input live change', () => {
+	it('should call callback on input live change', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onLiveChange = jest.fn();
 		render(
@@ -137,13 +153,13 @@ describe('Datalist component', () => {
 		const input = screen.getByRole('textbox');
 
 		// when
-		userEvent.type(input, 'lo');
+		await user.type(input, 'lo');
 
 		// then
-		expect(onLiveChange).toBeCalledWith(expect.anything(), 'lo');
+		expect(onLiveChange).toHaveBeenCalledWith(expect.anything(), 'lo');
 	});
 
-	it('should call callback on blur', () => {
+	it('should call callback on blur', async () => {
 		// given
 		const onBlur = jest.fn();
 		render(<Datalist id="my-datalist" onChange={jest.fn()} onBlur={onBlur} {...props} />);
@@ -153,86 +169,90 @@ describe('Datalist component', () => {
 		fireEvent.blur(input);
 
 		// then
-		expect(onBlur).toBeCalled();
+		await waitFor(() => expect(onBlur).toHaveBeenCalled());
 	});
 
-	it('should close suggestions on blur', () => {
+	it('should close suggestions on blur', async () => {
+		const user = userEvent.setup();
+
 		// given
-		jest.useFakeTimers();
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} />);
 		const input = screen.getByRole('textbox');
-		fireEvent.click(input);
+		await user.click(input);
 
 		expect(screen.getByRole('listbox')).toBeInTheDocument();
 
 		// when
 		fireEvent.blur(input);
-		jest.runAllTimers(); // focus manager
 
 		// then
-		expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
-		jest.useRealTimers();
+		await waitFor(() => expect(screen.queryByRole('listbox')).not.toBeInTheDocument());
 	});
 
-	it('should close suggestions on enter', () => {
+	it('should close suggestions on enter', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} />);
 		const input = screen.getByRole('textbox');
 		expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
 
-		userEvent.click(input);
+		await user.click(input);
 		expect(screen.getByRole('listbox')).toBeInTheDocument();
 
 		// when
-		userEvent.type(input, '{enter}');
+		await user.type(input, '{Enter}');
 
 		// then
 		expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
 	});
 
-	it('should close suggestions on esc', () => {
+	it('should close suggestions on esc', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} />);
 		const input = screen.getByRole('textbox');
-		fireEvent.click(input);
+		await user.click(input);
 
 		expect(screen.getByRole('listbox')).toBeInTheDocument();
 
 		// when
-		userEvent.type(input, '{esc}');
+		await user.type(input, '{Esc}');
 
 		// then
 		expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
 	});
 
-	it('should clear input', () => {
-		// given
-		jest.useFakeTimers();
-		const onChange = jest.fn();
-		render(<Datalist id="my-datalist" onChange={onChange} {...props} value="foo" />);
+	it('should clear input', async () => {
+		const user = userEvent.setup();
 
-		// when
-		const input = screen.getByRole('textbox');
-		userEvent.clear(input);
-		fireEvent.blur(input);
-		jest.runAllTimers(); // focus manager
-
-		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
-		jest.useRealTimers();
-	});
-
-	it('should reset previous value on ESC keydown', () => {
 		// given
 		const onChange = jest.fn();
 		render(<Datalist id="my-datalist" onChange={onChange} {...props} value="foo" />);
 
 		// when
 		const input = screen.getByRole('textbox');
-		userEvent.type(input, 'whatever{esc}');
+		await user.clear(input);
+		fireEvent.blur(input);
 
 		// then
-		expect(onChange).not.toBeCalled();
+		await waitFor(() => expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: '' }));
+	});
+
+	it('should reset previous value on ESC keydown', async () => {
+		const user = userEvent.setup();
+
+		// given
+		const onChange = jest.fn();
+		render(<Datalist id="my-datalist" onChange={onChange} {...props} value="foo" />);
+
+		// when
+		const input = screen.getByRole('textbox');
+		await user.type(input, 'whatever{Esc}');
+
+		// then
+		expect(onChange).not.toHaveBeenCalled();
 		expect(input).toHaveValue('My foo');
 	});
 
@@ -270,7 +290,9 @@ describe('Datalist component', () => {
 		expect(screen.getByRole('textbox')).toHaveValue('My foo updated');
 	});
 
-	it('should keep filter when titleMap is updated', () => {
+	it('should keep filter when titleMap is updated', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const testProps = {
 			id: 'my-datalist',
@@ -281,14 +303,16 @@ describe('Datalist component', () => {
 		const { rerender } = render(<Datalist {...testProps} />);
 
 		// when
-		userEvent.type(screen.getByRole('textbox'), 'a');
+		await user.type(screen.getByRole('textbox'), 'a');
 		rerender(<Datalist {...testProps} titleMap={[...props.titleMap]} />);
 
 		// then
 		expect(screen.getByRole('textbox')).toHaveValue('a');
 	});
 
-	it('should keep filter when titleMap is updated and value is empty', () => {
+	it('should keep filter when titleMap is updated and value is empty', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const testProps = {
 			id: 'my-datalist',
@@ -299,7 +323,7 @@ describe('Datalist component', () => {
 		const { rerender } = render(<Datalist {...testProps} />);
 
 		// when
-		userEvent.type(screen.getByRole('textbox'), 'a');
+		await user.type(screen.getByRole('textbox'), 'a');
 		rerender(<Datalist {...testProps} titleMap={[...props.titleMap]} />);
 
 		// then
@@ -340,13 +364,15 @@ describe('Datalist component', () => {
 		expect(screen.getByRole('textbox')).toHaveValue(newTitleMap[0].name);
 	});
 
-	it('should set highlight on current value suggestion', () => {
+	it('should set highlight on current value suggestion', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} value="foo" />);
 		const input = screen.getByRole('textbox');
 
 		// when
-		userEvent.click(input);
+		await user.click(input);
 
 		// then
 		expect(screen.getByTitle('My foo')).toHaveClass('theme-selected');
@@ -355,186 +381,205 @@ describe('Datalist component', () => {
 	});
 
 	describe('non restricted mode (default)', () => {
-		it('should persist known value on blur', () => {
+		it('should persist known value on blur', async () => {
+			const user = userEvent.setup();
+
 			// given
-			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			const input = screen.getByRole('textbox');
-			userEvent.type(input, 'foo');
+			await user.type(input, 'foo');
 			fireEvent.blur(input);
-			jest.runAllTimers(); // focus manager
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
-			jest.useRealTimers();
+			await waitFor(() =>
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' }),
+			);
 		});
 
-		it('should persist unknown value on blur', () => {
+		it('should persist unknown value on blur', async () => {
+			const user = userEvent.setup();
+
 			// given
-			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} />);
 
 			// when
 			const input = screen.getByRole('textbox');
-			userEvent.type(input, 'not a known value');
+			await user.type(input, 'not a known value');
 			fireEvent.blur(input);
-			jest.runAllTimers(); // focus manager
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not a known value' });
-			jest.useRealTimers();
+			await waitFor(() =>
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'not a known value' }),
+			);
 		});
 
-		it('should persist known value on enter', () => {
+		it('should persist known value on enter', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			const input = screen.getByRole('textbox');
-			userEvent.type(input, 'foo{enter}');
+			await user.type(input, 'foo{enter}');
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
 		});
 
-		it('should persist unknown value on enter', () => {
+		it('should persist unknown value on enter', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} />);
 
 			// when
 			const input = screen.getByRole('textbox');
-			userEvent.type(input, 'not a known value{enter}');
+			await user.type(input, 'not a known value{enter}');
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not a known value' });
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'not a known value' });
 		});
 	});
 
 	describe('allowAddNewElements mode', () => {
-		it('should persist new value on blur', () => {
+		it('should persist new value on blur', async () => {
+			const user = userEvent.setup();
+
 			// given
-			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" allowAddNewElements onChange={onChange} {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 			const input = screen.getByRole('textbox');
 
 			// when
-			userEvent.type(input, 'not there');
+			await user.type(input, 'not there');
 			expect(screen.getByTitle('not there (new)')).toBeInTheDocument();
 			fireEvent.blur(input);
-			jest.runAllTimers(); // focus manager
 
-			// // then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not there' });
-			jest.useRealTimers();
+			// then
+			await waitFor(() =>
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'not there' }),
+			);
 		});
 	});
 
 	describe('restricted mode', () => {
-		it('should persist known value on blur', () => {
-			// given
-			jest.useFakeTimers();
-			const onChange = jest.fn();
-			render(<Datalist id="my-datalist" onChange={onChange} restricted {...props} />);
-			expect(onChange).not.toBeCalled();
-			const input = screen.getByRole('textbox');
+		it('should persist known value on blur', async () => {
+			const user = userEvent.setup();
 
-			// when
-			userEvent.type(input, 'foo');
-			fireEvent.blur(input);
-			jest.runAllTimers(); // focus manager
-
-			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
-			jest.useRealTimers();
-		});
-
-		it('should reset unknown value on blur', () => {
-			// given
-			jest.useFakeTimers();
-			const onChange = jest.fn();
-			render(<Datalist id="my-datalist" onChange={onChange} {...props} restricted value="foo" />);
-
-			// when
-			const input = screen.getByRole('textbox');
-			userEvent.type(input, 'not a known value');
-			fireEvent.blur(input);
-			jest.runAllTimers(); // focus manager
-
-			// then
-			expect(onChange).not.toBeCalled();
-			expect(input).toHaveValue('My foo');
-			jest.useRealTimers();
-		});
-
-		it('should persist known value on enter', () => {
 			// given
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} restricted {...props} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
+			const input = screen.getByRole('textbox');
 
 			// when
-			const input = screen.getByRole('textbox');
-			userEvent.type(input, 'foo{enter}');
+			await user.type(input, 'foo');
+			fireEvent.blur(input);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
+			await waitFor(() =>
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' }),
+			);
 		});
 
-		it('should reset unknown value on enter', () => {
+		it('should reset unknown value on blur', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} restricted value="foo" />);
 
 			// when
 			const input = screen.getByRole('textbox');
-			userEvent.type(input, 'not a known value{enter}');
-
-			// then
-			expect(onChange).not.toBeCalled();
-			expect(input).toHaveValue('My foo');
-		});
-
-		it('should persist empty value on enter', () => {
-			// given
-			const onChange = jest.fn();
-			render(<Datalist id="my-datalist" value="foo" onChange={onChange} restricted {...props} />);
-			expect(onChange).not.toBeCalled();
-
-			// when
-			const input = screen.getByRole('textbox');
-			userEvent.clear(input);
-			userEvent.type(input, '{enter}');
-
-			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
-		});
-
-		it('should persist empty value on blur', () => {
-			// given
-			jest.useFakeTimers();
-			const onChange = jest.fn();
-			render(<Datalist id="my-datalist" value="foo" onChange={onChange} restricted {...props} />);
-			expect(onChange).not.toBeCalled();
-
-			// when
-			const input = screen.getByRole('textbox');
-			userEvent.clear(input);
+			await user.type(input, 'not a known value');
 			fireEvent.blur(input);
-			jest.runAllTimers(); // focus manager
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
-			jest.useRealTimers();
+			await Promise.all([
+				waitFor(() => expect(onChange).not.toHaveBeenCalled()),
+				waitFor(() => expect(input).toHaveValue('My foo')),
+			]);
+		});
+
+		it('should persist known value on enter', async () => {
+			const user = userEvent.setup();
+
+			// given
+			const onChange = jest.fn();
+			render(<Datalist id="my-datalist" onChange={onChange} restricted {...props} />);
+			expect(onChange).not.toHaveBeenCalled();
+
+			// when
+			const input = screen.getByRole('textbox');
+			await user.type(input, 'foo{Enter}');
+
+			// then
+			await waitFor(() =>
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' }),
+			);
+		});
+
+		it('should reset unknown value on enter', async () => {
+			const user = userEvent.setup();
+
+			// given
+			const onChange = jest.fn();
+			render(<Datalist id="my-datalist" onChange={onChange} {...props} restricted value="foo" />);
+
+			// when
+			const input = screen.getByRole('textbox');
+			await user.type(input, 'not a known value{Enter}');
+
+			// then
+			await Promise.all([
+				waitFor(() => expect(onChange).not.toHaveBeenCalled()),
+				waitFor(() => expect(input).toHaveValue('My foo')),
+			]);
+		});
+
+		it('should persist empty value on enter', async () => {
+			const user = userEvent.setup();
+
+			// given
+			const onChange = jest.fn();
+			render(<Datalist id="my-datalist" value="foo" onChange={onChange} restricted {...props} />);
+			expect(onChange).not.toHaveBeenCalled();
+
+			// when
+			const input = screen.getByRole('textbox');
+			await user.clear(input);
+			await user.type(input, '{Enter}');
+
+			// then
+			await waitFor(() => expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: '' }));
+		});
+
+		it('should persist empty value on blur', async () => {
+			const user = userEvent.setup();
+
+			// given
+			const onChange = jest.fn();
+			render(<Datalist id="my-datalist" value="foo" onChange={onChange} restricted {...props} />);
+			expect(onChange).not.toHaveBeenCalled();
+
+			// when
+			const input = screen.getByRole('textbox');
+			await user.clear(input);
+
+			fireEvent.blur(input);
+
+			// then
+			await waitFor(() => expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: '' }));
 		});
 	});
 });

@@ -44,8 +44,8 @@ describe('Intercom service', () => {
 			IntercomService.boot('#widgetId', newConfig);
 
 			// then
-			expect(window.Intercom).toBeCalledWith('reattach_activator');
-			expect(window.Intercom).toBeCalledWith('update', newConfig);
+			expect(window.Intercom).toHaveBeenCalledWith('reattach_activator');
+			expect(window.Intercom).toHaveBeenCalledWith('update', newConfig);
 		});
 
 		it('should boot with config', () => {
@@ -58,7 +58,7 @@ describe('Intercom service', () => {
 			IntercomService.boot('#widgetId', newConfig);
 
 			// then
-			expect(window.Intercom).toBeCalledWith('boot', {
+			expect(window.Intercom).toHaveBeenCalledWith('boot', {
 				app_id: 'lol',
 				widget: { activator: '#widgetId' },
 				hide_default_launcher: true,
@@ -77,7 +77,7 @@ describe('Intercom service', () => {
 			IntercomService.update(config);
 
 			// then
-			expect(window.Intercom).toBeCalledWith('update', config);
+			expect(window.Intercom).toHaveBeenCalledWith('update', config);
 		});
 	});
 
@@ -92,7 +92,7 @@ describe('Intercom service', () => {
 			IntercomService.update(config);
 
 			// then
-			expect(window.Intercom).toBeCalledWith('update', config);
+			expect(window.Intercom).toHaveBeenCalledWith('update', config);
 		});
 	});
 
@@ -106,7 +106,7 @@ describe('Intercom service', () => {
 			IntercomService.shutdown();
 
 			// then
-			expect(window.Intercom).toBeCalledWith('shutdown');
+			expect(window.Intercom).toHaveBeenCalledWith('shutdown');
 		});
 	});
 
@@ -121,7 +121,7 @@ describe('Intercom service', () => {
 			IntercomService.onHide(onHideCallback);
 
 			// then
-			expect(window.Intercom).toBeCalledWith('onHide', onHideCallback);
+			expect(window.Intercom).toHaveBeenCalledWith('onHide', onHideCallback);
 		});
 	});
 

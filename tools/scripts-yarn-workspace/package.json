@@ -1,26 +1,26 @@
 {
-	"name": "@talend/scripts-yarn-workspace",
-	"version": "2.0.0",
-	"description": "yarn workspace commands but more friendly",
-	"type": "module",
-	"bin": {
-		"talend-yarn-workspace": "./src/index.js"
-	},
-	"scripts": {
-		"lint": "talend-scripts lint"
-	},
-	"author": "frontend@talend.com",
-	"devDependencies": {
-		"@talend/eslint-config": "^13.0.1",
-		"@talend/eslint-plugin": "^1.1.0",
-		"@talend/scripts-core": "^16.3.0"
-	},
-	"license": "Apache-2.0",
-	"publishConfig": {
-		"access": "public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Talend/ui"
-	}
+  "name": "@talend/scripts-yarn-workspace",
+  "version": "2.0.0",
+  "description": "yarn workspace commands but more friendly",
+  "type": "module",
+  "bin": {
+    "talend-yarn-workspace": "./src/index.js"
+  },
+  "scripts": {
+    "lint": "talend-scripts lint"
+  },
+  "author": "frontend@talend.com",
+  "devDependencies": {
+    "@talend/eslint-config": "^13.0.1",
+    "@talend/eslint-plugin": "^1.1.0",
+    "@talend/scripts-core": "^16.3.0"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui"
+  }
 }

@@ -1,4 +1,4 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import omit from 'lodash/omit';
 
@@ -161,7 +161,7 @@ describe('Select field', () => {
 		fireEvent.change(screen.getByRole('combobox'), event);
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(event), { schema, value: 'bar' });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(event), { schema, value: 'bar' });
 	});
 
 	it('should trigger array onChange', async () => {

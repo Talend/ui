@@ -18,7 +18,7 @@ export function name(key: Array<string>, separator?: string, formName = '', omit
 		let fieldSeparator = separator || '-';
 
 		if (omitNumbers) {
-			fieldKey = fieldKey.filter(function(currentKey: any) {
+			fieldKey = fieldKey.filter(function (currentKey: any) {
 				return typeof currentKey !== 'number';
 			});
 		}

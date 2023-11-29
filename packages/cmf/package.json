@@ -61,7 +61,7 @@
     "@talend/scripts-config-babel": "^13.2.0",
     "@talend/scripts-config-jest": "^13.1.1",
     "@talend/scripts-config-react-webpack": "^16.3.1",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^14.0.0",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.11",
     "node-fetch": "^2.7.0",

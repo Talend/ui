@@ -1,15 +1,17 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import keycode from 'keycode';
+
 import get from 'lodash/get';
-import Typeahead from '@talend/react-components/lib/Typeahead';
+import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
 import FocusManager from '@talend/react-components/lib/FocusManager';
-import FieldTemplate from '../FieldTemplate';
+import Typeahead from '@talend/react-components/lib/Typeahead';
+
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import callTrigger from '../../trigger';
+import FieldTemplate from '../FieldTemplate';
 
 import theme from './MultiSelectTag.module.scss';
-import callTrigger from '../../trigger';
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -65,20 +67,22 @@ export default class MultiSelectTag extends Component {
 	 * @param { number } newHighlightedItemIndex
 	 */
 	onKeyDown(event, { highlightedItemIndex, newHighlightedItemIndex }) {
-		switch (event.which) {
-			case keycode.codes.enter:
+		switch (event.key) {
+			case 'Enter':
 				event.preventDefault();
 				// suggestions are displayed and an item has the focus : we select it
 				if (Number.isInteger(highlightedItemIndex)) {
 					this.onAddTag(event, { itemIndex: highlightedItemIndex });
 				}
 				break;
-			case keycode.codes.down:
-			case keycode.codes.up:
+			case 'Down':
+			case 'ArrowDown':
+			case 'Up':
+			case 'ArrowUp':
 				event.preventDefault();
 				this.setState({ focusedItemIndex: newHighlightedItemIndex });
 				break;
-			case keycode.codes.backspace:
+			case 'Backspace':
 				if (!this.state.value && this.props.value.length) {
 					this.onRemoveTag(event, this.props.value.length - 1);
 				}
@@ -284,6 +288,7 @@ export default class MultiSelectTag extends Component {
 	}
 }
 
+// eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
 	MultiSelectTag.propTypes = {
 		id: PropTypes.string,

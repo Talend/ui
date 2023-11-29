@@ -1,14 +1,15 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import { useState } from 'react';
+
 import PropTypes from 'prop-types';
-import keycode from 'keycode';
-import { FormControl } from '@talend/react-bootstrap';
 
 import { ButtonIcon, Icon } from '@talend/design-system';
+import { FormControl } from '@talend/react-bootstrap';
 import { getTheme } from '@talend/react-components/lib/theme';
 
-import { useFacetedSearchContext } from '../context/facetedSearch.context';
 import { USAGE_TRACKING_TAGS } from '../../constants';
+import { useFacetedSearchContext } from '../context/facetedSearch.context';
+
 import theme from './AdvancedSearch.module.scss';
 
 const css = getTheme(theme);
@@ -43,8 +44,8 @@ export function AdvancedSearch({
 		if (onKeyDown) {
 			onKeyDown(event, query);
 		} else {
-			switch (event.keyCode) {
-				case keycode.codes.enter:
+			switch (event.key) {
+				case 'Enter':
 					formSubmit(event);
 					break;
 				default:

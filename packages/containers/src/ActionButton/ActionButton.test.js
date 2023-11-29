@@ -1,11 +1,12 @@
-import { screen, render } from '@testing-library/react';
-import cmf, { mock } from '@talend/react-cmf';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import cmf, { mock } from '@talend/react-cmf';
+
 import Connected, {
+	ContainerActionButton,
 	mapStateToProps,
 	mergeProps,
-	ContainerActionButton,
 } from './ActionButton.connect';
 
 jest.unmock('@talend/design-system');
@@ -81,7 +82,7 @@ describe('CMF(Container(ActionButton))', () => {
 				<ContainerActionButton {...props} />
 			</App>,
 		);
-		userEvent.click(screen.getByRole('button'));
+		await userEvent.click(screen.getByRole('button'));
 		expect(dispatch).toHaveBeenCalledWith({
 			model: props.model,
 			...props.payload,

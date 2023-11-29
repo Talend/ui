@@ -3,6 +3,7 @@
   "include": ["custom.d.ts", "src/**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
     "allowJs": true,
     "checkJs": false,
     "declaration": true,

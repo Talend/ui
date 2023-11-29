@@ -1,11 +1,14 @@
-import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import AppSwitcher from './AppSwitcher.component';
 
 jest.unmock('@talend/design-system');
 
 describe('AppSwitcher', () => {
-	it('should render the products', () => {
+	it('should render the products', async () => {
+		const user = userEvent.setup();
+
 		const brand = {
 			id: 'brand',
 			label: 'My App',
@@ -32,13 +35,14 @@ describe('AppSwitcher', () => {
 		render(<AppSwitcher {...brand} />);
 		expect(screen.getByText('My App')).toBeInTheDocument();
 		expect(screen.getByText('Data Preparation')).toBeInTheDocument();
-		userEvent.click(screen.getByText('My App'));
-		userEvent.click(screen.getByText('Data Preparation'));
+		await user.click(screen.getByText('My App'));
+		await user.click(screen.getByText('Data Preparation'));
 		expect(brand.items[0].onClick).toHaveBeenCalled();
 		expect(brand.onClick).not.toHaveBeenCalled();
 	});
 
-	it('should render with a Action', () => {
+	it('should render with a Action', async () => {
+		const user = userEvent.setup();
 		const brand = {
 			id: 'brand',
 			label: 'My App',
@@ -46,7 +50,7 @@ describe('AppSwitcher', () => {
 		};
 		render(<AppSwitcher {...brand} />);
 		expect(screen.getByText('My App')).toBeInTheDocument();
-		userEvent.click(screen.getByText('My App'));
+		await user.click(screen.getByText('My App'));
 		expect(brand.onClick).toHaveBeenCalled();
 	});
 

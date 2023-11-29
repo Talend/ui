@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, queryByAttribute, waitFor } from '@testing-library/react';
+import { fireEvent, queryByAttribute, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { actions, getMockData, getMockNestedData, initProps } from '../../__mocks__/data';
@@ -242,7 +242,7 @@ describe('UIForm container', () => {
 		const errors = { firstname: 'my firstname is invalid' };
 		const onTrigger = jest.fn(() => Promise.resolve({ errors }));
 		const dom = render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
-		expect(onTrigger).not.toBeCalled();
+		expect(onTrigger).not.toHaveBeenCalled();
 
 		// when
 		await userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
@@ -260,13 +260,13 @@ describe('UIForm container', () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve({}));
 		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
-		expect(onTrigger).not.toBeCalled();
+		expect(onTrigger).not.toHaveBeenCalled();
 
 		// when
 		await userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
 
 		// then
-		expect(onTrigger).toBeCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			errors: {},
 			properties: {},
 			schema: {
@@ -283,7 +283,7 @@ describe('UIForm container', () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve({}));
 		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
-		expect(onTrigger).not.toBeCalled();
+		expect(onTrigger).not.toHaveBeenCalled();
 
 		// when
 		const firstnameInput = screen.getByRole('textbox', { name: 'First Name (with placeholder)' });
@@ -291,7 +291,7 @@ describe('UIForm container', () => {
 		fireEvent.blur(firstnameInput);
 
 		// then
-		expect(onTrigger).toBeCalledWith(expect.anything(), {
+		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
 			errors: {},
 			properties: { firstname: 'aze' },
 			schema: expect.anything(),
@@ -306,16 +306,16 @@ describe('UIForm container', () => {
 		render(
 			<UIForm data={getMockData()} {...props} onSubmitEnter={onEnter} onSubmitLeave={onLeave} />,
 		);
-		expect(onEnter).not.toBeCalled();
-		expect(onLeave).not.toBeCalled();
+		expect(onEnter).not.toHaveBeenCalled();
+		expect(onLeave).not.toHaveBeenCalled();
 
 		// when / then
 		await userEvent.hover(screen.getByRole('button', { name: 'Submit' }));
-		expect(onEnter).toBeCalled();
+		expect(onEnter).toHaveBeenCalled();
 
 		// when / then
 		await userEvent.unhover(screen.getByRole('button', { name: 'Submit' }));
-		expect(onLeave).toBeCalled();
+		expect(onLeave).toHaveBeenCalled();
 	});
 
 	it('should validate all fields on submit', async () => {
@@ -337,7 +337,7 @@ describe('UIForm container', () => {
 		await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
 		// then
-		expect(onSubmit).not.toBeCalled();
+		expect(onSubmit).not.toHaveBeenCalled();
 		// new error via validation on submit
 		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
 		expect(errorMessage).toBeInTheDocument();
@@ -365,7 +365,7 @@ describe('UIForm container', () => {
 		await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
 		// then
-		expect(onSubmit).not.toBeCalled();
+		expect(onSubmit).not.toHaveBeenCalled();
 		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
 		expect(errorMessage).toBeInTheDocument();
 		expect(errorMessage).toHaveAttribute('description', 'is required');
@@ -389,7 +389,7 @@ describe('UIForm container', () => {
 		await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
 		// then
-		expect(onSubmit).toBeCalledWith(
+		expect(onSubmit).toHaveBeenCalledWith(
 			expect.anything(),
 			{
 				firstname: 'toto',

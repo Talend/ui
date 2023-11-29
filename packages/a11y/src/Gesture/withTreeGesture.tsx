@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { KeyboardEvent, ComponentType, Component } from 'react';
-import keycode from 'keycode';
+import { Component, ComponentType, KeyboardEvent } from 'react';
+
 import { focusOn } from './focus';
 
 function getAllItems(ref: HTMLElement) {
@@ -113,13 +113,15 @@ export function withTreeGesture<T extends WithTreeInjectedProps>(
 
 		onKeyDown(event: KeyboardEvent<HTMLElement>, ref: any, item: any) {
 			const { hasChildren, isOpened, siblings } = item;
-			switch (event.keyCode) {
-				case keycode.codes.enter:
-				case keycode.codes.space:
+			switch (event.key) {
+				case 'Enter':
+				case ' ':
+				case 'Spacebar':
 					event.stopPropagation();
 					this.props.onSelect(event, item);
 					break;
-				case keycode.codes.left:
+				case 'Left':
+				case 'ArrowLeft':
 					if (hasChildren && isOpened) {
 						event.stopPropagation();
 						this.props.onToggle(event, item);
@@ -128,7 +130,8 @@ export function withTreeGesture<T extends WithTreeInjectedProps>(
 						focusOn(getParentItem(ref));
 					}
 					break;
-				case keycode.codes.right:
+				case 'Right':
+				case 'ArrowRight':
 					if (hasChildren && !isOpened) {
 						event.stopPropagation();
 						this.props.onToggle(event, item);
@@ -137,26 +140,28 @@ export function withTreeGesture<T extends WithTreeInjectedProps>(
 						focusOn(getFirstChildItem(ref));
 					}
 					break;
-				case keycode.codes.down:
+				case 'Down':
+				case 'ArrowDown':
 					event.stopPropagation();
 					focusOn(getNextItem(ref));
 					break;
-				case keycode.codes.up:
+				case 'Up':
+				case 'ArrowUp':
 					event.stopPropagation();
 					focusOn(getPreviousItem(ref));
 					break;
-				case keycode.codes.home:
+				case 'Home':
 					event.stopPropagation();
 					focusOn(getFirstItem(ref));
 					break;
-				case keycode.codes.end:
+				case 'End':
 					event.stopPropagation();
 					focusOn(getLastItem(ref));
 					break;
 				default:
 					break;
 			}
-			if (event.nativeEvent.key === '*') {
+			if (event.nativeEvent.key === '*' || event.nativeEvent.key === 'Multiply') {
 				event.stopPropagation();
 				this.props.onToggleAllSiblings(event, siblings);
 			}

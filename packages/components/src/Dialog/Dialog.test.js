@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Dialog from './Dialog.component';
 
 jest.mock('@talend/react-bootstrap', () => {
@@ -55,7 +57,9 @@ describe('Dialog', () => {
 		expect(screen.getByText('Vestibulum')).toBeVisible();
 		expect(screen.queryByText('Lorem ipsum')).not.toBeInTheDocument();
 	});
-	it('should render action', () => {
+	it('should render action', async () => {
+		const user = userEvent.setup();
+
 		const action = {
 			label: 'OK',
 			onClick: jest.fn(),
@@ -65,7 +69,7 @@ describe('Dialog', () => {
 				{children}
 			</Dialog>,
 		);
-		userEvent.click(screen.getByText('OK'));
+		await user.click(screen.getByText('OK'));
 		expect(action.onClick).toHaveBeenCalled();
 	});
 	it('should render small', () => {

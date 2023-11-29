@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import HeaderBarComponent from './HeaderBar.component';
 
 describe('HeaderBar', () => {
@@ -9,7 +10,9 @@ describe('HeaderBar', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should render logo', () => {
+	it('should render logo', async () => {
+		const user = userEvent.setup();
+
 		// GIVEN
 		const logo = {
 			id: 'logo',
@@ -27,7 +30,7 @@ describe('HeaderBar', () => {
 		expect(element).toHaveAttribute('aria-label', logo.label);
 
 		// THEN trigger onClick
-		userEvent.click(element);
+		await user.click(element);
 		expect(logo.onClick).toHaveBeenCalled();
 	});
 
@@ -77,7 +80,9 @@ describe('HeaderBar', () => {
 		expect(element).toHaveTextContent('Intercom chat');
 	});
 
-	it('should render search', () => {
+	it('should render search', async () => {
+		const user = userEvent.setup();
+
 		// GIVEN
 		const search = {
 			id: 'search',
@@ -97,11 +102,13 @@ describe('HeaderBar', () => {
 		expect(element).toBeVisible();
 
 		// THEN trigger onClick
-		userEvent.click(element);
+		await user.click(element);
 		expect(search.onToggle).toHaveBeenCalled();
 	});
 
-	it('should render help', () => {
+	it('should render help', async () => {
+		const user = userEvent.setup();
+
 		// GIVEN
 		const help = {
 			id: 'help',
@@ -114,13 +121,15 @@ describe('HeaderBar', () => {
 		const element = screen.getAllByRole('button')[1];
 		expect(element).toHaveAttribute('aria-label', 'Help');
 		// THEN trigger onClick
-		userEvent.click(element);
+		await user.click(element);
 		expect(help.onClick).toHaveBeenCalled();
 	});
 
-	it('should render user', () => {
+	it('should render user', async () => {
+		const user = userEvent.setup();
+
 		// GIVEN
-		const user = {
+		const userIdentity = {
 			id: 'user',
 			items: [
 				{
@@ -136,23 +145,25 @@ describe('HeaderBar', () => {
 			onClick: jest.fn(),
 		};
 		// WHEN
-		render(<HeaderBarComponent user={user} />);
+		render(<HeaderBarComponent user={userIdentity} />);
 		// THEN check user button
 		const userBtn = screen.getAllByRole('button').find(btn => btn.id === 'user');
-		expect(userBtn).toHaveTextContent(user.name);
+		expect(userBtn).toHaveTextContent(userIdentity.name);
 		expect(userBtn).toHaveAttribute('aria-expanded', 'false');
 		// THEN trigger user onClick
-		userEvent.click(userBtn);
+		await user.click(userBtn);
 		expect(userBtn).toHaveAttribute('aria-expanded', 'true');
 		// THEN check user button
 		const settingsLink = screen.getAllByRole('menuitem')[0];
-		expect(settingsLink).toHaveTextContent(user.items[0].label);
+		expect(settingsLink).toHaveTextContent(userIdentity.items[0].label);
 		// THEN check settings onClick
-		userEvent.click(settingsLink);
-		expect(user.items[0].onClick).toHaveBeenCalled();
+		await user.click(settingsLink);
+		expect(userIdentity.items[0].onClick).toHaveBeenCalled();
 	});
 
-	it('should render products', () => {
+	it('should render products', async () => {
+		const user = userEvent.setup();
+
 		const products = {
 			items: [
 				{
@@ -186,18 +197,20 @@ describe('HeaderBar', () => {
 		const brandBtn = screen.getAllByRole('button').find(btn => btn.id === 'brand');
 		expect(brandBtn).toHaveTextContent(brand.label);
 		// THEN trigger brand onClick
-		userEvent.click(brandBtn);
+		await user.click(brandBtn);
 		expect(brandBtn).toHaveAttribute('aria-expanded', 'true');
 
 		// THEN check user button
 		const tdpLink = screen.getAllByRole('menuitem')[0];
 		expect(tdpLink).toHaveTextContent(products.items[0].label);
 		// THEN check TDP onClick
-		userEvent.click(tdpLink);
+		await user.click(tdpLink);
 		expect(products.items[0].onClick).toHaveBeenCalled();
 	});
 
-	it('should render genericAction', () => {
+	it('should render genericAction', async () => {
+		const user = userEvent.setup();
+
 		// GIVEN
 		const genericAction = {
 			id: 'generic-action',
@@ -211,7 +224,7 @@ describe('HeaderBar', () => {
 		const element = screen.getAllByRole('button')[1];
 		expect(element).toHaveAttribute('aria-label', genericAction.label);
 		// THEN trigger onClick
-		userEvent.click(element);
+		await user.click(element);
 		expect(genericAction.onClick).toHaveBeenCalled();
 	});
 });

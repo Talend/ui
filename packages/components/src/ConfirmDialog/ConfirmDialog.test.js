@@ -1,5 +1,6 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import ConfirmDialog from './ConfirmDialog.component';
 
 const children = <div>BODY</div>;
@@ -104,7 +105,9 @@ describe('ConfirmDialog', () => {
 		expect(screen.getByLabelText('This is loading')).toHaveAttribute('aria-valuenow', '25');
 	});
 
-	it('should render with additional actions', () => {
+	it('should render with additional actions', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const properties = {
 			header: 'Hello world',
@@ -126,7 +129,7 @@ describe('ConfirmDialog', () => {
 		// then
 		expect(screen.getByText('Hello world')).toBeVisible();
 		expect(screen.getByText('Keep on Github')).toBeVisible();
-		userEvent.click(screen.getByText('Keep on Github'));
+		await user.click(screen.getByText('Keep on Github'));
 		expect(properties.secondaryActions[0].onClick).toHaveBeenCalled();
 	});
 });

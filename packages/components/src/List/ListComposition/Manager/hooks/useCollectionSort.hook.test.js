@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import PropTypes from 'prop-types';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import PropTypes from 'prop-types';
+
 import { useCollectionSort } from './useCollectionSort.hook';
 
 function SortComponent({ collection, initialSortParams, sortFunctions, ...props }) {
@@ -112,7 +113,9 @@ describe('useCollectionSort', () => {
 		expect(sortedCollection[7].firstName).toEqual('Shelly');
 	});
 
-	it('should sort with new sort params set', () => {
+	it('should sort with new sort params set', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const sortParams = {
 			sortBy: 'firstName',
@@ -121,7 +124,7 @@ describe('useCollectionSort', () => {
 		render(<SortComponent collection={collection} newValue={sortParams} />);
 
 		// when
-		userEvent.click(screen.getByText('setSortParams'));
+		await user.click(screen.getByText('setSortParams'));
 
 		// then
 		const sortedCollection = JSON.parse(

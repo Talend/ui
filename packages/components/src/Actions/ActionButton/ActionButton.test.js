@@ -1,5 +1,6 @@
-import { render, screen, fireEvent, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import ActionButton from './ActionButton.component';
 
 jest.unmock('@talend/design-system');
@@ -45,14 +46,16 @@ describe('Action', () => {
 		expect(btn.childNodes[0]).toHaveClass('tc-skeleton');
 	});
 
-	it('should trigger the onclick props', () => {
+	it('should trigger the onclick props', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onClick = jest.fn();
 		const props = { ...myAction, onClick };
 		render(<ActionButton {...props} extra="extra" />);
 
 		// when
-		userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 
 		// then
 		expect(onClick.mock.calls.length).toBe(1);
@@ -102,14 +105,16 @@ describe('Action', () => {
 		});
 	});
 
-	it('should trigger the onclick props when action has an overlay', () => {
+	it('should trigger the onclick props when action has an overlay', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onClick = jest.fn();
 		const props = { ...myAction, overlayComponent: OverlayComponent, onClick };
 		render(<ActionButton {...props} extra="extra" />);
 
 		// when
-		userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 
 		// then
 		expect(onClick.mock.calls.length).toBe(1);
@@ -216,51 +221,61 @@ describe('Action', () => {
 	});
 
 	it('should render tooltip when hideLabel property is set', async () => {
+		const user = userEvent.setup();
+
 		// when
 		render(<ActionButton {...myAction} hideLabel />);
 
 		// then
 		expect(screen.queryByText('Click me')).not.toBeInTheDocument();
-		await userEvent.hover(screen.getByRole('button'));
+		await user.hover(screen.getByRole('button'));
 		const tooltip = await screen.findByRole('tooltip');
 		expect(within(tooltip).getByText('Click me')).toBeInTheDocument();
 	});
 
 	it('should render tooltip when tooltip property is set', async () => {
+		const user = userEvent.setup();
+
 		// when
 		render(<ActionButton {...myAction} tooltip />);
 
 		// then
 		expect(screen.getByText('Click me')).toBeInTheDocument();
-		await userEvent.hover(screen.getByRole('button'));
+		await user.hover(screen.getByRole('button'));
 		const tooltip = await screen.findByRole('tooltip');
 		expect(within(tooltip).getByText('Click me')).toBeInTheDocument();
 	});
 
 	it('should NOT render tooltip when tooltip property is set to false', async () => {
+		const user = userEvent.setup();
+
 		// when
 		render(<ActionButton {...myAction} tooltip={false} />);
 
 		// then
 		expect(screen.getByText('Click me')).toBeInTheDocument();
-		await userEvent.hover(screen.getByRole('button'));
+		await user.hover(screen.getByRole('button'));
 		expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
 	});
 
 	it('should NOT render tooltip when tooltip property is set to false with hideLabel property', async () => {
+		const user = userEvent.setup();
+
 		// when
 		render(<ActionButton {...myAction} hideLabel tooltip={false} />);
 
 		// then
 		expect(screen.queryByText('Click me')).not.toBeInTheDocument();
-		await userEvent.hover(screen.getByRole('button'));
+		await user.hover(screen.getByRole('button'));
 		expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
 	});
 
 	it('should render tooltip with tooltipLabel when the tooltip property is not set', async () => {
+		const user = userEvent.setup();
+
 		// when
 		render(<ActionButton {...myAction} tooltipLabel="My tooltip label" />);
-		await userEvent.hover(screen.getByRole('button'));
+		await user.hover(screen.getByRole('button'));
 		const tooltip = await screen.findByRole('tooltip');
 
 		// then
@@ -268,23 +283,27 @@ describe('Action', () => {
 	});
 
 	it('should not render tooltip with tooltipLabel when the tooltip property is set to false', async () => {
+		const user = userEvent.setup();
+
 		// when
 		render(<ActionButton {...myAction} tooltip={false} tooltipLabel="My tooltip label" />);
-		await userEvent.hover(screen.getByRole('button'));
+		await user.hover(screen.getByRole('button'));
 
 		// then
 		expect(screen.getByText('Click me')).toBeInTheDocument();
-		await userEvent.hover(screen.getByRole('button'));
+		await user.hover(screen.getByRole('button'));
 		expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
 	});
 
 	it('should trigger action if set up onMouseDown event', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(<ActionButton {...mouseDownAction} extra="extra" />);
 		const button = screen.getByRole('button');
 
 		// when
-		await fireEvent.mouseDown(button);
+		await user.click(button);
 
 		// then
 		expect(mouseDownAction.onMouseDown).toHaveBeenCalled();
@@ -301,6 +320,8 @@ describe('Action', () => {
 	});
 
 	it('should render a button without an overlay component if inProgress is true', async () => {
+		const user = userEvent.setup();
+
 		const props = {
 			...myAction,
 			inProgress: true,
@@ -310,13 +331,15 @@ describe('Action', () => {
 
 		// when
 		render(<ActionButton {...props} />);
-		await userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 
 		// then
 		expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
 	});
 
 	it('should render a button with a overlay component', async () => {
+		const user = userEvent.setup();
+
 		const props = {
 			...myAction,
 			overlayComponent: OverlayComponent,
@@ -326,7 +349,7 @@ describe('Action', () => {
 
 		// when
 		render(<ActionButton {...props} />);
-		await userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 		const tooltip = await screen.findByRole('tooltip');
 
 		// then

@@ -1,12 +1,16 @@
 import { useContext } from 'react';
-import { SizedIcon } from '../../Icon';
-import { TagDefault } from '../../Tag';
-import { StackHorizontal } from '../../Stack';
-import { TabsInternalContext } from './TabsProvider';
-import { Tooltip } from '../../Tooltip';
-import style from './TabStyles.module.scss';
-import { IconNameWithSize } from '@talend/icons';
+
 import classNames from 'classnames';
+
+import { IconNameWithSize } from '@talend/icons';
+
+import { SizedIcon } from '../../Icon';
+import { StackHorizontal } from '../../Stack';
+import { TagDefault } from '../../Tag';
+import { Tooltip } from '../../Tooltip';
+import { TabsInternalContext } from './TabsProvider';
+
+import style from './TabStyles.module.scss';
 
 export type TabsPropTypes = {
 	children: React.ReactNode[];

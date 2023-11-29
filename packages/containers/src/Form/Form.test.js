@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { fromJS } from 'immutable';
 
-import Container from './Form.container';
 import Connected from './Form.connect';
+import Container from './Form.container';
 
 jest.unmock('@talend/design-system');
 
@@ -52,8 +52,8 @@ describe('Container(Form)', () => {
 			setState,
 		});
 		form.onErrors(event, { foo: 'bar' });
-		expect(onErrors).toBeCalledWith(event, { foo: 'bar' });
-		expect(setState).toBeCalledWith({ errors: { foo: 'bar' } });
+		expect(onErrors).toHaveBeenCalledWith(event, { foo: 'bar' });
+		expect(setState).toHaveBeenCalledWith({ errors: { foo: 'bar' } });
 	});
 
 	it('should use props.onSubmit', () => {

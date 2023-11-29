@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import cmf, { mock } from '../src';
 import expression from '../src/expression';
 
@@ -46,7 +47,7 @@ describe('expression', () => {
 		};
 		expression.call({ id: 'test', args: ['foo'] }, context);
 		expect(test.mock.calls.length).toBe(1);
-		expect(test).toBeCalledWith({ context }, 'foo');
+		expect(test).toHaveBeenCalledWith({ context }, 'foo');
 	});
 
 	it('should throw if no id provided', () => {

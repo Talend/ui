@@ -1,14 +1,15 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import keycode from 'keycode';
-import ListView from '@talend/react-components/lib/ListView';
 import { withTranslation } from 'react-i18next';
+
+import PropTypes from 'prop-types';
+
+import ListView from '@talend/react-components/lib/ListView';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import { getItemsProps, initItems, updateItems } from './ListView.utils';
-import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import FieldTemplate from '../FieldTemplate';
+import { getItemsProps, initItems, updateItems } from './ListView.utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -91,10 +92,10 @@ class ListViewWidget extends Component {
 	 * @param { Object } event The keydown event
 	 */
 	onInputKeyDown(event) {
-		if (event.keyCode === keycode('enter')) {
+		if (event.key === 'Enter') {
 			event.stopPropagation();
 			event.preventDefault();
-		} else if (event.keyCode === keycode('escape')) {
+		} else if (event.key === 'Esc' || event.key === 'Escape') {
 			clearTimeout(this.timerSearch);
 			event.stopPropagation();
 			event.preventDefault();
@@ -206,6 +207,7 @@ ListViewWidget.defaultProps = {
 	value: [],
 	t: getDefaultT(),
 };
+// eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
 		id: PropTypes.string,

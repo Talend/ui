@@ -2,13 +2,13 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Component, {
-	ARRAY_ABSTRACT,
-	OBJECT_ABSTRACT,
 	abstracter,
+	ARRAY_ABSTRACT,
+	ComplexItem,
 	getDataAbstract,
 	getDataInfo,
-	ComplexItem,
 	getName,
+	OBJECT_ABSTRACT,
 } from './JSONLike.component';
 
 const callbacksProps = {
@@ -291,7 +291,9 @@ describe('JSONLike', () => {
 			expect(screen.getByTestId('injected')).toHaveTextContent('hello world');
 		});
 
-		it("should toggle item but don't trigger form submit", () => {
+		it("should toggle item but don't trigger form submit", async () => {
+			const user = userEvent.setup();
+
 			// GIVEN
 			const mockOnToggle = jest.fn();
 			const mockOnSubmitClick = jest.fn();
@@ -312,20 +314,22 @@ describe('JSONLike', () => {
 				</form>,
 			);
 			// THEN
-			expect(mockOnToggle).not.toBeCalled();
-			expect(mockOnSubmitClick).not.toBeCalled();
+			expect(mockOnToggle).not.toHaveBeenCalled();
+			expect(mockOnSubmitClick).not.toHaveBeenCalled();
 			// WHEN
-			userEvent.click(
+			await user.click(
 				screen.getByRole('link', {
 					hidden: true,
 				}),
 			);
 			// THEN
-			expect(mockOnToggle).toBeCalled();
-			expect(mockOnSubmitClick).not.toBeCalled();
+			expect(mockOnToggle).toHaveBeenCalled();
+			expect(mockOnSubmitClick).not.toHaveBeenCalled();
 		});
 
-		it('should select item', () => {
+		it('should select item', async () => {
+			const user = userEvent.setup();
+
 			// GIVEN
 			const mockOnSelect = jest.fn();
 			// WHEN
@@ -340,12 +344,12 @@ describe('JSONLike', () => {
 				/>,
 			);
 			// THEN
-			expect(mockOnSelect).not.toBeCalled();
+			expect(mockOnSelect).not.toHaveBeenCalled();
 
 			// WHEN
-			userEvent.click(screen.getByRole('treeitem'));
+			await user.click(screen.getByRole('treeitem'));
 			// THEN
-			expect(mockOnSelect).toBeCalled();
+			expect(mockOnSelect).toHaveBeenCalled();
 		});
 	});
 

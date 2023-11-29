@@ -1,8 +1,8 @@
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { Map } from 'immutable';
-import keycode from 'keycode';
-import Container, { DEFAULT_STATE } from './Typeahead.container';
+
 import Connect from './Typeahead.connect';
+import Container, { DEFAULT_STATE } from './Typeahead.container';
 
 const defaultProps = {
 	id: 42,
@@ -75,7 +75,7 @@ describe('Typeahead container', () => {
 			});
 
 			it('should blur', () => {
-				const event = { which: keycode.codes.esc, preventDefault: () => {} };
+				const event = { key: 'Esc', preventDefault: () => {} };
 				const props = {
 					...defaultProps,
 					state: Map({ docked: true }),
@@ -90,7 +90,7 @@ describe('Typeahead container', () => {
 			});
 
 			it('should select', () => {
-				const event = { which: keycode.codes.enter, preventDefault: () => {} };
+				const event = { key: 'Enter', preventDefault: () => {} };
 				const props = {
 					...defaultProps,
 					state: Map({ docked: true }),

@@ -1,10 +1,11 @@
-import keycode from 'keycode';
-import { Map } from 'immutable';
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { Map } from 'immutable';
+
 import { mock } from '@talend/react-cmf';
 
-import Container from './ShortcutManager.container';
 import Connected from './ShortcutManager.connect';
+import Container from './ShortcutManager.container';
 
 describe('Shortcut container', () => {
 	it('should render', () => {
@@ -27,31 +28,31 @@ describe('handles routes', () => {
 		},
 	};
 
-	it('should handle global keypresses', () => {
+	it('should handle global keypresses', async () => {
 		const spy = jest.spyOn(Container.prototype, 'handleKeyPress');
 
 		render(<Container redirectMap={{}} />);
 
-		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
-		document.dispatchEvent(event);
+		await userEvent.keyboard('{Esc}');
 
 		expect(spy).toHaveBeenCalled();
 		spy.mockReset();
 		spy.mockRestore();
 	});
 
-	it('should call redirect actionCreator', () => {
+	it('should call redirect actionCreator', async () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '/test': '/test/next' } };
 		render(<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test" />);
 
-		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
-		document.dispatchEvent(event);
+		await userEvent.keyboard('{Esc}');
 
-		expect(fn).toHaveBeenCalledWith('redirect', event, { action: { path: '/test/next' } });
+		expect(fn).toHaveBeenCalledWith('redirect', expect.anything(), {
+			action: { path: '/test/next' },
+		});
 	});
 
-	it('should call matching actionCreator', () => {
+	it('should call matching actionCreator', async () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '^[/]test[/].*$': 'test' } };
 
@@ -59,10 +60,9 @@ describe('handles routes', () => {
 			<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test/12345" />,
 		);
 
-		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
-		document.dispatchEvent(event);
+		await userEvent.keyboard('{Esc}');
 
-		expect(fn).toHaveBeenCalledWith('test', event);
+		expect(fn).toHaveBeenCalledWith('test', expect.anything());
 	});
 });
 

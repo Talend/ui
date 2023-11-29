@@ -2,8 +2,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Manager from './Manager.component';
 import { DateTimeContext } from '../Context';
+import Manager from './Manager.component';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
@@ -82,6 +82,8 @@ describe('DateTime.Manager', () => {
 				expectedTime: '12:34',
 			},
 		])('$name', async ({ initialDate, expectedDate, expectedTime }) => {
+			const user = userEvent.setup();
+
 			// when
 			const getProps = jest.fn();
 			render(
@@ -91,7 +93,7 @@ describe('DateTime.Manager', () => {
 			);
 
 			// then
-			await userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const props = getProps.mock.calls[0][0];
 			expect(props.date).toStrictEqual(expectedDate);
 			expect(props.time).toStrictEqual(expectedTime);
@@ -135,6 +137,8 @@ describe('DateTime.Manager', () => {
 				useSeconds: true,
 			},
 		])('$name', async ({ initialDate, newDate, expectedDate, expectedTime, useSeconds }) => {
+			const user = userEvent.setup();
+
 			// given
 
 			const getProps = jest.fn();
@@ -152,7 +156,7 @@ describe('DateTime.Manager', () => {
 			);
 
 			// then
-			await userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const props = getProps.mock.calls[0][0];
 			expect(props.date).toEqual(expectedDate);
 			expect(props.time).toEqual(expectedTime);
@@ -170,6 +174,8 @@ describe('DateTime.Manager', () => {
 				newDate: new Date(2015, 1, 5, 21, 52),
 			},
 		])('$name', async ({ initialDate, newDate }) => {
+			const user = userEvent.setup();
+
 			// given
 			const getProps = jest.fn();
 			const { rerender } = render(
@@ -177,7 +183,7 @@ describe('DateTime.Manager', () => {
 					<DateTimeConsumer getProps={getProps} />
 				</Manager>,
 			);
-			userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 			const previousState = getProps.mock.calls[0][0];
 
 			// when
@@ -186,7 +192,7 @@ describe('DateTime.Manager', () => {
 					<DateTimeConsumer getProps={getProps} />
 				</Manager>,
 			);
-			userEvent.click(screen.getByTestId('getProps'));
+			await user.click(screen.getByTestId('getProps'));
 
 			// then
 			const nextState = getProps.mock.calls[1][0];
@@ -221,6 +227,8 @@ describe('DateTime.Manager', () => {
 					dateFormat: 'DD/MM/YYYY',
 				},
 			])('$name', async ({ expectedDate, expectedTime, textInput, dateFormat, useSeconds }) => {
+				const user = userEvent.setup();
+
 				// given
 				const getProps = jest.fn();
 				render(
@@ -230,8 +238,8 @@ describe('DateTime.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByTestId('onDateChange'));
-				await userEvent.click(screen.getByTestId('getProps'));
+				await user.click(screen.getByTestId('onDateChange'));
+				await user.click(screen.getByTestId('getProps'));
 				// then
 				const props = getProps.mock.calls[0][0];
 				expect(props.date).toEqual(expectedDate);
@@ -263,6 +271,8 @@ describe('DateTime.Manager', () => {
 					dateFormat,
 					useSeconds,
 				}) => {
+					const user = userEvent.setup();
+
 					// given
 					const getProps = jest.fn();
 
@@ -278,8 +288,8 @@ describe('DateTime.Manager', () => {
 					);
 
 					// when
-					await userEvent.click(screen.getByTestId('onTimeChange'));
-					await userEvent.click(screen.getByTestId('getProps'));
+					await user.click(screen.getByTestId('onTimeChange'));
+					await user.click(screen.getByTestId('getProps'));
 					// then
 					const props = getProps.mock.calls[0][0];
 
@@ -289,6 +299,8 @@ describe('DateTime.Manager', () => {
 			);
 
 			it('should trigger props.onChange when date change', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -302,13 +314,13 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('onDateChange'));
+				await user.click(screen.getByTestId('onDateChange'));
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toEqual(expect.anything({ type: 'click' }));
 				// expect(isNaN(args[1].datetime.getTime())).toBe(true);
@@ -320,6 +332,8 @@ describe('DateTime.Manager', () => {
 			});
 
 			it('should trigger props.onChange when date change with default time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -333,19 +347,21 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('onDateChange'));
+				await user.click(screen.getByTestId('onDateChange'));
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].textInput).toBe('2015-01-15 01:02'); // default time included
 			});
 
 			it('should trigger props.onChange with invalid date', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -359,12 +375,12 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('onDateChange'));
+				await user.click(screen.getByTestId('onDateChange'));
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[1].errorMessage).toBe('Date format is invalid');
 				expect(args[1].errors).toEqual([
@@ -374,6 +390,8 @@ describe('DateTime.Manager', () => {
 			});
 
 			it('should trigger props.onChange when time change', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				const { rerender } = render(
@@ -387,10 +405,10 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('onDateChange'));
+				await user.click(screen.getByTestId('onDateChange'));
 				rerender(
 					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateTimeConsumer
@@ -402,7 +420,7 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				await userEvent.click(screen.getByTestId('onTimeChange'));
+				await user.click(screen.getByTestId('onTimeChange'));
 
 				expect(onChange).toHaveBeenCalledTimes(2);
 				const args = onChange.mock.calls[1];
@@ -413,6 +431,8 @@ describe('DateTime.Manager', () => {
 				expect(args[1].errorMessage).toBe(null);
 			});
 			it("shouldn't trigger props.onChange if the default datetime is valid", async () => {
+				const user = userEvent.setup();
+
 				const onChange = jest.fn();
 				const getProps = jest.fn();
 				const textInput = '2015-01-15 11:11';
@@ -421,8 +441,8 @@ describe('DateTime.Manager', () => {
 						<DateTimeConsumer getProps={getProps} />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
-				await userEvent.click(screen.getByTestId('getProps'));
+				expect(onChange).not.toHaveBeenCalled();
+				await user.click(screen.getByTestId('getProps'));
 				const contextValue = getProps.mock.calls[0][0];
 				expect(contextValue.date).toEqual('2015-01-15');
 				expect(contextValue.time).toEqual('11:11');
@@ -453,6 +473,8 @@ describe('DateTime.Manager', () => {
 				expect(data.errors[0].code).toEqual('INVALID_TIME_EMPTY');
 			});
 			it('should trigger props.onChange with invalid time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				const { rerender } = render(
@@ -466,10 +488,10 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				await userEvent.click(screen.getByTestId('onDateChange'));
+				await user.click(screen.getByTestId('onDateChange'));
 				rerender(
 					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateTimeConsumer
@@ -480,7 +502,7 @@ describe('DateTime.Manager', () => {
 						/>
 					</Manager>,
 				);
-				await userEvent.click(screen.getByTestId('onTimeChange'));
+				await user.click(screen.getByTestId('onTimeChange'));
 
 				// then
 				expect(onChange).toHaveBeenCalledTimes(2);

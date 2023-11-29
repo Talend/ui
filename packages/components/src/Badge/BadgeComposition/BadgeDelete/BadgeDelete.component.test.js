@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import BadgeDelete from './BadgeDelete.component';
+
 import getDefaultT from '../../../translate';
+import BadgeDelete from './BadgeDelete.component';
 
 describe('BadgeDelete', () => {
 	it('should render', () => {
@@ -17,7 +18,8 @@ describe('BadgeDelete', () => {
 		// then
 		expect(screen.getByLabelText('Delete')).toBeInTheDocument();
 	});
-	it('should trigger on click function', () => {
+	it('should trigger on click function', async () => {
+		const user = userEvent.setup();
 		// given
 		const onClick = jest.fn();
 		const props = {
@@ -28,7 +30,7 @@ describe('BadgeDelete', () => {
 		// when
 		render(<BadgeDelete {...props} />);
 		// then
-		userEvent.click(screen.getByLabelText('Delete'));
+		await user.click(screen.getByLabelText('Delete'));
 		expect(onClick).toHaveBeenCalledTimes(1);
 	});
 	it('should pass the props label to the button', () => {

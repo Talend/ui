@@ -1,10 +1,11 @@
 import { Component as RComponent } from 'react';
-import PropTypes from 'prop-types';
+
 import Immutable from 'immutable';
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
+
 import { cmfConnect, componentState } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/Typeahead';
-import omit from 'lodash/omit';
-import keycode from 'keycode';
 
 export const DISPLAY_NAME = 'Container(Typeahead)';
 export const DEFAULT_STATE = new Immutable.Map({
@@ -74,16 +75,18 @@ export default class Typeahead extends RComponent {
 		if (onKeyDown) {
 			onKeyDown(event, data);
 		}
-		switch (event.which) {
-			case keycode.codes.down:
-			case keycode.codes.up:
+		switch (event.key) {
+			case 'Down':
+			case 'ArrowDown':
+			case 'Up':
+			case 'ArrowUp':
 				event.preventDefault();
 				this.props.setState(() => ({
 					focusedSectionIndex: newHighlightedSectionIndex,
 					focusedItemIndex: newHighlightedItemIndex,
 				}));
 				break;
-			case keycode.codes.enter:
+			case 'Enter':
 				event.preventDefault();
 				if (highlightedItemIndex !== null && highlightedItemIndex !== null) {
 					this.onSelect(event, {
@@ -92,7 +95,8 @@ export default class Typeahead extends RComponent {
 					});
 				}
 				break;
-			case keycode.codes.esc:
+			case 'Esc':
+			case 'Escape':
 				event.preventDefault();
 				this.onBlur(event);
 				break;

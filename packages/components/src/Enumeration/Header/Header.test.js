@@ -2,9 +2,12 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Header from './Header.component';
+
 jest.unmock('@talend/design-system');
 describe('Header', () => {
-	it('should trigger callback when clicking on header button', () => {
+	it('should trigger callback when clicking on header button', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			headerDefault: [
@@ -20,10 +23,10 @@ describe('Header', () => {
 
 		// when
 		render(headerInstance);
-		userEvent.click(screen.getByLabelText('Add item'));
+		await user.click(screen.getByLabelText('Add item'));
 
 		// then
-		expect(props.headerDefault[0].onClick).toBeCalled();
+		expect(props.headerDefault[0].onClick).toHaveBeenCalled();
 	});
 	it('should not render disabled button', () => {
 		// given
