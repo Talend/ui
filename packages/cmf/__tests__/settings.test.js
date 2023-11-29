@@ -111,6 +111,7 @@ describe('settings', () => {
 	describe('withoutHOC', () => {
 		it('should remove all HOC prefix', () => {
 			expect(withoutHOC('Connect(CMF(Container(MyComponent)))')).toBe('MyComponent');
+			expect(withoutHOC('Connect(CMF(Container(Comp_+*[]~-=@{})))')).toBe('Comp_+*[]~-=@{}');
 		});
 	});
 });
