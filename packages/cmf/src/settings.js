@@ -27,11 +27,12 @@ export function generateDefaultViewId(viewId, componentName, componentId) {
 
 /**
  * Extract component name without HOC
- * @param {String} viewId Connect(CMF(Container(MyComponent)))
+ * @param {String} componentName Connect(CMF(Container(MyComponent)))
  * @return {String} MyComponent
  */
 export function withoutHOC(componentName) {
-	return componentName.match(/.*\((.*?)\)/)[1];
+	const regExp = /([^()]+)\)(?=\))/;
+	return componentName.match(regExp)[1];
 }
 
 /**
