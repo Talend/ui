@@ -1,7 +1,8 @@
 import type { Meta } from '@storybook/react';
+
 import { UIForm } from '../src';
-import { fieldsets } from './json';
 import { argTypes } from './argTypes';
+import { fieldsets } from './json';
 
 export default {
 	title: 'Forms/Schema/Fieldsets',
@@ -52,6 +53,16 @@ export const CoreCollapsibleFieldset = {
 	},
 	args: {
 		data: fieldsets.coreCollapsibleFieldset,
+	},
+};
+export const CoreArraysCollapsibleFieldset = {
+	parameters: {
+		formStoryDisplayMode: {
+			doc: 'ArraysCollapsibleFieldset/README.md',
+		},
+	},
+	args: {
+		data: fieldsets.coreArraysCollapsibleFieldset,
 	},
 };
 export const CoreColumns = {

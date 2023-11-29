@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { StackHorizontal, StackVertical, Tabs } from '../../';
 
 export default { component: Tabs, title: 'Navigation/Tabs' };
@@ -32,6 +33,28 @@ export const Styles = () => (
 			</Tabs.Container>
 		</StackVertical>
 	</StackHorizontal>
+);
+
+export const TabsWithError = () => (
+	<Tabs
+		tabs={[
+			{
+				tabTitle: {
+					icon: 'user',
+					title: 'User',
+					error: true,
+				},
+				tabContent: <h2>Users tab content</h2>,
+			},
+			{
+				tabTitle: {
+					icon: 'calendar',
+					title: 'Calendar',
+				},
+				tabContent: <h2>Calendar tab content</h2>,
+			},
+		]}
+	/>
 );
 
 export const TabsWithIcon = () => (

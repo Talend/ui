@@ -102,4 +102,24 @@
 			margin-right: tokens.$coral-spacing-s;
 		}
 	}
+
+	&_error {
+		color: tokens.$coral-color-danger-text;
+
+		&[aria-selected='true'] {
+			color: tokens.$coral-color-danger-text;
+		}
+	}
+
+	&_error::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		border-top: tokens.$coral-border-m-solid tokens.$coral-color-danger-text;
+		opacity: 0;
+		transition: tokens.$coral-transition-fast;
+		transform: translateY(100%);
+	}
 }
