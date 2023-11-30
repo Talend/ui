@@ -21,7 +21,7 @@
     "@talend/icons": "^7.1.0"
   },
   "dependencies": {
-    "@babel/core": "^7.23.3",
+    "@babel/core": "^7.23.5",
     "@sentry/webpack-plugin": "^1.21.0",
     "@talend/react-cmf-webpack-plugin": "^6.38.0",
     "@talend/scripts-config-babel": "^13.2.0",
