@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-core",
   "description": "Set of scripts",
-  "version": "16.3.0",
+  "version": "16.3.1",
   "license": "Apache-2.0",
   "exports": "./src/index.js",
   "type": "module",
@@ -48,7 +48,7 @@
     "@talend/eslint-plugin": "^1.1.0",
     "@talend/scripts-utils": "^2.2.0",
     "@talend/scripts-config-babel": "^13.2.0",
-    "@talend/scripts-config-jest": "^13.1.1",
+    "@talend/scripts-config-jest": "^14.0.0",
     "@talend/scripts-config-stylelint": "^4.1.0",
     "@talend/scripts-config-typescript": "^11.2.0",
     "stylelint": "^15.11.0",

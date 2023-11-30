@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 12.3.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
+### Patch Changes
+
+- 795a12e2d: fix: security issue on regexp
+- Updated dependencies [24bcb177f]
+  - @talend/react-bootstrap@2.2.0
+  - @talend/react-a11y@2.2.0
+
 ## 12.2.0
 
 ### Minor Changes

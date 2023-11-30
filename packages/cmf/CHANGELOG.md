@@ -1,5 +1,17 @@
 # @talend/react-cmf
 
+## 8.3.0
+
+### Minor Changes
+
+- c508840d1: fix(): Fix security issue on regular expression
+
+### Patch Changes
+
+- 795a12e2d: fix: withoutHOC regex
+
+  report says Polynomial regular expression used on uncontrolled data
+
 ## 8.2.0
 
 ### Minor Changes

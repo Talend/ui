@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 14.0.0
+
+### Major Changes
+
+- 24bcb177f: chore: bump testing-library to 6.x
+
 ## 13.1.1
 
 ### Patch Changes
