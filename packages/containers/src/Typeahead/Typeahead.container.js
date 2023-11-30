@@ -1,9 +1,11 @@
 import { Component as RComponent } from 'react';
-import PropTypes from 'prop-types';
+
 import Immutable from 'immutable';
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
+
 import { cmfConnect, componentState } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/Typeahead';
-import omit from 'lodash/omit';
 
 export const DISPLAY_NAME = 'Container(Typeahead)';
 export const DEFAULT_STATE = new Immutable.Map({

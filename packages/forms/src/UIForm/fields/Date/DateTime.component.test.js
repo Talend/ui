@@ -1,4 +1,5 @@
-import { act, render, screen, fireEvent } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+
 import DateTimeWidget from './DateTime.component';
 
 jest.unmock('@talend/design-system');

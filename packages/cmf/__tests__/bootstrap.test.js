@@ -1,15 +1,16 @@
 import ReactDOM from 'react-dom/client';
+
 import createSagaMiddleware from 'redux-saga';
 
 import bootstrap, * as internals from '../src/bootstrap';
-import { registerInternals } from '../src/register';
 import actionCreator from '../src/actionCreator';
 import component from '../src/component';
 import expression from '../src/expression';
-import registry from '../src/registry';
-import storeAPI from '../src/store';
-import sagas from '../src/sagas';
 import onError from '../src/onError';
+import { registerInternals } from '../src/register';
+import registry from '../src/registry';
+import sagas from '../src/sagas';
+import storeAPI from '../src/store';
 
 jest.mock('react-dom/client', () => ({
 	createRoot: jest.fn().mockImplementation(() => ({

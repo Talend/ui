@@ -1,4 +1,5 @@
 import cases from 'jest-in-case';
+
 import { decorateRowClick, decorateRowDoubleClick } from './rowclick';
 
 describe('rowclick', () => {

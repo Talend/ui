@@ -1,6 +1,7 @@
-import Typeahead from './Typeahead.component';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+import Typeahead from './Typeahead.component';
 
 function getHeaders() {
 	return document.querySelectorAll('.section-header');

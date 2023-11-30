@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Dialog from './Dialog.component';
 
 jest.mock('@talend/react-bootstrap', () => {

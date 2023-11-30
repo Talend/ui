@@ -1,16 +1,15 @@
-import { useMemo, useEffect, useState, useRef } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useMemo, useRef, useState } from 'react';
+
 import classnames from 'classnames';
 import debounce from 'lodash/debounce';
 import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
 
 import Icon from '../../Icon';
-
-import InputDateTimePicker from '../InputDateTimePicker';
+import getDefaultT from '../../translate';
 import DateTimeRange from '../DateTimeRange';
 import { DateTimeRangeContext } from '../DateTimeRange/Context';
-
-import getDefaultT from '../../translate';
+import InputDateTimePicker from '../InputDateTimePicker';
 
 import theme from './InputDateTimeRangePicker.module.scss';
 

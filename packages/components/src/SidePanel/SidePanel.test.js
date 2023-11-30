@@ -1,5 +1,6 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import SidePanel from './SidePanel.component';
 
 const onClick = jest.fn();

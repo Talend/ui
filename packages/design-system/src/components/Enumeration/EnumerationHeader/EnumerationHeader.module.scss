@@ -1,0 +1,28 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.enumeration {
+	&__header {
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+		display: flex;
+		flex-direction: column;
+		padding: tokens.$coral-spacing-s;
+		gap: tokens.$coral-spacing-s;
+
+		h4 {
+			font: tokens.$coral-heading-m;
+		}
+
+		[type='file'] {
+			display: none;
+		}
+	}
+
+	&__title {
+		align-items: center;
+		display: flex;
+
+		> button {
+			margin-left: auto;
+		}
+	}
+}

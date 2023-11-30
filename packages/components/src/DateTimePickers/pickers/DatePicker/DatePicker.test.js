@@ -1,7 +1,8 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import isSameDay from 'date-fns/is_same_day';
 import isToday from 'date-fns/is_today';
+
 import DatePicker from './DatePicker.component';
 
 jest.mock('date-fns/is_today');

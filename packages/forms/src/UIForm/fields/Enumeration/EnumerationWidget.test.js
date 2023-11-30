@@ -1,5 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import EnumerationWidget from './EnumerationWidget';
 
 jest.unmock('@talend/design-system');

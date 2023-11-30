@@ -1,7 +1,8 @@
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { Map } from 'immutable';
-import Container, { DEFAULT_STATE } from './Typeahead.container';
+
 import Connect from './Typeahead.connect';
+import Container, { DEFAULT_STATE } from './Typeahead.container';
 
 const defaultProps = {
 	id: 42,

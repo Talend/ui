@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, queryByAttribute, waitFor } from '@testing-library/react';
+import { fireEvent, queryByAttribute, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { actions, getMockData, getMockNestedData, initProps } from '../../__mocks__/data';

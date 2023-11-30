@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import { screen, render, act } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TextFilter from './TextFilter.component';
-import { ListContext } from '../context';
+
 import getDefaultT from '../../../translate';
+import { ListContext } from '../context';
+import TextFilter from './TextFilter.component';
 
 jest.unmock('@talend/design-system');
 

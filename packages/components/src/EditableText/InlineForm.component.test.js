@@ -1,7 +1,8 @@
-import InlineForm from './InlineForm.component';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import getDefaultT from '../translate';
+import InlineForm from './InlineForm.component';
 
 describe('InlineForm', () => {
 	let defaultProps;

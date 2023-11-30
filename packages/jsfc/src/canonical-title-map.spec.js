@@ -1,5 +1,6 @@
 import chai from 'chai';
 import { describe, it } from 'mocha';
+
 import canonicalTitleMap from './canonical-title-map';
 
 chai.should();

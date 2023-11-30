@@ -1,4 +1,4 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { FacetedManager } from '../FacetedManager';
 import { AdvancedSearch } from './AdvancedSearch.component';

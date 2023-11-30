@@ -1,6 +1,7 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SortOptions, { TYPES, ORDERS } from './SortOptions.component';
+
+import SortOptions, { ORDERS, TYPES } from './SortOptions.component';
 
 describe('SortOptions', () => {
 	it('should render SortOptions in default mode', () => {

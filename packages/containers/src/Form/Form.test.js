@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { fromJS } from 'immutable';
 
-import Container from './Form.container';
 import Connected from './Form.connect';
+import Container from './Form.container';
 
 jest.unmock('@talend/design-system');
 

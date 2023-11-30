@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import { RatioBar } from './RatioBar.component';
 
 // as this is SVG we need to rely on custom selector

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import useCollectionSelection from './useCollectionSelection.hook';
 
 function SelectionComponent({ collection, initialSelectedIds, idKey, isSelected, ...props }) {

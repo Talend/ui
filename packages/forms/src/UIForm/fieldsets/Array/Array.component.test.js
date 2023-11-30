@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import ArrayWidget from './Array.component';
-import defaultWidgets from '../../utils/widgets';
-import { WidgetContext } from '../../context';
-
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+import { WidgetContext } from '../../context';
+import defaultWidgets from '../../utils/widgets';
+import ArrayWidget from './Array.component';
 
 jest.unmock('@talend/design-system');
 

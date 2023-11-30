@@ -1,9 +1,10 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { fromJS, Map } from 'immutable';
-import cmf, { mock } from '@talend/react-cmf';
-import addSchemaMock from './ComponentForm.test.schema.json';
 
-import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
+import cmf, { mock } from '@talend/react-cmf';
+
+import { resolveNameForTitleMap, TCompForm, toJS } from './ComponentForm.component';
+import addSchemaMock from './ComponentForm.test.schema.json';
 
 jest.unmock('@talend/design-system');
 

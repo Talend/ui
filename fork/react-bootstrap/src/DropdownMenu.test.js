@@ -1,6 +1,6 @@
 // import ReactDOM from 'react-dom';
 // import ReactTestUtils from 'react-dom/test-utils';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import DropdownMenu from './DropdownMenu';
 import MenuItem from './MenuItem';

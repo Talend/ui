@@ -2,13 +2,13 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Component, {
-	ARRAY_ABSTRACT,
-	OBJECT_ABSTRACT,
 	abstracter,
+	ARRAY_ABSTRACT,
+	ComplexItem,
 	getDataAbstract,
 	getDataInfo,
-	ComplexItem,
 	getName,
+	OBJECT_ABSTRACT,
 } from './JSONLike.component';
 
 const callbacksProps = {

@@ -1,6 +1,7 @@
-import Immutable from 'immutable';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import Immutable from 'immutable';
+
 import TreeManager, {
 	addPathsToCollection,
 	removePathsFromCollection,

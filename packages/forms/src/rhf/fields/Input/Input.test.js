@@ -1,7 +1,9 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { render, screen, act, fireEvent } from '@testing-library/react';
+import { FormProvider, useForm } from 'react-hook-form';
+
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { useForm, FormProvider } from 'react-hook-form';
+
 import Input from './RHFInput.component';
 
 jest.unmock('@talend/design-system');

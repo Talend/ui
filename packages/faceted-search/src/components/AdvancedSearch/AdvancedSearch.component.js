@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import { useState } from 'react';
+
 import PropTypes from 'prop-types';
-import { FormControl } from '@talend/react-bootstrap';
 
 import { ButtonIcon, Icon } from '@talend/design-system';
+import { FormControl } from '@talend/react-bootstrap';
 import { getTheme } from '@talend/react-components/lib/theme';
 
-import { useFacetedSearchContext } from '../context/facetedSearch.context';
 import { USAGE_TRACKING_TAGS } from '../../constants';
+import { useFacetedSearchContext } from '../context/facetedSearch.context';
+
 import theme from './AdvancedSearch.module.scss';
 
 const css = getTheme(theme);

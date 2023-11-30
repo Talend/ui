@@ -1,16 +1,18 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import _isEmpty from 'lodash/isEmpty';
-import Enumeration from '@talend/react-components/lib/Enumeration';
-import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
+
+import classNames from 'classnames';
+import _isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
+
+import Enumeration from '@talend/react-components/lib/Enumeration';
 import FocusManager from '@talend/react-components/lib/FocusManager';
 
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message';
+import FieldTemplate from '../FieldTemplate';
+import { deleteSelectedItems, manageCtrlKey, manageShiftKey, resetItems } from './utils/utils';
 
 export const enumerationStates = {
 	DISPLAY_MODE_DEFAULT: 'DISPLAY_MODE_DEFAULT',

@@ -1,10 +1,13 @@
 import { Component } from 'react';
-import get from 'lodash/get';
+
 import classNames from 'classnames';
+import get from 'lodash/get';
 import PropTypes from 'prop-types';
+
 import Skeleton from '../../../Skeleton';
 import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
+
 import theme from '../RecordsViewer.module.scss';
 
 /**

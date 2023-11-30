@@ -1,4 +1,4 @@
-import { parse, stringify, normalize, name } from './sf-path';
+import { name, normalize, parse, stringify } from './sf-path';
 
 describe('sf-path.js', () => {
 	it('should hold functions for working with object paths and keys', () => {

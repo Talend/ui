@@ -1,10 +1,11 @@
 /* eslint-disable react/no-string-refs */
+
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
 import ReactDOM from 'react-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Dropdown from './Dropdown';
 import Grid from './Grid';

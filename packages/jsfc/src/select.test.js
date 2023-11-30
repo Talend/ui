@@ -1,4 +1,4 @@
-import { defaultForm, createDefaults } from './schema-defaults';
+import { createDefaults, defaultForm } from './schema-defaults';
 
 describe('schema-defaults.js', () => {
 	it('should hold functions for generating a default form schema from defaults it creates', () => {

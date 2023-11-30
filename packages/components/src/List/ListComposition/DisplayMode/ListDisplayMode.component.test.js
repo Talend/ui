@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { screen, render, act } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ListDisplayMode from './ListDisplayMode.component';
-import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
+import { ListContext } from '../context';
+import ListDisplayMode from './ListDisplayMode.component';
 
 jest.unmock('@talend/design-system');
 

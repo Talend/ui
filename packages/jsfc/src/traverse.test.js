@@ -1,4 +1,4 @@
-import { traverseSchema, traverseForm } from './traverse';
+import { traverseForm, traverseSchema } from './traverse';
 
 describe('traverse.js', () => {
 	it('should hold functions for applying functions on branches of a json-schema or ui-schema', () => {

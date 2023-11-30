@@ -1,14 +1,18 @@
-import ListView from '@talend/react-components/lib/ListView';
-import isEqual from 'lodash/isEqual';
-import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
+
+import isEqual from 'lodash/isEqual';
+import PropTypes from 'prop-types';
+
+import ListView from '@talend/react-components/lib/ListView';
+
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
-import theme from './NestedListView.module.scss';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
+
+import theme from './NestedListView.module.scss';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';

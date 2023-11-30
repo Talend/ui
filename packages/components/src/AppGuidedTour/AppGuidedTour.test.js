@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import AppGuidedTour, { DEFAULT_LOCAL_STORAGE_KEY } from './AppGuidedTour.component';
 
 jest.unmock('@talend/design-system');

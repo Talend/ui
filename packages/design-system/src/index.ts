@@ -10,6 +10,7 @@ export * from './components/Combobox';
 export * from './components/Divider';
 export * from './components/Dropdown';
 export * from './components/EmptyState';
+export * from './components/Enumeration';
 export * from './components/ErrorState';
 export * from './components/Form';
 export * from './components/Form/Affix';

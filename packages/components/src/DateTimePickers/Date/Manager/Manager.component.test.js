@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
-
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Manager from './Manager.component';
 import { DateContext } from '../Context';
+import Manager from './Manager.component';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 

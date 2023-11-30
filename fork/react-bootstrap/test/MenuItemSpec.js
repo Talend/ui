@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
+
 import { shallow } from 'enzyme';
 
 import MenuItem from '../src/MenuItem';
-
 import { shouldWarn } from './helpers';
 
 describe('<MenuItem>', () => {

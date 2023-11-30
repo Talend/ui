@@ -465,6 +465,15 @@
     },
     "i18n": { "status": "na" }
   },
+  "formEnumeration": {
+    "figma": { "status": "ok" },
+    "storybook": { "status": "ok" },
+    "react": {
+      "status": "wip",
+      "link": "https://github.com/Talend/ui/blob/master/packages/design-system/src/components/Enumeration/Enumeration.component.tsx"
+    },
+    "i18n": { "status": "na" }
+  },
   "formFieldset": {
     "figma": {
       "status": "ok",

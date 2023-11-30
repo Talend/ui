@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/display-name */
 // rewrite using rtl
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import startOfDay from 'date-fns/start_of_day';
-import CalendarPicker from './CalendarPicker.component';
+
 import dateMock from '../../../../../../mocks/dateMock';
+import CalendarPicker from './CalendarPicker.component';
 
 jest.mock('../../views/DateView', () => props => (
 	<div data-testid="DateView" data-props={JSON.stringify(props)}>

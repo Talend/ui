@@ -1,14 +1,17 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
+
 import get from 'lodash/get';
-import Typeahead from '@talend/react-components/lib/Typeahead';
+import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
 import FocusManager from '@talend/react-components/lib/FocusManager';
-import FieldTemplate from '../FieldTemplate';
+import Typeahead from '@talend/react-components/lib/Typeahead';
+
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import callTrigger from '../../trigger';
+import FieldTemplate from '../FieldTemplate';
 
 import theme from './MultiSelectTag.module.scss';
-import callTrigger from '../../trigger';
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

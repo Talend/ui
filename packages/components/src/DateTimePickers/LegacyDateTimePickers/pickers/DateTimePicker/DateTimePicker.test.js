@@ -1,9 +1,10 @@
 /* eslint-disable testing-library/no-container */
-import { screen, render, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import startOfDay from 'date-fns/start_of_day';
-import DateTimePicker from './DateTimePicker.component';
+
 import dateMock from '../../../../../../../mocks/dateMock';
+import DateTimePicker from './DateTimePicker.component';
 
 jest.unmock('@talend/design-system');
 

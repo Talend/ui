@@ -142,6 +142,18 @@ export const LoadingMode = {
 	),
 };
 
+export const EditionMode = {
+	render: (props: Story) => (
+		<InlineEditing.Text
+			placeholder="Input a crawler name"
+			label="Crawler name"
+			defaultValue="Lorem ipsum dolor sit amet"
+			isEditionMode={true}
+			{...props}
+		/>
+	),
+};
+
 export const InUse = (props: Story) => {
 	const [data, setData] = useState('this is a default value');
 	const [error, setError] = useState(false);

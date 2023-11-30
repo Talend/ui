@@ -1,13 +1,15 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import Action from '../../../Actions/Action';
-import theme from './Item.module.scss';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
+
+import theme from './Item.module.scss';
 
 function itemClasses(error) {
 	return classNames(theme['tc-enumeration-item'], 'tc-enumeration-item', {

@@ -1,7 +1,9 @@
 import { Component } from 'react';
+
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
+
 import { WithDynamicListGesture } from './withDynamicListGesture';
 
 const LIST_SIZE = 5;

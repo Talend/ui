@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
+
 import { shallow } from 'enzyme';
 
 import DropdownMenu from '../src/DropdownMenu';
 import MenuItem from '../src/MenuItem';
-
 import { getOne } from './helpers';
 
 describe('<Dropdown.Menu>', () => {

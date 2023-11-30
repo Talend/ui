@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import dateMock from '../../../../../../../mocks/dateMock';
 
+import dateMock from '../../../../../../../mocks/dateMock';
 import YearPicker from './YearPicker.component';
 
 describe('YearPicker', () => {

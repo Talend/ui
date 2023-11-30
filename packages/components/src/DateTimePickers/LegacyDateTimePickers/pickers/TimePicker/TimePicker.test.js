@@ -1,8 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { FIELD_MINUTES, FIELD_HOURS } from '../../DateTime/constants';
-import TimePicker from './TimePicker.component';
+
+import { FIELD_HOURS, FIELD_MINUTES } from '../../DateTime/constants';
 import { DateTimeContext } from '../../DateTime/Context';
+import TimePicker from './TimePicker.component';
 
 describe('TimePicker', () => {
 	const providerValue = {

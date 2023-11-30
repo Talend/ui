@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
+
 import { Tooltip } from '@talend/design-system';
+
 import { getTheme } from '../theme';
+
 import ratioBarTheme from './RatioBar.module.scss';
 
 const theme = getTheme(ratioBarTheme);

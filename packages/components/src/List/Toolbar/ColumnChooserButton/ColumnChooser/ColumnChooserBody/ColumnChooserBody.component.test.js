@@ -1,8 +1,8 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ColumnChooserProvider } from '../columnChooser.context';
-import getDefaultT from '../../../../../translate';
 
+import getDefaultT from '../../../../../translate';
+import { ColumnChooserProvider } from '../columnChooser.context';
 import Component from './ColumnChooserBody.component';
 
 jest.unmock('@talend/design-system');

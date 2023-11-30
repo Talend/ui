@@ -1,5 +1,5 @@
-import { stringify } from './sf-path';
 import canonicalTitleMap from './canonical-title-map';
+import { stringify } from './sf-path';
 
 /* Utils */
 const stripNullType = type => {

@@ -1,6 +1,6 @@
-import { stringify, parse } from './sf-path';
-import { defaultForm, createDefaults } from './schema-defaults';
 import canonicalTitleMap from './canonical-title-map';
+import { createDefaults, defaultForm } from './schema-defaults';
+import { parse, stringify } from './sf-path';
 
 // export function merge(schema, form, schemaDefaultTypes, ignore, options, readonly, asyncTemplates) {
 export function merge(

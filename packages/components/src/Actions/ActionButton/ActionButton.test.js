@@ -1,5 +1,6 @@
-import { render, screen, fireEvent, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import ActionButton from './ActionButton.component';
 
 jest.unmock('@talend/design-system');

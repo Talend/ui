@@ -1,7 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { describe, it, expect } from '@jest/globals';
-import { axe } from 'jest-axe';
+import { describe, expect, it } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
+
 import { InlineEditing } from './';
 
 jest.mock('@talend/utils', () => {

@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
-import { screen, render } from '@testing-library/react';
+
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ListManager from './ListManager.component';
 import { ListContext } from '../context';
+import ListManager from './ListManager.component';
 
 function TestConsumer(props) {
 	return (

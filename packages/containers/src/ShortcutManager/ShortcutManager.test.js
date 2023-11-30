@@ -1,10 +1,11 @@
-import { Map } from 'immutable';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Map } from 'immutable';
+
 import { mock } from '@talend/react-cmf';
 
-import Container from './ShortcutManager.container';
 import Connected from './ShortcutManager.connect';
+import Container from './ShortcutManager.container';
 
 describe('Shortcut container', () => {
 	it('should render', () => {

@@ -1,6 +1,7 @@
-import { PlainTextTitle } from './PlainTextTitle.component';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+import { PlainTextTitle } from './PlainTextTitle.component';
 
 describe('PlainTextTitle', () => {
 	it('should render', () => {
