@@ -1,11 +1,18 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+
 import { isEmpty } from 'lodash';
+import isObject from 'lodash/isObject';
 import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
 
+import {
+	callbacksPropTypes,
+	operatorPropTypes,
+	operatorsPropTypes,
+} from '../../facetedSearch.propTypes';
 import { BadgeFaceted } from '../BadgeFaceted';
 import { BadgeMenuForm } from './BadgeMenuForm.component';
-import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 
 const getSelectBadgeLabel = (value, t) => {
 	const labelAll = t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' });
@@ -31,10 +38,37 @@ export const BadgeMenu = ({
 	displayType,
 	filterBarPlaceholder,
 	t,
+	callbacks,
 	...rest
 }) => {
+	const [options, setOptions] = useState(values);
 	const currentOperators = useMemo(() => operators, [operators]);
 	const currentOperator = operator || (currentOperators && currentOperators[0]);
+	const [isLoading, setIsLoading] = useState(true);
+	const callback = callbacks && callbacks[rest.attribute];
+	useEffect(() => {
+		if (!callback || !callback.getOptions) {
+			setIsLoading(false);
+			return;
+		}
+
+		setIsLoading(true);
+		callback
+			.getOptions()
+			.then(data => {
+				setOptions(
+					data.map(item => {
+						if (isObject(item)) {
+							return { id: item.id, label: item.label };
+						}
+						return { id: item, label: item };
+					}),
+				);
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+	}, [callback]);
 	const badgeMenuId = `${id}-badge-menu`;
 	const badgeLabel = useMemo(() => getSelectBadgeLabel(value, t), [value, t]);
 	return (
@@ -60,8 +94,9 @@ export const BadgeMenu = ({
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
-					values={values}
+					values={options}
 					filterBarPlaceholder={filterBarPlaceholder}
+					isLoading={isLoading}
 					t={t}
 					{...rest}
 				/>
@@ -89,6 +124,7 @@ BadgeMenu.propTypes = {
 	readOnly: PropTypes.bool,
 	removable: PropTypes.bool,
 	values: PropTypes.array,
+	callbacks: callbacksPropTypes,
 	t: PropTypes.func.isRequired,
 	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 	filterBarPlaceholder: PropTypes.string,

@@ -39,6 +39,7 @@ const badgeFacetedPropTypes = PropTypes.shape({
 		isInCreation: PropTypes.bool,
 		entitiesPerBadge: PropTypes.string,
 		operators: PropTypes.arrayOf(PropTypes.string),
+		isLoading: PropTypes.bool,
 	}),
 });
 
