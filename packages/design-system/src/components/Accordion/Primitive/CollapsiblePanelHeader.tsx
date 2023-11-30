@@ -1,16 +1,17 @@
 import { forwardRef, ReactChild, Ref } from 'react';
+
 import classnames from 'classnames';
 
 import tokens from '@talend/design-tokens';
 
 import { ButtonIcon } from '../../ButtonIcon';
-import { SizedIcon } from '../../Icon';
 import { Divider } from '../../Divider';
+import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 import { Status } from '../../Status';
 import { variants } from '../../Status/Primitive/StatusPrimitive';
-
 import { PanelHeaderAction } from './types';
+
 import styles from './CollapsiblePanelHeader.module.scss';
 
 export type CollapsiblePanelHeaderPropsType = {
@@ -149,6 +150,7 @@ const CollapsiblePanelHeader = forwardRef(
 				ref={ref}
 				data-test="panel.header"
 				data-testid="panel.header"
+				type="button"
 			>
 				{getContent()}
 			</button>

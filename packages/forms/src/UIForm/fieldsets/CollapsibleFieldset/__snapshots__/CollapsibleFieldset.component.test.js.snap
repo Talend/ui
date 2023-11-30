@@ -14,6 +14,7 @@ exports[`CollapsibleFieldset should render 1`] = `
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-42"
+      type="button"
     >
       <div
         class="theme-iconWrapper"
