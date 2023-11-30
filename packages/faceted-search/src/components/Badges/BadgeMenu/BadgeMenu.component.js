@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 import isObject from 'lodash/isObject';
 import PropTypes from 'prop-types';
 
