@@ -1,5 +1,12 @@
 # @talend/scripts-core
 
+## 16.3.1
+
+### Patch Changes
+
+- Updated dependencies [24bcb177f]
+  - @talend/scripts-config-jest@14.0.0
+
 ## 16.3.0
 
 ### Minor Changes

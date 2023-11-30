@@ -1,5 +1,21 @@
 # @talend/react-forms
 
+## 12.3.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
+### Patch Changes
+
+- Updated dependencies [24bcb177f]
+- Updated dependencies [bd152f9d4]
+- Updated dependencies [a07c9cb0b]
+- Updated dependencies [795a12e2d]
+  - @talend/design-system@8.6.0
+  - @talend/react-bootstrap@2.2.0
+  - @talend/react-components@12.3.0
+
 ## 12.2.0
 
 ### Minor Changes

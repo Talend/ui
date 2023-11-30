@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 2.2.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
 ## 2.1.1
 
 ### Patch Changes

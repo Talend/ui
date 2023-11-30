@@ -1,5 +1,16 @@
 # @talend/design-system
 
+## 8.6.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+- bd152f9d4: feat(TDC-7378): New enumeration component
+
+### Patch Changes
+
+- a07c9cb0b: TDOPS-5762 - Fix Design System accordion button that would submit a form
+
 ## 8.5.1
 
 ### Patch Changes

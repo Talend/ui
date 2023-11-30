@@ -1,5 +1,17 @@
 # Changelog
 
+## 12.2.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
+### Patch Changes
+
+- fbbe53b60: Move bootstrap-theme as dependency instead of devDependency
+- Updated dependencies [24bcb177f]
+  - @talend/react-bootstrap@2.2.0
+
 ## 12.1.0
 
 ### Minor Changes
