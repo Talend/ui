@@ -1,5 +1,11 @@
 # @talend/local-libs-webpack-plugin
 
+## 0.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 0.2.0
 
 ### Minor Changes

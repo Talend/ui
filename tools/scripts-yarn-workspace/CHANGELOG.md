@@ -1,5 +1,11 @@
 # @talend/scripts-yarn-workspace
 
+## 2.0.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 2.0.0
 
 ### Major Changes

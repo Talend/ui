@@ -33,23 +33,23 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^8.6.0",
-    "@talend/design-tokens": "^2.10.0",
-    "@talend/react-components": "^12.3.0",
+    "@talend/design-system": "^8.6.1",
+    "@talend/design-tokens": "^2.10.1",
+    "@talend/react-components": "^12.3.1",
     "classnames": "^2.3.2",
     "invariant": "^2.2.4",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^7.3.0",
-    "@talend/eslint-config": "^13.0.1",
+    "@talend/icons": "^7.3.1",
+    "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-config-babel": "^13.2.0",
+    "@talend/scripts-config-babel": "^13.2.1",
     "@talend/scripts-config-prettier": "^12.1.2",
-    "@talend/scripts-config-react-webpack": "^16.3.2",
-    "@talend/scripts-config-storybook-lib": "^5.2.0",
+    "@talend/scripts-config-react-webpack": "^16.3.3",
+    "@talend/scripts-config-storybook-lib": "^5.2.1",
     "@talend/scripts-config-typescript": "^11.2.0",
-    "@talend/scripts-core": "^16.3.1",
+    "@talend/scripts-core": "^16.3.2",
     "@testing-library/react-hooks": "^8.0.1",
     "@trivago/prettier-plugin-sort-imports": "^3.4.0",
     "i18next": "^23.7.7",
@@ -75,5 +75,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "10.1.0"
+  "version": "10.1.1"
 }

@@ -1,5 +1,13 @@
 # @talend/react-cmf
 
+## 8.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/scripts-cmf@1.2.2
+
 ## 8.3.0
 
 ### Minor Changes

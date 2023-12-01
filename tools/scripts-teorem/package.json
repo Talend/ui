@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-teorem",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "bin": {
     "teorem": "./index.js"
@@ -29,8 +29,8 @@
     "queue": "^6.0.2"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.1",
+    "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-core": "^16.3.1"
+    "@talend/scripts-core": "^16.3.2"
   }
 }

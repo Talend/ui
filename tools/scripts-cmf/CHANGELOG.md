@@ -1,5 +1,11 @@
 # @talend/scripts-cmf
 
+## 1.2.2
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 1.2.1
 
 ### Patch Changes
