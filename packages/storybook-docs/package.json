@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.12.1",
-    "@storybook/blocks": "^7.6.1",
-    "@storybook/react": "^7.6.1",
+    "@storybook/blocks": "^7.6.2",
+    "@storybook/react": "^7.6.2",
     "@talend/design-tokens": "^2.10.0",
     "algoliasearch": "^4.20.0",
     "classnames": "^2.3.2",
