@@ -13,8 +13,9 @@
     "lint": "eslint ./"
   },
   "dependencies": {
-    "i18next": "^23.7.7",
+    "commander": "^6.2.1",
     "deepmerge": "^1.5.2",
+    "i18next": "^23.7.7",
     "jsonpath": "^1.1.1",
     "lodash": "^4.17.21",
     "mkdirp": "^1.0.4"
