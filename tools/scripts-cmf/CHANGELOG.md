@@ -1,5 +1,11 @@
 # @talend/scripts-cmf
 
+## 1.2.3
+
+### Patch Changes
+
+- 19c3c59: Add missing dependency: commander
+
 ## 1.2.2
 
 ### Patch Changes
