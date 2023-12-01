@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 8.6.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/design-tokens@2.10.1
+  - @talend/assets-api@1.3.1
+
 ## 8.6.0
 
 ### Minor Changes

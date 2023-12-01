@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.10.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 2.10.0
 
 ### Minor Changes

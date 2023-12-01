@@ -1,5 +1,14 @@
 # @talend/scripts-config-babel
 
+## 13.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/babel-plugin-import-from-index@1.6.1
+  - @talend/babel-plugin-assets-api@1.2.1
+
 ## 13.2.0
 
 ### Minor Changes

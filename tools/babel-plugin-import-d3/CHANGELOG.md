@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-d3
 
+## 0.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 0.3.0
 
 ### Minor Changes

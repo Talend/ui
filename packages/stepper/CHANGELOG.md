@@ -1,5 +1,16 @@
 # @talend/react-stepper
 
+## 10.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/design-system@8.6.1
+  - @talend/design-tokens@2.10.1
+  - @talend/react-components@12.3.1
+
 ## 10.1.0
 
 ### Minor Changes
