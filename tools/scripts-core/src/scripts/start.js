@@ -7,7 +7,7 @@ export default async function start(env, _, options) {
 
 	if (packageType.isApp) {
 		return utils.process.spawn(
-			new URL(import.meta.resolve('webpack/bin/webpack.js')).pathname,
+			utils.path.resolveBin('webpack'),
 			[
 				'serve',
 				'--config',

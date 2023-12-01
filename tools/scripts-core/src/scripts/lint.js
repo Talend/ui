@@ -101,14 +101,10 @@ async function lintStyle(env, presetApi, options) {
 		}
 	}
 
-	return utils.process.spawn(
-		new URL(import.meta.resolve('stylelint/bin/stylelint.mjs')).pathname,
-		args,
-		{
-			stdio: 'inherit',
-			env,
-		},
-	);
+	return utils.process.spawn(utils.path.resolveBin('stylelint'), args, {
+		stdio: 'inherit',
+		env,
+	});
 }
 
 export default async function lint(env, presetApi, options) {

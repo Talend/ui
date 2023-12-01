@@ -106,7 +106,6 @@ export default async function build(env, presetApi, unsafeOptions) {
 			}
 
 			const tsc = utils.path.resolveBin('tsc');
-			console.log('####TSC', args);
 			utils.process
 				.spawn(tsc, args, { stdio: 'inherit', env })
 				.then(tscSpawn => {
