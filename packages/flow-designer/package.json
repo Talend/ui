@@ -27,7 +27,7 @@
     "@talend/scripts-config-typescript": "^11.2.0",
     "@talend/scripts-config-react-webpack": "^16.3.2",
     "@testing-library/react": "^14.1.2",
-    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/jest-dom": "^6.1.5",
     "@types/d3": "^7.4.3",
     "@types/invariant": "^2.2.37",
     "@types/jest": "^29.5.10",
