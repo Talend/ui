@@ -1,24 +1,23 @@
 import { cloneElement, forwardRef, useEffect, useState } from 'react';
 import type {
-	MouseEvent,
+	ChangeEvent,
+	ElementType,
 	FormEvent,
-	KeyboardEvent as RKeyboardEvent,
+	HTMLAttributes,
+	MouseEvent,
 	ReactElement,
 	Ref,
-	HTMLAttributes,
-	ElementType,
-	ChangeEvent,
+	KeyboardEvent as RKeyboardEvent,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
-import keycode from 'keycode';
 
+import { useId } from '../../../useId';
 import { ButtonIcon } from '../../ButtonIcon';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { Form } from '../../Form';
 import { StackHorizontal } from '../../Stack';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
-import { useId } from '../../../useId';
 
 import styles from './InlineEditingPrimitive.module.scss';
 
@@ -39,6 +38,7 @@ export type OnEditEvent =
 	| RKeyboardEvent;
 
 export type InlineEditingPrimitiveProps = {
+	isEditMode?: boolean;
 	loading?: boolean;
 	onCancel?: () => void;
 	onToggle?: (isEditionMode: boolean) => void;
@@ -81,6 +81,7 @@ export type InlineEditingPrimitiveProps = {
 const InlineEditingPrimitive = forwardRef(
 	(props: InlineEditingPrimitiveProps, ref: Ref<HTMLDivElement>) => {
 		const {
+			isEditMode = false,
 			loading,
 			ariaLabel,
 			mode,
@@ -102,7 +103,7 @@ const InlineEditingPrimitive = forwardRef(
 
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-		const [isEditing, setEditing] = useState<boolean>(false);
+		const [isEditing, setEditing] = useState<boolean>(isEditMode);
 		const [internalValue, setInternalValue] = useState<string | undefined>(defaultValue);
 		const inlineEditingId = useId(rest.id, 'inline-edit-');
 
@@ -133,7 +134,9 @@ const InlineEditingPrimitive = forwardRef(
 				onEdit(event, getValue() || '');
 			}
 
-			toggleEditionMode(false);
+			if (!hasError) {
+				toggleEditionMode(false);
+			}
 		};
 
 		const handleCancel = () => {
@@ -192,11 +195,11 @@ const InlineEditingPrimitive = forwardRef(
 			},
 			// Keyboard shortcuts
 			onKeyDown: (event: RKeyboardEvent) => {
-				if (event.keyCode === keycode.codes.enter && mode !== 'multi') {
+				if (event.key === 'Enter' && mode !== 'multi') {
 					// Enter
 					handleSubmit(event);
 				}
-				if (event.keyCode === keycode.codes.esc) {
+				if (event.key === 'Escape' || event.key === 'Esc') {
 					handleCancel();
 				}
 			},

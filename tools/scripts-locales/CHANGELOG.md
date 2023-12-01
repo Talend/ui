@@ -1,5 +1,11 @@
 # @talend/scripts-locales
 
+## 1.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 1.1.0
 
 ### Minor Changes

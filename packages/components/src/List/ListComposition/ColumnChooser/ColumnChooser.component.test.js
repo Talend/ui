@@ -1,8 +1,9 @@
-import { screen, render } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ColumnChooser from './ColumnChooser.component';
-import { ListContext } from '../context';
+
 import getDefaultT from '../../../translate';
+import { ListContext } from '../context';
+import ColumnChooser from './ColumnChooser.component';
 
 jest.unmock('@talend/design-system');
 
@@ -30,11 +31,13 @@ describe('ColumnChooser', () => {
 
 		// then
 		expect(screen.getByRole('button')).toBeVisible();
-		screen.getByRole('button').focus(); // trigger the tooltip
+		act(() => screen.getByRole('button').focus()); // trigger the tooltip
 		expect(screen.getByText('Open the column chooser')).toBeVisible();
 	});
 
-	it('should update columns', () => {
+	it('should update columns', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(
 			<ListContext.Provider value={defaultContext}>
@@ -43,24 +46,26 @@ describe('ColumnChooser', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByRole('button'));
-		userEvent.click(screen.getByText('Bar'));
-		userEvent.click(screen.getByText('Apply'));
+		await user.click(screen.getByRole('button'));
+		await user.click(screen.getByText('Bar'));
+		await user.click(screen.getByText('Apply'));
 
 		// then
-		expect(defaultContext.setVisibleColumns).toBeCalledWith(['bar']);
+		expect(defaultContext.setVisibleColumns).toHaveBeenCalledWith(['bar']);
 	});
 
-	it('should call props.onSubmit if exist', () => {
+	it('should call props.onSubmit if exist', async () => {
+		const user = userEvent.setup();
+
 		const onSubmit = jest.fn();
 		render(
 			<ListContext.Provider value={defaultContext}>
 				<ColumnChooser id="myColumnChooser" onSubmit={onSubmit} />
 			</ListContext.Provider>,
 		);
-		userEvent.click(screen.getByRole('button'));
-		userEvent.click(screen.getByText('Bar'));
-		userEvent.click(screen.getByText('Apply'));
+		await user.click(screen.getByRole('button'));
+		await user.click(screen.getByText('Bar'));
+		await user.click(screen.getByText('Apply'));
 
 		expect(onSubmit).toHaveBeenCalled();
 	});

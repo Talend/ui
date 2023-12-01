@@ -1,5 +1,11 @@
 # @talend/cypress-api-mock-plugin
 
+## 1.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 1.2.0
 
 ### Minor Changes

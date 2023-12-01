@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import { RatioBar } from './RatioBar.component';
 
 // as this is SVG we need to rely on custom selector
@@ -48,7 +49,9 @@ describe('RatioBar', () => {
 			expect(getCounter()).toHaveTextContent('N/A');
 		});
 
-		it('should render an full sized chart', () => {
+		it('should render an full sized chart', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const props = {
 				amount: 12,
@@ -57,7 +60,7 @@ describe('RatioBar', () => {
 			// when
 			render(<RatioBar {...props} />);
 			// then
-			userEvent.tab();
+			await user.tab();
 			expect(getCounter()).toHaveTextContent('12/12');
 			expect(getRatioBarLine()).toHaveStyle('flex-basis: 100%');
 		});

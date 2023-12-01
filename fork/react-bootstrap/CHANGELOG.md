@@ -1,5 +1,18 @@
 ## [v0.32.5]
 
+## 2.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+
+## 2.2.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
 ## 2.1.1
 
 ### Patch Changes

@@ -1,5 +1,33 @@
 # @talend/react-components
 
+## 12.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/design-tokens@2.10.1
+  - @talend/react-bootstrap@2.2.1
+  - @talend/assets-api@1.3.1
+  - @talend/icons@7.3.1
+  - @talend/bootstrap-theme@8.3.1
+  - @talend/react-a11y@2.2.1
+
+## 12.3.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
+### Patch Changes
+
+- 795a12e2d: fix: security issue on regexp
+- Updated dependencies [24bcb177f]
+  - @talend/react-bootstrap@2.2.0
+  - @talend/react-a11y@2.2.0
+
 ## 12.2.0
 
 ### Minor Changes

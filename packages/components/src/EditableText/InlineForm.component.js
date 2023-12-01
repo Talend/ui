@@ -1,11 +1,13 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
-import keycode from 'keycode';
+import PropTypes from 'prop-types';
+
 import { Action } from '../Actions';
 import FocusManager from '../FocusManager';
-import theme from './InlineForm.module.scss';
 import getDefaultT from '../translate';
+
+import theme from './InlineForm.module.scss';
 
 class InlineForm extends Component {
 	static propTypes = {
@@ -52,8 +54,9 @@ class InlineForm extends Component {
 	}
 
 	onKeyDown(event) {
-		switch (event.keyCode) {
-			case keycode.codes.esc:
+		switch (event.key) {
+			case 'Esc':
+			case 'Escape':
 				this.onCancel(event);
 				break;
 			default:

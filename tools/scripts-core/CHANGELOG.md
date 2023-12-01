@@ -1,5 +1,24 @@
 # @talend/scripts-core
 
+## 16.3.2
+
+### Patch Changes
+
+- f69c72b: Fixed issue with scripts that could not resolve bin path on windows
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/eslint-config@13.0.2
+  - @talend/scripts-config-babel@13.2.1
+  - @talend/scripts-config-jest@14.0.1
+
+## 16.3.1
+
+### Patch Changes
+
+- Updated dependencies [24bcb177f]
+  - @talend/scripts-config-jest@14.0.0
+
 ## 16.3.0
 
 ### Minor Changes

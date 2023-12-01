@@ -1,5 +1,29 @@
 # Changelog
 
+## 12.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/design-tokens@2.10.1
+  - @talend/react-bootstrap@2.2.1
+  - @talend/bootstrap-theme@8.3.1
+
+## 12.2.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
+### Patch Changes
+
+- fbbe53b60: Move bootstrap-theme as dependency instead of devDependency
+- Updated dependencies [24bcb177f]
+  - @talend/react-bootstrap@2.2.0
+
 ## 12.1.0
 
 ### Minor Changes

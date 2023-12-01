@@ -1,7 +1,7 @@
-import * as JsonRefs from './../../lib/json-refs-standalone';
+import * as JsonRefs from './../lib/json-refs-standalone';
 
 export function jsonref(schema, callBack) {
-	let promise = new Promise(function(resolve, reject) {
+	let promise = new Promise(function (resolve, reject) {
 		JsonRefs.resolveRefs(schema, {
 			filter: ['relative', 'local', 'remote'],
 		})

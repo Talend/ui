@@ -1,5 +1,6 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Component from './RowCheckbox.component';
 
 jest.unmock('@talend/design-system');
@@ -37,7 +38,8 @@ describe('RowCheckBox', () => {
 		// Then
 		expect(document.querySelectorAll('use[xlink:href="#locker-closed:M"]')).toHaveLength(1);
 	});
-	it('should call the onClick when checkbox trigger change', () => {
+	it('should call the onClick when checkbox trigger change', async () => {
+		const user = userEvent.setup();
 		// Given
 		const onChange = jest.fn();
 		const props = {
@@ -50,7 +52,7 @@ describe('RowCheckBox', () => {
 		};
 		// When
 		render(<Component {...props} />);
-		userEvent.click(screen.getByRole('checkbox'));
+		await user.click(screen.getByRole('checkbox'));
 		// Then
 		expect(onChange).toHaveBeenNthCalledWith(1, true, 'column-label');
 	});

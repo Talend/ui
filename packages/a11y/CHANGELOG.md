@@ -1,5 +1,17 @@
 # @talend/react-a11y
 
+## 2.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
+## 2.2.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
 ## 2.1.0
 
 ### Minor Changes

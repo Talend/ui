@@ -1,19 +1,15 @@
-import chai from 'chai';
-import { describe, it } from 'mocha';
-import { defaultForm, createDefaults } from './schema-defaults';
-
-chai.should();
+import { createDefaults, defaultForm } from './schema-defaults';
 
 describe('schema-defaults.js', () => {
 	it('should hold functions for generating a default form schema from defaults it creates', () => {
-		defaultForm.should.be.an('function');
-		createDefaults.should.be.an('function');
+		expect(typeof defaultForm).toBe('function');
+		expect(typeof createDefaults).toBe('function');
 	});
 
 	describe('createDefaults', () => {
 		it('should create default rules', () => {
 			const rules = createDefaults();
-			rules.should.be.an('object');
+			expect(typeof rules).toBe('object');
 		});
 	});
 
@@ -55,7 +51,6 @@ describe('schema-defaults.js', () => {
 					},
 				},
 			};
-
 			const form = [
 				{
 					title: 'Name',
@@ -199,9 +194,8 @@ describe('schema-defaults.js', () => {
 					],
 				},
 			];
-
 			const f = defaultForm(schema, createDefaults());
-			f.form.should.be.deep.equal(form);
+			expect(f.form).toMatchObject(form);
 		});
 	});
 });

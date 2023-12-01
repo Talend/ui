@@ -1,5 +1,18 @@
 # @talend/design-docs
 
+## 3.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/storybook-docs@2.2.1
+  - @talend/design-system@8.6.1
+  - @talend/design-tokens@2.10.1
+  - @talend/icons@7.3.1
+
 ## 3.1.0
 
 ### Minor Changes

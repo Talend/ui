@@ -1,16 +1,18 @@
 /* eslint-disable react/jsx-no-bind */
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import classNames from 'classnames';
-import omit from 'lodash/omit';
-import keycode from 'keycode';
 import get from 'lodash/get';
-import Typeahead from '../Typeahead';
-import theme from './Datalist.module.scss';
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
+
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import FocusManager from '../FocusManager';
 import Icon from '../Icon';
-import { useTranslation } from 'react-i18next';
-import I18N_DOMAIN_COMPONENTS from '../constants';
+import Typeahead from '../Typeahead';
+
+import theme from './Datalist.module.scss';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -24,7 +26,7 @@ const DISPLAY = {
 };
 
 function isValuePresentInSuggestions(titleMap, filterValue, multiSection) {
-	return !!multiSection
+	return multiSection
 		? titleMap.find(group =>
 				group.suggestions.find(item => filterValue.toLowerCase() === item.name.toLowerCase()),
 		  )
@@ -364,13 +366,14 @@ function Datalist(props) {
 			newHighlightedItemIndex,
 			newHighlightedSectionIndex,
 		} = params;
-		switch (event.which) {
-			case keycode.codes.esc:
+		switch (event.key) {
+			case 'Esc':
+			case 'Escape':
 				event.preventDefault();
 				resetFilter();
 				hideSuggestions();
 				break;
-			case keycode.codes.enter:
+			case 'Enter':
 				if (!suggestions) {
 					break;
 				}
@@ -386,8 +389,10 @@ function Datalist(props) {
 					persistValue(event);
 				}
 				break;
-			case keycode.codes.down:
-			case keycode.codes.up:
+			case 'Down':
+			case 'ArrowDown':
+			case 'Up':
+			case 'ArrowUp':
 				event.preventDefault();
 				if (!suggestions) {
 					// display all suggestions when they are not displayed

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Notification from './Notification.component';
@@ -116,7 +116,9 @@ describe('Notification', () => {
 		expect(screen.queryByTestId('timer')).not.toBeInTheDocument();
 	});
 
-	it('should pin notification when the user clicks', () => {
+	it('should pin notification when the user clicks', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const leaveFn = jest.fn();
 		const notification = { id: 'id', message: 'foo' };
@@ -125,13 +127,15 @@ describe('Notification', () => {
 		expect(notifDiv).not.toHaveAttribute('pin', 'true');
 
 		// when
-		userEvent.click(notifDiv);
+		await user.click(notifDiv);
 
 		// then
 		expect(notifDiv).toHaveAttribute('pin', 'true');
 	});
 
-	it('should call leaveFn props when the user clicks', () => {
+	it('should call leaveFn props when the user clicks', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const leaveFn = jest.fn();
 		const notification = { id: 'id', message: 'foo' };
@@ -140,14 +144,16 @@ describe('Notification', () => {
 		const notifDiv = screen.getByRole('status');
 
 		// when
-		userEvent.click(notifDiv); // pin
-		userEvent.click(notifDiv);
+		await user.click(notifDiv); // pin
+		await user.click(notifDiv);
 
 		// then
 		expect(leaveFn).toHaveBeenCalledWith(notification);
 	});
 
-	it('should call leaveFn props when the user clicks on close button', () => {
+	it('should call leaveFn props when the user clicks on close button', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const leaveFn = jest.fn();
 		const notification = { id: 'id', message: 'foo' };
@@ -156,7 +162,7 @@ describe('Notification', () => {
 		const closeBtn = screen.getByRole('button');
 
 		// when
-		userEvent.click(closeBtn);
+		await user.click(closeBtn);
 
 		// then
 		expect(leaveFn).toHaveBeenCalledWith(notification);
@@ -172,11 +178,11 @@ describe('Notification', () => {
 		render(
 			<Notification notifications={[notification]} leaveFn={leaveFn} autoLeaveTimeout={2000} />,
 		);
-		expect(leaveFn).not.toBeCalled();
+		expect(leaveFn).not.toHaveBeenCalled();
 		jest.advanceTimersByTime(2000);
 
 		// then
-		expect(leaveFn).toBeCalled();
+		expect(leaveFn).toHaveBeenCalled();
 	});
 
 	it('should not call leaveFn after timeout on error', () => {
@@ -189,11 +195,11 @@ describe('Notification', () => {
 		render(
 			<Notification notifications={[notification]} leaveFn={leaveFn} autoLeaveTimeout={2000} />,
 		);
-		expect(leaveFn).not.toBeCalled();
+		expect(leaveFn).not.toHaveBeenCalled();
 		jest.advanceTimersByTime(2000);
 
 		// then
-		expect(leaveFn).not.toBeCalled();
+		expect(leaveFn).not.toHaveBeenCalled();
 	});
 
 	it('should pause/resume timer on hover/leave', () => {
@@ -210,13 +216,13 @@ describe('Notification', () => {
 		jest.advanceTimersByTime(2000);
 
 		// then
-		expect(leaveFn).not.toBeCalled();
+		expect(leaveFn).not.toHaveBeenCalled();
 
 		// when
 		fireEvent.mouseOut(screen.getByText('foo'));
 		jest.advanceTimersByTime(2000);
 
 		// then
-		expect(leaveFn).toBeCalled();
+		expect(leaveFn).toHaveBeenCalled();
 	});
 });

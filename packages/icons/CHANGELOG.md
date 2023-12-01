@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 7.3.0
 
 ### Minor Changes

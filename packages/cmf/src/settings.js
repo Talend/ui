@@ -2,9 +2,10 @@
  * Internal. All stuff related to the settings handling in CMF.
  * @module react-cmf/lib/settings
  */
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import memoize from 'lodash/memoize';
+import PropTypes from 'prop-types';
 
 /**
  * if viewId is undefined, try to generate a meaningfull one
@@ -26,11 +27,12 @@ export function generateDefaultViewId(viewId, componentName, componentId) {
 
 /**
  * Extract component name without HOC
- * @param {String} viewId Connect(CMF(Container(MyComponent)))
+ * @param {String} componentName Connect(CMF(Container(MyComponent)))
  * @return {String} MyComponent
  */
-function withoutHOC(componentName) {
-	return componentName.match(/.*\((.*?)\)/)[1];
+export function withoutHOC(componentName) {
+	const parts = componentName.split('(');
+	return parts[parts.length - 1].replaceAll(')', '');
 }
 
 /**

@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
-import { screen, render } from '@testing-library/react';
+
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ListManager from './ListManager.component';
 import { ListContext } from '../context';
+import ListManager from './ListManager.component';
 
 function TestConsumer(props) {
 	return (
@@ -57,7 +58,9 @@ describe('List Manager', () => {
 		expect(props.collection).toEqual(collection);
 	});
 
-	it('should propagate display mode', () => {
+	it('should propagate display mode', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(
 			<ListManager collection={[{ id: 0 }, { id: 1 }]}>
@@ -67,13 +70,15 @@ describe('List Manager', () => {
 		expect(screen.getByTestId('displayMode')).toHaveTextContent('table');
 
 		// when
-		userEvent.click(screen.getByText('Large'));
+		await user.click(screen.getByText('Large'));
 
 		// then
 		expect(screen.getByTestId('displayMode')).toHaveTextContent('large');
 	});
 
-	it('should propagate filter', () => {
+	it('should propagate filter', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(
 			<ListManager
@@ -89,7 +94,9 @@ describe('List Manager', () => {
 		const newFilter = 'toto';
 
 		// when
-		userEvent.type(screen.getByRole('textbox'), newFilter);
+		const textbox = screen.getByRole('textbox');
+		await user.clear(textbox);
+		await user.type(textbox, newFilter);
 
 		// then
 		const props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
@@ -97,7 +104,9 @@ describe('List Manager', () => {
 		expect(props.collection).toEqual([{ id: 0, name: 'toto' }]);
 	});
 
-	it('should propagate column list', () => {
+	it('should propagate column list', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(
 			<ListManager
@@ -111,14 +120,16 @@ describe('List Manager', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByText('setColumns'));
+		await user.click(screen.getByText('setColumns'));
 
 		// then
 		const props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
 		expect(props.columns).toEqual(['id', 'name']);
 	});
 
-	it('should propagate filtered column list', () => {
+	it('should propagate filtered column list', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(
 			<ListManager
@@ -134,14 +145,16 @@ describe('List Manager', () => {
 		const filteredColumns = ['name'];
 
 		// when
-		userEvent.click(screen.getByText('setFilteredColumns'));
+		await user.click(screen.getByText('setFilteredColumns'));
 
 		// then
 		const props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);
 		expect(props.filteredColumns).toEqual(filteredColumns);
 	});
 
-	it('should propagate sort', () => {
+	it('should propagate sort', async () => {
+		const user = userEvent.setup();
+
 		// given
 		render(
 			<ListManager
@@ -161,7 +174,7 @@ describe('List Manager', () => {
 		]);
 
 		// when
-		userEvent.click(screen.getByText('setSortParams'));
+		await user.click(screen.getByText('setSortParams'));
 
 		// then
 		props = JSON.parse(screen.getByTestId('TestConsumer').dataset.props);

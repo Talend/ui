@@ -1,5 +1,32 @@
 # @talend/design-system
 
+## 8.6.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/design-tokens@2.10.1
+  - @talend/assets-api@1.3.1
+
+## 8.6.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+- bd152f9d4: feat(TDC-7378): New enumeration component
+
+### Patch Changes
+
+- a07c9cb0b: TDOPS-5762 - Fix Design System accordion button that would submit a form
+
+## 8.5.1
+
+### Patch Changes
+
+- 5c5924af7: fix: Messages adjustments
+
 ## 8.5.0
 
 ### Minor Changes

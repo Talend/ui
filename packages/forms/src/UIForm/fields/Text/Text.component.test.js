@@ -1,5 +1,6 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Text from './Text.component';
 
 jest.unmock('@talend/design-system');
@@ -195,7 +196,7 @@ describe('Text field', () => {
 		screen.getByLabelText('My input title').blur();
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything(event), { schema: defaultSchema });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(event), { schema: defaultSchema });
 	});
 
 	it('should render hidden input', () => {

@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 13.0.2
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 13.0.1
 
 ### Patch Changes

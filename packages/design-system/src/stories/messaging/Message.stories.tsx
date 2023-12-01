@@ -43,7 +43,11 @@ export const DefaultMessageDemo = () => (
 			titleInfo="1 minute ago"
 			description="There is an issue with the component configuration"
 			link={{ href: 'https://talend.com', children: 'Learn more' }}
-			action={{ children: 'See', onClick: action('action clicked') }}
+			additionalIconAction={{
+				children: 'Dismiss',
+				onClick: action('dismiss clicked'),
+				icon: 'trash',
+			}}
 		>
 			<StackHorizontal gap="S">
 				<TagDestructive>Error</TagDestructive> <TagDefault>Default</TagDefault>
@@ -53,7 +57,14 @@ export const DefaultMessageDemo = () => (
 			title="Type incompatibilities"
 			description="Maybe resolve this issue before doing anything else"
 			link={{ href: 'https://talend.com', children: 'Learn more' }}
-			action={{ children: 'See', onClick: action('action clicked') }}
+			additionalDropdownActions={{
+				'aria-label': 'Additional actions',
+				items: [
+					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+					{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+					{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+				],
+			}}
 		>
 			<StackHorizontal gap="S">
 				<TagWarning>Bindings</TagWarning> <TagDefault>Default</TagDefault>

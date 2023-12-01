@@ -1,5 +1,19 @@
 # @talend/scripts-config-jest
 
+## 14.0.1
+
+### Patch Changes
+
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/scripts-config-babel@13.2.1
+
+## 14.0.0
+
+### Major Changes
+
+- 24bcb177f: chore: bump testing-library to 6.x
+
 ## 13.1.1
 
 ### Patch Changes

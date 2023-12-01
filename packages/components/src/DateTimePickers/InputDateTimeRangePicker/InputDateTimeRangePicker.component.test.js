@@ -23,9 +23,11 @@ describe('InputDateTimeRangePicker', () => {
 	});
 
 	it('should works with default time', async () => {
+		const user = userEvent.setup();
+
 		// when
 		const onChange = jest.fn();
-		const { container } = render(
+		render(
 			<InputDateTimeRangePicker
 				id="my-picker"
 				onChange={onChange}
@@ -44,11 +46,11 @@ describe('InputDateTimeRangePicker', () => {
 
 		// then
 		// start time
-		await userEvent.click(within(start).getByTestId('date-picker'));
-		await userEvent.click(within(start).getAllByText('10')[0]);
+		await user.click(within(start).getByTestId('date-picker'));
+		await user.click(within(start).getAllByText('10')[0]);
 		// note first call seems to trigger a JS error...
-		await userEvent.click(within(start).getByTestId('time-picker'));
-		await userEvent.click(within(start).getByText('08:00'));
+		await user.click(within(start).getByTestId('time-picker'));
+		await user.click(within(start).getByText('08:00'));
 
 		const payload = onChange.mock.calls[1][1];
 		expect(payload.errors.length).toBe(0);
@@ -60,10 +62,10 @@ describe('InputDateTimeRangePicker', () => {
 		);
 
 		// // end time
-		await userEvent.click(within(end).getByTestId('date-picker'));
-		await userEvent.click(within(end).getByText('13'));
-		await userEvent.click(within(end).getByTestId('time-picker'));
-		await userEvent.click(within(end).getByText('10:00'));
+		await user.click(within(end).getByTestId('date-picker'));
+		await user.click(within(end).getByText('13'));
+		await user.click(within(end).getByTestId('time-picker'));
+		await user.click(within(end).getByText('10:00'));
 
 		const payloadEnd = onChange.mock.calls[3][1];
 		expect(payloadEnd.errors.length).toBe(0);

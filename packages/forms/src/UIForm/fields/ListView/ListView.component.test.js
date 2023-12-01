@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ListView from './ListView.component';
@@ -216,8 +216,8 @@ describe('ListView field', () => {
 		it('should toggle item', async () => {
 			// given
 			render(<ListView {...props} />);
-			expect(props.onChange).not.toBeCalled();
-			expect(props.onFinish).not.toBeCalled();
+			expect(props.onChange).not.toHaveBeenCalled();
+			expect(props.onFinish).not.toHaveBeenCalled();
 
 			// when
 			await userEvent.click(screen.getByRole('checkbox', { name: 'Select Afghanistan' }));
@@ -227,15 +227,15 @@ describe('ListView field', () => {
 				schema: props.schema,
 				value: ['country1', 'country2', 'country3'],
 			};
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 		});
 
 		it('should select all item', async () => {
 			// given
 			render(<ListView {...props} />);
-			expect(props.onChange).not.toBeCalled();
-			expect(props.onFinish).not.toBeCalled();
+			expect(props.onChange).not.toHaveBeenCalled();
+			expect(props.onFinish).not.toHaveBeenCalled();
 
 			// when
 			await userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
@@ -245,16 +245,16 @@ describe('ListView field', () => {
 				schema: props.schema,
 				value: ['country1', 'country2', 'country3', 'country4'],
 			};
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 		});
 
 		it('should deselect all item', async () => {
 			// given
 			const allValues = props.schema.titleMap.map(option => option.value);
 			render(<ListView {...props} value={allValues} />);
-			expect(props.onChange).not.toBeCalled();
-			expect(props.onFinish).not.toBeCalled();
+			expect(props.onChange).not.toHaveBeenCalled();
+			expect(props.onFinish).not.toHaveBeenCalled();
 
 			// when
 			await userEvent.click(screen.getByRole('checkbox', { name: 'Deselect all' }));
@@ -264,8 +264,8 @@ describe('ListView field', () => {
 				schema: props.schema,
 				value: undefined,
 			};
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 		});
 
 		it('should select all filtered item', async () => {
@@ -283,8 +283,8 @@ describe('ListView field', () => {
 				schema: props.schema,
 				value: ['country1', 'country2', 'country3', 'country4'],
 			};
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 		});
 
 		it('should deselect all filtered item', async () => {
@@ -304,8 +304,8 @@ describe('ListView field', () => {
 				schema: props.schema,
 				value: undefined,
 			};
-			expect(props.onChange).toBeCalledWith(expect.anything(), payload);
-			expect(props.onFinish).toBeCalledWith(expect.anything(), payload);
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 		});
 	});
 });

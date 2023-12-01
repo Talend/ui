@@ -1,12 +1,8 @@
-import chai from 'chai';
-import { describe, it } from 'mocha';
 import { validate } from './validate';
-
-let should = chai.should();
 
 describe('validate.js', () => {
 	it('should hold a validation function for testing against tv4 until an option to pass in a validator is created', () => {
-		validate.should.be.an('function');
+		expect(typeof validate).toBe('function');
 	});
 
 	describe('validate', () => {
@@ -14,16 +10,15 @@ describe('validate.js', () => {
 		it('should return a result object {"error":null, "missing":[], "valid":true}, with valid set to true when the data is valid for the schema', () => {
 			let value = 'Batman';
 			let result = validate(form, value, {});
-			should.not.exist(result.error);
-			result.missing.should.be.a('array');
-			result.missing.length.should.equal(0);
-			result.valid.should.equal(true);
+			expect(result.error).toBe(null);
+			expect(result.missing).toEqual([]);
+			expect(result.valid).toBe(true);
 		});
 
 		it('should return an error object with a message "Invalid type: array (expected string)" when the data is not valid', () => {
 			let value = [0];
 			let result = validate(form, value, {});
-			result.error.message.should.eq('Invalid type: array (expected string)');
+			expect(result.error.message).toBe('Invalid type: array (expected string)');
 		});
 
 		it('should return an error object with a message "CUSTOM_ERROR_INVALID_INPUT" when the integer value is not valid', () => {
@@ -31,7 +26,7 @@ describe('validate.js', () => {
 			const testForm = { type: 'number', key: ['hero'], schema: { type: 'number' } };
 			const event = { target: { validity: { valid: false } } };
 			let result = validate(testForm, value, event);
-			result.error.message.should.eq('CUSTOM_ERROR_INVALID_INPUT');
+			expect(result.error.message).toBe('CUSTOM_ERROR_INVALID_INPUT');
 		});
 	});
 });

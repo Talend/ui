@@ -1,24 +1,23 @@
 /**
  * @jest-environment jsdom
  */
-
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import { fromJS, Map } from 'immutable';
+
 import { fireEvent, render, screen } from '@testing-library/react';
+import { fromJS, Map } from 'immutable';
+import PropTypes from 'prop-types';
 
-import expression from '../src/expression';
 import { mock } from '../src';
-import { mapStateToViewProps } from '../src/settings';
-
 import cmfConnect, {
-	getComponentName,
 	getComponentId,
-	getStateToProps,
+	getComponentName,
 	getDispatchToProps,
 	getMergeProps,
+	getStateToProps,
 } from '../src/cmfConnect';
 import component from '../src/component';
+import expression from '../src/expression';
+import { mapStateToViewProps } from '../src/settings';
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
@@ -234,7 +233,7 @@ describe('cmfConnect', () => {
 					<CMFConnected />
 				</mock.Provider>,
 			);
-			expect(TestComponent).toBeCalled();
+			expect(TestComponent).toHaveBeenCalled();
 		});
 
 		it('should expose getState static function to get the state', () => {
@@ -772,9 +771,9 @@ describe('cmfConnect', () => {
 			);
 			const btn = screen.getByRole('button');
 			expect(btn.dataset.progress).toBe('false');
-			expect(context.store.dispatch).not.toBeCalled();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
 			fireEvent.click(btn, { type: 'click' });
-			expect(context.store.dispatch).toBeCalled();
+			expect(context.store.dispatch).toHaveBeenCalled();
 			const handler = context.store.dispatch.mock.calls[0][0];
 			handler();
 			const action = context.store.dispatch.mock.calls[1][0];

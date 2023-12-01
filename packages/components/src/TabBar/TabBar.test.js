@@ -1,8 +1,8 @@
-import keycode from 'keycode';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TabBar from './TabBar.component';
+
 import { ActionButton } from '../Actions';
+import TabBar from './TabBar.component';
 
 const tabProps = {
 	id: 'my-tabs',
@@ -95,13 +95,15 @@ describe('TabBar component', () => {
 		expect(screen.getByRole('tabpanel')).toHaveTextContent('child 2');
 	});
 
-	it('should select item on click', () => {
+	it('should select item on click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onSelect = jest.fn();
 		render(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
-		userEvent.click(screen.getByText('Tab1'));
+		await user.click(screen.getByText('Tab1'));
 
 		// then
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
@@ -115,7 +117,7 @@ describe('TabBar component', () => {
 		// when
 		const root = document.querySelector('#my-tabs > div');
 		fireEvent.keyDown(root, {
-			keyCode: keycode.codes.home,
+			key: 'Home',
 		});
 
 		// then
@@ -130,7 +132,7 @@ describe('TabBar component', () => {
 		// when
 		const root = document.querySelector('#my-tabs > div');
 		fireEvent.keyDown(root, {
-			keyCode: keycode.codes.end,
+			key: 'End',
 		});
 
 		// then

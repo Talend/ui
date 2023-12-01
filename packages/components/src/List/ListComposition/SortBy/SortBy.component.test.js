@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import getDefaultT from '../../../translate';
 import { ListContext } from '../context';
-
 import SortBy from './SortBy.component';
 
 jest.unmock('@talend/design-system');
@@ -71,6 +71,8 @@ describe('SortBy', () => {
 	});
 
 	it('should handle sort field and direction changes (uncontrolled mode)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const context = {
 			...defaultContext,
@@ -86,8 +88,8 @@ describe('SortBy', () => {
 		);
 
 		// when
-		// await userEvent.click(screen.getAllByRole('listitem')[1]);
-		await userEvent.click(screen.getAllByRole('menuitem')[0]);
+		// await user.click(screen.getAllByRole('listitem')[1]);
+		await user.click(screen.getAllByRole('menuitem')[0]);
 		expect(screen.getAllByRole('menuitem')[0]).toHaveTextContent('First Name');
 
 		// then
@@ -96,8 +98,8 @@ describe('SortBy', () => {
 			isDescending: false,
 		});
 
-		// await userEvent.click(screen.getAllByRole('listitem')[1]);
-		await userEvent.click(screen.getAllByRole('menuitem')[1]);
+		// await user.click(screen.getAllByRole('listitem')[1]);
+		await user.click(screen.getAllByRole('menuitem')[1]);
 		expect(screen.getAllByRole('menuitem')[1]).toHaveTextContent('Last Name');
 		// then
 		expect(context.setSortParams.mock.calls[1][0]).toMatchObject({
@@ -107,6 +109,8 @@ describe('SortBy', () => {
 	});
 
 	it('should call the change callbacks when they are provided (controlled mode)', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			...defaultProps,
@@ -122,7 +126,7 @@ describe('SortBy', () => {
 		);
 
 		// when
-		await userEvent.click(screen.getByText('First Name'));
+		await user.click(screen.getByText('First Name'));
 
 		// then
 		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
@@ -130,7 +134,7 @@ describe('SortBy', () => {
 			isDescending: true,
 		});
 
-		await userEvent.click(screen.getAllByRole('menuitem')[1]);
+		await user.click(screen.getAllByRole('menuitem')[1]);
 
 		// then
 		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {

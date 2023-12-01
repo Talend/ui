@@ -1,6 +1,7 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SortOptions, { TYPES, ORDERS } from './SortOptions.component';
+
+import SortOptions, { ORDERS, TYPES } from './SortOptions.component';
 
 describe('SortOptions', () => {
 	it('should render SortOptions in default mode', () => {
@@ -86,7 +87,9 @@ describe('SortOptions', () => {
 		expect(screen.queryByLabelText('Sort by date (current order: asc)')).not.toBeInTheDocument();
 	});
 
-	it('should trigger onChange callback with the new state on click', () => {
+	it('should trigger onChange callback with the new state on click', async () => {
+		const user = userEvent.setup();
+
 		const onChange = jest.fn();
 		render(
 			<SortOptions
@@ -102,12 +105,12 @@ describe('SortOptions', () => {
 			/>,
 		);
 
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 
-		userEvent.click(screen.getByLabelText('Sort by name (current order: asc)'));
-		expect(onChange).toBeCalledWith(TYPES.NAME, ORDERS.DESC);
+		await user.click(screen.getByLabelText('Sort by name (current order: asc)'));
+		expect(onChange).toHaveBeenCalledWith(TYPES.NAME, ORDERS.DESC);
 
-		userEvent.click(screen.getByLabelText('Sort by date (current order: desc)'));
-		expect(onChange).toBeCalledWith(TYPES.DATE, ORDERS.ASC);
+		await user.click(screen.getByLabelText('Sort by date (current order: desc)'));
+		expect(onChange).toHaveBeenCalledWith(TYPES.DATE, ORDERS.ASC);
 	});
 });

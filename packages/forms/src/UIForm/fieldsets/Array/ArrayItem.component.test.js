@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ArrayItem from './ArrayItem.component';
@@ -133,7 +133,7 @@ describe('Array Item component', () => {
 		await userEvent.click(screen.getByLabelText('Delete'));
 
 		// then
-		expect(onRemove).toBeCalledWith(expect.anything(), 3);
+		expect(onRemove).toHaveBeenCalledWith(expect.anything(), 3);
 	});
 
 	it('should not render the remove button in ArrayItem if the widget is closeable', () => {
@@ -169,7 +169,7 @@ describe('Array Item component', () => {
 		await userEvent.click(screen.getByLabelText('Move up'));
 
 		// then
-		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 2 });
+		expect(onReorder).toHaveBeenCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 2 });
 	});
 
 	it('should trigger onReorder when moveDown button is clicked', async () => {
@@ -190,7 +190,7 @@ describe('Array Item component', () => {
 		await userEvent.click(screen.getByLabelText('Move down'));
 
 		// then
-		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 4 });
+		expect(onReorder).toHaveBeenCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 4 });
 	});
 	it('should support readonly (do not display actions)', () => {
 		// given

@@ -1,7 +1,14 @@
-import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { generateDefaultViewId, mapStateToViewProps, WaitForSettings } from '../src/settings';
+
+import { render, screen } from '@testing-library/react';
+
 import { mock } from '../src';
+import {
+	generateDefaultViewId,
+	mapStateToViewProps,
+	WaitForSettings,
+	withoutHOC,
+} from '../src/settings';
 
 describe('settings', () => {
 	describe('mapStateToViewProps', () => {
@@ -62,6 +69,7 @@ describe('settings', () => {
 			expect(generateDefaultViewId()).toBe(undefined);
 		});
 	});
+
 	describe('WaitForSettings', () => {
 		it('should display using loader if state settings is not initialized', () => {
 			const state = mock.store.state();
@@ -97,6 +105,13 @@ describe('settings', () => {
 			);
 			expect(screen.getByText('Hello')).toBeInTheDocument();
 			expect(() => screen.getByText('loading')).toThrow();
+		});
+	});
+
+	describe('withoutHOC', () => {
+		it('should remove all HOC prefix', () => {
+			expect(withoutHOC('Connect(CMF(Container(MyComponent)))')).toBe('MyComponent');
+			expect(withoutHOC('Connect(CMF(Container(Comp_+*[]~-=@{})))')).toBe('Comp_+*[]~-=@{}');
 		});
 	});
 });

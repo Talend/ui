@@ -1,7 +1,8 @@
 import chai from 'chai';
 import { describe, it } from 'mocha';
-import { defaultForm, createDefaults } from './schema-defaults';
+
 import { merge } from './merge';
+import { createDefaults, defaultForm } from './schema-defaults';
 
 chai.should();
 

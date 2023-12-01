@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import FilterBar from './FilterBar.component';
@@ -69,18 +69,20 @@ describe('Filter', () => {
 		expect(screen.getByRole('searchbox')).toBeDisabled();
 	});
 
-	it('should call onToggle on search icon click', () => {
+	it('should call onToggle on search icon click', async () => {
+		const user = userEvent.setup();
+
 		// when
 		const onToggle = jest.fn();
 		render(<FilterBar onFilter={noOp} onToggle={onToggle} docked />);
 
-		expect(onToggle).not.toBeCalled();
+		expect(onToggle).not.toHaveBeenCalled();
 
 		// then
-		userEvent.click(screen.queryByRole('search'));
+		await user.click(screen.queryByRole('search'));
 
 		// then
-		expect(onToggle).toBeCalled();
+		expect(onToggle).toHaveBeenCalled();
 	});
 
 	it('should take props value change', () => {
@@ -139,7 +141,9 @@ describe('Filter', () => {
 		expect(screen.getByRole('searchbox')).toHaveFocus();
 	});
 
-	it('should call onFocus callback', () => {
+	it('should call onFocus callback', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onFocus = jest.fn();
 		render(
@@ -148,62 +152,70 @@ describe('Filter', () => {
 				onToggle={noOp}
 				onFocus={onFocus}
 				docked={false}
+				// eslint-disable-next-line jsx-a11y/no-autofocus
 				autoFocus={false}
 			/>,
 		);
-		expect(onFocus).not.toBeCalled();
+		expect(onFocus).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByRole('searchbox'));
+		await user.click(screen.getByRole('searchbox'));
 
 		// then
-		expect(onFocus).toBeCalled();
+		expect(onFocus).toHaveBeenCalled();
 	});
 
 	it('should call onBlur callback', () => {
 		// given
 		const onBlur = jest.fn();
 		render(<FilterBar onFilter={noOp} onToggle={noOp} onBlur={onBlur} docked={false} />);
-		expect(onBlur).not.toBeCalled();
+		expect(onBlur).not.toHaveBeenCalled();
 
 		// when
 		fireEvent.blur(screen.getByRole('searchbox'));
 
 		// then
-		expect(onBlur).toBeCalled();
+		expect(onBlur).toHaveBeenCalled();
 	});
 
-	it('should call onFilter callback', () => {
+	it('should call onFilter callback', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onFilter = jest.fn();
 		render(<FilterBar onToggle={noOp} onFilter={onFilter} docked={false} value="" />);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
-		userEvent.type(screen.getByRole('searchbox'), 'coucou');
+		await user.clear(screen.getByRole('searchbox'));
+		await user.type(screen.getByRole('searchbox'), 'coucou');
 
 		// then
-		expect(onFilter).toBeCalledWith(expect.anything(), 'coucou');
+		expect(onFilter).toHaveBeenCalledWith(expect.anything(), 'coucou');
 	});
 
-	it('should call onFilter callback with debounce time', done => {
+	it('should call onFilter callback with debounce time', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onFilter = jest.fn();
 		render(<FilterBar onToggle={noOp} onFilter={onFilter} docked={false} debounceTimeout={300} />);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
-		userEvent.type(screen.getByRole('searchbox'), 'coucou');
+		await user.clear(screen.getByRole('searchbox'));
+		await user.type(screen.getByRole('searchbox'), 'coucou');
 
 		// then
-		expect(onFilter).not.toBeCalled();
-		setTimeout(() => {
-			expect(onFilter).toBeCalledWith(expect.anything(), 'coucou');
-			done();
-		}, 500);
+		expect(onFilter).not.toHaveBeenCalled();
+		await waitFor(() => {
+			expect(onFilter).toHaveBeenCalledWith(expect.anything(), 'coucou');
+		});
 	});
 
-	it('should not call onFilter with with short text', done => {
+	it('should not call onFilter with with short text', async () => {
+		const user = userEvent.setup();
+
 		const onFilter = jest.fn();
 		render(
 			<FilterBar
@@ -214,20 +226,22 @@ describe('Filter', () => {
 				debounceTimeout={300}
 			/>,
 		);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
-		userEvent.type(screen.getByRole('searchbox'), 'c');
-		expect(onFilter).not.toBeCalled();
+		await user.clear(screen.getByRole('searchbox'));
+		await user.type(screen.getByRole('searchbox'), 'c');
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// then
-		setTimeout(() => {
-			expect(onFilter).not.toBeCalled();
-			done();
-		}, 500);
+		await waitFor(() => {
+			expect(onFilter).not.toHaveBeenCalled();
+		});
 	});
 
-	it('should call onFilter with long enough text', done => {
+	it('should call onFilter with long enough text', async () => {
+		const user = userEvent.setup();
+
 		const onFilter = jest.fn();
 		const debounceTimeout = 300;
 		render(
@@ -239,60 +253,66 @@ describe('Filter', () => {
 				debounceTimeout={debounceTimeout}
 			/>,
 		);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
-		userEvent.type(screen.getByRole('searchbox'), 'couc');
-		expect(onFilter).not.toBeCalled();
+		await user.clear(screen.getByRole('searchbox'));
+		await user.type(screen.getByRole('searchbox'), 'couc');
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// then
-		setTimeout(() => {
-			expect(onFilter).toBeCalledWith(expect.anything(), 'couc');
-			done();
-		}, debounceTimeout + 100);
+		await waitFor(() => {
+			expect(onFilter).toHaveBeenCalledWith(expect.anything(), 'couc');
+		});
 	});
 
-	it('should clear filter on clear button click', () => {
+	it('should clear filter on clear button click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onFilter = jest.fn();
 		render(<FilterBar onToggle={noOp} onFilter={onFilter} docked={false} value="whatever" />);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 		expect(screen.getByRole('searchbox')).toHaveValue('whatever');
 
 		// when
-		userEvent.click(screen.getByRole('button'));
+		await user.click(screen.getByRole('button'));
 
 		// then
-		expect(onFilter).toBeCalledWith(expect.anything(), '');
+		expect(onFilter).toHaveBeenCalledWith(expect.anything(), '');
 		expect(screen.getByRole('searchbox')).toHaveValue('');
 	});
 
-	it('should clear filter on ESC keydown', () => {
+	it('should clear filter on ESC keydown', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onFilter = jest.fn();
 		render(<FilterBar onToggle={noOp} onFilter={onFilter} docked={false} value="whatever" />);
-		expect(onFilter).not.toBeCalled();
+		expect(onFilter).not.toHaveBeenCalled();
 
 		// when
-		userEvent.type(screen.getByRole('searchbox'), '{esc}');
+		await user.type(screen.getByRole('searchbox'), '{Esc}');
 
 		// then
-		expect(onFilter).toBeCalledWith(expect.anything(), '');
+		expect(onFilter).toHaveBeenCalledWith(expect.anything(), '');
 		expect(screen.getByRole('searchbox')).toHaveValue('');
 	});
 
-	it('should blur on ENTER keydown', () => {
+	it('should blur on ENTER keydown', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onBlur = jest.fn();
 		render(
 			<FilterBar onToggle={noOp} onFilter={noOp} onBlur={onBlur} docked={false} value="whatever" />,
 		);
-		expect(onBlur).not.toBeCalled();
+		expect(onBlur).not.toHaveBeenCalled();
 
 		// when
-		userEvent.type(screen.getByRole('searchbox'), '{enter}');
+		await user.type(screen.getByRole('searchbox'), '{Enter}');
 
 		// then
-		expect(onBlur).toBeCalled();
+		expect(onBlur).toHaveBeenCalled();
 	});
 });

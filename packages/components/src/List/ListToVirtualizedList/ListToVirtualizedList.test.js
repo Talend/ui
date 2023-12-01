@@ -1,11 +1,12 @@
 /* eslint-disable react/display-name */
+
 /* eslint-disable react/prop-types */
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cloneDeep from 'lodash/cloneDeep';
 
 import VirtualizedList from '../../VirtualizedList';
-import { ListToVirtualizedList, compareOrder } from './ListToVirtualizedList.component';
+import { compareOrder, ListToVirtualizedList } from './ListToVirtualizedList.component';
 
 jest.unmock('@talend/design-system');
 jest.mock('../../VirtualizedList', () => {
@@ -157,6 +158,8 @@ describe('ListToVirtualizedList', () => {
 	});
 
 	it('should find renderer based on column type', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const renderer = function test() {
 			return 'ok';
@@ -165,7 +168,7 @@ describe('ListToVirtualizedList', () => {
 		render(<ListToVirtualizedList {...props} cellDictionary={customDictionary} />);
 
 		// when
-		await userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const renderProps = VirtualizedList.getProps.mock.calls[0][0];
 		const CellActions = VirtualizedList.cellDictionary.actions;
 		const CellBadge = VirtualizedList.cellDictionary.badge;
@@ -180,6 +183,8 @@ describe('ListToVirtualizedList', () => {
 	});
 
 	it('should support custom header renderer', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const renderer = function test() {
 			return 'ok';
@@ -188,7 +193,7 @@ describe('ListToVirtualizedList', () => {
 		render(<ListToVirtualizedList {...props} headerDictionary={customHeaderDictionary} />);
 
 		// when
-		await userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const renderProps = VirtualizedList.getProps.mock.calls[0][0];
 
 		// then
@@ -198,13 +203,15 @@ describe('ListToVirtualizedList', () => {
 	});
 
 	it('should support column hide feature', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const hideProps = cloneDeep(props);
 		hideProps.columns.find(column => column.label === 'Tag').hidden = true;
 		render(<ListToVirtualizedList {...hideProps} />);
 
 		// when
-		await userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const renderProps = VirtualizedList.getProps.mock.calls[0][0];
 
 		// then
@@ -232,6 +239,8 @@ describe('ListToVirtualizedList', () => {
 	});
 
 	it('should adapt sort onChange', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onChange = jest.fn();
 		render(
@@ -239,85 +248,95 @@ describe('ListToVirtualizedList', () => {
 		);
 
 		// when
-		userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.sort({ sortBy: 'name', sortDirection: VirtualizedList.SORT_BY.DESC });
 
 		// then
-		expect(onChange).toBeCalledWith(null, { field: 'name', isDescending: true });
+		expect(onChange).toHaveBeenCalledWith(null, { field: 'name', isDescending: true });
 	});
 
-	it('should adapt selection isSelected', () => {
+	it('should adapt selection isSelected', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const isSelected = jest.fn();
 		render(<ListToVirtualizedList {...props} itemProps={{ isSelected }} />);
 
 		// when
-		userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.isSelected(props.items[0]);
 
 		// then
-		expect(isSelected).toBeCalledWith(props.items[0]);
+		expect(isSelected).toHaveBeenCalledWith(props.items[0]);
 	});
 
-	it('should adapt selection onToggle', () => {
+	it('should adapt selection onToggle', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onToggle = jest.fn();
 		const event = { target: {} };
 		render(<ListToVirtualizedList {...props} itemProps={{ onToggle }} />);
 
 		// when
-		userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.selectionToggle(event, props.items[0]);
 
 		// then
-		expect(onToggle).toBeCalledWith(event, props.items[0]);
+		expect(onToggle).toHaveBeenCalledWith(event, props.items[0]);
 	});
 
-	it('should adapt click onRowClick', () => {
+	it('should adapt click onRowClick', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onRowClick = jest.fn();
 		const event = { target: {} };
 		render(<ListToVirtualizedList {...props} itemProps={{ onRowClick }} />);
 
 		// when
-		userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.onRowClick(event, props.items[0]);
 
 		// then
-		expect(onRowClick).toBeCalledWith(event, props.items[0]);
+		expect(onRowClick).toHaveBeenCalledWith(event, props.items[0]);
 	});
 
-	it('should adapt click onRowDoubleClick', () => {
+	it('should adapt click onRowDoubleClick', async () => {
+		const user = userEvent.setup();
+
 		// given
 		props.titleProps.onClick = jest.fn();
 		const event = { target: {} };
 		render(<ListToVirtualizedList {...props} />);
 
 		// when
-		userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.onRowDoubleClick(event, props.items[0]);
 
 		// then
-		expect(props.titleProps.onClick).toBeCalledWith(event, props.items[0]);
+		expect(props.titleProps.onClick).toHaveBeenCalledWith(event, props.items[0]);
 	});
 
-	it('should adapt selection isActive', () => {
+	it('should adapt selection isActive', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const isActive = jest.fn();
 		render(<ListToVirtualizedList {...props} itemProps={{ isActive }} />);
 
 		// when
-		userEvent.click(screen.getByText('getProps'));
+		await user.click(screen.getByText('getProps'));
 		const virtualizedProps = VirtualizedList.getProps.mock.calls[0][0];
 		virtualizedProps.isActive(props.items[0]);
 
 		// then
-		expect(isActive).toBeCalledWith(props.items[0]);
+		expect(isActive).toHaveBeenCalledWith(props.items[0]);
 	});
 
 	describe('compareOrder function', () => {

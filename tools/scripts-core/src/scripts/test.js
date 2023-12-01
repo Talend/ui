@@ -33,7 +33,7 @@ export default async function test(env, presetApi, options) {
 		getUserConfigFile('jest.config.js') || path.join(configPath, 'jest.config.js');
 
 	return utils.process.spawn(
-		new URL(import.meta.resolve('jest-cli/bin/jest')).pathname,
+		utils.path.resolveBin('jest'),
 		['--config', jestConfigPath].concat(options),
 		{
 			stdio: 'inherit',

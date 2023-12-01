@@ -137,7 +137,7 @@ describe('CollapsibleFieldset', () => {
 		await userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(props.onChange).toBeCalledWith(expect.anything(), {
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 			schema: extendedSchema,
 			value: { ...value, isClosed: false },
 		});

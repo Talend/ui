@@ -1,9 +1,12 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import BadgeDropdown from './BadgeDropdown.component';
 
 describe('BadgeDropdown', () => {
-	it('should render a dropdown', () => {
+	it('should render a dropdown', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const dropdownProps = {
 			id: 'context-dropdown-related-items',
@@ -31,7 +34,7 @@ describe('BadgeDropdown', () => {
 		// then
 		expect(screen.getByText('Label')).toBeInTheDocument();
 		expect(screen.getByText('document 1')).toBeInTheDocument();
-		userEvent.click(screen.getByText('document 1'));
+		await user.click(screen.getByText('document 1'));
 		expect(dropdownProps.items[0].onClick).toHaveBeenCalledTimes(1);
 	});
 });

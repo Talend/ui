@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { screen, render } from '@testing-library/react';
 
 import DateView from './DateView.component';
 
@@ -31,7 +31,9 @@ describe('DateView', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should trigger props.onTitleClick when title is clicked', () => {
+	it('should trigger props.onTitleClick when title is clicked', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onTitleClick = jest.fn();
 		render(
@@ -46,13 +48,13 @@ describe('DateView', () => {
 				onTitleClick={onTitleClick}
 			/>,
 		);
-		expect(onTitleClick).not.toBeCalled();
+		expect(onTitleClick).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByLabelText('Switch to month-and-year view'));
+		await user.click(screen.getByLabelText('Switch to month-and-year view'));
 
 		// then
-		expect(onTitleClick).toBeCalled();
+		expect(onTitleClick).toHaveBeenCalled();
 	});
 
 	it('should manage tabIndex', () => {
@@ -118,7 +120,9 @@ describe('DateView', () => {
 			button: 'next',
 			expectedMonthYear: { monthIndex: 0, year: 2007 },
 		},
-	])('$name', ({ calendar, button, expectedMonthYear }) => {
+	])('$name', async ({ calendar, button, expectedMonthYear }) => {
+		const user = userEvent.setup();
+
 		// given
 		const onSelectMonthYear = jest.fn();
 		render(
@@ -130,16 +134,16 @@ describe('DateView', () => {
 				onSelectTime={jest.fn()}
 			/>,
 		);
-		expect(onSelectMonthYear).not.toBeCalled();
+		expect(onSelectMonthYear).not.toHaveBeenCalled();
 
 		// when
 		if (button === 'previous') {
-			userEvent.click(screen.getByLabelText('Go to previous month'));
+			await user.click(screen.getByLabelText('Go to previous month'));
 		} else if (button === 'next') {
-			userEvent.click(screen.getByLabelText('Go to next month'));
+			await user.click(screen.getByLabelText('Go to next month'));
 		}
 
 		// then
-		expect(onSelectMonthYear).toBeCalledWith(expectedMonthYear, undefined);
+		expect(onSelectMonthYear).toHaveBeenCalledWith(expectedMonthYear, undefined);
 	});
 });

@@ -8,7 +8,7 @@ export default async function build(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 	if (packageType.isApp) {
 		return utils.process.spawn(
-			new URL(import.meta.resolve('webpack/bin/webpack.js')).pathname,
+			utils.path.resolveBin('webpack'),
 			[
 				'--config',
 				utils.path.hereRelative(

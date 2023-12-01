@@ -1,14 +1,15 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import classNames from 'classnames';
-import keycode from 'keycode';
 import { withTranslation } from 'react-i18next';
 
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import Action from '../../../Actions/Action';
-import theme from './Item.module.scss';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
+
+import theme from './Item.module.scss';
 
 function itemClasses(error) {
 	return classNames(theme['tc-enumeration-item'], 'tc-enumeration-item', {
@@ -44,11 +45,12 @@ class ItemEdit extends Component {
 	}
 
 	onKeyDown(event) {
-		switch (event.keyCode) {
-			case keycode('escape'):
+		switch (event.key) {
+			case 'Esc':
+			case 'Escape':
 				this.cancel(event);
 				break;
-			case keycode('enter'):
+			case 'Enter':
 				this.submit(event);
 				break;
 			default:
@@ -144,6 +146,7 @@ class ItemEdit extends Component {
 					type="text"
 					onKeyDown={this.onKeyDown}
 					onChange={this.itemChange}
+					// eslint-disable-next-line jsx-a11y/no-autofocus
 					autoFocus
 				/>
 				<div role="gridcell" className={itemEditActionsClasses()}>
