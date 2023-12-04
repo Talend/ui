@@ -1,14 +1,20 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import { Fragment, useState, useCallback, useMemo } from 'react';
-import PropTypes from 'prop-types';
+import { Fragment, useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import get from 'lodash/get';
+import PropTypes from 'prop-types';
+
+import { Rich } from '@talend/react-components';
 import { Action } from '@talend/react-components/lib/Actions';
 import FilterBar from '@talend/react-components/lib/FilterBar';
-import { Rich } from '@talend/react-components';
-import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
-import cssModule from './BadgeCheckboxes.module.scss';
+import { Checkbox } from '@talend/react-components/lib/Toggle';
+
+import { I18N_DOMAIN_FACETED_SEARCH } from '../../../constants';
 import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
+
+import cssModule from './BadgeCheckboxes.module.scss';
 
 const theme = getTheme(cssModule);
 
@@ -68,9 +74,9 @@ const BadgeCheckboxesForm = ({
 	feature,
 	filterBarPlaceholder,
 	allSelector,
-	t,
 	...rest
 }) => {
+	const { t } = useTranslation(I18N_DOMAIN_FACETED_SEARCH);
 	const [filter, setFilter] = useState('');
 
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
@@ -181,7 +187,6 @@ BadgeCheckboxesForm.propTypes = {
 	feature: PropTypes.string.isRequired,
 	filterBarPlaceholder: PropTypes.string,
 	allSelector: PropTypes.bool,
-	t: PropTypes.func.isRequired,
 };
 
 // eslint-disable-next-line import/prefer-default-export
