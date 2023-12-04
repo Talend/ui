@@ -311,11 +311,14 @@ importers:
   packages/cmf:
     dependencies:
       '@talend/scripts-cmf':
-        specifier: ^1.2.2
+        specifier: ^1.2.3
         version: link:../../tools/scripts-cmf
       '@talend/utils':
         specifier: ^2.8.0
         version: link:../utils
+      commander:
+        specifier: ^6.2.1
+        version: 6.2.1
       hoist-non-react-statics:
         specifier: ^3.3.2
         version: 3.3.2
@@ -2773,6 +2776,9 @@ importers:
 
   tools/scripts-cmf:
     dependencies:
+      commander:
+        specifier: ^6.2.1
+        version: 6.2.1
       deepmerge:
         specifier: ^1.5.2
         version: 1.5.2
