@@ -65,7 +65,7 @@
     "react-overlays": "^0.9.3",
     "react-prop-types": "^0.4.0",
     "react-transition-group": "^2.9.0",
-    "uncontrollable": "^7.2.1",
+    "uncontrollable": "^8.0.4",
     "warning": "^3.0.0"
   },
   "publishConfig": {
