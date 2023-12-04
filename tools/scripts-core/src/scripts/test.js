@@ -12,8 +12,8 @@ async function testKarma(env, presetApi, options) {
 	const karmaConfigPath = path.join(configPath, 'karma.conf.js');
 
 	return utils.process.spawn(
-		new URL(import.meta.resolve('karma/bin/karma')).pathname,
-		['start', karmaConfigPath].concat(options),
+		'node',
+		[utils.path.resolveScript('karma/bin/karma'), 'start', karmaConfigPath].concat(options),
 		{
 			stdio: 'inherit',
 			env,

@@ -7,8 +7,8 @@ export default async function start(env, presetApi, options) {
 	const sbConfigPath = getStorybookConfiguration(presetApi);
 
 	return utils.process.spawn(
-		new URL(import.meta.resolve('storybook/index.js')).pathname,
-		['dev', '-c', sbConfigPath].concat(options),
+		'node',
+		[utils.path.resolveScript('storybook/index.js'), 'dev', '-c', sbConfigPath].concat(options),
 		{
 			stdio: 'inherit',
 			env,
