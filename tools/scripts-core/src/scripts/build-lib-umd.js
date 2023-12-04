@@ -2,6 +2,7 @@ import fs from 'fs';
 
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import { getUserConfigFile } from '../utils/env.js';
 
 const dirname = utils.path.getDirName(import.meta.url);
@@ -10,7 +11,7 @@ async function buildUMD(env, presetApi, options = []) {
 	return utils.process.spawn(
 		'node',
 		[
-			utils.path.resolveScript('webpack/bin/webpack.js'),
+			resolveScript('webpack/bin/webpack.js'),
 			'--config',
 			utils.path.hereRelative(dirname, '../config/webpack.config.js'),
 		].concat(options),

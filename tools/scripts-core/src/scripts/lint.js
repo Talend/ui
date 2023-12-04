@@ -101,9 +101,7 @@ async function lintStyle(env, presetApi, options) {
 		}
 	}
 
-	args = [utils.path.resolveBin('stylelint')].concat(args);
-
-	return utils.process.spawn('node', args, {
+	return utils.process.spawn(utils.path.resolveBin('stylelint'), args, {
 		stdio: 'inherit',
 		env,
 	});

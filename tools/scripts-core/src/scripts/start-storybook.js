@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import { getStorybookConfiguration } from '../utils/storybook.js';
 
 export default async function start(env, presetApi, options) {
@@ -8,7 +9,7 @@ export default async function start(env, presetApi, options) {
 
 	return utils.process.spawn(
 		'node',
-		[utils.path.resolveScript('storybook/index.js'), 'dev', '-c', sbConfigPath].concat(options),
+		[resolveScript('storybook/index.js'), 'dev', '-c', sbConfigPath].concat(options),
 		{
 			stdio: 'inherit',
 			env,

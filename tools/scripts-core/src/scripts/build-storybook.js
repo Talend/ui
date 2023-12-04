@@ -1,5 +1,6 @@
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import { getStorybookConfiguration } from '../utils/storybook.js';
 
 export default async function build(env, presetApi, options) {
@@ -7,7 +8,7 @@ export default async function build(env, presetApi, options) {
 
 	return utils.process.spawn(
 		'node',
-		[utils.path.resolveScript('storybook/index.js'), 'build', '-c', sbConfigPath].concat(options),
+		[resolveScript('storybook/index.js'), 'build', '-c', sbConfigPath].concat(options),
 		{
 			stdio: 'inherit',
 			env,

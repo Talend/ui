@@ -1,5 +1,6 @@
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import buildUMD from './build-lib-umd.js';
 import buildLib from './build-lib.js';
 
@@ -10,7 +11,7 @@ export default async function build(env, _, options) {
 		return utils.process.spawn(
 			'node',
 			[
-				utils.path.resolveScript('webpack/bin/webpack.js'),
+				resolveScript('webpack/bin/webpack.js'),
 				'--config',
 				utils.path.hereRelative(
 					utils.path.getDirName(import.meta.url),

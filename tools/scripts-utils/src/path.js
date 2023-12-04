@@ -31,23 +31,6 @@ function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {})
 }
 
 /**
- * Resolve the module script path.
- * @param modName The bin module name
- * @returns {*} The executable path
- */
-function resolveScript(modName) {
-	const filePath = import.meta.resolve(modName);
-	const parsedUrl = new URL(filePath);
-	let fileURL = parsedUrl.pathname;
-
-	// For windows, remove the first char who is a slash
-	if (process.platform === 'win32') {
-		fileURL = fileURL.substring(1);
-	}
-	return fileURL;
-}
-
-/**
  * Get the absolute path for user provided path
  * @param userPath The path to resolve
  * @returns {*} The absolute path
@@ -101,5 +84,4 @@ module.exports = {
 	getDirName,
 	getAbsolutePath,
 	resolveBin,
-	resolveScript,
 };

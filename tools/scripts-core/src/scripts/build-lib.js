@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import { getUserConfigFile } from '../utils/env.js';
 
 const pkgPath = path.join(process.cwd(), 'package.json');
@@ -55,7 +56,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 				.spawn(
 					'node',
 					[
-						utils.path.resolveScript('@babel/cli/bin/babel.js'),
+						resolveScript('@babel/cli/bin/babel.js'),
 						'--config-file',
 						babelConfigPath,
 						'-d',
@@ -105,7 +106,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 			} else {
 				console.log('Building with tsc');
 			}
-			const tsc = utils.path.resolveScript('typescript/bin/tsc');
+			const tsc = resolveScript('typescript/bin/tsc');
 			args = [tsc].concat(args);
 
 			utils.process
