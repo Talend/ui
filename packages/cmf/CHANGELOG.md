@@ -1,5 +1,13 @@
 # @talend/react-cmf
 
+## 8.3.2
+
+### Patch Changes
+
+- 19c3c59: Add missing dependency: commander
+- Updated dependencies [19c3c59]
+  - @talend/scripts-cmf@1.2.3
+
 ## 8.3.1
 
 ### Patch Changes
