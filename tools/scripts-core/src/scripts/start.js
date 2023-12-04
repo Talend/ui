@@ -7,8 +7,9 @@ export default async function start(env, _, options) {
 
 	if (packageType.isApp) {
 		return utils.process.spawn(
-			utils.path.resolveBin('webpack'),
+			'node',
 			[
+				utils.path.resolveScript('webpack/bin/webpack.js'),
 				'serve',
 				'--config',
 				utils.path.hereRelative(

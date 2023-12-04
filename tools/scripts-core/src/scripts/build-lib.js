@@ -53,8 +53,9 @@ export default async function build(env, presetApi, unsafeOptions) {
 			console.log('Compiling with babel...');
 			utils.process
 				.spawn(
-					utils.path.resolveBin('babel'),
+					'node',
 					[
+						utils.path.resolveScript('@babel/cli/bin/babel.js'),
 						'--config-file',
 						babelConfigPath,
 						'-d',
@@ -104,10 +105,11 @@ export default async function build(env, presetApi, unsafeOptions) {
 			} else {
 				console.log('Building with tsc');
 			}
+			const tsc = utils.path.resolveScript('typescript/bin/tsc');
+			args = [tsc].concat(args);
 
-			const tsc = utils.path.resolveBin('tsc');
 			utils.process
-				.spawn(tsc, args, { stdio: 'inherit', env })
+				.spawn('node', args, { stdio: 'inherit', env })
 				.then(tscSpawn => {
 					tscSpawn.on('exit', status => {
 						if (parseInt(status, 10) !== 0) {
