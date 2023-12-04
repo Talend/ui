@@ -1,9 +1,12 @@
 import { useMemo } from 'react';
+
 import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
-import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
-import { BadgeFaceted } from '../BadgeFaceted';
+
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
+import { BadgeFaceted } from '../BadgeFaceted';
+import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
 
 const getSelectBadgeLabel = (value, t) => {
 	const labelAll = t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' });
@@ -73,7 +76,6 @@ export const BadgeCheckboxes = ({
 					feature={category || label}
 					filterBarPlaceholder={filterBarPlaceholder}
 					allSelector={allSelector}
-					t={t}
 					{...rest}
 				/>
 			)}
