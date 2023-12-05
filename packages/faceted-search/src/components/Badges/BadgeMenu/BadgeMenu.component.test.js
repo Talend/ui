@@ -86,7 +86,6 @@ describe('BadgeMenu', () => {
 		await waitFor(() => {
 			expect(screen.getByRole('menuitem')).toBeVisible();
 		});
-		screen.logTestingPlaygroundURL();
 		// Then selecting an item should dispatch proper payload
 		await userEvent.click(screen.getByRole('menuitem', { name: 'production' }));
 		await userEvent.click(

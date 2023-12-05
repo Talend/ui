@@ -128,7 +128,6 @@ const BadgeMenuForm = ({
 						label={t('APPLY', { defaultValue: 'Apply' })}
 						bsStyle="info"
 						disabled={rest.isLoading}
-						inProgress={rest.isLoading}
 						{...getDataAttributesFrom(rest)}
 					/>
 				</Rich.Layout.Footer>
