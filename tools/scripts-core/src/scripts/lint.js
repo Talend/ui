@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import { getUserConfigFile } from '../utils/env.js';
 
 function getSmartOptions(opts, categories) {
@@ -59,9 +60,9 @@ async function lintEs(env, presetApi, options) {
 		}
 	}
 
-	const eslint = utils.path.resolveBin('eslint');
+	args = [resolveScript('eslint')].concat(args);
 
-	return utils.process.spawn(eslint, args, {
+	return utils.process.spawn('node', args, {
 		stdio: 'inherit',
 		env,
 	});
@@ -100,8 +101,9 @@ async function lintStyle(env, presetApi, options) {
 			args.push('-f', 'json');
 		}
 	}
+	args = [resolveScript('stylelint')].concat(args);
 
-	return utils.process.spawn(utils.path.resolveBin('stylelint'), args, {
+	return utils.process.spawn('node', args, {
 		stdio: 'inherit',
 		env,
 	});
