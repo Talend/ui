@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-faceted-search",
-  "version": "12.2.1",
+  "version": "12.3.0",
   "description": "Faceted search",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
