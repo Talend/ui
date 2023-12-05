@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 16.3.3
+
+### Patch Changes
+
+- 55f1d54: fix(script-core): make a solution compatible with windows and pnpm
+
 ## 16.3.2
 
 ### Patch Changes
