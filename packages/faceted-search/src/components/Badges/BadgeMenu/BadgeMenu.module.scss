@@ -48,4 +48,8 @@ $popover-screen-width: tokens.$coral-sizing-maximal;
 		width: $popover-screen-width;
 		padding-left: 0;
 	}
+
+	:global(.tc-circular-progress) {
+		height: 100%;
+	}
 }

@@ -64,6 +64,22 @@ describe('BadgeMenuForm', () => {
 			label: 'Item One',
 		});
 	});
+	it('should show loader icon if items are loading', () => {
+		// Given
+		const props = {
+			id: 'myId',
+			values: menuItems,
+			isLoading: true,
+			value: {},
+			t,
+		};
+		// When
+		render(<BadgeMenuForm {...props} />);
+		// Then
+		expect(screen.getByTestId('circular-progress')).toBeVisible();
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+		expect(screen.getByRole('button')).toBeDisabled();
+	});
 	it('should display menuitem checked', () => {
 		// Given
 		const props = {
