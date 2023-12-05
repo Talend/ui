@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
+
 import isObject from 'lodash/isObject';
 import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
-import { BadgeTagsForm } from './BadgeTagsForm.component';
-import { BadgeFaceted } from '../BadgeFaceted';
+
 import {
 	callbacksPropTypes,
 	operatorPropTypes,
 	operatorsPropTypes,
 } from '../../facetedSearch.propTypes';
+import { BadgeFaceted } from '../BadgeFaceted';
+import { BadgeTagsForm } from './BadgeTagsForm.component';
 
 const getSelectBadgeLabel = (value, t) => {
 	const labelAll = t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' });
@@ -46,7 +49,7 @@ export const BadgeTags = ({
 	...rest
 }) => {
 	const [tagsValues, setTagsValues] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	useEffect(() => {
 		if (!callbacks || !callbacks.getTags) {
 			setIsLoading(false);
