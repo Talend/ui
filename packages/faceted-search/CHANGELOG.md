@@ -1,5 +1,15 @@
 # Changelog
 
+## 12.3.0
+
+### Minor Changes
+
+- fc7d4e2: feat(TDOPS-4789/facetedSearch): callback support for BadgeMenu
+
+### Patch Changes
+
+- 38dad22: Fix translation of BadgeCheckboxesForm
+
 ## 12.2.1
 
 ### Patch Changes
