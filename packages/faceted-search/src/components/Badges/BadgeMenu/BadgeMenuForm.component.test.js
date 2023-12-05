@@ -76,7 +76,7 @@ describe('BadgeMenuForm', () => {
 		// When
 		render(<BadgeMenuForm {...props} />);
 		// Then
-		expect(screen.getAllByTestId('circular-progress')).toHaveLength(2);
+		expect(screen.getByTestId('circular-progress')).toBeVisible();
 		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
 		expect(screen.getByRole('button')).toBeDisabled();
 	});
