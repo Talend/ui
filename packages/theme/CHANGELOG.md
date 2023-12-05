@@ -1,5 +1,13 @@
 # @talend/bootstrap-theme
 
+## 8.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/design-tokens@2.10.1
+
 ## 8.3.0
 
 ### Minor Changes

@@ -1,5 +1,21 @@
 # @talend/react-forms
 
+## 12.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/design-system@8.6.1
+  - @talend/design-tokens@2.10.1
+  - @talend/react-bootstrap@2.2.1
+  - @talend/assets-api@1.3.1
+  - @talend/react-components@12.3.1
+  - @talend/icons@7.3.1
+  - @talend/json-schema-form-core@1.2.1
+
 ## 12.3.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # Changelog
 
+## 6.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/design-tokens@2.10.1
+
 ## 6.1.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @talend/react-sagas
 
+## 8.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/react-cmf@8.3.1
+
 ## 8.1.0
 
 ### Minor Changes

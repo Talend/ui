@@ -1,5 +1,13 @@
 # @talend/scripts-config-react-webpack
 
+## 16.3.3
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/scripts-config-babel@13.2.1
+
 ## 16.3.2
 
 ### Patch Changes

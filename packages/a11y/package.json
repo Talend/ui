@@ -27,9 +27,9 @@
     "@talend/utils": "^2.8.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.1",
+    "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-core": "^16.3.1",
+    "@talend/scripts-core": "^16.3.2",
     "@talend/scripts-config-typescript": "^11.2.0",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
@@ -49,5 +49,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.2.0"
+  "version": "2.2.1"
 }

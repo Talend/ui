@@ -1,5 +1,15 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.2.1
+
+### Patch Changes
+
+- 6c2df2b: add a workaround waiting a fix for https://github.com/storybookjs/storybook/issues/25071
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/scripts-config-react-webpack@16.3.3
+
 ## 5.2.0
 
 ### Minor Changes
