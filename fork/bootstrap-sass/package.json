@@ -40,7 +40,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.1",
+    "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
     "eslint": "^8.54.0"
   }

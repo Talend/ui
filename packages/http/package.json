@@ -21,7 +21,7 @@
     "build:lib": "talend-scripts build",
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
+    "pre-release": "pnpm build:dev && pnpm build:prod",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"
