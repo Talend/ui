@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 16.3.4
+
+### Patch Changes
+
+- 6e85e98: Fix: make lint working in jenkins
+
 ## 16.3.3
 
 ### Patch Changes

@@ -28,7 +28,7 @@ jobs:
     environment: pull_request_unsafe
     if: ( github.ref == 'refs/heads/master' || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
     steps:
-      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
           fetch-depth: 0
 
@@ -41,7 +41,7 @@ jobs:
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
         # https://github.com/chromaui/chromatic-cli/issues/739
-        uses: chromaui/action@v1
+        uses: chromaui/action@v10
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
@@ -53,7 +53,7 @@ jobs:
       - name: Publish Master to DS Chromatic
         if: github.ref == 'refs/heads/master'
         # https://github.com/chromaui/chromatic-cli/issues/739
-        uses: chromaui/action@v1
+        uses: chromaui/action@v10
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
