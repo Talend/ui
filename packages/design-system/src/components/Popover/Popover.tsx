@@ -1,5 +1,5 @@
 import React, { Fragment, useRef } from 'react';
-import type { ReactNode } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 
 import { FloatingArrow, FloatingPortal, Placement } from '@floating-ui/react';
 import classNames from 'classnames';
@@ -44,10 +44,14 @@ export function Popover({
 	const popover = usePopover({ modal, arrowRef, ...restOptions });
 
 	const Wrapper = isFixed ? FloatingPortal : Fragment;
+	const onClick = (e: MouseEvent<HTMLElement>) => {
+		e.preventDefault();
+		e.stopPropagation();
+	};
 
-	let childrenProps = popover.getReferenceProps();
+	let childrenProps = popover.getReferenceProps({ onClick });
 	if (disclosure && React.isValidElement(disclosure)) {
-		childrenProps = popover.getReferenceProps(disclosure.props);
+		childrenProps = popover.getReferenceProps({ onClick, ...disclosure.props });
 	}
 
 	return (

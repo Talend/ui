@@ -27,6 +27,8 @@ $circle-size-small: 1.8rem !default;
 			> span {
 				border-bottom: none !important;
 				padding: 0 $padding-smaller;
+				align-items: center;
+				display: flex;
 			}
 		}
 	}
