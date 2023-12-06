@@ -30,13 +30,9 @@
 		align-items: center;
 		display: flex;
 
-		& > a {
+		& > button {
 			font-style: italic;
-
-			> span {
-				border-bottom: none !important;
-				display: flex;
-			}
+			height: tokens.$coral-sizing-xxs !important;
 
 			> span > span {
 				white-space: nowrap;

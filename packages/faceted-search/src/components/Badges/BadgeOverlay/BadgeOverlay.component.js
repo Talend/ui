@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { Link, Popover } from '@talend/design-system';
+import { ButtonTertiary, Popover } from '@talend/design-system';
 import { FormatValue, getTheme, Icon, TooltipTrigger } from '@talend/react-components/lib/Icon';
 
 import cssModule from './BadgeOverlay.module.scss';
@@ -76,19 +76,20 @@ const BadgeOverlay = ({
 	const currentOpened = opened || overlayOpened;
 
 	const button = (
-		<Link
+		<ButtonTertiary
 			id={`${id}-action-overlay`}
 			aria-label={label}
 			onClick={changeOpened}
 			disabled={readOnly}
 			data-feature={dataFeature}
+			size="S"
 		>
 			{iconName ? (
 				<Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />
 			) : (
 				getLabel(label, showSpecialChars)
 			)}
-		</Link>
+		</ButtonTertiary>
 	);
 
 	return (
