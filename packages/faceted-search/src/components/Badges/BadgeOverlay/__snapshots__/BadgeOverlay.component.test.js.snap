@@ -2,15 +2,17 @@
 
 exports[`BadgeOverlay should render the html output in the default state 1`] = `
 <div>
-  <a
+  <button
+    aria-busy="false"
     aria-expanded="false"
     aria-haspopup="dialog"
     aria-label="my label"
-    class="theme-linkable theme-link"
+    class="theme-clickable theme-button theme-tertiary theme-size-S"
     id="my-id-action-overlay"
+    type="button"
   >
     <span
-      class="theme-link__text"
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
     >
       <span
         aria-describedby="42"
@@ -18,6 +20,6 @@ exports[`BadgeOverlay should render the html output in the default state 1`] = `
         my label
       </span>
     </span>
-  </a>
+  </button>
 </div>
 `;

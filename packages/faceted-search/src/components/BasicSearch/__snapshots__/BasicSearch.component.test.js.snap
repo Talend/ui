@@ -70,15 +70,17 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
           <div
             class="tc-badge-operator-button theme-tc-badge-operator-button"
           >
-            <a
+            <button
+              aria-busy="false"
               aria-expanded="false"
               aria-haspopup="dialog"
               aria-label="Equals"
-              class="theme-linkable theme-link"
+              class="theme-clickable theme-button theme-tertiary theme-size-S"
               id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
+              type="button"
             >
               <span
-                class="theme-link__text"
+                class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
               >
                 <svg
                   aria-hidden="true"
@@ -89,21 +91,23 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
                   shape-rendering="geometricPrecision"
                 />
               </span>
-            </a>
+            </button>
           </div>
         </div>
         <div
           class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
         >
-          <a
+          <button
+            aria-busy="false"
             aria-expanded="false"
             aria-haspopup="dialog"
             aria-label="hello"
-            class="theme-linkable theme-link"
+            class="theme-clickable theme-button theme-tertiary theme-size-S"
             id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
+            type="button"
           >
             <span
-              class="theme-link__text"
+              class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
             >
               <span
                 aria-describedby="42"
@@ -111,7 +115,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
                 hello
               </span>
             </span>
-          </a>
+          </button>
         </div>
         <button
           aria-describedby="42"

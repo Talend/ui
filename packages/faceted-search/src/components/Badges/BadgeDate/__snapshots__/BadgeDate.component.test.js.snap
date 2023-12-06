@@ -21,15 +21,17 @@ exports[`BadgeDate should render a default badge 1`] = `
       <div
         class="tc-badge-operator-button theme-tc-badge-operator-button"
       >
-        <a
+        <button
+          aria-busy="false"
           aria-expanded="false"
           aria-haspopup="dialog"
           aria-label="Not equal to"
-          class="theme-linkable theme-link"
+          class="theme-clickable theme-button theme-tertiary theme-size-S"
           id="myId-badge-date-operator-action-overlay"
+          type="button"
         >
           <span
-            class="theme-link__text"
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
           >
             <svg
               aria-hidden="true"
@@ -40,21 +42,23 @@ exports[`BadgeDate should render a default badge 1`] = `
               shape-rendering="geometricPrecision"
             />
           </span>
-        </a>
+        </button>
       </div>
     </div>
     <div
       class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
     >
-      <a
+      <button
+        aria-busy="false"
         aria-expanded="false"
         aria-haspopup="dialog"
         aria-label="2011-10-01"
-        class="theme-linkable theme-link"
+        class="theme-clickable theme-button theme-tertiary theme-size-S"
         id="myId-badge-date-action-overlay"
+        type="button"
       >
         <span
-          class="theme-link__text"
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
         >
           <span
             aria-describedby="42"
@@ -62,7 +66,7 @@ exports[`BadgeDate should render a default badge 1`] = `
             2011-10-01
           </span>
         </span>
-      </a>
+      </button>
     </div>
     <button
       aria-describedby="42"

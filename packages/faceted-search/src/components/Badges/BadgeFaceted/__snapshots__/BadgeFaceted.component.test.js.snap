@@ -21,15 +21,17 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
       <div
         class="tc-badge-operator-button theme-tc-badge-operator-button"
       >
-        <a
+        <button
+          aria-busy="false"
           aria-expanded="false"
           aria-haspopup="dialog"
           aria-label="My icon operator equal"
-          class="theme-linkable theme-link"
+          class="theme-clickable theme-button theme-tertiary theme-size-S"
           id="my-id-operator-action-overlay"
+          type="button"
         >
           <span
-            class="theme-link__text"
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
           >
             <svg
               aria-hidden="true"
@@ -40,21 +42,23 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
               shape-rendering="geometricPrecision"
             />
           </span>
-        </a>
+        </button>
       </div>
     </div>
     <div
       class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
     >
-      <a
+      <button
+        aria-busy="false"
         aria-expanded="false"
         aria-haspopup="dialog"
         aria-label="All"
-        class="theme-linkable theme-link"
+        class="theme-clickable theme-button theme-tertiary theme-size-S"
         id="my-id-action-overlay"
+        type="button"
       >
         <span
-          class="theme-link__text"
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
         >
           <span
             aria-describedby="42"
@@ -62,7 +66,7 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
             All
           </span>
         </span>
-      </a>
+      </button>
     </div>
     <button
       aria-describedby="42"
