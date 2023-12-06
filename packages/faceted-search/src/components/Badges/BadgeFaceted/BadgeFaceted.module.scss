@@ -30,24 +30,22 @@
 		align-items: center;
 		display: flex;
 
-		& > button {
+		& > a {
 			font-style: italic;
-			padding: 0;
-			text-transform: none;
-
-			&:hover,
-			&:visited {
-				text-decoration: none;
-			}
 
 			> span {
-				display: block;
+				border-bottom: none !important;
+				display: flex;
+			}
+
+			> span > span {
+				white-space: nowrap;
 				overflow: hidden;
 				max-width: 10rem;
 				text-overflow: ellipsis;
 			}
 
-			> span:not(:first-child)::before {
+			> span > span:not(:first-child)::before {
 				content: '|';
 				position: relative;
 				top: -1px;

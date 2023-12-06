@@ -21,38 +21,48 @@ exports[`BadgeDate should render a default badge 1`] = `
       <div
         class="tc-badge-operator-button theme-tc-badge-operator-button"
       >
-        <button
-          aria-describedby="42"
+        <a
+          aria-expanded="false"
+          aria-haspopup="dialog"
           aria-label="Not equal to"
-          class="btn btn-link"
+          class="theme-linkable theme-link"
           id="myId-badge-date-operator-action-overlay"
-          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-not-equal"
-            focusable="false"
-            name="talend-not-equal"
-            pointer-events="none"
-            shape-rendering="geometricPrecision"
-          />
-        </button>
+          <span
+            class="theme-link__text"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-not-equal"
+              focusable="false"
+              name="talend-not-equal"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </span>
+        </a>
       </div>
     </div>
     <div
       class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
     >
-      <button
-        aria-describedby="42"
+      <a
+        aria-expanded="false"
+        aria-haspopup="dialog"
         aria-label="2011-10-01"
-        class="btn btn-link"
+        class="theme-linkable theme-link"
         id="myId-badge-date-action-overlay"
-        type="button"
       >
-        <span>
-          2011-10-01
+        <span
+          class="theme-link__text"
+        >
+          <span
+            aria-describedby="42"
+          >
+            2011-10-01
+          </span>
         </span>
-      </button>
+      </a>
     </div>
     <button
       aria-describedby="42"

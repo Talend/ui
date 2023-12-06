@@ -4,7 +4,6 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ButtonIcon, Icon } from '@talend/design-system';
-import { FormControl } from '@talend/react-bootstrap';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { USAGE_TRACKING_TAGS } from '../../constants';
@@ -71,9 +70,9 @@ export function AdvancedSearch({
 	const advSearchId = `${id}-adv-search`;
 	return (
 		<div id={advSearchId} className={css('adv-search')}>
-			<form id={`${advSearchId}-form`} onSubmit={formSubmit}>
+			<form id={`${advSearchId}-form`} role="search" onSubmit={formSubmit}>
 				<Icon name="talend-filter" size="M" className={css('adv-search-filter-icon')} />
-				<FormControl
+				<input
 					id={`${id}-form`}
 					name="advanced-search-faceted"
 					type="search"
@@ -83,7 +82,7 @@ export function AdvancedSearch({
 					className={css('adv-search-input', { 'has-error': error })}
 					aria-label={placeholder || t('ADV_SEARCH_FACETED_ARIA', 'Advanced Faceted Search')}
 					autoFocus
-					role="search"
+					role="searchbox"
 					onKeyDown={onKeyDownHandler}
 					onChange={onChangeHandler}
 				/>

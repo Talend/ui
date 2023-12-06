@@ -1,7 +1,10 @@
 import { useState } from 'react';
+
 import PropTypes from 'prop-types';
-import { Popover, Button, Overlay } from '@talend/react-bootstrap';
-import { Icon, TooltipTrigger, FormatValue, getTheme } from '@talend/react-components/lib/Icon';
+
+import { Link, Popover } from '@talend/design-system';
+import { FormatValue, getTheme, Icon, TooltipTrigger } from '@talend/react-components/lib/Icon';
+
 import cssModule from './BadgeOverlay.module.scss';
 
 const theme = getTheme(cssModule);
@@ -21,10 +24,15 @@ const labelFormatter = (value, showSpecialChars) =>
 	);
 
 const getLabel = (labels, showSpecialChars) => {
-	if (Array.isArray(labels)) {
-		return labels.map(label => labelFormatter(label, showSpecialChars));
-	}
-	return labelFormatter(labels, showSpecialChars);
+	const formatedLabels = Array.isArray(labels)
+		? labels.map(label => labelFormatter(label, showSpecialChars))
+		: labelFormatter(labels, showSpecialChars);
+
+	return (
+		<TooltipTrigger label={labels} tooltipPlacement="top">
+			{formatedLabels}
+		</TooltipTrigger>
+	);
 };
 
 /**
@@ -47,10 +55,8 @@ const BadgeOverlay = ({
 	opened = false,
 	readOnly,
 	showSpecialChars = false,
-	t,
 }) => {
 	const [overlayOpened, setOverlayOpened] = useState(initialOpened);
-	const [buttonRef, setButtonRef] = useState(null);
 
 	const changeOpened = event => {
 		if (onChange) {
@@ -70,12 +76,9 @@ const BadgeOverlay = ({
 	const currentOpened = opened || overlayOpened;
 
 	const button = (
-		<Button
+		<Link
 			id={`${id}-action-overlay`}
-			bsStyle="link"
 			aria-label={label}
-			type="button"
-			ref={target => setButtonRef(target)}
 			onClick={changeOpened}
 			disabled={readOnly}
 			data-feature={dataFeature}
@@ -85,25 +88,25 @@ const BadgeOverlay = ({
 			) : (
 				getLabel(label, showSpecialChars)
 			)}
-		</Button>
+		</Link>
 	);
 
 	return (
 		<div className={className}>
-			<TooltipTrigger label={label} tooltipPlacement="top">
-				{button}
-			</TooltipTrigger>
-
-			<Overlay
-				id={`${id}-overlay`}
-				onHide={onHideOverlay}
+			<Popover
+				id={`${id}-popover`}
+				disclosure={button}
+				isFixed={true}
 				placement="bottom"
-				rootClose={true}
-				show={currentOpened}
-				target={buttonRef}
+				open={currentOpened}
+				onOpenChange={open => {
+					if (!open) {
+						onHideOverlay(open);
+					}
+				}}
 			>
-				<Popover id={`${id}-popover`}>{getChildren(children, setOverlayOpened)}</Popover>
-			</Overlay>
+				{currentOpened && getChildren(children, setOverlayOpened)}
+			</Popover>
 		</div>
 	);
 };
@@ -123,7 +126,6 @@ BadgeOverlay.propTypes = {
 	iconName: PropTypes.string,
 	showSpecialChars: PropTypes.bool,
 	dataFeature: PropTypes.string,
-	t: PropTypes.func.isRequired,
 	onChange: PropTypes.func,
 	onHide: PropTypes.func,
 };

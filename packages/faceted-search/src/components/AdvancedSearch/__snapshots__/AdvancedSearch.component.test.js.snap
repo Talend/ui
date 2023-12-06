@@ -7,6 +7,7 @@ exports[`AdvancedSearch should render by default 1`] = `
 >
   <form
     id="some-id-adv-search-form"
+    role="search"
   >
     <svg
       aria-hidden="true"
@@ -19,11 +20,11 @@ exports[`AdvancedSearch should render by default 1`] = `
     <input
       aria-label="Advanced Faceted Search"
       autocomplete="off"
-      class="adv-search-input theme-adv-search-input form-control"
+      class="adv-search-input theme-adv-search-input"
       id="some-id-form"
       name="advanced-search-faceted"
       placeholder="Enter your query"
-      role="search"
+      role="searchbox"
       type="search"
       value=""
     />

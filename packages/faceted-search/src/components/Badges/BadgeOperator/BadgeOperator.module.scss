@@ -21,16 +21,11 @@ $circle-size-small: 1.8rem !default;
 	}
 
 	&-button {
-		padding: 0;
 		display: inline-flex;
 
-		> button:hover,
-		> button {
-			padding: 0;
-			text-decoration: none;
-			text-transform: none;
-
+		> a {
 			> span {
+				border-bottom: none !important;
 				padding: 0 $padding-smaller;
 			}
 		}

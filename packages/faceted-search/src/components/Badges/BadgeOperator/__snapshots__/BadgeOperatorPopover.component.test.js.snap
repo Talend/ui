@@ -4,53 +4,43 @@ exports[`BadgeOperatorPopover should render the html output 1`] = `
 <div
   class="tc-badge-operator-popover theme-tc-badge-operator-popover"
 >
-  <div
-    class="theme-body tc-tooltip-body"
-    id="my-id"
+  <button
+    aria-label="My icon operator equal"
+    class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+    id="my-id-operator-row-button-operatorIconEqual"
+    role="button"
+    type="button"
   >
-    <div
-      class="theme-content tc-tooltip-content"
-      id="my-id-content"
-    >
-      <button
-        aria-label="My icon operator equal"
-        class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
-        id="my-id-operator-row-button-operatorIconEqual"
-        role="button"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-equal"
-          focusable="false"
-          name="talend-my-icon-equal"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-        />
-        <span>
-          My icon operator equal
-        </span>
-      </button>
-      <button
-        aria-label="My icon operator not equal"
-        class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
-        id="my-id-operator-row-button-operatorIconNotEqual"
-        role="button"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-not-equal"
-          focusable="false"
-          name="talend-my-icon-not-equal"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-        />
-        <span>
-          My icon operator not equal
-        </span>
-      </button>
-    </div>
-  </div>
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-equal"
+      focusable="false"
+      name="talend-my-icon-equal"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span>
+      My icon operator equal
+    </span>
+  </button>
+  <button
+    aria-label="My icon operator not equal"
+    class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+    id="my-id-operator-row-button-operatorIconNotEqual"
+    role="button"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-not-equal"
+      focusable="false"
+      name="talend-my-icon-not-equal"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span>
+      My icon operator not equal
+    </span>
+  </button>
 </div>
 `;

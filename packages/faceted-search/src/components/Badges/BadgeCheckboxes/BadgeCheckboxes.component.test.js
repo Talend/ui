@@ -1,8 +1,8 @@
-import { render } from '@testing-library/react';
-import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { render, within } from '@testing-library/react';
 
-import { BadgeCheckboxes } from './BadgeCheckboxes.component';
 import getDefaultT from '../../../translate';
+import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { BadgeCheckboxes } from './BadgeCheckboxes.component';
 
 const t = getDefaultT();
 
@@ -37,7 +37,8 @@ describe('BadgeCheckboxes', () => {
 		render(<BadgeWithContext {...props} />);
 		// Then
 
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
+		const badge = document.querySelector('#tc-badge-select-myId-badge-checkboxes');
+		expect(within(badge).getByText('All')).toBeVisible();
 	});
 	it('should return "All" when value is empty', () => {
 		// Given
@@ -52,7 +53,8 @@ describe('BadgeCheckboxes', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
+		const badge = document.querySelector('#tc-badge-select-myId-badge-checkboxes');
+		expect(within(badge).getByText('All')).toBeVisible();
 	});
 	it('should return the amount of values when values are equal or greater than 4', () => {
 		// Given
@@ -73,7 +75,8 @@ describe('BadgeCheckboxes', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('5 value');
+		const badge = document.querySelector('#tc-badge-select-myId-badge-checkboxes');
+		expect(within(badge).getByText('5 values')).toBeVisible();
 	});
 	it('should return only the checked values', () => {
 		// Given
@@ -94,8 +97,9 @@ describe('BadgeCheckboxes', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('one');
-		expect(document.querySelectorAll('span')[3]).toHaveTextContent('two');
-		expect(document.querySelectorAll('span')[4]).toHaveTextContent('five');
+		const badge = document.querySelector('#tc-badge-select-myId-badge-checkboxes');
+		expect(within(badge).getByText('one')).toBeVisible();
+		expect(within(badge).getByText('two')).toBeVisible();
+		expect(within(badge).getByText('five')).toBeVisible();
 	});
 });

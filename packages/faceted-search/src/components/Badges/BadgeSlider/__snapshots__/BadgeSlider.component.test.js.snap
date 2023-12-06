@@ -21,38 +21,48 @@ exports[`BadgeSlider should mount a default badge 1`] = `
       <div
         class="tc-badge-operator-button theme-tc-badge-operator-button"
       >
-        <button
-          aria-describedby="42"
+        <a
+          aria-expanded="false"
+          aria-haspopup="dialog"
           aria-label="Equal"
-          class="btn btn-link"
+          class="theme-linkable theme-link"
           id="myId-badge-slider-operator-action-overlay"
-          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
-            focusable="false"
-            name="talend-equal"
-            pointer-events="none"
-            shape-rendering="geometricPrecision"
-          />
-        </button>
+          <span
+            class="theme-link__text"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+              focusable="false"
+              name="talend-equal"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </span>
+        </a>
       </div>
     </div>
     <div
       class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
     >
-      <button
-        aria-describedby="42"
+      <a
+        aria-expanded="false"
+        aria-haspopup="dialog"
         aria-label="0"
-        class="btn btn-link"
+        class="theme-linkable theme-link"
         id="myId-badge-slider-action-overlay"
-        type="button"
       >
-        <span>
-          0
+        <span
+          class="theme-link__text"
+        >
+          <span
+            aria-describedby="42"
+          >
+            0
+          </span>
         </span>
-      </button>
+      </a>
     </div>
     <button
       aria-describedby="42"

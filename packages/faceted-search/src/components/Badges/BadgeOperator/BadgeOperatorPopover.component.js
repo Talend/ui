@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Rich } from '@talend/react-components';
+
 import { Action } from '@talend/react-components/lib/Actions';
 import { getTheme } from '@talend/react-components/lib/theme';
 
@@ -49,16 +49,9 @@ BadgeOperatorRow.propTypes = {
 const BadgeOperatorPopover = ({ id, operators, onClick }) => {
 	return (
 		<div className={theme('tc-badge-operator-popover')}>
-			<Rich.Layout.Body id={id}>
-				{operators.map(operator => (
-					<BadgeOperatorRow
-						id={id}
-						key={`${id}-${operator.name}`}
-						onClick={onClick}
-						{...operator}
-					/>
-				))}
-			</Rich.Layout.Body>
+			{operators.map(operator => (
+				<BadgeOperatorRow id={id} key={`${id}-${operator.name}`} onClick={onClick} {...operator} />
+			))}
 		</div>
 	);
 };
