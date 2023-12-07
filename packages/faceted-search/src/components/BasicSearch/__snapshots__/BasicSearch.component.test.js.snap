@@ -30,10 +30,14 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
       <div
         class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
-        <label
-          class="theme-label"
-          for="42"
-        />
+        <span
+          class="theme-hidden"
+        >
+          <label
+            class="theme-label"
+            for="42"
+          />
+        </span>
         <div
           class="theme-inputShell"
         >

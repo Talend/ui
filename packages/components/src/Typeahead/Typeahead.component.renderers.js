@@ -61,6 +61,7 @@ export function renderInputComponent(props) {
 				<Form.Text
 					id={key}
 					{...rest}
+					hideLabel
 					disabled={disabled}
 					readOnly={readOnly}
 					ref={setReferenceElement}

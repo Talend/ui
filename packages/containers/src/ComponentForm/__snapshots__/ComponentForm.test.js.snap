@@ -63,10 +63,14 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
               <div
                 class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
               >
-                <label
-                  class="theme-label"
-                  for="_datasetMetadata_type"
-                />
+                <span
+                  class="theme-hidden"
+                >
+                  <label
+                    class="theme-label"
+                    for="_datasetMetadata_type"
+                  />
+                </span>
                 <div
                   class="theme-inputShell"
                 >

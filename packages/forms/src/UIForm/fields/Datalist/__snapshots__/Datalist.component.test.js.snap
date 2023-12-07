@@ -27,10 +27,14 @@ exports[`Datalist component should render 1`] = `
         <div
           class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
-          <label
-            class="theme-label"
-            for="my-datalist"
-          />
+          <span
+            class="theme-hidden"
+          >
+            <label
+              class="theme-label"
+              for="my-datalist"
+            />
+          </span>
           <div
             class="theme-inputShell"
           >
