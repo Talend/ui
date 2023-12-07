@@ -14,6 +14,7 @@
 	.container {
 		display: flex;
 		flex-direction: row;
+		overflow: auto;
 
 		.list {
 			flex: 4 0 0;
@@ -25,6 +26,17 @@
 		}
 
 		.results {
+			> button {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				width: 100%;
+
+				&:hover {
+					background-color: #f3f3f3;
+				}
+			}
+
 			margin-top: $padding-smaller;
 			overflow-y: auto;
 			flex: 4 0 0;
