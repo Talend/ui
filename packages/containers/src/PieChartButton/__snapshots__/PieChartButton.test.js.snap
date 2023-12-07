@@ -2,10 +2,11 @@
 
 exports[`PieChartButton container should render 1`] = `
 <button
-  class="tc-pie-chart-button theme-tc-pie-chart-button btn btn-link"
+  class="tc-pie-chart-button theme-tc-pie-chart-button btn-icon-only btn btn-link"
   role="button"
   type="button"
 >
+  <span />
   <span
     class="tc-pie-chart-icon theme-tc-pie-chart-icon"
   >

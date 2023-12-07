@@ -60,23 +60,29 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
             <div
               class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-caret"
             >
-              <label
-                class="control-label sr-only"
-                for="react-autowhatever-_datasetMetadata_type-input"
+              <div
+                class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
               >
-                Search
-              </label>
-              <input
-                aria-autocomplete="list"
-                aria-controls="react-autowhatever-_datasetMetadata_type"
-                aria-describedby="_datasetMetadata_type-description _datasetMetadata_type-error"
-                aria-invalid="false"
-                autocomplete="off"
-                class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-                id="_datasetMetadata_type"
-                type="text"
-                value=""
-              />
+                <label
+                  class="theme-label"
+                  for="_datasetMetadata_type"
+                />
+                <div
+                  class="theme-inputShell"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="react-autowhatever-_datasetMetadata_type"
+                    aria-describedby="_datasetMetadata_type-description _datasetMetadata_type-error"
+                    aria-invalid="false"
+                    autocomplete="off"
+                    class="theme-input theme-typeahead-input tc-typeahead-typeahead-input"
+                    id="_datasetMetadata_type"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
               <div
                 class="icon-cls theme-icon-cls icon-caret theme-icon-caret"
               >
