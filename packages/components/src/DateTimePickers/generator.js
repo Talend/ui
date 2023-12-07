@@ -1,15 +1,16 @@
-import { date } from '@talend/utils';
-import chunk from 'lodash/chunk';
 import addMonths from 'date-fns/addMonths';
 import format from 'date-fns/format';
 import getYear from 'date-fns/getYear';
 import setDay from 'date-fns/setDay';
+import chunk from 'lodash/chunk';
 import memoize from 'lodash/memoize';
-import getLocale from '../i18n/DateFnsLocale/locale';
-import getDefaultT from '../translate';
 
-function buildDateFnsLocale(t) {
-	return { locale: getLocale(t || getDefaultT()) };
+import { date } from '@talend/utils';
+
+import getLocale from '../i18n/DateFnsLocale/locale';
+
+function buildDateFnsLocale() {
+	return { locale: getLocale() };
 }
 
 export const getPickerLocale = memoize(buildDateFnsLocale);
@@ -24,8 +25,8 @@ export function buildDayNames(firstDayOfweek = 1, t) {
 		.map((_, i) => (i + firstDayOfweek) % 7)
 		.map(dayOfWeek => setDay(new Date(0), dayOfWeek))
 		.map(headerDate => ({
-			abbr: format(headerDate, 'd', pickerLocale),
-			full: format(headerDate, 'dddd', pickerLocale),
+			abbr: format(headerDate, 'EEEEE', pickerLocale),
+			full: format(headerDate, 'EEEE', pickerLocale),
 		}));
 }
 

@@ -1,13 +1,15 @@
 import { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
+
 import classNames from 'classnames';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { withTranslation } from 'react-i18next';
-import { getRowData } from '../../VirtualizedList/utils/gridrow';
+import PropTypes from 'prop-types';
+
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
 import Icon from '../../Icon';
+import getDefaultT from '../../translate';
+import { getRowData } from '../../VirtualizedList/utils/gridrow';
 
 import theme from './Resource.module.scss';
 
@@ -17,7 +19,7 @@ const FLAGS = {
 };
 
 function getDateLabel(t, date) {
-	return formatDistanceToNow(date, {
+	return formatDistanceToNow(new Date(date), {
 		addSuffix: true,
 		locale: getLocale(t),
 	});

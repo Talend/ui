@@ -1,24 +1,27 @@
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
-import memoize from 'lodash/memoize';
+import format from 'date-fns/format';
+import getDate from 'date-fns/getDate';
+import getMonth from 'date-fns/getMonth';
+import getYear from 'date-fns/getYear';
 import isAfter from 'date-fns/isAfter';
 import isBefore from 'date-fns/isBefore';
 import isSameDay from 'date-fns/isSameDay';
 import isToday from 'date-fns/isToday';
 import isWithinRange from 'date-fns/isWithinInterval';
-import format from 'date-fns/format';
-import getDate from 'date-fns/getDate';
-import getMonth from 'date-fns/getMonth';
-import getYear from 'date-fns/getYear';
 import setMonth from 'date-fns/setMonth';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
+import memoize from 'lodash/memoize';
+import PropTypes from 'prop-types';
+
+import { Gesture } from '@talend/react-a11y';
+
+import getDefaultT from '../../../translate';
+import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
 
 import theme from './DatePicker.module.scss';
-import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
-import { Gesture } from '@talend/react-a11y';
-import getDefaultT from '../../../translate';
 
 const getDayNames = memoize(buildDayNames);
 
@@ -184,7 +187,7 @@ class DatePicker extends PureComponent {
 									className: classNames(theme['calendar-col'], cellTheme),
 								};
 
-								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
+								let ariaLabel = format(date, 'EEEE dd MMMM yyyy', pickerLocale);
 								if (isInRange) {
 									if (isStart) {
 										ariaLabel = t('DATEPICKER_DAY_RANGE_START', {

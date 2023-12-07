@@ -1,14 +1,16 @@
 import { useMemo } from 'react';
+
 import format from 'date-fns/format';
 import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
 
+import { createOperatorsDict, operatorNames } from '../../../dictionary/operator.dictionary';
+import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 import { BadgeFaceted } from '../BadgeFaceted';
 import { BadgeDateForm } from './BadgeDateForm.component';
-import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
-import { createOperatorsDict, operatorNames } from '../../../dictionary/operator.dictionary';
 
-const DATE_FORMAT = 'YYYY-MM-DD';
+const DATE_FORMAT = 'yyyy-MM-dd';
 
 const defaultOperatorsName = [
 	operatorNames.notEquals,

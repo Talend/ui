@@ -55,6 +55,10 @@ describe('CellDatetime', () => {
 		jest.unmock('date-fns/format');
 	});
 
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('should render CellDatetime', () => {
 		// when
 		const columnData = {
@@ -65,7 +69,7 @@ describe('CellDatetime', () => {
 			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />,
 		);
 		// then
-		expect(distanceInWordsToNow).toHaveBeenCalledWith(1474495200000, {
+		expect(distanceInWordsToNow).toHaveBeenCalledWith(new Date(1474495200000), {
 			addSuffix: true,
 			locale: 'getLocale',
 		});
@@ -85,7 +89,7 @@ describe('CellDatetime', () => {
 
 		render(<CellDatetimeComponent columnData={columnData} />);
 		// then
-		expect(distanceInWordsToNow).toHaveBeenCalled();
+		expect(distanceInWordsToNow).not.toHaveBeenCalled();
 		expect(format).toHaveBeenCalled();
 		expect(document.querySelector('.cell-datetime-container')).toBeEmptyDOMElement();
 	});
@@ -132,9 +136,13 @@ describe('CellDatetime', () => {
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData, t);
 		// then
 		expect(computedStrOffset).toEqual(expectedStrDate);
-		expect(format).toHaveBeenCalledWith(cellDataWithOffset, columnData.pattern, {
-			locale: getLocale(t),
-		});
+		expect(format).toHaveBeenCalledWith(
+			new Date(cellDataWithOffset),
+			dateUtils.formatToUnicode(columnData.pattern),
+			{
+				locale: getLocale(t),
+			},
+		);
 	});
 
 	it('should render CellDatetime with tooltip in ago mode', () => {
@@ -164,9 +172,13 @@ describe('CellDatetime', () => {
 		computeValue(cellData, columnData, t);
 
 		// then
-		expect(dateUtils.formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
-			timeZone: columnData.timeZone,
-			locale: getLocale(t),
-		});
+		expect(dateUtils.formatToTimeZone).toHaveBeenCalledWith(
+			new Date(cellData),
+			columnData.pattern,
+			{
+				timeZone: columnData.timeZone,
+				locale: getLocale(t),
+			},
+		);
 	});
 });

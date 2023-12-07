@@ -2,6 +2,7 @@ import format from 'date-fns/format';
 import getDate from 'date-fns/getDate';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import setDate from 'date-fns/setDate';
+
 import { date as dateUtils } from '@talend/utils';
 
 import getErrorMessage from '../shared/error-messages';
@@ -47,7 +48,7 @@ function isDateValid(date, options) {
  * @param {Object} options
  */
 function dateToStr(date, { dateFormat }) {
-	return format(date, dateFormat);
+	return format(date, dateUtils.formatToUnicode(dateFormat));
 }
 
 function convertDateToTimezone(date, { useUTC, timezone }) {
@@ -248,7 +249,7 @@ function extractFromDate(date, options) {
 	return {
 		localDate: date,
 		date: convertDateToTimezone(date, options),
-		textInput: format(date, options.dateFormat),
+		textInput: format(date, dateUtils.formatToUnicode(options.dateFormat)),
 		errors: [],
 		errorMessage: null,
 	};

@@ -38,7 +38,7 @@
     "@talend/utils": "^2.8.0",
     "@talend/design-tokens": "^2.10.1",
     "classnames": "^2.3.2",
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "invariant": "^2.2.4",
     "lodash": "^4.17.21"
   },

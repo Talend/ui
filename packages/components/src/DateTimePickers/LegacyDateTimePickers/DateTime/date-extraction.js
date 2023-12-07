@@ -1,9 +1,10 @@
 import format from 'date-fns/format';
 import getDate from 'date-fns/getDate';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import setSeconds from 'date-fns/setSeconds';
 import setDate from 'date-fns/setDate';
+import setSeconds from 'date-fns/setSeconds';
 import startOfSecond from 'date-fns/startOfSecond';
+
 import { date as dateUtils } from '@talend/utils';
 
 import getErrorMessage from './error-messages';
@@ -249,27 +250,35 @@ function dateTimeToStr(date, time, options) {
 
 	const { dateFormat, useTime } = options;
 	if (time === undefined || useTime === false) {
-		return format(date, dateFormat);
+		return format(date, dateUtils.formatToUnicode(dateFormat));
 	}
 
+	const typedDate = date instanceof Date ? date : new Date(date);
 	try {
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds, options);
-		const fullDate = setSeconds(date, timeInSeconds);
+		const fullDate = setSeconds(typedDate, timeInSeconds);
 
 		if (hybridMode && isTimeEmpty(time)) {
-			return format(fullDate, getFullDateFormat({ ...options, useTime: false }));
+			return format(
+				fullDate,
+				dateUtils.formatToUnicode(getFullDateFormat({ ...options, useTime: false })),
+			);
 		}
 
-		return format(fullDate, getFullDateFormat(options));
+		return format(fullDate, dateUtils.formatToUnicode(getFullDateFormat(options)));
 	} catch (e) {
-		const dateStr = format(date, dateFormat);
-		if (hours !== '' && minutes !== '') {
-			if (options.useSeconds && seconds !== '') {
-				return `${dateStr} ${hours}:${minutes}:${seconds}`;
+		try {
+			const dateStr = format(typedDate, dateUtils.formatToUnicode(dateFormat));
+			if (hours !== '' && minutes !== '') {
+				if (options.useSeconds && seconds !== '') {
+					return `${dateStr} ${hours}:${minutes}:${seconds}`;
+				}
+				return `${dateStr} ${hours}:${minutes}`;
 			}
-			return `${dateStr} ${hours}:${minutes}`;
+			return dateStr;
+		} catch (_) {
+			return 'Invalid Date';
 		}
-		return dateStr;
 	}
 }
 

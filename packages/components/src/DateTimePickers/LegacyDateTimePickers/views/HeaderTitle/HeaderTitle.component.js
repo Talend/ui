@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import setYear from 'date-fns/setYear';
-import setMonth from 'date-fns/setMonth';
 import format from 'date-fns/format';
-import theme from './HeaderTitle.module.scss';
+import setMonth from 'date-fns/setMonth';
+import setYear from 'date-fns/setYear';
+import PropTypes from 'prop-types';
+
+import { Action, ActionDropdown } from '../../../../Actions';
 import { getPickerLocale } from '../../generator';
-import { ActionDropdown, Action } from '../../../../Actions';
 import YearPicker from '../../pickers/YearPicker';
+
+import theme from './HeaderTitle.module.scss';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
@@ -21,10 +23,10 @@ function HeaderTitle(props) {
 		...(isButton ? props.button : {}),
 	};
 
-	const pickerLocale = getPickerLocale(props.t);
+	const pickerLocale = getPickerLocale();
 	const date = setYear(setMonth(new Date(0), props.monthIndex), props.year);
-	const label = format(date, 'MMMM YYYY', pickerLocale);
-	const yearLabel = format(date, 'YYYY', pickerLocale);
+	const label = format(date, 'MMMM yyyy', pickerLocale);
+	const yearLabel = format(date, 'yyyy', pickerLocale);
 	const monthLabel = format(date, 'MMMM', pickerLocale);
 
 	if (isButton) {
