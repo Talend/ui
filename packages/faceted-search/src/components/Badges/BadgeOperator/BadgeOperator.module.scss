@@ -21,18 +21,10 @@ $circle-size-small: 1.8rem !default;
 	}
 
 	&-button {
-		padding: 0;
-		display: inline-flex;
+		display: flex;
 
-		> button:hover,
 		> button {
-			padding: 0;
-			text-decoration: none;
-			text-transform: none;
-
-			> span {
-				padding: 0 $padding-smaller;
-			}
+			height: tokens.$coral-sizing-xxs !important;
 		}
 	}
 
@@ -56,7 +48,6 @@ $circle-size-small: 1.8rem !default;
 		justify-content: flex-start;
 		text-transform: none;
 		width: 100%;
-		padding: 0 $padding-large 0 $padding-large;
 
 		&:hover {
 			background: $concrete;

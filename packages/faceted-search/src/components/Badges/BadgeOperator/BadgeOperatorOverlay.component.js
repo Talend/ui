@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
 import { getTheme } from '@talend/react-components/lib/theme';
 
+import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 import { BadgeOverlay } from '../BadgeOverlay';
 import { BadgeOperatorPopover } from './BadgeOperatorPopover.component';
-
-import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 
 import cssModule from './BadgeOperator.module.scss';
 
@@ -22,7 +22,6 @@ const BadgeOperatorOverlay = ({
 	operators,
 	readOnly,
 	size,
-	t,
 }) => {
 	/**
 	 * Trigger the callback passed in props
@@ -55,7 +54,6 @@ const BadgeOperatorOverlay = ({
 				onChange={onChangeOverlay}
 				onHide={onHide}
 				opened={opened}
-				t={t}
 				readOnly={readOnly}
 			>
 				{setOverlayOpened => (
@@ -81,7 +79,6 @@ BadgeOperatorOverlay.propTypes = {
 	operators: operatorsPropTypes.isRequired,
 	readOnly: PropTypes.bool,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
-	t: PropTypes.func.isRequired,
 };
 
 // eslint-disable-next-line import/prefer-default-export

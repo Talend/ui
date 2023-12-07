@@ -32,22 +32,16 @@
 
 		& > button {
 			font-style: italic;
-			padding: 0;
-			text-transform: none;
+			height: tokens.$coral-sizing-xxs !important;
 
-			&:hover,
-			&:visited {
-				text-decoration: none;
-			}
-
-			> span {
-				display: block;
+			> span > span {
+				white-space: nowrap;
 				overflow: hidden;
 				max-width: 10rem;
 				text-overflow: ellipsis;
 			}
 
-			> span:not(:first-child)::before {
+			> span > span:not(:first-child)::before {
 				content: '|';
 				position: relative;
 				top: -1px;

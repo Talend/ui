@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
+
+import { isEqual } from 'lodash';
 import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
 import { getTheme } from '@talend/react-components/lib/theme';
-import { isEqual } from 'lodash';
 
+import { USAGE_TRACKING_TAGS } from '../../../constants';
+import { OVERLAY_FLOW_ACTIONS, useBadgeOverlayFlow } from '../../../hooks/badgeOverlayFlow.hook';
+import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';
+import { useBadgeFacetedContext } from '../../context/badgeFaceted.context';
+import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';
-import { useBadgeFacetedContext } from '../../context/badgeFaceted.context';
 
 import cssModule from './BadgeFaceted.module.scss';
-
-import { useBadgeOverlayFlow, OVERLAY_FLOW_ACTIONS } from '../../../hooks/badgeOverlayFlow.hook';
-import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';
-
-import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
-import { USAGE_TRACKING_TAGS } from '../../../constants';
 
 const theme = getTheme(cssModule);
 
@@ -97,7 +97,7 @@ const BadgeFaceted = ({
 	};
 
 	const onHideOverlayOperator = () => {
-		overlayDispatch(OVERLAY_FLOW_ACTIONS.openValue);
+		overlayDispatch(OVERLAY_FLOW_ACTIONS.closeAll);
 		dispatch(BADGES_ACTIONS.closeInitialOpened(badgeId));
 	};
 
@@ -122,7 +122,6 @@ const BadgeFaceted = ({
 						operators={operators}
 						readOnly={readOnly}
 						size={size}
-						t={t}
 					/>
 				</>
 			)}
@@ -135,7 +134,6 @@ const BadgeFaceted = ({
 				opened={overlayState.valueOpened}
 				onChange={onChangeValueOverlay}
 				readOnly={readOnly}
-				t={t}
 			>
 				{children({ onSubmitBadge, onChangeValue, badgeValue })}
 			</BadgeOverlay>

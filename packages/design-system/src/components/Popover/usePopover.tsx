@@ -1,17 +1,18 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import type { MutableRefObject } from 'react';
+
 import {
-	useFloating,
 	arrow,
 	autoUpdate,
-	offset,
 	flip,
+	offset,
+	Placement,
 	shift,
 	useClick,
 	useDismiss,
-	useRole,
+	useFloating,
 	useInteractions,
-	Placement,
+	useRole,
 } from '@floating-ui/react';
 
 const ARROW_HEIGHT = 7;
@@ -88,9 +89,7 @@ export function usePopover({
 
 	const context = data.context;
 
-	const click = useClick(context, {
-		enabled: controlledOpen == null,
-	});
+	const click = useClick(context);
 	const dismiss = useDismiss(context);
 	const role = useRole(context);
 

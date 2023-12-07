@@ -22,20 +22,26 @@ exports[`BadgeSlider should mount a default badge 1`] = `
         class="tc-badge-operator-button theme-tc-badge-operator-button"
       >
         <button
-          aria-describedby="42"
+          aria-busy="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
           aria-label="Equal"
-          class="btn btn-link"
+          class="theme-clickable theme-button theme-tertiary theme-size-S"
           id="myId-badge-slider-operator-action-overlay"
           type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
-            focusable="false"
-            name="talend-equal"
-            pointer-events="none"
-            shape-rendering="geometricPrecision"
-          />
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+              focusable="false"
+              name="talend-equal"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </span>
         </button>
       </div>
     </div>
@@ -43,14 +49,22 @@ exports[`BadgeSlider should mount a default badge 1`] = `
       class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
     >
       <button
-        aria-describedby="42"
+        aria-busy="false"
+        aria-expanded="false"
+        aria-haspopup="dialog"
         aria-label="0"
-        class="btn btn-link"
+        class="theme-clickable theme-button theme-tertiary theme-size-S"
         id="myId-badge-slider-action-overlay"
         type="button"
       >
-        <span>
-          0
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
+          <span
+            aria-describedby="42"
+          >
+            0
+          </span>
         </span>
       </button>
     </div>

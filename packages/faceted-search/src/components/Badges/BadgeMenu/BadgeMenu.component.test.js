@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import getDefaultT from '../../../translate';
@@ -38,7 +38,9 @@ describe('BadgeMenu', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
+		expect(
+			within(document.querySelector('#tc-badge-select-myId-badge-menu')).getByText('All'),
+		).toBeVisible();
 	});
 	it('should return "All" when value is empty', () => {
 		// Given
@@ -53,7 +55,9 @@ describe('BadgeMenu', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
+		expect(
+			within(document.querySelector('#tc-badge-select-myId-badge-menu')).getByText('All'),
+		).toBeVisible();
 	});
 	it('should mount a badge with object data from callback', async () => {
 		// Given
