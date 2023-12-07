@@ -1,4 +1,4 @@
-import { Button } from '@talend/react-bootstrap';
+import { Action } from '../Actions';
 import getPropsFrom from './getPropsFrom';
 
 describe('Action', () => {
@@ -33,27 +33,21 @@ describe('Action', () => {
 		};
 
 		// when
-		const buttonProps = getPropsFrom(Button, props);
+		const buttonProps = getPropsFrom(Action, props);
 
 		// then
 		expect(buttonProps).toEqual({
 			'aria-label': 'aria-label',
 			'data-feature': 'data-feature',
-			active: true,
 			autoFocus: true,
-			block: false,
 			className: 'my class',
-			disabled: false,
 			id: 'my-id',
-			href: 'www.google.de',
 			name: 'toto',
-			onClick,
 			rel: 'noopener noreferrer',
 			role: 'button',
 			tabIndex: 1,
 			target: '_blank',
 			title: 'my title',
-			type: 'button',
 			form: 'my-super-form-id',
 		});
 	});
