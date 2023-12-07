@@ -91,7 +91,7 @@ export default function PieChartButtonComponent({
 			className={theme('tc-pie-chart-button', className)}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
-			ref={buttonRef}
+			buttonRef={buttonRef}
 			bsStyle="link"
 			role="button"
 			{...rest}

@@ -38,7 +38,7 @@ exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = 
     <button
       aria-describedby="42"
       aria-label="Sort by name (current order: desc)"
-      class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn btn-link"
+      class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn-icon-only btn btn-link"
       type="button"
     >
       <span
@@ -53,7 +53,7 @@ exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = 
     <button
       aria-describedby="42"
       aria-label="Sort by date (current order: desc)"
-      class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn btn-link"
+      class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn-icon-only btn btn-link"
       type="button"
     >
       <span
