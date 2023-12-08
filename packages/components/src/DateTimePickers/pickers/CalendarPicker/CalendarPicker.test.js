@@ -4,7 +4,7 @@
 // rewrite using rtl
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import startOfDay from 'date-fns/start_of_day';
+import startOfDay from 'date-fns/startOfDay';
 
 import dateMock from '../../../../../../mocks/dateMock';
 import CalendarPicker from './CalendarPicker.component';

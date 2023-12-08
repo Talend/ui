@@ -1,40 +1,47 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
+import { withTranslation } from 'react-i18next';
+
 import classnames from 'classnames';
+import format from 'date-fns/format';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import isValid from 'date-fns/isValid';
+import parseISO from 'date-fns/parseISO';
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
-import format from 'date-fns/format';
-import isValid from 'date-fns/is_valid';
-import parse from 'date-fns/parse';
-import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
+
 import { date as dateUtils } from '@talend/utils';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
-import styles from './CellDatetime.module.scss';
 import TooltipTrigger from '../../TooltipTrigger';
+import getDefaultT from '../../translate';
+
+import styles from './CellDatetime.module.scss';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
 export function computeValue(cellData, columnData, t) {
-	const isDateValid = isValid(parse(cellData));
+	const date = new Date(cellData);
+	const isDateValid = isValid(date);
 
 	if (isDateValid) {
-		if (cellData && columnData.mode === 'ago') {
-			return distanceInWordsToNow(cellData, {
+		const dateFNS = parseISO(date.toISOString());
+		if (dateFNS && columnData.mode === 'ago') {
+			return formatDistanceToNow(dateFNS, {
 				addSuffix: true,
 				locale: getLocale(t),
 			});
 		} else if (columnData.mode === 'format') {
 			if (columnData.timeZone) {
-				return dateUtils.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+				return dateUtils.formatToTimeZone(dateFNS, columnData.pattern || DATE_TIME_FORMAT, {
 					timeZone: columnData.timeZone,
 					locale: getLocale(t),
 				});
 			}
-			return format(cellData, columnData.pattern || DATE_TIME_FORMAT, { locale: getLocale(t) });
+			return format(dateFNS, dateUtils.formatToUnicode(columnData.pattern || DATE_TIME_FORMAT), {
+				locale: getLocale(t),
+			});
 		}
 	}
 
@@ -53,9 +60,13 @@ export function getTooltipLabel(cellData, columnData, t) {
 				locale: getLocale(t),
 			});
 		} else {
-			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT, {
-				locale: getLocale(t),
-			});
+			tooltipLabel = format(
+				cellData,
+				dateUtils.formatToUnicode(columnData.pattern || DATE_TIME_FORMAT),
+				{
+					locale: getLocale(t),
+				},
+			);
 		}
 		return tooltipLabel;
 	}

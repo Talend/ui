@@ -1,11 +1,11 @@
 import {
+	check,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
-	check,
 } from './date-extraction';
 
 describe('Date extraction', () => {

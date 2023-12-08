@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
 import Resource from './Resource.component';
 
-jest.mock('date-fns/distance_in_words_to_now', () => () => 'over 2 years ago');
+jest.mock('date-fns/formatDistanceToNow', () => () => 'over 2 years ago');
 
 describe('Resource component snaps', () => {
 	afterAll(() => {
-		jest.unmock('date-fns/distance_in_words_to_now');
+		jest.unmock('date-fns/formatDistanceToNow');
 	});
 
 	describe('renderers', () => {

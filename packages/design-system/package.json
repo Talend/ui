@@ -83,7 +83,7 @@
     "@types/react-virtualized": "^9.21.28",
     "browser-sync": "^2.29.3",
     "browser-sync-webpack-plugin": "^2.3.0",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.2.2",
     "core-js": "^3.33.3",
     "cypress": "^13.6.0",
     "focus-outline-manager": "^1.0.2",

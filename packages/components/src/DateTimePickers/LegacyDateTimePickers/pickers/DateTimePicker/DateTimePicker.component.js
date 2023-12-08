@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import getMonth from 'date-fns/get_month';
-import getYear from 'date-fns/get_year';
-import startOfDay from 'date-fns/start_of_day';
+import getMonth from 'date-fns/getMonth';
+import getYear from 'date-fns/getYear';
+import startOfDay from 'date-fns/startOfDay';
 import classNames from 'classnames';
 
 import theme from './DateTimePicker.module.scss';

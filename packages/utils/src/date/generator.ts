@@ -1,5 +1,5 @@
-import startOfWeek from 'date-fns/start_of_week';
-import addDays from 'date-fns/add_days';
+import addDays from 'date-fns/addDays';
+import startOfWeek from 'date-fns/startOfWeek';
 import chunk from 'lodash/chunk';
 
 /**
