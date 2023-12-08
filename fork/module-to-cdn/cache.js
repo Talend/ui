@@ -6,9 +6,13 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const execa = require('execa');
 const semver = require('semver');
 const mkdirp = require('mkdirp');
+
+let execa;
+import('execa').then(({default: execaModule}) => {
+    execa = execaModule;
+});
 
 const CACHE_BASE_PATH = `${process.cwd()}/.test-cache`;
 
