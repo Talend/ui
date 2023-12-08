@@ -61,7 +61,7 @@
     "@talend/scripts-config-react-webpack": "^16.3.3",
     "@talend/scripts-config-storybook-lib": "^5.2.1",
     "@talend/scripts-config-typescript": "^11.2.0",
-    "@types/react": "^18.2.39",
+    "@types/react": "^18.2.42",
     "i18next": "^23.7.7",
     "mdx-embed": "^1.1.2",
     "react": "^18.2.0",

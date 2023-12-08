@@ -91,7 +91,7 @@
     "@types/jest": "^29.5.10",
     "@types/lodash": "^4.14.202",
     "@types/prop-types": "^15.7.11",
-    "@types/react": "^18.2.39",
+    "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
     "cross-env": "^7.0.3",
     "i18next": "^23.7.7",
