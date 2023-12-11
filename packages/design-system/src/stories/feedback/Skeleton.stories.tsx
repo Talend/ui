@@ -7,10 +7,10 @@ import {
 	SkeletonHeading,
 	SkeletonInput,
 	SkeletonParagraph,
+	SkeletonSized,
 	StackHorizontal,
 	StackVertical,
 } from '../../';
-
 import SkeletonPrimitive from '../../components/Skeleton/Primitive/Skeleton.Primitive';
 
 export default {
@@ -32,6 +32,10 @@ const SkeletonHeadingTemplate: StoryFn<typeof SkeletonHeading> = args => {
 
 const SkeletonParagraphTemplate: StoryFn<typeof SkeletonParagraph> = args => {
 	return <SkeletonParagraph {...args} />;
+};
+
+const SkeletonSizedTemplate: StoryFn<typeof SkeletonSized> = args => {
+	return <SkeletonSized {...args} />;
 };
 
 const SkeletonInputTemplate: StoryFn<typeof SkeletonInput> = args => {
@@ -71,6 +75,11 @@ SkeletonHeadingStory.argTypes = {
 		control: { type: 'select' },
 		description: 'optional (default is "L")',
 	},
+	width: {
+		options: ['100', 'XL', 'L', 'M', 'S', 'XS'],
+		control: { type: 'select' },
+		description: 'optional',
+	},
 };
 
 export const SkeletonParagraphStory = SkeletonParagraphTemplate.bind({});
@@ -82,6 +91,26 @@ SkeletonParagraphStory.argTypes = {
 		options: ['M', 'S'],
 		control: { type: 'select' },
 		description: 'optional (default is "M")',
+	},
+	width: {
+		options: ['100', 'XL', 'L', 'M', 'S', 'XS'],
+		control: { type: 'select' },
+		description: 'optional',
+	},
+};
+
+export const SkeletonSizedStory = SkeletonSizedTemplate.bind({});
+SkeletonSizedStory.args = {
+	isCircle: true,
+};
+SkeletonSizedStory.argTypes = {
+	height: {
+		control: { type: 'number' },
+		defaultValue: 10,
+	},
+	width: {
+		control: { type: 'number' },
+		defaultValue: 10,
 	},
 };
 
