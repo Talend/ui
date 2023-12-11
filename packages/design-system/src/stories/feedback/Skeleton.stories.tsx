@@ -76,7 +76,7 @@ SkeletonHeadingStory.argTypes = {
 		description: 'optional (default is "L")',
 	},
 	width: {
-		options: ['XL', 'L', 'M', 'S', 'XS'],
+		options: ['100', 'XL', 'L', 'M', 'S', 'XS'],
 		control: { type: 'select' },
 		description: 'optional',
 	},
@@ -93,7 +93,7 @@ SkeletonParagraphStory.argTypes = {
 		description: 'optional (default is "M")',
 	},
 	width: {
-		options: ['XL', 'L', 'M', 'S', 'XS'],
+		options: ['100', 'XL', 'L', 'M', 'S', 'XS'],
 		control: { type: 'select' },
 		description: 'optional',
 	},
