@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.4.0
+
+### Minor Changes
+
+- 052b00c: deps: bump fork-ts-checker-webpack-plugin from 8.0.0 to 9.0.2
+
 ## 16.3.3
 
 ### Patch Changes

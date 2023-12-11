@@ -1,5 +1,18 @@
 # @talend/ui-playground
 
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies [b71e4e6]
+- Updated dependencies [a7b06bc]
+- Updated dependencies [a7b06bc]
+- Updated dependencies [424544a]
+- Updated dependencies [266df87]
+  - @talend/design-system@8.7.0
+  - @talend/react-faceted-search@13.0.0
+  - @talend/react-components@12.4.0
+
 ## 2.2.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @talend/utils
 
+## 2.9.0
+
+### Minor Changes
+
+- 1bc49cd: fix(): Reduce package size by fixing date-fns import
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
 ## 2.8.0
 
 ### Minor Changes

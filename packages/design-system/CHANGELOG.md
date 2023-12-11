@@ -1,5 +1,24 @@
 # @talend/design-system
 
+## 8.7.0
+
+### Minor Changes
+
+- b71e4e6: feat(design-system): There is some limitation when designing skeletons
+
+  Add new width for header and paragraph skeletons
+  Add new SkeletonSized that can be shaped for any needs
+
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
+### Patch Changes
+
+- a7b06bc: Fix DS Popover controlled state to allow disclosure props binding
+- 266df87: fix: don't rely on global sr-only classname to hide the icons from the IconsProvider
+- Updated dependencies [1bc49cd]
+- Updated dependencies [424544a]
+  - @talend/utils@2.9.0
+
 ## 8.6.1
 
 ### Patch Changes
