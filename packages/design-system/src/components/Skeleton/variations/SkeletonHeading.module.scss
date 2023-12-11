@@ -15,4 +15,28 @@
 	&.size-S {
 		height: 1.4rem;
 	}
+
+	&.width-XS {
+		max-width: 10%;
+	}
+
+	&.width-S {
+		max-width: 20%;
+	}
+
+	&.width-M {
+		max-width: 40%;
+	}
+
+	&.width-L {
+		max-width: 60%;
+	}
+
+	&.width-XL {
+		max-width: 80%;
+	}
+
+	&.width-100 {
+		max-width: 100%;
+	}
 }

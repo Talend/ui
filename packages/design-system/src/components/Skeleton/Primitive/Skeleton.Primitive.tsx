@@ -1,4 +1,5 @@
 import { forwardRef, HTMLAttributes, Ref } from 'react';
+
 import classNames from 'classnames';
 
 import styles from './Skeleton.module.scss';

@@ -1,11 +1,13 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import { Canvas, Controls, Meta, Story } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import {
+	Skeleton,
 	SkeletonButton,
-	SkeletonParagraph,
 	SkeletonHeading,
 	SkeletonInput,
-	Skeleton,
+	SkeletonParagraph,
 	StackHorizontal,
 	StackVertical,
 } from '../../';
@@ -81,6 +83,15 @@ It illustrates any input element.
 <Canvas>
 	<Story of={Stories.SkeletonInputStory} />
 </Canvas>
+
+#### Sized
+
+It can be the size needed
+
+<Canvas>
+	<Story of={Stories.SkeletonSizedStory} />
+</Canvas>
+<Controls of={Stories.SkeletonSizedStory} />
 
 #### Composition example
 
