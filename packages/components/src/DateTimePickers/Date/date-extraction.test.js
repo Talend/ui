@@ -1,5 +1,5 @@
-import isAfter from 'date-fns/is_after';
-import subHours from 'date-fns/sub_hours';
+import isAfter from 'date-fns/isAfter';
+import subHours from 'date-fns/subHours';
 import {
 	checkSupportedDateFormat,
 	checkSupportedTimezone,

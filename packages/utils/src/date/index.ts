@@ -1,5 +1,6 @@
 import dateFnsFormat from 'date-fns/format';
-import parse from 'date-fns/parse';
+import parseISO from 'date-fns/parseISO';
+
 import * as generator from './generator';
 
 type DateFnsFormatInput = Date | number | string;
@@ -100,7 +101,7 @@ function formatTimeZoneTokens(dateFormat: string, timeZone: string): string {
  * @see https://github.com/prantlf/date-fns-timezone/blob/HEAD/docs/API.md#converttolocaltime
  */
 export function convertToLocalTime(date: DateFnsFormatInput, options: ConversionOptions): Date {
-	const parsedDate = parse(date);
+	const parsedDate = parseISO(new Date(date).toISOString());
 	const offset = getUTCOffset(options.timeZone) + parsedDate.getTimezoneOffset();
 
 	return new Date(parsedDate.getTime() - offset * 60 * 1000);
@@ -118,7 +119,7 @@ export function convertToLocalTime(date: DateFnsFormatInput, options: Conversion
 export function convertToTimeZone(date: DateFnsFormatInput, options: ConversionOptions): Date {
 	const { timeZone, sourceTimeZone } = options;
 
-	const parsedDate = parse(date);
+	const parsedDate = parseISO(new Date(date).toISOString());
 
 	let offset = getUTCOffset(timeZone, parsedDate) + parsedDate.getTimezoneOffset();
 
@@ -128,6 +129,22 @@ export function convertToTimeZone(date: DateFnsFormatInput, options: ConversionO
 	}
 
 	return new Date(parsedDate.getTime() + offset * 60 * 1000);
+}
+
+export function formatToUnicode(formatString: string): string {
+	// See: https://date-fns.org/v2.16.1/docs/format
+	return (
+		formatString
+			// Characters are now escaped using single quote symbols (') instead of square brackets.
+			.replace(/\[T\]/g, () => "'T'")
+			// See: https://date-fns.org/docs/Unicode-Tokens
+			// Replace years YYYY to yyyy
+			.replace(/YYYY/g, () => 'yyyy')
+			// Replace days of the month DD to dd
+			.replace(/DD/g, () => 'dd')
+			// Replace days of the week ddd to EEE
+			.replace(/ddd/g, () => 'EEE')
+	);
 }
 
 /**
@@ -146,8 +163,15 @@ export function formatToTimeZone(
 ): string {
 	const dateConvertedToTimezone = convertToTimeZone(date, options);
 
+	const unicodeFormatedString = formatToUnicode(formatString);
+
 	// Replace timezone token(s) in the string format with timezone values, since format() will use local timezone
-	const dateFnsFormatWithTimeZoneValue = formatTimeZoneTokens(formatString, options.timeZone);
+	const dateFnsFormatWithTimeZoneValue = formatTimeZoneTokens(
+		unicodeFormatedString,
+		options.timeZone,
+	)
+		// Avoid error: "Format string contains an unescaped latin alphabet character `Z`"
+		.replace(/\[Z\]/g, () => "'Z'");
 
 	return dateFnsFormat(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue, options);
 }
@@ -219,7 +243,8 @@ const options = {
  * @returns The formated date
  */
 export function format(date: DateFnsFormatInput, dateOption: string, lang: string): string {
-	return new Intl.DateTimeFormat(lang, options[dateOption]).format(parse(date));
+	const parsedDate = parseISO(new Date(date).toISOString());
+	return new Intl.DateTimeFormat(lang, options[dateOption]).format(parsedDate);
 }
 
 export const buildWeeks = generator.buildWeeks;

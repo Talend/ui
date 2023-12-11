@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import isBefore from 'date-fns/is_before';
-import isEqual from 'date-fns/is_equal';
+import isBefore from 'date-fns/isBefore';
+import isEqual from 'date-fns/isEqual';
 
 import { DateTimeRangeContext } from '../Context';
 import getErrorMessage from '../../shared/error-messages';

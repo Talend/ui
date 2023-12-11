@@ -1,24 +1,27 @@
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
-import memoize from 'lodash/memoize';
-import isAfter from 'date-fns/is_after';
-import isBefore from 'date-fns/is_before';
-import isSameDay from 'date-fns/is_same_day';
-import isToday from 'date-fns/is_today';
-import isWithinRange from 'date-fns/is_within_range';
 import format from 'date-fns/format';
-import getDate from 'date-fns/get_date';
-import getMonth from 'date-fns/get_month';
-import getYear from 'date-fns/get_year';
-import setMonth from 'date-fns/set_month';
-import startOfDay from 'date-fns/start_of_day';
-import startOfMonth from 'date-fns/start_of_month';
+import getDate from 'date-fns/getDate';
+import getMonth from 'date-fns/getMonth';
+import getYear from 'date-fns/getYear';
+import isAfter from 'date-fns/isAfter';
+import isBefore from 'date-fns/isBefore';
+import isSameDay from 'date-fns/isSameDay';
+import isToday from 'date-fns/isToday';
+import isWithinRange from 'date-fns/isWithinInterval';
+import setMonth from 'date-fns/setMonth';
+import startOfDay from 'date-fns/startOfDay';
+import startOfMonth from 'date-fns/startOfMonth';
+import memoize from 'lodash/memoize';
+import PropTypes from 'prop-types';
+
+import { Gesture } from '@talend/react-a11y';
+
+import getDefaultT from '../../../translate';
+import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
 
 import theme from './DatePicker.module.scss';
-import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
-import { Gesture } from '@talend/react-a11y';
-import getDefaultT from '../../../translate';
 
 const getDayNames = memoize(buildDayNames);
 
@@ -65,15 +68,15 @@ class DatePicker extends PureComponent {
 		const { calendar } = this.props;
 		const { year, monthIndex } = calendar;
 		const weeks = this.getWeeks(year, monthIndex, 1);
-		return isWithinRange(date, weeks[0][0], weeks[5][6]);
+		return isWithinRange(date, { start: weeks[0][0], end: weeks[5][6] });
 	}
 
 	isDateWithinRange(date) {
 		const { selectedDate, startDate, endDate } = this.props;
 		if (startDate && isAfter(selectedDate, startDate)) {
-			return isWithinRange(date, startOfDay(startDate), selectedDate);
+			return isWithinRange(date, { start: startOfDay(startDate), end: selectedDate });
 		} else if (endDate && isBefore(selectedDate, endDate)) {
-			return isWithinRange(date, selectedDate, endDate);
+			return isWithinRange(date, { start: selectedDate, end: endDate });
 		}
 		return false;
 	}
@@ -184,7 +187,7 @@ class DatePicker extends PureComponent {
 									className: classNames(theme['calendar-col'], cellTheme),
 								};
 
-								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
+								let ariaLabel = format(date, 'EEEE dd MMMM yyyy', pickerLocale);
 								if (isInRange) {
 									if (isStart) {
 										ariaLabel = t('DATEPICKER_DAY_RANGE_START', {

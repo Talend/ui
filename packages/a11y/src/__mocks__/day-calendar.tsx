@@ -1,8 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { useRef } from 'react';
-import getDate from 'date-fns/get_date';
-import getMonth from 'date-fns/get_month';
+
+import getDate from 'date-fns/getDate';
+import getMonth from 'date-fns/getMonth';
+
 import { date } from '@talend/utils';
+
 import { WithCalendarGestureInjectedProps } from '../Gesture/propTypes';
 
 const buildWeeks = date.buildWeeks;
