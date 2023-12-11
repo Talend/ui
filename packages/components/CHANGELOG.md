@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 12.4.0
+
+### Minor Changes
+
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
+### Patch Changes
+
+- Updated dependencies [1bc49cd]
+- Updated dependencies [424544a]
+  - @talend/utils@2.9.0
+  - @talend/react-a11y@2.3.0
+
 ## 12.3.1
 
 ### Patch Changes

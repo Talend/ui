@@ -1,5 +1,21 @@
 # Changelog
 
+## 13.0.0
+
+### Major Changes
+
+- a7b06bc: Remove @talend/react-bootstrap from Faceted Search package to use DS Popover with controlled state
+
+### Minor Changes
+
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
+### Patch Changes
+
+- Updated dependencies [1bc49cd]
+- Updated dependencies [424544a]
+  - @talend/utils@2.9.0
+
 ## 12.3.0
 
 ### Minor Changes
