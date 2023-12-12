@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 12.4.2
+
+### Patch Changes
+
+- bf0caf3: fix: empty date cell renderer
+
 ## 12.4.1
 
 ### Patch Changes
