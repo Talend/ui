@@ -53,15 +53,16 @@ export function getTooltipLabel(cellData, columnData, t) {
 		return columnData.getTooltipLabel(cellData);
 	}
 	if (columnData.mode === 'ago') {
+		const date = new Date(cellData);
 		let tooltipLabel = '';
 		if (columnData.timeZone) {
-			tooltipLabel = dateUtils.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+			tooltipLabel = dateUtils.formatToTimeZone(date, columnData.pattern || DATE_TIME_FORMAT, {
 				timeZone: columnData.timeZone,
 				locale: getLocale(t),
 			});
 		} else {
 			tooltipLabel = format(
-				cellData,
+				date,
 				dateUtils.formatToUnicode(columnData.pattern || DATE_TIME_FORMAT),
 				{
 					locale: getLocale(t),
