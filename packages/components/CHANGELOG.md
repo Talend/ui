@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 12.4.1
+
+### Patch Changes
+
+- 3ea63ce: fix: date-fns compatibility with Date Cell renderer while passing string date
+
 ## 12.4.0
 
 ### Minor Changes
