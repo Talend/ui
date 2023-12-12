@@ -19,7 +19,7 @@ import getDefaultT from '../../translate';
 
 import styles from './CellDatetime.module.scss';
 
-const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
+const DATE_TIME_FORMAT = 'yyyy-MM-dd HH:mm:ss';
 
 export function computeValue(cellData, columnData, t) {
 	const date = new Date(cellData);
@@ -52,8 +52,10 @@ export function getTooltipLabel(cellData, columnData, t) {
 	if (typeof columnData.getTooltipLabel === 'function') {
 		return columnData.getTooltipLabel(cellData);
 	}
-	if (columnData.mode === 'ago') {
-		const date = new Date(cellData);
+	const date = new Date(cellData);
+	const isDateValid = isValid(date);
+
+	if (columnData.mode === 'ago' && isDateValid) {
 		let tooltipLabel = '';
 		if (columnData.timeZone) {
 			tooltipLabel = dateUtils.formatToTimeZone(date, columnData.pattern || DATE_TIME_FORMAT, {
@@ -88,6 +90,7 @@ export class CellDatetimeComponent extends Component {
 
 	render() {
 		const { cellData, columnData, t } = this.props;
+
 		const computedValue = computeValue(cellData, columnData, t);
 		const tooltipLabel = getTooltipLabel(cellData, columnData, t);
 
