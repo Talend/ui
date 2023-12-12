@@ -90,7 +90,7 @@ describe('CellDatetime', () => {
 		render(<CellDatetimeComponent columnData={columnData} />);
 		// then
 		expect(distanceInWordsToNow).not.toHaveBeenCalled();
-		expect(format).toHaveBeenCalled();
+		expect(format).not.toHaveBeenCalled();
 		expect(document.querySelector('.cell-datetime-container')).toBeEmptyDOMElement();
 	});
 
