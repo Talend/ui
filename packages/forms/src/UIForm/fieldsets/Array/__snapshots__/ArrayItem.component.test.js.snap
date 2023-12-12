@@ -8,59 +8,78 @@ exports[`Array Item component should render control panel with item content 1`] 
     class="theme-control"
   >
     <button
-      aria-describedby="42"
+      aria-describedby="id-42"
       aria-label="Move up"
-      class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+      class="theme-clickable theme-buttonIcon theme-size_XS"
       id="talend-control-3-moveUp"
-      role="link"
+      tabindex="0"
       type="button"
     >
-      <svg
+      <span
         aria-hidden="true"
-        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-90"
-        focusable="false"
-        name="talend-arrow-left"
-        pointer-events="none"
-        shape-rendering="geometricPrecision"
-      />
+        class="theme-buttonIcon__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.2rem; height: 1.2rem;"
+        >
+          <use
+            xlink:href="#arrow-top:S"
+          />
+        </svg>
+      </span>
     </button>
     <button
-      aria-describedby="42"
+      aria-describedby="id-42"
       aria-label="Move down"
-      class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+      class="theme-clickable theme-buttonIcon theme-size_XS"
       id="talend-control-3-moveDown"
-      role="link"
+      tabindex="0"
       type="button"
     >
-      <svg
+      <span
         aria-hidden="true"
-        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
-        focusable="false"
-        name="talend-arrow-left"
-        pointer-events="none"
-        shape-rendering="geometricPrecision"
-      />
+        class="theme-buttonIcon__icon"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1.2rem; height: 1.2rem;"
+        >
+          <use
+            xlink:href="#arrow-bottom:S"
+          />
+        </svg>
+      </span>
     </button>
   </div>
   <div
-    class="theme-control"
+    class="theme-delete"
   >
     <button
-      aria-describedby="42"
+      aria-describedby="id-42"
       aria-label="Delete"
-      class="theme-delete btn-icon-only btn btn-link"
+      class="theme-clickable theme-buttonIcon"
       id="talend-control-3-delete"
-      role="link"
+      tabindex="0"
       type="button"
     >
-      <svg
+      <span
         aria-hidden="true"
-        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
-        focusable="false"
-        name="talend-trash"
-        pointer-events="none"
-        shape-rendering="geometricPrecision"
-      />
+        class="theme-buttonIcon__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
+          focusable="false"
+          name="talend-trash"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </span>
     </button>
   </div>
 </div>
