@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 12.4.0
+
+### Minor Changes
+
+- 7de44f9: Remove dependency on react-bootstrap
+
+### Patch Changes
+
+- c9e740d: TDOPS-5706 - Fix form widget ArrayItem button design and alignment
+- Updated dependencies [7de44f9]
+  - @talend/react-components@13.0.0
+
 ## 12.3.1
 
 ### Patch Changes

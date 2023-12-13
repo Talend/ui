@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 13.0.0
+
+### Major Changes
+
+- 7de44f9: Typeahead - Changed input to DS Form.Text
+
+  #### BREAKING CHANGE
+
+  Some props and styles that were previously working on bootstrap input might no longer work. Check classNames and overriding styles passed to Typeahead to check that it still integrates well within your pages
+
 ## 12.4.2
 
 ### Patch Changes

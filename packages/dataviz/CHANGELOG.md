@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.2.2
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+  - @talend/react-components@13.0.0
+
 ## 4.2.1
 
 ### Patch Changes

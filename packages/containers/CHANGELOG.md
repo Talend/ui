@@ -1,5 +1,19 @@
 # @talend/react-containers
 
+## 10.4.0
+
+### Minor Changes
+
+- 7de44f9: Removed dependency on react-bootstrap on SelectObject component
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+- Updated dependencies [7de44f9]
+- Updated dependencies [c9e740d]
+  - @talend/react-components@13.0.0
+  - @talend/react-forms@12.4.0
+
 ## 10.3.1
 
 ### Patch Changes
