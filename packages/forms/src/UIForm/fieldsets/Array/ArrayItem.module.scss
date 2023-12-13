@@ -3,25 +3,24 @@
 
 .tf-array-item {
 	display: flex;
+	column-gap: tokens.$coral-spacing-s;
 	background: tokens.$coral-color-neutral-background-medium;
 	border: tokens.$coral-border-s-solid transparent;
 
-	.delete,
-	.tf-array-item-reorder {
+	.delete button,
+	.control button {
 		opacity: 0;
 	}
 
 	&:hover {
 		background: tokens.$coral-color-neutral-background;
 
-		.control {
-			.delete,
-			.tf-array-item-reorder {
-				opacity: 1;
+		.control button,
+		.delete button {
+			opacity: 1;
 
-				&:disabled {
-					color: tokens.$coral-color-neutral-text-disabled;
-				}
+			&:disabled {
+				color: tokens.$coral-color-neutral-text-disabled;
 			}
 		}
 	}
@@ -29,32 +28,22 @@
 	> * {
 		flex-grow: 1;
 		margin: 0;
-		padding: $padding-small;
 	}
 
 	.control {
 		flex-grow: 0;
 		flex-shrink: 0;
-
 		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 		display: flex;
 		flex-direction: column;
-		padding: 0;
 		justify-content: space-between;
+	}
 
-		.tf-array-item-reorder {
-			padding: 0;
-		}
-
-		button {
-			background: transparent;
-			border: 0;
-
-			&:disabled {
-				cursor: not-allowed;
-				pointer-events: all;
-			}
-		}
+	.delete {
+		flex-grow: 0;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
 	}
 
 	:global(.collapsible-panel) {

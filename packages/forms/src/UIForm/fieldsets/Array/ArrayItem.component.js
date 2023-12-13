@@ -1,17 +1,20 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
-import { Action } from '@talend/react-components/lib/Actions';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import { ButtonIcon } from '@talend/design-system';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-import theme from './ArrayItem.module.scss';
 import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.module.scss';
+import theme from './ArrayItem.module.scss';
 
 export function ReorderButton(props) {
 	const { disabled, index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder } = props;
 	let buttonProps;
+	let label;
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 
 	if (isMoveDown) {
@@ -23,9 +26,9 @@ export function ReorderButton(props) {
 					previousIndex: index,
 					nextIndex: index + 1,
 				}),
-			label: t('ARRAY_ITEM_MOVE_DOWN', { defaultValue: 'Move down' }),
-			iconTransform: 'rotate-270',
+			icon: 'arrow-bottom',
 		};
+		label = t('ARRAY_ITEM_MOVE_DOWN', { defaultValue: 'Move down' });
 	} else {
 		buttonProps = {
 			id: id && `${id}-moveUp`,
@@ -35,19 +38,15 @@ export function ReorderButton(props) {
 					previousIndex: index,
 					nextIndex: index - 1,
 				}),
-			label: t('ARRAY_ITEM_MOVE_UP', { defaultValue: 'Move up' }),
-			iconTransform: 'rotate-90',
+			icon: 'arrow-top',
 		};
+		label = t('ARRAY_ITEM_MOVE_UP', { defaultValue: 'Move up' });
 	}
 
 	return (
-		<Action
-			{...buttonProps}
-			className={`${theme['tf-array-item-reorder']} tf-array-item-reorder`}
-			icon="talend-arrow-left"
-			link
-			hideLabel
-		/>
+		<ButtonIcon {...buttonProps} size="XS">
+			{label}
+		</ButtonIcon>
 	);
 }
 
@@ -82,13 +81,8 @@ function ArrayItem(props) {
 	const deleteAction = {
 		id: id && `${id}-delete`,
 		onClick: event => onRemove(event, index),
-		label: t('ARRAY_FIELD_TEMPLATE_ACTION_DELETE', { defaultValue: 'Delete' }),
-		type: 'button',
 		disabled: widgetIsDisabled,
-		className: theme.delete,
 		icon: 'talend-trash',
-		hideLabel: true,
-		link: true,
 	};
 	const actions = [];
 	if (!readOnly) {
@@ -110,8 +104,10 @@ function ArrayItem(props) {
 			</div>
 			{renderItem(index, { actions })}
 			{!isCloseable && !readOnly && !disabled && (
-				<div className={theme.control}>
-					<Action {...deleteAction} />
+				<div className={theme.delete}>
+					<ButtonIcon {...deleteAction}>
+						{t('ARRAY_FIELD_TEMPLATE_ACTION_DELETE', { defaultValue: 'Delete' })}
+					</ButtonIcon>
 				</div>
 			)}
 		</div>
