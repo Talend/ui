@@ -4,7 +4,7 @@ exports[`OrderChooser should render OrderChooser in default mode 1`] = `
 <button
   aria-describedby="42"
   aria-label="Sort by date"
-  class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn btn-link"
+  class="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn-icon-only btn btn-link"
   type="button"
 >
   <span

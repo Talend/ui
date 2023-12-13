@@ -11,20 +11,15 @@ exports[`Typeahead injection should use render props to inject extra components 
   <div
     className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
+    <span
       aria-activedescendant="react-autowhatever-my-search-section-0-item-0"
       aria-autocomplete="list"
       aria-controls="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      className="CoralFormText theme-typeahead-input tc-typeahead-typeahead-input"
       disabled={false}
+      hideLabel={true}
       id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -143,20 +138,15 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
   <div
     className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
+    <span
       aria-activedescendant="react-autowhatever-my-search-section-0-item-0"
       aria-autocomplete="list"
       aria-controls="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      className="CoralFormText theme-typeahead-input tc-typeahead-typeahead-input"
       disabled={false}
+      hideLabel={true}
       id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -409,20 +399,15 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
   <div
     className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
+    <span
       aria-activedescendant="react-autowhatever-my-search-section-0-item-0"
       aria-autocomplete="list"
       aria-controls="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      className="CoralFormText theme-typeahead-input tc-typeahead-typeahead-input"
       disabled={false}
+      hideLabel={true}
       id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -476,20 +461,15 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
   <div
     className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
+    <span
       aria-activedescendant="react-autowhatever-my-search-section-0-item-0"
       aria-autocomplete="list"
       aria-controls="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      className="CoralFormText theme-typeahead-input tc-typeahead-typeahead-input"
       disabled={false}
+      hideLabel={true}
       id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -683,20 +663,15 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
   <div
     className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
+    <span
       aria-activedescendant="react-autowhatever-my-search-section-0-item-0"
       aria-autocomplete="list"
       aria-controls="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      className="CoralFormText theme-typeahead-input tc-typeahead-typeahead-input"
       disabled={false}
+      hideLabel={true}
       id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -798,20 +773,15 @@ exports[`Typeahead items should render typeahead without items 1`] = `
   <div
     className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
+    <span
       aria-activedescendant="react-autowhatever-my-search-section-0-item-0"
       aria-autocomplete="list"
       aria-controls="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      className="CoralFormText theme-typeahead-input tc-typeahead-typeahead-input"
       disabled={false}
+      hideLabel={true}
       id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -870,20 +840,15 @@ exports[`Typeahead position should render search bar on the right 1`] = `
   <div
     className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
+    <span
       aria-activedescendant="react-autowhatever-my-search-section-0-item-0"
       aria-autocomplete="list"
       aria-controls="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      className="CoralFormText theme-typeahead-input tc-typeahead-typeahead-input"
       disabled={false}
+      hideLabel={true}
       id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -907,13 +872,7 @@ exports[`Typeahead should pass input extra props 1`] = `
   <div
     className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
+    <span
       aria-activedescendant="react-autowhatever-my-search-section-0-item-0"
       aria-autocomplete="list"
       aria-controls="react-autowhatever-my-search"
@@ -921,8 +880,9 @@ exports[`Typeahead should pass input extra props 1`] = `
       aria-label="my custom label"
       autoComplete="off"
       autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      className="CoralFormText theme-typeahead-input tc-typeahead-typeahead-input"
       disabled={false}
+      hideLabel={true}
       id="my-search"
       onBlur={[Function]}
       onFocus={[Function]}

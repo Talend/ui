@@ -34,7 +34,6 @@
   },
   "dependencies": {
     "@talend/design-system": "^8.6.1",
-    "@talend/react-bootstrap": "^2.2.1",
     "@talend/react-cmf": "^8.3.1",
     "@talend/react-components": "^12.3.1",
     "@talend/react-forms": "^12.3.1",

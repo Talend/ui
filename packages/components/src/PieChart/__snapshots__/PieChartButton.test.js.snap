@@ -4,15 +4,13 @@ exports[`decorateWithOverlay should return the component wrapped 1`] = `
 <span>
   <OverlayTrigger
     overlay={
-      <Popover
-        bsClass="popover"
+      <div
         id="id-test"
-        placement="right"
       >
         <div
           className="fake-overlay"
         />
-      </Popover>
+      </div>
     }
     placement="top"
     preventScrolling={false}

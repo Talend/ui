@@ -30,7 +30,6 @@ const PKGS = [
 	'@talend/assets-api',
 	'@talend/design-tokens',
 	'@talend/design-system',
-	'@talend/react-bootstrap',
 	'@talend/react-components',
 	'@talend/react-containers',
 	'@talend/react-cmf',

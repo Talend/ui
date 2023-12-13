@@ -1,6 +1,8 @@
 import { action } from '@storybook/addon-actions';
+
+import { ButtonSecondary } from '@talend/design-system';
 import tokens from '@talend/design-tokens';
-import { Button } from '@talend/react-bootstrap';
+
 import TooltipTrigger from './TooltipTrigger.component';
 
 function generateButtonWithTooltip(label, tooltipPlacement) {
@@ -12,7 +14,7 @@ function generateButtonWithTooltip(label, tooltipPlacement) {
 			data-feature="my.feature"
 		>
 			<div style={{ display: 'inline-block' }}>
-				<Button onClick={action('click')}>{label}</Button>
+				<ButtonSecondary onClick={action('click')}>{label}</ButtonSecondary>
 			</div>
 		</TooltipTrigger>
 	);

@@ -1,12 +1,16 @@
+import ImmutablePropTypes from 'react-immutable-proptypes';
+
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+
 import JSONSchemaRenderer from '@talend/react-components/lib/JSONSchemaRenderer';
-import { ListGroup, ListGroupItem } from '@talend/react-bootstrap';
+
+import Action from '../Action';
 import FilterBar from '../FilterBar';
 import List from '../List';
 import TreeView from '../TreeView';
-import theme from './SelectObject.scss';
+
+import theme from './SelectObject.module.scss';
 
 function SelectObject({
 	filteredData,
@@ -48,18 +52,18 @@ function SelectObject({
 					/>
 				)}
 				{filteredData && (
-					<ListGroup className={theme.results}>
+					<div className={theme.results}>
 						{filteredData.map(data => (
-							<ListGroupItem
+							<Action
+								className={classNames({ active: results.selectedId === data.get(idAttr) })}
 								key={data.get(idAttr)}
-								header={data.get(nameAttr)}
 								onClick={event => results.onClick(event, data)}
-								active={results.selectedId === data.get(idAttr)}
 							>
-								{data.get('currentPosition')}
-							</ListGroupItem>
+								<h3>{data.get(nameAttr)}</h3>
+								<span>{data.get('currentPosition')}</span>
+							</Action>
 						))}
-					</ListGroup>
+					</div>
 				)}
 				{schema && <JSONSchemaRenderer schema={schema} className={theme.preview} />}
 			</div>

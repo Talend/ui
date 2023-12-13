@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Button } from '@talend/react-bootstrap';
+import PropTypes from 'prop-types';
+
+import { Action } from '../../../../Actions';
 import Icon from '../../../../Icon';
-import TooltipTrigger from '../../../../TooltipTrigger';
 import OverlayTrigger from '../../../../OverlayTrigger';
 import getPropsFrom from '../../../../utils/getPropsFrom';
 
@@ -10,30 +10,29 @@ import theme from './OrderChooser.module.scss';
 
 function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) {
 	return (
-		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-			<Button
-				{...getPropsFrom(Button, rest)}
-				aria-label={label}
-				onClick={onClick}
+		<Action
+			{...getPropsFrom(Action, rest)}
+			label={label}
+			onClick={onClick}
+			className={classNames(
+				'tc-resource-picker-order-chooser',
+				theme['tc-resource-picker-order-chooser'],
+			)}
+			hideLabel
+			bsStyle="link"
+		>
+			<Icon name={icon} />
+			<Icon
+				name="talend-caret-down"
 				className={classNames(
-					'tc-resource-picker-order-chooser',
-					theme['tc-resource-picker-order-chooser'],
+					'tc-resource-picker-order-indicator',
+					theme['tc-resource-picker-order-indicator'],
+					{
+						[theme.asc]: asc,
+					},
 				)}
-				bsStyle="link"
-			>
-				<Icon name={icon} />
-				<Icon
-					name="talend-caret-down"
-					className={classNames(
-						'tc-resource-picker-order-indicator',
-						theme['tc-resource-picker-order-indicator'],
-						{
-							[theme.asc]: asc,
-						},
-					)}
-				/>
-			</Button>
-		</TooltipTrigger>
+			/>
+		</Action>
 	);
 }
 

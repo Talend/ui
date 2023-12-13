@@ -15,12 +15,6 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     <div
       class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon"
     >
-      <label
-        class="control-label sr-only"
-        for="react-autowhatever-42-input"
-      >
-        Search
-      </label>
       <div
         class="icon-cls theme-icon-cls"
       >
@@ -33,18 +27,34 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
           shape-rendering="geometricPrecision"
         />
       </div>
-      <input
-        aria-activedescendant="react-autowhatever-42-section-0-item-0"
-        aria-autocomplete="list"
-        aria-controls="react-autowhatever-42"
-        autocomplete="off"
-        class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-        id="42"
-        placeholder="Find in a column..."
-        role="searchbox"
-        type="text"
-        value=""
-      />
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      >
+        <span
+          class="theme-hidden"
+        >
+          <label
+            class="theme-label"
+            for="42"
+          />
+        </span>
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            aria-activedescendant="react-autowhatever-42-section-0-item-0"
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-42"
+            autocomplete="off"
+            class="theme-input theme-typeahead-input tc-typeahead-typeahead-input"
+            id="42"
+            placeholder="Find in a column..."
+            role="searchbox"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
     </div>
   </div>
   <div
