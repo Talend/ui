@@ -35,7 +35,7 @@
   "dependencies": {
     "@talend/design-system": "^8.6.1",
     "@talend/design-tokens": "^2.10.1",
-    "@talend/react-components": "^12.3.1",
+    "@talend/react-components": "^13.0.0",
     "classnames": "^2.3.2",
     "invariant": "^2.2.4",
     "lodash": "^4.17.21"
@@ -75,5 +75,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "10.1.1"
+  "version": "10.1.2"
 }

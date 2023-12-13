@@ -1,5 +1,17 @@
 # @talend/ui-storybook-one
 
+## 2.2.3
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+- Updated dependencies [7de44f9]
+- Updated dependencies [c9e740d]
+  - @talend/react-components@13.0.0
+  - @talend/react-forms@12.4.0
+  - @talend/react-dataviz@4.2.2
+  - @talend/react-faceted-search@14.0.0
+
 ## 2.2.2
 
 ### Patch Changes
