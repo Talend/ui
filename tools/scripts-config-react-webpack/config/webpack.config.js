@@ -201,6 +201,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 		headScript = `${renderMeta()}<base href="${BASENAME}" />
 		<script type="text/javascript">
 			window.basename = '${BASENAME}';
+			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
 		</script>`;
 	}
 	const header = `${customHead}
