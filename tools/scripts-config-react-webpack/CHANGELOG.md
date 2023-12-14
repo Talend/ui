@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.4.1
+
+### Patch Changes
+
+- 777cc55: Add patch for hoistNonReactStatics when we are not using initiator
+
 ## 16.4.0
 
 ### Minor Changes
