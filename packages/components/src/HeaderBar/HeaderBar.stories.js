@@ -41,17 +41,17 @@ const props = {
 	products: {
 		items: [
 			{
-				icon: 'talend-tdp-colored',
+				icon: 'talend-tdp-negative',
 				key: 'tdp',
 				label: 'Data Preparation',
 			},
 			{
-				icon: 'talend-tic-colored',
+				icon: 'talend-tic-negative',
 				key: 'tic',
 				label: 'Integration Cloud',
 			},
 			{
-				icon: 'talend-tmc-colored',
+				icon: 'talend-tmc-negative',
 				key: 'tmc',
 				label: 'Management Console',
 			},
@@ -144,7 +144,7 @@ export const WithBrandIcon = () => {
 		...props,
 		brand: {
 			...props.brand,
-			icon: 'talend-tmc-positive',
+			icon: 'talend-tmc-negative',
 		},
 	}).toJS();
 	return <HeaderBar {...headerProps} />;
