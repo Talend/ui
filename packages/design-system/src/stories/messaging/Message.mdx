@@ -1,7 +1,9 @@
-import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
-import { Status } from '../Status.block';
+
 import * as Stories from './Message.stories';
+import { Status } from '../Status.block';
 
 <Meta of={Stories} />
 <Status id="message" />
@@ -30,15 +32,11 @@ It's still advise to keep the text short and concise.
 
 **Default**
 
-<Canvas>
-	<Story of={Stories.DefaultMessageDemo} />
-</Canvas>
+<Canvas of={Stories.DefaultMessageDemo} />
 
 **With optional props**
 
-<Canvas>
-	<Story of={Stories.WithPropVariation} />
-</Canvas>
+<Canvas of={Stories.WithPropVariation} />
 
 ## Interactions
 
@@ -99,10 +97,7 @@ Main action :
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.MessageInformationTemplateStory} />
-</Canvas>
-
+<Canvas of={Stories.MessageInformationTemplateStory} />
 <Controls of={Stories.MessageInformationTemplateStory} />
 
 # Message Collection
@@ -113,15 +108,11 @@ MessageCollection is used for multiple messages about the same purpose
 
 **Default**
 
-<Canvas>
-	<Story of={Stories.DefaultMessageCollectionDemo} />
-</Canvas>
+<Canvas of={Stories.DefaultMessageCollectionDemo} />
 
 **With optional props**
 
-<Canvas>
-	<Story of={Stories.MessageCollectionWithPropVariation} />
-</Canvas>
+<Canvas of={Stories.MessageCollectionWithPropVariation} />
 
 ## Interactions
 
@@ -181,10 +172,7 @@ Action :
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.MessageCollectionInformationTemplateStory} />
-</Canvas>
-
+<Canvas of={Stories.MessageCollectionInformationTemplateStory} />
 <Controls of={Stories.MessageCollectionInformationTemplateStory} />
 
 ## Accessibility

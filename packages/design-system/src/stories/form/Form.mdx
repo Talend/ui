@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Tabs } from '../../';
 import { Status } from '../Status.block';
 
@@ -35,9 +37,7 @@ The `Form` component is a slightly opinionated `<form>` tag with a flex layout a
 	alt="Form mockup"
 />
 
-<Canvas>
-	<Story of={Stories.FormSkeleton} />
-</Canvas>
+<Canvas of={Stories.FormSkeleton} />
 
 ### Field states
 
@@ -73,9 +73,7 @@ The `Form` component is a slightly opinionated `<form>` tag with a flex layout a
 	]}
 />
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
+<Canvas of={Stories.Default} />
 
 ### Error
 
@@ -86,9 +84,7 @@ When an error occurs at a level that is not specific to one field, use `InlineMe
 	alt="Form mockup"
 />
 
-<Canvas>
-	<Story of={Stories.Error} />
-</Canvas>
+<Canvas of={Stories.Error} />
 
 [The InlineMessage docs can be found here.](/docs/messaging-inlinemessage--docs)
 
@@ -103,9 +99,7 @@ Consider using an [Inline message](/?path=/docs/messaging-inlinemessage--docs) w
 	alt="Form mockup"
 />
 
-<Canvas>
-	<Story of={Stories.InlineHelp} />
-</Canvas>
+<Canvas of={Stories.InlineHelp} />
 
 ## Interactions
 
@@ -116,9 +110,7 @@ Consider using an [Inline message](/?path=/docs/messaging-inlinemessage--docs) w
 	alt="Form mockup"
 />
 
-<Canvas>
-	<Story of={Stories.Loading} />
-</Canvas>
+<Canvas of={Stories.Loading} />
 
 ### Data loss message
 

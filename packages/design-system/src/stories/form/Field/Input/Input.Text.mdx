@@ -1,7 +1,9 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { Status } from '../../../Status.block';
+
 import * as Stories from './Input.Text.stories';
+import { Status } from '../../../Status.block';
 
 <Meta of={Stories} />
 <Status id="formFieldInputText" />
@@ -26,9 +28,7 @@ import * as Stories from './Input.Text.stories';
 
 ## States
 
-<Canvas>
-	<Story of={Stories.Text} />
-</Canvas>
+<Canvas of={Stories.Text} />
 
 ## Content
 

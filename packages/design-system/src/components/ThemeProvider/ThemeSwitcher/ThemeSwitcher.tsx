@@ -1,11 +1,10 @@
-import { useEffect, useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ButtonIconToggle } from '../../ButtonIcon';
-import ThemeContext from '../ThemeContext';
-
 import { dark, light } from '../../../themes';
+import { ButtonIconToggle } from '../../ButtonIcon';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import ThemeContext from '../ThemeContext';
 
 const ThemeSwitcher = () => {
 	const { switchTheme, theme } = useContext(ThemeContext);

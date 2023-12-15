@@ -1,7 +1,9 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { Status } from '../../../Status.block';
+
 import * as Stories from './Input.Date.stories';
+import { Status } from '../../../Status.block';
 
 <Meta of={Stories} />
 <Status id="formFieldInputDate" />
@@ -21,9 +23,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 
 ## States
 
-<Canvas>
-	<Story of={Stories.Date} />
-</Canvas>
+<Canvas of={Stories.Date} />
 
 ## Interactions
 
