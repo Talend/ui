@@ -22,7 +22,7 @@ $large-docked-width: 7rem;
 	display: flex;
 	flex-direction: column;
 	font-weight: 500;
-	background: tokens.$coral-color-branding-navigation;
+	background: tokens.$coral-color-branding-background;
 	overflow: hidden;
 	position: relative;
 
@@ -52,6 +52,7 @@ $large-docked-width: 7rem;
 				display: flex;
 				align-items: center;
 				justify-content: flex-start;
+				color: tokens.$coral-color-brand-text;
 				font-size: 1.6rem;
 				height: $list-item-height;
 				margin: $padding-smaller $padding-small;
@@ -60,6 +61,10 @@ $large-docked-width: 7rem;
 
 				> span {
 					margin-left: $padding-small;
+				}
+
+				&:hover {
+					background: tokens.$coral-color-brand-background-selected;
 				}
 			}
 
@@ -85,7 +90,7 @@ $large-docked-width: 7rem;
 
 		:global {
 			.btn.btn-link {
-				color: tokens.$coral-color-neutral-text-inverted;
+				color: tokens.$coral-color-brand-text;
 				line-height: 1;
 				height: $toggle-height;
 				padding: 0 $padding-small;
@@ -192,7 +197,7 @@ $large-docked-width: 7rem;
 
 	&.reverse[role='navigation'] {
 		background: tokens.$coral-color-neutral-background-medium !important;
-		color: tokens.$coral-color-neutral-text !important;
+		color: tokens.$coral-color-brand-text !important;
 
 		&::before {
 			content: none;
@@ -204,7 +209,7 @@ $large-docked-width: 7rem;
 			:global {
 				.btn.btn-link,
 				.tc-svg-icon {
-					color: tokens.$coral-color-neutral-text-weak;
+					color: tokens.$coral-color-brand-icon;
 				}
 			}
 		}

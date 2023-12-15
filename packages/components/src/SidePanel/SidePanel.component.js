@@ -1,16 +1,17 @@
-import PropTypes from 'prop-types';
-import { createRef, useState, useLayoutEffect, useEffect } from 'react';
-import classNames from 'classnames';
+import { createRef, useEffect, useLayoutEffect, useState } from 'react';
 import { withTranslation } from 'react-i18next';
 
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import 'simplebar';
 import 'simplebar/dist/simplebar.css';
 
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import '../translate';
-import Action from '../Actions/Action';
 import ActionList from '../ActionList';
+import Action from '../Actions/Action';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import Inject from '../Inject';
+import '../translate';
+
 import theme from './SidePanel.module.scss';
 
 const DOCKED_MIN_WIDTH = '6rem';
@@ -114,7 +115,7 @@ function SidePanel({
 			role="navigation"
 			ref={ref}
 			style={{ width }}
-			data-theme="light"
+			// data-theme="light"
 		>
 			{backgroundIcon && (
 				<style>
