@@ -64,8 +64,14 @@ $large-docked-width: 7rem;
 				}
 
 				&:hover {
-					background: tokens.$coral-color-brand-background-selected;
+					background: tokens.$coral-color-brand-background-weak-hover;
+					color: tokens.$coral-color-brand-text-hover;
 				}
+			}
+
+			&.active .btn.btn-link {
+				background: tokens.$coral-color-brand-background-selected;
+				color: tokens.$coral-color-brand-text-selected;
 			}
 
 			.tc-svg-icon {
@@ -196,11 +202,29 @@ $large-docked-width: 7rem;
 	}
 
 	&.reverse[role='navigation'] {
-		background: tokens.$coral-color-neutral-background-medium !important;
-		color: tokens.$coral-color-brand-text !important;
+		background: tokens.$coral-color-neutral-background-medium;
 
 		&::before {
 			content: none;
+		}
+
+		:global .tc-action-list-item {
+			.btn.btn-link {
+				&:hover {
+					background: tokens.$coral-color-brand-background-selected;
+					color: tokens.$coral-color-brand-text-selected;
+				}
+			}
+		}
+
+		:global {
+			.btn.btn-link,
+			.tc-svg-icon {
+				color: tokens.$coral-color-brand-text-inverted;
+				&:hover {
+					color: tokens.$coral-color-brand-text-inverted-hover;
+				}
+			}
 		}
 
 		.toggle-btn {
@@ -209,7 +233,7 @@ $large-docked-width: 7rem;
 			:global {
 				.btn.btn-link,
 				.tc-svg-icon {
-					color: tokens.$coral-color-brand-icon;
+					color: tokens.$coral-color-brand-icon-inverted;
 				}
 			}
 		}

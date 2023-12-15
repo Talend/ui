@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import 'simplebar';
 import 'simplebar/dist/simplebar.css';
 
+import tokens from '@talend/design-tokens';
+
 import ActionList from '../ActionList';
 import Action from '../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -109,14 +111,7 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav
-			id={id}
-			className={navCSS}
-			role="navigation"
-			ref={ref}
-			style={{ width }}
-			// data-theme="light"
-		>
+		<nav id={id} className={navCSS} role="navigation" ref={ref} style={{ width }}>
 			{backgroundIcon && (
 				<style>
 					{`#${id}::before {
@@ -127,7 +122,8 @@ function SidePanel({
 						height: 31rem;
 						width: 31rem;
 						background-repeat: no-repeat;
-						background-color: rgba(255, 255, 255, 0.1);
+						opacity: 0.1;
+						background-color: ${tokens.coralColorBrandIcon};
 						mask-image: url('${backgroundIcon}');
 						-webkit-mask-image: url('${backgroundIcon}');
 				}`}

@@ -121,141 +121,141 @@ export const Uncontrolled = () => (
 	/>
 );
 
-// export const Controlled = () => (
-// 	<SidePanel
-// 		id="context"
-// 		actions={actions}
-// 		onSelect={action('onItemSelect')}
-// 		onToggleDock={action('onToggleDock')}
-// 		tooltipPlacement="top"
-// 	/>
-// );
+export const Controlled = () => (
+	<SidePanel
+		id="context"
+		actions={actions}
+		onSelect={action('onItemSelect')}
+		onToggleDock={action('onToggleDock')}
+		tooltipPlacement="top"
+	/>
+);
 
-// export const WithBackGroundIcon = () => (
-// 	<Layout
-// 		mode="TwoColumns"
-// 		theme="qlik-light"
-// 		one={
-// 			<SidePanel
-// 				id="context"
-// 				actions={actions}
-// 				onSelect={action('onItemSelect')}
-// 				onToggleDock={action('onToggleDock')}
-// 				tooltipPlacement="top"
-// 				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
-// 			/>
-// 		}
-// 	>
-// 		<article style={{ padding: 10 }}>
-// 			The props <strong>backgroundIcon</strong> let you support product icons. It is used as{' '}
-// 			<pre>mask-image: url(backgroundIcon)</pre> so you have to provide URL. For this example we
-// 			have used assetsApi this way:
-// 			<pre>
-// 				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
-// 			</pre>
-// 		</article>
-// 	</Layout>
-// );
+export const WithBackgroundIcon = () => (
+	<Layout
+		mode="TwoColumns"
+		theme="qlik-light"
+		one={
+			<SidePanel
+				id="context"
+				actions={actions}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				tooltipPlacement="top"
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			/>
+		}
+	>
+		<article style={{ padding: 10 }}>
+			The props <strong>backgroundIcon</strong> let you support product icons. It is used as{' '}
+			<pre>mask-image: url(backgroundIcon)</pre> so you have to provide URL. For this example we
+			have used assetsApi this way:
+			<pre>
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			</pre>
+		</article>
+	</Layout>
+);
 
-// export const Links = () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />;
+export const Links = () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />;
 
-// export const Docked = () => <SidePanel actions={actions} docked tooltipPlacement="top" />;
+export const Docked = () => <SidePanel actions={actions} docked tooltipPlacement="top" />;
 
-// export const Minimised = () => (
-// 	<SidePanel
-// 		actions={actions}
-// 		onToggleDock={action('Toggle dock clicked')}
-// 		minimised
-// 		tooltipPlacement="top"
-// 	/>
-// );
+export const Minimised = () => (
+	<SidePanel
+		actions={actions}
+		onToggleDock={action('Toggle dock clicked')}
+		minimised
+		tooltipPlacement="top"
+	/>
+);
 
-// export const WithALargeAmountOfItems = () => (
-// 	<SidePanel
-// 		actions={[...items, ...other, ...other, ...other]}
-// 		onSelect={action('onItemSelect')}
-// 		selected={items[1]}
-// 		tooltipPlacement="top"
-// 	/>
-// );
+export const WithALargeAmountOfItems = () => (
+	<SidePanel
+		actions={[...items, ...other, ...other, ...other]}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		tooltipPlacement="top"
+	/>
+);
 
-// export const Reverse = () => (
-// 	<SidePanel
-// 		actions={items}
-// 		onSelect={action('onItemSelect')}
-// 		selected={items[1]}
-// 		reverse
-// 		tooltipPlacement="top"
-// 	/>
-// );
+export const Reverse = () => (
+	<SidePanel
+		actions={items}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		reverse
+		tooltipPlacement="top"
+	/>
+);
 
-// export const ReverseLargeDocked = () => (
-// 	<SidePanel
-// 		actions={items}
-// 		onSelect={action('onItemSelect')}
-// 		selected={items[1]}
-// 		reverse
-// 		large
-// 		minimised
-// 		dockable={false}
-// 		tooltipPlacement="top"
-// 	/>
-// );
+export const ReverseLargeDocked = () => (
+	<SidePanel
+		actions={items}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		reverse
+		large
+		minimised
+		dockable={false}
+		tooltipPlacement="top"
+	/>
+);
 
-// export const _WithLayout = () => {
-// 	class WithLayout extends Component {
-// 		constructor() {
-// 			super();
-// 			this.state = { docked: false };
-// 		}
+export const _WithLayout = () => {
+	class WithLayout extends Component {
+		constructor() {
+			super();
+			this.state = { docked: false };
+		}
 
-// 		render() {
-// 			const panel = (
-// 				<SidePanel
-// 					actions={[...items, ...other, ...other, ...other]}
-// 					onSelect={action('onItemSelect')}
-// 					docked={this.state.docked}
-// 					tooltipPlacement="top"
-// 				/>
-// 			);
-// 			return (
-// 				<Layout mode="TwoColumns" one={panel} theme="qlik-light">
-// 					<ol>
-// 						{new Array(100).fill('This is some random content').map((item, num) => (
-// 							<li key={num}>{item}</li>
-// 						))}
-// 					</ol>
-// 				</Layout>
-// 			);
-// 		}
-// 	}
+		render() {
+			const panel = (
+				<SidePanel
+					actions={[...items, ...other, ...other, ...other]}
+					onSelect={action('onItemSelect')}
+					docked={this.state.docked}
+					tooltipPlacement="top"
+				/>
+			);
+			return (
+				<Layout mode="TwoColumns" one={panel} theme="qlik-light">
+					<ol>
+						{new Array(100).fill('This is some random content').map((item, num) => (
+							<li key={num}>{item}</li>
+						))}
+					</ol>
+				</Layout>
+			);
+		}
+	}
 
-// 	return <WithLayout />;
-// };
+	return <WithLayout />;
+};
 
-// export const ReverseWithLayout = () => {
-// 	const panelItems = items.concat([
-// 		{
-// 			key: 'longname',
-// 			label: 'Some super super super long name',
-// 			icon: 'talend-world',
-// 		},
-// 	]);
-// 	const panel = (
-// 		<SidePanel
-// 			actions={panelItems}
-// 			onSelect={action('onItemSelect')}
-// 			reverse
-// 			tooltipPlacement="top"
-// 		/>
-// 	);
-// 	return (
-// 		<Layout mode="TwoColumns" one={panel} theme="qlik-light">
-// 			<ol>
-// 				{new Array(100).fill('This is some random content').map((item, num) => (
-// 					<li key={num}>{item}</li>
-// 				))}
-// 			</ol>
-// 		</Layout>
-// 	);
-// };
+export const ReverseWithLayout = () => {
+	const panelItems = items.concat([
+		{
+			key: 'longname',
+			label: 'Some super super super long name',
+			icon: 'talend-world',
+		},
+	]);
+	const panel = (
+		<SidePanel
+			actions={panelItems}
+			onSelect={action('onItemSelect')}
+			reverse
+			tooltipPlacement="top"
+		/>
+	);
+	return (
+		<Layout mode="TwoColumns" one={panel} theme="qlik-light">
+			<ol>
+				{new Array(100).fill('This is some random content').map((item, num) => (
+					<li key={num}>{item}</li>
+				))}
+			</ol>
+		</Layout>
+	);
+};
