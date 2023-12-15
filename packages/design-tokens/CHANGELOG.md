@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.11.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
 ## 2.10.1
 
 ### Patch Changes
