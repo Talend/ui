@@ -24,13 +24,11 @@ export const i18n = {
 };
 
 export const decorators = [
-	(Story, context) => {
-		return (
-			<ThemeProvider>
-				<Story {...context} />
-			</ThemeProvider>
-		);
-	},
+	(Story, context) => (
+		<ThemeProvider>
+			<Story {...context} />
+		</ThemeProvider>
+	),
 ];
 
 export const cmf = {
