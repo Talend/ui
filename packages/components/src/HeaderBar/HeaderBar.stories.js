@@ -1,12 +1,13 @@
 import { action } from '@storybook/addon-actions';
-import { makeDecorator } from '@storybook/addons';
+import Immutable from 'immutable';
 
-import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
+import assetsApi from '@talend/assets-api';
+import tokens from '@talend/design-tokens';
 
+import AppSwitcher from '../AppSwitcher';
+// eslint-disable-line import/no-extraneous-dependencies
 import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
-import AppSwitcher from '../AppSwitcher';
-import assetsApi from '@talend/assets-api';
 
 const props = {
 	brand: {
@@ -96,6 +97,11 @@ function IntercomComponent() {
 
 export default {
 	title: 'Components/Navigation/HeaderBar',
+	decorators: Story => (
+		<div style={{ background: tokens.coralColorBrandBackgroundInvertedActive, height: '100vh' }}>
+			<Story />
+		</div>
+	),
 };
 
 export const Default = () => {
