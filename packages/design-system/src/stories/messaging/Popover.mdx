@@ -1,6 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import * as Stories from './Popover.stories';
-import { StackVertical, InlineMessageWarning } from '../../';
+import { InlineMessageWarning, StackVertical } from '../../';
 import { Status } from '../Status.block';
 
 <Meta of={Stories} />
@@ -16,31 +17,21 @@ Popover displays floating informative and actionable content in relation to its 
 
 ### Default
 
-<Canvas>
-	<Story height="12rem" story={Stories.DefaultStory} />
-</Canvas>
+<Canvas height="12rem" of={Stories.DefaultStory} />
 
 ### Disable padding in popover contents
 
-<Canvas>
-	<Story height="12rem" story={Stories.WithoutPaddingStory} />
-</Canvas>
+<Canvas height="12rem" of={Stories.WithoutPaddingStory} />
 
 ### Disclosure
 
 You can use any of the design system's "Clickable" or "Form" component as a disclosure.
 
-<Canvas>
-	<Story height="12rem" story={Stories.DisclosureStory} />
-</Canvas>
+<Canvas height="12rem" of={Stories.DisclosureStory} />
 
-<Canvas>
-	<Story height="12rem" story={Stories.InInteractiveComponentStory} />
-</Canvas>
+<Canvas height="12rem" of={Stories.InInteractiveComponentStory} />
 
-<Canvas>
-	<Story height="15rem" story={Stories.FormDisclosureStory} />
-</Canvas>
+<Canvas height="15rem" of={Stories.FormDisclosureStory} />
 
 ## States
 
@@ -62,8 +53,6 @@ Such would be the case when submitting a setting or simply clicking on a "close"
 
 You can do just so by using the "function as children" pattern:
 
-<Canvas>
-	<Story height="12rem" story={Stories.WithFunctionAsChildren} />
-</Canvas>
+<Canvas height="12rem" of={Stories.WithFunctionAsChildren} />
 
 As you can see, the button inside that popover consumes the popover's state and its methods.

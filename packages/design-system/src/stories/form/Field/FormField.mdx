@@ -1,7 +1,9 @@
-import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { Status } from '../../Status.block';
+
 import * as Stories from './FormField.stories';
+import { Status } from '../../Status.block';
 
 <Meta of={Stories} />
 <Status id="formField" />
@@ -30,9 +32,7 @@ The user must correct the error within the field. Once the error is corrected, t
 	alt="Form Field mockup in error"
 />
 
-<Canvas>
-	<Story of={Stories.FormFieldError} />
-</Canvas>
+<Canvas of={Stories.FormFieldError} />
 
 ## Content
 
@@ -45,9 +45,7 @@ The default behavior is to highlight the mandatory fields by using the asterisk 
 	alt="Form Field mockup"
 />
 
-<Canvas>
-	<Story of={Stories.FormFieldRequired} />
-</Canvas>
+<Canvas of={Stories.FormFieldRequired} />
 
 ### Information
 
@@ -58,9 +56,7 @@ A message can be displayed below the input to help the user by recommending appr
 	alt="Form Field mockup with inline message"
 />
 
-<Canvas>
-	<Story of={Stories.FormFieldInformation} />
-</Canvas>
+<Canvas of={Stories.FormFieldInformation} />
 
 ### Link
 
@@ -73,16 +69,11 @@ If a description or an error is applied to the field, it must be displayed betwe
 	alt="Form Password Field mockup with a link"
 />
 
-<Canvas>
-	<Story of={Stories.FormFieldPassword} />
-</Canvas>
+<Canvas of={Stories.FormFieldPassword} />
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
-
+<Canvas of={Stories.Usage} />
 <Controls of={Stories.Usage} />
 
 ## Accessibility

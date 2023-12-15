@@ -1,7 +1,9 @@
-import { Meta, Story, Canvas } from '@storybook/blocks';
-import { FigmaImage, FigmaLink, Use } from '@talend/storybook-docs';
-import { Status } from '../Status.block';
+import { Canvas, Meta } from '@storybook/blocks';
+
+import { FigmaImage } from '@talend/storybook-docs';
+
 import * as Stories from './Breadcrumbs.stories';
+import { Status } from '../Status.block';
 
 <Meta of={Stories} />
 <Status id="breadcrumbs" />
@@ -25,17 +27,13 @@ It helps them locate the current page within a larger workflow.
 	src="https://www.figma.com/file/8ifUyNjdZkWBmKKrgfB675/Breadcrumbs?node-id=53%3A435"
 	alt="Breadcrumb in various states"
 />
-<Canvas>
-	<Story of={Stories.Basic} />
-</Canvas>
+<Canvas of={Stories.Basic} />
 
 ### Variations
 
 Breadcrumbs cannot display more than 4 items without collapsing the "crumbs" somewhat. Here's how it behaves above 4 links.
 
-<Canvas>
-	<Story height="15rem" story={Stories.Advanced} />
-</Canvas>
+<Canvas height="15rem" story={Stories.Advanced} />
 
 ## States
 
@@ -45,9 +43,7 @@ The individual items of a `Breadcrumbs` component have a max-width of 320px.
 
 If they do not have enough space to spread that wide, the text-overflow sets in as needed:
 
-<Canvas>
-	<Story of={Stories.FullWidth} />
-</Canvas>
+<Canvas of={Stories.FullWidth} />
 
 ## Interactions
 
@@ -61,9 +57,7 @@ If they do not have enough space to spread that wide, the text-overflow sets in 
 
 This enables third-party router links to be used in a breadcrumb.
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
+<Canvas of={Stories.Usage} />
 
 ## Accessibility
 

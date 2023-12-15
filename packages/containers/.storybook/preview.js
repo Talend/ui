@@ -1,10 +1,10 @@
-import { namespaces as componentsNamespaces } from '@talend/locales-tui-components/namespaces';
-import { namespaces as formsNamespaces } from '@talend/locales-tui-forms/namespaces';
-import { namespaces as containersNamespaces } from '@talend/locales-tui-containers/namespaces';
+import { ThemeProvider } from '@talend/design-system';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
+import { namespaces as componentsNamespaces } from '@talend/locales-tui-components/namespaces';
+import { namespaces as containersNamespaces } from '@talend/locales-tui-containers/namespaces';
+import { namespaces as formsNamespaces } from '@talend/locales-tui-forms/namespaces';
 
 import cmfModule, { settings } from './cmfModule';
-import { ThemeProvider } from '@talend/design-system';
 
 export const i18n = {
 	namespaces: [
@@ -24,11 +24,13 @@ export const i18n = {
 };
 
 export const decorators = [
-	(Story, context) => (
-		<ThemeProvider>
-			<Story {...context} />
-		</ThemeProvider>
-	),
+	(Story, context) => {
+		return (
+			<ThemeProvider>
+				<Story {...context} />
+			</ThemeProvider>
+		);
+	},
 ];
 
 export const cmf = {

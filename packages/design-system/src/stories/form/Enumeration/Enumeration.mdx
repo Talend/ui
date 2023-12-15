@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
 
 import * as Stories from './Enumeration.stories';
 import { Status } from '../../Status.block';
@@ -12,13 +12,9 @@ Lazy loading list that allows to create, edit and remove items from it.
 
 ## Variations
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
+<Canvas of={Stories.Default} />
 
-<Canvas>
-	<Story of={Stories.Empty} />
-</Canvas>
+<Canvas of={Stories.Empty} />
 
 ## Usage
 

@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../../Status.block';
 
 import * as Stories from './Fieldset.stories';
@@ -31,9 +33,7 @@ If the fields are even more closely related, display them on the same line using
 	alt="Fieldset mockup"
 />
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
+<Canvas of={Stories.Default} />
 
 ## States
 
@@ -46,9 +46,7 @@ A fieldset usually does not carry error state. Its individual fields do.
 	alt="Fieldset mockup with state"
 />
 
-<Canvas>
-	<Story of={Stories.Error} />
-</Canvas>
+<Canvas of={Stories.Error} />
 
 In case of more than one error or a horizontal fieldset, display the errors under each affected field.
 
@@ -57,9 +55,7 @@ In case of more than one error or a horizontal fieldset, display the errors unde
 	alt="Fieldset mockup with errors in two fields"
 />
 
-<Canvas>
-	<Story of={Stories.Errors} />
-</Canvas>
+<Canvas of={Stories.Errors} />
 
 ## Content
 
@@ -96,9 +92,7 @@ The trigger can be any "on / off" interactions available in a form:
 
 Use sparingly as it makes a form harder to predict and understand at a glance.
 
-<Canvas>
-	<Story of={Stories.ConditionalFieldset} />
-</Canvas>
+<Canvas of={Stories.ConditionalFieldset} />
 
 ## Usage
 

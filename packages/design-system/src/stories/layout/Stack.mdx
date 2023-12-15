@@ -1,7 +1,9 @@
-import { Controls, Meta, Story, Canvas } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { Status } from '../Status.block';
+
 import * as Stories from './Stack.stories';
+import { Status } from '../Status.block';
 
 <Meta of={Stories} title="Layout/Stack" />
 <Status id="stack" />
@@ -53,7 +55,7 @@ If you need to override the positional behavior of a child element, use the `Sta
 Simply import the appropriate Stack and start composing your layout.
 
 ```tsx
-import { StackHorizontal, Button } from '../../';
+import { Button, StackHorizontal } from '../../';
 
 function myComponent() {
 	return (
@@ -71,44 +73,30 @@ function myComponent() {
 
 ### Simple StackHorizontal
 
-<Canvas>
-	<Story of={Stories.TestHorizontal} />
-</Canvas>
-
+<Canvas of={Stories.TestHorizontal} />
 <Controls of={Stories.TestHorizontal} />
 
 ### Simple StackHorizontal with complex spacing
 
 Spacing can also be set as an object `{ x: SizeToken, y: SizeToken }` or `{top: SizeToken, left: SizeToken, right: SizeToken, bottom: SizeToken}` like this:
 
-<Canvas>
-	<Story of={Stories.TestHorizontalWithExplicitSpacing} />
-</Canvas>
-
+<Canvas of={Stories.TestHorizontalWithExplicitSpacing} />
 <Controls of={Stories.TestHorizontalWithExplicitSpacing} />
 
 You do need to set all the values for each of these objects when using them.
 
 ### Simple StackVertical
 
-<Canvas>
-	<Story of={Stories.TestVertical} />
-</Canvas>
-
+<Canvas of={Stories.TestVertical} />
 <Controls of={Stories.TestVertical} />
 
 ### Nesting Stacks to compose a layout
 
-<Canvas>
-	<Story of={Stories.StackNesting} />
-</Canvas>
+<Canvas of={Stories.StackNesting} />
 
 ### Using StackItem
 
-<Canvas>
-	<Story of={Stories.StackWithStackItem} />
-</Canvas>
-
+<Canvas of={Stories.StackWithStackItem} />
 <Controls of={Stories.StackWithStackItem} />
 
 ## Accessibility

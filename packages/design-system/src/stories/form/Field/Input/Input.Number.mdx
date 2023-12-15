@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Number.stories';
@@ -24,9 +26,7 @@ The browser may opt to provide stepper arrows to let the user increase and decre
 
 ## States
 
-<Canvas>
-	<Story of={Stories.Number} />
-</Canvas>
+<Canvas of={Stories.Number} />
 
 ## Interactions
 
