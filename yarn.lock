@@ -4928,9 +4928,9 @@
   integrity sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==
 
 "@types/react-dom@^18.0.0", "@types/react-dom@^18.2.17", "@types/react-dom@^18.2.7":
-  version "18.2.17"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.2.17.tgz#375c55fab4ae671bd98448dcfa153268d01d6f64"
-  integrity sha512-rvrT/M7Df5eykWFxn6MYt5Pem/Dbyc1N8Y0S9Mrkw2WFCRiqUgw9P7ul2NpwsXCSM1DVdENzdG9J5SreqfAIWg==
+  version "18.2.18"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.2.18.tgz#16946e6cd43971256d874bc3d0a72074bb8571dd"
+  integrity sha512-TJxDm6OfAX2KJWJdMEVTwWke5Sc/E/RlnPGvGfS0W7+6ocy2xhDVQVh/KvC2Uf7kACs+gDytdusDSdWfWkaNzw==
   dependencies:
     "@types/react" "*"
 
@@ -4974,9 +4974,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@>=16", "@types/react@>=16.9.11", "@types/react@^18.2.43", "@types/react@^18.2.7":
-  version "18.2.43"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.43.tgz#c58e5abe241e6f71f60ce30e2a9aceb9d3a2a374"
-  integrity sha512-nvOV01ZdBdd/KW6FahSbcNplt2jCJfyWdTos61RYHV+FVv5L/g9AOX1bmbVcWcLFL8+KHQfh1zVIQrud6ihyQA==
+  version "18.2.45"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.45.tgz#253f4fac288e7e751ab3dc542000fb687422c15c"
+  integrity sha512-TtAxCNrlrBp8GoeEp1npd5g+d/OejJHFxS3OWmrPBMFaVQMSN0OFySozJio5BHxTuTeug00AVXVAjfDSfk+lUg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -14663,7 +14663,7 @@ path-to-regexp@^1.7.0:
   dependencies:
     isarray "0.0.1"
 
-path-to-regexp@^2.2.1, path-to-regexp@^2.4.0:
+path-to-regexp@^2.2.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
   integrity sha512-G6zHoVqC6GGTQkZwF4lkuEyMbVOjoBKAEybQUypI1WTkqinCOrq2x6U2+phkJ1XsEMTy4LjtwPI7HW+NVrRR2w==
