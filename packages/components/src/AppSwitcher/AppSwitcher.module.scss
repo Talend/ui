@@ -5,6 +5,10 @@
 	:global(.tc-svg-icon:first-child) {
 		height: $svg-lg-size;
 		width: $svg-lg-size;
+
+		path {
+			fill: tokens.$coral-color-brand-text;
+		}
 	}
 }
 

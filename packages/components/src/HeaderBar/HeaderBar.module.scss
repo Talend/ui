@@ -22,6 +22,7 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 	top: 0;
 	width: 100%;
 	z-index: tokens.$coral-elevation-layer-standard-front;
+	border-bottom: 1px solid tokens.$coral-color-neutral-border-weak;
 
 	svg {
 		margin: 0;
@@ -29,6 +30,9 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 	a svg {
 		margin: 0 $padding-smaller;
+		path {
+			fill: tokens.$coral-color-neutral-icon;
+		}
 	}
 
 	ul {

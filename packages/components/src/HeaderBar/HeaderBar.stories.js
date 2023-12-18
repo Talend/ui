@@ -97,11 +97,6 @@ function IntercomComponent() {
 
 export default {
 	title: 'Components/Navigation/HeaderBar',
-	decorators: Story => (
-		<div style={{ background: tokens.coralColorBrandBackgroundInvertedActive, height: '100vh' }}>
-			<Story />
-		</div>
-	),
 };
 
 export const Default = () => {
