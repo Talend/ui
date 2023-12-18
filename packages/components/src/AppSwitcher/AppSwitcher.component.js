@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next';
+
 import PropTypes from 'prop-types';
-import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import Inject from '../Inject';
+import { getTheme } from '../theme';
 
 import AppSwitcherCSSModule from './AppSwitcher.module.scss';
-import { getTheme } from '../theme';
 
 const theme = getTheme(AppSwitcherCSSModule);
 

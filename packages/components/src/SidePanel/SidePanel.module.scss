@@ -25,6 +25,7 @@ $large-docked-width: 7rem;
 	background: tokens.$coral-color-branding-background;
 	overflow: hidden;
 	position: relative;
+	border-right: 1px solid tokens.$coral-color-neutral-border-weak;
 
 	&::before {
 		left: 1rem;

@@ -105,11 +105,6 @@ const other = [
 
 export default {
 	title: 'Components/Navigation/SidePanel',
-	decorators: Story => (
-		<div style={{ background: tokens.coralColorBrandBackgroundInvertedActive }}>
-			<Story />
-		</div>
-	),
 };
 
 export const Uncontrolled = () => (
