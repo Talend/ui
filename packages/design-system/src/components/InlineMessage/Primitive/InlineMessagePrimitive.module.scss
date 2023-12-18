@@ -1,7 +1,9 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .inlineMessage {
-	display: inline;
+	align-items: center;
+	display: flex;
+
 	font: tokens.$coral-paragraph-m;
 	color: tokens.$coral-color-neutral-text;
 
@@ -13,10 +15,9 @@
 		margin-right: tokens.$coral-spacing-xxs;
 		width: tokens.$coral-sizing-xxxs;
 		height: tokens.$coral-sizing-xxxs;
-		display: inline-block;
+		display: inline-flex;
 		// Visually align icon in inline mode
 		position: relative;
-		top: 0.3rem;
 
 		svg {
 			width: tokens.$coral-sizing-xxxs;
@@ -51,5 +52,4 @@
 			top: 0.1rem;
 		}
 	}
-
 }
