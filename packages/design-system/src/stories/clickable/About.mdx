@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
-import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { Variations as ButtonVariations } from './Button.stories';
 import { Variations as ButtonAsLinkVariations } from './ButtonAsLink.stories';
 import { Variations as ButtonIconVariations } from './ButtonIcon.stories';
@@ -16,9 +16,7 @@ Clickables are just the things that look like buttons. It's a UI pattern that ha
 
 Use `Button` when you need highly readable CTAs that trigger an action on the page.
 
-<Canvas withSource="closed">
-	<Story of={ButtonVariations} />
-</Canvas>
+<Canvas sourceState="hidden" of={ButtonVariations} />
 
 ## ButtonAsLinks
 
@@ -26,9 +24,7 @@ Use `Button` when you need highly readable CTAs that trigger an action on the pa
 
 Use `ButtonAsLink` when you need a CTA that will navigate to a new page.
 
-<Canvas withSource="closed">
-	<Story of={ButtonAsLinkVariations} />
-</Canvas>
+<Canvas sourceState="hidden" of={ButtonAsLinkVariations} />
 
 ## ButtonIcon
 
@@ -36,6 +32,4 @@ Use `ButtonAsLink` when you need a CTA that will navigate to a new page.
 
 Use `ButtonIcon` when you need to click on a standalone icon. This should never be a hyperlink.
 
-<Canvas withSource="closed">
-	<Story of={ButtonIconVariations} />
-</Canvas>
+<Canvas sourceState="hidden" of={ButtonIconVariations} />

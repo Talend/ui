@@ -15,7 +15,8 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 }
 
 .tc-header-bar {
-	background: tokens.$coral-color-branding-navigation;
+	background: tokens.$coral-color-brand-background;
+	color: tokens.$coral-color-brand-text;
 	display: flex;
 	position: fixed;
 	top: 0;
@@ -32,6 +33,18 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 	ul {
 		list-style: none;
+	}
+
+	:global {
+		.tc-dropdown-button,
+		.btn-link {
+			color: tokens.$coral-color-brand-text;
+			&:hover,
+			&:focus {
+				color: tokens.$coral-color-brand-text;
+				background: tokens.$coral-color-brand-background-weak-hover;
+			}
+		}
 	}
 
 	.tc-header-bar-actions {
@@ -56,7 +69,7 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 				display: block;
 				width: 1px;
 				height: $font-size-large;
-				background-color: tokens.$coral-color-neutral-background;
+				background-color: tokens.$coral-color-brand-text;
 			}
 
 			:global {
@@ -70,6 +83,11 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 		.tc-header-bar-logo {
 			padding: 0;
 			width: $tc-headerbar-logo-width;
+			background-image: tokens.$coral-branding-logo;
+			background-size: 2.8rem;
+			background-repeat: no-repeat;
+			background-position-x: center;
+			background-position-y: center;
 
 			:global(.tc-svg-icon) {
 				padding: 0;
@@ -79,6 +97,7 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 			&.full {
 				width: auto;
+				background-image: none;
 
 				:global(.tc-svg-icon) {
 					padding: 0 $padding-normal;
@@ -162,7 +181,7 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 	.tc-header-bar-intercom-default-component {
 		border-radius: 50%;
-		background: tokens.$coral-color-accent-text;
+		color: tokens.$coral-color-brand-text;
 		min-height: auto;
 		height: 3.2rem;
 		width: 3.2rem;

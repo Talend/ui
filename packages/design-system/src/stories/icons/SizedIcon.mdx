@@ -1,7 +1,7 @@
-import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
-import { SizedIcon } from '../../';
-import { Status } from '../Status.block';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import * as Stories from './SizedIcon.stories';
+import { Status } from '../Status.block';
 
 <Meta of={Stories} />
 <Status id="sizedIcon" />
@@ -24,34 +24,22 @@ You may need to wrap your icon with a `span` node to target it specifically.
 
 #### Size XS
 
-<Canvas>
-	<Story of={Stories.IconXS} />
-</Canvas>
-
+<Canvas of={Stories.IconXS} />
 <Controls of={Stories.IconXS} />
 
 #### Size S
 
-<Canvas>
-	<Story of={Stories.IconS} />
-</Canvas>
-
+<Canvas of={Stories.IconS} />
 <Controls of={Stories.IconS} />
 
 #### Size M
 
-<Canvas>
-	<Story of={Stories.IconM} />
-</Canvas>
-
+<Canvas of={Stories.IconM} />
 <Controls of={Stories.IconM} />
 
 #### Size L
 
-<Canvas>
-	<Story of={Stories.IconL} />
-</Canvas>
-
+<Canvas of={Stories.IconL} />
 <Controls of={Stories.IconL} />
 
 ## States

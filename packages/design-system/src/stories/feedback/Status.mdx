@@ -1,5 +1,7 @@
-import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import * as Stories from './Status.stories';
 import { Status } from '../Status.block';
 
@@ -28,23 +30,19 @@ The status component displays state information using semantic colors and icons.
 
 #### With text
 
-<Canvas>
-	<Story of={Stories.InProgress} />
-	<Story of={Stories.Successful} />
-	<Story of={Stories.Failed} />
-	<Story of={Stories.Warning} />
-	<Story of={Stories.Canceled} />
-</Canvas>
+<Canvas of={Stories.InProgress} />
+<Canvas of={Stories.Successful} />
+<Canvas of={Stories.Failed} />
+<Canvas of={Stories.Warning} />
+<Canvas of={Stories.Canceled} />
 
 #### Without text
 
-<Canvas>
-	<Story of={Stories.InProgressIcon} />
-	<Story of={Stories.SuccessfulIcon} />
-	<Story of={Stories.FailedIcon} />
-	<Story of={Stories.WarningIcon} />
-	<Story of={Stories.CanceledIcon} />
-</Canvas>
+<Canvas of={Stories.InProgressIcon} />
+<Canvas of={Stories.SuccessfulIcon} />
+<Canvas of={Stories.FailedIcon} />
+<Canvas of={Stories.WarningIcon} />
+<Canvas of={Stories.CanceledIcon} />
 
 ## States
 
@@ -73,10 +71,8 @@ By default, each Status variants has a label:
 
 Depending on the use case, it is possible to have another label instead but keeping the same meaning.
 
-<Canvas>
-	<Story of={Stories.CustomSuccessful} />
-	<Story of={Stories.CustomInProgressIcon} />
-</Canvas>
+<Canvas of={Stories.CustomSuccessful} />
+<Canvas of={Stories.CustomInProgressIcon} />
 
 ## Usage
 
@@ -84,10 +80,7 @@ You can directly use the presets `StatusInProgress` etc... but in some cases you
 
 You can.
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
-
+<Canvas of={Stories.Usage} />
 <Controls of={Stories.Usage} />
 
 ## Accessibility

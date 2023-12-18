@@ -58,6 +58,7 @@ const defaultPreview = {
 				items: [
 					{ value: 'light', left: '⚪', title: 'Light mode' },
 					{ value: 'dark', left: '🌑', title: 'Dark mode' },
+					{ value: 'qlik-light', left:"🟢", title: 'Qlik light mode' },
 				],
 				dynamicTitle: true,
 			},

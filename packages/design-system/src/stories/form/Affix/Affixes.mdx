@@ -1,6 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { ButtonPrimary, Form, InlineMessageInformation } from '../../../';
+
 import * as Stories from './Affix.stories';
 import { Status } from '../../Status.block';
 
@@ -30,9 +31,7 @@ Fill in their `prefix` or `suffix` prop and the deed is done.
 
 Affixes are either `prefix` or `suffix`. They are one of the following types:
 
-<Canvas>
-	<Story of={Stories.QuickStart} />
-</Canvas>
+<Canvas of={Stories.QuickStart} />
 
 Both `prefix` and `affix` accept the same 3 kinds of objects.
 
@@ -43,9 +42,7 @@ Both `prefix` and `affix` accept the same 3 kinds of objects.
 	alt="Select affixes"
 />
 
-<Canvas withSource="closed">
-	<Story of={Stories.AffixSelect} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.AffixSelect} />
 
 ##### Button affixes
 
@@ -54,9 +51,7 @@ Both `prefix` and `affix` accept the same 3 kinds of objects.
 	alt="Button affixes"
 />
 
-<Canvas withSource="closed">
-	<Story of={Stories.AffixButton} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.AffixButton} />
 
 ##### Text affixes
 
@@ -65,17 +60,13 @@ Both `prefix` and `affix` accept the same 3 kinds of objects.
 	alt="Text affixes"
 />
 
-<Canvas withSource="closed">
-	<Story of={Stories.AffixText} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.AffixText} />
 
 #### Datalist and multiple select
 
 `Form.Datalist` and multiple selects also works with the same ruleset.
 
-<Canvas>
-	<Story of={Stories.DatalistAffix} />
-</Canvas>
+<Canvas of={Stories.DatalistAffix} />
 
 #### Mix and match
 
@@ -86,9 +77,7 @@ An input can mix multiple types of affixes indiscriminately.
 	alt="An input group demo"
 />
 
-<Canvas>
-	<Story of={Stories.Mix} />
-</Canvas>
+<Canvas of={Stories.Mix} />
 
 ## States
 
@@ -114,9 +103,7 @@ Use lower case on prefix and suffix except if it's an interactive element.
 
 Here's an example using a `select` type affix with React Hooks Form
 
-<Canvas>
-	<Story of={Stories.ReactHookForm} />
-</Canvas>
+<Canvas of={Stories.ReactHookForm} />
 
 ## Accessibility
 

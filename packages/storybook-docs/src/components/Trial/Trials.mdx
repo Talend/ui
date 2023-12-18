@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, Canvas } from '@storybook/addon-docs';
 import * as Stories from './Trial.stories';
 import Trial from './Trial';
 
@@ -50,6 +50,4 @@ Etiam vitae sollicitudin massa. Nulla facilisi. Duis sit amet vestibulum erat, u
 
 Duis sit amet vestibulum erat, ut rutrum eros.
 
-<Canvas withSource="closed">
-	<Story story={Stories.Story} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.Story} />

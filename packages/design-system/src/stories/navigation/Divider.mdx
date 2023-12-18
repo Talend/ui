@@ -1,5 +1,7 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../Status.block';
 
 import * as Stories from './Divider.stories';
@@ -25,21 +27,15 @@ A divider that separates and distinguishes sections of content or groups of menu
 	alt="Divider style"
 />
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
+<Canvas of={Stories.Default} />
 
 It can be vertically oriented
 
-<Canvas>
-	<Story of={Stories.Horizontal} />
-</Canvas>
+<Canvas of={Stories.Horizontal} />
 
 or horizontally oriented by default
 
-<Canvas>
-	<Story of={Stories.Vertical} />
-</Canvas>
+<Canvas of={Stories.Vertical} />
 
 ## States
 

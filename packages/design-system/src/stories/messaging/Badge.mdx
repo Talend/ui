@@ -1,7 +1,9 @@
-import { Meta, Story, Canvas } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { Status } from '../Status.block';
+
 import * as Stories from './Badge.stories';
+import { Status } from '../Status.block';
 
 <Meta of={Stories} />
 <Status id="badge" />
@@ -28,27 +30,19 @@ A wonderful Badge
 
 #### Badge
 
-<Canvas isColumn>
-	<Story of={Stories.StoryBadgeValue} />
-</Canvas>
+<Canvas isColumn of={Stories.StoryBadgeValue} />
 
 #### BadgeTag
 
-<Canvas isColumn>
-	<Story of={Stories.StoryBadgeTag} />
-</Canvas>
+<Canvas isColumn of={Stories.StoryBadgeTag} />
 
 #### BadgeDropdown
 
-<Canvas isColumn>
-	<Story of={Stories.StoryBadgeDropdown} />
-</Canvas>
+<Canvas isColumn of={Stories.StoryBadgeDropdown} />
 
 #### BadgePopover
 
-<Canvas isColumn>
-	<Story of={Stories.StoryBadgePopover} />
-</Canvas>
+<Canvas isColumn of={Stories.StoryBadgePopover} />
 
 ## States
 

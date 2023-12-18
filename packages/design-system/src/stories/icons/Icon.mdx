@@ -1,7 +1,8 @@
-import { ArgTypes, IconItem, Canvas, Meta, Story } from '@storybook/blocks';
-import { IconsProvider, InlineMessageWarning, Icon } from '../../';
-import { Status } from '../Status.block';
+import { Canvas, IconItem, Meta } from '@storybook/blocks';
+
 import * as Stories from './Icon.stories';
+import { Icon } from '../../';
+import { Status } from '../Status.block';
 import { AllIconsDocs } from './Icons';
 
 <Meta of={Stories} />
@@ -11,9 +12,7 @@ import { AllIconsDocs } from './Icons';
 
 This component is generic and can be seens as a Primitive to display SVG, img, remote or not.
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
+<Canvas of={Stories.Usage} />
 
 ## Remote icon
 

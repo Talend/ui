@@ -1,6 +1,8 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { Combobox, StackVertical, InlineMessageWarning } from '../../';
+
+import { Combobox, InlineMessageWarning, StackVertical } from '../../';
 import { Status } from '../Status.block';
 
 import * as Stories from './Combobox.stories';
@@ -45,10 +47,7 @@ Custom values are still possible like a datalist.
 	alt="combobox for multiselection"
 />
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
-
+<Canvas of={Stories.Default} />
 <Controls of={Stories.Default} />
 
 ## States

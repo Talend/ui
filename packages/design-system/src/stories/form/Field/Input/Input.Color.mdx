@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Color.stories';
@@ -24,9 +26,7 @@ Only simple colors (without alpha channel) are allowed though CSS colors has mor
 
 ## States
 
-<Canvas>
-	<Story of={Stories.ColorStates} />
-</Canvas>
+<Canvas of={Stories.ColorStates} />
 
 ## Interactions
 

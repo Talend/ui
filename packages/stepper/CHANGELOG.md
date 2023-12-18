@@ -1,5 +1,18 @@
 # @talend/react-stepper
 
+## 10.2.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-system@8.8.0
+  - @talend/design-tokens@2.11.0
+  - @talend/react-components@13.1.0
+
 ## 10.1.2
 
 ### Patch Changes

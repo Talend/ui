@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Textarea.stories';
@@ -27,17 +29,13 @@ import * as Stories from './Input.Textarea.stories';
 
 ## States
 
-<Canvas>
-	<Story of={Stories.Textarea} />
-</Canvas>
+<Canvas of={Stories.Textarea} />
 
 ## Interactions
 
 A vertical scrollbar appears when the content exceeds the available space.
 
-<Canvas>
-	<Story of={Stories.TextareaMaxedOut} />
-</Canvas>
+<Canvas of={Stories.TextareaMaxedOut} />
 
 Textarea fields can be resized vertically, up to a max-height described by the token `sizing-xxxl`.
 

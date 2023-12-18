@@ -1,4 +1,5 @@
-import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
 
 import { Tooltip } from '../../';
@@ -21,12 +22,10 @@ Tooltips provide helpful, additional content for their paired elements on hover.
 
 <FigmaImage src="https://www.figma.com/file/93AaDV2pC1tK9J1O6IbHho/Tooltips?node-id=895%3A5" />
 
-<Canvas>
-	<Story of={Stories.Top} />
-	<Story of={Stories.Left} />
-	<Story of={Stories.Bottom} />
-	<Story of={Stories.Right} />
-</Canvas>
+<Canvas of={Stories.Top} />
+<Canvas of={Stories.Left} />
+<Canvas of={Stories.Bottom} />
+<Canvas of={Stories.Right} />
 
 ## Content
 
@@ -66,10 +65,7 @@ Otherwise, you’ll just add information pollution to your UI and waste the time
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
-
+<Canvas of={Stories.Usage} />
 <Controls of={Stories.Usage} />
 
 For more info about Tooltip props, refer to [documentation](https://reakit.io/docs/tooltip/) of Reakit.

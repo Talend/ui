@@ -1,15 +1,19 @@
+import { useTranslation } from 'react-i18next';
+
+import classNames from 'classnames';
 import has from 'lodash/has';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
+
 import { ButtonIcon } from '@talend/design-system';
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import getDefaultT from '../translate';
-import { Action } from '../Actions';
+
 import ActionBar from '../ActionBar';
-import TitleSubHeader from './TitleSubHeader';
+import { Action } from '../Actions';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import Inject from '../Inject';
 import Skeleton from '../Skeleton';
+import getDefaultT from '../translate';
+import TitleSubHeader from './TitleSubHeader';
+
 import theme from './SubHeaderBar.module.scss';
 
 function SubHeaderBarActions({ children, tag, left, right, center, hasRight }) {

@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import * as Stories from './FormButtons.stories';
 import { Status } from '../../Status.block';
 
@@ -30,9 +32,7 @@ A Form always displays buttons in order to be cancelled or validated.
 	alt="Button zone with skeletons"
 />
 
-<Canvas>
-	<Story of={Stories.FormButtonsSkeleton} />
-</Canvas>
+<Canvas of={Stories.FormButtonsSkeleton} />
 
 ### Default
 
@@ -41,9 +41,7 @@ A Form always displays buttons in order to be cancelled or validated.
 	alt="Default button zone"
 />
 
-<Canvas>
-	<Story of={Stories.FormButtonsDefault} />
-</Canvas>
+<Canvas of={Stories.FormButtonsDefault} />
 
 ### Loading
 
@@ -52,9 +50,7 @@ A Form always displays buttons in order to be cancelled or validated.
 	alt="Button zone with loading buttons"
 />
 
-<Canvas>
-	<Story of={Stories.FormButtonsLoading} />
-</Canvas>
+<Canvas of={Stories.FormButtonsLoading} />
 
 ## Content
 
@@ -73,15 +69,11 @@ Sort the buttons from the least to the most important.
 	alt="Button zone order demonstration"
 />
 
-<Canvas>
-	<Story of={Stories.FormButtonsOrder} />
-</Canvas>
+<Canvas of={Stories.FormButtonsOrder} />
 
 If there is only one button accompanying the form, then it should stick to the right.
 
-<Canvas withSource="closed">
-	<Story of={Stories.FormButtonsSingle} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.FormButtonsSingle} />
 
 ### Buttons with icons
 
