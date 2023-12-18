@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.8.1
+
+### Patch Changes
+
+- 43776f7: Fix minor side effect w/ InlineMessage component style when used in modal
+
 ## 8.8.0
 
 ### Minor Changes
