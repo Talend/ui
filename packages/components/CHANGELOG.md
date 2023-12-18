@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 13.1.1
+
+### Patch Changes
+
+- 08bb2c1: fix: qlik theme fixes
+- Updated dependencies [08bb2c1]
+  - @talend/design-tokens@2.11.1
+
 ## 13.1.0
 
 ### Minor Changes

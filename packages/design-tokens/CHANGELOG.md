@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.11.1
+
+### Patch Changes
+
+- 08bb2c1: fix: qlik theme fixes
+
 ## 2.11.0
 
 ### Minor Changes
