@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 13.1.4
+
+### Patch Changes
+
+- dce3585: fix: back button tooltip position
+
 ## 13.1.3
 
 ### Patch Changes
