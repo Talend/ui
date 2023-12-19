@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 13.1.3
+
+### Patch Changes
+
+- d479c75: fix: header bar help link style in qlik-light mode
+
 ## 13.1.2
 
 ### Patch Changes
