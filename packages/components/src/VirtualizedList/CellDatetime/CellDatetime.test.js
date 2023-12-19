@@ -2,8 +2,8 @@
 
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
-import format from 'date-fns/format';
-import distanceInWordsToNow from 'date-fns/formatDistanceToNow';
+import { format } from 'date-fns/format';
+import { distanceInWordsToNow } from 'date-fns/formatDistanceToNow';
 
 import { date as dateUtils } from '@talend/utils';
 

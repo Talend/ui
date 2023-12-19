@@ -1,12 +1,13 @@
-import isAfter from 'date-fns/isAfter';
-import subHours from 'date-fns/subHours';
+import { isAfter } from 'date-fns/isAfter';
+import { subHours } from 'date-fns/subHours';
+
 import {
 	checkSupportedDateFormat,
 	checkSupportedTimezone,
 	extractDate,
-	extractPartsFromTextInput,
-	extractPartsFromDate,
 	extractDateOnly,
+	extractPartsFromDate,
+	extractPartsFromTextInput,
 } from './date-extraction';
 
 describe('Date extraction', () => {

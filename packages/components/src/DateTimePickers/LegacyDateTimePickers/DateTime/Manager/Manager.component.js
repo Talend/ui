@@ -1,7 +1,17 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import isSameSecond from 'date-fns/isSameSecond';
 
+import { isSameSecond } from 'date-fns/isSameSecond';
+import PropTypes from 'prop-types';
+
+import {
+	FIELD_HOURS,
+	FIELD_MINUTES,
+	FIELD_SECONDS,
+	HOUR_ERRORS,
+	INPUT_ERRORS,
+	MINUTES_ERRORS,
+	SECONDS_ERRORS,
+} from '../constants';
 import { DateTimeContext } from '../Context';
 import {
 	check,
@@ -14,15 +24,6 @@ import {
 	extractPartsFromTextInput,
 	getFullDateFormat,
 } from '../date-extraction';
-import {
-	HOUR_ERRORS,
-	MINUTES_ERRORS,
-	SECONDS_ERRORS,
-	FIELD_HOURS,
-	FIELD_MINUTES,
-	FIELD_SECONDS,
-	INPUT_ERRORS,
-} from '../constants';
 
 class ContextualManager extends Component {
 	static displayName = 'DateTime.Manager';
