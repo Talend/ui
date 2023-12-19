@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.8.2
+
+### Patch Changes
+
+- c023eb6: fix: help icon color in the header bar
+
 ## 8.8.1
 
 ### Patch Changes
