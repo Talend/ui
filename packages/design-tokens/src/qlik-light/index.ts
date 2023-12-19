@@ -335,10 +335,10 @@ const tokens = {
 	coralTransitionFast: `var(--coral-transition-fast, 250ms ease-in-out)`,
 	coralTransitionNormal: `var(--coral-transition-normal, 300ms ease-in-out)`,
 	coralTransitionSlow: `var(--coral-transition-slow, 400ms ease-in)`,
-	coralElevationLayerFlat: `var(--coral-elevation-layer-flat, 2000)`,
-	coralElevationLayerStandardFront: `var(--coral-elevation-layer-standard-front, 2004)`,
-	coralElevationLayerInteractiveFront: `var(--coral-elevation-layer-interactive-front, 2008)`,
-	coralElevationLayerOverlay: `var(--coral-elevation-layer-overlay, 2016)`,
+	coralElevationLayerFlat: `var(--coral-elevation-layer-flat, 0)`,
+	coralElevationLayerStandardFront: `var(--coral-elevation-layer-standard-front, 4)`,
+	coralElevationLayerInteractiveFront: `var(--coral-elevation-layer-interactive-front, 8)`,
+	coralElevationLayerOverlay: `var(--coral-elevation-layer-overlay, 16)`,
 	coralAnimationHeartbeat: `var(--coral-animation-heartbeat, coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite)`,
 };
 

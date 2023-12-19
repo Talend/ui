@@ -46,12 +46,14 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 	:global {
 		.tc-dropdown-button,
-		.btn-link {
-			color: tokens.$coral-color-brand-text !important;
+		.btn-link,
+		.tc-header-bar-action.tc-header-bar-help a,
+		.tc-header-bar-logo.btn-link {
+			color: tokens.$coral-color-brand-text;
 			&:hover,
 			&:focus {
-				color: tokens.$coral-color-brand-text !important;
-				background: tokens.$coral-color-brand-background-weak-hover !important;
+				color: tokens.$coral-color-brand-text;
+				background-color: tokens.$coral-color-brand-background-weak-hover;
 			}
 		}
 	}
