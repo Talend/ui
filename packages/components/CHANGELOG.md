@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 13.1.6
+
+### Patch Changes
+
+- c023eb6: fix: help icon color in the header bar
+
 ## 13.1.5
 
 ### Patch Changes
