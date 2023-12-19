@@ -35,13 +35,18 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 	a svg {
 		margin: 0 $padding-smaller;
-		path {
-			fill: tokens.$coral-color-neutral-icon;
-		}
 	}
 
 	ul {
 		list-style: none;
+	}
+
+	:global {
+		.dropdown-menu {
+			a svg path {
+				fill: tokens.$coral-color-neutral-icon;
+			}
+		}
 	}
 
 	:global {
