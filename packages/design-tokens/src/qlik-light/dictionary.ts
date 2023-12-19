@@ -3075,7 +3075,7 @@ Opacity for components that are only temporarily disabled.`,
 		name: 'coralElevationLayerFlat',
 		type: 'elevation',
 		description: `Default content elevation`,
-		value: `2000`,
+		value: `0`,
 		id: '26c8aba1-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
@@ -3084,7 +3084,7 @@ Opacity for components that are only temporarily disabled.`,
 		description: `First elevation layer.
 
 Just above the default content (Drawer, Modal, Fixed layout...)`,
-		value: `2004`,
+		value: `4`,
 		id: '2d995c41-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
@@ -3093,7 +3093,7 @@ Just above the default content (Drawer, Modal, Fixed layout...)`,
 		description: `Second elevation layer. 
 
 For elements above any layout (Dropdown, Popover).`,
-		value: `2008`,
+		value: `8`,
 		id: '334e63b1-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
@@ -3102,7 +3102,7 @@ For elements above any layout (Dropdown, Popover).`,
 		description: `Topmost layer.
 
 For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)`,
-		value: `2016`,
+		value: `16`,
 		id: '3853ca31-5d8d-11ec-9f08-61882f73ab2c',
 	},
 	{
