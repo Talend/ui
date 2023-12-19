@@ -1,5 +1,5 @@
-import dateFnsFormat from 'date-fns/format';
-import parseISO from 'date-fns/parseISO';
+import { format as dateFnsFormat } from 'date-fns/format';
+import { parseISO } from 'date-fns/parseISO';
 
 import * as generator from './generator';
 

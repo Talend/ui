@@ -2,10 +2,10 @@ import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
-import format from 'date-fns/format';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import isValid from 'date-fns/isValid';
-import parseISO from 'date-fns/parseISO';
+import { format } from 'date-fns/format';
+import { formatDistanceToNow } from 'date-fns/formatDistanceToNow';
+import { isValid } from 'date-fns/isValid';
+import { parseISO } from 'date-fns/parseISO';
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
 import PropTypes from 'prop-types';

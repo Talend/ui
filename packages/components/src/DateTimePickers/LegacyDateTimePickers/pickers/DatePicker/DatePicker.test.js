@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import isSameDay from 'date-fns/isSameDay';
-import isToday from 'date-fns/isToday';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isToday } from 'date-fns/isToday';
 
 import DatePicker from './DatePicker.component';
 

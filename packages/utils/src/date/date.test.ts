@@ -1,4 +1,4 @@
-import dateFnsFormat from 'date-fns/format';
+import { dateFnsFormat } from 'date-fns/format';
 import enGB from 'date-fns/locale/en-GB';
 
 import {

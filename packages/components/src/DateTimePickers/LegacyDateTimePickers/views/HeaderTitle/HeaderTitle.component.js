@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import format from 'date-fns/format';
-import setMonth from 'date-fns/setMonth';
-import setYear from 'date-fns/setYear';
+import { format } from 'date-fns/format';
+import { setMonth } from 'date-fns/setMonth';
+import { setYear } from 'date-fns/setYear';
 import PropTypes from 'prop-types';
 
 import { Action, ActionDropdown } from '../../../../Actions';

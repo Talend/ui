@@ -1,11 +1,10 @@
 import { action } from '@storybook/addon-actions';
-import isBefore from 'date-fns/isBefore';
-import startOfDay from 'date-fns/startOfDay';
-
-import InputDatePicker from './InputDatePicker.component';
+import { isBefore } from 'date-fns/isBefore';
+import { startOfDay } from 'date-fns/startOfDay';
 
 import DateManager from '../Date/Manager';
 import DatePicker from '../Date/Picker';
+import InputDatePicker from './InputDatePicker.component';
 
 export default {
 	title: 'Components/Form - Controls/DatePicker/Date',
