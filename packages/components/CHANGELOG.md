@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 13.1.5
+
+### Patch Changes
+
+- bb106bc: fix: adjustments for qlik-light theme
+- Updated dependencies [bb106bc]
+  - @talend/design-tokens@2.11.2
+
 ## 13.1.4
 
 ### Patch Changes

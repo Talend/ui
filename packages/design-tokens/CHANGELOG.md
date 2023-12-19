@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.11.2
+
+### Patch Changes
+
+- bb106bc: fix: adjustments for qlik-light theme
+
 ## 2.11.1
 
 ### Patch Changes
