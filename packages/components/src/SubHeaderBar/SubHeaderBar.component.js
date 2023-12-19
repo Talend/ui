@@ -122,6 +122,7 @@ function SubHeaderBar({
 							<ButtonIcon
 								icon="arrow-left"
 								size="M"
+								tooltipPlacement="right"
 								onClick={onGoBack}
 								id="backArrow"
 								data-testid="tc-subheader-backArrow"
