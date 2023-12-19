@@ -14,6 +14,12 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 	}
 }
 
+[data-theme='qlik-light'] {
+	.tc-header-bar {
+		border-bottom: 1px solid tokens.$coral-color-neutral-border-weak;
+	}
+}
+
 .tc-header-bar {
 	background: tokens.$coral-color-brand-background;
 	color: tokens.$coral-color-brand-text;
@@ -22,7 +28,6 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 	top: 0;
 	width: 100%;
 	z-index: tokens.$coral-elevation-layer-standard-front;
-	border-bottom: 1px solid tokens.$coral-color-neutral-border-weak;
 
 	svg {
 		margin: 0;
