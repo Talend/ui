@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 13.1.2
+
+### Patch Changes
+
+- f172fa8: fix: Header bar border bottom in light mode
+
 ## 13.1.1
 
 ### Patch Changes
