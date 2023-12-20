@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.4.2
+
+### Patch Changes
+
+- cf9a5e0: Fix getTalendIconsPath
+
 ## 16.4.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
 ## 2.9.0
 
 ### Minor Changes

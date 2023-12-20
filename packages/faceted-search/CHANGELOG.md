@@ -1,5 +1,18 @@
 # Changelog
 
+## 15.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/utils@3.0.0
+
 ## 14.1.0
 
 ### Minor Changes

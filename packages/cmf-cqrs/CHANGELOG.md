@@ -1,5 +1,13 @@
 # @talend/react-cmf-cqrs
 
+## 10.1.2
+
+### Patch Changes
+
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+  - @talend/react-cmf@8.3.3
+
 ## 10.1.1
 
 ### Patch Changes

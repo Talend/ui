@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 8.8.3
+
+### Patch Changes
+
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+
 ## 8.8.2
 
 ### Patch Changes
