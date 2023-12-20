@@ -1,7 +1,7 @@
-import addMonths from 'date-fns/addMonths';
-import format from 'date-fns/format';
-import getYear from 'date-fns/getYear';
-import setDay from 'date-fns/setDay';
+import { addMonths } from 'date-fns/addMonths';
+import { format } from 'date-fns/format';
+import { getYear } from 'date-fns/getYear';
+import { setDay } from 'date-fns/setDay';
 import chunk from 'lodash/chunk';
 import memoize from 'lodash/memoize';
 

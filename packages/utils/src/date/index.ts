@@ -1,5 +1,5 @@
-import dateFnsFormat from 'date-fns/format';
-import parseISO from 'date-fns/parseISO';
+import { format as dateFnsFormat, FormatOptions } from 'date-fns/format';
+import { parseISO } from 'date-fns/parseISO';
 
 import * as generator from './generator';
 
@@ -159,7 +159,7 @@ export function formatToUnicode(formatString: string): string {
 export function formatToTimeZone(
 	date: DateFnsFormatInput,
 	formatString: string,
-	options: ConversionOptions,
+	options: FormatOptions & ConversionOptions,
 ): string {
 	const dateConvertedToTimezone = convertToTimeZone(date, options);
 

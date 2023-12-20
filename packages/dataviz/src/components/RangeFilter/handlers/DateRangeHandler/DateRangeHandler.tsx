@@ -1,12 +1,14 @@
-import isValid from 'date-fns/isValid';
-import startOfDay from 'date-fns/startOfDay';
-import endOfDay from 'date-fns/endOfDay';
-import parseISO from 'date-fns/parseISO';
+import { endOfDay } from 'date-fns/endOfDay';
+import { isValid } from 'date-fns/isValid';
+import { parseISO } from 'date-fns/parseISO';
+import { startOfDay } from 'date-fns/startOfDay';
+
 import { InputDatePicker } from '@talend/react-components';
+
 import { formatDate } from '../../../../formatters/formatters';
-import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 import { RangeHandler } from '../range-handler.types';
 import { formatTimeTicks } from '../slider-ticks.utils';
+import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 
 export function getMinValue(value: number): number {
 	return startOfDay(new Date(value)).getTime();

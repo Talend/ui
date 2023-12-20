@@ -1,18 +1,18 @@
 import { PureComponent } from 'react';
 
 import classNames from 'classnames';
-import format from 'date-fns/format';
-import getDate from 'date-fns/getDate';
-import getMonth from 'date-fns/getMonth';
-import getYear from 'date-fns/getYear';
-import isAfter from 'date-fns/isAfter';
-import isBefore from 'date-fns/isBefore';
-import isSameDay from 'date-fns/isSameDay';
-import isToday from 'date-fns/isToday';
-import isWithinRange from 'date-fns/isWithinInterval';
-import setMonth from 'date-fns/setMonth';
-import startOfDay from 'date-fns/startOfDay';
-import startOfMonth from 'date-fns/startOfMonth';
+import { format } from 'date-fns/format';
+import { getDate } from 'date-fns/getDate';
+import { getMonth } from 'date-fns/getMonth';
+import { getYear } from 'date-fns/getYear';
+import { isAfter } from 'date-fns/isAfter';
+import { isBefore } from 'date-fns/isBefore';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isToday } from 'date-fns/isToday';
+import { isWithinInterval } from 'date-fns/isWithinInterval';
+import { setMonth } from 'date-fns/setMonth';
+import { startOfDay } from 'date-fns/startOfDay';
+import { startOfMonth } from 'date-fns/startOfMonth';
 import memoize from 'lodash/memoize';
 import PropTypes from 'prop-types';
 
@@ -68,15 +68,15 @@ class DatePicker extends PureComponent {
 		const { calendar } = this.props;
 		const { year, monthIndex } = calendar;
 		const weeks = this.getWeeks(year, monthIndex, 1);
-		return isWithinRange(date, { start: weeks[0][0], end: weeks[5][6] });
+		return isWithinInterval(date, { start: weeks[0][0], end: weeks[5][6] });
 	}
 
 	isDateWithinRange(date) {
 		const { selectedDate, startDate, endDate } = this.props;
 		if (startDate && isAfter(selectedDate, startDate)) {
-			return isWithinRange(date, { start: startOfDay(startDate), end: selectedDate });
+			return isWithinInterval(date, { start: startOfDay(startDate), end: selectedDate });
 		} else if (endDate && isBefore(selectedDate, endDate)) {
-			return isWithinRange(date, { start: selectedDate, end: endDate });
+			return isWithinInterval(date, { start: selectedDate, end: endDate });
 		}
 		return false;
 	}

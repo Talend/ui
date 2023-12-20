@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import isBefore from 'date-fns/isBefore';
-import isEqual from 'date-fns/isEqual';
+import { useEffect, useState } from 'react';
 
-import { DateTimeRangeContext } from '../Context';
+import { isBefore } from 'date-fns/isBefore';
+import { isEqual } from 'date-fns/isEqual';
+import PropTypes from 'prop-types';
+
 import getErrorMessage from '../../shared/error-messages';
+import { DateTimeRangeContext } from '../Context';
 
 export function DateTimeRangePickerException(code, message) {
 	this.message = getErrorMessage(message);

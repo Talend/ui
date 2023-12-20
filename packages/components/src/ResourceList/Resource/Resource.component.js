@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { withTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { formatDistanceToNow } from 'date-fns/formatDistanceToNow';
 import PropTypes from 'prop-types';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
