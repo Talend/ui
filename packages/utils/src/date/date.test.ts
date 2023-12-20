@@ -1,5 +1,5 @@
 import { format as dateFnsFormat } from 'date-fns/format';
-import enGB from 'date-fns/locale/en-GB';
+import { enGB } from 'date-fns/locale/en-GB';
 
 import {
 	convertToLocalTime,
@@ -126,7 +126,7 @@ describe('date', () => {
 			expect(localDate).toEqual('2020-05-14T01:00:00+0500');
 		});
 
-		it.only('should not change timezone tokens that are wrapped in hooks', () => {
+		it('should not change timezone tokens that are wrapped in hooks', () => {
 			// given
 			const dateObj = new Date('2020-05-13, 20:00');
 			const formatString = 'YYYY-MM-DD[T]HH:mm:ss[Z]';
@@ -138,6 +138,7 @@ describe('date', () => {
 			// then
 			expect(localDate).toEqual('2020-05-14T01:00:00Z');
 		});
+
 		it('should pass locale to datefns format method', () => {
 			// given
 			const dateObj = new Date('2020-12-20, 20:00');
