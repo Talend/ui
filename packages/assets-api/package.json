@@ -35,7 +35,7 @@
     "@talend/scripts-config-react-webpack": "^16.3.3",
     "@talend/scripts-config-typescript": "^11.2.0",
     "@types/node": "^6.14.13",
-    "@types/jest": "^29.5.10",
+    "@types/jest": "^29.5.11",
     "read-pkg-up": "^7.0.1"
   },
   "publishConfig": {
