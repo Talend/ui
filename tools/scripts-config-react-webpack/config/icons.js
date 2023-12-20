@@ -17,10 +17,10 @@ function getTalendIconsPath() {
 
 	if (main.indexOf('.pnpm') > -1) {
 		const startPath = main.substring(0, main.indexOf('icons'));
-		const regex = /@talend\+icons@([^\s/]+)/;
+		const regex = /@talend\+icons@([^\s/\\]+)/;
 		const match = main.match(regex);
 		const version = match[1];
-		return `${startPath}icons@${version}/node_modules/@talend/icons`;
+		return path.join(`${startPath}icons@${version}`, 'node_modules', '@talend', 'icons');
 	}
 	const root = main.split('icons')[0];
 	return `${root}icons`;
