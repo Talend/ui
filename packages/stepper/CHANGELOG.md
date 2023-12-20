@@ -1,5 +1,14 @@
 # @talend/react-stepper
 
+## 10.2.1
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/design-system@8.8.3
+
 ## 10.2.0
 
 ### Minor Changes

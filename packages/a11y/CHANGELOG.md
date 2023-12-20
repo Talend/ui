@@ -1,5 +1,16 @@
 # @talend/react-a11y
 
+## 3.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+### Patch Changes
+
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+
 ## 2.3.0
 
 ### Minor Changes

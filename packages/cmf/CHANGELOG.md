@@ -1,5 +1,12 @@
 # @talend/react-cmf
 
+## 8.3.3
+
+### Patch Changes
+
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+
 ## 8.3.2
 
 ### Patch Changes

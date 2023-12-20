@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 14.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+### Patch Changes
+
+- e095335: fix: elevation layer on headerbar
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+  - @talend/react-a11y@3.0.0
+
 ## 13.1.6
 
 ### Patch Changes

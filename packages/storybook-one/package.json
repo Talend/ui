@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-storybook-one",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Package containing all stories from talend/ui repository",
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
@@ -20,14 +20,14 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
-    "@talend/design-system": "^8.8.0",
+    "@talend/design-system": "^8.8.3",
     "@talend/design-tokens": "^2.11.0",
-    "@talend/react-faceted-search": "^14.1.0",
+    "@talend/react-faceted-search": "^15.0.0",
     "@talend/storybook-docs": "^2.3.0",
     "@talend/icons": "^7.3.1",
-    "@talend/react-components": "^13.1.0",
-    "@talend/react-forms": "^12.5.0",
-    "@talend/react-dataviz": "^4.2.2",
+    "@talend/react-components": "^14.0.0",
+    "@talend/react-forms": "^12.5.1",
+    "@talend/react-dataviz": "^5.0.0",
     "lodash": "^4.17.21",
     "pkg-dir": "^7.0.0",
     "react-hook-form": "^7.48.2"
@@ -55,7 +55,7 @@
     "@talend/locales-tui-faceted-search": "^11.3.0",
     "@talend/locales-tui-forms": "^10.2.4",
     "@talend/scripts-config-babel": "^13.2.1",
-    "@talend/scripts-config-react-webpack": "^16.4.0",
+    "@talend/scripts-config-react-webpack": "^16.4.2",
     "@talend/scripts-config-storybook-lib": "^5.3.0",
     "@talend/scripts-config-typescript": "^11.2.0",
     "@talend/scripts-core": "^16.3.2",

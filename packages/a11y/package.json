@@ -24,7 +24,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/utils": "^2.9.0"
+    "@talend/utils": "^3.0.0"
   },
   "devDependencies": {
     "@talend/eslint-config": "^13.0.2",
@@ -49,5 +49,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.3.0"
+  "version": "3.0.0"
 }
