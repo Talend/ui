@@ -3,7 +3,7 @@
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import { format } from 'date-fns/format';
-import { distanceInWordsToNow } from 'date-fns/formatDistanceToNow';
+import { formatDistanceToNow } from 'date-fns/formatDistanceToNow';
 
 import { date as dateUtils } from '@talend/utils';
 
@@ -16,10 +16,12 @@ jest.mock('../../i18n/DateFnsLocale/locale');
 jest.mock('date-fns/formatDistanceToNow', () => ({
 	__esModule: true,
 	default: jest.fn(() => 'about 1 month ago'),
+	formatDistanceToNow: jest.fn(() => 'about 1 month ago'),
 }));
 jest.mock('date-fns/format', () => ({
 	__esModule: true,
 	default: jest.fn(() => '2016-09-22 09:00:00'),
+	format: jest.fn(() => '2016-09-22 09:00:00'),
 }));
 
 jest.mock('../../TooltipTrigger', () => props => (
@@ -69,7 +71,7 @@ describe('CellDatetime', () => {
 			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />,
 		);
 		// then
-		expect(distanceInWordsToNow).toHaveBeenCalledWith(new Date(1474495200000), {
+		expect(formatDistanceToNow).toHaveBeenCalledWith(new Date(1474495200000), {
 			addSuffix: true,
 			locale: 'getLocale',
 		});
@@ -89,7 +91,7 @@ describe('CellDatetime', () => {
 
 		render(<CellDatetimeComponent columnData={columnData} />);
 		// then
-		expect(distanceInWordsToNow).not.toHaveBeenCalled();
+		expect(formatDistanceToNow).not.toHaveBeenCalled();
 		expect(format).not.toHaveBeenCalled();
 		expect(document.querySelector('.cell-datetime-container')).toBeEmptyDOMElement();
 	});

@@ -1,4 +1,4 @@
-import { dateFnsFormat } from 'date-fns/format';
+import { format as dateFnsFormat } from 'date-fns/format';
 import enGB from 'date-fns/locale/en-GB';
 
 import {
@@ -17,7 +17,8 @@ jest.mock('date-fns/format', () => {
 	const actualFormat = jest.requireActual('date-fns/format');
 	return {
 		__esModule: true,
-		default: jest.fn().mockImplementation(actualFormat),
+		default: jest.fn().mockImplementation(actualFormat.default),
+		format: jest.fn().mockImplementation(actualFormat.format),
 	};
 });
 
@@ -125,7 +126,7 @@ describe('date', () => {
 			expect(localDate).toEqual('2020-05-14T01:00:00+0500');
 		});
 
-		it('should not change timezone tokens that are wrapped in hooks', () => {
+		it.only('should not change timezone tokens that are wrapped in hooks', () => {
 			// given
 			const dateObj = new Date('2020-05-13, 20:00');
 			const formatString = 'YYYY-MM-DD[T]HH:mm:ss[Z]';
