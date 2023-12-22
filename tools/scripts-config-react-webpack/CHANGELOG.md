@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.5.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
 ## 16.4.2
 
 ### Patch Changes
