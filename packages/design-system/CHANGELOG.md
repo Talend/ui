@@ -1,5 +1,16 @@
 # @talend/design-system
 
+## 8.9.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+### Patch Changes
+
+- Updated dependencies [076147b]
+  - @talend/design-tokens@2.12.0
+
 ## 8.8.3
 
 ### Patch Changes
