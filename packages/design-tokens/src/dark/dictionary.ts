@@ -2574,6 +2574,12 @@ const dictionary = [
 		id: 'e21f0ed0-b4d6-11ec-bb22-090b530f3237',
 	},
 	{
+		name: 'coralSizingBrandingLogo',
+		type: 'branding',
+		description: ``,
+		value: '2.8rem',
+	},
+	{
 		name: 'coralElevationShadowNeutralM',
 		type: 'shadow',
 		description: ``,

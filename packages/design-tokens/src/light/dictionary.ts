@@ -2770,6 +2770,12 @@ Ex: Spot illustration width`,
 		id: '2e751ee0-b4c4-11ec-9f9f-75ac4ca4ac00',
 	},
 	{
+		name: 'coralSizingBrandingLogo',
+		type: 'branding',
+		description: ``,
+		value: '2.8rem',
+	},
+	{
 		name: 'coralElevationShadowNeutralM',
 		type: 'shadow',
 		description: `Default shadow. 
