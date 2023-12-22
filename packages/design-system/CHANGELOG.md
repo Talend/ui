@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 8.9.1
+
+### Patch Changes
+
+- 14f478d: fix: qlik logo token
+- Updated dependencies [14f478d]
+  - @talend/design-tokens@2.12.1
+
 ## 8.9.0
 
 ### Minor Changes

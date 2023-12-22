@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.12.1
+
+### Patch Changes
+
+- 14f478d: fix: qlik logo token
+
 ## 2.12.0
 
 ### Minor Changes
