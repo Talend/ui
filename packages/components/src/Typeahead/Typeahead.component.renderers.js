@@ -107,7 +107,7 @@ export function renderItemsContainerFactory(
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
-	const noDomain = items && !items.length && searchingText === '';
+	const noDomain = !items || (items && !items.length);
 	function ItemsContainerComponent({ containerProps, children }) {
 		if (!isShown) {
 			return undefined;
