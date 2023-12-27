@@ -131,10 +131,6 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 	const [highlightedSectionIndex, setHighlightedSectionIndex] = useState(0);
 	const [highlightedItemIndex, setHighlightedItemIndex] = useState(0);
 
-	const noDomainFallback = useCallback(() => {
-		return <>{t('NO_DOMAIN_LIST', { defaultValue: 'No domain list' })}</>;
-	}, [t]);
-
 	if (docked && onToggle) {
 		return (
 			<Action
@@ -243,7 +239,6 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
 	const isLoadingText =
 		rest.isLoadingText || t('TYPEAHEAD_LOADING', { defaultValue: 'Loading...' });
-	const noDomainRenderer = rest.noDomainRenderer || noDomainFallback;
 
 	const defaultRenderersProps = {
 		renderItem,
@@ -260,7 +255,7 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 			styles,
 			attributes,
 			t,
-			noDomainRenderer,
+			rest.noDomainRenderer,
 		),
 		renderItemData: {
 			valueId: rest.valueId,
