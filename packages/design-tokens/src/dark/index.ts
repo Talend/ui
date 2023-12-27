@@ -289,6 +289,7 @@ const tokens = {
 	coralSizingL: `var(--coral-sizing-l, 4rem)`,
 	coralSizingXxxl: `var(--coral-sizing-xxxl, 22rem)`,
 	coralSizingMaximal: `var(--coral-sizing-maximal, 32rem)`,
+	coralSizingBrandingLogo: `var(--coral-sizing-branding-logo, 2.8rem)`,
 	coralElevationShadowNeutralM: `var(--coral-elevation-shadow-neutral-m, 0rem 0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.5))`,
 	coralElevationShadowNeutralL: `var(--coral-elevation-shadow-neutral-l, 0rem 0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.5))`,
 	coralElevationShadowAccent: `var(--coral-elevation-shadow-accent, 0rem 0.1rem 0.1rem 0rem hsla(198, 72%, 75%, 0.3))`,

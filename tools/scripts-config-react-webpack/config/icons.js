@@ -49,7 +49,7 @@ function getAppLoaderIconUrl(theme) {
 function getFavicon(theme) {
 	const p = path.join(
 		getTalendIconsPath(),
-		`/src/svg/products/${theme ? `${getThemeIcon(theme)}-colored.svg` : 'logo-square.svg'}`,
+		`/src/svg/products/${theme ? `${getThemeIcon(theme)}-favicon.svg` : 'logo-square.svg'}`,
 	);
 	return svg64(fs.readFileSync(p, 'utf-8'));
 }

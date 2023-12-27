@@ -1,7 +1,7 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-headerbar-logo-width: 6rem !default;
+$tc-headerbar-logo-width: tokens.$coral-sizing-s !default;
 $tc-headerbar-logo-full-width: 8.5rem !default;
 
 @keyframes fadeIn {
@@ -98,9 +98,9 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 		.tc-header-bar-logo {
 			padding: 0;
-			width: $tc-headerbar-logo-width;
+			width: calc($tc-headerbar-logo-width + tokens.$coral-sizing-branding-logo);
 			background-image: tokens.$coral-branding-logo;
-			background-size: 2.8rem;
+			background-size: tokens.$coral-sizing-branding-logo;
 			background-repeat: no-repeat;
 			background-position-x: center;
 			background-position-y: center;
