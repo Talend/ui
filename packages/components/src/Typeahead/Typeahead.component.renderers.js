@@ -131,7 +131,7 @@ export function renderItemsContainerFactory(
 					<span>{loadingText}</span>
 				</div>
 			);
-		} else if (noDomain === noDomain) {
+		} else if (noDomain && noDomainRenderer) {
 			content = (
 				<div key="no-domain" className={`${theme['no-domain']} no-domain`}>
 					<span>{noDomainRenderer()}</span>
