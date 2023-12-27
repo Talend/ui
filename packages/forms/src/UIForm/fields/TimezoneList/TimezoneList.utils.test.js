@@ -14,6 +14,7 @@ describe('getTimezones', () => {
 								},
 								Europe: {
 									Istanbul: { exemplarCity: '[EN] Istanbul' },
+									Berlin: { long: { daylight: 'Irish Standard Time' } },
 								},
 							},
 						},
@@ -86,6 +87,12 @@ describe('getTimezones', () => {
 				timezoneName: '[EN] Freetown',
 				offset: 0,
 				value: 'Africa/Freetown',
+			},
+			{
+				name: '(UTC +01:00) Europe/Berlin',
+				offset: 60,
+				timezoneName: 'Europe/Berlin',
+				value: 'Europe/Berlin',
 			},
 			{
 				name: '(UTC +03:00) [EN] Istanbul',
