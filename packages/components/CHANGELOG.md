@@ -1,5 +1,17 @@
 # @talend/react-components
 
+## 14.1.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+### Patch Changes
+
+- Updated dependencies [076147b]
+  - @talend/design-tokens@2.12.0
+  - @talend/icons@7.4.0
+
 ## 14.0.0
 
 ### Major Changes
