@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
 import { usePopper } from 'react-popper';
