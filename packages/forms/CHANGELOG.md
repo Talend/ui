@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 12.5.2
+
+### Patch Changes
+
+- eeec10c: fix timezone names
+
 ## 12.5.1
 
 ### Patch Changes
