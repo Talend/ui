@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 14.2.0
+
+### Minor Changes
+
+- 1a3cdeb: Add an empty state to Typeahead
+
 ## 14.1.0
 
 ### Minor Changes
