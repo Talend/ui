@@ -20,7 +20,7 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.12.1",
+    "@algolia/autocomplete-js": "^1.12.2",
     "@storybook/blocks": "^7.6.4",
     "@storybook/react": "^7.6.4",
     "@talend/design-system": "^8.8.0",
