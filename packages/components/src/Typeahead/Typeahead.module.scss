@@ -137,6 +137,17 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 	}
 }
 
+.no-domain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	span {
+		padding: $padding-small $padding-smaller;
+	}
+}
+
+
 .items {
 	margin: 0;
 	padding: 0;
