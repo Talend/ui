@@ -66,7 +66,7 @@
     "mdx-embed": "^1.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "~6.3.0",
+    "react-router-dom": "~6.21.1",
     "storybook-docs-toc": "^1.7.0"
   },
   "private": true
