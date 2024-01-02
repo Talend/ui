@@ -1,7 +1,16 @@
 import { render, screen } from '@testing-library/react';
+
 import HeaderTitle from './HeaderTitle.component';
 
 describe('HeaderTitle', () => {
+	beforeAll(() => {
+		jest.useFakeTimers().setSystemTime(new Date('2023-01-01'));
+	});
+
+	afterAll(() => {
+		jest.useRealTimers();
+	});
+
 	it('should render', () => {
 		// When
 		const { container } = render(

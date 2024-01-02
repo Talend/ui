@@ -4,6 +4,14 @@ import userEvent from '@testing-library/user-event';
 import MonthYearView from './MonthYearView.component';
 
 describe('MonthYearView', () => {
+	beforeAll(() => {
+		jest.useFakeTimers().setSystemTime(new Date('2023-01-01'));
+	});
+
+	afterAll(() => {
+		jest.useRealTimers();
+	});
+
 	it('should render', () => {
 		// when
 		const { container } = render(
