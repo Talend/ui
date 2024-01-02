@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 8.4.0
+
+### Minor Changes
+
+- 89f7250: fix(DFD-502): Update toggle active hover background color with coral tokens
+
 ## 8.3.1
 
 ### Patch Changes
