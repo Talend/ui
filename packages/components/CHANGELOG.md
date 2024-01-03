@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 14.2.1
+
+### Patch Changes
+
+- 3c5082b: TDOPS-5733 - Notification long messages should break on words and not characters
+- e8956e6: TDOPS-5872 - Allow subheader subtitle to display long labels
+- e08217c: fix: dropdown with image display
+- Updated dependencies [e08217c]
+  - @talend/bootstrap-theme@8.4.1
+
 ## 14.2.0
 
 ### Minor Changes
