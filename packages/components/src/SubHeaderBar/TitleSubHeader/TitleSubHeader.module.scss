@@ -64,8 +64,14 @@ $header-title-max-width: 90rem;
 
 		&-subtitle {
 			@include ellipsis;
+			max-width: 100%;
 			color: tokens.$coral-color-neutral-text;
 			font-size: $tc-input-subheader-size-medium;
+
+			> * {
+				@include ellipsis;
+				max-width: 100%;
+			}
 		}
 	}
 

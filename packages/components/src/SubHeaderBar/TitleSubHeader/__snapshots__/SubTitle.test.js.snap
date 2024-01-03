@@ -2,6 +2,7 @@
 
 exports[`SubTitle should render 1`] = `
 <small
+  aria-describedby="42"
   class="tc-subheader-details-text-subtitle theme-tc-subheader-details-text-subtitle"
 >
   mySubTitle
