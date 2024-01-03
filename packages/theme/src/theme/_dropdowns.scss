@@ -50,6 +50,7 @@ $dropdown-caret-up-axis: -45deg !default;
 				color: tokens.$coral-color-neutral-text;
 			}
 
+			> img:first-child,
 			> svg:first-child {
 				margin-right: $padding-small;
 			}
