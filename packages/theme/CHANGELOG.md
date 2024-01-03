@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 8.4.1
+
+### Patch Changes
+
+- e08217c: fix: dropdown with image display
+
 ## 8.4.0
 
 ### Minor Changes
