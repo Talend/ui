@@ -42,6 +42,11 @@ $tc-dropdown-button-right-padding: 0.8rem;
 	}
 
 	&-item {
+		a img {
+			max-width: initial;
+		}
+
+		a img,
 		a svg {
 			margin: 0 $padding-smaller;
 		}
