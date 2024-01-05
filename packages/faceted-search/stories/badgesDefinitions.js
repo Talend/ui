@@ -502,3 +502,21 @@ export const badgeCreationDate = {
 		'data-feature': 'faceted-badge-creation-date',
 	},
 };
+
+export const badgePeriod = {
+	properties: {
+		attribute: 'period',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Period',
+		operator: {},
+		operators: [],
+		type: 'period',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: ['in'],
+		'data-feature': 'faceted-badge-period',
+	},
+};

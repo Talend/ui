@@ -1,0 +1,23 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$popover-screen-width: 32rem;
+
+.fs-badge-period-form {
+	:global(.tc-tooltip-body) {
+		margin: 0;
+		overflow-y: auto;
+	}
+
+	:global(.tc-tooltip-content) {
+		flex-direction: column;
+		max-height: tokens.$coral-sizing-maximal;
+		margin-bottom: tokens.$coral-spacing-s;
+	}
+	&:global(.period-options-form) {
+		width: $popover-screen-width;
+	}
+
+	:global(.menuitem-secondary-menu) {
+		display: flex;
+	}
+}

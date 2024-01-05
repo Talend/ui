@@ -1,10 +1,11 @@
-import { BadgeText } from '../components/Badges/BadgeText/BadgeText.component';
 import { BadgeCheckboxes } from '../components/Badges/BadgeCheckboxes/BadgeCheckboxes.component';
-import { BadgeNumber } from '../components/Badges/BadgeNumber/BadgeNumber.component';
-import { BadgeSlider } from '../components/Badges/BadgeSlider/BadgeSlider.component';
-import { BadgeTags } from '../components/Badges/BadgeTags/BadgeTags.component';
 import { BadgeDate } from '../components/Badges/BadgeDate/BadgeDate.component';
 import { BadgeMenu } from '../components/Badges/BadgeMenu/BadgeMenu.component';
+import { BadgeNumber } from '../components/Badges/BadgeNumber/BadgeNumber.component';
+import { BadgePeriod } from '../components/Badges/BadgePeriod/BadgePeriod.component';
+import { BadgeSlider } from '../components/Badges/BadgeSlider/BadgeSlider.component';
+import { BadgeTags } from '../components/Badges/BadgeTags/BadgeTags.component';
+import { BadgeText } from '../components/Badges/BadgeText/BadgeText.component';
 
 const standardBadgeTypeNames = {
 	text: 'text',
@@ -14,6 +15,7 @@ const standardBadgeTypeNames = {
 	tags: 'tags',
 	date: 'date',
 	menu: 'menu',
+	period: 'period',
 };
 
 const standardBadges = {
@@ -24,6 +26,7 @@ const standardBadges = {
 	[standardBadgeTypeNames.tags]: BadgeTags,
 	[standardBadgeTypeNames.date]: BadgeDate,
 	[standardBadgeTypeNames.menu]: BadgeMenu,
+	[standardBadgeTypeNames.period]: BadgePeriod,
 };
 
 export const filterBadgeDefinitionsWithDictionary = (badgesDictionary, badgeDefinition) => {

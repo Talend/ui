@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import classNames from 'classnames';
 import { isEqual } from 'lodash';
 import PropTypes from 'prop-types';
 
@@ -35,6 +36,7 @@ const BadgeFaceted = ({
 	removable = true,
 	value,
 	size = Badge.SIZES.large,
+	type,
 	t,
 }) => {
 	const openValueJustAfterSelectionOfType = operators.length < 2 && initialOperatorOpened;
@@ -107,7 +109,12 @@ const BadgeFaceted = ({
 	};
 
 	return (
-		<Badge id={id} className={theme('tc-badge-faceted')} display={size} type={displayType}>
+		<Badge
+			id={id}
+			className={classNames(theme('tc-badge-faceted'), type)}
+			display={size}
+			type={displayType}
+		>
 			{labelCategory && (
 				<>
 					<Badge.Category category={labelCategory} label={labelCategory} />
