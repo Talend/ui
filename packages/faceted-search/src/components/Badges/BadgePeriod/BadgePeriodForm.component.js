@@ -30,25 +30,21 @@ function getPeriodOptions(t) {
 			id: 'LAST_24_HOURS',
 			value: 'lastDay',
 			label: t('LAST_24_HOURS', { defaultValue: 'Last 24 hours' }),
-			checked: false,
 		},
 		{
 			id: 'LAST_3_DAYS',
 			value: 'last3days',
 			label: t('LAST_3_DAYS', { defaultValue: 'Last 3 days' }),
-			checked: false,
 		},
 		{
 			id: 'LAST_WEEK',
 			value: 'last7days',
 			label: t('LAST_WEEK', { defaultValue: 'Last 7 days' }),
-			checked: false,
 		},
 		{
 			id: 'LAST_MONTH',
 			value: 'last30days',
 			label: t('LAST_MONTH', { defaultValue: 'Last 30 days' }),
-			checked: false,
 		},
 		{
 			id: 'CUSTOM',
