@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.9.2
+
+### Patch Changes
+
+- 78928ee: Pass hideExternal to Linkable component
+
 ## 8.9.1
 
 ### Patch Changes
