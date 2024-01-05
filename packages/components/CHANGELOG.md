@@ -1,5 +1,33 @@
 # @talend/react-components
 
+## 14.2.1
+
+### Patch Changes
+
+- 3c5082b: TDOPS-5733 - Notification long messages should break on words and not characters
+- e8956e6: TDOPS-5872 - Allow subheader subtitle to display long labels
+- e08217c: fix: dropdown with image display
+- Updated dependencies [e08217c]
+  - @talend/bootstrap-theme@8.4.1
+
+## 14.2.0
+
+### Minor Changes
+
+- 1a3cdeb: Add an empty state to Typeahead
+
+## 14.1.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+### Patch Changes
+
+- Updated dependencies [076147b]
+  - @talend/design-tokens@2.12.0
+  - @talend/icons@7.4.0
+
 ## 14.0.0
 
 ### Major Changes

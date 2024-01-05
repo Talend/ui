@@ -1,5 +1,17 @@
 # @talend/icons
 
+## 7.4.1
+
+### Patch Changes
+
+- 3a98981: fix(icons): add qlik-negative icon
+
+## 7.4.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
 ## 7.3.1
 
 ### Patch Changes

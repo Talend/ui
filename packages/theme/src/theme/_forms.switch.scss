@@ -84,7 +84,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 
 			&:not(:disabled):hover {
 				+ *::before {
-					background: $lochmara600;
+					background: tokens.$coral-color-accent-background-strong-hover;
 				}
 			}
 		}

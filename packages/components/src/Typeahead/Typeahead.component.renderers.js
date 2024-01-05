@@ -103,10 +103,11 @@ export function renderItemsContainerFactory(
 	styles,
 	attributes,
 	t,
+	noDomainRenderer,
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
-
+	const noDomain = !items || (items && !items.length);
 	function ItemsContainerComponent({ containerProps, children }) {
 		if (!isShown) {
 			return undefined;
@@ -128,6 +129,12 @@ export function renderItemsContainerFactory(
 			content = (
 				<div key="loading" className={`${theme['is-loading']} is-loading`}>
 					<span>{loadingText}</span>
+				</div>
+			);
+		} else if (noDomain && noDomainRenderer) {
+			content = (
+				<div key="no-domain" className={`${theme['no-domain']} no-domain`}>
+					<span>{noDomainRenderer()}</span>
 				</div>
 			);
 		} else if (noResult) {

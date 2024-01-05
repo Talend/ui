@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.12.1",
+    "@algolia/autocomplete-js": "^1.12.2",
     "@storybook/blocks": "^7.6.4",
     "@storybook/react": "^7.6.4",
     "@talend/design-tokens": "^2.11.0",
