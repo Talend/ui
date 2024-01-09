@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.0.1
+
+### Patch Changes
+
+- ab1ae8a: TDOPS-5873 - Faceted search container no longer takes more then 100% width
+
 ## 15.0.0
 
 ### Major Changes
