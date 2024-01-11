@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
 
-import { Action } from '@talend/react-components/lib/Actions';
-import { getTheme } from '@talend/react-components/lib/theme';
+import { ButtonTertiary } from '@talend/design-system';
 
 import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 
-import cssModule from './BadgeOperator.module.scss';
-
-const theme = getTheme(cssModule);
+import styles from './BadgeOperator.module.scss';
 
 const BadgeOperatorRow = ({ onClick, id, name, label, iconName }) => {
 	const onClickOperatorRow = event => {
@@ -15,26 +12,19 @@ const BadgeOperatorRow = ({ onClick, id, name, label, iconName }) => {
 	};
 	if (iconName) {
 		return (
-			<Action
-				className={theme('tc-badge-operator-row-button')}
+			<ButtonTertiary
 				id={`${id}-operator-row-button-${name}`}
-				label={label}
-				link
 				icon={`talend-${iconName}`}
 				onClick={onClickOperatorRow}
-				role="button"
-			/>
+			>
+				{label}
+			</ButtonTertiary>
 		);
 	}
 	return (
-		<Action
-			className={theme('tc-badge-operator-row-button')}
-			id={`${id}-operator-row-button-${name}`}
-			label={label}
-			link
-			onClick={onClickOperatorRow}
-			role="button"
-		/>
+		<ButtonTertiary id={`${id}-operator-row-button-${name}`} onClick={onClickOperatorRow}>
+			{label}
+		</ButtonTertiary>
 	);
 };
 
@@ -48,7 +38,7 @@ BadgeOperatorRow.propTypes = {
 
 const BadgeOperatorPopover = ({ id, operators, onClick }) => {
 	return (
-		<div className={theme('tc-badge-operator-popover')}>
+		<div className={styles['tc-badge-operator-popover']}>
 			{operators.map(operator => (
 				<BadgeOperatorRow id={id} key={`${id}-${operator.name}`} onClick={onClick} {...operator} />
 			))}

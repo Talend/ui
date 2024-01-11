@@ -2,19 +2,21 @@
 
 exports[`BadgeNumberForm should mount a default badge 1`] = `
 <form
-  class="tc-badge-number-form theme-tc-badge-number-form"
+  class="theme-form"
   id="customId-number"
 >
   <div
-    class="theme-body tc-tooltip-body tc-badge-number-form-body theme-tc-badge-number-form-body"
-    id="customId-badge-body"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
+    <label
+      class="theme-label"
+      for="customId-input"
+    />
     <div
-      class="theme-content tc-tooltip-content"
-      id="customId-badge-body-content"
+      class="theme-inputShell"
     >
       <input
-        class="form-control"
+        class="theme-input"
         id="customId-input"
         placeholder="Type here"
         type="number"
@@ -22,20 +24,25 @@ exports[`BadgeNumberForm should mount a default badge 1`] = `
       />
     </div>
   </div>
-  <footer
-    class="theme-footer tc-tooltip-footer"
-    id="customId-badge-footer"
+  <div
+    class="theme-buttons"
   >
-    <button
-      aria-label="Apply"
-      class="btn btn-info"
-      data-feature="filter.price.add"
-      type="submit"
+    <div
+      class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-0 theme-padding-bottom-M theme-padding-left-0"
     >
-      <span>
-        Apply
-      </span>
-    </button>
-  </footer>
+      <button
+        aria-busy="false"
+        class="theme-clickable theme-button theme-primary"
+        data-feature="filter.price.add"
+        type="submit"
+      >
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
+          Apply
+        </span>
+      </button>
+    </div>
+  </div>
 </form>
 `;

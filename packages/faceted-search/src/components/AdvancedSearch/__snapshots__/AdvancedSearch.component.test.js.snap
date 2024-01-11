@@ -2,7 +2,7 @@
 
 exports[`AdvancedSearch should render by default 1`] = `
 <div
-  class="adv-search theme-adv-search"
+  class="theme-adv-search"
   id="some-id-adv-search"
 >
   <form
@@ -11,7 +11,7 @@ exports[`AdvancedSearch should render by default 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+      class="tc-svg-icon tc-icon theme-svg theme-adv-search-filter-icon tc-icon-name-talend-filter"
       focusable="false"
       name="talend-filter"
       pointer-events="none"
@@ -20,7 +20,7 @@ exports[`AdvancedSearch should render by default 1`] = `
     <input
       aria-label="Advanced Faceted Search"
       autocomplete="off"
-      class="adv-search-input theme-adv-search-input"
+      class="theme-adv-search-input"
       id="some-id-form"
       name="advanced-search-faceted"
       placeholder="Enter your query"
@@ -29,7 +29,7 @@ exports[`AdvancedSearch should render by default 1`] = `
       value=""
     />
     <div
-      class="adv-search-buttons theme-adv-search-buttons"
+      class="theme-adv-search-buttons"
     >
       <button
         aria-describedby="id-42"

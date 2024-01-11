@@ -116,12 +116,12 @@ function strToDate(strToParse, dateFormat, isDisabledChecker) {
 function checkSupportedDateFormat(dateFormat) {
 	const partsOrder = dateFormat.split(/[^A-Za-z]/);
 	if (
-		partsOrder.indexOf('YYYY') === -1 ||
+		partsOrder.indexOf('yyyy') === -1 ||
 		partsOrder.indexOf('MM') === -1 ||
-		partsOrder.indexOf('DD') === -1
+		partsOrder.indexOf('dd') === -1
 	) {
 		throw new Error(
-			`DATE FORMAT ${dateFormat} - NOT SUPPORTED. Please provide a composition of YYYY, MM, DD`,
+			`DATE FORMAT ${dateFormat} - NOT SUPPORTED. Please provide a composition of yyyy, MM, dd`,
 		);
 	}
 }

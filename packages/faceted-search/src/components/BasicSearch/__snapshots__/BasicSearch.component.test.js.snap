@@ -2,14 +2,14 @@
 
 exports[`BasicSearch should render the default html output with no badges 1`] = `
 <div
-  class="tc-basic-search theme-tc-basic-search"
+  class="theme-tc-basic-search"
   id="manager-id-basic-search"
 >
   <div
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-owns="react-autowhatever-42"
-    class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+    class="theme-tc-typeahead-container tc-typeahead-container theme-tc-basic-search-quicksearch"
     role="combobox"
   >
     <div
@@ -58,10 +58,10 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     </div>
   </div>
   <div
-    class="tc-basic-search-content theme-tc-basic-search-content"
+    class="theme-tc-basic-search-content"
   >
     <div
-      class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
+      class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-tc-badge-faceted theme-theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
     >
       <div
         class="tc-badge-button theme-tc-badge-button"
@@ -75,10 +75,10 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
           Name
         </span>
         <div
-          class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large"
+          class="theme-tc-badge-operator theme-tc-badge-operator-large"
         >
           <div
-            class="tc-badge-operator-button theme-tc-badge-operator-button"
+            class="theme-tc-badge-operator-button"
           >
             <button
               aria-busy="false"
@@ -94,7 +94,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
               >
                 <svg
                   aria-hidden="true"
-                  class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+                  class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-equal"
                   focusable="false"
                   name="talend-equal"
                   pointer-events="none"
@@ -105,7 +105,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
           </div>
         </div>
         <div
-          class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
+          class="theme-tc-badge-faceted-overlay"
         >
           <button
             aria-busy="false"
@@ -147,9 +147,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
         </button>
       </div>
     </div>
-    <div
-      class="tc-basic-search-content-popover theme-tc-basic-search-content-popover"
-    >
+    <div>
       <button
         aria-busy="false"
         aria-expanded="false"
@@ -181,7 +179,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     </div>
   </div>
   <div
-    class="tc-basic-search-clear-content theme-tc-basic-search-clear-content"
+    class="theme-tc-basic-search-clear-content"
   >
     <button
       aria-describedby="id-42"

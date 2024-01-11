@@ -5,18 +5,18 @@ import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 
-import { DropdownButton } from '@talend/design-system';
-import { Action } from '@talend/react-components/lib/Actions';
-import FilterBar from '@talend/react-components/lib/FilterBar';
-import Rich from '@talend/react-components/lib/Rich';
-import { getTheme } from '@talend/react-components/lib/theme';
-import CircularProgress from '@talend/react-components/src/CircularProgress';
+import {
+	ButtonPrimary,
+	ButtonTertiary,
+	DropdownButton,
+	Form,
+	SkeletonHeading,
+	StackVertical,
+} from '@talend/design-system';
 
 import { getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
-import cssModule from './BadgeMenu.module.scss';
-
-const theme = getTheme(cssModule);
+import styles from './BadgeMenu.module.scss';
 
 const createRowItemEntity = value => option => {
 	return {
@@ -57,39 +57,29 @@ const BadgeMenuForm = ({
 		[items, filter, showAll],
 	);
 	const showSelectedToggleLabel = showAll
-		? t('SHOW_SELECTED_ITEM', { defaultValue: 'Selected' })
+		? t('SHOW_SELECTED_ITEM', { defaultValue: 'Show selected' })
 		: t('SHOW_ALL_ITMES', { defaultValue: 'Show all' });
 	return (
-		<>
-			<Rich.Layout.Header className={theme('fs-badge-menu-form-header')}>
-				<FilterBar
-					className={theme('menu-items-filter')}
-					autoFocus={false}
-					dockable={false}
-					docked={false}
-					iconAlwaysVisible
-					id={`${badgeMenuFormId}-filter`}
-					placeholder={
-						filterBarPlaceholder ||
-						t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-							defaultValue: 'Find a column',
-						})
-					}
-					onToggle={() => setFilter('')}
-					onFilter={(_, filterValue) => setFilter(filterValue)}
-					value={filter}
-					data-test="badge-menu-filter"
-					data-testid="badge-menu-filter"
-				/>
-			</Rich.Layout.Header>
-			<form
-				className={theme('fs-badge-menu-form')}
-				id={`${badgeMenuFormId}-form`}
-				onSubmit={onSubmit}
-			>
-				<Rich.Layout.Body id={badgeMenuFormId} className={theme('fs-badge-menu-form-body')}>
-					{!rest.isLoading ? (
-						visibleItems.map(rowItem => {
+		<Form id={`${badgeMenuFormId}-form`} onSubmit={onSubmit}>
+			<Form.Search
+				id={`${badgeMenuFormId}-filter`}
+				placeholder={
+					filterBarPlaceholder ||
+					t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+						defaultValue: 'Find a column',
+					})
+				}
+				onChange={event => {
+					setFilter(event?.target?.value || '');
+				}}
+				value={filter}
+				data-test="badge-menu-filter"
+				data-testid="badge-menu-filter"
+			/>
+			<div className={styles['fs-badge-menu-form-items']}>
+				{!rest.isLoading ? (
+					<StackVertical gap="0">
+						{visibleItems.map(rowItem => {
 							return (
 								<DropdownButton
 									key={rowItem.id}
@@ -103,36 +93,37 @@ const BadgeMenuForm = ({
 									<span>{rowItem.label}</span>
 								</DropdownButton>
 							);
-						})
-					) : (
-						<CircularProgress />
-					)}
-				</Rich.Layout.Body>
-				<Rich.Layout.Footer id={id} className={theme('fs-badge-menu-form-footer')}>
-					<div>
-						{!isEmpty(value) && (
-							<Action
-								type="button"
-								onClick={() => {
-									setShowAll(!showAll);
-									setFilter('');
-								}}
-								label={showSelectedToggleLabel}
-								bsStyle="link"
-								className={theme('fs-badge-menu-form-left-button')}
-							/>
-						)}
-					</div>
-					<Action
-						type="submit"
-						label={t('APPLY', { defaultValue: 'Apply' })}
-						bsStyle="info"
-						disabled={rest.isLoading}
-						{...getDataAttributesFrom(rest)}
-					/>
-				</Rich.Layout.Footer>
-			</form>
-		</>
+						})}
+					</StackVertical>
+				) : (
+					<StackVertical
+						gap="S"
+						data-testid="badge-menu-form-skeleton-item"
+						data-test="badge-menu-form-skeleton-item"
+					>
+						<SkeletonHeading size="L" width="100" />
+						<SkeletonHeading size="L" width="100" />
+						<SkeletonHeading size="L" width="100" />
+					</StackVertical>
+				)}
+			</div>
+			<Form.Buttons>
+				{!isEmpty(value) && (
+					<ButtonTertiary
+						type="button"
+						onClick={() => {
+							setShowAll(!showAll);
+							setFilter('');
+						}}
+					>
+						{showSelectedToggleLabel}
+					</ButtonTertiary>
+				)}
+				<ButtonPrimary type="submit" disabled={rest.isLoading} {...getDataAttributesFrom(rest)}>
+					{t('APPLY', { defaultValue: 'Apply' })}
+				</ButtonPrimary>
+			</Form.Buttons>
+		</Form>
 	);
 };
 

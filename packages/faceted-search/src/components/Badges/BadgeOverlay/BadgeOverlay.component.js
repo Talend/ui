@@ -3,11 +3,9 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ButtonTertiary, Popover } from '@talend/design-system';
-import { FormatValue, getTheme, Icon, TooltipTrigger } from '@talend/react-components/lib/Icon';
+import { FormatValue, Icon, TooltipTrigger } from '@talend/react-components';
 
-import cssModule from './BadgeOverlay.module.scss';
-
-const theme = getTheme(cssModule);
+import styles from './BadgeOverlay.module.scss';
 
 const getChildren = (children, setOverlayOpened) => {
 	if (typeof children === 'function') {
@@ -18,7 +16,7 @@ const getChildren = (children, setOverlayOpened) => {
 
 const labelFormatter = (value, showSpecialChars) =>
 	showSpecialChars ? (
-		<FormatValue key={value} className={theme('tc-badge-format-value')} value={value} />
+		<FormatValue key={value} className={styles['tc-badge-format-value']} value={value} />
 	) : (
 		<span key={value}>{value}</span>
 	);
@@ -85,7 +83,7 @@ const BadgeOverlay = ({
 			size="S"
 		>
 			{iconName ? (
-				<Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />
+				<Icon name={`talend-${iconName}`} key="icon" />
 			) : (
 				getLabel(label, showSpecialChars)
 			)}
