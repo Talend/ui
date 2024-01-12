@@ -28,7 +28,7 @@ exports[`BadgeTextForm should mount a default badge 1`] = `
     class="theme-buttons"
   >
     <div
-      class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-0 theme-padding-bottom-M theme-padding-left-0"
+      class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-undefined theme-padding-bottom-0 theme-padding-left-undefined"
     >
       <button
         aria-busy="false"
