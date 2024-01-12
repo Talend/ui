@@ -1,4 +1,5 @@
-import { render, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import getDefaultT from '../../../translate';
 import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
@@ -15,6 +16,7 @@ const badgeFacetedContextValue = {
 	onDeleteBadge: jest.fn(),
 	onHideOperator: jest.fn(),
 	onSubmitBadge: jest.fn(),
+	dispatch: jest.fn(),
 };
 
 const BadgeWithContext = props => (
@@ -101,5 +103,52 @@ describe('BadgeCheckboxes', () => {
 		expect(within(badge).getByText('one')).toBeVisible();
 		expect(within(badge).getByText('two')).toBeVisible();
 		expect(within(badge).getByText('five')).toBeVisible();
+	});
+
+	it('should mount a badge with object data from callback', async () => {
+		// Given
+		const callbacks = {
+			getTags: () => new Promise(resolve => resolve([{ id: '1234', label: 'production' }])),
+		};
+
+		const props = {
+			id: 'myId',
+			label: 'My Label',
+			operators: ['contains', 'equals'],
+			t,
+			callbacks,
+			values: [],
+			initialOperatorOpened: false,
+			initialValueOpened: true,
+			attribute: 'id',
+		};
+
+		// When
+		render(<BadgeWithContext {...props} />);
+
+		// Then there is a checkbox with data taken from callback
+		await waitFor(() => {
+			expect(screen.getByRole('checkbox')).toBeVisible();
+		});
+		// Then selecting an item should dispatch proper payload
+		await userEvent.click(screen.getByRole('checkbox', { name: 'production' }));
+		await userEvent.click(
+			screen.getByRole('button', {
+				name: /apply/i,
+			}),
+		);
+		expect(badgeFacetedContextValue.dispatch).toHaveBeenCalledWith({
+			payload: {
+				badgeId: 'myId',
+				metadata: { isInCreation: false },
+				properties: {
+					initialOperatorOpened: false,
+					initialValueOpened: false,
+					operator: 'contains',
+					value: [{ checked: true, id: '1234', label: 'production' }],
+				},
+			},
+			type: 'UPDATE_BADGE',
+		});
 	});
 });
