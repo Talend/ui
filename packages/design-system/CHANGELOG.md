@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.10.0
+
+### Minor Changes
+
+- e22a7e3: DS (modal) : allow to use close button without using interactive backdrop
+
 ## 8.9.2
 
 ### Patch Changes
