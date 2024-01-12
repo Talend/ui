@@ -2,7 +2,7 @@
 
 exports[`BadgeText should mount a default badge 1`] = `
 <div
-  class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
+  class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-tc-badge-faceted theme-theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
 >
   <div
     class="tc-badge-button theme-tc-badge-button"
@@ -16,10 +16,10 @@ exports[`BadgeText should mount a default badge 1`] = `
       My Label
     </span>
     <div
-      class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large"
+      class="theme-tc-badge-operator theme-tc-badge-operator-large"
     >
       <div
-        class="tc-badge-operator-button theme-tc-badge-operator-button"
+        class="theme-tc-badge-operator-button"
       >
         <button
           aria-busy="false"
@@ -35,7 +35,7 @@ exports[`BadgeText should mount a default badge 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-not-equal"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-not-equal"
               focusable="false"
               name="talend-not-equal"
               pointer-events="none"
@@ -46,7 +46,7 @@ exports[`BadgeText should mount a default badge 1`] = `
       </div>
     </div>
     <div
-      class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay"
+      class="theme-tc-badge-faceted-overlay"
     >
       <button
         aria-busy="false"

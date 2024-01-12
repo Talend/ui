@@ -1,17 +1,17 @@
 import { createRef, useCallback, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
+
 import isString from 'lodash/isString';
 import times from 'lodash/times';
 import uniq from 'lodash/uniq';
+import PropTypes from 'prop-types';
 
-import { getTheme, Rich } from '@talend/react-components';
+import { Form, StackVertical } from '@talend/design-system';
 
-import cssModule from './AddFacetPopover.module.scss';
 import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 import { AddFacetPopoverHeader } from './AddFacetPopoverHeader';
 import { AddFacetPopoverRowItem, AddFacetPopoverRowItemCategory } from './AddFacetPopoverRow';
 
-const theme = getTheme(cssModule);
+import styles from './AddFacetPopover.module.scss';
 
 const filterByLabel = label => row => {
 	const rowLabel = isString(row) ? row : row.properties.label;
@@ -96,8 +96,8 @@ export const AddFacetPopover = ({
 	const screens = getScreensMemo();
 	const screensRef = useRef(times(screens.length, createRef));
 
-	const onFilter = (_, value) => {
-		setFilterValue(value);
+	const onFilter = event => {
+		setFilterValue(event?.target?.value || '');
 	};
 	const resetFilter = () => setFilterValue('');
 
@@ -112,57 +112,52 @@ export const AddFacetPopover = ({
 	};
 
 	return (
-		<div id={addFacetId} className={theme('tc-add-facet-popover')}>
-			<div id={addFacetId} className={theme('tc-add-facet-popover-container')}>
-				{screens.map((screen, index) =>
-					category === screen.category ? (
-						<div key={`screen-${screen.category}`} ref={screensRef.current[index]}>
-							<AddFacetPopoverHeader
-								id={`${addFacetId}-${category}`}
-								category={screen.category}
-								onCategoryChange={onCategoryChange}
-								resetFilter={resetFilter}
-								onFilter={onFilter}
-								filterValue={filterValue}
-								isFocusable={screen.category === category}
-								t={t}
-							/>
-
-							<Rich.Layout.Body id={`${addFacetId}-${category}-body`}>
-								<div className={theme('tc-add-facet-popover-row-container')}>
-									{filterValue !== '' && !screen.rows.length && (
-										<span className={theme('tc-add-facet-popover-filter-empty')}>
-											{t('ADD_FACET_FILTER_NO_RESULT', 'No result found')}
-										</span>
-									)}
-									{screen.rows.map(rowItem =>
-										isString(rowItem) ? (
-											<AddFacetPopoverRowItemCategory
-												id={`${id}-open-category`}
-												key={rowItem}
-												label={rowItem}
-												onClick={onCategoryChange}
-												isFocusable={screen.category === category}
-											/>
-										) : (
-											<AddFacetPopoverRowItem
-												badgeDefinition={rowItem}
-												id={addFacetId}
-												key={rowItem.properties.label}
-												label={rowItem.properties.label}
-												onClick={onRowClick}
-												isFocusable={screen.category === category}
-												badges={badges}
-												t={t}
-											/>
-										),
-									)}
-								</div>
-							</Rich.Layout.Body>
+		<div id={addFacetId} className={styles['tc-add-facet-popover']}>
+			{screens.map((screen, index) =>
+				category === screen.category ? (
+					<Form key={`screen-${screen.category}`} ref={screensRef.current[index]}>
+						<AddFacetPopoverHeader
+							id={`${addFacetId}-${category}`}
+							category={screen.category}
+							onCategoryChange={onCategoryChange}
+							onFilter={onFilter}
+							filterValue={filterValue}
+							t={t}
+						/>
+						<div
+							className={styles['tc-add-facet-popover-items']}
+							data-test="add-facet-popover-items"
+							data-testid="add-facet-popover-items"
+						>
+							<StackVertical gap="0">
+								{filterValue !== '' &&
+									!screen.rows.length &&
+									t('ADD_FACET_FILTER_NO_RESULT', 'No result found')}
+								{screen.rows.map(rowItem =>
+									isString(rowItem) ? (
+										<AddFacetPopoverRowItemCategory
+											id={`${id}-open-category`}
+											key={rowItem}
+											label={rowItem}
+											onClick={onCategoryChange}
+										/>
+									) : (
+										<AddFacetPopoverRowItem
+											badgeDefinition={rowItem}
+											id={addFacetId}
+											key={rowItem.properties.label}
+											label={rowItem.properties.label}
+											onClick={onRowClick}
+											badges={badges}
+											t={t}
+										/>
+									),
+								)}
+							</StackVertical>
 						</div>
-					) : null,
-				)}
-			</div>
+					</Form>
+				) : null,
+			)}
 		</div>
 	);
 };

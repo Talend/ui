@@ -47,6 +47,26 @@ describe('BadgeCheckboxesForm', () => {
 		).toHaveTextContent('Checkbox Three');
 		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
 	});
+	it('should show skeletons if items are loading', () => {
+		// Given
+		const props = {
+			checkboxValues,
+			id: 'myId',
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			value: [],
+			feature: 'Connection type',
+			t,
+			isLoading: true,
+		};
+		// When
+		render(<BadgeCheckboxesForm {...props} />);
+		// Then
+		expect(screen.getByTestId('badge-checkbox-form-skeleton-item')).toBeVisible();
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+		expect(screen.getByRole('button')).toBeDisabled();
+	});
+
 	it('should trigger on change callback when checkbox generated from checkbox values are clicked', async () => {
 		// Given
 		const onChange = jest.fn();
@@ -169,12 +189,7 @@ describe('BadgeCheckboxesForm', () => {
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-two')).toBeVisible();
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-three')).toBeVisible();
 
-		await userEvent.type(
-			screen.getByRole('searchbox', {
-				name: /find a column/i,
-			}),
-			'One',
-		);
+		await userEvent.type(screen.getByRole('searchbox'), 'One');
 
 		// Then
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-one')).toBeVisible();
