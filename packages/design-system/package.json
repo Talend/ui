@@ -61,7 +61,6 @@
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.6.4",
     "@svgr/webpack": "^5.5.0",
-    "@talend/bootstrap-theme": "^8.3.1",
     "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
     "@talend/icons": "^7.4.0",
