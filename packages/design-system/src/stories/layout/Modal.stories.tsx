@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { StoryFn } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
-import { ButtonPrimary, Modal } from '../../';
+import { action } from '@storybook/addon-actions';
+import { StoryFn } from '@storybook/react';
+
+import { ButtonPrimary, LinkAsButton, Modal, StackVertical } from '../../';
 import { type ModalPropsType } from '../../components/Modal';
 
 export default {
@@ -183,6 +184,16 @@ export const WithDescription: StoryFn<typeof Modal> = props => (
 	</ModalStory>
 );
 
+export const WithNoClickableBackdrop: StoryFn<typeof Modal> = props => (
+	<ModalStory
+		{...props}
+		header={{ title: 'With no clickable backdrop', icon: 'talend-file-hdfs-o' }}
+		preventInteractiveBackdrop
+	>
+		<p>A basic modal with title, a text content and an icon.</p>
+	</ModalStory>
+);
+
 export const WithActions: StoryFn<typeof Modal> = props => (
 	<ModalStory
 		{...props}
@@ -217,14 +228,38 @@ export const WithDestructivePrimaryAction: StoryFn<typeof Modal> = props => (
 	</ModalStory>
 );
 
-export const WithNonClosingBackdrop: StoryFn<typeof Modal> = props => (
-	<ModalStory {...props} header={{ title: 'A blocking modal' }} preventEscaping>
-		<p>
-			A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked and without the
-			close button
-		</p>
-	</ModalStory>
-);
+export const WithNoEscape: StoryFn<typeof Modal> = () => {
+	const [modalOpen, setModalOpen] = useState(false);
+	return (
+		<>
+			<ButtonPrimary onClick={() => setModalOpen(true)} data-test="open-modal">
+				See
+			</ButtonPrimary>
+
+			{modalOpen && (
+				<Modal
+					header={{ title: 'A blocking modal' }}
+					onClose={() => {
+						action('onClose');
+						setModalOpen(false);
+					}}
+					preventEscaping
+				>
+					<StackVertical gap="M" align="center">
+						<p>
+							A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked and
+							without the close button
+						</p>
+
+						<LinkAsButton onClick={() => setModalOpen(false)} data-test="close-modal">
+							Close me !
+						</LinkAsButton>
+					</StackVertical>
+				</Modal>
+			)}
+		</>
+	);
+};
 
 export const WithOverflowingHeader: StoryFn<typeof Modal> = props => (
 	<ModalStory
