@@ -1,7 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { BadgeSliderForm } from './BadgeSliderForm.component';
-import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { fireEvent, render, screen } from '@testing-library/react';
+
 import getDefaultT from '../../../translate';
+import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { BadgeSliderForm } from './BadgeSliderForm.component';
 
 const badgeFacetedContextValue = {
 	onDeleteBadge: jest.fn(),
@@ -118,9 +119,7 @@ describe('BadgeSliderForm', () => {
 			</BadgeFacetedProvider>,
 		);
 
-		expect(document.querySelector('.tc-badge-slider-form-error')).toHaveTextContent(
-			'The value must be between 6 and 76',
-		);
+		expect(screen.getByText('The value must be between 6 and 76')).toBeInTheDocument();
 		expect(document.querySelector('button[type="submit"]')).toBeDisabled();
 	});
 
@@ -142,9 +141,7 @@ describe('BadgeSliderForm', () => {
 			</BadgeFacetedProvider>,
 		);
 
-		expect(document.querySelector('.tc-badge-slider-form-error')).toHaveTextContent(
-			'Please fill with an integer value',
-		);
+		expect(screen.getByText('Please fill with an integer value')).toBeInTheDocument();
 		expect(document.querySelector('button[type="submit"]')).toBeDisabled();
 	});
 

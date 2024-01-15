@@ -1,4 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
 // stylelint-disable order/order
@@ -14,52 +13,19 @@ $toolbar-height: 5.5rem;
 
 	.tc-faceted-switch-mode {
 		width: auto;
-		margin-right: $padding-small;
-	}
+		position: relative;
+		padding-right: tokens.$coral-spacing-s;
+		padding-left: tokens.$coral-spacing-s;
 
-	&-buttons {
-		background: tokens.$coral-color-neutral-background;
-		border-radius: $padding-large $padding-large $padding-large $padding-large;
-		display: flex;
-		margin-right: $padding-large;
-		position: absolute;
-		margin-top: $padding-normal;
-		right: 0;
-		top: 0;
-
-		&-basic,
-		&-advanced {
-			&.tc-button-selected {
-				background: tokens.$coral-color-accent-background-strong;
-				border-radius: $padding-large;
-				color: tokens.$coral-color-accent-text-weak;
-			}
-
-			background: tokens.$coral-color-neutral-background;
-			color: tokens.$coral-color-neutral-text;
-			min-height: 2.5rem;
-			height: 2.5rem;
-			font-size: 1rem;
-
-			> span {
-				height: inherit;
-			}
-
-			&:active,
-			&:focus,
-			&:hover {
-				background: tokens.$coral-color-accent-background-strong;
-			}
-		}
-
-		&-advanced,
-		&-advanced.tc-button-selected {
-			border-radius: 0 $padding-large $padding-large 0;
-		}
-
-		&-basic,
-		&-basic.tc-button-selected {
-			border-radius: $padding-large 0 0 $padding-large;
+		&::before {
+			content: '';
+			height: tokens.$coral-sizing-xs;
+			width: 0;
+			border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
 		}
 	}
 }

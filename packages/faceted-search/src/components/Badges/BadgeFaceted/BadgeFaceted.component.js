@@ -5,7 +5,6 @@ import { isEqual } from 'lodash';
 import PropTypes from 'prop-types';
 
 import Badge from '@talend/react-components/lib/Badge';
-import { getTheme } from '@talend/react-components/lib/theme';
 
 import { USAGE_TRACKING_TAGS } from '../../../constants';
 import { OVERLAY_FLOW_ACTIONS, useBadgeOverlayFlow } from '../../../hooks/badgeOverlayFlow.hook';
@@ -15,9 +14,7 @@ import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propT
 import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';
 
-import cssModule from './BadgeFaceted.module.scss';
-
-const theme = getTheme(cssModule);
+import styles from './BadgeFaceted.module.scss';
 
 const findOperatorByName = name => operator => name === operator.name;
 
@@ -111,7 +108,7 @@ const BadgeFaceted = ({
 	return (
 		<Badge
 			id={id}
-			className={classNames(theme('tc-badge-faceted'), type)}
+			className={classNames(styles['tc-badge-faceted'], type)}
 			display={size}
 			type={displayType}
 		>
@@ -134,7 +131,7 @@ const BadgeFaceted = ({
 			)}
 			<BadgeOverlay
 				id={id}
-				className={theme('tc-badge-faceted-overlay')}
+				className={styles['tc-badge-faceted-overlay']}
 				showSpecialChars={!!displayType}
 				label={labelValue}
 				onHide={onHideSubmitBadge}

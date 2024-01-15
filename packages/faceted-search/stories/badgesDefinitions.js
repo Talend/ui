@@ -291,7 +291,7 @@ export const badgeTags = {
 		label: 'Tags',
 		operator: {},
 		operators: [],
-		type: 'tags',
+		type: 'checkbox',
 	},
 	metadata: {
 		badgePerFacet: '1',

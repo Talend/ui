@@ -1,5 +1,23 @@
 # @talend/design-system
 
+## 8.11.0
+
+### Minor Changes
+
+- 19304cd: fix(DFD-563): Add data-testid prefix for inline editing
+
+## 8.10.0
+
+### Minor Changes
+
+- e22a7e3: DS (modal) : allow to use close button without using interactive backdrop
+
+## 8.9.2
+
+### Patch Changes
+
+- 78928ee: Pass hideExternal to Linkable component
+
 ## 8.9.1
 
 ### Patch Changes

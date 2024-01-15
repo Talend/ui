@@ -2,43 +2,53 @@
 
 exports[`BadgeOperatorPopover should render the html output 1`] = `
 <div
-  class="tc-badge-operator-popover theme-tc-badge-operator-popover"
+  class="theme-tc-badge-operator-popover"
 >
   <button
-    aria-label="My icon operator equal"
-    class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+    aria-busy="false"
+    class="theme-clickable theme-button theme-tertiary"
     id="my-id-operator-row-button-operatorIconEqual"
-    role="button"
     type="button"
   >
-    <svg
-      aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-equal"
-      focusable="false"
-      name="talend-my-icon-equal"
-      pointer-events="none"
-      shape-rendering="geometricPrecision"
-    />
-    <span>
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      <span
+        class="theme-button__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-equal"
+          focusable="false"
+          name="talend-my-icon-equal"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </span>
       My icon operator equal
     </span>
   </button>
   <button
-    aria-label="My icon operator not equal"
-    class="tc-badge-operator-row-button theme-tc-badge-operator-row-button btn btn-link"
+    aria-busy="false"
+    class="theme-clickable theme-button theme-tertiary"
     id="my-id-operator-row-button-operatorIconNotEqual"
-    role="button"
     type="button"
   >
-    <svg
-      aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-not-equal"
-      focusable="false"
-      name="talend-my-icon-not-equal"
-      pointer-events="none"
-      shape-rendering="geometricPrecision"
-    />
-    <span>
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      <span
+        class="theme-button__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-not-equal"
+          focusable="false"
+          name="talend-my-icon-not-equal"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </span>
       My icon operator not equal
     </span>
   </button>
