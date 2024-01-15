@@ -1,11 +1,13 @@
 import classNames from 'classnames';
 import { scaleLinear } from 'd3';
-import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
-import styles from './NumberInputField.component.module.scss';
+
 import { formatNumber, getFractionDigits } from '../../../../formatters/formatters';
+import { Range } from '../../../../types';
 import { RangeHandler, Ticks } from '../range-handler.types';
 import { formatD3Ticks } from '../slider-ticks.utils';
-import { Range } from '../../../../types';
+import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
+
+import styles from './NumberInputField.component.module.scss';
 
 const formatter = (input: number) => `${input}`;
 const parser = (input: string) => +input;
@@ -50,7 +52,7 @@ export function NumberInputField({
 	return (
 		<input
 			id={id}
-			className={classNames('form-control', styles['number-input-field'])}
+			className={classNames(styles['number-input-field'])}
 			type="number"
 			step="any"
 			onChange={event => setInputValue(event.target.value)}

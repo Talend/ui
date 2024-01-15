@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { Drawer } from '@talend/react-components';
+
 import { cmfConnect } from '@talend/react-cmf';
+import { Drawer } from '@talend/react-components';
 
 import ActionIconToggle from '.';
 
@@ -18,11 +19,9 @@ function MyDrawer({ opened }) {
 	return opened ? (
 		<Drawer>
 			<form>
-				<div className="form-group">
-					<input className="form-control" id="my-input" type="text" autoFocus />
-					<label className="control-label" htmlFor="my-input">
-						Your name
-					</label>
+				<div>
+					<input id="my-input" type="text" autoFocus />
+					<label htmlFor="my-input">Your name</label>
 				</div>
 				<button
 					className="btn btn-primary"

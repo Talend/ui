@@ -12,6 +12,7 @@ import type {
 import { useTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
+import { DataAttributes } from 'src/types';
 
 import { useId } from '../../../useId';
 import { ButtonIcon } from '../../ButtonIcon';
@@ -76,7 +77,8 @@ export type InlineEditingPrimitiveProps = {
 	 */
 	onChangeValue?: (newValue: string) => void;
 } & ErrorInEditing &
-	Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'>;
+	Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'> &
+	Partial<DataAttributes>;
 
 const InlineEditingPrimitive = forwardRef(
 	(props: InlineEditingPrimitiveProps, ref: Ref<HTMLDivElement>) => {
@@ -98,6 +100,8 @@ const InlineEditingPrimitive = forwardRef(
 			onEdit = () => {},
 			value,
 			onChangeValue,
+			'data-testid': dataTestId,
+			'data-test': dataTest,
 			...rest
 		} = props;
 
@@ -148,8 +152,6 @@ const InlineEditingPrimitive = forwardRef(
 			onCancel();
 		};
 
-		const testId = `inlineediting.${mode === 'multi' ? 'textarea' : 'input'}`;
-
 		function ValueComponent() {
 			const Default = mode === 'multi' ? 'p' : 'span';
 			const sharedProps = {
@@ -175,8 +177,12 @@ const InlineEditingPrimitive = forwardRef(
 		}
 
 		const sharedInputProps = {
-			'data-test': testId,
-			'data-testid': testId,
+			'data-test': `${dataTest ? `${dataTest}.` : ''}inlineediting.${
+				mode === 'multi' ? 'textarea' : 'input'
+			}`,
+			'data-testid': `${dataTestId ? `${dataTestId}.` : ''}inlineediting.${
+				mode === 'multi' ? 'textarea' : 'input'
+			}`,
 			hideLabel: true,
 			hasError,
 			description,
@@ -207,8 +213,8 @@ const InlineEditingPrimitive = forwardRef(
 		return (
 			<div
 				{...rest}
-				data-test="inlineediting"
-				data-testid="inlineediting"
+				data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting`}
+				data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting`}
 				className={styles.inlineEditor}
 				ref={ref}
 			>
@@ -236,8 +242,8 @@ const InlineEditingPrimitive = forwardRef(
 									<ButtonIcon
 										onClick={handleCancel}
 										icon="cross-filled"
-										data-testid="inlineediting.button.cancel"
-										data-test="inlineediting.button.cancel"
+										data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.cancel`}
+										data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.cancel`}
 										size="XS"
 									>
 										{t('INLINE_EDITING_CANCEL', 'Cancel')}
@@ -245,8 +251,8 @@ const InlineEditingPrimitive = forwardRef(
 									<ButtonIcon
 										onClick={handleSubmit}
 										icon="check-filled"
-										data-testid="inlineediting.button.submit"
-										data-test="inlineediting.button.submit"
+										data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.submit`}
+										data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.submit`}
 										size="XS"
 									>
 										{t('INLINE_EDITING_SUBMIT', 'Submit')}
@@ -269,8 +275,8 @@ const InlineEditingPrimitive = forwardRef(
 						<ValueComponent />
 						<span className={styles.inlineEditor__content__button}>
 							<ButtonIcon
-								data-testid="inlineediting.button.edit"
-								data-test="inlineediting.button.edit"
+								data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.edit`}
+								data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.edit`}
 								onClick={() => toggleEditionMode(true)}
 								aria-label={ariaLabel || label}
 								icon="pencil"
