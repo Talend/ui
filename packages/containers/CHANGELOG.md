@@ -1,5 +1,16 @@
 # @talend/react-containers
 
+## 10.6.0
+
+### Minor Changes
+
+- 7d73eb9: TDOPS-5724 - Remove bootstrap theme styling and dependency from packages
+
+### Patch Changes
+
+- Updated dependencies [19304cd]
+  - @talend/design-system@8.11.0
+
 ## 10.5.1
 
 ### Patch Changes
