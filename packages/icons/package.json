@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.5",
-    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.23.3",
     "@svgr/webpack": "^5.5.0",
     "@talend/eslint-config": "^13.0.2",

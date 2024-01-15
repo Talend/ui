@@ -33,7 +33,7 @@
     "react-hook-form": "^7.48.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@storybook/addon-a11y": "^7.6.4",
