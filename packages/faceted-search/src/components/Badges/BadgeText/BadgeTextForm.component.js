@@ -1,13 +1,10 @@
 import { useMemo } from 'react';
+
 import PropTypes from 'prop-types';
-import { Action } from '@talend/react-components/lib/Actions';
-import { getTheme } from '@talend/react-components/lib/theme';
-import { Rich } from '@talend/react-components';
+
+import { ButtonPrimary, Form } from '@talend/design-system';
+
 import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
-
-import cssModule from './BadgeText.module.scss';
-
-const theme = getTheme(cssModule);
 
 const BadgeTextForm = ({
 	id,
@@ -28,30 +25,26 @@ const BadgeTextForm = ({
 	};
 
 	return (
-		<form className={theme('tc-badge-text-form')} id={`${id}-text-area`} onSubmit={onSubmit}>
-			<Rich.Layout.Body id={id} className={theme('tc-badge-text-form-body')}>
-				<input
-					id={`${id}-text`}
-					autoFocus // eslint-disable-line jsx-a11y/no-autofocus
-					className="form-control"
-					onChange={onChangeText}
-					placeholder={placeholder || t('TYPE_HERE', { defaultValue: 'Type here' })}
-					type="text"
-					value={value}
-					minLength={minLength}
-					maxLength={maxLength}
-				/>
-			</Rich.Layout.Body>
-			<Rich.Layout.Footer id={id}>
-				<Action
+		<Form id={`${id}-text-area`} onSubmit={onSubmit}>
+			<Form.Text
+				id={`${id}-text`}
+				onChange={onChangeText}
+				placeholder={placeholder || t('TYPE_HERE', { defaultValue: 'Type here' })}
+				type="text"
+				value={value}
+				minLength={minLength}
+				maxLength={maxLength}
+			/>
+			<Form.Buttons padding={{ x: 0, bottom: 0, top: 'M' }}>
+				<ButtonPrimary
 					type="submit"
 					data-feature={applyDataFeature}
-					label={t('APPLY', { defaultValue: 'Apply' })}
-					bsStyle="info"
 					{...getDataAttributesFrom(rest)}
-				/>
-			</Rich.Layout.Footer>
-		</form>
+				>
+					{t('APPLY', { defaultValue: 'Apply' })}
+				</ButtonPrimary>
+			</Form.Buttons>
+		</Form>
 	);
 };
 
