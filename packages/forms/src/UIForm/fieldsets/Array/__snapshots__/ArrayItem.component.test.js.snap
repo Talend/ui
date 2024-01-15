@@ -73,12 +73,14 @@ exports[`Array Item component should render control panel with item content 1`] 
       >
         <svg
           aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
-          focusable="false"
-          name="talend-trash"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-        />
+          style="width: 1.6rem; height: 1.6rem;"
+        >
+          <use
+            xlink:href="#trash:M"
+          />
+        </svg>
       </span>
     </button>
   </div>
