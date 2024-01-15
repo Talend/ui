@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.11.0
+
+### Minor Changes
+
+- 19304cd: fix(DFD-563): Add data-testid prefix for inline editing
+
 ## 8.10.0
 
 ### Minor Changes

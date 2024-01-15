@@ -33,7 +33,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^8.8.3",
+    "@talend/design-system": "^8.11.0",
     "@talend/react-cmf": "^8.3.3",
     "@talend/react-components": "^14.0.0",
     "@talend/react-forms": "^12.5.1",
@@ -83,5 +83,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "10.5.1"
+  "version": "10.6.0"
 }
