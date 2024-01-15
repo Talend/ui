@@ -13,7 +13,7 @@
     "@talend/dynamic-cdn-webpack-plugin": "^13.1.0",
     "@talend/module-to-cdn": "^9.10.0",
     "@yarnpkg/lockfile": "^1.1.0",
-    "js-yaml": "^3.14.1",
+    "js-yaml": "^4.1.0",
     "read-pkg-up": "^7.0.1"
   },
   "devDependencies": {
