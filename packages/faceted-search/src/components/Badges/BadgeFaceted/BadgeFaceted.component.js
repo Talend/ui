@@ -169,6 +169,7 @@ BadgeFaceted.propTypes = {
 	value: PropTypes.any,
 	readOnly: PropTypes.bool,
 	removable: PropTypes.bool,
+	type: PropTypes.string,
 	t: PropTypes.func.isRequired,
 };
 
