@@ -81,12 +81,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		const { id, schema, value, actions, index, ...restProps } = props;
 		const { items, managed } = schema;
 
-		function onToggleClick(event) {
-			if (event) {
-				event.stopPropagation();
-				event.preventDefault();
-			}
-
+		function onToggleClick() {
 			const payload = {
 				schema: props.schema,
 				value: {
@@ -94,7 +89,8 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					isClosed: !props.value.isClosed,
 				},
 			};
-			props.onChange(event, payload);
+
+			props.onChange(undefined, payload);
 		}
 
 		const getAction = useCallback(() => {

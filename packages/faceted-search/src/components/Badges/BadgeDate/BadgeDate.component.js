@@ -67,7 +67,6 @@ const BadgeDate = ({
 			{({ onSubmitBadge, onChangeValue, badgeValue }) => (
 				<BadgeDateForm
 					id={badgeDateId}
-					dateFormat={DATE_FORMAT}
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}

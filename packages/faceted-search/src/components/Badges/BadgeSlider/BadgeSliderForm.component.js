@@ -1,15 +1,15 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { Action } from '@talend/react-components/lib/Actions';
+
+import { ButtonPrimary, Form } from '@talend/design-system';
 import Icon from '@talend/react-components/lib/Icon';
 import Slider from '@talend/react-components/lib/Slider';
-import { getTheme } from '@talend/react-components/lib/theme';
-import { Rich } from '@talend/react-components';
+
 import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
-import cssModule from './BadgeSlider.module.scss';
-
-const theme = getTheme(cssModule);
+import styles from './BadgeSlider.module.scss';
 
 const getSliderMode = ({ name }) => {
 	switch (name) {
@@ -71,23 +71,21 @@ const BadgeSliderForm = ({
 	useEffect(() => onChange(null, value), [onChange, value]);
 
 	return (
-		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
-			<Rich.Layout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
-				<div className={theme('tc-badge-slider-form-body-row')}>
+		<Form id={`${id}-slider`} onSubmit={onSubmit}>
+			<div className={styles['tc-badge-slider-form-body']}>
+				<div className={styles['tc-badge-slider-form-body-row']}>
 					{icon && (
-						<div className={theme('tc-badge-slider-form-body-row-icon')}>
+						<div className={styles['tc-badge-slider-form-body-row-icon']}>
 							<Icon
 								name={icon.name}
-								className={theme('tc-badge-icon', icon.class || icon.className)}
+								className={classnames(styles['tc-badge-icon'], icon.class || icon.className)}
 							/>
 						</div>
 					)}
-					<div className={theme('tc-badge-slider-form-body-row-value')}>
+					<div className={styles['tc-badge-slider-form-body-row-value']}>
 						{editing ? (
-							<input
+							<Form.Number
 								id={`${id}-input`}
-								autoFocus // eslint-disable-line jsx-a11y/no-autofocus
-								className="form-control"
 								min={min}
 								max={max}
 								step={step}
@@ -102,12 +100,11 @@ const BadgeSliderForm = ({
 									setSlider(value);
 									setEditing(false);
 								}}
-								type="number"
 								value={input}
 							/>
 						) : (
 							<button
-								className={theme('tc-badge-value-unit')}
+								className={styles['tc-badge-value-unit']}
 								onClick={() => setEditing(true)}
 								title={t('FACETED_SEARCH_EDIT_DIRECTLY', {
 									defaultValue: 'Edit directly',
@@ -136,19 +133,19 @@ const BadgeSliderForm = ({
 					step={step}
 					hideTooltip
 				/>
-			</Rich.Layout.Body>
-			<Rich.Layout.Footer id={`${id}-badge-footer`}>
-				<span className={theme('tc-badge-slider-form-error')}>{error}</span>
-				<Action
+				<div className={styles['tc-badge-slider-form-error']}>{error}</div>
+			</div>
+			<Form.Buttons padding={{ x: 0, bottom: 0, top: 'M' }}>
+				<ButtonPrimary
 					type="submit"
 					data-feature={applyDataFeature}
-					label={t('APPLY', { defaultValue: 'Apply' })}
-					bsStyle="info"
 					disabled={!!error}
 					{...getDataAttributesFrom(rest)}
-				/>
-			</Rich.Layout.Footer>
-		</form>
+				>
+					{t('APPLY', { defaultValue: 'Apply' })}
+				</ButtonPrimary>
+			</Form.Buttons>
+		</Form>
 	);
 };
 

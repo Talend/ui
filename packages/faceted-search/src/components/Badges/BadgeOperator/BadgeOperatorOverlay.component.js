@@ -1,15 +1,13 @@
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 import Badge from '@talend/react-components/lib/Badge';
-import { getTheme } from '@talend/react-components/lib/theme';
 
 import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 import { BadgeOverlay } from '../BadgeOverlay';
 import { BadgeOperatorPopover } from './BadgeOperatorPopover.component';
 
-import cssModule from './BadgeOperator.module.scss';
-
-const theme = getTheme(cssModule);
+import styles from './BadgeOperator.module.scss';
 
 const BadgeOperatorOverlay = ({
 	id,
@@ -41,13 +39,13 @@ const BadgeOperatorOverlay = ({
 
 	return (
 		<div
-			className={theme('tc-badge-operator', {
-				'tc-badge-operator-small': Badge.SIZES.small === size,
-				'tc-badge-operator-large': Badge.SIZES.large === size,
+			className={classnames(styles['tc-badge-operator'], {
+				[styles['tc-badge-operator-small']]: Badge.SIZES.small === size,
+				[styles['tc-badge-operator-large']]: Badge.SIZES.large === size,
 			})}
 		>
 			<BadgeOverlay
-				className={theme('tc-badge-operator-button')}
+				className={styles['tc-badge-operator-button']}
 				iconName={operatorIconName}
 				id={`${id}-operator`}
 				label={operatorLabel}

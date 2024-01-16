@@ -1,10 +1,9 @@
-import { BadgeText } from '../components/Badges/BadgeText/BadgeText.component';
 import { BadgeCheckboxes } from '../components/Badges/BadgeCheckboxes/BadgeCheckboxes.component';
-import { BadgeNumber } from '../components/Badges/BadgeNumber/BadgeNumber.component';
-import { BadgeSlider } from '../components/Badges/BadgeSlider/BadgeSlider.component';
-import { BadgeTags } from '../components/Badges/BadgeTags/BadgeTags.component';
 import { BadgeDate } from '../components/Badges/BadgeDate/BadgeDate.component';
 import { BadgeMenu } from '../components/Badges/BadgeMenu/BadgeMenu.component';
+import { BadgeNumber } from '../components/Badges/BadgeNumber/BadgeNumber.component';
+import { BadgeSlider } from '../components/Badges/BadgeSlider/BadgeSlider.component';
+import { BadgeText } from '../components/Badges/BadgeText/BadgeText.component';
 
 const standardBadgeTypeNames = {
 	text: 'text',
@@ -21,7 +20,7 @@ const standardBadges = {
 	[standardBadgeTypeNames.checkbox]: BadgeCheckboxes,
 	[standardBadgeTypeNames.number]: BadgeNumber,
 	[standardBadgeTypeNames.slider]: BadgeSlider,
-	[standardBadgeTypeNames.tags]: BadgeTags,
+	[standardBadgeTypeNames.tags]: BadgeCheckboxes,
 	[standardBadgeTypeNames.date]: BadgeDate,
 	[standardBadgeTypeNames.menu]: BadgeMenu,
 };
