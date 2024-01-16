@@ -39,7 +39,7 @@
     "@talend/icons": "^7.3.1",
     "@talend/json-schema-form-core": "^1.2.1",
     "@talend/react-components": "^14.0.0",
-    "@talend/design-system": "^8.8.3",
+    "@talend/design-system": "^8.11.1",
     "@talend/design-tokens": "^2.11.0",
     "@talend/utils": "^3.0.0",
     "ace-builds": "1.10.1",
@@ -93,5 +93,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "12.5.2"
+  "version": "12.6.0"
 }
