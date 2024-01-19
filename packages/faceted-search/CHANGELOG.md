@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.1.0
+
+### Minor Changes
+
+- 941ff4f: feat: add BadgePeriod in faceted search
+
 ## 16.0.0
 
 ### Major Changes
