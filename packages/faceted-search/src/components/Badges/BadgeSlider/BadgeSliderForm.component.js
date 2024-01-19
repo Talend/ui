@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { ButtonPrimary, Form } from '@talend/design-system';
+import { ButtonPrimary, Form, InlineMessageDestructive } from '@talend/design-system';
 import Icon from '@talend/react-components/lib/Icon';
 import Slider from '@talend/react-components/lib/Slider';
 
@@ -133,7 +133,7 @@ const BadgeSliderForm = ({
 					step={step}
 					hideTooltip
 				/>
-				<div className={styles['tc-badge-slider-form-error']}>{error}</div>
+				{error && <InlineMessageDestructive description={error} />}
 			</div>
 			<Form.Buttons padding={{ x: 0, bottom: 0, top: 'M' }}>
 				<ButtonPrimary
