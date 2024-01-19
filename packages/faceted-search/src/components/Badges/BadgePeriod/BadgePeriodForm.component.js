@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { subDays } from 'date-fns';
 import PropTypes from 'prop-types';
@@ -55,13 +55,14 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 	const initialStartDateTime = subDays(new Date(), 1);
 	const initialEndDateTime = new Date();
 
-	const resetRange = () => {
+	const resetRange = useCallback(() => {
 		onChange(null, {
+			id: 'CUSTOM',
 			startDateTime: initialStartDateTime,
 			endDateTime: initialEndDateTime,
 			errorMessage: null,
 		});
-	};
+	}, [onChange, setDirty, initialStartDateTime, initialEndDateTime]);
 
 	useEffect(() => {
 		if (dirty) {
