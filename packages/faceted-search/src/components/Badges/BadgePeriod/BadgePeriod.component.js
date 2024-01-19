@@ -56,8 +56,7 @@ export const BadgePeriod = ({
 	t,
 	...rest
 }) => {
-	const currentOperators = useMemo(() => operators, [operators]);
-	const currentOperator = operator || (currentOperators && currentOperators[0]);
+	const currentOperator = operator || operators?.[0];
 	const badgePeriodId = `${id}-badge-period`;
 	const badgeLabel = useMemo(() => getSelectBadgeLabel(value, t), [value, t]);
 	return (
