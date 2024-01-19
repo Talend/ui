@@ -45,7 +45,7 @@ exports[`Items should render 1`] = `
           style="height: 42px; left: 0px; position: absolute; top: 40px; width: 100%;"
         >
           <div
-            class="checkbox"
+            class=""
             data-test="item-0"
             data-testid="item-0"
             role="option"
@@ -74,7 +74,7 @@ exports[`Items should render 1`] = `
         >
           <div
             aria-selected="true"
-            class="checkbox"
+            class=""
             data-test="item-1"
             data-testid="item-1"
             role="option"
@@ -103,7 +103,7 @@ exports[`Items should render 1`] = `
           style="height: 42px; left: 0px; position: absolute; top: 124px; width: 100%;"
         >
           <div
-            class="checkbox"
+            class=""
             data-test="item-2"
             data-testid="item-2"
             role="option"
