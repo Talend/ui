@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { subDays } from 'date-fns';
 import PropTypes from 'prop-types';
@@ -52,8 +52,8 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 	const badgePeriodFormId = `${id}-period-form`;
 	const goBack = () => setCustom(false);
 	const [dirty, setDirty] = useState(false);
-	const initialStartDateTime = subDays(new Date(), 1);
-	const initialEndDateTime = new Date();
+	const initialStartDateTime = useMemo(() => subDays(new Date(), 1), []);
+	const initialEndDateTime = useMemo(() => new Date(), []);
 
 	const resetRange = useCallback(() => {
 		onChange(null, {
@@ -62,7 +62,25 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 			endDateTime: initialEndDateTime,
 			errorMessage: null,
 		});
-	}, [onChange, setDirty, initialStartDateTime, initialEndDateTime]);
+	}, [onChange, initialStartDateTime, initialEndDateTime]);
+
+	const onSelectOption = useCallback(
+		(rowItem, event) => {
+			if (rowItem.id === 'CUSTOM') {
+				setCustom(true);
+				onChange(event, {
+					id: 'CUSTOM',
+					startDateTime: initialStartDateTime,
+					endDateTime: initialEndDateTime,
+					errorMessage: null,
+				});
+			} else {
+				onChange(event, rowItem);
+				setDirty(true);
+			}
+		},
+		[onChange, setDirty, initialStartDateTime, initialEndDateTime],
+	);
 
 	useEffect(() => {
 		if (dirty) {
@@ -79,20 +97,7 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 						return (
 							<ButtonTertiary
 								key={rowItem.id}
-								onClick={event => {
-									if (rowItem.id === 'CUSTOM') {
-										setCustom(true);
-										onChange(event, {
-											id: 'CUSTOM',
-											startDateTime: initialStartDateTime,
-											endDateTime: initialEndDateTime,
-											errorMessage: null,
-										});
-									} else {
-										onChange(event, rowItem);
-										setDirty(true);
-									}
-								}}
+								onClick={event => onSelectOption(rowItem, event)}
 								data-testid={`badge-period-form-item-${rowItem.id}`}
 								data-test={`badge-period-form-item-${rowItem.id}`}
 							>
