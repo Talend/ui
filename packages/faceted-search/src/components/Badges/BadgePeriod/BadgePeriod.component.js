@@ -28,16 +28,14 @@ function getRangeLabel(startDateTime, endDateTime, t) {
 
 const getSelectBadgeLabel = (value, t) => {
 	const labelAll = t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' });
-	if (!isEmpty(value)) {
-		if (isDateRange(value)) {
-			if (isValid(value.startDateTime) && isValid(value.endDateTime)) {
-				return getRangeLabel(value.startDateTime, value.endDateTime, t);
-			}
-			return labelAll;
-		}
-		return value.label;
+
+	if (isEmpty(value)) return labelAll;
+
+	if (isDateRange(value) && isValid(value.startDateTime) && isValid(value.endDateTime)) {
+		return getRangeLabel(value.startDateTime, value.endDateTime, t);
 	}
-	return labelAll;
+
+	return value.label || labelAll;
 };
 
 // eslint-disable-next-line import/prefer-default-export
