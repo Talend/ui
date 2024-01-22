@@ -1,16 +1,16 @@
-import { call, put } from 'redux-saga/effects';
-import merge from 'lodash/merge';
-import get from 'lodash/get';
 import curry from 'lodash/curry';
+import get from 'lodash/get';
+import merge from 'lodash/merge';
+import { call, put } from 'redux-saga/effects';
 
-import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
+import interceptors from '../httpInterceptors';
 import {
 	ACTION_TYPE_HTTP_ERRORS,
 	HTTP_METHODS,
 	HTTP_STATUS,
 	testHTTPCode,
 } from '../middlewares/http/constants';
-import interceptors from '../httpInterceptors';
+import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 
 /**
  * Storage point for the doc setup using `setDefaultConfig`
@@ -144,7 +144,7 @@ export function httpFetch(url, config, method, payload) {
 
 	const params = merge(
 		{
-			credentials: 'same-origin',
+			credentials: 'include',
 			headers: defaultHeaders,
 			method,
 		},
