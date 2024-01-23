@@ -4373,5 +4373,26 @@
     "description": "",
     "remote": false,
     "documentationLinks": []
+  },
+  {
+    "key": "d16c89dfe823639673001f1be74fddbbb35d13f3",
+    "name": "icon/S/panel-left",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "b8a11040b60e404508ac29e6547611b0a782344c",
+    "name": "icon/M/panel-left",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "293c85012ecde0b57b7a6c09d809c0a7d070a1b1",
+    "name": "icon/L/panel-left",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
   }
 ]
