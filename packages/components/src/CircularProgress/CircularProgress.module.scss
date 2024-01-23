@@ -3,9 +3,9 @@
 
 // CircularProgress styles
 $tc-circular-progress-light-fill: tokens.$coral-color-neutral-text-inverted !default;
-$tc-circular-progress-small: 1.2rem;
-$tc-circular-progress-regular: 2rem;
-$tc-circular-progress-large: 4rem;
+$tc-circular-progress-small: 0.75rem;
+$tc-circular-progress-regular: 1.25rem;
+$tc-circular-progress-large: 2.5rem;
 $tc-circular-progress-stroke-width: 5;
 
 .fixed {

@@ -2,7 +2,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
-$model-node-height: 3rem !default;
+$model-node-height: 1.875rem !default;
 
 .tc-model {
 	display: flex;
@@ -86,7 +86,7 @@ $model-node-height: 3rem !default;
 
 			&-quality-circles {
 				display: inherit;
-				padding-top: 1.3rem;
+				padding-top: 0.8125rem;
 
 				&-blink {
 					@include heartbeat(object-blink);

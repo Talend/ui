@@ -8,15 +8,15 @@
 /// @group Custom widgets
 ////
 
-$list-item-height: 3rem !default;
+$list-item-height: 1.875rem !default;
 $toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-icons-size: tokens.$coral-sizing-xxxs;
 $toggle-button-padding: $padding-small;
 
-$docked-width: 6rem;
-$large-docked-width: 7rem;
+$docked-width: 3.75rem;
+$large-docked-width: 4.375rem;
 
 .tc-side-panel {
 	display: flex;
@@ -28,8 +28,8 @@ $large-docked-width: 7rem;
 	border-right: 1px solid tokens.$coral-color-neutral-border-weak;
 
 	&::before {
-		left: 1rem;
-		bottom: -5rem;
+		left: 0.625rem;
+		bottom: -3.125rem;
 	}
 
 	&.animate {
@@ -38,14 +38,14 @@ $large-docked-width: 7rem;
 
 	.action-list-container {
 		flex: 1;
-		height: calc(100vh - 12rem); // specific to Safari
+		height: calc(100vh - 7.5rem); // specific to Safari
 
 		:global .tc-side-panel-list {
 			background: transparent;
 		}
 
 		:global .tc-action-list-item {
-			width: calc(100% - 2rem);
+			width: calc(100% - 1.25rem);
 			background: none !important;
 			box-shadow: none !important;
 
@@ -54,7 +54,7 @@ $large-docked-width: 7rem;
 				align-items: center;
 				justify-content: flex-start;
 				color: tokens.$coral-color-brand-text;
-				font-size: 1.6rem;
+				font-size: 1rem;
 				height: $list-item-height;
 				margin: $padding-smaller $padding-small;
 				padding: $padding-smaller;
@@ -93,7 +93,7 @@ $large-docked-width: 7rem;
 		padding-bottom: 0;
 		padding-left: $toggle-button-padding;
 		text-align: left;
-		flex: 0 0 7rem;
+		flex: 0 0 4.375rem;
 
 		:global {
 			.btn.btn-link {

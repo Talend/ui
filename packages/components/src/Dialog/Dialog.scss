@@ -28,7 +28,7 @@
 
 	.modal-header {
 		position: relative;
-		max-height: 7rem;
+		max-height: 4.375rem;
 
 		.modal-title,
 		.modal-subtitle {
@@ -47,8 +47,8 @@
 
 		.close {
 			position: absolute;
-			top: 1rem;
-			right: 1rem;
+			top: 0.625rem;
+			right: 0.625rem;
 			font-weight: normal;
 			color: tokens.$coral-color-neutral-text-weak;
 
