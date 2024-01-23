@@ -1,10 +1,14 @@
 import { forwardRef, ReactElement, Ref, SelectHTMLAttributes } from 'react';
-import styles from './Select.module.scss';
+
 import classnames from 'classnames';
+
 import { SizedIcon } from '../../../Icon';
+
+import styles from './Select.module.scss';
 
 export type SelectNoWrapperProps = Omit<SelectHTMLAttributes<any>, 'prefix'> & {
 	children: ReactElement | ReactElement[];
+	placeholder?: string;
 	hasError?: boolean;
 	isAffix?: boolean;
 	isSuffix?: boolean;
