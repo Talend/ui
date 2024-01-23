@@ -19,7 +19,7 @@
 
 		:global(.form-group) {
 			display: grid;
-			grid-template-columns: auto 3rem;
+			grid-template-columns: auto 1.875rem;
 			grid-template-areas:
 				'label .....'
 				'input equal'
@@ -33,7 +33,7 @@
 			align-items: center;
 			justify-content: center;
 			height: $input-height-base;
-			width: 3rem;
+			width: 1.875rem;
 		}
 
 		:global(.control-label) {
