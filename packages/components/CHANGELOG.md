@@ -1,5 +1,16 @@
 # @talend/react-components
 
+## 14.2.3
+
+### Patch Changes
+
+- fa6ca55: fix(DFD-491): Fix header bar and layout styles
+- Updated dependencies [c317063]
+- Updated dependencies [c317063]
+- Updated dependencies [c317063]
+  - @talend/icons@7.5.0
+  - @talend/bootstrap-theme@8.4.2
+
 ## 14.2.2
 
 ### Patch Changes

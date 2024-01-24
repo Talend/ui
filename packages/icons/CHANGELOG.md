@@ -1,5 +1,13 @@
 # @talend/icons
 
+## 7.5.0
+
+### Minor Changes
+
+- c317063: added icon `panel-left` in size `L`
+- c317063: added icon `panel-left` in size `M`
+- c317063: added icon `panel-left` in size `S`
+
 ## 7.4.1
 
 ### Patch Changes

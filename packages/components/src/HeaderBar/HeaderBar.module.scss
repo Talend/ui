@@ -27,7 +27,7 @@ $tc-headerbar-logo-full-width: 5.3125rem !default;
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: tokens.$coral-elevation-layer-interactive-front;
+	z-index: tokens.$coral-elevation-layer-standard-front;
 
 	svg {
 		margin: 0;
@@ -78,7 +78,6 @@ $tc-headerbar-logo-full-width: 5.3125rem !default;
 			display: flex;
 			align-items: center;
 			height: 100%;
-			white-space: nowrap;
 
 			&.separated:not(:last-child)::after {
 				content: ' ';
