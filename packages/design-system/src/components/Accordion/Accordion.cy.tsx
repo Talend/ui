@@ -1,5 +1,7 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
+
 /* eslint-disable testing-library/await-async-queries */
+
 /* eslint-disable testing-library/prefer-screen-queries */
 import { Accordion, CollapsiblePanel } from './';
 
@@ -16,7 +18,7 @@ const SampleParagraph = () => (
 	</p>
 );
 const WithAction = () => (
-	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+	<div style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}>
 		<CollapsiblePanel
 			id="panel-with-action"
 			title="panel with action"
@@ -48,7 +50,9 @@ context('<CollapsiblePanel />', () => {
 
 	it('should hide chevron and action when disabled', () => {
 		cy.mount(
-			<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+			<div
+				style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}
+			>
 				<CollapsiblePanel
 					id="disabled-panel"
 					title="disabled panel"
@@ -77,7 +81,9 @@ context('<CollapsiblePanel />', () => {
 
 	it('should manage expanded state with accordion', () => {
 		cy.mount(
-			<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+			<div
+				style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}
+			>
 				<Accordion>
 					<CollapsiblePanel id="panel-a" title="first panel">
 						<SampleParagraph />
@@ -102,7 +108,9 @@ context('<CollapsiblePanel />', () => {
 
 	it('should display proper title without status', () => {
 		cy.mount(
-			<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+			<div
+				style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}
+			>
 				<CollapsiblePanel id="panel-a" title="MyTitle">
 					<SampleParagraph />
 				</CollapsiblePanel>
@@ -122,7 +130,9 @@ context('<CollapsiblePanel />', () => {
 
 	it('should display status without title', () => {
 		cy.mount(
-			<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+			<div
+				style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}
+			>
 				<CollapsiblePanel id="panel-a" status="successful">
 					<SampleParagraph />
 				</CollapsiblePanel>

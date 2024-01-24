@@ -1,8 +1,8 @@
+import { StoryFn, StoryObj } from '@storybook/react';
+
 import tokens from '@talend/design-tokens';
-import { StoryObj, StoryFn } from '@storybook/react';
 
-import { StackHorizontal, StackVertical, StackItem, Divider, ButtonPrimary } from '../../';
-
+import { ButtonPrimary, Divider, StackHorizontal, StackItem, StackVertical } from '../../';
 import {
 	alignContentOptions,
 	alignOptions,
@@ -12,7 +12,6 @@ import {
 	sizeOptions,
 	sizeOptionsWithAuto,
 } from '../../components/Stack/Primitive/StackPrimitive';
-
 import { overflowOptions } from '../../components/Stack/StackItem';
 
 export default {
@@ -157,13 +156,13 @@ export const StackWithStackItem: StoryFn<typeof StackItem> = args => {
 	return (
 		<StackVertical gap="XS" as="ul" align="stretch">
 			<li>
-				<Block width="6rem" />
+				<Block width="3.75rem" />
 			</li>
 			<StackItem {...args}>
-				<Block width="4rem" />
+				<Block width="2.5rem" />
 			</StackItem>
 			<li>
-				<Block width="8rem" />
+				<Block width="5rem" />
 			</li>
 		</StackVertical>
 	);

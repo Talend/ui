@@ -1,9 +1,10 @@
 import { useState } from 'react';
+
 import { StoryFn } from '@storybook/react';
 import { screen, userEvent } from '@storybook/testing-library';
-import { Area } from '../docs/Area';
 
-import { FloatingDrawer, ButtonPrimary, FloatingDrawerProps } from '../../';
+import { ButtonPrimary, FloatingDrawer, FloatingDrawerProps } from '../../';
+import { Area } from '../docs/Area';
 
 export default {
 	component: FloatingDrawer,
@@ -59,9 +60,9 @@ const playOpenDrawer = async () => {
 	await userEvent.click(openButton);
 };
 const containerStyle = {
-	// body of the preview has a padding of 1rem
-	width: 'calc(100vw - 2rem)',
-	height: 'calc(100vh - 2rem)',
+	// body of the preview has a padding of 0.625rem
+	width: 'calc(100vw - 1.25rem)',
+	height: 'calc(100vh - 1.25rem)',
 };
 
 export const Simple: StoryFn<typeof FloatingDrawer> = (

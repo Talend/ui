@@ -1,14 +1,15 @@
 import { forwardRef, Ref } from 'react';
 
 import { action } from '@storybook/addon-actions';
+
 import {
+	ButtonIcon,
+	ButtonPrimary,
+	Form,
 	Popover,
 	PopoverProps,
 	PopoverStateReturn,
-	ButtonPrimary,
-	ButtonIcon,
 	StackVertical,
-	Form,
 } from '../../';
 
 export default {
@@ -28,7 +29,7 @@ const OpenPopover = forwardRef((props: PopoverProps, ref: Ref<HTMLButtonElement>
 });
 
 export const DefaultStory = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover aria-label="Custom popover" disclosure={<OpenPopover />}>
 			Text Content
 		</Popover>
@@ -36,7 +37,7 @@ export const DefaultStory = () => (
 );
 
 export const DisclosureStory = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover
 			aria-label="Custom popover"
 			disclosure={
@@ -51,7 +52,7 @@ export const DisclosureStory = () => (
 );
 
 export const FormDisclosureStory = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover
 			aria-label="Custom popover"
 			focusOnDisclosure
@@ -63,7 +64,7 @@ export const FormDisclosureStory = () => (
 );
 
 export const WithoutPaddingStory = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover aria-label="Custom popover" disclosure={<OpenPopover />} isFixed hasPadding={false}>
 			Text Content without padding
 		</Popover>
@@ -71,7 +72,7 @@ export const WithoutPaddingStory = () => (
 );
 
 export const WithFunctionAsChildren = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover aria-label="Custom popover" disclosure={<OpenPopover />}>
 			{(popover: PopoverStateReturn) => (
 				<StackVertical gap="S">
