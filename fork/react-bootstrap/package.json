@@ -40,13 +40,13 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-core": "^16.3.2",
+    "@talend/scripts-core": "^16.3.4",
     "@talend/scripts-config-babel": "^13.2.1",
-    "@talend/scripts-config-react-webpack": "^16.3.3",
-    "@testing-library/jest-dom": "^6.1.5",
+    "@talend/scripts-config-react-webpack": "^16.5.0",
+    "@testing-library/jest-dom": "^6.2.1",
     "@testing-library/react": "^14.1.2",
-    "@testing-library/user-event": "^14.5.1",
-    "chai": "^4.3.10",
+    "@testing-library/user-event": "^14.5.2",
+    "chai": "^4.4.1",
     "chalk": "^2.4.2",
     "create-react-class": "^15.7.0",
     "cross-env": "^7.0.3",
@@ -57,7 +57,7 @@
     "sinon": "^11.1.2"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
+    "classnames": "^2.5.1",
     "dom-helpers": "^3.4.0",
     "invariant": "^2.2.4",
     "prop-types": "^15.8.1",
