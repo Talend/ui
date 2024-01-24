@@ -27,7 +27,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/bootstrap-sass": "^3.5.1",
+    "@talend/bootstrap-sass": "^4.0.0",
     "@talend/design-tokens": "^2.10.1"
   },
   "devDependencies": {
@@ -55,5 +55,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.4.1"
+  "version": "8.4.2"
 }
