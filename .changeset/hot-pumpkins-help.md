@@ -5,6 +5,7 @@
 '@talend/react-dataviz': major
 '@talend/react-stepper': major
 '@talend/react-forms': major
+'@talend/bootstrap-sass': minor
 ---
 
 `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
