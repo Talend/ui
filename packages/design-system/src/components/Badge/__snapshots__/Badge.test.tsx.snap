@@ -47,7 +47,7 @@ exports[`Badge should render a11y html 1`] = `
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#chevron-down:S"
@@ -180,7 +180,7 @@ exports[`Badge should render a11y html 1`] = `
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#chevron-down:S"

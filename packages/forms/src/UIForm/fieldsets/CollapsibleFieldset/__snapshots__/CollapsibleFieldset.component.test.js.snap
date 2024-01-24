@@ -24,7 +24,7 @@ exports[`CollapsibleFieldset should render 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-up:M"
@@ -58,7 +58,7 @@ exports[`CollapsibleFieldset should render 1`] = `
             aria-hidden="true"
             pointer-events="none"
             shape-rendering="geometricPrecision"
-            style="width: 1.6rem; height: 1.6rem;"
+            style="width: 1rem; height: 1rem;"
           >
             <use
               xlink:href="#information-filled:M"

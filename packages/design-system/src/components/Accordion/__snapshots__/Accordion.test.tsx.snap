@@ -22,7 +22,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -42,7 +42,7 @@ exports[`Accordion should render a11y html 1`] = `
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
                 xlink:href="#check-filled:M"
@@ -78,7 +78,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -98,7 +98,7 @@ exports[`Accordion should render a11y html 1`] = `
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
                 xlink:href="#square-cross:M"
@@ -134,7 +134,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -205,7 +205,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -225,7 +225,7 @@ exports[`Accordion should render a11y html 1`] = `
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
                 xlink:href="#exclamation:M"
@@ -261,7 +261,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -281,7 +281,7 @@ exports[`Accordion should render a11y html 1`] = `
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
                 xlink:href="#circle-slash:M"
