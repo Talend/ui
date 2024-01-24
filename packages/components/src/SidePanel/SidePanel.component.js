@@ -4,7 +4,7 @@ import { withTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import 'simplebar';
-import 'simplebar/dist/simplebar.css';
+import 'simplebar-react/dist/simplebar.min.css';
 
 import tokens from '@talend/design-tokens';
 
