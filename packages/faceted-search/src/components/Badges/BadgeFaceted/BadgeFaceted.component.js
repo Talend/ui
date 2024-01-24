@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
+import classNames from 'classnames';
 import { isEqual } from 'lodash';
 import PropTypes from 'prop-types';
 
 import Badge from '@talend/react-components/lib/Badge';
-import { getTheme } from '@talend/react-components/lib/theme';
 
 import { USAGE_TRACKING_TAGS } from '../../../constants';
 import { OVERLAY_FLOW_ACTIONS, useBadgeOverlayFlow } from '../../../hooks/badgeOverlayFlow.hook';
@@ -14,9 +14,7 @@ import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propT
 import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';
 
-import cssModule from './BadgeFaceted.module.scss';
-
-const theme = getTheme(cssModule);
+import styles from './BadgeFaceted.module.scss';
 
 const findOperatorByName = name => operator => name === operator.name;
 
@@ -35,6 +33,7 @@ const BadgeFaceted = ({
 	removable = true,
 	value,
 	size = Badge.SIZES.large,
+	type,
 	t,
 }) => {
 	const openValueJustAfterSelectionOfType = operators.length < 2 && initialOperatorOpened;
@@ -107,7 +106,12 @@ const BadgeFaceted = ({
 	};
 
 	return (
-		<Badge id={id} className={theme('tc-badge-faceted')} display={size} type={displayType}>
+		<Badge
+			id={id}
+			className={classNames(styles['tc-badge-faceted'], type)}
+			display={size}
+			type={displayType}
+		>
 			{labelCategory && (
 				<>
 					<Badge.Category category={labelCategory} label={labelCategory} />
@@ -127,7 +131,7 @@ const BadgeFaceted = ({
 			)}
 			<BadgeOverlay
 				id={id}
-				className={theme('tc-badge-faceted-overlay')}
+				className={styles['tc-badge-faceted-overlay']}
 				showSpecialChars={!!displayType}
 				label={labelValue}
 				onHide={onHideSubmitBadge}
@@ -165,6 +169,7 @@ BadgeFaceted.propTypes = {
 	value: PropTypes.any,
 	readOnly: PropTypes.bool,
 	removable: PropTypes.bool,
+	type: PropTypes.string,
 	t: PropTypes.func.isRequired,
 };
 

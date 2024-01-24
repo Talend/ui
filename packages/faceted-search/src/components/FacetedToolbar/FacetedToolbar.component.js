@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types';
 
 import { Form } from '@talend/design-system';
-import { getTheme } from '@talend/react-components/lib/theme';
 
 import { FACETED_MODE, USAGE_TRACKING_TAGS } from '../../constants';
 
-import cssModule from './FacetedToolbar.module.scss';
-
-const theme = getTheme(cssModule);
+import styles from './FacetedToolbar.module.scss';
 
 const SwitchFacetedMode = ({ facetedMode, onChange, t }) => (
-	<Form className={theme('tc-faceted-switch-mode')}>
+	<Form className={styles['tc-faceted-switch-mode']}>
 		<Form.ToggleSwitch
 			label={t('FACETED_SEARCH_QUERY', 'Query')}
 			checked={facetedMode === FACETED_MODE.ADVANCED}
@@ -33,7 +30,7 @@ SwitchFacetedMode.propTypes = {
 };
 
 const FacetedToolbar = ({ children, facetedMode, id, onChangeFacetedMode, t }) => (
-	<div id={`${id}-toolbar`} className={theme('tc-faceted-toolbar')}>
+	<div id={`${id}-toolbar`} className={styles['tc-faceted-toolbar']}>
 		{children}
 		<SwitchFacetedMode id={id} facetedMode={facetedMode} onChange={onChangeFacetedMode} t={t} />
 	</div>

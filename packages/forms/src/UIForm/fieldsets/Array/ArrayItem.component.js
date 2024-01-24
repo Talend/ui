@@ -82,7 +82,7 @@ function ArrayItem(props) {
 		id: id && `${id}-delete`,
 		onClick: event => onRemove(event, index),
 		disabled: widgetIsDisabled,
-		icon: 'talend-trash',
+		icon: 'trash',
 	};
 	const actions = [];
 	if (!readOnly) {

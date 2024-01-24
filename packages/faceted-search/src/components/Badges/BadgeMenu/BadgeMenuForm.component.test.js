@@ -64,7 +64,7 @@ describe('BadgeMenuForm', () => {
 			label: 'Item One',
 		});
 	});
-	it('should show loader icon if items are loading', () => {
+	it('should show skeletons if items are loading', () => {
 		// Given
 		const props = {
 			id: 'myId',
@@ -76,7 +76,7 @@ describe('BadgeMenuForm', () => {
 		// When
 		render(<BadgeMenuForm {...props} />);
 		// Then
-		expect(screen.getByTestId('circular-progress')).toBeVisible();
+		expect(screen.getByTestId('badge-menu-form-skeleton-item')).toBeVisible();
 		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
 		expect(screen.getByRole('button')).toBeDisabled();
 	});
@@ -114,13 +114,7 @@ describe('BadgeMenuForm', () => {
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-two')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-three')).toBeVisible();
-
-		await userEvent.type(
-			screen.getByRole('searchbox', {
-				name: /find a column/i,
-			}),
-			'One',
-		);
+		await userEvent.type(screen.getByRole('searchbox'), 'One');
 
 		// Then
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();

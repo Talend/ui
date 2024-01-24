@@ -2,19 +2,21 @@
 
 exports[`BadgeTextForm should mount a default badge 1`] = `
 <form
-  class="tc-badge-text-form theme-tc-badge-text-form"
+  class="theme-form"
   id="myId-text-area"
 >
   <div
-    class="theme-body tc-tooltip-body tc-badge-text-form-body theme-tc-badge-text-form-body"
-    id="myId"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
+    <label
+      class="theme-label"
+      for="myId-text"
+    />
     <div
-      class="theme-content tc-tooltip-content"
-      id="myId-content"
+      class="theme-inputShell"
     >
       <input
-        class="form-control"
+        class="theme-input"
         id="myId-text"
         placeholder="Apply"
         type="text"
@@ -22,20 +24,25 @@ exports[`BadgeTextForm should mount a default badge 1`] = `
       />
     </div>
   </div>
-  <footer
-    class="theme-footer tc-tooltip-footer"
-    id="myId"
+  <div
+    class="theme-buttons"
   >
-    <button
-      aria-label="Apply"
-      class="btn btn-info"
-      data-feature="filter.name.add"
-      type="submit"
+    <div
+      class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-undefined theme-padding-bottom-0 theme-padding-left-undefined"
     >
-      <span>
-        Apply
-      </span>
-    </button>
-  </footer>
+      <button
+        aria-busy="false"
+        class="theme-clickable theme-button theme-primary"
+        data-feature="filter.name.add"
+        type="submit"
+      >
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
+          Apply
+        </span>
+      </button>
+    </div>
+  </div>
 </form>
 `;

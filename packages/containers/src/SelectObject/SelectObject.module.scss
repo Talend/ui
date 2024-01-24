@@ -1,5 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
 .wrapper {
 	min-height: 300px;
 	max-width: 500px;
@@ -37,36 +35,18 @@
 				}
 			}
 
-			margin-top: $padding-smaller;
+			margin-top: 4px;
 			overflow-y: auto;
 			flex: 4 0 0;
 
-			:global(.list-group-item) {
-				border: none;
-				padding-left: $padding-small;
-				padding-bottom: $padding-smaller;
-				border-radius: unset;
-			}
-
-			:global(.list-group-item-heading) {
-				font-size: 15px;
-			}
-
 			:global(.active) {
-				background: rgba($black, 0.05);
-			}
-
-			:global(.list-group-item-text) {
-				color: $gray;
-				font-size: 13px;
+				background: rgba(#000, 0.05);
 			}
 		}
 
 		.preview {
 			flex: 3 0 0;
 			overflow-y: auto;
-			margin-top: 0;
-			padding-top: $padding-large;
 
 			:global(.text-renderer-label) {
 				dt {

@@ -1,4 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 @import '../bar-chart';
 
@@ -29,9 +28,7 @@ $module: colored-bar;
 
 	&__label-container {
 		pointer-events: none;
-		font-size: 1.2rem;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-weight: $font-weight-semi-bold;
+		font: tokens.$coral-paragraph-s-bold;
 	}
 
 	&__label {

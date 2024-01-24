@@ -1,12 +1,14 @@
 import { Component } from 'react';
-import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
-import ItemPropTypes from './Item.propTypes';
+
+import classNames from 'classnames';
+
 import Action from '../../../Actions/Action';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import Checkbox from '../../../Checkbox';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import Icon from '../../../Icon';
 import TooltipTrigger from '../../../TooltipTrigger';
+import ItemPropTypes from './Item.propTypes';
 
 class Item extends Component {
 	componentDidUpdate(prevProps) {
@@ -38,7 +40,6 @@ class Item extends Component {
 
 		const itemId = id && `checkbox-${id}`;
 		const itemClassName = classNames(
-			'checkbox',
 			{ 'switch-nested': children },
 			{ switch: isSwitchBox },
 			{ 'with-icon': item.icon },

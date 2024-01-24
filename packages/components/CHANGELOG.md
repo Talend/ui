@@ -1,5 +1,12 @@
 # @talend/react-components
 
+## 14.2.2
+
+### Patch Changes
+
+- bfe3b20: TDOPS-5968 - Fix ListView checkbox alignement
+- 941ff4f: feat: add BadgePeriod in faceted search
+
 ## 14.2.1
 
 ### Patch Changes

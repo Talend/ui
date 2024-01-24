@@ -1,4 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
 $circle-size-large: 2.2rem !default;
@@ -7,10 +6,10 @@ $circle-size-small: 1.8rem !default;
 .tc-badge-operator {
 	align-items: center;
 	background: tokens.$coral-color-neutral-background;
-	border-radius: 10rem;
+	border-radius: 100%;
 	display: inline-flex;
 	justify-content: center;
-	margin: 0 $padding-smaller 0 $padding-smaller;
+	margin: 0 0 0 tokens.$coral-spacing-xs;
 
 	&-small {
 		height: $circle-size-small;
@@ -31,27 +30,5 @@ $circle-size-small: 1.8rem !default;
 	&-popover {
 		display: flex;
 		flex-direction: column;
-
-		:global(.tc-tooltip-body) {
-			margin-right: 0;
-			margin-left: 0;
-		}
-
-		:global(.tc-tooltip-content) {
-			flex-direction: column;
-			min-height: 0;
-		}
-	}
-
-	&-row-button {
-		display: flex;
-		justify-content: flex-start;
-		text-transform: none;
-		width: 100%;
-
-		&:hover {
-			background: $concrete;
-			text-decoration: none;
-		}
 	}
 }

@@ -1,5 +1,26 @@
 # @talend/react-forms
 
+## 12.6.1
+
+### Patch Changes
+
+- 5269331: TDOPS-5854 - Fix MultiSelectTag widget to remove border from Typeahead component
+- Updated dependencies [bfe3b20]
+- Updated dependencies [941ff4f]
+  - @talend/react-components@14.2.2
+
+## 12.6.0
+
+### Minor Changes
+
+- 2065869: chore(DFD-491): Update ArrayItem styles
+
+### Patch Changes
+
+- f675918: fix(DFD-536): Fix click on collapsible toggle
+- Updated dependencies [f0770b1]
+  - @talend/design-system@8.11.1
+
 ## 12.5.2
 
 ### Patch Changes

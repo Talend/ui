@@ -1,7 +1,9 @@
-import styles from './StackPrimitive.module.scss';
-import classnames from 'classnames';
 import { forwardRef } from 'react';
-import type { Ref, ReactNode } from 'react';
+import type { ReactNode, Ref } from 'react';
+
+import classnames from 'classnames';
+
+import styles from './StackPrimitive.module.scss';
 
 export const justifyOptions = {
 	start: 'justify-start',
@@ -88,7 +90,7 @@ type SpacingTypeWithAuto =
 			bottom: keyof typeof sizeOptionsWithAuto;
 	  };
 
-export const possibleAsTypes = ['div', 'ul', 'ol', 'article', 'span', 'dl'] as const;
+export const possibleAsTypes = ['div', 'ul', 'ol', 'section', 'article', 'span', 'dl'] as const;
 
 type DirectionType = 'row' | 'column';
 

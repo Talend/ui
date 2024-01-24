@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-storybook-one",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Package containing all stories from talend/ui repository",
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
@@ -20,20 +20,20 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
-    "@talend/design-system": "^8.8.3",
+    "@talend/design-system": "^8.11.1",
     "@talend/design-tokens": "^2.11.0",
-    "@talend/react-faceted-search": "^15.0.0",
+    "@talend/react-faceted-search": "^16.0.0",
     "@talend/storybook-docs": "^2.3.0",
     "@talend/icons": "^7.3.1",
     "@talend/react-components": "^14.0.0",
-    "@talend/react-forms": "^12.5.1",
+    "@talend/react-forms": "^12.6.0",
     "@talend/react-dataviz": "^5.0.0",
     "lodash": "^4.17.21",
     "pkg-dir": "^7.0.0",
     "react-hook-form": "^7.48.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@storybook/addon-a11y": "^7.6.4",

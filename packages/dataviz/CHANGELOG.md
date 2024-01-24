@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.1.0
+
+### Minor Changes
+
+- 7d73eb9: TDOPS-5724 - Remove bootstrap theme styling and dependency from packages
+
 ## 5.0.0
 
 ### Major Changes
