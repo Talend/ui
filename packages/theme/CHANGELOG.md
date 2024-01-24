@@ -1,5 +1,16 @@
 # @talend/bootstrap-theme
 
+## 8.5.0
+
+### Minor Changes
+
+- 8878c6c: deps: bump css-minimizer-webpack-plugin
+
+### Patch Changes
+
+- Updated dependencies [3dc3100]
+  - @talend/bootstrap-sass@5.0.0
+
 ## 8.4.2
 
 ### Patch Changes
