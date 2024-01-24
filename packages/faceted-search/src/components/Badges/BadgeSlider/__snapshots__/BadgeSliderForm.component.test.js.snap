@@ -68,9 +68,6 @@ exports[`BadgeSliderForm should mount a default badge 1`] = `
         </div>
       </div>
     </div>
-    <div
-      class="theme-tc-badge-slider-form-error"
-    />
   </div>
   <div
     class="theme-buttons"

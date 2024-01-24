@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 8.11.1
+
+### Patch Changes
+
+- f0770b1: chore: add "section" as an option to the "as" list of possible values of the StackPrimitive component
+
 ## 8.11.0
 
 ### Minor Changes

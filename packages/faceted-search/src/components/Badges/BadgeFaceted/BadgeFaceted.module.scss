@@ -47,4 +47,15 @@
 			}
 		}
 	}
+
+
+	&:global(.period) {
+		.tc-badge-faceted-overlay {
+			& > button {
+				> span > span {
+					max-width: none;
+				}
+			}
+		}
+	}
 }

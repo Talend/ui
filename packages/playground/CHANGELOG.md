@@ -1,5 +1,18 @@
 # @talend/ui-playground
 
+## 2.3.2
+
+### Patch Changes
+
+- f675918: fix(DFD-536): Fix click on collapsible toggle
+- Updated dependencies [f0770b1]
+- Updated dependencies [f675918]
+- Updated dependencies [7cc4321]
+- Updated dependencies [2065869]
+  - @talend/design-system@8.11.1
+  - @talend/react-forms@12.6.0
+  - @talend/react-faceted-search@16.0.0
+
 ## 2.3.1
 
 ### Patch Changes
