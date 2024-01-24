@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.10.0
+
+### Minor Changes
+
+- b29255c: deps: bump js-yaml from 3.x to 4.x
+
 ## 10.9.1
 
 ### Patch Changes

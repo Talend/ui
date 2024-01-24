@@ -1,5 +1,19 @@
 # @talend/react-components
 
+## 14.3.0
+
+### Minor Changes
+
+- 3022b60: deps: bump simplebar to 6.x
+
+### Patch Changes
+
+- 3dc3100: fix(DFD-491): Fix header bar and layout styles
+- Updated dependencies [8878c6c]
+- Updated dependencies [3dc3100]
+  - @talend/bootstrap-theme@8.5.0
+  - @talend/icons@7.6.0
+
 ## 14.2.3
 
 ### Patch Changes
