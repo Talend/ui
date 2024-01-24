@@ -1,5 +1,12 @@
 # @talend/bootstrap-theme
 
+## 8.4.2
+
+### Patch Changes
+
+- Updated dependencies [9f9fc07]
+  - @talend/bootstrap-sass@4.0.0
+
 ## 8.4.1
 
 ### Patch Changes

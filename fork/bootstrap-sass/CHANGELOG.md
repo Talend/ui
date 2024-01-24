@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- 9f9fc07: chore: remove font-size override (this should not impact the apps as it's done also on the design-system provider)
+
 ## 3.5.1
 
 ### Patch Changes
