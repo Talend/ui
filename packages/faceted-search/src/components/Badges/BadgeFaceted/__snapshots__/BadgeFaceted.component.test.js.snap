@@ -50,8 +50,7 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
     >
       <button
         aria-busy="false"
-        aria-expanded="false"
-        aria-haspopup="dialog"
+        aria-describedby="id-42"
         aria-label="All"
         class="theme-clickable theme-button theme-tertiary theme-size-S"
         id="my-id-action-overlay"
@@ -60,9 +59,7 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
         <span
           class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
         >
-          <span
-            aria-describedby="42"
-          >
+          <span>
             All
           </span>
         </span>
