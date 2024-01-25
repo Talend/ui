@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.1.1
+
+### Patch Changes
+
+- 7a0b233: Fix tooltip for faceted search badge to not throw an error
+
 ## 16.1.0
 
 ### Minor Changes
