@@ -28,6 +28,7 @@ exports[`BadgeDate should render a default badge 1`] = `
           aria-label="Not equal to"
           class="theme-clickable theme-button theme-tertiary theme-size-S"
           id="myId-badge-date-operator-action-overlay"
+          title="Not equal to"
           type="button"
         >
           <span
@@ -50,10 +51,12 @@ exports[`BadgeDate should render a default badge 1`] = `
     >
       <button
         aria-busy="false"
-        aria-describedby="id-42"
+        aria-expanded="false"
+        aria-haspopup="dialog"
         aria-label="2011-10-01"
         class="theme-clickable theme-button theme-tertiary theme-size-S"
         id="myId-badge-date-action-overlay"
+        title="2011-10-01"
         type="button"
       >
         <span

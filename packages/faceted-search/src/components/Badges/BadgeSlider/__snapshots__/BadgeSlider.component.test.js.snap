@@ -28,6 +28,7 @@ exports[`BadgeSlider should mount a default badge 1`] = `
           aria-label="Equal"
           class="theme-clickable theme-button theme-tertiary theme-size-S"
           id="myId-badge-slider-operator-action-overlay"
+          title="Equal"
           type="button"
         >
           <span
@@ -50,10 +51,12 @@ exports[`BadgeSlider should mount a default badge 1`] = `
     >
       <button
         aria-busy="false"
-        aria-describedby="id-42"
+        aria-expanded="false"
+        aria-haspopup="dialog"
         aria-label="0"
         class="theme-clickable theme-button theme-tertiary theme-size-S"
         id="myId-badge-slider-action-overlay"
+        title="0"
         type="button"
       >
         <span

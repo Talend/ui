@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { ButtonTertiary, Popover, Tooltip } from '@talend/design-system';
+import { ButtonTertiary, Popover } from '@talend/design-system';
 import { FormatValue, Icon } from '@talend/react-components';
 
 import styles from './BadgeOverlay.module.scss';
@@ -74,7 +74,7 @@ const BadgeOverlay = ({
 		getLabel(label, showSpecialChars)
 	);
 
-	let button = (
+	const button = (
 		<ButtonTertiary
 			id={`${id}-action-overlay`}
 			aria-label={label}
@@ -82,14 +82,11 @@ const BadgeOverlay = ({
 			disabled={readOnly}
 			data-feature={dataFeature}
 			size="S"
+			title={label}
 		>
 			{buttonLabel}
 		</ButtonTertiary>
 	);
-
-	if (!iconName) {
-		button = <Tooltip title={buttonLabel}>{button}</Tooltip>;
-	}
 
 	return (
 		<div className={className}>
