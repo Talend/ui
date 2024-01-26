@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-faceted-search",
-  "version": "16.1.2",
+  "version": "17.0.0",
   "description": "Faceted search",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^7.6.4",
     "@storybook/testing-library": "^0.2.2",
-    "@talend/design-system": "^8.11.1",
+    "@talend/design-system": "^9.0.0",
     "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
     "@talend/icons": "^7.3.1",
@@ -66,8 +66,8 @@
     "react-i18next": "^13.5.0"
   },
   "peerDependencies": {
-    "@talend/design-system": "^8.4.0",
-    "@talend/react-components": "^14.0.0",
+    "@talend/design-system": "^9.0.0",
+    "@talend/react-components": "^15.0.0",
     "i18next": "^23.7.7",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0",

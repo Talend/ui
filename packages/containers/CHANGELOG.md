@@ -1,5 +1,15 @@
 # @talend/react-containers
 
+## 10.6.1
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+  - @talend/react-forms@13.0.0
+  - @talend/design-system@9.0.0
+
 ## 10.6.0
 
 ### Minor Changes
