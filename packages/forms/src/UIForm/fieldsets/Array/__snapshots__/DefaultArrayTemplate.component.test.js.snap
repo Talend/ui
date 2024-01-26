@@ -35,7 +35,7 @@ exports[`Default Array Template component should render default array template 1
           aria-hidden="true"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#information-filled:M"
@@ -83,7 +83,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#arrow-top:S"
@@ -107,7 +107,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#arrow-bottom:S"
@@ -139,7 +139,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.6rem; height: 1.6rem;"
+                style="width: 1rem; height: 1rem;"
               >
                 <use
                   xlink:href="#trash:M"
@@ -175,7 +175,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#arrow-top:S"
@@ -199,7 +199,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#arrow-bottom:S"
@@ -231,7 +231,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.6rem; height: 1.6rem;"
+                style="width: 1rem; height: 1rem;"
               >
                 <use
                   xlink:href="#trash:M"
@@ -267,7 +267,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#arrow-top:S"
@@ -292,7 +292,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#arrow-bottom:S"
@@ -324,7 +324,7 @@ exports[`Default Array Template component should render default array template 1
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.6rem; height: 1.6rem;"
+                style="width: 1rem; height: 1rem;"
               >
                 <use
                   xlink:href="#trash:M"

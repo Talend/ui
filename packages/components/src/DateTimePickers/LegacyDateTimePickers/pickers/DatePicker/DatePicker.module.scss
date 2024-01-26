@@ -15,7 +15,7 @@
 		width: 100%;
 		position: absolute;
 		left: 0;
-		top: 2.3rem;
+		top: 1.4375rem;
 	}
 
 	th {
@@ -31,18 +31,18 @@
 }
 
 .calendar-row {
-	height: 3.6rem;
+	height: 2.25rem;
 	text-align: center;
 
 	.calendar-day {
 		@include picker-action;
 
-		height: 2.4rem;
-		width: 2.4rem;
+		height: 1.5rem;
+		width: 1.5rem;
 		background: transparent;
 		border: none;
 		border-radius: 50%;
-		line-height: 2.4rem;
+		line-height: 1.5rem;
 		padding: 0;
 
 		&.today {

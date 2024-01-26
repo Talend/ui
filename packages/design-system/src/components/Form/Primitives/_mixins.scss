@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
+$standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.125rem);
 
 @mixin base-input () {
 	background: transparent;
@@ -82,7 +82,7 @@ $standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 	&:focus-within,
 	&:focus {
 		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-		box-shadow: 0 0 0 0.1rem tokens.$coral-color-accent-border;
+		box-shadow: 0 0 0 0.0625rem tokens.$coral-color-accent-border;
 	}
 
 	&_borderError {
@@ -95,7 +95,7 @@ $standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 		&:focus-within,
 		&:focus {
 			border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
-			box-shadow: 0 0 0 0.1rem tokens.$coral-color-danger-border;
+			box-shadow: 0 0 0 0.0625rem tokens.$coral-color-danger-border;
 		}
 	}
 

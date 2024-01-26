@@ -33,7 +33,7 @@
 			overflow: hidden;
 
 			+ * {
-				padding-left: 2rem;
+				padding-left: 1.25rem;
 				color: tint($black, 50);
 			}
 
@@ -46,14 +46,14 @@
 				top: 0;
 				left: 0;
 				transition: background 0.2s ease, transform 0.2s ease;
-				border-radius: 13rem;
+				border-radius: 8.125rem;
 			}
 
 			+ *::before,
 			&:checked + *::before {
-				width: 2.7rem;
-				height: 0.6rem;
-				margin-top: 0.5rem;
+				width: 1.6875rem;
+				height: 0.375rem;
+				margin-top: 0.3125rem;
 				background: $alto;
 				border: none;
 				box-shadow: $switch-track-shadow;
@@ -62,8 +62,8 @@
 
 			+ *::after,
 			&:checked + *::after {
-				width: 1.5rem;
-				height: 1.5rem;
+				width: 0.9375rem;
+				height: 0.9375rem;
 				background-color: $wild-sand;
 				border: 1px solid $silver;
 				box-shadow: $switch-thumb-shadow;
@@ -80,7 +80,7 @@
 				}
 
 				+ *::after {
-					transform: translate(1.2rem, 0);
+					transform: translate(0.75rem, 0);
 				}
 			}
 

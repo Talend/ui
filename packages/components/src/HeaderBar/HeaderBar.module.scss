@@ -2,7 +2,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 $tc-headerbar-logo-width: tokens.$coral-sizing-s !default;
-$tc-headerbar-logo-full-width: 8.5rem !default;
+$tc-headerbar-logo-full-width: 5.3125rem !default;
 
 @keyframes fadeIn {
 	from {
@@ -106,8 +106,8 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 			:global(.tc-svg-icon) {
 				padding: 0;
-				height: 2.8rem;
-				width: 2.8rem;
+				height: 1.75rem;
+				width: 1.75rem;
 			}
 
 			&.full {
@@ -198,13 +198,13 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 		border-radius: 50%;
 		color: tokens.$coral-color-brand-text;
 		min-height: auto;
-		height: 3.2rem;
-		width: 3.2rem;
+		height: 2rem;
+		width: 2rem;
 		margin: 0 $padding-small;
 		padding: 0;
 	}
 }
 
 :global(.intercom-namespace .intercom-app .intercom-messenger-frame) {
-	top: 7rem;
+	top: 4.375rem;
 }

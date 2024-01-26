@@ -1,8 +1,8 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-timepicker-width: 8rem !default;
-$tc-timepicker-height: 17rem !default;
+$tc-timepicker-width: 5rem !default;
+$tc-timepicker-height: 10.625rem !default;
 $tc-timepicker-box-shadow: tokens.$coral-elevation-shadow-neutral-m !default;
 $tc-timepicker-z-index: $zindex-dropdown !default;
 

@@ -1,8 +1,8 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-popover-border-width: 0.1rem !default;
-$tc-height: 4rem;
+$tc-popover-border-width: 0.0625rem !default;
+$tc-height: 2.5rem;
 
 .tc-column-chooser {
 	:global(.tc-tooltip-body) {

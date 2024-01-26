@@ -54,7 +54,7 @@ $tc-filter-bar-width: 250px !default;
 		display: inline-block;
 		color: tokens.$coral-color-neutral-text;
 		padding: $padding-smaller;
-		line-height: 2rem;
+		line-height: 1.25rem;
 		height: 100%;
 		position: absolute;
 		right: 0;
@@ -72,7 +72,7 @@ $tc-filter-bar-width: 250px !default;
 		margin-bottom: 8px;
 
 		.remove {
-			min-height: 2rem;
+			min-height: 1.25rem;
 		}
 	}
 }

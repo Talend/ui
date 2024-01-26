@@ -2,18 +2,18 @@
 @use '@talend/design-tokens/lib/tokens';
 
 @mixin input-icon($margin-left) {
-	margin-top: 1rem;
+	margin-top: 0.625rem;
 	margin-left: $margin-left;
 }
 
 $tc-subheader-active-color: tokens.$coral-color-accent-text-active !default;
 $tc-subheader-hover-focus-color: tokens.$coral-color-accent-text-hover !default;
 $tc-subheader-color: tokens.$coral-color-neutral-text !default;
-$tc-subheader-bar-height: 7rem !default;
+$tc-subheader-bar-height: 4.375rem !default;
 $tc-svg-icon-size: $padding-large !default;
 
 .tc-subheader {
-	border-bottom: 0.1rem solid tokens.$coral-color-neutral-border-weak;
+	border-bottom: 0.0625rem solid tokens.$coral-color-neutral-border-weak;
 	width: 100%;
 
 	:global(.btn-link),

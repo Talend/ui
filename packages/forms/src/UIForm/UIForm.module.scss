@@ -1,12 +1,12 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-drawer-content-max-width: 65rem !default;
+$tc-drawer-content-max-width: 40.625rem !default;
 $tc-drawer-padding: $padding-large !default;
 
 .uiform {
 	:global(.tf-title-text-mode) {
-		font-size: 1.7rem;
+		font-size: 1.0625rem;
 		font-weight: 700;
 		color: tokens.$coral-color-neutral-text-weak;
 	}

@@ -15,7 +15,7 @@
 		width: 100%;
 		position: absolute;
 		left: 0;
-		top: 2.3rem;
+		top: 1.4375rem;
 	}
 
 	th {
@@ -31,7 +31,7 @@
 }
 
 .calendar-row {
-	height: 3.6rem;
+	height: 2.25rem;
 	text-align: center;
 
 	.date-range {
@@ -45,21 +45,21 @@
 		&.range-middle::before {
 			content: ' ';
 			position: absolute;
-			height: 2.5rem;
+			height: 1.5625rem;
 			z-index: -1;
 			background-color: tokens.$coral-color-accent-background-weak;
 		}
 
 		&.range-end::after {
-			width: 2.4rem;
-			left: 0.65rem;
+			width: 1.5rem;
+			left: 0.4063rem;
 			border-top-right-radius: 50%;
 			border-bottom-right-radius: 50%;
 		}
 
 		&.range-start::before {
-			width: 2.4rem;
-			right: 0.65rem;
+			width: 1.5rem;
+			right: 0.4063rem;
 			border-top-left-radius: 50%;
 			border-bottom-left-radius: 50%;
 		}
@@ -84,12 +84,12 @@
 	.calendar-day {
 		@include picker-action;
 
-		height: 2.4rem;
-		width: 2.4rem;
+		height: 1.5rem;
+		width: 1.5rem;
 		background: transparent;
 		border: none;
 		border-radius: 50%;
-		line-height: 2.4rem;
+		line-height: 1.5rem;
 		padding: 0;
 
 		&.today {

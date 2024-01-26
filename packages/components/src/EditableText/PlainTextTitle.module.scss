@@ -10,7 +10,7 @@
 .tc-editable-text-title {
 	display: flex;
 	align-items: center;
-	max-width: 90rem;
+	max-width: 56.25rem;
 
 	:global(.tc-editable-text-wording-wrapper) {
 		@include ellipsis;
