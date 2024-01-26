@@ -1,5 +1,16 @@
 # @talend/react-components
 
+## 15.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+  - @talend/design-system@9.0.0
+
 ## 14.3.0
 
 ### Minor Changes
