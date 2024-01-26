@@ -33,9 +33,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^9.0.0",
-    "@talend/design-tokens": "^2.11.0",
-    "@talend/react-components": "^15.0.0",
+    "@talend/design-system": "^9.0.1",
+    "@talend/design-tokens": "^3.0.0",
+    "@talend/react-components": "^15.0.1",
     "classnames": "^2.3.2",
     "invariant": "^2.2.4",
     "lodash": "^4.17.21"
@@ -75,5 +75,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "11.0.0"
+  "version": "11.0.1"
 }

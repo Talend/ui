@@ -1,5 +1,14 @@
 # @talend/design-docs
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/design-system@9.0.1
+  - @talend/storybook-docs@2.3.1
+
 ## 4.0.0
 
 ### Major Changes

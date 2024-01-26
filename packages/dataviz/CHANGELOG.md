@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/react-components@15.0.1
+
 ## 6.0.0
 
 ### Major Changes

@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-flow-designer",
   "description": "Flow designer for react and redux",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -63,7 +63,7 @@
     "reselect": "^4.1.8"
   },
   "dependencies": {
-    "@talend/design-tokens": "^2.10.1",
+    "@talend/design-tokens": "^3.0.0",
     "classnames": "^2.3.2",
     "d3": "^7.8.5",
     "invariant": "^2.2.4",

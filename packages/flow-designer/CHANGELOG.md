@@ -1,5 +1,12 @@
 # Changelog
 
+## 6.1.2
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
 ## 6.1.1
 
 ### Patch Changes
