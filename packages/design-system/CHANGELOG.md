@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 9.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
 ## 9.0.0
 
 ### Major Changes

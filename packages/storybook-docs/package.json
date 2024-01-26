@@ -1,6 +1,6 @@
 {
   "name": "@talend/storybook-docs",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Talend Storybook Docs component library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -30,7 +30,7 @@
     "@algolia/autocomplete-js": "^1.12.2",
     "@storybook/blocks": "^7.6.4",
     "@storybook/react": "^7.6.4",
-    "@talend/design-tokens": "^2.11.0",
+    "@talend/design-tokens": "^3.0.0",
     "algoliasearch": "^4.20.0",
     "classnames": "^2.3.2",
     "figma-js": "^1.16.0",

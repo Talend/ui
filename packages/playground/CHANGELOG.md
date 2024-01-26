@@ -1,5 +1,18 @@
 # @talend/ui-playground
 
+## 2.3.4
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/bootstrap-theme@9.0.0
+  - @talend/react-components@15.0.1
+  - @talend/react-dataviz@6.0.1
+  - @talend/design-system@9.0.1
+  - @talend/react-faceted-search@17.0.1
+  - @talend/react-forms@13.0.1
+
 ## 2.3.3
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Changelog
 
+## 17.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
 ## 17.0.0
 
 ### Major Changes
