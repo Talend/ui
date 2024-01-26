@@ -1,9 +1,10 @@
-import set from 'lodash/set';
-import cloneDeep from 'lodash/cloneDeep';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { BasicSearch } from './BasicSearch.component';
-import { FacetedManager } from '../FacetedManager';
+import cloneDeep from 'lodash/cloneDeep';
+import set from 'lodash/set';
+
 import { USAGE_TRACKING_TAGS } from '../../constants';
+import { FacetedManager } from '../FacetedManager';
+import { BasicSearch } from './BasicSearch.component';
 
 jest.unmock('@talend/design-system');
 
@@ -104,7 +105,7 @@ describe('BasicSearch', () => {
 		);
 		// Then
 		expect(screen.getByLabelText('Name')).toBeInTheDocument();
-		expect(screen.getByText('hello')).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'hello' })).toBeInTheDocument();
 	});
 
 	it('should filter facets available in quick search', () => {

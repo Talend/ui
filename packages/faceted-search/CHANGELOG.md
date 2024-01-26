@@ -1,5 +1,17 @@
 # Changelog
 
+## 16.1.2
+
+### Patch Changes
+
+- e2a866d: Fix faceted search tooltip and replace it with a title to avoid wrong popover placement
+
+## 16.1.1
+
+### Patch Changes
+
+- 7a0b233: Fix tooltip for faceted search badge to not throw an error
+
 ## 16.1.0
 
 ### Minor Changes

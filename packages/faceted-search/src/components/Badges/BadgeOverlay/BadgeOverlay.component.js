@@ -3,7 +3,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ButtonTertiary, Popover } from '@talend/design-system';
-import { FormatValue, Icon, TooltipTrigger } from '@talend/react-components';
+import { FormatValue, Icon } from '@talend/react-components';
 
 import styles from './BadgeOverlay.module.scss';
 
@@ -26,11 +26,7 @@ const getLabel = (labels, showSpecialChars) => {
 		? labels.map(label => labelFormatter(label, showSpecialChars))
 		: labelFormatter(labels, showSpecialChars);
 
-	return (
-		<TooltipTrigger label={labels} tooltipPlacement="top">
-			{formatedLabels}
-		</TooltipTrigger>
-	);
+	return formatedLabels;
 };
 
 /**
@@ -72,6 +68,11 @@ const BadgeOverlay = ({
 		}
 	};
 	const currentOpened = opened || overlayOpened;
+	const buttonLabel = iconName ? (
+		<Icon name={`talend-${iconName}`} key="icon" />
+	) : (
+		getLabel(label, showSpecialChars)
+	);
 
 	const button = (
 		<ButtonTertiary
@@ -81,12 +82,9 @@ const BadgeOverlay = ({
 			disabled={readOnly}
 			data-feature={dataFeature}
 			size="S"
+			title={label}
 		>
-			{iconName ? (
-				<Icon name={`talend-${iconName}`} key="icon" />
-			) : (
-				getLabel(label, showSpecialChars)
-			)}
+			{buttonLabel}
 		</ButtonTertiary>
 	);
 
