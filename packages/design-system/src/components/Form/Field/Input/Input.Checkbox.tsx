@@ -1,12 +1,8 @@
 import { forwardRef, Ref } from 'react';
 
-import { Mandatory } from '../../../../types';
 import { CheckboxPrimitive, CheckboxPrimitiveType } from '../../Primitives';
 
-export type CheckboxProps = Mandatory<
-	Omit<CheckboxPrimitiveType, 'className' | 'style'>,
-	'onChange'
->;
+export type CheckboxProps = Omit<CheckboxPrimitiveType, 'className' | 'style'>;
 
 const Checkbox = forwardRef((props: CheckboxProps, ref: Ref<HTMLInputElement>) => {
 	return <CheckboxPrimitive {...props} ref={ref} />;

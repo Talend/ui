@@ -8,6 +8,3 @@ export type DataAttributes = {
 };
 
 export type DeprecatedIconNames = IconName;
-
-// Allow to force one or more properties K in T to be required
-export type Mandatory<T, K extends keyof T> = Pick<Required<T>, K> & Omit<T, K>;
