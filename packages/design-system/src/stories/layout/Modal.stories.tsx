@@ -131,7 +131,7 @@ function QuicheRecipe() {
 				it’s also good cold.
 			</p>
 
-			<div style={{ width: '50%', margin: '2rem auto 0' }}>
+			<div style={{ width: '50%', margin: '1.25rem auto 0' }}>
 				<img
 					src="https://img-3.journaldesfemmes.fr/csLNATf47C8IYJxFtQ4S-o1t0kw=/800x600/smart/5a1c637d7ef0426784dad14c29aaff55/recipe-jdf/10025089.jpg"
 					alt="The quiche lorraine"

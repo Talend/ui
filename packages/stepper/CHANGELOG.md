@@ -1,5 +1,27 @@
 # @talend/react-stepper
 
+## 11.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/react-components@15.0.1
+  - @talend/design-system@9.0.1
+
+## 11.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+  - @talend/design-system@9.0.0
+
 ## 10.2.1
 
 ### Patch Changes

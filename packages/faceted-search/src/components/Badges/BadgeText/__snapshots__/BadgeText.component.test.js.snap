@@ -28,6 +28,7 @@ exports[`BadgeText should mount a default badge 1`] = `
           aria-label="Does not contain"
           class="theme-clickable theme-button theme-tertiary theme-size-S"
           id="myId-badge-text-operator-action-overlay"
+          title="Does not contain"
           type="button"
         >
           <span
@@ -55,14 +56,13 @@ exports[`BadgeText should mount a default badge 1`] = `
         aria-label="All"
         class="theme-clickable theme-button theme-tertiary theme-size-S"
         id="myId-badge-text-action-overlay"
+        title="All"
         type="button"
       >
         <span
           class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
         >
-          <span
-            aria-describedby="42"
-          >
+          <span>
             All
           </span>
         </span>

@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 3.0.0
+
+### Major Changes
+
+- b1c72a1: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
 ## 2.12.1
 
 ### Patch Changes

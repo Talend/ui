@@ -13,7 +13,6 @@ import {
 	StackHorizontal,
 	StackVertical,
 } from '../../';
-
 import CountryCodes from '../docs/data/CountryCodes.json';
 
 export default {
@@ -129,7 +128,7 @@ export const Default = () => {
 };
 
 export const Error = () => (
-	<div style={{ margin: '0 auto', width: '35rem' }}>
+	<div style={{ margin: '0 auto', width: '21.875rem' }}>
 		<Form>
 			<Form.Fieldset legend="Login">
 				<InlineMessageDestructive
@@ -148,7 +147,7 @@ export const Error = () => (
 );
 
 export const InlineHelp = () => (
-	<div style={{ margin: '0 auto', width: '35rem' }}>
+	<div style={{ margin: '0 auto', width: '21.875rem' }}>
 		<Form>
 			<Form.Fieldset legend="Change your password">
 				<InlineMessageInformation
@@ -167,7 +166,7 @@ export const InlineHelp = () => (
 );
 
 export const Loading = () => (
-	<div style={{ margin: '0 auto', width: '60rem' }}>
+	<div style={{ margin: '0 auto', width: '37.5rem' }}>
 		<Form disabled>
 			<Form.Fieldset legend="Run job">
 				<Form.Text label="Name" name="text" required placeholder="Job using JDBC connection" />

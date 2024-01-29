@@ -9,9 +9,9 @@
 	overflow: hidden;
 }
 
-$tc-input-subheader-size-large: 2.4rem !default;
-$tc-input-subheader-size-medium: 1.4rem !default;
-$header-title-max-width: 90rem;
+$tc-input-subheader-size-large: 1.5rem !default;
+$tc-input-subheader-size-medium: 0.875rem !default;
+$header-title-max-width: 56.25rem;
 
 :global(.tc-subheader-details-blink) {
 	@include heartbeat(object-blink);

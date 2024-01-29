@@ -1,7 +1,7 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-drawer-content-max-width: 65rem !default;
+$tc-drawer-content-max-width: 40.625rem !default;
 $tc-drawer-padding: $padding-large !default;
 
 .container,

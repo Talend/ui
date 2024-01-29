@@ -1,5 +1,34 @@
 # @talend/bootstrap-theme
 
+## 9.0.0
+
+### Major Changes
+
+- b1c72a1: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
+## 8.5.0
+
+### Minor Changes
+
+- 8878c6c: deps: bump css-minimizer-webpack-plugin
+
+### Patch Changes
+
+- Updated dependencies [3dc3100]
+  - @talend/bootstrap-sass@5.0.0
+
+## 8.4.2
+
+### Patch Changes
+
+- Updated dependencies [9f9fc07]
+  - @talend/bootstrap-sass@4.0.0
+
 ## 8.4.1
 
 ### Patch Changes

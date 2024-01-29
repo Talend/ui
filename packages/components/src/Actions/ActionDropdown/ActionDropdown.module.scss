@@ -2,7 +2,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 $tc-dropdown-loader-padding: $padding-small !default;
-$tc-dropdown-button-right-padding: 0.8rem;
+$tc-dropdown-button-right-padding: 0.5rem;
 
 .tc-dropdown {
 	&-button:global(.btn-link) {
@@ -17,8 +17,8 @@ $tc-dropdown-button-right-padding: 0.8rem;
 		padding-right: $tc-dropdown-button-right-padding;
 
 		.tc-dropdown-caret {
-			width: 0.8rem;
-			height: 0.8rem;
+			width: 0.5rem;
+			height: 0.5rem;
 			transition: transform 0.1s ease-in;
 			will-change: transform;
 

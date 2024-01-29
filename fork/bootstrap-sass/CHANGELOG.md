@@ -1,5 +1,23 @@
 # Changelog
 
+## 5.1.0
+
+### Minor Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+## 5.0.0
+
+### Major Changes
+
+- 3dc3100: chore: remove font-size override (this should not impact the apps as it's done also on the design-system provider)
+
+## 4.0.0
+
+### Major Changes
+
+- 9f9fc07: chore: remove font-size override (this should not impact the apps as it's done also on the design-system provider)
+
 ## 3.5.1
 
 ### Patch Changes

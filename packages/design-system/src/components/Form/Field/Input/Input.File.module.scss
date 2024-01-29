@@ -137,7 +137,7 @@
 	&__text,
 	&__preview,
 	&__input {
-		min-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
+		min-height: calc(#{tokens.$coral-sizing-m} - 0.125rem);
 	}
 
 	&__input {

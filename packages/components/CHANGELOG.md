@@ -1,5 +1,49 @@
 # @talend/react-components
 
+## 15.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/bootstrap-theme@9.0.0
+
+## 15.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+  - @talend/design-system@9.0.0
+
+## 14.3.0
+
+### Minor Changes
+
+- 3022b60: deps: bump simplebar to 6.x
+
+### Patch Changes
+
+- 3dc3100: fix(DFD-491): Fix header bar and layout styles
+- Updated dependencies [8878c6c]
+- Updated dependencies [3dc3100]
+  - @talend/bootstrap-theme@8.5.0
+  - @talend/icons@7.6.0
+
+## 14.2.3
+
+### Patch Changes
+
+- fa6ca55: fix(DFD-491): Fix header bar and layout styles
+- Updated dependencies [c317063]
+- Updated dependencies [c317063]
+- Updated dependencies [c317063]
+  - @talend/icons@7.5.0
+  - @talend/bootstrap-theme@8.4.2
+
 ## 14.2.2
 
 ### Patch Changes
