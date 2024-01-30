@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.1.0
+
+### Minor Changes
+
+- d2b4e4e: DS : update popover typings and implement badge popover
+
 ## 9.0.2
 
 ### Patch Changes
