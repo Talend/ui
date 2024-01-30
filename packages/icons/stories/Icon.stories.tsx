@@ -1,5 +1,5 @@
-import Icon, { StyleIcon } from './Icon';
 import { info as icons } from '../dist/info';
+import Icon, { StyleIcon } from './Icon';
 
 export default {
 	title: 'Icons/Icon',
@@ -33,11 +33,11 @@ export const All = props => {
 							display: 'flex',
 							flexDirection: 'column',
 							alignItems: 'center',
-							margin: '1rem',
+							margin: '0.625rem',
 						}}
 					>
 						<Icon name={name} />
-						<span style={{ fontSize: '2rem' }}>{name}</span>
+						<span style={{ fontSize: '1.25rem' }}>{name}</span>
 					</div>
 				))}
 			</div>

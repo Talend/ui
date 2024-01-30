@@ -75,7 +75,7 @@ export const DisplayMode: Story = {
 		data: displayModeSchema,
 		displayMode: 'text',
 		introduction: (
-			<p style={{ marginBottom: '2rem' }}>Form can be used to display data in read only</p>
+			<p style={{ marginBottom: '1.25rem' }}>Form can be used to display data in read only</p>
 		),
 	},
 };
@@ -103,7 +103,7 @@ export const HoverSubmit: Story = {
 		introduction: (
 			<>
 				<h2>Hover submit handler</h2>
-				<p style={{ marginBottom: '2rem' }}>
+				<p style={{ marginBottom: '1.25rem' }}>
 					Submit can detect if mouse enters or leaves by using <code>onSubmitEnter</code> and{' '}
 					<code>onSubmitLeave</code>
 				</p>

@@ -1,17 +1,20 @@
 /* eslint-disable @talend/import-depth */
-import { useState, KeyboardEvent } from 'react';
-import { SizedIcon, StackVertical, StackHorizontal, ButtonTertiary } from '@talend/design-system';
+import { KeyboardEvent, useState } from 'react';
+
+import { ButtonTertiary, SizedIcon, StackHorizontal, StackVertical } from '@talend/design-system';
 import tokens from '@talend/design-tokens';
-import dictionaryLight from '@talend/design-tokens/lib/light/dictionary';
 import dictionaryDark from '@talend/design-tokens/lib/dark/dictionary';
-import { Token, ColorToken } from '@talend/design-tokens/lib/types';
+import dictionaryLight from '@talend/design-tokens/lib/light/dictionary';
+import { ColorToken, Token } from '@talend/design-tokens/lib/types';
+
 import * as utils from './TokenFormatter';
 import ColorChecker from './ColorChecker';
 import colorCompositionData from './ColorCompositions.json';
-import theme from './ColorComposition.module.scss';
 import { copy } from './TokenValue';
 
-const PADDING = '3rem';
+import theme from './ColorComposition.module.scss';
+
+const PADDING = '1.875rem';
 
 export function CardComposition({
 	backgroundColor,
@@ -96,9 +99,9 @@ function TokenDisplay({ token }: { token: Token }) {
 			<span
 				style={{
 					display: 'inline-block',
-					marginRight: '0.5rem',
-					width: '2rem',
-					height: '1rem',
+					marginRight: '0.3125rem',
+					width: '1.25rem',
+					height: '0.625rem',
 					borderRadius: '30%',
 					background: token.value,
 				}}
