@@ -1,14 +1,16 @@
+import { useState } from 'react';
+
 import {
 	Badge,
-	BadgeProps,
 	BadgeDropdown,
 	BadgePopover,
+	BadgeProps,
 	BadgeTag,
 	BadgeValue,
 	StackHorizontal,
 	StackVertical,
 } from '../../';
-import { useState } from 'react';
+import Checkbox from '../../components/Form/Field/Input/Input.Checkbox';
 
 export default {
 	component: Badge,
@@ -29,6 +31,12 @@ Overview.argTypes = {
 		options: ['badge', 'tag', 'dropdown', 'popover'],
 	},
 };
+
+const items = [
+	{ id: '1', label: 'Feature' },
+	{ id: '2', label: 'Item' },
+	{ id: '3', label: 'Component' },
+];
 
 export const StoryBadgeValue = () => (
 	<StackVertical gap="S" justify="spaceBetween">
@@ -73,11 +81,7 @@ export const StoryBadgeDropdown = () => {
 				<Badge
 					label="Awesome"
 					selectedId={selectedValue}
-					value={[
-						{ id: '1', label: 'Feature' },
-						{ id: '2', label: 'Item' },
-						{ id: '3', label: 'Component' },
-					]}
+					value={items}
 					onChange={setSelectedValue}
 					variant="dropdown"
 				/>
@@ -88,11 +92,7 @@ export const StoryBadgeDropdown = () => {
 				<BadgeDropdown
 					label="Awesome"
 					selectedId={selectedValue}
-					value={[
-						{ id: '1', label: 'Feature' },
-						{ id: '2', label: 'Item' },
-						{ id: '3', label: 'Component' },
-					]}
+					value={items}
 					onChange={setSelectedValue}
 				/>
 			</StackHorizontal>
@@ -100,31 +100,24 @@ export const StoryBadgeDropdown = () => {
 	);
 };
 
-export const StoryBadgePopover = () => (
-	<StackVertical gap="S" justify="spaceBetween">
-		<StackHorizontal align="center" gap="S" justify="spaceBetween">
-			Component Badge w/ variant "popover"
-			<Badge
-				label="Marvellous"
-				value={[
-					{ id: '1', label: 'Feature', onClick: () => {} },
-					{ id: '2', label: 'Item', onClick: () => {} },
-					{ id: '3', label: 'Component', onClick: () => {} },
-				]}
-				variant="popover"
-			/>
-		</StackHorizontal>
+export const StoryBadgePopover = () => {
+	return (
+		<StackVertical gap="S" justify="spaceBetween">
+			<StackHorizontal align="center" gap="S" justify="spaceBetween">
+				Component Badge w/ variant "popover"
+				<Badge label="Marvellous" value={items} variant="popover">
+					<div>Some content with very loooooooooooooooooooooong text</div>
+				</Badge>
+			</StackHorizontal>
 
-		<StackHorizontal align="center" gap="S" justify="spaceBetween">
-			Variant component BadgePopover
-			<BadgePopover
-				label="Marvellous"
-				value={[
-					{ id: '1', label: 'Feature', onClick: () => {} },
-					{ id: '2', label: 'Item', onClick: () => {} },
-					{ id: '3', label: 'Component', onClick: () => {} },
-				]}
-			/>
-		</StackHorizontal>
-	</StackVertical>
-);
+			<StackHorizontal align="center" gap="S" justify="spaceBetween">
+				Variant component BadgePopover
+				<BadgePopover label="Marvellous" value={items}>
+					{items.map(item => (
+						<Checkbox key={`checkbox-${item.id}`} label={item.label} name={item.id} />
+					))}
+				</BadgePopover>
+			</StackHorizontal>
+		</StackVertical>
+	);
+};
