@@ -34,7 +34,7 @@ export const Input = () => (
 );
 
 export const Picker = () => (
-	<div style={{ border: '1px solid black', width: '32rem' }}>
+	<div style={{ border: '1px solid black', width: '20rem' }}>
 		<DateManager id="simple" onChange={action('onChange', { depth: 3 })}>
 			<DatePicker />
 		</DateManager>

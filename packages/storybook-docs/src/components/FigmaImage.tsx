@@ -21,12 +21,12 @@ const FigmaImagePlaceholder = memo(() => {
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				height: '5rem',
+				height: '3.125rem',
 				color: 'black',
 				backgroundColor: 'gray',
 				backgroundImage:
 					'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px)',
-				borderRadius: '.4rem',
+				borderRadius: '0.25rem',
 				opacity: '.5',
 			}}
 		>

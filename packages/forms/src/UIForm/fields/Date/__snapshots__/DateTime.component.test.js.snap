@@ -29,7 +29,7 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
       />
       <span
         data-testid="InputSizer"
-        style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
+        style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
       >
         YYYY-MM-DD
       </span>
@@ -51,7 +51,7 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
       />
       <span
         data-testid="InputSizer"
-        style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
+        style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
       >
         HH:mm
       </span>
