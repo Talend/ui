@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { action } from '@storybook/addon-actions';
 
 import { ActionButton } from '../Actions';
@@ -136,7 +137,7 @@ const InteractiveResponsiveTabs = props => {
 
 function renderContent() {
 	return (
-		<div style={{ padding: '1rem 2rem' }}>
+		<div style={{ padding: '0.625rem 1.25rem' }}>
 			<p>I'm the child</p>
 		</div>
 	);
@@ -156,13 +157,13 @@ export const Default = () => (
 			<TabBar {...rightProps}>{renderContent()}</TabBar>
 		</div>
 		<h3>Default TabBar with too small container</h3>
-		<div id="default-smaller" style={{ width: '30rem', border: '1px solid' }}>
+		<div id="default-smaller" style={{ width: '18.75rem', border: '1px solid' }}>
 			<TabBar {...tabProps}>{renderContent()}</TabBar>
 		</div>
 		<h3>
 			Default TabBar with too small container and <code>responsive = false</code>
 		</h3>
-		<div id="default-smaller" style={{ width: '47rem', border: '1px solid' }}>
+		<div id="default-smaller" style={{ width: '29.375rem', border: '1px solid' }}>
 			<TabBar {...tabProps} responsive={false}>
 				{renderContent()}
 			</TabBar>
@@ -234,7 +235,7 @@ export const FullyInteractive = () => (
 		<div id="interactive">
 			<InteractiveTabs {...tabProps}>I'm the child</InteractiveTabs>
 		</div>
-		<div id="interactive-responsive" style={{ width: '30rem', border: '1px solid' }}>
+		<div id="interactive-responsive" style={{ width: '18.75rem', border: '1px solid' }}>
 			<InteractiveResponsiveTabs {...tabProps}>I'm the responsive child</InteractiveResponsiveTabs>
 		</div>
 	</nav>

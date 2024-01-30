@@ -16,8 +16,8 @@ import '../translate';
 
 import theme from './SidePanel.module.scss';
 
-const DOCKED_MIN_WIDTH = '6rem';
-const LARGE_DOCKED_MIN_WIDTH = '7rem';
+const DOCKED_MIN_WIDTH = '3.75rem';
+const LARGE_DOCKED_MIN_WIDTH = '4.375rem';
 
 function getInitialWidth(docked, large) {
 	if (docked && large) {
@@ -119,8 +119,8 @@ function SidePanel({
 						position: absolute;
 						left: 0;
 						bottom: -50px;
-						height: 31rem;
-						width: 31rem;
+						height: 19.375rem;
+						width: 19.375rem;
 						background-repeat: no-repeat;
 						opacity: 0.1;
 						background-color: ${tokens.coralColorBrandIcon};

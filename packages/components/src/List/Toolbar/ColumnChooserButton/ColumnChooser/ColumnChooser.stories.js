@@ -1,6 +1,8 @@
 import { action } from '@storybook/addon-actions';
-import ColumnChooser from './ColumnChooser.component';
+
 import { Card } from '@talend/design-system';
+
+import ColumnChooser from './ColumnChooser.component';
 
 const columns = [
 	{ key: 'id', label: 'Id', order: 1 },
@@ -39,7 +41,7 @@ export default {
 			<div>
 				<h1>{parameters?.title}</h1>
 				<p>{parameters?.description}</p>
-				<div style={{ width: '50rem', height: '50rem' }}>
+				<div style={{ width: '31.25rem', height: '31.25rem' }}>
 					<Card>
 						<Story />
 					</Card>

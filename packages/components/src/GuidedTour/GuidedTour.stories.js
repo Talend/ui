@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Component, Fragment } from 'react';
-import { action } from '@storybook/addon-actions';
-import tokens from '@talend/design-tokens';
 import { withTranslation } from 'react-i18next';
 
-import GuidedTour from './GuidedTour.component';
+import { action } from '@storybook/addon-actions';
+
+import tokens from '@talend/design-tokens';
+
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import GuidedTour from './GuidedTour.component';
 
 class ImportDemo extends Component {
 	state = {
@@ -165,11 +167,11 @@ const getLayoutWithLoremIpsum = () => (
 	>
 		<header
 			style={{
-				height: '5rem',
+				height: '3.125rem',
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'space-between',
-				padding: '1rem 10rem 1rem 2rem',
+				padding: '0.625rem 6.25rem 0.625rem 1.25rem',
 				flexBasis: '100vw',
 				background: '#eee',
 			}}
@@ -182,7 +184,7 @@ const getLayoutWithLoremIpsum = () => (
 		<aside
 			style={{
 				flexBasis: '19vw',
-				paddingTop: '3rem',
+				paddingTop: '1.875rem',
 			}}
 		>
 			<ul>
@@ -195,7 +197,7 @@ const getLayoutWithLoremIpsum = () => (
 		</aside>
 		<main
 			style={{
-				padding: '1rem',
+				padding: '0.625rem',
 				flexBasis: '79vw',
 			}}
 		>
@@ -259,9 +261,9 @@ const getLayoutWithLoremIpsum = () => (
 		</main>
 		<footer
 			style={{
-				height: '5rem',
+				height: '3.125rem',
 				marginTop: 'auto',
-				padding: '1rem 2rem',
+				padding: '0.625rem 1.25rem',
 				flexBasis: '100vw',
 				alignItems: 'center',
 				textAlign: 'right',
