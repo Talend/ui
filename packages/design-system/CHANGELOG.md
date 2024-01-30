@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.0.2
+
+### Patch Changes
+
+- 7b7d7bb: fix(Messages): set a default font-color for children element
+
 ## 9.0.1
 
 ### Patch Changes
