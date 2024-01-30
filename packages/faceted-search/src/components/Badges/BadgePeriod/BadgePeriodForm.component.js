@@ -42,7 +42,6 @@ function getPeriodOptions(t) {
 			id: 'CUSTOM',
 			value: 'custom',
 			label: t('CUSTOM', { defaultValue: 'Custom' }),
-			checked: false,
 		},
 	];
 }
@@ -54,6 +53,8 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 	const [dirty, setDirty] = useState(false);
 	const initialStartDateTime = useMemo(() => subDays(new Date(), 1), []);
 	const initialEndDateTime = useMemo(() => new Date(), []);
+
+	const options = rest.values || getPeriodOptions(t);
 
 	const resetRange = useCallback(() => {
 		onChange(null, {
@@ -93,13 +94,14 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 		<Form id={`${badgePeriodFormId}-form`} onSubmit={onSubmit}>
 			{!isCustom && (
 				<StackVertical gap="0" align="normal">
-					{getPeriodOptions(t).map(rowItem => {
+					{options.map(rowItem => {
 						return (
 							<ButtonTertiary
 								key={rowItem.id}
 								onClick={event => onSelectOption(rowItem, event)}
 								data-testid={`badge-period-form-item-${rowItem.id}`}
 								data-test={`badge-period-form-item-${rowItem.id}`}
+								{...getDataAttributesFrom(rowItem)}
 							>
 								{rowItem.id === 'CUSTOM' ? (
 									<StackHorizontal gap="0" align="center" justify="spaceBetween">
