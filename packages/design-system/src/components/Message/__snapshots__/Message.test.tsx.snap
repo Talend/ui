@@ -50,7 +50,11 @@ exports[`Message should render a11y html 1`] = `
           </svg>
         </span>
       </a>
-      Success
+      <div
+        class="theme-message__children"
+      >
+        Success
+      </div>
       <div
         class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-0 theme-gap-y-0"
       >
@@ -116,7 +120,11 @@ exports[`Message should render a11y html 1`] = `
           </svg>
         </span>
       </a>
-      Destructive
+      <div
+        class="theme-message__children"
+      >
+        Destructive
+      </div>
       <div
         class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-0 theme-gap-y-0"
       >
@@ -182,7 +190,11 @@ exports[`Message should render a11y html 1`] = `
           </svg>
         </span>
       </a>
-      Warning
+      <div
+        class="theme-message__children"
+      >
+        Warning
+      </div>
       <div
         class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-0 theme-gap-y-0"
       >
@@ -248,7 +260,11 @@ exports[`Message should render a11y html 1`] = `
           </svg>
         </span>
       </a>
-      Information
+      <div
+        class="theme-message__children"
+      >
+        Information
+      </div>
       <div
         class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-fullWidth theme-gap-x-0 theme-gap-y-0"
       >

@@ -99,7 +99,7 @@ export const MessagePrimitive = forwardRef(
 					) : null}
 					<p className={styles.message__description}>{description}</p>
 					{link && <Link {...link} />}
-					{children}
+					{children ? <div className={styles.message__children}>{children}</div> : null}
 					<StackHorizontal gap={0} isFullWidth align="center" justify="spaceBetween">
 						{action && <ButtonTertiary {...action} />}
 						{additionalIconAction && (

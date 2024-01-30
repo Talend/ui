@@ -36,7 +36,7 @@ const propsNoDockToggle = {
 const propsDisabled = { ...propsDockToggle, disabled: true };
 
 const divStyle = {
-	width: '30rem',
+	width: '18.75rem',
 };
 
 export default {

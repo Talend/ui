@@ -81,7 +81,7 @@ function setPosition(domElement) {
 		const { bottom, left, right } = domElement.getBoundingClientRect();
 		const intercomRight = Math.max(
 			window.innerWidth /* window */ -
-			(right - (right - left) / 2) /* right position of trigger element center */ -
+				(right - (right - left) / 2) /* right position of trigger element center */ -
 				INTERCOM_MAIN_FRAME_WIDTH / 2 /* center intercom window  */,
 			0,
 		);
@@ -96,7 +96,7 @@ function setPosition(domElement) {
 				top: ${intercomTop}px;
 				left: ${intercomLeft}px;
 				right: ${intercomRight}px;
-				margin-top: 2rem;
+				margin-top: 1.25rem;
 			}
 		`),
 		);

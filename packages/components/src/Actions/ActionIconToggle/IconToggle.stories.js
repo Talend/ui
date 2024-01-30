@@ -1,4 +1,5 @@
 import { Component, Fragment } from 'react';
+
 import { action } from '@storybook/addon-actions';
 
 import ActionIconToggle from './ActionIconToggle.component';
@@ -94,8 +95,8 @@ export const CustomizeSizes = () => (
 		<pre>
 			{`// sass file
 @import '~@talend/react-components/lib/Actions/ActionIconToggle/ActionIconToggle.scss'
-$my-btn-size: 4rem;
-$my-btn-icon-size: 2.5rem;
+$my-btn-size: 2.5rem;
+$my-btn-icon-size: 1.5625rem;
 .tc-icon-toggle.my-custom-icon-toggle {
     @include tc-icon-toggle($my-btn-size, $my-btn-icon-size);
 }`}
@@ -110,14 +111,14 @@ $my-btn-icon-size: 2.5rem;
 
 		<style>
 			{`.tc-icon-toggle.my-custom-icon-toggle {
-                        height: 4rem;
-                        width: 4rem;
-                        border-radius:2rem;
+                        height: 2.5rem;
+                        width: 2.5rem;
+                        border-radius:1.25rem;
                     }
 
                     .tc-icon-toggle.my-custom-icon-toggle svg {
-                        height: 2.5rem;
-                        width: 2.5rem;
+                        height: 1.5625rem;
+                        width: 1.5625rem;
                     }`}
 		</style>
 

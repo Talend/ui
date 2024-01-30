@@ -562,7 +562,7 @@ export const Interactive = () => {
 
 	return (
 		<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
-			<div style={{ padding: '1.5rem' }}>
+			<div style={{ padding: '0.9375rem' }}>
 				<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
 					Set back the drawers
 				</button>
@@ -622,7 +622,7 @@ export const _Interactive = () => {
 
 	return (
 		<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
-			<div style={{ padding: '1.5rem' }}>
+			<div style={{ padding: '0.9375rem' }}>
 				<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
 					Set back the drawers
 				</button>

@@ -144,7 +144,7 @@ export const Default = () => (
 export const GenericSubtitle = () => (
 	<div>
 		<p>By default :</p>
-		<div style={{ width: '40rem', height: '10rem' }}>
+		<div style={{ width: '25rem', height: '6.25rem' }}>
 			<ResourcePicker
 				id="default"
 				{...props}
