@@ -19,7 +19,6 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 	const { children, value } = props;
 
 	const [showPopover, setShowPopover] = useState(false);
-	// const popover = usePopover({ modal: false, open: showPopover, placement: 'bottom-start' });
 
 	return (
 		<BadgePrimitive {...props} ref={ref}>
