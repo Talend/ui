@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.7.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
 ## 7.6.0
 
 ### Minor Changes

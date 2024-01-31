@@ -1,5 +1,13 @@
 # @talend/scripts-build-cdn
 
+## 11.1.1
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/babel-plugin-import-d3@0.4.0
+  - @talend/scripts-config-cdn@10.11.0
+
 ## 11.1.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # Changelog
 
+## 17.1.0
+
+### Minor Changes
+
+- 5770c9f: Support user provided range options
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+
 ## 17.0.1
 
 ### Patch Changes

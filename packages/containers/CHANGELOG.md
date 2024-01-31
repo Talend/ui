@@ -1,5 +1,19 @@
 # @talend/react-containers
 
+## 10.7.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-system@9.2.0
+  - @talend/react-components@15.1.0
+  - @talend/react-forms@13.1.0
+  - @talend/react-cmf@8.4.0
+
 ## 10.6.1
 
 ### Patch Changes

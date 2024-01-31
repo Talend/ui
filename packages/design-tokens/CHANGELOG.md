@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 3.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
 ## 3.0.0
 
 ### Major Changes
