@@ -23,10 +23,10 @@ export const iconSizes = {
 };
 
 const legacyIconSizes = {
-	XS: '0.8rem',
-	SM: '1.2rem',
-	MD: '1.6rem',
-	LG: '2.4rem',
+	XS: '0.5rem',
+	SM: '0.75rem',
+	MD: '1rem',
+	LG: '1.5rem',
 };
 
 export const getRealSize = (size: keyof typeof iconSizes) => iconSizes[size];
@@ -377,8 +377,8 @@ export const StyleIcon = () => (
 	<style>
 		{`
 			svg {
-				max-width: 2.4rem;
-				max-height: 2.4rem;
+				max-width: 1.5rem;
+				max-height: 1.5rem;
 			}
 			svg path {
 				shape-rendering: geometricPrecision;

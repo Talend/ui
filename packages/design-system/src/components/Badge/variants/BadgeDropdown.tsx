@@ -1,20 +1,20 @@
 import { forwardRef, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import classnames from 'classnames';
+import { DataAttributes } from 'src/types';
+
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { Dropdown, DropdownItemType } from '../../Dropdown';
 import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
-
+import BadgeButton from '../button/BadgeButton';
 import BadgePrimitive, {
 	BadgeDropdownItem,
 	BadgePrimitiveProps,
 } from '../primitive/BadgePrimitive';
 
-import classnames from 'classnames';
 import styles from './BadgeDropdown.module.scss';
-import BadgeButton from '../button/BadgeButton';
-import { DataAttributes } from 'src/types';
 
 // --------------------------------------------------
 // Badge Dropdown button

@@ -30,13 +30,13 @@ export const Default = () => {
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		width: '49rem',
-		height: '30rem',
+		width: '30.625rem',
+		height: '18.75rem',
 		textAlign: 'center',
 	};
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-			<div style={{ display: 'flex', flex: 0, flexDirection: 'row', padding: '1rem' }}>
+			<div style={{ display: 'flex', flex: 0, flexDirection: 'row', padding: '0.625rem' }}>
 				<div style={{ marginRight: 'auto' }}>
 					{generateButtonWithTooltip('↑', 'top')}
 					{generateButtonWithTooltip('←', 'left')}
@@ -46,7 +46,7 @@ export const Default = () => {
 					{generateButtonWithTooltip('↑', 'top')}
 				</div>
 			</div>
-			<div style={{ display: 'flex', flex: 1, flexDirection: 'row', padding: '1rem' }}>
+			<div style={{ display: 'flex', flex: 1, flexDirection: 'row', padding: '0.625rem' }}>
 				<div style={{ display: 'flex', alignItems: 'center', marginRight: 'auto' }}>
 					{generateButtonWithTooltip('←', 'left')}
 				</div>
@@ -64,8 +64,8 @@ export const Default = () => {
 							display: 'flex',
 							margin: '0 auto',
 							flexWrap: 'wrap',
-							height: '30rem',
-							width: '100rem',
+							height: '18.75rem',
+							width: '62.5rem',
 							overflow: 'auto',
 							background: tokens.coralColorNeutralBackgroundMedium,
 							border: '1px solid',
@@ -94,7 +94,7 @@ export const Default = () => {
 					{generateButtonWithTooltip('→', 'right')}
 				</div>
 			</div>
-			<div style={{ display: 'flex', flex: 0, flexDirection: 'row', padding: '1rem' }}>
+			<div style={{ display: 'flex', flex: 0, flexDirection: 'row', padding: '0.625rem' }}>
 				<div style={{ marginRight: 'auto' }}>
 					{generateButtonWithTooltip('↓', 'bottom')}
 					{generateButtonWithTooltip('←', 'left')}

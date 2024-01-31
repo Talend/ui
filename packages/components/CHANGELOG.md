@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 15.0.2
+
+### Patch Changes
+
+- 1964aac: fix: rem values for JS files
+
 ## 15.0.1
 
 ### Patch Changes

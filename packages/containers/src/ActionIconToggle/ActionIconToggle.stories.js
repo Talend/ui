@@ -41,7 +41,7 @@ const MyconnectedDrawer = cmfConnect({ mapStateToProps })(MyDrawer);
 
 export const Default = () => (
 	<div>
-		<div style={{ padding: '3rem' }}>
+		<div style={{ padding: '1.875rem' }}>
 			<p>Click on the icon toggle below</p>
 			<ActionIconToggle actionId="action-icon-toggle:toggle" />
 		</div>

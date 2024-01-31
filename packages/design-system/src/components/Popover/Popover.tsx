@@ -6,7 +6,8 @@ import classNames from 'classnames';
 
 import tokens from '@talend/design-tokens';
 
-import { renderOrClone } from '../../renderOrClone';
+import { renderChildren } from '../../renderChildren';
+import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
 import { usePopover } from './usePopover';
 
 import theme from './Popover.module.scss';
@@ -21,9 +22,11 @@ type PopoverOptions = {
 	hasPadding?: boolean;
 };
 
+type PopoverChildNode = ChildOrGenerator<ReactNode, any>;
+
 export type PopoverProps = {
+	children: PopoverChildNode | Iterable<PopoverChildNode>;
 	disclosure: ReactNode;
-	children: ReactNode | ((props: any) => ReactNode);
 } & PopoverOptions;
 
 export type PopoverStateReturn = {
@@ -73,14 +76,12 @@ export function Popover({
 						stroke={tokens.coralColorIllustrationShadow}
 						fill={tokens.coralColorNeutralBackground}
 					/>
-					{typeof children === 'function'
-						? children({
-								...popover.getFloatingProps(),
-								open: popover.open,
-								setOpen: popover.setOpen,
-								hide: () => popover.setOpen(false),
-						  })
-						: children}
+
+					{renderChildren(children, {
+						open: popover.open,
+						setOpen: popover.setOpen,
+						hide: () => popover.setOpen(false),
+					})}
 				</div>
 			</Wrapper>
 		</>

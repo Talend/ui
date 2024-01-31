@@ -7,7 +7,6 @@ import {
 	ButtonPrimary,
 	Form,
 	Popover,
-	PopoverProps,
 	PopoverStateReturn,
 	StackVertical,
 } from '../../';
@@ -20,7 +19,7 @@ export default {
 const EasyPopover = () => <StackVertical gap="S">Hello hello</StackVertical>;
 
 /* eslint-disable-next-line react/display-name */
-const OpenPopover = forwardRef((props: PopoverProps, ref: Ref<HTMLButtonElement>) => {
+const OpenPopover = forwardRef((props: object, ref: Ref<HTMLButtonElement>) => {
 	return (
 		<ButtonPrimary onClick={action('Clicked disclosure')} {...props} ref={ref}>
 			Open popover
@@ -55,7 +54,6 @@ export const FormDisclosureStory = () => (
 	<div style={{ padding: '0.75rem' }}>
 		<Popover
 			aria-label="Custom popover"
-			focusOnDisclosure
 			disclosure={<Form.Text name="text" label="Text enabled" />}
 		>
 			Text Content

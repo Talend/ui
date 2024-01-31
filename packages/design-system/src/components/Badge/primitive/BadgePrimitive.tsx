@@ -1,11 +1,12 @@
 import { Children, PropsWithChildren, Ref } from 'react';
 
-import { Divider } from '../../Divider';
-
 import classnames from 'classnames';
-import styles from './BadgePrimitive.module.scss';
-import { StackHorizontal } from '../../Stack';
 import { DataAttributes } from 'src/types';
+
+import { Divider } from '../../Divider';
+import { StackHorizontal } from '../../Stack';
+
+import styles from './BadgePrimitive.module.scss';
 
 /**
  * Possible semantic values.
@@ -31,7 +32,6 @@ export interface BadgeDropdownItem {
 export interface BadgePopoverItem {
 	id: string;
 	label: string;
-	onClick: () => void;
 }
 
 export type BadgeVariantType<T extends Variants, P extends BadgePrimitiveProps> = {
