@@ -124,4 +124,34 @@ describe('BadgeMenuPeriod', () => {
 		// Then date range picker is not visible
 		expect(screen.queryByTestId('date-picker')).not.toBeInTheDocument();
 	});
+	it('should render user provided options', () => {
+		// Given
+		const props = {
+			id: 'myId',
+			value: {},
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			values: [
+				{
+					id: '1',
+					label: 'Custom option 1',
+					'data-tracking': 'i-track-u',
+				},
+				{
+					id: '2',
+					label: 'Fancy option 2',
+				},
+			],
+			t,
+		};
+		// When
+		render(<BadgePeriodForm {...props} />);
+		// Then
+		expect(screen.getByTestId('badge-period-form-item-1')).toHaveTextContent('Custom option 1');
+		expect(screen.getByTestId('badge-period-form-item-1')).toHaveAttribute(
+			'data-tracking',
+			'i-track-u',
+		);
+		expect(screen.getByTestId('badge-period-form-item-2')).toHaveTextContent('Fancy option 2');
+	});
 });
