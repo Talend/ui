@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 
-import InputTimePicker from './InputTimePicker.component';
 import TimePicker from '../pickers/TimePicker';
+import InputTimePicker from './InputTimePicker.component';
 
 export default {
 	title: 'Components/Form - Controls/DatePicker/Time',
@@ -43,8 +43,8 @@ export const Input = () => {
 export const Picker = () => {
 	const containerStyle = {
 		overflow: 'auto',
-		width: '7rem',
-		height: '17rem',
+		width: '4.375rem',
+		height: '10.625rem',
 		marginRight: 60,
 	};
 	return (

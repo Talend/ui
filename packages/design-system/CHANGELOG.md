@@ -1,5 +1,17 @@
 # @talend/design-system
 
+## 9.1.0
+
+### Minor Changes
+
+- d2b4e4e: DS : update popover typings and implement badge popover
+
+## 9.0.2
+
+### Patch Changes
+
+- 7b7d7bb: fix(Messages): set a default font-color for children element
+
 ## 9.0.1
 
 ### Patch Changes

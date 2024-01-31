@@ -79,8 +79,8 @@ function IntercomComponent() {
 	const style = {
 		color: 'white',
 		margin: '0 10px',
-		width: '3.2rem',
-		height: '3.2rem',
+		width: '2rem',
+		height: '2rem',
 		borderRadius: '50%',
 		background: 'green',
 		display: 'flex',

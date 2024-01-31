@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import InputSizer from './InputSizer.component';
 
@@ -27,7 +27,7 @@ describe('InputSizer', () => {
 		// then
 		const style = screen.getByTestId('InputSizer').getAttribute('style');
 		expect(style).toEqual(
-			'padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;',
+			'padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;',
 		);
 	});
 });

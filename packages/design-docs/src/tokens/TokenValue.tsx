@@ -1,17 +1,21 @@
 /* eslint-disable @talend/import-depth */
 import { ReactNode, useState } from 'react';
+
+import { Unstyled } from '@storybook/blocks';
+
 import {
-	SizedIcon,
-	StackVertical,
-	StackHorizontal,
 	ButtonTertiary,
+	SizedIcon,
+	StackHorizontal,
+	StackVertical,
 	Tooltip,
 } from '@talend/design-system';
 import tokens from '@talend/design-tokens';
 import dictionary from '@talend/design-tokens/lib/light/dictionary';
+
 import * as utils from './TokenFormatter';
+
 import theme from './TokenValue.module.scss';
-import { Unstyled } from '@storybook/blocks';
 
 type TokenValueProps = {
 	children: string;
@@ -91,7 +95,7 @@ export function TokenList({
 						<Unstyled>
 							<div
 								style={{
-									minHeight: '8rem',
+									minHeight: '5rem',
 									width: 200,
 									verticalAlign: 'middle',
 									border: '1px solid #ccc',
