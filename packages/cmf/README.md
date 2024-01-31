@@ -156,8 +156,9 @@ We want testing experience to be easy so CMF provides some mocks for you.
 
 ```javascript
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-cmf/lib/mock';
+
+import { render, screen } from '@testing-library/react';
 
 import AppMenu from './AppMenu.component';
 
@@ -183,6 +184,15 @@ you may change the following using simple props:
 - store
 - state
 - registry
+
+## The http saga
+
+The [http saga](./src/sagas/index.md) is here to help execute some http requests from inside any saga.
+
+By default, the credentials option of fetch is set to `includes` and not the default `same-origin`.
+It allows to share the credentials (cookies) in cross origin requests.
+
+See [credentials](https://developer.mozilla.org/en-US/docs/Web/API/fetch#credentials) in the fetch() global function for more details.
 
 ## More
 
