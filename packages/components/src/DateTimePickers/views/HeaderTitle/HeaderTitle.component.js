@@ -12,31 +12,21 @@ import theme from './HeaderTitle.module.scss';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
-	const className = classNames(
-		theme.common,
-		{ [theme.button]: isButton },
-		{ 'btn-tertiary btn-info': isButton },
-		props.className,
-	);
-	const propsToSpread = {
-		className,
-		...(isButton ? props.button : {}),
-	};
+	const className = classNames({ 'btn-tertiary btn-info': isButton }, props.className);
 
 	const pickerLocale = getPickerLocale();
 	const date = setYear(setMonth(new Date(0), props.monthIndex), props.year);
-	const label = format(date, 'MMMM yyyy', pickerLocale);
 	const yearLabel = format(date, 'yyyy', pickerLocale);
 	const monthLabel = format(date, 'MMMM', pickerLocale);
-
-	if (isButton) {
-		return <Action {...propsToSpread} label={label} />;
-	}
 
 	return (
 		<div className={theme.common}>
 			<div className={theme.month}>
-				<span {...propsToSpread}>{monthLabel}</span>
+				{isButton ? (
+					<Action className={className} label={monthLabel} {...props.button} />
+				) : (
+					<span className={className}>{monthLabel}</span>
+				)}
 			</div>
 			<ActionDropdown className="btn-tertiary btn-info" label={yearLabel}>
 				<YearPicker

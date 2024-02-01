@@ -103,6 +103,7 @@ class CalendarPicker extends Component {
 
 	onSelectCalendarMonth(event, monthIndex) {
 		this.onSelectCalendarMonthYear({ monthIndex });
+		this.setView(true);
 	}
 
 	onSelectCalendarYear(event, year) {
@@ -111,11 +112,9 @@ class CalendarPicker extends Component {
 
 	onClickToday(event) {
 		const now = new Date();
-		if (!this.state.isDateView) {
-			this.onSelectCalendarYear(event, getYear(now));
-			this.onSelectCalendarMonth(event, getMonth(now));
-			this.setView(true);
-		}
+		this.onSelectCalendarYear(event, getYear(now));
+		this.onSelectCalendarMonth(event, getMonth(now));
+		this.setView(true);
 		this.onSelectDate(event, startOfDay(now));
 	}
 
@@ -146,6 +145,7 @@ class CalendarPicker extends Component {
 					calendar={this.state.calendar}
 					onSelectDate={this.onSelectDate}
 					onSelectMonthYear={this.onSelectCalendarMonthYear}
+					onSelectYear={this.onSelectCalendarYear}
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}
 					startDate={this.props.startDate}

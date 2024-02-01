@@ -32,6 +32,7 @@ class DateView extends PureComponent {
 		onTitleClick: PropTypes.func.isRequired,
 		onSelectMonthYear: PropTypes.func.isRequired,
 		onSelectDate: PropTypes.func.isRequired,
+		onSelectYear: PropTypes.func.isRequired,
 		selectedDate: PropTypes.instanceOf(Date),
 		startDate: PropTypes.instanceOf(Date),
 		endDate: PropTypes.instanceOf(Date),
@@ -84,11 +85,12 @@ class DateView extends PureComponent {
 					year={this.props.calendar.year}
 					button={{
 						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', {
-							defaultValue: 'Switch to month-and-year view',
+							defaultValue: 'Switch to month view',
 						}),
 						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,
 					}}
+					onSelectYear={this.props.onSelectYear}
 				/>
 			),
 			rightElement: (

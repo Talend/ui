@@ -37,16 +37,153 @@ exports[`DateView should render 1`] = `
     <div
       class="theme-element-container theme-middle"
     >
-      <button
-        aria-label="Switch to month-and-year view"
-        class="theme-common theme-button btn-tertiary btn-info btn btn-default"
-        tabindex="0"
-        type="button"
+      <div
+        class="theme-common"
       >
-        <span>
-          June 2006
-        </span>
-      </button>
+        <div
+          class="theme-month"
+        >
+          <span
+            aria-label="Switch to month view"
+            class="theme-common theme-button btn-tertiary btn-info"
+            tabindex="0"
+          >
+            June
+          </span>
+        </div>
+        <div
+          class="dropdown btn-group btn-group-default"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="2006"
+            class="theme-tc-dropdown-button tc-dropdown-button btn-tertiary btn-info dropdown-toggle btn btn-default"
+            role="button"
+            type="button"
+          >
+            <span
+              class="tc-dropdown-button-title-label"
+            >
+              2006
+            </span>
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+              focusable="false"
+              name="talend-caret-down"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+          <ul
+            class="dropdown-menu"
+            role="menu"
+          >
+            <div
+              class="theme-year-picker"
+            >
+              <button
+                aria-describedby="42"
+                aria-label="Go to previous year"
+                class="theme-scroll theme-scroll-up tc-date-picker-scroll-up btn-icon-only btn btn-link"
+                role="link"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-chevron-left theme-rotate-90"
+                  focusable="false"
+                  name="talend-chevron-left"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                />
+              </button>
+              <ol>
+                <li>
+                  <button
+                    class="theme-year tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2021
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="theme-year tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2022
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="theme-year tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2023
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="theme-year tc-date-picker-year"
+                    tabindex="0"
+                    type="button"
+                  >
+                    2024
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="theme-year tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2025
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="theme-year tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2026
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="theme-year tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2027
+                  </button>
+                </li>
+              </ol>
+              <button
+                aria-describedby="42"
+                aria-label="Go to next year"
+                class="theme-scroll theme-scroll-down tc-date-picker-scroll-down btn-icon-only btn btn-link"
+                role="link"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-chevron-left theme-rotate-270"
+                  focusable="false"
+                  name="talend-chevron-left"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                />
+              </button>
+            </div>
+          </ul>
+        </div>
+      </div>
     </div>
     <div
       class="theme-element-container theme-right"
