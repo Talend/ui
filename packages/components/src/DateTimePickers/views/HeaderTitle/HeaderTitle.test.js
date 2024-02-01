@@ -18,22 +18,14 @@ describe('HeaderTitle', () => {
 
 	it('should render a button', () => {
 		// When
-		render(
-			<HeaderTitle
-				monthIndex={8}
-				year={2012}
-				button={{ 'data-foo': 'whateverValue', 'data-testid': 'whateverButton' }}
-			/>,
-		);
+		render(<HeaderTitle monthIndex={8} year={2012} button={{ 'data-foo': 'whateverValue' }} />);
 
 		// Then
-		const yearBtn = screen.getByRole('button');
+		const yearBtn = screen.getByRole('button', { name: '2012' });
 		expect(yearBtn).toBeVisible();
-		expect(yearBtn).toHaveAttribute('aria-label', '2012');
 
-		const monthBtn = screen.getByTestId('whateverButton');
+		const monthBtn = screen.getByRole('button', { name: 'September' });
 		expect(monthBtn).toBeVisible();
 		expect(monthBtn).toHaveAttribute('data-foo', 'whateverValue');
-		expect(monthBtn).toHaveTextContent('September');
 	});
 });

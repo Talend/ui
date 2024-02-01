@@ -8,7 +8,7 @@ exports[`HeaderTitle should render a span and ActionDropdown 1`] = `
     class="theme-month"
   >
     <span
-      class="theme-common"
+      class=""
     >
       September
     </span>
