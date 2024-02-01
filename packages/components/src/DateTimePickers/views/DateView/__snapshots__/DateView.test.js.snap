@@ -43,13 +43,16 @@ exports[`DateView should render 1`] = `
         <div
           class="theme-month"
         >
-          <span
+          <button
             aria-label="Switch to month view"
-            class="theme-common theme-button btn-tertiary btn-info"
+            class="btn-tertiary btn-info btn btn-default"
             tabindex="0"
+            type="button"
           >
-            June
-          </span>
+            <span>
+              June
+            </span>
+          </button>
         </div>
         <div
           class="dropdown btn-group btn-group-default"
