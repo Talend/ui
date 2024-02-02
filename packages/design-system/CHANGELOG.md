@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.3.0
+
+### Minor Changes
+
+- bb4db90: chore: changed skeleton "sized" variant width and height props to strings
+
 ## 9.2.0
 
 ### Minor Changes
