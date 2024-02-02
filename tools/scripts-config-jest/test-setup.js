@@ -268,8 +268,3 @@ try {
 		'classnames',
 	]);
 }
-
-// @floating-ui/react
-// https://github.com/floating-ui/floating-ui/issues/1908
-// eslint-disable-next-line no-promise-executor-return
-afterAll(() => new Promise(resolve => setTimeout(resolve, 0)));
