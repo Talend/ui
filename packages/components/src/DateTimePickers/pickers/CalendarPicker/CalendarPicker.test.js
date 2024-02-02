@@ -169,8 +169,8 @@ describe('CalendarPicker', () => {
 			await user.click(screen.getByText('onSelectMonth'));
 
 			// then
-			const props = JSON.parse(screen.getByTestId('MonthYearView').getAttribute('data-props'));
-			expect(props.selectedMonthIndex).toBe(5);
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.calendar.monthIndex).toBe(5);
 		});
 
 		it('should switch to new year from monthYear picker', async () => {
