@@ -1,5 +1,17 @@
 # @talend/bootstrap-theme
 
+## 9.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+  - @talend/bootstrap-sass@5.2.0
+
 ## 9.0.0
 
 ### Major Changes

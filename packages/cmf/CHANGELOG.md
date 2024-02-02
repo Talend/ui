@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 8.4.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
 ## 8.3.3
 
 ### Patch Changes

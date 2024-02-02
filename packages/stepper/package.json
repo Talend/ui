@@ -33,18 +33,18 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^9.0.1",
-    "@talend/design-tokens": "^3.0.0",
-    "@talend/react-components": "^15.0.1",
+    "@talend/design-system": "^9.2.0",
+    "@talend/design-tokens": "^3.1.0",
+    "@talend/react-components": "^15.1.0",
     "classnames": "^2.3.2",
     "invariant": "^2.2.4",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^7.3.1",
+    "@talend/icons": "^7.7.0",
     "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-config-babel": "^13.2.1",
+    "@talend/scripts-config-babel": "^13.3.0",
     "@talend/scripts-config-prettier": "^12.1.2",
     "@talend/scripts-config-react-webpack": "^16.4.2",
     "@talend/scripts-config-storybook-lib": "^5.3.0",
@@ -75,5 +75,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "11.0.1"
+  "version": "11.1.0"
 }

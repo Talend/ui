@@ -1,5 +1,17 @@
 # Changelog
 
+## 6.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+  - @talend/react-components@15.1.0
+
 ## 6.0.1
 
 ### Patch Changes

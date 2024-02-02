@@ -1,5 +1,24 @@
 # @talend/ui-storybook-one
 
+## 2.4.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [5770c9f]
+- Updated dependencies [9568363]
+  - @talend/react-faceted-search@17.1.0
+  - @talend/storybook-docs@2.4.0
+  - @talend/design-system@9.2.0
+  - @talend/design-tokens@3.1.0
+  - @talend/react-components@15.1.0
+  - @talend/react-dataviz@6.1.0
+  - @talend/react-forms@13.1.0
+  - @talend/icons@7.7.0
+
 ## 2.3.4
 
 ### Patch Changes
