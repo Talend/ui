@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 15.2.0
+
+### Minor Changes
+
+- 56d0d0a: TDOPS-448 - Enhance date picker controls to reduce number of clicks needed
+
 ## 15.1.0
 
 ### Minor Changes
