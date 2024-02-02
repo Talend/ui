@@ -102,16 +102,8 @@ SkeletonParagraphStory.argTypes = {
 export const SkeletonSizedStory = SkeletonSizedTemplate.bind({});
 SkeletonSizedStory.args = {
 	isCircle: true,
-};
-SkeletonSizedStory.argTypes = {
-	height: {
-		control: { type: 'number' },
-		defaultValue: 10,
-	},
-	width: {
-		control: { type: 'number' },
-		defaultValue: 10,
-	},
+	height: '3rem',
+	width: '20%',
 };
 
 export const SkeletonInputStory = SkeletonInputTemplate.bind({});
