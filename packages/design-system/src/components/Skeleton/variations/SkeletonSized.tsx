@@ -7,26 +7,24 @@ import SkeletonPrimitive, { SkeletonPrimitiveProps } from '../Primitive/Skeleton
 import style from './SkeletonSized.module.scss';
 
 export type SkeletonSizedProps = Omit<SkeletonPrimitiveProps, 'className'> & {
-	height?: number;
-	width?: number;
+	height?: string;
+	width?: string;
 	isCircle?: boolean;
 };
 
 const SkeletonSized = forwardRef(
 	(
-		{ height = 1.4, width = 2, isCircle, ...props }: SkeletonSizedProps,
+		{ height = '1.4rem', width = '2rem', isCircle, ...props }: SkeletonSizedProps,
 		ref: Ref<HTMLSpanElement>,
-	) => {
-		return (
-			<SkeletonPrimitive
-				// @ts-expect-error style is valid
-				style={{ height: `${height}rem`, width: `${width}rem` }}
-				className={classNames({ [style['skeleton-sized-circle']]: isCircle })}
-				{...props}
-				ref={ref}
-			/>
-		);
-	},
+	) => (
+		<SkeletonPrimitive
+			// @ts-expect-error style is valid
+			style={{ height, width }}
+			className={classNames({ [style['skeleton-sized-circle']]: isCircle })}
+			{...props}
+			ref={ref}
+		/>
+	),
 );
 SkeletonSized.displayName = 'SkeletonSized';
 
