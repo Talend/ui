@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import PropTypes from 'prop-types';
-import get from 'lodash/get';
-import { Form } from '@talend/design-system';
-import FieldTemplate from '../FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import React from 'react';
 
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
+
+import { getLabelProps } from '../../utils/labels';
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 
 export default function Text(props) {
@@ -26,13 +28,11 @@ export default function Text(props) {
 	if (type === 'hidden') {
 		return <input id={id} type={type} value={value} />;
 	}
-	const descriptionId = generateDescriptionId(id);
-	const errorId = generateErrorId(id);
-	const fieldProps = {
+
+	let fieldProps = {
 		id,
 		autoComplete,
 		autoFocus,
-		className: 'form-control',
 		disabled: disabled || valueIsUpdating,
 		onBlur: event => onFinish(event, { schema }),
 		onChange: event => onChange(event, { schema, value: convertValue(type, event.target.value) }),
@@ -40,45 +40,38 @@ export default function Text(props) {
 		readOnly,
 		type,
 		value,
-		min: get(schema, 'schema.minimum'),
-		max: get(schema, 'schema.maximum'),
-		step: get(schema, 'schema.step'),
+		label: getLabelProps(title, labelProps, schema.hint),
+		required: schema.required,
+		description: description || errorMessage,
+		hasError: !!errorMessage || !isValid,
+		'aria-invalid': !!errorMessage || !isValid,
+		'aria-required': get(schema, 'required'),
 		...extractDataAttributes(rest),
 	};
 
-	return (
-		<FieldTemplate
-			hint={schema.hint}
-			className={schema.className}
-			description={description}
-			descriptionId={descriptionId}
-			errorId={errorId}
-			errorMessage={errorMessage}
-			id={id}
-			isValid={isValid}
-			label={title}
-			labelProps={labelProps}
-			required={schema.required}
-			valueIsUpdating={valueIsUpdating}
-		>
-			{type === 'password' ? (
-				<Form.Password
-					{...fieldProps}
-					aria-invalid={!isValid}
-					aria-required={get(schema, 'required')}
-					aria-describedby={`${descriptionId} ${errorId}`}
-					link={link}
-				/>
-			) : (
-				<input
-					{...fieldProps}
-					aria-invalid={!isValid}
-					aria-required={get(schema, 'required')}
-					aria-describedby={`${descriptionId} ${errorId}`}
-				/>
-			)}
-		</FieldTemplate>
-	);
+	if (type === 'number') {
+		fieldProps = {
+			...fieldProps,
+			min: get(schema, 'schema.minimum'),
+			max: get(schema, 'schema.maximum'),
+			step: get(schema, 'schema.step'),
+		};
+	}
+
+	if (type === 'password') {
+		fieldProps = {
+			...fieldProps,
+			link,
+		};
+	}
+
+	const componentNames = {
+		text: Form.Text,
+		number: Form.Number,
+		password: Form.Password,
+	};
+
+	return React.createElement(componentNames[type] || Form.Text, fieldProps);
 }
 
 if (process.env.NODE_ENV !== 'production') {
