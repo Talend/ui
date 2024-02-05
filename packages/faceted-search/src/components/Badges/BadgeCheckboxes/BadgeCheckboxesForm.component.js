@@ -13,9 +13,9 @@ import {
 	SkeletonHeading,
 	StackVertical,
 } from '@talend/design-system';
+import { getDataAttrFromProps } from '@talend/utils';
 
 import { I18N_DOMAIN_FACETED_SEARCH } from '../../../constants';
-import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 import styles from './BadgeCheckboxes.module.scss';
 
@@ -164,7 +164,7 @@ const BadgeCheckboxesForm = ({
 						data-feature={applyDataFeature}
 						type="submit"
 						disabled={rest.isLoading}
-						{...getDataAttributesFrom(rest)}
+						{...getDataAttrFromProps(rest)}
 					>
 						{t('APPLY', { defaultValue: 'Apply' })}
 					</ButtonPrimary>

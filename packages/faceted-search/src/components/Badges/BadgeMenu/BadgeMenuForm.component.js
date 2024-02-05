@@ -13,8 +13,7 @@ import {
 	SkeletonHeading,
 	StackVertical,
 } from '@talend/design-system';
-
-import { getDataAttributesFrom } from '../../../helpers/usage.helpers';
+import { getDataAttrFromProps } from '@talend/utils';
 
 import styles from './BadgeMenu.module.scss';
 
@@ -119,7 +118,7 @@ const BadgeMenuForm = ({
 						{showSelectedToggleLabel}
 					</ButtonTertiary>
 				)}
-				<ButtonPrimary type="submit" disabled={rest.isLoading} {...getDataAttributesFrom(rest)}>
+				<ButtonPrimary type="submit" disabled={rest.isLoading} {...getDataAttrFromProps(rest)}>
 					{t('APPLY', { defaultValue: 'Apply' })}
 				</ButtonPrimary>
 			</Form.Buttons>
