@@ -44,8 +44,6 @@ export default function Text(props) {
 		required: schema.required,
 		description: description || errorMessage,
 		hasError: !!errorMessage || !isValid,
-		'aria-invalid': !!errorMessage || !isValid,
-		'aria-required': get(schema, 'required'),
 		...extractDataAttributes(rest),
 	};
 
@@ -81,29 +79,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
-		schema: PropTypes.shape({
-			className: PropTypes.string,
-			autoComplete: PropTypes.string,
-			autoFocus: PropTypes.bool,
-			description: PropTypes.string,
-			disabled: PropTypes.bool,
-			placeholder: PropTypes.string,
-			readOnly: PropTypes.bool,
-			required: PropTypes.bool,
-			title: PropTypes.string,
-			labelProps: PropTypes.object,
-			hint: PropTypes.shape({
-				icon: PropTypes.string,
-				className: PropTypes.string,
-				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-				overlayPlacement: PropTypes.string,
-			}),
-			link: PropTypes.shape({
-				label: PropTypes.string,
-			}),
-			type: PropTypes.string,
-			schema: PropTypes.object,
-		}),
+		schema: PropTypes.object,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		valueIsUpdating: PropTypes.bool,
 	};

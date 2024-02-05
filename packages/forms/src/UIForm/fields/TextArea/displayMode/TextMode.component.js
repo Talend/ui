@@ -1,24 +1,24 @@
 import PropTypes from 'prop-types';
-import { TextMode as FieldTemplate } from '../../FieldTemplate';
+
+import { Form, StackVertical } from '@talend/design-system';
+
+import { getLabelProps } from '../../../utils/labels';
 
 export default function TextMode({ id, schema, value }) {
 	const { rows = 5, title, labelProps } = schema;
 
 	return (
-		<FieldTemplate id={id} label={title} labelProps={labelProps}>
+		<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
+			<Form.Label id={id} {...getLabelProps(title, labelProps)} />
 			<pre style={{ height: `${rows * 2}rem`, fontSize: 'inherit' }}>{value}</pre>
-		</FieldTemplate>
+		</StackVertical>
 	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	TextMode.propTypes = {
 		id: PropTypes.string,
-		schema: PropTypes.shape({
-			rows: PropTypes.number,
-			title: PropTypes.string,
-			labelProps: PropTypes.object,
-		}),
+		schema: PropTypes.object,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }

@@ -41,9 +41,6 @@ export default function TextArea({
 			value={value}
 			description={description || errorMessage}
 			hasError={!!errorMessage || !isValid}
-			// eslint-disable-next-line jsx-a11y/aria-proptypes
-			aria-invalid={!!errorMessage || !isValid}
-			aria-required={schema.required}
 		/>
 	);
 }
@@ -55,24 +52,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
-		schema: PropTypes.shape({
-			className: PropTypes.string,
-			autoFocus: PropTypes.bool,
-			description: PropTypes.string,
-			disabled: PropTypes.bool,
-			placeholder: PropTypes.string,
-			readOnly: PropTypes.bool,
-			required: PropTypes.bool,
-			rows: PropTypes.number,
-			title: PropTypes.string,
-			labelProps: PropTypes.object,
-			hint: PropTypes.shape({
-				icon: PropTypes.string,
-				className: PropTypes.string,
-				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-				overlayPlacement: PropTypes.string,
-			}),
-		}),
+		schema: PropTypes.object,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		valueIsUpdating: PropTypes.bool,
 	};

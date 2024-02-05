@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+
+import { Form, InlineMessageDestructive, InlineMessageInformation } from '@talend/design-system';
+
+import { getLabelProps } from '../../utils/labels';
 import SimpleCheckBox from './SimpleCheckBox.component';
-import FieldTemplate from '../FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 function getValues(itemValue, checked, value = []) {
 	if (checked) {
@@ -14,31 +16,27 @@ function getValues(itemValue, checked, value = []) {
 export default function CheckBoxes(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const { description, title, labelProps, titleMap } = schema;
-	const descriptionId = generateDescriptionId(id);
-	const errorId = generateErrorId(id);
+
+	const Description = () => {
+		if (!isValid && errorMessage) {
+			return <InlineMessageDestructive description={errorMessage} />;
+		} else if (isValid && description) {
+			return <InlineMessageInformation description={description} />;
+		}
+		return null;
+	};
 
 	return (
-		<FieldTemplate
+		<Form.Fieldset
 			id={id}
-			hint={schema.hint}
-			className={schema.className}
-			description={description}
-			descriptionId={descriptionId}
-			errorId={errorId}
-			errorMessage={errorMessage}
-			isValid={isValid}
-			label={title}
-			labelProps={labelProps}
+			legend={<span {...getLabelProps(title, labelProps, schema.hint)}></span>}
 			required={schema.required}
-			valueIsUpdating={valueIsUpdating}
 		>
 			{titleMap.map((item, index) => (
 				<SimpleCheckBox
-					describedby={`${descriptionId} ${errorId}`}
 					disabled={item.disabled || schema.disabled || valueIsUpdating}
 					id={id}
 					key={index}
-					isValid={isValid}
 					label={item.name}
 					onChange={(event, payload) =>
 						onChange(event, {
@@ -57,7 +55,8 @@ export default function CheckBoxes(props) {
 					index={index}
 				/>
 			))}
-		</FieldTemplate>
+			<Description />
+		</Form.Fieldset>
 	);
 }
 
@@ -68,26 +67,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
-		schema: PropTypes.shape({
-			hint: PropTypes.shape({
-				icon: PropTypes.string,
-				className: PropTypes.string,
-				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-				overlayPlacement: PropTypes.string,
-			}),
-			description: PropTypes.string,
-			disabled: PropTypes.bool,
-			required: PropTypes.bool,
-			title: PropTypes.string,
-			labelProps: PropTypes.object,
-			titleMap: PropTypes.arrayOf(
-				PropTypes.shape({
-					name: PropTypes.string,
-					value: PropTypes.string,
-				}),
-			),
-			className: PropTypes.string,
-		}),
+		schema: PropTypes.object,
 		value: PropTypes.arrayOf(PropTypes.string),
 		valueIsUpdating: PropTypes.bool,
 	};

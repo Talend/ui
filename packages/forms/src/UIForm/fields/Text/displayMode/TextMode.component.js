@@ -1,25 +1,25 @@
 import PropTypes from 'prop-types';
-import { TextMode as FieldTemplate } from '../../FieldTemplate';
+
+import { Form, StackVertical } from '@talend/design-system';
+
+import { getLabelProps } from '../../../utils/labels';
 
 export default function TextMode(props) {
 	const { id, schema, value } = props;
-	const { title, labelProps, type } = schema;
+	const { title, type, labelProps } = schema;
 
 	return (
-		<FieldTemplate id={id} label={title} labelProps={labelProps}>
+		<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
+			<Form.Label id={id} {...getLabelProps(title, labelProps)} />
 			{type === 'password' && value ? '**********' : value}
-		</FieldTemplate>
+		</StackVertical>
 	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	TextMode.propTypes = {
 		id: PropTypes.string,
-		schema: PropTypes.shape({
-			title: PropTypes.string,
-			type: PropTypes.string,
-			labelProps: PropTypes.object,
-		}),
+		schema: PropTypes.object,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }

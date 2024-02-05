@@ -1,35 +1,24 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Icon from '@talend/react-components/lib/Icon';
-import FieldTemplate from '../../FieldTemplate/displayMode/TextMode.component';
 
-import theme from './TextMode.module.scss';
+import { Form, SizedIcon, StackHorizontal } from '@talend/design-system';
+
+import { getLabelProps } from '../../../utils/labels';
 
 export default function TextModeCheckBox({ id, schema, value }) {
+	const labelProps = getLabelProps(schema.title, schema.labelProps);
+
 	return (
-		<FieldTemplate
-			id={id}
-			label={schema.title || value}
-			labelProps={schema.labelProps}
-			className={theme.checkbox}
-		>
-			<Icon
-				aria-label={value}
-				aria-hidden={false}
-				name={value ? 'talend-check' : 'talend-cross'}
-				className={classNames(theme.icon, { [theme.cross]: !value })}
-			/>
-		</FieldTemplate>
+		<StackHorizontal gap="XXS" align="center">
+			<SizedIcon name={value ? 'check' : 'cross'} size="S" />
+			<Form.Label id={id} {...labelProps} />
+		</StackHorizontal>
 	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	TextModeCheckBox.propTypes = {
 		id: PropTypes.string,
-		schema: PropTypes.shape({
-			title: PropTypes.string,
-			labelProps: PropTypes.object,
-		}).isRequired,
+		schema: PropTypes.object.isRequired,
 		value: PropTypes.bool,
 	};
 }
