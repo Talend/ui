@@ -129,6 +129,7 @@ exports[`Default Array Template component should render default array template 1
             class="theme-clickable theme-buttonIcon"
             id="my-template-control-0-delete"
             tabindex="0"
+            tooltip="Delete"
             type="button"
           >
             <span
@@ -221,6 +222,7 @@ exports[`Default Array Template component should render default array template 1
             class="theme-clickable theme-buttonIcon"
             id="my-template-control-1-delete"
             tabindex="0"
+            tooltip="Delete"
             type="button"
           >
             <span
@@ -314,6 +316,7 @@ exports[`Default Array Template component should render default array template 1
             class="theme-clickable theme-buttonIcon"
             id="my-template-control-2-delete"
             tabindex="0"
+            tooltip="Delete"
             type="button"
           >
             <span

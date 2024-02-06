@@ -1,6 +1,8 @@
 import { forwardRef, ReactNode } from 'react';
 import type { Ref } from 'react';
+
 import classnames from 'classnames';
+
 import styles from './StackItem.module.scss';
 
 export const alignOptions = {
