@@ -27,17 +27,24 @@ exports[`Items should render 1`] = `
           <div
             class="checkbox"
           >
-            <label
-              for="tc-listview-toggle-all"
+            <div
+              class="checkbox tc-checkbox"
             >
-              <input
-                id="tc-listview-toggle-all"
-                type="checkbox"
-              />
-              <strong>
-                Select all
-              </strong>
-            </label>
+              <label
+                for="tc-listview-toggle-all"
+              >
+                <input
+                  data-checked="0"
+                  id="tc-listview-toggle-all"
+                  type="checkbox"
+                />
+                <span>
+                  <strong>
+                    Select all
+                  </strong>
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
@@ -45,7 +52,7 @@ exports[`Items should render 1`] = `
           style="height: 42px; left: 0px; position: absolute; top: 40px; width: 100%;"
         >
           <div
-            class=""
+            class="checkbox"
             data-test="item-0"
             data-testid="item-0"
             role="option"
@@ -74,7 +81,7 @@ exports[`Items should render 1`] = `
         >
           <div
             aria-selected="true"
-            class=""
+            class="checkbox"
             data-test="item-1"
             data-testid="item-1"
             role="option"
@@ -103,7 +110,7 @@ exports[`Items should render 1`] = `
           style="height: 42px; left: 0px; position: absolute; top: 124px; width: 100%;"
         >
           <div
-            class=""
+            class="checkbox"
             data-test="item-2"
             data-testid="item-2"
             role="option"
