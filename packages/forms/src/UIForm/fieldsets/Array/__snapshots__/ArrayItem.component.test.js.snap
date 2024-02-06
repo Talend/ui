@@ -65,6 +65,7 @@ exports[`Array Item component should render control panel with item content 1`] 
       class="theme-clickable theme-buttonIcon"
       id="talend-control-3-delete"
       tabindex="0"
+      tooltip="Delete"
       type="button"
     >
       <span
