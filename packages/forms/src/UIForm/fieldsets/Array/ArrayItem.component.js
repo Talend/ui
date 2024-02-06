@@ -83,6 +83,7 @@ function ArrayItem(props) {
 		onClick: event => onRemove(event, index),
 		disabled: widgetIsDisabled,
 		icon: 'trash',
+		tooltip: t('ARRAY_ITEM_DELETE', 'Delete'),
 	};
 	const actions = [];
 	if (!readOnly) {
