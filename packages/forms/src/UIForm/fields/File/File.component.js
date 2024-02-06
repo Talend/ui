@@ -1,16 +1,14 @@
 /* eslint-disable jsx-a11y/no-autofocus */
+import { useState } from 'react';
+import { withTranslation } from 'react-i18next';
 
 import PropTypes from 'prop-types';
-import { Component, Fragment } from 'react';
-import { withTranslation } from 'react-i18next';
-import noop from 'lodash/noop';
-import Skeleton from '@talend/react-components/lib/Skeleton';
-import FieldTemplate from '../FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { extractDataAttributes } from '../../utils/properties';
+
+import { Form, SkeletonInput } from '@talend/design-system';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import theme from './File.module.scss';
+import { getLabelProps } from '../../utils/labels';
+import { extractDataAttributes } from '../../utils/properties';
 
 export const PRESIGNED_URL_TRIGGER_ACTION = 'generatePresignedURL';
 
@@ -79,37 +77,41 @@ function getBase64(value, fileName) {
 	return value;
 }
 
-class FileWidget extends Component {
-	static getDerivedStateFromProps(nextProps, prevState) {
-		const { schema, value } = nextProps;
-		const fileName = getFileName(value, schema);
-		if (prevState.fileName !== fileName) {
-			// Update file name if file is changed
-			return {
-				fileName,
-			};
-		}
-		return null;
-	}
+const FileWidget = props => {
+	const {
+		id,
+		isValid,
+		errorMessage,
+		onFinish,
+		onChange,
+		onTrigger,
+		schema,
+		valueIsUpdating,
+		value,
+	} = props;
+	const {
+		accept,
+		autoFocus,
+		description,
+		disabled = false,
+		placeholder,
+		readOnly = false,
+		title,
+		labelProps,
+		required,
+	} = schema;
+	const [loading, setLoading] = useState(false);
 
-	constructor(props) {
-		super(props);
-		this.onChange = this.onChange.bind(this);
-		// Extract file name from form properties
-		this.state = { fileName: getFileName(props.value), loading: false };
-	}
-
-	onChange(event) {
+	const handleOnChange = event => {
 		event.persist();
 		const fileList = event.target.files;
 		if (fileList.length > 0) {
 			const file = fileList[0];
-			const { onTrigger, schema } = this.props;
 			if (
 				schema.triggers &&
 				schema.triggers.some(trigger => trigger.action === PRESIGNED_URL_TRIGGER_ACTION)
 			) {
-				this.setState({ loading: true });
+				setLoading(true);
 				Promise.all(
 					schema.triggers.map(trigger => {
 						if (trigger.action === PRESIGNED_URL_TRIGGER_ACTION && trigger.onEvent === 'change') {
@@ -117,106 +119,46 @@ class FileWidget extends Component {
 						}
 						return Promise.resolve();
 					}),
-				).finally(() => this.setState({ loading: false }));
+				).finally(() => setLoading(false));
 			} else {
 				const reader = new FileReader();
 				reader.onload = () => {
 					const data = getBase64(reader.result, file.name);
-					this.updateFileData(event, data, file.name);
+					onChange(event, { schema, value: data });
 				};
 				reader.readAsDataURL(file);
 			}
 		} else {
-			this.updateFileData(event, '', '');
+			onChange(event, { schema, value: '' });
 		}
-	}
+	};
 
-	/**
-	 * call onChange and update value
-	 * @param {Event} event The event
-	 * @param {String} data The base 64 representation of the file
-	 * @param {String} fileName The file name to add in the form field
-	 */
-	updateFileData(event, data, fileName) {
-		const schema = this.props.schema;
-		this.props.onChange(event, { schema, value: data });
-		this.setState({ fileName });
-	}
-
-	render() {
-		const { id, isValid, errorMessage, onFinish, schema, valueIsUpdating } = this.props;
-		const {
-			accept,
-			autoFocus,
-			description,
-			disabled = false,
-			placeholder,
-			readOnly = false,
-			title,
-			labelProps,
-			required,
-		} = schema;
-		const descriptionId = generateDescriptionId(id);
-		const errorId = generateErrorId(id);
-
-		return (
-			<FieldTemplate
-				description={description}
-				descriptionId={descriptionId}
-				errorId={errorId}
-				errorMessage={errorMessage}
-				id={id}
-				isValid={isValid}
-				label={title}
-				labelProps={labelProps}
-				labelAfter={false}
-				required={required}
-				valueIsUpdating={valueIsUpdating}
-			>
-				<div className={theme.file}>
-					{this.state.loading && (
-						<Skeleton
-							data-testid="file-skeleton"
-							type={Skeleton.TYPES.text}
-							size={Skeleton.SIZES.xlarge}
-						/>
-					)}
-					{!this.state.loading && (
-						<Fragment>
-							<input
-								id={`input-${id}`}
-								accept={accept}
-								autoFocus={autoFocus}
-								className={`form-control ${theme['file-input']}`}
-								disabled={disabled || valueIsUpdating}
-								onBlur={event => onFinish(event, { schema })}
-								onChange={this.onChange}
-								placeholder={placeholder}
-								readOnly={readOnly}
-								type="file"
-								// eslint-disable-next-line jsx-a11y/aria-proptypes
-								aria-invalid={!isValid}
-								aria-required={schema.required}
-								aria-describedby={`${descriptionId} ${errorId}`}
-							/>
-							<input
-								name={`input-filename-${id}`}
-								className={`form-control ${theme['file-replace']}`}
-								value={this.state.fileName}
-								onChange={noop}
-								type="text"
-								placeholder={placeholder}
-								tabIndex="-1"
-								autoComplete="off"
-								{...extractDataAttributes(schema)}
-							/>
-						</Fragment>
-					)}
-				</div>
-			</FieldTemplate>
-		);
-	}
-}
+	return (
+		<>
+			{loading && <SkeletonInput />}
+			{!loading && (
+				<Form.File
+					label={getLabelProps(title, labelProps, schema.hint)}
+					required={required}
+					accept={accept}
+					autoFocus={autoFocus}
+					name={`input-filename-${id}`}
+					id={`input-${id}`}
+					disabled={disabled || valueIsUpdating}
+					onBlur={event => onFinish(event, { schema })}
+					onChange={handleOnChange}
+					onDrop={handleOnChange}
+					placeholder={placeholder}
+					readOnly={readOnly}
+					files={value && [getFileName(value, schema)]}
+					description={description || errorMessage}
+					hasError={!!errorMessage || !isValid}
+					{...extractDataAttributes(schema)}
+				/>
+			)}
+		</>
+	);
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	FileWidget.propTypes = {
@@ -227,19 +169,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
 		required: PropTypes.bool,
-		schema: PropTypes.shape({
-			accept: PropTypes.string,
-			autoFocus: PropTypes.bool,
-			description: PropTypes.string,
-			disabled: PropTypes.bool,
-			placeholder: PropTypes.string,
-			readOnly: PropTypes.bool,
-			required: PropTypes.bool,
-			title: PropTypes.string,
-			labelProps: PropTypes.object,
-			type: PropTypes.string,
-			triggers: PropTypes.arrayOf(PropTypes.object),
-		}),
+		schema: PropTypes.object,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		valueIsUpdating: PropTypes.bool,
 	};

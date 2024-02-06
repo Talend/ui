@@ -1,26 +1,22 @@
 import PropTypes from 'prop-types';
-import { TextMode as FieldTemplate } from '../../FieldTemplate';
+
+import TextModeWrapper from '../../../FormTemplate/TextModeWrapper.component';
 import { getFileName } from '../File.component';
 
 export default function FileTextMode(props) {
 	const { id, schema, value } = props;
-	const { title, labelProps } = schema;
 
 	return (
-		<FieldTemplate id={id} label={title} labelProps={labelProps}>
+		<TextModeWrapper id={id} schema={schema}>
 			{getFileName(value, schema)}
-		</FieldTemplate>
+		</TextModeWrapper>
 	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	FileTextMode.propTypes = {
 		id: PropTypes.string,
-		schema: PropTypes.shape({
-			title: PropTypes.string,
-			labelProps: PropTypes.object,
-			type: PropTypes.string,
-		}),
+		schema: PropTypes.object,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }

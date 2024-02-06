@@ -1,18 +1,15 @@
 import PropTypes from 'prop-types';
 
-import { Form, StackVertical } from '@talend/design-system';
-
-import { getLabelProps } from '../../../utils/labels';
+import TextModeWrapper from '../../../FormTemplate/TextModeWrapper.component';
 
 export default function TextMode(props) {
 	const { id, schema, value } = props;
-	const { title, type, labelProps } = schema;
+	const { type } = schema;
 
 	return (
-		<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
-			<Form.Label id={id} {...getLabelProps(title, labelProps)} />
+		<TextModeWrapper id={id} schema={schema}>
 			{type === 'password' && value ? '**********' : value}
-		</StackVertical>
+		</TextModeWrapper>
 	);
 }
 
