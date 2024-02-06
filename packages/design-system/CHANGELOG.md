@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.4.0
+
+### Minor Changes
+
+- 5f9334f: feat: remove restrictions on stacks for height and width
+
 ## 9.3.0
 
 ### Minor Changes

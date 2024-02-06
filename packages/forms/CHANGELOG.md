@@ -1,5 +1,16 @@
 # @talend/react-forms
 
+## 13.2.0
+
+### Minor Changes
+
+- e38e9f3: fix(DFD-629): Add array item delete button tooltip
+
+### Patch Changes
+
+- Updated dependencies [5f9334f]
+  - @talend/design-system@9.4.0
+
 ## 13.1.0
 
 ### Minor Changes
