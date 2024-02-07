@@ -1,5 +1,14 @@
 # @talend/react-components
 
+## 15.2.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+- a73338d: Fix ListView virtual list calculation when having a lot of items
+- Updated dependencies [52563ff]
+  - @talend/utils@3.0.1
+
 ## 15.2.0
 
 ### Minor Changes

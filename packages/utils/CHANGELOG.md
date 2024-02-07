@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.0.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+
 ## 3.0.0
 
 ### Major Changes
