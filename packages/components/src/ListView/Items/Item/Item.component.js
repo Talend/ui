@@ -40,6 +40,7 @@ class Item extends Component {
 
 		const itemId = id && `checkbox-${id}`;
 		const itemClassName = classNames(
+			'checkbox',
 			{ 'switch-nested': children },
 			{ switch: isSwitchBox },
 			{ 'with-icon': item.icon },
