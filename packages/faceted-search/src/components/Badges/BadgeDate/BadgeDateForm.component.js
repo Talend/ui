@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 
 import { ButtonPrimary, Form } from '@talend/design-system';
 import { DatePicker } from '@talend/react-components';
+import { getDataAttrFromProps } from '@talend/utils';
 
-import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import styles from './BadgeDate.module.scss';
 
@@ -39,7 +40,7 @@ const BadgeDateForm = ({ id, onChange, onSubmit, value, feature, t, ...rest }) =
 				<ButtonPrimary
 					data-feature={applyDataFeature}
 					type="submit"
-					{...getDataAttributesFrom(rest)}
+					{...getDataAttrFromProps(rest)}
 				>
 					{t('APPLY', { defaultValue: 'Apply' })}
 				</ButtonPrimary>

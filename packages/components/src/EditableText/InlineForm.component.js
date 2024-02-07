@@ -3,6 +3,8 @@ import { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import { getDataAttrFromProps } from '@talend/utils';
+
 import { Action } from '../Actions';
 import FocusManager from '../FocusManager';
 import getDefaultT from '../translate';
@@ -142,6 +144,7 @@ class InlineForm extends Component {
 							disabled={notFilled}
 							hideLabel
 							data-feature={feature && `${feature}.submit`}
+							{...getDataAttrFromProps(this.props)}
 						/>
 					</div>
 				</form>

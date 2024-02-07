@@ -77,6 +77,7 @@ exports[`InlineEditing should render a11y html 1`] = `
             class="theme-clickable theme-buttonIcon theme-size_XS"
             data-test="inlineediting.button.submit"
             data-testid="inlineediting.button.submit"
+            data-tracking="test-tracker"
             tabindex="0"
             type="button"
           >

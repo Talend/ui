@@ -13,8 +13,7 @@ import {
 	StackVertical,
 } from '@talend/design-system';
 import { InputDateTimeRangePicker } from '@talend/react-components/lib/DateTimePickers';
-
-import { getDataAttributesFrom } from '../../../helpers/usage.helpers';
+import { getDataAttrFromProps } from '@talend/utils';
 
 function getPeriodOptions(t) {
 	return [
@@ -101,7 +100,7 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 								onClick={event => onSelectOption(rowItem, event)}
 								data-testid={`badge-period-form-item-${rowItem.id}`}
 								data-test={`badge-period-form-item-${rowItem.id}`}
-								{...getDataAttributesFrom(rowItem)}
+								{...getDataAttrFromProps(rowItem)}
 							>
 								{rowItem.id === 'CUSTOM' ? (
 									<StackHorizontal gap="0" align="center" justify="spaceBetween">
@@ -123,7 +122,7 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 							data-testid="badge-period-form-custom-button"
 							icon="chevron-left"
 							onClick={goBack}
-							{...getDataAttributesFrom(rest)}
+							{...getDataAttrFromProps(rest)}
 						>
 							{t('CUSTOM', { defaultValue: 'Custom' })}
 						</ButtonTertiary>
@@ -142,7 +141,7 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 							id="reset-button"
 							disabled={rest.isLoading}
 							onClick={resetRange}
-							{...getDataAttributesFrom(rest)}
+							{...getDataAttrFromProps(rest)}
 						>
 							{t('RESET', { defaultValue: 'Reset' })}
 						</ButtonTertiary>
@@ -150,7 +149,7 @@ const BadgePeriodForm = ({ id, onChange, onSubmit, t, value, ...rest }) => {
 							id="apply-button"
 							type="submit"
 							disabled={rest.isLoading || !!value?.errorMessage}
-							{...getDataAttributesFrom(rest)}
+							{...getDataAttrFromProps(rest)}
 						>
 							{t('APPLY', { defaultValue: 'Apply' })}
 						</ButtonPrimary>

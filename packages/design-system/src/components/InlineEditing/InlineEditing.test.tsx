@@ -10,6 +10,7 @@ jest.mock('@talend/utils', () => {
 	return {
 		// we need stable but different uuid (is fixed to 42 by current mock)
 		randomUUID: () => `mocked-uuid-${i++}`,
+		getDataAttrFromProps: () => ({ 'data-tracking': 'test-tracker' }),
 	};
 });
 
