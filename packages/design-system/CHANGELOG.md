@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 9.4.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+- Updated dependencies [52563ff]
+  - @talend/utils@3.0.1
+
 ## 9.4.0
 
 ### Minor Changes
