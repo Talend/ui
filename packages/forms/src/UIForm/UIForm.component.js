@@ -1,24 +1,25 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import classNames from 'classnames';
-import { tv4 } from '@talend/json-schema-form-core';
 import { withTranslation } from 'react-i18next';
 
-import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
-import merge from './merge';
-import { formPropTypes } from './utils/propTypes';
-import { validateSingle, validateAll } from './utils/validation';
-import Widget from './Widget';
-import Buttons from './fields/Button/Buttons.component';
-import { getValue, mutateValue } from './utils/properties';
-import { removeError, addError } from './utils/errors';
-import getLanguage from './lang';
-import customFormats from './customFormats';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
+import { tv4 } from '@talend/json-schema-form-core';
+
 import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
-import theme from './UIForm.module.scss';
 import { WidgetContext } from './context';
+import customFormats from './customFormats';
+import Buttons from './fields/Button/Buttons.component';
+import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
+import getLanguage from './lang';
+import merge from './merge';
+import { addError, removeError } from './utils/errors';
+import { getValue, mutateValue } from './utils/properties';
+import { formPropTypes } from './utils/propTypes';
+import { validateAll, validateSingle } from './utils/validation';
 import widgets from './utils/widgets';
+import Widget from './Widget';
 
 export class UIFormComponent extends Component {
 	static displayName = 'TalendUIForm';
@@ -330,16 +331,15 @@ export class UIFormComponent extends Component {
 			}
 
 			return (
-				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
+				<Form.Buttons>
 					<Buttons
 						id={`${this.props.id}-actions`}
 						onTrigger={this.onTrigger}
-						className={this.props.buttonBlockClass}
 						schema={{ items: actions }}
 						onClick={this.onActionClick}
 						getComponent={this.props.getComponent}
 					/>
-				</div>
+				</Form.Buttons>
 			);
 		};
 
@@ -350,7 +350,6 @@ export class UIFormComponent extends Component {
 				acceptCharset={this.props.acceptCharset}
 				action={this.props.action}
 				autoComplete={this.props.autoComplete}
-				className={classNames('tf-uiform', theme.uiform, this.props.className)}
 				encType={this.props.encType}
 				id={this.props.id}
 				method={this.props.method}
@@ -433,9 +432,8 @@ if (process.env.NODE_ENV !== 'production') {
 I18NUIForm.defaultProps = {
 	...I18NUIForm.defaultProps,
 	noHtml5Validate: true,
-	buttonBlockClass: 'form-actions',
 	properties: {},
-	as: 'form',
+	as: Form,
 };
 UIFormComponent.defaultProps = I18NUIForm.defaultProps;
 

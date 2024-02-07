@@ -1,8 +1,11 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Message from '../../Message';
-import theme from './FieldTemplate.module.scss';
+import PropTypes from 'prop-types';
+
 import { ButtonIcon, Popover } from '@talend/design-system';
+
+import Message from '../../Message';
+
+import theme from './FieldTemplate.module.scss';
 
 function Label({ id, label, ...rest }) {
 	return (
@@ -21,7 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function FieldTemplate(props) {
-	const groupsClassNames = classNames('form-group', theme.template, props.className, {
+	const groupsClassNames = classNames(theme.template, props.className, {
 		'has-error': !props.isValid,
 		required: props.required,
 		[theme.updating]: props.valueIsUpdating,

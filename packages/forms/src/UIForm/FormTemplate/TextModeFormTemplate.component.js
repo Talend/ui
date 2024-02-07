@@ -1,10 +1,10 @@
-import theme from '../UIForm.module.scss';
+import { StackVertical } from '@talend/design-system';
 
 export default function TextModeFormTemplate({ widgetsRenderer, children }) {
-	return [
-		<dl key="definitions" className={theme['form-content']}>
+	return (
+		<StackVertical gap="S">
 			{widgetsRenderer()}
-		</dl>,
-		children,
-	];
+			{children}
+		</StackVertical>
+	);
 }

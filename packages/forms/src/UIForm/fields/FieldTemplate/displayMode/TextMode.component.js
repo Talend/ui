@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 function FieldTemplate(props) {
 	return (
-		<div className={classNames('form-group', props.className)}>
+		<div className={props.className}>
 			<dt>
-				<label htmlFor={props.id} className="control-label">
-					{props.label}
-				</label>
+				<label htmlFor={props.id}>{props.label}</label>
 			</dt>
 			<dd id={props.id}>{props.children}</dd>
 		</div>
