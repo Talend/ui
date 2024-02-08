@@ -37,6 +37,7 @@ export default function CheckBoxes(props) {
 					disabled={item.disabled || schema.disabled || valueIsUpdating}
 					id={id}
 					key={index}
+					isValid={isValid}
 					label={item.name}
 					onChange={(event, payload) =>
 						onChange(event, {

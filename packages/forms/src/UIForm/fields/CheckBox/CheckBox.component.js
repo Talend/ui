@@ -22,6 +22,7 @@ export default function CheckBox(props) {
 			<SimpleCheckBox
 				disabled={schema.disabled || valueIsUpdating}
 				id={id}
+				isValid={isValid}
 				label={schema.title || value}
 				onChange={onChange}
 				onFinish={onFinish}
