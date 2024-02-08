@@ -8,6 +8,7 @@ exports[`CheckBox field in text mode should render checked value 1`] = `
     aria-hidden="true"
     data-test="widget-checkbox-icon-check"
     data-testid="widget-checkbox-icon-check"
+    id="myForm"
     pointer-events="none"
     shape-rendering="geometricPrecision"
     style="width: 0.75rem; height: 0.75rem;"
@@ -18,7 +19,7 @@ exports[`CheckBox field in text mode should render checked value 1`] = `
   </svg>
   <label
     class="theme-label"
-    id="myForm"
+    for="myForm"
   >
     My checkbox title
   </label>

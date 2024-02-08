@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 export default function TextMode({ id, schema, value }) {
-	const { rows = 5 } = schema;
+	const { rows = 5, title, labelProps } = schema;
 
 	return (
-		<FieldTemplate id={id} label={schema.title} labelProps={schema.labelProps}>
+		<FieldTemplate id={id} label={title} labelProps={labelProps}>
 			<pre style={{ height: `${rows * 2}rem`, fontSize: 'inherit' }}>{value}</pre>
 		</FieldTemplate>
 	);

@@ -5,9 +5,10 @@ import { getFileName } from '../File.component';
 
 export default function FileTextMode(props) {
 	const { id, schema, value } = props;
+	const { title, labelProps } = schema;
 
 	return (
-		<FieldTemplate id={id} label={schema.title} labelProps={schema.labelProps}>
+		<FieldTemplate id={id} label={title} labelProps={labelProps}>
 			{getFileName(value, schema)}
 		</FieldTemplate>
 	);

@@ -4,7 +4,7 @@ import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 export default function TextMode(props) {
 	const { id, schema, value } = props;
-	const { type, title, labelProps } = schema;
+	const { title, labelProps, type } = schema;
 
 	return (
 		<FieldTemplate id={id} label={title} labelProps={labelProps}>

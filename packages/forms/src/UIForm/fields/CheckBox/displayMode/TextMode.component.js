@@ -10,8 +10,8 @@ export default function TextModeCheckBox({ id, schema, value }) {
 	const dataTestID = `widget-checkbox-icon-${iconName}`;
 	return (
 		<StackHorizontal gap="XXS" align="center">
-			<SizedIcon data-testid={dataTestID} data-test={dataTestID} name={iconName} size="S" />
-			<Form.Label id={id} {...formlabelProps} />
+			<SizedIcon id={id} data-testid={dataTestID} data-test={dataTestID} name={iconName} size="S" />
+			<Form.Label htmlFor={id} {...formlabelProps} />
 		</StackHorizontal>
 	);
 }
