@@ -2,7 +2,7 @@
 
 exports[`Button field should render button wrapped with field template 1`] = `
 <div
-  class="form-group theme-template"
+  class="theme-template"
 >
   <button
     aria-label="Boom !"

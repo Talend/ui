@@ -2,7 +2,7 @@
 
 exports[`Date widget should render date picker 1`] = `
 <div
-  class="form-group theme-template has-error required"
+  class="theme-template has-error required"
 >
   <label
     class="control-label"

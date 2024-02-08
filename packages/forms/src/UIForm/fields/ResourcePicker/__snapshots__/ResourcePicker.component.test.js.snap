@@ -2,7 +2,7 @@
 
 exports[`ResourcePicker field should render ResourcePicker 1`] = `
 <div
-  class="form-group theme-template required"
+  class="theme-template required"
 >
   <label
     class="control-label"

@@ -2,7 +2,7 @@
 
 exports[`FieldTemplate should render 1`] = `
 <div
-  class="form-group theme-template"
+  class="theme-template"
 >
   <label
     class="control-label"

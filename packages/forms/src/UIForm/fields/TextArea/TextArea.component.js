@@ -39,8 +39,9 @@ export default function TextArea({
 			readOnly={readOnly}
 			rows={rows}
 			value={value}
-			description={description || errorMessage}
-			hasError={!!errorMessage || !isValid}
+			description={errorMessage || description}
+			hasError={!isValid}
+			aria-invalid={!isValid}
 		/>
 	);
 }

@@ -2,7 +2,7 @@
 
 exports[`DateTime widget should render an InputDateTimePicker 1`] = `
 <div
-  class="form-group theme-template required"
+  class="theme-template required"
 >
   <label
     class="control-label"

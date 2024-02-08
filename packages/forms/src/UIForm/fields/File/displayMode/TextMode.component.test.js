@@ -1,8 +1,8 @@
-import { screen, render } from '@testing-library/react';
-
-jest.unmock('@talend/design-system');
+import { render, screen } from '@testing-library/react';
 
 import TextMode from './TextMode.component';
+
+jest.unmock('@talend/design-system');
 
 describe('File input text display mode', () => {
 	const schema = {
@@ -62,8 +62,7 @@ describe('File input text display mode', () => {
 		render(<TextMode {...props} />);
 
 		// then
-		expect(screen.getByRole('term')).toHaveTextContent('Upload file');
-		expect(screen.getByRole('definition')).toHaveTextContent('');
+		expect(screen.getByText('Upload file')).toBeInTheDocument();
 	});
 
 	it('should render crème.xlsx', () => {
@@ -76,6 +75,6 @@ describe('File input text display mode', () => {
 		);
 
 		// then
-		expect(screen.getByRole('definition')).toHaveTextContent('crème.xlsx');
+		expect(screen.getByText('crème.xlsx')).toBeInTheDocument();
 	});
 });

@@ -1,12 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text field text display mode should render a comparator field in text mode 1`] = `
-<div
-  class="form-group"
->
+<div>
   <dt>
     <label
-      class="control-label"
       for="myForm"
     >
       My input title

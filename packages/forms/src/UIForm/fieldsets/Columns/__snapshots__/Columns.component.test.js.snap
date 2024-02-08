@@ -19,122 +19,28 @@ exports[`Columns widget should render columns 1`] = `
         User Fieldset
       </legend>
       <div
-        aria-busy="false"
-        class="form-group theme-template"
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
         <label
-          class="control-label"
+          class="theme-label"
           for="lastname"
         >
           Last Name (with description)
         </label>
-        <input
-          aria-describedby="lastname-description lastname-error"
-          aria-invalid="false"
-          class="form-control"
-          id="lastname"
-          type="text"
-          value=""
-        />
-        <div>
-          <div
-            aria-live="polite"
-            class="theme-inlineMessage"
-            data-test="fieldTemplate.inlineMessage"
-            id="lastname-description"
-            role="status"
-          >
-            <span
-              class="theme-icon theme-information__icon"
-            >
-              <svg
-                aria-hidden="true"
-                pointer-events="none"
-                shape-rendering="geometricPrecision"
-                style="width: 1rem; height: 1rem;"
-              >
-                <use
-                  xlink:href="#information-filled:M"
-                />
-              </svg>
-            </span>
-            <p
-              class="theme-inlineMessage__contents"
-            >
-              <span>
-                Hint: this is the last name
-              </span>
-            </p>
-          </div>
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            aria-invalid="false"
+            class="theme-input"
+            id="lastname"
+            type="text"
+            value=""
+          />
         </div>
-      </div>
-      <div
-        aria-busy="false"
-        class="form-group theme-template required"
-      >
-        <label
-          class="control-label"
-          for="firstname"
-        >
-          First Name (with placeholder)
-        </label>
-        <input
-          aria-describedby="firstname-description firstname-error"
-          aria-invalid="false"
-          aria-required="true"
-          class="form-control"
-          id="firstname"
-          placeholder="Enter your firstname here"
-          type="text"
-          value=""
-        />
-        <div />
-      </div>
-      <div
-        aria-busy="false"
-        class="form-group theme-template"
-      >
-        <label
-          class="control-label"
-          for="age"
-        >
-          Age
-        </label>
-        <input
-          aria-describedby="age-description age-error"
-          aria-invalid="false"
-          class="form-control"
-          id="age"
-          type="number"
-          value=""
-        />
-        <div />
-      </div>
-    </fieldset>
-    <div
-      aria-busy="false"
-      class="form-group theme-template"
-    >
-      <label
-        class="control-label"
-        for="singleInput"
-      >
-        singleInput
-      </label>
-      <input
-        aria-describedby="singleInput-description singleInput-error"
-        aria-invalid="false"
-        class="form-control"
-        id="singleInput"
-        type="text"
-        value=""
-      />
-      <div>
         <div
           aria-live="polite"
           class="theme-inlineMessage"
-          data-test="fieldTemplate.inlineMessage"
-          id="singleInput-description"
           role="status"
         >
           <span
@@ -155,10 +61,103 @@ exports[`Columns widget should render columns 1`] = `
             class="theme-inlineMessage__contents"
           >
             <span>
-              This one is a column composed by a single input
+              Hint: this is the last name
             </span>
           </p>
         </div>
+      </div>
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      >
+        <label
+          class="theme-label"
+          for="firstname"
+        >
+          First Name (with placeholder)
+          *
+        </label>
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            aria-invalid="false"
+            class="theme-input"
+            id="firstname"
+            placeholder="Enter your firstname here"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      >
+        <label
+          class="theme-label"
+          for="age"
+        >
+          Age
+        </label>
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            aria-invalid="false"
+            class="theme-input"
+            id="age"
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+    </fieldset>
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <label
+        class="theme-label"
+        for="singleInput"
+      >
+        singleInput
+      </label>
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          aria-invalid="false"
+          class="theme-input"
+          id="singleInput"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        role="status"
+      >
+        <span
+          class="theme-icon theme-information__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
+        </span>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            This one is a column composed by a single input
+          </span>
+        </p>
       </div>
     </div>
   </div>

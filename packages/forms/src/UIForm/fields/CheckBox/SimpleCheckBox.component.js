@@ -8,6 +8,7 @@ import { extractDataAttributes } from '../../utils/properties';
 export default function SimpleCheckBox({
 	disabled,
 	id,
+	isValid,
 	label,
 	onChange,
 	onFinish,
@@ -43,6 +44,7 @@ export default function SimpleCheckBox({
 			checked={value}
 			data-checked={getDataChecked()}
 			label={<span data-feature={getDataFeature()}>{label}</span>}
+			aria-invalid={!isValid}
 			{...extractDataAttributes(schema, index)}
 		/>
 	);

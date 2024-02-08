@@ -12,8 +12,8 @@ describe('CheckBox field in text mode', () => {
 		const { container } = render(<CheckBox id="myForm" schema={schema} value />);
 
 		// then
-		expect(screen.getByRole('term')).toHaveTextContent('My checkbox title');
-		expect(screen.getByRole('definition').firstChild).toHaveAttribute('name', 'talend-check');
+		expect(screen.getByText('My checkbox title')).toBeInTheDocument();
+		expect(screen.getByTestId('widget-checkbox-icon-check')).toBeInTheDocument();
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
@@ -22,7 +22,7 @@ describe('CheckBox field in text mode', () => {
 		render(<CheckBox id="myForm" schema={schema} value={false} />);
 
 		// then
-		expect(screen.getByRole('term')).toHaveTextContent('My checkbox title');
-		expect(screen.getByRole('definition').firstChild).toHaveAttribute('name', 'talend-cross');
+		expect(screen.getByText('My checkbox title')).toBeInTheDocument();
+		expect(screen.getByTestId('widget-checkbox-icon-cross')).toBeInTheDocument();
 	});
 });

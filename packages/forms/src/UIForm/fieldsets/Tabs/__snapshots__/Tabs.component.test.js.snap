@@ -59,32 +59,42 @@ exports[`Tabs widget should render tabs 1`] = `
           User
         </legend>
         <div
-          aria-busy="false"
-          class="form-group theme-template"
+          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
-          <input
-            aria-describedby="user_firstname-description user_firstname-error"
-            aria-invalid="false"
-            class="form-control"
-            id="user_firstname"
-            type="text"
-            value=""
+          <label
+            class="theme-label"
+            for="user_firstname"
           />
-          <div />
+          <div
+            class="theme-inputShell"
+          >
+            <input
+              aria-invalid="false"
+              class="theme-input"
+              id="user_firstname"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
         <div
-          aria-busy="false"
-          class="form-group theme-template"
+          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
-          <input
-            aria-describedby="user_lastname-description user_lastname-error"
-            aria-invalid="false"
-            class="form-control"
-            id="user_lastname"
-            type="text"
-            value=""
+          <label
+            class="theme-label"
+            for="user_lastname"
           />
-          <div />
+          <div
+            class="theme-inputShell"
+          >
+            <input
+              aria-invalid="false"
+              class="theme-input"
+              id="user_lastname"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </fieldset>
     </div>
@@ -103,18 +113,23 @@ exports[`Tabs widget should render tabs 1`] = `
           Other
         </legend>
         <div
-          aria-busy="false"
-          class="form-group theme-template"
+          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
-          <input
-            aria-describedby="comment-description comment-error"
-            aria-invalid="false"
-            class="form-control"
-            id="comment"
-            type="text"
-            value=""
+          <label
+            class="theme-label"
+            for="comment"
           />
-          <div />
+          <div
+            class="theme-inputShell"
+          >
+            <input
+              aria-invalid="false"
+              class="theme-input"
+              id="comment"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </fieldset>
     </div>

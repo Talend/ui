@@ -2,55 +2,51 @@
 
 exports[`TextArea field should render textarea 1`] = `
 <div
-  class="form-group theme-template required"
+  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="myForm"
   >
     My input title
+    *
   </label>
   <textarea
-    aria-describedby="myForm-description myForm-error"
     aria-invalid="false"
-    aria-required="true"
-    class="form-control"
+    class="theme-textarea"
     id="myForm"
     placeholder="Type something here"
+    required=""
     rows="5"
   >
     toto
   </textarea>
-  <div>
-    <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="myForm-description"
-      role="status"
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-information__icon"
     >
-      <span
-        class="theme-icon theme-information__icon"
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1rem; height: 1rem;"
       >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1rem; height: 1rem;"
-        >
-          <use
-            xlink:href="#information-filled:M"
-          />
-        </svg>
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        My error message
       </span>
-      <p
-        class="theme-inlineMessage__contents"
-      >
-        <span>
-          my text input hint
-        </span>
-      </p>
-    </div>
+    </p>
   </div>
 </div>
 `;

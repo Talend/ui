@@ -2,7 +2,7 @@
 
 exports[`Radios field should render radios 1`] = `
 <div
-  class="form-group theme-template required"
+  class="theme-template required"
 >
   <label
     class="control-label"

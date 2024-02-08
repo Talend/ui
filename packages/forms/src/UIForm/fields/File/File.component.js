@@ -151,8 +151,9 @@ const FileWidget = props => {
 					placeholder={placeholder}
 					readOnly={readOnly}
 					files={value && [getFileName(value, schema)]}
-					description={description || errorMessage}
-					hasError={!!errorMessage || !isValid}
+					description={errorMessage || description}
+					hasError={!isValid}
+					aria-invalid={!isValid}
 					{...extractDataAttributes(schema)}
 				/>
 			)}

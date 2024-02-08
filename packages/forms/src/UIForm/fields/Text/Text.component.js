@@ -42,8 +42,9 @@ export default function Text(props) {
 		value,
 		label: getLabelProps(title, labelProps, schema.hint),
 		required: schema.required,
-		description: description || errorMessage,
-		hasError: !!errorMessage || !isValid,
+		description: errorMessage || description,
+		hasError: !isValid,
+		'aria-invalid': !isValid,
 		...extractDataAttributes(rest),
 	};
 

@@ -1,25 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextArea field text display mode should render textarea 1`] = `
-<div
-  class="form-group"
+<span
+  align="stretch"
+  class="CoralStackVertical"
+  gap="XXS"
+  height="100%"
+  justify="start"
 >
-  <dt>
-    <label
-      class="control-label"
-      for="myForm"
-    >
-      My input title
-    </label>
-  </dt>
-  <dd
+  <span
+    class="CoralFormLabel"
     id="myForm"
   >
-    <pre
-      style="height: 10rem;"
-    >
-      toto
-    </pre>
-  </dd>
-</div>
+    My input title
+  </span>
+  <pre
+    style="height: 10rem;"
+  >
+    toto
+  </pre>
+</span>
 `;

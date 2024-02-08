@@ -90,94 +90,118 @@ exports[`Array component should render array 1`] = `
           class="form-group"
         >
           <div
-            aria-busy="false"
-            class="form-group theme-template required"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-0_comments_0_comments_0_name"
             >
               Name
+              *
             </label>
-            <input
-              aria-describedby="talend-array-0_comments_0_comments_0_name-description talend-array-0_comments_0_comments_0_name-error"
-              aria-invalid="false"
-              aria-required="true"
-              class="form-control"
-              id="talend-array-0_comments_0_comments_0_name"
-              type="text"
-              value=""
-            />
-            <div />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="talend-array-0_comments_0_comments_0_name"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
           </div>
           <div
-            aria-busy="false"
-            class="form-group theme-template"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-0_comments_0_comments_0_email"
             >
               Email
             </label>
-            <input
-              aria-describedby="talend-array-0_comments_0_comments_0_email-description talend-array-0_comments_0_comments_0_email-error"
-              aria-invalid="false"
-              class="form-control"
-              id="talend-array-0_comments_0_comments_0_email"
-              type="text"
-              value=""
-            />
-            <div>
-              <div
-                aria-live="polite"
-                class="theme-inlineMessage"
-                data-test="fieldTemplate.inlineMessage"
-                id="talend-array-0_comments_0_comments_0_email-description"
-                role="status"
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="talend-array-0_comments_0_comments_0_email"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              aria-live="polite"
+              class="theme-inlineMessage"
+              role="status"
+            >
+              <span
+                class="theme-icon theme-information__icon"
               >
-                <span
-                  class="theme-icon theme-information__icon"
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1rem; height: 1rem;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    pointer-events="none"
-                    shape-rendering="geometricPrecision"
-                    style="width: 1rem; height: 1rem;"
-                  >
-                    <use
-                      xlink:href="#information-filled:M"
-                    />
-                  </svg>
+                  <use
+                    xlink:href="#information-filled:M"
+                  />
+                </svg>
+              </span>
+              <p
+                class="theme-inlineMessage__contents"
+              >
+                <span>
+                  Email will be used for evil.
                 </span>
-                <p
-                  class="theme-inlineMessage__contents"
-                >
-                  <span>
-                    Email will be used for evil.
-                  </span>
-                </p>
-              </div>
+              </p>
             </div>
           </div>
           <div
-            aria-busy="false"
-            class="form-group theme-template"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-0_comments_0_comments_0_comment"
             >
               Comment
             </label>
             <textarea
-              aria-describedby="talend-array-0_comments_0_comments_0_comment-description talend-array-0_comments_0_comments_0_comment-error"
               aria-invalid="false"
-              class="form-control"
+              class="theme-textarea"
               id="talend-array-0_comments_0_comments_0_comment"
               rows="3"
             />
-            <div />
+            <div
+              aria-live="polite"
+              class="theme-inlineMessage"
+              role="status"
+            >
+              <span
+                class="theme-icon theme-information__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1rem; height: 1rem;"
+                >
+                  <use
+                    xlink:href="#information-filled:M"
+                  />
+                </svg>
+              </span>
+              <p
+                class="theme-inlineMessage__contents"
+              >
+                <span>
+                  Don't be greedy!
+                </span>
+              </p>
+            </div>
           </div>
         </fieldset>
         <div
@@ -272,94 +296,118 @@ exports[`Array component should render array 1`] = `
           class="form-group"
         >
           <div
-            aria-busy="false"
-            class="form-group theme-template required"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-1_comments_1_comments_1_name"
             >
               Name
+              *
             </label>
-            <input
-              aria-describedby="talend-array-1_comments_1_comments_1_name-description talend-array-1_comments_1_comments_1_name-error"
-              aria-invalid="false"
-              aria-required="true"
-              class="form-control"
-              id="talend-array-1_comments_1_comments_1_name"
-              type="text"
-              value=""
-            />
-            <div />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="talend-array-1_comments_1_comments_1_name"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
           </div>
           <div
-            aria-busy="false"
-            class="form-group theme-template"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-1_comments_1_comments_1_email"
             >
               Email
             </label>
-            <input
-              aria-describedby="talend-array-1_comments_1_comments_1_email-description talend-array-1_comments_1_comments_1_email-error"
-              aria-invalid="false"
-              class="form-control"
-              id="talend-array-1_comments_1_comments_1_email"
-              type="text"
-              value=""
-            />
-            <div>
-              <div
-                aria-live="polite"
-                class="theme-inlineMessage"
-                data-test="fieldTemplate.inlineMessage"
-                id="talend-array-1_comments_1_comments_1_email-description"
-                role="status"
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="talend-array-1_comments_1_comments_1_email"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              aria-live="polite"
+              class="theme-inlineMessage"
+              role="status"
+            >
+              <span
+                class="theme-icon theme-information__icon"
               >
-                <span
-                  class="theme-icon theme-information__icon"
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1rem; height: 1rem;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    pointer-events="none"
-                    shape-rendering="geometricPrecision"
-                    style="width: 1rem; height: 1rem;"
-                  >
-                    <use
-                      xlink:href="#information-filled:M"
-                    />
-                  </svg>
+                  <use
+                    xlink:href="#information-filled:M"
+                  />
+                </svg>
+              </span>
+              <p
+                class="theme-inlineMessage__contents"
+              >
+                <span>
+                  Email will be used for evil.
                 </span>
-                <p
-                  class="theme-inlineMessage__contents"
-                >
-                  <span>
-                    Email will be used for evil.
-                  </span>
-                </p>
-              </div>
+              </p>
             </div>
           </div>
           <div
-            aria-busy="false"
-            class="form-group theme-template"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-1_comments_1_comments_1_comment"
             >
               Comment
             </label>
             <textarea
-              aria-describedby="talend-array-1_comments_1_comments_1_comment-description talend-array-1_comments_1_comments_1_comment-error"
               aria-invalid="false"
-              class="form-control"
+              class="theme-textarea"
               id="talend-array-1_comments_1_comments_1_comment"
               rows="3"
             />
-            <div />
+            <div
+              aria-live="polite"
+              class="theme-inlineMessage"
+              role="status"
+            >
+              <span
+                class="theme-icon theme-information__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1rem; height: 1rem;"
+                >
+                  <use
+                    xlink:href="#information-filled:M"
+                  />
+                </svg>
+              </span>
+              <p
+                class="theme-inlineMessage__contents"
+              >
+                <span>
+                  Don't be greedy!
+                </span>
+              </p>
+            </div>
           </div>
         </fieldset>
         <div
@@ -455,94 +503,118 @@ exports[`Array component should render array 1`] = `
           class="form-group"
         >
           <div
-            aria-busy="false"
-            class="form-group theme-template required"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-2_comments_2_comments_2_name"
             >
               Name
+              *
             </label>
-            <input
-              aria-describedby="talend-array-2_comments_2_comments_2_name-description talend-array-2_comments_2_comments_2_name-error"
-              aria-invalid="false"
-              aria-required="true"
-              class="form-control"
-              id="talend-array-2_comments_2_comments_2_name"
-              type="text"
-              value=""
-            />
-            <div />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="talend-array-2_comments_2_comments_2_name"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
           </div>
           <div
-            aria-busy="false"
-            class="form-group theme-template"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-2_comments_2_comments_2_email"
             >
               Email
             </label>
-            <input
-              aria-describedby="talend-array-2_comments_2_comments_2_email-description talend-array-2_comments_2_comments_2_email-error"
-              aria-invalid="false"
-              class="form-control"
-              id="talend-array-2_comments_2_comments_2_email"
-              type="text"
-              value=""
-            />
-            <div>
-              <div
-                aria-live="polite"
-                class="theme-inlineMessage"
-                data-test="fieldTemplate.inlineMessage"
-                id="talend-array-2_comments_2_comments_2_email-description"
-                role="status"
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="talend-array-2_comments_2_comments_2_email"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              aria-live="polite"
+              class="theme-inlineMessage"
+              role="status"
+            >
+              <span
+                class="theme-icon theme-information__icon"
               >
-                <span
-                  class="theme-icon theme-information__icon"
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1rem; height: 1rem;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    pointer-events="none"
-                    shape-rendering="geometricPrecision"
-                    style="width: 1rem; height: 1rem;"
-                  >
-                    <use
-                      xlink:href="#information-filled:M"
-                    />
-                  </svg>
+                  <use
+                    xlink:href="#information-filled:M"
+                  />
+                </svg>
+              </span>
+              <p
+                class="theme-inlineMessage__contents"
+              >
+                <span>
+                  Email will be used for evil.
                 </span>
-                <p
-                  class="theme-inlineMessage__contents"
-                >
-                  <span>
-                    Email will be used for evil.
-                  </span>
-                </p>
-              </div>
+              </p>
             </div>
           </div>
           <div
-            aria-busy="false"
-            class="form-group theme-template"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <label
-              class="control-label"
+              class="theme-label"
               for="talend-array-2_comments_2_comments_2_comment"
             >
               Comment
             </label>
             <textarea
-              aria-describedby="talend-array-2_comments_2_comments_2_comment-description talend-array-2_comments_2_comments_2_comment-error"
               aria-invalid="false"
-              class="form-control"
+              class="theme-textarea"
               id="talend-array-2_comments_2_comments_2_comment"
               rows="3"
             />
-            <div />
+            <div
+              aria-live="polite"
+              class="theme-inlineMessage"
+              role="status"
+            >
+              <span
+                class="theme-icon theme-information__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1rem; height: 1rem;"
+                >
+                  <use
+                    xlink:href="#information-filled:M"
+                  />
+                </svg>
+              </span>
+              <p
+                class="theme-inlineMessage__contents"
+              >
+                <span>
+                  Don't be greedy!
+                </span>
+              </p>
+            </div>
           </div>
         </fieldset>
         <div
