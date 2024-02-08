@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 15.2.2
+
+### Patch Changes
+
+- eece40c: fix: sort option not interactive with legacy list while in expanded view
+
 ## 15.2.1
 
 ### Patch Changes
