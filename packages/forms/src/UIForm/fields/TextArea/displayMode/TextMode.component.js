@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 
-import TextModeWrapper from '../../../FormTemplate/TextModeWrapper.component';
+import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 export default function TextMode({ id, schema, value }) {
 	const { rows = 5 } = schema;
 
 	return (
-		<TextModeWrapper id={id} schema={schema}>
+		<FieldTemplate id={id} label={schema.title} labelProps={schema.labelProps}>
 			<pre style={{ height: `${rows * 2}rem`, fontSize: 'inherit' }}>{value}</pre>
-		</TextModeWrapper>
+		</FieldTemplate>
 	);
 }
 

@@ -1,58 +1,23 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { ButtonIcon, Popover } from '@talend/design-system';
+import { Form } from '@talend/design-system';
 
 import Message from '../../Message';
-
-import theme from './FieldTemplate.module.scss';
-
-function Label({ id, label, ...rest }) {
-	return (
-		<label htmlFor={id} className="control-label" {...rest}>
-			{label}
-		</label>
-	);
-}
-
-if (process.env.NODE_ENV !== 'production') {
-	Label.propTypes = {
-		id: PropTypes.string,
-		label: PropTypes.string,
-		hint: PropTypes.any,
-	};
-}
+import { getLabelProps } from '../../utils/labels';
 
 function FieldTemplate(props) {
-	const groupsClassNames = classNames(theme.template, props.className, {
+	const groupsClassNames = classNames(props.className, {
 		'has-error': !props.isValid,
-		required: props.required,
-		[theme.updating]: props.valueIsUpdating,
 	});
 
-	let title = <Label id={props.id} label={props.label} {...props.labelProps} />;
-
-	if (props.hint) {
-		title = (
-			<div className={theme['field-template-title']}>
-				{title}
-				<Popover
-					position={props.hint.overlayPlacement || 'auto'}
-					data-test={props.hint['data-test']}
-					isFixed={props.hint.overlayIsFixed}
-					disclosure={
-						<ButtonIcon
-							data-test={props.hint['icon-data-test']}
-							size="S"
-							icon={props.hint.icon || 'talend-info-circle'}
-						></ButtonIcon>
-					}
-				>
-					{props.hint.overlayComponent}
-				</Popover>
-			</div>
-		);
-	}
+	const title = (
+		<Form.Label
+			htmlFor={props.id}
+			{...getLabelProps(props.label, props.labelProps, props.hint)}
+			required={props.required}
+		/>
+	);
 	const labelAfter = props.hint ? false : props.labelAfter;
 
 	return (

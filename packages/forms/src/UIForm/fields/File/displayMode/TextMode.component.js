@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
-import TextModeWrapper from '../../../FormTemplate/TextModeWrapper.component';
+import { TextMode as FieldTemplate } from '../../FieldTemplate';
 import { getFileName } from '../File.component';
 
 export default function FileTextMode(props) {
 	const { id, schema, value } = props;
 
 	return (
-		<TextModeWrapper id={id} schema={schema}>
+		<FieldTemplate id={id} label={schema.title} labelProps={schema.labelProps}>
 			{getFileName(value, schema)}
-		</TextModeWrapper>
+		</FieldTemplate>
 	);
 }
 

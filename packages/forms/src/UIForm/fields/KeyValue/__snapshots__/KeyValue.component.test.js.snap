@@ -2,10 +2,10 @@
 
 exports[`KeyValue field should render default KeyValue 1`] = `
 <div
-  class="theme-template"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="my-key-value-field"
   >
     Variable

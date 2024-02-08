@@ -2,13 +2,14 @@
 
 exports[`DateTime widget should render an InputDateTimePicker 1`] = `
 <div
-  class="theme-template required"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="talend-date-time"
   >
     Select DateTime
+    *
   </label>
   <div
     class="theme-date-time-picker"

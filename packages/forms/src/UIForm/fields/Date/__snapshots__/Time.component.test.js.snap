@@ -2,13 +2,14 @@
 
 exports[`Time component should render an InputTimePicker 1`] = `
 <div
-  class="theme-template required"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="myForm"
   >
     Select Time
+    *
   </label>
   <div
     class="theme-time-picker time-picker"

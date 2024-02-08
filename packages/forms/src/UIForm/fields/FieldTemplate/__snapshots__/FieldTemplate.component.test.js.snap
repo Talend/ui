@@ -2,10 +2,10 @@
 
 exports[`FieldTemplate should render 1`] = `
 <div
-  class="theme-template"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="myAwesomeField"
   >
     My awesome label

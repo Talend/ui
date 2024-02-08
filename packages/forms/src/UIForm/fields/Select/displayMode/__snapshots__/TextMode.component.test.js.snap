@@ -1,18 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text field text display mode should render input 1`] = `
-<div>
-  <dt>
-    <label
-      for="myForm"
-    >
-      My input title
-    </label>
-  </dt>
-  <dd
+<span
+  align="stretch"
+  class="CoralStackVertical"
+  gap="XXS"
+  height="100%"
+  justify="start"
+>
+  <span
+    class="CoralFormLabel"
+    for="myForm"
+  >
+    My input title
+  </span>
+  <div
     id="myForm"
   >
     toto
-  </dd>
-</div>
+  </div>
+</span>
 `;

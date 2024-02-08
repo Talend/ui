@@ -1,19 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text field text display mode should render a comparator field in text mode 1`] = `
-<div>
-  <dt>
-    <label
-      for="myForm"
-    >
-      My input title
-    </label>
-  </dt>
-  <dd
+<div
+  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+>
+  <label
+    class="theme-label"
+    for="myForm"
+  >
+    My input title
+  </label>
+  <div
     id="myForm"
   >
     &gt;=
      666
-  </dd>
+  </div>
 </div>
 `;

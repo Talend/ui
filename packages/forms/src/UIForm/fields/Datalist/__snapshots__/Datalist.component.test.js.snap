@@ -2,13 +2,14 @@
 
 exports[`Datalist component should render 1`] = `
 <div
-  class="theme-template required"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="my-datalist"
   >
     My List
+    *
   </label>
   <div
     class="theme-tc-datalist-item"

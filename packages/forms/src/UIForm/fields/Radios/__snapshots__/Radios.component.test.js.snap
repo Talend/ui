@@ -2,13 +2,14 @@
 
 exports[`Radios field should render radios 1`] = `
 <div
-  class="theme-template required"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="myForm"
   >
     My radios title
+    *
   </label>
   <div
     class="radio"

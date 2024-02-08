@@ -2,13 +2,14 @@
 
 exports[`Select field should render simple select 1`] = `
 <div
-  class="theme-template required"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="mySelect"
   >
     My Select title
+    *
   </label>
   <select
     aria-describedby="mySelect-description mySelect-error"

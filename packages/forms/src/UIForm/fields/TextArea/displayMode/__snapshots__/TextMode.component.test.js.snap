@@ -10,14 +10,18 @@ exports[`TextArea field text display mode should render textarea 1`] = `
 >
   <span
     class="CoralFormLabel"
-    id="myForm"
+    for="myForm"
   >
     My input title
   </span>
-  <pre
-    style="height: 10rem;"
+  <div
+    id="myForm"
   >
-    toto
-  </pre>
+    <pre
+      style="height: 10rem;"
+    >
+      toto
+    </pre>
+  </div>
 </span>
 `;

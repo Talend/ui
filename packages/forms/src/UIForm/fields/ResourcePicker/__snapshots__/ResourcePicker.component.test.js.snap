@@ -2,13 +2,14 @@
 
 exports[`ResourcePicker field should render ResourcePicker 1`] = `
 <div
-  class="theme-template required"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="mySelect"
   >
     My ResourcePicker title
+    *
   </label>
   <div
     data-props="{

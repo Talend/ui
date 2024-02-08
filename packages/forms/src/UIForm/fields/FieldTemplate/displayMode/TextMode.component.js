@@ -1,22 +1,24 @@
 import PropTypes from 'prop-types';
 
-function FieldTemplate(props) {
+import { Form, StackVertical } from '@talend/design-system';
+
+import { getLabelProps } from '../../../utils/labels';
+
+function FieldTemplate({ id, label, labelProps, children }) {
 	return (
-		<div className={props.className}>
-			<dt>
-				<label htmlFor={props.id}>{props.label}</label>
-			</dt>
-			<dd id={props.id}>{props.children}</dd>
-		</div>
+		<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
+			<Form.Label htmlFor={id} {...getLabelProps(label, labelProps)} />
+			<div id={id}>{children}</div>
+		</StackVertical>
 	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		children: PropTypes.node,
-		className: PropTypes.string,
 		id: PropTypes.string,
 		label: PropTypes.string,
+		labelProps: PropTypes.object,
 	};
 }
 FieldTemplate.displayName = 'FieldTemplate';

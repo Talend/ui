@@ -6,10 +6,14 @@ exports[`File input text display mode should render 1`] = `
 >
   <label
     class="theme-label"
-    id="my-file-field"
+    for="my-file-field"
   >
     Upload file
   </label>
-  test.xml
+  <div
+    id="my-file-field"
+  >
+    test.xml
+  </div>
 </div>
 `;

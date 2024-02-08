@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import FieldTemplate from './FieldTemplate.component';
 
@@ -86,7 +86,6 @@ describe('FieldTemplate', () => {
 
 		// then
 		expect(container.firstChild).toHaveAttribute('aria-busy', 'true');
-		expect(container.firstChild).toHaveClass('theme-updating');
 	});
 
 	it('should pass label props to the label', () => {

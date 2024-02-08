@@ -2,13 +2,14 @@
 
 exports[`Date widget should render date picker 1`] = `
 <div
-  class="theme-template has-error required"
+  class="has-error"
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="myForm"
   >
     My date title
+    *
   </label>
   <div
     class="theme-date-picker date-picker"

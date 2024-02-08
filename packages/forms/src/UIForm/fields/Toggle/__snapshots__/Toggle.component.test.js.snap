@@ -2,7 +2,7 @@
 
 exports[`Toggle field should render input 1`] = `
 <div
-  class="theme-template required"
+  class=""
 >
   <div
     class="checkbox tc-checkbox switch tc-toggle"

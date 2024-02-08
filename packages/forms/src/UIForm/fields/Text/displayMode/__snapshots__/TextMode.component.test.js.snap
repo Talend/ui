@@ -10,10 +10,14 @@ exports[`Text field text display mode should render input 1`] = `
 >
   <span
     class="CoralFormLabel"
-    id="myForm"
+    for="myForm"
   >
     My input title
   </span>
-  toto
+  <div
+    id="myForm"
+  >
+    toto
+  </div>
 </span>
 `;

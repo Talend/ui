@@ -2,10 +2,10 @@
 
 exports[`RadioOrSelect field should render select when titleMap has less than 2 options 1`] = `
 <div
-  class="theme-template"
+  class=""
 >
   <label
-    class="control-label"
+    class="theme-label"
     for="myRadioOrSelect"
   >
     My Select title

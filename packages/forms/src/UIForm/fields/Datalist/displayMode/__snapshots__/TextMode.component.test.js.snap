@@ -1,18 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Datalist component in text display mode should render 1`] = `
-<div>
-  <dt>
-    <label
-      for="my-datalist"
-    >
-      My List
-    </label>
-  </dt>
-  <dd
+<div
+  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+>
+  <label
+    class="theme-label"
+    for="my-datalist"
+  >
+    My List
+  </label>
+  <div
     id="my-datalist"
   >
     Foo
-  </dd>
+  </div>
 </div>
 `;

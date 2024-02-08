@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
-import TextModeWrapper from '../../../FormTemplate/TextModeWrapper.component';
+import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 export default function TextMode(props) {
 	const { id, schema, value } = props;
-	const { type } = schema;
+	const { type, title, labelProps } = schema;
 
 	return (
-		<TextModeWrapper id={id} schema={schema}>
+		<FieldTemplate id={id} label={title} labelProps={labelProps}>
 			{type === 'password' && value ? '**********' : value}
-		</TextModeWrapper>
+		</FieldTemplate>
 	);
 }
 
