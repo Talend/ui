@@ -295,6 +295,29 @@ export const Layout2Columns = () => (
 	</Layout>
 );
 
+export const WithoutFooterActions = () => {
+	const drawersWithoutFooterActions = (
+		<Drawer title="Im drawer 2" footerActions={{}} key="drawer-2">
+			<h1>Hello drawer 2</h1>
+			<p>The scroll is defined by the content</p>
+			<h1>Hello drawer 3</h1>
+			{scrollableContent()}
+		</Drawer>
+	);
+
+	return (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={sidePanel}
+			drawers={[drawersWithoutFooterActions]}
+		>
+			<span>zone with drawer</span>
+			{twentyRows}
+		</Layout>
+	);
+};
+
 export const WithEditableHeader = () => (
 	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
 		<span>zone with drawer</span>
@@ -639,7 +662,7 @@ export const WithSubtitleComponent = () => {
 			header={header}
 			mode="OneColumn"
 			drawers={[
-				<Drawer key="drawer-1">
+				<Drawer.Container key="drawer-1">
 					<Drawer.Title
 						title="Im drawer 1"
 						subtitle="Drawer subtitle"
@@ -652,9 +675,11 @@ export const WithSubtitleComponent = () => {
 						onCancelAction={onCancelAction}
 						editable
 					/>
-					<h1>Hello drawer 1</h1>
-					<p>You should not being able to read this because I'm first</p>
-				</Drawer>,
+					<Drawer.Content>
+						<h1>Hello drawer 1</h1>
+						<p>You should not being able to read this because I'm first</p>
+					</Drawer.Content>
+				</Drawer.Container>,
 			]}
 		>
 			<span>Select subtitle tag variants</span>
