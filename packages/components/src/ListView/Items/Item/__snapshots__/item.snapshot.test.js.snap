@@ -3,7 +3,7 @@
 exports[`Item should display a selected item 1`] = `
 <div
   aria-selected={true}
-  className=""
+  className="checkbox"
   data-test="item"
   data-testid="item"
   id="0-item"

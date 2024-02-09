@@ -100,4 +100,14 @@ describe('InlineForm', () => {
 		const input = screen.getByRole('textbox');
 		expect(input).toHaveAttribute('placeholder', placeholder);
 	});
+	it('should add data attributes to submit', () => {
+		const props = {
+			...defaultProps,
+			required: false,
+			'data-tracking': 'test-tracker',
+		};
+		render(<InlineForm {...props} />);
+		const submit = screen.getAllByRole('button')[1];
+		expect(submit).toHaveAttribute('data-tracking', props['data-tracking']);
+	});
 });

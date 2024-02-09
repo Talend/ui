@@ -6,8 +6,9 @@ import PropTypes from 'prop-types';
 import { ButtonPrimary, Form, InlineMessageDestructive } from '@talend/design-system';
 import Icon from '@talend/react-components/lib/Icon';
 import Slider from '@talend/react-components/lib/Slider';
+import { getDataAttrFromProps } from '@talend/utils';
 
-import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import styles from './BadgeSlider.module.scss';
 
@@ -140,7 +141,7 @@ const BadgeSliderForm = ({
 					type="submit"
 					data-feature={applyDataFeature}
 					disabled={!!error}
-					{...getDataAttributesFrom(rest)}
+					{...getDataAttrFromProps(rest)}
 				>
 					{t('APPLY', { defaultValue: 'Apply' })}
 				</ButtonPrimary>

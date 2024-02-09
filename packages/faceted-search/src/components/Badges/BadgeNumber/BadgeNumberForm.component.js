@@ -3,8 +3,9 @@ import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { ButtonPrimary, Form } from '@talend/design-system';
+import { getDataAttrFromProps } from '@talend/utils';
 
-import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t, ...rest }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
@@ -22,7 +23,7 @@ const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t, ...rest })
 				<ButtonPrimary
 					type="submit"
 					data-feature={applyDataFeature}
-					{...getDataAttributesFrom(rest)}
+					{...getDataAttrFromProps(rest)}
 				>
 					{t('APPLY', { defaultValue: 'Apply' })}
 				</ButtonPrimary>

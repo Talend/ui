@@ -14,6 +14,8 @@ import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 import { DataAttributes } from 'src/types';
 
+import { getDataAttrFromProps } from '@talend/utils';
+
 import { useId } from '../../../useId';
 import { ButtonIcon } from '../../ButtonIcon';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
@@ -253,6 +255,7 @@ const InlineEditingPrimitive = forwardRef(
 										icon="check-filled"
 										data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.submit`}
 										data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.submit`}
+										{...getDataAttrFromProps(rest)}
 										size="XS"
 									>
 										{t('INLINE_EDITING_SUBMIT', 'Submit')}

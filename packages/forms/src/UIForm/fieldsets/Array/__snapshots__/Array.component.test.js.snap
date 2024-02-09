@@ -213,6 +213,7 @@ exports[`Array component should render array 1`] = `
             class="theme-clickable theme-buttonIcon"
             id="talend-array-control-0-delete"
             tabindex="0"
+            tooltip="Delete"
             type="button"
           >
             <span
@@ -419,6 +420,7 @@ exports[`Array component should render array 1`] = `
             class="theme-clickable theme-buttonIcon"
             id="talend-array-control-1-delete"
             tabindex="0"
+            tooltip="Delete"
             type="button"
           >
             <span
@@ -626,6 +628,7 @@ exports[`Array component should render array 1`] = `
             class="theme-clickable theme-buttonIcon"
             id="talend-array-control-2-delete"
             tabindex="0"
+            tooltip="Delete"
             type="button"
           >
             <span
