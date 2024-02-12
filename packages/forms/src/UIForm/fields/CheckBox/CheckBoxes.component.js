@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Form, InlineMessageDestructive, InlineMessageInformation } from '@talend/design-system';
-
-import { getLabelProps } from '../../utils/labels';
+import FieldTemplate from '../FieldTemplate';
 import SimpleCheckBox from './SimpleCheckBox.component';
 
 function getValues(itemValue, checked, value = []) {
@@ -17,20 +15,16 @@ export default function CheckBoxes(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const { description, title, labelProps, titleMap } = schema;
 
-	const Description = () => {
-		if (!isValid && errorMessage) {
-			return <InlineMessageDestructive description={errorMessage} />;
-		} else if (isValid && description) {
-			return <InlineMessageInformation description={description} />;
-		}
-		return null;
-	};
-
 	return (
-		<Form.Fieldset
+		<FieldTemplate
 			id={id}
-			legend={<span {...getLabelProps(title, labelProps, schema.hint)}></span>}
+			label={title}
+			labelProps={labelProps}
+			hint={schema.hint}
 			required={schema.required}
+			isValid={isValid}
+			description={description}
+			errorMessage={errorMessage}
 		>
 			{titleMap.map((item, index) => (
 				<SimpleCheckBox
@@ -56,8 +50,7 @@ export default function CheckBoxes(props) {
 					index={index}
 				/>
 			))}
-			<Description />
-		</Form.Fieldset>
+		</FieldTemplate>
 	);
 }
 

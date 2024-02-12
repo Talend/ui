@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { InlineMessageDestructive, InlineMessageInformation } from '@talend/design-system';
-
+import FieldTemplate from '../FieldTemplate';
 import SimpleCheckBox from './SimpleCheckBox.component';
 
 export default function CheckBox(props) {
@@ -18,17 +17,14 @@ export default function CheckBox(props) {
 	} = props;
 	const { description } = schema;
 
-	const Description = () => {
-		if (!isValid && errorMessage) {
-			return <InlineMessageDestructive description={errorMessage} />;
-		} else if (isValid && description) {
-			return <InlineMessageInformation description={description} />;
-		}
-		return null;
-	};
-
 	return (
-		<div>
+		<FieldTemplate
+			id={id}
+			required={schema.required}
+			isValid={isValid}
+			description={description}
+			errorMessage={errorMessage}
+		>
 			<SimpleCheckBox
 				disabled={disabled || schema.disabled || valueIsUpdating}
 				id={id}
@@ -39,8 +35,7 @@ export default function CheckBox(props) {
 				schema={schema}
 				value={value}
 			/>
-			<Description />
-		</div>
+		</FieldTemplate>
 	);
 }
 

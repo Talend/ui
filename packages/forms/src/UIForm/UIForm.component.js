@@ -353,7 +353,7 @@ export class UIFormComponent extends Component {
 				);
 			}
 
-			return <Form.Buttons>{buttons}</Form.Buttons>;
+			return buttons;
 		};
 
 		const Element = this.props.as;

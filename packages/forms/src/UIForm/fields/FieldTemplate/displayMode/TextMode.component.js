@@ -8,7 +8,7 @@ function FieldTemplate({ id, label, labelProps, children }) {
 	return (
 		<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
 			<Form.Label htmlFor={id} {...getLabelProps(label, labelProps)} />
-			<div id={id}>{children}</div>
+			<div id={id}>{children || <>&nbsp;</>}</div>
 		</StackVertical>
 	);
 }
