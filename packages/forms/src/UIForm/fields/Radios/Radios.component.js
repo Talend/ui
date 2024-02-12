@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
-
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import FieldTemplate from '../FieldTemplate';
+import PropTypes from 'prop-types';
+
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { extractDataAttributes } from '../../utils/properties';
+import FieldTemplate from '../FieldTemplate';
 
 export default function Radios({
 	id,
@@ -40,29 +40,31 @@ export default function Radios({
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			{schema.titleMap &&
-				schema.titleMap.map((option, index) => (
-					<div className={radioClassNames} key={option.value || option.name}>
-						<label>
-							{/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
-							<input
-								id={`${id}-${index}`}
-								autoFocus={autoFocus}
-								checked={option.value === value}
-								disabled={disabled || valueIsUpdating}
-								name={id}
-								onBlur={event => onFinish(event, { schema })}
-								onChange={event => onChange(event, { schema, value: option.value })}
-								type="radio"
-								value={option.value}
-								aria-invalid={!isValid}
-								aria-describedby={`${descriptionId} ${errorId}`}
-								{...extractDataAttributes(rest, index)}
-							/>
-							<span>{option.name}</span>
-						</label>
-					</div>
-				))}
+			<div>
+				{schema.titleMap &&
+					schema.titleMap.map((option, index) => (
+						<div className={radioClassNames} key={option.value || option.name}>
+							<label>
+								{/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
+								<input
+									id={`${id}-${index}`}
+									autoFocus={autoFocus}
+									checked={option.value === value}
+									disabled={disabled || valueIsUpdating}
+									name={id}
+									onBlur={event => onFinish(event, { schema })}
+									onChange={event => onChange(event, { schema, value: option.value })}
+									type="radio"
+									value={option.value}
+									aria-invalid={!isValid}
+									aria-describedby={`${descriptionId} ${errorId}`}
+									{...extractDataAttributes(rest, index)}
+								/>
+								<span>{option.name}</span>
+							</label>
+						</div>
+					))}
+			</div>
 		</FieldTemplate>
 	);
 }

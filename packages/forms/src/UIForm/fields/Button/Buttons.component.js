@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import SingleButton from './SingleButton.component';
+import PropTypes from 'prop-types';
 
-import theme from './Buttons.module.scss';
+import SingleButton from './SingleButton.component';
 
 function getButtonsList(id, buttons, onTrigger, onClick, getComponent) {
 	if (!buttons) {
@@ -10,7 +9,7 @@ function getButtonsList(id, buttons, onTrigger, onClick, getComponent) {
 	}
 	return buttons.map((itemSchema, index) => (
 		<SingleButton
-			className={classNames(theme[itemSchema.position], itemSchema.className)}
+			className={itemSchema.className}
 			key={index}
 			id={itemSchema.id || `${id}-${index}`}
 			onTrigger={onTrigger}
@@ -21,12 +20,8 @@ function getButtonsList(id, buttons, onTrigger, onClick, getComponent) {
 	));
 }
 
-export default function Buttons({ id, onTrigger, className, schema, onClick, getComponent }) {
-	return (
-		<div className={classNames(theme['tf-buttons'], 'tf-buttons', className)}>
-			{getButtonsList(id, schema.items, onTrigger, onClick, getComponent)}
-		</div>
-	);
+export default function Buttons({ id, onTrigger, schema, onClick, getComponent }) {
+	return <>{getButtonsList(id, schema.items, onTrigger, onClick, getComponent)}</>;
 }
 
 if (process.env.NODE_ENV !== 'production') {
@@ -35,7 +30,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onClick: PropTypes.func,
 		onTrigger: PropTypes.func,
 		schema: SingleButton.propTypes.schema,
-		className: PropTypes.string,
 		getComponent: PropTypes.func,
 	};
 }

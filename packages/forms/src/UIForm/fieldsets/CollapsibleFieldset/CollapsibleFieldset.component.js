@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
 import { CollapsiblePanel, InlineMessageInformation } from '@talend/design-system';
+import { StackVertical } from '@talend/design-system';
 
 import { generateDescriptionId } from '../../Message/generateId';
 import Widget from '../../Widget';
@@ -130,9 +131,17 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					) : (
 						''
 					)}
-					{items.map((itemSchema, idx) => (
-						<Widget {...restProps} id={id} key={`${id}-${idx}`} schema={itemSchema} value={value} />
-					))}
+					<StackVertical gap="S" align="stretch">
+						{items.map((itemSchema, idx) => (
+							<Widget
+								{...restProps}
+								id={id}
+								key={`${id}-${idx}`}
+								schema={itemSchema}
+								value={value}
+							/>
+						))}
+					</StackVertical>
 				</CollapsiblePanel>
 			</fieldset>
 		);

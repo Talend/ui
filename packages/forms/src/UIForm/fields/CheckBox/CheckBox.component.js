@@ -5,7 +5,17 @@ import { InlineMessageDestructive, InlineMessageInformation } from '@talend/desi
 import SimpleCheckBox from './SimpleCheckBox.component';
 
 export default function CheckBox(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
+	const {
+		id,
+		isValid,
+		errorMessage,
+		onChange,
+		onFinish,
+		schema,
+		value,
+		valueIsUpdating,
+		disabled,
+	} = props;
 	const { description } = schema;
 
 	const Description = () => {
@@ -20,7 +30,7 @@ export default function CheckBox(props) {
 	return (
 		<div>
 			<SimpleCheckBox
-				disabled={schema.disabled || valueIsUpdating}
+				disabled={disabled || schema.disabled || valueIsUpdating}
 				id={id}
 				isValid={isValid}
 				label={schema.title || value}
@@ -44,6 +54,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.object,
 		value: PropTypes.bool,
 		valueIsUpdating: PropTypes.bool,
+		disabled: PropTypes.bool,
 	};
 }
 

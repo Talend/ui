@@ -21,6 +21,8 @@ import { validateAll, validateSingle } from './utils/validation';
 import widgets from './utils/widgets';
 import Widget from './Widget';
 
+import theme from './UIForm.module.scss';
+
 export class UIFormComponent extends Component {
 	static displayName = 'TalendUIForm';
 
@@ -330,17 +332,28 @@ export class UIFormComponent extends Component {
 				return null;
 			}
 
-			return (
-				<Form.Buttons>
-					<Buttons
-						id={`${this.props.id}-actions`}
-						onTrigger={this.onTrigger}
-						schema={{ items: actions }}
-						onClick={this.onActionClick}
-						getComponent={this.props.getComponent}
-					/>
-				</Form.Buttons>
+			const buttons = (
+				<Buttons
+					id={`${this.props.id}-actions`}
+					onTrigger={this.onTrigger}
+					schema={{ items: actions }}
+					onClick={this.onActionClick}
+					getComponent={this.props.getComponent}
+				/>
 			);
+
+			if (this.props.anchorButtonsToFooter) {
+				return (
+					<div
+						data-drawer-absolute-footer-buttons
+						className={theme['drawer-absolute-footer-buttons']}
+					>
+						{buttons}
+					</div>
+				);
+			}
+
+			return <Form.Buttons>{buttons}</Form.Buttons>;
 		};
 
 		const Element = this.props.as;

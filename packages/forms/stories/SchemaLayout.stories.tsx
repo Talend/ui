@@ -66,6 +66,18 @@ Drawer.args = {
 	data: simple,
 };
 
+export const DrawerButtonsToBottom: Story = {
+	args: {
+		title: 'UIForm in a drawer',
+		data: simple,
+	},
+	render: ({ title, ...props }) => <LayoutDrawer title={title} {...props} />,
+};
+DrawerButtonsToBottom.args = {
+	data: simple,
+	anchorButtonsToFooter: true,
+};
+
 export const DrawerTextMode: Story = {
 	args: {
 		title: 'UIForm in a drawer',
