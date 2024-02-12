@@ -50,50 +50,52 @@ exports[`Tabs widget should render tabs 1`] = `
       role="tabpanel"
       tabindex="0"
     >
-      <fieldset
-        class="form-group"
-      >
+      <fieldset>
         <legend
           class="sr-only"
         >
           User
         </legend>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-S theme-gap-y-S"
         >
-          <label
-            class="theme-label"
-            for="user_firstname"
-          />
           <div
-            class="theme-inputShell"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
-            <input
-              aria-invalid="false"
-              class="theme-input"
-              id="user_firstname"
-              type="text"
-              value=""
+            <label
+              class="theme-label"
+              for="user_firstname"
             />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="user_firstname"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
-        </div>
-        <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-        >
-          <label
-            class="theme-label"
-            for="user_lastname"
-          />
           <div
-            class="theme-inputShell"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
-            <input
-              aria-invalid="false"
-              class="theme-input"
-              id="user_lastname"
-              type="text"
-              value=""
+            <label
+              class="theme-label"
+              for="user_lastname"
             />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="user_lastname"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
         </div>
       </fieldset>
@@ -104,31 +106,33 @@ exports[`Tabs widget should render tabs 1`] = `
       role="tabpanel"
       tabindex="0"
     >
-      <fieldset
-        class="form-group"
-      >
+      <fieldset>
         <legend
           class="sr-only"
         >
           Other
         </legend>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-S theme-gap-y-S"
         >
-          <label
-            class="theme-label"
-            for="comment"
-          />
           <div
-            class="theme-inputShell"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
-            <input
-              aria-invalid="false"
-              class="theme-input"
-              id="comment"
-              type="text"
-              value=""
+            <label
+              class="theme-label"
+              for="comment"
             />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="comment"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
         </div>
       </fieldset>

@@ -5,54 +5,58 @@ exports[`Toggle field should render input 1`] = `
   class=""
 >
   <div
-    class="checkbox tc-checkbox switch tc-toggle"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    <label
-      for="myForm"
-    >
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid="false"
-        aria-required="true"
-        checked=""
-        data-checked="2"
-        id="myForm"
-        type="checkbox"
-      />
-      <span>
-        My input title
-      </span>
-    </label>
-  </div>
-  <div>
     <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="myForm-description"
-      role="status"
+      class="checkbox tc-checkbox switch tc-toggle"
     >
-      <span
-        class="theme-icon theme-information__icon"
+      <label
+        for="myForm"
       >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1rem; height: 1rem;"
-        >
-          <use
-            xlink:href="#information-filled:M"
-          />
-        </svg>
-      </span>
-      <p
-        class="theme-inlineMessage__contents"
-      >
+        <input
+          aria-describedby="myForm-description myForm-error"
+          aria-invalid="false"
+          aria-required="true"
+          checked=""
+          data-checked="2"
+          id="myForm"
+          type="checkbox"
+        />
         <span>
-          my text input hint
+          My input title
         </span>
-      </p>
+      </label>
+    </div>
+    <div>
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        data-test="fieldTemplate.inlineMessage"
+        id="myForm-description"
+        role="status"
+      >
+        <span
+          class="theme-icon theme-information__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
+        </span>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            my text input hint
+          </span>
+        </p>
+      </div>
     </div>
   </div>
 </div>

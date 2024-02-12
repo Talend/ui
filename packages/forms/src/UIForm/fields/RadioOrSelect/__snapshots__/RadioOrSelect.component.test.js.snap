@@ -4,76 +4,82 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
 <div
   class=""
 >
-  <label
-    class="theme-label"
-    for="myRadioOrSelect"
-  >
-    My Select title
-  </label>
   <div
-    class="radio"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    <label>
-      <input
-        aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
-        aria-invalid="false"
-        checked=""
-        id="myRadioOrSelect-0"
-        name="myRadioOrSelect"
-        type="radio"
-        value="foo"
-      />
-      <span>
-        My foo title
-      </span>
-    </label>
-  </div>
-  <div
-    class="radio"
-  >
-    <label>
-      <input
-        aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
-        aria-invalid="false"
-        id="myRadioOrSelect-1"
-        name="myRadioOrSelect"
-        type="radio"
-        value="bar"
-      />
-      <span>
-        My bar title
-      </span>
-    </label>
-  </div>
-  <div>
-    <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="myRadioOrSelect-description"
-      role="status"
+    <label
+      class="theme-label"
+      for="myRadioOrSelect"
     >
-      <span
-        class="theme-icon theme-information__icon"
+      My Select title
+    </label>
+    <div>
+      <div
+        class="radio"
       >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1rem; height: 1rem;"
-        >
-          <use
-            xlink:href="#information-filled:M"
+        <label>
+          <input
+            aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
+            aria-invalid="false"
+            checked=""
+            id="myRadioOrSelect-0"
+            name="myRadioOrSelect"
+            type="radio"
+            value="foo"
           />
-        </svg>
-      </span>
-      <p
-        class="theme-inlineMessage__contents"
+          <span>
+            My foo title
+          </span>
+        </label>
+      </div>
+      <div
+        class="radio"
       >
-        <span>
-          Select me
+        <label>
+          <input
+            aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
+            aria-invalid="false"
+            id="myRadioOrSelect-1"
+            name="myRadioOrSelect"
+            type="radio"
+            value="bar"
+          />
+          <span>
+            My bar title
+          </span>
+        </label>
+      </div>
+    </div>
+    <div>
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        data-test="fieldTemplate.inlineMessage"
+        id="myRadioOrSelect-description"
+        role="status"
+      >
+        <span
+          class="theme-icon theme-information__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
         </span>
-      </p>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            Select me
+          </span>
+        </p>
+      </div>
     </div>
   </div>
 </div>

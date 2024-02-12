@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
 
 import SingleButton from './SingleButton.component';
 
@@ -21,7 +22,11 @@ function getButtonsList(id, buttons, onTrigger, onClick, getComponent) {
 }
 
 export default function Buttons({ id, onTrigger, schema, onClick, getComponent }) {
-	return <>{getButtonsList(id, schema.items, onTrigger, onClick, getComponent)}</>;
+	return (
+		<Form.Buttons>
+			{getButtonsList(id, schema.items, onTrigger, onClick, getComponent)}
+		</Form.Buttons>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {

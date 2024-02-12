@@ -1,50 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Fieldset widget should render fieldset 1`] = `
-<fieldset
-  class="form-group"
->
+<fieldset>
   <legend
     class=""
   >
     My fieldset
   </legend>
   <div
-    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-S theme-gap-y-S"
   >
-    <label
-      class="theme-label"
-      for="user_firstname"
-    />
     <div
-      class="theme-inputShell"
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
     >
-      <input
-        aria-invalid="false"
-        class="theme-input"
-        id="user_firstname"
-        type="text"
-        value=""
+      <label
+        class="theme-label"
+        for="user_firstname"
       />
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          aria-invalid="false"
+          class="theme-input"
+          id="user_firstname"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-  >
-    <label
-      class="theme-label"
-      for="user_lastname"
-    />
     <div
-      class="theme-inputShell"
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
     >
-      <input
-        aria-invalid="false"
-        class="theme-input"
-        id="user_lastname"
-        type="text"
-        value=""
+      <label
+        class="theme-label"
+        for="user_lastname"
       />
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          aria-invalid="false"
+          class="theme-input"
+          id="user_lastname"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </fieldset>

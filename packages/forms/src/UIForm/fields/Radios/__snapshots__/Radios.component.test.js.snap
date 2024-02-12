@@ -4,94 +4,100 @@ exports[`Radios field should render radios 1`] = `
 <div
   class=""
 >
-  <label
-    class="theme-label"
-    for="myForm"
-  >
-    My radios title
-    *
-  </label>
   <div
-    class="radio"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid="false"
-        id="myForm-0"
-        name="myForm"
-        type="radio"
-        value="foo"
-      />
-      <span>
-        My foo custom name
-      </span>
-    </label>
-  </div>
-  <div
-    class="radio"
-  >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid="false"
-        id="myForm-1"
-        name="myForm"
-        type="radio"
-        value="bar"
-      />
-      <span>
-        My bar custom name
-      </span>
-    </label>
-  </div>
-  <div
-    class="radio"
-  >
-    <label>
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid="false"
-        checked=""
-        id="myForm-2"
-        name="myForm"
-        type="radio"
-        value="toto"
-      />
-      <span>
-        My toto custom name
-      </span>
-    </label>
-  </div>
-  <div>
-    <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="myForm-description"
-      role="status"
+    <label
+      class="theme-label"
+      for="myForm"
     >
-      <span
-        class="theme-icon theme-information__icon"
+      My radios title
+      *
+    </label>
+    <div>
+      <div
+        class="radio"
       >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1rem; height: 1rem;"
-        >
-          <use
-            xlink:href="#information-filled:M"
+        <label>
+          <input
+            aria-describedby="myForm-description myForm-error"
+            aria-invalid="false"
+            id="myForm-0"
+            name="myForm"
+            type="radio"
+            value="foo"
           />
-        </svg>
-      </span>
-      <p
-        class="theme-inlineMessage__contents"
+          <span>
+            My foo custom name
+          </span>
+        </label>
+      </div>
+      <div
+        class="radio"
       >
-        <span>
-          My radios input hint
+        <label>
+          <input
+            aria-describedby="myForm-description myForm-error"
+            aria-invalid="false"
+            id="myForm-1"
+            name="myForm"
+            type="radio"
+            value="bar"
+          />
+          <span>
+            My bar custom name
+          </span>
+        </label>
+      </div>
+      <div
+        class="radio"
+      >
+        <label>
+          <input
+            aria-describedby="myForm-description myForm-error"
+            aria-invalid="false"
+            checked=""
+            id="myForm-2"
+            name="myForm"
+            type="radio"
+            value="toto"
+          />
+          <span>
+            My toto custom name
+          </span>
+        </label>
+      </div>
+    </div>
+    <div>
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        data-test="fieldTemplate.inlineMessage"
+        id="myForm-description"
+        role="status"
+      >
+        <span
+          class="theme-icon theme-information__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
         </span>
-      </p>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            My radios input hint
+          </span>
+        </p>
+      </div>
     </div>
   </div>
 </div>

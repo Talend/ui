@@ -4,44 +4,48 @@ exports[`FieldTemplate should render 1`] = `
 <div
   class=""
 >
-  <label
-    class="theme-label"
-    for="myAwesomeField"
+  <div
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    My awesome label
-  </label>
-  <input
-    id="myAwesomeField"
-  />
-  <div>
-    <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="myAwesomeField-description"
-      role="status"
+    <label
+      class="theme-label"
+      for="myAwesomeField"
     >
-      <span
-        class="theme-icon theme-information__icon"
+      My awesome label
+    </label>
+    <input
+      id="myAwesomeField"
+    />
+    <div>
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        data-test="fieldTemplate.inlineMessage"
+        id="myAwesomeField-description"
+        role="status"
       >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1rem; height: 1rem;"
+        <span
+          class="theme-icon theme-information__icon"
         >
-          <use
-            xlink:href="#information-filled:M"
-          />
-        </svg>
-      </span>
-      <p
-        class="theme-inlineMessage__contents"
-      >
-        <span>
-          My awesome description
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
         </span>
-      </p>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            My awesome description
+          </span>
+        </p>
+      </div>
     </div>
   </div>
 </div>

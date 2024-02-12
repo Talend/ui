@@ -4,71 +4,75 @@ exports[`Select field should render simple select 1`] = `
 <div
   class=""
 >
-  <label
-    class="theme-label"
-    for="mySelect"
+  <div
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    My Select title
-    *
-  </label>
-  <select
-    aria-describedby="mySelect-description mySelect-error"
-    aria-invalid="false"
-    aria-required="true"
-    class="form-control"
-    id="mySelect"
-  >
-    <option
-      disabled=""
-      value=""
+    <label
+      class="theme-label"
+      for="mySelect"
     >
-      Please select a value
-    </option>
-    <option
-      value="foo"
+      My Select title
+      *
+    </label>
+    <select
+      aria-describedby="mySelect-description mySelect-error"
+      aria-invalid="false"
+      aria-required="true"
+      class="form-control"
+      id="mySelect"
     >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
-  <div>
-    <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="mySelect-description"
-      role="status"
-    >
-      <span
-        class="theme-icon theme-information__icon"
+      <option
+        disabled=""
+        value=""
       >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1rem; height: 1rem;"
+        Please select a value
+      </option>
+      <option
+        value="foo"
+      >
+        My foo title
+      </option>
+      <option
+        value="bar"
+      >
+        My bar title
+      </option>
+      <option
+        value="lol"
+      >
+        My lol title
+      </option>
+    </select>
+    <div>
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        data-test="fieldTemplate.inlineMessage"
+        id="mySelect-description"
+        role="status"
+      >
+        <span
+          class="theme-icon theme-information__icon"
         >
-          <use
-            xlink:href="#information-filled:M"
-          />
-        </svg>
-      </span>
-      <p
-        class="theme-inlineMessage__contents"
-      >
-        <span>
-          Select me
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
         </span>
-      </p>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            Select me
+          </span>
+        </p>
+      </div>
     </div>
   </div>
 </div>

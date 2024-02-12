@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
+
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
 import SingleButton from './SingleButton.component';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export default function Button(props) {
 	const { id, errorMessage, isValid, onTrigger, schema } = props;
@@ -9,16 +12,18 @@ export default function Button(props) {
 	const errorId = generateErrorId(id);
 
 	return (
-		<FieldTemplate
-			descriptionId={descriptionId}
-			description={schema.description}
-			errorId={errorId}
-			errorMessage={errorMessage}
-			isValid={isValid}
-			required={schema.required}
-		>
-			<SingleButton id={id} onTrigger={onTrigger} schema={schema} />
-		</FieldTemplate>
+		<Form.Buttons>
+			<FieldTemplate
+				descriptionId={descriptionId}
+				description={schema.description}
+				errorId={errorId}
+				errorMessage={errorMessage}
+				isValid={isValid}
+				required={schema.required}
+			>
+				<SingleButton id={id} onTrigger={onTrigger} schema={schema} />
+			</FieldTemplate>
+		</Form.Buttons>
 	);
 }
 

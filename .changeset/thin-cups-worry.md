@@ -8,6 +8,6 @@ UI-FORM will now heavily use form components from the Design System
 - All elements will now use DS Label in both text and normal display mode
 
 # BREAKING CHANGE
-- Many style overrides will break because of removed bootstrap classes like `form-group` `control-label` `form-actions` `tf-actions-wrapper` or `tf-uiform`
+- Many style overrides will break because of removed bootstrap classes like `form-group` `control-label` `form-actions` `tf-actions-wrapper` `tf-buttons` or `tf-uiform`
 - No more hearthbeat styling from bootstrap when form elements are in updating state
 - Removed many possibilities to pass down classNames because DS components won't allow it
