@@ -159,7 +159,7 @@ export const StackWithStackItem: StoryFn<typeof StackItem> = args => {
 				<Block width="3.75rem" />
 			</li>
 			<StackItem {...args}>
-				<Block width="2.5rem" />
+				<Block width="100%" />
 			</StackItem>
 			<li>
 				<Block width="5rem" />
@@ -173,6 +173,7 @@ StackWithStackItem.args = {
 	align: 'center',
 	overflow: 'auto',
 	as: 'li',
+	isFullWidth: false,
 };
 
 StackWithStackItem.argTypes = {
@@ -190,4 +191,5 @@ StackWithStackItem.argTypes = {
 		options: [...possibleAsTypes],
 		control: { type: 'select' },
 	},
+	isFullWidth: { control: { type: 'boolean' } },
 };
