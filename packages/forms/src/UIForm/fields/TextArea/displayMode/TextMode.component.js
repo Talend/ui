@@ -15,7 +15,11 @@ export default function TextMode({ id, schema, value }) {
 if (process.env.NODE_ENV !== 'production') {
 	TextMode.propTypes = {
 		id: PropTypes.string,
-		schema: PropTypes.object,
+		schema: PropTypes.shape({
+			rows: PropTypes.number,
+			title: PropTypes.string,
+			labelProps: PropTypes.object,
+		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }

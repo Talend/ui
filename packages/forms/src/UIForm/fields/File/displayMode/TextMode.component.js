@@ -17,7 +17,11 @@ export default function FileTextMode(props) {
 if (process.env.NODE_ENV !== 'production') {
 	FileTextMode.propTypes = {
 		id: PropTypes.string,
-		schema: PropTypes.object,
+		schema: PropTypes.shape({
+			title: PropTypes.string,
+			labelProps: PropTypes.object,
+			type: PropTypes.string,
+		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }

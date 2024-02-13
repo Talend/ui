@@ -19,7 +19,10 @@ export default function TextModeCheckBox({ id, schema, value }) {
 if (process.env.NODE_ENV !== 'production') {
 	TextModeCheckBox.propTypes = {
 		id: PropTypes.string,
-		schema: PropTypes.object.isRequired,
+		schema: PropTypes.shape({
+			title: PropTypes.string,
+			labelProps: PropTypes.object,
+		}).isRequired,
 		value: PropTypes.bool,
 	};
 }

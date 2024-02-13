@@ -58,7 +58,11 @@ if (process.env.NODE_ENV !== 'production') {
 		label: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
-		schema: PropTypes.object,
+		schema: PropTypes.shape({
+			'data-feature': PropTypes.string,
+			autoFocus: PropTypes.bool,
+			disabled: PropTypes.bool,
+		}),
 		value: PropTypes.bool,
 		index: PropTypes.number,
 	};

@@ -59,7 +59,28 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
-		schema: PropTypes.object,
+		schema: PropTypes.shape({
+			className: PropTypes.string,
+			autoFocus: PropTypes.bool,
+			description: PropTypes.string,
+			disabled: PropTypes.bool,
+			inline: PropTypes.bool,
+			required: PropTypes.bool,
+			title: PropTypes.string,
+			labelProps: PropTypes.object,
+			titleMap: PropTypes.arrayOf(
+				PropTypes.shape({
+					name: PropTypes.string.isRequired,
+					value: PropTypes.string.isRequired,
+				}),
+			),
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				className: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
+		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		valueIsUpdating: PropTypes.bool,
 	};

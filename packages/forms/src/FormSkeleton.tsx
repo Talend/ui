@@ -30,7 +30,13 @@ export default function FormSkeleton({
 		buttonsSkeleton
 	);
 	return (
-		<StackVertical gap="S" align="stretch" data-testid="form.skeleton" data-test="form.skeleton">
+		<StackVertical
+			gap="S"
+			align="stretch"
+			data-testid="form.skeleton"
+			data-test="form.skeleton"
+			aria-busy
+		>
 			<SkeletonInput />
 			<SkeletonInput />
 			<SkeletonInput />
