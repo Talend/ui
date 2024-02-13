@@ -243,7 +243,7 @@ export default class MultiSelectTag extends Component {
 				required={schema.required}
 				valueIsUpdating={valueIsUpdating}
 			>
-				<div className={`${theme.wrapper}`}>
+				<div className={`${theme.wrapper} form-control`}>
 					{this.props.value.map((val, index) => {
 						const label = getLabel(this.getTitleMap(), val, names[index]);
 						const badgeProps = {
