@@ -80,6 +80,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
         aria-live="polite"
         class="theme-inlineMessage"
         data-test="fieldTemplate.inlineMessage"
+        id="myForm-description"
         role="status"
       >
         <span
