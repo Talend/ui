@@ -30,6 +30,7 @@ export type ItemProps = {
 	align?: keyof typeof alignOptions;
 	overflow?: keyof typeof overflowOptions;
 	as?: (typeof possibleAsTypes)[number];
+	isFullWidth?: boolean;
 };
 
 export const StackItem = forwardRef(function StackItem(
@@ -40,6 +41,7 @@ export const StackItem = forwardRef(function StackItem(
 		shrink = true,
 		align = 'auto',
 		overflow = 'auto',
+		isFullWidth,
 		...props
 	}: ItemProps,
 	ref: Ref<any>,
@@ -52,6 +54,7 @@ export const StackItem = forwardRef(function StackItem(
 				styles.item,
 				styles[alignOptions[align]],
 				styles[overflowOptions[overflow]],
+				isFullWidth && styles.fullWidth,
 				{
 					[styles.grow]: grow,
 					[styles.shrink]: shrink,
