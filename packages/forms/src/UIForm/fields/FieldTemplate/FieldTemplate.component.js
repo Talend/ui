@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import { Form, StackVertical } from '@talend/design-system';
+import { StackHorizontal } from '@talend/design-system';
 
 import Message from '../../Message';
 import { getLabelProps } from '../../utils/labels';
@@ -19,10 +20,14 @@ function FieldTemplate(props) {
 		/>
 	);
 	const labelAfter = props.hint ? false : props.labelAfter;
+	const Stack = props.inline ? StackHorizontal : StackVertical;
+	const stackProps = props.inline
+		? { gap: 'S', align: 'center' }
+		: { gap: 'XXS', align: 'stretch', justify: 'start', height: '100%', noShrink: true };
 
 	return (
 		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>
-			<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
+			<Stack {...stackProps}>
 				{props.label && !labelAfter && title}
 				{props.children}
 				{props.label && labelAfter && title}
@@ -33,7 +38,7 @@ function FieldTemplate(props) {
 					errorMessage={props.errorMessage}
 					isValid={props.isValid}
 				/>
-			</StackVertical>
+			</Stack>
 		</div>
 	);
 }
@@ -61,6 +66,7 @@ if (process.env.NODE_ENV !== 'production') {
 		labelAfter: PropTypes.bool,
 		required: PropTypes.bool,
 		valueIsUpdating: PropTypes.bool,
+		inline: PropTypes.bool,
 	};
 }
 

@@ -7,13 +7,15 @@ import Widget from '../../Widget';
 
 export default function Fieldset(props) {
 	const { schema, ...restProps } = props;
-	const { title, items } = schema;
+	const { title, items, options } = schema;
 
 	const widgets = items
 		.filter(itemSchema => shouldRender(itemSchema.condition, props.properties, itemSchema.key))
 		.map((itemSchema, index) => <Widget {...restProps} key={index} schema={itemSchema} />);
 
-	return widgets.length ? <Form.Fieldset legend={title}>{widgets}</Form.Fieldset> : null;
+	return widgets.length ? (
+		<Form.Fieldset legend={!options?.hideTitle && title}>{widgets}</Form.Fieldset>
+	) : null;
 }
 
 if (process.env.NODE_ENV !== 'production') {
