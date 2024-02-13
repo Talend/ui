@@ -154,6 +154,7 @@ const FileWidget = props => {
 					description={errorMessage || description}
 					hasError={!isValid}
 					aria-invalid={!isValid}
+					aria-required={schema.required}
 					{...extractDataAttributes(schema)}
 				/>
 			)}

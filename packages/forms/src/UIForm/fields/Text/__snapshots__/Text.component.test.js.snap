@@ -16,6 +16,7 @@ exports[`Text field should render input 1`] = `
   >
     <input
       aria-invalid="false"
+      aria-required="true"
       class="theme-input"
       id="myForm"
       placeholder="Type something here"

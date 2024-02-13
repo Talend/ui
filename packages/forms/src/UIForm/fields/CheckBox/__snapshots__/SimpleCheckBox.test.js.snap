@@ -6,6 +6,7 @@ exports[`SimpleCheckBox field should render input 1`] = `
 >
   <input
     aria-checked="true"
+    aria-describedby="myForm-description myForm-error"
     aria-invalid="true"
     checked=""
     data-checked="2"

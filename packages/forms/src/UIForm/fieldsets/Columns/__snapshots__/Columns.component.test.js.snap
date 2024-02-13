@@ -87,6 +87,7 @@ exports[`Columns widget should render columns 1`] = `
           >
             <input
               aria-invalid="false"
+              aria-required="true"
               class="theme-input"
               id="firstname"
               placeholder="Enter your firstname here"

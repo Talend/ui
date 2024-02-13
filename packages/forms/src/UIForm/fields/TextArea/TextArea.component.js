@@ -42,6 +42,7 @@ export default function TextArea({
 			description={errorMessage || description}
 			hasError={!isValid}
 			aria-invalid={!isValid}
+			aria-required={schema.required}
 		/>
 	);
 }

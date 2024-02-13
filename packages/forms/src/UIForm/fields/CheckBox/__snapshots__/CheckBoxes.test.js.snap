@@ -18,6 +18,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
     >
       <input
         aria-checked="true"
+        aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         checked=""
         data-checked="2"
@@ -38,6 +39,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
     >
       <input
         aria-checked="true"
+        aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         checked=""
         data-checked="2"
@@ -58,6 +60,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
     >
       <input
         aria-checked="false"
+        aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         data-checked="0"
         id="myForm-2"

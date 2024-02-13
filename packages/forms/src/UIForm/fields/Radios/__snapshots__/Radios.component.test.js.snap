@@ -18,6 +18,7 @@ exports[`Radios field should render radios 1`] = `
       class="theme-radio"
     >
       <input
+        aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         id="myForm-0"
         name="myForm"
@@ -35,6 +36,7 @@ exports[`Radios field should render radios 1`] = `
       class="theme-radio"
     >
       <input
+        aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         id="myForm-1"
         name="myForm"
@@ -52,6 +54,7 @@ exports[`Radios field should render radios 1`] = `
       class="theme-radio"
     >
       <input
+        aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         checked=""
         id="myForm-2"
@@ -71,6 +74,7 @@ exports[`Radios field should render radios 1`] = `
         aria-live="polite"
         class="theme-inlineMessage"
         data-test="fieldTemplate.inlineMessage"
+        id="myForm-description"
         role="status"
       >
         <span

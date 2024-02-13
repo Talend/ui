@@ -13,6 +13,7 @@ exports[`TextArea field should render textarea 1`] = `
   </label>
   <textarea
     aria-invalid="false"
+    aria-required="true"
     class="theme-textarea"
     id="myForm"
     placeholder="Type something here"

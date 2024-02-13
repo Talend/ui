@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
 import SimpleCheckBox from './SimpleCheckBox.component';
 
@@ -14,20 +15,24 @@ function getValues(itemValue, checked, value = []) {
 export default function CheckBoxes(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const { description, title, labelProps, titleMap } = schema;
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
 
 	return (
 		<FieldTemplate
 			id={id}
-			label={title}
-			labelProps={labelProps}
 			hint={schema.hint}
-			required={schema.required}
-			isValid={isValid}
 			description={description}
 			errorMessage={errorMessage}
+			label={title}
+			labelProps={labelProps}
+			isValid={isValid}
+			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			{titleMap.map((item, index) => (
 				<SimpleCheckBox
+					describedby={`${descriptionId} ${errorId}`}
 					disabled={item.disabled || schema.disabled || valueIsUpdating}
 					id={id}
 					key={index}

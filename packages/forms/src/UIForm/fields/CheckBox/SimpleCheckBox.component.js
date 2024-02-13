@@ -6,6 +6,7 @@ import { Form } from '@talend/design-system';
 import { extractDataAttributes } from '../../utils/properties';
 
 export default function SimpleCheckBox({
+	describedby,
 	disabled,
 	id,
 	isValid,
@@ -45,6 +46,7 @@ export default function SimpleCheckBox({
 			data-checked={getDataChecked()}
 			label={<span data-feature={getDataFeature()}>{label}</span>}
 			aria-invalid={!isValid}
+			aria-describedby={describedby}
 			{...extractDataAttributes(schema, index)}
 		/>
 	);
@@ -52,6 +54,7 @@ export default function SimpleCheckBox({
 
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
+		describedby: PropTypes.string.isRequired,
 		disabled: PropTypes.bool,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,

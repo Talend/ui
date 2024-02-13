@@ -107,7 +107,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		}, [actions]);
 
 		return (
-			<fieldset className={classNames('form-group', 'collapsible-panel')}>
+			<fieldset className={classNames('collapsible-panel')}>
 				<CollapsiblePanel
 					title={title(value, schema)}
 					onToggleExpanded={onToggleClick}

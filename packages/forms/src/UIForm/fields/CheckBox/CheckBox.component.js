@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
 import SimpleCheckBox from './SimpleCheckBox.component';
 
@@ -16,6 +17,8 @@ export default function CheckBox(props) {
 		disabled,
 	} = props;
 	const { description } = schema;
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
 
 	return (
 		<FieldTemplate
@@ -23,9 +26,13 @@ export default function CheckBox(props) {
 			required={schema.required}
 			isValid={isValid}
 			description={description}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			errorMessage={errorMessage}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<SimpleCheckBox
+				describedby={`${descriptionId} ${errorId}`}
 				disabled={disabled || schema.disabled || valueIsUpdating}
 				id={id}
 				isValid={isValid}

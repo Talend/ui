@@ -104,6 +104,7 @@ exports[`Array component should render array 1`] = `
             >
               <input
                 aria-invalid="false"
+                aria-required="true"
                 class="theme-input"
                 id="talend-array-0_comments_0_comments_0_name"
                 required=""
@@ -311,6 +312,7 @@ exports[`Array component should render array 1`] = `
             >
               <input
                 aria-invalid="false"
+                aria-required="true"
                 class="theme-input"
                 id="talend-array-1_comments_1_comments_1_name"
                 required=""
@@ -519,6 +521,7 @@ exports[`Array component should render array 1`] = `
             >
               <input
                 aria-invalid="false"
+                aria-required="true"
                 class="theme-input"
                 id="talend-array-2_comments_2_comments_2_name"
                 required=""

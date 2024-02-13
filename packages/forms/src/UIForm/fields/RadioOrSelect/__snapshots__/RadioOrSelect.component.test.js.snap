@@ -17,6 +17,7 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
       class="theme-radio"
     >
       <input
+        aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
         aria-invalid="false"
         checked=""
         id="myRadioOrSelect-0"
@@ -35,6 +36,7 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
       class="theme-radio"
     >
       <input
+        aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
         aria-invalid="false"
         id="myRadioOrSelect-1"
         name="myRadioOrSelect"
@@ -53,6 +55,7 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
         aria-live="polite"
         class="theme-inlineMessage"
         data-test="fieldTemplate.inlineMessage"
+        id="myRadioOrSelect-description"
         role="status"
       >
         <span

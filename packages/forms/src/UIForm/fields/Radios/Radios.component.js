@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Form } from '@talend/design-system';
 
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { extractDataAttributes } from '../../utils/properties';
 import FieldTemplate from '../FieldTemplate';
 
@@ -17,17 +18,21 @@ export default function Radios({
 	valueIsUpdating,
 }) {
 	const { autoFocus, description, disabled = false, inline, title, labelProps, ...rest } = schema;
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
 
 	return (
 		<FieldTemplate
 			id={id}
+			hint={schema.hint}
+			description={description}
+			descriptionId={descriptionId}
+			errorId={errorId}
+			errorMessage={errorMessage}
+			isValid={isValid}
 			label={title}
 			labelProps={labelProps}
-			hint={schema.hint}
 			required={schema.required}
-			isValid={isValid}
-			description={description}
-			errorMessage={errorMessage}
 			valueIsUpdating={valueIsUpdating}
 			inline={inline}
 		>
@@ -45,6 +50,7 @@ export default function Radios({
 						value={option.value}
 						label={option.name}
 						aria-invalid={!isValid}
+						aria-describedby={`${descriptionId} ${errorId}`}
 						{...extractDataAttributes(rest, index)}
 					/>
 				))}
