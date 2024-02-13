@@ -1,102 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckBoxes field should render checkboxes 1`] = `
-<fieldset
-  class="theme-fieldset"
-  id="myForm"
+<div
+  class=""
 >
-  <legend
-    class="theme-legend"
+  <div
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    <span>
+    <label
+      class="theme-label"
+      for="myForm"
+    >
       My checkboxes title
-    </span>
-  </legend>
-  <div
-    class="theme-checkbox"
-  >
-    <input
-      aria-checked="true"
-      aria-invalid="false"
-      checked=""
-      data-checked="2"
-      id="myForm-0"
-      type="checkbox"
-    />
-    <label
-      class="theme-label theme-label_inline"
-      for="myForm-0"
-    >
-      <span>
-        My foo title
-      </span>
     </label>
-  </div>
-  <div
-    class="theme-checkbox"
-  >
-    <input
-      aria-checked="true"
-      aria-invalid="false"
-      checked=""
-      data-checked="2"
-      id="myForm-1"
-      type="checkbox"
-    />
-    <label
-      class="theme-label theme-label_inline"
-      for="myForm-1"
+    <div
+      class="theme-checkbox"
     >
-      <span>
-        My bar title
-      </span>
-    </label>
-  </div>
-  <div
-    class="theme-checkbox"
-  >
-    <input
-      aria-checked="false"
-      aria-invalid="false"
-      data-checked="0"
-      id="myForm-2"
-      type="checkbox"
-    />
-    <label
-      class="theme-label theme-label_inline"
-      for="myForm-2"
-    >
-      <span>
-        My lol title
-      </span>
-    </label>
-  </div>
-  <div
-    aria-live="polite"
-    class="theme-inlineMessage"
-    role="status"
-  >
-    <span
-      class="theme-icon theme-information__icon"
-    >
-      <svg
-        aria-hidden="true"
-        pointer-events="none"
-        shape-rendering="geometricPrecision"
-        style="width: 1rem; height: 1rem;"
+      <input
+        aria-checked="true"
+        aria-invalid="false"
+        checked=""
+        data-checked="2"
+        id="myForm-0"
+        type="checkbox"
+      />
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-0"
       >
-        <use
-          xlink:href="#information-filled:M"
-        />
-      </svg>
-    </span>
-    <p
-      class="theme-inlineMessage__contents"
+        <span>
+          My foo title
+        </span>
+      </label>
+    </div>
+    <div
+      class="theme-checkbox"
     >
-      <span>
-        my checkbox input hint
-      </span>
-    </p>
+      <input
+        aria-checked="true"
+        aria-invalid="false"
+        checked=""
+        data-checked="2"
+        id="myForm-1"
+        type="checkbox"
+      />
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-1"
+      >
+        <span>
+          My bar title
+        </span>
+      </label>
+    </div>
+    <div
+      class="theme-checkbox"
+    >
+      <input
+        aria-checked="false"
+        aria-invalid="false"
+        data-checked="0"
+        id="myForm-2"
+        type="checkbox"
+      />
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-2"
+      >
+        <span>
+          My lol title
+        </span>
+      </label>
+    </div>
+    <div>
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        data-test="fieldTemplate.inlineMessage"
+        role="status"
+      >
+        <span
+          class="theme-icon theme-information__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
+        </span>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            my checkbox input hint
+          </span>
+        </p>
+      </div>
+    </div>
   </div>
-</fieldset>
+</div>
 `;

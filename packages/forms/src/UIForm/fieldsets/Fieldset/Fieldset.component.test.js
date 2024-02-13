@@ -165,7 +165,7 @@ describe('Fieldset widget', () => {
 		);
 
 		// then
-		expect(document.querySelector('legend')).toHaveClass('sr-only');
+		expect(document.querySelector('legend')).toBeNull();
 	});
 
 	it('should not render if empty', () => {

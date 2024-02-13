@@ -13,49 +13,46 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
     >
       My Select title
     </label>
-    <div>
-      <div
-        class="radio"
+    <span
+      class="theme-radio"
+    >
+      <input
+        aria-invalid="false"
+        checked=""
+        id="myRadioOrSelect-0"
+        name="myRadioOrSelect"
+        type="radio"
+        value="foo"
+      />
+      <label
+        class="theme-label theme-label_inline"
+        for="myRadioOrSelect-0"
       >
-        <label>
-          <input
-            aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
-            aria-invalid="false"
-            checked=""
-            id="myRadioOrSelect-0"
-            name="myRadioOrSelect"
-            type="radio"
-            value="foo"
-          />
-          <span>
-            My foo title
-          </span>
-        </label>
-      </div>
-      <div
-        class="radio"
+        My foo title
+      </label>
+    </span>
+    <span
+      class="theme-radio"
+    >
+      <input
+        aria-invalid="false"
+        id="myRadioOrSelect-1"
+        name="myRadioOrSelect"
+        type="radio"
+        value="bar"
+      />
+      <label
+        class="theme-label theme-label_inline"
+        for="myRadioOrSelect-1"
       >
-        <label>
-          <input
-            aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
-            aria-invalid="false"
-            id="myRadioOrSelect-1"
-            name="myRadioOrSelect"
-            type="radio"
-            value="bar"
-          />
-          <span>
-            My bar title
-          </span>
-        </label>
-      </div>
-    </div>
+        My bar title
+      </label>
+    </span>
     <div>
       <div
         aria-live="polite"
         class="theme-inlineMessage"
         data-test="fieldTemplate.inlineMessage"
-        id="myRadioOrSelect-description"
         role="status"
       >
         <span

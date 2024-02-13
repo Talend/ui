@@ -1,7 +1,8 @@
-import { screen, render } from '@testing-library/react';
-import FieldsetTextMode from './TextMode.component';
+import { render, screen } from '@testing-library/react';
+
 import { WidgetContext } from '../../../context';
 import widgets from '../../../utils/widgets';
+import FieldsetTextMode from './TextMode.component';
 
 jest.unmock('@talend/design-system');
 
@@ -58,7 +59,7 @@ describe('Fieldset widget in text mode', () => {
 		const inputs = screen.getAllByRole('textbox');
 
 		// then
-		expect(screen.getByRole('term')).toHaveTextContent('My fieldset');
+		expect(screen.getByText('My fieldset')).toBeInTheDocument();
 		expect(inputs[0]).toHaveAttribute('id', 'user_firstname');
 		expect(inputs[1]).toHaveAttribute('id', 'user_lastname');
 	});

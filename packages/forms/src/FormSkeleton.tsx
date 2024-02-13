@@ -17,19 +17,20 @@ export default function FormSkeleton({
 }: FormSkeletonProps) {
 	// null/undefined actions prop will display default buttons
 	const hasButtons = displayMode !== 'text' && actions?.length !== 0;
-	const buttons = anchorButtonsToFooter ? (
-		<div data-drawer-absolute-footer-buttons className={theme['drawer-absolute-footer-buttons']}>
-			<StackItem align="end">
-				<SkeletonButton />
-			</StackItem>
-		</div>
-	) : (
+	const buttonsSkeleton = (
 		<StackItem align="end">
 			<SkeletonButton />
 		</StackItem>
 	);
+	const buttons = anchorButtonsToFooter ? (
+		<div data-drawer-absolute-footer-buttons className={theme['drawer-absolute-footer-buttons']}>
+			{buttonsSkeleton}
+		</div>
+	) : (
+		buttonsSkeleton
+	);
 	return (
-		<StackVertical gap="S" align="stretch">
+		<StackVertical gap="S" align="stretch" data-testid="form.skeleton" data-test="form.skeleton">
 			<SkeletonInput />
 			<SkeletonInput />
 			<SkeletonInput />

@@ -10,8 +10,6 @@ import { StackVertical } from '@talend/design-system';
 import { generateDescriptionId } from '../../Message/generateId';
 import Widget from '../../Widget';
 
-import theme from './CollapsibleFieldset.module.scss';
-
 /**
  * @return {Arary<string>} itemkey
  * @param {Array<string>} key within an array
@@ -109,9 +107,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		}, [actions]);
 
 		return (
-			<fieldset
-				className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}
-			>
+			<fieldset className={classNames('form-group', 'collapsible-panel')}>
 				<CollapsiblePanel
 					title={title(value, schema)}
 					onToggleExpanded={onToggleClick}

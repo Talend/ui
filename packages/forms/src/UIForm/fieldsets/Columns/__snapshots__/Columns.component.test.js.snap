@@ -1,24 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Columns widget should render columns 1`] = `
-<div
-  class="tf-columns theme-tf-columns"
+<fieldset
+  class="theme-fieldset"
 >
-  <legend>
+  <legend
+    class="theme-legend"
+  >
     My awesome columns
   </legend>
   <div
-    class="tf-columns-items theme-items"
+    class="theme-row theme-row_stretched"
+    data-form-row="true"
   >
-    <fieldset>
-      <legend
-        class=""
+    <div
+      class="theme-item theme-align-auto theme-overflow-auto theme-fullWidth theme-grow theme-shrink"
+    >
+      <fieldset
+        class="theme-fieldset"
       >
-        User Fieldset
-      </legend>
-      <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-S theme-gap-y-S"
-      >
+        <legend
+          class="theme-legend"
+        >
+          User Fieldset
+        </legend>
         <div
           class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
@@ -112,56 +117,60 @@ exports[`Columns widget should render columns 1`] = `
             />
           </div>
         </div>
-      </div>
-    </fieldset>
+      </fieldset>
+    </div>
     <div
-      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      class="theme-item theme-align-auto theme-overflow-auto theme-fullWidth theme-grow theme-shrink"
     >
-      <label
-        class="theme-label"
-        for="singleInput"
-      >
-        singleInput
-      </label>
       <div
-        class="theme-inputShell"
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
-        <input
-          aria-invalid="false"
-          class="theme-input"
-          id="singleInput"
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        aria-live="polite"
-        class="theme-inlineMessage"
-        role="status"
-      >
-        <span
-          class="theme-icon theme-information__icon"
+        <label
+          class="theme-label"
+          for="singleInput"
         >
-          <svg
-            aria-hidden="true"
-            pointer-events="none"
-            shape-rendering="geometricPrecision"
-            style="width: 1rem; height: 1rem;"
+          singleInput
+        </label>
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            aria-invalid="false"
+            class="theme-input"
+            id="singleInput"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          aria-live="polite"
+          class="theme-inlineMessage"
+          role="status"
+        >
+          <span
+            class="theme-icon theme-information__icon"
           >
-            <use
-              xlink:href="#information-filled:M"
-            />
-          </svg>
-        </span>
-        <p
-          class="theme-inlineMessage__contents"
-        >
-          <span>
-            This one is a column composed by a single input
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1rem; height: 1rem;"
+            >
+              <use
+                xlink:href="#information-filled:M"
+              />
+            </svg>
           </span>
-        </p>
+          <p
+            class="theme-inlineMessage__contents"
+          >
+            <span>
+              This one is a column composed by a single input
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</fieldset>
 `;

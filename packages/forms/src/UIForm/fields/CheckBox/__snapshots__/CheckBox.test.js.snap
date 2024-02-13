@@ -1,53 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckBox field should render input 1`] = `
-<div>
+<div
+  class=""
+>
   <div
-    class="theme-checkbox"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    <input
-      aria-checked="true"
-      aria-invalid="false"
-      checked=""
-      data-checked="2"
-      id="myForm"
-      type="checkbox"
-    />
-    <label
-      class="theme-label theme-label_inline"
-      for="myForm"
+    <div
+      class="theme-checkbox"
     >
-      <span>
-        My checkbox title
-      </span>
-    </label>
-  </div>
-  <div
-    aria-live="polite"
-    class="theme-inlineMessage"
-    role="status"
-  >
-    <span
-      class="theme-icon theme-information__icon"
-    >
-      <svg
-        aria-hidden="true"
-        pointer-events="none"
-        shape-rendering="geometricPrecision"
-        style="width: 1rem; height: 1rem;"
+      <input
+        aria-checked="true"
+        aria-invalid="false"
+        checked=""
+        data-checked="2"
+        id="myForm"
+        type="checkbox"
+      />
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm"
       >
-        <use
-          xlink:href="#information-filled:M"
-        />
-      </svg>
-    </span>
-    <p
-      class="theme-inlineMessage__contents"
-    >
-      <span>
-        my checkbox input hint
-      </span>
-    </p>
+        <span>
+          My checkbox title
+        </span>
+      </label>
+    </div>
+    <div>
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        data-test="fieldTemplate.inlineMessage"
+        role="status"
+      >
+        <span
+          class="theme-icon theme-information__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
+        </span>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            my checkbox input hint
+          </span>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 `;

@@ -1,55 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Fieldset widget in text mode should render a title described by a definition list 1`] = `
-<div
-  class="form-group"
+<fieldset
+  class="theme-fieldset"
 >
-  <dt
-    class="tf-title-text-mode"
+  <legend
+    class="theme-legend"
   >
     My fieldset
-  </dt>
-  <dd>
-    <dl>
-      <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-      >
-        <label
-          class="theme-label"
-          for="user_firstname"
-        />
-        <div
-          class="theme-inputShell"
-        >
-          <input
-            aria-invalid="false"
-            class="theme-input"
-            id="user_firstname"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-      >
-        <label
-          class="theme-label"
-          for="user_lastname"
-        />
-        <div
-          class="theme-inputShell"
-        >
-          <input
-            aria-invalid="false"
-            class="theme-input"
-            id="user_lastname"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-    </dl>
-  </dd>
-</div>
+  </legend>
+  <div
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+  >
+    <label
+      class="theme-label"
+      for="user_firstname"
+    />
+    <div
+      class="theme-inputShell"
+    >
+      <input
+        aria-invalid="false"
+        class="theme-input"
+        id="user_firstname"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+  >
+    <label
+      class="theme-label"
+      for="user_lastname"
+    />
+    <div
+      class="theme-inputShell"
+    >
+      <input
+        aria-invalid="false"
+        class="theme-input"
+        id="user_lastname"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</fieldset>
 `;

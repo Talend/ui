@@ -2,7 +2,7 @@
 
 exports[`CollapsibleFieldset should render 1`] = `
 <fieldset
-  class="form-group theme-collapsible-panel collapsible-panel"
+  class="form-group collapsible-panel"
 >
   <div
     class="theme-panelWrapper theme-panelWrapper__alone"
