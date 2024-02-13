@@ -23,10 +23,12 @@ export default function CheckBoxes(props) {
 			id={id}
 			hint={schema.hint}
 			description={description}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			errorMessage={errorMessage}
+			isValid={isValid}
 			label={title}
 			labelProps={labelProps}
-			isValid={isValid}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>

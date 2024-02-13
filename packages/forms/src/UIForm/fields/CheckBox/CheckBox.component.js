@@ -23,12 +23,12 @@ export default function CheckBox(props) {
 	return (
 		<FieldTemplate
 			id={id}
-			required={schema.required}
-			isValid={isValid}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
 			errorMessage={errorMessage}
+			isValid={isValid}
+			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
 			<SimpleCheckBox
