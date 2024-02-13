@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-import { InlineMessageInformation, InlineMessageDestructive } from '@talend/design-system';
+import { InlineMessageDestructive, InlineMessageInformation } from '@talend/design-system';
 
 export default function Message(props) {
 	const { description, descriptionId, errorId, errorMessage, isValid } = props;
 
-	return (
+	return description || errorMessage ? (
 		<div className={props.className}>
 			{isValid
 				? description && (
@@ -26,7 +26,7 @@ export default function Message(props) {
 						/>
 				  )}
 		</div>
-	);
+	) : null;
 }
 
 if (process.env.NODE_ENV !== 'production') {

@@ -1,12 +1,10 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tf-array-fieldset {
-	margin-bottom: $padding-normal;
-
 	&::before {
 		content: attr(data-content);
 		display: inline-block;
-		margin: $padding-normal 0;
+		margin: tokens.$coral-spacing-m 0;
 	}
 
 	.tf-array-add {
@@ -15,6 +13,7 @@
 
 	.tf-array {
 		padding: 0;
+		margin: 0;
 
 		.item {
 			list-style: none;

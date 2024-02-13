@@ -4,7 +4,7 @@
 	display: flex;
 	column-gap: tokens.$coral-spacing-s;
 	background: tokens.$coral-color-neutral-background-medium;
-	border: tokens.$coral-border-s-solid transparent;
+	padding: tokens.$coral-spacing-xs 0;
 
 	.delete button,
 	.control button {
@@ -41,7 +41,7 @@
 		flex-grow: 0;
 		flex-shrink: 0;
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 	}
 
 	:global(.collapsible-panel) {
