@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 15.2.4
+
+### Patch Changes
+
+- dbc290d: fix: Datalist hightligted element (keyboard navigation)
+
 ## 15.2.3
 
 ### Patch Changes
