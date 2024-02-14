@@ -141,12 +141,11 @@ $tc-typeahead-item-description-height: 1rem !default;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
+
 	span {
 		padding: $padding-small $padding-smaller;
 	}
 }
-
 
 .items {
 	margin: 0;
@@ -231,7 +230,7 @@ $tc-typeahead-item-description-height: 1rem !default;
 
 	&-highlighted,
 	&:hover {
-		background-color: tokens.$coral-color-accent-background-weak;
+		background-color: tokens.$coral-color-accent-background-weak-hover;
 
 		&.selected {
 			background-color: tokens.$coral-color-accent-background-weak-active;
