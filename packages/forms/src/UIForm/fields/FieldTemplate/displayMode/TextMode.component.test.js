@@ -8,13 +8,13 @@ describe('FieldTemplate in text display mode', () => {
 		// when
 		const { container } = render(
 			<TextModeFieldTemplate id="myAwesomeField" label="My awesome label">
-				My value as chrildren
+				My value as children
 			</TextModeFieldTemplate>,
 		);
 
 		// then
 		expect(screen.getByText('My awesome label')).toBeInTheDocument();
-		expect(screen.getByText('My value as chrildren')).toBeInTheDocument();
+		expect(screen.getByText('My value as children')).toBeInTheDocument();
 		expect(container.firstChild).toMatchSnapshot();
 	});
 });

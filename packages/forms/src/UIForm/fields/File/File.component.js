@@ -135,8 +135,9 @@ const FileWidget = props => {
 
 	return (
 		<>
-			{loading && <SkeletonInput />}
-			{!loading && (
+			{loading ? (
+				<SkeletonInput />
+			) : (
 				<Form.File
 					label={getLabelProps(title, labelProps, schema.hint)}
 					required={required}

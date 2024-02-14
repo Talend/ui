@@ -13,7 +13,7 @@ exports[`FieldTemplate in text display mode should render text 1`] = `
   <div
     id="myAwesomeField"
   >
-    My value as chrildren
+    My value as children
   </div>
 </div>
 `;
