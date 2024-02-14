@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { Form } from '@talend/design-system';
+import { VisuallyHidden } from '@talend/design-system';
 
 import shouldRender from '../../utils/condition';
 import Widget from '../../Widget';
@@ -14,7 +15,9 @@ export default function Fieldset(props) {
 		.map((itemSchema, index) => <Widget {...restProps} key={index} schema={itemSchema} />);
 
 	return widgets.length ? (
-		<Form.Fieldset legend={!options?.hideTitle && title}>{widgets}</Form.Fieldset>
+		<Form.Fieldset legend={options?.hideTitle ? <VisuallyHidden>{title}</VisuallyHidden> : title}>
+			{widgets}
+		</Form.Fieldset>
 	) : null;
 }
 
