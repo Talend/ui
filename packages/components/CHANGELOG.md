@@ -1,5 +1,12 @@
 # @talend/react-components
 
+## 15.2.3
+
+### Patch Changes
+
+- 63ec624: fix: element does not goes over the box shadow in large mode for the list
+- 788e8a0: Components Drawer - Fix styling when no actions in footer and remove bootstrap styles
+
 ## 15.2.2
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 9.5.0
+
+### Minor Changes
+
+- 7c4f1e1: Design System - Allow StackItem to have a `isFullWidth` option to have 100% width style
+
+### Patch Changes
+
+- 9426a79: Design System - Fix on textarea not having color on error state
+
 ## 9.4.1
 
 ### Patch Changes
