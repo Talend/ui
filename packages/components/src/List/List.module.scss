@@ -10,6 +10,10 @@
 	width: 100%;
 	overflow: hidden;
 
+	.display-mode-large {
+		padding-top: 2px;
+	}
+
 	:global(.tc-list-toolbar) {
 		flex-grow: 0;
 		flex-shrink: 0;
