@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.6.0
+
+### Minor Changes
+
+- 1a06e6f: data-testid on select suffix and input primitive
+
 ## 9.5.0
 
 ### Minor Changes
