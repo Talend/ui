@@ -12,6 +12,7 @@ export type SelectNoWrapperProps = Omit<SelectHTMLAttributes<any>, 'prefix'> & {
 	hasError?: boolean;
 	isAffix?: boolean;
 	isSuffix?: boolean;
+	dataTestid?: string;
 };
 
 const SelectNoWrapper = forwardRef((props: SelectNoWrapperProps, ref: Ref<HTMLSelectElement>) => {
@@ -25,12 +26,14 @@ const SelectNoWrapper = forwardRef((props: SelectNoWrapperProps, ref: Ref<HTMLSe
 		isAffix = false,
 		isSuffix = false,
 		id,
+		dataTestid,
 		...rest
 	} = props;
 	return (
 		<div className={styles.select__wrapper}>
 			<select
 				{...rest}
+				data-testid={dataTestid}
 				disabled={disabled}
 				ref={ref}
 				id={id}
