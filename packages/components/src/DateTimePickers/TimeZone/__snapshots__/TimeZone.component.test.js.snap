@@ -5,7 +5,7 @@ exports[`TimeZone should render 1`] = `
   aria-label="Asia/Beijing"
 >
   <div
-    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-inline theme-gap-x-0 theme-gap-y-0 theme-margin-top-0 theme-margin-right-0 theme-margin-bottom-0 theme-margin-left-XS"
+    class="theme-stack theme-justify-center theme-align-start theme-nowrap theme-column theme-inline theme-gap-x-0 theme-gap-y-0 theme-margin-top-0 theme-margin-right-0 theme-margin-bottom-0 theme-margin-left-XS"
   >
     <svg
       aria-hidden="true"

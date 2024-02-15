@@ -41,7 +41,6 @@ $tc-datepicker-width: 19.375rem !default;
 @mixin date-picker {
 	display: flex;
 	width: fit-content;
-	align-items: center;
 
 	:global(.range-input) {
 		display: flex;
