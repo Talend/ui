@@ -1,11 +1,12 @@
 import { useContext } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 
-import { TimeContext } from '../Context';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
+
 import InputSizer from '../../shared/InputSizer';
-import theme from './Input.module.scss';
+import { TimeContext } from '../Context';
 
 export default function Input(props) {
 	const { time, inputManagement } = useContext(TimeContext);
@@ -16,9 +17,9 @@ export default function Input(props) {
 			{width => (
 				<DebounceInput
 					autoComplete="off"
-					className={classnames('form-control', theme['time-picker-input'])}
 					debounceTimeout={300}
-					type="text"
+					element={Form.Text}
+					hideLabel
 					value={time.textInput}
 					style={{ width }}
 					maxLength={inputManagement.placeholder.length}

@@ -1,10 +1,13 @@
-import { useContext, forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import omit from 'lodash/omit';
+import { forwardRef, useContext } from 'react';
 import DebounceInput from 'react-debounce-input';
 
-import { DateRangeContext } from '../Context';
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
+
 import InputSizer from '../../shared/InputSizer';
+import { DateRangeContext } from '../Context';
 
 const OMIT_INPUT_PROPS = ['date', 'onChange', 'onFocus', 'label', 'minWidth'];
 
@@ -15,16 +18,14 @@ const Input = forwardRef((props, ref) => {
 
 	return (
 		<div className="range-input">
-			<label htmlFor={props.id} className="control-label">
-				{label}
-			</label>
+			{label && <Form.Label htmlFor={props.id}>{label}</Form.Label>}
 			<InputSizer inputText={placeholder} minWidth={minWidth}>
 				{width => (
 					<DebounceInput
 						autoComplete="off"
-						className="form-control"
 						debounceTimeout={300}
-						type="text"
+						element={Form.Text}
+						hideLabel
 						placeholder={placeholder}
 						value={date.textInput}
 						style={{ width }}

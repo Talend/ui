@@ -1,7 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
 @import './variables';
+
+$tc-datepicker-width: 19.375rem !default;
 
 @mixin nav-action {
 	padding: 0;
@@ -10,13 +11,13 @@
 }
 
 @mixin picker-action {
-	font-size: 0.75rem;
+	font: tokens.$coral-paragraph-s;
 
 	&.selected {
 		background-color: tokens.$coral-color-accent-background;
 		color: tokens.$coral-color-accent-text;
 		transition: color 0.2s ease-in;
-		font-weight: $font-weight-semi-bold;
+		font: tokens.$coral-paragraph-s-bold;
 	}
 
 	&:disabled {
@@ -34,38 +35,32 @@
 	width: $tc-datepicker-width;
 	background: tokens.$coral-color-neutral-background;
 	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
-	z-index: $tc-datepicker-z-index;
+	z-index: tokens.$coral-elevation-layer-interactive-front;
 }
 
 @mixin date-picker {
 	display: flex;
 	width: fit-content;
-}
+	align-items: center;
 
-@mixin range-picker {
-	@include date-picker;
-	align-items: flex-end;
-}
-
-@mixin range-picker-inline {
 	:global(.range-input) {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		gap: tokens.$coral-spacing-xxs;
 	}
+}
 
-	:global(.control-label) {
-		margin: 0 $padding-small;
+@mixin date-picker-inline {
+	:global(.range-input) {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: tokens.$coral-spacing-xxs;
 	}
 }
 
 @mixin arrow {
-	height: $tc-range-picker-arrow-height;
-	padding: 0 $padding-smaller;
-	margin-bottom: 0.9375rem;
-	color: tokens.$coral-color-neutral-text;
-}
-
-@mixin icon {
-	width: $svg-sm-size;
-	height: $svg-sm-size;
+	display: flex;
+	align-items: flex-end;
+	margin: tokens.$coral-spacing-s;
 }

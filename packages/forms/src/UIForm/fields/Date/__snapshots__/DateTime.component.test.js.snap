@@ -17,16 +17,32 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
       class="theme-date-picker date-picker"
       tabindex="-1"
     >
-      <input
-        autocomplete="off"
-        class="form-control"
-        data-testid="date-picker"
-        id="talend-date-time-date-picker-input"
-        placeholder="YYYY-MM-DD"
-        style="width: 47px;"
-        type="text"
-        value=""
-      />
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      >
+        <span
+          class="theme-hidden"
+        >
+          <label
+            class="theme-label"
+            for="talend-date-time-date-picker-input"
+          />
+        </span>
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            autocomplete="off"
+            class="theme-input"
+            data-testid="date-picker"
+            id="talend-date-time-date-picker-input"
+            placeholder="YYYY-MM-DD"
+            style="width: 47px;"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
       <span
         data-testid="InputSizer"
         style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
@@ -38,17 +54,33 @@ exports[`DateTime widget should render an InputDateTimePicker 1`] = `
       class="theme-time-picker time-picker"
       tabindex="-1"
     >
-      <input
-        autocomplete="off"
-        class="form-control theme-time-picker-input"
-        data-testid="time-picker"
-        id="talend-date-time-time-picker-input"
-        maxlength="5"
-        placeholder="HH:mm"
-        style="width: 47px;"
-        type="text"
-        value=""
-      />
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      >
+        <span
+          class="theme-hidden"
+        >
+          <label
+            class="theme-label"
+            for="talend-date-time-time-picker-input"
+          />
+        </span>
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            autocomplete="off"
+            class="theme-input"
+            data-testid="time-picker"
+            id="talend-date-time-time-picker-input"
+            maxlength="5"
+            placeholder="HH:mm"
+            style="width: 47px;"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
       <span
         data-testid="InputSizer"
         style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"

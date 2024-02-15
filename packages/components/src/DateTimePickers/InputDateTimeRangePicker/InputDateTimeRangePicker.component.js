@@ -5,7 +5,8 @@ import debounce from 'lodash/debounce';
 import omit from 'lodash/omit';
 import PropTypes from 'prop-types';
 
-import Icon from '../../Icon';
+import { Form, SizedIcon } from '@talend/design-system';
+
 import getDefaultT from '../../translate';
 import DateTimeRange from '../DateTimeRange';
 import { DateTimeRangeContext } from '../DateTimeRange/Context';
@@ -78,9 +79,9 @@ function InputDateTimeRangePicker(props) {
 				{({ startDateTime, endDateTime, onStartChange, onEndChange }) => (
 					<div className={className} ref={containerRef}>
 						<div className="range-input" data-testid="range-start">
-							<label htmlFor={props.id} className="control-label">
+							<Form.Label htmlFor={props.id}>
 								{props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
-							</label>
+							</Form.Label>
 							<InputDateTimePicker
 								{...inputProps}
 								id={`${id}-start`}
@@ -94,12 +95,12 @@ function InputDateTimeRangePicker(props) {
 							/>
 						</div>
 						<span className={classnames(theme.arrow, 'arrow')}>
-							<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
+							<SizedIcon name={vertical ? 'arrow-bottom' : 'arrow-right'} size="S" />
 						</span>
 						<div className="range-input" data-testid="range-end">
-							<label htmlFor={props.id} className="control-label">
+							<Form.Label htmlFor={props.id}>
 								{props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
-							</label>
+							</Form.Label>
 							<InputDateTimePicker
 								{...inputProps}
 								id={`${id}-end`}
