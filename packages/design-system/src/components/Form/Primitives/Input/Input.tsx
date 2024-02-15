@@ -8,6 +8,7 @@ import {
 } from 'react';
 
 import classnames from 'classnames';
+import { DataAttributes } from 'src/types';
 
 import useRevealPassword from '../../../Form/Field/Input/hooks/useRevealPassword';
 import { SizedIcon } from '../../../Icon';
@@ -16,12 +17,10 @@ import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 
 import styles from './Input.module.scss';
 
-export type InputPrimitiveProps = Omit<
-	InputHTMLAttributes<any>,
-	'prefix' | 'suffix' | 'dataTestid'
-> &
+export type InputPrimitiveProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
 	AffixesProps &
-	Omit<FieldStatusProps, 'errorMessage'>;
+	Omit<FieldStatusProps, 'errorMessage'> &
+	Partial<DataAttributes>;
 
 const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement | null>) => {
 	const {
