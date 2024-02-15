@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.1.1
+
+### Patch Changes
+
+- 988a443: fix(TPD-12820): fix GeoCharts colors
+
 ## 6.1.0
 
 ### Minor Changes
