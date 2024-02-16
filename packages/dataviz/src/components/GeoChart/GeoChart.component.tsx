@@ -1,25 +1,28 @@
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import classNames from 'classnames';
 import {
-	rgb,
-	RGBColor,
 	select as d3select,
-	Selection,
-	scaleLinear,
-	ScaleLinear,
+	zoom as d3zoom,
 	geoIdentity,
 	geoPath,
 	GeoPath,
-	zoom as d3zoom,
+	rgb,
+	RGBColor,
+	scaleLinear,
+	ScaleLinear,
+	Selection,
 } from 'd3';
 import { FeatureCollection } from 'geojson';
+import { feature } from 'topojson-client';
 // eslint-disable-next-line import/no-unresolved
 import { Topology } from 'topojson-specification';
-import { feature } from 'topojson-client';
+
 import { Icon } from '@talend/react-components';
 
 import KeyValueTooltip, { TooltipEntry } from '../KeyValueTooltip/KeyValueTooltip.component';
+
 import styles from './GeoChart.module.scss';
 
 // Rename ugly d3 types
@@ -126,6 +129,14 @@ function renderFeature(
 	}
 }
 
+function parseCssVarColor(cssVarExpression: string): string {
+	try {
+		return cssVarExpression.split(',').slice(1).join(',').trim().slice(0, -1);
+	} catch (e) {
+		return 'hsl(0, 0%, 0%)';
+	}
+}
+
 function createSvg(parent: HTMLDivElement): Svg {
 	return d3select(parent).append('svg').attr('viewBox', `0 0 ${width} ${height}`);
 }
@@ -138,7 +149,11 @@ function getScale(data: Entry[]): ColorScale {
 	const values = data.map(entry => entry.value);
 	return scaleLinear<RGBColor>()
 		.domain([Math.min(...values), Math.max(...values)])
-		.range([rgb(styles.scaleMinColor), rgb(styles.scaleMaxColor)]);
+		.range([rgb(styles.scaleMinColor), rgb(styles.scaleMaxColor)])
+		.range([
+			rgb(parseCssVarColor(styles.scaleMinColor)),
+			rgb(parseCssVarColor(styles.scaleMaxColor)),
+		]);
 }
 
 function getGeoPath(featureCollection: FeatureCollection): GeoPath {
