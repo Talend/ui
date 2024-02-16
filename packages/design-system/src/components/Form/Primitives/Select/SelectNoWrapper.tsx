@@ -35,6 +35,7 @@ const SelectNoWrapper = forwardRef((props: SelectNoWrapperProps, ref: Ref<HTMLSe
 				{...rest}
 				data-testid={dataTestid}
 				disabled={disabled}
+				required={required}
 				ref={ref}
 				id={id}
 				className={classnames(
