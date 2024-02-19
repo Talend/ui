@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 13.2.1
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- Updated dependencies [c1c9c5a]
+- Updated dependencies [ca74483]
+- Updated dependencies [c0c434c]
+  - @talend/design-system@9.7.0
+  - @talend/react-components@15.2.5
+  - @talend/utils@3.0.2
+
 ## 13.2.0
 
 ### Minor Changes

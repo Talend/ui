@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.0.2
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+
 ## 3.0.1
 
 ### Patch Changes
