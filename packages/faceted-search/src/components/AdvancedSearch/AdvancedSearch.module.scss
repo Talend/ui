@@ -11,9 +11,9 @@ $search-input-right-offset: 3.75rem;
 
 	.adv-search-filter-icon {
 		position: absolute;
-		color: tokens.$coral-color-neutral-icon-weak;
+		z-index: tokens.$coral-elevation-layer-standard-front;
 		top: tokens.$coral-spacing-m;
-		left: $search-icon-offset;
+		left: tokens.$coral-spacing-s;
 	}
 
 	&-error {
@@ -22,8 +22,6 @@ $search-input-right-offset: 3.75rem;
 	}
 
 	.adv-search-input {
-		border-radius: tokens.$coral-radius-s;
-		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 		box-shadow: none;
 		color: tokens.$coral-color-neutral-text-weak;
 		height: tokens.$coral-sizing-m;
@@ -45,7 +43,7 @@ $search-input-right-offset: 3.75rem;
 
 	&-buttons {
 		position: absolute;
-		top: tokens.$coral-spacing-s;
+		top: tokens.$coral-spacing-xs;
 		right: tokens.$coral-spacing-m;
 	}
 }
