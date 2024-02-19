@@ -59,7 +59,7 @@
     "@testing-library/user-event": "^14.5.1",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "cross-env": "^7.0.3",
-    "i18next": "^23.7.7",
+    "i18next": "^23.9.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -68,7 +68,7 @@
   "peerDependencies": {
     "@talend/design-system": "^9.0.0",
     "@talend/react-components": "^15.0.0",
-    "i18next": "^23.7.7",
+    "i18next": "^23.9.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",

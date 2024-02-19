@@ -75,13 +75,13 @@
     "@types/topojson-specification": "^1.0.5",
     "cypress": "^13.6.0",
     "cross-env": "^7.0.3",
-    "i18next": "^23.7.7",
+    "i18next": "^23.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.5.0"
   },
   "peerDependencies": {
-    "i18next": "^23.7.7",
+    "i18next": "^23.9.0",
     "react": ">= 16.14.0",
     "react-i18next": "^13.5.0"
   },
