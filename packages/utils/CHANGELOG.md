@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.0.3
+
+### Patch Changes
+
+- ccc5f1a: fix: use typescript to generate @talend/utils instead of babel
+
 ## 3.0.2
 
 ### Patch Changes
