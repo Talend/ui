@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import classNames from 'classnames';
-import { isEqual } from 'lodash';
+import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
 
 import Badge from '@talend/react-components/lib/Badge';

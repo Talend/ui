@@ -1,6 +1,7 @@
 import { Component } from 'react';
 
-import { get, head } from 'lodash';
+import get from 'lodash/get';
+import head from 'lodash/head';
 import PropTypes from 'prop-types';
 
 import { getArrayElementSchema } from '../../utils/array';

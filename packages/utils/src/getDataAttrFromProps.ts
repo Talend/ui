@@ -1,4 +1,4 @@
-import { pick } from 'lodash';
+import pick from 'lodash/pick';
 
 /**
  * get data attributes from props
