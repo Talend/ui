@@ -1,5 +1,17 @@
 # @talend/design-system
 
+## 9.7.0
+
+### Minor Changes
+
+- c1c9c5a: chore: add data-test attr on stacks
+
+### Patch Changes
+
+- ca74483: Design System - Select element should now take `required` attribute into account
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
 ## 9.6.0
 
 ### Minor Changes
