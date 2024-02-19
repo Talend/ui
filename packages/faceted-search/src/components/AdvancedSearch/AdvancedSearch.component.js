@@ -4,7 +4,8 @@ import { useState } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { ButtonIcon, Icon } from '@talend/design-system';
+import { ButtonIcon, Form, SizedIcon } from '@talend/design-system';
+import tokens from '@talend/design-tokens';
 
 import { USAGE_TRACKING_TAGS } from '../../constants';
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
@@ -69,8 +70,15 @@ export function AdvancedSearch({
 	return (
 		<div id={advSearchId} className={styles['adv-search']}>
 			<form id={`${advSearchId}-form`} role="search" onSubmit={formSubmit}>
-				<Icon name="talend-filter" size="M" className={styles['adv-search-filter-icon']} />
-				<input
+				<div className={styles['adv-search-filter-icon']}>
+					<SizedIcon
+						name="filter"
+						size="M"
+						color={tokens.coralColorNeutralIconWeak}
+						className={styles['adv-search-filter-icon']}
+					/>
+				</div>
+				<Form.Text
 					id={`${id}-form`}
 					name="advanced-search-faceted"
 					type="search"
@@ -84,7 +92,6 @@ export function AdvancedSearch({
 					onKeyDown={onKeyDownHandler}
 					onChange={onChangeHandler}
 				/>
-
 				<div className={styles['adv-search-buttons']}>
 					<ButtonIcon
 						name="action-cancel-title"
