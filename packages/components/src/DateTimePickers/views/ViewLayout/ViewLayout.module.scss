@@ -1,4 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .container {
 	height: 100%;
@@ -8,14 +8,10 @@
 	.header {
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: $padding-small;
+		margin-bottom: tokens.$coral-spacing-s;
 
 		:global(.btn-icon-only) {
-			padding: 0 $padding-smaller;
-
-			svg {
-				width: $svg-sm-size;
-			}
+			padding: 0 tokens.$coral-spacing-xxs;
 
 			span {
 				display: none;

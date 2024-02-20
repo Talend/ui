@@ -209,6 +209,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       M
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -218,6 +221,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       T
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -227,6 +233,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       W
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -236,6 +245,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       T
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -245,6 +257,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       F
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -254,6 +269,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       S
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -263,6 +281,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       S
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                 </tr>
               </thead>
@@ -834,8 +855,11 @@ exports[`DateRange.Picker should render 1`] = `
       </div>
     </div>
   </div>
+  <span
+    class="CoralDivider"
+  />
   <div
-    class="theme-footer theme-date-padding"
+    class="theme-footer"
   >
     <button
       aria-label="Pick Today"

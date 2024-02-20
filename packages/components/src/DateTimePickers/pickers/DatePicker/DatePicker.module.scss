@@ -1,8 +1,6 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
 @import '../../shared/styles/mixins';
-@import '../../shared/styles/variables';
 
 .container {
 	width: 100%;
@@ -10,17 +8,8 @@
 }
 
 .calendar-header {
-	&::after {
-		@include picker-underline;
-		width: 100%;
-		position: absolute;
-		left: 0;
-		top: 1.4375rem;
-	}
-
 	th {
 		text-align: center;
-		padding-bottom: $padding-small;
 	}
 
 	abbr {
