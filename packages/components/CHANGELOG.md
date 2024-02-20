@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 15.2.6
+
+### Patch Changes
+
+- 6305ea9: fix: enlarge drawer using back breakpoints
+
 ## 15.2.5
 
 ### Patch Changes
