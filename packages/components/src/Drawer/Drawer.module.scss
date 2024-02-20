@@ -22,7 +22,7 @@ $tc-drawer-z-index: tokens.$coral-elevation-layer-standard-front !default;
 	z-index: $tc-drawer-z-index;
 }
 
-@media (min-width: 992px) and (max-width: 1199px) .Drawer-module__tc-drawer___SX4uV {
+@media (min-width: 992px) and (max-width: 1199px) .tc-drawer {
 	width: 40vw;
 }
 
