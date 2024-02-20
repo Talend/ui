@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.7.1
+
+### Patch Changes
+
+- 106b735: fix: height for input wrapper
+
 ## 9.7.0
 
 ### Minor Changes
