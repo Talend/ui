@@ -1,5 +1,19 @@
 # @talend/react-components
 
+## 15.2.6
+
+### Patch Changes
+
+- 6305ea9: fix: enlarge drawer using back breakpoints
+
+## 15.2.5
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
 ## 15.2.4
 
 ### Patch Changes

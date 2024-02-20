@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { get, isEqual } from 'lodash';
+import get from 'lodash/get';
+import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
 
 import { ButtonIcon, ButtonSecondary, Popover } from '@talend/design-system';
