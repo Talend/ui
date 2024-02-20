@@ -296,6 +296,10 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                         >
                           M
                         </abbr>
+                        <hr
+                          aria-orientation="horizontal"
+                          class="theme-divider"
+                        />
                       </th>
                       <th
                         scope="col"
@@ -305,6 +309,10 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                         >
                           T
                         </abbr>
+                        <hr
+                          aria-orientation="horizontal"
+                          class="theme-divider"
+                        />
                       </th>
                       <th
                         scope="col"
@@ -314,6 +322,10 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                         >
                           W
                         </abbr>
+                        <hr
+                          aria-orientation="horizontal"
+                          class="theme-divider"
+                        />
                       </th>
                       <th
                         scope="col"
@@ -323,6 +335,10 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                         >
                           T
                         </abbr>
+                        <hr
+                          aria-orientation="horizontal"
+                          class="theme-divider"
+                        />
                       </th>
                       <th
                         scope="col"
@@ -332,6 +348,10 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                         >
                           F
                         </abbr>
+                        <hr
+                          aria-orientation="horizontal"
+                          class="theme-divider"
+                        />
                       </th>
                       <th
                         scope="col"
@@ -341,6 +361,10 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                         >
                           S
                         </abbr>
+                        <hr
+                          aria-orientation="horizontal"
+                          class="theme-divider"
+                        />
                       </th>
                       <th
                         scope="col"
@@ -350,6 +374,10 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                         >
                           S
                         </abbr>
+                        <hr
+                          aria-orientation="horizontal"
+                          class="theme-divider"
+                        />
                       </th>
                     </tr>
                   </thead>
@@ -920,8 +948,12 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
           </div>
         </div>
       </div>
+      <hr
+        aria-orientation="horizontal"
+        class="theme-divider"
+      />
       <div
-        class="theme-footer theme-date-padding"
+        class="theme-footer"
       >
         <button
           aria-label="Pick Today"
