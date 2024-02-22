@@ -24,7 +24,7 @@ describe('validate.js', () => {
 		it('should return an error object with a message "CUSTOM_ERROR_INVALID_INPUT" when the integer value is not valid', () => {
 			let value = 'stringValue';
 			const testForm = { type: 'number', key: ['hero'], schema: { type: 'number' } };
-			const event = { target: { validity: { valid: false } } };
+			const event = { target: { validity: { badInput: true } } };
 			let result = validate(testForm, value, event);
 			expect(result.error.message).toBe('CUSTOM_ERROR_INVALID_INPUT');
 		});
