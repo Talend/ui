@@ -1,22 +1,26 @@
 import {
+	FocusEvent,
 	forwardRef,
 	InputHTMLAttributes,
 	Ref,
 	useImperativeHandle,
 	useRef,
-	FocusEvent,
 } from 'react';
+
 import classnames from 'classnames';
-import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
-import { FieldStatusProps } from '../Field/Field';
+import { DataAttributes } from 'src/types';
+
 import useRevealPassword from '../../../Form/Field/Input/hooks/useRevealPassword';
 import { SizedIcon } from '../../../Icon';
+import { FieldStatusProps } from '../Field/Field';
+import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 
 import styles from './Input.module.scss';
 
 export type InputPrimitiveProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
 	AffixesProps &
-	Omit<FieldStatusProps, 'errorMessage'>;
+	Omit<FieldStatusProps, 'errorMessage'> &
+	Partial<DataAttributes>;
 
 const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement | null>) => {
 	const {

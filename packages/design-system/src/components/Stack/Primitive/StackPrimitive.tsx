@@ -3,6 +3,8 @@ import type { ReactNode, Ref } from 'react';
 
 import classnames from 'classnames';
 
+import { DataAttributes } from '../../../types';
+
 import styles from './StackPrimitive.module.scss';
 
 export const justifyOptions = {
@@ -112,7 +114,7 @@ export type StackPrimitiveProps = {
 	isFullWidth?: boolean;
 	noShrink?: boolean;
 	noGrow?: boolean;
-};
+} & DataAttributes;
 
 const StackPrimitive = forwardRef(function StackPrimitive(
 	{

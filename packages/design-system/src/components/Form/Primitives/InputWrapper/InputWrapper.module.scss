@@ -3,7 +3,7 @@
 
 .inputShell {
 	@include Form.border-styles();
-	height: tokens.$coral-sizing-m;
+	height: 2rem;
 	display: flex;
 	flex-flow: row;
 	gap: 0;
