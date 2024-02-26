@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 15.3.0
+
+### Minor Changes
+
+- 5a621b1: Components - Switch components dates to use design system inputs
+
 ## 15.2.6
 
 ### Patch Changes

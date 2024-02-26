@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.7.2
+
+### Patch Changes
+
+- e374251: TMC-26227 - Fix design system loading icon on safari browser
+
 ## 9.7.1
 
 ### Patch Changes
