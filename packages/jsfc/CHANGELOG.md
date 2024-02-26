@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.2.2
+
+### Patch Changes
+
+- 5d631f2: TMC-27327 - Fix input number validation to display correct error message
+
 ## 1.2.1
 
 ### Patch Changes
