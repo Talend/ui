@@ -5,7 +5,7 @@ function validateTypeSpecificInput(inputType = '', event = {}) {
 	switch (inputType) {
 		case 'number':
 			// If the user types a non-integer value, the value is emptied by browser but still displayed in UI
-			if (event.target?.validity && !event.target.validity.valid) {
+			if (event.target?.validity && event.target.validity.badInput) {
 				return { valid: false, message: 'CUSTOM_ERROR_INVALID_INPUT' };
 			}
 			break;
