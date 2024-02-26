@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 
+jest.unmock('@talend/design-system');
+
 describe('InputDateTimePicker', () => {
 	it('should render', () => {
 		// when

@@ -1,5 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
 @import '../shared/styles/mixins';
 
 .popper {
@@ -8,19 +6,12 @@
 
 .date-picker {
 	@include date-picker;
-	align-items: flex-end;
 
 	.arrow {
 		@include arrow;
-		display: flex;
-		align-items: flex-end;
-
-		.icon {
-			@include icon;
-		}
 	}
 }
 
 .date-range-picker-inline {
-	@include range-picker-inline;
+	@include date-picker-inline;
 }

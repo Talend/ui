@@ -14,18 +14,34 @@ exports[`Date widget should render date picker 1`] = `
     class="theme-date-picker date-picker"
     tabindex="-1"
   >
-    <input
-      aria-describedby="myForm-description myForm-error"
-      aria-invalid="true"
-      aria-required="true"
-      autocomplete="off"
-      class="form-control"
-      id="myForm-input"
-      placeholder="Type your date here"
-      style="width: 5px;"
-      type="text"
-      value="15/02/2018 23:55:32"
-    />
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <span
+        class="theme-hidden"
+      >
+        <label
+          class="theme-label"
+          for="myForm-input"
+        />
+      </span>
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          aria-describedby="myForm-description myForm-error"
+          aria-invalid="true"
+          aria-required="true"
+          autocomplete="off"
+          class="theme-input"
+          id="myForm-input"
+          placeholder="Type your date here"
+          style="width: 5px;"
+          type="text"
+          value="15/02/2018 23:55:32"
+        />
+      </div>
+    </div>
     <span
       data-testid="InputSizer"
       style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
@@ -288,6 +304,10 @@ exports[`Date widget should render date picker 1`] = `
                           >
                             M
                           </abbr>
+                          <hr
+                            aria-orientation="horizontal"
+                            class="theme-divider"
+                          />
                         </th>
                         <th
                           scope="col"
@@ -297,6 +317,10 @@ exports[`Date widget should render date picker 1`] = `
                           >
                             T
                           </abbr>
+                          <hr
+                            aria-orientation="horizontal"
+                            class="theme-divider"
+                          />
                         </th>
                         <th
                           scope="col"
@@ -306,6 +330,10 @@ exports[`Date widget should render date picker 1`] = `
                           >
                             W
                           </abbr>
+                          <hr
+                            aria-orientation="horizontal"
+                            class="theme-divider"
+                          />
                         </th>
                         <th
                           scope="col"
@@ -315,6 +343,10 @@ exports[`Date widget should render date picker 1`] = `
                           >
                             T
                           </abbr>
+                          <hr
+                            aria-orientation="horizontal"
+                            class="theme-divider"
+                          />
                         </th>
                         <th
                           scope="col"
@@ -324,6 +356,10 @@ exports[`Date widget should render date picker 1`] = `
                           >
                             F
                           </abbr>
+                          <hr
+                            aria-orientation="horizontal"
+                            class="theme-divider"
+                          />
                         </th>
                         <th
                           scope="col"
@@ -333,6 +369,10 @@ exports[`Date widget should render date picker 1`] = `
                           >
                             S
                           </abbr>
+                          <hr
+                            aria-orientation="horizontal"
+                            class="theme-divider"
+                          />
                         </th>
                         <th
                           scope="col"
@@ -342,6 +382,10 @@ exports[`Date widget should render date picker 1`] = `
                           >
                             S
                           </abbr>
+                          <hr
+                            aria-orientation="horizontal"
+                            class="theme-divider"
+                          />
                         </th>
                       </tr>
                     </thead>
@@ -909,8 +953,12 @@ exports[`Date widget should render date picker 1`] = `
             </div>
           </div>
         </div>
+        <hr
+          aria-orientation="horizontal"
+          class="theme-divider"
+        />
         <div
-          class="theme-footer theme-date-padding"
+          class="theme-footer"
         >
           <button
             aria-label="Pick Today"

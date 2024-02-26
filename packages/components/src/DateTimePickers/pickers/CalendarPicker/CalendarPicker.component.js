@@ -1,11 +1,11 @@
 import { Component } from 'react';
 
-import classNames from 'classnames';
 import { getMonth } from 'date-fns/getMonth';
 import { getYear } from 'date-fns/getYear';
 import { startOfDay } from 'date-fns/startOfDay';
 import PropTypes from 'prop-types';
 
+import { Divider } from '@talend/design-system';
 import { focus } from '@talend/react-a11y';
 
 import Action from '../../../Actions/Action/Action.component';
@@ -180,11 +180,8 @@ class CalendarPicker extends Component {
 				aria-label="Date picker"
 			>
 				{viewElement}
-				<div
-					className={classNames(theme.footer, {
-						[theme['date-padding']]: this.state.isDateView,
-					})}
-				>
+				<Divider />
+				<div className={theme.footer}>
 					<Action
 						label={this.props.t('DATEPICKER_TODAY', {
 							defaultValue: 'Today',

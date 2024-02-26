@@ -16,6 +16,7 @@ import { startOfMonth } from 'date-fns/startOfMonth';
 import memoize from 'lodash/memoize';
 import PropTypes from 'prop-types';
 
+import { Divider } from '@talend/design-system';
 import { Gesture } from '@talend/react-a11y';
 
 import getDefaultT from '../../../translate';
@@ -138,6 +139,7 @@ class DatePicker extends PureComponent {
 								<abbr key={i} title={dayName.full}>
 									{dayName.abbr}
 								</abbr>
+								<Divider />
 							</th>
 						))}
 					</tr>
