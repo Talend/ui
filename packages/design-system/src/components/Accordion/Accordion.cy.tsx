@@ -17,16 +17,18 @@ const SampleParagraph = () => (
 		velit, eget ornare velit. Praesent porttitor sagittis nulla non vehicula. u
 	</p>
 );
-const WithAction = () => (
+const WithActions = () => (
 	<div style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}>
 		<CollapsiblePanel
 			id="panel-with-action"
 			title="panel with action"
-			action={{
-				icon: 'plus',
-				tooltip: 'action tooltip',
-				callback: () => window.alert('action callback'),
-			}}
+			actions={[
+				{
+					icon: 'plus',
+					tooltip: 'action tooltip',
+					callback: () => window.alert('action callback'),
+				},
+			]}
 		>
 			<SampleParagraph />
 		</CollapsiblePanel>
@@ -35,13 +37,13 @@ const WithAction = () => (
 
 context('<CollapsiblePanel />', () => {
 	it('should render header', () => {
-		cy.mount(<WithAction />);
+		cy.mount(<WithActions />);
 		cy.findByTestId('panel.header').should('be.visible');
 		cy.findByTestId('panel.section').should('not.exist');
 	});
 
 	it('should expand and collapse', () => {
-		cy.mount(<WithAction />);
+		cy.mount(<WithActions />);
 		cy.get('#CollapsiblePanel__control--panel-with-action').focus().click();
 		cy.findByTestId('panel.section').should('be.visible');
 		cy.get('#CollapsiblePanel__control--panel-with-action').focus().click();
@@ -56,11 +58,13 @@ context('<CollapsiblePanel />', () => {
 				<CollapsiblePanel
 					id="disabled-panel"
 					title="disabled panel"
-					action={{
-						icon: 'plus',
-						tooltip: 'action tooltip',
-						callback: () => window.alert('action callback'),
-					}}
+					actions={[
+						{
+							icon: 'plus',
+							tooltip: 'action tooltip',
+							callback: () => window.alert('action callback'),
+						},
+					]}
 					disabled
 				>
 					<SampleParagraph />
@@ -72,7 +76,7 @@ context('<CollapsiblePanel />', () => {
 	});
 
 	it('should display action toolip', () => {
-		cy.mount(<WithAction />);
+		cy.mount(<WithActions />);
 		cy.findByTestId('action.button')
 			.focus()
 			.should('have.attr', 'aria-describedby')
