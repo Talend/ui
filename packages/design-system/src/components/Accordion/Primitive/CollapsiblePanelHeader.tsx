@@ -22,7 +22,7 @@ export type CollapsiblePanelHeaderPropsType = {
 	title?: ReactChild;
 	status?: keyof typeof variants;
 	metadata?: ReactChild[];
-	actions?: PanelHeaderAction[];
+	action?: PanelHeaderAction | PanelHeaderAction[];
 	handleClick: () => unknown;
 	disabled?: boolean;
 };
@@ -34,7 +34,7 @@ const CollapsiblePanelHeader = forwardRef(
 			sectionId,
 			expanded,
 			handleClick,
-			actions,
+			action,
 			metadata,
 			title,
 			status,
@@ -44,7 +44,7 @@ const CollapsiblePanelHeader = forwardRef(
 		ref: Ref<HTMLButtonElement>,
 	) => {
 		const listMetadata = metadata?.map((item, index) => {
-			if (index === metadata.length - 1 && (!actions || disabled)) {
+			if (index === metadata.length - 1 && (!action || disabled)) {
 				return item;
 			}
 
@@ -59,8 +59,10 @@ const CollapsiblePanelHeader = forwardRef(
 		const iconSize = size === 'S' ? 'S' : 'M';
 		const buttonIconSize = size === 'S' ? 'XS' : 'S';
 
+		const actions = Array.isArray(action) ? action : [action];
+
 		const getChevron = () => {
-			if (actions) {
+			if (action) {
 				return (
 					<ButtonIcon
 						id={controlId}
@@ -109,27 +111,27 @@ const CollapsiblePanelHeader = forwardRef(
 						{listMetadata}
 					</StackHorizontal>
 				)}
-				{actions &&
+				{action &&
 					!disabled &&
 					actions.map(
-						(action, index) =>
-							action && (
+						(actionItem, index) =>
+							actionItem && (
 								<ButtonIcon
 									key={`action-${index}`}
 									size={buttonIconSize}
-									icon={action.icon}
-									onClick={action.callback}
+									icon={actionItem.icon}
+									onClick={actionItem.callback}
 									data-test={`action.button.${index}`}
 									data-testid={`action.button.${index}`}
 								>
-									{action.tooltip}
+									{actionItem.tooltip}
 								</ButtonIcon>
 							),
 					)}
 			</>
 		);
 
-		if (actions) {
+		if (action) {
 			return (
 				<div
 					className={classnames(styles.headerWrapper, {

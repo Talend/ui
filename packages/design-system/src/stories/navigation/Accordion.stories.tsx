@@ -78,13 +78,11 @@ export const DisabledPanel = {
 				{...props}
 				id="disabled-panel"
 				title="disabled panel"
-				actions={[
-					{
-						icon: 'plus',
-						tooltip: 'action tooltip',
-						callback: () => window.alert('action callback'),
-					},
-				]}
+				action={{
+					icon: 'plus',
+					tooltip: 'action tooltip',
+					callback: () => window.alert('action callback'),
+				}}
 				disabled
 			>
 				<SampleParagraph />
@@ -113,13 +111,11 @@ export const WithMetadata = () => (
 			<CollapsiblePanel
 				title="Simple panel with several metadata and action"
 				metadata={['Duration : 3sec', <TagSuccess key="successTag">Success</TagSuccess>]}
-				actions={[
-					{
-						icon: 'plus',
-						tooltip: 'action tooltip',
-						callback: () => window.alert('action callback'),
-					},
-				]}
+				action={{
+					icon: 'plus',
+					tooltip: 'action tooltip',
+					callback: () => window.alert('action callback'),
+				}}
 			>
 				<SampleParagraph />
 			</CollapsiblePanel>
@@ -139,7 +135,7 @@ export const WithActions = {
 				{...props}
 				id="panel-with-actions"
 				title="panel with actions"
-				actions={[
+				action={[
 					{
 						icon: 'talend-cog',
 						tooltip: 'action tooltip',

@@ -15,7 +15,7 @@ type CollapsiblePanelCommonPropsType = {
 	managed?: boolean;
 	expanded?: boolean;
 	index?: number;
-	actions?: PanelHeaderAction[];
+	action?: PanelHeaderAction | PanelHeaderAction[];
 	size?: 'S' | 'M';
 	metadata?: ReactChild[];
 	isFirst?: boolean;
@@ -49,7 +49,7 @@ export const CollapsiblePanel = forwardRef(
 			onToggleExpanded,
 			title,
 			status,
-			actions,
+			action,
 			size,
 			metadata,
 			isFirst = false,
@@ -96,7 +96,7 @@ export const CollapsiblePanel = forwardRef(
 					handleClick={handleToggleExpanded}
 					title={title}
 					status={status}
-					actions={actions}
+					action={action}
 					metadata={metadata}
 					size={size}
 					disabled={disabled}

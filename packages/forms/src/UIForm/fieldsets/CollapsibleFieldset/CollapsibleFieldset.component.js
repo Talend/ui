@@ -117,7 +117,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					index={index}
 					managed={!!managed}
 					expanded={!value.isClosed}
-					actions={[getAction()]}
+					action={getAction()}
 				>
 					{schema.description ? (
 						<InlineMessageInformation
