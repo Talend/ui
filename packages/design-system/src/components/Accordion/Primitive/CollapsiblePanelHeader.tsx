@@ -22,7 +22,7 @@ export type CollapsiblePanelHeaderPropsType = {
 	title?: ReactChild;
 	status?: keyof typeof variants;
 	metadata?: ReactChild[];
-	actions?: [PanelHeaderAction, PanelHeaderAction?];
+	actions?: PanelHeaderAction[];
 	handleClick: () => unknown;
 	disabled?: boolean;
 };

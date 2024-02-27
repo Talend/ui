@@ -15,7 +15,7 @@ type CollapsiblePanelCommonPropsType = {
 	managed?: boolean;
 	expanded?: boolean;
 	index?: number;
-	actions?: [PanelHeaderAction, PanelHeaderAction?];
+	actions?: PanelHeaderAction[];
 	size?: 'S' | 'M';
 	metadata?: ReactChild[];
 	isFirst?: boolean;
