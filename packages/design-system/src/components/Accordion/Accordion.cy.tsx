@@ -72,12 +72,12 @@ context('<CollapsiblePanel />', () => {
 			</div>,
 		);
 		cy.get('#CollapsiblePanel__control--disabled-panel').should('not.exist');
-		cy.findByTestId('action.button').should('not.exist');
+		cy.findByTestId('action.button.0').should('not.exist');
 	});
 
 	it('should display action toolip', () => {
 		cy.mount(<WithActions />);
-		cy.findByTestId('action.button')
+		cy.findByTestId('action.button.0')
 			.focus()
 			.should('have.attr', 'aria-describedby')
 			.then(describedBy => cy.get(`#${describedBy}`).should('have.text', 'action tooltip'));
