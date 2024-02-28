@@ -42,12 +42,12 @@
     }
   },
   "dependencies": {
-    "@babel/cli": "^7.23.4",
-    "@babel/core": "^7.23.5",
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.24.0",
     "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0",
     "@talend/scripts-utils": "^2.2.0",
-    "@talend/scripts-config-babel": "^13.2.1",
+    "@talend/scripts-config-babel": "^13.3.0",
     "@talend/scripts-config-jest": "^14.0.1",
     "@talend/scripts-config-stylelint": "^4.1.0",
     "@talend/scripts-config-typescript": "^11.2.0",
@@ -60,7 +60,7 @@
     "lodash": "^4.17.21",
     "rimraf": "^3.0.2",
     "typescript": "^5.3.3",
-    "webpack": "^5.89.0",
+    "webpack": "^5.90.3",
     "webpack-merge": "^5.10.0",
     "yargs": "^15.4.1"
   },
