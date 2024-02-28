@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.8.0
+
+### Minor Changes
+
+- 08ba8f0: chore(TUX-1228): update CollapsiblePanel to support multiple actions
+
 ## 9.7.2
 
 ### Patch Changes
