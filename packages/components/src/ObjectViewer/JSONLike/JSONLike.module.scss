@@ -1,4 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
 @mixin chevron($color) {
@@ -80,6 +79,7 @@
 				max-width: 100%;
 				display: flex;
 				align-items: center;
+				flex: 1;
 
 				&:focus {
 					.value {
@@ -99,18 +99,18 @@
 		.complex-item {
 			flex: 1 1 auto;
 			border-left: solid 1px tokens.$coral-color-neutral-border-weak;
-			margin-left: $padding-smaller;
+			margin-left: tokens.$coral-spacing-xxs;
 			max-width: 100%;
 		}
 
 		.key {
-			padding-left: $padding-smaller;
+			padding-left: tokens.$coral-spacing-xxs;
 			color: tokens.$coral-color-neutral-text-weak;
 		}
 
 		.value {
 			color: tokens.$coral-color-accent-text-strong;
-			margin-left: $padding-smaller;
+			margin-left: tokens.$coral-spacing-xxs;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 
@@ -130,18 +130,18 @@
 			color: tokens.$coral-color-neutral-text-weak;
 			opacity: 0.75;
 			display: inline;
-			margin-right: $padding-normal;
-			margin-left: $padding-smaller;
+			margin-right: tokens.$coral-spacing-xs;
+			margin-left: tokens.$coral-spacing-xxs;
 			vertical-align: text-bottom;
 		}
 
 		.badge {
 			top: -0.0625rem;
-			margin-left: $padding-small;
+			margin-left: tokens.$coral-spacing-xs;
 			background-color: tokens.$coral-color-accent-background;
 			color: tokens.$coral-color-accent-text;
 			font-size: 0.625rem;
-			padding: calc(#{$padding-smaller} / 2) $padding-smaller;
+			padding: calc(tokens.$coral-spacing-xxs / 2) tokens.$coral-spacing-xxs;
 			display: inline-table;
 		}
 	}
