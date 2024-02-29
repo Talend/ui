@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 10.11.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/dynamic-cdn-webpack-plugin@13.1.1
+  - @talend/module-to-cdn@9.10.1
+
 ## 10.11.0
 
 ### Minor Changes

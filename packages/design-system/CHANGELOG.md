@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 9.8.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/utils@3.0.4
+
 ## 9.8.0
 
 ### Minor Changes

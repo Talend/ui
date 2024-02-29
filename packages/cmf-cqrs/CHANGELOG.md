@@ -1,5 +1,14 @@
 # @talend/react-cmf-cqrs
 
+## 10.1.3
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/utils@3.0.4
+  - @talend/react-cmf@8.4.1
+
 ## 10.1.2
 
 ### Patch Changes

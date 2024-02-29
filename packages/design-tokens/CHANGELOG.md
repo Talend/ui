@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 3.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 3.1.0
 
 ### Minor Changes

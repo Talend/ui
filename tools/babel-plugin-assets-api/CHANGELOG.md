@@ -1,5 +1,13 @@
 # @talend/babel-plugin-assets-api
 
+## 1.3.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/module-to-cdn@9.10.1
+
 ## 1.3.0
 
 ### Minor Changes

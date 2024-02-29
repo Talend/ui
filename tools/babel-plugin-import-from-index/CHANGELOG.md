@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-index
 
+## 1.7.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 1.7.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @talend/scripts-config-jest
 
+## 14.0.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-babel@13.3.1
+
 ## 14.0.1
 
 ### Patch Changes

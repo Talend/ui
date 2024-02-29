@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 8.2.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 8.2.1
 
 ### Patch Changes
