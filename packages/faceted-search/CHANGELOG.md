@@ -1,5 +1,18 @@
 # Changelog
 
+## 17.2.0
+
+### Minor Changes
+
+- 420118f: feat: use design system text input for the advanced search
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- 5cd9cde: fix: make checkbox badge with values work again (without fetching the tags all the time)
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
 ## 17.1.1
 
 ### Patch Changes

@@ -198,6 +198,12 @@ export const Default = () => (
 	</FacetedSearch.Faceted>
 );
 
+export const Advanced = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+	</FacetedSearch.Faceted>
+);
+
 export const Initialized = () => (
 	<FacetedSearch.Faceted id="my-faceted-search">
 		{currentFacetedMode =>

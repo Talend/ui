@@ -1,5 +1,38 @@
 # @talend/react-components
 
+## 15.3.0
+
+### Minor Changes
+
+- 5a621b1: Components - Switch components dates to use design system inputs
+
+## 15.2.6
+
+### Patch Changes
+
+- 6305ea9: fix: enlarge drawer using back breakpoints
+
+## 15.2.5
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
+## 15.2.4
+
+### Patch Changes
+
+- dbc290d: fix: Datalist hightligted element (keyboard navigation)
+
+## 15.2.3
+
+### Patch Changes
+
+- 63ec624: fix: element does not goes over the box shadow in large mode for the list
+- 788e8a0: Components Drawer - Fix styling when no actions in footer and remove bootstrap styles
+
 ## 15.2.2
 
 ### Patch Changes

@@ -1,5 +1,51 @@
 # @talend/design-system
 
+## 9.8.0
+
+### Minor Changes
+
+- 08ba8f0: chore(TUX-1228): update CollapsiblePanel to support multiple actions
+
+## 9.7.2
+
+### Patch Changes
+
+- e374251: TMC-26227 - Fix design system loading icon on safari browser
+
+## 9.7.1
+
+### Patch Changes
+
+- 106b735: fix: height for input wrapper
+
+## 9.7.0
+
+### Minor Changes
+
+- c1c9c5a: chore: add data-test attr on stacks
+
+### Patch Changes
+
+- ca74483: Design System - Select element should now take `required` attribute into account
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
+## 9.6.0
+
+### Minor Changes
+
+- 1a06e6f: data-testid on select suffix and input primitive
+
+## 9.5.0
+
+### Minor Changes
+
+- 7c4f1e1: Design System - Allow StackItem to have a `isFullWidth` option to have 100% width style
+
+### Patch Changes
+
+- 9426a79: Design System - Fix on textarea not having color on error state
+
 ## 9.4.1
 
 ### Patch Changes

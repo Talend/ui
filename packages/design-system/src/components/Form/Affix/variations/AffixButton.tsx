@@ -1,20 +1,23 @@
 import { forwardRef } from 'react';
 import type { MouseEvent, Ref } from 'react';
+
 import classnames from 'classnames';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
+import { mergeRefs } from '../../../../mergeRef';
 import { DeprecatedIconNames } from '../../../../types';
-import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip';
-import { StackHorizontal } from '../../../Stack';
 import { Clickable, ClickableProps } from '../../../Clickable';
-import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
 import { SizedIcon } from '../../../Icon';
+import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
+import { StackHorizontal } from '../../../Stack';
+import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip';
 
 import styles from '../AffixStyles.module.scss';
-import { mergeRefs } from '../../../../mergeRef';
 
 type CommonAffixButtonPropsType = {
+	dataTestid?: string;
 	children: string;
 	isDropdown?: boolean;
 	onClick: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;

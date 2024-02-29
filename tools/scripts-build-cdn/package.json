@@ -31,13 +31,13 @@
     "mkdirp": "^1.0.4",
     "queue": "^6.0.2",
     "rimraf": "^3.0.2",
-    "semver": "^7.5.4",
-    "webpack": "^5.89.0",
+    "semver": "^7.6.0",
+    "webpack": "^5.90.3",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^4.10.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.1",
+    "@talend/eslint-config": "^13.0.2",
     "@talend/eslint-plugin": "^1.1.0"
   },
   "publishConfig": {

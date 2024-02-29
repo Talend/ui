@@ -1,9 +1,12 @@
 import { useContext } from 'react';
-import PropTypes from 'prop-types';
 import DebounceInput from 'react-debounce-input';
 
-import { DateContext } from '../Context';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
+
 import InputSizer from '../../shared/InputSizer';
+import { DateContext } from '../Context';
 
 function Input(props) {
 	const { value, inputManagement } = useContext(DateContext);
@@ -14,9 +17,9 @@ function Input(props) {
 			{width => (
 				<DebounceInput
 					autoComplete="off"
-					className="form-control"
 					debounceTimeout={300}
-					type="text"
+					element={Form.Text}
+					hideLabel
 					value={value.textInput}
 					style={{ width }}
 					{...inputManagement}

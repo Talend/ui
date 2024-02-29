@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
-import { escapeRegExp } from 'lodash';
+import escapeRegExp from 'lodash/escapeRegExp';
 import PropTypes from 'prop-types';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
