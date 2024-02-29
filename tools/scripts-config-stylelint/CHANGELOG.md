@@ -1,5 +1,11 @@
 # @talend/scripts-config-stylelint
 
+## 4.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 4.1.0
 
 ### Minor Changes

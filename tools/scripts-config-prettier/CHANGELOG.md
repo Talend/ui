@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.1.3
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 12.1.2
 
 ### Patch Changes

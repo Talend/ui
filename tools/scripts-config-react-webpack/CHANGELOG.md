@@ -1,5 +1,16 @@
 # @talend/scripts-config-react-webpack
 
+## 16.5.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-babel@13.3.1
+  - @talend/react-cmf-webpack-plugin@6.38.1
+  - @talend/scripts-config-cdn@10.11.1
+  - @talend/scripts-utils@2.2.1
+
 ## 16.5.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @talend/react-a11y
 
+## 3.0.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/utils@3.0.4
+
 ## 3.0.0
 
 ### Major Changes

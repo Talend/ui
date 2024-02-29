@@ -1,5 +1,19 @@
 # @talend/scripts-core
 
+## 16.3.5
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-typescript@11.2.1
+  - @talend/scripts-config-stylelint@4.1.1
+  - @talend/eslint-config@13.0.3
+  - @talend/scripts-config-babel@13.3.1
+  - @talend/scripts-config-jest@14.0.2
+  - @talend/eslint-plugin@1.1.1
+  - @talend/scripts-utils@2.2.1
+
 ## 16.3.4
 
 ### Patch Changes

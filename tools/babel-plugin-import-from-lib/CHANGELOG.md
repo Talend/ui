@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-lib
 
+## 0.1.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # Changelog
 
+## 17.2.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/utils@3.0.4
+
 ## 17.2.0
 
 ### Minor Changes

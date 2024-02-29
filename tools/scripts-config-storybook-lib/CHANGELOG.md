@@ -1,5 +1,14 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.3.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-react-webpack@16.5.1
+  - @talend/dynamic-cdn-webpack-plugin@13.1.1
+
 ## 5.3.0
 
 ### Minor Changes
