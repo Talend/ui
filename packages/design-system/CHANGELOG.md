@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 9.8.2
+
+### Patch Changes
+
+- eba9ca8: fix(TUX-1228): allow more props to be passed to each CollapsiblePanel action
+
 ## 9.8.1
 
 ### Patch Changes
