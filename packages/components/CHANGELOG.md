@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 15.3.2
+
+### Patch Changes
+
+- 2d7861a: fix: tooltip alignement for buttons in list component
+
 ## 15.3.1
 
 ### Patch Changes
