@@ -17,7 +17,7 @@ const getNumericSize = (size: LoadingIconSize) => {
 export type LoadingProps = HTMLAttributes<SVGSVGElement> & { size?: LoadingIconSize };
 
 export const Loading = forwardRef<SVGSVGElement, LoadingProps>((props, ref) => {
-	const size = getNumericSize(props.size || 'XL');
+	const size = getNumericSize(props.size || 'M');
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
