@@ -1,5 +1,13 @@
 # @talend/react-stepper
 
+## 11.1.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+
 ## 11.1.1
 
 ### Patch Changes

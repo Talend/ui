@@ -1,5 +1,12 @@
 # @talend/design-docs
 
+## 4.1.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+
 ## 4.1.1
 
 ### Patch Changes

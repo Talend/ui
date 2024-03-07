@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 10.0.0
+
+### Major Changes
+
+- ce93823: # BREAKING CHANGE
+  Design system - `Loading` component now has a built in size from **XS** to **XXL** and default is **M**.
+  Since it now has a default size it won't take up all the size available and you might have have to adapt your current styling to it.
+
 ## 9.8.2
 
 ### Patch Changes

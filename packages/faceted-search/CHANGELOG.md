@@ -1,5 +1,13 @@
 # Changelog
 
+## 18.0.0
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+
 ## 17.2.1
 
 ### Patch Changes
