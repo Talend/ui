@@ -1,5 +1,5 @@
-import tokens from '@talend/design-tokens';
 import { Loading } from '../..';
+import { StackVertical } from '../..';
 
 export default {
 	component: Loading,
@@ -7,7 +7,12 @@ export default {
 };
 
 export const Default = () => (
-	<div style={{ maxWidth: tokens.coralSizingMaximal }}>
-		<Loading />
-	</div>
+	<StackVertical gap="S">
+		<Loading size="XS" />
+		<Loading size="S" />
+		<Loading size="M" />
+		<Loading size="L" />
+		<Loading size="XL" />
+		<Loading size="XXL" />
+	</StackVertical>
 );
