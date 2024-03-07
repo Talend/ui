@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.1.3
+
+### Patch Changes
+
+- @talend/react-components@16.0.0
+
 ## 6.1.2
 
 ### Patch Changes
