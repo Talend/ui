@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 14.0.3
+
+### Patch Changes
+
+- 4c6f37f: Avoid warning spam in case of mocking missing library for jest
+
 ## 14.0.2
 
 ### Patch Changes
