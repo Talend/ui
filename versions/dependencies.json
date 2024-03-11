@@ -3,7 +3,6 @@
   "angular": "^1.5.9",
   "ag-grid-community": "^24.0.0",
   "ag-grid-react": "^24.0.0",
-  "ally.js": "^1.4.1",
   "babel-polyfill": "^6.26.0",
   "popper.js": "1.16.1",
   "ag-grid": "^24.0.0",

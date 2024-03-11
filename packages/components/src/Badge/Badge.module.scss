@@ -154,7 +154,7 @@ $tc-badge-disabled-opacity: 0.62;
 
 			&:hover,
 			&:focus,
-			&:global(.ally-focus-within) {
+			&:focus-within {
 				outline: none;
 			}
 		}
@@ -356,7 +356,7 @@ $tc-badge-disabled-opacity: 0.62;
 	&-dropdown {
 		.tc-badge-button {
 			&:not(.tc-badge-disabled) {
-				&:global(.ally-focus-within) {
+				&:focus-within {
 					border-color: tokens.$coral-color-accent-border;
 				}
 			}

@@ -36,12 +36,6 @@ try {
 	warnMessageOptionalDep('jest-axe');
 }
 
-try {
-	jest.mock('ally.js');
-} catch (e) {
-	warnMessageOptionalDep('ally.js');
-}
-
 // add missing ResizeObserver
 class ResizeObserver {
 	observe() {
