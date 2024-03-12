@@ -2,7 +2,7 @@
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { readFileSync } = require('fs');
-const { rimraf } = require('rimraf');
+const { rimrafSync } = require('rimraf');
 const {
 	getLockContent,
 	getTmpDirectory,
@@ -28,7 +28,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		originLock = getLockContent(fixturePath, lock);
 	});
 	afterAll(() => {
-		rimraf.sync(path.join(__dirname, 'tmp-basic-*'));
+		rimrafSync(path.join(__dirname, 'tmp-basic-*'), { glob: { silent: true } });
 	});
 
 	it('should by default only do safe upgrade', async () => {

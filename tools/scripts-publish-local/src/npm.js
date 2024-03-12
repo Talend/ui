@@ -3,7 +3,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const generator = require('generate-password');
-const { rimraf } = require('rimraf');
+const { rimrafSync, rimraf } = require('rimraf');
 const cmd = require('./cmd');
 
 const NPMRC = `${os.homedir()}/.npmrc`;
@@ -30,12 +30,12 @@ function beforeSetup() {
 	const yarnrc = path.join(CWD, '.yarnrc');
 	if (fs.existsSync(npmrc)) {
 		console.log(`rm -rf ${npmrc}`);
-		rimraf.sync(npmrc);
+		rimrafSync(npmrc);
 	}
 	fs.writeFileSync(npmrc, 'registry=http://localhost:4873/');
 	if (fs.existsSync(yarnrc)) {
 		console.log(`rm -rf ${yarnrc}`);
-		rimraf.sync(yarnrc);
+		rimrafSync(yarnrc);
 	}
 	fs.writeFileSync(yarnrc, 'registry "http://localhost:4873/"');
 }
@@ -104,17 +104,17 @@ async function setup(repositories) {
 		const yarnlock = path.join(cwd, 'yarn.lock');
 		if (fs.existsSync(npmrc)) {
 			console.log(`rm -rf ${npmrc}`);
-			rimraf.sync(npmrc);
+			rimrafSync(npmrc);
 			fs.writeFileSync(npmrc, 'registry "http://localhost:4873/"');
 		}
 		if (fs.existsSync(yarnrc)) {
 			console.log(`rm -rf ${yarnrc}`);
-			rimraf.sync(yarnrc);
+			rimrafSync(yarnrc);
 			fs.writeFileSync(yarnrc, 'registry "http://localhost:4873/"');
 		}
 		if (fs.existsSync(yarnlock)) {
 			console.log(`rm -rf ${yarnlock}`);
-			rimraf.sync(yarnlock);
+			rimrafSync(yarnlock);
 		}
 	});
 	return addUser();
@@ -127,13 +127,13 @@ function tearDown() {
 		const yarnrc = path.join(CWD, '.yarnrc');
 		if (fs.existsSync(npmrc)) {
 			console.log(`rm -rf ${npmrc}`);
-			rimraf.sync(npmrc);
+			rimrafSync(npmrc);
 		}
 		if (fs.existsSync(yarnrc)) {
 			console.log(`rm -rf ${yarnrc}`);
-			rimraf.sync(yarnrc);
+			rimrafSync(yarnrc);
 		}
-		rimraf(YARN_CACHE_DIR, function (error) {
+		rimraf(YARN_CACHE_DIR).then(error => {
 			console.error(error);
 		});
 		cmd.runSync('yarn config delete cache-folder');

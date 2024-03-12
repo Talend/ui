@@ -2,7 +2,7 @@
 import cpx from 'cpx2';
 import fs from 'fs';
 import path from 'path';
-import { rimraf } from 'rimraf';
+import { rimrafSync } from 'rimraf';
 import { fileURLToPath } from 'url';
 
 import * as utils from '@talend/scripts-utils';
@@ -43,7 +43,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 
 	if (!options.includes('--watch')) {
 		console.log(`Removing target folder (${targetFolder})...`);
-		rimraf.sync(targetFolder);
+		rimrafSync(targetFolder);
 	}
 	const babelPromise = () =>
 		new Promise((resolve, reject) => {
