@@ -9,7 +9,7 @@
 const moduleToCdn = require('@talend/module-to-cdn');
 const mkdirp = require('mkdirp');
 const cpx = require('cpx2');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 const fs = require('fs');
 const util = require('util');
 const { exec } = require('child_process');

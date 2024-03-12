@@ -3,7 +3,7 @@ const path = require('path');
 const cpx = require('cpx2');
 const { spawnSync } = require('child_process');
 const fs = require('fs');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 
 const fixture = path.join(__dirname, 'fixture');
 const bin = path.resolve(__dirname, '../src/index.js');

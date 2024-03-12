@@ -3,7 +3,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const { readFileSync } = require('fs');
 const yarnpkg = require('@yarnpkg/lockfile');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 const semver = require('semver');
 const { getTmpDirectory } = require('./utils');
 

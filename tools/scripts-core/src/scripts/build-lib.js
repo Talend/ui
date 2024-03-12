@@ -2,7 +2,7 @@
 import cpx from 'cpx2';
 import fs from 'fs';
 import path from 'path';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
 import { fileURLToPath } from 'url';
 
 import * as utils from '@talend/scripts-utils';

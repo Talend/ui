@@ -3,7 +3,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const generator = require('generate-password');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 const cmd = require('./cmd');
 
 const NPMRC = `${os.homedir()}/.npmrc`;

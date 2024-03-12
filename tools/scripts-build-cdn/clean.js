@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 
 const CWD = process.cwd();
 const DIST = 'dist';

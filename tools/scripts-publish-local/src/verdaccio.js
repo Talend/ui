@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 const os = require('os');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 const path = require('path');
 const cmd = require('./cmd');
 const npm = require('./npm');

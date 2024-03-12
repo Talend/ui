@@ -2,7 +2,7 @@
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { readFileSync } = require('fs');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 const {
 	getLockContent,
 	getTmpDirectory,
