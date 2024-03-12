@@ -5,11 +5,13 @@ exports[`Default Array Template component should render default array template 1
   class="theme-tf-array-fieldset tf-array-fieldset"
   data-content="comments"
 >
-  <legend
-    class="sr-only"
+  <span
+    class="theme-hidden"
   >
-    comments
-  </legend>
+    <legend>
+      comments
+    </legend>
+  </span>
   <button
     aria-label="Add"
     class="theme-tf-array-add tf-array-add btn btn-info"

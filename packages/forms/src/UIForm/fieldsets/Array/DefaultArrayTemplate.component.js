@@ -1,11 +1,15 @@
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import { VisuallyHidden } from '@talend/design-system';
 import { Action } from '@talend/react-components/lib/Actions';
-import ArrayItem from './ArrayItem.component';
+
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 import Message from '../../Message';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
+import ArrayItem from './ArrayItem.component';
 
 import theme from './DefaultArrayTemplate.module.scss';
 
@@ -34,7 +38,11 @@ function DefaultArrayTemplate(props) {
 			className={classNames(theme['tf-array-fieldset'], 'tf-array-fieldset')}
 			data-content={schema.title}
 		>
-			{schema.title && <legend className="sr-only">{schema.title}</legend>}
+			{schema.title && (
+				<VisuallyHidden>
+					<legend>{schema.title}</legend>
+				</VisuallyHidden>
+			)}
 			{!schema.readOnly && (
 				<Action
 					id={`${id || 'tf-array'}-btn`}

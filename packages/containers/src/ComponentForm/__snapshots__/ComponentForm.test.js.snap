@@ -55,7 +55,7 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="react-autowhatever-_datasetMetadata_type"
-            class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist form-control-container"
+            class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist"
             role="combobox"
           >
             <div

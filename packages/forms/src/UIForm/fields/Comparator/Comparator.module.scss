@@ -1,18 +1,17 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tf-comparator-operator-height: 2rem !default;
+$tf-comparator-operator-height: tokens.$coral-sizing-m !default;
 $tf-comparator-operator-width: 3.125rem !default;
 $tf-comparator-operator-top: 1.5rem !default;
+$label-margin-top: 1.05rem;
 
 .comparator {
 	position: relative;
-	margin-bottom: $padding-normal;
 
 	:global {
 		.dropdown {
 			position: absolute;
-			top: $tf-comparator-operator-top;
+			top: calc($label-margin-top + tokens.$coral-spacing-xxs);
 
 			&-menu {
 				min-width: auto;
@@ -24,27 +23,16 @@ $tf-comparator-operator-top: 1.5rem !default;
 
 			.btn {
 				height: $tf-comparator-operator-height;
-				min-height: $tf-comparator-operator-height;
 				width: $tf-comparator-operator-width;
 				color: tokens.$coral-color-neutral-text;
 				background: tokens.$coral-color-accent-background;
 				border: 1px solid tokens.$coral-color-neutral-border;
-				border-radius: $input-border-radius 0 0 $input-border-radius;
+				border-radius: tokens.$coral-radius-s 0 0 tokens.$coral-radius-s;
 				z-index: 1;
 				padding: {
-					left: $padding-smaller;
-					right: $padding-smaller;
+					left: tokens.$coral-spacing-xxs;
+					right: tokens.$coral-spacing-xxs;
 				}
-			}
-		}
-
-		.form-group {
-			.control-label {
-				top: 0;
-			}
-
-			.form-control {
-				padding-left: $tf-comparator-operator-width + 0.625rem;
 			}
 		}
 	}

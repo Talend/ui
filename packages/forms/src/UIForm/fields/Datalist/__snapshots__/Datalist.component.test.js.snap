@@ -22,7 +22,7 @@ exports[`Datalist component should render 1`] = `
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="react-autowhatever-my-datalist"
-        class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist form-control-container theme-container-open tc-typeahead-container-open"
+        class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist theme-container-open tc-typeahead-container-open"
         role="combobox"
       >
         <div

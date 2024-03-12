@@ -2,78 +2,92 @@
 
 exports[`Select field should render simple select 1`] = `
 <div
-  class=""
+  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
 >
-  <div
-    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+  <label
+    class="theme-label"
+    for="mySelect"
   >
-    <label
-      class="theme-label"
-      for="mySelect"
+    My Select title
+    *
+  </label>
+  <div
+    class="theme-inputShell"
+  >
+    <div
+      class="theme-select__wrapper"
     >
-      My Select title
-      *
-    </label>
-    <select
-      aria-describedby="mySelect-description mySelect-error"
-      aria-invalid="false"
-      aria-required="true"
-      class="form-control"
-      id="mySelect"
-    >
-      <option
-        disabled=""
-        value=""
+      <select
+        aria-invalid="false"
+        aria-required="true"
+        class="theme-select"
+        id="mySelect"
+        label="[object Object]"
+        required=""
       >
-        Please select a value
-      </option>
-      <option
-        value="foo"
-      >
-        My foo title
-      </option>
-      <option
-        value="bar"
-      >
-        My bar title
-      </option>
-      <option
-        value="lol"
-      >
-        My lol title
-      </option>
-    </select>
-    <div>
+        <option
+          disabled=""
+        >
+          Please select a value
+        </option>
+        <option
+          value="foo"
+        >
+          My foo title
+        </option>
+        <option
+          value="bar"
+        >
+          My bar title
+        </option>
+        <option
+          value="lol"
+        >
+          My lol title
+        </option>
+      </select>
       <div
-        aria-live="polite"
-        class="theme-inlineMessage"
-        data-test="fieldTemplate.inlineMessage"
-        id="mySelect-description"
-        role="status"
+        class="theme-select__icon"
       >
-        <span
-          class="theme-icon theme-information__icon"
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 0.75rem; height: 0.75rem;"
         >
-          <svg
-            aria-hidden="true"
-            pointer-events="none"
-            shape-rendering="geometricPrecision"
-            style="width: 1rem; height: 1rem;"
-          >
-            <use
-              xlink:href="#information-filled:M"
-            />
-          </svg>
-        </span>
-        <p
-          class="theme-inlineMessage__contents"
-        >
-          <span>
-            Select me
-          </span>
-        </p>
+          <use
+            xlink:href="#chevron-down:S"
+          />
+        </svg>
       </div>
     </div>
+  </div>
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-information__icon"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1rem; height: 1rem;"
+      >
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        My Error Message
+      </span>
+    </p>
   </div>
 </div>
 `;

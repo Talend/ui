@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import { useController, useFormContext } from 'react-hook-form';
 
-import TextArea from '../../../widgets/fields/TextArea';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
 
 function RHFTextArea({ rules = {}, name = '', defaultValue, ...rest }) {
 	const { control } = useFormContext();
@@ -12,7 +13,14 @@ function RHFTextArea({ rules = {}, name = '', defaultValue, ...rest }) {
 		defaultValue,
 	});
 
-	return <TextArea {...rest} {...field} error={fieldState.error?.message} />;
+	return (
+		<Form.Textarea
+			hasError={!!fieldState.error?.message}
+			description={fieldState.error?.message}
+			{...field}
+			{...rest}
+		/>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {

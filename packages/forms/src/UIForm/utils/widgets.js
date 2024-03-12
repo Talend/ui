@@ -17,7 +17,7 @@ import Select, { TextModeSelect } from '../fields/Select';
 import Text, { TextTextMode } from '../fields/Text';
 import TextArea, { TextAreaTextMode } from '../fields/TextArea';
 import TimezoneList from '../fields/TimezoneList';
-import Toggle, { ToggleTextMode } from '../fields/Toggle';
+import Toggle from '../fields/Toggle';
 import ArrayWidget from '../fieldsets/Array';
 import createCollapsibleFieldset from '../fieldsets/CollapsibleFieldset';
 import Columns from '../fieldsets/Columns';
@@ -64,7 +64,7 @@ const widgets = {
 	select_text: TextModeSelect,
 	text_text: TextTextMode,
 	textarea_text: TextAreaTextMode,
-	toggle_text: ToggleTextMode,
+	toggle_text: TextModeCheckBox,
 
 	// widgets
 	buttons: Buttons,
