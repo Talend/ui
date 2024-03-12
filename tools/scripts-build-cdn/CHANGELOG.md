@@ -1,5 +1,11 @@
 # @talend/scripts-build-cdn
 
+## 11.1.3
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
 ## 11.1.2
 
 ### Patch Changes

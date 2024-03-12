@@ -1,6 +1,6 @@
 {
   "name": "@talend/upgrade-deps",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "CLI to help management of dependencies",
   "type": "module",
   "bin": {
@@ -16,7 +16,7 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.0.3",
     "@talend/eslint-plugin": "^1.1.1",
-    "@talend/scripts-core": "^16.3.5"
+    "@talend/scripts-core": "^16.3.6"
   },
   "license": "Apache-2.0",
   "homepage": "https://github.com/Talend/ui",

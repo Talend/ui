@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 16.3.6
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
 ## 16.3.5
 
 ### Patch Changes
