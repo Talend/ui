@@ -1,5 +1,11 @@
 # @talend/upgrade-deps
 
+## 3.0.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 3.0.1
 
 ### Patch Changes

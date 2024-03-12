@@ -1,5 +1,27 @@
 # @talend/react-containers
 
+## 10.7.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+  - @talend/react-forms@13.2.3
+
+## 10.7.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-system@9.8.1
+  - @talend/react-components@15.3.1
+  - @talend/react-forms@13.2.2
+  - @talend/utils@3.0.4
+  - @talend/react-cmf@8.4.1
+
 ## 10.7.0
 
 ### Minor Changes

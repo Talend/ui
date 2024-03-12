@@ -1,5 +1,23 @@
 # @talend/design-docs
 
+## 4.1.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+
+## 4.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/storybook-docs@2.4.1
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/icons@7.7.1
+
 ## 4.1.0
 
 ### Minor Changes

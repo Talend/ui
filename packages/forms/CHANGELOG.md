@@ -1,5 +1,28 @@
 # @talend/react-forms
 
+## 13.2.3
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+
+## 13.2.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/react-components@15.3.1
+  - @talend/icons@7.7.1
+  - @talend/utils@3.0.4
+  - @talend/json-schema-form-core@1.2.3
+
 ## 13.2.1
 
 ### Patch Changes

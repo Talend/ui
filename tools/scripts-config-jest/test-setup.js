@@ -12,35 +12,14 @@ require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
 
-const warnMessageOptionalDep = (mainDepToMock, depList = []) => {
-	if (depList.length === 0) {
-		console.warn(
-			`JEST MOCK WARN: ${mainDepToMock} is not resolved.` +
-				'\nThis is an optional dependency.' +
-				'\nPlease add it in your dependencies if you need it',
-		);
-	} else if (depList.length > 0) {
-		console.warn(
-			`JEST MOCK WARN: one or more of those deps are not resolved: ${depList.join(', ')}` +
-				'These are optional dependencies but work together.' +
-				`\nIt's needed to mock ${mainDepToMock}` +
-				'\nPlease add them in your dependencies if you need them',
-		);
-	}
-};
-
 try {
 	const jestAxe = require('jest-axe');
 	expect.extend(jestAxe.toHaveNoViolations);
-} catch (e) {
-	warnMessageOptionalDep('jest-axe');
-}
+} catch (e) {}
 
 try {
 	jest.mock('ally.js');
-} catch (e) {
-	warnMessageOptionalDep('ally.js');
-}
+} catch (e) {}
 
 // add missing ResizeObserver
 class ResizeObserver {
@@ -147,9 +126,7 @@ try {
 		i18nextMock.addResources = () => {};
 		return i18nextMock;
 	});
-} catch (e) {
-	warnMessageOptionalDep('i18next');
-}
+} catch (e) {}
 
 try {
 	jest.mock('react-i18next', () => {
@@ -201,9 +178,7 @@ try {
 				Array.isArray(children) ? renderNodes(children) : renderNodes([children]),
 		};
 	});
-} catch (e) {
-	warnMessageOptionalDep('react-i18next', ['react-i18next', 'i18next', 'react']);
-}
+} catch (e) {}
 
 try {
 	jest.mock('@talend/design-system', () => {
@@ -260,14 +235,7 @@ try {
 
 		return mocks;
 	});
-} catch {
-	warnMessageOptionalDep('@talend/design-system', [
-		'@talend/design-system',
-		'react',
-		'prop-types',
-		'classnames',
-	]);
-}
+} catch {}
 
 // @floating-ui/react
 // https://github.com/floating-ui/floating-ui/issues/1908

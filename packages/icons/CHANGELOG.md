@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.7.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 7.7.0
 
 ### Minor Changes

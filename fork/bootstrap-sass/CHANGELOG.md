@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 5.2.0
 
 ### Minor Changes

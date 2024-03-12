@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 2.2.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 2.2.1
 
 ### Patch Changes

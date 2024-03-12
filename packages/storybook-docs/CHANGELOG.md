@@ -1,5 +1,13 @@
 # @talend/storybook-docs
 
+## 2.4.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+
 ## 2.4.0
 
 ### Minor Changes

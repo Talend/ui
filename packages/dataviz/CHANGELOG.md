@@ -1,5 +1,22 @@
 # Changelog
 
+## 6.1.3
+
+### Patch Changes
+
+- @talend/react-components@16.0.0
+
+## 6.1.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/react-components@15.3.1
+
 ## 6.1.1
 
 ### Patch Changes

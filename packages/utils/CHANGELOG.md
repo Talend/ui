@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.0.4
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 3.0.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.2.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+
 ## 6.2.0
 
 ### Minor Changes

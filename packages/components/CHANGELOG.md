@@ -1,5 +1,33 @@
 # @talend/react-components
 
+## 16.0.0
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+
+## 15.3.2
+
+### Patch Changes
+
+- 2d7861a: fix: tooltip alignement for buttons in list component
+
+## 15.3.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- 5cedaf1: TMC-26238 - Fix JSON object viewer style on safari with word-break
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/react-bootstrap@2.2.2
+  - @talend/assets-api@1.3.2
+  - @talend/icons@7.7.1
+  - @talend/bootstrap-theme@9.1.1
+  - @talend/utils@3.0.4
+  - @talend/react-a11y@3.0.1
+
 ## 15.3.0
 
 ### Minor Changes
