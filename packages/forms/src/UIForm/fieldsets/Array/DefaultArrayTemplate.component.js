@@ -54,7 +54,6 @@ function DefaultArrayTemplate(props) {
 				/>
 			)}
 			<Message
-				className={isValid ? undefined : 'has-error'}
 				errorMessage={errorMessage}
 				description={schema.description}
 				isValid={isValid}

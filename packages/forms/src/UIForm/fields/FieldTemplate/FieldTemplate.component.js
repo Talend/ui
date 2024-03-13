@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import { Form, StackVertical } from '@talend/design-system';
@@ -8,10 +7,6 @@ import Message from '../../Message';
 import { getLabelProps } from '../../utils/labels';
 
 function FieldTemplate(props) {
-	const groupsClassNames = classNames(props.className, {
-		'has-error': !props.isValid,
-	});
-
 	const title = (
 		<Form.Label
 			htmlFor={props.id}
@@ -26,7 +21,7 @@ function FieldTemplate(props) {
 		: { gap: 'XXS', align: 'stretch', justify: 'start', height: '100%', noShrink: true };
 
 	return (
-		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>
+		<div className={props.className} aria-busy={props.valueIsUpdating}>
 			<Stack {...stackProps}>
 				{props.label && !labelAfter && title}
 				{props.children}

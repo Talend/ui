@@ -165,7 +165,7 @@ describe('Fieldset widget', () => {
 		);
 
 		// then
-		expect(screen.getByText('My fieldset')).toHaveClass('theme-hidden');
+		expect(screen.getByText('My fieldset').parentElement).toHaveClass('theme-hidden');
 	});
 
 	it('should not render if empty', () => {

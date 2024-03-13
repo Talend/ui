@@ -22,7 +22,6 @@ exports[`Array component should render array 1`] = `
       Add
     </span>
   </button>
-  <div />
   <ol
     aria-describedby="talend-array-description talend-array-error"
     aria-invalid="true"

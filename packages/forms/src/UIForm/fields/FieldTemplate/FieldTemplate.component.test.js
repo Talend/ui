@@ -64,18 +64,6 @@ describe('FieldTemplate', () => {
 		expect(screen.getByText('Tooltip content')).toBeInTheDocument();
 	});
 
-	it('should render invalid className', () => {
-		// when
-		const { container } = render(
-			<FieldTemplate {...defaultProps} isValid={false}>
-				<input id="myAwesomeField" />
-			</FieldTemplate>,
-		);
-
-		// then
-		expect(container.firstChild).toHaveClass('has-error');
-	});
-
 	it('should add animation on value with updating status', () => {
 		// when
 		const { container } = render(

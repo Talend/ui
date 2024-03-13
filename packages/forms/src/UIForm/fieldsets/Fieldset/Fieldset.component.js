@@ -15,7 +15,12 @@ export default function Fieldset(props) {
 		.map((itemSchema, index) => <Widget {...restProps} key={index} schema={itemSchema} />);
 
 	return widgets.length ? (
-		<Form.Fieldset legend={options?.hideTitle ? <VisuallyHidden>{title}</VisuallyHidden> : title}>
+		<Form.Fieldset legend={!options?.hideTitle && title}>
+			{options?.hideTitle && (
+				<VisuallyHidden>
+					<legend>{title}</legend>
+				</VisuallyHidden>
+			)}
 			{widgets}
 		</Form.Fieldset>
 	) : null;

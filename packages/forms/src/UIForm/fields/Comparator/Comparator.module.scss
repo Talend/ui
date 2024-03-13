@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$tf-comparator-operator-height: tokens.$coral-sizing-m !default;
+$tf-comparator-operator-height: 1.875rem !default;
 $tf-comparator-operator-width: 3.125rem !default;
 $tf-comparator-operator-top: 1.5rem !default;
 $label-margin-top: 1.05rem;
@@ -34,6 +34,10 @@ $label-margin-top: 1.05rem;
 					right: tokens.$coral-spacing-xxs;
 				}
 			}
+		}
+
+		input {
+			padding-left: calc($tf-comparator-operator-width + tokens.$coral-spacing-xs);
 		}
 	}
 }

@@ -28,3 +28,7 @@
 		}
 	}
 }
+
+.has-error {
+	border-color: tokens.$coral-color-danger-border;
+}

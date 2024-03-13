@@ -53,15 +53,13 @@ exports[`Tabs widget should render tabs 1`] = `
       <fieldset
         class="theme-fieldset"
       >
-        <legend
-          class="theme-legend"
+        <span
+          class="theme-hidden"
         >
-          <span
-            class="theme-hidden"
-          >
+          <legend>
             User
-          </span>
-        </legend>
+          </legend>
+        </span>
         <div
           class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
@@ -111,15 +109,13 @@ exports[`Tabs widget should render tabs 1`] = `
       <fieldset
         class="theme-fieldset"
       >
-        <legend
-          class="theme-legend"
+        <span
+          class="theme-hidden"
         >
-          <span
-            class="theme-hidden"
-          >
+          <legend>
             Other
-          </span>
-        </legend>
+          </legend>
+        </span>
         <div
           class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
