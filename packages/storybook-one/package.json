@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-storybook-one",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "Package containing all stories from talend/ui repository",
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@talend/storybook-docs": "^2.4.1",
     "@talend/icons": "^7.7.1",
     "@talend/react-components": "^16.0.0",
-    "@talend/react-forms": "^13.2.3",
+    "@talend/react-forms": "^14.0.0",
     "@talend/react-dataviz": "^6.1.3",
     "lodash": "^4.17.21",
     "pkg-dir": "^7.0.0",

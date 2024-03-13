@@ -1,5 +1,12 @@
 # @talend/ui-storybook-one
 
+## 2.4.3
+
+### Patch Changes
+
+- Updated dependencies [0629df7]
+  - @talend/react-forms@14.0.0
+
 ## 2.4.2
 
 ### Patch Changes
