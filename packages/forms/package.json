@@ -57,7 +57,6 @@
   "devDependencies": {
     "@storybook/addon-actions": "^7.6.17",
     "@storybook/addon-controls": "^7.6.17",
-    "@talend/bootstrap-theme": "^9.1.1",
     "@talend/locales-tui-forms": "^10.2.4",
     "@talend/react-components": "^16.0.0",
     "@talend/eslint-config": "^13.0.3",

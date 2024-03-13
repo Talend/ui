@@ -1,21 +1,22 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+
+import { Form, StackItem } from '@talend/design-system';
 
 import Widget from '../../Widget';
-import theme from './Columns.module.scss';
 
 export default function Columns(props) {
 	const { schema, ...restProps } = props;
 
 	return (
-		<div className={classNames('tf-columns', theme['tf-columns'])}>
-			{schema.title && <legend>{schema.title}</legend>}
-			<div className={classNames('tf-columns-items', theme.items)}>
+		<Form.Fieldset legend={schema.title}>
+			<Form.Row data-form-row isStretched>
 				{schema.items.map((colSchema, index) => (
-					<Widget {...restProps} key={index} schema={colSchema} />
+					<StackItem grow isFullWidth key={index}>
+						<Widget {...restProps} key={index} schema={colSchema} />
+					</StackItem>
 				))}
-			</div>
-		</div>
+			</Form.Row>
+		</Form.Fieldset>
 	);
 }
 

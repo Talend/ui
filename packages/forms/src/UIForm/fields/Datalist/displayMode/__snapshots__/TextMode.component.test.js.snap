@@ -2,20 +2,18 @@
 
 exports[`Datalist component in text display mode should render 1`] = `
 <div
-  class="form-group"
+  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
 >
-  <dt>
-    <label
-      class="control-label"
-      for="my-datalist"
-    >
-      My List
-    </label>
-  </dt>
-  <dd
+  <label
+    class="theme-label"
+    for="my-datalist"
+  >
+    My List
+  </label>
+  <div
     id="my-datalist"
   >
     Foo
-  </dd>
+  </div>
 </div>
 `;

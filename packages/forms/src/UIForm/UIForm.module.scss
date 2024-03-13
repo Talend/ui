@@ -1,61 +1,25 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-drawer-content-max-width: 40.625rem !default;
-$tc-drawer-padding: $padding-large !default;
+:global(.tc-drawer-content:has([data-drawer-absolute-footer-buttons])) {
+	margin-bottom: 50px;
 
-.uiform {
-	:global(.tf-title-text-mode) {
-		font-size: 1.0625rem;
-		font-weight: 700;
-		color: tokens.$coral-color-neutral-text-weak;
-	}
-}
-
-:global(.tc-drawer-container),
-:global(.modal-body) {
-	.uiform {
+	.drawer-absolute-footer-buttons {
+		background: tokens.$coral-color-neutral-background-medium;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: tokens.$coral-spacing-xs tokens.$coral-spacing-m;
 		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-		min-height: 0;
-		overflow: hidden; /* IE11 fix to show scrollbars properly */
-	}
+		justify-content: space-between;
 
-	.form-content {
-		flex-grow: 1;
-		min-height: 0;
-		overflow-y: auto;
-	}
-}
-
-:global(.tc-drawer-container) {
-	.form-content {
-		padding: $tc-drawer-padding;
-	}
-
-	.form-actions {
-		padding: $padding-small $tc-drawer-padding;
-		background-color: tokens.$coral-color-neutral-background-medium;
-	}
-}
-
-@media screen and (min-width: $screen-xs-max) {
-	:global(.stacked) :global(.tc-drawer-container) {
-		.form-content {
+		> div {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
+			flex: 1;
 
-			> * {
-				width: calc(#{$tc-drawer-content-max-width} - 2 * #{$tc-drawer-padding});
+			> div {
+				padding: 0;
 			}
-		}
-
-		:global(.form-actions) {
-			margin: auto;
-			padding: 0 $tc-drawer-padding;
-			max-width: $tc-drawer-content-max-width;
 		}
 	}
 }

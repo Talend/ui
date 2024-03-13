@@ -1,13 +1,14 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import { withTranslation } from 'react-i18next';
-import callTrigger from '../../../trigger';
-import { DID_MOUNT, FOCUS } from '../constants';
-import { TextMode as FieldTemplate } from '../../FieldTemplate';
+
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+
 import { I18N_DOMAIN_FORMS } from '../../../../constants';
 import getDefaultT from '../../../../translate';
-import theme from './TextMode.module.scss';
+import callTrigger from '../../../trigger';
+import { TextMode as FieldTemplate } from '../../FieldTemplate';
+import { DID_MOUNT, FOCUS } from '../constants';
 
 class TextMode extends Component {
 	constructor(props) {
@@ -51,7 +52,7 @@ class TextMode extends Component {
 		let displayValue = (titleEntry && titleEntry.name) || value;
 		if (value && this.state.isLoading) {
 			displayValue = (
-				<span className={theme.loading} aria-busy="true">
+				<span aria-busy="true">
 					{value} {`(${t('DATALIST_WIDGET_LOADING_LABELS', { defaultValue: 'loading labels' })})`}
 				</span>
 			);

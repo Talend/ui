@@ -75,7 +75,6 @@ describe('Input RHF widget', () => {
 					rules={{
 						required: 'This should not be empty',
 					}}
-					placeholder="Please select"
 				/>
 			</FormWrapper>,
 		);

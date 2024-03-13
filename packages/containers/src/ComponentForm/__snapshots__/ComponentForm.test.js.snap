@@ -2,46 +2,46 @@
 
 exports[`ComponentForm #render should render a UIForm 1`] = `
 <form
-  class="tf-uiform theme-uiform"
+  class="theme-form"
   novalidate=""
 >
-  <div
-    class="theme-form-content"
+  <fieldset
+    class="theme-fieldset"
   >
-    <fieldset
-      class="form-group"
+    <legend
+      class="theme-legend"
     >
-      <legend
-        class=""
+      Metadata
+    </legend>
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <label
+        class="theme-label"
+        for="_datasetMetadata_name"
       >
-        Metadata
-      </legend>
+        Name
+      </label>
       <div
-        aria-busy="false"
-        class="form-group theme-template"
+        class="theme-inputShell"
       >
-        <label
-          class="control-label"
-          for="_datasetMetadata_name"
-        >
-          Name
-        </label>
         <input
-          aria-describedby="_datasetMetadata_name-description _datasetMetadata_name-error"
           aria-invalid="false"
-          class="form-control"
+          class="theme-input"
           id="_datasetMetadata_name"
           type="text"
           value=""
         />
-        <div />
       </div>
+    </div>
+    <div
+      aria-busy="false"
+    >
       <div
-        aria-busy="false"
-        class="form-group theme-template"
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
         <label
-          class="control-label"
+          class="theme-label"
           for="_datasetMetadata_type"
         >
           Types
@@ -54,7 +54,7 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="react-autowhatever-_datasetMetadata_type"
-            class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist form-control-container"
+            class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist"
             role="combobox"
           >
             <div
@@ -102,38 +102,34 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
             </div>
           </div>
         </div>
-        <div />
       </div>
-      <div
-        aria-busy="false"
-        class="form-group theme-template"
+    </div>
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <label
+        class="theme-label"
+        for="_datasetMetadata_description"
       >
-        <label
-          class="control-label"
-          for="_datasetMetadata_description"
-        >
-          Description
-        </label>
-        <textarea
-          aria-describedby="_datasetMetadata_description-description _datasetMetadata_description-error"
-          aria-invalid="false"
-          class="form-control"
-          id="_datasetMetadata_description"
-          rows="5"
-        />
-        <div />
-      </div>
-    </fieldset>
-  </div>
+        Description
+      </label>
+      <textarea
+        aria-invalid="false"
+        class="theme-textarea"
+        id="_datasetMetadata_description"
+        rows="5"
+      />
+    </div>
+  </fieldset>
   <div
-    class="theme-form-actions tf-actions-wrapper"
+    class="theme-buttons"
   >
     <div
-      class="theme-tf-buttons tf-buttons form-actions"
+      class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-0 theme-padding-bottom-M theme-padding-left-0"
     >
       <button
         aria-label="Submit"
-        class="btn theme-right btn btn-primary"
+        class="btn btn btn-primary"
         id="undefined-actions-0"
         type="submit"
       >

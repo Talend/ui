@@ -8,7 +8,6 @@ import { ButtonIcon } from '@talend/design-system';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.module.scss';
 import theme from './ArrayItem.module.scss';
 
 export function ReorderButton(props) {
@@ -90,11 +89,7 @@ function ArrayItem(props) {
 		actions.push(deleteAction);
 	}
 	return (
-		<div
-			className={classNames(theme['tf-array-item'], 'tf-array-item', {
-				[fieldTemplateTheme.updating]: valueIsUpdating,
-			})}
-		>
+		<div className={classNames(theme['tf-array-item'], 'tf-array-item')}>
 			<div className={theme.control}>
 				{!isClosed && onReorder && !readOnly && (
 					<Fragment>

@@ -1,6 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { useForm, FormProvider } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
+
 import { action } from '@storybook/addon-actions';
+
+import { Form } from '@talend/design-system';
+
 import Input from '.';
 
 export default {
@@ -44,7 +48,7 @@ export const States = props => {
 	const rhf = useForm();
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input id="name" type="text" {...props} />
 				<Input
 					id="disabled"
@@ -62,10 +66,12 @@ export const States = props => {
 					defaultValue="Jimmy"
 					readOnly
 				/>
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
@@ -80,14 +86,16 @@ export const Types = props => {
 
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input id="text" type="text" {...props} />
 				<Input id="number" type="number" name="number" label="Number" />
 				<Input id="password" type="password" name="password" label="Password" />
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
@@ -103,12 +111,14 @@ export const DefaultValue = props => {
 
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input id="defaultValue" type="text" {...props} />
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
@@ -124,12 +134,14 @@ export const Description = props => {
 
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input id="description" {...props} />
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
@@ -144,7 +156,7 @@ export const Validation = props => {
 
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Input id="required" type="text" {...props} rules={{ required: 'This is required' }} />
 				<Input
 					id="notLol"
@@ -159,10 +171,12 @@ export const Validation = props => {
 					}}
 					required
 				/>
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
