@@ -1,5 +1,15 @@
 # @talend/react-forms
 
+## 14.0.1
+
+### Patch Changes
+
+- 6a69c4c: Fix UI-Form display on TextModeArrayTemplate to have some spacing between templates
+- Updated dependencies [8a25fb3]
+- Updated dependencies [6a69c4c]
+  - @talend/design-system@10.1.0
+  - @talend/react-components@16.0.1
+
 ## 14.0.0
 
 ### Major Changes
