@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 16.0.1
+
+### Patch Changes
+
+- 6a69c4c: Fix Drawer z-index that could prevent headerbar to display sub-menu
+
 ## 16.0.0
 
 ### Patch Changes

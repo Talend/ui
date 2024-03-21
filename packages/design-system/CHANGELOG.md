@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.1.0
+
+### Minor Changes
+
+- 8a25fb3: DS Field data-test attributes are now passed down to related description
+
 ## 10.0.0
 
 ### Major Changes
