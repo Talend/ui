@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.1.1
+
+### Patch Changes
+
+- 377e43a: fix(DFD-914): Fix flashing tooltip on some gesture
+
 ## 10.1.0
 
 ### Minor Changes
