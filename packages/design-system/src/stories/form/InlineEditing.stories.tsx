@@ -154,7 +154,7 @@ export const DefaultEditionMode = {
 	),
 };
 
-function InlineEditingWithControlledEditionMode({ ...props }) {
+function WithControlledEditionMode({ ...props }) {
 	const [isEditing, setEditing] = useState(false);
 
 	return (
@@ -183,7 +183,7 @@ function InlineEditingWithControlledEditionMode({ ...props }) {
 }
 
 export const ControlEditionMode = {
-	render: (props: Story) => <InlineEditingWithControlledEditionMode {...props} />,
+	render: (props: Story) => <WithControlledEditionMode {...props} />,
 };
 
 export const InUse = (props: Story) => {
