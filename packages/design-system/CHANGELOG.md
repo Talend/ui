@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.2.1
+
+### Patch Changes
+
+- 1488e8a: Status : add data-test\* attributes
+
 ## 10.2.0
 
 ### Minor Changes
