@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.2.0
+
+### Minor Changes
+
+- ea80021: InlineEditing : allow to control edition mode
+
 ## 10.1.1
 
 ### Patch Changes
