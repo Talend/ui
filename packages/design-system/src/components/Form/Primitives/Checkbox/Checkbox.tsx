@@ -1,16 +1,17 @@
 import {
 	forwardRef,
+	InputHTMLAttributes,
 	ReactElement,
 	Ref,
-	InputHTMLAttributes,
 	useEffect,
-	useRef,
 	useImperativeHandle,
+	useRef,
 } from 'react';
+
 import classnames from 'classnames';
 
-import { useId } from '../../../../useId';
 import { useControl } from '../../../../useControl';
+import { useId } from '../../../../useId';
 import Label from '../../Label';
 
 import styles from './Checkbox.module.scss';
