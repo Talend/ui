@@ -33,9 +33,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^10.0.0",
+    "@talend/design-system": "^10.2.0",
     "@talend/design-tokens": "^3.1.1",
-    "@talend/react-components": "^16.0.0",
+    "@talend/react-components": "^16.0.1",
     "classnames": "^2.5.1",
     "invariant": "^2.2.4",
     "lodash": "^4.17.21"
@@ -49,10 +49,10 @@
     "@talend/scripts-config-react-webpack": "^16.5.1",
     "@talend/scripts-config-storybook-lib": "^5.3.1",
     "@talend/scripts-config-typescript": "^11.2.1",
-    "@talend/scripts-core": "^16.3.5",
+    "@talend/scripts-core": "^16.3.6",
     "@testing-library/react-hooks": "^8.0.1",
     "@trivago/prettier-plugin-sort-imports": "^3.4.0",
-    "i18next": "^23.10.0",
+    "i18next": "^23.10.1",
     "immutable": "^3.8.2",
     "jsdom": "^20.0.3",
     "prettier": "^3.2.5",
@@ -64,7 +64,7 @@
     "react-transition-group": "^2.9.0"
   },
   "peerDependencies": {
-    "i18next": "^23.10.0",
+    "i18next": "^23.10.1",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",
