@@ -53,49 +53,53 @@ exports[`Tabs widget should render tabs 1`] = `
       <fieldset
         class="theme-fieldset"
       >
-        <span
-          class="theme-hidden"
-        >
-          <legend>
-            User
-          </legend>
-        </span>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="theme-fieldset-content"
         >
-          <label
-            class="theme-label"
-            for="user_firstname"
-          />
-          <div
-            class="theme-inputShell"
+          <span
+            class="theme-hidden"
           >
-            <input
-              aria-invalid="false"
-              class="theme-input"
-              id="user_firstname"
-              type="text"
-              value=""
+            <legend>
+              User
+            </legend>
+          </span>
+          <div
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          >
+            <label
+              class="theme-label"
+              for="user_firstname"
             />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="user_firstname"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
-        </div>
-        <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-        >
-          <label
-            class="theme-label"
-            for="user_lastname"
-          />
           <div
-            class="theme-inputShell"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
-            <input
-              aria-invalid="false"
-              class="theme-input"
-              id="user_lastname"
-              type="text"
-              value=""
+            <label
+              class="theme-label"
+              for="user_lastname"
             />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="user_lastname"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
         </div>
       </fieldset>
@@ -109,30 +113,34 @@ exports[`Tabs widget should render tabs 1`] = `
       <fieldset
         class="theme-fieldset"
       >
-        <span
-          class="theme-hidden"
-        >
-          <legend>
-            Other
-          </legend>
-        </span>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="theme-fieldset-content"
         >
-          <label
-            class="theme-label"
-            for="comment"
-          />
-          <div
-            class="theme-inputShell"
+          <span
+            class="theme-hidden"
           >
-            <input
-              aria-invalid="false"
-              class="theme-input"
-              id="comment"
-              type="text"
-              value=""
+            <legend>
+              Other
+            </legend>
+          </span>
+          <div
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          >
+            <label
+              class="theme-label"
+              for="comment"
             />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-invalid="false"
+                class="theme-input"
+                id="comment"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
         </div>
       </fieldset>

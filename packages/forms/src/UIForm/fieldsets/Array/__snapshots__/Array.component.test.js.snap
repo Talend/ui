@@ -91,118 +91,122 @@ exports[`Array component should render array 1`] = `
           class="theme-fieldset"
         >
           <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            class="theme-fieldset-content"
           >
-            <label
-              class="theme-label"
-              for="talend-array-0_comments_0_comments_0_name"
-            >
-              Name
-              *
-            </label>
             <div
-              class="theme-inputShell"
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
             >
-              <input
-                aria-invalid="false"
-                aria-required="true"
-                class="theme-input"
-                id="talend-array-0_comments_0_comments_0_name"
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-          >
-            <label
-              class="theme-label"
-              for="talend-array-0_comments_0_comments_0_email"
-            >
-              Email
-            </label>
-            <div
-              class="theme-inputShell"
-            >
-              <input
-                aria-invalid="false"
-                class="theme-input"
-                id="talend-array-0_comments_0_comments_0_email"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              aria-live="polite"
-              class="theme-inlineMessage"
-              role="status"
-            >
-              <span
-                class="theme-icon theme-information__icon"
+              <label
+                class="theme-label"
+                for="talend-array-0_comments_0_comments_0_name"
               >
-                <svg
-                  aria-hidden="true"
-                  pointer-events="none"
-                  shape-rendering="geometricPrecision"
-                  style="width: 1rem; height: 1rem;"
+                Name
+                *
+              </label>
+              <div
+                class="theme-inputShell"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-required="true"
+                  class="theme-input"
+                  id="talend-array-0_comments_0_comments_0_name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            >
+              <label
+                class="theme-label"
+                for="talend-array-0_comments_0_comments_0_email"
+              >
+                Email
+              </label>
+              <div
+                class="theme-inputShell"
+              >
+                <input
+                  aria-invalid="false"
+                  class="theme-input"
+                  id="talend-array-0_comments_0_comments_0_email"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
                 >
-                  <use
-                    xlink:href="#information-filled:M"
-                  />
-                </svg>
-              </span>
-              <p
-                class="theme-inlineMessage__contents"
-              >
-                <span>
-                  Email will be used for evil.
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
                 </span>
-              </p>
-            </div>
-          </div>
-          <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-          >
-            <label
-              class="theme-label"
-              for="talend-array-0_comments_0_comments_0_comment"
-            >
-              Comment
-            </label>
-            <textarea
-              aria-invalid="false"
-              class="theme-textarea"
-              id="talend-array-0_comments_0_comments_0_comment"
-              rows="3"
-            />
-            <div
-              aria-live="polite"
-              class="theme-inlineMessage"
-              role="status"
-            >
-              <span
-                class="theme-icon theme-information__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  pointer-events="none"
-                  shape-rendering="geometricPrecision"
-                  style="width: 1rem; height: 1rem;"
+                <p
+                  class="theme-inlineMessage__contents"
                 >
-                  <use
-                    xlink:href="#information-filled:M"
-                  />
-                </svg>
-              </span>
-              <p
-                class="theme-inlineMessage__contents"
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            >
+              <label
+                class="theme-label"
+                for="talend-array-0_comments_0_comments_0_comment"
               >
-                <span>
-                  Don't be greedy!
+                Comment
+              </label>
+              <textarea
+                aria-invalid="false"
+                class="theme-textarea"
+                id="talend-array-0_comments_0_comments_0_comment"
+                rows="3"
+              />
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
                 </span>
-              </p>
+                <p
+                  class="theme-inlineMessage__contents"
+                >
+                  <span>
+                    Don't be greedy!
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </fieldset>
@@ -299,118 +303,122 @@ exports[`Array component should render array 1`] = `
           class="theme-fieldset"
         >
           <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            class="theme-fieldset-content"
           >
-            <label
-              class="theme-label"
-              for="talend-array-1_comments_1_comments_1_name"
-            >
-              Name
-              *
-            </label>
             <div
-              class="theme-inputShell"
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
             >
-              <input
-                aria-invalid="false"
-                aria-required="true"
-                class="theme-input"
-                id="talend-array-1_comments_1_comments_1_name"
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-          >
-            <label
-              class="theme-label"
-              for="talend-array-1_comments_1_comments_1_email"
-            >
-              Email
-            </label>
-            <div
-              class="theme-inputShell"
-            >
-              <input
-                aria-invalid="false"
-                class="theme-input"
-                id="talend-array-1_comments_1_comments_1_email"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              aria-live="polite"
-              class="theme-inlineMessage"
-              role="status"
-            >
-              <span
-                class="theme-icon theme-information__icon"
+              <label
+                class="theme-label"
+                for="talend-array-1_comments_1_comments_1_name"
               >
-                <svg
-                  aria-hidden="true"
-                  pointer-events="none"
-                  shape-rendering="geometricPrecision"
-                  style="width: 1rem; height: 1rem;"
+                Name
+                *
+              </label>
+              <div
+                class="theme-inputShell"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-required="true"
+                  class="theme-input"
+                  id="talend-array-1_comments_1_comments_1_name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            >
+              <label
+                class="theme-label"
+                for="talend-array-1_comments_1_comments_1_email"
+              >
+                Email
+              </label>
+              <div
+                class="theme-inputShell"
+              >
+                <input
+                  aria-invalid="false"
+                  class="theme-input"
+                  id="talend-array-1_comments_1_comments_1_email"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
                 >
-                  <use
-                    xlink:href="#information-filled:M"
-                  />
-                </svg>
-              </span>
-              <p
-                class="theme-inlineMessage__contents"
-              >
-                <span>
-                  Email will be used for evil.
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
                 </span>
-              </p>
-            </div>
-          </div>
-          <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-          >
-            <label
-              class="theme-label"
-              for="talend-array-1_comments_1_comments_1_comment"
-            >
-              Comment
-            </label>
-            <textarea
-              aria-invalid="false"
-              class="theme-textarea"
-              id="talend-array-1_comments_1_comments_1_comment"
-              rows="3"
-            />
-            <div
-              aria-live="polite"
-              class="theme-inlineMessage"
-              role="status"
-            >
-              <span
-                class="theme-icon theme-information__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  pointer-events="none"
-                  shape-rendering="geometricPrecision"
-                  style="width: 1rem; height: 1rem;"
+                <p
+                  class="theme-inlineMessage__contents"
                 >
-                  <use
-                    xlink:href="#information-filled:M"
-                  />
-                </svg>
-              </span>
-              <p
-                class="theme-inlineMessage__contents"
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            >
+              <label
+                class="theme-label"
+                for="talend-array-1_comments_1_comments_1_comment"
               >
-                <span>
-                  Don't be greedy!
+                Comment
+              </label>
+              <textarea
+                aria-invalid="false"
+                class="theme-textarea"
+                id="talend-array-1_comments_1_comments_1_comment"
+                rows="3"
+              />
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
                 </span>
-              </p>
+                <p
+                  class="theme-inlineMessage__contents"
+                >
+                  <span>
+                    Don't be greedy!
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </fieldset>
@@ -508,118 +516,122 @@ exports[`Array component should render array 1`] = `
           class="theme-fieldset"
         >
           <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            class="theme-fieldset-content"
           >
-            <label
-              class="theme-label"
-              for="talend-array-2_comments_2_comments_2_name"
-            >
-              Name
-              *
-            </label>
             <div
-              class="theme-inputShell"
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
             >
-              <input
-                aria-invalid="false"
-                aria-required="true"
-                class="theme-input"
-                id="talend-array-2_comments_2_comments_2_name"
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-          >
-            <label
-              class="theme-label"
-              for="talend-array-2_comments_2_comments_2_email"
-            >
-              Email
-            </label>
-            <div
-              class="theme-inputShell"
-            >
-              <input
-                aria-invalid="false"
-                class="theme-input"
-                id="talend-array-2_comments_2_comments_2_email"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              aria-live="polite"
-              class="theme-inlineMessage"
-              role="status"
-            >
-              <span
-                class="theme-icon theme-information__icon"
+              <label
+                class="theme-label"
+                for="talend-array-2_comments_2_comments_2_name"
               >
-                <svg
-                  aria-hidden="true"
-                  pointer-events="none"
-                  shape-rendering="geometricPrecision"
-                  style="width: 1rem; height: 1rem;"
+                Name
+                *
+              </label>
+              <div
+                class="theme-inputShell"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-required="true"
+                  class="theme-input"
+                  id="talend-array-2_comments_2_comments_2_name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            >
+              <label
+                class="theme-label"
+                for="talend-array-2_comments_2_comments_2_email"
+              >
+                Email
+              </label>
+              <div
+                class="theme-inputShell"
+              >
+                <input
+                  aria-invalid="false"
+                  class="theme-input"
+                  id="talend-array-2_comments_2_comments_2_email"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
                 >
-                  <use
-                    xlink:href="#information-filled:M"
-                  />
-                </svg>
-              </span>
-              <p
-                class="theme-inlineMessage__contents"
-              >
-                <span>
-                  Email will be used for evil.
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
                 </span>
-              </p>
-            </div>
-          </div>
-          <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
-          >
-            <label
-              class="theme-label"
-              for="talend-array-2_comments_2_comments_2_comment"
-            >
-              Comment
-            </label>
-            <textarea
-              aria-invalid="false"
-              class="theme-textarea"
-              id="talend-array-2_comments_2_comments_2_comment"
-              rows="3"
-            />
-            <div
-              aria-live="polite"
-              class="theme-inlineMessage"
-              role="status"
-            >
-              <span
-                class="theme-icon theme-information__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  pointer-events="none"
-                  shape-rendering="geometricPrecision"
-                  style="width: 1rem; height: 1rem;"
+                <p
+                  class="theme-inlineMessage__contents"
                 >
-                  <use
-                    xlink:href="#information-filled:M"
-                  />
-                </svg>
-              </span>
-              <p
-                class="theme-inlineMessage__contents"
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            >
+              <label
+                class="theme-label"
+                for="talend-array-2_comments_2_comments_2_comment"
               >
-                <span>
-                  Don't be greedy!
+                Comment
+              </label>
+              <textarea
+                aria-invalid="false"
+                class="theme-textarea"
+                id="talend-array-2_comments_2_comments_2_comment"
+                rows="3"
+              />
+              <div
+                aria-live="polite"
+                class="theme-inlineMessage"
+                role="status"
+              >
+                <span
+                  class="theme-icon theme-information__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
                 </span>
-              </p>
+                <p
+                  class="theme-inlineMessage__contents"
+                >
+                  <span>
+                    Don't be greedy!
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </fieldset>
