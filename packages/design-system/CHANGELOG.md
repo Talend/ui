@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.2.2
+
+### Patch Changes
+
+- 9b6d904: TMC-27716 - Fix firefox fieldset height
+
 ## 10.2.1
 
 ### Patch Changes
