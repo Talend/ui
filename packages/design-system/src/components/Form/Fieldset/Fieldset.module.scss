@@ -3,7 +3,6 @@
 .fieldset {
 	padding: 0;
 	border: none;
-	display: contents;
 }
 
 .legend {
@@ -11,4 +10,10 @@
 	padding: tokens.$coral-spacing-m 0;
 	font: tokens.$coral-heading-m;
 	margin: 0;
+}
+
+.fieldset-content {
+	display: flex;
+	flex-flow: column;
+	gap: tokens.$coral-spacing-s;
 }
