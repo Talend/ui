@@ -3,9 +3,8 @@
 .fieldset {
 	padding: 0;
 	border: none;
-	display: flex;
-	flex-flow: column;
 	gap: tokens.$coral-spacing-s;
+	display: grid;
 }
 
 .legend {
