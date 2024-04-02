@@ -1,6 +1,12 @@
 import { getTimezones } from './TimezoneList.utils';
 
 describe('getTimezones', () => {
+	beforeEach(() => {
+		jest.useFakeTimers();
+	});
+	afterEach(() => {
+		jest.useRealTimers();
+	});
 	const cldrTimezones = {
 		en: {
 			main: {
@@ -89,8 +95,8 @@ describe('getTimezones', () => {
 				value: 'Africa/Freetown',
 			},
 			{
-				name: '(UTC +01:00) Europe/Berlin',
-				offset: 60,
+				name: '(UTC +02:00) Europe/Berlin',
+				offset: 120,
 				timezoneName: 'Europe/Berlin',
 				value: 'Europe/Berlin',
 			},
