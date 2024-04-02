@@ -1,5 +1,30 @@
 # Changelog
 
+## 19.0.0
+
+### Major Changes
+
+- 27a4a5d: ### BREAKING CHANGE
+  fix(TMC-26027/facetedSearch): multiple callbacks for BadgeCheckbox
+  - getTags() was replaced with getOptions() to support multiple callbacks
+  ***
+  - Before:
+  ```jsx
+  <FacetedSearch.BasicSearch callbacks={{ getTags: () => {} }} />
+  ```
+  ***
+  - After:
+  ```jsx
+  <FacetedSearch.BasicSearch
+  	callbacks={{
+  		tags: { getOptions: () => {} },
+  		authors: { getOptions: () => {} },
+  		operators: { getOptions: () => {} },
+  	}}
+  />
+  ```
+  ***
+
 ## 18.0.0
 
 ### Patch Changes
