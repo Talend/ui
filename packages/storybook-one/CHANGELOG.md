@@ -1,5 +1,12 @@
 # @talend/ui-storybook-one
 
+## 2.4.4
+
+### Patch Changes
+
+- Updated dependencies [27a4a5d]
+  - @talend/react-faceted-search@19.0.0
+
 ## 2.4.3
 
 ### Patch Changes
