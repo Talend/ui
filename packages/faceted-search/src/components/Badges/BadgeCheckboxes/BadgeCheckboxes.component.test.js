@@ -108,7 +108,9 @@ describe('BadgeCheckboxes', () => {
 	it('should mount a badge with object data from callback', async () => {
 		// Given
 		const callbacks = {
-			getTags: () => new Promise(resolve => resolve([{ id: '1234', label: 'production' }])),
+			id: {
+				getOptions: () => new Promise(resolve => resolve([{ id: '1234', label: 'production' }])),
+			},
 		};
 
 		const props = {
