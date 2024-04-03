@@ -1,8 +1,9 @@
-import { render } from '@testing-library/react';
-import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { render, screen, waitFor, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import { BadgeCheckboxes } from './BadgeCheckboxes.component';
 import getDefaultT from '../../../translate';
+import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { BadgeCheckboxes } from './BadgeCheckboxes.component';
 
 const t = getDefaultT();
 
@@ -15,6 +16,7 @@ const badgeFacetedContextValue = {
 	onDeleteBadge: jest.fn(),
 	onHideOperator: jest.fn(),
 	onSubmitBadge: jest.fn(),
+	dispatch: jest.fn(),
 };
 
 const BadgeWithContext = props => (
@@ -37,7 +39,8 @@ describe('BadgeCheckboxes', () => {
 		render(<BadgeWithContext {...props} />);
 		// Then
 
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
+		const badge = document.querySelector('#tc-badge-select-myId-badge-checkboxes');
+		expect(within(badge).getByText('All')).toBeVisible();
 	});
 	it('should return "All" when value is empty', () => {
 		// Given
@@ -52,7 +55,8 @@ describe('BadgeCheckboxes', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
+		const badge = document.querySelector('#tc-badge-select-myId-badge-checkboxes');
+		expect(within(badge).getByText('All')).toBeVisible();
 	});
 	it('should return the amount of values when values are equal or greater than 4', () => {
 		// Given
@@ -73,7 +77,8 @@ describe('BadgeCheckboxes', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('5 value');
+		const badge = document.querySelector('#tc-badge-select-myId-badge-checkboxes');
+		expect(within(badge).getByText('5 values')).toBeVisible();
 	});
 	it('should return only the checked values', () => {
 		// Given
@@ -94,8 +99,58 @@ describe('BadgeCheckboxes', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('one');
-		expect(document.querySelectorAll('span')[3]).toHaveTextContent('two');
-		expect(document.querySelectorAll('span')[4]).toHaveTextContent('five');
+		const badge = document.querySelector('#tc-badge-select-myId-badge-checkboxes');
+		expect(within(badge).getByText('one')).toBeVisible();
+		expect(within(badge).getByText('two')).toBeVisible();
+		expect(within(badge).getByText('five')).toBeVisible();
+	});
+
+	it('should mount a badge with object data from callback', async () => {
+		// Given
+		const callbacks = {
+			id: {
+				getOptions: () => new Promise(resolve => resolve([{ id: '1234', label: 'production' }])),
+			},
+		};
+
+		const props = {
+			id: 'myId',
+			label: 'My Label',
+			operators: ['contains', 'equals'],
+			t,
+			callbacks,
+			values: [],
+			initialOperatorOpened: false,
+			initialValueOpened: true,
+			attribute: 'id',
+		};
+
+		// When
+		render(<BadgeWithContext {...props} />);
+
+		// Then there is a checkbox with data taken from callback
+		await waitFor(() => {
+			expect(screen.getByRole('checkbox')).toBeVisible();
+		});
+		// Then selecting an item should dispatch proper payload
+		await userEvent.click(screen.getByRole('checkbox', { name: 'production' }));
+		await userEvent.click(
+			screen.getByRole('button', {
+				name: /apply/i,
+			}),
+		);
+		expect(badgeFacetedContextValue.dispatch).toHaveBeenCalledWith({
+			payload: {
+				badgeId: 'myId',
+				metadata: { isInCreation: false },
+				properties: {
+					initialOperatorOpened: false,
+					initialValueOpened: false,
+					operator: 'contains',
+					value: [{ checked: true, id: '1234', label: 'production' }],
+				},
+			},
+			type: 'UPDATE_BADGE',
+		});
 	});
 });

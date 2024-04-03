@@ -1,5 +1,7 @@
-import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
+
 import { Stepper } from '../../';
 import { Status } from '../Status.block';
 
@@ -38,9 +40,7 @@ Consider using a vertical stepper when there are workflows greater than 3 steps.
 	alt="Mockup of a vertical stepper"
 />
 
-<Canvas>
-	<Story of={Stories.Vertical} />
-</Canvas>
+<Canvas of={Stories.Vertical} />
 
 **Horizontal**
 
@@ -53,9 +53,7 @@ A horizontal stepper should not have more than 3 steps.
 	alt="Mockup of a horizontal stepper"
 />
 
-<Canvas>
-	<Story of={Stories.Horizontal} />
-</Canvas>
+<Canvas of={Stories.Horizontal} />
 
 ## States
 
@@ -63,9 +61,7 @@ A horizontal stepper should not have more than 3 steps.
 
 The space dedicated to step is limited. No reflow strategy has been put in place, so text overflow is truncated with an ellipsis.
 
-<Canvas>
-	<Story of={Stories.Overflows} />
-</Canvas>
+<Canvas of={Stories.Overflows} />
 
 ## Content
 
@@ -122,9 +118,7 @@ In case of an error in the current step, please inform the user by using an inli
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Usage}></Story>
-</Canvas>
+<Canvas of={Stories.Usage} />
 
 <Controls of={Stories.Usage} exclude={['loading']} />
 

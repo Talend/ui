@@ -27,17 +27,24 @@ exports[`Items should render 1`] = `
           <div
             class="checkbox"
           >
-            <label
-              for="tc-listview-toggle-all"
+            <div
+              class="checkbox tc-checkbox"
             >
-              <input
-                id="tc-listview-toggle-all"
-                type="checkbox"
-              />
-              <strong>
-                Select all
-              </strong>
-            </label>
+              <label
+                for="tc-listview-toggle-all"
+              >
+                <input
+                  data-checked="0"
+                  id="tc-listview-toggle-all"
+                  type="checkbox"
+                />
+                <span>
+                  <strong>
+                    Select all
+                  </strong>
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div

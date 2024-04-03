@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+
 import { BadgeOperatorPopover } from './BadgeOperatorPopover.component';
 
 describe('BadgeOperatorPopover', () => {
@@ -36,15 +37,7 @@ describe('BadgeOperatorPopover', () => {
 		// When
 		render(<BadgeOperatorPopover {...props} />);
 		// Then
-		expect(document.querySelectorAll('button')[0]).toHaveAttribute(
-			'aria-label',
-			'My icon operator equal',
-		);
 		expect(document.querySelectorAll('svg')[0]).toHaveAttribute('name', 'talend-my-icon-equal');
-		expect(document.querySelectorAll('button')[1]).toHaveAttribute(
-			'aria-label',
-			'My icon operator not equal',
-		);
 		expect(document.querySelectorAll('svg')[1]).toHaveAttribute('name', 'talend-my-icon-not-equal');
 		expect(document.querySelectorAll('button')).toHaveLength(2);
 		expect(document.querySelectorAll('svg')).toHaveLength(2);
@@ -64,7 +57,7 @@ describe('BadgeOperatorPopover', () => {
 		// When
 		render(<BadgeOperatorPopover {...props} />);
 		// Then
-		expect(screen.getByLabelText('Label')).toBeVisible();
+		expect(screen.getByRole('button', { name: 'Label' })).toBeVisible();
 		expect(document.querySelectorAll('button')).toHaveLength(1);
 	});
 	it('should trigger on click', () => {

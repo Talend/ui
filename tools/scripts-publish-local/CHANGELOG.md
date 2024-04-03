@@ -1,5 +1,17 @@
 # @talend/scripts-publish-local
 
+## 1.3.3
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 1.3.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 1.3.1
 
 ### Patch Changes

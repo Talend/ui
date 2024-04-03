@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react';
-import { BadgeDate } from './BadgeDate.component';
-import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+
 import getDefaultT from '../../../translate';
+import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { BadgeDate } from './BadgeDate.component';
 
 const badgeFacetedContextValue = {
 	onDeleteBadge: jest.fn(),
@@ -26,7 +27,7 @@ describe('BadgeDate', () => {
 		);
 		// Then
 		expect(container.firstChild).toMatchSnapshot();
-		expect(document.querySelector('button#myId-badge-date-action-overlay')).toHaveTextContent(
+		expect(document.querySelector('#myId-badge-date-action-overlay')).toHaveTextContent(
 			'2011-10-01',
 		);
 	});

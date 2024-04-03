@@ -59,7 +59,7 @@ describe('Radios field', () => {
 
 		// then
 		const radios = screen.getAllByRole('radio');
-		radios.forEach(radio => expect(radio.parentElement.parentElement).toHaveClass('radio-inline'));
+		radios.forEach(radio => expect(radio.parentElement.parentElement).toHaveClass('theme-row'));
 	});
 
 	it('should render disabled input', () => {

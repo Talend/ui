@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import RadioOrSelect from './RadioOrSelect.component';
 
@@ -46,6 +46,7 @@ describe('RadioOrSelect field', () => {
 		// given
 		const moreThan2OptionsSchema = {
 			...schema,
+			required: true,
 			titleMap: [...schema.titleMap, { name: 'My lol title', value: 'lol' }],
 		};
 

@@ -1,5 +1,45 @@
 # @talend/icons
 
+## 7.7.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 7.7.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 7.6.0
+
+### Minor Changes
+
+- 3dc3100: added icon `panel-left` in size `S`
+  added icon `panel-left` in size `M`
+  added icon `panel-left` in size `L`
+
+## 7.5.0
+
+### Minor Changes
+
+- c317063: added icon `panel-left` in size `L`
+- c317063: added icon `panel-left` in size `M`
+- c317063: added icon `panel-left` in size `S`
+
+## 7.4.1
+
+### Patch Changes
+
+- 3a98981: fix(icons): add qlik-negative icon
+
+## 7.4.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
 ## 7.3.1
 
 ### Patch Changes

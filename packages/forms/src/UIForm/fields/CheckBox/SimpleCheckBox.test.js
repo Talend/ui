@@ -121,7 +121,7 @@ describe('SimpleCheckBox field', () => {
 				/>,
 			);
 			expect(
-				document.querySelector(`label[data-feature="${dataFeature}.check"]`),
+				document.querySelector(`span[data-feature="${dataFeature}.check"]`),
 			).toBeInTheDocument();
 		});
 
@@ -141,7 +141,7 @@ describe('SimpleCheckBox field', () => {
 				/>,
 			);
 			expect(
-				document.querySelector(`label[data-feature="${dataFeature}.uncheck"]`),
+				document.querySelector(`span[data-feature="${dataFeature}.uncheck"]`),
 			).toBeInTheDocument();
 		});
 	});

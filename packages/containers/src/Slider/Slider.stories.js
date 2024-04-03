@@ -1,4 +1,5 @@
 import { Map } from 'immutable';
+
 import Slider from '.';
 
 const icons = [
@@ -74,7 +75,7 @@ export default {
 };
 
 export const Default = () => (
-	<div style={{ padding: '0 1.2rem' }}>
+	<div style={{ padding: '0 0.75rem' }}>
 		<div style={delimiterStyle}>
 			<p style={paragraphStyle}>default</p>
 			<Slider id="slider1" initialState={initialState} />

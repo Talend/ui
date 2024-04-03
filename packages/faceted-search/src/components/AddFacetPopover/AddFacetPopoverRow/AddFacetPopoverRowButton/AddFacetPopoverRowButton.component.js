@@ -1,56 +1,38 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-import { StackHorizontal, StackItem, SizedIcon, Tooltip } from '@talend/design-system';
-import { getTheme } from '@talend/react-components';
-
-import cssModule from './AddFacetPopoverRowButton.module.scss';
-
-const theme = getTheme(cssModule);
+import { ButtonTertiary, SizedIcon, StackHorizontal } from '@talend/design-system';
 
 export const AddFacetPopoverRowButton = ({
 	id,
 	label,
 	onClick,
-	tabIndex,
 	disabledLabel,
 	isCategory = false,
 }) => {
 	const body = (
-		<StackHorizontal gap="S" alignContent="baseline">
-			<StackItem grow>{label}</StackItem>
-			{isCategory && <SizedIcon name="chevron-right" size="S"></SizedIcon>}
+		<StackHorizontal gap="0" align="center" justify="spaceBetween">
+			<span>{label}</span>
+			{isCategory && (
+				<span
+					data-test="add-facet-popover-row-button-chevron"
+					data-testid="add-facet-popover-row-button-chevron"
+				>
+					<SizedIcon name="chevron-right" size="S"></SizedIcon>
+				</span>
+			)}
 		</StackHorizontal>
 	);
 
-	if (disabledLabel) {
-		return (
-			<Tooltip title={disabledLabel} placement="left">
-				<div
-					className={classNames(
-						theme('tc-add-facet-popover-row-button'),
-						theme('tc-add-facet-popover-row-disabled'),
-					)}
-					tabIndex={tabIndex}
-				>
-					{body}
-				</div>
-			</Tooltip>
-		);
-	}
-
 	return (
-		<button
+		<ButtonTertiary
+			data-test="add-facet-popover-row-button"
+			data-testid="add-facet-popover-row-button"
 			id={id}
-			className={classNames(
-				theme('tc-add-facet-popover-row-button'),
-				isCategory && theme('tc-add-facet-popover-row-button-category'),
-			)}
 			onClick={onClick}
-			tabIndex={tabIndex}
+			disabled={!!disabledLabel}
 		>
 			{body}
-		</button>
+		</ButtonTertiary>
 	);
 };
 
@@ -58,7 +40,6 @@ AddFacetPopoverRowButton.propTypes = {
 	id: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
-	tabIndex: PropTypes.number,
 	disabledLabel: PropTypes.string,
 	isCategory: PropTypes.bool,
 };

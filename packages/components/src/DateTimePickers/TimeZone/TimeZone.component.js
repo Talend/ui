@@ -1,16 +1,24 @@
 import PropTypes from 'prop-types';
 
-import Icon from '../../Icon';
-import TooltipTrigger from '../../TooltipTrigger';
+import { SizedIcon, StackVertical } from '@talend/design-system';
 
-import theme from './TimeZone.module.scss';
+import TooltipTrigger from '../../TooltipTrigger';
 
 function TimeZone(props) {
 	return (
 		<TooltipTrigger label={props.timezone} tooltipPlacement="top">
-			<span className={theme['timezone-tooltip']}>
-				<Icon name="talend-info-circle" className={theme.icon} />
-			</span>
+			<StackVertical
+				gap="0"
+				justify="center"
+				display="inline"
+				margin={{ left: 'XS', right: 0, top: 0, bottom: 0 }}
+			>
+				<SizedIcon
+					color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+					name="information-filled"
+					size="M"
+				/>
+			</StackVertical>
 		</TooltipTrigger>
 	);
 }

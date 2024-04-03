@@ -1,6 +1,10 @@
-import { VisuallyHidden } from '../VisuallyHidden';
+import { ReactElement, RefObject, useEffect, useRef, useState } from 'react';
+
+import classNames from 'classnames';
+
 import assetsAPI from '@talend/assets-api';
-import { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
+
+import style from './IconsProvider.module.scss';
 
 const DEFAULT_BUNDLES = [
 	assetsAPI.getURL('/dist/svg-bundle/all.svg', '@talend/icons'),
@@ -85,7 +89,7 @@ function addBundle(response: Response, url: string) {
 		return response.text().then(content => {
 			if (content.startsWith('<svg')) {
 				const container = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-				container.setAttribute('class', 'tc-iconsprovider sr-only');
+				container.setAttribute('class', classNames('tc-iconsprovider', style.hidden));
 				container.setAttribute('aria-hidden', 'true');
 				container.setAttribute('focusable', 'false');
 				container.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -159,20 +163,18 @@ export function IconsProvider({
 
 	return (
 		(shouldRender && (
-			<VisuallyHidden>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					focusable="false"
-					className="tc-iconsprovider"
-					ref={ref}
-				>
-					{Object.keys(iconset).map((id, index) => (
-						<symbol key={index} id={id}>
-							{iconset[id]}
-						</symbol>
-					))}
-				</svg>
-			</VisuallyHidden>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				focusable="false"
+				className={classNames('tc-iconsprovider', style.hidden)}
+				ref={ref}
+			>
+				{Object.keys(iconset).map((id, index) => (
+					<symbol key={index} id={id}>
+						{iconset[id]}
+					</symbol>
+				))}
+			</svg>
 		)) ||
 		null
 	);

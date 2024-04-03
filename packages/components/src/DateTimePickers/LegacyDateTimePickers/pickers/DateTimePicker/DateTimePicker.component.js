@@ -1,16 +1,19 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import getMonth from 'date-fns/get_month';
-import getYear from 'date-fns/get_year';
-import startOfDay from 'date-fns/start_of_day';
-import classNames from 'classnames';
 
-import theme from './DateTimePicker.module.scss';
-import DateTimeView from '../../views/DateTimeView';
-import MonthYearView from '../../views/MonthYearView';
+import classNames from 'classnames';
+import { getMonth } from 'date-fns/getMonth';
+import { getYear } from 'date-fns/getYear';
+import { startOfDay } from 'date-fns/startOfDay';
+import PropTypes from 'prop-types';
+
 import { focus } from '@talend/react-a11y';
+
 import Action from '../../../../Actions/Action/Action.component';
 import getDefaultT from '../../../../translate';
+import DateTimeView from '../../views/DateTimeView';
+import MonthYearView from '../../views/MonthYearView';
+
+import theme from './DateTimePicker.module.scss';
 
 class DateTimePicker extends Component {
 	constructor(props) {

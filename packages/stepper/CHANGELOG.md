@@ -1,5 +1,88 @@
 # @talend/react-stepper
 
+## 11.1.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+
+## 11.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/react-components@15.3.1
+
+## 11.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-system@9.2.0
+  - @talend/design-tokens@3.1.0
+  - @talend/react-components@15.1.0
+
+## 11.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/react-components@15.0.1
+  - @talend/design-system@9.0.1
+
+## 11.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+  - @talend/design-system@9.0.0
+
+## 10.2.1
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/design-system@8.8.3
+
+## 10.2.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-system@8.8.0
+  - @talend/design-tokens@2.11.0
+  - @talend/react-components@13.1.0
+
+## 10.1.2
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+  - @talend/react-components@13.0.0
+
 ## 10.1.1
 
 ### Patch Changes

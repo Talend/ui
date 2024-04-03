@@ -40,6 +40,9 @@ context('<Badge />', () => {
 		cy.findByTestId('badge-label').should('have.text', label);
 		cy.findByTestId('badge-divider');
 
-		items.forEach(v => cy.findByTestId(`${v.id}.badge-button`).should('have.text', v.label));
+		cy.findByTestId('badgepopover-button.badge-button').should(
+			'have.text',
+			items.reduce((acc, item) => acc + item.label, ''),
+		);
 	});
 });

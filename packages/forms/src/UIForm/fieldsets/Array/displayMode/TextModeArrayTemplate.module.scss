@@ -1,20 +1,10 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 .tf-array-text-mode {
 	ol {
 		list-style: none;
-		padding-left: 0;
-
-		li {
-			padding-left: $padding-larger;
-
-			.block {
-				border-left: 2px solid $silver;
-			}
-
-			:global(.form-group) {
-				padding-top: 0;
-			}
-		}
+		display: flex;
+		flex-direction: column;
+		gap: tokens.$coral-spacing-xxs;
 	}
 }

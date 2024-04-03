@@ -1,5 +1,42 @@
 # @talend/utils
 
+## 3.0.4
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 3.0.3
+
+### Patch Changes
+
+- ccc5f1a: fix: use typescript to generate @talend/utils instead of babel
+
+## 3.0.2
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+
+## 3.0.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+
+## 3.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+## 2.9.0
+
+### Minor Changes
+
+- 1bc49cd: fix(): Reduce package size by fixing date-fns import
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
 ## 2.8.0
 
 ### Minor Changes

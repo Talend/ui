@@ -1,5 +1,7 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
+
 import * as Stories from './Button.stories';
 import { Status } from '../Status.block';
 
@@ -32,56 +34,34 @@ The small size can only display icons from [SizedIcon's "S" batch](/docs/icons-s
 	alt="Buttons in all their variations"
 />
 
-<Canvas withSource="closed">
-	<Story of={Stories.Variations} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.Variations} />
 
 #### Primary
 
-<Canvas withSource="closed">
-	<Story of={Stories.PrimaryVariations} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.PrimaryVariations} />
 
-<Canvas>
-	<Story of={Stories.Primary} />
-</Canvas>
-
+<Canvas of={Stories.Primary} />
 <Controls of={Stories.Primary} />
 
 #### Destructive
 
-<Canvas withSource="closed">
-	<Story of={Stories.DestructiveVariations} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.DestructiveVariations} />
 
-<Canvas>
-	<Story of={Stories.Destructive} />
-</Canvas>
-
+<Canvas of={Stories.Destructive} />
 <Controls of={Stories.Destructive} />
 
 #### Secondary
 
-<Canvas withSource="closed">
-	<Story of={Stories.SecondaryVariations} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.SecondaryVariations} />
 
-<Canvas>
-	<Story of={Stories.Secondary} />
-</Canvas>
-
+<Canvas of={Stories.Secondary} />
 <Controls of={Stories.Secondary} />
 
 #### Tertiary
 
-<Canvas withSource="closed">
-	<Story of={Stories.TertiaryVariations} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.TertiaryVariations} />
 
-<Canvas>
-	<Story of={Stories.Tertiary} />
-</Canvas>
-
+<Canvas of={Stories.Tertiary} />
 <Controls of={Stories.Tertiary} />
 
 ## Interactions
@@ -92,9 +72,7 @@ All buttons have interactive states for "hover", "active" and "disabled". A focu
 
 Use `SkeletonButton` or `Skeleton variant="button"` to represent a placeholder for a button.
 
-<Canvas>
-	<Story of={Stories.SkeletonButton} />
-</Canvas>
+<Canvas of={Stories.SkeletonButton} />
 
 [The Skeleton Documentation is over there!](/docs/feedback-skeleton--docs)
 
@@ -102,9 +80,7 @@ Use `SkeletonButton` or `Skeleton variant="button"` to represent a placeholder f
 
 Buttons can have a tooltip on hover displaying additional description.
 
-<Canvas>
-	<Story of={Stories.TooltipButton} />
-</Canvas>
+<Canvas of={Stories.TooltipButton} />
 
 ### Async buttons
 
@@ -112,18 +88,14 @@ When the user clicks on the button, and the action is asynchronous, a spinner wi
 If the button has an icon, the spinner will temporarily replace this icon as long as it's loading.
 No action will be possible until it's done.
 
-<Canvas>
-	<Story of={Stories.Loading} />
-</Canvas>
+<Canvas of={Stories.Loading} />
 
 ## Usage
 
 As you've seen, each variant has its own component. But you may want to switch from a variant to another using props.
 You can, using the `<Button>` generic component.
 
-<Canvas>
-	<Story of={Stories.VariantComponent} />
-</Canvas>
+<Canvas of={Stories.VariantComponent} />
 
 Each variant has the same usage rules as their standalone component counterparts seen above.
 

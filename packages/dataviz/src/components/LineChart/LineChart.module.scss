@@ -1,5 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
 @use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
 
 $module: line-chart;
@@ -58,7 +56,7 @@ $module: line-chart;
 		}
 
 		&--shift-left {
-			padding-right: 6rem;
+			padding-right: 3.75rem;
 		}
 
 		&__button--selection-enabled:hover {
@@ -88,8 +86,7 @@ $module: line-chart;
 		display: inline-block;
 		width: 16px;
 		height: 2px;
-		margin-right: 0.8rem;
-		margin-bottom: 0.3rem;
-		border-radius: 25px;
+		margin-right: tokens.$coral-spacing-xs;
+		border-radius: tokens.$coral-radius-round;
 	}
 }

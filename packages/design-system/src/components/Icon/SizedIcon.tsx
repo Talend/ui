@@ -1,14 +1,15 @@
 import { forwardRef } from 'react';
 import type { HTMLAttributes, Ref } from 'react';
+
 // eslint-disable-next-line @talend/import-depth
 import { Icon, icons, IconSize } from '@talend/icons/dist/typeUtils';
 
 const getNumericSize = (size: IconSize) => {
 	return {
-		XS: '0.8rem',
-		S: '1.2rem',
-		M: '1.6rem',
-		L: '2.4rem',
+		XS: '0.5rem',
+		S: '0.75rem',
+		M: '1rem',
+		L: '1.5rem',
 	}[size];
 };
 

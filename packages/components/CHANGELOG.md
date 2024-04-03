@@ -1,5 +1,290 @@
 # @talend/react-components
 
+## 16.0.1
+
+### Patch Changes
+
+- 6a69c4c: Fix Drawer z-index that could prevent headerbar to display sub-menu
+
+## 16.0.0
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+
+## 15.3.2
+
+### Patch Changes
+
+- 2d7861a: fix: tooltip alignement for buttons in list component
+
+## 15.3.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- 5cedaf1: TMC-26238 - Fix JSON object viewer style on safari with word-break
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/react-bootstrap@2.2.2
+  - @talend/assets-api@1.3.2
+  - @talend/icons@7.7.1
+  - @talend/bootstrap-theme@9.1.1
+  - @talend/utils@3.0.4
+  - @talend/react-a11y@3.0.1
+
+## 15.3.0
+
+### Minor Changes
+
+- 5a621b1: Components - Switch components dates to use design system inputs
+
+## 15.2.6
+
+### Patch Changes
+
+- 6305ea9: fix: enlarge drawer using back breakpoints
+
+## 15.2.5
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
+## 15.2.4
+
+### Patch Changes
+
+- dbc290d: fix: Datalist hightligted element (keyboard navigation)
+
+## 15.2.3
+
+### Patch Changes
+
+- 63ec624: fix: element does not goes over the box shadow in large mode for the list
+- 788e8a0: Components Drawer - Fix styling when no actions in footer and remove bootstrap styles
+
+## 15.2.2
+
+### Patch Changes
+
+- eece40c: fix: sort option not interactive with legacy list while in expanded view
+
+## 15.2.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+- a73338d: Fix ListView virtual list calculation when having a lot of items
+- Updated dependencies [52563ff]
+  - @talend/utils@3.0.1
+
+## 15.2.0
+
+### Minor Changes
+
+- 56d0d0a: TDOPS-448 - Enhance date picker controls to reduce number of clicks needed
+
+## 15.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+  - @talend/icons@7.7.0
+  - @talend/bootstrap-theme@9.1.0
+
+## 15.0.2
+
+### Patch Changes
+
+- 1964aac: fix: rem values for JS files
+
+## 15.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/bootstrap-theme@9.0.0
+
+## 15.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+  - @talend/design-system@9.0.0
+
+## 14.3.0
+
+### Minor Changes
+
+- 3022b60: deps: bump simplebar to 6.x
+
+### Patch Changes
+
+- 3dc3100: fix(DFD-491): Fix header bar and layout styles
+- Updated dependencies [8878c6c]
+- Updated dependencies [3dc3100]
+  - @talend/bootstrap-theme@8.5.0
+  - @talend/icons@7.6.0
+
+## 14.2.3
+
+### Patch Changes
+
+- fa6ca55: fix(DFD-491): Fix header bar and layout styles
+- Updated dependencies [c317063]
+- Updated dependencies [c317063]
+- Updated dependencies [c317063]
+  - @talend/icons@7.5.0
+  - @talend/bootstrap-theme@8.4.2
+
+## 14.2.2
+
+### Patch Changes
+
+- bfe3b20: TDOPS-5968 - Fix ListView checkbox alignement
+- 941ff4f: feat: add BadgePeriod in faceted search
+
+## 14.2.1
+
+### Patch Changes
+
+- 3c5082b: TDOPS-5733 - Notification long messages should break on words and not characters
+- e8956e6: TDOPS-5872 - Allow subheader subtitle to display long labels
+- e08217c: fix: dropdown with image display
+- Updated dependencies [e08217c]
+  - @talend/bootstrap-theme@8.4.1
+
+## 14.2.0
+
+### Minor Changes
+
+- 1a3cdeb: Add an empty state to Typeahead
+
+## 14.1.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+### Patch Changes
+
+- Updated dependencies [076147b]
+  - @talend/design-tokens@2.12.0
+  - @talend/icons@7.4.0
+
+## 14.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+### Patch Changes
+
+- e095335: fix: elevation layer on headerbar
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+  - @talend/react-a11y@3.0.0
+
+## 13.1.6
+
+### Patch Changes
+
+- c023eb6: fix: help icon color in the header bar
+
+## 13.1.5
+
+### Patch Changes
+
+- bb106bc: fix: adjustments for qlik-light theme
+- Updated dependencies [bb106bc]
+  - @talend/design-tokens@2.11.2
+
+## 13.1.4
+
+### Patch Changes
+
+- dce3585: fix: back button tooltip position
+
+## 13.1.3
+
+### Patch Changes
+
+- d479c75: fix: header bar help link style in qlik-light mode
+
+## 13.1.2
+
+### Patch Changes
+
+- f172fa8: fix: Header bar border bottom in light mode
+
+## 13.1.1
+
+### Patch Changes
+
+- 08bb2c1: fix: qlik theme fixes
+- Updated dependencies [08bb2c1]
+  - @talend/design-tokens@2.11.1
+
+## 13.1.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-tokens@2.11.0
+
+## 13.0.0
+
+### Major Changes
+
+- 7de44f9: Typeahead - Changed input to DS Form.Text
+
+  #### BREAKING CHANGE
+
+  Some props and styles that were previously working on bootstrap input might no longer work. Check classNames and overriding styles passed to Typeahead to check that it still integrates well within your pages
+
+## 12.4.2
+
+### Patch Changes
+
+- bf0caf3: fix: empty date cell renderer
+
+## 12.4.1
+
+### Patch Changes
+
+- 3ea63ce: fix: date-fns compatibility with Date Cell renderer while passing string date
+
+## 12.4.0
+
+### Minor Changes
+
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
+### Patch Changes
+
+- Updated dependencies [1bc49cd]
+- Updated dependencies [424544a]
+  - @talend/utils@2.9.0
+  - @talend/react-a11y@2.3.0
+
 ## 12.3.1
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-toolbar-height: 7rem;
+$tc-toolbar-height: 4.375rem;
 
 .tc-list-toolbar {
 	display: flex;

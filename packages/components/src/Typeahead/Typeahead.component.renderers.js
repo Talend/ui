@@ -1,14 +1,17 @@
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
-import get from 'lodash/get';
-import { ControlLabel, FormControl } from '@talend/react-bootstrap';
 import DebounceInput from 'react-debounce-input';
-import classNames from 'classnames';
+import ReactDOM from 'react-dom';
 
-import { getTheme } from '../theme';
-import Icon from '../Icon';
+import classNames from 'classnames';
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
+
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
+import Icon from '../Icon';
+import { getTheme } from '../theme';
+
 import theme from './Typeahead.module.scss';
 
 const css = getTheme(theme);
@@ -35,9 +38,6 @@ export function renderInputComponent(props) {
 	);
 	return (
 		<div className={typeaheadContainerIconClasses}>
-			<ControlLabel srOnly htmlFor={key}>
-				Search
-			</ControlLabel>
 			{icon && (
 				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
 					{icon && <Icon {...icon} />}
@@ -45,13 +45,12 @@ export function renderInputComponent(props) {
 			)}
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
-					autoFocus
 					id={key}
 					{...rest}
 					disabled={disabled}
 					readOnly={readOnly}
 					debounceTimeout={debounceTimeout}
-					element={FormControl}
+					element={Form.Text}
 					minLength={debounceMinLength}
 					inputRef={node => {
 						// eslint-disable-next-line react/no-find-dom-node
@@ -59,13 +58,13 @@ export function renderInputComponent(props) {
 					}}
 				/>
 			) : (
-				<FormControl
+				<Form.Text
 					id={key}
-					autoFocus
 					{...rest}
+					hideLabel
 					disabled={disabled}
 					readOnly={readOnly}
-					inputRef={setReferenceElement}
+					ref={setReferenceElement}
 				/>
 			)}
 			{hasCaret && (
@@ -100,15 +99,15 @@ export function renderItemsContainerFactory(
 	loadingText,
 	referenceElement,
 	render = content => content,
-
 	setPopperElement,
 	styles,
 	attributes,
 	t,
+	noDomainRenderer,
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
-
+	const noDomain = !items || (items && !items.length);
 	function ItemsContainerComponent({ containerProps, children }) {
 		if (!isShown) {
 			return undefined;
@@ -130,6 +129,12 @@ export function renderItemsContainerFactory(
 			content = (
 				<div key="loading" className={`${theme['is-loading']} is-loading`}>
 					<span>{loadingText}</span>
+				</div>
+			);
+		} else if (noDomain && noDomainRenderer) {
+			content = (
+				<div key="no-domain" className={`${theme['no-domain']} no-domain`}>
+					<span>{noDomainRenderer()}</span>
 				</div>
 			);
 		} else if (noResult) {

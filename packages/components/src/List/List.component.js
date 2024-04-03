@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
 
-import Toolbar from './Toolbar';
-import ListToVirtualizedList from './ListToVirtualizedList';
-import theme from './List.module.scss';
 import Inject from '../Inject';
+import ListToVirtualizedList from './ListToVirtualizedList';
+import Toolbar from './Toolbar';
+
+import theme from './List.module.scss';
 
 const SelectAll = Toolbar.SelectAll;
 
@@ -166,7 +167,9 @@ function List({
 			{injected('after-toolbar')}
 			{selectAllCheckbox && <SelectAll {...selectAllCheckbox} />}
 			{injected('before-list-wrapper')}
-			<div className="tc-list-display-virtualized">
+			<div
+				className={classNames('tc-list-display-virtualized', theme[`display-mode-${displayMode}`])}
+			>
 				{injected('before-list')}
 				<ListToVirtualizedList
 					id={id}

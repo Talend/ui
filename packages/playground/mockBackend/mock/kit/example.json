@@ -109,9 +109,7 @@
       },
       "array": {
         "strings": ["red"],
-        "keyvalue": [
-          { "value": "value", "key": "key" }
-        ]
+        "keyvalue": [{ "value": "value", "key": "key" }]
       }
     },
     "uiSchema": [
@@ -276,11 +274,7 @@
                         "path": "example.url"
                       }
                     ],
-                    "options": [
-                      "triggers.url",
-                      "triggers.password",
-                      "triggers.login"
-                    ],
+                    "options": ["triggers.url", "triggers.password", "triggers.login"],
                     "type": "healthcheck"
                   }
                 ],
@@ -296,21 +290,24 @@
                 "key": "array.strings",
                 "title": "Strings",
                 "widget": "array",
-                "items": [{
-                  "key": "array.strings[]",
-                  "widget": "select",
-                  "titleMap": [
-                    { "name": "red", "value": "red" },
-                    { "name": "green", "value": "green" },
-                    { "name": "blue", "value": "blue" }
-                  ]
-                }]
+                "items": [
+                  {
+                    "key": "array.strings[]",
+                    "widget": "select",
+                    "titleMap": [
+                      { "name": "red", "value": "red" },
+                      { "name": "green", "value": "green" },
+                      { "name": "blue", "value": "blue" }
+                    ]
+                  }
+                ]
               },
               {
                 "placeholder": "key value",
                 "key": "array.keyvalue",
                 "itemWidget": "collapsibleFieldset",
                 "itemTitle": "Column",
+                "itemManaged": true,
                 "items": [
                   {
                     "key": "array.keyvalue[]",

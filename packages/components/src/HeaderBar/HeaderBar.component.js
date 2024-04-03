@@ -1,22 +1,22 @@
-import PropTypes from 'prop-types';
-import omit from 'lodash/omit';
 import { useTranslation } from 'react-i18next';
 
-import Inject from '../Inject';
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import { getTheme } from '../theme';
-import AppSwitcher from '../AppSwitcher';
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
 
-import { Logo } from './primitives/Logo.component';
-import { Environment } from './primitives/Environment.component';
+import AppSwitcher from '../AppSwitcher';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import Inject from '../Inject';
+import { getTheme } from '../theme';
+import { AppNotification } from './primitives/AppNotification.component';
 import { CallToAction } from './primitives/CallToAction.component';
+import { Environment } from './primitives/Environment.component';
 import { GenericAction } from './primitives/GenericAction.component';
+import { Help } from './primitives/Help.component';
+import { Information } from './primitives/Information.component';
+import { Intercom } from './primitives/Intercom.component';
+import { Logo } from './primitives/Logo.component';
 import { Search } from './primitives/Search.component';
 import { User } from './primitives/User.component';
-import { Information } from './primitives/Information.component';
-import { Help } from './primitives/Help.component';
-import { AppNotification } from './primitives/AppNotification.component';
-import { Intercom } from './primitives/Intercom.component';
 
 import headerBarCssModule from './HeaderBar.module.scss';
 

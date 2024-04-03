@@ -2,9 +2,9 @@
 
 @use '~@talend/design-tokens/lib/tokens';
 
-$custom-ratio-bar-height: 0.8rem;
-$custom-ratio-bar-line-height: 0.4rem;
-$custom-ratio-bar-line-hover-height: 0.8rem;
+$custom-ratio-bar-height: 0.5rem;
+$custom-ratio-bar-line-height: 0.25rem;
+$custom-ratio-bar-line-hover-height: 0.5rem;
 
 .tc-ratio-bar-lines {
 	width: 100%;

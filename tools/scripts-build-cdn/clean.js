@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-const rimraf = require('rimraf');
+const { rimrafSync } = require('rimraf');
 
 const CWD = process.cwd();
 const DIST = 'dist';
@@ -35,6 +35,6 @@ module.exports = function cleanup(program) {
 	for (let index = 0; index < PATHS.length; index++) {
 		const path = PATHS[index];
 		log(`rm -rf ${path}`);
-		rimraf.sync(path);
+		rimrafSync(path);
 	}
 };

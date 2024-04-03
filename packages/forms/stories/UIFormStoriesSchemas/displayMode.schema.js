@@ -148,6 +148,7 @@ export const displayModeSchema = {
 			key: 'root.file',
 			title: 'file',
 			widget: 'file',
+			triggers: [{ action: 'generatePresignedURL', onEvent: 'change' }],
 		},
 		{
 			key: 'root.multiSelectTag',
@@ -198,7 +199,7 @@ export const displayModeSchema = {
 			code: 'console.log("Hello World")',
 			datalist: 'Apple',
 			date: '02/06/2018',
-			// file: ?
+			file: '93843640-ed30-4174-898b-69499da9e679.Ni5hdnJv',
 			multiSelectTag: ['Apple'],
 			radios: 'foo',
 			toggle: true,

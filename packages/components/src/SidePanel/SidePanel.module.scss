@@ -8,27 +8,28 @@
 /// @group Custom widgets
 ////
 
-$list-item-height: 3rem !default;
+$list-item-height: 1.875rem !default;
 $toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-icons-size: tokens.$coral-sizing-xxxs;
 $toggle-button-padding: $padding-small;
 
-$docked-width: 6rem;
-$large-docked-width: 7rem;
+$docked-width: 3.75rem;
+$large-docked-width: 4.375rem;
 
 .tc-side-panel {
 	display: flex;
 	flex-direction: column;
 	font-weight: 500;
-	background: tokens.$coral-color-branding-navigation;
+	background: tokens.$coral-color-branding-background;
 	overflow: hidden;
 	position: relative;
+	border-right: 1px solid tokens.$coral-color-neutral-border-weak;
 
 	&::before {
-		left: 1rem;
-		bottom: -5rem;
+		left: 0.625rem;
+		bottom: -3.125rem;
 	}
 
 	&.animate {
@@ -37,14 +38,14 @@ $large-docked-width: 7rem;
 
 	.action-list-container {
 		flex: 1;
-		height: calc(100vh - 12rem); // specific to Safari
+		height: calc(100vh - 7.5rem); // specific to Safari
 
 		:global .tc-side-panel-list {
 			background: transparent;
 		}
 
 		:global .tc-action-list-item {
-			width: calc(100% - 2rem);
+			width: calc(100% - 1.25rem);
 			background: none !important;
 			box-shadow: none !important;
 
@@ -52,7 +53,8 @@ $large-docked-width: 7rem;
 				display: flex;
 				align-items: center;
 				justify-content: flex-start;
-				font-size: 1.6rem;
+				color: tokens.$coral-color-brand-text;
+				font-size: 1rem;
 				height: $list-item-height;
 				margin: $padding-smaller $padding-small;
 				padding: $padding-smaller;
@@ -61,6 +63,16 @@ $large-docked-width: 7rem;
 				> span {
 					margin-left: $padding-small;
 				}
+
+				&:hover {
+					background: tokens.$coral-color-brand-background-weak-hover;
+					color: tokens.$coral-color-brand-text-hover;
+				}
+			}
+
+			&.active .btn.btn-link {
+				background: tokens.$coral-color-brand-background-selected;
+				color: tokens.$coral-color-brand-text-selected;
 			}
 
 			.tc-svg-icon {
@@ -81,11 +93,11 @@ $large-docked-width: 7rem;
 		padding-bottom: 0;
 		padding-left: $toggle-button-padding;
 		text-align: left;
-		flex: 0 0 7rem;
+		flex: 0 0 4.375rem;
 
 		:global {
 			.btn.btn-link {
-				color: tokens.$coral-color-neutral-text-inverted;
+				color: tokens.$coral-color-brand-text;
 				line-height: 1;
 				height: $toggle-height;
 				padding: 0 $padding-small;
@@ -191,11 +203,29 @@ $large-docked-width: 7rem;
 	}
 
 	&.reverse[role='navigation'] {
-		background: tokens.$coral-color-neutral-background-medium !important;
-		color: tokens.$coral-color-neutral-text !important;
+		background: tokens.$coral-color-neutral-background-medium;
 
 		&::before {
 			content: none;
+		}
+
+		:global .tc-action-list-item {
+			.btn.btn-link {
+				&:hover {
+					background: tokens.$coral-color-brand-background-selected;
+					color: tokens.$coral-color-brand-text-selected;
+				}
+			}
+		}
+
+		:global {
+			.btn.btn-link,
+			.tc-svg-icon {
+				color: tokens.$coral-color-brand-text-inverted;
+				&:hover {
+					color: tokens.$coral-color-brand-text-inverted-hover;
+				}
+			}
 		}
 
 		.toggle-btn {
@@ -204,7 +234,7 @@ $large-docked-width: 7rem;
 			:global {
 				.btn.btn-link,
 				.tc-svg-icon {
-					color: tokens.$coral-color-neutral-text-weak;
+					color: tokens.$coral-color-brand-icon-inverted;
 				}
 			}
 		}

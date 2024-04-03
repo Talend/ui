@@ -2,40 +2,54 @@
 
 exports[`Fieldset widget should render fieldset 1`] = `
 <fieldset
-  class="form-group"
+  class="theme-fieldset"
 >
   <legend
-    class=""
+    class="theme-legend"
   >
     My fieldset
   </legend>
   <div
-    aria-busy="false"
-    class="form-group theme-template"
+    class="theme-fieldset-content"
   >
-    <input
-      aria-describedby="user_firstname-description user_firstname-error"
-      aria-invalid="false"
-      class="form-control"
-      id="user_firstname"
-      type="text"
-      value=""
-    />
-    <div />
-  </div>
-  <div
-    aria-busy="false"
-    class="form-group theme-template"
-  >
-    <input
-      aria-describedby="user_lastname-description user_lastname-error"
-      aria-invalid="false"
-      class="form-control"
-      id="user_lastname"
-      type="text"
-      value=""
-    />
-    <div />
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <label
+        class="theme-label"
+        for="user_firstname"
+      />
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          aria-invalid="false"
+          class="theme-input"
+          id="user_firstname"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <label
+        class="theme-label"
+        for="user_lastname"
+      />
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          aria-invalid="false"
+          class="theme-input"
+          id="user_lastname"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
   </div>
 </fieldset>
 `;

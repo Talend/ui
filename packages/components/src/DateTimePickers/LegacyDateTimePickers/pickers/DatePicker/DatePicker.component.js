@@ -1,20 +1,23 @@
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
+import { format } from 'date-fns/format';
+import { getDate } from 'date-fns/getDate';
+import { getMonth } from 'date-fns/getMonth';
+import { getYear } from 'date-fns/getYear';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isToday } from 'date-fns/isToday';
+import { setMonth } from 'date-fns/setMonth';
+import { startOfMonth } from 'date-fns/startOfMonth';
 import memoize from 'lodash/memoize';
-import isToday from 'date-fns/is_today';
-import getDate from 'date-fns/get_date';
-import getMonth from 'date-fns/get_month';
-import getYear from 'date-fns/get_year';
-import isSameDay from 'date-fns/is_same_day';
-import setMonth from 'date-fns/set_month';
-import format from 'date-fns/format';
-import startOfMonth from 'date-fns/start_of_month';
+import PropTypes from 'prop-types';
+
+import { Gesture } from '@talend/react-a11y';
+
+import getDefaultT from '../../../../translate';
+import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
 
 import theme from './DatePicker.module.scss';
-import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
-import { Gesture } from '@talend/react-a11y';
-import getDefaultT from '../../../../translate';
 
 const getDayNames = memoize(buildDayNames);
 
@@ -124,7 +127,7 @@ class DatePicker extends PureComponent {
 									'btn-default',
 								);
 
-								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
+								let ariaLabel = format(date, 'EEEE dd MMMM yyyy', pickerLocale);
 								const tdProps = {
 									key: j,
 									className: theme['calendar-col'],

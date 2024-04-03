@@ -1,14 +1,14 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-popover-border-width: 0.1rem !default;
+$tc-popover-border-width: 0.0625rem !default;
 $tc-popover-border-color: tokens.$coral-color-neutral-border-weak !default;
-$tc-popover-box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2) !default;
-$tc-popover-body-min-height: 10rem !default;
-$tc-popover-body-max-height: 30rem !default;
-$tc-popover-max-width: 40rem !default;
+$tc-popover-box-shadow: 0 0.0625rem 0.1875rem 0 rgba(0, 0, 0, 0.2) !default;
+$tc-popover-body-min-height: 6.25rem !default;
+$tc-popover-body-max-height: 18.75rem !default;
+$tc-popover-max-width: 25rem !default;
 $tc-popover-header-border-color: tokens.$coral-color-neutral-border-weak !default;
-$tc-popover-header-footer-height: 7rem !default;
+$tc-popover-header-footer-height: 4.375rem !default;
 
 :global(.popover) {
 	padding: 0;

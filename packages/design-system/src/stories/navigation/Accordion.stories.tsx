@@ -29,7 +29,7 @@ const SampleParagraph = () => (
 );
 
 export const SimpleCollapsiblePanel = (props: CollapsiblePanelProps) => (
-	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+	<div style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}>
 		<CollapsiblePanel {...props}>
 			<SampleParagraph />
 		</CollapsiblePanel>
@@ -50,7 +50,7 @@ SimpleCollapsiblePanel.argTypes = {
 };
 
 export const StatusCollapsiblePanel = () => (
-	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+	<div style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}>
 		<CollapsiblePanel status="successful">
 			<SampleParagraph />
 		</CollapsiblePanel>
@@ -71,7 +71,9 @@ export const StatusCollapsiblePanel = () => (
 
 export const DisabledPanel = {
 	render: (props: Story) => (
-		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+		<div
+			style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}
+		>
 			<CollapsiblePanel
 				{...props}
 				id="disabled-panel"
@@ -90,7 +92,7 @@ export const DisabledPanel = {
 };
 
 export const SmallPanel = () => (
-	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+	<div style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}>
 		<CollapsiblePanel title="small panel" size="S">
 			<SampleParagraph />
 		</CollapsiblePanel>
@@ -98,7 +100,7 @@ export const SmallPanel = () => (
 );
 
 export const WithMetadata = () => (
-	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+	<div style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}>
 		<StackVertical gap={'S'} align="stretch">
 			<CollapsiblePanel
 				title="Simple panel with several metadata"
@@ -124,18 +126,27 @@ export const WithMetadata = () => (
 	</div>
 );
 
-export const WithAction = {
+export const WithActions = {
 	render: (props: Story) => (
-		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+		<div
+			style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}
+		>
 			<CollapsiblePanel
 				{...props}
-				id="panel-with-action"
-				title="panel with action"
-				action={{
-					icon: 'plus',
-					tooltip: 'action tooltip',
-					callback: () => window.alert('action callback'),
-				}}
+				id="panel-with-actions"
+				title="panel with actions"
+				action={[
+					{
+						icon: 'talend-cog',
+						tooltip: 'action tooltip',
+						callback: () => window.alert('action callback'),
+					},
+					{
+						icon: 'plus',
+						tooltip: 'action tooltip',
+						callback: () => window.alert('action callback'),
+					},
+				]}
 			>
 				<SampleParagraph />
 			</CollapsiblePanel>
@@ -145,7 +156,9 @@ export const WithAction = {
 
 export const AccordionWrapper = {
 	render: (props: Story) => (
-		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+		<div
+			style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}
+		>
 			<Accordion {...props}>
 				<CollapsiblePanel id="panel-a" title="first panel">
 					<SampleParagraph />
@@ -162,7 +175,7 @@ export const AccordionWrapper = {
 };
 
 export const GroupOfSimplePanels = () => (
-	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
+	<div style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}>
 		<StackVertical gap={'S'} align="stretch">
 			<CollapsiblePanel title="first panel">
 				<SampleParagraph />

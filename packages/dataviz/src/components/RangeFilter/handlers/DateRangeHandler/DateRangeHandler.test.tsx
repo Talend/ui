@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { render, fireEvent, screen } from '@testing-library/react';
-import parseISO from 'date-fns/parseISO';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { parseISO } from 'date-fns/parseISO';
+
 import { DateInputField, DateRangeHandler } from './DateRangeHandler';
 
 jest.unmock('@talend/design-system');

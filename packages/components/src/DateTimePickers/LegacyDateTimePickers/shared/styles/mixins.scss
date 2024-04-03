@@ -8,7 +8,7 @@
 }
 
 @mixin picker-action {
-	font-size: 1.2rem;
+	font-size: 0.75rem;
 
 	&.selected {
 		background-color: tokens.$coral-color-accent-background;

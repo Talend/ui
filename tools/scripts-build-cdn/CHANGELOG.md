@@ -1,5 +1,29 @@
 # @talend/scripts-build-cdn
 
+## 11.1.3
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 11.1.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/babel-plugin-import-d3@0.4.1
+  - @talend/scripts-config-cdn@10.11.1
+  - @talend/module-to-cdn@9.10.1
+
+## 11.1.1
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/babel-plugin-import-d3@0.4.0
+  - @talend/scripts-config-cdn@10.11.0
+
 ## 11.1.0
 
 ### Minor Changes

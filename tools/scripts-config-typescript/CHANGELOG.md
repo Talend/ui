@@ -1,5 +1,11 @@
 # @talend/scripts-config-typescript
 
+## 11.2.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 11.2.0
 
 ### Minor Changes

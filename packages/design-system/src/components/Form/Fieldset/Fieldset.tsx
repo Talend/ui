@@ -1,5 +1,5 @@
 import { Children, cloneElement, forwardRef } from 'react';
-import type { Ref, FieldsetHTMLAttributes } from 'react';
+import type { FieldsetHTMLAttributes, Ref } from 'react';
 import { isElement } from 'react-is';
 
 import styles from './Fieldset.module.scss';
@@ -28,9 +28,11 @@ const Fieldset = forwardRef(
 						{required && '*'}
 					</legend>
 				)}
-				{Children.toArray(children).map(child =>
-					isElement(child) ? cloneElement(child, childrenProps) : child,
-				)}
+				<div className={styles['fieldset-content']}>
+					{Children.toArray(children).map(child =>
+						isElement(child) ? cloneElement(child, childrenProps) : child,
+					)}
+				</div>
 			</fieldset>
 		);
 	},

@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
 import { useController, useFormContext } from 'react-hook-form';
 
-import Select from '../../../widgets/fields/Select';
+import PropTypes from 'prop-types';
 
-function RHFSelect({ rules = {}, name = '', defaultValue, ...rest }) {
+import { Form } from '@talend/design-system';
+
+function RHFSelect({ rules = {}, name = '', defaultValue, options, ...rest }) {
 	const { control } = useFormContext();
 	const { field, fieldState } = useController({
 		control,
@@ -11,7 +12,25 @@ function RHFSelect({ rules = {}, name = '', defaultValue, ...rest }) {
 		rules,
 		defaultValue,
 	});
-	return <Select {...rest} {...field} error={fieldState.error?.message} />;
+
+	return (
+		<Form.Select
+			hasError={!!fieldState.error?.message}
+			description={fieldState.error?.message}
+			{...field}
+			{...rest}
+		>
+			{rest.required && !rest.placeholder && <option value=""></option>}
+			{options &&
+				options.map(option => {
+					return (
+						<option key={option.value} value={option.value} selected={rest.value === option.value}>
+							{option.name}
+						</option>
+					);
+				})}
+		</Form.Select>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
@@ -19,6 +38,7 @@ if (process.env.NODE_ENV !== 'production') {
 		rules: PropTypes.object,
 		name: PropTypes.string,
 		defaultValue: PropTypes.string,
+		options: PropTypes.array,
 	};
 }
 

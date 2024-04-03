@@ -28,7 +28,7 @@ describe('AdvancedSearch', () => {
 			</FacetedManager>,
 		);
 		// then
-		expect(screen.getByRole('search')).toHaveValue(initialQuery);
+		expect(screen.getByRole('searchbox')).toHaveValue(initialQuery);
 	});
 	it('should update the query when input change', () => {
 		// given
@@ -39,9 +39,9 @@ describe('AdvancedSearch', () => {
 				<AdvancedSearch onSubmit={onSubmit} />
 			</FacetedManager>,
 		);
-		fireEvent.change(screen.getByRole('search'), { target: { value: query } });
+		fireEvent.change(screen.getByRole('searchbox'), { target: { value: query } });
 		// then
-		expect(screen.getByRole('search')).toHaveValue(query);
+		expect(screen.getByRole('searchbox')).toHaveValue(query);
 	});
 	it('should call the onChange props when input change', () => {
 		// given
@@ -53,7 +53,7 @@ describe('AdvancedSearch', () => {
 				<AdvancedSearch onChange={onChange} onSubmit={onSubmit} />
 			</FacetedManager>,
 		);
-		fireEvent.change(screen.getByRole('search'), { target: { value: query } });
+		fireEvent.change(screen.getByRole('searchbox'), { target: { value: query } });
 		// then
 		expect(onChange).toHaveBeenCalled();
 		expect(onChange.mock.calls.length).toBe(1);
@@ -67,7 +67,7 @@ describe('AdvancedSearch', () => {
 				<AdvancedSearch onSubmit={onSubmit} />
 			</FacetedManager>,
 		);
-		fireEvent.keyDown(screen.getByRole('search'), { key: 'Enter' });
+		fireEvent.keyDown(screen.getByRole('searchbox'), { key: 'Enter' });
 		// then
 		expect(onSubmit).toHaveBeenCalled();
 		expect(onSubmit.mock.calls.length).toBe(1);
@@ -81,7 +81,7 @@ describe('AdvancedSearch', () => {
 				<AdvancedSearch onKeyDown={onKeyDown} onSubmit={onSubmit} />
 			</FacetedManager>,
 		);
-		fireEvent.keyDown(screen.getByRole('search'), { key: 'Enter' });
+		fireEvent.keyDown(screen.getByRole('searchbox'), { key: 'Enter' });
 		// then
 		expect(onKeyDown).toHaveBeenCalled();
 		expect(onKeyDown.mock.calls.length).toBe(1);

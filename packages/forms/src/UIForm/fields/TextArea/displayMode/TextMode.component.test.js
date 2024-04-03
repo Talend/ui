@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import TextArea from './TextMode.component';
 
@@ -26,9 +26,7 @@ describe('TextArea field text display mode', () => {
 		render(<TextArea id="myForm" schema={schemaWithRows} value="toto" />);
 
 		// then
-
-		expect(screen.getByRole('definition')).toHaveTextContent('toto');
-		expect(screen.getByRole('term')).toHaveTextContent('My input title');
+		expect(screen.getByText('My input title')).toBeInTheDocument();
 		expect(screen.getByText('toto')).toHaveStyle('height: 20rem');
 	});
 });

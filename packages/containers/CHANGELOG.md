@@ -1,5 +1,108 @@
 # @talend/react-containers
 
+## 10.7.3
+
+### Patch Changes
+
+- Updated dependencies [0629df7]
+  - @talend/react-forms@14.0.0
+
+## 10.7.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+  - @talend/react-forms@13.2.3
+
+## 10.7.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-system@9.8.1
+  - @talend/react-components@15.3.1
+  - @talend/react-forms@13.2.2
+  - @talend/utils@3.0.4
+  - @talend/react-cmf@8.4.1
+
+## 10.7.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-system@9.2.0
+  - @talend/react-components@15.1.0
+  - @talend/react-forms@13.1.0
+  - @talend/react-cmf@8.4.0
+
+## 10.6.1
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+  - @talend/react-forms@13.0.0
+  - @talend/design-system@9.0.0
+
+## 10.6.0
+
+### Minor Changes
+
+- 7d73eb9: TDOPS-5724 - Remove bootstrap theme styling and dependency from packages
+
+### Patch Changes
+
+- Updated dependencies [19304cd]
+  - @talend/design-system@8.11.0
+
+## 10.5.1
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/utils@3.0.0
+  - @talend/react-forms@12.5.1
+  - @talend/react-cmf@8.3.3
+  - @talend/design-system@8.8.3
+
+## 10.5.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-system@8.8.0
+  - @talend/react-components@13.1.0
+  - @talend/react-forms@12.5.0
+
+## 10.4.0
+
+### Minor Changes
+
+- 7de44f9: Removed dependency on react-bootstrap on SelectObject component
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+- Updated dependencies [7de44f9]
+- Updated dependencies [c9e740d]
+  - @talend/react-components@13.0.0
+  - @talend/react-forms@12.4.0
+
 ## 10.3.1
 
 ### Patch Changes

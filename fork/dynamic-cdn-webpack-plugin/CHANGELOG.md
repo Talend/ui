@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 13.1.2
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 13.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/module-to-cdn@9.10.1
+
 ## 13.1.0
 
 ### Minor Changes

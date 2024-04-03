@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+
 import { date as dateUtils } from '@talend/utils';
 
 /**
@@ -50,7 +51,10 @@ export function getTimezones(lang, cldrTimezones) {
 						} else {
 							// Ex: America/Argentina/Buenos_Aires ...
 							Object.keys(zones[region][city]).forEach(city2 => {
-								const timezone = `${region}/${city}/${city2}`;
+								let timezone = `${region}/${city}`;
+								if (city2 !== 'long') {
+									timezone = `${region}/${city}/${city2}`;
+								}
 								newTimezones.push(getTimezoneInfo(timezone));
 							});
 						}

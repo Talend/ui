@@ -1,5 +1,175 @@
 # @talend/react-forms
 
+## 14.0.1
+
+### Patch Changes
+
+- 6a69c4c: Fix UI-Form display on TextModeArrayTemplate to have some spacing between templates
+- Updated dependencies [8a25fb3]
+- Updated dependencies [6a69c4c]
+  - @talend/design-system@10.1.0
+  - @talend/react-components@16.0.1
+
+## 14.0.0
+
+### Major Changes
+
+- 0629df7: UI-FORM will now heavily use form components from the Design System
+
+  - Parent element is wrapped with a DS Form
+  - File / Checkboxes / Text / Number and Textare will now use DS components
+  - All elements will now use DS Label in both text and normal display mode
+
+  # BREAKING CHANGE
+
+  - Many style overrides will break because of removed bootstrap classes like `form-group` `control-label` `form-actions` `tf-actions-wrapper` `tf-buttons` or `tf-uiform`
+  - No more hearthbeat styling from bootstrap when form elements are in updating state
+  - Removed many possibilities to pass down classNames because DS components won't allow it
+
+## 13.2.3
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+
+## 13.2.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/react-components@15.3.1
+  - @talend/icons@7.7.1
+  - @talend/utils@3.0.4
+  - @talend/json-schema-form-core@1.2.3
+
+## 13.2.1
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- Updated dependencies [c1c9c5a]
+- Updated dependencies [ca74483]
+- Updated dependencies [c0c434c]
+  - @talend/design-system@9.7.0
+  - @talend/react-components@15.2.5
+  - @talend/utils@3.0.2
+
+## 13.2.0
+
+### Minor Changes
+
+- e38e9f3: fix(DFD-629): Add array item delete button tooltip
+
+### Patch Changes
+
+- Updated dependencies [5f9334f]
+  - @talend/design-system@9.4.0
+
+## 13.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-system@9.2.0
+  - @talend/design-tokens@3.1.0
+  - @talend/react-components@15.1.0
+  - @talend/icons@7.7.0
+
+## 13.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/react-components@15.0.1
+  - @talend/design-system@9.0.1
+
+## 13.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+  - @talend/design-system@9.0.0
+
+## 12.6.1
+
+### Patch Changes
+
+- 5269331: TDOPS-5854 - Fix MultiSelectTag widget to remove border from Typeahead component
+- Updated dependencies [bfe3b20]
+- Updated dependencies [941ff4f]
+  - @talend/react-components@14.2.2
+
+## 12.6.0
+
+### Minor Changes
+
+- 2065869: chore(DFD-491): Update ArrayItem styles
+
+### Patch Changes
+
+- f675918: fix(DFD-536): Fix click on collapsible toggle
+- Updated dependencies [f0770b1]
+  - @talend/design-system@8.11.1
+
+## 12.5.2
+
+### Patch Changes
+
+- eeec10c: fix timezone names
+
+## 12.5.1
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/utils@3.0.0
+  - @talend/design-system@8.8.3
+
+## 12.5.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-system@8.8.0
+  - @talend/design-tokens@2.11.0
+  - @talend/react-components@13.1.0
+
+## 12.4.0
+
+### Minor Changes
+
+- 7de44f9: Remove dependency on react-bootstrap
+
+### Patch Changes
+
+- c9e740d: TDOPS-5706 - Fix form widget ArrayItem button design and alignment
+- Updated dependencies [7de44f9]
+  - @talend/react-components@13.0.0
+
 ## 12.3.1
 
 ### Patch Changes

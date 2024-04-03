@@ -1,10 +1,15 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
+import isObject from 'lodash/isObject';
 import PropTypes from 'prop-types';
 
 import Badge from '@talend/react-components/lib/Badge';
 
-import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
+import {
+	callbacksPropTypes,
+	operatorPropTypes,
+	operatorsPropTypes,
+} from '../../facetedSearch.propTypes';
 import { BadgeFaceted } from '../BadgeFaceted';
 import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
 
@@ -43,12 +48,42 @@ export const BadgeCheckboxes = ({
 	filterBarPlaceholder,
 	allSelector,
 	t,
+	callbacks,
 	...rest
 }) => {
+	const [options, setOptions] = useState(values || []);
+	const [isLoading, setIsLoading] = useState(true);
+	const callback = callbacks && callbacks[rest.attribute];
+
+	useEffect(() => {
+		if (values?.length || !callback || !callback.getOptions) {
+			setIsLoading(false);
+			return;
+		}
+
+		setIsLoading(true);
+		callback
+			.getOptions()
+			.then(data => {
+				setOptions(
+					data.map(item => {
+						if (isObject(item)) {
+							return { id: item.id, label: item.label };
+						}
+						return { id: item, label: item };
+					}),
+				);
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+	}, [callbacks]);
+
 	const currentOperators = useMemo(() => operators, [operators]);
 	const currentOperator = operator || (currentOperators && currentOperators[0]);
 	const badgeCheckboxesId = `${id}-badge-checkboxes`;
 	const badgeLabel = useMemo(() => getSelectBadgeLabel(value, t), [value, t]);
+
 	return (
 		<BadgeFaceted
 			badgeId={id}
@@ -72,10 +107,11 @@ export const BadgeCheckboxes = ({
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
-					checkboxValues={values}
+					checkboxValues={options}
 					feature={category || label}
 					filterBarPlaceholder={filterBarPlaceholder}
 					allSelector={allSelector}
+					isLoading={isLoading}
 					{...rest}
 				/>
 			)}
@@ -106,6 +142,7 @@ BadgeCheckboxes.propTypes = {
 	removable: PropTypes.bool,
 	values: PropTypes.array,
 	t: PropTypes.func.isRequired,
+	callbacks: callbacksPropTypes,
 	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 	filterBarPlaceholder: PropTypes.string,
 	allSelector: PropTypes.bool,

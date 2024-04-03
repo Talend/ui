@@ -2,117 +2,134 @@
 
 exports[`AddFacetPopover should render 1`] = `
 <div
-  class="tc-add-facet-popover theme-tc-add-facet-popover"
+  class="theme-tc-add-facet-popover"
   id="my id-add-facet-popover"
 >
-  <div
-    class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
-    id="my id-add-facet-popover"
+  <form
+    class="theme-form"
   >
-    <div>
-      <header
-        class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-        id="my id-add-facet-popover-null-header"
+    <div
+      id="my id-add-facet-popover-null-header"
+    >
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
-        <form
-          class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-          role="search"
+        <label
+          class="theme-label"
+          for="my id-add-facet-popover-null-filter"
+        />
+        <div
+          class="theme-inputShell"
         >
-          <div
-            class="form-group"
+          <span
+            class="theme-icon"
           >
             <svg
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
-              focusable="false"
-              name="talend-search"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-            />
-            <input
-              aria-label="Find a filter"
-              autocomplete="off"
-              class="theme-search form-control"
-              id="my id-add-facet-popover-null-filter-input"
-              name="search"
-              placeholder="Find a filter"
-              role="searchbox"
-              type="search"
-              value=""
-            />
-          </div>
-        </form>
-      </header>
+              style="width: 1rem; height: 1rem;"
+            >
+              <use
+                xlink:href="#magnifying-glass:M"
+              />
+            </svg>
+          </span>
+          <input
+            class="theme-input"
+            id="my id-add-facet-popover-null-filter"
+            placeholder="Find a filter"
+            type="search"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="theme-tc-add-facet-popover-items"
+      data-test="add-facet-popover-items"
+      data-testid="add-facet-popover-items"
+    >
       <div
-        class="theme-body tc-tooltip-body"
-        id="my id-add-facet-popover-null-body"
+        class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
       >
-        <div
-          class="theme-content tc-tooltip-content"
-          id="my id-add-facet-popover-null-body-content"
+        <button
+          aria-busy="false"
+          class="theme-clickable theme-button theme-tertiary"
+          data-test="add-facet-popover-row-button"
+          data-testid="add-facet-popover-row-button"
+          id="my id-add-facet-popover-row-button-Connection name"
+          type="button"
         >
-          <div
-            class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container"
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
           >
-            <button
-              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-              id="my id-add-facet-popover-row-button-Connection name"
-              tabindex="0"
+            <div
+              class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-0 theme-gap-y-0"
             >
-              <div
-                class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S"
-              >
-                <div
-                  class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink"
-                >
-                  Connection name
-                </div>
-              </div>
-            </button>
-            <button
-              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button tc-add-facet-popover-row-button-category theme-tc-add-facet-popover-row-button-category"
-              id="my id-open-category-row-button-Custom attributes"
-              tabindex="0"
+              <span>
+                Connection name
+              </span>
+            </div>
+          </span>
+        </button>
+        <button
+          aria-busy="false"
+          class="theme-clickable theme-button theme-tertiary"
+          data-test="add-facet-popover-row-button"
+          data-testid="add-facet-popover-row-button"
+          id="my id-open-category-row-button-Custom attributes"
+          type="button"
+        >
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          >
+            <div
+              class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-0 theme-gap-y-0"
             >
-              <div
-                class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S"
+              <span>
+                Custom attributes
+              </span>
+              <span
+                data-test="add-facet-popover-row-button-chevron"
+                data-testid="add-facet-popover-row-button-chevron"
               >
-                <div
-                  class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink"
-                >
-                  Custom attributes
-                </div>
                 <svg
                   aria-hidden="true"
                   pointer-events="none"
                   shape-rendering="geometricPrecision"
-                  style="width: 1.2rem; height: 1.2rem;"
+                  style="width: 0.75rem; height: 0.75rem;"
                 >
                   <use
                     xlink:href="#chevron-right:S"
                   />
                 </svg>
-              </div>
-            </button>
-            <button
-              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-              id="my id-add-facet-popover-row-button-Name"
-              tabindex="0"
+              </span>
+            </div>
+          </span>
+        </button>
+        <button
+          aria-busy="false"
+          class="theme-clickable theme-button theme-tertiary"
+          data-test="add-facet-popover-row-button"
+          data-testid="add-facet-popover-row-button"
+          id="my id-add-facet-popover-row-button-Name"
+          type="button"
+        >
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          >
+            <div
+              class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-0 theme-gap-y-0"
             >
-              <div
-                class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S"
-              >
-                <div
-                  class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink"
-                >
-                  Name
-                </div>
-              </div>
-            </button>
-          </div>
-        </div>
+              <span>
+                Name
+              </span>
+            </div>
+          </span>
+        </button>
       </div>
     </div>
-  </div>
+  </form>
 </div>
 `;

@@ -1,10 +1,12 @@
-import { Fragment, forwardRef, Ref } from 'react';
-import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
+import { forwardRef, Fragment, Ref } from 'react';
 
 import classnames from 'classnames';
-import styles from './BadgeValue.module.scss';
-import { StackHorizontal } from '../../Stack';
+
 import { Divider } from '../../Divider';
+import { StackHorizontal } from '../../Stack';
+import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
+
+import styles from './BadgeValue.module.scss';
 
 export type BadgeValueProps = BadgePrimitiveProps & {
 	/**

@@ -1,5 +1,11 @@
 # @talend/router-bridge
 
+## 2.1.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 2.1.1
 
 ### Patch Changes

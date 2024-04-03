@@ -1,9 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
-import { FigmaImage, FigmaLink, Use } from '@talend/storybook-docs';
+import { Canvas, Meta } from '@storybook/blocks';
 
-import { Card, StackVertical, InlineMessageWarning } from '../../';
-import { Status } from '../Status.block';
 import * as Stories from './Card.stories';
+import { Status } from '../Status.block';
 
 <Meta title="Layout/Card" />
 <Status id="card" />
@@ -26,9 +24,7 @@ WIP
 
 **Default card**
 
-<Canvas>
-	<Story of={Stories.DefaultCard} />
-</Canvas>
+<Canvas of={Stories.DefaultCard} />
 
 ## States
 

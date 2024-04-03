@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 export default function TextMode({ id, schema, value }) {

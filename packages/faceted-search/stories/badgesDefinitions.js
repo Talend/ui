@@ -291,7 +291,7 @@ export const badgeTags = {
 		label: 'Tags',
 		operator: {},
 		operators: [],
-		type: 'tags',
+		type: 'checkbox',
 	},
 	metadata: {
 		badgePerFacet: '1',
@@ -500,5 +500,23 @@ export const badgeCreationDate = {
 			'lessThanOrEquals',
 		],
 		'data-feature': 'faceted-badge-creation-date',
+	},
+};
+
+export const badgePeriod = {
+	properties: {
+		attribute: 'period',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Period',
+		operator: {},
+		operators: [],
+		type: 'period',
+	},
+	metadata: {
+		badgePerFacet: 'N',
+		entitiesPerBadge: '1',
+		operators: ['in'],
+		'data-feature': 'faceted-badge-period',
 	},
 };

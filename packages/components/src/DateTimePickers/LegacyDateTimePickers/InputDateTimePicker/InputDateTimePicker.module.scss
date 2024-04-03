@@ -1,8 +1,8 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-datetimepicker-width: 31rem !default;
-$tc-datetimepicker-box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2) !default;
+$tc-datetimepicker-width: 19.375rem !default;
+$tc-datetimepicker-box-shadow: 0 0.0625rem 0.1875rem 0 rgba(0, 0, 0, 0.2) !default;
 $tc-datetimepicker-z-index: $zindex-dropdown !default;
 
 .popper {

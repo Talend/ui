@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import TextMode from './TextMode.component';
 
@@ -21,8 +21,7 @@ describe('Text field text display mode', () => {
 		render(<TextMode id="myForm" schema={{ ...schema, type: 'password' }} value="toto" />);
 
 		// then
-
-		expect(screen.getByRole('definition')).toHaveTextContent('**********');
-		expect(screen.getByRole('term')).toHaveTextContent('My input title');
+		expect(screen.getByText('**********')).toBeInTheDocument();
+		expect(screen.getByText('My input title')).toBeInTheDocument();
 	});
 });

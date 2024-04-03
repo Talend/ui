@@ -1,8 +1,8 @@
 // rewrite tests using react-testing-library
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
-import { BadgeOverlay } from './BadgeOverlay.component';
 import getDefaultT from '../../../translate';
+import { BadgeOverlay } from './BadgeOverlay.component';
 
 describe('BadgeOverlay', () => {
 	it('should render the html output in the default state', () => {
@@ -29,8 +29,8 @@ describe('BadgeOverlay', () => {
 		render(<BadgeOverlay {...props}>{childrenAsFunc}</BadgeOverlay>);
 		// eslint-disable-next-line jest-dom/prefer-in-document
 		expect(screen.queryByTestId('my-children')).toBeNull();
-		fireEvent.click(screen.getByRole('button'));
-		await screen.findByRole('tooltip');
+		fireEvent.click(screen.getByRole('button', { name: 'my label' }));
+		await screen.findByRole('dialog');
 		// Then
 		expect(screen.getByTestId('my-children')).toHaveTextContent('hello world');
 	});
@@ -47,7 +47,7 @@ describe('BadgeOverlay', () => {
 		// When
 		render(<BadgeOverlay {...props}>{childrenAsFunc}</BadgeOverlay>);
 
-		fireEvent.click(screen.getByRole('button'));
+		fireEvent.click(screen.getByRole('button', { name: props.label }));
 		// Then
 		expect(onChange.mock.calls.length).toBe(1);
 		expect(onChange.mock.calls[0][1]).toBe(true);

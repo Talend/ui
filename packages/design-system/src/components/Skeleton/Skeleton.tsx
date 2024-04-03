@@ -5,13 +5,15 @@ import SkeletonButtonIcon, { SkeletonButtonIconProps } from './variations/Skelet
 import SkeletonHeading, { SkeletonHeadingProps } from './variations/SkeletonHeading';
 import SkeletonInput, { SkeletonInputProps } from './variations/SkeletonInput';
 import SkeletonParagraph, { SkeletonParagraphProps } from './variations/SkeletonParagraph';
+import SkeletonSized, { SkeletonSizedProps } from './variations/SkeletonSized';
 
 export type SkeletonProps =
 	| ({ variant: 'button' } & SkeletonButtonProps)
 	| ({ variant: 'buttonIcon' } & SkeletonButtonIconProps)
 	| ({ variant: 'heading' } & SkeletonHeadingProps)
 	| ({ variant: 'paragraph' } & SkeletonParagraphProps)
-	| ({ variant: 'input' } & SkeletonInputProps);
+	| ({ variant: 'input' } & SkeletonInputProps)
+	| ({ variant: 'sized' } & SkeletonSizedProps);
 
 export const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLSpanElement>) => {
 	switch (props.variant) {
@@ -38,6 +40,11 @@ export const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLSpanEleme
 		case 'input': {
 			const { variant, ...rest } = props;
 			return <SkeletonInput {...rest} ref={ref} />;
+		}
+
+		case 'sized': {
+			const { variant, ...rest } = props;
+			return <SkeletonSized {...rest} ref={ref} />;
 		}
 
 		default: {

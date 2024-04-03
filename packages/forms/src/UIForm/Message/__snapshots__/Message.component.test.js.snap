@@ -1,35 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Message component should render provided description and no error if the field is valid 1`] = `
-<div>
-  <div
-    aria-live="polite"
-    class="theme-inlineMessage"
-    data-test="fieldTemplate.inlineMessage"
-    id="my-message-description"
-    role="status"
+<div
+  aria-live="polite"
+  class="theme-inlineMessage"
+  data-test="fieldTemplate.inlineMessage"
+  id="my-message-description"
+  role="status"
+>
+  <span
+    class="theme-icon theme-information__icon"
   >
-    <span
-      class="theme-icon theme-information__icon"
+    <svg
+      aria-hidden="true"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+      style="width: 1rem; height: 1rem;"
     >
-      <svg
-        aria-hidden="true"
-        pointer-events="none"
-        shape-rendering="geometricPrecision"
-        style="width: 1.6rem; height: 1.6rem;"
-      >
-        <use
-          xlink:href="#information-filled:M"
-        />
-      </svg>
+      <use
+        xlink:href="#information-filled:M"
+      />
+    </svg>
+  </span>
+  <p
+    class="theme-inlineMessage__contents"
+  >
+    <span>
+      My description
     </span>
-    <p
-      class="theme-inlineMessage__contents"
-    >
-      <span>
-        My description
-      </span>
-    </p>
-  </div>
+  </p>
 </div>
 `;

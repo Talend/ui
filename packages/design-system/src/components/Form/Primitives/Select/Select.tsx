@@ -1,10 +1,12 @@
 import { forwardRef, ReactElement, Ref, SelectHTMLAttributes } from 'react';
+
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 import SelectNoWrapper from './SelectNoWrapper';
 
 export type SelectPrimitiveProps = Omit<SelectHTMLAttributes<any>, 'prefix'> & {
 	children: ReactElement | ReactElement[];
 	hasError?: boolean;
+	placeholder?: string;
 	isAffix?: boolean;
 	isSuffix?: boolean;
 } & AffixesProps;

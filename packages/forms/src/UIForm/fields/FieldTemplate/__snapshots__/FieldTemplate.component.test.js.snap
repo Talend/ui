@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldTemplate should render 1`] = `
-<div
-  class="form-group theme-template"
->
-  <label
-    class="control-label"
-    for="myAwesomeField"
+<div>
+  <div
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    My awesome label
-  </label>
-  <input
-    id="myAwesomeField"
-  />
-  <div>
+    <label
+      class="theme-label"
+      for="myAwesomeField"
+    >
+      My awesome label
+    </label>
+    <input
+      id="myAwesomeField"
+    />
     <div
       aria-live="polite"
       class="theme-inlineMessage"
@@ -28,7 +28,7 @@ exports[`FieldTemplate should render 1`] = `
           aria-hidden="true"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#information-filled:M"

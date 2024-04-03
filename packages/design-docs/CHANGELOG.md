@@ -1,5 +1,70 @@
 # @talend/design-docs
 
+## 4.1.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+
+## 4.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/storybook-docs@2.4.1
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/icons@7.7.1
+
+## 4.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/storybook-docs@2.4.0
+  - @talend/design-system@9.2.0
+  - @talend/design-tokens@3.1.0
+  - @talend/icons@7.7.0
+
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/design-system@9.0.1
+  - @talend/storybook-docs@2.3.1
+
+## 4.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+  - @talend/design-system@9.0.0
+
+## 3.2.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/storybook-docs@2.3.0
+  - @talend/design-system@8.8.0
+  - @talend/design-tokens@2.11.0
+
 ## 3.1.1
 
 ### Patch Changes

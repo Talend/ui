@@ -1,53 +1,51 @@
 import { useMemo } from 'react';
-import startOfDay from 'date-fns/start_of_day';
+
+import { startOfDay } from 'date-fns/startOfDay';
 import PropTypes from 'prop-types';
-import { Action, getTheme, Rich, DatePicker } from '@talend/react-components';
-import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
-import cssModule from './BadgeDate.module.scss';
+import { ButtonPrimary, Form } from '@talend/design-system';
+import { DatePicker } from '@talend/react-components';
+import { getDataAttrFromProps } from '@talend/utils';
 
-const theme = getTheme(cssModule);
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-const BadgeDateForm = ({ id, onChange, onSubmit, value, feature, t, dateFormat, ...rest }) => {
+import styles from './BadgeDate.module.scss';
+
+const BadgeDateForm = ({ id, onChange, onSubmit, value, feature, t, ...rest }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
 	return (
-		<form className={theme('tc-badge-date-form')} id={`${id}-date-`} onSubmit={onSubmit}>
-			<Rich.Layout.Body id={`${id}-badge-body`} className={theme('tc-badge-date-form-body')}>
-				<DatePicker.Manager
-					id={`${id}-date-picker-manager`}
-					value={value}
-					dateFormat={dateFormat}
-					onChange={(event, data) => {
-						if (!data.errors.length) {
-							onChange(event, startOfDay(data.date).getTime());
-						}
-					}}
-				>
-					<div className={theme('tc-badge-date-form-input-container')}>
-						<label className={theme('tc-badge-date-form-label')} htmlFor={`${id}-date-input`}>
-							{t('SELECT_A_DATE', 'Select a date')}
-						</label>
-						<DatePicker.Input
-							id={`${id}-date-input`}
-							className="form-control"
-							placeholder={t('TYPE_HERE', { defaultValue: 'Type here' })}
-						/>
-					</div>
-					<div className={theme('tc-badge-date-form-picker-container')}>
-						<DatePicker.Picker />
-					</div>
-					<Action
-						className={theme('tc-badge-date-form-submit')}
-						data-feature={applyDataFeature}
-						type="submit"
-						label={t('APPLY', { defaultValue: 'Apply' })}
-						bsStyle="info"
-						{...getDataAttributesFrom(rest)}
+		<Form id={`${id}-date-`} onSubmit={onSubmit}>
+			<DatePicker.Manager
+				id={`${id}-date-picker-manager`}
+				value={value}
+				onChange={(event, data) => {
+					if (!data.errors.length) {
+						onChange(event, startOfDay(data.date).getTime());
+					}
+				}}
+			>
+				<div>
+					<label htmlFor={`${id}-date-input`}>{t('SELECT_A_DATE', 'Select a date')}</label>
+					<DatePicker.Input
+						id={`${id}-date-input`}
+						placeholder={t('TYPE_HERE', { defaultValue: 'Type here' })}
 					/>
-				</DatePicker.Manager>
-			</Rich.Layout.Body>
-		</form>
+				</div>
+				<div className={styles['tc-badge-date-form-picker-container']}>
+					<DatePicker.Picker />
+				</div>
+			</DatePicker.Manager>
+			<Form.Buttons padding={{ x: 0, bottom: 0, top: 'M' }}>
+				<ButtonPrimary
+					data-feature={applyDataFeature}
+					type="submit"
+					{...getDataAttrFromProps(rest)}
+				>
+					{t('APPLY', { defaultValue: 'Apply' })}
+				</ButtonPrimary>
+			</Form.Buttons>
+		</Form>
 	);
 };
 
@@ -58,7 +56,6 @@ BadgeDateForm.propTypes = {
 	value: PropTypes.number,
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
-	dateFormat: PropTypes.string,
 };
 
 // eslint-disable-next-line import/prefer-default-export

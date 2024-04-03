@@ -1,5 +1,7 @@
-import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Radio.stories';
@@ -33,27 +35,19 @@ Otherwise, consider using [checkboxes](components-form-form-fields-checkbox--che
 
 ### Default
 
-<Canvas>
-	<Story of={Stories.RadioFillStates} />
-</Canvas>
+<Canvas of={Stories.RadioFillStates} />
 
 ### Disabled
 
-<Canvas>
-	<Story of={Stories.RadioFillStatesDisabled} />
-</Canvas>
+<Canvas of={Stories.RadioFillStatesDisabled} />
 
 ### Read only
 
-<Canvas>
-	<Story of={Stories.RadioFillStatesReadonly} />
-</Canvas>
+<Canvas of={Stories.RadioFillStatesReadonly} />
 
 ### Multiple radios
 
-<Canvas>
-	<Story of={Stories.RadioReactHooksForm} />
-</Canvas>
+<Canvas of={Stories.RadioReactHooksForm} />
 
 ## Content
 
@@ -86,10 +80,7 @@ Radio buttons appear as a list of two or more options where users can select onl
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Basic} />
-</Canvas>
-
+<Canvas of={Stories.Basic} />
 <Controls of={Stories.Basic} />
 
 ## Accessibility

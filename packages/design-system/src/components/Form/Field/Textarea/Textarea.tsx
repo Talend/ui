@@ -1,11 +1,12 @@
 import { forwardRef, Ref } from 'react';
+
+import { useId } from '../../../../useId';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	TextareaPrimitive,
 	TextareaPrimitiveProps,
 } from '../../Primitives';
-import { useId } from '../../../../useId';
 
 export type InputTextareaProps = FieldPropsPrimitive &
 	Omit<TextareaPrimitiveProps, 'className' | 'styles'> & { children?: string };
@@ -46,6 +47,7 @@ const Textarea = forwardRef((props: InputTextareaProps, ref: Ref<HTMLTextAreaEle
 				id={fieldID}
 				name={name}
 				ref={ref}
+				hasError={hasError || false}
 			/>
 		</FieldPrimitive>
 	);

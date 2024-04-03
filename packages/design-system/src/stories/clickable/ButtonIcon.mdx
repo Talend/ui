@@ -1,5 +1,7 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
-import { FigmaImage, FigmaLink, Links } from '@talend/storybook-docs';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
+import { FigmaImage } from '@talend/storybook-docs';
+
 import * as Stories from './ButtonIcon.stories';
 import { Status } from '../Status.block';
 
@@ -35,17 +37,13 @@ It handles the two largest usecases we have for clickable icons: actions and tog
 	alt="variations image for ButtonIcon"
 />
 
-<Canvas withSource="closed">
-	<Story of={Stories.Variations} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.Variations} />
 
 #### Default
 
 This is the go-to ButtonIcon for most generic actions.
 
-<Canvas>
-	<Story of={Stories.DefaultButtonIcon} />
-</Canvas>
+<Canvas of={Stories.DefaultButtonIcon} />
 
 #### Toggle
 
@@ -53,9 +51,7 @@ If the button needs to hold an active / inactive state, then it is a Toggle.
 
 Don’t use Toggles in series, opt for badge dropdowns instead.
 
-<Canvas>
-	<Story of={Stories.DefaultButtonIconToggle} />
-</Canvas>
+<Canvas of={Stories.DefaultButtonIconToggle} />
 
 #### Floating
 
@@ -63,9 +59,7 @@ This variant is only used when the button floats on top of content.
 
 It could be it's sitting on top of a line connecting two nodes, or sticky on top of a draggable scene for instance.
 
-<Canvas>
-	<Story of={Stories.DefaultButtonIconFloating} />
-</Canvas>
+<Canvas of={Stories.DefaultButtonIconFloating} />
 
 ## States
 
@@ -75,9 +69,7 @@ ButtonIcons can display a "loading" state for asynchronous actions.
 
 Only use when necessary to avoid multiple clicks when the action is not instant.
 
-<Canvas>
-	<Story of={Stories.Loading} />
-</Canvas>
+<Canvas of={Stories.Loading} />
 
 ### Skeleton
 
@@ -87,9 +79,7 @@ The Loading state is for asynchronous tasks where the Button (and the button onl
 
 Skeleton needs are handled by the Skeleton component. Use `SkeletonButtonIcon` or the right `variant` prop on `Skeleton`.
 
-<Canvas>
-	<Story of={Stories.ButtonIconSkeletons} />
-</Canvas>
+<Canvas of={Stories.ButtonIconSkeletons} />
 
 [The Skeleton Documentation is over there!](/docs/feedback-skeleton--docs)
 
@@ -107,35 +97,24 @@ You have access to three components with curated props for each.
 
 ### ButtonIcon
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
-
+<Canvas of={Stories.Default} />
 <Controls of={Stories.Default} />
 
 ### ButtonIconToggle
 
-<Canvas>
-	<Story of={Stories.Toggle} />
-</Canvas>
-
+<Canvas of={Stories.Toggle} />
 <Controls of={Stories.Toggle} />
 
 ### ButtonIconFloating
 
-<Canvas>
-	<Story of={Stories.Floating} />
-</Canvas>
-
+<Canvas of={Stories.Floating} />
 <Controls of={Stories.Floating} />
 
 ### Button props
 
 Of course all buttons can also use natural `<button>` attributes (but not `classNames` nor `style`).
 
-<Canvas>
-	<Story of={Stories.NaturalButtonProps} />
-</Canvas>
+<Canvas of={Stories.NaturalButtonProps} />
 
 ## Accessibility
 

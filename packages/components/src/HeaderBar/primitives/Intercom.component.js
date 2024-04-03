@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import { useMemo } from 'react';
+
+import PropTypes from 'prop-types';
 
 import ActionIntercom from '../../ActionIntercom';
 import { getTheme } from '../../theme';

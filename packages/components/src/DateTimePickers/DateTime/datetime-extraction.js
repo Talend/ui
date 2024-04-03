@@ -1,10 +1,11 @@
-import format from 'date-fns/format';
-import setSeconds from 'date-fns/set_seconds';
+import { format } from 'date-fns/format';
+import { setSeconds } from 'date-fns/setSeconds';
+
 import { date as dateUtils } from '@talend/utils';
 
-import getErrorMessage from '../shared/error-messages';
 import { convertDateToTimezone, extractDateOnly } from '../Date/date-extraction';
-import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
+import getErrorMessage from '../shared/error-messages';
+import { checkTime, pad, strToTime, timeToStr } from '../Time/time-extraction';
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
@@ -85,7 +86,8 @@ function dateAndTimeToDateTime(date, time, options) {
 }
 
 function dateAndTimeToStr(date = '', time = '', options) {
-	const dateStr = date instanceof Date ? format(date, options.dateFormat) : date;
+	const dateStr =
+		date instanceof Date ? format(date, dateUtils.formatToUnicode(options.dateFormat)) : date;
 	const timeStr = typeof time === 'string' ? time : timeToStr(time, options.useSeconds);
 
 	return `${dateStr} ${timeStr}`.trim();
@@ -147,7 +149,7 @@ function extractPartsFromTextInput(textInput, options) {
 		const splitMatches = textInput.split(/\s/);
 		date = splitMatches[0];
 		time = splitMatches[1];
-		datetime = dateAndTimeToDateTime(date, time, options);
+		datetime = dateAndTimeToDateTime(new Date(date), time, options);
 	} catch (error) {
 		datetime = INTERNAL_INVALID_DATE;
 		errors = [error];

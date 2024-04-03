@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-
 import PropTypes from 'prop-types';
-import FieldTemplate from '../FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
+import { Form } from '@talend/design-system';
+
+import { getLabelProps } from '../../utils/labels';
 import { extractDataAttributes } from '../../utils/properties';
 
 function getSelectedOptions(select, multiple) {
@@ -37,58 +37,43 @@ export default function Select({
 		labelProps,
 		...rest
 	} = schema;
-	const descriptionId = generateDescriptionId(id);
-	const errorId = generateErrorId(id);
-
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
 
 	return (
-		<FieldTemplate
-			description={description}
-			errorMessage={errorMessage}
-			descriptionId={descriptionId}
-			errorId={errorId}
+		<Form.Select
 			id={id}
-			isValid={isValid}
-			label={title}
-			labelProps={labelProps}
+			multiple={multiple}
+			autoFocus={autoFocus}
+			disabled={disabled || valueIsUpdating}
+			placeholder={placeholder}
+			onChange={event => {
+				const payload = { schema, value: getSelectedOptions(event.target, multiple) };
+				onChange(event, payload);
+				onFinish(event, payload);
+			}}
+			readOnly={readOnly}
+			value={value}
 			required={schema.required}
-			valueIsUpdating={valueIsUpdating}
+			label={getLabelProps(title, labelProps, schema.hint)}
+			description={errorMessage || description}
+			hasError={!isValid}
+			aria-invalid={!isValid}
+			aria-required={schema.required}
+			{...extractDataAttributes(rest)}
 		>
-			<select
-				id={id}
-				multiple={multiple}
-				autoFocus={autoFocus}
-				className="form-control"
-				disabled={disabled || valueIsUpdating}
-				onChange={event => {
-					const payload = { schema, value: getSelectedOptions(event.target, multiple) };
-					onChange(event, payload);
-					onFinish(event, payload);
-				}}
-				readOnly={readOnly}
-				value={value}
-				// eslint-disable-next-line jsx-a11y/aria-proptypes
-				aria-invalid={!isValid}
-				aria-required={schema.required}
-				aria-describedby={`${descriptionId} ${errorId}`}
-				{...extractDataAttributes(rest)}
-			>
-				{placeholder ? (
-					<option disabled value="">
-						{placeholder}
-					</option>
-				) : null}
-				{schema.titleMap &&
-					schema.titleMap.map((option, index) => {
-						return (
-							<option key={option.value || option.name || index} value={option.value}>
-								{option.name}
-							</option>
-						);
-					})}
-			</select>
-		</FieldTemplate>
+			{schema.titleMap &&
+				schema.titleMap.map((option, index) => {
+					return (
+						<option
+							key={option.value || option.name || index}
+							value={option.value}
+							selected={value === option.value}
+						>
+							{option.name}
+						</option>
+					);
+				})}
+		</Form.Select>
 	);
 }
 
@@ -119,6 +104,12 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 			type: PropTypes.string,
+			hint: PropTypes.shape({
+				icon: PropTypes.string,
+				className: PropTypes.string,
+				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+				overlayPlacement: PropTypes.string,
+			}),
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 		valueIsUpdating: PropTypes.bool,

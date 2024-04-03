@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Copy.stories';
@@ -24,23 +26,17 @@ A shortcut to a read-only `Form.Text` field with prefix and a state, it's used t
 
 ### Default
 
-<Canvas>
-	<Story of={Stories.CopyStates} />
-</Canvas>
+<Canvas of={Stories.CopyStates} />
 
 ### Filled
 
-<Canvas>
-	<Story of={Stories.CopyStatesWithContents} />
-</Canvas>
+<Canvas of={Stories.CopyStatesWithContents} />
 
 ### Prefix
 
 `Form.Copy` uses `Form.Text` internally and is therefore able to display a prefix as well.
 
-<Canvas>
-	<Story of={Stories.CopyWithPrefix} />
-</Canvas>
+<Canvas of={Stories.CopyWithPrefix} />
 
 Read the [Affixes documentation here](/docs/form-affic-affixes) for more details.
 
@@ -50,9 +46,7 @@ Read the [Affixes documentation here](/docs/form-affic-affixes) for more details
 
 When using Rhf, if you want the confirmation message to disappear in case of input change, you must use `watch` on the value or defaultValue.
 
-<Canvas>
-	<Story of={Stories.ReactHookForm} />
-</Canvas>
+<Canvas of={Stories.ReactHookForm} />
 
 ## Accessibility
 

@@ -1,5 +1,27 @@
 # @talend/react-cmf
 
+## 8.4.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-cmf@1.2.4
+  - @talend/utils@3.0.4
+
+## 8.4.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 8.3.3
+
+### Patch Changes
+
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+
 ## 8.3.2
 
 ### Patch Changes

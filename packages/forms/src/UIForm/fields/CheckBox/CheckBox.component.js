@@ -1,19 +1,29 @@
 import PropTypes from 'prop-types';
-import SimpleCheckBox from './SimpleCheckBox.component';
-import FieldTemplate from '../FieldTemplate';
+
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import FieldTemplate from '../FieldTemplate';
+import SimpleCheckBox from './SimpleCheckBox.component';
 
 export default function CheckBox(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
+	const {
+		id,
+		isValid,
+		errorMessage,
+		onChange,
+		onFinish,
+		schema,
+		value,
+		valueIsUpdating,
+		disabled,
+	} = props;
+	const { description } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
 	return (
 		<FieldTemplate
 			id={id}
-			hint={schema.hint}
-			className={schema.className}
-			description={schema.description}
+			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
 			errorMessage={errorMessage}
@@ -23,7 +33,7 @@ export default function CheckBox(props) {
 		>
 			<SimpleCheckBox
 				describedby={`${descriptionId} ${errorId}`}
-				disabled={schema.disabled || valueIsUpdating}
+				disabled={disabled || schema.disabled || valueIsUpdating}
 				id={id}
 				isValid={isValid}
 				label={schema.title || value}
@@ -58,6 +68,7 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 		value: PropTypes.bool,
 		valueIsUpdating: PropTypes.bool,
+		disabled: PropTypes.bool,
 	};
 }
 
