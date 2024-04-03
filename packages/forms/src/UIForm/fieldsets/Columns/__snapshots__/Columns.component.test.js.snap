@@ -43,6 +43,7 @@ exports[`Columns widget should render columns 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="lastname-description lastname-error"
                   aria-invalid="false"
                   class="theme-input"
                   id="lastname"
@@ -92,6 +93,7 @@ exports[`Columns widget should render columns 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="firstname-description firstname-error"
                   aria-invalid="false"
                   aria-required="true"
                   class="theme-input"
@@ -116,6 +118,7 @@ exports[`Columns widget should render columns 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="age-description age-error"
                   aria-invalid="false"
                   class="theme-input"
                   id="age"
@@ -143,6 +146,7 @@ exports[`Columns widget should render columns 1`] = `
             class="theme-inputShell"
           >
             <input
+              aria-describedby="singleInput-description singleInput-error"
               aria-invalid="false"
               class="theme-input"
               id="singleInput"

@@ -18,6 +18,7 @@ exports[`Container(Form) should render a Form 1`] = `
       class="theme-inputShell"
     >
       <input
+        aria-describedby="name-description name-error"
         aria-invalid="false"
         class="theme-input"
         id="name"
