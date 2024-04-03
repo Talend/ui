@@ -24,8 +24,8 @@ jobs:
 
       - name: Install and tests
         run: |
-          yarn --frozen-lockfile --ignore-scripts
-          yarn test:cron
+          pnpm --frozen-lockfile --ignore-scripts
+          pnpm test:cron
 
       - name: Create Issue on Failed workflow
         if: ${{ failure() }}

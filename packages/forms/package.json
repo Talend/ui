@@ -9,7 +9,7 @@
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
     "build-storybook": "talend-scripts build-storybook",
-    "pre-release": "yarn build:dev && yarn build:prod",
+    "pre-release": "pnpm build:dev && pnpm build:prod",
     "build:lib": "talend-scripts build",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "talend-scripts test --watch",
@@ -57,6 +57,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^7.6.17",
     "@storybook/addon-controls": "^7.6.17",
+    "@talend/bootstrap-theme": "^9.1.1",
     "@talend/locales-tui-forms": "^10.2.4",
     "@talend/react-components": "^16.0.1",
     "@talend/eslint-config": "^13.0.3",
