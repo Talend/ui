@@ -269,7 +269,6 @@ exports[`Vertical bar chart Should render 1`] = `
     </svg>
     <div
       class="recharts-tooltip-wrapper"
-      role="dialog"
       style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"
       tabindex="-1"
     />

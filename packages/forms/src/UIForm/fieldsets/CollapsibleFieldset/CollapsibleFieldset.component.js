@@ -5,11 +5,10 @@ import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
 import { CollapsiblePanel, InlineMessageInformation } from '@talend/design-system';
+import { StackVertical } from '@talend/design-system';
 
 import { generateDescriptionId } from '../../Message/generateId';
 import Widget from '../../Widget';
-
-import theme from './CollapsibleFieldset.module.scss';
 
 /**
  * @return {Arary<string>} itemkey
@@ -81,12 +80,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		const { id, schema, value, actions, index, ...restProps } = props;
 		const { items, managed } = schema;
 
-		function onToggleClick(event) {
-			if (event) {
-				event.stopPropagation();
-				event.preventDefault();
-			}
-
+		function onToggleClick() {
 			const payload = {
 				schema: props.schema,
 				value: {
@@ -94,7 +88,8 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					isClosed: !props.value.isClosed,
 				},
 			};
-			props.onChange(event, payload);
+
+			props.onChange(undefined, payload);
 		}
 
 		const getAction = useCallback(() => {
@@ -112,9 +107,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		}, [actions]);
 
 		return (
-			<fieldset
-				className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}
-			>
+			<fieldset className={classNames('collapsible-panel')}>
 				<CollapsiblePanel
 					title={title(value, schema)}
 					onToggleExpanded={onToggleClick}
@@ -134,9 +127,17 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					) : (
 						''
 					)}
-					{items.map((itemSchema, idx) => (
-						<Widget {...restProps} id={id} key={`${id}-${idx}`} schema={itemSchema} value={value} />
-					))}
+					<StackVertical gap="S" align="stretch">
+						{items.map((itemSchema, idx) => (
+							<Widget
+								{...restProps}
+								id={id}
+								key={`${id}-${idx}`}
+								schema={itemSchema}
+								value={value}
+							/>
+						))}
+					</StackVertical>
 				</CollapsiblePanel>
 			</fieldset>
 		);

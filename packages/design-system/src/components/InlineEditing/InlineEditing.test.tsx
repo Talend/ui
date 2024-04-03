@@ -10,6 +10,7 @@ jest.mock('@talend/utils', () => {
 	return {
 		// we need stable but different uuid (is fixed to 42 by current mock)
 		randomUUID: () => `mocked-uuid-${i++}`,
+		getDataAttrFromProps: () => ({ 'data-tracking': 'test-tracker' }),
 	};
 });
 
@@ -30,5 +31,21 @@ describe('InlineEditing', () => {
 		expect(container.firstChild).toMatchSnapshot();
 		const results = await axe(document.body);
 		expect(results).toHaveNoViolations();
+	});
+
+	it('should render with data-testid prefix', async () => {
+		render(
+			<main>
+				<InlineEditing
+					label="Edit the value"
+					placeholder="What is your Lorem Ipsum?"
+					defaultValue="Lorem Ipsum"
+					onEdit={jest.fn()}
+					data-testid="my-prefix"
+				/>
+			</main>,
+		);
+
+		expect(screen.getByTestId('my-prefix.inlineediting.button.edit')).toBeInTheDocument();
 	});
 });

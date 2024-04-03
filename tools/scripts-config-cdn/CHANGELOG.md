@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## 10.11.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/dynamic-cdn-webpack-plugin@13.1.1
+  - @talend/module-to-cdn@9.10.1
+
+## 10.11.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 10.10.0
+
+### Minor Changes
+
+- b29255c: deps: bump js-yaml from 3.x to 4.x
+
 ## 10.9.1
 
 ### Patch Changes

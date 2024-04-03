@@ -15,6 +15,7 @@ const umds = require('./umds.json');
 const { download } = require('./utils');
 
 const CDN_URL = 'https://statics-dev.cloud.talend.com';
+let schema = yaml.DEFAULT_SCHEMA.extend(require('js-yaml-js-types').all);
 
 function getModuleName(nameandversion, isPnpm = false) {
 	if (isPnpm) {
@@ -151,7 +152,7 @@ function getModulesFromLockFile(dir) {
 		try {
 			yarnv1 = lockfile.parse(fs.readFileSync(lockPath, 'utf-8'));
 		} catch (e) {
-			yarnv3 = yaml.load(fs.readFileSync(lockPath, 'utf-8'));
+			yarnv3 = yaml.load(fs.readFileSync(lockPath, 'utf-8'), { schema });
 			// eslint-disable-next-line no-underscore-dangle
 			delete yarnv3.__metadata;
 		}
@@ -166,7 +167,7 @@ function getModulesFromLockFile(dir) {
 			})
 			.map(addLocal);
 	} else if (fs.existsSync(lockTypeMap.pnpm.path)) {
-		const json = yaml.load(fs.readFileSync(lockTypeMap.pnpm.path, 'utf-8'));
+		const json = yaml.load(fs.readFileSync(lockTypeMap.pnpm.path, 'utf-8'), { schema });
 		infos = Object.keys(json.packages)
 			.map(moduleAndversion => {
 				if (moduleAndversion.startsWith('file:')) {

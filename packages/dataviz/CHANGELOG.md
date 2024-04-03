@@ -1,5 +1,84 @@
 # Changelog
 
+## 6.1.3
+
+### Patch Changes
+
+- @talend/react-components@16.0.0
+
+## 6.1.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/react-components@15.3.1
+
+## 6.1.1
+
+### Patch Changes
+
+- 988a443: fix(TPD-12820): fix GeoCharts colors
+
+## 6.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+  - @talend/react-components@15.1.0
+
+## 6.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/react-components@15.0.1
+
+## 6.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+
+## 5.1.0
+
+### Minor Changes
+
+- 7d73eb9: TDOPS-5724 - Remove bootstrap theme styling and dependency from packages
+
+## 5.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+
+## 4.2.2
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+  - @talend/react-components@13.0.0
+
 ## 4.2.1
 
 ### Patch Changes

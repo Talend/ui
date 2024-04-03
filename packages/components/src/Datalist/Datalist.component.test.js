@@ -30,6 +30,8 @@ const multiSectionMap = [
 	{ title: 'cat 4', suggestions: [{ name: 'My lol', value: 'lol' }] },
 ];
 
+jest.unmock('@talend/design-system');
+
 describe('Datalist component', () => {
 	it('should render a input', () => {
 		// when

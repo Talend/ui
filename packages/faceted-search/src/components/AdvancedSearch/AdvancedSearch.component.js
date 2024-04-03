@@ -1,21 +1,19 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import { useState } from 'react';
 
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { ButtonIcon, Icon } from '@talend/design-system';
-import { FormControl } from '@talend/react-bootstrap';
-import { getTheme } from '@talend/react-components/lib/theme';
+import { ButtonIcon, Form, SizedIcon } from '@talend/design-system';
+import tokens from '@talend/design-tokens';
 
 import { USAGE_TRACKING_TAGS } from '../../constants';
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 
-import theme from './AdvancedSearch.module.scss';
-
-const css = getTheme(theme);
+import styles from './AdvancedSearch.module.scss';
 
 const AdvancedSearchError = ({ id, label }) => (
-	<p aria-live="assertive" className={css('adv-search-error')} id={`${id}-error`} role="status">
+	<p aria-live="assertive" className={styles['adv-search-error']} id={`${id}-error`} role="status">
 		{label}
 	</p>
 );
@@ -70,25 +68,31 @@ export function AdvancedSearch({
 	};
 	const advSearchId = `${id}-adv-search`;
 	return (
-		<div id={advSearchId} className={css('adv-search')}>
-			<form id={`${advSearchId}-form`} onSubmit={formSubmit}>
-				<Icon name="talend-filter" size="M" className={css('adv-search-filter-icon')} />
-				<FormControl
+		<div id={advSearchId} className={styles['adv-search']}>
+			<form id={`${advSearchId}-form`} role="search" onSubmit={formSubmit}>
+				<div className={styles['adv-search-filter-icon']}>
+					<SizedIcon
+						name="filter"
+						size="M"
+						color={tokens.coralColorNeutralIconWeak}
+						className={styles['adv-search-filter-icon']}
+					/>
+				</div>
+				<Form.Text
 					id={`${id}-form`}
 					name="advanced-search-faceted"
 					type="search"
 					value={query}
 					placeholder={placeholder || t('ADV_SEARCH_FACETED_PLACEHOLDER', 'Enter your query')}
 					autoComplete="off"
-					className={css('adv-search-input', { 'has-error': error })}
+					className={classnames(styles['adv-search-input'], { 'has-error': error })}
 					aria-label={placeholder || t('ADV_SEARCH_FACETED_ARIA', 'Advanced Faceted Search')}
 					autoFocus
-					role="search"
+					role="searchbox"
 					onKeyDown={onKeyDownHandler}
 					onChange={onChangeHandler}
 				/>
-
-				<div className={css('adv-search-buttons')}>
+				<div className={styles['adv-search-buttons']}>
 					<ButtonIcon
 						name="action-cancel-title"
 						icon="cross-filled"

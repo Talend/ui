@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+
 import Typeahead from './Typeahead.component';
 
 const items = [
@@ -213,6 +214,18 @@ export const WithoutResults = () => {
 		onChange: action('onChange'),
 		items: [],
 		role: 'searchbox',
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithEmptyDomain = () => {
+	const props = {
+		value: '',
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		items: [],
+		role: 'searchbox',
+		noDomainRenderer: () => <div>no domain</div>,
 	};
 	return <Typeahead {...props} />;
 };

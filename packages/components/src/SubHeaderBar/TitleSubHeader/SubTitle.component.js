@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
 
 import Skeleton from '../../Skeleton';
-import titleSubHeaderCssModule from './TitleSubHeader.module.scss';
 import { getTheme } from '../../theme';
+import TooltipTrigger from '../../TooltipTrigger';
+
+import titleSubHeaderCssModule from './TitleSubHeader.module.scss';
 
 const theme = getTheme(titleSubHeaderCssModule);
 
 function DefaultSubTitle({ subTitle, subTitleProps }) {
 	return (
-		<small className={theme('tc-subheader-details-text-subtitle')} {...subTitleProps}>
-			{subTitle}
-		</small>
+		<TooltipTrigger label={subTitle} tooltipPlacement="bottom">
+			<small className={theme('tc-subheader-details-text-subtitle')} {...subTitleProps}>
+				{subTitle}
+			</small>
+		</TooltipTrigger>
 	);
 }
 

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 import TextMode from './TextMode.component';
+
 jest.unmock('@talend/design-system');
 
 describe('Text field text display mode', () => {
@@ -15,7 +16,7 @@ describe('Text field text display mode', () => {
 		};
 		const { container } = render(<TextMode id="myForm" schema={schema} value={value} />);
 		expect(container.firstChild).toMatchSnapshot();
-		expect(screen.getByRole('term')).toHaveTextContent('My input title');
-		expect(screen.getByRole('definition')).toHaveTextContent('>= 666');
+		expect(screen.getByText('My input title')).toBeInTheDocument();
+		expect(screen.getByText('>= 666')).toBeInTheDocument();
 	});
 });

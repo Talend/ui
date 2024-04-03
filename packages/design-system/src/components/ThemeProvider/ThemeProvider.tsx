@@ -26,7 +26,7 @@ export const ThemeProvider = ({
 	const context = useContext(ThemeContext);
 
 	useEffect(() => {
-		document.body.dataset.theme = selectedTheme === 'light' ? 'light' : 'dark';
+		document.body.dataset.theme = selectedTheme;
 	}, [selectedTheme]);
 
 	useEffect(() => {

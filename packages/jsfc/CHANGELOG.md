@@ -1,5 +1,23 @@
 # @talend/json-schema-form-core
 
+## 1.2.4
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 1.2.3
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 1.2.2
+
+### Patch Changes
+
+- 5d631f2: TMC-27327 - Fix input number validation to display correct error message
+
 ## 1.2.1
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @talend/upgrade-deps
 
+## 3.0.3
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 3.0.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 3.0.1
 
 ### Patch Changes

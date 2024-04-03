@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Time.stories';
@@ -24,9 +26,7 @@ It is a semantic field where the validation and display may be browser-specific.
 
 ## States
 
-<Canvas>
-	<Story of={Stories.Time} />
-</Canvas>
+<Canvas of={Stories.Time} />
 
 ## Interactions
 

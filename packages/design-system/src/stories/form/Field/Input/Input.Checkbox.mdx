@@ -1,5 +1,7 @@
-import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
+
 import * as Stories from './Input.Checkbox.stories';
 import { Status } from '../../../Status.block';
 
@@ -32,33 +34,23 @@ Note on [indeterminate](https://developer.mozilla.org/en-US/docs/Web/HTML/Elemen
 
 ### Default
 
-<Canvas>
-	<Story of={Stories.CheckboxFillStates} />
-</Canvas>
+<Canvas of={Stories.CheckboxFillStates} />
 
 ### Disabled
 
-<Canvas>
-	<Story of={Stories.CheckboxFillStatesDisabled} />
-</Canvas>
+<Canvas of={Stories.CheckboxFillStatesDisabled} />
 
 ### Read only
 
-<Canvas>
-	<Story of={Stories.CheckboxFillStatesReadonly} />
-</Canvas>
+<Canvas of={Stories.CheckboxFillStatesReadonly} />
 
 ### Multiple checkboxes
 
-<Canvas>
-	<Story of={Stories.CheckboxReactHooksForm} />
-</Canvas>
+<Canvas of={Stories.CheckboxReactHooksForm} />
 
 ### Controlled checkbox
 
-<Canvas>
-	<Story of={Stories.CheckboxControlled} />
-</Canvas>
+<Canvas of={Stories.CheckboxControlled} />
 
 ## Content
 
@@ -94,10 +86,7 @@ Aim for parallelism but not at the expense of comprehension.
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Basic} />
-</Canvas>
-
+<Canvas of={Stories.Basic} />
 <Controls of={Stories.Basic} />
 
 ## Accessibility

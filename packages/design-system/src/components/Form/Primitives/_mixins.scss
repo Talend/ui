@@ -1,8 +1,8 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
+$standard-input-height: calc(2rem - 0.125rem);
 
-@mixin base-input () {
+@mixin base-input() {
 	background: transparent;
 	color: tokens.$coral-color-neutral-text;
 	padding: tokens.$coral-spacing-xs;
@@ -51,7 +51,7 @@ $standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 	}
 }
 
-@mixin border-styles () {
+@mixin border-styles() {
 	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 	box-shadow: 0 0 0 0 transparent;
 	border-radius: tokens.$coral-radius-s;
@@ -82,7 +82,7 @@ $standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 	&:focus-within,
 	&:focus {
 		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-		box-shadow: 0 0 0 0.1rem tokens.$coral-color-accent-border;
+		box-shadow: 0 0 0 0.0625rem tokens.$coral-color-accent-border;
 	}
 
 	&_borderError {
@@ -95,8 +95,7 @@ $standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 		&:focus-within,
 		&:focus {
 			border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
-			box-shadow: 0 0 0 0.1rem tokens.$coral-color-danger-border;
+			box-shadow: 0 0 0 0.0625rem tokens.$coral-color-danger-border;
 		}
 	}
-
 }

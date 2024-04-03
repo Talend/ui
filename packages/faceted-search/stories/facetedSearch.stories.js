@@ -1,38 +1,40 @@
-import { useState, useCallback } from 'react';
-import { within, userEvent } from '@storybook/testing-library';
-import { action } from '@storybook/addon-actions';
-import { Badge } from '@talend/react-components';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import set from 'lodash/set';
+
+import { action } from '@storybook/addon-actions';
+import { userEvent, within } from '@storybook/testing-library';
 import cloneDeep from 'lodash/cloneDeep';
+import set from 'lodash/set';
 import times from 'lodash/times';
 
-import FacetedSearch from '../src';
-import { BadgeFacetedProvider } from '../src/components/context/badgeFaceted.context';
-import { BadgesGenerator } from '../src/components/BadgesGenerator';
-import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dictionary';
+import { Badge } from '@talend/react-components';
 
+import FacetedSearch from '../src';
+import { BadgesGenerator } from '../src/components/BadgesGenerator';
+import { BadgeFacetedProvider } from '../src/components/context/badgeFaceted.context';
+import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dictionary';
 import {
-	badgeMenu,
-	badgeConnectionType,
-	badgeName,
-	badgeConnectionName,
-	badgeAuthor,
 	badgeAll,
-	badgePrice,
-	badgeValid,
-	badgeEmpty,
-	badgeInvalid,
-	badgeTags,
+	badgeAuthor,
+	badgeConnectionName,
+	badgeConnectionType,
+	badgeConnectionTypeAllSelector,
 	badgeCreationDate,
-	badgeWithVeryLongName,
+	badgeEmpty,
+	badgeEmptyLabel,
+	badgeEnumsAsCustomAttribute,
 	badgeEnumWithLotOfValues,
+	badgeInvalid,
+	badgeMenu,
+	badgeName,
+	badgePeriod,
+	badgePrice,
+	badgePriceAsCustomAttribute,
+	badgeTags,
 	badgeTextAsCategory,
 	badgeTextAsCustomAttribute,
-	badgeEnumsAsCustomAttribute,
-	badgePriceAsCustomAttribute,
-	badgeEmptyLabel,
-	badgeConnectionTypeAllSelector,
+	badgeValid,
+	badgeWithVeryLongName,
 } from './badgesDefinitions';
 
 const badgesDefinitions = [
@@ -48,6 +50,7 @@ const badgesDefinitions = [
 	badgeEmpty,
 	badgeInvalid,
 	badgeCreationDate,
+	badgePeriod,
 ];
 
 const callbacks = {
@@ -192,6 +195,12 @@ export const Default = () => (
 				/>
 			))
 		}
+	</FacetedSearch.Faceted>
+);
+
+export const Advanced = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
 	</FacetedSearch.Faceted>
 );
 

@@ -1,17 +1,21 @@
 import { useState } from 'react';
+
 import PropTypes from 'prop-types';
+
+import { InlineMessageInformation } from '@talend/design-system';
 import { cmfConnect } from '@talend/react-cmf';
 import Layout from '@talend/react-components/lib/Layout';
 import SubHeaderBar from '@talend/react-components/lib/SubHeaderBar';
-import UIForm from '@talend/react-forms';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
-import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
-import { Alert } from '@talend/react-bootstrap';
+import SidePanel from '@talend/react-containers/lib/SidePanel';
+import UIForm from '@talend/react-forms';
+
 // test new behavior on non css module files
 import './ComponentFormSandbox.scss';
 
 const example = require('../../../mockBackend/mock/kit/example.json');
+
 const { isComponentFormDirty } = ComponentForm.selectors;
 const { setComponentFormDirtyState } = ComponentForm.actions;
 
@@ -86,9 +90,10 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 			/>
 			<div id="example">
 				{!hasAPI && (
-					<Alert>
-						You don t have backend API so we will use an ComponentForm as proxy to UIForm component
-					</Alert>
+					<InlineMessageInformation
+						title="You don t have backend API so we will use an ComponentForm as proxy to UIForm component"
+						withBackground
+					/>
 				)}
 				{displayConfig ? (
 					<UIForm

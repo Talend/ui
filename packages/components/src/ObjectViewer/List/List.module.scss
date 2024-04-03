@@ -1,11 +1,10 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
 // List styles
 .container {
 	> li {
-		padding-top: $padding-smaller;
-		padding-bottom: $padding-smaller;
+		padding-top: tokens.$coral-spacing-xxs;
+		padding-bottom: tokens.$coral-spacing-xxs;
 		border-bottom: 1px solid tokens.$coral-color-neutral-border;
 	}
 }

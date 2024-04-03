@@ -1,23 +1,24 @@
 import { cloneElement, MouseEvent, ReactElement, useEffect, useState } from 'react';
 
 import {
-	useDismiss,
-	useInteractions,
-	useFloating,
 	autoUpdate,
 	flip,
 	shift,
+	useDismiss,
+	useFloating,
+	useInteractions,
 } from '@floating-ui/react';
+
+import { randomUUID } from '@talend/utils';
 
 import { DataAttributes, DeprecatedIconNames } from '../../types';
 import { Clickable, ClickableProps } from '../Clickable';
 import { LinkableType } from '../Linkable';
+import { DropdownButton } from './Primitive/DropdownButton';
 import DropdownDivider from './Primitive/DropdownDivider';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
 import DropdownTitle from './Primitive/DropdownTitle';
-import { DropdownButton } from './Primitive/DropdownButton';
-import { randomUUID } from '@talend/utils';
 
 type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 	label: string;

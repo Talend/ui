@@ -22,6 +22,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
           >
             M
           </abbr>
+          <span
+            class="CoralDivider"
+          />
         </th>
         <th
           scope="col"
@@ -31,6 +34,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
           >
             T
           </abbr>
+          <span
+            class="CoralDivider"
+          />
         </th>
         <th
           scope="col"
@@ -40,6 +46,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
           >
             W
           </abbr>
+          <span
+            class="CoralDivider"
+          />
         </th>
         <th
           scope="col"
@@ -49,6 +58,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
           >
             T
           </abbr>
+          <span
+            class="CoralDivider"
+          />
         </th>
         <th
           scope="col"
@@ -58,6 +70,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
           >
             F
           </abbr>
+          <span
+            class="CoralDivider"
+          />
         </th>
         <th
           scope="col"
@@ -67,6 +82,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
           >
             S
           </abbr>
+          <span
+            class="CoralDivider"
+          />
         </th>
         <th
           scope="col"
@@ -76,6 +94,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
           >
             S
           </abbr>
+          <span
+            class="CoralDivider"
+          />
         </th>
       </tr>
     </thead>

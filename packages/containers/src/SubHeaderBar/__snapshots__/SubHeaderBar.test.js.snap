@@ -21,6 +21,7 @@ exports[`SubHeaderBar container should render 1`] = `
             data-testid="tc-subheader-backArrow"
             icon="arrow-left"
             id="backArrow"
+            tooltipplacement="right"
           >
             Go back
           </span>

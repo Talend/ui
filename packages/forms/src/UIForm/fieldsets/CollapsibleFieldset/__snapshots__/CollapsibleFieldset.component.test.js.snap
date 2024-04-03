@@ -2,7 +2,7 @@
 
 exports[`CollapsibleFieldset should render 1`] = `
 <fieldset
-  class="form-group theme-collapsible-panel collapsible-panel"
+  class="collapsible-panel"
 >
   <div
     class="theme-panelWrapper theme-panelWrapper__alone"
@@ -24,7 +24,7 @@ exports[`CollapsibleFieldset should render 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-up:M"
@@ -58,7 +58,7 @@ exports[`CollapsibleFieldset should render 1`] = `
             aria-hidden="true"
             pointer-events="none"
             shape-rendering="geometricPrecision"
-            style="width: 1.6rem; height: 1.6rem;"
+            style="width: 1rem; height: 1rem;"
           >
             <use
               xlink:href="#information-filled:M"
@@ -73,18 +73,64 @@ exports[`CollapsibleFieldset should render 1`] = `
           </span>
         </p>
       </div>
-      <p
-        class="text-danger"
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-S theme-gap-y-S"
       >
-        Widget not found 
-        string
-      </p>
-      <p
-        class="text-danger"
-      >
-        Widget not found 
-        string
-      </p>
+        <div
+          aria-live="polite"
+          class="theme-inlineMessage"
+          role="status"
+        >
+          <span
+            class="theme-icon theme-destructive__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1rem; height: 1rem;"
+            >
+              <use
+                xlink:href="#square-cross:M"
+              />
+            </svg>
+          </span>
+          <p
+            class="theme-inlineMessage__contents"
+          >
+            <span>
+              Widget not found string
+            </span>
+          </p>
+        </div>
+        <div
+          aria-live="polite"
+          class="theme-inlineMessage"
+          role="status"
+        >
+          <span
+            class="theme-icon theme-destructive__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1rem; height: 1rem;"
+            >
+              <use
+                xlink:href="#square-cross:M"
+              />
+            </svg>
+          </span>
+          <p
+            class="theme-inlineMessage__contents"
+          >
+            <span>
+              Widget not found string
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </fieldset>

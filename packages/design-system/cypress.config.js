@@ -42,4 +42,6 @@ module.exports = defineConfig({
 			webpackConfig,
 		},
 	},
+	viewportHeight: 900,
+	viewportWidth: 1600,
 });

@@ -1,12 +1,13 @@
-import { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes, ReactChild, Ref, useEffect, useState } from 'react';
+
 import classNames from 'classnames';
 
-import { useId } from '../../../useId';
 import { DataAttributes } from '../../../types';
+import { useId } from '../../../useId';
 import { variants } from '../../Status/Primitive/StatusPrimitive';
-
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';
+
 import styles from './CollapsiblePanel.module.scss';
 
 type CollapsiblePanelCommonPropsType = {
@@ -14,7 +15,7 @@ type CollapsiblePanelCommonPropsType = {
 	managed?: boolean;
 	expanded?: boolean;
 	index?: number;
-	action?: PanelHeaderAction;
+	action?: PanelHeaderAction | PanelHeaderAction[];
 	size?: 'S' | 'M';
 	metadata?: ReactChild[];
 	isFirst?: boolean;

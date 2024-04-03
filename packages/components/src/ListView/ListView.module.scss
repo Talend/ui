@@ -2,7 +2,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 $tc-listview-svg-color: tokens.$coral-color-neutral-icon !default;
-$tc-listview-font-size: 1.4rem !default;
+$tc-listview-font-size: 0.875rem !default;
 
 .tc-listview {
 	overflow: hidden;

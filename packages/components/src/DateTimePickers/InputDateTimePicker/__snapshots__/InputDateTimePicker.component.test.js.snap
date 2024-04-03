@@ -8,19 +8,35 @@ exports[`InputDateTimePicker should render 1`] = `
     class="theme-date-picker date-picker"
     tabindex="-1"
   >
-    <input
-      autocomplete="off"
-      class="form-control"
-      data-testid="date-picker"
-      id="my-picker-date-picker-input"
-      placeholder="YYYY-MM-DD"
-      style="width: 47px;"
-      type="text"
-      value="2017-04-04"
-    />
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <span
+        class="theme-hidden"
+      >
+        <label
+          class="theme-label"
+          for="my-picker-date-picker-input"
+        />
+      </span>
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          autocomplete="off"
+          class="theme-input"
+          data-testid="date-picker"
+          id="my-picker-date-picker-input"
+          placeholder="YYYY-MM-DD"
+          style="width: 47px;"
+          type="text"
+          value="2017-04-04"
+        />
+      </div>
+    </div>
     <span
       data-testid="InputSizer"
-      style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
+      style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
     >
       YYYY-MM-DD
     </span>
@@ -29,20 +45,36 @@ exports[`InputDateTimePicker should render 1`] = `
     class="theme-time-picker time-picker"
     tabindex="-1"
   >
-    <input
-      autocomplete="off"
-      class="form-control theme-time-picker-input"
-      data-testid="time-picker"
-      id="my-picker-time-picker-input"
-      maxlength="8"
-      placeholder="HH:mm:ss"
-      style="width: 47px;"
-      type="text"
-      value="15:27:00"
-    />
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <span
+        class="theme-hidden"
+      >
+        <label
+          class="theme-label"
+          for="my-picker-time-picker-input"
+        />
+      </span>
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          autocomplete="off"
+          class="theme-input"
+          data-testid="time-picker"
+          id="my-picker-time-picker-input"
+          maxlength="8"
+          placeholder="HH:mm:ss"
+          style="width: 47px;"
+          type="text"
+          value="15:27:00"
+        />
+      </div>
+    </div>
     <span
       data-testid="InputSizer"
-      style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
+      style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
     >
       HH:mm:ss
     </span>

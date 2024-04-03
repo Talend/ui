@@ -1,5 +1,13 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.38.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-cmf@1.2.4
+
 ## 6.38.0
 
 ### Minor Changes

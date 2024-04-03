@@ -5,48 +5,20 @@ import { useTranslation } from 'react-i18next';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
-import { Rich } from '@talend/react-components';
-import { Action } from '@talend/react-components/lib/Actions';
-import FilterBar from '@talend/react-components/lib/FilterBar';
-import { getTheme } from '@talend/react-components/lib/theme';
-import { Checkbox } from '@talend/react-components/lib/Toggle';
+import {
+	ButtonPrimary,
+	ButtonTertiary,
+	Divider,
+	Form,
+	SkeletonHeading,
+	StackVertical,
+} from '@talend/design-system';
+import { getDataAttrFromProps } from '@talend/utils';
 
 import { I18N_DOMAIN_FACETED_SEARCH } from '../../../constants';
-import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-import cssModule from './BadgeCheckboxes.module.scss';
-
-const theme = getTheme(cssModule);
-
-const BadgeCheckbox = ({ checked, id, label, onChange }) => {
-	const describedby = `${id}-${label}`;
-	const onChangeCheckbox = event => {
-		onChange(event, id);
-	};
-	return (
-		<Fragment>
-			<Checkbox
-				onChange={onChangeCheckbox}
-				aria-describedby={describedby}
-				id={`${id}-checkbox`}
-				label={label}
-				checked={checked}
-				data-testid={`badge-checkbox-form-checkbox-${id}`}
-				data-test={`badge-checkbox-form-checkbox-${id}`}
-			/>
-			<div id={describedby} className="sr-only">
-				{label}
-			</div>
-		</Fragment>
-	);
-};
-
-BadgeCheckbox.propTypes = {
-	id: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
-	checked: PropTypes.bool,
-};
+import styles from './BadgeCheckboxes.module.scss';
 
 const createCheckboxEntity = value => checkbox => {
 	const entity = value.find(v => v.id === checkbox.id);
@@ -57,12 +29,13 @@ const createCheckboxEntity = value => checkbox => {
 	};
 };
 
-const getCheckboxes = (checkboxes, value, filterValue) => {
+const getCheckboxes = (checkboxes, value, filterValue, showAll) => {
 	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
 
 	return checkboxes
 		.filter(checkbox => get(checkbox, 'label', '').toLocaleLowerCase().includes(formatFilterValue))
-		.map(createCheckboxEntity(value));
+		.map(createCheckboxEntity(value))
+		.filter(checkbox => (showAll ? true : checkbox.checked));
 };
 
 const BadgeCheckboxesForm = ({
@@ -78,12 +51,17 @@ const BadgeCheckboxesForm = ({
 }) => {
 	const { t } = useTranslation(I18N_DOMAIN_FACETED_SEARCH);
 	const [filter, setFilter] = useState('');
+	const [showAll, setShowAll] = useState(true);
+	const leftBtnLabel = showAll
+		? t('NB_SELECTED_TAGS', { count: value.length, defaultValue: '{{count}} selected' })
+		: t('SHOW_ALL_TAGS', { defaultValue: 'Show all' });
 
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
-	const checkboxes = useCallback(getCheckboxes(checkboxValues, value, filter), [
+	const checkboxes = useCallback(getCheckboxes(checkboxValues, value, filter, showAll), [
 		checkboxValues,
 		value,
 		filter,
+		showAll,
 	]);
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const onChangeCheckBoxes = (event, checkboxId) => {
@@ -107,67 +85,92 @@ const BadgeCheckboxesForm = ({
 	};
 	return (
 		<Fragment>
-			{allSelector ? (
-				<div className={theme('fs-badge-checkbox-all')}>
-					<BadgeCheckbox
-						key="selectAll"
-						id="selectAll"
-						onChange={onToggleAll}
-						label={t('FACETED_SEARCH_VALUE_ALL', {
-							defaultValue: 'All',
-						})}
-						checked={checkboxes.filter(c => c.checked).length === checkboxValues.length}
-					/>
-				</div>
-			) : (
-				<FilterBar
-					autoFocus={false}
-					dockable={false}
-					docked={false}
-					iconAlwaysVisible
-					id={`${badgeCheckBoxesFormId}-filter`}
-					placeholder={
-						filterBarPlaceholder ||
-						t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-							defaultValue: 'Find a column',
-						})
-					}
-					onToggle={() => setFilter('')}
-					onFilter={(_, filterValue) => setFilter(filterValue)}
-					value={filter}
-					data-test="badge-checkbox-form-filter"
-					data-testid="badge-checkbox-form-filter"
-				/>
-			)}
-			<form
-				className={theme('fs-badge-checkbox-form')}
-				id={`${badgeCheckBoxesFormId}-form`}
-				onSubmit={onSubmit}
-			>
-				<Rich.Layout.Body
-					id={badgeCheckBoxesFormId}
-					className={theme('fs-badge-checkbox-form-body')}
-				>
-					{checkboxes.map(checkbox => (
-						<BadgeCheckbox
-							key={checkbox.id}
-							id={checkbox.id}
-							onChange={onChangeCheckBoxes}
-							label={checkbox.label}
-							checked={checkbox.checked}
+			<Form id={`${badgeCheckBoxesFormId}-form`} onSubmit={onSubmit}>
+				{allSelector ? (
+					<>
+						<Form.Checkbox
+							key="selectAll"
+							id={'selectAll-checkbox'}
+							onChange={onToggleAll}
+							label={t('FACETED_SEARCH_VALUE_ALL', {
+								defaultValue: 'All',
+							})}
+							checked={checkboxes.filter(c => c.checked).length === checkboxValues.length}
+							data-test="badge-checkbox-form-checkbox-selectAll"
+							data-testid="badge-checkbox-form-checkbox-selectAll"
 						/>
-					))}
-				</Rich.Layout.Body>
-				<Rich.Layout.Footer id={id} className={theme('fs-badge-checkbox-form-footer')}>
-					<Action
+						<Divider orientation="horizontal" />
+					</>
+				) : (
+					<Form.Search
+						id={`${badgeCheckBoxesFormId}-filter`}
+						placeholder={
+							filterBarPlaceholder ||
+							t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+								defaultValue: 'Find a column',
+							})
+						}
+						onChange={event => {
+							setFilter(event?.target?.value || '');
+						}}
+						value={filter}
+						data-test="badge-checkbox-form-filter"
+						data-testid="badge-checkbox-form-filter"
+					/>
+				)}
+				<div className={styles['fs-badge-checkbox-form-checkboxes']}>
+					{!rest.isLoading ? (
+						<StackVertical gap="S">
+							{checkboxes.map(checkbox => {
+								return (
+									<Form.Checkbox
+										key={checkbox.id}
+										id={`${checkbox.id}-checkbox`}
+										label={checkbox.label}
+										onChange={event => {
+											onChangeCheckBoxes(event, checkbox.id);
+										}}
+										checked={checkbox.checked}
+										data-testid={`badge-checkbox-form-checkbox-${checkbox.id}`}
+										data-test={`badge-checkbox-form-checkbox-${checkbox.id}`}
+									/>
+								);
+							})}
+						</StackVertical>
+					) : (
+						<StackVertical
+							gap="S"
+							data-testid="badge-checkbox-form-skeleton-item"
+							data-test="badge-checkbox-form-skeleton-item"
+						>
+							<SkeletonHeading size="L" width="100" />
+							<SkeletonHeading size="L" width="100" />
+							<SkeletonHeading size="L" width="100" />
+						</StackVertical>
+					)}
+				</div>
+				<Form.Buttons padding={{ x: 0, bottom: 0, top: 'M' }}>
+					{value.length > 0 && (
+						<ButtonTertiary
+							type="button"
+							onClick={() => {
+								setFilter('');
+								setShowAll(!showAll);
+							}}
+						>
+							{leftBtnLabel}
+						</ButtonTertiary>
+					)}
+					<ButtonPrimary
 						data-feature={applyDataFeature}
 						type="submit"
-						label={t('APPLY', { defaultValue: 'Apply' })}
-						bsStyle="info"
-						{...getDataAttributesFrom(rest)}
-					/>
-				</Rich.Layout.Footer>
-			</form>
+						disabled={rest.isLoading}
+						{...getDataAttrFromProps(rest)}
+					>
+						{t('APPLY', { defaultValue: 'Apply' })}
+					</ButtonPrimary>
+				</Form.Buttons>
+			</Form>
 		</Fragment>
 	);
 };

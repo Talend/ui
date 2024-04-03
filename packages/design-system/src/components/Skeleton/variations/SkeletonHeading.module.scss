@@ -5,14 +5,38 @@
 
 	// Font-size mimics
 	&.size-L {
-		height: 1.8rem;
+		height: 1.125rem;
 	}
 
 	&.size-M {
-		height: 1.6rem;
+		height: 1rem;
 	}
 
 	&.size-S {
-		height: 1.4rem;
+		height: 0.875rem;
+	}
+
+	&.width-XS {
+		max-width: 10%;
+	}
+
+	&.width-S {
+		max-width: 20%;
+	}
+
+	&.width-M {
+		max-width: 40%;
+	}
+
+	&.width-L {
+		max-width: 60%;
+	}
+
+	&.width-XL {
+		max-width: 80%;
+	}
+
+	&.width-100 {
+		max-width: 100%;
 	}
 }

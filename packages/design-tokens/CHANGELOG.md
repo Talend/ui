@@ -1,5 +1,53 @@
 # @talend/design-tokens
 
+## 3.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 3.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 3.0.0
+
+### Major Changes
+
+- b1c72a1: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+## 2.12.1
+
+### Patch Changes
+
+- 14f478d: fix: qlik logo token
+
+## 2.12.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+## 2.11.2
+
+### Patch Changes
+
+- bb106bc: fix: adjustments for qlik-light theme
+
+## 2.11.1
+
+### Patch Changes
+
+- 08bb2c1: fix: qlik theme fixes
+
+## 2.11.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
 ## 2.10.1
 
 ### Patch Changes

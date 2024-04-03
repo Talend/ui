@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioOrSelect field should render select when titleMap has less than 2 options 1`] = `
-<div
-  class="form-group theme-template"
->
-  <label
-    class="control-label"
-    for="myRadioOrSelect"
-  >
-    My Select title
-  </label>
+<div>
   <div
-    class="radio"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    <label>
+    <label
+      class="theme-label"
+      for="myRadioOrSelect"
+    >
+      My Select title
+    </label>
+    <span
+      class="theme-radio"
+    >
       <input
         aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
         aria-invalid="false"
@@ -23,15 +23,16 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
         type="radio"
         value="foo"
       />
-      <span>
+      <label
+        class="theme-label theme-label_inline"
+        for="myRadioOrSelect-0"
+      >
         My foo title
-      </span>
-    </label>
-  </div>
-  <div
-    class="radio"
-  >
-    <label>
+      </label>
+    </span>
+    <span
+      class="theme-radio"
+    >
       <input
         aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
         aria-invalid="false"
@@ -40,12 +41,13 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
         type="radio"
         value="bar"
       />
-      <span>
+      <label
+        class="theme-label theme-label_inline"
+        for="myRadioOrSelect-1"
+      >
         My bar title
-      </span>
-    </label>
-  </div>
-  <div>
+      </label>
+    </span>
     <div
       aria-live="polite"
       class="theme-inlineMessage"
@@ -60,7 +62,7 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
           aria-hidden="true"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#information-filled:M"

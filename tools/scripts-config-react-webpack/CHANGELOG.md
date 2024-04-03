@@ -1,5 +1,40 @@
 # @talend/scripts-config-react-webpack
 
+## 16.5.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-babel@13.3.1
+  - @talend/react-cmf-webpack-plugin@6.38.1
+  - @talend/scripts-config-cdn@10.11.1
+  - @talend/scripts-utils@2.2.1
+
+## 16.5.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+## 16.4.2
+
+### Patch Changes
+
+- cf9a5e0: Fix getTalendIconsPath
+
+## 16.4.1
+
+### Patch Changes
+
+- 777cc55: Add patch for hoistNonReactStatics when we are not using initiator
+
+## 16.4.0
+
+### Minor Changes
+
+- 052b00c: deps: bump fork-ts-checker-webpack-plugin from 8.0.0 to 9.0.2
+
 ## 16.3.3
 
 ### Patch Changes

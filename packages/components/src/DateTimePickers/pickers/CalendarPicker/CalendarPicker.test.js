@@ -4,7 +4,7 @@
 // rewrite using rtl
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import startOfDay from 'date-fns/start_of_day';
+import { startOfDay } from 'date-fns/startOfDay';
 
 import dateMock from '../../../../../../mocks/dateMock';
 import CalendarPicker from './CalendarPicker.component';
@@ -169,8 +169,8 @@ describe('CalendarPicker', () => {
 			await user.click(screen.getByText('onSelectMonth'));
 
 			// then
-			const props = JSON.parse(screen.getByTestId('MonthYearView').getAttribute('data-props'));
-			expect(props.selectedMonthIndex).toBe(5);
+			const props = JSON.parse(screen.getByTestId('DateView').getAttribute('data-props'));
+			expect(props.calendar.monthIndex).toBe(5);
 		});
 
 		it('should switch to new year from monthYear picker', async () => {

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { Drawer } from '@talend/react-components';
+
 import { cmfConnect } from '@talend/react-cmf';
+import { Drawer } from '@talend/react-components';
 
 import ActionIconToggle from '.';
 
@@ -18,11 +19,9 @@ function MyDrawer({ opened }) {
 	return opened ? (
 		<Drawer>
 			<form>
-				<div className="form-group">
-					<input className="form-control" id="my-input" type="text" autoFocus />
-					<label className="control-label" htmlFor="my-input">
-						Your name
-					</label>
+				<div>
+					<input id="my-input" type="text" autoFocus />
+					<label htmlFor="my-input">Your name</label>
 				</div>
 				<button
 					className="btn btn-primary"
@@ -42,7 +41,7 @@ const MyconnectedDrawer = cmfConnect({ mapStateToProps })(MyDrawer);
 
 export const Default = () => (
 	<div>
-		<div style={{ padding: '3rem' }}>
+		<div style={{ padding: '1.875rem' }}>
 			<p>Click on the icon toggle below</p>
 			<ActionIconToggle actionId="action-icon-toggle:toggle" />
 		</div>

@@ -239,6 +239,7 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
 	const isLoadingText =
 		rest.isLoadingText || t('TYPEAHEAD_LOADING', { defaultValue: 'Loading...' });
+
 	const defaultRenderersProps = {
 		renderItem,
 		renderItemsContainer: renderItemsContainerFactory(
@@ -250,11 +251,11 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 			isLoadingText,
 			referenceElement,
 			rest.children,
-
 			setPopperElement,
 			styles,
 			attributes,
 			t,
+			rest.noDomainRenderer,
 		),
 		renderItemData: {
 			valueId: rest.valueId,

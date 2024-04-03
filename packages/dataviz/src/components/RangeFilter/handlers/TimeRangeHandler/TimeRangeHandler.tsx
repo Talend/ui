@@ -1,10 +1,12 @@
-import isValid from 'date-fns/isValid';
 import { scaleTime } from 'd3';
+import { isValid } from 'date-fns/isValid';
+
 import { InputTimePicker } from '@talend/react-components';
-import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
-import { RangeHandler, Ticks } from '../range-handler.types';
+
 import { Range } from '../../../../types';
+import { RangeHandler, Ticks } from '../range-handler.types';
 import { formatD3Ticks, formatTimeTicks } from '../slider-ticks.utils';
+import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 
 function parser(input: string): number | null {
 	const date = new Date(`1970-01-01T${input}Z`);

@@ -3,7 +3,7 @@
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 $tc-typeahead-input-color: tokens.$coral-color-neutral-text !default;
-$tc-typeahead-input-width: 26rem !default;
+$tc-typeahead-input-width: 16.25rem !default;
 
 $tc-typeahead-opened-items-container-color: tokens.$coral-color-neutral-text !default;
 $tc-typeahead-opened-items-container-background-color: tokens.$coral-color-neutral-background !default;
@@ -16,11 +16,11 @@ $tc-typeahead-section-header-color: tokens.$coral-color-accent-text-weak !defaul
 
 $tc-typeahead-items-box-shadow: tokens.$coral-elevation-shadow-neutral-m !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
-$tc-typeahead-items-font-size: 1.4rem !default;
+$tc-typeahead-items-font-size: 0.875rem !default;
 $tc-typeahead-items-zindex: 1035 !default;
 
-$tc-typeahead-item-height: 3.2rem !default;
-$tc-typeahead-item-description-height: 1.6rem !default;
+$tc-typeahead-item-height: 2rem !default;
+$tc-typeahead-item-description-height: 1rem !default;
 
 .tc-typeahead-container {
 	position: relative;
@@ -117,8 +117,8 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 			pointer-events: none;
 
 			> svg {
-				height: 0.8rem;
-				width: 0.8rem;
+				height: 0.5rem;
+				width: 0.5rem;
 			}
 		}
 	}
@@ -134,6 +134,16 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 
 	span {
 		margin-left: $padding-smaller;
+	}
+}
+
+.no-domain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	span {
+		padding: $padding-small $padding-smaller;
 	}
 }
 
@@ -215,12 +225,12 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 	}
 
 	&-description {
-		font-size: 1.2rem;
+		font-size: 0.75rem;
 	}
 
 	&-highlighted,
 	&:hover {
-		background-color: tokens.$coral-color-accent-background-weak;
+		background-color: tokens.$coral-color-accent-background-weak-hover;
 
 		&.selected {
 			background-color: tokens.$coral-color-accent-background-weak-active;

@@ -55,13 +55,6 @@ exports[`WithDrawer should render 1`] = `
                 test
               </div>
             </div>
-            <div
-              class="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
-            >
-              <div
-                class="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-              />
-            </div>
           </div>
         </div>
       </div>

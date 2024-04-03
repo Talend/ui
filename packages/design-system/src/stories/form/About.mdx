@@ -1,4 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/blocks';
+
 import { AboutRowsDefault, AboutRowsStretch } from './Form.stories';
 
 <Meta title="Form/About" />
@@ -39,15 +40,11 @@ Used to wrap fields that must stand next to one another.
 
 By default, the fields will only take the space that they need to:
 
-<Canvas withSource="closed">
-	<Story of={AboutRowsDefault} />
-</Canvas>
+<Canvas sourceState="hidden" of={AboutRowsDefault} />
 
 If necessary, `Row` can stretch to fill the form's width:
 
-<Canvas withSource="closed">
-	<Story of={AboutRowsStretch} />
-</Canvas>
+<Canvas sourceState="hidden" of={AboutRowsStretch} />
 
 In both cases, a gap of `spacing-l` is enforced between the fields.
 

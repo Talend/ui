@@ -1,4 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
 $module: range-filter;
@@ -57,7 +56,7 @@ $module: range-filter;
 	}
 
 	&__label {
-		font-weight: $font-weight-semi-bold;
-		margin-right: 10px;
+		font: tokens.$coral-paragraph-m-bold;
+		margin-right: tokens.$coral-spacing-s;
 	}
 }

@@ -4,24 +4,24 @@
 	:global(.modal-body) {
 		text-align: center;
 		padding: {
-			top: 1rem;
-			left: 3.2rem;
-			right: 3.2rem;
+			top: 0.625rem;
+			left: 2rem;
+			right: 2rem;
 		}
 
 		.about {
 			&-logo {
-				width: 6.6rem;
-				height: 6.6rem;
+				width: 4.125rem;
+				height: 4.125rem;
 			}
 
 			&-excerpt {
-				margin-top: 2rem;
+				margin-top: 1.25rem;
 			}
 
 			&-versions {
 				margin: 0 auto;
-				margin-top: 3rem;
+				margin-top: 1.875rem;
 				text-align: justify;
 				table-layout: fixed;
 

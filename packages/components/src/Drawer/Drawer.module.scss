@@ -1,20 +1,13 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-// rewrite using design tokens
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: tokens.$coral-color-neutral-background !default;
-$tc-drawer-transition-duration: 230ms !default;
-$tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
-$tc-drawer-padding: $padding-large !default;
-$tc-drawer-header-height: 5.5rem !default;
+$tc-drawer-padding: tokens.$coral-spacing-m !default;
+$tc-drawer-header-height: 3.4375rem !default;
 $tc-drawer-header-color: tokens.$coral-color-neutral-text !default;
 $tc-drawer-header-background: tokens.$coral-color-neutral-background !default;
 $tc-drawer-header-border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak !default;
 $tc-drawer-tabs-background: tokens.$coral-color-accent-background-weak !default;
-$tc-drawer-content-max-width: 65rem !default;
 $tc-action-bar-background-color: tokens.$coral-color-neutral-background-medium !default;
-$tc-drawer-z-index: $drawer-z-index !default;
 
 .tc-drawer {
 	pointer-events: all;
@@ -24,17 +17,16 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	top: 0;
 	right: 0;
 	bottom: 0;
-	width: 50vw;
-	z-index: $tc-drawer-z-index;
+	width: tokens.$coral-sizing-maximal;
 }
 
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+@media (min-width: 992px) and (max-width: 1199px) {
 	.tc-drawer {
 		width: 40vw;
 	}
 }
 
-@media (min-width: $screen-lg-min) {
+@media (min-width: 1200px) {
 	.tc-drawer {
 		width: 30vw;
 	}
@@ -47,7 +39,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 }
 
 .tc-drawer-tabs-container {
-	background-color: $tc-drawer-tabs-background;
+	margin: tokens.$coral-spacing-xs tokens.$coral-spacing-xs 0 tokens.$coral-spacing-xs;
 }
 
 .tc-drawer-actionbar {
@@ -56,27 +48,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 .drawer-stacked {
 	width: 100%;
-}
-
-@media screen and (min-width: $screen-xs-max) {
-	.drawer-stacked {
-		.tc-drawer-header-title,
-		.tc-drawer-tabs,
-		.tc-drawer-content-wrapper,
-		.tc-drawer-actionbar,
-		.tc-drawer-footer > nav {
-			width: $tc-drawer-content-max-width;
-			margin: 0 auto;
-		}
-
-		:global {
-			.tc-actionbar-container {
-				margin: 0 auto;
-				padding: 0 $tc-drawer-padding;
-				width: $tc-drawer-content-max-width;
-			}
-		}
-	}
 }
 
 .tc-drawer-header {
@@ -144,13 +115,12 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	}
 
 	&-subtitle {
-		padding-top: $padding-smaller;
+		padding-top: tokens.$coral-spacing-xxs;
 	}
 }
 
 .tc-drawer-header-with-tabs {
-	padding: 0;
-	background-color: tokens.$coral-color-neutral-background;
+	margin: 0 tokens.$coral-spacing-xs -0.4rem tokens.$coral-spacing-xs;
 }
 
 .tc-drawer-content {
@@ -167,7 +137,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 .tc-drawer-footer,
 .tc-drawer-actionbar-container {
-	padding: $padding-small $tc-drawer-padding;
+	padding: tokens.$coral-spacing-xs tokens.$coral-spacing-m;
 	background: $tc-action-bar-background-color;
 
 	:global {

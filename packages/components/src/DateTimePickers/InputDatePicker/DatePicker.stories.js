@@ -1,11 +1,10 @@
 import { action } from '@storybook/addon-actions';
-import isBefore from 'date-fns/is_before';
-import startOfDay from 'date-fns/start_of_day';
-
-import InputDatePicker from './InputDatePicker.component';
+import { isBefore } from 'date-fns/isBefore';
+import { startOfDay } from 'date-fns/startOfDay';
 
 import DateManager from '../Date/Manager';
 import DatePicker from '../Date/Picker';
+import InputDatePicker from './InputDatePicker.component';
 
 export default {
 	title: 'Components/Form - Controls/DatePicker/Date',
@@ -35,7 +34,7 @@ export const Input = () => (
 );
 
 export const Picker = () => (
-	<div style={{ border: '1px solid black', width: '32rem' }}>
+	<div style={{ border: '1px solid black', width: '20rem' }}>
 		<DateManager id="simple" onChange={action('onChange', { depth: 3 })}>
 			<DatePicker />
 		</DateManager>

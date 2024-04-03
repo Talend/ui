@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.10.1
+
+### Patch Changes
+
+-   1abc22f: chore: upgrade dependencies
+
 ## 9.10.0
 
 ### Minor Changes

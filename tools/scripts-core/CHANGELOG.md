@@ -1,5 +1,37 @@
 # @talend/scripts-core
 
+## 16.3.6
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 16.3.5
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-typescript@11.2.1
+  - @talend/scripts-config-stylelint@4.1.1
+  - @talend/eslint-config@13.0.3
+  - @talend/scripts-config-babel@13.3.1
+  - @talend/scripts-config-jest@14.0.2
+  - @talend/eslint-plugin@1.1.1
+  - @talend/scripts-utils@2.2.1
+
+## 16.3.4
+
+### Patch Changes
+
+- 6e85e98: Fix: make lint working in jenkins
+
+## 16.3.3
+
+### Patch Changes
+
+- 55f1d54: fix(script-core): make a solution compatible with windows and pnpm
+
 ## 16.3.2
 
 ### Patch Changes

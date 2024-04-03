@@ -50,7 +50,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             aria-hidden="true"
             pointer-events="none"
             shape-rendering="geometricPrecision"
-            style="width: 1.6rem; height: 1.6rem;"
+            style="width: 1rem; height: 1rem;"
           >
             <use
               xlink:href="#locker-closed:M"
@@ -69,7 +69,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             aria-hidden="true"
             pointer-events="none"
             shape-rendering="geometricPrecision"
-            style="width: 1.6rem; height: 1.6rem;"
+            style="width: 1rem; height: 1rem;"
           >
             <use
               xlink:href="#locker-closed:M"

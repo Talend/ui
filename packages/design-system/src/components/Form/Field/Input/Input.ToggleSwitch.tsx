@@ -3,9 +3,9 @@ import type { ChangeEvent, Ref } from 'react';
 
 import classnames from 'classnames';
 
+import { useControl } from '../../../../useControl';
 import { useId } from '../../../../useId';
 import { CheckboxPrimitiveType } from '../../Primitives';
-import { useControl } from '../../../../useControl';
 
 import styles from './Input.ToggleSwitch.module.scss';
 

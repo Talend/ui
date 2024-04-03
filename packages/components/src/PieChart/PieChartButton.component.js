@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
-import { Button, Popover } from '@talend/react-bootstrap';
-import PieChartIcon, { pieChartIconPropTypes } from './PieChartIcon.component';
-import pieChartCssModule from './PieChart.module.scss';
+
+import { Action } from '../Actions';
 import OverlayTrigger from '../OverlayTrigger';
 import { getTheme } from '../theme';
+import PieChartIcon, { pieChartIconPropTypes } from './PieChartIcon.component';
+
+import pieChartCssModule from './PieChart.module.scss';
 
 const theme = getTheme(pieChartCssModule);
 
@@ -31,7 +33,7 @@ export function decorateWithOverlay(
 				trigger="click"
 				rootClose
 				placement={overlayPlacement}
-				overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
+				overlay={<div id={overlayId}>{overlayComponent}</div>}
 				ref={overlayRef}
 			>
 				{btn}
@@ -85,11 +87,11 @@ export default function PieChartButtonComponent({
 	const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
 	const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
 	const btn = (
-		<Button
+		<Action
 			className={theme('tc-pie-chart-button', className)}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
-			ref={buttonRef}
+			buttonRef={buttonRef}
 			bsStyle="link"
 			role="button"
 			{...rest}
@@ -103,7 +105,7 @@ export default function PieChartButtonComponent({
 				model={model}
 				size={size}
 			/>
-		</Button>
+		</Action>
 	);
 	return decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId, overlayRef);
 }

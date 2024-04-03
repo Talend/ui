@@ -1,4 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
 
 import { Dropdown } from '../../';
@@ -27,40 +28,30 @@ A dropdown menu displays a list of available actions.
 	alt="Basic dropdown styles"
 />
 
-<Canvas withSource="closed">
-	<Story height="35rem" story={Stories.Basic} />
-</Canvas>
+<Canvas sourceState="hidden" height="35rem" of={Stories.Basic} />
 
 ### Variations
 
 **With icons**
 
-<Canvas>
-	<Story height="25rem" story={Stories.WithIcons} />
-</Canvas>
+<Canvas height="25rem" of={Stories.WithIcons} />
 
 **With dividers**
 
-<Canvas>
-	<Story height="25rem" story={Stories.WithDividers} />
-</Canvas>
+<Canvas height="25rem" of={Stories.WithDividers} />
 
 **With titles**
 
 Use titles in combination with dividers to group menu contents together under headings that make sense.
 
-<Canvas>
-	<Story height="25rem" story={Stories.WithTitle} />
-</Canvas>
+<Canvas height="25rem" of={Stories.WithTitle} />
 
 **Max height**
 
 The max-height of a dropdown is 32rem (320px). A scroll-bar has to be added after exceeding 32rem longer items.
 This rule is not applicable for the header-bar dropdowns.
 
-<Canvas withSource="closed">
-	<Story height="36rem" story={Stories.WithManyItems} />
-</Canvas>
+<Canvas sourceState="hidden" height="36rem" of={Stories.WithManyItems} />
 
 ## States
 
@@ -82,9 +73,7 @@ This rule is not applicable for the header-bar dropdowns.
 	</Use.Do>
 </Use>
 
-<Canvas withSource="closed">
-	<Story height="25rem" story={Stories.WithLongText} />
-</Canvas>
+<Canvas sourceState="hidden" height="25rem" of={Stories.WithLongText} />
 
 ## Interactions
 
@@ -164,6 +153,4 @@ The `items` prop of `Dropdown` accepts 4 types: links, buttons, titles and divid
 
 When it comes to links, you can override the default `<a>` element and use a React-Router `Link` instead:
 
-<Canvas>
-	<Story height="25rem" story={Stories.WithRouterLinks} />
-</Canvas>
+<Canvas height="25rem" of={Stories.WithRouterLinks} />

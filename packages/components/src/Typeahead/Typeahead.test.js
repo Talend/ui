@@ -7,6 +7,8 @@ function getHeaders() {
 	return document.querySelectorAll('.section-header');
 }
 
+jest.unmock('@talend/design-system');
+
 describe('Typeahead', () => {
 	const initialProps = {
 		id: 'my-search',
@@ -350,6 +352,27 @@ describe('Typeahead', () => {
 
 			// then
 			expect(screen.queryAllByRole('listitem').length).toBe(0);
+		});
+		it('should render the noDomainRenderer if provided and provided collection is empty', async () => {
+			// given
+			const user = userEvent.setup();
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: [],
+				multiSection: false,
+				noDomainRenderer: () => <div>no domain</div>,
+			};
+
+			// when
+			render(<Typeahead {...props} />);
+			const combo = screen.getByRole('combobox');
+
+			await user.click(combo);
+
+			// then
+			expect(await screen.findByText('no domain')).toBeInTheDocument();
 		});
 		it('should render Items with data-feature attribute if provided collection is flat', () => {
 			// given

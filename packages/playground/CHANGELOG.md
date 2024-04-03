@@ -1,5 +1,157 @@
 # @talend/ui-playground
 
+## 2.4.4
+
+### Patch Changes
+
+- Updated dependencies [27a4a5d]
+  - @talend/react-faceted-search@19.0.0
+
+## 2.4.3
+
+### Patch Changes
+
+- Updated dependencies [0629df7]
+  - @talend/react-forms@14.0.0
+  - @talend/react-containers@10.7.3
+
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+  - @talend/react-containers@10.7.2
+  - @talend/react-dataviz@6.1.3
+  - @talend/react-faceted-search@18.0.0
+  - @talend/react-forms@13.2.3
+
+## 2.4.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/react-faceted-search@17.2.1
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/react-cmf-router@6.1.2
+  - @talend/react-components@15.3.1
+  - @talend/react-containers@10.7.1
+  - @talend/react-dataviz@6.1.2
+  - @talend/react-forms@13.2.2
+  - @talend/icons@7.7.1
+  - @talend/bootstrap-theme@9.1.1
+  - @talend/react-cmf@8.4.1
+
+## 2.4.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [5770c9f]
+- Updated dependencies [9568363]
+  - @talend/react-faceted-search@17.1.0
+  - @talend/design-system@9.2.0
+  - @talend/design-tokens@3.1.0
+  - @talend/react-components@15.1.0
+  - @talend/react-containers@10.7.0
+  - @talend/react-dataviz@6.1.0
+  - @talend/react-forms@13.1.0
+  - @talend/icons@7.7.0
+  - @talend/bootstrap-theme@9.1.0
+  - @talend/react-cmf@8.4.0
+
+## 2.3.4
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/bootstrap-theme@9.0.0
+  - @talend/react-components@15.0.1
+  - @talend/react-dataviz@6.0.1
+  - @talend/design-system@9.0.1
+  - @talend/react-faceted-search@17.0.1
+  - @talend/react-forms@13.0.1
+
+## 2.3.3
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-faceted-search@17.0.0
+  - @talend/react-components@15.0.0
+  - @talend/react-dataviz@6.0.0
+  - @talend/react-forms@13.0.0
+  - @talend/design-system@9.0.0
+  - @talend/react-containers@10.6.1
+
+## 2.3.2
+
+### Patch Changes
+
+- f675918: fix(DFD-536): Fix click on collapsible toggle
+- Updated dependencies [f0770b1]
+- Updated dependencies [f675918]
+- Updated dependencies [7cc4321]
+- Updated dependencies [2065869]
+  - @talend/design-system@8.11.1
+  - @talend/react-forms@12.6.0
+  - @talend/react-faceted-search@16.0.0
+
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/react-faceted-search@15.0.0
+  - @talend/react-dataviz@5.0.0
+  - @talend/react-containers@10.5.1
+  - @talend/react-forms@12.5.1
+  - @talend/react-cmf@8.3.3
+  - @talend/design-system@8.8.3
+
+## 2.3.0
+
+### Minor Changes
+
+- 7de44f9: Remove dependency on react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+- Updated dependencies [7de44f9]
+- Updated dependencies [7de44f9]
+- Updated dependencies [c9e740d]
+  - @talend/react-components@13.0.0
+  - @talend/react-containers@10.4.0
+  - @talend/react-forms@12.4.0
+  - @talend/react-dataviz@4.2.2
+  - @talend/react-faceted-search@14.0.0
+
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies [b71e4e6]
+- Updated dependencies [a7b06bc]
+- Updated dependencies [a7b06bc]
+- Updated dependencies [424544a]
+- Updated dependencies [266df87]
+  - @talend/design-system@8.7.0
+  - @talend/react-faceted-search@13.0.0
+  - @talend/react-components@12.4.0
+
 ## 2.2.1
 
 ### Patch Changes

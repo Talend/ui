@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import SimpleCheckBox from './SimpleCheckBox.component';
-import FieldTemplate from '../FieldTemplate';
+
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import FieldTemplate from '../FieldTemplate';
+import SimpleCheckBox from './SimpleCheckBox.component';
 
 function getValues(itemValue, checked, value = []) {
 	if (checked) {
@@ -21,7 +22,6 @@ export default function CheckBoxes(props) {
 		<FieldTemplate
 			id={id}
 			hint={schema.hint}
-			className={schema.className}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}

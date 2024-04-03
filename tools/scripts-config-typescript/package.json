@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-typescript",
   "description": "Typescript configuration for @talend/scripts-core",
-  "version": "11.2.0",
+  "version": "11.2.1",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -18,8 +18,8 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.2",
-    "@talend/eslint-plugin": "^1.1.0"
+    "@talend/eslint-config": "^13.0.3",
+    "@talend/eslint-plugin": "^1.1.1"
   },
   "publishConfig": {
     "access": "public"

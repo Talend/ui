@@ -1,5 +1,193 @@
 # Changelog
 
+## 19.0.0
+
+### Major Changes
+
+- 27a4a5d: ### BREAKING CHANGE
+  fix(TMC-26027/facetedSearch): multiple callbacks for BadgeCheckbox
+  - getTags() was replaced with getOptions() to support multiple callbacks
+  ***
+  - Before:
+  ```jsx
+  <FacetedSearch.BasicSearch callbacks={{ getTags: () => {} }} />
+  ```
+  ***
+  - After:
+  ```jsx
+  <FacetedSearch.BasicSearch
+  	callbacks={{
+  		tags: { getOptions: () => {} },
+  		authors: { getOptions: () => {} },
+  		operators: { getOptions: () => {} },
+  	}}
+  />
+  ```
+  ***
+
+## 18.0.0
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+
+## 17.2.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/utils@3.0.4
+
+## 17.2.0
+
+### Minor Changes
+
+- 420118f: feat: use design system text input for the advanced search
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- 5cd9cde: fix: make checkbox badge with values work again (without fetching the tags all the time)
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
+## 17.1.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+- Updated dependencies [52563ff]
+  - @talend/utils@3.0.1
+
+## 17.1.0
+
+### Minor Changes
+
+- 5770c9f: Support user provided range options
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+
+## 17.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
+## 17.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+  - @talend/design-system@9.0.0
+
+## 16.1.2
+
+### Patch Changes
+
+- e2a866d: Fix faceted search tooltip and replace it with a title to avoid wrong popover placement
+
+## 16.1.1
+
+### Patch Changes
+
+- 7a0b233: Fix tooltip for faceted search badge to not throw an error
+
+## 16.1.0
+
+### Minor Changes
+
+- 941ff4f: feat: add BadgePeriod in faceted search
+
+## 16.0.0
+
+### Major Changes
+
+- 7cc4321: TDOPS-5724 - Restyle faceted search to remove bootstrap and use more Design System elements
+
+  # BREAKING CHANGE
+
+  - Lot of styling and classes has changed so your overrides might not work anymore
+  - DOM has changed too so your tests might need to be upgraded
+  - `tags` type for badges does not exists enymore, use `checkbox` instead as it is the same kind of component but with more possibilities
+
+## 15.0.1
+
+### Patch Changes
+
+- ab1ae8a: TDOPS-5873 - Faceted search container no longer takes more then 100% width
+
+## 15.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/utils@3.0.0
+
+## 14.1.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-tokens@2.11.0
+
+## 14.0.0
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+  - @talend/react-components@13.0.0
+
+## 13.0.0
+
+### Major Changes
+
+- a7b06bc: Remove @talend/react-bootstrap from Faceted Search package to use DS Popover with controlled state
+
+### Minor Changes
+
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
+### Patch Changes
+
+- Updated dependencies [1bc49cd]
+- Updated dependencies [424544a]
+  - @talend/utils@2.9.0
+
+## 12.3.0
+
+### Minor Changes
+
+- fc7d4e2: feat(TDOPS-4789/facetedSearch): callback support for BadgeMenu
+
+### Patch Changes
+
+- 38dad22: Fix translation of BadgeCheckboxesForm
+
 ## 12.2.1
 
 ### Patch Changes

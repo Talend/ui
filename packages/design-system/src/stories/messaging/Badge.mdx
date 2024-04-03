@@ -1,7 +1,9 @@
-import { Meta, Story, Canvas } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { Status } from '../Status.block';
+
 import * as Stories from './Badge.stories';
+import { Status } from '../Status.block';
 
 <Meta of={Stories} />
 <Status id="badge" />
@@ -24,35 +26,13 @@ A wonderful Badge
 	alt="Badge in various state"
 />
 
-### Variations
+## Variations
 
-#### Badge
+### Badge
 
-<Canvas isColumn>
-	<Story of={Stories.StoryBadgeValue} />
-</Canvas>
+<Canvas isColumn of={Stories.StoryBadgeValue} />
 
-#### BadgeTag
-
-<Canvas isColumn>
-	<Story of={Stories.StoryBadgeTag} />
-</Canvas>
-
-#### BadgeDropdown
-
-<Canvas isColumn>
-	<Story of={Stories.StoryBadgeDropdown} />
-</Canvas>
-
-#### BadgePopover
-
-<Canvas isColumn>
-	<Story of={Stories.StoryBadgePopover} />
-</Canvas>
-
-## States
-
-#### Badge
+#### Properties
 
 <table>
 	<thead>
@@ -123,7 +103,11 @@ A wonderful Badge
 
 \* Mandatory fields
 
-#### BadgeTag
+### BadgeTag
+
+<Canvas isColumn of={Stories.StoryBadgeTag} />
+
+#### Properties
 
 <table>
 	<thead>
@@ -162,7 +146,11 @@ A wonderful Badge
 
 \* Mandatory fields
 
-#### BadgeDropdown
+### BadgeDropdown
+
+<Canvas isColumn of={Stories.StoryBadgeDropdown} />
+
+#### Properties
 
 This component is controlled.
 
@@ -252,7 +240,11 @@ This component is controlled.
 
 \* Mandatory fields
 
-#### BadgePopover
+### BadgePopover
+
+<Canvas isColumn of={Stories.StoryBadgePopover} />
+
+#### Properties
 
 <table>
 	<thead>

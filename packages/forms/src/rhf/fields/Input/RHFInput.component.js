@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import { useController, useFormContext } from 'react-hook-form';
 
-import Input from '../../../widgets/fields/Input';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
 
 function RHFInput({ rules = {}, name = '', defaultValue, ...rest }) {
 	const { control } = useFormContext();
@@ -11,7 +12,15 @@ function RHFInput({ rules = {}, name = '', defaultValue, ...rest }) {
 		rules,
 		defaultValue,
 	});
-	return <Input {...rest} {...field} error={fieldState.error?.message} />;
+
+	return (
+		<Form.Input
+			hasError={!!fieldState.error?.message}
+			description={fieldState.error?.message}
+			{...field}
+			{...rest}
+		/>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {

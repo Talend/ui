@@ -73,7 +73,7 @@ describe('Input RHF widget', () => {
 			</FormWrapper>,
 		);
 		// then
-		const input = screen.getByLabelText('name');
+		const input = screen.getByLabelText('name*');
 		await userEvent.clear(input);
 
 		expect(screen.getByText('This should not be empty')).toBeInTheDocument();

@@ -1,4 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import * as Stories from './Loading.stories';
 import { Status } from '../Status.block';
 
@@ -11,9 +12,7 @@ import { Status } from '../Status.block';
 
 ## Style
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
+<Canvas of={Stories.Default} />
 
 ## States
 

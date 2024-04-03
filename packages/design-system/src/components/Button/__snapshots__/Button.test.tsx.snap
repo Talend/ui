@@ -28,7 +28,7 @@ exports[`Button should render a11y html 1`] = `
           aria-hidden="true"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#trash:M"
@@ -75,6 +75,7 @@ exports[`Button should render a11y html 1`] = `
         <svg
           aria-hidden="true"
           data-test="button.loading"
+          style="width: 1rem; height: 1rem;"
           viewBox="0 0 16 16"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -119,7 +120,7 @@ exports[`Button should render a11y html 1`] = `
           aria-hidden="true"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.2rem; height: 1.2rem;"
+          style="width: 0.75rem; height: 0.75rem;"
         >
           <use
             xlink:href="#chevron-down:S"

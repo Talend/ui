@@ -1,5 +1,26 @@
 # @talend/scripts-config-babel
 
+## 13.3.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/babel-plugin-import-from-index@1.7.1
+  - @talend/babel-plugin-assets-api@1.3.1
+
+## 13.3.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/babel-plugin-import-from-index@1.7.0
+  - @talend/babel-plugin-assets-api@1.3.0
+
 ## 13.2.1
 
 ### Patch Changes

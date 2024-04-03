@@ -1,12 +1,15 @@
-import PropTypes from 'prop-types';
 import { PureComponent } from 'react';
-import classNames from 'classnames';
-import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from 'react-virtualized';
 import { withTranslation } from 'react-i18next';
+import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from 'react-virtualized';
 
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import Checkbox from '../../Checkbox';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
+
 import theme from './Items.module.scss';
 
 const listClasses = classNames(theme['tc-list-items'], 'tc-list-items');
@@ -154,15 +157,12 @@ export class ItemsComponent extends PureComponent {
 
 		return (
 			<div className={toggleAllSelector}>
-				<label htmlFor={toggleAllId}>
-					<input
-						id={toggleAllId}
-						type="checkbox"
-						onChange={onToggleAll}
-						checked={toggleAllChecked}
-					/>
-					<strong>{label}</strong>
-				</label>
+				<Checkbox
+					id={toggleAllId}
+					onChange={onToggleAll}
+					checked={toggleAllChecked}
+					label={<strong>{label}</strong>}
+				/>
 			</div>
 		);
 	}

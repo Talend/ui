@@ -1,8 +1,9 @@
-import { render } from '@testing-library/react';
-import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { render, screen, waitFor, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import { BadgeMenu } from './BadgeMenu.component';
 import getDefaultT from '../../../translate';
+import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { BadgeMenu } from './BadgeMenu.component';
 
 const t = getDefaultT();
 
@@ -15,6 +16,7 @@ const badgeFacetedContextValue = {
 	onDeleteBadge: jest.fn(),
 	onHideOperator: jest.fn(),
 	onSubmitBadge: jest.fn(),
+	dispatch: jest.fn(),
 };
 
 const BadgeWithContext = props => (
@@ -36,7 +38,9 @@ describe('BadgeMenu', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
+		expect(
+			within(document.querySelector('#tc-badge-select-myId-badge-menu')).getByText('All'),
+		).toBeVisible();
 	});
 	it('should return "All" when value is empty', () => {
 		// Given
@@ -51,6 +55,60 @@ describe('BadgeMenu', () => {
 		// When
 		render(<BadgeWithContext {...props} />);
 		// Then
-		expect(document.querySelectorAll('span')[2]).toHaveTextContent('All');
+		expect(
+			within(document.querySelector('#tc-badge-select-myId-badge-menu')).getByText('All'),
+		).toBeVisible();
+	});
+	it('should mount a badge with object data from callback', async () => {
+		// Given
+		const callbacks = {
+			id: {
+				getOptions: () => new Promise(resolve => resolve([{ id: '1234', label: 'production' }])),
+			},
+		};
+
+		const props = {
+			id: 'myId',
+			label: 'myLabel',
+			initialOperatorOpened: false,
+			initialValueOpened: true,
+			operators: ['in'],
+			callbacks,
+			values: [],
+			t: getDefaultT(),
+			attribute: 'id',
+		};
+
+		// When
+		render(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeMenu {...props} />
+			</BadgeFacetedProvider>,
+		);
+
+		// Then there is a checkbox with data taken from callback
+		await waitFor(() => {
+			expect(screen.getByRole('menuitem')).toBeVisible();
+		});
+		// Then selecting an item should dispatch proper payload
+		await userEvent.click(screen.getByRole('menuitem', { name: 'production' }));
+		await userEvent.click(
+			screen.getByRole('button', {
+				name: /apply/i,
+			}),
+		);
+		expect(badgeFacetedContextValue.dispatch).toHaveBeenCalledWith({
+			payload: {
+				badgeId: 'myId',
+				metadata: { isInCreation: false },
+				properties: {
+					initialOperatorOpened: false,
+					initialValueOpened: false,
+					operator: 'in',
+					value: { checked: false, id: '1234', label: 'production' },
+				},
+			},
+			type: 'UPDATE_BADGE',
+		});
 	});
 });

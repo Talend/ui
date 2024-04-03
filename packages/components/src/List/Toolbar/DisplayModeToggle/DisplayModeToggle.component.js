@@ -1,7 +1,10 @@
 /* eslint-disable react/display-name */
 import { memo } from 'react';
+
 import PropTypes from 'prop-types';
+
 import { ButtonIconToggle, StackHorizontal } from '@talend/design-system';
+
 import getDefaultT from '../../../translate';
 import { DISPLAY_MODE } from '../../ListComposition/constants';
 
@@ -24,6 +27,7 @@ export const DisplayModeActionIcon = memo(
 			<ButtonIconToggle
 				key={displayMode}
 				id={`${id}-${displayMode}`}
+				tooltipPlacement="top-end"
 				icon={icon}
 				isActive={displayMode === displayModeOption}
 				size="S"

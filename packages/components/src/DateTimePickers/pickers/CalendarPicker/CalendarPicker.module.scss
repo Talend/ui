@@ -1,25 +1,11 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
-@import '../../shared/styles/mixins';
-@import '../../shared/styles/variables';
 
 .container {
 	color: tokens.$coral-color-neutral-text-weak;
-	min-width: 29rem;
-	min-height: 35.2rem;
-	padding: $padding-normal;
+	min-height: tokens.$coral-sizing-xxxl;
+	padding: tokens.$coral-spacing-m;
 }
 
 .footer {
-	padding-top: $padding-normal;
-
-	&::before {
-		@include picker-underline;
-		display: block;
-		margin-bottom: $padding-normal;
-	}
-
-	&.date-padding {
-		padding-top: $padding-smaller;
-	}
+	padding-top: tokens.$coral-spacing-s;
 }

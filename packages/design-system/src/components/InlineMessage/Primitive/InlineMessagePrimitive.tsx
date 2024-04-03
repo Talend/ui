@@ -1,11 +1,15 @@
 import { forwardRef, HTMLAttributes, Ref } from 'react';
+
+import classnames from 'classnames';
+import { DataAttributes } from 'src/types';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
-import classnames from 'classnames';
+
+import { SizedIcon } from '../../Icon';
+import Link, { LinkProps } from '../../Link/Link';
 
 import styles from './InlineMessagePrimitive.module.scss';
-import Link, { LinkProps } from '../../Link/Link';
-import { SizedIcon } from '../../Icon';
 
 export type AvailableVariantsTypes = 'destructive' | 'success' | 'information' | 'warning' | 'beta';
 export type InlineMessageVariantType<T extends AvailableVariantsTypes, P extends object> = {
@@ -23,7 +27,8 @@ export type SharedInlineMessageTypes = {
 };
 
 export type BaseInlineMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style'> &
-	SharedInlineMessageTypes;
+	SharedInlineMessageTypes &
+	Partial<DataAttributes>;
 
 const InlineMessagePrimitive = forwardRef(
 	(

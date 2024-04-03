@@ -1,18 +1,21 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import { useMemo, useState } from 'react';
+
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
-import { DropdownButton } from '@talend/design-system';
-import { Action } from '@talend/react-components/lib/Actions';
-import FilterBar from '@talend/react-components/lib/FilterBar';
-import Rich from '@talend/react-components/lib/Rich';
-import { getTheme } from '@talend/react-components/lib/theme';
 
-import cssModule from './BadgeMenu.module.scss';
-import { getDataAttributesFrom } from '../../../helpers/usage.helpers';
+import {
+	ButtonPrimary,
+	ButtonTertiary,
+	DropdownButton,
+	Form,
+	SkeletonHeading,
+	StackVertical,
+} from '@talend/design-system';
+import { getDataAttrFromProps } from '@talend/utils';
 
-const theme = getTheme(cssModule);
+import styles from './BadgeMenu.module.scss';
 
 const createRowItemEntity = value => option => {
 	return {
@@ -53,77 +56,73 @@ const BadgeMenuForm = ({
 		[items, filter, showAll],
 	);
 	const showSelectedToggleLabel = showAll
-		? t('SHOW_SELECTED_ITEM', { defaultValue: 'Selected' })
-		: t('SHOW_ALL_ITMES', { defaultValue: 'Show all' });
+		? t('SHOW_SELECTED_ITEMS', { defaultValue: 'Show selected' })
+		: t('SHOW_ALL_ITEMS', { defaultValue: 'Show all' });
 	return (
-		<>
-			<Rich.Layout.Header className={theme('fs-badge-menu-form-header')}>
-				<FilterBar
-					className={theme('menu-items-filter')}
-					autoFocus={false}
-					dockable={false}
-					docked={false}
-					iconAlwaysVisible
-					id={`${badgeMenuFormId}-filter`}
-					placeholder={
-						filterBarPlaceholder ||
-						t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-							defaultValue: 'Find a column',
-						})
-					}
-					onToggle={() => setFilter('')}
-					onFilter={(_, filterValue) => setFilter(filterValue)}
-					value={filter}
-					data-test="badge-menu-filter"
-					data-testid="badge-menu-filter"
-				/>
-			</Rich.Layout.Header>
-			<form
-				className={theme('fs-badge-menu-form')}
-				id={`${badgeMenuFormId}-form`}
-				onSubmit={onSubmit}
-			>
-				<Rich.Layout.Body id={badgeMenuFormId} className={theme('fs-badge-menu-form-body')}>
-					{visibleItems.map(rowItem => {
-						return (
-							<DropdownButton
-								key={rowItem.id}
-								onClick={event => {
-									onChange(event, rowItem);
-								}}
-								checked={rowItem.checked}
-								data-testid={`badge-menu-form-item-${rowItem.id}`}
-								data-test={`badge-menu-form-item-${rowItem.id}`}
-							>
-								<span>{rowItem.label}</span>
-							</DropdownButton>
-						);
-					})}
-				</Rich.Layout.Body>
-				<Rich.Layout.Footer id={id} className={theme('fs-badge-menu-form-footer')}>
-					<div>
-						{!isEmpty(value) && (
-							<Action
-								type="button"
-								onClick={() => {
-									setShowAll(!showAll);
-									setFilter('');
-								}}
-								label={showSelectedToggleLabel}
-								bsStyle="link"
-								className={theme('fs-badge-menu-form-left-button')}
-							/>
-						)}
-					</div>
-					<Action
-						type="submit"
-						label={t('APPLY', { defaultValue: 'Apply' })}
-						bsStyle="info"
-						{...getDataAttributesFrom(rest)}
-					/>
-				</Rich.Layout.Footer>
-			</form>
-		</>
+		<Form id={`${badgeMenuFormId}-form`} onSubmit={onSubmit}>
+			<Form.Search
+				id={`${badgeMenuFormId}-filter`}
+				placeholder={
+					filterBarPlaceholder ||
+					t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+						defaultValue: 'Find a column',
+					})
+				}
+				onChange={event => {
+					setFilter(event?.target?.value || '');
+				}}
+				value={filter}
+				data-test="badge-menu-filter"
+				data-testid="badge-menu-filter"
+			/>
+			<div className={styles['fs-badge-menu-form-items']}>
+				{!rest.isLoading ? (
+					<StackVertical gap="0">
+						{visibleItems.map(rowItem => {
+							return (
+								<DropdownButton
+									key={rowItem.id}
+									onClick={event => {
+										onChange(event, rowItem);
+									}}
+									checked={rowItem.checked}
+									data-testid={`badge-menu-form-item-${rowItem.id}`}
+									data-test={`badge-menu-form-item-${rowItem.id}`}
+								>
+									<span>{rowItem.label}</span>
+								</DropdownButton>
+							);
+						})}
+					</StackVertical>
+				) : (
+					<StackVertical
+						gap="S"
+						data-testid="badge-menu-form-skeleton-item"
+						data-test="badge-menu-form-skeleton-item"
+					>
+						<SkeletonHeading size="L" width="100" />
+						<SkeletonHeading size="L" width="100" />
+						<SkeletonHeading size="L" width="100" />
+					</StackVertical>
+				)}
+			</div>
+			<Form.Buttons padding={{ x: 0, bottom: 0, top: 'M' }}>
+				{!isEmpty(value) && (
+					<ButtonTertiary
+						type="button"
+						onClick={() => {
+							setShowAll(!showAll);
+							setFilter('');
+						}}
+					>
+						{showSelectedToggleLabel}
+					</ButtonTertiary>
+				)}
+				<ButtonPrimary type="submit" disabled={rest.isLoading} {...getDataAttrFromProps(rest)}>
+					{t('APPLY', { defaultValue: 'Apply' })}
+				</ButtonPrimary>
+			</Form.Buttons>
+		</Form>
 	);
 };
 

@@ -1,7 +1,7 @@
 /* stylelint-disable selector-no-qualifying-type */
 @use '~@talend/design-tokens/lib/tokens';
 
-$tc-tabbar-active-border-size: 0.2rem !default;
+$tc-tabbar-active-border-size: 0.125rem !default;
 
 .nav {
 	.btn-link {
@@ -134,12 +134,12 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 				border: none;
 				border-radius: 0;
 				color: tokens.$coral-color-neutral-text;
-				margin-bottom: 0.5rem;
+				margin-bottom: 0.3125rem;
 				outline: none;
 				padding: $padding-smaller $padding-small;
 				padding-bottom: calc(#{$padding-smaller} + #{$tc-tabbar-active-border-size});
 
-				max-width: 20rem;
+				max-width: 12.5rem;
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
