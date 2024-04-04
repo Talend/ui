@@ -190,7 +190,6 @@ export function ActionBar(props) {
 		css['tc-actionbar-container'],
 		'tc-actionbar-container',
 		'nav',
-		'foo',
 		props.className,
 	);
 
