@@ -46,7 +46,17 @@ ruleTester.run('talend-use-bootstrap-class', rule, {
 		},
 		{
 			code: `import classnames from 'classnames';
-			classnames('nav', {})`,
+			classnames('foo', { 'btn-default': true })`,
+			parser,
+			parserOptions,
+			errors: [
+				{
+					message: 'bootstrap 3 class are deprecated',
+				},
+			],
+		},
+		{
+			code: `<button className="btn-default foo">foo</button>`,
 			parser,
 			parserOptions,
 			errors: [

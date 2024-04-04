@@ -1,10 +1,13 @@
-import PropTypes from 'prop-types';
 import { createElement } from 'react';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
-import Inject from '../Inject';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import { Action, ActionDropdown, Actions, ActionSplitDropdown } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import Inject from '../Inject';
+
 import css from './ActionBar.module.scss';
 
 const DISPLAY_MODES = {
@@ -187,6 +190,7 @@ export function ActionBar(props) {
 		css['tc-actionbar-container'],
 		'tc-actionbar-container',
 		'nav',
+		'foo',
 		props.className,
 	);
 

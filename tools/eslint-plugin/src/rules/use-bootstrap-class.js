@@ -85,6 +85,8 @@ const BOOTSTRAP_CLASS = [
 	'hidden-lg',
 ];
 
+const message = 'bootstrap 3 class are deprecated';
+
 module.exports = {
 	meta: {
 		docs: {
@@ -116,16 +118,36 @@ module.exports = {
 				}
 				if (node.callee?.name === classNameName) {
 					node.arguments.forEach(value => {
-						if (value.value && typeof value.value === 'string') {
+						if (value.type === 'Literal') {
 							const values = value.value.split(' ');
 							if (values.some(v => BOOTSTRAP_CLASS.includes(v))) {
 								context.report({
 									node: value,
-									message: 'bootstrap 3 class are deprecated',
+									message,
 								});
 							}
+						} else if (value.type === 'ObjectExpression') {
+							value.properties.forEach(props => {
+								if (BOOTSTRAP_CLASS.includes(props.key?.value)) {
+									context.report({
+										node: props.key,
+										message,
+									});
+								}
+							});
 						}
 					});
+				}
+			},
+			JSXAttribute: function (node) {
+				if (node.value?.type === 'Literal') {
+					const values = node.value.value.split(' ');
+					if (values.some(v => BOOTSTRAP_CLASS.includes(v))) {
+						context.report({
+							node,
+							message,
+						});
+					}
 				}
 			},
 		};
