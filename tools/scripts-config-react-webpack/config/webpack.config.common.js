@@ -115,13 +115,13 @@ function getAssetsRules(hashed = true) {
 function getWebpackRules(srcDirectories, useTypescript, devMode) {
 	return [
 		devMode && {
-			test: /\.js$/,
+			test: /\.(js|jsx)$/,
 			include: /node_modules/,
 			use: [require.resolve('source-map-loader')],
 			enforce: 'pre',
 		},
 		{
-			test: /\.(js|ts|tsx)$/,
+			test: /\.(js|jsx|ts|tsx)$/,
 			exclude: /node_modules/,
 			include: srcDirectories,
 			use: getJSAndTSLoader(),

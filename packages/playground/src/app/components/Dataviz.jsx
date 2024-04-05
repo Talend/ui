@@ -1,4 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+import { ErrorBoundary } from '@talend/react-cmf';
+import Layout from '@talend/react-components/lib/Layout';
+import HeaderBar from '@talend/react-containers/lib/HeaderBar';
+import SidePanel from '@talend/react-containers/lib/SidePanel';
 import {
 	GeoChart,
 	getGeoChartConfig,
@@ -7,10 +12,6 @@ import {
 	KeyValueTooltip,
 	ValueType,
 } from '@talend/react-dataviz';
-import { ErrorBoundary } from '@talend/react-cmf';
-import Layout from '@talend/react-components/lib/Layout';
-import SidePanel from '@talend/react-containers/lib/SidePanel';
-import HeaderBar from '@talend/react-containers/lib/HeaderBar';
 
 const data = [
 	{

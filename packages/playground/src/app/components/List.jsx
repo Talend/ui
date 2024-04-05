@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-
-import { List, Layout, SubHeaderBar } from '@talend/react-components';
-import { SidePanel, HeaderBar } from '@talend/react-containers';
+import { Layout, List, SubHeaderBar } from '@talend/react-components';
+import { HeaderBar, SidePanel } from '@talend/react-containers';
 
 const props = {
 	id: 'talend',

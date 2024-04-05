@@ -281,7 +281,9 @@ module.exports = ({ getUserConfig, mode }) => {
 			},
 			devtool: 'source-map',
 			resolve: {
-				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
+				extensions: ['.js', '.jsx', useTypescript && '.ts', useTypescript && '.tsx'].filter(
+					Boolean,
+				),
 				fallback: {
 					url: false,
 				},
@@ -289,13 +291,13 @@ module.exports = ({ getUserConfig, mode }) => {
 			module: {
 				rules: [
 					isEnvDevelopment && {
-						test: /\.js$/,
+						test: /\.(js)$/,
 						include: /node_modules/,
 						use: [require.resolve('source-map-loader')],
 						enforce: 'pre',
 					},
 					{
-						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
+						test: useTypescript ? /\.(js|jsx|ts|tsx)$/ : /\.(js|jsx)$/,
 						exclude: /node_modules/,
 						include: srcDirectories,
 						use: getJSAndTSLoader(),
