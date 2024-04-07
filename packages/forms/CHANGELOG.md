@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 14.0.2
+
+### Patch Changes
+
+- 34a52b9: fix missing aria-describedby attribute
+
 ## 14.0.1
 
 ### Patch Changes
