@@ -23,6 +23,7 @@ exports[`Fieldset widget should render fieldset 1`] = `
         class="theme-inputShell"
       >
         <input
+          aria-describedby="user_firstname-description user_firstname-error"
           aria-invalid="false"
           class="theme-input"
           id="user_firstname"
@@ -42,6 +43,7 @@ exports[`Fieldset widget should render fieldset 1`] = `
         class="theme-inputShell"
       >
         <input
+          aria-describedby="user_lastname-description user_lastname-error"
           aria-invalid="false"
           class="theme-input"
           id="user_lastname"

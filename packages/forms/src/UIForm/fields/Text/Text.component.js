@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { Form } from '@talend/design-system';
 
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { getLabelProps } from '../../utils/labels';
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 
@@ -28,7 +29,8 @@ export default function Text(props) {
 	if (type === 'hidden') {
 		return <input id={id} type={type} value={value} />;
 	}
-
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
 	let fieldProps = {
 		id,
 		autoComplete,
@@ -46,6 +48,7 @@ export default function Text(props) {
 		hasError: !isValid,
 		'aria-invalid': !isValid,
 		'aria-required': schema.required,
+		'aria-describedby': `${descriptionId} ${errorId}`,
 		...extractDataAttributes(rest),
 	};
 

@@ -74,6 +74,7 @@ exports[`Tabs widget should render tabs 1`] = `
               class="theme-inputShell"
             >
               <input
+                aria-describedby="user_firstname-description user_firstname-error"
                 aria-invalid="false"
                 class="theme-input"
                 id="user_firstname"
@@ -93,6 +94,7 @@ exports[`Tabs widget should render tabs 1`] = `
               class="theme-inputShell"
             >
               <input
+                aria-describedby="user_lastname-description user_lastname-error"
                 aria-invalid="false"
                 class="theme-input"
                 id="user_lastname"
@@ -134,6 +136,7 @@ exports[`Tabs widget should render tabs 1`] = `
               class="theme-inputShell"
             >
               <input
+                aria-describedby="comment-description comment-error"
                 aria-invalid="false"
                 class="theme-input"
                 id="comment"
