@@ -7,8 +7,8 @@
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build && yarn run tsc",
+    "pre-release": "pnpm build:dev && pnpm build:prod",
+    "build:lib": "talend-scripts build && pnpm run tsc",
     "watch": "talend-scripts build --watch",
     "tsc": "tsc --emitDeclarationOnly --project ./tsconfig.json --outDir ./types",
     "test": "cross-env TZ=UTC talend-scripts test",
@@ -113,9 +113,6 @@
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",
     "react-i18next": "^13.5.0"
-  },
-  "resolutions": {
-    "minimist": "^1.2.5"
   },
   "publishConfig": {
     "access": "public"

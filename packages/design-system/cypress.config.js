@@ -19,9 +19,17 @@ const webpackConfig = {
 		fallback: {
 			url: false,
 		},
+		alias: {
+			react: path.resolve(__dirname, './node_modules/react'),
+			'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+		},
 	},
 	module: {
-		rules: getWebpackRules([path.resolve(process.cwd(), './src/')], true, true),
+		rules: getWebpackRules(
+			[path.resolve(process.cwd(), './src/'), path.resolve(process.cwd(), './cypress/')],
+			true,
+			true,
+		),
 	},
 	plugins: getWebpackPlugins(),
 };

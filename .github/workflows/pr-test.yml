@@ -27,10 +27,10 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Test
-        run: yarn test --coverage --coverageReporters json-summary
+        run: pnpm run test --coverage --coverageReporters json-summary
 
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@c2d5cfd6c32e8799c6deb0fd76a8e2d9ad8b35c2 #1.0.25

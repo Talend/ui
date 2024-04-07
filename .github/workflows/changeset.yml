@@ -33,14 +33,14 @@ jobs:
         uses: ./.github/actions/setup-node
   
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm --frozen-lockfile
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@aba318e9165b45b7948c60273e0b72fce0a64eb9 #v1.4.7
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: yarn release
+          publish: pnpm run release
           commit: "chore: prepare release"
           title: "chore: prepare release"
         env:

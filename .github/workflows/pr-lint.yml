@@ -31,15 +31,15 @@ jobs:
         uses: ./.github/actions/setup-node
   
       - name: Install
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: eslint + stylelint
         continue-on-error: true
         id: eslint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Merge lint
-        run: yarn lint-merge-report master ${GITHUB_HEAD_REF}
+        run: pnpm lint-merge-report master ${GITHUB_HEAD_REF}
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@5f4dc2e3af8d3c21b727edb597e5503510b1dc9c #v2.2.0
