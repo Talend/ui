@@ -1,0 +1,62 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
+
+$custom-ratio-bar-height: 0.5rem;
+$custom-ratio-bar-line-height: 0.4rem;
+$custom-ratio-bar-line-hover-height: 0.5rem;
+
+.tc-ratio-bar {
+	align-items: center;
+	display: flex;
+	height: $custom-ratio-bar-height;
+	padding: $padding-small 0;
+	width: 100%;
+
+	&-counter {
+		padding-left: $padding-smaller;
+	}
+
+	&-lines {
+		border-radius: 1px;
+		height: 100%;
+		width: 100%;
+	}
+
+	& &-line {
+		height: $custom-ratio-bar-line-height;
+		margin: 0 2px 0 0;
+		min-width: $custom-ratio-bar-line-height;
+		transition: tokens.$coral-transition-instant;
+
+		&:hover {
+			height: $custom-ratio-bar-line-hover-height;
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&-grow {
+			flex-grow: 1;
+		}
+
+		&-empty {
+			@extend .tc-ratio-bar-lines;
+			background-color: tokens.$coral-color-charts-neutral-weak;
+		}
+
+		&-filled {
+			@extend .tc-ratio-bar-lines;
+			background-color: tokens.$coral-color-charts-default;
+		}
+
+		&-error {
+			@extend .tc-ratio-bar-lines;
+			background-color: tokens.$coral-color-charts-danger;
+		}
+	}
+}
