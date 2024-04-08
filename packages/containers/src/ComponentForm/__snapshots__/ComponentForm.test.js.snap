@@ -29,6 +29,7 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
           class="theme-inputShell"
         >
           <input
+            aria-describedby="_datasetMetadata_name-description _datasetMetadata_name-error"
             aria-invalid="false"
             class="theme-input"
             id="_datasetMetadata_name"

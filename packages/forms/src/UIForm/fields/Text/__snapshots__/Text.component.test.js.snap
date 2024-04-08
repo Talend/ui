@@ -15,6 +15,7 @@ exports[`Text field should render input 1`] = `
     class="theme-inputShell"
   >
     <input
+      aria-describedby="myForm-description myForm-error"
       aria-invalid="false"
       aria-required="true"
       class="theme-input"

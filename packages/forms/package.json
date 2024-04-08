@@ -59,8 +59,8 @@
     "@storybook/addon-controls": "^7.6.17",
     "@talend/locales-tui-forms": "^10.2.4",
     "@talend/react-components": "^16.0.1",
-    "@talend/eslint-config": "^13.0.3",
-    "@talend/eslint-plugin": "^1.1.1",
+    "@talend/eslint-config": "^13.1.0",
+    "@talend/eslint-plugin": "^1.2.0",
     "@talend/scripts-core": "^16.3.5",
     "@talend/scripts-config-babel": "^13.3.1",
     "@talend/scripts-config-react-webpack": "^16.5.1",
@@ -92,5 +92,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "14.0.1"
+  "version": "14.0.2"
 }

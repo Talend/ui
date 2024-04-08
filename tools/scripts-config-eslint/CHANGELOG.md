@@ -1,5 +1,16 @@
 # @talend/scripts-config-eslint
 
+## 13.1.0
+
+### Minor Changes
+
+- b3f28a7: feat: add warning on bootstrap class
+
+### Patch Changes
+
+- Updated dependencies [b3f28a7]
+  - @talend/eslint-plugin@1.2.0
+
 ## 13.0.3
 
 ### Patch Changes

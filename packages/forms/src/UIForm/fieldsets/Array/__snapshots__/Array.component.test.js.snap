@@ -107,6 +107,7 @@ exports[`Array component should render array 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="talend-array-0_comments_0_comments_0_name-description talend-array-0_comments_0_comments_0_name-error"
                   aria-invalid="false"
                   aria-required="true"
                   class="theme-input"
@@ -130,6 +131,7 @@ exports[`Array component should render array 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="talend-array-0_comments_0_comments_0_email-description talend-array-0_comments_0_comments_0_email-error"
                   aria-invalid="false"
                   class="theme-input"
                   id="talend-array-0_comments_0_comments_0_email"
@@ -319,6 +321,7 @@ exports[`Array component should render array 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="talend-array-1_comments_1_comments_1_name-description talend-array-1_comments_1_comments_1_name-error"
                   aria-invalid="false"
                   aria-required="true"
                   class="theme-input"
@@ -342,6 +345,7 @@ exports[`Array component should render array 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="talend-array-1_comments_1_comments_1_email-description talend-array-1_comments_1_comments_1_email-error"
                   aria-invalid="false"
                   class="theme-input"
                   id="talend-array-1_comments_1_comments_1_email"
@@ -532,6 +536,7 @@ exports[`Array component should render array 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="talend-array-2_comments_2_comments_2_name-description talend-array-2_comments_2_comments_2_name-error"
                   aria-invalid="false"
                   aria-required="true"
                   class="theme-input"
@@ -555,6 +560,7 @@ exports[`Array component should render array 1`] = `
                 class="theme-inputShell"
               >
                 <input
+                  aria-describedby="talend-array-2_comments_2_comments_2_email-description talend-array-2_comments_2_comments_2_email-error"
                   aria-invalid="false"
                   class="theme-input"
                   id="talend-array-2_comments_2_comments_2_email"
