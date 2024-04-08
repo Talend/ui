@@ -291,7 +291,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			module: {
 				rules: [
 					isEnvDevelopment && {
-						test: /\.(js)$/,
+						test: /\.js$/,
 						include: /node_modules/,
 						use: [require.resolve('source-map-loader')],
 						enforce: 'pre',

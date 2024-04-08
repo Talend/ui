@@ -115,7 +115,7 @@ function getAssetsRules(hashed = true) {
 function getWebpackRules(srcDirectories, useTypescript, devMode) {
 	return [
 		devMode && {
-			test: /\.(js|jsx)$/,
+			test: /\.js$/,
 			include: /node_modules/,
 			use: [require.resolve('source-map-loader')],
 			enforce: 'pre',
