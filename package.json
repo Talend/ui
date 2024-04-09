@@ -35,9 +35,6 @@
     "start-forms": "yarn workspace  @talend/react-forms run start",
     "start-theme": "yarn workspace @talend/bootstrap-theme run start",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
-    "clean": "yarn clean:lib && yarn clean:dist",
-    "clean:lib": "rimraf --glob **/lib",
-    "clean:dist": "rimraf --glob **/dist",
     "prepare": "husky install"
   },
   "resolutions": {
