@@ -33,7 +33,7 @@
     "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
-    "build:lib:esm": "tsc --project ./tsconfig.esm.json",
+    "build:lib:esm": "tsc --project ./tsconfig.esm.json && cpx 'src/**/*.{scss,json}' lib/esm --verbose",
     "start": "talend-scripts start-storybook -p 6007",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",

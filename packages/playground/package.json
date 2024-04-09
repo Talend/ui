@@ -39,6 +39,7 @@
     "esbuild-plugin-react-virtualized": "^1.0.4",
     "express": "^4.18.2",
     "i18next-http-backend": "^1.4.5",
+    "sass": "^1.71.1",
     "vite": "^5.2.8",
     "webpack": "^5.90.3"
   },
