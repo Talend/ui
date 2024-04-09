@@ -3,12 +3,14 @@
   "version": "2.4.4",
   "description": "Showcase Talend/UI",
   "private": true,
+  "type": "module",
   "main": "app/index.js",
   "scripts": {
     "build": "cross-env BASENAME='/playground' talend-scripts build",
     "test": "echo nothing to test in playground",
     "test:demo:umd": "cross-env BASENAME='/playground/' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
     "start": "cross-env BASENAME='/' INITIATOR_URL='/inject.js' talend-scripts start --open http://localhost:3000",
+    "start:vite": "vite dev",
     "start-dist": "talend-scripts build && node serve-dist",
     "lint": "talend-scripts lint"
   },
@@ -29,12 +31,14 @@
     "@talend/scripts-core": "^16.3.5",
     "@talend/scripts-config-babel": "^13.3.1",
     "@talend/scripts-config-stylelint": "^4.1.1",
+    "@vitejs/plugin-react": "^4.2.1",
     "body-parser": "1.20.1",
     "compression": "^1.7.4",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
     "express": "^4.18.2",
     "i18next-http-backend": "^1.4.5",
+    "vite": "^5.2.8",
     "webpack": "^5.90.3"
   },
   "dependencies": {
