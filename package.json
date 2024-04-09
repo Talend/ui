@@ -38,6 +38,7 @@
     "prepare": "husky install"
   },
   "resolutions": {
+    "**/ace-builds": "1.10.1",
     "**/cypress": "^13.6.0",
     "**/@types/react": "^18.2.7",
     "**/@types/react-dom": "^18.2.7",
