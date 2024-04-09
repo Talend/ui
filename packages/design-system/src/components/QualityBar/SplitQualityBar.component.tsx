@@ -1,6 +1,6 @@
 import type { MouseEvent } from 'react';
 
-import { StackHorizontal } from '@talend/design-system';
+import { StackHorizontal } from '@talend/design-system/lib/components/Stack';
 
 import {
 	EnrichedQualityType,
