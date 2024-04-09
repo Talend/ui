@@ -40,7 +40,7 @@ const getLabel = (
 			<div className={styles['tc-ratio-bar-counter']} data-testid="ratio-bar-counter">
 				{notApplicableLabel || (
 					<>
-						<strong>N</strong> / A
+						<strong>N</strong>/A
 					</>
 				)}
 			</div>
