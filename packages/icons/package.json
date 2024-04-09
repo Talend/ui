@@ -4,6 +4,30 @@
   "main": "dist/TalendIcons.js",
   "types": "dist/typeUtils.d.ts",
   "style": "build/octicons.css",
+  "module": "./lib/esm/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    "./lib/*": {
+      "import": {
+        "types": "./lib/esm/*/index.d.ts",
+        "default": "./lib/esm/*/index.js"
+      },
+      "require": {
+        "types": "./lib/*/index.d.ts",
+        "default": "./lib/*/index.js"
+      }
+    },
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    }
+  },
   "license": "Apache-2.0",
   "scripts": {
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env production",
@@ -11,6 +35,7 @@
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
     "build:lib": "npm run ts:types && npm run build-ts && npm run build-react && npm run build-webfont && npm run build-umd",
+    "build:lib:esm": "tsc --project ./tsconfig.esm.json && cpx 'src/**/*.{svg,json}' lib/esm/src --verbose",
     "ts:types": "node scripts/typescript.js",
     "test": "echo no test",
     "test:cov": "echo no test",
