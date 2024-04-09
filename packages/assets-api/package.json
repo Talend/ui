@@ -21,7 +21,7 @@
   "scripts": {
     "pre-release": "talend-scripts build --umd && talend-scripts build --umd --dev",
     "build:lib": "talend-scripts build",
-    "build:lib:es": "tsc --project ./tsconfig.esm.json",
+    "build:lib:esm": "tsc --project ./tsconfig.esm.json",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
