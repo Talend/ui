@@ -1,8 +1,11 @@
 /* eslint-disable @talend/import-depth */
+
 /* eslint-disable import/no-extraneous-dependencies */
-import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
+
+import i18next from 'i18next';
 import HttpApi from 'i18next-http-backend';
+
 import assetsApi from '@talend/assets-api';
 import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
