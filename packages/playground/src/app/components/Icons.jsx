@@ -1,8 +1,8 @@
-import Layout from '@talend/react-components/lib/Layout';
-import SidePanel from '@talend/react-containers/lib/SidePanel';
-import HeaderBar from '@talend/react-containers/lib/HeaderBar';
 // eslint-disable-next-line @talend/import-depth
 import logo from '@talend/icons/src/svg/products/logo.svg';
+import Layout from '@talend/react-components/lib/Layout';
+import HeaderBar from '@talend/react-containers/lib/HeaderBar';
+import SidePanel from '@talend/react-containers/lib/SidePanel';
 
 export function Icons() {
 	return (

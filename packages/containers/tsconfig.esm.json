@@ -1,0 +1,9 @@
+{
+  "extends": "@talend/scripts-config-typescript/tsconfig.json",
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "lib/esm",
+    "module": "ESNext"
+  }
+}
