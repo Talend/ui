@@ -2,7 +2,6 @@
   "cmf": true,
   "html": {},
   "webpack": {
-    "debug": true,
     "monoRepoFixSourceMap": ["../dataviz/src", "../containers/src", "../components/src"],
     "config": {
       "development": "./webpack.config.dev.js",
