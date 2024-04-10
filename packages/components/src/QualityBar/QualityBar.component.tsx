@@ -16,12 +16,10 @@ export const QualityBar = ({
 	na,
 	placeholder,
 	digits = 1,
-	split = false,
 	...rest
 }: QualityBarProps) => {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
-	console.log(QualityBarDS.getQualityPercentagesRounded);
 	const percentages = QualityBarDS.getQualityPercentagesRounded(
 		digits,
 		invalid,
@@ -30,6 +28,7 @@ export const QualityBar = ({
 		na,
 		placeholder,
 	);
+
 	return (
 		<QualityBarDS
 			valid={valid}
