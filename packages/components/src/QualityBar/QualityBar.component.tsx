@@ -1,11 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import {
-	formatNumber,
-	getQualityPercentagesRounded,
-	QualityBar as QualityBarDS,
-	type QualityCommonProps,
-} from '@talend/design-system';
+import { QualityBar as QualityBarDS, type QualityCommonProps } from '@talend/design-system';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
@@ -26,8 +21,15 @@ export const QualityBar = ({
 }: QualityBarProps) => {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
-	const percentages = getQualityPercentagesRounded(digits, invalid, empty, valid, na, placeholder);
-	QualityBarDS.QualityType;
+	console.log(QualityBarDS.getQualityPercentagesRounded);
+	const percentages = QualityBarDS.getQualityPercentagesRounded(
+		digits,
+		invalid,
+		empty,
+		valid,
+		na,
+		placeholder,
+	);
 	return (
 		<QualityBarDS
 			valid={valid}
@@ -41,28 +43,28 @@ export const QualityBar = ({
 					defaultValue_other: '{{value}} empty valuesssss ({{percentage}}%)',
 					count: empty,
 					percentage: percentages.empty,
-					value: formatNumber(empty),
+					value: QualityBarDS.formatNumber(empty),
 				}),
 				invalid: t('INVALID_VALUES', {
 					defaultValue: '{{value}} invalid value ({{percentage}}%)',
 					defaultValue_other: '{{value}} invalid values ({{percentage}}%)',
 					count: invalid,
 					percentage: percentages.invalid,
-					value: formatNumber(invalid),
+					value: QualityBarDS.formatNumber(invalid),
 				}),
 				na: t('NOT_APPLICABLE_VALUES', {
 					defaultValue: '{{value}} not applicable value ({{percentage}}%)',
 					defaultValue_other: '{{value}} not applicable values ({{percentage}}%)',
 					count: na,
 					percentages: percentages.na,
-					value: formatNumber(na),
+					value: QualityBarDS.formatNumber(na),
 				}),
 				valid: t('VALID_VALUES', {
 					defaultValue: '{{value}} valid value ({{percentage}}%)',
 					defaultValue_other: '{{value}} valid values ({{percentage}}%)',
 					count: valid,
 					percentage: percentages.valid,
-					value: formatNumber(valid),
+					value: QualityBarDS.formatNumber(valid),
 				}),
 			}}
 			{...rest}

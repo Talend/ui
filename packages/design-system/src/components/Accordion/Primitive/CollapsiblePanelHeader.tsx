@@ -119,11 +119,11 @@ const CollapsiblePanelHeader = forwardRef(
 								<ButtonIcon
 									key={`action-${index}`}
 									size={buttonIconSize}
-									onClick={actionItem.callback}
 									data-test={`action.button.${index}`}
 									data-testid={`action.button.${index}`}
 									data-feature={actionItem.dataFeature}
 									{...actionItem}
+									onClick={actionItem.callback ? actionItem.callback : actionItem.onClick}
 								>
 									{actionItem.tooltip}
 								</ButtonIcon>
