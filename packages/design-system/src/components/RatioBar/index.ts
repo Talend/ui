@@ -10,6 +10,4 @@ const RatioBar = RatioBarComponent as RatioBarType;
 RatioBar.Composition = RatioBarComposition;
 RatioBar.Line = RatioBarLine;
 
-export { RatioBarComposition, RatioBarLine };
-
-export default RatioBar;
+export { RatioBar, RatioBarComposition, RatioBarLine };
