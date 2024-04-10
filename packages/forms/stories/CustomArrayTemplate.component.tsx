@@ -6,7 +6,7 @@ interface CustomArrayTemplateProps {
 	onAdd: () => void;
 	onRemove: (event: MouseEvent, index: number) => void;
 	onReorder: (event: MouseEvent, payload: object) => void;
-	renderItem: (index: number) => void;
+	renderItem: (index: number) => any;
 	value: object[];
 }
 
@@ -71,7 +71,7 @@ export function CustomArrayTemplate({
 					return (
 						<li key={index}>
 							<Actions actions={actions} hideLabel />
-							{renderItem(index)}
+							{renderItem(index) ?? null}
 						</li>
 					);
 				})}
