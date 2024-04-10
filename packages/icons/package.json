@@ -7,14 +7,24 @@
   "module": "./lib/esm/index.js",
   "exports": {
     "./package.json": "./package.json",
-    "./lib/*": {
+    "./src/*": {
       "import": {
-        "types": "./lib/esm/*/index.d.ts",
-        "default": "./lib/esm/*/index.js"
+        "types": "./lib/esm/src/*",
+        "default": "./lib/esm/src/*"
       },
       "require": {
-        "types": "./lib/*/index.d.ts",
-        "default": "./lib/*/index.js"
+        "types": "./src/*",
+        "default": "./src/*"
+      }
+    },
+    "./dist/typeUtils": {
+      "import": {
+        "types": "./lib/esm/typeUtils.d.ts",
+        "default": "./lib/esm/typeUtils.js"
+      },
+      "require": {
+        "types": "./dist/typeUtils.d.ts",
+        "default": "./dist/typeUtils.js"
       }
     },
     ".": {
