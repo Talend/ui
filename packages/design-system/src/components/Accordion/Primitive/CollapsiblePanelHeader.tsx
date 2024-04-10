@@ -119,6 +119,8 @@ const CollapsiblePanelHeader = forwardRef(
 								<ButtonIcon
 									key={`action-${index}`}
 									size={buttonIconSize}
+									// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+									// @ts-ignore
 									onClick={actionItem.callback}
 									data-test={`action.button.${index}`}
 									data-testid={`action.button.${index}`}

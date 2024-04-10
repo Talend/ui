@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import classNames from 'classnames';
 
-import { Tooltip } from '@talend/design-system/lib/components/Tooltip';
+import { Tooltip } from '../Tooltip';
 
 import styles from './RatioBar.module.scss';
 

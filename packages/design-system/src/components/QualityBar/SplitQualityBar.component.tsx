@@ -1,7 +1,6 @@
 import type { MouseEvent } from 'react';
 
-import { StackHorizontal } from '@talend/design-system/lib/components/Stack';
-
+import { StackHorizontal } from '../Stack';
 import {
 	EnrichedQualityType,
 	QualityBarPercentages,
