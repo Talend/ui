@@ -5,5 +5,4 @@ export type PanelHeaderAction = ButtonIconType<any> & {
 	tooltip: string;
 	dataFeature?: string;
 	callback: () => unknown;
-	dataFeature?: string;
 };
