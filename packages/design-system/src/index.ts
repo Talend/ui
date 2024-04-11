@@ -22,6 +22,8 @@ export * from './components/Link';
 export * from './components/LinkAsButton';
 export * from './components/Loading';
 export * from './components/Message';
+export * from './components/QualityBar';
+export * from './components/RatioBar';
 export * from './components/RichRadioButton';
 export * from './components/Skeleton';
 export * from './components/Status';

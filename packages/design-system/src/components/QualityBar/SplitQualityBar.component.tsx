@@ -1,7 +1,6 @@
 import type { MouseEvent } from 'react';
 
-import { StackHorizontal } from '@talend/design-system';
-
+import { StackHorizontal } from '../Stack';
 import {
 	EnrichedQualityType,
 	QualityBarPercentages,
@@ -19,16 +18,16 @@ type SplitQualityBarProps = QualityCommonProps & {
 	getDataFeature?: (type: string) => string;
 };
 
-export function SplitQualityBar({
+export const SplitQualityBar = ({
+	disabled,
 	empty,
 	getDataFeature,
 	invalid,
 	na,
 	onClick,
-	valid,
 	percentages,
-	disabled,
-}: SplitQualityBarProps) {
+	valid,
+}: SplitQualityBarProps) => {
 	const totalValues = (empty || 0) + (invalid || 0) + (na || 0) + (valid || 0);
 	const usedValues = { empty, invalid, na, valid };
 	const fwd = { getDataFeature, onClick };
@@ -56,4 +55,4 @@ export function SplitQualityBar({
 			})}
 		</StackHorizontal>
 	);
-}
+};
