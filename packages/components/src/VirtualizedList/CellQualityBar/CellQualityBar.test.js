@@ -14,8 +14,6 @@ const props = {
 	getDataFeature: noop,
 };
 
-jest.unmock('@talend/design-system');
-
 describe('CellQualityBar', () => {
 	it('should render an empty quality bar', () => {
 		const { baseElement } = render(<CellQualityBar />);

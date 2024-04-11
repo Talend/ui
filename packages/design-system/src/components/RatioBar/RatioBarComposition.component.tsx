@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
@@ -15,7 +15,7 @@ type RadioBarLineProps = {
 	className: string;
 	dataTestId?: string;
 	dataFeature?: string | null;
-	onClick?: any;
+	onClick?: (e: MouseEvent<HTMLElement>) => void;
 };
 
 export function RatioBarLine({
@@ -34,13 +34,13 @@ export function RatioBarLine({
 	function onKeyDown(event: any) {
 		switch (event.key) {
 			case 'Enter':
-				onClick(event);
+				onClick?.(event);
 				break;
 			case ' ':
 			case 'Spacebar':
 				event.preventDefault(); // prevent scroll with space
 				event.stopPropagation();
-				onClick(event);
+				onClick?.(event);
 				break;
 			default:
 				break;
