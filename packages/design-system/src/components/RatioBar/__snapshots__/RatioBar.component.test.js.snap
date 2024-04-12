@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RatioBar RatioBar component should render an empty bar 1`] = `
+<div
+  class="theme-tc-ratio-bar"
+  data-testid="ratio-bar"
+>
+  <div
+    class="theme-tc-ratio-bar-line theme-tc-ratio-bar-line-grow theme-tc-ratio-bar-line-empty"
+    data-test="ratio-bar-empty"
+    data-testid="ratio-bar-empty"
+    style="flex-basis: 100%;"
+    tabindex="0"
+  />
+  <div
+    class="theme-tc-ratio-bar-counter"
+    data-testid="ratio-bar-counter"
+  >
+    <strong>
+      0
+    </strong>
+    /
+    12
+  </div>
+</div>
+`;

@@ -5,7 +5,7 @@ export default {
 };
 
 export const _RatioBar = () => (
-	<section style={{ 'max-width': 500, padding: 20 }}>
+	<section style={{ maxWidth: 500, padding: 20 }}>
 		<header>Ratio Bar</header>
 		<div>
 			<div>Not applicable amount</div>

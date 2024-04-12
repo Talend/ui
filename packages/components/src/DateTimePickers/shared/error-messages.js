@@ -42,7 +42,7 @@ export default function getErrorMessage(key) {
 			return t('DATETIME_INVALID_FORMAT', { defaultValue: 'Datetime is invalid' });
 		case 'INVALID_RANGE_START_AFTER_END':
 			return t('INVALID_RANGE_START_AFTER_END', {
-				defaultValue: 'Start date should comes before end date',
+				defaultValue: 'Start date should come before end date',
 			});
 		case 'INVALID_SELECTED_DATE':
 			return t('INVALID_SELECTED_DATE', {
