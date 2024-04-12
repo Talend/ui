@@ -63,5 +63,5 @@ When the command `npm run testdoc` is run instead, the tests will also generate 
 ## Notes
 
 - ObjectPath is bundled with json-schema-form-core
-- angular-schema-form bundles json-schema-form-core so the user doesn't have to include it as an dependency.
+- angular-schema-form bundles json-schema-form-core so the user doesn't have to include it as a dependency.
 - The code for not using ObjectPath on Angular 1.2 is removed. Could maybe be fixed but I (davidlgj) strongly believe its time to drop Angular 1.2 support since it complicates validation code as well.
