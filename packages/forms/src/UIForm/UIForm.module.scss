@@ -1,6 +1,8 @@
 @use '~@talend/design-tokens/lib/tokens';
+$tc-drawer-content-max-width: 40.625rem !default;
+$tc-drawer-padding: tokens.$coral-spacing-m !default;
 
-:global(.tc-drawer-content:has([data-drawer-absolute-footer-buttons])) {
+:global(.tc-drawer-container:has([data-drawer-absolute-footer-buttons])) {
 	margin-bottom: 50px;
 
 	.drawer-absolute-footer-buttons {
@@ -9,17 +11,52 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		padding: tokens.$coral-spacing-xs tokens.$coral-spacing-m;
+		padding: 0;
 		display: flex;
 		justify-content: space-between;
+	}
+}
 
-		> div {
+:global(.tc-drawer-container) {
+	form {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		min-height: 0;
+		overflow: hidden;
+
+		.form-content {
+			padding: $tc-drawer-padding;
 			display: flex;
-			flex: 1;
+			flex-direction: column;
+			flex-grow: 1;
+			min-height: 0;
+			overflow-y: auto;
+			width: 100%;
+		}
 
-			> div {
-				padding: 0;
+		.form-actions {
+			padding: tokens.$coral-spacing-s $tc-drawer-padding;
+			background-color: tokens.$coral-color-neutral-background-medium;
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (min-width: 767px) {
+	:global(.stacked) :global(.tc-drawer-container) {
+		.form-content {
+			align-items: center;
+			> * {
+				width: calc(#{$tc-drawer-content-max-width} - 2 * #{$tc-drawer-padding});
 			}
+		}
+
+		.form-actions {
+			margin: auto;
+			padding: 0 $tc-drawer-padding;
+			width: $tc-drawer-content-max-width;
+			max-width: $tc-drawer-content-max-width;
 		}
 	}
 }

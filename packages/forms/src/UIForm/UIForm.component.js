@@ -333,13 +333,15 @@ export class UIFormComponent extends Component {
 			}
 
 			const buttons = (
-				<Buttons
-					id={`${this.props.id}-actions`}
-					onTrigger={this.onTrigger}
-					schema={{ items: actions }}
-					onClick={this.onActionClick}
-					getComponent={this.props.getComponent}
-				/>
+				<div className={theme['form-actions']} key="form-buttons">
+					<Buttons
+						id={`${this.props.id}-actions`}
+						onTrigger={this.onTrigger}
+						schema={{ items: actions }}
+						onClick={this.onActionClick}
+						getComponent={this.props.getComponent}
+					/>
+				</div>
 			);
 
 			if (this.props.anchorButtonsToFooter) {
