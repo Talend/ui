@@ -2,7 +2,7 @@
 
 ## Context
 
-Our build and bundling setup currently utilizes CommonJS modules along with webpack and the dynamic-cdn-webpack-plugin.
+Our build and bundling setup currently uses CommonJS modules along with webpack and the dynamic-cdn-webpack-plugin.
 
 To streamline our development workflow and reduce complexity, we are transitioning from yarn to pnpm.
 
