@@ -12,8 +12,7 @@ import { SizedIcon } from '../../Icon';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 import { Loading } from '../../Loading';
 import { StackHorizontal } from '../../Stack';
-
-import styles from './ButtonStyles.module.scss';
+import styles from './ButtonStyles.module.css';
 
 export type AvailableVariantsTypes = 'primary' | 'destructive' | 'secondary' | 'tertiary';
 export type AvailableSizes = 'M' | 'S';
