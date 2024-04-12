@@ -6,25 +6,29 @@ exports[`Container(Form) should render a Form 1`] = `
   novalidate=""
 >
   <div
-    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    class="theme-form-content"
   >
-    <label
-      class="theme-label"
-      for="name"
-    >
-      Name
-    </label>
     <div
-      class="theme-inputShell"
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
     >
-      <input
-        aria-describedby="name-description name-error"
-        aria-invalid="false"
-        class="theme-input"
-        id="name"
-        type="text"
-        value=""
-      />
+      <label
+        class="theme-label"
+        for="name"
+      >
+        Name
+      </label>
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          aria-describedby="name-description name-error"
+          aria-invalid="false"
+          class="theme-input"
+          id="name"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </form>
