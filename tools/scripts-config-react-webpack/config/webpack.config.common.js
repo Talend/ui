@@ -121,7 +121,7 @@ function getWebpackRules(srcDirectories, useTypescript, devMode) {
 			enforce: 'pre',
 		},
 		{
-			test: /\.(js|ts|tsx)$/,
+			test: /\.(js|jsx|ts|tsx)$/,
 			exclude: /node_modules/,
 			include: srcDirectories,
 			use: getJSAndTSLoader(),
