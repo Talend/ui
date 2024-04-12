@@ -1,5 +1,5 @@
-import type { MouseEvent } from 'react';
-
+import { RatioBarComposition } from '../RatioBar';
+import { QualityBarPercentages, QualityCommonProps } from './QualityBar.types';
 import {
 	QualityEmptyLine,
 	QualityInvalidLine,
@@ -7,18 +7,12 @@ import {
 	QualityPlaceholderLine,
 	QualityValidLine,
 } from './QualityRatioBar.component';
-import { RatioBarComposition } from '../RatioBar';
-import { EnrichedQualityType, QualityBarPercentages, QualityCommonProps } from './QualityBar.types';
 
 type QualityBarRatioBarsProps = QualityCommonProps & {
-	placeholder?: number;
-	disabled?: boolean;
 	percentages: QualityBarPercentages;
-	onClick?: (e: MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
-	getDataFeature?: (type: string) => string;
 };
 
-export function QualityBarRatioBars({
+export const QualityBarRatioBars = ({
 	valid = 0,
 	invalid = 0,
 	empty = 0,
@@ -28,7 +22,8 @@ export function QualityBarRatioBars({
 	getDataFeature,
 	onClick,
 	disabled,
-}: QualityBarRatioBarsProps) {
+	tooltipLabels,
+}: QualityBarRatioBarsProps) => {
 	if (disabled) {
 		return (
 			<RatioBarComposition>
@@ -44,24 +39,28 @@ export function QualityBarRatioBars({
 				getDataFeature={getDataFeature}
 				value={invalid}
 				percentage={percentages.invalid}
+				tooltipLabel={tooltipLabels?.invalid}
 			/>
 			<QualityEmptyLine
 				onClick={onClick}
 				getDataFeature={getDataFeature}
 				value={empty}
 				percentage={percentages.empty}
+				tooltipLabel={tooltipLabels?.empty}
 			/>
 			<QualityNotApplicableLine
 				onClick={onClick}
 				getDataFeature={getDataFeature}
 				value={na}
 				percentage={percentages.na}
+				tooltipLabel={tooltipLabels?.na}
 			/>
 			<QualityValidLine
 				onClick={onClick}
 				getDataFeature={getDataFeature}
 				value={valid}
 				percentage={percentages.valid}
+				tooltipLabel={tooltipLabels?.valid}
 			/>
 			<QualityPlaceholderLine
 				getDataFeature={getDataFeature}
@@ -70,4 +69,4 @@ export function QualityBarRatioBars({
 			/>
 		</RatioBarComposition>
 	);
-}
+};
