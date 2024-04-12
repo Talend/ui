@@ -1,15 +1,16 @@
 import chai from 'chai';
 import { describe, it } from 'mocha';
+
 import {
-	merge,
-	select,
-	traverseSchema,
-	traverseForm,
-	validate,
-	sfPath,
-	schemaDefaults,
 	canonicalTitleMap,
 	jsonref,
+	merge,
+	schemaDefaults,
+	select,
+	sfPath,
+	traverseForm,
+	traverseSchema,
+	validate,
 } from '.';
 
 chai.should();

@@ -1,4 +1,4 @@
-import * as JsonRefs from './../lib/json-refs-standalone';
+import * as JsonRefs from 'json-refs';
 
 export function jsonref(schema, callBack) {
 	let promise = new Promise(function (resolve, reject) {

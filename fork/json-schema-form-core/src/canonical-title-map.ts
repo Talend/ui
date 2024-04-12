@@ -2,7 +2,7 @@
 // in the list format.
 export default function (titleMap: Array<any>, originalEnum?: any) {
 	if (!Array.isArray(titleMap)) {
-		const canonical = [];
+		const canonical: any = [];
 		if (originalEnum) {
 			originalEnum.forEach(value => {
 				canonical.push({ name: titleMap[value], value });
