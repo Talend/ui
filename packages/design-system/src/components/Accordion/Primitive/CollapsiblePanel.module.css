@@ -1,0 +1,20 @@
+.panelWrapper {
+  box-shadow: var(--coral-elevation-shadow-neutral-s);
+  overflow: hidden;
+}
+.panelWrapper__alone {
+  border-radius: var(--coral-radius-s);
+}
+.panelWrapper__first {
+  border-radius: var(--coral-radius-s) var(--coral-radius-s) 0 0;
+}
+.panelWrapper__last {
+  border-radius: 0 0 var(--coral-radius-s) var(--coral-radius-s);
+}
+.panelWrapper__notLast {
+  border-bottom: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+}
+
+.panelContent {
+  padding: var(--coral-spacing-xs);
+}

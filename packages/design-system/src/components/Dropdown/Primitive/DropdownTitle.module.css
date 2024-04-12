@@ -1,0 +1,13 @@
+.dropdownTitle {
+  background: var(--coral-color-accent-background-weak);
+  min-height: var(--coral-sizing-s);
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+  width: 100%;
+  color: var(--coral-color-neutral-text);
+  font: var(--coral-paragraph-m-bold);
+  padding: var(--coral-spacing-xxs) var(--coral-spacing-s);
+  max-width: var(--coral-sizing-maximal);
+}

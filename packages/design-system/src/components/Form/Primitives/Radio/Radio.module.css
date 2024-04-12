@@ -1,0 +1,120 @@
+.radio {
+  display: inline-flex;
+  gap: var(--coral-spacing-xs);
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.radio input[type=radio] {
+  margin: 0;
+  width: var(--coral-sizing-xxxs);
+  height: var(--coral-sizing-xxxs);
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+  cursor: pointer;
+}
+.radio input[type=radio]:disabled {
+  cursor: not-allowed;
+}
+.radio input[type=radio] + label::before, .radio input[type=radio] + label::after {
+  content: "";
+  border-radius: var(--coral-radius-round);
+  transition: var(--coral-transition-fast);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+}
+.radio input[type=radio] + label::before {
+  z-index: 1;
+  width: var(--coral-sizing-xxxs);
+  height: var(--coral-sizing-xxxs);
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border);
+  background: var(--coral-color-neutral-background-medium);
+}
+.radio input[type=radio] + label::after {
+  z-index: 2;
+  opacity: 0;
+  background-image: none;
+  background-color: var(--coral-color-accent-background-strong);
+  width: calc(var(--coral-sizing-xxs) / 2);
+  height: calc(var(--coral-sizing-xxs) / 2);
+  border: 0;
+  left: calc(var(--coral-sizing-xxxs) / 2 - calc(var(--coral-sizing-xxs) / 2) / 2);
+}
+.radio input[type=radio]:hover + label::before {
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border);
+}
+.radio input[type=radio]:active + label::before {
+  background: var(--coral-color-accent-background-active);
+}
+.radio input[type=radio]:focus-visible + label::before,
+.radio input[type=radio]:global(.focus-visible) + label::before {
+  outline: var(--coral-border-m-solid) var(--coral-color-assistive-border-focus);
+  outline-offset: 1px;
+}
+.radio input[type=radio]:checked + label::before {
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border);
+}
+.radio input[type=radio]:checked + label::after {
+  opacity: 1;
+}
+.radio input[type=radio]:checked:not(:disabled):hover + label::before {
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border-hover);
+}
+.radio input[type=radio]:checked:not(:disabled):hover + label::after {
+  background: var(--coral-color-accent-background-strong-hover);
+}
+.radio input[type=radio]:checked:not(:disabled):active + label::before {
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border-active);
+  background: var(--coral-color-accent-background-strong-active);
+}
+.radio input[type=radio]:disabled + label,
+.radio input[type=radio]:checked:disabled + label {
+  color: var(--coral-color-neutral-text-disabled);
+  cursor: not-allowed;
+}
+.radio input[type=radio]:disabled + label::before,
+.radio input[type=radio]:checked:disabled + label::before {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-disabled);
+  opacity: var(--coral-opacity-s);
+  cursor: not-allowed;
+  background: var(--coral-color-neutral-background-disabled);
+}
+.radio input[type=radio]:checked:disabled + label::after {
+  background-color: var(--coral-color-neutral-icon-weak);
+  opacity: var(--coral-opacity-m);
+}
+.radio_readOnly input[type=radio] {
+  cursor: not-allowed;
+}
+.radio_readOnly input[type=radio]:not(:checked) + label,
+.radio_readOnly input[type=radio]:checked + label {
+  color: var(--coral-color-neutral-text);
+  cursor: not-allowed;
+}
+.radio_readOnly input[type=radio]:not(:checked) + label::before,
+.radio_readOnly input[type=radio]:checked + label::before {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+  background: var(--coral-color-neutral-background-strong);
+  opacity: 1;
+}
+.radio_readOnly input[type=radio]:not(:checked) + label::after,
+.radio_readOnly input[type=radio]:checked + label::after {
+  opacity: 0;
+}
+.radio_readOnly input[type=radio]:checked + label::before,
+.radio_readOnly input[type=radio]:checked:not(:disabled):hover + label::before,
+.radio_readOnly input[type=radio]:checked:not(:disabled):active + label::before {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+  background: var(--coral-color-neutral-background-strong);
+}
+.radio_readOnly input[type=radio]:checked + label::after,
+.radio_readOnly input[type=radio]:checked:not(:disabled):hover + label::after,
+.radio_readOnly input[type=radio]:checked:not(:disabled):active + label::after {
+  background-color: var(--coral-color-neutral-icon-weak);
+  opacity: 1;
+}

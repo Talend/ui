@@ -5,8 +5,7 @@ import classnames from 'classnames';
 import { Divider } from '../../Divider';
 import { StackHorizontal } from '../../Stack';
 import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
-
-import styles from './BadgeValue.module.scss';
+import styles from './BadgeValue.module.css';
 
 export type BadgeValueProps = BadgePrimitiveProps & {
 	/**

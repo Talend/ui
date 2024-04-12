@@ -1,0 +1,4 @@
+.tag {
+  color: var(--coral-color-success-text-strong);
+  background: var(--coral-color-success-background);
+}

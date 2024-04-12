@@ -1,8 +1,7 @@
 import { forwardRef, Ref } from 'react';
 
 import { MessagePrimitive, SharedMessageProps } from '../Primitive/MessagePrimitive';
-
-import styles from './MessageInformation.module.scss';
+import styles from './MessageInformation.module.css';
 
 export const MessageInformation = forwardRef(
 	(props: SharedMessageProps, ref: Ref<HTMLDivElement>) => {

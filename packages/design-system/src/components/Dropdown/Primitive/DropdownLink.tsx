@@ -1,7 +1,7 @@
 import { forwardRef, ReactElement, Ref } from 'react';
-import { Linkable, LinkableType } from '../../Linkable';
 
-import styles from './DropdownEntry.module.scss';
+import { Linkable, LinkableType } from '../../Linkable';
+import styles from './DropdownEntry.module.css';
 
 export type DropdownLinkType = LinkableType;
 

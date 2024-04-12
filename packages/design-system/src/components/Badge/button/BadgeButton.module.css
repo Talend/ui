@@ -1,0 +1,19 @@
+.badge__button {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  border-radius: var(--coral-radius-s);
+  font: var(--coral-paragraph-m-bold);
+  height: var(--coral-sizing-xs);
+  padding: var(--coral-spacing-xxs) var(--coral-spacing-xs);
+  color: var(--coral-color-accent-text);
+}
+.badge__button:hover {
+  background: var(--coral-color-accent-background-weak-hover);
+  color: var(--coral-color-accent-text-strong-hover);
+}
+.badge__button:active {
+  background: var(--coral-color-accent-background-weak-active);
+  color: var(--coral-color-accent-text-strong-active);
+}

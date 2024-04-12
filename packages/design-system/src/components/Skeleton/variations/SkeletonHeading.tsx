@@ -3,8 +3,7 @@ import { forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 
 import SkeletonPrimitive, { SkeletonPrimitiveProps } from '../Primitive/Skeleton.Primitive';
-
-import styles from './SkeletonHeading.module.scss';
+import styles from './SkeletonHeading.module.css';
 
 export type SkeletonHeadingProps = Omit<SkeletonPrimitiveProps, 'className'> & {
 	size?: 'L' | 'M' | 'S';

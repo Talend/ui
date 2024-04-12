@@ -14,8 +14,7 @@ import useRevealPassword from '../../../Form/Field/Input/hooks/useRevealPassword
 import { SizedIcon } from '../../../Icon';
 import { FieldStatusProps } from '../Field/Field';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
-
-import styles from './Input.module.scss';
+import styles from './Input.module.css';
 
 export type InputPrimitiveProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
 	AffixesProps &

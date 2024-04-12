@@ -1,0 +1,82 @@
+.buttonIcon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  width: var(--coral-sizing-m);
+  height: var(--coral-sizing-m);
+  color: var(--coral-color-accent-icon);
+  border-radius: var(--coral-radius-round);
+  transition: var(--coral-transition-fast);
+  flex-shrink: 0;
+}
+.buttonIcon__icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--coral-sizing-xxxs);
+  height: var(--coral-sizing-xxxs);
+}
+.buttonIcon__icon svg {
+  pointer-events: none;
+}
+.buttonIcon.size_S {
+  width: var(--coral-sizing-s);
+  height: var(--coral-sizing-s);
+}
+.buttonIcon.size_XS {
+  width: var(--coral-sizing-xxxs);
+  height: var(--coral-sizing-xxxs);
+  border-radius: var(--coral-radius-s);
+}
+.buttonIcon.size_XS .buttonIcon__icon {
+  width: var(--coral-sizing-minimal);
+  height: var(--coral-sizing-minimal);
+}
+.buttonIcon.floating {
+  background: var(--coral-color-neutral-background);
+  box-shadow: var(--coral-elevation-shadow-neutral-m);
+}
+.buttonIcon.toggle {
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border);
+}
+.buttonIcon.toggle:hover {
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border-hover);
+}
+.buttonIcon.toggle:active {
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border-active);
+}
+.buttonIcon.toggle:disabled {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-disabled);
+}
+.buttonIcon.toggle[aria-pressed=true] {
+  color: var(--coral-color-accent-text-weak);
+  background: var(--coral-color-accent-background-strong);
+}
+.buttonIcon.toggle[aria-pressed=true]:hover {
+  color: var(--coral-color-accent-text-weak-hover);
+  background: var(--coral-color-accent-background-strong-hover);
+}
+.buttonIcon.toggle[aria-pressed=true]:active {
+  color: var(--coral-color-accent-text-weak-active);
+  background: var(--coral-color-accent-background-strong-active);
+}
+.buttonIcon.toggle[aria-pressed=true]:disabled {
+  color: var(--coral-color-neutral-text-disabled);
+  background: var(--coral-color-neutral-background-disabled);
+}
+.buttonIcon:hover {
+  color: var(--coral-color-accent-icon-hover);
+  background: var(--coral-color-accent-background-weak-hover);
+}
+.buttonIcon:active {
+  color: var(--coral-color-accent-icon-active);
+  background: var(--coral-color-accent-background-weak-active);
+}
+.buttonIcon:disabled {
+  color: var(--coral-color-neutral-text-disabled);
+  cursor: not-allowed;
+}

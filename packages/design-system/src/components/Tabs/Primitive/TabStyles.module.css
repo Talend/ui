@@ -1,0 +1,107 @@
+.tablist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: var(--coral-spacing-m, 1rem);
+  column-gap: var(--coral-spacing-m, 1rem);
+}
+
+.tabpanel {
+  width: 100%;
+  height: 100%;
+}
+.tabpanel--hidden {
+  display: none;
+}
+
+.tab {
+  font: var(--coral-heading-s);
+  height: var(--coral-sizing-xs);
+  color: var(--coral-color-neutral-text-weak);
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  transition: var(--coral-transition-fast);
+  text-decoration: none;
+}
+.tab__copy {
+  max-width: var(--coral-sizing-xxxl);
+  text-overflow: ellipsis;
+  min-width: 0;
+  overflow: hidden;
+  text-align: left;
+  display: inline-block;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+.tab > svg {
+  color: var(--coral-color-neutral-icon-weak);
+}
+.tab::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: var(--coral-border-m-solid) var(--coral-color-accent-border);
+  opacity: 0;
+  transition: var(--coral-transition-fast);
+  transform: translateY(100%);
+}
+.tab[aria-selected=true] {
+  color: var(--coral-color-accent-text);
+}
+.tab[aria-selected=true] > svg {
+  color: var(--coral-color-accent-icon);
+}
+.tab[aria-selected=true]::after {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.tab:hover {
+  color: var(--coral-color-accent-text-hover);
+  text-decoration: none;
+}
+.tab:hover > svg {
+  color: var(--coral-color-accent-icon-hover);
+}
+.tab:active {
+  color: var(--coral-color-accent-text-active);
+}
+.tab:active > svg {
+  color: var(--coral-color-accent-icon-active);
+}
+.tab_large {
+  font: var(--coral-heading-l);
+  height: var(--coral-sizing-s);
+}
+.tab_large:not(:last-of-type) {
+  margin-right: var(--coral-spacing-s);
+}
+.tab_error {
+  color: var(--coral-color-danger-text);
+}
+.tab_error[aria-selected=true] {
+  color: var(--coral-color-danger-text);
+}
+.tab_error::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: var(--coral-border-m-solid) var(--coral-color-danger-text);
+  opacity: 0;
+  transition: var(--coral-transition-fast);
+  transform: translateY(100%);
+}

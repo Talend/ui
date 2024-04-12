@@ -1,0 +1,91 @@
+.switch {
+  position: relative;
+  display: block;
+}
+.switch label {
+  margin-bottom: 0;
+}
+.switch input[type=checkbox] {
+  position: absolute;
+  margin-left: -9999px;
+}
+.switch input[type=checkbox] + .legend {
+  position: relative;
+  padding: 0 0 0 calc(2rem + var(--coral-spacing-xxs));
+  display: inline-block;
+  font: var(--coral-paragraph-m);
+  color: var(--coral-color-neutral-text);
+}
+.switch input[type=checkbox] + .legend::before,
+.switch input[type=checkbox] + .legend::after {
+  background-image: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  transition: 250ms ease-in-out;
+  border-radius: var(--coral-radius-round);
+  margin: 0;
+}
+.switch input[type=checkbox] + .legend::before {
+  width: 2rem;
+  height: var(--coral-sizing-xxxs);
+  background: var(--coral-color-accent-background);
+  transform: translateY(0.0937rem);
+}
+.switch input[type=checkbox] + .legend::after {
+  transform: translateX(0.0625rem) translateY(0.1875rem);
+  width: 0.8125rem;
+  height: 0.8125rem;
+  background-color: var(--coral-color-neutral-background);
+}
+.switch input[type=checkbox]:not(:disabled):hover + .legend::before {
+  background: var(--coral-color-accent-background-hover);
+}
+.switch input[type=checkbox]:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
+  background: var(--coral-color-accent-background-hover);
+}
+.switch input[type=checkbox]:focus-visible + .legend {
+  outline: var(--coral-border-s-solid) var(--coral-color-assistive-border-focus);
+}
+.switch:not(.switch_disabled) input[type=checkbox] + .legend {
+  cursor: pointer;
+}
+.switch_inline {
+  display: inline-block;
+}
+.switch_checked:not(.switch_disabled):not(.switch_readOnly) input[type=checkbox] + .legend::before {
+  background: var(--coral-color-accent-background-strong);
+}
+.switch_checked input[type=checkbox] + .legend::after {
+  transform: translateX(calc(2rem - 0.8125rem - 0.0625rem)) translateY(0.1875rem);
+}
+.switch_checked:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
+  background: var(--coral-color-accent-background-strong-hover);
+}
+.switch_readOnly input[type=checkbox] + .legend::before {
+  background: var(--coral-color-neutral-background-heavy);
+}
+.switch_readOnly input[type=checkbox] + .legend::after {
+  background: var(--coral-color-neutral-background);
+}
+.switch_disabled {
+  cursor: not-allowed;
+}
+.switch_disabled input[type=checkbox] + .legend::before,
+.switch_disabled input[type=checkbox]:disabled + .legend::before,
+.switch_disabled input[type=checkbox]:checked + .legend::before {
+  background: var(--coral-color-neutral-background-disabled);
+}
+.switch_disabled input[type=checkbox] + .legend,
+.switch_disabled input[type=checkbox]:disabled + .legend,
+.switch_disabled input[type=checkbox]:checked + .legend {
+  color: var(--coral-color-neutral-text-disabled);
+}
+.switch_disabled label {
+  cursor: not-allowed;
+}
+.switch_disabled label > * {
+  cursor: not-allowed;
+}

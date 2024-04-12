@@ -1,0 +1,64 @@
+.switch .container {
+  position: relative;
+  display: inline-flex;
+  background: var(--coral-color-neutral-background-strong);
+  border-radius: 6.25rem;
+  box-shadow: inset 0 0.0625rem 0.1875rem 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.switch .container:hover .switchIndicator em {
+  background-color: var(--coral-color-accent-background-active);
+}
+.switch .container > .btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0 0.625rem;
+  color: var(--coral-color-neutral-text);
+  font: var(--coral-paragraph-s);
+  opacity: var(--coral-opacity-m);
+  user-select: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: var(--coral-elevation-layer-interactive-front);
+}
+.switch .container > .btn[aria-checked=true] {
+  color: var(--coral-color-accent-text-weak);
+  opacity: 1;
+}
+.switch .container > .btn[aria-checked] ~ .switchIndicator {
+  visibility: hidden;
+}
+.switch .container > .btn[aria-checked=true] ~ .switchIndicator {
+  visibility: visible;
+}
+.switch .switchIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  bottom: 0;
+  z-index: var(--coral-elevation-layer-standard-front);
+}
+.switch .switchIndicator[data-animated=true] {
+  transition: var(--coral-transition-fast);
+}
+.switch .switchIndicator em {
+  position: absolute;
+  top: 0.125rem;
+  right: 0.125rem;
+  bottom: 0.125rem;
+  left: 0.125rem;
+  transition: background 0.3s;
+  background: var(--coral-color-accent-background-strong);
+  border-radius: 100px;
+}
+.switch.readOnly div .btn[aria-checked] {
+  transition: color var(--coral-transition-normal);
+}
+.switch.disabled div {
+  opacity: var(--coral-opacity-m);
+}

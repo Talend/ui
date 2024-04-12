@@ -7,14 +7,16 @@ import {
 	Ref,
 	useMemo,
 } from 'react';
+
+import classnames from 'classnames';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
-import classnames from 'classnames';
+
 import { DeprecatedIconNames } from '../../types';
 import { SizedIcon } from '../Icon';
-
-import style from './LinkableStyles.module.scss';
 import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
+import style from './LinkableStyles.module.css';
 
 export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'> & {
 	as?: 'a' | ReactElement;

@@ -1,9 +1,10 @@
-import { memo, forwardRef, Ref } from 'react';
-import { Skeleton } from '../../../Skeleton';
+import { forwardRef, memo, Ref } from 'react';
+
 import classnames from 'classnames';
 
-import stepStyles from '../Primitive/Step.module.scss';
-import styles from './Step.Skeleton.module.scss';
+import { Skeleton } from '../../../Skeleton';
+import stepStyles from '../Primitive/Step.module.css';
+import styles from './Step.Skeleton.module.css';
 
 type SkeletonProps = { orientation?: 'vertical' | 'horizontal' };
 

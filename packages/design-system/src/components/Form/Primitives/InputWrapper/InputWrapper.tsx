@@ -10,8 +10,7 @@ import AffixReadOnly, {
 import AffixSelect from '../../../Form/Affix/variations/AffixSelect';
 import { FieldPropsPrimitive, FieldStatusProps } from '../Field/Field';
 import { SelectPrimitiveProps } from '../Select/Select';
-
-import styles from './InputWrapper.module.scss';
+import styles from './InputWrapper.module.css';
 
 type AffixProps =
 	| ({ type: 'button' } & AffixButtonPropsType)

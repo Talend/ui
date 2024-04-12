@@ -1,0 +1,3 @@
+.destructive_border {
+  border-left-color: var(--coral-color-danger-icon);
+}

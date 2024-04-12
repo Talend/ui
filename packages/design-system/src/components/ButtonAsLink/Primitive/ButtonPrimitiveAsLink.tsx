@@ -7,8 +7,7 @@ import sharedStyles from '../../Button/Primitive/ButtonStyles.module.css';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 import { Linkable, LinkableType } from '../../Linkable';
 import { StackHorizontal } from '../../Stack';
-
-import linkStyles from './ButtonPrimitiveAsLink.module.scss';
+import linkStyles from './ButtonPrimitiveAsLink.module.css';
 
 export type BaseButtonPropsAsLink<S extends AvailableSizes> = LinkableType &
 	Omit<SharedButtonTypes<S>, 'isDropdown' | 'isLoading'>;

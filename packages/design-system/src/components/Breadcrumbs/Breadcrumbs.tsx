@@ -1,15 +1,16 @@
 import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import classnames from 'classnames';
 
-import styles from './Breadcrumbs.module.scss';
-import { Link } from '../Link';
-import { Dropdown } from '../Dropdown/Dropdown';
 import { ButtonTertiary } from '../Button';
-import { StackHorizontal } from '../Stack';
-import { Divider } from '../Divider';
-import { VisuallyHidden } from '../VisuallyHidden';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
+import { Divider } from '../Divider';
+import { Dropdown } from '../Dropdown/Dropdown';
+import { Link } from '../Link';
+import { StackHorizontal } from '../Stack';
+import { VisuallyHidden } from '../VisuallyHidden';
+import styles from './Breadcrumbs.module.css';
 
 type BreadcrumbsLink = {
 	label: string;

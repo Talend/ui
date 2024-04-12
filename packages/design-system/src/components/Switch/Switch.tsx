@@ -1,11 +1,11 @@
-import { MouseEvent, useLayoutEffect, useRef, useState, useEffect } from 'react';
-import type { PropsWithChildren, HTMLAttributes } from 'react';
+import { MouseEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import type { HTMLAttributes, PropsWithChildren } from 'react';
 
 import classnames from 'classnames';
 
 import { randomUUID } from '@talend/utils';
 
-import theme from './Switch.module.scss';
+import theme from './Switch.module.css';
 
 const emptyValues: string[] = [];
 

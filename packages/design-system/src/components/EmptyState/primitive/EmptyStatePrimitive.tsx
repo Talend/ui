@@ -1,15 +1,14 @@
 import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StackVertical } from '../../Stack';
 
-import { Link } from '../../Link';
 import { ButtonPrimary } from '../../Button';
-import { ButtonPrimaryAsLink } from '../../ButtonAsLink';
 import { ButtonPrimaryPropsType } from '../../Button/variations/ButtonPrimary';
+import { ButtonPrimaryAsLink } from '../../ButtonAsLink';
 import { ButtonPrimaryAsLinkPropsType } from '../../ButtonAsLink/variations/ButtonPrimaryAsLink';
-
-import styles from './EmptyStatePrimitive.module.scss';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import { Link } from '../../Link';
+import { StackVertical } from '../../Stack';
+import styles from './EmptyStatePrimitive.module.css';
 
 type CallbackTypes =
 	| (Omit<ButtonPrimaryPropsType<'M'>, 'size'> & { actionType: 'button' })

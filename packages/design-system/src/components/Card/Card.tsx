@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { StackVertical } from '../Stack';
-
-import theme from './Card.module.scss';
+import theme from './Card.module.css';
 
 export type CardPropsType = {
 	header?: ReactNode;

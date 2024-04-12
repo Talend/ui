@@ -7,8 +7,7 @@ import { DeprecatedIconNames } from '../../../types';
 import { Clickable, ClickableProps } from '../../Clickable';
 import { SizedIcon } from '../../Icon';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
-
-import styles from './DropdownEntry.module.scss';
+import styles from './DropdownEntry.module.css';
 
 /**
  * This is in fact a Menu Item

@@ -1,0 +1,7 @@
+.beta_withBackground {
+  background-color: var(--coral-color-beta-background);
+  box-shadow: var(--coral-elevation-shadow-beta);
+}
+.beta__icon {
+  color: var(--coral-color-beta-icon);
+}

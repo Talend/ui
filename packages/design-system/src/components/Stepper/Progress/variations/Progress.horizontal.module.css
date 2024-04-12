@@ -1,0 +1,14 @@
+.horizontal {
+  top: calc(var(--coral-sizing-xxxs) / 2 - 0.0313rem);
+  right: 6.25rem;
+  left: 6.25rem;
+  height: 0.125rem;
+  transform: translateY(-50%);
+  background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cline x1='0' y1='0' x2='100%25' y2='0' fill='none' stroke='%23d2d2d2' stroke-width='4' stroke-dasharray='2%2c6'/%3e%3c/svg%3e");
+  z-index: 1;
+}
+.horizontal div {
+  top: 0;
+  height: 0.125rem;
+  transition: width var(--coral-transition-slow);
+}

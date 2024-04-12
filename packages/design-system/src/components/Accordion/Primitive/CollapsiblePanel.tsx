@@ -5,10 +5,9 @@ import classNames from 'classnames';
 import { DataAttributes } from '../../../types';
 import { useId } from '../../../useId';
 import { variants } from '../../Status/Primitive/StatusPrimitive';
+import styles from './CollapsiblePanel.module.css';
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';
-
-import styles from './CollapsiblePanel.module.scss';
 
 type CollapsiblePanelCommonPropsType = {
 	children: ReactChild;

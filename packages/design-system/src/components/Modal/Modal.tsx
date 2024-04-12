@@ -10,10 +10,9 @@ import { ButtonSecondaryPropsType } from '../Button/variations/ButtonSecondary';
 import { Disclosure } from '../Disclosure/Disclosure';
 import { Icon } from '../Icon';
 import { StackHorizontal, StackVertical } from '../Stack';
+import styles from './Modal.module.css';
 import { Dialog, DialogPropsType, useDialogState } from './Primitives/Dialog';
 import { DialogBackdrop } from './Primitives/DialogBackdrop';
-
-import styles from './Modal.module.scss';
 
 type IconProp = DeprecatedIconNames | ReactElement;
 

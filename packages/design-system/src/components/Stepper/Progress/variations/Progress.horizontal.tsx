@@ -1,6 +1,7 @@
 import { forwardRef, Ref } from 'react';
+
 import Progress, { ProgressProps } from '../Primitive/Progress';
-import styles from './Progress.horizontal.module.scss';
+import styles from './Progress.horizontal.module.css';
 
 type ProgressHorizontalTypes = Omit<ProgressProps, 'className' | 'orientation'>;
 

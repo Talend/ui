@@ -1,0 +1,22 @@
+.breadcrumbs {
+  display: block;
+}
+.breadcrumbs .divider {
+  transform: skew(-15deg);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.breadcrumbs .entry {
+  max-width: var(--coral-sizing-maximal);
+  min-width: var(--coral-sizing-m);
+  position: relative;
+}
+.breadcrumbs .entry__collapsed {
+  flex-shrink: 0;
+}
+.breadcrumbs .entry .copy {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

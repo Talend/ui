@@ -1,0 +1,9 @@
+.drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: var(--coral-elevation-shadow-neutral-m);
+  z-index: var(--coral-elevation-layer-standard-front);
+  transition: transform var(--coral-transition-fast);
+}

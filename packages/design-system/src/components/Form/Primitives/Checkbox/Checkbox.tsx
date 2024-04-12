@@ -13,8 +13,7 @@ import classnames from 'classnames';
 import { useControl } from '../../../../useControl';
 import { useId } from '../../../../useId';
 import Label from '../../Label';
-
-import styles from './Checkbox.module.scss';
+import styles from './Checkbox.module.css';
 
 type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
 	value?: string | number;

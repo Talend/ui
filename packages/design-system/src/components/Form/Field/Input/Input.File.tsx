@@ -1,9 +1,12 @@
 import { forwardRef, Key, Ref, useEffect, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { TFunction } from 'i18next';
+
 import classnames from 'classnames';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
+import { TFunction } from 'i18next';
+
+import { useId } from '../../../../useId';
 import { ButtonIcon } from '../../../ButtonIcon';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 import { SizedIcon } from '../../../Icon';
 import { VisuallyHidden } from '../../../VisuallyHidden';
 import {
@@ -12,9 +15,7 @@ import {
 	InputPrimitive,
 	InputPrimitiveProps,
 } from '../../Primitives';
-
-import styles from './Input.File.module.scss';
-import { useId } from '../../../../useId';
+import styles from './Input.File.module.css';
 
 function getFileSize(size: number, t: TFunction) {
 	if (size < 1024) {

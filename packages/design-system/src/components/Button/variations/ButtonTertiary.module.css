@@ -1,0 +1,15 @@
+.tertiary {
+  color: var(--coral-color-accent-text);
+}
+.tertiary:hover {
+  color: var(--coral-color-accent-text-strong-hover);
+  background: var(--coral-color-accent-background-weak-hover);
+}
+.tertiary:active {
+  color: var(--coral-color-accent-text-strong-active);
+  background: var(--coral-color-accent-background-weak-active);
+}
+.tertiary:disabled, .tertiary[aria-disabled=true], .tertiary[aria-busy=true] {
+  color: var(--coral-color-neutral-text-disabled);
+  background: transparent;
+}

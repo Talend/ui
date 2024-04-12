@@ -1,0 +1,17 @@
+.badge {
+  display: inline-block;
+  background: var(--coral-color-neutral-background);
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+  border-radius: var(--coral-radius-s);
+}
+
+.badge__label {
+  font: var(--coral-paragraph-m);
+  padding: var(--coral-spacing-xxs);
+}
+
+.badge__divider {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}

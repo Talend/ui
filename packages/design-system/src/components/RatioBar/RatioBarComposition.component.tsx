@@ -3,8 +3,7 @@ import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { Tooltip } from '../Tooltip';
-
-import styles from './RatioBar.module.scss';
+import styles from './RatioBar.module.css';
 
 const minPercentage = 5;
 

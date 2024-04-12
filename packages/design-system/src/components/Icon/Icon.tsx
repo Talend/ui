@@ -1,9 +1,11 @@
-import { forwardRef, createRef, useState, useEffect, memo } from 'react';
+import { createRef, forwardRef, memo, useEffect, useState } from 'react';
 import type { CSSProperties, Ref } from 'react';
+
 import classnames from 'classnames';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconsProvider } from '../IconsProvider';
-import style from './Icon.module.scss';
+import style from './Icon.module.css';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export enum SVG_TRANSFORMS {

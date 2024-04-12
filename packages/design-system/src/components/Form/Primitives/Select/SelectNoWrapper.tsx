@@ -3,8 +3,7 @@ import { forwardRef, ReactElement, Ref, SelectHTMLAttributes } from 'react';
 import classnames from 'classnames';
 
 import { SizedIcon } from '../../../Icon';
-
-import styles from './Select.module.scss';
+import styles from './Select.module.css';
 
 export type SelectNoWrapperProps = Omit<SelectHTMLAttributes<any>, 'prefix'> & {
 	children: ReactElement | ReactElement[];

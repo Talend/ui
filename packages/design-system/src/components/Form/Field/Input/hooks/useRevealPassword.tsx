@@ -2,12 +2,12 @@ import { useState } from 'react';
 import type { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
 import { Clickable } from '../../../../Clickable';
-import { Tooltip } from '../../../../Tooltip';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
 import { SizedIcon } from '../../../../Icon';
-import styles from './passwordButton.module.scss';
+import { Tooltip } from '../../../../Tooltip';
 import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../../Tooltip/Tooltip';
+import styles from './passwordButton.module.css';
 
 export default function useRevealPassword() {
 	const [revealed, setRevealed] = useState(false);

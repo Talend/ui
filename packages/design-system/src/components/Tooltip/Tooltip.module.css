@@ -1,0 +1,17 @@
+.container {
+  padding: var(--coral-spacing-xxs) var(--coral-spacing-xs);
+  max-width: var(--coral-sizing-maximal);
+  font: var(--coral-paragraph-s);
+  color: var(--coral-color-assistive-text);
+  background: var(--coral-color-assistive-background);
+  border-radius: var(--coral-radius-s);
+  transition: opacity var(--coral-transition-fast);
+  opacity: 1;
+}
+
+.arrow {
+  fill: var(--coral-color-assistive-background);
+}
+.arrow :global(.stroke) {
+  display: none;
+}
