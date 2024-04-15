@@ -1,13 +1,19 @@
 import react from '@vitejs/plugin-react';
 import fixReactVirtualized from 'esbuild-plugin-react-virtualized';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
+import { viteMockServe } from 'vite-plugin-mock';
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		react(),
+		viteMockServe({
+			mockPath: 'mockVite',
+			localEnabled: true,
+		}),
 		{
 			name: 'configure-static-files',
 			configureServer(server) {
