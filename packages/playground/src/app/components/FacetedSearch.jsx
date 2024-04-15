@@ -1,5 +1,5 @@
 // eslint-disable-next-line @talend/import-depth
-import * as badges from '@talend/react-faceted-search/stories/badgesDefinitions';
+// import * as badges from '@talend/react-faceted-search/stories/badgesDefinitions';
 import Layout from '@talend/react-components/lib/Layout';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
@@ -10,7 +10,7 @@ function action(msg) {
 	return (...args) => console.log(msg, ...args);
 }
 
-const badgesDefinitions = Object.values(badges);
+// const badgesDefinitions = Object.values(badges);
 
 const callbacks = {
 	getTags: () =>
@@ -39,7 +39,7 @@ const callbacks = {
 export function FacetedSearchPlayground() {
 	return (
 		<Layout mode="TwoColumns" one={<SidePanel />} header={<HeaderBar />}>
-			<FacetedSearch.Faceted>
+			{/* <FacetedSearch.Faceted>
 				{currentFacetedMode =>
 					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
 						<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
@@ -52,7 +52,7 @@ export function FacetedSearchPlayground() {
 						/>
 					))
 				}
-			</FacetedSearch.Faceted>
+			</FacetedSearch.Faceted> */}
 		</Layout>
 	);
 }

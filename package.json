@@ -17,6 +17,7 @@
   },
   "scripts": {
     "postinstall": "talend-yarn-workspace run build:lib",
+    "postinstall:esm": "talend-yarn-workspace run build:lib:esm",
     "pre-release": "talend-yarn-workspace run pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
     "start-storybook": "yarn workspace @talend/ui-storybook-one run start",

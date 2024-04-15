@@ -47,7 +47,7 @@
     "regenerator-runtime": "^0.13.11",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.71.1",
-    "sass-loader": "^13.3.3",
+    "sass-loader": "^14.2.0",
     "source-map-loader": "^4.0.2",
     "style-loader": "^3.3.4",
     "svg64": "^1.2.0",

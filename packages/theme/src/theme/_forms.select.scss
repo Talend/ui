@@ -1,5 +1,5 @@
 /* stylelint-disable selector-no-qualifying-type */
-@use '~@talend/design-tokens/lib/tokens';
+@use '../../node_modules/@talend/design-tokens/lib/tokens' as tokens;
 
 select.form-control {
 	border-color: tokens.$coral-color-neutral-border;
