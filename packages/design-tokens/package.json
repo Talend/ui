@@ -7,8 +7,14 @@
   "module": "./lib/esm/index.js",
   "exports": {
     "./package.json": "./package.json",
-    "./lib/tokens": "./lib/esm/_tokens.scss",
-    "./lib/_tokens": "./lib/esm/_tokens.scss",
+    "./lib/tokens": {
+      "import": "./lib/esm/_tokens.scss",
+      "require": "./lib/_tokens.scss"
+    },
+    "./lib/_tokens": {
+      "import": "./lib/esm/_tokens.scss",
+      "require": "./lib/_tokens.scss"
+    },
     "./lib/*": {
       "import": "./lib/esm/*",
       "require": "./lib/*"
