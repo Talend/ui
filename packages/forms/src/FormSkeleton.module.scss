@@ -17,23 +17,21 @@ $tc-drawer-padding: tokens.$coral-spacing-m !default;
 	}
 }
 
-:global(.tc-drawer-container) {
-	.form-content {
-		padding: $tc-drawer-padding;
-		display: flex;
-		flex-direction: column;
-		min-height: 0;
-		overflow-y: auto;
-		width: 100%;
-	}
+.form-content {
+	padding: $tc-drawer-padding;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	overflow-y: auto;
+	width: 100%;
+}
 
-	.form-actions {
-		display: flex;
-		width: 100%;
-		div {
-			padding: 0;
-			margin-left: auto;
-		}
+.form-actions {
+	display: flex;
+	width: 100%;
+	div {
+		padding: 0;
+		margin-left: auto;
 	}
 }
 
