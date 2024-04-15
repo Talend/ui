@@ -22,7 +22,7 @@ type QualityRatioBarProps = SpecificQualityBarProps & {
 const QualityRatioBar = ({ onClick, type, getDataFeature, ...props }: QualityRatioBarProps) => {
 	const specificProps = {
 		className: classNames(styles['quality-ratio-bar'], styles[`quality-ratio-bar--${type}`]),
-		onClick: onClick ? (e: MouseEvent<HTMLElement>) => onClick(e, { type }) : null,
+		onClick: onClick ? (e: MouseEvent<HTMLElement>) => onClick(e, { type }) : undefined,
 		dataFeature: getDataFeature ? getDataFeature(type) : null,
 		dataTestId: `quality-bar-${type}`,
 	};

@@ -1,5 +1,5 @@
 /* stylelint-disable declaration-no-important */
-@use '~@talend/design-tokens/lib/tokens';
+@use '../../node_modules/@talend/design-tokens/lib/tokens' as tokens;
 
 // stylelint-disable scss/selector-no-redundant-nesting-selector
 * {

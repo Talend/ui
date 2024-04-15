@@ -3,11 +3,25 @@
   "description": "A set of API designed to access assets using CDN",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
-  "mainSrc": "src/index.ts",
+  "module": "./lib/esm/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    }
+  },
   "license": "Apache-2.0",
   "scripts": {
     "pre-release": "talend-scripts build --umd && talend-scripts build --umd --dev",
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "tsc --project ./tsconfig.esm.json",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",

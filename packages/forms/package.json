@@ -4,10 +4,24 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "types": "./lib/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    }
+  },
   "license": "Apache-2.0",
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
+    "build:lib:esm": "tsc --project ./tsconfig.esm.json && cpx 'src/**/*.{scss,json}' lib/esm --verbose",
     "build-storybook": "talend-scripts build-storybook",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
