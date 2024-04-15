@@ -3,9 +3,23 @@
   "version": "1.2.4",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/index.js",
-  "mainSrc": "src/index.js",
+  "module": "./lib/esm/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    }
+  },
   "scripts": {
     "build:lib": "rimraf dist && talend-scripts build --umd",
+    "build:lib:esm": "tsc --project ./tsconfig.esm.json",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "test:cov": "npm run test",
