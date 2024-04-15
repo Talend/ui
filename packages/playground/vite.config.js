@@ -6,7 +6,24 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react()],
+	plugins: [
+		react(),
+		{
+			name: 'configure-static-files',
+			configureServer(server) {
+				server.middlewares.use((req, res, next) => {
+					if (req.url === '/settings.json') {
+						const filePath = path.resolve(__dirname, 'src/settings/settings.json');
+						const fileContents = fs.readFileSync(filePath, 'utf-8');
+						res.end(fileContents);
+						return;
+					}
+					next();
+				});
+			},
+		},
+	],
+
 	optimizeDeps: {
 		esbuildOptions: {
 			plugins: [fixReactVirtualized],
