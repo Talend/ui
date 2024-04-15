@@ -165,7 +165,7 @@ describe('Fieldset widget', () => {
 		);
 
 		// then
-		expect(document.querySelector('legend')).toHaveClass('sr-only');
+		expect(screen.getByText('My fieldset').parentElement).toHaveClass('theme-hidden');
 	});
 
 	it('should not render if empty', () => {

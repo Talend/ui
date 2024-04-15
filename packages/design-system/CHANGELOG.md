@@ -1,5 +1,41 @@
 # @talend/design-system
 
+## 10.3.0
+
+### Minor Changes
+
+- 8bf0dd5: feat(DGT-342): Moved QualityBar and RatioBar components to the Design System and use those components on @talend/react-components
+
+## 10.2.2
+
+### Patch Changes
+
+- 9b6d904: TMC-27716 - Fix firefox fieldset height
+
+## 10.2.1
+
+### Patch Changes
+
+- 1488e8a: Status : add data-test\* attributes
+
+## 10.2.0
+
+### Minor Changes
+
+- ea80021: InlineEditing : allow to control edition mode
+
+## 10.1.1
+
+### Patch Changes
+
+- 377e43a: fix(DFD-914): Fix flashing tooltip on some gesture
+
+## 10.1.0
+
+### Minor Changes
+
+- 8a25fb3: DS Field data-test attributes are now passed down to related description
+
 ## 10.0.0
 
 ### Major Changes

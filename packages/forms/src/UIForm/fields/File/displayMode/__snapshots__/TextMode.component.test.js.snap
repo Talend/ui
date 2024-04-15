@@ -2,20 +2,18 @@
 
 exports[`File input text display mode should render 1`] = `
 <div
-  class="form-group"
+  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
 >
-  <dt>
-    <label
-      class="control-label"
-      for="my-file-field"
-    >
-      Upload file
-    </label>
-  </dt>
-  <dd
+  <label
+    class="theme-label"
+    for="my-file-field"
+  >
+    Upload file
+  </label>
+  <div
     id="my-file-field"
   >
     test.xml
-  </dd>
+  </div>
 </div>
 `;

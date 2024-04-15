@@ -1,11 +1,9 @@
-import theme from '../UIForm.module.scss';
-
 export default function DefaultFormTemplate({ widgetsRenderer, buttonsRenderer, children }) {
-	return [
-		<div key="form-widgets" className={theme['form-content']}>
+	return (
+		<>
 			{widgetsRenderer()}
-		</div>,
-		children,
-		buttonsRenderer(),
-	];
+			{children}
+			{buttonsRenderer()}
+		</>
+	);
 }

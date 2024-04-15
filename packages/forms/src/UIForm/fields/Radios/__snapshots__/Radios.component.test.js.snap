@@ -1,19 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radios field should render radios 1`] = `
-<div
-  class="form-group theme-template required"
->
-  <label
-    class="control-label"
-    for="myForm"
-  >
-    My radios title
-  </label>
+<div>
   <div
-    class="radio"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    <label>
+    <label
+      class="theme-label"
+      for="myForm"
+    >
+      My radios title
+      *
+    </label>
+    <span
+      class="theme-radio"
+    >
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
@@ -22,15 +23,16 @@ exports[`Radios field should render radios 1`] = `
         type="radio"
         value="foo"
       />
-      <span>
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-0"
+      >
         My foo custom name
-      </span>
-    </label>
-  </div>
-  <div
-    class="radio"
-  >
-    <label>
+      </label>
+    </span>
+    <span
+      class="theme-radio"
+    >
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
@@ -39,15 +41,16 @@ exports[`Radios field should render radios 1`] = `
         type="radio"
         value="bar"
       />
-      <span>
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-1"
+      >
         My bar custom name
-      </span>
-    </label>
-  </div>
-  <div
-    class="radio"
-  >
-    <label>
+      </label>
+    </span>
+    <span
+      class="theme-radio"
+    >
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
@@ -57,12 +60,13 @@ exports[`Radios field should render radios 1`] = `
         type="radio"
         value="toto"
       />
-      <span>
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-2"
+      >
         My toto custom name
-      </span>
-    </label>
-  </div>
-  <div>
+      </label>
+    </span>
     <div
       aria-live="polite"
       class="theme-inlineMessage"

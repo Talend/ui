@@ -47,7 +47,7 @@ describe('Text field', () => {
 		render(<Text {...props} />);
 
 		// then
-		expect(screen.getByLabelText('My input title')).toHaveAttribute('type', 'password');
+		expect(screen.getByLabelText('My input title*')).toHaveAttribute('type', 'password');
 	});
 
 	it('should render disabled input', () => {
@@ -64,7 +64,7 @@ describe('Text field', () => {
 		render(<Text {...props} />);
 
 		// then
-		expect(screen.getByLabelText('My input title')).toBeDisabled();
+		expect(screen.getByLabelText('My input title*')).toBeDisabled();
 	});
 
 	it('should render readonly input', () => {
@@ -81,7 +81,7 @@ describe('Text field', () => {
 		render(<Text {...props} />);
 
 		// then
-		expect(screen.getByLabelText('My input title')).toHaveAttribute('readonly');
+		expect(screen.getByLabelText('My input title*')).toHaveAttribute('readonly');
 	});
 
 	it('should render input with min attribute', () => {
@@ -90,9 +90,9 @@ describe('Text field', () => {
 			...defaultProps,
 			schema: {
 				...defaultSchema,
+				type: 'number',
 				schema: {
 					...defaultSchema.schema,
-					type: 'number',
 					minimum: 0,
 				},
 			},
@@ -102,7 +102,7 @@ describe('Text field', () => {
 		render(<Text {...props} />);
 
 		// then
-		expect(screen.getByLabelText('My input title')).toHaveAttribute('min', '0');
+		expect(screen.getByLabelText('My input title*')).toHaveAttribute('min', '0');
 	});
 
 	it('should render input with max attribute', () => {
@@ -111,9 +111,9 @@ describe('Text field', () => {
 			...defaultProps,
 			schema: {
 				...defaultSchema,
+				type: 'number',
 				schema: {
 					...defaultSchema.schema,
-					type: 'number',
 					maximum: 10,
 				},
 			},
@@ -123,7 +123,7 @@ describe('Text field', () => {
 		render(<Text {...props} />);
 
 		// then
-		expect(screen.getByLabelText('My input title')).toHaveAttribute('max', '10');
+		expect(screen.getByLabelText('My input title*')).toHaveAttribute('max', '10');
 	});
 
 	it('should render input with step attribute', () => {
@@ -144,7 +144,7 @@ describe('Text field', () => {
 		render(<Text {...props} />);
 
 		// then
-		expect(screen.getByLabelText('My input title')).toHaveAttribute('step', '0.01');
+		expect(screen.getByLabelText('My input title*')).toHaveAttribute('step', '0.01');
 	});
 
 	it('should trigger onChange', async () => {
@@ -155,9 +155,9 @@ describe('Text field', () => {
 		const event = { target: { value: 'totoa' } };
 
 		// when
-		screen.getByLabelText('My input title').focus();
+		screen.getByLabelText('My input title*').focus();
 		await userEvent.keyboard('totoa');
-		screen.getByLabelText('My input title').blur();
+		screen.getByLabelText('My input title*').blur();
 
 		// wrapper.find('input').simulate('change', event);
 
@@ -177,9 +177,9 @@ describe('Text field', () => {
 		const event = { target: { value: '25' } };
 
 		// when
-		screen.getByLabelText('My input title').focus();
-		fireEvent.change(screen.getByLabelText('My input title'), event);
-		screen.getByLabelText('My input title').blur();
+		screen.getByLabelText('My input title*').focus();
+		fireEvent.change(screen.getByLabelText('My input title*'), event);
+		screen.getByLabelText('My input title*').blur();
 
 		// then
 		expect(onChange).toHaveBeenLastCalledWith(expect.anything(event), { schema, value: 25 });
@@ -193,7 +193,7 @@ describe('Text field', () => {
 		const event = { target: { value: 'totoa' } };
 
 		// when
-		screen.getByLabelText('My input title').blur();
+		screen.getByLabelText('My input title*').blur();
 
 		// then
 		expect(onFinish).toHaveBeenCalledWith(expect.anything(event), { schema: defaultSchema });
@@ -230,7 +230,7 @@ describe('Text field', () => {
 		render(<Text {...props} />);
 
 		// then
-		expect(screen.getByLabelText('My input title')).toHaveAttribute('autoComplete', 'off');
+		expect(screen.getByLabelText('My input title*')).toHaveAttribute('autoComplete', 'off');
 	});
 
 	it('should pass labelProps to Text field', () => {
@@ -248,7 +248,7 @@ describe('Text field', () => {
 		render(<Text {...props} />);
 
 		// then
-		expect(screen.getByText('My input title')).toHaveClass('hello');
+		expect(screen.getByText('My input title*')).toHaveClass('hello');
 	});
 
 	it('should pass link props and password type to Text field', () => {

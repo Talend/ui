@@ -5,9 +5,7 @@ import FormSkeleton from './FormSkeleton';
 describe('FormSkeleton', () => {
 	it('should render skeleton', () => {
 		render(<FormSkeleton />);
-		expect(screen.getByTestId('form.skeleton')).toHaveAttribute('aria-busy', 'true');
-		expect(screen.getByTestId('form.skeleton.fields')).toBeInTheDocument();
-		expect(screen.getByTestId('form.skeleton.buttons')).toBeInTheDocument();
+		expect(screen.getByTestId('form.skeleton')).toBeInTheDocument();
 	});
 
 	it('should render skeleton without actions', () => {

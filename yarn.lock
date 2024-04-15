@@ -5509,15 +5509,10 @@ accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.8:
     mime-types "~2.1.34"
     negotiator "0.6.3"
 
-ace-builds@1.10.1:
+ace-builds@1.10.1, ace-builds@^1.4.14:
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/ace-builds/-/ace-builds-1.10.1.tgz#612b78fabb0f2b6bce2d13ef9e44565d1fe01c6b"
   integrity sha512-w8Xj6lZUtOYAquVYvdpZhb0GxXrZ+qpVfgj5LP2FwUbXE8fPrCmfu86FjwOiSphx/8PMbXXVldFLD2+RIXayyA==
-
-ace-builds@^1.4.14:
-  version "1.32.6"
-  resolved "https://registry.yarnpkg.com/ace-builds/-/ace-builds-1.32.6.tgz#454ec8bc9235fbb960b8d8b86e698f941c104de2"
-  integrity sha512-dO5BnyDOhCnznhOpILzXq4jqkbhRXxNkf3BuVTmyxGyRLrhddfdyk6xXgy+7A8LENrcYoFi/sIxMuH3qjNUN4w==
 
 acorn-class-fields@^0.3.7:
   version "0.3.7"
@@ -9924,9 +9919,9 @@ focus-outline-manager@^1.0.2:
   integrity sha512-bHWEmjLsTjGP9gVs7P3Hyl+oY5NlMW8aTSPdTJ+X2GKt6glDctt9fUCLbRV+d/l8NDC40+FxMjp9WlTQXaQALw==
 
 follow-redirects@^1.0.0, follow-redirects@^1.14.0:
-  version "1.15.5"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.5.tgz#54d4d6d062c0fa7d9d17feb008461550e3ba8020"
-  integrity sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==
+  version "1.15.6"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
+  integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -12368,7 +12363,7 @@ json-parse-even-better-errors@^3.0.0:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-3.0.1.tgz#02bb29fb5da90b5444581749c22cedd3597c6cb0"
   integrity sha512-aatBvbL26wVUCLmbWdCpeu9iF5wOyWpagiKkInA+kfws3sWdBrTnsvN2CKcyCYyUrc7rebNBlK6+kteg7ksecg==
 
-json-refs@^3.0.15:
+json-refs@3.0.15:
   version "3.0.15"
   resolved "https://registry.yarnpkg.com/json-refs/-/json-refs-3.0.15.tgz#1089f4acf263a3152c790479485195cd6449e855"
   integrity sha512-0vOQd9eLNBL18EGl5yYaO44GhixmImes2wiYn9Z3sag3QnehWrYWlB9AFtMxCL2Bj3fyxgDYkxGFEU/chlYssw==
@@ -18679,9 +18674,9 @@ typescript-tuple@^2.2.1:
     typescript-compare "^0.0.2"
 
 typescript@^5.0.4, typescript@^5.3.2, typescript@^5.3.3:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
-  integrity sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==
+  version "5.4.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.5.tgz#42ccef2c571fdbd0f6718b1d1f5e6e5ef006f611"
+  integrity sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==
 
 ua-parser-js@^1.0.33:
   version "1.0.37"
@@ -19393,9 +19388,9 @@ webpack-cli@^4.10.0:
     webpack-merge "^5.7.3"
 
 webpack-dev-middleware@^5.3.1:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-5.3.3.tgz#efae67c2793908e7311f1d9b06f2a08dcc97e51f"
-  integrity sha512-hj5CYrY0bZLB+eTO+x/j67Pkrquiy7kWepMHmUMoPsmcUaeEnQJqFzHJOyxgWlq746/wUuA64p9ta34Kyb01pA==
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-5.3.4.tgz#eb7b39281cbce10e104eb2b8bf2b63fce49a3517"
+  integrity sha512-BVdTqhhs+0IfoeAf7EoH5WE+exCmqGerHfDM0IL096Px60Tq2Mn9MAbnaGUe6HiMa41KMCYF19gyzZmBcq/o4Q==
   dependencies:
     colorette "^2.0.10"
     memfs "^3.4.3"
@@ -19404,9 +19399,9 @@ webpack-dev-middleware@^5.3.1:
     schema-utils "^4.0.0"
 
 webpack-dev-middleware@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-6.1.1.tgz#6bbc257ec83ae15522de7a62f995630efde7cc3d"
-  integrity sha512-y51HrHaFeeWir0YO4f0g+9GwZawuigzcAdRNon6jErXy/SqV/+O6eaVAzDqE6t3e3NpGeR5CS+cCDaTC+V3yEQ==
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-6.1.2.tgz#0463232e59b7d7330fa154121528d484d36eb973"
+  integrity sha512-Wu+EHmX326YPYUpQLKmKbTyZZJIB8/n6R09pTmB03kJmnMsVPTo9COzHZFr01txwaCAuZvfBJE4ZCHRcKs5JaQ==
   dependencies:
     colorette "^2.0.10"
     memfs "^3.4.12"

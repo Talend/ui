@@ -1,16 +1,19 @@
 import { forwardRef } from 'react';
 import type { Ref } from 'react';
+
 import classnames from 'classnames';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
-import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip';
-import { Loading } from '../../Loading';
+import { mergeRefs } from '../../../mergeRef';
+import { DataAttributes } from '../../../types';
 import { SizedIcon } from '../../Icon';
+import { Loading } from '../../Loading';
 import { StackHorizontal } from '../../Stack';
+import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip';
 
 import styles from './Status.module.scss';
-import { mergeRefs } from '../../../mergeRef';
 
 export const variants = {
 	successful: 'successful',
@@ -26,7 +29,7 @@ export type StatusProps = {
 	hideText?: boolean;
 	children?: string;
 	variant: keyof typeof variants;
-};
+} & DataAttributes;
 
 const Status = forwardRef(
 	(

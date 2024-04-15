@@ -1,5 +1,11 @@
 # @talend/eslint-plugin
 
+## 1.2.0
+
+### Minor Changes
+
+- b3f28a7: feat: add warning on bootstrap class
+
 ## 1.1.1
 
 ### Patch Changes

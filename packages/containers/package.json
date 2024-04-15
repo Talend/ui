@@ -36,7 +36,7 @@
     "@talend/design-system": "^10.0.0",
     "@talend/react-cmf": "^8.4.1",
     "@talend/react-components": "^16.0.0",
-    "@talend/react-forms": "^13.2.3",
+    "@talend/react-forms": "^14.0.0",
     "@talend/utils": "^3.0.4",
     "classnames": "^2.5.1",
     "immutable": "^3.8.2",
@@ -83,5 +83,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "10.7.2"
+  "version": "10.7.3"
 }

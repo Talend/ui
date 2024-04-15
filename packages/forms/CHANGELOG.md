@@ -1,5 +1,37 @@
 # @talend/react-forms
 
+## 14.0.2
+
+### Patch Changes
+
+- 34a52b9: fix missing aria-describedby attribute
+
+## 14.0.1
+
+### Patch Changes
+
+- 6a69c4c: Fix UI-Form display on TextModeArrayTemplate to have some spacing between templates
+- Updated dependencies [8a25fb3]
+- Updated dependencies [6a69c4c]
+  - @talend/design-system@10.1.0
+  - @talend/react-components@16.0.1
+
+## 14.0.0
+
+### Major Changes
+
+- 0629df7: UI-FORM will now heavily use form components from the Design System
+
+  - Parent element is wrapped with a DS Form
+  - File / Checkboxes / Text / Number and Textare will now use DS components
+  - All elements will now use DS Label in both text and normal display mode
+
+  # BREAKING CHANGE
+
+  - Many style overrides will break because of removed bootstrap classes like `form-group` `control-label` `form-actions` `tf-actions-wrapper` `tf-buttons` or `tf-uiform`
+  - No more hearthbeat styling from bootstrap when form elements are in updating state
+  - Removed many possibilities to pass down classNames because DS components won't allow it
+
 ## 13.2.3
 
 ### Patch Changes

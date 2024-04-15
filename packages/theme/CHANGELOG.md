@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 9.1.2
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
 ## 9.1.1
 
 ### Patch Changes

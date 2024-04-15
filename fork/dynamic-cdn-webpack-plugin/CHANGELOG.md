@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 13.1.2
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
 ## 13.1.1
 
 ### Patch Changes

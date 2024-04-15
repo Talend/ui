@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+
 import { QualityBar } from './QualityBar.component';
 
 export default {

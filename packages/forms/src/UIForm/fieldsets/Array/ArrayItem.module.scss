@@ -1,11 +1,10 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '~@talend/design-tokens/lib/tokens';
 
 .tf-array-item {
 	display: flex;
 	column-gap: tokens.$coral-spacing-s;
 	background: tokens.$coral-color-neutral-background-medium;
-	border: tokens.$coral-border-s-solid transparent;
+	padding: tokens.$coral-spacing-xs 0;
 
 	.delete button,
 	.control button {
@@ -43,17 +42,5 @@
 		flex-shrink: 0;
 		display: flex;
 		align-items: center;
-	}
-
-	:global(.collapsible-panel) {
-		margin: 0;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-
-		&,
-		&:hover {
-			box-shadow: none;
-			border: 0;
-		}
 	}
 }

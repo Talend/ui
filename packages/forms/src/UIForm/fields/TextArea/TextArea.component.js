@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-
 import PropTypes from 'prop-types';
-import FieldTemplate from '../FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+
+import { Form } from '@talend/design-system';
+
+import { getLabelProps } from '../../utils/labels';
 
 export default function TextArea({
 	id,
@@ -24,41 +25,25 @@ export default function TextArea({
 		title,
 		labelProps,
 	} = schema;
-	const descriptionId = generateDescriptionId(id);
-	const errorId = generateErrorId(id);
 
 	return (
-		<FieldTemplate
-			hint={schema.hint}
-			className={schema.className}
-			description={description}
-			descriptionId={descriptionId}
-			errorId={errorId}
-			errorMessage={errorMessage}
+		<Form.Textarea
 			id={id}
-			isValid={isValid}
-			label={title}
-			labelProps={labelProps}
+			autoFocus={autoFocus}
+			label={getLabelProps(title, labelProps, schema.hint)}
 			required={schema.required}
-			valueIsUpdating={valueIsUpdating}
-		>
-			<textarea
-				id={id}
-				autoFocus={autoFocus}
-				className="form-control"
-				disabled={disabled || valueIsUpdating}
-				placeholder={placeholder}
-				onBlur={event => onFinish(event, { schema })}
-				onChange={event => onChange(event, { schema, value: event.target.value })}
-				readOnly={readOnly}
-				rows={rows}
-				value={value}
-				// eslint-disable-next-line jsx-a11y/aria-proptypes
-				aria-invalid={!isValid}
-				aria-required={schema.required}
-				aria-describedby={`${descriptionId} ${errorId}`}
-			/>
-		</FieldTemplate>
+			disabled={disabled || valueIsUpdating}
+			placeholder={placeholder}
+			onBlur={event => onFinish(event, { schema })}
+			onChange={event => onChange(event, { schema, value: event.target.value })}
+			readOnly={readOnly}
+			rows={rows}
+			value={value}
+			description={errorMessage || description}
+			hasError={!isValid}
+			aria-invalid={!isValid}
+			aria-required={schema.required}
+		/>
 	);
 }
 

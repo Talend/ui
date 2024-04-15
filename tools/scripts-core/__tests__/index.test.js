@@ -3,7 +3,7 @@ const path = require('path');
 const cpx = require('cpx2');
 const { spawnSync } = require('child_process');
 const fs = require('fs');
-const rimraf = require('rimraf');
+const { rimrafSync } = require('rimraf');
 
 const fixture = path.join(__dirname, 'fixture');
 const bin = path.resolve(__dirname, '../src/index.js');
@@ -20,7 +20,7 @@ function getTmpDirectory(prefix) {
 
 describe('talend-scripts', () => {
 	afterAll(() => {
-		rimraf.sync(path.join(__dirname, 'tmp*'));
+		rimrafSync(path.join(__dirname, 'tmp*'), { glob: { silent: true } });
 	});
 	describe('build', () => {
 		it('should by default create a dist folder', () => {

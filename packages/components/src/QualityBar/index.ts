@@ -1,7 +1,5 @@
-import { QualityBar } from './QualityBar.component';
-import { QualityType } from './QualityBar.types';
+import { QualityType } from '@talend/design-system';
 
-// @ts-ignore
-QualityBar.QualityType = QualityType;
+import { QualityBar } from './QualityBar.component';
 
 export { QualityBar, QualityType };
