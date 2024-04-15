@@ -3,6 +3,8 @@ import noop from 'lodash/noop';
 
 import { CellQualityBar } from './CellQualityBar.component';
 
+jest.unmock('@talend/design-system');
+
 const props = {
 	invalid: 1,
 	empty: 2,

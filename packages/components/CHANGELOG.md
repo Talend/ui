@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 16.1.0
+
+### Minor Changes
+
+- 8bf0dd5: feat(DGT-342): Moved QualityBar and RatioBar components to the Design System and use those components on @talend/react-components
+
+### Patch Changes
+
+- 9225a2d: TMC-27480 - Fix wording on invalid date range for date time picker
+
 ## 16.0.1
 
 ### Patch Changes

@@ -53,7 +53,7 @@ module.exports = options => {
 			module: {
 				rules: [
 					{
-						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
+						test: useTypescript ? /\.(js|jsx|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
 						use: getJSAndTSLoader(),
 					},

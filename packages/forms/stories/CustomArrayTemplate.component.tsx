@@ -6,7 +6,7 @@ interface CustomArrayTemplateProps {
 	onAdd: () => void;
 	onRemove: (event: MouseEvent, index: number) => void;
 	onReorder: (event: MouseEvent, payload: object) => void;
-	renderItem: (index: number) => any;
+	renderItem: (index: number) => React.ReactNode;
 	value: object[];
 }
 

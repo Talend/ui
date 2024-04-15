@@ -50,6 +50,10 @@ if (!global.URL?.revokeObjectURL) {
 	global.URL.revokeObjectURL = jest.fn();
 }
 
+if (!global._) {
+	global._ = require('lodash');
+}
+
 // Mock fetch
 try {
 	const fetch = jest.fn(
