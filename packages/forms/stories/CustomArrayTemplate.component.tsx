@@ -71,7 +71,7 @@ export function CustomArrayTemplate({
 					return (
 						<li key={index}>
 							<Actions actions={actions} hideLabel />
-							{renderItem(index) ?? null}
+							{renderItem(index)}
 						</li>
 					);
 				})}
