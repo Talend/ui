@@ -33,7 +33,7 @@ jobs:
           git add dependencies-latest.txt
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 #v5.0.2
+        uses: peter-evans/create-pull-request@c55203cfde3e5c11a452d352b4393e68b85b4533 #v6.0.3
         with:
           reviewers: "@Talend/frontend-admins"
           commit-message: "chore: upgrade dependencies"
