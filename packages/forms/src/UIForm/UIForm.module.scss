@@ -36,9 +36,11 @@ $tc-drawer-padding: tokens.$coral-spacing-m !default;
 		}
 
 		.form-actions {
-			padding: tokens.$coral-spacing-s $tc-drawer-padding;
-			background-color: tokens.$coral-color-neutral-background-medium;
+			padding: tokens.$coral-spacing-xs $tc-drawer-padding;
 			width: 100%;
+			div {
+				padding: 0;
+			}
 		}
 	}
 }
@@ -54,9 +56,12 @@ $tc-drawer-padding: tokens.$coral-spacing-m !default;
 
 		.form-actions {
 			margin: auto;
-			padding: 0 $tc-drawer-padding;
+			padding: tokens.$coral-spacing-xs $tc-drawer-padding;
 			width: $tc-drawer-content-max-width;
 			max-width: $tc-drawer-content-max-width;
+			div {
+				padding: 0;
+			}
 		}
 	}
 }
