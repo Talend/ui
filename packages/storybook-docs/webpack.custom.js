@@ -39,7 +39,10 @@ module.exports = {
 					},
 					{
 						loader: require.resolve('sass-loader'),
-						options: { sourceMap: true },
+						options: {
+							sourceMap: true,
+							sassOptions: { includePaths: ['./node_modules', '../../node_modules'] },
+						},
 					},
 				],
 			},
