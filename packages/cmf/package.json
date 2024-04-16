@@ -4,13 +4,13 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
-  "module": "./lib-esm/index.js",
+  "module": "./lib/esm/index.js",
   "exports": {
     "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./lib-esm/index.d.ts",
-        "default": "./lib-esm/index.js"
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
       },
       "require": {
         "types": "./lib/index.d.ts",

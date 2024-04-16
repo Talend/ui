@@ -4,13 +4,13 @@
   "main": "dist/TalendIcons.js",
   "types": "dist/typeUtils.d.ts",
   "style": "build/octicons.css",
-  "module": "./lib-esm/index.js",
+  "module": "./lib/esm/index.js",
   "exports": {
     "./package.json": "./package.json",
     "./src/*": {
       "import": {
-        "types": "./lib-esm/src/*",
-        "default": "./lib-esm/src/*"
+        "types": "./lib/esm/src/*",
+        "default": "./lib/esm/src/*"
       },
       "require": {
         "types": "./src/*",
@@ -19,8 +19,8 @@
     },
     "./dist/typeUtils": {
       "import": {
-        "types": "./lib-esm/typeUtils.d.ts",
-        "default": "./lib-esm/typeUtils.js"
+        "types": "./lib/esm/typeUtils.d.ts",
+        "default": "./lib/esm/typeUtils.js"
       },
       "require": {
         "types": "./dist/typeUtils.d.ts",
@@ -29,8 +29,8 @@
     },
     ".": {
       "import": {
-        "types": "./lib-esm/index.d.ts",
-        "default": "./lib-esm/index.js"
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
       },
       "require": {
         "types": "./lib/index.d.ts",

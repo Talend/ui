@@ -3,7 +3,7 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "declaration": true,
-    "outDir": "lib-esm",
+    "outDir": "lib/esm",
     "module": "ESNext"
   }
 }
