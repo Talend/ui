@@ -10,7 +10,7 @@
     "src/stories/**/*"
   ],
   "compilerOptions": {
-    "outDir": "lib/esm",
+    "outDir": "lib-esm",
     "module": "ESNext"
   }
 }

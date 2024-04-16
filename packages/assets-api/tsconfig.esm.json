@@ -3,7 +3,7 @@
   "exclude": ["src/**/*.test.ts"],
   "compilerOptions": {
     "declaration": true,
-    "outDir": "lib/esm",
+    "outDir": "lib-esm",
     "module": "ESNext"
   }
 }
