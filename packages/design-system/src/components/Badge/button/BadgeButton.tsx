@@ -4,8 +4,7 @@ import classnames from 'classnames';
 import { DataAttributes } from 'src/types';
 
 import { Clickable } from '../../Clickable/Clickable';
-
-import styles from './BadgeButton.module.scss';
+import styles from './BadgeButton.module.css';
 
 type BadgeButtonProps = {
 	/**

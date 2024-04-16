@@ -1,0 +1,20 @@
+.enumeration__header {
+  border-bottom: var(--coral-border-s-solid) var(--coral-color-neutral-border);
+  display: flex;
+  flex-direction: column;
+  padding: var(--coral-spacing-s);
+  gap: var(--coral-spacing-s);
+}
+.enumeration__header h4 {
+  font: var(--coral-heading-m);
+}
+.enumeration__header [type=file] {
+  display: none;
+}
+.enumeration__title {
+  align-items: center;
+  display: flex;
+}
+.enumeration__title > button {
+  margin-left: auto;
+}

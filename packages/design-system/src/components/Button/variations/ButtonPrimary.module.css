@@ -1,0 +1,16 @@
+.primary {
+  color: var(--coral-color-accent-text-weak);
+  background: var(--coral-color-accent-background-strong);
+}
+.primary:hover {
+  color: var(--coral-color-accent-text-weak-hover);
+  background: var(--coral-color-accent-background-strong-hover);
+}
+.primary:active {
+  color: var(--coral-color-accent-text-weak-active);
+  background: var(--coral-color-accent-background-strong-active);
+}
+.primary:disabled, .primary[aria-disabled=true], .primary[aria-busy=true] {
+  color: var(--coral-color-neutral-text-disabled);
+  background: var(--coral-color-neutral-background-disabled);
+}

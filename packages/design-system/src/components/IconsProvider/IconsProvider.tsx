@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import assetsAPI from '@talend/assets-api';
 
-import style from './IconsProvider.module.scss';
+import style from './IconsProvider.module.css';
 
 const DEFAULT_BUNDLES = [
 	assetsAPI.getURL('/dist/svg-bundle/all.svg', '@talend/icons'),

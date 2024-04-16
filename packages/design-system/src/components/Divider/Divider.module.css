@@ -1,0 +1,15 @@
+.divider {
+  border: none;
+}
+.divider[aria-orientation=horizontal] {
+  width: 100%;
+  margin: 0;
+  border-top: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+}
+.divider[aria-orientation=vertical] {
+  margin: 0;
+  display: inline-block;
+  min-height: 2ch;
+  height: 100%;
+  border-left: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+}

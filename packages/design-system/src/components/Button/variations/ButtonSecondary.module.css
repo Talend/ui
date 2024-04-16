@@ -1,0 +1,19 @@
+.secondary {
+  color: var(--coral-color-accent-text);
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border);
+}
+.secondary:hover {
+  color: var(--coral-color-accent-text-strong-hover);
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border-hover);
+  background: var(--coral-color-accent-background-weak-hover);
+}
+.secondary:active {
+  color: var(--coral-color-accent-text-strong-active);
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border-active);
+  background: var(--coral-color-accent-background-weak-active);
+}
+.secondary:disabled, .secondary[aria-disabled=true], .secondary[aria-busy=true] {
+  background: transparent;
+  color: var(--coral-color-neutral-text-disabled);
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-disabled);
+}

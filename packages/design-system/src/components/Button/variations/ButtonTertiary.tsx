@@ -1,8 +1,8 @@
 import { forwardRef, Ref } from 'react';
-import ButtonPrimitive, { AvailableSizes, BaseButtonProps } from '../Primitive/ButtonPrimitive';
 
-import styles from './ButtonTertiary.module.scss';
+import ButtonPrimitive, { AvailableSizes, BaseButtonProps } from '../Primitive/ButtonPrimitive';
 import { ButtonDestructivePropsType } from './ButtonDestructive';
+import styles from './ButtonTertiary.module.css';
 
 export type ButtonTertiaryPropsType<S extends AvailableSizes> = Omit<
 	BaseButtonProps<S>,

@@ -1,0 +1,7 @@
+.warning_withBackground {
+  background-color: var(--coral-color-warning-background);
+  box-shadow: var(--coral-elevation-shadow-warning);
+}
+.warning__icon {
+  color: var(--coral-color-warning-icon);
+}

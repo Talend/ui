@@ -1,14 +1,15 @@
 import { cloneElement, forwardRef, Ref } from 'react';
-import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Clickable, ClickableProps } from '../Clickable';
-import { Icon } from '../Icon/Icon';
-import { LinkComponentProps } from '../Link';
 
-import sharedLinkableStyles from '../Linkable/LinkableStyles.module.scss';
-import linkStyles from '../Link/Link.module.scss';
+import classnames from 'classnames';
+
+import { Clickable, ClickableProps } from '../Clickable';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { SizedIcon } from '../Icon';
+import { Icon } from '../Icon/Icon';
+import { LinkComponentProps } from '../Link';
+import linkStyles from '../Link/Link.module.css';
+import sharedLinkableStyles from '../Linkable/LinkableStyles.module.css';
 
 export type LinkAsButtonProps = Omit<ClickableProps, 'className'> &
 	Omit<LinkComponentProps, 'hideExternalIcon'> & { openInNewTab?: boolean };

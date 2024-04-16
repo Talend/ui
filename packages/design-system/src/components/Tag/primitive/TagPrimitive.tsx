@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes, Ref } from 'react';
 
-import style from './TagPrimitive.module.scss';
+import style from './TagPrimitive.module.css';
 
 export type TagProps = Omit<HTMLAttributes<HTMLSpanElement>, 'style'>;
 

@@ -6,8 +6,7 @@ import classnames from 'classnames';
 import { useControl } from '../../../../useControl';
 import { useId } from '../../../../useId';
 import { CheckboxPrimitiveType } from '../../Primitives';
-
-import styles from './Input.ToggleSwitch.module.scss';
+import styles from './Input.ToggleSwitch.module.css';
 
 export type ToggleSwitchPropTypes = Omit<CheckboxPrimitiveType, 'onChange'> & {
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;

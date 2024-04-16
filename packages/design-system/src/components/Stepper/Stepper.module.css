@@ -1,0 +1,25 @@
+.stepper {
+  position: relative;
+  display: inline-flex;
+}
+.stepper .stepper__steps {
+  padding: 0;
+}
+.stepper_vertical {
+  justify-content: flex-end;
+  width: 12.5rem;
+}
+.stepper_vertical .stepper__steps {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  gap: 3.125rem;
+  width: 100%;
+}
+.stepper_horizontal .stepper__steps {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+}

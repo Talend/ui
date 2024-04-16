@@ -1,6 +1,6 @@
 import { forwardRef, Ref } from 'react';
 
-import styles from './DropdownTitle.module.scss';
+import styles from './DropdownTitle.module.css';
 
 export type DropdownTitleType = { children: string };
 

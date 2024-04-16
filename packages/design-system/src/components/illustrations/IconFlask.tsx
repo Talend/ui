@@ -1,4 +1,4 @@
-import styles from './IconDefault.module.scss';
+import styles from './IconDefault.module.css';
 
 export function IconFlask() {
 	return (

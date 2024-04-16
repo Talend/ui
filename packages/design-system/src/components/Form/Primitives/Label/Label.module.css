@@ -1,0 +1,9 @@
+.label {
+  font: var(--coral-paragraph-s-bold);
+  margin: 0;
+  padding: 0;
+  color: var(--coral-color-neutral-text);
+}
+.label_inline {
+  font: var(--coral-paragraph-m);
+}

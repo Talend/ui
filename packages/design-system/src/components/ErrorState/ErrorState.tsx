@@ -1,14 +1,12 @@
-import { ReactElement, isValidElement } from 'react';
+import { isValidElement, ReactElement } from 'react';
 
 import { ButtonPrimary } from '../Button';
 import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';
 import { Link } from '../Link';
 import { LinkProps } from '../Link/Link';
 import { StackVertical } from '../Stack';
-
+import styles from './ErrorState.module.css';
 import ErrorIllustration from './illutstrations/ErrorIllustration';
-
-import styles from './ErrorState.module.scss';
 
 export type ErrorStatePropTypes = {
 	title: string;

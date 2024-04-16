@@ -1,4 +1,4 @@
-import styles from './SpotDefault.module.scss';
+import styles from './SpotDefault.module.css';
 
 export default function SpotDefault() {
 	return (

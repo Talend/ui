@@ -9,9 +9,8 @@ import { InlineEditing } from '../../InlineEditing';
 import { InlineMessageDestructive } from '../../InlineMessage';
 import { StackHorizontal, StackVertical } from '../../Stack';
 import { EnumerationMode } from '../Enumeration.types';
+import styles from './EnumerationHeader.module.css';
 import { EnumerationHeaderProps } from './EnumerationIHeader.types';
-
-import styles from './EnumerationHeader.module.scss';
 
 export const EnumerationHeader = ({
 	filteredItems,

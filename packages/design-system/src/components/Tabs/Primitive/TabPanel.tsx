@@ -3,8 +3,7 @@ import { useContext } from 'react';
 import classNames from 'classnames';
 
 import { TabsInternalContext } from './TabsProvider';
-
-import style from './TabStyles.module.scss';
+import style from './TabStyles.module.css';
 
 export type TabPanelPropTypes = {
 	id: string;

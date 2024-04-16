@@ -13,8 +13,7 @@ import BadgePrimitive, {
 	BadgeDropdownItem,
 	BadgePrimitiveProps,
 } from '../primitive/BadgePrimitive';
-
-import styles from './BadgeDropdown.module.scss';
+import styles from './BadgeDropdown.module.css';
 
 // --------------------------------------------------
 // Badge Dropdown button

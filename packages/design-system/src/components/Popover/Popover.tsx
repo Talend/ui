@@ -8,9 +8,8 @@ import tokens from '@talend/design-tokens';
 
 import { renderChildren } from '../../renderChildren';
 import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
+import theme from './Popover.module.css';
 import { usePopover } from './usePopover';
-
-import theme from './Popover.module.scss';
 
 type PopoverOptions = {
 	initialOpen?: boolean;

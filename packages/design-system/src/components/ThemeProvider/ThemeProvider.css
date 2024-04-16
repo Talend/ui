@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: var(--coral-paragraph-m);
+  color: var(--coral-color-neutral-text);
+  background-color: var(--coral-color-neutral-background);
+}
+
+a {
+  text-decoration: none;
+}
+
+[role=list] {
+  margin: 0;
+  padding: 0;
+}
+
+.focus-outline-hidden *:focus {
+  outline: none;
+}
+
+::selection {
+  color: var(--coral-color-neutral-text);
+  background-color: var(--coral-color-accent-background-selected);
+}

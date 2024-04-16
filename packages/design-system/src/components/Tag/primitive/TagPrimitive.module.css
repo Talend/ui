@@ -1,0 +1,11 @@
+.tag {
+  display: inline-block;
+  padding: 0 var(--coral-spacing-xxs);
+  max-width: var(--coral-sizing-maximal);
+  font: var(--coral-paragraph-s-bold);
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-radius: var(--coral-radius-s);
+}

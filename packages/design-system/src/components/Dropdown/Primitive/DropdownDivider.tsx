@@ -1,6 +1,6 @@
-import { forwardRef, Ref, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 
-import styles from './DropdownDivider.module.scss';
+import styles from './DropdownDivider.module.css';
 
 export type DropdownDividerType = HTMLAttributes<HTMLHRElement>;
 

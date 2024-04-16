@@ -3,7 +3,7 @@ import type { Ref } from 'react';
 
 import classnames from 'classnames';
 
-import styles from './StackItem.module.scss';
+import styles from './StackItem.module.css';
 
 export const alignOptions = {
 	auto: 'align-auto',

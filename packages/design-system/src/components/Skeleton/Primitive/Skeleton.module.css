@@ -1,0 +1,33 @@
+.skeleton {
+  display: inline-block;
+  height: var(--coral-sizing-m);
+  width: var(--coral-sizing-m);
+  background: var(--coral-color-neutral-background-strong);
+  animation: var(--coral-animation-heartbeat);
+  border-radius: var(--coral-radius-s);
+  cursor: wait;
+}
+.skeleton.isBlock {
+  display: block;
+  width: 100%;
+}
+
+.size-XL {
+  height: var(--coral-sizing-m);
+}
+
+.size-L {
+  height: var(--coral-sizing-s);
+}
+
+.size-M {
+  height: var(--coral-sizing-xxxs);
+}
+
+.size-S {
+  height: var(--coral-sizing-minimal);
+}
+
+.size-XS {
+  height: var(--coral-spacing-xs);
+}

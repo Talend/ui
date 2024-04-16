@@ -1,0 +1,12 @@
+.popover {
+  background-color: var(--coral-color-neutral-background);
+  transition: opacity var(--coral-transition-fast);
+  box-shadow: var(--coral-elevation-shadow-neutral-m);
+  border-radius: var(--coral-radius-s);
+  z-index: var(--coral-elevation-layer-interactive-front);
+  opacity: 1;
+}
+
+.withPadding {
+  padding: var(--coral-spacing-m);
+}

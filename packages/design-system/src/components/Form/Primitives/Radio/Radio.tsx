@@ -1,11 +1,11 @@
 import { forwardRef, InputHTMLAttributes, Ref } from 'react';
 
 import classnames from 'classnames';
-import Label from '../Label/Label';
-import useReadOnly from '../../../Form/Field/Input/hooks/useReadOnly';
 
-import styles from './Radio.module.scss';
 import { useId } from '../../../../useId';
+import useReadOnly from '../../../Form/Field/Input/hooks/useReadOnly';
+import Label from '../Label/Label';
+import styles from './Radio.module.css';
 
 export type RadioPrimitiveType = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'prefix'> & {
 	label: string;

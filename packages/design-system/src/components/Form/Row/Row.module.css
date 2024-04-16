@@ -1,0 +1,9 @@
+.row {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--coral-spacing-l);
+  align-self: start;
+}
+.row_stretched {
+  align-self: stretch;
+}

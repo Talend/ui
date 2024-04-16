@@ -1,6 +1,7 @@
 import { forwardRef, Ref } from 'react';
+
 import Progress, { ProgressProps } from '../Primitive/Progress';
-import styles from './Progress.vertical.module.scss';
+import styles from './Progress.vertical.module.css';
 
 type ProgressVerticalTypes = Omit<ProgressProps, 'className' | 'orientation'>;
 

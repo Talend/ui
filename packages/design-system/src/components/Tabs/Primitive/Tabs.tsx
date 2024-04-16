@@ -9,8 +9,7 @@ import { StackHorizontal } from '../../Stack';
 import { TagDefault } from '../../Tag';
 import { Tooltip } from '../../Tooltip';
 import { TabsInternalContext } from './TabsProvider';
-
-import style from './TabStyles.module.scss';
+import style from './TabStyles.module.css';
 
 export type TabsPropTypes = {
 	children: React.ReactNode[];

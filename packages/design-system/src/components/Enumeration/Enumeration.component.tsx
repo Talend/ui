@@ -5,11 +5,10 @@ import { AutoSizer, InfiniteLoader, List } from 'react-virtualized';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { EmptyState } from '../EmptyState';
 import { StackHorizontal } from '../Stack';
+import styles from './Enumeration.module.css';
 import { EnumerationMode, EnumerationProps, UiEnumerationItem } from './Enumeration.types';
 import { EnumerationHeader } from './EnumerationHeader/EnumerationHeader.component';
 import { EnumerationItem } from './EnumerationItem/EnumerationItem.component';
-
-import styles from './Enumeration.module.scss';
 
 const ENUMERATION_ITEM_HEIGHT = 38;
 

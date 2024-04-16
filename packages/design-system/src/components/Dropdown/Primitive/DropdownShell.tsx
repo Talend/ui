@@ -1,7 +1,8 @@
 import { forwardRef } from 'react';
 import type { HTMLAttributes, ReactNode } from 'react';
-import styles from './DropdownShell.module.scss';
+
 import { StackVertical } from '../../Stack';
+import styles from './DropdownShell.module.css';
 
 type ShellProps = HTMLAttributes<HTMLDivElement> & {
 	onClick: () => void;

@@ -1,0 +1,63 @@
+.affix {
+  display: inline-flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  color: var(--coral-color-neutral-text);
+  background: var(--coral-color-neutral-background-strong);
+  padding: 0 var(--coral-spacing-xs);
+  justify-content: center;
+  align-items: center;
+  font: var(--coral-paragraph-m);
+  border: 0;
+  height: 100%;
+  min-height: auto;
+  max-height: var(--coral-sizing-m);
+  transition: var(--coral-transition-fast);
+  border-radius: 2px 0 0 2px;
+  border-right: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+}
+.affix_isSuffix {
+  border-radius: 0 2px 2px 0;
+  border-right: 0;
+  border-left: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+}
+.affix__icon {
+  width: var(--coral-sizing-xxxs);
+  height: var(--coral-sizing-xxxs);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.affix__icon > svg {
+  width: var(--coral-sizing-minimal);
+  height: var(--coral-sizing-minimal);
+}
+.affix__caret {
+  width: var(--coral-sizing-minimal);
+  height: var(--coral-sizing-minimal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.affix__caret > svg {
+  width: var(--coral-sizing-minimal);
+  height: var(--coral-sizing-minimal);
+}
+.affix.button {
+  color: var(--coral-color-accent-text);
+  background: var(--coral-color-accent-background);
+  cursor: pointer;
+}
+.affix.button:hover {
+  color: var(--coral-color-accent-text-hover);
+  background: var(--coral-color-accent-background-hover);
+}
+.affix.button:active {
+  color: var(--coral-color-accent-text-active);
+  background: var(--coral-color-accent-background-active);
+}
+.affix.button:disabled {
+  color: var(--coral-color-neutral-text-weak);
+  background: var(--coral-color-neutral-background-strong);
+  cursor: not-allowed;
+}

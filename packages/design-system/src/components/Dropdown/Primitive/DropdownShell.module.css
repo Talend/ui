@@ -1,0 +1,17 @@
+.dropdownShell {
+  z-index: var(--coral-elevation-layer-interactive-front);
+  position: absolute;
+  width: max-content;
+  top: 0;
+  left: 0;
+}
+.dropdownShell .animatedZone {
+  background: var(--coral-color-neutral-background);
+  border-radius: var(--coral-radius-s);
+  box-shadow: var(--coral-elevation-shadow-neutral-m);
+  max-height: var(--coral-sizing-maximal);
+  overflow: auto;
+  min-width: calc(var(--coral-sizing-maximal) / 2);
+  max-width: var(--coral-sizing-maximal);
+  transition: var(--coral-transition-fast);
+}

@@ -11,9 +11,8 @@ import { Form } from '../../Form';
 import { InlineEditing } from '../../InlineEditing';
 import { Skeleton } from '../../Skeleton';
 import { EnumerationMode } from '../Enumeration.types';
+import styles from './EnumerationItem.module.css';
 import { EnumerationItemProps } from './EnumerationItem.types';
-
-import styles from './EnumerationItem.module.scss';
 
 export const EnumerationItem = ({
 	isToAnimate,

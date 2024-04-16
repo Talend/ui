@@ -1,0 +1,78 @@
+.textarea {
+  background: transparent;
+  color: var(--coral-color-neutral-text);
+  padding: var(--coral-spacing-xs);
+  font: var(--coral-paragraph-m);
+  line-height: 1;
+  border: 0;
+  margin: 0;
+  transition: var(--coral-transition-instant);
+  display: block;
+  flex-grow: 1;
+  width: 100%;
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border);
+  box-shadow: 0 0 0 0 transparent;
+  border-radius: var(--coral-radius-s);
+  transition: var(--coral-transition-instant);
+  background: var(--coral-color-neutral-background);
+  min-height: calc(var(--coral-sizing-l) * 2);
+  max-height: var(--coral-sizing-xxxl);
+  resize: vertical;
+  line-height: 140%;
+}
+.textarea:only-child {
+  border-radius: var(--coral-radius-s);
+}
+.textarea:disabled, .textarea_disabled {
+  color: var(--coral-color-neutral-text-disabled);
+  cursor: not-allowed;
+}
+.textarea_readOnly {
+  color: var(--coral-color-neutral-text);
+}
+.textarea:focus {
+  outline: 0;
+}
+.textarea:disabled {
+  color: var(--coral-color-neutral-text-disabled);
+}
+.textarea::placeholder {
+  color: var(--coral-color-neutral-text-weak);
+  opacity: var(--coral-opacity-s);
+}
+.textarea[disabled] {
+  opacity: 1;
+}
+.textarea[disabled] > option {
+  color: var(--coral-color-neutral-text);
+}
+.textarea:hover {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-strong-hover);
+}
+.textarea_disabled {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-disabled);
+}
+.textarea_readOnly {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+  background: var(--coral-color-neutral-background-strong);
+}
+.textarea_disabled:hover {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-disabled);
+}
+.textarea_readOnly:hover {
+  border: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+}
+.textarea:focus-within, .textarea:focus {
+  border: var(--coral-border-s-solid) var(--coral-color-accent-border);
+  box-shadow: 0 0 0 0.0625rem var(--coral-color-accent-border);
+}
+.textarea_borderError {
+  border: var(--coral-border-s-solid) var(--coral-color-danger-border);
+}
+.textarea_borderError:hover {
+  border: var(--coral-border-s-solid) var(--coral-color-danger-border-hover);
+}
+.textarea_borderError:focus-within, .textarea_borderError:focus {
+  border: var(--coral-border-s-solid) var(--coral-color-danger-border);
+  box-shadow: 0 0 0 0.0625rem var(--coral-color-danger-border);
+}

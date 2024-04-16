@@ -1,6 +1,6 @@
-import { forwardRef, Ref, HTMLAttributes, RefAttributes } from 'react';
+import { forwardRef, HTMLAttributes, Ref, RefAttributes } from 'react';
 
-import style from './Divider.module.scss';
+import style from './Divider.module.css';
 
 export type DividerOptions = {
 	/**

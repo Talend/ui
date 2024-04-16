@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import type { MouseEvent, ReactElement, ButtonHTMLAttributes, Ref } from 'react';
+import type { ButtonHTMLAttributes, MouseEvent, ReactElement, Ref } from 'react';
 
 import classnames from 'classnames';
 
@@ -12,8 +12,7 @@ import { Clickable } from '../../Clickable';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 import { Loading } from '../../Loading';
 import { Tooltip, TooltipPlacement } from '../../Tooltip';
-
-import styles from './ButtonIcon.module.scss';
+import styles from './ButtonIcon.module.css';
 
 export type AvailableSizes = 'M' | 'S' | 'XS';
 export type PossibleVariants = 'toggle' | 'floating' | 'default';

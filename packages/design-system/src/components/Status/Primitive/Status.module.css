@@ -1,0 +1,40 @@
+.status {
+  display: flex;
+  font: var(--coral-paragraph-m-bold);
+  color: var(--coral-color-neutral-text-weak);
+}
+.status .status__icon {
+  width: var(--coral-sizing-xxxs);
+  color: var(--coral-color-neutral-icon-weak);
+}
+.status .status__text {
+  white-space: nowrap;
+}
+.status .status__icon, .status .status__text {
+  display: inline-flex;
+  align-items: center;
+}
+.status.failed {
+  color: var(--coral-color-danger-text);
+}
+.status.failed .status__icon {
+  color: var(--coral-color-danger-icon);
+}
+.status.successful {
+  color: var(--coral-color-success-text);
+}
+.status.successful .status__icon {
+  color: var(--coral-color-success-icon);
+}
+.status.inProgress {
+  color: var(--coral-color-info-text);
+}
+.status.inProgress .status__icon {
+  color: var(--coral-color-info-icon);
+}
+.status.warning {
+  color: var(--coral-color-warning-text);
+}
+.status.warning .status__icon {
+  color: var(--coral-color-warning-icon);
+}

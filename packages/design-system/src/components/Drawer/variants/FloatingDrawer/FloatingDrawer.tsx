@@ -1,10 +1,10 @@
-import { useEffect, useState, cloneElement } from 'react';
+import { cloneElement, useEffect, useState } from 'react';
 import type { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { Transition } from 'react-transition-group';
-import { PrimitiveDrawer } from '../../Primitive/PrimitiveDrawer';
 
-import theme from './FloatingDrawer.module.scss';
 import { useId } from '../../../../useId';
+import { PrimitiveDrawer } from '../../Primitive/PrimitiveDrawer';
+import theme from './FloatingDrawer.module.css';
 
 type WithDisclosure = {
 	disclosure: ReactElement;

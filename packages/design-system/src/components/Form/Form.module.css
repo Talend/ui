@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto;
+  width: 100%;
+  font: var(--coral-paragraph-m);
+  gap: var(--coral-spacing-s);
+}
+.form fieldset {
+  padding: 0;
+  border: none;
+}

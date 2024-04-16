@@ -1,6 +1,8 @@
 import { forwardRef, Ref, TextareaHTMLAttributes } from 'react';
+
 import classnames from 'classnames';
-import styles from './Textarea.module.scss';
+
+import styles from './Textarea.module.css';
 
 export type TextareaPrimitiveProps = TextareaHTMLAttributes<any> & { hasError?: boolean };
 

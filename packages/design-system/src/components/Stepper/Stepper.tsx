@@ -1,11 +1,11 @@
-import classnames from 'classnames';
 import { Children, cloneElement, forwardRef, ReactElement, Ref, useMemo } from 'react';
 import { isElement } from 'react-is';
 
+import classnames from 'classnames';
+
 import ProgressHorizontal from './Progress/variations/Progress.horizontal';
 import ProgressVertical from './Progress/variations/Progress.vertical';
-
-import styles from './Stepper.module.scss';
+import styles from './Stepper.module.css';
 
 export type StepperOrientation = 'horizontal' | 'vertical';
 

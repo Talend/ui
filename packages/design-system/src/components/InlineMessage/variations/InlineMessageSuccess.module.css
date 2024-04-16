@@ -1,0 +1,7 @@
+.success_withBackground {
+  background-color: var(--coral-color-success-background);
+  box-shadow: var(--coral-elevation-shadow-success);
+}
+.success__icon {
+  color: var(--coral-color-success-icon);
+}

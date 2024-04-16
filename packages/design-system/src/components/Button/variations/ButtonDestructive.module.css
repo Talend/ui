@@ -1,0 +1,16 @@
+.destructive {
+  color: var(--coral-color-danger-text-weak);
+  background: var(--coral-color-danger-background-strong);
+}
+.destructive:hover {
+  color: var(--coral-color-danger-text-weak-hover);
+  background: var(--coral-color-danger-background-strong-hover);
+}
+.destructive:active {
+  color: var(--coral-color-danger-text-weak-active);
+  background: var(--coral-color-danger-background-strong-active);
+}
+.destructive:disabled, .destructive[aria-disabled=true], .destructive[aria-busy=true] {
+  background: var(--coral-color-neutral-background-disabled);
+  color: var(--coral-color-neutral-text-disabled);
+}

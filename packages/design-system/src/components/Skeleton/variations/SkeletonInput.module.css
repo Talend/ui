@@ -1,0 +1,7 @@
+.skeleton-input {
+  height: 1.875rem;
+}
+.skeleton-input__label {
+  width: 100%;
+  max-width: calc(var(--coral-sizing-l) * 2);
+}

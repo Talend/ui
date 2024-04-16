@@ -1,0 +1,7 @@
+.information_withBackground {
+  background-color: var(--coral-color-info-background);
+  box-shadow: var(--coral-elevation-shadow-info);
+}
+.information__icon {
+  color: var(--coral-color-info-icon);
+}

@@ -1,13 +1,14 @@
 import { forwardRef, HTMLAttributes, Ref } from 'react';
+
 import classnames from 'classnames';
+
 import { IconNameWithSize } from '@talend/icons';
 
 import { DeprecatedIconNames } from '../../../../types';
+import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
 import { StackHorizontal } from '../../../Stack';
 import { VisuallyHidden } from '../../../VisuallyHidden';
-import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
-
-import styles from '../AffixStyles.module.scss';
+import styles from '../AffixStyles.module.css';
 
 type CommonAffixReadOnlyPropsType = {
 	children: string;

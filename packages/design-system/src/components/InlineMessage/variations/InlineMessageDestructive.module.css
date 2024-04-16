@@ -1,0 +1,7 @@
+.destructive_withBackground {
+  background-color: var(--coral-color-danger-background);
+  box-shadow: var(--coral-elevation-shadow-danger);
+}
+.destructive__icon {
+  color: var(--coral-color-danger-icon);
+}

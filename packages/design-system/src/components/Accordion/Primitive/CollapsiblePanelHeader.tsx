@@ -10,9 +10,8 @@ import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 import { Status } from '../../Status';
 import { variants } from '../../Status/Primitive/StatusPrimitive';
+import styles from './CollapsiblePanelHeader.module.css';
 import { PanelHeaderAction } from './types';
-
-import styles from './CollapsiblePanelHeader.module.scss';
 
 export type CollapsiblePanelHeaderPropsType = {
 	controlId: string;

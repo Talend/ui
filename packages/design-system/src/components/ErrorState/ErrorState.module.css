@@ -1,0 +1,6 @@
+.error-state {
+  font: var(--coral-paragraph-m);
+}
+.error-state__title {
+  font: var(--coral-heading-m);
+}

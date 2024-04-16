@@ -3,8 +3,7 @@ import { forwardRef, Ref } from 'react';
 import InlineMessagePrimitive, {
 	BaseInlineMessageProps,
 } from '../Primitive/InlineMessagePrimitive';
-
-import styles from './InlineMessageInformation.module.scss';
+import styles from './InlineMessageInformation.module.css';
 
 export type InlineMessageInformationProps = Omit<
 	BaseInlineMessageProps,

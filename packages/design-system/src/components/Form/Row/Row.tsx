@@ -1,9 +1,10 @@
-import { forwardRef, Children, cloneElement } from 'react';
-import type { Ref, HTMLAttributes } from 'react';
+import { Children, cloneElement, forwardRef } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 import { isElement } from 'react-is';
 
-import styles from './Row.module.scss';
 import classNames from 'classnames';
+
+import styles from './Row.module.css';
 
 type RowProps = HTMLAttributes<HTMLDivElement> & {
 	disabled?: boolean;

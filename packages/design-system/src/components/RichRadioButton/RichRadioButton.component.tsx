@@ -1,15 +1,16 @@
-import {
-	RichRadioButtonProps,
-	LogoAsset,
-	IllustrationAsset,
-	IconAsset,
-} from './RichRadioButton.types';
-import { StackVertical, StackHorizontal } from '../Stack';
-import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
-import style from './RichRadioButton.module.scss';
-import { Tag } from '../Tag';
-import { Icon } from '../Icon';
 import { DataAttributes } from 'src/types';
+
+import { Icon } from '../Icon';
+import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
+import { StackHorizontal, StackVertical } from '../Stack';
+import { Tag } from '../Tag';
+import style from './RichRadioButton.module.css';
+import {
+	IconAsset,
+	IllustrationAsset,
+	LogoAsset,
+	RichRadioButtonProps,
+} from './RichRadioButton.types';
 
 function RichRadioButtonIcon({ asset }: { asset?: LogoAsset | IllustrationAsset | IconAsset }) {
 	if (asset?.illustration) {
