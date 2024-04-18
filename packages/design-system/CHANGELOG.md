@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.3.0
+
+### Minor Changes
+
+- 8bf0dd5: feat(DGT-342): Moved QualityBar and RatioBar components to the Design System and use those components on @talend/react-components
+
 ## 10.2.2
 
 ### Patch Changes

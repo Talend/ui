@@ -281,7 +281,9 @@ module.exports = ({ getUserConfig, mode }) => {
 			},
 			devtool: 'source-map',
 			resolve: {
-				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
+				extensions: ['.js', '.jsx', useTypescript && '.ts', useTypescript && '.tsx'].filter(
+					Boolean,
+				),
 				fallback: {
 					url: false,
 				},
@@ -295,7 +297,7 @@ module.exports = ({ getUserConfig, mode }) => {
 						enforce: 'pre',
 					},
 					{
-						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
+						test: useTypescript ? /\.(js|jsx|ts|tsx)$/ : /\.(js|jsx)$/,
 						exclude: /node_modules/,
 						include: srcDirectories,
 						use: getJSAndTSLoader(),
