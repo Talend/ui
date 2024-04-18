@@ -3,13 +3,13 @@
   "version": "19.0.0",
   "description": "Faceted search",
   "main": "lib/index.js",
-  "module": "./lib/esm/index.js",
+  "module": "./lib-esm/index.js",
   "exports": {
     "./package.json": "./package.json",
     "./lib/*": {
       "import": {
-        "types": "./lib/esm/*/index.d.ts",
-        "default": "./lib/esm/*/index.js"
+        "types": "./lib-esm/*/index.d.ts",
+        "default": "./lib-esm/*/index.js"
       },
       "require": {
         "types": "./lib/*/index.d.ts",
@@ -18,8 +18,8 @@
     },
     ".": {
       "import": {
-        "types": "./lib/esm/index.d.ts",
-        "default": "./lib/esm/index.js"
+        "types": "./lib-esm/index.d.ts",
+        "default": "./lib-esm/index.js"
       },
       "require": {
         "types": "./lib/index.d.ts",
@@ -33,7 +33,7 @@
     "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
-    "build:lib:esm": "tsc --project ./tsconfig.esm.json && cpx 'src/**/*.{scss,json}' lib/esm --verbose",
+    "build:lib:esm": "tsc --project ./tsconfig.esm.json && cpx 'src/**/*.{scss,json}' lib-esm --verbose",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",

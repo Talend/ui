@@ -3,13 +3,13 @@
   "description": "A set of API designed to access assets using CDN",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
-  "module": "./lib/esm/index.js",
+  "module": "./lib-esm/index.js",
   "exports": {
     "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./lib/esm/index.d.ts",
-        "default": "./lib/esm/index.js"
+        "types": "./lib-esm/index.d.ts",
+        "default": "./lib-esm/index.js"
       },
       "require": {
         "types": "./lib/index.d.ts",
