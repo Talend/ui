@@ -13,6 +13,11 @@ module.exports = {
 			chunkFilename: '[name].min.css',
 		}),
 	],
+	resolve: {
+		alias: {
+			'@talend/design-tokens/lib/tokens': require.resolve('@talend/design-tokens/lib/tokens'),
+		},
+	},
 	module: {
 		rules: [
 			{
@@ -39,7 +44,11 @@ module.exports = {
 					},
 					{
 						loader: require.resolve('sass-loader'),
-						options: { sourceMap: true },
+						options: {
+							// implementation: require('sass-embedded'),
+							api: 'modern-compiler',
+							sourceMap: true,
+						},
 					},
 				],
 			},

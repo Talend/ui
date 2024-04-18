@@ -39,10 +39,10 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.0.3",
     "@talend/eslint-plugin": "^1.1.1",
-    "@talend/scripts-core": "^16.3.5",
     "@talend/scripts-config-babel": "^13.3.1",
     "@talend/scripts-config-storybook-lib": "^5.3.1",
     "@talend/scripts-config-typescript": "^11.2.1",
+    "@talend/scripts-core": "^16.3.5",
     "@types/node": "^6.14.13",
     "@types/react": "^18.2.60",
     "@types/react-dom": "^18.2.19",
@@ -50,8 +50,9 @@
     "mini-css-extract-plugin": "^2.8.1",
     "postcss-loader": "^7.3.4",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.71.1",
-    "sass-loader": "^13.3.3",
+    "sass": "^1.75.0",
+    "sass-embedded": "^1.75.0",
+    "sass-loader": "^14.2.0",
     "webpack": "^5.90.3",
     "webpack-cli": "^4.10.0"
   }

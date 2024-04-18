@@ -5,8 +5,23 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "types": "./lib/index.d.ts",
+  "module": "./lib/esm/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    }
+  },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "tsc --project ./tsconfig.esm.json",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },
