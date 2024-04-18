@@ -60,6 +60,7 @@ module.exports = (env, argv) => {
 							loader: require.resolve('sass-loader'),
 							options: {
 								sourceMap: true,
+								sassOptions: { includePaths: ['./node_modules', '../../node_modules'] },
 							},
 						},
 					],
