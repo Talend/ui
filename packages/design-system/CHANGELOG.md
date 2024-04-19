@@ -1,5 +1,16 @@
 # @talend/design-system
 
+## 10.4.0
+
+### Minor Changes
+
+- da2218d: chore: remove bootstrap-theme dependency from QualityBar and RatioBar components
+
+### Patch Changes
+
+- Updated dependencies [48865e5]
+  - @talend/design-tokens@3.2.0
+
 ## 10.3.0
 
 ### Minor Changes
