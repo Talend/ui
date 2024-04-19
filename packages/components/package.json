@@ -32,7 +32,7 @@
     "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build && yarn run tsc",
-    "build:lib:esm": "tsc --project ./tsconfig.esm.json && cpx 'src/**/*.{scss,json}' lib-esm --verbose",
+    "build:lib:esm": "talend-scripts build --esm",
     "watch": "talend-scripts build --watch",
     "tsc": "tsc --emitDeclarationOnly --project ./tsconfig.json --outDir ./types",
     "test": "cross-env TZ=UTC talend-scripts test",

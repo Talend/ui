@@ -26,7 +26,7 @@
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
-    "build:lib:esm": "tsc --project ./tsconfig.esm.json",
+    "build:lib:esm": "talend-scripts build --esm",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "lint": "talend-scripts lint",

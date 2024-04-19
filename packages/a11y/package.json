@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build",
-    "build:lib:esm": "tsc --project ./tsconfig.esm.json",
+    "build:lib:esm": "talend-scripts build --esm",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },

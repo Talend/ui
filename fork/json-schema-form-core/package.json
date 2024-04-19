@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build:lib": "rimraf dist && talend-scripts build --umd",
-    "build:lib:esm": "tsc --project ./tsconfig.esm.json",
+    "build:lib:esm": "talend-scripts build --esm",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "test:cov": "npm run test",
