@@ -286,6 +286,17 @@ module.exports = ({ getUserConfig, mode }) => {
 				),
 				fallback: {
 					url: false,
+					path: require.resolve('path-browserify'),
+				},
+				alias: {
+					'~@talend/design-tokens/lib/tokens': require.resolve('@talend/design-tokens/lib/tokens'),
+					'@talend/design-tokens/lib/tokens': require.resolve('@talend/design-tokens/lib/tokens'),
+					'~@talend/design-tokens/lib/_tokens.scss': require.resolve(
+						'@talend/design-tokens/lib/_tokens.scss',
+					),
+					'@talend/design-tokens/lib/_tokens.scss': require.resolve(
+						'@talend/design-tokens/lib/_tokens.scss',
+					),
 				},
 			},
 			module: {
