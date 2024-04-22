@@ -20,7 +20,7 @@
       "require": "./lib/*"
     },
     "./dist/*": {
-      "import": "./lib-esm/dist/*",
+      "import": "./dist/*",
       "require": "./dist/*"
     },
     ".": {

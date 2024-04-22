@@ -8,19 +8,13 @@
   "exports": {
     "./package.json": "./package.json",
     "./src/*": {
-      "import": {
-        "types": "./lib-esm/src/*",
-        "default": "./lib-esm/src/*"
-      },
-      "require": {
-        "types": "./src/*",
-        "default": "./src/*"
-      }
+      "import": "./src/*",
+      "require": "./src/*"
     },
     "./dist/typeUtils": {
       "import": {
-        "types": "./lib-esm/src/typeUtils.d.ts",
-        "default": "./lib-esm/src/typeUtils.js"
+        "types": "./lib-esm/typeUtils.d.ts",
+        "default": "./lib-esm/typeUtils.js"
       },
       "require": {
         "types": "./dist/typeUtils.d.ts",
@@ -32,10 +26,7 @@
         "types": "./lib-esm/index.d.ts",
         "default": "./lib-esm/index.js"
       },
-      "require": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      }
+      "require": "./index.js"
     }
   },
   "license": "Apache-2.0",
