@@ -52,7 +52,7 @@ jobs:
 
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 #v5.0.2
+        uses: peter-evans/create-pull-request@9153d834b60caba6d51c9b9510b087acf9f33f83 #v6.0.4
         with:
           commit-message: "chore(icons): from Figma"
           title: "chore(icons): from Figma"
