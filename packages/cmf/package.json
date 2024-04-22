@@ -16,6 +16,10 @@
         "types": "./lib/index.d.ts",
         "default": "./lib/index.js"
       }
+    },
+    "./lib/*": {
+      "import": "./lib-esm/*",
+      "require": "./lib/*"
     }
   },
   "scripts": {

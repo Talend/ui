@@ -12,8 +12,8 @@
         "default": "./lib-esm/index.js"
       },
       "require": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     }
   },
