@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.4.1
+
+### Patch Changes
+
+- d25ebf0: Fix Design System dropdown items when using "as" property for links
+
 ## 10.4.0
 
 ### Minor Changes
