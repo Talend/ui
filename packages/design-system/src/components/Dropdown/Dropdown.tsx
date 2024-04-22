@@ -31,7 +31,6 @@ type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 type DropdownLinkType = Omit<LinkableType, 'children'> & {
 	label: string;
 	type: 'link';
-	as: ReactElement;
 } & DataAttributes;
 
 type DropdownLabelType = {

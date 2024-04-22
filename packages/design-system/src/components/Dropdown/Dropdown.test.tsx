@@ -1,8 +1,11 @@
-import { describe, it, expect } from '@jest/globals';
-import { axe } from 'jest-axe';
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+
+import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
-import { Dropdown } from './';
+import { axe } from 'jest-axe';
+
 import { ButtonTertiary } from '../Button';
+import { Dropdown } from './';
 
 jest.mock('@talend/utils', () => {
 	let i = 0;
@@ -15,39 +18,46 @@ jest.mock('@talend/utils', () => {
 describe('Dropdown', () => {
 	it('should render a11y html', async () => {
 		const { container } = render(
-			<main>
-				<Dropdown
-					aria-label="Custom menu"
-					items={[
-						{
-							label: 'External link',
-							href: 'https://community.talend.com/s/?language=en_US',
-							target: '_blank',
-							type: 'link',
-						},
-						{
-							type: 'divider',
-						},
-						{
-							label: 'Link',
-							href: '/download',
-							type: 'link',
-						},
-						{
-							type: 'divider',
-						},
-						{
-							label: 'Button',
-							onClick: jest.fn(),
-							type: 'button',
-						},
-					]}
-				>
-					<ButtonTertiary isDropdown onClick={() => {}}>
-						Dropdown
-					</ButtonTertiary>
-				</Dropdown>
-			</main>,
+			<BrowserRouter>
+				<main>
+					<Dropdown
+						aria-label="Custom menu"
+						items={[
+							{
+								label: 'External link',
+								href: 'https://community.talend.com/s/?language=en_US',
+								target: '_blank',
+								type: 'link',
+							},
+							{
+								type: 'divider',
+							},
+							{
+								label: 'Link',
+								href: '/download',
+								type: 'link',
+							},
+							{
+								type: 'divider',
+							},
+							{
+								label: 'Button',
+								onClick: jest.fn(),
+								type: 'button',
+							},
+							{
+								label: 'Link as',
+								type: 'link',
+								as: <RouterLink to="/route" />,
+							},
+						]}
+					>
+						<ButtonTertiary isDropdown onClick={() => {}}>
+							Dropdown
+						</ButtonTertiary>
+					</Dropdown>
+				</main>
+			</BrowserRouter>,
 		);
 		expect(container.firstChild).toMatchSnapshot();
 		const results = await axe(document.body);
