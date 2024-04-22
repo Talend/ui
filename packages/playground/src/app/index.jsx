@@ -16,11 +16,11 @@ import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 
 import actions from './actions';
-import ComponentFormSandbox from './components/ComponentFormSandbox';
-import { Dataviz } from './components/Dataviz';
-import { FacetedSearchPlayground } from './components/FacetedSearch';
-import { Icons } from './components/Icons';
-import { LeaguesList } from './components/List';
+import ComponentFormSandbox from './components/ComponentFormSandbox.jsx';
+import { Dataviz } from './components/Dataviz.jsx';
+import { FacetedSearchPlayground } from './components/FacetedSearch.jsx';
+import { Icons } from './components/Icons.jsx';
+import { LeaguesList } from './components/List.jsx';
 
 // thanks ui-scripts
 let basename = window.basename;

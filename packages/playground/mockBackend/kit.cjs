@@ -1,6 +1,6 @@
 const url = require('url');
 const http = require('https');
-const forms = require('./mock/kit');
+const forms = require('./mock/kit/index.cjs');
 
 function getTriggerInfo(req) {
 	return {
@@ -121,16 +121,14 @@ function updateProperties({ type }) {
 
 function giveMeFive() {
 	return res => {
-		res
-			.status(500)
-			.json({
-				timestamp: 1548781374412,
-				status: 500,
-				error: 'Internal Server Error',
-				exception: 'javax.ws.rs.ClientErrorException',
-				message: 'An internal server error occurs',
-				path: '/proxy/v1/action/execute/dataset',
-			});
+		res.status(500).json({
+			timestamp: 1548781374412,
+			status: 500,
+			error: 'Internal Server Error',
+			exception: 'javax.ws.rs.ClientErrorException',
+			message: 'An internal server error occurs',
+			path: '/proxy/v1/action/execute/dataset',
+		});
 	};
 }
 
