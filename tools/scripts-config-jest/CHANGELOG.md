@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 14.0.4
+
+### Patch Changes
+
+- 28672e6: fix: 'Reference error: \_ is not defined'
+
 ## 14.0.3
 
 ### Patch Changes
