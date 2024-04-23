@@ -21,8 +21,8 @@
         "default": "./lib-esm/*.js"
       },
       "require": {
-        "types": "./dist/*.d.ts",
-        "default": "./dist/*.js"
+        "types": "./lib/*.d.ts",
+        "default": "./lib/*.js"
       }
     },
     "./dist/*": {

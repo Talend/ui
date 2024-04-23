@@ -7,6 +7,8 @@
   "module": "./lib-esm/index.js",
   "exports": {
     "./package.json": "./package.json",
+    "./.storybook/main.js": "./.storybook/main.js",
+    "./.storybook/preview.js": "./.storybook/preview.js",
     "./src/*": {
       "import": "./src/*",
       "require": "./src/*"
