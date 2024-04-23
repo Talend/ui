@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import Typeahead from '@talend/react-components/lib/Typeahead';
 
+import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
+
 export const DEFAULT_QUICKSEARCH_OPERATOR = 'containsIgnoreCase';
 
 const getDefaultFacet = (facets = []) =>
