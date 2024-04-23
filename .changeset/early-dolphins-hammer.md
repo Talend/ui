@@ -10,4 +10,4 @@
 "@talend/bootstrap-theme": patch
 ---
 
-Fix: remove tild in @use in sass files
+Fix: remove tilde for @use in sass files
