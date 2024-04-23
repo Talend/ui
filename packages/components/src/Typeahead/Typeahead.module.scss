@@ -1,5 +1,5 @@
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 $tc-typeahead-input-color: tokens.$coral-color-neutral-text !default;
