@@ -99,9 +99,6 @@ export default defineConfig({
 			'~@talend/design-tokens/lib/tokens': fileURLToPath(
 				import.meta.resolve('@talend/design-tokens/lib/tokens'),
 			),
-			'~@talend/design-tokens/lib/_tokens.scss': fileURLToPath(
-				import.meta.resolve('@talend/design-tokens/lib/_tokens.scss'),
-			),
 		},
 	},
 });

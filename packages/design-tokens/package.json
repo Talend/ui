@@ -16,8 +16,14 @@
       "require": "./lib/_tokens.scss"
     },
     "./lib/*": {
-      "import": "./lib-esm/*",
-      "require": "./lib/*"
+      "import": {
+        "types": "./lib-esm/*.d.ts",
+        "default": "./lib-esm/*.js"
+      },
+      "require": {
+        "types": "./dist/*.d.ts",
+        "default": "./dist/*.js"
+      }
     },
     "./dist/*": {
       "import": "./dist/*",
