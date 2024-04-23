@@ -52,7 +52,7 @@ exports[`Dropdown should render a11y html 1`] = `
           data-test="dropdown.menuitem.External link-0"
           data-testid="dropdown.menuitem.External link-0"
           href="https://community.talend.com/s/?language=en_US"
-          id="mocked-uuid-5"
+          id="mocked-uuid-6"
           rel="noreferrer noopener"
           target="_blank"
         >
@@ -85,7 +85,7 @@ exports[`Dropdown should render a11y html 1`] = `
           data-test="dropdown.menuitem.Link-2"
           data-testid="dropdown.menuitem.Link-2"
           href="/download"
-          id="mocked-uuid-7"
+          id="mocked-uuid-8"
         >
           Link
         </a>
@@ -99,7 +99,7 @@ exports[`Dropdown should render a11y html 1`] = `
           class="theme-clickable"
           data-test="dropdown.menuitem.Button-4"
           data-testid="dropdown.menuitem.Button-4"
-          id="mocked-uuid-9"
+          id="mocked-uuid-10"
           role="menuitem"
           tabindex="0"
           type="button"
@@ -114,6 +114,15 @@ exports[`Dropdown should render a11y html 1`] = `
             </span>
           </div>
         </button>
+        <a
+          class="theme-linkable theme-dropdownEntry"
+          data-test="link-as"
+          data-testid="link-as"
+          href="/route"
+          id="mocked-uuid-11"
+        >
+          Link as
+        </a>
       </div>
     </div>
   </div>

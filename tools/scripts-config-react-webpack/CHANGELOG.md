@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.6.0
+
+### Minor Changes
+
+- 8c34fb1: feat: add jsx file extension support
+
 ## 16.5.1
 
 ### Patch Changes

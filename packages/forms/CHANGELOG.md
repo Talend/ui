@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 14.0.3
+
+### Patch Changes
+
+- d332ab1: Fix imports and typing
+- Updated dependencies [48865e5]
+- Updated dependencies [da2218d]
+- Updated dependencies [779fc8c]
+  - @talend/design-tokens@3.2.0
+  - @talend/design-system@10.4.0
+  - @talend/json-schema-form-core@1.2.5
+
 ## 14.0.2
 
 ### Patch Changes

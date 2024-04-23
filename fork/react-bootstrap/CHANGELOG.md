@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 2.2.3
+
+### Patch Changes
+
+- d332ab1: Fix imports and typing
+
 ## 2.2.2
 
 ### Patch Changes

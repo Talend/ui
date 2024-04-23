@@ -81,7 +81,7 @@
     "@talend/scripts-core": "^16.3.5",
     "@talend/scripts-config-babel": "^13.3.1",
     "@talend/scripts-config-jest": "^14.0.2",
-    "@talend/scripts-config-react-webpack": "^16.5.1",
+    "@talend/scripts-config-react-webpack": "^16.6.0",
     "@testing-library/react": "^14.2.1",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^4.0.2",
@@ -98,5 +98,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.4.1"
+  "version": "8.4.2"
 }
