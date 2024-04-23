@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens';
 
 $tc-headerbar-logo-width: tokens.$coral-sizing-s !default;
 $tc-headerbar-logo-full-width: 5.3125rem !default;
