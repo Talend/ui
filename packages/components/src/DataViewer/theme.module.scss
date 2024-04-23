@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens';
 
 $tc-layout-skeleton-width: 6rem !default;
 $tc-layout-skeleton-height: 6rem !default;

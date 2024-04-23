@@ -1,5 +1,5 @@
 /* stylelint-disable selector-no-qualifying-type */
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
 @use '@talend/design-tokens/lib/tokens';
 
 @mixin radio-toolbar-input($color, $opacity) {
