@@ -1,4 +1,4 @@
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 .navbar-inverse {
 	color: tokens.$coral-color-neutral-text-inverted;

@@ -1,4 +1,4 @@
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 .tc-add-facet-popover {
 	width: tokens.$coral-sizing-xxxl;

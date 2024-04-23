@@ -1,4 +1,4 @@
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 .card {
 	width: calc(#{tokens.$coral-sizing-maximal} * 1.5);

@@ -1,4 +1,4 @@
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 :global(.tc-drawer-content:has([data-drawer-absolute-footer-buttons])) {
 	margin-bottom: 66px;

@@ -1,4 +1,4 @@
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 $radio-size: tokens.$coral-sizing-xxxs;
 $mark-size: calc(#{tokens.$coral-sizing-xxs} / 2);

@@ -1,5 +1,5 @@
 /* stylelint-disable selector-no-qualifying-type */
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 .list-group-item {
 	background-color: tokens.$coral-color-neutral-background;

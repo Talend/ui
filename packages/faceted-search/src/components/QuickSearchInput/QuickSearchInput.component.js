@@ -1,8 +1,9 @@
-import { useState, useMemo } from 'react';
-import PropTypes from 'prop-types';
+import { useMemo, useState } from 'react';
+
 import get from 'lodash/get';
-import { Typeahead } from '@talend/react-components/lib/Typeahead';
-import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
+import PropTypes from 'prop-types';
+
+import Typeahead from '@talend/react-components/lib/Typeahead';
 
 export const DEFAULT_QUICKSEARCH_OPERATOR = 'containsIgnoreCase';
 
@@ -62,7 +63,7 @@ export const QuickSearchInput = ({
 								}),
 								suggestions: filteredFacets.map(a => get(a, ['properties', 'label'], null)),
 							},
-					  ]
+						]
 					: undefined
 			}
 			value={value}

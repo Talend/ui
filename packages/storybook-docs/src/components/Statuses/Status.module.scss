@@ -1,5 +1,5 @@
 /* stylelint-disable declaration-no-important */
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 .badge {
 	display: inline-flex;

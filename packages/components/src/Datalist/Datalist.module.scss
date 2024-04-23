@@ -1,5 +1,5 @@
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 $tc-datalist-items-max-height: 20rem !default;
 $tc-datalist-item-height: 2.5rem !default;

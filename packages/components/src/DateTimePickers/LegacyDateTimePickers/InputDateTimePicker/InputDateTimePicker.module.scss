@@ -1,5 +1,5 @@
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as token;
 
 $tc-datetimepicker-width: 19.375rem !default;
 $tc-datetimepicker-box-shadow: 0 0.0625rem 0.1875rem 0 rgba(0, 0, 0, 0.2) !default;
