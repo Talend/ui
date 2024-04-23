@@ -116,8 +116,8 @@ exports[`Dropdown should render a11y html 1`] = `
         </button>
         <a
           class="theme-linkable theme-dropdownEntry"
-          data-test="dropdown.menuitem.Link as-5"
-          data-testid="dropdown.menuitem.Link as-5"
+          data-test="link-as"
+          data-testid="link-as"
           href="/route"
           id="mocked-uuid-11"
         >

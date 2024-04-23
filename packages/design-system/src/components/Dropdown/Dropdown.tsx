@@ -114,6 +114,8 @@ export const Dropdown = ({
 						const id = `${label}-${index}`;
 						return (
 							<DropdownButton
+								data-testid={`${menuItemTestId}.${id}`}
+								data-test={`${menuItemTest}.${id}`}
 								{...entryRest}
 								// {...menu}
 								onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
@@ -123,8 +125,6 @@ export const Dropdown = ({
 								key={uuid}
 								tabIndex={0}
 								id={uuid}
-								data-testid={`${menuItemTestId}.${id}`}
-								data-test={`${menuItemTest}.${id}`}
 							>
 								{label}
 							</DropdownButton>
@@ -161,6 +161,8 @@ export const Dropdown = ({
 					const id = `${label}-${index}`;
 					return (
 						<DropdownLink
+							data-testid={`${menuItemTestId}.${id}`}
+							data-test={`${menuItemTest}.${id}`}
 							as={as}
 							{...entryRest}
 							// {...menu}
@@ -172,8 +174,6 @@ export const Dropdown = ({
 									entry.onClick(event);
 								}
 							}}
-							data-testid={`${menuItemTestId}.${id}`}
-							data-test={`${menuItemTest}.${id}`}
 						>
 							{label}
 						</DropdownLink>

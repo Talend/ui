@@ -48,6 +48,8 @@ describe('Dropdown', () => {
 							{
 								label: 'Link as',
 								type: 'link',
+								'data-testid': 'link-as',
+								'data-test': 'link-as',
 								as: <RouterLink to="/route" />,
 							},
 						]}
