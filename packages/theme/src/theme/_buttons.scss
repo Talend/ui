@@ -3,7 +3,7 @@
 /// @group Buttons
 ////
 
-@use '@talend/design-tokens/lib/tokens' as token;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 :root {
 	--t-button-padding: 0 #{$padding-normal};

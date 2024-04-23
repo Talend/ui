@@ -1,6 +1,6 @@
 /* stylelint-disable selector-no-qualifying-type */
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens' as token;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 @mixin radio-toolbar-input($color, $opacity) {
 	transition: 0.2s ease-out;

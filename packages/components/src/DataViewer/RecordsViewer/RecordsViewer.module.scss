@@ -1,6 +1,6 @@
 /* stylelint-disable declaration-no-important */
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens' as token;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $hightlight-height: 1.375rem !default;
 $records-node-height: $hightlight-height !default;
