@@ -1,7 +1,7 @@
 /* stylelint-disable color-hex-case */
 @use "sass:color";
 @use "sass:math";
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens';
 
 // This is a fork but try to keep it as close to the original as possible
 $bootstrap-sass-asset-helper: false !default;
