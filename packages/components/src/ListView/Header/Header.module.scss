@@ -1,5 +1,5 @@
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-listview-header-height: 28px !default;
 $tc-listview-svg-color: tokens.$coral-color-neutral-text !default;

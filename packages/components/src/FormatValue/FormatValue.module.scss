@@ -1,5 +1,5 @@
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $svg-tab-width: 1.625rem !default;
 $svg-other-characters: 0.1875rem !default;

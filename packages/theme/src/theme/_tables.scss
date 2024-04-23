@@ -1,7 +1,7 @@
 // escape following rule to ovveride bootstrap table styles
 /* stylelint-disable selector-no-qualifying-type */
 /* stylelint-disable declaration-no-important */
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .table-striped > tbody > tr:nth-of-type(odd) {
 	background-color: tokens.$coral-color-neutral-background;

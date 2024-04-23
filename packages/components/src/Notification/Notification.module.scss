@@ -1,5 +1,5 @@
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-notification-animation-duration: 0.3s !default;
 

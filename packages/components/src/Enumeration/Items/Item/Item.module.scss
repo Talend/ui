@@ -1,6 +1,6 @@
 /* stylelint-disable color-hex-case */
 @use '@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-smaller-padding: $padding-smaller !default;

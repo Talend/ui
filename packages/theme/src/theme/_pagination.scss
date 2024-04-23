@@ -1,5 +1,5 @@
 /* stylelint-disable selector-no-qualifying-type */
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .pagination > li > a,
 .pagination > li > span {
