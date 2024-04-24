@@ -1,5 +1,14 @@
 # @talend/design-system
 
+## 10.4.2
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- 4713998: Fix issue with Select component being recreated instead of updated
+- 25fb283: Allow Design System dropdown to have custom data-test attributes
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
 ## 10.4.1
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 16.1.1
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- ceb4faf: Timer Picker overlay will now close when time is valid using keyboard
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [e521344]
+- Updated dependencies [f546896]
+  - @talend/bootstrap-theme@9.1.3
+  - @talend/icons@7.7.2
+
 ## 16.1.0
 
 ### Minor Changes

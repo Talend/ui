@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.7.2
+
+### Patch Changes
+
+- e521344: Update Talend logo and favicon with the new grey 'talend' wordmark.
+
 ## 7.7.1
 
 ### Patch Changes

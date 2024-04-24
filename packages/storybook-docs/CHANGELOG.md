@@ -1,5 +1,12 @@
 # @talend/storybook-docs
 
+## 2.4.2
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
 ## 2.4.1
 
 ### Patch Changes
