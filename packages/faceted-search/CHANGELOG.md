@@ -1,5 +1,12 @@
 # Changelog
 
+## 19.0.1
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
 ## 19.0.0
 
 ### Major Changes
