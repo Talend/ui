@@ -3,6 +3,7 @@ import { withTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
 import _isEmpty from 'lodash/isEmpty';
+import pickBy from 'lodash/pickBy';
 import PropTypes from 'prop-types';
 
 import Enumeration from '@talend/react-components/lib/Enumeration';
@@ -459,7 +460,10 @@ class EnumerationForm extends Component {
 						schema,
 						value: this.state.items.map((item, index) => {
 							if (index === value.index) {
-								return { ...item, values: formattedValue };
+								return pickBy(
+									{ ...item, values: formattedValue },
+									key => !['displayMode', 'isSelected'].includes(key),
+								);
 							}
 							return item;
 						}),
