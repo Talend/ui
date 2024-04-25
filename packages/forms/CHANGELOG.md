@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 14.0.5
+
+### Patch Changes
+
+- 806ba5b: Fix: Enumeration item validate action not responsive
+- Updated dependencies [91b0096]
+  - @talend/design-tokens@3.2.1
+
 ## 14.0.4
 
 ### Patch Changes
