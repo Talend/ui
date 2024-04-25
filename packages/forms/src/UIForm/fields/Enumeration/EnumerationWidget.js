@@ -462,7 +462,7 @@ class EnumerationForm extends Component {
 							if (index === value.index) {
 								return pickBy(
 									{ ...item, values: formattedValue },
-									key => !['displayMode', 'isSelected'].includes(key),
+									(_, key) => !['displayMode', 'isSelected'].includes(key),
 								);
 							}
 							return item;
