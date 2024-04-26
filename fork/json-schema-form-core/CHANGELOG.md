@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.2.7
+
+### Patch Changes
+
+- 568481a: Remove usage of path-browserify as it's not needed
+
 ## 1.2.6
 
 ### Patch Changes
