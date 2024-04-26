@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const resolve = require('@talend/dynamic-cdn-webpack-plugin/src/resolve-pkg');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const mockBackend = require('./mockBackend/server.cjs');
+const mockBackend = require('./mockBackend/server');
 
 /*
  * because we are in dev mode our webpack config do not detect cdn resources in the yarn.lock.
@@ -18,7 +18,6 @@ function getPath(pkg) {
 	return pkgPath
 		.replace('main.js', '')
 		.replace('lib/index.js', '')
-		.replace('index.js', '')
 		.replace('dist/bootstrap.js', '')
 		.replace('dist/TalendIcons.js', '');
 }

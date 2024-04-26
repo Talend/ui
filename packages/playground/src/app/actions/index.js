@@ -1,4 +1,4 @@
-import redirect from './redirect.js';
+import redirect from './redirect';
 
 export default {
 	redirect,

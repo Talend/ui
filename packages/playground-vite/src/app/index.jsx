@@ -6,7 +6,7 @@
  * and other style can override it
  */
 // eslint-disable-next-line @talend/import-depth
-import { initI18n } from './i18n';
+import { initI18n } from './i18n.js';
 
 import '@talend/bootstrap-theme/dist/bootstrap.css';
 import cmf from '@talend/react-cmf';
@@ -15,12 +15,12 @@ import { AppLoader, IconsProvider as BaseIconsProvider } from '@talend/react-com
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 
-import actions from './actions';
-import ComponentFormSandbox from './components/ComponentFormSandbox';
-import { Dataviz } from './components/Dataviz';
-import { FacetedSearchPlayground } from './components/FacetedSearch';
-import { Icons } from './components/Icons';
-import { LeaguesList } from './components/List';
+import actions from './actions/index.js';
+import ComponentFormSandbox from './components/ComponentFormSandbox.jsx';
+import { Dataviz } from './components/Dataviz.jsx';
+import { FacetedSearchPlayground } from './components/FacetedSearch.jsx';
+import { Icons } from './components/Icons.jsx';
+import { LeaguesList } from './components/List.jsx';
 
 // thanks ui-scripts
 let basename = window.basename;

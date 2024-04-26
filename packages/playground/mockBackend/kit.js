@@ -1,6 +1,6 @@
 const url = require('url');
 const http = require('https');
-const forms = require('./mock/kit/index.cjs');
+const forms = require('./mock/kit');
 
 function getTriggerInfo(req) {
 	return {

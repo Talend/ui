@@ -11,10 +11,10 @@ import HeaderBar from '@talend/react-containers/lib/HeaderBar';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import UIForm from '@talend/react-forms';
 
+import example from '../../../mockBackend/mock/kit/example.json';
+
 // test new behavior on non css module files
 import './ComponentFormSandbox.scss';
-
-const example = require('../../../mockBackend/mock/kit/example.json');
 
 const { isComponentFormDirty } = ComponentForm.selectors;
 const { setComponentFormDirtyState } = ComponentForm.actions;
