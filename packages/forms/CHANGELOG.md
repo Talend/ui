@@ -1,5 +1,15 @@
 # @talend/react-forms
 
+## 14.0.6
+
+### Patch Changes
+
+- eb201ac: fix: check onFinish and onChange before invoking for the Text component
+- Updated dependencies [290ee2e]
+- Updated dependencies [b502805]
+  - @talend/design-system@10.4.3
+  - @talend/react-components@16.1.2
+
 ## 14.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 16.1.2
+
+### Patch Changes
+
+- b502805: Fix translation for date range
+
 ## 16.1.1
 
 ### Patch Changes
