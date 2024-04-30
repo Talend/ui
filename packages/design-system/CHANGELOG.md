@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.4.3
+
+### Patch Changes
+
+- 290ee2e: Restore bar line height
+
 ## 10.4.2
 
 ### Patch Changes
