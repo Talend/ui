@@ -25,10 +25,13 @@
     },
     ".": {
       "import": {
-        "types": "./lib-esm/index.d.ts",
-        "default": "./lib-esm/index.js"
+        "types": "./lib-esm/typeUtils.d.ts",
+        "default": "./dist/TalendIcons.js"
       },
-      "require": "./index.js"
+      "require": {
+        "types": "./dist/typeUtils.d.ts",
+        "default": "./dist/TalendIcons.js"
+      }
     }
   },
   "license": "Apache-2.0",
