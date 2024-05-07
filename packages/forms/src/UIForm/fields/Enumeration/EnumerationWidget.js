@@ -276,7 +276,7 @@ class EnumerationForm extends Component {
 	onChange(event, payload) {
 		const { schema, onFinish, onChange } = this.props;
 		onChange(event, payload);
-		onFinish(event, { schema });
+		onFinish(event, { schema, value: payload.value });
 	}
 
 	onImportAppendClick() {
