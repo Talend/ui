@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 14.0.7
+
+### Patch Changes
+
+- b59f982: fix EnumerationForm doesn't use the newest value to validate value
+
 ## 14.0.6
 
 ### Patch Changes
