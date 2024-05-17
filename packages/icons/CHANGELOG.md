@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.8.0
+
+### Minor Changes
+
+- d409b57: feat(TMC-27713/icons): update qlik favicon
+
 ## 7.7.2
 
 ### Patch Changes
