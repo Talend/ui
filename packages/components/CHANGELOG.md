@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 16.1.3
+
+### Patch Changes
+
+- 003c7a4: fix(TDC-7452/Tour): Fix tour is changing to first step when closing
+
 ## 16.1.2
 
 ### Patch Changes
