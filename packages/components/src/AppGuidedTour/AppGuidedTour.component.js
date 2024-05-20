@@ -77,7 +77,7 @@ function AppGuidedTour({
 				setIsAlreadyViewed(true);
 				if (importDemoContent) {
 					setImportDemoContent(false);
-					setCurrentStep(currentStep - 1);
+					setCurrentStep(Math.max(0, currentStep - 1));
 				}
 			}}
 			steps={[
