@@ -1,5 +1,12 @@
 # @talend/bootstrap-theme
 
+## 9.1.3
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
 ## 9.1.2
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # Changelog
 
+## 6.1.5
+
+### Patch Changes
+
+- 0f408a7: Fix(Dataviz): Range filter - date time inputs overlap
+
+## 6.1.4
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [ceb4faf]
+- Updated dependencies [f546896]
+  - @talend/react-components@16.1.1
+
 ## 6.1.3
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .horizontal {
 	top: calc(#{tokens.$coral-sizing-xxxs} / 2 - 0.0313rem);

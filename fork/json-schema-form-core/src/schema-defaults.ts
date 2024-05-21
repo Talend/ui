@@ -262,7 +262,7 @@ export function defaultForm(
 	ignore?: any,
 	globalOptions?: any,
 ) {
-	const form = [];
+	const form: any[] = [];
 	const lookup = {}; // Map path => form obj for fast lookup in merging
 	ignore = ignore || {};
 	globalOptions = globalOptions || {};
@@ -272,7 +272,7 @@ export function defaultForm(
 		Object.keys(schema.properties).forEach(key => {
 			if (ignore[key] !== true) {
 				const required = schema.required && schema.required.indexOf(key) !== -1;
-				const def = defaultFormDefinition(defaultSchemaTypes, key, schema.properties[key], {
+				const def: any = defaultFormDefinition(defaultSchemaTypes, key, schema.properties[key], {
 					path: [key], // Path to this property in bracket notation.
 					lookup: lookup, // Extra map to register with. Optimization for merger.
 					ignore: ignore, // The ignore list of paths (sans root level name)

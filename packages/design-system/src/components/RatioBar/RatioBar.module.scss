@@ -1,19 +1,18 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $custom-ratio-bar-height: 0.5rem;
-$custom-ratio-bar-line-height: 0.4rem;
+$custom-ratio-bar-line-height: 0.25rem;
 $custom-ratio-bar-line-hover-height: 0.5rem;
 
 .tc-ratio-bar {
 	align-items: center;
 	display: flex;
 	height: $custom-ratio-bar-height;
-	padding: $padding-small 0;
+	padding: tokens.$coral-spacing-xs 0;
 	width: 100%;
 
 	&-counter {
-		padding-left: $padding-smaller;
+		padding-left: tokens.$coral-spacing-xxs;
 	}
 
 	&-lines {

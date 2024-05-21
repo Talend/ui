@@ -36,8 +36,16 @@ export default function Text(props) {
 		autoComplete,
 		autoFocus,
 		disabled: disabled || valueIsUpdating,
-		onBlur: event => onFinish(event, { schema }),
-		onChange: event => onChange(event, { schema, value: convertValue(type, event.target.value) }),
+		onBlur: event => {
+			if (onFinish) {
+				onFinish(event, { schema });
+			}
+		},
+		onChange: event => {
+			if (onChange) {
+				onChange(event, { schema, value: convertValue(type, event.target.value) });
+			}
+		},
 		placeholder,
 		readOnly,
 		type,

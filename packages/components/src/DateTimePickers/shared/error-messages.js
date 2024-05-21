@@ -1,8 +1,7 @@
 import getDefaultT from '../../translate';
 
-const t = getDefaultT();
-
 export default function getErrorMessage(key) {
+	const t = getDefaultT();
 	switch (key) {
 		case 'INVALID_HOUR_EMPTY':
 			return t('INVALID_HOUR_EMPTY', { defaultValue: 'Hour is required' });

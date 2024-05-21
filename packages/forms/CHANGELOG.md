@@ -1,5 +1,58 @@
 # @talend/react-forms
 
+## 14.0.7
+
+### Patch Changes
+
+- b59f982: fix EnumerationForm doesn't use the newest value to validate value
+
+## 14.0.6
+
+### Patch Changes
+
+- eb201ac: fix: check onFinish and onChange before invoking for the Text component
+- Updated dependencies [290ee2e]
+- Updated dependencies [b502805]
+  - @talend/design-system@10.4.3
+  - @talend/react-components@16.1.2
+
+## 14.0.5
+
+### Patch Changes
+
+- 806ba5b: Fix: Enumeration item validate action not responsive
+- Updated dependencies [91b0096]
+  - @talend/design-tokens@3.2.1
+
+## 14.0.4
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [4713998]
+- Updated dependencies [25fb283]
+- Updated dependencies [e521344]
+- Updated dependencies [ceb4faf]
+- Updated dependencies [f546896]
+  - @talend/design-system@10.4.2
+  - @talend/react-components@16.1.1
+  - @talend/icons@7.7.2
+  - @talend/json-schema-form-core@1.2.6
+
+## 14.0.3
+
+### Patch Changes
+
+- d332ab1: Fix imports and typing
+- Updated dependencies [48865e5]
+- Updated dependencies [da2218d]
+- Updated dependencies [779fc8c]
+  - @talend/design-tokens@3.2.0
+  - @talend/design-system@10.4.0
+  - @talend/json-schema-form-core@1.2.5
+
 ## 14.0.2
 
 ### Patch Changes

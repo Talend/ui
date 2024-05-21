@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-list-title-actions-ellipsis: '\22ee';
 $tc-list-title-dropdown-menu-triangle: '\25b2';

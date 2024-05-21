@@ -1,5 +1,37 @@
 # @talend/design-system
 
+## 10.4.3
+
+### Patch Changes
+
+- 290ee2e: Restore bar line height
+
+## 10.4.2
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- 4713998: Fix issue with Select component being recreated instead of updated
+- 25fb283: Allow Design System dropdown to have custom data-test attributes
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
+## 10.4.1
+
+### Patch Changes
+
+- d25ebf0: Fix Design System dropdown items when using "as" property for links
+
+## 10.4.0
+
+### Minor Changes
+
+- da2218d: chore: remove bootstrap-theme dependency from QualityBar and RatioBar components
+
+### Patch Changes
+
+- Updated dependencies [48865e5]
+  - @talend/design-tokens@3.2.0
+
 ## 10.3.0
 
 ### Minor Changes
