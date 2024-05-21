@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.1.5
+
+### Patch Changes
+
+- 0f408a7: Fix(Dataviz): Range filter - date time inputs overlap
+
 ## 6.1.4
 
 ### Patch Changes

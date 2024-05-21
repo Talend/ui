@@ -95,4 +95,21 @@ describe('AppGuidedTour', () => {
 		);
 		expect(screen.queryByText('Import demo content')).not.toBeInTheDocument();
 	});
+	it('Should stay on the last page when finished', async () => {
+		const user = userEvent.setup();
+		const steps = [
+			{
+				content: {
+					header: 'Header',
+					body: () => 'Last page',
+				},
+			},
+		];
+		render(<AppGuidedTour {...DEFAULT_PROPS} steps={steps} demoContentSteps={null} />);
+		expect(screen.queryByText(/Last page/i)).not.toBeInTheDocument();
+		const nextBtn = document.querySelector('button[data-tour-elem="right-arrow"]');
+		await user.click(nextBtn);
+		await user.click(screen.getByText('Let me try'));
+		expect(screen.queryByText(/Last page/i)).toBeInTheDocument();
+	});
 });
