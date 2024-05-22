@@ -1,5 +1,14 @@
 # @talend/ui-playground
 
+## 2.4.5
+
+### Patch Changes
+
+- Updated dependencies [e48ae5f]
+  - @talend/react-cmf@9.0.0
+  - @talend/react-cmf-router@6.1.3
+  - @talend/react-containers@10.7.4
+
 ## 2.4.4
 
 ### Patch Changes

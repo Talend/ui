@@ -1,5 +1,12 @@
 # @talend/react-containers
 
+## 10.7.4
+
+### Patch Changes
+
+- Updated dependencies [e48ae5f]
+  - @talend/react-cmf@9.0.0
+
 ## 10.7.3
 
 ### Patch Changes

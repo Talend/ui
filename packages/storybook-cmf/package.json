@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-storybook-cmf",
   "description": "react-storybook-cmf library.",
-  "version": "8.2.2",
+  "version": "9.0.0",
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "repository": {
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.0.3",
     "@talend/eslint-plugin": "^1.1.1",
-    "@talend/react-cmf": "^8.4.1",
+    "@talend/react-cmf": "^9.0.0",
     "@talend/scripts-core": "^16.3.5",
     "@talend/scripts-config-babel": "^13.3.1",
     "@testing-library/react": "^14.2.1",
@@ -39,7 +39,7 @@
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^8.4.0",
+    "@talend/react-cmf": "^9.0.0",
     "react": ">= 16.14.0",
     "react-dom": ">= 16.14.0",
     "react-redux": "^7.2.9",
