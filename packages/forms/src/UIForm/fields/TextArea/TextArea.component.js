@@ -30,7 +30,7 @@ export default function TextArea({
 		<Form.Textarea
 			id={id}
 			autoFocus={autoFocus}
-			label={getLabelProps(title, labelProps, schema.hint)}
+			label={getLabelProps(title, labelProps, schema.hint, schema.required)}
 			required={schema.required}
 			disabled={disabled || valueIsUpdating}
 			placeholder={placeholder}

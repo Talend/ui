@@ -1,6 +1,6 @@
 import { ButtonIcon, Popover, StackHorizontal } from '@talend/design-system';
 
-export const getLabelProps = (title, labelProps, hint) => {
+export const getLabelProps = (title, labelProps, hint, required) => {
 	if (!hint) {
 		return {
 			children: title,
@@ -9,8 +9,9 @@ export const getLabelProps = (title, labelProps, hint) => {
 	}
 	return {
 		children: (
-			<StackHorizontal gap="XS" align="center">
+			<StackHorizontal gap="XXS" align="center">
 				{title}
+				{required && '*'}
 				<Popover
 					position={hint.overlayPlacement || 'auto'}
 					data-test={hint['data-test']}
@@ -28,5 +29,6 @@ export const getLabelProps = (title, labelProps, hint) => {
 			</StackHorizontal>
 		),
 		...labelProps,
+		required: false,
 	};
 };
