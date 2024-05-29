@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.4.5
+
+### Patch Changes
+
+- 5b7240e: Form field label property "required" can now be overriden by passing props
+
 ## 10.4.4
 
 ### Patch Changes

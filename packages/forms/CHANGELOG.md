@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 14.0.8
+
+### Patch Changes
+
+- 5b7240e: UI Form fields with both hint and required asterisk are now displayed correctly
+- Updated dependencies [5b7240e]
+  - @talend/design-system@10.4.5
+
 ## 14.0.7
 
 ### Patch Changes
