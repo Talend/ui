@@ -1,4 +1,8 @@
+import classnames from 'classnames';
+
 import { ButtonIcon, Popover, StackHorizontal } from '@talend/design-system';
+
+import styles from './labels.module.scss';
 
 export const getLabelProps = (title, labelProps, hint, required) => {
 	if (!hint) {
@@ -10,8 +14,7 @@ export const getLabelProps = (title, labelProps, hint, required) => {
 	return {
 		children: (
 			<StackHorizontal gap="XXS" align="center">
-				{title}
-				{required && '*'}
+				<span className={classnames({ [styles.required]: required })}>{title}</span>
 				<Popover
 					position={hint.overlayPlacement || 'auto'}
 					data-test={hint['data-test']}
