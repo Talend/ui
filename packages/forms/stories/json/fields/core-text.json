@@ -23,7 +23,8 @@
       "password": {
         "type": "string"
       }
-    }
+    },
+    "required": ["text", "numberMinMax"]
   },
   "uiSchema": [
     {
@@ -32,11 +33,13 @@
       "data-test": "simple.text",
       "labelProps": {
         "data-test": "simple.text.label"
-      }
+      },
+      "hint": { "overlayComponent": "This is a simple text input" }
     },
     {
       "key": "number",
-      "title": "Number"
+      "title": "Number",
+      "hint": { "overlayComponent": "This is a simple text input" }
     },
     {
       "key": "numberMinMax",

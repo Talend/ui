@@ -50,7 +50,7 @@ export default function Text(props) {
 		readOnly,
 		type,
 		value,
-		label: getLabelProps(title, labelProps, schema.hint),
+		label: getLabelProps(title, labelProps, schema.hint, schema.required),
 		required: schema.required,
 		description: errorMessage || description,
 		hasError: !isValid,
