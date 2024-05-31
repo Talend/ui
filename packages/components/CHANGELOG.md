@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 16.1.4
+
+### Patch Changes
+
+- 50801bd: Reset currentStep to 0 when tour is reopened
+
 ## 16.1.3
 
 ### Patch Changes
