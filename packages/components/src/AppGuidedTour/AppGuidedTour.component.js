@@ -30,6 +30,12 @@ function AppGuidedTour({
 	const [isAlreadyViewed, setIsAlreadyViewed] = useLocalStorage(localStorageKey, false);
 	const [importDemoContent, setImportDemoContent] = useState(demoContentSteps && !isAlreadyViewed);
 	const [currentStep, setCurrentStep] = useState(0);
+	// Reset currentStep to 0 when tour is opened
+	useEffect(() => {
+		if (isOpen) {
+			setCurrentStep(0);
+		}
+	}, [isOpen]);
 
 	const isNavigationDisabled =
 		importDemoContent &&
