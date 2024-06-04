@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.4.6
+
+### Patch Changes
+
+- 95bb74f: Design system drawer now has a data attribute to identify when it is opened
+
 ## 10.4.5
 
 ### Patch Changes
