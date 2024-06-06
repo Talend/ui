@@ -60,6 +60,7 @@ module.exports = (env, argv) => {
 							loader: require.resolve('sass-loader'),
 							options: {
 								sourceMap: true,
+								sassOptions: { includePaths: ['./node_modules', '../../node_modules'] },
 							},
 						},
 					],
@@ -86,7 +87,7 @@ module.exports = (env, argv) => {
 				? new webpack.HotModuleReplacementPlugin()
 				: new MiniCssExtractPlugin({
 						filename: 'bootstrap.css',
-				  }),
+					}),
 		],
 		devServer: {
 			port: 1234,

@@ -4,6 +4,17 @@
   "description": "Various utilities",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    "./lib/*": {
+      "import": "./lib-esm/*/index.js",
+      "require": "./lib/*/index.js"
+    },
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Talend/ui.git"
@@ -12,6 +23,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib": "talend-scripts build --tsc",
+    "build:lib:esm": "talend-scripts build --esm",
     "lint": "talend-scripts lint",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --silent",

@@ -77,6 +77,11 @@ function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 				additionalData: sassData,
 				sassOptions: {
 					quietDeps: true,
+					/**
+					 * This difference reflects ESM's design philosophy which aims for more predictability and less implicit behavior compared to CommonJS.
+					 * As a result, the structure and location of your modules might need to be more precisely managed when working with ESM in Node.js.
+					 */
+					includePaths: ['./node_modules', '../node_modules', '../../node_modules'],
 				},
 			},
 		},

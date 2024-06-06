@@ -16,7 +16,7 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "postinstall": "talend-yarn-workspace run build:lib",
+    "postinstall": "talend-yarn-workspace run build:lib && talend-yarn-workspace run build:lib:esm",
     "pre-release": "talend-yarn-workspace run pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
     "start-storybook": "yarn workspace @talend/ui-storybook-one run start",

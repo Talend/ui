@@ -9,9 +9,17 @@
   "homepage": "https://react-bootstrap.github.io/",
   "sideEffects": false,
   "main": "lib/index.js",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
+    "build:lib:esm": "talend-scripts build --esm",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "lint": "talend-scripts lint",
@@ -40,6 +48,7 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.0.3",
     "@talend/eslint-plugin": "^1.1.1",
+    "@talend/scripts-config-typescript": "^11.2.1",
     "@talend/scripts-core": "^16.3.5",
     "@talend/scripts-config-babel": "^13.3.1",
     "@talend/scripts-config-react-webpack": "^16.6.0",

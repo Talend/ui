@@ -286,6 +286,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				),
 				fallback: {
 					url: false,
+					path: false,
 				},
 			},
 			module: {
@@ -314,6 +315,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					{
 						test: /\.scss$/,
 						exclude: /\.module\.scss$/,
+
 						use: getSassLoaders(false, sassData, isEnvDevelopmentServe),
 					},
 					{
