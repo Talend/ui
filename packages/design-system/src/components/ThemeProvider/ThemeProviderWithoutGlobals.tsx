@@ -1,5 +1,8 @@
 import { PropsWithChildren, useContext, useEffect, useState } from 'react';
 
+import 'typeface-inconsolata/index.css';
+import 'typeface-source-sans-pro/index.css';
+
 // eslint-disable-next-line @talend/import-depth
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
 
@@ -10,7 +13,7 @@ export type ThemeProviderProps = PropsWithChildren<{
 	tokensOverride?: Record<string, string | number>;
 }>;
 
-export const ThemProviderWithoutGlobals = ({
+export const ThemeProviderWithoutGlobals = ({
 	theme = 'light',
 	children,
 	tokensOverride,
