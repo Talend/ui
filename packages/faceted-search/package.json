@@ -5,26 +5,13 @@
   "main": "lib/index.js",
   "module": "./lib-esm/index.js",
   "exports": {
-    "./package.json": "./package.json",
     "./lib/*": {
-      "import": {
-        "types": "./lib-esm/*/index.d.ts",
-        "default": "./lib-esm/*/index.js"
-      },
-      "require": {
-        "types": "./lib/*/index.d.ts",
-        "default": "./lib/*/index.js"
-      }
+      "import": "./lib-esm/*/index.js",
+      "require": "./lib/*/index.js"
     },
     ".": {
-      "import": {
-        "types": "./lib-esm/index.d.ts",
-        "default": "./lib-esm/index.js"
-      },
-      "require": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      }
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
     }
   },
   "license": "Apache-2.0",

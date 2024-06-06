@@ -7,16 +7,9 @@
   "types": "./lib/index.d.ts",
   "module": "./lib-esm/index.js",
   "exports": {
-    "./package.json": "./package.json",
     ".": {
-      "import": {
-        "types": "./lib-esm/index.d.ts",
-        "default": "./lib-esm/index.js"
-      },
-      "require": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      }
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
     }
   },
   "scripts": {

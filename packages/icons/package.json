@@ -6,32 +6,18 @@
   "style": "build/octicons.css",
   "module": "./lib-esm/index.js",
   "exports": {
-    "./package.json": "./package.json",
     "./.storybook/main.js": "./.storybook/main.js",
-    "./.storybook/preview.js": "./.storybook/preview.js",
     "./src/*": {
       "import": "./src/*",
       "require": "./src/*"
     },
     "./dist/typeUtils": {
-      "import": {
-        "types": "./lib-esm/typeUtils.d.ts",
-        "default": "./lib-esm/typeUtils.js"
-      },
-      "require": {
-        "types": "./dist/typeUtils.d.ts",
-        "default": "./dist/typeUtils.js"
-      }
+      "import": "./lib-esm/typeUtils.js",
+      "require": "./dist/typeUtils.js"
     },
     ".": {
-      "import": {
-        "types": "./lib-esm/typeUtils.d.ts",
-        "default": "./dist/TalendIcons.js"
-      },
-      "require": {
-        "types": "./dist/typeUtils.d.ts",
-        "default": "./dist/TalendIcons.js"
-      }
+      "import": "./dist/TalendIcons.js",
+      "require": "./dist/TalendIcons.js"
     }
   },
   "license": "Apache-2.0",

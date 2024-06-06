@@ -5,16 +5,9 @@
   "main": "dist/index.js",
   "module": "./lib-esm/index.js",
   "exports": {
-    "./package.json": "./package.json",
     ".": {
-      "import": {
-        "types": "./lib-esm/index.d.ts",
-        "default": "./lib-esm/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
+      "import": "./lib-esm/index.js",
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
