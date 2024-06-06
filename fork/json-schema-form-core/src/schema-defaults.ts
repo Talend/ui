@@ -16,7 +16,7 @@ const stripNullType = type => {
 
 // Creates an default titleMap list from an enum, i.e. a list of strings.
 const enumToTitleMap = enm => {
-	const titleMap = []; // canonical titleMap format is a list.
+	const titleMap: any = []; // canonical titleMap format is a list.
 	enm.forEach(name => {
 		titleMap.push({ name, value: name });
 	});
@@ -94,7 +94,7 @@ export function stdFormObj(name, schema, options) {
 		f.validationMessage = schema.validationMessage;
 	}
 	if (schema.enumNames) {
-		f.titleMap = canonicalTitleMap(schema.enumNames, schema['enum']);
+		f.titleMap = canonicalTitleMap(schema.enumNames, schema.enum);
 	}
 	f.schema = schema;
 
@@ -107,7 +107,7 @@ export function stdFormObj(name, schema, options) {
 
 /*** Schema types to form type mappings, with defaults ***/
 export function text(name, schema, options) {
-	if (stripNullType(schema.type) === 'string' && !schema['enum']) {
+	if (stripNullType(schema.type) === 'string' && !schema.enum) {
 		const f = stdFormObj(name, schema, options);
 		f.key = options.path;
 		f.type = 'text';
@@ -149,12 +149,12 @@ export function checkbox(name, schema, options) {
 }
 
 export function select(name, schema, options) {
-	if (stripNullType(schema.type) === 'string' && schema['enum']) {
+	if (stripNullType(schema.type) === 'string' && schema.enum) {
 		const f = stdFormObj(name, schema, options);
 		f.key = options.path;
 		f.type = 'select';
 		if (!f.titleMap) {
-			f.titleMap = enumToTitleMap(schema['enum']);
+			f.titleMap = enumToTitleMap(schema.enum);
 		}
 		options.lookup[stringify(options.path)] = f;
 		return f;
@@ -162,12 +162,12 @@ export function select(name, schema, options) {
 }
 
 export function checkboxes(name, schema, options) {
-	if (stripNullType(schema.type) === 'array' && schema.items && schema.items['enum']) {
+	if (stripNullType(schema.type) === 'array' && schema.items && schema.items.enum) {
 		const f = stdFormObj(name, schema, options);
 		f.key = options.path;
 		f.type = 'checkboxes';
 		if (!f.titleMap) {
-			f.titleMap = enumToTitleMap(schema.items['enum']);
+			f.titleMap = enumToTitleMap(schema.items.enum);
 		}
 		options.lookup[stringify(options.path)] = f;
 		return f;
@@ -262,7 +262,7 @@ export function defaultForm(
 	ignore?: any,
 	globalOptions?: any,
 ) {
-	const form = [];
+	const form: any[] = [];
 	const lookup = {}; // Map path => form obj for fast lookup in merging
 	ignore = ignore || {};
 	globalOptions = globalOptions || {};
@@ -272,7 +272,7 @@ export function defaultForm(
 		Object.keys(schema.properties).forEach(key => {
 			if (ignore[key] !== true) {
 				const required = schema.required && schema.required.indexOf(key) !== -1;
-				const def = defaultFormDefinition(defaultSchemaTypes, key, schema.properties[key], {
+				const def: any = defaultFormDefinition(defaultSchemaTypes, key, schema.properties[key], {
 					path: [key], // Path to this property in bracket notation.
 					lookup: lookup, // Extra map to register with. Optimization for merger.
 					ignore: ignore, // The ignore list of paths (sans root level name)

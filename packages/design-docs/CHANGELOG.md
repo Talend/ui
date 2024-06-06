@@ -1,5 +1,20 @@
 # @talend/design-docs
 
+## 4.1.3
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [4713998]
+- Updated dependencies [25fb283]
+- Updated dependencies [e521344]
+- Updated dependencies [f546896]
+  - @talend/storybook-docs@2.4.2
+  - @talend/design-system@10.4.2
+  - @talend/icons@7.7.2
+
 ## 4.1.2
 
 ### Patch Changes

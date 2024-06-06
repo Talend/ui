@@ -1,5 +1,17 @@
 # @talend/react-cmf
 
+## 9.0.0
+
+### Major Changes
+
+- e48ae5f: chore(TMC-27581): security issue in redux storage decorator filter
+
+## 8.4.2
+
+### Patch Changes
+
+- d332ab1: Fix imports and typing
+
 ## 8.4.1
 
 ### Patch Changes

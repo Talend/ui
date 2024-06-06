@@ -1,5 +1,26 @@
 # @talend/json-schema-form-core
 
+## 1.2.7
+
+### Patch Changes
+
+- 568481a: Remove usage of path-browserify as it's not needed
+
+## 1.2.6
+
+### Patch Changes
+
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
+## 1.2.5
+
+### Patch Changes
+
+- 779fc8c: - JSFC is a fork of https://github.com/json-schema-form/json-schema-form-core : its place is in the Fork folder
+  - Remove local copy of json-refs and use package instead
+  - add missing type to fix ts compilation error
+  - add a polyfill for json-refs: path-browserify
+
 ## 1.2.4
 
 ### Patch Changes

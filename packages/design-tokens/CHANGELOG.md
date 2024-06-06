@@ -1,5 +1,17 @@
 # @talend/design-tokens
 
+## 3.2.1
+
+### Patch Changes
+
+- 91b0096: fix: grayish the talend logo for the qlik-light theme
+
+## 3.2.0
+
+### Minor Changes
+
+- 48865e5: feat: change logo for Qlik theme
+
 ## 3.1.1
 
 ### Patch Changes
