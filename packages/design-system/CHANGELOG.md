@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 10.5.0
+
+### Minor Changes
+
+- 803c4e1: feat: add ThemeProvider without globals
+
 ## 10.4.6
 
 ### Patch Changes
