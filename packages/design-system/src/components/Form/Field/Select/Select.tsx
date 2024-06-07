@@ -1,17 +1,24 @@
-import { forwardRef, Children } from 'react';
+import { Children, forwardRef } from 'react';
 import type { Ref } from 'react';
 import { isElement } from 'react-is';
-import Input from '../Input';
+
+import { useId } from '../../../../useId';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	SelectPrimitive,
 	SelectPrimitiveProps,
 } from '../../Primitives';
-import { useId } from '../../../../useId';
+import Input from '../Input';
 
 export type SelectProps = FieldPropsPrimitive &
 	Omit<SelectPrimitiveProps, 'className' | 'style' | 'isAffix'> & { readOnly?: boolean };
+
+const SelectField = forwardRef((fieldProps: SelectProps, ref: Ref<HTMLSelectElement>) => {
+	return <SelectPrimitive {...fieldProps} ref={ref} />;
+});
+
+SelectField.displayName = 'SelectField';
 
 const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTMLInputElement>) => {
 	const {
@@ -69,18 +76,6 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 		);
 	}
 
-	function SelectField(fieldProps: Omit<SelectProps, 'children'>) {
-		return (
-			<SelectPrimitive
-				hasError={hasError || false}
-				{...fieldProps}
-				ref={ref as Ref<HTMLSelectElement>}
-			>
-				{children}
-			</SelectPrimitive>
-		);
-	}
-
 	return (
 		<FieldPrimitive
 			label={label}
@@ -101,7 +96,9 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 				label={label}
 				id={fieldID}
 				{...rest}
-			/>
+			>
+				{children}
+			</SelectField>
 		</FieldPrimitive>
 	);
 });

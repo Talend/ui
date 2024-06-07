@@ -139,7 +139,7 @@ const FileWidget = props => {
 				<SkeletonInput />
 			) : (
 				<Form.File
-					label={getLabelProps(title, labelProps, schema.hint)}
+					label={getLabelProps(title, labelProps, schema.hint, required)}
 					required={required}
 					accept={accept}
 					autoFocus={autoFocus}

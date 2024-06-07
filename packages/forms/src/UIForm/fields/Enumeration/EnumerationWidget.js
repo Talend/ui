@@ -3,6 +3,7 @@ import { withTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
 import _isEmpty from 'lodash/isEmpty';
+import pickBy from 'lodash/pickBy';
 import PropTypes from 'prop-types';
 
 import Enumeration from '@talend/react-components/lib/Enumeration';
@@ -275,7 +276,7 @@ class EnumerationForm extends Component {
 	onChange(event, payload) {
 		const { schema, onFinish, onChange } = this.props;
 		onChange(event, payload);
-		onFinish(event, { schema });
+		onFinish(event, { schema, value: payload.value });
 	}
 
 	onImportAppendClick() {
@@ -459,7 +460,10 @@ class EnumerationForm extends Component {
 						schema,
 						value: this.state.items.map((item, index) => {
 							if (index === value.index) {
-								return { ...item, values: formattedValue };
+								return pickBy(
+									{ ...item, values: formattedValue },
+									(_, key) => !['displayMode', 'isSelected'].includes(key),
+								);
 							}
 							return item;
 						}),
