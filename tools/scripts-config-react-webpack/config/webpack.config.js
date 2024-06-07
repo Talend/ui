@@ -315,7 +315,6 @@ module.exports = ({ getUserConfig, mode }) => {
 					{
 						test: /\.scss$/,
 						exclude: /\.module\.scss$/,
-
 						use: getSassLoaders(false, sassData, isEnvDevelopmentServe),
 					},
 					{
