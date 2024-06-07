@@ -1,4 +1,5 @@
 ---
+"@talend/scripts-config-react-webpack": minor
 "@talend/json-schema-form-core": minor
 "@talend/react-faceted-search": minor
 "@talend/design-system": minor
