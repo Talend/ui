@@ -36,7 +36,6 @@
   },
   "peerDependencies": {
     "@talend/design-system": ">= 8.1.0",
-    "ally.js": ">= 1.4.1",
     "i18next": ">= 23.5.1",
     "classnames": ">= 2.3.2",
     "jest-axe": ">= 8.0.0",
@@ -46,9 +45,6 @@
   },
   "peerDependenciesMeta": {
     "@talend/design-system": {
-      "optional": true
-    },
-    "ally.js": {
       "optional": true
     },
     "classnames": {

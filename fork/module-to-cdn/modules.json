@@ -221,15 +221,6 @@
       }
     }
   },
-  "ally.js": {
-    "var": "ally",
-    "versions": {
-      ">= 1.0.0": {
-        "development": "/ally.min.js",
-        "production": "/ally.min.js"
-      }
-    }
-  },
   "angular": {
     "var": "angular",
     "versions": {

@@ -21,7 +21,7 @@ $tc-list-table-cell-padding: $padding-small !default;
 
 		&:hover,
 		&:focus,
-		&:global(.ally-focus-within) {
+		&:focus-within {
 			background-color: tokens.$coral-color-neutral-background-medium;
 
 			.cell {
