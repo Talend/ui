@@ -3,11 +3,19 @@
   "version": "6.1.3",
   "description": "",
   "main": "lib/index.js",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
+    "build:lib:esm": "talend-scripts build --esm",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
@@ -39,6 +47,7 @@
     "@talend/scripts-core": "^16.3.5",
     "@talend/scripts-config-babel": "^13.3.1",
     "@talend/scripts-config-react-webpack": "^16.5.1",
+    "@talend/scripts-config-typescript": "^11.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "redux-saga-tester": "^1.0.874"

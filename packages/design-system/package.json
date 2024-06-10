@@ -4,10 +4,22 @@
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    "./lib/*": {
+      "import": "./lib-esm/*/index.js",
+      "require": "./lib/*/index.js"
+    },
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:umd": "talend-scripts build --umd --dev",
     "build:lib:umd:min": "talend-scripts build --umd --prod",
+    "build:lib:esm": "talend-scripts build --esm",
     "pre-release": "npm run build:lib:umd && npm run build:lib:umd:min",
     "watch": "talend-scripts build --watch",
     "test": "talend-scripts test",

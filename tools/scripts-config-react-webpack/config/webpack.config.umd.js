@@ -48,6 +48,7 @@ module.exports = options => {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
 				fallback: {
 					url: false,
+					path: false,
 				},
 			},
 			module: {
