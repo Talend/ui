@@ -27,7 +27,7 @@
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
     "build:lib": "npm run ts:types && npm run build-ts && npm run build-react && npm run build-webfont && npm run build-umd",
-    "build:lib:esm": "npm run ts:types && npm run build-ts && npm run build-react && npm run build-webfont && talend-scripts build --esm && cpx 'src/**/*.{svg,json}' lib-esm/src --verbose",
+    "build:lib:esm": "talend-scripts build --esm",
     "ts:types": "node scripts/typescript.js",
     "test": "echo no test",
     "test:cov": "echo no test",
