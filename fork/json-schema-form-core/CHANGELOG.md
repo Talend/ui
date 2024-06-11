@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.3.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
 ## 1.2.7
 
 ### Patch Changes

@@ -32,12 +32,12 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/utils": "^3.0.4"
+    "@talend/utils": "^3.1.0"
   },
   "devDependencies": {
     "@talend/eslint-config": "^13.0.3",
     "@talend/eslint-plugin": "^1.1.1",
-    "@talend/scripts-core": "^16.3.5",
+    "@talend/scripts-core": "^16.4.0",
     "@talend/scripts-config-typescript": "^11.2.1",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
@@ -57,5 +57,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.0.1"
+  "version": "3.1.0"
 }

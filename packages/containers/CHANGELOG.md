@@ -1,5 +1,21 @@
 # @talend/react-containers
 
+## 10.8.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [ced37a2]
+- Updated dependencies [3bd16fc]
+  - @talend/react-components@16.2.0
+  - @talend/design-system@10.6.0
+  - @talend/react-forms@14.1.0
+  - @talend/utils@3.1.0
+  - @talend/react-cmf@9.1.0
+
 ## 10.7.4
 
 ### Patch Changes

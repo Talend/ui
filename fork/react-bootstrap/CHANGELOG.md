@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 2.3.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
 ## 2.2.3
 
 ### Patch Changes

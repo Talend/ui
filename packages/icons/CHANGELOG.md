@@ -1,5 +1,16 @@
 # @talend/icons
 
+## 7.9.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- d053412: Fix esm script
+- 9b66a09: Improve changes needed for cypress and simplify scripts
+
 ## 7.8.0
 
 ### Minor Changes

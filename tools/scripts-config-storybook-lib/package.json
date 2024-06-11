@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-storybook-lib",
   "description": "Storybook configuration for @talend/scripts-core",
-  "version": "5.3.1",
+  "version": "5.3.2",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -30,7 +30,7 @@
     "@storybook/react": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/testing-library": "^0.2.2",
-    "@talend/scripts-config-react-webpack": "^16.5.1",
+    "@talend/scripts-config-react-webpack": "^16.7.0",
     "@talend/dynamic-cdn-webpack-plugin": "^13.1.1",
     "assert": "^2.1.0",
     "i18next-http-backend": "^1.4.5",
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.0.3",
     "@talend/eslint-plugin": "^1.1.1",
-    "@talend/scripts-core": "^16.3.5"
+    "@talend/scripts-core": "^16.4.0"
   },
   "msw": {
     "workerDirectory": ".storybook-templates/msw"

@@ -1,5 +1,25 @@
 # @talend/react-forms
 
+## 14.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [ced37a2]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/react-components@16.2.0
+  - @talend/json-schema-form-core@1.3.0
+  - @talend/design-system@10.6.0
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/icons@7.9.0
+  - @talend/utils@3.1.0
+
 ## 14.0.8
 
 ### Patch Changes

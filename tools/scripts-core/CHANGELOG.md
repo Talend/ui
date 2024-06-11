@@ -1,5 +1,16 @@
 # @talend/scripts-core
 
+## 16.4.0
+
+### Minor Changes
+
+- 3bd16fc: feat: add --esm option to talend-scripts build:lib
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-babel@13.4.0
+
 ## 16.3.6
 
 ### Patch Changes

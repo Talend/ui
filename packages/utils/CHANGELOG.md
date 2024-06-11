@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
 ## 3.0.4
 
 ### Patch Changes

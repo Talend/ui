@@ -1,5 +1,16 @@
 # Changelog
 
+## 6.2.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/react-cmf@9.1.0
+
 ## 6.1.3
 
 ### Patch Changes

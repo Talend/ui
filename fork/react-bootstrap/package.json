@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-bootstrap",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "description": "Bootstrap 3 components built with React",
   "repository": {
     "type": "git",
@@ -49,9 +49,9 @@
     "@talend/eslint-config": "^13.0.3",
     "@talend/eslint-plugin": "^1.1.1",
     "@talend/scripts-config-typescript": "^11.2.1",
-    "@talend/scripts-core": "^16.3.5",
-    "@talend/scripts-config-babel": "^13.3.1",
-    "@talend/scripts-config-react-webpack": "^16.6.0",
+    "@talend/scripts-core": "^16.4.0",
+    "@talend/scripts-config-babel": "^13.4.0",
+    "@talend/scripts-config-react-webpack": "^16.7.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
