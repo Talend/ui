@@ -5,6 +5,10 @@
   "types": "./lib/index.d.ts",
   "module": "./lib-esm/index.js",
   "exports": {
+    "./lib/*": {
+      "import": "./lib-esm/*",
+      "require": "./lib/*"
+    },
     ".": {
       "import": "./lib-esm/index.js",
       "require": "./lib/index.js"
