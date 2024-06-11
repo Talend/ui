@@ -1,5 +1,21 @@
 # Changelog
 
+## 6.2.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [ced37a2]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/react-components@16.2.0
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+
 ## 6.1.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/assets-api
 
+## 1.4.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
 ## 1.3.2
 
 ### Patch Changes

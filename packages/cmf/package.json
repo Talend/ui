@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@talend/scripts-cmf": "^1.2.4",
-    "@talend/utils": "^3.0.4",
+    "@talend/utils": "^3.1.0",
     "commander": "^6.2.1",
     "hoist-non-react-statics": "^3.3.2",
     "immutable": "^3.8.2",
@@ -67,10 +67,10 @@
     "@talend/eslint-config": "^13.0.3",
     "@talend/eslint-plugin": "^1.1.1",
     "@talend/scripts-config-typescript": "^11.2.1",
-    "@talend/scripts-core": "^16.3.5",
-    "@talend/scripts-config-babel": "^13.3.1",
+    "@talend/scripts-core": "^16.4.0",
+    "@talend/scripts-config-babel": "^13.4.0",
     "@talend/scripts-config-jest": "^14.0.2",
-    "@talend/scripts-config-react-webpack": "^16.6.0",
+    "@talend/scripts-config-react-webpack": "^16.7.0",
     "@testing-library/react": "^14.2.1",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^4.0.2",
@@ -87,5 +87,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "9.0.0"
+  "version": "9.1.0"
 }

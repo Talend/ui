@@ -1,5 +1,13 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.3.2
+
+### Patch Changes
+
+- 3bd16fc: Make it compatible with ESM
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-react-webpack@16.7.0
+
 ## 5.3.1
 
 ### Patch Changes

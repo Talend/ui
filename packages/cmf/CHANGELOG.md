@@ -1,5 +1,16 @@
 # @talend/react-cmf
 
+## 9.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/utils@3.1.0
+
 ## 9.0.0
 
 ### Major Changes

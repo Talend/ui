@@ -1,5 +1,16 @@
 # @talend/scripts-config-react-webpack
 
+## 16.7.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-babel@13.4.0
+
 ## 16.6.0
 
 ### Minor Changes

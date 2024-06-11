@@ -1,5 +1,15 @@
 # @talend/storybook-docs
 
+## 2.4.3
+
+### Patch Changes
+
+- 3bd16fc: Make it compatible with ESM
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+
 ## 2.4.2
 
 ### Patch Changes

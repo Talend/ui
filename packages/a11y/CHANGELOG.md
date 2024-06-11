@@ -1,5 +1,16 @@
 # @talend/react-a11y
 
+## 3.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/utils@3.1.0
+
 ## 3.0.1
 
 ### Patch Changes

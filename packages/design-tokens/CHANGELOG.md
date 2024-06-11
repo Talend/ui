@@ -1,5 +1,16 @@
 # @talend/design-tokens
 
+## 3.3.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- d053412: Fix esm script
+- 9b66a09: Improve changes needed for cypress and simplify scripts
+
 ## 3.2.1
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # Changelog
 
+## 19.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+  - @talend/utils@3.1.0
+
 ## 19.0.1
 
 ### Patch Changes
