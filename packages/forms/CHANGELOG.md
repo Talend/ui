@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 14.1.1
+
+### Patch Changes
+
+- a1684f0: fix exports config
+
 ## 14.1.0
 
 ### Minor Changes
