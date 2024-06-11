@@ -36,10 +36,10 @@ jobs:
         run: |
           yarn --frozen-lock --ignore-scripts
           yarn cypress install
-          yarn workspace @talend/assets-api run build:lib
-          yarn workspace @talend/utils run build:lib
-          yarn workspace @talend/icons run build:lib
-          yarn workspace @talend/design-tokens run build:lib
+          yarn workspace @talend/assets-api run build:lib:esm
+          yarn workspace @talend/utils run build:lib:esm
+          yarn workspace @talend/icons run build:lib:esm
+          yarn workspace @talend/design-tokens run build:lib:esm
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@1b70233146622b69e789ccdd4f9452adc638d25a #v6.6.1
