@@ -85,7 +85,6 @@
     "@talend/storybook-docs": "^2.4.3",
     "@testing-library/cypress": "^10.0.2",
     "@testing-library/jest-dom": "^6.4.6",
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/classnames": "^2.3.1",
     "@types/jest": "^29.5.12",
     "@types/jest-axe": "^3.5.9",
