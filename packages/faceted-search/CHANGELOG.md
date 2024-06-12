@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.1.1
+
+### Patch Changes
+
+- 76b5025: Fix export for /lib/\*
+
 ## 19.1.0
 
 ### Minor Changes
