@@ -13,12 +13,12 @@
   "dependencies": {
     "cross-spawn": "^7.0.3",
     "generate-password": "^1.7.1",
-    "rimraf": "^5.0.5"
+    "rimraf": "^5.0.7"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.3",
-    "@talend/eslint-plugin": "^1.1.1",
-    "@talend/scripts-core": "^16.3.6"
+    "@talend/eslint-config": "^13.1.0",
+    "@talend/eslint-plugin": "^1.2.0",
+    "@talend/scripts-core": "^16.4.0"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",

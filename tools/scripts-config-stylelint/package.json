@@ -23,8 +23,8 @@
     "stylelint-config-standard": "^34.0.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.3",
-    "@talend/eslint-plugin": "^1.1.1"
+    "@talend/eslint-config": "^13.1.0",
+    "@talend/eslint-plugin": "^1.2.0"
   },
   "publishConfig": {
     "access": "public"

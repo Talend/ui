@@ -13,8 +13,8 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.23.10",
-    "@talend/eslint-config": "^13.0.3",
+    "@babel/eslint-parser": "^7.24.7",
+    "@talend/eslint-config": "^13.1.0",
     "eslint": "^8.57.0",
     "jest": "^29.7.0"
   },

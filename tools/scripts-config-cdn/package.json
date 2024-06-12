@@ -10,7 +10,7 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "@talend/dynamic-cdn-webpack-plugin": "^13.1.1",
+    "@talend/dynamic-cdn-webpack-plugin": "^13.1.2",
     "@talend/module-to-cdn": "^9.10.1",
     "@yarnpkg/lockfile": "^1.1.0",
     "js-yaml": "^4.1.0",
@@ -18,7 +18,7 @@
     "read-pkg-up": "^7.0.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.23.10",
+    "@babel/eslint-parser": "^7.24.7",
     "eslint": "^8.57.0"
   },
   "publishConfig": {
