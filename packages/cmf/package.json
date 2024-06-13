@@ -64,25 +64,25 @@
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.1.5",
-    "@talend/eslint-config": "^13.0.3",
-    "@talend/eslint-plugin": "^1.1.1",
+    "@talend/eslint-config": "^13.1.0",
+    "@talend/eslint-plugin": "^1.2.0",
     "@talend/scripts-config-typescript": "^11.2.1",
     "@talend/scripts-core": "^16.4.0",
     "@talend/scripts-config-babel": "^13.4.0",
-    "@talend/scripts-config-jest": "^14.0.2",
+    "@talend/scripts-config-jest": "^14.0.4",
     "@talend/scripts-config-react-webpack": "^16.7.0",
-    "@testing-library/react": "^14.2.1",
+    "@testing-library/react": "^14.3.1",
     "jest-in-case": "^1.0.2",
-    "jsdoc": "^4.0.2",
+    "jsdoc": "^4.0.3",
     "node-fetch": "^2.7.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "redux-mock-store": "^1.5.4",
     "redux-saga-tester": "^1.0.874"
   },
   "peerDependencies": {
-    "react": ">= 16.14.0",
-    "react-dom": ">= 16.14.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "publishConfig": {
     "access": "public"
