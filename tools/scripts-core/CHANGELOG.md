@@ -1,5 +1,24 @@
 # @talend/scripts-core
 
+## 16.5.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-typescript@11.3.0
+  - @talend/scripts-config-stylelint@4.2.0
+  - @talend/eslint-config@13.2.0
+  - @talend/scripts-config-babel@13.5.0
+  - @talend/scripts-config-jest@14.1.0
+  - @talend/eslint-plugin@1.3.0
+  - @talend/scripts-utils@2.3.0
+
 ## 16.4.0
 
 ### Minor Changes

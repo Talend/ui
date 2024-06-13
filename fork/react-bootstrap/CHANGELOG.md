@@ -1,5 +1,13 @@
 ## [v0.32.5]
 
+## 3.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
 ## 2.3.0
 
 ### Minor Changes

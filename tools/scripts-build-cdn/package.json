@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-build-cdn",
-  "version": "11.1.3",
+  "version": "11.2.0",
   "description": "Give a CLI to build a CDN for js and css with unpkg like structures",
   "main": "index.js",
   "bin": {
@@ -21,9 +21,9 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "@talend/babel-plugin-import-d3": "^0.4.1",
-    "@talend/module-to-cdn": "^9.10.1",
-    "@talend/scripts-config-cdn": "^10.11.1",
+    "@talend/babel-plugin-import-d3": "^0.5.0",
+    "@talend/module-to-cdn": "^9.11.0",
+    "@talend/scripts-config-cdn": "^10.12.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "commander": "^6.2.1",
     "cpx2": "^3.0.2",
@@ -37,8 +37,8 @@
     "webpack-cli": "^4.10.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.1.0",
-    "@talend/eslint-plugin": "^1.2.0"
+    "@talend/eslint-config": "^13.2.0",
+    "@talend/eslint-plugin": "^1.3.0"
   },
   "publishConfig": {
     "access": "public"
