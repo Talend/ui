@@ -1,5 +1,20 @@
 # Changelog
 
+## 7.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/react-components@17.0.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+
 ## 6.2.0
 
 ### Minor Changes

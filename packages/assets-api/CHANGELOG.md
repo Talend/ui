@@ -1,5 +1,13 @@
 # @talend/assets-api
 
+## 1.5.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
 ## 1.4.0
 
 ### Minor Changes

@@ -1,5 +1,19 @@
 # @talend/react-cmf-cqrs
 
+## 11.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/react-cmf@10.0.0
+  - @talend/utils@3.2.0
+
 ## 10.1.4
 
 ### Patch Changes

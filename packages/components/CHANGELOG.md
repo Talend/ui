@@ -1,5 +1,25 @@
 # @talend/react-components
 
+## 17.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-bootstrap@3.0.0
+  - @talend/react-a11y@4.0.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/icons@7.10.0
+  - @talend/bootstrap-theme@9.2.0
+  - @talend/utils@3.2.0
+
 ## 16.2.0
 
 ### Minor Changes
