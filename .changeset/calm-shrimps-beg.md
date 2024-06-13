@@ -19,7 +19,7 @@
 '@talend/babel-plugin-import-from-lib': minor
 '@talend/scripts-config-react-webpack': minor
 '@talend/scripts-config-storybook-lib': minor
-'@talend/dynamic-cdn-webpack-plugin': minor
+'@talend/dynamic-cdn-webpack-plugin': major
 '@talend/scripts-config-typescript': minor
 '@talend/scripts-config-stylelint': minor
 '@talend/babel-plugin-assets-api': minor
