@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.10.1
+
+### Patch Changes
+
+- b8f7672: fix module not found error for @talend/react-bootstrap and @talend/icons
+
 ## 7.10.0
 
 ### Minor Changes
