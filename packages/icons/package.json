@@ -40,6 +40,7 @@
   "files": [
     "index.js",
     "dist",
+    "lib-esm",
     "src"
   ],
   "keywords": [

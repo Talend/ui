@@ -30,6 +30,7 @@
   "files": [
     "CHANGELOG.md",
     "lib",
+    "lib-esm",
     "dist",
     "es"
   ],
