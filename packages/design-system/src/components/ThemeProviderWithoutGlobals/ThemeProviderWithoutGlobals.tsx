@@ -6,7 +6,7 @@ import 'typeface-source-sans-pro/index.css';
 // eslint-disable-next-line @talend/import-depth
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
 
-import ThemeContext from './ThemeContext';
+import ThemeContext from '../ThemeProvider/ThemeContext';
 
 export type ThemeProviderProps = PropsWithChildren<{
 	theme?: string;
