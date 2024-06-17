@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.0.1
+
+### Patch Changes
+
+- 11c75a1: fix: make ThemeProviderWithoutGlobals working since esm build
+
 ## 11.0.0
 
 ### Major Changes
