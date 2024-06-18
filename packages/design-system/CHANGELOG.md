@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.0.2
+
+### Patch Changes
+
+- ae1e3dc: fix: declaration generation for ThemeProviderWithoutGlobals
+
 ## 11.0.1
 
 ### Patch Changes
