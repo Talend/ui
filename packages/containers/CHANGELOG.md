@@ -1,5 +1,11 @@
 # @talend/react-containers
 
+## 11.0.1
+
+### Patch Changes
+
+- c520cd8: fix(containers): Fix tsconfig to have right d.ts files
+
 ## 11.0.0
 
 ### Major Changes
