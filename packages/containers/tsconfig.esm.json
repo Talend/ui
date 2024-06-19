@@ -1,6 +1,6 @@
 {
-  "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/**/*"],
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "src/**/*.stories.*", "src/**/*.test.*"],
   "compilerOptions": {
     "declaration": true,
     "outDir": "lib-esm",
