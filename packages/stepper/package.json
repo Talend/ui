@@ -33,7 +33,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^11.0.0",
+    "@talend/design-system": "^11.0.2",
     "@talend/design-tokens": "^3.4.0",
     "@talend/react-components": "^17.0.0",
     "classnames": "^2.5.1",
@@ -41,7 +41,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^7.10.0",
+    "@talend/icons": "^7.10.1",
     "@talend/eslint-config": "^13.2.0",
     "@talend/eslint-plugin": "^1.3.0",
     "@talend/scripts-config-babel": "^13.5.0",

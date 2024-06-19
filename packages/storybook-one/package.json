@@ -20,17 +20,17 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
-    "@talend/design-system": "^11.0.0",
+    "@talend/design-system": "^11.0.2",
     "@talend/design-tokens": "^3.4.0",
     "@talend/react-faceted-search": "^20.0.0",
     "@talend/storybook-docs": "^2.5.0",
-    "@talend/icons": "^7.10.0",
+    "@talend/icons": "^7.10.1",
     "@talend/react-components": "^17.0.0",
     "@talend/react-forms": "^15.0.0",
     "@talend/react-dataviz": "^7.0.0",
     "lodash": "^4.17.21",
     "pkg-dir": "^7.0.0",
-    "react-hook-form": "^7.51.5"
+    "react-hook-form": "^7.52.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",
