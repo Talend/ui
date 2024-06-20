@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.2.1
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+
 ## 3.2.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 11.0.3
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/utils@3.2.1
+
 ## 11.0.2
 
 ### Patch Changes

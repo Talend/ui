@@ -1,5 +1,15 @@
 # @talend/react-containers
 
+## 11.0.2
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/design-system@11.0.3
+  - @talend/react-components@17.0.1
+  - @talend/utils@3.2.1
+
 ## 11.0.1
 
 ### Patch Changes
