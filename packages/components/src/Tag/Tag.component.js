@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+
 import {
 	Tag as CoralTag,
+	TagBeta as CoralTagBeta,
+	TagDestructive as CoralTagDestructive,
 	TagInformation as CoralTagInformation,
 	TagSuccess as CoralTagSuccess,
 	TagWarning as CoralTagWarning,
-	TagDestructive as CoralTagDestructive,
 } from '@talend/design-system';
 
 /**
@@ -24,6 +26,9 @@ const Tag = ({ bsStyle, ...rest }) => {
 			break;
 		case 'danger':
 			StyledTag = CoralTagDestructive;
+			break;
+		case 'beta':
+			StyledTag = CoralTagBeta;
 			break;
 		default:
 			break;
