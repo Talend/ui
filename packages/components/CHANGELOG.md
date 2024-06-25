@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.1.0
+
+### Minor Changes
+
+- ca1734c: feat(TMC-28838/tags): add beta styled tag to the Tag component
+
 ## 17.0.1
 
 ### Patch Changes
