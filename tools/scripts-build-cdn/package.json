@@ -32,7 +32,7 @@
     "queue": "^6.0.2",
     "rimraf": "^5.0.7",
     "semver": "^7.6.2",
-    "webpack": "^5.92.0",
+    "webpack": "^5.92.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^4.10.0"
   },
