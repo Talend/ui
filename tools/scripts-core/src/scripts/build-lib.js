@@ -152,7 +152,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 	const copyPromise = () =>
 		new Promise((resolve, reject) => {
 			if (options.includes('--watch')) {
-				const evtEmitter = cpx.watch(`${srcFolder}/**/*.{scss,json}`, targetFolder);
+				const evtEmitter = cpx.watch(`${srcFolder}/**/*.{css,scss,json}`, targetFolder);
 				evtEmitter.on('watch-error', err => {
 					reject(err);
 				});
@@ -161,7 +161,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 				});
 			} else {
 				console.log('Copying assets...');
-				cpx.copy(`${srcFolder}/**/*.{scss,json}`, targetFolder, err => {
+				cpx.copy(`${srcFolder}/**/*.{css,scss,json}`, targetFolder, err => {
 					if (err) {
 						console.error(err);
 						reject(err);
