@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "lib-esm",
-    "module": "ESNext"
-  },
-  "exclude": ["src/**/*.test.*", "src/**/*.stories.*", "src/**/*.cy.*"]
-}
