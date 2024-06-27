@@ -1,5 +1,19 @@
 # @talend/react-forms
 
+## 15.0.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/json-schema-form-core@1.4.1
+  - @talend/design-system@11.0.4
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/react-components@17.1.1
+  - @talend/icons@7.10.2
+  - @talend/utils@3.2.2
+
 ## 15.0.0
 
 ### Major Changes

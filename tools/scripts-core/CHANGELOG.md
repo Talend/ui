@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 16.5.1
+
+### Patch Changes
+
+- 4f8ac2d: TMC-28977 - Allow Talend scripts to copy .css files on build
+
 ## 16.5.0
 
 ### Minor Changes

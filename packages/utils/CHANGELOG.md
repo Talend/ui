@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.2.2
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+
 ## 3.2.1
 
 ### Patch Changes
