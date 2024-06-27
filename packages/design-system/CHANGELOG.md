@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 11.0.4
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/utils@3.2.2
+
 ## 11.0.3
 
 ### Patch Changes
