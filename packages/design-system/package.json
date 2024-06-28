@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "11.0.4",
+  "version": "11.0.5",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -47,7 +47,7 @@
     "@floating-ui/react": "^0.24.8",
     "@talend/assets-api": "^1.5.1",
     "@talend/design-tokens": "^3.4.1",
-    "@talend/utils": "^3.2.2",
+    "@talend/utils": "^3.2.3",
     "classnames": "^2.5.1",
     "modern-css-reset": "^1.4.0",
     "react-transition-group": "^2.9.0",

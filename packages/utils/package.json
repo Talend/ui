@@ -1,6 +1,6 @@
 {
   "name": "@talend/utils",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "Various utilities",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
