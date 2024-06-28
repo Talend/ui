@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.4.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+
 ## 1.4.0
 
 ### Minor Changes

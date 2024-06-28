@@ -1,5 +1,17 @@
 # @talend/react-containers
 
+## 11.0.3
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-system@11.0.4
+  - @talend/react-components@17.1.1
+  - @talend/react-forms@15.0.1
+  - @talend/utils@3.2.2
+  - @talend/react-cmf@10.0.1
+
 ## 11.0.2
 
 ### Patch Changes
