@@ -5,8 +5,8 @@
   "module": "./lib-esm/index.js",
   "exports": {
     "./lib/*": {
-      "import": "./lib-esm/*",
-      "require": "./lib/*"
+      "import": "./lib-esm/*/index.js",
+      "require": "./lib/*/index.js"
     },
     ".": {
       "import": "./lib-esm/index.js",
