@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 17.1.2
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/utils@3.2.3
+
 ## 17.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.2.3
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+
 ## 3.2.2
 
 ### Patch Changes
