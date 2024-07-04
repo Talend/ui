@@ -1,5 +1,11 @@
 # Changelog
 
+## 20.0.2
+
+### Patch Changes
+
+- 46a18aa: feat: Add Typeahead props to QuickSearchInput
+
 ## 20.0.1
 
 ### Patch Changes

@@ -558,3 +558,34 @@ export const WithQuickSearchFilterCustomizableInputTriggerLength = () => {
 		</FacetedSearch.Faceted>
 	);
 };
+
+export const WithQuickSearchAsynchronousSuggestions = () => {
+	const [searching, setSearching] = useState(false);
+	const [items, setItems] = useState([]);
+	const [value, setValue] = useState('');
+	const onChange = (_, { value }) => {
+		setValue(value);
+		setSearching(true);
+		setTimeout(() => {
+			setItems([
+				{
+					title: 'Search in...',
+					suggestions: ['in Name', 'in Email', 'in Position'].map(column => value + ' ' + column),
+				},
+			]);
+			setSearching(false);
+		}, 1000);
+	};
+
+	return (
+		<FacetedSearch.Faceted id="my-faceted-search">
+			<FacetedSearch.BasicSearch
+				badgesDefinitions={badgesDefinitions}
+				callbacks={callbacks}
+				onSubmit={action('onSubmit')}
+				quickSearchInputProps={{ value }}
+				quickSearchTypeaheadProps={{ searching, items, onChange, debounceTimeout: 800 }}
+			/>
+		</FacetedSearch.Faceted>
+	);
+};
