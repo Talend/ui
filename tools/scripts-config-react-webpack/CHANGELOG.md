@@ -1,5 +1,32 @@
 # @talend/scripts-config-react-webpack
 
+## 16.8.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-babel@13.5.0
+  - @talend/react-cmf-webpack-plugin@6.39.0
+  - @talend/scripts-config-cdn@10.12.0
+  - @talend/scripts-utils@2.3.0
+
+## 16.7.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-babel@13.4.0
+
 ## 16.6.0
 
 ### Minor Changes

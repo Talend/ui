@@ -27,7 +27,7 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
 
-      - uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 #v4.0.0
+      - uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 #v4.0.2
         with:
           path: ~/.cache/Cypress
           key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
@@ -36,10 +36,12 @@ jobs:
         run: |
           yarn --frozen-lock --ignore-scripts
           yarn cypress install
-          yarn workspace @talend/assets-api run build:lib
-          yarn workspace @talend/utils run build:lib
+          yarn workspace @talend/assets-api run build:lib:esm
+          yarn workspace @talend/utils run build:lib:esm
           yarn workspace @talend/icons run build:lib
+          yarn workspace @talend/icons run build:lib:esm
           yarn workspace @talend/design-tokens run build:lib
+          yarn workspace @talend/design-tokens run build:lib:esm
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@1b70233146622b69e789ccdd4f9452adc638d25a #v6.6.1
@@ -49,14 +51,14 @@ jobs:
           command: yarn workspace @talend/design-system run test:cy
 
       - name: Cypress screenshots upload
-        uses: actions/upload-artifact@694cdabd8bdb0f10b2cea11669e1bf5453eed0a6 #v4.2.0
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 #v4.3.3
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-screenshots
           path: packages/design-system/cypress/screenshots/**/*
 
       - name: Cypress videos upload
-        uses: actions/upload-artifact@694cdabd8bdb0f10b2cea11669e1bf5453eed0a6 #v4.2.0
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 #v4.3.3
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos

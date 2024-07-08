@@ -45,6 +45,7 @@ const BasicSearch = ({
 	quickSearchPlaceholder,
 	quickSearchFacetsFilter,
 	quickSearchInputProps,
+	quickSearchTypeaheadProps,
 	disclosureProps,
 }) => {
 	const { id, t } = useFacetedSearchContext();
@@ -129,6 +130,7 @@ const BasicSearch = ({
 				}}
 				inputProps={quickSearchInputProps}
 				minLength={quickSearchMinLength}
+				typeaheadProps={quickSearchTypeaheadProps}
 			/>
 			<div className={styles['tc-basic-search-content']}>
 				<BadgeFacetedProvider value={badgeFacetedContextValue}>

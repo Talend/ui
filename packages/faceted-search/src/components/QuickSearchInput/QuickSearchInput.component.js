@@ -21,6 +21,7 @@ export const QuickSearchInput = ({
 	facetsFilter,
 	inputProps,
 	minLength,
+	typeaheadProps = {},
 }) => {
 	const defaultFacet = useMemo(() => getDefaultFacet(facets), [facets]);
 	const [opened, setOpened] = useState(false);
@@ -72,6 +73,7 @@ export const QuickSearchInput = ({
 			role="searchbox"
 			className={className}
 			inputProps={inputProps}
+			{...typeaheadProps}
 		/>
 	);
 };

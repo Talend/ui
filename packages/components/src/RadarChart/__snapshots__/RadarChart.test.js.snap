@@ -3,7 +3,6 @@
 exports[`RadarChart should render a RadarChart 1`] = `
 <div
   class="recharts-wrapper tc-radar-chart theme-tc-radar-chart"
-  role="region"
   style="position: relative; cursor: default; width: 420px; height: 250px;"
 >
   <svg
@@ -115,10 +114,10 @@ exports[`RadarChart should render a RadarChart 1`] = `
       </g>
     </g>
     <g
-      class="recharts-layer recharts-polar-radius-axis"
+      class="recharts-layer recharts-polar-radius-axis radiusAxis"
     />
     <g
-      class="recharts-layer recharts-polar-angle-axis"
+      class="recharts-layer recharts-polar-angle-axis angleAxis"
     >
       <path
         class="recharts-polygon angleAxis"

@@ -32,6 +32,7 @@ export * from './components/Switch';
 export * from './components/Tabs';
 export * from './components/Tag';
 export * from './components/ThemeProvider';
+export * from './components/ThemeProviderWithoutGlobals';
 export * from './components/VisuallyHidden';
 export * from './components/illustrations';
 

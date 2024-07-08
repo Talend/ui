@@ -1,5 +1,97 @@
 # @talend/design-system
 
+## 11.0.5
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/utils@3.2.3
+
+## 11.0.4
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/utils@3.2.2
+
+## 11.0.3
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/utils@3.2.1
+
+## 11.0.2
+
+### Patch Changes
+
+- ae1e3dc: fix: declaration generation for ThemeProviderWithoutGlobals
+
+## 11.0.1
+
+### Patch Changes
+
+- 11c75a1: fix: make ThemeProviderWithoutGlobals working since esm build
+
+## 11.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/utils@3.2.0
+
+## 10.6.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/utils@3.1.0
+
+## 10.5.0
+
+### Minor Changes
+
+- 803c4e1: feat: add ThemeProvider without globals
+
+## 10.4.6
+
+### Patch Changes
+
+- 95bb74f: Design system drawer now has a data attribute to identify when it is opened
+
+## 10.4.5
+
+### Patch Changes
+
+- 5b7240e: Form field label property "required" can now be overriden by passing props
+
+## 10.4.4
+
+### Patch Changes
+
+- 6ff9f03: DGT-528: Fix QualityBar rounding issue when the invalid or empty percentages were rounded to 0. Set a miminum value for the rounding to prevent UI inconsistencies
+
 ## 10.4.3
 
 ### Patch Changes

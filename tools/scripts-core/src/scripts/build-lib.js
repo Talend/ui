@@ -16,9 +16,15 @@ const isTSLib = !!types;
 
 export default async function build(env, presetApi, unsafeOptions) {
 	let useTsc = false;
+	let useESM = false;
 	const options = unsafeOptions.filter(o => {
 		if (o === '--tsc') {
 			useTsc = true;
+			// do not keep this option
+			return false;
+		} else if (o === '--esm') {
+			useESM = true;
+			Object.assign(env, { ESM: useESM.toString() });
 			// do not keep this option
 			return false;
 		}
@@ -39,7 +45,9 @@ export default async function build(env, presetApi, unsafeOptions) {
 		path.join(tsRootPath, 'tsconfig.json');
 
 	const srcFolder = path.join(process.cwd(), 'src');
-	const targetFolder = path.join(process.cwd(), 'lib');
+	const targetFolder = useESM
+		? path.join(process.cwd(), 'lib-esm')
+		: path.join(process.cwd(), 'lib');
 
 	if (!options.includes('--watch')) {
 		console.log(`Removing target folder (${targetFolder})...`);
@@ -51,7 +59,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 				resolve({ status: 0 });
 				return;
 			}
-			console.log('Compiling with babel...');
+			console.log('Compiling with babel...', { ...env, ESM: useESM.toString() });
 			utils.process
 				.spawn(
 					'node',
@@ -144,7 +152,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 	const copyPromise = () =>
 		new Promise((resolve, reject) => {
 			if (options.includes('--watch')) {
-				const evtEmitter = cpx.watch(`${srcFolder}/**/*.{scss,json}`, targetFolder);
+				const evtEmitter = cpx.watch(`${srcFolder}/**/*.{css,scss,json}`, targetFolder);
 				evtEmitter.on('watch-error', err => {
 					reject(err);
 				});
@@ -153,7 +161,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 				});
 			} else {
 				console.log('Copying assets...');
-				cpx.copy(`${srcFolder}/**/*.{scss,json}`, targetFolder, err => {
+				cpx.copy(`${srcFolder}/**/*.{css,scss,json}`, targetFolder, err => {
 					if (err) {
 						console.error(err);
 						reject(err);

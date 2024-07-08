@@ -7,3 +7,4 @@ build
 dist
 node_modules
 __fixtures__
+tools/scripts-config-storybook-lib/.storybook-templates/main.js

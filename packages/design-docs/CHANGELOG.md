@@ -1,5 +1,35 @@
 # @talend/design-docs
 
+## 4.2.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/storybook-docs@2.5.0
+  - @talend/design-tokens@3.4.0
+  - @talend/icons@7.10.0
+
+## 4.1.4
+
+### Patch Changes
+
+- 3bd16fc: Make it compatible with ESM
+- Updated dependencies [3bd16fc]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-system@10.6.0
+  - @talend/design-tokens@3.3.0
+  - @talend/icons@7.9.0
+  - @talend/storybook-docs@2.4.3
+
 ## 4.1.3
 
 ### Patch Changes

@@ -3,6 +3,7 @@ module.exports = {
 		[
 			require.resolve('@babel/preset-env'),
 			{
+				modules: process.env.ESM === 'true' ? false : 'auto',
 				targets:
 					'last 1 year, not ie > 0, not samsung > 0, not opera > 0, not ios > 0, not op_mob > 0, not android > 0, not and_chr > 0, not and_ff > 0, not and_qq > 0',
 			},

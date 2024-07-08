@@ -1,5 +1,93 @@
 # @talend/react-components
 
+## 17.1.2
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/utils@3.2.3
+
+## 17.1.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/react-bootstrap@3.0.2
+  - @talend/assets-api@1.5.1
+  - @talend/icons@7.10.2
+  - @talend/utils@3.2.2
+  - @talend/react-a11y@4.0.1
+
+## 17.1.0
+
+### Minor Changes
+
+- ca1734c: feat(TMC-28838/tags): add beta styled tag to the Tag component
+
+## 17.0.1
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/utils@3.2.1
+
+## 17.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-bootstrap@3.0.0
+  - @talend/react-a11y@4.0.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/icons@7.10.0
+  - @talend/bootstrap-theme@9.2.0
+  - @talend/utils@3.2.0
+
+## 16.2.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- ced37a2: fix(TMC-27619/cellDate): enable tz offset conversion with sourceTz
+- Updated dependencies [3bd16fc]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+  - @talend/react-bootstrap@2.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/icons@7.9.0
+  - @talend/utils@3.1.0
+  - @talend/react-a11y@3.1.0
+  - @talend/bootstrap-theme@9.1.4
+
+## 16.1.4
+
+### Patch Changes
+
+- 50801bd: Reset currentStep to 0 when tour is reopened
+
+## 16.1.3
+
+### Patch Changes
+
+- 003c7a4: fix(TDC-7452/Tour): Fix tour is changing to first step when closing
+
 ## 16.1.2
 
 ### Patch Changes

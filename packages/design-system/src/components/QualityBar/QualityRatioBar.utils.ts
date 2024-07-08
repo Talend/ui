@@ -35,7 +35,7 @@ export const getQualityPercentagesRounded = (
 	empty: number = 0,
 	valid: number = 0,
 	na: number = 0,
-	placeholder = 0,
+	placeholder: number = 0,
 ): Required<QualityBarPercentages> => {
 	const output: Required<QualityBarPercentages> = {
 		empty: 0,
@@ -45,30 +45,30 @@ export const getQualityPercentagesRounded = (
 		valid: 0,
 	};
 
-	let sumValues = 0;
-	let sumRounded = 0;
 	const digitMultiplier = Math.pow(10, digits);
-	const multiplier = 100 * digitMultiplier;
-
 	const total = invalid + empty + valid + na + placeholder;
 
-	sumValues = (invalid * multiplier) / total;
-	output.invalid = Math.round(sumValues - sumRounded) / digitMultiplier;
-	sumRounded = Math.round(sumValues);
+	if (total === 0) {
+		return output;
+	}
 
-	sumValues += (empty * multiplier) / total;
-	output.empty = Math.round(sumValues - sumRounded) / digitMultiplier;
-	sumRounded = Math.round(sumValues);
+	const minPercentage = 1 / digitMultiplier;
 
-	sumValues += (valid * multiplier) / total;
-	output.valid = Math.round(sumValues - sumRounded) / digitMultiplier;
-	sumRounded = Math.round(sumValues);
+	output.invalid = +(invalid > 0 ? Math.max((invalid * 100) / total, minPercentage) : 0).toFixed(
+		digits,
+	);
 
-	sumValues += (na * multiplier) / total;
-	output.na = Math.round(sumValues - sumRounded) / digitMultiplier;
+	output.empty = +(empty > 0 ? Math.max((empty * 100) / total, minPercentage) : 0).toFixed(digits);
 
-	sumValues += (placeholder * multiplier) / total;
-	output.placeholder = Math.round(sumValues - sumRounded) / digitMultiplier;
+	output.na = +(na > 0 ? Math.max((na * 100) / total, minPercentage) : 0).toFixed(digits);
+
+	output.placeholder = +(
+		placeholder > 0 ? Math.max((placeholder * 100) / total, minPercentage) : 0
+	).toFixed(digits);
+
+	output.valid = +(100 - output.invalid - output.empty - output.na - output.placeholder).toFixed(
+		digits,
+	);
 
 	return output;
 };

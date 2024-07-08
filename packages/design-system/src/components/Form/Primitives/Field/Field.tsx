@@ -47,10 +47,10 @@ const Field = forwardRef(
 
 		const LabelComponent = hideLabel ? (
 			<VisuallyHidden>
-				<Label {...labelProps} htmlFor={fieldId} required={required} />
+				<Label htmlFor={fieldId} required={required} {...labelProps} />
 			</VisuallyHidden>
 		) : (
-			<Label {...labelProps} htmlFor={fieldId} required={required} />
+			<Label htmlFor={fieldId} required={required} {...labelProps} />
 		);
 
 		const Description = () => {

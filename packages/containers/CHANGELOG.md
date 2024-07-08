@@ -1,5 +1,83 @@
 # @talend/react-containers
 
+## 11.0.4
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/design-system@11.0.5
+  - @talend/react-components@17.1.2
+  - @talend/utils@3.2.3
+
+## 11.0.3
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-system@11.0.4
+  - @talend/react-components@17.1.1
+  - @talend/react-forms@15.0.1
+  - @talend/utils@3.2.2
+  - @talend/react-cmf@10.0.1
+
+## 11.0.2
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/design-system@11.0.3
+  - @talend/react-components@17.0.1
+  - @talend/utils@3.2.1
+
+## 11.0.1
+
+### Patch Changes
+
+- c520cd8: fix(containers): Fix tsconfig to have right d.ts files
+
+## 11.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-components@17.0.0
+  - @talend/react-forms@15.0.0
+  - @talend/react-cmf@10.0.0
+  - @talend/utils@3.2.0
+
+## 10.8.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [ced37a2]
+- Updated dependencies [3bd16fc]
+  - @talend/react-components@16.2.0
+  - @talend/design-system@10.6.0
+  - @talend/react-forms@14.1.0
+  - @talend/utils@3.1.0
+  - @talend/react-cmf@9.1.0
+
+## 10.7.4
+
+### Patch Changes
+
+- Updated dependencies [e48ae5f]
+  - @talend/react-cmf@9.0.0
+
 ## 10.7.3
 
 ### Patch Changes

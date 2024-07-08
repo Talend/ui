@@ -1,5 +1,13 @@
 # @talend/scripts-yarn-workspace
 
+## 2.1.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
 ## 2.0.2
 
 ### Patch Changes

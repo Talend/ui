@@ -35,6 +35,7 @@ export function computeValue(cellData, columnData, t) {
 		} else if (columnData.mode === 'format') {
 			if (columnData.timeZone) {
 				return dateUtils.formatToTimeZone(dateFNS, columnData.pattern || DATE_TIME_FORMAT, {
+					...(columnData.sourceTimeZone && { sourceTimeZone: columnData.sourceTimeZone }),
 					timeZone: columnData.timeZone,
 					locale: getLocale(t),
 				});
