@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 15.0.2
+
+### Patch Changes
+
+- 194465c: Forms: array widget - use default value when add new item
+
 ## 15.0.1
 
 ### Patch Changes
