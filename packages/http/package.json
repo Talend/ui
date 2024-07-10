@@ -29,7 +29,7 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.2.0",
     "@talend/eslint-plugin": "^1.3.0",
-    "@talend/scripts-core": "^16.5.0",
+    "@talend/scripts-core": "^16.5.1",
     "@talend/scripts-config-babel": "^13.5.0",
     "@talend/scripts-config-react-webpack": "^16.8.0",
     "@talend/scripts-config-typescript": "^11.3.0",

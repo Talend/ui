@@ -16,7 +16,7 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.2.0",
     "@talend/eslint-plugin": "^1.3.0",
-    "@talend/scripts-core": "^16.5.0"
+    "@talend/scripts-core": "^16.5.1"
   },
   "keywords": [
     "i18next",

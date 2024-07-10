@@ -32,7 +32,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/utils": "^3.2.2"
+    "@talend/utils": "^3.2.3"
   },
   "devDependencies": {
     "@talend/eslint-config": "^13.2.0",

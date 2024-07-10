@@ -55,8 +55,8 @@
     "@talend/scripts-core": "^16.5.1",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
-    "rimraf": "^5.0.7",
-    "webpack": "^5.92.0"
+    "rimraf": "^5.0.9",
+    "webpack": "^5.92.1"
   },
   "dependencies": {
     "json-refs": "3.0.15",
