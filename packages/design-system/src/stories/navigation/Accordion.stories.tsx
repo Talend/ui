@@ -126,20 +126,27 @@ export const WithMetadata = () => (
 	</div>
 );
 
-export const WithAction = {
+export const WithActions = {
 	render: (props: Story) => (
 		<div
 			style={{ maxWidth: '50rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.875rem' }}
 		>
 			<CollapsiblePanel
 				{...props}
-				id="panel-with-action"
-				title="panel with action"
-				action={{
-					icon: 'plus',
-					tooltip: 'action tooltip',
-					callback: () => window.alert('action callback'),
-				}}
+				id="panel-with-actions"
+				title="panel with actions"
+				action={[
+					{
+						icon: 'talend-cog',
+						tooltip: 'action tooltip',
+						callback: () => window.alert('action callback'),
+					},
+					{
+						icon: 'plus',
+						tooltip: 'action tooltip',
+						callback: () => window.alert('action callback'),
+					},
+				]}
 			>
 				<SampleParagraph />
 			</CollapsiblePanel>

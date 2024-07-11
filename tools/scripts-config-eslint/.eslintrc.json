@@ -35,6 +35,7 @@
   ],
   "rules": {
     "@talend/import-depth": 2,
+    "@talend/use-bootstrap-class": 1,
     "arrow-parens": [2, "as-needed"],
     "comma-dangle": ["error", "only-multiline"],
     "function-paren-newline": 0,

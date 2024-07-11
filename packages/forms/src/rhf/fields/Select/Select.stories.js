@@ -1,7 +1,12 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable import/no-extraneous-dependencies */
-import { useForm, FormProvider } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
+
 import { action } from '@storybook/addon-actions';
+
+import { Form } from '@talend/design-system';
+
 import Select from '.';
 
 export default {
@@ -54,13 +59,15 @@ export const States = props => {
 	const rhf = useForm();
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Select id="name" {...props} />
 				<Select id="disabled" name="disabled" label="Disabled" options={props.options} disabled />
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
@@ -79,12 +86,14 @@ export const Description = props => {
 
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Select id="name" {...props} />
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
@@ -99,14 +108,14 @@ export const Validation = props => {
 
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<Select id="required" {...props} rules={{ required: 'This is required' }} />
 
 				<Select
 					id="notBlue"
 					name="notBlue"
 					label="Not blue"
-					placeholde="Select a color"
+					placeholder="Select a color"
 					options={[
 						{ value: 'blue', name: 'Blue color' },
 						{ value: 'red', name: 'Red color' },
@@ -118,11 +127,12 @@ export const Validation = props => {
 					}}
 					required
 				/>
-
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };

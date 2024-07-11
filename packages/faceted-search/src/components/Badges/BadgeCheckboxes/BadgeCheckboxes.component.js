@@ -53,16 +53,17 @@ export const BadgeCheckboxes = ({
 }) => {
 	const [options, setOptions] = useState(values || []);
 	const [isLoading, setIsLoading] = useState(true);
+	const callback = callbacks && callbacks[rest.attribute];
 
 	useEffect(() => {
-		if (values?.length || !callbacks || !callbacks.getTags) {
+		if (values?.length || !callback || !callback.getOptions) {
 			setIsLoading(false);
 			return;
 		}
 
 		setIsLoading(true);
-		callbacks
-			.getTags()
+		callback
+			.getOptions()
 			.then(data => {
 				setOptions(
 					data.map(item => {

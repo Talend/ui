@@ -2,37 +2,41 @@
 
 exports[`Buttons field should render buttons 1`] = `
 <div
-  class="theme-tf-buttons tf-buttons extra"
+  class="theme-buttons"
 >
-  <button
-    aria-label="Reset"
-    class="btn--secondary btn theme-undefined custom-class-name btn btn-default"
-    id="myForm-0"
-    type="reset"
+  <div
+    class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-0 theme-padding-bottom-M theme-padding-left-0"
   >
-    <span>
-      Reset
-    </span>
-  </button>
-  <button
-    aria-label="Test"
-    class="btn--secondary btn theme-right btn btn-default"
-    id="myForm-1"
-    type="button"
-  >
-    <span>
-      Test
-    </span>
-  </button>
-  <button
-    aria-label="Submit"
-    class="btn theme-undefined btn btn-primary"
-    id="myForm-2"
-    type="submit"
-  >
-    <span>
-      Submit
-    </span>
-  </button>
+    <button
+      aria-label="Reset"
+      class="btn--secondary btn custom-class-name btn btn-default"
+      id="myForm-0"
+      type="reset"
+    >
+      <span>
+        Reset
+      </span>
+    </button>
+    <button
+      aria-label="Test"
+      class="btn--secondary btn btn btn-default"
+      id="myForm-1"
+      type="button"
+    >
+      <span>
+        Test
+      </span>
+    </button>
+    <button
+      aria-label="Submit"
+      class="btn btn btn-primary"
+      id="myForm-2"
+      type="submit"
+    >
+      <span>
+        Submit
+      </span>
+    </button>
+  </div>
 </div>
 `;

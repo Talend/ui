@@ -1,10 +1,10 @@
 import { forwardRef, ReactElement, Ref } from 'react';
 
+import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
 import Link, { LinkProps } from '../../../Link/Link';
 import { StackVertical } from '../../../Stack';
-import Label, { LabelPrimitiveProps } from '../Label/Label';
-import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
 import { VisuallyHidden } from '../../../VisuallyHidden';
+import Label, { LabelPrimitiveProps } from '../Label/Label';
 
 export type FieldStatusProps =
 	| {
@@ -47,19 +47,25 @@ const Field = forwardRef(
 
 		const LabelComponent = hideLabel ? (
 			<VisuallyHidden>
-				<Label {...labelProps} htmlFor={fieldId} required={required} />
+				<Label htmlFor={fieldId} required={required} {...labelProps} />
 			</VisuallyHidden>
 		) : (
-			<Label {...labelProps} htmlFor={fieldId} required={required} />
+			<Label htmlFor={fieldId} required={required} {...labelProps} />
 		);
 
 		const Description = () => {
+			const inlineMessageProps = {
+				'data-test': children?.props['data-test'] && children?.props['data-test'] + '-description',
+				'data-testid':
+					children?.props['data-testid'] && children?.props['data-testid'] + '-description',
+			};
+
 			if (description) {
 				if (hasError) {
-					return <InlineMessageDestructive description={description} />;
+					return <InlineMessageDestructive description={description} {...inlineMessageProps} />;
 				}
 
-				return <InlineMessageInformation description={description} />;
+				return <InlineMessageInformation description={description} {...inlineMessageProps} />;
 			}
 			return null;
 		};

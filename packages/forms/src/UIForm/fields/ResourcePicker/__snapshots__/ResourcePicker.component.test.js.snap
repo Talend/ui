@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ResourcePicker field should render ResourcePicker 1`] = `
-<div
-  class="form-group theme-template required"
->
-  <label
-    class="control-label"
-    for="mySelect"
-  >
-    My ResourcePicker title
-  </label>
+<div>
   <div
-    data-props="{
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+  >
+    <label
+      class="theme-label"
+      for="mySelect"
+    >
+      My ResourcePicker title
+      *
+    </label>
+    <div
+      data-props="{
   "id": "mySelect",
   "schema": {
     "title": "My ResourcePicker title",
@@ -46,10 +48,10 @@ exports[`ResourcePicker field should render ResourcePicker 1`] = `
   "aria-required": true,
   "aria-describedby": "mySelect-description mySelect-error"
 }"
-    data-testid="ResourcePicker"
-  >
-    <div
-      data-props="{
+      data-testid="ResourcePicker"
+    >
+      <div
+        data-props="{
   "name": {
     "label": "Please select a value",
     "value": ""
@@ -57,67 +59,67 @@ exports[`ResourcePicker field should render ResourcePicker 1`] = `
   "state": {},
   "sort": {}
 }"
-      data-testid="toolbar"
-    >
-      <div>
-        <label
-          for="toolbar-name"
+        data-testid="toolbar"
+      >
+        <div>
+          <label
+            for="toolbar-name"
+          >
+            Please select a value
+          </label>
+          <input
+            id="toolbar-name"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="tc-resource-picker-state-filters"
         >
-          Please select a value
-        </label>
-        <input
-          id="toolbar-name"
-          type="text"
-          value=""
-        />
+          <button>
+            state filter
+          </button>
+          <button>
+            certified filter
+          </button>
+          <button>
+            favorites filter
+          </button>
+        </div>
+        <div
+          class="tc-resource-picker-sort-options"
+        >
+          <button>
+            sort by name
+          </button>
+          <button>
+            sort by date
+          </button>
+          <button>
+            sort by name desc
+          </button>
+          <button>
+            sort by date desc
+          </button>
+        </div>
       </div>
-      <div
-        class="tc-resource-picker-state-filters"
+      <button
+        type="button"
       >
-        <button>
-          state filter
-        </button>
-        <button>
-          certified filter
-        </button>
-        <button>
-          favorites filter
-        </button>
-      </div>
-      <div
-        class="tc-resource-picker-sort-options"
+        onRowClick
+      </button>
+      <button
+        type="button"
       >
-        <button>
-          sort by name
-        </button>
-        <button>
-          sort by date
-        </button>
-        <button>
-          sort by name desc
-        </button>
-        <button>
-          sort by date desc
-        </button>
-      </div>
-    </div>
-    <button
-      type="button"
-    >
-      onRowClick
-    </button>
-    <button
-      type="button"
-    >
-      onRowClick first
-    </button>
-    <button
-      type="button"
-    >
-      isSelected
-    </button>
-    <span
-      data-collection="[
+        onRowClick first
+      </button>
+      <button
+        type="button"
+      >
+        isSelected
+      </button>
+      <span
+        data-collection="[
   {
     "id": "0",
     "name": "Title with few actions",
@@ -175,11 +177,10 @@ exports[`ResourcePicker field should render ResourcePicker 1`] = `
     ]
   }
 ]"
-      data-testid="collection"
-    />
-    ResourcePicker
-  </div>
-  <div>
+        data-testid="collection"
+      />
+      ResourcePicker
+    </div>
     <div
       aria-live="polite"
       class="theme-inlineMessage"

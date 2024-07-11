@@ -22,7 +22,7 @@ export type CollapsiblePanelHeaderPropsType = {
 	title?: ReactChild;
 	status?: keyof typeof variants;
 	metadata?: ReactChild[];
-	action?: PanelHeaderAction;
+	action?: PanelHeaderAction | PanelHeaderAction[];
 	handleClick: () => unknown;
 	disabled?: boolean;
 };
@@ -58,6 +58,8 @@ const CollapsiblePanelHeader = forwardRef(
 
 		const iconSize = size === 'S' ? 'S' : 'M';
 		const buttonIconSize = size === 'S' ? 'XS' : 'S';
+
+		const actions = Array.isArray(action) ? action : [action];
 
 		const getChevron = () => {
 			if (action) {
@@ -109,17 +111,27 @@ const CollapsiblePanelHeader = forwardRef(
 						{listMetadata}
 					</StackHorizontal>
 				)}
-				{action && !disabled && (
-					<ButtonIcon
-						size={buttonIconSize}
-						icon={action.icon}
-						onClick={action.callback}
-						data-test="action.button"
-						data-testid="action.button"
-					>
-						{action.tooltip}
-					</ButtonIcon>
-				)}
+				{action &&
+					!disabled &&
+					actions.map(
+						(actionItem, index) =>
+							actionItem && (
+								<ButtonIcon
+									{...actionItem}
+									key={`action-${index}`}
+									size={buttonIconSize}
+									data-test={`action.button.${index}`}
+									data-testid={`action.button.${index}`}
+									data-feature={actionItem.dataFeature}
+									onClick={e => {
+										actionItem.onClick?.(e);
+										actionItem.callback();
+									}}
+								>
+									{actionItem.tooltip}
+								</ButtonIcon>
+							),
+					)}
 			</>
 		);
 

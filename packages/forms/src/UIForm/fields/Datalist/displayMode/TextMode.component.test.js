@@ -73,13 +73,13 @@ describe('Datalist component in text display mode', () => {
 			errors: props.errors,
 			properties: props.properties,
 		});
-		expect(screen.getByRole('definition')).toHaveTextContent('foo (loading labels)');
+		expect(screen.getByText('foo (loading labels)')).toBeInTheDocument();
 	});
 	it('should show name in text mode when have groups', () => {
 		// when
 		render(<DatalistTextMode id="my-datalist-with-groups" schema={schemaWithGroups} value="foo" />);
 
 		// then
-		expect(screen.getByRole('definition')).toHaveTextContent('Foo');
+		expect(screen.getByText('Foo')).toBeInTheDocument();
 	});
 });

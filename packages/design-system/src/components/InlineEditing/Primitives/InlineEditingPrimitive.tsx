@@ -16,6 +16,7 @@ import { DataAttributes } from 'src/types';
 
 import { getDataAttrFromProps } from '@talend/utils';
 
+import { useControl } from '../../../useControl';
 import { useId } from '../../../useId';
 import { ButtonIcon } from '../../ButtonIcon';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
@@ -41,7 +42,6 @@ export type OnEditEvent =
 	| RKeyboardEvent;
 
 export type InlineEditingPrimitiveProps = {
-	isEditMode?: boolean;
 	loading?: boolean;
 	onCancel?: () => void;
 	onToggle?: (isEditionMode: boolean) => void;
@@ -78,6 +78,21 @@ export type InlineEditingPrimitiveProps = {
 	 * @param newValue new value filled
 	 */
 	onChangeValue?: (newValue: string) => void;
+
+	/**
+	 * (Optional) Default value to set edition mode.
+	 */
+	isEditMode?: boolean;
+
+	/**
+	 * (Optional) In controlled way, value to set edition mode.
+	 */
+	isEditing?: boolean;
+
+	/**
+	 * (Optional) In controlled way, handler to update edition mode.
+	 */
+	onChangeEditing?: (isEditing: boolean) => void;
 } & ErrorInEditing &
 	Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'> &
 	Partial<DataAttributes>;
@@ -85,7 +100,6 @@ export type InlineEditingPrimitiveProps = {
 const InlineEditingPrimitive = forwardRef(
 	(props: InlineEditingPrimitiveProps, ref: Ref<HTMLDivElement>) => {
 		const {
-			isEditMode = false,
 			loading,
 			ariaLabel,
 			mode,
@@ -109,7 +123,13 @@ const InlineEditingPrimitive = forwardRef(
 
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-		const [isEditing, setEditing] = useState<boolean>(isEditMode);
+		const editionModeControl = useControl<boolean>(props, {
+			onChangeKey: 'onChangeEditing',
+			valueKey: 'isEditing',
+			defaultValueKey: 'isEditMode',
+			defaultValue: false,
+		});
+
 		const [internalValue, setInternalValue] = useState<string | undefined>(defaultValue);
 		const inlineEditingId = useId(rest.id, 'inline-edit-');
 
@@ -121,7 +141,7 @@ const InlineEditingPrimitive = forwardRef(
 		const getValue = () => (onChangeValue ? value : internalValue);
 
 		const toggleEditionMode = (isEditionMode: boolean) => {
-			setEditing(isEditionMode);
+			editionModeControl.onChange(isEditionMode);
 			onToggle(isEditionMode);
 		};
 
@@ -146,7 +166,7 @@ const InlineEditingPrimitive = forwardRef(
 		};
 
 		const handleCancel = () => {
-			if (isEditing) {
+			if (editionModeControl.value) {
 				// Uncontrolled mode - set to default value
 				setInternalValue(defaultValue);
 			}
@@ -220,7 +240,7 @@ const InlineEditingPrimitive = forwardRef(
 				className={styles.inlineEditor}
 				ref={ref}
 			>
-				{isEditing ? (
+				{editionModeControl.value ? (
 					<>
 						<div className={styles.inlineEditor__editor}>
 							{mode === 'multi' && (

@@ -5,11 +5,13 @@ exports[`Default Array Template component should render default array template 1
   class="theme-tf-array-fieldset tf-array-fieldset"
   data-content="comments"
 >
-  <legend
-    class="sr-only"
+  <span
+    class="theme-hidden"
   >
-    comments
-  </legend>
+    <legend>
+      comments
+    </legend>
+  </span>
   <button
     aria-label="Add"
     class="theme-tf-array-add tf-array-add btn btn-info"
@@ -20,36 +22,34 @@ exports[`Default Array Template component should render default array template 1
       Add
     </span>
   </button>
-  <div>
-    <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="my-template-description"
-      role="status"
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    data-test="fieldTemplate.inlineMessage"
+    id="my-template-description"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-information__icon"
     >
-      <span
-        class="theme-icon theme-information__icon"
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1rem; height: 1rem;"
       >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1rem; height: 1rem;"
-        >
-          <use
-            xlink:href="#information-filled:M"
-          />
-        </svg>
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        Tnstructions to fill it
       </span>
-      <p
-        class="theme-inlineMessage__contents"
-      >
-        <span>
-          Tnstructions to fill it
-        </span>
-      </p>
-    </div>
+    </p>
   </div>
   <ol
     aria-describedby="my-template-description my-template-error"

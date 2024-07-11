@@ -1,0 +1,7 @@
+{
+  "settings": {
+    "sources": ["src/settings"],
+    "sources-dev": ["src/settings"],
+    "destination": "dist/settings.json"
+  }
+}

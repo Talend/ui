@@ -1,0 +1,73 @@
+{
+  "name": "@talend/ui-playground-vite",
+  "version": "0.1.0",
+  "description": "Showcase Talend/UI",
+  "private": true,
+  "type": "module",
+  "main": "app/index.js",
+  "scripts": {
+    "build": "cross-env BASENAME='/playground' talend-scripts build",
+    "test": "echo nothing to test in playground",
+    "test:demo:umd": "cross-env BASENAME='/playground/' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
+    "start": "vite dev",
+    "start-dist": "talend-scripts build && node serve-dist",
+    "lint": "talend-scripts lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "react",
+    "talend"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@talend/dynamic-cdn-webpack-plugin": "^14.0.0",
+    "@talend/eslint-config": "^13.2.0",
+    "@talend/eslint-plugin": "^1.3.0",
+    "@talend/scripts-config-babel": "^13.5.0",
+    "@talend/scripts-config-stylelint": "^4.2.0",
+    "@talend/scripts-core": "^16.5.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "body-parser": "1.20.1",
+    "compression": "^1.7.4",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "esbuild-plugin-react-virtualized": "^1.0.4",
+    "express": "^4.19.2",
+    "i18next-http-backend": "^1.4.5",
+    "mockjs": "^1.1.0",
+    "sass": "^1.77.5",
+    "vite": "^5.2.13",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-mock": "^3.0.2",
+    "webpack": "^5.92.0"
+  },
+  "dependencies": {
+    "@talend/assets-api": "^1.5.0",
+    "@talend/bootstrap-theme": "^9.2.0",
+    "@talend/design-system": "^11.0.0",
+    "@talend/design-tokens": "^3.4.0",
+    "@talend/icons": "^7.10.0",
+    "@talend/locales-tui-components": "^16.0.1",
+    "@talend/locales-tui-containers": "^9.1.3",
+    "@talend/locales-tui-faceted-search": "^11.3.0",
+    "@talend/locales-tui-forms": "^10.2.4",
+    "@talend/react-cmf": "^10.0.0",
+    "@talend/react-cmf-router": "^7.0.0",
+    "@talend/react-components": "^17.0.0",
+    "@talend/react-containers": "^11.0.0",
+    "@talend/react-dataviz": "^7.0.0",
+    "@talend/react-faceted-search": "^20.0.0",
+    "@talend/react-forms": "^15.0.0",
+    "history": "^5.3.0",
+    "i18next": "^23.11.5",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^13.5.0",
+    "redux-logger": "^3.0.6"
+  }
+}

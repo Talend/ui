@@ -1,4 +1,5 @@
 import { forwardRef, Ref } from 'react';
+
 import InlineEditingPrimitive, {
 	InlineEditingPrimitiveProps,
 } from '../Primitives/InlineEditingPrimitive';

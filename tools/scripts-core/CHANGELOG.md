@@ -1,5 +1,61 @@
 # @talend/scripts-core
 
+## 16.5.1
+
+### Patch Changes
+
+- 4f8ac2d: TMC-28977 - Allow Talend scripts to copy .css files on build
+
+## 16.5.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-typescript@11.3.0
+  - @talend/scripts-config-stylelint@4.2.0
+  - @talend/eslint-config@13.2.0
+  - @talend/scripts-config-babel@13.5.0
+  - @talend/scripts-config-jest@14.1.0
+  - @talend/eslint-plugin@1.3.0
+  - @talend/scripts-utils@2.3.0
+
+## 16.4.0
+
+### Minor Changes
+
+- 3bd16fc: feat: add --esm option to talend-scripts build:lib
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-babel@13.4.0
+
+## 16.3.6
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 16.3.5
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-typescript@11.2.1
+  - @talend/scripts-config-stylelint@4.1.1
+  - @talend/eslint-config@13.0.3
+  - @talend/scripts-config-babel@13.3.1
+  - @talend/scripts-config-jest@14.0.2
+  - @talend/eslint-plugin@1.1.1
+  - @talend/scripts-utils@2.2.1
+
 ## 16.3.4
 
 ### Patch Changes

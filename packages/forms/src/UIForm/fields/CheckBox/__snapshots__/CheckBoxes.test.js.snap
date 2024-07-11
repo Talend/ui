@@ -1,20 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckBoxes field should render checkboxes 1`] = `
-<div
-  class="form-group theme-template"
->
-  <label
-    class="control-label"
-    for="myForm"
-  >
-    My checkboxes title
-  </label>
+<div>
   <div
-    class="checkbox"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
-    <label>
+    <label
+      class="theme-label"
+      for="myForm"
+    >
+      My checkboxes title
+    </label>
+    <div
+      class="theme-checkbox"
+    >
       <input
+        aria-checked="true"
         aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         checked=""
@@ -22,19 +23,20 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
         id="myForm-0"
         type="checkbox"
       />
-      <span
-        class="control-label"
-        for="myForm"
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-0"
       >
-        My foo title
-      </span>
-    </label>
-  </div>
-  <div
-    class="checkbox"
-  >
-    <label>
+        <span>
+          My foo title
+        </span>
+      </label>
+    </div>
+    <div
+      class="theme-checkbox"
+    >
       <input
+        aria-checked="true"
         aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         checked=""
@@ -42,34 +44,35 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
         id="myForm-1"
         type="checkbox"
       />
-      <span
-        class="control-label"
-        for="myForm"
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-1"
       >
-        My bar title
-      </span>
-    </label>
-  </div>
-  <div
-    class="checkbox"
-  >
-    <label>
+        <span>
+          My bar title
+        </span>
+      </label>
+    </div>
+    <div
+      class="theme-checkbox"
+    >
       <input
+        aria-checked="false"
         aria-describedby="myForm-description myForm-error"
         aria-invalid="false"
         data-checked="0"
         id="myForm-2"
         type="checkbox"
       />
-      <span
-        class="control-label"
-        for="myForm"
+      <label
+        class="theme-label theme-label_inline"
+        for="myForm-2"
       >
-        My lol title
-      </span>
-    </label>
-  </div>
-  <div>
+        <span>
+          My lol title
+        </span>
+      </label>
+    </div>
     <div
       aria-live="polite"
       class="theme-inlineMessage"

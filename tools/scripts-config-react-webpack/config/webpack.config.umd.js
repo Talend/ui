@@ -48,12 +48,13 @@ module.exports = options => {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
 				fallback: {
 					url: false,
+					path: false,
 				},
 			},
 			module: {
 				rules: [
 					{
-						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
+						test: useTypescript ? /\.(js|jsx|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
 						use: getJSAndTSLoader(),
 					},

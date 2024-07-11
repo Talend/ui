@@ -405,6 +405,37 @@ describe('EnumerationWidget', () => {
 		expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema: {}, value: [] });
 	});
 
+	it('should pass the newest value to onFinish', async () => {
+		const onFinish = jest.fn();
+		render(
+			<EnumerationWidget
+				value={[{ values: ['yoo'] }]}
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				onTrigger={jest.fn()}
+				schema={{}}
+			/>,
+		);
+
+		// when
+		await userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
+		await userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo');
+		await userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
+		// then
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), {
+			schema: {},
+			value: [
+				{
+					values: ['yoo'],
+					displayMode: 'DISPLAY_MODE_DEFAULT',
+				},
+				{
+					values: ['foo'],
+				},
+			],
+		});
+	});
+
 	describe('upload file', () => {
 		it('should add a upload icon and set data-feature', () => {
 			// when

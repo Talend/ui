@@ -1,59 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle field should render input 1`] = `
-<div
-  class="form-group theme-template required"
+<span
+  class="theme-switch theme-switch_checked"
 >
-  <div
-    class="checkbox tc-checkbox switch tc-toggle"
+  <label
+    for="myForm"
   >
-    <label
-      for="myForm"
+    <input
+      aria-checked="true"
+      aria-invalid="false"
+      aria-required="true"
+      checked=""
+      description="My error message"
+      id="myForm"
+      required=""
+      type="checkbox"
+    />
+    <span
+      class="theme-legend"
     >
-      <input
-        aria-describedby="myForm-description myForm-error"
-        aria-invalid="false"
-        aria-required="true"
-        checked=""
-        data-checked="2"
-        id="myForm"
-        type="checkbox"
-      />
-      <span>
-        My input title
-      </span>
-    </label>
-  </div>
-  <div>
-    <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="myForm-description"
-      role="status"
-    >
-      <span
-        class="theme-icon theme-information__icon"
-      >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1rem; height: 1rem;"
-        >
-          <use
-            xlink:href="#information-filled:M"
-          />
-        </svg>
-      </span>
-      <p
-        class="theme-inlineMessage__contents"
-      >
-        <span>
-          my text input hint
-        </span>
-      </p>
-    </div>
-  </div>
-</div>
+      My input title
+      *
+    </span>
+  </label>
+</span>
 `;

@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/no-autofocus */
-
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import FieldTemplate from '../FieldTemplate';
+
+import { Form } from '@talend/design-system';
+
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { extractDataAttributes } from '../../utils/properties';
+import FieldTemplate from '../FieldTemplate';
 
 export default function Radios({
 	id,
@@ -19,17 +20,11 @@ export default function Radios({
 	const { autoFocus, description, disabled = false, inline, title, labelProps, ...rest } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const radioClassNames = classNames({
-		radio: !inline,
-		'radio-inline': inline,
-		disabled,
-	});
 
 	return (
 		<FieldTemplate
 			id={id}
 			hint={schema.hint}
-			className={schema.className}
 			description={description}
 			descriptionId={descriptionId}
 			errorId={errorId}
@@ -39,29 +34,25 @@ export default function Radios({
 			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
+			inline={inline}
 		>
 			{schema.titleMap &&
 				schema.titleMap.map((option, index) => (
-					<div className={radioClassNames} key={option.value || option.name}>
-						<label>
-							{/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
-							<input
-								id={`${id}-${index}`}
-								autoFocus={autoFocus}
-								checked={option.value === value}
-								disabled={disabled || valueIsUpdating}
-								name={id}
-								onBlur={event => onFinish(event, { schema })}
-								onChange={event => onChange(event, { schema, value: option.value })}
-								type="radio"
-								value={option.value}
-								aria-invalid={!isValid}
-								aria-describedby={`${descriptionId} ${errorId}`}
-								{...extractDataAttributes(rest, index)}
-							/>
-							<span>{option.name}</span>
-						</label>
-					</div>
+					<Form.Radio
+						key={option.value || option.name}
+						id={`${id}-${index}`}
+						autoFocus={autoFocus}
+						checked={option.value === value}
+						disabled={disabled || valueIsUpdating}
+						name={id}
+						onBlur={event => onFinish(event, { schema })}
+						onChange={event => onChange(event, { schema, value: option.value })}
+						value={option.value}
+						label={option.name}
+						aria-invalid={!isValid}
+						aria-describedby={`${descriptionId} ${errorId}`}
+						{...extractDataAttributes(rest, index)}
+					/>
 				))}
 		</FieldTemplate>
 	);
