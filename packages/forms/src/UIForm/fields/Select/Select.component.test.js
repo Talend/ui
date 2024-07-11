@@ -138,7 +138,7 @@ describe('Select field', () => {
 		);
 
 		// then
-		expect(screen.getByRole('combobox')).toHaveAttribute('readonly');
+		expect(screen.getByRole('textbox')).toHaveAttribute('readonly');
 	});
 
 	it('should trigger onChange', () => {

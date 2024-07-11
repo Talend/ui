@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import FieldTemplate from './FieldTemplate.component';
 
@@ -64,18 +64,6 @@ describe('FieldTemplate', () => {
 		expect(screen.getByText('Tooltip content')).toBeInTheDocument();
 	});
 
-	it('should render invalid className', () => {
-		// when
-		const { container } = render(
-			<FieldTemplate {...defaultProps} isValid={false}>
-				<input id="myAwesomeField" />
-			</FieldTemplate>,
-		);
-
-		// then
-		expect(container.firstChild).toHaveClass('has-error');
-	});
-
 	it('should add animation on value with updating status', () => {
 		// when
 		const { container } = render(
@@ -86,7 +74,6 @@ describe('FieldTemplate', () => {
 
 		// then
 		expect(container.firstChild).toHaveAttribute('aria-busy', 'true');
-		expect(container.firstChild).toHaveClass('theme-updating');
 	});
 
 	it('should pass label props to the label', () => {

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-import { InlineMessageInformation, InlineMessageDestructive } from '@talend/design-system';
+import { InlineMessageDestructive, InlineMessageInformation } from '@talend/design-system';
 
 export default function Message(props) {
 	const { description, descriptionId, errorId, errorMessage, isValid } = props;
 
-	return (
-		<div className={props.className}>
+	return description || errorMessage ? (
+		<>
 			{isValid
 				? description && (
 						<InlineMessageInformation
@@ -16,7 +16,7 @@ export default function Message(props) {
 							aria-live={undefined}
 							data-test="fieldTemplate.inlineMessage"
 						/>
-				  )
+					)
 				: errorMessage && (
 						<InlineMessageDestructive
 							id={errorId}
@@ -24,14 +24,13 @@ export default function Message(props) {
 							aria-live="assertive"
 							data-test="fieldTemplate.inlineMessageError"
 						/>
-				  )}
-		</div>
-	);
+					)}
+		</>
+	) : null;
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	Message.propTypes = {
-		className: PropTypes.string,
 		description: PropTypes.string,
 		descriptionId: PropTypes.string.isRequired,
 		errorId: PropTypes.string.isRequired,

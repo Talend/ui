@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-header-title-font-size: 1rem !default;
 $tc-header-title-font-weight: 700 !default;

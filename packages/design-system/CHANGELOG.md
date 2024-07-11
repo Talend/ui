@@ -1,5 +1,189 @@
 # @talend/design-system
 
+## 11.0.5
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/utils@3.2.3
+
+## 11.0.4
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/utils@3.2.2
+
+## 11.0.3
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/utils@3.2.1
+
+## 11.0.2
+
+### Patch Changes
+
+- ae1e3dc: fix: declaration generation for ThemeProviderWithoutGlobals
+
+## 11.0.1
+
+### Patch Changes
+
+- 11c75a1: fix: make ThemeProviderWithoutGlobals working since esm build
+
+## 11.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/utils@3.2.0
+
+## 10.6.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/utils@3.1.0
+
+## 10.5.0
+
+### Minor Changes
+
+- 803c4e1: feat: add ThemeProvider without globals
+
+## 10.4.6
+
+### Patch Changes
+
+- 95bb74f: Design system drawer now has a data attribute to identify when it is opened
+
+## 10.4.5
+
+### Patch Changes
+
+- 5b7240e: Form field label property "required" can now be overriden by passing props
+
+## 10.4.4
+
+### Patch Changes
+
+- 6ff9f03: DGT-528: Fix QualityBar rounding issue when the invalid or empty percentages were rounded to 0. Set a miminum value for the rounding to prevent UI inconsistencies
+
+## 10.4.3
+
+### Patch Changes
+
+- 290ee2e: Restore bar line height
+
+## 10.4.2
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- 4713998: Fix issue with Select component being recreated instead of updated
+- 25fb283: Allow Design System dropdown to have custom data-test attributes
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
+## 10.4.1
+
+### Patch Changes
+
+- d25ebf0: Fix Design System dropdown items when using "as" property for links
+
+## 10.4.0
+
+### Minor Changes
+
+- da2218d: chore: remove bootstrap-theme dependency from QualityBar and RatioBar components
+
+### Patch Changes
+
+- Updated dependencies [48865e5]
+  - @talend/design-tokens@3.2.0
+
+## 10.3.0
+
+### Minor Changes
+
+- 8bf0dd5: feat(DGT-342): Moved QualityBar and RatioBar components to the Design System and use those components on @talend/react-components
+
+## 10.2.2
+
+### Patch Changes
+
+- 9b6d904: TMC-27716 - Fix firefox fieldset height
+
+## 10.2.1
+
+### Patch Changes
+
+- 1488e8a: Status : add data-test\* attributes
+
+## 10.2.0
+
+### Minor Changes
+
+- ea80021: InlineEditing : allow to control edition mode
+
+## 10.1.1
+
+### Patch Changes
+
+- 377e43a: fix(DFD-914): Fix flashing tooltip on some gesture
+
+## 10.1.0
+
+### Minor Changes
+
+- 8a25fb3: DS Field data-test attributes are now passed down to related description
+
+## 10.0.0
+
+### Major Changes
+
+- ce93823: # BREAKING CHANGE
+  Design system - `Loading` component now has a built in size from **XS** to **XXL** and default is **M**.
+  Since it now has a default size it won't take up all the size available and you might have have to adapt your current styling to it.
+
+## 9.8.2
+
+### Patch Changes
+
+- eba9ca8: fix(TUX-1228): allow more props to be passed to each CollapsiblePanel action
+
+## 9.8.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/utils@3.0.4
+
 ## 9.8.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 /* stylelint-disable color-hex-case */
 /* stylelint-disable selector-no-qualifying-type */
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 @import '../../shared/styles/mixins';
 

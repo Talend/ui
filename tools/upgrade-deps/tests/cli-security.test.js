@@ -3,7 +3,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const { readFileSync } = require('fs');
 const yarnpkg = require('@yarnpkg/lockfile');
-const rimraf = require('rimraf');
+const { rimrafSync } = require('rimraf');
 const semver = require('semver');
 const { getTmpDirectory } = require('./utils');
 
@@ -12,7 +12,7 @@ const bin = path.resolve(__dirname, '..', 'bin', 'cli.js');
 
 describe('talend-upgrade-deps --security', () => {
 	afterAll(() => {
-		rimraf.sync(path.join(__dirname, 'tmp-security-*'));
+		rimrafSync(path.join(__dirname, 'tmp-security-*'), { glob: { silent: true } });
 	});
 
 	it('should fail when used with another option', async () => {

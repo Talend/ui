@@ -1,4 +1,5 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+
 import DefaultArrayTemplate from './DefaultArrayTemplate.component';
 
 jest.unmock('@talend/design-system');
@@ -109,26 +110,6 @@ describe('Default Array Template component', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('should render error with error classname', () => {
-		// when
-		render(
-			<DefaultArrayTemplate
-				canReorder
-				id="my-template"
-				onAdd={jest.fn()}
-				onRemove={jest.fn()}
-				onReorder={jest.fn()}
-				renderItem={index => <div>Render item {index}</div>}
-				schema={schema}
-				value={value}
-				errorMessage="This is an error"
-				isValid={false}
-			/>,
-		);
-
-		// then
-		expect(screen.getByRole('status').parentElement).toHaveClass('has-error');
-	});
 	it('should support readonly', () => {
 		// when
 		render(

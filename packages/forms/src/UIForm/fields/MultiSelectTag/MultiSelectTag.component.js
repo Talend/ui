@@ -1,5 +1,6 @@
 import { Component } from 'react';
 
+import classNames from 'classnames';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
@@ -243,7 +244,7 @@ export default class MultiSelectTag extends Component {
 				required={schema.required}
 				valueIsUpdating={valueIsUpdating}
 			>
-				<div className={`${theme.wrapper} form-control`}>
+				<div className={classNames(theme.wrapper, { [theme['has-error']]: !isValid })}>
 					{this.props.value.map((val, index) => {
 						const label = getLabel(this.getTitleMap(), val, names[index]);
 						const badgeProps = {

@@ -1,15 +1,38 @@
 {
   "name": "@talend/design-tokens",
-  "version": "3.1.0",
+  "version": "3.4.1",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "mainSrc": "src/index.ts",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    "./lib/tokens": {
+      "import": "./lib-esm/_tokens.scss",
+      "require": "./lib/_tokens.scss"
+    },
+    "./lib/_tokens": {
+      "import": "./lib-esm/_tokens.scss",
+      "require": "./lib/_tokens.scss"
+    },
+    "./lib/*": {
+      "import": "./lib-esm/*.js",
+      "require": "./lib/*.js"
+    },
+    "./dist/*": {
+      "import": "./dist/*",
+      "require": "./dist/*"
+    },
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "scripts": {
     "pre-release": "echo nothing",
     "build:umd:dev": "talend-scripts build --umd --dev",
     "build:umd:prod": "talend-scripts build --umd",
     "build:lib": "talend-scripts build && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
+    "build:lib:esm": "talend-scripts build --esm",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
     "test:umd": "jest scripts/umd.test.js",
@@ -34,17 +57,17 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.2",
-    "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-core": "^16.3.4",
-    "@talend/scripts-config-react-webpack": "^16.5.0",
-    "@talend/scripts-config-typescript": "^11.2.0",
-    "@talend/babel-plugin-import-from-index": "^1.7.0",
-    "@talend/babel-plugin-assets-api": "^1.3.0",
+    "@talend/eslint-config": "^13.2.0",
+    "@talend/eslint-plugin": "^1.3.0",
+    "@talend/scripts-core": "^16.5.1",
+    "@talend/scripts-config-react-webpack": "^16.8.0",
+    "@talend/scripts-config-typescript": "^11.3.0",
+    "@talend/babel-plugin-import-from-index": "^1.8.0",
+    "@talend/babel-plugin-assets-api": "^1.4.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "typeface-source-sans-pro": "^1.1.13",
-    "webpack": "^5.90.3"
+    "webpack": "^5.92.0"
   },
   "dependencies": {}
 }

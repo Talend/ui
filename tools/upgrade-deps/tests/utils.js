@@ -7,7 +7,7 @@ const { exec } = require('child_process');
 const cpx = require('cpx2');
 const semver = require('semver');
 const yarnpkg = require('@yarnpkg/lockfile');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 const util = require('util');
 
 const execProm = util.promisify(exec);

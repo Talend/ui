@@ -1,6 +1,6 @@
 import FormSkeleton from './FormSkeleton';
-import { UIForm } from './UIForm';
 import { ActionProps, DisplayMode, FormDefinition } from './types';
+import { UIForm } from './UIForm';
 
 type FormSwitcherProps = {
 	loading?: boolean;
@@ -12,7 +12,13 @@ type FormSwitcherProps = {
 
 export default function FormSwitcher(props: FormSwitcherProps) {
 	if (props.loading) {
-		return <FormSkeleton actions={props.actions} displayMode={props.displayMode} />;
+		return (
+			<FormSkeleton
+				actions={props.actions}
+				displayMode={props.displayMode}
+				anchorButtonsToFooter={props.anchorButtonsToFooter}
+			/>
+		);
 	}
 	return <UIForm {...props} />;
 }

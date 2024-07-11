@@ -22,6 +22,8 @@ export * from './components/Link';
 export * from './components/LinkAsButton';
 export * from './components/Loading';
 export * from './components/Message';
+export * from './components/QualityBar';
+export * from './components/RatioBar';
 export * from './components/RichRadioButton';
 export * from './components/Skeleton';
 export * from './components/Status';
@@ -30,6 +32,7 @@ export * from './components/Switch';
 export * from './components/Tabs';
 export * from './components/Tag';
 export * from './components/ThemeProvider';
+export * from './components/ThemeProviderWithoutGlobals';
 export * from './components/VisuallyHidden';
 export * from './components/illustrations';
 

@@ -1,5 +1,85 @@
 # @talend/ui-playground
 
+## 2.5.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/react-faceted-search@20.0.0
+  - @talend/design-system@11.0.0
+  - @talend/react-cmf-router@7.0.0
+  - @talend/react-components@17.0.0
+  - @talend/react-containers@11.0.0
+  - @talend/react-dataviz@7.0.0
+  - @talend/react-forms@15.0.0
+  - @talend/react-cmf@10.0.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/icons@7.10.0
+  - @talend/bootstrap-theme@9.2.0
+
+## 2.4.5
+
+### Patch Changes
+
+- Updated dependencies [e48ae5f]
+  - @talend/react-cmf@9.0.0
+  - @talend/react-cmf-router@6.1.3
+  - @talend/react-containers@10.7.4
+
+## 2.4.4
+
+### Patch Changes
+
+- Updated dependencies [27a4a5d]
+  - @talend/react-faceted-search@19.0.0
+
+## 2.4.3
+
+### Patch Changes
+
+- Updated dependencies [0629df7]
+  - @talend/react-forms@14.0.0
+  - @talend/react-containers@10.7.3
+
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+  - @talend/react-containers@10.7.2
+  - @talend/react-dataviz@6.1.3
+  - @talend/react-faceted-search@18.0.0
+  - @talend/react-forms@13.2.3
+
+## 2.4.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/react-faceted-search@17.2.1
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/react-cmf-router@6.1.2
+  - @talend/react-components@15.3.1
+  - @talend/react-containers@10.7.1
+  - @talend/react-dataviz@6.1.2
+  - @talend/react-forms@13.2.2
+  - @talend/icons@7.7.1
+  - @talend/bootstrap-theme@9.1.1
+  - @talend/react-cmf@8.4.1
+
 ## 2.4.0
 
 ### Minor Changes

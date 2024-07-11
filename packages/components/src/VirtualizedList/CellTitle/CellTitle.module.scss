@@ -1,6 +1,6 @@
 /* stylelint-disable declaration-no-important */
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-list-title-icon-size: $svg-rg-size !default;
 

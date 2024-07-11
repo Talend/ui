@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { HeaderBar, Layout, Dialog, Drawer as DrawerComponent } from '@talend/react-components';
+import { Dialog, Drawer as DrawerComponent, HeaderBar, Layout } from '@talend/react-components';
+
 import Form from '../src';
 import { argTypes } from './argTypes';
+import { displayModeSchema } from './UIFormStoriesSchemas/displayMode.schema';
 
 const simple = require('./json/concepts/simple.json');
 
@@ -24,9 +26,9 @@ interface LayoutDrawerProps {
 }
 const LayoutDrawer = ({ title, stacked = false, ...props }: LayoutDrawerProps) => {
 	const drawers = [
-		<DrawerComponent.Container key="first" stacked={stacked}>
+		<DrawerComponent key="first" stacked={stacked}>
 			<Form {...props} />
-		</DrawerComponent.Container>,
+		</DrawerComponent>,
 	];
 	return (
 		<Layout drawers={drawers} mode="TwoColumns" header={<HeaderBar />}>
@@ -62,6 +64,31 @@ export const Drawer: Story = {
 };
 Drawer.args = {
 	data: simple,
+};
+
+export const DrawerButtonsToBottom: Story = {
+	args: {
+		title: 'UIForm in a drawer',
+		data: simple,
+	},
+	render: ({ title, ...props }) => <LayoutDrawer title={title} {...props} />,
+};
+DrawerButtonsToBottom.args = {
+	data: simple,
+	anchorButtonsToFooter: true,
+};
+
+export const DrawerTextMode: Story = {
+	args: {
+		title: 'UIForm in a drawer',
+		data: displayModeSchema,
+		displayMode: 'text',
+	},
+	render: ({ title, ...props }) => <LayoutDrawer title={title} {...props} />,
+};
+DrawerTextMode.args = {
+	data: displayModeSchema,
+	displayMode: 'text',
 };
 
 export const DrawerStacked: Story = {

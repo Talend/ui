@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import defaultWidgets from '../utils/widgets';
-import { WidgetContext } from '../context';
 
+import { WidgetContext } from '../context';
+import defaultWidgets from '../utils/widgets';
 import Widget from './Widget.component';
 
 jest.unmock('@talend/design-system');
@@ -75,8 +75,8 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(screen.getByRole('term')).toHaveTextContent('First Name');
-		expect(screen.getByRole('definition')).toHaveTextContent('my firstname');
+		expect(screen.getByText('First Name')).toBeInTheDocument();
+		expect(screen.getByText('my firstname')).toBeInTheDocument();
 	});
 
 	it('should render nothing if widget does not exist', () => {
@@ -95,7 +95,6 @@ describe('Widget component', () => {
 
 		// then
 		expect(screen.getByText('Widget not found unknown')).toBeVisible();
-		expect(screen.getByText('Widget not found unknown')).toHaveClass('text-danger');
 	});
 
 	it('should render custom widget', () => {
@@ -224,15 +223,13 @@ describe('Widget component', () => {
 
 	it('should pass value updating status', () => {
 		// when
-		const { container } = render(
+		render(
 			<WidgetContext.Provider value={defaultWidgets}>
 				<Widget {...props} updating={[schema.key.join('.')]} />
 			</WidgetContext.Provider>,
 		);
 
 		// then
-		expect(container.firstChild).toHaveClass('theme-updating');
-		expect(container.firstChild).toHaveAttribute('aria-busy', 'true');
 		expect(screen.getByRole('textbox')).toBeDisabled();
 	});
 });

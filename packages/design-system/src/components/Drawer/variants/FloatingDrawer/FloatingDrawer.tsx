@@ -1,10 +1,11 @@
-import { useEffect, useState, cloneElement } from 'react';
+import { cloneElement, useEffect, useState } from 'react';
 import type { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { Transition } from 'react-transition-group';
+
+import { useId } from '../../../../useId';
 import { PrimitiveDrawer } from '../../Primitive/PrimitiveDrawer';
 
 import theme from './FloatingDrawer.module.scss';
-import { useId } from '../../../../useId';
 
 type WithDisclosure = {
 	disclosure: ReactElement;
@@ -90,6 +91,7 @@ export const FloatingDrawer = ({
 							<div
 								data-test="drawer"
 								data-testid="drawer"
+								data-drawer-visible
 								id={uuid}
 								role="dialog"
 								aria-label={props['aria-label']}

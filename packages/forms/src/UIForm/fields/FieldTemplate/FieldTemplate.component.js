@@ -1,69 +1,39 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+
+import { Form, StackVertical } from '@talend/design-system';
+import { StackHorizontal } from '@talend/design-system';
+
 import Message from '../../Message';
-import theme from './FieldTemplate.module.scss';
-import { ButtonIcon, Popover } from '@talend/design-system';
-
-function Label({ id, label, ...rest }) {
-	return (
-		<label htmlFor={id} className="control-label" {...rest}>
-			{label}
-		</label>
-	);
-}
-
-if (process.env.NODE_ENV !== 'production') {
-	Label.propTypes = {
-		id: PropTypes.string,
-		label: PropTypes.string,
-		hint: PropTypes.any,
-	};
-}
+import { getLabelProps } from '../../utils/labels';
 
 function FieldTemplate(props) {
-	const groupsClassNames = classNames('form-group', theme.template, props.className, {
-		'has-error': !props.isValid,
-		required: props.required,
-		[theme.updating]: props.valueIsUpdating,
-	});
-
-	let title = <Label id={props.id} label={props.label} {...props.labelProps} />;
-
-	if (props.hint) {
-		title = (
-			<div className={theme['field-template-title']}>
-				{title}
-				<Popover
-					position={props.hint.overlayPlacement || 'auto'}
-					data-test={props.hint['data-test']}
-					isFixed={props.hint.overlayIsFixed}
-					disclosure={
-						<ButtonIcon
-							data-test={props.hint['icon-data-test']}
-							size="S"
-							icon={props.hint.icon || 'talend-info-circle'}
-						></ButtonIcon>
-					}
-				>
-					{props.hint.overlayComponent}
-				</Popover>
-			</div>
-		);
-	}
+	const title = (
+		<Form.Label
+			htmlFor={props.id}
+			{...getLabelProps(props.label, props.labelProps, props.hint, props.required)}
+			required={props.required}
+		/>
+	);
 	const labelAfter = props.hint ? false : props.labelAfter;
+	const Stack = props.inline ? StackHorizontal : StackVertical;
+	const stackProps = props.inline
+		? { gap: 'S', align: 'center' }
+		: { gap: 'XXS', align: 'stretch', justify: 'start', height: '100%', noShrink: true };
 
 	return (
-		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>
-			{props.label && !labelAfter && title}
-			{props.children}
-			{props.label && labelAfter && title}
-			<Message
-				description={props.description}
-				descriptionId={props.descriptionId}
-				errorId={props.errorId}
-				errorMessage={props.errorMessage}
-				isValid={props.isValid}
-			/>
+		<div className={props.className} aria-busy={props.valueIsUpdating}>
+			<Stack {...stackProps}>
+				{props.label && !labelAfter && title}
+				{props.children}
+				{props.label && labelAfter && title}
+				<Message
+					description={props.description}
+					descriptionId={props.descriptionId}
+					errorId={props.errorId}
+					errorMessage={props.errorMessage}
+					isValid={props.isValid}
+				/>
+			</Stack>
 		</div>
 	);
 }
@@ -91,6 +61,7 @@ if (process.env.NODE_ENV !== 'production') {
 		labelAfter: PropTypes.bool,
 		required: PropTypes.bool,
 		valueIsUpdating: PropTypes.bool,
+		inline: PropTypes.bool,
 	};
 }
 
