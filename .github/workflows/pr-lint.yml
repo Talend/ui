@@ -42,7 +42,7 @@ jobs:
         run: yarn lint-merge-report master ${GITHUB_HEAD_REF}
 
       - name: Annotate Code Linting Results
-        uses: ataylorme/eslint-annotate-action@5f4dc2e3af8d3c21b727edb597e5503510b1dc9c #v2.2.0
+        uses: ataylorme/eslint-annotate-action@d57a1193d4c59cbfbf3f86c271f42612f9dbd9e9 #v3.0.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json
