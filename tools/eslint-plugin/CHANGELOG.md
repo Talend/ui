@@ -1,5 +1,11 @@
 # @talend/eslint-plugin
 
+## 1.3.1
+
+### Patch Changes
+
+- f1c2fdf: Add `btn-inverse` to list of warning for eslint bootstrap classes
+
 ## 1.3.0
 
 ### Minor Changes

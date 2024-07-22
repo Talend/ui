@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 3.4.2
+
+### Patch Changes
+
+- 38e3c2c: Change the default branding logo to Qlik-light style
+
 ## 3.4.1
 
 ### Patch Changes
