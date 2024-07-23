@@ -11,7 +11,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextWeak',
 		type: 'color',
-		description: `Weak text color. 
+		description: `Weak text color.
 Best used when there is regular neutral-text next to it.`,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
@@ -21,7 +21,7 @@ Best used when there is regular neutral-text next to it.`,
 	{
 		name: 'coralColorNeutralTextDisabled',
 		type: 'color',
-		description: `Disabled text color. 
+		description: `Disabled text color.
 Only use for interactive elements in their disabled state.
 `,
 		hsla: 'hsla(0, 0%, 44%, 1)',
@@ -32,7 +32,7 @@ Only use for interactive elements in their disabled state.
 	{
 		name: 'coralColorNeutralTextInverted',
 		type: 'color',
-		description: `Inverted text color. 
+		description: `Inverted text color.
 Only use on dark backgrounds.
 `,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -52,7 +52,7 @@ Only use on dark backgrounds.
 	{
 		name: 'coralColorNeutralBackgroundMedium',
 		type: 'color',
-		description: `Medium contrasting background color. 
+		description: `Medium contrasting background color.
 
 Ex: SubHeader`,
 		hsla: 'hsla(0, 0%, 97%, 1)',
@@ -63,7 +63,7 @@ Ex: SubHeader`,
 	{
 		name: 'coralColorNeutralBackgroundStrong',
 		type: 'color',
-		description: `Strongly contrasting background color. 
+		description: `Strongly contrasting background color.
 Use sparingly.
 
 Ex: SubHeader back button.`,
@@ -75,7 +75,7 @@ Ex: SubHeader back button.`,
 	{
 		name: 'coralColorNeutralBackgroundDisabled',
 		type: 'color',
-		description: `Background color for disabled interactive elements only. 
+		description: `Background color for disabled interactive elements only.
 
 Ex: Buttons`,
 		hsla: 'hsla(0, 0%, 88%, 1)',
@@ -86,7 +86,7 @@ Ex: Buttons`,
 	{
 		name: 'coralColorNeutralBorder',
 		type: 'color',
-		description: `Default border color. 
+		description: `Default border color.
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 55%, 1)',
@@ -108,7 +108,7 @@ Ex: Dividers`,
 	{
 		name: 'coralColorNeutralBorderHover',
 		type: 'color',
-		description: `Default border color, on mouseover. 
+		description: `Default border color, on mouseover.
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 40%, 1)',
@@ -119,7 +119,7 @@ Ex: Inputs`,
 	{
 		name: 'coralColorAccentTextWeak',
 		type: 'color',
-		description: `Accent text color on accent-background-strong. 
+		description: `Accent text color on accent-background-strong.
 
 Ex: ButtonPrimary`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -130,7 +130,7 @@ Ex: ButtonPrimary`,
 	{
 		name: 'coralColorAccentTextWeakHover',
 		type: 'color',
-		description: `Accent text color on accent-background-strong, on mouseover. 
+		description: `Accent text color on accent-background-strong, on mouseover.
 
 Ex: ButtonPrimary
 `,
@@ -142,7 +142,7 @@ Ex: ButtonPrimary
 	{
 		name: 'coralColorAccentTextWeakActive',
 		type: 'color',
-		description: `Accent text color on accent-background-strong, while pressing. 
+		description: `Accent text color on accent-background-strong, while pressing.
 
 Ex: ButtonPrimary`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
@@ -153,8 +153,8 @@ Ex: ButtonPrimary`,
 	{
 		name: 'coralColorAccentText',
 		type: 'color',
-		description: `Accent text color. 
-Use for interactive text content without background. 
+		description: `Accent text color.
+Use for interactive text content without background.
 
 Ex: Links`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
@@ -165,7 +165,7 @@ Ex: Links`,
 	{
 		name: 'coralColorAccentTextHover',
 		type: 'color',
-		description: `Accent text color on mouseover. 
+		description: `Accent text color on mouseover.
 
 Ex: Links`,
 		hsla: 'hsla(204, 96%, 18%, 1)',
@@ -176,7 +176,7 @@ Ex: Links`,
 	{
 		name: 'coralColorAccentTextActive',
 		type: 'color',
-		description: `Accent text color while pressed. 
+		description: `Accent text color while pressed.
 
 Ex: Links`,
 		hsla: 'hsla(205, 94%, 13%, 1)',
@@ -307,7 +307,7 @@ Ex: ButtonSecondary`,
 	{
 		name: 'coralColorDangerTextWeak',
 		type: 'color',
-		description: `Danger text color on danger-background-strong. 
+		description: `Danger text color on danger-background-strong.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -318,7 +318,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerTextWeakHover',
 		type: 'color',
-		description: `Danger text color on mouseover. 
+		description: `Danger text color on mouseover.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(358, 100%, 94%, 1)',
@@ -329,7 +329,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerTextWeakActive',
 		type: 'color',
-		description: `Danger text color while pressing. 
+		description: `Danger text color while pressing.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(359, 100%, 88%, 1)',
@@ -340,7 +340,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerText',
 		type: 'color',
-		description: `Danger text color. 
+		description: `Danger text color.
 Use for text content without background that must carry a negative semantic value on its own. `,
 		hsla: 'hsla(359, 51%, 53%, 1)',
 		hex: '#c4484a',
@@ -453,8 +453,8 @@ Use as placeholder to indicate that you want danger-tinted interactive states.`,
 	{
 		name: 'coralColorSuccessText',
 		type: 'color',
-		description: `Success text color. 
-Use for text content without background that must carry a positive semantic value on its own. 
+		description: `Success text color.
+Use for text content without background that must carry a positive semantic value on its own.
 
 Ex: StatusSuccessful`,
 		hsla: 'hsla(111, 49%, 34%, 1)',
@@ -483,7 +483,7 @@ Ex: StatusSuccessful`,
 	{
 		name: 'coralColorSuccessBackground',
 		type: 'color',
-		description: `Success background color by default. Use with text-strong. 
+		description: `Success background color by default. Use with text-strong.
 
 Ex: InlineMessage `,
 		hsla: 'hsla(110, 49%, 90%, 1)',
@@ -670,8 +670,8 @@ Use as placeholder to indicate that you want success-tinted interactive states.`
 	{
 		name: 'coralColorWarningText',
 		type: 'color',
-		description: `Warning text color. 
-Use for text content without background that must carry a warning semantic value on its own. 
+		description: `Warning text color.
+Use for text content without background that must carry a warning semantic value on its own.
 
 Ex: StatusWarning`,
 		hsla: 'hsla(22, 93%, 41%, 1)',
@@ -870,7 +870,7 @@ Ex: Tooltip`,
 	{
 		name: 'coralColorNeutralBorderDisabled',
 		type: 'color',
-		description: `Disabled border color for interactive elements 
+		description: `Disabled border color for interactive elements
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 65%, 1)',
@@ -1403,8 +1403,8 @@ Ex: StatusWarning`,
 	{
 		name: 'coralColorChartsNeutral',
 		type: 'color',
-		description: `Chart color: Neutral. 
-Use for neutral / empty semantic values. 
+		description: `Chart color: Neutral.
+Use for neutral / empty semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(0, 0%, 22%, 1)',
@@ -1415,7 +1415,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsNeutralWeak',
 		type: 'color',
-		description: `Chart color: Neutral-weak. 
+		description: `Chart color: Neutral-weak.
 Weak contrast for neutral / empty semantic values.`,
 		hsla: 'hsla(0, 0%, 83%, 1)',
 		hex: '#d4d4d4',
@@ -1425,7 +1425,7 @@ Weak contrast for neutral / empty semantic values.`,
 	{
 		name: 'coralColorChartsNeutralStrong',
 		type: 'color',
-		description: `Chart color: Neutral-strong. 
+		description: `Chart color: Neutral-strong.
 Strong contrast for neutral / empty semantic values.`,
 		hsla: 'hsla(0, 0%, 12%, 1)',
 		hex: '#1f1f1f',
@@ -1444,8 +1444,8 @@ Strong contrast for neutral / empty semantic values.`,
 	{
 		name: 'coralColorChartsSuccess',
 		type: 'color',
-		description: `Chart color: Success. 
-Use for success / positive semantic values. 
+		description: `Chart color: Success.
+Use for success / positive semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(148, 87%, 40%, 1)',
@@ -1456,7 +1456,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsSuccessWeak',
 		type: 'color',
-		description: `Chart color: Success-weak. 
+		description: `Chart color: Success-weak.
 Weak contrast for positive / success semantic values.`,
 		hsla: 'hsla(130, 52%, 91%, 1)',
 		hex: '#dcf4e0',
@@ -1466,7 +1466,7 @@ Weak contrast for positive / success semantic values.`,
 	{
 		name: 'coralColorChartsSuccessStrong',
 		type: 'color',
-		description: `Chart color: Success-strong. 
+		description: `Chart color: Success-strong.
 Strong contrast for positive / success semantic values.`,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
@@ -1485,8 +1485,8 @@ Strong contrast for positive / success semantic values.`,
 	{
 		name: 'coralColorChartsDanger',
 		type: 'color',
-		description: `Chart color: Danger. 
-Use for danger / negative semantic values. 
+		description: `Chart color: Danger.
+Use for danger / negative semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(4, 89%, 49%, 1)',
@@ -1497,7 +1497,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsDangerWeak',
 		type: 'color',
-		description: `Chart color: Danger-weak. 
+		description: `Chart color: Danger-weak.
 Weak contrast for negative / danger semantic values.`,
 		hsla: 'hsla(359, 69%, 73%, 1)',
 		hex: '#e9898a',
@@ -1507,7 +1507,7 @@ Weak contrast for negative / danger semantic values.`,
 	{
 		name: 'coralColorChartsDangerStrong',
 		type: 'color',
-		description: `Chart color: Danger-strong. 
+		description: `Chart color: Danger-strong.
 Strong contrast for negative / danger semantic values.`,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
@@ -1526,7 +1526,7 @@ Strong contrast for negative / danger semantic values.`,
 	{
 		name: 'coralColorChartsWarning',
 		type: 'color',
-		description: `Chart color: Warning. 
+		description: `Chart color: Warning.
 Use for warning semantic values.`,
 		hsla: 'hsla(32, 100%, 56%, 1)',
 		hex: '#ff9820',
@@ -1536,7 +1536,7 @@ Use for warning semantic values.`,
 	{
 		name: 'coralColorChartsWarningWeak',
 		type: 'color',
-		description: `Chart color: Warning-weak. 
+		description: `Chart color: Warning-weak.
 Weak contrast for warning semantic values.`,
 		hsla: 'hsla(22, 88%, 84%, 1)',
 		hex: '#facbb0',
@@ -1546,7 +1546,7 @@ Weak contrast for warning semantic values.`,
 	{
 		name: 'coralColorChartsWarningStrong',
 		type: 'color',
-		description: `Chart color: Warning-strong. 
+		description: `Chart color: Warning-strong.
 Strong contrast for warning semantic values.`,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
@@ -1565,7 +1565,7 @@ Strong contrast for warning semantic values.`,
 	{
 		name: 'coralColorChartsDefault',
 		type: 'color',
-		description: `Chart color by default. 
+		description: `Chart color by default.
 If the chart only has one set of value, and not a semantic (danger / warning / success) then use this colorset.`,
 		hsla: 'hsla(216, 82%, 48%, 1)',
 		hex: '#1667df',
@@ -1575,7 +1575,7 @@ If the chart only has one set of value, and not a semantic (danger / warning / s
 	{
 		name: 'coralColorChartsDefaultWeak',
 		type: 'color',
-		description: `Chart color: default-weak. 
+		description: `Chart color: default-weak.
 Weak contrast for basic chart values.`,
 		hsla: 'hsla(204, 59%, 73%, 1)',
 		hex: '#91c2e3',
@@ -1585,7 +1585,7 @@ Weak contrast for basic chart values.`,
 	{
 		name: 'coralColorChartsDefaultStrong',
 		type: 'color',
-		description: `Chart color: default-strong. 
+		description: `Chart color: default-strong.
 Strong contrast for basic chart values. `,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
@@ -1606,7 +1606,7 @@ if there is text on top if this, use default-text-weak.`,
 	{
 		name: 'coralColorChartsColor00',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(48, 100%, 50%, 1)',
@@ -1644,7 +1644,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor01',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(216, 82%, 48%, 1)',
@@ -1682,7 +1682,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor02',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(194, 92%, 50%, 1)',
@@ -1720,7 +1720,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor03',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(140, 39%, 79%, 1)',
@@ -1758,7 +1758,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor04',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(148, 87%, 40%, 1)',
@@ -1796,7 +1796,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor05',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(324, 68%, 71%, 1)',
@@ -1834,7 +1834,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor06',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(280, 75%, 58%, 1)',
@@ -1872,7 +1872,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor07',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(4, 89%, 49%, 1)',
@@ -1910,7 +1910,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor08',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(22, 88%, 54%, 1)',
@@ -1948,7 +1948,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor09',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(34, 34%, 45%, 1)',
@@ -1998,7 +1998,7 @@ Ex: ButtonSecondary`,
 	{
 		name: 'coralColorChartsDefaultText',
 		type: 'color',
-		description: `Text color for chart-default. 
+		description: `Text color for chart-default.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default.`,
 		hsla: 'hsla(205, 87%, 94%, 1)',
@@ -2009,7 +2009,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorChartsDefaultTextStrong',
 		type: 'color',
-		description: `Strong text color for chart-default-weak. 
+		description: `Strong text color for chart-default-weak.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default-weak.`,
 		hsla: 'hsla(205, 93%, 22%, 1)',
@@ -2020,7 +2020,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorChartsDefaultTextWeak',
 		type: 'color',
-		description: `Weak text color for chart-default-strong. 
+		description: `Weak text color for chart-default-strong.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default-strong.`,
 		hsla: 'hsla(207, 93%, 94%, 1)',
@@ -2184,7 +2184,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorAccentBackgroundSelected',
 		type: 'color',
-		description: `Accent background for currently selected elements: 
+		description: `Accent background for currently selected elements:
 
 Ex: Selected column or line in a datagrid.`,
 		hsla: 'hsla(204, 100%, 95%, 1)',
@@ -2195,8 +2195,8 @@ Ex: Selected column or line in a datagrid.`,
 	{
 		name: 'coralColorInfoText',
 		type: 'color',
-		description: `Information text color. 
-Use for text content without background that must carry a information semantic value on its own. 
+		description: `Information text color.
+Use for text content without background that must carry a information semantic value on its own.
 
 Ex: StatusInfo`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
@@ -2727,7 +2727,7 @@ Ex: InlineMessage`,
 	{
 		name: 'coralSizingS',
 		type: 'measure',
-		description: `Use for fixed-size elements. 
+		description: `Use for fixed-size elements.
 
 Ex: Small Buttons`,
 		value: '1.75rem',
@@ -2778,7 +2778,7 @@ Ex: Spot illustration width`,
 	{
 		name: 'coralElevationShadowNeutralM',
 		type: 'shadow',
-		description: `Default shadow. 
+		description: `Default shadow.
 
 Use on "first layer" of elevation. `,
 		value: '0rem 0.125rem 0.375rem 0rem hsla(0, 0%, 0%, 0.3)',
@@ -2787,9 +2787,9 @@ Use on "first layer" of elevation. `,
 	{
 		name: 'coralElevationShadowAccent',
 		type: 'shadow',
-		description: `Shadow with an accent tint. 
+		description: `Shadow with an accent tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(204, 95%, 31%, 0.3)',
@@ -2798,9 +2798,9 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowSuccess',
 		type: 'shadow',
-		description: `Shadow with a success tint. 
+		description: `Shadow with a success tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(111, 49%, 34%, 0.3)',
@@ -2809,9 +2809,9 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowDanger',
 		type: 'shadow',
-		description: `Shadow with a danger tint. 
+		description: `Shadow with a danger tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(359, 51%, 53%, 0.3)',
@@ -2820,9 +2820,9 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowWarning',
 		type: 'shadow',
-		description: `Shadow with a warning tint. 
+		description: `Shadow with a warning tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(22, 93%, 41%, 0.3)',
@@ -2831,9 +2831,9 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowBeta',
 		type: 'shadow',
-		description: `Shadow with a beta tint. 
+		description: `Shadow with a beta tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(281, 58%, 29%, 0.3)',
@@ -2842,7 +2842,7 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowNeutralInvertedM',
 		type: 'shadow',
-		description: `Default shadow. 
+		description: `Default shadow.
 
 Use on "first layer" of elevation. Reserve it for elements sticking to the bottom of the viewport.`,
 		value: '0rem -0.125rem 0.375rem 0rem hsla(0, 0%, 0%, 0.3)',
@@ -2851,7 +2851,7 @@ Use on "first layer" of elevation. Reserve it for elements sticking to the botto
 	{
 		name: 'coralElevationShadowNeutralInvertedL',
 		type: 'shadow',
-		description: `Large shadow. 
+		description: `Large shadow.
 
 Use on "second layer" of elevation - something that need to be "above" anything else.
 Reserve it for elements sticking to the bottom of the viewport.`,
@@ -2861,7 +2861,7 @@ Reserve it for elements sticking to the bottom of the viewport.`,
 	{
 		name: 'coralElevationShadowNeutralL',
 		type: 'shadow',
-		description: `Large shadow. 
+		description: `Large shadow.
 
 Use on "second layer" of elevation - something that need to be "above" anything else.`,
 		value: '0rem 0.25rem 0.5rem 0rem hsla(0, 0%, 0%, 0.3)',
@@ -3179,7 +3179,7 @@ Opacity for components that are only temporarily disabled.`,
 		name: 'coralBrandingLogo',
 		type: 'branding',
 		description: `Brand logo in App heading`,
-		value: `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgNjAgMTYiPgogIDxnPgogICAgPHBhdGggZmlsbD0iIzU0NTY1QSIgZD0iTTMwLjE2LDUuNTkgQzMxLjI2NTgwMjUsNS41MDQyMTAyNSAzMi4zNjgzMDMzLDUuNzkzMDQ0MzMgMzMuMjksNi40MSBDMzQuMDExOTMyLDcuMDEyMDA0MTUgMzQuNDc2OTAwOSw3Ljg2NjgzMTUxIDM0LjU5LDguOCBDMzQuNjg5MjYxMiw5LjMzNDY3NzQ3IDM0Ljc0NjEwNDksOS44NzYzNjQzNiAzNC43NiwxMC40MiBMMzQuNzYsMTAuNDIgTDI4LjIsMTAuNDIgQzI4LjE2ODI4OTQsMTEuMTgzNDA0MyAyOC4zMTU1NDM1LDExLjk0MzY0NjEgMjguNjMsMTIuNjQgQzI4Ljg2MDYxNjIsMTMuMTQ4MTc4MyAyOS4yNDA5MDUzLDEzLjU3MzgyMyAyOS43MiwxMy44NiBDMzAuMTQ1OTY5MywxNC4xMDQzOTkzIDMwLjYyODkwMjUsMTQuMjMyMDMxNyAzMS4xMiwxNC4yMyBDMzEuNjE2NTgxMywxNC4yNDI0MDk2IDMyLjExMTI4NDQsMTQuMTY0NDc2OSAzMi41OCwxNCBDMzIuOTcxMDMxMywxMy44Mzc5NTE0IDMzLjMxNDk0NDYsMTMuNTgwMDE2NSAzMy41OCwxMy4yNSBMMzMuNTgsMTMuMjUgTDMzLjU4LDEzLjE5IEMzMy42MDQ4ODE1LDEzLjE2MDc0MDkgMzMuNjM1NTE2NSwxMy4xMzY5MTM2IDMzLjY3LDEzLjEyIEwzMy42NywxMy4xMiBMMzMuNzgsMTMuMTIgTDM0LjE5LDEzLjMyIEMzNC4yOSwxMy4zNSAzNC4yOSwxMy4zOCAzNC4yOSwxMy40NCBDMzQuMjgxNzU4NSwxMy40OTcwMzI2IDM0LjI2MTI5MTUsMTMuNTUxNjExMiAzNC4yMywxMy42IEMzMy44Nzc3NjgxLDE0LjIwMzM5MzYgMzMuMzU2MjIzNCwxNC42OTAxNjg3IDMyLjczLDE1IEMzMS45NzE5MzgsMTUuMzQ1MzE5NiAzMS4xNDE4OTMyLDE1LjUwMzA5NjggMzAuMzEsMTUuNDYgQzI4LjgyODg3MjcsMTUuNTgwMzc1MiAyNy4zNTk4MTczLDE1LjExMzQzODMgMjYuMjIsMTQuMTYgQzI1LjI4MjIxNCwxMy4xNTI2OTcyIDI0LjgwMTA5MzQsMTEuODAzMzg4OSAyNC44OSwxMC40MyBDMjQuODY2NzcyMSw5LjUwNjE5NTY0IDI1LjExMzUxNTksOC41OTU2NzYyOCAyNS42LDcuODEgQzI2LjA3MjQ3NTIsNy4wODgyNzA0NCAyNi43Mzc1NzY0LDYuNTEzMjM0OTkgMjcuNTIsNi4xNSBDMjguMzQ4NDExNSw1Ljc3MjM3NDU0IDI5LjI0OTYyMTQsNS41ODEyMDg4IDMwLjE2LDUuNTkgWiBNMy45OTY3NzczNCwyLjg5MzM3ODkxIEw0LjA1LDIuOSBDNC4xOCwyLjk1IDQuMjYsMy4wMyA0LjI2LDMuMTQgTDQuMjYsMy4xNCBMNC4yNiw1Ljc4IEw2LjMyLDUuNzggQzYuMzg3Mjg1NDYsNS43ODI2MjYwMSA2LjQ0ODE1NDksNS44MjA2Njk0MiA2LjQ4LDUuODggQzYuNTIwOTIyMzUsNS45NDU5NTgzNCA2LjU0MTc2OTYzLDYuMDIyMzk4MzkgNi41NCw2LjEgQzYuNTQ0OTA4OTgsNi4yNjc4NTM5NCA2LjUxNDIzNjkxLDYuNDM0ODQ2MzIgNi40NSw2LjU5IEM2LjM5LDYuNzIgNi4zMyw2Ljc5IDYuMjYsNi43OSBMNi4yNiw2Ljc5IEw0LjI2LDYuNzkgTDQuMjYsMTIuMiBDNC4yNDczNDAwNywxMi42MTE2MTM3IDQuMjc0MTI5MDMsMTMuMDIzNDk0IDQuMzQsMTMuNDMgQzQuMzYzMzc1NzMsMTMuNjQyOTQ0NCA0LjQ1NDUxNjg0LDEzLjg0Mjc1MzcgNC42LDE0IEM0Ljc0ODg5NDE5LDE0LjEzMDM3NjEgNC45NDIyNzE0OCwxNC4xOTg0MTYyIDUuMTQsMTQuMTkgQzUuMzg3NjI3NTMsMTQuMTgzMDYyNCA1LjYzMzE4MjI3LDE0LjE0MjY5NzIgNS44NywxNC4wNyBDNi4xNDEzMzk2NSwxMy45ODgzNjMzIDYuNDA1NTUyNjQsMTMuODg0Njg0OCA2LjY2LDEzLjc2IEM2LjcsMTMuNzQgNi43NSwxMy43OCA2LjgyLDEzLjg4IEM2Ljg4MTgwNzIyLDEzLjk3MjIxMDcgNi45MjkwMjg1NSwxNC4wNzMzOTkzIDYuOTYsMTQuMTggTDYuOTYsMTQuMTggTDYuOTYsMTQuMzkgQzYuNzQ4NDY3NzcsMTQuNTk4OTEwOCA2LjUwMTIzMTgxLDE0Ljc2ODI1MDUgNi4yMywxNC44OSBDNS44OTA0MTA4OSwxNS4wNjI0NjkxIDUuNTM1NTU3OTEsMTUuMjAzMDcxMiA1LjE3LDE1LjMxIEM0Ljg0NDc5MTYyLDE1LjQwNTQ4NSA0LjUwODc2NTg0LDE1LjQ1OTI0OTEgNC4xNywxNS40NyBDMy40MTA2ODM3NCwxNS41MDYzNzM1IDIuNjU3MDU3NjEsMTUuMzIyMzA4MSAyLDE0Ljk0IEMxLjQxODQ2NjM5LDE0LjUwMjk0NzcgMS4xMDc1MjAzMSwxMy43OTM4Mzg5IDEuMTgsMTMuMDcgTDEuMTgsMTMuMDcgTDEuMTgsNi44MSBMMC4xOCw2LjgxIEMwLjExLDYuOCAwLjA2LDYuNzUgMC4wMSw2LjY2IEwwLjAxLDYuNjYgTDAuMDEsNi41OCBDLTAuMDE0MjM5MjgxOCw2LjQ5Mzc0MzQxIC0wLjAwMjI5MzU0NDk5LDYuNDAxMzM4NDggMC4wNDI4OTk1OTQ4LDYuMzI0MDE0NCBDMC4wODgxNjI0NzIsNi4yNDY2OTAzMiAwLjE2MjkyMDk3LDYuMTkxMDk0NjUgMC4yNSw2LjE3IEMxLjc4NzEyNjE3LDUuNjg1Nzc3MzUgMy4wMzg1MjQ3Miw0LjU1ODQyNDEzIDMuNjgsMy4wOCBDMy42OCwzLjA4IDMuOTIsMi44NSA0LjA1LDIuOSBMMy45OTY3NzczNCwyLjg5MzM3ODkxIFogTTU4LjMyLDAuNTMgQzU4LjM5MjYxOTQsMC41MzQxODE2MDggNTguNDYwNzYxMiwwLjU2NjQ1OTMyOSA1OC41MSwwLjYyIEM1OC41NzY5NTA0LDAuNzAxMDc5OTc2IDU4LjYwOTI4MjYsMC44MDUyNjE0ODcgNTguNiwwLjkxIEw1OC42LDAuOTEgTDU4LjYsMTMuNTMgQzU4LjU4NjEzNzQsMTMuNzMxMzA4NSA1OC42Mzg4NDM0LDEzLjkzMTU5MTMgNTguNzUsMTQuMSBDNTguODQ0NjQ3OSwxNC4yMTk0NDQ5IDU4Ljk3Mzg2NjEsMTQuMzA2NzU0NCA1OS4xMiwxNC4zNSBDNTkuMjk3NzUzMiwxNC4zOTQ0OTQzIDU5LjQ3ODEwMTIsMTQuNDI3ODkyMSA1OS42NiwxNC40NSBDNTkuOCwxNC40NiA1OS45MywxNC40OCA1OS45MywxNC41MyBDNjAsMTQuNTcgNjAsMTQuNjYgNTkuOTgsMTQuNzUgQzU5Ljk3Nzg4MDEsMTQuODQzOTM3NCA1OS45NDY0MDg2LDE0LjkzNDg1NDkgNTkuODksMTUuMDEgQzU5Ljg0MTIxODIsMTUuMDkwNDQ1IDU5Ljc1NDA3OTYsMTUuMTM5Njk3MyA1OS42NiwxNS4xNCBMNTkuNjYsMTUuMTQgTDU2LjQsMTUuMTQgQzU2LjIyMjYzMzcsMTUuMTU4Mzk0OSA1Ni4wNDQwMTUyLDE1LjExOTg2OTQgNTUuODksMTUuMDMgQzU1Ljc4NjkwMDcsMTQuOTY2MTgzOCA1NS43MTczMzU5LDE0Ljg2MDAwNTkgNTUuNywxNC43NCBDNTUuNjg2OTY1NCwxNC41MzM1Mzg5IDU1LjY4Njk2NTQsMTQuMzI2NDYxMSA1NS43LDE0LjEyIEM1NS4zNzAwOTk2LDE0LjU4MjIyMDcgNTQuOTA1NjUyMywxNC45MzE0MjkzIDU0LjM3LDE1LjEyIEM1My44MDY1NTkxLDE1LjM0MzM4NjUgNTMuMjA2MTA2OSwxNS40NTg3Mjc2IDUyLjYsMTUuNDYgQzUxLjczODQ5NTQsMTUuNDk1ODAwMiA1MC44ODc3OTY2LDE1LjI1Nzc0NDYgNTAuMTcsMTQuNzggQzQ5LjU0MzY5ODksMTQuMzM2NjA2MSA0OS4wNjMzNTIyLDEzLjcxNzAyODUgNDguNzksMTMgQzQ4LjQ5Mjc1NjksMTIuMjEwOTk0NSA0OC4zNDY4Nzc2LDExLjM3MzAzNjcgNDguMzYsMTAuNTMgQzQ4LjM1MjE2NTQsOS42ODYxOTA5NiA0OC41MzY4NDY3LDguODUxNzA1MTYgNDguOSw4LjA5IEM0OS4yNjE0ODQsNy4zMzkwNTg1OCA0OS44MzA2MjE4LDYuNzA3NDU0MzQgNTAuNTQsNi4yNyBDNTEuMzQwODU1Nyw1Ljc5NjMyOTkzIDUyLjI2MDAyMDksNS41NjA0Njg2OCA1My4xOSw1LjU5IEM1My42NDYyNjI3LDUuNTgyODc3ODMgNTQuMTAyMDM0LDUuNjIzMDkyOTQgNTQuNTUsNS43MSBDNTQuOTU5NDYzNCw1LjgxNzgxMTIzIDU1LjM1MDQ2ODEsNS45ODYzNDc3NyA1NS43MSw2LjIxIEw1NS43MSw2LjIxIEw1NS42MywyLjYxIEM1NS42NjAwNDgzLDIuMjQ3MDYxMzYgNTUuNDY1OTQ4MywxLjkwMjQzNDgzIDU1LjE0LDEuNzQgQzU0LjY5NDM1MSwxLjU0NTQ3NDgyIDU0LjIxNTk2MDIsMS40MzY5MDM4NiA1My43MywxLjQyIEM1My42NTg4MzE4LDEuMzk5OTI1MDkgNTMuNTk4MDIwMywxLjM1MzQyMjE5IDUzLjU2LDEuMjkgQzUzLjUxNTU1NjYsMS4yMTQ0OTg2IDUzLjQ5NDY2NDUsMS4xMjc0NDgzNSA1My41LDEuMDQgQzUzLjUwMjg1MzMsMC45NDcwMjg5NzQgNTMuNTIzMjA4OCwwLjg1NTQyOTI4NSA1My41NiwwLjc3IEM1My42MSwwLjYzIDUzLjY2LDAuNjMgNTMuNzMsMC42MyBDNTQuNTMxODE4MiwwLjU0ODE4MTgxOCA1NS41Mjc3Njg2LDAuNTMzMzA1Nzg1IDU2LjcxMjM3NDIsMC41MzA2MDEwNTIgTDU4LjMyLDAuNTMgWiBNMjIuNzcsMC41MyBDMjIuODQzMTc5MiwwLjUzMTkxNDU2NiAyMi45MTIxNjA3LDAuNTY0NTkwMDMyIDIyLjk2LDAuNjIgQzIzLjAyNjk1MDQsMC43MDEwNzk5NzYgMjMuMDU5MjgyNiwwLjgwNTI2MTQ4NyAyMy4wNSwwLjkxIEwyMy4wNSwwLjkxIEwyMy4wNSwxMy42MiBDMjMuMDM4MSwxMy44MDc0MTEzIDIzLjEwMzA5OTcsMTMuOTkxNTc3MSAyMy4yMywxNC4xMyBDMjMuMzQxMDgxMywxNC4yNDAxMjM0IDIzLjQ3ODk0NTUsMTQuMzE5Mzk1MiAyMy42MywxNC4zNiBDMjMuODIxNjM4MiwxNC4zOTc3NzMxIDI0LjAxNTI5MTgsMTQuNDI0NDg0IDI0LjIxLDE0LjQ0IEwyNC4yMSwxNC40NCBDMjQuMjg1NDgzNSwxNC40MjA5NTE2IDI0LjM2NDUxNjUsMTQuNDIwOTUxNiAyNC40NCwxNC40NCBDMjQuNDk0OTczMiwxNC41MTg2ODU5IDI0LjUxOTgxODEsMTQuNjE0NTE2MyAyNC41MSwxNC43MSBDMjQuNTA2MDEzNiwxNC44MDM1OTIxIDI0LjQ3NDcyODEsMTQuODkzOTcyMyAyNC40MiwxNC45NyBDMjQuMzY2OTQ0OSwxNS4wNDk3MzQ4IDI0LjI3NTYyMDksMTUuMDk1Mzk2OCAyNC4xOCwxNS4wOSBMMjQuMTgsMTUuMDkgTDE2Ljk4LDE1LjA5IEMxNi4wNDE5Mzc3LDE1LjE3NTM1NTUgMTUuMDk4MDYyMywxNS4xNzUzNTU1IDE0LjE2LDE1LjA5IEMxMy45Nzk3NDUxLDE1LjAwNTE4MDcgMTMuODQ3NDQ1NywxNC44NDM0ODE0IDEzLjgsMTQuNjUgTDEzLjgsMTQuNjUgTDEzLjgsMTQuMSBMMTMuNjIxMjE0NSwxNC4yODQ3Njc0IEMxMy4yNTE3NTk4LDE0LjY0MTMzODEgMTIuODEyNDgxNCwxNC45MTkxMTg4IDEyLjMzLDE1LjEgQzExLjczNTgzNDgsMTUuMzI0NDEzOCAxMS4xMDUxMDE1LDE1LjQzNjMxODEgMTAuNDcsMTUuNDMgQzEwLjAyNjI3NzQsMTUuNDI3MTExMyA5LjU4NzYzNTk2LDE1LjMzNTMwMjYgOS4xOCwxNS4xNiBDOC43NDU2NzA5NiwxNC45OTE2NDkzIDguMzY3ODAwMDksMTQuNzAzOTEyOCA4LjA5LDE0LjMzIEM3Ljc4Mzc1ODA5LDEzLjkyMTY3NzUgNy42MjgyOTA1NCwxMy40MTk5NDEzIDcuNjUsMTIuOTEgQzcuNjI2NzA3ODUsMTIuMTgyMTk0MyA3Ljk1ODY0NDEyLDExLjQ4ODQ4NDggOC41NCwxMS4wNSBDOS4xODY1Njc2MywxMC41NjQyMjY5IDkuOTMwMDQyNjEsMTAuMjIzMTgzNCAxMC43MiwxMC4wNSBDMTEuNjc1MDMwMiw5LjgyNDAxMTk4IDEyLjY0MzczODUsOS42NjAzMzM2OCAxMy42Miw5LjU2IEwxMy42Miw5LjU2IEwxMy42Miw4IEMxMy42NTQ3ODY5LDcuNTkxODA0NTUgMTMuNTIxMTAzOCw3LjE4NzE0MjI3IDEzLjI1LDYuODggQzEyLjk2MzQ5MjYsNi42NjIyODY3MSAxMi42MDk0MTY0LDYuNTUyNTIzMDggMTIuMjUsNi41NyBDMTEuODkzMzU1Miw2LjU0NTg1MjMzIDExLjUzNTYxNzcsNi41OTY5NTc2OCAxMS4yLDYuNzIgTDExLjIsNi43MiBMMTEuMDgsNi43MiBDMTAuMjU2OTcxOSw3LjAzMDQ0NjE4IDkuNzMzMzk2MzEsNy44NDIxOTEzNSA5Ljc5LDguNzIgTDkuNzksOC43MiBMOS43OSw4Ljc3IEM5LjgzLDkuMTcgOS41NCw5LjE3IDkuMjUsOS4xNyBDOC45OTU3NzEwNSw5LjEyMDE5MDAxIDguNzU4MzUyNzEsOS4wMDY2NDIxMSA4LjU2LDguODQgQzguMjY2MzU4NTQsOC41OTM1OTY0NiA4LjEwNjg0MTgzLDguMjIyNjI3MzggOC4xMyw3Ljg0IEM4LjEzMzQ4NjA2LDcuMzIzMDgxNDEgOC40MDY0MjQ2LDYuODQ1NDM4OTYgOC44NSw2LjU4IEM5LjM4NzAwNzA5LDYuMjE5ODQ1MjMgOS45ODc3MTgyNiw1Ljk2NTMwNjYgMTAuNjIsNS44MyBDMTEuMjc1NzczOCw1LjY3NjQ3NjU1IDExLjk0NjUyMTgsNS41OTU5ODY3OSAxMi42Miw1LjU5IEMxMy40MDY0ODEyLDUuNTY3MTEzMTggMTQuMTkxMDk0NSw1LjY3ODcxNzY2IDE0Ljk0LDUuOTIgQzE1LjQ3Mjk1NDMsNi4wOTM1Mzc5NSAxNS45NDQ5NTA2LDYuNDE2MzAwMTEgMTYuMyw2Ljg1IEMxNi41ODk3ODMsNy4yNDcxMDk2MiAxNi43NDA4ODI5LDcuNzI4NTIwOCAxNi43Myw4LjIyIEwxNi43Myw4LjIyIEwxNi43MywxMy4zMSBDMTYuNzI3MzU3OCwxMy41MjA4ODUgMTYuNzYxMTg5MiwxMy43MzA2Mzk3IDE2LjgzLDEzLjkzIEMxNy4zMTIxODAzLDE0LjIxNzQ0OTMgMTcuODY5NjMwMywxNC4zNTMzMjc4IDE4LjQzLDE0LjMyIEMxOS4xNiwxNC4zMiAyMC4xNiwxNC4wOSAyMC4xNiwxMy45MyBMMjAuMTYsMTMuOTMgTDIwLjE2LDIuNjIgQzIwLjE3NzU2NTIsMi4zNzk1OTc1NSAyMC4xMTQyMDI4LDIuMTQwMjI4NTcgMTkuOTgsMS45NCBDMTkuODcwMDQyMSwxLjc5OTA5MTE3IDE5LjcyMDIwNTUsMS42OTQ1NTM5NSAxOS41NSwxLjY0IEMxOS4zNDM4MzQ2LDEuNTgxOTg3MjcgMTkuMTMzMDU1NywxLjU0MTgzODkxIDE4LjkyLDEuNTIgTDE4LjkyLDEuNTIgTDE4LjU2LDEuNDYgQzE4LjQ5MDgxNzIsMS40MzYwOTU0MiAxOC40MzExOTYsMS4zOTA1MDI2OCAxOC4zOSwxLjMzIEMxOC4zNDU1NTY2LDEuMjU0NDk4NiAxOC4zMjQ2NjQ1LDEuMTY3NDQ4MzUgMTguMzMsMS4wOCBDMTguMzI5Mjg1NywwLjk4NTQyMjgzNiAxOC4zNTM0MjQzLDAuODkyMzE2ODEyIDE4LjQsMC44MSBDMTguNDQsMC43MiAxOC40OSwwLjY3IDE4LjU2LDAuNjcgQzE5LjkyLDAuNTggMjEuMzIsMC41MyAyMi43NywwLjUzIFogTTQzLjM3LDUuNTkgQzQ0LjE1ODIzNTIsNS41NDc2NzAyNiA0NC45Mzk0MjU5LDUuNzU3ODU2MSA0NS42LDYuMTkgQzQ2LjIxNjYyNTYsNi43NTM2MDM0NCA0Ni41MjIxOTgxLDcuNTgwODg1MTEgNDYuNDIsOC40MSBMNDYuNDIsOC40MSBMNDYuNDIsMTMuNTcgQzQ2LjM4Mzc0ODUsMTMuODI5MjQyMyA0Ni40ODE2ODMxLDE0LjA4OTE0NTggNDYuNjgsMTQuMjYgQzQ2Ljg1MDA0MzIsMTQuMzY0NTU1MiA0Ny4wNDE0NDAzLDE0LjQyOTQ5MzUgNDcuMjQsMTQuNDUgTDQ3LjI0LDE0LjQ1IEw0Ny42MiwxNC40NSBDNDcuNzM2NDQ1MSwxNC40MjQ4Njc1IDQ3Ljg1Nzk5MTEsMTQuNDU0MzMzMiA0Ny45NSwxNC41MyBDNDguMDA1MTU5MiwxNC42MDQ3OTk0IDQ4LjAzMDE0ODcsMTQuNjk3NjE3NyA0OC4wMiwxNC43OSBDNDguMDIxNTU1OCwxNC44ODYwNjEyIDQ3Ljk5MzYzNTYsMTQuOTgwMjkxOCA0Ny45NCwxNS4wNiBDNDcuODg0NDI5MiwxNS4xMzY4MzEgNDcuNzk0ODA3MywxNS4xODE2NDIgNDcuNywxNS4xODAwODUgTDQ3LjcsMTUuMTgwMDg1IEw0Mi42MiwxNS4xODAwODUgQzQyLjUyNTE5MjcsMTUuMTgxNjQyIDQyLjQzNTU3MDgsMTUuMTM2ODMxIDQyLjM4LDE1LjA2IEM0Mi4zMzA3NzA1LDE0Ljk3ODI4MzUgNDIuMzAzMjMzMiwxNC44ODUzNDUxIDQyLjMsMTQuNzkgQzQyLjI4MDgwOTUsMTQuNzA3NzcxNSA0Mi4yODA4MDk1LDE0LjYyMjIyODUgNDIuMywxNC41NCBDNDIuMzY1MTk1MiwxNC40Nzk4Mzg3IDQyLjQ1MTMyMjIsMTQuNDQ3NTQxMSA0Mi41NCwxNC40NSBDNDIuNzYwOTAyMywxNC40MjQ0NDMzIDQyLjk3NDgwNTgsMTQuMzU2NTM3NSA0My4xNywxNC4yNSBDNDMuMzMzNzkyMiwxNC4xNzc4MDIzIDQzLjQ0MjM1NTMsMTQuMDE4ODM1IDQzLjQ1LDEzLjg0IEw0My40NSwxMy44NCBMNDMuNDUsOC40NSBDNDMuNDUxNzMzLDguMjI4NTYzMDIgNDMuNDMxNjM1OCw4LjAwNzQ5NDM2IDQzLjM5LDcuNzkgQzQzLjM0NzUzNzEsNy41ODY0Mzg5MSA0My4yNDI2NzI2LDcuNDAxMTc4MjUgNDMuMDksNy4yNiBDNDIuODcyNDc0MSw3LjA4NzE0MSA0Mi41OTY2OTY2LDcuMDA0NzY1OTEgNDIuMzIsNy4wMyBDNDEuOTc4ODU2OCw3LjAzMjcwNDU2IDQxLjY0MDY3NCw3LjA5MzU3NzQ1IDQxLjMyLDcuMjEgQzQwLjk5NzI2NTksNy4zMjg4Mzk0NiA0MC42ODg3MTIsNy40ODMxMTY0IDQwLjQsNy42NyBDNDAuMTU2NzUzNiw3LjgxOTU1MTg2IDM5LjkzNDc1OCw4LjAwMTE4NDU4IDM5Ljc0LDguMjEgTDM5Ljc0LDguMjEgTDM5Ljc0MDMzMDQsMTMuNjI5NDg5OSBDMzkuNzUwMjYzMSwxMy43ODgwNzQ4IDM5Ljc5Nzg5NTQsMTMuOTQyNjI0NiAzOS44OCwxNC4wOCBDMzkuOTU3NDkyOSwxNC4xOTkyNTUgNDAuMDc0MjE5NywxNC4yODc2ODQ0IDQwLjIxLDE0LjMzIEM0MC4zNzU0MjgyLDE0LjM4MzQ1ODEgNDAuNTQ2NjMzNCwxNC40MTcwMjc4IDQwLjcyLDE0LjQzIEM0MC44MTgxODUxLDE0LjQyNTMwMjggNDAuOTE1NTc2NiwxNC40NDk2NTA3IDQxLDE0LjUgQzQxLjA0Nzg0ODUsMTQuNTgxNDY5NSA0MS4wNjg4NDA0LDE0LjY3NTkzMjkgNDEuMDYsMTQuNzcgQzQxLjA2MTQ2NjEsMTQuODYyOTQxMiA0MS4wMzM0NjA2LDE0Ljk1Mzk1OTMgNDAuOTgsMTUuMDMgQzQwLjkyOTQwNTUsMTUuMTEzNTU2NiA0MC44Mzc2MjU5LDE1LjE2MzI3MDYgNDAuNzQsMTUuMTYgTDQwLjc0LDE1LjE2IEwzNS43NCwxNS4xNiBDMzUuNjQ3ODgwMiwxNS4xNjE4NjQ1IDM1LjU2MTE2OTMsMTUuMTE2NjI0IDM1LjUxLDE1LjA0IEMzNS40NTMzOTQ2LDE0Ljk2MTE2OCAzNS40MjIwMTQ5LDE0Ljg2NzAyODkgMzUuNDIsMTQuNzcgQzM1LjQxOTA0OTMsMTQuNjg0ODMyOSAzNS40NDM0MTI2LDE0LjYwMTMwMTggMzUuNDksMTQuNTMgQzM1LjU1NDU3MTksMTQuNDYxNTIzIDM1LjY0NjAxNTUsMTQuNDI0OTQ1NSAzNS43NCwxNC40MyBDMzYuNCwxNC4zNCAzNi43NCwxNC4xNCAzNi43NCwxMy44MiBMMzYuNzQsMTMuODIgTDM2Ljc0LDcuODIgQzM2Ljc1NjkyOTEsNy41ODg2ODcwMSAzNi43MDA5NzYyLDcuMzU3ODgxNCAzNi41OCw3LjE2IEMzNi40ODg4ODQxLDcuMDIxNzQzNTUgMzYuMzU1NjI3OSw2LjkxNjU0MTMxIDM2LjIsNi44NiBDMzYuMDIzMjkwMSw2Ljc5MjMxNDYzIDM1LjgzODMxMzYsNi43NDg1OTI4OSAzNS42NSw2LjczIEwzNS42NSw2LjczIEwzNS4zMyw2LjY4IEMzNS4xNzczNzI0LDYuNjE4NTU5NzMgMzUuMDgzNjUwOSw2LjQ2MzcxNTY0IDM1LjEsNi4zIEMzNS4xMDA3MDU3LDYuMjA2NzcyNDIgMzUuMTIxMTU0Nyw2LjExNDc1MjEgMzUuMTYsNi4wMyBDMzUuMTg2Mzc2Miw1Ljk1MzYwNDI1IDM1LjI1MDkxNDYsNS44OTY2NTg1OSAzNS4zMyw1Ljg4IEMzNi44LDUuNzUgMzguMTQsNS43NSAzOS4zMyw1Ljc1IEMzOS4zOTc0OTYxLDUuNzU0ODQ4ODYgMzkuNDYxMTcxNSw1Ljc4MzE0OTAzIDM5LjUxLDUuODMgQzM5LjU3NzI0MzUsNS45MTU5NzY5MyAzOS42MTU3Mjc2LDYuMDIwOTMzNjQgMzkuNjIsNi4xMyBMMzkuNjIsNi4xMyBMMzkuNjIsNy4xOSBDMzkuODU2OTgxMSw2LjkzNzkxMDc0IDQwLjEyOTkzMjUsNi43MjIyNDU0MyA0MC40Myw2LjU1IEM0MC44NjU3NjUsNi4yNzM0ODU4NSA0MS4zMzIyMzc4LDYuMDQ4NjM5MjQgNDEuODIsNS44OCBDNDIuMzE0MzA5Nyw1LjY4ODM5MTIxIDQyLjgzOTg1MjksNS41OTAwNjM3OCA0My4zNyw1LjU5IFogTTU0LjEsNi42MSBDNTMuMjk0Njg4OCw2LjUyMTAyMjIyIDUyLjUxMjAwNDUsNi45MTIzNjQzNyA1Mi4xLDcuNjEgQzUxLjY1NDIxNTIsOC41MTU5NjM2MiA1MS40NTA5MzQ4LDkuNTIyMDI5MDEgNTEuNTEsMTAuNTMgQzUxLjUxLDEyLjkgNTIuMzEsMTQuMDggNTMuOTEsMTQuMDggQzU0LjI1NzEzODEsMTQuMDg2Mzc2IDU0LjYwMDUyOTQsMTQuMDA3Mzk2IDU0LjkxLDEzLjg1IEM1NS4yMDk2OTM5LDEzLjcxNTE1MDEgNTUuNDYwOTQzNiwxMy40OTE4MTcxIDU1LjYzLDEzLjIxIEw1NS42MywxMy4yMSBMNTUuNjMsNy42MyBDNTUuNTYwMDE5Myw3LjQ0ODc0MjE4IDU1LjQ0NjcyMDIsNy4yODczNzY4OCA1NS4zLDcuMTYgQzU1LjEyNjA5NjYsNi45OTg0NjcwMiA1NC45MjY3NTg0LDYuODY2NzAxMTEgNTQuNzEsNi43NyBDNTQuNTIyNTgwNCw2LjY2ODE2NSA1NC4zMTMyNzQxLDYuNjEzMjY0OTggNTQuMSw2LjYxIFogTTEzLjY0LDEwLjI4IEMxMy4xNjY1ODgzLDEwLjM0NzIxODYgMTIuNzAwOTg3NiwxMC40NjExMDY2IDEyLjI1LDEwLjYyIEMxMS44NTI2ODU3LDEwLjc2NTgyNDcgMTEuNTA1NTk5MywxMS4wMjI2Njg2IDExLjI1LDExLjM2IEMxMC45NjQ4NTEyLDExLjc4NDI5NzQgMTAuODI0NTM4OCwxMi4yODk0MjIgMTAuODUsMTIuOCBDMTAuODQ0NDM0NSwxMy4xMjQ1NjYxIDEwLjk2MjM5MzUsMTMuNDM5MTIzNCAxMS4xOCwxMy42OCBDMTEuNDE0MzU5NCwxMy45MzA4NjgzIDExLjc0NzA3MzYsMTQuMDY2MTQ3NyAxMi4wOSwxNC4wNSBDMTIuNjg1MjQ0NCwxNC4wNjU4NDI2IDEzLjI1MjgwMjMsMTMuNzk4NzU2NSAxMy42MiwxMy4zMyBMMTMuNjIsMTMuMzMgTDEzLjY0LDEwLjI4IFogTTMwLjEzLDYuMzkgQzI5LjU5MTQxNDcsNi40MDk1MzQxOCAyOS4wOTczMDA3LDYuNjk0MDI0MDcgMjguODEsNy4xNSBDMjguMzgwMjUwNyw3Ljg1OTE5OTYzIDI4LjE0ODg1NzgsOC42NzA4MDE1MiAyOC4xNCw5LjUgTDI4LjE0LDkuNSBMMzEuNTIsOS41IEMzMS41NjY0OTI1LDguNjk2MDAzMDIgMzEuNDU0MzYzNSw3Ljg5MDcxMzIzIDMxLjE5LDcuMTMgQzMxLjAzNDE3NzgsNi42Nzk4Mjg5NCAzMC42MDYyOTM3LDYuMzgxMTE3MzcgMzAuMTMsNi4zOSBaIi8+CiAgPC9nPgo8L3N2Zz4=')`,
+		value: `url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==')`,
 		id: 'ee8df300-4787-11ec-a826-6db8532cd4e8',
 	},
 	{
@@ -3229,7 +3229,7 @@ Just above the default content (Drawer, Modal, Fixed layout...)`,
 	{
 		name: 'coralElevationLayerInteractiveFront',
 		type: 'elevation',
-		description: `Second elevation layer. 
+		description: `Second elevation layer.
 
 For elements above any layout (Dropdown, Popover).`,
 		value: `8`,
@@ -3247,11 +3247,11 @@ For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)`,
 	{
 		name: 'coralAnimationHeartbeat',
 		type: 'animation',
-		description: `Heartbeat animation. 
+		description: `Heartbeat animation.
 
-Ex: Skeletons 
+Ex: Skeletons
 
-Usage: 
+Usage:
 
 animate: tokens.$animation-heartbeat;`,
 		value: `coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite`,
