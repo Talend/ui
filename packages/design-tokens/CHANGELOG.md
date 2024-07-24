@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 3.4.3
+
+### Patch Changes
+
+- fcba736: fix: revert logo change
+
 ## 3.4.2
 
 ### Patch Changes
