@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.11.1
+
+### Patch Changes
+
+-   d9fe636: fix: module to cdn for ag-grid
+
 ## 9.11.0
 
 ### Minor Changes
