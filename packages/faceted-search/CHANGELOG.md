@@ -1,5 +1,63 @@
 # Changelog
 
+## 20.0.2
+
+### Patch Changes
+
+- 46a18aa: feat: Add Typeahead props to QuickSearchInput
+
+## 20.0.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/utils@3.2.2
+
+## 20.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-components@17.0.0
+  - @talend/design-tokens@3.4.0
+  - @talend/utils@3.2.0
+
+## 19.1.1
+
+### Patch Changes
+
+- 76b5025: Fix export for /lib/\*
+
+## 19.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+  - @talend/utils@3.1.0
+
+## 19.0.1
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
 ## 19.0.0
 
 ### Major Changes

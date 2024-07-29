@@ -1,5 +1,19 @@
 # @talend/module-to-cdn
 
+## 9.11.1
+
+### Patch Changes
+
+-   d9fe636: fix: module to cdn for ag-grid
+
+## 9.11.0
+
+### Minor Changes
+
+-   c3750a1: chore: upgrade dependencies
+
+    Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
 ## 9.10.1
 
 ### Patch Changes

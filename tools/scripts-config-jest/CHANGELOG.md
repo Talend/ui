@@ -1,5 +1,24 @@
 # @talend/scripts-config-jest
 
+## 14.1.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-babel@13.5.0
+
+## 14.0.4
+
+### Patch Changes
+
+- 28672e6: fix: 'Reference error: \_ is not defined'
+
 ## 14.0.3
 
 ### Patch Changes

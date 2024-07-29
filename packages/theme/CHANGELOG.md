@@ -1,5 +1,44 @@
 # @talend/bootstrap-theme
 
+## 9.2.1
+
+### Patch Changes
+
+- fcba736: fix: remove animation on all button for all change
+- Updated dependencies [fcba736]
+  - @talend/design-tokens@3.4.3
+
+## 9.2.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-tokens@3.4.0
+  - @talend/bootstrap-sass@5.3.0
+
+## 9.1.4
+
+### Patch Changes
+
+- 3bd16fc: Make it compatible with ESM
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+
+## 9.1.3
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
 ## 9.1.2
 
 ### Patch Changes

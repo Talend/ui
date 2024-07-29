@@ -1,5 +1,38 @@
 # @talend/ui-playground
 
+## 2.5.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/react-faceted-search@20.0.0
+  - @talend/design-system@11.0.0
+  - @talend/react-cmf-router@7.0.0
+  - @talend/react-components@17.0.0
+  - @talend/react-containers@11.0.0
+  - @talend/react-dataviz@7.0.0
+  - @talend/react-forms@15.0.0
+  - @talend/react-cmf@10.0.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/icons@7.10.0
+  - @talend/bootstrap-theme@9.2.0
+
+## 2.4.5
+
+### Patch Changes
+
+- Updated dependencies [e48ae5f]
+  - @talend/react-cmf@9.0.0
+  - @talend/react-cmf-router@6.1.3
+  - @talend/react-containers@10.7.4
+
 ## 2.4.4
 
 ### Patch Changes

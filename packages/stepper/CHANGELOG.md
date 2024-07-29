@@ -1,5 +1,34 @@
 # @talend/react-stepper
 
+## 12.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-components@17.0.0
+  - @talend/design-tokens@3.4.0
+
+## 11.1.3
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [4713998]
+- Updated dependencies [25fb283]
+- Updated dependencies [ceb4faf]
+- Updated dependencies [f546896]
+  - @talend/design-system@10.4.2
+  - @talend/react-components@16.1.1
+
 ## 11.1.2
 
 ### Patch Changes

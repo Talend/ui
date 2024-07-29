@@ -33,6 +33,15 @@ export default function useInputPickerHandlers({
 			setPicked(true);
 			closePicker();
 		}
+
+		if (['INPUT'].includes(payload.origin)) {
+			if (!payload.errorMessage) {
+				inputRef.focus();
+				closePicker();
+			} else {
+				openPicker();
+			}
+		}
 	}
 
 	function onClick() {

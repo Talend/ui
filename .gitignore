@@ -44,6 +44,7 @@ build/
 /packages/*/i18n/
 tmp/
 lib/
+lib-esm/
 storybook-static/
 dist/
 eslint-report.json

@@ -87,6 +87,15 @@ const tabProps = {
 			'data-feature': 'action.9',
 			disabled: true,
 		},
+		{
+			key: '10',
+			label: 'Tab10',
+			badge: {
+				label: 'BETA',
+				bsStyle: 'beta',
+			},
+			'data-feature': 'action.10',
+		},
 	],
 	onSelect: action('onSelect'),
 	selectedKey: '2',

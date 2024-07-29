@@ -167,18 +167,22 @@ describe('CellDatetime', () => {
 			mode: 'format',
 			pattern: 'YYYY-MM-DD HH:mm:ss',
 			timeZone: 'Pacific/Niue',
+			sourceTimeZone: 'Europe/Paris',
 		};
 		const t = jest.fn();
 
 		const cellData = 1474495200000;
-		computeValue(cellData, columnData, t);
+		const expectedStrDate = '2016-09-22 09:00:00';
+		const computedStrOffset = computeValue(cellData, columnData, t);
 
 		// then
+		expect(computedStrOffset).toEqual(expectedStrDate);
 		expect(dateUtils.formatToTimeZone).toHaveBeenCalledWith(
 			new Date(cellData),
 			columnData.pattern,
 			{
 				timeZone: columnData.timeZone,
+				sourceTimeZone: columnData.sourceTimeZone,
 				locale: getLocale(t),
 			},
 		);

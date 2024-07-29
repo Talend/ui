@@ -1,5 +1,46 @@
 # @talend/json-schema-form-core
 
+## 1.4.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+
+## 1.4.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 1.3.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+## 1.2.7
+
+### Patch Changes
+
+- 568481a: Remove usage of path-browserify as it's not needed
+
+## 1.2.6
+
+### Patch Changes
+
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
+## 1.2.5
+
+### Patch Changes
+
+- 779fc8c: - JSFC is a fork of https://github.com/json-schema-form/json-schema-form-core : its place is in the Fork folder
+  - Remove local copy of json-refs and use package instead
+  - add missing type to fix ts compilation error
+  - add a polyfill for json-refs: path-browserify
+
 ## 1.2.4
 
 ### Patch Changes

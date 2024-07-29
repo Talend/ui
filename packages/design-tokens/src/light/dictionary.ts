@@ -11,7 +11,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextWeak',
 		type: 'color',
-		description: `Weak text color. 
+		description: `Weak text color.
 Best used when there is regular neutral-text next to it.`,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
@@ -21,7 +21,7 @@ Best used when there is regular neutral-text next to it.`,
 	{
 		name: 'coralColorNeutralTextDisabled',
 		type: 'color',
-		description: `Disabled text color. 
+		description: `Disabled text color.
 Only use for interactive elements in their disabled state.
 `,
 		hsla: 'hsla(0, 0%, 44%, 1)',
@@ -32,7 +32,7 @@ Only use for interactive elements in their disabled state.
 	{
 		name: 'coralColorNeutralTextInverted',
 		type: 'color',
-		description: `Inverted text color. 
+		description: `Inverted text color.
 Only use on dark backgrounds.
 `,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -52,7 +52,7 @@ Only use on dark backgrounds.
 	{
 		name: 'coralColorNeutralBackgroundMedium',
 		type: 'color',
-		description: `Medium contrasting background color. 
+		description: `Medium contrasting background color.
 
 Ex: SubHeader`,
 		hsla: 'hsla(0, 0%, 97%, 1)',
@@ -63,7 +63,7 @@ Ex: SubHeader`,
 	{
 		name: 'coralColorNeutralBackgroundStrong',
 		type: 'color',
-		description: `Strongly contrasting background color. 
+		description: `Strongly contrasting background color.
 Use sparingly.
 
 Ex: SubHeader back button.`,
@@ -75,7 +75,7 @@ Ex: SubHeader back button.`,
 	{
 		name: 'coralColorNeutralBackgroundDisabled',
 		type: 'color',
-		description: `Background color for disabled interactive elements only. 
+		description: `Background color for disabled interactive elements only.
 
 Ex: Buttons`,
 		hsla: 'hsla(0, 0%, 88%, 1)',
@@ -86,7 +86,7 @@ Ex: Buttons`,
 	{
 		name: 'coralColorNeutralBorder',
 		type: 'color',
-		description: `Default border color. 
+		description: `Default border color.
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 55%, 1)',
@@ -108,7 +108,7 @@ Ex: Dividers`,
 	{
 		name: 'coralColorNeutralBorderHover',
 		type: 'color',
-		description: `Default border color, on mouseover. 
+		description: `Default border color, on mouseover.
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 40%, 1)',
@@ -119,7 +119,7 @@ Ex: Inputs`,
 	{
 		name: 'coralColorAccentTextWeak',
 		type: 'color',
-		description: `Accent text color on accent-background-strong. 
+		description: `Accent text color on accent-background-strong.
 
 Ex: ButtonPrimary`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -130,7 +130,7 @@ Ex: ButtonPrimary`,
 	{
 		name: 'coralColorAccentTextWeakHover',
 		type: 'color',
-		description: `Accent text color on accent-background-strong, on mouseover. 
+		description: `Accent text color on accent-background-strong, on mouseover.
 
 Ex: ButtonPrimary
 `,
@@ -142,7 +142,7 @@ Ex: ButtonPrimary
 	{
 		name: 'coralColorAccentTextWeakActive',
 		type: 'color',
-		description: `Accent text color on accent-background-strong, while pressing. 
+		description: `Accent text color on accent-background-strong, while pressing.
 
 Ex: ButtonPrimary`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
@@ -153,8 +153,8 @@ Ex: ButtonPrimary`,
 	{
 		name: 'coralColorAccentText',
 		type: 'color',
-		description: `Accent text color. 
-Use for interactive text content without background. 
+		description: `Accent text color.
+Use for interactive text content without background.
 
 Ex: Links`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
@@ -165,7 +165,7 @@ Ex: Links`,
 	{
 		name: 'coralColorAccentTextHover',
 		type: 'color',
-		description: `Accent text color on mouseover. 
+		description: `Accent text color on mouseover.
 
 Ex: Links`,
 		hsla: 'hsla(204, 96%, 18%, 1)',
@@ -176,7 +176,7 @@ Ex: Links`,
 	{
 		name: 'coralColorAccentTextActive',
 		type: 'color',
-		description: `Accent text color while pressed. 
+		description: `Accent text color while pressed.
 
 Ex: Links`,
 		hsla: 'hsla(205, 94%, 13%, 1)',
@@ -307,7 +307,7 @@ Ex: ButtonSecondary`,
 	{
 		name: 'coralColorDangerTextWeak',
 		type: 'color',
-		description: `Danger text color on danger-background-strong. 
+		description: `Danger text color on danger-background-strong.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -318,7 +318,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerTextWeakHover',
 		type: 'color',
-		description: `Danger text color on mouseover. 
+		description: `Danger text color on mouseover.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(358, 100%, 94%, 1)',
@@ -329,7 +329,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerTextWeakActive',
 		type: 'color',
-		description: `Danger text color while pressing. 
+		description: `Danger text color while pressing.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(359, 100%, 88%, 1)',
@@ -340,7 +340,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerText',
 		type: 'color',
-		description: `Danger text color. 
+		description: `Danger text color.
 Use for text content without background that must carry a negative semantic value on its own. `,
 		hsla: 'hsla(359, 51%, 53%, 1)',
 		hex: '#c4484a',
@@ -453,8 +453,8 @@ Use as placeholder to indicate that you want danger-tinted interactive states.`,
 	{
 		name: 'coralColorSuccessText',
 		type: 'color',
-		description: `Success text color. 
-Use for text content without background that must carry a positive semantic value on its own. 
+		description: `Success text color.
+Use for text content without background that must carry a positive semantic value on its own.
 
 Ex: StatusSuccessful`,
 		hsla: 'hsla(111, 49%, 34%, 1)',
@@ -483,7 +483,7 @@ Ex: StatusSuccessful`,
 	{
 		name: 'coralColorSuccessBackground',
 		type: 'color',
-		description: `Success background color by default. Use with text-strong. 
+		description: `Success background color by default. Use with text-strong.
 
 Ex: InlineMessage `,
 		hsla: 'hsla(110, 49%, 90%, 1)',
@@ -670,8 +670,8 @@ Use as placeholder to indicate that you want success-tinted interactive states.`
 	{
 		name: 'coralColorWarningText',
 		type: 'color',
-		description: `Warning text color. 
-Use for text content without background that must carry a warning semantic value on its own. 
+		description: `Warning text color.
+Use for text content without background that must carry a warning semantic value on its own.
 
 Ex: StatusWarning`,
 		hsla: 'hsla(22, 93%, 41%, 1)',
@@ -870,7 +870,7 @@ Ex: Tooltip`,
 	{
 		name: 'coralColorNeutralBorderDisabled',
 		type: 'color',
-		description: `Disabled border color for interactive elements 
+		description: `Disabled border color for interactive elements
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 65%, 1)',
@@ -1403,8 +1403,8 @@ Ex: StatusWarning`,
 	{
 		name: 'coralColorChartsNeutral',
 		type: 'color',
-		description: `Chart color: Neutral. 
-Use for neutral / empty semantic values. 
+		description: `Chart color: Neutral.
+Use for neutral / empty semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(0, 0%, 22%, 1)',
@@ -1415,7 +1415,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsNeutralWeak',
 		type: 'color',
-		description: `Chart color: Neutral-weak. 
+		description: `Chart color: Neutral-weak.
 Weak contrast for neutral / empty semantic values.`,
 		hsla: 'hsla(0, 0%, 83%, 1)',
 		hex: '#d4d4d4',
@@ -1425,7 +1425,7 @@ Weak contrast for neutral / empty semantic values.`,
 	{
 		name: 'coralColorChartsNeutralStrong',
 		type: 'color',
-		description: `Chart color: Neutral-strong. 
+		description: `Chart color: Neutral-strong.
 Strong contrast for neutral / empty semantic values.`,
 		hsla: 'hsla(0, 0%, 12%, 1)',
 		hex: '#1f1f1f',
@@ -1444,8 +1444,8 @@ Strong contrast for neutral / empty semantic values.`,
 	{
 		name: 'coralColorChartsSuccess',
 		type: 'color',
-		description: `Chart color: Success. 
-Use for success / positive semantic values. 
+		description: `Chart color: Success.
+Use for success / positive semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(148, 87%, 40%, 1)',
@@ -1456,7 +1456,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsSuccessWeak',
 		type: 'color',
-		description: `Chart color: Success-weak. 
+		description: `Chart color: Success-weak.
 Weak contrast for positive / success semantic values.`,
 		hsla: 'hsla(130, 52%, 91%, 1)',
 		hex: '#dcf4e0',
@@ -1466,7 +1466,7 @@ Weak contrast for positive / success semantic values.`,
 	{
 		name: 'coralColorChartsSuccessStrong',
 		type: 'color',
-		description: `Chart color: Success-strong. 
+		description: `Chart color: Success-strong.
 Strong contrast for positive / success semantic values.`,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
@@ -1485,8 +1485,8 @@ Strong contrast for positive / success semantic values.`,
 	{
 		name: 'coralColorChartsDanger',
 		type: 'color',
-		description: `Chart color: Danger. 
-Use for danger / negative semantic values. 
+		description: `Chart color: Danger.
+Use for danger / negative semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(4, 89%, 49%, 1)',
@@ -1497,7 +1497,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsDangerWeak',
 		type: 'color',
-		description: `Chart color: Danger-weak. 
+		description: `Chart color: Danger-weak.
 Weak contrast for negative / danger semantic values.`,
 		hsla: 'hsla(359, 69%, 73%, 1)',
 		hex: '#e9898a',
@@ -1507,7 +1507,7 @@ Weak contrast for negative / danger semantic values.`,
 	{
 		name: 'coralColorChartsDangerStrong',
 		type: 'color',
-		description: `Chart color: Danger-strong. 
+		description: `Chart color: Danger-strong.
 Strong contrast for negative / danger semantic values.`,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
@@ -1526,7 +1526,7 @@ Strong contrast for negative / danger semantic values.`,
 	{
 		name: 'coralColorChartsWarning',
 		type: 'color',
-		description: `Chart color: Warning. 
+		description: `Chart color: Warning.
 Use for warning semantic values.`,
 		hsla: 'hsla(32, 100%, 56%, 1)',
 		hex: '#ff9820',
@@ -1536,7 +1536,7 @@ Use for warning semantic values.`,
 	{
 		name: 'coralColorChartsWarningWeak',
 		type: 'color',
-		description: `Chart color: Warning-weak. 
+		description: `Chart color: Warning-weak.
 Weak contrast for warning semantic values.`,
 		hsla: 'hsla(22, 88%, 84%, 1)',
 		hex: '#facbb0',
@@ -1546,7 +1546,7 @@ Weak contrast for warning semantic values.`,
 	{
 		name: 'coralColorChartsWarningStrong',
 		type: 'color',
-		description: `Chart color: Warning-strong. 
+		description: `Chart color: Warning-strong.
 Strong contrast for warning semantic values.`,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
@@ -1565,7 +1565,7 @@ Strong contrast for warning semantic values.`,
 	{
 		name: 'coralColorChartsDefault',
 		type: 'color',
-		description: `Chart color by default. 
+		description: `Chart color by default.
 If the chart only has one set of value, and not a semantic (danger / warning / success) then use this colorset.`,
 		hsla: 'hsla(216, 82%, 48%, 1)',
 		hex: '#1667df',
@@ -1575,7 +1575,7 @@ If the chart only has one set of value, and not a semantic (danger / warning / s
 	{
 		name: 'coralColorChartsDefaultWeak',
 		type: 'color',
-		description: `Chart color: default-weak. 
+		description: `Chart color: default-weak.
 Weak contrast for basic chart values.`,
 		hsla: 'hsla(204, 59%, 73%, 1)',
 		hex: '#91c2e3',
@@ -1585,7 +1585,7 @@ Weak contrast for basic chart values.`,
 	{
 		name: 'coralColorChartsDefaultStrong',
 		type: 'color',
-		description: `Chart color: default-strong. 
+		description: `Chart color: default-strong.
 Strong contrast for basic chart values. `,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
@@ -1606,7 +1606,7 @@ if there is text on top if this, use default-text-weak.`,
 	{
 		name: 'coralColorChartsColor00',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(48, 100%, 50%, 1)',
@@ -1644,7 +1644,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor01',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(216, 82%, 48%, 1)',
@@ -1682,7 +1682,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor02',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(194, 92%, 50%, 1)',
@@ -1720,7 +1720,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor03',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(140, 39%, 79%, 1)',
@@ -1758,7 +1758,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor04',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(148, 87%, 40%, 1)',
@@ -1796,7 +1796,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor05',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(324, 68%, 71%, 1)',
@@ -1834,7 +1834,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor06',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(280, 75%, 58%, 1)',
@@ -1872,7 +1872,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor07',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(4, 89%, 49%, 1)',
@@ -1910,7 +1910,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor08',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(22, 88%, 54%, 1)',
@@ -1948,7 +1948,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor09',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(34, 34%, 45%, 1)',
@@ -1998,7 +1998,7 @@ Ex: ButtonSecondary`,
 	{
 		name: 'coralColorChartsDefaultText',
 		type: 'color',
-		description: `Text color for chart-default. 
+		description: `Text color for chart-default.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default.`,
 		hsla: 'hsla(205, 87%, 94%, 1)',
@@ -2009,7 +2009,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorChartsDefaultTextStrong',
 		type: 'color',
-		description: `Strong text color for chart-default-weak. 
+		description: `Strong text color for chart-default-weak.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default-weak.`,
 		hsla: 'hsla(205, 93%, 22%, 1)',
@@ -2020,7 +2020,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorChartsDefaultTextWeak',
 		type: 'color',
-		description: `Weak text color for chart-default-strong. 
+		description: `Weak text color for chart-default-strong.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default-strong.`,
 		hsla: 'hsla(207, 93%, 94%, 1)',
@@ -2184,7 +2184,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorAccentBackgroundSelected',
 		type: 'color',
-		description: `Accent background for currently selected elements: 
+		description: `Accent background for currently selected elements:
 
 Ex: Selected column or line in a datagrid.`,
 		hsla: 'hsla(204, 100%, 95%, 1)',
@@ -2195,8 +2195,8 @@ Ex: Selected column or line in a datagrid.`,
 	{
 		name: 'coralColorInfoText',
 		type: 'color',
-		description: `Information text color. 
-Use for text content without background that must carry a information semantic value on its own. 
+		description: `Information text color.
+Use for text content without background that must carry a information semantic value on its own.
 
 Ex: StatusInfo`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
@@ -2727,7 +2727,7 @@ Ex: InlineMessage`,
 	{
 		name: 'coralSizingS',
 		type: 'measure',
-		description: `Use for fixed-size elements. 
+		description: `Use for fixed-size elements.
 
 Ex: Small Buttons`,
 		value: '1.75rem',
@@ -2778,7 +2778,7 @@ Ex: Spot illustration width`,
 	{
 		name: 'coralElevationShadowNeutralM',
 		type: 'shadow',
-		description: `Default shadow. 
+		description: `Default shadow.
 
 Use on "first layer" of elevation. `,
 		value: '0rem 0.125rem 0.375rem 0rem hsla(0, 0%, 0%, 0.3)',
@@ -2787,9 +2787,9 @@ Use on "first layer" of elevation. `,
 	{
 		name: 'coralElevationShadowAccent',
 		type: 'shadow',
-		description: `Shadow with an accent tint. 
+		description: `Shadow with an accent tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(204, 95%, 31%, 0.3)',
@@ -2798,9 +2798,9 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowSuccess',
 		type: 'shadow',
-		description: `Shadow with a success tint. 
+		description: `Shadow with a success tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(111, 49%, 34%, 0.3)',
@@ -2809,9 +2809,9 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowDanger',
 		type: 'shadow',
-		description: `Shadow with a danger tint. 
+		description: `Shadow with a danger tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(359, 51%, 53%, 0.3)',
@@ -2820,9 +2820,9 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowWarning',
 		type: 'shadow',
-		description: `Shadow with a warning tint. 
+		description: `Shadow with a warning tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(22, 93%, 41%, 0.3)',
@@ -2831,9 +2831,9 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowBeta',
 		type: 'shadow',
-		description: `Shadow with a beta tint. 
+		description: `Shadow with a beta tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
 		value: '0rem 0.0625rem 0.0625rem 0rem hsla(281, 58%, 29%, 0.3)',
@@ -2842,7 +2842,7 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowNeutralInvertedM',
 		type: 'shadow',
-		description: `Default shadow. 
+		description: `Default shadow.
 
 Use on "first layer" of elevation. Reserve it for elements sticking to the bottom of the viewport.`,
 		value: '0rem -0.125rem 0.375rem 0rem hsla(0, 0%, 0%, 0.3)',
@@ -2851,7 +2851,7 @@ Use on "first layer" of elevation. Reserve it for elements sticking to the botto
 	{
 		name: 'coralElevationShadowNeutralInvertedL',
 		type: 'shadow',
-		description: `Large shadow. 
+		description: `Large shadow.
 
 Use on "second layer" of elevation - something that need to be "above" anything else.
 Reserve it for elements sticking to the bottom of the viewport.`,
@@ -2861,7 +2861,7 @@ Reserve it for elements sticking to the bottom of the viewport.`,
 	{
 		name: 'coralElevationShadowNeutralL',
 		type: 'shadow',
-		description: `Large shadow. 
+		description: `Large shadow.
 
 Use on "second layer" of elevation - something that need to be "above" anything else.`,
 		value: '0rem 0.25rem 0.5rem 0rem hsla(0, 0%, 0%, 0.3)',
@@ -3229,7 +3229,7 @@ Just above the default content (Drawer, Modal, Fixed layout...)`,
 	{
 		name: 'coralElevationLayerInteractiveFront',
 		type: 'elevation',
-		description: `Second elevation layer. 
+		description: `Second elevation layer.
 
 For elements above any layout (Dropdown, Popover).`,
 		value: `8`,
@@ -3247,11 +3247,11 @@ For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)`,
 	{
 		name: 'coralAnimationHeartbeat',
 		type: 'animation',
-		description: `Heartbeat animation. 
+		description: `Heartbeat animation.
 
-Ex: Skeletons 
+Ex: Skeletons
 
-Usage: 
+Usage:
 
 animate: tokens.$animation-heartbeat;`,
 		value: `coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite`,
