@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@talend/bootstrap-sass": "^5.3.0",
-    "@talend/design-tokens": "^3.4.0"
+    "@talend/design-tokens": "^3.4.3"
   },
   "devDependencies": {
     "@talend/eslint-config": "^13.2.0",
@@ -55,5 +55,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "9.2.0"
+  "version": "9.2.1"
 }

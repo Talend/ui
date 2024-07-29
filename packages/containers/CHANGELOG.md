@@ -1,5 +1,11 @@
 # @talend/react-containers
 
+## 11.1.0
+
+### Minor Changes
+
+- be457e9: fix(containers): Expose defaultRegistry through ComponentForm.kit
+
 ## 11.0.4
 
 ### Patch Changes

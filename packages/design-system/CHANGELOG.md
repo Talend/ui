@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 11.0.6
+
+### Patch Changes
+
+- fcba736: fix: useLayoutEffect to set the data-theme
+- Updated dependencies [fcba736]
+  - @talend/design-tokens@3.4.3
+
 ## 11.0.5
 
 ### Patch Changes

@@ -44,21 +44,21 @@ jobs:
           yarn workspace @talend/design-tokens run build:lib:esm
 
       - name: Cypress Component Testing
-        uses: cypress-io/github-action@1b70233146622b69e789ccdd4f9452adc638d25a #v6.6.1
+        uses: cypress-io/github-action@8d3918616d8ac34caa2b49afc8b408b6a872a6f5 #v6.7.1
         with:
           install: false
           browser: ${{ matrix.browser }}
           command: yarn workspace @talend/design-system run test:cy
 
       - name: Cypress screenshots upload
-        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 #v4.3.3
+        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b #v4.3.4
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-screenshots
           path: packages/design-system/cypress/screenshots/**/*
 
       - name: Cypress videos upload
-        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 #v4.3.3
+        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b #v4.3.4
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos
