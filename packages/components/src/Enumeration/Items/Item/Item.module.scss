@@ -118,7 +118,7 @@ $item-checkbox-width: 20px;
 }
 
 .tc-enumeration-item:hover,
-.tc-enumeration-item:global(.ally-focus-within) {
+.tc-enumeration-item:focus-within {
 	.tc-enumeration-item-actions {
 		visibility: visible;
 	}
@@ -126,6 +126,6 @@ $item-checkbox-width: 20px;
 
 // disable hover if item is selected
 .tc-enumeration-item:hover:not(.selected-item),
-.tc-enumeration-item:not(.selected-item):global(.ally-focus-within) {
+.tc-enumeration-item:not(.selected-item):focus-within {
 	background-color: tokens.$coral-color-neutral-background-medium;
 }
