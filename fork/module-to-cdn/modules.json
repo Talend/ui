@@ -206,9 +206,13 @@
   "ag-grid-react": {
     "var": "AgGridReact",
     "versions": {
-      ">= 23.1.0": {
+      ">= 23.1.0 < 32.0.0": {
         "development": "/bundles/ag-grid-react.min.js",
         "production": "/bundles/ag-grid-react.min.js"
+      },
+      ">= 32.0.0": {
+        "development": "/dist/umd/@ag-grid-community/react.js",
+        "production": "/dist/umd/@ag-grid-community/react.min.js"
       }
     }
   },

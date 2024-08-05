@@ -1,5 +1,13 @@
 # @talend/bootstrap-theme
 
+## 9.2.1
+
+### Patch Changes
+
+- fcba736: fix: remove animation on all button for all change
+- Updated dependencies [fcba736]
+  - @talend/design-tokens@3.4.3
+
 ## 9.2.0
 
 ### Minor Changes
