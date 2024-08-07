@@ -30,7 +30,7 @@
     "webpack-sources": "^3.2.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.24.7",
+    "@babel/eslint-parser": "^7.25.1",
     "@talend/eslint-config": "^13.2.0",
     "@talend/scripts-config-babel": "^13.5.0",
     "eslint": "^8.57.0"
