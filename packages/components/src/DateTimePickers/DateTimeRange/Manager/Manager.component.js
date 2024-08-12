@@ -19,6 +19,8 @@ function DateTimeRangeManager(props) {
 		endDateTime,
 	};
 	const [state, setState] = useState(initialState);
+	const [startDateErrors, setStartDateErrors] = useState([]);
+	const [endDateErrors, setEndDateErrors] = useState([]);
 
 	useEffect(() => {
 		if (!isEqual(state.startDateTime, startDateTime) || !isEqual(state.endDateTime, endDateTime)) {
@@ -29,7 +31,12 @@ function DateTimeRangeManager(props) {
 	function onRangeChange(event, nextState, origin) {
 		const errors = [...(nextState.errors || [])];
 
-		if (nextState.startDateTime && nextState.endDateTime) {
+		if (
+			nextState.startDateTime &&
+			nextState.endDateTime &&
+			!isNaN(nextState.startDateTime) &&
+			!isNaN(nextState.endDateTime)
+		) {
 			if (!isBefore(nextState.startDateTime, nextState.endDateTime)) {
 				errors.push(
 					new DateTimeRangePickerException(
@@ -49,13 +56,17 @@ function DateTimeRangeManager(props) {
 	}
 
 	function onStartChange(event, { datetime, errors }) {
-		const nextState = { ...state, startDateTime: datetime, errors };
+		setStartDateErrors(errors);
+		const allErrors = [...(errors || []), ...(endDateErrors || [])];
+		const nextState = { ...state, startDateTime: datetime, errors: allErrors };
 		setState(nextState);
 		onRangeChange(event, nextState, 'RANGE_START');
 	}
 
 	function onEndChange(event, { datetime, errors }) {
-		const nextState = { ...state, endDateTime: datetime, errors };
+		setEndDateErrors(errors);
+		const allErrors = [...(startDateErrors || []), ...(errors || [])];
+		const nextState = { ...state, endDateTime: datetime, errors: allErrors };
 		setState(nextState);
 		onRangeChange(event, nextState, 'RANGE_END');
 	}
