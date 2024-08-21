@@ -267,6 +267,7 @@ const InlineEditingPrimitive = forwardRef(
 										data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.cancel`}
 										data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.cancel`}
 										size="XS"
+										tooltipPlacement="bottom"
 									>
 										{t('INLINE_EDITING_CANCEL', 'Cancel')}
 									</ButtonIcon>
@@ -277,6 +278,7 @@ const InlineEditingPrimitive = forwardRef(
 										data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.submit`}
 										{...getDataAttrFromProps(rest)}
 										size="XS"
+										tooltipPlacement="bottom"
 									>
 										{t('INLINE_EDITING_SUBMIT', 'Submit')}
 									</ButtonIcon>
@@ -305,6 +307,7 @@ const InlineEditingPrimitive = forwardRef(
 								icon="pencil"
 								disabled={loading}
 								size="XS"
+								tooltipPlacement="bottom"
 							>
 								{t('INLINE_EDITING_EDIT', 'Edit')}
 							</ButtonIcon>
