@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.0.7
+
+### Patch Changes
+
+- f65f590: fix: Change InlineEdit tooltip position on buttons to prevent z-index issues depending on implementation
+
 ## 11.0.6
 
 ### Patch Changes
