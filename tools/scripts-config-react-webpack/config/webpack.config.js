@@ -286,6 +286,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				),
 				fallback: {
 					url: false,
+					path: false,
 				},
 			},
 			module: {

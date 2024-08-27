@@ -1,11 +1,16 @@
 import { forwardRef, JSXElementConstructor, ReactElement, Ref } from 'react';
+
 import classnames from 'classnames';
-import RcSlider, { SliderRef } from 'rc-slider';
-import { HandleProps } from 'rc-slider/lib/Handles/Handle';
 import range from 'lodash/range';
-import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
+import RcSlider, { SliderRef } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+import { HandleProps } from 'rc-slider/lib/Handles/Handle';
+
+// eslint-disable-line no-unused-vars
 import { ButtonIcon } from '@talend/design-system';
+
 import Icon from '../Icon';
+
 import theme from './Slider.module.scss';
 
 /**
@@ -173,7 +178,7 @@ function getCaption(
  */
 function getHandle(captionsFormat: ((value?: number) => string) | undefined) {
 	function renderHandler(
-		origin: ReactElement<HandleProps, string | JSXElementConstructor<any>>,
+		origin: React.ReactElement<React.HTMLAttributes<HTMLDivElement>>,
 		props: any,
 	) {
 		return (

@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
@@ -33,7 +33,7 @@ jobs:
         run: yarn test --coverage --coverageReporters json-summary
 
       - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@c2d5cfd6c32e8799c6deb0fd76a8e2d9ad8b35c2 #1.0.25
+        uses: MishaKav/jest-coverage-comment@434e6d2d37116d23d812809b61d499639842fa3b #1.0.26
         with:
           multiple-files: |
             assets-api, ./packages/assets-api/coverage/coverage-summary.json

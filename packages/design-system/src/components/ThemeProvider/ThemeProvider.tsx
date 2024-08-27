@@ -1,4 +1,4 @@
-import { PropsWithChildren, useContext, useEffect, useState } from 'react';
+import { PropsWithChildren, useContext, useLayoutEffect, useState } from 'react';
 
 import 'modern-css-reset/dist/reset.min.css';
 import 'typeface-inconsolata/index.css';
@@ -25,15 +25,15 @@ export const ThemeProvider = ({
 	// Handle nested Providers: parent Provider doesn't have context, child does
 	const context = useContext(ThemeContext);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		document.body.dataset.theme = selectedTheme;
 	}, [selectedTheme]);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		setSelectedTheme(theme);
 	}, [theme]);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (tokensOverride) {
 			Object.keys(tokensOverride).forEach(key => {
 				document.body.style.setProperty(key, tokensOverride[key].toString());

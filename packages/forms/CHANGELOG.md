@@ -1,5 +1,78 @@
 # @talend/react-forms
 
+## 15.0.2
+
+### Patch Changes
+
+- 194465c: Forms: array widget - use default value when add new item
+
+## 15.0.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/json-schema-form-core@1.4.1
+  - @talend/design-system@11.0.4
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/react-components@17.1.1
+  - @talend/icons@7.10.2
+  - @talend/utils@3.2.2
+
+## 15.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-components@17.0.0
+  - @talend/json-schema-form-core@1.4.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/icons@7.10.0
+  - @talend/utils@3.2.0
+
+## 14.1.1
+
+### Patch Changes
+
+- a1684f0: fix exports config
+
+## 14.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [ced37a2]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/react-components@16.2.0
+  - @talend/json-schema-form-core@1.3.0
+  - @talend/design-system@10.6.0
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/icons@7.9.0
+  - @talend/utils@3.1.0
+
+## 14.0.8
+
+### Patch Changes
+
+- 5b7240e: UI Form fields with both hint and required asterisk are now displayed correctly
+- Updated dependencies [5b7240e]
+  - @talend/design-system@10.4.5
+
 ## 14.0.7
 
 ### Patch Changes

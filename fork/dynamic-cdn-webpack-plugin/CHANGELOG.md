@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 14.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/module-to-cdn@9.11.0
+
 ## 13.1.2
 
 ### Patch Changes

@@ -10,7 +10,7 @@ function FieldTemplate(props) {
 	const title = (
 		<Form.Label
 			htmlFor={props.id}
-			{...getLabelProps(props.label, props.labelProps, props.hint)}
+			{...getLabelProps(props.label, props.labelProps, props.hint, props.required)}
 			required={props.required}
 		/>
 	);

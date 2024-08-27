@@ -27,6 +27,7 @@ const BOOTSTRAP_CLASS = [
 	'btn-sm',
 	'btn-xs',
 	'btn-block',
+	'btn-inverse',
 
 	'caret',
 	'pull-left',

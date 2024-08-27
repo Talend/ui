@@ -54,7 +54,7 @@ export default function Select({
 			readOnly={readOnly}
 			value={value}
 			required={schema.required}
-			label={getLabelProps(title, labelProps, schema.hint)}
+			label={getLabelProps(title, labelProps, schema.hint, schema.required)}
 			description={errorMessage || description}
 			hasError={!isValid}
 			aria-invalid={!isValid}

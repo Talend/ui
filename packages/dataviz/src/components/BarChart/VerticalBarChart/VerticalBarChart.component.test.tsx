@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+
 import VerticalBarChart from './VerticalBarChart.component';
 
 describe('Vertical bar chart', () => {
