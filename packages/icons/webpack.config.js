@@ -37,6 +37,9 @@ module.exports = {
 						loader: require.resolve('css-loader'),
 						options: {
 							url: false,
+							modules: {
+								namedExport: false,
+							},
 						},
 					},
 					'webfonts-loader',
