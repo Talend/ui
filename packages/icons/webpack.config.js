@@ -39,6 +39,7 @@ module.exports = {
 							url: false,
 							modules: {
 								namedExport: false,
+								exportLocalsConvention: 'as-is',
 							},
 						},
 					},

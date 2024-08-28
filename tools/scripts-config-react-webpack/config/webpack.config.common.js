@@ -31,6 +31,7 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 		sourceMap,
 		modules: {
 			namedExport: false,
+			exportLocalsConvention: 'as-is',
 		},
 	};
 	if (enableModules) {
@@ -38,6 +39,7 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 			sourceMap,
 			modules: {
 				namedExport: false,
+				exportLocalsConvention: 'as-is',
 				localIdentName: '[name]__[local]___[hash:base64:5]',
 			},
 			importLoaders: 1,

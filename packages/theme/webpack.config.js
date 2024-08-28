@@ -47,6 +47,7 @@ module.exports = (env, argv) => {
 								sourceMap: true,
 								modules: {
 									namedExport: false,
+									exportLocalsConvention: 'as-is',
 								},
 							},
 						},
