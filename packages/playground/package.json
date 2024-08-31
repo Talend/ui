@@ -35,7 +35,7 @@
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
     "i18next-http-backend": "^1.4.5",
-    "webpack": "^5.92.0"
+    "webpack": "^5.94.0"
   },
   "dependencies": {
     "@talend/bootstrap-theme": "^9.2.0",

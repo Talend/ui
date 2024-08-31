@@ -60,7 +60,7 @@
     "lodash": "^4.17.21",
     "rimraf": "^5.0.7",
     "typescript": "^5.4.5",
-    "webpack": "^5.92.0",
+    "webpack": "^5.94.0",
     "webpack-merge": "^5.10.0",
     "yargs": "^15.4.1"
   },
