@@ -131,9 +131,18 @@ function getAction(id, currentRoute, state) {
  */
 function getActions(state, ownProps, currentRoute) {
 	if (ownProps.actions) {
-		const cacheAction = getCache(ownProps.componentId, currentRoute, ownProps.actions);
+		let actions = ownProps.actions;
+
+		if (window.basename && window.basename !== '/') {
+			actions = ownProps.actions.map(action => ({
+				...action,
+				href: `${window.basename}${action.href}`.replaceAll('//', '/'),
+			}));
+		}
+
+		const cacheAction = getCache(ownProps.componentId, currentRoute, actions);
 		if (!cacheAction.value) {
-			cacheAction.value = getActionsWrapped(ownProps.actions);
+			cacheAction.value = getActionsWrapped(actions);
 		}
 		return cacheAction.value;
 	} else if (ownProps.actionIds) {
