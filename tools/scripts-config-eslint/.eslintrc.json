@@ -122,5 +122,5 @@
     }
   },
   // Ignore some JS at project's rool level
-  "ignorePatterns": ["index.js", ".eslintrc.js"]
+  "ignorePatterns": ["./index.js", "./.eslintrc.js"]
 }
