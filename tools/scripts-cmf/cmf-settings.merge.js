@@ -25,6 +25,19 @@ function getCmfconfig(cmfconfigPath, onError) {
 	return cmfconfig;
 }
 
+function addBasenameToHref(obj, basename) {
+	if (typeof obj === 'object' && obj !== null && basename) {
+		Object.entries(obj).forEach(([key, value]) => {
+			if (key === 'href' && typeof value === 'string') {
+				// eslint-disable-next-line no-param-reassign
+				obj[key] = `${basename}${value}`;
+			} else {
+				addBasenameToHref(value, basename);
+			}
+		});
+	}
+}
+
 /**
  * merge write a json settings file for CMF ready to be served
  * @param {Object} options
@@ -87,6 +100,10 @@ function merge(options, errorCallback, writeToFs = true) {
 			Object.keys(settings.overrideActions).forEach(id => {
 				overrideActions(id, settings);
 			});
+		}
+
+		if (process.env.BASENAME) {
+			addBasenameToHref(settings, process.env.BASENAME);
 		}
 	}
 
