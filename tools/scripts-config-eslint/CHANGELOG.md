@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 13.2.1
+
+### Patch Changes
+
+- 5f0acd2: fix: ignorePattern only at root level for index.js
+
 ## 13.2.0
 
 ### Minor Changes
