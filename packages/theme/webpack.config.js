@@ -45,10 +45,6 @@ module.exports = (env, argv) => {
 							options: {
 								importLoaders: 3,
 								sourceMap: true,
-								modules: {
-									namedExport: false,
-									exportLocalsConvention: 'as-is',
-								},
 							},
 						},
 						{
