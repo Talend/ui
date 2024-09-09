@@ -37,10 +37,6 @@ module.exports = {
 						loader: require.resolve('css-loader'),
 						options: {
 							url: false,
-							modules: {
-								namedExport: false,
-								exportLocalsConvention: 'as-is',
-							},
 						},
 					},
 					'webfonts-loader',
@@ -48,7 +44,7 @@ module.exports = {
 			},
 			{
 				test: /\.(woff|eot|ttf|svg)$/,
-				loader: require.resolve('url-loader'),
+				type: 'asset/resource',
 			},
 		],
 	},
