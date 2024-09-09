@@ -1,7 +1,9 @@
 import get from 'lodash/get';
+
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import Container, { DEFAULT_STATE } from './SidePanel.container';
+
 import { ACTION_TYPE_LINK } from './constants';
+import Container, { DEFAULT_STATE } from './SidePanel.container';
 
 const cache = {};
 
@@ -73,7 +75,13 @@ function getActionsWrapped(actions) {
 }
 
 function getSelectedAction(currentRoute, actions) {
-	const getFullPath = href => `${window.basename || ''}${href}`.replaceAll('//', '/');
+	const getFullPath = href => {
+		if (!window.basename || window.basename === '/' || href.startsWith(window.basename)) {
+			return href;
+		}
+
+		return `${window.basename || ''}${href}`.replaceAll('//', '/');
+	};
 	return actions.find(
 		action => action.href && isBasePathOf(getFullPath(action.href), currentRoute),
 	);
@@ -123,9 +131,18 @@ function getAction(id, currentRoute, state) {
  */
 function getActions(state, ownProps, currentRoute) {
 	if (ownProps.actions) {
-		const cacheAction = getCache(ownProps.componentId, currentRoute, ownProps.actions);
+		let actions = ownProps.actions;
+
+		if (window.basename && window.basename !== '/') {
+			actions = ownProps.actions.map(action => ({
+				...action,
+				href: `${window.basename}${action.href}`.replaceAll('//', '/'),
+			}));
+		}
+
+		const cacheAction = getCache(ownProps.componentId, currentRoute, actions);
 		if (!cacheAction.value) {
-			cacheAction.value = getActionsWrapped(ownProps.actions);
+			cacheAction.value = getActionsWrapped(actions);
 		}
 		return cacheAction.value;
 	} else if (ownProps.actionIds) {
