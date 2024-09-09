@@ -29,10 +29,6 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 	const sourceMap = true;
 	let cssOptions = {
 		sourceMap,
-		modules: {
-			namedExport: false,
-			exportLocalsConvention: 'as-is',
-		},
 	};
 	if (enableModules) {
 		cssOptions = {
