@@ -1,5 +1,11 @@
 # @talend/react-containers
 
+## 11.2.0
+
+### Minor Changes
+
+- da838fe: fix(TMC-29799): highlighting selected item in side panel and opening link in new tab
+
 ## 11.1.0
 
 ### Minor Changes
