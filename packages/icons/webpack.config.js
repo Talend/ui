@@ -44,7 +44,7 @@ module.exports = {
 			},
 			{
 				test: /\.(woff|eot|ttf|svg)$/,
-				loader: require.resolve('url-loader'),
+				type: 'asset/resource',
 			},
 		],
 	},

@@ -1,4 +1,5 @@
 import { forwardRef, Ref } from 'react';
+
 import ButtonPrimitive, { AvailableSizes, BaseButtonProps } from '../Primitive/ButtonPrimitive';
 
 import styles from './ButtonPrimary.module.scss';

@@ -23,16 +23,10 @@ module.exports = (env, argv) => {
 			rules: [
 				{
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-					use: [
-						{
-							loader: require.resolve('file-loader'),
-							options: {
-								outputPath: 'fonts',
-								name: '[name].[ext]',
-								esModule: false,
-							},
-						},
-					],
+					type: 'asset/resource',
+					generator: {
+						filename: 'fonts/[name][ext]',
+					},
 				},
 				{
 					test: /bootstrap\.scss$/,
