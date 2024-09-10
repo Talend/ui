@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 16.8.1
+
+### Patch Changes
+
+- 71a6433: fix: update postcss
+
 ## 16.8.0
 
 ### Minor Changes
