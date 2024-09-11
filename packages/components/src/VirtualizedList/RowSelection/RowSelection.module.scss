@@ -7,7 +7,7 @@
 
 		&:hover,
 		&:focus,
-		&:global(.ally-focus-within) {
+		&:focus-within {
 			background: tokens.$coral-color-accent-background-hover;
 		}
 	}
@@ -17,7 +17,7 @@
 
 		&:hover,
 		&:focus,
-		&:global(.ally-focus-within) {
+		&:focus-within {
 			background: tokens.$coral-color-accent-background-hover;
 		}
 	}
@@ -35,7 +35,7 @@
 
 		&:hover,
 		&:focus,
-		&:global(.ally-focus-within) {
+		&:focus-within {
 			background: tokens.$coral-color-accent-background-hover;
 		}
 	}
@@ -45,7 +45,7 @@
 
 		&:hover,
 		&:focus,
-		&:global(.ally-focus-within) {
+		&:focus-within {
 			background: tokens.$coral-color-accent-background-hover;
 		}
 	}
