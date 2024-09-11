@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.10.3
+
+### Patch Changes
+
+- 71a6433: fix: update postcss
+
 ## 7.10.2
 
 ### Patch Changes

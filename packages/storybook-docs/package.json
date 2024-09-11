@@ -1,6 +1,6 @@
 {
   "name": "@talend/storybook-docs",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Talend Storybook Docs component library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

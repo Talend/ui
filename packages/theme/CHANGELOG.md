@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 9.2.2
+
+### Patch Changes
+
+- 71a6433: fix: update postcss
+
 ## 9.2.1
 
 ### Patch Changes
