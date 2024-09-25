@@ -33,7 +33,7 @@ jobs:
         run: yarn test --coverage --coverageReporters json-summary
 
       - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@434e6d2d37116d23d812809b61d499639842fa3b #1.0.26
+        uses: MishaKav/jest-coverage-comment@d74238813c33e6ea20530ff91b5ea37953d11c91 #1.0.27
         with:
           multiple-files: |
             assets-api, ./packages/assets-api/coverage/coverage-summary.json
