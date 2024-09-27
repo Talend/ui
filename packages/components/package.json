@@ -63,7 +63,7 @@
     "invariant": "^2.2.4",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
-    "rc-slider": "^10.6.2",
+    "rc-slider": "^11.1.6",
     "react-autowhatever": "10.2.0",
     "react-debounce-input": "^3.3.0",
     "react-draggable": "^4.4.6",
