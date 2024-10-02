@@ -1,7 +1,10 @@
-import { Query } from '@talend/daikon-tql-client';
-import isEmpty from 'lodash/isEmpty';
 import flow from 'lodash/flow';
-import { operatorNames } from '../dictionary/operator.dictionary';
+import isEmpty from 'lodash/isEmpty';
+
+import { Query } from '@talend/daikon-tql-client';
+import facetedSearch from '@talend/react-faceted-search';
+
+const { operatorNames } = facetedSearch.helpers;
 
 const getBadgeQueryValues = ({ properties }) => [
 	properties.attribute,
