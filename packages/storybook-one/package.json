@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-storybook-one",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Package containing all stories from talend/ui repository",
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@talend/design-system": "^11.0.7",
     "@talend/design-tokens": "^3.4.3",
-    "@talend/react-faceted-search": "^20.0.2",
+    "@talend/react-faceted-search": "^21.0.0",
     "@talend/storybook-docs": "^2.5.1",
     "@talend/icons": "^7.10.3",
     "@talend/react-components": "^17.1.3",
