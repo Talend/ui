@@ -1,5 +1,4 @@
 ---
-'@talend/react-faceted-search-query-client': major
 '@talend/react-faceted-search': major
 ---
 
