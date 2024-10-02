@@ -15,4 +15,5 @@ import { queryClient } from '@talend/react-faceted-search';
 after
 ```
 import { createTqlQuery } from '@talend/react-faceted-search-query-client'
+import * as queryClient from '@talend/react-faceted-search-query-client'
 ```
