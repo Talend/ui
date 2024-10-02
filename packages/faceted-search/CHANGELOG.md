@@ -1,5 +1,27 @@
 # Changelog
 
+## 21.0.0
+
+### Major Changes
+
+- 78b4dbf: [BREAKING] Move the function createTqlQuery to a dedicated package (@talend/react-faceted-search-query-client).
+
+  You will need to adapt your code to use this lib
+
+  before
+
+  ```
+  import { createTqlQuery } from '@talend/react-faceted-search/lib/queryClient';
+  import { queryClient } from '@talend/react-faceted-search';
+  ```
+
+  after
+
+  ```
+  import { createTqlQuery } from '@talend/react-faceted-search-query-client'
+  import * as queryClient from '@talend/react-faceted-search-query-client'
+  ```
+
 ## 20.0.2
 
 ### Patch Changes

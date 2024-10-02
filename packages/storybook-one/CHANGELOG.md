@@ -1,5 +1,12 @@
 # @talend/ui-storybook-one
 
+## 2.5.1
+
+### Patch Changes
+
+- Updated dependencies [78b4dbf]
+  - @talend/react-faceted-search@21.0.0
+
 ## 2.5.0
 
 ### Minor Changes
