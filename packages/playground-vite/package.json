@@ -30,7 +30,7 @@
     "@talend/scripts-config-babel": "^13.5.0",
     "@talend/scripts-config-stylelint": "^4.2.0",
     "@talend/scripts-core": "^16.5.1",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
     "body-parser": "1.20.3",
     "compression": "^1.7.4",
     "copy-webpack-plugin": "^11.0.0",
@@ -39,11 +39,11 @@
     "express": "^4.21.0",
     "i18next-http-backend": "^1.4.5",
     "mockjs": "^1.1.0",
-    "sass": "^1.79.3",
+    "sass": "^1.79.4",
     "vite": "^5.4.8",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-mock": "^3.0.2",
-    "webpack": "^5.94.0"
+    "webpack": "^5.95.0"
   },
   "dependencies": {
     "@talend/assets-api": "^1.5.1",
