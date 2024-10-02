@@ -9,6 +9,7 @@ You will need to adapt your code to use this lib
 before
 ```
 import { createTqlQuery } from '@talend/react-faceted-search/lib/queryClient';
+import { queryClient } from '@talend/react-faceted-search';
 ```
 
 after
