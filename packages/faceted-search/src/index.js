@@ -1,18 +1,18 @@
+import * as constants from './constants';
 import {
-	FacetedSearch as Faceted,
 	AdvancedSearch,
-	BasicSearch,
-	badgeDefinitionTypes,
-	BadgeText,
-	BadgeSlider,
-	BadgeOverlay,
 	BadgeCheckboxes,
 	BadgeCheckboxesForm,
+	badgeDefinitionTypes,
 	BadgeFaceted,
+	BadgeOverlay,
+	BadgeSlider,
+	BadgeText,
+	BasicSearch,
+	FacetedSearch as Faceted,
 } from './components';
-import * as constants from './constants';
 import dictionaryHelpers from './dictionary/helpers.dictionary';
-import * as queryClient from './queryClient';
+import { operatorNames } from './dictionary/operator.dictionary';
 
 const components = {
 	Faceted,
@@ -28,6 +28,7 @@ const components = {
 
 const helpers = {
 	dictionary: dictionaryHelpers,
+	operatorNames,
 };
 
-export default { ...components, badgeDefinitionTypes, constants, helpers, queryClient };
+export default { ...components, badgeDefinitionTypes, constants, helpers };
