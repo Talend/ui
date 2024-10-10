@@ -43,6 +43,12 @@ export const Textarea = () => (
 			hasError
 			description="There is an error here"
 		/>
+		<Form.Textarea
+			rows={2}
+			placeholder="Placeholder"
+			name="time"
+			label="Textarea with custom number of rows"
+		/>
 	</StackVertical>
 );
 

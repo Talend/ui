@@ -233,6 +233,7 @@ exports[`Form should render a11y html 1`] = `
             class="theme-textarea"
             id="field--mocked-uuid-8"
             name="textarea"
+            rows="3"
           />
         </div>
         <div
