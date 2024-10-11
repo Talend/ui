@@ -14,7 +14,6 @@ function customTitle(value, schema) {
 }
 
 const schema = {
-	title: 'Basic',
 	description: 'This is description',
 	items: [
 		{
@@ -68,7 +67,10 @@ const defaultTitleMockData = {
 
 const props = {
 	id: 'my-fieldset',
-	schema,
+	schema: {
+		...schema,
+		title: 'Basic',
+	},
 	value,
 	onChange: jest.fn(),
 };
@@ -91,7 +93,7 @@ describe('CollapsibleFieldset', () => {
 				<CollapsibleFieldset {...props} value={{ ...value, isClosed: true }} />
 			</WidgetContext.Provider>,
 		);
-		expect(screen.getByText('Jimmy, Somsanith')).toBeInTheDocument();
+		expect(screen.getByText('Basic')).toBeInTheDocument();
 		expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
 	});
 	it('should render a custom title', () => {
@@ -182,7 +184,7 @@ describe('CollapsibleFieldset', () => {
 });
 
 describe('defaultTitle', () => {
-	it('should return schema.title by default if no emptyTitleFallback has been provided in options', () => {
+	it('should return schema.title by default', () => {
 		// given not used in an array you have the schema.title
 		expect(defaultTitle({}, { title: 'Comment' })).toBe('Comment');
 		// given no value, you have the schema.title
@@ -218,7 +220,6 @@ describe('defaultTitle', () => {
 	});
 	it('should support recursive call on deeper objects', () => {
 		const complexSchema = {
-			title: 'Basic',
 			items: [
 				{
 					key: ['type'],
