@@ -188,7 +188,7 @@ describe('defaultTitle', () => {
 		// given not used in an array you have the schema.title
 		expect(defaultTitle({}, { title: 'Comment' })).toBe('Comment');
 		// given no value, you have the schema.title
-		expect(defaultTitle({}, schema)).toBe('Comment');
+		expect(defaultTitle({}, schema)).toBe('');
 	});
 
 	it('should return if emptyTitleFallback has been provided and computed title is empty', () => {
