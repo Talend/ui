@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.0.8
+
+### Patch Changes
+
+- 293760b: fix: allow form Textarea to changes number of rows and remove fixed css min-height
+
 ## 11.0.7
 
 ### Patch Changes
