@@ -51,14 +51,14 @@ jobs:
           command: yarn workspace @talend/design-system run test:cy
 
       - name: Cypress screenshots upload
-        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 #v4.4.0
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 #v4.4.3
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-screenshots
           path: packages/design-system/cypress/screenshots/**/*
 
       - name: Cypress videos upload
-        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 #v4.4.0
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 #v4.4.3
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos
