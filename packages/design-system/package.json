@@ -44,7 +44,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.24.8",
+    "@floating-ui/react": "^0.26.25",
     "@talend/assets-api": "^1.5.1",
     "@talend/design-tokens": "^3.4.3",
     "@talend/utils": "^3.2.3",
