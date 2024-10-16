@@ -32,6 +32,10 @@ function getDrillKey(key) {
 }
 
 export function defaultTitle(formData, schema, options) {
+	if (schema.title) {
+		return schema.title;
+	}
+
 	const title = (schema.items || []).reduce((acc, item) => {
 		let value;
 		if (item.key) {
@@ -66,7 +70,7 @@ export function defaultTitle(formData, schema, options) {
 		return schema.options.emptyTitleFallback;
 	}
 
-	return schema.title;
+	return '';
 }
 
 /**

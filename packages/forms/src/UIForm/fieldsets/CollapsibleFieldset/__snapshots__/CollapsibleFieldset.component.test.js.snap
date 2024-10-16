@@ -34,7 +34,7 @@ exports[`CollapsibleFieldset should render 1`] = `
       <span
         class="theme-headerTitle"
       >
-        Jimmy, Somsanith
+        Basic
       </span>
     </button>
     <div
