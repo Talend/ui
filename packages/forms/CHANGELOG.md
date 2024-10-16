@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 15.1.0
+
+### Minor Changes
+
+- 3894e01: feat: Better handle collapsible fieldset title for UIForm definitions by using schema title by default
+
 ## 15.0.2
 
 ### Patch Changes
