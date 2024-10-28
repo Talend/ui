@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
+import { FigmaImage } from '@talend/storybook-docs';
+
+import * as Stories from './StatusBubble.stories';
+import { Status } from '../Status.block';
+
+<Meta of={Stories} />
+<Status id="status" />
+
+# StatusBubble
+
+The status bubble component displays state information using circle shape with semantic colors
+
+### Variations
+
+<Canvas of={Stories.Beta} />
+<Canvas of={Stories.Error} />
+<Canvas of={Stories.Information} />
+<Canvas of={Stories.Success} />
+<Canvas of={Stories.Warning} />
