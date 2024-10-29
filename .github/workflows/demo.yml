@@ -1,6 +1,8 @@
-name: PR Demo CI
+name: Demo CI
 on:
-  pull_request:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -9,13 +11,14 @@ permissions:
   checks: write
   pages: write
 
+# This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Build demo on PR
+    name: Build and test
     runs-on: ubuntu-latest
 
     steps:
@@ -25,10 +28,12 @@ jobs:
       - uses: pnpm/action-setup@v3
         with:
           version: 9
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
+
       - name: Setup access to qlik npm registry
         uses: qlik-trial/qmfe-workflows/actions/npm-github-access@v2
         with:
@@ -50,9 +55,9 @@ jobs:
       - name: Add demo and commit it
         # symlink creation : workaround to be able to use service worker on storybook both in local and via github pages deployment
         run: |
-          cd demo && git rm -rf --ignore-unmatch ${{ github.event.number }} && cd ..
-          mkdir -p ./demo/${{ github.event.number }}
-          cp -R storybook-static/* ./demo/${{ github.event.number }}/
+          cd demo && git rm -rf --ignore-unmatch ./main && cd ..
+          mkdir -p ./demo/main
+          cp -R storybook-static/* ./demo/main
           cd demo && git add .
 
       - name: Commit demo for gh-pages
@@ -60,20 +65,5 @@ jobs:
         with:
           directory: "./demo"
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "doc: update demo from ${{ github.event.number }}"
+          message: "doc: update demo"
           branch: gh-pages
-
-      - name: Find Comment
-        uses: peter-evans/find-comment@v2
-        id: fc
-        with:
-          issue-number: ${{ github.event.number }}
-          body-includes: Storybook for this PR deployed on this
-
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@c6c9a1a66007646a28c153e2a8580a5bad27bcfa #v3.0.2
-        if: steps.fc.outputs.comment-id == ''
-        with:
-          issue-number: ${{ github.event.number }}
-          body: |
-            Storybook for this PR deployed on this [github page](https://legendary-chainsaw-woo3ynm.pages.github.io/${{ github.event.number }})
