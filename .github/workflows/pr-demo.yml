@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
@@ -35,7 +35,7 @@ jobs:
         run: yarn test:demo
 
       - name: Checkout demo branch
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
         with:
           path: demo
           ref: gh-pages
@@ -43,9 +43,24 @@ jobs:
       - name: Add demo and commit it
         # symlink creation : workaround to be able to use service worker on storybook both in local and via github pages deployment
         run: |
+          echo "Prepare demo folder"
           cd demo && git rm -rf --ignore-unmatch ${{ github.event.number }} && cd ..
           mkdir -p ./demo/${{ github.event.number }}
-          cp -R storybook-static/* ./demo/${{ github.event.number }}/
+          cp ../index.html ./demo/${{ github.event.number }}/
+          mkdir ./demo/${{ github.event.number }}/cmf
+          mkdir ./demo/${{ github.event.number }}/containers
+          mkdir ./demo/${{ github.event.number }}/design-system
+          mkdir ./demo/${{ github.event.number }}/faceted-search
+          mkdir ./demo/${{ github.event.number }}/theme
+          mkdir ./demo/${{ github.event.number }}/storybook-one
+          cp -R packages/cmf/jsdoc ./demo/${{ github.event.number }}/cmf
+          cp -R packages/containers/storybook-static/* ./demo/${{ github.event.number }}/containers
+          cp -R packages/design-docs/storybook-static/* ./demo/${{ github.event.number }}/design-system
+          cp -R packages/faceted-search/storybook-static/* ./demo/${{ github.event.number }}/faceted-search
+          cp -R packages/theme/dist/* ./demo/${{ github.event.number }}/theme
+          cp -R packages/storybook-one/storybook-static/* ./demo/${{ github.event.number }}/storybook-one
+          echo Size of demo:
+          du -d 1 -h .static
           cd demo && git add .
 
       - name: Commit demo for gh-pages
