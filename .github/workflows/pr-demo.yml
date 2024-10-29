@@ -46,7 +46,7 @@ jobs:
           echo "Prepare demo folder"
           cd demo && git rm -rf --ignore-unmatch ${{ github.event.number }} && cd ..
           mkdir -p ./demo/${{ github.event.number }}
-          cp ../index.html ./demo/${{ github.event.number }}/
+          cp ./index.html ./demo/${{ github.event.number }}/
           mkdir ./demo/${{ github.event.number }}/cmf
           mkdir ./demo/${{ github.event.number }}/containers
           mkdir ./demo/${{ github.event.number }}/design-system
