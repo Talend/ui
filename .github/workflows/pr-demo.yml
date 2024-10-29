@@ -60,7 +60,7 @@ jobs:
           cp -R packages/theme/dist/* ./demo/${{ github.event.number }}/theme
           cp -R packages/storybook-one/storybook-static/* ./demo/${{ github.event.number }}/storybook-one
           echo Size of demo:
-          du -d 1 -h .static
+          du -d 1 -h ./demo/${{ github.event.number }}
           cd demo && git add .
 
       - name: Commit demo for gh-pages
