@@ -22,13 +22,9 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
 
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 9
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
+      - name: Use Node.js
+        uses: ./.github/actions/setup-node
+
       - name: Setup access to qlik npm registry
         uses: qlik-trial/qmfe-workflows/actions/npm-github-access@v2
         with:
@@ -36,10 +32,12 @@ jobs:
 
       - name: Install
         working-directory: ./
-        run: pnpm install
-
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn install --frozen-lockfile
+  
       - name: Build Demo
-        run: pnpm run test:demo
+        run: yarn run test:demo
 
       - name: Checkout demo branch
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
