@@ -35,7 +35,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build Demo
-        run: yarn run test:demo
+        run: yarn test:demo
 
       - name: Checkout demo branch
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
