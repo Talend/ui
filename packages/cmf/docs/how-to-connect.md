@@ -4,7 +4,7 @@ title: How to connect a container to CMF ?
 sidebar_label: connect a container
 ---
 
-CMF manages your routes to render the requested container depending on the [settings]({{ site.baseurl }}{% link core-settings.htm %}).
+CMF manages your routes to render the requested container depending on the [settings]({{ site.baseurl }}{% link ./core-settings.md %}).
 When you develop those containers (or other containers in you app), you need to access to resources and utilities that CMF provides
 
 - the store
@@ -20,7 +20,7 @@ CMF provides an `<App />` component to bootstrap pour app. This component
 
 - plugs [react-redux](https://github.com/reactjs/react-redux) `Provider` with the store you pass
 - plugs CMF `RegistryProvider`
-- connects [react-router](https://github.com/ReactTraining/react-router) with the `history you pass and the `routes` [settings]({{ site.baseurl }}{% link core-settings.htm %})
+- connects [react-router](https://github.com/ReactTraining/react-router) with the `history you pass and the `routes` [settings]({{ site.baseurl }}{% link ./core-settings.md %})
 
 ```javascript
 import React from 'react';
