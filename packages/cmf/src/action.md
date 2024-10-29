@@ -20,10 +20,10 @@ import cmf from 'react-cmf';
 cmf.actionCreator.get(context, id);
 ```
 
-| Argument | Type   | Description                                                                                                                                        | Mandatory |
-| -------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| context  | object | The CMF react context (injected by CMF connector). See [how to connect a container to CMF]({{ site.baseurl }}{% link ../docs/how-to-connect.md %}) | true      |
-| id       | string | The action creator identifier                                                                                                                      | true      |
+| Argument | Type   | Description                                                                                                           | Mandatory |
+| -------- | ------ | --------------------------------------------------------------------------------------------------------------------- | --------- |
+| context  | object | The CMF react context (injected by CMF connector). See [how to connect a container to CMF](../docs/how-to-connect.md) | true      |
+| id       | string | The action creator identifier                                                                                         | true      |
 
 It returns the registered `action creator` from the provided registry.
 
