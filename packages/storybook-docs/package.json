@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.17.4",
+    "@algolia/autocomplete-js": "^1.17.6",
     "@storybook/blocks": "^7.6.20",
     "@storybook/react": "^7.6.20",
     "@talend/design-tokens": "^3.4.3",
@@ -44,15 +44,15 @@
     "@talend/scripts-config-typescript": "^11.3.0",
     "@talend/scripts-core": "^16.5.1",
     "@types/node": "^6.14.13",
-    "@types/react": "^18.3.9",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.1",
     "postcss-loader": "^8.1.1",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.79.3",
+    "sass": "^1.80.5",
     "sass-loader": "^14.2.1",
-    "webpack": "^5.94.0",
+    "webpack": "^5.95.0",
     "webpack-cli": "^4.10.0"
   }
 }
