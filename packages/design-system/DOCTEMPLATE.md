@@ -2,7 +2,9 @@
 
 Use the following template when creating a new `ComponentName.stories.mdx` page.
 
-```
+{% raw %}
+
+```markdown
 import { Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '~docs';
 
@@ -39,3 +41,5 @@ Description
 
 ## Accessibility
 ```
+
+{% endraw %}
