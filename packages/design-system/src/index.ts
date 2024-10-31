@@ -27,7 +27,7 @@ export * from './components/RatioBar';
 export * from './components/RichRadioButton';
 export * from './components/Skeleton';
 export * from './components/Status';
-export * from './components/StatusBubble';
+export * from './components/StatusDot';
 export * from './components/Stepper';
 export * from './components/Switch';
 export * from './components/Tabs';

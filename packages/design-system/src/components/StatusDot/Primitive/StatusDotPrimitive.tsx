@@ -14,18 +14,23 @@ export const variants = {
 	warning: 'warning',
 };
 
-export type StatusBubbleProps = {
+export type StatusDotProps = {
 	variant: string;
+	className?: string;
 } & DataAttributes;
 
-const StatusBubblePrimitive = forwardRef(
-	({ variant, ...rest }: StatusBubbleProps, ref: Ref<HTMLSpanElement>) => {
+const StatusDotPrimitive = forwardRef(
+	({ variant, className, ...rest }: StatusDotProps, ref: Ref<HTMLSpanElement>) => {
 		return (
-			<span className={classnames(styles.statusBubble, styles[variant])} ref={ref} {...rest} />
+			<span
+				className={classnames(styles.statusDot, styles[variant], className)}
+				ref={ref}
+				{...rest}
+			/>
 		);
 	},
 );
 
-StatusBubblePrimitive.displayName = 'StatusBubblePrimitive';
+StatusDotPrimitive.displayName = 'StatusDotPrimitive';
 
-export default StatusBubblePrimitive;
+export default StatusDotPrimitive;
