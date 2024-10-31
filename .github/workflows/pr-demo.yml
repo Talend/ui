@@ -84,4 +84,4 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: |
-            Storybook for this PR deployed on this [github page](https://legendary-chainsaw-woo3ynm.pages.github.io/${{ github.event.number }})
+            Storybook for this PR deployed on this [github page](https://talend.github.io/ui/${{ github.event.number }})
