@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { DataAttributes } from '../../../types';
 
-import styles from './StatusBubblePrimitive.module.scss';
+import styles from './StatusDotPrimitive.module.scss';
 
 export const variants = {
 	beta: 'beta',

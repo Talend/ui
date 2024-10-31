@@ -125,7 +125,7 @@ export const TabStandaloneControlled = () => {
 	);
 };
 
-export const TabsWithStatusBubble = () => {
+export const TabsWithStatusDot = () => {
 	return (
 		<Tabs.Container defaultActiveKey="profile">
 			<Tabs.List>
