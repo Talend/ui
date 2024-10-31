@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
@@ -38,7 +38,7 @@ jobs:
         run: yarn test:demo
 
       - name: Checkout demo branch
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 #v3.5.3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
         with:
           path: demo
           ref: gh-pages
@@ -46,9 +46,24 @@ jobs:
       - name: Add demo and commit it
         # symlink creation : workaround to be able to use service worker on storybook both in local and via github pages deployment
         run: |
+          echo "Prepare demo folder"
           cd demo && git rm -rf --ignore-unmatch ./main && cd ..
           mkdir -p ./demo/main
-          cp -R storybook-static/* ./demo/main
+          cp ./index.html ./demo/main/
+          mkdir ./demo/main/cmf
+          mkdir ./demo/main/containers
+          mkdir ./demo/main/design-system
+          mkdir ./demo/main/faceted-search
+          mkdir ./demo/main/theme
+          mkdir ./demo/main/storybook-one
+          cp -R packages/cmf/jsdoc ./demo/main/cmf
+          cp -R packages/containers/storybook-static/* ./demo/main/containers
+          cp -R packages/design-docs/storybook-static/* ./demo/main/design-system
+          cp -R packages/faceted-search/storybook-static/* ./demo/main/faceted-search
+          cp -R packages/theme/dist/* ./demo/main/theme
+          cp -R packages/storybook-one/storybook-static/* ./demo/main/storybook-one
+          echo Size of demo:
+          du -d 1 -h ./demo/main
           cd demo && git add .
 
       - name: Commit demo for gh-pages
