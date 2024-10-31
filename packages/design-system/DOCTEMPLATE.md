@@ -2,16 +2,16 @@
 
 Use the following template when creating a new `ComponentName.stories.mdx` page.
 
-```markdown
+```
 import { Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '~docs';
 
 <Meta
     title="Design System/Components/Title"
     parameters={{
-		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' /\}/,
-		figmaLink: 'https://www.figma.com/file/????',
-	/\}\}/
+        status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
+        figmaLink: 'https://www.figma.com/file/????',
+    }}
 />
 
 # Title
