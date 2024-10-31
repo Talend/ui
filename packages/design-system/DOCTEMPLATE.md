@@ -9,9 +9,9 @@ import { FigmaImage, FigmaLink, Use } from '~docs';
 <Meta
     title="Design System/Components/Title"
     parameters={{
-		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' /\}/,
 		figmaLink: 'https://www.figma.com/file/????',
-	}}
+	/\}\}/
 />
 
 # Title
