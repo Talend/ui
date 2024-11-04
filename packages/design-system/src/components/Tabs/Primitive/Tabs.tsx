@@ -6,6 +6,7 @@ import { IconNameWithSize } from '@talend/icons';
 
 import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
+import { StatusDot } from '../../StatusDot';
 import { TagDefault } from '../../Tag';
 import { Tooltip } from '../../Tooltip';
 import { TabsInternalContext } from './TabsProvider';
@@ -31,6 +32,7 @@ export type TabPropTypes = {
 	disabled?: boolean;
 	icon?: IconNameWithSize<'S'>;
 	tag?: string | number;
+	statusDot?: string;
 	tooltip?: string;
 	error?: boolean;
 };
@@ -53,6 +55,7 @@ export function Tab(props: TabPropTypes) {
 				{props.icon && <SizedIcon size="S" name={props.icon} />}
 				<span className={style.tab__copy}>{props.title}</span>
 				{props.tag && <TagDefault>{props.tag}</TagDefault>}
+				{props.statusDot && <StatusDot variant={props.statusDot} className={style.statusDot} />}
 			</StackHorizontal>
 		</button>
 	);
