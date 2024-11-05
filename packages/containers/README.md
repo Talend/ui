@@ -20,13 +20,12 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 [peerdependencies-image]: https://david-dm.org/Talend/ui/peer-status.svg?path=packages/containers
 [peerdependencies-url]: https://david-dm.org/Talend/ui?path=packages/containers&type=peer
 
-
 ## Dependencies
 
-* react
-* @talend/react-cmf
-* @talend/react-components
-* classnames
+- react
+- @talend/react-cmf
+- @talend/react-components
+- classnames
 
 ## How to use
 
@@ -65,6 +64,6 @@ First please take a look at our contributing guildelines.
 
 # List of containers
 
-You can find full demo at http://talend.surge.sh/containers
+You can find full demo at http://talend.github.io/ui/main/containers
 
-* [SubHeaderBar](src/SubHeaderBar/SubHeaderBar.md)
+- [SubHeaderBar](src/SubHeaderBar/SubHeaderBar.md)
