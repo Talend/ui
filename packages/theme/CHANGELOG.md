@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 9.3.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
 ## 9.2.2
 
 ### Patch Changes
