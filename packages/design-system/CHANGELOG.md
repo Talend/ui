@@ -1,5 +1,29 @@
 # @talend/design-system
 
+## 11.2.0
+
+### Minor Changes
+
+- dea4b37: feat(TMC-2505): integrate status dot to tabs component
+
+## 11.1.0
+
+### Minor Changes
+
+- 76ac44b: feat(TMC-2505/webapp): implement status bubble component
+
+## 11.0.8
+
+### Patch Changes
+
+- 293760b: fix: allow form Textarea to changes number of rows and remove fixed css min-height
+
+## 11.0.7
+
+### Patch Changes
+
+- f65f590: fix: Change InlineEdit tooltip position on buttons to prevent z-index issues depending on implementation
+
 ## 11.0.6
 
 ### Patch Changes

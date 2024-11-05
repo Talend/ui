@@ -34,6 +34,8 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 		cssOptions = {
 			sourceMap,
 			modules: {
+				namedExport: false,
+				exportLocalsConvention: 'as-is',
 				localIdentName: '[name]__[local]___[hash:base64:5]',
 			},
 			importLoaders: 1,

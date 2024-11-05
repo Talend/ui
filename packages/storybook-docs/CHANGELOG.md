@@ -1,5 +1,11 @@
 # @talend/storybook-docs
 
+## 2.5.1
+
+### Patch Changes
+
+- 71a6433: fix: update postcss
+
 ## 2.5.0
 
 ### Minor Changes

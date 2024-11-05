@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.1.3
+
+### Patch Changes
+
+- 7121ad1: fix InputDateTimeRangePicker gets wrong error message for multiple errors
+
 ## 17.1.2
 
 ### Patch Changes

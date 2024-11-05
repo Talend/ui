@@ -1,10 +1,10 @@
 import { forwardRef, Ref } from 'react';
 
+import { AvailableSizes, ButtonVariantType } from './Primitive/ButtonPrimitive';
+import ButtonDestructive, { ButtonDestructivePropsType } from './variations/ButtonDestructive';
 import { ButtonPrimary, ButtonPrimaryPropsType } from './variations/ButtonPrimary';
 import ButtonSecondary, { ButtonSecondaryPropsType } from './variations/ButtonSecondary';
 import ButtonTertiary, { ButtonTertiaryPropsType } from './variations/ButtonTertiary';
-import ButtonDestructive, { ButtonDestructivePropsType } from './variations/ButtonDestructive';
-import { AvailableSizes, ButtonVariantType } from './Primitive/ButtonPrimitive';
 
 type Primary<S extends AvailableSizes> = ButtonVariantType<'primary', ButtonPrimaryPropsType<S>>;
 type Secondary<S extends AvailableSizes> = ButtonVariantType<
