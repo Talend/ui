@@ -1,5 +1,19 @@
 # @talend/react-forms
 
+## 15.2.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
+### Patch Changes
+
+- Updated dependencies [a8a42b5]
+- Updated dependencies [2a7fe08]
+- Updated dependencies [d1f8b6b]
+  - @talend/design-system@11.3.0
+  - @talend/react-components@17.2.0
+
 ## 15.1.0
 
 ### Minor Changes

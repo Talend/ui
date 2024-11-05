@@ -1,5 +1,17 @@
 # @talend/react-components
 
+## 17.2.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
+### Patch Changes
+
+- d1f8b6b: Upgrade react-is to v18.3.1 and set as dependency (not peerDep) in design-system
+- Updated dependencies [2a7fe08]
+  - @talend/bootstrap-theme@9.3.0
+
 ## 17.1.3
 
 ### Patch Changes

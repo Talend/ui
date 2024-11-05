@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.12.0
+
+### Minor Changes
+
+-   2a7fe08: chore: Remove ally.js
+
 ## 9.11.1
 
 ### Patch Changes

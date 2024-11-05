@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 14.2.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
 ## 14.1.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 11.3.0
+
+### Minor Changes
+
+- a8a42b5: feat(TMC-620): add new illustrations
+
+### Patch Changes
+
+- d1f8b6b: Upgrade react-is to v18.3.1 and set as dependency (not peerDep) in design-system
+
 ## 11.2.0
 
 ### Minor Changes
