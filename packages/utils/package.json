@@ -38,8 +38,8 @@
     "@talend/scripts-config-jest": "^14.1.0",
     "@talend/scripts-config-stylelint": "^4.2.0",
     "@talend/scripts-config-typescript": "^11.3.0",
-    "@types/date-fns": "^2.6.0",
-    "@types/lodash": "^4.17.9",
+    "@types/date-fns": "^2.6.3",
+    "@types/lodash": "^4.17.13",
     "cross-env": "^7.0.3"
   },
   "dependencies": {
