@@ -122,4 +122,8 @@
 		transition: tokens.$coral-transition-fast;
 		transform: translateY(100%);
 	}
+
+	.statusDot {
+		align-self: flex-start;
+	}
 }

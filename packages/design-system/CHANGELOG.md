@@ -1,5 +1,17 @@
 # @talend/design-system
 
+## 11.2.0
+
+### Minor Changes
+
+- dea4b37: feat(TMC-2505): integrate status dot to tabs component
+
+## 11.1.0
+
+### Minor Changes
+
+- 76ac44b: feat(TMC-2505/webapp): implement status bubble component
+
 ## 11.0.8
 
 ### Patch Changes
