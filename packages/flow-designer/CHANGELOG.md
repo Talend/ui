@@ -1,5 +1,71 @@
 # Changelog
 
+## 7.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-tokens@3.4.0
+
+## 6.2.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+
+## 6.2.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+
+## 6.1.2
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
+## 6.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/design-tokens@2.10.1
+
+## 6.1.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps, fix tsconfig file and fix some lint issue
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+  - @talend/design-tokens@2.10.0
+
+## 6.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
 ## 5.6.0
 
 ### Minor Changes

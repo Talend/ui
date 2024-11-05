@@ -1,26 +1,32 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
+    "@changesets/cli": "^2.27.8",
+    "@talend/scripts-config-babel": "^13.5.0",
+    "@talend/scripts-config-prettier": "^12.2.0",
+    "@talend/scripts-core": "^16.5.1",
+    "@talend/scripts-yarn-workspace": "^2.1.0",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
-    "eslint": "^7.32.0",
+    "eslint": "^8.57.1",
     "husky": "^8.0.3",
-    "i18next-scanner": "^4.4.0",
-    "lint-staged": "^13.3.0",
-    "prettier": "^2.8.8"
+    "i18next-scanner": "^4.5.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.0.4"
   },
   "scripts": {
-    "postinstall": "talend-yarn-workspace run build:lib",
+    "postinstall": "talend-yarn-workspace run build:lib && talend-yarn-workspace run build:lib:esm",
     "pre-release": "talend-yarn-workspace run pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
     "start-storybook": "yarn workspace @talend/ui-storybook-one run start",
     "release": "yarn pre-release && yarn changeset publish",
     "lint-staged": "lint-staged",
     "lint": "cross-env WORKSPACE_RUN_FAIL=no-bail talend-yarn-workspace run lint",
-    "lint-merge-report": "talend-yarn-workspace lint-merge-report",
-    "test": "cross-env TZ=Europe/Paris talend-yarn-workspace run test --silent",
-    "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
-    "test:cov": "cross-env TZ=Europe/Paris talend-yarn-workspace run test:cov",
+    "lint-merge-report": "talend-scripts lint-merge-report",
+    "test": "cross-env TZ=UTC talend-yarn-workspace run test --silent",
+    "test:update": "cross-env TZ=UTC yarn workspaces run test --silent -u",
+    "test:cov": "cross-env TZ=UTC talend-yarn-workspace run test:cov",
     "test:demo": "talend-yarn-workspace run test:demo",
     "test:cron": "talend-yarn-workspace run test:cron",
     "start-components": "yarn workspace @talend/react-components run start",
@@ -32,6 +38,9 @@
     "prepare": "husky install"
   },
   "resolutions": {
+    "**/axios": "0.28.0",
+    "**/ace-builds": "1.10.1",
+    "**/cypress": "^13.6.0",
     "**/@types/react": "^18.2.7",
     "**/@types/react-dom": "^18.2.7",
     "**/i18next-scanner-typescript/typescript": "^5.0.4",
@@ -60,9 +69,7 @@
   },
   "dependencies": {
     "@types/react": "^18.2.7",
-    "@types/react-dom": "^18.2.7",
-    "terser-webpack-plugin": "^5.3.9",
-    "typescript": "^5.0.4",
-    "webpack": "^5.76.3"
+    "@types/react-dom": "^18.3.0",
+    "cypress": "^13.6.0"
   }
 }

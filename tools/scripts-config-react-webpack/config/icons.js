@@ -14,6 +14,14 @@ function getThemeIcon(theme) {
  */
 function getTalendIconsPath() {
 	const main = require.resolve('@talend/icons');
+
+	if (main.indexOf('.pnpm') > -1) {
+		const startPath = main.substring(0, main.indexOf('icons'));
+		const regex = /@talend\+icons@([^\s/\\]+)/;
+		const match = main.match(regex);
+		const version = match[1];
+		return path.join(`${startPath}icons@${version}`, 'node_modules', '@talend', 'icons');
+	}
 	const root = main.split('icons')[0];
 	return `${root}icons`;
 }
@@ -41,7 +49,7 @@ function getAppLoaderIconUrl(theme) {
 function getFavicon(theme) {
 	const p = path.join(
 		getTalendIconsPath(),
-		`/src/svg/products/${theme ? `${getThemeIcon(theme)}-colored.svg` : 'logo-square.svg'}`,
+		`/src/svg/products/${theme ? `${getThemeIcon(theme)}-favicon.svg` : 'logo-square.svg'}`,
 	);
 	return svg64(fs.readFileSync(p, 'utf-8'));
 }

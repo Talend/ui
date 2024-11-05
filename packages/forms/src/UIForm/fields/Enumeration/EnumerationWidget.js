@@ -1,17 +1,19 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import keycode from 'keycode';
-import _isEmpty from 'lodash/isEmpty';
-import Enumeration from '@talend/react-components/lib/Enumeration';
-import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
+
+import classNames from 'classnames';
+import _isEmpty from 'lodash/isEmpty';
+import pickBy from 'lodash/pickBy';
+import PropTypes from 'prop-types';
+
+import Enumeration from '@talend/react-components/lib/Enumeration';
 import FocusManager from '@talend/react-components/lib/FocusManager';
 
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message';
+import FieldTemplate from '../FieldTemplate';
+import { deleteSelectedItems, manageCtrlKey, manageShiftKey, resetItems } from './utils/utils';
 
 export const enumerationStates = {
 	DISPLAY_MODE_DEFAULT: 'DISPLAY_MODE_DEFAULT',
@@ -274,7 +276,7 @@ class EnumerationForm extends Component {
 	onChange(event, payload) {
 		const { schema, onFinish, onChange } = this.props;
 		onChange(event, payload);
-		onFinish(event, { schema });
+		onFinish(event, { schema, value: payload.value });
 	}
 
 	onImportAppendClick() {
@@ -458,7 +460,10 @@ class EnumerationForm extends Component {
 						schema,
 						value: this.state.items.map((item, index) => {
 							if (index === value.index) {
-								return { ...item, values: formattedValue };
+								return pickBy(
+									{ ...item, values: formattedValue },
+									(_, key) => !['displayMode', 'isSelected'].includes(key),
+								);
 							}
 							return item;
 						}),
@@ -593,14 +598,14 @@ class EnumerationForm extends Component {
 	}
 
 	onAddKeyDown(event, value) {
-		if (event.keyCode === keycode('enter')) {
+		if (event.key === 'Enter') {
 			event.stopPropagation();
 			event.preventDefault();
 			if (this.state.displayMode === enumerationStates.DISPLAY_MODE_ADD) {
 				this.onValidateAndAddHandler(event, value);
 			}
 		}
-		if (event.keyCode === keycode('escape')) {
+		if (event.key === 'Esc' || event.key === 'Escape') {
 			event.stopPropagation();
 			event.preventDefault();
 			this.onAbortHandler();
@@ -1052,6 +1057,7 @@ class EnumerationForm extends Component {
 	}
 }
 
+// eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
 	EnumerationForm.propTypes = {
 		id: PropTypes.string,

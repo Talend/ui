@@ -1,7 +1,11 @@
 /* eslint-disable react/no-multi-comp */
 import { Component } from 'react';
+
 import { action } from '@storybook/addon-actions';
+
 import assetsApi from '@talend/assets-api';
+import tokens from '@talend/design-tokens';
+
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
 
@@ -122,9 +126,10 @@ export const Controlled = () => (
 	/>
 );
 
-export const WithBackGroundIcon = () => (
+export const WithBackgroundIcon = (_, context) => (
 	<Layout
 		mode="TwoColumns"
+		theme={context.globals.theme}
 		one={
 			<SidePanel
 				id="context"
@@ -192,7 +197,7 @@ export const ReverseLargeDocked = () => (
 	/>
 );
 
-export const _WithLayout = () => {
+export const _WithLayout = (_, context) => {
 	class WithLayout extends Component {
 		constructor() {
 			super();
@@ -209,7 +214,7 @@ export const _WithLayout = () => {
 				/>
 			);
 			return (
-				<Layout mode="TwoColumns" one={panel}>
+				<Layout mode="TwoColumns" one={panel} theme={context.globals.theme}>
 					<ol>
 						{new Array(100).fill('This is some random content').map((item, num) => (
 							<li key={num}>{item}</li>
@@ -223,7 +228,7 @@ export const _WithLayout = () => {
 	return <WithLayout />;
 };
 
-export const ReverseWithLayout = () => {
+export const ReverseWithLayout = (_, context) => {
 	const panelItems = items.concat([
 		{
 			key: 'longname',
@@ -240,7 +245,7 @@ export const ReverseWithLayout = () => {
 		/>
 	);
 	return (
-		<Layout mode="TwoColumns" one={panel}>
+		<Layout mode="TwoColumns" one={panel} theme={context.globals.theme}>
 			<ol>
 				{new Array(100).fill('This is some random content').map((item, num) => (
 					<li key={num}>{item}</li>

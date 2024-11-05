@@ -13,6 +13,11 @@ module.exports = {
 			chunkFilename: '[name].min.css',
 		}),
 	],
+	resolve: {
+		alias: {
+			'@talend/design-tokens/lib/tokens': require.resolve('@talend/design-tokens/lib/tokens'),
+		},
+	},
 	module: {
 		rules: [
 			{
@@ -20,9 +25,12 @@ module.exports = {
 				exclude: /node_modules/,
 				use: [
 					{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
-					{ loader: 'css-loader', options: { sourceMap: true } },
 					{
-						loader: 'postcss-loader',
+						loader: require.resolve('css-loader'),
+						options: { sourceMap: true },
+					},
+					{
+						loader: require.resolve('postcss-loader'),
 						options: {
 							postcssOptions: {
 								plugins: ['autoprefixer'],
@@ -30,10 +38,17 @@ module.exports = {
 							},
 						},
 					},
-					{ loader: 'resolve-url-loader', options: { sourceMap: true } },
 					{
-						loader: 'sass-loader',
+						loader: require.resolve('resolve-url-loader'),
 						options: { sourceMap: true },
+					},
+					{
+						loader: require.resolve('sass-loader'),
+						options: {
+							// implementation: require('sass-embedded'),
+							api: 'modern-compiler',
+							sourceMap: true,
+						},
 					},
 				],
 			},

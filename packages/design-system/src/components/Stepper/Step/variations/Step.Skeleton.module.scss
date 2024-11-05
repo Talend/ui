@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .skeleton {
 	position: relative;
@@ -9,12 +9,12 @@
 	justify-content: flex-end;
 
 	> span {
-		max-width: 11.5rem;
+		max-width: 7.1875rem;
 	}
 
 	&_vertical {
 		margin: 0 auto;
-		width: 20rem;
+		width: 12.5rem;
 		justify-content: center;
 	}
 }

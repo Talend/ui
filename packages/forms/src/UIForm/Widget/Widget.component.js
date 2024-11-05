@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
+
+import { InlineMessageDestructive } from '@talend/design-system';
 import { sfPath } from '@talend/json-schema-form-core';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
+import { useWidget } from '../context';
+import shouldRender from '../utils/condition';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
-import shouldRender from '../utils/condition';
 
 import theme from './Widget.component.module.scss';
-import { useWidget } from '../context';
 
+// eslint-disable-next-line @typescript-eslint/default-param-last
 function isUpdating(updatingKeys = [], key) {
 	if (updatingKeys.length === 0 || !key) {
 		return false;
@@ -39,7 +42,7 @@ export default function Widget(props) {
 	}
 
 	if (!WidgetImpl) {
-		return <p className="text-danger">Widget not found {widgetId}</p>;
+		return <InlineMessageDestructive description={`Widget not found ${widgetId}`} />;
 	}
 
 	const id = sfPath.name(key, props.idSeparator || '_', props.id);

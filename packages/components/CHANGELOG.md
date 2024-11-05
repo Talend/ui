@@ -1,5 +1,497 @@
 # @talend/react-components
 
+## 17.1.3
+
+### Patch Changes
+
+- 7121ad1: fix InputDateTimeRangePicker gets wrong error message for multiple errors
+
+## 17.1.2
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/utils@3.2.3
+
+## 17.1.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/react-bootstrap@3.0.2
+  - @talend/assets-api@1.5.1
+  - @talend/icons@7.10.2
+  - @talend/utils@3.2.2
+  - @talend/react-a11y@4.0.1
+
+## 17.1.0
+
+### Minor Changes
+
+- ca1734c: feat(TMC-28838/tags): add beta styled tag to the Tag component
+
+## 17.0.1
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/utils@3.2.1
+
+## 17.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-bootstrap@3.0.0
+  - @talend/react-a11y@4.0.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/icons@7.10.0
+  - @talend/bootstrap-theme@9.2.0
+  - @talend/utils@3.2.0
+
+## 16.2.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- ced37a2: fix(TMC-27619/cellDate): enable tz offset conversion with sourceTz
+- Updated dependencies [3bd16fc]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+  - @talend/react-bootstrap@2.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/icons@7.9.0
+  - @talend/utils@3.1.0
+  - @talend/react-a11y@3.1.0
+  - @talend/bootstrap-theme@9.1.4
+
+## 16.1.4
+
+### Patch Changes
+
+- 50801bd: Reset currentStep to 0 when tour is reopened
+
+## 16.1.3
+
+### Patch Changes
+
+- 003c7a4: fix(TDC-7452/Tour): Fix tour is changing to first step when closing
+
+## 16.1.2
+
+### Patch Changes
+
+- b502805: Fix translation for date range
+
+## 16.1.1
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- ceb4faf: Timer Picker overlay will now close when time is valid using keyboard
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [e521344]
+- Updated dependencies [f546896]
+  - @talend/bootstrap-theme@9.1.3
+  - @talend/icons@7.7.2
+
+## 16.1.0
+
+### Minor Changes
+
+- 8bf0dd5: feat(DGT-342): Moved QualityBar and RatioBar components to the Design System and use those components on @talend/react-components
+
+### Patch Changes
+
+- 9225a2d: TMC-27480 - Fix wording on invalid date range for date time picker
+
+## 16.0.1
+
+### Patch Changes
+
+- 6a69c4c: Fix Drawer z-index that could prevent headerbar to display sub-menu
+
+## 16.0.0
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+
+## 15.3.2
+
+### Patch Changes
+
+- 2d7861a: fix: tooltip alignement for buttons in list component
+
+## 15.3.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- 5cedaf1: TMC-26238 - Fix JSON object viewer style on safari with word-break
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/react-bootstrap@2.2.2
+  - @talend/assets-api@1.3.2
+  - @talend/icons@7.7.1
+  - @talend/bootstrap-theme@9.1.1
+  - @talend/utils@3.0.4
+  - @talend/react-a11y@3.0.1
+
+## 15.3.0
+
+### Minor Changes
+
+- 5a621b1: Components - Switch components dates to use design system inputs
+
+## 15.2.6
+
+### Patch Changes
+
+- 6305ea9: fix: enlarge drawer using back breakpoints
+
+## 15.2.5
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
+## 15.2.4
+
+### Patch Changes
+
+- dbc290d: fix: Datalist hightligted element (keyboard navigation)
+
+## 15.2.3
+
+### Patch Changes
+
+- 63ec624: fix: element does not goes over the box shadow in large mode for the list
+- 788e8a0: Components Drawer - Fix styling when no actions in footer and remove bootstrap styles
+
+## 15.2.2
+
+### Patch Changes
+
+- eece40c: fix: sort option not interactive with legacy list while in expanded view
+
+## 15.2.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+- a73338d: Fix ListView virtual list calculation when having a lot of items
+- Updated dependencies [52563ff]
+  - @talend/utils@3.0.1
+
+## 15.2.0
+
+### Minor Changes
+
+- 56d0d0a: TDOPS-448 - Enhance date picker controls to reduce number of clicks needed
+
+## 15.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+  - @talend/icons@7.7.0
+  - @talend/bootstrap-theme@9.1.0
+
+## 15.0.2
+
+### Patch Changes
+
+- 1964aac: fix: rem values for JS files
+
+## 15.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/bootstrap-theme@9.0.0
+
+## 15.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+  - @talend/design-system@9.0.0
+
+## 14.3.0
+
+### Minor Changes
+
+- 3022b60: deps: bump simplebar to 6.x
+
+### Patch Changes
+
+- 3dc3100: fix(DFD-491): Fix header bar and layout styles
+- Updated dependencies [8878c6c]
+- Updated dependencies [3dc3100]
+  - @talend/bootstrap-theme@8.5.0
+  - @talend/icons@7.6.0
+
+## 14.2.3
+
+### Patch Changes
+
+- fa6ca55: fix(DFD-491): Fix header bar and layout styles
+- Updated dependencies [c317063]
+- Updated dependencies [c317063]
+- Updated dependencies [c317063]
+  - @talend/icons@7.5.0
+  - @talend/bootstrap-theme@8.4.2
+
+## 14.2.2
+
+### Patch Changes
+
+- bfe3b20: TDOPS-5968 - Fix ListView checkbox alignement
+- 941ff4f: feat: add BadgePeriod in faceted search
+
+## 14.2.1
+
+### Patch Changes
+
+- 3c5082b: TDOPS-5733 - Notification long messages should break on words and not characters
+- e8956e6: TDOPS-5872 - Allow subheader subtitle to display long labels
+- e08217c: fix: dropdown with image display
+- Updated dependencies [e08217c]
+  - @talend/bootstrap-theme@8.4.1
+
+## 14.2.0
+
+### Minor Changes
+
+- 1a3cdeb: Add an empty state to Typeahead
+
+## 14.1.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+### Patch Changes
+
+- Updated dependencies [076147b]
+  - @talend/design-tokens@2.12.0
+  - @talend/icons@7.4.0
+
+## 14.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+### Patch Changes
+
+- e095335: fix: elevation layer on headerbar
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+  - @talend/react-a11y@3.0.0
+
+## 13.1.6
+
+### Patch Changes
+
+- c023eb6: fix: help icon color in the header bar
+
+## 13.1.5
+
+### Patch Changes
+
+- bb106bc: fix: adjustments for qlik-light theme
+- Updated dependencies [bb106bc]
+  - @talend/design-tokens@2.11.2
+
+## 13.1.4
+
+### Patch Changes
+
+- dce3585: fix: back button tooltip position
+
+## 13.1.3
+
+### Patch Changes
+
+- d479c75: fix: header bar help link style in qlik-light mode
+
+## 13.1.2
+
+### Patch Changes
+
+- f172fa8: fix: Header bar border bottom in light mode
+
+## 13.1.1
+
+### Patch Changes
+
+- 08bb2c1: fix: qlik theme fixes
+- Updated dependencies [08bb2c1]
+  - @talend/design-tokens@2.11.1
+
+## 13.1.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-tokens@2.11.0
+
+## 13.0.0
+
+### Major Changes
+
+- 7de44f9: Typeahead - Changed input to DS Form.Text
+
+  #### BREAKING CHANGE
+
+  Some props and styles that were previously working on bootstrap input might no longer work. Check classNames and overriding styles passed to Typeahead to check that it still integrates well within your pages
+
+## 12.4.2
+
+### Patch Changes
+
+- bf0caf3: fix: empty date cell renderer
+
+## 12.4.1
+
+### Patch Changes
+
+- 3ea63ce: fix: date-fns compatibility with Date Cell renderer while passing string date
+
+## 12.4.0
+
+### Minor Changes
+
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
+### Patch Changes
+
+- Updated dependencies [1bc49cd]
+- Updated dependencies [424544a]
+  - @talend/utils@2.9.0
+  - @talend/react-a11y@2.3.0
+
+## 12.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/design-tokens@2.10.1
+  - @talend/react-bootstrap@2.2.1
+  - @talend/assets-api@1.3.1
+  - @talend/icons@7.3.1
+  - @talend/bootstrap-theme@8.3.1
+  - @talend/react-a11y@2.2.1
+
+## 12.3.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
+### Patch Changes
+
+- 795a12e2d: fix: security issue on regexp
+- Updated dependencies [24bcb177f]
+  - @talend/react-bootstrap@2.2.0
+  - @talend/react-a11y@2.2.0
+
+## 12.2.0
+
+### Minor Changes
+
+- e87f8e091: feat(TDP-12694): add pendo trackers to guided-tour actions
+
+### Patch Changes
+
+- 8b1dc1fac: TDOPS-5671 - Fix tooltip display on date time ranger picker
+- Updated dependencies [f14ebbe23]
+- Updated dependencies [02e2d012c]
+  - @talend/react-bootstrap@2.1.1
+  - @talend/icons@7.3.0
+
+## 12.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  add a tsconfig.build.json to exclude test files
+
+### Patch Changes
+
+- 2177ddfb3: PlainTextTitle component: pass data atrributes
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/icons@7.1.0
+  - @talend/react-bootstrap@2.1.0
+
+## 12.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Minor Changes
+
+- 9a0732ec5: feat: upgrade react-is
+
+### Patch Changes
+
+- da4cf2971: TDOPS-762 - Allow notification message to have long labels with proper overflow
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [bacaa4b31]
+- Updated dependencies [4044f6198]
+- Updated dependencies [9a0732ec5]
+  - @talend/design-system@8.0.0
+  - @talend/react-bootstrap@2.0.0
+  - @talend/icons@7.0.0
+  - @talend/react-a11y@2.0.0
+  - @talend/bootstrap-theme@8.2.1
+
 ## 11.4.5
 
 ### Patch Changes

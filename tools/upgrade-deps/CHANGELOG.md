@@ -1,5 +1,48 @@
 # @talend/upgrade-deps
 
+## 3.1.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 3.0.3
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 3.0.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 3.0.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
+## 3.0.0
+
+### Major Changes
+
+- e8c64eb49: Make upgrade-deps compatible with pnpm
+  [Breaking Change]remove security option (has it's not used)
+
+## 2.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 2.0.0
 
 ### Major Changes

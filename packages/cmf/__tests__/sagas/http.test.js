@@ -1,31 +1,31 @@
 import { Headers, Response } from 'node-fetch';
 import { call, put } from 'redux-saga/effects';
+
+import interceptors from '../../src/httpInterceptors';
 import {
 	ACTION_TYPE_HTTP_ERRORS,
 	HTTP_METHODS,
 	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
-import interceptors from '../../src/httpInterceptors';
-
 import http, {
+	encodePayload,
 	getDefaultConfig,
 	handleBody,
+	handleDefaultHttpConfiguration,
 	handleError,
 	handleHttpResponse,
-	httpFetch,
+	HTTP,
+	httpDelete,
 	HTTPError,
-	encodePayload,
-	wrapFetch,
+	httpFetch,
 	httpGet,
 	httpHead,
-	httpDelete,
 	httpPatch,
 	httpPost,
 	httpPut,
 	setDefaultConfig,
 	setDefaultLanguage,
-	handleDefaultHttpConfiguration,
-	HTTP,
+	wrapFetch,
 } from '../../src/sagas/http';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
@@ -282,7 +282,7 @@ describe('#handleHttpResponse', () => {
 			new Response('{"foo": 42}', {
 				status: HTTP_STATUS.OK,
 			}),
-			{ method: HTTP_METHODS.HEAD }
+			{ method: HTTP_METHODS.HEAD },
 		).then(({ data, response }) => {
 			expect(data).toBe('');
 			expect(response instanceof Response).toBe(true);
@@ -729,7 +729,7 @@ describe('#httpFetch', () => {
 			type: 'some-documentation-uri',
 			title: 'An expected error title',
 			detail: 'Some useful detail',
-			code: 'business-error-xxx'
+			code: 'business-error-xxx',
 		};
 		const payload = {
 			bar: 42,
@@ -904,7 +904,7 @@ describe('#httpFetch with CRSF token', () => {
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: '{"bar":42}',
-			credentials: 'same-origin',
+			credentials: 'include',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
@@ -927,17 +927,13 @@ describe('#httpFetch with CSRF handling configuration', () => {
 	beforeAll(() => {
 		HTTP.defaultConfig = null;
 
-		document.cookie = `${
-			defaultHttpConfiguration.security.CSRFTokenCookieKey
-		}=${CSRFToken}; dwf_section_edit=True;`;
+		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True;`;
 	});
 
 	afterAll(() => {
 		HTTP.defaultConfig = null;
 
-		document.cookie = `${
-			defaultHttpConfiguration.security.CSRFTokenCookieKey
-		}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 
 	it('check if httpFetch is called with the security configuration', done => {
@@ -969,7 +965,7 @@ describe('#httpFetch with CSRF handling configuration', () => {
 		expect(fetch).toHaveBeenCalledWith(url, {
 			...defaultHttpConfiguration,
 			body: '{"bar":42}',
-			credentials: 'same-origin',
+			credentials: 'include',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
@@ -1011,7 +1007,7 @@ describe('#httpFetch', () => {
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: '{"bar":42}',
-			credentials: 'same-origin',
+			credentials: 'include',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
@@ -1052,7 +1048,7 @@ describe('#httpFetch', () => {
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: '{"bar":42}',
-			credentials: 'same-origin',
+			credentials: 'include',
 			headers: {
 				'Accept-Language': 'fr',
 				Accept: 'application/json',
@@ -1086,7 +1082,7 @@ describe('#httpFetch', () => {
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: payload,
-			credentials: 'same-origin',
+			credentials: 'include',
 			headers: {
 				Accept: 'application/json',
 			},
@@ -1121,7 +1117,7 @@ describe('#httpFetch', () => {
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: '{"bar":42}',
-			credentials: 'same-origin',
+			credentials: 'include',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
@@ -1379,9 +1375,8 @@ describe('handleDefaultConfiguration', () => {
 			},
 		};
 		// when
-		const configuredHandleDefaultHttpConfiguration = handleDefaultHttpConfiguration(
-			defaultHttpConfig,
-		);
+		const configuredHandleDefaultHttpConfiguration =
+			handleDefaultHttpConfiguration(defaultHttpConfig);
 		configuredHandleDefaultHttpConfiguration(httpConfig);
 		const resultTwo = configuredHandleDefaultHttpConfiguration({});
 		// expect

@@ -18,7 +18,7 @@ exports[`InlineEditing should render a11y html 1`] = `
         >
           <label
             class="theme-label"
-            for="field--mocked-uuid-4"
+            for="field--mocked-uuid-6"
           >
             Edit the value
           </label>
@@ -31,7 +31,8 @@ exports[`InlineEditing should render a11y html 1`] = `
             data-padding-override="true"
             data-test="inlineediting.input"
             data-testid="inlineediting.input"
-            id="field--mocked-uuid-4"
+            fieldid="inline-edit--mocked-uuid-0"
+            id="field--mocked-uuid-6"
             name="Editthevalue"
             placeholder="What is your Lorem Ipsum?"
             type="text"
@@ -46,7 +47,7 @@ exports[`InlineEditing should render a11y html 1`] = `
           class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS theme-padding-top-0 theme-padding-right-XXS theme-padding-bottom-0 theme-padding-left-XXS"
         >
           <button
-            aria-describedby="id-mocked-uuid-5"
+            aria-describedby="id-mocked-uuid-7"
             aria-label="Cancel"
             class="theme-clickable theme-buttonIcon theme-size_XS"
             data-test="inlineediting.button.cancel"
@@ -62,7 +63,7 @@ exports[`InlineEditing should render a11y html 1`] = `
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#cross-filled:S"
@@ -71,11 +72,12 @@ exports[`InlineEditing should render a11y html 1`] = `
             </span>
           </button>
           <button
-            aria-describedby="id-mocked-uuid-6"
+            aria-describedby="id-mocked-uuid-8"
             aria-label="Submit"
             class="theme-clickable theme-buttonIcon theme-size_XS"
             data-test="inlineediting.button.submit"
             data-testid="inlineediting.button.submit"
+            data-tracking="test-tracker"
             tabindex="0"
             type="button"
           >
@@ -87,7 +89,7 @@ exports[`InlineEditing should render a11y html 1`] = `
                 aria-hidden="true"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
-                style="width: 1.2rem; height: 1.2rem;"
+                style="width: 0.75rem; height: 0.75rem;"
               >
                 <use
                   xlink:href="#check-filled:S"

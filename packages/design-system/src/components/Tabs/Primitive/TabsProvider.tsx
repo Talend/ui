@@ -8,6 +8,7 @@ export type TabsProviderPropTypes = {
 	activeKey?: string;
 	onSelect?: (event: any, key: string) => void;
 	size?: string;
+	id?: string;
 };
 
 type WithChildren = {
@@ -29,8 +30,8 @@ export function TabsProvider(props: TabsProviderPropTypes & WithChildren) {
 		},
 	});
 	return (
-		<nav>
-			<StackVertical gap="M">
+		<nav id={props.id}>
+			<StackVertical gap={0}>
 				<TabsInternalContext.Provider value={{ size: props.size, ...controlled }}>
 					{props.children}
 				</TabsInternalContext.Provider>

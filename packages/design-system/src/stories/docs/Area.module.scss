@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .area {
 	display: flex;
@@ -9,7 +9,7 @@
 	padding: tokens.$coral-spacing-xs;
 	min-height: 0;
 	font-weight: bold;
-	font-size: 2rem;
+	font-size: 1.25rem;
 	color: coral;
 	background: cornsilk;
 	border: 1px dashed coral;

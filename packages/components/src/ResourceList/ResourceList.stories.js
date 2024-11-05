@@ -1,10 +1,11 @@
-import { useState, useMemo } from 'react';
-import PropTypes from 'prop-types';
+import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { action } from '@storybook/addon-actions';
 
-import ResourceList from './ResourceList.component';
+import { action } from '@storybook/addon-actions';
+import PropTypes from 'prop-types';
+
 import Icon from '../Icon';
+import ResourceList from './ResourceList.component';
 
 const collection = [
 	{
@@ -263,6 +264,13 @@ export function FilteredResourceList(props) {
 					}),
 					value: filter,
 					onChange: event => setFilter(event.target.value),
+				},
+				sort: {
+					types: ['name'],
+					onChange: action('sort'),
+					orders: {
+						name: 'asc',
+					},
 				},
 			}}
 			{...props}

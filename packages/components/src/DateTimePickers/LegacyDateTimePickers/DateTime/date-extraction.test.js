@@ -1,11 +1,11 @@
 import {
+	check,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
-	check,
 } from './date-extraction';
 
 describe('Date extraction', () => {
@@ -248,11 +248,11 @@ describe('Date extraction', () => {
 
 			// then
 			expect(parts).toEqual({
-				date: new Date(2015, 8, 14),
+				date: new Date(2015, 8, 15, 0, 0, 0),
 				datetime: validDate,
-				textInput: '2015-09-14 23:00:22',
+				textInput: '2015-09-15 01:00:22',
 				errors: [],
-				time: { hours: '23', minutes: '00', seconds: '22' },
+				time: { hours: '01', minutes: '00', seconds: '22' },
 			});
 		});
 	});
@@ -435,7 +435,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date,
-				datetime: new Date(2015, 8, 15, 14, 58, 22),
+				datetime: new Date(2015, 8, 15, 12, 58, 22),
 				textInput: '2015-09-15 12:58:22',
 				time,
 				errorMessage: null,
@@ -668,7 +668,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2018, 11, 25),
 				time: { hours: '22', minutes: '58', seconds: '12' },
-				datetime: new Date(2018, 11, 25, 23, 58, 12),
+				datetime: new Date(2018, 11, 25, 22, 58, 12),
 				textInput,
 				errorMessage: null,
 				errors: [],

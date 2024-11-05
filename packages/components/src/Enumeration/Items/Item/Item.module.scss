@@ -1,11 +1,11 @@
 /* stylelint-disable color-hex-case */
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
-$tc-enumeration-item-height: 3.3rem !default;
+$tc-enumeration-item-height: 2.0625rem !default;
 
 $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
@@ -83,7 +83,7 @@ $item-checkbox-width: 20px;
 	}
 
 	button span {
-		// button {line-height: 3.3rem} button span { vertical-align: middle} set height to 34px instead 33px
+		// button {line-height: 2.0625rem} button span { vertical-align: middle} set height to 34px instead 33px
 		vertical-align: top;
 	}
 

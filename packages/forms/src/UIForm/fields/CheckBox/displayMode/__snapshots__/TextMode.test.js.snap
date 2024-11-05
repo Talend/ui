@@ -2,28 +2,26 @@
 
 exports[`CheckBox field in text mode should render checked value 1`] = `
 <div
-  class="form-group theme-checkbox"
+  class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
 >
-  <dt>
-    <label
-      class="control-label"
-      for="myForm"
-    >
-      My checkbox title
-    </label>
-  </dt>
-  <dd
+  <svg
+    aria-hidden="true"
+    data-test="widget-checkbox-icon-check"
+    data-testid="widget-checkbox-icon-check"
     id="myForm"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+    style="width: 0.75rem; height: 0.75rem;"
   >
-    <svg
-      aria-hidden="true"
-      aria-label="true"
-      class="tc-svg-icon tc-icon theme-svg theme-icon tc-icon-name-talend-check"
-      focusable="false"
-      name="talend-check"
-      pointer-events="none"
-      shape-rendering="geometricPrecision"
+    <use
+      xlink:href="#check:S"
     />
-  </dd>
+  </svg>
+  <label
+    class="theme-label"
+    for="myForm"
+  >
+    My checkbox title
+  </label>
 </div>
 `;

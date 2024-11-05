@@ -1,4 +1,5 @@
-import { act, render, screen, fireEvent } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+
 import DateTimeWidget from './DateTime.component';
 
 jest.unmock('@talend/design-system');
@@ -54,7 +55,7 @@ describe('DateTime widget', () => {
 		});
 		// then
 		expect(screen.getAllByRole('textbox')[0]).toHaveValue('2018-01-01');
-		expect(screen.getAllByRole('textbox')[1]).toHaveValue('11:35');
+		expect(screen.getAllByRole('textbox')[1]).toHaveValue('10:35');
 	});
 	it('should trigger onFinish on picker blur', async () => {
 		// given
@@ -68,7 +69,7 @@ describe('DateTime widget', () => {
 		});
 
 		// then
-		expect(props.onFinish).toBeCalled();
+		expect(props.onFinish).toHaveBeenCalled();
 	});
 	describe('onChange', () => {
 		it('should call props onChange', async () => {
@@ -121,7 +122,7 @@ describe('DateTime widget', () => {
 
 			expect(props.onChange.mock.calls[1][1]).toMatchObject({
 				schema: timestampSchema,
-				value: new Date(2015, 8, 21, 2, 30, 0).getTime(),
+				value: new Date(2015, 8, 21, 1, 30, 0).getTime(),
 			});
 		});
 
@@ -143,7 +144,7 @@ describe('DateTime widget', () => {
 			});
 
 			// then
-			expect(props.onChange).not.toBeCalledWith();
+			expect(props.onChange).not.toHaveBeenCalledWith();
 		});
 
 		it('should convert valid date to iso-datetime', async () => {
@@ -154,7 +155,7 @@ describe('DateTime widget', () => {
 				schema: { format: 'iso-datetime' },
 			};
 			render(<DateTimeWidget {...props} schema={isoSchema} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
 			fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: '2015-09-21' } });
@@ -166,7 +167,7 @@ describe('DateTime widget', () => {
 			});
 
 			// then
-			expect(props.onChange).toBeCalledWith(expect.anything(), {
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 				schema: isoSchema,
 				value: new Date(2015, 8, 21, 2, 30).toISOString(),
 			});
@@ -185,7 +186,7 @@ describe('DateTime widget', () => {
 			});
 
 			// then
-			expect(props.onFinish).toBeCalledWith(expect.anything(), {
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), {
 				schema,
 				value: '2015-09-21 02:30',
 			});
@@ -203,7 +204,7 @@ describe('DateTime widget', () => {
 			});
 
 			// then
-			expect(props.onFinish).toBeCalledWith(expect.anything(), {
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), {
 				schema,
 				value: undefined,
 			});

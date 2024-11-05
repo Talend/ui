@@ -1,23 +1,27 @@
 import { cloneElement, forwardRef, useEffect, useState } from 'react';
 import type {
-	MouseEvent,
+	ChangeEvent,
+	ElementType,
 	FormEvent,
-	KeyboardEvent as RKeyboardEvent,
+	HTMLAttributes,
+	MouseEvent,
 	ReactElement,
 	Ref,
-	HTMLAttributes,
-	ElementType,
-	ChangeEvent,
+	KeyboardEvent as RKeyboardEvent,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
-import keycode from 'keycode';
+import { DataAttributes } from 'src/types';
 
+import { getDataAttrFromProps } from '@talend/utils';
+
+import { useControl } from '../../../useControl';
+import { useId } from '../../../useId';
 import { ButtonIcon } from '../../ButtonIcon';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { Form } from '../../Form';
 import { StackHorizontal } from '../../Stack';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 import styles from './InlineEditingPrimitive.module.scss';
 
@@ -74,8 +78,24 @@ export type InlineEditingPrimitiveProps = {
 	 * @param newValue new value filled
 	 */
 	onChangeValue?: (newValue: string) => void;
+
+	/**
+	 * (Optional) Default value to set edition mode.
+	 */
+	isEditMode?: boolean;
+
+	/**
+	 * (Optional) In controlled way, value to set edition mode.
+	 */
+	isEditing?: boolean;
+
+	/**
+	 * (Optional) In controlled way, handler to update edition mode.
+	 */
+	onChangeEditing?: (isEditing: boolean) => void;
 } & ErrorInEditing &
-	Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'>;
+	Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'> &
+	Partial<DataAttributes>;
 
 const InlineEditingPrimitive = forwardRef(
 	(props: InlineEditingPrimitiveProps, ref: Ref<HTMLDivElement>) => {
@@ -96,13 +116,22 @@ const InlineEditingPrimitive = forwardRef(
 			onEdit = () => {},
 			value,
 			onChangeValue,
+			'data-testid': dataTestId,
+			'data-test': dataTest,
 			...rest
 		} = props;
 
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-		const [isEditing, setEditing] = useState<boolean>(false);
+		const editionModeControl = useControl<boolean>(props, {
+			onChangeKey: 'onChangeEditing',
+			valueKey: 'isEditing',
+			defaultValueKey: 'isEditMode',
+			defaultValue: false,
+		});
+
 		const [internalValue, setInternalValue] = useState<string | undefined>(defaultValue);
+		const inlineEditingId = useId(rest.id, 'inline-edit-');
 
 		// Displayed content depends on current mode
 		// Controlled mode - display value prop
@@ -112,7 +141,7 @@ const InlineEditingPrimitive = forwardRef(
 		const getValue = () => (onChangeValue ? value : internalValue);
 
 		const toggleEditionMode = (isEditionMode: boolean) => {
-			setEditing(isEditionMode);
+			editionModeControl.onChange(isEditionMode);
 			onToggle(isEditionMode);
 		};
 
@@ -131,19 +160,19 @@ const InlineEditingPrimitive = forwardRef(
 				onEdit(event, getValue() || '');
 			}
 
-			toggleEditionMode(false);
+			if (!hasError) {
+				toggleEditionMode(false);
+			}
 		};
 
 		const handleCancel = () => {
-			if (isEditing) {
+			if (editionModeControl.value) {
 				// Uncontrolled mode - set to default value
 				setInternalValue(defaultValue);
 			}
 			toggleEditionMode(false);
 			onCancel();
 		};
-
-		const testId = `inlineediting.${mode === 'multi' ? 'textarea' : 'input'}`;
 
 		function ValueComponent() {
 			const Default = mode === 'multi' ? 'p' : 'span';
@@ -170,13 +199,18 @@ const InlineEditingPrimitive = forwardRef(
 		}
 
 		const sharedInputProps = {
-			'data-test': testId,
-			'data-testid': testId,
+			'data-test': `${dataTest ? `${dataTest}.` : ''}inlineediting.${
+				mode === 'multi' ? 'textarea' : 'input'
+			}`,
+			'data-testid': `${dataTestId ? `${dataTestId}.` : ''}inlineediting.${
+				mode === 'multi' ? 'textarea' : 'input'
+			}`,
 			hideLabel: true,
 			hasError,
 			description,
 			label,
 			name: label.replace(/\s/g, ''),
+			fieldId: inlineEditingId,
 			required,
 			maxLength,
 			placeholder,
@@ -189,11 +223,11 @@ const InlineEditingPrimitive = forwardRef(
 			},
 			// Keyboard shortcuts
 			onKeyDown: (event: RKeyboardEvent) => {
-				if (event.keyCode === keycode.codes.enter && mode !== 'multi') {
+				if (event.key === 'Enter' && mode !== 'multi') {
 					// Enter
 					handleSubmit(event);
 				}
-				if (event.keyCode === keycode.codes.esc) {
+				if (event.key === 'Escape' || event.key === 'Esc') {
 					handleCancel();
 				}
 			},
@@ -201,12 +235,12 @@ const InlineEditingPrimitive = forwardRef(
 		return (
 			<div
 				{...rest}
-				data-test="inlineediting"
-				data-testid="inlineediting"
+				data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting`}
+				data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting`}
 				className={styles.inlineEditor}
 				ref={ref}
 			>
-				{isEditing ? (
+				{editionModeControl.value ? (
 					<>
 						<div className={styles.inlineEditor__editor}>
 							{mode === 'multi' && (
@@ -230,18 +264,21 @@ const InlineEditingPrimitive = forwardRef(
 									<ButtonIcon
 										onClick={handleCancel}
 										icon="cross-filled"
-										data-testid="inlineediting.button.cancel"
-										data-test="inlineediting.button.cancel"
+										data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.cancel`}
+										data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.cancel`}
 										size="XS"
+										tooltipPlacement="bottom"
 									>
 										{t('INLINE_EDITING_CANCEL', 'Cancel')}
 									</ButtonIcon>
 									<ButtonIcon
 										onClick={handleSubmit}
 										icon="check-filled"
-										data-testid="inlineediting.button.submit"
-										data-test="inlineediting.button.submit"
+										data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.submit`}
+										data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.submit`}
+										{...getDataAttrFromProps(rest)}
 										size="XS"
+										tooltipPlacement="bottom"
 									>
 										{t('INLINE_EDITING_SUBMIT', 'Submit')}
 									</ButtonIcon>
@@ -263,13 +300,14 @@ const InlineEditingPrimitive = forwardRef(
 						<ValueComponent />
 						<span className={styles.inlineEditor__content__button}>
 							<ButtonIcon
-								data-testid="inlineediting.button.edit"
-								data-test="inlineediting.button.edit"
+								data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.edit`}
+								data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.edit`}
 								onClick={() => toggleEditionMode(true)}
 								aria-label={ariaLabel || label}
 								icon="pencil"
 								disabled={loading}
 								size="XS"
+								tooltipPlacement="bottom"
 							>
 								{t('INLINE_EDITING_EDIT', 'Edit')}
 							</ButtonIcon>

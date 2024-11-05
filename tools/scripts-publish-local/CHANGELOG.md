@@ -1,5 +1,41 @@
 # @talend/scripts-publish-local
 
+## 1.4.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 1.3.3
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 1.3.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 1.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
+## 1.3.0
+
+### Minor Changes
+
+- 673984929: Add missing deps
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 1.2.0
 
 ### Minor Changes

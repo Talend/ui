@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+
 import FilterBar from '../FilterBar';
 import Tag from '../Tag';
 import SubHeaderBar from './SubHeaderBar.component';
@@ -91,6 +92,16 @@ export const WithIcon = () => (
 export const WithSubtitle = () => (
 	<div>
 		<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
+		<SubHeaderBar
+			{...viewProps}
+			subTitle={
+				<div>
+					<span>Copying from : </span>
+					<b>{'mySubTitle '.repeat(50)}</b>
+				</div>
+			}
+			onGoBack={backAction}
+		/>
 	</div>
 );
 

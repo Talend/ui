@@ -1,5 +1,693 @@
 # @talend/design-system
 
+## 11.2.0
+
+### Minor Changes
+
+- dea4b37: feat(TMC-2505): integrate status dot to tabs component
+
+## 11.1.0
+
+### Minor Changes
+
+- 76ac44b: feat(TMC-2505/webapp): implement status bubble component
+
+## 11.0.8
+
+### Patch Changes
+
+- 293760b: fix: allow form Textarea to changes number of rows and remove fixed css min-height
+
+## 11.0.7
+
+### Patch Changes
+
+- f65f590: fix: Change InlineEdit tooltip position on buttons to prevent z-index issues depending on implementation
+
+## 11.0.6
+
+### Patch Changes
+
+- fcba736: fix: useLayoutEffect to set the data-theme
+- Updated dependencies [fcba736]
+  - @talend/design-tokens@3.4.3
+
+## 11.0.5
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/utils@3.2.3
+
+## 11.0.4
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/utils@3.2.2
+
+## 11.0.3
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/utils@3.2.1
+
+## 11.0.2
+
+### Patch Changes
+
+- ae1e3dc: fix: declaration generation for ThemeProviderWithoutGlobals
+
+## 11.0.1
+
+### Patch Changes
+
+- 11c75a1: fix: make ThemeProviderWithoutGlobals working since esm build
+
+## 11.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/utils@3.2.0
+
+## 10.6.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/utils@3.1.0
+
+## 10.5.0
+
+### Minor Changes
+
+- 803c4e1: feat: add ThemeProvider without globals
+
+## 10.4.6
+
+### Patch Changes
+
+- 95bb74f: Design system drawer now has a data attribute to identify when it is opened
+
+## 10.4.5
+
+### Patch Changes
+
+- 5b7240e: Form field label property "required" can now be overriden by passing props
+
+## 10.4.4
+
+### Patch Changes
+
+- 6ff9f03: DGT-528: Fix QualityBar rounding issue when the invalid or empty percentages were rounded to 0. Set a miminum value for the rounding to prevent UI inconsistencies
+
+## 10.4.3
+
+### Patch Changes
+
+- 290ee2e: Restore bar line height
+
+## 10.4.2
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- 4713998: Fix issue with Select component being recreated instead of updated
+- 25fb283: Allow Design System dropdown to have custom data-test attributes
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
+## 10.4.1
+
+### Patch Changes
+
+- d25ebf0: Fix Design System dropdown items when using "as" property for links
+
+## 10.4.0
+
+### Minor Changes
+
+- da2218d: chore: remove bootstrap-theme dependency from QualityBar and RatioBar components
+
+### Patch Changes
+
+- Updated dependencies [48865e5]
+  - @talend/design-tokens@3.2.0
+
+## 10.3.0
+
+### Minor Changes
+
+- 8bf0dd5: feat(DGT-342): Moved QualityBar and RatioBar components to the Design System and use those components on @talend/react-components
+
+## 10.2.2
+
+### Patch Changes
+
+- 9b6d904: TMC-27716 - Fix firefox fieldset height
+
+## 10.2.1
+
+### Patch Changes
+
+- 1488e8a: Status : add data-test\* attributes
+
+## 10.2.0
+
+### Minor Changes
+
+- ea80021: InlineEditing : allow to control edition mode
+
+## 10.1.1
+
+### Patch Changes
+
+- 377e43a: fix(DFD-914): Fix flashing tooltip on some gesture
+
+## 10.1.0
+
+### Minor Changes
+
+- 8a25fb3: DS Field data-test attributes are now passed down to related description
+
+## 10.0.0
+
+### Major Changes
+
+- ce93823: # BREAKING CHANGE
+  Design system - `Loading` component now has a built in size from **XS** to **XXL** and default is **M**.
+  Since it now has a default size it won't take up all the size available and you might have have to adapt your current styling to it.
+
+## 9.8.2
+
+### Patch Changes
+
+- eba9ca8: fix(TUX-1228): allow more props to be passed to each CollapsiblePanel action
+
+## 9.8.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/utils@3.0.4
+
+## 9.8.0
+
+### Minor Changes
+
+- 08ba8f0: chore(TUX-1228): update CollapsiblePanel to support multiple actions
+
+## 9.7.2
+
+### Patch Changes
+
+- e374251: TMC-26227 - Fix design system loading icon on safari browser
+
+## 9.7.1
+
+### Patch Changes
+
+- 106b735: fix: height for input wrapper
+
+## 9.7.0
+
+### Minor Changes
+
+- c1c9c5a: chore: add data-test attr on stacks
+
+### Patch Changes
+
+- ca74483: Design System - Select element should now take `required` attribute into account
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
+## 9.6.0
+
+### Minor Changes
+
+- 1a06e6f: data-testid on select suffix and input primitive
+
+## 9.5.0
+
+### Minor Changes
+
+- 7c4f1e1: Design System - Allow StackItem to have a `isFullWidth` option to have 100% width style
+
+### Patch Changes
+
+- 9426a79: Design System - Fix on textarea not having color on error state
+
+## 9.4.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+- Updated dependencies [52563ff]
+  - @talend/utils@3.0.1
+
+## 9.4.0
+
+### Minor Changes
+
+- 5f9334f: feat: remove restrictions on stacks for height and width
+
+## 9.3.0
+
+### Minor Changes
+
+- bb4db90: chore: changed skeleton "sized" variant width and height props to strings
+
+## 9.2.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+
+## 9.1.0
+
+### Minor Changes
+
+- d2b4e4e: DS : update popover typings and implement badge popover
+
+## 9.0.2
+
+### Patch Changes
+
+- 7b7d7bb: fix(Messages): set a default font-color for children element
+
+## 9.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
+## 9.0.0
+
+### Major Changes
+
+- 18c1d97: **Breaking change**
+
+  What?
+
+  The setup of 1rem = 10px has been removed. 1rem = 16px is now the default value.
+
+  Why?
+
+  Qlik does not set it and use the default value of 1rem = 16px.
+  Using Coral component in Qlik integrations, we alter their ui by setting 1rem = 10px on the html element.
+
+  How?
+
+  You can use the following code to update all scss files in a folder, to convert rem values from 10px to 16px:
+
+  ```javascript
+  const fs = require('fs');
+  const path = require('path');
+
+  // Get folder path from command-line arguments
+  const folderPath = process.argv[2];
+
+  if (!folderPath) {
+  	console.error('Please provide a folder path as a command-line argument.');
+  	process.exit(1);
+  }
+
+  // Regular expression to match and capture rem values (including potential negative values)
+  const remRegex = /(-?\d*\.?\d+)rem/g;
+
+  // Function to divide rem values by 1.6 and keep the 'rem' unit with minimal decimal places
+  const replaceRem = (match, value) => {
+  	const result = (parseFloat(value) / 1.6).toFixed(4).replace(/\.?0+$/, '');
+  	return result + 'rem';
+  };
+
+  // Function to process a single file
+  const processFile = filePath => {
+  	const cssInput = fs.readFileSync(filePath, 'utf8');
+  	const updatedCSS = cssInput.replace(remRegex, replaceRem);
+  	fs.writeFileSync(filePath, updatedCSS, 'utf8');
+  	console.log(`Updated: ${filePath}`);
+  };
+
+  // Function to recursively find all .scss files in the specified folder
+  const findAllScssFiles = folder => {
+  	const files = fs.readdirSync(folder);
+  	const scssFiles = [];
+
+  	files.forEach(file => {
+  		const filePath = path.join(folder, file);
+  		const stat = fs.statSync(filePath);
+
+  		if (stat.isDirectory()) {
+  			scssFiles.push(...findAllScssFiles(filePath));
+  		} else if (file.endsWith('.scss')) {
+  			scssFiles.push(filePath);
+  		}
+  	});
+
+  	return scssFiles;
+  };
+
+  // Find all .scss files in the specified folder
+  const scssFiles = findAllScssFiles(folderPath);
+
+  // Process each file
+  scssFiles.forEach(processFile);
+  ```
+
+  To run the script, save it to a file with a .js extension (e.g., updateRemValues.js) and execute it using Node.js:
+
+  ```bash
+  node updateRemValues.js /path/to/your/folder
+  ```
+
+## 8.11.1
+
+### Patch Changes
+
+- f0770b1: chore: add "section" as an option to the "as" list of possible values of the StackPrimitive component
+
+## 8.11.0
+
+### Minor Changes
+
+- 19304cd: fix(DFD-563): Add data-testid prefix for inline editing
+
+## 8.10.0
+
+### Minor Changes
+
+- e22a7e3: DS (modal) : allow to use close button without using interactive backdrop
+
+## 8.9.2
+
+### Patch Changes
+
+- 78928ee: Pass hideExternal to Linkable component
+
+## 8.9.1
+
+### Patch Changes
+
+- 14f478d: fix: qlik logo token
+- Updated dependencies [14f478d]
+  - @talend/design-tokens@2.12.1
+
+## 8.9.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+### Patch Changes
+
+- Updated dependencies [076147b]
+  - @talend/design-tokens@2.12.0
+
+## 8.8.3
+
+### Patch Changes
+
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+
+## 8.8.2
+
+### Patch Changes
+
+- c023eb6: fix: help icon color in the header bar
+
+## 8.8.1
+
+### Patch Changes
+
+- 43776f7: Fix minor side effect w/ InlineMessage component style when used in modal
+
+## 8.8.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-tokens@2.11.0
+
+## 8.7.0
+
+### Minor Changes
+
+- b71e4e6: feat(design-system): There is some limitation when designing skeletons
+
+  Add new width for header and paragraph skeletons
+  Add new SkeletonSized that can be shaped for any needs
+
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
+### Patch Changes
+
+- a7b06bc: Fix DS Popover controlled state to allow disclosure props binding
+- 266df87: fix: don't rely on global sr-only classname to hide the icons from the IconsProvider
+- Updated dependencies [1bc49cd]
+- Updated dependencies [424544a]
+  - @talend/utils@2.9.0
+
+## 8.6.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/design-tokens@2.10.1
+  - @talend/assets-api@1.3.1
+
+## 8.6.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+- bd152f9d4: feat(TDC-7378): New enumeration component
+
+### Patch Changes
+
+- a07c9cb0b: TDOPS-5762 - Fix Design System accordion button that would submit a form
+
+## 8.5.1
+
+### Patch Changes
+
+- 5c5924af7: fix: Messages adjustments
+
+## 8.5.0
+
+### Minor Changes
+
+- 0e6c82e25: feat: rework some part of Message component
+
+  - The size of a message fit the container width while before, it has a max width of `28rem`
+  - add a new prop `titleInfo` that allow to display an information message aside the title
+  - add new prop `additionalIconAction` to allow to display an additional button icon instead (there was only the dropdown action available before)
+  - rename prop `additionalActions` to `additionalDropdownActions` to make the API more explicit
+  - remove the shadow on the message to make it more consistent with the rest of the design and integrate better in the page
+
+- ea026ec12: Error state for tabs
+
+## 8.4.1
+
+### Patch Changes
+
+- 88a17d7e7: fix: theme provider override is not working as expected
+
+## 8.4.0
+
+### Minor Changes
+
+- 4dc277f42: feat: allow token override with theme provider
+
+## 8.3.1
+
+### Patch Changes
+
+- f43609cd2: TDOPS-5671 - Fix Design System tooltip display in case of empty value
+- e798efb92: Export "open" prop to children of Popover component
+- f14ebbe23: Add missing deps
+
+## 8.3.0
+
+### Minor Changes
+
+- b53bc8134: fix(DFD-274): Update tab panel component to use classname and remove useless gap
+
+## 8.2.0
+
+### Minor Changes
+
+- b9cc5b097: Fix lint issues
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/utils@2.8.0
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+
+## 8.1.3
+
+### Patch Changes
+
+- c286d9844: fix(TDOPS-5582/designSystem): checkbox state change on click
+
+## 8.1.2
+
+### Patch Changes
+
+- 02cc11768: fix: add z-index to Popover.module.scss
+- Updated dependencies [841be39f3]
+  - @talend/utils@2.7.0
+
+## 8.1.1
+
+### Patch Changes
+
+- 6816365dc: fix: binding in forms
+
+## 8.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove useless cypress config (toto.cypress.config.js)
+
+### Patch Changes
+
+- c76a700a4: fix: ThemeProvider use a module.scss but this is a global css
+- b8406b6e5: Fix Design System accessibility for Modal
+- 6b9f49e81: proper export of Icon enums
+- 41bd1b586: chore: remove unused polished dependency
+
+## 8.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 9a0732ec5: chore: remove reakit
+
+  - Rewrite components without reakit
+  - use `@floating-ui/react` for tooltip, popover
+  - export all types and components from the root
+
+  Breaking changes:
+
+  - HTML structure output may have changed
+  - Some passed props from our component to reakit and not documented as a usage as been removed. If you need a different usage let us knwow, now we own the code
+  - Tabs props API has been completly changed
+
+  Components changed:
+
+  - Accordion (useId)
+  - Clickable (rewrite)
+  - Combobox (add as primitive)
+  - Disclosure (add as primitive)
+  - Divider (rewrite)
+  - Drawer (rewrite using `react-transition-group`)
+  - Dropdown (rewrite using `@floating-ui/react`)
+  - Form/Affix/Button (typings)
+  - Form/Affix/Select (useId)
+  - Form/Field/Datalist (useId)
+  - Form/Field/InputFile (useId)
+  - Form/Field/InputToggleSwitch (rewrite)
+  - Form/Primitives/Checkbox (rewrite)
+  - Form/Primitives/Field (useId)
+  - Form/Primitives/Radio (useId)
+  - Modal (rewrite Dialog as primitive)
+  - Popover (rewrite using `@floating-ui/react`)
+  - Switch (rewrite)
+  - Tabs (rewrite + props changed with old API support)
+  - Tooltip (rewrite using `@floating-ui/react` + API Change)
+  - VisuallyHidden (rewrite)
+
+  ## Migration Guide
+
+  ### Checkbox component
+
+  Checkbox support now control and uncontrolled mode.
+  To use controlled version, provide `checked` and `onChange` props.
+  To use uncontrolled version, you can provide optional `defaultChecked` prop.
+
+  We also change way to import it to be less verbose.
+
+  ### ToggleSwitch component
+
+  ToggleSwitch now support controlled and uncontrolled mode.
+  To use controlled version provide `checked` and `onChange` props.
+  To use uncontrolled version, you can just provide optional provide `defaultChecked` prop.
+
+  ### Tabs component
+
+  Previous API with the `tabs` props. TabsKit has been removed. We encourage you to use the following API:
+
+  ```javascript
+  <Tabs.Container defaultActiveKey="profile">
+  	<Tabs.List>
+  		<Tabs.Tab aria-controls="home" title="Home" />
+  		<Tabs.Tab aria-controls="profile" title="Profile" />
+  		<Tabs.Tab aria-controls="contact" title="Contact" disabled />
+  	</Tabs.List>
+  	<Tabs.Panel id="home">Tab content for Home</Tabs.Panel>
+  	<Tabs.Panel id="profile">Tab content for Profile</Tabs.Panel>
+  	<Tabs.Panel id="contact">Tab content for Contact</Tabs.Panel>
+  </Tabs.Container>
+  ```
+
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Minor Changes
+
+- 9a0732ec5: feat: upgrade react-is
+
+### Patch Changes
+
+- bacaa4b31: fix TypeError: popover.hide is not a function on close Popover
+- 9a0732ec5: fix: some lint errors
+- Updated dependencies [96d688489]
+  - @talend/icons@7.0.0
+
 ## 7.15.1
 
 ### Patch Changes

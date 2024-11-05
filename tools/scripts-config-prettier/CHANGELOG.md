@@ -1,5 +1,41 @@
 # @talend/scripts-config-prettier
 
+## 12.2.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 12.1.3
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 12.1.2
+
+### Patch Changes
+
+- 5455b6517: fix: prettier configuration for sort imports
+
+## 12.1.1
+
+### Patch Changes
+
+- f14ebbe23: Add missing deps
+
+## 12.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, remove link with scripts-core (circular dependency) and fix prettier config to be compatible with prettier 3
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 12.0.0
 
 ### Major Changes

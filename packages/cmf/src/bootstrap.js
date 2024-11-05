@@ -1,23 +1,24 @@
 import ReactDOM from 'react-dom/client';
-import createSagaMiddleware from 'redux-saga';
-import { batchedSubscribe } from 'redux-batched-subscribe';
-import { spawn } from 'redux-saga/effects';
-import compose from 'redux';
 
-import App from './App';
+import { compose } from 'redux';
+import { batchedSubscribe } from 'redux-batched-subscribe';
+import createSagaMiddleware from 'redux-saga';
+import { spawn } from 'redux-saga/effects';
+
 import actionCreator from './actionCreator';
 import actions from './actions';
+import App from './App';
 import { assertTypeOf } from './assert';
+import cmfModule from './cmfModule';
 import component from './component';
+import { handleSagaComponent } from './components/Saga';
 import expression from './expression';
+import interceptors from './httpInterceptors';
 import onError from './onError';
-import storeAPI from './store';
+import { registerInternals } from './register';
 import registry from './registry';
 import sagas from './sagas';
-import { registerInternals } from './register';
-import cmfModule from './cmfModule';
-import interceptors from './httpInterceptors';
-import { handleSagaComponent } from './components/Saga';
+import storeAPI from './store';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);

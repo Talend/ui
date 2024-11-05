@@ -1,15 +1,16 @@
 import * as utils from '@talend/scripts-utils';
+
+import { resolveScript } from '../utils/bin.js';
 import startStorybook from './start-storybook.js';
 
 export default async function start(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 
 	if (packageType.isApp) {
-		utils.pkg.checkPackageIsInstalled('@talend/scripts-config-react-webpack');
-		const webpack = utils.path.resolveBin('webpack');
 		return utils.process.spawn(
-			webpack,
+			'node',
 			[
+				resolveScript('webpack/bin/webpack.js'),
 				'serve',
 				'--config',
 				utils.path.hereRelative(
@@ -25,4 +26,5 @@ export default async function start(env, _, options) {
 	if (packageType.isLib) {
 		return startStorybook(env, _, options);
 	}
+	return null;
 }

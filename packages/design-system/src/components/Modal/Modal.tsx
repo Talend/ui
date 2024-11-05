@@ -1,5 +1,5 @@
-import { useEffect, useRef, cloneElement } from 'react';
-import type { ReactNode, ReactElement, MouseEvent as ReactMouseEvent } from 'react';
+import { cloneElement, useCallback, useEffect, useMemo, useRef } from 'react';
+import type { ReactElement, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DeprecatedIconNames } from '../../types';
@@ -42,6 +42,7 @@ export type ModalPropsType = {
 	secondaryAction?: ButtonSecondaryPropsType<'M'>;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
+	preventInteractiveBackdrop?: boolean;
 } & DialogPropsType;
 
 function PrimaryAction(props: PrimaryActionPropsType) {
@@ -63,6 +64,7 @@ export function Modal(props: ModalPropsType): ReactElement {
 		secondaryAction,
 		preventEscaping,
 		children,
+		preventInteractiveBackdrop,
 		...rest
 	} = props;
 	const hasDisclosure = 'disclosure' in props;
@@ -71,18 +73,31 @@ export function Modal(props: ModalPropsType): ReactElement {
 
 	const backdropRef = useRef<HTMLDivElement>(null);
 	const dialogRef = useRef<HTMLDivElement>(null);
+	const titleId = 'modal-header-text-title';
 
 	useEffect(() => {
 		dialogRef.current?.focus();
 	}, [dialogRef]);
 
-	const onCloseHandler = hasDisclosure ? () => dialog.hide() : () => onClose && onClose();
+	const onCloseHandler = useMemo(
+		() => (hasDisclosure ? () => dialog.hide() : () => onClose && onClose()),
+		[dialog, hasDisclosure, onClose],
+	);
 
-	const onClickBackdropHandler = (event: ReactMouseEvent<HTMLDivElement, MouseEvent>) => {
-		if (event.target === backdropRef.current) {
+	const onClickBackdropHandler = useCallback(
+		(event: ReactMouseEvent<HTMLDivElement, MouseEvent>) => {
+			if (!preventEscaping && !preventInteractiveBackdrop && event.target === backdropRef.current) {
+				onCloseHandler();
+			}
+		},
+		[onCloseHandler, preventInteractiveBackdrop, preventEscaping],
+	);
+
+	const onHideDialog = useCallback(() => {
+		if (!preventEscaping && !preventInteractiveBackdrop) {
 			onCloseHandler();
 		}
-	};
+	}, [onCloseHandler, preventInteractiveBackdrop, preventEscaping]);
 
 	return (
 		<>
@@ -98,92 +113,89 @@ export function Modal(props: ModalPropsType): ReactElement {
 				className={styles['modal-backdrop']}
 				data-test="modal.backdrop"
 				data-testid="modal.backdrop"
+				onClick={onClickBackdropHandler}
+				ref={backdropRef}
 			>
-				<div
-					aria-hidden
-					className={styles['modal-container']}
-					onClick={onClickBackdropHandler}
-					ref={backdropRef}
+				<Dialog
+					{...rest}
+					visible={dialog.visible}
+					data-test="modal"
+					data-testid="modal"
+					className={styles.modal}
+					hide={onHideDialog}
+					aria-labelledby={titleId}
+					ref={dialogRef}
 				>
-					<Dialog
-						{...rest}
-						visible={dialog.visible}
-						data-test="modal"
-						data-testid="modal"
-						className={styles.modal}
-						hide={preventEscaping ? () => undefined : () => onCloseHandler()}
-						ref={dialogRef}
-					>
-						<StackVertical gap={0}>
-							<div className={styles.modal__header}>
-								{header.icon && (
-									<ModalIcon
-										icon={header.icon}
-										data-test="modal.header.icon"
-										data-testid="modal.header.icon"
+					<StackVertical gap={0}>
+						<div className={styles.modal__header}>
+							{header.icon && (
+								<ModalIcon
+									icon={header.icon}
+									data-test="modal.header.icon"
+									data-testid="modal.header.icon"
+								/>
+							)}
+							<div className={styles['modal-header-text']}>
+								<span
+									id={titleId}
+									className={styles['modal-header-text__title']}
+									data-test="modal.header.title"
+								>
+									{header.title}
+								</span>
+								{header.description && (
+									<span
+										className={styles['modal-header-text__description']}
+										data-test="modal.header.description"
+									>
+										{header.description}
+									</span>
+								)}
+							</div>
+						</div>
+
+						<div className={styles.modal__content} data-test="modal.content">
+							{children}
+						</div>
+
+						<div className={styles.modal__buttons} data-test="modal.buttons">
+							<StackHorizontal gap="XS" justify="end">
+								{!preventEscaping && (
+									<span className={styles['close-button']}>
+										<ButtonSecondary
+											onClick={() => onCloseHandler()}
+											data-test="modal.buttons.close"
+											data-testid="modal.buttons.close"
+											data-feature="modal.buttons.close"
+										>
+											{primaryAction || secondaryAction
+												? t('CANCEL', 'Cancel')
+												: t('CLOSE', 'Close')}
+										</ButtonSecondary>
+									</span>
+								)}
+
+								{secondaryAction && (
+									<ButtonSecondary
+										data-test="modal.buttons.secondary"
+										data-testid="modal.buttons.secondary"
+										data-feature="modal.buttons.secondary"
+										{...secondaryAction}
 									/>
 								)}
-								<div className={styles['modal-header-text']}>
-									<span
-										className={styles['modal-header-text__title']}
-										data-test="modal.header.title"
-									>
-										{header.title}
-									</span>
-									{header.description && (
-										<span
-											className={styles['modal-header-text__description']}
-											data-test="modal.header.description"
-										>
-											{header.description}
-										</span>
-									)}
-								</div>
-							</div>
 
-							<div className={styles.modal__content} data-test="modal.content">
-								{children}
-							</div>
-
-							<div className={styles.modal__buttons} data-test="modal.buttons">
-								<StackHorizontal gap="XS" justify="end">
-									{!preventEscaping && (
-										<span className={styles['close-button']}>
-											<ButtonSecondary
-												onClick={() => onCloseHandler()}
-												data-test="modal.buttons.close"
-												data-testid="modal.buttons.close"
-												data-feature="modal.buttons.close"
-											>
-												{primaryAction || secondaryAction
-													? t('CANCEL', 'Cancel')
-													: t('CLOSE', 'Close')}
-											</ButtonSecondary>
-										</span>
-									)}
-
-									{secondaryAction && (
-										<ButtonSecondary
-											data-test="modal.buttons.secondary"
-											data-testid="modal.buttons.secondary"
-											data-feature="modal.buttons.secondary"
-											{...secondaryAction}
-										/>
-									)}
-
-									{primaryAction && (
-										<PrimaryAction
-											data-testid="modal.buttons.primary"
-											data-test="modal.buttons.primary"
-											data-feature="modal.buttons.primary"
-											{...primaryAction}
-										/>
-									)}
-								</StackHorizontal>
-							</div>
-						</StackVertical>
-					</Dialog>
-				</div>
+								{primaryAction && (
+									<PrimaryAction
+										data-testid="modal.buttons.primary"
+										data-test="modal.buttons.primary"
+										data-feature="modal.buttons.primary"
+										{...primaryAction}
+									/>
+								)}
+							</StackHorizontal>
+						</div>
+					</StackVertical>
+				</Dialog>
 			</DialogBackdrop>
 		</>
 	);

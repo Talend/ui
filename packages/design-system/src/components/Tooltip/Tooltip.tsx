@@ -1,21 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useRef } from 'react';
-import type { MutableRefObject, RefCallback, ReactElement, ReactNode } from 'react';
+import { useRef, useState } from 'react';
+import type { MutableRefObject, ReactElement, ReactNode, RefCallback } from 'react';
 
 import {
 	arrow,
-	FloatingArrow,
-	FloatingPortal,
-	useFloating,
-	useHover,
-	useFocus,
-	useDismiss,
-	useRole,
-	useInteractions,
 	autoUpdate,
 	flip,
+	FloatingArrow,
+	FloatingPortal,
 	offset,
+	safePolygon,
 	shift,
+	useDismiss,
+	useFloating,
+	useFocus,
+	useHover,
+	useInteractions,
+	useRole,
 } from '@floating-ui/react';
 
 import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
@@ -79,7 +80,7 @@ export const Tooltip = ({ id, children, title, placement = 'top', ...rest }: Too
 		],
 		whileElementsMounted: autoUpdate,
 	});
-	const hover = useHover(floating.context, { move: false });
+	const hover = useHover(floating.context, { move: false, handleClose: safePolygon() });
 	const focus = useFocus(floating.context);
 	const dismiss = useDismiss(floating.context);
 	const role = useRole(floating.context, { role: 'tooltip' });
@@ -91,23 +92,25 @@ export const Tooltip = ({ id, children, title, placement = 'top', ...rest }: Too
 				children,
 				{
 					...getReferenceProps(),
-					'aria-describedby': safeId,
+					...(title && { 'aria-describedby': safeId }),
 				},
 				floating.refs.setReference,
 			)}
-			<FloatingPortal>
-				<div
-					{...getFloatingProps()}
-					id={safeId}
-					ref={floating.refs.setFloating}
-					className={styles.container}
-					style={{ display: isOpen ? 'block' : 'none', ...floating.floatingStyles }}
-					{...rest}
-				>
-					<FloatingArrow ref={arrowRef} context={floating.context} />
-					{title}
-				</div>
-			</FloatingPortal>
+			{!!title && (
+				<FloatingPortal>
+					<div
+						{...getFloatingProps()}
+						id={safeId}
+						ref={floating.refs.setFloating}
+						className={styles.container}
+						style={{ display: isOpen ? 'block' : 'none', ...floating.floatingStyles }}
+						{...rest}
+					>
+						<FloatingArrow ref={arrowRef} context={floating.context} />
+						{title}
+					</div>
+				</FloatingPortal>
+			)}
 		</>
 	);
 };

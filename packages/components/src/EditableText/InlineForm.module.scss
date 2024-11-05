@@ -1,8 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
-$tc-icon-editable-text-size: 0.8rem !default;
+$tc-icon-editable-text-size: 0.5rem !default;
 $tc-circle-editable-text-size: 16px !default;
 
 .tc-editable-text-form {
@@ -37,7 +37,7 @@ $tc-circle-editable-text-size: 16px !default;
 		right: $padding-larger;
 
 		&-icon {
-			border: 0.1rem solid tokens.$coral-color-neutral-border;
+			border: 0.0625rem solid tokens.$coral-color-neutral-border;
 			color: tokens.$coral-color-neutral-text-weak;
 			width: $tc-circle-editable-text-size;
 			height: $tc-circle-editable-text-size;

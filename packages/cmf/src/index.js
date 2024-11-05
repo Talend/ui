@@ -1,40 +1,36 @@
 /**
  * @module react-cmf
  */
-
-import actions from './actions';
+import * as mock from './mock';
+// DEPRECATED APIs
+import action from './action';
 import actionCreator from './actionCreator';
-
+import actions from './actions';
+import App from './App';
 import bootstrap from './bootstrap';
 import cmfConnect from './cmfConnect';
 import cmfModule from './cmfModule';
 import component from './component';
-import ConnectedDispatcher from './Dispatcher';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
-import { Saga, CmfRegisteredSaga } from './components/Saga';
+import { CmfRegisteredSaga, Saga } from './components/Saga';
+import componentState from './componentState';
+import constants from './constant';
+import ConnectedDispatcher from './Dispatcher';
 import expression from './expression';
 import expressions from './expressions';
 import Inject from './Inject.component';
-import matchPath from './matchPath';
-import sagas from './sagas';
-import selectors from './selectors';
-import settings from './settings';
 import localStorage from './localStorage';
+import matchPath from './matchPath';
+import middlewares from './middlewares';
 import onError from './onError';
-import reduxStorage from './reduxstorage';
-import * as mock from './mock';
-import { useCMFContext } from './useContext';
-
-// DEPRECATED APIs
-import action from './action';
-import App from './App';
 import reducers from './reducers';
 import registry from './registry';
 import RegistryProvider from './RegistryProvider';
+import sagas from './sagas';
+import selectors from './selectors';
+import settings from './settings';
 import store from './store';
-import middlewares from './middlewares';
-import componentState from './componentState';
-import constants from './constant';
+import { useCMFContext } from './useContext';
 
 const Dispatcher = ConnectedDispatcher;
 const getErrorMiddleware = middlewares.error;
@@ -54,7 +50,6 @@ export {
 	ErrorBoundary,
 	Inject,
 	mock,
-	reduxStorage,
 	sagas,
 	selectors,
 	// DEPRECATED

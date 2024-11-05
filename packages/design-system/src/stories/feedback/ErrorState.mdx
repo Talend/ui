@@ -1,5 +1,7 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
-import { FigmaImage, Use } from '@talend/storybook-docs';
+import { Canvas, Meta } from '@storybook/blocks';
+
+import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../Status.block';
 
 import * as Stories from './ErrorState.stories';
@@ -52,33 +54,23 @@ Error state visually varies depending on what features are provided through the 
 
 #### Default (with a title and a description)
 
-<Canvas>
-	<Story of={Stories.DefaultStory} />
-</Canvas>
+<Canvas of={Stories.DefaultStory} />
 
 #### With a link (default features, plus a link)
 
-<Canvas>
-	<Story of={Stories.WithLink} />
-</Canvas>
+<Canvas of={Stories.WithLink} />
 
 #### With a link built from `<Link />` props
 
-<Canvas>
-	<Story of={Stories.WithLinkProps} />
-</Canvas>
+<Canvas of={Stories.WithLinkProps} />
 
 #### With an action (default features, plus an action)
 
-<Canvas>
-	<Story of={Stories.WithAction} />
-</Canvas>
+<Canvas of={Stories.WithAction} />
 
 #### With an action and a link (default features, plus an action and a link)
 
-<Canvas>
-	<Story of={Stories.WithActionAndLink} />
-</Canvas>
+<Canvas of={Stories.WithActionAndLink} />
 
 ## States
 

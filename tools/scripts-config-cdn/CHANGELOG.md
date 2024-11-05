@@ -1,5 +1,52 @@
 # CHANGELOG
 
+## 10.12.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.0
+  - @talend/module-to-cdn@9.11.0
+
+## 10.11.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/dynamic-cdn-webpack-plugin@13.1.1
+  - @talend/module-to-cdn@9.10.1
+
+## 10.11.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 10.10.0
+
+### Minor Changes
+
+- b29255c: deps: bump js-yaml from 3.x to 4.x
+
+## 10.9.1
+
+### Patch Changes
+
+- 06598a0c0: fix(TDP-12694): require valid package-lock file path
+
+## 10.9.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, adapt cdn code for pnpm and fix eslint config (circular dependency)
+
 ## 10.8.0
 
 ### Minor Changes

@@ -1,13 +1,15 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import { TagBeta } from '@talend/design-system';
 
 import { Action } from '../Actions';
-import Inject from '../Inject';
-import theme from './ActionList.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import Inject from '../Inject';
+
+import theme from './ActionList.module.scss';
 
 /**
  * return the formatted action id

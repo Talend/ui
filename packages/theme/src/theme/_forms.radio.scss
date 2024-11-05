@@ -1,6 +1,6 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$tt-radio-size: 1.4rem !default;
+$tt-radio-size: 0.875rem !default;
 
 input[type='radio'] {
 	&::before,

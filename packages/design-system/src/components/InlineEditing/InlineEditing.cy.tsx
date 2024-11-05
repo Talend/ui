@@ -1,5 +1,5 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
-/* eslint-disable testing-library/await-async-query */
+/* eslint-disable testing-library/await-async-queries */
 /* eslint-disable testing-library/prefer-screen-queries */
 import { InlineEditing } from './';
 

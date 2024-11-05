@@ -1,4 +1,6 @@
 import { forwardRef, Ref } from 'react';
+
+import { useId } from '../../../../useId';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
@@ -23,6 +25,9 @@ const Textarea = forwardRef((props: InputTextareaProps, ref: Ref<HTMLTextAreaEle
 		children,
 		...rest
 	} = props;
+
+	const fieldID = useId(id, 'field-');
+
 	return (
 		<FieldPrimitive
 			label={label}
@@ -30,11 +35,20 @@ const Textarea = forwardRef((props: InputTextareaProps, ref: Ref<HTMLTextAreaEle
 			link={link}
 			description={description}
 			id={id}
+			fieldId={fieldID}
 			name={name}
 			hideLabel={hideLabel}
 			required={required}
 		>
-			<TextareaPrimitive defaultValue={defaultValue || children} {...rest} ref={ref} />
+			<TextareaPrimitive
+				defaultValue={defaultValue || children}
+				{...rest}
+				required={required}
+				id={fieldID}
+				name={name}
+				ref={ref}
+				hasError={hasError || false}
+			/>
 		</FieldPrimitive>
 	);
 });

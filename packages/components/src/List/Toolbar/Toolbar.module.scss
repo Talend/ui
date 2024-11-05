@@ -1,8 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 // Toolbar styles
-$tc-list-toolbar-height: 7rem !default;
+$tc-list-toolbar-height: 4.375rem !default;
 
 .tc-list-toolbar {
 	background: tokens.$coral-color-neutral-background-medium;

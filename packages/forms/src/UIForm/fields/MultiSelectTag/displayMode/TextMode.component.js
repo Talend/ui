@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
+
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 import theme from './TextMode.module.scss';
 
 function getLabel(titleMap, value) {
-	const itemConf = titleMap.find(item => item.value === value);
+	const itemConf = titleMap?.find(item => item.value === value);
 	if (itemConf) {
 		return itemConf.name;
 	}
@@ -14,16 +16,19 @@ function getLabel(titleMap, value) {
 
 export default function MultiSelectTagTextMode({ id, schema, value }) {
 	const { title, labelProps } = schema;
+	const badges = value.map(val => getLabel(schema.titleMap, val)).filter(Boolean);
 
 	return (
 		<FieldTemplate id={id} label={title} labelProps={labelProps}>
-			<ul aria-labelledby={id} className={theme['tc-badge-list']}>
-				{value.map((val, index) => (
-					<li key={value || index}>
-						<Badge label={getLabel(schema.titleMap, val)} />
-					</li>
-				))}
-			</ul>
+			{badges?.length && (
+				<ul aria-labelledby={id} className={theme['tc-badge-list']}>
+					{badges.map((val, index) => (
+						<li key={val || index}>
+							<Badge label={val} />
+						</li>
+					))}
+				</ul>
+			)}
 		</FieldTemplate>
 	);
 }

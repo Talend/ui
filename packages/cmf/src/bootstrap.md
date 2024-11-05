@@ -6,6 +6,7 @@ Quick start:
 
 ```javascript
 import cmf from '@talend/react-cmf';
+
 import components from './components';
 import sagas from './sagas';
 
@@ -51,8 +52,8 @@ For that CMF expose an API to let you merge your settings:
 
 ```javascript
 import cmf from '@talend/react-cmf';
-
 import containersModule from '@talend/react-containers';
+
 import components from './components';
 import saga from './saga';
 import sagas from './sagas';
@@ -64,10 +65,6 @@ cmf.boostrap({
 	modules: [containersModule],
 });
 ```
-
-## How to setup store using localStorage ?
-
-We provide a [simple API for that](./localStorage.md).
 
 ## onError
 
@@ -85,8 +82,8 @@ If you are using ngreact and you want to leverage cmf you must set the `render` 
 
 ```javascript
 import cmf from '@talend/react-cmf';
-
 import containersModule from '@talend/react-containers';
+
 import components from './components';
 import saga from './saga';
 import sagas from './sagas';

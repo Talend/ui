@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import PropTypes from 'prop-types';
-import { get, omit } from 'lodash';
-import { Link } from '@talend/design-system';
-import FieldTemplate from '../FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import PasswordWidget from './PasswordWidget';
+import React from 'react';
 
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+
+import { Form } from '@talend/design-system';
+
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { getLabelProps } from '../../utils/labels';
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 
 export default function Text(props) {
@@ -29,57 +31,58 @@ export default function Text(props) {
 	}
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const fieldProps = {
+	let fieldProps = {
 		id,
 		autoComplete,
 		autoFocus,
-		className: 'form-control',
 		disabled: disabled || valueIsUpdating,
-		onBlur: event => onFinish(event, { schema }),
-		onChange: event => onChange(event, { schema, value: convertValue(type, event.target.value) }),
+		onBlur: event => {
+			if (onFinish) {
+				onFinish(event, { schema });
+			}
+		},
+		onChange: event => {
+			if (onChange) {
+				onChange(event, { schema, value: convertValue(type, event.target.value) });
+			}
+		},
 		placeholder,
 		readOnly,
 		type,
 		value,
-		min: get(schema, 'schema.minimum'),
-		max: get(schema, 'schema.maximum'),
-		step: get(schema, 'schema.step'),
+		label: getLabelProps(title, labelProps, schema.hint, schema.required),
+		required: schema.required,
+		description: errorMessage || description,
+		hasError: !isValid,
+		'aria-invalid': !isValid,
+		'aria-required': schema.required,
+		'aria-describedby': `${descriptionId} ${errorId}`,
 		...extractDataAttributes(rest),
 	};
 
-	return (
-		<FieldTemplate
-			hint={schema.hint}
-			className={schema.className}
-			description={description}
-			descriptionId={descriptionId}
-			errorId={errorId}
-			errorMessage={errorMessage}
-			id={id}
-			isValid={isValid}
-			label={title}
-			labelProps={labelProps}
-			required={schema.required}
-			valueIsUpdating={valueIsUpdating}
-		>
-			{type === 'password' ? (
-				<PasswordWidget
-					{...fieldProps}
-					aria-invalid={!isValid}
-					aria-required={get(schema, 'required')}
-					aria-describedby={`${descriptionId} ${errorId}`}
-					link={link && <Link {...omit(link, ['label'])}> {link.label} </Link>}
-				/>
-			) : (
-				<input
-					{...fieldProps}
-					aria-invalid={!isValid}
-					aria-required={get(schema, 'required')}
-					aria-describedby={`${descriptionId} ${errorId}`}
-				/>
-			)}
-		</FieldTemplate>
-	);
+	if (type === 'number') {
+		fieldProps = {
+			...fieldProps,
+			min: get(schema, 'schema.minimum'),
+			max: get(schema, 'schema.maximum'),
+			step: get(schema, 'schema.step'),
+		};
+	}
+
+	if (type === 'password') {
+		fieldProps = {
+			...fieldProps,
+			link,
+		};
+	}
+
+	const componentNames = {
+		text: Form.Text,
+		number: Form.Number,
+		password: Form.Password,
+	};
+
+	return React.createElement(componentNames[type] || Form.Text, fieldProps);
 }
 
 if (process.env.NODE_ENV !== 'production') {

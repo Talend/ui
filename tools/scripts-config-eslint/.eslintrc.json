@@ -35,6 +35,7 @@
   ],
   "rules": {
     "@talend/import-depth": 2,
+    "@talend/use-bootstrap-class": 1,
     "arrow-parens": [2, "as-needed"],
     "comma-dangle": ["error", "only-multiline"],
     "function-paren-newline": 0,
@@ -42,6 +43,7 @@
     "import/prefer-default-export": 0,
     "import/extensions": 0,
     "import/no-named-as-default": "off",
+    "indent": 0,
     "jsx-a11y/label-has-associated-control": 2,
     "jsx-a11y/label-has-for": 0, // deprecated and buggy, replaced by jsx-a11y/label-has-associated-control
     "max-classes-per-file": 0,
@@ -92,6 +94,12 @@
   },
   "overrides": [
     {
+      "files": ["**/*.tsx", "**/*.ts*"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": 1
+      }
+    },
+    {
       "files": ["**/*.test.js", "**/*.test.ts*", "**/*.stories.js", "**/*.stories.ts*"],
       "rules": {
         "import/no-extraneous-dependencies": "off"
@@ -112,5 +120,7 @@
     "react": {
       "version": "detect"
     }
-  }
+  },
+  // Ignore some JS at project's rool level
+  "ignorePatterns": ["./index.js", "./.eslintrc.js"]
 }

@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 // List styles
 
@@ -9,6 +9,10 @@
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
+
+	.display-mode-large {
+		padding-top: 2px;
+	}
 
 	:global(.tc-list-toolbar) {
 		flex-grow: 0;

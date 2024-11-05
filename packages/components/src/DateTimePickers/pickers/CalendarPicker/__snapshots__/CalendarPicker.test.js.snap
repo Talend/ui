@@ -20,8 +20,11 @@ exports[`CalendarPicker should render 1`] = `
       onSelectDate
     </button>
   </div>
+  <span
+    class="CoralDivider"
+  />
   <div
-    class="theme-footer theme-date-padding"
+    class="theme-footer"
   >
     <button
       aria-label="Pick Today"

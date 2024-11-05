@@ -1,5 +1,47 @@
 # @talend/scripts-cmf
 
+## 1.3.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 1.2.4
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 1.2.3
+
+### Patch Changes
+
+- 19c3c59: Add missing dependency: commander
+
+## 1.2.2
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
+## 1.2.1
+
+### Patch Changes
+
+- f14ebbe23: Add missing deps
+
+## 1.2.0
+
+### Minor Changes
+
+- 673984929: add missing deps, remove link with scripts-core (circular dependency)
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 1.1.0
 
 ### Minor Changes

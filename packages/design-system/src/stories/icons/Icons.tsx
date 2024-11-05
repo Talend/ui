@@ -1,9 +1,10 @@
-import { useState, useEffect, ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { IconGallery, IconItem } from '@storybook/blocks';
 
-import { StackHorizontal, Form, Icon, IconsProvider, IconProps } from '../../';
+import { Form, Icon, IconProps, IconsProvider, StackHorizontal } from '../../';
 
 type TemplateProps = IconProps & {
 	size: number;
@@ -106,7 +107,7 @@ export const AllIconsTemplate = ({ children, docs }: AllIconsTemplateProps) => {
 					/>
 				) : null}
 			</Form>
-			<div style={{ marginTop: '3rem', color: currentColor }}>
+			<div style={{ marginTop: '1.875rem', color: currentColor }}>
 				<Wrapper>
 					{icons
 						.filter(iconName => iconName && iconName.includes(query))

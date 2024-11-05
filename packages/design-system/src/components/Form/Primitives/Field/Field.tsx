@@ -1,11 +1,10 @@
-import { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import { forwardRef, ReactElement, Ref } from 'react';
 
+import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
 import Link, { LinkProps } from '../../../Link/Link';
 import { StackVertical } from '../../../Stack';
-import Label, { LabelPrimitiveProps } from '../Label/Label';
-import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
 import { VisuallyHidden } from '../../../VisuallyHidden';
-import { useId } from '../../../../useId';
+import Label, { LabelPrimitiveProps } from '../Label/Label';
 
 export type FieldStatusProps =
 	| {
@@ -26,42 +25,47 @@ export type FieldPropsPrimitive = {
 	required?: boolean;
 } & FieldStatusProps;
 
-type FieldPropsPrimitiveWithChildren = FieldPropsPrimitive & { children: ReactElement };
+type FieldPropsPrimitiveWithChildren = FieldPropsPrimitive & {
+	children: ReactElement;
+	fieldId: string;
+};
 
 const Field = forwardRef(
 	(props: FieldPropsPrimitiveWithChildren, ref: Ref<HTMLInputElement | HTMLTextAreaElement>) => {
 		const {
 			children,
 			link,
-			id,
 			label,
-			name,
 			hasError = false,
 			hideLabel = false,
 			required = false,
 			description,
-			...rest
+			fieldId,
 		} = props;
-
-		const fieldID = useId(id, 'field-');
 
 		const labelProps = typeof label === 'string' ? { children: label } : { ...label };
 
 		const LabelComponent = hideLabel ? (
 			<VisuallyHidden>
-				<Label {...labelProps} htmlFor={fieldID} required={required} />
+				<Label htmlFor={fieldId} required={required} {...labelProps} />
 			</VisuallyHidden>
 		) : (
-			<Label {...labelProps} htmlFor={fieldID} required={required} />
+			<Label htmlFor={fieldId} required={required} {...labelProps} />
 		);
 
 		const Description = () => {
+			const inlineMessageProps = {
+				'data-test': children?.props['data-test'] && children?.props['data-test'] + '-description',
+				'data-testid':
+					children?.props['data-testid'] && children?.props['data-testid'] + '-description',
+			};
+
 			if (description) {
 				if (hasError) {
-					return <InlineMessageDestructive description={description} />;
+					return <InlineMessageDestructive description={description} {...inlineMessageProps} />;
 				}
 
-				return <InlineMessageInformation description={description} />;
+				return <InlineMessageInformation description={description} {...inlineMessageProps} />;
 			}
 			return null;
 		};
@@ -69,7 +73,7 @@ const Field = forwardRef(
 		return (
 			<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
 				{LabelComponent}
-				{cloneElement(children, { id: fieldID, hasError, name, required, ref, ...rest })}
+				{children}
 				{link && <Link {...link} />}
 				{description && <Description />}
 			</StackVertical>

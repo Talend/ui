@@ -23,9 +23,8 @@ fs.readdirSync(iconSrcFolder)
 		});
 	});
 
-fs.writeFileSync(
-	path.join(srcFolder, 'typeUtils.ts'),
-	prettier.format(
+prettier
+	.format(
 		`
 export declare type IconName =
 ${icons}
@@ -56,5 +55,7 @@ export declare type Icon<S extends IconSize> = {
 };
 `,
 		{ singleQuote: true, parser: 'typescript' },
-	),
-);
+	)
+	.then(data => {
+		fs.writeFileSync(path.join(srcFolder, 'typeUtils.ts'), data);
+	});

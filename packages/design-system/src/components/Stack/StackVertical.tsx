@@ -1,8 +1,9 @@
 import { forwardRef } from 'react';
 import type { Ref } from 'react';
+
 import StackPrimitive, { StackPrimitiveProps } from './Primitive/StackPrimitive';
 
-export type StackVerticalProps = Omit<StackPrimitiveProps, 'direction' | 'isFullWidth'>;
+export type StackVerticalProps = Omit<StackPrimitiveProps, 'direction'>;
 
 export const StackVertical = forwardRef((props: StackVerticalProps, ref: Ref<any>) => {
 	return (

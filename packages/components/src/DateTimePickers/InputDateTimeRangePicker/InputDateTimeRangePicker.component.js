@@ -1,16 +1,16 @@
-import { useMemo, useEffect, useState, useRef } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useMemo, useRef, useState } from 'react';
+
 import classnames from 'classnames';
 import debounce from 'lodash/debounce';
 import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
 
-import Icon from '../../Icon';
-
-import InputDateTimePicker from '../InputDateTimePicker';
-import DateTimeRange from '../DateTimeRange';
-import { DateTimeRangeContext } from '../DateTimeRange/Context';
+import { Form, SizedIcon } from '@talend/design-system';
 
 import getDefaultT from '../../translate';
+import DateTimeRange from '../DateTimeRange';
+import { DateTimeRangeContext } from '../DateTimeRange/Context';
+import InputDateTimePicker from '../InputDateTimePicker';
 
 import theme from './InputDateTimeRangePicker.module.scss';
 
@@ -52,7 +52,7 @@ function InputDateTimeRangePicker(props) {
 				const rangeContainer = containerRef.current;
 				if (
 					rangeContainer &&
-					rangeContainer.scrollWidth > rangeContainer.offsetParent.offsetWidth
+					rangeContainer.scrollWidth > rangeContainer.offsetParent?.offsetWidth
 				) {
 					setVertical(true);
 				}
@@ -79,9 +79,9 @@ function InputDateTimeRangePicker(props) {
 				{({ startDateTime, endDateTime, onStartChange, onEndChange }) => (
 					<div className={className} ref={containerRef}>
 						<div className="range-input" data-testid="range-start">
-							<label htmlFor={props.id} className="control-label">
+							<Form.Label htmlFor={props.id}>
 								{props.t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}
-							</label>
+							</Form.Label>
 							<InputDateTimePicker
 								{...inputProps}
 								id={`${id}-start`}
@@ -95,12 +95,12 @@ function InputDateTimeRangePicker(props) {
 							/>
 						</div>
 						<span className={classnames(theme.arrow, 'arrow')}>
-							<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
+							<SizedIcon name={vertical ? 'arrow-bottom' : 'arrow-right'} size="S" />
 						</span>
 						<div className="range-input" data-testid="range-end">
-							<label htmlFor={props.id} className="control-label">
+							<Form.Label htmlFor={props.id}>
 								{props.t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}
-							</label>
+							</Form.Label>
 							<InputDateTimePicker
 								{...inputProps}
 								id={`${id}-end`}

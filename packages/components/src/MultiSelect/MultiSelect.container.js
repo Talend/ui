@@ -1,20 +1,21 @@
 /* eslint-disable react/sort-comp */
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
-import keycode from 'keycode';
-import memoizeOne from 'memoize-one';
 
-import theme from './MultiSelect.module.scss';
-import VirtualizedList from '../VirtualizedList';
+import classnames from 'classnames';
+import memoizeOne from 'memoize-one';
+import PropTypes from 'prop-types';
+
+import { ActionButton } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import Icon from '../Icon';
+import VirtualizedList from '../VirtualizedList';
+import { CREATE_NEW_VALUE, SELECT_ALL_VALUE } from './constants';
+import Dropdown from './Dropdown.container';
 import { ItemOption } from './ItemOption.component';
 import { ItemView } from './ItemView.component';
-import Dropdown from './Dropdown.container';
-import { SELECT_ALL_VALUE, CREATE_NEW_VALUE } from './constants';
-import { ActionButton } from '../Actions';
-import Icon from '../Icon';
+
+import theme from './MultiSelect.module.scss';
 
 function initSelectedMap(selected) {
 	return selected.reduce((acc, current) => {
@@ -98,7 +99,7 @@ class MultiSelect extends Component {
 	}
 
 	onInputKeyDown(event) {
-		if (event.which === keycode.codes.esc) {
+		if (event.key === 'Esc' || event.key === 'Escape') {
 			event.preventDefault();
 			this.setState({ showDropdown: false });
 		}

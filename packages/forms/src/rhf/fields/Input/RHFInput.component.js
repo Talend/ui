@@ -1,19 +1,33 @@
+import { useController, useFormContext } from 'react-hook-form';
+
 import PropTypes from 'prop-types';
-import { useFormContext } from 'react-hook-form';
-import get from 'lodash/get';
 
-import Input from '../../../widgets/fields/Input';
+import { Form } from '@talend/design-system';
 
-function RHFInput(props) {
-	const { rules = {}, ...rest } = props;
-	const { errors, register } = useFormContext();
-	const error = get(errors, rest.name)?.message;
-	return <Input {...rest} ref={register(rules)} error={error} />;
+function RHFInput({ rules = {}, name = '', defaultValue, ...rest }) {
+	const { control } = useFormContext();
+	const { field, fieldState } = useController({
+		control,
+		name,
+		rules,
+		defaultValue,
+	});
+
+	return (
+		<Form.Input
+			hasError={!!fieldState.error?.message}
+			description={fieldState.error?.message}
+			{...field}
+			{...rest}
+		/>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	RHFInput.propTypes = {
 		rules: PropTypes.object,
+		name: PropTypes.string,
+		defaultValue: PropTypes.string,
 	};
 }
 

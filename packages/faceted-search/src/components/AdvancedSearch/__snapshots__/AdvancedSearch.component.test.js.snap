@@ -2,33 +2,53 @@
 
 exports[`AdvancedSearch should render by default 1`] = `
 <div
-  class="adv-search theme-adv-search"
+  class="theme-adv-search"
   id="some-id-adv-search"
 >
   <form
     id="some-id-adv-search-form"
+    role="search"
   >
-    <svg
-      aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
-      focusable="false"
-      name="talend-filter"
-      pointer-events="none"
-      shape-rendering="geometricPrecision"
-    />
-    <input
-      aria-label="Advanced Faceted Search"
-      autocomplete="off"
-      class="adv-search-input theme-adv-search-input form-control"
-      id="some-id-form"
-      name="advanced-search-faceted"
-      placeholder="Enter your query"
-      role="search"
-      type="search"
-      value=""
-    />
     <div
-      class="adv-search-buttons theme-adv-search-buttons"
+      class="theme-adv-search-filter-icon"
+    >
+      <svg
+        aria-hidden="true"
+        color="var(--coral-color-neutral-icon-weak, hsla(0, 0%, 38%, 1))"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1rem; height: 1rem;"
+      >
+        <use
+          xlink:href="#filter:M"
+        />
+      </svg>
+    </div>
+    <div
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    >
+      <label
+        class="theme-label"
+        for="some-id-form"
+      />
+      <div
+        class="theme-inputShell"
+      >
+        <input
+          aria-label="Advanced Faceted Search"
+          autocomplete="off"
+          class="theme-input theme-adv-search-input"
+          id="some-id-form"
+          name="advanced-search-faceted"
+          placeholder="Enter your query"
+          role="searchbox"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="theme-adv-search-buttons"
     >
       <button
         aria-describedby="id-42"
@@ -47,7 +67,7 @@ exports[`AdvancedSearch should render by default 1`] = `
             aria-hidden="true"
             pointer-events="none"
             shape-rendering="geometricPrecision"
-            style="width: 1.6rem; height: 1.6rem;"
+            style="width: 1rem; height: 1rem;"
           >
             <use
               xlink:href="#cross-filled:M"
@@ -72,7 +92,7 @@ exports[`AdvancedSearch should render by default 1`] = `
             aria-hidden="true"
             pointer-events="none"
             shape-rendering="geometricPrecision"
-            style="width: 1.6rem; height: 1.6rem;"
+            style="width: 1rem; height: 1rem;"
           >
             <use
               xlink:href="#check-filled:M"

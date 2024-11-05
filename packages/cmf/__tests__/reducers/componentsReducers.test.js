@@ -72,7 +72,7 @@ describe('check component management reducer', () => {
 			initialComponentState: 'initialState',
 		};
 		reducer(initialState, action);
-		expect(console.warn).toBeCalled(); // eslint no-console: ["error", { allow: ["warn"] }]
+		expect(console.warn).toHaveBeenCalled(); // eslint no-console: ["error", { allow: ["warn"] }]
 		expect(console.warn.mock.calls[0][0])
 			.toEqual(`Beware component component1 try to recreate an existing
  State namespace key1, meaning that the original one will be overloaded`); // eslint no-console: ["error", { allow: ["warn"] }]
@@ -122,7 +122,7 @@ describe('check component management reducer', () => {
 			key: 'key',
 		};
 		reducer(initialState, action);
-		expect(console.warn).toBeCalled();
+		expect(console.warn).toHaveBeenCalled();
 		expect(console.warn.mock.calls[0][0])
 			.toEqual(`Beware the component component try to remove a non existing
  State namespace key, it isn't a normal behavior execpt if two component are binded

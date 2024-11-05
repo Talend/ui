@@ -1,5 +1,76 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.4.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-react-webpack@16.8.0
+  - @talend/dynamic-cdn-webpack-plugin@14.0.0
+
+## 5.3.2
+
+### Patch Changes
+
+- 3bd16fc: Make it compatible with ESM
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-react-webpack@16.7.0
+
+## 5.3.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-react-webpack@16.5.1
+  - @talend/dynamic-cdn-webpack-plugin@13.1.1
+
+## 5.3.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+## 5.2.1
+
+### Patch Changes
+
+- 6c2df2b: add a workaround waiting a fix for https://github.com/storybookjs/storybook/issues/25071
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/scripts-config-react-webpack@16.3.3
+
+## 5.2.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, upgrade msw to v1.3.2
+
+### Patch Changes
+
+- f2ef85811: Update dependencies and fix script for lint
+- Updated dependencies [673984929]
+  - @talend/scripts-config-react-webpack@16.3.0
+
+## 5.1.0
+
+### Minor Changes
+
+- 6efd54301: feat: use icons from talend/icons and not from unpkg
+
+### Patch Changes
+
+- 9a0732ec5: fix: add keys on all items in the decorators
+  fix: improve build performance copy/pasted from #4931
+- 35263dfcb: fix: icon url to support prefix
+
 ## 5.0.0
 
 ### Major Changes

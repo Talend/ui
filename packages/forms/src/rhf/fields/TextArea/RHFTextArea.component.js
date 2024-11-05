@@ -1,19 +1,33 @@
+import { useController, useFormContext } from 'react-hook-form';
+
 import PropTypes from 'prop-types';
-import { useFormContext } from 'react-hook-form';
-import get from 'lodash/get';
 
-import TextArea from '../../../widgets/fields/TextArea';
+import { Form } from '@talend/design-system';
 
-function RHFTextArea(props) {
-	const { rules = {}, ...rest } = props;
-	const { errors, register } = useFormContext();
-	const error = get(errors, rest.name)?.message;
-	return <TextArea {...rest} ref={register(rules)} error={error} />;
+function RHFTextArea({ rules = {}, name = '', defaultValue, ...rest }) {
+	const { control } = useFormContext();
+	const { field, fieldState } = useController({
+		control,
+		name,
+		rules,
+		defaultValue,
+	});
+
+	return (
+		<Form.Textarea
+			hasError={!!fieldState.error?.message}
+			description={fieldState.error?.message}
+			{...field}
+			{...rest}
+		/>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	RHFTextArea.propTypes = {
 		rules: PropTypes.object,
+		name: PropTypes.string,
+		defaultValue: PropTypes.string,
 	};
 }
 

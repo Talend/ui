@@ -1,8 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 // TreeView styles
-$item-height: 4rem;
+$item-height: 2.5rem;
 
 .tc-treeview-li {
 	display: flex;
@@ -44,11 +44,11 @@ $item-height: 4rem;
 
 		.tc-treeview-toggle {
 			position: absolute;
-			padding: 1rem;
+			padding: 0.625rem;
 			display: inline-flex;
 			min-height: auto;
 			height: 100%;
-			margin-left: -3rem;
+			margin-left: -1.875rem;
 			top: 0;
 
 			svg {
@@ -72,8 +72,8 @@ $item-height: 4rem;
 		}
 
 		.tc-treeview-img {
-			max-height: 2rem;
-			margin-right: 1rem;
+			max-height: 1.25rem;
+			margin-right: 0.625rem;
 			vertical-align: middle;
 		}
 
@@ -81,7 +81,7 @@ $item-height: 4rem;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
-			max-width: 40rem;
+			max-width: 25rem;
 		}
 	}
 
@@ -139,7 +139,7 @@ $item-height: 4rem;
 		}
 
 		:global(.tc-badge-button) {
-			height: 2rem;
+			height: 1.25rem;
 			margin: 0 $padding-normal 0 0;
 			padding: 0 $padding-smaller;
 			border-radius: $border-radius-small;

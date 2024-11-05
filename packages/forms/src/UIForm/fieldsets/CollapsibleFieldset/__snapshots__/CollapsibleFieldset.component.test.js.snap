@@ -2,95 +2,96 @@
 
 exports[`CollapsibleFieldset should render 1`] = `
 <fieldset
-  class="form-group theme-collapsible-panel collapsible-panel"
+  class="collapsible-panel"
 >
   <div
-    class="panel panel-default theme-tc-collapsible-panel theme-default-panel theme-open panel panel-default"
-    id="my-fieldset"
+    class="theme-panelWrapper theme-panelWrapper__alone"
   >
-    <div
-      class="panel-heading"
-      id="my-fieldset--heading"
-      role="tab"
-    >
-      <div
-        class="panel-title"
-      >
-        <div
-          class="theme-panel-header-content panel-header-content"
-        >
-          <div
-            class="theme-panel-title"
-          >
-            <div
-              class="theme-undefined theme-col-2"
-            >
-              <div
-                aria-describedby="42"
-                class="theme-undefined"
-              >
-                Jimmy, Somsanith
-              </div>
-            </div>
-            <div
-              class="theme-group theme-col-2"
-            />
-          </div>
-          <button
-            aria-describedby="id-42"
-            aria-expanded="true"
-            aria-label="Collapse panel"
-            class="theme-clickable theme-buttonIcon"
-            id="my-fieldset__collapse"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-              class="theme-buttonIcon__icon"
-            >
-              <svg
-                aria-hidden="true"
-                pointer-events="none"
-                shape-rendering="geometricPrecision"
-                style="width: 1.6rem; height: 1.6rem;"
-              >
-                <use
-                  xlink:href="#chevron-down-stroke:M"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
+    <button
+      aria-controls="CollapsiblePanel__content--id-42"
       aria-expanded="true"
-      aria-labelledby="my-fieldset--heading"
-      class="panel-collapse collapse in"
-      id="my-fieldset--body"
-      role="tabpanel"
+      class="theme-headerWrapper theme-headerWrapper__clickable"
+      data-test="panel.header"
+      data-testid="panel.header"
+      id="CollapsiblePanel__control--id-42"
+      type="button"
     >
       <div
-        class="panel-body"
+        class="theme-iconWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1rem; height: 1rem;"
+        >
+          <use
+            xlink:href="#chevron-up:M"
+          />
+        </svg>
+      </div>
+      <span
+        class="theme-headerTitle"
+      >
+        Basic
+      </span>
+    </button>
+    <div
+      aria-labelledby="CollapsiblePanel__control--id-42"
+      class="theme-panelContent"
+      data-test="panel.section"
+      data-testid="panel.section"
+      id="CollapsiblePanel__content--id-42"
+      role="region"
+    >
+      <div
+        aria-live="polite"
+        class="theme-inlineMessage"
+        id="my-fieldset-description"
+        role="status"
+      >
+        <span
+          class="theme-icon theme-information__icon"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
+        </span>
+        <p
+          class="theme-inlineMessage__contents"
+        >
+          <span>
+            This is description
+          </span>
+        </p>
+      </div>
+      <div
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-S theme-gap-y-S"
       >
         <div
           aria-live="polite"
           class="theme-inlineMessage"
-          id="my-fieldset-description"
           role="status"
         >
           <span
-            class="theme-icon theme-information__icon"
+            class="theme-icon theme-destructive__icon"
           >
             <svg
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
-                xlink:href="#information-filled:M"
+                xlink:href="#square-cross:M"
               />
             </svg>
           </span>
@@ -98,22 +99,37 @@ exports[`CollapsibleFieldset should render 1`] = `
             class="theme-inlineMessage__contents"
           >
             <span>
-              This is description
+              Widget not found string
             </span>
           </p>
         </div>
-        <p
-          class="text-danger"
+        <div
+          aria-live="polite"
+          class="theme-inlineMessage"
+          role="status"
         >
-          Widget not found 
-          string
-        </p>
-        <p
-          class="text-danger"
-        >
-          Widget not found 
-          string
-        </p>
+          <span
+            class="theme-icon theme-destructive__icon"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1rem; height: 1rem;"
+            >
+              <use
+                xlink:href="#square-cross:M"
+              />
+            </svg>
+          </span>
+          <p
+            class="theme-inlineMessage__contents"
+          >
+            <span>
+              Widget not found string
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   </div>

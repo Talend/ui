@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/display-name */
-import { screen, render, fireEvent } from '@testing-library/react';
-import { Map, fromJS, List as ImmutableList } from 'immutable';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { fromJS, List as ImmutableList, Map } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
+
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
-import Container, { DEFAULT_STATE } from './List.container';
+
 import Connected, { mapStateToProps } from './List.connect';
+import Container, { DEFAULT_STATE } from './List.container';
 
 const cmfModule = {
 	id: 'test',
@@ -354,13 +357,13 @@ describe('Container List', () => {
 		const event = null;
 		const data = { startIndex: 1, itemsPerPage: 5 };
 
-		expect(dispatchActionCreator).not.toBeCalled();
+		expect(dispatchActionCreator).not.toHaveBeenCalled();
 
 		// when
 		props.toolbar.pagination.onChange(data.startIndex, data.itemsPerPage);
 
 		// then
-		expect(dispatchActionCreator).toBeCalledWith(
+		expect(dispatchActionCreator).toHaveBeenCalledWith(
 			'pagination:change',
 			event,
 			data,
@@ -413,11 +416,11 @@ describe('Container List', () => {
 		const event = { type: 'click' };
 		const payload = { filterDocked: true, searchQuery: '' };
 		const data = { event, payload, type: 'LIST_TOGGLE_FILTER' };
-		expect(dispatch).not.toBeCalled();
+		expect(dispatch).not.toHaveBeenCalled();
 		// when
 		props.toolbar.filter.onToggle(event, payload);
 		// then
-		expect(dispatch).toBeCalledWith(data);
+		expect(dispatch).toHaveBeenCalledWith(data);
 	});
 
 	it('should call action creator when onFilter event is triggered', async () => {
@@ -442,11 +445,11 @@ describe('Container List', () => {
 		const event = { type: 'click' };
 		const payload = { searchQuery: 'test' };
 		const data = { event, payload, type: 'LIST_FILTER_CHANGE' };
-		expect(dispatch).not.toBeCalled();
+		expect(dispatch).not.toHaveBeenCalled();
 		// when
 		props.toolbar.filter.onFilter(event, payload);
 		// then
-		expect(dispatch).toBeCalledWith(data);
+		expect(dispatch).toHaveBeenCalledWith(data);
 	});
 
 	it('should call action creator when sorting onChange event is triggered', async () => {
@@ -471,11 +474,11 @@ describe('Container List', () => {
 		const event = { type: 'click' };
 		const payload = { isDescending: true, field: 'name' };
 		const data = { event, payload, type: 'LIST_CHANGE_SORT_ORDER' };
-		expect(dispatch).not.toBeCalled();
+		expect(dispatch).not.toHaveBeenCalled();
 		// when
 		props.list.sort.onChange(event, payload);
 		// then
-		expect(dispatch).toBeCalledWith(data);
+		expect(dispatch).toHaveBeenCalledWith(data);
 	});
 
 	describe('Toggle selection', () => {

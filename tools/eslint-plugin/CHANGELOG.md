@@ -1,5 +1,49 @@
 # @talend/eslint-plugin
 
+## 1.3.1
+
+### Patch Changes
+
+- f1c2fdf: Add `btn-inverse` to list of warning for eslint bootstrap classes
+
+## 1.3.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-cdn@10.12.0
+
+## 1.2.0
+
+### Minor Changes
+
+- b3f28a7: feat: add warning on bootstrap class
+
+## 1.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-cdn@10.11.1
+
+## 1.1.0
+
+### Minor Changes
+
+- 673984929: remove dep with scripts-core and fix eslint config (circular dependency)
+
+### Patch Changes
+
+- Updated dependencies [673984929]
+  - @talend/scripts-config-cdn@10.9.0
+
 ## 1.0.1
 
 ### Patch Changes

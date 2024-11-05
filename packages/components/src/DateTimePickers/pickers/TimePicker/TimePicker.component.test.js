@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { TimePicker } from './TimePicker.component';
@@ -10,15 +10,17 @@ describe('TimePicker component', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 	describe('event handlers', () => {
-		it('should call onChange when select time', () => {
+		it('should call onChange when select time', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onChange = jest.fn();
 			const event = expect.anything();
 			render(<TimePicker onChange={onChange} onKeyDown={jest.fn()} />);
 			// when
-			userEvent.click(screen.getByText('03:00'));
+			await user.click(screen.getByText('03:00'));
 			// then
-			expect(onChange).toBeCalledWith(event, {
+			expect(onChange).toHaveBeenCalledWith(event, {
 				textInput: '03:00',
 				time: { hours: '03', minutes: '00', seconds: '00' },
 			});
@@ -29,7 +31,7 @@ describe('TimePicker component', () => {
 			window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
 			render(<TimePicker onChange={jest.fn()} onKeyDown={jest.fn()} textInput="12:00" />);
 			// then
-			expect(scrollIntoViewMock).toBeCalledWith({ block: 'center' });
+			expect(scrollIntoViewMock).toHaveBeenCalledWith({ block: 'center' });
 			expect(screen.getByText('12:00')).toHaveClass('highlight');
 		});
 	});

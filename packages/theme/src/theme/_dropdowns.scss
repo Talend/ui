@@ -1,10 +1,10 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 ////
 /// Bootstrap dropdowns customization
 /// @group Dropdowns
 ////
-$dropdown-animation-offset-y: 1.5rem !default;
+$dropdown-animation-offset-y: 0.9375rem !default;
 $dropdown-caret-down-axis: 135deg !default;
 $dropdown-caret-up-axis: -45deg !default;
 
@@ -50,6 +50,7 @@ $dropdown-caret-up-axis: -45deg !default;
 				color: tokens.$coral-color-neutral-text;
 			}
 
+			> img:first-child,
 			> svg:first-child {
 				margin-right: $padding-small;
 			}

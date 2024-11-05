@@ -1,8 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$tc-resource-list-margin-top: 2rem !default;
-$tc-resource-list-height: 25rem !default;
+$tc-resource-list-margin-top: 1.25rem !default;
+$tc-resource-list-height: 15.625rem !default;
 
 .tc-resource-list {
 	:global(.tc-list-list) {

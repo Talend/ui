@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Datalist from './Datalist.component';
@@ -167,7 +167,7 @@ describe('Datalist component', () => {
 			fireEvent.focus(screen.getByRole('textbox'));
 
 			// then
-			await expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+			await expect(props.onTrigger).toHaveBeenCalledWith(expect.anything(), {
 				trigger: props.schema.triggers[0],
 				schema: props.schema,
 				errors: props.errors,

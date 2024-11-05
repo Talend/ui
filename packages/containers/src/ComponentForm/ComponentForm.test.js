@@ -1,9 +1,10 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { fromJS, Map } from 'immutable';
-import cmf, { mock } from '@talend/react-cmf';
-import addSchemaMock from './ComponentForm.test.schema.json';
 
-import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
+import cmf, { mock } from '@talend/react-cmf';
+
+import { resolveNameForTitleMap, TCompForm, toJS } from './ComponentForm.component';
+import addSchemaMock from './ComponentForm.test.schema.json';
 
 jest.unmock('@talend/design-system');
 
@@ -443,7 +444,7 @@ describe('ComponentForm', () => {
 			rerender(<TCompForm {...props} definitionURL={newUrl} />);
 
 			// then
-			expect(dispatch).toBeCalledWith({
+			expect(dispatch).toHaveBeenCalledWith({
 				triggerURL: 'http://trigger',
 				definitionURL: newUrl,
 				dispatch,
@@ -490,7 +491,7 @@ describe('ComponentForm', () => {
 				instance.onChange(event, changePayload);
 
 				// then
-				expect(setState).toBeCalledWith({ dirty: true });
+				expect(setState).toHaveBeenCalledWith({ dirty: true });
 			});
 
 			it('should NOT dispatch dirty state if it is already dirty', () => {
@@ -509,7 +510,7 @@ describe('ComponentForm', () => {
 				instance.onChange(event, changePayload);
 
 				// then
-				expect(setState).not.toBeCalled();
+				expect(setState).not.toHaveBeenCalled();
 			});
 
 			it('should set form data in state', () => {
@@ -597,7 +598,7 @@ describe('ComponentForm', () => {
 
 				// when
 				return instance.onTrigger(event, changePayload).then(() => {
-					expect(setState).toBeCalledWith(data);
+					expect(setState).toHaveBeenCalledWith(data);
 				});
 			});
 		});

@@ -1,12 +1,15 @@
 import { PureComponent } from 'react';
+
 import PropTypes from 'prop-types';
+
 import { ButtonIcon } from '@talend/design-system';
 
-import DatePicker from '../../pickers/DatePicker';
-import ViewLayout from '../ViewLayout';
-import HeaderTitle from '../HeaderTitle';
-import theme from './DateView.module.scss';
 import getDefaultT from '../../../translate';
+import DatePicker from '../../pickers/DatePicker';
+import HeaderTitle from '../HeaderTitle';
+import ViewLayout from '../ViewLayout';
+
+import theme from './DateView.module.scss';
 
 /**
  * Get the positive euclidean modulo number from a dividend and a divisor
@@ -29,6 +32,7 @@ class DateView extends PureComponent {
 		onTitleClick: PropTypes.func.isRequired,
 		onSelectMonthYear: PropTypes.func.isRequired,
 		onSelectDate: PropTypes.func.isRequired,
+		onSelectYear: PropTypes.func.isRequired,
 		selectedDate: PropTypes.instanceOf(Date),
 		startDate: PropTypes.instanceOf(Date),
 		endDate: PropTypes.instanceOf(Date),
@@ -68,11 +72,12 @@ class DateView extends PureComponent {
 			leftElement: (
 				<ButtonIcon
 					size="S"
-					aria-label={t('DATEPICKER_MONTH_PREVIOUS', 'Go to previous month')}
 					icon="arrow-left"
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
-				></ButtonIcon>
+				>
+					{t('DATEPICKER_MONTH_PREVIOUS', 'Go to previous month')}
+				</ButtonIcon>
 			),
 			middleElement: (
 				<HeaderTitle
@@ -80,21 +85,18 @@ class DateView extends PureComponent {
 					year={this.props.calendar.year}
 					button={{
 						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', {
-							defaultValue: 'Switch to month-and-year view',
+							defaultValue: 'Switch to month view',
 						}),
 						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,
 					}}
+					onSelectYear={this.props.onSelectYear}
 				/>
 			),
 			rightElement: (
-				<ButtonIcon
-					size="S"
-					aria-label={t('DATEPICKER_MONTH_NEXT', 'Go to next month')}
-					icon="arrow-right"
-					onClick={() => this.goToNextMonth()}
-					tabIndex="-1"
-				></ButtonIcon>
+				<ButtonIcon size="S" icon="arrow-right" onClick={() => this.goToNextMonth()} tabIndex="-1">
+					{t('DATEPICKER_MONTH_NEXT', 'Go to next month')}
+				</ButtonIcon>
 			),
 		};
 

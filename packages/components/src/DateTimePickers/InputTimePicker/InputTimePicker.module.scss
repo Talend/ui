@@ -1,21 +1,17 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
+@import '../shared/styles/mixins';
 
-$tc-timepicker-width: 8rem !default;
-$tc-timepicker-height: 17rem !default;
-$tc-timepicker-box-shadow: tokens.$coral-elevation-shadow-neutral-m !default;
-$tc-timepicker-z-index: $zindex-dropdown !default;
+$tc-timepicker-width: 5rem !default;
+$tc-timepicker-height: 10.625rem !default;
 
 .popper {
 	overflow: auto;
 	width: $tc-timepicker-width;
 	height: $tc-timepicker-height;
-	box-shadow: $tc-timepicker-box-shadow;
-	z-index: $tc-timepicker-z-index;
+	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	z-index: tokens.$coral-elevation-layer-interactive-front;
 }
 
 .time-picker {
-	width: fit-content;
-	display: flex;
-	align-items: center;
+	@include date-picker;
 }

@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ItemEdit from './ItemEdit.component';
@@ -31,7 +31,9 @@ describe('Item', () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
-	it('should display value with two buttons and trigger callback on button title click', () => {
+	it('should display value with two buttons and trigger callback on button title click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			item,
@@ -44,13 +46,15 @@ describe('Item', () => {
 		render(<ItemEdit {...props} />);
 
 		// when
-		userEvent.click(screen.getByLabelText('Cancel'));
+		await user.click(screen.getByLabelText('Cancel'));
 
 		// then
-		expect(props.item.itemProps.actions[1].onClick).toBeCalled();
+		expect(props.item.itemProps.actions[1].onClick).toHaveBeenCalled();
 	});
 
-	it('should trigger callback on input title ENTER', () => {
+	it('should trigger callback on input title ENTER', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			item,
@@ -83,18 +87,20 @@ describe('Item', () => {
 
 		// when
 		const input = screen.getAllByRole('gridcell')[0];
-		userEvent.click(input);
+		await user.click(input);
 		input.value = '';
-		userEvent.type(input, 'my new title');
-		userEvent.keyboard('{Enter}');
+		await user.type(input, 'my new title');
+		await user.keyboard('{Enter}');
 
 		// then
-		expect(props.item.itemProps.onSubmitItem).toBeCalled();
+		expect(props.item.itemProps.onSubmitItem).toHaveBeenCalled();
 		const callArgs = props.item.itemProps.onSubmitItem.mock.calls[0];
 		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item, index: 0 });
 	});
 
-	it('should trigger callback on input title ESC', () => {
+	it('should trigger callback on input title ESC', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			item,
@@ -124,11 +130,11 @@ describe('Item', () => {
 
 		// when
 		render(<ItemEdit {...props} />);
-		userEvent.click(screen.getAllByRole('gridcell')[0]);
-		userEvent.keyboard('{Escape}');
+		await user.click(screen.getAllByRole('gridcell')[0]);
+		await user.keyboard('{Escape}');
 
 		// then
-		expect(props.item.itemProps.onAbortItem).toBeCalled();
+		expect(props.item.itemProps.onAbortItem).toHaveBeenCalled();
 		const callArgs = props.item.itemProps.onAbortItem.mock.calls[0];
 		expect(callArgs[1]).toEqual({ value: 'toto', model: props.item, index: 0 });
 	});

@@ -55,12 +55,7 @@ class SchemaInState extends Component {
 				</div>
 				<div className="col-md-6">
 					<h2>Schema</h2>
-					<textarea
-						rows="20"
-						className="form-control"
-						onChange={this.onChange}
-						value={this.state.schema}
-					/>
+					<textarea rows="20" onChange={this.onChange} value={this.state.schema} />
 				</div>
 			</div>
 		);

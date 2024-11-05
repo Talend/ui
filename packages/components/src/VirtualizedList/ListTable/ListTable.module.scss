@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-list-table-cell-padding: $padding-small !default;
 
@@ -40,7 +40,7 @@ $tc-list-table-cell-padding: $padding-small !default;
 		.header {
 			color: tokens.$coral-color-neutral-text;
 			display: inline-flex;
-			font-size: 1.2rem;
+			font-size: 0.75rem;
 			font-weight: 600;
 			padding: $tc-list-table-cell-padding;
 			overflow: hidden;

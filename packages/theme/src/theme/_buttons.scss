@@ -3,11 +3,11 @@
 /// @group Buttons
 ////
 
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 :root {
 	--t-button-padding: 0 #{$padding-normal};
-	--t-button-height: #{$btn-line-height - 0.2rem};
+	--t-button-height: #{$btn-line-height - 0.125rem};
 }
 
 .btn {
@@ -19,7 +19,7 @@
 	border: 1px solid;
 	box-shadow: none;
 	/* stylelint-disable-next-line declaration-property-value-disallowed-list */
-	transition: all 0.1s ease-out;
+	transition: none;
 
 	&,
 	&:focus,
@@ -56,7 +56,7 @@
 	&,
 	> span {
 		display: inline-flex;
-		gap: 0.5rem;
+		gap: 0.3125rem;
 		align-items: center;
 		justify-content: center;
 
@@ -289,7 +289,7 @@
 	&-xs,
 	&-sm {
 		--t-button-padding: 0 #{$padding-small-horizontal};
-		--t-button-height: 2.8rem - 0.2rem;
+		--t-button-height: 1.75rem - 0.125rem;
 	}
 
 	.caret.caret {

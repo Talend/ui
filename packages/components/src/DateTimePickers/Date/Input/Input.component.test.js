@@ -38,9 +38,8 @@ describe('Date.Input', () => {
 		const props = JSON.parse(screen.getByTestId('DebounceInput').dataset.props);
 		expect(props).toEqual({
 			autoComplete: 'off',
-			className: 'form-control',
+			hideLabel: true,
 			debounceTimeout: 300,
-			type: 'text',
 			value: '2007-01-02',
 			style: { width: 300 },
 			'aria-labelledby': 'labelId',

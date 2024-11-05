@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { render, fireEvent, screen } from '@testing-library/react';
-import parseISO from 'date-fns/parseISO';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { parseISO } from 'date-fns/parseISO';
+
 import { DateInputField, DateRangeHandler } from './DateRangeHandler';
 
 jest.unmock('@talend/design-system');
@@ -81,8 +82,8 @@ describe('DateRangeHandler', () => {
 		const ticks = DateRangeHandler.getTicks(limits);
 		expect(ticks).toEqual({
 			[limits.min]: '2000-01-01',
-			'1262300400000': '2010-01-01',
-			'1577833200000': '2020-01-01',
+			'1262304000000': '2010-01-01',
+			'1577836800000': '2020-01-01',
 			[limits.max]: '2030-01-01',
 		});
 	});

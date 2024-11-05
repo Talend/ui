@@ -1,6 +1,7 @@
 // rewrite tests using react-testing-library
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import SelectSortBy from './SelectSortBy.component';
 
 const id = 'toolbar-sort';
@@ -78,7 +79,9 @@ describe('SelectSortBy', () => {
 		).toBeInTheDocument();
 	});
 
-	it('should call toggle callback on sort-order click', () => {
+	it('should call toggle callback on sort-order click', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			id,
@@ -89,10 +92,10 @@ describe('SelectSortBy', () => {
 		// when
 		render(<SelectSortBy {...props} />);
 
-		userEvent.click(screen.getByLabelText('Change sort order. Current order: Ascending.'));
+		await user.click(screen.getByLabelText('Change sort order. Current order: Ascending.'));
 
 		// then
-		expect(props.onChange).toBeCalledWith(expect.anything(), {
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), {
 			field: 'id',
 			isDescending: true,
 		});

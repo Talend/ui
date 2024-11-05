@@ -1,4 +1,6 @@
-import dateFnsFormat from 'date-fns/format';
+import { format as dateFnsFormat } from 'date-fns/format';
+import { enGB } from 'date-fns/locale/en-GB';
+
 import {
 	convertToLocalTime,
 	convertToTimeZone,
@@ -15,7 +17,8 @@ jest.mock('date-fns/format', () => {
 	const actualFormat = jest.requireActual('date-fns/format');
 	return {
 		__esModule: true,
-		default: jest.fn().mockImplementation(actualFormat),
+		default: jest.fn().mockImplementation(actualFormat.default),
+		format: jest.fn().mockImplementation(actualFormat.format),
 	};
 });
 
@@ -42,7 +45,7 @@ describe('date', () => {
 			const localDate = convertToLocalTime(dateObj, options);
 
 			// then
-			expect(localDate).toEqual(new Date('2020-05-13, 17:00'));
+			expect(localDate).toEqual(new Date('2020-05-13, 15:00'));
 		});
 
 		it('should convert a date string of a timezone to the locale timezone', () => {
@@ -54,7 +57,7 @@ describe('date', () => {
 			const localDate = convertToLocalTime(dateObj, options);
 
 			// then
-			expect(localDate).toEqual(new Date('2020-05-14, 01:00'));
+			expect(localDate).toEqual(new Date('2020-05-13, 23:00'));
 		});
 	});
 
@@ -68,7 +71,7 @@ describe('date', () => {
 			const localDate = convertToTimeZone(dateObj, options);
 
 			// then
-			expect(localDate).toEqual(new Date('2020-05-13, 23:00'));
+			expect(localDate).toEqual(new Date('2020-05-14, 01:00'));
 		});
 
 		it('should convert a locale date string to the given timezone time', () => {
@@ -80,7 +83,7 @@ describe('date', () => {
 			const localDate = convertToTimeZone(dateObj, options);
 
 			// then
-			expect(localDate).toEqual(new Date('2020-05-13, 15:00'));
+			expect(localDate).toEqual(new Date('2020-05-13, 17:00'));
 		});
 
 		it('should convert a date from a specific timezone to the target timezone time', () => {
@@ -120,7 +123,7 @@ describe('date', () => {
 			const localDate = formatToTimeZone(dateObj, formatString, options);
 
 			// then
-			expect(localDate).toEqual('2020-05-13T23:00:00+0500');
+			expect(localDate).toEqual('2020-05-14T01:00:00+0500');
 		});
 
 		it('should not change timezone tokens that are wrapped in hooks', () => {
@@ -133,16 +136,16 @@ describe('date', () => {
 			const localDate = formatToTimeZone(dateObj, formatString, options);
 
 			// then
-			expect(localDate).toEqual('2020-05-13T23:00:00Z');
+			expect(localDate).toEqual('2020-05-14T01:00:00Z');
 		});
+
 		it('should pass locale to datefns format method', () => {
 			// given
-			const mockLocal = { format: () => {} };
 			const dateObj = new Date('2020-12-20, 20:00');
 			const formatString = 'ddd YYYY-MM-DD HH:mm:ss';
 			const options = {
 				timeZone: timeZones['UTC+5'],
-				locale: mockLocal,
+				locale: enGB,
 			};
 
 			// when
@@ -153,7 +156,7 @@ describe('date', () => {
 				expect.anything(),
 				expect.anything(),
 				expect.objectContaining({
-					locale: mockLocal,
+					locale: enGB,
 				}),
 			);
 		});

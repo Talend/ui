@@ -1,15 +1,16 @@
-import classNames from 'classnames';
-import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 
-import { removeDuplicates, allIndexOf } from './utils';
+import classNames from 'classnames';
+
 import Action from '../../../Actions/Action';
-import theme from './Item.module.scss';
 import Checkbox from '../../../Checkbox';
-import ItemPropTypes from './Item.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import Icon from '../../../Icon';
 import TooltipTrigger from '../../../TooltipTrigger';
+import ItemPropTypes from './Item.propTypes';
+import { allIndexOf, removeDuplicates } from './utils';
+
+import theme from './Item.module.scss';
 
 function itemClasses(isSelected) {
 	return classNames({
@@ -89,7 +90,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 		}
 
 		return (
-			<Button
+			<Action
 				className={itemLabelClasses(item.className)}
 				role="gridcell"
 				onClick={event => onSelectItem(item, event)}
@@ -118,7 +119,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 						</span>
 					</TooltipTrigger>
 				)}
-			</Button>
+			</Action>
 		);
 	}
 

@@ -1,12 +1,13 @@
 import { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
+
 import { DeprecatedIconNames } from '../../types';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { Linkable, LinkableType, isBlank as targetCheck } from '../Linkable';
 
 import style from './Link.module.scss';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 
 export type LinkComponentProps = {
 	/** The icon to display before */
@@ -19,7 +20,7 @@ export type LinkProps = Omit<LinkableType, 'className'> & LinkComponentProps;
 
 const Link = forwardRef(
 	(
-		{ children, disabled, href, target, title, hideExternalIcon, ...rest }: LinkProps,
+		{ children, disabled, href, target, title, ...rest }: LinkProps,
 		ref: Ref<HTMLAnchorElement>,
 	) => {
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);

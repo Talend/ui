@@ -1,8 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$tc-datalist-items-max-height: 32rem !default;
-$tc-datalist-item-height: 4rem !default;
+$tc-datalist-items-max-height: 20rem !default;
+$tc-datalist-item-height: 2.5rem !default;
 
 .tc-datalist-form {
 	width: 100%;

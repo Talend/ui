@@ -1,5 +1,35 @@
 # @talend/babel-plugin-import-from-lib
 
+## 0.2.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 0.1.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 0.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
+## 0.1.0
+
+### Minor Changes
+
+- 673984929: Add missing deps and fix lint issues
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+
 ## 0.0.2
 
 ### Patch Changes

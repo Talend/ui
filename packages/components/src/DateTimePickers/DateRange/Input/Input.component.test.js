@@ -44,9 +44,7 @@ describe('Date.Input', () => {
 		// then
 		const input = screen.getByTestId('debounce');
 		expect(input).toHaveAttribute('autocomplete', 'off');
-		expect(input).toHaveClass('form-control');
 		expect(input).toHaveAttribute('debouncetimeout', '300');
-		expect(input).toHaveAttribute('type', 'text');
 		expect(input).toHaveAttribute('placeholder', 'YYYY-MM-DD');
 		expect(input).toHaveValue('2019-10-11');
 		expect(input).toHaveStyle('width: 300px;');

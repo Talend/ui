@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
-import Inject from '../../Inject';
 import Action from '../../Actions/Action';
+import Inject from '../../Inject';
 import { getTheme } from '../../theme';
 
 import headerBarCssModule from '../HeaderBar.module.scss';
@@ -9,7 +9,7 @@ import headerBarCssModule from '../HeaderBar.module.scss';
 const theme = getTheme(headerBarCssModule);
 
 export function Logo({ isFull, getComponent, t, ...props }) {
-	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
+	const icon = isFull ? 'talend-logo' : undefined;
 	const itemClassName = theme('tc-header-bar-action', 'separated');
 	const actionClassName = theme('tc-header-bar-logo', {
 		full: isFull,

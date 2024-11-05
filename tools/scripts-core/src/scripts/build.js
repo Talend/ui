@@ -1,16 +1,17 @@
 import * as utils from '@talend/scripts-utils';
-import buildLib from './build-lib.js';
+
+import { resolveScript } from '../utils/bin.js';
 import buildUMD from './build-lib-umd.js';
+import buildLib from './build-lib.js';
 
 // eslint-disable-next-line consistent-return
 export default async function build(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 	if (packageType.isApp) {
-		utils.pkg.checkPackageIsInstalled('@talend/scripts-config-react-webpack');
-		const webpack = utils.path.resolveBin('webpack');
 		return utils.process.spawn(
-			webpack,
+			'node',
 			[
+				resolveScript('webpack/bin/webpack.js'),
 				'--config',
 				utils.path.hereRelative(
 					utils.path.getDirName(import.meta.url),
@@ -25,7 +26,6 @@ export default async function build(env, _, options) {
 	if (packageType.isLib) {
 		// detect UMD here
 		if (options.includes('--umd')) {
-			utils.pkg.checkPackageIsInstalled('@talend/scripts-config-react-webpack');
 			return buildUMD(
 				env,
 				_,

@@ -1,5 +1,6 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Toggle from './Toggle.component';
 
 jest.unmock('@talend/design-system');
@@ -98,7 +99,7 @@ describe('Toggle field', () => {
 		await userEvent.click(screen.getByRole('checkbox'));
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema, value: false });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), { schema, value: false });
 	});
 });

@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { within, render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { CellTitleActionsComponent } from './CellTitleActions.component';
+
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
+import { CellTitleActionsComponent } from './CellTitleActions.component';
 
 const { LARGE } = listTypes;
 
@@ -133,12 +134,11 @@ const props = {
 	id: 'my-actions',
 	actionsKey: 'actions',
 	persistentActionsKey: 'persistentActions',
-	getComponent: () => props =>
-		(
-			<button data-testid="Action" onClick={props.onClick}>
-				{props.label}
-			</button>
-		),
+	getComponent: () => props => (
+		<button data-testid="Action" onClick={props.onClick}>
+			{props.label}
+		</button>
+	),
 };
 
 describe('CellTitleActions', () => {
@@ -254,7 +254,9 @@ describe('CellTitleActions', () => {
 		expect(screen.getAllByTestId('Action')).toHaveLength(2);
 	});
 
-	it('should stop keydown propagation', () => {
+	it('should stop keydown propagation', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const onKeyDown = jest.fn();
 		render(
@@ -270,10 +272,10 @@ describe('CellTitleActions', () => {
 
 		// when
 		screen.getAllByTestId('Action')[0].focus();
-		userEvent.keyboard({ key: 'a' });
+		await user.keyboard('a');
 
 		// then
-		expect(onKeyDown).not.toBeCalled();
+		expect(onKeyDown).not.toHaveBeenCalled();
 	});
 
 	it('should render all type of actions', () => {

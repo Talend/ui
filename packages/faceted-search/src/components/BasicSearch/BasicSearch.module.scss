@@ -1,6 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .tc-basic-search {
 	align-items: center;
@@ -9,19 +7,8 @@
 	overflow: visible;
 	position: relative;
 	width: 100%;
-	margin-left: tokens.$coral-spacing-s;
-	margin-right: tokens.$coral-spacing-s;
-
-	&::after {
-		content: '';
-		height: tokens.$coral-sizing-xs;
-		width: 0;
-		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-		position: absolute;
-		top: 50%;
-		right: 0;
-		transform: translateY(-50%);
-	}
+	padding-left: tokens.$coral-spacing-s;
+	padding-right: tokens.$coral-spacing-s;
 
 	&-quicksearch {
 		margin-right: tokens.$coral-spacing-xs;
@@ -33,9 +20,5 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		flex-grow: 1;
-	}
-
-	&-clear-content {
-		margin-right: tokens.$coral-spacing-xs;
 	}
 }

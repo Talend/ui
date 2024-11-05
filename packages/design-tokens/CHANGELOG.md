@@ -1,5 +1,114 @@
 # @talend/design-tokens
 
+## 3.4.3
+
+### Patch Changes
+
+- fcba736: fix: revert logo change
+
+## 3.4.2
+
+### Patch Changes
+
+- 38e3c2c: Change the default branding logo to Qlik-light style
+
+## 3.4.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+
+## 3.4.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 3.3.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- d053412: Fix esm script
+- 9b66a09: Improve changes needed for cypress and simplify scripts
+
+## 3.2.1
+
+### Patch Changes
+
+- 91b0096: fix: grayish the talend logo for the qlik-light theme
+
+## 3.2.0
+
+### Minor Changes
+
+- 48865e5: feat: change logo for Qlik theme
+
+## 3.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 3.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 3.0.0
+
+### Major Changes
+
+- b1c72a1: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+## 2.12.1
+
+### Patch Changes
+
+- 14f478d: fix: qlik logo token
+
+## 2.12.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+## 2.11.2
+
+### Patch Changes
+
+- bb106bc: fix: adjustments for qlik-light theme
+
+## 2.11.1
+
+### Patch Changes
+
+- 08bb2c1: fix: qlik theme fixes
+
+## 2.11.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+## 2.10.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
+## 2.10.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps and missing jest config file
+
 ## 2.9.0
 
 ### Minor Changes

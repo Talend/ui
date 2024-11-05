@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
@@ -29,7 +29,7 @@ jobs:
 
       - name: Create Issue on Failed workflow
         if: ${{ failure() }}
-        uses: dacbd/create-issue-action@ba4d1c45cccf9c483f2720cefb40e437f0ee6f7d #v1.2.1
+        uses: dacbd/create-issue-action@cdb57ab6ff8862aa09fee2be6ba77a59581921c2 #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: module-to-cdn configuration fails

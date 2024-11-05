@@ -1,15 +1,18 @@
-import ListView from '@talend/react-components/lib/ListView';
-import keycode from 'keycode';
-import isEqual from 'lodash/isEqual';
-import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
+
+import isEqual from 'lodash/isEqual';
+import PropTypes from 'prop-types';
+
+import ListView from '@talend/react-components/lib/ListView';
+
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
-import theme from './NestedListView.module.scss';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
+
+import theme from './NestedListView.module.scss';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -180,9 +183,9 @@ class NestedListViewWidget extends Component {
 	 * @param { Object } event The keydown event
 	 */
 	onInputKeyDown(event) {
-		if (event.keyCode === keycode('enter')) {
+		if (event.key === 'Enter') {
 			event.preventDefault();
-		} else if (event.keyCode === keycode('escape')) {
+		} else if (event.key === 'Esc' || event.key === 'Escape') {
 			clearTimeout(this.timerSearch);
 			event.preventDefault();
 			this.switchToDefaultMode();
@@ -255,6 +258,7 @@ NestedListViewWidget.defaultProps = {
 	t: getDefaultT(),
 };
 
+// eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
 	NestedListViewWidget.propTypes = {
 		id: PropTypes.string,

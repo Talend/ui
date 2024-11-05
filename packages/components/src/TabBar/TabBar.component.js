@@ -1,20 +1,23 @@
 /* eslint-disable react/jsx-no-bind */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/no-find-dom-node */
-import { useState, useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import get from 'lodash/get';
-import { Tab, Nav, NavItem } from '@talend/react-bootstrap';
-import keycode from 'keycode';
-import debounce from 'lodash/debounce';
-import classnames from 'classnames';
 
-import Tag from '../Tag';
-import Icon from '../Icon';
-import TooltipTrigger from '../TooltipTrigger';
-import OverlayTrigger from '../OverlayTrigger';
+/* eslint-disable react-hooks/exhaustive-deps */
+
+/* eslint-disable react/no-find-dom-node */
+import { useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
+
+import classnames from 'classnames';
+import debounce from 'lodash/debounce';
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+
+import { Nav, NavItem, Tab } from '@talend/react-bootstrap';
+
 import { ActionDropdown } from '../Actions';
+import Icon from '../Icon';
+import OverlayTrigger from '../OverlayTrigger';
+import Tag from '../Tag';
+import TooltipTrigger from '../TooltipTrigger';
 import getTabBarBadgeLabel from '../utils/getTabBarBadgeLabel';
 
 import theme from './TabBar.module.scss';
@@ -96,12 +99,12 @@ function TabBar(props) {
 
 	function handleKeyDown(event) {
 		const { items } = props;
-		switch (event.which) {
-			case keycode.codes.home:
+		switch (event.key) {
+			case 'Home':
 				needsRefocus.current = true;
 				handleSelect(items[0].key, event);
 				break;
-			case keycode.codes.end:
+			case 'End':
 				needsRefocus.current = true;
 				handleSelect(items[items.length - 1].key, event);
 				break;

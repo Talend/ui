@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 
 .stepper {
@@ -11,7 +11,7 @@
 
 	&_vertical {
 		justify-content: flex-end;
-		width: 20rem;
+		width: 12.5rem;
 
 		.stepper__steps {
 			display: flex;
@@ -19,7 +19,7 @@
 			margin: 0;
 			padding: 0;
 			flex-direction: column;
-			gap: 5rem;
+			gap: 3.125rem;
 			width: 100%;
 		}
 	}

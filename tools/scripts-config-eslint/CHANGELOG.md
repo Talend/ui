@@ -1,5 +1,104 @@
 # @talend/scripts-config-eslint
 
+## 13.2.1
+
+### Patch Changes
+
+- 5f0acd2: fix: ignorePattern only at root level for index.js
+
+## 13.2.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/eslint-plugin@1.3.0
+
+## 13.1.0
+
+### Minor Changes
+
+- b3f28a7: feat: add warning on bootstrap class
+
+### Patch Changes
+
+- Updated dependencies [b3f28a7]
+  - @talend/eslint-plugin@1.2.0
+
+## 13.0.3
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/eslint-plugin@1.1.1
+
+## 13.0.2
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
+## 13.0.1
+
+### Patch Changes
+
+- f14ebbe23: Fix issue with eslint config
+
+## 13.0.0
+
+### Major Changes
+
+- e82cc7f30: Upgrade some dependencies to latest version.
+
+  **NOTE : Some lint rules may have their severity updated.**
+
+  Updated libs with breaking changes :
+
+  ```
+  "dependencies": {
+    (...)
+
+    // 6.10.0 => breaking changes : https://typescript-eslint.io/blog/announcing-typescript-eslint-v6
+    "@typescript-eslint/parser": "^5.62.0",
+
+    // 6.10.0 => breaking changes : https://typescript-eslint.io/blog/announcing-typescript-eslint-v6
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+
+    // 8.53.0 => breaking changes : https://eslint.org/docs/latest/use/migrate-to-8.0.0
+    "eslint": "^7.32.0",
+
+    (...)
+
+    // 7.x.x => breaking changes : https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-700-2020-12-05
+    // 8.x.x => breaking changes : https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-800-2021-02-21
+    // 9.0.0 => breaking changes : https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-900-2023-08-05
+    "eslint-config-prettier": "^6.15.0",
+
+    (...)
+
+    // 5.1.0 => breaking changes : https://github.com/testing-library/eslint-plugin-jest-dom/releases/tag/v5.0.0
+    "eslint-plugin-jest-dom": "^4.0.3",
+
+    (...)
+
+    // 6.0.0 => breaking changes : https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/migration-guides/v6.md
+    "eslint-plugin-testing-library": "^5.11.1"
+  }
+  ```
+
+## 12.2.0
+
+### Minor Changes
+
+- 3f9c8a7bb: remove link to scripts-utils (circular dep)
+  add missing deps
+
 ## 12.1.1
 
 ### Patch Changes

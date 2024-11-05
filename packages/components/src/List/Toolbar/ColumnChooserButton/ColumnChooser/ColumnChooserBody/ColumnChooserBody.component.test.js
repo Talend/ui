@@ -1,8 +1,8 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ColumnChooserProvider } from '../columnChooser.context';
-import getDefaultT from '../../../../../translate';
 
+import getDefaultT from '../../../../../translate';
+import { ColumnChooserProvider } from '../columnChooser.context';
 import Component from './ColumnChooserBody.component';
 
 jest.unmock('@talend/design-system');
@@ -56,6 +56,8 @@ describe('ColumnChooserBody', () => {
 		expect(screen.getByTestId('my-child')).toBeVisible();
 	});
 	it('should call the onChangeVisibility when onChange is triggered on the column chooser table', async () => {
+		const user = userEvent.setup();
+
 		const onChangeVisibility = jest.fn();
 		// Given
 		const contextValues = {
@@ -73,7 +75,7 @@ describe('ColumnChooserBody', () => {
 			</ColumnChooserProvider>,
 		);
 		expect(screen.getByText('col3').previousSibling).toBeChecked();
-		userEvent.click(screen.getByText('col3').previousSibling);
+		await user.click(screen.getByText('col3').previousSibling);
 
 		// then
 		expect(onChangeVisibility).toHaveBeenNthCalledWith(1, false, 'col3');

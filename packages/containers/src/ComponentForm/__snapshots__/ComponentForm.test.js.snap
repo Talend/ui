@@ -2,128 +2,139 @@
 
 exports[`ComponentForm #render should render a UIForm 1`] = `
 <form
-  class="tf-uiform theme-uiform"
+  class="theme-form"
   novalidate=""
 >
-  <div
-    class="theme-form-content"
+  <fieldset
+    class="theme-fieldset"
   >
-    <fieldset
-      class="form-group"
+    <legend
+      class="theme-legend"
     >
-      <legend
-        class=""
-      >
-        Metadata
-      </legend>
+      Metadata
+    </legend>
+    <div
+      class="theme-fieldset-content"
+    >
       <div
-        aria-busy="false"
-        class="form-group theme-template"
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
         <label
-          class="control-label"
+          class="theme-label"
           for="_datasetMetadata_name"
         >
           Name
         </label>
-        <input
-          aria-describedby="_datasetMetadata_name-description _datasetMetadata_name-error"
-          aria-invalid="false"
-          class="form-control"
-          id="_datasetMetadata_name"
-          type="text"
-          value=""
-        />
-        <div />
+        <div
+          class="theme-inputShell"
+        >
+          <input
+            aria-describedby="_datasetMetadata_name-description _datasetMetadata_name-error"
+            aria-invalid="false"
+            class="theme-input"
+            id="_datasetMetadata_name"
+            type="text"
+            value=""
+          />
+        </div>
       </div>
       <div
         aria-busy="false"
-        class="form-group theme-template"
       >
-        <label
-          class="control-label"
-          for="_datasetMetadata_type"
-        >
-          Types
-        </label>
         <div
-          class="theme-tc-datalist-item"
-          tabindex="-1"
+          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
+          <label
+            class="theme-label"
+            for="_datasetMetadata_type"
+          >
+            Types
+          </label>
           <div
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="react-autowhatever-_datasetMetadata_type"
-            class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist form-control-container"
-            role="combobox"
+            class="theme-tc-datalist-item"
+            tabindex="-1"
           >
             <div
-              class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-caret"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="react-autowhatever-_datasetMetadata_type"
+              class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist"
+              role="combobox"
             >
-              <label
-                class="control-label sr-only"
-                for="react-autowhatever-_datasetMetadata_type-input"
-              >
-                Search
-              </label>
-              <input
-                aria-autocomplete="list"
-                aria-controls="react-autowhatever-_datasetMetadata_type"
-                aria-describedby="_datasetMetadata_type-description _datasetMetadata_type-error"
-                aria-invalid="false"
-                autocomplete="off"
-                class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-                id="_datasetMetadata_type"
-                type="text"
-                value=""
-              />
               <div
-                class="icon-cls theme-icon-cls icon-caret theme-icon-caret"
+                class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-caret"
               >
-                <svg
-                  aria-hidden="true"
-                  class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-caret-down"
-                  focusable="false"
-                  name="talend-caret-down"
-                  pointer-events="none"
-                  shape-rendering="geometricPrecision"
-                />
+                <div
+                  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+                >
+                  <span
+                    class="theme-hidden"
+                  >
+                    <label
+                      class="theme-label"
+                      for="_datasetMetadata_type"
+                    />
+                  </span>
+                  <div
+                    class="theme-inputShell"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="react-autowhatever-_datasetMetadata_type"
+                      aria-describedby="_datasetMetadata_type-description _datasetMetadata_type-error"
+                      aria-invalid="false"
+                      autocomplete="off"
+                      class="theme-input theme-typeahead-input tc-typeahead-typeahead-input"
+                      id="_datasetMetadata_type"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="icon-cls theme-icon-cls icon-caret theme-icon-caret"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-caret-down"
+                    focusable="false"
+                    name="talend-caret-down"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div />
       </div>
       <div
-        aria-busy="false"
-        class="form-group theme-template"
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
         <label
-          class="control-label"
+          class="theme-label"
           for="_datasetMetadata_description"
         >
           Description
         </label>
         <textarea
-          aria-describedby="_datasetMetadata_description-description _datasetMetadata_description-error"
           aria-invalid="false"
-          class="form-control"
+          class="theme-textarea"
           id="_datasetMetadata_description"
           rows="5"
         />
-        <div />
       </div>
-    </fieldset>
-  </div>
+    </div>
+  </fieldset>
   <div
-    class="theme-form-actions tf-actions-wrapper"
+    class="theme-buttons"
   >
     <div
-      class="theme-tf-buttons tf-buttons form-actions"
+      class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-0 theme-padding-bottom-M theme-padding-left-0"
     >
       <button
         aria-label="Submit"
-        class="btn theme-right btn btn-primary"
+        class="btn btn btn-primary"
         id="undefined-actions-0"
         type="submit"
       >

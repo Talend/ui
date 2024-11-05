@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import PropTypes from 'prop-types';
+
 import isNaN from 'lodash/isNaN';
+import PropTypes from 'prop-types';
 
 import { badgeFacetedPropTypes } from '../../../facetedSearch.propTypes';
-import { getTabIndex } from '../../addFacetPopover.utils';
 import { AddFacetPopoverRowButton } from '../AddFacetPopoverRowButton';
 
 const filterByAttribute = badgeDefinition => badge =>
@@ -19,15 +19,7 @@ const isButtonDisabled = (badges, badgeDefinition, occurrences) => {
 	return occurrences >= badgePerFacet;
 };
 
-export const AddFacetPopoverRowItem = ({
-	badgeDefinition,
-	id,
-	label,
-	onClick,
-	isFocusable,
-	badges,
-	t,
-}) => {
+export const AddFacetPopoverRowItem = ({ badgeDefinition, id, label, onClick, badges, t }) => {
 	const occurrences = useMemo(
 		() => badges.filter(filterByAttribute(badgeDefinition)).length,
 		[badges, badgeDefinition],
@@ -44,7 +36,7 @@ export const AddFacetPopoverRowItem = ({
 		count: occurrences,
 		badgeLabel: label,
 		defaultValue: 'You can only apply the {{badgeLabel}} filter once',
-		defaultValue_plural: 'You can only apply the {{badgeLabel}} filter {{count}} times',
+		defaultValue_other: 'You can only apply the {{badgeLabel}} filter {{count}} times',
 	});
 
 	return (
@@ -52,7 +44,6 @@ export const AddFacetPopoverRowItem = ({
 			id={`${id}-row-button-${label}`}
 			label={label}
 			onClick={onClickRow}
-			tabIndex={getTabIndex(isFocusable)}
 			disabledLabel={isDisabled ? disabledLabel : ''}
 		/>
 	);
@@ -63,17 +54,15 @@ AddFacetPopoverRowItem.propTypes = {
 	badgeDefinition: badgeFacetedPropTypes.isRequired,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
-	isFocusable: PropTypes.bool.isRequired,
 	badges: PropTypes.array.isRequired,
 	t: PropTypes.func.isRequired,
 };
 
-export const AddFacetPopoverRowItemCategory = ({ id, label, onClick, isFocusable }) => (
+export const AddFacetPopoverRowItemCategory = ({ id, label, onClick }) => (
 	<AddFacetPopoverRowButton
 		id={`${id}-row-button-${label}`}
 		label={label}
 		onClick={() => onClick(label)}
-		tabIndex={getTabIndex(isFocusable)}
 		isCategory
 	/>
 );
@@ -82,5 +71,4 @@ AddFacetPopoverRowItemCategory.propTypes = {
 	id: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
-	isFocusable: PropTypes.bool.isRequired,
 };

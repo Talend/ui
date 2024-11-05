@@ -1,4 +1,3 @@
-import keycode from 'keycode';
 import { focusOn } from './focus';
 
 function getAllItems(ref: HTMLElement): NodeList {
@@ -63,13 +62,15 @@ function getPreviousItem(ref: HTMLElement, loop: boolean) {
 }
 
 function onKeyDown(event: KeyboardEvent, ref: HTMLElement, loop: boolean) {
-	switch (event.keyCode) {
-		case keycode.codes.down:
+	switch (event.key) {
+		case 'Down':
+		case 'ArrowDown':
 			event.stopPropagation();
 			event.preventDefault();
 			focusOn(getNextItem(ref, loop));
 			break;
-		case keycode.codes.up:
+		case 'Up':
+		case 'ArrowUp':
 			event.stopPropagation();
 			event.preventDefault();
 			focusOn(getPreviousItem(ref, loop));

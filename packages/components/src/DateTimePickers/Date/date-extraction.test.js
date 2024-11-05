@@ -1,12 +1,13 @@
-import isAfter from 'date-fns/is_after';
-import subHours from 'date-fns/sub_hours';
+import { isAfter } from 'date-fns/isAfter';
+import { subHours } from 'date-fns/subHours';
+
 import {
 	checkSupportedDateFormat,
 	checkSupportedTimezone,
 	extractDate,
-	extractPartsFromTextInput,
-	extractPartsFromDate,
 	extractDateOnly,
+	extractPartsFromDate,
+	extractPartsFromTextInput,
 } from './date-extraction';
 
 describe('Date extraction', () => {
@@ -273,7 +274,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				localDate: new Date(2018, 11, 25),
-				date: subHours(new Date(2018, 11, 25), 8),
+				date: subHours(new Date(2018, 11, 25), 9),
 				textInput,
 				errorMessage: null,
 				errors: [],
@@ -325,7 +326,7 @@ describe('Date extraction', () => {
 			const date = extractDateOnly(datetime, options);
 
 			// then
-			expect(date).toEqual(new Date(2019, 8, 25));
+			expect(date).toEqual(new Date(2019, 8, 26));
 		});
 		it('should extract date when timezone provided', () => {
 			// given

@@ -1,5 +1,38 @@
 # CHANGELOG
 
+## 14.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/module-to-cdn@9.11.0
+
+## 13.1.2
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 13.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/module-to-cdn@9.10.1
+
+## 13.1.0
+
+### Minor Changes
+
+- f14ebbe23: Add missing deps, adapt code to keep test working with pnpm and use custom eslint config to not have circular dependency
+
 ## 13.0.1
 
 ### Patch Changes

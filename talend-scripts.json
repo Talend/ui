@@ -1,0 +1,5 @@
+{
+  "lintMergeReport": {
+    "packageDirs": ["fork", "packages", "tools"]
+  }
+}

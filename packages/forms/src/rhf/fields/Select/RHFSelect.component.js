@@ -1,19 +1,44 @@
+import { useController, useFormContext } from 'react-hook-form';
+
 import PropTypes from 'prop-types';
-import { useFormContext } from 'react-hook-form';
-import get from 'lodash/get';
 
-import Select from '../../../widgets/fields/Select';
+import { Form } from '@talend/design-system';
 
-function RHFSelect(props) {
-	const { rules = {}, ...rest } = props;
-	const { errors, register } = useFormContext();
-	const error = get(errors, rest.name)?.message;
-	return <Select {...rest} ref={register(rules)} error={error} />;
+function RHFSelect({ rules = {}, name = '', defaultValue, options, ...rest }) {
+	const { control } = useFormContext();
+	const { field, fieldState } = useController({
+		control,
+		name,
+		rules,
+		defaultValue,
+	});
+
+	return (
+		<Form.Select
+			hasError={!!fieldState.error?.message}
+			description={fieldState.error?.message}
+			{...field}
+			{...rest}
+		>
+			{rest.required && !rest.placeholder && <option value=""></option>}
+			{options &&
+				options.map(option => {
+					return (
+						<option key={option.value} value={option.value} selected={rest.value === option.value}>
+							{option.name}
+						</option>
+					);
+				})}
+		</Form.Select>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	RHFSelect.propTypes = {
 		rules: PropTypes.object,
+		name: PropTypes.string,
+		defaultValue: PropTypes.string,
+		options: PropTypes.array,
 	};
 }
 

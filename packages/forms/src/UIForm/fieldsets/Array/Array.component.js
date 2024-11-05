@@ -1,10 +1,13 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import { head, get } from 'lodash';
-import Widget from '../../Widget';
-import { shiftArrayErrorsKeys } from '../../utils/validation';
-import defaultTemplates from '../../utils/templates';
+
+import get from 'lodash/get';
+import head from 'lodash/head';
+import PropTypes from 'prop-types';
+
 import { getArrayElementSchema } from '../../utils/array';
+import defaultTemplates from '../../utils/templates';
+import { shiftArrayErrorsKeys } from '../../utils/validation';
+import Widget from '../../Widget';
 
 function getRange(previousIndex, nextIndex) {
 	if (previousIndex < nextIndex) {
@@ -33,12 +36,16 @@ export default class ArrayWidget extends Component {
 	onAdd(event) {
 		const arrayMergedSchema = this.props.schema;
 		const { items, schema } = arrayMergedSchema;
-		const getDefaultValue = schema.items.type === 'object' ? {} : '';
 		const hasOneItem = items.length === 1;
 		const itemsEnum = get(schema, 'items.enum');
 		const isSingleSelectItem = hasOneItem && head(items).type === 'select' && head(itemsEnum);
 
-		const defaultValue = isSingleSelectItem ? head(itemsEnum) : getDefaultValue;
+		const schemaDefaultConfig = schema.default?.[0];
+		const defaultConfig = schema.items.type === 'object' ? {} : '';
+
+		const defaultValue = isSingleSelectItem
+			? head(itemsEnum)
+			: schemaDefaultConfig || defaultConfig;
 
 		let currentValue = this.props.value;
 		if (this.isCloseable()) {
@@ -124,6 +131,7 @@ export default class ArrayWidget extends Component {
 			<Widget
 				{...this.props}
 				{...extraProps}
+				index={index}
 				disabled={this.props.schema.disabled}
 				id={this.props.id && `${this.props.id}-${index}`}
 				schema={getArrayElementSchema(this.props.schema, index)}

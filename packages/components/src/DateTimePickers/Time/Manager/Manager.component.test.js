@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Manager from './Manager.component';
 import { TimeContext } from '../Context';
+import Manager from './Manager.component';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
@@ -102,6 +102,8 @@ describe('Time.Manager', () => {
 					expectedValue: '25:20',
 				},
 			])('$name', async ({ textInput, expectedTime, expectedValue }) => {
+				const user = userEvent.setup();
+
 				// given
 				render(
 					<Manager id={DEFAULT_ID}>
@@ -110,15 +112,17 @@ describe('Time.Manager', () => {
 				);
 
 				// when
-				await userEvent.click(screen.getByRole('textbox'));
-				await userEvent.keyboard(textInput);
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard(textInput);
 
 				// then
 				const contextValue = JSON.parse(screen.getByTestId('TimeConsumerDiv').dataset.props);
 				expect(contextValue.time.textInput).toBe(expectedValue);
 				expect(contextValue.time.time).toEqual(expectedTime);
 			});
-			it('should trigger props.onChange with valid time', () => {
+			it('should trigger props.onChange with valid time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -126,14 +130,14 @@ describe('Time.Manager', () => {
 						<TimeConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				userEvent.click(screen.getByRole('textbox'));
-				userEvent.keyboard('15:45');
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard('15:45');
 
 				// then
-				expect(onChange).toBeCalledWith(expect.anything(), {
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 					time: {
 						hours: '15',
 						minutes: '45',
@@ -146,7 +150,9 @@ describe('Time.Manager', () => {
 				});
 			});
 
-			it('should trigger props.onChange with invalid time', () => {
+			it('should trigger props.onChange with invalid time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -154,14 +160,14 @@ describe('Time.Manager', () => {
 						<TimeConsumer />
 					</Manager>,
 				);
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				userEvent.click(screen.getByRole('textbox'));
-				userEvent.keyboard('ddrer');
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard('ddrer');
 
 				// then
-				expect(onChange).toBeCalled();
+				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[1].errorMessage).toBe('Time is invalid');
 				expect(args[1].errors).toEqual([
@@ -186,7 +192,9 @@ describe('Time.Manager', () => {
 					expectedTextInput: '15:45:00',
 					useSeconds: true,
 				},
-			])('$name', ({ time, textInput, expectedTextInput, useSeconds }) => {
+			])('$name', async ({ time, textInput, expectedTextInput, useSeconds }) => {
+				const user = userEvent.setup();
+
 				// given
 
 				render(
@@ -196,10 +204,10 @@ describe('Time.Manager', () => {
 				);
 
 				// when
-				userEvent.click(screen.getByRole('textbox'));
-				userEvent.keyboard(textInput);
+				await user.click(screen.getByRole('textbox'));
+				await user.keyboard(textInput);
 
-				userEvent.click(screen.getByText('Picker'));
+				await user.click(screen.getByText('Picker'));
 
 				// then
 				const props = JSON.parse(screen.getByTestId('TimeConsumerDiv').dataset.props);
@@ -207,7 +215,9 @@ describe('Time.Manager', () => {
 				expect(props.time.time).toEqual(time);
 			});
 
-			it('should trigger props.onChange with valid time', () => {
+			it('should trigger props.onChange with valid time', async () => {
+				const user = userEvent.setup();
+
 				// given
 				const onChange = jest.fn();
 				render(
@@ -221,13 +231,13 @@ describe('Time.Manager', () => {
 					</Manager>,
 				);
 
-				expect(onChange).not.toBeCalled();
+				expect(onChange).not.toHaveBeenCalled();
 
 				// when
-				userEvent.click(screen.getByText('Picker'));
+				await user.click(screen.getByText('Picker'));
 
 				// then
-				expect(onChange).toBeCalledWith(expect.anything(), {
+				expect(onChange).toHaveBeenCalledWith(expect.anything(), {
 					origin: 'PICKER',
 					textInput: '15:45',
 					time: { hours: '15', minutes: '45', seconds: '00' },

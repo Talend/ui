@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
-
-import { SortIndicator } from 'react-virtualized';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+// eslint-disable-line import/no-extraneous-dependencies
+import { SortIndicator } from 'react-virtualized';
+
+import { action } from '@storybook/addon-actions';
+
 import VirtualizedList from '.';
 
 function MyCustomRow(props) {
@@ -283,7 +285,7 @@ const collection = [
 		name: 'Title with long long long long long long long long long long long text',
 		tag: 'test',
 		created: '2016-09-22',
-		modified: '2016-09-22',
+		modified: undefined,
 		description: 'Row with a super super long text to show the ellipsis',
 		author:
 			'Jean-Pierre DUPONT with super super super super super super super super super super super super super super super super super super super super super super super long name, but there was not enough long text',
@@ -470,7 +472,7 @@ export const ListTable = () => (
 				<VirtualizedList.Datetime
 					label="Modified"
 					dataKey="modified"
-					columnData={{ mode: 'format' }}
+					columnData={{ mode: 'ago' }}
 				/>
 			</VirtualizedList>
 		</section>

@@ -1,7 +1,8 @@
-import { render, fireEvent } from '@testing-library/react';
-import { BadgeDateForm } from './BadgeDateForm.component';
-import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { fireEvent, render } from '@testing-library/react';
+
 import getDefaultT from '../../../translate';
+import { BadgeFacetedProvider } from '../../context/badgeFaceted.context';
+import { BadgeDateForm } from './BadgeDateForm.component';
 
 const badgeFacetedContextValue = {
 	onDeleteBadge: jest.fn(),
@@ -18,7 +19,7 @@ describe('BadgeDateForm', () => {
 			id: 'customId',
 			onSubmit,
 			onChange,
-			value: '2011-11-11',
+			value: new Date('2011-11-11T00:00:00'),
 			feature: 'data',
 			t: getDefaultT(),
 		};

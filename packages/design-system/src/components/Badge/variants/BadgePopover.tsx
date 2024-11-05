@@ -1,42 +1,51 @@
-import { Fragment, forwardRef, Ref } from 'react';
+import { forwardRef, Fragment, PropsWithChildren, Ref, useState } from 'react';
 
 import { Divider } from '../../Divider';
+import { Popover } from '../../Popover';
 import { StackHorizontal } from '../../Stack';
 import BadgeButton from '../button/BadgeButton';
 import BadgePrimitive, { BadgePopoverItem, BadgePrimitiveProps } from '../primitive/BadgePrimitive';
 
-export type BadgePopoverProps = BadgePrimitiveProps & {
-	/**
-	 * List of items displayed as buttons in Badge's right part.
-	 */
-	value: BadgePopoverItem[];
-};
+export type BadgePopoverProps = PropsWithChildren<
+	BadgePrimitiveProps & {
+		/**
+		 * List of items displayed as buttons in Badge's right part.
+		 */
+		value: BadgePopoverItem[];
+	}
+>;
 
 const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElement>) => {
-	const { value } = props;
+	const { children, value } = props;
+
+	const [showPopover, setShowPopover] = useState(false);
 
 	return (
 		<BadgePrimitive {...props} ref={ref}>
-			{
-				<StackHorizontal gap="XXS" as="span" align="center">
-					{value.map((item: BadgePopoverItem, idx: number) => (
-						<Fragment key={`badgepopover-fragment-${item.id}`}>
-							{idx > 0 && (
-								<Divider key={`badgepopover-divider-${item.id}`} orientation="vertical" />
-							)}
+			<Popover
+				disclosure={
+					<BadgeButton
+						componentId={'badgepopover-button'}
+						data-testid={'badgepopover-button'}
+						data-test={'badgepopover-button'}
+						onClick={() => setShowPopover(!showPopover)}
+					>
+						<StackHorizontal gap="XXS" as="span" align="center">
+							{value.map((item: BadgePopoverItem, idx: number) => {
+								return (
+									<Fragment key={`badgepopover-button-text-${item.id}`}>
+										{idx > 0 && <Divider orientation="vertical" />}
 
-							<BadgeButton
-								componentId={`badgepopover-button-${item.id}`}
-								onClick={item.onClick}
-								data-testid={props['data-testid'] ? `${props['data-testid']}.${item.id}` : item.id}
-								data-test={props['data-test'] ? `${props['data-test']}.${item.id}` : item.id}
-							>
-								{item.label}
-							</BadgeButton>
-						</Fragment>
-					))}
-				</StackHorizontal>
-			}
+										{item.label}
+									</Fragment>
+								);
+							})}
+						</StackHorizontal>
+					</BadgeButton>
+				}
+			>
+				{children}
+			</Popover>
 		</BadgePrimitive>
 	);
 });

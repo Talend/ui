@@ -1,5 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
@@ -33,7 +32,7 @@
 	@include picker-action;
 
 	flex: 1;
-	height: 5.7rem;
+	height: 3.5625rem;
 	width: 100%;
 
 	background: transparent;

@@ -26,15 +26,6 @@
       }
     }
   },
-  "keycode": {
-    "var": "Keycode",
-    "versions": {
-      ">= 1.0.0": {
-        "development": "/talend-umds/Keycode.min.js",
-        "production": "/talend-umds/Keycode.min.js"
-      }
-    }
-  },
   "memoize-one": {
     "var": "MemoizeOne",
     "versions": {

@@ -16,35 +16,167 @@ exports[`DateRange.Picker should render 1`] = `
         class="theme-element-container theme-left"
       >
         <span
-          aria-label="Go to previous month"
           class="CoralButtonIcon"
           icon="arrow-left"
           tabindex="-1"
-        />
+        >
+          Go to previous month
+        </span>
       </div>
       <div
         class="theme-element-container theme-middle"
       >
-        <button
-          aria-label="Switch to month-and-year view"
-          class="theme-common theme-button btn-tertiary btn-info btn btn-default"
-          tabindex="-1"
-          type="button"
+        <div
+          class="theme-common"
         >
-          <span>
-            January 2007
-          </span>
-        </button>
+          <div
+            class="theme-month"
+          >
+            <button
+              aria-label="Switch to month view"
+              class="btn-tertiary btn-info btn btn-default"
+              tabindex="-1"
+              type="button"
+            >
+              <span>
+                January
+              </span>
+            </button>
+          </div>
+          <div
+            class="dropdown btn-group btn-group-default"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="2007"
+              class="theme-tc-dropdown-button tc-dropdown-button btn-tertiary btn-info dropdown-toggle btn btn-default"
+              role="button"
+              type="button"
+            >
+              <span
+                class="tc-dropdown-button-title-label"
+              >
+                2007
+              </span>
+              <span
+                class="CoralIcon theme-tc-dropdown-caret"
+                name="talend-caret-down"
+              />
+            </button>
+            <ul
+              class="dropdown-menu"
+              role="menu"
+            >
+              <div
+                class="theme-year-picker"
+              >
+                <button
+                  aria-describedby="42"
+                  aria-label="Go to previous year"
+                  class="theme-scroll theme-scroll-up tc-date-picker-scroll-up btn-icon-only btn btn-link"
+                  role="link"
+                  type="button"
+                >
+                  <span
+                    class="CoralIcon"
+                    name="talend-chevron-left"
+                    transform="rotate-90"
+                  />
+                </button>
+                <ol>
+                  <li>
+                    <button
+                      class="theme-year tc-date-picker-year"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2021
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="theme-year tc-date-picker-year"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2022
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="theme-year tc-date-picker-year"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2023
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="theme-year tc-date-picker-year"
+                      tabindex="0"
+                      type="button"
+                    >
+                      2024
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="theme-year tc-date-picker-year"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2025
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="theme-year tc-date-picker-year"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2026
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="theme-year tc-date-picker-year"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2027
+                    </button>
+                  </li>
+                </ol>
+                <button
+                  aria-describedby="42"
+                  aria-label="Go to next year"
+                  class="theme-scroll theme-scroll-down tc-date-picker-scroll-down btn-icon-only btn btn-link"
+                  role="link"
+                  type="button"
+                >
+                  <span
+                    class="CoralIcon"
+                    name="talend-chevron-left"
+                    transform="rotate-270"
+                  />
+                </button>
+              </div>
+            </ul>
+          </div>
+        </div>
       </div>
       <div
         class="theme-element-container theme-right"
       >
         <span
-          aria-label="Go to next month"
           class="CoralButtonIcon"
           icon="arrow-right"
           tabindex="-1"
-        />
+        >
+          Go to next month
+        </span>
       </div>
     </div>
     <div
@@ -77,6 +209,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       M
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -86,6 +221,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       T
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -95,6 +233,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       W
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -104,6 +245,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       T
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -113,6 +257,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       F
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -122,6 +269,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       S
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                   <th
                     scope="col"
@@ -131,6 +281,9 @@ exports[`DateRange.Picker should render 1`] = `
                     >
                       S
                     </abbr>
+                    <span
+                      class="CoralDivider"
+                    />
                   </th>
                 </tr>
               </thead>
@@ -702,8 +855,11 @@ exports[`DateRange.Picker should render 1`] = `
       </div>
     </div>
   </div>
+  <span
+    class="CoralDivider"
+  />
   <div
-    class="theme-footer theme-date-padding"
+    class="theme-footer"
   >
     <button
       aria-label="Pick Today"

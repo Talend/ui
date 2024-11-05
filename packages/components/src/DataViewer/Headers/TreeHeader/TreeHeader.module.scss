@@ -1,11 +1,11 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$default-height: 4rem !default;
+$default-height: 2.5rem !default;
 
 .tc-tree-header {
 	align-items: center;
-	border-bottom: 0.1rem solid tokens.$coral-color-neutral-border;
+	border-bottom: 0.0625rem solid tokens.$coral-color-neutral-border;
 	color: tokens.$coral-color-neutral-text;
 	display: flex;
 	font-weight: 600;

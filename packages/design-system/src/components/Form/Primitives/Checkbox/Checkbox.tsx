@@ -1,17 +1,17 @@
 import {
 	forwardRef,
+	InputHTMLAttributes,
 	ReactElement,
 	Ref,
-	InputHTMLAttributes,
 	useEffect,
-	useRef,
 	useImperativeHandle,
+	useRef,
 } from 'react';
-import { ReactI18NextChild } from 'react-i18next';
+
 import classnames from 'classnames';
 
-import { useId } from '../../../../useId';
 import { useControl } from '../../../../useControl';
+import { useId } from '../../../../useId';
 import Label from '../../Label';
 
 import styles from './Checkbox.module.scss';
@@ -23,7 +23,7 @@ type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
 export type CheckboxPrimitiveType = Omit<CheckboxProps, 'type' | 'prefix'> & {
 	id?: string;
 	indeterminate?: boolean;
-	label: string | ReactElement | ReactI18NextChild;
+	label: string | ReactElement;
 	isInline?: boolean;
 	name: string;
 };

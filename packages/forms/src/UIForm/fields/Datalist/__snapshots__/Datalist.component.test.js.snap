@@ -1,151 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Datalist component should render 1`] = `
-<div
-  class="form-group theme-template required"
->
-  <label
-    class="control-label"
-    for="my-datalist"
-  >
-    My List
-  </label>
+<div>
   <div
-    class="theme-tc-datalist-item"
-    tabindex="-1"
+    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
   >
+    <label
+      class="theme-label"
+      for="my-datalist"
+    >
+      My List
+      *
+    </label>
     <div
-      aria-expanded="true"
-      aria-haspopup="listbox"
-      aria-owns="react-autowhatever-my-datalist"
-      class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist form-control-container theme-container-open tc-typeahead-container-open"
-      role="combobox"
+      class="theme-tc-datalist-item"
+      tabindex="-1"
     >
       <div
-        class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-caret"
-      >
-        <label
-          class="control-label sr-only"
-          for="react-autowhatever-my-datalist-input"
-        >
-          Search
-        </label>
-        <input
-          aria-autocomplete="list"
-          aria-controls="react-autowhatever-my-datalist"
-          aria-describedby="my-datalist-description my-datalist-error"
-          aria-invalid="false"
-          aria-required="true"
-          autocomplete="off"
-          class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-          id="my-datalist"
-          placeholder="Type here"
-          type="text"
-          value="Foo"
-        />
-        <div
-          class="icon-cls theme-icon-cls icon-caret theme-icon-caret"
-        >
-          <svg
-            aria-hidden="true"
-            class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-caret-down"
-            focusable="false"
-            name="talend-caret-down"
-            pointer-events="none"
-            shape-rendering="geometricPrecision"
-          />
-        </div>
-      </div>
-      <div
-        aria-label="Suggestions"
-        class="theme-items-container theme-items-container"
-        id="react-autowhatever-my-datalist"
-        style="position: fixed; left: 0px; top: 0px; width: 0px;"
-        tabindex="0"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="react-autowhatever-my-datalist"
+        class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist theme-container-open tc-typeahead-container-open"
+        role="combobox"
       >
         <div
-          class="theme-items-body"
+          class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-caret"
         >
-          <ul
-            class="theme-items"
-            role="listbox"
+          <div
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
-            <li
-              aria-selected="false"
-              id="react-autowhatever-my-datalist--item-0"
-              role="option"
+            <span
+              class="theme-hidden"
             >
-              <div
-                class="theme-item theme-selected"
-                title="Foo"
+              <label
+                class="theme-label"
+                for="my-datalist"
+              />
+            </span>
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="react-autowhatever-my-datalist"
+                aria-describedby="my-datalist-description my-datalist-error"
+                aria-invalid="false"
+                aria-required="true"
+                autocomplete="off"
+                class="theme-input theme-typeahead-input tc-typeahead-typeahead-input"
+                id="my-datalist"
+                placeholder="Type here"
+                type="text"
+                value="Foo"
+              />
+            </div>
+          </div>
+          <div
+            class="icon-cls theme-icon-cls icon-caret theme-icon-caret"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-caret-down"
+              focusable="false"
+              name="talend-caret-down"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="Suggestions"
+          class="theme-items-container theme-items-container"
+          id="react-autowhatever-my-datalist"
+          style="position: fixed; left: 0px; top: 0px; width: 0px;"
+          tabindex="0"
+        >
+          <div
+            class="theme-items-body"
+          >
+            <ul
+              class="theme-items"
+              role="listbox"
+            >
+              <li
+                aria-selected="false"
+                id="react-autowhatever-my-datalist--item-0"
+                role="option"
               >
                 <div
-                  class="theme-item-text"
+                  class="theme-item theme-selected"
+                  title="Foo"
                 >
-                  <span
-                    class="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
+                  <div
+                    class="theme-item-text"
                   >
-                    <span>
-                      <em
-                        class="theme-highlight"
-                      >
-                        Foo
-                      </em>
+                    <span
+                      class="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
+                    >
+                      <span>
+                        <em
+                          class="theme-highlight"
+                        >
+                          Foo
+                        </em>
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li
-              aria-selected="false"
-              id="react-autowhatever-my-datalist--item-1"
-              role="option"
-            >
-              <div
-                class="theme-item"
-                title="Bar"
+              </li>
+              <li
+                aria-selected="false"
+                id="react-autowhatever-my-datalist--item-1"
+                role="option"
               >
                 <div
-                  class="theme-item-text"
+                  class="theme-item"
+                  title="Bar"
                 >
-                  <span
-                    class="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
+                  <div
+                    class="theme-item-text"
                   >
-                    <span>
-                      Bar
+                    <span
+                      class="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
+                    >
+                      <span>
+                        Bar
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li
-              aria-selected="false"
-              id="react-autowhatever-my-datalist--item-2"
-              role="option"
-            >
-              <div
-                class="theme-item"
-                title="Lol"
+              </li>
+              <li
+                aria-selected="false"
+                id="react-autowhatever-my-datalist--item-2"
+                role="option"
               >
                 <div
-                  class="theme-item-text"
+                  class="theme-item"
+                  title="Lol"
                 >
-                  <span
-                    class="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
+                  <div
+                    class="theme-item-text"
                   >
-                    <span>
-                      Lol
+                    <span
+                      class="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
+                    >
+                      <span>
+                        Lol
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div>
     <div
       aria-live="polite"
       class="theme-inlineMessage"
@@ -160,7 +171,7 @@ exports[`Datalist component should render 1`] = `
           aria-hidden="true"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#information-filled:M"

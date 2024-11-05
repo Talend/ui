@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { BadgeMenuForm } from './BadgeMenuForm.component';
 import getDefaultT from '../../../translate';
+import { BadgeMenuForm } from './BadgeMenuForm.component';
 
 jest.unmock('@talend/design-system');
 
@@ -42,7 +42,7 @@ describe('BadgeMenuForm', () => {
 		expect(screen.getByTestId('badge-menu-form-item-item-three')).toHaveTextContent('Item Three');
 		expect(screen.getAllByRole('menuitem')).toHaveLength(3);
 	});
-	it('should trigger on change callback when menuitem selected', () => {
+	it('should trigger on change callback when menuitem selected', async () => {
 		// Given
 		const onChange = jest.fn();
 		const props = {
@@ -55,7 +55,7 @@ describe('BadgeMenuForm', () => {
 		};
 		// When
 		render(<BadgeMenuForm {...props} />);
-		userEvent.click(screen.getByTestId('badge-menu-form-item-item-one'));
+		await userEvent.click(screen.getByTestId('badge-menu-form-item-item-one'));
 		// Then
 		expect(onChange).toHaveBeenCalledTimes(1);
 		expect(onChange.mock.calls[0][1]).toEqual({
@@ -63,6 +63,22 @@ describe('BadgeMenuForm', () => {
 			id: 'item-one',
 			label: 'Item One',
 		});
+	});
+	it('should show skeletons if items are loading', () => {
+		// Given
+		const props = {
+			id: 'myId',
+			values: menuItems,
+			isLoading: true,
+			value: {},
+			t,
+		};
+		// When
+		render(<BadgeMenuForm {...props} />);
+		// Then
+		expect(screen.getByTestId('badge-menu-form-skeleton-item')).toBeVisible();
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+		expect(screen.getByRole('button')).toBeDisabled();
 	});
 	it('should display menuitem checked', () => {
 		// Given
@@ -82,7 +98,7 @@ describe('BadgeMenuForm', () => {
 		// Then
 		expect(screen.getByTestId('badge-menu-form-item-item-one').querySelector('svg')).toBeVisible();
 	});
-	it('should filter the displayed checkbox using the filter bar', () => {
+	it('should filter the displayed checkbox using the filter bar', async () => {
 		// Given
 		const props = {
 			id: 'myId',
@@ -98,20 +114,16 @@ describe('BadgeMenuForm', () => {
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-two')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-three')).toBeVisible();
-
-		userEvent.type(
-			screen.getByRole('searchbox', {
-				name: /find a column/i,
-			}),
-			'One',
-		);
+		await userEvent.type(screen.getByRole('searchbox'), 'One');
 
 		// Then
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
 		expect(screen.queryByTestId('badge-menu-form-item-item-two')).not.toBeInTheDocument();
 		expect(screen.queryByTestId('badge-menu-form-item-item-three')).not.toBeInTheDocument();
 	});
-	it('should show selected item when click on "Selected" button', () => {
+	it('should show selected item when click on "Selected" button', async () => {
+		const user = userEvent.setup();
+
 		// Given
 		const props = {
 			id: 'myId',
@@ -131,20 +143,20 @@ describe('BadgeMenuForm', () => {
 		expect(screen.getByTestId('badge-menu-form-item-item-two')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-three')).toBeVisible();
 		// When click on "Selected" button
-		userEvent.click(screen.getByRole('button', { name: /selected/i }));
+		await user.click(screen.getByRole('button', { name: /selected/i }));
 		// Then only item One is visible
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
 		expect(screen.queryByTestId('badge-menu-form-item-item-two')).not.toBeInTheDocument();
 		expect(screen.queryByTestId('badge-menu-form-item-item-three')).not.toBeInTheDocument();
 		// When click on "Show all" button
-		userEvent.click(screen.getByRole('button', { name: /show all/i }));
+		await user.click(screen.getByRole('button', { name: /show all/i }));
 		// Then all items are visible
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-two')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-three')).toBeVisible();
 	});
 
-	it('should call the submit callback', () => {
+	it('should call the submit callback', async () => {
 		const onSubmit = jest.fn();
 		// Give
 		const props = {
@@ -157,7 +169,7 @@ describe('BadgeMenuForm', () => {
 		};
 		// When
 		render(<BadgeMenuForm {...props} />);
-		userEvent.click(
+		await userEvent.click(
 			screen.getByRole('button', {
 				name: /apply/i,
 			}),

@@ -1,8 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-dropdown-loader-padding: $padding-small !default;
-$tc-dropdown-button-right-padding: 0.8rem;
+$tc-dropdown-button-right-padding: 0.5rem;
 
 .tc-dropdown {
 	&-button:global(.btn-link) {
@@ -17,8 +17,8 @@ $tc-dropdown-button-right-padding: 0.8rem;
 		padding-right: $tc-dropdown-button-right-padding;
 
 		.tc-dropdown-caret {
-			width: 0.8rem;
-			height: 0.8rem;
+			width: 0.5rem;
+			height: 0.5rem;
 			transition: transform 0.1s ease-in;
 			will-change: transform;
 
@@ -42,6 +42,11 @@ $tc-dropdown-button-right-padding: 0.8rem;
 	}
 
 	&-item {
+		a img {
+			max-width: initial;
+		}
+
+		a img,
 		a svg {
 			margin: 0 $padding-smaller;
 		}

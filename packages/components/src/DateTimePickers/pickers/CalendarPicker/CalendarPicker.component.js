@@ -1,16 +1,19 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import getMonth from 'date-fns/get_month';
-import getYear from 'date-fns/get_year';
-import startOfDay from 'date-fns/start_of_day';
-import classNames from 'classnames';
 
-import theme from './CalendarPicker.module.scss';
-import DateView from '../../views/DateView';
-import MonthYearView from '../../views/MonthYearView';
+import { getMonth } from 'date-fns/getMonth';
+import { getYear } from 'date-fns/getYear';
+import { startOfDay } from 'date-fns/startOfDay';
+import PropTypes from 'prop-types';
+
+import { Divider } from '@talend/design-system';
 import { focus } from '@talend/react-a11y';
+
 import Action from '../../../Actions/Action/Action.component';
 import getDefaultT from '../../../translate';
+import DateView from '../../views/DateView';
+import MonthYearView from '../../views/MonthYearView';
+
+import theme from './CalendarPicker.module.scss';
 
 class CalendarPicker extends Component {
 	constructor(props) {
@@ -100,6 +103,7 @@ class CalendarPicker extends Component {
 
 	onSelectCalendarMonth(event, monthIndex) {
 		this.onSelectCalendarMonthYear({ monthIndex });
+		this.setView(true);
 	}
 
 	onSelectCalendarYear(event, year) {
@@ -108,11 +112,9 @@ class CalendarPicker extends Component {
 
 	onClickToday(event) {
 		const now = new Date();
-		if (!this.state.isDateView) {
-			this.onSelectCalendarYear(event, getYear(now));
-			this.onSelectCalendarMonth(event, getMonth(now));
-			this.setView(true);
-		}
+		this.onSelectCalendarYear(event, getYear(now));
+		this.onSelectCalendarMonth(event, getMonth(now));
+		this.setView(true);
 		this.onSelectDate(event, startOfDay(now));
 	}
 
@@ -143,6 +145,7 @@ class CalendarPicker extends Component {
 					calendar={this.state.calendar}
 					onSelectDate={this.onSelectDate}
 					onSelectMonthYear={this.onSelectCalendarMonthYear}
+					onSelectYear={this.onSelectCalendarYear}
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}
 					startDate={this.props.startDate}
@@ -177,11 +180,8 @@ class CalendarPicker extends Component {
 				aria-label="Date picker"
 			>
 				{viewElement}
-				<div
-					className={classNames(theme.footer, {
-						[theme['date-padding']]: this.state.isDateView,
-					})}
-				>
+				<Divider />
+				<div className={theme.footer}>
 					<Action
 						label={this.props.t('DATEPICKER_TODAY', {
 							defaultValue: 'Today',

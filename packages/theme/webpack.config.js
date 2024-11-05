@@ -23,32 +23,26 @@ module.exports = (env, argv) => {
 			rules: [
 				{
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-					use: [
-						{
-							loader: 'file-loader',
-							options: {
-								outputPath: 'fonts',
-								name: '[name].[ext]',
-								esModule: false,
-							},
-						},
-					],
+					type: 'asset/resource',
+					generator: {
+						filename: 'fonts/[name][ext]',
+					},
 				},
 				{
 					test: /bootstrap\.scss$/,
 					use: [
 						{
-							loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+							loader: isDev ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
 						},
 						{
-							loader: 'css-loader',
+							loader: require.resolve('css-loader'),
 							options: {
 								importLoaders: 3,
 								sourceMap: true,
 							},
 						},
 						{
-							loader: 'postcss-loader',
+							loader: require.resolve('postcss-loader'),
 							options: {
 								postcssOptions: {
 									plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
@@ -57,9 +51,10 @@ module.exports = (env, argv) => {
 							},
 						},
 						{
-							loader: 'sass-loader',
+							loader: require.resolve('sass-loader'),
 							options: {
 								sourceMap: true,
+								sassOptions: { includePaths: ['./node_modules', '../../node_modules'] },
 							},
 						},
 					],
@@ -86,7 +81,7 @@ module.exports = (env, argv) => {
 				? new webpack.HotModuleReplacementPlugin()
 				: new MiniCssExtractPlugin({
 						filename: 'bootstrap.css',
-				  }),
+					}),
 		],
 		devServer: {
 			port: 1234,

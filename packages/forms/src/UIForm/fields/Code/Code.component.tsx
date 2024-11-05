@@ -1,11 +1,12 @@
-import { lazy, DetailedHTMLProps, LabelHTMLAttributes, Suspense, useEffect, useState } from 'react';
+import { DetailedHTMLProps, LabelHTMLAttributes, lazy, Suspense, useEffect, useState } from 'react';
 import { IAceEditorProps } from 'react-ace';
 import { useTranslation } from 'react-i18next';
 
 import assetsApi from '@talend/assets-api';
+import { VisuallyHidden } from '@talend/design-system';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { generateDescriptionId, generateErrorId, generateId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
 import CodeSkeleton from './CodeSkeleton.component';
 
@@ -113,17 +114,16 @@ export default function Code({
 				tabIndex={-1}
 			>
 				{showInstructions && (
-					<div id={instructionsId} data-testid="widget-code-instructions" className="sr-only">
+					<VisuallyHidden id={instructionsId} data-testid="widget-code-instructions">
 						{t('TF_CODE_ESCAPE', {
 							defaultValue: 'To focus out of the editor, press ESC key twice.',
 						})}
-					</div>
+					</VisuallyHidden>
 				)}
 
 				<Suspense fallback={<CodeSkeleton />}>
 					<ReactAce
 						key="ace"
-						className="tf-widget-code form-control"
 						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
 						focus={autoFocus}
 						name={`${id}_wrapper`}
@@ -139,7 +139,6 @@ export default function Code({
 						setOptions={DEFAULT_SET_OPTIONS}
 						showGutter={false}
 						showPrintMargin={false}
-						theme="chrome"
 						value={value}
 						width="auto"
 						{...options}

@@ -1,4 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
 
 .tc-intercom {
 	position: relative;
@@ -10,7 +10,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 		color: #015A8E;
-		font-size: 2rem;
+		font-size: 1.25rem;
 		line-height: initial;
 	}
 }

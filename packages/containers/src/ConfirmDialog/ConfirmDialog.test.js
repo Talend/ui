@@ -12,22 +12,21 @@ import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 jest.mock(
 	'@talend/react-components/lib/ConfirmDialog',
 	() =>
-		({ cancelAction, validateAction, show, ...props }) =>
-			(
-				<div
-					data-testid="ConfirmDialog"
-					className="tc-confirm-dialog"
-					{...props}
-					aria-hidden={(!show).toString()}
-				>
-					<button data-testid="cancelAction" onClick={cancelAction.onClick}>
-						cancelAction.label
-					</button>
-					<button data-testid="validateAction" onClick={validateAction.onClick}>
-						validateAction.label
-					</button>
-				</div>
-			),
+		({ cancelAction, validateAction, show, ...props }) => (
+			<div
+				data-testid="ConfirmDialog"
+				className="tc-confirm-dialog"
+				{...props}
+				aria-hidden={(!show).toString()}
+			>
+				<button data-testid="cancelAction" onClick={cancelAction.onClick}>
+					cancelAction.label
+				</button>
+				<button data-testid="validateAction" onClick={validateAction.onClick}>
+					validateAction.label
+				</button>
+			</div>
+		),
 );
 jest.unmock('@talend/design-system');
 

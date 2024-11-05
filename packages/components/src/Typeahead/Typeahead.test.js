@@ -1,10 +1,13 @@
-import Typeahead from './Typeahead.component';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+import Typeahead from './Typeahead.component';
 
 function getHeaders() {
 	return document.querySelectorAll('.section-header');
 }
+
+jest.unmock('@talend/design-system');
 
 describe('Typeahead', () => {
 	const initialProps = {
@@ -145,7 +148,9 @@ describe('Typeahead', () => {
 			expect(screen.getByRole('button')).toBeVisible();
 		});
 
-		it('should call onToggle', () => {
+		it('should call onToggle', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const props = {
 				...initialProps,
@@ -155,15 +160,17 @@ describe('Typeahead', () => {
 
 			// when
 			render(<Typeahead {...props} />);
-			userEvent.click(screen.getByRole('button'));
+			await user.click(screen.getByRole('button'));
 
 			// then
-			expect(props.onToggle).toBeCalled();
+			expect(props.onToggle).toHaveBeenCalled();
 		});
 	});
 
 	describe('input', () => {
-		it('should call onChange', () => {
+		it('should call onChange', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onChange = jest.fn();
 			const props = {
@@ -173,13 +180,15 @@ describe('Typeahead', () => {
 
 			// when
 			render(<Typeahead {...props} />);
-			userEvent.type(screen.getByRole('textbox'), 'toto');
+			await user.type(screen.getByRole('textbox'), 'toto');
 
 			// then
-			expect(onChange).toBeCalled();
+			expect(onChange).toHaveBeenCalled();
 		});
 
-		it('should call onBlur', () => {
+		it('should call onBlur', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onBlur = jest.fn();
 			const props = {
@@ -189,16 +198,18 @@ describe('Typeahead', () => {
 
 			// when
 			render(<Typeahead {...props} />);
-			userEvent.click(screen.getByRole('textbox'));
-			userEvent.tab();
+			await user.click(screen.getByRole('textbox'));
+			await user.tab();
 
 			// then
-			expect(onBlur).toBeCalled();
+			expect(onBlur).toHaveBeenCalled();
 		});
 	});
 
 	describe('item', () => {
-		it('should call onSelect', () => {
+		it('should call onSelect', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onSelect = jest.fn();
 			const props = {
@@ -209,11 +220,11 @@ describe('Typeahead', () => {
 
 			// when
 			render(<Typeahead {...props} />);
-			userEvent.click(screen.getAllByRole('option')[0]);
+			await user.click(screen.getAllByRole('option')[0]);
 
 			// then
-			expect(onSelect).toBeCalled();
-			expect(onSelect).toBeCalledWith(expect.anything({ type: 'click' }), {
+			expect(onSelect).toHaveBeenCalled();
+			expect(onSelect).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
 				itemIndex: 0,
 				sectionIndex: 0,
 			});
@@ -341,6 +352,27 @@ describe('Typeahead', () => {
 
 			// then
 			expect(screen.queryAllByRole('listitem').length).toBe(0);
+		});
+		it('should render the noDomainRenderer if provided and provided collection is empty', async () => {
+			// given
+			const user = userEvent.setup();
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: [],
+				multiSection: false,
+				noDomainRenderer: () => <div>no domain</div>,
+			};
+
+			// when
+			render(<Typeahead {...props} />);
+			const combo = screen.getByRole('combobox');
+
+			await user.click(combo);
+
+			// then
+			expect(await screen.findByText('no domain')).toBeInTheDocument();
 		});
 		it('should render Items with data-feature attribute if provided collection is flat', () => {
 			// given

@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
@@ -70,10 +70,17 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac #v4.0.0
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
+
+      - name: Use Node.js
+        uses: ./.github/actions/setup-node
+
+      - name: Check node version
+        run: |
+          node --version
 
       - name: Check UMD files size diff
-        uses: preactjs/compressed-size-action@8119d3d31b6e57b167e09c81dfa877eada3bcb35 #v2.5.0
+        uses: preactjs/compressed-size-action@f780fd104362cfce9e118f9198df2ee37d12946c #v2.6.0
         if: github.ref != 'refs/heads/master'
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"

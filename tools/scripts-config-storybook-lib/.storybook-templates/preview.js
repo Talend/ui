@@ -1,3 +1,4 @@
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
@@ -58,6 +59,7 @@ const defaultPreview = {
 				items: [
 					{ value: 'light', left: '⚪', title: 'Light mode' },
 					{ value: 'dark', left: '🌑', title: 'Dark mode' },
+					{ value: 'qlik-light', left:"🟢", title: 'Qlik light mode' },
 				],
 				dynamicTitle: true,
 			},
@@ -77,7 +79,7 @@ const defaultPreview = {
 				dynamicTitle: true,
 			},
 		},
-		
+
 	},
 	loaders: [cmfLoader].filter(Boolean),
 	decorators: [
@@ -92,6 +94,7 @@ const defaultPreview = {
 		},
 		(Story, context) => {
 			const storyElement = React.createElement(Story, {...context, key: 'story'});
+
 			return [
 				React.createElement(IconsProvider, {
 					key: 'icons-provider-decorator',

@@ -1,5 +1,101 @@
 # @talend/scripts-config-jest
 
+## 14.1.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-babel@13.5.0
+
+## 14.0.4
+
+### Patch Changes
+
+- 28672e6: fix: 'Reference error: \_ is not defined'
+
+## 14.0.3
+
+### Patch Changes
+
+- 4c6f37f: Avoid warning spam in case of mocking missing library for jest
+
+## 14.0.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-babel@13.3.1
+
+## 14.0.1
+
+### Patch Changes
+
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/scripts-config-babel@13.2.1
+
+## 14.0.0
+
+### Major Changes
+
+- 24bcb177f: chore: bump testing-library to 6.x
+
+## 13.1.1
+
+### Patch Changes
+
+- 06598a0c0: fix(TDP-12694): broken applyBabelTransformOn after pnpm use-case
+
+## 13.1.0
+
+### Minor Changes
+
+- 673984929: Fix peer dependencies, Add lint
+
+### Patch Changes
+
+- f2ef85811: Update dependencies
+- Updated dependencies [673984929]
+  - @talend/scripts-config-babel@13.2.0
+
+## 13.0.0
+
+### Major Changes
+
+- 9a0732ec5: - fix: enforce timer at the end of all tests.
+
+  - feat: mock ally.js has it uses unsupported dom method from jsdom.
+  - feat: add jest-axe configuration
+
+  To support floating-ui/react following issue we have decided to add an afterAll to let floating-ui finish stuff
+  https://github.com/floating-ui/floating-ui/issues/1908
+
+  Breaking changes:
+
+  you may have tests where you ask for jest.useFakeTimer without go back to real at some point. This is a side effect and it is not compatible with our change to support floating-ui.
+
+  ```diff
+  jest.useFakeTimers()
+  render(<Tooltip><button></Tooltip>)
+  +jest.useRealTimers()
+  ```
+
+  This will fix an error said your test is still pending after 5000 ms.
+
+### Minor Changes
+
+- e83b74b7c: Fix peer dependencies and adapt code to be compatible with pnpm
+- 96d688489: feat: mock revokeURL
+- 9a0732ec5: feat: add api to set a fetch MockResponse
+  feat: add jest-axe integration
+
 ## 12.2.0
 
 ### Minor Changes

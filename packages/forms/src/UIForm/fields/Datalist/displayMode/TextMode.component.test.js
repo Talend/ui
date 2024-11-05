@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import DatalistTextMode from './TextMode.component';
 
 jest.unmock('@talend/design-system');
@@ -66,19 +67,19 @@ describe('Datalist component in text display mode', () => {
 		render(<DatalistTextMode {...props} value="foo" />);
 
 		// then
-		expect(props.onTrigger).toBeCalledWith(null, {
+		expect(props.onTrigger).toHaveBeenCalledWith(null, {
 			trigger: props.schema.triggers[0],
 			schema: props.schema,
 			errors: props.errors,
 			properties: props.properties,
 		});
-		expect(screen.getByRole('definition')).toHaveTextContent('foo (loading labels)');
+		expect(screen.getByText('foo (loading labels)')).toBeInTheDocument();
 	});
 	it('should show name in text mode when have groups', () => {
 		// when
 		render(<DatalistTextMode id="my-datalist-with-groups" schema={schemaWithGroups} value="foo" />);
 
 		// then
-		expect(screen.getByRole('definition')).toHaveTextContent('Foo');
+		expect(screen.getByText('Foo')).toBeInTheDocument();
 	});
 });

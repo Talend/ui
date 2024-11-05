@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
+import escapeRegExp from 'lodash/escapeRegExp';
 import PropTypes from 'prop-types';
 
-import Icon from '../Icon';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import Icon from '../Icon';
 
 import theme from './FormatValue.module.scss';
 
-export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
 const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;
 const REG_EXP_CAPTUR_LINE_FEEDING = /(\n)/g;
 const REG_EXP_LINE_FEEDING = /\n/;
@@ -104,14 +104,14 @@ export function FormatValueComponent({ value, className }) {
 
 	let formattedValue = value;
 	if (typeof value === 'string') {
-		const hiddenCharsRegExpMatch = value.match(REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS);
+		const regExp = new RegExp(`(${escapeRegExp(value.trim())})`);
+		const hiddenCharsRegExpSplit = value.split(regExp);
 		if (
-			hiddenCharsRegExpMatch[1] ||
-			hiddenCharsRegExpMatch[3] ||
+			hiddenCharsRegExpSplit[0] ||
+			hiddenCharsRegExpSplit[2] ||
 			REG_EXP_LINE_FEEDING.test(value)
 		) {
-			formattedValue = hiddenCharsRegExpMatch
-				.slice(1)
+			formattedValue = hiddenCharsRegExpSplit
 				.flatMap((flatMapValue, index) => flatMapValue?.split(SPLIT_REGEX[index]))
 				.filter(isEmptyCharacter)
 				.map((mappedValue, index) => replaceCharacterByIcon(mappedValue, index, t));

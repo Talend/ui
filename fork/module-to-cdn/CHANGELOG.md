@@ -1,5 +1,34 @@
 # @talend/module-to-cdn
 
+## 9.11.1
+
+### Patch Changes
+
+-   d9fe636: fix: module to cdn for ag-grid
+
+## 9.11.0
+
+### Minor Changes
+
+-   c3750a1: chore: upgrade dependencies
+
+    Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 9.10.1
+
+### Patch Changes
+
+-   1abc22f: chore: upgrade dependencies
+
+## 9.10.0
+
+### Minor Changes
+
+-   3f9c8a7bb: remove babel config: there is no build task on this package
+    remove link to scripts-core to run lint (circular dependency),
+    remove link to tools/eslint-config and add it's own eslint config (circular dependency: fork/module-to-cdn > tools/eslint-config > tools/scripts-config-cdn > fork/module-to-cdn)
+    add missing deps
+
 ## 9.9.1
 
 ### Patch Changes

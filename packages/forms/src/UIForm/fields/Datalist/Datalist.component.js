@@ -1,17 +1,20 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import DataListComponent from '@talend/react-components/lib/Datalist';
-import omit from 'lodash/omit';
+import { withTranslation } from 'react-i18next';
+
 import get from 'lodash/get';
 import has from 'lodash/has';
-import { withTranslation } from 'react-i18next';
-import FieldTemplate from '../FieldTemplate';
-import getDefaultT from '../../../translate';
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
+
+import DataListComponent from '@talend/react-components/lib/Datalist';
+
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import callTrigger from '../../trigger';
-import { DID_MOUNT } from './constants';
+import getDefaultT from '../../../translate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import callTrigger from '../../trigger';
 import { extractDataAttributes } from '../../utils/properties';
+import FieldTemplate from '../FieldTemplate';
+import { DID_MOUNT } from './constants';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -217,7 +220,7 @@ class Datalist extends Component {
 					{...props}
 					{...this.state}
 					dataFeature={this.props.schema.dataFeature}
-					className="form-control-container"
+					// eslint-disable-next-line jsx-a11y/no-autofocus
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || this.props.valueIsUpdating}
 					multiSection={get(this.props, 'schema.options.isMultiSection', false)}
@@ -227,6 +230,7 @@ class Datalist extends Component {
 					readOnly={this.props.schema.readOnly || false}
 					titleMap={this.getTitleMap()}
 					inputProps={{
+						hasError: !this.props.isValid,
 						'aria-invalid': !this.props.isValid,
 						'aria-required': this.props.schema.required,
 						'aria-describedby': `${descriptionId} ${errorId}`,

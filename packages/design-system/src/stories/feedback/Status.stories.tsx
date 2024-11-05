@@ -1,10 +1,10 @@
 import {
-	StatusFailed,
+	Status,
 	StatusCanceled,
+	StatusFailed,
 	StatusInProgress,
 	StatusSuccessful,
 	StatusWarning,
-	Status,
 } from '../../';
 import { variants } from '../../components/Status/Primitive/StatusPrimitive';
 

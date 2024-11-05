@@ -15,13 +15,28 @@ const umds = require('./umds.json');
 const { download } = require('./utils');
 
 const CDN_URL = 'https://statics-dev.cloud.talend.com';
+let schema = yaml.DEFAULT_SCHEMA.extend(require('js-yaml-js-types').all);
 
-function getModuleName(nameandversion) {
+function getModuleName(nameandversion, isPnpm = false) {
+	if (isPnpm) {
+		nameandversion = nameandversion.startsWith('/') ? nameandversion.substring(1) : nameandversion;
+	}
 	const split = nameandversion.split('@');
 	if (nameandversion.startsWith('@')) {
 		return `@${split[1]}`;
 	}
 	return split[0];
+}
+
+function getModuleVersion(nameandversion, isPnpm = false) {
+	if (isPnpm) {
+		nameandversion = nameandversion.startsWith('/') ? nameandversion.substring(1) : nameandversion;
+	}
+	const split = nameandversion.split('@');
+	if (nameandversion.startsWith('@')) {
+		return split[2];
+	}
+	return split[1];
 }
 
 function addToCopyConfig(info, config) {
@@ -109,41 +124,65 @@ function getAllFlattenDependencies(packageLockContent) {
 
 function getModulesFromLockFile(dir) {
 	const cwd = dir || process.cwd();
+	const lockTypeMap = {
+		npm: {
+			lockfile: 'package-lock.json',
+			path: path.join(cwd, 'package-lock.json'),
+		},
+		yarn: {
+			lockfile: 'yarn.lock',
+			path: path.join(cwd, 'yarn.lock'),
+		},
+		pnpm: {
+			lockfile: 'pnpm-lock.yaml',
+			path: path.join(cwd, 'pnpm-lock.yaml'),
+		},
+	};
+
 	let infos = [];
-	let lockType = 'package-lock.json';
-	let lockPath = path.join(cwd, lockType);
-	if (fs.existsSync(lockPath)) {
-		const packagelock = require(lockPath);
+	if (fs.existsSync(lockTypeMap.npm.path)) {
+		const packagelock = require(lockTypeMap.npm.path);
 		infos = getAllFlattenDependencies(packagelock)
 			.map(({ name, version }) => moduleToCdn(name, version, { env: 'development' }))
 			.map(addLocal);
-	} else {
-		lockType = 'yarn.lock';
-		lockPath = path.join(cwd, lockType);
-		if (fs.existsSync(lockPath)) {
-			let yarnv1;
-			let yarnv3;
-			try {
-				yarnv1 = lockfile.parse(fs.readFileSync(lockPath, 'utf-8'));
-			} catch (e) {
-				yarnv3 = yaml.load(fs.readFileSync(lockPath, 'utf-8'));
-				// eslint-disable-next-line no-underscore-dangle
-				delete yarnv3.__metadata;
-			}
-
-			const json = yarnv1 ? yarnv1.object : yarnv3;
-			infos = Object.keys(json)
-				.map(moduleAndversion => {
-					const moduleName = getModuleName(moduleAndversion);
-					return moduleToCdn(moduleName, json[moduleAndversion].version, {
-						env: 'development',
-					});
-				})
-				.map(addLocal);
-		} else {
-			console.log(`No lockfile found in ${cwd}. Search in parent directory`);
-			return getModulesFromLockFile(path.join(cwd, '..'));
+	} else if (fs.existsSync(lockTypeMap.yarn.path)) {
+		const { path: lockPath } = lockTypeMap.yarn;
+		let yarnv1;
+		let yarnv3;
+		try {
+			yarnv1 = lockfile.parse(fs.readFileSync(lockPath, 'utf-8'));
+		} catch (e) {
+			yarnv3 = yaml.load(fs.readFileSync(lockPath, 'utf-8'), { schema });
+			// eslint-disable-next-line no-underscore-dangle
+			delete yarnv3.__metadata;
 		}
+
+		const json = yarnv1 ? yarnv1.object : yarnv3;
+		infos = Object.keys(json)
+			.map(moduleAndversion => {
+				const moduleName = getModuleName(moduleAndversion);
+				return moduleToCdn(moduleName, json[moduleAndversion].version, {
+					env: 'development',
+				});
+			})
+			.map(addLocal);
+	} else if (fs.existsSync(lockTypeMap.pnpm.path)) {
+		const json = yaml.load(fs.readFileSync(lockTypeMap.pnpm.path, 'utf-8'), { schema });
+		infos = Object.keys(json.packages)
+			.map(moduleAndversion => {
+				if (moduleAndversion.startsWith('file:')) {
+					return null;
+				}
+				const moduleName = getModuleName(moduleAndversion, true);
+				return moduleToCdn(moduleName, getModuleVersion(moduleAndversion, true), {
+					env: 'development',
+				});
+			})
+			.map(addLocal);
+		console.log('pnpm lock file found');
+	} else {
+		console.log(`No lockfile found in ${cwd}. Search in parent directory`);
+		return getModulesFromLockFile(path.join(cwd, '..'));
 	}
 	return infos;
 }

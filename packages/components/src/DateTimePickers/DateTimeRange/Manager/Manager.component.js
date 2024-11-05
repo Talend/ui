@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import isBefore from 'date-fns/is_before';
-import isEqual from 'date-fns/is_equal';
+import { useEffect, useState } from 'react';
 
-import { DateTimeRangeContext } from '../Context';
+import { isBefore } from 'date-fns/isBefore';
+import { isEqual } from 'date-fns/isEqual';
+import PropTypes from 'prop-types';
+
 import getErrorMessage from '../../shared/error-messages';
+import { DateTimeRangeContext } from '../Context';
 
 export function DateTimeRangePickerException(code, message) {
 	this.message = getErrorMessage(message);
@@ -18,6 +19,8 @@ function DateTimeRangeManager(props) {
 		endDateTime,
 	};
 	const [state, setState] = useState(initialState);
+	const [startDateErrors, setStartDateErrors] = useState([]);
+	const [endDateErrors, setEndDateErrors] = useState([]);
 
 	useEffect(() => {
 		if (!isEqual(state.startDateTime, startDateTime) || !isEqual(state.endDateTime, endDateTime)) {
@@ -28,7 +31,12 @@ function DateTimeRangeManager(props) {
 	function onRangeChange(event, nextState, origin) {
 		const errors = [...(nextState.errors || [])];
 
-		if (nextState.startDateTime && nextState.endDateTime) {
+		if (
+			nextState.startDateTime &&
+			nextState.endDateTime &&
+			!isNaN(nextState.startDateTime) &&
+			!isNaN(nextState.endDateTime)
+		) {
 			if (!isBefore(nextState.startDateTime, nextState.endDateTime)) {
 				errors.push(
 					new DateTimeRangePickerException(
@@ -48,13 +56,17 @@ function DateTimeRangeManager(props) {
 	}
 
 	function onStartChange(event, { datetime, errors }) {
-		const nextState = { ...state, startDateTime: datetime, errors };
+		setStartDateErrors(errors);
+		const allErrors = [...(errors || []), ...(endDateErrors || [])];
+		const nextState = { ...state, startDateTime: datetime, errors: allErrors };
 		setState(nextState);
 		onRangeChange(event, nextState, 'RANGE_START');
 	}
 
 	function onEndChange(event, { datetime, errors }) {
-		const nextState = { ...state, endDateTime: datetime, errors };
+		setEndDateErrors(errors);
+		const allErrors = [...(startDateErrors || []), ...(errors || [])];
+		const nextState = { ...state, endDateTime: datetime, errors: allErrors };
 		setState(nextState);
 		onRangeChange(event, nextState, 'RANGE_END');
 	}

@@ -1,14 +1,14 @@
 import { forwardRef, Ref } from 'react';
 
 import { action } from '@storybook/addon-actions';
+
 import {
-	Popover,
-	PopoverProps,
-	PopoverStateReturn,
-	ButtonPrimary,
 	ButtonIcon,
-	StackVertical,
+	ButtonPrimary,
 	Form,
+	Popover,
+	PopoverStateReturn,
+	StackVertical,
 } from '../../';
 
 export default {
@@ -19,7 +19,7 @@ export default {
 const EasyPopover = () => <StackVertical gap="S">Hello hello</StackVertical>;
 
 /* eslint-disable-next-line react/display-name */
-const OpenPopover = forwardRef((props: PopoverProps, ref: Ref<HTMLButtonElement>) => {
+const OpenPopover = forwardRef((props: object, ref: Ref<HTMLButtonElement>) => {
 	return (
 		<ButtonPrimary onClick={action('Clicked disclosure')} {...props} ref={ref}>
 			Open popover
@@ -28,7 +28,7 @@ const OpenPopover = forwardRef((props: PopoverProps, ref: Ref<HTMLButtonElement>
 });
 
 export const DefaultStory = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover aria-label="Custom popover" disclosure={<OpenPopover />}>
 			Text Content
 		</Popover>
@@ -36,7 +36,7 @@ export const DefaultStory = () => (
 );
 
 export const DisclosureStory = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover
 			aria-label="Custom popover"
 			disclosure={
@@ -51,10 +51,9 @@ export const DisclosureStory = () => (
 );
 
 export const FormDisclosureStory = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover
 			aria-label="Custom popover"
-			focusOnDisclosure
 			disclosure={<Form.Text name="text" label="Text enabled" />}
 		>
 			Text Content
@@ -63,7 +62,7 @@ export const FormDisclosureStory = () => (
 );
 
 export const WithoutPaddingStory = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover aria-label="Custom popover" disclosure={<OpenPopover />} isFixed hasPadding={false}>
 			Text Content without padding
 		</Popover>
@@ -71,7 +70,7 @@ export const WithoutPaddingStory = () => (
 );
 
 export const WithFunctionAsChildren = () => (
-	<div style={{ padding: '1.2rem' }}>
+	<div style={{ padding: '0.75rem' }}>
 		<Popover aria-label="Custom popover" disclosure={<OpenPopover />}>
 			{(popover: PopoverStateReturn) => (
 				<StackVertical gap="S">

@@ -1,7 +1,8 @@
-import { WebSocket, Server } from 'mock-socket';
+import { Server, WebSocket } from 'mock-socket';
 // fixme
 import { setTimeout } from 'timers';
-import SmartWebsocket, { wsSend, wsIsClosed } from './smartWebsocket';
+
+import SmartWebsocket, { wsIsClosed, wsSend } from './smartWebsocket';
 
 // Set the websocket mock used by smartWebsocket middleware
 global.WebSocket = WebSocket;
@@ -208,13 +209,13 @@ describe('smart websocket tests', () => {
 			};
 			const result = SmartWebsocket(url, options); // eslint-disable-line
 			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			expect(options.onPingTimeout).not.toBeCalled();
+			expect(options.onPingTimeout).not.toHaveBeenCalled();
 
 			// when
 			jest.advanceTimersByTime(1);
 
 			// then
-			expect(options.onPingTimeout).toBeCalled();
+			expect(options.onPingTimeout).toHaveBeenCalled();
 			jest.useRealTimers();
 		});
 	});

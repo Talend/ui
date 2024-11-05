@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas } from '@storybook/blocks';
-import { FigmaImage, FigmaLink, Use } from '@talend/storybook-docs';
+import { Canvas, Meta } from '@storybook/blocks';
 
-import { Modal } from '../../';
+import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../Status.block';
 
 import * as Stories from './Modal.stories';
@@ -58,69 +58,51 @@ Transparent layer behind every modal. Clicking it closes the modal by default, b
 
 **No disclosure (controlled state)**
 
-<Canvas>
-	<Story height="5rem" story={Stories.NoDisclosure} />
-</Canvas>
+<Canvas height="5rem" of={Stories.NoDisclosure} />
 
 ## **With disclosure**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithDisclosure} />-
-</Canvas>
+<Canvas height="5rem" of={Stories.WithDisclosure} />-
 
 **With icon**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithIcon} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithIcon} />
 
 **With custom icon**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithCustomIcon} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithCustomIcon} />
 
 **With description**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithDescription} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithDescription} />
+
+**With no clickable backdrop**
+
+<Canvas height="5rem" of={Stories.WithNoClickableBackdrop} />
 
 **With actions**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithActions} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithActions} />
 
 **With destructive primary action**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithDestructivePrimaryAction} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithDestructivePrimaryAction} />
 
-**With non closing backdrop**
+**With no Escape**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithNonClosingBackdrop} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithNoEscape} />
 
 **With overflowing header**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithOverflowingHeader} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithOverflowingHeader} />
 
 **With overflowing content**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithOverflowingContent} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithOverflowingContent} />
 
 **With everything**
 
-<Canvas>
-	<Story height="5rem" story={Stories.WithEverything} />
-</Canvas>
+<Canvas height="5rem" of={Stories.WithEverything} />
 
 ## States
 

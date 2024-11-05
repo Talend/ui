@@ -34,17 +34,21 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 		cssOptions = {
 			sourceMap,
 			modules: {
+				namedExport: false,
+				exportLocalsConvention: 'as-is',
 				localIdentName: '[name]__[local]___[hash:base64:5]',
 			},
 			importLoaders: 1,
 		};
 	}
-	const styleLoader = isEnvDevelopmentServe ? 'style-loader' : MiniCssExtractPlugin.loader;
+	const styleLoader = isEnvDevelopmentServe
+		? require.resolve('style-loader')
+		: MiniCssExtractPlugin.loader;
 	return [
 		{ loader: styleLoader, options: { esModule: false } },
-		{ loader: 'css-loader', options: cssOptions },
+		{ loader: require.resolve('css-loader'), options: cssOptions },
 		{
-			loader: 'postcss-loader',
+			loader: require.resolve('postcss-loader'),
 			options: {
 				postcssOptions: {
 					plugins: ['autoprefixer'],
@@ -55,11 +59,10 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 	];
 }
 
-function getJSAndTSLoader(env, useTypescript) {
+function getJSAndTSLoader() {
 	return [
-		!env.nocache && { loader: 'cache-loader' },
 		{
-			loader: 'babel-loader',
+			loader: require.resolve('babel-loader'),
 			options: getBabelLoaderOptions(babelConfig),
 		},
 	].filter(Boolean);
@@ -68,10 +71,21 @@ function getJSAndTSLoader(env, useTypescript) {
 function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 	const sourceMap = true;
 	return getCommonStyleLoaders(enableModules, isEnvDevelopmentServe).concat(
-		{ loader: 'resolve-url-loader', options: { sourceMap } },
+		{ loader: require.resolve('resolve-url-loader'), options: { sourceMap } },
 		{
-			loader: 'sass-loader',
-			options: { sourceMap, additionalData: sassData },
+			loader: require.resolve('sass-loader'),
+			options: {
+				sourceMap,
+				additionalData: sassData,
+				sassOptions: {
+					quietDeps: true,
+					/**
+					 * This difference reflects ESM's design philosophy which aims for more predictability and less implicit behavior compared to CommonJS.
+					 * As a result, the structure and location of your modules might need to be more precisely managed when working with ESM in Node.js.
+					 */
+					includePaths: ['./node_modules', '../node_modules', '../../node_modules'],
+				},
+			},
 		},
 	);
 }
@@ -110,14 +124,14 @@ function getWebpackRules(srcDirectories, useTypescript, devMode) {
 		devMode && {
 			test: /\.js$/,
 			include: /node_modules/,
-			use: ['source-map-loader'],
+			use: [require.resolve('source-map-loader')],
 			enforce: 'pre',
 		},
 		{
-			test: /\.(js|ts|tsx)$/,
+			test: /\.(js|jsx|ts|tsx)$/,
 			exclude: /node_modules/,
 			include: srcDirectories,
-			use: getJSAndTSLoader(process.env, useTypescript),
+			use: getJSAndTSLoader(),
 		},
 		{
 			test: /\.css$/,

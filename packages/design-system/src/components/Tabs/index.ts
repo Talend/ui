@@ -1,3 +1,1 @@
-export * from './Primitive/TabsProvider';
-export * from './Primitive/Tabs';
-export * from './Primitive/TabPanel';
+export * from './variants/Tabs';

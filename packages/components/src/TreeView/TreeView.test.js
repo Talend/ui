@@ -50,19 +50,21 @@ describe('TreeView', () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	it('when a user click on the add Action it should call props.addAction', () => {
+	it('when a user click on the add Action it should call props.addAction', async () => {
+		const user = userEvent.setup();
+
 		// given
 		const props = {
 			...defaultProps,
 			addAction: jest.fn(),
 		};
 		render(<TreeView {...props} />);
-		expect(props.addAction).not.toBeCalled();
+		expect(props.addAction).not.toHaveBeenCalled();
 
 		// when
-		userEvent.click(screen.getByLabelText('add element'));
+		await user.click(screen.getByLabelText('add element'));
 
 		// then
-		expect(props.addAction).toBeCalled();
+		expect(props.addAction).toHaveBeenCalled();
 	});
 });

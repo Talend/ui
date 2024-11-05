@@ -1,5 +1,132 @@
 # @talend/scripts-config-react-webpack
 
+## 16.8.1
+
+### Patch Changes
+
+- 71a6433: fix: update postcss
+
+## 16.8.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-babel@13.5.0
+  - @talend/react-cmf-webpack-plugin@6.39.0
+  - @talend/scripts-config-cdn@10.12.0
+  - @talend/scripts-utils@2.3.0
+
+## 16.7.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-babel@13.4.0
+
+## 16.6.0
+
+### Minor Changes
+
+- 8c34fb1: feat: add jsx file extension support
+
+## 16.5.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-babel@13.3.1
+  - @talend/react-cmf-webpack-plugin@6.38.1
+  - @talend/scripts-config-cdn@10.11.1
+  - @talend/scripts-utils@2.2.1
+
+## 16.5.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+## 16.4.2
+
+### Patch Changes
+
+- cf9a5e0: Fix getTalendIconsPath
+
+## 16.4.1
+
+### Patch Changes
+
+- 777cc55: Add patch for hoistNonReactStatics when we are not using initiator
+
+## 16.4.0
+
+### Minor Changes
+
+- 052b00c: deps: bump fork-ts-checker-webpack-plugin from 8.0.0 to 9.0.2
+
+## 16.3.3
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/scripts-config-babel@13.2.1
+
+## 16.3.2
+
+### Patch Changes
+
+- db246251d: fix: prevent display log of lot of warnings related to sass loader
+
+## 16.3.1
+
+### Patch Changes
+
+- f14ebbe23: Fix possibility to use BASENAME even if we are not using the cdn
+
+## 16.3.0
+
+### Minor Changes
+
+- 673984929: Add missing deps, make talend/icons as peerDependency to remove circular dependency and adapt webpack config files for pnpm
+
+### Patch Changes
+
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+  - @talend/scripts-utils@2.2.0
+  - @talend/scripts-config-cdn@10.9.0
+  - @talend/scripts-config-babel@13.2.0
+
+## 16.2.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  adapt code for pnpm
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/scripts-config-babel@13.1.0
+  - @talend/scripts-utils@2.1.0
+  - @talend/react-cmf-webpack-plugin@6.38.0
+
 ## 16.1.0
 
 ### Minor Changes

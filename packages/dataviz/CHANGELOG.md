@@ -1,5 +1,197 @@
 # Changelog
 
+## 7.0.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/react-components@17.1.1
+
+## 7.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/react-components@17.0.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+
+## 6.2.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [ced37a2]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/react-components@16.2.0
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+
+## 6.1.5
+
+### Patch Changes
+
+- 0f408a7: Fix(Dataviz): Range filter - date time inputs overlap
+
+## 6.1.4
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [ceb4faf]
+- Updated dependencies [f546896]
+  - @talend/react-components@16.1.1
+
+## 6.1.3
+
+### Patch Changes
+
+- @talend/react-components@16.0.0
+
+## 6.1.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/react-components@15.3.1
+
+## 6.1.1
+
+### Patch Changes
+
+- 988a443: fix(TPD-12820): fix GeoCharts colors
+
+## 6.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+  - @talend/react-components@15.1.0
+
+## 6.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/react-components@15.0.1
+
+## 6.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+
+## 5.1.0
+
+### Minor Changes
+
+- 7d73eb9: TDOPS-5724 - Remove bootstrap theme styling and dependency from packages
+
+## 5.0.0
+
+### Major Changes
+
+- 922e3eb: deps: bump date-fns to 3.X
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+
+## 4.2.2
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+  - @talend/react-components@13.0.0
+
+## 4.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/design-tokens@2.10.1
+  - @talend/assets-api@1.3.1
+  - @talend/react-components@12.3.1
+
+## 4.2.0
+
+### Minor Changes
+
+- b9cc5b097: Add missing deps
+
+### Patch Changes
+
+- Updated dependencies [b9cc5b097]
+- Updated dependencies [b9cc5b097]
+  - @talend/assets-api@1.3.0
+  - @talend/design-tokens@2.10.0
+
+## 4.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  add missing deps
+  remove useless config of jest (use the common)
+  fix config issue in tsconfig.json
+
+### Patch Changes
+
+- Updated dependencies [2177ddfb3]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/react-components@12.1.0
+
+## 4.0.0
+
+### Major Changes
+
+- 96d688489: React: Upgrade to react 18 and @types/react 18
+- 4044f6198: ARCH-662 - Bump i18next from v20 to v23 and react-i18next from v11 to v13
+
+### Patch Changes
+
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [da4cf2971]
+- Updated dependencies [4044f6198]
+  - @talend/react-components@12.0.0
+
 ## 3.0.1
 
 ### Patch Changes

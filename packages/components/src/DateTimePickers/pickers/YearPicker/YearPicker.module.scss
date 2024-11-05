@@ -1,5 +1,3 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
 @import '../../shared/styles/mixins';
 
 .year-picker {
@@ -14,11 +12,11 @@
 	}
 
 	.scroll {
-		line-height: 1.2rem;
+		line-height: 0.75rem;
 		min-height: auto;
 
 		svg {
-			height: 1.2rem;
+			height: 0.75rem;
 		}
 	}
 
@@ -27,7 +25,7 @@
 
 		background: none;
 		border: none;
-		height: 2.5rem;
+		height: 1.5625rem;
 		width: 100%;
 	}
 }

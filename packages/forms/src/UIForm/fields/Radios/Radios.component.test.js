@@ -1,5 +1,6 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Radios from './Radios.component';
 
 jest.unmock('@talend/design-system');
@@ -58,7 +59,7 @@ describe('Radios field', () => {
 
 		// then
 		const radios = screen.getAllByRole('radio');
-		radios.forEach(radio => expect(radio.parentElement.parentElement).toHaveClass('radio-inline'));
+		radios.forEach(radio => expect(radio.parentElement.parentElement).toHaveClass('theme-row'));
 	});
 
 	it('should render disabled input', () => {
@@ -105,7 +106,10 @@ describe('Radios field', () => {
 		await userEvent.click(screen.getAllByRole('radio')[0]);
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything({ type: 'click' }), { schema, value: 'foo' });
+		expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
+			schema,
+			value: 'foo',
+		});
 	});
 
 	it('should trigger onFinish on blur', async () => {
@@ -127,6 +131,6 @@ describe('Radios field', () => {
 		fireEvent.blur(screen.getAllByRole('radio')[0]);
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything({ type: 'blur' }), { schema });
+		expect(onFinish).toHaveBeenCalledWith(expect.anything({ type: 'blur' }), { schema });
 	});
 });

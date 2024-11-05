@@ -1,5 +1,6 @@
+import { getI18n, setI18n } from 'react-i18next';
+
 import i18next from 'i18next';
-import { setI18n, getI18n } from 'react-i18next';
 
 if (!getI18n()) {
 	// eslint-disable-next-line no-console

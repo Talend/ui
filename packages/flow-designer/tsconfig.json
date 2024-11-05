@@ -1,11 +1,11 @@
 {
-  "extends": "../../node_modules/@talend/scripts-config-typescript/tsconfig.json",
+  "extends": "@talend/scripts-config-typescript/tsconfig.json",
   "include": ["src/**/*"],
   "compilerOptions": {
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "declaration": true,
     "allowJs": false,
     "incremental": true,
-    "module": "CommonJs",
-    "typeRoots": ["src/customTypings/index.d", "../../node_modules/@types"]
+    "module": "CommonJs"
   }
 }

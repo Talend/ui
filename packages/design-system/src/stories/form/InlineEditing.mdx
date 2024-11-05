@@ -1,8 +1,9 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
-import { InlineEditing } from '../../';
-import { Status } from '../Status.block';
+
 import * as Stories from './InlineEditing.stories';
+import { Status } from '../Status.block';
 
 <Meta of={Stories} />
 <Status id="inlineEditing" />
@@ -29,9 +30,7 @@ User can perform inline editing by using inline form.
 	alt="Single line InlineEditing with content"
 />
 
-<Canvas>
-	<Story of={Stories.Text} />
-</Canvas>
+<Canvas of={Stories.Text} />
 
 **Empty single line with a placeholder**
 
@@ -40,9 +39,7 @@ User can perform inline editing by using inline form.
 	alt="Single line InlineEditing without initial content"
 />
 
-<Canvas>
-	<Story of={Stories.EmptyTextWithPlaceholder} />
-</Canvas>
+<Canvas of={Stories.EmptyTextWithPlaceholder} />
 
 **Controlled component**
 
@@ -51,9 +48,7 @@ User can perform inline editing by using inline form.
 	alt="Single line InlineEditing with content"
 />
 
-<Canvas>
-	<Story of={Stories.ControlledComponent} />
-</Canvas>
+<Canvas of={Stories.ControlledComponent} />
 
 **Multi lines**
 
@@ -62,9 +57,7 @@ User can perform inline editing by using inline form.
 	alt="Multi lines InlineEditing with initial content"
 />
 
-<Canvas>
-	<Story of={Stories.Textarea} />
-</Canvas>
+<Canvas of={Stories.Textarea} />
 
 ## States
 
@@ -75,9 +68,7 @@ User can perform inline editing by using inline form.
 	alt="Pending state for InlineEditing"
 />
 
-<Canvas>
-	<Story of={Stories.LoadingMode} />
-</Canvas>
+<Canvas of={Stories.LoadingMode} />
 
 ### Error
 
@@ -88,9 +79,7 @@ User can perform inline editing by using inline form.
 
 In this example, async submit will always end up with an error.
 
-<Canvas>
-	<Story of={Stories.InUse} />
-</Canvas>
+<Canvas of={Stories.InUse} />
 
 ## Interactions
 
@@ -129,13 +118,21 @@ Non-regression testing can be performed using:
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Default} />
-	<Story of={Stories.WithEllipsis} />
-	<Story of={Stories.WithTextarea} />
-	<Story of={Stories.LongTextInTextarea} />
-	<Story of={Stories.AsHeading} />
-</Canvas>
+<Canvas of={Stories.Default} />
+<Canvas of={Stories.WithEllipsis} />
+<Canvas of={Stories.WithTextarea} />
+<Canvas of={Stories.LongTextInTextarea} />
+<Canvas of={Stories.AsHeading} />
+
+## Manage edition
+
+Set edition mode by default
+
+<Canvas of={Stories.DefaultEditionMode} />
+
+Control edition mode
+
+<Canvas of={Stories.ControlEditionMode} />
 
 ## Accessibility
 

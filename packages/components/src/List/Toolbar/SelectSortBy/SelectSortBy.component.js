@@ -1,13 +1,15 @@
-import PropTypes from 'prop-types';
-import { Nav, NavDropdown, MenuItem, Button } from '@talend/react-bootstrap';
-import { randomUUID } from '@talend/utils';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-import getDefaultT from '../../../translate';
-import theme from './SelectSortBy.module.scss';
+import { Button, MenuItem, Nav, NavDropdown } from '@talend/react-bootstrap';
+import { randomUUID } from '@talend/utils';
+
 import Icon from '../../../Icon';
+import getDefaultT from '../../../translate';
 
-function SortByItem({ option, id, t }) {
+import theme from './SelectSortBy.module.scss';
+
+function SortByItem({ option, id, t, onSelect }) {
 	const optionLabel = option.name || option.id;
 	return (
 		<MenuItem
@@ -17,12 +19,14 @@ function SortByItem({ option, id, t }) {
 				defaultValue: 'Select {{sortBy}} as current sort criteria.',
 				sortBy: optionLabel,
 			})}
+			onSelect={onSelect}
 		>
 			{optionLabel}
 		</MenuItem>
 	);
 }
 SortByItem.propTypes = {
+	onSelect: PropTypes.func,
 	option: PropTypes.shape({
 		id: PropTypes.string,
 		name: PropTypes.string,

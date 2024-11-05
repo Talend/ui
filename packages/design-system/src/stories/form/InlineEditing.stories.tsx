@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 
-import { InlineEditing, StackVertical } from '../../';
+import { Form, InlineEditing, StackVertical } from '../../';
 
 export default {
 	component: InlineEditing,
@@ -140,6 +140,50 @@ export const LoadingMode = {
 			{...props}
 		/>
 	),
+};
+
+export const DefaultEditionMode = {
+	render: (props: Story) => (
+		<InlineEditing.Text
+			placeholder="Input a crawler name"
+			label="Crawler name"
+			defaultValue="Lorem ipsum dolor sit amet"
+			isEditMode={true}
+			{...props}
+		/>
+	),
+};
+
+function WithControlledEditionMode({ ...props }) {
+	const [isEditing, setEditing] = useState(false);
+
+	return (
+		<>
+			<Form.ToggleSwitch
+				placeholder="Placeholder"
+				name="edition-mode"
+				label="Toggle edition mode"
+				isInline
+				defaultChecked={false}
+				checked={isEditing}
+				onChange={e => setEditing(e.target.checked)}
+			/>
+
+			<InlineEditing.Text
+				placeholder="Input a crawler name"
+				label="Crawler name"
+				defaultValue="Lorem ipsum dolor sit amet"
+				isEditMode={false}
+				isEditing={isEditing}
+				onChangeEditing={b => setEditing(b)}
+				{...props}
+			/>
+		</>
+	);
+}
+
+export const ControlEditionMode = {
+	render: (props: Story) => <WithControlledEditionMode {...props} />,
 };
 
 export const InUse = (props: Story) => {

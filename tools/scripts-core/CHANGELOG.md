@@ -1,5 +1,184 @@
 # @talend/scripts-core
 
+## 16.5.1
+
+### Patch Changes
+
+- 4f8ac2d: TMC-28977 - Allow Talend scripts to copy .css files on build
+
+## 16.5.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-typescript@11.3.0
+  - @talend/scripts-config-stylelint@4.2.0
+  - @talend/eslint-config@13.2.0
+  - @talend/scripts-config-babel@13.5.0
+  - @talend/scripts-config-jest@14.1.0
+  - @talend/eslint-plugin@1.3.0
+  - @talend/scripts-utils@2.3.0
+
+## 16.4.0
+
+### Minor Changes
+
+- 3bd16fc: feat: add --esm option to talend-scripts build:lib
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-babel@13.4.0
+
+## 16.3.6
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 16.3.5
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-typescript@11.2.1
+  - @talend/scripts-config-stylelint@4.1.1
+  - @talend/eslint-config@13.0.3
+  - @talend/scripts-config-babel@13.3.1
+  - @talend/scripts-config-jest@14.0.2
+  - @talend/eslint-plugin@1.1.1
+  - @talend/scripts-utils@2.2.1
+
+## 16.3.4
+
+### Patch Changes
+
+- 6e85e98: Fix: make lint working in jenkins
+
+## 16.3.3
+
+### Patch Changes
+
+- 55f1d54: fix(script-core): make a solution compatible with windows and pnpm
+
+## 16.3.2
+
+### Patch Changes
+
+- f69c72b: Fixed issue with scripts that could not resolve bin path on windows
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/eslint-config@13.0.2
+  - @talend/scripts-config-babel@13.2.1
+  - @talend/scripts-config-jest@14.0.1
+
+## 16.3.1
+
+### Patch Changes
+
+- Updated dependencies [24bcb177f]
+  - @talend/scripts-config-jest@14.0.0
+
+## 16.3.0
+
+### Minor Changes
+
+- e77b32c35: Add option lint-merge-report
+
+### Patch Changes
+
+- Updated dependencies [f14ebbe23]
+  - @talend/eslint-config@13.0.1
+
+## 16.2.0
+
+### Minor Changes
+
+- 673984929: Improve peerDependencies and add missing deps to not have circular dependency, adapt code to be compatible with PNPM and fix tests
+
+### Patch Changes
+
+- f2ef85811: Fix script for lint
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [f2ef85811]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+- Updated dependencies [673984929]
+  - @talend/scripts-utils@2.2.0
+  - @talend/eslint-plugin@1.1.0
+  - @talend/scripts-config-jest@13.1.0
+  - @talend/scripts-config-stylelint@4.1.0
+  - @talend/scripts-config-typescript@11.2.0
+  - @talend/scripts-config-babel@13.2.0
+
+## 16.1.1
+
+### Patch Changes
+
+- Updated dependencies [e82cc7f30]
+  - @talend/eslint-config@13.0.0
+
+## 16.1.0
+
+### Minor Changes
+
+- 3f9c8a7bb: update babel config to use babel.config.js instead of .babelrc.json
+  update scripts following changes made in scripts-config-babel
+
+### Patch Changes
+
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+- Updated dependencies [3f9c8a7bb]
+  - @talend/scripts-config-babel@13.1.0
+  - @talend/eslint-config@12.2.0
+  - @talend/scripts-utils@2.1.0
+
+## 16.0.0
+
+### Major Changes
+
+- 9a0732ec5: - fix: enforce timer at the end of all tests.
+
+  - feat: mock ally.js has it uses unsupported dom method from jsdom.
+  - feat: add jest-axe configuration
+
+  To support floating-ui/react following issue we have decided to add an afterAll to let floating-ui finish stuff
+  https://github.com/floating-ui/floating-ui/issues/1908
+
+  Breaking changes:
+
+  you may have tests where you ask for jest.useFakeTimer without go back to real at some point. This is a side effect and it is not compatible with our change to support floating-ui.
+
+  ```diff
+  jest.useFakeTimers()
+  render(<Tooltip><button></Tooltip>)
+  +jest.useRealTimers()
+  ```
+
+  This will fix an error said your test is still pending after 5000 ms.
+
+### Patch Changes
+
+- Updated dependencies [9a0732ec5]
+- Updated dependencies [e83b74b7c]
+- Updated dependencies [96d688489]
+- Updated dependencies [9a0732ec5]
+  - @talend/scripts-config-jest@13.0.0
+
 ## 15.0.0
 
 ### Major Changes

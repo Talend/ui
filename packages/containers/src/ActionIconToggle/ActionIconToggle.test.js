@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import cmf, { mock } from '@talend/react-cmf';
 
 import { ContainerActionIconToggle, mapStateToProps, mergeProps } from './ActionIconToggle.connect';
@@ -83,7 +84,7 @@ describe('Action Icon Toggle', () => {
 		await userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(dispatch).toBeCalledWith(payload);
+		expect(dispatch).toHaveBeenCalledWith(payload);
 	});
 
 	it('#mapStateToProps should resolve action props from actionIf', () => {

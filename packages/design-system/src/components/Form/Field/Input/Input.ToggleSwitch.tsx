@@ -1,16 +1,16 @@
 import { forwardRef } from 'react';
-import type { Ref } from 'react';
+import type { ChangeEvent, Ref } from 'react';
 
 import classnames from 'classnames';
 
+import { useControl } from '../../../../useControl';
 import { useId } from '../../../../useId';
 import { CheckboxPrimitiveType } from '../../Primitives';
-import { useControl } from '../../../../useControl';
 
 import styles from './Input.ToggleSwitch.module.scss';
 
 export type ToggleSwitchPropTypes = Omit<CheckboxPrimitiveType, 'onChange'> & {
-	onChange?: (checked: boolean) => void;
+	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const ToggleSwitch = forwardRef(

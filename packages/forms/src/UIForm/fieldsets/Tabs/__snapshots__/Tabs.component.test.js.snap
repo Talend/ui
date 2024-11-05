@@ -1,147 +1,153 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs widget should render tabs 1`] = `
-<div
-  class="theme-tf-tabs tf-tabs"
+<nav
   id="undefined-tabs"
 >
   <div
-    class="theme-tc-tab-bar-menu tc-tab-bar-menu"
+    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
   >
-    <ul
-      class="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
+    <div
+      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M"
       role="tablist"
     >
-      <li
-        class="active"
-        role="presentation"
+      <button
+        aria-selected="true"
+        class="theme-tab"
+        role="tab"
+        type="button"
       >
-        <button
-          aria-controls="undefined-tabs-pane-0"
-          aria-selected="true"
-          href="#"
-          id="undefined-tabs-tab-0"
-          label="User"
-          role="tab"
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
         >
           <span
-            aria-describedby="42"
-            class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            class="theme-tab__copy"
           >
-            <span
-              class="theme-tc-tab-bar-item-label"
-            >
+            User
+          </span>
+        </div>
+      </button>
+      <button
+        aria-selected="false"
+        class="theme-tab"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+        >
+          <span
+            class="theme-tab__copy"
+          >
+            Other
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      class="theme-tabpanel"
+      id="undefined-tabs-0"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <fieldset
+        class="theme-fieldset"
+      >
+        <div
+          class="theme-fieldset-content"
+        >
+          <span
+            class="theme-hidden"
+          >
+            <legend>
               User
-            </span>
+            </legend>
           </span>
-        </button>
-      </li>
-      <li
-        class=""
-        role="presentation"
+          <div
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          >
+            <label
+              class="theme-label"
+              for="user_firstname"
+            />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-describedby="user_firstname-description user_firstname-error"
+                aria-invalid="false"
+                class="theme-input"
+                id="user_firstname"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          >
+            <label
+              class="theme-label"
+              for="user_lastname"
+            />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-describedby="user_lastname-description user_lastname-error"
+                aria-invalid="false"
+                class="theme-input"
+                id="user_lastname"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div
+      class="theme-tabpanel theme-tabpanel--hidden"
+      id="undefined-tabs-1"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <fieldset
+        class="theme-fieldset"
       >
-        <button
-          aria-controls="undefined-tabs-pane-1"
-          aria-selected="false"
-          href="#"
-          id="undefined-tabs-tab-1"
-          label="Other"
-          role="tab"
-          tabindex="-1"
+        <div
+          class="theme-fieldset-content"
         >
           <span
-            aria-describedby="42"
-            class="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+            class="theme-hidden"
           >
-            <span
-              class="theme-tc-tab-bar-item-label"
-            >
+            <legend>
               Other
-            </span>
+            </legend>
           </span>
-        </button>
-      </li>
-    </ul>
-  </div>
-  <div
-    class="tab-content"
-  >
-    <div
-      aria-hidden="false"
-      aria-labelledby="undefined-tabs-tab-0"
-      class="fade tab-pane active in"
-      id="undefined-tabs-pane-0"
-      role="tabpanel"
-    >
-      <fieldset
-        class="form-group"
-      >
-        <legend
-          class="sr-only"
-        >
-          User
-        </legend>
-        <div
-          aria-busy="false"
-          class="form-group theme-template"
-        >
-          <input
-            aria-describedby="user_firstname-description user_firstname-error"
-            aria-invalid="false"
-            class="form-control"
-            id="user_firstname"
-            type="text"
-            value=""
-          />
-          <div />
-        </div>
-        <div
-          aria-busy="false"
-          class="form-group theme-template"
-        >
-          <input
-            aria-describedby="user_lastname-description user_lastname-error"
-            aria-invalid="false"
-            class="form-control"
-            id="user_lastname"
-            type="text"
-            value=""
-          />
-          <div />
-        </div>
-      </fieldset>
-    </div>
-    <div
-      aria-hidden="true"
-      aria-labelledby="undefined-tabs-tab-1"
-      class="fade tab-pane"
-      id="undefined-tabs-pane-1"
-      role="tabpanel"
-    >
-      <fieldset
-        class="form-group"
-      >
-        <legend
-          class="sr-only"
-        >
-          Other
-        </legend>
-        <div
-          aria-busy="false"
-          class="form-group theme-template"
-        >
-          <input
-            aria-describedby="comment-description comment-error"
-            aria-invalid="false"
-            class="form-control"
-            id="comment"
-            type="text"
-            value=""
-          />
-          <div />
+          <div
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          >
+            <label
+              class="theme-label"
+              for="comment"
+            />
+            <div
+              class="theme-inputShell"
+            >
+              <input
+                aria-describedby="comment-description comment-error"
+                aria-invalid="false"
+                class="theme-input"
+                id="comment"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
         </div>
       </fieldset>
     </div>
   </div>
-</div>
+</nav>
 `;

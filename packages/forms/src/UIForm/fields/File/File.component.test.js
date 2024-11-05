@@ -1,6 +1,7 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import File, { FileWidget, base64Decode } from './File.component';
+
+import File, { base64Decode, FileWidget } from './File.component';
 
 jest.unmock('@talend/design-system');
 
@@ -45,9 +46,11 @@ describe('File field', () => {
 			],
 		},
 	};
+
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
+
 	it('should render default File', () => {
 		// when
 		const { container } = render(<File {...props} />);
@@ -67,8 +70,7 @@ describe('File field', () => {
 		render(<File {...valuedProps} />);
 
 		// then
-		const textInput = screen.getByRole('textbox');
-		expect(textInput).toHaveValue('test.xml');
+		expect(screen.getByLabelText(schema.title)).toHaveAttribute('files', 'test.xml');
 	});
 
 	it('should render File with pre-signed url related trigger', () => {
@@ -82,7 +84,7 @@ describe('File field', () => {
 		render(<File {...valuedProps} />);
 
 		// then
-		expect(screen.getByRole('textbox')).toHaveValue('6.avro');
+		expect(screen.getByLabelText(schema.title)).toHaveAttribute('files', '6.avro');
 	});
 
 	it('should trigger onChange when user select file', async () => {
@@ -100,7 +102,9 @@ describe('File field', () => {
 		// when
 		const fileInput = document.querySelector('input[type="file"]');
 		await userEvent.upload(fileInput, blob);
-		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), { schema, value });
+		await waitFor(() =>
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), { schema, value }),
+		);
 	});
 
 	it('should trigger pre-signed url related onChange when user select file', async () => {
@@ -116,44 +120,12 @@ describe('File field', () => {
 		const fileInput = document.querySelector('input[type="file"]');
 		await userEvent.upload(fileInput, blob);
 
-		expect(propsWithPresignedUrlTrigger.onTrigger).toHaveBeenCalledWith(expect.anything(), {
-			schema: propsWithPresignedUrlTrigger.schema,
-			trigger: propsWithPresignedUrlTrigger.schema.triggers[0],
-		});
-	});
-
-	it('should not change filename in state when props are not updated', () => {
-		// given
-		const givenProps = {
-			value: 'data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i',
-		};
-		const givenState = {
-			fileName: 'test.xml',
-		};
-
-		// when
-		const result = FileWidget.getDerivedStateFromProps(givenProps, givenState);
-
-		// then
-		expect(result).toEqual(null);
-	});
-
-	it('should change filename in state when props are updated', () => {
-		// given
-		const givenProps = {
-			value: '',
-		};
-		const givenState = {
-			fileName: 'test.xml',
-		};
-
-		// when
-		const result = FileWidget.getDerivedStateFromProps(givenProps, givenState);
-
-		// then
-		expect(result).toEqual({
-			fileName: '',
-		});
+		await waitFor(() =>
+			expect(propsWithPresignedUrlTrigger.onTrigger).toHaveBeenCalledWith(expect.anything(), {
+				schema: propsWithPresignedUrlTrigger.schema,
+				trigger: propsWithPresignedUrlTrigger.schema.triggers[0],
+			}),
+		);
 	});
 
 	it('should change input content when props are updated', () => {
@@ -167,13 +139,13 @@ describe('File field', () => {
 		const { rerender } = render(<FileWidget {...valuedProps} />);
 
 		// then state and text field contains 'test.xml'
-		expect(screen.getByRole('textbox')).toHaveValue('test.xml');
+		expect(screen.getByLabelText(schema.title)).toHaveAttribute('files', 'test.xml');
 
 		// when
 		rerender(<FileWidget {...valuedProps} value="" />);
 
 		// then state and text field contains ''
-		expect(screen.getByRole('textbox')).toHaveValue('');
+		expect(screen.getByLabelText(schema.title)).toHaveAttribute('files', '');
 	});
 
 	it('should change input content when props are updated with pre-signed url related trigger', () => {
@@ -187,13 +159,13 @@ describe('File field', () => {
 		const { rerender } = render(<FileWidget {...valuedProps} />);
 
 		// then state and text field contains '6.avro'
-		expect(screen.getByRole('textbox')).toHaveValue('6.avro');
+		expect(screen.getByLabelText(schema.title)).toHaveAttribute('files', '6.avro');
 
 		// when
 		rerender(<FileWidget {...valuedProps} value="" />);
 
 		// then state and text field contains ''
-		expect(screen.getByRole('textbox')).toHaveValue('');
+		expect(screen.getByLabelText(schema.title)).toHaveAttribute('files', '');
 	});
 
 	it('should base64 encode single and multi-byte strings', () => {

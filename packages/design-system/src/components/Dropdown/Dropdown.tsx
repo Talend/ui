@@ -1,23 +1,24 @@
 import { cloneElement, MouseEvent, ReactElement, useEffect, useState } from 'react';
 
 import {
-	useDismiss,
-	useInteractions,
-	useFloating,
 	autoUpdate,
 	flip,
 	shift,
+	useDismiss,
+	useFloating,
+	useInteractions,
 } from '@floating-ui/react';
+
+import { randomUUID } from '@talend/utils';
 
 import { DataAttributes, DeprecatedIconNames } from '../../types';
 import { Clickable, ClickableProps } from '../Clickable';
 import { LinkableType } from '../Linkable';
+import { DropdownButton } from './Primitive/DropdownButton';
 import DropdownDivider from './Primitive/DropdownDivider';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
 import DropdownTitle from './Primitive/DropdownTitle';
-import { DropdownButton } from './Primitive/DropdownButton';
-import { randomUUID } from '@talend/utils';
 
 type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 	label: string;
@@ -30,7 +31,6 @@ type DropdownButtonType = Omit<ClickableProps, 'children'> & {
 type DropdownLinkType = Omit<LinkableType, 'children'> & {
 	label: string;
 	type: 'link';
-	as: ReactElement;
 } & DataAttributes;
 
 type DropdownLabelType = {
@@ -114,6 +114,8 @@ export const Dropdown = ({
 						const id = `${label}-${index}`;
 						return (
 							<DropdownButton
+								data-testid={`${menuItemTestId}.${id}`}
+								data-test={`${menuItemTest}.${id}`}
 								{...entryRest}
 								// {...menu}
 								onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
@@ -123,8 +125,6 @@ export const Dropdown = ({
 								key={uuid}
 								tabIndex={0}
 								id={uuid}
-								data-testid={`${menuItemTestId}.${id}`}
-								data-test={`${menuItemTest}.${id}`}
 							>
 								{label}
 							</DropdownButton>
@@ -161,6 +161,8 @@ export const Dropdown = ({
 					const id = `${label}-${index}`;
 					return (
 						<DropdownLink
+							data-testid={`${menuItemTestId}.${id}`}
+							data-test={`${menuItemTest}.${id}`}
 							as={as}
 							{...entryRest}
 							// {...menu}
@@ -172,8 +174,6 @@ export const Dropdown = ({
 									entry.onClick(event);
 								}
 							}}
-							data-testid={`${menuItemTestId}.${id}`}
-							data-test={`${menuItemTest}.${id}`}
 						>
 							{label}
 						</DropdownLink>

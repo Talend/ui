@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
 import getDefaultT from '../../../translate';
+import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
 
 const checkboxValues = [
 	{
@@ -47,7 +47,27 @@ describe('BadgeCheckboxesForm', () => {
 		).toHaveTextContent('Checkbox Three');
 		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
 	});
-	it('should trigger on change callback when checkbox generated from checkbox values are clicked', () => {
+	it('should show skeletons if items are loading', () => {
+		// Given
+		const props = {
+			checkboxValues,
+			id: 'myId',
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			value: [],
+			feature: 'Connection type',
+			t,
+			isLoading: true,
+		};
+		// When
+		render(<BadgeCheckboxesForm {...props} />);
+		// Then
+		expect(screen.getByTestId('badge-checkbox-form-skeleton-item')).toBeVisible();
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+		expect(screen.getByRole('button')).toBeDisabled();
+	});
+
+	it('should trigger on change callback when checkbox generated from checkbox values are clicked', async () => {
 		// Given
 		const onChange = jest.fn();
 		const props = {
@@ -62,14 +82,14 @@ describe('BadgeCheckboxesForm', () => {
 		// When
 		render(<BadgeCheckboxesForm {...props} />);
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-one')).not.toBeChecked();
-		userEvent.click(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-one'));
+		await userEvent.click(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-one'));
 		// Then
 		expect(onChange).toHaveBeenCalledTimes(1);
 		expect(onChange.mock.calls[0][1]).toEqual([
 			{ checked: true, id: 'checkbox-one', label: 'Checkbox One' },
 		]);
 	});
-	it('should trigger on change callback when all checkbox is checked', () => {
+	it('should trigger on change callback when all checkbox is checked', async () => {
 		// Given
 		const onChange = jest.fn();
 		const props = {
@@ -87,7 +107,7 @@ describe('BadgeCheckboxesForm', () => {
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-one')).not.toBeChecked();
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-two')).not.toBeChecked();
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-three')).not.toBeChecked();
-		userEvent.click(screen.getByTestId('badge-checkbox-form-checkbox-selectAll'));
+		await userEvent.click(screen.getByTestId('badge-checkbox-form-checkbox-selectAll'));
 		// Then
 		expect(onChange).toHaveBeenCalledTimes(1);
 		expect(onChange.mock.calls[0][1]).toEqual([
@@ -151,7 +171,7 @@ describe('BadgeCheckboxesForm', () => {
 		// Then
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-selectAll')).toBeChecked();
 	});
-	it('should filter the displayed checkbox using the filter bar', () => {
+	it('should filter the displayed checkbox using the filter bar', async () => {
 		// Given
 		const props = {
 			checkboxValues,
@@ -169,12 +189,7 @@ describe('BadgeCheckboxesForm', () => {
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-two')).toBeVisible();
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-three')).toBeVisible();
 
-		userEvent.type(
-			screen.getByRole('searchbox', {
-				name: /find a column/i,
-			}),
-			'One',
-		);
+		await userEvent.type(screen.getByRole('searchbox'), 'One');
 
 		// Then
 		expect(screen.getByTestId('badge-checkbox-form-checkbox-checkbox-one')).toBeVisible();
@@ -186,7 +201,7 @@ describe('BadgeCheckboxesForm', () => {
 		).not.toBeInTheDocument();
 	});
 
-	it('should call the submit callback', () => {
+	it('should call the submit callback', async () => {
 		const onSubmit = jest.fn();
 		// Give
 		const props = {
@@ -200,7 +215,7 @@ describe('BadgeCheckboxesForm', () => {
 		};
 		// When
 		render(<BadgeCheckboxesForm {...props} />);
-		userEvent.click(
+		await userEvent.click(
 			screen.getByRole('button', {
 				name: /apply/i,
 			}),

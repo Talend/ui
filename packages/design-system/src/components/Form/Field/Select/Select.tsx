@@ -1,16 +1,24 @@
-import { forwardRef, Children } from 'react';
+import { Children, forwardRef } from 'react';
 import type { Ref } from 'react';
 import { isElement } from 'react-is';
-import Input from '../Input';
+
+import { useId } from '../../../../useId';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	SelectPrimitive,
 	SelectPrimitiveProps,
 } from '../../Primitives';
+import Input from '../Input';
 
 export type SelectProps = FieldPropsPrimitive &
 	Omit<SelectPrimitiveProps, 'className' | 'style' | 'isAffix'> & { readOnly?: boolean };
+
+const SelectField = forwardRef((fieldProps: SelectProps, ref: Ref<HTMLSelectElement>) => {
+	return <SelectPrimitive {...fieldProps} ref={ref} />;
+});
+
+SelectField.displayName = 'SelectField';
 
 const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTMLInputElement>) => {
 	const {
@@ -27,6 +35,8 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 		defaultValue,
 		...rest
 	} = props;
+
+	const fieldID = useId(id, 'field-');
 
 	if (readOnly) {
 		const values = Children.toArray(children).reduce((acc: string[], current) => {
@@ -57,24 +67,12 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 				hasError={hasError || false}
 				link={link}
 				description={description}
-				id={id}
+				id={fieldID}
 				name={name}
 				hideLabel={hideLabel}
 				required={required}
 				ref={ref as Ref<HTMLInputElement>}
 			/>
-		);
-	}
-
-	function SelectField(fieldProps: Omit<SelectProps, 'hasError' | 'name' | 'children' | 'label'>) {
-		return (
-			<SelectPrimitive
-				hasError={hasError || false}
-				{...fieldProps}
-				ref={ref as Ref<HTMLSelectElement>}
-			>
-				{children}
-			</SelectPrimitive>
 		);
 	}
 
@@ -86,10 +84,21 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement | HTML
 			description={description}
 			id={id}
 			name={name}
+			fieldId={fieldID}
 			hideLabel={hideLabel}
 			required={required}
 		>
-			<SelectField defaultValue={defaultValue} {...rest} />
+			<SelectField
+				defaultValue={defaultValue}
+				hasError={hasError || false}
+				name={name}
+				required={required}
+				label={label}
+				id={fieldID}
+				{...rest}
+			>
+				{children}
+			</SelectField>
 		</FieldPrimitive>
 	);
 });

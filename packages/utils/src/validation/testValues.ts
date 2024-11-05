@@ -46,14 +46,3 @@ export const validEmails: Array<string> = [
 ];
 
 export const invalidEmails: Array<string> = ['john', 'john@', 'john @', 'john\\@re'];
-
-// Phones
-export const validPhones: Array<string> = ['+33102030405'];
-
-export const invalidPhones: Array<string> = [
-	'john',
-	'john@',
-	'john @',
-	'sarah@something.fr',
-	'Fred',
-];

@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { TagVariantsNames } from '@talend/design-system';
-import { Nav, NavItem, Tab } from '@talend/react-bootstrap';
 
-import Drawer from './Drawer.component';
+import { action } from '@storybook/addon-actions';
+
+import { TagVariantsNames } from '@talend/design-system';
 
 import ActionBar from '../ActionBar';
+import { ActionButton } from '../Actions';
 import HeaderBar from '../HeaderBar';
 import Layout from '../Layout';
 import SidePanel from '../SidePanel';
-import { ActionButton } from '../Actions';
+import TabBar from '../TabBar';
+import Drawer from './Drawer.component';
 
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
@@ -294,6 +295,29 @@ export const Layout2Columns = () => (
 	</Layout>
 );
 
+export const WithoutFooterActions = () => {
+	const drawersWithoutFooterActions = (
+		<Drawer title="Im drawer 2" footerActions={{}} key="drawer-2">
+			<h1>Hello drawer 2</h1>
+			<p>The scroll is defined by the content</p>
+			<h1>Hello drawer 3</h1>
+			{scrollableContent()}
+		</Drawer>
+	);
+
+	return (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={sidePanel}
+			drawers={[drawersWithoutFooterActions]}
+		>
+			<span>zone with drawer</span>
+			{twentyRows}
+		</Layout>
+	);
+};
+
 export const WithEditableHeader = () => (
 	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
 		<span>zone with drawer</span>
@@ -418,49 +442,52 @@ export const WithTabsWithSpecificFooters = () => {
 
 export const Custom = () => {
 	function CustomDrawer() {
+		const [selectedTab, setSelectedTab] = useState('info');
 		return (
 			<Drawer.Container>
-				<Tab.Container defaultActiveKey="info" id="custom">
-					<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-						<Drawer.Title
-							title="Custom drawer with tabs and a super long name that breaks the drawer title"
-							onCancelAction={onCancelAction}
-						>
-							<Nav bsClass="nav nav-tabs">
-								<NavItem componentClass="button" eventKey="info">
-									Info
-								</NavItem>
-								<NavItem componentClass="button" eventKey="navigator">
-									Navigator
-								</NavItem>
-								<NavItem componentClass="button" eventKey="profile">
-									Profile
-								</NavItem>
-								<NavItem componentClass="button" eventKey="metrics">
-									Metrics
-								</NavItem>
-							</Nav>
-						</Drawer.Title>
-						<Tab.Content animation>
-							<Tab.Pane eventKey="info">
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer>Test</Drawer.Footer>
-							</Tab.Pane>
-							<Tab.Pane eventKey="navigator">
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer />
-							</Tab.Pane>
-							<Tab.Pane eventKey="profile">
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer />
-							</Tab.Pane>
-							<Tab.Pane eventKey="metrics">
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer />
-							</Tab.Pane>
-						</Tab.Content>
-					</div>
-				</Tab.Container>
+				<Drawer.Title
+					title="Custom drawer with tabs and a super long name that breaks the drawer title"
+					onCancelAction={onCancelAction}
+				>
+					<TabBar
+						items={[
+							{
+								key: 'info',
+								label: 'Info',
+							},
+							{
+								key: 'navigator',
+								label: 'Navigator',
+							},
+							{
+								key: 'profile',
+								label: 'Profile',
+							},
+						]}
+						onSelect={(_, tab) => setSelectedTab(tab.key)}
+						selectedKey={selectedTab}
+					/>
+				</Drawer.Title>
+				<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+					{selectedTab === 'info' && (
+						<>
+							<Drawer.Content>{scrollableContent()}</Drawer.Content>
+							<Drawer.Footer>Test</Drawer.Footer>
+						</>
+					)}
+					{selectedTab === 'navigator' && (
+						<>
+							<Drawer.Content>{scrollableContent()}</Drawer.Content>
+							<Drawer.Footer />
+						</>
+					)}
+					{selectedTab === 'profile' && (
+						<>
+							<Drawer.Content>{scrollableContent()}</Drawer.Content>
+							<Drawer.Footer />
+						</>
+					)}
+				</div>
 			</Drawer.Container>
 		);
 	}
@@ -482,20 +509,16 @@ export const CustomStacked = () => {
 	function CustomDrawer() {
 		return (
 			<Drawer.Container stacked>
-				<Tab.Container defaultActiveKey="info" id="info">
-					<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-						<Drawer.Title
-							title="Custom drawer with tabs and a super long name that breaks the drawer title"
-							onCancelAction={sameCancelAction}
-						/>
-						<Tab.Content>
-							<Drawer.Content>{scrollableContent()}</Drawer.Content>
-							<Drawer.Footer>
-								<ActionBar actions={panelActions} />
-							</Drawer.Footer>
-						</Tab.Content>
-					</div>
-				</Tab.Container>
+				<Drawer.Title
+					title="Custom drawer with tabs and a super long name that breaks the drawer title"
+					onCancelAction={sameCancelAction}
+				/>
+				<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+					<Drawer.Content>{scrollableContent()}</Drawer.Content>
+					<Drawer.Footer>
+						<ActionBar actions={panelActions} />
+					</Drawer.Footer>
+				</div>
 			</Drawer.Container>
 		);
 	}
@@ -562,7 +585,7 @@ export const Interactive = () => {
 
 	return (
 		<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
-			<div style={{ padding: '1.5rem' }}>
+			<div style={{ padding: '0.9375rem' }}>
 				<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
 					Set back the drawers
 				</button>
@@ -622,7 +645,7 @@ export const _Interactive = () => {
 
 	return (
 		<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
-			<div style={{ padding: '1.5rem' }}>
+			<div style={{ padding: '0.9375rem' }}>
 				<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
 					Set back the drawers
 				</button>
@@ -639,7 +662,7 @@ export const WithSubtitleComponent = () => {
 			header={header}
 			mode="OneColumn"
 			drawers={[
-				<Drawer key="drawer-1">
+				<Drawer.Container key="drawer-1">
 					<Drawer.Title
 						title="Im drawer 1"
 						subtitle="Drawer subtitle"
@@ -652,9 +675,11 @@ export const WithSubtitleComponent = () => {
 						onCancelAction={onCancelAction}
 						editable
 					/>
-					<h1>Hello drawer 1</h1>
-					<p>You should not being able to read this because I'm first</p>
-				</Drawer>,
+					<Drawer.Content>
+						<h1>Hello drawer 1</h1>
+						<p>You should not being able to read this because I'm first</p>
+					</Drawer.Content>
+				</Drawer.Container>,
 			]}
 		>
 			<span>Select subtitle tag variants</span>

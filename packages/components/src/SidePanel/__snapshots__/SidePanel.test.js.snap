@@ -3,7 +3,6 @@
 exports[`SidePanel should render 1`] = `
 <nav
   class="theme-tc-side-panel tc-side-panel"
-  data-theme="light"
   id="sp"
   role="navigation"
   style="width: 0px;"

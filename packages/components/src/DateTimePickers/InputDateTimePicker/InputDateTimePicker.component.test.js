@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 
+jest.unmock('@talend/design-system');
+
 describe('InputDateTimePicker', () => {
 	it('should render', () => {
 		// when
@@ -16,21 +18,23 @@ describe('InputDateTimePicker', () => {
 	});
 	describe('onChange', () => {
 		it('should trigger props.onChange', async () => {
+			const user = userEvent.setup();
+
 			// given
 			const onChange = jest.fn();
 			render(<InputDateTimePicker id="my-picker" onChange={onChange} />);
-			expect(onChange).not.toBeCalled();
+			expect(onChange).not.toHaveBeenCalled();
 
 			// when
-			await userEvent.click(screen.getByTestId('date-picker'));
-			await userEvent.keyboard('2015-01-15');
-			await userEvent.click(screen.getByTestId('time-picker'));
-			await userEvent.keyboard('15:45');
+			await user.click(screen.getByTestId('date-picker'));
+			await user.keyboard('2015-01-15');
+			await user.click(screen.getByTestId('time-picker'));
+			await user.keyboard('15:45');
 			// force blur to trigger event
-			await userEvent.click(screen.getByTestId('date-picker'));
+			await user.click(screen.getByTestId('date-picker'));
 
 			// then
-			expect(onChange).toBeCalledTimes(2);
+			expect(onChange).toHaveBeenCalledTimes(2);
 			const argsOnDate = onChange.mock.calls[0];
 			expect(argsOnDate[1].errorMessage).toBe('Time is required');
 			const argsOnTime = onChange.mock.calls[1];
