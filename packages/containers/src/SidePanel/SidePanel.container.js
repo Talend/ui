@@ -1,8 +1,11 @@
 import { Component as RComponent } from 'react';
-import Component from '@talend/react-components/lib/SidePanel';
-import { cmfConnect } from '@talend/react-cmf';
+
 import { Map } from 'immutable';
 import omit from 'lodash/omit';
+
+import { cmfConnect } from '@talend/react-cmf';
+import Component from '@talend/react-components/lib/SidePanel';
+
 import { ACTION_TYPE_LINK } from './constants';
 
 export const DEFAULT_STATE = new Map({
@@ -10,7 +13,7 @@ export const DEFAULT_STATE = new Map({
 });
 
 /**
- * Checkout the {@link http://talend.surge.sh/containers/?selectedKind=SidePanelExample&selectedStory=Default|examples}
+ * Checkout the {@link http://talend.github.io/ui/main/containers/?selectedKind=SidePanelExample&selectedStory=Default|examples}
  * @param {object} props react props
  */
 class SidePanel extends RComponent {
