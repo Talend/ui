@@ -141,7 +141,7 @@
 	.radio-inline,
 	.checkbox,
 	.checkbox-inline {
-		&.ally-focus-within label {
+		&:focus-within label {
 			outline: none;
 		}
 	}

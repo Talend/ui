@@ -53,7 +53,6 @@
     "@talend/react-a11y": "^4.0.1",
     "@talend/react-bootstrap": "^3.0.2",
     "@talend/utils": "^3.2.3",
-    "ally.js": "^1.4.1",
     "classnames": "^2.5.1",
     "d3": "^7.9.0",
     "date-fns": "^3.6.0",
