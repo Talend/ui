@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 10.0.2
+
+### Patch Changes
+
+- c3b6358: docs: update links from surge to github.io
+
 ## 10.0.1
 
 ### Patch Changes
