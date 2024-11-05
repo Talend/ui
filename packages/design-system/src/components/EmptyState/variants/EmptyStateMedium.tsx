@@ -1,6 +1,7 @@
-import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
 import { forwardRef, Ref } from 'react';
+
 import { Illustration } from '../../illustrations';
+import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
 
 export type EmptyStateMediumIcon =
 	| 'ACTIVITY'
@@ -15,7 +16,9 @@ export type EmptyStateMediumIcon =
 	| 'SEARCH'
 	| 'SETTINGS'
 	| 'USER'
-	| 'WARNING';
+	| 'WARNING'
+	| 'IN_PROGRESS'
+	| 'UPDATE';
 
 function getIllustration(icon: EmptyStateMediumIcon) {
 	switch (icon) {
@@ -43,6 +46,10 @@ function getIllustration(icon: EmptyStateMediumIcon) {
 			return <Illustration.IconUser />;
 		case 'WARNING':
 			return <Illustration.IconWarning />;
+		case 'IN_PROGRESS':
+			return <Illustration.IconInProgress />;
+		case 'UPDATE':
+			return <Illustration.IconUpdate />;
 		default:
 			return <Illustration.IconDefault />;
 	}
