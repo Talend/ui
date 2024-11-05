@@ -167,7 +167,7 @@ export const Minimised = () => (
 
 export const WithALargeAmountOfItems = () => (
 	<SidePanel
-		actions={[...items, ...other, ...other, ...other]}
+		actions={[...items, ...other, ...other, ...other, ...other]}
 		onSelect={action('onItemSelect')}
 		selected={items[1]}
 		tooltipPlacement="top"
