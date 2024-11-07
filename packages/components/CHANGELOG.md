@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.2.1
+
+### Patch Changes
+
+- c3b6358: docs: update links from surge to github.io
+
 ## 17.2.0
 
 ### Minor Changes

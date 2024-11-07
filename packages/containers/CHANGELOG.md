@@ -1,5 +1,14 @@
 # @talend/react-containers
 
+## 11.2.1
+
+### Patch Changes
+
+- c3b6358: docs: update links from surge to github.io
+- Updated dependencies [c3b6358]
+  - @talend/react-components@17.2.1
+  - @talend/react-cmf@10.0.2
+
 ## 11.2.0
 
 ### Minor Changes
