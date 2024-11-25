@@ -189,7 +189,7 @@ describe('ListView field', () => {
 				target: { value: 'aaaaaa' },
 			});
 			// jest.runAllTimers();
-			fireEvent.click(screen.getByRole('link', { name: 'Abort' }));
+			fireEvent.click(screen.getByRole('link', { name: 'Remove filter' }));
 
 			// then
 			expect(screen.queryAllByRole('option').length).toBe(4);
