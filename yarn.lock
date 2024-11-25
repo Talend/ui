@@ -4322,10 +4322,10 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-faceted-search/-/locales-tui-faceted-search-11.3.0.tgz#6a8d6e256ac9082cd3e3187f68cd67459b105107"
   integrity sha512-Wj1t2puu/0vsNLHDgYwMiOCAh4vcHSfA76++vxSfQ0oZLnwXYoIDERcT1NaEnwu6Cpleue5MAuTKgDHryvWiqw==
 
-"@talend/locales-tui-forms@^10.2.4":
-  version "10.2.4"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-10.2.4.tgz#ea71b0d4876a82bea209d85f7da9d7b5c9bf248c"
-  integrity sha512-3rHgRKv9bc4rpLA3p4CQ7cGEWbHVITv6aRDLjhca6ZFmlQECC0JsghrqUYZ3GZeJmHezWGZm0LLRw4nNXBHwUA==
+"@talend/locales-tui-forms@^15.2.0":
+  version "15.2.0"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-15.2.0.tgz#dee8f65820b7e4e26de8b7972a48fd108bb0ffeb"
+  integrity sha512-6UMXC8/2qSB7u0ovYsvTqw0mtDsMUWTp/ahmuf4VtRGZDaHxwKl1TMhNgcVKDzwQc7AVzP4DBwG3MbzXqBEYlA==
 
 "@testing-library/cypress@^10.0.2":
   version "10.0.2"
