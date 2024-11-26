@@ -32,7 +32,7 @@ class ListViewWidget extends Component {
 			{
 				id: 'abort',
 				icon: 'talend-cross',
-				label: t('LISTVIEW_WIDGET_ABORT', { defaultValue: 'Abort' }),
+				label: t('LISTVIEW_WIDGET_REMOVE', { defaultValue: 'Remove filter' }),
 				onClick: this.switchToDefaultMode.bind(this),
 			},
 		];
