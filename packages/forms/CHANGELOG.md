@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 15.2.1
+
+### Patch Changes
+
+- 0efaf0b: fix(TMC-861): Enhance translation for some cancel actions on ListView and Enumeration
+
 ## 15.2.0
 
 ### Minor Changes
