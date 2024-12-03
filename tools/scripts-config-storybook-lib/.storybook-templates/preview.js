@@ -3,7 +3,7 @@ import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
 import { merge } from 'lodash';
-import { initialize, mswDecorator } from 'msw-storybook-addon';
+import { initialize, mswLoader } from 'msw-storybook-addon';
 
 import { initI18n } from './i18n';
 
@@ -81,9 +81,8 @@ const defaultPreview = {
 		},
 
 	},
-	loaders: [cmfLoader].filter(Boolean),
+	loaders: [cmfLoader, mswLoader].filter(Boolean),
 	decorators: [
-		mswDecorator,
 		(Story, context) => {
 			i18n.changeLanguage(context.globals && context.globals.locale);
 			return React.createElement(React.Suspense, { fallback: null },
