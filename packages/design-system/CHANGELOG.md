@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.3.1
+
+### Patch Changes
+
+- e742b73: TMC-4293 - Design System link should not be accent/grey while using qlik-light theme
+
 ## 11.3.0
 
 ### Minor Changes
