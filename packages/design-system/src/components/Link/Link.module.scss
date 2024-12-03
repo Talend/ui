@@ -5,7 +5,7 @@ $icon-alignment-offset-s: -0.0625rem;
 
 .link {
 	font: tokens.$coral-paragraph-m-bold;
-	color: tokens.$coral-color-accent-text;
+	color: tokens.$coral-color-info-text;
 	background: none;
 	border: none;
 	border-bottom-color: currentColor;
@@ -26,18 +26,18 @@ $icon-alignment-offset-s: -0.0625rem;
 	}
 
 	&:hover {
-		color: tokens.$coral-color-accent-text-hover;
+		color: tokens.$coral-color-info-text-hover;
 
 		.link__text {
-			border-bottom-color: tokens.$coral-color-accent-border-hover;
+			border-bottom-color: tokens.$coral-color-info-border-hover;
 		}
 	}
 
 	&:active {
-		color: tokens.$coral-color-accent-text-active;
+		color: tokens.$coral-color-info-text-active;
 
 		.link__text {
-			border-bottom-color: tokens.$coral-color-accent-border-active;
+			border-bottom-color: tokens.$coral-color-info-border-active;
 		}
 	}
 
@@ -54,11 +54,11 @@ $icon-alignment-offset-s: -0.0625rem;
 		color: tokens.$coral-color-neutral-text;
 
 		&:hover {
-			color: tokens.$coral-color-accent-text-hover;
+			color: tokens.$coral-color-info-text-hover;
 		}
 
 		&:active {
-			color: tokens.$coral-color-accent-text-active;
+			color: tokens.$coral-color-info-text-active;
 		}
 	}
 }
