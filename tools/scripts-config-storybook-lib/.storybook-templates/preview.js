@@ -10,7 +10,12 @@ import { initI18n } from './i18n';
 const { i18n: userI18n, cmf, ...userPreview } = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
 // msw
-initialize({ onUnhandledRequest: 'bypass' });
+initialize({ 
+  onUnhandledRequest: 'bypass',
+  serviceWorker: {
+    url: './mockServiceWorker.js'
+  }
+});
 
 // i18next
 const i18n = initI18n(userI18n);
