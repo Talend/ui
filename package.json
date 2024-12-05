@@ -6,7 +6,7 @@
     "@talend/scripts-core": "^16.5.1",
     "@talend/scripts-yarn-workspace": "^2.1.0",
     "cross-env": "^7.0.3",
-    "cross-spawn": "^7.0.3",
+    "cross-spawn": "^7.0.6",
     "eslint": "^8.57.1",
     "husky": "^8.0.3",
     "i18next-scanner": "^4.6.0",
