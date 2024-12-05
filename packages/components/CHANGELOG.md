@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.3.0
+
+### Minor Changes
+
+- d4da631: fix(QualityBar): fix tooltip label typo
+
 ## 17.2.1
 
 ### Patch Changes
