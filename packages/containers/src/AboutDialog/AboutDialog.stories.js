@@ -1,7 +1,7 @@
-import { http, HttpResponse, } from 'msw';
+import { http, HttpResponse } from 'msw';
 
-import Action from '../Action';
 import AboutDialog from '.';
+import Action from '../Action';
 
 export default {
 	title: 'AboutDialog',
@@ -41,7 +41,7 @@ Default.parameters = {
 							'Content-Type': 'application/json',
 							'Access-Control-Allow-Origin': '*',
 						},
-					}
+					},
 				);
 			}),
 		],
