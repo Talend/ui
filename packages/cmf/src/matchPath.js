@@ -2,8 +2,7 @@
  * Beware! Do not modify. Forked from react-router V4
  * Will be available as a dependency
  */
-
-import pathToRegexp from 'path-to-regexp';
+import { pathToRegexp } from 'path-to-regexp';
 
 const patternCache = {};
 const cacheLimit = 10000;
@@ -15,9 +14,8 @@ const compilePath = (pattern, options) => {
 
 	if (cache[pattern]) return cache[pattern];
 
-	const keys = [];
-	const re = pathToRegexp(pattern, keys, options);
-	const compiledPattern = { re, keys };
+	const { regexp, keys } = pathToRegexp(pattern, options);
+	const compiledPattern = { re: regexp, keys };
 
 	if (cacheCount < cacheLimit) {
 		cache[pattern] = compiledPattern;
