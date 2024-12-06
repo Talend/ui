@@ -3,14 +3,19 @@ import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
 import { merge } from 'lodash';
-import { initialize, mswDecorator } from 'msw-storybook-addon';
+import { initialize, mswLoader } from 'msw-storybook-addon';
 
 import { initI18n } from './i18n';
 
 const { i18n: userI18n, cmf, ...userPreview } = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
 // msw
-initialize({ onUnhandledRequest: 'bypass' });
+initialize({ 
+  onUnhandledRequest: 'bypass',
+  serviceWorker: {
+    url: './mockServiceWorker.js'
+  }
+});
 
 // i18next
 const i18n = initI18n(userI18n);
@@ -81,9 +86,8 @@ const defaultPreview = {
 		},
 
 	},
-	loaders: [cmfLoader].filter(Boolean),
+	loaders: [cmfLoader, mswLoader].filter(Boolean),
 	decorators: [
-		mswDecorator,
 		(Story, context) => {
 			i18n.changeLanguage(context.globals && context.globals.locale);
 			return React.createElement(React.Suspense, { fallback: null },

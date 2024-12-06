@@ -1,7 +1,7 @@
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 
-import Action from '../Action';
 import AboutDialog from '.';
+import Action from '../Action';
 
 export default {
 	title: 'AboutDialog',
@@ -16,9 +16,9 @@ export const Default = () => (
 Default.parameters = {
 	msw: {
 		handlers: [
-			rest.get('https://tdp.us.cloud.talend.com/api/version', (req, res, ctx) => {
-				return res(
-					ctx.json({
+			http.get('https://tdp.us.cloud.talend.com/api/version', () => {
+				return new HttpResponse(
+					JSON.stringify({
 						displayVersion: 'R2022-01',
 						services: [
 							{ versionId: '3.33.0-4.13.1', buildId: '5759adb-4022e15', serviceName: 'API' },
@@ -36,6 +36,12 @@ Default.parameters = {
 							{ versionId: '10.1.0', buildId: 'a849f4f', serviceName: 'Semantic Types Producer' },
 						],
 					}),
+					{
+						headers: {
+							'Content-Type': 'application/json',
+							'Access-Control-Allow-Origin': '*',
+						},
+					},
 				);
 			}),
 		],
