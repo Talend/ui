@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 10.1.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
 ## 10.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.5.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
 ## 5.4.0
 
 ### Minor Changes

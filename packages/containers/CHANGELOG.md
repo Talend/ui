@@ -1,5 +1,19 @@
 # @talend/react-containers
 
+## 11.3.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+### Patch Changes
+
+- Updated dependencies [5168318]
+- Updated dependencies [ea14b87]
+  - @talend/design-system@11.4.0
+  - @talend/react-components@17.3.1
+  - @talend/react-cmf@10.1.0
+
 ## 11.2.1
 
 ### Patch Changes

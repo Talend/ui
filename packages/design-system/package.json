@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "11.3.1",
+  "version": "11.4.0",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -81,7 +81,7 @@
     "@talend/scripts-core": "^16.5.1",
     "@talend/scripts-config-babel": "^13.5.0",
     "@talend/scripts-config-react-webpack": "^16.8.1",
-    "@talend/scripts-config-storybook-lib": "^5.4.0",
+    "@talend/scripts-config-storybook-lib": "^5.5.0",
     "@talend/scripts-config-typescript": "^11.3.0",
     "@talend/storybook-docs": "^2.5.1",
     "@testing-library/cypress": "^10.0.2",

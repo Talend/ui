@@ -1,5 +1,11 @@
 # @talend/scripts-publish-local
 
+## 1.4.1
+
+### Patch Changes
+
+- ea14b87: Fix Dependabot alerts
+
 ## 1.4.0
 
 ### Minor Changes
