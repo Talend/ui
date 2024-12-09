@@ -39,7 +39,7 @@ export const QualityBar = ({
 			tooltipLabels={{
 				empty: t('EMPTY_VALUES', {
 					defaultValue: '{{value}} empty value ({{percentage}}%)',
-					defaultValue_other: '{{value}} empty valuesssss ({{percentage}}%)',
+					defaultValue_other: '{{value}} empty values ({{percentage}}%)',
 					count: empty,
 					percentage: percentages.empty,
 					value: QualityBarDS.formatNumber(empty),

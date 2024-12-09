@@ -103,7 +103,7 @@ class EnumerationForm extends Component {
 				onClick: this.onSingleAddHandler.bind(this),
 			},
 			{
-				label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
+				label: t('ENUMERATION_WIDGET_CANCEL', { defaultValue: 'Cancel' }),
 				icon: 'talend-cross',
 				id: 'abort',
 				key: 'abort',
@@ -112,7 +112,7 @@ class EnumerationForm extends Component {
 		];
 		this.searchInputsActions = [
 			{
-				label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
+				label: t('ENUMERATION_WIDGET_REMOVE', { defaultValue: 'Remove filter' }),
 				icon: 'talend-cross',
 				id: 'abort',
 				key: 'abort',
@@ -137,7 +137,7 @@ class EnumerationForm extends Component {
 			},
 			{
 				disabled: false,
-				label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
+				label: t('ENUMERATION_WIDGET_CANCEL', { defaultValue: 'Cancel' }),
 				icon: 'talend-cross',
 				id: 'abort',
 				onClick: this.onAbortItem.bind(this),

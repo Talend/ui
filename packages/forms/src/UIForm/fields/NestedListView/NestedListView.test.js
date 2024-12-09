@@ -1,5 +1,7 @@
-import { screen, render, fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+
 import { NestedListViewWidget } from './NestedListView.component';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 
@@ -457,7 +459,7 @@ describe('NestedListView component', () => {
 			fireEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
 
 			// when clicking on the close action
-			fireEvent.click(screen.getByRole('link', { name: 'Abort' }));
+			fireEvent.click(screen.getByRole('link', { name: 'Remove filter' }));
 
 			// then switches to default mode
 			expect(screen.getByRole('link', { name: 'Search for specific values' })).toBeInTheDocument();
