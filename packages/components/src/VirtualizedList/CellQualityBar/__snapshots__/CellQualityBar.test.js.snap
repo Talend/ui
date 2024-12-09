@@ -75,6 +75,7 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
   >
     <div
       class="theme-container"
+      data-floating-ui-focusable=""
       id="id-42"
       role="tooltip"
       style="display: none; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -111,6 +112,7 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
   >
     <div
       class="theme-container"
+      data-floating-ui-focusable=""
       id="id-42"
       role="tooltip"
       style="display: none; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -147,6 +149,7 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
   >
     <div
       class="theme-container"
+      data-floating-ui-focusable=""
       id="id-42"
       role="tooltip"
       style="display: none; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -183,6 +186,7 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
   >
     <div
       class="theme-container"
+      data-floating-ui-focusable=""
       id="id-42"
       role="tooltip"
       style="display: none; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
