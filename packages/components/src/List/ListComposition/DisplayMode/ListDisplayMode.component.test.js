@@ -64,7 +64,7 @@ describe('List DisplayMode', () => {
 			);
 
 			// then
-			act(() => screen.getAllByRole('button')[0].focus());
+			await userEvent.hover(screen.getAllByRole('button')[0]);
 			expect(screen.getByText('Set Table as current display mode.')).toBeVisible();
 		});
 
