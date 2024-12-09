@@ -1,5 +1,11 @@
 # @talend/scripts-locales
 
+## 1.2.1
+
+### Patch Changes
+
+- ea14b87: Fix Dependabot alerts
+
 ## 1.2.0
 
 ### Minor Changes

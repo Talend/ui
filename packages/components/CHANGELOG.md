@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.3.1
+
+### Patch Changes
+
+- 5168318: fix: update floating-ui lib
+
 ## 17.3.0
 
 ### Minor Changes
