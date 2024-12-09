@@ -94,7 +94,7 @@
     "@types/react-dom": "^18.3.1",
     "@types/react-transition-group": "^2.9.2",
     "@types/react-virtualized": "^9.21.30",
-    "browser-sync": "^2.29.3",
+    "browser-sync": "^3.0.3",
     "browser-sync-webpack-plugin": "^2.3.0",
     "concurrently": "^8.2.2",
     "core-js": "^3.38.1",
