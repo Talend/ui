@@ -287,7 +287,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				fallback: {
 					url: false,
 					path: false,
-					querystring: false,
+					querystring: require.resolve('querystring-es3'),
 				},
 			},
 			module: {
