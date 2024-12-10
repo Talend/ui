@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 11.4.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+### Patch Changes
+
+- 5168318: fix: update floating-ui lib
+
 ## 11.3.1
 
 ### Patch Changes

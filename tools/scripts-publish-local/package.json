@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-publish-local",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "",
   "bin": {
     "talend-publish-local": "./bin/cli.js"
