@@ -1,11 +1,5 @@
 # @talend/http
 
-## 3.3.0
-
-### Minor Changes
-
-- fc2e30f: Fix remaining dependabot alerts
-
 ## 3.2.0
 
 ### Minor Changes
