@@ -1,14 +1,13 @@
-import fetchMock from 'fetch-mock';
-import { Response, Headers } from 'node-fetch';
+import { Headers, Response } from 'node-fetch';
 
 import {
-	HTTP,
-	getDefaultConfig,
-	setDefaultConfig,
-	HTTP_RESPONSE_INTERCEPTORS,
 	addHttpResponseInterceptor,
+	getDefaultConfig,
+	HTTP,
+	HTTP_RESPONSE_INTERCEPTORS,
+	setDefaultConfig,
 } from './config';
-import { httpFetch, handleBody, encodePayload, handleHttpResponse } from './http.common';
+import { encodePayload, handleBody, handleHttpResponse, httpFetch } from './http.common';
 import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
 import { TalendHttpError } from './http.types';
 
@@ -17,6 +16,10 @@ const defaultBody = { is: 'ok' };
 const defaultPayload = {
 	bar: 42,
 };
+
+interface FetchMock extends jest.Mock {
+	mockResponse?: Response;
+}
 
 beforeEach(() => {
 	jest.clearAllMocks();
@@ -199,7 +202,6 @@ describe('#httpFetch with `CSRF` token', () => {
 	});
 
 	afterAll(() => {
-		fetchMock.restore();
 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 	it('should get the CRFS token', async () => {
@@ -207,11 +209,17 @@ describe('#httpFetch with `CSRF` token', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		fetchMock.mock(url, { body: defaultBody, status: 200 });
+		(global.self.fetch as FetchMock).mockResponse = new Response(JSON.stringify(defaultBody), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+
 		const result = await httpFetch(url, {}, HTTP_METHODS.GET, defaultPayload);
 
 		expect(result.data).toEqual(defaultBody);
-		expect(fetchMock.calls()[0][1]).toEqual({
+		expect(global.self.fetch).toHaveBeenCalledWith(url, {
 			body: JSON.stringify(defaultPayload),
 			credentials: 'same-origin',
 			headers: {
@@ -239,7 +247,6 @@ describe('#httpFetch with CSRF handling configuration', () => {
 
 	afterAll(() => {
 		HTTP.defaultConfig = null;
-		fetchMock.restore();
 		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 
@@ -251,12 +258,17 @@ describe('#httpFetch with CSRF handling configuration', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		fetchMock.mock(url, { body: defaultBody, status: 200 });
+		(global.self.fetch as FetchMock).mockResponse = new Response(JSON.stringify(defaultBody), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
 
 		const result = await httpFetch(url, {}, HTTP_METHODS.GET, defaultPayload);
 
 		expect(result.data).toEqual(defaultBody);
-		expect(fetchMock.calls()[0][1]).toEqual({
+		expect(global.self.fetch).toHaveBeenCalledWith(url, {
 			body: JSON.stringify(defaultPayload),
 			credentials: 'same-origin',
 			headers: {
@@ -276,19 +288,23 @@ describe('#httpFetch with CSRF handling configuration', () => {
 describe('#httpFetch', () => {
 	afterEach(() => {
 		HTTP.defaultConfig = null;
-		fetchMock.restore();
 	});
 
 	it('should fetch the request', async () => {
 		const url = '/foo';
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
-		fetchMock.mock(url, { body: defaultBody, status: 200 });
+		(global.self.fetch as FetchMock).mockResponse = new Response(JSON.stringify(defaultBody), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
 
 		const result = await httpFetch(url, {}, HTTP_METHODS.GET, defaultPayload);
 
 		expect(result.data).toEqual(defaultBody);
-		expect(fetchMock.calls()[0][1]).toEqual({
+		expect(global.self.fetch).toHaveBeenCalledWith(url, {
 			body: JSON.stringify(defaultPayload),
 			credentials: 'same-origin',
 			headers: {
@@ -310,12 +326,17 @@ describe('#httpFetch', () => {
 			},
 		});
 
-		fetchMock.mock(url, { body: defaultBody, status: 200 });
+		(global.self.fetch as FetchMock).mockResponse = new Response(JSON.stringify(defaultBody), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
 
 		const result = await httpFetch(url, {}, HTTP_METHODS.GET, defaultPayload);
 
 		expect(result.data).toEqual(defaultBody);
-		expect(fetchMock.calls()[0][1]).toEqual({
+		expect(global.self.fetch).toHaveBeenCalledWith(url, {
 			body: JSON.stringify(defaultPayload),
 			credentials: 'same-origin',
 			headers: {
@@ -333,14 +354,22 @@ describe('#httpFetch', () => {
 		headers.append('Content-Type', 'application/json');
 		const payload = new FormData();
 
-		fetchMock.mock(url, { body: '{"foo": 42}', status: 200 });
+		(global.self.fetch as FetchMock).mockResponse = new Response(JSON.stringify({ foo: 42 }), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
 
 		const result = await httpFetch(url, {}, HTTP_METHODS.GET, payload);
-		expect(result.data).toEqual('{"foo": 42}');
+		expect(result.data).toEqual({ foo: 42 });
 
-		const mockCalls = fetchMock.calls();
-		expect(mockCalls[0][1]?.credentials).toEqual('same-origin');
-		expect(mockCalls[0][1]?.headers).toEqual({ Accept: 'application/json' });
+		expect(global.self.fetch).toHaveBeenCalledWith(url, {
+			body: payload,
+			credentials: 'same-origin',
+			headers: { Accept: 'application/json' },
+			method: 'GET',
+		});
 	});
 });
 
@@ -353,16 +382,17 @@ describe('#httpFetch with interceptors', () => {
 		}
 	});
 
-	afterEach(() => {
-		fetchMock.restore();
-	});
-
 	it('should call interceptor', async () => {
 		const interceptor = jest.fn().mockImplementation((res, _) => res);
 		addHttpResponseInterceptor('interceptor', interceptor);
 
 		const url = '/foo';
-		fetchMock.mock(url, { body: defaultBody, status: 200 });
+		(global.self.fetch as FetchMock).mockResponse = new Response(JSON.stringify(defaultBody), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
 
 		await httpFetch(url, {}, HTTP_METHODS.GET, {});
 		expect(interceptor).toHaveBeenCalled();
@@ -374,8 +404,12 @@ describe('#httpFetch with interceptors', () => {
 
 		const url = '/foo';
 		const context = { async: true };
-		const response = { body: defaultBody, status: 200 };
-		fetchMock.mock(url, response);
+		(global.self.fetch as FetchMock).mockResponse = new Response(JSON.stringify(defaultBody), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
 
 		await httpFetch(url, { context }, HTTP_METHODS.GET, {});
 		expect(interceptor).toHaveBeenCalledWith(
