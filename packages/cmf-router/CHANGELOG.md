@@ -1,5 +1,16 @@
 # Changelog
 
+## 7.1.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+### Patch Changes
+
+- Updated dependencies [ea14b87]
+  - @talend/react-cmf@10.1.0
+
 ## 7.0.1
 
 ### Patch Changes

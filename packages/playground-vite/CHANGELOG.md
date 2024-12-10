@@ -1,5 +1,18 @@
 # @talend/ui-playground
 
+## 0.1.2
+
+### Patch Changes
+
+- ea14b87: Fix Dependabot alerts
+- Updated dependencies [5168318]
+- Updated dependencies [ea14b87]
+  - @talend/design-system@11.4.0
+  - @talend/react-components@17.3.1
+  - @talend/react-cmf-router@7.1.0
+  - @talend/react-containers@11.3.0
+  - @talend/react-cmf@10.1.0
+
 ## 0.1.1
 
 ### Patch Changes
