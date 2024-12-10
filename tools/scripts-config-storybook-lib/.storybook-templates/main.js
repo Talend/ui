@@ -84,7 +84,6 @@ const defaultMain = {
 				fallback: {
 					...config.resolve.fallback,
 					path: false,
-					querystring: false,
 				},
 			},
 		};

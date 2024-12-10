@@ -1,11 +1,5 @@
 # @talend/design-system
 
-## 11.5.0
-
-### Minor Changes
-
-- fc2e30f: Fix remaining dependabot alerts
-
 ## 11.4.0
 
 ### Minor Changes

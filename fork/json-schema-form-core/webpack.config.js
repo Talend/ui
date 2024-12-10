@@ -6,8 +6,5 @@ module.exports = {
 		fallback: {
 			path: false,
 		},
-		alias: {
-			'json-refs': require.resolve('json-refs/dist/json-refs.js'),
-		},
 	},
 };
