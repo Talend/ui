@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
-import type { Ref, ReactNode } from 'react';
-import { StackVertical } from '../../Stack';
+import type { ReactNode, Ref } from 'react';
 
 import theme from './PrimitiveDrawer.module.scss';
 
@@ -13,11 +12,9 @@ export type DrawerProps = {
 export const PrimitiveDrawer = forwardRef(
 	({ header, children, footer }: DrawerProps, ref: Ref<HTMLDivElement>) => (
 		<div className={theme.drawer} ref={ref}>
-			<StackVertical gap={0} align="stretch" justify="stretch">
-				{header && <div className={theme.header}>{header}</div>}
-				<div className={theme.body}>{children}</div>
-				{footer && <div className={theme.footer}>{footer}</div>}
-			</StackVertical>
+			{header && <div className={theme.header}>{header}</div>}
+			<div className={theme.body}>{children}</div>
+			{footer && <div className={theme.footer}>{footer}</div>}
 		</div>
 	),
 );
