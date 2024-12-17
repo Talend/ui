@@ -5,6 +5,10 @@
 	height: 100%;
 	background: tokens.$coral-color-neutral-background;
 	display: flex;
+	flex-flow: column;
+	justify-content: stretch;
+	align-items: stretch;
+	flex-wrap: nowrap;
 
 	.header {
 		flex-grow: 0;
@@ -20,7 +24,7 @@
 		flex-shrink: 1;
 		flex-basis: 0;
 		overflow: auto;
-
+		flex-flow: column;
 		display: flex;
 	}
 
