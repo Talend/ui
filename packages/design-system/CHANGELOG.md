@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.4.1
+
+### Patch Changes
+
+- ed7c9ca: TMC-1657 - Handle FloatingDrawer overflow
+
 ## 11.4.0
 
 ### Minor Changes
