@@ -56,7 +56,13 @@ const defaultProps = {
 };
 
 const overflowProps = {
-	...defaultProps,
+	header: (
+		<InlineEditing.Text
+			defaultValue="Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+			placeholder="Type something..."
+			label="Iniline edit that overflows"
+		/>
+	),
 	children: (
 		<InlineEditing.Textarea
 			defaultValue="Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"

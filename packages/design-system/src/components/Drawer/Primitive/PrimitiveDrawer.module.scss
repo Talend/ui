@@ -15,7 +15,7 @@
 		flex-shrink: 0;
 		flex-basis: tokens.$coral-sizing-l;
 		font: tokens.$coral-heading-m;
-
+		flex-flow: column;
 		display: flex;
 	}
 
