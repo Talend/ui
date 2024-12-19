@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 11.4.2
+
+### Patch Changes
+
+- 121bd2f: TMC-1657 - Fix DS drawer overflow for title container
+- 56151ad: InlineEdit should take into account the required property to not submit the input
+
 ## 11.4.1
 
 ### Patch Changes
