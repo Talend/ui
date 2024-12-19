@@ -84,6 +84,18 @@ export const Default = {
 		/>
 	),
 };
+export const IsRequired = {
+	render: (props: Story) => (
+		<InlineEditing.Text
+			placeholder="Input a crawler name"
+			label="Crawler name"
+			required
+			defaultValue=""
+			onEdit={action('onEdit')}
+			{...props}
+		/>
+	),
+};
 export const WithEllipsis = {
 	render: (props: Story) => (
 		<InlineEditing.Text
