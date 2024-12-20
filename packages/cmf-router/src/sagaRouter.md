@@ -48,10 +48,11 @@ yield spawn(routerSaga, history, routes);
 ```
 
 ## Matching pattern
+
 ```javascript
 const routes = {
-  "/datasets/add": saga1,
-  "/connections/:datastoreid/edit/add-dataset": saga2
+	'/datasets/add': saga1,
+	'/connections/:datastoreid/edit/add-dataset': saga2,
 };
 ```
 
@@ -65,9 +66,9 @@ and that we have the following configuration
 
 ```javascript
 const routes = {
-  "/datasets": datasets,
-  "/datasets/add": datasetsSaga,
-  "/connections/add": connectionsSaga
+	'/datasets': datasets,
+	'/datasets/add': datasetsSaga,
+	'/connections/add': connectionsSaga,
 };
 ```
 
@@ -90,10 +91,11 @@ and that we have the following configuration
 
 ```javascript
 const routes = {
-  "/datasets/add": datasetsSaga,
-  "/connections/add": connectionsSaga
+	'/datasets/add': datasetsSaga,
+	'/connections/add': connectionsSaga,
 };
 ```
+
 only `datasetsSaga` will be executed.
 
 Now the route is changed to `localhost/connections/add`
@@ -116,34 +118,33 @@ so saga of `/datasets` will be restarted when route changes.
 Optionally, if you want to run a saga only on exact match, you can pass a configuration `runOnExactMatch` as true,
 then saga will be started when its route exactly match current location, and will be stopped when change to any other route.
 
-
 ```javascript
-import { sagaRouter } from '@talend/react-cmf';
 import { browserHistory as history } from 'react-router';
+
+import { sagaRouter } from '@talend/react-cmf';
 
 const CANCEL_ACTION = 'CANCEL_ACTION';
 // route configuration, a url fragment match with a generator
 const routes = {
-  '/datasets': {
-    // runOnExactMatch: true,
-    restartOnRouteChange: true,
-    saga: function* datasets(notUsed, isExact) {
-      if (!isExact) {
-        return;
-      }
-      yield take(CANCEL_ACTION);
-      yield put({
-        type: REDIRECT_CONNECTION_ADD_DATASET_CANCEL,
-        cmf: {
-          routerReplace: `/connections/${datastoreId}/edit`,
-        },
-      });
-    },
-  },
-  '/datasets/add': function* addDataset() {}
+	'/datasets': {
+		// runOnExactMatch: true,
+		restartOnRouteChange: true,
+		saga: function* datasets(notUsed, isExact) {
+			if (!isExact) {
+				return;
+			}
+			yield take(CANCEL_ACTION);
+			yield put({
+				type: REDIRECT_CONNECTION_ADD_DATASET_CANCEL,
+				cmf: {
+					routerReplace: `/connections/${datastoreId}/edit`,
+				},
+			});
+		},
+	},
+	'/datasets/add': function* addDataset() {},
 };
 ```
-
 
 ### Partial route matching
 
@@ -153,10 +154,11 @@ and that we have the following configuration
 
 ```javascript
 const routes = {
-  "/datasets/add": datasetsSaga,
-  "/connections/add": connectionsSaga
+	'/datasets/add': datasetsSaga,
+	'/connections/add': connectionsSaga,
 };
 ```
+
 only `datasetsSaga` will be executed.
 
 because the route key can be matched on any part of the url.
@@ -171,57 +173,61 @@ and that we have the following configuration
 
 ```javascript
 const routes = {
-  "/datasets/add": datasetsSaga,
-  "/datasets/add/connection/add": datasetConnectionsSaga,
-  "/connection/add": connectionsSaga,
+	'/datasets/add': datasetsSaga,
+	'/datasets/add/connection/add': datasetConnectionsSaga,
+	'/connection/add': connectionsSaga,
 };
 ```
+
 `datasetsSaga`, `datasetConnectionSaga` and `connectionSaga` are running.
 
 ### Route matching and route parameters.
+
 Given the webapp url is `localhost/datasets/50/edit`
 
 and that we have the following configuration
 
 ```javascript
-function* editDatasetSaga ({datasetId}){
-  // do something
+function* editDatasetSaga({ datasetId }) {
+	// do something
 }
 
 const routes = {
-  "/datasets/add": datasetsSaga,
-  "/datasets/:datasetId/edit": editDatasetSaga
+	'/datasets/add': datasetsSaga,
+	'/datasets/:datasetId/edit': editDatasetSaga,
 };
 ```
+
 only `editDatasetsSaga` will be executed and :datasetId will be resolved and given to the running saga as a parameter.
 
 url parameters are resolved and given to the executed saga in form of an object, because we can match on many of them.
 
 ```javascript
-function* connectionSaga ({connectionId, datasetId}){
-  // do something
+function* connectionSaga({ connectionId, datasetId }) {
+	// do something
 }
 
 const routes = {
-  "/datasets/add": datasetsSaga,
-  "/datasets/:datasetId/edit": editDatasetSaga,
-  "/datasets/:datasetId/connections/:connectionId": connectionSaga
+	'/datasets/add': datasetsSaga,
+	'/datasets/:datasetId/edit': editDatasetSaga,
+	'/datasets/:datasetId/connections/:connectionId': connectionSaga,
 };
 ```
 
 ### Route matching with route parameter change
+
 Given the webapp url is `localhost/datasets/50/edit`
 
 and that we have the following configuration
 
 ```javascript
-function* editDatasetSaga ({datasetId}){
-  // do something
+function* editDatasetSaga({ datasetId }) {
+	// do something
 }
 
 const routes = {
-  "/datasets/add": datasetsSaga,
-  "/datasets/:datasetId/edit": editDatasetSaga
+	'/datasets/add': datasetsSaga,
+	'/datasets/:datasetId/edit': editDatasetSaga,
 };
 ```
 
@@ -234,24 +240,26 @@ the `editDatasetsSaga` is cancelled, and when its done, restarted with the new v
 Only sagas matching on a route which parameter change are restarted.
 
 ### Route matching with optionnal parameters
+
 Given the webapp url is `localhost/datasets/add/550`
 
 and that we have the following configuration
 
 ```javascript
-function* editDatasetSaga ({datasetId}){
-  // do something
+function* editDatasetSaga({ datasetId }) {
+	// do something
 }
 
 const routes = {
-  "/datasets/add/:connectionId?": datasetsSaga,
-  "/datasets/:datasetId/edit": editDatasetSaga
+	'/datasets/add{/:connectionId}': datasetsSaga,
+	'/datasets/:datasetId/edit': editDatasetSaga,
 };
 ```
+
 datasetSaga will be executed
 
 if the route change to `localhost/datasets/add`
 
-the `datasetsSaga` will be restarted since it still match on `/datasets/add/:connectionId?` route and that the parameter has changed from being a value to being absent.
+the `datasetsSaga` will be restarted since it still match on `/datasets/add{/:connectionId}` route and that the parameter has changed from being a value to being absent.
 
-the ? at the end of the parameter define that it is optional.
+the {/:connectionId} at the end of path means /connectionId is optional.
