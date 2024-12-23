@@ -140,7 +140,7 @@ const InlineEditingPrimitive = forwardRef(
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		const getValue = () => (onChangeValue ? value : internalValue);
 		const inputIsValid = () => {
-			return !required || !!getValue();
+			return !required || !!getValue()?.trim();
 		};
 
 		const toggleEditionMode = (isEditionMode: boolean) => {
