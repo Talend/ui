@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.4.3
+
+### Patch Changes
+
+- 59af07a: InlineEdit - Fix been able to submit field when required and having blank spaces
+
 ## 11.4.2
 
 ### Patch Changes
