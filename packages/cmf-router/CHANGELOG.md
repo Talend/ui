@@ -1,5 +1,13 @@
 # Changelog
 
+## 7.1.1
+
+### Patch Changes
+
+- e2d8899: Revert: upgrade path-to-regexp
+- Updated dependencies [e2d8899]
+  - @talend/react-cmf@10.1.1
+
 ## 7.1.0
 
 ### Minor Changes
