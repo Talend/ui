@@ -1,5 +1,11 @@
 # @talend/react-containers
 
+## 11.3.1
+
+### Patch Changes
+
+- 6d93484: Upgrade cmf
+
 ## 11.3.0
 
 ### Minor Changes
