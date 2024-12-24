@@ -393,4 +393,24 @@ describe('sagaRouter route and route params', () => {
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
 		expect(gen.next().value).toEqual(spawn(routes['/matchingroute{/:optional}'], {}, true));
 	});
+
+	it('should start root path saga when on child route', () => {
+		const mockHistory = {
+			get location() {
+				return {
+					pathname: '/tasks',
+				};
+			},
+		};
+		const routes = {
+			'/{*path}': function* rootSaga() {
+				yield take('SOMETHING');
+			},
+		};
+		const gen = sagaRouter(mockHistory, routes);
+
+		// Root saga should be started with isExact=true for wildcard path
+		expect(gen.next().value).toEqual(spawn(routes['/{*path}'], { path: 'tasks' }, true));
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+	});
 });

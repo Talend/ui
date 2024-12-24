@@ -263,3 +263,42 @@ if the route change to `localhost/datasets/add`
 the `datasetsSaga` will be restarted since it still match on `/datasets/add{/:connectionId}` route and that the parameter has changed from being a value to being absent.
 
 the {/:connectionId} at the end of path means /connectionId is optional.
+
+### Root Path Matching
+
+The root path `/` has special matching behavior that's important to understand:
+
+1. Exact root path matching:
+
+```javascript
+const routes = {
+	'/': function* rootSaga() {
+		yield take('SOMETHING');
+	},
+};
+```
+
+- Only matches exactly `/`
+- Does not match child routes like `/tasks` or `/users/123`
+- This is because path-to-regexp treats the root path `/` differently than other routes - it won't do partial matching even when `exact` is false
+- If you want `/` to match any path that starts with `/`, you need to use a wildcard pattern like `/{*path}`
+
+2. Matching root and all child routes:
+
+```javascript
+const routes = {
+	'/{*path}': function* rootSaga({ path }) {
+		yield take('SOMETHING');
+	},
+};
+```
+
+- Matches both root path `/` and all child routes
+- For root path `/`, params will be empty `{}`
+- For child routes, `params.path` will contain the remaining path:
+  - `/tasks` → `{ path: 'tasks' }`
+  - `/tasks/123` → `{ path: 'tasks/123' }`
+
+This pattern is particularly useful when you need a saga to run for all routes in your application while still being able to access the current route path.
+
+For more details about path matching and troubleshooting, see [path-to-regexp documentation](https://github.com/pillarjs/path-to-regexp#errors).
