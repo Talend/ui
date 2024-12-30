@@ -367,31 +367,37 @@ describe('sagaRouter route and route params', () => {
 					if (count === 0) {
 						count = 1;
 						return {
-							pathname: '/matchingroute/optional',
+							pathname: '/matchingroute/tasks/taskId-123',
 						};
 					}
 					return {
-						pathname: '/matchingroute',
+						pathname: '/matchingroute/tasks',
 					};
 				},
 			};
 		}
 		const routes = {
-			'/matchingroute{/:optional}': function* matchingSaga() {
+			'/matchingroute/:resource{/:optional}': function* matchingSaga() {
 				yield take('SOMETHING');
 			},
 		};
 		const gen = sagaRouter(getMockedHistory(), routes);
 
 		expect(gen.next().value).toEqual(
-			spawn(routes['/matchingroute{/:optional}'], { optional: 'optional' }, true),
+			spawn(
+				routes['/matchingroute/:resource{/:optional}'],
+				{ resource: 'tasks', optional: 'taskId-123' },
+				true,
+			),
 		);
 		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
 
 		// optional parameter is removed, saga should be restarted
 		const expectedCancelYield = cancel(mockTask);
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
-		expect(gen.next().value).toEqual(spawn(routes['/matchingroute{/:optional}'], {}, true));
+		expect(gen.next().value).toEqual(
+			spawn(routes['/matchingroute/:resource{/:optional}'], { resource: 'tasks' }, true),
+		);
 	});
 
 	it('should start root path saga when on child route', () => {

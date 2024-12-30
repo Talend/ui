@@ -69,4 +69,14 @@ describe('matchPath', () => {
 			expect(match.isExact).toBe(true);
 		});
 	});
+	describe('with optinal parameter path="/matchingroute/:resource{/:optional}"', () => {
+		it('returns correct match and params for child route "/tasks"', () => {
+			const path = '/matchingroute/:resource{/:optional}';
+			const pathname = '/matchingroute/tasks/taskId-123';
+			const match = matchPath(pathname, path);
+			expect(match.url).toBe('/matchingroute/tasks/taskId-123');
+			expect(match.params).toEqual({ resource: 'tasks', optional: 'taskId-123' });
+			expect(match.isExact).toBe(true);
+		});
+	});
 });
