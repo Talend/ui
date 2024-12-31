@@ -2,7 +2,7 @@
  * Beware! Do not modify. Forked from react-router V4
  * Will be available as a dependency
  */
-import pathToRegexp from 'path-to-regexp';
+import { pathToRegexp } from 'path-to-regexp';
 
 const patternCache = {};
 const cacheLimit = 10000;
@@ -14,9 +14,8 @@ const compilePath = (pattern, options) => {
 
 	if (cache[pattern]) return cache[pattern];
 
-	const keys = [];
-	const re = pathToRegexp(pattern, keys, options);
-	const compiledPattern = { re, keys };
+	const { regexp, keys } = pathToRegexp(pattern, options);
+	const compiledPattern = { re: regexp, keys };
 
 	if (cacheCount < cacheLimit) {
 		cache[pattern] = compiledPattern;
@@ -38,18 +37,22 @@ export default function matchPath(pathname, options = {}) {
 
 	if (!match) return null;
 
-	const [url, ...values] = match;
+	const url = match[0];
 	const isExact = pathname === url;
 
 	if (exact && !isExact) return null;
 
+	const params = {};
+	for (let i = 1; i < match.length; i++) {
+		if (match[i] === undefined) continue;
+		const key = keys[i - 1];
+		params[key.name] = match[i];
+	}
+
 	return {
-		path, // the path pattern used to match
-		url: path === '/' && url === '' ? '/' : url, // the matched portion of the URL
-		isExact, // whether or not we matched exactly
-		params: keys.reduce((memo, key, index) => {
-			memo[key.name] = values[index]; // eslint-disable-line no-param-reassign
-			return memo;
-		}, {}),
+		path,
+		url: path === '/' && url === '' ? '/' : url,
+		isExact,
+		params,
 	};
 }
