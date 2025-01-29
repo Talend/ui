@@ -43,6 +43,7 @@
     "postcss": "^8.4.47",
     "postcss-loader": "^8.1.1",
     "postcss-safe-parser": "^6.0.0",
+    "querystring-es3": "^0.2.1",
     "regenerator-runtime": "^0.13.11",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.80.5",

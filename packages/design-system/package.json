@@ -73,7 +73,7 @@
     "@storybook/react": "^7.6.20",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.6.20",
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/webpack": "^8.1.0",
     "@talend/eslint-config": "^13.2.1",
     "@talend/eslint-plugin": "^1.3.1",
     "@talend/icons": "^7.10.3",
