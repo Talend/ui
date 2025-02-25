@@ -1,7 +1,7 @@
 import getErrorMessage from '../shared/error-messages';
 
-const timePartRegex = new RegExp(/^(.*):(.*)$/);
-const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
+const timePartRegex = /^(\d{1,2}):(\d{2})$/;
+const timeWithSecondsPartRegex = /^(\d{1,2}):(\d{2}):(\d{2})$/;
 
 function TimePickerException(code, message) {
 	this.message = getErrorMessage(message);
