@@ -109,15 +109,6 @@ exports[`DateView should render 1`] = `
                     tabindex="-1"
                     type="button"
                   >
-                    2021
-                  </button>
-                </li>
-                <li>
-                  <button
-                    class="theme-year tc-date-picker-year"
-                    tabindex="-1"
-                    type="button"
-                  >
                     2022
                   </button>
                 </li>
@@ -133,7 +124,7 @@ exports[`DateView should render 1`] = `
                 <li>
                   <button
                     class="theme-year tc-date-picker-year"
-                    tabindex="0"
+                    tabindex="-1"
                     type="button"
                   >
                     2024
@@ -142,7 +133,7 @@ exports[`DateView should render 1`] = `
                 <li>
                   <button
                     class="theme-year tc-date-picker-year"
-                    tabindex="-1"
+                    tabindex="0"
                     type="button"
                   >
                     2025
@@ -164,6 +155,15 @@ exports[`DateView should render 1`] = `
                     type="button"
                   >
                     2027
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="theme-year tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2028
                   </button>
                 </li>
               </ol>
