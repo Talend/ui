@@ -1,5 +1,12 @@
 # @talend/react-components
 
+## 17.3.2
+
+### Patch Changes
+
+- f9c62f6: TMC-160 - Improve absolute footer buttons compatibility for all drawers
+- 09807b1: fix(security): Re-write regexes to fix re-dos threat
+
 ## 17.3.1
 
 ### Patch Changes
