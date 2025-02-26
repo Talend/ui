@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.27.10",
+    "@changesets/cli": "^2.28.1",
     "@talend/scripts-config-babel": "^13.5.0",
     "@talend/scripts-config-prettier": "^12.2.0",
     "@talend/scripts-core": "^16.5.1",
@@ -10,8 +10,8 @@
     "eslint": "^8.57.1",
     "husky": "^8.0.3",
     "i18next-scanner": "^4.6.0",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.2",
     "rimraf": "^5.0.10",
     "typescript": "^5.0.4"
   },
