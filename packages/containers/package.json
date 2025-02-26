@@ -45,10 +45,10 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^11.4.0",
+    "@talend/design-system": "^11.4.3",
     "@talend/react-cmf": "^11.0.0",
     "@talend/react-components": "^17.3.1",
-    "@talend/react-forms": "^15.1.0",
+    "@talend/react-forms": "^15.2.1",
     "@talend/utils": "^3.2.3",
     "classnames": "^2.5.1",
     "immutable": "^3.8.2",
@@ -74,10 +74,10 @@
     "@talend/scripts-config-storybook-lib": "^5.5.0",
     "@talend/scripts-config-react-webpack": "^16.8.1",
     "@testing-library/react": "^14.3.1",
-    "@testing-library/user-event": "^14.5.2",
-    "i18next": "^23.16.4",
+    "@testing-library/user-event": "^14.6.1",
+    "i18next": "^23.16.8",
     "jest-in-case": "^1.0.2",
-    "msw": "^2.6.6",
+    "msw": "^2.7.3",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -86,7 +86,7 @@
     "redux-saga-tester": "^1.0.874"
   },
   "peerDependencies": {
-    "i18next": "^23.16.4",
+    "i18next": "^23.16.8",
     "prop-types": "^15.5.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

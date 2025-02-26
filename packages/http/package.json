@@ -34,7 +34,7 @@
     "@talend/scripts-config-react-webpack": "^16.8.1",
     "@talend/scripts-config-typescript": "^11.3.0",
     "@types/jest": "^29.5.14",
-    "@types/node-fetch": "^2.6.11",
+    "@types/node-fetch": "^2.6.12",
     "fetch-mock": "^9.11.0",
     "node-fetch": "^2.7.0",
     "react-dom": "^18.3.1",
