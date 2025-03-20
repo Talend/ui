@@ -49,6 +49,7 @@ module.exports = options => {
 				fallback: {
 					url: false,
 					path: false,
+					querystring: require.resolve('querystring-es3'),
 				},
 			},
 			module: {
