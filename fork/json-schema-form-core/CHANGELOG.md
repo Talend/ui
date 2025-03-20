@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.4.2
+
+### Patch Changes
+
+- d80737c: Fix remaining dependabot alerts
+
 ## 1.4.1
 
 ### Patch Changes

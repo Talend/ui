@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.3.1
+
+### Patch Changes
+
+- d80737c: Fix remaining dependabot alerts
+
 ## 2.3.0
 
 ### Minor Changes
