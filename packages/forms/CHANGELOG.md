@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 15.2.2
+
+### Patch Changes
+
+- f9c62f6: TMC-160 - Improve absolute footer buttons compatibility for all drawers
+- Updated dependencies [f9c62f6]
+- Updated dependencies [09807b1]
+  - @talend/react-components@17.3.2
+
 ## 15.2.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @talend/react-sagas
 
+## 9.0.1
+
+### Patch Changes
+
+- Updated dependencies [816bb91]
+  - @talend/react-cmf@11.0.0
+
 ## 9.0.0
 
 ### Major Changes

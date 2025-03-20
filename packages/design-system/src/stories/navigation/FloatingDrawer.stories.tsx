@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StoryFn } from '@storybook/react';
 import { screen, userEvent } from '@storybook/testing-library';
 
-import { ButtonPrimary, FloatingDrawer, FloatingDrawerProps } from '../../';
+import { ButtonPrimary, FloatingDrawer, FloatingDrawerProps, InlineEditing } from '../../';
 import { Area } from '../docs/Area';
 
 export default {
@@ -55,6 +55,23 @@ const defaultProps = {
 	footer: <Area>Footer</Area>,
 };
 
+const overflowProps = {
+	header: (
+		<InlineEditing.Text
+			defaultValue="Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+			placeholder="Type something..."
+			label="Iniline edit that overflows"
+		/>
+	),
+	children: (
+		<InlineEditing.Textarea
+			defaultValue="Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+			placeholder="Type something..."
+			label="Iniline edit that overflows"
+		/>
+	),
+};
+
 const playOpenDrawer = async () => {
 	const openButton = screen.getByRole('button');
 	await userEvent.click(openButton);
@@ -74,6 +91,17 @@ export const Simple: StoryFn<typeof FloatingDrawer> = (
 	</FloatingDrawer.Container>
 );
 Simple.args = defaultProps;
+
+export const Overflow: StoryFn<typeof FloatingDrawer> = ({
+	disclosure,
+	visible,
+	...props
+}: FloatingDrawerProps) => (
+	<FloatingDrawer.Container style={containerStyle}>
+		<FloatingDrawer {...props} visible />
+	</FloatingDrawer.Container>
+);
+Overflow.args = overflowProps;
 
 export const WithDisclosure: StoryFn<typeof FloatingDrawer> = () => (
 	<FloatingDrawer.Container style={containerStyle}>

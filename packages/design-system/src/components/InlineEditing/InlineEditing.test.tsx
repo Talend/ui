@@ -48,4 +48,35 @@ describe('InlineEditing', () => {
 
 		expect(screen.getByTestId('my-prefix.inlineediting.button.edit')).toBeInTheDocument();
 	});
+
+	it('should not allow to submit required input', async () => {
+		const onEdit = jest.fn();
+		render(
+			<main>
+				<InlineEditing
+					label="Edit the value"
+					placeholder="What is your Lorem Ipsum?"
+					defaultValue=""
+					onEdit={onEdit}
+					required
+				/>
+			</main>,
+		);
+
+		fireEvent.click(screen.getByTestId('inlineediting.button.edit'));
+
+		expect(
+			screen.getByRole('button', {
+				name: /submit/i,
+			}),
+		).toBeDisabled();
+
+		fireEvent.keyDown(
+			screen.getByRole('textbox', {
+				name: /edit the value\*/i,
+			}),
+			'Enter',
+		);
+		expect(onEdit).not.toHaveBeenCalled();
+	});
 });

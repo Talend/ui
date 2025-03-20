@@ -1,5 +1,24 @@
 # @talend/design-system
 
+## 11.4.3
+
+### Patch Changes
+
+- 59af07a: InlineEdit - Fix been able to submit field when required and having blank spaces
+
+## 11.4.2
+
+### Patch Changes
+
+- 121bd2f: TMC-1657 - Fix DS drawer overflow for title container
+- 56151ad: InlineEdit should take into account the required property to not submit the input
+
+## 11.4.1
+
+### Patch Changes
+
+- ed7c9ca: TMC-1657 - Handle FloatingDrawer overflow
+
 ## 11.4.0
 
 ### Minor Changes

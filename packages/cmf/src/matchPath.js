@@ -37,18 +37,22 @@ export default function matchPath(pathname, options = {}) {
 
 	if (!match) return null;
 
-	const [url, ...values] = match;
+	const url = match[0];
 	const isExact = pathname === url;
 
 	if (exact && !isExact) return null;
 
+	const params = {};
+	for (let i = 1; i < match.length; i++) {
+		if (match[i] === undefined) continue;
+		const key = keys[i - 1];
+		params[key.name] = match[i];
+	}
+
 	return {
-		path, // the path pattern used to match
-		url: path === '/' && url === '' ? '/' : url, // the matched portion of the URL
-		isExact, // whether or not we matched exactly
-		params: keys.reduce((memo, key, index) => {
-			memo[key.name] = values[index]; // eslint-disable-line no-param-reassign
-			return memo;
-		}, {}),
+		path,
+		url: path === '/' && url === '' ? '/' : url,
+		isExact,
+		params,
 	};
 }

@@ -48,6 +48,7 @@ exports[`WithDrawer should render 1`] = `
           >
             <div
               class="tc-drawer-content theme-tc-drawer-content"
+              data-drawer-content="true"
             >
               <div
                 class="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
