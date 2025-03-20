@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.5.0
+
+### Minor Changes
+
+- d80737c: Fix remaining dependabot alerts
+
 ## 11.4.3
 
 ### Patch Changes
