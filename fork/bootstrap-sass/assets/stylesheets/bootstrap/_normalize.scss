@@ -6,6 +6,8 @@
 //    without disabling user zoom.
 //
 
+@layer reset {
+
 html {
   font-family: sans-serif; // 1
   -ms-text-size-adjust: 100%; // 2
@@ -424,4 +426,6 @@ table {
 td,
 th {
   padding: 0;
+}
+
 }
