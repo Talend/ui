@@ -1,29 +1,31 @@
 /* stylelint-disable declaration-no-important */
 @use '@talend/design-tokens/lib/tokens' as tokens;
 
-// stylelint-disable scss/selector-no-redundant-nesting-selector
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+@layer reset {
+	// stylelint-disable scss/selector-no-redundant-nesting-selector
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 
-html {
-	scroll-behavior: smooth;
-}
+	html {
+		scroll-behavior: smooth;
+	}
 
-body {
-	color: hsl(0, 0%, 13%) !important;
-	background-color: white !important;
-}
+	body {
+		color: hsl(0, 0%, 13%) !important;
+		background-color: white !important;
+	}
 
-#docs-root {
-	margin-top: 0;
-	font: tokens.$coral-paragraph-m;
-	position: relative;
-}
+	#docs-root {
+		margin-top: 0;
+		font: tokens.$coral-paragraph-m;
+		position: relative;
+	}
 
-.sbdocs.sbdocs-preview {
-	background-color: tokens.$coral-color-neutral-background;
-	color: tokens.$coral-color-neutral-text;
+	.sbdocs.sbdocs-preview {
+		background-color: tokens.$coral-color-neutral-background;
+		color: tokens.$coral-color-neutral-text;
+	}
 }
