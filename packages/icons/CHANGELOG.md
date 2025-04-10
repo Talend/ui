@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.11.0
+
+### Minor Changes
+
+- d80737c: Fix remaining dependabot alerts
+
 ## 7.10.3
 
 ### Patch Changes
