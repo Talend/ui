@@ -1,67 +1,68 @@
 @use '@talend/design-tokens/lib/tokens' as tokens;
+@layer reset {
+	body {
+		color: tokens.$coral-color-neutral-text;
+		background-color: tokens.$coral-color-neutral-background;
+	}
 
-body {
-	color: tokens.$coral-color-neutral-text;
-	background-color: tokens.$coral-color-neutral-background;
-}
+	h1,
+	.h1 {
+		color: tokens.$coral-color-neutral-text;
+		// font: tokens.$coral-heading-l;
+	}
 
-h1,
-.h1 {
-	color: tokens.$coral-color-neutral-text;
-	// font: tokens.$coral-heading-l;
-}
+	h2,
+	.h2 {
+		color: tokens.$coral-color-neutral-text;
+		// font: tokens.$coral-heading-m;
+	}
 
-h2,
-.h2 {
-	color: tokens.$coral-color-neutral-text;
-	// font: tokens.$coral-heading-m;
-}
+	h3,
+	.h3,
+	h4,
+	.h4 {
+		color: tokens.$coral-color-neutral-text;
+		// font: tokens.$coral-heading-s;
+	}
 
-h3,
-.h3,
-h4,
-.h4 {
-	color: tokens.$coral-color-neutral-text;
-	// font: tokens.$coral-heading-s;
-}
+	h5,
+	.h5,
+	h6,
+	.h6 {
+		color: tokens.$coral-color-neutral-text;
+	}
 
-h5,
-.h5,
-h6,
-.h6 {
-	color: tokens.$coral-color-neutral-text;
-}
+	p,
+	.p {
+		color: tokens.$coral-color-neutral-text;
+		// font: tokens.$coral-paragraph-m;
+	}
 
-p,
-.p {
-	color: tokens.$coral-color-neutral-text;
-	// font: tokens.$coral-paragraph-m;
-}
+	.text-muted {
+		color: tokens.$coral-color-neutral-text-disabled;
+	}
 
-.text-muted {
-	color: tokens.$coral-color-neutral-text-disabled;
-}
+	.text-primary {
+		color: tokens.$coral-color-accent-text;
+	}
 
-.text-primary {
-	color: tokens.$coral-color-accent-text;
-}
+	.text-warning {
+		color: tokens.$coral-color-warning-text;
+	}
 
-.text-warning {
-	color: tokens.$coral-color-warning-text;
-}
+	.text-danger {
+		color: tokens.$coral-color-danger-text;
+	}
 
-.text-danger {
-	color: tokens.$coral-color-danger-text;
-}
+	.text-success {
+		color: tokens.$coral-color-success-text;
+	}
 
-.text-success {
-	color: tokens.$coral-color-success-text;
-}
+	.text-info {
+		color: tokens.$coral-color-info-text;
+	}
 
-.text-info {
-	color: tokens.$coral-color-info-text;
-}
-
-a {
-	color: tokens.$coral-color-accent-text;
+	a {
+		color: tokens.$coral-color-accent-text;
+	}
 }
