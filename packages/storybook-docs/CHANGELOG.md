@@ -1,5 +1,11 @@
 # @talend/storybook-docs
 
+## 2.5.2
+
+### Patch Changes
+
+- 760db2b: fix: wrap reset css into reset layer
+
 ## 2.5.1
 
 ### Patch Changes
