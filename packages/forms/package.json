@@ -53,7 +53,7 @@
     "@talend/design-system": "^11.3.0",
     "@talend/design-tokens": "^3.4.3",
     "@talend/utils": "^3.2.3",
-    "ace-builds": "1.10.1",
+    "ace-builds": "1.40.0",
     "ajv": "^6.12.6",
     "classnames": "^2.5.1",
     "json-logic-js": "^2.0.5",
