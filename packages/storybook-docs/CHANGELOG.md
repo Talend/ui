@@ -1,5 +1,11 @@
 # @talend/storybook-docs
 
+## 2.5.3
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
 ## 2.5.2
 
 ### Patch Changes

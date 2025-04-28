@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.3.4
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
 ## 17.3.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.5.1
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
 ## 11.5.0
 
 ### Minor Changes
