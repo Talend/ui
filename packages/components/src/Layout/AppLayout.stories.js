@@ -1,11 +1,11 @@
 import { action } from '@storybook/addon-actions';
 
-import Layout from '.';
 import Drawer from '../Drawer';
 import HeaderBar from '../HeaderBar';
-import List from '../List/ListComposition';
+import Layout from '.';
 import SidePanel from '../SidePanel';
 import SubHeaderBar from '../SubHeaderBar';
+import List from '../List/ListComposition';
 
 const actions = [
 	{
@@ -81,9 +81,6 @@ const tabs = {
 
 export default {
 	title: 'Components/Layout/AppLayout',
-	parameters: {
-		layout: 'fullscreen',
-	},
 };
 
 export const OneColumn = () => <Layout mode="OneColumn" children={content} />;

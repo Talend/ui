@@ -279,9 +279,6 @@ for (let index = 0; index < 20; index++) {
 
 export default {
 	title: 'Components/Layout/Drawer',
-	parameters: {
-		layout: 'fullscreen',
-	},
 };
 
 export const Layout1Column = () => (
