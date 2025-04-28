@@ -1,5 +1,4 @@
-const LOADER_STYLE = `@layer reset {
-* {
+const LOADER_STYLE = `* {
 	box-sizing: border-box;
 }
 
@@ -162,7 +161,6 @@ body {
   50% {
     opacity: 1;
   }
-}
 }`;
 
 const APP_LOADER = `<div class="tc-app-loader-container" aria-label="Loading application" role="status">
