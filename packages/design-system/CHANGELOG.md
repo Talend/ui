@@ -1,5 +1,21 @@
 # @talend/design-system
 
+## 11.5.1
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
+## 11.5.0
+
+### Minor Changes
+
+- d80737c: Fix remaining dependabot alerts
+
+### Patch Changes
+
+- 760db2b: fix: wrap reset into css @layer reset
+
 ## 11.4.3
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @talend/react-components
 
+## 17.3.4
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
+## 17.3.3
+
+### Patch Changes
+
+- 760db2b: fix: wrap reset css into reset layer
+- Updated dependencies [d80737c]
+  - @talend/icons@7.11.0
+
 ## 17.3.2
 
 ### Patch Changes

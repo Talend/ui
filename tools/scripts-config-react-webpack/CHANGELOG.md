@@ -1,5 +1,13 @@
 # @talend/scripts-config-react-webpack
 
+## 16.8.2
+
+### Patch Changes
+
+- d80737c: add querystring to resolve.fallback
+- Updated dependencies [d80737c]
+  - @talend/scripts-utils@2.3.1
+
 ## 16.8.1
 
 ### Patch Changes
