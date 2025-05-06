@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.3.5
+
+### Patch Changes
+
+- 726b99e: Date Time Picker - Fix arrow icon that would generate extra padding around date fields
+
 ## 17.3.4
 
 ### Patch Changes
