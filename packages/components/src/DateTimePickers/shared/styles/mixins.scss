@@ -61,5 +61,5 @@ $tc-datepicker-width: 19.375rem !default;
 @mixin arrow {
 	display: flex;
 	align-items: flex-end;
-	margin: tokens.$coral-spacing-s;
+	margin: 10px;
 }
