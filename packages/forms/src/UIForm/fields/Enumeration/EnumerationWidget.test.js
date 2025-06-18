@@ -114,7 +114,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		await userEvent.hover(screen.getByRole('row'));
+		await userEvent.hover(screen.getAllByRole('row')[1]);
 		await userEvent.click(screen.getByRole('link', { name: 'Edit' }));
 
 		// then
@@ -136,7 +136,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		await userEvent.hover(screen.getByRole('row'));
+		await userEvent.hover(screen.getAllByRole('row')[0]);
 		await userEvent.click(screen.getByRole('link', { name: 'Edit' }));
 		await userEvent.clear(screen.getByLabelText('Enter the new value'));
 		await userEvent.type(screen.getByLabelText('Enter the new value'), 'foo');
