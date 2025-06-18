@@ -17,7 +17,7 @@ exports[`Items should render 1`] = `
     >
       <div
         class="ReactVirtualized__Grid__innerScrollContainer"
-        role="rowgroup"
+        role="row"
         style="width: auto; height: 166px; max-width: 30px; max-height: 166px; overflow: hidden; position: relative;"
       >
         <div
