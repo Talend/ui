@@ -44,7 +44,7 @@ jobs:
           yarn workspace @talend/design-tokens run build:lib:esm
 
       - name: Cypress Component Testing
-        uses: cypress-io/github-action@108b8684ae52e735ff7891524cbffbcd4be5b19f #v6.7.16
+        uses: cypress-io/github-action@6c143abc292aa835d827652c2ea025d098311070 #v6.10.1
         with:
           install: false
           browser: ${{ matrix.browser }}
