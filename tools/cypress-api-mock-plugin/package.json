@@ -23,7 +23,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@neuralegion/cypress-har-generator": "^5.17.0"
+    "@neuralegion/cypress-har-generator": "^5.17.1"
   },
   "devDependencies": {
     "@talend/eslint-config": "^13.2.1",
