@@ -1,5 +1,11 @@
 # @talend/assets-api
 
+## 1.5.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 1.5.1
 
 ### Patch Changes

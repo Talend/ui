@@ -1,5 +1,16 @@
 # @talend/design-docs
 
+## 4.2.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/icons@7.11.1
+  - @talend/storybook-docs@2.5.4
+
 ## 4.2.0
 
 ### Minor Changes

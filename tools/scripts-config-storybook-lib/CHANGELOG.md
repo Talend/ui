@@ -1,5 +1,14 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.5.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.1
+  - @talend/scripts-config-react-webpack@16.8.3
+
 ## 5.5.0
 
 ### Minor Changes

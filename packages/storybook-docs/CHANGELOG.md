@@ -1,5 +1,13 @@
 # @talend/storybook-docs
 
+## 2.5.4
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/design-tokens@3.4.4
+
 ## 2.5.3
 
 ### Patch Changes

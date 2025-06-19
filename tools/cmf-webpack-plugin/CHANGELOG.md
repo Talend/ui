@@ -1,5 +1,13 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.39.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/scripts-cmf@1.3.1
+
 ## 6.39.0
 
 ### Minor Changes

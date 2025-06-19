@@ -1,5 +1,13 @@
 # @talend/scripts-config-eslint
 
+## 13.2.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/eslint-plugin@1.3.2
+
 ## 13.2.1
 
 ### Patch Changes

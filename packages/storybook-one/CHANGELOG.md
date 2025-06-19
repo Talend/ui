@@ -1,5 +1,20 @@
 # @talend/ui-storybook-one
 
+## 2.5.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-components@17.3.6
+  - @talend/react-dataviz@7.0.2
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/react-faceted-search@21.0.1
+  - @talend/react-forms@15.2.3
+  - @talend/icons@7.11.1
+  - @talend/storybook-docs@2.5.4
+
 ## 2.5.1
 
 ### Patch Changes

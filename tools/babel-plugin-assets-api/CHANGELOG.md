@@ -1,5 +1,13 @@
 # @talend/babel-plugin-assets-api
 
+## 1.4.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/module-to-cdn@9.12.1
+
 ## 1.4.0
 
 ### Minor Changes

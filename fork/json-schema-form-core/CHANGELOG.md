@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.4.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 1.4.2
 
 ### Patch Changes

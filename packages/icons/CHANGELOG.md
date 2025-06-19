@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.11.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 7.11.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/http
 
+## 3.3.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 3.3.0
 
 ### Minor Changes

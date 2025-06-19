@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-publish-local",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "",
   "bin": {
     "talend-publish-local": "./bin/cli.js"
@@ -16,9 +16,9 @@
     "rimraf": "^5.0.10"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.2.1",
-    "@talend/eslint-plugin": "^1.3.1",
-    "@talend/scripts-core": "^16.5.1"
+    "@talend/eslint-config": "^13.2.2",
+    "@talend/eslint-plugin": "^1.3.2",
+    "@talend/scripts-core": "^16.5.2"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",

@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-index
 
+## 1.8.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 1.8.0
 
 ### Minor Changes

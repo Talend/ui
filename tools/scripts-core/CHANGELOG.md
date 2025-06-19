@@ -1,5 +1,19 @@
 # @talend/scripts-core
 
+## 16.5.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/eslint-plugin@1.3.2
+  - @talend/scripts-config-babel@13.5.1
+  - @talend/eslint-config@13.2.2
+  - @talend/scripts-config-jest@14.2.1
+  - @talend/scripts-config-stylelint@4.2.1
+  - @talend/scripts-config-typescript@11.3.1
+  - @talend/scripts-utils@2.3.2
+
 ## 16.5.1
 
 ### Patch Changes
