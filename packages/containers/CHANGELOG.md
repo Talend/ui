@@ -1,5 +1,17 @@
 # @talend/react-containers
 
+## 11.3.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf@11.0.1
+  - @talend/react-components@17.3.6
+  - @talend/design-system@11.5.2
+  - @talend/react-forms@15.2.3
+  - @talend/utils@3.2.4
+
 ## 11.3.2
 
 ### Patch Changes

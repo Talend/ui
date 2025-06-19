@@ -1,5 +1,13 @@
 # Changelog
 
+## 7.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/design-tokens@3.4.4
+
 ## 7.0.0
 
 ### Major Changes

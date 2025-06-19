@@ -1,5 +1,19 @@
 # @talend/react-components
 
+## 17.3.6
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-bootstrap@3.0.3
+  - @talend/react-a11y@4.0.2
+  - @talend/assets-api@1.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/icons@7.11.1
+  - @talend/bootstrap-theme@9.3.1
+  - @talend/utils@3.2.4
+
 ## 17.3.5
 
 ### Patch Changes

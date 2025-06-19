@@ -1,5 +1,14 @@
 # @talend/scripts-config-babel
 
+## 13.5.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/babel-plugin-assets-api@1.4.1
+  - @talend/babel-plugin-import-from-index@1.8.1
+
 ## 13.5.0
 
 ### Minor Changes

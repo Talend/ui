@@ -1,5 +1,15 @@
 # Changelog
 
+## 7.0.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/assets-api@1.5.2
+  - @talend/react-components@17.3.6
+  - @talend/design-tokens@3.4.4
+
 ## 7.0.1
 
 ### Patch Changes

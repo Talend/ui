@@ -1,5 +1,19 @@
 # @talend/react-forms
 
+## 15.2.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/json-schema-form-core@1.4.3
+  - @talend/assets-api@1.5.2
+  - @talend/react-components@17.3.6
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/icons@7.11.1
+  - @talend/utils@3.2.4
+
 ## 15.2.2
 
 ### Patch Changes

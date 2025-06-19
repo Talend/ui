@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.2.4
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 3.2.3
 
 ### Patch Changes

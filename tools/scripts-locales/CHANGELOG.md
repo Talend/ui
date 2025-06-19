@@ -1,5 +1,13 @@
 # @talend/scripts-locales
 
+## 1.2.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/scripts-utils@2.3.2
+
 ## 1.2.1
 
 ### Patch Changes

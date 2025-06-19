@@ -1,5 +1,11 @@
 # @talend/scripts-config-stylelint
 
+## 4.2.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 4.2.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @talend/react-stepper
 
+## 12.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-components@17.3.6
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+
 ## 12.0.0
 
 ### Major Changes

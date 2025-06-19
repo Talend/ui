@@ -1,5 +1,11 @@
 # @talend/scripts-yarn-workspace
 
+## 2.1.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 2.1.0
 
 ### Minor Changes

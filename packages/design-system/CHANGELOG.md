@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 11.5.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/assets-api@1.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/utils@3.2.4
+
 ## 11.5.1
 
 ### Patch Changes

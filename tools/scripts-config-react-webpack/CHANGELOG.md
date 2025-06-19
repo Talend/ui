@@ -1,5 +1,16 @@
 # @talend/scripts-config-react-webpack
 
+## 16.8.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf-webpack-plugin@6.39.1
+  - @talend/scripts-config-babel@13.5.1
+  - @talend/scripts-config-cdn@10.12.1
+  - @talend/scripts-utils@2.3.2
+
 ## 16.8.2
 
 ### Patch Changes

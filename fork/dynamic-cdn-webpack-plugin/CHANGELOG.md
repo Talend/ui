@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 14.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/module-to-cdn@9.12.1
+
 ## 14.0.0
 
 ### Major Changes

@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf@11.0.1
+
 ## 8.0.0
 
 ### Major Changes

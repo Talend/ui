@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 10.12.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.1
+  - @talend/module-to-cdn@9.12.1
+
 ## 10.12.0
 
 ### Minor Changes

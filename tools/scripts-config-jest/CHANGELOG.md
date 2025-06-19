@@ -1,5 +1,13 @@
 # @talend/scripts-config-jest
 
+## 14.2.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/scripts-config-babel@13.5.1
+
 ## 14.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.3.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 2.3.1
 
 ### Patch Changes
