@@ -1,5 +1,11 @@
 # @talend/ui-playground
 
+## 0.1.5
+
+### Patch Changes
+
+- 2a30ccc: Bump express@^5.1.0
+
 ## 0.1.4
 
 ### Patch Changes
