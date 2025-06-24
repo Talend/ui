@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.3.3
+
+### Patch Changes
+
+- 2a30ccc: Bump express@^5.1.0
+
 ## 2.3.2
 
 ### Patch Changes
