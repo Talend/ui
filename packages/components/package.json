@@ -74,7 +74,7 @@
     "react-use": "^17.6.0",
     "react-virtualized": "^9.22.6",
     "reactour": "^1.19.4",
-    "recharts": "^2.15.3",
+    "recharts": "^2.15.4",
     "simplebar": "6.2.7",
     "simplebar-react": "^3.3.1",
     "styled-components": "^5.3.11",

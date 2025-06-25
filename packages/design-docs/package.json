@@ -27,7 +27,7 @@
     "@talend/design-tokens": "^3.4.4",
     "@talend/storybook-docs": "^2.5.4",
     "@talend/icons": "^7.11.1",
-    "algoliasearch": "^4.24.0",
+    "algoliasearch": "^4.25.2",
     "classnames": "^2.5.1",
     "color-contrast-checker": "^2.1.0",
     "figma-js": "^1.16.0",
