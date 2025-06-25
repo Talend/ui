@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.3.7
+
+### Patch Changes
+
+- dda9a77: Bump simplebar-react@^3.3.1 simplebar@6.2.7
+
 ## 17.3.6
 
 ### Patch Changes
