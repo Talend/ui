@@ -7927,7 +7927,7 @@ core-js@^2.4.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
-core-js@^3.0.1, core-js@^3.43.0:
+core-js@^3.43.0:
   version "3.43.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.43.0.tgz#f7258b156523208167df35dea0cfd6b6ecd4ee88"
   integrity sha512-N6wEbTTZSYOY2rYAn85CuvWWkCK6QweMn7/4Nr3w+gDBeBhk/x4EJeY6FPo4QzDoJZxVTv8U7CMvgWk6pOHHqA==
@@ -13604,11 +13604,6 @@ lodash.startcase@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.startcase/-/lodash.startcase-4.4.0.tgz#9436e34ed26093ed7ffae1936144350915d9add8"
   integrity sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==
 
-lodash.throttle@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
-  integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
-
 lodash.topath@^4.5.2:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.topath/-/lodash.topath-4.5.2.tgz#3616351f3bba61994a0931989660bd03254fd009"
@@ -16284,7 +16279,7 @@ prop-types-extra@^1.0.1, prop-types-extra@^1.1.1:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-prop-types@15.7.2, prop-types@15.x, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@15.7.2, prop-types@15.x, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -17965,7 +17960,7 @@ simple-is@~0.2.0:
   resolved "https://registry.yarnpkg.com/simple-is/-/simple-is-0.2.0.tgz#2abb75aade39deb5cc815ce10e6191164850baf0"
   integrity sha512-GJXhv3r5vdj5tGWO+rcrWgjU2azLB+fb7Ehh3SmZpXE0o4KrrFLti0w4mdDCbR29X/z0Ls20ApjZitlpAXhAeg==
 
-simplebar-core@^1.3.1:
+simplebar-core@^1.2.6, simplebar-core@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/simplebar-core/-/simplebar-core-1.3.1.tgz#7528f8cf86e3edfc28c89297c48f1bf0b13e89c5"
   integrity sha512-d2JFNivCgxykWz9//MhUbpmxXmL4qDfZpUulmeY4KE1cq2amr+6rZhIOv6JyCprWP3yFlayYb0J5ApKV81r6Sg==
@@ -17973,32 +17968,20 @@ simplebar-core@^1.3.1:
     lodash "^4.17.21"
     lodash-es "^4.17.21"
 
-simplebar-react@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/simplebar-react/-/simplebar-react-2.4.3.tgz#79c830711c23a5ae457ef73420f5752d4a1b3133"
-  integrity sha512-Ep8gqAUZAS5IC2lT5RE4t1ZFUIVACqbrSRQvFV9a6NbVUzXzOMnc4P82Hl8Ak77AnPQvmgUwZS7aUKLyBoMAcg==
-  dependencies:
-    prop-types "^15.6.1"
-    simplebar "^5.3.9"
-
-simplebar@^5.3.9:
-  version "5.3.9"
-  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-5.3.9.tgz#168ea0eb6d52f29f03960e40d9b69a1b28cf6318"
-  integrity sha512-1vIIpjDvY9sVH14e0LGeiCiTFU3ILqAghzO6OI9axeG+mvU/vMSrvXeAXkBolqFFz3XYaY8n5ahH9MeP3sp2Ag==
-  dependencies:
-    "@juggle/resize-observer" "^3.3.1"
-    can-use-dom "^0.1.0"
-    core-js "^3.0.1"
-    lodash.debounce "^4.0.8"
-    lodash.memoize "^4.1.2"
-    lodash.throttle "^4.1.1"
-
-simplebar@^6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-6.3.1.tgz#d8370d98493335e1dd8fd2d7fcdc0534becefa9e"
-  integrity sha512-8xGpty5YCvzNAJLil8yn81x1WLChu/Wce+jYOyIuT3uZvl5FoYodUH97D7GllZSKUolFdXQg+aW1nMMIWPN/PA==
+simplebar-react@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/simplebar-react/-/simplebar-react-3.3.1.tgz#c051b4c70c4e92a91b3fc50c5897d33b65400860"
+  integrity sha512-+jcY1Sd6HA2asoySOb5G+YTKboiNsQ0e0TP5JxoC3fw3PpiKTUx4sCj9fEr6Rz9CkViQmazLM4OipMFU18Mf4A==
   dependencies:
     simplebar-core "^1.3.1"
+
+simplebar@6.2.7:
+  version "6.2.7"
+  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-6.2.7.tgz#fb48934487794ff44e7fe0943e788f4e78e1bc1c"
+  integrity sha512-IdD6HwZLz4f83lG0yN5r/3Mts4qR+pKAc9IjVdtJ96Ow6IqSA+jG2PlniQ710XUygal/mOA774IgAvcoirUP4g==
+  dependencies:
+    can-use-dom "^0.1.0"
+    simplebar-core "^1.2.6"
 
 sinon@^11.1.2:
   version "11.1.2"
