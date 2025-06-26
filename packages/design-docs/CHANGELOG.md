@@ -1,5 +1,15 @@
 # @talend/design-docs
 
+## 4.2.2
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+- Updated dependencies [d91656d]
+  - @talend/storybook-docs@2.5.5
+  - @talend/icons@7.11.2
+
 ## 4.2.1
 
 ### Patch Changes

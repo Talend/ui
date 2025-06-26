@@ -1,5 +1,12 @@
 # @talend/icons
 
+## 7.11.2
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- d91656d: Bump webpack-cli@6.0.1
+
 ## 7.11.1
 
 ### Patch Changes

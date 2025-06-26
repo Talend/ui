@@ -1,5 +1,12 @@
 # @talend/storybook-docs
 
+## 2.5.5
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- d91656d: Bump webpack-cli@6.0.1
+
 ## 2.5.4
 
 ### Patch Changes

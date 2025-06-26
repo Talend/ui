@@ -1,5 +1,13 @@
 # Changelog
 
+## 7.0.3
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+  - @talend/react-components@17.3.8
+
 ## 7.0.2
 
 ### Patch Changes

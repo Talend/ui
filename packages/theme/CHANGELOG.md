@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 9.3.2
+
+### Patch Changes
+
+- d91656d: Bump webpack-cli@6.0.1
+
 ## 9.3.1
 
 ### Patch Changes
@@ -205,12 +211,10 @@
   This is considered as a BREAKING CHANGE.
 
   To be aligned with this theme you should:
-
   - replace all hardcoded colors used in your project and use `@talend/design-tokens`
   - test your application with the dark theme
 
   We have updated the following bootstrap styles:
-
   - Button
   - Table
   - Form (control)
@@ -242,7 +246,6 @@
 
 - 9c44d724f: ## Breaking changes :
   Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
-
   - SidePanel icon is no more handled by the application theme
   - HeaderBar icon is no more handled by the application theme
 

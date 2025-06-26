@@ -1,5 +1,13 @@
 # @talend/react-stepper
 
+## 12.0.2
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+  - @talend/react-components@17.3.8
+
 ## 12.0.1
 
 ### Patch Changes

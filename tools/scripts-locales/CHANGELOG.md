@@ -1,5 +1,11 @@
 # @talend/scripts-locales
 
+## 1.2.3
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+
 ## 1.2.2
 
 ### Patch Changes
