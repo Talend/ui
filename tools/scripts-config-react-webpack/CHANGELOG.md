@@ -1,5 +1,14 @@
 # @talend/scripts-config-react-webpack
 
+## 16.8.4
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- d91656d: Bump webpack-cli@6.0.1
+- Updated dependencies [ae979f0]
+  - @talend/react-cmf-webpack-plugin@6.39.2
+
 ## 16.8.3
 
 ### Patch Changes
@@ -157,7 +166,6 @@
 ### Major Changes
 
 - 3b058ef7d: feat: upgrade dependencies to latest
-
   - babel-loader from 8 to 9
   - fork-ts-checker-webpack-plugin from 7 to 8
 
@@ -238,13 +246,11 @@
 ### Patch Changes
 
 - ed4014653: fix: remove duplicates of meta and simplify head script
-
   - meta was their twice because they are passed to the html-webpack-plugin.
 
   - the INITIATOR part of the script was still here even if we already have set `dynamic-cdn-webpack-plugin` to false.
 
   fix: The copy of assets in a cdn folder should happens if and only if:
-
   - INTIATOR_URL has not been given at compile time and
   - dynamic-cdn-webpack-plugin is present
 
@@ -303,7 +309,6 @@
   ```
 
   You have to
-
   - use `addSassData.js` from https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
   - rewrite your sass using @talend/design-tokens on the long and remove this bootstrap-theme guidelines from all your scss
 
@@ -385,7 +390,6 @@
 ### Patch Changes
 
 - 2a8de8a55: \* fix: do not generate both hashed and non hashed assets for fonts, images and svgs.
-
   - fix: do not copy icons into app root folder
   - chore: put assets config in common so app and umd configuration are aligned.
 
@@ -421,7 +425,6 @@
   - mylib/dist/assets/svg/[name].svg
   + mylib/dist/assets/svg/[name]-[hash].svg
   ```
-
   - @talend/scripts-config-cdn@10.5.2
 
 ## 13.0.0
@@ -439,7 +442,6 @@
   ```
 
   No more polyfills loaded for you. We have removed the folliwng packages:
-
   - `regenerator-runtime`
   - `core-js-bundle`
 

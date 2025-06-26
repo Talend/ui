@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 17.3.8
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+- Updated dependencies [d91656d]
+  - @talend/icons@7.11.2
+  - @talend/bootstrap-theme@9.3.2
+
 ## 17.3.7
 
 ### Patch Changes
@@ -702,7 +712,6 @@
 - bfc02c4fb: Style now use design tokens instead of bootstrap sass variables
 
   We have updated the following components:
-
   - ActionBar
   - ActionIconToggle
   - AppLoader
@@ -775,7 +784,6 @@
 
 - b99957a47: test: rewrite all tests using react-testing-library
 - 0ccc2592e: test: rewrite using react testing-library the following components:
-
   - TabBar
   - Tag
   - Toggle
@@ -791,7 +799,6 @@
 ### Patch Changes
 
 - 52d4f2df3: test: rewrite tests using testing-library of the following components:
-
   - ResourceList
   - ResourcePicker
   - Rich
@@ -803,7 +810,6 @@
 - b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
 - 85b04cc81: test(List): rewrite using RTL
 - 9719af7af: test: rewrite test using RTL of the following components:
-
   - ObjectViewer
   - OverlayTrigger
   - PieChart
@@ -822,7 +828,6 @@
   - test rewrite tests from enzyme to RTL of FocusManager, GridLayout
 - d44f9deb3: fix(ResourceList): fix some sizing issue
 - 2fa0bd46c: test: rewrite tests using RTL of:
-
   - JSONSchemaRenderer
   - Layout
   - Loader
@@ -836,7 +841,6 @@
   - refactor Enumeration
 - c94aceb65: - fix: Remove wrong proptypes from Action (overlay).
   Make a lots of noise for nothing the overlay is not required on Action.
-
   - chore: refactor HeaderBar. move into private primitives each internal components
   - tests: rewrite tests of Inject and HTTPError
   - chore: rewrite Inject using Typescript
@@ -1031,7 +1035,6 @@
 - 898ffafc2: fix(TDP-11600): allow the datalist to create new value with a better ux
 
   On the datalist, new props called
-
   - `allowAddNewElements` can be passed to let the user create new value with a hint to tell him that the value was not existing in the current titlemap.
   - `allowAddNewElementsSuffix` allow to override the "(new)" suffix by another one.
 
@@ -1055,7 +1058,6 @@
 
 - 9c44d724f: ## Breaking changes :
   Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
-
   - SidePanel icon is no more handled by the application theme
   - HeaderBar icon is no more handled by the application theme
 
@@ -1120,7 +1122,6 @@
 - 105990b24: feat(SubHeaderBar): replace `EditableText` legacy component by `InlineEditing` Coral component.
 
   Breaking:
-
   - `onEdit` and `onCancel` props has been removed. They are now directly handled by the `InlineEditing` component.
   - `onSubmit` callback signature changed from `onSubmit(event: JSEvent, { value: string })` to `onSubmit(event: JSEvent, value: string)` the returned value from the `InlineEditing` component is not wrapped within an object containing only one `value` property. You now have the `value` directly.
 

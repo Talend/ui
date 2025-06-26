@@ -1,5 +1,13 @@
 # @talend/scripts-core
 
+## 16.5.3
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+  - @talend/eslint-config@13.2.3
+
 ## 16.5.2
 
 ### Patch Changes
@@ -166,7 +174,6 @@
 ### Major Changes
 
 - 9a0732ec5: - fix: enforce timer at the end of all tests.
-
   - feat: mock ally.js has it uses unsupported dom method from jsdom.
   - feat: add jest-axe configuration
 
@@ -347,7 +354,6 @@
   ```
 
   No more polyfills loaded for you. We have removed the folliwng packages:
-
   - `regenerator-runtime`
   - `core-js-bundle`
 

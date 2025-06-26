@@ -1,5 +1,17 @@
 # @talend/ui-playground
 
+## 0.1.6
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+- Updated dependencies [d91656d]
+  - @talend/react-components@17.3.8
+  - @talend/react-dataviz@7.0.3
+  - @talend/icons@7.11.2
+  - @talend/bootstrap-theme@9.3.2
+
 ## 0.1.5
 
 ### Patch Changes

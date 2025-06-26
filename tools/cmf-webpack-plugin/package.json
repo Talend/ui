@@ -31,12 +31,12 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.27.5",
-    "@talend/eslint-config": "^13.2.2",
+    "@talend/eslint-config": "^13.2.3",
     "@talend/scripts-config-babel": "^13.5.1",
     "eslint": "^8.57.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.39.1"
+  "version": "6.39.2"
 }

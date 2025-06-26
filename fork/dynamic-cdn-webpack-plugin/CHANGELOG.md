@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 14.0.2
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- d91656d: Bump webpack-cli@6.0.1
+
 ## 14.0.1
 
 ### Patch Changes
@@ -68,7 +75,6 @@
   ```
 
   No more polyfills loaded for you. We have removed the folliwng packages:
-
   - `regenerator-runtime`
   - `core-js-bundle`
 
