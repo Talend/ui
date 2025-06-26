@@ -1,19 +1,19 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.29.4",
-    "@talend/scripts-config-babel": "^13.5.0",
-    "@talend/scripts-config-prettier": "^12.2.0",
-    "@talend/scripts-core": "^16.5.1",
-    "@talend/scripts-yarn-workspace": "^2.1.0",
+    "@changesets/cli": "^2.29.5",
+    "@talend/scripts-config-babel": "^13.5.1",
+    "@talend/scripts-config-prettier": "^12.2.1",
+    "@talend/scripts-core": "^16.5.2",
+    "@talend/scripts-yarn-workspace": "^2.1.1",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.6",
     "eslint": "^8.57.1",
     "husky": "^8.0.3",
     "i18next-scanner": "^4.6.0",
     "lint-staged": "^15.5.2",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.1",
     "rimraf": "^5.0.10",
-    "typescript": "^5.0.4"
+    "typescript": "^5.8.3"
   },
   "scripts": {
     "postinstall": "talend-yarn-workspace run build:lib && talend-yarn-workspace run build:lib:esm",
@@ -68,8 +68,8 @@
     ]
   },
   "dependencies": {
-    "@types/react": "^18.2.7",
-    "@types/react-dom": "^18.2.7",
-    "cypress": "^13.6.0"
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "cypress": "^13.17.0"
   }
 }
