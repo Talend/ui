@@ -21,7 +21,7 @@
     "semver": "^7.7.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.4",
+    "@babel/core": "^7.27.7",
     "@babel/eslint-parser": "^7.27.5",
     "@babel/preset-env": "^7.27.2",
     "babel-jest": "^29.7.0",
