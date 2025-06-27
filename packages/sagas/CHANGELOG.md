@@ -1,5 +1,13 @@
 # @talend/react-sagas
 
+## 9.0.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/react-cmf@11.0.2
+
 ## 9.0.2
 
 ### Patch Changes

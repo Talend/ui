@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.11.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 7.11.2
 
 ### Patch Changes

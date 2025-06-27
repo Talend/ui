@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 10.12.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.3
+  - @talend/module-to-cdn@9.12.3
+
 ## 10.12.1
 
 ### Patch Changes

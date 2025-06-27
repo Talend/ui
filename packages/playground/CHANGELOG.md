@@ -1,5 +1,23 @@
 # @talend/ui-playground
 
+## 2.5.5
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/react-faceted-search@21.0.2
+  - @talend/design-system@11.5.3
+  - @talend/design-tokens@3.4.5
+  - @talend/assets-api@1.5.3
+  - @talend/react-cmf-router@8.0.2
+  - @talend/react-components@17.3.9
+  - @talend/react-containers@11.3.4
+  - @talend/react-dataviz@7.0.4
+  - @talend/react-forms@15.2.4
+  - @talend/icons@7.11.3
+  - @talend/react-cmf@11.0.2
+
 ## 2.5.4
 
 ### Patch Changes

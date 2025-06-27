@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-d3
 
+## 0.5.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 0.5.1
 
 ### Patch Changes

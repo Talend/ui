@@ -1,5 +1,13 @@
 # @talend/babel-plugin-assets-api
 
+## 1.4.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/module-to-cdn@9.12.3
+
 ## 1.4.1
 
 ### Patch Changes

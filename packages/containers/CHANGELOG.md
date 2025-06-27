@@ -1,5 +1,17 @@
 # @talend/react-containers
 
+## 11.3.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-system@11.5.3
+  - @talend/react-components@17.3.9
+  - @talend/react-forms@15.2.4
+  - @talend/utils@3.2.5
+  - @talend/react-cmf@11.0.2
+
 ## 11.3.3
 
 ### Patch Changes
@@ -359,7 +371,6 @@
 ### Patch Changes
 
 - b8c4161d2: test: rewrite all tests using RTL:
-
   - fix(ActionSplitDropdown): omit cmf Props
   - fix(ActionDropdown): pass required id for a11y
   - fix: remove old React contextTypes api
@@ -476,7 +487,6 @@
 
 - 9c44d724f: ## Breaking changes :
   Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
-
   - SidePanel icon is no more handled by the application theme
   - HeaderBar icon is no more handled by the application theme
 

@@ -1,5 +1,11 @@
 # @talend/assets-api
 
+## 1.5.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 1.5.2
 
 ### Patch Changes

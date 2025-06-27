@@ -1,5 +1,11 @@
 # @talend/scripts-publish-local
 
+## 1.4.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 1.4.2
 
 ### Patch Changes

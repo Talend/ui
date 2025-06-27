@@ -1,5 +1,15 @@
 # @talend/react-stepper
 
+## 12.0.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-system@11.5.3
+  - @talend/design-tokens@3.4.5
+  - @talend/react-components@17.3.9
+
 ## 12.0.2
 
 ### Patch Changes
