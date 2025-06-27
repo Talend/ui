@@ -188,7 +188,7 @@
         "development": "/dist/ag-grid.js",
         "production": "/dist/ag-grid.min.js"
       },
-      ">= 19.0.0": {
+      ">= 19.0.0 ": {
         "development": "/dist/ag-grid-community.js",
         "production": "/dist/ag-grid-community.min.js"
       }
@@ -206,13 +206,17 @@
   "ag-grid-react": {
     "var": "AgGridReact",
     "versions": {
-      ">= 23.1.0 < 32.0.0": {
+      ">= 23.1.0 < 31.2.0": {
         "development": "/bundles/ag-grid-react.min.js",
         "production": "/bundles/ag-grid-react.min.js"
       },
-      ">= 32.0.0": {
+      ">= 31.2.0 < 33.0.0": {
         "development": "/dist/umd/@ag-grid-community/react.js",
         "production": "/dist/umd/@ag-grid-community/react.min.js"
+      },
+      ">= 33.0.0": {
+        "development": "/dist/umd/ag-grid-react.js",
+        "production": "/dist/umd/ag-grid-react.min.js"
       }
     }
   },
@@ -505,7 +509,7 @@
         "development": "/dist/react.js",
         "production": "/dist/react.min.js"
       },
-      ">= 16.0.0 < 16.6.2 || > 16.6.2": {
+      ">= 16.0.0 < 16.6.2 || > 16.6.2 < 19.0.0": {
         "development": "/umd/react.development.js",
         "production": "/umd/react.production.min.js"
       }
