@@ -3,7 +3,7 @@
     "@changesets/cli": "^2.29.5",
     "@talend/scripts-config-babel": "^13.5.1",
     "@talend/scripts-config-prettier": "^12.2.1",
-    "@talend/scripts-core": "^16.5.2",
+    "@talend/scripts-core": "^16.5.3",
     "@talend/scripts-yarn-workspace": "^2.1.1",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.6",
@@ -11,7 +11,7 @@
     "husky": "^8.0.3",
     "i18next-scanner": "^4.6.0",
     "lint-staged": "^15.5.2",
-    "prettier": "^3.6.1",
+    "prettier": "^3.6.2",
     "rimraf": "^5.0.10",
     "typescript": "^5.8.3"
   },

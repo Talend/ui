@@ -30,8 +30,8 @@
     "@storybook/react-webpack5": "^7.6.20",
     "@storybook/source-loader": "^7.6.20",
     "@storybook/testing-library": "^0.2.2",
-    "@talend/dynamic-cdn-webpack-plugin": "^14.0.1",
-    "@talend/scripts-config-react-webpack": "^16.8.3",
+    "@talend/dynamic-cdn-webpack-plugin": "^14.0.2",
+    "@talend/scripts-config-react-webpack": "^16.8.4",
     "assert": "^2.1.0",
     "i18next-http-backend": "^1.4.5",
     "lodash": "^4.17.21",
@@ -50,9 +50,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.2.2",
+    "@talend/eslint-config": "^13.2.3",
     "@talend/eslint-plugin": "^1.3.2",
-    "@talend/scripts-core": "^16.5.2"
+    "@talend/scripts-core": "^16.5.3"
   },
   "msw": {
     "workerDirectory": ".storybook-templates/msw"

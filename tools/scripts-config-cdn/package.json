@@ -10,8 +10,8 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "@talend/dynamic-cdn-webpack-plugin": "^14.0.1",
-    "@talend/module-to-cdn": "^9.12.1",
+    "@talend/dynamic-cdn-webpack-plugin": "^14.0.2",
+    "@talend/module-to-cdn": "^9.12.2",
     "@yarnpkg/lockfile": "^1.1.0",
     "js-yaml": "^4.1.0",
     "js-yaml-js-types": "^1.0.1",
