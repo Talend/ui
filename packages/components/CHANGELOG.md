@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 17.3.9
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+  - @talend/react-bootstrap@3.0.4
+  - @talend/assets-api@1.5.3
+  - @talend/icons@7.11.3
+  - @talend/utils@3.2.5
+  - @talend/react-a11y@4.0.3
+
 ## 17.3.8
 
 ### Patch Changes
@@ -1749,11 +1762,14 @@
     Remove default export of @talend/utils package, use named exports instead
   - WHY the change was made
     The utils package used a default export. so we can't do a destruction import as readme described:
+
   ```
   import { validation } from '@talend/utils';
   ```
+
   - HOW a consumer should update their code
     Use destruction import like `import { validation, date } from '@talend/utils';` to replace default import.
+
 - Updated dependencies [d5f261f49]
   - @talend/utils@2.0.0
 

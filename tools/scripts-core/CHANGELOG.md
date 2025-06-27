@@ -1,5 +1,18 @@
 # @talend/scripts-core
 
+## 16.5.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-typescript@11.3.2
+  - @talend/scripts-config-stylelint@4.2.2
+  - @talend/eslint-config@13.2.4
+  - @talend/scripts-config-babel@13.5.2
+  - @talend/scripts-config-jest@14.2.2
+  - @talend/scripts-utils@2.3.4
+
 ## 16.5.3
 
 ### Patch Changes

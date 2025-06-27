@@ -1,5 +1,14 @@
 # @talend/react-cmf
 
+## 11.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-cmf@1.3.2
+  - @talend/utils@3.2.5
+
 ## 11.0.1
 
 ### Patch Changes
@@ -16,16 +25,11 @@
 - 816bb91: BREAKING CHANGE: Upgraded path-to-regexp from 3.x to 8.x
 
   This upgrade was necessary to resolve security vulnerabilities. The new version introduces two breaking changes that require updates to your application:
-
   1. Optional Path Parameter Syntax Change
-
   - Old syntax: `/resources/:id?`
   - New syntax: `/resources{/id}`
 
-  This change is required because in path-to-regexp 8.x, the `?` character is reserved for query parameters and will throw a parsing error when used at the end of a path.
-
-  2. Root Path Matching Behavior Change
-
+  This change is required because in path-to-regexp 8.x, the `?` character is reserved for query parameters and will throw a parsing error when used at the end of a path. 2. Root Path Matching Behavior Change
   - In v3.x, root path `/` would match any path starting with `/`
   - In v8.x, root path `/` only matches exactly `/`
   - To match both root and child paths, use the wildcard pattern `/{*path}`
@@ -273,7 +277,6 @@ So yes you can t use multiple contextTypes as for now. So all components using t
 **Breaking changes**
 
 - update the package.json to align dependencies
-
   - up redux-saga: from 0.x to 1.x
   - up react-redux: from 5.x to 7.x
   - add "@redux-saga/testing-utils": "^1.1.3", for testing sagas purpose

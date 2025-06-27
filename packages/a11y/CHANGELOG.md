@@ -1,5 +1,13 @@
 # @talend/react-a11y
 
+## 4.0.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/utils@3.2.5
+
 ## 4.0.2
 
 ### Patch Changes

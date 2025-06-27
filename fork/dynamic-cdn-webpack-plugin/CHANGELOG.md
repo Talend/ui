@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 14.0.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/module-to-cdn@9.12.3
+
 ## 14.0.2
 
 ### Patch Changes

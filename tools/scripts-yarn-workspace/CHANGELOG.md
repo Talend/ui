@@ -1,5 +1,11 @@
 # @talend/scripts-yarn-workspace
 
+## 2.1.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 2.1.1
 
 ### Patch Changes

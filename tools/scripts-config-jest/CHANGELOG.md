@@ -1,5 +1,13 @@
 # @talend/scripts-config-jest
 
+## 14.2.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-babel@13.5.2
+
 ## 14.2.1
 
 ### Patch Changes
@@ -84,7 +92,6 @@
 ### Major Changes
 
 - 9a0732ec5: - fix: enforce timer at the end of all tests.
-
   - feat: mock ally.js has it uses unsupported dom method from jsdom.
   - feat: add jest-axe configuration
 

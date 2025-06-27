@@ -1,5 +1,11 @@
 # @talend/scripts-teorem
 
+## 1.2.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 1.2.1
 
 ### Patch Changes

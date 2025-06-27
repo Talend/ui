@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 13.2.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 13.2.3
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @talend/scripts-config-babel
 
+## 13.5.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/babel-plugin-import-from-index@1.8.2
+  - @talend/babel-plugin-assets-api@1.4.2
+
 ## 13.5.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.3.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 2.3.3
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # Changelog
 
+## 7.0.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+  - @talend/assets-api@1.5.3
+  - @talend/react-components@17.3.9
+
 ## 7.0.3
 
 ### Patch Changes

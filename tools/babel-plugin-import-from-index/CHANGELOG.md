@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-index
 
+## 1.8.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 1.8.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.2.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 12.2.1
 
 ### Patch Changes

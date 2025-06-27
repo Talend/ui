@@ -1,5 +1,11 @@
 # @talend/cypress-api-mock-plugin
 
+## 1.3.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 1.3.1
 
 ### Patch Changes

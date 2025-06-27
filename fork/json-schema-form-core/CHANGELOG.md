@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.4.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 1.4.3
 
 ### Patch Changes

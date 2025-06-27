@@ -1,5 +1,13 @@
 # Changelog
 
+## 7.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+
 ## 7.0.1
 
 ### Patch Changes

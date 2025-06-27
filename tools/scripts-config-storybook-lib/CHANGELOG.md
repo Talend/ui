@@ -1,5 +1,14 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.5.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-react-webpack@16.8.5
+  - @talend/dynamic-cdn-webpack-plugin@14.0.3
+
 ## 5.5.1
 
 ### Patch Changes
@@ -249,7 +258,6 @@
   ```
 
   No more polyfills loaded for you. We have removed the folliwng packages:
-
   - `regenerator-runtime`
   - `core-js-bundle`
 

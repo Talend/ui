@@ -1,5 +1,11 @@
 # @talend/react-faceted-search-query-client
 
+## 2.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 2.0.1
 
 ### Patch Changes

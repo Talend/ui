@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.12.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 9.12.2
 
 ### Patch Changes

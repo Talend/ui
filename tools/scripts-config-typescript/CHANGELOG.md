@@ -1,5 +1,11 @@
 # @talend/scripts-config-typescript
 
+## 11.3.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
 ## 11.3.1
 
 ### Patch Changes

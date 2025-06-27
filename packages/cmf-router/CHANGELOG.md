@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/react-cmf@11.0.2
+
 ## 8.0.1
 
 ### Patch Changes
@@ -15,16 +23,11 @@
 - 816bb91: BREAKING CHANGE: Upgraded path-to-regexp from 3.x to 8.x
 
   This upgrade was necessary to resolve security vulnerabilities. The new version introduces two breaking changes that require updates to your application:
-
   1. Optional Path Parameter Syntax Change
-
   - Old syntax: `/resources/:id?`
   - New syntax: `/resources{/id}`
 
-  This change is required because in path-to-regexp 8.x, the `?` character is reserved for query parameters and will throw a parsing error when used at the end of a path.
-
-  2. Root Path Matching Behavior Change
-
+  This change is required because in path-to-regexp 8.x, the `?` character is reserved for query parameters and will throw a parsing error when used at the end of a path. 2. Root Path Matching Behavior Change
   - In v3.x, root path `/` would match any path starting with `/`
   - In v8.x, root path `/` only matches exactly `/`
   - To match both root and child paths, use the wildcard pattern `/{*path}`
@@ -241,7 +244,6 @@
 - df182bbd4: Upgrade to react-router v6
 
   ## Migration (dependencies)
-
   - Update your package.json to point to `"@talend/react-cmf-router": "^4.0.0"`.
   - Execute yarn install and yarn-deduplicate.
   - yarn list --pattern router should not list `react-router-redux` anymore and all dependencies listed should be flat.
@@ -249,7 +251,6 @@
   # Breaking changes (code)
 
   `onEnter` and `onLeave` hooks are not supported anymore. You can use `React.useEffect` but be carefull as onEnter should be finished before rendering happens so use also a state for that.
-
   - sagaRouter is deprecated but still works. You can use either
     - use Saga component from `@talend/react-cmf` (prefered way)
     - `saga` props on a cmfConnected component

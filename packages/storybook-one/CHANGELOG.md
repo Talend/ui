@@ -1,5 +1,19 @@
 # @talend/ui-storybook-one
 
+## 2.5.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/react-faceted-search@21.0.2
+  - @talend/design-system@11.5.3
+  - @talend/design-tokens@3.4.5
+  - @talend/react-components@17.3.9
+  - @talend/react-dataviz@7.0.4
+  - @talend/react-forms@15.2.4
+  - @talend/icons@7.11.3
+
 ## 2.5.2
 
 ### Patch Changes

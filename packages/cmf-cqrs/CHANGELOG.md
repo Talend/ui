@@ -1,5 +1,14 @@
 # @talend/react-cmf-cqrs
 
+## 11.0.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/utils@3.2.5
+  - @talend/react-cmf@11.0.2
+
 ## 11.0.2
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @talend/scripts-config-react-webpack
 
+## 16.8.5
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-babel@13.5.2
+  - @talend/scripts-config-cdn@10.12.2
+  - @talend/scripts-utils@2.3.4
+
 ## 16.8.4
 
 ### Patch Changes
@@ -425,6 +435,7 @@
   - mylib/dist/assets/svg/[name].svg
   + mylib/dist/assets/svg/[name]-[hash].svg
   ```
+
   - @talend/scripts-config-cdn@10.5.2
 
 ## 13.0.0
