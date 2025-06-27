@@ -188,7 +188,7 @@
         "development": "/dist/ag-grid.js",
         "production": "/dist/ag-grid.min.js"
       },
-      ">= 19.0.0 ": {
+      ">= 19.0.0": {
         "development": "/dist/ag-grid-community.js",
         "production": "/dist/ag-grid-community.min.js"
       }
