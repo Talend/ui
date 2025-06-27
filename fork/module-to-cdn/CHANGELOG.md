@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.12.2
+
+### Patch Changes
+
+- dd75a5a: fix: update ag-grid-react path
+
 ## 9.12.1
 
 ### Patch Changes
