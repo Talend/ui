@@ -30,10 +30,10 @@
     "@talend/react-dataviz": "^7.0.4",
     "lodash": "^4.17.21",
     "pkg-dir": "^7.0.0",
-    "react-hook-form": "^7.58.1"
+    "react-hook-form": "^7.59.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
     "@storybook/addon-a11y": "^7.6.20",

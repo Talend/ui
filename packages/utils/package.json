@@ -39,7 +39,7 @@
     "@talend/scripts-config-stylelint": "^4.2.2",
     "@talend/scripts-config-typescript": "^11.3.2",
     "@types/date-fns": "^2.6.3",
-    "@types/lodash": "^4.17.19",
+    "@types/lodash": "^4.17.20",
     "cross-env": "^7.0.3"
   },
   "dependencies": {
