@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.6.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
 ## 11.5.3
 
 ### Patch Changes

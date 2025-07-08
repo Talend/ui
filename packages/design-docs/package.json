@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-docs",
-  "version": "4.2.2",
+  "version": "4.3.0",
   "description": "Package containing design.talend.com stories",
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
@@ -23,7 +23,7 @@
     "@algolia/autocomplete-js": "^1.19.2",
     "@storybook/blocks": "^7.6.20",
     "@storybook/react": "^7.6.20",
-    "@talend/design-system": "^11.5.2",
+    "@talend/design-system": "^11.6.0",
     "@talend/design-tokens": "^3.4.4",
     "@talend/storybook-docs": "^2.5.5",
     "@talend/icons": "^7.11.2",
