@@ -1,5 +1,16 @@
 # @talend/react-forms
 
+## 15.3.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+### Patch Changes
+
+- Updated dependencies [f53083d]
+  - @talend/design-system@11.6.0
+
 ## 15.2.4
 
 ### Patch Changes

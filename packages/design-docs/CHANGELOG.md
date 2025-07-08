@@ -1,5 +1,16 @@
 # @talend/design-docs
 
+## 4.3.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+### Patch Changes
+
+- Updated dependencies [f53083d]
+  - @talend/design-system@11.6.0
+
 ## 4.2.2
 
 ### Patch Changes
