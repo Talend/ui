@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 12.2.2
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @talend/scripts-config-react-webpack
 
+## 16.9.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-config-babel@13.6.0
+  - @talend/react-cmf-webpack-plugin@6.40.0
+  - @talend/scripts-config-cdn@10.13.0
+  - @talend/scripts-utils@2.4.0
+
 ## 16.8.5
 
 ### Patch Changes

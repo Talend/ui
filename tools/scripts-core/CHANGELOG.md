@@ -1,5 +1,20 @@
 # @talend/scripts-core
 
+## 16.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/eslint-config@13.3.0
+  - @talend/scripts-config-babel@13.6.0
+  - @talend/scripts-config-jest@14.3.0
+  - @talend/eslint-plugin@1.4.0
+  - @talend/scripts-utils@2.4.0
+
 ## 16.5.4
 
 ### Patch Changes

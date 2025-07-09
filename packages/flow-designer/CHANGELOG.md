@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.1.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 7.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/scripts-teorem
 
+## 1.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 1.2.2
 
 ### Patch Changes

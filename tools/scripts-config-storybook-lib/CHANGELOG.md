@@ -1,5 +1,17 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-config-react-webpack@16.9.0
+  - @talend/dynamic-cdn-webpack-plugin@14.1.0
+
 ## 5.5.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.13.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 9.12.3
 
 ### Patch Changes

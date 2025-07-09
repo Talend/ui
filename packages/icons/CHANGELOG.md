@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.12.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 7.11.3
 
 ### Patch Changes

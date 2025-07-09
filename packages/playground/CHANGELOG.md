@@ -1,5 +1,23 @@
 # @talend/ui-playground
 
+## 2.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/react-faceted-search@21.1.0
+  - @talend/design-system@11.7.0
+  - @talend/react-components@17.4.0
+  - @talend/react-containers@11.4.0
+  - @talend/react-dataviz@7.1.0
+  - @talend/react-forms@15.4.0
+  - @talend/icons@7.12.0
+  - @talend/bootstrap-theme@9.4.0
+
 ## 2.5.5
 
 ### Patch Changes
