@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '../../../../';
 import { useForm } from 'react-hook-form';
+
+import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '../../../../';
 
 export default {
 	title: 'Form/Fields/ToggleSwitch',
@@ -80,9 +81,8 @@ export const ToggleSwitchControlled = () => {
 };
 
 export const ToggleSwitchReactHooksForm = () => {
-	const { register, handleSubmit, watch } = useForm<Inputs>();
+	const { register, handleSubmit } = useForm<Inputs>();
 	const [formData, setFormData] = useState<null | Inputs>();
-	const watchAllFields = watch();
 
 	return (
 		<Form onSubmit={handleSubmit(setFormData)}>
@@ -94,45 +94,16 @@ export const ToggleSwitchReactHooksForm = () => {
 				/>
 			)}
 			<Form.Fieldset legend="Enabled">
-				<Form.ToggleSwitch
-					label="Option a"
-					{...register('option-a')}
-					checked={watchAllFields['option-a']}
-				/>
-				<Form.ToggleSwitch
-					label="Option b"
-					defaultChecked
-					{...register('option-b')}
-					checked={watchAllFields['option-b']}
-				/>
+				<Form.ToggleSwitch label="Option a" {...register('option-a')} />
+				<Form.ToggleSwitch label="Option b" defaultChecked {...register('option-b')} />
 			</Form.Fieldset>
 			<Form.Fieldset legend="Read only" readOnly>
-				<Form.ToggleSwitch
-					label="Option c"
-					{...register('option-c')}
-					checked={watchAllFields['option-c']}
-				/>
-				<Form.ToggleSwitch
-					label="Option d"
-					defaultChecked
-					{...register('option-d')}
-					checked={watchAllFields['option-d']}
-				/>
+				<Form.ToggleSwitch label="Option c" {...register('option-c')} />
+				<Form.ToggleSwitch label="Option d" defaultChecked {...register('option-d')} />
 			</Form.Fieldset>
 			<Form.Fieldset legend="Disabled" disabled>
-				<Form.ToggleSwitch
-					label="Option e"
-					disabled
-					{...register('option-e')}
-					checked={watchAllFields['option-e']}
-				/>
-				<Form.ToggleSwitch
-					label="Option f"
-					defaultChecked
-					disabled
-					{...register('option-f')}
-					checked={watchAllFields['option-f']}
-				/>
+				<Form.ToggleSwitch label="Option e" disabled {...register('option-e')} />
+				<Form.ToggleSwitch label="Option f" defaultChecked disabled {...register('option-f')} />
 			</Form.Fieldset>
 			<Form.Buttons>
 				<ButtonPrimary onClick={() => {}} type="submit">
