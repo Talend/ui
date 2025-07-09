@@ -97,7 +97,7 @@
     "browser-sync": "^3.0.4",
     "browser-sync-webpack-plugin": "^2.4.0",
     "concurrently": "^8.2.2",
-    "core-js": "^3.43.0",
+    "core-js": "^3.44.0",
     "cypress": "^13.17.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^23.16.8",
@@ -108,7 +108,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "7.53.1",
+    "react-hook-form": "^7.60.0",
     "react-i18next": "^13.5.0",
     "react-router-dom": "~6.3.0",
     "storybook-docs-toc": "^1.7.0"

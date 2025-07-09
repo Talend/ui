@@ -25,14 +25,14 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/scripts-cmf": "^1.3.1",
+    "@talend/scripts-cmf": "^1.3.2",
     "lodash": "^4.17.21",
     "webpack-sources": "^3.3.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.27.5",
-    "@talend/eslint-config": "^13.2.3",
-    "@talend/scripts-config-babel": "^13.5.1",
+    "@babel/eslint-parser": "^7.28.0",
+    "@talend/eslint-config": "^13.2.4",
+    "@talend/scripts-config-babel": "^13.5.2",
     "eslint": "^8.57.1"
   },
   "publishConfig": {
