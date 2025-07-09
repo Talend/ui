@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 9.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 9.3.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/storybook-docs
 
+## 2.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 2.5.5
 
 ### Patch Changes

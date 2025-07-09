@@ -1,5 +1,18 @@
 # @talend/design-docs
 
+## 4.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/storybook-docs@2.6.0
+  - @talend/design-system@11.7.0
+  - @talend/icons@7.12.0
+
 ## 4.3.0
 
 ### Minor Changes

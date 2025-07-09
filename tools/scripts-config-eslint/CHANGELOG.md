@@ -1,5 +1,16 @@
 # @talend/scripts-config-eslint
 
+## 13.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/eslint-plugin@1.4.0
+
 ## 13.2.4
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @talend/scripts-config-jest
 
+## 14.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-config-babel@13.6.0
+
 ## 14.2.2
 
 ### Patch Changes

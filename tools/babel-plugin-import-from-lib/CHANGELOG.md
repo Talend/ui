@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-lib
 
+## 0.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 0.2.2
 
 ### Patch Changes

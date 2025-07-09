@@ -1,5 +1,17 @@
 # @talend/scripts-config-babel
 
+## 13.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/babel-plugin-import-from-index@1.9.0
+  - @talend/babel-plugin-assets-api@1.5.0
+
 ## 13.5.2
 
 ### Patch Changes

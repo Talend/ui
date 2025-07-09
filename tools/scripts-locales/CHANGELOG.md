@@ -1,5 +1,16 @@
 # @talend/scripts-locales
 
+## 1.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-utils@2.4.0
+
 ## 1.2.3
 
 ### Patch Changes

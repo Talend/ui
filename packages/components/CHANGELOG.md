@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 17.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/icons@7.12.0
+  - @talend/bootstrap-theme@9.4.0
+  - @talend/utils@3.3.0
+
 ## 17.3.9
 
 ### Patch Changes

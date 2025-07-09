@@ -1,5 +1,17 @@
 # @talend/react-stepper
 
+## 12.1.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/design-system@11.7.0
+  - @talend/react-components@17.4.0
+
 ## 12.0.3
 
 ### Patch Changes

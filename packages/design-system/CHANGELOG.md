@@ -1,5 +1,16 @@
 # @talend/design-system
 
+## 11.7.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/utils@3.3.0
+
 ## 11.6.0
 
 ### Minor Changes

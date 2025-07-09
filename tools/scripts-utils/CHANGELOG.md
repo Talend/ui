@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
 ## 2.3.4
 
 ### Patch Changes

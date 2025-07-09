@@ -1,5 +1,16 @@
 # Changelog
 
+## 21.1.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/utils@3.3.0
+
 ## 21.0.2
 
 ### Patch Changes
