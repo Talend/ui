@@ -33,7 +33,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^11.5.3",
+    "@talend/design-system": "^11.6.0",
     "@talend/design-tokens": "^3.4.5",
     "@talend/react-components": "^17.3.9",
     "classnames": "^2.5.1",
