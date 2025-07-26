@@ -16,9 +16,9 @@
     "rimraf": "^5.0.10"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.2.4",
-    "@talend/eslint-plugin": "^1.3.2",
-    "@talend/scripts-core": "^16.5.4"
+    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/scripts-core": "^16.6.0"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
