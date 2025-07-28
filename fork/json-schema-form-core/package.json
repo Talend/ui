@@ -56,7 +56,7 @@
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
     "rimraf": "^5.0.10",
-    "webpack": "^5.100.2"
+    "webpack": "^5.101.0"
   },
   "dependencies": {
     "json-refs": "3.0.15",

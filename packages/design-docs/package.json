@@ -31,7 +31,7 @@
     "classnames": "^2.5.1",
     "color-contrast-checker": "^2.1.0",
     "figma-js": "^1.16.0",
-    "react-hook-form": "^7.60.0",
+    "react-hook-form": "^7.61.1",
     "pkg-dir": "^7.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
