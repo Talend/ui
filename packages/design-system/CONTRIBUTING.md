@@ -128,7 +128,6 @@ Your API has been approved? It's time to build.
 - Name your variables explicitly (no `const v = 'toto'`)
 - Use exclusively design tokens for styles (color, spacing, fonts, border-radiuses, box-shadows, border styles and sizes, breakpoints, transitions, backgrounds, text colors etc...)
 - Write exhaustive explicit stories in TS to showcase actual use cases (in `ComponentName.stories.tsx`) and call those stories in the doc file (in `/ComponentName/ComponentName.stories.mdx`)
-- Write tests with Cypress for your component and its logic if it must have logic (`ComponentName.spec.tsx`)
 - Make sure your component allows for `refs` passing through (`ForwardRef`)
 - Make your component's types match the native HTML element it features (ie: it should able to support data attributes etc...)
 - Make sure your component is exported in the index.ts to be available in the UMD
