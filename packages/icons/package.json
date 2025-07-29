@@ -30,7 +30,6 @@
     "build:lib:esm": "talend-scripts build --esm",
     "ts:types": "node scripts/typescript.js",
     "test": "echo no test",
-    "test:cov": "echo no test",
     "start-storybook": "talend-scripts start-storybook",
     "build-storybook": "talend-scripts build-storybook",
     "start": "talend-scripts start-storybook -p 6010",

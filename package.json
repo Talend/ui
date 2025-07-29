@@ -30,7 +30,7 @@
     "lint-merge-report": "talend-scripts lint-merge-report",
     "test": "cross-env TZ=UTC turbo run test",
     "test:update": "cross-env TZ=UTC talend-yarn-workspace run test --silent -u",
-    "test:cov": "cross-env TZ=UTC talend-yarn-workspace run test:cov",
+    "test:cov": "cross-env TZ=UTC turbo run test:cov",
     "test:demo": "talend-yarn-workspace run test:demo",
     "test:cron": "talend-yarn-workspace run test:cron",
     "start-components": "yarn workspace @talend/react-components run start",

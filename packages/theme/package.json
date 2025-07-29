@@ -8,7 +8,6 @@
     "build:lib": "rimraf ./dist && webpack",
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
-    "test:cov": "echo no test for @talend/bootstrap-theme",
     "lint": "talend-scripts lint"
   },
   "keywords": [

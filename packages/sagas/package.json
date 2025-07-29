@@ -12,7 +12,7 @@
     "build:lib": "talend-scripts build",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage",
+    "test:cov": "talend-scripts test --coverage  --coverageReporters json-summary",
     "lint": "talend-scripts lint"
   },
   "keywords": [

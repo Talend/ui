@@ -25,7 +25,7 @@
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:cy": "cypress run --component --spec **.cy.tsx",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage"
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary"
   },
   "keywords": [
     "react",

@@ -20,8 +20,8 @@
     },
     "lint": {},
     "check-types": {},
-    "test": {
-      "dependsOn": ["^test"],
+    "test:cov": {
+      "dependsOn": ["^test:cov"],
       "outputs": ["coverage/**", "**/*.snap"]
     },
     "test:update": {},

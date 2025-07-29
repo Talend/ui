@@ -24,7 +24,7 @@
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage",
+    "test:cov": "talend-scripts test --coverage  --coverageReporters json-summary",
     "test:demo": "yarn jsdoc -c ./docs.json",
     "lint": "talend-scripts lint"
   },

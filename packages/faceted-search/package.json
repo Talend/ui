@@ -23,7 +23,7 @@
     "build:lib:esm": "talend-scripts build --esm",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary",
     "test:demo": "talend-scripts build-storybook --quiet --docs",
     "lint": "talend-scripts lint ./src/**/*.js ./stories/**/*.js ./.storybook/**/*.js",
     "start": "talend-scripts start-storybook -p 6006",

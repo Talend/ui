@@ -26,7 +26,7 @@
     "build:lib:esm": "talend-scripts build --esm",
     "lint": "talend-scripts lint",
     "test": "cross-env TZ=UTC talend-scripts test",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --silent",
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary",
     "test:noisy": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "extends": "talend-scripts extends"
