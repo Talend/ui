@@ -5,14 +5,9 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-
+const child = require('child_process');
 const semver = require('semver');
 const mkdirp = require('mkdirp');
-
-let execa;
-import('execa').then(({default: execaModule}) => {
-    execa = execaModule;
-});
 
 const CACHE_BASE_PATH = `${process.cwd()}/.test-cache`;
 
@@ -128,7 +123,7 @@ function getModuleInfo(moduleName) {
     ensureCacheFolderExists();
 
     if (!CACHE_NPM[moduleName]) {
-        const info = JSON.parse(execa.sync('npm', ['info', '--json', `${moduleName}`]).stdout);
+        const info = JSON.parse(child.execSync(`npm info --json ${moduleName}`).stdout);
         CACHE_NPM[moduleName] = {
             'dist-tags': info['dist-tags'],
             versions: info.versions
