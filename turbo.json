@@ -24,7 +24,10 @@
       "dependsOn": ["^test:cov"],
       "outputs": ["coverage/**", "**/*.snap"]
     },
-    "test:update": {},
+    "test:demo": {
+      "dependsOn": ["^test:demo"],
+      "outputs": ["storybook-static/**", "jsdoc/**"]
+    },
     "format:write": {},
     "format:check": {}
   }
