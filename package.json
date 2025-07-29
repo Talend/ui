@@ -44,7 +44,6 @@
   "resolutions": {
     "**/axios": "0.30.0",
     "**/ace-builds": "1.10.1",
-    "**/cypress": "^13.6.0",
     "**/@types/react": "^18.2.7",
     "**/@types/react-dom": "^18.2.7",
     "**/i18next-scanner-typescript/typescript": "^5.0.4",
@@ -73,7 +72,6 @@
   },
   "dependencies": {
     "@types/react": "^18.3.23",
-    "@types/react-dom": "^18.3.7",
-    "cypress": "^13.17.0"
+    "@types/react-dom": "^18.3.7"
   }
 }

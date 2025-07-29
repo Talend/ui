@@ -11,7 +11,6 @@
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:cypress/recommended",
     "plugin:storybook/recommended"
   ],
   "parser": "@babel/eslint-parser",
@@ -23,7 +22,6 @@
   "plugins": [
     "@talend",
     "angular",
-    "cypress",
     "import",
     "jest-dom",
     "jsx-a11y",

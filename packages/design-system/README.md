@@ -4,7 +4,6 @@
 
 <hr />
 
-[![cypress](https://github.com/Talend/ui/actions/workflows/design-system-component-testing.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-component-testing.yml)
 [![chromatic](https://github.com/Talend/ui/actions/workflows/design-system-visual-testing.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-visual-testing.yml)
 [![netlify](https://github.com/Talend/ui/actions/workflows/design-system-deploy.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-deploy.yml)
 
@@ -61,11 +60,6 @@ Limit changes to styled-components scope.
 ### End-to-End tests
 
 Visual non-regression testing will be covered by Chromatic.
-Use Cypress if you have to perform interaction tests, in real browsers.
-
-To launch non the tests you first need to have cypress installed on your environment. Then you can just execute the corresponding npm scripts:
-
-    yarn workspace @talend/design-system run test:cy
 
 ## License
 
