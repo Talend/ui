@@ -1,5 +1,4 @@
 ---
-'@talend/scripts-build-cdn': minor
 '@talend/module-to-cdn': minor
 ---
 
