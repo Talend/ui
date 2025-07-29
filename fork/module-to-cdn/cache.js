@@ -123,7 +123,8 @@ function getModuleInfo(moduleName) {
     ensureCacheFolderExists();
 
     if (!CACHE_NPM[moduleName]) {
-        const info = JSON.parse(child.execSync(`npm info --json ${moduleName}`).stdout);
+        const stdout = child.execSync(`npm info --json ${moduleName}`, {encoding: 'utf8'});
+        const info = JSON.parse(stdout);
         CACHE_NPM[moduleName] = {
             'dist-tags': info['dist-tags'],
             versions: info.versions
