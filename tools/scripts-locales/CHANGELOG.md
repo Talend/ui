@@ -1,5 +1,36 @@
 # @talend/scripts-locales
 
+## 1.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-utils@2.4.0
+
+## 1.2.3
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+
+## 1.2.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/scripts-utils@2.3.2
+
+## 1.2.1
+
+### Patch Changes
+
+- ea14b87: Fix Dependabot alerts
+
 ## 1.2.0
 
 ### Minor Changes

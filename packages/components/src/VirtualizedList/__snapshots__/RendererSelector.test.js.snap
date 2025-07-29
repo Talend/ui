@@ -82,7 +82,7 @@ exports[`RendererSelector should render table list by default 1`] = `
   >
     <div
       class="ReactVirtualized__Grid__innerScrollContainer"
-      role="rowgroup"
+      role="row"
       style="width: auto; height: 100px; max-width: 1024px; max-height: 100px; overflow: hidden; position: relative;"
     >
       <div

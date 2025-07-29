@@ -1,5 +1,118 @@
 # @talend/react-components
 
+## 17.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/icons@7.12.0
+  - @talend/bootstrap-theme@9.4.0
+  - @talend/utils@3.3.0
+
+## 17.3.9
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+  - @talend/react-bootstrap@3.0.4
+  - @talend/assets-api@1.5.3
+  - @talend/icons@7.11.3
+  - @talend/utils@3.2.5
+  - @talend/react-a11y@4.0.3
+
+## 17.3.8
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+- Updated dependencies [d91656d]
+  - @talend/icons@7.11.2
+  - @talend/bootstrap-theme@9.3.2
+
+## 17.3.7
+
+### Patch Changes
+
+- dda9a77: Bump simplebar-react@^3.3.1 simplebar@6.2.7
+
+## 17.3.6
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-bootstrap@3.0.3
+  - @talend/react-a11y@4.0.2
+  - @talend/assets-api@1.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/icons@7.11.1
+  - @talend/bootstrap-theme@9.3.1
+  - @talend/utils@3.2.4
+
+## 17.3.5
+
+### Patch Changes
+
+- 726b99e: Date Time Picker - Fix arrow icon that would generate extra padding around date fields
+
+## 17.3.4
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
+## 17.3.3
+
+### Patch Changes
+
+- 760db2b: fix: wrap reset css into reset layer
+- Updated dependencies [d80737c]
+  - @talend/icons@7.11.0
+
+## 17.3.2
+
+### Patch Changes
+
+- f9c62f6: TMC-160 - Improve absolute footer buttons compatibility for all drawers
+- 09807b1: fix(security): Re-write regexes to fix re-dos threat
+
+## 17.3.1
+
+### Patch Changes
+
+- 5168318: fix: update floating-ui lib
+
+## 17.3.0
+
+### Minor Changes
+
+- d4da631: fix(QualityBar): fix tooltip label typo
+
+## 17.2.1
+
+### Patch Changes
+
+- c3b6358: docs: update links from surge to github.io
+
+## 17.2.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
+### Patch Changes
+
+- d1f8b6b: Upgrade react-is to v18.3.1 and set as dependency (not peerDep) in design-system
+- Updated dependencies [2a7fe08]
+  - @talend/bootstrap-theme@9.3.0
+
 ## 17.1.3
 
 ### Patch Changes
@@ -625,7 +738,6 @@
 - bfc02c4fb: Style now use design tokens instead of bootstrap sass variables
 
   We have updated the following components:
-
   - ActionBar
   - ActionIconToggle
   - AppLoader
@@ -698,7 +810,6 @@
 
 - b99957a47: test: rewrite all tests using react-testing-library
 - 0ccc2592e: test: rewrite using react testing-library the following components:
-
   - TabBar
   - Tag
   - Toggle
@@ -714,7 +825,6 @@
 ### Patch Changes
 
 - 52d4f2df3: test: rewrite tests using testing-library of the following components:
-
   - ResourceList
   - ResourcePicker
   - Rich
@@ -726,7 +836,6 @@
 - b326091d2: Fix config of i18n in packages/storybook and upgrade versions of locales in others packages
 - 85b04cc81: test(List): rewrite using RTL
 - 9719af7af: test: rewrite test using RTL of the following components:
-
   - ObjectViewer
   - OverlayTrigger
   - PieChart
@@ -745,7 +854,6 @@
   - test rewrite tests from enzyme to RTL of FocusManager, GridLayout
 - d44f9deb3: fix(ResourceList): fix some sizing issue
 - 2fa0bd46c: test: rewrite tests using RTL of:
-
   - JSONSchemaRenderer
   - Layout
   - Loader
@@ -759,7 +867,6 @@
   - refactor Enumeration
 - c94aceb65: - fix: Remove wrong proptypes from Action (overlay).
   Make a lots of noise for nothing the overlay is not required on Action.
-
   - chore: refactor HeaderBar. move into private primitives each internal components
   - tests: rewrite tests of Inject and HTTPError
   - chore: rewrite Inject using Typescript
@@ -954,7 +1061,6 @@
 - 898ffafc2: fix(TDP-11600): allow the datalist to create new value with a better ux
 
   On the datalist, new props called
-
   - `allowAddNewElements` can be passed to let the user create new value with a hint to tell him that the value was not existing in the current titlemap.
   - `allowAddNewElementsSuffix` allow to override the "(new)" suffix by another one.
 
@@ -978,7 +1084,6 @@
 
 - 9c44d724f: ## Breaking changes :
   Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
-
   - SidePanel icon is no more handled by the application theme
   - HeaderBar icon is no more handled by the application theme
 
@@ -1043,7 +1148,6 @@
 - 105990b24: feat(SubHeaderBar): replace `EditableText` legacy component by `InlineEditing` Coral component.
 
   Breaking:
-
   - `onEdit` and `onCancel` props has been removed. They are now directly handled by the `InlineEditing` component.
   - `onSubmit` callback signature changed from `onSubmit(event: JSEvent, { value: string })` to `onSubmit(event: JSEvent, value: string)` the returned value from the `InlineEditing` component is not wrapped within an object containing only one `value` property. You now have the `value` directly.
 
@@ -1671,11 +1775,14 @@
     Remove default export of @talend/utils package, use named exports instead
   - WHY the change was made
     The utils package used a default export. so we can't do a destruction import as readme described:
+
   ```
   import { validation } from '@talend/utils';
   ```
+
   - HOW a consumer should update their code
     Use destruction import like `import { validation, date } from '@talend/utils';` to replace default import.
+
 - Updated dependencies [d5f261f49]
   - @talend/utils@2.0.0
 

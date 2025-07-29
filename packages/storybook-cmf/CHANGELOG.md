@@ -1,5 +1,24 @@
 # @talend/react-storybook-cmf
 
+## 11.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 11.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 11.0.0
+
+### Patch Changes
+
+- Updated dependencies [816bb91]
+  - @talend/react-cmf@11.0.0
+
 ## 10.0.0
 
 ### Major Changes

@@ -1,5 +1,35 @@
 # @talend/scripts-utils
 
+## 2.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+## 2.3.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 2.3.3
+
+### Patch Changes
+
+- 2a30ccc: Bump express@^5.1.0
+
+## 2.3.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 2.3.1
+
+### Patch Changes
+
+- d80737c: Fix remaining dependabot alerts
+
 ## 2.3.0
 
 ### Minor Changes

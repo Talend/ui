@@ -1,8 +1,8 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import VirtualizedList from '..';
-import ListTable from './ListTable.component';
 import collection from '../collection';
+import ListTable from './ListTable.component';
 
 describe('ListGrid', () => {
 	it('should render react-virtualized table', () => {
@@ -17,7 +17,7 @@ describe('ListGrid', () => {
 
 		// then
 		expect(container.firstChild).toMatchSnapshot();
-		expect(screen.getAllByRole('row')).toHaveLength(3);
+		expect(screen.getAllByRole('row')).toHaveLength(4);
 
 		expect(screen.getAllByRole('row')[0]).toHaveClass('tc-list-headerRow');
 	});
@@ -33,8 +33,8 @@ describe('ListGrid', () => {
 		);
 
 		// then
-		expect(screen.getAllByRole('row')[0]).not.toHaveClass('tc-list-headerRow');
-		expect(screen.getAllByRole('row')[0]).toHaveClass('tc-list-item');
+		expect(screen.getAllByRole('row')[1]).not.toHaveClass('tc-list-headerRow');
+		expect(screen.getAllByRole('row')[1]).toHaveClass('tc-list-item');
 	});
 
 	it('should render table with sort props', () => {

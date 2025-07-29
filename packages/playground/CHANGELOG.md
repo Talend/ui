@@ -1,5 +1,75 @@
 # @talend/ui-playground
 
+## 2.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/react-faceted-search@21.1.0
+  - @talend/design-system@11.7.0
+  - @talend/react-components@17.4.0
+  - @talend/react-containers@11.4.0
+  - @talend/react-dataviz@7.1.0
+  - @talend/react-forms@15.4.0
+  - @talend/icons@7.12.0
+  - @talend/bootstrap-theme@9.4.0
+
+## 2.5.5
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/react-faceted-search@21.0.2
+  - @talend/design-system@11.5.3
+  - @talend/design-tokens@3.4.5
+  - @talend/assets-api@1.5.3
+  - @talend/react-cmf-router@8.0.2
+  - @talend/react-components@17.3.9
+  - @talend/react-containers@11.3.4
+  - @talend/react-dataviz@7.0.4
+  - @talend/react-forms@15.2.4
+  - @talend/icons@7.11.3
+  - @talend/react-cmf@11.0.2
+
+## 2.5.4
+
+### Patch Changes
+
+- 2a30ccc: Bump express@^5.1.0
+
+## 2.5.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/assets-api@1.5.2
+  - @talend/react-cmf@11.0.1
+  - @talend/react-cmf-router@8.0.1
+  - @talend/react-components@17.3.6
+  - @talend/react-containers@11.3.3
+  - @talend/react-dataviz@7.0.2
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/react-faceted-search@21.0.1
+  - @talend/react-forms@15.2.3
+  - @talend/icons@7.11.1
+  - @talend/bootstrap-theme@9.3.1
+
+## 2.5.2
+
+### Patch Changes
+
+- Updated dependencies [816bb91]
+  - @talend/react-cmf-router@8.0.0
+  - @talend/react-cmf@11.0.0
+  - @talend/react-containers@11.3.2
+
 ## 2.5.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@talend/babel-plugin-import-from-index",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Transform default imports from specific path to named import from index",
   "main": "src/index.js",
   "license": "Apache-2.0",
@@ -18,12 +18,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "semver": "^7.6.3"
+    "semver": "^7.7.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/eslint-parser": "^7.25.1",
-    "@babel/preset-env": "^7.25.4",
+    "@babel/core": "^7.28.0",
+    "@babel/eslint-parser": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
     "babel-jest": "^29.7.0",
     "babel-plugin-tester": "^10.1.0",
     "eslint": "^8.57.1",

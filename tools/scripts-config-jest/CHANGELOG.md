@@ -1,5 +1,38 @@
 # @talend/scripts-config-jest
 
+## 14.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-config-babel@13.6.0
+
+## 14.2.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-babel@13.5.2
+
+## 14.2.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/scripts-config-babel@13.5.1
+
+## 14.2.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
 ## 14.1.0
 
 ### Minor Changes
@@ -70,7 +103,6 @@
 ### Major Changes
 
 - 9a0732ec5: - fix: enforce timer at the end of all tests.
-
   - feat: mock ally.js has it uses unsupported dom method from jsdom.
   - feat: add jest-axe configuration
 

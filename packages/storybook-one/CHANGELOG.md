@@ -1,5 +1,63 @@
 # @talend/ui-storybook-one
 
+## 2.7.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/react-faceted-search@21.1.0
+  - @talend/storybook-docs@2.6.0
+  - @talend/design-system@11.7.0
+  - @talend/react-components@17.4.0
+  - @talend/react-dataviz@7.1.0
+  - @talend/react-forms@15.4.0
+  - @talend/icons@7.12.0
+
+## 2.6.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+### Patch Changes
+
+- Updated dependencies [f53083d]
+  - @talend/design-system@11.6.0
+  - @talend/react-forms@15.3.0
+
+## 2.5.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/react-faceted-search@21.0.2
+  - @talend/design-system@11.5.3
+  - @talend/design-tokens@3.4.5
+  - @talend/react-components@17.3.9
+  - @talend/react-dataviz@7.0.4
+  - @talend/react-forms@15.2.4
+  - @talend/icons@7.11.3
+
+## 2.5.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-components@17.3.6
+  - @talend/react-dataviz@7.0.2
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/react-faceted-search@21.0.1
+  - @talend/react-forms@15.2.3
+  - @talend/icons@7.11.1
+  - @talend/storybook-docs@2.5.4
+
 ## 2.5.1
 
 ### Patch Changes

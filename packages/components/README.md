@@ -43,16 +43,16 @@ But what is a leaf component ?
 It's a component that is not supposed to contain another component.
 For example the following components are leaf components:
 
-* AppHeaderBar
-* SidePanel
-* List
-* Breadcrumb
-* Icon
-* Action(s)
+- AppHeaderBar
+- SidePanel
+- List
+- Breadcrumb
+- Icon
+- Action(s)
 
 But the following are not leaf:
 
-* Layout
+- Layout
 
 If you feel the need to add {children} this means we have forget a use case.
 In this case please expose your use case and try to see how
@@ -104,18 +104,13 @@ If you want to use Button from react-bootstrap don't forget
 to add the role + bsStyle="link".
 
 ```javascript
-const model = {id: 'my-id'};
+const model = { id: 'my-id' };
 function onClick(event, payload) {
 	//do what ever you want
 	payload.action.label === 'click me';
 	payload.model === model;
-};
-<Action
-	label="click me"
-	icon="svg-yeah"
-	onClick={onClick}
-	model={model}
-/>
+}
+<Action label="click me" icon="svg-yeah" onClick={onClick} model={model} />;
 ```
 
 ### Use Icon for icon
@@ -131,7 +126,7 @@ Icon.register(
 	'svg-test',
 	<svg viewBox="0 0 20 20">
 		<path d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03" />
-	</svg>
+	</svg>,
 );
 ```
 
@@ -144,30 +139,30 @@ The stories are registred this way:
 
 ```json
 {
-    "Action": {
-      "default": [
-        {
-          "name": "action-default",
-          "selector": ["#default", "#hidelabel"]
-        }
-      ]
-    }
+	"Action": {
+		"default": [
+			{
+				"name": "action-default",
+				"selector": ["#default", "#hidelabel"]
+			}
+		]
+	}
 }
 ```
 
-* _Action_ is the string name of 'storiesOf(' call
-* _default_ is the exact string of the .add / .add call
-* the content is an array of Object with name + selector
-* _name_ will be the name of the screenshot(s)
-* _selector_ is a string or an array of string which is behind used to call document.querySelect(_selector_) so you can try your selector.
+- _Action_ is the string name of 'storiesOf(' call
+- _default_ is the exact string of the .add / .add call
+- the content is an array of Object with name + selector
+- _name_ will be the name of the screenshot(s)
+- _selector_ is a string or an array of string which is behind used to call document.querySelect(_selector_) so you can try your selector.
 
 ## npm scripts
 
-* npm start -> launch storybook on localhost:6006
-* npm run prepublish -> build the sources into the lib folder
-* npm test -> to execute unit test
-* npm run lint -> check the code style
-* npm run watch -> watch the source to trigger a build
+- npm start -> launch storybook on localhost:6006
+- npm run prepublish -> build the sources into the lib folder
+- npm test -> to execute unit test
+- npm run lint -> check the code style
+- npm run watch -> watch the source to trigger a build
 
 ## LICENSE
 
@@ -177,6 +172,6 @@ Licensed under the Apache V2 License
 
 # List of components
 
-You can find full demo at http://talend.surge.sh/components
+You can find full demo at http://talend.github.io/ui/main/components
 
-* [SubHeaderBar](src/SubHeaderBar/SubHeaderBar.md)
+- [SubHeaderBar](src/SubHeaderBar/SubHeaderBar.md)

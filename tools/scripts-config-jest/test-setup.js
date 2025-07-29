@@ -17,10 +17,6 @@ try {
 	expect.extend(jestAxe.toHaveNoViolations);
 } catch (e) {}
 
-try {
-	jest.mock('ally.js');
-} catch (e) {}
-
 // add missing ResizeObserver
 class ResizeObserver {
 	observe() {

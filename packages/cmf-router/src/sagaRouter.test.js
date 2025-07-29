@@ -1,5 +1,6 @@
-import { spawn, take, cancel } from 'redux-saga/effects';
 import { createMockTask } from '@redux-saga/testing-utils';
+import { cancel, spawn, take } from 'redux-saga/effects';
+
 import sagaRouter from './sagaRouter';
 
 describe('sagaRouter import', () => {
@@ -355,5 +356,67 @@ describe('sagaRouter route and route params', () => {
 		expect(gen.next().value).toEqual(
 			spawn(routes['/matchingroute/:id'], { id: 'anotherId' }, true),
 		);
+	});
+
+	it('should handle optional route parameters', () => {
+		const mockTask = createMockTask();
+		function getMockedHistory() {
+			let count = 0;
+			return {
+				get location() {
+					if (count === 0) {
+						count = 1;
+						return {
+							pathname: '/matchingroute/tasks/taskId-123',
+						};
+					}
+					return {
+						pathname: '/matchingroute/tasks',
+					};
+				},
+			};
+		}
+		const routes = {
+			'/matchingroute/:resource{/:optional}': function* matchingSaga() {
+				yield take('SOMETHING');
+			},
+		};
+		const gen = sagaRouter(getMockedHistory(), routes);
+
+		expect(gen.next().value).toEqual(
+			spawn(
+				routes['/matchingroute/:resource{/:optional}'],
+				{ resource: 'tasks', optional: 'taskId-123' },
+				true,
+			),
+		);
+		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
+
+		// optional parameter is removed, saga should be restarted
+		const expectedCancelYield = cancel(mockTask);
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
+		expect(gen.next().value).toEqual(
+			spawn(routes['/matchingroute/:resource{/:optional}'], { resource: 'tasks' }, true),
+		);
+	});
+
+	it('should start root path saga when on child route', () => {
+		const mockHistory = {
+			get location() {
+				return {
+					pathname: '/tasks',
+				};
+			},
+		};
+		const routes = {
+			'/{*path}': function* rootSaga() {
+				yield take('SOMETHING');
+			},
+		};
+		const gen = sagaRouter(mockHistory, routes);
+
+		// Root saga should be started with isExact=true for wildcard path
+		expect(gen.next().value).toEqual(spawn(routes['/{*path}'], { path: 'tasks' }, true));
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 	});
 });

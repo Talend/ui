@@ -1,5 +1,41 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-config-react-webpack@16.9.0
+  - @talend/dynamic-cdn-webpack-plugin@14.1.0
+
+## 5.5.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-react-webpack@16.8.5
+  - @talend/dynamic-cdn-webpack-plugin@14.0.3
+
+## 5.5.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.1
+  - @talend/scripts-config-react-webpack@16.8.3
+
+## 5.5.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
 ## 5.4.0
 
 ### Minor Changes
@@ -234,7 +270,6 @@
   ```
 
   No more polyfills loaded for you. We have removed the folliwng packages:
-
   - `regenerator-runtime`
   - `core-js-bundle`
 

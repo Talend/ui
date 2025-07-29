@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 10.13.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/dynamic-cdn-webpack-plugin@14.1.0
+  - @talend/module-to-cdn@9.13.0
+
+## 10.12.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.3
+  - @talend/module-to-cdn@9.12.3
+
+## 10.12.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.1
+  - @talend/module-to-cdn@9.12.1
+
 ## 10.12.0
 
 ### Minor Changes

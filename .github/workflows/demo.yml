@@ -1,0 +1,75 @@
+name: Demo CI
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  pull-requests: write
+  statuses: write
+  checks: write
+  pages: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+
+      - name: Use Node.js
+        uses: ./.github/actions/setup-node
+
+      - name: Install
+        working-directory: ./
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn install --frozen-lockfile
+
+      - name: Build Demo
+        run: yarn test:demo
+
+      - name: Checkout demo branch
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        with:
+          path: demo
+          ref: gh-pages
+
+      - name: Add demo and commit it
+        # symlink creation : workaround to be able to use service worker on storybook both in local and via github pages deployment
+        run: |
+          echo "Prepare demo folder"
+          cd demo && git rm -rf --ignore-unmatch ./main && cd ..
+          mkdir -p ./demo/main
+          cp ./index.html ./demo/main/
+          mkdir ./demo/main/cmf
+          mkdir ./demo/main/containers
+          mkdir ./demo/main/design-system
+          mkdir ./demo/main/faceted-search
+          mkdir ./demo/main/theme
+          mkdir ./demo/main/storybook-one
+          cp -R packages/cmf/jsdoc ./demo/main/cmf
+          cp -R packages/containers/storybook-static/* ./demo/main/containers
+          cp -R packages/design-docs/storybook-static/* ./demo/main/design-system
+          cp -R packages/faceted-search/storybook-static/* ./demo/main/faceted-search
+          cp -R packages/theme/dist/* ./demo/main/theme
+          cp -R packages/storybook-one/storybook-static/* ./demo/main/storybook-one
+          echo Size of demo:
+          du -d 1 -h ./demo/main
+          cd demo && git add .
+
+      - name: Commit demo for gh-pages
+        uses: actions-js/push@5a7cbd780d82c0c937b5977586e641b2fd94acc5 #v1.5
+        with:
+          directory: "./demo"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "doc: update demo"
+          branch: gh-pages

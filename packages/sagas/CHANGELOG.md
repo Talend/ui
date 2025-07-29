@@ -1,5 +1,28 @@
 # @talend/react-sagas
 
+## 9.0.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/react-cmf@11.0.2
+
+## 9.0.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf@11.0.1
+
+## 9.0.1
+
+### Patch Changes
+
+- Updated dependencies [816bb91]
+  - @talend/react-cmf@11.0.0
+
 ## 9.0.0
 
 ### Major Changes

@@ -1,5 +1,38 @@
 # @talend/storybook-docs
 
+## 2.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+## 2.5.5
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- d91656d: Bump webpack-cli@6.0.1
+
+## 2.5.4
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/design-tokens@3.4.4
+
+## 2.5.3
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
+## 2.5.2
+
+### Patch Changes
+
+- 760db2b: fix: wrap reset css into reset layer
+
 ## 2.5.1
 
 ### Patch Changes

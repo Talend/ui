@@ -1,5 +1,17 @@
 # Changelog
 
+## 5.3.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 5.3.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 5.3.0
 
 ### Minor Changes

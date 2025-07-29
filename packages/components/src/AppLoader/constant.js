@@ -25,7 +25,7 @@ body {
   border-radius: 50%;
   margin: auto;
 }
-   
+
 .tc-app-loader {
   animation: container-rotate 1568ms linear infinite;
   display: inline-block;

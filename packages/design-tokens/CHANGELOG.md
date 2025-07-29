@@ -1,5 +1,17 @@
 # @talend/design-tokens
 
+## 3.4.5
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 3.4.4
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 3.4.3
 
 ### Patch Changes

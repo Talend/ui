@@ -1,5 +1,21 @@
 # @talend/react-a11y
 
+## 4.0.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/utils@3.2.5
+
+## 4.0.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/utils@3.2.4
+
 ## 4.0.1
 
 ### Patch Changes

@@ -1,5 +1,34 @@
 # Changelog
 
+## 21.1.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/utils@3.3.0
+
+## 21.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+  - @talend/utils@3.2.5
+
+## 21.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/design-tokens@3.4.4
+  - @talend/utils@3.2.4
+
 ## 21.0.0
 
 ### Major Changes
@@ -200,7 +229,6 @@
 - 7cc4321: TDOPS-5724 - Restyle faceted search to remove bootstrap and use more Design System elements
 
   # BREAKING CHANGE
-
   - Lot of styling and classes has changed so your overrides might not work anymore
   - DOM has changed too so your tests might need to be upgraded
   - `tags` type for badges does not exists enymore, use `checkbox` instead as it is the same kind of component but with more possibilities

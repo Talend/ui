@@ -1,5 +1,44 @@
 # Changelog
 
+## 7.1.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/react-components@17.4.0
+
+## 7.0.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+  - @talend/assets-api@1.5.3
+  - @talend/react-components@17.3.9
+
+## 7.0.3
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+  - @talend/react-components@17.3.8
+
+## 7.0.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/assets-api@1.5.2
+  - @talend/react-components@17.3.6
+  - @talend/design-tokens@3.4.4
+
 ## 7.0.1
 
 ### Patch Changes

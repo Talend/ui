@@ -1,5 +1,30 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.40.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-cmf@1.4.0
+
+## 6.39.2
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+
+## 6.39.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/scripts-cmf@1.3.1
+
 ## 6.39.0
 
 ### Minor Changes

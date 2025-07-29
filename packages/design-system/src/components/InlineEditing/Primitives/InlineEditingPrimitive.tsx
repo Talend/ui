@@ -139,6 +139,9 @@ const InlineEditingPrimitive = forwardRef(
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		const getValue = () => (onChangeValue ? value : internalValue);
+		const inputIsValid = () => {
+			return !required || !!getValue()?.trim();
+		};
 
 		const toggleEditionMode = (isEditionMode: boolean) => {
 			editionModeControl.onChange(isEditionMode);
@@ -155,6 +158,10 @@ const InlineEditingPrimitive = forwardRef(
 
 		const handleSubmit = (event: OnEditEvent) => {
 			event.stopPropagation();
+
+			if (!inputIsValid()) {
+				return;
+			}
 
 			if (onEdit) {
 				onEdit(event, getValue() || '');
@@ -273,6 +280,7 @@ const InlineEditingPrimitive = forwardRef(
 									</ButtonIcon>
 									<ButtonIcon
 										onClick={handleSubmit}
+										disabled={!inputIsValid()}
 										icon="check-filled"
 										data-test={`${dataTest ? `${dataTest}.` : ''}inlineediting.button.submit`}
 										data-testid={`${dataTestId ? `${dataTestId}.` : ''}inlineediting.button.submit`}

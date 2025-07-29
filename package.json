@@ -1,19 +1,19 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.27.8",
-    "@talend/scripts-config-babel": "^13.5.0",
-    "@talend/scripts-config-prettier": "^12.2.0",
-    "@talend/scripts-core": "^16.5.1",
-    "@talend/scripts-yarn-workspace": "^2.1.0",
+    "@changesets/cli": "^2.29.5",
+    "@talend/scripts-config-babel": "^13.6.0",
+    "@talend/scripts-config-prettier": "^12.3.0",
+    "@talend/scripts-core": "^16.6.0",
+    "@talend/scripts-yarn-workspace": "^2.1.2",
     "cross-env": "^7.0.3",
-    "cross-spawn": "^7.0.3",
+    "cross-spawn": "^7.0.6",
     "eslint": "^8.57.1",
     "husky": "^8.0.3",
-    "i18next-scanner": "^4.5.0",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3",
+    "i18next-scanner": "^4.6.0",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.6.2",
     "rimraf": "^5.0.10",
-    "typescript": "^5.0.4"
+    "typescript": "^5.8.3"
   },
   "scripts": {
     "postinstall": "talend-yarn-workspace run build:lib && talend-yarn-workspace run build:lib:esm",
@@ -25,7 +25,7 @@
     "lint": "cross-env WORKSPACE_RUN_FAIL=no-bail talend-yarn-workspace run lint",
     "lint-merge-report": "talend-scripts lint-merge-report",
     "test": "cross-env TZ=UTC talend-yarn-workspace run test --silent",
-    "test:update": "cross-env TZ=UTC yarn workspaces run test --silent -u",
+    "test:update": "cross-env TZ=UTC talend-yarn-workspace run test --silent -u",
     "test:cov": "cross-env TZ=UTC talend-yarn-workspace run test:cov",
     "test:demo": "talend-yarn-workspace run test:demo",
     "test:cron": "talend-yarn-workspace run test:cron",
@@ -38,7 +38,7 @@
     "prepare": "husky install"
   },
   "resolutions": {
-    "**/axios": "0.28.0",
+    "**/axios": "0.30.0",
     "**/ace-builds": "1.10.1",
     "**/cypress": "^13.6.0",
     "**/@types/react": "^18.2.7",
@@ -68,8 +68,8 @@
     ]
   },
   "dependencies": {
-    "@types/react": "^18.2.7",
-    "@types/react-dom": "^18.3.0",
-    "cypress": "^13.6.0"
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "cypress": "^13.17.0"
   }
 }

@@ -1,5 +1,23 @@
 # @talend/http
 
+## 3.3.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 3.3.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 3.3.0
+
+### Minor Changes
+
+- d80737c: Fix remaining dependabot alerts
+
 ## 3.2.0
 
 ### Minor Changes

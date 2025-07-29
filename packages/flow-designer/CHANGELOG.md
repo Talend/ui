@@ -1,5 +1,27 @@
 # Changelog
 
+## 7.1.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+## 7.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+
+## 7.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/design-tokens@3.4.4
+
 ## 7.0.0
 
 ### Major Changes

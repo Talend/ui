@@ -1,5 +1,79 @@
 # @talend/react-containers
 
+## 11.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/design-system@11.7.0
+  - @talend/react-components@17.4.0
+  - @talend/react-forms@15.4.0
+  - @talend/utils@3.3.0
+
+## 11.3.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-system@11.5.3
+  - @talend/react-components@17.3.9
+  - @talend/react-forms@15.2.4
+  - @talend/utils@3.2.5
+  - @talend/react-cmf@11.0.2
+
+## 11.3.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf@11.0.1
+  - @talend/react-components@17.3.6
+  - @talend/design-system@11.5.2
+  - @talend/react-forms@15.2.3
+  - @talend/utils@3.2.4
+
+## 11.3.2
+
+### Patch Changes
+
+- Updated dependencies [816bb91]
+  - @talend/react-cmf@11.0.0
+
+## 11.3.1
+
+### Patch Changes
+
+- 6d93484: Upgrade cmf
+
+## 11.3.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+### Patch Changes
+
+- Updated dependencies [5168318]
+- Updated dependencies [ea14b87]
+  - @talend/design-system@11.4.0
+  - @talend/react-components@17.3.1
+  - @talend/react-cmf@10.1.0
+
+## 11.2.1
+
+### Patch Changes
+
+- c3b6358: docs: update links from surge to github.io
+- Updated dependencies [c3b6358]
+  - @talend/react-components@17.2.1
+  - @talend/react-cmf@10.0.2
+
 ## 11.2.0
 
 ### Minor Changes
@@ -311,7 +385,6 @@
 ### Patch Changes
 
 - b8c4161d2: test: rewrite all tests using RTL:
-
   - fix(ActionSplitDropdown): omit cmf Props
   - fix(ActionDropdown): pass required id for a11y
   - fix: remove old React contextTypes api
@@ -428,7 +501,6 @@
 
 - 9c44d724f: ## Breaking changes :
   Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
-
   - SidePanel icon is no more handled by the application theme
   - HeaderBar icon is no more handled by the application theme
 

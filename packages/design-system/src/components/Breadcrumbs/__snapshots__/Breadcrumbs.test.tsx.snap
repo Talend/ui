@@ -86,6 +86,7 @@ exports[`Breadcrumbs should render a11y html 1`] = `
             aria-label="Collapsed links"
             aria-orientation="vertical"
             class="theme-dropdownShell"
+            data-floating-ui-focusable=""
             data-test="dropdown.menu"
             data-testid="dropdown.menu"
             role="menu"

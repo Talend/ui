@@ -1,5 +1,23 @@
 # @talend/babel-plugin-import-d3
 
+## 0.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+## 0.5.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 0.5.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 0.5.0
 
 ### Minor Changes

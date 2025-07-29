@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-locales",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "manage locales in the project",
   "type": "module",
   "bin": {
@@ -10,13 +10,13 @@
     "lint": "talend-scripts lint"
   },
   "dependencies": {
-    "@talend/scripts-utils": "^2.3.0",
-    "cross-spawn": "^7.0.3"
+    "@talend/scripts-utils": "^2.4.0",
+    "cross-spawn": "^7.0.6"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.2.1",
-    "@talend/eslint-plugin": "^1.3.1",
-    "@talend/scripts-core": "^16.5.1"
+    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/scripts-core": "^16.6.0"
   },
   "keywords": [
     "i18next",

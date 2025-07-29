@@ -1,5 +1,55 @@
 # @talend/scripts-core
 
+## 16.6.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/eslint-config@13.3.0
+  - @talend/scripts-config-babel@13.6.0
+  - @talend/scripts-config-jest@14.3.0
+  - @talend/eslint-plugin@1.4.0
+  - @talend/scripts-utils@2.4.0
+
+## 16.5.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-typescript@11.3.2
+  - @talend/scripts-config-stylelint@4.2.2
+  - @talend/eslint-config@13.2.4
+  - @talend/scripts-config-babel@13.5.2
+  - @talend/scripts-config-jest@14.2.2
+  - @talend/scripts-utils@2.3.4
+
+## 16.5.3
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+  - @talend/eslint-config@13.2.3
+
+## 16.5.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/eslint-plugin@1.3.2
+  - @talend/scripts-config-babel@13.5.1
+  - @talend/eslint-config@13.2.2
+  - @talend/scripts-config-jest@14.2.1
+  - @talend/scripts-config-stylelint@4.2.1
+  - @talend/scripts-config-typescript@11.3.1
+  - @talend/scripts-utils@2.3.2
+
 ## 16.5.1
 
 ### Patch Changes
@@ -152,7 +202,6 @@
 ### Major Changes
 
 - 9a0732ec5: - fix: enforce timer at the end of all tests.
-
   - feat: mock ally.js has it uses unsupported dom method from jsdom.
   - feat: add jest-axe configuration
 
@@ -333,7 +382,6 @@
   ```
 
   No more polyfills loaded for you. We have removed the folliwng packages:
-
   - `regenerator-runtime`
   - `core-js-bundle`
 

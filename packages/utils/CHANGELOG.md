@@ -1,5 +1,23 @@
 # @talend/utils
 
+## 3.3.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+## 3.2.5
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 3.2.4
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 3.2.3
 
 ### Patch Changes
@@ -150,9 +168,11 @@
     Remove default export of @talend/utils package, use named exports instead
   - WHY the change was made
     The utils package used a default export. so we can't do a destruction import as readme described:
+
   ```
   import { validation } from '@talend/utils';
   ```
+
   - HOW a consumer should update their code
     Use destruction import like `import { validation, date } from '@talend/utils';` to replace default import.
 

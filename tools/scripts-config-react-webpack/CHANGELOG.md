@@ -1,5 +1,57 @@
 # @talend/scripts-config-react-webpack
 
+## 16.9.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-config-babel@13.6.0
+  - @talend/react-cmf-webpack-plugin@6.40.0
+  - @talend/scripts-config-cdn@10.13.0
+  - @talend/scripts-utils@2.4.0
+
+## 16.8.5
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-babel@13.5.2
+  - @talend/scripts-config-cdn@10.12.2
+  - @talend/scripts-utils@2.3.4
+
+## 16.8.4
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- d91656d: Bump webpack-cli@6.0.1
+- Updated dependencies [ae979f0]
+  - @talend/react-cmf-webpack-plugin@6.39.2
+
+## 16.8.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf-webpack-plugin@6.39.1
+  - @talend/scripts-config-babel@13.5.1
+  - @talend/scripts-config-cdn@10.12.1
+  - @talend/scripts-utils@2.3.2
+
+## 16.8.2
+
+### Patch Changes
+
+- d80737c: add querystring to resolve.fallback
+- Updated dependencies [d80737c]
+  - @talend/scripts-utils@2.3.1
+
 ## 16.8.1
 
 ### Patch Changes
@@ -138,7 +190,6 @@
 ### Major Changes
 
 - 3b058ef7d: feat: upgrade dependencies to latest
-
   - babel-loader from 8 to 9
   - fork-ts-checker-webpack-plugin from 7 to 8
 
@@ -219,13 +270,11 @@
 ### Patch Changes
 
 - ed4014653: fix: remove duplicates of meta and simplify head script
-
   - meta was their twice because they are passed to the html-webpack-plugin.
 
   - the INITIATOR part of the script was still here even if we already have set `dynamic-cdn-webpack-plugin` to false.
 
   fix: The copy of assets in a cdn folder should happens if and only if:
-
   - INTIATOR_URL has not been given at compile time and
   - dynamic-cdn-webpack-plugin is present
 
@@ -284,7 +333,6 @@
   ```
 
   You have to
-
   - use `addSassData.js` from https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
   - rewrite your sass using @talend/design-tokens on the long and remove this bootstrap-theme guidelines from all your scss
 
@@ -366,7 +414,6 @@
 ### Patch Changes
 
 - 2a8de8a55: \* fix: do not generate both hashed and non hashed assets for fonts, images and svgs.
-
   - fix: do not copy icons into app root folder
   - chore: put assets config in common so app and umd configuration are aligned.
 
@@ -420,7 +467,6 @@
   ```
 
   No more polyfills loaded for you. We have removed the folliwng packages:
-
   - `regenerator-runtime`
   - `core-js-bundle`
 

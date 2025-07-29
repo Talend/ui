@@ -84,6 +84,7 @@ const defaultMain = {
 				fallback: {
 					...config.resolve.fallback,
 					path: false,
+					querystring: require.resolve('querystring-es3'),
 				},
 			},
 		};

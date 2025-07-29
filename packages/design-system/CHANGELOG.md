@@ -1,5 +1,103 @@
 # @talend/design-system
 
+## 11.7.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/utils@3.3.0
+
+## 11.6.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+## 11.5.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+  - @talend/assets-api@1.5.3
+  - @talend/utils@3.2.5
+
+## 11.5.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/assets-api@1.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/utils@3.2.4
+
+## 11.5.1
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
+## 11.5.0
+
+### Minor Changes
+
+- d80737c: Fix remaining dependabot alerts
+
+### Patch Changes
+
+- 760db2b: fix: wrap reset into css @layer reset
+
+## 11.4.3
+
+### Patch Changes
+
+- 59af07a: InlineEdit - Fix been able to submit field when required and having blank spaces
+
+## 11.4.2
+
+### Patch Changes
+
+- 121bd2f: TMC-1657 - Fix DS drawer overflow for title container
+- 56151ad: InlineEdit should take into account the required property to not submit the input
+
+## 11.4.1
+
+### Patch Changes
+
+- ed7c9ca: TMC-1657 - Handle FloatingDrawer overflow
+
+## 11.4.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+### Patch Changes
+
+- 5168318: fix: update floating-ui lib
+
+## 11.3.1
+
+### Patch Changes
+
+- e742b73: TMC-4293 - Design System link should not be accent/grey while using qlik-light theme
+
+## 11.3.0
+
+### Minor Changes
+
+- a8a42b5: feat(TMC-620): add new illustrations
+
+### Patch Changes
+
+- d1f8b6b: Upgrade react-is to v18.3.1 and set as dependency (not peerDep) in design-system
+
 ## 11.2.0
 
 ### Minor Changes
@@ -516,7 +614,6 @@
 ### Minor Changes
 
 - 0e6c82e25: feat: rework some part of Message component
-
   - The size of a message fit the container width while before, it has a max width of `28rem`
   - add a new prop `titleInfo` that allow to display an information message aside the title
   - add new prop `additionalIconAction` to allow to display an additional button icon instead (there was only the dropdown action available before)
@@ -607,19 +704,16 @@
 
 - 96d688489: React: Upgrade to react 18 and @types/react 18
 - 9a0732ec5: chore: remove reakit
-
   - Rewrite components without reakit
   - use `@floating-ui/react` for tooltip, popover
   - export all types and components from the root
 
   Breaking changes:
-
   - HTML structure output may have changed
   - Some passed props from our component to reakit and not documented as a usage as been removed. If you need a different usage let us knwow, now we own the code
   - Tabs props API has been completly changed
 
   Components changed:
-
   - Accordion (useId)
   - Clickable (rewrite)
   - Combobox (add as primitive)
@@ -896,7 +990,6 @@
 ### Patch Changes
 
 - fe430c316: fix: add missing export on the root
-
   - Input on Form component (so Form.Input)
   - Breadcrumbs
   - theme tokens
@@ -949,7 +1042,6 @@
 - 69f09a921: ThemeProvider: Removed styled components global styles
 
   BREAKING CHANGE:
-
   - Now global style is applied by default
   - createGlobalStyle is not exposed anymore and should not be needed
   - ThemeProvider.GlobalStyle do not exists, it is now in the by default in the CSS
@@ -1016,7 +1108,6 @@
   ## Breaking changes
 
   ### `Form` modules
-
   - As always with these change, we lose StyledComponent's `as` props.
   - No more `className` or `style` on Form elements.
   - No more `Form.FieldGroup`. All the inputs (`Form.Text`, `Form.Select`, `Form.Number` etc...) have `prefix` and `suffix`props to handle this.
@@ -1025,7 +1116,6 @@
   - Simpler `description` and `hasError` APIs. Fields can either have a (neutral) description or an error message.
 
   ### `InlineEditing` modules
-
   - As always with these change, we lose StyledComponent's `as` props.
   - No more `className` or `style`.
   - `placeholder` prop is now mandatory.
@@ -1033,14 +1123,12 @@
   ## Other changes
 
   ### `Form` modules
-
   - Updated styles with design tokens.
   - Height of input elements based in height of buttons.
   - Focusing a field no longer changes the field's height.
   - Affixes can now be either buttons, text or `select` fields through a props-based API.
 
   ### `InlineEditing` modules
-
   - `InlineEditing.Text` and `InlineEditing.Textarea` both have a `renderValueAs` props that can take React component.
 
   ***
@@ -1122,7 +1210,6 @@
 ### Patch Changes
 
 - ae9897897: Using design tokens instead of style components plus fixes in the following components:
-
   - ThemeProvider
   - Switch
   - Layout
@@ -1387,7 +1474,6 @@
 - 7af0ef8f6: ## Link
 
   Link component is no longer a Styled Component. Its types are fixed.
-
   - Can't be used as buttons, use `LinkAsButton` instead.
 
   ## Status
@@ -1407,7 +1493,6 @@
   The new APIs and looks lead to breaking changes.
 
   ### ButtonToggle vs Toggle
-
   - Style changes (larger by default)
   - Props changed (can be size M or S)
   - No longer stateful (active state must be handled by client application)
@@ -1417,7 +1502,6 @@
   Use size `S` if you need to stick closer to previous design.
 
   ### ButtonIcon vs Button.Icon
-
   - Style changes (larger by default, round)
   - Props changed (can be size M, S or XS)
   - Can't display more than one icon (no more icon + caret)
@@ -1435,7 +1519,6 @@
   ## Buttons
 
   Buttons are no longer Styled Components. Their types are fixed.
-
   - Style changes (slightly larger by default, new tokens for colors)
   - No more `Button.Icon`, use `ButtonIcon` components instead.
   - No more `Button.Variant` syntax. Use `ButtonPrimary`, `ButtonDestructive` etc... instead.
@@ -1446,7 +1529,6 @@
   ## Skeletons
 
   Skeletons are no longer Styled Components.
-
   - No more `Skeleton.Variant` syntax. Use the dedicated component for the variant (ie: `SkeletonButton`).
   - Skeletons do not accept classnames anymore.
 

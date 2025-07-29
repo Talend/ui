@@ -1,5 +1,17 @@
 # @talend/router-bridge
 
+## 2.2.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 2.2.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
 ## 2.2.0
 
 ### Minor Changes

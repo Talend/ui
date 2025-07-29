@@ -82,17 +82,17 @@ type.text = """/*
 package org.talend.icons;
 
 /**
- * See http://talend.surge.sh/icons/
+ * See http://talend.github.io/ui/main/icons/
  */
 public enum Type {
 ${generateEnumValues(allIcons, iconsDeprecated)}
-    
+
     private final String key;
- 
+
     Type(String key) {
         this.key = key;
     }
-    
+
     public String getKey() {
         return key;
     }

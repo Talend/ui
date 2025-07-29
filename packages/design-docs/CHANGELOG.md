@@ -1,5 +1,50 @@
 # @talend/design-docs
 
+## 4.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/storybook-docs@2.6.0
+  - @talend/design-system@11.7.0
+  - @talend/icons@7.12.0
+
+## 4.3.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+### Patch Changes
+
+- Updated dependencies [f53083d]
+  - @talend/design-system@11.6.0
+
+## 4.2.2
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+- Updated dependencies [d91656d]
+  - @talend/storybook-docs@2.5.5
+  - @talend/icons@7.11.2
+
+## 4.2.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/icons@7.11.1
+  - @talend/storybook-docs@2.5.4
+
 ## 4.2.0
 
 ### Minor Changes

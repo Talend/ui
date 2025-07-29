@@ -1,5 +1,87 @@
 # @talend/react-forms
 
+## 15.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/design-system@11.7.0
+  - @talend/react-components@17.4.0
+  - @talend/icons@7.12.0
+  - @talend/utils@3.3.0
+
+## 15.3.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+### Patch Changes
+
+- Updated dependencies [f53083d]
+  - @talend/design-system@11.6.0
+
+## 15.2.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/json-schema-form-core@1.4.4
+  - @talend/design-system@11.5.3
+  - @talend/design-tokens@3.4.5
+  - @talend/assets-api@1.5.3
+  - @talend/react-components@17.3.9
+  - @talend/icons@7.11.3
+  - @talend/utils@3.2.5
+
+## 15.2.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/json-schema-form-core@1.4.3
+  - @talend/assets-api@1.5.2
+  - @talend/react-components@17.3.6
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/icons@7.11.1
+  - @talend/utils@3.2.4
+
+## 15.2.2
+
+### Patch Changes
+
+- f9c62f6: TMC-160 - Improve absolute footer buttons compatibility for all drawers
+- Updated dependencies [f9c62f6]
+- Updated dependencies [09807b1]
+  - @talend/react-components@17.3.2
+
+## 15.2.1
+
+### Patch Changes
+
+- 0efaf0b: fix(TMC-861): Enhance translation for some cancel actions on ListView and Enumeration
+
+## 15.2.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
+### Patch Changes
+
+- Updated dependencies [a8a42b5]
+- Updated dependencies [2a7fe08]
+- Updated dependencies [d1f8b6b]
+  - @talend/design-system@11.3.0
+  - @talend/react-components@17.2.0
+
 ## 15.1.0
 
 ### Minor Changes
@@ -153,13 +235,11 @@
 ### Major Changes
 
 - 0629df7: UI-FORM will now heavily use form components from the Design System
-
   - Parent element is wrapped with a DS Form
   - File / Checkboxes / Text / Number and Textare will now use DS components
   - All elements will now use DS Label in both text and normal display mode
 
   # BREAKING CHANGE
-
   - Many style overrides will break because of removed bootstrap classes like `form-group` `control-label` `form-actions` `tf-actions-wrapper` `tf-buttons` or `tf-uiform`
   - No more hearthbeat styling from bootstrap when form elements are in updating state
   - Removed many possibilities to pass down classNames because DS components won't allow it
@@ -625,7 +705,6 @@
   ## Breaking changes :
 
   UI Forms hint definition does not support some properties anymore
-
   - **id** has been removed, you should rely on **data-test** attributes to target elements
   - **className** has been removed because design system component should not be customized
 
@@ -640,7 +719,6 @@
   ## New additions :
 
   UI Forms hint definition can now handle some **data-test** attributes
-
   - **data-test** has been added to target the hint popover content
   - **icon-data-test** has been added to target the hint icon
 
@@ -1035,11 +1113,14 @@
     Remove default export of @talend/utils package, use named exports instead
   - WHY the change was made
     The utils package used a default export. so we can't do a destruction import as readme described:
+
   ```
   import { validation } from '@talend/utils';
   ```
+
   - HOW a consumer should update their code
     Use destruction import like `import { validation, date } from '@talend/utils';` to replace default import.
+
 - Updated dependencies [d5f261f49]
   - @talend/utils@2.0.0
   - @talend/react-components@6.41.1

@@ -1,5 +1,23 @@
 # @talend/scripts-publish-local
 
+## 1.4.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 1.4.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 1.4.1
+
+### Patch Changes
+
+- ea14b87: Fix Dependabot alerts
+
 ## 1.4.0
 
 ### Minor Changes

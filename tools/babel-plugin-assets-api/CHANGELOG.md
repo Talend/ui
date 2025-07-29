@@ -1,5 +1,32 @@
 # @talend/babel-plugin-assets-api
 
+## 1.5.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/module-to-cdn@9.13.0
+
+## 1.4.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/module-to-cdn@9.12.3
+
+## 1.4.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/module-to-cdn@9.12.1
+
 ## 1.4.0
 
 ### Minor Changes
