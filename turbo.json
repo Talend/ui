@@ -13,12 +13,14 @@
       "dependsOn": ["^pre-release"],
       "outputs": ["dist/**"]
     },
-    "start": {},
     "storybook:build": {
       "dependsOn": ["^storybook:build"],
       "outputs": ["storybook-static/**"]
     },
-    "lint": {},
+    "lint": {
+      "dependsOn": ["^lint"],
+      "outputs": []
+    },
     "check-types": {},
     "test:cov": {
       "dependsOn": ["^test:cov"],
@@ -27,8 +29,6 @@
     "test:demo": {
       "dependsOn": ["^test:demo"],
       "outputs": ["storybook-static/**", "jsdoc/**"]
-    },
-    "format:write": {},
-    "format:check": {}
+    }
   }
 }
