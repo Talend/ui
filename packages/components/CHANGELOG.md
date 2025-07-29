@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.4.1
+
+### Patch Changes
+
+- 2307a5f: chore: remove simplebar
+
 ## 17.4.0
 
 ### Minor Changes

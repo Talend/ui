@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "11.7.0",
+  "version": "11.7.1",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -70,7 +70,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.6.20",
     "@svgr/webpack": "^8.1.0",
-    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-config": "^13.3.1",
     "@talend/eslint-plugin": "^1.4.0",
     "@talend/icons": "^7.12.0",
     "@talend/locales-design-system": "^7.15.1",

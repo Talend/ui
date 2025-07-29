@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.14.0
+
+### Minor Changes
+
+- d622175: deps: bump execa from 4.x to 8.x
+
 ## 9.13.0
 
 ### Minor Changes

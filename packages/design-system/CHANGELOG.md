@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.7.1
+
+### Patch Changes
+
+- e469bcf: fix: drop cypress dev deps
+
 ## 11.7.0
 
 ### Minor Changes

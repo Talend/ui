@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 13.3.1
+
+### Patch Changes
+
+- e469bcf: fix: drop cypress dev deps
+
 ## 13.3.0
 
 ### Minor Changes

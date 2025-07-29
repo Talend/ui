@@ -81,8 +81,8 @@
   "devDependencies": {
     "@storybook/addon-actions": "^7.6.20",
     "@talend/bootstrap-theme": "^9.4.0",
-    "@talend/design-system": "^11.7.0",
-    "@talend/eslint-config": "^13.3.0",
+    "@talend/design-system": "^11.7.1",
+    "@talend/eslint-config": "^13.3.1",
     "@talend/eslint-plugin": "^1.4.0",
     "@talend/locales-design-system": "^7.15.1",
     "@talend/locales-tui-components": "^16.0.1",
@@ -128,5 +128,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "17.4.0"
+  "version": "17.4.1"
 }
