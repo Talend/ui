@@ -1,5 +1,15 @@
 # @talend/react-containers
 
+## 11.4.1
+
+### Patch Changes
+
+- 2307a5f: chore: remove simplebar
+- Updated dependencies [2307a5f]
+- Updated dependencies [e469bcf]
+  - @talend/react-components@17.4.1
+  - @talend/design-system@11.7.1
+
 ## 11.4.0
 
 ### Minor Changes

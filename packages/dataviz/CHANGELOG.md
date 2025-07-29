@@ -1,5 +1,13 @@
 # Changelog
 
+## 7.1.1
+
+### Patch Changes
+
+- e469bcf: fix: drop cypress dev deps
+- Updated dependencies [2307a5f]
+  - @talend/react-components@17.4.1
+
 ## 7.1.0
 
 ### Minor Changes
