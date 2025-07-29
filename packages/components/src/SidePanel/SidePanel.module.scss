@@ -39,6 +39,13 @@ $large-docked-width: 4.375rem;
 	.action-list-container {
 		flex: 1;
 		height: calc(100vh - 7.5rem); // specific to Safari
+		overflow-y: auto;
+		overflow-x: hidden;
+
+		&::-webkit-scrollbar {
+			background-color: tokens.$coral-color-branding-navigation;
+			width: tokens.$coral-sizing-minimal;
+		}
 
 		:global .tc-side-panel-list {
 			background: transparent;
