@@ -3,8 +3,6 @@ import { withTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import 'simplebar';
-import 'simplebar-react/dist/simplebar.min.css';
 
 import tokens from '@talend/design-tokens';
 
@@ -146,7 +144,6 @@ function SidePanel({
 			{injected('before-actions')}
 			{actions && (
 				<div
-					data-simplebar
 					className={classNames(
 						theme['action-list-container'],
 						'tc-side-panel-action-list-container',

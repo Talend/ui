@@ -75,8 +75,6 @@
     "react-virtualized": "^9.22.6",
     "reactour": "^1.19.4",
     "recharts": "^2.15.4",
-    "simplebar": "6.2.7",
-    "simplebar-react": "^3.3.2",
     "styled-components": "^5.3.11",
     "warning": "^3.0.0"
   },
