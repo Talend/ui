@@ -5,6 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf dist",
     "build:lib": "rimraf ./dist && webpack",
     "pre-release": "webpack",
     "start": "webpack serve --mode=development",

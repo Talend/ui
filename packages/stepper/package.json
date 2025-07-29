@@ -6,6 +6,7 @@
   "types": "lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf lib dist",
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",

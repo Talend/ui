@@ -15,6 +15,7 @@
     "pre-release": "talend-scripts build --umd && talend-scripts build --umd --dev",
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
+    "clean": "rimraf lib lib-esm dist",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",

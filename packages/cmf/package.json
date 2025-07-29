@@ -16,6 +16,7 @@
     }
   },
   "scripts": {
+    "clean": "rimraf lib lib-esm dist",
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
     "build:lib:esm": "talend-scripts build --esm",

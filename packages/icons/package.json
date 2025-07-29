@@ -22,6 +22,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf lib lib-esm dist",
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env production",
     "build-ts": "tsc",
     "build-react": "node scripts/react.js",

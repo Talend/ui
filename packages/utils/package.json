@@ -22,6 +22,7 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf lib lib-esm",
     "build:lib": "talend-scripts build --tsc",
     "build:lib:esm": "talend-scripts build --esm",
     "lint": "talend-scripts lint",

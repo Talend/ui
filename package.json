@@ -18,6 +18,10 @@
   },
   "packageManager": "yarn@1.22.22",
   "scripts": {
+    "clean": "yarn clean:build && yarn clean:docs && yarn clean:cache",
+    "clean:build": "talend-yarn-workspace run clean",
+    "clean:docs": "rimraf */*/jsdoc */*/storybook-static",
+    "clean:cache": "rimraf */*/.turbo .turbo */*/node_modules/.cache node_modules/.cache */*/coverage",
     "postinstall": "yarn build:lib && yarn build:lib:esm",
     "build:lib": "turbo run build:lib",
     "build:lib:esm": "turbo run build:lib:esm",
