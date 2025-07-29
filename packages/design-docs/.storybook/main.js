@@ -1,7 +1,7 @@
 import path from 'path';
 import { packageDirectorySync } from 'pkg-dir';
 
-const iconConfig = require('@talend/icons/.storybook/main.js');
+// const iconConfig = require('@talend/icons/.storybook/main.js');
 const rootPath = packageDirectorySync();
 const {
 	getJSAndTSLoader,
@@ -30,8 +30,8 @@ const STORIES = [
 
 export default {
 	stories: STORIES,
-	webpackFinal: async originalConfig => {
-		const config = await iconConfig.webpackFinal(originalConfig);
+	webpackFinal: async config => {
+		// const config = await iconConfig.webpackFinal(originalConfig);
 		// weird, replace the loader of the current storybook which do not support mono repo
 		const rules = [
 			...config.module.rules.filter(rule => {

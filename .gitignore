@@ -1,6 +1,7 @@
 /.static
 # Log files #
 *.log
+.turbo
 
 # Mac OS index files #
 .DS_Store

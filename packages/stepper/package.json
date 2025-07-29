@@ -6,6 +6,7 @@
   "types": "lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf lib dist",
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
@@ -14,7 +15,7 @@
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:noisy": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary",
     "lint": "talend-scripts lint",
     "start": "talend-scripts start-storybook -p 6006"
   },

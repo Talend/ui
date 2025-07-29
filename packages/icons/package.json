@@ -22,6 +22,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf lib lib-esm dist",
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env production",
     "build-ts": "tsc",
     "build-react": "node scripts/react.js",
@@ -30,7 +31,6 @@
     "build:lib:esm": "talend-scripts build --esm",
     "ts:types": "node scripts/typescript.js",
     "test": "echo no test",
-    "test:cov": "echo no test",
     "start-storybook": "talend-scripts start-storybook",
     "build-storybook": "talend-scripts build-storybook",
     "start": "talend-scripts start-storybook -p 6010",

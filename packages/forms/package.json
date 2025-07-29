@@ -16,6 +16,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf lib lib-esm dist",
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
     "build:lib:esm": "talend-scripts build --esm",
@@ -24,7 +25,7 @@
     "build:lib": "talend-scripts build",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage",
+    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary",
     "lint": "talend-scripts lint",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"

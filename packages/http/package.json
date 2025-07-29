@@ -18,6 +18,7 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
   "scripts": {
+    "clean": "rimraf lib dist",
     "build:lib": "talend-scripts build",
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",

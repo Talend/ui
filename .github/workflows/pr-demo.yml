@@ -25,12 +25,20 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
 
+      - name: Cache Turbo
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('turbo.json') }}
+          restore-keys: |
+            turbo-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('turbo.json') }}
+
       - name: Install
         working-directory: ./
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn install --frozen-lockfile
-  
+
       - name: Build Demo
         run: yarn test:demo
 
