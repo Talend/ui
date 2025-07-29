@@ -1,8 +1,10 @@
-import { render, screen, fireEvent, queryByAttribute, waitFor } from '@testing-library/react';
+import { fireEvent, queryByAttribute, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { actions, getMockData, getMockNestedData, initProps } from '../../__mocks__/data';
 import UIForm from './UIForm.container';
+
+jest.unmock('@talend/design-system');
 
 describe('UIForm container', () => {
 	let props;
@@ -19,7 +21,7 @@ describe('UIForm container', () => {
 			screen.getByRole('textbox', { name: 'Last Name (with description)' }),
 		).toBeInTheDocument();
 		expect(
-			screen.getByRole('textbox', { name: 'First Name (with placeholder)' }),
+			screen.getByRole('textbox', { name: 'First Name (with placeholder)*' }),
 		).toBeInTheDocument();
 		expect(screen.getByRole('button', { name: 'Check the thing' })).toBeInTheDocument();
 		expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
@@ -98,7 +100,7 @@ describe('UIForm container', () => {
 			screen.queryByRole('textbox', { name: 'Last Name (with description)' }),
 		).not.toBeInTheDocument();
 		expect(
-			screen.getByRole('textbox', { name: 'First Name (with placeholder)' }),
+			screen.getByRole('textbox', { name: 'First Name (with placeholder)*' }),
 		).toBeInTheDocument();
 	});
 
@@ -191,7 +193,7 @@ describe('UIForm container', () => {
 		// given
 
 		const onChange = jest.fn();
-		const dom = render(<UIForm {...props} data={getMockData()} onChange={onChange} />);
+		render(<UIForm {...props} data={getMockData()} onChange={onChange} />);
 
 		// when
 		const lastnameInput = screen.getByRole('textbox', { name: 'Last Name (with description)' });
@@ -201,12 +203,8 @@ describe('UIForm container', () => {
 		// then
 		// we need to get it like that because of the DS mock in ui-scripts :/
 		// TODO: remove that when we remove the mock
-		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_lastname-error');
-		expect(errorMessage).toBeInTheDocument();
-		expect(errorMessage).toHaveAttribute(
-			'description',
-			'String is too short (4 chars), minimum 10',
-		);
+		const errorMessage = screen.getAllByRole('status')[0];
+		expect(errorMessage).toHaveTextContent('String is too short (4 chars), minimum 10');
 	});
 
 	it('should take customFormat for validation', async () => {
@@ -222,7 +220,7 @@ describe('UIForm container', () => {
 
 		const mockedData = getMockData();
 		mockedData.jsonSchema.properties.lastname.format = 'noABC';
-		const dom = render(<UIForm data={mockedData} {...props} customFormats={customFormats} />);
+		render(<UIForm data={mockedData} {...props} customFormats={customFormats} />);
 
 		// when
 		const lastnameInput = screen.getByRole('textbox', { name: 'Last Name (with description)' });
@@ -232,28 +230,23 @@ describe('UIForm container', () => {
 		// then
 		// we need to get it like that because of the DS mock in ui-scripts :/
 		// TODO: remove that when we remove the mock
-		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_lastname-error');
-		expect(errorMessage).toBeInTheDocument();
-		expect(errorMessage).toHaveAttribute('description', 'Format validation failed (test custom)');
+		const errorMessage = screen.getAllByRole('status')[0];
+		expect(errorMessage).toHaveTextContent('Format validation failed (test custom)');
 	});
 
 	it('should update errors from trigger', async () => {
 		// given
 		const errors = { firstname: 'my firstname is invalid' };
 		const onTrigger = jest.fn(() => Promise.resolve({ errors }));
-		const dom = render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
+		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
 		expect(onTrigger).not.toHaveBeenCalled();
 
 		// when
 		await userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
 		await waitFor(() => {
-			const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
-			expect(errorMessage).toBeInTheDocument();
+			const errorMessage = screen.getAllByRole('status')[1];
+			expect(errorMessage).toHaveTextContent('my firstname is invalid');
 		});
-
-		// then
-		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
-		expect(errorMessage).toHaveAttribute('description', 'my firstname is invalid');
 	});
 
 	it('should call onTrigger from button', async () => {
@@ -286,7 +279,7 @@ describe('UIForm container', () => {
 		expect(onTrigger).not.toHaveBeenCalled();
 
 		// when
-		const firstnameInput = screen.getByRole('textbox', { name: 'First Name (with placeholder)' });
+		const firstnameInput = screen.getByRole('textbox', { name: 'First Name (with placeholder)*' });
 		await userEvent.type(firstnameInput, 'aze');
 		fireEvent.blur(firstnameInput);
 
@@ -339,20 +332,18 @@ describe('UIForm container', () => {
 		// then
 		expect(onSubmit).not.toHaveBeenCalled();
 		// new error via validation on submit
-		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
-		expect(errorMessage).toBeInTheDocument();
-		expect(errorMessage).toHaveAttribute('description', 'Missing required field');
-		expect(screen.getByRole('textbox', { name: 'First Name (with placeholder)' })).toHaveFocus();
+		const errorMessage = screen.getAllByRole('status')[1];
+		expect(errorMessage).toHaveTextContent('Missing required field');
+		expect(screen.getByRole('textbox', { name: 'First Name (with placeholder)*' })).toHaveFocus();
 		// preserve old error added via trigger
-		const checkMessage = queryByAttribute('id', dom.container, 'myFormId_check-error');
-		expect(checkMessage).toBeInTheDocument();
-		expect(checkMessage).toHaveAttribute('description', 'error added via a trigger');
+		const checkMessage = screen.getAllByRole('status')[2];
+		expect(checkMessage).toHaveTextContent('error added via a trigger');
 	});
 
 	it('should should take custom language error messages', async () => {
 		// given
 		const onSubmit = jest.fn();
-		const dom = render(
+		render(
 			<UIForm
 				data={getMockData()}
 				{...props}
@@ -366,9 +357,8 @@ describe('UIForm container', () => {
 
 		// then
 		expect(onSubmit).not.toHaveBeenCalled();
-		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
-		expect(errorMessage).toBeInTheDocument();
-		expect(errorMessage).toHaveAttribute('description', 'is required');
+		const errorMessage = screen.getAllByRole('status')[1];
+		expect(errorMessage).toHaveTextContent('is required');
 	});
 
 	it('should submit with valid fields', async () => {
@@ -383,7 +373,7 @@ describe('UIForm container', () => {
 			'long enough text',
 		);
 		await userEvent.type(
-			screen.getByRole('textbox', { name: 'First Name (with placeholder)' }),
+			screen.getByRole('textbox', { name: 'First Name (with placeholder)*' }),
 			'toto',
 		);
 		await userEvent.click(screen.getByRole('button', { name: 'Submit' }));

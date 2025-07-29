@@ -201,6 +201,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 		headScript = `${renderMeta()}<base href="${BASENAME}" />
 		<script type="text/javascript">
 			window.basename = '${BASENAME}';
+			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
 		</script>`;
 	}
 	const header = `${customHead}
@@ -280,9 +281,13 @@ module.exports = ({ getUserConfig, mode }) => {
 			},
 			devtool: 'source-map',
 			resolve: {
-				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
+				extensions: ['.js', '.jsx', useTypescript && '.ts', useTypescript && '.tsx'].filter(
+					Boolean,
+				),
 				fallback: {
 					url: false,
+					path: false,
+					querystring: require.resolve('querystring-es3'),
 				},
 			},
 			module: {
@@ -294,7 +299,7 @@ module.exports = ({ getUserConfig, mode }) => {
 						enforce: 'pre',
 					},
 					{
-						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
+						test: useTypescript ? /\.(js|jsx|ts|tsx)$/ : /\.(js|jsx)$/,
 						exclude: /node_modules/,
 						include: srcDirectories,
 						use: getJSAndTSLoader(),

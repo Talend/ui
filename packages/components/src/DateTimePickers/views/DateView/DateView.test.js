@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { screen, render } from '@testing-library/react';
 
 import DateView from './DateView.component';
 
@@ -51,7 +51,7 @@ describe('DateView', () => {
 		expect(onTitleClick).not.toHaveBeenCalled();
 
 		// when
-		await user.click(screen.getByLabelText('Switch to month-and-year view'));
+		await user.click(screen.getByLabelText('Switch to month view'));
 
 		// then
 		expect(onTitleClick).toHaveBeenCalled();
@@ -71,10 +71,7 @@ describe('DateView', () => {
 				onTitleClick={jest.fn()}
 			/>,
 		);
-		expect(screen.getByLabelText('Switch to month-and-year view')).toHaveAttribute(
-			'tabIndex',
-			'-1',
-		);
+		expect(screen.getByLabelText('Switch to month view')).toHaveAttribute('tabIndex', '-1');
 
 		// when
 		rerender(
@@ -92,7 +89,7 @@ describe('DateView', () => {
 		);
 
 		// then
-		expect(screen.getByLabelText('Switch to month-and-year view')).toHaveAttribute('tabIndex', '0');
+		expect(screen.getByLabelText('Switch to month view')).toHaveAttribute('tabIndex', '0');
 	});
 
 	test.each([

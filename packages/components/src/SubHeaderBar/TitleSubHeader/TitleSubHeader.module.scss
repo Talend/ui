@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
@@ -9,9 +9,9 @@
 	overflow: hidden;
 }
 
-$tc-input-subheader-size-large: 2.4rem !default;
-$tc-input-subheader-size-medium: 1.4rem !default;
-$header-title-max-width: 90rem;
+$tc-input-subheader-size-large: 1.5rem !default;
+$tc-input-subheader-size-medium: 0.875rem !default;
+$header-title-max-width: 56.25rem;
 
 :global(.tc-subheader-details-blink) {
 	@include heartbeat(object-blink);
@@ -64,8 +64,14 @@ $header-title-max-width: 90rem;
 
 		&-subtitle {
 			@include ellipsis;
+			max-width: 100%;
 			color: tokens.$coral-color-neutral-text;
 			font-size: $tc-input-subheader-size-medium;
+
+			> * {
+				@include ellipsis;
+				max-width: 100%;
+			}
 		}
 	}
 

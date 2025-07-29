@@ -1,5 +1,131 @@
 # @talend/icons
 
+## 7.12.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+## 7.11.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 7.11.2
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- d91656d: Bump webpack-cli@6.0.1
+
+## 7.11.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 7.11.0
+
+### Minor Changes
+
+- d80737c: Fix remaining dependabot alerts
+
+## 7.10.3
+
+### Patch Changes
+
+- 71a6433: fix: update postcss
+
+## 7.10.2
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+
+## 7.10.1
+
+### Patch Changes
+
+- b8f7672: fix module not found error for @talend/react-bootstrap and @talend/icons
+
+## 7.10.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 7.9.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- d053412: Fix esm script
+- 9b66a09: Improve changes needed for cypress and simplify scripts
+
+## 7.8.0
+
+### Minor Changes
+
+- d409b57: feat(TMC-27713/icons): update qlik favicon
+
+## 7.7.2
+
+### Patch Changes
+
+- e521344: Update Talend logo and favicon with the new grey 'talend' wordmark.
+
+## 7.7.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 7.7.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 7.6.0
+
+### Minor Changes
+
+- 3dc3100: added icon `panel-left` in size `S`
+  added icon `panel-left` in size `M`
+  added icon `panel-left` in size `L`
+
+## 7.5.0
+
+### Minor Changes
+
+- c317063: added icon `panel-left` in size `L`
+- c317063: added icon `panel-left` in size `M`
+- c317063: added icon `panel-left` in size `S`
+
+## 7.4.1
+
+### Patch Changes
+
+- 3a98981: fix(icons): add qlik-negative icon
+
+## 7.4.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+## 7.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 7.3.0
 
 ### Minor Changes

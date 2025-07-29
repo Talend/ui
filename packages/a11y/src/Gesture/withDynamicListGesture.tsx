@@ -1,4 +1,5 @@
 import { Component, createRef } from 'react';
+
 import { focusOn, WithFocus } from './focus';
 
 function getAllItems(ref: HTMLElement): NodeListOf<HTMLButtonElement> {

@@ -1,7 +1,9 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { render, screen, act, waitFor, fireEvent } from '@testing-library/react';
+import { FormProvider, useForm } from 'react-hook-form';
+
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { useForm, FormProvider } from 'react-hook-form';
+
 import Select from './RHFSelect.component';
 
 jest.unmock('@talend/design-system');
@@ -73,7 +75,6 @@ describe('Input RHF widget', () => {
 					rules={{
 						required: 'This should not be empty',
 					}}
-					placeholder="Please select"
 				/>
 			</FormWrapper>,
 		);

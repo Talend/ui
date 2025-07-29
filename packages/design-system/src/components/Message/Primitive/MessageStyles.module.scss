@@ -1,16 +1,21 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .message {
 	display: flex;
 	border-radius: tokens.$coral-radius-s;
 	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	background-color: tokens.$coral-color-neutral-background;
+	color: tokens.$coral-color-neutral-text-weak;
 	height: 100%;
 	width: 100%;
 
 	border-top-left-radius: tokens.$coral-radius-s;
 	border-bottom-left-radius: tokens.$coral-radius-s;
 	border-left: 0.6rem solid tokens.$coral-color-neutral-border-hover;
+
+	&__children {
+		text-wrap: pretty;
+	}
 
 	&__title {
 		font: tokens.$coral-heading-m;

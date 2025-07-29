@@ -1,5 +1,56 @@
 # @talend/react-storybook-cmf
 
+## 11.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 11.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 11.0.0
+
+### Patch Changes
+
+- Updated dependencies [816bb91]
+  - @talend/react-cmf@11.0.0
+
+## 10.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/react-cmf@10.0.0
+
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [e48ae5f]
+  - @talend/react-cmf@9.0.0
+
+## 8.2.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 8.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 8.2.0
 
 ### Minor Changes

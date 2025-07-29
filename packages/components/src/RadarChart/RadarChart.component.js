@@ -1,15 +1,18 @@
+import PropTypes from 'prop-types';
 import {
-	RadarChart as RechartsRadarChart,
+	PolarAngleAxis,
 	PolarGrid,
 	PolarRadiusAxis,
-	Dot as RechartsDot,
 	Radar,
-	PolarAngleAxis,
+	Dot as RechartsDot,
+	RadarChart as RechartsRadarChart,
 } from 'recharts';
+
 import tokens from '@talend/design-tokens';
-import PropTypes from 'prop-types';
-import radarChartCssModule from './RadarChart.module.scss';
+
 import { getTheme } from '../theme';
+
+import radarChartCssModule from './RadarChart.module.scss';
 
 const theme = getTheme(radarChartCssModule);
 

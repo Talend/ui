@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 //
 // Labels
@@ -6,9 +6,9 @@
 
 .label {
 	display: inline-block;
-	height: 1.5rem;
+	height: 0.9375rem;
 	padding: 0 $padding-smaller;
-	font-size: 1.2rem;
+	font-size: 0.75rem;
 	font-weight: $font-weight-semi-bold;
 	line-height: 1.2;
 	text-align: center;

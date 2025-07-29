@@ -1,9 +1,9 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 @use '../mixins' as Form;
 
 .inputShell {
 	@include Form.border-styles();
-	height: tokens.$coral-sizing-m;
+	height: 2rem;
 	display: flex;
 	flex-flow: row;
 	gap: 0;

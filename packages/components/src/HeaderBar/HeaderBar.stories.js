@@ -1,12 +1,13 @@
 import { action } from '@storybook/addon-actions';
-import { makeDecorator } from '@storybook/addons';
+import Immutable from 'immutable';
 
-import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
+import assetsApi from '@talend/assets-api';
+import tokens from '@talend/design-tokens';
 
+import AppSwitcher from '../AppSwitcher';
+// eslint-disable-line import/no-extraneous-dependencies
 import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
-import AppSwitcher from '../AppSwitcher';
-import assetsApi from '@talend/assets-api';
 
 const props = {
 	brand: {
@@ -40,17 +41,17 @@ const props = {
 	products: {
 		items: [
 			{
-				icon: 'talend-tdp-colored',
+				icon: 'talend-tdp-negative',
 				key: 'tdp',
 				label: 'Data Preparation',
 			},
 			{
-				icon: 'talend-tic-colored',
+				icon: 'talend-tic-negative',
 				key: 'tic',
 				label: 'Integration Cloud',
 			},
 			{
-				icon: 'talend-tmc-colored',
+				icon: 'talend-tmc-negative',
 				key: 'tmc',
 				label: 'Management Console',
 			},
@@ -78,8 +79,8 @@ function IntercomComponent() {
 	const style = {
 		color: 'white',
 		margin: '0 10px',
-		width: '3.2rem',
-		height: '3.2rem',
+		width: '2rem',
+		height: '2rem',
 		borderRadius: '50%',
 		background: 'green',
 		display: 'flex',
@@ -138,7 +139,7 @@ export const WithBrandIcon = () => {
 		...props,
 		brand: {
 			...props.brand,
-			icon: 'talend-tmc-positive',
+			icon: 'talend-tmc-negative',
 		},
 	}).toJS();
 	return <HeaderBar {...headerProps} />;

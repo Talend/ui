@@ -1,14 +1,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import omit from 'lodash/omit';
 import { usePopper } from 'react-popper';
+
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
+
+import { focus } from '@talend/react-a11y';
 import { randomUUID } from '@talend/utils';
 
 import FocusManager from '../../../FocusManager';
-import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
-import { focus } from '@talend/react-a11y';
+import { DateTimeContext } from '../DateTime/Context';
 
 import theme from './InputDateTimePicker.module.scss';
 

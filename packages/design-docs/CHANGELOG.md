@@ -1,5 +1,173 @@
 # @talend/design-docs
 
+## 4.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/storybook-docs@2.6.0
+  - @talend/design-system@11.7.0
+  - @talend/icons@7.12.0
+
+## 4.3.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+### Patch Changes
+
+- Updated dependencies [f53083d]
+  - @talend/design-system@11.6.0
+
+## 4.2.2
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+- Updated dependencies [d91656d]
+  - @talend/storybook-docs@2.5.5
+  - @talend/icons@7.11.2
+
+## 4.2.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/icons@7.11.1
+  - @talend/storybook-docs@2.5.4
+
+## 4.2.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/storybook-docs@2.5.0
+  - @talend/design-tokens@3.4.0
+  - @talend/icons@7.10.0
+
+## 4.1.4
+
+### Patch Changes
+
+- 3bd16fc: Make it compatible with ESM
+- Updated dependencies [3bd16fc]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-system@10.6.0
+  - @talend/design-tokens@3.3.0
+  - @talend/icons@7.9.0
+  - @talend/storybook-docs@2.4.3
+
+## 4.1.3
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [4713998]
+- Updated dependencies [25fb283]
+- Updated dependencies [e521344]
+- Updated dependencies [f546896]
+  - @talend/storybook-docs@2.4.2
+  - @talend/design-system@10.4.2
+  - @talend/icons@7.7.2
+
+## 4.1.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+
+## 4.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/storybook-docs@2.4.1
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/icons@7.7.1
+
+## 4.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/storybook-docs@2.4.0
+  - @talend/design-system@9.2.0
+  - @talend/design-tokens@3.1.0
+  - @talend/icons@7.7.0
+
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/design-system@9.0.1
+  - @talend/storybook-docs@2.3.1
+
+## 4.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+  - @talend/design-system@9.0.0
+
+## 3.2.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/storybook-docs@2.3.0
+  - @talend/design-system@8.8.0
+  - @talend/design-tokens@2.11.0
+
+## 3.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/storybook-docs@2.2.1
+  - @talend/design-system@8.6.1
+  - @talend/design-tokens@2.10.1
+  - @talend/icons@7.3.1
+
 ## 3.1.0
 
 ### Minor Changes

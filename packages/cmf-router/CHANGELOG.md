@@ -1,5 +1,134 @@
 # Changelog
 
+## 8.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/react-cmf@11.0.2
+
+## 8.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf@11.0.1
+
+## 8.0.0
+
+### Major Changes
+
+- 816bb91: BREAKING CHANGE: Upgraded path-to-regexp from 3.x to 8.x
+
+  This upgrade was necessary to resolve security vulnerabilities. The new version introduces two breaking changes that require updates to your application:
+  1. Optional Path Parameter Syntax Change
+  - Old syntax: `/resources/:id?`
+  - New syntax: `/resources{/id}`
+
+  This change is required because in path-to-regexp 8.x, the `?` character is reserved for query parameters and will throw a parsing error when used at the end of a path. 2. Root Path Matching Behavior Change
+  - In v3.x, root path `/` would match any path starting with `/`
+  - In v8.x, root path `/` only matches exactly `/`
+  - To match both root and child paths, use the wildcard pattern `/{*path}`
+
+  Example migration:
+
+  ```javascript
+  // Before
+  const routes = {
+      '/': rootSaga,
+      '/resources/:id?': resourceSaga
+  };
+
+  // After
+  const routes = {
+      '/{*path}': rootSaga,  // if you want to match all routes
+      '/resources{/id}': resourceSaga
+  };
+  ```
+
+  For more details about path matching and troubleshooting, see [path-to-regexp documentation](https://github.com/pillarjs/path-to-regexp#errors).
+
+### Patch Changes
+
+- Updated dependencies [816bb91]
+  - @talend/react-cmf@11.0.0
+
+## 7.1.1
+
+### Patch Changes
+
+- e2d8899: Revert: upgrade path-to-regexp
+- Updated dependencies [e2d8899]
+  - @talend/react-cmf@10.1.1
+
+## 7.1.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+### Patch Changes
+
+- Updated dependencies [ea14b87]
+  - @talend/react-cmf@10.1.0
+
+## 7.0.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/react-cmf@10.0.1
+
+## 7.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/react-cmf@10.0.0
+
+## 6.2.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/react-cmf@9.1.0
+
+## 6.1.3
+
+### Patch Changes
+
+- Updated dependencies [e48ae5f]
+  - @talend/react-cmf@9.0.0
+
+## 6.1.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/react-cmf@8.4.1
+
+## 6.1.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/react-cmf@8.3.1
+
 ## 6.1.0
 
 ### Minor Changes
@@ -115,7 +244,6 @@
 - df182bbd4: Upgrade to react-router v6
 
   ## Migration (dependencies)
-
   - Update your package.json to point to `"@talend/react-cmf-router": "^4.0.0"`.
   - Execute yarn install and yarn-deduplicate.
   - yarn list --pattern router should not list `react-router-redux` anymore and all dependencies listed should be flat.
@@ -123,7 +251,6 @@
   # Breaking changes (code)
 
   `onEnter` and `onLeave` hooks are not supported anymore. You can use `React.useEffect` but be carefull as onEnter should be finished before rendering happens so use also a state for that.
-
   - sagaRouter is deprecated but still works. You can use either
     - use Saga component from `@talend/react-cmf` (prefered way)
     - `saga` props on a cmfConnected component

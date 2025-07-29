@@ -1,4 +1,4 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import omit from 'lodash/omit';
 
@@ -138,7 +138,7 @@ describe('Select field', () => {
 		);
 
 		// then
-		expect(screen.getByRole('combobox')).toHaveAttribute('readonly');
+		expect(screen.getByRole('textbox')).toHaveAttribute('readonly');
 	});
 
 	it('should trigger onChange', () => {

@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { screen, render, act } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ListDisplayMode from './ListDisplayMode.component';
-import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
+import { ListContext } from '../context';
+import ListDisplayMode from './ListDisplayMode.component';
 
 jest.unmock('@talend/design-system');
 
@@ -64,7 +64,7 @@ describe('List DisplayMode', () => {
 			);
 
 			// then
-			act(() => screen.getAllByRole('button')[0].focus());
+			await userEvent.hover(screen.getAllByRole('button')[0]);
 			expect(screen.getByText('Set Table as current display mode.')).toBeVisible();
 		});
 

@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import useLocalStorage from 'react-use/lib/useLocalStorage';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import GuidedTour from '../GuidedTour';
-import Toggle from '../Toggle';
-import Stepper from '../Stepper';
+import useLocalStorage from 'react-use/lib/useLocalStorage';
+
+import PropTypes from 'prop-types';
+
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import GuidedTour from '../GuidedTour';
+import Stepper from '../Stepper';
+import Toggle from '../Toggle';
 import DemoContentStep from './DemoContentStep.component';
 
 const DEMO_CONTENT_STEP_ID = 1;
@@ -28,6 +30,12 @@ function AppGuidedTour({
 	const [isAlreadyViewed, setIsAlreadyViewed] = useLocalStorage(localStorageKey, false);
 	const [importDemoContent, setImportDemoContent] = useState(demoContentSteps && !isAlreadyViewed);
 	const [currentStep, setCurrentStep] = useState(0);
+	// Reset currentStep to 0 when tour is opened
+	useEffect(() => {
+		if (isOpen) {
+			setCurrentStep(0);
+		}
+	}, [isOpen]);
 
 	const isNavigationDisabled =
 		importDemoContent &&
@@ -73,8 +81,10 @@ function AppGuidedTour({
 			onRequestClose={() => {
 				onRequestClose();
 				setIsAlreadyViewed(true);
-				setCurrentStep(0);
-				setImportDemoContent(false);
+				if (importDemoContent) {
+					setImportDemoContent(false);
+					setCurrentStep(Math.max(0, currentStep - 1));
+				}
 			}}
 			steps={[
 				{

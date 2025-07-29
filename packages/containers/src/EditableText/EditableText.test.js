@@ -1,9 +1,11 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import cmf, { mock } from '@talend/react-cmf';
 import { Map } from 'immutable';
-import Container, { DISPLAY_NAME } from './EditableText.container';
+
+import cmf, { mock } from '@talend/react-cmf';
+
 import Connect from './EditableText.connect';
+import Container, { DISPLAY_NAME } from './EditableText.container';
 import { getEditMode } from './EditableText.selectors';
 
 jest.unmock('@talend/design-system');

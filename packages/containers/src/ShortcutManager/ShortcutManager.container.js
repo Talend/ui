@@ -1,5 +1,7 @@
 import { Component } from 'react';
+
 import keys from 'lodash/keys';
+
 import { cmfConnect } from '@talend/react-cmf';
 
 /**

@@ -1,21 +1,18 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
-
-$tf-typeahead-input-width: 135px !default;
-$tc-badge-margin: $padding-smaller !default;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .wrapper {
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-end;
-
 	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+	border-radius: tokens.$coral-radius-s;
 	height: auto;
 	padding: 0;
 
-	input {
+	[class^='InputWrapper-module'] {
 		border: none;
+		box-shadow: none;
 	}
 
 	.focus-manager {
@@ -24,34 +21,14 @@ $tc-badge-margin: $padding-smaller !default;
 	}
 
 	.typeahead {
-		flex-grow: 1;
-
-		> div {
-			width: 100%;
-		}
-
-		.items-container {
-			position: absolute;
-			margin-top: $padding-smaller;
-			top: 100%;
-			right: 0;
-			left: 0;
-			max-height: 70vh;
-			min-width: $tf-typeahead-input-width;
-			font-size: 1.5rem;
-			background-color: tokens.$coral-color-neutral-background;
-			border-radius: $border-radius-base;
-			box-shadow: tokens.$coral-elevation-shadow-neutral-m;
-		}
-
 		.items {
 			margin: 0;
 			padding: 0;
 			list-style-type: none;
-
-			> li > div {
-				padding: $padding-smaller;
-			}
 		}
 	}
+}
+
+.has-error {
+	border-color: tokens.$coral-color-danger-border;
 }

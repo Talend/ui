@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import ActionIconToggle from './ActionIconToggle.component';
 
 jest.unmock('@talend/design-system');

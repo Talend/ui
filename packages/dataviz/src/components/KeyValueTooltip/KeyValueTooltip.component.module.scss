@@ -1,5 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $module: key-value-tooltip;
 
@@ -16,8 +15,7 @@ $module: key-value-tooltip;
 
 	&__key {
 		margin-top: 0; // override dt margin
-		font-weight: $font-weight-regular;
-		line-height: $line-height-base;
+		font: tokens.$coral-paragraph-m;
 		color: tokens.$coral-color-neutral-background;
 
 		&::after {
@@ -26,7 +24,7 @@ $module: key-value-tooltip;
 	}
 
 	&__value {
-		margin-left: 5px;
+		margin-left: tokens.$coral-spacing-xxs;
 		color: tokens.$coral-color-accent-text-weak-active;
 	}
 

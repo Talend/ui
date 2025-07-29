@@ -1,14 +1,18 @@
 import { useRef } from 'react';
-import isValid from 'date-fns/isValid';
-import startOfSecond from 'date-fns/startOfSecond';
-import endOfSecond from 'date-fns/endOfSecond';
-import parseISO from 'date-fns/parseISO';
+
+import { endOfSecond } from 'date-fns/endOfSecond';
+import { isValid } from 'date-fns/isValid';
+import { parseISO } from 'date-fns/parseISO';
+import { startOfSecond } from 'date-fns/startOfSecond';
+
 import { InputDateTimePicker } from '@talend/react-components';
+
 import { formatDate, formatDateTime } from '../../../../formatters/formatters';
-import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
-import styles from './DateTimeInputField.component.module.scss';
 import { RangeHandler } from '../range-handler.types';
 import { formatTimeTicks } from '../slider-ticks.utils';
+import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
+
+import styles from './DateTimeInputField.component.module.scss';
 
 function parser(input: string): number | null {
 	// Create date in locale time zone

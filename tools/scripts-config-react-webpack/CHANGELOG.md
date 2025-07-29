@@ -1,5 +1,139 @@
 # @talend/scripts-config-react-webpack
 
+## 16.9.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/scripts-config-babel@13.6.0
+  - @talend/react-cmf-webpack-plugin@6.40.0
+  - @talend/scripts-config-cdn@10.13.0
+  - @talend/scripts-utils@2.4.0
+
+## 16.8.5
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-config-babel@13.5.2
+  - @talend/scripts-config-cdn@10.12.2
+  - @talend/scripts-utils@2.3.4
+
+## 16.8.4
+
+### Patch Changes
+
+- ae979f0: Bump dependencies
+- d91656d: Bump webpack-cli@6.0.1
+- Updated dependencies [ae979f0]
+  - @talend/react-cmf-webpack-plugin@6.39.2
+
+## 16.8.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf-webpack-plugin@6.39.1
+  - @talend/scripts-config-babel@13.5.1
+  - @talend/scripts-config-cdn@10.12.1
+  - @talend/scripts-utils@2.3.2
+
+## 16.8.2
+
+### Patch Changes
+
+- d80737c: add querystring to resolve.fallback
+- Updated dependencies [d80737c]
+  - @talend/scripts-utils@2.3.1
+
+## 16.8.1
+
+### Patch Changes
+
+- 71a6433: fix: update postcss
+
+## 16.8.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-config-babel@13.5.0
+  - @talend/react-cmf-webpack-plugin@6.39.0
+  - @talend/scripts-config-cdn@10.12.0
+  - @talend/scripts-utils@2.3.0
+
+## 16.7.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/scripts-config-babel@13.4.0
+
+## 16.6.0
+
+### Minor Changes
+
+- 8c34fb1: feat: add jsx file extension support
+
+## 16.5.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-config-babel@13.3.1
+  - @talend/react-cmf-webpack-plugin@6.38.1
+  - @talend/scripts-config-cdn@10.11.1
+  - @talend/scripts-utils@2.2.1
+
+## 16.5.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+## 16.4.2
+
+### Patch Changes
+
+- cf9a5e0: Fix getTalendIconsPath
+
+## 16.4.1
+
+### Patch Changes
+
+- 777cc55: Add patch for hoistNonReactStatics when we are not using initiator
+
+## 16.4.0
+
+### Minor Changes
+
+- 052b00c: deps: bump fork-ts-checker-webpack-plugin from 8.0.0 to 9.0.2
+
+## 16.3.3
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/scripts-config-babel@13.2.1
+
 ## 16.3.2
 
 ### Patch Changes
@@ -56,7 +190,6 @@
 ### Major Changes
 
 - 3b058ef7d: feat: upgrade dependencies to latest
-
   - babel-loader from 8 to 9
   - fork-ts-checker-webpack-plugin from 7 to 8
 
@@ -137,13 +270,11 @@
 ### Patch Changes
 
 - ed4014653: fix: remove duplicates of meta and simplify head script
-
   - meta was their twice because they are passed to the html-webpack-plugin.
 
   - the INITIATOR part of the script was still here even if we already have set `dynamic-cdn-webpack-plugin` to false.
 
   fix: The copy of assets in a cdn folder should happens if and only if:
-
   - INTIATOR_URL has not been given at compile time and
   - dynamic-cdn-webpack-plugin is present
 
@@ -202,7 +333,6 @@
   ```
 
   You have to
-
   - use `addSassData.js` from https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
   - rewrite your sass using @talend/design-tokens on the long and remove this bootstrap-theme guidelines from all your scss
 
@@ -284,7 +414,6 @@
 ### Patch Changes
 
 - 2a8de8a55: \* fix: do not generate both hashed and non hashed assets for fonts, images and svgs.
-
   - fix: do not copy icons into app root folder
   - chore: put assets config in common so app and umd configuration are aligned.
 
@@ -338,7 +467,6 @@
   ```
 
   No more polyfills loaded for you. We have removed the folliwng packages:
-
   - `regenerator-runtime`
   - `core-js-bundle`
 

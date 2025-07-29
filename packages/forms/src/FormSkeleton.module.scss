@@ -1,69 +1,16 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$tc-drawer-content-max-width: 65rem !default;
-$tc-drawer-padding: $padding-large !default;
+:global([data-drawer-content]:has([data-drawer-absolute-footer-buttons])) {
+	margin-bottom: 66px;
 
-.container,
-.form-content,
-.form-content-wrapper {
-	display: flex;
-	flex-direction: column;
-}
-
-.form-content-wrapper {
-	gap: tokens.$coral-spacing-m;
-}
-
-.submit-wrapper {
-	display: flex;
-	justify-content: space-between;
-	margin: $padding-normal auto;
-}
-
-:global(.tc-drawer-container) {
-	> .container {
-		flex-grow: 1;
-		min-height: 0;
-	}
-
-	.form-content {
-		flex-grow: 1;
-		min-height: 0;
-		overflow-y: auto;
-	}
-
-	.form-content-wrapper,
-	.submit-wrapper {
-		margin: 0;
-		padding: $tc-drawer-padding;
-	}
-
-	.submit-wrapper {
-		padding: $padding-small $tc-drawer-padding;
-	}
-
-	.submit {
-		background-color: tokens.$coral-color-neutral-background-medium;
-	}
-}
-
-@media screen and (min-width: $screen-xs-max) {
-	:global(.stacked) :global(.tc-drawer-container) {
-		.form-content,
-		.submit-wrapper {
-			margin: 0 auto;
-			padding: $tc-drawer-padding;
-			width: $tc-drawer-content-max-width;
-		}
-
-		.submit-wrapper {
-			padding: $padding-small $tc-drawer-padding;
-		}
-
-		:global(.form-actions) {
-			margin: auto;
-			max-width: $tc-drawer-content-max-width;
-		}
+	.drawer-absolute-footer-buttons {
+		background: tokens.$coral-color-neutral-background-medium;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: tokens.$coral-spacing-m;
+		display: flex;
+		justify-content: space-between;
 	}
 }

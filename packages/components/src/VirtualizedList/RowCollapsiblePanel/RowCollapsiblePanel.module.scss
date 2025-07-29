@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 :global(.tc-collapsible-row) {
 	:global(.panel[class*='collapsible-panel']) {
@@ -16,7 +16,7 @@
 	}
 
 	.loading-collapsible-panel {
-		height: 4rem;
+		height: 2.5rem;
 		background-color: tokens.$coral-color-neutral-background-medium;
 		border-radius: $border-radius-base;
 		margin-bottom: $padding-small;

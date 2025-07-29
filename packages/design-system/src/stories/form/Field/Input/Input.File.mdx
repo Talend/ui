@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.File.stories';
@@ -31,21 +33,15 @@ The `Form.File` inputs allows users to select a file through drag and drop or by
 
 ### Default
 
-<Canvas>
-	<Story of={Stories.File} />
-</Canvas>
+<Canvas of={Stories.File} />
 
 ### Multiple
 
-<Canvas>
-	<Story of={Stories.FileMultiple} />
-</Canvas>
+<Canvas of={Stories.FileMultiple} />
 
 ### Error
 
-<Canvas>
-	<Story of={Stories.FileError} />
-</Canvas>
+<Canvas of={Stories.FileError} />
 
 ## Content
 

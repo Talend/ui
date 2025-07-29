@@ -1,17 +1,19 @@
 import { forwardRef, ReactElement, Ref } from 'react';
+
+import classnames from 'classnames';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
-import classnames from 'classnames';
-import { ClickableProps } from '../../Clickable';
 
 import { DataAttributes, DeprecatedIconNames } from '../../../types';
-import { StackHorizontal } from '../../Stack';
-import { Loading } from '../../Loading';
+import { ClickableProps } from '../../Clickable';
+import { Clickable } from '../../Clickable/Clickable';
+import { SizedIcon } from '../../Icon';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
+import { Loading } from '../../Loading';
+import { StackHorizontal } from '../../Stack';
 
 import styles from './ButtonStyles.module.scss';
-import { SizedIcon } from '../../Icon';
-import { Clickable } from '../../Clickable/Clickable';
 
 export type AvailableVariantsTypes = 'primary' | 'destructive' | 'secondary' | 'tertiary';
 export type AvailableSizes = 'M' | 'S';

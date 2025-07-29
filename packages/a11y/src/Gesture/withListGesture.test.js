@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
-import { withListGesture } from './withListGesture';
+
 import List from '../__mocks__/list';
+import { withListGesture } from './withListGesture';
 
 function getComponentWithGesture(loop) {
 	const ComponentWithGesture = withListGesture(List, loop);

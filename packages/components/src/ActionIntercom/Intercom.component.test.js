@@ -1,4 +1,5 @@
 import { act } from 'react-dom/test-utils';
+
 import { configure, render, screen } from '@testing-library/react';
 
 import Intercom from './Intercom.component';

@@ -1,8 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$tc-headerbar-logo-width: 6rem !default;
-$tc-headerbar-logo-full-width: 8.5rem !default;
+$tc-headerbar-logo-width: tokens.$coral-sizing-s !default;
+$tc-headerbar-logo-full-width: 5.3125rem !default;
 
 @keyframes fadeIn {
 	from {
@@ -14,8 +14,15 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 	}
 }
 
+[data-theme='qlik-light'] {
+	.tc-header-bar {
+		border-bottom: 1px solid tokens.$coral-color-neutral-border-weak;
+	}
+}
+
 .tc-header-bar {
-	background: tokens.$coral-color-branding-navigation;
+	background: tokens.$coral-color-brand-background;
+	color: tokens.$coral-color-brand-text;
 	display: flex;
 	position: fixed;
 	top: 0;
@@ -34,6 +41,28 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 		list-style: none;
 	}
 
+	:global {
+		.dropdown-menu {
+			a svg path {
+				fill: tokens.$coral-color-neutral-icon;
+			}
+		}
+	}
+
+	:global {
+		.tc-dropdown-button,
+		.btn-link,
+		.tc-header-bar-action.tc-header-bar-help a,
+		.tc-header-bar-logo.btn-link {
+			color: tokens.$coral-color-brand-text;
+			&:hover,
+			&:focus {
+				color: tokens.$coral-color-brand-text;
+				background-color: tokens.$coral-color-brand-background-weak-hover;
+			}
+		}
+	}
+
 	.tc-header-bar-actions {
 		align-items: center;
 		display: flex;
@@ -49,14 +78,13 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 			display: flex;
 			align-items: center;
 			height: 100%;
-			white-space: nowrap;
 
 			&.separated:not(:last-child)::after {
 				content: ' ';
 				display: block;
 				width: 1px;
 				height: $font-size-large;
-				background-color: tokens.$coral-color-neutral-background;
+				background-color: tokens.$coral-color-brand-text;
 			}
 
 			:global {
@@ -69,16 +97,22 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 		.tc-header-bar-logo {
 			padding: 0;
-			width: $tc-headerbar-logo-width;
+			width: calc($tc-headerbar-logo-width + tokens.$coral-sizing-branding-logo);
+			background-image: tokens.$coral-branding-logo;
+			background-size: tokens.$coral-sizing-branding-logo;
+			background-repeat: no-repeat;
+			background-position-x: center;
+			background-position-y: center;
 
 			:global(.tc-svg-icon) {
 				padding: 0;
-				height: 2.8rem;
-				width: 2.8rem;
+				height: 1.75rem;
+				width: 1.75rem;
 			}
 
 			&.full {
 				width: auto;
+				background-image: none;
 
 				:global(.tc-svg-icon) {
 					padding: 0 $padding-normal;
@@ -162,15 +196,15 @@ $tc-headerbar-logo-full-width: 8.5rem !default;
 
 	.tc-header-bar-intercom-default-component {
 		border-radius: 50%;
-		background: tokens.$coral-color-accent-text;
+		color: tokens.$coral-color-brand-text;
 		min-height: auto;
-		height: 3.2rem;
-		width: 3.2rem;
+		height: 2rem;
+		width: 2rem;
 		margin: 0 $padding-small;
 		padding: 0;
 	}
 }
 
 :global(.intercom-namespace .intercom-app .intercom-messenger-frame) {
-	top: 7rem;
+	top: 4.375rem;
 }

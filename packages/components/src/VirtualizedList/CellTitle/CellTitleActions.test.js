@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { within, render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { CellTitleActionsComponent } from './CellTitleActions.component';
+
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
+import { CellTitleActionsComponent } from './CellTitleActions.component';
 
 const { LARGE } = listTypes;
 

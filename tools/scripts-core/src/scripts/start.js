@@ -1,5 +1,6 @@
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import startStorybook from './start-storybook.js';
 
 export default async function start(env, _, options) {
@@ -7,8 +8,9 @@ export default async function start(env, _, options) {
 
 	if (packageType.isApp) {
 		return utils.process.spawn(
-			new URL(import.meta.resolve('webpack/bin/webpack.js')).pathname,
+			'node',
 			[
+				resolveScript('webpack/bin/webpack.js'),
 				'serve',
 				'--config',
 				utils.path.hereRelative(

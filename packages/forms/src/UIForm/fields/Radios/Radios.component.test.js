@@ -1,5 +1,6 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Radios from './Radios.component';
 
 jest.unmock('@talend/design-system');
@@ -58,7 +59,7 @@ describe('Radios field', () => {
 
 		// then
 		const radios = screen.getAllByRole('radio');
-		radios.forEach(radio => expect(radio.parentElement.parentElement).toHaveClass('radio-inline'));
+		radios.forEach(radio => expect(radio.parentElement.parentElement).toHaveClass('theme-row'));
 	});
 
 	it('should render disabled input', () => {

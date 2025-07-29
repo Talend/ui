@@ -1,11 +1,12 @@
-import startOfWeek from 'date-fns/start_of_week';
-import addDays from 'date-fns/add_days';
+import { addDays } from 'date-fns/addDays';
+import { startOfWeek } from 'date-fns/startOfWeek';
+import { Day } from 'date-fns/types';
 import chunk from 'lodash/chunk';
 
 /**
  * Generate the set of weeks for a specific month
  */
-export function buildWeeks(year: number, monthIndex: number, firstDayOfWeek = 1) {
+export function buildWeeks(year: number, monthIndex: number, firstDayOfWeek: Day = 1) {
 	const firstDateOfMonth = new Date(year, monthIndex);
 	const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
 		weekStartsOn: firstDayOfWeek,

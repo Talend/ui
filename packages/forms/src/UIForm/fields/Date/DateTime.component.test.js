@@ -1,4 +1,5 @@
-import { act, render, screen, fireEvent } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+
 import DateTimeWidget from './DateTime.component';
 
 jest.unmock('@talend/design-system');
@@ -121,7 +122,7 @@ describe('DateTime widget', () => {
 
 			expect(props.onChange.mock.calls[1][1]).toMatchObject({
 				schema: timestampSchema,
-				value: new Date(2015, 8, 21, 1, 30, 0).getTime(),
+				value: new Date(2015, 8, 21, 0, 30, 0).getTime(),
 			});
 		});
 

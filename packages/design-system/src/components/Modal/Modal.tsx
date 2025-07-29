@@ -1,5 +1,5 @@
-import { useEffect, useRef, cloneElement } from 'react';
-import type { ReactNode, ReactElement, MouseEvent as ReactMouseEvent } from 'react';
+import { cloneElement, useCallback, useEffect, useMemo, useRef } from 'react';
+import type { ReactElement, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DeprecatedIconNames } from '../../types';
@@ -42,6 +42,7 @@ export type ModalPropsType = {
 	secondaryAction?: ButtonSecondaryPropsType<'M'>;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
+	preventInteractiveBackdrop?: boolean;
 } & DialogPropsType;
 
 function PrimaryAction(props: PrimaryActionPropsType) {
@@ -63,6 +64,7 @@ export function Modal(props: ModalPropsType): ReactElement {
 		secondaryAction,
 		preventEscaping,
 		children,
+		preventInteractiveBackdrop,
 		...rest
 	} = props;
 	const hasDisclosure = 'disclosure' in props;
@@ -77,13 +79,25 @@ export function Modal(props: ModalPropsType): ReactElement {
 		dialogRef.current?.focus();
 	}, [dialogRef]);
 
-	const onCloseHandler = hasDisclosure ? () => dialog.hide() : () => onClose && onClose();
+	const onCloseHandler = useMemo(
+		() => (hasDisclosure ? () => dialog.hide() : () => onClose && onClose()),
+		[dialog, hasDisclosure, onClose],
+	);
 
-	const onClickBackdropHandler = (event: ReactMouseEvent<HTMLDivElement, MouseEvent>) => {
-		if (event.target === backdropRef.current) {
+	const onClickBackdropHandler = useCallback(
+		(event: ReactMouseEvent<HTMLDivElement, MouseEvent>) => {
+			if (!preventEscaping && !preventInteractiveBackdrop && event.target === backdropRef.current) {
+				onCloseHandler();
+			}
+		},
+		[onCloseHandler, preventInteractiveBackdrop, preventEscaping],
+	);
+
+	const onHideDialog = useCallback(() => {
+		if (!preventEscaping && !preventInteractiveBackdrop) {
 			onCloseHandler();
 		}
-	};
+	}, [onCloseHandler, preventInteractiveBackdrop, preventEscaping]);
 
 	return (
 		<>
@@ -108,7 +122,7 @@ export function Modal(props: ModalPropsType): ReactElement {
 					data-test="modal"
 					data-testid="modal"
 					className={styles.modal}
-					hide={preventEscaping ? () => undefined : () => onCloseHandler()}
+					hide={onHideDialog}
 					aria-labelledby={titleId}
 					ref={dialogRef}
 				>

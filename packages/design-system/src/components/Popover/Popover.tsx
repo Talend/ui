@@ -1,12 +1,13 @@
-import { useRef, Fragment } from 'react';
-import type { ReactNode, MouseEvent } from 'react';
+import React, { Fragment, useRef } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 
-import { Placement, FloatingArrow, FloatingPortal } from '@floating-ui/react';
+import { FloatingArrow, FloatingPortal, Placement } from '@floating-ui/react';
 import classNames from 'classnames';
 
 import tokens from '@talend/design-tokens';
 
-import { renderOrClone, ChildOrGenerator } from '../../renderOrClone';
+import { renderChildren } from '../../renderChildren';
+import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
 import { usePopover } from './usePopover';
 
 import theme from './Popover.module.scss';
@@ -21,9 +22,11 @@ type PopoverOptions = {
 	hasPadding?: boolean;
 };
 
+type PopoverChildNode = ChildOrGenerator<ReactNode, any>;
+
 export type PopoverProps = {
-	disclosure: ChildOrGenerator<ReactNode, object>;
-	children: ReactNode | ((props: any) => ReactNode);
+	children: PopoverChildNode | Iterable<PopoverChildNode>;
+	disclosure: ReactNode;
 } & PopoverOptions;
 
 export type PopoverStateReturn = {
@@ -48,7 +51,11 @@ export function Popover({
 		e.preventDefault();
 		e.stopPropagation();
 	};
-	const childrenProps = popover.getReferenceProps({ onClick });
+
+	let childrenProps = popover.getReferenceProps({ onClick });
+	if (disclosure && React.isValidElement(disclosure)) {
+		childrenProps = popover.getReferenceProps({ onClick, ...disclosure.props });
+	}
 
 	return (
 		<>
@@ -69,14 +76,12 @@ export function Popover({
 						stroke={tokens.coralColorIllustrationShadow}
 						fill={tokens.coralColorNeutralBackground}
 					/>
-					{typeof children === 'function'
-						? children({
-								...popover.getFloatingProps(),
-								open: popover.open,
-								setOpen: popover.setOpen,
-								hide: () => popover.setOpen(false),
-						  })
-						: children}
+
+					{renderChildren(children, {
+						open: popover.open,
+						setOpen: popover.setOpen,
+						hide: () => popover.setOpen(false),
+					})}
 				</div>
 			</Wrapper>
 		</>

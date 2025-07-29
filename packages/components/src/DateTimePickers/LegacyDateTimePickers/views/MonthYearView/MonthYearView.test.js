@@ -1,9 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import MonthYearView from './MonthYearView.component';
 
 describe('MonthYearView', () => {
 	it('should render', () => {
+		jest.useFakeTimers().setSystemTime(new Date('2023-01-01'));
 		// when
 		const { container } = render(
 			<MonthYearView
@@ -18,9 +20,11 @@ describe('MonthYearView', () => {
 
 		// then
 		expect(container.firstChild).toMatchSnapshot();
+		jest.useRealTimers();
 	});
 
 	it('should manage tabIndex', () => {
+		jest.useFakeTimers().setSystemTime(new Date('2023-01-01'));
 		// given
 		const { rerender } = render(
 			<MonthYearView
@@ -47,6 +51,7 @@ describe('MonthYearView', () => {
 
 		// then
 		expect(screen.getByLabelText('Switch to date-and-time view')).toHaveAttribute('tabIndex', '0');
+		jest.useRealTimers();
 	});
 
 	it('should trigger props.onBackClick', async () => {

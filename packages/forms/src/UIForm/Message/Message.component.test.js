@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import Message from './Message.component';
 
 jest.unmock('@talend/design-system');
@@ -24,7 +25,6 @@ describe('Message component', () => {
 		// when
 		render(
 			<Message
-				className="has-error"
 				descriptionId="my-message-description"
 				errorId="my-message-error"
 				errorMessage="My error message"
@@ -50,6 +50,6 @@ describe('Message component', () => {
 		);
 
 		// then
-		expect(container.firstChild).toBeEmptyDOMElement();
+		expect(container).toBeEmptyDOMElement();
 	});
 });

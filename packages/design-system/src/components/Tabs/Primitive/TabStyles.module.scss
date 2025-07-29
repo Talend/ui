@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .tablist {
 	list-style-type: none;
@@ -9,8 +9,8 @@
 	flex-wrap: nowrap;
 	align-items: flex-start;
 	justify-content: flex-start;
-	row-gap: var(--coral-spacing-m, 1.6rem);
-	column-gap: var(--coral-spacing-m, 1.6rem);
+	row-gap: var(--coral-spacing-m, 1rem);
+	column-gap: var(--coral-spacing-m, 1rem);
 }
 
 .tabpanel {
@@ -121,5 +121,9 @@
 		opacity: 0;
 		transition: tokens.$coral-transition-fast;
 		transform: translateY(100%);
+	}
+
+	.statusDot {
+		align-self: flex-start;
 	}
 }

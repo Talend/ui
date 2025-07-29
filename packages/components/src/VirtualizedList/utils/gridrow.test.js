@@ -1,20 +1,21 @@
 import { Children } from 'react';
-import CellTitle from '../CellTitle';
+
 import VirtualizedList from '..';
+import CellTitle from '../CellTitle';
+import collection from '../collection';
+import { internalIds, listTypes } from './constants';
 import {
+	extractSpecialFields,
+	getCellData,
 	getCellRenderer,
 	getCellType,
-	getId,
 	getColumnData,
 	getDataKey,
+	getId,
 	getLabel,
 	getRowData,
-	getCellData,
-	extractSpecialFields,
 	renderCell,
 } from './gridrow';
-import { internalIds, listTypes } from './constants';
-import collection from '../collection';
 
 const { LARGE } = listTypes;
 

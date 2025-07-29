@@ -1,10 +1,11 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import isSameDay from 'date-fns/is_same_day';
-import isToday from 'date-fns/is_today';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isToday } from 'date-fns/isToday';
+
 import DatePicker from './DatePicker.component';
 
-jest.mock('date-fns/is_today');
+jest.mock('date-fns/isToday');
 
 function mockIsTodayWith(newToday) {
 	isToday.mockImplementation(date => isSameDay(date, newToday));

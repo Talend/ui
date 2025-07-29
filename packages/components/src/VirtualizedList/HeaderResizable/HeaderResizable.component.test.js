@@ -1,7 +1,7 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
-import { HeaderResizable } from './HeaderResizable.component';
 import { virtualizedListContext } from '../virtualizedListContext';
+import { HeaderResizable } from './HeaderResizable.component';
 
 describe('HeaderResizable', () => {
 	it('should render with no specific props', () => {

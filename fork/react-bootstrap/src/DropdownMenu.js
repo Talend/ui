@@ -1,145 +1,126 @@
-import classNames from 'classnames';
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import RootCloseWrapper from 'react-overlays/lib/RootCloseWrapper';
 
-import {
-  bsClass,
-  getClassSet,
-  prefix,
-  splitBsPropsAndOmit,
-} from './utils/bootstrapUtils';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import { bsClass, getClassSet, prefix, splitBsPropsAndOmit } from './utils/bootstrapUtils';
 import createChainedFunction from './utils/createChainedFunction';
 import ValidComponentChildren from './utils/ValidComponentChildren';
 
 const propTypes = {
-  open: PropTypes.bool,
-  pullRight: PropTypes.bool,
-  onClose: PropTypes.func,
-  labelledBy: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onSelect: PropTypes.func,
-  rootCloseEvent: PropTypes.oneOf(['click', 'mousedown']),
+	open: PropTypes.bool,
+	pullRight: PropTypes.bool,
+	onClose: PropTypes.func,
+	labelledBy: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	onSelect: PropTypes.func,
+	rootCloseEvent: PropTypes.oneOf(['click', 'mousedown']),
 };
 
 const defaultProps = {
-  bsRole: 'menu',
-  pullRight: false,
+	bsRole: 'menu',
+	pullRight: false,
 };
 
 class DropdownMenu extends React.Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.handleRootClose = this.handleRootClose.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-  }
+		this.handleRootClose = this.handleRootClose.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
+	}
 
-  getFocusableMenuItems() {
-    const node = ReactDOM.findDOMNode(this);
-    if (!node) {
-      return [];
-    }
+	getFocusableMenuItems() {
+		const node = ReactDOM.findDOMNode(this);
+		if (!node) {
+			return [];
+		}
 
-    return Array.from(node.querySelectorAll('[tabIndex="-1"]'));
-  }
+		return Array.from(node.querySelectorAll('[tabIndex="-1"]'));
+	}
 
-  getItemsAndActiveIndex() {
-    const items = this.getFocusableMenuItems();
-    const activeIndex = items.indexOf(document.activeElement);
+	getItemsAndActiveIndex() {
+		const items = this.getFocusableMenuItems();
+		const activeIndex = items.indexOf(document.activeElement);
 
-    return { items, activeIndex };
-  }
+		return { items, activeIndex };
+	}
 
-  focusNext() {
-    const { items, activeIndex } = this.getItemsAndActiveIndex();
-    if (items.length === 0) {
-      return;
-    }
+	focusNext() {
+		const { items, activeIndex } = this.getItemsAndActiveIndex();
+		if (items.length === 0) {
+			return;
+		}
 
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    items[nextIndex].focus();
-  }
+		const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+		items[nextIndex].focus();
+	}
 
-  focusPrevious() {
-    const { items, activeIndex } = this.getItemsAndActiveIndex();
-    if (items.length === 0) {
-      return;
-    }
+	focusPrevious() {
+		const { items, activeIndex } = this.getItemsAndActiveIndex();
+		if (items.length === 0) {
+			return;
+		}
 
-    const prevIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    items[prevIndex].focus();
-  }
+		const prevIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+		items[prevIndex].focus();
+	}
 
-  handleKeyDown(event) {
-    switch (event.key) {
-      case 'Down':
-      case 'ArrowDown':
-        this.focusNext();
-        event.preventDefault();
-        break;
-      case 'Up':
-      case 'ArrowUp':
-        this.focusPrevious();
-        event.preventDefault();
-        break;
-      case 'Esc':
-      case 'Escape':
-      case 'Tab':
-        this.props.onClose(event, { source: 'keydown' });
-        break;
-      default:
-    }
-  }
+	handleKeyDown(event) {
+		switch (event.key) {
+			case 'Down':
+			case 'ArrowDown':
+				this.focusNext();
+				event.preventDefault();
+				break;
+			case 'Up':
+			case 'ArrowUp':
+				this.focusPrevious();
+				event.preventDefault();
+				break;
+			case 'Esc':
+			case 'Escape':
+			case 'Tab':
+				this.props.onClose(event, { source: 'keydown' });
+				break;
+			default:
+		}
+	}
 
-  handleRootClose(event) {
-    this.props.onClose(event, { source: 'rootClose' });
-  }
+	handleRootClose(event) {
+		this.props.onClose(event, { source: 'rootClose' });
+	}
 
-  render() {
-    const {
-      open,
-      pullRight,
-      labelledBy,
-      onSelect,
-      className,
-      rootCloseEvent,
-      children,
-      ...props
-    } = this.props;
+	render() {
+		const { open, pullRight, labelledBy, onSelect, className, rootCloseEvent, children, ...props } =
+			this.props;
 
-    const [bsProps, elementProps] = splitBsPropsAndOmit(props, ['onClose']);
+		const [bsProps, elementProps] = splitBsPropsAndOmit(props, ['onClose']);
 
-    const classes = {
-      ...getClassSet(bsProps),
-      [prefix(bsProps, 'right')]: pullRight,
-    };
+		const classes = {
+			...getClassSet(bsProps),
+			[prefix(bsProps, 'right')]: pullRight,
+		};
 
-    return (
-      <RootCloseWrapper
-        disabled={!open}
-        onRootClose={this.handleRootClose}
-        event={rootCloseEvent}
-      >
-        <ul
-          {...elementProps}
-          role="menu"
-          className={classNames(className, classes)}
-          aria-labelledby={labelledBy}
-        >
-          {ValidComponentChildren.map(children, (child) =>
-            React.cloneElement(child, {
-              onKeyDown: createChainedFunction(
-                child.props.onKeyDown,
-                this.handleKeyDown,
-              ),
-              onSelect: createChainedFunction(child.props.onSelect, onSelect),
-            }),
-          )}
-        </ul>
-      </RootCloseWrapper>
-    );
-  }
+		return (
+			<RootCloseWrapper disabled={!open} onRootClose={this.handleRootClose} event={rootCloseEvent}>
+				<ul
+					{...elementProps}
+					role="menu"
+					className={classNames(className, classes)}
+					aria-labelledby={labelledBy}
+				>
+					{ValidComponentChildren.map(children, child =>
+						React.cloneElement(child, {
+							onKeyDown: createChainedFunction(child.props.onKeyDown, this.handleKeyDown),
+							onSelect: createChainedFunction(child.props.onSelect, onSelect),
+						}),
+					)}
+				</ul>
+			</RootCloseWrapper>
+		);
+	}
 }
 
 DropdownMenu.propTypes = propTypes;

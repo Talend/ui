@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import CollapsiblePanel from './CollapsiblePanel.component';
 
 const version1 = {

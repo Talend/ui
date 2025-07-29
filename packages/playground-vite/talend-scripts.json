@@ -1,0 +1,12 @@
+{
+  "cmf": true,
+  "html": {},
+  "webpack": {
+    "monoRepoFixSourceMap": ["../dataviz/src", "../containers/src", "../components/src"],
+    "config": {
+      "development": "./webpack.config.dev.cjs",
+      "production": "./webpack.config.dev.cjs"
+    }
+  },
+  "dynamic-cdn-webpack-plugin": false
+}

@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { BadgeMenuForm } from './BadgeMenuForm.component';
 import getDefaultT from '../../../translate';
+import { BadgeMenuForm } from './BadgeMenuForm.component';
 
 jest.unmock('@talend/design-system');
 
@@ -64,6 +64,22 @@ describe('BadgeMenuForm', () => {
 			label: 'Item One',
 		});
 	});
+	it('should show skeletons if items are loading', () => {
+		// Given
+		const props = {
+			id: 'myId',
+			values: menuItems,
+			isLoading: true,
+			value: {},
+			t,
+		};
+		// When
+		render(<BadgeMenuForm {...props} />);
+		// Then
+		expect(screen.getByTestId('badge-menu-form-skeleton-item')).toBeVisible();
+		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+		expect(screen.getByRole('button')).toBeDisabled();
+	});
 	it('should display menuitem checked', () => {
 		// Given
 		const props = {
@@ -98,13 +114,7 @@ describe('BadgeMenuForm', () => {
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-two')).toBeVisible();
 		expect(screen.getByTestId('badge-menu-form-item-item-three')).toBeVisible();
-
-		await userEvent.type(
-			screen.getByRole('searchbox', {
-				name: /find a column/i,
-			}),
-			'One',
-		);
+		await userEvent.type(screen.getByRole('searchbox'), 'One');
 
 		// Then
 		expect(screen.getByTestId('badge-menu-form-item-item-one')).toBeVisible();

@@ -1,4 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
 
 .tc-list-checkbox {
 	:global(.checkbox) {
@@ -6,8 +6,8 @@
 		display: flex;
 
 		label {
-			line-height: 1.5rem;
-			min-height: 1.5rem;
+			line-height: 0.9375rem;
+			min-height: 0.9375rem;
 			display: flex;
 			padding-left: $padding-large;
 			margin-bottom: 0;

@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-guidedtour-accent-color: tokens.$coral-color-accent-text !default;
 $tc-guidedtour-tooltip-padding: $padding-large !default;
@@ -7,7 +7,7 @@ $tc-guidedtour-mask-opactiy: 0.25 !default;
 $tc-guidedtour-close-button-size: $svg-sm-size !default;
 $tc-guidedtour-nav-button-size: $svg-md-size !default;
 $tc-guidedtour-controls-color: tokens.$coral-color-accent-text !default;
-$tc-guidedtour-width: 40rem !default;
+$tc-guidedtour-width: 25rem !default;
 
 /* stylelint-disable-next-line selector-id-pattern*/
 :global(#___reactour) {

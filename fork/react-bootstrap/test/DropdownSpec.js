@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
+
 import { mount, shallow } from 'enzyme';
 
 import Dropdown from '../src/Dropdown';
 import DropdownMenu from '../src/DropdownMenu';
 import Grid from '../src/Grid';
 import MenuItem from '../src/MenuItem';
-
 import { shouldWarn } from './helpers';
 
 class CustomMenu extends React.Component {

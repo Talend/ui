@@ -1,5 +1,153 @@
 # @talend/bootstrap-theme
 
+## 9.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+## 9.3.2
+
+### Patch Changes
+
+- d91656d: Bump webpack-cli@6.0.1
+
+## 9.3.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/bootstrap-sass@5.3.1
+  - @talend/design-tokens@3.4.4
+
+## 9.3.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
+## 9.2.2
+
+### Patch Changes
+
+- 71a6433: fix: update postcss
+
+## 9.2.1
+
+### Patch Changes
+
+- fcba736: fix: remove animation on all button for all change
+- Updated dependencies [fcba736]
+  - @talend/design-tokens@3.4.3
+
+## 9.2.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-tokens@3.4.0
+  - @talend/bootstrap-sass@5.3.0
+
+## 9.1.4
+
+### Patch Changes
+
+- 3bd16fc: Make it compatible with ESM
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+
+## 9.1.3
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
+## 9.1.2
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 9.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/bootstrap-sass@5.2.1
+
+## 9.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+  - @talend/bootstrap-sass@5.2.0
+
+## 9.0.0
+
+### Major Changes
+
+- b1c72a1: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
+## 8.5.0
+
+### Minor Changes
+
+- 8878c6c: deps: bump css-minimizer-webpack-plugin
+
+### Patch Changes
+
+- Updated dependencies [3dc3100]
+  - @talend/bootstrap-sass@5.0.0
+
+## 8.4.2
+
+### Patch Changes
+
+- Updated dependencies [9f9fc07]
+  - @talend/bootstrap-sass@4.0.0
+
+## 8.4.1
+
+### Patch Changes
+
+- e08217c: fix: dropdown with image display
+
+## 8.4.0
+
+### Minor Changes
+
+- 89f7250: fix(DFD-502): Update toggle active hover background color with coral tokens
+
+## 8.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/design-tokens@2.10.1
+
 ## 8.3.0
 
 ### Minor Changes
@@ -69,12 +217,10 @@
   This is considered as a BREAKING CHANGE.
 
   To be aligned with this theme you should:
-
   - replace all hardcoded colors used in your project and use `@talend/design-tokens`
   - test your application with the dark theme
 
   We have updated the following bootstrap styles:
-
   - Button
   - Table
   - Form (control)
@@ -106,7 +252,6 @@
 
 - 9c44d724f: ## Breaking changes :
   Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
-
   - SidePanel icon is no more handled by the application theme
   - HeaderBar icon is no more handled by the application theme
 

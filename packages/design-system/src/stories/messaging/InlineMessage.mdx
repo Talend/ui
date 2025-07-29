@@ -1,8 +1,10 @@
-import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
+
+import * as Stories from './InlineMessage.stories';
 import { InlineMessage } from '../../';
 import { Status } from '../Status.block';
-import * as Stories from './InlineMessage.stories';
 
 <Meta of={Stories} />
 <Status id="inlineMessage" />
@@ -30,15 +32,11 @@ The text should adapt to the surrounding layout. Depending on the context, if th
 
 **Default**
 
-<Canvas>
-	<Story of={Stories.DefaultDemo} />
-</Canvas>
+<Canvas of={Stories.DefaultDemo} />
 
 **With background**
 
-<Canvas>
-	<Story of={Stories.BackgroundDemo} />
-</Canvas>
+<Canvas of={Stories.BackgroundDemo} />
 
 ## Interactions
 
@@ -107,9 +105,7 @@ If you need a message to change from one semantic type to another, a prop may be
 
 `<InlineMessage />` is here just for that purpose.
 
-<Canvas>
-	<Story of={Stories.Variant} />
-</Canvas>
+<Canvas of={Stories.Variant} />
 
 It behaves like the standalone components but with a `variant` prop.
 
@@ -119,9 +115,7 @@ It behaves like the standalone components but with a `variant` prop.
 
 If the link you need is not external, chances are you're using a routing library.
 
-<Canvas>
-	<Story of={Stories.WithRouterLink} />
-</Canvas>
+<Canvas of={Stories.WithRouterLink} />
 
 ## Accessibility
 

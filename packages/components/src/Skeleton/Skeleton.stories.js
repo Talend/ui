@@ -38,7 +38,7 @@ export const Default = () => (
 		<Skeleton
 			type={Skeleton.TYPES.icon}
 			name="talend-table"
-			style={{ width: '9.6rem', height: '9.6rem' }}
+			style={{ width: '6rem', height: '6rem' }}
 		/>
 	</div>
 );

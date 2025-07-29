@@ -1,5 +1,43 @@
 # @talend/upgrade-deps
 
+## 3.1.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 3.1.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 3.1.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 3.0.3
+
+### Patch Changes
+
+- af0ac2d: Upgrade rimraf to version 5.0.5
+
+## 3.0.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 3.0.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 3.0.0
 
 ### Major Changes
@@ -26,7 +64,6 @@
   For more information please read https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
   breaking change: If you require this package you have to move to pure ESM too.
-
   - chore: Update strip-ansi to latest version (which is pure ESM)
   - chore: Update yarn-deduplicate to latest version
 
@@ -85,7 +122,6 @@
   ```
 
 - 9400673: fix: generate random name for changeset file, only if --changeset is provided
-
   - generate a random file per package.json file
   - put a diff of dependencies as content
 

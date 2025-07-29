@@ -1,6 +1,6 @@
 {
   "name": "@talend/storybook-docs",
-  "version": "2.2.0",
+  "version": "2.6.0",
   "description": "Talend Storybook Docs component library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -27,32 +27,32 @@
     "access": "public"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.12.1",
-    "@storybook/blocks": "^7.5.3",
-    "@storybook/react": "^7.5.3",
-    "@talend/design-tokens": "^2.10.0",
-    "algoliasearch": "^4.20.0",
-    "classnames": "^2.3.2",
+    "@algolia/autocomplete-js": "^1.19.2",
+    "@storybook/blocks": "^7.6.20",
+    "@storybook/react": "^7.6.20",
+    "@talend/design-tokens": "^3.4.5",
+    "algoliasearch": "^4.25.2",
+    "classnames": "^2.5.1",
     "figma-js": "^1.16.0",
-    "react": "^18.2.0"
+    "react": "^18.3.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.1",
-    "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-core": "^16.3.0",
-    "@talend/scripts-config-babel": "^13.2.0",
-    "@talend/scripts-config-storybook-lib": "^5.2.0",
-    "@talend/scripts-config-typescript": "^11.2.0",
+    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/scripts-config-babel": "^13.6.0",
+    "@talend/scripts-config-storybook-lib": "^5.6.0",
+    "@talend/scripts-config-typescript": "^11.3.2",
+    "@talend/scripts-core": "^16.6.0",
     "@types/node": "^6.14.13",
-    "@types/react": "^18.2.38",
-    "@types/react-dom": "^18.2.17",
-    "css-loader": "^4.3.0",
-    "mini-css-extract-plugin": "^2.7.6",
-    "postcss-loader": "^7.3.3",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.69.5",
-    "sass-loader": "^13.3.2",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^4.10.0"
+    "sass": "^1.89.2",
+    "sass-loader": "^14.2.1",
+    "webpack": "^5.101.0",
+    "webpack-cli": "^6.0.1"
   }
 }

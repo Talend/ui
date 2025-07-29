@@ -1,11 +1,12 @@
 /* eslint-disable react/display-name */
+
 /* eslint-disable react/prop-types */
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cloneDeep from 'lodash/cloneDeep';
 
 import VirtualizedList from '../../VirtualizedList';
-import { ListToVirtualizedList, compareOrder } from './ListToVirtualizedList.component';
+import { compareOrder, ListToVirtualizedList } from './ListToVirtualizedList.component';
 
 jest.unmock('@talend/design-system');
 jest.mock('../../VirtualizedList', () => {

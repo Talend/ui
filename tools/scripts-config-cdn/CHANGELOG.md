@@ -1,5 +1,70 @@
 # CHANGELOG
 
+## 10.13.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/dynamic-cdn-webpack-plugin@14.1.0
+  - @talend/module-to-cdn@9.13.0
+
+## 10.12.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.3
+  - @talend/module-to-cdn@9.12.3
+
+## 10.12.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.1
+  - @talend/module-to-cdn@9.12.1
+
+## 10.12.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/dynamic-cdn-webpack-plugin@14.0.0
+  - @talend/module-to-cdn@9.11.0
+
+## 10.11.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/dynamic-cdn-webpack-plugin@13.1.1
+  - @talend/module-to-cdn@9.10.1
+
+## 10.11.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 10.10.0
+
+### Minor Changes
+
+- b29255c: deps: bump js-yaml from 3.x to 4.x
+
 ## 10.9.1
 
 ### Patch Changes

@@ -1,9 +1,11 @@
 /* eslint-disable react/display-name */
+
 /* eslint-disable react/prop-types */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { PIECHART_SIZES } from './PieChartIcon.component';
+
 import PieChartButton, { decorateWithOverlay, wrapMouseEvent } from './PieChartButton.component';
+import { PIECHART_SIZES } from './PieChartIcon.component';
 
 jest.mock('../OverlayTrigger/overlay', () => ({
 	getAdaptedPlacement: () => 'top',

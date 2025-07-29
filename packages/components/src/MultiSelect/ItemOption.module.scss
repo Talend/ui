@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .row {
 	padding-left: $padding-normal;
@@ -13,7 +13,7 @@
 	}
 
 	label {
-		height: 3rem;
+		height: 1.875rem;
 		width: 100%;
 		display: flex;
 		margin-bottom: 0;

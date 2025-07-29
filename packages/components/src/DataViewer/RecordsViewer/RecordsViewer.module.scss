@@ -1,10 +1,10 @@
 /* stylelint-disable declaration-no-important */
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$hightlight-height: 2.2rem !default;
+$hightlight-height: 1.375rem !default;
 $records-node-height: $hightlight-height !default;
-$border-size: 0.1rem;
+$border-size: 0.0625rem;
 
 @mixin selection($backgroundColor) {
 	background: $backgroundColor;
@@ -32,8 +32,8 @@ $border-size: 0.1rem;
 		}
 
 		:global(.tc-svg-icon) {
-			height: 1.2rem;
-			width: 1.2rem;
+			height: 0.75rem;
+			width: 0.75rem;
 			margin: 0;
 			vertical-align: baseline;
 		}
@@ -149,7 +149,7 @@ $border-size: 0.1rem;
 
 .tc-leaf-overflow-icon {
 	position: absolute;
-	left: -1.7rem;
+	left: -1.0625rem;
 	margin-right: $padding-smaller;
 
 	&-chevron {

@@ -11,7 +11,7 @@ const dictionary = [
 	{
 		name: 'coralColorNeutralTextWeak',
 		type: 'color',
-		description: `Weak text color. 
+		description: `Weak text color.
 Best used when there is regular neutral-text next to it.`,
 		hsla: 'hsla(0, 0%, 38%, 1)',
 		hex: '#616161',
@@ -21,7 +21,7 @@ Best used when there is regular neutral-text next to it.`,
 	{
 		name: 'coralColorNeutralTextDisabled',
 		type: 'color',
-		description: `Disabled text color. 
+		description: `Disabled text color.
 Only use for interactive elements in their disabled state.
 `,
 		hsla: 'hsla(0, 0%, 44%, 1)',
@@ -32,7 +32,7 @@ Only use for interactive elements in their disabled state.
 	{
 		name: 'coralColorNeutralTextInverted',
 		type: 'color',
-		description: `Inverted text color. 
+		description: `Inverted text color.
 Only use on dark backgrounds.
 `,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -52,7 +52,7 @@ Only use on dark backgrounds.
 	{
 		name: 'coralColorNeutralBackgroundMedium',
 		type: 'color',
-		description: `Medium contrasting background color. 
+		description: `Medium contrasting background color.
 
 Ex: SubHeader`,
 		hsla: 'hsla(0, 0%, 97%, 1)',
@@ -63,7 +63,7 @@ Ex: SubHeader`,
 	{
 		name: 'coralColorNeutralBackgroundStrong',
 		type: 'color',
-		description: `Strongly contrasting background color. 
+		description: `Strongly contrasting background color.
 Use sparingly.
 
 Ex: SubHeader back button.`,
@@ -75,7 +75,7 @@ Ex: SubHeader back button.`,
 	{
 		name: 'coralColorNeutralBackgroundDisabled',
 		type: 'color',
-		description: `Background color for disabled interactive elements only. 
+		description: `Background color for disabled interactive elements only.
 
 Ex: Buttons`,
 		hsla: 'hsla(0, 0%, 88%, 1)',
@@ -86,7 +86,7 @@ Ex: Buttons`,
 	{
 		name: 'coralColorNeutralBorder',
 		type: 'color',
-		description: `Default border color. 
+		description: `Default border color.
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 55%, 1)',
@@ -108,7 +108,7 @@ Ex: Dividers`,
 	{
 		name: 'coralColorNeutralBorderHover',
 		type: 'color',
-		description: `Default border color, on mouseover. 
+		description: `Default border color, on mouseover.
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 40%, 1)',
@@ -119,7 +119,7 @@ Ex: Inputs`,
 	{
 		name: 'coralColorAccentTextWeak',
 		type: 'color',
-		description: `Accent text color on accent-background-strong. 
+		description: `Accent text color on accent-background-strong.
 
 Ex: ButtonPrimary`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -130,7 +130,7 @@ Ex: ButtonPrimary`,
 	{
 		name: 'coralColorAccentTextWeakHover',
 		type: 'color',
-		description: `Accent text color on accent-background-strong, on mouseover. 
+		description: `Accent text color on accent-background-strong, on mouseover.
 
 Ex: ButtonPrimary
 `,
@@ -142,7 +142,7 @@ Ex: ButtonPrimary
 	{
 		name: 'coralColorAccentTextWeakActive',
 		type: 'color',
-		description: `Accent text color on accent-background-strong, while pressing. 
+		description: `Accent text color on accent-background-strong, while pressing.
 
 Ex: ButtonPrimary`,
 		hsla: 'hsla(205, 60%, 75%, 1)',
@@ -153,8 +153,8 @@ Ex: ButtonPrimary`,
 	{
 		name: 'coralColorAccentText',
 		type: 'color',
-		description: `Accent text color. 
-Use for interactive text content without background. 
+		description: `Accent text color.
+Use for interactive text content without background.
 
 Ex: Links`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
@@ -165,7 +165,7 @@ Ex: Links`,
 	{
 		name: 'coralColorAccentTextHover',
 		type: 'color',
-		description: `Accent text color on mouseover. 
+		description: `Accent text color on mouseover.
 
 Ex: Links`,
 		hsla: 'hsla(204, 96%, 18%, 1)',
@@ -176,7 +176,7 @@ Ex: Links`,
 	{
 		name: 'coralColorAccentTextActive',
 		type: 'color',
-		description: `Accent text color while pressed. 
+		description: `Accent text color while pressed.
 
 Ex: Links`,
 		hsla: 'hsla(205, 94%, 13%, 1)',
@@ -307,7 +307,7 @@ Ex: ButtonSecondary`,
 	{
 		name: 'coralColorDangerTextWeak',
 		type: 'color',
-		description: `Danger text color on danger-background-strong. 
+		description: `Danger text color on danger-background-strong.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(0, 0%, 100%, 1)',
@@ -318,7 +318,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerTextWeakHover',
 		type: 'color',
-		description: `Danger text color on mouseover. 
+		description: `Danger text color on mouseover.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(358, 100%, 94%, 1)',
@@ -329,7 +329,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerTextWeakActive',
 		type: 'color',
-		description: `Danger text color while pressing. 
+		description: `Danger text color while pressing.
 
 Ex: ButtonDestructive`,
 		hsla: 'hsla(359, 100%, 88%, 1)',
@@ -340,7 +340,7 @@ Ex: ButtonDestructive`,
 	{
 		name: 'coralColorDangerText',
 		type: 'color',
-		description: `Danger text color. 
+		description: `Danger text color.
 Use for text content without background that must carry a negative semantic value on its own. `,
 		hsla: 'hsla(359, 51%, 53%, 1)',
 		hex: '#c4484a',
@@ -453,8 +453,8 @@ Use as placeholder to indicate that you want danger-tinted interactive states.`,
 	{
 		name: 'coralColorSuccessText',
 		type: 'color',
-		description: `Success text color. 
-Use for text content without background that must carry a positive semantic value on its own. 
+		description: `Success text color.
+Use for text content without background that must carry a positive semantic value on its own.
 
 Ex: StatusSuccessful`,
 		hsla: 'hsla(111, 49%, 34%, 1)',
@@ -483,7 +483,7 @@ Ex: StatusSuccessful`,
 	{
 		name: 'coralColorSuccessBackground',
 		type: 'color',
-		description: `Success background color by default. Use with text-strong. 
+		description: `Success background color by default. Use with text-strong.
 
 Ex: InlineMessage `,
 		hsla: 'hsla(110, 49%, 90%, 1)',
@@ -670,8 +670,8 @@ Use as placeholder to indicate that you want success-tinted interactive states.`
 	{
 		name: 'coralColorWarningText',
 		type: 'color',
-		description: `Warning text color. 
-Use for text content without background that must carry a warning semantic value on its own. 
+		description: `Warning text color.
+Use for text content without background that must carry a warning semantic value on its own.
 
 Ex: StatusWarning`,
 		hsla: 'hsla(22, 93%, 41%, 1)',
@@ -870,7 +870,7 @@ Ex: Tooltip`,
 	{
 		name: 'coralColorNeutralBorderDisabled',
 		type: 'color',
-		description: `Disabled border color for interactive elements 
+		description: `Disabled border color for interactive elements
 
 Ex: Inputs`,
 		hsla: 'hsla(0, 0%, 65%, 1)',
@@ -1403,8 +1403,8 @@ Ex: StatusWarning`,
 	{
 		name: 'coralColorChartsNeutral',
 		type: 'color',
-		description: `Chart color: Neutral. 
-Use for neutral / empty semantic values. 
+		description: `Chart color: Neutral.
+Use for neutral / empty semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(0, 0%, 22%, 1)',
@@ -1415,7 +1415,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsNeutralWeak',
 		type: 'color',
-		description: `Chart color: Neutral-weak. 
+		description: `Chart color: Neutral-weak.
 Weak contrast for neutral / empty semantic values.`,
 		hsla: 'hsla(0, 0%, 83%, 1)',
 		hex: '#d4d4d4',
@@ -1425,7 +1425,7 @@ Weak contrast for neutral / empty semantic values.`,
 	{
 		name: 'coralColorChartsNeutralStrong',
 		type: 'color',
-		description: `Chart color: Neutral-strong. 
+		description: `Chart color: Neutral-strong.
 Strong contrast for neutral / empty semantic values.`,
 		hsla: 'hsla(0, 0%, 12%, 1)',
 		hex: '#1f1f1f',
@@ -1444,8 +1444,8 @@ Strong contrast for neutral / empty semantic values.`,
 	{
 		name: 'coralColorChartsSuccess',
 		type: 'color',
-		description: `Chart color: Success. 
-Use for success / positive semantic values. 
+		description: `Chart color: Success.
+Use for success / positive semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(148, 87%, 40%, 1)',
@@ -1456,7 +1456,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsSuccessWeak',
 		type: 'color',
-		description: `Chart color: Success-weak. 
+		description: `Chart color: Success-weak.
 Weak contrast for positive / success semantic values.`,
 		hsla: 'hsla(130, 52%, 91%, 1)',
 		hex: '#dcf4e0',
@@ -1466,7 +1466,7 @@ Weak contrast for positive / success semantic values.`,
 	{
 		name: 'coralColorChartsSuccessStrong',
 		type: 'color',
-		description: `Chart color: Success-strong. 
+		description: `Chart color: Success-strong.
 Strong contrast for positive / success semantic values.`,
 		hsla: 'hsla(139, 50%, 22%, 1)',
 		hex: '#1c552e',
@@ -1485,8 +1485,8 @@ Strong contrast for positive / success semantic values.`,
 	{
 		name: 'coralColorChartsDanger',
 		type: 'color',
-		description: `Chart color: Danger. 
-Use for danger / negative semantic values. 
+		description: `Chart color: Danger.
+Use for danger / negative semantic values.
 
 Ex: QualityBar`,
 		hsla: 'hsla(4, 89%, 49%, 1)',
@@ -1497,7 +1497,7 @@ Ex: QualityBar`,
 	{
 		name: 'coralColorChartsDangerWeak',
 		type: 'color',
-		description: `Chart color: Danger-weak. 
+		description: `Chart color: Danger-weak.
 Weak contrast for negative / danger semantic values.`,
 		hsla: 'hsla(359, 69%, 73%, 1)',
 		hex: '#e9898a',
@@ -1507,7 +1507,7 @@ Weak contrast for negative / danger semantic values.`,
 	{
 		name: 'coralColorChartsDangerStrong',
 		type: 'color',
-		description: `Chart color: Danger-strong. 
+		description: `Chart color: Danger-strong.
 Strong contrast for negative / danger semantic values.`,
 		hsla: 'hsla(359, 62%, 43%, 1)',
 		hex: '#b32a2c',
@@ -1526,7 +1526,7 @@ Strong contrast for negative / danger semantic values.`,
 	{
 		name: 'coralColorChartsWarning',
 		type: 'color',
-		description: `Chart color: Warning. 
+		description: `Chart color: Warning.
 Use for warning semantic values.`,
 		hsla: 'hsla(32, 100%, 56%, 1)',
 		hex: '#ff9820',
@@ -1536,7 +1536,7 @@ Use for warning semantic values.`,
 	{
 		name: 'coralColorChartsWarningWeak',
 		type: 'color',
-		description: `Chart color: Warning-weak. 
+		description: `Chart color: Warning-weak.
 Weak contrast for warning semantic values.`,
 		hsla: 'hsla(22, 88%, 84%, 1)',
 		hex: '#facbb0',
@@ -1546,7 +1546,7 @@ Weak contrast for warning semantic values.`,
 	{
 		name: 'coralColorChartsWarningStrong',
 		type: 'color',
-		description: `Chart color: Warning-strong. 
+		description: `Chart color: Warning-strong.
 Strong contrast for warning semantic values.`,
 		hsla: 'hsla(22, 75%, 42%, 1)',
 		hex: '#b9541b',
@@ -1565,7 +1565,7 @@ Strong contrast for warning semantic values.`,
 	{
 		name: 'coralColorChartsDefault',
 		type: 'color',
-		description: `Chart color by default. 
+		description: `Chart color by default.
 If the chart only has one set of value, and not a semantic (danger / warning / success) then use this colorset.`,
 		hsla: 'hsla(216, 82%, 48%, 1)',
 		hex: '#1667df',
@@ -1575,7 +1575,7 @@ If the chart only has one set of value, and not a semantic (danger / warning / s
 	{
 		name: 'coralColorChartsDefaultWeak',
 		type: 'color',
-		description: `Chart color: default-weak. 
+		description: `Chart color: default-weak.
 Weak contrast for basic chart values.`,
 		hsla: 'hsla(204, 59%, 73%, 1)',
 		hex: '#91c2e3',
@@ -1585,7 +1585,7 @@ Weak contrast for basic chart values.`,
 	{
 		name: 'coralColorChartsDefaultStrong',
 		type: 'color',
-		description: `Chart color: default-strong. 
+		description: `Chart color: default-strong.
 Strong contrast for basic chart values. `,
 		hsla: 'hsla(204, 92%, 29%, 1)',
 		hex: '#06568d',
@@ -1606,7 +1606,7 @@ if there is text on top if this, use default-text-weak.`,
 	{
 		name: 'coralColorChartsColor00',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(48, 100%, 50%, 1)',
@@ -1644,7 +1644,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor01',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(216, 82%, 48%, 1)',
@@ -1682,7 +1682,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor02',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(194, 92%, 50%, 1)',
@@ -1720,7 +1720,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor03',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(140, 39%, 79%, 1)',
@@ -1758,7 +1758,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor04',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(148, 87%, 40%, 1)',
@@ -1796,7 +1796,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor05',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(324, 68%, 71%, 1)',
@@ -1834,7 +1834,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor06',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(280, 75%, 58%, 1)',
@@ -1872,7 +1872,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor07',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(4, 89%, 49%, 1)',
@@ -1910,7 +1910,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor08',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(22, 88%, 54%, 1)',
@@ -1948,7 +1948,7 @@ Ex: Chart with three types of values? use chart-color-00, chart-color-01 and cha
 	{
 		name: 'coralColorChartsColor09',
 		type: 'color',
-		description: `Chart color used in combinations with the other numerical chart colors. 
+		description: `Chart color used in combinations with the other numerical chart colors.
 
 Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
 		hsla: 'hsla(34, 34%, 45%, 1)',
@@ -1998,7 +1998,7 @@ Ex: ButtonSecondary`,
 	{
 		name: 'coralColorChartsDefaultText',
 		type: 'color',
-		description: `Text color for chart-default. 
+		description: `Text color for chart-default.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default.`,
 		hsla: 'hsla(205, 87%, 94%, 1)',
@@ -2009,7 +2009,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorChartsDefaultTextStrong',
 		type: 'color',
-		description: `Strong text color for chart-default-weak. 
+		description: `Strong text color for chart-default-weak.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default-weak.`,
 		hsla: 'hsla(205, 93%, 22%, 1)',
@@ -2020,7 +2020,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorChartsDefaultTextWeak',
 		type: 'color',
-		description: `Weak text color for chart-default-strong. 
+		description: `Weak text color for chart-default-strong.
 
 Text on a chart is discouraged, but if you must, then use this with chart-default-strong.`,
 		hsla: 'hsla(207, 93%, 94%, 1)',
@@ -2184,7 +2184,7 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 	{
 		name: 'coralColorAccentBackgroundSelected',
 		type: 'color',
-		description: `Accent background for currently selected elements: 
+		description: `Accent background for currently selected elements:
 
 Ex: Selected column or line in a datagrid.`,
 		hsla: 'hsla(204, 100%, 95%, 1)',
@@ -2195,8 +2195,8 @@ Ex: Selected column or line in a datagrid.`,
 	{
 		name: 'coralColorInfoText',
 		type: 'color',
-		description: `Information text color. 
-Use for text content without background that must carry a information semantic value on its own. 
+		description: `Information text color.
+Use for text content without background that must carry a information semantic value on its own.
 
 Ex: StatusInfo`,
 		hsla: 'hsla(204, 95%, 31%, 1)',
@@ -2658,79 +2658,79 @@ Ex: InlineMessage`,
 		name: 'coralSpacingXxs',
 		type: 'measure',
 		description: `Use for paddings or margins`,
-		value: '0.4rem',
+		value: '0.25rem',
 		id: '16bfe560-b4c3-11ec-8521-cbbf4c303d59',
 	},
 	{
 		name: 'coralSpacingXs',
 		type: 'measure',
 		description: `Use for paddings or margins`,
-		value: '0.8rem',
+		value: '0.5rem',
 		id: '1ca7bca0-b4c3-11ec-b522-2f15f0dfcaeb',
 	},
 	{
 		name: 'coralSpacingS',
 		type: 'measure',
 		description: `Use for paddings or margins`,
-		value: '1.2rem',
+		value: '0.75rem',
 		id: '2c35d2b0-b4c3-11ec-96ab-01d033d945fb',
 	},
 	{
 		name: 'coralSpacingM',
 		type: 'measure',
 		description: `Use for paddings or margins`,
-		value: '1.6rem',
+		value: '1rem',
 		id: '35c79f20-b4c3-11ec-84df-e5bfacc479f2',
 	},
 	{
 		name: 'coralSpacingL',
 		type: 'measure',
 		description: `Use for margins, paddings of really necessary`,
-		value: '2.8rem',
+		value: '1.75rem',
 		id: '3b3dc8d0-b4c3-11ec-b3c9-73d93683841a',
 	},
 	{
 		name: 'coralSpacingXl',
 		type: 'measure',
 		description: `Use for margins, paddings of really necessary`,
-		value: '3.6rem',
+		value: '2.25rem',
 		id: '4247b1e0-b4c3-11ec-8804-23bba7614e8e',
 	},
 	{
 		name: 'coralSizingMinimal',
 		type: 'measure',
 		description: `Use for fixed-size elements`,
-		value: '1.2rem',
+		value: '0.75rem',
 		id: 'c3717da0-b4c3-11ec-8909-db885780505b',
 	},
 	{
 		name: 'coralSizingXxxs',
 		type: 'measure',
 		description: `For fixed-size elements. Minimal size for interactive elements.`,
-		value: '1.6rem',
+		value: '1rem',
 		id: 'ed784f70-b4c3-11ec-b3b5-d3127ac3649e',
 	},
 	{
 		name: 'coralSizingXxs',
 		type: 'measure',
 		description: `Use for fixed-size elements`,
-		value: '2rem',
+		value: '1.25rem',
 		id: '08dc2e80-b4c4-11ec-8350-c9f2819e7422',
 	},
 	{
 		name: 'coralSizingXs',
 		type: 'measure',
 		description: `Use for fixed-size elements`,
-		value: '2.4rem',
+		value: '1.5rem',
 		id: '0e48e250-b4c4-11ec-b383-adf02fe16153',
 	},
 	{
 		name: 'coralSizingS',
 		type: 'measure',
-		description: `Use for fixed-size elements. 
+		description: `Use for fixed-size elements.
 
 Ex: Small Buttons`,
-		value: '2.8rem',
+		value: '1.75rem',
 		id: '12bf4f40-b4c4-11ec-ae8c-a93a8912678c',
 	},
 	{
@@ -2739,7 +2739,7 @@ Ex: Small Buttons`,
 		description: `Use for fixed-size elements.
 
 Ex: Buttons`,
-		value: '3.6rem',
+		value: '2.25rem',
 		id: '1c14d600-b4c4-11ec-9b40-6fc6b8a4ad7a',
 	},
 	{
@@ -2748,7 +2748,7 @@ Ex: Buttons`,
 		description: `Use for fixed-size elements.
 
 Ex: Icon illustration`,
-		value: '4rem',
+		value: '2.5rem',
 		id: '21129b60-b4c4-11ec-a702-27e439bbf696',
 	},
 	{
@@ -2757,7 +2757,7 @@ Ex: Icon illustration`,
 		description: `Use for fixed-size elements.
 
 Ex: Spot illustration height`,
-		value: '22rem',
+		value: '13.75rem',
 		id: '292e1b80-b4c4-11ec-800e-5bc0e3562a54',
 	},
 	{
@@ -2766,99 +2766,105 @@ Ex: Spot illustration height`,
 		description: `Use for fixed-size elements.
 
 Ex: Spot illustration width`,
-		value: '32rem',
+		value: '20rem',
 		id: '2e751ee0-b4c4-11ec-9f9f-75ac4ca4ac00',
+	},
+	{
+		name: 'coralSizingBrandingLogo',
+		type: 'branding',
+		description: ``,
+		value: '1.75rem',
 	},
 	{
 		name: 'coralElevationShadowNeutralM',
 		type: 'shadow',
-		description: `Default shadow. 
+		description: `Default shadow.
 
 Use on "first layer" of elevation. `,
-		value: '0rem 0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.3)',
+		value: '0rem 0.125rem 0.375rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:34a756f910ffc665554a228b44d5eec1e9c463cb,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowAccent',
 		type: 'shadow',
-		description: `Shadow with an accent tint. 
+		description: `Shadow with an accent tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
-		value: '0rem 0.1rem 0.1rem 0rem hsla(204, 95%, 31%, 0.3)',
+		value: '0rem 0.0625rem 0.0625rem 0rem hsla(204, 95%, 31%, 0.3)',
 		id: 'S:6361d40b509d112c733483b262d9b4929ad0e1a9,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowSuccess',
 		type: 'shadow',
-		description: `Shadow with a success tint. 
+		description: `Shadow with a success tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
-		value: '0rem 0.1rem 0.1rem 0rem hsla(111, 49%, 34%, 0.3)',
+		value: '0rem 0.0625rem 0.0625rem 0rem hsla(111, 49%, 34%, 0.3)',
 		id: 'S:1ccb355087e7a77695f62496bf7eb5c597e51b63,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowDanger',
 		type: 'shadow',
-		description: `Shadow with a danger tint. 
+		description: `Shadow with a danger tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
-		value: '0rem 0.1rem 0.1rem 0rem hsla(359, 51%, 53%, 0.3)',
+		value: '0rem 0.0625rem 0.0625rem 0rem hsla(359, 51%, 53%, 0.3)',
 		id: 'S:127a019202b5a99380f18aeda574499aa518d902,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowWarning',
 		type: 'shadow',
-		description: `Shadow with a warning tint. 
+		description: `Shadow with a warning tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
-		value: '0rem 0.1rem 0.1rem 0rem hsla(22, 93%, 41%, 0.3)',
+		value: '0rem 0.0625rem 0.0625rem 0rem hsla(22, 93%, 41%, 0.3)',
 		id: 'S:b336004b0f814ea5dea03c146da768f78dbe6495,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowBeta',
 		type: 'shadow',
-		description: `Shadow with a beta tint. 
+		description: `Shadow with a beta tint.
 
-Use for subtle highlights. 
+Use for subtle highlights.
 
 Ex: InlineMessage`,
-		value: '0rem 0.1rem 0.1rem 0rem hsla(281, 58%, 29%, 0.3)',
+		value: '0rem 0.0625rem 0.0625rem 0rem hsla(281, 58%, 29%, 0.3)',
 		id: 'S:8b514aff6b0d1ad3862f3d1f04d9f0a7d9ee6f3e,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedM',
 		type: 'shadow',
-		description: `Default shadow. 
+		description: `Default shadow.
 
 Use on "first layer" of elevation. Reserve it for elements sticking to the bottom of the viewport.`,
-		value: '0rem -0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.3)',
+		value: '0rem -0.125rem 0.375rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:1402e349bd668e8e2765a70a5b3c9d4aa261f6ac,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedL',
 		type: 'shadow',
-		description: `Large shadow. 
+		description: `Large shadow.
 
 Use on "second layer" of elevation - something that need to be "above" anything else.
 Reserve it for elements sticking to the bottom of the viewport.`,
-		value: '0rem -0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.3)',
+		value: '0rem -0.25rem 0.5rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:2442aa4ab53dacae61024bae62200ad42e042707,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralL',
 		type: 'shadow',
-		description: `Large shadow. 
+		description: `Large shadow.
 
 Use on "second layer" of elevation - something that need to be "above" anything else.`,
-		value: '0rem 0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.3)',
+		value: '0rem 0.25rem 0.5rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:a2f6e4c6b17f0f6fcf8525d14fbd34f992350375,:shadow:0',
 	},
 	{
@@ -2867,31 +2873,31 @@ Use on "second layer" of elevation - something that need to be "above" anything 
 		description: `Small shadow.
 
 Use for small elements such as accordion.`,
-		value: '0rem 0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.5)',
+		value: '0rem 0.0625rem 0.125rem 0rem hsla(0, 0%, 0%, 0.5)',
 		id: 'S:c1c3ef7a3bd771214c8c2dbaa2991e62a9f42f60,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedS',
 		type: 'shadow',
 		description: ``,
-		value: '0rem -0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.3)',
+		value: '0rem -0.0625rem 0.125rem 0rem hsla(0, 0%, 0%, 0.3)',
 		id: 'S:42035c14a5e1e8cc9bf3ce9173099f5df7f59780,:shadow:0',
 	},
 	{
 		name: 'coralElevationShadowInfo',
 		type: 'shadow',
 		description: ``,
-		value: '0rem 0.1rem 0.1rem 0rem hsla(204, 95%, 31%, 0.3)',
+		value: '0rem 0.0625rem 0.0625rem 0rem hsla(204, 95%, 31%, 0.3)',
 		id: 'S:438e8db6ed4fd2dd2a98b57092688b9951159a9a,:shadow:0',
 	},
 	{
 		name: 'coralHeadingL',
 		type: 'typography',
 		description: `Heading text - Use for highest level headings.`,
-		value: `600 1.8rem/140% 'Source Sans Pro'`,
+		value: `600 1.125rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.8rem',
+		fontSize: '1.125rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:6bb115f27ce676bc5491994efd88dc26e42f8278,',
@@ -2900,10 +2906,10 @@ Use for small elements such as accordion.`,
 		name: 'coralParagraphM',
 		type: 'typography',
 		description: `Paragraph text - Standard size.`,
-		value: `400 1.4rem/140% 'Source Sans Pro'`,
+		value: `400 0.875rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
-		fontSize: '1.4rem',
+		fontSize: '0.875rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:5f86329d644f421531e3b10ecd2c2ddc9aab7534,',
@@ -2912,10 +2918,10 @@ Use for small elements such as accordion.`,
 		name: 'coralParagraphMBold',
 		type: 'typography',
 		description: `Paragraph text - Standard size, bold.`,
-		value: `600 1.4rem/140% 'Source Sans Pro'`,
+		value: `600 0.875rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.4rem',
+		fontSize: '0.875rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:d0051bcd9176315ca785dcd5f4f38cae78fc3365,',
@@ -2924,10 +2930,10 @@ Use for small elements such as accordion.`,
 		name: 'coralParagraphS',
 		type: 'typography',
 		description: `Paragraph text - Small size.`,
-		value: `400 1.2rem/140% 'Source Sans Pro'`,
+		value: `400 0.75rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
-		fontSize: '1.2rem',
+		fontSize: '0.75rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:b65ed5e12e3bdbcd4e4d5c671e5e0c4e9c036508,',
@@ -2936,10 +2942,10 @@ Use for small elements such as accordion.`,
 		name: 'coralParagraphSBold',
 		type: 'typography',
 		description: `Paragraph text - Standard size bold.`,
-		value: `600 1.2rem/140% 'Source Sans Pro'`,
+		value: `600 0.75rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.2rem',
+		fontSize: '0.75rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:d1431673fbf2f45ad943eadb6059a7772f5e6135,',
@@ -2948,10 +2954,10 @@ Use for small elements such as accordion.`,
 		name: 'coralHeadingM',
 		type: 'typography',
 		description: `Heading text - Use for medium level headings, most current ones.`,
-		value: `600 1.6rem/140% 'Source Sans Pro'`,
+		value: `600 1rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.6rem',
+		fontSize: '1rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:66b449607e413393608bc764de806198cd9c823c,',
@@ -2960,10 +2966,10 @@ Use for small elements such as accordion.`,
 		name: 'coralHeadingS',
 		type: 'typography',
 		description: `Heading text - Use for small level headings. Use with caution, this can clash with bold paragraphs.`,
-		value: `600 1.4rem/140% 'Source Sans Pro'`,
+		value: `600 0.875rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.4rem',
+		fontSize: '0.875rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:3dd149175fbc721e3fb89a0b02bcfd5d52ac651e,',
@@ -2972,10 +2978,10 @@ Use for small elements such as accordion.`,
 		name: 'coralDataM',
 		type: 'typography',
 		description: ``,
-		value: `400 1.4rem/140% 'Inconsolata'`,
+		value: `400 0.875rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
-		fontSize: '1.4rem',
+		fontSize: '0.875rem',
 		lineHeight: '140%',
 		fontFamily: 'Inconsolata',
 		id: 'S:1237da4bc0c13b10a30023cb0076edbfc83f79e8,',
@@ -2984,10 +2990,10 @@ Use for small elements such as accordion.`,
 		name: 'coralDataMBold',
 		type: 'typography',
 		description: ``,
-		value: `700 1.4rem/140% 'Inconsolata'`,
+		value: `700 0.875rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '700',
-		fontSize: '1.4rem',
+		fontSize: '0.875rem',
 		lineHeight: '140%',
 		fontFamily: 'Inconsolata',
 		id: 'S:4d7b8461e5b594b28d6d64272b468b810ff31e92,',
@@ -2998,10 +3004,10 @@ Use for small elements such as accordion.`,
 		description: `Use only with accent/text-hover
 
 Developers: use Link component instead, you do not need to recreate styles.`,
-		value: `600 1.4rem/140% 'Source Sans Pro'`,
+		value: `600 0.875rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.4rem',
+		fontSize: '0.875rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:3a35dcf2dc13003c2de78b3720430ace5a5dcd77,',
@@ -3012,10 +3018,10 @@ Developers: use Link component instead, you do not need to recreate styles.`,
 		description: `Use only with accent/text.
 
 Developers: use Link component instead, you do not need to recreate styles.`,
-		value: `600 1.4rem/140% 'Source Sans Pro'`,
+		value: `600 0.875rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.4rem',
+		fontSize: '0.875rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:14231707ce62ba7e59d9fa51c7398fc916879560,',
@@ -3024,10 +3030,10 @@ Developers: use Link component instead, you do not need to recreate styles.`,
 		name: 'coralDataXl',
 		type: 'typography',
 		description: `Data text style - use for large display of metrics.`,
-		value: `400 2.4rem/140% 'Inconsolata'`,
+		value: `400 1.5rem/140% 'Inconsolata'`,
 		fontStyle: 'normal',
 		fontWeight: '400',
-		fontSize: '2.4rem',
+		fontSize: '1.5rem',
 		lineHeight: '140%',
 		fontFamily: 'Inconsolata',
 		id: 'S:6136688c80e14f3c6a44576a2d5b943c6ce76121,',
@@ -3036,10 +3042,10 @@ Developers: use Link component instead, you do not need to recreate styles.`,
 		name: 'coralLinkS',
 		type: 'typography',
 		description: `For links included in paragraphs using paragraph/S or for small breadcrumbs`,
-		value: `600 1.2rem/140% 'Source Sans Pro'`,
+		value: `600 0.75rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.2rem',
+		fontSize: '0.75rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:6fe023511d622ae1addba3ad36962df23dcdf736,',
@@ -3048,10 +3054,10 @@ Developers: use Link component instead, you do not need to recreate styles.`,
 		name: 'coralLinkSUnderlined',
 		type: 'typography',
 		description: `For links included in paragraphs using paragraph/S or for small breadcrumbs`,
-		value: `600 1.2rem/140% 'Source Sans Pro'`,
+		value: `600 0.75rem/140% 'Source Sans Pro'`,
 		fontStyle: 'normal',
 		fontWeight: '600',
-		fontSize: '1.2rem',
+		fontSize: '0.75rem',
 		lineHeight: '140%',
 		fontFamily: 'Source Sans Pro',
 		id: 'S:92f8c230bf3768ccc26f706abcfd5db498c78984,',
@@ -3060,28 +3066,28 @@ Developers: use Link component instead, you do not need to recreate styles.`,
 		name: 'coralRadiusM',
 		type: 'radius',
 		description: `Radius for molecules (Accordion, Fieldset, Popover, etc.)`,
-		value: '0.8rem',
+		value: '0.5rem',
 		id: '73293f90-3e58-11ec-94da-6d5db9104cfa',
 	},
 	{
 		name: 'coralRadiusL',
 		type: 'radius',
 		description: `Radius for layout components (Card, Modal, etc.)`,
-		value: '1.6rem',
+		value: '1rem',
 		id: '7ba9c311-3e58-11ec-94da-6d5db9104cfa',
 	},
 	{
 		name: 'coralRadiusRound',
 		type: 'radius',
 		description: `Radius for immediate actions (badges, switch, etc.)`,
-		value: '9999.9rem',
+		value: '6249.9375rem',
 		id: '887c1481-3e58-11ec-94da-6d5db9104cfa',
 	},
 	{
 		name: 'coralRadiusS',
 		type: 'radius',
 		description: `Radius for atomic components (button, tag, tooltip, etc.) `,
-		value: '0.4rem',
+		value: '0.25rem',
 		id: '52824640-4783-11ec-a826-6db8532cd4e8',
 	},
 	{
@@ -3223,7 +3229,7 @@ Just above the default content (Drawer, Modal, Fixed layout...)`,
 	{
 		name: 'coralElevationLayerInteractiveFront',
 		type: 'elevation',
-		description: `Second elevation layer. 
+		description: `Second elevation layer.
 
 For elements above any layout (Dropdown, Popover).`,
 		value: `8`,
@@ -3241,11 +3247,11 @@ For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)`,
 	{
 		name: 'coralAnimationHeartbeat',
 		type: 'animation',
-		description: `Heartbeat animation. 
+		description: `Heartbeat animation.
 
-Ex: Skeletons 
+Ex: Skeletons
 
-Usage: 
+Usage:
 
 animate: tokens.$animation-heartbeat;`,
 		value: `coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite`,

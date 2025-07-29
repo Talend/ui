@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import type { Ref } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import StatusPrimitive, { StatusProps } from '../Primitive/StatusPrimitive';
 
 export type StatusCanceledProps = Omit<StatusProps, 'icon' | 'variant' | 'inProgress'>;

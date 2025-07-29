@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import RegistryProvider from '../src/RegistryProvider';
-import ErrorBoundary from '../src/components/ErrorBoundary/ErrorBoundary.component';
+
+import { render, screen } from '@testing-library/react';
+
 import App from '../src/App';
+import ErrorBoundary from '../src/components/ErrorBoundary/ErrorBoundary.component';
+import RegistryProvider from '../src/RegistryProvider';
 
 jest.mock('react-redux', () => ({
 	esModule: true,

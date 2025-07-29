@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { StackHorizontal, StackVertical, Tabs } from '../../';
+import { variants as StatusDotVariants } from '../../components/StatusDot/Primitive/StatusDotPrimitive';
 
 export default { component: Tabs, title: 'Navigation/Tabs' };
 
@@ -120,6 +121,40 @@ export const TabStandaloneControlled = () => {
 			<Tabs.Panel id="home">Tab content for Home</Tabs.Panel>
 			<Tabs.Panel id="profile">Tab content for Profile</Tabs.Panel>
 			<Tabs.Panel id="contact">Tab content for Contact</Tabs.Panel>
+		</Tabs.Container>
+	);
+};
+
+export const TabsWithStatusDot = () => {
+	return (
+		<Tabs.Container defaultActiveKey="profile">
+			<Tabs.List>
+				<Tabs.Tab
+					aria-controls="user"
+					title="User"
+					icon="user"
+					tag={13}
+					statusDot={StatusDotVariants.beta}
+				/>
+				<Tabs.Tab
+					aria-controls="calendar"
+					title="Calendar"
+					icon="calendar"
+					tag={54}
+					statusDot={StatusDotVariants.information}
+				/>
+				<Tabs.Tab
+					aria-controls="favorite"
+					title="Favorite"
+					icon="star"
+					tag="999+"
+					tooltip="1534 Favorite items"
+					statusDot={StatusDotVariants.success}
+				/>
+			</Tabs.List>
+			<Tabs.Panel id="user">Users tab content</Tabs.Panel>
+			<Tabs.Panel id="calendar">Calendar tab content</Tabs.Panel>
+			<Tabs.Panel id="favorite">Favorite tab content</Tabs.Panel>
 		</Tabs.Container>
 	);
 };

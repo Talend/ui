@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import { getUserConfigFile } from '../utils/env.js';
 
 async function testKarma(env, presetApi, options) {
@@ -12,8 +13,8 @@ async function testKarma(env, presetApi, options) {
 	const karmaConfigPath = path.join(configPath, 'karma.conf.js');
 
 	return utils.process.spawn(
-		new URL(import.meta.resolve('karma/bin/karma')).pathname,
-		['start', karmaConfigPath].concat(options),
+		'node',
+		[resolveScript('karma/bin/karma'), 'start', karmaConfigPath].concat(options),
 		{
 			stdio: 'inherit',
 			env,
@@ -33,8 +34,8 @@ export default async function test(env, presetApi, options) {
 		getUserConfigFile('jest.config.js') || path.join(configPath, 'jest.config.js');
 
 	return utils.process.spawn(
-		new URL(import.meta.resolve('jest-cli/bin/jest')).pathname,
-		['--config', jestConfigPath].concat(options),
+		'node',
+		[resolveScript('jest-cli/bin/jest'), '--config', jestConfigPath].concat(options),
 		{
 			stdio: 'inherit',
 			env,

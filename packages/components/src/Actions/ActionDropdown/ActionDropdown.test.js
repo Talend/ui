@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ActionDropdown, { InjectDropdownMenuItem, getMenuItem } from './ActionDropdown.component';
+
+import ActionDropdown, { getMenuItem, InjectDropdownMenuItem } from './ActionDropdown.component';
 
 jest.unmock('@talend/design-system');
 

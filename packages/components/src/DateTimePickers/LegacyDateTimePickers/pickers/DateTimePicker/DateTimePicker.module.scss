@@ -1,13 +1,13 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
 
 .container {
 	color: tokens.$coral-color-neutral-text;
-	min-width: 29rem;
-	min-height: 35.2rem;
+	min-width: 18.125rem;
+	min-height: 22rem;
 	padding: $padding-normal;
 }
 

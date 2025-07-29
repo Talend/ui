@@ -1,0 +1,48 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as Stories from './Enumeration.stories';
+import { Status } from '../../Status.block';
+
+<Meta of={Stories} />
+<Status id="formEnumeration" />
+
+# Enumeration
+
+Lazy loading list that allows to create, edit and remove items from it.
+
+## Variations
+
+<Canvas of={Stories.Default} />
+
+<Canvas of={Stories.Empty} />
+
+## Usage
+
+The component is split into two parts, the _header_ and the _body_.
+
+### Header
+
+The header has a `title` and the 3 different actions:
+
+1. Create: `onCreate` - optional parameter.
+2. Edit: Triggers edit mode on the body part of the component, which allows for items to be selected. When items are selected, a "Remove" button appears, which triggers the `onRemove` callback when clicked.
+3. Import: `onImport` - optional parameter. If not passed, the action will not appear.
+
+All actions (create, edit and remove) call the `onChange` callback.
+
+The search feature only filters the items already rendered. Since its a lazy loading list, if the items are not rendered they will not be included on the search.
+
+### Body
+
+The part of the component where the lazy loading list is present from the `items` parameter. To load more items, the `loadMoreRows` callback must be passed to the component, with _startIndex_ and _stopIndex_ parameters.
+
+```tsx
+<Enumeration
+	...
+	loadMoreRows={({ startIndex, stopIndex }) => {
+		...
+	}}
+/>
+```
+
+Each item can be editted or removed individually.

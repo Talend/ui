@@ -1,51 +1,29 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .key-value {
 	display: flex;
-	margin-bottom: 0;
 
 	dt,
 	dd {
 		flex: 1;
-
-		> :global(.form-group) {
-			margin-bottom: 0;
-		}
 	}
 
 	dt {
-		font-weight: normal;
-		position: relative;
+		display: flex;
+		align-items: flex-end;
 
-		:global(.form-group) {
-			display: grid;
-			grid-template-columns: auto 3rem;
-			grid-template-areas:
-				'label .....'
-				'input equal'
-				'message ...';
+		> * {
+			flex: 1;
 		}
 
-		:global(.form-group::after) {
+		&::after {
 			grid-area: equal;
 			content: '=';
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height: $input-height-base;
-			width: 3rem;
-		}
-
-		:global(.control-label) {
-			grid-area: label;
-		}
-
-		:global(.form-control) {
-			grid-area: input;
-		}
-
-		:global(.form-control) + div {
-			grid-area: message;
+			height: tokens.$coral-sizing-l;
+			width: tokens.$coral-sizing-m;
 		}
 	}
 }

@@ -1,6 +1,8 @@
-import { Story } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+
+import { action } from '@storybook/addon-actions';
+import { Story } from '@storybook/react';
+
 import { ButtonIcon, ButtonPrimary, ButtonSecondary, ButtonTertiary, Dropdown } from '../../';
 
 export default {
@@ -246,6 +248,8 @@ export const Basic = () => (
 						label: 'Router link with too much copy to create an overflow',
 						type: 'link',
 						icon: 'plus-stroke',
+						'data-testid': 'link-as',
+						'data-test': 'link-as',
 						as: <RouterLink to="/documentation" />,
 					},
 					{

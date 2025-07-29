@@ -14,7 +14,7 @@ exports[`InlineMessage should render a11y html 1`] = `
         aria-hidden="true"
         pointer-events="none"
         shape-rendering="geometricPrecision"
-        style="width: 1.6rem; height: 1.6rem;"
+        style="width: 1rem; height: 1rem;"
       >
         <use
           xlink:href="#information-filled:M"
@@ -41,7 +41,7 @@ exports[`InlineMessage should render a11y html 1`] = `
         aria-hidden="true"
         pointer-events="none"
         shape-rendering="geometricPrecision"
-        style="width: 1.6rem; height: 1.6rem;"
+        style="width: 1rem; height: 1rem;"
       >
         <use
           xlink:href="#square-cross:M"
@@ -68,7 +68,7 @@ exports[`InlineMessage should render a11y html 1`] = `
         aria-hidden="true"
         pointer-events="none"
         shape-rendering="geometricPrecision"
-        style="width: 1.6rem; height: 1.6rem;"
+        style="width: 1rem; height: 1rem;"
       >
         <use
           xlink:href="#check-filled:M"
@@ -95,7 +95,7 @@ exports[`InlineMessage should render a11y html 1`] = `
         aria-hidden="true"
         pointer-events="none"
         shape-rendering="geometricPrecision"
-        style="width: 1.6rem; height: 1.6rem;"
+        style="width: 1rem; height: 1rem;"
       >
         <use
           xlink:href="#exclamation:M"
@@ -122,7 +122,7 @@ exports[`InlineMessage should render a11y html 1`] = `
         aria-hidden="true"
         pointer-events="none"
         shape-rendering="geometricPrecision"
-        style="width: 1.6rem; height: 1.6rem;"
+        style="width: 1rem; height: 1rem;"
       >
         <use
           xlink:href="#information-filled:M"

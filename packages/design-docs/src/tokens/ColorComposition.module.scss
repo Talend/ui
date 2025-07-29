@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .card {
 	justify-content: center;
@@ -8,7 +8,7 @@
 
 	display: inline-flex;
 	border-radius: tokens.$coral-radius-m;
-	min-height: 8.4rem;
+	min-height: 5.25rem;
 }
 
 .score {

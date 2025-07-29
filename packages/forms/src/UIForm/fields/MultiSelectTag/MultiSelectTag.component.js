@@ -1,14 +1,18 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
+
+import classNames from 'classnames';
 import get from 'lodash/get';
-import Typeahead from '@talend/react-components/lib/Typeahead';
+import PropTypes from 'prop-types';
+
 import Badge from '@talend/react-components/lib/Badge';
 import FocusManager from '@talend/react-components/lib/FocusManager';
-import FieldTemplate from '../FieldTemplate';
+import Typeahead from '@talend/react-components/lib/Typeahead';
+
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import callTrigger from '../../trigger';
+import FieldTemplate from '../FieldTemplate';
 
 import theme from './MultiSelectTag.module.scss';
-import callTrigger from '../../trigger';
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -240,7 +244,7 @@ export default class MultiSelectTag extends Component {
 				required={schema.required}
 				valueIsUpdating={valueIsUpdating}
 			>
-				<div className={`${theme.wrapper} form-control`}>
+				<div className={classNames(theme.wrapper, { [theme['has-error']]: !isValid })}>
 					{this.props.value.map((val, index) => {
 						const label = getLabel(this.getTitleMap(), val, names[index]);
 						const badgeProps = {

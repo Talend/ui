@@ -1,6 +1,6 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
 
-$tc-display-button-icon-height: 2.4rem;
+$tc-display-button-icon-height: 1.5rem;
 
 .tc-display-mode-toggle {
 	display: flex;

@@ -1,5 +1,425 @@
 # @talend/react-forms
 
+## 15.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/design-system@11.7.0
+  - @talend/react-components@17.4.0
+  - @talend/icons@7.12.0
+  - @talend/utils@3.3.0
+
+## 15.3.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+### Patch Changes
+
+- Updated dependencies [f53083d]
+  - @talend/design-system@11.6.0
+
+## 15.2.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/json-schema-form-core@1.4.4
+  - @talend/design-system@11.5.3
+  - @talend/design-tokens@3.4.5
+  - @talend/assets-api@1.5.3
+  - @talend/react-components@17.3.9
+  - @talend/icons@7.11.3
+  - @talend/utils@3.2.5
+
+## 15.2.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/json-schema-form-core@1.4.3
+  - @talend/assets-api@1.5.2
+  - @talend/react-components@17.3.6
+  - @talend/design-system@11.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/icons@7.11.1
+  - @talend/utils@3.2.4
+
+## 15.2.2
+
+### Patch Changes
+
+- f9c62f6: TMC-160 - Improve absolute footer buttons compatibility for all drawers
+- Updated dependencies [f9c62f6]
+- Updated dependencies [09807b1]
+  - @talend/react-components@17.3.2
+
+## 15.2.1
+
+### Patch Changes
+
+- 0efaf0b: fix(TMC-861): Enhance translation for some cancel actions on ListView and Enumeration
+
+## 15.2.0
+
+### Minor Changes
+
+- 2a7fe08: chore: Remove ally.js
+
+### Patch Changes
+
+- Updated dependencies [a8a42b5]
+- Updated dependencies [2a7fe08]
+- Updated dependencies [d1f8b6b]
+  - @talend/design-system@11.3.0
+  - @talend/react-components@17.2.0
+
+## 15.1.0
+
+### Minor Changes
+
+- 3894e01: feat: Better handle collapsible fieldset title for UIForm definitions by using schema title by default
+
+## 15.0.2
+
+### Patch Changes
+
+- 194465c: Forms: array widget - use default value when add new item
+
+## 15.0.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/json-schema-form-core@1.4.1
+  - @talend/design-system@11.0.4
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/react-components@17.1.1
+  - @talend/icons@7.10.2
+  - @talend/utils@3.2.2
+
+## 15.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-components@17.0.0
+  - @talend/json-schema-form-core@1.4.0
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/icons@7.10.0
+  - @talend/utils@3.2.0
+
+## 14.1.1
+
+### Patch Changes
+
+- a1684f0: fix exports config
+
+## 14.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [ced37a2]
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/react-components@16.2.0
+  - @talend/json-schema-form-core@1.3.0
+  - @talend/design-system@10.6.0
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/icons@7.9.0
+  - @talend/utils@3.1.0
+
+## 14.0.8
+
+### Patch Changes
+
+- 5b7240e: UI Form fields with both hint and required asterisk are now displayed correctly
+- Updated dependencies [5b7240e]
+  - @talend/design-system@10.4.5
+
+## 14.0.7
+
+### Patch Changes
+
+- b59f982: fix EnumerationForm doesn't use the newest value to validate value
+
+## 14.0.6
+
+### Patch Changes
+
+- eb201ac: fix: check onFinish and onChange before invoking for the Text component
+- Updated dependencies [290ee2e]
+- Updated dependencies [b502805]
+  - @talend/design-system@10.4.3
+  - @talend/react-components@16.1.2
+
+## 14.0.5
+
+### Patch Changes
+
+- 806ba5b: Fix: Enumeration item validate action not responsive
+- Updated dependencies [91b0096]
+  - @talend/design-tokens@3.2.1
+
+## 14.0.4
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- f546896: Fix: improve call of use in sass files + fix ts lint
+- Updated dependencies [a10f800]
+- Updated dependencies [4713998]
+- Updated dependencies [25fb283]
+- Updated dependencies [e521344]
+- Updated dependencies [ceb4faf]
+- Updated dependencies [f546896]
+  - @talend/design-system@10.4.2
+  - @talend/react-components@16.1.1
+  - @talend/icons@7.7.2
+  - @talend/json-schema-form-core@1.2.6
+
+## 14.0.3
+
+### Patch Changes
+
+- d332ab1: Fix imports and typing
+- Updated dependencies [48865e5]
+- Updated dependencies [da2218d]
+- Updated dependencies [779fc8c]
+  - @talend/design-tokens@3.2.0
+  - @talend/design-system@10.4.0
+  - @talend/json-schema-form-core@1.2.5
+
+## 14.0.2
+
+### Patch Changes
+
+- 34a52b9: fix missing aria-describedby attribute
+
+## 14.0.1
+
+### Patch Changes
+
+- 6a69c4c: Fix UI-Form display on TextModeArrayTemplate to have some spacing between templates
+- Updated dependencies [8a25fb3]
+- Updated dependencies [6a69c4c]
+  - @talend/design-system@10.1.0
+  - @talend/react-components@16.0.1
+
+## 14.0.0
+
+### Major Changes
+
+- 0629df7: UI-FORM will now heavily use form components from the Design System
+  - Parent element is wrapped with a DS Form
+  - File / Checkboxes / Text / Number and Textare will now use DS components
+  - All elements will now use DS Label in both text and normal display mode
+
+  # BREAKING CHANGE
+  - Many style overrides will break because of removed bootstrap classes like `form-group` `control-label` `form-actions` `tf-actions-wrapper` `tf-buttons` or `tf-uiform`
+  - No more hearthbeat styling from bootstrap when form elements are in updating state
+  - Removed many possibilities to pass down classNames because DS components won't allow it
+
+## 13.2.3
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+
+## 13.2.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-system@9.8.1
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/react-components@15.3.1
+  - @talend/icons@7.7.1
+  - @talend/utils@3.0.4
+  - @talend/json-schema-form-core@1.2.3
+
+## 13.2.1
+
+### Patch Changes
+
+- c0c434c: fix: loadash imports
+- Updated dependencies [c1c9c5a]
+- Updated dependencies [ca74483]
+- Updated dependencies [c0c434c]
+  - @talend/design-system@9.7.0
+  - @talend/react-components@15.2.5
+  - @talend/utils@3.0.2
+
+## 13.2.0
+
+### Minor Changes
+
+- e38e9f3: fix(DFD-629): Add array item delete button tooltip
+
+### Patch Changes
+
+- Updated dependencies [5f9334f]
+  - @talend/design-system@9.4.0
+
+## 13.1.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-system@9.2.0
+  - @talend/design-tokens@3.1.0
+  - @talend/react-components@15.1.0
+  - @talend/icons@7.7.0
+
+## 13.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+  - @talend/react-components@15.0.1
+  - @talend/design-system@9.0.1
+
+## 13.0.0
+
+### Major Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+  - @talend/design-system@9.0.0
+
+## 12.6.1
+
+### Patch Changes
+
+- 5269331: TDOPS-5854 - Fix MultiSelectTag widget to remove border from Typeahead component
+- Updated dependencies [bfe3b20]
+- Updated dependencies [941ff4f]
+  - @talend/react-components@14.2.2
+
+## 12.6.0
+
+### Minor Changes
+
+- 2065869: chore(DFD-491): Update ArrayItem styles
+
+### Patch Changes
+
+- f675918: fix(DFD-536): Fix click on collapsible toggle
+- Updated dependencies [f0770b1]
+  - @talend/design-system@8.11.1
+
+## 12.5.2
+
+### Patch Changes
+
+- eeec10c: fix timezone names
+
+## 12.5.1
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/utils@3.0.0
+  - @talend/design-system@8.8.3
+
+## 12.5.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-system@8.8.0
+  - @talend/design-tokens@2.11.0
+  - @talend/react-components@13.1.0
+
+## 12.4.0
+
+### Minor Changes
+
+- 7de44f9: Remove dependency on react-bootstrap
+
+### Patch Changes
+
+- c9e740d: TDOPS-5706 - Fix form widget ArrayItem button design and alignment
+- Updated dependencies [7de44f9]
+  - @talend/react-components@13.0.0
+
+## 12.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/design-system@8.6.1
+  - @talend/design-tokens@2.10.1
+  - @talend/react-bootstrap@2.2.1
+  - @talend/assets-api@1.3.1
+  - @talend/react-components@12.3.1
+  - @talend/icons@7.3.1
+  - @talend/json-schema-form-core@1.2.1
+
+## 12.3.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
+### Patch Changes
+
+- Updated dependencies [24bcb177f]
+- Updated dependencies [bd152f9d4]
+- Updated dependencies [a07c9cb0b]
+- Updated dependencies [795a12e2d]
+  - @talend/design-system@8.6.0
+  - @talend/react-bootstrap@2.2.0
+  - @talend/react-components@12.3.0
+
 ## 12.2.0
 
 ### Minor Changes
@@ -285,7 +705,6 @@
   ## Breaking changes :
 
   UI Forms hint definition does not support some properties anymore
-
   - **id** has been removed, you should rely on **data-test** attributes to target elements
   - **className** has been removed because design system component should not be customized
 
@@ -300,7 +719,6 @@
   ## New additions :
 
   UI Forms hint definition can now handle some **data-test** attributes
-
   - **data-test** has been added to target the hint popover content
   - **icon-data-test** has been added to target the hint icon
 
@@ -695,11 +1113,14 @@
     Remove default export of @talend/utils package, use named exports instead
   - WHY the change was made
     The utils package used a default export. so we can't do a destruction import as readme described:
+
   ```
   import { validation } from '@talend/utils';
   ```
+
   - HOW a consumer should update their code
     Use destruction import like `import { validation, date } from '@talend/utils';` to replace default import.
+
 - Updated dependencies [d5f261f49]
   - @talend/utils@2.0.0
   - @talend/react-components@6.41.1

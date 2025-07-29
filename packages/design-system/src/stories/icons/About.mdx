@@ -1,7 +1,7 @@
-import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
-import { StackHorizontal, SizedIcon, Icon } from '../../';
-import * as SizedStories from './SizedIcon.stories';
+import { ArgTypes, Canvas, Meta } from '@storybook/blocks';
+
 import * as Stories from './Icon.stories';
+import * as SizedStories from './SizedIcon.stories';
 
 <Meta title="Icons/About" />
 
@@ -25,10 +25,7 @@ Icons are now strictly defined by size.
 
 [Checkout the SizedIcon docs here.](/docs/icons-sizedicon--docs)
 
-<Canvas>
-	<Story of={SizedStories.Example} />
-</Canvas>
-
+<Canvas of={SizedStories.Example} />
 <ArgTypes of={SizedStories.IconXS} />
 
 Calling `<SizedIcon size="XS" name="note-pencil" />` would not compile in TS because `note-pencil` does not exist at this size.
@@ -41,8 +38,6 @@ This is more generic component which is not considered as Icon but more as image
 
 [Checkout the Icon docs here.](/docs/icons-icon--docs)
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
+<Canvas of={Stories.Usage} />
 
 These icons are lawless. Some even have their own colorset. They are impossible to homogenize as part of a design language.

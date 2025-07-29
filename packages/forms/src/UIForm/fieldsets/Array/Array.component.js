@@ -1,6 +1,7 @@
 import { Component } from 'react';
 
-import { get, head } from 'lodash';
+import get from 'lodash/get';
+import head from 'lodash/head';
 import PropTypes from 'prop-types';
 
 import { getArrayElementSchema } from '../../utils/array';
@@ -35,12 +36,16 @@ export default class ArrayWidget extends Component {
 	onAdd(event) {
 		const arrayMergedSchema = this.props.schema;
 		const { items, schema } = arrayMergedSchema;
-		const getDefaultValue = schema.items.type === 'object' ? {} : '';
 		const hasOneItem = items.length === 1;
 		const itemsEnum = get(schema, 'items.enum');
 		const isSingleSelectItem = hasOneItem && head(items).type === 'select' && head(itemsEnum);
 
-		const defaultValue = isSingleSelectItem ? head(itemsEnum) : getDefaultValue;
+		const schemaDefaultConfig = schema.default?.[0];
+		const defaultConfig = schema.items.type === 'object' ? {} : '';
+
+		const defaultValue = isSingleSelectItem
+			? head(itemsEnum)
+			: schemaDefaultConfig || defaultConfig;
 
 		let currentValue = this.props.value;
 		if (this.isCloseable()) {

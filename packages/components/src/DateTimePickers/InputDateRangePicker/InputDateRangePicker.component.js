@@ -1,18 +1,18 @@
 import { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import omit from 'lodash/omit';
-import classnames from 'classnames';
 import { usePopper } from 'react-popper';
 
-import FocusManager from '../../FocusManager';
-import { focus } from '@talend/react-a11y';
-import Icon from '../../Icon';
+import classnames from 'classnames';
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
 
+import { SizedIcon } from '@talend/design-system';
+import { focus } from '@talend/react-a11y';
+
+import FocusManager from '../../FocusManager';
+import getDefaultT from '../../translate';
 import DateRange from '../DateRange';
 import { DateRangeContext } from '../DateRange/Context';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
-
-import getDefaultT from '../../translate';
 
 import theme from './InputDateRangePicker.module.scss';
 
@@ -104,7 +104,7 @@ export default function InputDateRangePicker(props) {
 								ref={startDateInputRef}
 							/>
 							<span className={classnames(theme.arrow, 'arrow')}>
-								<Icon name="talend-arrow-right" className={classnames(theme.icon, 'icon')} />
+								<SizedIcon name="arrow-right" size="S" />
 							</span>
 							<DateRange.Input
 								{...inputProps}

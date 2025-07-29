@@ -1,5 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 :export {
 	scaleMinColor: tokens.$coral-color-charts-default-weak; /* stylelint-disable-line property-no-unknown */

@@ -1,9 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 // Imported (almost) as-is from TDP
 
 .box-plot {
-	font: 11px 'Source Sans Pro', sans-serif;
+	font: tokens.$coral-paragraph-s;
 
 	line,
 	rect {

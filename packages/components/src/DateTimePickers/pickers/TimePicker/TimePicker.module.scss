@@ -1,15 +1,14 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 .container {
-	padding: $padding-smaller 0;
+	padding: tokens.$coral-spacing-xxs 0;
 	background-color: tokens.$coral-color-neutral-background;
 
 	button {
 		width: 100%;
 		border: none;
 		color: tokens.$coral-color-neutral-text;
-		font-size: 1.4rem;
+		font-size: 0.875rem;
 		font-weight: normal;
 		background-color: tokens.$coral-color-neutral-background;
 

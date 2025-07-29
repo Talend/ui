@@ -1,7 +1,7 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$icon-alignment-offset-m: -0.3rem;
-$icon-alignment-offset-s: 0.1rem;
+$icon-alignment-offset-m: -0.1875rem;
+$icon-alignment-offset-s: 0.0625rem;
 
 .linkable {
 	cursor: pointer;

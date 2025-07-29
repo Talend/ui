@@ -1,0 +1,41 @@
+@use '@talend/design-tokens/lib/tokens' as tokens;
+
+.enumeration__item {
+	align-items: center;
+	background-color: tokens.$coral-color-neutral-background;
+	display: flex;
+	height: 38px;
+	justify-content: space-between;
+	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
+	transition: background-color tokens.$coral-transition-fast;
+
+	&:hover {
+		background-color: tokens.$coral-color-neutral-background-medium;
+	}
+
+	> :first-child {
+		width: 100%;
+
+		label {
+			flex: 1;
+		}
+	}
+
+	&--edit {
+		padding: 0 tokens.$coral-spacing-xxs;
+	}
+
+	&--animate {
+		animation: highlight 1500ms both 100ms;
+	}
+}
+
+@keyframes highlight {
+	0% {
+		background-color: tokens.$coral-color-neutral-background;
+	}
+
+	75% {
+		background-color: tokens.$coral-color-accent-background;
+	}
+}

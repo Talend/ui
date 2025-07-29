@@ -1,5 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $pattern-bar-primary-color: tokens.$coral-color-charts-warning-weak;
 $pattern-bar-secondary-color: tokens.$coral-color-charts-warning-strong;
@@ -19,7 +18,7 @@ $grey-bar-color: tokens.$coral-color-charts-neutral-weak;
 		.recharts-xAxis,
 		.recharts-yAxis {
 			text {
-				font-size: 1.2rem;
+				font-size: 0.75rem;
 				fill: tokens.$coral-color-neutral-text;
 			}
 

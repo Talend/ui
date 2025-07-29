@@ -1,8 +1,9 @@
 /* eslint-disable react/display-name */
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import MonthYearView from './MonthYearView.component';
+
 jest.mock('../../pickers/MonthPicker', () => props => (
 	<div data-testid="MonthPicker" data-props={JSON.stringify(props)} />
 ));

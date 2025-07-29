@@ -1,7 +1,7 @@
-import { ArgTypes, Meta, Canvas, Story } from '@storybook/blocks';
-import { FigmaImage, FigmaIframe } from '@talend/storybook-docs';
+import { Canvas, Meta } from '@storybook/blocks';
 
-import { FloatingDrawer, StackVertical, InlineMessageWarning } from '../../';
+import { FigmaIframe, FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../Status.block';
 
 import * as Stories from './FloatingDrawer.stories';
@@ -31,17 +31,11 @@ It aims to display extra information while keeping the navigation enabled on the
 
 ### Variations
 
-<Canvas withSource="none">
-	<Story of={Stories.Simple} />
-</Canvas>
+<Canvas sourceState="none" of={Stories.Simple} />
 
-<Canvas withSource="none">
-	<Story of={Stories.WithDisclosure} />
-</Canvas>
+<Canvas sourceState="none" of={Stories.WithDisclosure} />
 
-<Canvas withSource="none">
-	<Story of={Stories.WithControlledVisibility} />
-</Canvas>
+<Canvas sourceState="none" of={Stories.WithControlledVisibility} />
 
 ## States
 
@@ -69,6 +63,4 @@ Also `aria-label` is required for screen readers.
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
+<Canvas of={Stories.Usage} />

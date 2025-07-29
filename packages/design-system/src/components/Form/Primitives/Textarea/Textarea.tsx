@@ -1,13 +1,17 @@
 import { forwardRef, Ref, TextareaHTMLAttributes } from 'react';
+
 import classnames from 'classnames';
+
 import styles from './Textarea.module.scss';
 
 export type TextareaPrimitiveProps = TextareaHTMLAttributes<any> & { hasError?: boolean };
 
 const Textarea = forwardRef((props: TextareaPrimitiveProps, ref: Ref<HTMLTextAreaElement>) => {
 	const { className, readOnly = false, disabled = false, hasError = false, ...rest } = props;
+	const defaultRowsNumber = 3;
 	return (
 		<textarea
+			rows={defaultRowsNumber}
 			{...rest}
 			ref={ref}
 			disabled={disabled}

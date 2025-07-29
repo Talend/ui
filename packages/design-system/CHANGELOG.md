@@ -1,5 +1,608 @@
 # @talend/design-system
 
+## 11.7.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/utils@3.3.0
+
+## 11.6.0
+
+### Minor Changes
+
+- f53083d: Revert rhf to 7.53.1
+
+## 11.5.3
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-tokens@3.4.5
+  - @talend/assets-api@1.5.3
+  - @talend/utils@3.2.5
+
+## 11.5.2
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/assets-api@1.5.2
+  - @talend/design-tokens@3.4.4
+  - @talend/utils@3.2.4
+
+## 11.5.1
+
+### Patch Changes
+
+- e75031c: fix(TMC-5881/ds): revert wrapping reset into css layer
+
+## 11.5.0
+
+### Minor Changes
+
+- d80737c: Fix remaining dependabot alerts
+
+### Patch Changes
+
+- 760db2b: fix: wrap reset into css @layer reset
+
+## 11.4.3
+
+### Patch Changes
+
+- 59af07a: InlineEdit - Fix been able to submit field when required and having blank spaces
+
+## 11.4.2
+
+### Patch Changes
+
+- 121bd2f: TMC-1657 - Fix DS drawer overflow for title container
+- 56151ad: InlineEdit should take into account the required property to not submit the input
+
+## 11.4.1
+
+### Patch Changes
+
+- ed7c9ca: TMC-1657 - Handle FloatingDrawer overflow
+
+## 11.4.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+### Patch Changes
+
+- 5168318: fix: update floating-ui lib
+
+## 11.3.1
+
+### Patch Changes
+
+- e742b73: TMC-4293 - Design System link should not be accent/grey while using qlik-light theme
+
+## 11.3.0
+
+### Minor Changes
+
+- a8a42b5: feat(TMC-620): add new illustrations
+
+### Patch Changes
+
+- d1f8b6b: Upgrade react-is to v18.3.1 and set as dependency (not peerDep) in design-system
+
+## 11.2.0
+
+### Minor Changes
+
+- dea4b37: feat(TMC-2505): integrate status dot to tabs component
+
+## 11.1.0
+
+### Minor Changes
+
+- 76ac44b: feat(TMC-2505/webapp): implement status bubble component
+
+## 11.0.8
+
+### Patch Changes
+
+- 293760b: fix: allow form Textarea to changes number of rows and remove fixed css min-height
+
+## 11.0.7
+
+### Patch Changes
+
+- f65f590: fix: Change InlineEdit tooltip position on buttons to prevent z-index issues depending on implementation
+
+## 11.0.6
+
+### Patch Changes
+
+- fcba736: fix: useLayoutEffect to set the data-theme
+- Updated dependencies [fcba736]
+  - @talend/design-tokens@3.4.3
+
+## 11.0.5
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/utils@3.2.3
+
+## 11.0.4
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-tokens@3.4.1
+  - @talend/assets-api@1.5.1
+  - @talend/utils@3.2.2
+
+## 11.0.3
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/utils@3.2.1
+
+## 11.0.2
+
+### Patch Changes
+
+- ae1e3dc: fix: declaration generation for ThemeProviderWithoutGlobals
+
+## 11.0.1
+
+### Patch Changes
+
+- 11c75a1: fix: make ThemeProviderWithoutGlobals working since esm build
+
+## 11.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-tokens@3.4.0
+  - @talend/assets-api@1.5.0
+  - @talend/utils@3.2.0
+
+## 10.6.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+- Updated dependencies [d053412]
+- Updated dependencies [9b66a09]
+  - @talend/design-tokens@3.3.0
+  - @talend/assets-api@1.4.0
+  - @talend/utils@3.1.0
+
+## 10.5.0
+
+### Minor Changes
+
+- 803c4e1: feat: add ThemeProvider without globals
+
+## 10.4.6
+
+### Patch Changes
+
+- 95bb74f: Design system drawer now has a data attribute to identify when it is opened
+
+## 10.4.5
+
+### Patch Changes
+
+- 5b7240e: Form field label property "required" can now be overriden by passing props
+
+## 10.4.4
+
+### Patch Changes
+
+- 6ff9f03: DGT-528: Fix QualityBar rounding issue when the invalid or empty percentages were rounded to 0. Set a miminum value for the rounding to prevent UI inconsistencies
+
+## 10.4.3
+
+### Patch Changes
+
+- 290ee2e: Restore bar line height
+
+## 10.4.2
+
+### Patch Changes
+
+- a10f800: Fix: remove tilde for @use in sass files
+- 4713998: Fix issue with Select component being recreated instead of updated
+- 25fb283: Allow Design System dropdown to have custom data-test attributes
+- f546896: Fix: improve call of use in sass files + fix ts lint
+
+## 10.4.1
+
+### Patch Changes
+
+- d25ebf0: Fix Design System dropdown items when using "as" property for links
+
+## 10.4.0
+
+### Minor Changes
+
+- da2218d: chore: remove bootstrap-theme dependency from QualityBar and RatioBar components
+
+### Patch Changes
+
+- Updated dependencies [48865e5]
+  - @talend/design-tokens@3.2.0
+
+## 10.3.0
+
+### Minor Changes
+
+- 8bf0dd5: feat(DGT-342): Moved QualityBar and RatioBar components to the Design System and use those components on @talend/react-components
+
+## 10.2.2
+
+### Patch Changes
+
+- 9b6d904: TMC-27716 - Fix firefox fieldset height
+
+## 10.2.1
+
+### Patch Changes
+
+- 1488e8a: Status : add data-test\* attributes
+
+## 10.2.0
+
+### Minor Changes
+
+- ea80021: InlineEditing : allow to control edition mode
+
+## 10.1.1
+
+### Patch Changes
+
+- 377e43a: fix(DFD-914): Fix flashing tooltip on some gesture
+
+## 10.1.0
+
+### Minor Changes
+
+- 8a25fb3: DS Field data-test attributes are now passed down to related description
+
+## 10.0.0
+
+### Major Changes
+
+- ce93823: # BREAKING CHANGE
+  Design system - `Loading` component now has a built in size from **XS** to **XXL** and default is **M**.
+  Since it now has a default size it won't take up all the size available and you might have have to adapt your current styling to it.
+
+## 9.8.2
+
+### Patch Changes
+
+- eba9ca8: fix(TUX-1228): allow more props to be passed to each CollapsiblePanel action
+
+## 9.8.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/design-tokens@3.1.1
+  - @talend/assets-api@1.3.2
+  - @talend/utils@3.0.4
+
+## 9.8.0
+
+### Minor Changes
+
+- 08ba8f0: chore(TUX-1228): update CollapsiblePanel to support multiple actions
+
+## 9.7.2
+
+### Patch Changes
+
+- e374251: TMC-26227 - Fix design system loading icon on safari browser
+
+## 9.7.1
+
+### Patch Changes
+
+- 106b735: fix: height for input wrapper
+
+## 9.7.0
+
+### Minor Changes
+
+- c1c9c5a: chore: add data-test attr on stacks
+
+### Patch Changes
+
+- ca74483: Design System - Select element should now take `required` attribute into account
+- Updated dependencies [c0c434c]
+  - @talend/utils@3.0.2
+
+## 9.6.0
+
+### Minor Changes
+
+- 1a06e6f: data-testid on select suffix and input primitive
+
+## 9.5.0
+
+### Minor Changes
+
+- 7c4f1e1: Design System - Allow StackItem to have a `isFullWidth` option to have 100% width style
+
+### Patch Changes
+
+- 9426a79: Design System - Fix on textarea not having color on error state
+
+## 9.4.1
+
+### Patch Changes
+
+- 52563ff: fix(TDOPS-5510/inlineEdit): add data attributes from props
+- Updated dependencies [52563ff]
+  - @talend/utils@3.0.1
+
+## 9.4.0
+
+### Minor Changes
+
+- 5f9334f: feat: remove restrictions on stacks for height and width
+
+## 9.3.0
+
+### Minor Changes
+
+- bb4db90: chore: changed skeleton "sized" variant width and height props to strings
+
+## 9.2.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-tokens@3.1.0
+
+## 9.1.0
+
+### Minor Changes
+
+- d2b4e4e: DS : update popover typings and implement badge popover
+
+## 9.0.2
+
+### Patch Changes
+
+- 7b7d7bb: fix(Messages): set a default font-color for children element
+
+## 9.0.1
+
+### Patch Changes
+
+- Updated dependencies [b1c72a1]
+  - @talend/design-tokens@3.0.0
+
+## 9.0.0
+
+### Major Changes
+
+- 18c1d97: **Breaking change**
+
+  What?
+
+  The setup of 1rem = 10px has been removed. 1rem = 16px is now the default value.
+
+  Why?
+
+  Qlik does not set it and use the default value of 1rem = 16px.
+  Using Coral component in Qlik integrations, we alter their ui by setting 1rem = 10px on the html element.
+
+  How?
+
+  You can use the following code to update all scss files in a folder, to convert rem values from 10px to 16px:
+
+  ```javascript
+  const fs = require('fs');
+  const path = require('path');
+
+  // Get folder path from command-line arguments
+  const folderPath = process.argv[2];
+
+  if (!folderPath) {
+  	console.error('Please provide a folder path as a command-line argument.');
+  	process.exit(1);
+  }
+
+  // Regular expression to match and capture rem values (including potential negative values)
+  const remRegex = /(-?\d*\.?\d+)rem/g;
+
+  // Function to divide rem values by 1.6 and keep the 'rem' unit with minimal decimal places
+  const replaceRem = (match, value) => {
+  	const result = (parseFloat(value) / 1.6).toFixed(4).replace(/\.?0+$/, '');
+  	return result + 'rem';
+  };
+
+  // Function to process a single file
+  const processFile = filePath => {
+  	const cssInput = fs.readFileSync(filePath, 'utf8');
+  	const updatedCSS = cssInput.replace(remRegex, replaceRem);
+  	fs.writeFileSync(filePath, updatedCSS, 'utf8');
+  	console.log(`Updated: ${filePath}`);
+  };
+
+  // Function to recursively find all .scss files in the specified folder
+  const findAllScssFiles = folder => {
+  	const files = fs.readdirSync(folder);
+  	const scssFiles = [];
+
+  	files.forEach(file => {
+  		const filePath = path.join(folder, file);
+  		const stat = fs.statSync(filePath);
+
+  		if (stat.isDirectory()) {
+  			scssFiles.push(...findAllScssFiles(filePath));
+  		} else if (file.endsWith('.scss')) {
+  			scssFiles.push(filePath);
+  		}
+  	});
+
+  	return scssFiles;
+  };
+
+  // Find all .scss files in the specified folder
+  const scssFiles = findAllScssFiles(folderPath);
+
+  // Process each file
+  scssFiles.forEach(processFile);
+  ```
+
+  To run the script, save it to a file with a .js extension (e.g., updateRemValues.js) and execute it using Node.js:
+
+  ```bash
+  node updateRemValues.js /path/to/your/folder
+  ```
+
+## 8.11.1
+
+### Patch Changes
+
+- f0770b1: chore: add "section" as an option to the "as" list of possible values of the StackPrimitive component
+
+## 8.11.0
+
+### Minor Changes
+
+- 19304cd: fix(DFD-563): Add data-testid prefix for inline editing
+
+## 8.10.0
+
+### Minor Changes
+
+- e22a7e3: DS (modal) : allow to use close button without using interactive backdrop
+
+## 8.9.2
+
+### Patch Changes
+
+- 78928ee: Pass hideExternal to Linkable component
+
+## 8.9.1
+
+### Patch Changes
+
+- 14f478d: fix: qlik logo token
+- Updated dependencies [14f478d]
+  - @talend/design-tokens@2.12.1
+
+## 8.9.0
+
+### Minor Changes
+
+- 076147b: feat: update qlik theme
+
+### Patch Changes
+
+- Updated dependencies [076147b]
+  - @talend/design-tokens@2.12.0
+
+## 8.8.3
+
+### Patch Changes
+
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+
+## 8.8.2
+
+### Patch Changes
+
+- c023eb6: fix: help icon color in the header bar
+
+## 8.8.1
+
+### Patch Changes
+
+- 43776f7: Fix minor side effect w/ InlineMessage component style when used in modal
+
+## 8.8.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-tokens@2.11.0
+
+## 8.7.0
+
+### Minor Changes
+
+- b71e4e6: feat(design-system): There is some limitation when designing skeletons
+
+  Add new width for header and paragraph skeletons
+  Add new SkeletonSized that can be shaped for any needs
+
+- 424544a: chore: upgrade date-fns to 2.x and fix
+
+### Patch Changes
+
+- a7b06bc: Fix DS Popover controlled state to allow disclosure props binding
+- 266df87: fix: don't rely on global sr-only classname to hide the icons from the IconsProvider
+- Updated dependencies [1bc49cd]
+- Updated dependencies [424544a]
+  - @talend/utils@2.9.0
+
+## 8.6.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+  - @talend/design-tokens@2.10.1
+  - @talend/assets-api@1.3.1
+
+## 8.6.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+- bd152f9d4: feat(TDC-7378): New enumeration component
+
+### Patch Changes
+
+- a07c9cb0b: TDOPS-5762 - Fix Design System accordion button that would submit a form
+
 ## 8.5.1
 
 ### Patch Changes
@@ -11,7 +614,6 @@
 ### Minor Changes
 
 - 0e6c82e25: feat: rework some part of Message component
-
   - The size of a message fit the container width while before, it has a max width of `28rem`
   - add a new prop `titleInfo` that allow to display an information message aside the title
   - add new prop `additionalIconAction` to allow to display an additional button icon instead (there was only the dropdown action available before)
@@ -102,19 +704,16 @@
 
 - 96d688489: React: Upgrade to react 18 and @types/react 18
 - 9a0732ec5: chore: remove reakit
-
   - Rewrite components without reakit
   - use `@floating-ui/react` for tooltip, popover
   - export all types and components from the root
 
   Breaking changes:
-
   - HTML structure output may have changed
   - Some passed props from our component to reakit and not documented as a usage as been removed. If you need a different usage let us knwow, now we own the code
   - Tabs props API has been completly changed
 
   Components changed:
-
   - Accordion (useId)
   - Clickable (rewrite)
   - Combobox (add as primitive)
@@ -391,7 +990,6 @@
 ### Patch Changes
 
 - fe430c316: fix: add missing export on the root
-
   - Input on Form component (so Form.Input)
   - Breadcrumbs
   - theme tokens
@@ -444,7 +1042,6 @@
 - 69f09a921: ThemeProvider: Removed styled components global styles
 
   BREAKING CHANGE:
-
   - Now global style is applied by default
   - createGlobalStyle is not exposed anymore and should not be needed
   - ThemeProvider.GlobalStyle do not exists, it is now in the by default in the CSS
@@ -511,7 +1108,6 @@
   ## Breaking changes
 
   ### `Form` modules
-
   - As always with these change, we lose StyledComponent's `as` props.
   - No more `className` or `style` on Form elements.
   - No more `Form.FieldGroup`. All the inputs (`Form.Text`, `Form.Select`, `Form.Number` etc...) have `prefix` and `suffix`props to handle this.
@@ -520,7 +1116,6 @@
   - Simpler `description` and `hasError` APIs. Fields can either have a (neutral) description or an error message.
 
   ### `InlineEditing` modules
-
   - As always with these change, we lose StyledComponent's `as` props.
   - No more `className` or `style`.
   - `placeholder` prop is now mandatory.
@@ -528,14 +1123,12 @@
   ## Other changes
 
   ### `Form` modules
-
   - Updated styles with design tokens.
   - Height of input elements based in height of buttons.
   - Focusing a field no longer changes the field's height.
   - Affixes can now be either buttons, text or `select` fields through a props-based API.
 
   ### `InlineEditing` modules
-
   - `InlineEditing.Text` and `InlineEditing.Textarea` both have a `renderValueAs` props that can take React component.
 
   ***
@@ -617,7 +1210,6 @@
 ### Patch Changes
 
 - ae9897897: Using design tokens instead of style components plus fixes in the following components:
-
   - ThemeProvider
   - Switch
   - Layout
@@ -882,7 +1474,6 @@
 - 7af0ef8f6: ## Link
 
   Link component is no longer a Styled Component. Its types are fixed.
-
   - Can't be used as buttons, use `LinkAsButton` instead.
 
   ## Status
@@ -902,7 +1493,6 @@
   The new APIs and looks lead to breaking changes.
 
   ### ButtonToggle vs Toggle
-
   - Style changes (larger by default)
   - Props changed (can be size M or S)
   - No longer stateful (active state must be handled by client application)
@@ -912,7 +1502,6 @@
   Use size `S` if you need to stick closer to previous design.
 
   ### ButtonIcon vs Button.Icon
-
   - Style changes (larger by default, round)
   - Props changed (can be size M, S or XS)
   - Can't display more than one icon (no more icon + caret)
@@ -930,7 +1519,6 @@
   ## Buttons
 
   Buttons are no longer Styled Components. Their types are fixed.
-
   - Style changes (slightly larger by default, new tokens for colors)
   - No more `Button.Icon`, use `ButtonIcon` components instead.
   - No more `Button.Variant` syntax. Use `ButtonPrimary`, `ButtonDestructive` etc... instead.
@@ -941,7 +1529,6 @@
   ## Skeletons
 
   Skeletons are no longer Styled Components.
-
   - No more `Skeleton.Variant` syntax. Use the dedicated component for the variant (ie: `SkeletonButton`).
   - Skeletons do not accept classnames anymore.
 

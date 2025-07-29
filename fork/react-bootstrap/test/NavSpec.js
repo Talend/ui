@@ -1,9 +1,9 @@
 import ReactTestUtils from 'react-dom/test-utils';
+
 import { mount } from 'enzyme';
 
 import Nav from '../src/Nav';
 import NavItem from '../src/NavItem';
-
 import { shouldWarn } from './helpers';
 
 describe('<Nav>', () => {

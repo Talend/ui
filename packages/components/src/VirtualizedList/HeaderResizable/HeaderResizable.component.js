@@ -1,13 +1,16 @@
 /* eslint-disable react/display-name */
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import Draggable from 'react-draggable';
 import { defaultTableHeaderRenderer } from 'react-virtualized';
-import { ConsumerVirtualizedList } from '../virtualizedListContext';
-import headerResizableCssModule from './HeaderResizable.module.scss';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import { getTheme } from '../../theme';
 import getDefaultT from '../../translate';
+import { ConsumerVirtualizedList } from '../virtualizedListContext';
+
+import headerResizableCssModule from './HeaderResizable.module.scss';
 
 const theme = getTheme(headerResizableCssModule);
 

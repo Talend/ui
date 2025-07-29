@@ -1,5 +1,68 @@
 ## [v0.32.5]
 
+## 3.0.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 3.0.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 3.0.2
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+
+## 3.0.1
+
+### Patch Changes
+
+- b8f7672: fix module not found error for @talend/react-bootstrap and @talend/icons
+
+## 3.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 2.3.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+## 2.2.3
+
+### Patch Changes
+
+- d332ab1: Fix imports and typing
+
+## 2.2.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 2.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+
+## 2.2.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
 ## 2.1.1
 
 ### Patch Changes

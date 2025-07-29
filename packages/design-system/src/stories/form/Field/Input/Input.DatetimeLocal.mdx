@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.DatetimeLocal.stories';
@@ -24,9 +26,7 @@ Browser behaviour with the field varies and they don't all display the same plac
 
 ## States
 
-<Canvas>
-	<Story of={Stories.DatetimeLocal} />
-</Canvas>
+<Canvas of={Stories.DatetimeLocal} />
 
 ## Interactions
 

@@ -1,10 +1,10 @@
-import { Fragment, useState, useRef, useEffect, CSSProperties } from 'react';
+import { CSSProperties, Fragment, useEffect, useRef, useState } from 'react';
 
 const EXTRA_SPACE = 5;
 
 const inputTextSizerStyle: CSSProperties = {
-	padding: '0 1rem',
-	fontSize: '1.4rem',
+	padding: '0 0.625rem',
+	fontSize: '0.875rem',
 	visibility: 'hidden',
 	position: 'absolute',
 };

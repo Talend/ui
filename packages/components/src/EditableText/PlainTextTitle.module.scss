@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 @mixin ellipsis {
 	white-space: nowrap;
@@ -10,7 +10,7 @@
 .tc-editable-text-title {
 	display: flex;
 	align-items: center;
-	max-width: 90rem;
+	max-width: 56.25rem;
 
 	:global(.tc-editable-text-wording-wrapper) {
 		@include ellipsis;

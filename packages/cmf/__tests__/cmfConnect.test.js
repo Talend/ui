@@ -1,24 +1,23 @@
 /**
  * @jest-environment jsdom
  */
-
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import { fromJS, Map } from 'immutable';
+
 import { fireEvent, render, screen } from '@testing-library/react';
+import { fromJS, Map } from 'immutable';
+import PropTypes from 'prop-types';
 
-import expression from '../src/expression';
 import { mock } from '../src';
-import { mapStateToViewProps } from '../src/settings';
-
 import cmfConnect, {
-	getComponentName,
 	getComponentId,
-	getStateToProps,
+	getComponentName,
 	getDispatchToProps,
 	getMergeProps,
+	getStateToProps,
 } from '../src/cmfConnect';
 import component from '../src/component';
+import expression from '../src/expression';
+import { mapStateToViewProps } from '../src/settings';
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {

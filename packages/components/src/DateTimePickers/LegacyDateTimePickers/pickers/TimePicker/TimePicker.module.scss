@@ -1,7 +1,7 @@
 /* stylelint-disable color-hex-case */
 /* stylelint-disable selector-no-qualifying-type */
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 @import '../../shared/styles/mixins';
 
@@ -18,7 +18,7 @@
 
 		.utc {
 			color: tokens.$coral-color-neutral-text;
-			font-size: 1.2rem;
+			font-size: 0.75rem;
 		}
 	}
 
@@ -30,7 +30,7 @@
 
 	> input.time-input {
 		border: 1px solid tokens.$coral-color-neutral-border;
-		height: 3rem;
+		height: 1.875rem;
 		text-align: center;
 		width: 100%;
 

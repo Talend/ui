@@ -1,8 +1,8 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-enumeration-height: 50vh !default;
-$tc-enumeration-font-size: 1.4rem !default;
+$tc-enumeration-font-size: 0.875rem !default;
 
 .tc-enumeration {
 	overflow: hidden;
@@ -22,7 +22,7 @@ $tc-enumeration-font-size: 1.4rem !default;
 
 			&.btn-link {
 				padding: 0 $padding-normal;
-				outline-offset: 0.5rem;
+				outline-offset: 0.3125rem;
 
 				svg {
 					height: $tc-enumeration-font-size;

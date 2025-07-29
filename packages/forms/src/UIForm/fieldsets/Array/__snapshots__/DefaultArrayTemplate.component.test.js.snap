@@ -5,11 +5,13 @@ exports[`Default Array Template component should render default array template 1
   class="theme-tf-array-fieldset tf-array-fieldset"
   data-content="comments"
 >
-  <legend
-    class="sr-only"
+  <span
+    class="theme-hidden"
   >
-    comments
-  </legend>
+    <legend>
+      comments
+    </legend>
+  </span>
   <button
     aria-label="Add"
     class="theme-tf-array-add tf-array-add btn btn-info"
@@ -20,36 +22,34 @@ exports[`Default Array Template component should render default array template 1
       Add
     </span>
   </button>
-  <div>
-    <div
-      aria-live="polite"
-      class="theme-inlineMessage"
-      data-test="fieldTemplate.inlineMessage"
-      id="my-template-description"
-      role="status"
+  <div
+    aria-live="polite"
+    class="theme-inlineMessage"
+    data-test="fieldTemplate.inlineMessage"
+    id="my-template-description"
+    role="status"
+  >
+    <span
+      class="theme-icon theme-information__icon"
     >
-      <span
-        class="theme-icon theme-information__icon"
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1rem; height: 1rem;"
       >
-        <svg
-          aria-hidden="true"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
-        >
-          <use
-            xlink:href="#information-filled:M"
-          />
-        </svg>
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="theme-inlineMessage__contents"
+    >
+      <span>
+        Tnstructions to fill it
       </span>
-      <p
-        class="theme-inlineMessage__contents"
-      >
-        <span>
-          Tnstructions to fill it
-        </span>
-      </p>
-    </div>
+    </p>
   </div>
   <ol
     aria-describedby="my-template-description my-template-error"
@@ -67,39 +67,53 @@ exports[`Default Array Template component should render default array template 1
           class="theme-control"
         >
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Move up"
-            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only theme-btn-disabled btn btn-link"
+            class="theme-clickable theme-buttonIcon theme-size_XS"
             disabled=""
             id="my-template-control-0-moveUp"
-            role="link"
+            tabindex="0"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-90"
-              focusable="false"
-              name="talend-arrow-left"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
           </button>
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Move down"
-            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+            class="theme-clickable theme-buttonIcon theme-size_XS"
             id="my-template-control-0-moveDown"
-            role="link"
+            tabindex="0"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
-              focusable="false"
-              name="talend-arrow-left"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
           </button>
         </div>
         <div>
@@ -107,24 +121,32 @@ exports[`Default Array Template component should render default array template 1
           0
         </div>
         <div
-          class="theme-control"
+          class="theme-delete"
         >
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Delete"
-            class="theme-delete btn-icon-only btn btn-link"
+            class="theme-clickable theme-buttonIcon"
             id="my-template-control-0-delete"
-            role="link"
+            tabindex="0"
+            tooltip="Delete"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
-              focusable="false"
-              name="talend-trash"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
           </button>
         </div>
       </div>
@@ -139,38 +161,52 @@ exports[`Default Array Template component should render default array template 1
           class="theme-control"
         >
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Move up"
-            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+            class="theme-clickable theme-buttonIcon theme-size_XS"
             id="my-template-control-1-moveUp"
-            role="link"
+            tabindex="0"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-90"
-              focusable="false"
-              name="talend-arrow-left"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
           </button>
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Move down"
-            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+            class="theme-clickable theme-buttonIcon theme-size_XS"
             id="my-template-control-1-moveDown"
-            role="link"
+            tabindex="0"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
-              focusable="false"
-              name="talend-arrow-left"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
           </button>
         </div>
         <div>
@@ -178,24 +214,32 @@ exports[`Default Array Template component should render default array template 1
           1
         </div>
         <div
-          class="theme-control"
+          class="theme-delete"
         >
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Delete"
-            class="theme-delete btn-icon-only btn btn-link"
+            class="theme-clickable theme-buttonIcon"
             id="my-template-control-1-delete"
-            role="link"
+            tabindex="0"
+            tooltip="Delete"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
-              focusable="false"
-              name="talend-trash"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
           </button>
         </div>
       </div>
@@ -210,39 +254,53 @@ exports[`Default Array Template component should render default array template 1
           class="theme-control"
         >
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Move up"
-            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only btn btn-link"
+            class="theme-clickable theme-buttonIcon theme-size_XS"
             id="my-template-control-2-moveUp"
-            role="link"
+            tabindex="0"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-90"
-              focusable="false"
-              name="talend-arrow-left"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
           </button>
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Move down"
-            class="theme-tf-array-item-reorder tf-array-item-reorder btn-icon-only theme-btn-disabled btn btn-link"
+            class="theme-clickable theme-buttonIcon theme-size_XS"
             disabled=""
             id="my-template-control-2-moveDown"
-            role="link"
+            tabindex="0"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
-              focusable="false"
-              name="talend-arrow-left"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
           </button>
         </div>
         <div>
@@ -250,24 +308,32 @@ exports[`Default Array Template component should render default array template 1
           2
         </div>
         <div
-          class="theme-control"
+          class="theme-delete"
         >
           <button
-            aria-describedby="42"
+            aria-describedby="id-42"
             aria-label="Delete"
-            class="theme-delete btn-icon-only btn btn-link"
+            class="theme-clickable theme-buttonIcon"
             id="my-template-control-2-delete"
-            role="link"
+            tabindex="0"
+            tooltip="Delete"
             type="button"
           >
-            <svg
+            <span
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-trash"
-              focusable="false"
-              name="talend-trash"
-              pointer-events="none"
-              shape-rendering="geometricPrecision"
-            />
+              class="theme-buttonIcon__icon"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
           </button>
         </div>
       </div>

@@ -1,25 +1,25 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$tc-badge-large-label-font-size: 1.4rem !default;
+$tc-badge-large-label-font-size: 0.875rem !default;
 $tc-badge-large-label-font-weight: normal !default;
 $tc-badge-large-label-with-categ-font-weight: $font-weight-semi-bold !default;
-$tc-badge-large-height: 2.4rem !default;
+$tc-badge-large-height: 1.5rem !default;
 $tc-badge-large-vertical-padding: calc((#{$tc-badge-large-height} - #{$tc-badge-large-label-font-size} * #{$line-height-base}) / 2) !default; // $line-height-base / 2
 $tc-badge-large-margin: $padding-smaller !default;
 $tc-badge-large-delete-icon-size: $svg-xs-size !default;
 $tc-badge-large-icon-size: $svg-xs-size !default;
 $tc-badge-large-padding: $padding-small;
 
-$tc-badge-small-label-font-size: 1.2rem !default;
+$tc-badge-small-label-font-size: 0.75rem !default;
 $tc-badge-small-label-font-weight: normal !default;
 $tc-badge-small-label-with-categ-font-weight: $font-weight-semi-bold !default;
-$tc-badge-small-height: 2rem !default;
+$tc-badge-small-height: 1.25rem !default;
 $tc-badge-small-vertical-padding: calc((#{$tc-badge-small-height} - #{$tc-badge-small-label-font-size} * #{$line-height-base}) / 2) !default; // $line-height-base / 2
 $tc-badge-small-margin: $padding-smaller !default;
 $tc-badge-small-delete-icon-size: calc(#{$svg-sm-size} / 2) !default;
 $tc-badge-small-icon-size: $svg-xs-size !default;
-$tc-badge-small-padding: 0.8rem;
+$tc-badge-small-padding: 0.5rem;
 
 $tc-badge-disabled-opacity: 0.62;
 
@@ -43,7 +43,7 @@ $tc-badge-disabled-opacity: 0.62;
 
 .tc-badge {
 	display: inline-flex;
-	max-width: 23.5rem;
+	max-width: 14.6875rem;
 
 	&:not(.tc-badge-readonly) {
 		cursor: pointer;
@@ -137,7 +137,7 @@ $tc-badge-disabled-opacity: 0.62;
 			color: tokens.$coral-color-neutral-text;
 
 			span {
-				max-width: 16rem;
+				max-width: 10rem;
 				display: block;
 				text-overflow: ellipsis;
 				overflow: hidden;
@@ -154,7 +154,7 @@ $tc-badge-disabled-opacity: 0.62;
 
 			&:hover,
 			&:focus,
-			&:global(.ally-focus-within) {
+			&:focus-within {
 				outline: none;
 			}
 		}
@@ -162,7 +162,7 @@ $tc-badge-disabled-opacity: 0.62;
 
 	&.tc-badge-display-large {
 		.tc-badge-separator {
-			margin-top: 0.4rem;
+			margin-top: 0.25rem;
 		}
 
 		.tc-badge-button {
@@ -222,7 +222,7 @@ $tc-badge-disabled-opacity: 0.62;
 
 	&.tc-badge-display-small {
 		.tc-badge-separator {
-			margin-top: 0.3rem;
+			margin-top: 0.1875rem;
 		}
 
 		.tc-badge-button {
@@ -356,7 +356,7 @@ $tc-badge-disabled-opacity: 0.62;
 	&-dropdown {
 		.tc-badge-button {
 			&:not(.tc-badge-disabled) {
-				&:global(.ally-focus-within) {
+				&:focus-within {
 					border-color: tokens.$coral-color-accent-border;
 				}
 			}

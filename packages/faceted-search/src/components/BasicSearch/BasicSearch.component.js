@@ -1,17 +1,12 @@
-import { get, isEqual } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
+
+import get from 'lodash/get';
+import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
 
 import { ButtonIcon, ButtonSecondary, Popover } from '@talend/design-system';
-import { getTheme } from '@talend/react-components/lib/theme';
 
-import { AddFacetPopover } from '../AddFacetPopover';
-import { BadgesGenerator } from '../BadgesGenerator';
-import { QuickSearchInput } from '../QuickSearchInput';
-import { generateBadge } from '../types/badgeDefinition.type';
-import { useFacetedSearchContext } from '../context/facetedSearch.context';
-import { BadgeFacetedProvider } from '../context/badgeFaceted.context';
-
+import { USAGE_TRACKING_TAGS } from '../../constants';
 import {
 	createBadgesDict,
 	filterBadgeDefinitionsWithDictionary,
@@ -19,17 +14,20 @@ import {
 } from '../../dictionary/badge.dictionary';
 import { createOperatorsDict, getOperatorsFromDict } from '../../dictionary/operator.dictionary';
 import { BADGES_ACTIONS, useFacetedBadges } from '../../hooks/facetedBadges.hook';
+import { AddFacetPopover } from '../AddFacetPopover';
+import { BadgesGenerator } from '../BadgesGenerator';
+import { BadgeFacetedProvider } from '../context/badgeFaceted.context';
+import { useFacetedSearchContext } from '../context/facetedSearch.context';
 import {
 	badgesFacetedPropTypes,
 	callbacksPropTypes,
 	operatorsPropTypes,
 } from '../facetedSearch.propTypes';
-
-import theme from './BasicSearch.module.scss';
-import { USAGE_TRACKING_TAGS } from '../../constants';
+import { QuickSearchInput } from '../QuickSearchInput';
 import { DEFAULT_QUICKSEARCH_OPERATOR } from '../QuickSearchInput/QuickSearchInput.component';
+import { generateBadge } from '../types/badgeDefinition.type';
 
-const css = getTheme(theme);
+import styles from './BasicSearch.module.scss';
 
 const isInCreation = badge => get(badge, 'metadata.isInCreation', true);
 
@@ -47,6 +45,7 @@ const BasicSearch = ({
 	quickSearchPlaceholder,
 	quickSearchFacetsFilter,
 	quickSearchInputProps,
+	quickSearchTypeaheadProps,
 	disclosureProps,
 }) => {
 	const { id, t } = useFacetedSearchContext();
@@ -109,10 +108,10 @@ const BasicSearch = ({
 		1;
 
 	return (
-		<div id={basicSearchId} className={css('tc-basic-search')}>
+		<div id={basicSearchId} className={styles['tc-basic-search']}>
 			<QuickSearchInput
 				t={t}
-				className={css('tc-basic-search-quicksearch')}
+				className={styles['tc-basic-search-quicksearch']}
 				facets={quicksearchable}
 				placeholder={quickSearchPlaceholder}
 				facetsFilter={quickSearchFacetsFilter}
@@ -131,8 +130,9 @@ const BasicSearch = ({
 				}}
 				inputProps={quickSearchInputProps}
 				minLength={quickSearchMinLength}
+				typeaheadProps={quickSearchTypeaheadProps}
 			/>
-			<div className={css('tc-basic-search-content')}>
+			<div className={styles['tc-basic-search-content']}>
 				<BadgeFacetedProvider value={badgeFacetedContextValue}>
 					<BadgesGenerator
 						badges={state.badges}
@@ -144,11 +144,10 @@ const BasicSearch = ({
 					/>
 				</BadgeFacetedProvider>
 				{badgesDefinitions.length > 0 && (
-					<div className={css('tc-basic-search-content-popover')}>
+					<div>
 						<Popover
 							position="bottom"
 							isFixed
-							hasPadding={false}
 							disclosure={
 								<ButtonSecondary
 									size="S"
@@ -180,7 +179,7 @@ const BasicSearch = ({
 			</div>
 
 			{hasRemovableBadge && (
-				<div className={css('tc-basic-search-clear-content')}>
+				<div className={styles['tc-basic-search-clear-content']}>
 					<ButtonIcon
 						icon="trash"
 						size="S"

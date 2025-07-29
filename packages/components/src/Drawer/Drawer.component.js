@@ -1,18 +1,21 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
-import get from 'lodash/get';
-import omit from 'lodash/omit';
-import noop from 'lodash/noop';
 import { Transition } from 'react-transition-group';
+
 import classnames from 'classnames';
+import get from 'lodash/get';
+import noop from 'lodash/noop';
+import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
+
 import { StackHorizontal, Tag, TagVariantsNames, Tooltip } from '@talend/design-system';
+import { randomUUID } from '@talend/utils';
+
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
-import TabBar from '../TabBar';
-import Inject from '../Inject';
 import EditableText from '../EditableText';
+import Inject from '../Inject';
+import TabBar from '../TabBar';
 import { getTheme } from '../theme';
-import { randomUUID } from '@talend/utils';
 
 import theme from './Drawer.module.scss';
 
@@ -252,7 +255,7 @@ DrawerTitle.propTypes = {
 
 function DrawerContent({ children, className, ...rest }) {
 	return (
-		<div className={css('tc-drawer-content', className)} {...rest}>
+		<div className={css('tc-drawer-content', className)} data-drawer-content {...rest}>
 			<div className={css('tc-drawer-content-wrapper')}>{children}</div>
 		</div>
 	);
@@ -325,6 +328,10 @@ function Drawer({
 		}
 		activeTabItem = get(activeTab, 'footerActions', {});
 	}
+	const combinedFooterProps = combinedFooterActions(onCancelAction, footerActions, activeTabItem);
+	const displayFooter = Object.values(combinedFooterProps.actions).some(
+		footerAction => !!footerAction.length,
+	);
 
 	return (
 		<DrawerContainer
@@ -349,12 +356,11 @@ function Drawer({
 			)}
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>{children}</DrawerContent>
-				<div className={css('tc-drawer-actionbar-container')}>
-					<ActionBar
-						{...combinedFooterActions(onCancelAction, footerActions, activeTabItem)}
-						className={css('tc-drawer-actionbar')}
-					/>
-				</div>
+				{displayFooter && (
+					<div className={css('tc-drawer-actionbar-container')}>
+						<ActionBar {...combinedFooterProps} className={css('tc-drawer-actionbar')} />
+					</div>
+				)}
 			</div>
 		</DrawerContainer>
 	);

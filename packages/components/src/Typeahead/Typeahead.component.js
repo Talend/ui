@@ -1,20 +1,23 @@
-import PropTypes from 'prop-types';
 import { useMemo, useState } from 'react';
-import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
 import { usePopper } from 'react-popper';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import { randomUUID } from '@talend/utils';
 
-import theme from './Typeahead.module.scss';
-import {
-	renderItemsContainerFactory,
-	renderInputComponent,
-	renderSectionTitle,
-	renderItem,
-} from './Typeahead.component.renderers';
 import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import {
+	renderInputComponent,
+	renderItem,
+	renderItemsContainerFactory,
+	renderSectionTitle,
+} from './Typeahead.component.renderers';
+
+import theme from './Typeahead.module.scss';
 
 function getItems(items, dataFeature) {
 	if (!items) {
@@ -236,6 +239,7 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
 	const isLoadingText =
 		rest.isLoadingText || t('TYPEAHEAD_LOADING', { defaultValue: 'Loading...' });
+
 	const defaultRenderersProps = {
 		renderItem,
 		renderItemsContainer: renderItemsContainerFactory(
@@ -247,11 +251,11 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 			isLoadingText,
 			referenceElement,
 			rest.children,
-
 			setPopperElement,
 			styles,
 			attributes,
 			t,
+			rest.noDomainRenderer,
 		),
 		renderItemData: {
 			valueId: rest.valueId,

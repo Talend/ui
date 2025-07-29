@@ -1,13 +1,15 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import ListView from '@talend/react-components/lib/ListView';
 import { withTranslation } from 'react-i18next';
+
+import PropTypes from 'prop-types';
+
+import ListView from '@talend/react-components/lib/ListView';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import { getItemsProps, initItems, updateItems } from './ListView.utils';
-import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import FieldTemplate from '../FieldTemplate';
+import { getItemsProps, initItems, updateItems } from './ListView.utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -30,7 +32,7 @@ class ListViewWidget extends Component {
 			{
 				id: 'abort',
 				icon: 'talend-cross',
-				label: t('LISTVIEW_WIDGET_ABORT', { defaultValue: 'Abort' }),
+				label: t('LISTVIEW_WIDGET_REMOVE', { defaultValue: 'Remove filter' }),
 				onClick: this.switchToDefaultMode.bind(this),
 			},
 		];

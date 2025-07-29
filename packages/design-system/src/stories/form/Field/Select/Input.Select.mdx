@@ -1,5 +1,7 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
+
 import { Status } from '../../../Status.block';
 
 import * as Stories from './Input.Select.stories';
@@ -29,27 +31,19 @@ import * as Stories from './Input.Select.stories';
 
 ### Default
 
-<Canvas>
-	<Story of={Stories.Select} />
-</Canvas>
+<Canvas of={Stories.Select} />
 
 ### Filled
 
-<Canvas>
-	<Story of={Stories.SelectWithValue} />
-</Canvas>
+<Canvas of={Stories.SelectWithValue} />
 
 ### Multiple
 
-<Canvas>
-	<Story of={Stories.SelectMultiple} />
-</Canvas>
+<Canvas of={Stories.SelectMultiple} />
 
 ### With option groups
 
-<Canvas>
-	<Story of={Stories.SelectOptionGroups} />
-</Canvas>
+<Canvas of={Stories.SelectOptionGroups} />
 
 ## Content
 

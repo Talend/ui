@@ -1,7 +1,7 @@
-import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
 
-import { Tag } from '../../';
 import { Status } from '../Status.block';
 
 import * as Stories from './Tag.stories';
@@ -26,33 +26,27 @@ The Tag component is useful to emphasize information to the user, works best wit
 
 ### Variations
 
-<Canvas>
-	<Story of={Stories.Default} />
-	<Story of={Stories.Information} />
-	<Story of={Stories.Success} />
-	<Story of={Stories.Warning} />
-	<Story of={Stories.Destructive} />
-	<Story of={Stories.Beta} />
-</Canvas>
+<Canvas of={Stories.Default} />
+<Canvas of={Stories.Information} />
+<Canvas of={Stories.Success} />
+<Canvas of={Stories.Warning} />
+<Canvas of={Stories.Destructive} />
+<Canvas of={Stories.Beta} />
 
 Or you can use variant props as well
 
-<Canvas>
-	<Story of={Stories.VariantDefault} />
-	<Story of={Stories.VariantInformation} />
-	<Story of={Stories.VariantSuccess} />
-	<Story of={Stories.VariantWarning} />
-	<Story of={Stories.VariantDestructive} />
-	<Story of={Stories.VariantBeta} />
-</Canvas>
+<Canvas of={Stories.VariantDefault} />
+<Canvas of={Stories.VariantInformation} />
+<Canvas of={Stories.VariantSuccess} />
+<Canvas of={Stories.VariantWarning} />
+<Canvas of={Stories.VariantDestructive} />
+<Canvas of={Stories.VariantBeta} />
 
 ## States
 
 ### Default
 
-<Canvas>
-	<Story of={Stories.Ellipsis} />
-</Canvas>
+<Canvas of={Stories.Ellipsis} />
 
 ## Content
 
@@ -85,8 +79,5 @@ N/A
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
-
+<Canvas of={Stories.Usage} />
 <Controls of={Stories.Usage} />

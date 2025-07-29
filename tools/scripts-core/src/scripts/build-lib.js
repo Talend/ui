@@ -2,11 +2,12 @@
 import cpx from 'cpx2';
 import fs from 'fs';
 import path from 'path';
-import rimraf from 'rimraf';
+import { rimrafSync } from 'rimraf';
 import { fileURLToPath } from 'url';
 
 import * as utils from '@talend/scripts-utils';
 
+import { resolveScript } from '../utils/bin.js';
 import { getUserConfigFile } from '../utils/env.js';
 
 const pkgPath = path.join(process.cwd(), 'package.json');
@@ -15,9 +16,15 @@ const isTSLib = !!types;
 
 export default async function build(env, presetApi, unsafeOptions) {
 	let useTsc = false;
+	let useESM = false;
 	const options = unsafeOptions.filter(o => {
 		if (o === '--tsc') {
 			useTsc = true;
+			// do not keep this option
+			return false;
+		} else if (o === '--esm') {
+			useESM = true;
+			Object.assign(env, { ESM: useESM.toString() });
 			// do not keep this option
 			return false;
 		}
@@ -38,11 +45,13 @@ export default async function build(env, presetApi, unsafeOptions) {
 		path.join(tsRootPath, 'tsconfig.json');
 
 	const srcFolder = path.join(process.cwd(), 'src');
-	const targetFolder = path.join(process.cwd(), 'lib');
+	const targetFolder = useESM
+		? path.join(process.cwd(), 'lib-esm')
+		: path.join(process.cwd(), 'lib');
 
 	if (!options.includes('--watch')) {
 		console.log(`Removing target folder (${targetFolder})...`);
-		rimraf.sync(targetFolder);
+		rimrafSync(targetFolder);
 	}
 	const babelPromise = () =>
 		new Promise((resolve, reject) => {
@@ -50,11 +59,12 @@ export default async function build(env, presetApi, unsafeOptions) {
 				resolve({ status: 0 });
 				return;
 			}
-			console.log('Compiling with babel...');
+			console.log('Compiling with babel...', { ...env, ESM: useESM.toString() });
 			utils.process
 				.spawn(
-					new URL(import.meta.resolve('@babel/cli/bin/babel.js')).pathname,
+					'node',
 					[
+						resolveScript('@babel/cli/bin/babel.js'),
 						'--config-file',
 						babelConfigPath,
 						'-d',
@@ -104,11 +114,11 @@ export default async function build(env, presetApi, unsafeOptions) {
 			} else {
 				console.log('Building with tsc');
 			}
+			const tsc = resolveScript('typescript/bin/tsc');
+			args = [tsc].concat(args);
 
-			const tsc = new URL(import.meta.resolve('typescript/bin/tsc')).pathname;
-			console.log('####TSC', args);
 			utils.process
-				.spawn(tsc, args, { stdio: 'inherit', env })
+				.spawn('node', args, { stdio: 'inherit', env })
 				.then(tscSpawn => {
 					tscSpawn.on('exit', status => {
 						if (parseInt(status, 10) !== 0) {
@@ -142,7 +152,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 	const copyPromise = () =>
 		new Promise((resolve, reject) => {
 			if (options.includes('--watch')) {
-				const evtEmitter = cpx.watch(`${srcFolder}/**/*.{scss,json}`, targetFolder);
+				const evtEmitter = cpx.watch(`${srcFolder}/**/*.{css,scss,json}`, targetFolder);
 				evtEmitter.on('watch-error', err => {
 					reject(err);
 				});
@@ -151,7 +161,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 				});
 			} else {
 				console.log('Copying assets...');
-				cpx.copy(`${srcFolder}/**/*.{scss,json}`, targetFolder, err => {
+				cpx.copy(`${srcFolder}/**/*.{css,scss,json}`, targetFolder, err => {
 					if (err) {
 						console.error(err);
 						reject(err);

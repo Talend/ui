@@ -23,16 +23,10 @@ module.exports = (env, argv) => {
 			rules: [
 				{
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-					use: [
-						{
-							loader: require.resolve('file-loader'),
-							options: {
-								outputPath: 'fonts',
-								name: '[name].[ext]',
-								esModule: false,
-							},
-						},
-					],
+					type: 'asset/resource',
+					generator: {
+						filename: 'fonts/[name][ext]',
+					},
 				},
 				{
 					test: /bootstrap\.scss$/,
@@ -60,6 +54,7 @@ module.exports = (env, argv) => {
 							loader: require.resolve('sass-loader'),
 							options: {
 								sourceMap: true,
+								sassOptions: { includePaths: ['./node_modules', '../../node_modules'] },
 							},
 						},
 					],
@@ -86,7 +81,7 @@ module.exports = (env, argv) => {
 				? new webpack.HotModuleReplacementPlugin()
 				: new MiniCssExtractPlugin({
 						filename: 'bootstrap.css',
-				  }),
+					}),
 		],
 		devServer: {
 			port: 1234,

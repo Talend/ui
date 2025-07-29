@@ -1,6 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { useForm, FormProvider } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
+
 import { action } from '@storybook/addon-actions';
+
+import { Form } from '@talend/design-system';
+
 import TextArea from '.';
 
 export default {
@@ -44,14 +48,16 @@ export const States = props => {
 	const rhf = useForm();
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<TextArea id="name" {...props} />
 				<TextArea id="disabled" name="disabled" label="Disabled" defaultValue="Jimmy" disabled />
 				<TextArea id="readonly" name="readonly" label="Readonly" defaultValue="Jimmy" readOnly />
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
@@ -66,12 +72,14 @@ export const Description = props => {
 
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<TextArea id="description" {...props} />
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };
@@ -86,7 +94,7 @@ export const Validation = props => {
 
 	return (
 		<FormProvider {...rhf}>
-			<form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
+			<Form onSubmit={rhf.handleSubmit(action('submit'))} noValidate>
 				<TextArea id="required" {...props} rules={{ required: 'This is required' }} />
 				<TextArea
 					id="notLol"
@@ -99,10 +107,12 @@ export const Validation = props => {
 					}}
 					required
 				/>
-				<button type="submit" className="btn btn-primary">
-					Submit
-				</button>
-			</form>
+				<Form.Buttons>
+					<button type="submit" className="btn btn-primary">
+						Submit
+					</button>
+				</Form.Buttons>
+			</Form>
 		</FormProvider>
 	);
 };

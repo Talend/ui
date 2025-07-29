@@ -1,5 +1,31 @@
 # @talend/scripts-config-stylelint
 
+## 4.2.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 4.2.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 4.2.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 4.1.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
 ## 4.1.0
 
 ### Minor Changes
@@ -15,7 +41,6 @@
 ### Major Changes
 
 - 8d64e97f2: chore: upgrade stylelint and rules contains breaking changes:
-
   - stylelint from 14 to 15: https://stylelint.io/migration-guide/to-15/
   - stylelint-config-sass-guidelines from 9 to 10 https://github.com/bjankord/stylelint-config-sass-guidelines/blob/main/CHANGELOG.md#1000
   - stylelint-config-standard from 28 to 34 https://github.com/stylelint/stylelint-config-standard/blob/main/CHANGELOG.md#3400

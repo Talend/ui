@@ -1,5 +1,306 @@
 # @talend/react-containers
 
+## 11.4.0
+
+### Minor Changes
+
+- 00e4dde: Bump deps and set RHF to latest with caret
+
+### Patch Changes
+
+- Updated dependencies [00e4dde]
+  - @talend/design-system@11.7.0
+  - @talend/react-components@17.4.0
+  - @talend/react-forms@15.4.0
+  - @talend/utils@3.3.0
+
+## 11.3.4
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/design-system@11.5.3
+  - @talend/react-components@17.3.9
+  - @talend/react-forms@15.2.4
+  - @talend/utils@3.2.5
+  - @talend/react-cmf@11.0.2
+
+## 11.3.3
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/react-cmf@11.0.1
+  - @talend/react-components@17.3.6
+  - @talend/design-system@11.5.2
+  - @talend/react-forms@15.2.3
+  - @talend/utils@3.2.4
+
+## 11.3.2
+
+### Patch Changes
+
+- Updated dependencies [816bb91]
+  - @talend/react-cmf@11.0.0
+
+## 11.3.1
+
+### Patch Changes
+
+- 6d93484: Upgrade cmf
+
+## 11.3.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+### Patch Changes
+
+- Updated dependencies [5168318]
+- Updated dependencies [ea14b87]
+  - @talend/design-system@11.4.0
+  - @talend/react-components@17.3.1
+  - @talend/react-cmf@10.1.0
+
+## 11.2.1
+
+### Patch Changes
+
+- c3b6358: docs: update links from surge to github.io
+- Updated dependencies [c3b6358]
+  - @talend/react-components@17.2.1
+  - @talend/react-cmf@10.0.2
+
+## 11.2.0
+
+### Minor Changes
+
+- da838fe: fix(TMC-29799): highlighting selected item in side panel and opening link in new tab
+
+## 11.1.0
+
+### Minor Changes
+
+- be457e9: fix(containers): Expose defaultRegistry through ComponentForm.kit
+
+## 11.0.4
+
+### Patch Changes
+
+- 7ebe036: Revert "fix: Fix exports to allow deep imports"
+- Updated dependencies [7ebe036]
+  - @talend/design-system@11.0.5
+  - @talend/react-components@17.1.2
+  - @talend/utils@3.2.3
+
+## 11.0.3
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/design-system@11.0.4
+  - @talend/react-components@17.1.1
+  - @talend/react-forms@15.0.1
+  - @talend/utils@3.2.2
+  - @talend/react-cmf@10.0.1
+
+## 11.0.2
+
+### Patch Changes
+
+- 94aad7d: fix: Fix exports to allow deep imports
+- Updated dependencies [94aad7d]
+  - @talend/design-system@11.0.3
+  - @talend/react-components@17.0.1
+  - @talend/utils@3.2.1
+
+## 11.0.1
+
+### Patch Changes
+
+- c520cd8: fix(containers): Fix tsconfig to have right d.ts files
+
+## 11.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/design-system@11.0.0
+  - @talend/react-components@17.0.0
+  - @talend/react-forms@15.0.0
+  - @talend/react-cmf@10.0.0
+  - @talend/utils@3.2.0
+
+## 10.8.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [ced37a2]
+- Updated dependencies [3bd16fc]
+  - @talend/react-components@16.2.0
+  - @talend/design-system@10.6.0
+  - @talend/react-forms@14.1.0
+  - @talend/utils@3.1.0
+  - @talend/react-cmf@9.1.0
+
+## 10.7.4
+
+### Patch Changes
+
+- Updated dependencies [e48ae5f]
+  - @talend/react-cmf@9.0.0
+
+## 10.7.3
+
+### Patch Changes
+
+- Updated dependencies [0629df7]
+  - @talend/react-forms@14.0.0
+
+## 10.7.2
+
+### Patch Changes
+
+- Updated dependencies [ce93823]
+  - @talend/design-system@10.0.0
+  - @talend/react-components@16.0.0
+  - @talend/react-forms@13.2.3
+
+## 10.7.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+- Updated dependencies [5cedaf1]
+  - @talend/design-system@9.8.1
+  - @talend/react-components@15.3.1
+  - @talend/react-forms@13.2.2
+  - @talend/utils@3.0.4
+  - @talend/react-cmf@8.4.1
+
+## 10.7.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+### Patch Changes
+
+- Updated dependencies [9568363]
+  - @talend/design-system@9.2.0
+  - @talend/react-components@15.1.0
+  - @talend/react-forms@13.1.0
+  - @talend/react-cmf@8.4.0
+
+## 10.6.1
+
+### Patch Changes
+
+- Updated dependencies [18c1d97]
+- Updated dependencies [18c1d97]
+  - @talend/react-components@15.0.0
+  - @talend/react-forms@13.0.0
+  - @talend/design-system@9.0.0
+
+## 10.6.0
+
+### Minor Changes
+
+- 7d73eb9: TDOPS-5724 - Remove bootstrap theme styling and dependency from packages
+
+### Patch Changes
+
+- Updated dependencies [19304cd]
+  - @talend/design-system@8.11.0
+
+## 10.5.1
+
+### Patch Changes
+
+- Updated dependencies [e095335]
+- Updated dependencies [922e3eb]
+  - @talend/react-components@14.0.0
+  - @talend/utils@3.0.0
+  - @talend/react-forms@12.5.1
+  - @talend/react-cmf@8.3.3
+  - @talend/design-system@8.8.3
+
+## 10.5.0
+
+### Minor Changes
+
+- b2d93a4: feat: add @qlik-light theme
+
+### Patch Changes
+
+- Updated dependencies [b2d93a4]
+  - @talend/design-system@8.8.0
+  - @talend/react-components@13.1.0
+  - @talend/react-forms@12.5.0
+
+## 10.4.0
+
+### Minor Changes
+
+- 7de44f9: Removed dependency on react-bootstrap on SelectObject component
+
+### Patch Changes
+
+- Updated dependencies [7de44f9]
+- Updated dependencies [7de44f9]
+- Updated dependencies [c9e740d]
+  - @talend/react-components@13.0.0
+  - @talend/react-forms@12.4.0
+
+## 10.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- 6c2df2b: Upgrade dependencies using talend-scripts upgrade:deps
+- Updated dependencies [c468f2f]
+- Updated dependencies [6c2df2b]
+  - @talend/design-system@8.6.1
+  - @talend/react-bootstrap@2.2.1
+  - @talend/react-components@12.3.1
+  - @talend/react-forms@12.3.1
+  - @talend/react-cmf@8.3.1
+
+## 10.3.0
+
+### Minor Changes
+
+- 24bcb177f: Remove usage of lib keyCode
+
+### Patch Changes
+
+- Updated dependencies [24bcb177f]
+- Updated dependencies [c508840d1]
+- Updated dependencies [bd152f9d4]
+- Updated dependencies [a07c9cb0b]
+- Updated dependencies [795a12e2d]
+- Updated dependencies [795a12e2d]
+  - @talend/design-system@8.6.0
+  - @talend/react-bootstrap@2.2.0
+  - @talend/react-components@12.3.0
+  - @talend/react-forms@12.3.0
+  - @talend/react-cmf@8.3.0
+
 ## 10.2.0
 
 ### Minor Changes
@@ -84,7 +385,6 @@
 ### Patch Changes
 
 - b8c4161d2: test: rewrite all tests using RTL:
-
   - fix(ActionSplitDropdown): omit cmf Props
   - fix(ActionDropdown): pass required id for a11y
   - fix: remove old React contextTypes api
@@ -201,7 +501,6 @@
 
 - 9c44d724f: ## Breaking changes :
   Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
-
   - SidePanel icon is no more handled by the application theme
   - HeaderBar icon is no more handled by the application theme
 

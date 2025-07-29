@@ -1,20 +1,23 @@
-import PropTypes from 'prop-types';
-import { createRef, useState, useLayoutEffect, useEffect } from 'react';
-import classNames from 'classnames';
+import { createRef, useEffect, useLayoutEffect, useState } from 'react';
 import { withTranslation } from 'react-i18next';
 
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import 'simplebar';
-import 'simplebar/dist/simplebar.css';
+import 'simplebar-react/dist/simplebar.min.css';
 
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import '../translate';
-import Action from '../Actions/Action';
+import tokens from '@talend/design-tokens';
+
 import ActionList from '../ActionList';
+import Action from '../Actions/Action';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import Inject from '../Inject';
+import '../translate';
+
 import theme from './SidePanel.module.scss';
 
-const DOCKED_MIN_WIDTH = '6rem';
-const LARGE_DOCKED_MIN_WIDTH = '7rem';
+const DOCKED_MIN_WIDTH = '3.75rem';
+const LARGE_DOCKED_MIN_WIDTH = '4.375rem';
 
 function getInitialWidth(docked, large) {
 	if (docked && large) {
@@ -108,14 +111,7 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav
-			id={id}
-			className={navCSS}
-			role="navigation"
-			ref={ref}
-			style={{ width }}
-			data-theme="light"
-		>
+		<nav id={id} className={navCSS} role="navigation" ref={ref} style={{ width }}>
 			{backgroundIcon && (
 				<style>
 					{`#${id}::before {
@@ -123,10 +119,11 @@ function SidePanel({
 						position: absolute;
 						left: 0;
 						bottom: -50px;
-						height: 31rem;
-						width: 31rem;
+						height: 19.375rem;
+						width: 19.375rem;
 						background-repeat: no-repeat;
-						background-color: rgba(255, 255, 255, 0.1);
+						opacity: 0.1;
+						background-color: ${tokens.coralColorBrandIcon};
 						mask-image: url('${backgroundIcon}');
 						-webkit-mask-image: url('${backgroundIcon}');
 				}`}

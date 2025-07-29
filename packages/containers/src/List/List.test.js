@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/display-name */
-import { screen, render, fireEvent } from '@testing-library/react';
-import { Map, fromJS, List as ImmutableList } from 'immutable';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { fromJS, List as ImmutableList, Map } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
+
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
-import Container, { DEFAULT_STATE } from './List.container';
+
 import Connected, { mapStateToProps } from './List.connect';
+import Container, { DEFAULT_STATE } from './List.container';
 
 const cmfModule = {
 	id: 'test',

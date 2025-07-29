@@ -1,6 +1,6 @@
 /* stylelint-disable declaration-no-important */
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-list-title-icon-size: $svg-rg-size !default;
 
@@ -68,7 +68,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 .tc-list-title-filter {
 	&:not(.tc-list-title-disabled) {
 		&:hover,
-		&:global(.ally-focus-within) {
+		&:focus-within {
 			.icon {
 				color: tokens.$coral-color-accent-text;
 				filter: none;
@@ -86,7 +86,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
 	&:focus,
-	&:global(.ally-focus-within) {
+	&:focus-within {
 		:global(.tc-list-title .cell-title-actions) {
 			opacity: 1;
 			width: 100%;
@@ -100,7 +100,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 :global(.ReactVirtualized__Table__row.active) {
 	&:hover,
 	&:focus,
-	&:global(.ally-focus-within) {
+	&:focus-within {
 		:global(.tc-list-title .cell-title-actions) {
 			// background: linear-gradient(90deg, tokens.$coral-color-neutral-background, tokens.$coral-color-accent-background $padding-large);
 		}
@@ -111,7 +111,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 :global(.ReactVirtualized__Table__row.selected) {
 	&:hover,
 	&:focus,
-	&:global(.ally-focus-within) {
+	&:focus-within {
 		:global(.tc-list-title .cell-title-actions) {
 			// background: linear-gradient(90deg, tokens.$coral-color-neutral-background, tokens.$coral-color-accent-background $padding-large);
 		}
@@ -125,7 +125,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
 	&:focus,
-	&:global(.ally-focus-within) {
+	&:focus-within {
 		overflow: visible !important;
 
 		:global(.tc-list-title-cell),
@@ -138,7 +138,7 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
 	&:focus,
-	&:global(.ally-focus-within) {
+	&:focus-within {
 		/* avoid scrolling over x axis */
 		width: auto !important;
 		right: 0 !important;

@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Component, { isLoaded } from './RecordsViewerBranch.component';
+
 jest.unmock('@talend/design-system');
 
 describe('isLoading', () => {

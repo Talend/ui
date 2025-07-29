@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { KeyboardEvent, ComponentType, Component } from 'react';
+import { Component, ComponentType, KeyboardEvent } from 'react';
+
 import { focusOn } from './focus';
 
 function getAllItems(ref: HTMLElement) {

@@ -1,16 +1,19 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
-import _isEmpty from 'lodash/isEmpty';
-import Enumeration from '@talend/react-components/lib/Enumeration';
-import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
+
+import classNames from 'classnames';
+import _isEmpty from 'lodash/isEmpty';
+import pickBy from 'lodash/pickBy';
+import PropTypes from 'prop-types';
+
+import Enumeration from '@talend/react-components/lib/Enumeration';
 import FocusManager from '@talend/react-components/lib/FocusManager';
 
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message';
+import FieldTemplate from '../FieldTemplate';
+import { deleteSelectedItems, manageCtrlKey, manageShiftKey, resetItems } from './utils/utils';
 
 export const enumerationStates = {
 	DISPLAY_MODE_DEFAULT: 'DISPLAY_MODE_DEFAULT',
@@ -100,7 +103,7 @@ class EnumerationForm extends Component {
 				onClick: this.onSingleAddHandler.bind(this),
 			},
 			{
-				label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
+				label: t('ENUMERATION_WIDGET_CANCEL', { defaultValue: 'Cancel' }),
 				icon: 'talend-cross',
 				id: 'abort',
 				key: 'abort',
@@ -109,7 +112,7 @@ class EnumerationForm extends Component {
 		];
 		this.searchInputsActions = [
 			{
-				label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
+				label: t('ENUMERATION_WIDGET_REMOVE', { defaultValue: 'Remove filter' }),
 				icon: 'talend-cross',
 				id: 'abort',
 				key: 'abort',
@@ -134,7 +137,7 @@ class EnumerationForm extends Component {
 			},
 			{
 				disabled: false,
-				label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
+				label: t('ENUMERATION_WIDGET_CANCEL', { defaultValue: 'Cancel' }),
 				icon: 'talend-cross',
 				id: 'abort',
 				onClick: this.onAbortItem.bind(this),
@@ -273,7 +276,7 @@ class EnumerationForm extends Component {
 	onChange(event, payload) {
 		const { schema, onFinish, onChange } = this.props;
 		onChange(event, payload);
-		onFinish(event, { schema });
+		onFinish(event, { schema, value: payload.value });
 	}
 
 	onImportAppendClick() {
@@ -457,7 +460,10 @@ class EnumerationForm extends Component {
 						schema,
 						value: this.state.items.map((item, index) => {
 							if (index === value.index) {
-								return { ...item, values: formattedValue };
+								return pickBy(
+									{ ...item, values: formattedValue },
+									(_, key) => !['displayMode', 'isSelected'].includes(key),
+								);
 							}
 							return item;
 						}),

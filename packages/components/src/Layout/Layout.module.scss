@@ -1,4 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
 
 ////
 /// Layout
@@ -9,10 +9,9 @@
 /// @type Number (Unit)
 
 // Need to be higher to typehead (1035)
-$tc-drawer-z-index: $zindex-navbar-fixed + 6 !default;
+$tc-drawer-z-index: calc($zindex-navbar-fixed + 6) !default;
 $tc-layout-header-height: $navbar-height !default;
-$tc-layout-skip-links-z-index: $tc-drawer-z-index + 20 !default;
-$tc-layout-header-z-index: $tc-drawer-z-index + 10 !default;
+$tc-layout-skip-links-z-index: calc($tc-drawer-z-index + 20) !default;
 
 .layout {
 	display: flex;
@@ -26,7 +25,6 @@ $tc-layout-header-z-index: $tc-drawer-z-index + 10 !default;
 
 	.header {
 		flex: 0 0 $tc-layout-header-height;
-		z-index: $tc-layout-header-z-index;
 	}
 
 	.footer {

@@ -12,6 +12,7 @@ exports[`Accordion should render a11y html 1`] = `
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-0"
+      type="button"
     >
       <div
         class="theme-iconWrapper"
@@ -21,7 +22,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -41,7 +42,7 @@ exports[`Accordion should render a11y html 1`] = `
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
                 xlink:href="#check-filled:M"
@@ -67,6 +68,7 @@ exports[`Accordion should render a11y html 1`] = `
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-1"
+      type="button"
     >
       <div
         class="theme-iconWrapper"
@@ -76,7 +78,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -96,7 +98,7 @@ exports[`Accordion should render a11y html 1`] = `
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
                 xlink:href="#square-cross:M"
@@ -122,6 +124,7 @@ exports[`Accordion should render a11y html 1`] = `
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-2"
+      type="button"
     >
       <div
         class="theme-iconWrapper"
@@ -131,7 +134,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -148,6 +151,7 @@ exports[`Accordion should render a11y html 1`] = `
             class="theme-status__icon"
           >
             <svg
+              style="width: 1rem; height: 1rem;"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -192,6 +196,7 @@ exports[`Accordion should render a11y html 1`] = `
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-3"
+      type="button"
     >
       <div
         class="theme-iconWrapper"
@@ -201,7 +206,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -221,7 +226,7 @@ exports[`Accordion should render a11y html 1`] = `
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
                 xlink:href="#exclamation:M"
@@ -247,6 +252,7 @@ exports[`Accordion should render a11y html 1`] = `
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-4"
+      type="button"
     >
       <div
         class="theme-iconWrapper"
@@ -256,7 +262,7 @@ exports[`Accordion should render a11y html 1`] = `
           color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
           pointer-events="none"
           shape-rendering="geometricPrecision"
-          style="width: 1.6rem; height: 1.6rem;"
+          style="width: 1rem; height: 1rem;"
         >
           <use
             xlink:href="#chevron-down:M"
@@ -276,7 +282,7 @@ exports[`Accordion should render a11y html 1`] = `
               aria-hidden="true"
               pointer-events="none"
               shape-rendering="geometricPrecision"
-              style="width: 1.6rem; height: 1.6rem;"
+              style="width: 1rem; height: 1rem;"
             >
               <use
                 xlink:href="#circle-slash:M"

@@ -1,9 +1,20 @@
 {
   "name": "@talend/utils",
-  "version": "2.8.0",
+  "version": "3.3.0",
   "description": "Various utilities",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    "./lib/*": {
+      "import": "./lib-esm/*/index.js",
+      "require": "./lib/*/index.js"
+    },
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Talend/ui.git"
@@ -11,7 +22,8 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib": "talend-scripts build",
+    "build:lib": "talend-scripts build --tsc",
+    "build:lib:esm": "talend-scripts build --esm",
     "lint": "talend-scripts lint",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --silent",
@@ -20,18 +32,18 @@
     "extends": "talend-scripts extends"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.1",
-    "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-core": "^16.3.0",
-    "@talend/scripts-config-jest": "^13.1.1",
-    "@talend/scripts-config-stylelint": "^4.1.0",
-    "@talend/scripts-config-typescript": "^11.2.0",
-    "@types/date-fns": "^0.0.2",
-    "@types/lodash": "^4.14.202",
+    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/scripts-core": "^16.6.0",
+    "@talend/scripts-config-jest": "^14.3.0",
+    "@talend/scripts-config-stylelint": "^4.2.2",
+    "@talend/scripts-config-typescript": "^11.3.2",
+    "@types/date-fns": "^2.6.3",
+    "@types/lodash": "^4.17.20",
     "cross-env": "^7.0.3"
   },
   "dependencies": {
-    "date-fns": "^1.30.1",
+    "date-fns": "^3.6.0",
     "lodash": "^4.17.21"
   },
   "publishConfig": {

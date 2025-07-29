@@ -1,4 +1,5 @@
 import { forwardRef, ReactElement, Ref } from 'react';
+
 import { Linkable, LinkableType } from '../../Linkable';
 
 import styles from './DropdownEntry.module.scss';
@@ -9,7 +10,7 @@ export type DropdownLinkType = LinkableType;
 // Since MenuItem and Linkable both have an `as` prop, this enables passing `as` to Linkable.
 const LocalLink = forwardRef(
 	(
-		localProps: DropdownLinkType & { asPassThrough?: ReactElement },
+		localProps: DropdownLinkType & { asPassThrough?: 'a' | ReactElement },
 		ref: Ref<HTMLAnchorElement>,
 	) => {
 		const { asPassThrough, ...rest } = localProps;
@@ -21,7 +22,7 @@ LocalLink.displayName = 'LocalLink';
 const DropdownLink = forwardRef(
 	({ children, as, ...props }: DropdownLinkType, ref: Ref<HTMLAnchorElement>) => {
 		return (
-			<LocalLink {...props} ref={ref}>
+			<LocalLink {...props} asPassThrough={as} ref={ref}>
 				{children}
 			</LocalLink>
 		);

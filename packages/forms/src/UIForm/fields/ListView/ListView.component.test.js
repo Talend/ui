@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ListView from './ListView.component';
@@ -189,7 +189,7 @@ describe('ListView field', () => {
 				target: { value: 'aaaaaa' },
 			});
 			// jest.runAllTimers();
-			fireEvent.click(screen.getByRole('link', { name: 'Abort' }));
+			fireEvent.click(screen.getByRole('link', { name: 'Remove filter' }));
 
 			// then
 			expect(screen.queryAllByRole('option').length).toBe(4);

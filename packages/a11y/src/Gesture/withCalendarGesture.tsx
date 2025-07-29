@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
-import { ComponentType, Component, createRef, KeyboardEvent } from 'react';
-import { focusOnDay, focusWithinCurrentCalendar } from './focus';
+import { Component, ComponentType, createRef, KeyboardEvent } from 'react';
+
 import { FIRST, LAST } from './constants';
-import { WithCalendarGestureInjectedProps } from './propTypes';
+import { focusOnDay, focusWithinCurrentCalendar } from './focus';
 import { preventScroll } from './preventScroll';
+import { WithCalendarGestureInjectedProps } from './propTypes';
 
 /**
  * Switch month and focus on the same focused day or the month's limits if it's out of the limits

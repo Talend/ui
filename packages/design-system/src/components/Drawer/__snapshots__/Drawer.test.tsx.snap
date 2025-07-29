@@ -11,6 +11,7 @@ exports[`FloatingDrawer should render a11y html 1`] = `
     <div
       aria-label="label is required"
       class="theme-drawer"
+      data-drawer-visible="true"
       data-test="drawer"
       data-testid="drawer"
       id="drawer-42"
@@ -21,15 +22,11 @@ exports[`FloatingDrawer should render a11y html 1`] = `
         class="theme-drawer"
       >
         <div
-          class="theme-stack theme-justify-stretch theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+          class="theme-body"
         >
-          <div
-            class="theme-body"
-          >
-            <p>
-              content of the drawer
-            </p>
-          </div>
+          <p>
+            content of the drawer
+          </p>
         </div>
       </div>
     </div>

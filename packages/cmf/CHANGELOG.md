@@ -1,5 +1,170 @@
 # @talend/react-cmf
 
+## 11.0.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+- Updated dependencies [de6ae38]
+  - @talend/scripts-cmf@1.3.2
+  - @talend/utils@3.2.5
+
+## 11.0.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+- Updated dependencies [4f5cc5c]
+  - @talend/utils@3.2.4
+  - @talend/scripts-cmf@1.3.1
+
+## 11.0.0
+
+### Major Changes
+
+- 816bb91: BREAKING CHANGE: Upgraded path-to-regexp from 3.x to 8.x
+
+  This upgrade was necessary to resolve security vulnerabilities. The new version introduces two breaking changes that require updates to your application:
+  1. Optional Path Parameter Syntax Change
+  - Old syntax: `/resources/:id?`
+  - New syntax: `/resources{/id}`
+
+  This change is required because in path-to-regexp 8.x, the `?` character is reserved for query parameters and will throw a parsing error when used at the end of a path. 2. Root Path Matching Behavior Change
+  - In v3.x, root path `/` would match any path starting with `/`
+  - In v8.x, root path `/` only matches exactly `/`
+  - To match both root and child paths, use the wildcard pattern `/{*path}`
+
+  Example migration:
+
+  ```javascript
+  // Before
+  const routes = {
+      '/': rootSaga,
+      '/resources/:id?': resourceSaga
+  };
+
+  // After
+  const routes = {
+      '/{*path}': rootSaga,  // if you want to match all routes
+      '/resources{/id}': resourceSaga
+  };
+  ```
+
+  For more details about path matching and troubleshooting, see [path-to-regexp documentation](https://github.com/pillarjs/path-to-regexp#errors).
+
+## 10.1.1
+
+### Patch Changes
+
+- e2d8899: Revert: upgrade path-to-regexp
+
+## 10.1.0
+
+### Minor Changes
+
+- ea14b87: Fix Dependabot alerts
+
+## 10.0.2
+
+### Patch Changes
+
+- c3b6358: docs: update links from surge to github.io
+
+## 10.0.1
+
+### Patch Changes
+
+- f321a0d: Remove unused tsconfig.esm.json (initially added to use TSC but we stay with babel at the end)
+- Updated dependencies [f321a0d]
+  - @talend/utils@3.2.2
+
+## 10.0.0
+
+### Major Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+### Patch Changes
+
+- Updated dependencies [c3750a1]
+  - @talend/scripts-cmf@1.3.0
+  - @talend/utils@3.2.0
+
+## 9.1.0
+
+### Minor Changes
+
+- 3bd16fc: Add support to ESM
+
+### Patch Changes
+
+- Updated dependencies [3bd16fc]
+  - @talend/utils@3.1.0
+
+## 9.0.0
+
+### Major Changes
+
+- e48ae5f: chore(TMC-27581): security issue in redux storage decorator filter
+
+## 8.4.2
+
+### Patch Changes
+
+- d332ab1: Fix imports and typing
+
+## 8.4.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+- Updated dependencies [1abc22f]
+  - @talend/scripts-cmf@1.2.4
+  - @talend/utils@3.0.4
+
+## 8.4.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 8.3.3
+
+### Patch Changes
+
+- Updated dependencies [922e3eb]
+  - @talend/utils@3.0.0
+
+## 8.3.2
+
+### Patch Changes
+
+- 19c3c59: Add missing dependency: commander
+- Updated dependencies [19c3c59]
+  - @talend/scripts-cmf@1.2.3
+
+## 8.3.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+- Updated dependencies [c468f2f]
+  - @talend/scripts-cmf@1.2.2
+
+## 8.3.0
+
+### Minor Changes
+
+- c508840d1: fix(): Fix security issue on regular expression
+
+### Patch Changes
+
+- 795a12e2d: fix: withoutHOC regex
+
+  report says Polynomial regular expression used on uncontrolled data
+
 ## 8.2.0
 
 ### Minor Changes
@@ -112,7 +277,6 @@ So yes you can t use multiple contextTypes as for now. So all components using t
 **Breaking changes**
 
 - update the package.json to align dependencies
-
   - up redux-saga: from 0.x to 1.x
   - up react-redux: from 5.x to 7.x
   - add "@redux-saga/testing-utils": "^1.1.3", for testing sagas purpose

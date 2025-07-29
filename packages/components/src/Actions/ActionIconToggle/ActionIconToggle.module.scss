@@ -1,7 +1,7 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
-$tc-icon-toggle-size: 2.4rem !default;
+$tc-icon-toggle-size: 1.5rem !default;
 $tc-icon-toggle-icon-size: $svg-sm-size !default;
 $tc-icon-toggle-border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border !default;
 $tc-icon-toggle-tick-size: 12px !default;
@@ -87,8 +87,8 @@ $tc-icon-toggle-tick-size: 12px !default;
 		width: $tc-icon-toggle-tick-size;
 		height: $tc-icon-toggle-tick-size;
 		border-radius: calc(#{$tc-icon-toggle-tick-size} / 2);
-		right: -0.4rem;
-		top: -0.4rem;
+		right: -0.25rem;
+		top: -0.25rem;
 		background: tokens.$coral-color-accent-text;
 		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}

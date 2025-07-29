@@ -1,8 +1,10 @@
-import { Controls, Meta, Canvas, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
-import { Link, IconsProvider } from '../../';
+
 import * as Stories from './Link.stories';
 import * as StoriesButton from './LinkAsButton.stories';
+import { IconsProvider, Link } from '../../';
 import { Status } from '../Status.block';
 
 <Meta title="Clickable/Link" component={Link} />
@@ -27,43 +29,31 @@ Still need to be convinced? Please, take the time to read [this article written 
 
 ### Default
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
+<Canvas of={Stories.Default} />
 
 ### With icon
 
-<Canvas>
-	<Story of={Stories.WithIcon} />
-</Canvas>
+<Canvas of={Stories.WithIcon} />
 
 ### Multi lines
 
-<Canvas>
-	<Story of={Stories.MultiLines} />
-</Canvas>
+<Canvas of={Stories.MultiLines} />
 
 ### Disabled
 
 When the link is disabled the whole component is displayed with $opacity.disabled.
 
-<Canvas>
-	<Story of={Stories.Disabled} />
-</Canvas>
+<Canvas of={Stories.Disabled} />
 
 ### External
 
 When the link targets a new domain, we add an external-link icon right after.
 
-<Canvas>
-	<Story of={Stories.External} />
-</Canvas>
+<Canvas of={Stories.External} />
 
 Even if it's the same domain, when the link opens in a new window or tab, the title `open in a new tab` is added or appended to an existing title.
 
-<Canvas>
-	<Story of={Stories.TargetBlank} />
-</Canvas>
+<Canvas of={Stories.TargetBlank} />
 
 The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 
@@ -71,19 +61,14 @@ The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 
 In React SPAs, most links are handled by libraries such as React Router. `Link` takes that into account.
 
-<Canvas>
-	<Story of={Stories.RouterLinkStory} />
-</Canvas>
+<Canvas of={Stories.RouterLinkStory} />
 
 ### As a button
 
 In extreme cases we do not condone, you may need the style of a link but the behavior of a button.
 If your action open a new tab, you can use the `openInNewTab` props to trigger the display of the `external-link` icon, and add `open in a new tab` in the link title.
 
-<Canvas>
-	<Story of={StoriesButton.LinkAsButtonStory} />
-</Canvas>
-
+<Canvas of={StoriesButton.LinkAsButtonStory} />
 <Controls of={StoriesButton.LinkAsButtonStory} />
 
 ## Content
@@ -130,8 +115,5 @@ Press <kbd>ENTER</kbd> to open a link
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
-
+<Canvas of={Stories.Usage} />
 <Controls of={Stories.Usage} />

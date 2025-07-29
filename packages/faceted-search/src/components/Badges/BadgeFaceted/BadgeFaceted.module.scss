@@ -1,6 +1,4 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 // stylelint-disable scss/selector-no-redundant-nesting-selector
 .tc-badge-faceted {
@@ -23,7 +21,6 @@
 
 	:global(.tc-badge-delete-icon) {
 		align-self: center;
-		padding-left: tokens.$coral-spacing-xs;
 	}
 
 	&-overlay {
@@ -32,27 +29,32 @@
 
 		& > button {
 			font-style: italic;
-			padding: 0;
-			text-transform: none;
+			height: tokens.$coral-sizing-xxs !important;
 
-			&:hover,
-			&:visited {
-				text-decoration: none;
-			}
-
-			> span {
-				display: block;
+			> span > span {
+				white-space: nowrap;
 				overflow: hidden;
-				max-width: 10rem;
+				max-width: calc(2 * tokens.$coral-sizing-l);
 				text-overflow: ellipsis;
 			}
 
-			> span:not(:first-child)::before {
+			> span > span:not(:first-child)::before {
 				content: '|';
 				position: relative;
-				top: -1px;
+				left: calc(-1 * tokens.$coral-spacing-xxs);
 				opacity: tokens.$coral-opacity-m;
 				padding: 0 tokens.$coral-spacing-xxs;
+			}
+		}
+	}
+
+
+	&:global(.period) {
+		.tc-badge-faceted-overlay {
+			& > button {
+				> span > span {
+					max-width: none;
+				}
 			}
 		}
 	}

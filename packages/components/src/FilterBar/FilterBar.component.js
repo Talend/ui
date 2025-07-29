@@ -1,12 +1,16 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
-import { FormControl } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import { FormControl } from '@talend/react-bootstrap';
+
 import { Action } from '../Actions';
-import Icon from '../Icon';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import Icon from '../Icon';
+
 import theme from './FilterBar.module.scss';
 
 function forceBlur(event) {

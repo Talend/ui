@@ -1,5 +1,5 @@
-@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 $tc-status-icon-size: $svg-md-size !default;
 $tc-status-action-min-size: 23px !default;
@@ -72,7 +72,7 @@ $tc-status-space-btn-icon-label: 5px !default;
 	}
 
 	&.action:hover,
-	&.action:global(.ally-focus-within) {
+	&.action:focus-within {
 		.tc-status-icon,
 		.tc-status-label {
 			opacity: 0;

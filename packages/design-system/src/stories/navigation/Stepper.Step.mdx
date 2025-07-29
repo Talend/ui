@@ -1,5 +1,7 @@
-import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage } from '@talend/storybook-docs';
+
 import { Status } from '../Status.block';
 
 import * as Stories from './Stepper.Step.stories';
@@ -27,17 +29,13 @@ Steps are the main elements for the stepper.
 	alt="states image for the steps"
 />
 
-<Canvas>
-	<Story of={Stories.Default} />
-</Canvas>
+<Canvas of={Stories.Default} />
 
 ### Sizes
 
 The max-width for a step is 20rem, if the label is longer we display an ellipsis.
 
-<Canvas>
-	<Story of={Stories.Overflow} />
-</Canvas>
+<Canvas of={Stories.Overflow} />
 
 ## States
 
@@ -49,10 +47,7 @@ N/C
 
 ## Usage
 
-<Canvas>
-	<Story of={Stories.Usage} />
-</Canvas>
-
+<Canvas of={Stories.Usage} />
 <Controls of={Stories.Usage} />
 
 ## Accessibility

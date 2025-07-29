@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
+@use '@talend/design-tokens/lib/tokens' as tokens;
 ////
 /// Bootstrap breadcrumbs customization
 /// @group Breadcrumbs
@@ -41,8 +41,8 @@
 				margin: 0 $padding-small $padding-smaller $padding-smaller;
 				padding: 0 0 0 $padding-small;
 				transform: rotate(30deg);
-				border-right: 0.1rem solid tokens.$coral-color-neutral-border;
-				height: 1.25rem;
+				border-right: 0.0625rem solid tokens.$coral-color-neutral-border;
+				height: 0.7813rem;
 			}
 		}
 

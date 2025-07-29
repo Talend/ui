@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import ArrayWidget from './Array.component';
-import defaultWidgets from '../../utils/widgets';
-import { WidgetContext } from '../../context';
-
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+import { WidgetContext } from '../../context';
+import defaultWidgets from '../../utils/widgets';
+import ArrayWidget from './Array.component';
 
 jest.unmock('@talend/design-system');
 
@@ -240,6 +240,40 @@ describe('Array component', () => {
 
 			// then
 			const payload = { schema: selectSchema, value: ['White'] };
+			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
+			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
+		});
+
+		it('should add default value from schema as default value for new item', async () => {
+			const defaultValue = {
+				name: 'default name',
+				email: 'default email',
+				comment: 'default comment',
+			};
+
+			const enhancedSchema = {
+				...schema,
+				schema: {
+					...schema.schema,
+					default: [defaultValue],
+				},
+			};
+
+			// given
+			render(
+				<WidgetContext.Provider value={defaultWidgets}>
+					<ArrayWidget {...props} schema={enhancedSchema} value={[]} />
+				</WidgetContext.Provider>,
+			);
+
+			// when
+			await userEvent.click(screen.getByText('Add'));
+
+			// then
+			const payload = {
+				schema: enhancedSchema,
+				value: [defaultValue],
+			};
 			expect(props.onChange).toHaveBeenCalledWith(expect.anything(), payload);
 			expect(props.onFinish).toHaveBeenCalledWith(expect.anything(), payload);
 		});

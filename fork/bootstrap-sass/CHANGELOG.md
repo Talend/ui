@@ -1,5 +1,55 @@
 # Changelog
 
+## 5.3.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 5.3.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 5.3.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 5.2.1
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 5.2.0
+
+### Minor Changes
+
+- 9568363: Use include instead of same-origin in the credentials option of fetch.
+
+## 5.1.0
+
+### Minor Changes
+
+- 18c1d97: `rem` values have been updated to correspond to the new `rem` base (16px) define by the design system
+
+## 5.0.0
+
+### Major Changes
+
+- 3dc3100: chore: remove font-size override (this should not impact the apps as it's done also on the design-system provider)
+
+## 4.0.0
+
+### Major Changes
+
+- 9f9fc07: chore: remove font-size override (this should not impact the apps as it's done also on the design-system provider)
+
 ## 3.5.1
 
 ### Patch Changes

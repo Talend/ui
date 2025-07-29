@@ -1,6 +1,7 @@
 // rewrite tests using react-testing-library
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import SelectSortBy from './SelectSortBy.component';
 
 const id = 'toolbar-sort';

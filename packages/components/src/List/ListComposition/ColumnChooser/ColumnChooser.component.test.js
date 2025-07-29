@@ -1,8 +1,9 @@
-import { screen, render, act } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ColumnChooser from './ColumnChooser.component';
-import { ListContext } from '../context';
+
 import getDefaultT from '../../../translate';
+import { ListContext } from '../context';
+import ColumnChooser from './ColumnChooser.component';
 
 jest.unmock('@talend/design-system');
 
@@ -20,18 +21,19 @@ describe('ColumnChooser', () => {
 		};
 	});
 
-	it('should render column chooser component', () => {
+	it('should render column chooser component', async () => {
 		// when
 		render(
 			<ListContext.Provider value={defaultContext}>
-				<ColumnChooser id="myColumnChooser" />
+				<ColumnChooser id="myColumnChooser" data-testid="chooser" />
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(screen.getByRole('button')).toBeVisible();
-		act(() => screen.getByRole('button').focus()); // trigger the tooltip
-		expect(screen.getByText('Open the column chooser')).toBeVisible();
+		const btn = screen.getByLabelText('Open the column chooser');
+		expect(btn).toBeVisible();
+		await userEvent.hover(btn);
+		expect(screen.getByRole('tooltip')).toHaveTextContent('Open the column chooser');
 	});
 
 	it('should update columns', async () => {

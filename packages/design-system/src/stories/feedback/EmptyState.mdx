@@ -1,7 +1,9 @@
-import { Controls, Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+
 import { FigmaImage, Use } from '@talend/storybook-docs';
-import { Status } from '../Status.block';
+
 import * as Stories from './EmptyState.stories';
+import { Status } from '../Status.block';
 
 <Meta of={Stories} />
 <Status id="emptyState" />
@@ -23,9 +25,7 @@ Use empty states to communicate about the current state of the system or to tell
 	alt="Three different styles of empty states"
 />
 
-<Canvas withSource="closed">
-	<Story of={Stories.Demo} />
-</Canvas>
+<Canvas sourceState="hidden" of={Stories.Demo} />
 
 ### Purposes
 
@@ -42,9 +42,7 @@ Empty states come in different sizes to accommodate to empty state types and pag
 
 #### EmptyStateLarge (with Spot illustration)
 
-<Canvas>
-	<Story of={Stories.Large} />
-</Canvas>
+<Canvas of={Stories.Large} />
 
 **Content guidelines**
 
@@ -60,10 +58,7 @@ Use large empty states when the empty content area on screen takes up at least 5
 
 #### EmptyStateMedium (with Icon illustration)
 
-<Canvas>
-	<Story of={Stories.MediumWithAction} />
-</Canvas>
-
+<Canvas of={Stories.MediumWithAction} />
 <Controls of={Stories.MediumWithAction} />
 
 **Content guidelines**
@@ -80,9 +75,7 @@ Use medium empty states when the empty content area on screen takes up less than
 
 #### EmptyStateSmall (with no Icon illustration)
 
-<Canvas>
-	<Story of={Stories.Small} />
-</Canvas>
+<Canvas of={Stories.Small} />
 
 **Content guidelines**
 
@@ -158,10 +151,7 @@ N/A
 
 ### Components props
 
-<Canvas withSource="closed">
-	<Story of={Stories.Usage} />
-</Canvas>
-
+<Canvas sourceState="hidden" of={Stories.Usage} />
 <Controls of={Stories.Usage} />
 
 ### Button as Link
@@ -170,6 +160,4 @@ You may need your CTA to redirect to a page. The `action` props is tailored to m
 
 You can therefore easily set-up a button that's actually a link:
 
-<Canvas>
-	<Story of={Stories.LargeWithLinkButton} />
-</Canvas>
+<Canvas of={Stories.LargeWithLinkButton} />

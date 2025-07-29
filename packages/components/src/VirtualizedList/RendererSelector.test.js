@@ -1,8 +1,9 @@
-import { screen, render } from '@testing-library/react';
-import RendererSelector from './RendererSelector.component';
+import { render, screen } from '@testing-library/react';
+
 import VirtualizedList from '.';
-import { listTypes } from './utils/constants';
 import collection from './collection';
+import RendererSelector from './RendererSelector.component';
+import { listTypes } from './utils/constants';
 
 const { TABLE, LARGE } = listTypes;
 
@@ -66,7 +67,7 @@ describe('RendererSelector', () => {
 
 		// then
 		expect(screen.getByRole('grid')).toBeVisible();
-		expect(screen.getAllByRole('row')).toHaveLength(3); // header + 2 rows
+		expect(screen.getAllByRole('row')).toHaveLength(4); // header + 2 rows + virtualized grid
 		expect(screen.getAllByRole('columnheader')).toHaveLength(3);
 		expect(screen.getAllByRole('gridcell')).toHaveLength(6);
 		expect(screen.getAllByRole('columnheader')[0]).toHaveTextContent('Id');
@@ -105,7 +106,7 @@ describe('RendererSelector', () => {
 
 		// then
 		expect(screen.getByRole('grid')).toBeVisible();
-		expect(screen.getAllByRole('row')).toHaveLength(3); // header + 2 rows
+		expect(screen.getAllByRole('row')).toHaveLength(4); // header + 2 rows + virtualized grid
 		expect(screen.getAllByRole('columnheader')).toHaveLength(3);
 		expect(screen.getAllByRole('gridcell')).toHaveLength(6);
 	});

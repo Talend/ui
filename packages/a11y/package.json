@@ -5,8 +5,16 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "types": "./lib/index.d.ts",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "talend-scripts build --esm",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },
@@ -24,30 +32,30 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/utils": "^2.8.0"
+    "@talend/utils": "^3.3.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.0.1",
-    "@talend/eslint-plugin": "^1.1.0",
-    "@talend/scripts-core": "^16.3.0",
-    "@talend/scripts-config-typescript": "^11.2.0",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.5.1",
-    "@types/date-fns": "^0.0.2",
-    "@types/jest": "^29.5.10",
-    "@types/react": "^18.2.38",
-    "@types/react-dom": "^18.2.17",
-    "date-fns": "^1.30.1",
+    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/scripts-core": "^16.6.0",
+    "@talend/scripts-config-typescript": "^11.3.2",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/date-fns": "^2.6.3",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "date-fns": "^3.6.0",
     "jest-in-case": "^1.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "peerDependencies": {
-    "react": ">= 16.14.0",
-    "react-dom": ">= 16.14.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.1.0"
+  "version": "4.0.3"
 }

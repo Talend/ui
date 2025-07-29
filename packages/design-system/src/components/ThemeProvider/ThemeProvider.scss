@@ -1,9 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens';
-
-html {
-	/* 1rem = 10px */
-	font-size: 62.5%;
-}
+@use '@talend/design-tokens/lib/tokens' as tokens;
 
 body {
 	margin: 0;

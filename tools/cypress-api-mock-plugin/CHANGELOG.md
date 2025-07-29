@@ -1,5 +1,37 @@
 # @talend/cypress-api-mock-plugin
 
+## 1.3.2
+
+### Patch Changes
+
+- de6ae38: Bump dependencies
+
+## 1.3.1
+
+### Patch Changes
+
+- 4f5cc5c: Bump security CVE
+
+## 1.3.0
+
+### Minor Changes
+
+- c3750a1: chore: upgrade dependencies
+
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+
+## 1.2.2
+
+### Patch Changes
+
+- 1abc22f: chore: upgrade dependencies
+
+## 1.2.1
+
+### Patch Changes
+
+- c468f2f: chore: upgrade dependencies
+
 ## 1.2.0
 
 ### Minor Changes
