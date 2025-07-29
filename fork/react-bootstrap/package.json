@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "classnames": "^2.5.1",
-    "dom-helpers": "^3.4.0",
+    "dom-helpers": "^6.0.1",
     "invariant": "^2.2.4",
     "prop-types": "^15.8.1",
     "prop-types-extra": "^1.1.1",
