@@ -33,7 +33,6 @@
     "cdn"
   ],
   "dependencies": {
-    "execa": "^4.1.0",
     "mkdirp": "^1.0.4",
     "semver": "^7.7.2"
   },
