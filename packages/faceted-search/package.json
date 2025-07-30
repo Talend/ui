@@ -55,8 +55,8 @@
   "devDependencies": {
     "@storybook/addon-actions": "^7.6.20",
     "@storybook/testing-library": "^0.2.2",
-    "@talend/design-system": "^11.7.0",
-    "@talend/eslint-config": "^13.3.0",
+    "@talend/design-system": "^11.7.1",
+    "@talend/eslint-config": "^13.3.1",
     "@talend/eslint-plugin": "^1.4.0",
     "@talend/icons": "^7.12.0",
     "@talend/locales-tui-components": "^16.0.1",
@@ -78,7 +78,7 @@
     "react-i18next": "^13.5.0"
   },
   "peerDependencies": {
-    "@talend/design-system": "^11.6.0",
+    "@talend/design-system": "^11.7.1",
     "@talend/react-components": "^17.0.0",
     "i18next": "^23.16.8",
     "prop-types": "^15.5.10",
