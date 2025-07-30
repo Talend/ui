@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "read-pkg-up": "^7.0.1",
-    "@talend/module-to-cdn": "^9.13.0"
+    "@talend/module-to-cdn": "^9.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",
