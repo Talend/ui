@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
+    "clean": "rimraf lib dist",
     "build:styles": "webpack --config webpack.custom.js --mode=production",
     "build:lib": "talend-scripts build && npm run build:styles",
     "start": "npm run storybook",

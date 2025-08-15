@@ -13,6 +13,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf lib lib-esm dist",
     "pre-release": "yarn build:umd:dev && yarn build:umd:prod",
     "build:umd:dev": "talend-scripts build --umd --dev",
     "build:umd:prod": "talend-scripts build --umd",
@@ -24,7 +25,7 @@
     "start": "talend-scripts start-storybook -p 6006",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage"
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary"
   },
   "keywords": [
     "react",

@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "clean": "rimraf lib lib-esm",
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "test": "talend-scripts test",

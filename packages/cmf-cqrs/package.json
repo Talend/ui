@@ -5,6 +5,7 @@
   "mainSrc": "src/index.ts",
   "types": "lib/index.d.ts",
   "scripts": {
+    "clean": "rimraf lib lib-esm dist",
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
@@ -12,7 +13,7 @@
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage",
+    "test:cov": "talend-scripts test --coverage  --coverageReporters json-summary",
     "lint": "talend-scripts lint"
   },
   "repository": {

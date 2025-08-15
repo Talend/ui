@@ -5,10 +5,10 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf dist",
     "build:lib": "rimraf ./dist && webpack",
+    "pre-release": "webpack",
     "start": "webpack serve --mode=development",
-    "test": "echo no test for @talend/bootstrap-theme",
-    "test:cov": "echo no test for @talend/bootstrap-theme",
     "lint": "talend-scripts lint"
   },
   "keywords": [

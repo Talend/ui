@@ -17,11 +17,12 @@
     }
   },
   "scripts": {
+    "build:lib": "talend-scripts build",
     "build:dev": "talend-scripts build --umd --dev",
     "build:prod": "talend-scripts build --umd --prod",
     "build:lib:esm": "talend-scripts build --esm",
+    "clean": "rimraf lib dist",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build",
     "lint": "talend-scripts lint",
     "test": "talend-scripts test",
     "storybook": "start-storybook -p 6006",

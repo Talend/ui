@@ -22,11 +22,12 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "rimraf lib lib-esm",
     "build:lib": "talend-scripts build --tsc",
     "build:lib:esm": "talend-scripts build --esm",
     "lint": "talend-scripts lint",
     "test": "cross-env TZ=UTC talend-scripts test",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --silent",
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary",
     "test:noisy": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "extends": "talend-scripts extends"
