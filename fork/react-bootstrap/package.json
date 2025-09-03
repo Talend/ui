@@ -47,13 +47,13 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-config": "^13.3.1",
     "@talend/eslint-plugin": "^1.4.0",
     "@talend/scripts-config-typescript": "^11.3.2",
     "@talend/scripts-core": "^16.6.0",
     "@talend/scripts-config-babel": "^13.6.0",
     "@talend/scripts-config-react-webpack": "^16.9.0",
-    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
     "chai": "^4.5.0",

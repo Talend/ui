@@ -20,20 +20,20 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
-    "@talend/design-system": "^11.7.0",
+    "@talend/design-system": "^11.7.1",
     "@talend/design-tokens": "^3.4.5",
     "@talend/react-faceted-search": "^21.1.0",
     "@talend/storybook-docs": "^2.6.0",
     "@talend/icons": "^7.12.0",
-    "@talend/react-components": "^17.4.0",
+    "@talend/react-components": "^17.4.1",
     "@talend/react-forms": "^15.4.0",
-    "@talend/react-dataviz": "^7.1.0",
+    "@talend/react-dataviz": "^7.1.1",
     "lodash": "^4.17.21",
     "pkg-dir": "^7.0.0",
-    "react-hook-form": "^7.61.1"
+    "react-hook-form": "^7.62.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-env": "^7.28.3",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
     "@storybook/addon-a11y": "^7.6.20",
@@ -47,7 +47,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@storybook/testing-react": "^2.0.1",
     "@storybook/theming": "^7.6.20",
-    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-config": "^13.3.1",
     "@talend/eslint-plugin": "^1.4.0",
     "@talend/locales-design-system": "^7.15.1",
     "@talend/locales-tui-components": "^16.0.1",
@@ -59,7 +59,7 @@
     "@talend/scripts-config-storybook-lib": "^5.6.0",
     "@talend/scripts-config-typescript": "^11.3.2",
     "@talend/scripts-core": "^16.6.0",
-    "@types/react": "^18.3.23",
+    "@types/react": "^18.3.24",
     "i18next": "^23.16.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
