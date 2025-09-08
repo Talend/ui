@@ -35,7 +35,7 @@
     "@talend/utils": "^3.3.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.3.0",
+    "@talend/eslint-config": "^13.3.1",
     "@talend/eslint-plugin": "^1.4.0",
     "@talend/scripts-core": "^16.6.0",
     "@talend/scripts-config-typescript": "^11.3.2",
@@ -43,7 +43,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/date-fns": "^2.6.3",
     "@types/jest": "^29.5.14",
-    "@types/react": "^18.3.23",
+    "@types/react": "^18.3.24",
     "@types/react-dom": "^18.3.7",
     "date-fns": "^3.6.0",
     "jest-in-case": "^1.0.2",
