@@ -104,7 +104,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.61.1",
     "react-i18next": "^13.5.0",
-    "react-router-dom": "~6.3.0",
+    "react-router-dom": "~7.7.1",
     "storybook-docs-toc": "^1.7.0"
   },
   "peerDependencies": {

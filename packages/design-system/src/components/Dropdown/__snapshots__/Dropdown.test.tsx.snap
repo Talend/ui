@@ -117,6 +117,7 @@ exports[`Dropdown should render a11y html 1`] = `
         </button>
         <a
           class="theme-linkable theme-dropdownEntry"
+          data-discover="true"
           data-test="link-as"
           data-testid="link-as"
           href="/route"
