@@ -13,7 +13,7 @@
     "lint-staged": "^15.5.2",
     "prettier": "^3.6.2",
     "rimraf": "^5.0.10",
-    "typescript": "^5.0.4"
+    "typescript": "^5.9.2"
   },
   "scripts": {
     "postinstall": "talend-yarn-workspace run build:lib && talend-yarn-workspace run build:lib:esm",
@@ -42,8 +42,6 @@
     "**/ace-builds": "1.10.1",
     "**/@types/react": "^18.2.7",
     "**/@types/react-dom": "^18.2.7",
-    "**/i18next-scanner-typescript/typescript": "^5.0.4",
-    "**/browser-sync-client/typescript": "^5.0.4",
     "**/vinyl-fs/glob-parent": "^5.1.2",
     "**/fast-glob/glob-parent": "^5.1.2",
     "**/trim": "^1.0.1",
