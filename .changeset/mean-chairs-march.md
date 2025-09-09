@@ -20,7 +20,6 @@
 '@talend/ui-storybook-one': minor
 '@talend/scripts-locales': minor
 '@talend/design-docs': minor
-'@talend/scripts-teorem': minor
 '@talend/react-components': minor
 '@talend/react-containers': minor
 '@talend/ui-playground': minor
