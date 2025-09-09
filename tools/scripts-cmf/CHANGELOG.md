@@ -1,5 +1,11 @@
 # @talend/scripts-cmf
 
+## 1.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 1.4.0
 
 ### Minor Changes

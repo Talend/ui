@@ -1,5 +1,16 @@
 # @talend/scripts-config-jest
 
+## 14.4.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/scripts-config-babel@13.7.0
+
 ## 14.3.0
 
 ### Minor Changes

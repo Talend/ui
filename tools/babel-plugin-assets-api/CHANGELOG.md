@@ -1,5 +1,16 @@
 # @talend/babel-plugin-assets-api
 
+## 1.6.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/module-to-cdn@9.15.0
+
 ## 1.5.0
 
 ### Minor Changes

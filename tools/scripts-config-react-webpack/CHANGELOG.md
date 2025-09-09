@@ -1,5 +1,19 @@
 # @talend/scripts-config-react-webpack
 
+## 16.10.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/scripts-config-babel@13.7.0
+  - @talend/react-cmf-webpack-plugin@6.41.0
+  - @talend/scripts-config-cdn@10.14.0
+  - @talend/scripts-utils@2.5.0
+
 ## 16.9.0
 
 ### Minor Changes

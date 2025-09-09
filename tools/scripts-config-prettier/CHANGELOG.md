@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.4.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 12.3.0
 
 ### Minor Changes

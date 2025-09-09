@@ -1,5 +1,16 @@
 # @talend/eslint-plugin
 
+## 1.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/scripts-config-cdn@10.14.0
+
 ## 1.4.0
 
 ### Minor Changes

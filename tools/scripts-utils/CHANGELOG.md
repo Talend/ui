@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 2.4.0
 
 ### Minor Changes

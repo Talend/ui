@@ -1,5 +1,16 @@
 # @talend/scripts-locales
 
+## 1.4.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/scripts-utils@2.5.0
+
 ## 1.3.0
 
 ### Minor Changes

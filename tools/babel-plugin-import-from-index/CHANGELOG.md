@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-index
 
+## 1.10.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 1.9.0
 
 ### Minor Changes

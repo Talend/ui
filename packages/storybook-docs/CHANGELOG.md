@@ -1,5 +1,11 @@
 # @talend/storybook-docs
 
+## 2.7.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 2.6.0
 
 ### Minor Changes

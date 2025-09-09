@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.2.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 7.1.0
 
 ### Minor Changes
