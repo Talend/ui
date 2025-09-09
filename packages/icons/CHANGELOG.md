@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.13.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 7.12.0
 
 ### Minor Changes

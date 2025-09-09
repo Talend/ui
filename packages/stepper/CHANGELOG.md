@@ -1,5 +1,17 @@
 # @talend/react-stepper
 
+## 12.2.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/design-system@11.8.0
+  - @talend/react-components@17.5.0
+
 ## 12.1.0
 
 ### Minor Changes

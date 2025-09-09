@@ -1,5 +1,16 @@
 # Changelog
 
+## 21.2.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/utils@3.4.0
+
 ## 21.1.0
 
 ### Minor Changes

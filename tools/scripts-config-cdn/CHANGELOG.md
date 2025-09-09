@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 10.14.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/dynamic-cdn-webpack-plugin@14.2.0
+  - @talend/module-to-cdn@9.15.0
+
 ## 10.13.0
 
 ### Minor Changes

@@ -1,5 +1,19 @@
 # @talend/react-containers
 
+## 11.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/design-system@11.8.0
+  - @talend/react-components@17.5.0
+  - @talend/react-forms@15.5.0
+  - @talend/utils@3.4.0
+
 ## 11.4.1
 
 ### Patch Changes

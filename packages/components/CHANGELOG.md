@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 17.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/icons@7.13.0
+  - @talend/bootstrap-theme@9.5.0
+  - @talend/utils@3.4.0
+
 ## 17.4.1
 
 ### Patch Changes

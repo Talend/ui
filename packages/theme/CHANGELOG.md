@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 9.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 9.4.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-lib
 
+## 0.4.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 0.3.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.15.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 9.14.0
 
 ### Minor Changes

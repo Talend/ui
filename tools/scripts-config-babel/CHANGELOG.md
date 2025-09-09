@@ -1,5 +1,17 @@
 # @talend/scripts-config-babel
 
+## 13.7.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/babel-plugin-import-from-index@1.10.0
+  - @talend/babel-plugin-assets-api@1.6.0
+
 ## 13.6.0
 
 ### Minor Changes

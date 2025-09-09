@@ -1,5 +1,20 @@
 # @talend/scripts-core
 
+## 16.7.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/eslint-config@13.4.0
+  - @talend/scripts-config-babel@13.7.0
+  - @talend/scripts-config-jest@14.4.0
+  - @talend/eslint-plugin@1.5.0
+  - @talend/scripts-utils@2.5.0
+
 ## 16.6.0
 
 ### Minor Changes

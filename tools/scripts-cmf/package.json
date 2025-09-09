@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-cmf",
   "description": "@talend/react-cmf scripts to manage CMF settings",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "main": "cmf-settings.js",
   "publishConfig": {
     "access": "public"
@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.0",
-    "@talend/eslint-config": "^13.3.1",
-    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/eslint-config": "^13.4.0",
+    "@talend/eslint-plugin": "^1.5.0",
     "eslint": "^8.57.1"
   },
   "repository": {

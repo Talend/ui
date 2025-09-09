@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-utils",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.0",
-    "@talend/eslint-config": "^13.3.1",
+    "@talend/eslint-config": "^13.4.0",
     "eslint": "^8.57.1",
     "jest": "^29.7.0"
   },

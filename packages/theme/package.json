@@ -31,10 +31,10 @@
     "@talend/design-tokens": "^3.4.5"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.3.1",
-    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/eslint-config": "^13.4.0",
+    "@talend/eslint-plugin": "^1.5.0",
     "@talend/scripts-config-stylelint": "^4.2.2",
-    "@talend/scripts-core": "^16.6.0",
+    "@talend/scripts-core": "^16.7.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "css-loader": "^7.1.2",
@@ -54,5 +54,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "9.4.0"
+  "version": "9.5.0"
 }

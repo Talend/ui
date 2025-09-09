@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.4.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 3.3.0
 
 ### Minor Changes

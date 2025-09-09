@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 14.2.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/module-to-cdn@9.15.0
+
 ## 14.1.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @talend/design-system
 
+## 11.8.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/utils@3.4.0
+
 ## 11.7.1
 
 ### Patch Changes

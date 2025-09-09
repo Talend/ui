@@ -1,5 +1,18 @@
 # @talend/design-docs
 
+## 4.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/storybook-docs@2.7.0
+  - @talend/design-system@11.8.0
+  - @talend/icons@7.13.0
+
 ## 4.4.0
 
 ### Minor Changes

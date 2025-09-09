@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-d3
 
+## 0.7.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 0.6.0
 
 ### Minor Changes
