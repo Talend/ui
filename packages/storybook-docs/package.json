@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.19.3",
+    "@algolia/autocomplete-js": "^1.19.4",
     "@storybook/blocks": "^7.6.20",
     "@storybook/react": "^7.6.20",
     "@talend/design-tokens": "^3.4.5",
@@ -50,7 +50,7 @@
     "mini-css-extract-plugin": "^2.9.4",
     "postcss-loader": "^8.2.0",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.92.0",
+    "sass": "^1.92.1",
     "sass-loader": "^14.2.1",
     "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1"
