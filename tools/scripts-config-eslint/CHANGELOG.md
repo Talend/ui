@@ -1,5 +1,13 @@
 # @talend/scripts-config-eslint
 
+## 13.4.1
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+- Updated dependencies [5a9e099]
+  - @talend/eslint-plugin@1.5.1
+
 ## 13.4.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/babel-plugin-assets-api
 
+## 1.6.1
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
 ## 1.6.0
 
 ### Minor Changes

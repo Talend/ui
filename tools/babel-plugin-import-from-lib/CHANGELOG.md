@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-lib
 
+## 0.4.1
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
 ## 0.4.0
 
 ### Minor Changes
