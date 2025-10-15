@@ -30,7 +30,7 @@
     "@talend/react-dataviz": "^7.2.0",
     "lodash": "^4.17.21",
     "pkg-dir": "^7.0.0",
-    "react-hook-form": "^7.62.0"
+    "react-hook-form": "^7.65.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.28.3",
@@ -59,7 +59,7 @@
     "@talend/scripts-config-storybook-lib": "^5.7.0",
     "@talend/scripts-config-typescript": "^11.3.2",
     "@talend/scripts-core": "^16.7.0",
-    "@types/react": "^18.3.24",
+    "@types/react": "^18.3.26",
     "i18next": "^23.16.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -34,10 +34,10 @@
   ],
   "dependencies": {
     "mkdirp": "^1.0.4",
-    "semver": "^7.7.2"
+    "semver": "^7.7.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.0",
+    "@babel/eslint-parser": "^7.28.4",
     "eslint": "^8.57.1",
     "jest": "^29.7.0"
   },

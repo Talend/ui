@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/types": "^7.28.2"
+    "@babel/types": "^7.28.4"
   },
   "devDependencies": {
     "@talend/eslint-config": "^13.4.0",

@@ -21,7 +21,7 @@
     "@talend/icons": "^7.1.0"
   },
   "dependencies": {
-    "@babel/core": "^7.28.3",
+    "@babel/core": "^7.28.4",
     "@sentry/webpack-plugin": "^1.21.0",
     "@talend/react-cmf-webpack-plugin": "^6.41.0",
     "@talend/scripts-config-babel": "^13.7.0",
@@ -34,7 +34,7 @@
     "circular-dependency-plugin": "^5.2.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
-    "core-js-bundle": "^3.45.1",
+    "core-js-bundle": "^3.46.0",
     "css-loader": "^7.1.2",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
     "html-webpack-plugin": "^5.6.4",
@@ -46,7 +46,7 @@
     "querystring-es3": "^0.2.1",
     "regenerator-runtime": "^0.13.11",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.92.0",
+    "sass": "^1.93.2",
     "sass-loader": "^14.2.1",
     "source-map-loader": "^4.0.2",
     "style-loader": "^3.3.4",
@@ -55,7 +55,7 @@
     "terser-webpack-plugin": "^5.3.14",
     "tmp": "^0.2.5",
     "url": "^0.11.4",
-    "webpack": "^5.101.3",
+    "webpack": "^5.102.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
