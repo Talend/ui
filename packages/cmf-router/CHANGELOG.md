@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.0.3
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
 ## 8.0.2
 
 ### Patch Changes
