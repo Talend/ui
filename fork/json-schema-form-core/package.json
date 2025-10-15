@@ -27,16 +27,16 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://raw.githubusercontent.com/json-schema-form/json-schema-form-core/master/LICENSE"
+      "url": "https://raw.githubusercontent.com/Talend/ui/master/LICENSE"
     }
   ],
-  "homepage": "https://github.com/json-schema-form/json-schema-form-core#readme",
+  "homepage": "https://github.com/Talend/ui#readme",
   "bugs": {
-    "url": "https://github.com/json-schema-form/json-schema-form-core/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/json-schema-form/json-schema-form-core.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "keywords": [
     "angular-schema-form",

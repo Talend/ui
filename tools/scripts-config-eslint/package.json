@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
-  "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/ui#readme",
   "bugs": {
     "url": "https://github.com/Talend/ui/issues"
   },

@@ -11,6 +11,10 @@
     "read-pkg-up": "^7.0.1",
     "@talend/module-to-cdn": "^9.15.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.28.3",
     "@babel/eslint-parser": "^7.28.0",

@@ -9,6 +9,10 @@
   ],
   "author": "Jean-Michel FRANCOIS",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
   "scripts": {
     "lint": "eslint ./",
     "test": "jest"
