@@ -10,6 +10,10 @@
       "require": "./lib/index.js"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {

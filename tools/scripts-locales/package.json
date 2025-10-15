@@ -6,6 +6,10 @@
   "bin": {
     "talend-locales": "src/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
   "scripts": {
     "lint": "talend-scripts lint"
   },

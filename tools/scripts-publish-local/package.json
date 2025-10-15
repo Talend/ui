@@ -5,6 +5,10 @@
   "bin": {
     "talend-publish-local": "./bin/cli.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
   "main": "src/index.js",
   "scripts": {
     "lint": "talend-scripts lint ./",
