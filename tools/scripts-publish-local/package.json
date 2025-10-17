@@ -1,9 +1,13 @@
 {
   "name": "@talend/scripts-publish-local",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "",
   "bin": {
     "talend-publish-local": "./bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
   },
   "main": "src/index.js",
   "scripts": {
@@ -16,8 +20,8 @@
     "rimraf": "^5.0.10"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.3.1",
-    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-core": "^16.6.0"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",

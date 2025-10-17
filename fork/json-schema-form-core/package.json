@@ -1,6 +1,6 @@
 {
   "name": "@talend/json-schema-form-core",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/index.js",
   "module": "./lib-esm/index.js",
@@ -27,16 +27,16 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://raw.githubusercontent.com/json-schema-form/json-schema-form-core/master/LICENSE"
+      "url": "https://raw.githubusercontent.com/Talend/ui/master/LICENSE"
     }
   ],
-  "homepage": "https://github.com/json-schema-form/json-schema-form-core#readme",
+  "homepage": "https://github.com/Talend/ui#readme",
   "bugs": {
-    "url": "https://github.com/json-schema-form/json-schema-form-core/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/json-schema-form/json-schema-form-core.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "keywords": [
     "angular-schema-form",
@@ -46,10 +46,10 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@talend/babel-plugin-assets-api": "^1.5.0",
+    "@talend/babel-plugin-assets-api": "^1.6.1",
     "@talend/babel-plugin-import-from-index": "^1.9.0",
-    "@talend/eslint-config": "^13.3.1",
-    "@talend/eslint-plugin": "^1.4.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-config-react-webpack": "^16.9.0",
     "@talend/scripts-config-typescript": "^11.3.2",
     "@talend/scripts-core": "^16.6.0",

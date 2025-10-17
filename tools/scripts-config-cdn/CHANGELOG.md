@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.14.1
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
 ## 10.14.0
 
 ### Minor Changes

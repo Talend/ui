@@ -1,10 +1,14 @@
 {
   "name": "@talend/scripts-locales",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "manage locales in the project",
   "type": "module",
   "bin": {
     "talend-locales": "src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
     "lint": "talend-scripts lint"
@@ -14,8 +18,8 @@
     "cross-spawn": "^7.0.6"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.4.0",
-    "@talend/eslint-plugin": "^1.5.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-core": "^16.7.0"
   },
   "keywords": [

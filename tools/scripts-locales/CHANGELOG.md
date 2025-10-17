@@ -1,5 +1,11 @@
 # @talend/scripts-locales
 
+## 1.4.1
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
 ## 1.4.0
 
 ### Minor Changes

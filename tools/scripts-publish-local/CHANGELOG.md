@@ -1,5 +1,11 @@
 # @talend/scripts-publish-local
 
+## 1.4.4
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
 ## 1.4.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.4.5
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
 ## 1.4.4
 
 ### Patch Changes
