@@ -11,7 +11,7 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version-file: '.tool-versions'
-        registry-url: 'https://registry.npmjs.org/'
+        registry-url: 'https://npm.pkg.github.com/'
         scope: '@talend'
 
     - name: Install yarn
