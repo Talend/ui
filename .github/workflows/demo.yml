@@ -19,6 +19,7 @@ concurrency:
 jobs:
   build:
     name: Build and test
+    environment: pull_request_unsafe
     runs-on: ubuntu-latest
 
     steps:

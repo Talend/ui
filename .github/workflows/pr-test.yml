@@ -17,6 +17,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: pull_request_unsafe
     name: Build and test
 
     steps:

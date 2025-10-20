@@ -16,6 +16,7 @@ concurrency:
 jobs:
   build:
     name: Build demo on PR
+    environment: pull_request_unsafe
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +31,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn install --frozen-lockfile
-  
+
       - name: Build Demo
         run: yarn test:demo
 

@@ -34,9 +34,11 @@ jobs:
       - name: yarn-deduplicate
         id: deduplicate
         run: |
-          yarn
+          yarn install --frozen-lockfile --ignore-scripts
           yarn yarn-deduplicate
           echo "::set-output name=diff::$(git status --short yarn.lock)"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit dedupe
         if: steps.deduplicate.outputs.diff

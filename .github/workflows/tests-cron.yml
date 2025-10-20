@@ -7,12 +7,13 @@ on:
 
 permissions:
   issues: write
-  content: read
+  contents: read
 
 
 jobs:
   tests:
     name: Long running Tests
+    environment: pull_request_unsafe
     runs-on: ubuntu-latest
 
     steps:

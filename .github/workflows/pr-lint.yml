@@ -18,6 +18,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: pull_request_unsafe
     name: Lint
 
     steps:
@@ -29,7 +30,7 @@ jobs:
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
-  
+
       - name: Install
         run: yarn install --frozen-lockfile --ignore-scripts
 

@@ -14,6 +14,7 @@ permissions:
 jobs:
   upgrade:
     name: Upgrade dependencies
+    environment: pull_request_unsafe
     runs-on: ubuntu-latest
     continue-on-error: true  # we want the PR to popup even if sth goes wrong
 
@@ -31,6 +32,8 @@ jobs:
           yarn talend-upgrade-deps --scope=@talend --latest --ignore-scripts
           yarn talend-upgrade-deps --latest --dry > dependencies-latest.txt
           git add dependencies-latest.txt
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e #v7.0.8
