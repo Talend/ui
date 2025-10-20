@@ -31,9 +31,11 @@ jobs:
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
-  
+
       - name: Install Dependencies
         run: yarn --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets

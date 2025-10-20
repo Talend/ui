@@ -27,6 +27,7 @@ jobs:
 
       - name: Upgrade dependencies
         run: |
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
           yarn --frozen-lockfile --ignore-scripts
           yarn talend-upgrade-deps --ignore-scripts
           yarn talend-upgrade-deps --scope=@talend --latest --ignore-scripts
