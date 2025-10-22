@@ -31,8 +31,8 @@
     "@talend/design-tokens": "^3.4.5"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.4.0",
-    "@talend/eslint-plugin": "^1.5.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-config-stylelint": "^4.2.2",
     "@talend/scripts-core": "^16.7.0",
     "copy-webpack-plugin": "^11.0.0",
@@ -44,10 +44,10 @@
     "postcss-loader": "^8.2.0",
     "postcss-preset-env": "^7.8.3",
     "rimraf": "^5.0.10",
-    "sass": "^1.92.0",
+    "sass": "^1.93.2",
     "sass-loader": "^14.2.1",
     "style-loader": "^3.3.4",
-    "webpack": "^5.101.3",
+    "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
   },
   "peerDependencies": {},

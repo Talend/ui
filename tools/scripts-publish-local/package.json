@@ -22,7 +22,7 @@
   "devDependencies": {
     "@talend/eslint-config": "^13.4.1",
     "@talend/eslint-plugin": "^1.5.1",
-    "@talend/scripts-core": "^16.6.0"
+    "@talend/scripts-core": "^16.7.0"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
