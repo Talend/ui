@@ -47,16 +47,16 @@
   ],
   "devDependencies": {
     "@talend/babel-plugin-assets-api": "^1.6.1",
-    "@talend/babel-plugin-import-from-index": "^1.9.0",
+    "@talend/babel-plugin-import-from-index": "^1.10.0",
     "@talend/eslint-config": "^13.4.1",
     "@talend/eslint-plugin": "^1.5.1",
-    "@talend/scripts-config-react-webpack": "^16.9.0",
+    "@talend/scripts-config-react-webpack": "^16.10.0",
     "@talend/scripts-config-typescript": "^11.3.2",
-    "@talend/scripts-core": "^16.6.0",
+    "@talend/scripts-core": "^16.7.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
     "rimraf": "^5.0.10",
-    "webpack": "^5.101.3"
+    "webpack": "^5.102.1"
   },
   "dependencies": {
     "json-refs": "3.0.15",

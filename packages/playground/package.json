@@ -24,8 +24,8 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@talend/dynamic-cdn-webpack-plugin": "^14.2.0",
-    "@talend/eslint-config": "^13.4.0",
-    "@talend/eslint-plugin": "^1.5.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-core": "^16.7.0",
     "@talend/scripts-config-babel": "^13.7.0",
     "@talend/scripts-config-stylelint": "^4.2.2",
@@ -35,7 +35,7 @@
     "cross-env": "^7.0.3",
     "express": "^5.1.0",
     "i18next-http-backend": "^1.4.5",
-    "webpack": "^5.101.3"
+    "webpack": "^5.102.1"
   },
   "dependencies": {
     "@talend/bootstrap-theme": "^9.5.0",
@@ -47,7 +47,7 @@
     "@talend/locales-tui-containers": "^9.1.3",
     "@talend/locales-tui-forms": "^15.2.0",
     "@talend/react-cmf": "^11.0.2",
-    "@talend/react-cmf-router": "^8.0.2",
+    "@talend/react-cmf-router": "^8.0.3",
     "@talend/react-components": "^17.5.0",
     "@talend/react-containers": "^11.5.0",
     "@talend/react-dataviz": "^7.2.0",

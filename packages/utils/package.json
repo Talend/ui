@@ -32,8 +32,8 @@
     "extends": "talend-scripts extends"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.4.0",
-    "@talend/eslint-plugin": "^1.5.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-core": "^16.7.0",
     "@talend/scripts-config-jest": "^14.4.0",
     "@talend/scripts-config-stylelint": "^4.2.2",
