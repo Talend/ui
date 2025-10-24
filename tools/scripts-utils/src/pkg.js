@@ -36,7 +36,8 @@ function checkPackageIsInstalled(name) {
 function getPackageType() {
 	const isApp = fs.existsSync(path.join(process.cwd(), 'src/app'));
 	const pkgJSON = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json')));
-	const isAngular = hasDependencies(pkgJSON, 'angular');
+	const isAngular =
+		hasDependencies(pkgJSON, 'angular') || hasDependencies(pkgJSON, '@xlts.dev/angular');
 	const isReact = hasDependencies(pkgJSON, 'react');
 	const isNodeExpress = hasDependencies(pkgJSON, 'express');
 	const isPublic = pkgJSON?.publishConfig?.access === 'public';
