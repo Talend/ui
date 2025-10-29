@@ -15,14 +15,14 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@talend/dynamic-cdn-webpack-plugin": "^14.2.0",
-    "@talend/module-to-cdn": "^9.15.0",
+    "@talend/module-to-cdn": "^10.1.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "js-yaml": "^4.1.0",
     "js-yaml-js-types": "^1.0.1",
     "read-pkg-up": "^7.0.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.0",
+    "@babel/eslint-parser": "^7.28.5",
     "eslint": "^8.57.1"
   },
   "publishConfig": {

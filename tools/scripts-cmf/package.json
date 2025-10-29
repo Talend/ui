@@ -21,9 +21,9 @@
     "mkdirp": "^1.0.4"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.0",
-    "@talend/eslint-config": "^13.4.0",
-    "@talend/eslint-plugin": "^1.5.0",
+    "@babel/eslint-parser": "^7.28.5",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "eslint": "^8.57.1"
   },
   "repository": {
