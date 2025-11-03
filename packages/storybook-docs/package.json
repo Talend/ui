@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.19.3",
+    "@algolia/autocomplete-js": "^1.19.4",
     "@storybook/blocks": "^7.6.20",
     "@storybook/react": "^7.6.20",
     "@talend/design-tokens": "^3.4.5",
@@ -37,22 +37,22 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.4.0",
-    "@talend/eslint-plugin": "^1.5.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-config-babel": "^13.7.0",
     "@talend/scripts-config-storybook-lib": "^5.7.0",
     "@talend/scripts-config-typescript": "^11.3.2",
     "@talend/scripts-core": "^16.7.0",
     "@types/node": "^6.14.13",
-    "@types/react": "^18.3.24",
+    "@types/react": "^18.3.26",
     "@types/react-dom": "^18.3.7",
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.4",
     "postcss-loader": "^8.2.0",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.92.0",
+    "sass": "^1.93.2",
     "sass-loader": "^14.2.1",
-    "webpack": "^5.101.3",
+    "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
   }
 }

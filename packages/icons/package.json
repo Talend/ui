@@ -58,16 +58,16 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.3",
-    "@babel/preset-env": "^7.28.3",
-    "@babel/preset-react": "^7.27.1",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
     "@svgr/webpack": "^8.1.0",
-    "@talend/eslint-config": "^13.4.0",
-    "@talend/eslint-plugin": "^1.5.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-core": "^16.7.0",
     "@talend/scripts-config-babel": "^13.7.0",
     "@talend/scripts-config-typescript": "^11.3.2",
-    "@talend/babel-plugin-assets-api": "^1.6.0",
+    "@talend/babel-plugin-assets-api": "^1.6.1",
     "@talend/babel-plugin-import-from-index": "^1.10.0",
     "@talend/scripts-config-storybook-lib": "^5.7.0",
     "@talend/design-tokens": "^3.4.5",
@@ -83,7 +83,7 @@
     "style-loader": "^1.3.0",
     "svgo": "^3.3.2",
     "webfonts-loader": "^8.1.1",
-    "webpack": "^5.101.3",
+    "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
   },
   "publishConfig": {

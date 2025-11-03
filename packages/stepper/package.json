@@ -42,8 +42,8 @@
   },
   "devDependencies": {
     "@talend/icons": "^7.13.0",
-    "@talend/eslint-config": "^13.4.0",
-    "@talend/eslint-plugin": "^1.5.0",
+    "@talend/eslint-config": "^13.4.1",
+    "@talend/eslint-plugin": "^1.5.1",
     "@talend/scripts-config-babel": "^13.7.0",
     "@talend/scripts-config-prettier": "^12.4.0",
     "@talend/scripts-config-react-webpack": "^16.10.0",
