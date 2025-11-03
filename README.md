@@ -7,7 +7,7 @@ That repository was created in an effort to simplify the development of Talend's
 - Single code repository / Multiple packages
 - Global (cross package) test and review tools
 - Easy cross packages development
-- Share and love open source.
+- Share and love open source
 
 ## The stack
 
