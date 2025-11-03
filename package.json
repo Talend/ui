@@ -38,7 +38,7 @@
     "prepare": "husky install"
   },
   "resolutions": {
-    "**/axios": "0.30.0",
+    "**/axios": "0.30.2",
     "**/ace-builds": "1.10.1",
     "**/@types/react": "^18.2.7",
     "**/@types/react-dom": "^18.2.7",
