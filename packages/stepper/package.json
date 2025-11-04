@@ -33,23 +33,23 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^11.8.0",
-    "@talend/design-tokens": "^3.4.5",
-    "@talend/react-components": "^17.5.0",
+    "@talend/design-system": "^11.9.0",
+    "@talend/design-tokens": "^3.5.0",
+    "@talend/react-components": "^17.6.0",
     "classnames": "^2.5.1",
     "invariant": "^2.2.4",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^7.13.0",
-    "@talend/eslint-config": "^13.4.1",
-    "@talend/eslint-plugin": "^1.5.1",
-    "@talend/scripts-config-babel": "^13.7.0",
-    "@talend/scripts-config-prettier": "^12.4.0",
-    "@talend/scripts-config-react-webpack": "^16.10.0",
-    "@talend/scripts-config-storybook-lib": "^5.7.0",
-    "@talend/scripts-config-typescript": "^11.3.2",
-    "@talend/scripts-core": "^16.7.0",
+    "@talend/icons": "^7.14.0",
+    "@talend/eslint-config": "^13.5.0",
+    "@talend/eslint-plugin": "^1.6.0",
+    "@talend/scripts-config-babel": "^13.8.0",
+    "@talend/scripts-config-prettier": "^12.5.0",
+    "@talend/scripts-config-react-webpack": "^16.11.0",
+    "@talend/scripts-config-storybook-lib": "^5.8.0",
+    "@talend/scripts-config-typescript": "^11.4.0",
+    "@talend/scripts-core": "^16.8.0",
     "@testing-library/react-hooks": "^8.0.1",
     "i18next": "^23.16.8",
     "immutable": "^3.8.2",
@@ -74,5 +74,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "12.2.0"
+  "version": "12.3.0"
 }

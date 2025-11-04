@@ -1,5 +1,27 @@
 # @talend/ui-playground
 
+## 2.8.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/react-faceted-search@21.3.0
+  - @talend/design-system@11.9.0
+  - @talend/design-tokens@3.5.0
+  - @talend/assets-api@1.6.0
+  - @talend/react-cmf-router@8.1.0
+  - @talend/react-components@17.6.0
+  - @talend/react-containers@11.6.0
+  - @talend/react-dataviz@7.3.0
+  - @talend/react-forms@15.6.0
+  - @talend/icons@7.14.0
+  - @talend/bootstrap-theme@9.6.0
+  - @talend/react-cmf@11.1.0
+
 ## 2.7.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.42.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/scripts-cmf@1.6.0
+
 ## 6.41.0
 
 ### Minor Changes

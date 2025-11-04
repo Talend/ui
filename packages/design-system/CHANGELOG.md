@@ -1,5 +1,18 @@
 # @talend/design-system
 
+## 11.9.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+  - @talend/assets-api@1.6.0
+  - @talend/utils@3.5.0
+
 ## 11.8.0
 
 ### Minor Changes

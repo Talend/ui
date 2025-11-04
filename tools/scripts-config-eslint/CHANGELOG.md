@@ -1,5 +1,16 @@
 # @talend/scripts-config-eslint
 
+## 13.5.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/eslint-plugin@1.6.0
+
 ## 13.4.1
 
 ### Patch Changes

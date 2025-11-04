@@ -1,5 +1,11 @@
 # @talend/router-bridge
 
+## 2.3.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 2.2.2
 
 ### Patch Changes

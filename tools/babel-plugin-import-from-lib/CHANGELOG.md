@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-lib
 
+## 0.5.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 0.4.1
 
 ### Patch Changes

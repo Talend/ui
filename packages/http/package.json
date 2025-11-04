@@ -1,6 +1,6 @@
 {
   "name": "@talend/http",
-  "version": "3.3.2",
+  "version": "3.4.0",
   "description": "HTTP helper",
   "license": "Apache-2.0",
   "repository": {
@@ -27,12 +27,12 @@
     "lint": "talend-scripts lint"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.4.1",
-    "@talend/eslint-plugin": "^1.5.1",
-    "@talend/scripts-core": "^16.7.0",
-    "@talend/scripts-config-babel": "^13.7.0",
-    "@talend/scripts-config-react-webpack": "^16.10.0",
-    "@talend/scripts-config-typescript": "^11.3.2",
+    "@talend/eslint-config": "^13.5.0",
+    "@talend/eslint-plugin": "^1.6.0",
+    "@talend/scripts-core": "^16.8.0",
+    "@talend/scripts-config-babel": "^13.8.0",
+    "@talend/scripts-config-react-webpack": "^16.11.0",
+    "@talend/scripts-config-typescript": "^11.4.0",
     "@types/jest": "^29.5.14",
     "@types/node-fetch": "^2.6.13",
     "node-fetch": "^2.7.0",

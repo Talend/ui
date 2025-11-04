@@ -1,5 +1,17 @@
 # @talend/react-cmf
 
+## 11.1.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/scripts-cmf@1.6.0
+  - @talend/utils@3.5.0
+
 ## 11.0.2
 
 ### Patch Changes

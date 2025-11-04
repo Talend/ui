@@ -1,5 +1,17 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.8.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/scripts-config-react-webpack@16.11.0
+  - @talend/dynamic-cdn-webpack-plugin@14.3.0
+
 ## 5.7.0
 
 ### Minor Changes

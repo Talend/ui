@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.5.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 1.4.5
 
 ### Patch Changes

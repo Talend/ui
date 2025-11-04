@@ -1,5 +1,22 @@
 # @talend/react-components
 
+## 17.6.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+  - @talend/react-bootstrap@3.1.0
+  - @talend/assets-api@1.6.0
+  - @talend/icons@7.14.0
+  - @talend/bootstrap-theme@9.6.0
+  - @talend/utils@3.5.0
+  - @talend/react-a11y@4.1.0
+
 ## 17.5.0
 
 ### Minor Changes

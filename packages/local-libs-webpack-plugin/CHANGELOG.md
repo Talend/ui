@@ -1,5 +1,11 @@
 # @talend/local-libs-webpack-plugin
 
+## 0.4.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 0.3.2
 
 ### Patch Changes

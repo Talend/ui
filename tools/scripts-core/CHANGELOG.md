@@ -1,5 +1,22 @@
 # @talend/scripts-core
 
+## 16.8.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/scripts-config-typescript@11.4.0
+  - @talend/scripts-config-stylelint@4.3.0
+  - @talend/eslint-config@13.5.0
+  - @talend/scripts-config-babel@13.8.0
+  - @talend/scripts-config-jest@14.5.0
+  - @talend/eslint-plugin@1.6.0
+  - @talend/scripts-utils@2.6.0
+
 ## 16.7.0
 
 ### Minor Changes

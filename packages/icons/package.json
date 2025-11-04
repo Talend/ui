@@ -62,15 +62,15 @@
     "@babel/preset-env": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
     "@svgr/webpack": "^8.1.0",
-    "@talend/eslint-config": "^13.4.1",
-    "@talend/eslint-plugin": "^1.5.1",
-    "@talend/scripts-core": "^16.7.0",
-    "@talend/scripts-config-babel": "^13.7.0",
-    "@talend/scripts-config-typescript": "^11.3.2",
-    "@talend/babel-plugin-assets-api": "^1.6.1",
-    "@talend/babel-plugin-import-from-index": "^1.10.0",
-    "@talend/scripts-config-storybook-lib": "^5.7.0",
-    "@talend/design-tokens": "^3.4.5",
+    "@talend/eslint-config": "^13.5.0",
+    "@talend/eslint-plugin": "^1.6.0",
+    "@talend/scripts-core": "^16.8.0",
+    "@talend/scripts-config-babel": "^13.8.0",
+    "@talend/scripts-config-typescript": "^11.4.0",
+    "@talend/babel-plugin-assets-api": "^1.7.0",
+    "@talend/babel-plugin-import-from-index": "^1.11.0",
+    "@talend/scripts-config-storybook-lib": "^5.8.0",
+    "@talend/design-tokens": "^3.5.0",
     "babel-loader": "^9.2.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^7.1.2",
@@ -89,5 +89,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.13.0"
+  "version": "7.14.0"
 }

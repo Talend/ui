@@ -1,5 +1,18 @@
 # Changelog
 
+## 7.3.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+  - @talend/assets-api@1.6.0
+  - @talend/react-components@17.6.0
+
 ## 7.2.0
 
 ### Minor Changes

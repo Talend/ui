@@ -1,5 +1,11 @@
 # @talend/scripts-publish-local
 
+## 1.5.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 1.4.4
 
 ### Patch Changes

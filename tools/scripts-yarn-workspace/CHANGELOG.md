@@ -1,5 +1,11 @@
 # @talend/scripts-yarn-workspace
 
+## 2.2.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 2.1.2
 
 ### Patch Changes

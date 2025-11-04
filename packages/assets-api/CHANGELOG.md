@@ -1,5 +1,11 @@
 # @talend/assets-api
 
+## 1.6.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 1.5.3
 
 ### Patch Changes

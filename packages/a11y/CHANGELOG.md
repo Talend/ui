@@ -1,5 +1,16 @@
 # @talend/react-a11y
 
+## 4.1.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/utils@3.5.0
+
 ## 4.0.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.5.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 3.4.0
 
 ### Minor Changes

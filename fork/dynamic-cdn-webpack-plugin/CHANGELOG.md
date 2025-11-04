@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 14.3.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/module-to-cdn@9.16.0
+
 ## 14.2.0
 
 ### Minor Changes

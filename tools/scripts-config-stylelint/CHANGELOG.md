@@ -1,5 +1,11 @@
 # @talend/scripts-config-stylelint
 
+## 4.3.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 4.2.2
 
 ### Patch Changes

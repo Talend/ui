@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-d3
 
+## 0.8.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 0.7.0
 
 ### Minor Changes
