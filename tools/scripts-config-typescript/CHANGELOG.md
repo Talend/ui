@@ -1,5 +1,11 @@
 # @talend/scripts-config-typescript
 
+## 11.4.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 11.3.2
 
 ### Patch Changes

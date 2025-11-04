@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.5.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 12.4.0
 
 ### Minor Changes

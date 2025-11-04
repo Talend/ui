@@ -1,5 +1,22 @@
 # @talend/react-forms
 
+## 15.6.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/json-schema-form-core@1.5.0
+  - @talend/design-system@11.9.0
+  - @talend/design-tokens@3.5.0
+  - @talend/assets-api@1.6.0
+  - @talend/react-components@17.6.0
+  - @talend/icons@7.14.0
+  - @talend/utils@3.5.0
+
 ## 15.5.0
 
 ### Minor Changes

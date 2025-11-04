@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 3.1.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 3.0.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 11.1.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 11.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 7.14.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 7.13.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 10.15.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/dynamic-cdn-webpack-plugin@14.3.0
+  - @talend/module-to-cdn@9.16.0
+
 ## 10.14.1
 
 ### Patch Changes

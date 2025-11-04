@@ -1,6 +1,6 @@
 {
   "name": "@talend/cypress-api-mock-plugin",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Cypress plugin to record/serve api calls",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -26,8 +26,8 @@
     "@neuralegion/cypress-har-generator": "^5.17.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.4.1",
-    "@talend/eslint-plugin": "^1.5.1",
-    "@talend/scripts-core": "^16.7.0"
+    "@talend/eslint-config": "^13.5.0",
+    "@talend/eslint-plugin": "^1.6.0",
+    "@talend/scripts-core": "^16.8.0"
   }
 }

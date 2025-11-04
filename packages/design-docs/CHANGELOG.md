@@ -1,5 +1,19 @@
 # @talend/design-docs
 
+## 4.6.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/storybook-docs@2.8.0
+  - @talend/design-system@11.9.0
+  - @talend/design-tokens@3.5.0
+  - @talend/icons@7.14.0
+
 ## 4.5.0
 
 ### Minor Changes

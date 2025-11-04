@@ -1,5 +1,11 @@
 # @talend/cypress-api-mock-plugin
 
+## 1.4.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 1.3.2
 
 ### Patch Changes

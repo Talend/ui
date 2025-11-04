@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-index
 
+## 1.11.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 1.10.0
 
 ### Minor Changes

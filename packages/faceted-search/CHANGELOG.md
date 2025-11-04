@@ -1,5 +1,17 @@
 # Changelog
 
+## 21.3.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+  - @talend/utils@3.5.0
+
 ## 21.2.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @talend/upgrade-deps
 
+## 3.2.0
+
+### Minor Changes
+
+- ed37213: Upgrade dependencies
+- ed37213: Update dependencies
+
 ## 3.1.2
 
 ### Patch Changes

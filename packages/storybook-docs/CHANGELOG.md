@@ -1,5 +1,16 @@
 # @talend/storybook-docs
 
+## 2.8.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+
 ## 2.7.0
 
 ### Minor Changes

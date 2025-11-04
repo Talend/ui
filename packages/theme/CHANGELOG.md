@@ -1,5 +1,17 @@
 # @talend/bootstrap-theme
 
+## 9.6.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+  - @talend/bootstrap-sass@5.4.0
+
 ## 9.5.0
 
 ### Minor Changes

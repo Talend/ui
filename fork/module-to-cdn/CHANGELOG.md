@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.16.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 9.15.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/http
 
+## 3.4.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 3.3.2
 
 ### Patch Changes

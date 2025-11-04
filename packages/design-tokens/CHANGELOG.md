@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 3.5.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 3.4.5
 
 ### Patch Changes
