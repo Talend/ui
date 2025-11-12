@@ -1,10 +1,10 @@
 {
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
-    "@talend/scripts-config-babel": "^13.7.0",
-    "@talend/scripts-config-prettier": "^12.4.0",
-    "@talend/scripts-core": "^16.7.0",
-    "@talend/scripts-yarn-workspace": "^2.1.2",
+    "@talend/scripts-config-babel": "^13.8.0",
+    "@talend/scripts-config-prettier": "^12.5.0",
+    "@talend/scripts-core": "^16.8.0",
+    "@talend/scripts-yarn-workspace": "^2.2.0",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.6",
     "eslint": "^8.57.1",
