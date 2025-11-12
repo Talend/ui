@@ -14,13 +14,13 @@
     "lint": "talend-scripts lint"
   },
   "dependencies": {
-    "@talend/scripts-utils": "^2.5.0",
+    "@talend/scripts-utils": "^2.6.0",
     "cross-spawn": "^7.0.6"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.4.1",
-    "@talend/eslint-plugin": "^1.5.1",
-    "@talend/scripts-core": "^16.7.0"
+    "@talend/eslint-config": "^13.5.0",
+    "@talend/eslint-plugin": "^1.6.0",
+    "@talend/scripts-core": "^16.8.0"
   },
   "keywords": [
     "i18next",
