@@ -76,7 +76,7 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.6.20",
+    "@storybook/addon-actions": "^7.6.21",
     "@talend/bootstrap-theme": "^9.6.0",
     "@talend/design-system": "^11.9.0",
     "@talend/eslint-config": "^13.5.0",
