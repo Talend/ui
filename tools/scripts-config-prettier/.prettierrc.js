@@ -1,20 +1,4 @@
 module.exports = {
-	plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')],
-	importOrder: [
-		'^@babel/polyfill',
-		'jquery', // jquery needs to be imported before angular
-		'^focus-outline-manager',
-		'^./(i18n|vendor)',
-		'^react',
-		'^(?!react|@talend|[.])',
-		'^@talend/(.*)$',
-		'^[./](?!.*scss)',
-		'.*scss',
-	],
-	importOrderSeparation: true,
-	importOrderSortSpecifiers: true,
-	importOrderCaseInsensitive: true,
-	importOrderGroupNamespaceSpecifiers: true,
 	printWidth: 100,
 	singleQuote: true,
 	trailingComma: 'all',
