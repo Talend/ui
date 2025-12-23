@@ -17,10 +17,7 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build",
-    "build:lib:umd": "talend-scripts build --umd --dev",
-    "build:lib:umd:min": "talend-scripts build --umd --prod",
     "build:lib:esm": "talend-scripts build --esm",
-    "pre-release": "npm run build:lib:umd && npm run build:lib:umd:min",
     "watch": "talend-scripts build --watch",
     "test": "talend-scripts test",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",

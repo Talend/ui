@@ -6,8 +6,6 @@
   "types": "lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build --umd --dev",
-    "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
