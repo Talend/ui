@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.8.1
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+
 ## 5.8.0
 
 ### Minor Changes

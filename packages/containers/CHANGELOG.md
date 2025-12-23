@@ -1,5 +1,15 @@
 # @talend/react-containers
 
+## 11.6.1
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+- Updated dependencies [1d3bb12]
+  - @talend/react-components@17.6.1
+  - @talend/design-system@11.9.1
+  - @talend/react-forms@15.6.1
+
 ## 11.6.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @talend/ui-storybook-one
 
+## 2.9.1
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+- Updated dependencies [1d3bb12]
+  - @talend/react-components@17.6.1
+  - @talend/design-system@11.9.1
+  - @talend/react-faceted-search@21.3.1
+  - @talend/react-forms@15.6.1
+  - @talend/storybook-docs@2.8.1
+
 ## 2.9.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @talend/design-docs
 
+## 4.6.1
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+- Updated dependencies [1d3bb12]
+  - @talend/design-system@11.9.1
+  - @talend/storybook-docs@2.8.1
+
 ## 4.6.0
 
 ### Minor Changes
