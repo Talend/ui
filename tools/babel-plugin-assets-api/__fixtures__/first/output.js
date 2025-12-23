@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-
 import assetsAPI from '@talend/assets-api';
+import React from 'react';
 
 assetsAPI.getURL('/', 'react', '18.3.1');
 assetsAPI.getURL('/', 'react', '16.13.0');
