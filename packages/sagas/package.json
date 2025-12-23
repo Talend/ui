@@ -5,8 +5,19 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/*": {
+      "import": "./lib-esm/*",
+      "require": "./lib/*"
+    }
+  },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "talend-scripts build --esm",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",

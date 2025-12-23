@@ -3,8 +3,19 @@
   "version": "2.3.0",
   "description": "Bridge on top of cmf-router or react-router v5 + connected-react-router",
   "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/*": {
+      "import": "./lib-esm/*",
+      "require": "./lib/*"
+    }
+  },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "talend-scripts build --esm",
     "build": "talend-scripts build",
     "lint": "talend-scripts lint",
     "test": "talend-scripts test"

@@ -5,8 +5,19 @@
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/*": {
+      "import": "./lib-esm/*",
+      "require": "./lib/*"
+    }
+  },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "talend-scripts build --esm",
     "lint": "talend-scripts lint",
     "test": "talend-scripts test"
   },
