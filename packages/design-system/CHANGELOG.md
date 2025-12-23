@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 11.9.1
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+
 ## 11.9.0
 
 ### Minor Changes

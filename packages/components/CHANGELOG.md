@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 17.6.1
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+
 ## 17.6.0
 
 ### Minor Changes

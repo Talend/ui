@@ -1,5 +1,11 @@
 # @talend/storybook-docs
 
+## 2.8.1
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+
 ## 2.8.0
 
 ### Minor Changes
