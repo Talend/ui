@@ -18,7 +18,6 @@
   },
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "lint": "talend-scripts lint",
     "test": "talend-scripts test",

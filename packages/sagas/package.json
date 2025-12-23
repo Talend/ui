@@ -6,7 +6,6 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",

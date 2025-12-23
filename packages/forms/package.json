@@ -18,7 +18,6 @@
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
     "build-storybook": "talend-scripts build-storybook",
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "talend-scripts test --watch",

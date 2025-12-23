@@ -4,7 +4,6 @@
   "description": "Bridge on top of cmf-router or react-router v5 + connected-react-router",
   "main": "lib/index.js",
   "scripts": {
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "build": "talend-scripts build",
     "lint": "talend-scripts lint",

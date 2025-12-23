@@ -6,7 +6,6 @@
   "types": "lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "test": "cross-env TZ=UTC talend-scripts test",

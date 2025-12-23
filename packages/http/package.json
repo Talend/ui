@@ -19,7 +19,6 @@
   "mainSrc": "src/index.ts",
   "scripts": {
     "build:lib": "talend-scripts build",
-    "pre-release": "yarn build:dev && yarn build:prod",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"

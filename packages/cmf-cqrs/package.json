@@ -5,7 +5,6 @@
   "mainSrc": "src/index.ts",
   "types": "lib/index.d.ts",
   "scripts": {
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
     "test": "talend-scripts test",

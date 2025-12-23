@@ -18,7 +18,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
