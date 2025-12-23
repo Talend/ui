@@ -53,7 +53,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.6.20",
+    "@storybook/addon-actions": "^7.6.21",
     "@storybook/testing-library": "^0.2.2",
     "@talend/design-system": "^11.9.0",
     "@talend/eslint-config": "^13.5.0",
