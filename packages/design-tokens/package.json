@@ -28,8 +28,9 @@
     }
   },
   "scripts": {
-    "build:lib": "talend-scripts build",
+    "build:lib": "talend-scripts build && npm run build:css",
     "build:lib:esm": "talend-scripts build --esm",
+    "build:css": "sass src/index.scss dist/TalendDesignTokens.css --no-source-map --style=compressed",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
     "lint": "talend-scripts lint"
@@ -53,6 +54,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "sass": "^1.93.2",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
     "@talend/scripts-core": "^16.8.0",
