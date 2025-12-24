@@ -12,7 +12,6 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "talend-scripts build --umd && talend-scripts build --umd --dev",
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "echo nothing to start",

@@ -191,7 +191,7 @@ if (!window.Talend.getCDNUrl) {
 			}
 			return `${CDN_URL}/${info.name}/${info.version}${info.path}`;
 		}
-		return `https://unpkg.com/${info.name}@${info.version}${info.path}`;
+		return `https://statics.cloud.talend.com/${info.name}/${info.version}${info.path}`;
 	};
 }
 
