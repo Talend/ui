@@ -1,0 +1,49 @@
+.tc-tab-bar-menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.tc-tab-bar {
+	white-space: nowrap;
+	overflow: hidden;
+	flex: 1;
+
+	.tc-tab-bar .tc-tab-bar-item {
+		float: none;
+		display: inline-block;
+
+		.tc-tab-bar-item-container {
+			display: flex;
+			align-items: baseline;
+		}
+
+		.tc-tab-bar-item-icon {
+			margin-right: var(--talend-bootstrap-padding-smaller);
+			width: var(--talend-bootstrap-svg-sm-size);
+			height: var(--talend-bootstrap-svg-sm-size);
+			font-size: var(--talend-bootstrap-svg-sm-size);
+		}
+
+		.tc-tab-bar-item-label {
+			display: inline-block;
+			max-width: 12.5rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			vertical-align: top;
+		}
+
+		.tc-tab-bar-item-badge {
+			margin-left: var(--talend-bootstrap-padding-smaller);
+		}
+
+		> button {
+			max-width: initial;
+		}
+	}
+}
+
+:global(.dropdown) + :global(.tab-content) {
+	padding-top: var(--talend-bootstrap-padding-large);
+}
