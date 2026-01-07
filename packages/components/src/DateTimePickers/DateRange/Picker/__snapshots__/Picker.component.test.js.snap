@@ -91,15 +91,6 @@ exports[`DateRange.Picker should render 1`] = `
                       tabindex="-1"
                       type="button"
                     >
-                      2022
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="theme-year tc-date-picker-year"
-                      tabindex="-1"
-                      type="button"
-                    >
                       2023
                     </button>
                   </li>
@@ -115,7 +106,7 @@ exports[`DateRange.Picker should render 1`] = `
                   <li>
                     <button
                       class="theme-year tc-date-picker-year"
-                      tabindex="0"
+                      tabindex="-1"
                       type="button"
                     >
                       2025
@@ -124,7 +115,7 @@ exports[`DateRange.Picker should render 1`] = `
                   <li>
                     <button
                       class="theme-year tc-date-picker-year"
-                      tabindex="-1"
+                      tabindex="0"
                       type="button"
                     >
                       2026
@@ -146,6 +137,15 @@ exports[`DateRange.Picker should render 1`] = `
                       type="button"
                     >
                       2028
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="theme-year tc-date-picker-year"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      2029
                     </button>
                   </li>
                 </ol>
