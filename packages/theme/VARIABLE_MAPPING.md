@@ -155,20 +155,9 @@ This document maps all Sass variables used in the Talend UI component library to
 
 1. **Naming Convention**: All CSS variables follow the `--talend-bootstrap-*` prefix to avoid conflicts with design-tokens (`--coral-*`) variables.
 
-2. **File Import**: CSS modules should import the variables.css file from the theme package:
+2. **Variable Access**: Use `var(--talend-bootstrap-variable-name)` to access CSS variables in CSS files.
 
-   ```css
-   @import '@talend/bootstrap-theme/src/variables.css';
-   ```
-
-3. **Variable Access**: Use `var(--talend-bootstrap-variable-name)` to access CSS variables in CSS files.
-
-4. **No Sass Features**: CSS variables cannot use Sass functions like `lighten()`, `darken()`, etc. These values are pre-computed and included as hex colors or calculated pixel values.
-
-5. **Fallback Values**: For better compatibility, consider adding fallback values:
-   ```css
-   padding: var(--talend-bootstrap-padding-smaller, 5px);
-   ```
+3. **No Sass Features**: CSS variables cannot use Sass functions like `lighten()`, `darken()`, etc. These values are pre-computed and included as hex colors or calculated pixel values.
 
 ## Complete Variable List Location
 
@@ -179,10 +168,9 @@ All CSS variables are defined in: `/packages/theme/src/variables.css`
 When converting a .module.scss file to .module.css:
 
 - [ ] Remove `@use` imports from bootstrap-theme/src/theme/guidelines
-- [ ] Add `@import` of variables.css at the top
 - [ ] Replace all `$variable-name` with `var(--talend-bootstrap-variable-name)`
+- [ ] Replace all `$tokens.coral-name` with `var(--coral-name)`
 - [ ] Remove Sass-specific features (nesting with `&`, mixins, functions)
-- [ ] Convert SCSS nesting to flat CSS selectors
+- [ ] Convert SCSS nesting to CSS nested selectors
 - [ ] Rename file from `.module.scss` to `.module.css`
-- [ ] Test visual rendering to ensure no regressions
 - [ ] Update any documentation or imports in component files
