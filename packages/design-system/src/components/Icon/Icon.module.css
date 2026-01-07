@@ -1,0 +1,50 @@
+.border circle,
+.border path,
+.border polygon,
+.border polyline {
+  transform: translate(25%, 25%);
+}
+.border :global(.ti-border) {
+  stroke: currentColor;
+  fill: none;
+  transform: none;
+}
+
+.svg {
+  fill: currentColor;
+  width: var(--coral-sizing-xxs, 1.25rem);
+  height: var(--coral-sizing-xxs, 1.25rem);
+  transform-origin: center;
+}
+.svg.spin {
+  animation-name: svg-spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.svg.rotate-45 {
+  transform: rotate(45deg);
+}
+.svg.rotate-90 {
+  transform: rotate(90deg);
+}
+.svg.rotate-180 {
+  transform: rotate(180deg);
+}
+.svg.rotate-270 {
+  transform: rotate(270deg);
+}
+.svg.flip-vertical {
+  transform: scaleY(-1);
+}
+.svg.flip-horizontal {
+  transform: scaleX(-1);
+}
+@keyframes svg-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

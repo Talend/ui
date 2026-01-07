@@ -1,0 +1,82 @@
+.buttonIcon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  width: var(--coral-sizing-m, 2.25rem);
+  height: var(--coral-sizing-m, 2.25rem);
+  color: var(--coral-color-accent-icon, hsl(204, 88%, 40%));
+  border-radius: var(--coral-radius-round, 6249.9375rem);
+  transition: var(--coral-transition-fast, 250ms ease-in-out);
+  flex-shrink: 0;
+}
+.buttonIcon__icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+}
+.buttonIcon__icon svg {
+  pointer-events: none;
+}
+.buttonIcon.size_S {
+  width: var(--coral-sizing-s, 1.75rem);
+  height: var(--coral-sizing-s, 1.75rem);
+}
+.buttonIcon.size_XS {
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+  border-radius: var(--coral-radius-s, 0.25rem);
+}
+.buttonIcon.size_XS .buttonIcon__icon {
+  width: var(--coral-sizing-minimal, 0.75rem);
+  height: var(--coral-sizing-minimal, 0.75rem);
+}
+.buttonIcon.floating {
+  background: var(--coral-color-neutral-background, white);
+  box-shadow: var(--coral-elevation-shadow-neutral-m, 0 0.125rem 0.375rem 0 hsla(0, 0%, 0%, 0.3));
+}
+.buttonIcon.toggle {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.buttonIcon.toggle:hover {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-accent-border-hover, hsl(204, 95%, 23%));
+}
+.buttonIcon.toggle:active {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-accent-border-active, hsl(205, 95%, 15%));
+}
+.buttonIcon.toggle:disabled {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
+}
+.buttonIcon.toggle[aria-pressed=true] {
+  color: var(--coral-color-accent-text-weak, white);
+  background: var(--coral-color-accent-background-strong, hsl(204, 95%, 31%));
+}
+.buttonIcon.toggle[aria-pressed=true]:hover {
+  color: var(--coral-color-accent-text-weak-hover, hsl(204, 59%, 88%));
+  background: var(--coral-color-accent-background-strong-hover, hsl(204, 95%, 23%));
+}
+.buttonIcon.toggle[aria-pressed=true]:active {
+  color: var(--coral-color-accent-text-weak-active, hsl(205, 60%, 75%));
+  background: var(--coral-color-accent-background-strong-active, hsl(205, 95%, 15%));
+}
+.buttonIcon.toggle[aria-pressed=true]:disabled {
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  background: var(--coral-color-neutral-background-disabled, hsl(0, 0%, 88%));
+}
+.buttonIcon:hover {
+  color: var(--coral-color-accent-icon-hover, hsl(204, 88%, 30%));
+  background: var(--coral-color-accent-background-weak-hover, hsl(204, 59%, 88%));
+}
+.buttonIcon:active {
+  color: var(--coral-color-accent-icon-active, hsl(205, 88%, 20%));
+  background: var(--coral-color-accent-background-weak-active, hsl(205, 60%, 75%));
+}
+.buttonIcon:disabled {
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  cursor: not-allowed;
+}

@@ -1,0 +1,15 @@
+.tertiary {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tertiary:hover {
+  color: var(--coral-color-accent-text-strong-hover, hsl(204, 97%, 13%));
+  background: var(--coral-color-accent-background-weak-hover, hsl(204, 59%, 88%));
+}
+.tertiary:active {
+  color: var(--coral-color-accent-text-strong-active, hsl(205, 95%, 8%));
+  background: var(--coral-color-accent-background-weak-active, hsl(205, 60%, 75%));
+}
+.tertiary:disabled, .tertiary[aria-disabled=true], .tertiary[aria-busy=true] {
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  background: transparent;
+}

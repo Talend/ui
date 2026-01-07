@@ -1,0 +1,51 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: var(--coral-paragraph-m-bold, 600 0.875rem/140% "Source Sans Pro");
+  border-radius: var(--coral-radius-s, 0.25rem);
+  height: var(--coral-sizing-m, 2.25rem);
+  padding: var(--coral-spacing-xxs, 0.25rem) var(--coral-spacing-m, 1rem);
+  white-space: nowrap;
+}
+.button__icon {
+  display: inline-flex;
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+  align-items: center;
+}
+.button__caret {
+  display: inline-flex;
+  align-items: center;
+  transition: transform var(--coral-transition-fast, 250ms ease-in-out);
+}
+.button__loading {
+  display: inline-flex;
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+  align-items: center;
+  color: var(--coral-color-accent-icon, hsl(204, 88%, 40%));
+}
+.button__loading > svg {
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+}
+.button.size-S {
+  height: var(--coral-sizing-s, 1.75rem);
+  padding: var(--coral-spacing-xxs, 0.25rem) var(--coral-spacing-xs, 0.5rem);
+}
+.button:disabled, .button[aria-disabled=true], .button[aria-busy=true] {
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  border-color: var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
+}
+.button[aria-expanded=true] .button__caret {
+  transform: rotate(-180deg);
+}
+
+.button.size-S .button__icon {
+  display: inline-flex;
+  width: var(--coral-sizing-minimal, 0.75rem);
+  height: var(--coral-sizing-minimal, 0.75rem);
+  align-items: center;
+}

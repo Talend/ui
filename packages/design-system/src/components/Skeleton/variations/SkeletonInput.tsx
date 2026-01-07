@@ -4,7 +4,7 @@ import { StackVertical } from '../../Stack';
 import SkeletonPrimitive, { SkeletonPrimitiveProps } from '../Primitive/Skeleton.Primitive';
 import SkeletonParagraph from './SkeletonParagraph';
 
-import styles from './SkeletonInput.module.scss';
+import styles from './SkeletonInput.module.css';
 
 export type SkeletonInputProps = Omit<SkeletonPrimitiveProps, 'className'>;
 

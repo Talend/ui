@@ -1,0 +1,11 @@
+.vertical {
+  top: var(--coral-sizing-xxs, 1.25rem);
+  right: calc(var(--coral-sizing-xxxs, 1rem) / 2 - 0.0313rem);
+  bottom: var(--coral-sizing-xxs, 1.25rem);
+  width: 0.125rem;
+  background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cline x1='0' y1='0' x2='0' y2='100%25' fill='none' stroke='%23d2d2d2' stroke-width='4' stroke-dasharray='2%2c6'/%3e%3c/svg%3e");
+}
+.vertical div {
+  width: 0.125rem;
+  transition: height var(--coral-transition-slow, 400ms ease-in);
+}

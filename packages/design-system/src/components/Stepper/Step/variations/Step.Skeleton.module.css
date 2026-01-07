@@ -1,0 +1,16 @@
+.skeleton {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+  max-width: var(--coral-sizing-xxxl, 13.75rem);
+  display: flex;
+  justify-content: flex-end;
+}
+.skeleton > span {
+  max-width: 7.1875rem;
+}
+.skeleton_vertical {
+  margin: 0 auto;
+  width: 12.5rem;
+  justify-content: center;
+}

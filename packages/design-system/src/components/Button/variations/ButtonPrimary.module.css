@@ -1,0 +1,16 @@
+.primary {
+  color: var(--coral-color-accent-text-weak, white);
+  background: var(--coral-color-accent-background-strong, hsl(204, 95%, 31%));
+}
+.primary:hover {
+  color: var(--coral-color-accent-text-weak-hover, hsl(204, 59%, 88%));
+  background: var(--coral-color-accent-background-strong-hover, hsl(204, 95%, 23%));
+}
+.primary:active {
+  color: var(--coral-color-accent-text-weak-active, hsl(205, 60%, 75%));
+  background: var(--coral-color-accent-background-strong-active, hsl(205, 95%, 15%));
+}
+.primary:disabled, .primary[aria-disabled=true], .primary[aria-busy=true] {
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  background: var(--coral-color-neutral-background-disabled, hsl(0, 0%, 88%));
+}

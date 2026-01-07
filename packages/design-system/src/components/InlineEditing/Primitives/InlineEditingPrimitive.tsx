@@ -23,7 +23,7 @@ import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import { Form } from '../../Form';
 import { StackHorizontal } from '../../Stack';
 
-import styles from './InlineEditingPrimitive.module.scss';
+import styles from './InlineEditingPrimitive.module.css';
 
 type ErrorInEditing =
 	| {

@@ -1,0 +1,19 @@
+.secondary {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.secondary:hover {
+  color: var(--coral-color-accent-text-strong-hover, hsl(204, 97%, 13%));
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-accent-border-hover, hsl(204, 95%, 23%));
+  background: var(--coral-color-accent-background-weak-hover, hsl(204, 59%, 88%));
+}
+.secondary:active {
+  color: var(--coral-color-accent-text-strong-active, hsl(205, 95%, 8%));
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-accent-border-active, hsl(205, 95%, 15%));
+  background: var(--coral-color-accent-background-weak-active, hsl(205, 60%, 75%));
+}
+.secondary:disabled, .secondary[aria-disabled=true], .secondary[aria-busy=true] {
+  background: transparent;
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
+}

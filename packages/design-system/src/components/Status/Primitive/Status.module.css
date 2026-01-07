@@ -1,0 +1,40 @@
+.status {
+  display: flex;
+  font: var(--coral-paragraph-m-bold, 600 0.875rem/140% "Source Sans Pro");
+  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+}
+.status .status__icon {
+  width: var(--coral-sizing-xxxs, 1rem);
+  color: var(--coral-color-neutral-icon-weak, hsl(0, 0%, 38%));
+}
+.status .status__text {
+  white-space: nowrap;
+}
+.status .status__icon, .status .status__text {
+  display: inline-flex;
+  align-items: center;
+}
+.status.failed {
+  color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+}
+.status.failed .status__icon {
+  color: var(--coral-color-danger-icon, hsl(359, 69%, 53%));
+}
+.status.successful {
+  color: var(--coral-color-success-text, hsl(111, 49%, 34%));
+}
+.status.successful .status__icon {
+  color: var(--coral-color-success-icon, hsl(111, 53%, 40%));
+}
+.status.inProgress {
+  color: var(--coral-color-info-text, hsl(204, 95%, 31%));
+}
+.status.inProgress .status__icon {
+  color: var(--coral-color-info-icon, hsl(204, 88%, 40%));
+}
+.status.warning {
+  color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
+}
+.status.warning .status__icon {
+  color: var(--coral-color-warning-icon, hsl(22, 87%, 47%));
+}

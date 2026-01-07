@@ -1,0 +1,21 @@
+.statusDot {
+  display: block;
+  width: var(--coral-spacing-xs, 0.5rem);
+  height: var(--coral-spacing-xs, 0.5rem);
+  border-radius: 50%;
+}
+.statusDot.beta {
+  background-color: var(--coral-color-beta-icon, hsl(280, 80%, 54%));
+}
+.statusDot.error {
+  background-color: var(--coral-color-danger-icon, hsl(359, 69%, 53%));
+}
+.statusDot.information {
+  background-color: var(--coral-color-info-icon, hsl(204, 88%, 40%));
+}
+.statusDot.success {
+  background-color: var(--coral-color-success-icon, hsl(111, 53%, 40%));
+}
+.statusDot.warning {
+  background-color: var(--coral-color-warning-icon, hsl(22, 87%, 47%));
+}

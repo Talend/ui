@@ -1,0 +1,40 @@
+.inlineMessage {
+  align-items: center;
+  display: flex;
+  font: var(--coral-paragraph-m, 400 0.875rem/140% "Source Sans Pro");
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.inlineMessage strong {
+  font: var(--coral-paragraph-m-bold, 600 0.875rem/140% "Source Sans Pro");
+}
+.inlineMessage .icon {
+  margin-right: var(--coral-spacing-xxs, 0.25rem);
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+  display: inline-flex;
+  position: relative;
+}
+.inlineMessage .icon svg {
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+}
+.inlineMessage > * {
+  display: inline;
+}
+.inlineMessage__contents > * {
+  display: inline;
+  margin-right: var(--coral-spacing-xxs, 0.25rem);
+}
+.inlineMessage__contents > *:last-child {
+  margin-right: 0;
+}
+.inlineMessage_withBackground {
+  display: inline-flex;
+  padding: var(--coral-spacing-xxs, 0.25rem) var(--coral-spacing-xs, 0.5rem);
+  border-radius: var(--coral-radius-s, 0.25rem);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.inlineMessage_withBackground .icon {
+  top: 0.0625rem;
+}

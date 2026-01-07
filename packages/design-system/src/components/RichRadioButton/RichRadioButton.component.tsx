@@ -6,7 +6,7 @@ import {
 } from './RichRadioButton.types';
 import { StackVertical, StackHorizontal } from '../Stack';
 import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
-import style from './RichRadioButton.module.scss';
+import style from './RichRadioButton.module.css';
 import { Tag } from '../Tag';
 import { Icon } from '../Icon';
 import { DataAttributes } from 'src/types';

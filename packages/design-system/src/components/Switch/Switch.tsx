@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import { randomUUID } from '@talend/utils';
 
-import theme from './Switch.module.scss';
+import theme from './Switch.module.css';
 
 const emptyValues: string[] = [];
 

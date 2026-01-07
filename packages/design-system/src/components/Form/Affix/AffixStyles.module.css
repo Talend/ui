@@ -1,0 +1,63 @@
+.affix {
+  display: inline-flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  background: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+  padding: 0 var(--coral-spacing-xs, 0.5rem);
+  justify-content: center;
+  align-items: center;
+  font: var(--coral-paragraph-m, 400 0.875rem/140% "Source Sans Pro");
+  border: 0;
+  height: 100%;
+  min-height: auto;
+  max-height: var(--coral-sizing-m, 2.25rem);
+  transition: var(--coral-transition-fast, 250ms ease-in-out);
+  border-radius: 2px 0 0 2px;
+  border-right: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}
+.affix_isSuffix {
+  border-radius: 0 2px 2px 0;
+  border-right: 0;
+  border-left: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}
+.affix__icon {
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.affix__icon > svg {
+  width: var(--coral-sizing-minimal, 0.75rem);
+  height: var(--coral-sizing-minimal, 0.75rem);
+}
+.affix__caret {
+  width: var(--coral-sizing-minimal, 0.75rem);
+  height: var(--coral-sizing-minimal, 0.75rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.affix__caret > svg {
+  width: var(--coral-sizing-minimal, 0.75rem);
+  height: var(--coral-sizing-minimal, 0.75rem);
+}
+.affix.button {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  cursor: pointer;
+}
+.affix.button:hover {
+  color: var(--coral-color-accent-text-hover, hsl(204, 96%, 18%));
+  background: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+}
+.affix.button:active {
+  color: var(--coral-color-accent-text-active, hsl(205, 94%, 13%));
+  background: var(--coral-color-accent-background-active, hsl(204, 60%, 63%));
+}
+.affix.button:disabled {
+  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+  background: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+  cursor: not-allowed;
+}

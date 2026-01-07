@@ -1,0 +1,6 @@
+.buttonSkeleton {
+  width: 6.25rem;
+}
+.buttonSkeleton.small {
+  width: 5rem;
+}

@@ -1,0 +1,19 @@
+.badge__button {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  border-radius: var(--coral-radius-s, 0.25rem);
+  font: var(--coral-paragraph-m-bold, 600 0.875rem/140% "Source Sans Pro");
+  height: var(--coral-sizing-xs, 1.5rem);
+  padding: var(--coral-spacing-xxs, 0.25rem) var(--coral-spacing-xs, 0.5rem);
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.badge__button:hover {
+  background: var(--coral-color-accent-background-weak-hover, hsl(204, 59%, 88%));
+  color: var(--coral-color-accent-text-strong-hover, hsl(204, 97%, 13%));
+}
+.badge__button:active {
+  background: var(--coral-color-accent-background-weak-active, hsl(205, 60%, 75%));
+  color: var(--coral-color-accent-text-strong-active, hsl(205, 95%, 8%));
+}

@@ -1,0 +1,5 @@
+.divider {
+  margin: 0;
+  border: none;
+  border-top: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}

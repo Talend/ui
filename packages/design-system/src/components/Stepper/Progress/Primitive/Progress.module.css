@@ -1,0 +1,8 @@
+.progress {
+  position: absolute;
+}
+.progress div {
+  position: absolute;
+  top: 0;
+  background: var(--coral-color-accent-background-strong, hsl(204, 95%, 31%));
+}

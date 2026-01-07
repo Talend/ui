@@ -1,0 +1,12 @@
+.clickable {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: 1;
+  background: transparent;
+  transition: var(--coral-transition-fast, 250ms ease-in-out);
+}
+.clickable:disabled, .clickable[aria-disabled=true], .clickable[aria-busy=true] {
+  cursor: not-allowed;
+}

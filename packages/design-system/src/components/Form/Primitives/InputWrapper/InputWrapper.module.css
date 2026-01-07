@@ -1,0 +1,75 @@
+.inputShell {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+  box-shadow: 0 0 0 0 transparent;
+  border-radius: var(--coral-radius-s, 0.25rem);
+  transition: var(--coral-transition-instant, 100ms ease-out);
+  background: var(--coral-color-neutral-background, white);
+}
+.inputShell:hover {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-strong-hover, hsl(0, 0%, 15%));
+}
+.inputShell_disabled {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
+}
+.inputShell_readOnly {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+  background: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+}
+.inputShell_disabled:hover {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
+}
+.inputShell_readOnly:hover {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}
+.inputShell:focus-within, .inputShell:focus {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-accent-border, hsl(204, 95%, 31%));
+  box-shadow: 0 0 0 0.0625rem var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.inputShell_borderError {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-danger-border, hsl(359, 51%, 53%));
+}
+.inputShell_borderError:hover {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-danger-border-hover, hsl(359, 54%, 38%));
+}
+.inputShell_borderError:focus-within, .inputShell_borderError:focus {
+  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-danger-border, hsl(359, 51%, 53%));
+  box-shadow: 0 0 0 0.0625rem var(--coral-color-danger-border, hsl(359, 51%, 53%));
+}
+.inputShell {
+  height: 2rem;
+  display: flex;
+  flex-flow: row;
+  gap: 0;
+  justify-content: stretch;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+.inputShell_freeHeight {
+  height: auto;
+}
+.inputShell_freeHeight > div:first-child,
+.inputShell_freeHeight > div:last-child {
+  height: unset;
+}
+.inputShell_noStyles {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+.inputShell_noStyles:hover, .inputShell_noStyles:active, .inputShell_noStyles:focus, .inputShell_noStyles:focus-within {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: 0 0 0 transparent;
+}
+.inputShell_noStyles:focus {
+  border: none;
+}

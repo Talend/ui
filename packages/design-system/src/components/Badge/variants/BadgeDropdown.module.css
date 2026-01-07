@@ -1,0 +1,15 @@
+.badge-dropdown__placeholder {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  font: var(--coral-heading-s, 600 0.875rem/140% "Source Sans Pro");
+  padding: 0 var(--coral-spacing-xxs, 0.25rem);
+}
+
+.badge-dropdown__button__caret {
+  align-items: center;
+  display: inline-flex;
+  transition: transform var(--coral-transition-fast, 250ms ease-in-out);
+}
+
+.badge-dropdown__button[aria-expanded=true] .badge-dropdown__button__caret {
+  transform: rotate(-180deg);
+}

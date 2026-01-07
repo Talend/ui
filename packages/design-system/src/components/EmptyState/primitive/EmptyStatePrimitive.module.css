@@ -1,0 +1,14 @@
+.emptyState {
+  width: 95%;
+  margin: 0 auto;
+  max-width: var(--coral-sizing-maximal, 20rem);
+  text-align: center;
+}
+.emptyState .title {
+  font: var(--coral-heading-s, 600 0.875rem/140% "Source Sans Pro");
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.emptyState .description {
+  font: var(--coral-paragraph-m, 400 0.875rem/140% "Source Sans Pro");
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}

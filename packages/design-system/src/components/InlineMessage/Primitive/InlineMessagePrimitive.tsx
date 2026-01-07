@@ -9,7 +9,7 @@ import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import { SizedIcon } from '../../Icon';
 import Link, { LinkProps } from '../../Link/Link';
 
-import styles from './InlineMessagePrimitive.module.scss';
+import styles from './InlineMessagePrimitive.module.css';
 
 export type AvailableVariantsTypes = 'destructive' | 'success' | 'information' | 'warning' | 'beta';
 export type InlineMessageVariantType<T extends AvailableVariantsTypes, P extends object> = {
