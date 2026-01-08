@@ -1,18 +1,17 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .td-value {
-  white-space: pre;
+	white-space: pre;
 }
 
 .td-white-space-character {
-  vertical-align: text-bottom;
-  color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+	vertical-align: text-bottom;
+	color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
 }
 
 .td-tab-character {
-  width: 1.625rem;
+	width: 1.625rem;
 }
 
 .td-other-characters {
-  width: 0.1875rem;
+	width: 0.1875rem;
 }

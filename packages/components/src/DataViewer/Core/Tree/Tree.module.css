@@ -1,25 +1,24 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 :global(.tc-model .tc-tree) {
-  overflow: auto;
+	overflow: auto;
 }
 
 .tc-tree {
-  list-style: none;
-  flex-grow: 1;
-  margin-bottom: 0;
+	list-style: none;
+	flex-grow: 1;
+	margin-bottom: 0;
 }
 .tc-tree-list {
-  list-style: none;
-  padding: 0;
+	list-style: none;
+	padding: 0;
 }
 .tc-tree-node-border {
-  border-left: 1px solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
-  margin-left: 0.375rem;
+	border-left: 1px solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	margin-left: 0.375rem;
 }
 .tc-tree-node-border:hover {
-  border-left-color: var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	border-left-color: var(--coral-color-neutral-border, hsl(0, 0%, 55%));
 }
 .tc-tree li:hover {
-  background-color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+	background-color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
 }

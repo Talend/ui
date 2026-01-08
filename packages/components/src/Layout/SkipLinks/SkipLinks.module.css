@@ -1,31 +1,30 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-skip-links {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
 }
 .tc-skip-links ul > li > a {
-  height: 48px;
-  background: var(--coral-color-neutral-background, white);
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
-  font-weight: bold;
-  display: flex;
-  align-items: center;
+	height: 48px;
+	background: var(--coral-color-neutral-background, white);
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	font-weight: bold;
+	display: flex;
+	align-items: center;
 }
 .tc-skip-links ul > li > a:focus {
-  position: fixed;
-  top: 0;
-  left: 0;
-  visibility: visible;
+	position: fixed;
+	top: 0;
+	left: 0;
+	visibility: visible;
 }
 .tc-skip-links ul > li > a > .icon {
-  padding: 0 10px;
-  border-right: 1px solid var(--coral-color-neutral-border-strong, hsl(0, 0%, 25%));
-  display: flex;
-  align-items: center;
+	padding: 0 10px;
+	border-right: 1px solid var(--coral-color-neutral-border-strong, hsl(0, 0%, 25%));
+	display: flex;
+	align-items: center;
 }
 .tc-skip-links ul > li > a > .text {
-  padding: 0 10px;
+	padding: 0 10px;
 }

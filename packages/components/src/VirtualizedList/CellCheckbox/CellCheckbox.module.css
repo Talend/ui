@@ -1,13 +1,12 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-list-checkbox :global(.checkbox) {
-  margin: 0;
-  display: flex;
+	margin: 0;
+	display: flex;
 }
 .tc-list-checkbox :global(.checkbox) label {
-  line-height: 0.9375rem;
-  min-height: 0.9375rem;
-  display: flex;
-  padding-left: 20px;
-  margin-bottom: 0;
+	line-height: 0.9375rem;
+	min-height: 0.9375rem;
+	display: flex;
+	padding-left: 20px;
+	margin-bottom: 0;
 }

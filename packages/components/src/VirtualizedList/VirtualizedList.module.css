@@ -1,29 +1,29 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 :global(.tc-virtualizedlist-default-cell) {
-  min-width: 0;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+	min-width: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
-:global(div[role="columnheader"].tc-header-resizable.ReactVirtualized__Table__headerColumn) {
-  height: calc(100% - 2px);
-  padding: 0 0 0 20px;
-  position: relative;
+:global(div[role='columnheader'].tc-header-resizable.ReactVirtualized__Table__headerColumn) {
+	height: calc(100% - 2px);
+	padding: 0 0 0 20px;
+	position: relative;
 }
-:global(div[role="columnheader"].tc-header-resizable.ReactVirtualized__Table__headerColumn):hover {
-  cursor: pointer;
+:global(div[role='columnheader'].tc-header-resizable.ReactVirtualized__Table__headerColumn):hover {
+	cursor: pointer;
 }
-:global(div[role="columnheader"].tc-header-resizable.ReactVirtualized__Table__headerColumn) :global(.ReactVirtualized__Table__headerTruncatedText) {
-  align-self: center;
-  padding-left: 10px;
+:global(div[role='columnheader'].tc-header-resizable.ReactVirtualized__Table__headerColumn)
+	:global(.ReactVirtualized__Table__headerTruncatedText) {
+	align-self: center;
+	padding-left: 10px;
 }
 
 .tc-list-progress {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
 }

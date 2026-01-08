@@ -1,85 +1,89 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 @keyframes object-blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
 }
 @keyframes skeleton-blink {
-  0%, 100% {
-    opacity: 0.1;
-  }
-  50% {
-    opacity: 0.25;
-  }
+	0%,
+	100% {
+		opacity: 0.1;
+	}
+	50% {
+		opacity: 0.25;
+	}
 }
 .tc-editable-text-form {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding-right: 20px;
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding-right: 20px;
 }
 .tc-editable-text-form :global(.form-group) {
-  width: 100%;
-  margin: 0;
-  padding-top: 0;
+	width: 100%;
+	margin: 0;
+	padding-top: 0;
 }
 .tc-editable-text-form .tc-editable-text-form-input {
-  width: 100%;
-  padding-right: 52px;
+	width: 100%;
+	padding-right: 52px;
 }
 .tc-editable-text-form .tc-editable-text-form-input::selection {
-  background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+	background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
 }
 .tc-editable-text-form-buttons {
-  display: flex;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-  height: 32px;
-  top: 0;
-  right: 30px;
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	height: 32px;
+	top: 0;
+	right: 30px;
 }
 .tc-editable-text-form-buttons-icon {
-  border: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
-  width: 16px;
-  height: 16px;
-  min-height: auto;
-  display: flex;
-  border-radius: 50%;
-  padding: 0;
-  justify-content: center;
-  align-items: center;
+	border: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	width: 16px;
+	height: 16px;
+	min-height: auto;
+	display: flex;
+	border-radius: 50%;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
 }
 .tc-editable-text-form-buttons-icon > :global(.tc-svg-icon) {
-  width: 0.5rem;
-  height: 0.5rem;
+	width: 0.5rem;
+	height: 0.5rem;
 }
 .tc-editable-text-form-buttons-icon:last-child {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 .tc-editable-text-form-buttons-submit {
-  border-color: var(--coral-color-success-border, hsl(111, 49%, 34%));
-  background: var(--coral-color-success-background-strong, hsl(111, 49%, 34%));
-  fill: var(--coral-color-success-text-weak, white);
+	border-color: var(--coral-color-success-border, hsl(111, 49%, 34%));
+	background: var(--coral-color-success-background-strong, hsl(111, 49%, 34%));
+	fill: var(--coral-color-success-text-weak, white);
 }
-.tc-editable-text-form-buttons-submit:focus, .tc-editable-text-form-buttons-submit:hover {
-  color: var(--coral-color-success-text-weak, white);
-  background: var(--coral-color-success-background-strong-hover, hsl(111, 49%, 29%));
-  border-color: var(--coral-color-success-border, hsl(111, 49%, 34%));
+.tc-editable-text-form-buttons-submit:focus,
+.tc-editable-text-form-buttons-submit:hover {
+	color: var(--coral-color-success-text-weak, white);
+	background: var(--coral-color-success-background-strong-hover, hsl(111, 49%, 29%));
+	border-color: var(--coral-color-success-border, hsl(111, 49%, 34%));
 }
-.tc-editable-text-form-buttons-submit:focus svg, .tc-editable-text-form-buttons-submit:hover svg {
-  background: var(--coral-color-success-background-strong-hover, hsl(111, 49%, 29%));
+.tc-editable-text-form-buttons-submit:focus svg,
+.tc-editable-text-form-buttons-submit:hover svg {
+	background: var(--coral-color-success-background-strong-hover, hsl(111, 49%, 29%));
 }
 .tc-editable-text-form-buttons-submit > svg {
-  color: var(--coral-color-success-text-weak, white);
+	color: var(--coral-color-success-text-weak, white);
 }
-.tc-editable-text-form-buttons-cancel:focus, .tc-editable-text-form-buttons-cancel:hover {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  border-color: var(--coral-color-neutral-border-hover, hsl(0, 0%, 40%));
+.tc-editable-text-form-buttons-cancel:focus,
+.tc-editable-text-form-buttons-cancel:hover {
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	border-color: var(--coral-color-neutral-border-hover, hsl(0, 0%, 40%));
 }

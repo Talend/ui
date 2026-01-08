@@ -1,69 +1,79 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-list-toolbar {
-  background: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
-  border-top: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
-  border-bottom: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
-  margin-bottom: 0;
-  padding: 0 30px;
+	background: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+	border-top: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	border-bottom: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	margin-bottom: 0;
+	padding: 0 30px;
 }
 .tc-list-toolbar > :global(.container-fluid) {
-  padding-left: 0;
+	padding-left: 0;
 }
 .tc-list-toolbar :global(.navbar-btn) {
-  margin-top: 0;
-  margin-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 .tc-list-toolbar :global(.navbar-text) {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  margin-right: 0;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	margin-right: 0;
 }
 .tc-list-toolbar :global(.navbar-text) label {
-  font-weight: 400;
-  margin: 0;
+	font-weight: 400;
+	margin: 0;
 }
-.tc-list-toolbar :global(.nav) a[role=menuitem],
+.tc-list-toolbar :global(.nav) a[role='menuitem'],
 .tc-list-toolbar :global(.nav) a:global(.dropdown-toggle) {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  font-weight: normal;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	font-weight: normal;
 }
 .tc-list-toolbar :global(.tc-actionbar-container) {
-  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
-  padding: 0;
-  height: 4.375rem;
+	background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+	padding: 0;
+	height: 4.375rem;
 }
 .tc-list-toolbar :global(.tc-actionbar-container) :global(.navbar-left) > *,
 .tc-list-toolbar :global(.tc-actionbar-container) :global(.navbar-right) > * {
-  margin-right: 15px;
+	margin-right: 15px;
 }
 .tc-list-toolbar :global(.tc-actionbar-container) :global(.navbar-left) > *:last-child,
 .tc-list-toolbar :global(.tc-actionbar-container) :global(.navbar-right) > *:last-child {
-  margin-right: 0;
+	margin-right: 0;
 }
 .tc-list-toolbar :global(.list-action-bar) :global(.navbar-right) > ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	margin: 0;
 }
 .tc-list-toolbar :global(.list-action-bar) :global(.navbar-right) > ul > li {
-  display: flex;
-  align-items: center;
-  margin-left: 15px;
+	display: flex;
+	align-items: center;
+	margin-left: 15px;
 }
-.tc-list-toolbar :global(.list-action-bar) :global(.navbar-right) > ul > li button[role=search] {
-  padding-right: 0;
+.tc-list-toolbar :global(.list-action-bar) :global(.navbar-right) > ul > li button[role='search'] {
+	padding-right: 0;
 }
-.tc-list-toolbar :global(.list-action-bar) :global(.navbar-right) > ul > li:global(.separated):not(:first-child)::before {
-  content: "|";
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+.tc-list-toolbar
+	:global(.list-action-bar)
+	:global(.navbar-right)
+	> ul
+	> li:global(.separated):not(:first-child)::before {
+	content: '|';
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
 }
-.tc-list-toolbar :global(.list-action-bar) :global(.navbar-right) > ul > li:global(.select-sort-by) :global(.navbar-text) {
-  margin-bottom: 15px;
-  margin-left: 15px;
-  font-weight: normal;
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+.tc-list-toolbar
+	:global(.list-action-bar)
+	:global(.navbar-right)
+	> ul
+	> li:global(.select-sort-by)
+	:global(.navbar-text) {
+	margin-bottom: 15px;
+	margin-left: 15px;
+	font-weight: normal;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
 }
-.tc-list-toolbar :global(.separated button[data-feature="column-chooser.open"]) {
-  margin-left: var(--coral-spacing-m, 1rem);
+.tc-list-toolbar :global(.separated button[data-feature='column-chooser.open']) {
+	margin-left: var(--coral-spacing-m, 1rem);
 }

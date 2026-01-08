@@ -1,8 +1,7 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-enumeration-hint {
-  color: #bcbcbc;
-  font-style: oblique;
-  box-shadow: inset 0 21px 3px -20px rgba(0, 0, 0, 0.2);
-  padding: 15px 10px;
+	color: #bcbcbc;
+	font-style: oblique;
+	box-shadow: inset 0 21px 3px -20px rgba(0, 0, 0, 0.2);
+	padding: 15px 10px;
 }

@@ -1,39 +1,39 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-twoviewers-layout {
-  display: flex;
-  width: 100%;
-  overflow: hidden;
+	display: flex;
+	width: 100%;
+	overflow: hidden;
 }
 .tc-twoviewers-layout-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .tc-twoviewers-layout-loading :global(.tc-svg-icon) {
-  width: 6rem;
-  height: 6rem;
+	width: 6rem;
+	height: 6rem;
 }
-.tc-twoviewers-layout-left, .tc-twoviewers-layout-right {
-  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+.tc-twoviewers-layout-left,
+.tc-twoviewers-layout-right {
+	background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
 }
 .tc-twoviewers-layout-left {
-  border-right: 0.3125rem solid var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
-  width: 29.375rem;
+	border-right: 0.3125rem solid var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	width: 29.375rem;
 }
 .tc-twoviewers-layout-right {
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 :global(.button-padding) {
-  margin-top: 15px;
-  margin-right: 10px;
+	margin-top: 15px;
+	margin-right: 10px;
 }
 
 .custom-quality-bar-line {
-  background-color: blue;
+	background-color: blue;
 }
 
 .custom-quality-bar-line2 {
-  background-color: pink;
+	background-color: pink;
 }

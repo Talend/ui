@@ -1,51 +1,50 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-simple-text {
-  display: flex;
-  min-width: 0;
-  margin-right: 10px;
+	display: flex;
+	min-width: 0;
+	margin-right: 10px;
 }
 .tc-simple-text-key,
 .tc-simple-text :global(.td-default-cell) {
-  font-weight: 400;
+	font-weight: 400;
 }
 .tc-simple-text-key {
-  margin-right: 5px;
-  white-space: nowrap;
-  flex-shrink: 1;
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
-  vertical-align: top;
+	margin-right: 5px;
+	white-space: nowrap;
+	flex-shrink: 1;
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	vertical-align: top;
 }
 .tc-simple-text-key-with-value::after {
-  content: ":";
+	content: ':';
 }
 .tc-simple-text-value {
-  text-transform: lowercase;
-  white-space: nowrap;
+	text-transform: lowercase;
+	white-space: nowrap;
 }
 .tc-simple-text-value::first-letter {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 .tc-simple-text-value.shrink-value {
-  overflow: hidden;
-  text-overflow: ellipsis;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-simple-text-value.wrap-value {
-  overflow: initial;
-  white-space: normal;
-  word-break: break-all;
+	overflow: initial;
+	white-space: normal;
+	word-break: break-all;
 }
 .tc-simple-text :global(.td-default-cell) {
-  display: inline-block;
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
-  font-family: "Inconsolata";
+	display: inline-block;
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	font-family: 'Inconsolata';
 }
 .tc-simple-text-type {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  opacity: 0.75;
-  margin-left: 5px;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	opacity: 0.75;
+	margin-left: 5px;
 }
 
 .td-cell-int {
-  text-align: right;
+	text-align: right;
 }

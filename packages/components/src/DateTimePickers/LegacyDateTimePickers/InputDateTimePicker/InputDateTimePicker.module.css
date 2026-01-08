@@ -1,8 +1,7 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .popper {
-  width: 19.375rem;
-  background: var(--coral-color-neutral-background, white);
-  box-shadow: 0 0.0625rem 0.1875rem 0 rgba(0, 0, 0, 0.2);
-  z-index: var(--coral-elevation-layer-interactive-front, 8);
+	width: 19.375rem;
+	background: var(--coral-color-neutral-background, white);
+	box-shadow: 0 0.0625rem 0.1875rem 0 rgba(0, 0, 0, 0.2);
+	z-index: var(--coral-elevation-layer-interactive-front, 8);
 }

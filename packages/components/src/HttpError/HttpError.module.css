@@ -1,41 +1,40 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .http-error {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .http-error::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  content: attr(data-status);
-  font-size: 38.75rem;
-  font-weight: 700;
-  line-height: 0.7;
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
-  opacity: 0.1;
-  z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	content: attr(data-status);
+	font-size: 38.75rem;
+	font-weight: 700;
+	line-height: 0.7;
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	opacity: 0.1;
+	z-index: -1;
 }
 .http-error-content {
-  padding: 8.125rem 0 0 26.875rem;
+	padding: 8.125rem 0 0 26.875rem;
 }
 .http-error-content h1 {
-  margin: 0;
-  color: var(--coral-color-accent-text-active, hsl(205, 94%, 13%));
-  font-size: 6.25rem;
-  font-weight: 700;
+	margin: 0;
+	color: var(--coral-color-accent-text-active, hsl(205, 94%, 13%));
+	font-size: 6.25rem;
+	font-weight: 700;
 }
 .http-error-content p {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  font-size: 1.875rem;
-  font-weight: 600;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	font-size: 1.875rem;
+	font-weight: 600;
 }
 .http-error-content button {
-  padding: 0;
-  font-weight: 600;
-  text-transform: none;
+	padding: 0;
+	font-weight: 600;
+	text-transform: none;
 }

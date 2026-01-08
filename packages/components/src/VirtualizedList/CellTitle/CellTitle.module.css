@@ -1,105 +1,127 @@
 /* stylelint-disable declaration-no-important */
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-list-title {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 100%;
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 100%;
 }
 .tc-list-title .icon,
 .tc-list-title .span > .icon {
-  filter: url("#talend-grayscale");
-  flex-shrink: 0;
-  height: 1.25rem;
-  width: 1.25rem;
-  vertical-align: middle;
+	filter: url('#talend-grayscale');
+	flex-shrink: 0;
+	height: 1.25rem;
+	width: 1.25rem;
+	vertical-align: middle;
 }
 .tc-list-title .icon + .edit-form,
 .tc-list-title span + .edit-form {
-  padding-left: 15px;
+	padding-left: 15px;
 }
 .tc-list-title .edit-form {
-  flex-grow: 1;
-  height: 100%;
+	flex-grow: 1;
+	height: 100%;
 }
 .tc-list-title .edit-form > input {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 .tc-list-title .main-title {
-  flex-grow: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  padding: 0 15px;
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  font-size: inherit;
-  font-weight: 600;
-  text-transform: none;
-  text-align: left;
+	flex-grow: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	padding: 0 15px;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	font-size: inherit;
+	font-weight: 600;
+	text-transform: none;
+	text-align: left;
 }
 .tc-list-title .main-title > span {
-  display: inline;
+	display: inline;
 }
 .tc-list-title .main-title:first-child {
-  padding-left: 0;
+	padding-left: 0;
 }
-.tc-list-title .main-title:hover, .tc-list-title .main-title:focus {
-  text-decoration: none;
-}
-
-.tc-list-title-filter:not(.tc-list-title-disabled):hover .icon, .tc-list-title-filter:not(.tc-list-title-disabled):focus-within .icon {
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
-  filter: none;
-}
-.tc-list-title-filter:not(.tc-list-title-disabled):hover .main-title, .tc-list-title-filter:not(.tc-list-title-disabled):focus-within .main-title {
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+.tc-list-title .main-title:hover,
+.tc-list-title .main-title:focus {
+	text-decoration: none;
 }
 
-:global(.tc-list-large-inner-box):hover :global(.tc-list-title .cell-title-actions), :global(.tc-list-large-inner-box):focus :global(.tc-list-title .cell-title-actions), :global(.tc-list-large-inner-box):focus-within :global(.tc-list-title .cell-title-actions),
+.tc-list-title-filter:not(.tc-list-title-disabled):hover .icon,
+.tc-list-title-filter:not(.tc-list-title-disabled):focus-within .icon {
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	filter: none;
+}
+.tc-list-title-filter:not(.tc-list-title-disabled):hover .main-title,
+.tc-list-title-filter:not(.tc-list-title-disabled):focus-within .main-title {
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+
+:global(.tc-list-large-inner-box):hover :global(.tc-list-title .cell-title-actions),
+:global(.tc-list-large-inner-box):focus :global(.tc-list-title .cell-title-actions),
+:global(.tc-list-large-inner-box):focus-within :global(.tc-list-title .cell-title-actions),
 :global(.ReactVirtualized__Table__row):hover :global(.tc-list-title .cell-title-actions),
 :global(.ReactVirtualized__Table__row):focus :global(.tc-list-title .cell-title-actions),
 :global(.ReactVirtualized__Table__row):focus-within :global(.tc-list-title .cell-title-actions) {
-  opacity: 1;
-  width: 100%;
-  transition: opacity 0.15s ease-in;
-  overflow: visible;
+	opacity: 1;
+	width: 100%;
+	transition: opacity 0.15s ease-in;
+	overflow: visible;
 }
 
-:global(.ReactVirtualized__Grid__innerScrollContainer):hover, :global(.ReactVirtualized__Grid__innerScrollContainer):focus, :global(.ReactVirtualized__Grid__innerScrollContainer):focus-within,
+:global(.ReactVirtualized__Grid__innerScrollContainer):hover,
+:global(.ReactVirtualized__Grid__innerScrollContainer):focus,
+:global(.ReactVirtualized__Grid__innerScrollContainer):focus-within,
 :global(.ReactVirtualized__Table__row):hover,
 :global(.ReactVirtualized__Table__row):focus,
 :global(.ReactVirtualized__Table__row):focus-within {
-  overflow: visible !important;
+	overflow: visible !important;
 }
 :global(.ReactVirtualized__Grid__innerScrollContainer):hover :global(.tc-list-title-cell),
-:global(.ReactVirtualized__Grid__innerScrollContainer):hover :global(.tc-list-title-cell) :global(.tc-actions.btn-group), :global(.ReactVirtualized__Grid__innerScrollContainer):focus :global(.tc-list-title-cell),
-:global(.ReactVirtualized__Grid__innerScrollContainer):focus :global(.tc-list-title-cell) :global(.tc-actions.btn-group), :global(.ReactVirtualized__Grid__innerScrollContainer):focus-within :global(.tc-list-title-cell),
-:global(.ReactVirtualized__Grid__innerScrollContainer):focus-within :global(.tc-list-title-cell) :global(.tc-actions.btn-group),
+:global(.ReactVirtualized__Grid__innerScrollContainer):hover
+	:global(.tc-list-title-cell)
+	:global(.tc-actions.btn-group),
+:global(.ReactVirtualized__Grid__innerScrollContainer):focus :global(.tc-list-title-cell),
+:global(.ReactVirtualized__Grid__innerScrollContainer):focus
+	:global(.tc-list-title-cell)
+	:global(.tc-actions.btn-group),
+:global(.ReactVirtualized__Grid__innerScrollContainer):focus-within :global(.tc-list-title-cell),
+:global(.ReactVirtualized__Grid__innerScrollContainer):focus-within
+	:global(.tc-list-title-cell)
+	:global(.tc-actions.btn-group),
 :global(.ReactVirtualized__Table__row):hover :global(.tc-list-title-cell),
-:global(.ReactVirtualized__Table__row):hover :global(.tc-list-title-cell) :global(.tc-actions.btn-group),
+:global(.ReactVirtualized__Table__row):hover
+	:global(.tc-list-title-cell)
+	:global(.tc-actions.btn-group),
 :global(.ReactVirtualized__Table__row):focus :global(.tc-list-title-cell),
-:global(.ReactVirtualized__Table__row):focus :global(.tc-list-title-cell) :global(.tc-actions.btn-group),
+:global(.ReactVirtualized__Table__row):focus
+	:global(.tc-list-title-cell)
+	:global(.tc-actions.btn-group),
 :global(.ReactVirtualized__Table__row):focus-within :global(.tc-list-title-cell),
-:global(.ReactVirtualized__Table__row):focus-within :global(.tc-list-title-cell) :global(.tc-actions.btn-group) {
-  overflow: visible !important;
+:global(.ReactVirtualized__Table__row):focus-within
+	:global(.tc-list-title-cell)
+	:global(.tc-actions.btn-group) {
+	overflow: visible !important;
 }
 
-:global(.ReactVirtualized__Table__row):hover, :global(.ReactVirtualized__Table__row):focus, :global(.ReactVirtualized__Table__row):focus-within {
-  /* avoid scrolling over x axis */
-  width: auto !important;
-  right: 0 !important;
-  padding: 0 !important;
+:global(.ReactVirtualized__Table__row):hover,
+:global(.ReactVirtualized__Table__row):focus,
+:global(.ReactVirtualized__Table__row):focus-within {
+	/* avoid scrolling over x axis */
+	width: auto !important;
+	right: 0 !important;
+	padding: 0 !important;
 }
 
 :global(.tc-list-title-cell) {
-  display: flex;
-  min-width: 0;
-  line-height: 2.125rem;
+	display: flex;
+	min-width: 0;
+	line-height: 2.125rem;
 }
 :global(.tc-list-title-cell) > *:first-child {
-  min-width: 0;
-  flex: 1;
+	min-width: 0;
+	flex: 1;
 }

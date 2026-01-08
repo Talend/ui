@@ -1,28 +1,27 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-resource-picker-name-filter {
-  flex: 1;
-  position: relative;
+	flex: 1;
+	position: relative;
 }
 .tc-resource-picker-name-filter input + .remove {
-  position: absolute;
-  top: 0;
-  right: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 .tc-resource-picker-name-filter input:not(:invalid) + .remove {
-  display: inline-block;
+	display: inline-block;
 }
 
 .remove {
-  display: none;
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  padding: 5px 0;
-  line-height: 1.25rem;
-  height: 100%;
+	display: none;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	padding: 5px 0;
+	line-height: 1.25rem;
+	height: 100%;
 }
 .remove :global(.tc-svg-icon) {
-  height: 0.5rem;
-  width: 0.5rem;
-  margin: 0;
-  vertical-align: baseline;
+	height: 0.5rem;
+	width: 0.5rem;
+	margin: 0;
+	vertical-align: baseline;
 }

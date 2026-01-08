@@ -1,37 +1,36 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-listview-header {
-  display: flex;
-  line-height: 20px;
-  align-items: center;
-  height: 28px;
-  position: relative;
+	display: flex;
+	line-height: 20px;
+	align-items: center;
+	height: 28px;
+	position: relative;
 }
 .tc-listview-header > strong + small {
-  padding: 0 5px;
+	padding: 0 5px;
 }
 .tc-listview-header input {
-  box-shadow: none;
-  outline: none;
-  border: none;
-  flex-grow: 1;
-  height: 100%;
-  background-color: transparent;
+	box-shadow: none;
+	outline: none;
+	border: none;
+	flex-grow: 1;
+	height: 100%;
+	background-color: transparent;
 }
 .tc-listview-header input::placeholder {
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
 }
 .tc-listview-header :global(.actions) {
-  margin-left: auto;
+	margin-left: auto;
 }
 .tc-listview-header :global(.btn-link) {
-  height: 30px;
-  margin-left: 5px;
+	height: 30px;
+	margin-left: 5px;
 }
 .tc-listview-header :global(.btn-link) :global(.tc-svg-icon) {
-  fill: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  height: 0.875rem;
-  width: 0.875rem;
-  margin: 0;
-  vertical-align: text-top;
+	fill: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	height: 0.875rem;
+	width: 0.875rem;
+	margin: 0;
+	vertical-align: text-top;
 }

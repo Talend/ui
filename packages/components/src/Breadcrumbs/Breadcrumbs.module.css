@@ -1,15 +1,14 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-breadcrumb :global(.tc-dropdown-button) {
-  padding: 0;
+	padding: 0;
 }
 .tc-breadcrumb.loading {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 10px;
-  height: 3.125rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 10px;
+	height: 3.125rem;
 }
 .tc-breadcrumb.loading :global(.tc-skeleton) {
-  margin: 0 5px;
+	margin: 0 5px;
 }

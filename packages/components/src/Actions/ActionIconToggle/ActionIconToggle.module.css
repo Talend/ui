@@ -1,67 +1,74 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-icon-toggle {
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: calc(1.5rem / 2);
+	height: 1.5rem;
+	width: 1.5rem;
+	border-radius: calc(1.5rem / 2);
 }
 .tc-icon-toggle svg {
-  height: 0.75rem;
-  width: 0.75rem;
+	height: 0.75rem;
+	width: 0.75rem;
 }
 .tc-icon-toggle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-color: transparent;
-  box-shadow: none;
-  line-height: unset;
-  min-height: auto;
-  padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background-color: transparent;
+	box-shadow: none;
+	line-height: unset;
+	min-height: auto;
+	padding: 0;
 }
 .tc-icon-toggle svg {
-  color: var(--coral-color-neutral-icon-weak, hsl(0, 0%, 38%));
+	color: var(--coral-color-neutral-icon-weak, hsl(0, 0%, 38%));
 }
-.tc-icon-toggle, .tc-icon-toggle:focus {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+.tc-icon-toggle,
+.tc-icon-toggle:focus {
+	border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border, hsl(0, 0%, 55%));
 }
-.tc-icon-toggle[disabled]:hover, .tc-icon-toggle[disabled]:focus {
-  border-color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+.tc-icon-toggle[disabled]:hover,
+.tc-icon-toggle[disabled]:focus {
+	border-color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
 }
-.tc-icon-toggle[disabled]:hover svg, .tc-icon-toggle[disabled]:focus svg {
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+.tc-icon-toggle[disabled]:hover svg,
+.tc-icon-toggle[disabled]:focus svg {
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
 }
-.tc-icon-toggle:hover, .tc-icon-toggle:active {
-  box-shadow: none;
-  border-color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
-  background-color: transparent;
+.tc-icon-toggle:hover,
+.tc-icon-toggle:active {
+	box-shadow: none;
+	border-color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	background-color: transparent;
 }
-.tc-icon-toggle:hover svg, .tc-icon-toggle:active svg {
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+.tc-icon-toggle:hover svg,
+.tc-icon-toggle:active svg {
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
 }
 .tc-icon-toggle.active {
-  background-color: var(--coral-color-accent-background-strong, hsl(204, 95%, 31%));
-  border-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+	background-color: var(--coral-color-accent-background-strong, hsl(204, 95%, 31%));
+	border-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
 }
 .tc-icon-toggle.active svg {
-  color: var(--coral-color-accent-text-weak, white);
+	color: var(--coral-color-accent-text-weak, white);
 }
-.tc-icon-toggle.active:hover:not([disabled]), .tc-icon-toggle.active:active {
-  background-color: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
-  border-color: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+.tc-icon-toggle.active:hover:not([disabled]),
+.tc-icon-toggle.active:active {
+	background-color: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+	border-color: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
 }
-.tc-icon-toggle.active:hover:not([disabled]) svg, .tc-icon-toggle.active:active svg {
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+.tc-icon-toggle.active:hover:not([disabled]) svg,
+.tc-icon-toggle.active:active svg {
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
 }
 .tc-icon-toggle.tick::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: calc(12px / 2);
-  right: -0.25rem;
-  top: -0.25rem;
-  background: var(--coral-color-accent-text, hsl(204, 95%, 31%));
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	content: '';
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	border-radius: calc(12px / 2);
+	right: -0.25rem;
+	top: -0.25rem;
+	background: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
 }

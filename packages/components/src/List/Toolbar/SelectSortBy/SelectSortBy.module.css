@@ -1,32 +1,35 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-list-toolbar-sort-by {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 .tc-list-toolbar-sort-by :global(.navbar-btn.btn) {
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
-  font-size: 1em;
-  margin: 0;
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	font-size: 1em;
+	margin: 0;
 }
 .tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser) {
-  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  display: inherit;
-  padding: 0;
+	background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	display: inherit;
+	padding: 0;
 }
-.tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser):hover, .tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser):focus, .tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser):active {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  box-shadow: none;
+.tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser):hover,
+.tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser):focus,
+.tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser):active {
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	box-shadow: none;
 }
 .tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser) :global(.tc-order-indicator) {
-  width: 0.375rem;
-  height: 0.375rem;
+	width: 0.375rem;
+	height: 0.375rem;
 }
 .tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser) .tc-list-toolbar-order-indicator {
-  width: 0.375rem;
-  height: 0.375rem;
+	width: 0.375rem;
+	height: 0.375rem;
 }
-.tc-list-toolbar-sort-by :global(.tc-list-toolbar-order-chooser) .tc-list-toolbar-order-indicator.asc {
-  transform: rotate(180deg);
+.tc-list-toolbar-sort-by
+	:global(.tc-list-toolbar-order-chooser)
+	.tc-list-toolbar-order-indicator.asc {
+	transform: rotate(180deg);
 }

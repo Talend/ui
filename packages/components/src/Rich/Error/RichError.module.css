@@ -1,20 +1,19 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .wrapper {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .icon {
-  width: 2.25rem;
-  height: 2.25rem;
+	width: 2.25rem;
+	height: 2.25rem;
 }
 
 .content {
-  margin-left: 15px;
+	margin-left: 15px;
 }
 .content h4 {
-  margin: 0;
-  font-size: 12px;
-  font-weight: 400;
+	margin: 0;
+	font-size: 12px;
+	font-weight: 400;
 }

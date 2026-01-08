@@ -1,291 +1,295 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 :global(.panel .panel) {
-  margin: 0;
+	margin: 0;
 }
 
 .tc-collapsible-panel {
-  position: relative;
+	position: relative;
 }
 .tc-collapsible-panel.selected {
-  border-left: 5px solid var(--coral-color-accent-border, hsl(204, 95%, 31%));
-  padding-left: 1px;
+	border-left: 5px solid var(--coral-color-accent-border, hsl(204, 95%, 31%));
+	padding-left: 1px;
 }
 .tc-collapsible-panel:not(.open) :global(.panel-heading) {
-  border-bottom: none;
+	border-bottom: none;
 }
-.tc-collapsible-panel.info :global(.panel-heading), .tc-collapsible-panel.success :global(.panel-heading), .tc-collapsible-panel.danger :global(.panel-heading), .tc-collapsible-panel.muted :global(.panel-heading), .tc-collapsible-panel.warning :global(.panel-heading), .tc-collapsible-panel.skeleton :global(.panel-heading) {
-  padding-left: 1px;
-  border-left: 5px solid;
+.tc-collapsible-panel.info :global(.panel-heading),
+.tc-collapsible-panel.success :global(.panel-heading),
+.tc-collapsible-panel.danger :global(.panel-heading),
+.tc-collapsible-panel.muted :global(.panel-heading),
+.tc-collapsible-panel.warning :global(.panel-heading),
+.tc-collapsible-panel.skeleton :global(.panel-heading) {
+	padding-left: 1px;
+	border-left: 5px solid;
 }
 .tc-collapsible-panel.info :global(.panel-heading) {
-  border-left-color: var(--coral-color-info-text, hsl(204, 95%, 31%));
+	border-left-color: var(--coral-color-info-text, hsl(204, 95%, 31%));
 }
 .tc-collapsible-panel.info :global(.tc-status-label) {
-  color: var(--coral-color-info-text, hsl(204, 95%, 31%));
+	color: var(--coral-color-info-text, hsl(204, 95%, 31%));
 }
 .tc-collapsible-panel.success :global(.panel-heading) {
-  border-left-color: var(--coral-color-success-text, hsl(111, 49%, 34%));
+	border-left-color: var(--coral-color-success-text, hsl(111, 49%, 34%));
 }
 .tc-collapsible-panel.success :global(.tc-status-label) {
-  color: var(--coral-color-success-text, hsl(111, 49%, 34%));
+	color: var(--coral-color-success-text, hsl(111, 49%, 34%));
 }
 .tc-collapsible-panel.danger {
-  border-color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+	border-color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
 }
 .tc-collapsible-panel.danger :global(.panel-heading) {
-  border-color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+	border-color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
 }
 .tc-collapsible-panel.danger :global(.tc-status-label) {
-  color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+	color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
 }
 .tc-collapsible-panel.muted :global(.panel-heading) {
-  border-left-color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	border-left-color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
 }
 .tc-collapsible-panel.muted :global(.tc-status-label) {
-  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
 }
 .tc-collapsible-panel.warning :global(.panel-heading) {
-  border-left-color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
+	border-left-color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
 }
 .tc-collapsible-panel.warning :global(.tc-status-label) {
-  color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
+	color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
 }
 .tc-collapsible-panel.skeleton :global(.panel-heading) {
-  border-color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+	border-color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
 }
 .tc-collapsible-panel .panel-header-content {
-  display: flex;
-  height: 2.5rem;
-  align-items: center;
-  padding: 0 15px;
+	display: flex;
+	height: 2.5rem;
+	align-items: center;
+	padding: 0 15px;
 }
 .tc-collapsible-panel .panel-header-content > a {
-  width: 100%;
+	width: 100%;
 }
 .tc-collapsible-panel .panel-header-content .panel-title {
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-basis: 100%;
-  overflow: hidden;
-  font-size: 0.875rem;
-  width: 100%;
-  padding-right: 5px;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-basis: 100%;
+	overflow: hidden;
+	font-size: 0.875rem;
+	width: 100%;
+	padding-right: 5px;
 }
 .tc-collapsible-panel .panel-header-content .panel-title:hover {
-  background: transparent;
+	background: transparent;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > * > :global(.btn) {
-  line-height: 1em;
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	line-height: 1em;
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-4 {
-  flex-basis: 25%;
-  display: flex;
-  overflow: hidden;
+	flex-basis: 25%;
+	display: flex;
+	overflow: hidden;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-4 > span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-5 {
-  flex-basis: 20%;
-  display: flex;
-  overflow: hidden;
+	flex-basis: 20%;
+	display: flex;
+	overflow: hidden;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-5 > span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-6 {
-  flex-basis: 16.6666666667%;
-  display: flex;
-  overflow: hidden;
+	flex-basis: 16.6666666667%;
+	display: flex;
+	overflow: hidden;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-6 > span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-7 {
-  flex-basis: 14.2857142857%;
-  display: flex;
-  overflow: hidden;
+	flex-basis: 14.2857142857%;
+	display: flex;
+	overflow: hidden;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-7 > span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-8 {
-  flex-basis: 12.5%;
-  display: flex;
-  overflow: hidden;
+	flex-basis: 12.5%;
+	display: flex;
+	overflow: hidden;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-8 > span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-9 {
-  flex-basis: 11.1111111111%;
-  display: flex;
-  overflow: hidden;
+	flex-basis: 11.1111111111%;
+	display: flex;
+	overflow: hidden;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-9 > span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-10 {
-  flex-basis: 10%;
-  display: flex;
-  overflow: hidden;
+	flex-basis: 10%;
+	display: flex;
+	overflow: hidden;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > *.col-10 > span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > * {
-  padding: 0;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 0;
+	padding: 0;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-width: 0;
 }
 .tc-collapsible-panel .panel-header-content .panel-title > * > * {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .tc-collapsible-panel :global(.tc-icon-toggle) {
-  height: 1rem;
-  width: 1rem;
-  transform-origin: center;
+	height: 1rem;
+	width: 1rem;
+	transform-origin: center;
 }
 .tc-collapsible-panel :global(.tc-icon-toggle) svg {
-  height: 0.625rem;
-  width: 0.625rem;
+	height: 0.625rem;
+	width: 0.625rem;
 }
 .tc-collapsible-panel .group {
-  display: flex;
+	display: flex;
 }
 .tc-collapsible-panel :global .panel-heading {
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 0;
 }
 .tc-collapsible-panel :global .panel-heading .panel-title {
-  width: 100%;
+	width: 100%;
 }
 .tc-collapsible-panel :global .panel-heading:hover {
-  background: var(--coral-color-neutral-background, white);
-  cursor: pointer;
+	background: var(--coral-color-neutral-background, white);
+	cursor: pointer;
 }
 .tc-collapsible-panel :global .panel-heading:hover .tc-status-label {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .default-panel :global(.label) {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 .default-panel .group {
-  justify-content: space-between;
-  padding-right: 15px;
+	justify-content: space-between;
+	padding-right: 15px;
 }
 .default-panel :global(.panel-body) {
-  max-height: 50vh;
-  overflow: auto;
-  word-break: break-all;
+	max-height: 50vh;
+	overflow: auto;
+	word-break: break-all;
 }
 .default-panel :global(.panel-body) .content {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
 }
 .default-panel :global(.panel-body) .content .label {
-  flex-basis: 10%;
-  flex-shrink: 0;
-  flex-grow: 1;
+	flex-basis: 10%;
+	flex-shrink: 0;
+	flex-grow: 1;
 }
 .default-panel :global(.panel-body) .content .description {
-  flex-basis: 90%;
-  flex-shrink: 0;
-  flex-grow: 1;
-  font-weight: normal;
+	flex-basis: 90%;
+	flex-shrink: 0;
+	flex-grow: 1;
+	font-weight: normal;
 }
 
 .descriptive-panel {
-  border-radius: 0;
-  margin-bottom: 0;
-  box-shadow: none;
-  border: none;
-  padding-left: 5px;
+	border-radius: 0;
+	margin-bottom: 0;
+	box-shadow: none;
+	border: none;
+	padding-left: 5px;
 }
 .descriptive-panel :global(.panel) {
-  box-shadow: none;
+	box-shadow: none;
 }
 .descriptive-panel :global(.toggle) svg {
-  fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
-  height: 10px;
-  width: 10px;
+	fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	height: 10px;
+	width: 10px;
 }
 .descriptive-panel.selected .title,
 .descriptive-panel.selected .detail {
-  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
 }
 .descriptive-panel :global(.panel-heading) {
-  padding: 0;
-  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
-  border-color: transparent;
+	padding: 0;
+	background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+	border-color: transparent;
 }
 .descriptive-panel .group {
-  justify-content: flex-start;
+	justify-content: flex-start;
 }
 .descriptive-panel .group > * {
-  margin-right: 5px;
+	margin-right: 5px;
 }
 .descriptive-panel .title {
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+	font-weight: bold;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .descriptive-panel .tag {
-  white-space: nowrap;
-  font-size: 0.75rem;
+	white-space: nowrap;
+	font-size: 0.75rem;
 }
 .descriptive-panel .detail {
-  white-space: nowrap;
-  justify-content: flex-end;
+	white-space: nowrap;
+	justify-content: flex-end;
 }
 .descriptive-panel :global(.panel-body) {
-  padding: 10px;
-  padding-top: 0;
+	padding: 10px;
+	padding-top: 0;
 }
 .descriptive-panel :global(.panel-body) .content {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 .descriptive-panel :global(.panel-body) .content .head {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 .descriptive-panel :global(.panel-body) .content .head > span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .descriptive-panel :global(.panel-body) .content .content-description {
-  white-space: pre-wrap;
-  padding-top: 5px;
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	white-space: pre-wrap;
+	padding-top: 5px;
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
 }

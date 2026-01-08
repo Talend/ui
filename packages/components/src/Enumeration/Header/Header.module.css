@@ -1,42 +1,41 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-enumeration-header {
-  display: flex;
-  line-height: 20px;
-  align-items: center;
-  height: 28px;
-  position: relative;
+	display: flex;
+	line-height: 20px;
+	align-items: center;
+	height: 28px;
+	position: relative;
 }
 .tc-enumeration-header > span {
-  font-weight: 700;
+	font-weight: 700;
 }
 .tc-enumeration-header :global(.actions) {
-  margin-left: auto;
+	margin-left: auto;
 }
 .tc-enumeration-header input {
-  box-shadow: none;
-  border: none;
-  flex-grow: 1;
-  height: 100%;
-  background-color: transparent;
+	box-shadow: none;
+	border: none;
+	flex-grow: 1;
+	height: 100%;
+	background-color: transparent;
 }
 .tc-enumeration-header :global(.btn-link) {
-  margin-left: auto;
-  padding: 0 5px;
-  height: 30px;
+	margin-left: auto;
+	padding: 0 5px;
+	height: 30px;
 }
 .tc-enumeration-header :global(.btn-link) :global(.tc-svg-icon) {
-  height: 0.875rem;
-  width: 0.875rem;
-  margin-right: 0;
-  vertical-align: text-top;
+	height: 0.875rem;
+	width: 0.875rem;
+	margin-right: 0;
+	vertical-align: text-top;
 }
 .tc-enumeration-header .tc-enumeration-header-error {
-  position: absolute;
-  top: 100%;
-  background-color: var(--coral-color-danger-background, hsl(0, 100%, 96%));
-  width: 100%;
-  color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
-  padding: 2px;
-  z-index: 1;
+	position: absolute;
+	top: 100%;
+	background-color: var(--coral-color-danger-background, hsl(0, 100%, 96%));
+	width: 100%;
+	color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+	padding: 2px;
+	z-index: 1;
 }

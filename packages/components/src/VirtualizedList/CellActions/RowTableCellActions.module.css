@@ -1,12 +1,11 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .row .tc-list-actions button {
-  opacity: 0;
+	opacity: 0;
 }
 .row .tc-list-actions button:focus {
-  opacity: 1;
+	opacity: 1;
 }
 .row:hover .tc-list-actions button {
-  opacity: 1;
-  transition: opacity 0.15s ease-in;
+	opacity: 1;
+	transition: opacity 0.15s ease-in;
 }

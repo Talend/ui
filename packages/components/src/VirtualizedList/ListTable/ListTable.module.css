@@ -1,68 +1,74 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-list-table-right-action {
-  position: absolute;
-  right: 0;
-  margin-top: var(--coral-spacing-xxs, 0.25rem);
-  margin-right: var(--coral-spacing-s, 0.75rem);
+	position: absolute;
+	right: 0;
+	margin-top: var(--coral-spacing-xxs, 0.25rem);
+	margin-right: var(--coral-spacing-s, 0.75rem);
 }
 
 .tc-list-table {
-  background-color: var(--coral-color-neutral-background, white);
+	background-color: var(--coral-color-neutral-background, white);
 }
 .tc-list-table .row {
-  border-bottom: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
-  background: var(--coral-color-neutral-background, white);
-  display: flex;
-  align-items: center;
+	border-bottom: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	background: var(--coral-color-neutral-background, white);
+	display: flex;
+	align-items: center;
 }
-.tc-list-table .row:hover, .tc-list-table .row:focus, .tc-list-table .row:focus-within {
-  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+.tc-list-table .row:hover,
+.tc-list-table .row:focus,
+.tc-list-table .row:focus-within {
+	background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
 }
-.tc-list-table .row:hover .cell, .tc-list-table .row:focus .cell, .tc-list-table .row:focus-within .cell {
-  border-right: 1px solid var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+.tc-list-table .row:hover .cell,
+.tc-list-table .row:focus .cell,
+.tc-list-table .row:focus-within .cell {
+	border-right: 1px solid var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
 }
 .tc-list-table.right-action .tc-list-headerRow > *:last-child {
-  padding-right: var(--coral-spacing-l, 1.75rem);
+	padding-right: var(--coral-spacing-l, 1.75rem);
 }
 .tc-list-table .tc-list-headerRow {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2) inset;
 }
 .tc-list-table .tc-list-headerRow .header {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  display: inline-flex;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 10px;
-  overflow: hidden;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	display: inline-flex;
+	font-size: 0.75rem;
+	font-weight: 600;
+	padding: 10px;
+	overflow: hidden;
 }
 .tc-list-table .tc-list-headerRow .header :global(.ReactVirtualized__Table__headerTruncatedText) {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 .tc-list-table .tc-list-headerRow .header :global(.ReactVirtualized__Table__sortableHeaderIcon) {
-  flex-shrink: 0;
+	flex-shrink: 0;
 }
 .tc-list-table :global(.ReactVirtualized__Table__sortableHeaderColumn) {
-  cursor: pointer;
+	cursor: pointer;
 }
 .tc-list-table .grid {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2) inset;
 }
 .tc-list-table .grid .cell {
-  border-right: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0 10px;
-  height: 100%;
-  display: flex;
-  align-items: center;
+	border-right: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 10px;
+	height: 100%;
+	display: flex;
+	align-items: center;
 }
-.tc-list-table .grid .cell:global(.tc-list-cell-), .tc-list-table .grid .cell:last-child {
-  border-right: none;
+.tc-list-table .grid .cell:global(.tc-list-cell-),
+.tc-list-table .grid .cell:last-child {
+	border-right: none;
 }
-.tc-list-table [class*=tc-list-cell-] {
-  flex: 1 1 100%;
+.tc-list-table [class*='tc-list-cell-'] {
+	flex: 1 1 100%;
 }

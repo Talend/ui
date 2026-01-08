@@ -1,28 +1,24 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
-:global(.tc-collapsible-row) :global(.panel[class*="collapsible-panel"]) {
-  margin-bottom: 10px;
-}
 :global(.tc-collapsible-row) :global(.panel-collapse) {
-  transition-duration: 0s;
+	transition-duration: 0s;
 }
 :global(.tc-collapsible-row) :global(.tc-collapsible-panel) {
-  margin-bottom: 10px;
-  margin-top: 10px;
+	margin-bottom: 10px;
+	/* margin-top: 10px; */
 }
 :global(.tc-collapsible-row) .loading-collapsible-panel {
-  height: 2.5rem;
-  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
-  border-radius: 4px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+	height: 2.5rem;
+	background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+	border-radius: 4px;
+	margin-bottom: 10px;
+	display: flex;
+	align-items: center;
 }
 :global(.tc-collapsible-row) .loading-collapsible-panel > * {
-  display: inline-block;
-  flex: 1;
+	display: inline-block;
+	flex: 1;
 }
 :global(.tc-collapsible-row) .loading-collapsible-panel :first-child {
-  flex: 2;
-  margin: 0 10px;
+	flex: 2;
+	margin: 0 10px;
 }

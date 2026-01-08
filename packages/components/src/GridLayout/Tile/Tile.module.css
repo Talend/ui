@@ -1,21 +1,20 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .tc-tile-container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  min-height: 0;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	min-height: 0;
 }
 .tc-tile-container .tc-tile-body {
-  flex: 1;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  padding: 15px;
-  min-height: 0;
+	flex: 1;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	padding: 15px;
+	min-height: 0;
 }
 .tc-tile-container .tc-tile-footer {
-  padding-right: 15px;
-  text-align: right;
-  padding-bottom: 10px;
+	padding-right: 15px;
+	text-align: right;
+	padding-bottom: 10px;
 }

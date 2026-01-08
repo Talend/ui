@@ -1,18 +1,17 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .td-default-cell {
-  height: 100%;
-  white-space: nowrap;
+	height: 100%;
+	white-space: nowrap;
 }
 
 .shrink-value {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: pre;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre;
 }
 
 .wrap-value {
-  overflow: initial;
-  white-space: normal;
-  word-break: break-all;
+	overflow: initial;
+	white-space: normal;
+	word-break: break-all;
 }

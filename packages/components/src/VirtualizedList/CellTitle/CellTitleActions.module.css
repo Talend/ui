@@ -1,49 +1,52 @@
 /* stylelint-disable color-hex-case */
-/* stylelint-disable color-hex-case */
 .main-title-actions-group {
-  display: flex;
-  align-items: center;
-  flex-grow: 0;
-  position: relative;
-  right: 0;
-  top: 0;
-  height: 2.125rem;
+	display: flex;
+	align-items: center;
+	flex-grow: 0;
+	position: relative;
+	right: 0;
+	top: 0;
+	height: 2.125rem;
 }
 .main-title-actions-group .cell-title-actions {
-  opacity: 0;
-  width: 0;
-  overflow: hidden;
+	opacity: 0;
+	width: 0;
+	overflow: hidden;
 }
 .main-title-actions-group .cell-title-actions:not(:last-child)::after {
-  content: "|";
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  padding-top: 5px;
+	content: '|';
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	padding-top: 5px;
 }
 .main-title-actions-group :global .btn-group > .btn-link,
 .main-title-actions-group :global .tc-action-button-positionned > .btn-link {
-  padding: 0 5px;
+	padding: 0 5px;
 }
-.main-title-actions-group :global .btn-group > .btn-link .tc-svg-icon[name=talend-caret-down],
-.main-title-actions-group :global .tc-action-button-positionned > .btn-link .tc-svg-icon[name=talend-caret-down] {
-  display: none;
+.main-title-actions-group :global .btn-group > .btn-link .tc-svg-icon[name='talend-caret-down'],
+.main-title-actions-group
+	:global
+	.tc-action-button-positionned
+	> .btn-link
+	.tc-svg-icon[name='talend-caret-down'] {
+	display: none;
 }
 .main-title-actions-group :global .btn-group > .btn-link .tc-svg-icon,
 .main-title-actions-group :global .tc-action-button-positionned > .btn-link .tc-svg-icon {
-  margin: 0;
-  height: 1.25rem;
-  width: 1.25rem;
+	margin: 0;
+	height: 1.25rem;
+	width: 1.25rem;
 }
 .main-title-actions-group :global .btn-group > .dropdown-menu,
 .main-title-actions-group :global .btn-group.dropup > .dropdown-menu {
-  margin-top: 5px;
-  overflow: auto;
-  left: 50%;
-  transform: translateX(-50%);
+	margin-top: 5px;
+	overflow: auto;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 :global(.tc-list-large) .main-title-actions-group :global .dropup.btn-group > .dropdown-menu,
 :global(.tc-list-large) .main-title-actions-group :global .btn-group > .dropdown-menu {
-  right: 0;
-  left: auto;
-  transform: none;
+	right: 0;
+	left: auto;
+	transform: none;
 }
