@@ -1,30 +1,30 @@
 .block {
-  padding: var(--coral-spacing-s, 0.75rem);
-  border-radius: var(--coral-radius-s, 0.25rem);
+	padding: var(--coral-spacing-s, 0.75rem);
+	border-radius: var(--coral-radius-s, 0.25rem);
 }
 .block__title {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--coral-spacing-m, 1rem);
-  font: var(--coral-heading-m, 600 1rem/140% "Source Sans Pro");
+	display: flex;
+	align-items: center;
+	margin-bottom: var(--coral-spacing-m, 1rem);
+	font: var(--coral-heading-m, 600 1rem/140% 'Source Sans Pro');
 }
 .block li {
-  margin-bottom: var(--coral-spacing-xs, 0.5rem);
+	margin-bottom: var(--coral-spacing-xs, 0.5rem);
 }
 .block svg {
-  margin: 0 var(--coral-spacing-xs, 0.5rem);
+	margin: 0 var(--coral-spacing-xs, 0.5rem);
 }
 .block_dont {
-  background: var(--coral-color-danger-background, hsl(0, 100%, 96%));
-  border-top: 0.4rem solid var(--coral-color-danger-border, hsl(359, 51%, 53%));
+	background: var(--coral-color-danger-background, hsl(0, 100%, 96%));
+	border-top: 0.4rem solid var(--coral-color-danger-border, hsl(359, 51%, 53%));
 }
 .block_dont svg {
-  color: var(--coral-color-danger-icon, hsl(359, 69%, 53%));
+	color: var(--coral-color-danger-icon, hsl(359, 69%, 53%));
 }
 .block_do {
-  background: var(--coral-color-success-background, hsl(110, 49%, 90%));
-  border-top: 0.4rem solid var(--coral-color-success-border, hsl(111, 49%, 34%));
+	background: var(--coral-color-success-background, hsl(110, 49%, 90%));
+	border-top: 0.4rem solid var(--coral-color-success-border, hsl(111, 49%, 34%));
 }
 .block_do svg {
-  color: var(--coral-color-success-icon, hsl(111, 53%, 40%));
+	color: var(--coral-color-success-icon, hsl(111, 53%, 40%));
 }

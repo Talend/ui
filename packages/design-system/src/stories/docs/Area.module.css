@@ -1,15 +1,15 @@
 .area {
-  display: flex;
-  flex-basis: 100%;
-  align-items: center;
-  justify-content: center;
-  margin: var(--coral-spacing-xs, 0.5rem) var(--coral-spacing-m, 1rem);
-  padding: var(--coral-spacing-xs, 0.5rem);
-  min-height: 0;
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: coral;
-  background: cornsilk;
-  border: 1px dashed coral;
-  border-radius: var(--coral-radius-s, 0.25rem);
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	justify-content: center;
+	margin: var(--coral-spacing-xs, 0.5rem) var(--coral-spacing-m, 1rem);
+	padding: var(--coral-spacing-xs, 0.5rem);
+	min-height: 0;
+	font-weight: bold;
+	font-size: 1.25rem;
+	color: coral;
+	background: cornsilk;
+	border: 1px dashed coral;
+	border-radius: var(--coral-radius-s, 0.25rem);
 }

@@ -1,61 +1,62 @@
 .input {
-  background: transparent;
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  padding: var(--coral-spacing-xs, 0.5rem);
-  font: var(--coral-paragraph-m, 400 0.875rem/140% "Source Sans Pro");
-  line-height: 1;
-  border: 0;
-  margin: 0;
-  transition: var(--coral-transition-instant, 100ms ease-out);
-  display: block;
-  flex-grow: 1;
-  width: 100%;
+	background: transparent;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	padding: var(--coral-spacing-xs, 0.5rem);
+	font: var(--coral-paragraph-m, 400 0.875rem/140% 'Source Sans Pro');
+	line-height: 1;
+	border: 0;
+	margin: 0;
+	transition: var(--coral-transition-instant, 100ms ease-out);
+	display: block;
+	flex-grow: 1;
+	width: 100%;
 }
 .input:only-child {
-  border-radius: var(--coral-radius-s, 0.25rem);
+	border-radius: var(--coral-radius-s, 0.25rem);
 }
-.input:disabled, .input_disabled {
-  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
-  cursor: not-allowed;
+.input:disabled,
+.input_disabled {
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	cursor: not-allowed;
 }
 .input_readOnly {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
 }
 .input:focus {
-  outline: 0;
+	outline: 0;
 }
 .input:disabled {
-  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
 }
 .input::placeholder {
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
-  opacity: var(--coral-opacity-s, 0.6);
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	opacity: var(--coral-opacity-s, 0.6);
 }
 .input[disabled] {
-  opacity: 1;
+	opacity: 1;
 }
 .input[disabled] > option {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
 }
 .input {
-  height: 1.875rem;
+	height: 1.875rem;
 }
-.input[type=color] {
-  padding: var(--coral-spacing-xxs, 0.25rem);
+.input[type='color'] {
+	padding: var(--coral-spacing-xxs, 0.25rem);
 }
 .icon {
-  padding: 0 0 0 var(--coral-spacing-xs, 0.5rem);
-  background: transparent;
-  color: var(--coral-color-neutral-icon-weak, hsl(0, 0%, 38%));
-  transition: var(--coral-transition-instant, 100ms ease-out);
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	padding: 0 0 0 var(--coral-spacing-xs, 0.5rem);
+	background: transparent;
+	color: var(--coral-color-neutral-icon-weak, hsl(0, 0%, 38%));
+	transition: var(--coral-transition-instant, 100ms ease-out);
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .icon_disabled {
-  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
 }
 .icon_readOnly {
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
 }

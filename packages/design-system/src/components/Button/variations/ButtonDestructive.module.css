@@ -1,16 +1,18 @@
 .destructive {
-  color: var(--coral-color-danger-text-weak, white);
-  background: var(--coral-color-danger-background-strong, hsl(359, 51%, 53%));
+	color: var(--coral-color-danger-text-weak, white);
+	background: var(--coral-color-danger-background-strong, hsl(359, 51%, 53%));
 }
 .destructive:hover {
-  color: var(--coral-color-danger-text-weak-hover, hsl(358, 100%, 94%));
-  background: var(--coral-color-danger-background-strong-hover, hsl(359, 54%, 38%));
+	color: var(--coral-color-danger-text-weak-hover, hsl(358, 100%, 94%));
+	background: var(--coral-color-danger-background-strong-hover, hsl(359, 54%, 38%));
 }
 .destructive:active {
-  color: var(--coral-color-danger-text-weak-active, hsl(359, 100%, 88%));
-  background: var(--coral-color-danger-background-strong-active, hsl(359, 54%, 33%));
+	color: var(--coral-color-danger-text-weak-active, hsl(359, 100%, 88%));
+	background: var(--coral-color-danger-background-strong-active, hsl(359, 54%, 33%));
 }
-.destructive:disabled, .destructive[aria-disabled=true], .destructive[aria-busy=true] {
-  background: var(--coral-color-neutral-background-disabled, hsl(0, 0%, 88%));
-  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+.destructive:disabled,
+.destructive[aria-disabled='true'],
+.destructive[aria-busy='true'] {
+	background: var(--coral-color-neutral-background-disabled, hsl(0, 0%, 88%));
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
 }

@@ -1,4 +1,4 @@
 .trial {
-  padding: var(--coral-sizing-m, 2.25rem);
-  font: var(--coral-heading-m, 600 1rem/140% "Source Sans Pro");
+	padding: var(--coral-sizing-m, 2.25rem);
+	font: var(--coral-heading-m, 600 1rem/140% 'Source Sans Pro');
 }

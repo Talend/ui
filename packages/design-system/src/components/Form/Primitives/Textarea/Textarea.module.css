@@ -1,81 +1,93 @@
 .textarea {
-  background: transparent;
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
-  padding: var(--coral-spacing-xs, 0.5rem);
-  font: var(--coral-paragraph-m, 400 0.875rem/140% "Source Sans Pro");
-  line-height: 1;
-  border: 0;
-  margin: 0;
-  transition: var(--coral-transition-instant, 100ms ease-out);
-  display: block;
-  flex-grow: 1;
-  width: 100%;
+	background: transparent;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	padding: var(--coral-spacing-xs, 0.5rem);
+	font: var(--coral-paragraph-m, 400 0.875rem/140% 'Source Sans Pro');
+	line-height: 1;
+	border: 0;
+	margin: 0;
+	transition: var(--coral-transition-instant, 100ms ease-out);
+	display: block;
+	flex-grow: 1;
+	width: 100%;
 }
 .textarea:only-child {
-  border-radius: var(--coral-radius-s, 0.25rem);
+	border-radius: var(--coral-radius-s, 0.25rem);
 }
-.textarea:disabled, .textarea_disabled {
-  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
-  cursor: not-allowed;
+.textarea:disabled,
+.textarea_disabled {
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	cursor: not-allowed;
 }
 .textarea_readOnly {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
 }
 .textarea:focus {
-  outline: 0;
+	outline: 0;
 }
 .textarea:disabled {
-  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
 }
 .textarea::placeholder {
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
-  opacity: var(--coral-opacity-s, 0.6);
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	opacity: var(--coral-opacity-s, 0.6);
 }
 .textarea[disabled] {
-  opacity: 1;
+	opacity: 1;
 }
 .textarea[disabled] > option {
-  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
 }
 .textarea {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border, hsl(0, 0%, 55%));
-  box-shadow: 0 0 0 0 transparent;
-  border-radius: var(--coral-radius-s, 0.25rem);
-  transition: var(--coral-transition-instant, 100ms ease-out);
-  background: var(--coral-color-neutral-background, white);
+	border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	box-shadow: 0 0 0 0 transparent;
+	border-radius: var(--coral-radius-s, 0.25rem);
+	transition: var(--coral-transition-instant, 100ms ease-out);
+	background: var(--coral-color-neutral-background, white);
 }
 .textarea:hover {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-strong-hover, hsl(0, 0%, 15%));
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-strong-hover, hsl(0, 0%, 15%));
 }
 .textarea_disabled {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
 }
 .textarea_readOnly {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
-  background: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	background: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
 }
 .textarea_disabled:hover {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
 }
 .textarea_readOnly:hover {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
 }
-.textarea:focus-within, .textarea:focus {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-accent-border, hsl(204, 95%, 31%));
-  box-shadow: 0 0 0 0.0625rem var(--coral-color-accent-border, hsl(204, 95%, 31%));
+.textarea:focus-within,
+.textarea:focus {
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-accent-border, hsl(204, 95%, 31%));
+	box-shadow: 0 0 0 0.0625rem var(--coral-color-accent-border, hsl(204, 95%, 31%));
 }
 .textarea_borderError {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-danger-border, hsl(359, 51%, 53%));
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-danger-border, hsl(359, 51%, 53%));
 }
 .textarea_borderError:hover {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-danger-border-hover, hsl(359, 54%, 38%));
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-danger-border-hover, hsl(359, 54%, 38%));
 }
-.textarea_borderError:focus-within, .textarea_borderError:focus {
-  border: var(--coral-border-s-solid, 1px solid) var(--coral-color-danger-border, hsl(359, 51%, 53%));
-  box-shadow: 0 0 0 0.0625rem var(--coral-color-danger-border, hsl(359, 51%, 53%));
+.textarea_borderError:focus-within,
+.textarea_borderError:focus {
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-danger-border, hsl(359, 51%, 53%));
+	box-shadow: 0 0 0 0.0625rem var(--coral-color-danger-border, hsl(359, 51%, 53%));
 }
 .textarea {
-  max-height: var(--coral-sizing-xxxl, 13.75rem);
-  resize: vertical;
-  line-height: 140%;
+	max-height: var(--coral-sizing-xxxl, 13.75rem);
+	resize: vertical;
+	line-height: 140%;
 }

@@ -1,4 +1,4 @@
 .largeIllustration {
-  width: var(--coral-sizing-maximal, 20rem);
-  height: var(--coral-sizing-xxxl, 13.75rem);
+	width: var(--coral-sizing-maximal, 20rem);
+	height: var(--coral-sizing-xxxl, 13.75rem);
 }

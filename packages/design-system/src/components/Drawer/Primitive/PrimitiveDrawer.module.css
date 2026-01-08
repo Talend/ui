@@ -1,32 +1,32 @@
 .drawer {
-  width: var(--coral-sizing-maximal, 20rem);
-  height: 100%;
-  background: var(--coral-color-neutral-background, white);
-  display: flex;
-  flex-flow: column;
-  justify-content: stretch;
-  align-items: stretch;
-  flex-wrap: nowrap;
+	width: var(--coral-sizing-maximal, 20rem);
+	height: 100%;
+	background: var(--coral-color-neutral-background, white);
+	display: flex;
+	flex-flow: column;
+	justify-content: stretch;
+	align-items: stretch;
+	flex-wrap: nowrap;
 }
 .drawer .header {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: var(--coral-sizing-l, 2.5rem);
-  font: var(--coral-heading-m, 600 1rem/140% "Source Sans Pro");
-  flex-flow: column;
-  display: flex;
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: var(--coral-sizing-l, 2.5rem);
+	font: var(--coral-heading-m, 600 1rem/140% 'Source Sans Pro');
+	flex-flow: column;
+	display: flex;
 }
 .drawer .body {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0;
-  overflow: auto;
-  flex-flow: column;
-  display: flex;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+	overflow: auto;
+	flex-flow: column;
+	display: flex;
 }
 .drawer .footer {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: calc(var(--coral-sizing-l, 2.5rem) + 2 * var(--coral-spacing-xs, 0.5rem));
-  display: flex;
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: calc(var(--coral-sizing-l, 2.5rem) + 2 * var(--coral-spacing-xs, 0.5rem));
+	display: flex;
 }

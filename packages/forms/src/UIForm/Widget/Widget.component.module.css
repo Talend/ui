@@ -1,7 +1,7 @@
 .tooltip {
-  display: block;
+	display: block;
 }
 
 :global(.tc-inline-message p) {
-  vertical-align: baseline;
+	vertical-align: baseline;
 }

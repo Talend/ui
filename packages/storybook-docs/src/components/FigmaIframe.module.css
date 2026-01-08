@@ -1,5 +1,5 @@
 .iframe {
-  border-radius: var(--coral-radius-s, 0.25rem);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: var(--coral-radius-s, 0.25rem);
+	box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 }

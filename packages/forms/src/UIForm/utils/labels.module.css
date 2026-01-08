@@ -1,4 +1,4 @@
 .required:after {
-  content: "*";
-  display: inline;
+	content: '*';
+	display: inline;
 }

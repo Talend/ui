@@ -1,9 +1,10 @@
 .button {
-  text-decoration: none;
+	text-decoration: none;
 }
-.button:hover, .button:focus {
-  text-decoration: none;
+.button:hover,
+.button:focus {
+	text-decoration: none;
 }
-.button [data-test="link.icon.external"] {
-  top: 0;
+.button [data-test='link.icon.external'] {
+	top: 0;
 }

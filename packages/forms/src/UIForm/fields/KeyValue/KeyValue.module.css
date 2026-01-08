@@ -1,23 +1,23 @@
 .key-value {
-  display: flex;
+	display: flex;
 }
 .key-value dt,
 .key-value dd {
-  flex: 1;
+	flex: 1;
 }
 .key-value dt {
-  display: flex;
-  align-items: flex-end;
+	display: flex;
+	align-items: flex-end;
 }
 .key-value dt > * {
-  flex: 1;
+	flex: 1;
 }
 .key-value dt::after {
-  grid-area: equal;
-  content: "=";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--coral-sizing-l, 2.5rem);
-  width: var(--coral-sizing-m, 2.25rem);
+	grid-area: equal;
+	content: '=';
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: var(--coral-sizing-l, 2.5rem);
+	width: var(--coral-sizing-m, 2.25rem);
 }

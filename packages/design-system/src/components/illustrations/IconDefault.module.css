@@ -1,4 +1,4 @@
 .mediumIllustration {
-  width: var(--coral-sizing-l, 2.5rem);
-  height: var(--coral-sizing-l, 2.5rem);
+	width: var(--coral-sizing-l, 2.5rem);
+	height: var(--coral-sizing-l, 2.5rem);
 }

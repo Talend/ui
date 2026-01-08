@@ -1,4 +1,4 @@
 .tag {
-  color: var(--coral-color-success-text-strong, hsl(111, 49%, 29%));
-  background: var(--coral-color-success-background, hsl(110, 49%, 90%));
+	color: var(--coral-color-success-text-strong, hsl(111, 49%, 29%));
+	background: var(--coral-color-success-background, hsl(110, 49%, 90%));
 }

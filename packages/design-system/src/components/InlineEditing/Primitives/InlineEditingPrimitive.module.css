@@ -1,64 +1,72 @@
 .inlineEditor__editor {
-  position: relative;
+	position: relative;
 }
-.inlineEditor__editor [role=status] {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  background: var(--coral-color-neutral-background, white);
-  padding: var(--coral-spacing-xxs, 0.25rem);
-  transform: translateY(100%);
-  box-shadow: var(--coral-elevation-shadow-neutral-s, 0 0.0625rem 0.125rem 0 hsla(0, 0%, 0%, 0.5));
+.inlineEditor__editor [role='status'] {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background: var(--coral-color-neutral-background, white);
+	padding: var(--coral-spacing-xxs, 0.25rem);
+	transform: translateY(100%);
+	box-shadow: var(--coral-elevation-shadow-neutral-s, 0 0.0625rem 0.125rem 0 hsla(0, 0%, 0%, 0.5));
 }
 .inlineEditor__editor input,
 .inlineEditor__editor textarea {
-  padding-right: 2.5rem;
+	padding-right: 2.5rem;
 }
 .inlineEditor__editor__actions {
-  position: absolute;
-  display: flex;
-  height: 100%;
-  bottom: 0;
-  right: 0;
-  top: 0;
+	position: absolute;
+	display: flex;
+	height: 100%;
+	bottom: 0;
+	right: 0;
+	top: 0;
 }
 .inlineEditor__editor__actions_sticky {
-  height: var(--coral-sizing-s, 1.75rem);
+	height: var(--coral-sizing-s, 1.75rem);
 }
 .inlineEditor__content {
-  display: flex;
+	display: flex;
 }
 .inlineEditor__content_loading {
-  animation: var(--coral-animation-heartbeat, coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite);
+	animation: var(
+		--coral-animation-heartbeat,
+		coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite
+	);
 }
 .inlineEditor__content__value {
-  display: block;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  flex: 0 1 auto;
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	flex: 0 1 auto;
 }
 .inlineEditor__content__value_multiline {
-  white-space: inherit;
+	white-space: inherit;
 }
 .inlineEditor__content__value[data-placeholder]:empty::before {
-  content: attr(data-placeholder);
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	content: attr(data-placeholder);
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
 }
 .inlineEditor__content__button {
-  flex: 0 0 auto;
-  opacity: 0;
-  margin-left: var(--coral-spacing-xxs, 0.25rem);
-  transition: opacity var(--coral-transition-fast, 250ms ease-in-out);
+	flex: 0 0 auto;
+	opacity: 0;
+	margin-left: var(--coral-spacing-xxs, 0.25rem);
+	transition: opacity var(--coral-transition-fast, 250ms ease-in-out);
 }
 .inlineEditor__content__button > * {
-  position: relative;
-  top: 0.0625rem;
+	position: relative;
+	top: 0.0625rem;
 }
-.inlineEditor__content__button:hover, .inlineEditor__content__button:focus-within, .inlineEditor__content__button:active, .inlineEditor__content__button:focus {
-  opacity: 1;
+.inlineEditor__content__button:hover,
+.inlineEditor__content__button:focus-within,
+.inlineEditor__content__button:active,
+.inlineEditor__content__button:focus {
+	opacity: 1;
 }
-.inlineEditor__content:hover .inlineEditor__content__button, .inlineEditor__content:active .inlineEditor__content__button, .inlineEditor__content:focus .inlineEditor__content__button {
-  opacity: 1;
+.inlineEditor__content:hover .inlineEditor__content__button,
+.inlineEditor__content:active .inlineEditor__content__button,
+.inlineEditor__content:focus .inlineEditor__content__button {
+	opacity: 1;
 }

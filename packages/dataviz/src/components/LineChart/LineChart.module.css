@@ -1,69 +1,69 @@
 .container :global(.recharts-cartesian-axis-line) {
-  stroke: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	stroke: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
 }
 .container :global(.recharts-text) {
-  fill: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	fill: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
 }
 
 .line-chart-custom-tooltip {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 .line-chart-custom-tooltip__line-item--inactive {
-  opacity: var(--coral-opacity-s, 0.6);
+	opacity: var(--coral-opacity-s, 0.6);
 }
 .line-chart-custom-tooltip__line-value {
-  font: var(--coral-paragraph-m-bold, 600 0.875rem/140% "Source Sans Pro");
-  margin-left: var(--coral-spacing-xxs, 0.25rem);
+	font: var(--coral-paragraph-m-bold, 600 0.875rem/140% 'Source Sans Pro');
+	margin-left: var(--coral-spacing-xxs, 0.25rem);
 }
 .line-chart-custom-legend {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: var(--coral-spacing-m, 1rem);
-  list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: var(--coral-spacing-m, 1rem);
+	list-style: none;
 }
 .line-chart-custom-legend-item {
-  display: flex;
-  align-items: center;
-  padding: var(--coral-spacing-xxs, 0.25rem);
-  border-radius: var(--coral-radius-s, 0.25rem);
+	display: flex;
+	align-items: center;
+	padding: var(--coral-spacing-xxs, 0.25rem);
+	border-radius: var(--coral-radius-s, 0.25rem);
 }
 .line-chart-custom-legend--align-left {
-  justify-content: flex-start;
+	justify-content: flex-start;
 }
 .line-chart-custom-legend--align-center {
-  justify-content: center;
+	justify-content: center;
 }
 .line-chart-custom-legend--align-right {
-  justify-content: flex-end;
+	justify-content: flex-end;
 }
 .line-chart-custom-legend--shift-left {
-  padding-right: 3.75rem;
+	padding-right: 3.75rem;
 }
 .line-chart-custom-legend__button--selection-enabled:hover {
-  background-color: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+	background-color: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
 }
 .line-chart-custom-legend__button--selected {
-  background-color: var(--coral-color-accent-background-selected, hsl(204, 100%, 95%));
+	background-color: var(--coral-color-accent-background-selected, hsl(204, 100%, 95%));
 }
 .line-chart-custom-legend__button--selected:hover {
-  background-color: var(--coral-color-accent-background-selected, hsl(204, 100%, 95%));
+	background-color: var(--coral-color-accent-background-selected, hsl(204, 100%, 95%));
 }
 .line-chart-custom-legend__button--inactive {
-  opacity: var(--coral-opacity-s, 0.6);
+	opacity: var(--coral-opacity-s, 0.6);
 }
 .line-chart-custom-legend__line-label {
-  font: var(--coral-paragraph-s, 400 0.75rem/140% "Source Sans Pro");
-  font-style: normal;
-  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	font: var(--coral-paragraph-s, 400 0.75rem/140% 'Source Sans Pro');
+	font-style: normal;
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
 }
 .line-chart-line-icon {
-  display: inline-block;
-  width: 16px;
-  height: 2px;
-  margin-right: var(--coral-spacing-xs, 0.5rem);
-  border-radius: var(--coral-radius-round, 6249.9375rem);
+	display: inline-block;
+	width: 16px;
+	height: 2px;
+	margin-right: var(--coral-spacing-xs, 0.5rem);
+	border-radius: var(--coral-radius-round, 6249.9375rem);
 }
