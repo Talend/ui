@@ -20,7 +20,7 @@ exports[`InputDateTimePicker should render 1`] = `
         />
       </span>
       <div
-        class="theme-inputShell"
+        class="theme-inputShell theme-inputShell_noStyles"
       >
         <input
           autocomplete="off"
@@ -57,7 +57,7 @@ exports[`InputDateTimePicker should render 1`] = `
         />
       </span>
       <div
-        class="theme-inputShell"
+        class="theme-inputShell theme-inputShell_noStyles"
       >
         <input
           autocomplete="off"
