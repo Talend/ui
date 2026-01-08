@@ -15,10 +15,8 @@ const { DuplicatesPlugin } = require('inspectpack/plugin');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
-const cdn = require('@talend/scripts-config-cdn');
 const utils = require('@talend/scripts-utils');
 const LICENSE_BANNER = require('./licence');
-const inject = require('./inject');
 const icons = require('./icons');
 const AppLoader = require('./loader');
 const {
@@ -30,18 +28,12 @@ const {
 	getFileNameForExtension,
 } = require('./webpack.config.common');
 
-const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
-const cdnMode = !!process.env.INITIATOR_URL;
-
 const DEFAULT_INDEX_TEMPLATE_PATH = 'src/app/index.html';
 const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
 
 const TALEND_LIB_PREFIX = '@talend/';
 
 const BASENAME = process.env.BASENAME || '/';
-
-// set @talend packages in module-to-cdn
-cdn.configureTalendModules();
 
 // Check if Typescript is setup
 const useTypescript = utils.fs.tsConfig();
@@ -118,32 +110,21 @@ function getTalendVersions() {
 }
 
 function getVersions() {
-	const talendLibraries = cdn
-		.getModulesFromLockFile()
-		.filter(Boolean)
-		.map(info => ({ version: info.version, name: info.name }));
 	// eslint-disable-next-line
 	const packageJson = require(path.join(process.cwd(), 'package.json'));
 
 	return {
 		version: packageJson.version,
-		talendLibraries,
 		revision: getGitRevision(),
 	};
 }
 
 const VERSIONS = getVersions();
 // meta for html webpack plugin
-const meta = VERSIONS.talendLibraries.reduce(
-	(acc, lib) => {
-		acc[lib.name] = lib.version;
-		return acc;
-	},
-	{
-		'app-version': VERSIONS.version,
-		'app-revision': VERSIONS.revision,
-	},
-);
+const meta = {
+	'app-version': VERSIONS.version,
+	'app-revision': VERSIONS.revision,
+};
 
 function renderMeta() {
 	return Object.keys(meta)
@@ -151,7 +132,7 @@ function renderMeta() {
 		.join('\n');
 }
 
-function getCopyConfig(env, userCopyConfig = [], noDynamicCdn) {
+function getCopyConfig(env, userCopyConfig = []) {
 	const config = [...userCopyConfig];
 	const assetsOverridden = config.some(nextAsset =>
 		typeof nextAsset === 'object' ? nextAsset.from === 'src/assets' : nextAsset === 'src/assets',
@@ -159,13 +140,10 @@ function getCopyConfig(env, userCopyConfig = [], noDynamicCdn) {
 	if (!assetsOverridden && fs.existsSync(path.join(process.cwd(), 'src/assets'))) {
 		config.push({ from: 'src/assets' });
 	}
-	if (!cdnMode && !noDynamicCdn) {
-		cdn.getCopyConfig().forEach(c => config.push(c));
-	}
 	return config;
 }
 
-async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = true) {
+async function getIndexTemplate(env, mode, indexTemplatePath) {
 	const headPath = path.join(process.cwd(), '.talend', 'head.html');
 	const headExists = await utils.fs.isFile(headPath);
 
@@ -182,28 +160,11 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 	 * Let's bypass this issue by setting a process.env.NODE_ENV
 	 */
 	let headScript = '';
-	if (useInitiator) {
-		// meta are not injected if inject is false
-		headScript = `${renderMeta()}<base href="${BASENAME}" />
-		<script type="text/javascript">
-			window.basename = '${BASENAME}';
-			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
-			var TALEND_CDN_VERSIONS = {
-				TUI: '@@TALEND_UI_VERSION@@', ${process.env.CUSTOM_VERSIONS || ''}
-			};
-			window.TALEND_INITIATOR_URL = '${INITIATOR_URL}';
-			window.jsFiles = [<%= htmlWebpackPlugin.files.js.map(href => '"'+href+'"').join(',') %>];
-			window.cssFiles = [<%= htmlWebpackPlugin.files.css.map(href => '"'+href+'"').join(',') %>];
-			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata || [])%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata || [])%> };
-			${await inject.getMinified()}
-		</script>`;
-	} else {
-		headScript = `${renderMeta()}<base href="${BASENAME}" />
+	headScript = `${renderMeta()}<base href="${BASENAME}" />
 		<script type="text/javascript">
 			window.basename = '${BASENAME}';
 			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
 		</script>`;
-	}
 	const header = `${customHead}
 		<link rel="icon" type="image/svg+xml" href="<%= htmlWebpackPlugin.options.favicon || htmlWebpackPlugin.options.b64favicon %>">
 		<style><%= htmlWebpackPlugin.options.appLoaderStyle %></style>
@@ -240,7 +201,6 @@ module.exports = ({ getUserConfig, mode }) => {
 		const userSassData = getUserConfig('sass', {});
 		const userCopyConfig = getUserConfig('copy', []);
 		const cmf = getUserConfig('cmf');
-		const dcwpConfig = getUserConfig('dynamic-cdn-webpack-plugin');
 		const sentryConfig = getUserConfig('sentry', {});
 		const { theme } = userSassData;
 
@@ -254,12 +214,7 @@ module.exports = ({ getUserConfig, mode }) => {
 
 		meta['app-id'] = userHtmlConfig.appId || theme;
 
-		const indexTemplate = await getIndexTemplate(
-			env,
-			mode,
-			indexTemplatePath,
-			dcwpConfig !== false,
-		);
+		const indexTemplate = await getIndexTemplate(env, mode, indexTemplatePath);
 
 		const isEnvDevelopment = mode === 'development';
 		const isEnvProduction = mode === 'production';
@@ -363,13 +318,12 @@ module.exports = ({ getUserConfig, mode }) => {
 					appLoaderStyle: AppLoader.getLoaderStyle(appLoaderIcon),
 					...userHtmlConfig,
 					b64favicon,
-					inject: dcwpConfig === false,
+					inject: true,
 					template: indexTemplate,
 					meta: { ...meta, ...(userHtmlConfig.meta || {}) },
 				}),
-				cdn.getWebpackPlugin(env, dcwpConfig),
 				new CopyWebpackPlugin({
-					patterns: getCopyConfig(env, userCopyConfig, dcwpConfig === false),
+					patterns: getCopyConfig(env, userCopyConfig),
 				}),
 				new webpack.BannerPlugin({ banner: LICENSE_BANNER, entryOnly: true }),
 				cmf && new ReactCMFWebpackPlugin({ watch: isEnvDevelopment }),
