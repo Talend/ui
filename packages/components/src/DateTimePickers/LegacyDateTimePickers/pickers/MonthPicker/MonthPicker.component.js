@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { buildMonths } from '../../generator';
 
-import theme from './MonthPicker.module.scss';
+import theme from './MonthPicker.module.css';
 import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../../../translate';
 

@@ -1,0 +1,12 @@
+.date-time-picker {
+  display: flex;
+  width: fit-content;
+}
+.date-time-picker :global(.range-input) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--coral-spacing-xxs, 0.25rem);
+}
+.date-time-picker {
+  gap: var(--coral-spacing-xs, 0.5rem);
+}

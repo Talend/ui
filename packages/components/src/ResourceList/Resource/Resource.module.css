@@ -1,0 +1,115 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.resource-item {
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  display: flex;
+}
+.resource-item.center {
+  align-items: center;
+}
+.resource-item .icon {
+  margin-right: 10px;
+}
+.resource-item > * {
+  max-width: 100%;
+  overflow: hidden;
+}
+.resource-item .data-container {
+  flex: 1;
+  min-width: 0;
+}
+.resource-item .data-container > .title,
+.resource-item .data-container > .author,
+.resource-item .data-container > .subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  display: block;
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  margin: 0;
+}
+.resource-item .data-container > .title {
+  font-weight: 600;
+}
+.resource-item .flags-container {
+  margin-right: 15px;
+  opacity: 0;
+}
+.resource-item .flags-container .flag {
+  opacity: 0;
+  margin-left: 10px;
+}
+.resource-item .flags-container .flag.visible {
+  opacity: 1;
+}
+.resource-item .flags-container .flag[name=talend-star] {
+  color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
+}
+.resource-item .flags-container .flag[name=talend-badge] {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.resource-item:hover :global(.tc-svg-icon), .resource-item:focus :global(.tc-svg-icon), .resource-item:global(.selected) :global(.tc-svg-icon), .resource-item:active :global(.tc-svg-icon) {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.resource-item:hover .flags-container, .resource-item:focus .flags-container, .resource-item:global(.selected) .flags-container, .resource-item:active .flags-container {
+  opacity: 1;
+}
+.resource-item:hover {
+  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+}
+.resource-item:hover .data-container > .title,
+.resource-item:hover .data-container > .author,
+.resource-item:hover .data-container > .subtitle {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.resource-item:global(.selected) {
+  background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+}
+.resource-item:global(.selected) .data-container > .title,
+.resource-item:global(.selected) .data-container > .author,
+.resource-item:global(.selected) .data-container > .subtitle {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.resource-item :global h3 {
+  margin-top: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.resource-item :global dl {
+  padding-left: 10px;
+  margin-bottom: 0;
+}
+.resource-item :global dl > div {
+  margin-top: 5px;
+}
+.resource-item :global dl div {
+  display: flex;
+}
+.resource-item :global dl dt,
+.resource-item :global dl dd {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.resource-item :global dl dt {
+  display: flex;
+  align-items: center;
+  font-weight: initial;
+  flex-shrink: 0;
+}
+.resource-item :global dl dt.icon-only {
+  margin-right: -5px;
+}
+.resource-item :global dl dt .tc-svg-icon {
+  margin: 0 5px;
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.resource-item :global dl dd {
+  padding: 0 5px;
+  flex-grow: 1;
+  min-width: 0;
+}

@@ -12,7 +12,7 @@ import FocusManager from '../../../FocusManager';
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
 
-import theme from './InputDateTimePicker.module.scss';
+import theme from './InputDateTimePicker.module.css';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',

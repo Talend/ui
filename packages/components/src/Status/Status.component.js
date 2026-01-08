@@ -7,7 +7,7 @@ import Icon from '../Icon';
 import Skeleton from '../Skeleton';
 import TooltipTrigger from '../TooltipTrigger';
 
-import css from './Status.module.scss';
+import css from './Status.module.css';
 
 /**
  * @param {object} props react props

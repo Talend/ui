@@ -1,0 +1,66 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable-next-line selector-id-pattern*/
+:global(#___reactour) > div {
+  z-index: var(--coral-elevation-layer-overlay, 16);
+}
+:global(#___reactour) .tc-guided-tour {
+  --reactour-accent: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  background-color: var(--coral-color-neutral-background, white);
+  padding: 20px 40px 20px 20px;
+  border-color: var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  width: 25rem;
+  max-width: none;
+}
+:global(#___reactour) .tc-guided-tour [data-tour-elem=controls] {
+  margin: 0 -20px 0 0;
+  justify-content: space-between;
+}
+:global(#___reactour) .tc-guided-tour [data-tour-elem=controls] > button:not([disabled]),
+:global(#___reactour) .tc-guided-tour [data-tour-elem=controls] + button:not([disabled]) {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+:global(#___reactour) .tc-guided-tour [data-tour-elem=controls] > button {
+  min-height: 1rem;
+}
+:global(#___reactour) .tc-guided-tour [data-tour-elem=controls] > button svg {
+  height: 1rem;
+  width: 1rem;
+}
+:global(#___reactour) .tc-guided-tour [data-tour-elem=controls] + button {
+  top: 20px;
+  right: 20px;
+  width: auto;
+  height: auto;
+}
+:global(#___reactour) .tc-guided-tour [data-tour-elem=controls] + button svg {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+:global(#___reactour) .tc-guided-tour [data-tour-elem=controls] [data-tour-elem=dot] {
+  padding: 0;
+  margin: 0 5px;
+  width: 10px;
+  height: 10px;
+}
+:global(#___reactour) .tc-guided-tour.no-interaction [data-tour-elem=controls] {
+  justify-content: center;
+}
+:global(#___reactour) .tc-guided-tour .header,
+:global(#___reactour) .tc-guided-tour .body {
+  margin: 0 0 30px 0;
+}
+:global(#___reactour) .tc-guided-tour .body {
+  margin-right: -20px;
+}
+:global(#___reactour) :global .reactour__mask {
+  opacity: 1;
+}
+:global(#___reactour) :global .reactour__mask > div {
+  opacity: 0.25;
+}
+:global(#___reactour) :global .reactour__dot--is-active {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  background-color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}

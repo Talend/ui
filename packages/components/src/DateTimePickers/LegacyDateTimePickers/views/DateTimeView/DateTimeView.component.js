@@ -10,7 +10,7 @@ import TimePicker from '../../pickers/TimePicker';
 import HeaderTitle from '../HeaderTitle';
 import ViewLayout from '../ViewLayout';
 
-import theme from './DateTimeView.module.scss';
+import theme from './DateTimeView.module.css';
 
 /**
  * Get the positive euclidean modulo number from a dividend and a divisor

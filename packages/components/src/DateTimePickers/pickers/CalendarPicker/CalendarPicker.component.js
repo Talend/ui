@@ -13,7 +13,7 @@ import getDefaultT from '../../../translate';
 import DateView from '../../views/DateView';
 import MonthYearView from '../../views/MonthYearView';
 
-import theme from './CalendarPicker.module.scss';
+import theme from './CalendarPicker.module.css';
 
 class CalendarPicker extends Component {
 	constructor(props) {

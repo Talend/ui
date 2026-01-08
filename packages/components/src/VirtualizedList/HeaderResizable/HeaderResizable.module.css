@@ -1,0 +1,38 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-header-cell-resizable {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.tc-header-cell-resizable-resizing {
+  background-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+}
+.tc-header-cell-resizable-truncated-text {
+  align-self: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-flex;
+}
+.tc-header-cell-resizable-drag-button-handle-icon {
+  min-width: 5px;
+  width: 5px;
+  height: 100%;
+  cursor: col-resize;
+  opacity: 0;
+}
+.tc-header-cell-resizable-drag-button-handle-icon:hover, .tc-header-cell-resizable-drag-button-handle-icon:active {
+  background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  opacity: 1;
+}
+
+.tc-header-cell-resizable-drag-accessibility:focus ~ .tc-header-cell-resizable-drag-button-handle-icon {
+  opacity: 1;
+  background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+}

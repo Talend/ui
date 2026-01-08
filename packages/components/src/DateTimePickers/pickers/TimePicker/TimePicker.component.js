@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { timeToStr, pad } from '../../Time/time-extraction';
 import { Gesture } from '@talend/react-a11y';
 
-import theme from './TimePicker.module.scss';
+import theme from './TimePicker.module.css';
 
 function isBefore(a, b) {
 	if (a.hours > b.hours) {

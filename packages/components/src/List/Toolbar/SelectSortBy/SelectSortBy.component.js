@@ -7,7 +7,7 @@ import { randomUUID } from '@talend/utils';
 import Icon from '../../../Icon';
 import getDefaultT from '../../../translate';
 
-import theme from './SelectSortBy.module.scss';
+import theme from './SelectSortBy.module.css';
 
 function SortByItem({ option, id, t, onSelect }) {
 	const optionLabel = option.name || option.id;

@@ -13,7 +13,7 @@ import getDefaultT from '../../../../translate';
 import DateTimeView from '../../views/DateTimeView';
 import MonthYearView from '../../views/MonthYearView';
 
-import theme from './DateTimePicker.module.scss';
+import theme from './DateTimePicker.module.css';
 
 class DateTimePicker extends Component {
 	constructor(props) {

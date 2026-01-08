@@ -12,7 +12,7 @@ import ActionBar from '../../ActionBar';
 import ColumnChooserButton from './ColumnChooserButton';
 import DisplayModeToggle from './DisplayModeToggle';
 
-import theme from './Toolbar.module.scss';
+import theme from './Toolbar.module.css';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import '../../translate';
 import Inject from '../../Inject';

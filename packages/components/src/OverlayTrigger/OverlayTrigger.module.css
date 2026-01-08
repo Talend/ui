@@ -1,0 +1,6 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-action-button-positionned {
+  position: relative;
+  display: inline-block;
+}

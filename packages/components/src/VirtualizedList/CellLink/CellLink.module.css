@@ -1,0 +1,8 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.cell-link-container > a {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.cell-link-container > a > span {
+  border-bottom: none !important; /* stylelint-disable-line declaration-no-important */
+}

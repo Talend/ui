@@ -5,7 +5,7 @@ import ActionIconToggle from '../../../Actions/ActionIconToggle';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 
-import theme from './StateFilter.module.scss';
+import theme from './StateFilter.module.css';
 
 export const TYPES = {
 	SELECTION: 'selection',

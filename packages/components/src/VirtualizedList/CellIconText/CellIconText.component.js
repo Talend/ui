@@ -3,7 +3,7 @@ import { Component } from 'react';
 import Icon from '../../Icon';
 import { getTheme } from '../../theme';
 import TooltipTrigger from '../../TooltipTrigger';
-import theme from './CellIconText.module.scss';
+import theme from './CellIconText.module.css';
 
 const css = getTheme(theme);
 

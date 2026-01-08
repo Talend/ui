@@ -18,7 +18,7 @@ import { Logo } from './primitives/Logo.component';
 import { Search } from './primitives/Search.component';
 import { User } from './primitives/User.component';
 
-import headerBarCssModule from './HeaderBar.module.scss';
+import headerBarCssModule from './HeaderBar.module.css';
 
 const theme = getTheme(headerBarCssModule);
 

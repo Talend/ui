@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import ActionButton from './ActionButton.component';
 
-import theme from './Button.stories.module.scss';
+import theme from './Button.stories.module.css';
 
 const myAction = {
 	label: 'Click me',

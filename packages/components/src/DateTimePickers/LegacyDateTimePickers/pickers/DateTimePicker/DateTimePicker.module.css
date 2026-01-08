@@ -1,0 +1,23 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.container {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  min-width: 18.125rem;
+  min-height: 22rem;
+  padding: 15px;
+}
+
+.footer {
+  padding-top: 15px;
+}
+.footer::before {
+  content: "";
+  border-bottom: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+  display: block;
+  margin-bottom: 15px;
+}
+.footer.date-padding {
+  padding-top: 5px;
+}

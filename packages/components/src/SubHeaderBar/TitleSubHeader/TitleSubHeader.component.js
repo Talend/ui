@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { InlineEditing } from '@talend/design-system';
 
 import Skeleton from '../../Skeleton';
-import titleSubHeaderCssModule from './TitleSubHeader.module.scss';
+import titleSubHeaderCssModule from './TitleSubHeader.module.css';
 import Icon from '../../Icon';
 import Inject from '../../Inject';
 import getDefaultT from '../../translate';

@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import theme from './CellTitle.module.scss';
+import theme from './CellTitle.module.css';
 
 /**
  * Title input mode.

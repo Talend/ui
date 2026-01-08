@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import Icon from '../Icon';
 
-import theme from './FormatValue.module.scss';
+import theme from './FormatValue.module.css';
 
 const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;
 const REG_EXP_CAPTUR_LINE_FEEDING = /(\n)/g;

@@ -3,7 +3,7 @@ import { Children, Fragment, cloneElement, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { randomUUID } from '@talend/utils';
-import theme from './TooltipTrigger.module.scss';
+import theme from './TooltipTrigger.module.css';
 import useTooltipVisibility from './TooltipTrigger.hook';
 
 const DEFAULT_OFFSET_X = 300;

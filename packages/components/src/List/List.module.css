@@ -1,0 +1,24 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.list .display-mode-large {
+  padding-top: 2px;
+}
+.list :global(.tc-list-toolbar) {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+.list :global(.tc-list-display-virtualized) {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2) inset;
+  background-color: var(--coral-color-neutral-background, white);
+}

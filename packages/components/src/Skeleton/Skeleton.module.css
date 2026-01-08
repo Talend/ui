@@ -1,0 +1,71 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+@keyframes object-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes skeleton-blink {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+:global(.tc-skeleton-heartbeat) {
+  animation: skeleton-blink 1.5s ease infinite;
+}
+
+.tc-skeleton {
+  background-color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  display: inline-block;
+}
+.tc-skeleton-icon {
+  background-color: transparent;
+  height: 24px;
+  width: 24px;
+}
+.tc-skeleton-circle {
+  border-radius: 50%;
+}
+.tc-skeleton-circle-small {
+  width: 16px;
+  height: 16px;
+}
+.tc-skeleton-circle-medium {
+  width: 20px;
+  height: 20px;
+}
+.tc-skeleton-circle-large {
+  width: 24px;
+  height: 24px;
+}
+.tc-skeleton-circle-xlarge {
+  width: 66px;
+  height: 66px;
+}
+.tc-skeleton-text {
+  border-radius: 4px;
+  height: 14px;
+}
+.tc-skeleton-text-small {
+  width: 30px;
+}
+.tc-skeleton-text-medium {
+  width: 60px;
+}
+.tc-skeleton-text-large {
+  width: 130px;
+}
+.tc-skeleton-text-xlarge {
+  width: 160px;
+}
+.tc-skeleton-button {
+  border-radius: 4px;
+  height: 35px;
+  width: 80px;
+}

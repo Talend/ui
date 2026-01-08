@@ -3,7 +3,7 @@ import { getTheme } from '../theme';
 import ResourceList from '../ResourceList';
 import { SORT_OPTIONS, ORDERS, STATE_FILTERS } from '../ResourceList/Toolbar';
 
-import cssModule from './ResourcePicker.module.scss';
+import cssModule from './ResourcePicker.module.css';
 import ResourceListPropTypes from '../ResourceList/ResourceList.propTypes';
 
 const theme = getTheme(cssModule);

@@ -1,0 +1,27 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-enumeration {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.tc-enumeration :global input[type=text] {
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+}
+.tc-enumeration :global .btn {
+  justify-content: flex-start;
+  min-height: 100%;
+  text-decoration: none;
+}
+.tc-enumeration :global .btn.btn-link {
+  padding: 0 15px;
+  outline-offset: 0.3125rem;
+}
+.tc-enumeration :global .btn.btn-link svg {
+  height: 0.875rem;
+  width: 0.875rem;
+}
+.tc-enumeration header {
+  flex-shrink: 0;
+}

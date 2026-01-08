@@ -1,0 +1,9 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-resource-picker-sort-options {
+  display: flex;
+  align-items: center;
+}
+.tc-resource-picker-sort-options .option-label {
+  margin-right: 10px;
+}

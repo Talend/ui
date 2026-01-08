@@ -8,7 +8,7 @@ import { Action, ActionDropdown } from '../../../../Actions';
 import { getPickerLocale } from '../../generator';
 import YearPicker from '../../pickers/YearPicker';
 
-import theme from './HeaderTitle.module.scss';
+import theme from './HeaderTitle.module.css';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;

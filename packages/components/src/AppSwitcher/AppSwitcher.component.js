@@ -8,7 +8,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import Inject from '../Inject';
 import { getTheme } from '../theme';
 
-import AppSwitcherCSSModule from './AppSwitcher.module.scss';
+import AppSwitcherCSSModule from './AppSwitcher.module.css';
 
 const theme = getTheme(AppSwitcherCSSModule);
 

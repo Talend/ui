@@ -1,0 +1,27 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-tree-header {
+  align-items: center;
+  border-bottom: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  display: flex;
+  font-weight: 600;
+  height: 2.5rem;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+}
+.tc-tree-header-actions {
+  display: flex;
+  justify-content: space-between;
+}
+.tc-tree-header-actions-icon {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  text-transform: none;
+}
+.tc-tree-header-actions-icon :global(.tc-svg-icon) {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+.tc-tree-header-actions :global(.btn):focus, .tc-tree-header-actions :global(.btn):hover {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}

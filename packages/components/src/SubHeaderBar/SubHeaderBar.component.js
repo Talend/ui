@@ -14,7 +14,7 @@ import Skeleton from '../Skeleton';
 import getDefaultT from '../translate';
 import TitleSubHeader from './TitleSubHeader';
 
-import theme from './SubHeaderBar.module.scss';
+import theme from './SubHeaderBar.module.css';
 
 function SubHeaderBarActions({ children, tag, left, right, center, hasRight }) {
 	const className = classNames({

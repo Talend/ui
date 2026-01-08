@@ -1,0 +1,11 @@
+.container {
+  background: var(--coral-color-neutral-background, white);
+  display: flex;
+  margin: 0;
+  padding: var(--coral-spacing-m, 1rem) var(--coral-sizing-s, 1.75rem);
+  width: 100%;
+}
+.container label {
+  line-height: 1rem;
+  margin-bottom: 0;
+}

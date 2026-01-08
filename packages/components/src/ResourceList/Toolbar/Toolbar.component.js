@@ -6,7 +6,7 @@ import SortOptions from './SortOptions';
 import StateFilter from './StateFilter';
 
 import { getTheme } from '../../theme';
-import cssModule from './Toolbar.module.scss';
+import cssModule from './Toolbar.module.css';
 
 const theme = getTheme(cssModule);
 

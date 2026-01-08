@@ -7,7 +7,7 @@ import { ButtonIcon, ButtonPrimary } from '@talend/design-system';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-import theme from './GuidedTour.module.scss';
+import theme from './GuidedTour.module.css';
 
 function getTooltipContent({ header, body }) {
 	// eslint-disable-next-line react/display-name

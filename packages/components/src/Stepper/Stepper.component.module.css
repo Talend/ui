@@ -1,0 +1,63 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.loading-content-steps.error {
+  width: 70%;
+  margin: auto;
+}
+
+.stepper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-left: 10px;
+}
+.stepper-step {
+  padding: 10px 0;
+}
+.stepper-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.stepper-step-infos {
+  display: flex;
+}
+.stepper-step-message {
+  padding-left: 28px;
+  padding-top: 5px;
+  font-weight: normal;
+}
+.stepper-step-pending, .stepper-step-aborted {
+  opacity: 0.5;
+}
+.stepper-step-failure {
+  color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+  font-weight: 800;
+}
+.stepper-icon {
+  margin-right: 10px;
+  width: 1rem;
+  height: 1rem;
+}
+.stepper-icon-success {
+  fill: var(--coral-color-success-text, hsl(111, 49%, 34%));
+}
+.stepper-icon-failure {
+  fill: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+}
+.stepper-icon-aborted {
+  padding-top: 1px;
+  padding-left: 1px;
+  width: -1rem;
+  height: -1rem;
+}
+.stepper-icon-pending {
+  line-height: 1rem;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+}
+.stepper-retry {
+  margin-top: 15px;
+  margin-left: 10px;
+}

@@ -9,7 +9,7 @@ import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import Inject from '../Inject';
 
-import theme from './ActionList.module.scss';
+import theme from './ActionList.module.css';
 
 /**
  * return the formatted action id

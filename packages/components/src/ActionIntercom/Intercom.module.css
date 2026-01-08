@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-intercom {
+  position: relative;
+}
+.tc-intercom.open::after {
+  content: "▲";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #015A8E;
+  font-size: 1.25rem;
+  line-height: initial;
+}

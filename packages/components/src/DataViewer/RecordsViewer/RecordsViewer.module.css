@@ -1,0 +1,156 @@
+/* stylelint-disable declaration-no-important */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-records-viewer {
+  display: flex;
+  flex-direction: column;
+  background: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+  height: 100%;
+}
+.tc-records-viewer-tree :global(.ReactVirtualized__Grid__innerScrollContainer) {
+  overflow: initial !important;
+}
+.tc-records-viewer-tree :global(.tc-svg-icon) {
+  height: 0.75rem;
+  width: 0.75rem;
+  margin: 0;
+  vertical-align: baseline;
+}
+.tc-records-viewer-tree-border {
+  border-bottom: 0.0625rem solid #d2d2d2;
+}
+.tc-records-viewer-skeleton {
+  align-items: center;
+  display: flex;
+  height: 1.375rem;
+  padding: 5px 0 5px 30px;
+}
+.tc-records-viewer-branch, .tc-records-viewer-leaf {
+  display: flex;
+  margin-left: 30px;
+  position: relative;
+}
+.tc-records-viewer-leaf {
+  justify-content: flex-start;
+  align-items: baseline;
+}
+.tc-records-viewer-leaf-highlighted::before {
+  background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  bottom: 0;
+  content: " ";
+  left: -100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.tc-records-viewer-leaf {
+  /* stylelint-disable-next-line order/order */
+  min-height: 1.375rem;
+}
+.tc-records-viewer-leaf-quality {
+  display: inline-flex;
+  margin-left: -30px;
+  height: 1.375rem;
+  left: 0;
+  position: absolute;
+}
+.tc-records-viewer-branch {
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 12px;
+}
+.tc-records-viewer-branch-highlighted::before {
+  background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  bottom: 0;
+  content: " ";
+  left: -100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.tc-records-viewer-branch-content {
+  position: relative;
+  align-items: center;
+  display: inline-flex;
+  height: 1.375rem;
+}
+.tc-records-viewer-branch-content :global(.tc-length-badge) {
+  margin-left: 10px;
+}
+.tc-records-viewer-branch-content:hover::before {
+  background: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+  bottom: 0;
+  content: " ";
+  left: -100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.tc-records-viewer-branch-content:hover :global(.tc-records-viewer-branch-icon) {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-records-viewer-branch-content:hover :global(.tc-tree-branch-icon-caret) {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-records-viewer-branch-content:hover :global(.tc-length-badge) {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  background-color: var(--coral-color-neutral-background, white);
+}
+.tc-records-viewer-branch-icon {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  height: 0.75rem;
+  width: 0.75rem;
+}
+.tc-records-viewer-branch-quality {
+  display: inline-flex;
+  margin-left: 10px;
+  z-index: 1;
+}
+.tc-records-viewer-branch-quality:focus::before, .tc-records-viewer-branch-quality:hover::before {
+  background: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+  bottom: 0;
+  content: " ";
+  left: -100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.tc-leaf-overflow-icon {
+  position: absolute;
+  left: -1.0625rem;
+  margin-right: 5px;
+}
+.tc-leaf-overflow-icon-chevron {
+  padding: 0;
+  line-height: initial;
+  min-height: initial;
+}
+.tc-leaf-overflow-icon-chevron svg {
+  border: 1px solid var(--coral-color-accent-border, hsl(204, 95%, 31%));
+  padding: 2px;
+  border-radius: 10px;
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-leaf-overflow-icon-chevron-filled svg {
+  border: 1px solid var(--coral-color-accent-border, hsl(204, 95%, 31%));
+  padding: 2px;
+  border-radius: 10px;
+  color: var(--coral-color-accent-text-weak, white);
+  background-color: var(--coral-color-accent-background-strong, hsl(204, 95%, 31%));
+}
+.tc-leaf-overflow-icon :global(.tc-svg-anchor) {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  display: flex;
+}
+.tc-leaf-overflow-icon :global(.tc-svg-anchor):focus, .tc-leaf-overflow-icon :global(.tc-svg-anchor):hover {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}

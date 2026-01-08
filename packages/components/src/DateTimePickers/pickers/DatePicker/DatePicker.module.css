@@ -1,0 +1,84 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.calendar-header th {
+  text-align: center;
+}
+.calendar-header abbr {
+  border: none;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.calendar-row {
+  height: 2.25rem;
+  text-align: center;
+}
+.calendar-row .date-range {
+  position: relative;
+}
+.calendar-row .date-range.range-end::after, .calendar-row .date-range.range-start::before, .calendar-row .date-range.range-start::after, .calendar-row .date-range.range-middle::after, .calendar-row .date-range.range-end::before, .calendar-row .date-range.range-middle::before {
+  content: " ";
+  position: absolute;
+  height: 1.5625rem;
+  z-index: -1;
+  background-color: var(--coral-color-accent-background-weak, white);
+}
+.calendar-row .date-range.range-end::after {
+  width: 1.5rem;
+  left: 0.4063rem;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.calendar-row .date-range.range-start::before {
+  width: 1.5rem;
+  right: 0.4063rem;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.calendar-row .date-range.range-start::after, .calendar-row .date-range.range-middle::after {
+  width: 50%;
+  right: 0;
+}
+.calendar-row .date-range.range-end::before, .calendar-row .date-range.range-middle::before {
+  width: 50%;
+  left: 0;
+}
+.calendar-row .calendar-day {
+  font: var(--coral-paragraph-s, 400 0.75rem/140% "Source Sans Pro");
+}
+.calendar-row .calendar-day.selected {
+  background-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  transition: color 0.2s ease-in;
+  font: var(--coral-paragraph-s-bold, 600 0.75rem/140% "Source Sans Pro");
+}
+.calendar-row .calendar-day:disabled {
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  opacity: 0.54;
+}
+.calendar-row .calendar-day {
+  height: 1.5rem;
+  width: 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  line-height: 1.5rem;
+  padding: 0;
+}
+.calendar-row .calendar-day.today {
+  background-color: var(--coral-color-accent-background-weak, white);
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  border: solid 1px var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.calendar-row .calendar-day.not-current-month {
+  opacity: 0.54;
+}
+.calendar-row .calendar-day.range:hover {
+  background-color: var(--coral-color-accent-background-weak, white);
+}
+.calendar-row .calendar-day:disabled {
+  cursor: not-allowed;
+}

@@ -10,7 +10,7 @@ import TooltipTrigger from '../../../TooltipTrigger';
 import ItemPropTypes from './Item.propTypes';
 import { allIndexOf, removeDuplicates } from './utils';
 
-import theme from './Item.module.scss';
+import theme from './Item.module.css';
 
 function itemClasses(isSelected) {
 	return classNames({

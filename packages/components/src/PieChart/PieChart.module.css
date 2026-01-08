@@ -1,0 +1,132 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+@keyframes object-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes skeleton-blink {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+.tc-pie-chart-loading {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+}
+.tc-pie-chart-loading.tc-pie-chart-loading-no-label {
+  min-height: 20px;
+}
+.tc-pie-chart-loading-circle {
+  margin-left: 4px;
+  margin-right: 5px;
+}
+
+.tc-pie-chart-button:hover .tc-pie-chart-color-rio-grande {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  stroke: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-pie-chart-button:hover .tc-pie-chart-color-jaffa {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  stroke: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-pie-chart-button:hover .tc-pie-chart-color-chestnut-rose {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  stroke: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-pie-chart-button:hover .tc-pie-chart-color-lightning-yellow {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  stroke: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-pie-chart-button:hover .tc-pie-chart-color-dove-gray {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  stroke: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-pie-chart-button:hover .tc-pie-chart-color-silver-chalice {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  stroke: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-pie-chart-button:hover .tc-pie-chart-color-alto {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  stroke: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  fill: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-pie-chart-button:hover, .tc-pie-chart-button:active, .tc-pie-chart-button:focus {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  text-decoration: none;
+}
+.tc-pie-chart-button.active {
+  background-color: var(--coral-color-accent-background-strong-active, hsl(205, 95%, 15%));
+  border-color: var(--coral-color-accent-background-strong-active, hsl(205, 95%, 15%));
+  color: var(--coral-color-accent-text-weak, white);
+}
+.tc-pie-chart-button.active:hover, .tc-pie-chart-button.active:active, .tc-pie-chart-button.active:focus {
+  background-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  border-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+
+.tc-pie-chart-icon {
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+  box-shadow: none;
+  line-height: unset;
+  padding: 0;
+}
+.tc-pie-chart-icon .tc-pie-chart-color-rio-grande {
+  color: var(--coral-color-charts-success, hsl(148, 87%, 40%));
+  stroke: var(--coral-color-charts-success, hsl(148, 87%, 40%));
+  fill: var(--coral-color-charts-success, hsl(148, 87%, 40%));
+}
+.tc-pie-chart-icon .tc-pie-chart-color-jaffa {
+  color: var(--coral-color-charts-warning, hsl(32, 100%, 56%));
+  stroke: var(--coral-color-charts-warning, hsl(32, 100%, 56%));
+  fill: var(--coral-color-charts-warning, hsl(32, 100%, 56%));
+}
+.tc-pie-chart-icon .tc-pie-chart-color-chestnut-rose {
+  color: var(--coral-color-charts-danger, hsl(4, 89%, 49%));
+  stroke: var(--coral-color-charts-danger, hsl(4, 89%, 49%));
+  fill: var(--coral-color-charts-danger, hsl(4, 89%, 49%));
+}
+.tc-pie-chart-icon .tc-pie-chart-color-lightning-yellow {
+  color: var(--coral-color-charts-color-00, hsl(48, 100%, 50%));
+  stroke: var(--coral-color-charts-color-00, hsl(48, 100%, 50%));
+  fill: var(--coral-color-charts-color-00, hsl(48, 100%, 50%));
+}
+.tc-pie-chart-icon .tc-pie-chart-color-dove-gray {
+  color: var(--coral-color-charts-neutral-strong, hsl(0, 0%, 12%));
+  stroke: var(--coral-color-charts-neutral-strong, hsl(0, 0%, 12%));
+  fill: var(--coral-color-charts-neutral-strong, hsl(0, 0%, 12%));
+}
+.tc-pie-chart-icon .tc-pie-chart-color-silver-chalice {
+  color: var(--coral-color-charts-neutral, hsl(0, 0%, 22%));
+  stroke: var(--coral-color-charts-neutral, hsl(0, 0%, 22%));
+  fill: var(--coral-color-charts-neutral, hsl(0, 0%, 22%));
+}
+.tc-pie-chart-icon .tc-pie-chart-color-alto {
+  color: var(--coral-color-charts-neutral-weak, hsl(0, 0%, 83%));
+  stroke: var(--coral-color-charts-neutral-weak, hsl(0, 0%, 83%));
+  fill: var(--coral-color-charts-neutral-weak, hsl(0, 0%, 83%));
+}
+.tc-pie-chart-icon .tc-pie-chart-icon-graph {
+  margin-right: 5px;
+  height: inherit;
+  width: inherit;
+}

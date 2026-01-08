@@ -1,0 +1,32 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-resource-list :global(.tc-list-list) {
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.tc-resource-list :global(.tc-resource-list-toolbar) form {
+  margin-top: 10px;
+}
+.tc-resource-list-items {
+  height: calc(15.625rem - 1.25rem);
+  margin-top: 1.25rem;
+}
+.tc-resource-list-items.filtered :global(.flags-container) {
+  opacity: 1;
+}
+.tc-resource-list--no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.tc-resource-list--no-results-text {
+  display: inline-flex;
+  align-items: center;
+  font-style: italic;
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.tc-resource-list--no-results-icon {
+  margin: 0 10px;
+}

@@ -1,0 +1,17 @@
+.popper {
+  overflow: auto;
+  width: 5rem;
+  height: 10.625rem;
+  box-shadow: var(--coral-elevation-shadow-neutral-m, 0 0.125rem 0.375rem 0 hsla(0, 0%, 0%, 0.3));
+  z-index: var(--coral-elevation-layer-interactive-front, 8);
+}
+
+.time-picker {
+  display: flex;
+  width: fit-content;
+}
+.time-picker :global(.range-input) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--coral-spacing-xxs, 0.25rem);
+}

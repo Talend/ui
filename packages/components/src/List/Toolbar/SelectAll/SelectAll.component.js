@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Form } from '@talend/design-system';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import theme from './SelectAll.module.scss';
+import theme from './SelectAll.module.css';
 
 function SelectAll({ id, items, isSelected, onToggleAll }) {
 	const isAllSelected = () => items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;

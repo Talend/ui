@@ -1,0 +1,201 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+@keyframes object-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes skeleton-blink {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+.tc-typeahead-container {
+  position: relative;
+  display: flex;
+  width: auto;
+}
+.tc-typeahead-container.loading .typeahead-input-container > *,
+.tc-typeahead-container.loading .items-container > * {
+  animation: object-blink 1.5s ease infinite;
+  color: inherit;
+}
+.tc-typeahead-container .items-container,
+.tc-typeahead-container .items-body {
+  max-height: 32vh;
+}
+.tc-typeahead-container .items-container {
+  display: none;
+  margin-top: 5px;
+  min-width: 16.25rem;
+  font-size: 0.875rem;
+  background-color: var(--coral-color-neutral-background, white);
+  border-radius: 4px;
+  box-shadow: var(--coral-elevation-shadow-neutral-m, 0 0.125rem 0.375rem 0 hsla(0, 0%, 0%, 0.3));
+  z-index: 1035;
+}
+.tc-typeahead-container .items-body {
+  overflow-y: auto;
+}
+.tc-typeahead-container.right {
+  align-items: flex-end;
+}
+.tc-typeahead-container.right .items-container {
+  left: auto;
+}
+.tc-typeahead-container .container-open, .tc-typeahead-container.container-open .items-container {
+  display: block;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.typeahead-input {
+  min-width: 16.25rem;
+  position: relative;
+}
+.typeahead-input-icon [type=text].typeahead-input {
+  padding-left: 2.5em;
+  margin-bottom: 0;
+}
+.typeahead-input-icon .icon-cls {
+  position: absolute;
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 2.5em;
+  z-index: 1;
+}
+.typeahead-input-icon .icon-cls > * {
+  margin: auto;
+}
+.typeahead-input-caret [type=text].typeahead-input {
+  padding-right: 1em;
+}
+.typeahead-input-caret .icon-cls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  width: 30px;
+  pointer-events: none;
+}
+.typeahead-input-caret .icon-cls > svg {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.is-loading,
+.is-searching,
+.no-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+}
+.is-loading span,
+.is-searching span,
+.no-result span {
+  margin-left: 5px;
+}
+
+.no-domain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.no-domain span {
+  padding: 10px 5px;
+}
+
+.items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+
+.section-container:not(:first-of-type) .section-header {
+  border-top: 1px solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+}
+
+.section-header {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.section-header-title {
+  font-weight: 600;
+}
+.section-header-title.hint {
+  font-style: italic;
+  font-weight: normal;
+}
+i + .section-header-title, svg + .section-header-title {
+  padding-left: 5px;
+}
+.section-header i,
+.section-header svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--coral-color-neutral-icon, hsl(0, 0%, 13%));
+}
+
+.item {
+  height: 2rem;
+  cursor: pointer;
+  white-space: pre;
+  align-items: center;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.item > div {
+  width: 100%;
+}
+.item.multiline {
+  height: 3rem;
+}
+.item-icon {
+  margin-right: 10px;
+}
+.item-title > span, .item-description {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  margin: 0;
+  overflow: hidden;
+}
+.item-description {
+  font-size: 0.75rem;
+}
+.item-highlighted, .item:hover {
+  background-color: var(--coral-color-accent-background-weak-hover, hsl(204, 59%, 88%));
+}
+.item-highlighted.selected, .item:hover.selected {
+  background-color: var(--coral-color-accent-background-weak-active, hsl(205, 60%, 75%));
+}
+.item.disabled {
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  cursor: not-allowed;
+}
+.item.disabled:hover {
+  background: none;
+}
+.item.selected {
+  background-color: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+}

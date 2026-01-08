@@ -10,7 +10,7 @@ import Status from '../Status';
 import Tag from '../Tag';
 import TooltipTrigger from '../TooltipTrigger';
 
-import css from './CollapsiblePanel.module.scss';
+import css from './CollapsiblePanel.module.css';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const TYPE_STATUS = 'status';

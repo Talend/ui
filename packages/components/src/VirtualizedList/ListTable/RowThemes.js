@@ -1,7 +1,4 @@
-import theme from './ListTable.module.scss';
-import cellActionsTheme from '../CellActions/RowTableCellActions.module.scss';
+import theme from './ListTable.module.css';
+import cellActionsTheme from '../CellActions/RowTableCellActions.module.css';
 
-export default [
-	theme.row,
-	cellActionsTheme.row,
-];
+export default [theme.row, cellActionsTheme.row];

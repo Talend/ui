@@ -1,0 +1,290 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-badge {
+  display: inline-flex;
+  max-width: 14.6875rem;
+}
+.tc-badge:not(.tc-badge-readonly) {
+  cursor: pointer;
+}
+.tc-badge .tc-badge-button {
+  display: inline-flex;
+  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+  border: solid 1px;
+  border-color: var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+  border-radius: 25px;
+  max-width: 100%;
+}
+.tc-badge .tc-badge-button.tc-badge-white {
+  background-color: var(--coral-color-neutral-background, white);
+}
+.tc-badge .tc-badge-button .tc-badge-category {
+  flex-grow: 0;
+  flex-shrink: 0;
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  max-width: 110px;
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
+}
+.tc-badge .tc-badge-button .tc-badge-separator {
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 12px;
+  width: 1px;
+  background-color: var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+  margin: 5px;
+}
+.tc-badge .tc-badge-button .tc-badge-separator.tc-badge-separator-icon {
+  margin-right: 0;
+}
+.tc-badge .tc-badge-button .tc-badge-label {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+.tc-badge .tc-badge-button .tc-badge-label-text, .tc-badge .tc-badge-button .tc-badge-label-text-with-categ {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tc-badge .tc-badge-button .tc-badge-label-icon {
+  color: var(--coral-color-neutral-icon, hsl(0, 0%, 13%));
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left: 5px;
+}
+.tc-badge .tc-badge-button .tc-badge-delete-icon {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  padding-left: 5px;
+}
+.tc-badge .tc-badge-button .tc-badge-delete-icon svg {
+  color: var(--coral-color-neutral-icon-weak, hsl(0, 0%, 38%));
+  display: block;
+  margin: 0;
+}
+.tc-badge .tc-badge-button .tc-badge-delete-icon svg:hover {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-badge .tc-badge-button .tc-badge-dropdown {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0;
+  padding-left: 5px;
+  text-transform: none;
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.tc-badge .tc-badge-button .tc-badge-dropdown span {
+  max-width: 10rem;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tc-badge .tc-badge-button .tc-badge-dropdown svg {
+  color: #797979;
+  margin: 5px;
+}
+.tc-badge .tc-badge-button .tc-badge-dropdown svg:hover {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-badge .tc-badge-button .tc-badge-dropdown:hover, .tc-badge .tc-badge-button .tc-badge-dropdown:focus, .tc-badge .tc-badge-button .tc-badge-dropdown:focus-within {
+  outline: none;
+}
+.tc-badge.tc-badge-display-large .tc-badge-separator {
+  margin-top: 0.25rem;
+}
+.tc-badge.tc-badge-display-large .tc-badge-button {
+  height: 1.5rem;
+  margin: 5px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.tc-badge.tc-badge-display-large .tc-badge-button .tc-badge-category {
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+.tc-badge.tc-badge-display-large .tc-badge-button .tc-badge-label-text {
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+.tc-badge.tc-badge-display-large .tc-badge-button .tc-badge-label-text-with-categ {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.tc-badge.tc-badge-display-large .tc-badge-button .tc-badge-label-icon {
+  margin-top: 5px;
+  height: 0.5rem;
+  width: 0.5rem;
+  min-width: 0.5rem;
+}
+.tc-badge.tc-badge-display-large .tc-badge-button .tc-badge-delete-icon {
+  height: calc(1.5rem - 2 * calc((1.5rem - 0.875rem * 1.428571429) / 2));
+  min-height: calc(1.5rem - 2 * calc((1.5rem - 0.875rem * 1.428571429) / 2));
+}
+.tc-badge.tc-badge-display-large .tc-badge-button .tc-badge-delete-icon svg {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+.tc-badge.tc-badge-display-large .tc-badge-button .tc-badge-dropdown {
+  height: calc(1.5rem - 2 * calc((1.5rem - 0.875rem * 1.428571429) / 2));
+  min-height: calc(1.5rem - 2 * calc((1.5rem - 0.875rem * 1.428571429) / 2));
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.tc-badge.tc-badge-display-large .tc-badge-button .tc-badge-dropdown svg {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+.tc-badge.tc-badge-display-small .tc-badge-separator {
+  margin-top: 0.1875rem;
+}
+.tc-badge.tc-badge-display-small .tc-badge-button {
+  height: 1.25rem;
+  margin: 5px;
+  padding-top: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.tc-badge.tc-badge-display-small .tc-badge-button .tc-badge-category {
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+.tc-badge.tc-badge-display-small .tc-badge-button .tc-badge-label-text {
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+.tc-badge.tc-badge-display-small .tc-badge-button .tc-badge-label-text-with-categ {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.tc-badge.tc-badge-display-small .tc-badge-button .tc-badge-label-icon {
+  margin-top: 5px;
+  height: 0.5rem;
+  width: 0.5rem;
+  min-width: 0.5rem;
+}
+.tc-badge.tc-badge-display-small .tc-badge-button .tc-badge-delete-icon {
+  height: calc(1.25rem - 2 * calc((1.25rem - 0.75rem * 1.428571429) / 2));
+  min-height: calc(1.25rem - 2 * calc((1.25rem - 0.75rem * 1.428571429) / 2));
+}
+.tc-badge.tc-badge-display-small .tc-badge-button .tc-badge-delete-icon svg {
+  height: calc(0.75rem / 2);
+  width: calc(0.75rem / 2);
+}
+.tc-badge.tc-badge-display-small .tc-badge-button .tc-badge-dropdown {
+  height: calc(1.25rem - 2 * calc((1.25rem - 0.75rem * 1.428571429) / 2));
+  min-height: calc(1.25rem - 2 * calc((1.25rem - 0.75rem * 1.428571429) / 2));
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.tc-badge.tc-badge-display-small .tc-badge-button .tc-badge-dropdown svg {
+  height: calc(0.75rem / 2);
+  width: calc(0.75rem / 2);
+}
+.tc-badge-aslink .tc-badge-button {
+  border-color: var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.tc-badge-aslink .tc-badge-button .tc-badge-category {
+  display: none;
+}
+.tc-badge-aslink .tc-badge-button .tc-badge-separator {
+  display: none;
+}
+.tc-badge-aslink .tc-badge-button .tc-badge-label .tc-badge-label-text,
+.tc-badge-aslink .tc-badge-button .tc-badge-label .tc-badge-label-icon {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-badge-aslink:hover:not(.tc-badge-disabled) .tc-badge-button {
+  border-color: var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.tc-badge-edit:not(.tc-badge-disabled) .tc-badge-label:hover .tc-badge-label-text,
+.tc-badge-edit:not(.tc-badge-disabled) .tc-badge-label:hover .tc-badge-label-text-with-categ,
+.tc-badge-edit:not(.tc-badge-disabled) .tc-badge-label:hover .tc-badge-label-icon {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-badge-selected:not(.tc-badge-disabled) .tc-badge-label .tc-badge-label-text,
+.tc-badge-selected:not(.tc-badge-disabled) .tc-badge-label .tc-badge-label-text-with-categ,
+.tc-badge-selected:not(.tc-badge-disabled) .tc-badge-label .tc-badge-label-icon {
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-badge-disabled .tc-badge-button {
+  opacity: 0.62;
+}
+.tc-badge--valid .tc-badge-button {
+  background-color: var(--coral-color-success-background, hsl(110, 49%, 90%));
+  color: var(--coral-color-success-text, hsl(111, 49%, 34%));
+  border-color: var(--coral-color-success-border, hsl(111, 49%, 34%));
+}
+.tc-badge--valid .tc-badge-button .tc-badge-separator {
+  background-color: var(--coral-color-success-text, hsl(111, 49%, 34%));
+}
+.tc-badge--valid .tc-badge-button [class^=tc-badge-],
+.tc-badge--valid .tc-badge-button :global(.btn-link),
+.tc-badge--valid .tc-badge-button .tc-badge-delete-icon svg {
+  color: inherit;
+}
+.tc-badge--invalid .tc-badge-button {
+  background-color: var(--coral-color-danger-background, hsl(0, 100%, 96%));
+  color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+  border-color: var(--coral-color-danger-border, hsl(359, 51%, 53%));
+}
+.tc-badge--invalid .tc-badge-button .tc-badge-separator {
+  background-color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+}
+.tc-badge--invalid .tc-badge-button [class^=tc-badge-],
+.tc-badge--invalid .tc-badge-button :global(.btn-link),
+.tc-badge--invalid .tc-badge-button .tc-badge-delete-icon svg {
+  color: inherit;
+}
+.tc-badge--empty .tc-badge-button {
+  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  border-color: var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+}
+.tc-badge--empty .tc-badge-button .tc-badge-separator {
+  background-color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.tc-badge--empty .tc-badge-button [class^=tc-badge-],
+.tc-badge--empty .tc-badge-button :global(.btn-link),
+.tc-badge--empty .tc-badge-button .tc-badge-delete-icon svg {
+  color: inherit;
+}
+.tc-badge--pattern .tc-badge-button {
+  background-color: var(--coral-color-warning-background, hsl(22, 85%, 92%));
+  color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
+  border-color: var(--coral-color-warning-border, hsl(22, 93%, 41%));
+}
+.tc-badge--pattern .tc-badge-button .tc-badge-separator {
+  background-color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
+}
+.tc-badge--pattern .tc-badge-button [class^=tc-badge-],
+.tc-badge--pattern .tc-badge-button :global(.btn-link),
+.tc-badge--pattern .tc-badge-button .tc-badge-delete-icon svg {
+  color: inherit;
+}
+.tc-badge--value .tc-badge-button {
+  background-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  border-color: var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.tc-badge--value .tc-badge-button .tc-badge-separator {
+  background-color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-badge--value .tc-badge-button [class^=tc-badge-],
+.tc-badge--value .tc-badge-button :global(.btn-link),
+.tc-badge--value .tc-badge-button .tc-badge-delete-icon svg {
+  color: inherit;
+}
+.tc-badge-dropdown .tc-badge-button:not(.tc-badge-disabled):focus-within {
+  border-color: var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}

@@ -3,7 +3,7 @@ import { Component } from 'react';
 import classnames from 'classnames';
 
 import Action from '../../Actions/Action';
-import styles from './CellWithIcon.module.scss';
+import styles from './CellWithIcon.module.css';
 
 /**
  * Cell renderer that displays text + icon

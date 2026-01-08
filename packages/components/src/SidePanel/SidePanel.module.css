@@ -1,0 +1,170 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable declaration-no-important */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-side-panel {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  background: var(--coral-color-branding-background, linear-gradient(133deg, hsl(210, 62%, 26%) 0%, hsl(254, 47%, 23%) 100%));
+  overflow: hidden;
+  position: relative;
+  border-right: 1px solid var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}
+.tc-side-panel::before {
+  left: 0.625rem;
+  bottom: -3.125rem;
+}
+.tc-side-panel.animate {
+  transition: 0.2s width ease-out;
+}
+.tc-side-panel .action-list-container {
+  flex: 1;
+  height: calc(100vh - 7.5rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.tc-side-panel .action-list-container::-webkit-scrollbar {
+  background-color: var(--coral-color-branding-navigation, linear-gradient(133deg, hsl(210, 62%, 26%) 0%, hsl(254, 47%, 23%) 100%));
+  width: var(--coral-sizing-minimal, 0.75rem);
+}
+.tc-side-panel .action-list-container :global .tc-side-panel-list {
+  background: transparent;
+}
+.tc-side-panel .action-list-container :global .tc-action-list-item {
+  width: calc(100% - 1.25rem);
+  background: none !important;
+  box-shadow: none !important;
+}
+.tc-side-panel .action-list-container :global .tc-action-list-item .btn.btn-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--coral-color-brand-text, white);
+  font-size: 1rem;
+  height: 1.875rem;
+  margin: 5px 10px;
+  padding: 5px;
+  border-radius: 4px;
+}
+.tc-side-panel .action-list-container :global .tc-action-list-item .btn.btn-link > span {
+  margin-left: 10px;
+}
+.tc-side-panel .action-list-container :global .tc-action-list-item .btn.btn-link:hover {
+  background: var(--coral-color-brand-background-weak-hover, hsla(0, 0%, 100%, 0.1));
+  color: var(--coral-color-brand-text-hover, white);
+}
+.tc-side-panel .action-list-container :global .tc-action-list-item.active .btn.btn-link {
+  background: var(--coral-color-brand-background-selected, white);
+  color: var(--coral-color-brand-text-selected, hsl(204, 96%, 18%));
+}
+.tc-side-panel .action-list-container :global .tc-action-list-item .tc-svg-icon {
+  width: var(--coral-sizing-xxxs, 1rem);
+  height: var(--coral-sizing-xxxs, 1rem);
+}
+.tc-side-panel .action-list-container :global .tc-action-list-item :global(svg) {
+  margin-left: 5px;
+}
+.tc-side-panel .toggle-btn {
+  height: 70px;
+  vertical-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 10px;
+  text-align: left;
+  flex: 0 0 4.375rem;
+}
+.tc-side-panel .toggle-btn :global .btn.btn-link {
+  color: var(--coral-color-brand-text, white);
+  line-height: 1;
+  height: 70px;
+  padding: 0 10px;
+  display: inline-block;
+  width: auto;
+  opacity: 0.75;
+  margin: 0 auto;
+}
+.tc-side-panel .toggle-btn :global .btn.btn-link > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: none;
+}
+.tc-side-panel .toggle-btn :global .btn.btn-link .tc-svg-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  transition: 0.2s transform ease-out;
+}
+.tc-side-panel.docked :global .btn.btn-link {
+  padding: 15px;
+}
+.tc-side-panel.docked :global .btn.btn-link > span {
+  opacity: 0;
+}
+.tc-side-panel.docked :global .tc-action-list {
+  width: 3.75rem;
+  min-width: auto;
+}
+.tc-side-panel.docked .toggle-btn :global .btn.btn-link {
+  padding: 10px;
+}
+.tc-side-panel.docked .toggle-btn :global .btn.btn-link .tc-svg-icon {
+  transform: rotate(-180deg);
+}
+.tc-side-panel.large .toggle-btn {
+  padding-left: 0;
+}
+.tc-side-panel.large .toggle-btn :global(.btn.btn-link) {
+  padding: 10px 25px;
+}
+.tc-side-panel.large :global .tc-action-list {
+  padding: 5px 0;
+}
+.tc-side-panel.large :global .tc-action-list-item .btn.btn-link {
+  padding: 10px;
+}
+.tc-side-panel.large :global .tc-action-list-item .btn.btn-link .tc-svg-icon + span {
+  margin-left: 25px;
+}
+.tc-side-panel.large.docked :global .tc-action-list {
+  width: 4.375rem;
+  min-width: auto;
+}
+.tc-side-panel.large.docked .toggle-btn {
+  height: 70px;
+  vertical-align: center;
+  padding: 0;
+}
+.tc-side-panel.large.docked .toggle-btn .btn.btn-link {
+  height: 70px;
+  padding: 0;
+}
+.tc-side-panel.reverse[role=navigation] {
+  background: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+}
+.tc-side-panel.reverse[role=navigation]::before {
+  content: none;
+}
+.tc-side-panel.reverse[role=navigation] :global .tc-action-list-item .btn.btn-link:hover {
+  background: var(--coral-color-brand-background-selected, white);
+  color: var(--coral-color-brand-text-selected, hsl(204, 96%, 18%));
+}
+.tc-side-panel.reverse[role=navigation] :global .btn.btn-link,
+.tc-side-panel.reverse[role=navigation] :global .tc-svg-icon {
+  color: var(--coral-color-brand-text-inverted, hsl(0, 0%, 38%));
+}
+.tc-side-panel.reverse[role=navigation] :global .btn.btn-link:hover,
+.tc-side-panel.reverse[role=navigation] :global .tc-svg-icon:hover {
+  color: var(--coral-color-brand-text-inverted-hover, hsl(0, 0%, 13%));
+}
+.tc-side-panel.reverse[role=navigation] .toggle-btn {
+  background-color: transparent;
+}
+.tc-side-panel.reverse[role=navigation] .toggle-btn :global .btn.btn-link,
+.tc-side-panel.reverse[role=navigation] .toggle-btn :global .tc-svg-icon {
+  color: var(--coral-color-brand-icon-inverted, hsl(0, 0%, 38%));
+}

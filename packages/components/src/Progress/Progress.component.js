@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import TooltipTrigger from '../TooltipTrigger';
 
-import theme from './Progress.module.scss';
+import theme from './Progress.module.css';
 
 function normalize(percent) {
 	if (percent > 100) {

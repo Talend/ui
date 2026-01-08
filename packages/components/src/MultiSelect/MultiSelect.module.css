@@ -1,0 +1,29 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.container {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  position: relative;
+}
+.container :global(.tc-action-button-positionned) {
+  width: 100%;
+}
+.container :global(.tc-list-list) {
+  padding: 0;
+}
+
+.clearall:global(.btn-link.btn-icon-only) {
+  position: absolute;
+  right: 25px;
+  top: 7px;
+  padding: 0;
+  color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+}
+
+.caret:global(.tc-svg-icon) {
+  position: absolute;
+  color: var(--coral-color-neutral-icon, hsl(0, 0%, 13%));
+  top: 10px;
+  right: 0;
+  width: 30px;
+  height: 10px;
+}

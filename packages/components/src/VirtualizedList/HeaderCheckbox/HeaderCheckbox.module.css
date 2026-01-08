@@ -1,0 +1,10 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-list-checkbox :global(.checkbox) {
+  margin: 0;
+  height: 12px;
+  display: flex;
+}
+.tc-list-checkbox :global(.checkbox) label {
+  padding-left: 0;
+}

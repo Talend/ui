@@ -22,7 +22,7 @@ import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../../translate';
 import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
 
-import theme from './DatePicker.module.scss';
+import theme from './DatePicker.module.css';
 
 const getDayNames = memoize(buildDayNames);
 

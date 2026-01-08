@@ -1,0 +1,99 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-enumeration-item {
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  height: 2.0625rem;
+  text-align: left;
+  border-bottom: 1px solid rgb(228, 228, 228);
+  position: relative;
+}
+.tc-enumeration-item.has-error {
+  border-bottom: none;
+}
+.tc-enumeration-item :global(button:disabled) {
+  padding: 0 15px;
+}
+.tc-enumeration-item :global(.btn-link) {
+  padding: 0 5px;
+  height: 16px;
+}
+.tc-enumeration-item :global(.btn-link) :global(.tc-svg-icon) {
+  height: 14px;
+  width: 14px;
+  margin-right: 0;
+  vertical-align: top;
+}
+.tc-enumeration-item .tc-enumeration-item-label {
+  flex-grow: 1;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  box-shadow: none;
+  text-align: left;
+  outline: none;
+}
+.tc-enumeration-item .tc-enumeration-item-label span:first-child {
+  display: inline;
+}
+.tc-enumeration-item .tc-enumeration-item-actions {
+  display: flex;
+  flex-grow: 0;
+  align-items: center;
+  margin: auto 5px;
+}
+.tc-enumeration-item .tc-enumeration-item-actions :global(.persistent) {
+  visibility: visible;
+}
+.tc-enumeration-item .editable {
+  visibility: hidden;
+}
+.tc-enumeration-item button {
+  text-transform: none;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tc-enumeration-item button span {
+  vertical-align: top;
+}
+.tc-enumeration-item input {
+  padding: 0;
+  margin: 0 15px;
+  line-height: 2.0625rem;
+}
+.tc-enumeration-item .tc-enumeration-item-error {
+  font-size: var(--coral-paragraph-s, 400 0.75rem/140% "Source Sans Pro");
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  color: var(--coral-color-danger-text, hsl(359, 51%, 53%));
+  padding: 0 15px;
+  z-index: 1;
+  background: inherit;
+}
+
+.tc-enumeration-checkbox {
+  display: inline-block;
+  margin: 0 5px 0 0;
+  width: 20px;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+.selected-item {
+  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+}
+
+.tc-enumeration-item:hover .tc-enumeration-item-actions,
+.tc-enumeration-item:focus-within .tc-enumeration-item-actions {
+  visibility: visible;
+}
+
+.tc-enumeration-item:hover:not(.selected-item),
+.tc-enumeration-item:not(.selected-item):focus-within {
+  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+}

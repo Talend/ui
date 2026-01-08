@@ -12,7 +12,7 @@ import FocusManager from '../FocusManager';
 import Icon from '../Icon';
 import Typeahead from '../Typeahead';
 
-import theme from './Datalist.module.scss';
+import theme from './Datalist.module.css';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -29,7 +29,7 @@ function isValuePresentInSuggestions(titleMap, filterValue, multiSection) {
 	return multiSection
 		? titleMap.find(group =>
 				group.suggestions.find(item => filterValue.toLowerCase() === item.name.toLowerCase()),
-		  )
+			)
 		: titleMap.find(itemValue => filterValue.toLowerCase() === itemValue.name.toLowerCase());
 }
 

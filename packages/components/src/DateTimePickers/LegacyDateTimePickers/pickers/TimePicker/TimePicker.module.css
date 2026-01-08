@@ -1,0 +1,39 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable selector-no-qualifying-type */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.time-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.time-picker legend {
+  border: none;
+  font-size: inherit;
+  text-align: center;
+  text-transform: none;
+}
+.time-picker legend .utc {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  font-size: 0.75rem;
+}
+.time-picker hr {
+  width: 100%;
+  border-color: var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+  margin: 10px 0;
+}
+.time-picker > input.time-input {
+  border: 1px solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+  height: 1.875rem;
+  text-align: center;
+  width: 100%;
+}
+.time-picker > input.time-input:focus {
+  border-color: var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.time-picker > input.time-input.time-error {
+  box-shadow: inset 0 -2px 0 #e96065;
+  border-bottom: none;
+}

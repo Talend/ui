@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import theme from './LengthBadge.module.scss';
+import theme from './LengthBadge.module.css';
 
 /**
  * Return a badge with the given length value.

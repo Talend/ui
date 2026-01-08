@@ -1,0 +1,13 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.cell-icon-container {
+  display: flex;
+  align-items: center;
+}
+.cell-icon-container .icon-container {
+  display: flex;
+}
+.cell-icon-container :global(.btn-link) {
+  line-height: initial;
+  min-height: auto;
+}

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { propTypes } from '../Enumeration.propTypes';
 import { DISPLAY_MODE_DEFAULT } from '../displayModes';
-import theme from './EmptyListPlaceholder.module.scss';
+import theme from './EmptyListPlaceholder.module.css';
 
 export function EmptyListPlaceholder({ displayMode, t }) {
 	return (

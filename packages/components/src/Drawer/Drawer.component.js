@@ -17,7 +17,7 @@ import Inject from '../Inject';
 import TabBar from '../TabBar';
 import { getTheme } from '../theme';
 
-import theme from './Drawer.module.scss';
+import theme from './Drawer.module.css';
 
 const css = getTheme(theme);
 const DEFAULT_TRANSITION_DURATION = 350;

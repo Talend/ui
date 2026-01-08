@@ -1,0 +1,46 @@
+.container {
+  width: 100%;
+}
+.container tbody {
+  border: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+}
+
+.calendar-row {
+  border-bottom: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+}
+.calendar-row:last-child {
+  border-bottom: none;
+}
+
+.calendar-col {
+  border-right: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+  width: 33.33%;
+}
+.calendar-col:last-child {
+  border-right: none;
+}
+
+.calendar-month {
+  font: var(--coral-paragraph-s, 400 0.75rem/140% "Source Sans Pro");
+}
+.calendar-month.selected {
+  background-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+  color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+  transition: color 0.2s ease-in;
+  font: var(--coral-paragraph-s-bold, 600 0.75rem/140% "Source Sans Pro");
+}
+.calendar-month:disabled {
+  color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+  opacity: 0.54;
+}
+.calendar-month {
+  flex: 1;
+  height: 3.5625rem;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.calendar-month:active {
+  background-color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+}

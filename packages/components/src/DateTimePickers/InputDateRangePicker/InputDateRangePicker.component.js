@@ -14,7 +14,7 @@ import DateRange from '../DateRange';
 import { DateRangeContext } from '../DateRange/Context';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
-import theme from './InputDateRangePicker.module.scss';
+import theme from './InputDateRangePicker.module.css';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',

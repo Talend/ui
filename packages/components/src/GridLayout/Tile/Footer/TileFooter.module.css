@@ -1,0 +1,9 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.tc-tile-footer {
+  display: flex;
+  height: 4.0625rem;
+  align-items: center;
+  padding: 15px;
+  border-top: 1px solid lightgray;
+}

@@ -1,0 +1,19 @@
+.container {
+  padding: var(--coral-spacing-xxs, 0.25rem) 0;
+  background-color: var(--coral-color-neutral-background, white);
+}
+.container button {
+  width: 100%;
+  border: none;
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  font-size: 0.875rem;
+  font-weight: normal;
+  background-color: var(--coral-color-neutral-background, white);
+}
+.container button:global(.highlight) {
+  background-color: var(--coral-color-accent-background-weak, white);
+}
+.container button:hover, .container button:focus {
+  background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+  outline: none;
+}
