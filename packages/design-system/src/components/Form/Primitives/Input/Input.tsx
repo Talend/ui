@@ -65,6 +65,7 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 			disabled={disabled}
 			readOnly={readOnly}
 			hasError={hasError}
+			noStyles
 		>
 			<>
 				{type === 'search' && (
