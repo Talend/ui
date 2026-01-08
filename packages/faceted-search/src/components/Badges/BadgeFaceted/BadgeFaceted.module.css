@@ -1,0 +1,42 @@
+.tc-badge-faceted {
+  padding: var(--coral-spacing-xxs, 0.25rem) var(--coral-spacing-xs, 0.5rem);
+  max-width: fit-content;
+}
+.tc-badge-faceted :global(.tc-badge-button) {
+  max-width: none;
+}
+.tc-badge-faceted :global(.tc-badge-button:first-child) {
+  flex-grow: 1;
+  padding-top: 0;
+  margin: 0;
+}
+.tc-badge-faceted :global(.tc-badge-button:first-child) > span {
+  align-self: center;
+}
+.tc-badge-faceted :global(.tc-badge-delete-icon) {
+  align-self: center;
+}
+.tc-badge-faceted-overlay {
+  align-items: center;
+  display: flex;
+}
+.tc-badge-faceted-overlay > button {
+  font-style: italic;
+  height: var(--coral-sizing-xxs, 1.25rem) !important;
+}
+.tc-badge-faceted-overlay > button > span > span {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: calc(2 * var(--coral-sizing-l, 2.5rem));
+  text-overflow: ellipsis;
+}
+.tc-badge-faceted-overlay > button > span > span:not(:first-child)::before {
+  content: "|";
+  position: relative;
+  left: calc(-1 * var(--coral-spacing-xxs, 0.25rem));
+  opacity: var(--coral-opacity-m, 0.4);
+  padding: 0 var(--coral-spacing-xxs, 0.25rem);
+}
+.tc-badge-faceted:global(.period) .tc-badge-faceted-overlay > button > span > span {
+  max-width: none;
+}

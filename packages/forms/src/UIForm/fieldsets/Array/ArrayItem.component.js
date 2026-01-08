@@ -8,7 +8,7 @@ import { ButtonIcon } from '@talend/design-system';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-import theme from './ArrayItem.module.scss';
+import theme from './ArrayItem.module.css';
 
 export function ReorderButton(props) {
 	const { disabled, index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder } = props;

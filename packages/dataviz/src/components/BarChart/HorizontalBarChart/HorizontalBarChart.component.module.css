@@ -1,0 +1,15 @@
+.horizontal-bar-chart :global .recharts-responsive-container {
+  overflow: visible;
+}
+.horizontal-bar-chart :global .recharts-xAxis text,
+.horizontal-bar-chart :global .recharts-yAxis text {
+  font-size: 0.75rem;
+  fill: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.horizontal-bar-chart :global .recharts-xAxis line,
+.horizontal-bar-chart :global .recharts-yAxis line {
+  stroke: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.horizontal-bar-chart :global .recharts-tooltip-wrapper {
+  z-index: 999;
+}

@@ -1,5 +1,5 @@
 import { SkeletonParagraph, SkeletonHeading } from '@talend/design-system';
-import theme from './CodeSkeleton.module.scss';
+import theme from './CodeSkeleton.module.css';
 
 export default function CodeSkeleton() {
 	return (

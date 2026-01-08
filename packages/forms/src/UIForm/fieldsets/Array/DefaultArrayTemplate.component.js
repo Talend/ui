@@ -11,7 +11,7 @@ import Message from '../../Message';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import ArrayItem from './ArrayItem.component';
 
-import theme from './DefaultArrayTemplate.module.scss';
+import theme from './DefaultArrayTemplate.module.css';
 
 function DefaultArrayTemplate(props) {
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);

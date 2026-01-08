@@ -4,7 +4,7 @@ import { Form } from '@talend/design-system';
 
 import { FACETED_MODE, USAGE_TRACKING_TAGS } from '../../constants';
 
-import styles from './FacetedToolbar.module.scss';
+import styles from './FacetedToolbar.module.css';
 
 const SwitchFacetedMode = ({ facetedMode, onChange, t }) => (
 	<Form className={styles['tc-faceted-switch-mode']}>

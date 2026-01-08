@@ -1,0 +1,5 @@
+.fs-badge-checkbox-form-checkboxes {
+  max-height: var(--coral-sizing-xxxl, 13.75rem);
+  width: var(--coral-sizing-maximal, 20rem);
+  overflow: auto;
+}

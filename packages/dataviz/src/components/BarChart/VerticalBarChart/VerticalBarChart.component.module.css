@@ -1,0 +1,21 @@
+.vertical-bar-chart :global .recharts-responsive-container {
+  overflow: visible;
+}
+.vertical-bar-chart :global .recharts-xAxis text,
+.vertical-bar-chart :global .recharts-yAxis text {
+  font-size: 0.75rem;
+  fill: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.vertical-bar-chart :global .recharts-xAxis line,
+.vertical-bar-chart :global .recharts-yAxis line {
+  stroke: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.vertical-bar-chart :global .recharts-tooltip-wrapper {
+  z-index: 999;
+}
+.vertical-bar-chart :global .recharts-yAxis .recharts-cartesian-axis-tick:first-child {
+  transform: translateY(-10px);
+}
+.vertical-bar-chart :global .recharts-yAxis .recharts-cartesian-axis-tick:last-child {
+  transform: translateY(10px);
+}

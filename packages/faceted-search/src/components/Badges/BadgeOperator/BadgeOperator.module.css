@@ -1,0 +1,24 @@
+.tc-badge-operator {
+  align-items: center;
+  background: var(--coral-color-neutral-background, white);
+  border-radius: 100%;
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 0 0 var(--coral-spacing-xs, 0.5rem);
+}
+.tc-badge-operator-small {
+  height: 1.125rem;
+}
+.tc-badge-operator-large {
+  height: 1.375rem;
+}
+.tc-badge-operator-button {
+  display: flex;
+}
+.tc-badge-operator-button > button {
+  height: var(--coral-sizing-xxs, 1.25rem) !important;
+}
+.tc-badge-operator-popover {
+  display: flex;
+  flex-direction: column;
+}

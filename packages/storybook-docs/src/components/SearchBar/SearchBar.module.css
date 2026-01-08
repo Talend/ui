@@ -1,0 +1,15 @@
+.link, .link:hover, .link:focus, .link:active {
+  text-decoration: none;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.category {
+  color: #666;
+}
+
+.description {
+  overflow: hidden;
+}

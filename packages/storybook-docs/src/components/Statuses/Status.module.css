@@ -1,0 +1,55 @@
+/* stylelint-disable declaration-no-important */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font: var(--coral-paragraph-s-bold, 600 0.75rem/140% "Source Sans Pro");
+  background-color: white;
+  color: hsl(0, 0%, 13%) !important;
+}
+.badge, .badge:hover, .badge:focus, .badge:active {
+  text-decoration: none !important;
+}
+.badge[href] {
+  cursor: pointer;
+}
+.badge span {
+  padding: 0 var(--coral-spacing-xxs, 0.25rem);
+  border: var(--coral-border-s-solid, 1px solid) hsl(0, 0%, 55%);
+}
+.badge span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1ch;
+  border-right: none;
+  border-radius: var(--coral-radius-s, 0.25rem) 0 0 var(--coral-radius-s, 0.25rem);
+}
+.badge span:last-child {
+  border-left: none;
+  border-radius: 0 var(--coral-radius-s, 0.25rem) var(--coral-radius-s, 0.25rem) 0;
+  text-transform: uppercase;
+}
+.badge img {
+  height: var(--coral-sizing-minimal, 0.75rem);
+  width: var(--coral-sizing-minimal, 0.75rem);
+}
+.badge .status-ok {
+  color: white;
+  background: hsl(111, 49%, 34%);
+}
+.badge .status-wip {
+  color: white;
+  background: hsl(281, 58%, 29%);
+}
+.badge .status-deprecated {
+  color: white;
+  background: hsl(22, 93%, 41%);
+}
+.badge .status-ko {
+  color: white;
+  background: hsl(359, 51%, 53%);
+}
+.badge .status-na {
+  color: hsl(0, 0%, 38%);
+  background: hsl(0, 0%, 88%);
+}

@@ -1,0 +1,32 @@
+.tc-badge-slider-form-body {
+  width: var(--coral-sizing-maximal, 20rem);
+}
+.tc-badge-slider-form-body-row {
+  display: flex;
+  gap: var(--coral-spacing-s, 0.75rem);
+  align-items: center;
+  margin-top: var(--coral-sizing-m, 2.25rem);
+}
+.tc-badge-slider-form-body-row-icon {
+  display: inline-flex;
+  flex: 1 1 45%;
+  justify-content: flex-end;
+}
+.tc-badge-slider-form-body-row-icon svg {
+  width: var(--coral-sizing-l, 2.5rem);
+  height: var(--coral-sizing-l, 2.5rem);
+}
+.tc-badge-slider-form-body-row-value {
+  flex: 1 1 55%;
+}
+.tc-badge-slider-form-body-row .tc-badge-value-unit {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: 600;
+  height: 2.9375rem;
+  margin-bottom: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: start;
+}

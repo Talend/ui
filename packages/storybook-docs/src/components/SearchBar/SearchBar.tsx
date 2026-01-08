@@ -3,7 +3,7 @@ import { getAlgoliaResults } from '@algolia/autocomplete-js';
 
 import { Autocomplete } from './AlgoliaAutocomplete';
 
-import theme from './SearchBar.module.scss';
+import theme from './SearchBar.module.css';
 
 const searchClient = algoliasearch(
 	process.env.STORYBOOK_ALGOLIA_SEARCH_APP_ID || '',

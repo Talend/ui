@@ -9,7 +9,7 @@ import { getDataAttrFromProps } from '@talend/utils';
 
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-import styles from './BadgeDate.module.scss';
+import styles from './BadgeDate.module.css';
 
 const BadgeDateForm = ({ id, onChange, onSubmit, value, feature, t, ...rest }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);

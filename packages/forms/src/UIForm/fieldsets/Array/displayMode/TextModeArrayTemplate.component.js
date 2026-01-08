@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import theme from './TextModeArrayTemplate.module.scss';
+import theme from './TextModeArrayTemplate.module.css';
 
 function renderListItem(val, index, renderItem) {
 	const valueIsObject = typeof val === 'object';

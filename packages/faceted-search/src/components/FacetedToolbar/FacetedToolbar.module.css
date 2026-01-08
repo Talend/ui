@@ -1,0 +1,24 @@
+.tc-faceted-toolbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 3.4375rem;
+  position: relative;
+  width: 100%;
+}
+.tc-faceted-toolbar .tc-faceted-switch-mode {
+  width: auto;
+  position: relative;
+  padding-right: var(--coral-spacing-s, 0.75rem);
+  padding-left: var(--coral-spacing-s, 0.75rem);
+}
+.tc-faceted-toolbar .tc-faceted-switch-mode::before {
+  content: "";
+  height: var(--coral-sizing-xs, 1.5rem);
+  width: 0;
+  border-right: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,9 @@
+.tc-add-facet-popover {
+  width: var(--coral-sizing-xxxl, 13.75rem);
+}
+
+.tc-add-facet-popover-items button {
+  width: 100%;
+  white-space: break-spaces;
+  text-align: left;
+}

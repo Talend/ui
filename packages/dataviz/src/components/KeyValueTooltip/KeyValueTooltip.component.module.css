@@ -1,0 +1,25 @@
+.key-value-tooltip {
+  list-style-type: none;
+  white-space: nowrap;
+  pointer-events: none;
+  margin-bottom: 0;
+}
+.key-value-tooltip__entry {
+  display: flex;
+  align-items: center;
+}
+.key-value-tooltip__key {
+  margin-top: 0;
+  font: var(--coral-paragraph-m, 400 0.875rem/140% "Source Sans Pro");
+  color: var(--coral-color-neutral-background, white);
+}
+.key-value-tooltip__key::after {
+  content: ":";
+}
+.key-value-tooltip__value {
+  margin-left: var(--coral-spacing-xxs, 0.25rem);
+  color: var(--coral-color-accent-text-weak-active, hsl(205, 60%, 75%));
+}
+.key-value-tooltip--pattern .key-value-tooltip__value {
+  color: var(--coral-color-danger-text-weak, white);
+}

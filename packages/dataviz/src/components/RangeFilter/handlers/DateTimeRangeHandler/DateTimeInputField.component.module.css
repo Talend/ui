@@ -1,0 +1,12 @@
+/* stylelint-disable declaration-no-important */
+.date-time-input-field input {
+  width: 100% !important;
+}
+.date-time-input-field :global(.date-picker) > div {
+  flex-basis: 75%;
+  margin-right: 2px;
+}
+.date-time-input-field :global(.time-picker) > div {
+  flex-basis: 50%;
+  margin-right: 5px;
+}

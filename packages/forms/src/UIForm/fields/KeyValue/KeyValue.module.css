@@ -1,0 +1,23 @@
+.key-value {
+  display: flex;
+}
+.key-value dt,
+.key-value dd {
+  flex: 1;
+}
+.key-value dt {
+  display: flex;
+  align-items: flex-end;
+}
+.key-value dt > * {
+  flex: 1;
+}
+.key-value dt::after {
+  grid-area: equal;
+  content: "=";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--coral-sizing-l, 2.5rem);
+  width: var(--coral-sizing-m, 2.25rem);
+}

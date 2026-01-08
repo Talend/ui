@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--coral-spacing-m, 1rem);
+  border-radius: var(--coral-radius-s, 0.25rem);
+  box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.15);
+}
+.card svg {
+  height: 3.2rem;
+  margin-bottom: 1rem;
+}
+.card strong {
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.card p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.card a {
+  font-weight: 600;
+}

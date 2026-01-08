@@ -12,7 +12,7 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import callTrigger from '../../trigger';
 import FieldTemplate from '../FieldTemplate';
 
-import theme from './MultiSelectTag.module.scss';
+import theme from './MultiSelectTag.module.css';
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
