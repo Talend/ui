@@ -81,7 +81,7 @@ export function toColumns({ id, theme, children, columnsWidths, getRowState }) {
 							...field.props.columnData,
 							getRowState,
 							id,
-					  },
+						},
 			...createColumnWidthProps(columnWidth),
 		};
 		return <Column key={index} {...colProps} />;

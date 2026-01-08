@@ -69,7 +69,7 @@ function Grid({
 						<div className="skeleton-tile" key={tile.key} data-grid={tile['data-grid']}>
 							<Tile.Skeleton />
 						</div>
-				  ))
+					))
 				: children}
 		</ResponsiveGridLayout>
 	);

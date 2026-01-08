@@ -11,19 +11,26 @@ export const i18n = {
 };
 
 export const parameters = {
-	options: {
-		storySort: {
-			order: [
-				'Design Principles',
-				'Writing Principles',
-				'Navigation',
-				'Layout',
-				'Buttons',
-				'Messaging & Communication',
-				'Form',
-				'Data',
-				'Deprecated',
-			],
+	actions: { argTypesRegex: '^on[A-Z].*' },
+	controls: {
+		matchers: {
+			color: /(background|color)$/i,
+			date: /Date$/,
 		},
+	},
+	options: {
+		// storySort: {
+		// 	order: [
+		// 		'Design Principles',
+		// 		'Writing Principles',
+		// 		'Navigation',
+		// 		'Layout',
+		// 		'Buttons',
+		// 		'Messaging & Communication',
+		// 		'Form',
+		// 		'Data',
+		// 		'Deprecated',
+		// 	],
+		// },
 	},
 };

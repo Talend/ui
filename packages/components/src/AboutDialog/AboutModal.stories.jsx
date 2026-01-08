@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import AboutDialog from '.';
 
-const props = {
+const defaultProps = {
 	show: true,
 	onToggle: action('onToggle'),
 	version: "Summer '18",
@@ -42,33 +42,67 @@ const services = [
 
 const { name, version } = AboutDialog.Table.getColumnHeaders();
 
-export default {
+const meta = {
 	title: 'Components/Layout/Modals/AboutModal',
-
+	component: AboutDialog,
 	decorators: [
-		story => (
+		Story => (
 			<div>
 				<h1>AboutDialog</h1>
-				{story()}
+				<Story />
 			</div>
 		),
 	],
 };
 
-export const Default = () => <AboutDialog {...props} />;
+export default meta;
 
-export const WithoutTheVersion = () => <AboutDialog {...props} version={null} />;
+export const Default = {
+	args: defaultProps,
+};
 
-export const Loading = () => <AboutDialog loading {...props} />;
+export const WithoutTheVersion = {
+	args: {
+		...defaultProps,
+		version: null,
+	},
+};
 
-export const Expanded = () => <AboutDialog expanded {...props} />;
+export const Loading = {
+	args: {
+		...defaultProps,
+		loading: true,
+	},
+};
 
-export const ExpandedWithLotOfServices = () => (
-	<AboutDialog expanded {...props} services={services} />
-);
+export const Expanded = {
+	args: {
+		...defaultProps,
+		expanded: true,
+	},
+};
 
-export const WithCustomDefinition = () => (
-	<AboutDialog expanded {...props} services={services} definition={[name, version]} />
-);
+export const ExpandedWithLotOfServices = {
+	args: {
+		...defaultProps,
+		expanded: true,
+		services,
+	},
+};
 
-export const ExpandedLoading = () => <AboutDialog expanded loading {...props} />;
+export const WithCustomDefinition = {
+	args: {
+		...defaultProps,
+		expanded: true,
+		services,
+		definition: [name, version],
+	},
+};
+
+export const ExpandedLoading = {
+	args: {
+		...defaultProps,
+		expanded: true,
+		loading: true,
+	},
+};

@@ -28,8 +28,7 @@
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.4",
-    "@storybook/blocks": "^7.6.21",
-    "@storybook/react": "^7.6.21",
+    "@storybook/react": "^10.1.11",
     "@talend/design-tokens": "^3.5.0",
     "algoliasearch": "^4.25.2",
     "classnames": "^2.5.1",
@@ -54,5 +53,8 @@
     "sass-loader": "^14.2.1",
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
+  },
+  "resolutions": {
+    "@storybook/react-dom-shim": "^10.1.11"
   }
 }

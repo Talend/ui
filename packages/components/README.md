@@ -76,7 +76,7 @@ The API we have for all components is the following for an event handler
 function onClick(event, payload) {
 	//do what ever you want
 }
-return <APureComponents onClick={onClick} />
+return <APureComponents onClick={onClick} />;
 ```
 
 ### Write tests + docs
@@ -158,7 +158,8 @@ The stories are registred this way:
 
 ## npm scripts
 
-- npm start -> launch storybook on localhost:6006
+- npm start / npm run storybook -> launch Storybook (Vite) on localhost:6006
+- npm run storybook:build -> build the static Storybook
 - npm run prepublish -> build the sources into the lib folder
 - npm test -> to execute unit test
 - npm run lint -> check the code style

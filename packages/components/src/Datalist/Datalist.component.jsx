@@ -29,7 +29,7 @@ function isValuePresentInSuggestions(titleMap, filterValue, multiSection) {
 	return multiSection
 		? titleMap.find(group =>
 				group.suggestions.find(item => filterValue.toLowerCase() === item.name.toLowerCase()),
-		  )
+			)
 		: titleMap.find(itemValue => filterValue.toLowerCase() === itemValue.name.toLowerCase());
 }
 

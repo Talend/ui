@@ -21,8 +21,7 @@
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.4",
-    "@storybook/blocks": "^7.6.21",
-    "@storybook/react": "^7.6.21",
+    "@storybook/react": "^10.1.11",
     "@talend/design-system": "^11.9.0",
     "@talend/design-tokens": "^3.5.0",
     "@talend/storybook-docs": "^2.8.0",
@@ -38,17 +37,11 @@
     "use-overflow": "^1.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^7.6.21",
-    "@storybook/addon-actions": "^7.6.21",
-    "@storybook/addon-essentials": "^7.6.21",
-    "@storybook/addon-interactions": "^7.6.21",
-    "@storybook/addon-links": "^7.6.21",
-    "@storybook/addons": "^7.6.21",
-    "@storybook/core-events": "^7.6.21",
+    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/addon-docs": "^10.1.11",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/testing-react": "^2.0.1",
-    "@storybook/theming": "^7.6.21",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
     "@talend/locales-design-system": "^7.15.1",
@@ -69,5 +62,8 @@
     "react-router-dom": "~6.3.0",
     "storybook-docs-toc": "^1.7.0"
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "@storybook/react-dom-shim": "^10.1.11"
+  }
 }

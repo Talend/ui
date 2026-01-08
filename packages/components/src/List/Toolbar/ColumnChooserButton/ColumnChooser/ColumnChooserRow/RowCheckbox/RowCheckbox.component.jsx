@@ -21,7 +21,7 @@ const RowCheckbox = ({
 	const describedby = `${id}-${description}`;
 	return locked ? (
 		<Fragment>
-			<SizedIcon name="locker-closed" size="M"/>
+			<SizedIcon name="locker-closed" size="M" />
 			<RowLabel label={label} />
 		</Fragment>
 	) : (
