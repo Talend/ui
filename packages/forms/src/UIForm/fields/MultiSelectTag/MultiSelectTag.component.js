@@ -280,6 +280,7 @@ export default class MultiSelectTag extends Component {
 								'aria-invalid': !isValid,
 								'aria-required': schema.required,
 								'aria-describedby': `${descriptionId} ${errorId}`,
+								noStyles: true,
 							}}
 						/>
 					</FocusManager>
