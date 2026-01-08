@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import entries from 'lodash/entries';
 import get from 'lodash/get';
 
-import css from './JSONSchemaRenderer.module.scss';
+import css from './JSONSchemaRenderer.module.css';
 
 const CLASS_NAME = 'json-schema-renderer';
 

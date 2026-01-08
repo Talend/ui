@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactElement } from 'react';
 import classnames from 'classnames';
-import styles from './Grid.module.scss';
+import styles from './Grid.module.css';
 
 export const Grid = (
 	props: {

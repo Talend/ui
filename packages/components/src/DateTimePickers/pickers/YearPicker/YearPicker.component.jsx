@@ -6,7 +6,7 @@ import { buildYears } from '../../generator';
 import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../../translate';
 
-import theme from './YearPicker.module.scss';
+import theme from './YearPicker.module.css';
 
 const YEAR_WINDOW_SIZE = 7;
 const YEAR_WINDOW_OVERFLOW_SIZE = 3;

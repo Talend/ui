@@ -7,7 +7,7 @@ import LegacyInputDateTimePicker from '../LegacyDateTimePickers';
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
 
-import theme from './InputDateTimePicker.module.scss';
+import theme from './InputDateTimePicker.module.css';
 
 function InputDateTimePicker(props) {
 	if (props.selectedDateTime) {

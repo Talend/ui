@@ -1,0 +1,21 @@
+.enumeration {
+	border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	border-radius: var(--coral-radius-m, 0.5rem);
+	min-width: 300px;
+	max-width: 100%;
+	overflow: hidden;
+	width: fit-content;
+}
+.enumeration ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.enumeration h4,
+.enumeration p,
+.enumeration label {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-right: var(--coral-spacing-xxs, 0.25rem);
+}

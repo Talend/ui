@@ -13,7 +13,7 @@ import classnames from 'classnames';
 import { DeprecatedIconNames } from '../../types';
 import { SizedIcon } from '../Icon';
 
-import style from './LinkableStyles.module.scss';
+import style from './LinkableStyles.module.css';
 import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
 
 export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'> & {

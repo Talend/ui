@@ -4,7 +4,7 @@ import { randomUUID } from '@talend/utils';
 
 import Icon from '../../../Icon';
 
-import theme from './Pagination.module.scss';
+import theme from './Pagination.module.css';
 import getDefaultT from '../../../translate';
 
 const FIRST = 'first';

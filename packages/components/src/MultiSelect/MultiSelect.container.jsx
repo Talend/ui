@@ -15,7 +15,7 @@ import Dropdown from './Dropdown.container';
 import { ItemOption } from './ItemOption.component';
 import { ItemView } from './ItemView.component';
 
-import theme from './MultiSelect.module.scss';
+import theme from './MultiSelect.module.css';
 
 function initSelectedMap(selected) {
 	return selected.reduce((acc, current) => {

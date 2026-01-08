@@ -9,7 +9,7 @@ import { Action } from '../Actions';
 import FocusManager from '../FocusManager';
 import getDefaultT from '../translate';
 
-import theme from './InlineForm.module.scss';
+import theme from './InlineForm.module.css';
 
 class InlineForm extends Component {
 	static propTypes = {

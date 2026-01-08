@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import { Grid } from './Grid';
 
-import styles from './Use.module.scss';
+import styles from './Use.module.css';
 
 type BlockTypes = {
 	title: string;

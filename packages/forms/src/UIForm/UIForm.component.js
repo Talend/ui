@@ -21,7 +21,7 @@ import { validateAll, validateSingle } from './utils/validation';
 import widgets from './utils/widgets';
 import Widget from './Widget';
 
-import theme from './UIForm.module.scss';
+import theme from './UIForm.module.css';
 
 export class UIFormComponent extends Component {
 	static displayName = 'TalendUIForm';

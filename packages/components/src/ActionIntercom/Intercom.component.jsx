@@ -9,7 +9,7 @@ import IntercomService from './Intercom.service';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-import theme from './Intercom.module.scss';
+import theme from './Intercom.module.css';
 
 function Intercom({ id, className, config, t, tooltipPlacement }) {
 	const [show, setShow] = useState(false);

@@ -4,7 +4,7 @@ import Action from '../../Actions/Action';
 import Inject from '../../Inject';
 import { getTheme } from '../../theme';
 
-import headerBarCssModule from '../HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.css';
 
 const theme = getTheme(headerBarCssModule);
 

@@ -1,13 +1,12 @@
 import { forwardRef, LabelHTMLAttributes, ReactElement, Ref } from 'react';
 import classnames from 'classnames';
-import styles from './Label.module.scss';
+import styles from './Label.module.css';
 
-export type LabelPrimitiveProps =
-	| LabelHTMLAttributes<any> & {
-			children: string | ReactElement;
-			inline?: boolean;
-			required?: boolean;
-	  };
+export type LabelPrimitiveProps = LabelHTMLAttributes<any> & {
+	children: string | ReactElement;
+	inline?: boolean;
+	required?: boolean;
+};
 
 const Label = forwardRef((props: LabelPrimitiveProps, ref: Ref<HTMLLabelElement>) => {
 	const { children, inline = false, required = false, className, ...rest } = props;

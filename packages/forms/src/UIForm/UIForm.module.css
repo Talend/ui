@@ -1,0 +1,26 @@
+:global([data-drawer-content]:has([data-drawer-absolute-footer-buttons])) {
+	margin-bottom: 50px;
+}
+:global([data-drawer-content]:has([data-drawer-absolute-footer-buttons]))
+	.drawer-absolute-footer-buttons {
+	background: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: var(--coral-spacing-xs, 0.5rem) var(--coral-spacing-m, 1rem);
+	display: flex;
+	justify-content: space-between;
+}
+:global([data-drawer-content]:has([data-drawer-absolute-footer-buttons]))
+	.drawer-absolute-footer-buttons
+	> div {
+	display: flex;
+	flex: 1;
+}
+:global([data-drawer-content]:has([data-drawer-absolute-footer-buttons]))
+	.drawer-absolute-footer-buttons
+	> div
+	> div {
+	padding: 0;
+}

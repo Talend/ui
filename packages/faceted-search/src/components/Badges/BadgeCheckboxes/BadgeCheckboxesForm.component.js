@@ -18,7 +18,7 @@ import { getDataAttrFromProps } from '@talend/utils';
 import { I18N_DOMAIN_FACETED_SEARCH } from '../../../constants';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-import styles from './BadgeCheckboxes.module.scss';
+import styles from './BadgeCheckboxes.module.css';
 
 const createCheckboxEntity = value => checkbox => {
 	const entity = value.find(v => v.id === checkbox.id);

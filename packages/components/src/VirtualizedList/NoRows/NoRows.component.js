@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
-import theme from './NoRows.module.scss';
+import theme from './NoRows.module.css';
 
 export function NoRowsComponent(props) {
 	return (

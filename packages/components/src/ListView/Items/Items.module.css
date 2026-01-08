@@ -1,0 +1,50 @@
+/* stylelint-disable color-hex-case */
+.tc-listview-items {
+	min-height: 0;
+	list-style: none;
+	box-shadow:
+		inset 0 21px 3px -20px rgba(0, 0, 0, 0.2),
+		inset 0 -21px 3px -20px rgba(0, 0, 0, 0.2);
+	height: 40vh;
+	background-color: rgba(0, 0, 0, 0.025);
+}
+.tc-listview-items .tc-item-container {
+	margin: 0;
+}
+.tc-listview-items .tc-item-container :global .checkbox {
+	margin: 5px;
+	margin-right: 0;
+}
+.tc-listview-items .tc-item-container :global .with-icon {
+	display: inline-flex;
+	margin: 0;
+	margin-left: 5px;
+}
+.tc-listview-items .tc-item-container :global .with-icon .tc-svg-icon {
+	height: 12px;
+	width: 12px;
+	margin-left: 5px;
+}
+.tc-listview-items .tc-item-container :global .checkbox-nested {
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+.tc-listview-items .tc-item-container :global .checkbox-nested > .checkbox {
+	height: 12px;
+	margin-bottom: 0;
+}
+.tc-listview-items .tc-item-container :global .checkbox-nested > .checkbox + .checkbox {
+	margin-top: 10px;
+}
+.tc-listview-items .tc-item-container.toggle {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+:export {
+	row-height: 12px;
+	row-vertical-margin: 10px;
+	row-nested-inner-margin-top: 5px;
+	row-nested-inner-margin-bottom: 20px;
+}

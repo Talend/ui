@@ -12,7 +12,7 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import FieldTemplate from '../FieldTemplate';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 
-import theme from './NestedListView.module.scss';
+import theme from './NestedListView.module.css';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';

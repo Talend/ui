@@ -17,7 +17,7 @@ import {
 	renderSectionTitle,
 } from './Typeahead.component.renderers';
 
-import theme from './Typeahead.module.scss';
+import theme from './Typeahead.module.css';
 
 function getItems(items, dataFeature) {
 	if (!items) {

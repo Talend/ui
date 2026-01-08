@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import { randomUUID } from '@talend/utils';
 import { getTheme } from '../../theme';
 
-import css from './LabelToggle.module.scss';
+import css from './LabelToggle.module.css';
 
 const theme = getTheme(css);
 

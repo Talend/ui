@@ -1,4 +1,4 @@
-import theme from './Status.module.scss';
+import theme from './Status.module.css';
 import { StatusValue } from './Statuses.types';
 
 type StatusProps = { icon: string; label: string; link?: string; status?: StatusValue };

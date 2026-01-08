@@ -1,0 +1,44 @@
+/* stylelint-disable color-hex-case */
+.tc-tab-bar-menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.tc-tab-bar {
+	white-space: nowrap;
+	overflow: hidden;
+	flex: 1;
+}
+.tc-tab-bar .tc-tab-bar-item {
+	float: none;
+	display: inline-block;
+}
+.tc-tab-bar .tc-tab-bar-item-container {
+	display: flex;
+	align-items: baseline;
+}
+.tc-tab-bar .tc-tab-bar-item-icon {
+	margin-right: 5px;
+	width: 0.75rem;
+	height: 0.75rem;
+	font-size: 0.75rem;
+}
+.tc-tab-bar .tc-tab-bar-item-label {
+	display: inline-block;
+	max-width: 12.5rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: top;
+}
+.tc-tab-bar .tc-tab-bar-item-badge {
+	margin-left: 5px;
+}
+.tc-tab-bar .tc-tab-bar-item > button {
+	max-width: initial;
+}
+
+:global(.dropdown) + :global(.tab-content) {
+	padding-top: 20px;
+}

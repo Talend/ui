@@ -12,7 +12,7 @@ import FocusManager from '../FocusManager';
 import Icon from '../Icon';
 import Typeahead from '../Typeahead';
 
-import theme from './Datalist.module.scss';
+import theme from './Datalist.module.css';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

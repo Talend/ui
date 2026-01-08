@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 import Skeleton from '../Skeleton';
 import InlineForm from './InlineForm.component';
 import { PlainTextTitle } from './PlainTextTitle.component';
-import theme from './EditableText.module.scss';
+import theme from './EditableText.module.css';
 
 import getDefaultT from '../translate';
 import I18N_DOMAIN_COMPONENTS from '../constants';

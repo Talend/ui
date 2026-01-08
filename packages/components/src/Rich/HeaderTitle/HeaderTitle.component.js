@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import theme from './HeaderTitle.module.scss';
+import theme from './HeaderTitle.module.css';
 
 export default function HeaderTitle(props) {
 	return (

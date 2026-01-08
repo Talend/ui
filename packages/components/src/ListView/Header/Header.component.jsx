@@ -6,7 +6,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 
 import Action from '../../Actions/Action';
-import theme from './Header.module.scss';
+import theme from './Header.module.css';
 
 export function headerClasses() {
 	return classNames(theme['tc-listview-header'], 'tc-listview-header');

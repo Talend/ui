@@ -7,7 +7,7 @@ import TooltipTrigger from '../../TooltipTrigger';
 import getPropsFrom from '../../utils/getPropsFrom';
 import OverlayTrigger from '../../OverlayTrigger';
 
-import theme from './ActionIconToggle.module.scss';
+import theme from './ActionIconToggle.module.css';
 
 function ActionIconToggle(props) {
 	const {

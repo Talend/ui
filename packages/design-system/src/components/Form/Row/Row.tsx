@@ -2,7 +2,7 @@ import { forwardRef, Children, cloneElement } from 'react';
 import type { Ref, HTMLAttributes } from 'react';
 import { isElement } from 'react-is';
 
-import styles from './Row.module.scss';
+import styles from './Row.module.css';
 import classNames from 'classnames';
 
 type RowProps = HTMLAttributes<HTMLDivElement> & {

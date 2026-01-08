@@ -1,0 +1,11 @@
+.buttonIconSkeleton {
+	width: var(--coral-sizing-m, 2.25rem);
+	border-radius: var(--coral-radius-round, 6249.9375rem);
+}
+.buttonIconSkeleton.size-S {
+	width: var(--coral-sizing-s, 1.75rem);
+}
+.buttonIconSkeleton.size-XS {
+	width: var(--coral-sizing-xxxs, 1rem);
+	border-radius: var(--coral-radius-s, 0.25rem);
+}

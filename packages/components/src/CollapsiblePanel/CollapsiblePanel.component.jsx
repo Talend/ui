@@ -10,7 +10,7 @@ import Status from '../Status';
 import Tag from '../Tag';
 import TooltipTrigger from '../TooltipTrigger';
 
-import css from './CollapsiblePanel.module.scss';
+import css from './CollapsiblePanel.module.css';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const TYPE_STATUS = 'status';
@@ -221,20 +221,31 @@ function getTextualContent(content) {
 
 function CollapsiblePanel(props) {
 	const { content, id, onToggle, status, expanded, theme, onEntered, onExited } = props;
-	const className = classNames('panel panel-default', css['tc-collapsible-panel'], {
-		[css['default-panel']]: !theme,
-		[css[theme]]: !!theme,
-		[css.open]: expanded,
-		[css[Status.getBsStyleFromStatus(status) || status]]: !!status,
-		status,
-	});
+	const className = classNames(
+		'panel panel-default',
+		'tc-collapsible-panel',
+		css['tc-collapsible-panel'],
+		{
+			[css['default-panel']]: !theme,
+			[css[theme]]: !!theme,
+			[css.open]: expanded,
+			[css[Status.getBsStyleFromStatus(status) || status]]: !!status,
+			status,
+		},
+	);
 
 	let children = null;
 	if (content) {
 		children = Array.isArray(content) ? getKeyValueContent(content) : getTextualContent(content);
 	}
 	return (
-		<Panel id={id} className={className} expanded={expanded} onToggle={onToggle}>
+		<Panel
+			id={id}
+			className={className}
+			expanded={expanded}
+			onToggle={onToggle}
+			data-collapsible-panel="true"
+		>
 			<Panel.Heading>
 				<Panel.Title toggle={(content || props.children) && !onToggle}>
 					<CollapsiblePanelHeader {...props} />

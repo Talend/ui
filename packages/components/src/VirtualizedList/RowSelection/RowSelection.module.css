@@ -1,0 +1,40 @@
+/* stylelint-disable color-hex-case */
+:global(.tc-list-table) .row-selection.selected {
+	background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+}
+:global(.tc-list-table) .row-selection.selected:hover,
+:global(.tc-list-table) .row-selection.selected:focus,
+:global(.tc-list-table) .row-selection.selected:focus-within {
+	background: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+}
+:global(.tc-list-table) .row-selection.active {
+	background: var(--coral-color-accent-background-active, hsl(204, 60%, 63%));
+}
+:global(.tc-list-table) .row-selection.active:hover,
+:global(.tc-list-table) .row-selection.active:focus,
+:global(.tc-list-table) .row-selection.active:focus-within {
+	background: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+}
+:global(.tc-list-table) .row-selection.disabled > div > div {
+	opacity: 0.54;
+}
+
+:global(.tc-list-list) .row-selection.selected :global(.tc-list-large-inner-box) {
+	background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+}
+:global(.tc-list-list) .row-selection.selected :global(.tc-list-large-inner-box):hover,
+:global(.tc-list-list) .row-selection.selected :global(.tc-list-large-inner-box):focus,
+:global(.tc-list-list) .row-selection.selected :global(.tc-list-large-inner-box):focus-within {
+	background: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+}
+:global(.tc-list-list) .row-selection.active :global(.tc-list-large-inner-box) {
+	background: var(--coral-color-accent-background-active, hsl(204, 60%, 63%));
+}
+:global(.tc-list-list) .row-selection.active :global(.tc-list-large-inner-box):hover,
+:global(.tc-list-list) .row-selection.active :global(.tc-list-large-inner-box):focus,
+:global(.tc-list-list) .row-selection.active :global(.tc-list-large-inner-box):focus-within {
+	background: var(--coral-color-accent-background-hover, hsl(205, 60%, 75%));
+}
+:global(.tc-list-list) .row-selection.disabled :global(.tc-list-large-inner-box) > div > div {
+	opacity: 0.54;
+}

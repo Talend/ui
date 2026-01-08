@@ -6,7 +6,7 @@ import Inject from '../Inject';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import Toolbar from './Toolbar';
 
-import theme from './List.module.scss';
+import theme from './List.module.css';
 
 const SelectAll = Toolbar.SelectAll;
 

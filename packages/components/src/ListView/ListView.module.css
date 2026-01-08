@@ -1,0 +1,25 @@
+/* stylelint-disable color-hex-case */
+.tc-listview {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.tc-listview :global(.btn.btn-link) {
+	padding: 0 10px;
+}
+.tc-listview :global(.btn.btn-link) svg {
+	fill: var(--coral-color-neutral-icon, hsl(0, 0%, 13%));
+	height: 0.875rem;
+	width: 0.875rem;
+}
+.tc-listview header {
+	flex-shrink: 0;
+}
+.tc-listview .empty-message {
+	flex-grow: 1;
+	flex-shrink: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 0;
+}

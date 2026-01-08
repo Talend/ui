@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
 import { Action } from '../Actions';
-import theme from './Notification.module.scss';
+import theme from './Notification.module.css';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 

@@ -2,7 +2,7 @@ import { forwardRef, Ref } from 'react';
 
 import TagPrimitive, { TagProps as PrimitiveTagProps } from '../primitive';
 
-import style from './TagDestructive.module.scss';
+import style from './TagDestructive.module.css';
 
 type TagProps = Omit<PrimitiveTagProps, 'className'>;
 

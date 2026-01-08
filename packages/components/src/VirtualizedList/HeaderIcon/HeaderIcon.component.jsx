@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { SortIndicator } from 'react-virtualized';
 
 import Icon from '../../Icon';
-import theme from './HeaderIcon.module.scss';
+import theme from './HeaderIcon.module.css';
 
 /**
  * This renderer render the header with an icon

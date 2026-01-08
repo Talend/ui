@@ -17,7 +17,7 @@ import getLocale from '../../i18n/DateFnsLocale/locale';
 import TooltipTrigger from '../../TooltipTrigger';
 import getDefaultT from '../../translate';
 
-import styles from './CellDatetime.module.scss';
+import styles from './CellDatetime.module.css';
 
 const DATE_TIME_FORMAT = 'yyyy-MM-dd HH:mm:ss';
 

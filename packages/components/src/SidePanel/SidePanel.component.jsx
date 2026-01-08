@@ -12,7 +12,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import Inject from '../Inject';
 import '../translate';
 
-import theme from './SidePanel.module.scss';
+import theme from './SidePanel.module.css';
 
 const DOCKED_MIN_WIDTH = '3.75rem';
 const LARGE_DOCKED_MIN_WIDTH = '4.375rem';

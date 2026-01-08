@@ -12,7 +12,7 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import callTrigger from '../../trigger';
 import FieldTemplate from '../FieldTemplate';
 
-import theme from './MultiSelectTag.module.scss';
+import theme from './MultiSelectTag.module.css';
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -280,6 +280,7 @@ export default class MultiSelectTag extends Component {
 								'aria-invalid': !isValid,
 								'aria-required': schema.required,
 								'aria-describedby': `${descriptionId} ${errorId}`,
+								'data-multiselect-input-overrides': true,
 							}}
 						/>
 					</FocusManager>

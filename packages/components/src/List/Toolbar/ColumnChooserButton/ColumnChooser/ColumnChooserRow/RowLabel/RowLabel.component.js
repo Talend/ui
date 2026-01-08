@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import cssModule from '../../ColumnChooser.module.scss';
+import cssModule from '../../ColumnChooser.module.css';
 import { getTheme } from '../../../../../../theme';
 
 const theme = getTheme(cssModule);

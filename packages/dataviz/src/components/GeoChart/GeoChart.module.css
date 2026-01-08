@@ -1,0 +1,64 @@
+:export {
+	scaleMinColor: var(
+		--coral-color-charts-default-weak,
+		hsl(204, 59%, 73%)
+	); /* stylelint-disable-line property-no-unknown */
+	scaleMaxColor: var(
+		--coral-color-charts-default-strong,
+		hsl(204, 92%, 29%)
+	); /* stylelint-disable-line property-no-unknown */
+}
+
+.geo-chart {
+	position: relative;
+}
+.geo-chart__title {
+	text-align: center;
+	margin: 8px 0;
+}
+.geo-chart__feature {
+	stroke: var(--coral-color-charts-neutral, hsl(0, 0%, 22%));
+	stroke-width: 1px;
+	vector-effect: non-scaling-stroke;
+}
+.geo-chart__feature--disabled {
+	fill: var(--coral-color-charts-neutral-weak, hsl(0, 0%, 83%));
+}
+.geo-chart__feature:not(.geo-chart__feature--disabled):hover {
+	fill: var(
+		--coral-color-charts-default,
+		hsl(216, 82%, 48%)
+	) !important; /* stylelint-disable-line declaration-no-important */
+	cursor: pointer;
+}
+.geo-chart__zoom {
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
+}
+.geo-chart__zoom-button {
+	display: block;
+	background: transparent;
+	border: none;
+	outline: none;
+	padding: 0;
+	height: 20px;
+	width: 20px;
+}
+.geo-chart__zoom-button + .geo-chart__zoom-button {
+	margin-top: 5px;
+}
+.geo-chart__zoom-icon {
+	color: var(--coral-color-charts-neutral, hsl(0, 0%, 22%));
+	width: 100%;
+	height: 100%;
+}
+.geo-chart__zoom-icon:not(:hover) .ti-background {
+	color: var(--coral-color-charts-neutral, hsl(0, 0%, 22%));
+}
+.geo-chart__zoom-icon:hover {
+	color: var(--coral-color-charts-neutral-hover, hsl(0, 0%, 12%));
+}
+.geo-chart__zoom-icon:active {
+	color: var(--coral-color-charts-default, hsl(216, 82%, 48%));
+}

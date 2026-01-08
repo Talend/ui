@@ -4,7 +4,7 @@ import Skeleton from '../../Skeleton';
 import { getTheme } from '../../theme';
 import TooltipTrigger from '../../TooltipTrigger';
 
-import titleSubHeaderCssModule from './TitleSubHeader.module.scss';
+import titleSubHeaderCssModule from './TitleSubHeader.module.css';
 
 const theme = getTheme(titleSubHeaderCssModule);
 

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import isNull from 'lodash/isNull';
 import get from 'lodash/get';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
-import theme from './SimpleTextKeyValue.module.scss';
+import theme from './SimpleTextKeyValue.module.css';
 
 const DATE_TYPE_FORMATER = 'date';
 const LONG_TYPE = 'long';

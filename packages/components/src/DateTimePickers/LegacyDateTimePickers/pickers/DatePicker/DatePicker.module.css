@@ -1,0 +1,59 @@
+/* stylelint-disable color-hex-case */
+/* stylelint-disable color-hex-case */
+.container {
+	width: 100%;
+	position: relative;
+}
+
+.calendar-header::after {
+	content: '';
+	border-bottom: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 1.4375rem;
+}
+.calendar-header th {
+	text-align: center;
+	padding-bottom: 10px;
+}
+.calendar-header abbr {
+	border: none;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.calendar-row {
+	height: 2.25rem;
+	text-align: center;
+}
+.calendar-row .calendar-day {
+	font-size: 0.75rem;
+}
+.calendar-row .calendar-day.selected {
+	background-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+	color: var(--coral-color-accent-text-strong, hsl(204, 96%, 18%));
+	transition: color 0.2s ease-in;
+	font-weight: 600;
+}
+.calendar-row .calendar-day:disabled {
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	opacity: 0.54;
+}
+.calendar-row .calendar-day {
+	height: 1.5rem;
+	width: 1.5rem;
+	background: transparent;
+	border: none;
+	border-radius: 50%;
+	line-height: 1.5rem;
+	padding: 0;
+}
+.calendar-row .calendar-day.today {
+	background-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+	color: var(--coral-color-accent-text-strong, hsl(204, 96%, 18%));
+	border: solid 1px var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.calendar-row .calendar-day.not-current-month {
+	opacity: 0.54;
+}

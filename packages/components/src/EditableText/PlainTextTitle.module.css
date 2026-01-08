@@ -1,0 +1,35 @@
+/* stylelint-disable color-hex-case */
+.tc-editable-text-title {
+	display: flex;
+	align-items: center;
+	max-width: 56.25rem;
+}
+.tc-editable-text-title :global(.tc-editable-text-wording-wrapper) {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.tc-editable-text-title .tc-editable-text-wording {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.tc-editable-text-title .tc-editable-text-pencil {
+	position: relative;
+	left: -2000px;
+	padding-left: 5px;
+	padding-right: 5px;
+	flex: 0 0 auto;
+	line-height: inherit;
+	min-height: inherit;
+}
+.tc-editable-text-title .tc-editable-text-pencil:global(.btn-link) {
+	color: var(--coral-color-neutral-icon-weak, hsl(0, 0%, 38%));
+}
+.tc-editable-text-title .tc-editable-text-pencil:focus,
+.tc-editable-text-title .tc-editable-text-pencil:hover {
+	position: static;
+}
+.tc-editable-text-title:hover .tc-editable-text-pencil {
+	position: static;
+}

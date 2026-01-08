@@ -2,7 +2,7 @@ import { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import theme from './RecordsViewer.module.scss';
+import theme from './RecordsViewer.module.css';
 import { Tree } from '../Core';
 import { VirtualizedTree } from '../Virtualized';
 import { TreeHeader } from '../Headers';

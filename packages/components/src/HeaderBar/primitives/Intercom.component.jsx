@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ActionIntercom from '../../ActionIntercom';
 import { getTheme } from '../../theme';
 
-import headerBarCssModule from '../HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.css';
 
 const theme = getTheme(headerBarCssModule);
 export function Intercom({ id, config, tooltipPlacement }) {

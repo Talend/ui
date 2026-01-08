@@ -1,0 +1,9 @@
+.container {
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	min-height: var(--coral-sizing-xxxl, 13.75rem);
+	padding: var(--coral-spacing-m, 1rem);
+}
+
+.footer {
+	padding-top: var(--coral-spacing-s, 0.75rem);
+}

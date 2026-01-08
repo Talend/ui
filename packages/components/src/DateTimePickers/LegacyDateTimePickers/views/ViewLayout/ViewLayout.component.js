@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import theme from './ViewLayout.module.scss';
+import theme from './ViewLayout.module.css';
 
 function ViewLayout(props) {
 	const { leftElement, middleElement, rightElement } = props.header;

@@ -1,0 +1,13 @@
+/* stylelint-disable color-hex-case */
+.body {
+	display: flex;
+}
+.body .date {
+	flex: 3 0 200px;
+}
+.body .time {
+	border-left: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	flex: 1 0 70px;
+	margin-left: 15px;
+	padding-left: 15px;
+}

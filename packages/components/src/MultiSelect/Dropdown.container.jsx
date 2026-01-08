@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import CircularProgress from '../CircularProgress';
 import VirtualizedList from '../VirtualizedList';
-import theme from './Dropdown.module.scss';
+import theme from './Dropdown.module.css';
 
 export default function Dropdown(props) {
 	return (

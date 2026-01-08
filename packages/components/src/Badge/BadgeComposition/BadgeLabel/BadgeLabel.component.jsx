@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import TooltipTrigger from '../../../TooltipTrigger';
-import badgeCssModule from '../../Badge.module.scss';
+import badgeCssModule from '../../Badge.module.css';
 import { getTheme } from '../../../theme';
 
 const theme = getTheme(badgeCssModule);

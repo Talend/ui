@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import theme from './RowSelection.module.scss';
+import theme from './RowSelection.module.css';
 
 /**
  * Higher order row-renderer that wrap the provided row renderer.

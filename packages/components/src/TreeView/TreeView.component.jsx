@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Action from '../Actions/Action';
 import TreeViewItem from './TreeViewItem';
 
-import theme from './TreeView.module.scss';
+import theme from './TreeView.module.css';
 import { Gesture } from '@talend/react-a11y';
 
 /**

@@ -6,7 +6,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
 import Items from './Items/Items.component';
-import theme from './ListView.module.scss';
+import theme from './ListView.module.css';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';

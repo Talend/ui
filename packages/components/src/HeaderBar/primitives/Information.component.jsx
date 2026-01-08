@@ -5,7 +5,7 @@ import Action from '../../Actions/Action';
 import ActionDropdown from '../../Actions/ActionDropdown';
 import { getTheme } from '../../theme';
 
-import headerBarCssModule from '../HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.css';
 
 const theme = getTheme(headerBarCssModule);
 

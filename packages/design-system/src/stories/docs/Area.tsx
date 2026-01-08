@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 import classnames from 'classnames';
-import styles from './Area.module.scss';
+import styles from './Area.module.css';
 
 export const Area = (props: HTMLAttributes<HTMLDivElement>) => {
 	const { children, className, ...rest } = props;

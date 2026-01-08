@@ -4,7 +4,7 @@ import union from 'lodash/union';
 
 import toFlat from '../toflat';
 import JSONLike from '../JSONLike';
-import theme from './Table.module.scss';
+import theme from './Table.module.css';
 
 /**
  * @param {Object} data

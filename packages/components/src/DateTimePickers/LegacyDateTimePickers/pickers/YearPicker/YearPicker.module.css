@@ -1,0 +1,37 @@
+/* stylelint-disable color-hex-case */
+.year-picker {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.year-picker ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.year-picker .scroll {
+	line-height: 0.75rem;
+	min-height: auto;
+}
+.year-picker .scroll svg {
+	height: 0.75rem;
+}
+.year-picker .year {
+	font-size: 0.75rem;
+}
+.year-picker .year.selected {
+	background-color: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+	color: var(--coral-color-accent-text-strong, hsl(204, 96%, 18%));
+	transition: color 0.2s ease-in;
+	font-weight: 600;
+}
+.year-picker .year:disabled {
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	opacity: 0.54;
+}
+.year-picker .year {
+	background: none;
+	border: none;
+	height: 1.5625rem;
+	width: 100%;
+}

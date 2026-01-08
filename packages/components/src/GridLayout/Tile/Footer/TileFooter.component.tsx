@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import { ReactNode } from 'react';
-import theme from './TileFooter.module.scss';
+import theme from './TileFooter.module.css';
 
 type FooterProps = {
 	children: ReactNode;

@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 import Enumeration from './Enumeration.component';
 
-import theme from './Enumeration.stories.module.scss';
+import theme from './Enumeration.stories.module.css';
 import { DISPLAY_MODE_SEARCH } from './displayModes';
 
 const addItemAction = {

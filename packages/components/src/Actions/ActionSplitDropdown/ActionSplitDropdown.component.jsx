@@ -4,7 +4,7 @@ import { SplitButton, MenuItem } from '@talend/react-bootstrap';
 import { randomUUID } from '@talend/utils';
 import { useTranslation } from 'react-i18next';
 import Icon from '../../Icon';
-import theme from './ActionSplitDropdown.module.scss';
+import theme from './ActionSplitDropdown.module.css';
 import wrapOnClick from '../wrapOnClick';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 

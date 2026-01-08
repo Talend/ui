@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Skeleton from '../Skeleton';
 import { getI18nInstance } from '../translate';
-import theme from './AboutDialog.module.scss';
+import theme from './AboutDialog.module.css';
 
 const i18n = getI18nInstance();
 

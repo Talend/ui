@@ -1,7 +1,7 @@
 import { forwardRef, MouseEvent, ReactNode, Ref, HTMLProps } from 'react';
 import classnames from 'classnames';
 
-import styles from './Clickable.module.scss';
+import styles from './Clickable.module.css';
 
 export type ClickableProps = Omit<
 	HTMLProps<HTMLButtonElement>,

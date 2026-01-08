@@ -1,0 +1,31 @@
+.linkable {
+	cursor: pointer;
+}
+
+.link__icon {
+	position: relative;
+	bottom: -0.1875rem;
+	margin-right: var(--coral-spacing-xxs, 0.25rem);
+	flex-shrink: 0;
+}
+
+.link__iconExternal {
+	position: relative;
+	top: 0.0625rem;
+	height: var(--coral-sizing-minimal, 0.75rem);
+	width: var(--coral-sizing-minimal, 0.75rem);
+	margin-left: var(--coral-spacing-xxs, 0.25rem);
+	flex-shrink: 0;
+	display: inline-flex;
+}
+
+.naturally_aligned svg.link__icon,
+.naturally_aligned svg.link__iconExternal {
+	margin-bottom: 0;
+}
+
+.with_ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
