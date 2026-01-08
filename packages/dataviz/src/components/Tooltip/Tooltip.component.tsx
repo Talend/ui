@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import styles from './Tooltip.component.module.scss';
+import styles from './Tooltip.component.module.css';
 
 export interface TooltipProps {
 	title?: string;
