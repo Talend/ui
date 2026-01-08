@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 import { ActionButton } from '../Actions';

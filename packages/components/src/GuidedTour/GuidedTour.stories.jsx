@@ -2,7 +2,7 @@
 import { Component, Fragment } from 'react';
 import { withTranslation } from 'react-i18next';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import tokens from '@talend/design-tokens';
 

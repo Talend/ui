@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import VerticalBarChart, { VerticalBarChartProps } from './VerticalBarChart.component';
 import KeyValueTooltip from '../../KeyValueTooltip/KeyValueTooltip.component';
 import { getVerticalBarChartTooltip } from '../barChart.tooltip';

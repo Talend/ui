@@ -1,6 +1,6 @@
 import { BrowserRouter, Link } from 'react-router-dom';
 
-import { action as sbAction } from '@storybook/addon-actions';
+import { action as sbAction } from 'storybook/actions';
 
 import {
 	EmptyState,

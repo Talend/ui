@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import Immutable from 'immutable';
 
 import assetsApi from '@talend/assets-api';

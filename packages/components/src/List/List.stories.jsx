@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import cloneDeep from 'lodash/cloneDeep';
 
 import List from './List.component';

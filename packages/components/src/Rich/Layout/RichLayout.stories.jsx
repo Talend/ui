@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Actions, Action } from '../../Actions';
 import ActionBar from '../../ActionBar';

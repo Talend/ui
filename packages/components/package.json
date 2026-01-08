@@ -78,10 +78,10 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "10.1.11",
-    "@storybook/addon-docs": "10.1.11",
-    "@storybook/react": "10.1.11",
-    "@storybook/react-vite": "10.1.11",
+    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/addon-docs": "^10.1.11",
+    "@storybook/react": "^10.1.11",
+    "@storybook/react-vite": "^10.1.11",
     "@vitejs/plugin-react": "^5.0.0",
     "@talend/bootstrap-theme": "^9.6.0",
     "@talend/design-system": "^11.9.0",
@@ -128,7 +128,7 @@
   },
   "resolutions": {
     "minimist": "^1.2.5",
-    "@storybook/react-dom-shim": "10.1.11"
+    "@storybook/react-dom-shim": "^10.1.11"
   },
   "publishConfig": {
     "access": "public"

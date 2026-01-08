@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import ActionButton from './ActionButton.component';
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import ConfirmDialog from './ConfirmDialog.component';
 

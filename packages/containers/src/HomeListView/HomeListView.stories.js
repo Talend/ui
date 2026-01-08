@@ -1,5 +1,5 @@
 import { Drawer } from '@talend/react-components';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import Immutable from 'immutable';
 
 import HomeListView from '.';
