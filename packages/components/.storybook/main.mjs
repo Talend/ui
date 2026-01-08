@@ -1,3 +1,5 @@
+import react from '@vitejs/plugin-react';
+
 const config = {
 	stories: ['../src/**/*.stories.@(tsx|js|jsx)'],
 	addons: [
@@ -15,6 +17,10 @@ const config = {
 	},
 	docs: {
 		docsMode: false,
+	},
+	viteFinal: async config => {
+		config.plugins = [...(config.plugins || []), react({ jsxRuntime: 'automatic' })];
+		return config;
 	},
 	// typescript: {
 	// 	// Setting to false since we want to fully control what to document in argTypes

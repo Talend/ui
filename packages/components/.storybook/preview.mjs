@@ -1,3 +1,4 @@
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 
@@ -19,18 +20,18 @@ export const parameters = {
 		},
 	},
 	options: {
-		// storySort: {
-		// 	order: [
-		// 		'Design Principles',
-		// 		'Writing Principles',
-		// 		'Navigation',
-		// 		'Layout',
-		// 		'Buttons',
-		// 		'Messaging & Communication',
-		// 		'Form',
-		// 		'Data',
-		// 		'Deprecated',
-		// 	],
-		// },
+		storySort: {
+			order: [
+				'Design Principles',
+				'Writing Principles',
+				'Navigation',
+				'Layout',
+				'Buttons',
+				'Messaging & Communication',
+				'Form',
+				'Data',
+				'Deprecated',
+			],
+		},
 	},
 };
