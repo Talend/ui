@@ -1,0 +1,55 @@
+/* stylelint-disable color-hex-case */
+.tc-with-drawer {
+	height: 100%;
+	position: initial;
+	display: flex;
+	flex-direction: column;
+	z-index: 3;
+}
+
+.tc-with-drawer-container {
+	width: 100%;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.tc-with-drawer-container > div {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	pointer-events: none;
+}
+
+.tc-with-drawer-container > div:nth-child(1) :global(.stacked) {
+	width: 100%;
+}
+.tc-with-drawer-container > div:nth-child(2) :global(.stacked) {
+	width: 98%;
+}
+.tc-with-drawer-container > div:nth-child(3) :global(.stacked) {
+	width: 96%;
+}
+.tc-with-drawer-container > div:nth-child(4) :global(.stacked) {
+	width: 94%;
+}
+.tc-with-drawer-container > div:nth-child(5) :global(.stacked) {
+	width: 92%;
+}
+.tc-with-drawer-container > div:nth-child(6) :global(.stacked) {
+	width: 90%;
+}
+.tc-with-drawer-container > div:nth-child(7) :global(.stacked) {
+	width: 88%;
+}
+.tc-with-drawer-container > div:nth-child(8) :global(.stacked) {
+	width: 86%;
+}
+.tc-with-drawer-container > div:nth-child(9) :global(.stacked) {
+	width: 84%;
+}
+.tc-with-drawer-container > div:nth-child(10) :global(.stacked) {
+	width: 82%;
+}

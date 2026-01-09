@@ -9,7 +9,7 @@ import { EnumerationMode, EnumerationProps, UiEnumerationItem } from './Enumerat
 import { EnumerationHeader } from './EnumerationHeader/EnumerationHeader.component';
 import { EnumerationItem } from './EnumerationItem/EnumerationItem.component';
 
-import styles from './Enumeration.module.scss';
+import styles from './Enumeration.module.css';
 
 const ENUMERATION_ITEM_HEIGHT = 38;
 

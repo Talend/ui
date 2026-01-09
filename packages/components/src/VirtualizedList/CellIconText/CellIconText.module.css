@@ -1,0 +1,12 @@
+/* stylelint-disable color-hex-case */
+.tc-icon-text {
+	display: flex;
+	align-items: center;
+}
+.tc-icon-text .label {
+	min-width: 0;
+	margin-left: 10px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}

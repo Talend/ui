@@ -2,7 +2,7 @@ import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 
-import styles from './Breadcrumbs.module.scss';
+import styles from './Breadcrumbs.module.css';
 import { Link } from '../Link';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { ButtonTertiary } from '../Button';

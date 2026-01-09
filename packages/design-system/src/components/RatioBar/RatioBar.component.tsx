@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { RatioBarComposition } from './RatioBarComposition.component';
 import { EmptyLine, ErrorLine, FilledLine } from './RatioBarLines.component';
 
-import styles from './RatioBar.module.scss';
+import styles from './RatioBar.module.css';
 
 const getFilledValues = (amount: number, total: number) => {
 	if (!amount || amount < 0) {

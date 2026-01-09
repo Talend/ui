@@ -22,7 +22,7 @@ import {
 import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
 import { useId } from '../../useId';
 
-import styles from './Tooltip.module.scss';
+import styles from './Tooltip.module.css';
 
 export type Placement =
 	| 'top-start'

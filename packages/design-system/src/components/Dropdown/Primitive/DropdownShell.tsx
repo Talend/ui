@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import type { HTMLAttributes, ReactNode } from 'react';
-import styles from './DropdownShell.module.scss';
+import styles from './DropdownShell.module.css';
 import { StackVertical } from '../../Stack';
 
 type ShellProps = HTMLAttributes<HTMLDivElement> & {

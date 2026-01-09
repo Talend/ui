@@ -6,7 +6,7 @@ import { ButtonPrimary, ButtonSecondary, Divider, StackHorizontal } from '@talen
 import I18N from '../../../constants/i18n';
 import { StepperFormContext } from '../StepperForm.context';
 
-import style from '../StepperForm.module.scss';
+import style from '../StepperForm.module.css';
 
 interface StepFooterProps {
 	children?: ReactNode;

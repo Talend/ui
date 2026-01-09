@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import styles from './VerticalBarChart.component.module.scss';
+import styles from './VerticalBarChart.component.module.css';
 import { ChartEntry } from '../barChart.types';
 import {
 	getPrimaryBarValue,

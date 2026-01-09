@@ -7,7 +7,7 @@ import { StackHorizontal } from '../../../Stack';
 import { VisuallyHidden } from '../../../VisuallyHidden';
 import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
 
-import styles from '../AffixStyles.module.scss';
+import styles from '../AffixStyles.module.css';
 
 type CommonAffixReadOnlyPropsType = {
 	children: string;

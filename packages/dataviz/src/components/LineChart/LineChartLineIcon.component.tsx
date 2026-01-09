@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './LineChart.module.scss';
+import styles from './LineChart.module.css';
 
 const getLineIconBackground = (color: string, dashed: boolean) => {
 	if (dashed) {

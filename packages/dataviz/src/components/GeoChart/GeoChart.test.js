@@ -10,7 +10,7 @@ import { render } from '@testing-library/react';
 
 import GeoChart from './GeoChart.component';
 import { getGeoChartConfig } from './GeoChart.utils';
-import styles from './GeoChart.module.scss';
+import styles from './GeoChart.module.css';
 
 describe('GeoChart component', () => {
 	let defaultProps;

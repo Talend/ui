@@ -1,0 +1,53 @@
+/* stylelint-disable selector-no-qualifying-type */
+/* stylelint-disable color-hex-case */
+.tc-label-toggle {
+	display: inline-flex;
+	background-color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+	border-radius: 30px;
+	margin-right: 10px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25) inset;
+}
+.tc-label-toggle.tc-radio-disabled {
+	opacity: 0.54;
+}
+.tc-label-toggle.tc-radio-disabled label:hover {
+	cursor: not-allowed;
+}
+.tc-label-toggle.tc-radio-disabled label:hover:not(.tc-radio-selected) {
+	background-color: var(--coral-color-neutral-background, white);
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.tc-label-toggle.tc-radio-disabled input[type='radio'] {
+	cursor: not-allowed;
+}
+.tc-label-toggle input[type='radio'] {
+	position: fixed;
+	opacity: 0;
+	cursor: pointer;
+}
+.tc-label-toggle label {
+	background-color: var(--coral-color-neutral-background-strong, hsl(0, 0%, 88%));
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	padding: 0 8px;
+	border-radius: 30px;
+	font-weight: 600;
+	margin: 2px 0;
+	cursor: pointer;
+}
+.tc-label-toggle label:hover {
+	background-color: var(--coral-color-accent-background-strong-hover, hsl(204, 95%, 23%));
+	color: var(--coral-color-neutral-text-inverted, white);
+}
+.tc-label-toggle label:first-of-type {
+	margin: 2px 0 2px 2px;
+}
+.tc-label-toggle label:last-of-type {
+	margin: 2px 2px 2px 0;
+}
+.tc-label-toggle label.tc-radio-selected {
+	transition: 0.2s ease-out;
+	color: var(--coral-color-neutral-text-inverted, white);
+	opacity: 1;
+	background-color: var(--coral-color-accent-background-strong-active, hsl(205, 95%, 15%));
+	font-weight: 600;
+}

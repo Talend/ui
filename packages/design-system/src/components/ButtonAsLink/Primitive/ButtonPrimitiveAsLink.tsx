@@ -6,8 +6,8 @@ import { StackHorizontal } from '../../Stack';
 
 import { AvailableSizes, SharedButtonTypes } from '../../Button/Primitive/ButtonPrimitive';
 
-import sharedStyles from '../../Button/Primitive/ButtonStyles.module.scss';
-import linkStyles from './ButtonPrimitiveAsLink.module.scss';
+import sharedStyles from '../../Button/Primitive/ButtonStyles.module.css';
+import linkStyles from './ButtonPrimitiveAsLink.module.css';
 import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 export type BaseButtonPropsAsLink<S extends AvailableSizes> = LinkableType &
