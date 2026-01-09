@@ -1,5 +1,12 @@
 # @talend/json-schema-form-core
 
+## 2.0.0
+
+### Major Changes
+
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
 ## 1.5.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @talend/react-cmf
 
+## 12.0.0
+
+### Major Changes
+
+- a525026: No breaking in terms of API but may be some side effect in your config (like storybook)
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
 ## 11.1.0
 
 ### Minor Changes
@@ -51,14 +59,14 @@
   ```javascript
   // Before
   const routes = {
-      '/': rootSaga,
-      '/resources/:id?': resourceSaga
+  	'/': rootSaga,
+  	'/resources/:id?': resourceSaga,
   };
 
   // After
   const routes = {
-      '/{*path}': rootSaga,  // if you want to match all routes
-      '/resources{/id}': resourceSaga
+  	'/{*path}': rootSaga, // if you want to match all routes
+  	'/resources{/id}': resourceSaga,
   };
   ```
 

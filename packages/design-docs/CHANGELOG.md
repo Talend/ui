@@ -1,5 +1,23 @@
 # @talend/design-docs
 
+## 5.0.0
+
+### Major Changes
+
+- 16703c7: chore: drop UMD format
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+- 53e97a0: chore: upgrade dependencies
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/design-system@12.0.0
+  - @talend/storybook-docs@3.0.0
+  - @talend/design-tokens@4.0.0
+
 ## 4.6.0
 
 ### Minor Changes

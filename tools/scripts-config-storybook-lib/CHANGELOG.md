@@ -1,5 +1,21 @@
 # @talend/scripts-config-storybook-lib
 
+## 6.0.0
+
+### Major Changes
+
+- 16703c7: chore: drop UMD format
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+- 53e97a0: chore: upgrade dependencies
+- Updated dependencies [16703c7]
+- Updated dependencies [18e73d1]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/scripts-config-react-webpack@17.0.0
+
 ## 5.8.0
 
 ### Minor Changes

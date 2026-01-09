@@ -1,5 +1,28 @@
 # @talend/ui-storybook-one
 
+## 3.0.0
+
+### Major Changes
+
+- 16703c7: chore: drop UMD format
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+- 53e97a0: chore: upgrade dependencies
+- Updated dependencies [a525026]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/react-faceted-search@22.0.0
+  - @talend/react-components@18.0.0
+  - @talend/react-forms@16.0.0
+  - @talend/design-system@12.0.0
+  - @talend/storybook-docs@3.0.0
+  - @talend/design-tokens@4.0.0
+  - @talend/react-dataviz@8.0.0
+
 ## 2.9.0
 
 ### Minor Changes

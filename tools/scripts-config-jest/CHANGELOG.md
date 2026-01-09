@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 14.5.1
+
+### Patch Changes
+
+- a525026: fix: support jsx files
+
 ## 14.5.0
 
 ### Minor Changes

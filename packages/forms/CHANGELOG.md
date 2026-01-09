@@ -1,5 +1,28 @@
 # @talend/react-forms
 
+## 16.0.0
+
+### Major Changes
+
+- a525026: No breaking in terms of API but may be some side effect in your config (like storybook)
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+- 53e97a0: chore: upgrade dependencies
+- Updated dependencies [a525026]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/react-components@18.0.0
+  - @talend/design-system@12.0.0
+  - @talend/json-schema-form-core@2.0.0
+  - @talend/design-tokens@4.0.0
+  - @talend/assets-api@2.0.0
+
 ## 15.6.0
 
 ### Minor Changes

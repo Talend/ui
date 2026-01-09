@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.5.1
+
+### Patch Changes
+
+- f043b64: fix: remove prettier import order
+
 ## 12.5.0
 
 ### Minor Changes

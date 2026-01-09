@@ -1,5 +1,11 @@
 # @talend/react-a11y
 
+## 5.0.0
+
+### Major Changes
+
+- a525026: No breaking in terms of API but may be some side effect in your config (like storybook)
+
 ## 4.1.0
 
 ### Minor Changes

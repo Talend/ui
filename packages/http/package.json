@@ -1,6 +1,6 @@
 {
   "name": "@talend/http",
-  "version": "3.4.0",
+  "version": "4.0.0",
   "description": "HTTP helper",
   "license": "Apache-2.0",
   "repository": {
@@ -39,7 +39,7 @@
     "@talend/eslint-plugin": "^1.6.0",
     "@talend/scripts-core": "^16.8.0",
     "@talend/scripts-config-babel": "^13.8.0",
-    "@talend/scripts-config-react-webpack": "^16.11.0",
+    "@talend/scripts-config-react-webpack": "^17.0.0",
     "@talend/scripts-config-typescript": "^11.4.0",
     "@types/jest": "^29.5.14",
     "@types/node-fetch": "^2.6.13",
