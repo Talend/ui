@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import type { ReactNode, Ref } from 'react';
 
-import theme from './PrimitiveDrawer.module.scss';
+import theme from './PrimitiveDrawer.module.css';
 
 export type DrawerProps = {
 	header?: ReactNode;

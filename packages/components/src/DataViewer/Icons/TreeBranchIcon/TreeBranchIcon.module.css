@@ -1,0 +1,23 @@
+/* stylelint-disable color-hex-case */
+.tc-tree-branch-icon {
+	display: flex;
+	margin-right: 5px;
+}
+.tc-tree-branch-icon-caret {
+	height: 0.75rem;
+	width: 0.75rem;
+}
+.tc-tree-branch-icon-caret-right {
+	transform: rotate(180deg);
+}
+.tc-tree-branch-icon :global(.tc-svg-anchor) {
+	background: transparent;
+	border: none;
+	padding: 0;
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	display: flex;
+}
+.tc-tree-branch-icon :global(.tc-svg-anchor):focus,
+.tc-tree-branch-icon :global(.tc-svg-anchor):hover {
+	color: var(--coral-color-accent-text-hover, hsl(204, 96%, 18%));
+}

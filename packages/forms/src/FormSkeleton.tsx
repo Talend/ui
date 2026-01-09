@@ -2,7 +2,7 @@ import { SkeletonButton, SkeletonInput, StackItem, StackVertical } from '@talend
 
 import { ActionProps, DisplayMode } from './types';
 
-import theme from './FormSkeleton.module.scss';
+import theme from './FormSkeleton.module.css';
 
 export interface FormSkeletonProps {
 	displayMode?: DisplayMode;

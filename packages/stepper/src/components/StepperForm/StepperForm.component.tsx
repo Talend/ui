@@ -7,7 +7,7 @@ import { StepperFormContext } from './StepperForm.context';
 import { StepperProps } from './StepperForm.types';
 import { getStepComponent } from './StepperForm.utils';
 
-import style from './StepperForm.module.scss';
+import style from './StepperForm.module.css';
 
 const StepperForm = ({ isLoading }: StepperProps) => {
 	const { steps, currentStep } = useContext(StepperFormContext);

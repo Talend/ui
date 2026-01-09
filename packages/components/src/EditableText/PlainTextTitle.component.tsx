@@ -4,7 +4,7 @@ import { TFunction } from 'i18next';
 import TooltipTrigger from '../TooltipTrigger';
 import { Action } from '../Actions';
 import getDefaultT from '../translate';
-import theme from './PlainTextTitle.module.scss';
+import theme from './PlainTextTitle.module.css';
 
 type PlainTextTitleProps = {
 	id?: string;

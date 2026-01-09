@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { ReactNode, MouseEvent, useState } from 'react';
 import classnames from 'classnames';
-import theme from './Tile.module.scss';
+import theme from './Tile.module.css';
 import { TileContext, TileContextType } from './context';
 
 /**

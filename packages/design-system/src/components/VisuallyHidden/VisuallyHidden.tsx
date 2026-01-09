@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'react';
-import style from './VisuallyHidden.module.scss';
+import style from './VisuallyHidden.module.css';
 
 export type VisuallyHiddenProps = Omit<HTMLAttributes<HTMLSpanElement>, 'className'>;
 

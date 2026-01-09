@@ -12,7 +12,7 @@ import { Status } from '../../Status';
 import { variants } from '../../Status/Primitive/StatusPrimitive';
 import { PanelHeaderAction } from './types';
 
-import styles from './CollapsiblePanelHeader.module.scss';
+import styles from './CollapsiblePanelHeader.module.css';
 
 export type CollapsiblePanelHeaderPropsType = {
 	controlId: string;

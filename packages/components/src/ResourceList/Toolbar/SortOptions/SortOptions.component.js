@@ -5,7 +5,7 @@ import OrderChooser from './OrderChooser';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 
-import theme from './SortOptions.module.scss';
+import theme from './SortOptions.module.css';
 
 export const TYPES = {
 	NAME: 'name',

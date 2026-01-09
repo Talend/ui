@@ -18,7 +18,7 @@ import { SizedIcon } from '../../Icon';
 import Link, { LinkProps } from '../../Link/Link';
 import { StackHorizontal, StackVertical } from '../../Stack';
 
-import styles from './MessageStyles.module.scss';
+import styles from './MessageStyles.module.css';
 
 type SharedMessageWithActionsPropsType = {
 	additionalIconAction?: ButtonIconType<'XS'>;

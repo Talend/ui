@@ -2,7 +2,7 @@ import { useContext, useState, useEffect, memo } from 'react';
 import type { ImgHTMLAttributes } from 'react';
 import { FileImageResponse } from 'figma-js';
 
-import styles from './FigmaImage.module.scss';
+import styles from './FigmaImage.module.css';
 
 import FigmaContext from './FigmaContext';
 

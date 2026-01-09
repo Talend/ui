@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { ButtonIcon, Popover, StackHorizontal } from '@talend/design-system';
 
-import styles from './labels.module.scss';
+import styles from './labels.module.css';
 
 export const getLabelProps = (title, labelProps, hint, required) => {
 	if (!hint) {

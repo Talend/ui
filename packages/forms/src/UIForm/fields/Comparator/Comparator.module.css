@@ -1,0 +1,34 @@
+.comparator {
+	position: relative;
+}
+.comparator :global .dropdown {
+	position: absolute;
+	top: calc(1.05rem + var(--coral-spacing-xxs, 0.25rem));
+}
+.comparator :global .dropdown-menu {
+	min-width: auto;
+}
+.comparator :global .dropdown .tc-svg-icon {
+	flex-shrink: 0;
+}
+.comparator :global .dropdown .btn {
+	height: 1.875rem;
+	width: 3.125rem;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	background: var(--coral-color-accent-background, hsl(204, 59%, 88%));
+	border: 1px solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	border-radius: var(--coral-radius-s, 0.25rem) 0 0 var(--coral-radius-s, 0.25rem);
+	z-index: 1;
+	padding-left: var(--coral-spacing-xxs, 0.25rem);
+	padding-right: var(--coral-spacing-xxs, 0.25rem);
+}
+.comparator :global input {
+	padding-left: calc(3.125rem + var(--coral-spacing-xs, 0.5rem));
+}
+
+.operator.selected {
+	font-weight: bold;
+}
+.operator .symbol + .name {
+	padding-left: 0.625rem;
+}

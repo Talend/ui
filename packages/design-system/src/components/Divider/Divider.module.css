@@ -1,0 +1,17 @@
+.divider {
+	border: none;
+}
+.divider[aria-orientation='horizontal'] {
+	width: 100%;
+	margin: 0;
+	border-top: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}
+.divider[aria-orientation='vertical'] {
+	margin: 0;
+	display: inline-block;
+	min-height: 2ch;
+	height: 100%;
+	border-left: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}

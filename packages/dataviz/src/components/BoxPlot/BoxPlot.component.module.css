@@ -1,0 +1,36 @@
+.box-plot {
+	font: var(--coral-paragraph-s, 400 0.75rem/140% 'Source Sans Pro');
+}
+.box-plot line,
+.box-plot rect {
+	fill: var(--coral-color-charts-default-strong, hsl(204, 92%, 29%));
+	stroke: var(--coral-color-charts-neutral-strong, hsl(0, 0%, 12%));
+	stroke-width: 1px;
+}
+.box-plot__whiskerPolyg {
+	fill: none;
+	stroke: var(--coral-color-charts-neutral-strong, hsl(0, 0%, 12%));
+	stroke-width: 2;
+}
+.box-plot__center {
+	stroke-dasharray: 3, 3;
+}
+.box-plot__mean {
+	fill: white;
+	opacity: 0.5;
+	stroke: var(--coral-color-charts-default-strong, hsl(204, 92%, 29%));
+	shape-rendering: geometricPrecision;
+	stroke-width: 0.8;
+}
+.box-plot__max-min-labels {
+	fill: var(--coral-color-charts-default, hsl(216, 82%, 48%));
+}
+.box-plot__low-quantile-labels {
+	fill: var(--coral-color-charts-success-strong, hsl(139, 50%, 22%));
+}
+.box-plot__up-quantile-labels {
+	fill: var(--coral-color-charts-danger-strong, hsl(359, 62%, 43%));
+}
+.box-plot__mean-labels {
+	fill: var(--coral-color-charts-neutral-weak, hsl(0, 0%, 83%));
+}

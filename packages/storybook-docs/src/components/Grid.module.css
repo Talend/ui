@@ -1,0 +1,6 @@
+.grid {
+	display: grid;
+	gap: var(--coral-spacing-l, 1.75rem) calc(var(--coral-spacing-l, 1.75rem) * 2);
+	/* stylelint-disable-next-line declaration-no-important */
+	margin: calc(var(--coral-spacing-l, 1.75rem) * 2) 0 !important;
+}

@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { VisuallyHidden } from '../../../VisuallyHidden';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 
-import styles from './Progress.module.scss';
+import styles from './Progress.module.css';
 
 type StepperOrientation = 'vertical' | 'horizontal';
 

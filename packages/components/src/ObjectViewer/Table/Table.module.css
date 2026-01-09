@@ -1,0 +1,27 @@
+/* stylelint-disable scss/selector-no-redundant-nesting-selector */
+.table .nativevalue {
+	font: var(--coral-data-m, 400 0.875rem/140% 'Inconsolata');
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	padding: 0;
+}
+.table:global(.table) > thead > tr {
+	background-color: var(--coral-color-accent-background-strong, hsl(204, 95%, 31%));
+	color: var(--coral-color-accent-text-weak, white);
+}
+.table:global(.table) > thead > tr > th {
+	font: var(--coral-heading-s, 600 0.875rem/140% 'Source Sans Pro');
+}
+.table:global(.table) > thead > tr > td {
+	padding: var(--coral-spacing-xxs, 0.25rem);
+}
+.table:global(.table) > tbody > tr > td {
+	padding: var(--coral-spacing-xxs, 0.25rem);
+}
+.table:global(.table) > tbody > tr > td :global(.btn) {
+	text-transform: none;
+}
+.table :global(.btn-link) {
+	font-size: 12px;
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	padding: 0;
+}

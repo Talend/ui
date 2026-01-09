@@ -2,7 +2,7 @@ import { forwardRef, Ref } from 'react';
 import ButtonPrimitiveAsLink, { BaseButtonPropsAsLink } from '../Primitive/ButtonPrimitiveAsLink';
 import { AvailableSizes } from '../../Button/Primitive/ButtonPrimitive';
 
-import styles from '../../Button/variations/ButtonDestructive.module.scss';
+import styles from '../../Button/variations/ButtonDestructive.module.css';
 
 export type ButtonDestructiveAsLinkPropsType<S extends AvailableSizes> = Omit<
 	BaseButtonPropsAsLink<S>,

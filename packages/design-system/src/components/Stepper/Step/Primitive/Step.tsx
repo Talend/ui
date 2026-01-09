@@ -2,7 +2,7 @@ import { forwardRef, ReactElement, Ref } from 'react';
 import classnames from 'classnames';
 import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip';
 
-import styles from './Step.module.scss';
+import styles from './Step.module.css';
 
 export type StepStatus = 'disabled' | 'enabled' | 'error' | 'progress' | 'skeleton' | 'validated';
 

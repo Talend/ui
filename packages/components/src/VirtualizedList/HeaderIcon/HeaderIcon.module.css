@@ -1,0 +1,10 @@
+/* stylelint-disable color-hex-case */
+.tc-header-icon {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	margin-top: 3px;
+}
+.tc-header-icon span {
+	line-height: 0;
+}

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from '@talend/design-system';
 import TooltipTrigger from '../../TooltipTrigger';
-import styles from './CellLink.module.scss';
+import styles from './CellLink.module.css';
 import classNames from 'classnames';
 /**
  * Cell renderer that displays a link

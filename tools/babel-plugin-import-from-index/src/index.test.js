@@ -34,7 +34,6 @@ pluginTester({
 				_.toUpper('foo');`,
 			output: `
 				import _ from 'lodash';
-
 				_.toUpper('foo');`,
 		},
 		{
@@ -45,8 +44,7 @@ pluginTester({
                  import List from '@talend/react-components/lib/List';`,
 			output: `
                  import React from 'react';
-
-                 import { ActionButton, ActionDropdown, Actions, List, SidePanel } from '@talend/react-components';`,
+                 import { SidePanel, Actions, ActionButton, ActionDropdown, List } from '@talend/react-components';`,
 		},
 		{
 			code: "import React from 'react';",
@@ -59,8 +57,7 @@ pluginTester({
 		 		import { ModelViewer as ModelViewerComponent } from '@talend/react-components';`,
 			output: `
 		 		import React from 'react';
-
-		 		import { ModelViewer as ModelViewerComponent, SidePanel } from '@talend/react-components';`,
+		 		import { SidePanel, ModelViewer as ModelViewerComponent } from '@talend/react-components';`,
 		},
 		{
 			code: "import { RecordsViewer as RecordsViewerComponent, TooltipTrigger } from '@talend/react-components';",

@@ -1,0 +1,182 @@
+/* stylelint-disable color-hex-case */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+[data-theme='qlik-light'] .tc-header-bar {
+	border-bottom: 1px solid var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}
+
+.tc-header-bar {
+	background: var(
+		--coral-color-brand-background,
+		linear-gradient(133deg, hsl(210, 62%, 26%) 0%, hsl(254, 47%, 23%) 100%)
+	);
+	color: var(--coral-color-brand-text, white);
+	display: flex;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: var(--coral-elevation-layer-standard-front, 4);
+}
+.tc-header-bar svg {
+	margin: 0;
+}
+.tc-header-bar a svg {
+	margin: 0 5px;
+}
+.tc-header-bar ul {
+	list-style: none;
+}
+.tc-header-bar :global .dropdown-menu a svg path {
+	fill: var(--coral-color-neutral-icon, hsl(0, 0%, 13%));
+}
+.tc-header-bar :global .tc-dropdown-button,
+.tc-header-bar :global .btn-link,
+.tc-header-bar :global .tc-header-bar-action.tc-header-bar-help a,
+.tc-header-bar :global .tc-header-bar-logo.btn-link {
+	color: var(--coral-color-brand-text, white);
+}
+.tc-header-bar :global .tc-dropdown-button:hover,
+.tc-header-bar :global .tc-dropdown-button:focus,
+.tc-header-bar :global .btn-link:hover,
+.tc-header-bar :global .btn-link:focus,
+.tc-header-bar :global .tc-header-bar-action.tc-header-bar-help a:hover,
+.tc-header-bar :global .tc-header-bar-action.tc-header-bar-help a:focus,
+.tc-header-bar :global .tc-header-bar-logo.btn-link:hover,
+.tc-header-bar :global .tc-header-bar-logo.btn-link:focus {
+	color: var(--coral-color-brand-text, white);
+	background-color: var(--coral-color-brand-background-weak-hover, hsla(0, 0%, 100%, 0.1));
+}
+.tc-header-bar .tc-header-bar-actions {
+	align-items: center;
+	display: flex;
+	padding: 0;
+	margin: 0;
+}
+.tc-header-bar .tc-header-bar-actions.right {
+	margin-left: auto;
+}
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-action {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-action.separated:not(:last-child)::after {
+	content: ' ';
+	display: block;
+	width: 1px;
+	height: 18px;
+	background-color: var(--coral-color-brand-text, white);
+}
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-action :global .tc-typeahead-item-title,
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-action :global .tc-typeahead-item-description {
+	white-space: initial;
+}
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-logo {
+	padding: 0;
+	width: calc(var(--coral-sizing-s, 1.75rem) + var(--coral-sizing-branding-logo, 1.75rem));
+	background-image: var(
+		--coral-branding-logo,
+		url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==')
+	);
+	background-size: var(--coral-sizing-branding-logo, 1.75rem);
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: center;
+}
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-logo :global(.tc-svg-icon) {
+	padding: 0;
+	height: 1.75rem;
+	width: 1.75rem;
+}
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-logo.full {
+	width: auto;
+	background-image: none;
+}
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-logo.full :global(.tc-svg-icon) {
+	padding: 0 15px;
+	width: 5.3125rem;
+}
+.tc-header-bar .tc-header-bar-actions .tc-header-bar-brand:global(.btn):global(.btn-link) {
+	font-size: 14px;
+}
+.tc-header-bar
+	.tc-header-bar-actions
+	.tc-header-bar-call-to-action
+	:global
+	.btn.btn-info.btn-inverse {
+	background-color: var(--coral-color-neutral-background, white);
+	border: none;
+	margin-right: 15px;
+}
+.tc-header-bar
+	.tc-header-bar-actions
+	.tc-header-bar-call-to-action
+	:global
+	.btn.btn-info.btn-inverse:hover {
+	background-color: var(--coral-color-neutral-background, white);
+}
+.tc-header-bar .tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+.tc-header-bar .tc-header-bar-brand :global(.tc-svg-icon:first-child) {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+.tc-header-bar .tc-header-bar-brand + :global(.dropdown-menu) {
+	min-width: 100%;
+	width: auto;
+}
+.tc-header-bar :global(.dropdown) {
+	height: 100%;
+}
+.tc-header-bar :global(.dropdown) :global(.caret) {
+	box-shadow: 2px -2px 0 var(--coral-color-neutral-text-inverted, white);
+	border: none;
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+.tc-header-bar :global(.dropdown):global(.open) :global(.caret) {
+	margin-top: 10px;
+}
+.tc-header-bar .tc-header-bar-search form {
+	height: 48px;
+	padding-left: 0;
+}
+.tc-header-bar .tc-header-bar-search form :global(.tc-typeahead-container) > div:first-child {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-right: 20px;
+	height: 48px;
+	background: var(--coral-color-neutral-background, white);
+}
+.tc-header-bar
+	.tc-header-bar-search
+	form
+	:global(.tc-typeahead-container)
+	> div:first-child
+	:global(.form-control) {
+	font-style: italic;
+	animation: fadeIn 0.2s;
+	width: 400px;
+}
+.tc-header-bar .tc-header-bar-intercom-default-component {
+	border-radius: 50%;
+	color: var(--coral-color-brand-text, white);
+	min-height: auto;
+	height: 2rem;
+	width: 2rem;
+	margin: 0 10px;
+	padding: 0;
+}
+
+:global(.intercom-namespace .intercom-app .intercom-messenger-frame) {
+	top: 4.375rem;
+}

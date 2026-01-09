@@ -3,7 +3,7 @@ import type { FormHTMLAttributes, Ref } from 'react';
 
 import { isElement } from 'react-is';
 
-import styles from './Form.module.scss';
+import styles from './Form.module.css';
 
 export type FormProps = FormHTMLAttributes<HTMLFormElement> & {
 	disabled?: boolean;

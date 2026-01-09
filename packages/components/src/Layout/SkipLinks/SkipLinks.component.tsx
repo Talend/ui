@@ -4,7 +4,7 @@ import { Icon, SVG_TRANSFORMS } from '@talend/design-system';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 
-import theme from './SkipLinks.module.scss';
+import theme from './SkipLinks.module.css';
 
 type SkipToProps = {
 	href: string;
