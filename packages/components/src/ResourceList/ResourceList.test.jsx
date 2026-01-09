@@ -6,32 +6,31 @@ import ResourceList from './ResourceList.component';
 jest.mock(
 	'../VirtualizedList',
 	() =>
-		({ rowHeight, collection, inProgress, type, onRowClick, noRowsRenderer, rowRenderers }) =>
-			(
-				<div
-					data-testid="VirtualizedList"
-					data-props={JSON.stringify({ rowHeight, collection, inProgress, type })}
-				>
-					<div data-testid="rowRenderers">
-						{rowRenderers.resource({
-							index: 0,
-							parent: {
-								props: {
-									rowHeight,
-									collection,
-									inProgress,
-									type,
-									rowGetter: index => collection[index],
-								},
+		({ rowHeight, collection, inProgress, type, onRowClick, noRowsRenderer, rowRenderers }) => (
+			<div
+				data-testid="VirtualizedList"
+				data-props={JSON.stringify({ rowHeight, collection, inProgress, type })}
+			>
+				<div data-testid="rowRenderers">
+					{rowRenderers.resource({
+						index: 0,
+						parent: {
+							props: {
+								rowHeight,
+								collection,
+								inProgress,
+								type,
+								rowGetter: index => collection[index],
 							},
-						})}
-					</div>
-					{collection.length === 0 && <div data-testid="noRowsRenderer">{noRowsRenderer()}</div>}
-					<button type="button" onClick={() => onRowClick()}>
-						onRowClick
-					</button>
+						},
+					})}
 				</div>
-			),
+				{collection.length === 0 && <div data-testid="noRowsRenderer">{noRowsRenderer()}</div>}
+				<button type="button" onClick={() => onRowClick()}>
+					onRowClick
+				</button>
+			</div>
+		),
 );
 
 const collection = [

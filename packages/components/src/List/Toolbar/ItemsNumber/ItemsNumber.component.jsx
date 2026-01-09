@@ -6,18 +6,18 @@ function ItemsNumber({ id, totalItems, selected, label, labelSelected, t }) {
 		<div className="tc-items-number" id={id}>
 			{selected
 				? labelSelected ||
-				  t('LIST_TOOLBAR_NUMBER_OF_SELECTED_ITEMS', {
+					t('LIST_TOOLBAR_NUMBER_OF_SELECTED_ITEMS', {
 						defaultValue: '{{count}}/{{total}} item',
 						defaultValue_other: '{{count}}/{{total}} items',
 						count: selected,
 						total: totalItems,
-				  })
+					})
 				: label ||
-				  t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
+					t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
 						defaultValue: '{{count}} item',
 						defaultValue_other: '{{count}} items',
 						count: totalItems,
-				  })}
+					})}
 		</div>
 	);
 }
