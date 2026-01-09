@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: var(--coral-paragraph-m, 400 0.875rem/140% "Source Sans Pro");
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  background-color: var(--coral-color-neutral-background, white);
+}
+
+a {
+  text-decoration: none;
+}
+
+[role=list] {
+  margin: 0;
+  padding: 0;
+}
+
+.focus-outline-hidden *:focus {
+  outline: none;
+}
+
+::selection {
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+  background-color: var(--coral-color-accent-background-selected, hsl(204, 100%, 95%));
+}

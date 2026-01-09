@@ -1,0 +1,7 @@
+/* stylelint-disable color-hex-case */
+.tc-split-dropdown li > a i,
+.tc-split-dropdown li > a svg {
+	margin-right: 5px;
+	width: 1rem;
+	height: 1rem;
+}

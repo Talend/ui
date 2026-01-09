@@ -1,0 +1,21 @@
+.panelWrapper {
+	box-shadow: var(--coral-elevation-shadow-neutral-s, 0 0.0625rem 0.125rem 0 hsla(0, 0%, 0%, 0.5));
+	overflow: hidden;
+}
+.panelWrapper__alone {
+	border-radius: var(--coral-radius-s, 0.25rem);
+}
+.panelWrapper__first {
+	border-radius: var(--coral-radius-s, 0.25rem) var(--coral-radius-s, 0.25rem) 0 0;
+}
+.panelWrapper__last {
+	border-radius: 0 0 var(--coral-radius-s, 0.25rem) var(--coral-radius-s, 0.25rem);
+}
+.panelWrapper__notLast {
+	border-bottom: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+}
+
+.panelContent {
+	padding: var(--coral-spacing-xs, 0.5rem);
+}

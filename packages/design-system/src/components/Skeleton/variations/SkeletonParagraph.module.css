@@ -1,0 +1,24 @@
+.skeletonParagraph.size-M {
+	height: 0.875rem;
+}
+.skeletonParagraph.size-S {
+	height: 0.75rem;
+}
+.skeletonParagraph.width-XS {
+	max-width: 10%;
+}
+.skeletonParagraph.width-S {
+	max-width: 20%;
+}
+.skeletonParagraph.width-M {
+	max-width: 40%;
+}
+.skeletonParagraph.width-L {
+	max-width: 60%;
+}
+.skeletonParagraph.width-XL {
+	max-width: 80%;
+}
+.skeletonParagraph.width-100 {
+	max-width: 100%;
+}

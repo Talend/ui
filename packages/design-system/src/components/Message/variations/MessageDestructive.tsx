@@ -2,7 +2,7 @@ import { forwardRef, Ref } from 'react';
 
 import { MessagePrimitive, SharedMessageProps } from '../Primitive/MessagePrimitive';
 
-import styles from './MessageDestructive.module.scss';
+import styles from './MessageDestructive.module.css';
 
 export const MessageDestructive = forwardRef(
 	(props: SharedMessageProps, ref: Ref<HTMLDivElement>) => {

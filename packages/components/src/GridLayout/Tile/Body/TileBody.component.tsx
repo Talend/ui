@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import { ReactNode } from 'react';
-import theme from '../Tile.module.scss';
+import theme from '../Tile.module.css';
 
 type BodyProps = {
 	children: ReactNode;

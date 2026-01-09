@@ -1,0 +1,26 @@
+/* stylelint-disable color-hex-case */
+@keyframes object-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
+@keyframes skeleton-blink {
+	0%,
+	100% {
+		opacity: 0.1;
+	}
+	50% {
+		opacity: 0.25;
+	}
+}
+.tc-editable-text-blink {
+	animation: object-blink 1.5s ease infinite;
+}
+
+.tc-editable-text {
+	width: 100%;
+}

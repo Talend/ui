@@ -1,0 +1,9 @@
+/* stylelint-disable color-hex-case */
+input[type='file'].action-file-input:focus + label {
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+.btn-file-disabled {
+	cursor: not-allowed;
+}

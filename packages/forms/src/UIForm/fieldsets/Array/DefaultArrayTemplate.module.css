@@ -1,0 +1,15 @@
+.tf-array-fieldset::before {
+	content: attr(data-content);
+	display: inline-block;
+	margin: var(--coral-spacing-m, 1rem) 0;
+}
+.tf-array-fieldset .tf-array-add {
+	float: right;
+}
+.tf-array-fieldset .tf-array {
+	padding: 0;
+	margin: 0;
+}
+.tf-array-fieldset .tf-array .item {
+	list-style: none;
+}

@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import { ReactNode } from 'react';
-import theme from './TileHeader.module.scss';
+import theme from './TileHeader.module.css';
 
 type HeaderProps = {
 	children: ReactNode;

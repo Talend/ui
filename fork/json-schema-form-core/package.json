@@ -7,11 +7,11 @@
   "exports": {
     ".": {
       "import": "./lib-esm/index.js",
-      "require": "./dist/index.js"
+      "require": "./lib/index.js"
     }
   },
   "scripts": {
-    "build:lib": "rimraf dist && talend-scripts build --umd",
+    "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",

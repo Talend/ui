@@ -1,0 +1,39 @@
+.range-picker {
+	display: flex;
+	width: fit-content;
+}
+.range-picker :global(.range-input) {
+	display: flex;
+	flex-direction: column;
+	gap: var(--coral-spacing-xxs, 0.25rem);
+}
+.range-picker .arrow {
+	display: flex;
+	align-items: flex-end;
+	margin: 10px;
+}
+
+.range-picker-vertical {
+	display: flex;
+	width: fit-content;
+}
+.range-picker-vertical :global(.range-input) {
+	display: flex;
+	flex-direction: column;
+	gap: var(--coral-spacing-xxs, 0.25rem);
+}
+.range-picker-vertical {
+	flex-direction: column;
+}
+.range-picker-vertical :global(.arrow) {
+	display: flex;
+	align-items: flex-end;
+	margin: 10px;
+}
+
+.date-time-range-picker-inline :global(.range-input) {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: var(--coral-spacing-xxs, 0.25rem);
+}

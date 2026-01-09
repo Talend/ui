@@ -1,0 +1,43 @@
+/* stylelint-disable color-hex-case */
+.tc-datalist-form {
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+}
+.container > div {
+	width: 100%;
+}
+
+.items-container {
+	max-height: 20rem;
+	z-index: 999;
+}
+.items-container :global(.tc-typeahead-section-container) :global(.tc-typeahead-section-header) {
+	border-bottom: none;
+}
+
+.tc-datalist-item {
+	display: flex;
+	align-items: center;
+}
+.tc-datalist-item .tc-datalist-item-icon {
+	width: 1rem;
+	height: 1rem;
+	color: var(--coral-color-neutral-icon, hsl(0, 0%, 13%));
+	margin-right: 15px;
+}
+
+.items {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.items > li > div {
+	display: flex;
+	height: 2.5rem;
+}
+.items > li > div:hover {
+	background-color: var(--coral-color-neutral-background-medium, hsl(0, 0%, 97%));
+}

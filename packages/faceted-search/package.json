@@ -16,9 +16,6 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build --umd --dev",
-    "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "test": "cross-env TZ=UTC talend-scripts test",
@@ -53,7 +50,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.6.20",
+    "@storybook/addon-actions": "^7.6.21",
     "@storybook/testing-library": "^0.2.2",
     "@talend/design-system": "^11.9.0",
     "@talend/eslint-config": "^13.5.0",

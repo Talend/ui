@@ -1,0 +1,6 @@
+.tf-array-text-mode ol {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: var(--coral-spacing-xxs, 0.25rem);
+}

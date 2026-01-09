@@ -2,7 +2,7 @@ import { forwardRef, Ref } from 'react';
 import ButtonPrimitiveAsLink, { BaseButtonPropsAsLink } from '../Primitive/ButtonPrimitiveAsLink';
 import { AvailableSizes } from '../../Button/Primitive/ButtonPrimitive';
 
-import styles from '../../Button/variations/ButtonTertiary.module.scss';
+import styles from '../../Button/variations/ButtonTertiary.module.css';
 
 export type ButtonTertiaryAsLinkPropsType<S extends AvailableSizes> = Omit<
 	BaseButtonPropsAsLink<S>,

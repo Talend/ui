@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import { DataAttributes } from '../../../types';
 
-import styles from './StackPrimitive.module.scss';
+import styles from './StackPrimitive.module.css';
 
 export const justifyOptions = {
 	start: 'justify-start',

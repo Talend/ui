@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import styles from './FigmaIframe.module.scss';
+import styles from './FigmaIframe.module.css';
 
 const iframeProps = {
 	height: 600,
