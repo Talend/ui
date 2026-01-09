@@ -5,13 +5,12 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-// eslint-disable-next-line @talend/import-depth
-import { initI18n } from './i18n.js';
 
+// eslint-disable-next-line @talend/import-depth
 import '@talend/bootstrap-theme/dist/bootstrap.css';
 import cmf from '@talend/react-cmf';
 import getRouter from '@talend/react-cmf-router';
-import { AppLoader, IconsProvider as BaseIconsProvider } from '@talend/react-components';
+import { AppLoader } from '@talend/react-components';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 
@@ -21,6 +20,7 @@ import { Dataviz } from './components/Dataviz.jsx';
 import { FacetedSearchPlayground } from './components/FacetedSearch.jsx';
 import { Icons } from './components/Icons.jsx';
 import { LeaguesList } from './components/List.jsx';
+import { initI18n } from './i18n.js';
 
 // thanks ui-scripts
 let basename = window.basename;
@@ -31,13 +31,6 @@ if (basename === '/') {
 const router = getRouter({ basename });
 
 initI18n();
-const allsvg = `${basename || ''}/cdn/@talend/icons/${
-	process.env.ICONS_VERSION
-}/dist/svg-bundle/all.svg`;
-
-function IconsProvider() {
-	return <BaseIconsProvider bundles={[allsvg]} />;
-}
 
 const app = {
 	components: {
@@ -45,7 +38,6 @@ const app = {
 		ComponentFormSandbox,
 		FacetedSearch: FacetedSearchPlayground,
 		LeaguesList,
-		IconsProvider,
 		Dataviz,
 		Icons,
 	},
@@ -68,4 +60,5 @@ console.log('app bootstrap should happens only once');
  * - Fetch the settings
  * - render react-dom in the dom 'app' element
  */
+debugger;
 cmf.bootstrap(app);
