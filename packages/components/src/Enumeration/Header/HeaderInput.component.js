@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Action from '../../Actions/Action';
-import theme from './Header.module.scss';
+import theme from './Header.module.css';
 
 function headerClasses(headerError) {
 	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header', {

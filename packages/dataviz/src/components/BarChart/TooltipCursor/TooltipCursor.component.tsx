@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 import { Customized } from 'recharts';
-import styles from './TooltipCursor.component.module.scss';
+import styles from './TooltipCursor.component.module.css';
 
 export type TooltipCursorProps = SVGProps<SVGElement> & {
 	dataFeature?: string;

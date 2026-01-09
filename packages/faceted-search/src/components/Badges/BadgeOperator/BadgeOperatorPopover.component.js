@@ -4,7 +4,7 @@ import { ButtonTertiary } from '@talend/design-system';
 
 import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 
-import styles from './BadgeOperator.module.scss';
+import styles from './BadgeOperator.module.css';
 
 const BadgeOperatorRow = ({ onClick, id, name, label, iconName }) => {
 	const onClickOperatorRow = event => {

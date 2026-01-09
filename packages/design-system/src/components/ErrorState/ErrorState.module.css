@@ -1,0 +1,6 @@
+.error-state {
+	font: var(--coral-paragraph-m, 400 0.875rem/140% 'Source Sans Pro');
+}
+.error-state__title {
+	font: var(--coral-heading-m, 600 1rem/140% 'Source Sans Pro');
+}

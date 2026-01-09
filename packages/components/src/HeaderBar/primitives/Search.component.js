@@ -4,7 +4,7 @@ import Inject from '../../Inject';
 import Typeahead from '../../Typeahead';
 import { getTheme } from '../../theme';
 
-import headerBarCssModule from '../HeaderBar.module.scss';
+import headerBarCssModule from '../HeaderBar.module.css';
 
 const theme = getTheme(headerBarCssModule);
 

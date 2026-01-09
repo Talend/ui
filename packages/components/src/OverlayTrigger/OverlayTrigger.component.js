@@ -6,7 +6,7 @@ import BaseOverlayTrigger from './OverlayTrigger.forked';
 import Inject from '../Inject';
 import { getOverlayElement, getContainerElement, getAdaptedPlacement } from './overlay';
 
-import theme from './OverlayTrigger.module.scss';
+import theme from './OverlayTrigger.module.css';
 
 export const overlayPropTypes = {
 	...BaseOverlayTrigger.propTypes,

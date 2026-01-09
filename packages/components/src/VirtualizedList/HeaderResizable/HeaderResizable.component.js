@@ -10,7 +10,7 @@ import { getTheme } from '../../theme';
 import getDefaultT from '../../translate';
 import { ConsumerVirtualizedList } from '../virtualizedListContext';
 
-import headerResizableCssModule from './HeaderResizable.module.scss';
+import headerResizableCssModule from './HeaderResizable.module.css';
 
 const theme = getTheme(headerResizableCssModule);
 

@@ -9,7 +9,7 @@ import DatePicker from '../../pickers/DatePicker';
 import HeaderTitle from '../HeaderTitle';
 import ViewLayout from '../ViewLayout';
 
-import theme from './DateView.module.scss';
+import theme from './DateView.module.css';
 
 /**
  * Get the positive euclidean modulo number from a dividend and a divisor

@@ -9,7 +9,7 @@ import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
 
-import theme from './Item.module.scss';
+import theme from './Item.module.css';
 
 function itemClasses(error) {
 	return classNames(theme['tc-enumeration-item'], 'tc-enumeration-item', {

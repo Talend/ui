@@ -7,7 +7,7 @@ import { RangeHandler, Ticks } from '../range-handler.types';
 import { formatD3Ticks } from '../slider-ticks.utils';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 
-import styles from './NumberInputField.component.module.scss';
+import styles from './NumberInputField.component.module.css';
 
 const formatter = (input: number) => `${input}`;
 const parser = (input: string) => +input;

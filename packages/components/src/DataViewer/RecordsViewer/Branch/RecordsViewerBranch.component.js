@@ -8,7 +8,7 @@ import Skeleton from '../../../Skeleton';
 import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
 
-import theme from '../RecordsViewer.module.scss';
+import theme from '../RecordsViewer.module.css';
 
 /**
  * Used with the lazy loading to allow the render of the skeleton.

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { ButtonTertiary, Popover } from '@talend/design-system';
 import { FormatValue, Icon } from '@talend/react-components';
 
-import styles from './BadgeOverlay.module.scss';
+import styles from './BadgeOverlay.module.css';
 
 const getChildren = (children, setOverlayOpened) => {
 	if (typeof children === 'function') {

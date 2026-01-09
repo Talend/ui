@@ -12,7 +12,7 @@ import Emphasis from '../Emphasis';
 import Icon from '../Icon';
 import { getTheme } from '../theme';
 
-import theme from './Typeahead.module.scss';
+import theme from './Typeahead.module.css';
 
 const css = getTheme(theme);
 

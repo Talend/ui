@@ -27,7 +27,7 @@ import { QuickSearchInput } from '../QuickSearchInput';
 import { DEFAULT_QUICKSEARCH_OPERATOR } from '../QuickSearchInput/QuickSearchInput.component';
 import { generateBadge } from '../types/badgeDefinition.type';
 
-import styles from './BasicSearch.module.scss';
+import styles from './BasicSearch.module.css';
 
 const isInCreation = badge => get(badge, 'metadata.isInCreation', true);
 

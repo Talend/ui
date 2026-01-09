@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import styles from './Card.module.scss';
+import styles from './Card.module.css';
 
 export const Card = ({
 	icon,

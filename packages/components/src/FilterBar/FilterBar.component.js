@@ -11,7 +11,7 @@ import { Action } from '../Actions';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import Icon from '../Icon';
 
-import theme from './FilterBar.module.scss';
+import theme from './FilterBar.module.css';
 
 function forceBlur(event) {
 	event.target.blur();

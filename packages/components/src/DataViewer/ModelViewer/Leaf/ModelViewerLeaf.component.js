@@ -3,7 +3,7 @@ import noop from 'lodash/noop';
 import PropTypes from 'prop-types';
 import getDefaultT from '../../../translate';
 import { SimpleTextKeyValue } from '../../Text';
-import theme from '../ModelViewer.module.scss';
+import theme from '../ModelViewer.module.css';
 
 /**
  * Union with only two type and one null, are represent as leaf.

@@ -7,7 +7,7 @@ import getDefaultT from '../../../../translate';
 import { DateTimeContext } from '../../DateTime/Context';
 import { FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from '../../DateTime/constants';
 
-import theme from './TimePicker.module.scss';
+import theme from './TimePicker.module.css';
 
 class TimePicker extends PureComponent {
 	static defaultProps = {

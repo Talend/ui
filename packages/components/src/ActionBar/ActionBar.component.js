@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import Inject from '../Inject';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import css from './ActionBar.module.scss';
+import css from './ActionBar.module.css';
 
 const DISPLAY_MODES = {
 	DROPDOWN: 'dropdown',

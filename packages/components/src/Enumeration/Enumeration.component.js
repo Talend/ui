@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
-import theme from './Enumeration.module.scss';
+import theme from './Enumeration.module.css';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import { HeaderEnumeration } from './Header/HeaderEnumeration.component';
 import { ItemsEnumeration } from './Items/ItemsEnumeration.component';

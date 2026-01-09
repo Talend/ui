@@ -1,6 +1,6 @@
 import { RatioBarLine } from './RatioBarComposition.component';
 
-import styles from './RatioBar.module.scss';
+import styles from './RatioBar.module.css';
 
 type RatioBarLineProps = {
 	value: number;

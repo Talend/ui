@@ -5,7 +5,7 @@ import OverlayTrigger from '../OverlayTrigger';
 import { getTheme } from '../theme';
 import PieChartIcon, { pieChartIconPropTypes } from './PieChartIcon.component';
 
-import pieChartCssModule from './PieChart.module.scss';
+import pieChartCssModule from './PieChart.module.css';
 
 const theme = getTheme(pieChartCssModule);
 

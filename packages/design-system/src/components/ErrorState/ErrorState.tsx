@@ -8,7 +8,7 @@ import { StackVertical } from '../Stack';
 
 import ErrorIllustration from './illutstrations/ErrorIllustration';
 
-import styles from './ErrorState.module.scss';
+import styles from './ErrorState.module.css';
 
 export type ErrorStatePropTypes = {
 	title: string;

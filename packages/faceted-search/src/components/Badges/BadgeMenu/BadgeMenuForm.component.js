@@ -15,7 +15,7 @@ import {
 } from '@talend/design-system';
 import { getDataAttrFromProps } from '@talend/utils';
 
-import styles from './BadgeMenu.module.scss';
+import styles from './BadgeMenu.module.css';
 
 const createRowItemEntity = value => option => {
 	return {

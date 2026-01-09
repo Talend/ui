@@ -1,0 +1,45 @@
+/* stylelint-disable color-hex-case */
+.tc-sort-by {
+	display: flex;
+	align-items: center;
+}
+.tc-sort-by :global(.navbar-text) {
+	margin: 0;
+}
+.tc-sort-by-label {
+	margin: 0;
+	font-weight: normal;
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+}
+.tc-sort-by :global(.navbar-btn.btn) {
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	font-size: 1em;
+	margin: 0;
+}
+.tc-sort-by-order-chooser[type='button'] {
+	display: flex;
+	align-items: center;
+	padding: 0;
+}
+.tc-sort-by-order-chooser[type='button']:hover,
+.tc-sort-by-order-chooser[type='button']:focus,
+.tc-sort-by-order-chooser[type='button']:active {
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	box-shadow: none;
+}
+.tc-sort-by-order-chooser[type='button'] :global(.tc-svg-icon.tc-sort-by-order-chooser-indicator) {
+	width: 0.375rem;
+	height: 0.375rem;
+}
+.tc-sort-by :global(.nav.navbar-nav) {
+	display: flex;
+	align-items: center;
+}
+.tc-sort-by-items > a[role='button'] {
+	display: inline-block;
+	text-transform: lowercase;
+	white-space: nowrap;
+}
+.tc-sort-by-items > a[role='button']::first-letter {
+	text-transform: uppercase;
+}

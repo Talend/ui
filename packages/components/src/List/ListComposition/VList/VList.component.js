@@ -10,7 +10,7 @@ import VirtualizedList from '../../../VirtualizedList';
 import { DISPLAY_MODE, SORT } from '../constants';
 import ColumnChooser from '../ColumnChooser';
 
-import theme from '../List.module.scss';
+import theme from '../List.module.css';
 
 const columnsFromChildrens = children => {
 	return Array.isArray(children)

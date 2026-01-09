@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import { Action } from '../../../Actions';
-import theme from './TreeHeader.module.scss';
+import theme from './TreeHeader.module.css';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 

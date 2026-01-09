@@ -11,7 +11,7 @@ import Icon from '../../Icon';
 import getDefaultT from '../../translate';
 import { getRowData } from '../../VirtualizedList/utils/gridrow';
 
-import theme from './Resource.module.scss';
+import theme from './Resource.module.css';
 
 const FLAGS = {
 	CERTIFIED: 'talend-badge',

@@ -10,7 +10,7 @@ import tokens from '@talend/design-tokens';
 import { USAGE_TRACKING_TAGS } from '../../constants';
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 
-import styles from './AdvancedSearch.module.scss';
+import styles from './AdvancedSearch.module.css';
 
 const AdvancedSearchError = ({ id, label }) => (
 	<p aria-live="assertive" className={styles['adv-search-error']} id={`${id}-error`} role="status">

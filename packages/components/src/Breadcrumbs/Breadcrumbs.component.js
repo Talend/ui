@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import { randomUUID } from '@talend/utils';
 
-import theme from './Breadcrumbs.module.scss';
+import theme from './Breadcrumbs.module.css';
 import { Action, ActionDropdown } from '../Actions';
 import Skeleton from '../Skeleton/Skeleton.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';

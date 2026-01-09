@@ -1,0 +1,123 @@
+.wrapper {
+	width: 100%;
+}
+
+.inputFile {
+	position: relative;
+	border: var(--coral-border-s-dashed, 1px dashed)
+		var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	border-radius: var(--coral-radius-s, 0.25rem);
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	background: var(--coral-color-neutral-background, white);
+	transition: var(--coral-transition-fast, 250ms ease-in-out);
+	min-height: var(--coral-sizing-m, 2.25rem);
+	cursor: pointer;
+}
+.inputFile .text {
+	display: flex;
+	gap: var(--coral-spacing-xs, 0.5rem);
+	align-items: center;
+	justify-content: center;
+	color: var(--coral-color-neutral-text-weak, hsl(0, 0%, 38%));
+	transition: var(--coral-transition-fast, 250ms ease-in-out);
+}
+.inputFile .text > svg {
+	color: var(--coral-color-neutral-icon, hsl(0, 0%, 13%));
+}
+.inputFile .text > span > span {
+	font: var(--coral-paragraph-m-bold, 600 0.875rem/140% 'Source Sans Pro');
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	transition: var(--coral-transition-fast, 250ms ease-in-out);
+}
+.inputFile .input,
+.inputFile .input::-webkit-file-upload-button {
+	height: 100%;
+	width: 100%;
+	cursor: inherit;
+}
+.inputFile .input_filled {
+	pointer-events: none;
+}
+.inputFile .input:focus + .inputFile__text {
+	outline: var(--coral-border-m-solid, 2px solid)
+		var(--coral-color-assistive-border-focus, hsl(241, 54%, 61%));
+}
+.inputFile .preview {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding: var(--coral-spacing-xxs, 0.25rem) var(--coral-spacing-xs, 0.5rem);
+}
+.inputFile .preview_single {
+	align-items: center;
+}
+.inputFile .preview__button button {
+	position: static;
+}
+.inputFile .preview__button button svg {
+	margin: 0;
+	fill: currentColor;
+}
+.inputFile .preview__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	flex-grow: 1;
+}
+.inputFile .preview__list__listItem {
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.inputFile:hover:not(.inputFile_disabled) {
+	border: var(--coral-border-s-dashed, 1px dashed)
+		var(--coral-color-neutral-border-strong-hover, hsl(0, 0%, 15%));
+}
+.inputFile:hover:not(.inputFile_disabled) .text {
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.inputFile:hover:not(.inputFile_disabled) .text__fakeLink {
+	color: var(--coral-color-accent-text-hover, hsl(204, 96%, 18%));
+	text-decoration: underline;
+}
+.inputFile_dragging {
+	background: var(--coral-color-accent-background-selected, hsl(204, 100%, 95%));
+	border: var(--coral-border-s-dashed, 1px dashed)
+		var(--coral-color-accent-border, hsl(204, 95%, 31%));
+}
+.inputFile_dragging .text {
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.inputFile_disabled {
+	border: var(--coral-border-s-dashed, 1px dashed)
+		var(--coral-color-neutral-border-disabled, hsl(0, 0%, 65%));
+	cursor: not-allowed;
+}
+.inputFile_disabled .text {
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+	cursor: not-allowed;
+}
+.inputFile_disabled .text svg {
+	color: var(--coral-color-neutral-icon-weak, hsl(0, 0%, 38%));
+}
+.inputFile_disabled .text__fakeLink {
+	color: var(--coral-color-neutral-text-disabled, hsl(0, 0%, 44%));
+}
+.inputFile_error {
+	border: var(--coral-border-s-dashed, 1px dashed)
+		var(--coral-color-danger-border, hsl(359, 51%, 53%));
+}
+.inputFile_error .text svg {
+	color: var(--coral-color-danger-icon, hsl(359, 69%, 53%));
+}
+.inputFile__text,
+.inputFile__preview,
+.inputFile__input {
+	min-height: calc(var(--coral-sizing-m, 2.25rem) - 0.125rem);
+}
+.inputFile__input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0;
+}

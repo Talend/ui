@@ -20,7 +20,7 @@ import Tag from '../Tag';
 import TooltipTrigger from '../TooltipTrigger';
 import getTabBarBadgeLabel from '../utils/getTabBarBadgeLabel';
 
-import theme from './TabBar.module.scss';
+import theme from './TabBar.module.css';
 
 function TabBar(props) {
 	const tabBarContainerRef = useRef();

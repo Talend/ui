@@ -6,7 +6,7 @@ import Icon from '../Icon';
 import Skeleton from '../Skeleton';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
-import theme from './AboutDialog.module.scss';
+import theme from './AboutDialog.module.css';
 import { AboutDialogTable, Text } from './AboutDialogTable.component';
 
 function AboutDialog({

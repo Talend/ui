@@ -5,7 +5,7 @@ import { Responsive, WidthProvider } from 'react-grid-layout';
 import Tile from './Tile';
 import { SKELETON_TILE_CONF } from './Tile/Skeleton/SkeletonTile.component';
 
-import css from './Grid.module.scss';
+import css from './Grid.module.css';
 import { getTheme } from '../theme';
 
 const theme = getTheme(css);
@@ -69,7 +69,7 @@ function Grid({
 						<div className="skeleton-tile" key={tile.key} data-grid={tile['data-grid']}>
 							<Tile.Skeleton />
 						</div>
-				  ))
+					))
 				: children}
 		</ResponsiveGridLayout>
 	);

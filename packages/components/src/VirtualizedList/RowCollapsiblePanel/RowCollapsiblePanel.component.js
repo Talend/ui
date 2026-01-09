@@ -12,7 +12,7 @@ import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component'
 import { getId, getRowData } from '../utils/gridrow';
 
 import { Gesture } from '@talend/react-a11y';
-import theme from './RowCollapsiblePanel.module.scss';
+import theme from './RowCollapsiblePanel.module.css';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
 const options = {

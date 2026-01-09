@@ -10,7 +10,7 @@ import { getDataAttrFromProps } from '@talend/utils';
 
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-import styles from './BadgeSlider.module.scss';
+import styles from './BadgeSlider.module.css';
 
 const getSliderMode = ({ name }) => {
 	switch (name) {

@@ -5,7 +5,7 @@ import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import ColumnChooserTable from '../ColumnChooserTable';
 import { useColumnChooserContext } from '../columnChooser.context';
 import RichLayout from '../../../../../Rich/Layout';
-import cssModule from '../ColumnChooser.module.scss';
+import cssModule from '../ColumnChooser.module.css';
 import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);

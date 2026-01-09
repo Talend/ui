@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import SkeletonPrimitive, { SkeletonPrimitiveProps } from '../Primitive/Skeleton.Primitive';
 
-import style from './SkeletonSized.module.scss';
+import style from './SkeletonSized.module.css';
 
 export type SkeletonSizedProps = Omit<SkeletonPrimitiveProps, 'className'> & {
 	height?: string;

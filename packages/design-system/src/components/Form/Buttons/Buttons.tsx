@@ -3,7 +3,7 @@ import type { HTMLAttributes, Ref } from 'react';
 import { isElement } from 'react-is';
 import { StackHorizontal } from '../../Stack';
 
-import styles from './Buttons.module.scss';
+import styles from './Buttons.module.css';
 
 type ButtonsProps = HTMLAttributes<HTMLDivElement> & {
 	disabled?: boolean;

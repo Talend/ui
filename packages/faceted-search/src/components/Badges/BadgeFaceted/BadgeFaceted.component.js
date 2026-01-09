@@ -14,7 +14,7 @@ import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propT
 import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';
 
-import styles from './BadgeFaceted.module.scss';
+import styles from './BadgeFaceted.module.css';
 
 const findOperatorByName = name => operator => name === operator.name;
 

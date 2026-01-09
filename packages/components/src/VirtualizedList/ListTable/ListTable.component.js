@@ -11,7 +11,7 @@ import Skeleton from '../../Skeleton';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import { getTheme } from '../../theme';
-import theme from './ListTable.module.scss';
+import theme from './ListTable.module.css';
 import rowThemes from './RowThemes';
 
 const css = getTheme(theme);

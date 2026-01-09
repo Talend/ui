@@ -7,7 +7,7 @@ import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
 import SkipLinks from './SkipLinks';
 
-import style from './Layout.module.scss';
+import style from './Layout.module.css';
 
 const DISPLAY_MODES = {
 	ONE_COLUMN: 'OneColumn',

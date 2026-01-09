@@ -13,7 +13,7 @@ import {
 	InputPrimitiveProps,
 } from '../../Primitives';
 
-import styles from './Input.File.module.scss';
+import styles from './Input.File.module.css';
 import { useId } from '../../../../useId';
 
 function getFileSize(size: number, t: TFunction) {

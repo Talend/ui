@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useId } from '../../useId';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 
-import styles from './Combobox.module.scss';
+import styles from './Combobox.module.css';
 
 export type ComboboxProps = {
 	id?: string;

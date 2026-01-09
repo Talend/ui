@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
 
-import theme from './OneColumn.module.scss';
+import theme from './OneColumn.module.css';
 import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
 

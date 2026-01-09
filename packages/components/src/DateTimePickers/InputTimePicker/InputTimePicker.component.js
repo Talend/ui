@@ -9,7 +9,7 @@ import FocusManager from '../../FocusManager';
 import Time from '../Time';
 import TimeZone from '../TimeZone';
 
-import theme from './InputTimePicker.module.scss';
+import theme from './InputTimePicker.module.css';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import focusOnTime from '../gesture/timePickerGesture';
 

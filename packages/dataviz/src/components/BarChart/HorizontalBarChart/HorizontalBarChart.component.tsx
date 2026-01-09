@@ -1,5 +1,5 @@
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import styles from './HorizontalBarChart.component.module.scss';
+import styles from './HorizontalBarChart.component.module.css';
 import { ChartEntry } from '../barChart.types';
 import {
 	getPrimaryBarValue,

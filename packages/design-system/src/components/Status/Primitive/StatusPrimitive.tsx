@@ -13,7 +13,7 @@ import { Loading } from '../../Loading';
 import { StackHorizontal } from '../../Stack';
 import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../Tooltip';
 
-import styles from './Status.module.scss';
+import styles from './Status.module.css';
 
 export const variants = {
 	successful: 'successful',

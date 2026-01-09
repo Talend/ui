@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import ColumnChooserRow from '../ColumnChooserRow';
-import cssModule from '../ColumnChooser.module.scss';
+import cssModule from '../ColumnChooser.module.css';
 import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
@@ -10,11 +10,11 @@ const getLabels = (checked, t) => {
 		? {
 				label: t('TC_COLUMN_CHOOSER_UNSELECT_ALL', 'Unselect all'),
 				description: t('CHECKBOX_DESELECT_ALL_COLUMNS_DESCRIPTION', 'hide all the columns'),
-		  }
+			}
 		: {
 				label: t('TC_COLUMN_CHOOSER_SELECT_ALL', 'Select all'),
 				description: t('CHECKBOX_SELECT_ALL_COLUMNS_DESCRIPTION', 'display all the columns'),
-		  };
+			};
 };
 
 const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => {

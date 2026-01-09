@@ -4,7 +4,7 @@ import Badge from '@talend/react-components/lib/Badge';
 
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
-import theme from './TextMode.module.scss';
+import theme from './TextMode.module.css';
 
 function getLabel(titleMap, value) {
 	const itemConf = titleMap?.find(item => item.value === value);

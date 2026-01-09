@@ -7,7 +7,7 @@ import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 import { BadgeOverlay } from '../BadgeOverlay';
 import { BadgeOperatorPopover } from './BadgeOperatorPopover.component';
 
-import styles from './BadgeOperator.module.scss';
+import styles from './BadgeOperator.module.css';
 
 const BadgeOperatorOverlay = ({
 	id,

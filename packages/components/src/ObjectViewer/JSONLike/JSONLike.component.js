@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 
 import { Action } from '../../Actions';
 import TooltipTrigger from '../../TooltipTrigger';
-import theme from './JSONLike.module.scss';
+import theme from './JSONLike.module.css';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../translate';

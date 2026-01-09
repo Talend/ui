@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
 import Inject from '../../Inject';
-import theme from './TwoColumns.module.scss';
+import theme from './TwoColumns.module.css';
 
 /**
  * @param {object} props react props

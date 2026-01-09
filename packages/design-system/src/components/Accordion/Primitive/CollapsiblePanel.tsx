@@ -8,7 +8,7 @@ import { variants } from '../../Status/Primitive/StatusPrimitive';
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';
 
-import styles from './CollapsiblePanel.module.scss';
+import styles from './CollapsiblePanel.module.css';
 
 type CollapsiblePanelCommonPropsType = {
 	children: ReactChild;

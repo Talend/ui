@@ -12,7 +12,7 @@ import tokens from '@talend/design-tokens';
 
 import { getTheme } from '../theme';
 
-import radarChartCssModule from './RadarChart.module.scss';
+import radarChartCssModule from './RadarChart.module.css';
 
 const theme = getTheme(radarChartCssModule);
 

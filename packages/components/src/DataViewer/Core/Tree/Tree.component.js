@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TreeNode from '../TreeNode';
 import TreeNodeList from '../TreeNodeList';
-import theme from './Tree.module.scss';
+import theme from './Tree.module.css';
 
 /**
  * Check if we are at the root level of the tree.

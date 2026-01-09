@@ -1,0 +1,3 @@
+.skeleton-sized-circle {
+	border-radius: var(--coral-radius-round, 6249.9375rem);
+}

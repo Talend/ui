@@ -1,0 +1,8 @@
+.fs-badge-menu-form-items {
+	max-height: var(--coral-sizing-xxxl, 13.75rem);
+	width: var(--coral-sizing-maximal, 20rem);
+	overflow: auto;
+}
+.fs-badge-menu-form-items [role='menuitem'] {
+	width: 100%;
+}

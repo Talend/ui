@@ -11,7 +11,7 @@ import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 import { AddFacetPopoverHeader } from './AddFacetPopoverHeader';
 import { AddFacetPopoverRowItem, AddFacetPopoverRowItemCategory } from './AddFacetPopoverRow';
 
-import styles from './AddFacetPopover.module.scss';
+import styles from './AddFacetPopover.module.css';
 
 const filterByLabel = label => row => {
 	const rowLabel = isString(row) ? row : row.properties.label;

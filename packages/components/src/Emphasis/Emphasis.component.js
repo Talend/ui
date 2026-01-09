@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import theme from './Emphasis.module.scss';
+import theme from './Emphasis.module.css';
 
 function isNotEmpty(value) {
 	return value;

@@ -9,7 +9,7 @@ import shouldRender from '../utils/condition';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 
-import theme from './Widget.component.module.scss';
+import theme from './Widget.component.module.css';
 
 // eslint-disable-next-line @typescript-eslint/default-param-last
 function isUpdating(updatingKeys = [], key) {

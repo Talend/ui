@@ -9,7 +9,7 @@ import '@talend/design-tokens/dist/TalendDesignTokens.css';
 
 import ThemeContext from './ThemeContext';
 
-import './ThemeProvider.scss';
+import './ThemeProvider.css';
 
 export type ThemeProviderProps = PropsWithChildren<{
 	theme?: string;
