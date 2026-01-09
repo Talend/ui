@@ -10,7 +10,7 @@
 
 /*! ./update-toc-scroll.js */
 
-/*! algoliasearch.umd.js | 4.25.2 | © Algolia, inc. | https://github.com/algolia/algoliasearch-client-javascript */
+/*! algoliasearch.umd.js | 4.25.3 | © Algolia, inc. | https://github.com/algolia/algoliasearch-client-javascript */
 
 /*!*****************************!*\
   !*** ./src/js/index-esm.js ***!
