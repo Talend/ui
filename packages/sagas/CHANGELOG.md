@@ -1,5 +1,19 @@
 # @talend/react-sagas
 
+## 10.0.0
+
+### Major Changes
+
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Patch Changes
+
+- Updated dependencies [a525026]
+- Updated dependencies [18e73d1]
+- Updated dependencies [16703c7]
+  - @talend/react-cmf@12.0.0
+
 ## 9.1.0
 
 ### Minor Changes

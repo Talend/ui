@@ -1,5 +1,23 @@
 # @talend/scripts-config-react-webpack
 
+## 17.0.0
+
+### Major Changes
+
+- 16703c7: feat(script): remove cdn option.
+
+  You must review your build process with that new plugin as many things will not work.
+  Especially the @talend/assets-api call you may end up with weird behavior.
+
+  The good part is once you have fixed it moving out from @talend/scripts\* to an other build tool like vite becomes easy.
+
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Patch Changes
+
+- 53e97a0: chore: upgrade dependencies
+
 ## 16.11.0
 
 ### Minor Changes

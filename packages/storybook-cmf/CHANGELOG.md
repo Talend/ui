@@ -1,5 +1,18 @@
 # @talend/react-storybook-cmf
 
+## 12.0.0
+
+### Major Changes
+
+- a525026: No breaking in terms of API but may be some side effect in your config (like storybook)
+
+### Patch Changes
+
+- Updated dependencies [a525026]
+- Updated dependencies [18e73d1]
+- Updated dependencies [16703c7]
+  - @talend/react-cmf@12.0.0
+
 ## 11.1.0
 
 ### Minor Changes

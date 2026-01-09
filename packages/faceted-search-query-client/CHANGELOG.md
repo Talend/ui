@@ -1,5 +1,20 @@
 # @talend/react-faceted-search-query-client
 
+## 3.0.0
+
+### Major Changes
+
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Patch Changes
+
+- Updated dependencies [a525026]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [16703c7]
+  - @talend/react-faceted-search@22.0.0
+
 ## 2.1.0
 
 ### Minor Changes
