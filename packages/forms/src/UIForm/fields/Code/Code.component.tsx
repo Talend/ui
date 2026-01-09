@@ -1,37 +1,18 @@
-import { DetailedHTMLProps, LabelHTMLAttributes, lazy, Suspense, useEffect, useState } from 'react';
+import { DetailedHTMLProps, LabelHTMLAttributes, useEffect, useState } from 'react';
 import { IAceEditorProps } from 'react-ace';
 import { useTranslation } from 'react-i18next';
-
-import assetsApi from '@talend/assets-api';
+import ReactAce from 'react-ace';
+import 'ace-builds/src-noconflict/ext-language_tools';
 import { VisuallyHidden } from '@talend/design-system';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import { generateDescriptionId, generateErrorId, generateId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
-import CodeSkeleton from './CodeSkeleton.component';
 
-// Define ace namespace to avoid compiler error
-// And use it during react-ace lazy load without importing it (that will break lazy loading)
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const ace: any;
 
-const ReactAce = lazy(() =>
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	assetsApi.getUMD('react-ace').then((mod: any) => {
-		const extUrl = assetsApi.getURL('/src-min-noconflict/ext-language_tools.js', 'ace-builds');
-		ace.config.set('basePath', extUrl.replace('ext-language_tools.js', ''));
-		assetsApi.addScript({ src: extUrl });
-		// wait for ext-language_tools.js to be loaded before return the ace module
-		return new Promise(resolve => {
-			const cancel = setInterval(() => {
-				if (ace.require('ace/ext/language_tools')) {
-					clearInterval(cancel);
-					resolve(assetsApi.toDefaultModule(mod.default));
-				}
-			}, 100);
-		});
-	}),
-);
+// setup CDN so ace is able to load its modes and themes
+ace.config.set('basePath', 'https://statics.cloud.talend.com/ace-builds/1.10.1/src-min-noconflict');
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
@@ -60,7 +41,7 @@ export interface CodeProps {
 	) => void;
 	onFinish: (event: Event, payload: { schema: Partial<CodeSchema> }) => void;
 	schema?: Partial<CodeSchema>;
-	value?: string | number;
+	value?: string;
 	valueIsUpdating?: boolean;
 	showInstructions?: boolean;
 }
@@ -121,29 +102,27 @@ export default function Code({
 					</VisuallyHidden>
 				)}
 
-				<Suspense fallback={<CodeSkeleton />}>
-					<ReactAce
-						key="ace"
-						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
-						focus={autoFocus}
-						name={`${id}_wrapper`}
-						mode={options?.language}
-						onBlur={(event: Event) => onFinish(event, { schema })}
-						onLoad={(component: unknown) => setEditor(component)}
-						onChange={(newValue: string | number, event: Event) =>
-							onChange(event, { schema: schema, value: newValue })
-						}
-						// disabled is not supported by ace use readonly
-						// https://github.com/ajaxorg/ace/issues/406
-						readOnly={readOnly || schema.disabled || valueIsUpdating}
-						setOptions={DEFAULT_SET_OPTIONS}
-						showGutter={false}
-						showPrintMargin={false}
-						value={value}
-						width="auto"
-						{...options}
-					/>
-				</Suspense>
+				<ReactAce
+					key="ace"
+					editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
+					focus={autoFocus}
+					name={`${id}_wrapper`}
+					mode={options?.language}
+					onBlur={(event: Event) => onFinish(event, { schema })}
+					onLoad={(component: unknown) => setEditor(component)}
+					onChange={(newValue: string | number, event: Event) =>
+						onChange(event, { schema: schema, value: newValue })
+					}
+					// disabled is not supported by ace use readonly
+					// https://github.com/ajaxorg/ace/issues/406
+					readOnly={readOnly || schema.disabled || valueIsUpdating}
+					setOptions={DEFAULT_SET_OPTIONS}
+					showGutter={false}
+					showPrintMargin={false}
+					value={value}
+					width="auto"
+					{...options}
+				/>
 			</div>
 		</FieldTemplate>
 	);

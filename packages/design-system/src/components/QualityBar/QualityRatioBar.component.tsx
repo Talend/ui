@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { RatioBarLine } from '../RatioBar';
 import { EnrichedQualityType, QualityType } from './QualityBar.types';
 
-import styles from './QualityRatioBar.module.scss';
+import styles from './QualityRatioBar.module.css';
 
 type SpecificQualityBarProps = {
 	percentage: number;

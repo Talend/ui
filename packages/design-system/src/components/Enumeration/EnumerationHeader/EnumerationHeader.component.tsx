@@ -11,7 +11,7 @@ import { StackHorizontal, StackVertical } from '../../Stack';
 import { EnumerationMode } from '../Enumeration.types';
 import { EnumerationHeaderProps } from './EnumerationIHeader.types';
 
-import styles from './EnumerationHeader.module.scss';
+import styles from './EnumerationHeader.module.css';
 
 export const EnumerationHeader = ({
 	filteredItems,

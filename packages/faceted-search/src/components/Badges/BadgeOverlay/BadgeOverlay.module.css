@@ -1,0 +1,6 @@
+.tc-badge-format-value {
+	display: inline-flex;
+}
+.tc-badge-format-value svg {
+	margin: 0;
+}

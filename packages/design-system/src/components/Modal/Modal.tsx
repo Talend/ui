@@ -13,7 +13,7 @@ import { StackHorizontal, StackVertical } from '../Stack';
 import { Dialog, DialogPropsType, useDialogState } from './Primitives/Dialog';
 import { DialogBackdrop } from './Primitives/DialogBackdrop';
 
-import styles from './Modal.module.scss';
+import styles from './Modal.module.css';
 
 type IconProp = DeprecatedIconNames | ReactElement;
 

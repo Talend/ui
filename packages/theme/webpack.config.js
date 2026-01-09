@@ -29,6 +29,30 @@ module.exports = (env, argv) => {
 					},
 				},
 				{
+					test: /\.css$/,
+					use: [
+						{
+							loader: isDev ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
+						},
+						{
+							loader: require.resolve('css-loader'),
+							options: {
+								importLoaders: 1,
+								sourceMap: true,
+							},
+						},
+						{
+							loader: require.resolve('postcss-loader'),
+							options: {
+								postcssOptions: {
+									plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
+								},
+								sourceMap: true,
+							},
+						},
+					],
+				},
+				{
 					test: /bootstrap\.scss$/,
 					use: [
 						{

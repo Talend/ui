@@ -13,9 +13,6 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "yarn build:umd:dev && yarn build:umd:prod",
-    "build:umd:dev": "talend-scripts build --umd --dev",
-    "build:umd:prod": "talend-scripts build --umd",
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "build-storybook": "talend-scripts build-storybook",

@@ -1,0 +1,27 @@
+.quality-ratio-bar {
+	border-radius: 1px;
+	height: 100%;
+	width: 100%;
+}
+.quality-ratio-bar--empty {
+	background-color: var(--coral-color-charts-neutral, hsl(0, 0%, 22%));
+}
+.quality-ratio-bar--valid {
+	background-color: var(--coral-color-charts-success, hsl(148, 87%, 40%));
+}
+.quality-ratio-bar--invalid {
+	background-color: var(--coral-color-charts-danger, hsl(4, 89%, 49%));
+}
+.quality-ratio-bar--na {
+	background-color: var(--coral-color-charts-success-weak, hsl(130, 52%, 91%));
+}
+.quality-ratio-bar--placeholder {
+	background-color: var(--coral-color-charts-neutral-weak, hsl(0, 0%, 83%));
+}
+:global(.tc-ratio-bar) .quality-ratio-bar--placeholder:hover {
+	height: 0.25rem;
+}
+
+.split-ratio-bar-percentage {
+	flex: none;
+}

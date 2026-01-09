@@ -1,0 +1,19 @@
+/* stylelint-disable color-hex-case */
+.tc-treeview .tc-treeview-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+	line-height: 3.75rem;
+	font-weight: bold;
+	padding-left: 20px;
+	border-bottom: 1px solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+}
+.tc-treeview .tc-treeview-header :global(.btn-link .tc-svg-icon) {
+	stroke: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-treeview .tc-treeview-list {
+	padding: 10px 0;
+	overflow: auto;
+	list-style-type: none;
+}

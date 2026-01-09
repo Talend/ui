@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Icon from '../Icon';
-import skeletonCssModule from './Skeleton.module.scss';
+import skeletonCssModule from './Skeleton.module.css';
 import { getTheme } from '../theme';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import { TFunction } from 'i18next';

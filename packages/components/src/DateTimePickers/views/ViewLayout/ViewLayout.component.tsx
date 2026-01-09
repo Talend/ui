@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import theme from './ViewLayout.module.scss';
+import theme from './ViewLayout.module.css';
 import { ReactNode } from 'react';
 
 function ViewLayout(props: ViewLayoutProps) {

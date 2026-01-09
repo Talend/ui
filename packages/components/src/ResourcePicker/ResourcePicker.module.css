@@ -1,0 +1,17 @@
+/* stylelint-disable color-hex-case */
+.tc-resource-picker :global .tc-resource-list-items {
+	height: 15.625rem;
+	margin-top: 0;
+}
+.tc-resource-picker :global .tc-resource-list-toolbar {
+	height: 2.1875rem;
+}
+.tc-resource-picker :global .tc-resource-list-toolbar form {
+	margin-top: 0;
+}
+.tc-resource-picker :global .tc-resource-list-toolbar > * {
+	margin-left: 0;
+}
+.tc-resource-picker :global .resource-item {
+	border-bottom: 0.0625rem solid var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+}

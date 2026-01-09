@@ -6,15 +6,16 @@
  * and other style can override it
  */
 // eslint-disable-next-line @talend/import-depth
-import { initI18n } from './i18n';
 
+// eslint-disable-next-line @talend/import-depth
 import '@talend/bootstrap-theme/dist/bootstrap.css';
 import cmf from '@talend/react-cmf';
 import getRouter from '@talend/react-cmf-router';
-import { AppLoader, IconsProvider as BaseIconsProvider } from '@talend/react-components';
+import { AppLoader, IconsProvider } from '@talend/react-components';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 
+import { initI18n } from './i18n';
 import actions from './actions';
 import ComponentFormSandbox from './components/ComponentFormSandbox';
 import { Dataviz } from './components/Dataviz';
@@ -31,13 +32,6 @@ if (basename === '/') {
 const router = getRouter({ basename });
 
 initI18n();
-const allsvg = `${basename || ''}/cdn/@talend/icons/${
-	process.env.ICONS_VERSION
-}/dist/svg-bundle/all.svg`;
-
-function IconsProvider() {
-	return <BaseIconsProvider bundles={[allsvg]} />;
-}
 
 const app = {
 	components: {

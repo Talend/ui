@@ -2,7 +2,7 @@ import { Children, cloneElement, forwardRef } from 'react';
 import type { FieldsetHTMLAttributes, Ref } from 'react';
 import { isElement } from 'react-is';
 
-import styles from './Fieldset.module.scss';
+import styles from './Fieldset.module.css';
 
 export type FieldsetProps = FieldsetHTMLAttributes<HTMLFieldSetElement> & {
 	legend?: string;

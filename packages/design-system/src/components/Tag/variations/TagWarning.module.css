@@ -1,0 +1,4 @@
+.tag {
+	color: var(--coral-color-warning-text-strong, hsl(22, 86%, 27%));
+	background: var(--coral-color-warning-background, hsl(22, 85%, 92%));
+}

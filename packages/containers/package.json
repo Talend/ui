@@ -16,9 +16,6 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build --umd --dev",
-    "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "talend-scripts start-storybook -p 6007",
@@ -60,7 +57,7 @@
     "reselect": "^2.5.4"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.6.20",
+    "@storybook/addon-actions": "^7.6.21",
     "@talend/icons": "^7.14.0",
     "@talend/locales-tui-components": "^16.0.1",
     "@talend/locales-tui-containers": "^9.1.3",

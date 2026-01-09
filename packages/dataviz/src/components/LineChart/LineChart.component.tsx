@@ -15,7 +15,7 @@ import { LineChartEntry, LineChartOptions, LineOptions, LineStatus } from './Lin
 
 import { CustomTooltip } from './LineChartTooltip.component';
 import { CustomLegend } from './LineChartLegend.component';
-import style from './LineChart.module.scss';
+import style from './LineChart.module.css';
 
 export interface LineChartProps {
 	data: LineChartEntry[];

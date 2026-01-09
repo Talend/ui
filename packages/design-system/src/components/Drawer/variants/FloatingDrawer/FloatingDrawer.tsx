@@ -5,7 +5,7 @@ import { Transition } from 'react-transition-group';
 import { useId } from '../../../../useId';
 import { PrimitiveDrawer } from '../../Primitive/PrimitiveDrawer';
 
-import theme from './FloatingDrawer.module.scss';
+import theme from './FloatingDrawer.module.css';
 
 type WithDisclosure = {
 	disclosure: ReactElement;

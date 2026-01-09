@@ -12,7 +12,7 @@ import { RangeHandler } from '../range-handler.types';
 import { formatTimeTicks } from '../slider-ticks.utils';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
 
-import styles from './DateTimeInputField.component.module.scss';
+import styles from './DateTimeInputField.component.module.css';
 
 function parser(input: string): number | null {
 	// Create date in locale time zone

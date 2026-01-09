@@ -6,7 +6,7 @@ import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
 import { Clickable } from '../../../../Clickable';
 import { Tooltip } from '../../../../Tooltip';
 import { SizedIcon } from '../../../../Icon';
-import styles from './passwordButton.module.scss';
+import styles from './passwordButton.module.css';
 import { TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../../Tooltip/Tooltip';
 
 export default function useRevealPassword() {

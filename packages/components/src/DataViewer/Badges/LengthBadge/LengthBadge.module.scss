@@ -1,9 +1,0 @@
-@use '@talend/design-tokens/lib/tokens' as tokens;
-
-.tc-length-badge {
-	background-color: tokens.$coral-color-neutral-background-medium;
-	color: tokens.$coral-color-neutral-text-weak;
-	font-size: 10px;
-	padding: 2px 10px;
-	top: 0;
-}

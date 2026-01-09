@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './LineChart.module.scss';
+import styles from './LineChart.module.css';
 
 import { LineOptions } from './LineChart.types';
 import { LineIcon } from './LineChartLineIcon.component';

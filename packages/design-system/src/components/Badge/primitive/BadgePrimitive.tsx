@@ -6,7 +6,7 @@ import { DataAttributes } from 'src/types';
 import { Divider } from '../../Divider';
 import { StackHorizontal } from '../../Stack';
 
-import styles from './BadgePrimitive.module.scss';
+import styles from './BadgePrimitive.module.css';
 
 /**
  * Possible semantic values.

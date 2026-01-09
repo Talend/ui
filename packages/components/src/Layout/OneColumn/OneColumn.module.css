@@ -1,0 +1,8 @@
+/* stylelint-disable color-hex-case */
+.main {
+	flex-grow: 1;
+	min-height: 0;
+	overflow: auto;
+	height: 100vh;
+	position: relative;
+}

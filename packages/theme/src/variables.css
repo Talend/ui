@@ -1,0 +1,336 @@
+:root {
+	/* ============================================
+	   SPACING/PADDING VARIABLES
+	   ============================================ */
+	--talend-bootstrap-padding-smaller: 5px;
+	--talend-bootstrap-padding-small: 10px;
+	--talend-bootstrap-padding-normal: 15px;
+	--talend-bootstrap-padding-large: 20px;
+	--talend-bootstrap-padding-larger: 30px;
+
+	--talend-bootstrap-padding-base-vertical: 6px;
+	--talend-bootstrap-padding-base-horizontal: 12px;
+	--talend-bootstrap-padding-large-vertical: 10px;
+	--talend-bootstrap-padding-large-horizontal: 16px;
+	--talend-bootstrap-padding-small-vertical: 5px;
+	--talend-bootstrap-padding-small-horizontal: 10px;
+	--talend-bootstrap-padding-xs-vertical: 1px;
+	--talend-bootstrap-padding-xs-horizontal: 5px;
+
+	/* ============================================
+	   TYPOGRAPHY VARIABLES
+	   ============================================ */
+	--talend-bootstrap-font-size-base: 14px;
+	--talend-bootstrap-font-size-large: 18px;
+	--talend-bootstrap-font-size-small: 12px;
+
+	--talend-bootstrap-font-size-h1: 18px;
+	--talend-bootstrap-font-size-h2: 16px;
+	--talend-bootstrap-font-size-h3: 14px;
+	--talend-bootstrap-font-size-h4: 12px;
+	--talend-bootstrap-font-size-h5: 12px;
+	--talend-bootstrap-font-size-h6: 12px;
+
+	--talend-bootstrap-font-weight-bold: 800;
+	--talend-bootstrap-font-weight-semi-bold: 600;
+	--talend-bootstrap-font-weight-regular: 400;
+
+	--talend-bootstrap-line-height-base: 1.428571429;
+	--talend-bootstrap-line-height-computed: 20px;
+	--talend-bootstrap-line-height-large: 1.3333333;
+	--talend-bootstrap-line-height-small: 1.5;
+
+	--talend-bootstrap-font-family-sans-serif: 'Source Sans Pro', sans-serif;
+	--talend-bootstrap-font-family-serif: Georgia, 'Times New Roman', Times, serif;
+	--talend-bootstrap-font-family-monospace: 'Inconsolata', monospace;
+	--talend-bootstrap-font-family-base: 'Source Sans Pro', sans-serif;
+
+	/* ============================================
+	   BORDER & RADIUS VARIABLES
+	   ============================================ */
+	--talend-bootstrap-border-radius-base: 4px;
+	--talend-bootstrap-border-radius-large: 6px;
+	--talend-bootstrap-border-radius-small: 3px;
+
+	/* ============================================
+	   SVG & ICON SIZING VARIABLES
+	   ============================================ */
+	--talend-bootstrap-svg-xs-size: 0.5rem;
+	--talend-bootstrap-svg-sm-size: 0.75rem;
+	--talend-bootstrap-svg-md-size: 1rem;
+	--talend-bootstrap-svg-rg-size: 1.25rem;
+	--talend-bootstrap-svg-lg-size: 1.5rem;
+	--talend-bootstrap-svg-xlg-size: 2rem;
+
+	/* ============================================
+	   TABLE VARIABLES
+	   ============================================ */
+	--talend-bootstrap-table-cell-padding: 8px;
+	--talend-bootstrap-table-condensed-cell-padding: 5px;
+
+	/* ============================================
+	   COLOR VARIABLES
+	   ============================================ */
+	--talend-bootstrap-gray-base: #000;
+	--talend-bootstrap-gray-darker: #222;
+	--talend-bootstrap-gray-dark: #333;
+	--talend-bootstrap-gray: #555;
+	--talend-bootstrap-gray-light: #777;
+	--talend-bootstrap-gray-lighter: #bfbfbf;
+
+	--talend-bootstrap-body-bg: #fff;
+	--talend-bootstrap-text-color: #333;
+
+	/* ============================================
+	   BUTTON VARIABLES
+	   ============================================ */
+	--talend-bootstrap-btn-font-weight: normal;
+	--talend-bootstrap-btn-default-color: #333;
+	--talend-bootstrap-btn-default-bg: #fff;
+	--talend-bootstrap-btn-default-border: #ccc;
+
+	--talend-bootstrap-btn-font-size: 14px;
+	--talend-bootstrap-btn-box-shadow-width: 3px;
+
+	/* ============================================
+	   FORM & INPUT VARIABLES
+	   ============================================ */
+	--talend-bootstrap-input-bg: #fff;
+	--talend-bootstrap-input-bg-disabled: #bfbfbf;
+	--talend-bootstrap-input-color: #555;
+	--talend-bootstrap-input-border: #ccc;
+	--talend-bootstrap-input-border-focus: #66afe9;
+	--talend-bootstrap-input-color-placeholder: #999;
+
+	--talend-bootstrap-input-border-radius: 4px;
+	--talend-bootstrap-input-border-radius-large: 6px;
+	--talend-bootstrap-input-border-radius-small: 3px;
+
+	--talend-bootstrap-input-height-base: 34px;
+	--talend-bootstrap-input-height-large: 44px;
+	--talend-bootstrap-input-height-small: 26px;
+
+	--talend-bootstrap-form-group-margin-bottom: 15px;
+	--talend-bootstrap-legend-color: #333;
+	--talend-bootstrap-legend-border-color: #e5e5e5;
+	--talend-bootstrap-input-group-addon-bg: #bfbfbf;
+	--talend-bootstrap-input-group-addon-border-color: #ccc;
+
+	/* ============================================
+	   DROPDOWN VARIABLES
+	   ============================================ */
+	--talend-bootstrap-dropdown-bg: #fff;
+	--talend-bootstrap-dropdown-border: rgba(0, 0, 0, 0.15);
+	--talend-bootstrap-dropdown-fallback-border: #ccc;
+	--talend-bootstrap-dropdown-divider-bg: #e5e5e5;
+	--talend-bootstrap-dropdown-link-color: #333;
+	--talend-bootstrap-dropdown-link-hover-color: #222;
+	--talend-bootstrap-dropdown-link-hover-bg: #f5f5f5;
+	--talend-bootstrap-dropdown-header-color: #777;
+	--talend-bootstrap-dropdown-caret-color: #000;
+	--talend-bootstrap-dropdown-caret-size: 5px;
+
+	/* ============================================
+	   NAVBAR VARIABLES
+	   ============================================ */
+	--talend-bootstrap-navbar-height: 50px;
+	--talend-bootstrap-navbar-margin-bottom: 20px;
+	--talend-bootstrap-navbar-border-radius: 4px;
+	--talend-bootstrap-navbar-padding-horizontal: 15px;
+	--talend-bootstrap-navbar-padding-vertical: 15px;
+
+	--talend-bootstrap-navbar-default-color: #777;
+	--talend-bootstrap-navbar-default-bg: #f8f8f8;
+	--talend-bootstrap-navbar-default-border: #e6e6e6;
+
+	--talend-bootstrap-navbar-default-link-color: #777;
+	--talend-bootstrap-navbar-default-link-hover-color: #333;
+	--talend-bootstrap-navbar-default-link-hover-bg: transparent;
+	--talend-bootstrap-navbar-default-link-active-color: #555;
+	--talend-bootstrap-navbar-default-link-active-bg: #e6e6e6;
+
+	--talend-bootstrap-navbar-brand-logo-width: 75px;
+	--talend-bootstrap-navbar-brand-logo-height: 20px;
+	--talend-bootstrap-navbar-default-toggle-hover-bg: #ddd;
+	--talend-bootstrap-navbar-default-toggle-icon-bar-bg: #888;
+	--talend-bootstrap-navbar-default-toggle-border-color: #ddd;
+
+	--talend-bootstrap-navbar-inverse-color: #aaa;
+	--talend-bootstrap-navbar-inverse-bg: #222;
+	--talend-bootstrap-navbar-inverse-border: #080808;
+
+	--talend-bootstrap-navbar-inverse-link-color: #aaa;
+	--talend-bootstrap-navbar-inverse-link-hover-color: #fff;
+	--talend-bootstrap-navbar-inverse-link-hover-bg: transparent;
+	--talend-bootstrap-navbar-inverse-link-active-color: #fff;
+	--talend-bootstrap-navbar-inverse-link-active-bg: #080808;
+
+	/* ============================================
+	   PAGINATION & PAGER VARIABLES
+	   ============================================ */
+	--talend-bootstrap-pagination-bg: #fff;
+	--talend-bootstrap-pagination-border: #ddd;
+	--talend-bootstrap-pagination-hover-bg: #bfbfbf;
+	--talend-bootstrap-pagination-hover-border: #ddd;
+	--talend-bootstrap-pagination-disabled-color: #777;
+	--talend-bootstrap-pagination-disabled-bg: #fff;
+	--talend-bootstrap-pagination-disabled-border: #ddd;
+
+	--talend-bootstrap-pager-bg: #fff;
+	--talend-bootstrap-pager-border: #ddd;
+	--talend-bootstrap-pager-border-radius: 15px;
+	--talend-bootstrap-pager-hover-bg: #bfbfbf;
+
+	/* ============================================
+	   MODAL VARIABLES
+	   ============================================ */
+	--talend-bootstrap-modal-inner-padding: 15px;
+	--talend-bootstrap-modal-title-padding: 15px;
+	--talend-bootstrap-modal-title-line-height: 1.428571429;
+	--talend-bootstrap-modal-content-bg: #fff;
+	--talend-bootstrap-modal-content-border-color: rgba(0, 0, 0, 0.2);
+	--talend-bootstrap-modal-content-fallback-border-color: #999;
+	--talend-bootstrap-modal-backdrop-bg: #000;
+	--talend-bootstrap-modal-backdrop-opacity: 0.5;
+	--talend-bootstrap-modal-header-border-color: #e5e5e5;
+	--talend-bootstrap-modal-footer-border-color: #e5e5e5;
+	--talend-bootstrap-modal-header-bg: #fff;
+	--talend-bootstrap-modal-header-color: #000;
+
+	--talend-bootstrap-modal-lg: 900px;
+	--talend-bootstrap-modal-md: 600px;
+	--talend-bootstrap-modal-sm: 300px;
+
+	/* ============================================
+	   ALERT & STATE VARIABLES
+	   ============================================ */
+	--talend-bootstrap-alert-padding: 15px;
+	--talend-bootstrap-alert-border-radius: 4px;
+
+	--talend-bootstrap-state-success-text: #3c763d;
+	--talend-bootstrap-state-success-bg: #dff0d8;
+	--talend-bootstrap-state-success-border: #d0d7d0;
+
+	--talend-bootstrap-state-info-text: #31708f;
+	--talend-bootstrap-state-info-bg: #d9edf7;
+	--talend-bootstrap-state-info-border: #bde0f1;
+
+	--talend-bootstrap-state-warning-text: #8a6d3b;
+	--talend-bootstrap-state-warning-bg: #fcf8e3;
+	--talend-bootstrap-state-warning-border: #faebcc;
+
+	--talend-bootstrap-state-danger-text: #a94442;
+	--talend-bootstrap-state-danger-bg: #f2dede;
+	--talend-bootstrap-state-danger-border: #ebccd1;
+
+	/* ============================================
+	   LABEL VARIABLES
+	   ============================================ */
+	--talend-bootstrap-label-default-bg: #777;
+	--talend-bootstrap-label-color: #fff;
+
+	/* ============================================
+	   BADGE VARIABLES
+	   ============================================ */
+	--talend-bootstrap-badge-color: #fff;
+	--talend-bootstrap-badge-bg: #777;
+	--talend-bootstrap-badge-font-weight: bold;
+	--talend-bootstrap-badge-line-height: 1;
+	--talend-bootstrap-badge-border-radius: 10px;
+
+	/* ============================================
+	   BREADCRUMB VARIABLES
+	   ============================================ */
+	--talend-bootstrap-breadcrumb-padding-vertical: 8px;
+	--talend-bootstrap-breadcrumb-padding-horizontal: 15px;
+	--talend-bootstrap-breadcrumb-bg: #f5f5f5;
+	--talend-bootstrap-breadcrumb-color: #ccc;
+	--talend-bootstrap-breadcrumb-active-color: #777;
+	--talend-bootstrap-breadcrumb-separator: '/';
+	--talend-bootstrap-breadcrumb-height: 3.125rem;
+
+	/* ============================================
+	   LIST GROUP VARIABLES
+	   ============================================ */
+	--talend-bootstrap-list-group-bg: #fff;
+	--talend-bootstrap-list-group-border: #ddd;
+	--talend-bootstrap-list-group-border-radius: 4px;
+	--talend-bootstrap-list-group-hover-bg: #f5f5f5;
+
+	/* ============================================
+	   PANEL VARIABLES
+	   ============================================ */
+	--talend-bootstrap-panel-bg: #fff;
+	--talend-bootstrap-panel-body-padding: 15px;
+	--talend-bootstrap-panel-heading-padding: 10px 15px;
+	--talend-bootstrap-panel-footer-padding: 10px 15px;
+	--talend-bootstrap-panel-border-radius: 4px;
+	--talend-bootstrap-panel-inner-border: #ddd;
+	--talend-bootstrap-panel-footer-bg: #f5f5f5;
+	--talend-bootstrap-panel-default-text: #333;
+	--talend-bootstrap-panel-default-border: #ddd;
+	--talend-bootstrap-panel-default-heading-bg: #f5f5f5;
+
+	/* ============================================
+	   TOOLTIP & POPOVER VARIABLES
+	   ============================================ */
+	--talend-bootstrap-tooltip-max-width: 200px;
+	--talend-bootstrap-tooltip-color: #fff;
+	--talend-bootstrap-tooltip-bg: #000;
+	--talend-bootstrap-tooltip-opacity: 0.9;
+	--talend-bootstrap-tooltip-arrow-width: 5px;
+	--talend-bootstrap-tooltip-arrow-color: #000;
+
+	--talend-bootstrap-popover-bg: #fff;
+	--talend-bootstrap-popover-max-width: 276px;
+	--talend-bootstrap-popover-border-color: rgba(0, 0, 0, 0.2);
+	--talend-bootstrap-popover-fallback-border-color: #ccc;
+	--talend-bootstrap-popover-title-bg: #f7f7f7;
+	--talend-bootstrap-popover-arrow-width: 10px;
+	--talend-bootstrap-popover-arrow-color: #fff;
+
+	/* ============================================
+	   BREAKPOINT & GRID VARIABLES
+	   ============================================ */
+	--talend-bootstrap-screen-xs: 480px;
+	--talend-bootstrap-screen-xs-min: 480px;
+	--talend-bootstrap-screen-xs-max: 767px;
+
+	--talend-bootstrap-screen-sm: 768px;
+	--talend-bootstrap-screen-sm-min: 768px;
+	--talend-bootstrap-screen-sm-max: 991px;
+
+	--talend-bootstrap-screen-md: 992px;
+	--talend-bootstrap-screen-md-min: 992px;
+	--talend-bootstrap-screen-md-max: 1199px;
+
+	--talend-bootstrap-screen-lg: 1200px;
+	--talend-bootstrap-screen-lg-min: 1200px;
+
+	--talend-bootstrap-grid-columns: 12;
+	--talend-bootstrap-grid-gutter-width: 30px;
+
+	--talend-bootstrap-container-sm: 750px;
+	--talend-bootstrap-container-md: 970px;
+	--talend-bootstrap-container-lg: 1170px;
+
+	/* ============================================
+	   Z-INDEX VARIABLES
+	   ============================================ */
+	--talend-bootstrap-zindex-navbar: 0;
+	--talend-bootstrap-zindex-dropdown: 8;
+	--talend-bootstrap-zindex-navbar-fixed: 4;
+	--talend-bootstrap-zindex-modal-background: 4;
+	--talend-bootstrap-zindex-modal: 4;
+	--talend-bootstrap-zindex-popover: 8;
+	--talend-bootstrap-zindex-tooltip: 16;
+
+	/* ============================================
+	   MISCELLANEOUS
+	   ============================================ */
+	--talend-bootstrap-cursor-disabled: not-allowed;
+	--talend-bootstrap-caret-width-base: 4px;
+	--talend-bootstrap-caret-width-large: 5px;
+	--talend-bootstrap-component-offset-horizontal: 180px;
+	--talend-bootstrap-text-muted: #777;
+}

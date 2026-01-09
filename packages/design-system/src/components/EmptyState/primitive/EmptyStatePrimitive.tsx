@@ -8,7 +8,7 @@ import { ButtonPrimaryAsLink } from '../../ButtonAsLink';
 import { ButtonPrimaryPropsType } from '../../Button/variations/ButtonPrimary';
 import { ButtonPrimaryAsLinkPropsType } from '../../ButtonAsLink/variations/ButtonPrimaryAsLink';
 
-import styles from './EmptyStatePrimitive.module.scss';
+import styles from './EmptyStatePrimitive.module.css';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 type CallbackTypes =

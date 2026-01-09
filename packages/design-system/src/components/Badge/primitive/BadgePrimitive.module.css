@@ -1,0 +1,18 @@
+.badge {
+	display: inline-block;
+	background: var(--coral-color-neutral-background, white);
+	border: var(--coral-border-s-solid, 1px solid)
+		var(--coral-color-neutral-border-weak, hsl(0, 0%, 82%));
+	border-radius: var(--coral-radius-s, 0.25rem);
+}
+
+.badge__label {
+	font: var(--coral-paragraph-m, 400 0.875rem/140% 'Source Sans Pro');
+	padding: var(--coral-spacing-xxs, 0.25rem);
+}
+
+.badge__divider {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}

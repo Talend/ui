@@ -76,7 +76,7 @@ The API we have for all components is the following for an event handler
 function onClick(event, payload) {
 	//do what ever you want
 }
-return <APureComponents onClick={onClick} />
+return <APureComponents onClick={onClick} />;
 ```
 
 ### Write tests + docs
@@ -163,6 +163,14 @@ The stories are registred this way:
 - npm test -> to execute unit test
 - npm run lint -> check the code style
 - npm run watch -> watch the source to trigger a build
+
+## CSS module build helper
+
+Run `node css.js` from this package root to mirror every `*.module.scss` to a sibling `*.module.css` and rewrite the imports that point to it.
+
+- Scans the package for `*.module.scss` files (ignoring node_modules, lib, lib-esm, .turbo, .git).
+- Compiles each of them with `sass` into a `*.module.css` that sits in the same folder.
+- Updates `.js`, `.jsx`, `.ts`, and `.tsx` files so `.module.scss` imports point to the new `.module.css` files.
 
 ## LICENSE
 
