@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthYearView should render 1`] = `
+<div
+  class="theme-container"
+>
+  <div
+    class="theme-header"
+  >
+    <div
+      class="theme-element-container theme-left"
+    >
+      <button
+        aria-label="Switch to date-and-time view"
+        class="btn-tertiary btn-info btn-icon-only btn btn-default"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left"
+          focusable="false"
+          name="talend-arrow-left"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+        <span />
+      </button>
+    </div>
+    <div
+      class="theme-element-container theme-middle"
+    >
+      <div
+        data-props="{"monthIndex":8,"year":2012}"
+        data-testid="HeaderTitle"
+      />
+    </div>
+    <div
+      class="theme-element-container theme-right"
+    />
+  </div>
+  <div
+    class="theme-element-container theme-body"
+  >
+    <div
+      data-props="{"allowFocus":true,"selectedMonthIndex":8,"selectedYear":2012}"
+      data-testid="MonthPicker"
+    />
+  </div>
+</div>
+`;

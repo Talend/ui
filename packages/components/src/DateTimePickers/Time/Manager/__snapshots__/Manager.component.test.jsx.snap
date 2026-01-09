@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Time.Manager should render its children 1`] = `
+<div
+  data-props="{"time":{"time":{"hours":"12","minutes":"15","seconds":"00"},"textInput":"12:15"},"inputManagement":{"placeholder":"HH:mm"},"pickerManagement":{}}"
+  data-testid="TimeConsumerDiv"
+>
+  <input
+    data-testid="inputManagement"
+    placeholder="HH:mm"
+    value="12:15"
+  />
+  <button>
+    Picker
+  </button>
+</div>
+`;

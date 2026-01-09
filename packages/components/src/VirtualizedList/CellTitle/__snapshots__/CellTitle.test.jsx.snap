@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellTitle should render 1`] = `
+<div
+  class="theme-tc-list-title tc-list-title theme-tc-list-title-filter tc-list-title-filter"
+  id="my-title-1-title-cell"
+>
+  <svg
+    aria-hidden="true"
+    class="tc-svg-icon tc-icon theme-svg theme-icon tc-icon-name-talend-file-o"
+    focusable="false"
+    name="talend-file-o"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+  />
+  <div
+    aria-label="my awesome title"
+    data-testid="TooltipTrigger"
+  >
+    <button
+      aria-label="my awesome title"
+      class="theme-main-title btn btn-link"
+      id="my-title-1-title-cell-btn"
+      role="link"
+      type="button"
+    >
+      <span>
+        my awesome title
+      </span>
+    </button>
+  </div>
+</div>
+`;

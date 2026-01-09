@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeFaceted should render the html output by default 1`] = `
+<div
+  class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-tc-badge-faceted theme-theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
+>
+  <div
+    class="tc-badge-button theme-tc-badge-button"
+    id="tc-badge-select-my-id"
+  >
+    <span
+      aria-describedby="42"
+      aria-label="My Label"
+      class="tc-badge-category theme-tc-badge-category"
+    >
+      My Label
+    </span>
+    <div
+      class="theme-tc-badge-operator theme-tc-badge-operator-large"
+    >
+      <div
+        class="theme-tc-badge-operator-button"
+      >
+        <button
+          aria-busy="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="My icon operator equal"
+          class="theme-clickable theme-button theme-tertiary theme-size-S"
+          id="my-id-operator-action-overlay"
+          title="My icon operator equal"
+          type="button"
+        >
+          <span
+            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-talend-my-icon-equal"
+              focusable="false"
+              name="talend-talend-my-icon-equal"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="theme-tc-badge-faceted-overlay"
+    >
+      <button
+        aria-busy="false"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-label="All"
+        class="theme-clickable theme-button theme-tertiary theme-size-S"
+        id="my-id-action-overlay"
+        title="All"
+        type="button"
+      >
+        <span
+          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+        >
+          <span>
+            All
+          </span>
+        </span>
+      </button>
+    </div>
+    <button
+      aria-describedby="42"
+      aria-label="Remove filter"
+      class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+      data-feature="filter.remove"
+      id="tc-badge-delete-my-id"
+      role="button"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
+        focusable="false"
+        name="talend-cross"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+</div>
+`;

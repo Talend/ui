@@ -1,0 +1,272 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VirtualizedList should render 1`] = `
+<div
+  data-disableheight="false"
+  data-testid="AutoSizer"
+>
+  <div
+    aria-colcount="4"
+    aria-rowcount="2"
+    class="ReactVirtualized__Table tc-list-table theme-tc-list-table"
+    id="my-list-id"
+    role="grid"
+  >
+    <div
+      class="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
+      role="row"
+      style="height: 40px; overflow: hidden; padding-right: 0px; width: 100px;"
+    >
+      <div
+        class="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-"
+        id="tc-list-internal-row-selector"
+        role="columnheader"
+        style="flex: 0 0 35px;"
+      />
+      <div
+        aria-label="Id"
+        aria-sort="none"
+        class="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id ReactVirtualized__Table__sortableHeaderColumn"
+        role="columnheader"
+        style="flex: 0 0 50px;"
+        tabindex="0"
+      >
+        <span
+          class="ReactVirtualized__Table__headerTruncatedText"
+          title="Id"
+        >
+          Id
+        </span>
+      </div>
+      <div
+        aria-label="Name"
+        aria-sort="descending"
+        class="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-name ReactVirtualized__Table__sortableHeaderColumn"
+        role="columnheader"
+        style="flex: 0 0 350px;"
+        tabindex="0"
+      >
+        <span
+          class="ReactVirtualized__Table__headerTruncatedText"
+          title="Name"
+        >
+          Name
+        </span>
+        <svg
+          class="ReactVirtualized__Table__sortableHeaderIcon ReactVirtualized__Table__sortableHeaderIcon--DESC"
+          height="18"
+          viewBox="0 0 24 24"
+          width="18"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+        </svg>
+      </div>
+      <div
+        aria-label="Description"
+        aria-sort="none"
+        class="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-description ReactVirtualized__Table__sortableHeaderColumn"
+        role="columnheader"
+        style="flex: 0 0 350px;"
+        tabindex="0"
+      >
+        <span
+          class="ReactVirtualized__Table__headerTruncatedText"
+          title="Description"
+        >
+          Description
+        </span>
+      </div>
+    </div>
+    <div
+      aria-label="grid"
+      class="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+      role="rowgroup"
+      style="box-sizing: border-box; direction: ltr; height: 60px; position: relative; width: 100px; will-change: transform; overflow-x: hidden; overflow-y: auto;"
+      tabindex="0"
+    >
+      <div
+        class="ReactVirtualized__Grid__innerScrollContainer"
+        role="row"
+        style="width: auto; height: 100px; max-width: 100px; max-height: 100px; overflow: hidden; position: relative;"
+      >
+        <div
+          aria-rowindex="1"
+          class="ReactVirtualized__Table__row tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row undefined theme-undefined theme-row-selection"
+          role="row"
+          style="height: 50px; left: 0px; position: absolute; top: 0px; width: 100px; overflow: hidden; padding-right: 0px;"
+        >
+          <div
+            aria-colindex="1"
+            aria-describedby="tc-list-internal-row-selector"
+            class="ReactVirtualized__Table__rowColumn theme-cell tc-list-cell-"
+            role="gridcell"
+            style="overflow: hidden; flex: 0 0 35px;"
+          >
+            <div
+              class="tc-list-checkbox theme-tc-list-checkbox"
+            >
+              <div
+                class="checkbox"
+              >
+                <label
+                  for="my-list-id-0-check"
+                >
+                  <input
+                    id="my-list-id-0-check"
+                    type="checkbox"
+                  />
+                  <span
+                    class="tc-cell-checkbox"
+                  >
+                    <span
+                      class="sr-only"
+                    >
+                      Select this element
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-colindex="2"
+            class="ReactVirtualized__Table__rowColumn theme-cell tc-list-cell-id"
+            role="gridcell"
+            style="overflow: hidden; flex: 0 0 50px;"
+          >
+            <div
+              aria-describedby="42"
+              class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
+            >
+              0
+            </div>
+          </div>
+          <div
+            aria-colindex="3"
+            class="ReactVirtualized__Table__rowColumn theme-cell tc-list-cell-name"
+            role="gridcell"
+            style="overflow: hidden; flex: 0 0 350px;"
+          >
+            <div
+              aria-describedby="42"
+              class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
+            >
+              Title with icon and actions
+            </div>
+          </div>
+          <div
+            aria-colindex="4"
+            class="ReactVirtualized__Table__rowColumn theme-cell tc-list-cell-description"
+            role="gridcell"
+            style="overflow: hidden; flex: 0 0 350px;"
+          >
+            <div
+              aria-describedby="42"
+              class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
+            >
+              Simple row with icon and actions
+            </div>
+          </div>
+        </div>
+        <div
+          aria-rowindex="2"
+          class="ReactVirtualized__Table__row tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row undefined theme-undefined theme-row-selection"
+          role="row"
+          style="height: 50px; left: 0px; position: absolute; top: 50px; width: 100px; overflow: hidden; padding-right: 0px;"
+        >
+          <div
+            aria-colindex="1"
+            aria-describedby="tc-list-internal-row-selector"
+            class="ReactVirtualized__Table__rowColumn theme-cell tc-list-cell-"
+            role="gridcell"
+            style="overflow: hidden; flex: 0 0 35px;"
+          >
+            <div
+              class="tc-list-checkbox theme-tc-list-checkbox"
+            >
+              <div
+                class="checkbox"
+              >
+                <label
+                  for="my-list-id-1-check"
+                >
+                  <input
+                    id="my-list-id-1-check"
+                    type="checkbox"
+                  />
+                  <span
+                    class="tc-cell-checkbox"
+                  >
+                    <span
+                      class="sr-only"
+                    >
+                      Select this element
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-colindex="2"
+            class="ReactVirtualized__Table__rowColumn theme-cell tc-list-cell-id"
+            role="gridcell"
+            style="overflow: hidden; flex: 0 0 50px;"
+          >
+            <div
+              aria-describedby="42"
+              class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
+            >
+              1
+            </div>
+          </div>
+          <div
+            aria-colindex="3"
+            class="ReactVirtualized__Table__rowColumn theme-cell tc-list-cell-name"
+            role="gridcell"
+            style="overflow: hidden; flex: 0 0 350px;"
+          >
+            <div
+              aria-describedby="42"
+              class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
+            >
+              Title without actions
+            </div>
+          </div>
+          <div
+            aria-colindex="4"
+            class="ReactVirtualized__Table__rowColumn theme-cell tc-list-cell-description"
+            role="gridcell"
+            style="overflow: hidden; flex: 0 0 350px;"
+          >
+            <div
+              aria-describedby="42"
+              class="tc-virtualizedlist-default-cell"
+              data-test="tc-virtualizedlist-default-cell-tooltip"
+              data-testid="tc-virtualizedlist-default-cell-tooltip"
+            >
+              Simple row without actions
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

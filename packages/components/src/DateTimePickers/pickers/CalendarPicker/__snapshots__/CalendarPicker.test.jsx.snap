@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarPicker should render 1`] = `
+<div
+  aria-label="Date picker"
+  class="theme-container"
+  tabindex="0"
+>
+  <div
+    data-props="{"allowFocus":true,"calendar":{"monthIndex":5,"year":2018}}"
+    data-testid="DateView"
+  >
+    <button>
+      onTitleClick
+    </button>
+    <button>
+      onSelectMonthYear
+    </button>
+    <button>
+      onSelectDate
+    </button>
+  </div>
+  <span
+    class="CoralDivider"
+  />
+  <div
+    class="theme-footer"
+  >
+    <button
+      aria-label="Pick Today"
+      class="btn-tertiary btn-info btn btn-default"
+      tabindex="-1"
+      type="button"
+    >
+      <span>
+        Today
+      </span>
+    </button>
+  </div>
+</div>
+`;

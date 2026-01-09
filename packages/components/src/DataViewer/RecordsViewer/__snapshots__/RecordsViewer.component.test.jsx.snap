@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecordsViewer should render a tree (not virtualized)  1`] = `
+<div
+  class="theme-tc-records-viewer tc-records-viewer"
+>
+  <div
+    class="theme-tc-tree-header tc-tree-header"
+  >
+    Records
+    <div
+      class="theme-tc-tree-header-actions tc-tree-header-actions"
+    >
+      <button
+        aria-describedby="42"
+        aria-label="Close all"
+        class="theme-tc-tree-header-actions-icon tc-tree-header-actions-icon btn-icon-only btn btn-link"
+        data-testid="collapse-all"
+        id="CollapseAllRecords"
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-minus-circle"
+          focusable="false"
+          name="talend-minus-circle"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    data-props="{"value":[{"data":"myData"}],"jsonpath":"$","level":0}"
+    data-testid="tree"
+  />
+</div>
+`;
+
+exports[`RecordsViewer should render a tree virtualized with a header 1`] = `
+<div
+  class="theme-tc-records-viewer tc-records-viewer"
+>
+  <div
+    class="theme-tc-tree-header tc-tree-header"
+  >
+    Records
+    <div
+      class="theme-tc-tree-header-actions tc-tree-header-actions"
+    >
+      <button
+        aria-describedby="42"
+        aria-label="Close all"
+        class="theme-tc-tree-header-actions-icon tc-tree-header-actions-icon btn-icon-only btn btn-link"
+        data-testid="collapse-all"
+        id="CollapseAllRecords"
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-minus-circle"
+          focusable="false"
+          name="talend-minus-circle"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    data-props="{"cellMeasurerClassName":"theme-tc-records-viewer-tree-border tc-records-viewer-tree-border","className":"theme-tc-records-viewer-tree tc-records-viewer-tree","rowCount":2,"disableHeight":true}"
+    data-testid="virtualized-tree"
+  />
+</div>
+`;

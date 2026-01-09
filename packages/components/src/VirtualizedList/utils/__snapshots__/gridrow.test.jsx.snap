@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gridrow #renderCell should render content field 1`] = `
+<div>
+  cellData: 
+  1
+  columnData: 
+  {"custom":"lol"}
+  dataKey: 
+  id
+  rowData: 
+  {"id":1,"name":"Title without actions","description":"Simple row without actions"}
+  rowIndex: 
+  1
+  type: 
+  LARGE
+</div>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component should render the leaf 1`] = `
+<div
+  class="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
+>
+  <span
+    class="theme-tc-simple-text tc-simple-text"
+  >
+    <span
+      class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+    >
+      myDataKey
+    </span>
+    <div
+      class="theme-td-default-cell td-default-cell"
+    >
+      <span>
+        myValue
+      </span>
+    </div>
+  </span>
+</div>
+`;

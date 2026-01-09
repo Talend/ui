@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderTitle should render a span and ActionDropdown 1`] = `
+<div
+  class="theme-common"
+>
+  <div
+    class="theme-month"
+  >
+    <span
+      class=""
+    >
+      September
+    </span>
+  </div>
+  <div
+    class="dropdown btn-group btn-group-default"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="2012"
+      class="theme-tc-dropdown-button tc-dropdown-button btn-tertiary btn-info dropdown-toggle btn btn-default"
+      role="button"
+      type="button"
+    >
+      <span
+        class="tc-dropdown-button-title-label"
+      >
+        2012
+      </span>
+      <span
+        class="CoralIcon theme-tc-dropdown-caret"
+        name="talend-caret-down"
+      />
+    </button>
+    <ul
+      class="dropdown-menu"
+      role="menu"
+    >
+      <div
+        data-props="{"id":"year-picker-in-datetime-header","data-feature":"actiondropdown.items"}"
+        data-testid="YearPicker"
+      />
+    </ul>
+  </div>
+</div>
+`;

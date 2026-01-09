@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellIconText should render an icon cell with an icon 1`] = `
+<div
+  class="tc-icon-text theme-tc-icon-text"
+>
+  <div
+    aria-label="list"
+    data-testid="TooltipTrigger"
+  >
+    <span
+      class="theme-label"
+    >
+      list
+    </span>
+  </div>
+</div>
+`;

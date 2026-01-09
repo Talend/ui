@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container ConfirmDialog should render 1`] = `
+<div
+  aria-hidden="false"
+  class="tc-confirm-dialog"
+  data-testid="ConfirmDialog"
+  header="DO SOMETHING"
+  model="[object Object]"
+>
+  <button
+    data-testid="cancelAction"
+  >
+    cancelAction.label
+  </button>
+  <button
+    data-testid="validateAction"
+  >
+    validateAction.label
+  </button>
+</div>
+`;

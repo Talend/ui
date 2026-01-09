@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeOverlay should render the html output in the default state 1`] = `
+<div>
+  <button
+    aria-busy="false"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="my label"
+    class="theme-clickable theme-button theme-tertiary theme-size-S"
+    id="my-id-action-overlay"
+    title="my label"
+    type="button"
+  >
+    <span
+      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+    >
+      <span>
+        my label
+      </span>
+    </span>
+  </button>
+</div>
+`;
