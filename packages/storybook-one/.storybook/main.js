@@ -12,11 +12,11 @@ const STORIES = [
 		titlePrefix: 'Design System',
 		directory: `${rootPath}/../design-system/src`,
 	},
-	`${rootPath}/../components/src/**/*.stories.@(js|tsx)`,
-	`${rootPath}/../forms/**/*.stories.@(js|tsx)`,
-	`${rootPath}/../dataviz/src/**/*.stories.@(js|tsx)`,
-	`${rootPath}/../icons/stories/**/*.stories.@(js|tsx)`,
-	`${rootPath}/../faceted-search/stories/**/*.stories.@(js|tsx)`,
+	`${rootPath}/../components/src/**/*.stories.@(js|jsx|tsx)`,
+	`${rootPath}/../forms/@(src|stories)/**/*.stories.@(js|jsx|tsx)`,
+	`${rootPath}/../dataviz/src/**/*.stories.@(js|jsx|tsx)`,
+	`${rootPath}/../icons/stories/**/*.stories.@(js|jsx|tsx)`,
+	`${rootPath}/../faceted-search/stories/**/*.stories.@(js|jsx|tsx)`,
 ];
 
 const monoRepoFixSourceMap = [
@@ -41,7 +41,7 @@ const config = {
 				return !rule.test?.toString().includes('tsx?');
 			}),
 			{
-				test: /\.(js|ts|tsx)$/,
+				test: /\.(js|jsx|ts|tsx)$/,
 				exclude: /node_modules/,
 				include: srcDirectories,
 				use: getJSAndTSLoader({}, true),

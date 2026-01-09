@@ -20,6 +20,7 @@
     "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
+    "test:update": "talend-scripts test -u",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "yarn jsdoc -c ./docs.json",
