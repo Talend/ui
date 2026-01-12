@@ -1,5 +1,5 @@
 import pick from 'lodash/pick';
-import React from 'react';
+
 import ReactTestUtils from 'react-dom/test-utils';
 
 import Tooltip from '../src/Tooltip';

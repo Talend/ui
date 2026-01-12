@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 
 import Pagination from '../src/Pagination';

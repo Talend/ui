@@ -20,6 +20,7 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
     "lint": "talend-scripts lint",
+    "lint:fix": "talend-scripts lint --fix",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
