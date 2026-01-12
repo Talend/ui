@@ -69,9 +69,9 @@ propTypes: {
 There are a few caveats to this format that differ from conventional JSDoc comments.
 
 - Only specific doclets (the @ things) should be used, and only when the data cannot be parsed from the component itself
-    - `@type`: Override the "type", use the same names as the default React PropTypes: string, func, bool, number, object. You can express enum and oneOfType types, Like `{("optionA"|"optionB")}`.
-    - `@required`: to mark a prop as required (use the normal React isRequired if possible)
-    - `@private`: Will hide the prop in the documentation
+  - `@type`: Override the "type", use the same names as the default React PropTypes: string, func, bool, number, object. You can express enum and oneOfType types, Like `{("optionA"|"optionB")}`.
+  - `@required`: to mark a prop as required (use the normal React isRequired if possible)
+  - `@private`: Will hide the prop in the documentation
 - All description text should be above the doclets.
 
 ## Implement additional components and features
@@ -99,9 +99,7 @@ Please see the [Maintaining](./MAINTAINING.md) documentation.
 
 [huboard-badge]: https://img.shields.io/badge/Hu-Board-7965cc.svg
 [huboard]: https://huboard.com/react-bootstrap/react-bootstrap
-
 [issues]: https://github.com/react-bootstrap/react-bootstrap/issues
-
 [editorconfig]: http://editorconfig.org
 [eslint]: http://eslint.org
 [commit-message]: http://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message
