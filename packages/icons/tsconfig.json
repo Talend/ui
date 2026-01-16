@@ -6,7 +6,7 @@
     "allowJs": true,
     "declaration": true,
     "target": "ES5",
-    "module": "CommonJs",
+    "module": "node16",
     "typeRoots": ["./node_modules/@types/*"]
   }
 }
