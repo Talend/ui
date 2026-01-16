@@ -39,6 +39,8 @@
   "devDependencies": {
     "@storybook/addon-a11y": "^10.1.11",
     "@storybook/addon-links": "^10.1.11",
+    "@storybook/addon-docs": "^10.1.11",
+    "@storybook/react-vite": "^10.1.11",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
     "@talend/locales-design-system": "^7.15.1",
@@ -49,7 +51,6 @@
     "@talend/scripts-core": "^16.8.0",
     "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-react-webpack": "^16.11.0",
-    "@talend/scripts-config-storybook-lib": "^5.8.0",
     "@talend/scripts-config-typescript": "^11.4.0",
     "@types/react": "^18.3.26",
     "i18next": "^23.16.8",
@@ -57,7 +58,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "~6.3.0",
-    "storybook-docs-toc": "^1.7.0"
+    "storybook-docs-toc": "^1.7.0",
+    "storybook": "^10.1.11"
   },
   "private": true
 }

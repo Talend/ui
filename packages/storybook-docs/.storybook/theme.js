@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 import dictionaryLight from '@talend/design-tokens/lib/light/dictionary';
 
 const t = tokenName => {

@@ -1,9 +1,6 @@
 const fs = require('fs');
 const { merge } = require('lodash');
 const path = require('path');
-const {
-	getSassLoaders,
-} = require('@talend/scripts-config-react-webpack/config/webpack.config.common');
 
 const { fixWindowsPaths } = require('./utils');
 
@@ -23,13 +20,7 @@ function getStoriesFolders() {
 
 const defaultMain = {
 	framework: {
-		name: '@storybook/react-webpack5',
-		options: {
-			builder: {
-				fsCache: true,
-				//lazyCompilation: true
-			},
-		},
+		name: '@storybook/react-vite',
 	},
 	typescript: {
 		reactDocgen: false,
@@ -45,52 +36,9 @@ const defaultMain = {
 	stories: getStoriesFolders(),
 	staticDirs: [path.join(__dirname, 'msw'), require.resolve('@talend/icons').replace('index.js', '').replace('/dist/TalendIcons.js', '/dist/svg-bundle')],
 	addons: [
-		'@storybook/addon-essentials',
 		'@storybook/addon-a11y',
 		'@storybook/addon-links',
-		'@storybook/addon-interactions',
-		'@storybook/addon-storysource',
 	],
-	webpackFinal: async (config, { configType }) => {
-		// by default storybook do not support scss without css module
-		// here we remove storybook scss config and replace it by our config
-		const rules = [
-			...config.module.rules.filter(rule => {
-				return !rule.test?.toString().includes('s[ca]ss');
-			}),
-			{
-				test: /\.scss$/,
-				exclude: /\.module\.scss$/,
-				use: getSassLoaders(false, '', true),
-			},
-			{
-				test: /\.module\.scss$/,
-				use: getSassLoaders(true, '', true),
-			},
-		];
-
-		const mergedConfig = {
-			...config,
-			module: {
-				...config.module,
-				rules,
-			},
-			plugins: [
-				...config.plugins,
-			],
-			resolve: {
-				...config.resolve,
-				extensions: config.resolve.extensions.concat(['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss']),
-				fallback: {
-					...config.resolve.fallback,
-					path: false,
-					querystring: require.resolve('querystring-es3'),
-				},
-			},
-		};
-
-		return mergedConfig;
-	},
 };
 
 const temp_userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
@@ -107,12 +55,5 @@ module.exports  = {
 	core: merge(defaultMain.core, userMain.core),
 	typescript: merge(defaultMain.typescript, userMain.typescript),
 	staticDirs: fixWindowsPaths([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
-	webpackFinal: async (config, options) => {
-		let finalConfig = await defaultMain.webpackFinal(config, options);
-		if(userMain.webpackFinal) {
-			finalConfig = await userMain.webpackFinal(finalConfig, options);
-		}
-		return finalConfig
-	}
 };
 

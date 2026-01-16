@@ -1,8 +1,7 @@
-import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { StorybookConfig } from '@storybook/react-vite';
 import * as fs from 'fs';
 import { merge } from 'lodash';
 import * as path from 'path';
-import { getSassLoaders } from '@talend/scripts-config-react-webpack/config/webpack.config.common';
 
 import { fixWindowsPaths } from './utils';
 
@@ -116,62 +115,7 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 				.replace('index.js', '')
 				.replace('/dist/TalendIcons.js', '/dist/svg-bundle'),
 		],
-		addons: [
-			'@storybook/addon-essentials',
-			'@storybook/addon-a11y',
-			'@storybook/addon-links',
-			'@storybook/addon-interactions',
-			'@storybook/addon-storysource',
-		],
-		webpackFinal: async (config, configOptions) => {
-			// by default storybook do not support scss without css module
-			// here we remove storybook scss config and replace it by our config
-			const rules = [
-				...(config.module?.rules || []).filter(rule => {
-					if (rule && typeof rule === 'object' && 'test' in rule) {
-						return !rule.test?.toString().includes('s[ca]ss');
-					}
-					return true;
-				}),
-				{
-					test: /\.scss$/,
-					exclude: /\.module\.scss$/,
-					use: getSassLoaders(false, '', true),
-				},
-				{
-					test: /\.module\.scss$/,
-					use: getSassLoaders(true, '', true),
-				},
-			];
-
-			const mergedConfig = {
-				...config,
-				module: {
-					...config.module,
-					rules,
-				},
-				plugins: [...(config.plugins || [])],
-				resolve: {
-					...config.resolve,
-					extensions: (config.resolve?.extensions || []).concat([
-						'.js',
-						'.jsx',
-						'.ts',
-						'.tsx',
-						'.json',
-						'.css',
-						'.scss',
-					]),
-					fallback: {
-						...config.resolve?.fallback,
-						path: false as any,
-						querystring: require.resolve('querystring-es3') as any,
-					},
-				},
-			};
-
-			return mergedConfig as any;
-		},
+		addons: ['@storybook/addon-a11y', '@storybook/addon-links'],
 	};
 
 	const stories = fixWindowsPaths([...(options.stories || defaultMain.stories || [])] as any);
@@ -187,13 +131,6 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 			...(defaultMain.staticDirs || []),
 			...(options.staticDirs || []),
 		] as any),
-		webpackFinal: async (config, configOptions) => {
-			let finalConfig = await defaultMain.webpackFinal!(config, configOptions);
-			if (options.webpackFinal) {
-				finalConfig = await options.webpackFinal(finalConfig, configOptions);
-			}
-			return finalConfig;
-		},
 	};
 
 	return finalConfig;
