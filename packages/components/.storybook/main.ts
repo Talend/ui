@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import fixReactVirtualized from 'esbuild-plugin-react-virtualized';
 
 const config: StorybookConfig = {
 	stories: ['../src/**/*.stories.tsx'],
@@ -7,19 +6,14 @@ const config: StorybookConfig = {
 	framework: {
 		name: '@storybook/react-vite',
 		options: {
-			viteConfig: {
-				optimizeDeps: {
-					force: true,
-					esbuildOptions: {
-						plugins: [fixReactVirtualized],
-					},
-				},
+			builder: {
+				viteConfigPath: './.storybook/vite.config.ts',
 			},
 		},
 	},
-	docs: {
-		autodocs: 'tag',
-	},
+	// docs: {
+	// 	autodocs: 'tag',
+	// },
 	typescript: {
 		reactDocgen: 'react-docgen-typescript',
 	},
