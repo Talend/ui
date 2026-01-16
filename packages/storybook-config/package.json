@@ -1,11 +1,12 @@
 {
-  "name": "@talend/scripts-config-storybook-lib",
-  "description": "Storybook configuration for @talend/scripts-core",
-  "version": "5.8.0",
+  "name": "@talend/storybook-config",
+  "description": "Storybook configuration utilities for Talend UI",
+  "version": "1.0.0",
   "license": "Apache-2.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "Talend Frontend <frontend@talend.com>",
-  "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/storybook-config#readme",
   "bugs": {
     "url": "https://github.com/Talend/ui/issues"
   },
@@ -14,10 +15,16 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./.storybook-templates",
-    "on-msw-upgrade": "msw init ./.storybook-templates/msw --save",
-    "test": "echo \"Nothing to test\""
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "jest",
+    "prepublishOnly": "yarn build"
   },
+  "files": [
+    "dist",
+    "public"
+  ],
   "dependencies": {
     "@storybook/addon-a11y": "^7.6.21",
     "@storybook/addon-essentials": "^7.6.21",
@@ -33,28 +40,28 @@
     "@talend/dynamic-cdn-webpack-plugin": "^14.3.0",
     "@talend/scripts-config-react-webpack": "^16.11.0",
     "assert": "^2.1.0",
+    "i18next": "^21.0.0",
     "i18next-http-backend": "^1.4.5",
     "lodash": "^4.17.21",
     "msw": "^2.12.1",
     "msw-storybook-addon": "^2.0.6",
     "querystring-es3": "^0.2.1",
+    "react-i18next": "^11.0.0",
     "storybook": "^10.1.11",
     "util": "^0.12.5"
   },
   "peerDependencies": {
-    "i18next": "*",
-    "react": "*",
-    "react-i18next": "*"
-  },
-  "publishConfig": {
-    "access": "public"
+    "react": "^18.0.0"
   },
   "devDependencies": {
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
-    "@talend/scripts-core": "^16.8.0"
+    "@types/lodash": "^4.14.200",
+    "@types/node": "^25.0.8",
+    "@types/react": "^18.0.0",
+    "typescript": "^5.3.0"
   },
-  "msw": {
-    "workerDirectory": ".storybook-templates/msw"
+  "publishConfig": {
+    "access": "public"
   }
 }

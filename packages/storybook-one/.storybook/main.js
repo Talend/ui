@@ -1,5 +1,6 @@
-import path from 'path';
-import { packageDirectorySync } from 'pkg-dir';
+const path = require('path');
+const { packageDirectorySync } = require('pkg-dir');
+const { createMainConfig } = require('@talend/storybook-config');
 
 const iconConfig = require('@talend/icons/.storybook/main.js');
 const rootPath = packageDirectorySync();
@@ -31,25 +32,29 @@ const monoRepoFixSourceMap = [
 ];
 const srcDirectories = monoRepoFixSourceMap.map(src => path.resolve(process.cwd(), src));
 
-const config = {
+const config = createMainConfig({
 	stories: STORIES,
-	webpackFinal: async originalConfig => {
-		const config = await iconConfig.webpackFinal(originalConfig);
-		// weird, replace the loader of the current storybook which do not support mono repo
-		const rules = [
-			...config.module.rules.filter(rule => {
-				return !rule.test?.toString().includes('tsx?');
-			}),
-			{
-				test: /\.(js|jsx|ts|tsx)$/,
-				exclude: /node_modules/,
-				include: srcDirectories,
-				use: getJSAndTSLoader({}, true),
-			},
-		];
-		config.module.rules = rules;
-		return config;
-	},
-};
-
-export default config;
+	// webpackFinal: async (originalConfig, options) => {
+	//     const config = await iconConfig.webpackFinal(originalConfig);
+	//     // weird, replace the loader of the current storybook which do not support mono repo
+	//     const rules = [
+	//         ...(config.module?.rules || []).filter(rule => {
+	//             if (rule && typeof rule === 'object' && 'test' in rule) {
+	//                 return !rule.test?.toString().includes('tsx?');
+	//             }
+	//             return true;
+	//         }),
+	//         {
+	//             test: /\.(js|jsx|ts|tsx)$/,
+	//             exclude: /node_modules/,
+	//             include: srcDirectories,
+	//             use: getJSAndTSLoader({}, true),
+	//         },
+	//     ];
+	//     if (config.module) {
+	//         config.module.rules = rules;
+	//     }
+	//     return config;
+	// },
+});
+module.exports = config;

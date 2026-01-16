@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Modal } from '@talend/react-bootstrap';
 import classNames from 'classnames';
 
-import './Dialog.scss';
+import './Dialog.css';
 
 import Action from '../Actions/Action';
 import ActionBar from '../ActionBar';
