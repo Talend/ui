@@ -79,4 +79,9 @@ SortOptions.defaultProps = {
 	},
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(SortOptions);
+/**
+ * @type: Function
+ */
+const Foo = withTranslation(I18N_DOMAIN_COMPONENTS)(SortOptions);
+
+export default Foo;

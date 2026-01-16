@@ -75,4 +75,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Intercom);
+/** @type Function */
+const IntercomWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(Intercom);
+export default IntercomWithTranslation;

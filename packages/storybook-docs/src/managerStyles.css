@@ -1,5 +1,3 @@
-@use '@talend/design-tokens/lib/tokens' as tokens;
-
 #root {
 	div[role='main'] {
 		top: 0;
@@ -15,7 +13,7 @@
 	margin-top: 0;
 	margin-bottom: 0;
 	letter-spacing: normal;
-	font: tokens.$coral-heading-m;
+	font: var(--coral-heading-m);
 	color: inherit;
 	text-transform: none;
 	position: relative;
@@ -26,32 +24,32 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		border-top: tokens.$coral-border-s-solid currentColor;
-		opacity: tokens.$coral-opacity-l;
+		border-top: var(--coral-border-s-solid) currentColor;
+		opacity: var(--coral-opacity-l);
 	}
 
 	button[data-action='collapse-root'] {
 		align-items: center;
 		margin-left: 0;
-		min-height: tokens.$coral-sizing-m;
-		padding: tokens.$coral-spacing-xs tokens.$coral-spacing-m tokens.$coral-spacing-xs 0;
+		min-height: var(--coral-sizing-m);
+		padding: var(--coral-spacing-xs) var(--coral-spacing-m) var(--coral-spacing-xs) 0;
 
 		> span:first-of-type {
 			margin-left: 7px;
-			margin-right: tokens.$coral-spacing-xs;
+			margin-right: var(--coral-spacing-xs);
 		}
 	}
 
 	.sidebar-subheading-action {
-		margin-right: tokens.$coral-spacing-m;
-		opacity: tokens.$coral-opacity-s;
+		margin-right: var(--coral-spacing-m);
+		opacity: var(--coral-opacity-s);
 		filter: contrast(10);
 	}
 }
 
 .sidebar-item.sidebar-item {
-	font: tokens.$coral-paragraph-m;
-	height: tokens.$coral-sizing-m;
+	font: var(--coral-paragraph-m);
+	height: var(--coral-sizing-m);
 	align-items: center;
 
 	&:not([data-selected='true']) {
@@ -59,12 +57,12 @@
 	}
 
 	> * {
-		margin: 0 tokens.$coral-spacing-xxs 0 0;
+		margin: 0 var(--coral-spacing-xxs) 0 0;
 	}
 
 	> span:first-of-type {
 		margin-left: 7px;
-		margin-right: tokens.$coral-spacing-xs;
+		margin-right: var(--coral-spacing-xs);
 	}
 
 	svg {

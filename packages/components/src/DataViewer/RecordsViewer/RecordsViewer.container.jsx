@@ -106,4 +106,6 @@ export class RecordsViewer extends RComponent {
 	}
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(RecordsViewer);
+/** @type Function */
+const RecordsViewerWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(RecordsViewer);
+export default RecordsViewerWithTranslation;

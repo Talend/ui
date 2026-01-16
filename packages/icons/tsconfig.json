@@ -5,8 +5,6 @@
     "outDir": "./dist",
     "allowJs": true,
     "declaration": true,
-    "target": "ES5",
-    "module": "node16",
     "typeRoots": ["./node_modules/@types/*"]
   }
 }

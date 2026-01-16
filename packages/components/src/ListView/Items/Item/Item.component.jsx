@@ -108,4 +108,6 @@ class Item extends Component {
 
 Item.propTypes = ItemPropTypes;
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Item);
+/** @type Function */
+const ItemWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(Item);
+export default ItemWithTranslation;

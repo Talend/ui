@@ -169,4 +169,7 @@ BreadcrumbsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(BreadcrumbsComponent);
+/** @type Function */
+const BreadcrumbsComponentWithTranslation =
+	withTranslation(I18N_DOMAIN_COMPONENTS)(BreadcrumbsComponent);
+export default BreadcrumbsComponentWithTranslation;

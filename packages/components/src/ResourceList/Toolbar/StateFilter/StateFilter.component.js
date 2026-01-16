@@ -71,4 +71,6 @@ StateFilter.defaultProps = {
 	types: [TYPES.SELECTION, TYPES.FAVORITES, TYPES.CERTIFIED],
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(StateFilter);
+/** @type Function */
+const StateFilterWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(StateFilter);
+export default StateFilterWithTranslation;

@@ -15,7 +15,8 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib": "talend-scripts build && yarn run tsc",
+    "build:lib": "talend-scripts build",
+    "build:lib:tsc": "yarn run tsc",
     "build:lib:esm": "talend-scripts build --esm",
     "watch": "talend-scripts build --watch",
     "tsc": "tsc --emitDeclarationOnly --project ./tsconfig.json --outDir ./types",
@@ -25,7 +26,6 @@
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
     "lint": "talend-scripts lint",
     "start": "storybook dev",
-    "build-storybook": "storybook build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [

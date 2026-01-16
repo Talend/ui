@@ -5,11 +5,11 @@
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
   "scripts": {
-    "build-storybook": "talend-scripts build-storybook --docs",
-    "start-storybook": "talend-scripts start-storybook -p 6006 --docs",
+    "build-storybook": "storybook build --docs",
+    "start-storybook": "storybook dev -p 6006 --docs",
     "lint": "talend-scripts lint",
-    "start": "talend-scripts start-storybook -p 6006 --docs",
-    "test:demo": "talend-scripts build-storybook --docs"
+    "start": "storybook dev -p 6006 --docs",
+    "test:demo": "storybook build --docs"
   },
   "repository": {
     "type": "git",

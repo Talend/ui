@@ -62,4 +62,12 @@ SkipLinks.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(SkipLinks);
+/**
+ * @type Function
+ */
+const SkipLinksWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(SkipLinks);
+
+/**
+ * @type Function
+ */
+export default SkipLinksWithTranslation;

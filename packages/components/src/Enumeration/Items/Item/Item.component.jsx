@@ -144,4 +144,6 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 
 Item.propTypes = ItemPropTypes;
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Item);
+/** @type Function */
+const ItemWithTranslationEnumeration = withTranslation(I18N_DOMAIN_COMPONENTS)(Item);
+export default ItemWithTranslationEnumeration;

@@ -27,6 +27,9 @@ export const cellDictionary = {
 };
 
 /** Row renderers dictionary */
+/**
+ * @type: object
+ */
 export const rowDictionary = {
 	[rowLargeType]: RowLarge,
 	[rowCollapsiblePanelType]: RowCollapsiblePanel,

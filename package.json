@@ -31,6 +31,7 @@
     "test:cron": "talend-yarn-workspace run test:cron",
     "start-components": "yarn workspace @talend/react-components run start",
     "start-containers": "yarn workspace  @talend/react-containers run start",
+    "start-dataviz": "yarn workspace @talend/react-dataviz run start",
     "start-design-system": "yarn workspace @talend/design-system run start",
     "start-stepper": "yarn workspace  @talend/react-stepper run start",
     "start-forms": "yarn workspace  @talend/react-forms run start",

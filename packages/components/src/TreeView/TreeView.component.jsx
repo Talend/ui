@@ -122,4 +122,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default Gesture.withTreeGesture(TreeView);
+/** @type Function */
+const TreeViewWithGesture = Gesture.withTreeGesture(TreeView);
+export default TreeViewWithGesture;

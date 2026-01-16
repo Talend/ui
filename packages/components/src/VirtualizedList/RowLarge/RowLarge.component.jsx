@@ -177,4 +177,10 @@ RowLarge.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default Gesture.withListGesture(withTranslation(I18N_DOMAIN_COMPONENTS)(RowLarge));
+/**
+ * @type Function
+ */
+const RowLargeWithGesture = Gesture.withListGesture(
+	withTranslation(I18N_DOMAIN_COMPONENTS)(RowLarge),
+);
+export default RowLargeWithGesture;

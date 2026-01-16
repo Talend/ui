@@ -1,4 +1,4 @@
-import { makeDecorator } from '@storybook/addons';
+import { makeDecorator } from 'storybook/preview-api';
 import CMFStory from './CMFStory';
 import CMFDecorator from './CMFDecorator';
 import register from './register';

@@ -144,4 +144,6 @@ export class DeleteResource extends Component {
 	}
 }
 
-export default withTranslation(I18N_DOMAIN_CONTAINERS)(DeleteResource);
+/** @type Function */
+const DeleteResourceWithTranslation = withTranslation(I18N_DOMAIN_CONTAINERS)(DeleteResource);
+export default DeleteResourceWithTranslation;
