@@ -1,5 +1,5 @@
 import { StoryFn } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 import { LinkAsButton } from '../../';
 
 export default {

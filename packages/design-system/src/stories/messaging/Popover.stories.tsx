@@ -1,6 +1,6 @@
 import { forwardRef, Ref } from 'react';
 
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 
 import {
 	ButtonIcon,

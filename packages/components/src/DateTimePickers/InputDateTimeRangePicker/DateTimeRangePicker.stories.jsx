@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 
 import InputDateTimeRangePicker from './InputDateTimeRangePicker.component';
 

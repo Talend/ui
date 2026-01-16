@@ -1,6 +1,6 @@
 import repeat from 'lodash/repeat';
 import cloneDeep from 'lodash/cloneDeep';
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 
 import ObjectViewer from './ObjectViewer.component';
 import Icon from '../Icon';

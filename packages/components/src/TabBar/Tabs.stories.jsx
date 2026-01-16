@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 
 import { ActionButton } from '../Actions';
 import TabBar from './TabBar.component';

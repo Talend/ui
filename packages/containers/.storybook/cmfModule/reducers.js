@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 
 const TOGGLE_FLAG_TYPE = 'TOGGLE_FLAG_TYPE';
 const actionLogger = action('dispatch');

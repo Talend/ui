@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 import { isBefore } from 'date-fns/isBefore';
 import { startOfDay } from 'date-fns/startOfDay';
 

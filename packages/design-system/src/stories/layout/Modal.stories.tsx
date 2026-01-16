@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 import { StoryFn } from '@storybook/react';
 
 import { ButtonPrimary, LinkAsButton, Modal, StackVertical } from '../../';

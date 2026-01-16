@@ -1,7 +1,7 @@
 /* eslint-disable @talend/import-depth */
 import { ReactNode, useState } from 'react';
 
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 
 import {
 	ButtonTertiary,

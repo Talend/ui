@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 
 import NotificationContainer from './Notification.component';
 

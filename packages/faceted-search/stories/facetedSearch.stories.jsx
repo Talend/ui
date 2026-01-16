@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 import { userEvent, within } from '@storybook/testing-library';
 import cloneDeep from 'lodash/cloneDeep';
 import set from 'lodash/set';

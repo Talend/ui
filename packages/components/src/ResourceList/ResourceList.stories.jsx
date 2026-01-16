@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 import PropTypes from 'prop-types';
 
 import Icon from '../Icon';

@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { action } from '@storybook/addon-actions';
+import { fn as action } from 'storybook/test';
 
 import ActionDropdown from '.';
 
