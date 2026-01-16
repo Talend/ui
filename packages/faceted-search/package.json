@@ -21,9 +21,9 @@
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
-    "test:demo": "talend-scripts build-storybook --quiet --docs",
+    "test:demo": "storybook build --docs",
     "lint": "talend-scripts lint ./src/**/*.js ./stories/**/*.js ./.storybook/**/*.js",
-    "start": "talend-scripts start-storybook -p 6006",
+    "start": "storybook dev -p 6006",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [
@@ -50,8 +50,9 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.6.21",
-    "@storybook/testing-library": "^0.2.2",
+    "@storybook/react": "^10.1.11",
+    "@storybook/react-vite": "^10.1.11",
+    "@storybook/addon-a11y": "^10.1.11",
     "@talend/design-system": "^11.9.0",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
@@ -62,13 +63,13 @@
     "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-jest": "^14.5.0",
     "@talend/scripts-config-react-webpack": "^16.11.0",
-    "@talend/scripts-config-storybook-lib": "^5.8.0",
     "@talend/scripts-config-typescript": "^11.4.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "cross-env": "^7.0.3",
     "i18next": "^23.16.8",
+    "storybook": "^10.1.11",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

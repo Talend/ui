@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 
-import FacetedSearch from '../src';
-import { BadgeFacetedProvider } from '../src/components/context/badgeFaceted.context';
-import { BadgesGenerator } from '../src/components/BadgesGenerator';
-import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dictionary';
+import FacetedSearch from '../';
+import { BadgeFacetedProvider } from '../components/context/badgeFaceted.context';
+import { BadgesGenerator } from '../components/BadgesGenerator';
+import { createBadgesDict, getBadgesFromDict } from '../dictionary/badge.dictionary';
 
 const badgesFaceted = {
 	badges: [
