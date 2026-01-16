@@ -12,7 +12,7 @@ import ColorChecker from './ColorChecker';
 import colorCompositionData from './ColorCompositions.json';
 import { copy } from './TokenValue';
 
-import theme from './ColorComposition.module.scss';
+import theme from './ColorComposition.module.css';
 
 const PADDING = '1.875rem';
 

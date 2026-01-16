@@ -1,0 +1,43 @@
+.legend {
+  margin: var(--coral-spacing-m, 1rem) 0;
+  padding: var(--coral-spacing-xs, 0.5rem) var(--coral-spacing-m, 1rem);
+  /* stylelint-disable-next-line declaration-no-important */
+  background: hsl(0, 0%, 97%);
+  border-radius: var(--coral-radius-s, 0.25rem);
+}
+
+.dl {
+  display: grid;
+  gap: 1ch;
+  grid-template: auto/auto 1fr;
+}
+.dl dt {
+  font: var(--coral-paragraph-m-bold, 600 0.875rem/140% "Source Sans Pro");
+}
+
+.table {
+  overflow: auto;
+}
+.table th + th,
+.table td + td {
+  width: 12.5rem;
+}
+.table th {
+  border-top: 1px solid hsl(0, 0%, 82%);
+}
+.table th,
+.table td {
+  border-left: 1px solid hsl(0, 0%, 82%);
+  border-bottom: 1px solid hsl(0, 0%, 82%);
+  padding: 8px;
+}
+.table td:last-child,
+.table th:last-child {
+  border-right: 1px solid hsl(0, 0%, 82%);
+  padding-right: 8px;
+}
+
+.tag {
+  padding: 0 var(--coral-spacing-xxs, 0.25rem);
+  border-radius: var(--coral-radius-s, 0.25rem);
+}

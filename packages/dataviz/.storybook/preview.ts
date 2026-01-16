@@ -1,0 +1,28 @@
+import type { Preview } from '@storybook/react';
+import '@talend/bootstrap-theme/dist/bootstrap.css';
+
+import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
+import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
+
+const parameters = {
+	actions: { argTypesRegex: '^on[A-Z].*' },
+	chromatic: {
+		// To avoid issues with charts, we'll need to improve this later on
+		diffThreshold: 0.6,
+	},
+};
+
+const preview: Preview = {
+	parameters,
+	i18n: {
+		namespaces: [...tuiNamespaces, ...dsNamespaces],
+		remoteLocalesMap: {
+			'tui-components':
+				'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
+			'design-system':
+				'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
+		},
+	},
+};
+
+export default preview;

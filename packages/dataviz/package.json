@@ -18,7 +18,7 @@
     "build-storybook": "talend-scripts build-storybook",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint": "talend-scripts lint",
-    "start": "talend-scripts start-storybook -p 6006",
+    "start": "storybook dev -p 6006",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage"
@@ -50,6 +50,9 @@
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
+    "@storybook/react": "^10.1.11",
+    "@storybook/react-vite": "^10.1.11",
+    "@storybook/addon-a11y": "^10.1.11",
     "@talend/design-system": "^11.9.0",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
@@ -60,7 +63,6 @@
     "@talend/scripts-core": "^16.8.0",
     "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-react-webpack": "^16.11.0",
-    "@talend/scripts-config-storybook-lib": "^5.8.0",
     "@talend/scripts-config-typescript": "^11.4.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
@@ -72,6 +74,7 @@
     "@types/react": "^18.3.26",
     "@types/topojson-client": "^3.1.5",
     "@types/topojson-specification": "^1.0.5",
+    "storybook": "^10.1.11",
     "cross-env": "^7.0.3",
     "i18next": "^23.16.8",
     "react": "^18.3.1",
