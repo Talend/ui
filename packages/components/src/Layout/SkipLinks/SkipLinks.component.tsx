@@ -1,10 +1,11 @@
 import { TFunction } from 'i18next';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { Icon, SVG_TRANSFORMS } from '@talend/design-system';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 
 import theme from './SkipLinks.module.css';
+import { ComponentType } from 'react';
 
 type SkipToProps = {
 	href: string;
@@ -62,12 +63,7 @@ SkipLinks.defaultProps = {
 	t: getDefaultT(),
 };
 
-/**
- * @type Function
- */
-const SkipLinksWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(SkipLinks);
+const SkipLinksWithTranslation: ComponentType<Omit<SkipLinksProps, 't'>> =
+	withTranslation(I18N_DOMAIN_COMPONENTS)(SkipLinks);
 
-/**
- * @type Function
- */
 export default SkipLinksWithTranslation;
