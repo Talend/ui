@@ -58,7 +58,7 @@
     "focus-outline-manager": "^1.0.2",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "memoize-one": "^6.0.0",
     "rc-slider": "^11.1.9",
     "react-autowhatever": "10.2.0",

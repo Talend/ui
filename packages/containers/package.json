@@ -50,7 +50,7 @@
     "classnames": "^2.5.1",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "memoize-one": "^6.0.0",
     "react-immutable-proptypes": "^2.2.0",
     "redux-saga": "^1.4.2",

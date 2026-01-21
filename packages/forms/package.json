@@ -54,7 +54,7 @@
     "ajv": "^6.12.6",
     "classnames": "^2.5.1",
     "json-logic-js": "^2.0.5",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "memoize-one": "^6.0.0",
     "react-autowhatever": "10.2.0",
     "react-ace": "10.1.0",

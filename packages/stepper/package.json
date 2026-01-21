@@ -46,7 +46,7 @@
     "@talend/react-components": "^17.6.0",
     "classnames": "^2.5.1",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   },
   "devDependencies": {
     "@talend/icons": "^7.14.0",

@@ -34,7 +34,7 @@
     "@talend/scripts-config-react-webpack": "^16.11.0",
     "assert": "^2.1.0",
     "i18next-http-backend": "^1.4.5",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "msw": "^2.12.1",
     "msw-storybook-addon": "^2.0.6",
     "querystring-es3": "^0.2.1",
