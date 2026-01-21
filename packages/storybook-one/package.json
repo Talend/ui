@@ -28,7 +28,7 @@
     "@talend/react-components": "^17.6.0",
     "@talend/react-forms": "^15.6.0",
     "@talend/react-dataviz": "^7.3.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "pkg-dir": "^7.0.0",
     "react-hook-form": "^7.66.0"
   },
