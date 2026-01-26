@@ -17,6 +17,9 @@
       "import": "./dist/typeUtils.js",
       "require": "./dist/typeUtils.cjs"
     },
+    "./dist/talend-icons-webfont.css": {
+      "style": "./dist/talend-icons-webfont.css"
+    },
     "./src/*": {
       "import": "./src/*",
       "require": "./src/*"
@@ -63,6 +66,7 @@
     "@talend/eslint-plugin": "^1.6.0",
     "@talend/scripts-config-typescript": "^11.4.0",
     "@talend/design-tokens": "^3.5.0",
+    "@types/node": "^20.11.19",
     "copy-webpack-plugin": "^11.0.0",
     "mkdirp": "^1.0.4",
     "prettier": "^3.6.2",

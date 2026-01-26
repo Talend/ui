@@ -1,4 +1,4 @@
-import '../../dist/talend-icons-webfont.css';
+import '../dist/talend-icons-webfont.css';
 import { info as icons } from '../dist/info';
 
 function I({ className }: { className: string }) {

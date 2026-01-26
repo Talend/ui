@@ -1,17 +1,16 @@
-/**
- * @talend/icons main entry point
- * Exports react components and icon info utilities
- */
+import extractFiles, { extractInfo } from './extract.js';
 
-// Re-export from the existing CommonJS modules
-export * as react from './index.js';
-export * as info from './info.js';
+export const svgs = extractFiles('./svg');
+export const icons = extractFiles('./icon');
+export const filters = extractFiles('./filters');
 
-// Also provide a default export for backward compatibility
-import * as indexJs from './index.js';
-import * as infoJs from './info.js';
+export const info = extractInfo('./svg');
+export const infoFromFigma = extractInfo('./icon');
 
 export default {
-	react: indexJs,
-	info: infoJs,
+	svgs,
+	icons,
+	filters,
+	info,
+	infoFromFigma,
 };
