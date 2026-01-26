@@ -164,7 +164,6 @@ export function createPreviewConfig(
 		loaders: [cmfLoader, mswLoader].filter(Boolean),
 		decorators: [
 			(Story: StoryFn, context: StoryContext) => {
-				debugger;
 				i18n.changeLanguage(context.globals && context.globals.locale);
 				return React.createElement(
 					React.Suspense,
@@ -182,7 +181,7 @@ export function createPreviewConfig(
 				return [
 					React.createElement(IconsProvider, {
 						key: 'icons-provider-decorator',
-						bundles: ['all.svg', 'XS.svg', 'S.svg', 'M.svg', 'L.svg'],
+						// bundles: ['all.svg', 'XS.svg', 'S.svg', 'M.svg', 'L.svg'],
 					}),
 					React.createElement(ToggleBootstrap, {
 						disabled: context.globals.bootstrapTheme === 'false',

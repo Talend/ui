@@ -2,7 +2,7 @@ import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
 import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
-import cmfModule from './cmfModule';
+import cmfModule, { settings } from './cmfModule';
 import {
 	createPreviewConfig,
 	initI18n,
@@ -16,15 +16,16 @@ const preview = createPreviewConfig(
 			namespaces: [...tuiContainersNamespaces, ...tuiComponentsNamespaces, ...dsNamespaces],
 			remoteLocalesMap: {
 				'tui-containers':
-					'https://unpkg.com/@talend/locales-tui-containers/locales/{{lng}}/{{ns}}.json',
+					'https://statics.cloud.talend.com/@talend/locales-tui-containers/9.1.3/locales/{{lng}}/{{ns}}.json',
 				'tui-components':
-					'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
+					'https://statics.cloud.talend.com/@talend/locales-tui-components/16.0.1/locales/{{lng}}/{{ns}}.json',
 				'design-system':
-					'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
+					'https://statics.cloud.talend.com/@talend/locales-design-system/7.15.1/locales/{{lng}}/{{ns}}.json',
 			},
 		},
 		cmf: {
 			modules: [cmfModule],
+			settings: settings,
 		},
 	},
 	initI18n,

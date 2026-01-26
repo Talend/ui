@@ -8,13 +8,16 @@
   "exports": {
     ".": {
       "import": "./lib-esm/index.js",
-      "require": "./lib/index.js"
+      "require": "./lib/index.js",
+      "types": "./cmf.d.ts"
     },
     "./lib/*": {
       "import": "./lib-esm/*",
-      "require": "./lib/*"
+      "require": "./lib/*",
+      "types": "./cmf.d.ts"
     }
   },
+  "types": "./cmf.d.ts",
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",

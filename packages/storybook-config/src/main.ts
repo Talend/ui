@@ -5,6 +5,8 @@ import * as path from 'path';
 
 import { fixWindowsPaths } from './utils.js';
 
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 /**
  * Options for configuring the main Storybook configuration
  */
@@ -88,7 +90,7 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 			name: '@storybook/react-vite',
 			options: {
 				builder: {
-					// viteConfigPath: path.join(cwd, 'vite.config.mjs'),
+					viteConfigPath: path.join(__dirname, 'vite.config.mjs'),
 				},
 			},
 		},
@@ -105,7 +107,7 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 		},
 		// stories: getStoriesFolders(cwd),
 		staticDirs: [
-			// path.join(__dirname, '../public/msw'),
+			path.join(__dirname, '../public/msw'),
 			// require
 			// 	.resolve('@talend/icons')
 			// 	.replace('index.js', '')

@@ -1,4 +1,5 @@
 import React from 'react';
+import cmf from '@talend/react-cmf';
 
 /**
  * CMF configuration options
@@ -36,15 +37,6 @@ let cmfBootstrapCache: { store: any; App: any } | undefined;
  * ```
  */
 export function configureCmfModules(modules: any, settings?: any) {
-	// Import CMF dynamically to avoid requiring it if not used
-	// This allows the package to work without CMF as a dependency
-	let cmf: any;
-	try {
-		cmf = require('@talend/react-cmf');
-	} catch (e) {
-		throw new Error('@talend/react-cmf must be installed to use CMF configuration');
-	}
-
 	return {
 		loader: async () => {
 			// cmf is a singleton. There are tons of consequences running a bootstrap and saga run multiple times

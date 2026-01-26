@@ -30,6 +30,7 @@
     "build:watch": "tsc --watch",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
+    "update:msw": "npx msw init public/msw --save",
     "prepublishOnly": "yarn build"
   },
   "files": [
@@ -69,5 +70,10 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

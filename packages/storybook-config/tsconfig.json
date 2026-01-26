@@ -2,6 +2,7 @@
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
   "compilerOptions": {
     "types": ["node"],
+    "jsx": "react-jsx",
     "outDir": "dist",
     "noEmit": false,
     "module": "Node16",

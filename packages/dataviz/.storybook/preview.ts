@@ -18,9 +18,9 @@ const preview: Preview = {
 		namespaces: [...tuiNamespaces, ...dsNamespaces],
 		remoteLocalesMap: {
 			'tui-components':
-				'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
+				'https://unpkg.com/@talend/locales-tui-components/16.0.1/locales/{{lng}}/{{ns}}.json',
 			'design-system':
-				'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
+				'https://unpkg.com/@talend/locales-design-system/7.15.1/locales/{{lng}}/{{ns}}.json',
 		},
 	},
 };
