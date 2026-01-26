@@ -18749,13 +18749,6 @@ store2@^2.14.2:
   resolved "https://registry.npmjs.org/store2/-/store2-2.14.4.tgz"
   integrity sha512-srTItn1GOvyvOycgxjAnPA63FZNwy0PTyUBFMHRM+hVFltAeoh0LmNBz9SZqUS9mMqGk8rfyWyXn3GH5ReJ8Zw==
 
-storybook-docs-toc@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.npmjs.org/storybook-docs-toc/-/storybook-docs-toc-1.7.0.tgz"
-  integrity sha512-FoCYErtsy9QiKoOyDWzW8tuVsRKo5SZOqHMVCFT1CDkWOoJqSm2IMsM8HAVKK4pIDq3qVm6PhOPjZr68U630uw==
-  dependencies:
-    tocbot "^4.12.0"
-
 storybook@^10.1.11:
   version "10.1.11"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-10.1.11.tgz#cdd75835eebad45edc93129f9468a32eb6c1f4bd"
@@ -19612,7 +19605,7 @@ to-vfile@^7.0.0:
     is-buffer "^2.0.0"
     vfile "^5.1.0"
 
-tocbot@^4.12.0, tocbot@^4.20.1:
+tocbot@^4.20.1:
   version "4.36.4"
   resolved "https://registry.npmjs.org/tocbot/-/tocbot-4.36.4.tgz"
   integrity sha512-ffznkKnZ1NdghwR1y8hN6W7kjn4FwcXq32Z1mn35gA7jd8dt2cTVAwL3d0BXXZGPu0Hd0evverUvcYAb/7vn0g==

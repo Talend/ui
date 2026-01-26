@@ -4,6 +4,7 @@ const STORIES = [
 	{
 		titlePrefix: 'Design System',
 		directory: `../../design-system/src`,
+		files: `**/*.stories.@(tsx)`,
 	},
 	`../../components/src/**/*.stories.@(jsx|tsx)`,
 	`../../forms/@(src|stories)/**/*.stories.@(jsx|tsx)`,

@@ -249,6 +249,7 @@ export function getPreviewHead(customContent: string = ''): string {
 	// add this because of badly built https://unpkg.com/hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.min.js
 	window.process = window.process || { env: { NODE_ENV: 'production' } };
 </script>
+<meta name="@talend/icons" content="7.14.0" />
 
 ${customContent}
 `;
