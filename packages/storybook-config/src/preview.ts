@@ -97,6 +97,9 @@ export function createPreviewConfig(options: PreviewConfigOptions): Preview {
 		},
 	});
 
+	if (!options.i18n) {
+		options.i18n = {};
+	}
 	// Initialize i18next
 	const i18n = initI18n(options.i18n);
 

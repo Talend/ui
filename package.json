@@ -38,6 +38,7 @@
     "start-stepper": "yarn workspace  @talend/react-stepper run start",
     "start-forms": "yarn workspace  @talend/react-forms run start",
     "start-theme": "yarn workspace @talend/bootstrap-theme run start",
+    "start-icons": "yarn workspace @talend/icons run start-storybook",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
     "prepare": "husky install"
   },
