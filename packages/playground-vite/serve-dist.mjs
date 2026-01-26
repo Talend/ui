@@ -1,7 +1,12 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const backend = require('./mockBackend/server');
+/* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const options = process.argv.slice(2);
 const useGzip = options.includes('--gzip');
@@ -43,12 +48,6 @@ function serveStatic(req, res, filePath) {
 }
 
 const server = http.createServer((req, res) => {
-	// Handle API routes through backend
-	if (req.url.startsWith('/api/')) {
-		backend(req, res);
-		return;
-	}
-
 	// Serve static files from dist
 	let filePath = path.join(__dirname, 'dist', req.url);
 

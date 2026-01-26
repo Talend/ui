@@ -6,11 +6,11 @@
   "type": "module",
   "main": "app/index.js",
   "scripts": {
-    "build": "cross-env BASENAME='/playground' talend-scripts build",
+    "build": "vite build && cmf-settings",
     "test": "echo nothing to test in playground",
     "test:demo:umd": "cross-env BASENAME='/playground/' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
     "start": "vite dev",
-    "start-dist": "talend-scripts build && node serve-dist",
+    "start-dist": "node serve-dist.mjs",
     "lint": "talend-scripts lint"
   },
   "repository": {
@@ -31,12 +31,9 @@
     "@talend/scripts-config-stylelint": "^4.3.0",
     "@talend/scripts-core": "^16.8.0",
     "@vitejs/plugin-react": "^4.7.0",
-    "body-parser": "1.20.3",
-    "compression": "^1.8.1",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
     "esbuild-plugin-react-virtualized": "^1.0.5",
-    "express": "^5.2.0",
     "i18next-http-backend": "^1.4.5",
     "mockjs": "^1.1.0",
     "sass": "^1.94.0",
