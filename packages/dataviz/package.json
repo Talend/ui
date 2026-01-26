@@ -15,7 +15,7 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "build-storybook": "talend-scripts build-storybook",
+    "build-storybook": "storybook build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint": "talend-scripts lint",
     "start": "storybook dev -p 6006",

@@ -17,7 +17,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
-    "build-storybook": "talend-scripts build-storybook",
+    "build-storybook": "storybook build",
     "build:lib": "talend-scripts build",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "talend-scripts test --watch",
