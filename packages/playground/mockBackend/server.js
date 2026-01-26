@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser');
 const kit = require('./kit');
 const jsonForward = require('./jsonForward');
 
