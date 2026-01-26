@@ -21,6 +21,7 @@ export default meta;
 
 export const Default = {
 	args: {
-		iconUrl: 'https://unpkg.com/@talend/icons@6.51.1/src/svg/products/logo-square.svg',
+		iconUrl:
+			'https://statics.cloud.talend.com/@talend/icons/6.51.1/src/svg/products/logo-square.svg',
 	},
 };
