@@ -27,7 +27,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build": "npm run build:svg-bundles && vite build && tsc --emitDeclarationOnly && npm run build:webfont",
+    "build:lib": "npm run build:svg-bundles && vite build && tsc --emitDeclarationOnly && npm run build:webfont",
     "build:svg-bundles": "node scripts/generate-svg-bundles.mjs",
     "build:watch": "vite build --watch",
     "build:webfont": "webpack --config webpack.webfont.cjs",
@@ -72,6 +72,7 @@
     "prettier": "^3.6.2",
     "react": "^18.3.1",
     "storybook": "^10.1.11",
+    "string-replace-loader": "^3.3.0",
     "svgo": "^3.3.2",
     "typescript": "^5.3.0",
     "vite": "^7.3.1",
