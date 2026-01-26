@@ -120,6 +120,7 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 
 	const finalConfig: StorybookConfig = {
 		...defaultMain,
+		stories: options.stories || defaultMain.stories,
 		features: _.merge(defaultMain.features, options.features),
 		// stories,
 		addons: [...(defaultMain.addons || []), ...(options.addons || [])],

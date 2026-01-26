@@ -2,24 +2,10 @@ import type { Preview } from '@storybook/react';
 import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
+import { createPreviewConfig } from '@talend/storybook-config/preview';
 
-const preview: Preview = {
+const preview: Preview = createPreviewConfig({
 	parameters: {
-		options: {
-			storySort: {
-				order: [
-					'Design Principles',
-					'Writing Principles',
-					'Navigation',
-					'Layout',
-					'Buttons',
-					'Messaging & Communication',
-					'Form',
-					'Data',
-					'Deprecated',
-				],
-			},
-		},
 		i18n: {
 			namespaces: [...tuiNamespaces, ...dsNamespaces],
 			remoteLocalesMap: {
@@ -30,6 +16,6 @@ const preview: Preview = {
 			},
 		},
 	},
-};
+});
 
 export default preview;

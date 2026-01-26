@@ -1,20 +1,3 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import { createMainConfig } from '@talend/storybook-config/main';
 
-const config: StorybookConfig = {
-	stories: ['../src/**/*.stories.tsx'],
-	addons: ['@storybook/addon-a11y'],
-	framework: {
-		name: '@storybook/react-vite',
-		options: {
-			builder: {
-				viteConfigPath: './.storybook/vite.config.ts',
-			},
-		},
-	},
-	typescript: {
-		reactDocgen: false,
-		check: false,
-	},
-};
-
-export default config;
+export default createMainConfig();

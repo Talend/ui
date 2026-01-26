@@ -30,6 +30,7 @@
     "test:cov": "cross-env TZ=UTC talend-yarn-workspace run test:cov",
     "test:demo": "talend-yarn-workspace run test:demo",
     "test:cron": "talend-yarn-workspace run test:cron",
+    "start-one": "yarn workspace @talend/ui-storybook-one run start",
     "start-components": "yarn workspace @talend/react-components run start",
     "start-containers": "yarn workspace  @talend/react-containers run start",
     "start-dataviz": "yarn workspace @talend/react-dataviz run start",

@@ -4,8 +4,9 @@ import { merge } from 'lodash';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
 import { initialize, mswLoader } from 'msw-storybook-addon';
-import type { I18nextOptions } from './i18n.js';
-import type { CMFOptions } from './cmf.js';
+import { initI18n, type I18nextOptions } from './i18n.js';
+import { configureCmfModules, type CMFOptions } from './cmf.js';
+import type { DecoratorFunction } from 'storybook/internal/csf';
 
 // i18n configuration
 export { initI18n } from './i18n.js';
@@ -35,22 +36,22 @@ export interface PreviewConfigOptions {
 	/**
 	 * Additional global types for toolbar controls
 	 */
-	globalTypes?: Record<string, any>;
+	globalTypes?: Preview['globalTypes'];
 
 	/**
 	 * Additional decorators
 	 */
-	decorators?: Array<any>;
+	decorators?: Preview['decorators'];
 
 	/**
 	 * Additional parameters
 	 */
-	parameters?: Record<string, any>;
+	parameters?: Preview['parameters'];
 
 	/**
 	 * Additional loaders
 	 */
-	loaders?: Array<any>;
+	loaders?: Preview['loaders'];
 }
 
 /**
@@ -87,11 +88,7 @@ function ToggleBootstrap({ disabled }: { disabled: boolean }) {
  * }, initI18n);
  * ```
  */
-export function createPreviewConfig(
-	options: PreviewConfigOptions,
-	initI18nFunc: (i18nOptions?: I18nextOptions) => any,
-	configureCmfFunc?: (modules: any, settings?: any) => { loader: any; decorator: any },
-): Preview {
+export function createPreviewConfig(options: PreviewConfigOptions): Preview {
 	// Initialize MSW
 	initialize({
 		onUnhandledRequest: 'bypass',
@@ -101,14 +98,14 @@ export function createPreviewConfig(
 	});
 
 	// Initialize i18next
-	const i18n = initI18nFunc(options.i18n);
+	const i18n = initI18n(options.i18n);
 
 	// Initialize CMF if configured
 	let cmfLoader;
 	let cmfDecorator;
-	if (options.cmf && configureCmfFunc) {
+	if (options.cmf) {
 		try {
-			const cmfPreview = configureCmfFunc(options.cmf.modules, options.cmf.settings);
+			const cmfPreview = configureCmfModules(options.cmf.modules, options.cmf.settings);
 			cmfLoader = cmfPreview.loader;
 			cmfDecorator = cmfPreview.decorator;
 		} catch (e) {
@@ -117,6 +114,7 @@ export function createPreviewConfig(
 	}
 
 	const defaultPreview: Preview = {
+		previewHead: getPreviewHead(),
 		globalTypes: {
 			bootstrapTheme: {
 				name: 'Bootstrap theme',
@@ -161,7 +159,9 @@ export function createPreviewConfig(
 				},
 			},
 		},
+		// @ts-expect-error
 		loaders: [cmfLoader, mswLoader].filter(Boolean),
+		// @ts-expect-error
 		decorators: [
 			(Story: StoryFn, context: StoryContext) => {
 				i18n.changeLanguage(context.globals && context.globals.locale);
