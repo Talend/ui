@@ -40,10 +40,11 @@
   "dependencies": {
     "@storybook/addon-a11y": "^10.1.11",
     "@storybook/addon-links": "^10.1.11",
-    "@storybook/jest": "^0.2.3",
     "@storybook/react": "^10.1.11",
-    "@vitejs/plugin-react": "^5.1.2",
     "@storybook/react-vite": "^10.1.11",
+    "@talend/design-system": "^11.9.0",
+    "@talend/react-cmf": "^11.1.0",
+    "@vitejs/plugin-react": "^5.1.2",
     "assert": "^2.1.0",
     "esbuild-plugin-react-virtualized": "^1.0.5",
     "i18next": "^23.16.8",

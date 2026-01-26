@@ -61,7 +61,6 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@talend/storybook-config": "^1.0.0",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
     "@talend/scripts-config-typescript": "^11.4.0",

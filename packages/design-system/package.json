@@ -16,8 +16,7 @@
     }
   },
   "scripts": {
-    "build:lib": "talend-scripts build",
-    "build:lib:esm": "talend-scripts build --esm",
+    "build:lib": "talend-scripts build && talend-scripts build --esm",
     "watch": "talend-scripts build --watch",
     "watch:esm": "talend-scripts build --watch --esm",
     "test": "talend-scripts test",
@@ -67,7 +66,6 @@
     "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-react-webpack": "^16.11.0",
     "@talend/scripts-config-typescript": "^11.4.0",
-    "@talend/storybook-config": "^1.0.0",
     "@talend/storybook-docs": "^2.8.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/classnames": "^2.3.4",
