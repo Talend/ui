@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import Action from '../Actions/Action';
 import Stepper from './Stepper.component';
 import {

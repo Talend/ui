@@ -3,7 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import { Form } from '@talend/design-system';
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StoryFn, StoryObj } from '@storybook/react';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import {
 	ButtonIcon,
 	ButtonIconFloating,

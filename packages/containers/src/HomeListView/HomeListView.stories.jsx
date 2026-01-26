@@ -1,5 +1,5 @@
 import { Drawer } from '@talend/react-components';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import Immutable from 'immutable';
 
 import HomeListView from '.';
@@ -7,17 +7,17 @@ import HomeListView from '.';
 const primary = {
 	label: 'Primary',
 	bsStyle: 'primary',
-	onClick: action(),
+	onClick: action('You clicked on primary action'),
 };
 
 const cancel = {
 	label: 'Cancel',
-	onClick: action(),
+	onClick: action('You clicked on cancel action'),
 };
 
 const connect = {
 	label: 'Connect',
-	onClick: action(),
+	onClick: action('You clicked on connect action'),
 };
 
 const panelActions = {
@@ -28,7 +28,7 @@ const panelActions = {
 const multi3 = {
 	label: 'multi3',
 	icon: 'talend-cog',
-	onClick: action(),
+	onClick: action('You clicked me'),
 };
 
 const multiSelectActions = {
@@ -36,12 +36,12 @@ const multiSelectActions = {
 		{
 			label: 'multi1',
 			icon: 'talend-cog',
-			onClick: action(),
+			onClick: action('You clicked me'),
 		},
 		{
 			label: 'multi2',
 			icon: 'talend-cog',
-			onClick: action(),
+			onClick: action('You clicked me'),
 		},
 	],
 	right: [
@@ -49,7 +49,7 @@ const multiSelectActions = {
 		{
 			label: 'multi4',
 			icon: 'talend-cog',
-			onClick: action(),
+			onClick: action('You clicked me'),
 		},
 	],
 };

@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import HorizontalBarChart, { HorizontalBarChartProps } from './index';
 import { ChartEntry } from '../barChart.types';
 import { getHorizontalBarChartTooltip, ValueType } from '../barChart.tooltip';

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import cloneDeep from 'lodash/cloneDeep';
 import set from 'lodash/set';
 import times from 'lodash/times';

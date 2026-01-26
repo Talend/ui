@@ -1,13 +1,13 @@
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 export default {
 	isTrueExpression: (context, first) => {
-		action()(context, first);
+		action('isTrueExpression')(context, first);
 		return !!first;
 	},
 	isFlagExpression: (config, flagId) => {
 		const flagStatus = config.context.store.getState().app.flags[flagId];
-		action()(config, flagId, flagStatus);
+		action('isFlagExpression')(config, flagId, flagStatus);
 		return flagStatus;
 	},
 	getItems: () => [
@@ -15,7 +15,7 @@ export default {
 		{ label: 'label2', actionCreator: 'item2:action' },
 	],
 	modelHasLabel: context => {
-		action()(context);
+		action('modelHasLabel')(context);
 		return !!context.payload.model.label;
 	},
 };

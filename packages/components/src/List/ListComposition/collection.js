@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import random from 'lodash/random';
 
 const fewTitleActions = [

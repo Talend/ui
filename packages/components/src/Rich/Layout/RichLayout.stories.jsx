@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import { Actions, Action } from '../../Actions';
 import ActionBar from '../../ActionBar';

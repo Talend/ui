@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Meta, Story } from '@storybook/react';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import RangeFilter, { RangeFilterProps } from './RangeFilter.component';
 import {
 	DateRangeHandler,

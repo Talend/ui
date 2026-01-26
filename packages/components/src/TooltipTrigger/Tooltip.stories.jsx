@@ -1,4 +1,4 @@
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import { ButtonSecondary } from '@talend/design-system';
 import tokens from '@talend/design-tokens';

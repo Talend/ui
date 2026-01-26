@@ -1,22 +1,22 @@
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import ActionBar from '.';
 
 const infos = [
 	{
 		label: 'Preparations',
 		icon: 'talend-dataprep',
-		onClick: action(),
+		onClick: action('Preparations clicked'),
 		bsStyle: 'primary',
 	},
 	{
 		label: 'Datasets',
 		icon: 'talend-datasets',
-		onClick: action(),
+		onClick: action('Datasets clicked'),
 	},
 	{
 		label: 'Favorites',
 		icon: 'talend-star',
-		onClick: action(),
+		onClick: action('Favorites clicked'),
 	},
 	{
 		displayMode: 'dropdown',
@@ -25,11 +25,11 @@ const infos = [
 		items: [
 			{
 				label: 'document 1',
-				onClick: action(),
+				onClick: action('document 1 click'),
 			},
 			{
 				label: 'document 2',
-				onClick: action(),
+				onClick: action('document 2 click'),
 			},
 		],
 	},

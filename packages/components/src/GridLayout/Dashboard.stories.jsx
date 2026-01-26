@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Fragment } from 'react';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';

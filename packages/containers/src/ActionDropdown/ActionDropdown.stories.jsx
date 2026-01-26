@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import Immutable from 'immutable';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import ActionDropdown from '.';
 
 export default {
 	title: 'AboutDropdown',
 	args: {
-		onSelect: action(),
+		onSelect: action('selectAction'),
 	},
 };
 

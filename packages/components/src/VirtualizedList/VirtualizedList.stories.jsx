@@ -4,7 +4,7 @@ import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 // eslint-disable-line import/no-extraneous-dependencies
 import { SortIndicator } from 'react-virtualized';
 
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import VirtualizedList from '.';
 

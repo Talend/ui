@@ -1,18 +1,18 @@
-import { fn as stAction } from 'storybook/test';
+import { action as stAction } from 'storybook/actions';
 
 import Action from '.';
 
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-cog',
-	onClick: stAction(),
+	onClick: stAction('You clicked me'),
 	payload: {
 		type: 'MY SUPER REDUX ACTION',
 	},
 };
 
 const eAction = {
-	onClick: stAction(),
+	onClick: stAction('You clicked me'),
 	payload: {
 		type: 'MY SUPER REDUX ACTION',
 	},

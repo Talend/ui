@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import TreeView from './TreeView.component';
 

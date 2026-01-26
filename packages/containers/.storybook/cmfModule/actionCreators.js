@@ -1,4 +1,4 @@
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 export default {
 	'http:get:photos1': () =>
@@ -16,9 +16,9 @@ export default {
 	'item1:action': (_, data) => ({ type: 'CHOOSE_ITEM1', ...data }),
 	'item2:action': () => ({ type: 'CHOOSE_ITEM2' }),
 	'list:view': (_, data) => ({ type: 'OBJECT_VIEW', ...data }),
-	'breadcrumb:folder:openA': action(),
-	'breadcrumb:folder:openB': action(),
-	'breadcrumb:folder:openC': action(),
+	'breadcrumb:folder:openA': action('breadcrumb:folder:openA'),
+	'breadcrumb:folder:openB': action('breadcrumb:folder:openB'),
+	'breadcrumb:folder:openC': action('breadcrumb:folder:openC'),
 	'confirm-dialog:validate': (_, data) => ({ type: 'CONFIRM_DIALOG', ...data }),
 	'confirm-dialog:cancel': (_, data) => ({ type: 'HIDE_DIALOG', ...data }),
 	'tabbar:select': (_, data) => ({ type: 'SELECT_TAB', payload: { ...data } }),

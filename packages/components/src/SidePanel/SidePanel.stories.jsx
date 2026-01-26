@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import { Component } from 'react';
 
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import assetsApi from '@talend/assets-api';
 import tokens from '@talend/design-tokens';

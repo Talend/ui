@@ -1,6 +1,6 @@
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import { Story } from '@storybook/react';
 
 import { ButtonIcon, ButtonPrimary, ButtonSecondary, ButtonTertiary, Dropdown } from '../../';

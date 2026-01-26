@@ -1,5 +1,5 @@
 import { StoryFn } from '@storybook/react';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import { ButtonPrimary, Tooltip } from '../../';
 

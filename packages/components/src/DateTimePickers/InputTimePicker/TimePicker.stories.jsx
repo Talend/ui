@@ -1,4 +1,4 @@
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import TimePicker from '../pickers/TimePicker';
 import InputTimePicker from './InputTimePicker.component';

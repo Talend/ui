@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import { Story } from '@storybook/react';
 
 import { Form, InlineEditing, StackVertical } from '../../';

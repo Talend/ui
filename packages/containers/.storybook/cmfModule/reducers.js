@@ -1,4 +1,4 @@
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 const TOGGLE_FLAG_TYPE = 'TOGGLE_FLAG_TYPE';
 const actionLogger = action();

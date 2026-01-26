@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import {
 	ButtonPrimary,

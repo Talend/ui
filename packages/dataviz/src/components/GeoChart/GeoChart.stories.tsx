@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Story } from '@storybook/react';
-import { fn as action } from 'storybook/test';
+import { action } from 'storybook/actions';
 import GeoChart, { GeoChartProps } from './GeoChart.component';
 import { getGeoChartConfig } from './GeoChart.utils';
 
