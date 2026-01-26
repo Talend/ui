@@ -29,11 +29,8 @@
     "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-stylelint": "^4.3.0",
     "body-parser": "1.20.3",
-    "compression": "^1.8.1",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
-    "express": "^5.2.0",
-    "i18next-http-backend": "^1.4.5",
     "webpack": "^5.102.1"
   },
   "dependencies": {

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const url = require('url');
 const http = require('https');
 const forms = require('./mock/kit');
@@ -91,7 +92,8 @@ function suggestionBig() {
 				cacheable: true,
 				items: JSON.parse(body).map(item => ({ id: item.id.toString(), label: item.title })),
 			};
-			res.json(cache.photos);
+			res.writeHead(200, { 'Content-Type': 'application/json' });
+			res.end(JSON.stringify(cache.photos));
 		}
 		function onResponse(resp) {
 			console.log(`Got response: ${resp.statusCode}`);
@@ -121,14 +123,17 @@ function updateProperties({ type }) {
 
 function giveMeFive() {
 	return res => {
-		res.status(500).json({
-			timestamp: 1548781374412,
-			status: 500,
-			error: 'Internal Server Error',
-			exception: 'javax.ws.rs.ClientErrorException',
-			message: 'An internal server error occurs',
-			path: '/proxy/v1/action/execute/dataset',
-		});
+		res.writeHead(500, { 'Content-Type': 'application/json' });
+		res.end(
+			JSON.stringify({
+				timestamp: 1548781374412,
+				status: 500,
+				error: 'Internal Server Error',
+				exception: 'javax.ws.rs.ClientErrorException',
+				message: 'An internal server error occurs',
+				path: '/proxy/v1/action/execute/dataset',
+			}),
+		);
 	};
 }
 
@@ -162,19 +167,24 @@ function trigger(req) {
 	return TRIGGERS[info.type][info.action](info.args);
 }
 
-module.exports = function addRoutes(app) {
-	app.get('/api/v1/forms/:formId', (req, res) => {
-		res.json(forms[req.params.formId]);
-	});
-	app.post('/api/v1/forms', (req, res) => {
-		res.json({ body: req.body });
-	});
-	app.post('/api/v1/application/action', (req, res) => {
+module.exports = function addRoutes(req, res) {
+	if (req.url.startsWith('/api/v1/forms/')) {
+		const formId = req.url.split('/')[4];
+		res.writeHead(200, { 'Content-Type': 'application/json' });
+		res.end(JSON.stringify(forms[formId]));
+	} else if (req.url === '/api/v1/forms' && req.method === 'POST') {
+		res.writeHead(200, { 'Content-Type': 'application/json' });
+		res.end(JSON.stringify({ body: req.body }));
+	} else if (req.url === '/api/v1/application/action' && req.method === 'POST') {
 		const result = trigger(req);
 		if (typeof result === 'function') {
 			result(res);
 		} else {
-			res.json(result);
+			res.writeHead(200, { 'Content-Type': 'application/json' });
+			res.end(JSON.stringify(result));
 		}
-	});
+	} else {
+		res.writeHead(404);
+		res.end('Not Found');
+	}
 };

@@ -26,20 +26,28 @@ const wait = (delay = 1000) => new Promise(resolve => setTimeout(resolve, delay)
 /**
  * Directly bind /api/mock/* HTTP queries to local mockBackend/mock/* contents
  */
-module.exports = function addRoutes(app) {
+module.exports = function addRoutes(req, res) {
 	const API_MOCK_ENDPOINT = '/api/mock';
 
-	app.get(`${API_MOCK_ENDPOINT}/*`, (req, res) => {
-		const urlPath = req.url.split('?')[0];
-		const mockFilePath = `${__dirname}/mock/${urlPath.substr(API_MOCK_ENDPOINT.length)}.json`;
+	if (!req.url.startsWith(API_MOCK_ENDPOINT)) {
+		res.writeHead(404);
+		res.end('Not Found');
+		return;
+	}
 
-		wait()
-			.then(() => readFile(mockFilePath))
-			.then(content => res.json(JSON.parse(content)))
-			.catch(error => {
-				// eslint-disable-next-line no-console
-				console.error(`Unable to load mock file "${mockFilePath}" due to :`, error);
-				res.status(400).send('Bad Request');
-			});
-	});
+	const urlPath = req.url.split('?')[0];
+	const mockFilePath = `${__dirname}/mock/${urlPath.substr(API_MOCK_ENDPOINT.length)}.json`;
+
+	wait()
+		.then(() => readFile(mockFilePath))
+		.then(content => {
+			res.writeHead(200, { 'Content-Type': 'application/json' });
+			res.end(JSON.stringify(JSON.parse(content)));
+		})
+		.catch(error => {
+			// eslint-disable-next-line no-console
+			console.error(`Unable to load mock file "${mockFilePath}" due to :`, error);
+			res.writeHead(400, { 'Content-Type': 'text/plain' });
+			res.end('Bad Request');
+		});
 };

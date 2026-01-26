@@ -1,17 +1,67 @@
-const compression = require('compression');
-const express = require('express');
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 const backend = require('./mockBackend/server');
 
 const options = process.argv.slice(2);
-const app = express();
+const useGzip = options.includes('--gzip');
 
-if (options.includes('--gzip')) {
-	app.use(compression());
+// Simple static file server
+function serveStatic(req, res, filePath) {
+	fs.readFile(filePath, (err, data) => {
+		if (err) {
+			res.writeHead(404, { 'Content-Type': 'text/plain' });
+			res.end('Not Found');
+			return;
+		}
+
+		const ext = path.extname(filePath);
+		const contentTypes = {
+			'.html': 'text/html',
+			'.js': 'application/javascript',
+			'.css': 'text/css',
+			'.json': 'application/json',
+			'.png': 'image/png',
+			'.jpg': 'image/jpeg',
+			'.gif': 'image/gif',
+			'.svg': 'image/svg+xml',
+		};
+
+		const contentType = contentTypes[ext] || 'application/octet-stream';
+		const headers = {
+			'Content-Type': contentType,
+			'Content-Length': data.length,
+		};
+
+		if (useGzip) {
+			headers['Content-Encoding'] = 'gzip';
+		}
+
+		res.writeHead(200, headers);
+		res.end(data);
+	});
 }
 
-app.use(express.static('dist'));
-backend(app);
+const server = http.createServer((req, res) => {
+	// Handle API routes through backend
+	if (req.url.startsWith('/api/')) {
+		backend(req, res);
+		return;
+	}
 
-app.listen(3000, () => {
+	// Serve static files from dist
+	let filePath = path.join(__dirname, 'dist', req.url);
+
+	// Handle directory requests (serve index.html)
+	fs.stat(filePath, (err, stats) => {
+		if (!err && stats.isDirectory()) {
+			filePath = path.join(filePath, 'index.html');
+		}
+
+		serveStatic(req, res, filePath);
+	});
+});
+
+server.listen(3000, () => {
 	console.log('ready http://localhost:3000');
 });
