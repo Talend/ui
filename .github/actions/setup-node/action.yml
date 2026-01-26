@@ -1,6 +1,11 @@
 name: 'Setup nodejs'
 description: 'Setup nodejs'
 author: 'Talend'
+inputs:
+  NPM_TOKEN:
+    description: 'Token used for GitHub Packages auth (defaults to GITHUB_TOKEN)'
+    required: true
+
 runs:
   using: 'composite'
   steps:
@@ -8,15 +13,9 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version-file: '.tool-versions'
+        # set up auth to read in from env.NODE_AUTH_TOKEN.
+        registry-url: 'https://npm.pkg.github.com'
         scope: '@talend'
-
-    - name: Configure npm for GitHub Packages
-      shell: bash
-      run: |
-          cat <<'EOF' > ~/.npmrc
-          @talend:registry=https://npm.pkg.github.com
-          //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
-          EOF
 
     - name: Install yarn
       shell: bash

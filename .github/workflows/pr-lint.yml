@@ -33,6 +33,8 @@ jobs:
 
       - name: Install
         run: yarn install --frozen-lockfile --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: eslint + stylelint
         continue-on-error: true
