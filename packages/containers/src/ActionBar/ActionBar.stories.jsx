@@ -5,18 +5,18 @@ const infos = [
 	{
 		label: 'Preparations',
 		icon: 'talend-dataprep',
-		onClick: action('Preparations clicked'),
+		onClick: action(),
 		bsStyle: 'primary',
 	},
 	{
 		label: 'Datasets',
 		icon: 'talend-datasets',
-		onClick: action('Datasets clicked'),
+		onClick: action(),
 	},
 	{
 		label: 'Favorites',
 		icon: 'talend-star',
-		onClick: action('Favorites clicked'),
+		onClick: action(),
 	},
 	{
 		displayMode: 'dropdown',
@@ -25,11 +25,11 @@ const infos = [
 		items: [
 			{
 				label: 'document 1',
-				onClick: action('document 1 click'),
+				onClick: action(),
 			},
 			{
 				label: 'document 2',
-				onClick: action('document 2 click'),
+				onClick: action(),
 			},
 		],
 	},

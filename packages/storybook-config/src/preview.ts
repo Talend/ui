@@ -4,8 +4,19 @@ import { merge } from 'lodash';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
 import { initialize, mswLoader } from 'msw-storybook-addon';
-import type { I18nextOptions } from './i18n';
-import type { CMFOptions } from './cmf';
+import type { I18nextOptions } from './i18n.js';
+import type { CMFOptions } from './cmf.js';
+
+// i18n configuration
+export { initI18n } from './i18n.js';
+export type { I18nextOptions } from './i18n.js';
+
+// CMF configuration
+export { configureCmfModules } from './cmf.js';
+export type { CMFOptions } from './cmf.js';
+
+// Utilities
+export { fixWindowsPath, fixWindowsPaths } from './utils.js';
 
 /**
  * Options for configuring the preview
@@ -81,7 +92,6 @@ export function createPreviewConfig(
 	initI18nFunc: (i18nOptions?: I18nextOptions) => any,
 	configureCmfFunc?: (modules: any, settings?: any) => { loader: any; decorator: any },
 ): Preview {
-	debugger;
 	// Initialize MSW
 	initialize({
 		onUnhandledRequest: 'bypass',

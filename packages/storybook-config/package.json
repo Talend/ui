@@ -3,12 +3,23 @@
   "description": "Storybook configuration utilities for Talend UI",
   "version": "1.0.0",
   "license": "Apache-2.0",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/storybook-config#readme",
   "bugs": {
     "url": "https://github.com/Talend/ui/issues"
+  },
+  "exports": {
+    "./main": {
+      "import": "./dist/main.js",
+      "types": "./dist/main.d.ts"
+    },
+    "./preview": {
+      "import": "./dist/preview.js",
+      "types": "./dist/preview.d.ts"
+    }
   },
   "repository": {
     "type": "git",

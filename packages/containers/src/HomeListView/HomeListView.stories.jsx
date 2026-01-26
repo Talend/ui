@@ -7,17 +7,17 @@ import HomeListView from '.';
 const primary = {
 	label: 'Primary',
 	bsStyle: 'primary',
-	onClick: action('You clicked on primary action'),
+	onClick: action(),
 };
 
 const cancel = {
 	label: 'Cancel',
-	onClick: action('You clicked on cancel action'),
+	onClick: action(),
 };
 
 const connect = {
 	label: 'Connect',
-	onClick: action('You clicked on connect action'),
+	onClick: action(),
 };
 
 const panelActions = {
@@ -28,7 +28,7 @@ const panelActions = {
 const multi3 = {
 	label: 'multi3',
 	icon: 'talend-cog',
-	onClick: action('You clicked me'),
+	onClick: action(),
 };
 
 const multiSelectActions = {
@@ -36,12 +36,12 @@ const multiSelectActions = {
 		{
 			label: 'multi1',
 			icon: 'talend-cog',
-			onClick: action('You clicked me'),
+			onClick: action(),
 		},
 		{
 			label: 'multi2',
 			icon: 'talend-cog',
-			onClick: action('You clicked me'),
+			onClick: action(),
 		},
 	],
 	right: [
@@ -49,7 +49,7 @@ const multiSelectActions = {
 		{
 			label: 'multi4',
 			icon: 'talend-cog',
-			onClick: action('You clicked me'),
+			onClick: action(),
 		},
 	],
 };

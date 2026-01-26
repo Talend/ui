@@ -1,3 +1,3 @@
-import { createMainConfig } from '@talend/storybook-config';
+import { createMainConfig } from '@talend/storybook-config/main';
 
-export default createMainConfig();
+export default createMainConfig({});

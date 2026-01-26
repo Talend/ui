@@ -1,9 +1,9 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import * as fs from 'fs';
-import { merge } from 'lodash';
+import _ from 'lodash';
 import * as path from 'path';
 
-import { fixWindowsPaths } from './utils';
+import { fixWindowsPaths } from './utils.js';
 
 /**
  * Options for configuring the main Storybook configuration
@@ -83,12 +83,12 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 	const cwd = options.cwd || process.cwd();
 
 	const defaultMain: StorybookConfig = {
-		stories: ['src/**/*.stories.tsx', 'src/**/*.stories.jsx'],
+		stories: ['../src/**/*.stories.tsx', '../src/**/*.stories.jsx'],
 		framework: {
 			name: '@storybook/react-vite',
 			options: {
 				builder: {
-					viteConfigPath: path.join(cwd, 'vite.config.mjs'),
+					// viteConfigPath: path.join(cwd, 'vite.config.mjs'),
 				},
 			},
 		},
@@ -118,11 +118,11 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 
 	const finalConfig: StorybookConfig = {
 		...defaultMain,
-		features: merge(defaultMain.features, options.features),
+		features: _.merge(defaultMain.features, options.features),
 		// stories,
 		addons: [...(defaultMain.addons || []), ...(options.addons || [])],
-		core: merge(defaultMain.core, options.core),
-		typescript: merge(defaultMain.typescript, options.typescript),
+		core: _.merge(defaultMain.core, options.core),
+		typescript: _.merge(defaultMain.typescript, options.typescript),
 		staticDirs: fixWindowsPaths([
 			// @ts-expect-error
 			...(defaultMain.staticDirs || []),

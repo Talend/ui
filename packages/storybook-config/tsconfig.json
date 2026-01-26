@@ -3,7 +3,10 @@
   "compilerOptions": {
     "types": ["node"],
     "outDir": "dist",
-    "noEmit": false
+    "noEmit": false,
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "verbatimModuleSyntax": true
   },
   "include": ["src/**/*"]
 }

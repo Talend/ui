@@ -3,7 +3,11 @@ import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-conta
 import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 import cmfModule from './cmfModule';
-import { createPreviewConfig, initI18n, configureCmfModules } from '@talend/storybook-config';
+import {
+	createPreviewConfig,
+	initI18n,
+	configureCmfModules,
+} from '@talend/storybook-config/preview';
 
 const preview = createPreviewConfig(
 	{
