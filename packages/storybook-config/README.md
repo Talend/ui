@@ -182,25 +182,6 @@ export default createPreviewConfig({
 }, initI18n);
 ```
 
-#### With Custom Webpack Configuration
-
-```typescript
-// .storybook/main.ts
-import { createMainConfig } from '@talend/storybook-config';
-
-export default createMainConfig({
-	webpackFinal: async config => {
-		// Add custom webpack configuration
-		config.resolve = config.resolve || {};
-		config.resolve.alias = {
-			...config.resolve.alias,
-			'@': path.resolve(__dirname, '../src'),
-		};
-		return config;
-	},
-});
-```
-
 ## API Reference
 
 ### `createMainConfig(options?: MainConfigOptions)`
@@ -212,7 +193,6 @@ Creates the main Storybook configuration with Talend's defaults.
 - `stories?: string[]` - Custom stories glob patterns
 - `addons?: string[]` - Additional addons
 - `staticDirs?: string[]` - Static directories to serve
-- `webpackFinal?: Function` - Custom webpack configuration
 - `features?: object` - Additional features configuration
 - `core?: object` - Core configuration options
 - `typescript?: object` - TypeScript configuration options

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Preview } from '@storybook/react';
+import type { Preview, StoryContext, StoryFn } from '@storybook/react';
 import { merge } from 'lodash';
 import { I18nextProvider } from 'react-i18next';
 import { IconsProvider, ThemeProvider } from '@talend/design-system';
@@ -81,6 +81,7 @@ export function createPreviewConfig(
 	initI18nFunc: (i18nOptions?: I18nextOptions) => any,
 	configureCmfFunc?: (modules: any, settings?: any) => { loader: any; decorator: any },
 ): Preview {
+	debugger;
 	// Initialize MSW
 	initialize({
 		onUnhandledRequest: 'bypass',
@@ -152,7 +153,8 @@ export function createPreviewConfig(
 		},
 		loaders: [cmfLoader, mswLoader].filter(Boolean),
 		decorators: [
-			(Story, context) => {
+			(Story: StoryFn, context: StoryContext) => {
+				debugger;
 				i18n.changeLanguage(context.globals && context.globals.locale);
 				return React.createElement(
 					React.Suspense,
@@ -164,7 +166,7 @@ export function createPreviewConfig(
 					),
 				);
 			},
-			(Story, context) => {
+			(Story: StoryFn, context: StoryContext) => {
 				const storyElement = React.createElement(Story as any, { ...context, key: 'story' });
 
 				return [

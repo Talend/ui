@@ -41,14 +41,6 @@ export default createMainConfig({
 	stories: ['../src/**/*.stories.@(js|jsx|tsx|mdx)', '../custom-stories/**/*.stories.tsx'],
 	addons: ['@storybook/addon-themes', '@storybook/addon-viewport'],
 	staticDirs: ['../public'],
-	webpackFinal: async config => {
-		config.resolve = config.resolve || {};
-		config.resolve.alias = {
-			...config.resolve.alias,
-			'@': path.resolve(__dirname, '../src'),
-		};
-		return config;
-	},
 });
 ```
 

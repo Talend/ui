@@ -9,13 +9,17 @@ import InputDatePicker from './InputDatePicker.component';
 export default {
 	title: 'Components/Form - Controls/DatePicker/Date',
 	parameters: { chromatic: { disableSnapshot: true } },
+	args: {
+		onChange: action(),
+		onBlur: action(),
+	},
 	decorators: [
 		story => (
 			<form
 				onSubmit={event => {
 					event.persist();
 					event.preventDefault();
-					action('submit')(event);
+					// action('submit')(event);
 				}}
 			>
 				{story()}
@@ -24,34 +28,22 @@ export default {
 	],
 };
 
-export const Input = () => (
-	<InputDatePicker
-		id="my-date-picker"
-		name="date"
-		onChange={action('onChange')}
-		onBlur={action('onBlur')}
-	/>
-);
+export const Input = props => <InputDatePicker id="my-date-picker" name="date" {...props} />;
 
-export const Picker = () => (
+export const Picker = ({ onChange }) => (
 	<div style={{ border: '1px solid black', width: '20rem' }}>
-		<DateManager id="simple" onChange={action('onChange', { depth: 3 })}>
+		<DateManager id="simple" onChange={onChange}>
 			<DatePicker />
 		</DateManager>
 	</div>
 );
 
-export const UTC = () => (
-	<InputDatePicker id="my-date-picker" name="date" onChange={action('onChange')} useUTC />
+export const UTC = ({ onChange }) => (
+	<InputDatePicker id="my-date-picker" name="date" onChange={onChange} useUTC />
 );
 
-export const Timezone = () => (
-	<InputDatePicker
-		id="my-date-picker"
-		name="date"
-		onChange={action('onChange')}
-		timezone="Europe/Berlin"
-	/>
+export const Timezone = ({ onChange }) => (
+	<InputDatePicker id="my-date-picker" name="date" onChange={onChange} timezone="Europe/Berlin" />
 );
 
 export const CustomFormat = () => (

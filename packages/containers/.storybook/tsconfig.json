@@ -4,6 +4,13 @@
     "jsx": "react-jsx",
     "types": ["@storybook/react", "@testing-library/jest-dom"]
   },
-  "include": ["**/*.ts", "**/*.tsx", "../src/**/*.stories.ts", "../src/**/*.stories.tsx"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "../src/**/*.stories.ts",
+    "../src/**/*.stories.tsx",
+    "main.mjs",
+    "preview.jsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -25,11 +25,6 @@ export interface MainConfigOptions {
 	staticDirs?: string[];
 
 	/**
-	 * Custom webpack configuration function
-	 */
-	webpackFinal?: StorybookConfig['webpackFinal'];
-
-	/**
 	 * Additional features configuration
 	 */
 	features?: Record<string, any>;
@@ -88,11 +83,12 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 	const cwd = options.cwd || process.cwd();
 
 	const defaultMain: StorybookConfig = {
+		stories: ['src/**/*.stories.tsx', 'src/**/*.stories.jsx'],
 		framework: {
-			name: '@storybook/react-webpack5',
+			name: '@storybook/react-vite',
 			options: {
 				builder: {
-					fsCache: true,
+					viteConfigPath: path.join(cwd, 'vite.config.mjs'),
 				},
 			},
 		},
@@ -105,29 +101,30 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 			disableTelemetry: true,
 		},
 		features: {
-			buildStoriesJson: true,
+			// buildStoriesJson: true,
 		},
-		stories: getStoriesFolders(cwd),
+		// stories: getStoriesFolders(cwd),
 		staticDirs: [
-			path.join(__dirname, '../public/msw'),
-			require
-				.resolve('@talend/icons')
-				.replace('index.js', '')
-				.replace('/dist/TalendIcons.js', '/dist/svg-bundle'),
+			// path.join(__dirname, '../public/msw'),
+			// require
+			// 	.resolve('@talend/icons')
+			// 	.replace('index.js', '')
+			// 	.replace('/dist/TalendIcons.js', '/dist/svg-bundle'),
 		],
 		addons: ['@storybook/addon-a11y', '@storybook/addon-links'],
 	};
 
-	const stories = fixWindowsPaths([...(options.stories || defaultMain.stories || [])] as any);
+	// const stories = fixWindowsPaths([...(options.stories || defaultMain.stories || [])] as any);
 
 	const finalConfig: StorybookConfig = {
 		...defaultMain,
 		features: merge(defaultMain.features, options.features),
-		stories,
+		// stories,
 		addons: [...(defaultMain.addons || []), ...(options.addons || [])],
 		core: merge(defaultMain.core, options.core),
 		typescript: merge(defaultMain.typescript, options.typescript),
 		staticDirs: fixWindowsPaths([
+			// @ts-expect-error
 			...(defaultMain.staticDirs || []),
 			...(options.staticDirs || []),
 		] as any),
