@@ -1,45 +1,45 @@
 {
   "name": "@talend/icons",
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
-  "main": "dist/TalendIcons.js",
-  "types": "dist/typeUtils.d.ts",
-  "style": "build/octicons.css",
-  "module": "./lib-esm/index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/talendicons.css",
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./dist/typeUtils": {
+      "types": "./dist/typeUtils.d.ts",
+      "import": "./dist/typeUtils.js",
+      "require": "./dist/typeUtils.cjs"
+    },
     "./src/*": {
       "import": "./src/*",
       "require": "./src/*"
-    },
-    "./dist/typeUtils": {
-      "import": "./lib-esm/typeUtils.js",
-      "require": "./dist/typeUtils.js"
-    },
-    ".": {
-      "import": "./dist/TalendIcons.js",
-      "require": "./dist/TalendIcons.js"
     }
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env production",
-    "build-ts": "tsc",
-    "build-react": "node scripts/react.js",
-    "build-webfont": "webpack",
-    "build:lib": "npm run ts:types && npm run build-ts && npm run build-react && npm run build-webfont && npm run build-umd",
-    "build:lib:esm": "talend-scripts build --esm",
-    "ts:types": "node scripts/typescript.js",
+    "build": "npm run build:svg-bundles && vite build && tsc --emitDeclarationOnly && npm run build:webfont",
+    "build:svg-bundles": "node scripts/generate-svg-bundles.mjs",
+    "build:watch": "vite build --watch",
+    "build:webfont": "webpack --config webpack.webfont.cjs",
+    "build:types": "tsc --emitDeclarationOnly",
+    "type-check": "tsc --noEmit",
     "test": "echo no test",
     "test:cov": "echo no test",
-    "start-storybook": "storybook dev -p 6010",
-    "build-storybook": "storybook build",
     "start": "storybook dev -p 6010",
+    "build-storybook": "storybook build",
     "lint": "echo nothing to lint",
-    "svgo": "svgo -rf src/svg --config svgo-icons.config.mjs && svgo -rf src/filters --config svgo-filters.config.mjs"
+    "svgo": "svgo -rf src/svg --config svgo-icons.config.mjs && svgo -rf src/filters --config svgo-filters.config.mjs",
+    "prepublishOnly": "npm run build"
   },
   "files": [
-    "index.js",
     "dist",
-    "lib-esm",
     "src"
   ],
   "keywords": [
@@ -57,30 +57,20 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
-    "@babel/preset-react": "^7.28.5",
     "@svgr/webpack": "^8.1.0",
     "@talend/storybook-config": "^1.0.0",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
-    "@talend/scripts-core": "^16.8.0",
-    "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-typescript": "^11.4.0",
-    "@talend/babel-plugin-assets-api": "^1.7.0",
-    "@talend/babel-plugin-import-from-index": "^1.11.0",
     "@talend/design-tokens": "^3.5.0",
-    "babel-loader": "^9.2.1",
     "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^7.1.2",
-    "mini-css-extract-plugin": "^2.9.4",
     "mkdirp": "^1.0.4",
     "prettier": "^3.6.2",
     "react": "^18.3.1",
-    "react-use": "^17.6.0",
-    "string-replace-loader": "^2.3.0",
-    "style-loader": "^1.3.0",
+    "storybook": "^10.1.11",
     "svgo": "^3.3.2",
+    "typescript": "^5.3.0",
+    "vite": "^7.3.1",
     "webfonts-loader": "^8.1.1",
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"

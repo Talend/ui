@@ -6,7 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
 	mode: 'production',
 	context: path.resolve(__dirname),
-	entry: './index.js',
+	// Build only the font assets entry to force webfonts-loader to emit CSS/fonts
+	entry: './src/talendicons.font.js',
 	output: {
 		filename: 'bundle.js',
 		path: path.join(__dirname, 'dist'),
