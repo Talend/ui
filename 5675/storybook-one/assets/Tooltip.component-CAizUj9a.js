@@ -1,0 +1,1 @@
+import{j as t,c as i}from"./iframe-Fv_vVGZN.js";const a={"dataviz-tooltip":"_dataviz-tooltip_lvq7s_1","dataviz-tooltip__title":"_dataviz-tooltip__title_lvq7s_9"};function e({children:o,title:s}){return t.jsxs("div",{className:i(a["dataviz-tooltip"]),children:[t.jsx("div",{className:i(a["dataviz-tooltip__title"]),children:s}),o]})}export{e as T};
