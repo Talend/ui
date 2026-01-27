@@ -31,17 +31,23 @@ async function loadCommonJSModule(modulePath) {
 }
 
 // Read SVGs from a directory
-function extractSVGsFromDir(dirPath) {
+function extractSVGsFromDir(dirPath, options = {}) {
 	const svgs = {};
 	try {
 		const files = fs.readdirSync(dirPath, { withFileTypes: true });
 		for (const file of files) {
 			if (file.isFile() && file.name.endsWith('.svg')) {
-				const iconName = file.name.replace('.svg', '');
+				let iconName = file.name.replace('.svg', '');
+				// If a size suffix is provided, append it with a colon
+				if (options.sizeSuffix) {
+					iconName = `${iconName}:${options.sizeSuffix}`;
+				} else if (!options.skipPrefix) {
+					// For SVG icons, add the talend- prefix
+					iconName = `talend-${iconName}`;
+				}
 				const content = fs.readFileSync(path.join(dirPath, file.name), 'utf-8');
-				// Extract just the SVG content (remove outer svg tag if present)
-				const match = content.match(/<svg[^>]*>(.*)<\/svg>/s);
-				svgs[iconName] = match ? match[1] : content;
+				// Keep the entire SVG element including the svg tag
+				svgs[iconName] = content;
 			}
 		}
 	} catch (error) {
@@ -72,7 +78,7 @@ function generateInfoJs(svgBundles, iconBundles) {
 	// Map SVG bundles
 	for (const [bundle, icons] of Object.entries(svgBundles)) {
 		for (const iconName of Object.keys(icons)) {
-			infoMap[`talend-${iconName}`] = bundle;
+			infoMap[iconName] = bundle;
 		}
 	}
 
@@ -142,24 +148,20 @@ async function generateSVGBundles() {
 				const icons = extractSVGsFromDir(path.join(svgDir, cat.name));
 				if (Object.keys(icons).length > 0) {
 					svgBundles[cat.name] = icons;
-					createSVGSprite(
-						Object.fromEntries(
-							Object.entries(icons).map(([name, content]) => [`talend-${name}`, content]),
-						),
-						`${cat.name}.svg`,
-					);
+					createSVGSprite(icons, `${cat.name}.svg`);
 				}
 			}
 		}
 	}
 
-	// Create bundles from icon/ directory (organized by subdirectories)
+	// Create bundles from icon/ directory (organized by subdirectories like L/, M/, S/, XS/)
 	const iconBundles = {};
 	if (fs.existsSync(iconDir)) {
 		const categories = fs.readdirSync(iconDir, { withFileTypes: true });
 		for (const cat of categories) {
 			if (cat.isDirectory()) {
-				const icons = extractSVGsFromDir(path.join(iconDir, cat.name));
+				// For icon directory, the folder name is the SIZE (L, M, S, XS)
+				const icons = extractSVGsFromDir(path.join(iconDir, cat.name), { sizeSuffix: cat.name });
 				if (Object.keys(icons).length > 0) {
 					iconBundles[cat.name] = icons;
 					createSVGSprite(icons, `${cat.name}.svg`);
