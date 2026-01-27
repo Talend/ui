@@ -28,8 +28,7 @@
   "scripts": {
     "build:lib": "tsc",
     "build:watch": "tsc --watch",
-    "lint": "eslint src --ext .ts,.tsx",
-    "test": "jest",
+    "lint": "talend-scripts lint",
     "update:msw": "npx msw init public/msw --save",
     "prepublishOnly": "yarn build"
   },
@@ -62,6 +61,7 @@
     "react": "^18.0.0"
   },
   "devDependencies": {
+    "@talend/scripts-cmf": "^1.6.0",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
     "@types/lodash": "^4.14.200",

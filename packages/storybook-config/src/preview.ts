@@ -6,7 +6,23 @@ import { IconsProvider, ThemeProvider } from '@talend/design-system';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 import { initI18n, type I18nextOptions } from './i18n.js';
 import { configureCmfModules, type CMFOptions } from './cmf.js';
-import type { DecoratorFunction } from 'storybook/internal/csf';
+
+/**
+ * Get the preview head HTML content
+ *
+ * @param customContent - Optional custom HTML content to append
+ * @returns HTML string to be used in preview-head.html
+ */
+function getPreviewHead(customContent: string = ''): string {
+	return `<script type="text/javascript">
+	// add this because of badly built https://unpkg.com/hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.min.js
+	window.process = window.process || { env: { NODE_ENV: 'production' } };
+</script>
+<meta name="@talend/icons" content="7.14.0" />
+
+${customContent}
+`;
+}
 
 // i18n configuration
 export { initI18n } from './i18n.js';
@@ -231,26 +247,10 @@ export function createPreviewConfig(options: PreviewConfigOptions): Preview {
 	];
 
 	return {
+		...defaultPreview,
 		globalTypes: merge(defaultPreview.globalTypes, options.globalTypes),
 		decorators,
 		parameters: merge(defaultPreview.parameters, options.parameters),
 		loaders,
 	};
-}
-
-/**
- * Get the preview head HTML content
- *
- * @param customContent - Optional custom HTML content to append
- * @returns HTML string to be used in preview-head.html
- */
-export function getPreviewHead(customContent: string = ''): string {
-	return `<script type="text/javascript">
-	// add this because of badly built https://unpkg.com/hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.min.js
-	window.process = window.process || { env: { NODE_ENV: 'production' } };
-</script>
-<meta name="@talend/icons" content="7.14.0" />
-
-${customContent}
-`;
 }
