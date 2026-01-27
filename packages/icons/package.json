@@ -27,7 +27,8 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib": "npm run build:svg-bundles && vite build && tsc --emitDeclarationOnly && npm run build:webfont",
+    "build:lib": "npm run build:type-utils && npm run build:svg-bundles && vite build && tsc --emitDeclarationOnly && npm run build:webfont",
+    "build:type-utils": "node scripts/generate-type-utils.mjs",
     "build:svg-bundles": "node scripts/generate-svg-bundles.mjs",
     "build:watch": "vite build --watch",
     "build:webfont": "webpack --config webpack.webfont.cjs",
