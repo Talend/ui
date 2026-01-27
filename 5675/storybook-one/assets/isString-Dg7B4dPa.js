@@ -1,1 +1,0 @@
-import{d as o,b as u}from"./isSymbol-CNKm9IEk.js";import{a as b}from"./toString-Dlr6kBM4.js";var i,e;function q(){if(e)return i;e=1;var t=o(),s=b(),a=u(),n="[object String]";function g(r){return typeof r=="string"||!s(r)&&a(r)&&t(r)==n}return i=g,i}export{q as r};
