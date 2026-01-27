@@ -46,9 +46,14 @@ const meta = {
 	title: 'Components/Layout/Modals/AboutModal',
 	component: AboutDialog,
 	tags: ['autodocs'],
-	parameters: {
-		layout: 'fullscreen',
-	},
+	decorators: [
+		story => (
+			<div>
+				<h1>AboutDialog</h1>
+				{story()}
+			</div>
+		),
+	],
 };
 
 export default meta;
