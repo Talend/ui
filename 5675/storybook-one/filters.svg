@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">
-<symbol id="talend-colormapping"><svg>
+<svg>
 	<defs>
 		<filter id="colormapping" color-interpolation-filters="sRGB">
 			<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale"/>
@@ -7,8 +7,8 @@
 		</filter>
 	</defs>
 </svg>
-</symbol>
-<symbol id="talend-grayscale"><svg>
+
+<svg>
 	<defs>
 		<filter id="talend-grayscale" color-interpolation-filters="sRGB">
 			<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale"/>
@@ -22,5 +22,5 @@
 		</filter>
 	</defs>
 </svg>
-</symbol>
+
 </svg>
