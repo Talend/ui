@@ -1,11 +1,44 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { StorybookConfig } from '@storybook/react-vite';
+import { fileURLToPath } from 'url';
 import * as fs from 'fs';
 import _ from 'lodash';
 import * as path from 'path';
 
 import { fixWindowsPaths } from './utils.js';
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const mydirname = path.dirname(fileURLToPath(import.meta.url));
+
+async function getIconPath(): Promise<string> {
+	try {
+		const iconPath = fileURLToPath(await import.meta.resolve('@talend/icons'));
+		return iconPath.replace('/dist/index.js', '');
+	} catch (e) {
+		return '';
+	}
+}
+
+async function getPreviewHead(): Promise<string> {
+	let iconVersion = '7.14.0';
+	try {
+		const iconsPath = await getIconPath();
+		const iconsPackageJson = JSON.parse(
+			fs.readFileSync(path.join(iconsPath, 'package.json'), { encoding: 'utf-8' }),
+		);
+		if (iconsPackageJson.version) {
+			iconVersion = iconsPackageJson.version;
+		}
+	} catch (e) {
+		// do nothing, use default version
+	}
+
+	return `<script type="text/javascript" id="talend-icons-loader">
+	// add this because of badly built https://unpkg.com/hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.min.js
+	window.process = window.process || { env: { NODE_ENV: 'production' } };
+</script>
+<meta name="@talend/icons" content="${iconVersion}" />`;
+}
 
 /**
  * Options for configuring the main Storybook configuration
@@ -45,24 +78,11 @@ export interface MainConfigOptions {
 	 * Current working directory (defaults to process.cwd())
 	 */
 	cwd?: string;
-}
 
-/**
- * Get folder glob pattern for stories
- */
-function getFolderGlob(cwd: string, folderName: string): string {
-	return path.join(cwd, folderName, '**/*.@(stories.js|stories.jsx|stories.tsx|mdx)');
-}
-
-/**
- * Get default stories folders
- */
-function getStoriesFolders(cwd: string): string[] {
-	const storiesFolders = [getFolderGlob(cwd, 'src')];
-	if (fs.existsSync(path.join(cwd, 'stories'))) {
-		storiesFolders.push(getFolderGlob(cwd, 'stories'));
-	}
-	return storiesFolders;
+	/**
+	 * Custom preview head HTML content
+	 */
+	previewHead?: (head?: string) => string;
 }
 
 /**
@@ -81,16 +101,18 @@ function getStoriesFolders(cwd: string): string[] {
  * });
  * ```
  */
-export function createMainConfig(options: MainConfigOptions = {}): StorybookConfig {
-	const cwd = options.cwd || process.cwd();
-
+export async function createMainConfig(options: MainConfigOptions = {}): Promise<StorybookConfig> {
+	let iconsPath = await getIconPath();
+	if (iconsPath) {
+		iconsPath = `${iconsPath}/dist/svg-bundle`;
+	}
 	const defaultMain: StorybookConfig = {
 		stories: ['../src/**/*.stories.tsx', '../src/**/*.stories.jsx'],
 		framework: {
 			name: '@storybook/react-vite',
 			options: {
 				builder: {
-					viteConfigPath: path.join(__dirname, 'vite.config.mjs'),
+					viteConfigPath: path.join(mydirname, 'vite.config.mjs'),
 				},
 			},
 		},
@@ -105,14 +127,7 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 		features: {
 			// buildStoriesJson: true,
 		},
-		// stories: getStoriesFolders(cwd),
-		staticDirs: [
-			path.join(__dirname, '../public/msw'),
-			// require
-			// 	.resolve('@talend/icons')
-			// 	.replace('index.js', '')
-			// 	.replace('/dist/TalendIcons.js', '/dist/svg-bundle'),
-		],
+		staticDirs: [path.join(mydirname, '../public/msw'), iconsPath],
 		addons: ['@storybook/addon-a11y', '@storybook/addon-links'],
 	};
 
@@ -120,6 +135,8 @@ export function createMainConfig(options: MainConfigOptions = {}): StorybookConf
 
 	const finalConfig: StorybookConfig = {
 		...defaultMain,
+		previewHead: async (head?: string) =>
+			`${options?.previewHead?.(head) || head}\n${await getPreviewHead()}`,
 		stories: options.stories || defaultMain.stories,
 		features: _.merge(defaultMain.features, options.features),
 		// stories,
