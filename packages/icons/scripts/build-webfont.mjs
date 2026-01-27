@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
+import { execSync, execFileSync } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -93,7 +93,7 @@ function cleanupTmp() {
 }
 
 function runFantasticon() {
-	execSync(`npx fantasticon --config ${path.basename(tmpConfigPath)}`, {
+	execFileSync('npx', ['fantasticon', '--config', path.basename(tmpConfigPath)], {
 		cwd: rootDir,
 		stdio: 'inherit',
 	});
