@@ -5,6 +5,7 @@ const backend = require('./mockBackend/server');
 
 const options = process.argv.slice(2);
 const useGzip = options.includes('--gzip');
+const ROOT = path.join(__dirname, 'dist');
 
 // Simple static file server
 function serveStatic(req, res, filePath) {
@@ -50,7 +51,26 @@ const server = http.createServer((req, res) => {
 	}
 
 	// Serve static files from dist
-	let filePath = path.join(__dirname, 'dist', req.url);
+	let urlPath;
+	try {
+		// Use WHATWG URL to reliably extract the pathname (ignores query, hash)
+		const parsedUrl = new URL(req.url, 'http://localhost');
+		urlPath = parsedUrl.pathname || '/';
+	} catch (e) {
+		res.writeHead(400, { 'Content-Type': 'text/plain' });
+		res.end('Bad Request');
+		return;
+	}
+
+	// Prevent directory traversal: resolve against ROOT and verify containment
+	let filePath = path.resolve(ROOT, '.' + urlPath);
+
+	// Ensure the resolved path is within the ROOT directory
+	if (filePath !== ROOT && !filePath.startsWith(ROOT + path.sep)) {
+		res.writeHead(403, { 'Content-Type': 'text/plain' });
+		res.end('Forbidden');
+		return;
+	}
 
 	// Handle directory requests (serve index.html)
 	fs.stat(filePath, (err, stats) => {
