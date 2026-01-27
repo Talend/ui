@@ -71,7 +71,7 @@ const Field = forwardRef(
 		};
 
 		return (
-			<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
+			<StackVertical gap="XXS" align="stretch" justify="start" noShrink>
 				{LabelComponent}
 				{children}
 				{link && <Link {...link} />}

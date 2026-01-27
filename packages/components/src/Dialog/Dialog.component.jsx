@@ -6,6 +6,7 @@ import Action from '../Actions/Action';
 import ActionBar from '../ActionBar';
 import Inject from '../Inject';
 import Progress from '../Progress';
+import './Dialog.css';
 
 /**
  * @param {object} props react props

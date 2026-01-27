@@ -1,0 +1,5 @@
+.modal-flex .modal-body {
+	display: flex;
+	flex-direction: column;
+	padding-top: var(--talend-bootstrap-padding-larger);
+}
