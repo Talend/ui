@@ -1,17 +1,17 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.29.7",
+    "@changesets/cli": "^2.29.8",
     "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-prettier": "^12.5.0",
     "@talend/scripts-core": "^16.8.0",
     "@talend/scripts-yarn-workspace": "^2.2.0",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.6",
-    "eslint": "^8.57.1",
+    "eslint": "^9.39.2",
     "husky": "^8.0.3",
     "i18next-scanner": "^4.6.0",
     "lint-staged": "^15.5.2",
-    "prettier": "^3.6.2",
+    "prettier": "^3.8.1",
     "rimraf": "^5.0.10",
     "typescript": "^5.9.3"
   },
@@ -47,7 +47,9 @@
     "**/fast-glob/glob-parent": "^5.1.2",
     "**/trim": "^1.0.1",
     "**/x-default-browser": "^0.5.2",
-    "**/reactour/prop-types": "^15.7.2"
+    "**/reactour/prop-types": "^15.7.2",
+    "**/qs": ">=6.14.1",
+    "**/tar": ">=7.5.4"
   },
   "repository": {
     "type": "git",
@@ -66,7 +68,7 @@
     ]
   },
   "dependencies": {
-    "@types/react": "^18.3.26",
+    "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7"
   }
 }

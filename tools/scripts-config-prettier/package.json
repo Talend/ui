@@ -23,7 +23,7 @@
     "@trivago/prettier-plugin-sort-imports": "^4.3.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.5",
+    "@babel/eslint-parser": "^7.28.6",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
     "eslint": "^8.57.1"

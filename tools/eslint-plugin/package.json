@@ -22,7 +22,7 @@
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.5",
+    "@babel/eslint-parser": "^7.28.6",
     "@talend/scripts-config-babel": "^13.8.0",
     "eslint": "^8.57.1",
     "jest": "^29.7.0"
