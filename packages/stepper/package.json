@@ -46,7 +46,7 @@
     "@talend/react-components": "^17.6.0",
     "classnames": "^2.5.1",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   },
   "devDependencies": {
     "@talend/icons": "^7.14.0",
@@ -62,7 +62,7 @@
     "i18next": "^23.16.8",
     "immutable": "^3.8.2",
     "jsdom": "^26.1.0",
-    "prettier": "^3.6.2",
+    "prettier": "^3.8.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
