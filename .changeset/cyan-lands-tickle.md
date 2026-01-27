@@ -1,5 +1,7 @@
 ---
 '@talend/react-faceted-search': minor
+'@talend/react-components': minor
+'@talend/react-forms': minor
 ---
 
-feat: migrate to jsx file
+feat: migrate forgotten file to jsx file
