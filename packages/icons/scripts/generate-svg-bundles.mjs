@@ -57,13 +57,13 @@ function extractSVGsFromDir(dirPath, options = {}) {
 }
 
 // Create SVG sprite file from icons
-function createSVGSprite(icons, filename) {
+function createSVGSprite(icons, filename, options = { raw: false, prepend: '' }) {
 	const symbols = Object.entries(icons)
-		.map(([name, content]) => `<symbol id="${name}">${content}</symbol>`)
+		.map(([name, content]) => (options.raw ? content : `<symbol id="${name}">${content}</symbol>`))
 		.join('\n');
 
 	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">
-${symbols}
+${options.prepend || ''}${symbols}
 </svg>`;
 
 	fs.writeFileSync(path.join(svgBundleDir, filename), svgContent);
@@ -172,8 +172,10 @@ async function generateSVGBundles() {
 
 	// Create filters bundle
 	const filters = extractSVGsFromDir(filterDir);
+	let filterContent = '';
 	if (Object.keys(filters).length > 0) {
-		createSVGSprite(filters, 'filters.svg');
+		createSVGSprite(filters, 'filters.svg', { raw: true });
+		filterContent = Object.values(filters).join('\n');
 	}
 
 	// Create all-in-one bundle
@@ -181,13 +183,9 @@ async function generateSVGBundles() {
 	for (const bundle of Object.values(svgBundles)) {
 		Object.assign(allIcons, bundle);
 	}
-	for (const bundle of Object.values(iconBundles)) {
-		Object.assign(allIcons, bundle);
-	}
-	Object.assign(allIcons, filters);
 
 	if (Object.keys(allIcons).length > 0) {
-		createSVGSprite(allIcons, 'all.svg');
+		createSVGSprite(allIcons, 'all.svg', { prepend: filterContent });
 	}
 
 	// Generate metadata
