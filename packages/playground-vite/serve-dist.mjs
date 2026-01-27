@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const distRoot = path.join(__dirname, 'dist');
 
 const options = process.argv.slice(2);
 const useGzip = options.includes('--gzip');
@@ -49,7 +50,24 @@ function serveStatic(req, res, filePath) {
 
 const server = http.createServer((req, res) => {
 	// Serve static files from dist
-	let filePath = path.join(__dirname, 'dist', req.url);
+	let pathname;
+	try {
+		const urlObj = new URL(req.url, 'http://localhost');
+		pathname = urlObj.pathname || '/';
+	} catch {
+		res.writeHead(400, { 'Content-Type': 'text/plain' });
+		res.end('Bad Request');
+		return;
+	}
+
+	// Normalize the path and ensure it stays within distRoot
+	let filePath = path.resolve(distRoot, '.' + pathname);
+
+	if (!filePath.startsWith(distRoot + path.sep) && filePath !== distRoot) {
+		res.writeHead(403, { 'Content-Type': 'text/plain' });
+		res.end('Forbidden');
+		return;
+	}
 
 	// Handle directory requests (serve index.html)
 	fs.stat(filePath, (err, stats) => {
