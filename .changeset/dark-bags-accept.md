@@ -1,5 +1,5 @@
 ---
-'@talend/icons': patch
+'@talend/icons': major
 ---
 
-fix: update target and module type
+chore: refactor build to output more ESM.
