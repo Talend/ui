@@ -46,7 +46,7 @@ module.exports = function addRoutes(req, res) {
 		})
 		.catch(error => {
 			// eslint-disable-next-line no-console
-			console.error(`Unable to load mock file "${mockFilePath}" due to :`, error);
+			console.error('Unable to load mock file "%s" due to :', mockFilePath, error);
 			res.writeHead(400, { 'Content-Type': 'text/plain' });
 			res.end('Bad Request');
 		});
