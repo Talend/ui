@@ -1,4 +1,0 @@
-import{j as o}from"./index-Dhfj2E11.js";import{u as e}from"./index-CUTDlb2J.js";import{M as i}from"./blocks-BcunU6x7.js";import{t as m}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-Bhwq12Bt.js";import{D as a}from"./Dialog-LydJGOC8.js";import"./index-D8nj1xkF.js";import"./useCopyToClipboard-Bw1cKZv-.js";import{T as c}from"./TokenValue-B1eXorJX.js";import"./index-Dvniis13.js";import"./preload-helper-PPVm8Dsz.js";import"./index-DrFu-skq.js";import"./dictionary-CKKJDmnH.js";function n(t){const r={h1:"h1",...e(),...t.components};return o.jsxs(o.Fragment,{children:[o.jsx(i,{title:"Design Tokens/Shadows"}),`
-`,o.jsx(r.h1,{id:"shadows",children:"Shadows"}),`
-`,o.jsx(a,{}),`
-`,o.jsx(c,{style:s=>({backgroundColor:m.coralColorAccentBackground,boxShadow:s.value}),type:"shadow",sortOnValue:!0})]})}function g(t={}){const{wrapper:r}={...e(),...t.components};return r?o.jsx(r,{...t,children:o.jsx(n,{...t})}):n(t)}export{g as default};
