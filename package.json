@@ -47,7 +47,9 @@
     "**/fast-glob/glob-parent": "^5.1.2",
     "**/trim": "^1.0.1",
     "**/x-default-browser": "^0.5.2",
-    "**/reactour/prop-types": "^15.7.2"
+    "**/reactour/prop-types": "^15.7.2",
+    "**/qs": ">=6.14.1",
+    "**/tar": ">=7.5.4"
   },
   "repository": {
     "type": "git",
