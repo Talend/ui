@@ -1,1 +1,0 @@
-import{g}from"./iframe-jBdAviOK.js";import{j as c}from"./_setToString-Ce43QsYj.js";var r,e;function v(){if(e)return r;e=1;var a="\\ud800-\\udfff",s="\\u0300-\\u036f",o="\\ufe20-\\ufe2f",u="\\u20d0-\\u20ff",f=s+o+u,n="\\ufe0e\\ufe0f",t="\\u200d",i=RegExp("["+t+a+f+n+"]");function d(m){return i.test(m)}return r=d,r}var R=c();const b=g(R);export{b as l,v as r};
