@@ -1,9 +1,0 @@
-import{e as p,f as l,j as o,v as d,P as r,D as g}from"./iframe-C9TmLmMX.js";import"./preload-helper-PPVm8Dsz.js";function u(t,e){let n={};return e.actionId&&(n=l.action.getActionInfo({registry:l.registry.getRegistry(),store:{getState:()=>t}},e.actionId)),n}function m(t,e,n){const i={...n,...t,...e};return delete i.actionId,i}function a(t){const e={...t};return e.onClick||(e.onClick=(n,i)=>{t.actionCreator?t.dispatchActionCreator(t.actionCreator,n,i):t.dispatch(t.payload)}),o.jsx(d,{...e})}a.displayName="Container(ActionIconToggle)";a.propTypes={actionCreator:r.string,dispatchActionCreator:r.func,dispatch:r.func,payload:r.object};const f=p({mapStateToProps:u,mergeProps:m,omitCMFProps:!0,withComponentRegistry:!0,withDispatch:!0,withDispatchActionCreator:!0,withComponentId:!0})(a),j={title:"ActionIconToggle"};function h(t){return{opened:t.app.flags["action:icon:creator:flag"]}}function s({opened:t}){return t?o.jsx(g,{children:o.jsxs("form",{children:[o.jsxs("div",{children:[o.jsx("input",{id:"my-input",type:"text",autoFocus:!0}),o.jsx("label",{htmlFor:"my-input",children:"Your name"})]}),o.jsx("button",{className:"btn btn-primary",onClick:e=>{e.stopPropagation()},children:"Submit"})]})}):null}s.propTypes={opened:r.bool};s.displayName="MyDrawer";const y=p({mapStateToProps:h})(s),c=()=>o.jsxs("div",{children:[o.jsxs("div",{style:{padding:"1.875rem"},children:[o.jsx("p",{children:"Click on the icon toggle below"}),o.jsx(f,{actionId:"action-icon-toggle:toggle"})]}),o.jsx(y,{})]});c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`() => <div>
-        <div style={{
-    padding: '1.875rem'
-  }}>
-            <p>Click on the icon toggle below</p>
-            <ActionIconToggle actionId="action-icon-toggle:toggle" />
-        </div>
-        <MyconnectedDrawer />
-    </div>`,...c.parameters?.docs?.source}}};const I=["Default"];export{c as Default,I as __namedExportsOrder,j as default};
