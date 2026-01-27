@@ -31,7 +31,7 @@
     "build:type-utils": "node scripts/generate-type-utils.mjs",
     "build:svg-bundles": "node scripts/generate-svg-bundles.mjs",
     "build:watch": "vite build --watch",
-    "build:webfont": "webpack --config webpack.webfont.cjs",
+    "build:webfont": "node scripts/build-webfont.mjs",
     "build:types": "tsc --emitDeclarationOnly",
     "type-check": "tsc --noEmit",
     "test": "echo no test",
@@ -61,24 +61,19 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
+    "@talend/design-tokens": "^3.5.0",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
     "@talend/scripts-config-typescript": "^11.4.0",
-    "@talend/design-tokens": "^3.5.0",
     "@types/node": "^20.11.19",
-    "copy-webpack-plugin": "^11.0.0",
+    "fantasticon": "^3.0.0",
     "mkdirp": "^1.0.4",
     "prettier": "^3.6.2",
     "react": "^18.3.1",
     "storybook": "^10.1.11",
-    "string-replace-loader": "^3.3.0",
     "svgo": "^3.3.2",
     "typescript": "^5.3.0",
-    "vite": "^7.3.1",
-    "webfonts-loader": "^8.1.1",
-    "webpack": "^5.102.1",
-    "webpack-cli": "^6.0.1"
+    "vite": "^7.3.1"
   },
   "publishConfig": {
     "access": "public"
