@@ -7,7 +7,7 @@ This directory contains example Storybook configuration files showing how to use
 ### .storybook/main.ts
 
 ```typescript
-import { createMainConfig } from '@talend/storybook-config';
+import { createMainConfig } from '@talend/scripts-config-storybook-lib';
 
 export default createMainConfig();
 ```
@@ -16,7 +16,7 @@ export default createMainConfig();
 
 ```typescript
 import '@talend/bootstrap-theme/dist/bootstrap.css';
-import { createPreviewConfig, initI18n } from '@talend/storybook-config';
+import { createPreviewConfig, initI18n } from '@talend/scripts-config-storybook-lib';
 
 export default createPreviewConfig({}, initI18n);
 ```
@@ -34,7 +34,7 @@ export default createPreviewConfig({}, initI18n);
 ### .storybook/main.ts
 
 ```typescript
-import { createMainConfig } from '@talend/storybook-config';
+import { createMainConfig } from '@talend/scripts-config-storybook-lib';
 import path from 'path';
 
 export default createMainConfig({
@@ -49,7 +49,7 @@ export default createMainConfig({
 ```typescript
 import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
-import { createPreviewConfig, initI18n } from '@talend/storybook-config';
+import { createPreviewConfig, initI18n } from '@talend/scripts-config-storybook-lib';
 
 export default createPreviewConfig({
 	i18n: {

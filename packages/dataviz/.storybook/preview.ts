@@ -3,7 +3,7 @@ import '@talend/bootstrap-theme/dist/bootstrap.css';
 
 import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
-import { createPreviewConfig } from '@talend/storybook-config/preview';
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 
 const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },

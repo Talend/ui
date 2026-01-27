@@ -73,7 +73,7 @@ function getStoriesFolders(cwd: string): string[] {
  *
  * @example
  * ```typescript
- * import { createMainConfig } from '@talend/storybook-config';
+ * import { createMainConfig } from '@talend/scripts-config-storybook-lib';
  *
  * export default createMainConfig({
  *   stories: ['./custom/**\/*.stories.tsx'],

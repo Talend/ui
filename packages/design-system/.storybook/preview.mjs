@@ -1,6 +1,6 @@
 import { namespaces as designSystemNamespaces } from '@talend/locales-design-system';
 
-import { createPreviewConfig } from '@talend/storybook-config/preview';
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 
 export default createPreviewConfig({
 	i18n: {

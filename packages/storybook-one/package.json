@@ -23,7 +23,7 @@
     "@talend/design-system": "^11.9.0",
     "@talend/design-tokens": "^3.5.0",
     "@talend/react-faceted-search": "^21.3.0",
-    "@talend/storybook-config": "^1.0.0",
+    "@talend/scripts-config-storybook-lib": "^5.8.0",
     "@talend/storybook-docs": "^2.8.0",
     "@talend/icons": "^7.14.0",
     "@talend/react-components": "^17.6.0",

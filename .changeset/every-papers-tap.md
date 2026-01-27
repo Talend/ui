@@ -22,12 +22,12 @@ in your package.json
 
 -  "@storybook/addon-actions": "^7.6.21",
 -  "@storybook/.*": "^7.6.21",
--  "@talend/scripts-config-storybook-lib": "^5.8.0",
 +  "@storybook/addon-a11y": "^10.1.11",
 +  "@storybook/addon-links": "^10.1.11",
 +  "@storybook/react": "^10.1.11",
 +  "@storybook/react-vite": "^10.1.11",
-+  "@talend/storybook-config": "^1.0.0",
+-  "@talend/scripts-config-storybook-lib": "^5.8.0",
++  "@talend/scripts-config-storybook-lib": "^6.0.0",
 +  "storybook": "^10.1.11"
 }
 ```
@@ -39,7 +39,7 @@ Then ensure you have update your `.storybook/main.js` and `.storybook/preview` f
 
 ```js
 // .storybook/main.mjs
-import { createMainConfig } from '@talend/storybook-config/main';
+import { createMainConfig } from '@talend/scripts-config-storybook-lib/main';
 
 export default createMainConfig({});
 ```
@@ -47,6 +47,7 @@ export default createMainConfig({});
 ```js
 // .storybook/preview.mjs
 import '@talend/bootstrap-theme/dist/bootstrap.css';
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/main';
 
 const preview = createPreviewConfig({
 	parameters: {},

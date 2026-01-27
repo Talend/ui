@@ -1,13 +1,13 @@
 {
-  "name": "@talend/storybook-config",
+  "name": "@talend/scripts-config-storybook-lib",
   "description": "Storybook configuration utilities for Talend UI",
-  "version": "1.0.0",
+  "version": "5.8.0",
   "license": "Apache-2.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Talend Frontend <frontend@talend.com>",
-  "homepage": "https://github.com/Talend/ui/tree/master/packages/storybook-config#readme",
+  "homepage": "https://github.com/Talend/ui/tree/master/tools/scripts-config-storybook-lib#readme",
   "bugs": {
     "url": "https://github.com/Talend/ui/issues"
   },

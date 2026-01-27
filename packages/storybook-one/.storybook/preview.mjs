@@ -1,4 +1,4 @@
-import { createPreviewConfig } from '@talend/storybook-config/preview';
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
 import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as designSystemNamespaces } from '@talend/locales-design-system/namespaces';

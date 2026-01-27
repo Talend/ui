@@ -1,6 +1,6 @@
 import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as facetedNamespaces } from '@talend/locales-tui-faceted-search/namespaces';
-import { createPreviewConfig } from '@talend/storybook-config/preview';
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 
 export default createPreviewConfig({
 	i18n: {

@@ -92,7 +92,7 @@ function ToggleBootstrap({ disabled }: { disabled: boolean }) {
  *
  * @example
  * ```typescript
- * import { createPreviewConfig, initI18n } from '@talend/storybook-config';
+ * import { createPreviewConfig, initI18n } from '@talend/scripts-config-storybook-lib';
  *
  * export default createPreviewConfig({
  *   i18n: {

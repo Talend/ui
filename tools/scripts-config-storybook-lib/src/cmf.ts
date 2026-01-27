@@ -28,7 +28,7 @@ let cmfBootstrapCache: { store: any; App: any } | undefined;
  *
  * @example
  * ```typescript
- * import { configureCmfModules } from '@talend/storybook-config';
+ * import { configureCmfModules } from '@talend/scripts-config-storybook-lib';
  *
  * const { loader, decorator } = configureCmfModules(
  *   [MyModule1, MyModule2],

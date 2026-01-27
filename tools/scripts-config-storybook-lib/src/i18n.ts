@@ -47,7 +47,7 @@ export interface I18nextOptions {
  *
  * @example
  * ```typescript
- * import { initI18n } from '@talend/storybook-config';
+ * import { initI18n } from '@talend/scripts-config-storybook-lib';
  *
  * const i18n = initI18n({
  *   namespaces: ['my-app'],
