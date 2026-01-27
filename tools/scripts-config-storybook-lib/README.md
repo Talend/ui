@@ -33,7 +33,6 @@ export default createMainConfig();
 #### Preview Configuration (`.storybook/preview.ts`)
 
 ```typescript
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 
 export default createPreviewConfig({});
@@ -58,7 +57,6 @@ export default createMainConfig({
 
 ```typescript
 // .storybook/preview.ts
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { createPreviewConfig, initI18n } from '@talend/scripts-config-storybook-lib/preview';
 
 export default createPreviewConfig({
@@ -94,7 +92,6 @@ export default createPreviewConfig({
 
 ```typescript
 // .storybook/preview.ts
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 
 export default createPreviewConfig({
@@ -111,7 +108,6 @@ export default createPreviewConfig({
 
 ```typescript
 // .storybook/preview.ts
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 import MyModule from '../src/cmf-module';
 
@@ -134,7 +130,6 @@ export default createPreviewConfig({
 
 ```typescript
 // .storybook/preview.tsx
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
 import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 import { MyCustomProvider } from '../src/providers';
@@ -257,7 +252,6 @@ export default createMainConfig({});
 
 ```js
 // .storybook/preview.mjs
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/main';
 
 const preview = createPreviewConfig({

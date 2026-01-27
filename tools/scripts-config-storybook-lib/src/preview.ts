@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
 import type { Preview, StoryContext, StoryFn } from '@storybook/react';
 import { merge } from 'lodash';

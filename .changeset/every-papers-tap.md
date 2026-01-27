@@ -46,7 +46,6 @@ export default createMainConfig({});
 
 ```js
 // .storybook/preview.mjs
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/main';
 
 const preview = createPreviewConfig({

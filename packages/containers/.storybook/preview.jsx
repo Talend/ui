@@ -1,4 +1,3 @@
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
 import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';

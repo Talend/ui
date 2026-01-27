@@ -15,7 +15,6 @@ export default createMainConfig();
 ### .storybook/preview.ts
 
 ```typescript
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { createPreviewConfig, initI18n } from '@talend/scripts-config-storybook-lib';
 
 export default createPreviewConfig({}, initI18n);
@@ -47,7 +46,6 @@ export default createMainConfig({
 ### .storybook/preview.ts
 
 ```typescript
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import React from 'react';
 import { createPreviewConfig, initI18n } from '@talend/scripts-config-storybook-lib';
 

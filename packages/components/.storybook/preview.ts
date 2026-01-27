@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react';
-import '@talend/bootstrap-theme/dist/bootstrap.css';
 import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
