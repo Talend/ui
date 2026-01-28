@@ -54,9 +54,9 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@storybook/addon-a11y": "^10.1.11",
-    "@storybook/addon-links": "^10.1.11",
-    "@storybook/react": "^10.1.11",
+    "@storybook/addon-a11y": "^10.2.1",
+    "@storybook/addon-links": "^10.2.1",
+    "@storybook/react": "^10.2.1",
     "@svgr/webpack": "^8.1.0",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
@@ -92,7 +92,7 @@
     "react-hook-form": "^7.71.1",
     "react-i18next": "^13.5.0",
     "react-router-dom": "~6.3.0",
-    "storybook": "^10.1.11"
+    "storybook": "^10.2.1"
   },
   "peerDependencies": {
     "@talend/icons": "^7.11.2",

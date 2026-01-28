@@ -50,9 +50,9 @@
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
-    "@storybook/react": "^10.1.11",
-    "@storybook/react-vite": "^10.1.11",
-    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/react": "^10.2.1",
+    "@storybook/react-vite": "^10.2.1",
+    "@storybook/addon-a11y": "^10.2.1",
     "@talend/design-system": "^11.9.0",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
@@ -75,7 +75,7 @@
     "@types/react": "^18.3.27",
     "@types/topojson-client": "^3.1.5",
     "@types/topojson-specification": "^1.0.5",
-    "storybook": "^10.1.11",
+    "storybook": "^10.2.1",
     "cross-env": "^7.0.3",
     "i18next": "^23.16.8",
     "react": "^18.3.1",

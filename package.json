@@ -5,7 +5,7 @@
     "@talend/scripts-config-prettier": "^12.5.0",
     "@talend/scripts-core": "^16.8.0",
     "@talend/scripts-yarn-workspace": "^2.2.0",
-    "baseline-browser-mapping": "^2.9.16",
+    "baseline-browser-mapping": "^2.9.19",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.6",
     "eslint": "^9.39.2",
@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "@types/react": "^18.3.27",
-    "@types/react-dom": "^18.3.7"
+    "@types/react-dom": "^18.3.7",
+    "tar": ">=7.5.4"
   }
 }
