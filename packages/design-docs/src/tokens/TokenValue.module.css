@@ -1,0 +1,23 @@
+/* stylelint-disable declaration-no-important */
+.btn {
+  display: flex;
+  font-size: 0.3125rem !important;
+  align-items: center;
+  gap: 4px;
+}
+.btn svg {
+  visibility: hidden;
+}
+.btn:hover {
+  color: hsl(204, 95%, 31%);
+  font-weight: bold;
+}
+.btn:hover svg {
+  visibility: visible;
+}
+
+.lang {
+  text-align: left;
+  padding-right: 4px;
+  display: none;
+}

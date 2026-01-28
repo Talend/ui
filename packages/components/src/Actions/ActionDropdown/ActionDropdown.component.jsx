@@ -349,4 +349,6 @@ ActionDropdown.propTypes = {
 };
 
 export { getMenuItem, InjectDropdownMenuItem };
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionDropdown);
+/** @type Function */
+const ActionDropdownWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(ActionDropdown);
+export default ActionDropdownWithTranslation;

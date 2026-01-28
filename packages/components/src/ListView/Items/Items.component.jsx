@@ -260,4 +260,6 @@ ItemsComponent.defaultProps = {
 	showToggleAll: true,
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ItemsComponent);
+/** @type Function */
+const ItemsComponentWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(ItemsComponent);
+export default ItemsComponentWithTranslation;

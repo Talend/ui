@@ -1,11 +1,8 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable no-console */
 import { Component, Fragment } from 'react';
 import { withTranslation } from 'react-i18next';
-
-import { action } from '@storybook/addon-actions';
-
 import tokens from '@talend/design-tokens';
-
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import GuidedTour from './GuidedTour.component';
 
@@ -92,7 +89,6 @@ class GuidedTourContainer extends Component {
 
 const TranslatedGuidedTourContainer = withTranslation(I18N_DOMAIN_COMPONENTS)(GuidedTourContainer);
 
-// @see https://github.com/elrumordelaluz/reactour#steps
 function getSteps({ hideControls, showControls, t }) {
 	return [
 		{
@@ -177,7 +173,7 @@ const getLayoutWithLoremIpsum = () => (
 			}}
 		>
 			<span>Lorem ipsum</span>
-			<button data-tour="my-second-step" onClick={action('Button clicked')}>
+			<button data-tour="my-second-step" onClick={() => console.log('Button clicked')}>
 				👤 User NAME
 			</button>
 		</header>
@@ -275,9 +271,10 @@ const getLayoutWithLoremIpsum = () => (
 	</div>
 );
 
-export default {
+const meta = {
 	title: 'Components/Messaging & Communication/GuidedTour',
-
+	component: GuidedTour,
+	tags: ['autodocs'],
 	decorators: [
 		story => (
 			<Fragment>
@@ -288,4 +285,8 @@ export default {
 	],
 };
 
-export const Default = () => <TranslatedGuidedTourContainer getSteps={getSteps} />;
+export default meta;
+
+export const Default = {
+	render: () => <TranslatedGuidedTourContainer getSteps={getSteps} />,
+};

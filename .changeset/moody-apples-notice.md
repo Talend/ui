@@ -7,7 +7,6 @@
 "@talend/react-forms": patch
 "@talend/storybook-docs": patch
 "@talend/ui-storybook-one": patch
-"@talend/scripts-config-storybook-lib": patch
 ---
 
 chore: update storybook

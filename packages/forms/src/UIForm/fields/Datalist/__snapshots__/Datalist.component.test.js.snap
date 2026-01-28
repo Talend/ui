@@ -27,7 +27,7 @@ exports[`Datalist component should render 1`] = `
           class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-caret"
         >
           <div
-            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+            class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
           >
             <span
               class="theme-hidden"

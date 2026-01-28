@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { IconGallery, IconItem } from '@storybook/blocks';
+import { IconGallery, IconItem } from '@storybook/addon-docs/blocks';
 
 import { Form, Icon, IconProps, IconsProvider, StackHorizontal } from '../../';
 

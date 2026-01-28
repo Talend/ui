@@ -1,5 +1,3 @@
-import { action } from '@storybook/addon-actions';
-
 import Dialog from './Dialog.component';
 
 const defaultProps = {
@@ -14,17 +12,17 @@ const actionProps = {
 	header: 'Hello world',
 	action: {
 		label: 'OK',
-		onClick: action('ok'),
+		onClick: () => console.log('ok'),
 	},
 };
 const subtitle = {
 	show: true,
 	header: 'Hello world',
 	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	onHide: action('onHide'),
+	onHide: () => console.log('onHide'),
 	action: {
 		label: 'OK',
-		onClick: action('ok'),
+		onClick: () => console.log('ok'),
 	},
 };
 const bigTitle = {
@@ -33,10 +31,10 @@ const bigTitle = {
 		'Hello world (Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.)',
 	subtitle:
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	onHide: action('onHide'),
+	onHide: () => console.log('onHide'),
 	action: {
 		label: 'OK',
-		onClick: action('ok'),
+		onClick: () => console.log('ok'),
 	},
 };
 const errored = {
@@ -44,128 +42,152 @@ const errored = {
 	header: 'Hello world',
 	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	error: 'Vestibulum molestie id massa eu pretium.',
-	onHide: action('onHide'),
+	onHide: () => console.log('onHide'),
 	action: {
 		label: 'OK',
-		onClick: action('ok'),
+		onClick: () => console.log('ok'),
 	},
 };
 const informative = {
 	show: true,
 	header: 'Hello world',
 	type: Dialog.TYPES.INFORMATIVE,
-	onHide: action('onHide'),
+	onHide: () => console.log('onHide'),
 	action: {
 		label: 'OK',
-		onClick: action('ok'),
+		onClick: () => console.log('ok'),
 	},
 };
 const smallProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'small',
-	onHide: action('onHide'),
+	onHide: () => console.log('onHide'),
 	action: {
 		label: 'OK',
-		onClick: action('ok'),
+		onClick: () => console.log('ok'),
 	},
 };
 const largeProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'large',
-	onHide: action('onHide'),
+	onHide: () => console.log('onHide'),
 	action: {
 		label: 'OK',
-		onClick: action('ok'),
+		onClick: () => console.log('ok'),
 	},
 };
 const bsProps = {
 	header: 'OnHide + no backdrop + esc',
 	show: true,
 	size: 'small',
-	onHide: action('onHide'),
+	onHide: () => console.log('onHide'),
 	dialogClassName: 'customDialogClassName',
 	keyboard: true,
 	backdrop: false,
 	action: {
 		label: 'OK',
-		onClick: action('ok'),
+		onClick: () => console.log('ok'),
 	},
 };
 
 const children = <div>BODY content. You can put what ever you want here</div>;
 
-export default {
+const meta = {
 	title: 'Components/Layout/Modals/Modal',
+	component: Dialog,
+	tags: ['autodocs'],
 };
 
-export const Default = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...defaultProps}>{children}</Dialog>
-	</div>
-);
+export default meta;
 
-export const WithHeader = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...headerProps}>{children}</Dialog>
-	</div>
-);
+export const Default = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...defaultProps}>{children}</Dialog>
+		</div>
+	),
+};
 
-export const HeaderAction = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...actionProps}>{children}</Dialog>
-	</div>
-);
+export const WithHeader = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...headerProps}>{children}</Dialog>
+		</div>
+	),
+};
 
-export const WithSubtitle = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...subtitle}>{children}</Dialog>
-	</div>
-);
+export const HeaderAction = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...actionProps}>{children}</Dialog>
+		</div>
+	),
+};
 
-export const WithLongTitleAndSubtitle = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...bigTitle}>{children}</Dialog>
-	</div>
-);
+export const WithSubtitle = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...subtitle}>{children}</Dialog>
+		</div>
+	),
+};
 
-export const WithError = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...errored}>{children}</Dialog>
-	</div>
-);
+export const WithLongTitleAndSubtitle = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...bigTitle}>{children}</Dialog>
+		</div>
+	),
+};
 
-export const Informative = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...informative}>{children}</Dialog>
-	</div>
-);
+export const WithError = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...errored}>{children}</Dialog>
+		</div>
+	),
+};
 
-export const Small = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...smallProps}>{children}</Dialog>
-	</div>
-);
+export const Informative = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...informative}>{children}</Dialog>
+		</div>
+	),
+};
 
-export const Large = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...largeProps}>{children}</Dialog>
-	</div>
-);
+export const Small = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...smallProps}>{children}</Dialog>
+		</div>
+	),
+};
 
-export const PassingBootstrapModalOptions = () => (
-	<div>
-		<h1>Dialog</h1>
-		<Dialog {...bsProps}>{children}</Dialog>
-	</div>
-);
+export const Large = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...largeProps}>{children}</Dialog>
+		</div>
+	),
+};
+
+export const PassingBootstrapModalOptions = {
+	render: () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...bsProps}>{children}</Dialog>
+		</div>
+	),
+};

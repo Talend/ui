@@ -1,4 +1,4 @@
-import addons from '@storybook/addons';
+import { addons } from 'storybook/manager-api';
 
 export default function register() {
 	addons.register('react-storybook-cmf', api => {

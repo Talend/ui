@@ -1,4 +1,4 @@
-import { action as stAction } from '@storybook/addon-actions';
+import { action as stAction } from 'storybook/actions';
 
 import Action from '.';
 

@@ -1,17 +1,17 @@
-import { action } from '@storybook/addon-actions';
 import EditableText from './EditableText.component';
 
 const props = {
 	text: 'Lorem ipsum dolor sit amet',
-	onEdit: action('onEdit'),
-	onSubmit: action('onSubmit'),
-	onChange: action('onChange'),
-	onCancel: action('onCancel'),
+	onEdit: () => console.log('onEdit'),
+	onSubmit: () => console.log('onSubmit'),
+	onChange: () => console.log('onChange'),
+	onCancel: () => console.log('onCancel'),
 };
 
-export default {
+const meta = {
 	title: 'Components/Form - Inline form/EditableText',
-
+	component: EditableText,
+	tags: ['autodocs'],
 	decorators: [
 		story => (
 			<div>
@@ -22,37 +22,55 @@ export default {
 	],
 };
 
-export const Default = () => <EditableText {...props} />;
+export default meta;
 
-export const WithoutValue = () => {
-	const propWithoutText = { ...props, text: '' };
-	return (
-		<div style={{ width: 150 }}>
-			<EditableText {...propWithoutText} />
-		</div>
-	);
+export const Default = {
+	render: () => <EditableText {...props} />,
 };
 
-export const WithEllipsis = () => (
-	<div style={{ width: '150px' }}>
-		<EditableText {...props} />
-	</div>
-);
+export const WithoutValue = {
+	render: () => {
+		const propWithoutText = { ...props, text: '' };
+		return (
+			<div style={{ width: 150 }}>
+				<EditableText {...propWithoutText} />
+			</div>
+		);
+	},
+};
 
-export const Loading = () => <EditableText loading {...props} />;
+export const WithEllipsis = {
+	render: () => (
+		<div style={{ width: '150px' }}>
+			<EditableText {...props} />
+		</div>
+	),
+};
 
-export const Disabled = () => <EditableText disabled {...props} />;
+export const Loading = {
+	render: () => <EditableText loading {...props} />,
+};
 
-export const InProgress = () => <EditableText inProgress {...props} />;
+export const Disabled = {
+	render: () => <EditableText disabled {...props} />,
+};
 
-export const EditMode = () => <EditableText editMode {...props} />;
+export const InProgress = {
+	render: () => <EditableText inProgress {...props} />,
+};
 
-export const NotRequired = () => <EditableText required={false} editMode {...props} />;
+export const EditMode = {
+	render: () => <EditableText editMode {...props} />,
+};
 
-export const Placeholder = () => (
-	<EditableText editMode placeholder="Enter your text here.." {...props} text="" />
-);
+export const NotRequired = {
+	render: () => <EditableText required={false} editMode {...props} />,
+};
 
-export const WithError = () => (
-	<EditableText editMode {...props} text="" errorMessage="custom error message" />
-);
+export const Placeholder = {
+	render: () => <EditableText editMode placeholder="Enter your text here.." {...props} text="" />,
+};
+
+export const WithError = {
+	render: () => <EditableText editMode {...props} text="" errorMessage="custom error message" />,
+};

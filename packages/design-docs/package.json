@@ -5,11 +5,11 @@
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
   "scripts": {
-    "build-storybook": "talend-scripts build-storybook --docs",
-    "start-storybook": "talend-scripts start-storybook -p 6006 --docs",
+    "build-storybook": "storybook build --docs",
+    "start-storybook": "storybook dev -p 6006 --docs",
     "lint": "talend-scripts lint",
-    "start": "talend-scripts start-storybook -p 6006 --docs",
-    "test:demo": "talend-scripts build-storybook --docs"
+    "start": "storybook dev -p 6006 --docs",
+    "test:demo": "storybook build --docs"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,7 @@
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.4",
-    "@storybook/blocks": "^7.6.21",
-    "@storybook/react": "^7.6.21",
+    "@storybook/react": "^10.2.1",
     "@talend/design-system": "^11.9.0",
     "@talend/design-tokens": "^3.5.0",
     "@talend/storybook-docs": "^2.8.0",
@@ -31,24 +30,17 @@
     "classnames": "^2.5.1",
     "color-contrast-checker": "^2.1.0",
     "figma-js": "^1.16.0",
-    "react-hook-form": "^7.66.0",
+    "react-hook-form": "^7.71.1",
     "pkg-dir": "^7.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "use-overflow": "^1.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^7.6.21",
-    "@storybook/addon-actions": "^7.6.21",
-    "@storybook/addon-essentials": "^7.6.21",
-    "@storybook/addon-interactions": "^7.6.21",
-    "@storybook/addon-links": "^7.6.21",
-    "@storybook/addons": "^7.6.21",
-    "@storybook/core-events": "^7.6.21",
-    "@storybook/preset-scss": "^1.0.3",
-    "@storybook/testing-library": "^0.2.2",
-    "@storybook/testing-react": "^2.0.1",
-    "@storybook/theming": "^7.6.21",
+    "@storybook/addon-a11y": "^10.2.1",
+    "@storybook/addon-links": "^10.2.1",
+    "@storybook/addon-docs": "^10.2.1",
+    "@storybook/react-vite": "^10.2.1",
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
     "@talend/locales-design-system": "^7.15.1",
@@ -59,15 +51,14 @@
     "@talend/scripts-core": "^16.8.0",
     "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-react-webpack": "^16.11.0",
-    "@talend/scripts-config-storybook-lib": "^5.8.0",
     "@talend/scripts-config-typescript": "^11.4.0",
-    "@types/react": "^18.3.26",
+    "@types/react": "^18.3.27",
     "i18next": "^23.16.8",
     "mdx-embed": "^1.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "~6.3.0",
-    "storybook-docs-toc": "^1.7.0"
+    "storybook": "^10.2.1"
   },
   "private": true
 }

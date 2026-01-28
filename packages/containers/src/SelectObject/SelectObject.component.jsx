@@ -10,7 +10,7 @@ import FilterBar from '../FilterBar';
 import List from '../List';
 import TreeView from '../TreeView';
 
-import theme from './SelectObject.module.scss';
+import theme from './SelectObject.module.css';
 
 function SelectObject({
 	filteredData,

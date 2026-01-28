@@ -103,4 +103,6 @@ RecordsViewerLeaf.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(RecordsViewerLeaf);
+/** @type Function */
+const RecordsViewerLeafWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(RecordsViewerLeaf);
+export default RecordsViewerLeafWithTranslation;

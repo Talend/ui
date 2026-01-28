@@ -82,4 +82,6 @@ export class TreeBranchIcon extends PureComponent {
 	}
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(TreeBranchIcon);
+/** @type Function */
+const TreeBranchIconWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(TreeBranchIcon);
+export default TreeBranchIconWithTranslation;

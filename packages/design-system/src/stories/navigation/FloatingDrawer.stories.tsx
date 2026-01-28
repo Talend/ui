@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { StoryFn } from '@storybook/react';
-import { screen, userEvent } from '@storybook/testing-library';
 
 import { ButtonPrimary, FloatingDrawer, FloatingDrawerProps, InlineEditing } from '../../';
 import { Area } from '../docs/Area';
@@ -72,10 +71,6 @@ const overflowProps = {
 	),
 };
 
-const playOpenDrawer = async () => {
-	const openButton = screen.getByRole('button');
-	await userEvent.click(openButton);
-};
 const containerStyle = {
 	// body of the preview has a padding of 0.625rem
 	width: 'calc(100vw - 1.25rem)',
@@ -132,7 +127,6 @@ const ControlledFloatingDrawer = () => {
 export const WithControlledVisibility: StoryFn<typeof FloatingDrawer> = () => (
 	<ControlledFloatingDrawer />
 );
-WithControlledVisibility.play = playOpenDrawer;
 
 export const Usage: StoryFn<typeof FloatingDrawer> = () => (
 	<FloatingDrawer.Container>
@@ -150,5 +144,3 @@ export const Usage: StoryFn<typeof FloatingDrawer> = () => (
 		</FloatingDrawer>
 	</FloatingDrawer.Container>
 );
-
-Usage.play = playOpenDrawer;

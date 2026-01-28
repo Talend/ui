@@ -26,11 +26,11 @@
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
     "@talend/scripts-cmf": "^1.6.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "webpack-sources": "^3.3.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.5",
+    "@babel/eslint-parser": "^7.28.6",
     "@talend/eslint-config": "^13.5.0",
     "@talend/scripts-config-babel": "^13.8.0",
     "eslint": "^8.57.1"

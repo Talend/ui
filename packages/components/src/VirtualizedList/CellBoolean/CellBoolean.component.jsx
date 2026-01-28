@@ -65,4 +65,8 @@ CellBoolean.defaultProps = {
 	},
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(CellBoolean);
+/**
+ * @type Function
+ */
+const CellBooleanWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(CellBoolean);
+export default CellBooleanWithTranslation;

@@ -265,4 +265,6 @@ ActionButton.defaultProps = {
 };
 
 ActionButton.displayName = 'ActionButton';
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionButton);
+/** @type Function */
+const ActionButtonWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(ActionButton);
+export default ActionButtonWithTranslation;

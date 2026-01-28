@@ -130,4 +130,7 @@ CellDatetimeComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(CellDatetimeComponent);
+/** @type Function */
+const CellDatetimeComponentWithTranslation =
+	withTranslation(I18N_DOMAIN_COMPONENTS)(CellDatetimeComponent);
+export default CellDatetimeComponentWithTranslation;

@@ -56,4 +56,7 @@ EditableTextComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(EditableTextComponent);
+/** @type Function */
+const EditableTextComponentWithTranslation =
+	withTranslation(I18N_DOMAIN_COMPONENTS)(EditableTextComponent);
+export default EditableTextComponentWithTranslation;
