@@ -1,1 +1,0 @@
-import{t as s}from"./locale-Dj1lWA4T.js";function o(e){const t=s(e);return t.setMilliseconds(0),t}function r(e,t){const n=o(e),a=o(t);return+n==+a}function d(e,t){const n=s(e);return n.setSeconds(t),n}export{o as a,r as i,d as s};
