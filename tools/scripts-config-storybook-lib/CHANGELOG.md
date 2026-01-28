@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.8.1
+
+### Patch Changes
+
+- fix: support @talend/icons 8 (still SB 7)
+
 ## 5.8.0
 
 ### Minor Changes
