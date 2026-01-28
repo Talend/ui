@@ -212,4 +212,6 @@ export class ModelViewer extends RComponent {
 	}
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ModelViewer);
+/** @type Function */
+const ModelViewerWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(ModelViewer);
+export default ModelViewerWithTranslation;

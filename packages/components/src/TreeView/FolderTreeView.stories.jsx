@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import TreeView from './TreeView.component';
 

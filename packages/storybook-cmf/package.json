@@ -18,11 +18,19 @@
   ],
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "talend-scripts build --esm",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "devDependencies": {
     "@talend/eslint-config": "^13.5.0",
     "@talend/eslint-plugin": "^1.6.0",
@@ -33,7 +41,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
-    "redux-saga": "^1.4.2"
+    "redux-saga": "^1.4.2",
+    "storybook": "^10.1.11"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
@@ -43,6 +52,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
+    "storybook": "^10.1.11",
     "redux-saga": "^1.4.2"
   }
 }

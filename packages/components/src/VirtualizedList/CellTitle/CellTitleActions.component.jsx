@@ -199,4 +199,9 @@ CellTitleActionsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);
+/**
+ * @type Function
+ */
+const CellTitleActionsComponentWithTranslation =
+	withTranslation(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);
+export default CellTitleActionsComponentWithTranslation;

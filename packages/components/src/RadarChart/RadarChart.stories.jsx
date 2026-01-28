@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import tokens from '@talend/design-tokens';
 
 import RadarChart from '.';

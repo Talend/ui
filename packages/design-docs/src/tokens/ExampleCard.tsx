@@ -7,7 +7,7 @@ import {
 	StackVertical,
 } from '@talend/design-system';
 
-import styles from './ExampleCard.module.scss';
+import styles from './ExampleCard.module.css';
 
 export default function ExampleCard() {
 	const [isDark, setDark] = useState(false);

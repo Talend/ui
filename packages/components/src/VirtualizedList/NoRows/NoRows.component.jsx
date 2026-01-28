@@ -27,4 +27,9 @@ NoRowsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(NoRowsComponent);
+/**
+ * @type Function
+ */
+const NoRowsComponentWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(NoRowsComponent);
+
+export default NoRowsComponentWithTranslation;

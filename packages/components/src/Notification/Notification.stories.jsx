@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import NotificationContainer from './Notification.component';
 

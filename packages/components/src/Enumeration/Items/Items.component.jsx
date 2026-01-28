@@ -86,8 +86,8 @@ class Items extends PureComponent {
 		}
 	}
 
-	getRowHeight({ index }) {
-		const isEditMode = this.props.items[index].displayMode === DISPLAY_MODE_EDIT;
+	getRowHeight(args) {
+		const isEditMode = this.props.items[args.index].displayMode === DISPLAY_MODE_EDIT;
 		return this.props.itemsProp.getItemHeight(isEditMode);
 	}
 

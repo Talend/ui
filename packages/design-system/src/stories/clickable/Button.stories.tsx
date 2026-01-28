@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StoryFn, Story } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import {
 	ButtonPrimary,

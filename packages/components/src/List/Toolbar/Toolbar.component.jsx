@@ -177,4 +177,6 @@ Toolbar.propTypes = {
 
 Toolbar.defaultProps = {};
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Toolbar);
+/** @type Function */
+const ToolbarWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(Toolbar);
+export default ToolbarWithTranslation;

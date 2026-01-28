@@ -120,4 +120,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(AboutDialog);
+/** @type Function */
+const AboutDialogWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(AboutDialog);
+export default AboutDialogWithTranslation;

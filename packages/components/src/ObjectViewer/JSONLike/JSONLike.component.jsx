@@ -424,6 +424,7 @@ UntranslatedComplexItem.propTypes = {
  * rename the exported variable containing the translated component to TranslatedComplexItem
  *
  * AxelC
+ * @type Function
  */
 export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedComplexItem);
 
@@ -606,4 +607,8 @@ JSONLike.propTypes = {
 	hideTooltip: PropTypes.bool,
 };
 
-export default Gesture.withTreeGesture(JSONLike);
+/**
+ * @type Function
+ */
+const JSONLikeWithGesture = Gesture.withTreeGesture(JSONLike);
+export default JSONLikeWithGesture;

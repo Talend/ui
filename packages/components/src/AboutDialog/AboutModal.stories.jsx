@@ -1,9 +1,9 @@
-import { action } from '@storybook/addon-actions';
+import { fn } from 'storybook/test';
 import AboutDialog from '.';
 
 const props = {
 	show: true,
-	onToggle: action('onToggle'),
+	onToggle: () => fn('onToggle'),
 	version: "Summer '18",
 	icon: 'talend-tdp-colored',
 	services: ['API', 'Dataset', 'Preparation', 'Transformation'].map(name => ({
@@ -42,9 +42,10 @@ const services = [
 
 const { name, version } = AboutDialog.Table.getColumnHeaders();
 
-export default {
+const meta = {
 	title: 'Components/Layout/Modals/AboutModal',
-
+	component: AboutDialog,
+	tags: ['autodocs'],
 	decorators: [
 		story => (
 			<div>
@@ -55,20 +56,61 @@ export default {
 	],
 };
 
-export const Default = () => <AboutDialog {...props} />;
+export default meta;
 
-export const WithoutTheVersion = () => <AboutDialog {...props} version={null} />;
+export const Default = {
+	args: props,
+	render: args => <AboutDialog {...args} />,
+};
 
-export const Loading = () => <AboutDialog loading {...props} />;
+export const WithoutTheVersion = {
+	args: {
+		...props,
+		version: null,
+	},
+	render: args => <AboutDialog {...args} />,
+};
 
-export const Expanded = () => <AboutDialog expanded {...props} />;
+export const Loading = {
+	args: {
+		...props,
+		loading: true,
+	},
+	render: args => <AboutDialog {...args} />,
+};
 
-export const ExpandedWithLotOfServices = () => (
-	<AboutDialog expanded {...props} services={services} />
-);
+export const Expanded = {
+	args: {
+		...props,
+		expanded: true,
+	},
+	render: args => <AboutDialog {...args} />,
+};
 
-export const WithCustomDefinition = () => (
-	<AboutDialog expanded {...props} services={services} definition={[name, version]} />
-);
+export const ExpandedWithLotOfServices = {
+	args: {
+		...props,
+		expanded: true,
+		services,
+	},
+	render: args => <AboutDialog {...args} />,
+};
 
-export const ExpandedLoading = () => <AboutDialog expanded loading {...props} />;
+export const WithCustomDefinition = {
+	args: {
+		...props,
+		expanded: true,
+		services,
+		definition: [name, version],
+	},
+	render: args => <AboutDialog {...args} />,
+};
+
+export const ExpandedLoading = {
+	args: {
+		...props,
+		expanded: true,
+		loading: true,
+	},
+	render: args => <AboutDialog {...args} />,
+};

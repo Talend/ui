@@ -45,4 +45,7 @@ EnumerationComponent.DISPLAY_MODE_SEARCH = DISPLAY_MODE_SEARCH;
 EnumerationComponent.DISPLAY_MODE_EDIT = DISPLAY_MODE_EDIT;
 EnumerationComponent.DISPLAY_MODE_SELECTED = DISPLAY_MODE_SELECTED;
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(EnumerationComponent);
+/** @type Function */
+const EnumerationComponentWithTranslation =
+	withTranslation(I18N_DOMAIN_COMPONENTS)(EnumerationComponent);
+export default EnumerationComponentWithTranslation;

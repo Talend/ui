@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { ButtonSecondary } from '@talend/design-system';
 import tokens from '@talend/design-tokens';

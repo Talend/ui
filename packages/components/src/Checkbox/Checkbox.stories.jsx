@@ -1,8 +1,6 @@
-import { action } from '@storybook/addon-actions';
-
 import Checkbox from '.';
 
-const onChange = action('onChange');
+const onChange = () => console.log('onChange');
 
 const defaultProps = {
 	id: 'id1',
@@ -29,39 +27,45 @@ const withLabel = {
 	label: 'Some label',
 };
 
-export default {
+const meta = {
 	title: 'Components/Form - Controls/Checkbox',
+	component: Checkbox,
+	tags: ['autodocs'],
 };
 
-export const Default = () => (
-	<div style={{ padding: 30 }}>
-		<h1>Checkbox</h1>
-		<h2>Definition</h2>
-		<p>The Checkbox component is basically a fancy checkbox like you have in your iphone</p>
-		<h2>Examples</h2>
-		<form>
-			<h3>Default Checkbox</h3>
-			<Checkbox {...defaultProps} />
+export default meta;
 
-			<h3>
-				Checkbox with <code>intermediate: true</code>
-			</h3>
-			<Checkbox {...intermediate} />
+export const Default = {
+	render: () => (
+		<div style={{ padding: 30 }}>
+			<h1>Checkbox</h1>
+			<h2>Definition</h2>
+			<p>The Checkbox component is basically a fancy checkbox like you have in your iphone</p>
+			<h2>Examples</h2>
+			<form>
+				<h3>Default Checkbox</h3>
+				<Checkbox {...defaultProps} />
 
-			<h3>
-				Checkbox with <code>checked: true</code>
-			</h3>
-			<Checkbox {...checked} />
+				<h3>
+					Checkbox with <code>intermediate: true</code>
+				</h3>
+				<Checkbox {...intermediate} />
 
-			<h3>
-				Checkbox with <code>disabled: true</code>
-			</h3>
-			<Checkbox {...disabled} />
+				<h3>
+					Checkbox with <code>checked: true</code>
+				</h3>
+				<Checkbox {...checked} />
 
-			<h3>
-				Checkbox with <code>label: Some label</code>
-			</h3>
-			<Checkbox {...withLabel} />
-		</form>
-	</div>
-);
+				<h3>
+					Checkbox with <code>disabled: true</code>
+				</h3>
+				<Checkbox {...disabled} />
+
+				<h3>
+					Checkbox with <code>label: Some label</code>
+				</h3>
+				<Checkbox {...withLabel} />
+			</form>
+		</div>
+	),
+};

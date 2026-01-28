@@ -1,8 +1,7 @@
+/* eslint-disable no-console */
 import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-
+import { action } from 'storybook/actions';
 import Enumeration from './Enumeration.component';
-
 import theme from './Enumeration.stories.module.css';
 import { DISPLAY_MODE_SEARCH } from './displayModes';
 
@@ -378,17 +377,17 @@ const EnumerationDynamicHeight = () => {
 	return <Enumeration {...enumerationProps} />;
 };
 
-export default {
-	title: 'Components/Form - Controls/Enumeration',
+const meta = {
+	title: 'Components/Form - Inline form/Enumeration',
+	component: Enumeration,
+	tags: ['autodocs'],
 };
 
-export const Default = () => (
-	<div>
-		<p>By default :</p>
+export default meta;
 
-		<Enumeration {...props} />
-	</div>
-);
+export function Default() {
+	return <Enumeration {...props} />;
+}
 
 export const DefaultHeaderActionDisabled = () => (
 	<div>

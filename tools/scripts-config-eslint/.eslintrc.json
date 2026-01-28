@@ -67,7 +67,7 @@
     "react-hooks/rules-of-hooks": 2,
     "react-hooks/exhaustive-deps": 1,
     "react/jsx-curly-newline": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".tsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
     "react/jsx-fragments": "off",
     "react/jsx-indent": 0,
     "react/jsx-indent-props": 0,

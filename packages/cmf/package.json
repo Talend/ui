@@ -8,16 +8,17 @@
   "exports": {
     ".": {
       "import": "./lib-esm/index.js",
-      "require": "./lib/index.js"
+      "require": "./lib/index.js",
+      "types": "./cmf.d.ts"
     },
     "./lib/*": {
       "import": "./lib-esm/*",
-      "require": "./lib/*"
+      "require": "./lib/*",
+      "types": "./cmf.d.ts"
     }
   },
   "scripts": {
-    "build:lib:esm": "talend-scripts build --esm",
-    "build:lib": "talend-scripts build",
+    "build:lib": "talend-scripts build && talend-scripts build --esm",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:update": "talend-scripts test -u",

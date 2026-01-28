@@ -1,7 +1,6 @@
 import * as utils from '@talend/scripts-utils';
 
 import { resolveScript } from '../utils/bin.js';
-import startStorybook from './start-storybook.js';
 
 export default async function start(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
@@ -23,8 +22,6 @@ export default async function start(env, _, options) {
 			{ stdio: 'inherit', env },
 		);
 	}
-	if (packageType.isLib) {
-		return startStorybook(env, _, options);
-	}
+
 	return null;
 }
