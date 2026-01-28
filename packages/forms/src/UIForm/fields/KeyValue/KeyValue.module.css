@@ -9,6 +9,9 @@
 	display: flex;
 	align-items: flex-end;
 }
+.key-value dt div {
+	height: 100%;
+}
 .key-value dt > * {
 	flex: 1;
 }
