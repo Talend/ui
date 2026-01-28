@@ -1,0 +1,1 @@
+import{g as i}from"./iframe-BrV_C0lS.js";import{r as f}from"./_hasPath-BdZk8WxY.js";var n,u;function p(){if(u)return n;u=1;var a=Object.prototype,s=a.hasOwnProperty;function e(r,t){return r!=null&&s.call(r,t)}return n=e,n}var o,h;function v(){if(h)return o;h=1;var a=p(),s=f();function e(r,t){return r!=null&&s(r,t,a)}return o=e,o}var l=v();const b=i(l);export{b as h,v as r};
