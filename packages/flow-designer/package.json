@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-flow-designer",
   "description": "Flow designer for react and redux",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -83,6 +83,7 @@
   "files": [
     "/dist",
     "/lib",
+    "/lib-esm",
     "/src"
   ],
   "publishConfig": {
