@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "@types/react": "^18.3.27",
-    "@types/react-dom": "^18.3.7"
+    "@types/react-dom": "^18.3.7",
+    "tar": ">=7.5.4"
   }
 }
