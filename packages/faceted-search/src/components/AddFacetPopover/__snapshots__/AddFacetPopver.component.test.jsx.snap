@@ -12,7 +12,7 @@ exports[`AddFacetPopover should render 1`] = `
       id="my id-add-facet-popover-null-header"
     >
       <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
         <label
           class="theme-label"

@@ -31,7 +31,7 @@ exports[`Columns widget should render columns 1`] = `
             class="theme-fieldset-content"
           >
             <div
-              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
             >
               <label
                 class="theme-label"
@@ -80,7 +80,7 @@ exports[`Columns widget should render columns 1`] = `
               </div>
             </div>
             <div
-              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
             >
               <label
                 class="theme-label"
@@ -106,7 +106,7 @@ exports[`Columns widget should render columns 1`] = `
               </div>
             </div>
             <div
-              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+              class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
             >
               <label
                 class="theme-label"
@@ -134,7 +134,7 @@ exports[`Columns widget should render columns 1`] = `
         class="theme-item theme-align-auto theme-overflow-auto theme-fullWidth theme-grow theme-shrink"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
         >
           <label
             class="theme-label"
