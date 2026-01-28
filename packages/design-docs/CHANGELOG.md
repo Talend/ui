@@ -1,5 +1,32 @@
 # @talend/design-docs
 
+## 5.0.0
+
+### Major Changes
+
+- 16703c7: chore: drop UMD format
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+- ecbfee8: feat: migrate scss to css
+
+### Patch Changes
+
+- 1d3bb12: chore: update storybook
+- 53e97a0: chore: upgrade dependencies
+- Updated dependencies [ecbfee8]
+- Updated dependencies [bb95e38]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [18e73d1]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/icons@8.0.0
+  - @talend/storybook-docs@3.0.0
+  - @talend/design-system@12.0.0
+  - @talend/design-tokens@4.0.0
+
 ## 4.6.0
 
 ### Minor Changes

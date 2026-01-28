@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-jest",
   "description": "Jest configuration for @talend/scripts-core",
-  "version": "14.5.0",
+  "version": "14.6.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -18,7 +18,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@talend/scripts-config-babel": "^13.8.0",
+    "@talend/scripts-config-babel": "^13.9.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/jest": "^29.5.14",
     "babel-jest": "^29.7.0",
@@ -31,8 +31,8 @@
     "regenerator-runtime": "^0.13.11"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.5.0",
-    "@talend/eslint-plugin": "^1.6.0"
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0"
   },
   "peerDependencies": {
     "@talend/design-system": ">= 8.1.0",

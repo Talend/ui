@@ -1,5 +1,11 @@
 # @talend/local-libs-webpack-plugin
 
+## 0.5.0
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
 ## 0.4.0
 
 ### Minor Changes
