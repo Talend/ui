@@ -83,6 +83,7 @@
   "files": [
     "/dist",
     "/lib",
+    "/lib-esm",
     "/src"
   ],
   "publishConfig": {

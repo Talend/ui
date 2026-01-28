@@ -64,6 +64,7 @@
   },
   "files": [
     "/lib",
+    "/lib-esm",
     "/src"
   ]
 }
