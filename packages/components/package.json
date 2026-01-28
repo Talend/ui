@@ -78,10 +78,10 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^10.1.11",
-    "@storybook/addon-links": "^10.1.11",
-    "@storybook/react": "^10.1.11",
-    "@storybook/react-vite": "^10.1.11",
+    "@storybook/addon-a11y": "^10.2.1",
+    "@storybook/addon-links": "^10.2.1",
+    "@storybook/react": "^10.2.1",
+    "@storybook/react-vite": "^10.2.1",
     "@talend/bootstrap-theme": "^9.6.0",
     "@talend/design-system": "^11.9.0",
     "@talend/eslint-config": "^13.5.0",
@@ -115,7 +115,7 @@
     "react-router-dom": "~6.3.0",
     "react-test-renderer": "^18.3.1",
     "esbuild-plugin-react-virtualized": "^1.0.5",
-    "storybook": "^10.1.11"
+    "storybook": "^10.2.1"
   },
   "peerDependencies": {
     "@talend/design-system": "^11.6.0",
