@@ -1,5 +1,24 @@
 # @talend/react-sagas
 
+## 10.0.0
+
+### Major Changes
+
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- Updated dependencies [bb95e38]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [18e73d1]
+- Updated dependencies [16703c7]
+  - @talend/react-cmf@12.0.0
+
 ## 9.1.0
 
 ### Minor Changes

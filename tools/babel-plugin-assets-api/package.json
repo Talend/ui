@@ -1,6 +1,6 @@
 {
   "name": "@talend/babel-plugin-assets-api",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "read-pkg-up": "^7.0.1",
-    "@talend/module-to-cdn": "^9.16.0"
+    "@talend/module-to-cdn": "^9.17.0"
   },
   "repository": {
     "type": "git",
