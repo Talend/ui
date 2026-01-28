@@ -1,5 +1,11 @@
 # @talend/http
 
+## 4.0.1
+
+### Patch Changes
+
+- 6dcb1da: fix: add missing lib-esm folder
+
 ## 4.0.0
 
 ### Major Changes

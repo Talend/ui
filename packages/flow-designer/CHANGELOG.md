@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.0.1
+
+### Patch Changes
+
+- 6dcb1da: fix: add missing lib-esm folder
+
 ## 8.0.0
 
 ### Major Changes
