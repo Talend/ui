@@ -39,8 +39,7 @@
     "start": "storybook dev -p 6010",
     "build-storybook": "storybook build",
     "lint": "echo nothing to lint",
-    "svgo": "svgo -rf src/svg --config svgo-icons.config.mjs && svgo -rf src/filters --config svgo-filters.config.mjs",
-    "prepublishOnly": "npm run build"
+    "svgo": "svgo -rf src/svg --config svgo-icons.config.mjs && svgo -rf src/filters --config svgo-filters.config.mjs"
   },
   "files": [
     "dist",
