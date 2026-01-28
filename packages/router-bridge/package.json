@@ -1,6 +1,6 @@
 {
   "name": "@talend/router-bridge",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "Bridge on top of cmf-router or react-router v5 + connected-react-router",
   "main": "lib/index.js",
   "exports": {
@@ -28,12 +28,12 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
   "devDependencies": {
-    "@talend/eslint-config": "^13.5.0",
-    "@talend/eslint-plugin": "^1.6.0",
-    "@talend/scripts-core": "^16.8.0",
-    "@talend/scripts-config-babel": "^13.8.0",
-    "@talend/scripts-config-jest": "^14.5.0",
-    "@talend/scripts-config-react-webpack": "^16.11.0",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
+    "@talend/scripts-core": "^17.0.0",
+    "@talend/scripts-config-babel": "^13.9.0",
+    "@talend/scripts-config-jest": "^14.6.0",
+    "@talend/scripts-config-react-webpack": "^17.0.0",
     "connected-react-router": "^6.9.3",
     "history": "^5.3.0",
     "react": "^18.3.1",
