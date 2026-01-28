@@ -1,11 +1,16 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const backend = require('./mockBackend/server');
+/* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distRoot = path.join(__dirname, 'dist');
 
 const options = process.argv.slice(2);
 const useGzip = options.includes('--gzip');
-const ROOT = path.join(__dirname, 'dist');
 
 // Simple static file server
 function serveStatic(req, res, filePath) {
@@ -44,29 +49,21 @@ function serveStatic(req, res, filePath) {
 }
 
 const server = http.createServer((req, res) => {
-	// Handle API routes through backend
-	if (req.url.startsWith('/api/')) {
-		backend(req, res);
-		return;
-	}
-
 	// Serve static files from dist
-	let urlPath;
+	let pathname;
 	try {
-		// Use WHATWG URL to reliably extract the pathname (ignores query, hash)
-		const parsedUrl = new URL(req.url, 'http://localhost');
-		urlPath = parsedUrl.pathname || '/';
-	} catch (e) {
+		const urlObj = new URL(req.url, 'http://localhost');
+		pathname = urlObj.pathname || '/';
+	} catch {
 		res.writeHead(400, { 'Content-Type': 'text/plain' });
 		res.end('Bad Request');
 		return;
 	}
 
-	// Prevent directory traversal: resolve against ROOT and verify containment
-	let filePath = path.resolve(ROOT, '.' + urlPath);
+	// Normalize the path and ensure it stays within distRoot
+	let filePath = path.resolve(distRoot, '.' + pathname);
 
-	// Ensure the resolved path is within the ROOT directory
-	if (filePath !== ROOT && !filePath.startsWith(ROOT + path.sep)) {
+	if (!filePath.startsWith(distRoot + path.sep) && filePath !== distRoot) {
 		res.writeHead(403, { 'Content-Type': 'text/plain' });
 		res.end('Forbidden');
 		return;
