@@ -1,1 +1,0 @@
-import{al as o}from"./iframe-DRCDqYKx.js";import{r as f}from"./_baseGet-MR6lSUTo.js";var r,a;function g(){if(a)return r;a=1;var n=f();function u(e,s,i){var t=e==null?void 0:n(e,s);return t===void 0?i:t}return r=u,r}var d=g();const p=o(d);export{p as g,g as r};
