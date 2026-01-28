@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.8.2
+
+### Patch Changes
+
+- fix: path to cjs was not enough now it works !
+
 ## 5.8.1
 
 ### Patch Changes
