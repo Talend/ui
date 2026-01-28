@@ -43,7 +43,7 @@ const defaultMain = {
 		buildStoriesJson: true,
 	},
 	stories: getStoriesFolders(),
-	staticDirs: [path.join(__dirname, 'msw'), require.resolve('@talend/icons').replace('index.js', '').replace('/dist/TalendIcons.js', '/dist/svg-bundle')],
+	staticDirs: [path.join(__dirname, 'msw'), require.resolve('@talend/icons').replace('index.cjs', '').replace('index.js', '').replace('/dist/TalendIcons.js', '/dist/svg-bundle')],
 	addons: [
 		'@storybook/addon-essentials',
 		'@storybook/addon-a11y',
