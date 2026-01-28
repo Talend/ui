@@ -126,8 +126,8 @@ export function createPreviewConfig(options: PreviewConfigOptions): Preview {
 				toolbar: {
 					icon: 'beaker',
 					items: [
-						{ value: 'true', left: '✅', title: 'With Bootstrap' },
-						{ value: 'false', left: '❌', title: 'Without Bootstrap' },
+						{ value: 'true', title: '✅ With Bootstrap' },
+						{ value: 'false', title: '❌ Without Bootstrap' },
 					],
 					dynamicTitle: true,
 				},
@@ -139,9 +139,9 @@ export function createPreviewConfig(options: PreviewConfigOptions): Preview {
 				toolbar: {
 					icon: 'paintbrush',
 					items: [
-						{ value: 'light', left: '⚪', title: 'Light mode' },
-						{ value: 'dark', left: '🌑', title: 'Dark mode' },
-						{ value: 'qlik-light', left: '🟢', title: 'Qlik light mode' },
+						{ value: 'light', title: '⚪ Light mode' },
+						{ value: 'dark', title: '🌑 Dark mode' },
+						{ value: 'qlik-light', title: '🟢 Qlik light mode' },
 					],
 					dynamicTitle: true,
 				},
@@ -152,11 +152,11 @@ export function createPreviewConfig(options: PreviewConfigOptions): Preview {
 				toolbar: {
 					icon: 'globe',
 					items: [
-						{ value: 'zh', left: '🇨🇳', title: 'Chinese' },
-						{ value: 'en', left: '🇬🇧', title: 'English' },
-						{ value: 'fr', left: '🇫🇷', title: 'French' },
-						{ value: 'de', left: '🇩🇪', title: 'German' },
-						{ value: 'ja', left: '🇯🇵', title: 'Japanese' },
+						{ value: 'zh', title: '🇨🇳 Chinese' },
+						{ value: 'en', title: '🇬🇧 English' },
+						{ value: 'fr', title: '🇫🇷 French' },
+						{ value: 'de', title: '🇩🇪 German' },
+						{ value: 'ja', title: '🇯🇵 Japanese' },
 					],
 					dynamicTitle: true,
 				},
