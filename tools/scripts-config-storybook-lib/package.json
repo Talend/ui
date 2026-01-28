@@ -29,8 +29,7 @@
     "build:lib": "tsc",
     "build:watch": "tsc --watch",
     "lint": "talend-scripts lint",
-    "update:msw": "npx msw init public/msw --save",
-    "prepublishOnly": "yarn build"
+    "update:msw": "npx msw init public/msw --save"
   },
   "files": [
     "dist",
