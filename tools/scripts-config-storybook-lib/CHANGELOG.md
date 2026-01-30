@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 5.8.3
+
+### Patch Changes
+
+- fix: msw template update to 2.12.7
+
 ## 5.8.2
 
 ### Patch Changes

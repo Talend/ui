@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-storybook-lib",
   "description": "Storybook configuration for @talend/scripts-core",
-  "version": "5.8.2",
+  "version": "5.8.3",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -35,7 +35,7 @@
     "assert": "^2.1.0",
     "i18next-http-backend": "^1.4.5",
     "lodash": "^4.17.23",
-    "msw": "^2.12.7",
+    "msw": "2.12.7",
     "msw-storybook-addon": "^2.0.6",
     "querystring-es3": "^0.2.1",
     "storybook": "^7.6.21",
