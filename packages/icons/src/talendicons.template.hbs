@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "{{name}}";
+    src: url("{{name}}.eot?#iefix") format("embedded-opentype"),
+url("{{name}}.woff") format("woff"),
+url("{{name}}.woff2") format("woff2"),
+url("{{name}}.ttf") format("truetype"),
+url("{{name}}.svg#{{name}}") format("svg");
+}
+
+{{selector}} {
+    display: inline-block;
+    font: normal normal normal 14px/1 {{name}};
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: middle;
+}
+
+{{selector}}:before {
+    display: block;
+}
+
+{{#each codepoints}}
+.{{../prefix}}-{{@key}}:before {
+    content: "\\{{this}}";
+}
+{{/each}}

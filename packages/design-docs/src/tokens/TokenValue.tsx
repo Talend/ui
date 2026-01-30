@@ -1,7 +1,7 @@
 /* eslint-disable @talend/import-depth */
 import { ReactNode, useState } from 'react';
 
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 
 import {
 	ButtonTertiary,
@@ -15,7 +15,7 @@ import dictionary from '@talend/design-tokens/lib/light/dictionary';
 
 import * as utils from './TokenFormatter';
 
-import theme from './TokenValue.module.scss';
+import theme from './TokenValue.module.css';
 
 type TokenValueProps = {
 	children: string;

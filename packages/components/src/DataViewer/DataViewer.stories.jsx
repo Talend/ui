@@ -27,92 +27,103 @@ function buildRegExpJsonpath(jsonpath) {
 	return new RegExp(deepJsonPath);
 }
 
-export default {
+const meta = {
 	title: 'Components/Tree/DataViewer',
+	tags: ['autodocs'],
 };
 
-export const DataTreeWithHighlight = () => {
-	const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
-	const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
+export default meta;
 
-	const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
-	const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
-	const isUnion = item => Array.isArray(item.type);
-	const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
+export const DataTreeWithHighlight = {
+	render: () => {
+		const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
+		const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
 
-	return (
-		<div className={layoutCn}>
-			<div className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}>
-				<ModelViewer
-					componentId="ModelViewer"
-					highlighted={highlighted}
-					jsonPathSelection={jsonPathSelection}
-					onSelect={onSelect}
-					sample={hierarchicSample}
-					renderLeafOptions={() => {}}
-					getDisplayValue={getDisplayValue}
-					isUnion={isUnion}
-					hasSemanticAwareness
-				/>
+		const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
+		const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
+		const isUnion = item => Array.isArray(item.type);
+		const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
+
+		return (
+			<div className={layoutCn}>
+				<div
+					className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}
+				>
+					<ModelViewer
+						componentId="ModelViewer"
+						highlighted={highlighted}
+						jsonPathSelection={jsonPathSelection}
+						onSelect={onSelect}
+						sample={hierarchicSample}
+						renderLeafOptions={() => {}}
+						getDisplayValue={getDisplayValue}
+						isUnion={isUnion}
+						hasSemanticAwareness
+					/>
+				</div>
+				<div
+					className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
+				>
+					<RecordsViewer
+						componentId="RecordsViewer"
+						highlighted={highlighted}
+						onVerticalScroll={() => {}}
+						sample={hierarchicSample}
+						renderLeafAdditionalValue={() => {}}
+						renderBranchAdditionalValue={() => {}}
+					/>
+				</div>
 			</div>
-			<div
-				className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
-			>
-				<RecordsViewer
-					componentId="RecordsViewer"
-					highlighted={highlighted}
-					onVerticalScroll={() => {}}
-					sample={hierarchicSample}
-					renderLeafAdditionalValue={() => {}}
-					renderBranchAdditionalValue={() => {}}
-				/>
-			</div>
-		</div>
-	);
+		);
+	},
 };
 
-export const DataTreeWithoutSemanticAwareness = () => {
-	const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
-	const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
+export const DataTreeWithoutSemanticAwareness = {
+	render: () => {
+		const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
+		const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
 
-	const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
-	const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
-	const isUnion = item => Array.isArray(item.type);
-	const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
+		const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
+		const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
+		const isUnion = item => Array.isArray(item.type);
+		const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
 
-	return (
-		<div className={layoutCn}>
-			<div className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}>
-				<ModelViewer
-					componentId="ModelViewer"
-					highlighted={highlighted}
-					jsonPathSelection={jsonPathSelection}
-					onSelect={onSelect}
-					sample={hierarchicSample}
-					renderLeafOptions={() => {}}
-					getDisplayValue={getDisplayValue}
-					isUnion={isUnion}
-					hasSemanticAwareness={false}
-				/>
+		return (
+			<div className={layoutCn}>
+				<div
+					className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}
+				>
+					<ModelViewer
+						componentId="ModelViewer"
+						highlighted={highlighted}
+						jsonPathSelection={jsonPathSelection}
+						onSelect={onSelect}
+						sample={hierarchicSample}
+						renderLeafOptions={() => {}}
+						getDisplayValue={getDisplayValue}
+						isUnion={isUnion}
+						hasSemanticAwareness={false}
+					/>
+				</div>
+				<div
+					className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
+				>
+					<RecordsViewer
+						componentId="RecordsViewer"
+						highlighted={highlighted}
+						onVerticalScroll={() => {}}
+						sample={hierarchicSample}
+						renderLeafAdditionalValue={() => {}}
+						renderBranchAdditionalValue={() => {}}
+					/>
+				</div>
 			</div>
-			<div
-				className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
-			>
-				<RecordsViewer
-					componentId="RecordsViewer"
-					highlighted={highlighted}
-					onVerticalScroll={() => {}}
-					sample={hierarchicSample}
-					renderLeafAdditionalValue={() => {}}
-					renderBranchAdditionalValue={() => {}}
-				/>
-			</div>
-		</div>
-	);
+		);
+	},
 };
 
-export const DataTreeWithTypeDisplayOnRecords = () => {
-	return (
+export const DataTreeWithTypeDisplayOnRecords = {
+	render: () => (
 		<div style={{ height: '100%' }}>
 			<RecordsViewer
 				componentId="RecordsViewer"
@@ -121,5 +132,5 @@ export const DataTreeWithTypeDisplayOnRecords = () => {
 				typesRenderer={schema => <>- of type {schema.type[0].type}</>}
 			/>
 		</div>
-	);
+	),
 };

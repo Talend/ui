@@ -329,4 +329,6 @@ class MultiSelect extends Component {
 	}
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(MultiSelect);
+/** @type Function */
+const MultiSelectWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(MultiSelect);
+export default MultiSelectWithTranslation;

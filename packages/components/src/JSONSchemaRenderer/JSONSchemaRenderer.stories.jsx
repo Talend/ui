@@ -103,13 +103,19 @@ const schema = {
 	},
 };
 
-export default {
+const meta = {
 	title: 'Components/Deprecated/JSONSchemaRenderer',
+	component: JSONSchemaRenderer,
+	tags: ['autodocs'],
 };
 
-export const Default = () => (
-	<div>
-		<h1>Basic</h1>
-		<JSONSchemaRenderer schema={schema} />
-	</div>
-);
+export default meta;
+
+export const Default = {
+	render: () => (
+		<div>
+			<h1>Basic</h1>
+			<JSONSchemaRenderer schema={schema} />
+		</div>
+	),
+};

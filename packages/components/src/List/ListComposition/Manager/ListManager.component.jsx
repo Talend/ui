@@ -81,4 +81,6 @@ Manager.propTypes = {
 	columnsVisibilityStorageKey: PropTypes.string,
 	t: PropTypes.func,
 };
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Manager);
+/** @type Function */
+const ManagerWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(Manager);
+export default ManagerWithTranslation;

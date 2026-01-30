@@ -6,6 +6,7 @@
     "types": ["jest", "@testing-library/jest-dom"],
     "allowJs": true,
     "checkJs": false,
+    "skipLibCheck": true,
     "declaration": true,
     "noEmit": false
   }

@@ -1,5 +1,31 @@
 # @talend/react-stepper
 
+## 13.0.0
+
+### Major Changes
+
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- Updated dependencies [ecbfee8]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [bb95e38]
+- Updated dependencies [a525026]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/react-components@18.0.0
+  - @talend/design-system@12.0.0
+  - @talend/design-tokens@4.0.0
+
 ## 12.3.0
 
 ### Minor Changes

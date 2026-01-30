@@ -1,7 +1,8 @@
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
 import AppLoader from './AppLoader.component';
 import APP_LOADER from './constant';
+
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 
 const AppSpecificLoader = ({ iconUrl }) => (
 	<div>
@@ -10,17 +11,17 @@ const AppSpecificLoader = ({ iconUrl }) => (
 	</div>
 );
 
-export default {
+const meta = {
 	title: 'Components/Design Principles/Loading Feedback/AppLoader',
 	component: AppSpecificLoader,
+	tags: ['autodocs'],
 };
 
+export default meta;
+
 export const Default = {
-	argTypes: {
-		iconUrl: {
-			name: 'iconUrl',
-			type: { name: 'string', required: true },
-			defaultValue: 'https://unpkg.com/@talend/icons@6.51.1/src/svg/products/logo-square.svg',
-		},
+	args: {
+		iconUrl:
+			'https://statics.cloud.talend.com/@talend/icons/6.51.1/src/svg/products/logo-square.svg',
 	},
 };

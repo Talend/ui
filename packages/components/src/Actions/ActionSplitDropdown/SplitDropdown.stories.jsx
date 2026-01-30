@@ -1,17 +1,16 @@
-import { action } from '@storybook/addon-actions';
-
+/* eslint-disable no-console */
 import ActionSplitDropdown from './ActionSplitDropdown.component';
 
 const items = [
 	{
 		label: 'From Local',
 		'data-feature': 'actionsplitdropdown.items',
-		onClick: action('From Local click'),
+		onClick: () => console.log('From Local click'),
 	},
 	{
 		label: 'From Remote',
 		'data-feature': 'actionsplitdropdown.items',
-		onClick: action('From Remote click'),
+		onClick: () => console.log('From Remote click'),
 	},
 ];
 
@@ -30,14 +29,15 @@ const myAction = {
 	label: 'Add File',
 	icon: 'talend-environment',
 	'data-feature': 'actionsplitdropdown',
-	onClick: action('onAdd'),
+	onClick: () => console.log('onAdd'),
 	items,
 	emptyDropdownLabel: 'No option',
 };
 
-export default {
+const meta = {
 	title: 'Components/Deprecated/SplitDropdown',
-
+	component: ActionSplitDropdown,
+	tags: ['autodocs'],
 	decorators: [
 		story => (
 			<div>
@@ -48,55 +48,61 @@ export default {
 	],
 };
 
-export const Default = () => (
-	<div>
-		<p>By default :</p>
-		<div id="default">
-			<ActionSplitDropdown {...myAction} />
-		</div>
-		<p>Options with icons</p>
-		<div id="icon">
-			<ActionSplitDropdown {...myAction} items={itemsWithIcons} />
-		</div>
-		<p>Without icon</p>
-		<div id="noicon">
-			<ActionSplitDropdown {...myAction} icon="" />
-		</div>
-		<p>dropup</p>
-		<div id="noicon">
-			<ActionSplitDropdown {...myAction} dropup />
-		</div>
-		<p>Empty option</p>
-		<div id="empty">
-			<ActionSplitDropdown {...myAction} items={[]} />
-		</div>
-	</div>
-);
+export default meta;
 
-export const StyleVariations = () => {
-	const btnStyles = {
-		margin: '0 5px',
-	};
-	return (
-		<div id="styles">
-			<span style={btnStyles}>
-				<ActionSplitDropdown bsStyle="default" {...myAction} />
-			</span>
-			<span style={btnStyles}>
-				<ActionSplitDropdown bsStyle="primary" {...myAction} />
-			</span>
-			<span style={btnStyles}>
-				<ActionSplitDropdown bsStyle="success" {...myAction} />
-			</span>
-			<span style={btnStyles}>
-				<ActionSplitDropdown bsStyle="info" {...myAction} />
-			</span>
-			<span style={btnStyles}>
-				<ActionSplitDropdown bsStyle="warning" {...myAction} />
-			</span>
-			<span style={btnStyles}>
-				<ActionSplitDropdown bsStyle="danger" {...myAction} />
-			</span>
+export const Default = {
+	render: () => (
+		<div>
+			<p>By default :</p>
+			<div id="default">
+				<ActionSplitDropdown {...myAction} />
+			</div>
+			<p>Options with icons</p>
+			<div id="icon">
+				<ActionSplitDropdown {...myAction} items={itemsWithIcons} />
+			</div>
+			<p>Without icon</p>
+			<div id="noicon">
+				<ActionSplitDropdown {...myAction} icon="" />
+			</div>
+			<p>dropup</p>
+			<div id="noicon">
+				<ActionSplitDropdown {...myAction} dropup />
+			</div>
+			<p>Empty option</p>
+			<div id="empty">
+				<ActionSplitDropdown {...myAction} items={[]} />
+			</div>
 		</div>
-	);
+	),
+};
+
+export const StyleVariations = {
+	render: () => {
+		const btnStyles = {
+			margin: '0 5px',
+		};
+		return (
+			<div id="styles">
+				<span style={btnStyles}>
+					<ActionSplitDropdown bsStyle="default" {...myAction} />
+				</span>
+				<span style={btnStyles}>
+					<ActionSplitDropdown bsStyle="primary" {...myAction} />
+				</span>
+				<span style={btnStyles}>
+					<ActionSplitDropdown bsStyle="success" {...myAction} />
+				</span>
+				<span style={btnStyles}>
+					<ActionSplitDropdown bsStyle="info" {...myAction} />
+				</span>
+				<span style={btnStyles}>
+					<ActionSplitDropdown bsStyle="warning" {...myAction} />
+				</span>
+				<span style={btnStyles}>
+					<ActionSplitDropdown bsStyle="danger" {...myAction} />
+				</span>
+			</div>
+		);
+	},
 };

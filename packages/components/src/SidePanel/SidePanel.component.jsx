@@ -203,4 +203,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(SidePanel);
+/** @type Function */
+const SidePanelWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(SidePanel);
+export default SidePanelWithTranslation;

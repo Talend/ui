@@ -1,4 +1,4 @@
-import styles from './Welcome.module.scss';
+import styles from './Welcome.module.css';
 import { memo } from 'react';
 
 function Welcome() {

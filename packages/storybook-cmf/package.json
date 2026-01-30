@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-storybook-cmf",
   "description": "react-storybook-cmf library.",
-  "version": "11.1.0",
+  "version": "12.0.0",
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "repository": {
@@ -18,31 +18,41 @@
   ],
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "talend-scripts build --esm",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
+  "module": "./lib-esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "devDependencies": {
-    "@talend/eslint-config": "^13.5.0",
-    "@talend/eslint-plugin": "^1.6.0",
-    "@talend/react-cmf": "^11.1.0",
-    "@talend/scripts-core": "^16.8.0",
-    "@talend/scripts-config-babel": "^13.8.0",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
+    "@talend/react-cmf": "^12.0.0",
+    "@talend/scripts-core": "^17.0.0",
+    "@talend/scripts-config-babel": "^13.9.0",
     "@testing-library/react": "^14.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
-    "redux-saga": "^1.4.2"
+    "redux-saga": "^1.4.2",
+    "storybook": "^10.2.1"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^11.0.0",
+    "@talend/react-cmf": "^12.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
+    "storybook": "^10.2.1",
     "redux-saga": "^1.4.2"
   }
 }

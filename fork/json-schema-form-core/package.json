@@ -1,6 +1,6 @@
 {
   "name": "@talend/json-schema-form-core",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/index.js",
   "module": "./lib-esm/index.js",
@@ -46,17 +46,17 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@talend/babel-plugin-assets-api": "^1.7.0",
-    "@talend/babel-plugin-import-from-index": "^1.11.0",
-    "@talend/eslint-config": "^13.5.0",
-    "@talend/eslint-plugin": "^1.6.0",
-    "@talend/scripts-config-react-webpack": "^16.11.0",
-    "@talend/scripts-config-typescript": "^11.4.0",
-    "@talend/scripts-core": "^16.8.0",
+    "@talend/babel-plugin-assets-api": "^1.8.0",
+    "@talend/babel-plugin-import-from-index": "^1.12.0",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
+    "@talend/scripts-config-react-webpack": "^17.0.0",
+    "@talend/scripts-config-typescript": "^12.0.0",
+    "@talend/scripts-core": "^17.0.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
     "rimraf": "^5.0.10",
-    "webpack": "^5.102.1"
+    "webpack": "^5.104.1"
   },
   "dependencies": {
     "json-refs": "3.0.15",

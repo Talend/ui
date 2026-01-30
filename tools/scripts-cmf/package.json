@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-cmf",
   "description": "@talend/react-cmf scripts to manage CMF settings",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "cmf-settings.js",
   "publishConfig": {
     "access": "public"
@@ -17,13 +17,13 @@
     "deepmerge": "^1.5.2",
     "i18next": "^23.16.8",
     "jsonpath": "^1.1.1",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "mkdirp": "^1.0.4"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.5",
-    "@talend/eslint-config": "^13.5.0",
-    "@talend/eslint-plugin": "^1.6.0",
+    "@babel/eslint-parser": "^7.28.6",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
     "eslint": "^8.57.1"
   },
   "repository": {

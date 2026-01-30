@@ -4,7 +4,7 @@ import { ComponentStatuses, Statuses } from '@talend/storybook-docs';
 
 import statuses from './status.json';
 
-import theme from './StatusTable.module.scss';
+import theme from './StatusTable.module.css';
 
 function toTitleCase(value: string) {
 	return value

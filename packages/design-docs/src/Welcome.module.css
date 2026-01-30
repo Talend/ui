@@ -1,0 +1,228 @@
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.625rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes move {
+  0% {
+    transform: skewX(0);
+  }
+  50% {
+    transform: skewX(1deg);
+  }
+  to {
+    transform: skewX(0);
+  }
+}
+@keyframes dive {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.welcome :global #Character {
+  transform-origin: center;
+  animation: dive 10s ease-in-out infinite;
+}
+.welcome :global #Button,
+.welcome :global #Font,
+.welcome :global #Form,
+.welcome :global #Image,
+.welcome :global #TrustScore,
+.welcome :global #Code,
+.welcome :global #Chart {
+  transform-origin: center;
+  animation: 15s ease-in-out infinite;
+}
+.welcome :global #Coral {
+  transform-origin: center;
+  animation: move 5s ease-in-out infinite;
+}
+.welcome :global {
+  /**/
+}
+.welcome :global .cls-1 {
+  fill: white;
+}
+.welcome :global .cls-2 {
+  fill: url(#gradient_10);
+}
+.welcome :global .cls-3 {
+  fill: url(#gradient_48);
+}
+.welcome :global .cls-4 {
+  fill: #fb5460;
+}
+.welcome :global .cls-45,
+.welcome :global .cls-5 {
+  fill: none;
+}
+.welcome :global .cls-31,
+.welcome :global .cls-6 {
+  fill: #ff6d70;
+}
+.welcome :global .cls-7 {
+  clip-path: url(#clip-path);
+}
+.welcome :global .cls-40,
+.welcome :global .cls-8 {
+  opacity: 0.5;
+}
+.welcome :global .cls-9 {
+  fill: url(#gradient_23);
+}
+.welcome :global .cls-10 {
+  fill: url(#gradient_6);
+}
+.welcome :global .cls-11 {
+  fill: url(#gradient_6-2);
+}
+.welcome :global .cls-12 {
+  fill: url(#gradient_23-2);
+}
+.welcome :global .cls-13 {
+  clip-path: url(#clip-path-2);
+}
+.welcome :global .cls-14 {
+  fill: url(#gradient_48-3);
+}
+.welcome :global .cls-15 {
+  clip-path: url(#clip-path-3);
+}
+.welcome :global .cls-16 {
+  fill: url(#gradient_48-4);
+}
+.welcome :global .cls-17 {
+  clip-path: url(#clip-path-4);
+}
+.welcome :global .cls-18 {
+  clip-path: url(#clip-path-5);
+}
+.welcome :global .cls-19 {
+  fill: #e1e5f0;
+}
+.welcome :global .cls-20 {
+  clip-path: url(#clip-path-6);
+}
+.welcome :global .cls-21 {
+  fill: url(#gradient_48-5);
+}
+.welcome :global .cls-22 {
+  clip-path: url(#clip-path-7);
+}
+.welcome :global .cls-23 {
+  clip-path: url(#clip-path-8);
+}
+.welcome :global .cls-24 {
+  fill: url(#gradient_48-6);
+}
+.welcome :global .cls-25 {
+  clip-path: url(#clip-path-9);
+}
+.welcome :global .cls-26 {
+  clip-path: url(#clip-path-10);
+}
+.welcome :global .cls-27 {
+  clip-path: url(#clip-path-11);
+}
+.welcome :global .cls-28 {
+  fill: #0075c7;
+}
+.welcome :global .cls-29 {
+  fill: url(#gradient_48-7);
+}
+.welcome :global .cls-30 {
+  fill: url(#gradient_48-8);
+}
+.welcome :global .cls-31 {
+  fill-rule: evenodd;
+}
+.welcome :global .cls-32 {
+  mask: url(#mask);
+}
+.welcome :global .cls-33 {
+  fill: url(#gradient_48-9);
+}
+.welcome :global .cls-34 {
+  fill: #fdd3b5;
+}
+.welcome :global .cls-35 {
+  fill: url(#gradient_17);
+}
+.welcome :global .cls-36 {
+  fill: url(#gradient_34);
+}
+.welcome :global .cls-37 {
+  fill: #1a2e35;
+}
+.welcome :global .cls-38 {
+  fill: url(#gradient_4);
+}
+.welcome :global .cls-39 {
+  fill: url(#gradient_4-2);
+}
+.welcome :global .cls-40 {
+  fill: #2b454e;
+}
+.welcome :global .cls-41 {
+  fill: url(#gradient_4-3);
+}
+.welcome :global .cls-42 {
+  fill: url(#gradient_34-2);
+}
+.welcome :global .cls-43 {
+  fill: url(#gradient_4-4);
+}
+.welcome :global .cls-44 {
+  fill: url(#gradient_34-3);
+}
+.welcome :global .cls-45 {
+  stroke: black;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-width: 1.5px;
+}
+.welcome :global .cls-46 {
+  fill: url(#gradient_17-2);
+}
+.welcome :global .cls-47 {
+  fill: url(#gradient_34-4);
+}
+.welcome :global .cls-48 {
+  fill: url(#gradient_17-3);
+}
+.welcome :global .cls-49 {
+  fill: url(#gradient_10-3);
+}
+.welcome :global .cls-50 {
+  fill: url(#gradient_34-5);
+}
+.welcome :global .cls-51 {
+  fill: url(#gradient_10-4);
+}
+.welcome :global .cls-52 {
+  fill: url(#gradient_17-4);
+}
+.welcome :global .cls-53 {
+  fill: url(#gradient_17-5);
+}
+.welcome :global .cls-54 {
+  fill: url(#gradient_4-5);
+}
+.welcome :global .cls-55 {
+  fill: url(#gradient_4-6);
+}
+.welcome :global .cls-56 {
+  fill: #e96065;
+}

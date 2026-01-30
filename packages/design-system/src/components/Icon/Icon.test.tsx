@@ -18,7 +18,7 @@ describe('Icon', () => {
 			<main>
 				<Icon name="pencil" />
 				<Icon name="src-https://statics-dev.cloud.talend.com/@talend/common/images/favicon-logo-square.ico" />
-				<Icon name="remote-https://unpkg.com/@talend/icons@6.1.5/src/svg/core/abc.svg" />
+				<Icon name="remote-https://statics.cloud.talend.com/@talend/icons/6.1.5/src/svg/core/abc.svg" />
 			</main>,
 		);
 		expect(container.firstChild).toMatchSnapshot();
