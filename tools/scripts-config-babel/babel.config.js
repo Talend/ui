@@ -21,5 +21,6 @@ module.exports = {
 		require.resolve('@babel/plugin-proposal-export-namespace-from'),
 		require.resolve('@babel/plugin-transform-object-assign'),
 		[require.resolve('babel-plugin-angularjs-annotate'), { explicitOnly: true }],
+		require.resolve('@babel/plugin-transform-private-methods'),
 	],
 };
