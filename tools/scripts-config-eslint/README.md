@@ -74,11 +74,13 @@ The configuration automatically:
 
 ### VS Code
 
-Install the ESLint extension and ensure it's configured to use flat config. Add to your `.vscode/settings.json`:
+Install the ESLint extension. Modern versions of the VS Code ESLint extension (v3.0.0+) automatically detect and use flat config when available. No additional configuration is needed.
+
+If you're using an older version of the extension, you may need to update it or add to your `.vscode/settings.json`:
 
 ```json
 {
-  "eslint.experimental.useFlatConfig": true
+  "eslint.useFlatConfig": true
 }
 ```
 
