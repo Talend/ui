@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const svg64 = require('svg64');
+const svg64 = require('svg64').default;
 
 function getThemeIcon(theme) {
 	if (theme === 'tfd') {
