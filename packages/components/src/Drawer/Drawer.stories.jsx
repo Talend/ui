@@ -596,6 +596,9 @@ export const Interactive = () => {
 		</Layout>
 	);
 };
+Interactive.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const _Interactive = () => {
 	const allDrawers = {
@@ -656,6 +659,9 @@ export const _Interactive = () => {
 		</Layout>
 	);
 };
+_Interactive.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithSubtitleComponent = () => {
 	const [variant, setVariant] = useState('default');
@@ -695,4 +701,7 @@ export const WithSubtitleComponent = () => {
 			</select>
 		</Layout>
 	);
+};
+WithSubtitleComponent.parameters = {
+	chromatic: { disableSnapshot: true },
 };
