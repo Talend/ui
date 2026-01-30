@@ -1,1 +1,0 @@
-import{a as I,r as m}from"./eq-BrCzcbIc.js";import{r as p,b as o}from"./isArrayLike-C3kMs0g0.js";var a,t;function C(){if(t)return a;t=1;var s=m(),u=p(),n=o(),l=I();function f(q,e,r){if(!l(r))return!1;var i=typeof e;return(i=="number"?u(r)&&n(e,r.length):i=="string"&&e in r)?s(r[e],q):!1}return a=f,a}export{C as r};

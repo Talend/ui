@@ -1,4 +1,0 @@
-import{j as o}from"./index-BfyV6fgH.js";import{u as i}from"./index-pZzKWhjH.js";import{M as m}from"./blocks-CUIhDQeA.js";import{t as n}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-DB7vHRjW.js";import{D as c}from"./Dialog-UNlZsJPO.js";import"./index-BzQ6li6Y.js";import"./useCopyToClipboard-4_wheD1f.js";import{T as a}from"./TokenValue-vsN8aBGV.js";import"./index-Cbet5SZL.js";import"./preload-helper-PPVm8Dsz.js";import"./index-DrFu-skq.js";import"./dictionary-CKKJDmnH.js";function s(r){const t={h1:"h1",...i(),...r.components};return o.jsxs(o.Fragment,{children:[o.jsx(m,{title:"Design Tokens/Borders"}),`
-`,o.jsx(t.h1,{id:"borders",children:"Borders"}),`
-`,o.jsx(c,{}),`
-`,o.jsx(a,{style:e=>({background:n.coralColorAccentBackground,border:`${e.value} ${n.coralColorAccentBorder}`}),type:"border",children:e=>e.value})]})}function g(r={}){const{wrapper:t}={...i(),...r.components};return t?o.jsx(t,{...r,children:o.jsx(s,{...r})}):s(r)}export{g as default};

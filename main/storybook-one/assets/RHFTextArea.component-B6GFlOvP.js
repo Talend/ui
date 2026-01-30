@@ -1,1 +1,0 @@
-import{j as m,F as i}from"./iframe-DRCDqYKx.js";import{a as x,b as c}from"./index.esm-CfInih9k.js";function p({rules:e={},name:o="",defaultValue:s,...t}){const{control:a}=x(),{field:n,fieldState:r}=c({control:a,name:o,rules:e,defaultValue:s});return m.jsx(i.Textarea,{hasError:!!r.error?.message,description:r.error?.message,...n,...t})}export{p as R};
