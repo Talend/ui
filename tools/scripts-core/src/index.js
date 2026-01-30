@@ -86,37 +86,37 @@ switch (command) {
 		break;
 	case 'lint':
 		console.log('The "lint" command has been removed. Please use "eslint ." directly with @talend/eslint-config');
-		process.exit(-1);
+		process.exit(1);
 		break;
 	case 'build:lib':
 	case 'build:lib:umd':
 		console.log('This command do not exists anymore, please use just "build" command');
-		process.exit(-1);
+		process.exit(1);
 		break;
 	case 'lint:es':
 	case 'lint:style':
 		console.log('This command do not exists anymore, please use just "lint" command');
-		process.exit(-1);
+		process.exit(1);
 		break;
 	case 'test:ng':
 		console.log('This command do not exists anymore, please use just "test" command');
-		process.exit(-1);
+		process.exit(1);
 		break;
 	case 'upgrade:deps':
 		console.log(
 			'This command do not exists anymore, please use just "talend-upgrade-deps" binary from "@talend/upgrade-deps" package',
 		);
-		process.exit(-1);
+		process.exit(1);
 		break;
 	case 'publish:local':
 		console.log(
 			'This command do not exists anymore, please use just "talend-publish-local" bin from "@talend/scripts-publish-local" package',
 		);
-		process.exit(-1);
+		process.exit(1);
 		break;
 	default:
 		console.log(`Command ${command} not found.`);
-		process.exit(-1);
+		process.exit(1);
 }
 
 /* eslint-disable global-require,no-console */

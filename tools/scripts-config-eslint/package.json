@@ -3,7 +3,7 @@
   "description": "Eslint configuration for @talend/scripts-core",
   "version": "14.0.0",
   "license": "Apache-2.0",
-  "main": "eslint.config.js",
+  "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/ui#readme",
   "bugs": {
@@ -26,7 +26,7 @@
     "@talend/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^8.19.1",
     "@typescript-eslint/eslint-plugin": "^8.19.1",
-    "eslint": "^9.17.0",
+    "eslint": "^9.39.2",
     "eslint-config-prettier": "^9.1.2",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
