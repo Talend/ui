@@ -18,7 +18,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "node ./src/index.js lint",
+    "lint": "eslint .",
     "test": "node ./src/index.js test ./__tests__"
   },
   "peerDependencies": {

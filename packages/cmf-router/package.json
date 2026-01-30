@@ -23,7 +23,7 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "lint": "talend-scripts lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@talend/react-cmf": "^12.0.0",

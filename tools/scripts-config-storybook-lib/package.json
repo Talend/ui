@@ -28,7 +28,7 @@
   "scripts": {
     "build:lib": "tsc",
     "build:watch": "tsc --watch",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "update:msw": "npx msw init public/msw --save"
   },
   "files": [

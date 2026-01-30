@@ -10,7 +10,7 @@
     "cmf-settings": "./cmf-settings.js"
   },
   "scripts": {
-    "lint": "eslint ./"
+    "lint": "eslint ."
   },
   "dependencies": {
     "commander": "^6.2.1",
