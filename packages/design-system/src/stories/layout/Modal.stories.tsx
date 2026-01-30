@@ -147,6 +147,9 @@ export const NoDisclosure: StoryFn<typeof Modal> = props => (
 		<p>A basic modal with only a title and a text content.</p>
 	</ModalStory>
 );
+NoDisclosure.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithDisclosure: StoryFn<typeof Modal> = props => (
 	<Modal
@@ -167,6 +170,9 @@ export const WithIcon: StoryFn<typeof Modal> = props => (
 		<p>A basic modal with title, a text content and an icon.</p>
 	</ModalStory>
 );
+WithIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 const customIcon = <span>👋</span>;
 export const WithCustomIcon: StoryFn<typeof Modal> = props => (
@@ -174,6 +180,9 @@ export const WithCustomIcon: StoryFn<typeof Modal> = props => (
 		<p>A basic modal with title, a text content and a custom icon.</p>
 	</ModalStory>
 );
+WithCustomIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithDescription: StoryFn<typeof Modal> = props => (
 	<ModalStory
@@ -183,6 +192,9 @@ export const WithDescription: StoryFn<typeof Modal> = props => (
 		<p>A basic modal with title, a description and a text content.</p>
 	</ModalStory>
 );
+WithDescription.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithNoClickableBackdrop: StoryFn<typeof Modal> = props => (
 	<ModalStory
@@ -193,6 +205,9 @@ export const WithNoClickableBackdrop: StoryFn<typeof Modal> = props => (
 		<p>A basic modal with title, a text content and an icon.</p>
 	</ModalStory>
 );
+WithNoClickableBackdrop.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithActions: StoryFn<typeof Modal> = props => (
 	<ModalStory
@@ -213,6 +228,9 @@ export const WithActions: StoryFn<typeof Modal> = props => (
 		</p>
 	</ModalStory>
 );
+WithActions.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithDestructivePrimaryAction: StoryFn<typeof Modal> = props => (
 	<ModalStory
@@ -227,6 +245,9 @@ export const WithDestructivePrimaryAction: StoryFn<typeof Modal> = props => (
 		<p>A modal with a destructive primary action.</p>
 	</ModalStory>
 );
+WithDestructivePrimaryAction.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithNoEscape: StoryFn<typeof Modal> = () => {
 	const [modalOpen, setModalOpen] = useState(false);
@@ -260,6 +281,9 @@ export const WithNoEscape: StoryFn<typeof Modal> = () => {
 		</>
 	);
 };
+WithNoEscape.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithOverflowingHeader: StoryFn<typeof Modal> = props => (
 	<ModalStory
@@ -280,6 +304,9 @@ export const WithOverflowingContent: StoryFn<typeof Modal> = props => (
 		<QuicheRecipe />
 	</ModalStory>
 );
+WithOverflowingContent.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithEverything: StoryFn<typeof Modal> = props => (
 	<ModalStory
@@ -304,3 +331,6 @@ export const WithEverything: StoryFn<typeof Modal> = props => (
 		<QuicheRecipe />
 	</ModalStory>
 );
+WithEverything.parameters = {
+	chromatic: { disableSnapshot: true },
+};

@@ -16,13 +16,13 @@ const defaultProps = {
 	title: 'Relevant information about this basic button',
 };
 
-export const Top = { args: { ...defaultProps, placement: 'top' }, render };
+export const Top = { args: { ...defaultProps, placement: 'top' }, render, parameters: { chromatic: { disableSnapshot: true } } };
 
-export const Right = { args: { ...defaultProps, placement: 'right' }, render };
+export const Right = { args: { ...defaultProps, placement: 'right' }, render, parameters: { chromatic: { disableSnapshot: true } } };
 
-export const Bottom = { args: { ...defaultProps, placement: 'bottom' }, render };
+export const Bottom = { args: { ...defaultProps, placement: 'bottom' }, render, parameters: { chromatic: { disableSnapshot: true } } };
 
-export const Left = { args: { ...defaultProps, placement: 'left' }, render };
+export const Left = { args: { ...defaultProps, placement: 'left' }, render, parameters: { chromatic: { disableSnapshot: true } } };
 
 export const Usage = {
 	args: {

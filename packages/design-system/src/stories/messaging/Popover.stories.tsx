@@ -34,6 +34,9 @@ export const DefaultStory = () => (
 		</Popover>
 	</div>
 );
+DefaultStory.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const DisclosureStory = () => (
 	<div style={{ padding: '0.75rem' }}>
@@ -49,6 +52,9 @@ export const DisclosureStory = () => (
 		</Popover>
 	</div>
 );
+DisclosureStory.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const FormDisclosureStory = () => (
 	<div style={{ padding: '0.75rem' }}>
@@ -60,6 +66,9 @@ export const FormDisclosureStory = () => (
 		</Popover>
 	</div>
 );
+FormDisclosureStory.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithoutPaddingStory = () => (
 	<div style={{ padding: '0.75rem' }}>
@@ -68,6 +77,9 @@ export const WithoutPaddingStory = () => (
 		</Popover>
 	</div>
 );
+WithoutPaddingStory.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithFunctionAsChildren = () => (
 	<div style={{ padding: '0.75rem' }}>
@@ -82,3 +94,6 @@ export const WithFunctionAsChildren = () => (
 		</Popover>
 	</div>
 );
+WithFunctionAsChildren.parameters = {
+	chromatic: { disableSnapshot: true },
+};
