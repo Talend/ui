@@ -1,5 +1,11 @@
 # @talend/scripts-config-babel
 
+## 13.9.1
+
+### Patch Changes
+
+- 2629b7f: fix: add plugin-transform-private-methods
+
 ## 13.9.0
 
 ### Minor Changes
