@@ -1,5 +1,12 @@
 # @talend/scripts-config-jest
 
+## 14.6.2
+
+### Patch Changes
+
+- e61cefe: fix: exclude util-async to transformignore pattern
+- e61cefe: fix: add WritableStream support
+
 ## 14.6.1
 
 ### Patch Changes
