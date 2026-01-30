@@ -45,13 +45,13 @@ jobs:
           fi
 
       - name: Install and Build
-        if: steps.changesetfiles.outputs.count == 0
+        if: steps.changesetfiles.outputs.count == 1
         run: yarn --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install but do not build
-        if: steps.changesetfiles.outputs.count > 0
+        if: steps.changesetfiles.outputs.count > 1
         run: yarn --ignore-scripts --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
