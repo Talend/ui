@@ -175,4 +175,6 @@ ItemEdit.propTypes = {
 	}),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ItemEdit);
+/** @type Function */
+const ItemEditWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(ItemEdit);
+export default ItemEditWithTranslation;

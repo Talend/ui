@@ -81,4 +81,6 @@ Validation.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Validation);
+/** @type Function */
+const ValidationWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(Validation);
+export default ValidationWithTranslation;

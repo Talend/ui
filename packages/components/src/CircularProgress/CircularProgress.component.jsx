@@ -85,4 +85,6 @@ CircularProgress.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(CircularProgress);
+/** @type Function */
+const CircularProgressWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(CircularProgress);
+export default CircularProgressWithTranslation;

@@ -32,4 +32,6 @@ AppLoaderComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(AppLoaderComponent);
+/** @type Function */
+const AppLoaderWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(AppLoaderComponent);
+export default AppLoaderWithTranslation;

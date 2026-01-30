@@ -93,4 +93,6 @@ Header.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Header);
+/** @type Function */
+const HeaderWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(Header);
+export default HeaderWithTranslation;

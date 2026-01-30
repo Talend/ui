@@ -350,4 +350,7 @@ PieChartIconComponent.defaultProps = {
 
 PieChartIconComponent.displayName = 'PieChartIcon';
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(PieChartIconComponent);
+/** @type Function */
+const PieChartIconComponentWithTranslation =
+	withTranslation(I18N_DOMAIN_COMPONENTS)(PieChartIconComponent);
+export default PieChartIconComponentWithTranslation;

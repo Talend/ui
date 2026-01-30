@@ -83,4 +83,6 @@ HeaderInput.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(HeaderInput);
+/** @type Function */
+const HeaderInputWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(HeaderInput);
+export default HeaderInputWithTranslation;

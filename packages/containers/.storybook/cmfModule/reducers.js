@@ -1,7 +1,7 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 const TOGGLE_FLAG_TYPE = 'TOGGLE_FLAG_TYPE';
-const actionLogger = action('dispatch');
+const actionLogger = action();
 function flagToggleReducer(state = {}, { type, flagId }) {
 	if (type === TOGGLE_FLAG_TYPE) {
 		return {

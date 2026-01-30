@@ -13,12 +13,10 @@ if (command === '--help' || command === '-h' || command === 'help') {
 	console.log(`Please use one of the following commands:
 * start
 * build
-* build-storybook
 * lint
 * lint-merge-report
 * test
 * extends
-* start-storybook
 `);
 	process.exit(0);
 }
@@ -80,10 +78,8 @@ async function runScript() {
 
 switch (command) {
 	case 'build':
-	case 'build-storybook':
 	case 'lint':
 	case 'start':
-	case 'start-storybook':
 	case 'test':
 		runScript(command, options);
 		break;

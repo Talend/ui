@@ -1,18 +1,22 @@
+/* eslint-disable react/prop-types */
 import Immutable from 'immutable';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import ActionDropdown from '.';
 
 export default {
 	title: 'AboutDropdown',
+	args: {
+		onSelect: action('selectAction'),
+	},
 };
 
-export function Default() {
+export function Default({ onSelect }) {
 	const propsInjectedItems = {
 		id: 'injected-items',
 		displayMode: 'dropdown',
 		label: 'my injected items',
-		onSelect: action('selectAction'),
+		onSelect,
 		components: {
 			itemsDropdown: [
 				{
@@ -40,7 +44,7 @@ export function Default() {
 		id: 'immutable-items',
 		displayMode: 'dropdown',
 		label: 'my immutable items',
-		onSelect: action('selectAction'),
+		onSelect,
 		items: Immutable.fromJS([
 			{
 				id: 'item1',

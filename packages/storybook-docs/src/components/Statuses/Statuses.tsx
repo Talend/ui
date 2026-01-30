@@ -1,4 +1,4 @@
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 import { Status } from './Status';
 import { Statuses, StatusType } from './Statuses.types';
 

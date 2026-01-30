@@ -130,4 +130,6 @@ Resource.propTypes = {
 	as: PropTypes.func,
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Resource);
+/** @type Function */
+const ResourceWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(Resource);
+export default ResourceWithTranslation;

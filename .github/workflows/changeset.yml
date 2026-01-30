@@ -32,14 +32,33 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
 
-      - name: Install Dependencies
+      - name: has changeset file
+        id: changesetfiles
+        run: |
+          count=$(find .changeset -name "*.md" -type f | wc -l)
+          echo "count=$count" >> $GITHUB_OUTPUT
+          if [ $count -gt 0 ]; then
+            echo "Found $count md file(s)"
+            find .changeset -name "*.md" -type f
+          else
+            echo "No md files found"
+          fi
+
+      - name: Install and Build
+        if: steps.changesetfiles.outputs.count == 0
         run: yarn --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Install but do not build
+        if: steps.changesetfiles.outputs.count > 0
+        run: yarn --ignore-scripts --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba #v1.5.3
+        uses: changesets/action@c48e67d110a68bc90ccf1098e9646092baacaa87 #v1.6.0
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release

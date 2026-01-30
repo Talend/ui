@@ -1,14 +1,18 @@
 import FormatValue from './FormatValue.component';
 
-export default {
+const meta = {
 	title: 'Components/Formatter/FormatValue',
+	component: FormatValue,
+	tags: ['autodocs'],
 };
 
-export const Default = () => {
-	return (
+export default meta;
+
+export const Default = {
+	render: () => (
 		<FormatValue
 			value={`   Show special     chars and newline
       `}
 		/>
-	);
+	),
 };

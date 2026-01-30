@@ -1,39 +1,26 @@
-import { ThemeProvider } from '@talend/design-system';
+import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
+import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
-import { namespaces as componentsNamespaces } from '@talend/locales-tui-components/namespaces';
-import { namespaces as containersNamespaces } from '@talend/locales-tui-containers/namespaces';
-import { namespaces as formsNamespaces } from '@talend/locales-tui-forms/namespaces';
-
 import cmfModule, { settings } from './cmfModule';
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
 
-export const i18n = {
-	namespaces: [
-		...componentsNamespaces,
-		...containersNamespaces,
-		...formsNamespaces,
-		...dsNamespaces,
-	],
-	remoteLocalesMap: {
-		'tui-components':
-			'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
-		'tui-containers':
-			'https://unpkg.com/@talend/locales-tui-containers/locales/{{lng}}/{{ns}}.json',
-		'tui-forms': 'https://unpkg.com/@talend/locales-tui-forms/locales/{{lng}}/{{ns}}.json',
-		'design-system': 'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
+const preview = createPreviewConfig({
+	parameters: {},
+	i18n: {
+		namespaces: [...tuiContainersNamespaces, ...tuiComponentsNamespaces, ...dsNamespaces],
+		remoteLocalesMap: {
+			'tui-containers':
+				'https://statics.cloud.talend.com/@talend/locales-tui-containers/9.1.3/locales/{{lng}}/{{ns}}.json',
+			'tui-components':
+				'https://statics.cloud.talend.com/@talend/locales-tui-components/16.0.1/locales/{{lng}}/{{ns}}.json',
+			'design-system':
+				'https://statics.cloud.talend.com/@talend/locales-design-system/7.15.1/locales/{{lng}}/{{ns}}.json',
+		},
 	},
-};
+	cmf: {
+		modules: [cmfModule],
+		settings: settings,
+	},
+});
 
-export const decorators = [
-	(Story, context) => (
-		<ThemeProvider>
-			<Story {...context} />
-		</ThemeProvider>
-	),
-];
-
-export const cmf = {
-	modules: [cmfModule],
-	settings,
-};
-
-export const parameters = { layout: 'fullscreen' };
+export default preview;

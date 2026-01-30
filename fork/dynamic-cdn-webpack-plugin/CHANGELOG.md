@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 14.4.0
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- Updated dependencies [bb95e38]
+  - @talend/module-to-cdn@9.17.0
+
 ## 14.3.0
 
 ### Minor Changes

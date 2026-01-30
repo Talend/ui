@@ -73,7 +73,7 @@ function createPackageJsonManager(filePath) {
 
 async function getNext(dependency) {
 	if (!CACHE[dependency]) {
-		const nextVersion = await execProm(`npm dist-tag ls ${dependency}`);
+		const nextVersion = await execProm(`npm dist-tag ls ${dependency}`, {});
 		CACHE[dependency] = nextVersion.stdout
 			.split('\n')
 			.filter(line => line.includes('next:'))[0]

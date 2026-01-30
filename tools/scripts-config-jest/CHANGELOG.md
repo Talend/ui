@@ -1,5 +1,17 @@
 # @talend/scripts-config-jest
 
+## 14.6.0
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- a525026: fix: support jsx files
+- Updated dependencies [bb95e38]
+  - @talend/scripts-config-babel@13.9.0
+
 ## 14.5.0
 
 ### Minor Changes

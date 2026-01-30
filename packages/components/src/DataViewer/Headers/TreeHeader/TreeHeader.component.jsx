@@ -66,4 +66,6 @@ TreeHeader.propTypes = {
 	title: PropTypes.string.isRequired,
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(TreeHeader);
+/** @type Function */
+const TreeHeaderWithTranslation = withTranslation(I18N_DOMAIN_COMPONENTS)(TreeHeader);
+export default TreeHeaderWithTranslation;

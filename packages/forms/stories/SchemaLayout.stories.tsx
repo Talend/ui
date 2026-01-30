@@ -5,8 +5,7 @@ import { Dialog, Drawer as DrawerComponent, HeaderBar, Layout } from '@talend/re
 import Form from '../src';
 import { argTypes } from './argTypes';
 import { displayModeSchema } from './UIFormStoriesSchemas/displayMode.schema';
-
-const simple = require('./json/concepts/simple.json');
+import simple from './json/concepts/simple.json';
 
 const meta: Meta<typeof Form> = {
 	title: 'Forms/Schema/Layout',

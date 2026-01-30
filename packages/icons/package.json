@@ -1,46 +1,48 @@
 {
   "name": "@talend/icons",
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
-  "main": "dist/TalendIcons.js",
-  "types": "dist/typeUtils.d.ts",
-  "style": "build/octicons.css",
-  "module": "./lib-esm/index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/talendicons.css",
   "exports": {
-    "./.storybook/main.js": "./.storybook/main.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./dist/typeUtils": {
+      "types": "./dist/typeUtils.d.ts",
+      "import": "./dist/typeUtils.js",
+      "require": "./dist/typeUtils.cjs"
+    },
+    "./dist/talend-icons-webfont.css": {
+      "style": "./dist/talend-icons-webfont.css"
+    },
     "./src/*": {
       "import": "./src/*",
       "require": "./src/*"
-    },
-    "./dist/typeUtils": {
-      "import": "./lib-esm/typeUtils.js",
-      "require": "./dist/typeUtils.js"
-    },
-    ".": {
-      "import": "./dist/TalendIcons.js",
-      "require": "./dist/TalendIcons.js"
     }
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env production",
-    "build-ts": "tsc",
-    "build-react": "node scripts/react.js",
-    "build-webfont": "webpack",
-    "build:lib": "npm run ts:types && npm run build-ts && npm run build-react && npm run build-webfont && npm run build-umd",
-    "build:lib:esm": "talend-scripts build --esm",
-    "ts:types": "node scripts/typescript.js",
+    "build:lib": "npm run build:type-utils && npm run build:svg-bundles && vite build && tsc --emitDeclarationOnly && npm run build:webfont",
+    "build:type-utils": "node scripts/generate-type-utils.mjs",
+    "build:svg-bundles": "node scripts/generate-svg-bundles.mjs",
+    "build:watch": "vite build --watch",
+    "build:webfont": "node scripts/build-webfont.mjs",
+    "build:types": "tsc --emitDeclarationOnly",
+    "type-check": "tsc --noEmit",
     "test": "echo no test",
     "test:cov": "echo no test",
-    "start-storybook": "talend-scripts start-storybook",
-    "build-storybook": "talend-scripts build-storybook",
-    "start": "talend-scripts start-storybook -p 6010",
+    "start": "storybook dev -p 6010",
+    "build-storybook": "storybook build",
     "lint": "echo nothing to lint",
     "svgo": "svgo -rf src/svg --config svgo-icons.config.mjs && svgo -rf src/filters --config svgo-filters.config.mjs"
   },
   "files": [
-    "index.js",
     "dist",
-    "lib-esm",
     "src"
   ],
   "keywords": [
@@ -58,36 +60,22 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
-    "@babel/preset-react": "^7.28.5",
-    "@svgr/webpack": "^8.1.0",
-    "@talend/eslint-config": "^13.5.0",
-    "@talend/eslint-plugin": "^1.6.0",
-    "@talend/scripts-core": "^16.8.0",
-    "@talend/scripts-config-babel": "^13.8.0",
-    "@talend/scripts-config-typescript": "^11.4.0",
-    "@talend/babel-plugin-assets-api": "^1.7.0",
-    "@talend/babel-plugin-import-from-index": "^1.11.0",
-    "@talend/scripts-config-storybook-lib": "^5.8.0",
-    "@talend/design-tokens": "^3.5.0",
-    "babel-loader": "^9.2.1",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^7.1.2",
-    "mini-css-extract-plugin": "^2.9.4",
+    "@talend/design-tokens": "^4.0.0",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
+    "@talend/scripts-config-typescript": "^12.0.0",
+    "@types/node": "^20.19.30",
+    "fantasticon": "^3.0.0",
     "mkdirp": "^1.0.4",
-    "prettier": "^3.6.2",
+    "prettier": "^3.8.1",
     "react": "^18.3.1",
-    "react-use": "^17.6.0",
-    "string-replace-loader": "^2.3.0",
-    "style-loader": "^1.3.0",
+    "storybook": "^10.2.1",
     "svgo": "^3.3.2",
-    "webfonts-loader": "^8.1.1",
-    "webpack": "^5.102.1",
-    "webpack-cli": "^6.0.1"
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.14.0"
+  "version": "8.0.0"
 }

@@ -1,0 +1,27 @@
+.card {
+  justify-content: center;
+  align-items: center;
+  border: var(--coral-border-s-solid, 1px solid) rgba(0, 0, 0, 0);
+  position: relative;
+  display: inline-flex;
+  border-radius: var(--coral-radius-m, 0.5rem);
+  min-height: 5.25rem;
+}
+
+.score {
+  position: absolute;
+  top: var(--coral-spacing-xs, 0.5rem);
+  left: var(--coral-spacing-xs, 0.5rem);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: var(--coral-spacing-m, 1rem);
+}
+
+.neutral {
+  background-color: var(--coral-color-neutral-background, white);
+  color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
