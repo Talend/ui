@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 17.0.1
+
+### Patch Changes
+
+- 13f08b5: chore(deps): bump svg64 from 1.2.0 to 2.0.0
+
 ## 17.0.0
 
 ### Major Changes

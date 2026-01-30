@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 14.6.1
+
+### Patch Changes
+
+- 6f4036e: fix: add msw to the list of need to be transformed packages
+
 ## 14.6.0
 
 ### Minor Changes

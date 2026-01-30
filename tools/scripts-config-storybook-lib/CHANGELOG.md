@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 6.0.1
+
+### Patch Changes
+
+- 6f4036e: fix: update template of msw
+
 ## 6.0.0
 
 ### Major Changes
