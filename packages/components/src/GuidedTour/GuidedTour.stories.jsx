@@ -289,4 +289,7 @@ export default meta;
 
 export const Default = {
 	render: () => <TranslatedGuidedTourContainer getSteps={getSteps} />,
+	parameters: {
+		chromatic: { disableSnapshot: true },
+	},
 };

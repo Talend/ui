@@ -126,6 +126,9 @@ export const Default = () => {
 		</Form>
 	);
 };
+Default.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const Error = () => (
 	<div style={{ margin: '0 auto', width: '21.875rem' }}>

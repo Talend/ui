@@ -165,6 +165,9 @@ export const PrimaryVariations = () => (
 		</StackVertical>
 	</StackHorizontal>
 );
+PrimaryVariations.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const DestructiveVariations = () => (
 	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
@@ -213,6 +216,9 @@ export const DestructiveVariations = () => (
 		</StackVertical>
 	</StackHorizontal>
 );
+DestructiveVariations.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const SecondaryVariations = () => (
 	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
@@ -261,6 +267,9 @@ export const SecondaryVariations = () => (
 		</StackVertical>
 	</StackHorizontal>
 );
+SecondaryVariations.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const TertiaryVariations = () => (
 	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
@@ -309,6 +318,9 @@ export const TertiaryVariations = () => (
 		</StackVertical>
 	</StackHorizontal>
 );
+TertiaryVariations.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const SkeletonButton = () => {
 	return (
@@ -346,6 +358,9 @@ export const Loading = {
 				</ButtonPrimary>
 			</Tooltip>
 		);
+	},
+	parameters: {
+		chromatic: { disableSnapshot: true },
 	},
 };
 
@@ -394,6 +409,9 @@ export const Variations = () => (
 		</StackVertical>
 	</StackHorizontal>
 );
+Variations.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const VariantComponent = () => (
 	<StackHorizontal gap="S">

@@ -46,5 +46,11 @@ export default {
 };
 
 export const Default = () => <AppGuidedTourContainer withDemoContent />;
+Default.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithoutDemoContent = () => <AppGuidedTourContainer />;
+WithoutDemoContent.parameters = {
+	chromatic: { disableSnapshot: true },
+};

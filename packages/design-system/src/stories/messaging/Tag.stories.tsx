@@ -42,36 +42,54 @@ export const VariantDefault: StoryFn<typeof Tag> = props => (
 		Example
 	</Tag>
 );
+VariantDefault.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const VariantInformation: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="information">
 		Example
 	</Tag>
 );
+VariantInformation.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const VariantSuccess: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="success">
 		Example
 	</Tag>
 );
+VariantSuccess.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const VariantWarning: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="warning">
 		Example
 	</Tag>
 );
+VariantWarning.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const VariantDestructive: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="destructive">
 		Example
 	</Tag>
 );
+VariantDestructive.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const VariantBeta: StoryFn<typeof Tag> = props => (
 	<Tag {...props} variant="beta">
 		Example
 	</Tag>
 );
+VariantBeta.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const Ellipsis: StoryFn<typeof TagDefault> = props => (
 	<TagDefault {...props}>

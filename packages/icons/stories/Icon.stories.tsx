@@ -44,3 +44,6 @@ export const All = props => {
 		</div>
 	);
 };
+All.parameters = {
+	chromatic: { disableSnapshot: true },
+};

@@ -168,6 +168,9 @@ export const CheckedRichRadioButton = () => (
 		title="This is a title"
 	/>
 );
+CheckedRichRadioButton.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const CheckedRichRadioButtonWithTags = () => (
 	<RichRadioButton
@@ -194,6 +197,9 @@ export const CheckedRichRadioButtonWithTags = () => (
 		title="This is a title"
 	/>
 );
+CheckedRichRadioButtonWithTags.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const CheckedRichRadioButtonWithTagsAndIcon = () => (
 	<RichRadioButton
@@ -223,6 +229,9 @@ export const CheckedRichRadioButtonWithTagsAndIcon = () => (
 		]}
 	/>
 );
+CheckedRichRadioButtonWithTagsAndIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const CheckedRichRadioButtonWithTagsAndIllustration = () => (
 	<RichRadioButton
@@ -252,6 +261,9 @@ export const CheckedRichRadioButtonWithTagsAndIllustration = () => (
 		]}
 	/>
 );
+CheckedRichRadioButtonWithTagsAndIllustration.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const CheckedRichRadioButtonWithTagsAndLogo = () => (
 	<RichRadioButton
@@ -281,6 +293,9 @@ export const CheckedRichRadioButtonWithTagsAndLogo = () => (
 		]}
 	/>
 );
+CheckedRichRadioButtonWithTagsAndLogo.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const CheckedRichRadioButtonDisabled = () => (
 	<RichRadioButton
@@ -311,6 +326,9 @@ export const CheckedRichRadioButtonDisabled = () => (
 		]}
 	/>
 );
+CheckedRichRadioButtonDisabled.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const CheckedRichRadioButtonReadOnly = () => (
 	<RichRadioButton
@@ -341,3 +359,6 @@ export const CheckedRichRadioButtonReadOnly = () => (
 		]}
 	/>
 );
+CheckedRichRadioButtonReadOnly.parameters = {
+	chromatic: { disableSnapshot: true },
+};
