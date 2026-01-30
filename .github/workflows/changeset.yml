@@ -32,8 +32,27 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
 
-      - name: Install Dependencies
+      - name: has changeset file
+        id: changesetfiles
+        run: |
+          count=$(find .changeset -name "*.md" -type f | wc -l)
+          echo "count=$count" >> $GITHUB_OUTPUT
+          if [ $count -gt 0 ]; then
+            echo "Found $count md file(s)"
+            find .changeset -name "*.md" -type f
+          else
+            echo "No md files found"
+          fi
+
+      - name: Install and Build
+        if: steps.changesetfiles.outputs.count == 0
         run: yarn --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Install but do not build
+        if: steps.changesetfiles.outputs.count > 0
+        run: yarn --ignore-scripts --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
