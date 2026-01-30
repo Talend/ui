@@ -28,7 +28,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "eslint .",
     "test:cron": "talend-scripts test"
   },
   "publishConfig": {

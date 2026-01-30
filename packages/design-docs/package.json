@@ -7,7 +7,7 @@
   "scripts": {
     "build-storybook": "storybook build --docs",
     "start-storybook": "storybook dev -p 6006 --docs",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "start": "storybook dev -p 6006 --docs",
     "test:demo": "storybook build --docs"
   },

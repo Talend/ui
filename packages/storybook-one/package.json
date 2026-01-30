@@ -8,7 +8,7 @@
     "test:demo": "storybook build",
     "build-storybook": "storybook build",
     "start-storybook": "storybook dev",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "start": "storybook dev"
   },
   "repository": {

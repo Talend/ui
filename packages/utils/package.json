@@ -24,7 +24,7 @@
   "scripts": {
     "build:lib": "talend-scripts build --tsc",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=UTC talend-scripts test",

@@ -11,7 +11,7 @@
     "test:demo:umd": "cross-env BASENAME='/playground/' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
     "start": "vite dev",
     "start-dist": "talend-scripts build && node serve-dist",
-    "lint": "talend-scripts lint"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",

@@ -18,7 +18,7 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "test": "talend-scripts test"
   },
   "repository": {
