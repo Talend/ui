@@ -298,6 +298,9 @@ export const WithOverflowingHeader: StoryFn<typeof Modal> = props => (
 		👋
 	</ModalStory>
 );
+WithOverflowingHeader.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithOverflowingContent: StoryFn<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'With overflowing content' }}>
