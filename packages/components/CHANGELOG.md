@@ -1,5 +1,71 @@
 # @talend/react-components
 
+## 18.0.0
+
+### Major Changes
+
+- a525026: No breaking in terms of API but may be some side effect in your config (like storybook) that can break your test or your build.
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Minor Changes
+
+- ecbfee8: feat: migrate forgotten file to jsx file
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- ecbfee8: fix: add type function to all withTranslation exported component
+
+  The goal here is to make type inference of typescript happy.
+
+- 1d3bb12: chore: update storybook
+- ecbfee8: fix: migrate Dialog.scss into css
+- Updated dependencies [ecbfee8]
+- Updated dependencies [bb95e38]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/icons@8.0.0
+  - @talend/design-system@12.0.0
+  - @talend/design-tokens@4.0.0
+  - @talend/react-bootstrap@4.0.0
+  - @talend/assets-api@2.0.0
+  - @talend/bootstrap-theme@10.0.0
+  - @talend/utils@3.6.0
+  - @talend/react-a11y@4.2.0
+
+## 17.6.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+  - @talend/react-bootstrap@3.1.0
+  - @talend/assets-api@1.6.0
+  - @talend/icons@7.14.0
+  - @talend/bootstrap-theme@9.6.0
+  - @talend/utils@3.5.0
+  - @talend/react-a11y@4.1.0
+
+## 17.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/icons@7.13.0
+  - @talend/bootstrap-theme@9.5.0
+  - @talend/utils@3.4.0
+
 ## 17.4.1
 
 ### Patch Changes

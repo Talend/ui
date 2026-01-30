@@ -1,6 +1,6 @@
 {
   "name": "@talend/http",
-  "version": "3.3.2",
+  "version": "4.0.1",
   "description": "HTTP helper",
   "license": "Apache-2.0",
   "repository": {
@@ -17,24 +17,32 @@
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/*": {
+      "import": "./lib-esm/*",
+      "require": "./lib/*"
+    }
+  },
   "scripts": {
     "build:lib": "talend-scripts build",
-    "build:dev": "talend-scripts build --umd --dev",
-    "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib:esm": "talend-scripts build --esm",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.3.0",
-    "@talend/eslint-plugin": "^1.4.0",
-    "@talend/scripts-core": "^16.6.0",
-    "@talend/scripts-config-babel": "^13.6.0",
-    "@talend/scripts-config-react-webpack": "^16.9.0",
-    "@talend/scripts-config-typescript": "^11.3.2",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
+    "@talend/scripts-core": "^17.0.0",
+    "@talend/scripts-config-babel": "^13.9.0",
+    "@talend/scripts-config-react-webpack": "^17.0.0",
+    "@talend/scripts-config-typescript": "^12.0.0",
     "@types/jest": "^29.5.14",
-    "@types/node-fetch": "^2.6.12",
+    "@types/node-fetch": "^2.6.13",
     "node-fetch": "^2.7.0",
     "react-dom": "^18.3.1",
     "react": "^18.3.1"
@@ -56,6 +64,7 @@
   },
   "files": [
     "/lib",
+    "/lib-esm",
     "/src"
   ]
 }

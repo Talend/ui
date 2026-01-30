@@ -9,7 +9,7 @@ import {
 } from './QualityBar.types';
 import { QualityBarRatioBars } from './QualityBarRatioBars.component';
 
-import theme from './QualityRatioBar.module.scss';
+import theme from './QualityRatioBar.module.css';
 
 type SplitQualityBarProps = QualityCommonProps & {
 	percentages: QualityBarPercentages;

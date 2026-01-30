@@ -86,6 +86,8 @@ export async function getGeoChartConfig(domain: string): Promise<GeoChartConfig 
 	try {
 		const topology: GeoChartConfig['topology'] | undefined = await assetsAPI.getJSON(
 			`/dist/assets/maps/${file}.topo.json`,
+			'@talend/react-dataviz',
+			'7.3.0',
 		);
 		if (!topology) {
 			throw new Error('GeoChart topology undefined');

@@ -1,0 +1,43 @@
+.item {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+.item.grow {
+	flex-grow: 1;
+}
+.item.shrink {
+	flex-shrink: 1;
+}
+.item.fullWidth {
+	width: 100%;
+}
+.item.align-auto {
+	align-self: auto;
+}
+.item.align-start {
+	align-self: flex-end;
+}
+.item.align-end {
+	align-self: flex-end;
+}
+.item.align-center {
+	align-self: center;
+}
+.item.align-stretch {
+	align-self: stretch;
+}
+.item.align-baseline {
+	align-self: baseline;
+}
+.item.overflow-scroll {
+	overflow: scroll;
+}
+.item.overflow-hidden {
+	overflow: hidden;
+}
+.item.overflow-visible {
+	overflow: visible;
+}
+.item.overflow-auto {
+	overflow: auto;
+}

@@ -1,0 +1,25 @@
+/* stylelint-disable color-hex-case */
+.about-dialog :global(.modal-body) {
+	text-align: center;
+	padding-top: 0.625rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+.about-dialog :global(.modal-body) .about-logo {
+	width: 4.125rem;
+	height: 4.125rem;
+}
+.about-dialog :global(.modal-body) .about-excerpt {
+	margin-top: 1.25rem;
+}
+.about-dialog :global(.modal-body) .about-versions {
+	margin: 0 auto;
+	margin-top: 1.875rem;
+	text-align: justify;
+	table-layout: fixed;
+}
+.about-dialog :global(.modal-body) .about-versions th,
+.about-dialog :global(.modal-body) .about-versions td {
+	padding: 5px;
+	text-align: left;
+}

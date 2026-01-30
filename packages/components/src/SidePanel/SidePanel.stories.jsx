@@ -1,0 +1,256 @@
+/* eslint-disable react/no-multi-comp */
+import { Component } from 'react';
+
+import { action } from 'storybook/actions';
+
+import assetsApi from '@talend/assets-api';
+import tokens from '@talend/design-tokens';
+
+import Layout from '../Layout';
+import SidePanel from './SidePanel.component';
+
+const actions = [
+	{
+		label: 'Preparations',
+		icon: 'talend-dataprep',
+		onClick: action('Preparations clicked'),
+		active: true,
+	},
+	{
+		label: 'Datasets',
+		iconName: 'dataset',
+		onClick: action('Datasets clicked'),
+	},
+	{
+		label: 'Favorites',
+		icon: 'talend-star',
+		beta: true,
+		onClick: action('Favorites clicked'),
+	},
+];
+
+const actionsLinks = [
+	{
+		label: 'Preparations',
+		icon: 'talend-dataprep',
+		href: '/preparations',
+		active: true,
+		beta: true,
+	},
+	{
+		label: 'Datasets',
+		icon: 'talend-download',
+		href: '/datasets',
+		beta: true,
+	},
+	{
+		label: 'Favorites',
+		icon: 'talend-star',
+		href: '/favorites',
+	},
+];
+
+const items = [
+	{
+		key: 'preparations',
+		label: 'Preparations',
+		beta: true,
+		icon: 'talend-dataprep',
+	},
+	{
+		key: 'datasets',
+		label: 'Datasets',
+		icon: 'talend-download',
+	},
+	{
+		key: 'favorites',
+		label: 'Favorites',
+		icon: 'talend-star',
+	},
+];
+
+const other = [
+	{
+		key: 'users',
+		label: 'Users',
+		icon: 'talend-user-circle',
+	},
+	{
+		key: 'groups',
+		label: 'Groups',
+		icon: 'talend-group-circle',
+		beta: true,
+	},
+	{
+		key: 'roles',
+		label: 'Roles',
+		icon: 'talend-roles',
+	},
+	{
+		key: 'licenses',
+		label: 'Licenses',
+		icon: 'talend-license',
+	},
+	{
+		key: 'projects',
+		label: 'Projects',
+		icon: 'talend-projects',
+	},
+	{
+		key: 'activity',
+		label: 'Activity',
+		icon: 'talend-activity',
+	},
+];
+
+export default {
+	title: 'Components/Navigation/SidePanel',
+};
+
+export const Uncontrolled = () => (
+	<SidePanel
+		id="context"
+		actions={actions}
+		onSelect={action('onItemSelect')}
+		tooltipPlacement="top"
+	/>
+);
+
+export const Controlled = () => (
+	<SidePanel
+		id="context"
+		actions={actions}
+		onSelect={action('onItemSelect')}
+		onToggleDock={action('onToggleDock')}
+		tooltipPlacement="top"
+	/>
+);
+
+export const WithBackgroundIcon = (_, context) => (
+	<Layout
+		mode="TwoColumns"
+		theme={context.globals.theme}
+		one={
+			<SidePanel
+				id="context"
+				actions={actions}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				tooltipPlacement="top"
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			/>
+		}
+	>
+		<article style={{ padding: 10 }}>
+			The props <strong>backgroundIcon</strong> let you support product icons. It is used as{' '}
+			<pre>mask-image: url(backgroundIcon)</pre> so you have to provide URL. For this example we
+			have used assetsApi this way:
+			<pre>
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			</pre>
+		</article>
+	</Layout>
+);
+
+export const Links = () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />;
+
+export const Docked = () => <SidePanel actions={actions} docked tooltipPlacement="top" />;
+
+export const Minimised = () => (
+	<SidePanel
+		actions={actions}
+		onToggleDock={action('Toggle dock clicked')}
+		minimised
+		tooltipPlacement="top"
+	/>
+);
+
+export const WithALargeAmountOfItems = () => (
+	<SidePanel
+		actions={[...items, ...other, ...other, ...other, ...other]}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		tooltipPlacement="top"
+	/>
+);
+
+export const Reverse = () => (
+	<SidePanel
+		actions={items}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		reverse
+		tooltipPlacement="top"
+	/>
+);
+
+export const ReverseLargeDocked = () => (
+	<SidePanel
+		actions={items}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		reverse
+		large
+		minimised
+		dockable={false}
+		tooltipPlacement="top"
+	/>
+);
+
+export const _WithLayout = (_, context) => {
+	class WithLayout extends Component {
+		constructor() {
+			super();
+			this.state = { docked: false };
+		}
+
+		render() {
+			const panel = (
+				<SidePanel
+					actions={[...items, ...other, ...other, ...other]}
+					onSelect={action('onItemSelect')}
+					docked={this.state.docked}
+					tooltipPlacement="top"
+				/>
+			);
+			return (
+				<Layout mode="TwoColumns" one={panel} theme={context.globals.theme}>
+					<ol>
+						{new Array(100).fill('This is some random content').map((item, num) => (
+							<li key={num}>{item}</li>
+						))}
+					</ol>
+				</Layout>
+			);
+		}
+	}
+
+	return <WithLayout />;
+};
+
+export const ReverseWithLayout = (_, context) => {
+	const panelItems = items.concat([
+		{
+			key: 'longname',
+			label: 'Some super super super long name',
+			icon: 'talend-world',
+		},
+	]);
+	const panel = (
+		<SidePanel
+			actions={panelItems}
+			onSelect={action('onItemSelect')}
+			reverse
+			tooltipPlacement="top"
+		/>
+	);
+	return (
+		<Layout mode="TwoColumns" one={panel} theme={context.globals.theme}>
+			<ol>
+				{new Array(100).fill('This is some random content').map((item, num) => (
+					<li key={num}>{item}</li>
+				))}
+			</ol>
+		</Layout>
+	);
+};

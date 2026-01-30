@@ -1,5 +1,50 @@
 # @talend/scripts-config-eslint
 
+## 14.0.0
+
+### Major Changes
+
+- ecbfee8: only allow jsx into jsx files
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- Updated dependencies [bb95e38]
+  - @talend/eslint-plugin@1.7.0
+
+## 13.5.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/eslint-plugin@1.6.0
+
+## 13.4.1
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+- Updated dependencies [5a9e099]
+  - @talend/eslint-plugin@1.5.1
+
+## 13.4.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/eslint-plugin@1.5.0
+
 ## 13.3.1
 
 ### Patch Changes

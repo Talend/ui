@@ -1,4 +1,10 @@
 {
-  "root": true,
-  "extends": "@talend"
+  "extends": "@talend",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
 }

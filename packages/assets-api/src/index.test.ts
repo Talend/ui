@@ -10,9 +10,9 @@ describe('assets-api', () => {
 			jest.restoreAllMocks();
 		});
 
-		it('should return unpkg url', () => {
+		it('should return static url', () => {
 			const url = assetsApi.getURL(bundlePath, '@talend/icons', '6.60.1');
-			expect(url).toBe(`https://unpkg.com/@talend/icons@6.60.1${bundlePath}`);
+			expect(url).toBe(`https://statics.cloud.talend.com/@talend/icons/6.60.1${bundlePath}`);
 		});
 
 		it('should return /cdn url', () => {

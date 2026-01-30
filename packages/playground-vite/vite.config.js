@@ -1,52 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react';
 import fixReactVirtualized from 'esbuild-plugin-react-virtualized';
-import fs, { existsSync } from 'fs';
-import path, { join } from 'path';
+import fs from 'fs';
+import path from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
-import { createHtmlPlugin } from 'vite-plugin-html';
 import { viteMockServe } from 'vite-plugin-mock';
-
-function getPath(pkg) {
-	let currentDir = path.dirname(fileURLToPath(import.meta.resolve(pkg)));
-
-	while (currentDir !== '/' && !existsSync(join(currentDir, 'package.json'))) {
-		currentDir = path.dirname(currentDir);
-	}
-
-	if (existsSync(join(currentDir, 'package.json'))) {
-		return currentDir;
-	}
-	throw new Error('package.json introuvable pour le package spécifié');
-}
-
-function getVersion(pkg) {
-	const packagePath = path.join(getPath(pkg), 'package.json');
-	const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-	return packageJson.version;
-}
-
-const PKGS = [
-	'@talend/locales-design-system',
-	'@talend/locales-tui-components',
-	'@talend/locales-tui-containers',
-	'@talend/locales-tui-faceted-search',
-	'@talend/locales-tui-forms',
-	'@talend/assets-api',
-	'@talend/design-tokens',
-	'@talend/design-system',
-	'@talend/react-components',
-	'@talend/react-containers',
-	'@talend/react-cmf',
-	'@talend/react-cmf-router',
-	'@talend/react-dataviz',
-	'@talend/react-faceted-search',
-	'@talend/react-forms',
-	'@talend/bootstrap-theme',
-	'@talend/icons',
-];
-
-const patterns = PKGS.map(pkg => `<meta name="${pkg}" content="${getVersion(pkg)}" />`).join('\n');
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -55,15 +14,6 @@ export default defineConfig({
 		viteMockServe({
 			mockPath: 'mockVite',
 			localEnabled: true,
-		}),
-		createHtmlPlugin({
-			minify: true,
-			inject: {
-				data: {
-					title: 'index',
-					injectMeta: patterns,
-				},
-			},
 		}),
 		{
 			name: 'configure-static-files',

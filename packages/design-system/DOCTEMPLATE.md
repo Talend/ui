@@ -3,7 +3,7 @@
 Use the following template when creating a new `ComponentName.stories.mdx` page.
 
 ```markdown
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
 import { FigmaImage, FigmaLink, Use } from '~docs';
 
 <Meta

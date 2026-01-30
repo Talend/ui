@@ -1,0 +1,47 @@
+.link {
+	font: var(--coral-paragraph-m-bold, 600 0.875rem/140% 'Source Sans Pro');
+	color: var(--coral-color-info-text, hsl(204, 95%, 31%));
+	background: none;
+	border: none;
+	border-bottom-color: currentColor;
+	cursor: pointer;
+}
+.link,
+.link:hover,
+.link:active,
+.link:focus,
+.link:visited {
+	text-decoration: none;
+}
+.link .link__text {
+	border-bottom: var(--coral-border-s-solid, 1px solid) transparent;
+	transition: var(--coral-transition-fast, 250ms ease-in-out);
+}
+.link:hover {
+	color: var(--coral-color-info-text-hover, hsl(204, 96%, 18%));
+}
+.link:hover .link__text {
+	border-bottom-color: var(--coral-color-info-border-hover, hsl(204, 95%, 23%));
+}
+.link:active {
+	color: var(--coral-color-info-text-active, hsl(205, 94%, 13%));
+}
+.link:active .link__text {
+	border-bottom-color: var(--coral-color-info-border-active, hsl(205, 95%, 15%));
+}
+.link.linkDisabled {
+	opacity: var(--coral-opacity-s, 0.6);
+	cursor: not-allowed;
+}
+.link.linkDisabled .link__text {
+	border-bottom-color: transparent;
+}
+.link[aria-current='page'] {
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.link[aria-current='page']:hover {
+	color: var(--coral-color-info-text-hover, hsl(204, 96%, 18%));
+}
+.link[aria-current='page']:active {
+	color: var(--coral-color-info-text-active, hsl(205, 94%, 13%));
+}

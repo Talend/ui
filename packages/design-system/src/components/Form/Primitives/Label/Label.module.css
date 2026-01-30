@@ -1,0 +1,9 @@
+.label {
+	font: var(--coral-paragraph-s-bold, 600 0.75rem/140% 'Source Sans Pro');
+	margin: 0;
+	padding: 0;
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+}
+.label_inline {
+	font: var(--coral-paragraph-m, 400 0.875rem/140% 'Source Sans Pro');
+}

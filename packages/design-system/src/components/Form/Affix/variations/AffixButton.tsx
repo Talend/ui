@@ -14,7 +14,7 @@ import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper
 import { StackHorizontal } from '../../../Stack';
 import { Tooltip, TooltipChildrenFnProps, TooltipChildrenFnRef } from '../../../Tooltip';
 
-import styles from '../AffixStyles.module.scss';
+import styles from '../AffixStyles.module.css';
 
 type CommonAffixButtonPropsType = {
 	dataTestid?: string;

@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-stylelint",
   "description": "Stylelint configuration for @talend/scripts-core",
-  "version": "4.2.2",
+  "version": "4.4.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -23,8 +23,8 @@
     "stylelint-config-standard": "^34.0.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.3.0",
-    "@talend/eslint-plugin": "^1.4.0"
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0"
   },
   "publishConfig": {
     "access": "public"

@@ -1,0 +1,10 @@
+.warning_withBackground {
+	background-color: var(--coral-color-warning-background, hsl(22, 85%, 92%));
+	box-shadow: var(
+		--coral-elevation-shadow-warning,
+		0 0.0625rem 0.0625rem 0 hsla(22, 93%, 41%, 0.3)
+	);
+}
+.warning__icon {
+	color: var(--coral-color-warning-icon, hsl(22, 87%, 47%));
+}

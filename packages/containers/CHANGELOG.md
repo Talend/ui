@@ -1,5 +1,67 @@
 # @talend/react-containers
 
+## 12.0.0
+
+### Major Changes
+
+- a525026: No breaking in terms of API but may be some side effect in your config (like storybook) that can break your test or your build.
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- ecbfee8: fix: migrate SelectObject scss to css
+- 1d3bb12: chore: update storybook
+- 53e97a0: chore: upgrade dependencies
+- Updated dependencies [ecbfee8]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [bb95e38]
+- Updated dependencies [a525026]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/react-components@18.0.0
+  - @talend/react-forms@16.0.0
+  - @talend/design-system@12.0.0
+  - @talend/utils@3.6.0
+  - @talend/react-cmf@12.0.0
+
+## 11.6.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-system@11.9.0
+  - @talend/react-components@17.6.0
+  - @talend/react-forms@15.6.0
+  - @talend/utils@3.5.0
+  - @talend/react-cmf@11.1.0
+
+## 11.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/design-system@11.8.0
+  - @talend/react-components@17.5.0
+  - @talend/react-forms@15.5.0
+  - @talend/utils@3.4.0
+
 ## 11.4.1
 
 ### Patch Changes

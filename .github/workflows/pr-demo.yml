@@ -16,11 +16,12 @@ concurrency:
 jobs:
   build:
     name: Build demo on PR
+    environment: pull_request_unsafe
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
@@ -30,12 +31,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn install --frozen-lockfile
-  
+
       - name: Build Demo
         run: yarn test:demo
 
       - name: Checkout demo branch
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
         with:
           path: demo
           ref: gh-pages
@@ -72,14 +73,14 @@ jobs:
           branch: gh-pages
 
       - name: Find Comment
-        uses: peter-evans/find-comment@v3
+        uses: peter-evans/find-comment@v4
         id: fc
         with:
           issue-number: ${{ github.event.number }}
           body-includes: Storybook for this PR deployed on this
 
       - name: Create comment
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 #v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 #v5.0.0
         if: steps.fc.outputs.comment-id == ''
         with:
           issue-number: ${{ github.event.number }}

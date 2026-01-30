@@ -1,6 +1,6 @@
 {
   "name": "@talend/utils",
-  "version": "3.3.0",
+  "version": "3.6.0",
   "description": "Various utilities",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -32,19 +32,19 @@
     "extends": "talend-scripts extends"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^13.3.0",
-    "@talend/eslint-plugin": "^1.4.0",
-    "@talend/scripts-core": "^16.6.0",
-    "@talend/scripts-config-jest": "^14.3.0",
-    "@talend/scripts-config-stylelint": "^4.2.2",
-    "@talend/scripts-config-typescript": "^11.3.2",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
+    "@talend/scripts-core": "^17.0.0",
+    "@talend/scripts-config-jest": "^14.6.0",
+    "@talend/scripts-config-stylelint": "^4.4.0",
+    "@talend/scripts-config-typescript": "^12.0.0",
     "@types/date-fns": "^2.6.3",
-    "@types/lodash": "^4.17.20",
+    "@types/lodash": "^4.17.23",
     "cross-env": "^7.0.3"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   },
   "publishConfig": {
     "access": "public"

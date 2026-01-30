@@ -1,5 +1,18 @@
 # @talend/upgrade-deps
 
+## 3.3.0
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+## 3.2.0
+
+### Minor Changes
+
+- ed37213: Upgrade dependencies
+- ed37213: Update dependencies
+
 ## 3.1.2
 
 ### Patch Changes

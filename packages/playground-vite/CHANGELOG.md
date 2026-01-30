@@ -1,5 +1,79 @@
 # @talend/ui-playground
 
+## 0.5.0
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- 53e97a0: chore: upgrade dependencies
+- Updated dependencies [ecbfee8]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [bb95e38]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [a525026]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [53e97a0]
+- Updated dependencies [16703c7]
+  - @talend/react-faceted-search@22.0.0
+  - @talend/react-components@18.0.0
+  - @talend/react-forms@16.0.0
+  - @talend/icons@8.0.0
+  - @talend/design-system@12.0.0
+  - @talend/design-tokens@4.0.0
+  - @talend/assets-api@2.0.0
+  - @talend/react-cmf-router@9.0.0
+  - @talend/react-containers@12.0.0
+  - @talend/react-dataviz@8.0.0
+  - @talend/bootstrap-theme@10.0.0
+  - @talend/react-cmf@12.0.0
+
+## 0.4.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/react-faceted-search@21.3.0
+  - @talend/design-system@11.9.0
+  - @talend/design-tokens@3.5.0
+  - @talend/assets-api@1.6.0
+  - @talend/react-cmf-router@8.1.0
+  - @talend/react-components@17.6.0
+  - @talend/react-containers@11.6.0
+  - @talend/react-dataviz@7.3.0
+  - @talend/react-forms@15.6.0
+  - @talend/icons@7.14.0
+  - @talend/bootstrap-theme@9.6.0
+  - @talend/react-cmf@11.1.0
+
+## 0.3.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/react-faceted-search@21.2.0
+  - @talend/design-system@11.8.0
+  - @talend/react-components@17.5.0
+  - @talend/react-containers@11.5.0
+  - @talend/react-dataviz@7.2.0
+  - @talend/react-forms@15.5.0
+  - @talend/icons@7.13.0
+  - @talend/bootstrap-theme@9.5.0
+
 ## 0.2.0
 
 ### Minor Changes

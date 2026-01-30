@@ -1,8 +1,0 @@
-@use '@talend/design-tokens/lib/tokens' as tokens;
-
-@import '../shared/styles/mixins';
-
-.date-time-picker {
-	@include date-picker;
-	gap: tokens.$coral-spacing-xs;
-}

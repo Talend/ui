@@ -1,0 +1,50 @@
+.wrapper {
+  min-height: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper .filter {
+  flex-shrink: 0;
+}
+.wrapper .container {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+}
+.wrapper .container .list {
+  flex: 4 0 0;
+}
+.wrapper .container .tree {
+  flex: 4 0 0;
+  overflow-y: auto;
+}
+.wrapper .container .results > button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.wrapper .container .results > button:hover {
+  background-color: #f3f3f3;
+}
+.wrapper .container .results {
+  margin-top: 4px;
+  overflow-y: auto;
+  flex: 4 0 0;
+}
+.wrapper .container .results :global(.active) {
+  background: rgba(0, 0, 0, 0.05);
+}
+.wrapper .container .preview {
+  flex: 3 0 0;
+  overflow-y: auto;
+}
+.wrapper .container .preview :global(.text-renderer-label) dt {
+  display: none;
+}
+.wrapper .container .preview :global(.text-renderer-label) dd {
+  font-size: 1.3em;
+  font-weight: 600;
+}

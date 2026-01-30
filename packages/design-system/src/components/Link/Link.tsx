@@ -7,7 +7,7 @@ import { DeprecatedIconNames } from '../../types';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { Linkable, LinkableType, isBlank as targetCheck } from '../Linkable';
 
-import style from './Link.module.scss';
+import style from './Link.module.css';
 
 export type LinkComponentProps = {
 	/** The icon to display before */

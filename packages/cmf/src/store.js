@@ -21,7 +21,7 @@ const preReducers = [];
 const enhancers = [];
 const middlewares = [thunk, cmfMiddleware, onError.middleware];
 
-if (window) {
+if (typeof window !== 'undefined') {
 	// eslint-disable-next-line no-underscore-dangle
 	if (window.__REDUX_DEVTOOLS_EXTENSION__) {
 		// eslint-disable-next-line no-underscore-dangle

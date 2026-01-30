@@ -1,5 +1,21 @@
 # @talend/scripts-config-typescript
 
+## 12.0.0
+
+### Major Changes
+
+- ecbfee8: feat: set moduleResolution to bundler
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+## 11.4.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 11.3.2
 
 ### Patch Changes

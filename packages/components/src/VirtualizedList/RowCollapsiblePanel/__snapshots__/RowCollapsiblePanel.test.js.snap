@@ -14,7 +14,8 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
     tabindex="0"
   >
     <div
-      class="panel panel-default theme-tc-collapsible-panel theme-default-panel theme-open panel panel-default"
+      class="panel panel-default tc-collapsible-panel theme-tc-collapsible-panel theme-default-panel theme-open panel panel-default"
+      data-collapsible-panel="true"
     >
       <div
         class="panel-heading"

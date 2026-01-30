@@ -10,7 +10,7 @@ import { renderChildren } from '../../renderChildren';
 import { ChildOrGenerator, renderOrClone } from '../../renderOrClone';
 import { usePopover } from './usePopover';
 
-import theme from './Popover.module.scss';
+import theme from './Popover.module.css';
 
 type PopoverOptions = {
 	initialOpen?: boolean;

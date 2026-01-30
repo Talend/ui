@@ -5,7 +5,7 @@ import { isElement } from 'react-is';
 import ProgressHorizontal from './Progress/variations/Progress.horizontal';
 import ProgressVertical from './Progress/variations/Progress.vertical';
 
-import styles from './Stepper.module.scss';
+import styles from './Stepper.module.css';
 
 export type StepperOrientation = 'horizontal' | 'vertical';
 

@@ -13,7 +13,7 @@ import { Skeleton } from '../../Skeleton';
 import { EnumerationMode } from '../Enumeration.types';
 import { EnumerationItemProps } from './EnumerationItem.types';
 
-import styles from './EnumerationItem.module.scss';
+import styles from './EnumerationItem.module.css';
 
 export const EnumerationItem = ({
 	isToAnimate,

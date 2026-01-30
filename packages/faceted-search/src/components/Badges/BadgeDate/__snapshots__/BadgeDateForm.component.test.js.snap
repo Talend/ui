@@ -12,7 +12,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
       Select a date
     </label>
     <div
-      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
     >
       <span
         class="theme-hidden"
@@ -159,15 +159,6 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           tabindex="-1"
                           type="button"
                         >
-                          2022
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          class="theme-year tc-date-picker-year"
-                          tabindex="-1"
-                          type="button"
-                        >
                           2023
                         </button>
                       </li>
@@ -183,7 +174,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                       <li>
                         <button
                           class="theme-year tc-date-picker-year"
-                          tabindex="0"
+                          tabindex="-1"
                           type="button"
                         >
                           2025
@@ -192,7 +183,7 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                       <li>
                         <button
                           class="theme-year tc-date-picker-year"
-                          tabindex="-1"
+                          tabindex="0"
                           type="button"
                         >
                           2026
@@ -214,6 +205,15 @@ exports[`BadgeDateForm should mount a badge and change date 1`] = `
                           type="button"
                         >
                           2028
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="theme-year tc-date-picker-year"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          2029
                         </button>
                       </li>
                     </ol>

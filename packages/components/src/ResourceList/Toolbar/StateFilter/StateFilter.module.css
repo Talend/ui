@@ -1,0 +1,49 @@
+/* stylelint-disable color-hex-case */
+.tc-resource-picker-state-filters {
+	margin-right: 15px;
+	display: flex;
+	align-items: center;
+}
+.tc-resource-picker-state-filters .option-label {
+	margin-right: 10px;
+}
+.tc-resource-picker-state-filters :global(.tc-icon-toggle) {
+	border: none;
+	box-shadow: none;
+}
+.tc-resource-picker-state-filters :global(.tc-icon-toggle) > :global(.tc-icon) {
+	margin: 0;
+}
+.tc-resource-picker-state-filters :global(.tc-icon-toggle):hover:not([disabled]),
+.tc-resource-picker-state-filters :global(.tc-icon-toggle):focus,
+.tc-resource-picker-state-filters :global(.tc-icon-toggle):active {
+	border: none;
+}
+.tc-resource-picker-state-filters :global(.tc-icon-toggle) {
+	margin-left: 10px;
+	display: inline-flex;
+}
+.tc-resource-picker-state-filters
+	:global(.tc-icon-toggle):global(.active).tc-resource-picker-selection-filter
+	> svg,
+.tc-resource-picker-state-filters
+	:global(.tc-icon-toggle):hover.tc-resource-picker-selection-filter
+	> svg {
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}
+.tc-resource-picker-state-filters
+	:global(.tc-icon-toggle):global(.active).tc-resource-picker-favorite-filter
+	> svg,
+.tc-resource-picker-state-filters
+	:global(.tc-icon-toggle):hover.tc-resource-picker-favorite-filter
+	> svg {
+	color: var(--coral-color-warning-text, hsl(22, 93%, 41%));
+}
+.tc-resource-picker-state-filters
+	:global(.tc-icon-toggle):global(.active).tc-resource-picker-certified-filter
+	> svg,
+.tc-resource-picker-state-filters
+	:global(.tc-icon-toggle):hover.tc-resource-picker-certified-filter
+	> svg {
+	color: var(--coral-color-accent-text, hsl(204, 95%, 31%));
+}

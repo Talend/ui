@@ -76,8 +76,8 @@ describe('talend-upgrade-deps --security', () => {
 		let pkgJson = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
 		let yarnLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString()).object;
 
-		expect(pkgJson.dependencies.axios).toBe('^0.21.1');
-		expect(yarnLock['axios@^0.21.1'].version).toBe('0.21.1');
+		expect(pkgJson.dependencies.axios).toBe('^0.30.2');
+		expect(yarnLock['axios@^0.30.2'].version).toBe('0.30.2');
 
 		// when
 		spawnSync('node', [bin, '--security=./conf/security-conf-axios.json'], {
@@ -91,11 +91,11 @@ describe('talend-upgrade-deps --security', () => {
 		expect(semver.gte(yarnLock['axios@^0.21.2'].version, '0.21.2')).toBe(true);
 
 		const report = JSON.parse(readFileSync(path.join(tmp, 'talend-security-report.json')));
-		const axiosReport = report['axios@^0.21.1'];
+		const axiosReport = report['axios@^0.30.2'];
 		expect(axiosReport.fixed).toBe('✅');
 		expect(axiosReport.details).toContain('Upgraded package.json dependencies with axios@^0.21.2');
 		expect(axiosReport.depType).toBe('Direct');
-		expect(axiosReport.installed).toBe('0.21.1');
+		expect(axiosReport.installed).toBe('0.30.2');
 		expect(axiosReport.fixVersion).toBe('0.21.2');
 	});
 

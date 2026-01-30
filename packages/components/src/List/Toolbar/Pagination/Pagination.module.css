@@ -1,0 +1,9 @@
+/* stylelint-disable color-hex-case */
+.tc-pagination :global(.tc-svg-icon) {
+	height: 0.75rem;
+	width: 0.75rem;
+}
+.tc-pagination .page-index {
+	display: flex;
+	align-items: center;
+}

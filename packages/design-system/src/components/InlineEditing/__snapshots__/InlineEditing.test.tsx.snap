@@ -11,7 +11,7 @@ exports[`InlineEditing should render a11y html 1`] = `
       class="theme-inlineEditor__editor"
     >
       <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
       >
         <span
           class="theme-hidden"

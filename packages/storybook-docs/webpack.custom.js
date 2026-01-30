@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
-	entry: { globalStyles: './src/globalStyles.scss', managerStyles: './src/managerStyles.scss' },
+	entry: { globalStyles: './src/globalStyles.css', managerStyles: './src/managerStyles.css' },
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 	},
@@ -21,7 +21,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.scss$/,
+				test: /\.css$/,
 				exclude: /node_modules/,
 				use: [
 					{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
@@ -41,14 +41,6 @@ module.exports = {
 					{
 						loader: require.resolve('resolve-url-loader'),
 						options: { sourceMap: true },
-					},
-					{
-						loader: require.resolve('sass-loader'),
-						options: {
-							// implementation: require('sass-embedded'),
-							api: 'modern-compiler',
-							sourceMap: true,
-						},
 					},
 				],
 			},

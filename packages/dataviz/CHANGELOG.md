@@ -1,5 +1,54 @@
 # Changelog
 
+## 8.0.0
+
+### Major Changes
+
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- Updated dependencies [ecbfee8]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [bb95e38]
+- Updated dependencies [a525026]
+- Updated dependencies [1d3bb12]
+- Updated dependencies [18e73d1]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [16703c7]
+  - @talend/react-components@18.0.0
+  - @talend/design-tokens@4.0.0
+  - @talend/assets-api@2.0.0
+
+## 7.3.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+  - @talend/assets-api@1.6.0
+  - @talend/react-components@17.6.0
+
+## 7.2.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/react-components@17.5.0
+
 ## 7.1.1
 
 ### Patch Changes

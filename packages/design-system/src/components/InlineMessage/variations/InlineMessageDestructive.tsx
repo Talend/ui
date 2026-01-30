@@ -4,7 +4,7 @@ import InlineMessagePrimitive, {
 	BaseInlineMessageProps,
 } from '../Primitive/InlineMessagePrimitive';
 
-import styles from './InlineMessageDestructive.module.scss';
+import styles from './InlineMessageDestructive.module.css';
 
 export type InlineMessageDestructiveProps = Omit<
 	BaseInlineMessageProps,

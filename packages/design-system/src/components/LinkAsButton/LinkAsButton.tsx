@@ -5,8 +5,8 @@ import { Clickable, ClickableProps } from '../Clickable';
 import { Icon } from '../Icon/Icon';
 import { LinkComponentProps } from '../Link';
 
-import sharedLinkableStyles from '../Linkable/LinkableStyles.module.scss';
-import linkStyles from '../Link/Link.module.scss';
+import sharedLinkableStyles from '../Linkable/LinkableStyles.module.css';
+import linkStyles from '../Link/Link.module.css';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 import { SizedIcon } from '../Icon';
 

@@ -1,12 +1,14 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/typeUtils.ts"],
+  "include": ["src/**/*.ts"],
   "compilerOptions": {
     "outDir": "./dist",
     "allowJs": true,
     "declaration": true,
-    "target": "ES5",
-    "module": "CommonJs",
-    "typeRoots": ["./node_modules/@types/*"]
+    "declarationMap": true,
+    "sourceMap": true,
+    "types": ["node"],
+    "moduleResolution": "bundler",
+    "module": "ESNext"
   }
 }

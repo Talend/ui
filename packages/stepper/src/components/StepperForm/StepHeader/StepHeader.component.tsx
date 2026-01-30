@@ -1,6 +1,6 @@
 import { StepHeaderProps } from './StepHeader.types';
 
-import style from '../StepperForm.module.scss';
+import style from '../StepperForm.module.css';
 
 export const StepHeader = ({ title, subtitle }: StepHeaderProps) => {
 	return (

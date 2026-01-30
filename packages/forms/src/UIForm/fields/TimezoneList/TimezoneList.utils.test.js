@@ -95,8 +95,8 @@ describe('getTimezones', () => {
 				value: 'Africa/Freetown',
 			},
 			{
-				name: '(UTC +02:00) Europe/Berlin',
-				offset: 120,
+				name: '(UTC +01:00) Europe/Berlin',
+				offset: 60,
 				timezoneName: 'Europe/Berlin',
 				value: 'Europe/Berlin',
 			},

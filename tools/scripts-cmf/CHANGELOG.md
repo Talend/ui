@@ -1,5 +1,23 @@
 # @talend/scripts-cmf
 
+## 1.7.0
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+## 1.6.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+## 1.5.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 1.4.0
 
 ### Minor Changes

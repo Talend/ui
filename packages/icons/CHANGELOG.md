@@ -1,5 +1,27 @@
 # @talend/icons
 
+## 8.0.0
+
+### Major Changes
+
+- ecbfee8: chore: refactor build to output more ESM.
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+## 7.14.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+## 7.13.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 7.12.0
 
 ### Minor Changes

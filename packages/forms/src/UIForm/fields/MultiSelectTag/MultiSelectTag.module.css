@@ -1,0 +1,27 @@
+.wrapper {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	border: var(--coral-border-s-solid, 1px solid) var(--coral-color-neutral-border, hsl(0, 0%, 55%));
+	border-radius: var(--coral-radius-s, 0.25rem);
+	height: auto;
+	padding: 0;
+}
+.wrapper > .focus-manager div:has([data-multiselect-input-overrides='true']) {
+	border: none;
+	box-shadow: none;
+}
+.wrapper .focus-manager {
+	flex-grow: 1;
+	outline: none;
+}
+.wrapper .typeahead .items {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.has-error {
+	border-color: var(--coral-color-danger-border, hsl(359, 51%, 53%));
+}

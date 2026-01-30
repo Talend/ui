@@ -1,0 +1,27 @@
+/* stylelint-disable declaration-no-important */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: hsl(0, 0%, 13%) !important;
+	background-color: white !important;
+}
+
+#docs-root {
+	margin-top: 0;
+	font: var(--coral-paragraph-m);
+	position: relative;
+}
+
+.sbdocs.sbdocs-preview {
+	background-color: var(--coral-color-neutral-background);
+	color: var(--coral-color-neutral-text);
+}

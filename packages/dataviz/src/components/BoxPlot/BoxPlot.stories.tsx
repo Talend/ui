@@ -1,7 +1,7 @@
-import { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import BoxPlot, { BoxPlotProps } from './BoxPlot.component';
 
-const Template: Story<BoxPlotProps> = args => <BoxPlot {...args} />;
+const Template: StoryFn<BoxPlotProps> = (args: BoxPlotProps) => <BoxPlot {...args} />;
 
 export default {
 	title: 'Dataviz/BoxPlot',

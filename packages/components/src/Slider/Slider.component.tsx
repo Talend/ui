@@ -11,7 +11,7 @@ import { ButtonIcon } from '@talend/design-system';
 
 import Icon from '../Icon';
 
-import theme from './Slider.module.scss';
+import theme from './Slider.module.css';
 
 /**
  * Options for controlling slider operator display mode

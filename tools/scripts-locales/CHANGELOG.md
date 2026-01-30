@@ -1,5 +1,34 @@
 # @talend/scripts-locales
 
+## 1.5.0
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- 53e97a0: chore: upgrade dependencies
+- Updated dependencies [bb95e38]
+  - @talend/scripts-utils@2.7.0
+
+## 1.4.1
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
+## 1.4.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/scripts-utils@2.5.0
+
 ## 1.3.0
 
 ### Minor Changes

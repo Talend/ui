@@ -1,15 +1,25 @@
 {
   "name": "@talend/react-flow-designer",
   "description": "Flow designer for react and redux",
-  "version": "7.1.0",
+  "version": "8.0.1",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/*": {
+      "import": "./lib-esm/*",
+      "require": "./lib/*"
+    }
+  },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:lib:esm": "talend-scripts build --esm",
     "lint": "talend-scripts lint",
-    "test": "talend-scripts test",
-    "pre-release": "talend-scripts build --umd"
+    "test": "talend-scripts test"
   },
   "repository": {
     "type": "git",
@@ -18,30 +28,30 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/babel-plugin-import-from-index": "^1.9.0",
-    "@talend/babel-plugin-assets-api": "^1.5.0",
-    "@talend/eslint-config": "^13.3.0",
-    "@talend/eslint-plugin": "^1.4.0",
-    "@talend/scripts-config-jest": "^14.3.0",
-    "@talend/scripts-core": "^16.6.0",
-    "@talend/scripts-config-typescript": "^11.3.2",
-    "@talend/scripts-config-react-webpack": "^16.9.0",
+    "@talend/babel-plugin-import-from-index": "^1.12.0",
+    "@talend/babel-plugin-assets-api": "^1.8.0",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
+    "@talend/scripts-config-jest": "^14.6.0",
+    "@talend/scripts-core": "^17.0.0",
+    "@talend/scripts-config-typescript": "^12.0.0",
+    "@talend/scripts-config-react-webpack": "^17.0.0",
     "@testing-library/react": "^14.3.1",
-    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/jest-dom": "^6.9.1",
     "@types/d3": "^7.4.3",
     "@types/invariant": "^2.2.37",
     "@types/jest": "^29.5.14",
-    "@types/lodash": "^4.17.20",
+    "@types/lodash": "^4.17.23",
     "@types/node": "^6.14.13",
     "@types/prop-types": "^15.7.15",
-    "@types/react": "^18.3.23",
+    "@types/react": "^18.3.27",
     "@types/react-redux": "^7.1.34",
     "@types/react-test-renderer": "^18.3.1",
     "@types/redux-mock-store": "^1.5.0",
     "@types/redux-thunk": "^2.1.0",
     "i18next": "^23.16.8",
     "immutable": "^3.8.2",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -55,7 +65,7 @@
   },
   "peerDependencies": {
     "immutable": "3",
-    "lodash": "4",
+    "lodash": "^4.17.23",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
@@ -63,7 +73,7 @@
     "reselect": "^4.1.8"
   },
   "dependencies": {
-    "@talend/design-tokens": "^3.4.5",
+    "@talend/design-tokens": "^4.0.0",
     "classnames": "^2.5.1",
     "d3": "^7.9.0",
     "invariant": "^2.2.4",
@@ -73,6 +83,7 @@
   "files": [
     "/dist",
     "/lib",
+    "/lib-esm",
     "/src"
   ],
   "publishConfig": {

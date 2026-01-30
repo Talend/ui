@@ -1,0 +1,5 @@
+.badge-value__children {
+	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
+	font: var(--coral-heading-s, 600 0.875rem/140% 'Source Sans Pro');
+	padding: 0 var(--coral-spacing-xxs, 0.25rem);
+}

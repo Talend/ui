@@ -1,5 +1,47 @@
 # CHANGELOG
 
+## 10.16.0
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- Updated dependencies [bb95e38]
+  - @talend/dynamic-cdn-webpack-plugin@14.4.0
+  - @talend/module-to-cdn@9.17.0
+
+## 10.15.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/dynamic-cdn-webpack-plugin@14.3.0
+  - @talend/module-to-cdn@9.16.0
+
+## 10.14.1
+
+### Patch Changes
+
+- 5a9e099: fix: add missing repository field
+
+## 10.14.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
+### Patch Changes
+
+- Updated dependencies [3a513cb]
+  - @talend/dynamic-cdn-webpack-plugin@14.2.0
+  - @talend/module-to-cdn@9.15.0
+
 ## 10.13.0
 
 ### Minor Changes

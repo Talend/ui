@@ -1,5 +1,46 @@
 # Changelog
 
+## 8.0.1
+
+### Patch Changes
+
+- 6dcb1da: fix: add missing lib-esm folder
+
+## 8.0.0
+
+### Major Changes
+
+- 18e73d1: chore: move from sass to css
+- 16703c7: chore: drop UMD format
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- Updated dependencies [bb95e38]
+- Updated dependencies [18e73d1]
+- Updated dependencies [16703c7]
+  - @talend/design-tokens@4.0.0
+
+## 7.3.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ed37213]
+  - @talend/design-tokens@3.5.0
+
+## 7.2.0
+
+### Minor Changes
+
+- 3a513cb: Update deps
+
 ## 7.1.0
 
 ### Minor Changes

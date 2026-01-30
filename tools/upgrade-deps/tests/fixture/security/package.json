@@ -6,7 +6,7 @@
     "prompts": "jest-cli"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.30.2",
     "ansi-regex": "^2.0.0",
     "css-select": "^2.0.0",
     "glob-parent": "^5.0.0",

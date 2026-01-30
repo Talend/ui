@@ -15,11 +15,10 @@ import { SizedIcon } from '../../../Icon';
 import { FieldStatusProps } from '../Field/Field';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 
-import styles from './Input.module.scss';
+import styles from './Input.module.css';
 
 export type InputPrimitiveProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
-	AffixesProps &
-	Omit<FieldStatusProps, 'errorMessage'> &
+	AffixesProps & { noStyles?: boolean } & Omit<FieldStatusProps, 'errorMessage'> &
 	Partial<DataAttributes>;
 
 const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement | null>) => {
@@ -33,6 +32,7 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 		type,
 		onBlur,
 		hasError,
+		noStyles,
 		...rest
 	} = props;
 
@@ -65,6 +65,7 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 			disabled={disabled}
 			readOnly={readOnly}
 			hasError={hasError}
+			noStyles={noStyles}
 		>
 			<>
 				{type === 'search' && (

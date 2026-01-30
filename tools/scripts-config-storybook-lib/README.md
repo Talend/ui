@@ -1,94 +1,290 @@
-## Storybook configuration for lib
+# @talend/storybook-config
 
-This configuration module contains an opinionated storybook configuration, supporting some extra features around talend libraries and framework.
+Storybook configuration utilities for Talend UI. This package provides TypeScript functions to easily configure Storybook with Talend's defaults, replacing the previous template-based CLI approach.
 
-### How to use
+## Installation
 
-First step is to use it with the default configuration as possible.
-
-This is served with talend presets
-
-``` bash
-yarn add @talend/scripts-core @talend/scripts-preset-react-lib
-# or
-yarn add @talend/scripts-core @talend/scripts-preset-react
-# or
-yarn add @talend/scripts-core @talend/scripts-preset-react-ng
+```bash
+yarn add -D @talend/storybook-config
 ```
 
-In your package.json
+## Features
 
-```json
-{
-    "scripts": {
-        "start-storybook": "talend-scripts start-storybook",
-        "build-storybook": "talend-scripts build-storybook",
-    }
+- 🎨 **Pre-configured themes**: Light, Dark, and Qlik themes with toolbar switcher
+- 🌍 **i18n support**: Built-in i18next configuration with locale switcher
+- 🎭 **Design system integration**: IconsProvider and ThemeProvider decorators
+- 🧪 **MSW integration**: Mock Service Worker support for API mocking
+- 📦 **Bootstrap theme toggle**: Easy on/off switch for Bootstrap CSS
+- ⚛️ **CMF support**: Optional Component Metadata Framework integration
+- 🔧 **TypeScript-first**: Full TypeScript support with type definitions
+
+## Usage
+
+### Basic Setup
+
+#### Main Configuration (`.storybook/main.ts`)
+
+```typescript
+import { createMainConfig } from '@talend/scripts-config-storybook-lib/main';
+
+export default createMainConfig();
+```
+
+#### Preview Configuration (`.storybook/preview.ts`)
+
+```typescript
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
+
+export default createPreviewConfig({});
+```
+
+### Advanced Configuration
+
+#### With Custom Stories and Addons
+
+```typescript
+// .storybook/main.ts
+import { createMainConfig } from '@talend/scripts-config-storybook-lib/main';
+
+export default createMainConfig({
+	stories: ['../src/**/*.stories.@(js|jsx|tsx|mdx)', '../custom-stories/**/*.stories.tsx'],
+	addons: ['@storybook/addon-themes'],
+	staticDirs: ['../public'],
+});
+```
+
+#### With i18n Configuration
+
+```typescript
+// .storybook/preview.ts
+import { createPreviewConfig, initI18n } from '@talend/scripts-config-storybook-lib/preview';
+
+export default createPreviewConfig({
+	i18n: {
+		namespaces: ['my-app', 'common'],
+		locales: {
+			en: {
+				'my-app': {
+					hello: 'Hello',
+					welcome: 'Welcome to my app',
+				},
+				common: {
+					save: 'Save',
+					cancel: 'Cancel',
+				},
+			},
+			fr: {
+				'my-app': {
+					hello: 'Bonjour',
+					welcome: 'Bienvenue dans mon app',
+				},
+				common: {
+					save: 'Enregistrer',
+					cancel: 'Annuler',
+				},
+			},
+		},
+	},
+});
+```
+
+#### With Remote Locales
+
+```typescript
+// .storybook/preview.ts
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
+
+export default createPreviewConfig({
+	i18n: {
+		namespaces: ['my-app'],
+		remoteLocalesMap: {
+			'my-app': 'https://example.com/locales/{{lng}}/my-app.json',
+		},
+	},
+});
+```
+
+#### With CMF (Component Metadata Framework)
+
+```typescript
+// .storybook/preview.ts
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
+import MyModule from '../src/cmf-module';
+
+export default createPreviewConfig({
+	i18n: {
+		namespaces: ['my-app'],
+	},
+	cmf: {
+		modules: [MyModule],
+		settings: {
+			views: {
+				// Your CMF settings
+			},
+		},
+	},
+});
+```
+
+#### With Custom Decorators and Parameters
+
+```typescript
+// .storybook/preview.tsx
+import React from 'react';
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/preview';
+import { MyCustomProvider } from '../src/providers';
+
+export default createPreviewConfig({
+	decorators: [
+		(Story) => (
+			<MyCustomProvider>
+				<Story />
+			</MyCustomProvider>
+		)
+	],
+	parameters: {
+		layout: 'centered',
+		actions: { argTypesRegex: '^on[A-Z].*' }
+	},
+	globalTypes: {
+		customControl: {
+			name: 'Custom Control',
+			defaultValue: 'option1',
+			toolbar: {
+				icon: 'cog',
+				items: ['option1', 'option2']
+			}
+		}
+	}
+});
+```
+
+## API Reference
+
+### `createMainConfig(options?: MainConfigOptions)`
+
+Creates the main Storybook configuration with Talend's defaults.
+
+**Options:**
+
+- `stories?: string[]` - Custom stories glob patterns
+- `addons?: string[]` - Additional addons
+- `staticDirs?: string[]` - Static directories to serve
+- `features?: object` - Additional features configuration
+- `core?: object` - Core configuration options
+- `typescript?: object` - TypeScript configuration options
+- `cwd?: string` - Current working directory (defaults to `process.cwd()`)
+
+### `configureCmfModules(modules, settings?)`
+
+Configures CMF modules for Storybook.
+
+**Parameters:**
+
+- `modules` - CMF modules to bootstrap
+- `settings` - Optional CMF settings
+
+**Returns:** `{ loader, decorator }` - Loader and decorator functions for CMF
+
+## Features Included
+
+### Global Types (Toolbar Controls)
+
+- **Bootstrap Theme**: Toggle Bootstrap CSS on/off
+- **Theme**: Switch between Light, Dark, and Qlik light themes
+- **Locale**: Switch between Chinese, English, French, German, and Japanese
+
+### Default Addons
+
+- `@storybook/addon-a11y`
+- `@storybook/addon-links`
+
+### Decorators
+
+- **i18next Provider**: Wraps stories with i18next context
+- **Icons Provider**: Provides Talend icon bundles
+- **Theme Provider**: Applies selected theme
+- **Bootstrap Toggle**: Controls Bootstrap CSS
+- **CMF Provider** (optional): Wraps stories with CMF context
+
+## Migration from Template-based CLI
+
+You should do the following to migrate:
+
+in your package.json
+
+```diff
+
+"scripts": {
+-  "start": "talend-scripts start"
++  "start": "storybook dev"
+-  "build-storybook": "talend-scripts build-storybook"
++  "build-storybook": "storybook build"
+}
+
+"dependencies": {
+-  "@talend/scripts-core": "^16.8.0",
++  "@talend/scripts-core": "^17.0.0",
+
+-  "@storybook/addon-actions": "^7.6.21",
+-  "@storybook/.*": "^7.6.21",
++  "@storybook/addon-a11y": "^10.1.11",
++  "@storybook/addon-links": "^10.1.11",
++  "@storybook/react": "^10.1.11",
++  "@storybook/react-vite": "^10.1.11",
+-  "@talend/scripts-config-storybook-lib": "^5.8.0",
++  "@talend/scripts-config-storybook-lib": "^6.0.0",
++  "storybook": "^10.1.11"
 }
 ```
 
-### Default configuration
+Then ensure you have update your `.storybook/main.js` and `.storybook/preview` files like this:
 
-Default configuration can be found in ui-scripts repo:
-- [main.js](https://github.com/Talend/ui-scripts/blob/master/packages/config-storybook-lib/.storybook-templates/main.js#L22)
-- [preview.js](https://github.com/Talend/ui-scripts/blob/master/packages/config-storybook-lib/.storybook-templates/preview.js#L26)
-- [preview-head](https://github.com/Talend/ui-scripts/blob/master/packages/config-storybook-lib/.storybook-templates/preview-head.html)
+- rename to main.mjs to use ESM
+- keep main.ts if it was already in TS.
 
-### MSW addon
+```js
+// .storybook/main.mjs
+import { createMainConfig } from '@talend/scripts-config-storybook-lib/main';
 
-MSW addon is configured and initialized out of the box. You can use it directly without any other configuration.
-
-### CMF
-
-You can initialize `@talend/react-cmf` with a proper decorator by exporting the cmf modules and settings in `preview.js`.
-
-```javascript
-import cmfModule, { settings } from './cmfModule';
-
-export const cmf = {
-	modules: [cmfModule],
-	settings, // optional
-};
+export default createMainConfig({});
 ```
 
-### i18n
+```js
+// .storybook/preview.mjs
+import { createPreviewConfig } from '@talend/scripts-config-storybook-lib/main';
 
-You can initialize `i18next` with a proper decorator by exporting the i18n namespaces and locales  `preview.js`. Locales can be static translations or urls to the translation files.
-
-Static translations example
-
-```javascript
-import { locales as datasetLocales } from '@talend/locales-inventory-dataset/locales';
-import { namespaces as datasetNamespaces } from '@talend/locales-inventory-dataset/namespaces';
-import { locales as ratingLocales } from '@talend/locales-inventory-rating/locales';
-import { namespaces as ratingNamespaces } from '@talend/locales-inventory-rating/namespaces';
-import { locales as sharingLocales } from '@talend/locales-inventory-sharing/locales';
-import { namespaces as sharingNamespaces } from '@talend/locales-inventory-sharing/namespaces';
-
-export const i18n = {
-	namespaces: [...datasetNamespaces, ...ratingNamespaces, ...sharingNamespaces],
-	locales: merge(sharingLocales, datasetLocales, ratingLocales),
-};
-```
-
-Remote translations example
-
-```javascript
-import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
-import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
-
-export const i18n = {
-	namespaces: [...tuiNamespaces, ...dsNamespaces],
-	remoteLocalesMap: {
-		'tui-components':
-			'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
-		'design-system': 'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
+const preview = createPreviewConfig({
+	parameters: {},
+	i18n: {
+		namespaces: [...tuiContainersNamespaces, ...tuiComponentsNamespaces, ...dsNamespaces],
+		remoteLocalesMap: {
+			'tui-containers':
+				'https://statics.cloud.talend.com/@talend/locales-tui-containers/9.1.3/locales/{{lng}}/{{ns}}.json',
+			'tui-components':
+				'https://statics.cloud.talend.com/@talend/locales-tui-components/16.0.1/locales/{{lng}}/{{ns}}.json',
+			'design-system':
+				'https://statics.cloud.talend.com/@talend/locales-design-system/7.15.1/locales/{{lng}}/{{ns}}.json',
+		},
 	},
-};
+	cmf: {
+		modules: [cmfModule],
+		settings: settings,
+	},
+});
 ```
 
-### Advanced configuration
+The new approach is:
 
-It is possible to add custom storybook configurations. They will be merged with default configuration.
+- ✅ Type-safe with full TypeScript support
+- ✅ Easier to customize and extend
+- ✅ No file copying or template processing
+- ✅ Better IDE support with autocomplete
 
-To do so, just create a `.storybook/` folder and any storybook configuration files in it, like when you configure your storybook yourself. Keep in mind that using `@talend/scripts` to run/build storybook will always take default settings too.
+## License
+
+Apache-2.0
+
+## Support
+
+For issues and questions, please visit [GitHub Issues](https://github.com/Talend/ui/issues).

@@ -1,0 +1,59 @@
+name: pre-release
+
+on:
+  pull_request:
+    types:
+      - labeled
+
+jobs:
+  integration-publish:
+    if: github.event.pull_request != null && contains(github.event.pull_request.labels.*.name, 'deploy-npm')
+    permissions:
+      contents: read
+      pull-requests: write
+      packages: write
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Use Node.js
+        uses: ./.github/actions/setup-node
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Pre-release talend/ui
+        id: version
+        run: |
+          # FIXME: trigger changeset change without commit
+          # generate a random small version
+          POST_VERSION_RANDOM=$(node -e "console.log(Math.floor(Math.random() * 10000))")
+          yarn changeset pre enter next-${POST_VERSION_RANDOM}
+          yarn changeset version
+          # echo diff to see version changes and save it to reuse it after
+          {
+            echo "VERSION_DIFF<<EOF"
+            git diff | grep -E 'next|name'
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+          yarn changeset publish --no-git-checks
+
+      - name: Comment on the PR with the package version
+        uses: actions-ecosystem/action-create-comment@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            🤖 Your package integration package is ready: `${{ steps.version.outputs.VERSION_DIFF }}`
+
+      - name: Remove deploy-npm label
+        if: always()
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: deploy-npm

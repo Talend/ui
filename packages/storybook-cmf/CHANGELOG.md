@@ -1,5 +1,30 @@
 # @talend/react-storybook-cmf
 
+## 12.0.0
+
+### Major Changes
+
+- a525026: No breaking in terms of API but may be some side effect in your config (like storybook) that can break your test or your build.
+- ecbfee8: feat: update to storybook 10
+
+### Minor Changes
+
+- bb95e38: Fix CVE's by upgrading sq to v6.14.1, tar to 7.5.4 and eslint to 9.39.2
+
+### Patch Changes
+
+- Updated dependencies [bb95e38]
+- Updated dependencies [ecbfee8]
+- Updated dependencies [18e73d1]
+- Updated dependencies [16703c7]
+  - @talend/react-cmf@12.0.0
+
+## 11.1.0
+
+### Minor Changes
+
+- ed37213: Update dependencies
+
 ## 11.0.2
 
 ### Patch Changes

@@ -1,17 +1,17 @@
 {
   "name": "@talend/json-schema-form-core",
-  "version": "1.4.4",
+  "version": "2.0.0",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/index.js",
   "module": "./lib-esm/index.js",
   "exports": {
     ".": {
       "import": "./lib-esm/index.js",
-      "require": "./dist/index.js"
+      "require": "./lib/index.js"
     }
   },
   "scripts": {
-    "build:lib": "rimraf dist && talend-scripts build --umd",
+    "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
@@ -27,16 +27,16 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://raw.githubusercontent.com/json-schema-form/json-schema-form-core/master/LICENSE"
+      "url": "https://raw.githubusercontent.com/Talend/ui/master/LICENSE"
     }
   ],
-  "homepage": "https://github.com/json-schema-form/json-schema-form-core#readme",
+  "homepage": "https://github.com/Talend/ui#readme",
   "bugs": {
-    "url": "https://github.com/json-schema-form/json-schema-form-core/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/json-schema-form/json-schema-form-core.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "keywords": [
     "angular-schema-form",
@@ -46,17 +46,17 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@talend/babel-plugin-assets-api": "^1.5.0",
-    "@talend/babel-plugin-import-from-index": "^1.9.0",
-    "@talend/eslint-config": "^13.3.0",
-    "@talend/eslint-plugin": "^1.4.0",
-    "@talend/scripts-config-react-webpack": "^16.9.0",
-    "@talend/scripts-config-typescript": "^11.3.2",
-    "@talend/scripts-core": "^16.6.0",
+    "@talend/babel-plugin-assets-api": "^1.8.0",
+    "@talend/babel-plugin-import-from-index": "^1.12.0",
+    "@talend/eslint-config": "^14.0.0",
+    "@talend/eslint-plugin": "^1.7.0",
+    "@talend/scripts-config-react-webpack": "^17.0.0",
+    "@talend/scripts-config-typescript": "^12.0.0",
+    "@talend/scripts-core": "^17.0.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
     "rimraf": "^5.0.10",
-    "webpack": "^5.101.0"
+    "webpack": "^5.104.1"
   },
   "dependencies": {
     "json-refs": "3.0.15",

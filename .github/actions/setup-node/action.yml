@@ -1,9 +1,11 @@
 name: 'Setup nodejs'
 description: 'Setup nodejs'
 author: 'Talend'
-secrets:
+inputs:
   NPM_TOKEN:
-    description: 'The NPM token to use'
+    description: 'Token used for GitHub Packages auth (defaults to GITHUB_TOKEN)'
+    required: true
+
 runs:
   using: 'composite'
   steps:
@@ -11,7 +13,8 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version-file: '.tool-versions'
-        registry-url: 'https://registry.npmjs.org/'
+        # set up auth to read in from env.NODE_AUTH_TOKEN.
+        registry-url: 'https://npm.pkg.github.com'
         scope: '@talend'
 
     - name: Install yarn
