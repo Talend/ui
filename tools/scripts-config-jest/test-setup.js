@@ -42,6 +42,12 @@ if (!global.self.TextEncoder) {
 	global.self.TextDecoder = require('util').TextDecoder;
 }
 
+if (!global.self.WritableStream) {
+	const { ReadableStream, WritableStream } = require('stream/web');
+	global.self.ReadableStream = ReadableStream;
+	global.self.WritableStream = WritableStream;
+}
+
 if (!global.URL?.revokeObjectURL) {
 	global.URL.revokeObjectURL = jest.fn();
 }
