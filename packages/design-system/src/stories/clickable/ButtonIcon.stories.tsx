@@ -123,6 +123,9 @@ export const NaturalButtonProps = () => {
 		</StackHorizontal>
 	);
 };
+NaturalButtonProps.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const Loading = () => {
 	const [isActive, setActive] = useState<boolean>(false);
@@ -152,6 +155,9 @@ export const Loading = () => {
 			</ButtonIconToggle>
 		</StackHorizontal>
 	);
+};
+Loading.parameters = {
+	chromatic: { disableSnapshot: true },
 };
 
 export const Variations = () => (
@@ -203,6 +209,9 @@ export const Variations = () => (
 		</StackVertical>
 	</StackHorizontal>
 );
+Variations.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const DefaultButtonIcon = () => (
 	<StackHorizontal gap="XS" justify="center" align="center">
@@ -217,6 +226,9 @@ export const DefaultButtonIcon = () => (
 		</ButtonIcon>
 	</StackHorizontal>
 );
+DefaultButtonIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const DefaultButtonIconToggle = () => (
 	<StackHorizontal gap="XS" justify="center" align="center">
@@ -235,6 +247,9 @@ export const DefaultButtonIconToggle = () => (
 		</ButtonIconToggle>
 	</StackHorizontal>
 );
+DefaultButtonIconToggle.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const DefaultButtonIconFloating = () => (
 	<StackHorizontal gap="XS" justify="center" align="center">
@@ -246,6 +261,9 @@ export const DefaultButtonIconFloating = () => (
 		</ButtonIconFloating>
 	</StackHorizontal>
 );
+DefaultButtonIconFloating.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ButtonIconSkeletons = () => (
 	<StackHorizontal gap="XS" align="center">

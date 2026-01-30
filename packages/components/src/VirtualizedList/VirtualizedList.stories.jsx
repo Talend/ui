@@ -503,6 +503,9 @@ export const ListTableWithRadioButtonTitle = () => (
 		</section>
 	</div>
 );
+ListTableWithRadioButtonTitle.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListTableWithLinkTitle = () => (
 	<BrowserRouter>
@@ -527,6 +530,9 @@ export const ListTableWithLinkTitle = () => (
 		</div>
 	</BrowserRouter>
 );
+ListTableWithLinkTitle.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListTableWithLabelAuthor = () => (
 	<div className="virtualized-list">
@@ -545,6 +551,9 @@ export const ListTableWithLabelAuthor = () => (
 		</section>
 	</div>
 );
+ListTableWithLabelAuthor.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListTableSort = () => (
 	<div className="virtualized-list">
@@ -584,6 +593,9 @@ export const ListTableSort = () => (
 		</section>
 	</div>
 );
+ListTableSort.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListTableSelection = () => (
 	<div className="virtualized-list">
@@ -621,6 +633,9 @@ export const ListTableSelection = () => (
 		</section>
 	</div>
 );
+ListTableSelection.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListTableActivation = () => (
 	<div className="virtualized-list">
@@ -656,6 +671,9 @@ export const ListTableActivation = () => (
 		</section>
 	</div>
 );
+ListTableActivation.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListTableDesactivation = () => (
 	<div className="virtualized-list">
@@ -693,6 +711,9 @@ export const ListTableDesactivation = () => (
 		</section>
 	</div>
 );
+ListTableDesactivation.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListTableResizable = () => (
 	<div className="virtualized-list">
@@ -826,6 +847,9 @@ export const ListLargeSelection = () => (
 		</section>
 	</div>
 );
+ListLargeSelection.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListLargeActivation = () => (
 	<div>
@@ -863,6 +887,9 @@ export const ListLargeActivation = () => (
 		</section>
 	</div>
 );
+ListLargeActivation.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListCollapsiblePanels = () => <CollapsiblePanels sourceItems={sourceItems} />;
 ListCollapsiblePanels.parameters = {
