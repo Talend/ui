@@ -1,0 +1,7 @@
+import{j as e}from"./index-B-4QAGRT.js";import{u as a}from"./index-DL9MQ0Zp.js";import{M as c}from"./blocks-AzSKip7y.js";import{t as o}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-Bzc6Acpn.js";import{D as l}from"./Dialog-DQx2J9Mk.js";import"./index-BBitzEYX.js";import"./useCopyToClipboard-5SsFVDgy.js";import{T as i}from"./TokenValue-BvT4vw0D.js";import"./index-C7esbbQj.js";import"./preload-helper-PPVm8Dsz.js";import"./index-DrFu-skq.js";import"./dictionary-CKKJDmnH.js";function s(t){const n={h1:"h1",h2:"h2",...a(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(c,{title:"Design Tokens/Measures"}),`
+`,e.jsx(n.h1,{id:"measures",children:"Measures"}),`
+`,e.jsx(l,{}),`
+`,e.jsx(n.h2,{id:"spacing",children:"Spacing"}),`
+`,e.jsx(i,{style:r=>({padding:r.value,backgroundColor:o.coralColorAccentBackground,minHeight:"100%"}),type:"measure",category:"spacing",children:r=>e.jsx("div",{style:{border:`${o.coralBorderSDashed} ${o.coralColorAccentBorder}`,borderRadius:o.coralRadiusM,backgroundColor:o.coralColorNeutralBackground,display:"flex",justifyContent:"center",alignItems:"center",width:"100%",minHeight:"100%"},children:r.value})}),`
+`,e.jsx(n.h2,{id:"sizing",children:"Sizing"}),`
+`,e.jsx(i,{style:r=>({minHeight:"100%"}),type:"measure",category:"sizing",children:r=>e.jsx("div",{style:{display:"flex",justifyContent:"center",alignItems:"center",height:r.value},children:r.value})})]})}function v(t={}){const{wrapper:n}={...a(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(s,{...t})}):s(t)}export{v as default};

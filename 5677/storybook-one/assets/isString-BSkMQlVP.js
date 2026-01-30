@@ -1,0 +1,1 @@
+import{d as o,b as u}from"./isSymbol-BULzMdII.js";import{r as b}from"./toString-BoyePzJy.js";var i,e;function q(){if(e)return i;e=1;var t=o(),s=b(),n=u(),a="[object String]";function g(r){return typeof r=="string"||!s(r)&&n(r)&&t(r)==a}return i=g,i}export{q as r};

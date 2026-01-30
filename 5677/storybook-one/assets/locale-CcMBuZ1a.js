@@ -1,0 +1,1 @@
+import{l as g}from"./locale-m3p2c8qd.js";import{aw as l}from"./iframe-ChHbVRNu.js";import{b as r}from"./translate-DSkg9kkf.js";let n,t;function i(){const a=r();if(n!==a){let e=a;e==="en"?e="enUS":e==="zh_cn"?e="zhCN":e==="zh_tw"&&(e="zhTW"),t=g[e||l.language],n=a}return t}export{i as g};
