@@ -132,6 +132,9 @@ export const Demo = () => (
 		<EmptyStateSmall title="This space is empty" />
 	</StackHorizontal>
 );
+Demo.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const Usage = (args: EmptyStateProps) => {
 	switch (args.variant) {

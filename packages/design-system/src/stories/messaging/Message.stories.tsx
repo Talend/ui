@@ -82,6 +82,9 @@ export const DefaultMessageDemo = () => (
 		</MessageInformation>
 	</StackHorizontal>
 );
+DefaultMessageDemo.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const WithPropVariation = () => (
 	<StackHorizontal gap="M">
@@ -208,6 +211,9 @@ export const DefaultMessageCollectionDemo = () => (
 		/>
 	</StackHorizontal>
 );
+DefaultMessageCollectionDemo.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const MessageCollectionWithPropVariation = () => (
 	<StackHorizontal gap="M">

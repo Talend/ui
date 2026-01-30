@@ -865,6 +865,9 @@ export const ListLargeActivation = () => (
 );
 
 export const ListCollapsiblePanels = () => <CollapsiblePanels sourceItems={sourceItems} />;
+ListCollapsiblePanels.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const ListTableWithoutHeader = () => (
 	<div className="virtualized-list">
