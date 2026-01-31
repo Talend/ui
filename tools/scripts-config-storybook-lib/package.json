@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-storybook-lib",
   "description": "Storybook configuration utilities for Talend UI",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "license": "Apache-2.0",
   "type": "module",
   "main": "dist/index.js",

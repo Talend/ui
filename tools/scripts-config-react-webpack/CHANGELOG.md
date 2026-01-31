@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 17.0.2
+
+### Patch Changes
+
+- fix: need re-release after CI to not build package on release
+
 ## 17.0.1
 
 ### Patch Changes

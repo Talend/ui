@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 14.6.3
+
+### Patch Changes
+
+- fix: need re-release after CI to not build package on release
+
 ## 14.6.2
 
 ### Patch Changes
