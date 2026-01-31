@@ -10,7 +10,7 @@
     "build:lib": "talend-scripts build && npm run build:styles",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "npm run storybook",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "test": "echo no test",
     "storybook": "storybook dev -p 6106",
     "build-storybook": "storybook build --docs"

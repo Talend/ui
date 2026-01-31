@@ -22,7 +22,7 @@
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },

@@ -9,7 +9,7 @@
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",
-    "lint": "talend-scripts lint"
+    "lint": "eslint ."
   },
   "keywords": [
     "talend",
