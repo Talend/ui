@@ -73,7 +73,17 @@ function resolveSafeFilePath(requestUrl) {
 		return { statusCode: 400, message: 'Bad Request' };
 	}
 
-	const filePath = path.resolve(distRoot, '.' + normalizedPathname);
+	// Resolve and normalize the path, then check if file exists and resolve symlinks
+	let filePath = path.resolve(distRoot, '.' + normalizedPathname);
+
+	try {
+		// Use realpathSync to resolve any symbolic links and get the canonical path
+		filePath = fs.realpathSync(filePath);
+	} catch (err) {
+		// File doesn't exist or can't be accessed, but we'll handle this later with fs.stat
+		// For now, just ensure the non-canonical path is still within bounds
+	}
+
 	if (!filePath.startsWith(distRoot + path.sep) && filePath !== distRoot) {
 		return { statusCode: 403, message: 'Forbidden' };
 	}
@@ -95,6 +105,19 @@ const server = http.createServer((req, res) => {
 	fs.stat(filePath, (err, stats) => {
 		if (!err && stats.isDirectory()) {
 			filePath = path.join(filePath, 'index.html');
+
+			// Re-validate the path after appending index.html
+			try {
+				const realPath = fs.realpathSync(filePath);
+				if (!realPath.startsWith(distRoot + path.sep) && realPath !== distRoot) {
+					res.writeHead(403, { 'Content-Type': 'text/plain' });
+					res.end('Forbidden');
+					return;
+				}
+				filePath = realPath;
+			} catch {
+				// File doesn't exist, will be handled by serveStatic with 404
+			}
 		}
 
 		serveStatic(req, res, filePath);
