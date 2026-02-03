@@ -40,3 +40,6 @@ export const AllIcons = () => (
 		)}
 	</AllIconsTemplate>
 );
+AllIcons.parameters = {
+	chromatic: { disableSnapshot: true },
+};

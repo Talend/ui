@@ -1,5 +1,24 @@
 # @talend/scripts-config-jest
 
+## 14.6.3
+
+### Patch Changes
+
+- fix: need re-release after CI to not build package on release
+
+## 14.6.2
+
+### Patch Changes
+
+- e61cefe: fix: exclude util-async to transformignore pattern
+- e61cefe: fix: add WritableStream support
+
+## 14.6.1
+
+### Patch Changes
+
+- 6f4036e: fix: add msw to the list of need to be transformed packages
+
 ## 14.6.0
 
 ### Minor Changes

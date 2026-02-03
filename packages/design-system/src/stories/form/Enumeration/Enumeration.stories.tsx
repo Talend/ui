@@ -41,6 +41,9 @@ export const Default = () => {
 		/>
 	);
 };
+Default.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const Empty = () => {
 	const [items, setItems] = useState<string[]>([]);

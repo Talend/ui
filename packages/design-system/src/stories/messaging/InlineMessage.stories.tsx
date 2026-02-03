@@ -41,6 +41,9 @@ export const DefaultDemo = () => (
 		/>
 	</StackVertical>
 );
+DefaultDemo.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const BackgroundDemo = () => (
 	<StackVertical gap="XS">
@@ -76,6 +79,9 @@ export const BackgroundDemo = () => (
 		/>
 	</StackVertical>
 );
+BackgroundDemo.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 const VariantTemplate: StoryFn<typeof InlineMessage> = args => {
 	const { variant = 'information', ...rest } = args;

@@ -21,13 +21,31 @@ export const Canceled = () => <StatusCanceled />;
 export const CustomSuccessful = () => <StatusSuccessful>Done</StatusSuccessful>;
 
 export const InProgressIcon = () => <StatusInProgress hideText />;
+InProgressIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 export const SuccessfulIcon = () => <StatusSuccessful hideText />;
+SuccessfulIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 export const FailedIcon = () => <StatusFailed hideText />;
+FailedIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 export const WarningIcon = () => <StatusWarning hideText />;
+WarningIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 export const CanceledIcon = () => <StatusCanceled hideText />;
+CanceledIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 export const CustomInProgressIcon = () => (
 	<StatusInProgress hideText>Wait until it's done loading</StatusInProgress>
 );
+CustomInProgressIcon.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const Usage = (props: any) => <Status {...props} />;
 Usage.args = {

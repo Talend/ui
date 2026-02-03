@@ -61,7 +61,7 @@ module.exports = {
 		// option 2, stop ignore transform on es6 packages
 		`node_modules/(?!(?:.pnpm/)?(${d3Pkgs.join(
 			'|',
-		)}|internmap|d3-delaunay|delaunator|robust-predicates|@talend/tql/index|msw))`,
+		)}|internmap|d3-delaunay|delaunator|robust-predicates|@talend/tql/index|msw|until-async))`,
 		// we can't have it twice (double negative patterns cancel each other),
 		// so you can import addToIgnorePatterns from './utils' to add more pkgs
 
