@@ -48,47 +48,45 @@ function serveStatic(req, res, filePath) {
 	});
 }
 
-const server = http.createServer((req, res) => {
-	// Serve static files from dist
+function resolveSafeFilePath(requestUrl) {
 	let pathname;
 	try {
-		const urlObj = new URL(req.url, 'http://localhost');
+		const urlObj = new URL(requestUrl, 'http://localhost');
 		pathname = urlObj.pathname || '/';
 	} catch {
-		res.writeHead(400, { 'Content-Type': 'text/plain' });
-		res.end('Bad Request');
-		return;
+		return { statusCode: 400, message: 'Bad Request' };
 	}
 
-	// Normalize and validate the path to prevent traversal
 	let decodedPathname;
 	try {
 		decodedPathname = decodeURIComponent(pathname);
 	} catch {
-		res.writeHead(400, { 'Content-Type': 'text/plain' });
-		res.end('Bad Request');
-		return;
+		return { statusCode: 400, message: 'Bad Request' };
 	}
 
 	if (decodedPathname.includes('\0')) {
-		res.writeHead(400, { 'Content-Type': 'text/plain' });
-		res.end('Bad Request');
-		return;
+		return { statusCode: 400, message: 'Bad Request' };
 	}
 
 	const normalizedPathname = path.posix.normalize(decodedPathname.replace(/\\/g, '/'));
 	if (!normalizedPathname.startsWith('/')) {
-		res.writeHead(400, { 'Content-Type': 'text/plain' });
-		res.end('Bad Request');
-		return;
+		return { statusCode: 400, message: 'Bad Request' };
 	}
 
-	// Normalize the path and ensure it stays within distRoot
-	let filePath = path.resolve(distRoot, '.' + normalizedPathname);
-
+	const filePath = path.resolve(distRoot, '.' + normalizedPathname);
 	if (!filePath.startsWith(distRoot + path.sep) && filePath !== distRoot) {
-		res.writeHead(403, { 'Content-Type': 'text/plain' });
-		res.end('Forbidden');
+		return { statusCode: 403, message: 'Forbidden' };
+	}
+
+	return { filePath };
+}
+
+const server = http.createServer((req, res) => {
+	// Serve static files from dist
+	const { filePath, statusCode, message } = resolveSafeFilePath(req.url);
+	if (!filePath) {
+		res.writeHead(statusCode, { 'Content-Type': 'text/plain' });
+		res.end(message);
 		return;
 	}
 
