@@ -23,7 +23,7 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "storybook build",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [

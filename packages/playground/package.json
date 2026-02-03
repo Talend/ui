@@ -9,7 +9,7 @@
     "test": "echo nothing to test in playground",
     "start": "cross-env BASENAME='/' INITIATOR_URL='/inject.js' talend-scripts start --open http://localhost:3000",
     "start-dist": "talend-scripts build && node serve-dist",
-    "lint": "talend-scripts lint"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",

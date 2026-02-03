@@ -14,7 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint index.js __tests__",
+    "lint": "eslint .",
     "test": "jest"
   },
   "devDependencies": {
@@ -22,24 +22,19 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.28.6",
+    "@eslint/js": "^9.17.0",
     "@talend/eslint-plugin": "^1.7.0",
-    "@testing-library/dom": "^9.3.4",
-    "@typescript-eslint/parser": "^6.21.0",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.1.0",
+    "@typescript-eslint/parser": "^8.19.1",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "eslint": "^9.39.2",
     "eslint-config-prettier": "^9.1.2",
-    "eslint-plugin-angular": "^4.1.0",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-jest-dom": "^5.5.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-mdx": "^2.3.4",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-testing-library": "^6.5.0"
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "typescript-eslint": "^8.19.1"
   },
   "publishConfig": {
     "access": "public"

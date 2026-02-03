@@ -21,7 +21,7 @@
     "watch:esm": "talend-scripts build --watch --esm",
     "test": "talend-scripts test",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "start": "storybook dev"
   },
   "repository": {
