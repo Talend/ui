@@ -83,7 +83,8 @@ function resolveSafeFilePath(requestUrl) {
 
 const server = http.createServer((req, res) => {
 	// Serve static files from dist
-	const { filePath, statusCode, message } = resolveSafeFilePath(req.url);
+	const { statusCode, message, filePath: resolvedFilePath } = resolveSafeFilePath(req.url);
+	let filePath = resolvedFilePath;
 	if (!filePath) {
 		res.writeHead(statusCode, { 'Content-Type': 'text/plain' });
 		res.end(message);
