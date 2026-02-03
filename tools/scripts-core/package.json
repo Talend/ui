@@ -58,7 +58,7 @@
     "cpx2": "^3.0.2",
     "fs-extra": "^10.1.0",
     "lodash": "^4.17.23",
-    "rimraf": "^5.0.10",
+    "rimraf": "^6.1.2",
     "typescript": "^5.9.3",
     "webpack": "^5.104.1",
     "webpack-merge": "^5.10.0",
