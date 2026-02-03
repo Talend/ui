@@ -60,8 +60,31 @@ const server = http.createServer((req, res) => {
 		return;
 	}
 
+	// Normalize and validate the path to prevent traversal
+	let decodedPathname;
+	try {
+		decodedPathname = decodeURIComponent(pathname);
+	} catch {
+		res.writeHead(400, { 'Content-Type': 'text/plain' });
+		res.end('Bad Request');
+		return;
+	}
+
+	if (decodedPathname.includes('\0')) {
+		res.writeHead(400, { 'Content-Type': 'text/plain' });
+		res.end('Bad Request');
+		return;
+	}
+
+	const normalizedPathname = path.posix.normalize(decodedPathname.replace(/\\/g, '/'));
+	if (!normalizedPathname.startsWith('/')) {
+		res.writeHead(400, { 'Content-Type': 'text/plain' });
+		res.end('Bad Request');
+		return;
+	}
+
 	// Normalize the path and ensure it stays within distRoot
-	let filePath = path.resolve(distRoot, '.' + pathname);
+	let filePath = path.resolve(distRoot, '.' + normalizedPathname);
 
 	if (!filePath.startsWith(distRoot + path.sep) && filePath !== distRoot) {
 		res.writeHead(403, { 'Content-Type': 'text/plain' });
