@@ -5,18 +5,30 @@ const backend = require('./mockBackend/server');
 
 const options = process.argv.slice(2);
 const useGzip = options.includes('--gzip');
-const ROOT = path.join(__dirname, 'dist');
+const ROOT = path.resolve(__dirname, 'dist');
 
 // Simple static file server
 function serveStatic(req, res, filePath) {
-	fs.readFile(filePath, (err, data) => {
+	// Validate that the file path is within ROOT directory to prevent path traversal
+	// Normalize the path to handle both absolute and relative paths
+	const resolvedPath = path.isAbsolute(filePath) 
+		? path.resolve(filePath) 
+		: path.resolve(ROOT, filePath);
+	
+	if (resolvedPath !== ROOT && !resolvedPath.startsWith(ROOT + path.sep)) {
+		res.writeHead(403, { 'Content-Type': 'text/plain' });
+		res.end('Forbidden');
+		return;
+	}
+
+	fs.readFile(resolvedPath, (err, data) => {
 		if (err) {
 			res.writeHead(404, { 'Content-Type': 'text/plain' });
 			res.end('Not Found');
 			return;
 		}
 
-		const ext = path.extname(filePath);
+		const ext = path.extname(resolvedPath);
 		const contentTypes = {
 			'.html': 'text/html',
 			'.js': 'application/javascript',
