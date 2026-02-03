@@ -3,8 +3,8 @@
     "@changesets/cli": "^2.29.8",
     "@talend/scripts-config-babel": "^13.8.0",
     "@talend/scripts-config-prettier": "^12.5.0",
-    "@talend/scripts-core": "^16.8.0",
-    "@talend/scripts-yarn-workspace": "^2.2.0",
+    "@talend/scripts-core": "^17.0.0",
+    "@talend/scripts-yarn-workspace": "^2.3.0",
     "baseline-browser-mapping": "^2.9.19",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.6",
@@ -13,7 +13,7 @@
     "i18next-scanner": "^4.6.0",
     "lint-staged": "^15.5.2",
     "prettier": "^3.8.1",
-    "rimraf": "^5.0.10",
+    "rimraf": "^6.1.2",
     "typescript": "^5.9.3"
   },
   "scripts": {

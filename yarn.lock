@@ -177,7 +177,7 @@
     "@csstools/css-tokenizer" "^3.0.3"
     lru-cache "^10.4.3"
 
-"@babel/cli@^7.28.3", "@babel/cli@^7.28.6":
+"@babel/cli@^7.28.6":
   version "7.28.6"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.28.6.tgz#1da8eb79f92cbe75542b853b3b1db683c5ea406a"
   integrity sha512-6EUNcuBbNkj08Oj4gAZ+BUU8yLCgKzgVX4gaTh09Ya2C8ICM4P+G30g4m3akRxSYAp3A/gnWchrNst7px4/nUQ==
@@ -228,7 +228,7 @@
     json5 "^2.2.3"
     semver "^6.3.1"
 
-"@babel/eslint-parser@^7.28.5", "@babel/eslint-parser@^7.28.6":
+"@babel/eslint-parser@^7.28.6":
   version "7.28.6"
   resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-7.28.6.tgz#6a294a4add732ebe7ded8a8d2792dd03dd81dc3f"
   integrity sha512-QGmsKi2PBO/MHSQk+AAgA9R6OHQr+VqnniFE0eMWZcVcfBZoA2dKn2hUsl3Csg/Plt9opRUWdY7//VXsrIlEiA==
@@ -4131,31 +4131,6 @@
   resolved "https://npm.pkg.github.com/download/@talend/daikon-tql-client/1.3.1/75a764ec14b06355af3924f3b2d65ff8e61db4f0#75a764ec14b06355af3924f3b2d65ff8e61db4f0"
   integrity sha512-trwueNzgISaN2jSNBxuiHw76jWX2G/vtSrCtlTaoeS3NzsCIVUlGryqKZnuBLfZWJyVWeImx9xm34mBOHITMIQ==
 
-"@talend/eslint-config@^13.5.0":
-  version "13.5.0"
-  resolved "https://npm.pkg.github.com/download/@talend/eslint-config/13.5.0/13e013c2a02d2329d0a3d15d1b1403fec9335b58#13e013c2a02d2329d0a3d15d1b1403fec9335b58"
-  integrity sha512-n5+yjo1mnZttptL/k58cmRXje2HgxGjZEPCB9NhjR1INpEaiS17TNoheukZFxQ3eZYwAsYzq7THt8RChsurOQg==
-  dependencies:
-    "@babel/eslint-parser" "^7.28.5"
-    "@talend/eslint-plugin" "^1.6.0"
-    "@testing-library/dom" "^9.3.4"
-    "@typescript-eslint/eslint-plugin" "^6.21.0"
-    "@typescript-eslint/parser" "^6.21.0"
-    eslint "^8.57.1"
-    eslint-config-airbnb-base "^15.0.0"
-    eslint-config-airbnb-typescript "^17.1.0"
-    eslint-config-prettier "^9.1.2"
-    eslint-plugin-angular "^4.1.0"
-    eslint-plugin-import "^2.32.0"
-    eslint-plugin-jest-dom "^5.5.0"
-    eslint-plugin-jsx-a11y "^6.10.2"
-    eslint-plugin-mdx "^2.3.4"
-    eslint-plugin-prettier "^5.5.4"
-    eslint-plugin-react "^7.37.5"
-    eslint-plugin-react-hooks "^4.6.2"
-    eslint-plugin-storybook "^0.6.15"
-    eslint-plugin-testing-library "^6.5.0"
-
 "@talend/locales-design-system@^7.15.1":
   version "7.15.1"
   resolved "https://npm.pkg.github.com/download/@talend/locales-design-system/7.15.1/decf29fc64fa075c3612586a55947cbd6e56b191#decf29fc64fa075c3612586a55947cbd6e56b191"
@@ -4185,38 +4160,6 @@
   version "15.2.0"
   resolved "https://npm.pkg.github.com/download/@talend/locales-tui-forms/15.2.0/dee8f65820b7e4e26de8b7972a48fd108bb0ffeb#dee8f65820b7e4e26de8b7972a48fd108bb0ffeb"
   integrity sha512-6UMXC8/2qSB7u0ovYsvTqw0mtDsMUWTp/ahmuf4VtRGZDaHxwKl1TMhNgcVKDzwQc7AVzP4DBwG3MbzXqBEYlA==
-
-"@talend/scripts-config-typescript@^11.4.0":
-  version "11.4.0"
-  resolved "https://npm.pkg.github.com/download/@talend/scripts-config-typescript/11.4.0/196b91dbb259da8133a0653b0d16e93042e0c820#196b91dbb259da8133a0653b0d16e93042e0c820"
-  integrity sha512-uXM04gYu0dXp4I8L5D8Y1avgeOSrC+EOfjaol48QVvND/SWb2ANf6KJVL21Oi4PJhg3WJDeDRM2pvNBJ7YRNiA==
-
-"@talend/scripts-core@^16.8.0":
-  version "16.8.0"
-  resolved "https://npm.pkg.github.com/download/@talend/scripts-core/16.8.0/51b3d28742261c7367e7b0bec3786b766c33e0b6#51b3d28742261c7367e7b0bec3786b766c33e0b6"
-  integrity sha512-UfPWB2if+4e2vAFIilArR0PvGmEJKk+R8NjL7wbXagnRqd3w97guNzzKh+pJ0WapZ0nSa95WDjlGlMDAa07hRg==
-  dependencies:
-    "@babel/cli" "^7.28.3"
-    "@babel/core" "^7.28.5"
-    "@talend/eslint-config" "^13.5.0"
-    "@talend/eslint-plugin" "^1.6.0"
-    "@talend/scripts-config-babel" "^13.8.0"
-    "@talend/scripts-config-jest" "^14.5.0"
-    "@talend/scripts-config-stylelint" "^4.3.0"
-    "@talend/scripts-config-typescript" "^11.4.0"
-    "@talend/scripts-utils" "^2.6.0"
-    babel-loader "^9.2.1"
-    cpx2 "^3.0.2"
-    fs-extra "^10.1.0"
-    jest "^29.7.0"
-    jest-cli "^29.7.0"
-    lodash "^4.17.21"
-    rimraf "^5.0.10"
-    stylelint "^15.11.0"
-    typescript "^5.9.3"
-    webpack "^5.102.1"
-    webpack-merge "^5.10.0"
-    yargs "^15.4.1"
 
 "@testing-library/dom@^9.0.0", "@testing-library/dom@^9.3.4":
   version "9.3.4"
@@ -9052,7 +8995,7 @@ eslint-plugin-mdx@^2.3.4:
     unified "^10.1.2"
     vfile "^5.3.7"
 
-eslint-plugin-prettier@^5.5.4, eslint-plugin-prettier@^5.5.5:
+eslint-plugin-prettier@^5.5.5:
   version "5.5.5"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.5.5.tgz#9eae11593faa108859c26f9a9c367d619a0769c0"
   integrity sha512-hscXkbqUZ2sPithAuLm5MXL+Wph+U7wHngPBv9OMWwlP8iaflyxpjTYZkmdgB4/vPIhemRlBEoLrH7UC1n7aUw==
@@ -10180,7 +10123,7 @@ glob2base@0.0.12:
   dependencies:
     find-index "^0.1.1"
 
-glob@^10.0.0, glob@^10.2.2, glob@^10.3.12, glob@^10.3.7:
+glob@^10.0.0, glob@^10.2.2, glob@^10.3.12:
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/glob/-/glob-10.5.0.tgz#8ec0355919cd3338c28428a23d4f24ecc5fe738c"
   integrity sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==
@@ -10202,6 +10145,15 @@ glob@^11.1.0:
     minimatch "^10.1.1"
     minipass "^7.1.2"
     package-json-from-dist "^1.0.0"
+    path-scurry "^2.0.0"
+
+glob@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-13.0.0.tgz#9d9233a4a274fc28ef7adce5508b7ef6237a1be3"
+  integrity sha512-tvZgpqk6fz4BaNZ66ZsRaZnbHvP/jG3uKJvAZOwEVUL4RTA5nJeeLYfyN9/VA8NX/V3IBG+hkeuGpKjvELkVhA==
+  dependencies:
+    minimatch "^10.1.1"
+    minipass "^7.1.2"
     path-scurry "^2.0.0"
 
 glob@^7.0.3, glob@^7.1.3, glob@^7.1.4, glob@^7.2.0:
@@ -14067,7 +14019,7 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
-package-json-from-dist@^1.0.0:
+package-json-from-dist@^1.0.0, package-json-from-dist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.1.tgz#4f1471a010827a86f94cfd9b0727e36d267de505"
   integrity sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==
@@ -16083,12 +16035,13 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rimraf@^5.0.10:
-  version "5.0.10"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-5.0.10.tgz#23b9843d3dc92db71f96e1a2ce92e39fd2a8221c"
-  integrity sha512-l0OE8wL34P4nJH/H2ffoaniAokM2qSmrtXHmlpvYr5AVVX8msAyW0l8NVJFDxlSK4u3Uh/f41cQheDVdnYijwQ==
+rimraf@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-6.1.2.tgz#9a0f3cea2ab853e81291127422116ecf2a86ae89"
+  integrity sha512-cFCkPslJv7BAXJsYlK1dZsbP8/ZNLkCAQ0bi1hf5EKX2QHegmDFEFA6QhuYJlk7UDdc+02JjO80YSOrWPpw06g==
   dependencies:
-    glob "^10.3.7"
+    glob "^13.0.0"
+    package-json-from-dist "^1.0.1"
 
 robust-predicates@^3.0.2:
   version "3.0.2"
@@ -18782,7 +18735,7 @@ webpack-virtual-modules@^0.6.2:
   resolved "https://registry.yarnpkg.com/webpack-virtual-modules/-/webpack-virtual-modules-0.6.2.tgz#057faa9065c8acf48f24cb57ac0e77739ab9a7e8"
   integrity sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==
 
-webpack@^5.102.1, webpack@^5.104.1:
+webpack@^5.104.1:
   version "5.104.1"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.104.1.tgz#94bd41eb5dbf06e93be165ba8be41b8260d4fb1a"
   integrity sha512-Qphch25abbMNtekmEGJmeRUhLDbe+QfiWTiqpKYkpCOWY64v9eyl+KRRLmqOFA2AvKPpc9DC6+u2n76tQLBoaA==
