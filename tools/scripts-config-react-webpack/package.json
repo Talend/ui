@@ -21,15 +21,15 @@
     "@talend/icons": "^8.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.28.6",
+    "@babel/core": "^7.29.0",
     "@sentry/webpack-plugin": "^1.21.0",
     "@talend/react-cmf-webpack-plugin": "^6.43.0",
-    "@talend/scripts-config-babel": "^13.9.0",
+    "@talend/scripts-config-babel": "^13.9.1",
     "@talend/scripts-config-cdn": "^10.16.0",
     "@talend/scripts-utils": "^2.7.0",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
-    "autoprefixer": "^10.4.23",
+    "autoprefixer": "^10.4.24",
     "babel-loader": "^9.2.1",
     "circular-dependency-plugin": "^5.2.2",
     "clean-webpack-plugin": "^4.0.0",
@@ -55,7 +55,7 @@
     "terser-webpack-plugin": "^5.3.16",
     "tmp": "^0.2.5",
     "url": "^0.11.4",
-    "webpack": "^5.104.1",
+    "webpack": "^5.105.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"

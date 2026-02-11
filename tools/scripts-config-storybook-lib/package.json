@@ -36,15 +36,15 @@
     "public"
   ],
   "dependencies": {
-    "@storybook/addon-a11y": "^10.2.1",
-    "@storybook/addon-links": "^10.2.1",
-    "@storybook/react": "^10.2.1",
-    "@storybook/react-vite": "^10.2.1",
+    "@storybook/addon-a11y": "^10.2.8",
+    "@storybook/addon-links": "^10.2.8",
+    "@storybook/react": "^10.2.8",
+    "@storybook/react-vite": "^10.2.8",
     "@talend/bootstrap-theme": "^10.0.0",
     "@talend/design-system": "^12.0.0",
     "@talend/react-cmf": "^12.0.0",
     "@talend/icons": "^8.0.0",
-    "@vitejs/plugin-react": "^5.1.2",
+    "@vitejs/plugin-react": "^5.1.4",
     "assert": "^2.1.0",
     "esbuild-plugin-react-virtualized": "^1.0.5",
     "i18next": "^23.16.8",
@@ -55,7 +55,7 @@
     "msw-storybook-addon": "^2.0.6",
     "querystring-es3": "^0.2.1",
     "react-i18next": "^13.5.0",
-    "storybook": "^10.2.1",
+    "storybook": "^10.2.8",
     "util": "^0.12.5"
   },
   "peerDependencies": {
@@ -66,8 +66,8 @@
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
     "@types/lodash": "^4.17.23",
-    "@types/node": "^25.0.10",
-    "@types/react": "^18.3.27",
+    "@types/node": "^25.2.3",
+    "@types/react": "^18.3.28",
     "typescript": "^5.9.3"
   },
   "publishConfig": {
