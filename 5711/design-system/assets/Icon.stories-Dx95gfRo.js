@@ -1,0 +1,20 @@
+import{j as e}from"./index-BeRoqjfO.js";import"./DialogBackdrop-BDgqVk1C.js";import{x as F,O as n,S as x,s as h}from"./Skeleton-XhJlLQkP.js";import{r as t}from"./iframe-0koiw-N4.js";import"./useCopyToClipboard-BFdKw2yF.js";import"./index-osoKd-JR.js";import"./TalendDesignTokens-JgHEBmOa.js";import{I as M,b as O}from"./blocks-rBK3BsRX.js";const C=({children:o,docs:a})=>{const[c,i]=t.useState([]),[m,d]=t.useState(""),[j,I]=t.useState(2),[p,b]=t.useState(),[T,y]=t.useState(""),[u,v]=t.useState(),[S,z]=t.useState(),[g,w]=t.useState();t.useEffect(()=>{F.getAllIconIds().then(r=>{const E=r.filter(f=>f&&!f.includes(":"));i(E)})},[]);const A=r=>{d(r.currentTarget.value)},U=r=>{I(parseFloat(r.currentTarget.value))},_=r=>{y(r.currentTarget.value)},k=r=>a?e.jsx(O,{children:r.children}):e.jsx("div",{children:r.children});return e.jsxs(e.Fragment,{children:[e.jsxs(n,{children:[e.jsxs(x,{gap:"M",children:[e.jsx(n.Search,{name:"search",label:"Search",onChange:A}),e.jsxs(n.Select,{name:"Size",label:"Size",onChange:U,value:j,children:[e.jsx("option",{value:"1",children:"S"}),e.jsx("option",{value:"2",children:"M"}),e.jsx("option",{value:"3",children:"L"}),e.jsx("option",{value:"4",children:"XL"})]}),e.jsxs(n.Select,{name:"Transform",label:"Transform",onChange:_,children:[e.jsx("option",{children:"spin"}),e.jsx("option",{children:"rotate-45"}),e.jsx("option",{children:"rotate-90"}),e.jsx("option",{children:"rotate-135"}),e.jsx("option",{children:"rotate-180"}),e.jsx("option",{children:"rotate-225"}),e.jsx("option",{children:"rotate-270"}),e.jsx("option",{children:"rotate-315"}),e.jsx("option",{children:"flip-horizontal"}),e.jsx("option",{children:"flip-vertical"})]})]}),e.jsxs(x,{gap:"M",children:[e.jsx(n.ToggleSwitch,{label:"Use color",name:"color",onChange:()=>v(!u),checked:!!u}),e.jsx(n.ToggleSwitch,{label:"Use border",name:"border",onChange:()=>w(!g),checked:!!g}),e.jsx(n.ToggleSwitch,{name:"grayscale",label:"Use grayscale filter",onChange:()=>b(!p),checked:!!p})]}),u?e.jsx(n.Color,{label:"Color",onChange:r=>z(r.currentTarget.value),value:S,name:"color"}):null]}),e.jsx("div",{style:{marginTop:"1.875rem",color:S},children:e.jsx(k,{children:c.filter(r=>r&&r.includes(m)).map(r=>r&&o({name:r,size:j,transform:T,useCurrentColor:u,border:g,filter:p}))})})]})},R=()=>e.jsx(C,{docs:!0,children:({name:o,size:a,transform:c,border:i,filter:m,useCurrentColor:d})=>e.jsx(M,{name:o,children:e.jsx(h,{name:o,style:{width:`${a}rem`,height:`${a}rem`,filter:m?"url('#talend-grayscale')":"none"},transform:c,border:i})},o)}),H={title:"Icons/Icon"},s=o=>e.jsxs(x,{gap:"XS",children:[e.jsx(h,{name:o.name,style:{width:"0.75rem",height:"0.75rem"}}),e.jsx(h,{name:o.name}),e.jsx(h,{name:o.name,style:{width:"1.5rem",height:"1.5rem"}})]});s.args={name:"talend-cross"};s.argTypes={name:{control:"string"}};const l=()=>e.jsx(C,{children:({name:o,size:a,transform:c,border:i,filter:m,useCurrentColor:d})=>e.jsx(h,{name:o,size:a,transform:c,border:i,filter:m,useCurrentColor:d})});l.parameters={chromatic:{disableSnapshot:!0}};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`(args: UsageProps) => <StackHorizontal gap="XS">
+        <Icon name={args.name} style={{
+    width: '0.75rem',
+    height: '0.75rem'
+  }} />
+        <Icon name={args.name} />
+        <Icon name={args.name} style={{
+    width: '1.5rem',
+    height: '1.5rem'
+  }} />
+    </StackHorizontal>`,...s.parameters?.docs?.source}}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`() => <AllIconsTemplate>
+        {({
+    name,
+    size,
+    transform,
+    border,
+    filter,
+    useCurrentColor
+  }) => <Icon name={name} size={size} transform={transform} border={border} filter={filter} useCurrentColor={useCurrentColor} />}
+    </AllIconsTemplate>`,...l.parameters?.docs?.source}}};const P=["Usage","AllIcons"],W=Object.freeze(Object.defineProperty({__proto__:null,AllIcons:l,Usage:s,__namedExportsOrder:P,default:H},Symbol.toStringTag,{value:"Module"}));export{R as A,W as S,s as U};
