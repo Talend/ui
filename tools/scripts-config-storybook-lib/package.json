@@ -55,7 +55,7 @@
     "msw-storybook-addon": "^2.0.6",
     "querystring-es3": "^0.2.1",
     "react-i18next": "^13.5.0",
-    "storybook": "^10.2.1",
+    "storybook": "^10.2.10",
     "util": "^0.12.5"
   },
   "peerDependencies": {
