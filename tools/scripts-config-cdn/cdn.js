@@ -1,7 +1,4 @@
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-console */
-/* eslint-disable no-param-reassign */
 /* eslint-disable no-empty */
 const path = require('path');
 const fs = require('fs');
@@ -151,9 +148,9 @@ function getModulesFromLockFile(dir) {
 		let yarnv3;
 		try {
 			yarnv1 = lockfile.parse(fs.readFileSync(lockPath, 'utf-8'));
-		} catch (e) {
+		} catch {
 			yarnv3 = yaml.load(fs.readFileSync(lockPath, 'utf-8'), { schema });
-			// eslint-disable-next-line no-underscore-dangle
+
 			delete yarnv3.__metadata;
 		}
 
