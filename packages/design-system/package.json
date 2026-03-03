@@ -92,7 +92,7 @@
     "react-hook-form": "^7.71.1",
     "react-i18next": "^13.5.0",
     "react-router-dom": "~6.3.0",
-    "storybook": "^10.2.1"
+    "storybook": "^10.2.10"
   },
   "peerDependencies": {
     "@talend/icons": "^8.0.0",

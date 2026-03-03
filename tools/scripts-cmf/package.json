@@ -16,7 +16,7 @@
     "commander": "^6.2.1",
     "deepmerge": "^1.5.2",
     "i18next": "^23.16.8",
-    "jsonpath": "^1.1.1",
+    "jsonpath": "^1.2.1",
     "lodash": "^4.17.23",
     "mkdirp": "^1.0.4"
   },
