@@ -57,7 +57,6 @@ jest.mock('./getJSON', () => ({
 }));
 
 const {
-	getI18Next,
 	getLocalesFromNamespace,
 	getLocalesFromNamespaceInFolder,
 	getNameSpacesByLocale,

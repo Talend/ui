@@ -227,7 +227,6 @@ function updateLocale(i18nKeys, locale, namespace, pattern, sort) {
 	const filePath = getPathFromPattern(pattern, namespace, locale);
 	let savedLocale = {};
 	if (fs.existsSync(filePath)) {
-		// eslint-disable-next-line global-require
 		savedLocale = getJSON(filePath);
 	}
 
@@ -271,7 +270,7 @@ function getLocalesFromNamespaceInFolder(folder, namespace) {
 
 	return new Map(
 		files
-			// eslint-disable-next-line global-require
+
 			.map(file => getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace))
 			.reduce((state, map) => [...state, ...map], []),
 	);
@@ -286,9 +285,8 @@ function getLocalesFromNamespaceInFolder(folder, namespace) {
 function getI18Next(languages, namespaces) {
 	let i18next;
 	try {
-		// eslint-disable-next-line global-require
 		i18next = require('i18next');
-	} catch (e) {
+	} catch {
 		console.error('The package i18next have to be installed on your project to use i18n feature.');
 		return false;
 	}
