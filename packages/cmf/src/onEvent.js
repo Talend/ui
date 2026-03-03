@@ -49,10 +49,8 @@ function getOnEventSetStateHandler(instance, props, config, currentHandler) {
 			const value = config[key];
 			if (Array.isArray(value)) {
 				if (value.length === 1) {
-					// eslint-disable-next-line no-param-reassign
 					acc[key] = args[value[0]];
 				} else if (value.length === 2) {
-					// eslint-disable-next-line no-param-reassign
 					acc[key] = get(args[value[0]], value[1]);
 				} else {
 					throw new Error('onEventSetState array must have 1 or 2 element for ', key, args);
@@ -63,7 +61,6 @@ function getOnEventSetStateHandler(instance, props, config, currentHandler) {
 					instance.props.setState({ [key]: !_props.state.get(key) }),
 				);
 			} else {
-				// eslint-disable-next-line no-param-reassign
 				acc[key] = value;
 			}
 			return acc;
@@ -90,18 +87,16 @@ function addOnEventSupport(handlerType, instance, props, key) {
 	if (CONSTANT[`IS_HANDLER_${handlerType}_REGEX`].test(key)) {
 		if (handlerType === SETSTATE) {
 			if (!props.spreadCMFState) {
-				// eslint-disable-next-line no-param-reassign
 				props.spreadCMFState = true;
 			}
 			if (!props.initialState) {
-				// eslint-disable-next-line no-param-reassign
 				props.initialState = INITIAL_STATE;
 			}
 		}
 		props.toOmit.push(key);
 		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
 		const originalEventHandler = props[handlerKey] || instance.props[handlerKey];
-		// eslint-disable-next-line no-param-reassign
+
 		props[handlerKey] = GET_HANDLER[handlerType](
 			instance,
 			props,

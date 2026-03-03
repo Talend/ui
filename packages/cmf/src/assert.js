@@ -9,7 +9,6 @@ export function assertValueTypeOf(value, type, toThrow = true) {
 	if (Array.isArray(type)) {
 		isTypeCorrect = type.some(currentType => assertValueTypeOf(value, currentType, false));
 	} else {
-		// eslint-disable-next-line valid-typeof
 		isTypeCorrect = typeof value === type && !Array.isArray(value);
 	}
 	if (toThrow && isTypeCorrect === false) {

@@ -3,7 +3,6 @@
  * @module react-cmf/lib/deprecated
  */
 
-/* eslint-disable prefer-rest-params */
 /* eslint-disable no-console */
 
 /**

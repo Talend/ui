@@ -194,7 +194,7 @@ function getOnError(dispatch, httpAction) {
 					errorObject.stack.response = response;
 					try {
 						errorObject.stack.messageObject = JSON.parse(response);
-					} catch (e) {
+					} catch {
 						/* If response is not in json format, it's ok, we have it in errorObject.stack.response */
 					} finally {
 						if (httpAction.onError) {

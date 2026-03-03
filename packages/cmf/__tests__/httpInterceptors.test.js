@@ -1,5 +1,4 @@
 import interceptors from '../src/httpInterceptors';
-/* eslint-disable no-underscore-dangle */
 
 describe('interceptors', () => {
 	let interceptor;

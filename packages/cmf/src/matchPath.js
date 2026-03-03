@@ -29,7 +29,7 @@ const compilePath = (pattern, options) => {
  * Public API for matching a URL pathname to a path pattern.
  */
 export default function matchPath(pathname, options = {}) {
-	if (typeof options === 'string') options = { path: options }; // eslint-disable-line no-param-reassign
+	if (typeof options === 'string') options = { path: options };
 
 	const { path = '/', exact = false, strict = false } = options;
 	const { re, keys } = compilePath(path, { end: exact, strict });

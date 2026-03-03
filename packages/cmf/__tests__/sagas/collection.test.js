@@ -1,9 +1,7 @@
-import { delay, call, select } from 'redux-saga/effects';
+import { delay, select } from 'redux-saga/effects';
 import Immutable from 'immutable';
 import selectors from '../../src/selectors';
-import {
-	waitFor,
-} from '../../src/sagas/collection';
+import { waitFor } from '../../src/sagas/collection';
 
 describe('waitFor', () => {
 	it('should waitFor wait for a collection to exists', () => {

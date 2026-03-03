@@ -14,14 +14,12 @@ async function getModule(module) {
 
 async function find(options, buff = []) {
 	if (options.modules) {
-		// eslint-disable-next-line no-restricted-syntax
 		for await (const current of options.modules) {
 			if (!current.id) {
 				throw new Error('a cmf.module must have an id');
 			}
 
 			if (buff.some(({ id }) => current.id === id)) {
-				// eslint-disable-next-line no-console
 				console.warn(
 					`cmf.bootstrap: 2 modules have the same id ${current.id}. This duplicated module will be skipped.`,
 				);

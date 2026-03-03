@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode } from 'react';
-import type { Store, Dispatch, AnyAction } from 'redux';
+import type { Store, AnyAction } from 'redux';
 
 export interface CMFContext {
 	store: Store;

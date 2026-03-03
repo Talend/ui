@@ -48,7 +48,6 @@ function prepareSettings({ views, props, ref, ...rest }) {
 	const settings = { props: {}, ...rest };
 	if (views) {
 		if (process.env.NODE_ENV === 'development') {
-			// eslint-disable-next-line no-console
 			console.warn('settings.view is deprecated, please use settings.props');
 		}
 		Object.keys(views).forEach(id => {
@@ -77,7 +76,6 @@ export function settingsReducers(state = defaultState, action) {
 		case CONSTANTS.REQUEST_OK:
 			return { ...state, initialized: true, ...prepareSettings(action.settings) };
 		case CONSTANTS.REQUEST_KO:
-			// eslint-disable-next-line no-console
 			console.error(`Settings can't be loaded ${get(action, 'error.message')}`, action.error);
 			return state;
 		default:

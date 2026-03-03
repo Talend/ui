@@ -634,7 +634,7 @@ describe('httpMiddleware configuration', () => {
 			const augmentedConfig = interceptor.request.mock.calls[0][0];
 			expect(augmentedConfig.url).toBe(action.url);
 			expect(interceptor.response).toHaveBeenCalledWith({ data: response, headers: {} });
-			// eslint-disable-next-line no-underscore-dangle
+
 			interceptors._clear();
 			done();
 		});

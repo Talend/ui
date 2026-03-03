@@ -110,7 +110,6 @@ describe('onError', () => {
 			expect(info.actions[0]).toBe('FOO');
 		});
 		it('should keep last 20 actions', () => {
-			// eslint-disable-next-line no-plusplus
 			const mid = onError.middleware();
 			const next = jest.fn();
 			for (let index = 0; index < 30; index++) {

@@ -330,7 +330,6 @@ export function setDefaultLanguage(language) {
 	if (get(HTTP, 'defaultConfig.headers')) {
 		HTTP.defaultConfig.headers['Accept-Language'] = language;
 	} else {
-		// eslint-disable-next-line no-console
 		throw new Error('ERROR: you should call setDefaultConfig.');
 	}
 }

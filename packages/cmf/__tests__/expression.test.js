@@ -132,7 +132,7 @@ describe('getProps', () => {
 describe('mapStateToProps', () => {
 	it('should check first level props keys and call expression on it', () => {
 		const isCalled = jest.fn(() => true);
-		// eslint-disable-next-line import/no-named-as-default-member
+
 		const registry = cmf.registry.getRegistry();
 		registry['expression:isCalled'] = isCalled;
 		const props = {

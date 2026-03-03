@@ -1,4 +1,4 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "cmf.d.ts"]
 }

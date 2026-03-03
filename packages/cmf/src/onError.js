@@ -3,7 +3,6 @@ import CONST from './constant';
 import actions from './actions';
 import { assertTypeOf } from './assert';
 
-/* eslint-disable no-param-reassign */
 /**
  * the ref will contains a reference to
  * store
@@ -163,7 +162,7 @@ function middleware() {
 			report(error, {
 				tags: [{ key: 'redux-action-type', value: get(action, 'type', 'UNKNOWN') }],
 			});
-			// eslint-disable-next-line no-console
+
 			console.error(error);
 			return undefined;
 		}

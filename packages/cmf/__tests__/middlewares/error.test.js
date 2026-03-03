@@ -1,9 +1,5 @@
-import getErrorMiddleware, {
-	URL_REQUIRED_MESSAGE,
-} from '../../src/middlewares/error';
-import {
-	HTTP_METHODS,
-} from '../../src/middlewares/http/constants';
+import getErrorMiddleware, { URL_REQUIRED_MESSAGE } from '../../src/middlewares/error';
+import { HTTP_METHODS } from '../../src/middlewares/http/constants';
 
 describe('CMF error middleware getErrorMiddleware', () => {
 	it('should return a middleware using slug', () => {
@@ -13,7 +9,7 @@ describe('CMF error middleware getErrorMiddleware', () => {
 			dispatch: jest.fn(),
 			state: {},
 		};
-		const next = (action) => {
+		const next = action => {
 			if (action.type === 'THROW') {
 				throw new Error('message');
 			}

@@ -22,9 +22,7 @@ const enhancers = [];
 const middlewares = [thunk, cmfMiddleware, onError.middleware];
 
 if (typeof window !== 'undefined') {
-	// eslint-disable-next-line no-underscore-dangle
 	if (window.__REDUX_DEVTOOLS_EXTENSION__) {
-		// eslint-disable-next-line no-underscore-dangle
 		enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
 	} else if (window.devToolsExtension) {
 		enhancers.push(window.devToolsExtension());

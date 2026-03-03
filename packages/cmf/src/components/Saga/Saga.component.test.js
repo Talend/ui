@@ -1,8 +1,6 @@
 import { render } from '@testing-library/react';
 import { SagaComponent } from './Saga.component';
 
-const defaultMockUuid = '42';
-
 describe('Saga Component', () => {
 	it('should dispatch actions', () => {
 		// given
@@ -15,7 +13,6 @@ describe('Saga Component', () => {
 			<SagaComponent
 				stopSaga={stopSaga}
 				startSaga={startSaga}
-				// eslint-disable-next-line react/jsx-no-bind
 				saga={saga}
 				sagaAttributes={sagaAttributes}
 			/>,

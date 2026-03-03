@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const program = require('commander'); // eslint-disable-line import/no-extraneous-dependencies
+const program = require('commander');
 const merge = require('@talend/scripts-cmf/cmf-settings.merge');
 
 program
