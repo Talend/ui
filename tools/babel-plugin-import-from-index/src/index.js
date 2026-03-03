@@ -126,9 +126,8 @@ module.exports = function transform({ types }) {
 											// fix default import name except if we are at the root of the package
 											if (isPackageFrom) {
 												return types.importDefaultSpecifier(types.identifier(localName));
-											} else {
-												importedName = lastName;
 											}
+											importedName = lastName;
 										}
 										if (isPackageFrom && type === 'ImportDefaultSpecifier') {
 											return types.importDefaultSpecifier(types.identifier(localName));
