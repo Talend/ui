@@ -21,7 +21,7 @@ describe('hooks', () => {
 
 	beforeEach(() => {
 		removeEventListener = jest.fn();
-		addEventListener = (event: string, cb: Function) => {
+		addEventListener = (event: string, cb: (event: Event) => void) => {
 			eventListener = cb;
 		};
 		send = jest.fn();
