@@ -8,7 +8,7 @@ type DateFnsFormatInput = Date | number | string;
 interface ConversionOptions {
 	timeZone: string;
 	sourceTimeZone?: string;
-	locale?: Object;
+	locale?: object;
 }
 
 export interface DateFormatOptions {
@@ -202,10 +202,9 @@ export function convertToUTC(date: Date): Date {
  */
 export function timeZoneExists(timeZone: string): boolean {
 	try {
-		// eslint-disable-next-line no-new
 		new Intl.DateTimeFormat(undefined, { timeZone });
 		return true;
-	} catch (e) {
+	} catch {
 		return false;
 	}
 }

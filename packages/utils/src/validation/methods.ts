@@ -5,7 +5,7 @@ import { NAME, EMAIL, DOMAIN } from './regexp';
  * @param {RegExp} regexp Regular expression to test values against
  * @returns {Function}
  */
-function getValidationMethod(regexp: RegExp): Function {
+function getValidationMethod(regexp: RegExp): (value: string) => boolean {
 	return (value: string) => regexp.test(value);
 }
 
@@ -14,25 +14,25 @@ function getValidationMethod(regexp: RegExp): Function {
  * @param {string} value
  * @returns {boolean}
  */
-export const validFirstName: Function = getValidationMethod(NAME);
+export const validFirstName: (value: string) => boolean = getValidationMethod(NAME);
 
 /**
  * Check that a given value is a valid last name
  * @param {string} value
  * @returns {boolean}
  */
-export const validLastName: Function = getValidationMethod(NAME);
+export const validLastName: (value: string) => boolean = getValidationMethod(NAME);
 
 /**
  * Check that a given value is a value email address
  * @param {string} value
  * @returns {boolean}
  */
-export const validEmail: Function = getValidationMethod(EMAIL);
+export const validEmail: (value: string) => boolean = getValidationMethod(EMAIL);
 
 /**
  * Check that a given value is a valid domain
  * @param {string} value
  * @returns {boolean}
  */
-export const validDomain: Function = getValidationMethod(DOMAIN);
+export const validDomain: (value: string) => boolean = getValidationMethod(DOMAIN);
