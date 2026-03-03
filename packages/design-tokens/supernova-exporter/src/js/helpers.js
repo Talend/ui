@@ -1,4 +1,5 @@
-// @ts-ignore
+/* eslint-disable no-console */
+/* eslint-disable no-undef */
 function getReadableVariableNameByCaseStyle(caseStyle) {
 	return function getReadableVariableName(token, tokenGroup, prefix) {
 		// Create array with all path segments and token name at the end

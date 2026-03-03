@@ -25,17 +25,18 @@ if (!fs.existsSync(pathB)) {
 const bufferA = fs.readFileSync(pathA);
 const bufferB = fs.readFileSync(pathB);
 
-Array.prototype.diff = function(arr2) {
+Array.prototype.diff = function (arr2) {
 	return this.filter(x => !arr2.includes(x));
 };
 
-Array.prototype.duplicates = function() {
+Array.prototype.duplicates = function () {
 	return this.filter((item, index) => this.indexOf(item) !== index);
 };
 
 function getKeys(buffer) {
 	const keys = [];
 	const re = /(--coral-(.*)):/gi;
+	let result;
 	while ((result = re.exec(buffer.toString()))) {
 		keys.push(result[1]);
 	}
@@ -54,20 +55,20 @@ const diffAfromB = [...new Set(bufferBKeys.diff(bufferAKeys))];
 let exitCode = 0;
 
 if (duplicatesA.length) {
-	console.warn('Duplicate tokens in file #1', pathA);
-	console.table(duplicatesA);
+	console.warn('Duplicate tokens in file #1', pathA, duplicatesA);
 	exitCode = 1;
 }
 
 if (duplicatesB.length) {
-	console.warn('Duplicate tokens in file #2', pathB);
-	console.table(duplicatesB);
+	console.warn('Duplicate tokens in file #2', pathB, duplicatesB);
 	exitCode = 1;
 }
 
 if (diffBfromA.length || diffAfromB.length) {
-	console.error('Missing tokens in files #1 and #2');
-	console.table([{ [`${pathA}`]: diffAfromB }, { [`${pathB}`]: diffBfromA }]);
+	console.error('Missing tokens in files #1 and #2', [
+		{ [`${pathA}`]: diffAfromB },
+		{ [`${pathB}`]: diffBfromA },
+	]);
 	exitCode = 1;
 }
 
