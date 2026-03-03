@@ -13,7 +13,7 @@ async function isFile(p) {
 		const stat = await fs.promises.lstat(p);
 		return stat.isFile();
 		// eslint-disable-next-line no-empty
-	} catch (e) {}
+	} catch {}
 	return false;
 }
 

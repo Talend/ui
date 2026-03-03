@@ -20,7 +20,7 @@ function resolveBin(modName, { executable = modName } = {}) {
 	let systemCommandPath;
 	try {
 		systemCommandPath = fs.realpathSync(which.sync(executable));
-	} catch (_error) {
+	} catch {
 		// ignore _error
 	}
 	if (process.platform === 'win32' && systemCommandPath) {

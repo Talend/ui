@@ -17,11 +17,10 @@ function hasDependencies(pkg, name) {
 
 function hasPackageInstalled(name) {
 	try {
-		// eslint-disable-next-line import/no-dynamic-require, global-require
 		require.resolve(name);
 		return true;
 		// eslint-disable-next-line no-empty
-	} catch (e) {}
+	} catch {}
 	return false;
 }
 
