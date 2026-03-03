@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * @fileoverview Check if the import of d3 is not on d3-*
  * @author Jean-Michel FRANCOIS

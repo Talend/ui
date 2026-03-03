@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * @fileoverview Check if the import depth let your code be UMD build compliant
  * @author Jean-Michel FRANCOIS
