@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.6",
-    "eslint": "^8.57.1"
+    "eslint": "^10.0.2"
   },
   "publishConfig": {
     "access": "public"

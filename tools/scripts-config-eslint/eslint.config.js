@@ -1,3 +1,4 @@
+const { defineConfig, globalIgnores } = require('eslint/config');
 const js = require('@eslint/js');
 const globals = require('globals');
 const babelParser = require('@babel/eslint-parser');
@@ -25,6 +26,7 @@ const talendPlugin = require('@talend/eslint-plugin');
 
 // Base configuration for all files
 const baseConfig = {
+	extends: [js.configs.recommended],
 	languageOptions: {
 		ecmaVersion: 2022,
 		sourceType: 'module',
@@ -59,7 +61,6 @@ const baseConfig = {
 		},
 	},
 	rules: {
-		...js.configs.recommended.rules,
 		...reactPlugin.configs.recommended.rules,
 		...reactPlugin.configs['jsx-runtime'].rules,
 		...prettierConfig.rules,
@@ -141,9 +142,10 @@ const tsConfigs = isTS
 					'@typescript-eslint/no-unsafe-argument': 'off',
 					'@typescript-eslint/restrict-template-expressions': 'off',
 					'@typescript-eslint/restrict-plus-operands': 'off',
+					'@typescript-eslint/no-require-imports': 'off',
 				},
 			},
-	  )
+		)
 	: [];
 
 // Test files configuration
@@ -161,22 +163,19 @@ const testConfig = {
 	},
 };
 
-module.exports = [
-	{
-		ignores: [
-			'**/node_modules/**',
-			'**/dist/**',
-			'**/lib/**',
-			'**/lib-esm/**',
-			'**/build/**',
-			'**/coverage/**',
-			'**/.storybook/public/**',
-			'./index.js',
-			'./.eslintrc.js',
-		],
-	},
+module.exports = defineConfig([
+	globalIgnores([
+		'**/node_modules/**',
+		'**/dist/**',
+		'**/lib/**',
+		'**/lib-esm/**',
+		'**/build/**',
+		'**/coverage/**',
+		'**/.storybook/public/**',
+		'./index.js',
+		'./.eslintrc.js',
+	]),
 	baseConfig,
 	...tsConfigs,
 	testConfig,
-];
-
+]);
