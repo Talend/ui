@@ -1,7 +1,6 @@
 const { defineConfig, globalIgnores } = require('eslint/config');
 const js = require('@eslint/js');
 const globals = require('globals');
-const babelParser = require('@babel/eslint-parser');
 const tseslint = require('typescript-eslint');
 
 const fs = require('fs');
@@ -30,9 +29,7 @@ const baseConfig = {
 	languageOptions: {
 		ecmaVersion: 2022,
 		sourceType: 'module',
-		parser: babelParser,
 		parserOptions: {
-			requireConfigFile: false,
 			ecmaFeatures: {
 				jsx: true,
 			},
