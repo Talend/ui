@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 const path = require('path');
 const mergeSettings = require('@talend/scripts-cmf/cmf-settings.merge');
 const RawSource = require('webpack-sources').RawSource;
@@ -20,13 +19,13 @@ function ReactCMFWebpackPlugin(options = {}) {
 	};
 	this.log = (...args) => {
 		if (!this.options.quiet) {
-			console.error('[ReactCMFWebpackPlugin]', ...args); // eslint-disable-line no-console
+			console.error('[ReactCMFWebpackPlugin]', ...args);
 		}
 	};
 }
 
 function getCmfconfig(cmfconfigPath) {
-	const cmfconfig = require(cmfconfigPath); // eslint-disable-line import/no-dynamic-require
+	const cmfconfig = require(cmfconfigPath);
 	if (process.env.CMF_ENV) {
 		return cmfconfig[process.env.CMF_ENV];
 	}
@@ -50,7 +49,7 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 	 * Runs at each webpack run.
 	 * Calls cmf merge function with the modified cmf config.
 	 */
-	function generateCMFSettings(compilation, callback) {
+	function generateCMFSettings(compilation) {
 		this.log(
 			'emit',
 			JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }),
