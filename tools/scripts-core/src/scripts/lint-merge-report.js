@@ -16,7 +16,7 @@ async function run(cmd, opts = {}) {
 		console.log(`\n#### RUNNER: ${cmd.name} ${cmd.args.join(' ')}`);
 	}
 	const start = Date.now();
-	return new Promise(async (resolve, reject) => {
+	return new Promise((resolve, reject) => {
 		const out = spawn(cmd.name, cmd.args);
 		let stdout = '';
 		let stderr = '';
