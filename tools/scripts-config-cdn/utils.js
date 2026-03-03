@@ -23,6 +23,7 @@ function download(url, options = []) {
 				return;
 			}
 			if (options.includes('-v')) {
+				// eslint-disable-next-line no-console
 				console.log('talend-scripts postinstall: download', url, resp.statusCode);
 			}
 			if (resp.statusCode >= 400) {
