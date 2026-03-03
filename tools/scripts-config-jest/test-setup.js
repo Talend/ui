@@ -1,11 +1,5 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-shadow */
-/* eslint-disable no-promise-executor-return */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable global-require */
-/* eslint-disable class-methods-use-this */
 /* eslint-disable no-empty */
-/* eslint-disable import/no-extraneous-dependencies */
+
 require('@testing-library/jest-dom');
 require('@testing-library/jest-dom/jest-globals');
 require('core-js/stable');
@@ -15,7 +9,7 @@ require('raf/polyfill');
 try {
 	const jestAxe = require('jest-axe');
 	expect.extend(jestAxe.toHaveNoViolations);
-} catch (e) {}
+} catch {}
 
 // add missing ResizeObserver
 class ResizeObserver {
@@ -73,7 +67,7 @@ try {
 			}),
 	);
 	global.self.fetch = fetch;
-} catch (e) {}
+} catch {}
 
 try {
 	Object.defineProperty(global.self, 'crypto', {
@@ -108,7 +102,7 @@ try {
 		})(),
 		writable: true,
 	});
-} catch (e) {}
+} catch {}
 
 try {
 	jest.mock('i18next', () => {
@@ -132,7 +126,7 @@ try {
 		i18nextMock.addResources = () => {};
 		return i18nextMock;
 	});
-} catch (e) {}
+} catch {}
 
 try {
 	jest.mock('react-i18next', () => {
@@ -184,7 +178,7 @@ try {
 				Array.isArray(children) ? renderNodes(children) : renderNodes([children]),
 		};
 	});
-} catch (e) {}
+} catch {}
 
 try {
 	jest.mock('@talend/design-system', () => {
@@ -245,5 +239,5 @@ try {
 
 // @floating-ui/react
 // https://github.com/floating-ui/floating-ui/issues/1908
-// eslint-disable-next-line no-promise-executor-return
+
 afterAll(() => new Promise(resolve => setTimeout(resolve, 0)));
