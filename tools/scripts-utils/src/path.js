@@ -16,7 +16,7 @@ function getDirName(url) {
  * @param cwd The execution path
  * @returns {*} The executable path
  */
-function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {}) {
+function resolveBin(modName, { executable = modName } = {}) {
 	let systemCommandPath;
 	try {
 		systemCommandPath = fs.realpathSync(which.sync(executable));
