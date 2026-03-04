@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, memo } from 'react';
 import type { ImgHTMLAttributes } from 'react';
-import { FileImageResponse } from 'figma-js';
+import type { GetImagesResponse } from '@figma/rest-api-spec';
 
 import styles from './FigmaImage.module.css';
 
@@ -44,7 +44,7 @@ export const FigmaImage = ({
 }: ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string; full?: boolean }) => {
 	const figma = useContext(FigmaContext);
 
-	const [fileImageResponse, setFileImageResponse] = useState<FileImageResponse>();
+	const [fileImageResponse, setFileImageResponse] = useState<GetImagesResponse>();
 
 	useEffect(() => {
 		if ('serviceWorker' in navigator) {
@@ -93,16 +93,20 @@ export const FigmaImage = ({
 		return <span>Fetching data from Figma server...</span>;
 	}
 
-	return Object.values(fileImageResponse.images).map((image: string, index: number) => (
-		<figure className={styles.image} key={index}>
-			<img
-				style={{
-					width: full ? '100%' : 'auto',
-				}}
-				src={image}
-				alt={alt}
-				{...rest}
-			/>
-		</figure>
-	));
+	return Object.values(fileImageResponse.images).flatMap((image: string | null, index: number) =>
+		image
+			? [
+					<figure className={styles.image} key={index}>
+						<img
+							style={{
+								width: full ? '100%' : 'auto',
+							}}
+							src={image}
+							alt={alt}
+							{...rest}
+						/>
+					</figure>,
+				]
+			: [],
+	);
 };
