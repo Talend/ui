@@ -19,7 +19,7 @@
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "test": "talend-scripts test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -57,6 +57,7 @@
     "chalk": "^2.4.2",
     "create-react-class": "^15.7.0",
     "cross-env": "^7.0.3",
+    "eslint": "^9.39.3",
     "lodash": "^4.17.23",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

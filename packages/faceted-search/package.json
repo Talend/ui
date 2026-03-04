@@ -22,7 +22,7 @@
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
     "test:demo": "storybook build --docs",
-    "lint": "talend-scripts lint ./src/**/*.js ./stories/**/*.js ./.storybook/**/*.js",
+    "lint": "eslint .",
     "start": "storybook dev -p 6006",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
@@ -69,6 +69,7 @@
     "@testing-library/user-event": "^14.6.1",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "cross-env": "^7.0.3",
+    "eslint": "^9.39.3",
     "i18next": "^23.16.8",
     "storybook": "^10.2.10",
     "prop-types": "^15.8.1",

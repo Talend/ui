@@ -18,7 +18,7 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "lint": "talend-scripts lint"
+    "lint": "eslint ."
   },
   "keywords": [
     "talend"
@@ -42,6 +42,7 @@
     "@talend/scripts-config-typescript": "^12.0.0",
     "@types/node": "^6.14.13",
     "@types/jest": "^29.5.14",
+    "eslint": "^9.39.3",
     "read-pkg-up": "^7.0.1"
   },
   "publishConfig": {
