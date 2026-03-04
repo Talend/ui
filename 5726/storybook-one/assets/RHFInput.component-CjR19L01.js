@@ -1,0 +1,1 @@
+import{j as m,F as i}from"./iframe-RgUw65v6.js";import{a as p,b as u}from"./index.esm-B_vM2xMj.js";function l({rules:o={},name:s="",defaultValue:t,...e}){const{control:n}=p(),{field:a,fieldState:r}=u({control:n,name:s,rules:o,defaultValue:t});return m.jsx(i.Input,{hasError:!!r.error?.message,description:r.error?.message,...a,...e})}export{l as R};
