@@ -27,12 +27,12 @@
   "dependencies": {
     "@talend/scripts-cmf": "^1.7.0",
     "lodash": "^4.17.23",
-    "webpack-sources": "^3.3.3"
+    "webpack-sources": "^3.3.4"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.6",
     "@talend/eslint-config": "^14.0.0",
-    "@talend/scripts-config-babel": "^13.9.0",
+    "@talend/scripts-config-babel": "^13.9.1",
     "eslint": "^8.57.1"
   },
   "publishConfig": {

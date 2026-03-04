@@ -18,7 +18,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@talend/scripts-config-babel": "^13.9.0",
+    "@talend/scripts-config-babel": "^13.9.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/jest": "^29.5.14",
     "babel-jest": "^29.7.0",
