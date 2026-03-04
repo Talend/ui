@@ -19,5 +19,3 @@ Direct access to all the exposed APIs:
   - [cmf.expressions](https://github.com/Talend/ui/blob/master/packages/cmf/src/expressions/index.md)
   - [cmf.sagas](https://github.com/Talend/ui/blob/master/packages/cmf/src/api.md#cmfsaga)
   - [cmf.selectors](https://github.com/Talend/ui/blob/master/packages/cmf/src/selectors/index.md)
-
-You can also check the [jsdoc generated website](http://talend.github.io/ui/main/cmf/jsdoc/)

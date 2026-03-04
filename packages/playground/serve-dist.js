@@ -11,10 +11,10 @@ const ROOT = path.resolve(__dirname, 'dist');
 function serveStatic(req, res, filePath) {
 	// Validate that the file path is within ROOT directory to prevent path traversal
 	// Normalize the path to handle both absolute and relative paths
-	const resolvedPath = path.isAbsolute(filePath) 
-		? path.resolve(filePath) 
+	const resolvedPath = path.isAbsolute(filePath)
+		? path.resolve(filePath)
 		: path.resolve(ROOT, filePath);
-	
+
 	if (resolvedPath !== ROOT && !resolvedPath.startsWith(ROOT + path.sep)) {
 		res.writeHead(403, { 'Content-Type': 'text/plain' });
 		res.end('Forbidden');

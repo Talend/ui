@@ -57,7 +57,6 @@ jobs:
           mkdir ./demo/main/faceted-search
           mkdir ./demo/main/theme
           mkdir ./demo/main/storybook-one
-          cp -R packages/cmf/jsdoc ./demo/main/cmf
           cp -R packages/containers/storybook-static/* ./demo/main/containers
           cp -R packages/design-docs/storybook-static/* ./demo/main/design-system
           cp -R packages/faceted-search/storybook-static/* ./demo/main/faceted-search
