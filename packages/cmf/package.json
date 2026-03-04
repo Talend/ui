@@ -24,7 +24,7 @@
     "test:update": "talend-scripts test -u",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "lint": "talend-scripts lint"
+    "lint": "eslint ."
   },
   "keywords": [
     "react",
@@ -70,6 +70,7 @@
     "@talend/scripts-config-jest": "^14.6.0",
     "@talend/scripts-config-react-webpack": "^17.0.0",
     "@testing-library/react": "^14.3.1",
+    "eslint": "^9.39.3",
     "jest-in-case": "^1.0.2",
     "node-fetch": "^2.7.0",
     "react": "^18.3.1",
