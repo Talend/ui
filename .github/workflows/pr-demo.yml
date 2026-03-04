@@ -54,7 +54,6 @@ jobs:
           mkdir ./demo/${{ github.event.number }}/faceted-search
           mkdir ./demo/${{ github.event.number }}/theme
           mkdir ./demo/${{ github.event.number }}/storybook-one
-          cp -R packages/cmf/jsdoc ./demo/${{ github.event.number }}/cmf
           cp -R packages/containers/storybook-static/* ./demo/${{ github.event.number }}/containers
           cp -R packages/design-docs/storybook-static/* ./demo/${{ github.event.number }}/design-system
           cp -R packages/faceted-search/storybook-static/* ./demo/${{ github.event.number }}/faceted-search
