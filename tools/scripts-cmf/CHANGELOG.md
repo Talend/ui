@@ -1,5 +1,11 @@
 # @talend/scripts-cmf
 
+## 1.7.1
+
+### Patch Changes
+
+- 8dbd438: fix: remove jsonpath dep
+
 ## 1.7.0
 
 ### Minor Changes
