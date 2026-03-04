@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import path from 'path';
-import cpx from 'cpx2';
 import { spawnSync } from 'child_process';
 import fs from 'fs';
 import { rimrafSync } from 'rimraf';
@@ -13,7 +12,7 @@ function getTmpDirectory(prefix) {
 		__dirname,
 		`tmp-${prefix}-${date.toLocaleDateString().replace(/\//g, '-')}`,
 	);
-	cpx.copySync(path.join(fixture, '**'), tmp);
+	fs.cpSync(fixture, tmp, { recursive: true });
 	return tmp;
 }
 
