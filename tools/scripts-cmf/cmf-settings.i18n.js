@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const jsonpath = require('jsonpath');
 const cloneDeep = require('lodash/cloneDeep');
 const difference = require('lodash/difference');
 const get = require('lodash/get');
@@ -11,8 +10,54 @@ const mkdirp = require('mkdirp');
 const { getLogger, sortObject } = require('./cmf-settings.utils');
 const { getJSON } = require('./getJSON');
 
-const JSON_PATH_EXPRESSION = '$..i18n';
 const NAMESPACE_SEPARATOR = ':';
+
+/**
+ * findI18nValues - recursively find all values of properties named 'i18n' in an object
+ *
+ * @param  {object} obj  object to search
+ * @return {Array}       array of i18n values found
+ */
+function findI18nValues(obj) {
+	const results = [];
+	function walk(node) {
+		if (node && typeof node === 'object') {
+			for (const key of Object.keys(node)) {
+				if (key === 'i18n') {
+					results.push(node[key]);
+				} else {
+					walk(node[key]);
+				}
+			}
+		}
+	}
+	walk(obj);
+	return results;
+}
+
+/**
+ * findI18nPaths - recursively find all paths to properties named 'i18n' in an object
+ *
+ * @param  {object} obj  object to search
+ * @return {Array}       array of paths (each path is an array like ['$', 'label', 'i18n'])
+ */
+function findI18nPaths(obj) {
+	const results = [];
+	function walk(node, currentPath) {
+		if (node && typeof node === 'object') {
+			for (const key of Object.keys(node)) {
+				const newPath = [...currentPath, key];
+				if (key === 'i18n') {
+					results.push(newPath);
+				} else {
+					walk(node[key], newPath);
+				}
+			}
+		}
+	}
+	walk(obj, ['$']);
+	return results;
+}
 const PATTERN_REG_EXP = /{{namespace}}|{{locale}}/g;
 const DEFAULT_LOCALE = 'en';
 
@@ -56,7 +101,7 @@ function manageEmptyNamespace(i18n) {
  * @return {Map}              dictionary of key/value locales
  */
 function getLocalesFromNamespace(settings, namespace) {
-	return jsonpath.query(settings, JSON_PATH_EXPRESSION).reduce((locale, i18n) => {
+	return findI18nValues(settings).reduce((locale, i18n) => {
 		const extractKey = i18n.key.split(`${namespace}${NAMESPACE_SEPARATOR}`)[1];
 		if (!extractKey) {
 			manageEmptyNamespace(i18n);
@@ -115,9 +160,9 @@ function setTranslate(i18next, object, [, ...jsonpaths]) {
 function parseSettings(i18next, settings, locale) {
 	const clonedSettings = cloneDeep(settings);
 	i18next.changeLanguage(locale);
-	jsonpath
-		.paths(clonedSettings, JSON_PATH_EXPRESSION)
-		.forEach(jsonpaths => setTranslate(i18next, clonedSettings, jsonpaths));
+	findI18nPaths(clonedSettings).forEach(jsonpaths =>
+		setTranslate(i18next, clonedSettings, jsonpaths),
+	);
 
 	return clonedSettings;
 }
