@@ -1,4 +1,3 @@
-// eslint-disable-next-line func-names
 (function () {
 	const jsFiles = window.jsFiles || [];
 	const cssFiles = window.cssFiles || [];

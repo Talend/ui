@@ -43,7 +43,7 @@ function getGitRevision() {
 	if (!revision) {
 		try {
 			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
-		} catch (e) {
+		} catch {
 			// eslint-disable-next-line no-console
 			console.info('Failed to get git revision');
 		}
@@ -55,7 +55,7 @@ function getTalendVersions() {
 	const talendLibraries = {};
 	const packagelockPath = path.join(process.cwd(), 'package-lock.json');
 	const yarnlockPath = path.join(process.cwd(), 'yarn.lock');
-	// eslint-disable-next-line
+
 	const packageJson = require(path.join(process.cwd(), 'package.json'));
 
 	const talendDependencies = Object.keys(packageJson.dependencies).filter(dependency =>
@@ -78,7 +78,6 @@ function getTalendVersions() {
 				return acc;
 			}, talendLibraries);
 	} else if (fs.existsSync(packagelockPath)) {
-		// eslint-disable-next-line
 		const packageLock = require(packagelockPath);
 
 		Object.keys(packageLock.packages || packageLock.dependencies)
@@ -96,7 +95,7 @@ function getTalendVersions() {
 	if (!revision) {
 		try {
 			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
-		} catch (e) {
+		} catch {
 			// eslint-disable-next-line no-console
 			console.info('Failed to get git revision');
 		}
@@ -110,7 +109,6 @@ function getTalendVersions() {
 }
 
 function getVersions() {
-	// eslint-disable-next-line
 	const packageJson = require(path.join(process.cwd(), 'package.json'));
 
 	return {
