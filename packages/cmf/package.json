@@ -24,7 +24,6 @@
     "test:update": "talend-scripts test -u",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "yarn jsdoc -c ./docs.json",
     "lint": "talend-scripts lint"
   },
   "keywords": [
@@ -72,7 +71,6 @@
     "@talend/scripts-config-react-webpack": "^17.0.0",
     "@testing-library/react": "^14.3.1",
     "jest-in-case": "^1.0.2",
-    "jsdoc": "^4.0.5",
     "node-fetch": "^2.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
