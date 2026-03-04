@@ -1,10 +1,8 @@
 /* eslint-disable no-console */
-const path = require('path');
-const cpx = require('cpx2');
-const { spawnSync } = require('child_process');
-const fs = require('fs');
-const { rimrafSync } = require('rimraf');
-
+import path from 'path';
+import { spawnSync } from 'child_process';
+import fs from 'fs';
+import { rimrafSync } from 'rimraf';
 const fixture = path.join(__dirname, 'fixture');
 const bin = path.resolve(__dirname, '../src/index.js');
 
@@ -14,7 +12,7 @@ function getTmpDirectory(prefix) {
 		__dirname,
 		`tmp-${prefix}-${date.toLocaleDateString().replace(/\//g, '-')}`,
 	);
-	cpx.copySync(path.join(fixture, '**'), tmp);
+	fs.cpSync(fixture, tmp, { recursive: true });
 	return tmp;
 }
 
