@@ -22,7 +22,6 @@
     "read-pkg-up": "^7.0.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.6",
     "eslint": "^9.39.3"
   },
   "publishConfig": {
