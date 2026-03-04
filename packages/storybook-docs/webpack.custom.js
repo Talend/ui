@@ -1,4 +1,3 @@
-const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 

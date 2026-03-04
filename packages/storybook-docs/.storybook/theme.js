@@ -1,4 +1,5 @@
 import { create } from 'storybook/theming';
+// eslint-disable-next-line @talend/import-depth
 import dictionaryLight from '@talend/design-tokens/lib/light/dictionary';
 
 const t = tokenName => {
