@@ -57,7 +57,6 @@ const baseConfig = {
 		prettier: prettierPlugin,
 		react: reactPlugin,
 		'react-hooks': reactHooksPlugin,
-		storybook: storybookPlugin,
 		'testing-library': testingLibraryPlugin,
 	},
 	settings: {
@@ -72,7 +71,6 @@ const baseConfig = {
 		...jsxA11yPlugin.flatConfigs.recommended.rules,
 		...jestDomPlugin.configs['flat/recommended'].rules,
 		...testingLibraryPlugin.configs['flat/react'].rules,
-		...storybookPlugin.configs.recommended.overrides?.[0]?.rules,
 		...prettierConfig.rules,
 		'@talend/import-depth': 'error',
 		'@talend/use-bootstrap-class': 'warn',
@@ -203,4 +201,5 @@ module.exports = defineConfig([
 	...tsConfigs,
 	testConfig,
 	mdxConfig,
+	...storybookPlugin.configs['flat/recommended'],
 ]);
