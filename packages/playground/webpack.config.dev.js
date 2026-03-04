@@ -7,7 +7,7 @@ const webpackConfig = {
 	},
 	devServer: {
 		setupMiddlewares: (middlewares, devServer) => {
-			mockBackend(devServer);
+			devServer.app.use(mockBackend);
 			return middlewares;
 		},
 		historyApiFallback: {
