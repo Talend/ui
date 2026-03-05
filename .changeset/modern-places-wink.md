@@ -2,4 +2,4 @@
 '@talend/react-dataviz': patch
 ---
 
-test: use vitest
+test: replace jest by vitest
