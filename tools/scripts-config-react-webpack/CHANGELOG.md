@@ -1,5 +1,20 @@
 # @talend/scripts-config-react-webpack
 
+## 17.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- faebbb7: fix: update serialize-javascripts deps
+- Updated dependencies [c1eae85]
+  - @talend/scripts-config-babel@13.10.0
+  - @talend/react-cmf-webpack-plugin@6.44.0
+  - @talend/scripts-config-cdn@10.17.0
+  - @talend/scripts-utils@2.8.0
+
 ## 17.0.2
 
 ### Patch Changes

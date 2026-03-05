@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "description": "",
   "main": "lib/index.js",
   "module": "./lib-esm/index.js",
@@ -27,7 +27,7 @@
     "test:update": "talend-scripts test -u"
   },
   "dependencies": {
-    "@talend/react-cmf": "^12.0.0",
+    "@talend/react-cmf": "^12.1.0",
     "connected-react-router": "^6.9.3",
     "history": "^5.3.0",
     "lodash": "^4.17.23",
@@ -44,12 +44,12 @@
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.2.1",
-    "@talend/eslint-config": "^14.0.0",
-    "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-core": "^17.0.0",
-    "@talend/scripts-config-babel": "^13.9.0",
-    "@talend/scripts-config-react-webpack": "^17.0.0",
-    "@talend/scripts-config-typescript": "^12.0.0",
+    "@talend/eslint-config": "^14.1.0",
+    "@talend/eslint-plugin": "^1.8.0",
+    "@talend/scripts-core": "^18.0.0",
+    "@talend/scripts-config-babel": "^13.10.0",
+    "@talend/scripts-config-react-webpack": "^17.1.0",
+    "@talend/scripts-config-typescript": "^12.1.0",
     "eslint": "^9.39.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

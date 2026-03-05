@@ -1,5 +1,16 @@
 # @talend/scripts-locales
 
+## 1.6.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+  - @talend/scripts-utils@2.8.0
+
 ## 1.5.0
 
 ### Minor Changes

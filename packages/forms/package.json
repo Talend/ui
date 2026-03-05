@@ -44,13 +44,13 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/assets-api": "^2.0.0",
+    "@talend/assets-api": "^2.1.0",
     "@talend/icons": "^8.0.0",
-    "@talend/json-schema-form-core": "^2.0.0",
-    "@talend/react-components": "^18.0.0",
-    "@talend/design-system": "^12.0.0",
-    "@talend/design-tokens": "^4.0.0",
-    "@talend/utils": "^3.6.0",
+    "@talend/json-schema-form-core": "^2.1.0",
+    "@talend/react-components": "^18.1.0",
+    "@talend/design-system": "^12.1.0",
+    "@talend/design-tokens": "^4.1.0",
+    "@talend/utils": "^3.7.0",
     "ace-builds": "1.10.1",
     "ajv": "^6.14.0",
     "classnames": "^2.5.1",
@@ -67,14 +67,14 @@
     "@storybook/addon-actions": "^7.6.21",
     "@storybook/addon-controls": "^7.6.21",
     "@talend/locales-tui-forms": "^15.2.0",
-    "@talend/react-components": "^18.0.0",
-    "@talend/eslint-config": "^14.0.0",
-    "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-core": "^17.0.0",
-    "@talend/scripts-config-babel": "^13.9.0",
-    "@talend/scripts-config-react-webpack": "^17.0.0",
-    "@talend/scripts-config-storybook-lib": "^6.0.0",
-    "@talend/scripts-config-typescript": "^12.0.0",
+    "@talend/react-components": "^18.1.0",
+    "@talend/eslint-config": "^14.1.0",
+    "@talend/eslint-plugin": "^1.8.0",
+    "@talend/scripts-core": "^18.0.0",
+    "@talend/scripts-config-babel": "^13.10.0",
+    "@talend/scripts-config-react-webpack": "^17.1.0",
+    "@talend/scripts-config-storybook-lib": "^6.1.0",
+    "@talend/scripts-config-typescript": "^12.1.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
@@ -101,5 +101,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "16.0.0"
+  "version": "16.1.0"
 }

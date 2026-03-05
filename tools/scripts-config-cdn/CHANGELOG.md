@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 10.17.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+- Updated dependencies [c08ea6e]
+  - @talend/dynamic-cdn-webpack-plugin@14.5.0
+  - @talend/module-to-cdn@9.18.0
+
 ## 10.16.0
 
 ### Minor Changes

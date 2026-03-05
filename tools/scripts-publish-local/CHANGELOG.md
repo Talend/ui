@@ -1,5 +1,11 @@
 # @talend/scripts-publish-local
 
+## 1.7.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 1.6.0
 
 ### Minor Changes

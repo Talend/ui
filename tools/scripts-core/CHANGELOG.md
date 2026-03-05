@@ -1,5 +1,28 @@
 # @talend/scripts-core
 
+## 18.0.0
+
+### Major Changes
+
+- c1eae85: BREAKING CHANGE: The "lint" command has been removed. Please use "eslint ." directly with @talend/eslint-config
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- 6df71c4: chore: update cpx2
+- Updated dependencies [c1eae85]
+- Updated dependencies [c1eae85]
+  - @talend/scripts-config-typescript@12.1.0
+  - @talend/scripts-config-stylelint@4.5.0
+  - @talend/scripts-config-babel@13.10.0
+  - @talend/scripts-config-jest@14.7.0
+  - @talend/eslint-plugin@1.8.0
+  - @talend/scripts-utils@2.8.0
+  - @talend/eslint-config@14.1.0
+
 ## 17.0.0
 
 ### Major Changes
