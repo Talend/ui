@@ -74,7 +74,7 @@ So that Yarn resolves a single v4.x version across the monorepo.
 
 **Acceptance Criteria:**
 
-**Given** the current monorepo declares `"immutable": "^3.8.2"` in 5 packages and `"3"` in 1 peerDependency
+**Given** the current monorepo declares `"immutable": "^3.8.2"` in 5 packages (dependencies) and `"3"` in 1 peerDependency (stepper removed — unused devDependency)
 **When** I update each package.json and versions/dependencies.json
 **Then** the following files are updated:
 

@@ -50,7 +50,7 @@
     "@types/redux-mock-store": "^1.5.0",
     "@types/redux-thunk": "^2.1.0",
     "i18next": "^23.16.8",
-    "immutable": "^3.8.2",
+    "immutable": "^4.3.7",
     "lodash": "^4.17.23",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -64,7 +64,7 @@
     "reselect": "^4.1.8"
   },
   "peerDependencies": {
-    "immutable": "3",
+    "immutable": "^4.0.0",
     "lodash": "^4.17.23",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
