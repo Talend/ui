@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import localStorageAPI from '../src/localStorage';
 
 const PATHS = [
@@ -12,33 +12,35 @@ const state = {
 		app: {
 			extra: true,
 		},
-		components: new Immutable.Map({
-			Foo: new Immutable.Map({
-				default: new Immutable.Map({
+		components: new Map({
+			Foo: new Map({
+				default: new Map({
 					foo: 'foo',
 				}),
 			}),
 		}),
-		collections: new Immutable.Map({
-			data: new Immutable.Map({}),
+		collections: new Map({
+			data: new Map({}),
 		}),
 	},
 };
 
-const serializedState = JSON.stringify(Object.assign({}, state, {
-	cmf: {
-		components: {
-			Foo: {
-				default: {
-					foo: 'foo',
+const serializedState = JSON.stringify(
+	Object.assign({}, state, {
+		cmf: {
+			components: {
+				Foo: {
+					default: {
+						foo: 'foo',
+					},
 				},
 			},
+			collections: {
+				data: {},
+			},
 		},
-		collections: {
-			data: {},
-		},
-	},
-}));
+	}),
+);
 const KEY = 'test-cmf-localStorage';
 
 describe('reduxLocalStorage', () => {

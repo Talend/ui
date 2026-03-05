@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
+import { Map, fromJS } from 'immutable';
 import actions from './actions';
 
 /**
@@ -69,7 +69,7 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 			if (DEFAULT_STATE) {
 				state = DEFAULT_STATE.merge(initialState);
 			} else if (initialState) {
-				state = Immutable.Map.isMap(initialState) ? initialState : Immutable.fromJS(initialState);
+				state = Map.isMap(initialState) ? initialState : fromJS(initialState);
 			}
 			if (state) {
 				const componentState = actions.components.addState(name, id, state);

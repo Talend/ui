@@ -50,7 +50,7 @@ development_status:
 
   epic-2: in-progress
   2-1-replace-default-imports-cmf-expressions: done
-  2-2-replace-default-imports-cmf-core: ready-for-dev
+  2-2-replace-default-imports-cmf-core: done
   2-3-validate-cmf-tests-v4: ready-for-dev
   epic-2-retrospective: optional
 
