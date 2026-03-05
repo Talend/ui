@@ -78,8 +78,8 @@
     "@types/react-is": "^18.3.1",
     "@types/react-transition-group": "^2.9.2",
     "@types/react-virtualized": "^9.22.3",
-    "@vitejs/plugin-react": "^4.0.0",
-    "@vitest/coverage-v8": "^3.0.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "concurrently": "^8.2.2",
     "core-js": "^3.48.0",
     "eslint": "^9.39.3",
@@ -97,7 +97,7 @@
     "react-i18next": "^13.5.0",
     "react-router-dom": "~6.3.0",
     "storybook": "^10.2.10",
-    "vitest": "^3.0.0"
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "@talend/icons": "^8.0.0",
