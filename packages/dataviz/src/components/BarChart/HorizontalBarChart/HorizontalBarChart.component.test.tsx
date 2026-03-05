@@ -4,7 +4,7 @@ import { ChartStyle } from '../../../types';
 
 describe('Horizontal bar chart', () => {
 	it('should render', () => {
-		const onBarClick = jest.fn();
+		const onBarClick = vi.fn();
 		const { container } = render(
 			<HorizontalBarChart
 				data={[
@@ -18,7 +18,7 @@ describe('Horizontal bar chart', () => {
 				height={300}
 				width={400}
 				onBarClick={onBarClick}
-				getTooltipContent={jest.fn().mockImplementation(() => 'tooltip')}
+				getTooltipContent={vi.fn().mockImplementation(() => 'tooltip')}
 			/>,
 		);
 		expect(container.firstChild).toMatchSnapshot();

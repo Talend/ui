@@ -17,8 +17,9 @@
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage",
-    "lint": "eslint ."
+    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary",
+    "lint": "eslint .",
+    "test:update": "talend-scripts test -u"
   },
   "keywords": [
     "talend"

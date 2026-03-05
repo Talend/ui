@@ -89,7 +89,7 @@ describe('line chart', () => {
 	});
 
 	it('Should trigger line click', () => {
-		const onLineClicked = jest.fn();
+		const onLineClicked = vi.fn();
 
 		const { container } = render(
 			<LineChart
@@ -109,7 +109,7 @@ describe('line chart', () => {
 	});
 
 	it('Should trigger legend click', () => {
-		const handleLegendItemClicked = jest.fn();
+		const handleLegendItemClicked = vi.fn();
 
 		render(
 			<LineChart
@@ -125,7 +125,7 @@ describe('line chart', () => {
 	});
 
 	it('Should trigger line hover', () => {
-		const onLineHovered = jest.fn();
+		const onLineHovered = vi.fn();
 
 		const { container } = render(
 			<LineChart
@@ -147,7 +147,7 @@ describe('line chart', () => {
 	});
 
 	it('Should trigger legend hover', () => {
-		const handleLegendItemHovered = jest.fn();
+		const handleLegendItemHovered = vi.fn();
 
 		render(
 			<LineChart

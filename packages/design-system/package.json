@@ -24,7 +24,9 @@
     "test:cov": "vitest run --coverage",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint": "eslint .",
-    "start": "storybook dev"
+    "start": "storybook dev",
+    "test:update": "talend-scripts test -u",
+    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
   },
   "repository": {
     "type": "git",
