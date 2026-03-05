@@ -5,15 +5,15 @@ import VerticalChartFilter from './VerticalChartFilter.component';
 import { VerticalBarChartEntry } from '../../BarChart/VerticalBarChart';
 import { NumberRangeHandler } from '../../RangeFilter';
 
-vi.mock('../../BarChart/VerticalBarChart/VerticalBarChart.component', () => {
-	return ({ data, getTooltipContent }) => (
+vi.mock('../../BarChart/VerticalBarChart/VerticalBarChart.component', () => ({
+	default: ({ data, getTooltipContent }) => (
 		<div data-data={JSON.stringify(data)} data-testid="VerticalBarChart">
 			{data.length > 0 && (
 				<span data-testid="VerticalBarChart-tooltip">{getTooltipContent(data[0])}</span>
 			)}
 		</div>
-	);
-});
+	),
+}));
 describe('Profiling chart panel', () => {
 	const mocks = {
 		onBarClick: vi.fn(),
@@ -35,7 +35,7 @@ describe('Profiling chart panel', () => {
 			/>,
 		);
 
-		expect(document.querySelectorAll('.theme-range-filter')).toHaveLength(0);
+		expect(document.querySelectorAll('.range-filter')).toHaveLength(0);
 	});
 
 	it('Should show range filter if limits min and max are different', () => {
@@ -47,7 +47,7 @@ describe('Profiling chart panel', () => {
 				{...mocks}
 			/>,
 		);
-		expect(document.querySelectorAll('.theme-range-filter')).toHaveLength(1);
+		expect(document.querySelectorAll('.range-filter')).toHaveLength(1);
 	});
 
 	it('Should handle bars with bounds outside range limits', () => {

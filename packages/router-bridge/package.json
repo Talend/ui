@@ -18,7 +18,9 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build": "talend-scripts build",
     "lint": "eslint .",
-    "test": "talend-scripts test"
+    "test": "talend-scripts test",
+    "test:update": "talend-scripts test -u",
+    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
   },
   "repository": {
     "type": "git",

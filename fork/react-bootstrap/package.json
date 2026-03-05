@@ -22,7 +22,9 @@
     "lint": "eslint .",
     "test": "talend-scripts test",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test:update": "talend-scripts test -u",
+    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
   },
   "files": [
     "CHANGELOG.md",

@@ -20,9 +20,10 @@
     "build:lib:esm": "talend-scripts build --esm",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary",
     "lint": "eslint .",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
+    "test:update": "cross-env TZ=UTC talend-scripts test -u"
   },
   "keywords": [
     "react",
