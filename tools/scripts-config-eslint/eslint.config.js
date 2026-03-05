@@ -63,6 +63,11 @@ const baseConfig = {
 		react: {
 			version: 'detect',
 		},
+		'import/resolver': {
+			node: {
+				extensions: isTS ? ['.js', '.jsx', '.ts', '.tsx', '.d.ts'] : ['.js', '.jsx'],
+			},
+		},
 	},
 	rules: {
 		...reactPlugin.configs.recommended.rules,
