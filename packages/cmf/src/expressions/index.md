@@ -16,10 +16,10 @@ For all the following example we take this component as example:
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 
-const DEFAULT_STATE = new Immutable.Map({
+const DEFAULT_STATE = new Map({
 	like: false,
 });
 
@@ -101,6 +101,7 @@ export cmfConnect({mapStateToProps})(MyComponent)
 		}
 	}
 ```
+
 ### allOf
 
 ```json
