@@ -1,0 +1,104 @@
+# generated: 2026-03-05
+# project: talend-ui
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+# - Phase 1 (Epics 1-5): v3 → v4 migration
+# - Phase 2 (Epics 6-9): v4 → v5 migration
+
+generated: 2026-03-05
+project: talend-ui
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # ── Phase 1: v3 → v4 ──────────────────────────────
+
+  epic-1: backlog
+  1-1-update-version-declarations-v4: ready-for-dev
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-replace-default-imports-cmf-expressions: ready-for-dev
+  2-2-replace-default-imports-cmf-core: ready-for-dev
+  2-3-validate-cmf-tests-v4: ready-for-dev
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-replace-iterable-collection-actiondropdown: ready-for-dev
+  3-2-validate-cmf-cqrs-v4: ready-for-dev
+  3-3-validate-cmf-router-v4: ready-for-dev
+  3-4-validate-sagas-v4: ready-for-dev
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-validate-containers-v4: ready-for-dev
+  4-2-validate-flow-designer-v4: ready-for-dev
+  epic-4-retrospective: optional
+
+  epic-5: backlog
+  5-1-full-test-suite-v4: ready-for-dev
+  5-2-validate-builds-v4: ready-for-dev
+  5-3-create-changesets-v4: ready-for-dev
+  epic-5-retrospective: optional
+
+  # ── Phase 2: v4 → v5 ──────────────────────────────
+
+  epic-6: backlog
+  6-1-create-immutable-proptype-validators: ready-for-dev
+  6-2-replace-proptypes-cmf: ready-for-dev
+  6-3-replace-proptypes-components: ready-for-dev
+  6-4-replace-proptypes-containers: ready-for-dev
+  6-5-replace-proptypes-flow-designer: ready-for-dev
+  6-6-remove-react-immutable-proptypes: ready-for-dev
+  epic-6-retrospective: optional
+
+  epic-7: backlog
+  7-1-update-version-declarations-v5: ready-for-dev
+  epic-7-retrospective: optional
+
+  epic-8: backlog
+  8-1-replace-orderedmap-flow-designer: ready-for-dev
+  8-2-replace-collection-isimmutable: ready-for-dev
+  8-3-verify-records-v5: ready-for-dev
+  8-4-verify-typescript-typings-v5: ready-for-dev
+  8-5-verify-containers-sort-v5: ready-for-dev
+  8-6-validate-all-packages-v5: ready-for-dev
+  epic-8-retrospective: optional
+
+  epic-9: backlog
+  9-1-full-test-suite-build-v5: ready-for-dev
+  9-2-storybook-verification: ready-for-dev
+  9-3-verify-localstorage-roundtrip: ready-for-dev
+  9-4-create-changesets-documentation: ready-for-dev
+  epic-9-retrospective: optional
