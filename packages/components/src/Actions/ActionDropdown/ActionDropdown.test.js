@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 /* eslint-disable react/display-name */
+import { fromJS } from 'immutable';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -125,6 +126,13 @@ describe('getMenuItem', () => {
 		expect(screen.getByRole('menuitem')).toBeInTheDocument();
 		expect(screen.getByRole('menuitem')).toHaveTextContent('Toto');
 		expect(screen.getByRole('menuitem')).toHaveAttribute('data-feature', 'action.feature');
+	});
+	it('should call toJS() and render correctly when item is an Immutable Map', () => {
+		const item = fromJS({ label: 'Immutable Item', 'data-feature': 'immutable.feature' });
+		render(getMenuItem(item, 0, undefined));
+		expect(screen.getByRole('menuitem')).toBeInTheDocument();
+		expect(screen.getByRole('menuitem')).toHaveTextContent('Immutable Item');
+		expect(screen.getByRole('menuitem')).toHaveAttribute('data-feature', 'immutable.feature');
 	});
 });
 

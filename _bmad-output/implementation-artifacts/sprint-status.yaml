@@ -55,7 +55,7 @@ development_status:
   epic-2-retrospective: optional
 
   epic-3: in-progress
-  3-1-replace-iterable-collection-actiondropdown: ready-for-dev
+  3-1-replace-iterable-collection-actiondropdown: done
   3-2-validate-cmf-cqrs-v4: ready-for-dev
   3-3-validate-cmf-router-v4: ready-for-dev
   3-4-validate-sagas-v4: ready-for-dev

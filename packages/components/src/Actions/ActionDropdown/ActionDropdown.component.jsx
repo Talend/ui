@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import get from 'lodash/get';
 import classNames from 'classnames';
-import { Iterable } from 'immutable';
+import { isImmutable } from 'immutable';
 import { DropdownButton, MenuItem } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
@@ -96,7 +96,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 }
 
 function getMenuItem(item, index, getComponent) {
-	if (Iterable.isIterable(item)) {
+	if (isImmutable(item)) {
 		return renderMutableMenuItem(item.toJS(), index, getComponent);
 	}
 
