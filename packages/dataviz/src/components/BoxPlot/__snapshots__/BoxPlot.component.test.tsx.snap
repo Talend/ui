@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Boxplot chart should render the different basic components of the boxplot 1`] = `
+exports[`Boxplot chart > should render the different basic components of the boxplot 1`] = `
 <div
-  class="theme-box-plot"
+  class="box-plot"
   id="boxplotId"
 >
   <svg
-    class="theme-box"
+    class="box"
     height="400"
     width="200"
   >
@@ -15,7 +15,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
     >
       <g>
         <line
-          class="theme-box-plot__center"
+          class="box-plot__center"
           style="opacity: 0.000001;"
           x1="20"
           x2="20"
@@ -44,11 +44,11 @@ exports[`Boxplot chart should render the different basic components of the boxpl
       <g>
         <g>
           <polygon
-            class="theme-box-plot__whiskerPolyg"
+            class="box-plot__whiskerPolyg"
             points="0,0 40,0 20,-20 20,-20"
           />
           <text
-            class="theme-box-plot__max-min-labels"
+            class="box-plot__max-min-labels"
             style="opacity: 1;"
             text-anchor="middle"
             x="20"
@@ -59,11 +59,11 @@ exports[`Boxplot chart should render the different basic components of the boxpl
         </g>
         <g>
           <polygon
-            class="theme-box-plot__whiskerPolyg"
+            class="box-plot__whiskerPolyg"
             points="0,300 40,300 20,320 20,320"
           />
           <text
-            class="theme-box-plot__max-min-labels"
+            class="box-plot__max-min-labels"
             style="opacity: 1;"
             text-anchor="middle"
             x="20"
@@ -75,7 +75,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
       </g>
       <g>
         <circle
-          class="theme-box-plot__mean"
+          class="box-plot__mean"
           cx="20"
           cy="120.63000000000001"
           r="17"
@@ -85,12 +85,12 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           cx="20"
           cy="120.63000000000001"
           r="1.5"
-          style="opacity: 0.000001; shape-rendering: geometricPrecision;"
+          style="opacity: 0.000001; shape-rendering: geometricprecision;"
         />
       </g>
       <g>
         <text
-          class="theme-box-plot__max-min-labels"
+          class="box-plot__max-min-labels"
           style="opacity: 1;"
           text-anchor="middle"
           x="20"
@@ -99,7 +99,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           100
         </text>
         <text
-          class="theme-box-plot__max-min-labels"
+          class="box-plot__max-min-labels"
           style="opacity: 1;"
           text-anchor="middle"
           x="20"
@@ -108,7 +108,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           0
         </text>
         <text
-          class="theme-box-plot__mean-labels"
+          class="box-plot__mean-labels"
           style="opacity: 0.000001;"
           text-anchor="middle"
           x="20"
@@ -117,7 +117,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           Mean:59.79
         </text>
         <text
-          class="theme-box-plot__low-quantile-labels"
+          class="box-plot__low-quantile-labels"
           style="opacity: 1;"
           text-anchor="start"
           x="45"
@@ -126,7 +126,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           8
         </text>
         <text
-          class="theme-box-plot__low-quantile-labels"
+          class="box-plot__low-quantile-labels"
           style="opacity: 1;"
           text-anchor="end"
           x="10"
@@ -135,7 +135,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           Lower quantile
         </text>
         <text
-          class="theme-box-plot__up-quantile-labels"
+          class="box-plot__up-quantile-labels"
           style="opacity: 1;"
           text-anchor="end"
           x="10"
@@ -144,7 +144,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           Upper quantile
         </text>
         <text
-          class="theme-box-plot__up-quantile-labels"
+          class="box-plot__up-quantile-labels"
           style="opacity: 1;"
           text-anchor="start"
           x="45"
@@ -153,7 +153,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           90
         </text>
         <text
-          class="theme-box-plot__mean-labels"
+          class="box-plot__mean-labels"
           style="opacity: 0.000001;"
           text-anchor="end"
           x="35"
@@ -162,7 +162,7 @@ exports[`Boxplot chart should render the different basic components of the boxpl
           58
         </text>
         <text
-          class="theme-box-plot__mean-labels"
+          class="box-plot__mean-labels"
           style="opacity: 0.000001;"
           text-anchor="start"
           x="5"

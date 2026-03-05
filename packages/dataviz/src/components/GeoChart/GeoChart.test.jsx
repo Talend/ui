@@ -1,10 +1,19 @@
 /* eslint-disable import/no-unresolved */
-jest.mock('@talend/assets-api', () => ({
-	getJSON: async url => {
-		return new Promise(resolve => resolve(require(url.replace('/dist', '../../..'))));
-	},
-	getURL: jest.fn(() => '/url'),
-}));
+vi.mock('@talend/assets-api', async () => {
+	const fs = await import('fs');
+	const path = await import('path');
+	const mock = {
+		getJSON: async assetUrl => {
+			const filePath = path.resolve(process.cwd(), assetUrl.replace('/dist/', ''));
+			return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+		},
+		getURL: vi.fn(() => '/url'),
+	};
+	return {
+		default: mock,
+		...mock,
+	};
+});
 
 import { render } from '@testing-library/react';
 
@@ -15,14 +24,14 @@ import styles from './GeoChart.module.css';
 describe('GeoChart component', () => {
 	let defaultProps;
 	beforeEach(async () => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 		defaultProps = {
 			data: [
 				{ key: 'Occitanie', value: 10 },
 				{ key: 'Martinique', value: 20 },
 			],
 			columnName: 'name',
-			onSelection: jest.fn(),
+			onSelection: vi.fn(),
 		};
 	});
 

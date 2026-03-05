@@ -9,6 +9,6 @@
     "rootDirs": ["src"],
     "target": "es5",
     "lib": ["es6", "dom", "ES2017"],
-    "types": ["node"]
+    "types": ["node", "vitest/globals"]
   }
 }
