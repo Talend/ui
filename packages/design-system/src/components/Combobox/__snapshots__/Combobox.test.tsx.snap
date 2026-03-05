@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Combobox should render a11y html 1`] = `
+exports[`Combobox > should render a11y html 1`] = `
 <main>
   <div
-    class="theme-combobox"
+    class="_combobox_ff8210"
   >
     <input
       aria-controls="id-mocked-uuid-1"
       aria-expanded="false"
       autocomplete="off"
-      class="theme-combobox__input"
+      class="_combobox__input_ff8210"
       id="id-mocked-uuid-0"
       placeholder="Search"
       role="combobox"

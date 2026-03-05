@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Icon should render a11y html 1`] = `
+exports[`Icon > should render a11y html 1`] = `
 <main>
   <svg
     aria-hidden="true"
-    class="tc-svg-icon tc-icon theme-svg tc-icon-name-pencil"
+    class="tc-svg-icon tc-icon _svg_779da8 tc-icon-name-pencil"
     focusable="false"
     name="pencil"
     pointer-events="none"
@@ -13,13 +13,13 @@ exports[`Icon should render a11y html 1`] = `
   <img
     alt="icon"
     aria-hidden="true"
-    class="tc-icon theme-svg"
+    class="tc-icon _svg_779da8"
     focusable="false"
     src="https://statics-dev.cloud.talend.com/@talend/common/images/favicon-logo-square.ico"
   />
   <svg
     aria-hidden="true"
-    class="tc-svg-icon tc-icon theme-svg"
+    class="tc-svg-icon tc-icon _svg_779da8"
     focusable="false"
     pointer-events="none"
     shape-rendering="geometricPrecision"

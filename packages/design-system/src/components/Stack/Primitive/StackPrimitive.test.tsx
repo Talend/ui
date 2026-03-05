@@ -1,4 +1,3 @@
-import { expect } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 
 import StackPrimitive from './StackPrimitive';

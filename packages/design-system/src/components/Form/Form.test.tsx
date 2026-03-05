@@ -1,10 +1,9 @@
-import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { Form } from './';
 import { ButtonPrimary, ButtonSecondary } from '../Button';
 
-jest.mock('@talend/utils', () => {
+vi.mock('@talend/utils', () => {
 	let i = 0;
 	return {
 		// we need stable but different uuid (is fixed to 42 by current mock)
@@ -33,10 +32,10 @@ describe('Form', () => {
 						<Form.Radio label="Radio" name="radio" defaultChecked />
 						<Form.ToggleSwitch label="Switch" defaultChecked name="Switch" />
 						<Form.Buttons>
-							<ButtonSecondary type="reset" onClick={jest.fn()}>
+							<ButtonSecondary type="reset" onClick={vi.fn()}>
 								Reset
 							</ButtonSecondary>
-							<ButtonPrimary onClick={jest.fn()}>Submit</ButtonPrimary>
+							<ButtonPrimary onClick={vi.fn()}>Submit</ButtonPrimary>
 						</Form.Buttons>
 					</Form.Fieldset>
 				</Form>

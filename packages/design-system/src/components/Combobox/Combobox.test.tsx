@@ -1,9 +1,8 @@
-import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { Combobox } from './';
 
-jest.mock('@talend/utils', () => {
+vi.mock('@talend/utils', () => {
 	let i = 0;
 	return {
 		// we need stable but different uuid (is fixed to 42 by current mock)

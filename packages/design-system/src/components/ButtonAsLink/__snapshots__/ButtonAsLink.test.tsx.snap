@@ -1,24 +1,24 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ButtonAsLink should render a11y html 1`] = `
+exports[`ButtonAsLink > should render a11y html 1`] = `
 <main>
   <a
-    class="theme-linkable theme-button theme-button theme-primary"
+    class="_linkable_4927c6 _button_31facc _button_f54825 _primary_1034f3"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
     >
       Primary
     </span>
   </a>
   <a
-    class="theme-linkable theme-button theme-button theme-destructive"
+    class="_linkable_4927c6 _button_31facc _button_f54825 _destructive_c5748f"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
     >
       <span
-        class="theme-button__icon"
+        class="_button__icon_31facc"
       >
         <svg
           aria-hidden="true"
@@ -35,38 +35,38 @@ exports[`ButtonAsLink should render a11y html 1`] = `
     </span>
   </a>
   <a
-    class="theme-linkable theme-button theme-button theme-secondary"
+    class="_linkable_4927c6 _button_31facc _button_f54825 _secondary_383928"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
     >
       Secondary
     </span>
   </a>
   <a
-    class="theme-linkable theme-button theme-button theme-tertiary"
+    class="_linkable_4927c6 _button_31facc _button_f54825 _tertiary_1d5581"
     type="submit"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
     >
       Tertiary submit
     </span>
   </a>
   <a
-    class="theme-linkable theme-button theme-button theme-tertiary"
+    class="_linkable_4927c6 _button_31facc _button_f54825 _tertiary_1d5581"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
     >
       Tertiary
     </span>
   </a>
   <a
-    class="theme-linkable theme-button theme-button theme-tertiary"
+    class="_linkable_4927c6 _button_31facc _button_f54825 _tertiary_1d5581"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
     >
       Tertiary
     </span>

@@ -1,25 +1,25 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`LinkAsButton should render a11y html 1`] = `
+exports[`LinkAsButton > should render a11y html 1`] = `
 <main>
   <button
-    class="theme-clickable theme-link"
+    class="_clickable_77b759 _link_d78ce8"
     data-testid="my.link"
     type="button"
   >
     <span
-      class="theme-link__text"
+      class="_link__text_d78ce8"
     >
       Link example
     </span>
   </button>
   <button
-    class="theme-clickable theme-link"
+    class="_clickable_77b759 _link_d78ce8"
     type="button"
   >
     <svg
       aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg theme-link__icon tc-icon-name-information-filled"
+      class="tc-svg-icon tc-icon _svg_779da8 _link__icon_4927c6 tc-icon-name-information-filled"
       data-test="link.icon.before"
       data-testid="link.icon.before"
       focusable="false"
@@ -28,23 +28,23 @@ exports[`LinkAsButton should render a11y html 1`] = `
       shape-rendering="geometricPrecision"
     />
     <span
-      class="theme-link__text"
+      class="_link__text_d78ce8"
     >
       Link example
     </span>
   </button>
   <button
-    class="theme-clickable theme-link"
+    class="_clickable_77b759 _link_d78ce8"
     title="Open in a new tab"
     type="button"
   >
     <span
-      class="theme-link__text"
+      class="_link__text_d78ce8"
     >
       Link example
     </span>
     <span
-      class="theme-link__iconExternal"
+      class="_link__iconExternal_4927c6"
       data-test="link.icon.external"
       data-testid="link.icon.external"
     >

@@ -1,33 +1,33 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InlineEditing should render a11y html 1`] = `
+exports[`InlineEditing > should render a11y html 1`] = `
 <main>
   <div
-    class="theme-inlineEditor"
+    class="_inlineEditor_c64f14"
     data-test="inlineediting"
     data-testid="inlineediting"
   >
     <div
-      class="theme-inlineEditor__editor"
+      class="_inlineEditor__editor_c64f14"
     >
       <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+        class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
       >
         <span
-          class="theme-hidden"
+          class="_hidden_46bc47"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-6"
           >
             Edit the value
           </label>
         </span>
         <div
-          class="theme-inputShell"
+          class="_inputShell_251f4b"
         >
           <input
-            class="theme-input"
+            class="_input_260f17"
             data-padding-override="true"
             data-test="inlineediting.input"
             data-testid="inlineediting.input"
@@ -41,15 +41,15 @@ exports[`InlineEditing should render a11y html 1`] = `
         </div>
       </div>
       <div
-        class="theme-inlineEditor__editor__actions"
+        class="_inlineEditor__editor__actions_c64f14"
       >
         <div
-          class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS theme-padding-top-0 theme-padding-right-XXS theme-padding-bottom-0 theme-padding-left-XXS"
+          class="_stack_ea00e5 _justify-space-between_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5 _padding-top-0_ea00e5 _padding-right-XXS_ea00e5 _padding-bottom-0_ea00e5 _padding-left-XXS_ea00e5"
         >
           <button
             aria-describedby="id-mocked-uuid-7"
             aria-label="Cancel"
-            class="theme-clickable theme-buttonIcon theme-size_XS"
+            class="_clickable_77b759 _buttonIcon_df4c61 _size_XS_df4c61"
             data-test="inlineediting.button.cancel"
             data-testid="inlineediting.button.cancel"
             tabindex="0"
@@ -57,7 +57,7 @@ exports[`InlineEditing should render a11y html 1`] = `
           >
             <span
               aria-hidden="true"
-              class="theme-buttonIcon__icon"
+              class="_buttonIcon__icon_df4c61"
             >
               <svg
                 aria-hidden="true"
@@ -74,7 +74,7 @@ exports[`InlineEditing should render a11y html 1`] = `
           <button
             aria-describedby="id-mocked-uuid-8"
             aria-label="Submit"
-            class="theme-clickable theme-buttonIcon theme-size_XS"
+            class="_clickable_77b759 _buttonIcon_df4c61 _size_XS_df4c61"
             data-test="inlineediting.button.submit"
             data-testid="inlineediting.button.submit"
             data-tracking="test-tracker"
@@ -83,7 +83,7 @@ exports[`InlineEditing should render a11y html 1`] = `
           >
             <span
               aria-hidden="true"
-              class="theme-buttonIcon__icon"
+              class="_buttonIcon__icon_df4c61"
             >
               <svg
                 aria-hidden="true"

@@ -1,4 +1,3 @@
-import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { EmptyState } from './';
@@ -24,7 +23,7 @@ describe('EmptyState', () => {
 						description="Add a preparation to clean, format, and transform data prior to processing."
 						action={{
 							children: 'Reload',
-							onClick: jest.fn(),
+							onClick: vi.fn(),
 							icon: 'plus',
 							actionType: 'button',
 						}}

@@ -1,27 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tabs should render accessible html 1`] = `
+exports[`Tabs > should render accessible html 1`] = `
 <nav
   id="kit"
 >
   <div
-    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+    class="_stack_ea00e5 _justify-start_ea00e5 _align-start_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
   >
     <div
-      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-start_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-M_ea00e5 _gap-y-M_ea00e5"
       role="tablist"
     >
       <button
         aria-selected="false"
-        class="theme-tab"
+        class="_tab_b968d4"
         role="tab"
         type="button"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <span
-            class="theme-tab__copy"
+            class="_tab__copy_b968d4"
           >
             Home
           </span>
@@ -29,15 +29,15 @@ exports[`Tabs should render accessible html 1`] = `
       </button>
       <button
         aria-selected="true"
-        class="theme-tab"
+        class="_tab_b968d4"
         role="tab"
         type="button"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <span
-            class="theme-tab__copy"
+            class="_tab__copy_b968d4"
           >
             Profile
           </span>
@@ -45,16 +45,16 @@ exports[`Tabs should render accessible html 1`] = `
       </button>
       <button
         aria-selected="false"
-        class="theme-tab"
+        class="_tab_b968d4"
         disabled=""
         role="tab"
         type="button"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <span
-            class="theme-tab__copy"
+            class="_tab__copy_b968d4"
           >
             Contact
           </span>
@@ -62,7 +62,7 @@ exports[`Tabs should render accessible html 1`] = `
       </button>
     </div>
     <div
-      class="theme-tabpanel theme-tabpanel--hidden"
+      class="_tabpanel_b968d4 _tabpanel--hidden_b968d4"
       id="home"
       role="tabpanel"
       tabindex="0"
@@ -70,7 +70,7 @@ exports[`Tabs should render accessible html 1`] = `
       Tab content for Home
     </div>
     <div
-      class="theme-tabpanel"
+      class="_tabpanel_b968d4"
       id="profile"
       role="tabpanel"
       tabindex="0"
@@ -78,7 +78,7 @@ exports[`Tabs should render accessible html 1`] = `
       Tab content for Profile
     </div>
     <div
-      class="theme-tabpanel theme-tabpanel--hidden"
+      class="_tabpanel_b968d4 _tabpanel--hidden_b968d4"
       id="contact"
       role="tabpanel"
       tabindex="0"

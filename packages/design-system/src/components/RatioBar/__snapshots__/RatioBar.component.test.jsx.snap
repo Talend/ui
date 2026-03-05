@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RatioBar > RatioBar component > should render an empty bar 1`] = `
+<div
+  class="_tc-ratio-bar_03ab7c"
+  data-testid="ratio-bar"
+>
+  <div
+    class="_tc-ratio-bar-line_03ab7c _tc-ratio-bar-line-grow_03ab7c _tc-ratio-bar-line-empty_03ab7c"
+    data-test="ratio-bar-empty"
+    data-testid="ratio-bar-empty"
+    style="flex-basis: 100%;"
+    tabindex="0"
+  />
+  <div
+    class="_tc-ratio-bar-counter_03ab7c"
+    data-testid="ratio-bar-counter"
+  >
+    <strong>
+      0
+    </strong>
+    /
+    12
+  </div>
+</div>
+`;

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FloatingDrawer should render a11y html 1`] = `
+exports[`FloatingDrawer > should render a11y html 1`] = `
 <main>
   <div
     style="overflow-x: hidden; position: relative;"
@@ -10,7 +10,7 @@ exports[`FloatingDrawer should render a11y html 1`] = `
     </h1>
     <div
       aria-label="label is required"
-      class="theme-drawer"
+      class="_drawer_b50ad3"
       data-drawer-visible="true"
       data-test="drawer"
       data-testid="drawer"
@@ -19,10 +19,10 @@ exports[`FloatingDrawer should render a11y html 1`] = `
       style="transform: translateX(100%);"
     >
       <div
-        class="theme-drawer"
+        class="_drawer_0f51b4"
       >
         <div
-          class="theme-body"
+          class="_body_0f51b4"
         >
           <p>
             content of the drawer

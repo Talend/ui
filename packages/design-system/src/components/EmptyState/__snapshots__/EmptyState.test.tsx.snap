@@ -1,19 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EmptyState should render a11y html 1`] = `
+exports[`EmptyState > should render a11y html 1`] = `
 <div>
   <nav>
     <article
-      class="theme-emptyState"
+      class="_emptyState_1bdaa7"
     >
       <div
-        class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
+        class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-M_ea00e5 _gap-y-M_ea00e5"
       >
         <div
-          class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+          class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
         >
           <h3
-            class="theme-title"
+            class="_title_1bdaa7"
           >
             small
           </h3>
@@ -23,13 +23,13 @@ exports[`EmptyState should render a11y html 1`] = `
   </nav>
   <aside>
     <article
-      class="theme-emptyState"
+      class="_emptyState_1bdaa7"
     >
       <div
-        class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
+        class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-M_ea00e5 _gap-y-M_ea00e5"
       >
         <svg
-          class="theme-mediumIllustration"
+          class="_mediumIllustration_7d9175"
           fill="none"
           height="40"
           width="40"
@@ -93,15 +93,15 @@ exports[`EmptyState should render a11y html 1`] = `
           />
         </svg>
         <div
-          class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+          class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
         >
           <h3
-            class="theme-title"
+            class="_title_1bdaa7"
           >
             Side menu is not ready yet
           </h3>
           <p
-            class="theme-description"
+            class="_description_1bdaa7"
           >
             Something went wrong
           </p>
@@ -112,13 +112,13 @@ exports[`EmptyState should render a11y html 1`] = `
   <main>
     <article
       aria-live="polite"
-      class="theme-emptyState"
+      class="_emptyState_1bdaa7"
     >
       <div
-        class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
+        class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-M_ea00e5 _gap-y-M_ea00e5"
       >
         <svg
-          class="theme-largeIllustration"
+          class="_largeIllustration_201253"
           fill="none"
           height="220"
           width="320"
@@ -360,29 +360,29 @@ exports[`EmptyState should render a11y html 1`] = `
           />
         </svg>
         <div
-          class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+          class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
         >
           <h3
-            class="theme-title"
+            class="_title_1bdaa7"
           >
             No preparations yet
           </h3>
           <p
-            class="theme-description"
+            class="_description_1bdaa7"
           >
             Add a preparation to clean, format, and transform data prior to processing.
           </p>
         </div>
         <button
           aria-busy="false"
-          class="theme-clickable theme-button theme-primary"
+          class="_clickable_77b759 _button_31facc _primary_1034f3"
           type="button"
         >
           <span
-            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+            class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
           >
             <span
-              class="theme-button__icon"
+              class="_button__icon_31facc"
             >
               <svg
                 aria-hidden="true"
@@ -399,19 +399,19 @@ exports[`EmptyState should render a11y html 1`] = `
           </span>
         </button>
         <a
-          class="theme-linkable theme-link"
+          class="_linkable_4927c6 _link_d78ce8"
           href="https://talend.com"
           rel="noreferrer noopener"
           target="_blank"
           title="Open in a new tab"
         >
           <span
-            class="theme-link__text"
+            class="_link__text_d78ce8"
           >
             Learn more
           </span>
           <span
-            class="theme-link__iconExternal"
+            class="_link__iconExternal_4927c6"
             data-test="link.icon.external"
             data-testid="link.icon.external"
           >
