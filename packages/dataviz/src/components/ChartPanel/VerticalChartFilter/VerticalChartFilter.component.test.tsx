@@ -5,7 +5,7 @@ import VerticalChartFilter from './VerticalChartFilter.component';
 import { VerticalBarChartEntry } from '../../BarChart/VerticalBarChart';
 import { NumberRangeHandler } from '../../RangeFilter';
 
-jest.mock('../../BarChart/VerticalBarChart/VerticalBarChart.component', () => {
+vi.mock('../../BarChart/VerticalBarChart/VerticalBarChart.component', () => {
 	return ({ data, getTooltipContent }) => (
 		<div data-data={JSON.stringify(data)} data-testid="VerticalBarChart">
 			{data.length > 0 && (
@@ -16,13 +16,13 @@ jest.mock('../../BarChart/VerticalBarChart/VerticalBarChart.component', () => {
 });
 describe('Profiling chart panel', () => {
 	const mocks = {
-		onBarClick: jest.fn(),
-		onRangeChange: jest.fn(),
+		onBarClick: vi.fn(),
+		onRangeChange: vi.fn(),
 		width: 300,
 		height: 300,
 	};
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	it('Should not show range filter if limits min and max are equal', () => {
