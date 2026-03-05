@@ -8,7 +8,7 @@
     "test:demo": "storybook build",
     "build-storybook": "storybook build",
     "start-storybook": "storybook dev",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "start": "storybook dev"
   },
   "repository": {
@@ -52,6 +52,7 @@
     "@talend/scripts-config-typescript": "^12.0.0",
     "@talend/scripts-core": "^17.0.0",
     "@types/react": "^18.3.27",
+    "eslint": "^9.39.3",
     "storybook": "^10.2.10",
     "i18next": "^23.16.8",
     "react": "^18.3.1",

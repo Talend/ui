@@ -17,7 +17,7 @@
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "build": "talend-scripts build",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "test": "talend-scripts test"
   },
   "repository": {
@@ -35,6 +35,7 @@
     "@talend/scripts-config-jest": "^14.6.0",
     "@talend/scripts-config-react-webpack": "^17.0.0",
     "connected-react-router": "^6.9.3",
+    "eslint": "^9.39.3",
     "history": "^5.3.0",
     "react": "^18.3.1",
     "react-router-dom": "~6.3.0"

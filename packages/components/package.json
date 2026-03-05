@@ -24,7 +24,7 @@
     "test:update": "cross-env TZ=UTC talend-scripts test -u",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "start": "storybook dev",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
@@ -104,6 +104,7 @@
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
     "cross-env": "^7.0.3",
+    "eslint": "^9.39.3",
     "i18next": "^23.16.8",
     "jest-in-case": "^1.0.2",
     "jsdom": "^26.1.0",
