@@ -4,7 +4,7 @@ import VerticalBarChart from './VerticalBarChart.component';
 
 describe('Vertical bar chart', () => {
 	it('Should render', () => {
-		const onBarClick = jest.fn();
+		const onBarClick = vi.fn();
 		const { container } = render(
 			<VerticalBarChart
 				data={[
@@ -18,7 +18,7 @@ describe('Vertical bar chart', () => {
 				height={300}
 				width={300}
 				onBarClick={onBarClick}
-				getTooltipContent={jest.fn().mockImplementation(() => 'tooltip')}
+				getTooltipContent={vi.fn().mockImplementation(() => 'tooltip')}
 			/>,
 		);
 		expect(container.firstChild).toMatchSnapshot();
@@ -40,8 +40,8 @@ describe('Vertical bar chart', () => {
 				showXAxis
 				height={300}
 				width={300}
-				onBarClick={jest.fn()}
-				getTooltipContent={jest.fn()}
+				onBarClick={vi.fn()}
+				getTooltipContent={vi.fn()}
 			/>,
 		);
 
@@ -63,8 +63,8 @@ describe('Vertical bar chart', () => {
 				]}
 				height={300}
 				width={300}
-				onBarClick={jest.fn()}
-				getTooltipContent={jest.fn()}
+				onBarClick={vi.fn()}
+				getTooltipContent={vi.fn()}
 			/>,
 		);
 

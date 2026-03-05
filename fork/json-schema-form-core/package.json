@@ -17,7 +17,8 @@
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "test:cov": "npm run test",
-    "test": "talend-scripts test"
+    "test": "talend-scripts test",
+    "test:update": "talend-scripts test -u"
   },
   "author": "json-schema-form",
   "contributors": [

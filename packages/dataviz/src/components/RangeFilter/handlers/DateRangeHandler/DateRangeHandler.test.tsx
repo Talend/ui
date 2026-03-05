@@ -4,9 +4,9 @@ import { parseISO } from 'date-fns/parseISO';
 
 import { DateInputField, DateRangeHandler } from './DateRangeHandler';
 
-jest.unmock('@talend/design-system');
+vi.unmock('@talend/design-system');
 
-jest.mock('@talend/react-components', () => ({
+vi.mock('@talend/react-components', () => ({
 	InputDatePicker: ({ onChange, onBlur, onKeyDown, ...props }) => (
 		<div data-testid="InputDatePicker" {...props}>
 			<button
@@ -45,19 +45,19 @@ jest.mock('@talend/react-components', () => ({
 describe('DateRangeHandler', () => {
 	it('should render a InputDatePicker', () => {
 		const { container } = render(
-			<DateInputField id="myId" value={1262300400000} onChange={jest.fn()} onBlur={jest.fn()} />,
+			<DateInputField id="myId" value={1262300400000} onChange={vi.fn()} onBlur={vi.fn()} />,
 		);
 		expect(container.firstChild).toHaveAttribute('data-testid', 'InputDatePicker');
 	});
 	it('Should submit value on blur', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<DateInputField id="" value={1262300400000} onChange={onChange} />);
 		fireEvent.click(screen.getByText('InputDatePicker.onChange'));
 		expect(onChange).toHaveBeenCalledWith(parseISO('2015-01-01').getTime());
 	});
 
 	it('Should reset value on blur with invalid input', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<DateInputField id="" value={1262300400000} onChange={onChange} />);
 		fireEvent.click(screen.getByText('InputDatePicker.onChange wrong'));
 		expect(screen.getByRole('textbox')).toHaveValue('2015-24-24');

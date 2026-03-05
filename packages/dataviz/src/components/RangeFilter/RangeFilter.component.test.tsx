@@ -4,8 +4,8 @@ import userEvent from '@testing-library/user-event';
 import RangeFilter from './RangeFilter.component';
 import { NumberRangeHandler } from './handlers';
 
-jest.mock('@talend/react-components', () => ({
-	...jest.requireActual('@talend/react-components'),
+vi.mock('@talend/react-components', async () => ({
+	...(await vi.importActual('@talend/react-components')),
 	Slider: ({ onChange, onAfterChange, value, marks, ...props }) => (
 		<div data-testid="Slider" {...props}>
 			<button onClick={() => onChange([5, 20])}>Slider.onChange</button>
@@ -23,12 +23,12 @@ jest.mock('@talend/react-components', () => ({
 
 describe('Range filter', () => {
 	const mocks = {
-		onSliderChange: jest.fn(),
-		onAfterChange: jest.fn(),
+		onSliderChange: vi.fn(),
+		onAfterChange: vi.fn(),
 	};
 
 	beforeEach(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 
 	describe('Slider', () => {
@@ -70,8 +70,8 @@ describe('Range filter', () => {
 			function checkMark(index: number, style: string, value: string) {
 				const mark = document.querySelectorAll('.rc-slider-mark-text')[index];
 				expect(mark).toHaveTextContent(value);
-				expect(mark.querySelector('.theme-range-filter__slider-mark')).toHaveClass(
-					`theme-range-filter__slider-mark--${style}`,
+				expect(mark.querySelector('.range-filter__slider-mark')).toHaveClass(
+					`range-filter__slider-mark--${style}`,
 				);
 			}
 			it('Should render min/max on bottom, and other marks on top', () => {
@@ -93,7 +93,7 @@ describe('Range filter', () => {
 	});
 
 	describe('Inputs', () => {
-		xit('Should not go outside provided limits', async () => {
+		it.skip('Should not go outside provided limits', async () => {
 			const limits = { min: 10, max: 50 };
 			render(
 				<RangeFilter
