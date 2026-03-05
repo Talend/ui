@@ -65,7 +65,7 @@ const baseConfig = {
 		},
 		'import/resolver': {
 			node: {
-				extensions: isTS ? ['.js', '.jsx', '.ts', '.tsx', '.d.ts'] : ['.js', '.jsx'],
+				extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
 			},
 		},
 	},
