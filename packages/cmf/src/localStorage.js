@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { fromJS } from 'immutable';
 import set from 'lodash/set';
 
 /**
@@ -14,10 +14,10 @@ function getState(key) {
 	source = JSON.parse(source);
 	if (source.cmf) {
 		if (source.cmf.components) {
-			source.cmf.components = Immutable.fromJS(source.cmf.components);
+			source.cmf.components = fromJS(source.cmf.components);
 		}
 		if (source.cmf.collections) {
-			source.cmf.collections = Immutable.fromJS(source.cmf.collections);
+			source.cmf.collections = fromJS(source.cmf.collections);
 		}
 	}
 	return source;
