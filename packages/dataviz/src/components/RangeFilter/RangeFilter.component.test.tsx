@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+
 import RangeFilter from './RangeFilter.component';
 import { NumberRangeHandler } from './handlers';
 
