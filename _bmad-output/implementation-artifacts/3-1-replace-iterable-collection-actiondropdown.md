@@ -1,6 +1,6 @@
 # Story 3.1: Replace Iterable with Collection in ActionDropdown
 
-Status: ready-for-dev
+Status: done
 
 ## Story
 
@@ -16,11 +16,14 @@ so that it is compatible with Immutable v4 where `Iterable` was renamed to `Coll
 
 ## Tasks / Subtasks
 
-- [ ] Update import in `packages/components/src/Actions/ActionDropdown/ActionDropdown.component.jsx` (AC: #1)
-  - [ ] Replace `import { Iterable } from 'immutable'` → `import { isImmutable } from 'immutable'`
-- [ ] Replace usage (AC: #2)
-  - [ ] Replace `Iterable.isIterable(x)` → `isImmutable(x)` (simpler API available since v4)
-- [ ] Run tests (AC: #3)
+- [x] Update import in `packages/components/src/Actions/ActionDropdown/ActionDropdown.component.jsx` (AC: #1)
+  - [x] Replace `import { Iterable } from 'immutable'` → `import { isImmutable } from 'immutable'`
+- [x] Replace usage (AC: #2)
+  - [x] Replace `Iterable.isIterable(x)` → `isImmutable(x)` (simpler API available since v4)
+- [x] Run tests (AC: #3)
+- [x] Code review fixes applied (2026-03-05)
+  - [x] Corrected test suite name in Completion Notes (was ActionDropdownItems.test.js → ActionDropdown.snapshot.test.js)
+  - [x] Added direct `getMenuItem` unit test with Immutable Map argument in ActionDropdown.test.js
 
 ## Dev Notes
 
@@ -36,8 +39,26 @@ so that it is compatible with Immutable v4 where `Iterable` was renamed to `Coll
 
 ### Agent Model Used
 
+Claude Sonnet 4.6 (GitHub Copilot)
+
 ### Debug Log References
+
+None — implementation straightforward, no debug issues encountered.
 
 ### Completion Notes List
 
+- Replaced `import { Iterable } from 'immutable'` with `import { isImmutable } from 'immutable'` in `ActionDropdown.component.jsx` (line 7)
+- Replaced `Iterable.isIterable(item)` with `isImmutable(item)` in `getMenuItem()` function (line 99)
+- `isImmutable()` is preferred over `Collection.isCollection()` as it works in both v4 and v5, avoiding a second migration
+- All 24 tests passed across 2 test suites (ActionDropdown.test.js, ActionDropdown.snapshot.test.js)
+- Code review [M2] fix: added direct `getMenuItem` test with Immutable Map to [ActionDropdown.test.js](packages/components/src/Actions/ActionDropdown/ActionDropdown.test.js) → 15 tests pass in ActionDropdown.test.js
+
 ### File List
+
+- packages/components/src/Actions/ActionDropdown/ActionDropdown.component.jsx
+- packages/components/src/Actions/ActionDropdown/ActionDropdown.test.js
+
+## Change Log
+
+- 2026-03-05: Replaced `Iterable` import and `Iterable.isIterable()` call with `isImmutable()` for Immutable v4 compatibility (Story 3.1)
+- 2026-03-05: Code review — corrected test file name in notes; added direct Immutable Map test for `getMenuItem` (Story 3.1 post-review)
