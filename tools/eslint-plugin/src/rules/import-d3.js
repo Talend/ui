@@ -85,7 +85,7 @@ module.exports = {
 			recommended: false,
 		},
 		fixable: null,
-		schema: {},
+		schema: [],
 		messages: {
 			d3: "'{{module}}' import detected. You should use d3 main package to be cdn compliant",
 		},

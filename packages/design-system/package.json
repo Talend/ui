@@ -21,7 +21,7 @@
     "watch:esm": "talend-scripts build --watch --esm",
     "test": "talend-scripts test",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "start": "storybook dev"
   },
   "repository": {
@@ -80,6 +80,7 @@
     "browser-sync-webpack-plugin": "^2.4.0",
     "concurrently": "^8.2.2",
     "core-js": "^3.48.0",
+    "eslint": "^9.39.3",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^23.16.8",
     "i18next-scanner": "^4.6.0",

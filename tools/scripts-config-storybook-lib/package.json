@@ -28,7 +28,7 @@
   "scripts": {
     "build:lib": "tsc",
     "build:watch": "tsc --watch",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "update:msw": "npx msw init public/msw --save"
   },
   "files": [
@@ -68,6 +68,7 @@
     "@types/lodash": "^4.17.23",
     "@types/node": "^25.0.10",
     "@types/react": "^18.3.27",
+    "eslint": "^9.39.3",
     "typescript": "^5.9.3"
   },
   "publishConfig": {

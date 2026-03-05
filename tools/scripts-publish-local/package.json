@@ -11,7 +11,7 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "eslint .",
     "test": "echo nothing to test"
   },
   "dependencies": {
@@ -22,7 +22,8 @@
   "devDependencies": {
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-core": "^17.0.0"
+    "@talend/scripts-core": "^17.0.0",
+    "eslint": "^9.39.3"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",

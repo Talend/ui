@@ -10,10 +10,12 @@
 
 const rule = require('../../../src/rules/import-d3');
 const RuleTester = require('eslint').RuleTester;
-const parser = require.resolve('@babel/eslint-parser');
-const parserOptions = {
-	babelOptions: {
-		configFile: require.resolve('@talend/scripts-config-babel'),
+const parser = require('@typescript-eslint/parser');
+const languageOptions = {
+	parser,
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
 	},
 };
 
@@ -27,26 +29,22 @@ ruleTester.run('talend-import-d3', rule, {
 	valid: [
 		{
 			code: "import { shape } from 'd3';",
-			parser,
-			parserOptions,
+			languageOptions,
 		},
 		{
 			code: "import foo from 'd3-some-extra';",
-			parser,
-			parserOptions,
+			languageOptions,
 		},
 		{
 			code: "import foo from 'd3-shape-extra';",
-			parser,
-			parserOptions,
+			languageOptions,
 		},
 	],
 
 	invalid: [
 		{
 			code: "import {shape} from 'd3-shape';",
-			parser,
-			parserOptions,
+			languageOptions,
 			errors: [
 				{
 					message: "'d3-shape' import detected. You should use d3 main package to be cdn compliant",

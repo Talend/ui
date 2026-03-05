@@ -33,7 +33,7 @@
     "build:css": "sass src/index.scss dist/TalendDesignTokens.css --no-source-map --style=compressed",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
-    "lint": "talend-scripts lint"
+    "lint": "eslint ."
   },
   "keywords": [
     "talend",
@@ -62,6 +62,7 @@
     "@talend/scripts-config-typescript": "^12.0.0",
     "@talend/babel-plugin-import-from-index": "^1.12.0",
     "@talend/babel-plugin-assets-api": "^1.8.0",
+    "eslint": "^9.39.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "typeface-source-sans-pro": "^1.1.13",

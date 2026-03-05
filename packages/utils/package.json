@@ -24,7 +24,7 @@
   "scripts": {
     "build:lib": "talend-scripts build --tsc",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=UTC talend-scripts test",
@@ -40,7 +40,8 @@
     "@talend/scripts-config-typescript": "^12.0.0",
     "@types/date-fns": "^2.6.3",
     "@types/lodash": "^4.17.23",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "eslint": "^9.39.3"
   },
   "dependencies": {
     "date-fns": "^3.6.0",

@@ -23,7 +23,7 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "storybook build",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [
@@ -71,6 +71,7 @@
     "@talend/scripts-config-storybook-lib": "^6.0.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
+    "eslint": "^9.39.3",
     "i18next": "^23.16.8",
     "jest-in-case": "^1.0.2",
     "msw": "2.12.7",

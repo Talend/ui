@@ -11,7 +11,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@talend/scripts-utils": "^2.7.0",
@@ -20,7 +20,8 @@
   "devDependencies": {
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-core": "^17.0.0"
+    "@talend/scripts-core": "^17.0.0",
+    "eslint": "^9.39.3"
   },
   "keywords": [
     "i18next",
