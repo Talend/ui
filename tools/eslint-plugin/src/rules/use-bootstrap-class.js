@@ -96,7 +96,7 @@ module.exports = {
 			recommended: false,
 		},
 		fixable: null,
-		schema: {},
+		schema: [],
 		messages: {
 			useBootstrapClass: "'{{className}}' should not be used",
 		},

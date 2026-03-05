@@ -69,7 +69,7 @@ module.exports = {
 			recommended: false,
 		},
 		fixable: null,
-		schema: {},
+		schema: [],
 		messages: {
 			tooDeep: "'{{module}}' import too deep. No more than {{should}}",
 		},
