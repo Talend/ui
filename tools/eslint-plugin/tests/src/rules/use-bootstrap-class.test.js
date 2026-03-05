@@ -9,10 +9,13 @@
 
 const rule = require('../../../src/rules/use-bootstrap-class');
 const RuleTester = require('eslint').RuleTester;
-const parser = require.resolve('@babel/eslint-parser');
-const parserOptions = {
-	babelOptions: {
-		configFile: require.resolve('@talend/scripts-config-babel'),
+const parser = require('@typescript-eslint/parser');
+const languageOptions = {
+	parser,
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+		ecmaFeatures: { jsx: true },
 	},
 };
 
@@ -27,8 +30,7 @@ ruleTester.run('talend-use-bootstrap-class', rule, {
 		{
 			code: `import classnames from 'classnames';
 			classnames('foo', { 'bar': true })`,
-			parser,
-			parserOptions,
+			languageOptions,
 		},
 	],
 
@@ -36,8 +38,7 @@ ruleTester.run('talend-use-bootstrap-class', rule, {
 		{
 			code: `import classnames from 'classnames';
 			classnames('foo', 'btn')`,
-			parser,
-			parserOptions,
+			languageOptions,
 			errors: [
 				{
 					message: 'bootstrap 3 class are deprecated',
@@ -47,8 +48,7 @@ ruleTester.run('talend-use-bootstrap-class', rule, {
 		{
 			code: `import classnames from 'classnames';
 			classnames('foo', { 'btn-default': true })`,
-			parser,
-			parserOptions,
+			languageOptions,
 			errors: [
 				{
 					message: 'bootstrap 3 class are deprecated',
@@ -57,8 +57,7 @@ ruleTester.run('talend-use-bootstrap-class', rule, {
 		},
 		{
 			code: `<button className="btn-default foo">foo</button>`,
-			parser,
-			parserOptions,
+			languageOptions,
 			errors: [
 				{
 					message: 'bootstrap 3 class are deprecated',
