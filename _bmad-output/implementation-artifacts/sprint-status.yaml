@@ -48,13 +48,13 @@ development_status:
   1-1-update-version-declarations-v4: done
   epic-1-retrospective: optional
 
-  epic-2: in-progress
+  epic-2: done
   2-1-replace-default-imports-cmf-expressions: done
   2-2-replace-default-imports-cmf-core: done
-  2-3-validate-cmf-tests-v4: ready-for-dev
+  2-3-validate-cmf-tests-v4: done
   epic-2-retrospective: optional
 
-  epic-3: backlog
+  epic-3: in-progress
   3-1-replace-iterable-collection-actiondropdown: ready-for-dev
   3-2-validate-cmf-cqrs-v4: ready-for-dev
   3-3-validate-cmf-router-v4: ready-for-dev
