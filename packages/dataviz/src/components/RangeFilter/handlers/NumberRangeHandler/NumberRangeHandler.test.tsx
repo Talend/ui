@@ -3,7 +3,7 @@ import { NumberInputField, NumberRangeHandler } from './NumberRangeHandler';
 
 describe('Number input field', () => {
 	it('Should submit value on blur', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<NumberInputField id="" value={10} onChange={onChange} />);
 
 		fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '20' } });
@@ -14,14 +14,14 @@ describe('Number input field', () => {
 	});
 
 	it('Should not trigger onChange if value did not change', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<NumberInputField id="" value={10} onChange={onChange} />);
 		fireEvent.blur(screen.getByRole('spinbutton'));
 		expect(onChange).not.toHaveBeenCalled();
 	});
 
 	it('Should reset value on Esc', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<NumberInputField id="" value={10} onChange={onChange} />);
 
 		fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '20' } });
@@ -31,7 +31,7 @@ describe('Number input field', () => {
 	});
 
 	it('Should submit value on Enter', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<NumberInputField id="" value={10} onChange={onChange} />);
 
 		fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '20' } });

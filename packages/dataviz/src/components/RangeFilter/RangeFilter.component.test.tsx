@@ -4,8 +4,8 @@ import userEvent from '@testing-library/user-event';
 import RangeFilter from './RangeFilter.component';
 import { NumberRangeHandler } from './handlers';
 
-jest.mock('@talend/react-components', () => ({
-	...jest.requireActual('@talend/react-components'),
+vi.mock('@talend/react-components', () => ({
+	...vi.importActual('@talend/react-components'),
 	Slider: ({ onChange, onAfterChange, value, marks, ...props }) => (
 		<div data-testid="Slider" {...props}>
 			<button onClick={() => onChange([5, 20])}>Slider.onChange</button>
@@ -23,12 +23,12 @@ jest.mock('@talend/react-components', () => ({
 
 describe('Range filter', () => {
 	const mocks = {
-		onSliderChange: jest.fn(),
-		onAfterChange: jest.fn(),
+		onSliderChange: vi.fn(),
+		onAfterChange: vi.fn(),
 	};
 
 	beforeEach(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 
 	describe('Slider', () => {

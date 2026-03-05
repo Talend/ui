@@ -1,26 +1,26 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TooltipContent Should render 1`] = `
+exports[`TooltipContent > Should render 1`] = `
 <div
-  class="theme-dataviz-tooltip"
+  class="dataviz-tooltip"
 >
   <div
-    class="theme-dataviz-tooltip__title"
+    class="dataviz-tooltip__title"
   />
   <dl
-    class="theme-key-value-tooltip theme-key-value-tooltip--value"
+    class="key-value-tooltip key-value-tooltip--value"
   >
     <div
-      class="theme-key-value-tooltip__entry"
+      class="key-value-tooltip__entry"
     >
       <dt
-        class="theme-key-value-tooltip__key"
+        class="key-value-tooltip__key"
       >
         key1
       </dt>
       <dd>
         <span
-          class="theme-key-value-tooltip__value"
+          class="key-value-tooltip__value"
         >
           value1
         </span>
