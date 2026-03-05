@@ -10,10 +10,12 @@
 
 const rule = require('../../../src/rules/import-depth');
 const RuleTester = require('eslint').RuleTester;
-const parser = require.resolve('@babel/eslint-parser');
-const parserOptions = {
-	babelOptions: {
-		configFile: require.resolve('@talend/scripts-config-babel'),
+const parser = require('@typescript-eslint/parser');
+const languageOptions = {
+	parser,
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
 	},
 };
 
@@ -26,41 +28,34 @@ describe('talend-import-depth', () => {
 		valid: [
 			{
 				code: "import List from '@talend/react-components/lib/List';",
-				parser,
-				parserOptions,
+				languageOptions,
 			},
 			{
 				code: "import SidePanel from '@talend/react-components/lib/SidePanel';",
-				parser,
-				parserOptions,
+				languageOptions,
 			},
 			{
 				code: "import { SidePanel } from '@talend/react-components';",
-				parser,
-				parserOptions,
+				languageOptions,
 			},
 			{
 				code: "import cmf, { cmfConnect } from '@talend/react-cmf';",
-				parser,
-				parserOptions,
+				languageOptions,
 			},
 			{
 				code: "import stepper from '@talend/react-faceted-search';",
-				parser,
-				parserOptions,
+				languageOptions,
 			},
 			{
 				code: "import pendo from '@talend/ua/lib/pendo';",
-				parser,
-				parserOptions,
+				languageOptions,
 			},
 		],
 
 		invalid: [
 			{
 				code: "import ListComposition from '@talend/react-components/lib/List/ListComposition';",
-				parser,
-				parserOptions,
+				languageOptions,
 				errors: [
 					{
 						message:
@@ -71,8 +66,7 @@ describe('talend-import-depth', () => {
 			},
 			{
 				code: "import match from '@talend/react-cmf/lib/matchPath';",
-				parser,
-				parserOptions,
+				languageOptions,
 				errors: [
 					{
 						message:
@@ -83,8 +77,7 @@ describe('talend-import-depth', () => {
 			},
 			{
 				code: "import { I18N_DOMAIN_FORMS } from '@talend/react-forms/lib/UIForm';",
-				parser,
-				parserOptions,
+				languageOptions,
 				errors: [
 					{
 						message:

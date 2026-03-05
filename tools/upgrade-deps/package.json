@@ -16,7 +16,8 @@
   "devDependencies": {
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-core": "^17.0.0"
+    "@talend/scripts-core": "^17.0.0",
+    "eslint": "^9.39.3"
   },
   "license": "Apache-2.0",
   "homepage": "https://github.com/Talend/ui",
@@ -28,7 +29,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "eslint .",
     "test:cron": "talend-scripts test"
   },
   "publishConfig": {

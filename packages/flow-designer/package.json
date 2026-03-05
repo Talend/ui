@@ -18,7 +18,7 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "talend-scripts lint",
+    "lint": "eslint .",
     "test": "talend-scripts test"
   },
   "repository": {
@@ -49,6 +49,7 @@
     "@types/react-test-renderer": "^18.3.1",
     "@types/redux-mock-store": "^1.5.0",
     "@types/redux-thunk": "^2.1.0",
+    "eslint": "^9.39.3",
     "i18next": "^23.16.8",
     "immutable": "^3.8.2",
     "lodash": "^4.17.23",

@@ -21,7 +21,7 @@
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
-    "lint": "talend-scripts lint ./src/**/*.js ./stories/**/*.js ./.storybook/**/*.js",
+    "lint": "eslint .",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [
@@ -53,7 +53,8 @@
     "@talend/scripts-config-jest": "^14.6.0",
     "@talend/scripts-config-react-webpack": "^17.0.0",
     "@talend/scripts-config-typescript": "^12.0.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "eslint": "^9.39.3"
   },
   "peerDependencies": {
     "@talend/react-faceted-search": "^22.0.0"
