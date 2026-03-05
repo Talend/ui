@@ -43,7 +43,7 @@
   "date-fns": "^2.30.0",
   "date-fns-timezone": "^0.1.4",
   "hoist-non-react-statics": "^2.5.5",
-  "immutable": "^3.8.1",
+  "immutable": "^4.3.7",
   "immutablediff": "^0.4.4",
   "invariant": "^2.2.2",
   "lodash": "^4.17.15",

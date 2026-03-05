@@ -44,11 +44,11 @@ story_location: _bmad-output/implementation-artifacts
 development_status:
   # ── Phase 1: v3 → v4 ──────────────────────────────
 
-  epic-1: backlog
-  1-1-update-version-declarations-v4: ready-for-dev
+  epic-1: done
+  1-1-update-version-declarations-v4: done
   epic-1-retrospective: optional
 
-  epic-2: backlog
+  epic-2: in-progress
   2-1-replace-default-imports-cmf-expressions: ready-for-dev
   2-2-replace-default-imports-cmf-core: ready-for-dev
   2-3-validate-cmf-tests-v4: ready-for-dev
