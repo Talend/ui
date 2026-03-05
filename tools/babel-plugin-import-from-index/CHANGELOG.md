@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-index
 
+## 1.13.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 1.12.0
 
 ### Minor Changes

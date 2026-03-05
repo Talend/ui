@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 12.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 12.0.0
 
 ### Major Changes

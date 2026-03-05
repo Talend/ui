@@ -1,5 +1,16 @@
 # @talend/babel-plugin-assets-api
 
+## 1.9.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+  - @talend/module-to-cdn@9.18.0
+
 ## 1.8.0
 
 ### Minor Changes

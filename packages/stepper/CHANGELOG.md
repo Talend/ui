@@ -1,5 +1,19 @@
 # @talend/react-stepper
 
+## 13.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+- Updated dependencies [b8c0bc6]
+  - @talend/design-system@12.1.0
+  - @talend/design-tokens@4.1.0
+  - @talend/react-components@18.1.0
+
 ## 13.0.0
 
 ### Major Changes

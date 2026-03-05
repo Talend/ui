@@ -42,8 +42,8 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/scripts-cmf": "^1.7.0",
-    "@talend/utils": "^3.6.0",
+    "@talend/scripts-cmf": "^1.8.0",
+    "@talend/utils": "^3.7.0",
     "commander": "^6.2.1",
     "hoist-non-react-statics": "^3.3.2",
     "immutable": "^3.8.2",
@@ -62,13 +62,13 @@
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.2.1",
-    "@talend/eslint-config": "^14.0.0",
-    "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-config-typescript": "^12.0.0",
-    "@talend/scripts-core": "^17.0.0",
-    "@talend/scripts-config-babel": "^13.9.0",
-    "@talend/scripts-config-jest": "^14.6.0",
-    "@talend/scripts-config-react-webpack": "^17.0.0",
+    "@talend/eslint-config": "^14.1.0",
+    "@talend/eslint-plugin": "^1.8.0",
+    "@talend/scripts-config-typescript": "^12.1.0",
+    "@talend/scripts-core": "^18.0.0",
+    "@talend/scripts-config-babel": "^13.10.0",
+    "@talend/scripts-config-jest": "^14.7.0",
+    "@talend/scripts-config-react-webpack": "^17.1.0",
     "@testing-library/react": "^14.3.1",
     "eslint": "^9.39.3",
     "jest-in-case": "^1.0.2",
@@ -85,5 +85,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "12.0.0"
+  "version": "12.1.0"
 }

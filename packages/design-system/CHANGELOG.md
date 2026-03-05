@@ -1,5 +1,19 @@
 # @talend/design-system
 
+## 12.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- b8c0bc6: Remove browser-sync from design system packages
+- Updated dependencies [c1eae85]
+  - @talend/design-tokens@4.1.0
+  - @talend/assets-api@2.1.0
+  - @talend/utils@3.7.0
+
 ## 12.0.0
 
 ### Major Changes

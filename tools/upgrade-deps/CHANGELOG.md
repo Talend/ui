@@ -1,5 +1,11 @@
 # @talend/upgrade-deps
 
+## 3.4.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 3.3.0
 
 ### Minor Changes

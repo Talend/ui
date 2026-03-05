@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.7.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 12.6.0
 
 ### Minor Changes

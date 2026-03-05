@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.18.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 9.17.0
 
 ### Minor Changes
@@ -66,7 +72,7 @@
 
 - c3750a1: chore: upgrade dependencies
 
-    Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
+  Major upgrade for all packages that have a peerDependency on react or react-dom. Those packages now ask for react@18 and react-dom@18.
 
 ## 9.10.1
 
@@ -89,13 +95,13 @@
 
 - d465adb68: fix: ace code editor
 
-    Issue1: 404 on react-ace min in dev mode.
-    The copy of the assets during the build is not able to support different forlders and this is the case for react-ace.
-    The getUMD point to the production version (becaue of babel) but we are in dev so this make a 404.
-    Fix: point to prod for both versions
+  Issue1: 404 on react-ace min in dev mode.
+  The copy of the assets during the build is not able to support different forlders and this is the case for react-ace.
+  The getUMD point to the production version (becaue of babel) but we are in dev so this make a 404.
+  Fix: point to prod for both versions
 
-    Issue 2: function f is not defined (trace in ace-build).
-    Fix: pin ace-builds in react-forms because there is a bug in the latest version
+  Issue 2: function f is not defined (trace in ace-build).
+  Fix: pin ace-builds in react-forms because there is a bug in the latest version
 
 ## 9.9.0
 
@@ -191,11 +197,11 @@
 
 - 5c0cd63: fix: move local path compute from moduleToCdn to webpack plugin and cdn config.
 
-    Context: When multiple versions of a package are installed.
-    When the two versions do not resolve the same path from module-to-cdn.
-    Ex: `react-dnd` in 2.6.0 and 14.0.0. Only the path from the installed in root node_modules will be found
-    which lead to bad resolution (404).
+  Context: When multiple versions of a package are installed.
+  When the two versions do not resolve the same path from module-to-cdn.
+  Ex: `react-dnd` in 2.6.0 and 14.0.0. Only the path from the installed in root node_modules will be found
+  which lead to bad resolution (404).
 
-    Why: We use require.resolve without context or with wrong options `paths` so we find only the root one.
+  Why: We use require.resolve without context or with wrong options `paths` so we find only the root one.
 
-    Solution: Remove resolution from module-to-cdn which has no way to have a context path and update cdn config and webpack plugin to use require.resolve with correct paths.
+  Solution: Remove resolution from module-to-cdn which has no way to have a context path and update cdn config and webpack plugin to use require.resolve with correct paths.

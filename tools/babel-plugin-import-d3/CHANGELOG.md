@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-d3
 
+## 0.10.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 0.9.0
 
 ### Minor Changes
