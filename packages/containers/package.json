@@ -21,10 +21,11 @@
     "start": "storybook dev -p 6007",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage",
+    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary",
     "test:demo": "storybook build",
     "lint": "eslint .",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
+    "test:update": "talend-scripts test -u"
   },
   "keywords": [
     "react",

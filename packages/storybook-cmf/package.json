@@ -20,7 +20,9 @@
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "test": "talend-scripts test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:update": "talend-scripts test -u",
+    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",

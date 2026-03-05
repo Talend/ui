@@ -21,7 +21,7 @@
     "start": "storybook dev -p 6006",
     "test": "cross-env TZ=UTC vitest run",
     "test:watch": "cross-env TZ=UTC vitest",
-    "test:cov": "cross-env TZ=UTC vitest run --coverage"
+    "test:cov": "cross-env TZ=UTC vitest run --coverage --coverage.reporter=json-summary"
   },
   "keywords": [
     "react",

@@ -33,7 +33,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Test
-        run: yarn test --coverage --coverageReporters json-summary
+        run: yarn test:coverage
 
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@2a8fe3083255756f3692599238ca251e858e15b2 #1.0.30

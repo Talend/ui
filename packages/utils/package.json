@@ -29,7 +29,8 @@
     "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "extends": "talend-scripts extends"
+    "extends": "talend-scripts extends",
+    "test:update": "cross-env TZ=UTC talend-scripts test -u"
   },
   "devDependencies": {
     "@talend/eslint-config": "^14.0.0",
