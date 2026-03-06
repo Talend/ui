@@ -5,8 +5,6 @@ import getDefaultT from '../../../../../translate';
 import { ColumnChooserProvider } from '../columnChooser.context';
 import Component from './ColumnChooserBody.component';
 
-jest.unmock('@talend/design-system');
-
 const columns = [
 	{ visible: true, label: 'col1', locked: true, order: 1 },
 	{ visible: true, label: 'col2', locked: true, order: 2 },

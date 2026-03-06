@@ -2,7 +2,6 @@
 import { render, screen } from '@testing-library/react';
 import SimpleTextKeyValue from './SimpleTextKeyValue.component';
 
-jest.unmock('@talend/design-system');
 jest.mock('./DefaultValueRenderer.component', () => {
 	return props => <span data-testid="DefaultValueRenderer" data-props={JSON.stringify(props)} />;
 });

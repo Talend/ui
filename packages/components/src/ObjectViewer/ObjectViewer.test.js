@@ -1,8 +1,6 @@
 import { screen, render } from '@testing-library/react';
 import ObjectViewer from './ObjectViewer.component';
 
-jest.unmock('@talend/design-system');
-
 describe('ObjectViewer', () => {
 	beforeEach(() => {
 		Object.defineProperties(window.HTMLElement.prototype, {

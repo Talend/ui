@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import DisplayModeToggle from './DisplayModeToggle.component';
 
-jest.unmock('@talend/design-system');
 const props = {
 	onChange: jest.fn(),
 };

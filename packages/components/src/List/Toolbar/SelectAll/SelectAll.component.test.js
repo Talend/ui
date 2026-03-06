@@ -2,8 +2,6 @@ import { render, screen } from '@testing-library/react';
 
 import SelectAll from './SelectAll.component';
 
-jest.unmock('@talend/design-system');
-
 const props = {
 	id: 'select-all',
 	items: [{ id: 1 }, { id: 2 }],

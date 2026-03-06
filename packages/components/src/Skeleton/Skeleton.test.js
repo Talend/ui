@@ -1,8 +1,6 @@
 import { screen, render } from '@testing-library/react';
 import Skeleton from './Skeleton.component';
 
-jest.unmock('@talend/design-system');
-
 describe('Skeleton', () => {
 	function t(msgid, options = {}) {
 		if (options.type) {

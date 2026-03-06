@@ -4,8 +4,6 @@ import { fromJS } from 'immutable';
 import Connected from './Form.connect';
 import Container from './Form.container';
 
-jest.unmock('@talend/design-system');
-
 const jsonSchema = {
 	type: 'object',
 	title: 'Comment',

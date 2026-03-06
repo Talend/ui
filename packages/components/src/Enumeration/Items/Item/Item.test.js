@@ -4,8 +4,6 @@ import cloneDeep from 'lodash/cloneDeep';
 
 import Item from './Item.component';
 
-jest.unmock('@talend/design-system');
-
 const item = {
 	values: ['toto'],
 	itemProps: {

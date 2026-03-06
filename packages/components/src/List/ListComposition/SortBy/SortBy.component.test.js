@@ -6,8 +6,6 @@ import getDefaultT from '../../../translate';
 import { ListContext } from '../context';
 import SortBy from './SortBy.component';
 
-jest.unmock('@talend/design-system');
-
 describe('SortBy', () => {
 	const defaultProps = {
 		options: [

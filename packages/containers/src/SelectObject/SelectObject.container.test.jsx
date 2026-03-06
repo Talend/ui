@@ -8,12 +8,13 @@ import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 
 import Container, { getById, filter, filterAll } from './SelectObject.container';
 
-jest.unmock('@talend/design-system');
-jest.mock('./SelectObject.component', () => ({ getProps, ...props }) => (
-	<div data-testid="SelectObject">
-		<button onClick={() => getProps(props)}>getProps</button>
-	</div>
-));
+vi.mock('./SelectObject.component', () => ({
+	default: ({ getProps, ...props }) => (
+		<div data-testid="SelectObject">
+			<button onClick={() => getProps(props)}>getProps</button>
+		</div>
+	),
+}));
 
 describe('Container SelectObject', () => {
 	it('should render', () => {

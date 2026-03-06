@@ -8,7 +8,6 @@ import cloneDeep from 'lodash/cloneDeep';
 import VirtualizedList from '../../VirtualizedList';
 import { compareOrder, ListToVirtualizedList } from './ListToVirtualizedList.component';
 
-jest.unmock('@talend/design-system');
 jest.mock('../../VirtualizedList', () => {
 	const getProps = jest.fn();
 	const Original = jest.requireActual('../../VirtualizedList').default;

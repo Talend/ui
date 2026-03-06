@@ -1,6 +1,5 @@
 import { screen, render } from '@testing-library/react';
 import Component from './RecordsViewerLeaf.component';
-jest.unmock('@talend/design-system');
 
 describe('Component', () => {
 	beforeEach(() => {

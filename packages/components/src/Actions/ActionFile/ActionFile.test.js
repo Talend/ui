@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import ActionFile from './ActionFile.component';
 
-jest.unmock('@talend/design-system');
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',

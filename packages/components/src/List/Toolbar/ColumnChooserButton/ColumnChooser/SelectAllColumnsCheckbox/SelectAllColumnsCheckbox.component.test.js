@@ -4,8 +4,6 @@ import userEvent from '@testing-library/user-event';
 import getDefaultT from '../../../../../translate';
 import Component from './SelectAllColumnsCheckbox.component';
 
-jest.unmock('@talend/design-system');
-
 describe('SelectAllColumnsCheckbox', () => {
 	it('should render by default', () => {
 		// given

@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import ActionIconToggle from './ActionIconToggle.component';
 
-jest.unmock('@talend/design-system');
-
 const inactiveIconToggle = {
 	className: 'my-icon-toggle',
 	icon: 'talend-panel-opener-right',

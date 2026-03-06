@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 
 import DateTimeView from './DateTimeView.component';
 
-jest.unmock('@talend/design-system');
 jest.mock('../../pickers/DatePicker', () => props => (
 	<div data-testid="DatePicker" data-props={JSON.stringify(props)} />
 ));

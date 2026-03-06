@@ -1,6 +1,5 @@
 import { screen, render } from '@testing-library/react';
 import CellBoolean, { DISPLAY_MODE } from './CellBoolean.component';
-jest.unmock('@talend/design-system');
 
 describe('CellBoolean', () => {
 	it('should render an empty cell', () => {

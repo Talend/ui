@@ -1,8 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Action from './Action.component';
 
-jest.unmock('@talend/design-system');
-
 const MyActionButton = jest.fn(() => <div>mock</div>);
 MyActionButton.displayName = 'MyActionButton';
 const MyActionSplitDropdown = jest.fn(() => <div>mock split</div>);

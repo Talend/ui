@@ -4,7 +4,6 @@ import { screen, render } from '@testing-library/react';
 import VList from './VList.component';
 import { ListContext } from '../context';
 
-jest.unmock('@talend/design-system');
 jest.mock('../../../VirtualizedList', () => {
 	const Original = jest.requireActual('../../../VirtualizedList').default;
 	const TestVList = ({ type, collection, ...props }) => (

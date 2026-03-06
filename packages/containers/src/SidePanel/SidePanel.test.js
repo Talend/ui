@@ -7,7 +7,6 @@ import Connected, { mapStateToProps, mergeProps } from './SidePanel.connect';
 import { ACTION_TYPE_LINK } from './constants';
 import Action from '../Action';
 
-jest.unmock('@talend/design-system');
 const cmfModule = {
 	id: 'test',
 	components: {

@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
 
-jest.unmock('@talend/design-system');
-
 const items = [
 	{
 		label: 'From Local',

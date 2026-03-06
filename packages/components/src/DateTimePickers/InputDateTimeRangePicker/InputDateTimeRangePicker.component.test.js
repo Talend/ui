@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import InputDateTimeRangePicker from './InputDateTimeRangePicker.component';
 
-jest.unmock('@talend/design-system');
-
 describe('InputDateTimeRangePicker', () => {
 	it('should render', () => {
 		// when

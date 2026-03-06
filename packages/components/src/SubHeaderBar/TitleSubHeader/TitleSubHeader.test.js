@@ -2,8 +2,6 @@ import { render, screen } from '@testing-library/react';
 
 import TitleSubHeader from './TitleSubHeader.component';
 
-jest.unmock('@talend/design-system');
-
 describe('TitleSubHeader', () => {
 	let defaultProps;
 

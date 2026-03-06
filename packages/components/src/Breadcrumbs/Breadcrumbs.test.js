@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import Breadcrumbs from './Breadcrumbs.component';
 
-jest.unmock('@talend/design-system');
-
 describe('Breadcrumbs', () => {
 	describe('render', () => {
 		const items = [

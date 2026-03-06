@@ -1,6 +1,5 @@
 import { screen, render } from '@testing-library/react';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
-jest.unmock('@talend/design-system');
 
 jest.mock('../../../FormatValue/FormatValue.component', () => {
 	return jest.fn(props => (

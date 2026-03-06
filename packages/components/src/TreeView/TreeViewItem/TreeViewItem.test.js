@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
 
-jest.unmock('@talend/design-system');
-
 const item = {
 	id: 1,
 	name: 'grandpa',

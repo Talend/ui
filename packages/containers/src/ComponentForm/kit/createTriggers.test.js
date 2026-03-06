@@ -26,9 +26,18 @@ const properties = {
 describe('createTriggers', () => {
 	let triggers;
 	let response;
+	const getDefaultFetchResponse = () => ({
+		ok: true,
+		status: 200,
+		json: () => Promise.resolve(response),
+	});
+
 	beforeEach(() => {
 		document.cookie = 'csrfToken=foo-token';
 		document.cookie = 'otherToken=other-token';
+		global.fetch = vi.fn((unusedUrl, options = {}) =>
+			Promise.resolve(options.response || getDefaultFetchResponse()),
+		);
 		fetch.mockClear();
 		response = { body: { status: 'OK' } };
 		triggers = createTriggers({
@@ -49,14 +58,12 @@ describe('createTriggers', () => {
 	it('should be a function', () => {
 		expect(typeof triggers).toBe('function');
 	});
-	it('should call fetch and return the results', done => {
-		triggers({}, { trigger, schema, properties }).then(data => {
-			expect(data.errors).toEqual({});
-			expect(fetch).toHaveBeenCalled();
-			done();
-		});
+	it('should call fetch and return the results', async () => {
+		const data = await triggers({}, { trigger, schema, properties });
+		expect(data.errors).toEqual({});
+		expect(fetch).toHaveBeenCalled();
 	});
-	it('should support remote property', done => {
+	it('should support remote property', async () => {
 		const specialTrigger = {
 			type: 'dotnotfecth',
 			remote: false,
@@ -64,19 +71,15 @@ describe('createTriggers', () => {
 			familly: 'WhatEver',
 			parameters: [{ key: 'url', path: 'obj.url' }],
 		};
-		triggers({}, { trigger: specialTrigger, schema, properties, errors: {} }).then(data => {
-			expect(data.errors).toEqual({});
-			expect(fetch).not.toHaveBeenCalled();
-			done();
-		});
+		const data = await triggers({}, { trigger: specialTrigger, schema, properties, errors: {} });
+		expect(data.errors).toEqual({});
+		expect(fetch).not.toHaveBeenCalled();
 	});
-	it('should handle security by default', done => {
-		triggers({}, { trigger, schema, properties }).then(() => {
-			expect(fetch.mock.calls[0][1].headers['X-CSRF-Token']).toBe('foo-token');
-			done();
-		});
+	it('should handle security by default', async () => {
+		await triggers({}, { trigger, schema, properties });
+		expect(fetch.mock.calls[0][1].headers['X-CSRF-Token']).toBe('foo-token');
 	});
-	it('should handle security specified by config', done => {
+	it('should handle security specified by config', async () => {
 		triggers = createTriggers({
 			url: '/foo',
 			security: {
@@ -84,12 +87,10 @@ describe('createTriggers', () => {
 				CSRFTokenHeaderKey: 'X-CSRF-OTHER',
 			},
 		});
-		triggers({}, { trigger, schema, properties }).then(() => {
-			expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
-			done();
-		});
+		await triggers({}, { trigger, schema, properties });
+		expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
 	});
-	it('should handle security specified by default', done => {
+	it('should handle security specified by default', async () => {
 		cmf.sagas.http.getDefaultConfig = jest.fn();
 		cmf.sagas.http.getDefaultConfig.mockReturnValue({
 			security: {
@@ -100,12 +101,10 @@ describe('createTriggers', () => {
 		triggers = createTriggers({
 			url: '/foo',
 		});
-		triggers({}, { trigger, schema, properties }).then(() => {
-			expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
-			done();
-		});
+		await triggers({}, { trigger, schema, properties });
+		expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
 	});
-	it('should handle trigger status code 500', done => {
+	it('should handle trigger status code 500', async () => {
 		const errors = {};
 		triggers = createTriggers({
 			url: '/foo',
@@ -117,12 +116,10 @@ describe('createTriggers', () => {
 				},
 			},
 		});
-		triggers({}, { trigger, schema, properties, errors }).then(data => {
-			expect(errors).toEqual({});
-			expect(data.errors).toEqual({
-				'obj.url': 'Internal Server Error',
-			});
-			done();
+		const data = await triggers({}, { trigger, schema, properties, errors });
+		expect(errors).toEqual({});
+		expect(data.errors).toEqual({
+			'obj.url': 'Internal Server Error',
 		});
 	});
 });
@@ -199,14 +196,11 @@ describe('toJSON', () => {
 		expect(response.json).toHaveBeenCalled();
 		expect(result).toBe(expected);
 	});
-	it('should throw error if status >= 300', done => {
+	it('should throw error if status >= 300', async () => {
 		const expected = { message: 'foo' };
 		const response = { ok: true, status: 300, text: jest.fn(() => Promise.resolve(expected)) };
-		toJSON(response).then(undefined, result => {
-			expect(response.text).toHaveBeenCalled();
-			expect(result).toEqual({ error: expected });
-			done();
-		});
+		await expect(toJSON(response)).rejects.toEqual({ error: expected });
+		expect(response.text).toHaveBeenCalled();
 	});
 });
 

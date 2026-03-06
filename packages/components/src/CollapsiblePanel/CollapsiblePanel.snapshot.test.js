@@ -2,8 +2,6 @@ import { screen, render } from '@testing-library/react';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 
-jest.unmock('@talend/design-system');
-
 const props = {
 	header: [
 		{

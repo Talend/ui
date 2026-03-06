@@ -1,7 +1,6 @@
 import Immutable from 'immutable';
 import { render, screen, within } from '@testing-library/react';
 import ActionDropdown from './ActionDropdown.component';
-jest.unmock('@talend/design-system');
 
 const items = [
 	{

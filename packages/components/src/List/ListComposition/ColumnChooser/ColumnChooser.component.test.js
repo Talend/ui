@@ -5,8 +5,6 @@ import getDefaultT from '../../../translate';
 import { ListContext } from '../context';
 import ColumnChooser from './ColumnChooser.component';
 
-jest.unmock('@talend/design-system');
-
 describe('ColumnChooser', () => {
 	let defaultContext;
 

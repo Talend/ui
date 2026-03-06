@@ -4,8 +4,6 @@ import Immutable from 'immutable';
 
 import Component from './SelectObject.component';
 
-jest.unmock('@talend/design-system');
-
 describe('Component SelectObject', () => {
 	it('should render', () => {
 		const context = mock.store.context();

@@ -1,8 +1,6 @@
 import { screen, render } from '@testing-library/react';
 import ColumnChooserButton from './ColumnChooserButton.component';
 
-jest.unmock('@talend/design-system');
-
 const columns = [
 	{ hidden: undefined, label: 'col1', locked: true, order: 1 },
 	{ hidden: undefined, label: 'col2', locked: true, order: 2 },

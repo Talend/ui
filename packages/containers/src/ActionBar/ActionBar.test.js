@@ -7,8 +7,6 @@ import Actions from '../Actions';
 import ActionDropdown from '../ActionDropdown';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 
-jest.unmock('@talend/design-system');
-
 const action = jest.fn();
 
 const actions = {

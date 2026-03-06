@@ -6,8 +6,6 @@ import getDefaultT from '../../../translate';
 import { ListContext } from '../context';
 import TextFilter from './TextFilter.component';
 
-jest.unmock('@talend/design-system');
-
 describe('TextFilter', () => {
 	let defaultContext;
 

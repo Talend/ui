@@ -6,7 +6,7 @@ import TimeZone from './TimeZone.component';
 jest.mock('../../TooltipTrigger', () => props => (
 	<div aria-label={props.label}>{props.children}</div>
 ));
-jest.unmock('@talend/design-system');
+
 describe('TimeZone', () => {
 	it('should render', () => {
 		// when

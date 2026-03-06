@@ -4,8 +4,6 @@ import Action from '../Action';
 
 import Actions from './Actions.connect';
 
-jest.unmock('@talend/design-system');
-
 describe('Actions', () => {
 	let App;
 	beforeAll(async () => {

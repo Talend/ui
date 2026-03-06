@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import Component, { getDefaultIcon } from './TreeBranchIcon.component';
-jest.unmock('@talend/design-system');
 
 describe('getDefaultIcon', () => {
 	it('should return a custom object icon', () => {

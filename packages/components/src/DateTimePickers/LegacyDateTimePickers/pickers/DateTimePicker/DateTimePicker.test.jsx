@@ -6,8 +6,6 @@ import { startOfDay } from 'date-fns/startOfDay';
 import dateMock from '../../../../../../../mocks/dateMock';
 import DateTimePicker from './DateTimePicker.component';
 
-jest.unmock('@talend/design-system');
-
 jest.mock('../../views/DateTimeView', () =>
 	jest.fn(props => (
 		<div data-testid="DateTimeView" data-props={JSON.stringify(props)}>

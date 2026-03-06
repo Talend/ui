@@ -2,8 +2,6 @@ import { render, screen } from '@testing-library/react';
 
 import { SubTitle } from './SubTitle.component';
 
-jest.unmock('@talend/design-system');
-
 describe('SubTitle', () => {
 	let defaultProps;
 	beforeEach(() => {

@@ -5,8 +5,6 @@ import Immutable from 'immutable';
 import { DeleteResource } from './DeleteResource.container';
 import Connected, { mapStateToProps } from './DeleteResource.connect';
 
-jest.unmock('@talend/design-system');
-
 const state = mock.store.state();
 const settings = {};
 state.cmf = {
@@ -70,7 +68,7 @@ describe('Connected DeleteResource', () => {
 		expect(Connected.displayName).toBe(
 			'Connect(CMF(withI18nextTranslation(Container(DeleteResource))))',
 		);
-		expect(Connected.WrappedComponent).toBe(DeleteResource);
+		expect(Connected.WrappedComponent.WrappedComponent).toBe(DeleteResource);
 	});
 	describe('mapStateToProps', () => {
 		it('should return empty object if no resourceType', () => {

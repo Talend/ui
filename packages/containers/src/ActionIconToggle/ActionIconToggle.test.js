@@ -5,8 +5,6 @@ import cmf, { mock } from '@talend/react-cmf';
 
 import { ContainerActionIconToggle, mapStateToProps, mergeProps } from './ActionIconToggle.connect';
 
-jest.unmock('@talend/design-system');
-
 const state = {
 	cmf: {
 		settings: {

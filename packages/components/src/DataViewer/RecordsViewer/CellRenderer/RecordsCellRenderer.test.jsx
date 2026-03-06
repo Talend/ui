@@ -12,7 +12,6 @@ jest.mock('../../Core', () => ({
 		</div>
 	)),
 }));
-jest.unmock('@talend/design-system');
 
 describe('RecordsCellRenderer', () => {
 	it('should render Tree from Core', async () => {

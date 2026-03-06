@@ -1,8 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Component from './RecordsViewer.component';
 
-jest.unmock('@talend/design-system');
-
 jest.mock('../Core', () => {
 	return {
 		Tree: props => <div data-testid="tree" data-props={JSON.stringify(props)}></div>,

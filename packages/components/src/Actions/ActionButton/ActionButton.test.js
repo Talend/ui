@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import ActionButton from './ActionButton.component';
 
-jest.unmock('@talend/design-system');
-
 const myAction = {
 	label: 'Click me',
 	title: 'Title to describe click me button',

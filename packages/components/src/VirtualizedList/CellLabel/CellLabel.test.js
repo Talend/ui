@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import CellLabel from './CellLabel.component';
-jest.unmock('@talend/design-system');
 
 describe('CellLabel', () => {
 	it('should default render an object', () => {

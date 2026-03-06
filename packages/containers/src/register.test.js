@@ -1,8 +1,8 @@
 import cmf from '@talend/react-cmf';
 import { registerAllContainers } from './register';
 
-jest.mock('@talend/react-cmf', () => {
-	const original = jest.requireActual('@talend/react-cmf');
+vi.mock('@talend/react-cmf', async () => {
+	const original = await vi.importActual('@talend/react-cmf');
 	return {
 		...original, // Pass down all the exported objects
 		default: {
@@ -13,7 +13,6 @@ jest.mock('@talend/react-cmf', () => {
 			cmfConnect: () => component => component,
 			componentState: {},
 		},
-		__esModule: true,
 	};
 });
 

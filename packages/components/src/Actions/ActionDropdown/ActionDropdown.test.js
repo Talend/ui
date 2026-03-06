@@ -6,8 +6,6 @@ import userEvent from '@testing-library/user-event';
 
 import ActionDropdown, { getMenuItem, InjectDropdownMenuItem } from './ActionDropdown.component';
 
-jest.unmock('@talend/design-system');
-
 function getComponent(key) {
 	let Fake = props => <div role={key} {...props} />;
 	if (key === 'Action') {

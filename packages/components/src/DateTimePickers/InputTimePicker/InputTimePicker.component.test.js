@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import InputTimePicker from './InputTimePicker.component';
 
-jest.unmock('@talend/design-system');
-
 describe('InputTimePicker', () => {
 	describe('focus/blur', () => {
 		it('should open picker on focus', async () => {

@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
 import Container, { getIcon } from './RecordsViewer.container';
-jest.unmock('@talend/design-system');
 
 describe('RecordsViewer', () => {
 	it('should render recordsViewer', () => {

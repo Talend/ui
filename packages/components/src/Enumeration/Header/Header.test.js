@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import Header from './Header.component';
 
-jest.unmock('@talend/design-system');
 describe('Header', () => {
 	it('should trigger callback when clicking on header button', async () => {
 		const user = userEvent.setup();

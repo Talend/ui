@@ -10,7 +10,7 @@ jest.mock('../../pickers/MonthPicker', () => props => (
 jest.mock('../HeaderTitle', () => props => (
 	<div data-testid="HeaderTitle" data-props={JSON.stringify(props)} />
 ));
-jest.unmock('@talend/design-system');
+
 describe('MonthYearView', () => {
 	it('should render', () => {
 		// when

@@ -9,8 +9,6 @@ import Connected, {
 	mergeProps,
 } from './ActionButton.connect';
 
-jest.unmock('@talend/design-system');
-
 describe('Connect(CMF(Container(ActionButton)))', () => {
 	it('should connect Container(ActionButton)', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${ContainerActionButton.displayName}))`);
@@ -104,9 +102,17 @@ describe('CMF(Container(ActionButton))', () => {
 			</App>,
 		);
 		await userEvent.click(screen.getByRole('button'));
-		expect(dispatchActionCreator).toHaveBeenCalledWith(props.actionCreator, expect.anything(), {
-			action: props,
-		});
+		expect(dispatchActionCreator).toHaveBeenCalledWith(
+			props.actionCreator,
+			expect.anything(),
+			expect.objectContaining({
+				action: expect.objectContaining({
+					actionCreator: props.actionCreator,
+					actionId: props.actionId,
+					label: props.label,
+				}),
+			}),
+		);
 	});
 });
 

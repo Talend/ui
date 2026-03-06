@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import Component from './RowCheckbox.component';
 
-jest.unmock('@talend/design-system');
-
 describe('RowCheckBox', () => {
 	it('should render a checked checkbox input by default', () => {
 		// Given

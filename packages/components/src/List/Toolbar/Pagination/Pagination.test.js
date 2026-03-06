@@ -11,8 +11,6 @@ const props = {
 	onChange: jest.fn(),
 };
 
-jest.unmock('@talend/design-system');
-
 describe('Pagination', () => {
 	it('should navigate to first page', async () => {
 		const user = userEvent.setup();

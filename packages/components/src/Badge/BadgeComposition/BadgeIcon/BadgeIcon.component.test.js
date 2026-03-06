@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 import BadgeIcon from './BadgeIcon.component';
 import Icon from '../../../Icon';
-jest.unmock('@talend/design-system');
 
 jest.mock('../../../Icon', () => {
 	return jest.fn(({ name, className }) => <span role="img" name={name} className={className} />);

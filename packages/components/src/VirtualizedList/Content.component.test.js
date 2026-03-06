@@ -1,8 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { defaultColumnConfiguration } from './Content.component';
 
-jest.unmock('@talend/design-system');
-
 describe('CellLabel', () => {
 	const CellContent = defaultColumnConfiguration.cellRenderer;
 	it('should default render a label', () => {

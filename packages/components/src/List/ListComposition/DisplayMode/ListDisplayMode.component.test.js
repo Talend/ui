@@ -6,8 +6,6 @@ import getDefaultT from '../../../translate';
 import { ListContext } from '../context';
 import ListDisplayMode from './ListDisplayMode.component';
 
-jest.unmock('@talend/design-system');
-
 describe('List DisplayMode', () => {
 	it('should render', () => {
 		// given

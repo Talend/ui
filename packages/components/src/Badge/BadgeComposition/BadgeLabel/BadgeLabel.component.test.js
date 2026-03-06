@@ -1,8 +1,6 @@
 import { screen, render } from '@testing-library/react';
 import BadgeLabel from './BadgeLabel.component';
 
-jest.unmock('@talend/design-system');
-
 describe('BadgeLabel', () => {
 	it('should default render', () => {
 		// given

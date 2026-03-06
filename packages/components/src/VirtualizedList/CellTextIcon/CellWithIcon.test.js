@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import CellWithIcon from './CellWithIcon.component';
-jest.unmock('@talend/design-system');
 
 describe('CellWithIcon', () => {
 	it('should render', () => {

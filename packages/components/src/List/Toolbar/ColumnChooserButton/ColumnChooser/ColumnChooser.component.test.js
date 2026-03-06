@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import Component from './ColumnChooser.component';
 
-jest.unmock('@talend/design-system');
-
 const columns = [
 	{ key: 'id', label: 'Id', order: 1 },
 	{ key: 'name', label: 'Name', order: 2 },

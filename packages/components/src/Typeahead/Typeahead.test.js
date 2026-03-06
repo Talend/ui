@@ -7,8 +7,6 @@ function getHeaders() {
 	return document.querySelectorAll('.section-header');
 }
 
-jest.unmock('@talend/design-system');
-
 describe('Typeahead', () => {
 	const initialProps = {
 		id: 'my-search',

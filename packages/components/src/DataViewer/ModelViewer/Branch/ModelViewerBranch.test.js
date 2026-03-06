@@ -1,7 +1,6 @@
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Component from './ModelViewerBranch.component';
-jest.unmock('@talend/design-system');
 
 describe('ModelViewerBranch', () => {
 	it('render ModelViewerBranch', () => {

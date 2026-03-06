@@ -5,8 +5,6 @@ import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 
 import Component from './HomeListView.component';
 
-jest.unmock('@talend/design-system');
-
 const cmfModule = {
 	id: 'test-me',
 	render: false,

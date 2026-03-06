@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import AppSwitcher from './AppSwitcher.component';
 
-jest.unmock('@talend/design-system');
-
 describe('AppSwitcher', () => {
 	it('should render the products', async () => {
 		const user = userEvent.setup();

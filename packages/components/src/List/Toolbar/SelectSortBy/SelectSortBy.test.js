@@ -14,8 +14,6 @@ const requiredProps = {
 	],
 };
 
-jest.unmock('@talend/design-system');
-
 describe('SelectSortBy', () => {
 	it('should render', () => {
 		// given

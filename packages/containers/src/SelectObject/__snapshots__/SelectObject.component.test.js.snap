@@ -1,14 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Component SelectObject should render 1`] = `
+exports[`Component SelectObject > should render 1`] = `
 <div
   class="mock-provider"
 >
   <div
-    class="tc-select-object theme-wrapper"
+    class="tc-select-object _wrapper_1038ee"
   >
     <form
-      class="theme-filter my-custom-filter theme-filter"
+      class="_filter_274451 my-custom-filter _filter_1038ee"
       role="search"
     >
       <div
@@ -16,7 +16,7 @@ exports[`Component SelectObject should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg theme-search-icon theme-search-focused tc-icon-name-talend-search"
+          class="tc-svg-icon tc-icon _svg_bf5f45 _search-icon_274451 _search-focused_274451 tc-icon-name-talend-search"
           focusable="false"
           name="talend-search"
           pointer-events="none"
@@ -25,7 +25,7 @@ exports[`Component SelectObject should render 1`] = `
         <input
           aria-label="Filter"
           autocomplete="off"
-          class="theme-search form-control"
+          class="_search_274451 form-control"
           id="my-tree-input"
           name="search"
           placeholder="Filter"
@@ -36,13 +36,13 @@ exports[`Component SelectObject should render 1`] = `
       </div>
     </form>
     <div
-      class="theme-container"
+      class="_container_1038ee"
     >
       <div
-        class="tc-treeview theme-tc-treeview theme-tree"
+        class="tc-treeview _tc-treeview_541c07 _tree_1038ee"
       >
         <header
-          class="theme-tc-treeview-header sr-only"
+          class="_tc-treeview-header_541c07 sr-only"
         >
           <span
             id="tc-treeview-title"
@@ -52,7 +52,7 @@ exports[`Component SelectObject should render 1`] = `
         </header>
         <ul
           aria-labelledby="tc-treeview-title"
-          class="theme-tc-treeview-list"
+          class="_tc-treeview-list_541c07"
           role="tree"
         >
           <li
@@ -60,37 +60,37 @@ exports[`Component SelectObject should render 1`] = `
             aria-posinset="1"
             aria-selected="false"
             aria-setsize="1"
-            class="tc-treeview-item-li theme-tc-treeview-li"
+            class="tc-treeview-item-li _tc-treeview-li_fa0e07"
             id="tc-treeview-0"
             role="treeitem"
             tabindex="0"
           >
             <div
-              class="tc-treeview-item theme-tc-treeview-item"
+              class="tc-treeview-item _tc-treeview-item_fa0e07"
               style="padding-left: 30px;"
             >
               <svg
                 aria-hidden="true"
-                class="tc-svg-icon tc-icon theme-svg theme-tc-treeview-folder tc-icon-name-talend-folder-closed"
+                class="tc-svg-icon tc-icon _svg_bf5f45 _tc-treeview-folder_fa0e07 tc-icon-name-talend-folder-closed"
                 focusable="false"
                 name="talend-folder-closed"
                 pointer-events="none"
                 shape-rendering="geometricPrecision"
               />
               <span
-                class="tc-treeview-item-name theme-tc-treeview-item-name"
+                class="tc-treeview-item-name _tc-treeview-item-name_fa0e07"
               >
                 foo
               </span>
               <div
-                class="theme-tc-treeview-item-ctrl"
+                class="_tc-treeview-item-ctrl_fa0e07"
               />
             </div>
           </li>
         </ul>
       </div>
       <dl
-        class="theme-json-schema-renderer json-schema-renderer theme-preview"
+        class="_json-schema-renderer_451877 json-schema-renderer _preview_1038ee"
       >
         <dt>
           name

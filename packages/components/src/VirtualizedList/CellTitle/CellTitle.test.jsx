@@ -6,7 +6,6 @@ import { screen, render } from '@testing-library/react';
 import CellTitle from './CellTitle.component';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
-jest.unmock('@talend/design-system');
 jest.mock('../../TooltipTrigger', () => props => (
 	<div data-testid="TooltipTrigger" aria-label={props.label}>
 		{props.children}
