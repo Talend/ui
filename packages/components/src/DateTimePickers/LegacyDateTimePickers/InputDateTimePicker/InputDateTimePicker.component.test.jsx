@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import InputDateTimePicker from './InputDateTimePicker.component';
 
 function getPopup() {
-	return document.querySelector('.theme-popper');
+	return document.getElementById('date-time-picker-my-picker');
 }
 
 describe('InputDateTimePicker', () => {
