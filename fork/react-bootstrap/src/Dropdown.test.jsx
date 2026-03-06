@@ -543,7 +543,7 @@ describe('<Dropdown>', () => {
 		// The failure occurred when all tests in the suite were run together, but not a subset of the tests.
 		//
 		// I am fairly confident that the failure is due to a test specific conflict and not an actual bug.
-		it.only('when open and the key "esc" is pressed the menu is closed and focus is returned to the button', async () => {
+		it('when open and the key "esc" is pressed the menu is closed and focus is returned to the button', async () => {
 			const user = userEvent.setup();
 
 			// given
