@@ -22,4 +22,14 @@ vi.mock('@talend/utils', async () => {
 globalThis.jest = vi;
 globalThis.xit = it.skip;
 
+// Suppress React warnings in tests, as they are not relevant to the test results and can clutter the output.
+const originalConsoleError = console.error;
+vi.spyOn(console, 'error').mockImplementation((...args) => {
+	const [firstArg] = args;
+	if (typeof firstArg === 'string' && firstArg.includes('Warning')) {
+		return;
+	}
+	originalConsoleError(...args);
+});
+
 expect.addSnapshotSerializer(serializer);
