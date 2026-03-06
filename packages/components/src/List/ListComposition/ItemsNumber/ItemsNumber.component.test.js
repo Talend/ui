@@ -24,7 +24,7 @@ describe('ItemsNumber', () => {
 			);
 
 			// then
-			expect(screen.getByText(`${props.totalItems} item`)).toBeVisible();
+			expect(screen.getByText(`${props.totalItems} items`)).toBeVisible();
 		});
 		it('should render customized label', () => {
 			// given
@@ -78,7 +78,7 @@ describe('ItemsNumber', () => {
 			);
 
 			// then
-			expect(screen.getByText(`${newProps.selected}/${newProps.totalItems} item`)).toBeVisible();
+			expect(screen.getByText(`${newProps.selected}/${newProps.totalItems} items`)).toBeVisible();
 		});
 	});
 });

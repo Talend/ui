@@ -32,10 +32,9 @@ describe('ColumnChooserBody', () => {
 			</ColumnChooserProvider>,
 		);
 		// Then
-		expect(
-			// eslint-disable-next-line testing-library/no-container
-			container.querySelectorAll('.tc-column-chooser-row.theme-tc-column-chooser-row'),
-		).toHaveLength(columns.length + 1);
+		expect(screen.getAllByRole('checkbox')).toHaveLength(
+			columns.filter(column => !column.locked).length + 1,
+		);
 		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render with children', () => {

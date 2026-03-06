@@ -14,3 +14,5 @@ declare module '*.css' {
 	const contents: Record<string, string>;
 	export default contents;
 }
+
+declare const jest: (typeof import('vitest'))['vi'];

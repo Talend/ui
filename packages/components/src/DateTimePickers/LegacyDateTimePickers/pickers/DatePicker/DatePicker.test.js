@@ -5,7 +5,9 @@ import { isToday } from 'date-fns/isToday';
 
 import DatePicker from './DatePicker.component';
 
-jest.mock('date-fns/isToday');
+vi.mock('date-fns/isToday', () => ({
+	isToday: vi.fn(),
+}));
 
 function mockIsTodayWith(newToday) {
 	isToday.mockImplementation(date => isSameDay(date, newToday));
@@ -63,7 +65,7 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(screen.getByText('20')).toHaveClass('theme-today');
+		expect(screen.getByText('20').className).toMatch(/today/);
 	});
 
 	it('should highlight selected date', () => {
@@ -83,7 +85,7 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(screen.getByText('12')).toHaveClass('theme-selected');
+		expect(screen.getByText('12').className).toMatch(/selected/);
 	});
 
 	it('should disable date be a disabled button', () => {

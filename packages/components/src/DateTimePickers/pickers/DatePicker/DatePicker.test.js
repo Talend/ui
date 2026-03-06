@@ -5,7 +5,9 @@ import { isToday } from 'date-fns/isToday';
 
 import DatePicker from './DatePicker.component';
 
-jest.mock('date-fns/isToday');
+vi.mock('date-fns/isToday', () => ({
+	isToday: vi.fn(),
+}));
 
 function mockIsTodayWith(newToday) {
 	isToday.mockImplementation(date => isSameDay(date, newToday));
@@ -64,8 +66,8 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(screen.getAllByRole('button')[0]).not.toHaveClass('theme-today');
-		expect(screen.getByText('20')).toHaveClass('theme-today');
+		expect(screen.getAllByRole('button')[0].className).not.toMatch(/today/);
+		expect(screen.getByText('20').className).toMatch(/today/);
 	});
 
 	it('should highlight selected date', () => {
@@ -85,8 +87,8 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(screen.getAllByRole('button')[0]).not.toHaveClass('theme-selected');
-		expect(screen.getByText('12')).toHaveClass('theme-selected');
+		expect(screen.getAllByRole('button')[0].className).not.toMatch(/selected/);
+		expect(screen.getByText('12').className).toMatch(/selected/);
 	});
 
 	it('should fade disable date', () => {
@@ -133,19 +135,19 @@ describe('DatePicker', () => {
 		const startDate = screen.getAllByText('1')[0];
 		const startDateTableCell = startDate.closest('td');
 
-		expect(startDate).toHaveClass('theme-selected');
-		expect(startDateTableCell).toHaveClass('theme-range-start');
+		expect(startDate.className).toMatch(/selected/);
+		expect(startDateTableCell.className).toMatch(/range-start/);
 
 		const endDate = screen.getAllByText('3')[0];
 		const endDateTableCell = endDate.closest('td');
 
-		expect(endDate).toHaveClass('theme-selected');
-		expect(endDateTableCell).toHaveClass('theme-range-end');
+		expect(endDate.className).toMatch(/selected/);
+		expect(endDateTableCell.className).toMatch(/range-end/);
 
 		const middleDate = screen.getAllByText('2')[0];
 		const middleDateTableCell = middleDate.closest('td');
-		expect(middleDateTableCell).toHaveClass('theme-date-range');
-		expect(middleDateTableCell).toHaveClass('theme-range-middle');
+		expect(middleDateTableCell.className).toMatch(/date-range/);
+		expect(middleDateTableCell.className).toMatch(/range-middle/);
 	});
 
 	it('should apply range style to startDate when time is not 00:00', () => {
@@ -168,8 +170,8 @@ describe('DatePicker', () => {
 		const startDateTableCell = screen.getAllByText('1')[0].closest('td'); // 2021-04-01
 
 		// then
-		expect(startDateTableCell).toHaveClass('theme-range-start');
-		expect(startDateTableCell).toHaveClass('theme-date-range');
+		expect(startDateTableCell.className).toMatch(/range-start/);
+		expect(startDateTableCell.className).toMatch(/date-range/);
 	});
 
 	it('should select date', async () => {

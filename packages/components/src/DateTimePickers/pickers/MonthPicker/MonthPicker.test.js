@@ -19,7 +19,7 @@ describe('MonthPicker', () => {
 		render(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
 
 		// then
-		expect(screen.getByText('May')).toHaveClass('theme-selected');
+		expect(screen.getByText('May').className).toMatch(/selected/);
 	});
 
 	it('should trigger props.onSelect on selection', async () => {

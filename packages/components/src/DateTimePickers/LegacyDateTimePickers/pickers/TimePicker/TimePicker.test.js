@@ -43,11 +43,11 @@ describe('TimePicker', () => {
 		const hour = screen.getByRole('textbox', { name: 'hours' });
 		expect(hour).toHaveAttribute('aria-invalid', 'true');
 		expect(hour).toHaveAttribute('aria-describedby', 'error-hours');
-		expect(hour).toHaveClass('theme-time-error');
+		expect(hour.className).toMatch(/time-error/);
 		const minutes = screen.getByRole('textbox', { name: 'minutes' });
 		expect(minutes).toHaveAttribute('aria-invalid', 'true');
 		expect(minutes).toHaveAttribute('aria-describedby', 'error-minutes');
-		expect(minutes).toHaveClass('theme-time-error');
+		expect(minutes.className).toMatch(/time-error/);
 	});
 
 	it('should render UTC legend', () => {

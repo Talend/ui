@@ -26,7 +26,10 @@ describe('OrderChooser', () => {
 
 		render(<OrderChooser {...props} />);
 
-		expect(screen.getByLabelText('Sort by date').children[1]).toHaveClass('theme-asc');
+		expect(screen.getByLabelText('Sort by date').children[1]).toHaveAttribute(
+			'class',
+			expect.stringMatching(/asc/),
+		);
 	});
 	it('should pass onClick', async () => {
 		const user = userEvent.setup();

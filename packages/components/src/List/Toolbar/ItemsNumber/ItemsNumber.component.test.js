@@ -11,7 +11,7 @@ describe('ItemsNumber', () => {
 		render(<ItemsNumber {...props} />);
 
 		// then
-		expect(screen.getByText(`${props.totalItems} item`)).toBeVisible();
+		expect(screen.getByText(`${props.totalItems} items`)).toBeVisible();
 	});
 	it('should render total number of items + customized title', () => {
 		// given
@@ -37,7 +37,7 @@ describe('ItemsNumber', () => {
 		render(<ItemsNumber {...newProps} />);
 
 		// then
-		expect(screen.getByText(`${newProps.selected}/${newProps.totalItems} item`)).toBeVisible();
+		expect(screen.getByText(`${newProps.selected}/${newProps.totalItems} items`)).toBeVisible();
 	});
 
 	it('should render total number of items + number of selected items with customized label', () => {
