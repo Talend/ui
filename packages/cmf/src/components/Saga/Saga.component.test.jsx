@@ -6,8 +6,8 @@ const defaultMockUuid = '42';
 describe('Saga Component', () => {
 	it('should dispatch actions', () => {
 		// given
-		const startSaga = jest.fn();
-		const stopSaga = jest.fn();
+		const startSaga = vi.fn();
+		const stopSaga = vi.fn();
 		const saga = function sagaToBePassed() {};
 		const sagaAttributes = { attr: 'ibute' };
 		// when

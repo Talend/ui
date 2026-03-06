@@ -3,11 +3,11 @@ import { render, screen } from '@testing-library/react';
 import Component from './ErrorPanel.component';
 
 // missing in jsdom: https://github.com/jsdom/jsdom/issues/1721
-global.window.URL.createObjectURL = jest.fn();
+global.window.URL.createObjectURL = vi.fn();
 
 describe('Component ErrorPanel', () => {
 	it('should render the error', () => {
-		window.URL.revokeObjectURL = jest.fn();
+		window.URL.revokeObjectURL = vi.fn();
 		const error = {
 			name: 'Error',
 			message: 'cannot call blabla of undefined',
@@ -17,7 +17,7 @@ describe('Component ErrorPanel', () => {
 		expect(screen.getByText('Error: cannot call blabla of undefined')).toBeInTheDocument();
 	});
 	it('should call revoke on unmount', () => {
-		window.URL.revokeObjectURL = jest.fn();
+		window.URL.revokeObjectURL = vi.fn();
 		const error = {
 			name: 'Error',
 			description: 'cannot call blabla of undefined',

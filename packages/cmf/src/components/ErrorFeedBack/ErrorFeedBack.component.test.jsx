@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import Component from './ErrorFeedBack.component';
 
-global.window.URL.createObjectURL = jest.fn();
+global.window.URL.createObjectURL = vi.fn();
 
 describe('Component ErrorFeedBack', () => {
 	beforeEach(() => {
-		window.URL.revokeObjectURL = jest.fn();
+		window.URL.revokeObjectURL = vi.fn();
 	});
 	it('should render ErrorPanel', () => {
 		const errors = [

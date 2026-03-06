@@ -17,11 +17,11 @@ TestChildren.propTypes = {
 
 describe('Component ErrorBoundary', () => {
 	beforeEach(() => {
-		global.window.URL.createObjectURL = jest.fn();
-		global.window.Sentry = { withScope: jest.fn() };
+		global.window.URL.createObjectURL = vi.fn();
+		global.window.Sentry = { withScope: vi.fn() };
 		global.console = {
-			log: jest.fn(),
-			error: jest.fn(),
+			log: vi.fn(),
+			error: vi.fn(),
 		};
 	});
 	it('should render children', () => {
