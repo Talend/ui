@@ -4501,7 +4501,7 @@
     "@types/babel__core" "^7.20.5"
     react-refresh "^0.17.0"
 
-"@vitejs/plugin-react@^5.1.2", "@vitejs/plugin-react@^5.1.4":
+"@vitejs/plugin-react@^5.1.0", "@vitejs/plugin-react@^5.1.2", "@vitejs/plugin-react@^5.1.4":
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-react/-/plugin-react-5.1.4.tgz#5b477e060bf612a7394c4febacc5de33a219b0e4"
   integrity sha512-VIcFLdRi/VYRU8OL/puL7QXMYafHmqOnwTZY50U1JPlCNj30PxCMx65c494b1K9be9hX83KVt0+gTEwTWLqToA==
