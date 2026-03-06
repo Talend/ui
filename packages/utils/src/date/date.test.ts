@@ -13,18 +13,18 @@ import {
 	timeZoneExists,
 } from './index';
 
-jest.mock('date-fns/format', () => {
-	const actualFormat = jest.requireActual('date-fns/format');
+vi.mock('date-fns/format', async () => {
+	const actualFormat = await vi.importActual<typeof import('date-fns/format')>('date-fns/format');
 	return {
 		__esModule: true,
-		default: jest.fn().mockImplementation(actualFormat.default),
-		format: jest.fn().mockImplementation(actualFormat.format),
+		default: vi.fn().mockImplementation(actualFormat.default),
+		format: vi.fn().mockImplementation(actualFormat.format),
 	};
 });
 
 describe('date', () => {
 	afterEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 	// "Locale date" here means Europe/Paris, according to the test command described in package.json
 
