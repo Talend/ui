@@ -83,8 +83,8 @@ development_status:
   6-6-remove-react-immutable-proptypes: done
   epic-6-retrospective: optional
 
-  epic-7: backlog
-  7-1-update-version-declarations-v5: ready-for-dev
+  epic-7: done
+  7-1-update-version-declarations-v5: done
   epic-7-retrospective: optional
 
   epic-8: backlog
