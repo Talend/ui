@@ -80,15 +80,6 @@
       }
     }
   },
-  "react-immutable-proptypes": {
-    "var": "ReactImmutableProptypes",
-    "versions": {
-      ">= 2.2.0": {
-        "development": "/talend-umds/ReactImmutableProptypes.min.js",
-        "production": "/talend-umds/ReactImmutableProptypes.min.js"
-      }
-    }
-  },
   "react-popper": {
     "var": "ReactPopper",
     "versions": {

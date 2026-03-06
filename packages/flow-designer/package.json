@@ -81,8 +81,7 @@
     "classnames": "^2.5.1",
     "d3": "^7.9.0",
     "invariant": "^2.2.4",
-    "prop-types": "^15.8.1",
-    "react-immutable-proptypes": "^2.2.0"
+    "prop-types": "^15.8.1"
   },
   "files": [
     "/dist",
