@@ -109,7 +109,7 @@ describe('ActionDropdown', () => {
 		render(<ActionDropdown {...props} />);
 
 		// then
-		expect(screen.getByRole('button')).toHaveClass('theme-ellipsis');
+		expect(screen.getByRole('button').className).toContain('ellipsis');
 	});
 
 	it('should render a button with "link" theme', () => {

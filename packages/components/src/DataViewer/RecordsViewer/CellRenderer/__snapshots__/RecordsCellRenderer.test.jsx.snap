@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RecordsCellRenderer > should render Tree from Core 1`] = `
+{
+  "dataKey": 0,
+  "index": 0,
+  "jsonpath": "$",
+  "level": 0,
+  "type": "object",
+  "value": {
+    "data": "myData",
+  },
+}
+`;

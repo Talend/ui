@@ -102,7 +102,7 @@ describe('ActionDropdown', () => {
 		const icon = screen.getByRole('button').firstChild;
 
 		// then
-		expect(icon).toHaveClass('theme-rotate-90');
+		expect(icon).toHaveAttribute('class', expect.stringContaining('rotate-90'));
 		expect(icon).toHaveClass('tc-icon');
 	});
 });

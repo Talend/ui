@@ -7,14 +7,16 @@ import IntercomService from './Intercom.service';
 
 configure({ testIdAttribute: 'data-test' });
 
-jest.mock('./Intercom.service', () => ({
-	init: jest.fn(),
-	boot: jest.fn(),
-	update: jest.fn(),
-	shutdown: jest.fn(),
-	onHide: jest.fn(),
-	onShow: jest.fn(),
-	setPosition: jest.fn(),
+vi.mock('./Intercom.service', () => ({
+	default: {
+		init: vi.fn(),
+		boot: vi.fn(),
+		update: vi.fn(),
+		shutdown: vi.fn(),
+		onHide: vi.fn(),
+		onShow: vi.fn(),
+		setPosition: vi.fn(),
+	},
 }));
 
 const config = {
@@ -29,11 +31,11 @@ const config = {
 
 describe('Intercom button', () => {
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	afterEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	it('should render a button', () => {

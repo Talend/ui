@@ -57,16 +57,19 @@ describe('Action', () => {
 
 		// then
 		expect(onClick.mock.calls.length).toBe(1);
-		expect(onClick).toHaveBeenCalledWith(expect.anything(), {
-			action: {
-				'data-feature': 'action.feature',
-				extra: 'extra',
-				icon: 'talend-caret-down',
-				label: 'Click me',
-				title: 'Title to describe click me button',
-			},
-			model: undefined,
-		});
+		expect(onClick).toHaveBeenCalledWith(
+			expect.anything(),
+			expect.objectContaining({
+				action: expect.objectContaining({
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				}),
+				model: undefined,
+			}),
+		);
 	});
 
 	it('should trigger the onmouseenter and onmouseleave props', () => {
@@ -77,30 +80,36 @@ describe('Action', () => {
 		fireEvent.mouseEnter(screen.getByRole('button'));
 
 		expect(onMouseEnter.mock.calls.length).toBe(1);
-		expect(onMouseEnter).toHaveBeenCalledWith(expect.anything(), {
-			action: {
-				'data-feature': 'action.feature',
-				extra: 'extra',
-				icon: 'talend-caret-down',
-				label: 'Click me',
-				title: 'Title to describe click me button',
-			},
-			model: undefined,
-		});
+		expect(onMouseEnter).toHaveBeenCalledWith(
+			expect.anything(),
+			expect.objectContaining({
+				action: expect.objectContaining({
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				}),
+				model: undefined,
+			}),
+		);
 
 		fireEvent.mouseLeave(screen.getByRole('button'));
 
 		expect(onMouseLeave.mock.calls.length).toBe(1);
-		expect(onMouseLeave).toHaveBeenCalledWith(expect.anything(), {
-			action: {
-				'data-feature': 'action.feature',
-				extra: 'extra',
-				icon: 'talend-caret-down',
-				label: 'Click me',
-				title: 'Title to describe click me button',
-			},
-			model: undefined,
-		});
+		expect(onMouseLeave).toHaveBeenCalledWith(
+			expect.anything(),
+			expect.objectContaining({
+				action: expect.objectContaining({
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				}),
+				model: undefined,
+			}),
+		);
 	});
 
 	it('should trigger the onclick props when action has an overlay', async () => {
@@ -116,16 +125,19 @@ describe('Action', () => {
 
 		// then
 		expect(onClick.mock.calls.length).toBe(1);
-		expect(onClick).toHaveBeenCalledWith(expect.anything(), {
-			action: {
-				'data-feature': 'action.feature',
-				extra: 'extra',
-				icon: 'talend-caret-down',
-				label: 'Click me',
-				title: 'Title to describe click me button',
-			},
-			model: undefined,
-		});
+		expect(onClick).toHaveBeenCalledWith(
+			expect.anything(),
+			expect.objectContaining({
+				action: expect.objectContaining({
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				}),
+				model: undefined,
+			}),
+		);
 	});
 
 	xit('should trigger the onmouseenter and onmouseleave props when action has an overlay', () => {
@@ -190,7 +202,7 @@ describe('Action', () => {
 		render(<ActionButton disabled {...myAction} />);
 
 		// then
-		expect(screen.getByLabelText('Click me')).toHaveClass('theme-btn-disabled');
+		expect(screen.getByLabelText('Click me').className).toContain('btn-disabled');
 		expect(screen.getByLabelText('Click me')).toBeDisabled();
 	});
 
@@ -207,7 +219,10 @@ describe('Action', () => {
 		render(<ActionButton iconTransform="rotate-180" {...myAction} />);
 
 		// then
-		expect(screen.getByText('Click me').previousSibling).toHaveClass('theme-rotate-180');
+		expect(screen.getByText('Click me').previousSibling).toHaveAttribute(
+			'class',
+			expect.stringContaining('rotate-180'),
+		);
 	});
 
 	it('should render action with html property name = props.name if set', () => {

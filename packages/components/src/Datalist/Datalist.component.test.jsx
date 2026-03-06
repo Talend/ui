@@ -375,8 +375,8 @@ describe('Datalist component', () => {
 		await user.click(input);
 
 		// then
-		expect(screen.getByTitle('My foo')).toHaveClass('theme-selected');
-		expect(screen.getByTitle('My foobar')).not.toHaveClass('theme-selected');
+		expect(screen.getByTitle('My foo').className).toContain('selected');
+		expect(screen.getByTitle('My foobar').className).not.toContain('selected');
 		// expect(screen.getByTitle('My foo')).toHaveStyle('background: rgba(6, 117, 193, 0.2);');
 	});
 

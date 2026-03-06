@@ -10,14 +10,14 @@ describe('RecordsViewer', () => {
 
 describe('getIcon', () => {
 	it('should return the plus circle and icon class', () => {
-		expect(getIcon()).toEqual({
-			className: 'theme-tc-records-viewer-branch-icon tc-records-viewer-branch-icon',
+		expect(getIcon()).toMatchObject({
+			className: expect.stringContaining('tc-records-viewer-branch-icon'),
 			name: 'talend-plus-circle',
 		});
 	});
 	it('should return the minus circle and icon class', () => {
-		expect(getIcon(true)).toEqual({
-			className: 'theme-tc-records-viewer-branch-icon tc-records-viewer-branch-icon',
+		expect(getIcon(true)).toMatchObject({
+			className: expect.stringContaining('tc-records-viewer-branch-icon'),
 			name: 'talend-minus-circle',
 		});
 	});

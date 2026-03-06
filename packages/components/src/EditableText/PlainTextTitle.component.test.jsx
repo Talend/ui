@@ -68,7 +68,7 @@ describe('PlainTextTitle', () => {
 		expect(screen.getByRole('button')).toBeVisible();
 		expect(screen.getByRole('button')).toHaveTextContent('');
 
-		expect(screen.getByRole('button')).toHaveClass('theme-tc-editable-text-empty-pencil');
+		expect(screen.getByRole('button').className).toContain('tc-editable-text-empty-pencil');
 	});
 	it('should pass data attributes to the button', () => {
 		const props = {

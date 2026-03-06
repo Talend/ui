@@ -44,7 +44,7 @@ describe('Action', () => {
 	it('should render ActionSplitDropdown', () => {
 		render(<Action label="hello world" displayMode="splitDropdown" />);
 		const btns = screen.getAllByRole('button');
-		expect(btns[0]).toHaveClass('theme-tc-split-dropdown');
+		expect(btns[0].className).toContain('tc-split-dropdown');
 		expect(btns[0]).toHaveTextContent('hello world');
 		expect(btns[1]).toHaveClass('dropdown-toggle');
 	});

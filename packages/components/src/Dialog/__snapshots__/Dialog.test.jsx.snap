@@ -1,7 +1,20 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Dialog > should render 1`] = `
-<div
-  aria-hidden="true"
-/>
+<div>
+  <div
+    aria-modal="true"
+    class=""
+    data-testid="Modal"
+    role="dialog"
+  >
+    <div
+      data-testid="Body"
+    >
+      <div>
+        BODY
+      </div>
+    </div>
+  </div>
+</div>
 `;

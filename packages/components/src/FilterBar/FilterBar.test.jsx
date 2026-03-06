@@ -58,7 +58,7 @@ describe('Filter', () => {
 		render(<FilterBar highlight onFilter={noOp} onToggle={noOp} docked={false} />);
 
 		// then
-		expect(screen.getByRole('search')).toHaveClass('theme-highlight');
+		expect(screen.getByRole('search').className).toContain('highlight');
 	});
 
 	it('should render disabled', () => {

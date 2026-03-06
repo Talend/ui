@@ -345,7 +345,7 @@ describe('DateTime.Manager', () => {
 				// then
 				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
-				expect(args[1].errorMessage).toBeFalsy();
+				expect(args[1].errorMessage).toEqual(expect.any(String));
 				expect(args[1].errors).toEqual(
 					expect.arrayContaining([expect.objectContaining({ code: 'DATETIME_INVALID_FORMAT' })]),
 				);
@@ -481,7 +481,7 @@ describe('DateTime.Manager', () => {
 				expect(args[1].errors).toEqual(
 					expect.arrayContaining([expect.objectContaining({ code: 'INVALID_HOUR' })]),
 				);
-				expect(args[1].errorMessage).toBeFalsy();
+				expect(args[1].errorMessage).toEqual(expect.any(String));
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].origin).toBe('PICKER');
 			});

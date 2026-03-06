@@ -2,14 +2,16 @@ import { render, screen } from '@testing-library/react';
 
 import VirtualizedTree from './VirtualizedTree.component';
 // eslint-disable-next-line react/display-name
-jest.mock('../TreeCellMeasurer', () => props => (
-	<div data-testid="TreeCellMeasurer" data-props={JSON.stringify(props)}>
-		props.cellRenderer()
-	</div>
-));
+vi.mock('../TreeCellMeasurer', () => ({
+	default: props => (
+		<div data-testid="TreeCellMeasurer" data-props={JSON.stringify(props)}>
+			props.cellRenderer()
+		</div>
+	),
+}));
 
-jest.mock('react-virtualized', () => {
-	const mod = jest.requireActual('react-virtualized');
+vi.mock('react-virtualized', async () => {
+	const mod = await vi.importActual('react-virtualized');
 	return {
 		...mod,
 		// eslint-disable-next-line react/prop-types

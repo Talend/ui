@@ -18,13 +18,19 @@ describe('CircularProgress', () => {
 	it('should render at large size if set', () => {
 		render(<CircularProgress size="large" />);
 		expect(screen.getByTestId('circular-progress')).toBeVisible();
-		expect(screen.getByTestId('circular-progress')).toHaveClass('theme-large');
+		expect(screen.getByTestId('circular-progress')).toHaveAttribute(
+			'class',
+			expect.stringContaining('large'),
+		);
 	});
 
 	it('should render as light if set', () => {
 		render(<CircularProgress light />);
 		expect(screen.getByTestId('circular-progress')).toBeVisible();
-		expect(screen.getByTestId('circular-progress')).toHaveClass('theme-loaderlight');
+		expect(screen.getByTestId('circular-progress')).toHaveAttribute(
+			'class',
+			expect.stringContaining('loaderlight'),
+		);
 	});
 
 	it('should render with percent if set', () => {

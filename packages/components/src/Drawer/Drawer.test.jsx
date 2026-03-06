@@ -43,7 +43,7 @@ describe('Drawer', () => {
 			</Drawer>,
 		);
 		expect(screen.getByRole('dialog')).toHaveClass('stacked');
-		expect(screen.getByRole('dialog')).toHaveClass('theme-drawer-stacked');
+		expect(screen.getByRole('dialog').className).toContain('drawer-stacked');
 	});
 	it('should not render if no children', () => {
 		render(<Drawer />);

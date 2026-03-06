@@ -12,7 +12,7 @@ describe('Emphasis', () => {
 		render(<Emphasis {...props} value="brown" />);
 
 		// then
-		expect(screen.getByText('brown')).toHaveClass('theme-highlight');
+		expect(screen.getByText('brown').className).toContain('highlight');
 	});
 
 	it('should be case insensitive', () => {
@@ -20,7 +20,7 @@ describe('Emphasis', () => {
 		render(<Emphasis {...props} value="bRoWn" />);
 
 		// then
-		expect(screen.getByText('brown')).toHaveClass('theme-highlight');
+		expect(screen.getByText('brown').className).toContain('highlight');
 	});
 
 	it('should support special chars', () => {
@@ -28,7 +28,7 @@ describe('Emphasis', () => {
 		render(<Emphasis text="aze.*+?^${}()|[]\wxc" value=".*+?^${}()|[]\" />);
 
 		// then
-		expect(screen.getByText('.*+?^${}()|[]\\')).toHaveClass('theme-highlight');
+		expect(screen.getByText('.*+?^${}()|[]\\').className).toContain('highlight');
 	});
 
 	it('should wrap the original text in a span if no value is provided', () => {
@@ -36,7 +36,7 @@ describe('Emphasis', () => {
 		render(<Emphasis {...props} />);
 
 		// then
-		expect(screen.getByText(props.text)).not.toHaveClass('theme-highlight');
+		expect(screen.getByText(props.text).className).not.toContain('highlight');
 	});
 
 	it('should not emphasise anything if the value is not part of the text', () => {
@@ -44,7 +44,7 @@ describe('Emphasis', () => {
 		render(<Emphasis {...props} value="nopnopnop" />);
 
 		// then
-		expect(screen.getByText(props.text)).not.toHaveClass('theme-highlight');
+		expect(screen.getByText(props.text).className).not.toContain('highlight');
 	});
 
 	it('should emphasise every occurences', () => {
@@ -54,7 +54,7 @@ describe('Emphasis', () => {
 		// then
 		const nodes = screen.getAllByText('lazy');
 		for (const node of nodes) {
-			expect(node).toHaveClass('theme-highlight');
+			expect(node.className).toContain('highlight');
 		}
 		expect(nodes.length).toBe(2);
 	});
@@ -65,7 +65,7 @@ describe('Emphasis', () => {
 		render(<Emphasis text={85} value={8} />);
 
 		// then
-		expect(screen.getByText('8')).toHaveClass('theme-highlight');
+		expect(screen.getByText('8').className).toContain('highlight');
 	});
 
 	it('should emphasize multiple words', () => {
@@ -75,7 +75,7 @@ describe('Emphasis', () => {
 		// then
 		const nodes = screen.getAllByText(/lazy|fox|dog/);
 		for (const node of nodes) {
-			expect(node).toHaveClass('theme-highlight');
+			expect(node.className).toContain('highlight');
 		}
 		expect(nodes.length).toBe(4);
 	});
@@ -87,7 +87,7 @@ describe('Emphasis', () => {
 		// then
 		const nodes = screen.getAllByText(/quick brown fox|lazy dog/);
 		for (const node of nodes) {
-			expect(node).toHaveClass('theme-highlight');
+			expect(node.className).toContain('highlight');
 		}
 		expect(nodes.length).toBe(2);
 	});

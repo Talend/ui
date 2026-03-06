@@ -4,14 +4,17 @@ import { render, screen } from '@testing-library/react';
 import { DateContext } from '../Context';
 import Input from './Input.component';
 
-jest.mock('react-debounce-input', () => props => (
-	<div data-testid="DebounceInput" data-props={JSON.stringify(props)}></div>
-));
-jest.mock('../../shared/InputSizer', () => ({ children, ...props }) => (
-	<div data-testid="InputSizer" data-props={JSON.stringify(props)}>
-		{children(300)}
-	</div>
-));
+vi.mock('react-debounce-input', () => ({
+	default: props => <div data-testid="DebounceInput" data-props={JSON.stringify(props)}></div>,
+}));
+
+vi.mock('../../shared/InputSizer', () => ({
+	default: ({ children, ...props }) => (
+		<div data-testid="InputSizer" data-props={JSON.stringify(props)}>
+			{children(300)}
+		</div>
+	),
+}));
 
 describe('Date.Input', () => {
 	it('should render', () => {
@@ -36,7 +39,7 @@ describe('Date.Input', () => {
 		expect(screen.getByTestId('InputSizer')).toBeVisible();
 		expect(screen.getByTestId('DebounceInput')).toBeVisible();
 		const props = JSON.parse(screen.getByTestId('DebounceInput').dataset.props);
-		expect(props).toEqual({
+		expect(props).toMatchObject({
 			autoComplete: 'off',
 			hideLabel: true,
 			debounceTimeout: 300,

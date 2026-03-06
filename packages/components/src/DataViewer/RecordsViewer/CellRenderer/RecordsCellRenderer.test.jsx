@@ -3,8 +3,8 @@ import userEvent from '@testing-library/user-event';
 
 import Component from './RecordsCellRenderer.component';
 
-jest.mock('../../Core', () => ({
-	Tree: jest.fn(props => (
+vi.mock('../../Core', () => ({
+	Tree: vi.fn(props => (
 		<div data-testid="tree">
 			{props.value.data}
 			<div data-testid="props" data-props={JSON.stringify(props)}></div>

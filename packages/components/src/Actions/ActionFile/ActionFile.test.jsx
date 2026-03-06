@@ -112,7 +112,10 @@ describe('ActionFile', () => {
 		render(<ActionFile iconTransform="rotate-180" {...myAction} />);
 
 		// then
-		expect(screen.getByText('Click me').previousSibling).toHaveClass('theme-rotate-180');
+		expect(screen.getByText('Click me').previousSibling).toHaveAttribute(
+			'class',
+			expect.stringContaining('rotate-180'),
+		);
 	});
 
 	it('should render action with html property name = props.name if set', () => {

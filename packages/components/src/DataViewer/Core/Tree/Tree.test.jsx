@@ -3,23 +3,28 @@
 import { render, screen } from '@testing-library/react';
 import Tree, { isRoot } from './Tree.component';
 
-jest.mock('../TreeNode', () => props => (
-	<div className={props.className} data-testid="TreeNode" data-props={JSON.stringify(props)} />
-));
-jest.mock('../TreeNodeList', () => props => (
-	<ul
-		className={props.treeClassName}
-		data-testid="TreeNodeList"
-		data-props={JSON.stringify(props)}
-		data-level={props.level}
-	>
-		{props.value.map((item, index) => (
-			<li key={index} data-testid="TreeNodeListItem" className={props.nodeClassName}>
-				{item}
-			</li>
-		))}
-	</ul>
-));
+vi.mock('../TreeNode', () => ({
+	default: props => (
+		<div className={props.className} data-testid="TreeNode" data-props={JSON.stringify(props)} />
+	),
+}));
+
+vi.mock('../TreeNodeList', () => ({
+	default: props => (
+		<ul
+			className={props.treeClassName}
+			data-testid="TreeNodeList"
+			data-props={JSON.stringify(props)}
+			data-level={props.level}
+		>
+			{props.value.map((item, index) => (
+				<li key={index} data-testid="TreeNodeListItem" className={props.nodeClassName}>
+					{item}
+				</li>
+			))}
+		</ul>
+	),
+}));
 
 describe('isRoot', () => {
 	it('should return true, its root level', () => {
@@ -37,7 +42,7 @@ describe('Tree', () => {
 		expect(JSON.parse(screen.getByRole('list').dataset.props)).toMatchObject({
 			level: 0,
 			value: [],
-			treeClassName: 'theme-tc-tree tc-tree',
+			treeClassName: expect.stringContaining('tc-tree'),
 		});
 	});
 	it('should return a TreeNode with dataKey', () => {

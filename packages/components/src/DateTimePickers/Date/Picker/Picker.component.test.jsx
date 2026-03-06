@@ -3,9 +3,9 @@ import { render, screen } from '@testing-library/react';
 import { DateContext } from '../Context';
 import Picker from './Picker.component';
 
-jest.mock('../../pickers/CalendarPicker', () => {
-	return props => <div data-testid="CalendarPicker" data-props={JSON.stringify(props)} />;
-});
+vi.mock('../../pickers/CalendarPicker', () => ({
+	default: props => <div data-testid="CalendarPicker" data-props={JSON.stringify(props)} />,
+}));
 
 describe('Date.Picker', () => {
 	it('should render', () => {

@@ -106,11 +106,11 @@ describe('JSONSchemaRenderer', () => {
 		};
 		render(<JSONSchemaRenderer schema={schema} />);
 		expect(screen.getByText('b')).toBeVisible();
-		expect(screen.getByText('b')).toHaveClass('theme-array-value');
+		expect(screen.getByText('b').className).toContain('array-value');
 		expect(screen.getByText('d')).toBeVisible();
-		expect(screen.getByText('d')).toHaveClass('theme-array-value');
+		expect(screen.getByText('d').className).toContain('array-value');
 		expect(screen.getByText('f')).toBeVisible();
-		expect(screen.getByText('f')).toHaveClass('theme-array-value');
+		expect(screen.getByText('f').className).toContain('array-value');
 	});
 
 	it('should handle nested objects', () => {
