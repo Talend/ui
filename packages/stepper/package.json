@@ -19,13 +19,13 @@
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "test": "cross-env TZ=UTC talend-scripts test",
-    "test:noisy": "cross-env TZ=UTC talend-scripts test",
-    "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary",
+    "test": "vitest run",
+    "test:noisy": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:cov": "vitest run --coverage",
     "lint": "eslint .",
     "start": "talend-scripts start-storybook -p 6006",
-    "test:update": "cross-env TZ=UTC talend-scripts test -u"
+    "test:update": "vitest run --update"
   },
   "keywords": [
     "react",
@@ -50,6 +50,8 @@
     "lodash": "^4.17.23"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "@talend/icons": "^8.0.0",
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
@@ -70,7 +72,8 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^13.5.0",
     "react-redux": "^7.2.9",
-    "react-transition-group": "^2.9.0"
+    "react-transition-group": "^2.9.0",
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "i18next": "^23.16.8",

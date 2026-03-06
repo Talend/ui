@@ -38,7 +38,7 @@ const initialSteps: StepperState = [
 
 describe('useStepperForm', () => {
 	it('should change to the next step', async () => {
-		const { result } = renderHook(() => useStepperForm(initialSteps, 0, jest.fn()));
+		const { result } = renderHook(() => useStepperForm(initialSteps, 0, vi.fn()));
 
 		act(() => {
 			result.current.onNextStep();
@@ -48,7 +48,7 @@ describe('useStepperForm', () => {
 	});
 
 	it('should change to the previous step', async () => {
-		const { result } = renderHook(() => useStepperForm(initialSteps, 1, jest.fn()));
+		const { result } = renderHook(() => useStepperForm(initialSteps, 1, vi.fn()));
 
 		act(() => {
 			result.current.onPreviousStep();
@@ -58,7 +58,7 @@ describe('useStepperForm', () => {
 	});
 
 	it('should disable and enable step', async () => {
-		const { result } = renderHook(() => useStepperForm(initialSteps, 1, jest.fn()));
+		const { result } = renderHook(() => useStepperForm(initialSteps, 1, vi.fn()));
 
 		act(() => {
 			result.current.disableStep('STEP2', 'cause');
