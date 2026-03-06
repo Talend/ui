@@ -3,7 +3,7 @@
 exports[`Vertical bar chart > Should render 1`] = `
 <div
   class="recharts-responsive-container"
-  style="width: 300px; height: 300px; min-width: 0px;"
+  style="width: 300px; height: 300px; min-width: 0;"
 >
   <div
     class="recharts-wrapper vertical-bar-chart"
