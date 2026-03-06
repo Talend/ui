@@ -53,7 +53,7 @@ describe('GeoChart component', () => {
 				{...defaultProps}
 				chartConfig={chartConfig}
 				data={[{ key: 'Occi tanié', value: 10 }]}
-			/>,
+			/>
 		);
 		expect(document.querySelectorAll('[data-key="Occi tanié"][data-value="10"]')).toHaveLength(1);
 	});
@@ -68,7 +68,7 @@ describe('GeoChart component', () => {
 					{ key: 'TX', value: 10 },
 					{ key: 'New York', value: 10 },
 				]}
-			/>,
+			/>
 		);
 
 		expect(document.querySelectorAll('[data-key="TX"]')).toHaveLength(1);
