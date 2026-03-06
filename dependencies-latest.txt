@@ -165,8 +165,6 @@ check versions of packages/forms/package.json using latest
 "react-autowhatever": "10.2.0" => "^10.2.1"
 "react-ace": "10.1.0" => "^14.0.1"
 "react-jsonschema-form": "0.51.0" => "^1.8.1"
-"@storybook/addon-actions": "^7.6.21" => "^9.0.8"
-"@storybook/addon-controls": "^7.6.21" => "^9.0.8"
 "@testing-library/react": "^14.3.1" => "^16.3.2"
 "i18next": "^23.16.8" => "^25.8.0"
 "react": "^18.3.1" => "^19.2.4"
@@ -382,7 +380,6 @@ check versions of tools/scripts-publish-local/package.json using latest
 
 check versions of tools/scripts-utils/package.json using latest
 "fs-extra": "^10.1.0" => "^11.3.3"
-"glob": "^8.1.0" => "^13.0.0"
 "which": "^2.0.2" => "^6.0.0"
 "eslint": "^8.57.1" => "^9.39.2"
 "jest": "^29.7.0" => "^30.2.0"
