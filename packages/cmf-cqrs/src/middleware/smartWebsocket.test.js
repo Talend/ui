@@ -21,10 +21,10 @@ describe('smart websocket tests', () => {
 			// given
 			const ws = {
 				readyState: WebSocket.CLOSED,
-				send: jest.fn(),
+				send: vi.fn(),
 			};
 			const offlinebuffer = [];
-			const callback = jest.fn();
+			const callback = vi.fn();
 
 			// when
 			wsSend(ws, 'message', callback, offlinebuffer);
@@ -38,7 +38,7 @@ describe('smart websocket tests', () => {
 			// given
 			const ws = {
 				readyState: WebSocket.OPEN,
-				send: jest.fn(),
+				send: vi.fn(),
 			};
 			const offlinebuffer = [];
 
@@ -54,10 +54,10 @@ describe('smart websocket tests', () => {
 			// given
 			const ws = {
 				readyState: WebSocket.OPEN,
-				send: jest.fn(),
+				send: vi.fn(),
 			};
 			const offlinebuffer = [];
-			const callback = jest.fn();
+			const callback = vi.fn();
 
 			// when
 			wsSend(ws, 'message', callback, offlinebuffer);
@@ -105,10 +105,10 @@ describe('smart websocket tests', () => {
 		it('should create a websocket', () => {
 			// given
 			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
+				onMessage: vi.fn(),
+				onOpen: vi.fn(),
+				onClose: vi.fn(),
+				onError: vi.fn(),
 			};
 			// when
 			const result = SmartWebsocket('ws://test/', options); // eslint-disable-line
@@ -123,10 +123,10 @@ describe('smart websocket tests', () => {
 			// given
 			const url = urlWS;
 			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
+				onMessage: vi.fn(),
+				onOpen: vi.fn(),
+				onClose: vi.fn(),
+				onError: vi.fn(),
 				checkInterval: 70,
 			};
 			// when
@@ -151,12 +151,12 @@ describe('smart websocket tests', () => {
 			// given
 			const url = urlWS;
 			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
+				onMessage: vi.fn(),
+				onOpen: vi.fn(),
+				onClose: vi.fn(),
+				onError: vi.fn(),
 			};
-			const callback = jest.fn();
+			const callback = vi.fn();
 			// when
 			const result = SmartWebsocket(url, options); // eslint-disable-line
 			result.send('message to send', callback);
@@ -172,10 +172,10 @@ describe('smart websocket tests', () => {
 		it('when ws close, onClose  callback should be fired', done => {
 			// given
 			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
+				onMessage: vi.fn(),
+				onOpen: vi.fn(),
+				onClose: vi.fn(),
+				onError: vi.fn(),
 			};
 			// when
 			const result = SmartWebsocket('ws://test/', options); // eslint-disable-line
@@ -192,15 +192,15 @@ describe('smart websocket tests', () => {
 
 		it('should trigger a timeout on connect after pingTimeoutDelay', () => {
 			// given
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 			const url = urlWS;
 			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
-				onPing: jest.fn(),
-				onPingTimeout: jest.fn(),
+				onMessage: vi.fn(),
+				onOpen: vi.fn(),
+				onClose: vi.fn(),
+				onError: vi.fn(),
+				onPing: vi.fn(),
+				onPingTimeout: vi.fn(),
 				checkInterval: 70,
 				// < 4ms, that is the delay from ws mock to send
 				// smartWebStocket send a ping on connect, so to test the connect timeout
@@ -212,11 +212,11 @@ describe('smart websocket tests', () => {
 			expect(options.onPingTimeout).not.toHaveBeenCalled();
 
 			// when
-			jest.advanceTimersByTime(1);
+			vi.advanceTimersByTime(1);
 
 			// then
 			expect(options.onPingTimeout).toHaveBeenCalled();
-			jest.useRealTimers();
+			vi.useRealTimers();
 		});
 	});
 });

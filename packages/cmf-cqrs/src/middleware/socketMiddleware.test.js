@@ -3,7 +3,15 @@ import { Map } from 'immutable';
 import createStatePatchLogger, { isAbsoluteWebSocketUrl } from './socketMiddleware';
 import smartWebsocket from './smartWebsocket';
 
-jest.mock('./smartWebsocket', () => jest.fn(() => ({ send: jest.fn() })));
+const { smartWebsocketMock } = vi.hoisted(() => ({
+	smartWebsocketMock: vi.fn(function SmartWebsocketMock() {
+		return { send: vi.fn() };
+	}),
+}));
+
+vi.mock('./smartWebsocket', () => ({
+	default: smartWebsocketMock,
+}));
 
 const mockStore = configureStore([createStatePatchLogger([], [])]);
 
@@ -41,7 +49,7 @@ describe('hasWebSocketProtocol', () => {
 
 describe('pathToServer', () => {
 	beforeEach(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 
 	it('should call smartWebsocket on FLOWDESIGNER.CONNECT command', () => {
@@ -52,14 +60,14 @@ describe('pathToServer', () => {
 
 	it('should ask the ws module to send a patch', () => {
 		let call = 0;
-		const getState = jest.fn(() => {
+		const getState = vi.fn(() => {
 			if (call === 0) {
 				call = 1;
 				return state;
 			}
 			return { ...state, test: state.test.setIn(['nodes', 'test'], 'test') };
 		});
-		const dispatch = jest.fn();
+		const dispatch = vi.fn();
 		const middleware = createStatePatchLogger('test', []);
 		middleware({ getState, dispatch })(() => {})({ type: 'FLOWDESIGNER.CONNECT' });
 		middleware({ getState, dispatch })(() => {})({ type: 'test' });

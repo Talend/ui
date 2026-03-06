@@ -1,3 +1,4 @@
+import React from 'react';
 import { Map } from 'immutable';
 import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
@@ -7,9 +8,9 @@ import Connected, { mapStateToProps } from './ACKDispatcher.connect';
 const CMFProvider = mock.Provider;
 
 describe('Container ACKDispatcher', () => {
-	const dispatch = jest.fn();
+	const dispatch = vi.fn();
 	beforeEach(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 
 	it('should render nothing', () => {
@@ -33,7 +34,7 @@ describe('Container ACKDispatcher', () => {
 			}),
 		});
 		const registry = mock.store.registry();
-		const mocked = jest.fn();
+		const mocked = vi.fn();
 
 		function myActionCreator() {
 			mocked();
@@ -56,7 +57,7 @@ describe('Container ACKDispatcher', () => {
 		});
 	});
 	it('should dispatch call props.dispatch with action created', () => {
-		const mocked = jest.fn();
+		const mocked = vi.fn();
 
 		function myActionCreator() {
 			mocked();
@@ -109,7 +110,7 @@ describe('Container ACKDispatcher', () => {
 			}),
 		});
 		const registry = mock.store.registry();
-		const mocked = jest.fn();
+		const mocked = vi.fn();
 
 		function myActionCreator() {
 			mocked();
