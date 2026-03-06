@@ -1,6 +1,6 @@
 import { BrowserRouter, Link } from 'react-router-dom';
 
-import { action as sbAction } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import {
 	EmptyState,
@@ -21,7 +21,7 @@ export const Large = () => (
 		description="Add a preparation to clean, format, and transform data prior to processing."
 		action={{
 			children: 'Create a dataset',
-			onClick: () => sbAction('clicked'),
+			onClick: () => action('clicked')(),
 			icon: 'plus',
 			actionType: 'button',
 		}}
@@ -65,7 +65,7 @@ MediumWithAction.args = {
 	link: { href: 'https://talend.com', 'data-feature': 'Feature name' },
 	action: {
 		children: 'Create a dataset',
-		onClick: () => sbAction('clicked'),
+		onClick: () => action('clicked')(),
 		icon: 'plus',
 		actionType: 'button',
 	},
@@ -119,7 +119,7 @@ export const Demo = () => (
 			description="Any additional data here"
 			action={{
 				children: 'Action',
-				onClick: () => sbAction('clicked'),
+				onClick: () => action('clicked')(),
 				actionType: 'button',
 			}}
 			link={{ href: 'https://talend.com' }}
@@ -165,7 +165,7 @@ Usage.args = {
 	link: { href: 'https://talend.com', 'data-feature': 'Feature name' },
 	action: {
 		children: 'Action',
-		onClick: () => sbAction('clicked'),
+		onClick: () => action('clicked')(),
 		actionType: 'button',
 	},
 };
