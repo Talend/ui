@@ -76,10 +76,10 @@ development_status:
 
   epic-6: in-progress
   6-1-create-immutable-proptype-validators: done
-  6-2-replace-proptypes-cmf: ready-for-dev
-  6-3-replace-proptypes-components: ready-for-dev
-  6-4-replace-proptypes-containers: ready-for-dev
-  6-5-replace-proptypes-flow-designer: ready-for-dev
+  6-2-replace-proptypes-cmf: done
+  6-3-replace-proptypes-components: done
+  6-4-replace-proptypes-containers: done
+  6-5-replace-proptypes-flow-designer: done
   6-6-remove-react-immutable-proptypes: ready-for-dev
   epic-6-retrospective: optional
 

@@ -1,25 +1,11 @@
 import PropTypes from 'prop-types';
-import { recordOf } from 'react-immutable-proptypes';
 
-export const NodeType = recordOf({
-	id: PropTypes.string.isRequired,
-	position: recordOf({
-		x: PropTypes.number.isRequired,
-		y: PropTypes.number.isRequired,
-	}),
-});
+// Runtime shape validation (via recordOf) was removed as part of the
+// react-immutable-proptypes migration. TypeScript types in
+// customTypings/index.d.ts provide compile-time type safety instead.
 
-export const PortType = recordOf({
-	id: PropTypes.string.isRequired,
-	nodeId: PropTypes.string.isRequired,
-	position: recordOf({
-		x: PropTypes.number.isRequired,
-		y: PropTypes.number.isRequired,
-	}),
-});
+export const NodeType = PropTypes.object;
 
-export const LinkType = recordOf({
-	id: PropTypes.string.isRequired,
-	sourceId: PropTypes.string.isRequired,
-	targetId: PropTypes.string.isRequired,
-});
+export const PortType = PropTypes.object;
+
+export const LinkType = PropTypes.object;
