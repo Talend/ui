@@ -61,9 +61,9 @@ development_status:
   3-4-validate-sagas-v4: done
   epic-3-retrospective: optional
 
-  epic-4: backlog
-  4-1-validate-containers-v4: ready-for-dev
-  4-2-validate-flow-designer-v4: ready-for-dev
+  epic-4: done
+  4-1-validate-containers-v4: done
+  4-2-validate-flow-designer-v4: done
   epic-4-retrospective: optional
 
   epic-5: backlog
