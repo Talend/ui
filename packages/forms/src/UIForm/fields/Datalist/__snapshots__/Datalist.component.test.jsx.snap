@@ -1,0 +1,191 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Datalist component > should render 1`] = `
+<div>
+  <div
+    class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _height-100_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+  >
+    <label
+      class="_label_048b2f"
+      for="my-datalist"
+    >
+      My List
+      *
+    </label>
+    <div
+      class="_tc-datalist-item_1c0f3c"
+      tabindex="-1"
+    >
+      <div
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="react-autowhatever-my-datalist"
+        class="_tc-typeahead-container_1e11d6 tc-typeahead-container _container_1c0f3c tc-datalist-container tc-datalist _container-open_1e11d6 tc-typeahead-container-open"
+        role="combobox"
+      >
+        <div
+          class="tc-typeahead-typeahead-input-icon _typeahead-input-container_1e11d6 _typeahead-input-caret_1e11d6"
+        >
+          <div
+            class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+          >
+            <span
+              class="_hidden_91f55b"
+            >
+              <label
+                class="_label_048b2f"
+                for="my-datalist"
+              />
+            </span>
+            <div
+              class="_inputShell_bca7b9"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="react-autowhatever-my-datalist"
+                aria-describedby="my-datalist-description my-datalist-error"
+                aria-invalid="false"
+                aria-required="true"
+                autocomplete="off"
+                class="_input_876932 _typeahead-input_1e11d6 tc-typeahead-typeahead-input"
+                id="my-datalist"
+                placeholder="Type here"
+                type="text"
+                value="Foo"
+              />
+            </div>
+          </div>
+          <div
+            class="icon-cls _icon-cls_1e11d6 icon-caret _icon-caret_1e11d6"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-caret-down"
+              focusable="false"
+              name="talend-caret-down"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="Suggestions"
+          class="_items-container_1c0f3c _items-container_1e11d6"
+          id="react-autowhatever-my-datalist"
+          style="position: fixed; left: 0px; top: 0px; width: 0px;"
+          tabindex="0"
+        >
+          <div
+            class="_items-body_1e11d6"
+          >
+            <ul
+              class="_items_1c0f3c"
+              role="listbox"
+            >
+              <li
+                aria-selected="false"
+                id="react-autowhatever-my-datalist--item-0"
+                role="option"
+              >
+                <div
+                  class="_item_1e11d6 _selected_1e11d6"
+                  title="Foo"
+                >
+                  <div
+                    class="_item-text_1e11d6"
+                  >
+                    <span
+                      class="item-title _item-title_1e11d6 tc-typeahead-item-title _tc-typeahead-item-title_1e11d6"
+                    >
+                      <span>
+                        <em
+                          class="_highlight_f499ea"
+                        >
+                          Foo
+                        </em>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                aria-selected="false"
+                id="react-autowhatever-my-datalist--item-1"
+                role="option"
+              >
+                <div
+                  class="_item_1e11d6"
+                  title="Bar"
+                >
+                  <div
+                    class="_item-text_1e11d6"
+                  >
+                    <span
+                      class="item-title _item-title_1e11d6 tc-typeahead-item-title _tc-typeahead-item-title_1e11d6"
+                    >
+                      <span>
+                        Bar
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                aria-selected="false"
+                id="react-autowhatever-my-datalist--item-2"
+                role="option"
+              >
+                <div
+                  class="_item_1e11d6"
+                  title="Lol"
+                >
+                  <div
+                    class="_item-text_1e11d6"
+                  >
+                    <span
+                      class="item-title _item-title_1e11d6 tc-typeahead-item-title _tc-typeahead-item-title_1e11d6"
+                    >
+                      <span>
+                        Lol
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-live="polite"
+      class="_inlineMessage_c6661a"
+      data-test="fieldTemplate.inlineMessage"
+      id="my-datalist-description"
+      role="status"
+    >
+      <span
+        class="_icon_c6661a _information__icon_8d33ef"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1rem; height: 1rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="_inlineMessage__contents_c6661a"
+      >
+        <span>
+          This is my datalist
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CheckBox field in text mode > should render checked value 1`] = `
+<div
+  class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+>
+  <svg
+    aria-hidden="true"
+    data-test="widget-checkbox-icon-check"
+    data-testid="widget-checkbox-icon-check"
+    id="myForm"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+    style="width: 0.75rem; height: 0.75rem;"
+  >
+    <use
+      xlink:href="#check:S"
+    />
+  </svg>
+  <label
+    class="_label_048b2f"
+    for="myForm"
+  >
+    My checkbox title
+  </label>
+</div>
+`;

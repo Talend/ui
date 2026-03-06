@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SingleButton field > should render button 1`] = `
+<button
+  aria-label="Boom !"
+  class="btn btn btn-primary"
+  id="myForm"
+  name="my-button"
+  type="button"
+>
+  <span>
+    Boom !
+  </span>
+</button>
+`;

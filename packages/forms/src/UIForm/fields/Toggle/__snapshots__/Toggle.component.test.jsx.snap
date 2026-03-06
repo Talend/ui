@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Toggle field > should render input 1`] = `
+<span
+  class="_switch_700cad _switch_checked_700cad"
+>
+  <label
+    for="myForm"
+  >
+    <input
+      aria-checked="true"
+      aria-invalid="false"
+      aria-required="true"
+      checked=""
+      description="My error message"
+      id="myForm"
+      required=""
+      type="checkbox"
+    />
+    <span
+      class="_legend_700cad"
+    >
+      My input title
+      *
+    </span>
+  </label>
+</span>
+`;

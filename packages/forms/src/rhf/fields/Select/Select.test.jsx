@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 
 import Select from './RHFSelect.component';
 
-jest.unmock('@talend/design-system');
+vi.unmock('@talend/design-system');
 
 /* eslint-disable-next-line react/prop-types */
 function FormWrapper({ children, onSubmit }) {
@@ -26,7 +26,7 @@ describe('Input RHF widget', () => {
 		const user = userEvent.setup();
 
 		// given
-		const onSubmit = jest.fn();
+		const onSubmit = vi.fn();
 		// when
 		render(
 			<FormWrapper onSubmit={onSubmit}>
@@ -60,7 +60,7 @@ describe('Input RHF widget', () => {
 
 	it('should render RHF error', async () => {
 		// given
-		const onSubmit = jest.fn();
+		const onSubmit = vi.fn();
 		render(
 			<FormWrapper onSubmit={onSubmit}>
 				<Select

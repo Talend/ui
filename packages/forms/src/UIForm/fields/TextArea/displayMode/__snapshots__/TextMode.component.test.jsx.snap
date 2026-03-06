@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TextArea field text display mode > should render textarea 1`] = `
+<div
+  class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _height-100_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+>
+  <label
+    class="_label_048b2f"
+    for="myForm"
+  >
+    My input title
+  </label>
+  <div
+    id="myForm"
+  >
+    <pre
+      style="height: 10rem; font-size: inherit;"
+    >
+      toto
+    </pre>
+  </div>
+</div>
+`;

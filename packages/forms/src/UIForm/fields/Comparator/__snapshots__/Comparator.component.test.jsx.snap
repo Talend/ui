@@ -1,0 +1,114 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Comparator field > should render default Comparator 1`] = `
+<div
+  class="_comparator_3a348b"
+>
+  <div
+    class="dropdown btn-group btn-group-default"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="_tc-dropdown-button_0099c3 tc-dropdown-button dropdown-toggle btn btn-default"
+      i18n="[object Object]"
+      id="comparator-action-default"
+      role="button"
+      type="button"
+    >
+      <span
+        class="tc-dropdown-button-title-label"
+      />
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 _tc-dropdown-caret_0099c3 tc-icon-name-talend-caret-down"
+        focusable="false"
+        name="talend-caret-down"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+    <ul
+      aria-labelledby="comparator-action-default"
+      class="dropdown-menu"
+      role="menu"
+    >
+      <li
+        class="_tc-dropdown-item_0099c3 tc-dropdown-item"
+        role="presentation"
+      >
+        <a
+          href="#"
+          icon="talend-greater-than"
+          id="comparison-operator-0"
+          label="[object Object]"
+          role="menuitem"
+          tabindex="-1"
+          title="greater_than"
+          value="greater_than"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-greater-than"
+            focusable="false"
+            name="talend-greater-than"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </a>
+      </li>
+      <li
+        class="_tc-dropdown-item_0099c3 tc-dropdown-item"
+        role="presentation"
+      >
+        <a
+          href="#"
+          icon="talend-less-than"
+          id="comparison-operator-1"
+          label="[object Object]"
+          role="menuitem"
+          tabindex="-1"
+          title="less_than"
+          value="less_than"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-less-than"
+            focusable="false"
+            name="talend-less-than"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </a>
+      </li>
+      <li
+        class="_tc-dropdown-item_0099c3 tc-dropdown-item"
+        role="presentation"
+      >
+        <a
+          href="#"
+          icon="talend-equal"
+          id="comparison-operator-2"
+          label="[object Object]"
+          role="menuitem"
+          tabindex="-1"
+          title="equals"
+          value="equals"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-equal"
+            focusable="false"
+            name="talend-equal"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    Text
+  </div>
+</div>
+`;

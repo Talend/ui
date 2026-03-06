@@ -1,22 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Widget component should render widget 1`] = `
+exports[`Widget component > should render widget 1`] = `
 <div
-  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+  class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
 >
   <label
-    class="theme-label"
+    class="_label_048b2f"
     for="myForm_user_firstname"
   >
     First Name
   </label>
   <div
-    class="theme-inputShell theme-inputShell_borderError"
+    class="_inputShell_bca7b9 _inputShell_borderError_bca7b9"
   >
     <input
       aria-describedby="myForm_user_firstname-description myForm_user_firstname-error"
       aria-invalid="true"
-      class="theme-input"
+      class="_input_876932"
       id="myForm_user_firstname"
       type="text"
       value="my firstname"
@@ -24,11 +24,11 @@ exports[`Widget component should render widget 1`] = `
   </div>
   <div
     aria-live="polite"
-    class="theme-inlineMessage"
+    class="_inlineMessage_c6661a"
     role="status"
   >
     <span
-      class="theme-icon theme-destructive__icon"
+      class="_icon_c6661a _destructive__icon_859702"
     >
       <svg
         aria-hidden="true"
@@ -42,7 +42,7 @@ exports[`Widget component should render widget 1`] = `
       </svg>
     </span>
     <p
-      class="theme-inlineMessage__contents"
+      class="_inlineMessage__contents_c6661a"
     >
       <span>
         This is not ok

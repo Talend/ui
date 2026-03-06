@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FieldTemplate in text display mode > should render text 1`] = `
+<div
+  class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _height-100_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+>
+  <label
+    class="_label_048b2f"
+    for="myAwesomeField"
+  >
+    My awesome label
+  </label>
+  <div
+    id="myAwesomeField"
+  >
+    My value as children
+  </div>
+</div>
+`;

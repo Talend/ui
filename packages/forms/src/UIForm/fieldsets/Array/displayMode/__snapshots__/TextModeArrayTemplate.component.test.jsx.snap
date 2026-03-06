@@ -1,0 +1,50 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Array Template in text mode > should render array template with complex items 1`] = `
+<div
+  class="_tf-array-text-mode_98655b"
+>
+  <dt
+    class="tf-title-text-mode"
+    id="my-template"
+  >
+    comments
+  </dt>
+  <dd>
+    <ol
+      aria-labelledby="my-template"
+    >
+      <li
+        class="_block_98655b"
+      >
+        <div
+          data-testid="renderItem"
+        >
+          Render item 
+          0
+        </div>
+      </li>
+      <li
+        class="_block_98655b"
+      >
+        <div
+          data-testid="renderItem"
+        >
+          Render item 
+          1
+        </div>
+      </li>
+      <li
+        class="_block_98655b"
+      >
+        <div
+          data-testid="renderItem"
+        >
+          Render item 
+          2
+        </div>
+      </li>
+    </ol>
+  </dd>
+</div>
+`;

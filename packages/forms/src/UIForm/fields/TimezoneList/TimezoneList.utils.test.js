@@ -2,10 +2,10 @@ import { getTimezones } from './TimezoneList.utils';
 
 describe('getTimezones', () => {
 	beforeEach(() => {
-		jest.useFakeTimers();
+		vi.useFakeTimers();
 	});
 	afterEach(() => {
-		jest.useRealTimers();
+		vi.useRealTimers();
 	});
 	const cldrTimezones = {
 		en: {

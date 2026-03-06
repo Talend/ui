@@ -1,0 +1,153 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tabs widget > should render tabs 1`] = `
+<nav
+  id="undefined-tabs"
+>
+  <div
+    class="_stack_dbc270 _justify-start_dbc270 _align-start_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _gap-x-0_dbc270 _gap-y-0_dbc270"
+  >
+    <div
+      class="_stack_dbc270 _justify-start_dbc270 _align-start_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-M_dbc270 _gap-y-M_dbc270"
+      role="tablist"
+    >
+      <button
+        aria-selected="true"
+        class="_tab_3b941d"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _inline_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <span
+            class="_tab__copy_3b941d"
+          >
+            User
+          </span>
+        </div>
+      </button>
+      <button
+        aria-selected="false"
+        class="_tab_3b941d"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _inline_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <span
+            class="_tab__copy_3b941d"
+          >
+            Other
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      class="_tabpanel_3b941d"
+      id="undefined-tabs-0"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <fieldset
+        class="_fieldset_51db4a"
+      >
+        <div
+          class="_fieldset-content_51db4a"
+        >
+          <span
+            class="_hidden_91f55b"
+          >
+            <legend>
+              User
+            </legend>
+          </span>
+          <div
+            class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+          >
+            <label
+              class="_label_048b2f"
+              for="user_firstname"
+            />
+            <div
+              class="_inputShell_bca7b9"
+            >
+              <input
+                aria-describedby="user_firstname-description user_firstname-error"
+                aria-invalid="false"
+                class="_input_876932"
+                id="user_firstname"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+          >
+            <label
+              class="_label_048b2f"
+              for="user_lastname"
+            />
+            <div
+              class="_inputShell_bca7b9"
+            >
+              <input
+                aria-describedby="user_lastname-description user_lastname-error"
+                aria-invalid="false"
+                class="_input_876932"
+                id="user_lastname"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div
+      class="_tabpanel_3b941d _tabpanel--hidden_3b941d"
+      id="undefined-tabs-1"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <fieldset
+        class="_fieldset_51db4a"
+      >
+        <div
+          class="_fieldset-content_51db4a"
+        >
+          <span
+            class="_hidden_91f55b"
+          >
+            <legend>
+              Other
+            </legend>
+          </span>
+          <div
+            class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+          >
+            <label
+              class="_label_048b2f"
+              for="comment"
+            />
+            <div
+              class="_inputShell_bca7b9"
+            >
+              <input
+                aria-describedby="comment-description comment-error"
+                aria-invalid="false"
+                class="_input_876932"
+                id="comment"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</nav>
+`;

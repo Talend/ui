@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TimezoneList component > should render the timezone dropdown widget 1`] = `
+<div
+  data-props="{
+  "schema": {
+    "lang": "fr",
+    "cldrTimezones": {
+      "fr": {
+        "main": {
+          "fr": {
+            "dates": {
+              "timeZoneNames": {
+                "zone": {
+                  "Africa": {
+                    "Abidjan": {
+                      "exemplarCity": "Abidjan"
+                    },
+                    "Freetown": {
+                      "exemplarCity": "Freetown"
+                    }
+                  },
+                  "Europe": {
+                    "Istanbul": {
+                      "exemplarCity": "Istanbul"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "restricted": true,
+    "titleMap": [
+      {
+        "name": "(UTC +00:00) Abidjan",
+        "timezoneName": "Abidjan",
+        "offset": 0,
+        "value": "Africa/Abidjan"
+      },
+      {
+        "name": "(UTC +00:00) Freetown",
+        "timezoneName": "Freetown",
+        "offset": 0,
+        "value": "Africa/Freetown"
+      },
+      {
+        "name": "(UTC +03:00) Istanbul",
+        "timezoneName": "Istanbul",
+        "offset": 180,
+        "value": "Europe/Istanbul"
+      }
+    ],
+    "options": {
+      "titleMap": [
+        {
+          "name": "(UTC +00:00) Abidjan",
+          "timezoneName": "Abidjan",
+          "offset": 0,
+          "value": "Africa/Abidjan"
+        },
+        {
+          "name": "(UTC +00:00) Freetown",
+          "timezoneName": "Freetown",
+          "offset": 0,
+          "value": "Africa/Freetown"
+        },
+        {
+          "name": "(UTC +03:00) Istanbul",
+          "timezoneName": "Istanbul",
+          "offset": 180,
+          "value": "Europe/Istanbul"
+        }
+      ]
+    }
+  }
+}"
+  data-testid="datalist"
+/>
+`;

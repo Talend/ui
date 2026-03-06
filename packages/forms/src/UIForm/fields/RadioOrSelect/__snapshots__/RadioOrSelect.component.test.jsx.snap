@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RadioOrSelect field > should render select when titleMap has less than 2 options 1`] = `
+<div>
+  <div
+    class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _height-100_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+  >
+    <label
+      class="_label_048b2f"
+      for="myRadioOrSelect"
+    >
+      My Select title
+    </label>
+    <span
+      class="_radio_0d683c"
+    >
+      <input
+        aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
+        aria-invalid="false"
+        checked=""
+        id="myRadioOrSelect-0"
+        name="myRadioOrSelect"
+        type="radio"
+        value="foo"
+      />
+      <label
+        class="_label_048b2f _label_inline_048b2f"
+        for="myRadioOrSelect-0"
+      >
+        My foo title
+      </label>
+    </span>
+    <span
+      class="_radio_0d683c"
+    >
+      <input
+        aria-describedby="myRadioOrSelect-description myRadioOrSelect-error"
+        aria-invalid="false"
+        id="myRadioOrSelect-1"
+        name="myRadioOrSelect"
+        type="radio"
+        value="bar"
+      />
+      <label
+        class="_label_048b2f _label_inline_048b2f"
+        for="myRadioOrSelect-1"
+      >
+        My bar title
+      </label>
+    </span>
+    <div
+      aria-live="polite"
+      class="_inlineMessage_c6661a"
+      data-test="fieldTemplate.inlineMessage"
+      id="myRadioOrSelect-description"
+      role="status"
+    >
+      <span
+        class="_icon_c6661a _information__icon_8d33ef"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1rem; height: 1rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="_inlineMessage__contents_c6661a"
+      >
+        <span>
+          Select me
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
