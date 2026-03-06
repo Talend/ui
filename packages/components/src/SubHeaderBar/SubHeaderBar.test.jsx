@@ -191,7 +191,7 @@ describe('SubHeaderBar', () => {
 		render(<SubHeaderBar {...props} />);
 		expect(screen.getByText('myTitle')).toBeVisible();
 		expect(screen.getByLabelText('action3')).toBeVisible();
-		expect(screen.getByLabelText('action3').parentElement).toHaveClass('theme-navbar-center');
+		expect(screen.getByLabelText('action3').parentElement.className).toContain('navbar-center');
 	});
 	it('should render SubHeaderBar (default)', () => {
 		const props = {

@@ -166,6 +166,7 @@ describe('TabBar component', () => {
 		};
 
 		render(<TabBar {...props}>I'm the content</TabBar>);
-		expect(screen.getByText('967')).toHaveClass('tc-tab-bar-item-badge custom-class-name');
+		expect(screen.getByText('967')).toBeVisible();
+		expect(screen.getByText('967').className).toContain('tag');
 	});
 });

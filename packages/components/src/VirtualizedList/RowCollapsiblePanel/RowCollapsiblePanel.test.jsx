@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import { screen, render } from '@testing-library/react';
 import { measure } from 'react-virtualized';
+import { vi } from 'vitest';
 import RowCollapsiblePanel from './RowCollapsiblePanel.component';
 
-jest.mock('react-virtualized', () => {
-	const mod = jest.requireActual('react-virtualized');
+vi.mock('react-virtualized', async () => {
+	const mod = await vi.importActual('react-virtualized');
 	// eslint-disable-next-line @typescript-eslint/no-shadow
-	const measure = jest.fn();
+	const measure = vi.fn();
 	return {
 		...mod,
 		CellMeasurer: props => <div data-testid="CellMeasurer">{props.children({ measure })}</div>,
@@ -129,8 +130,10 @@ describe('RowCollapsiblePanel', () => {
 		render(<RowCollapsiblePanel index={1} parent={noDataParent} />);
 
 		// then
-		expect(document.querySelector('.theme-loading-collapsible-panel')).toBeVisible();
+		expect(document.querySelector('[class*="loading-collapsible-panel"]')).toBeVisible();
 		expect(screen.getByRole('listitem')).toBeVisible();
-		expect(screen.getByRole('listitem').firstChild).toHaveClass('theme-loading-collapsible-panel');
+		expect(screen.getByRole('listitem').firstChild.className).toContain(
+			'loading-collapsible-panel',
+		);
 	});
 });

@@ -1,14 +1,15 @@
 import { render } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import Resource from './Resource.component';
 
-jest.mock('date-fns/formatDistanceToNow', () => ({
+vi.mock('date-fns/formatDistanceToNow', () => ({
 	formatDistanceToNow: () => 'over 2 years ago',
 }));
 
 describe('Resource component snaps', () => {
 	afterAll(() => {
-		jest.unmock('date-fns/formatDistanceToNow');
+		vi.unmock('date-fns/formatDistanceToNow');
 	});
 
 	describe('renderers', () => {
@@ -74,7 +75,9 @@ describe('Resource component snaps', () => {
 			render(<Resource {...props} />);
 			expect(document.querySelector('.title')).toHaveTextContent('Title with few actions');
 			expect(document.querySelector('.subtitle')).toHaveTextContent('Loreum lopsum');
-			expect(document.querySelectorAll('.theme-flag')).toHaveLength(2);
+			expect(document.querySelectorAll('[name="talend-badge"], [name="talend-star"]')).toHaveLength(
+				2,
+			);
 		});
 
 		it('should render a regular Resource without author information', () => {
@@ -144,7 +147,7 @@ describe('Resource component snaps', () => {
 			};
 
 			render(<Resource {...props} />);
-			expect(document.querySelectorAll('.theme-flag[name="talend-badge"]')).toHaveLength(1);
+			expect(document.querySelectorAll('[name="talend-badge"][class*="visible"]')).toHaveLength(1);
 		});
 
 		it('should render a Resource with FAVORITE flag', () => {
@@ -169,7 +172,7 @@ describe('Resource component snaps', () => {
 			};
 
 			render(<Resource {...props} />);
-			expect(document.querySelectorAll('.theme-flag[name="talend-star"]')).toHaveLength(1);
+			expect(document.querySelectorAll('[name="talend-star"][class*="visible"]')).toHaveLength(1);
 		});
 
 		it('should render a Resource with both CERTIFIED and FAVORITE flags', () => {
@@ -194,8 +197,8 @@ describe('Resource component snaps', () => {
 			};
 
 			render(<Resource {...props} />);
-			expect(document.querySelectorAll('.theme-flag[name="talend-badge"]')).toHaveLength(1);
-			expect(document.querySelectorAll('.theme-flag[name="talend-star"]')).toHaveLength(1);
+			expect(document.querySelectorAll('[name="talend-badge"][class*="visible"]')).toHaveLength(1);
+			expect(document.querySelectorAll('[name="talend-star"][class*="visible"]')).toHaveLength(1);
 		});
 	});
 });

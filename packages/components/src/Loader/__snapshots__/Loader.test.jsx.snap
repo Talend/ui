@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Loader > should render 1`] = `
+<div
+  class="tc-loader _tc-loader_2ac07e"
+>
+  <svg
+    aria-busy="true"
+    aria-label="Loading... "
+    class="tc-circular-progress _loader_c5866c _animate_c5866c _default_c5866c"
+    data-test="circular-progress"
+    data-testid="circular-progress"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      class="_path_c5866c"
+      cx="25"
+      cy="25"
+      fill="none"
+      r="20"
+      style="stroke-dasharray: 12.566370614359172; stroke-dashoffset: 0;"
+    />
+  </svg>
+</div>
+`;

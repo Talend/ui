@@ -1,11 +1,15 @@
 /* eslint-disable react/display-name */
 import { screen, render } from '@testing-library/react';
+import { vi } from 'vitest';
 import { ItemsComponent } from './Items.component';
 
-jest.mock(
-	'react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
-	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
-);
+vi.mock('react-virtualized', async () => {
+	const mod = await vi.importActual('react-virtualized');
+	return {
+		...mod,
+		AutoSizer: props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
+	};
+});
 
 describe('Items', () => {
 	const props = {

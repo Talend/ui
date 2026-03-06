@@ -73,10 +73,7 @@ describe('Status', () => {
 		expect(screen.getByText('Successful')).toBeVisible();
 		expect(screen.getByText('cancel')).toBeVisible();
 		expect(screen.getByText('delete')).toBeVisible();
-		expect(document.querySelector('.tc-status-icon .CoralIcon')).toHaveAttribute(
-			'name',
-			'fa fa-check',
-		);
+		expect(document.querySelector('.tc-status-icon [name]')).toHaveAttribute('name', 'fa fa-check');
 		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render a label', () => {
@@ -91,7 +88,7 @@ describe('Status', () => {
 
 		// then
 		expect(screen.getByText('Successful')).toBeVisible();
-		expect(document.querySelector('.tc-status-icon .CoralIcon')).toBeNull();
+		expect(document.querySelector('.tc-status-icon [name]')).toBeNull();
 	});
 	it('should render a label with Icon without actions', () => {
 		// when
@@ -109,7 +106,10 @@ describe('Status', () => {
 
 		// then
 		expect(screen.getByText('In Progress')).toBeVisible();
-		expect(screen.getByTestId('circular-progress')).toHaveClass('theme-animate');
+		expect(screen.getByTestId('circular-progress')).toHaveAttribute(
+			'class',
+			expect.stringContaining('animate'),
+		);
 	});
 
 	it('should render a label with a fixed circular progress', () => {
@@ -118,7 +118,10 @@ describe('Status', () => {
 
 		// then
 		expect(screen.getByText('In Progress')).toBeVisible();
-		expect(screen.getByTestId('circular-progress')).toHaveClass('theme-fixed');
+		expect(screen.getByTestId('circular-progress')).toHaveAttribute(
+			'class',
+			expect.stringContaining('fixed'),
+		);
 		expect(screen.getByTestId('circular-progress')).toHaveAttribute('aria-label', 'Loading... 70%');
 	});
 

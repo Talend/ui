@@ -243,8 +243,8 @@ describe('Typeahead', () => {
 
 			// then
 			const titleList = screen.getAllByTitle('le title 1');
-			expect(titleList[0]).not.toHaveClass('theme-selected');
-			expect(titleList[1]).toHaveClass('theme-selected');
+			expect(titleList[0].className).not.toContain('selected');
+			expect(titleList[1].className).toContain('selected');
 		});
 
 		it('should render typeahead selected item by string id', () => {
@@ -262,8 +262,8 @@ describe('Typeahead', () => {
 
 			// then
 			const titleList = screen.getAllByTitle('le title 1');
-			expect(titleList[0]).not.toHaveClass('theme-selected');
-			expect(titleList[1]).toHaveClass('theme-selected');
+			expect(titleList[0].className).not.toContain('selected');
+			expect(titleList[1].className).toContain('selected');
 		});
 
 		it('should render typeahead selected item by title', () => {
@@ -280,8 +280,8 @@ describe('Typeahead', () => {
 
 			// then
 			const titleList = screen.getAllByTitle('le title 1');
-			expect(titleList[0]).toHaveClass('theme-selected');
-			expect(titleList[1]).toHaveClass('theme-selected');
+			expect(titleList[0].className).toContain('selected');
+			expect(titleList[1].className).toContain('selected');
 		});
 	});
 	it('should not display section header if there are no title or icon', () => {

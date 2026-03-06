@@ -5,19 +5,31 @@ import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 describe('Loader', () => {
 	it('should render', () => {
 		const { container } = render(<Loader />);
-		expect(screen.getByLabelText('Loading...')).toHaveClass('theme-default');
+		expect(screen.getByLabelText('Loading...')).toHaveAttribute(
+			'class',
+			expect.stringContaining('default'),
+		);
 		expect(container.firstChild).toMatchSnapshot();
 	});
 	it('should render a small loader', () => {
 		render(<Loader size={SIZE.small} />);
-		expect(screen.getByLabelText('Loading...')).toHaveClass('theme-small');
+		expect(screen.getByLabelText('Loading...')).toHaveAttribute(
+			'class',
+			expect.stringContaining('small'),
+		);
 	});
 	it('should render a default loader', () => {
 		render(<Loader size={SIZE.default} />);
-		expect(screen.getByLabelText('Loading...')).toHaveClass('theme-default');
+		expect(screen.getByLabelText('Loading...')).toHaveAttribute(
+			'class',
+			expect.stringContaining('default'),
+		);
 	});
 	it('should render a large loader', () => {
 		render(<Loader size={SIZE.large} />);
-		expect(screen.getByLabelText('Loading...')).toHaveClass('theme-large');
+		expect(screen.getByLabelText('Loading...')).toHaveAttribute(
+			'class',
+			expect.stringContaining('large'),
+		);
 	});
 });

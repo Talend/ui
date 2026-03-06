@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import CellTitleInput from './CellTitleInput.component';
@@ -71,7 +71,7 @@ describe('CellTitleInput', () => {
 
 		// when
 		const form = screen.getByRole('textbox').closest('form');
-		form.submit();
+		fireEvent.submit(form);
 
 		// then
 		expect(onEditSubmit).toHaveBeenCalledWith(expect.anything(), {

@@ -1,20 +1,23 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import CellIconText from './CellIconText.component';
 
-jest.mock('../../TooltipTrigger', () => props => (
-	<div data-testid="TooltipTrigger" aria-label={props.label}>
-		{props.children}
-	</div>
-));
+vi.mock('../../TooltipTrigger', () => ({
+	default: props => (
+		<div data-testid="TooltipTrigger" aria-label={props.label}>
+			{props.children}
+		</div>
+	),
+}));
 
 describe('CellIconText', () => {
 	it('should render an empty cell', () => {
-		render(<CellIconText />);
-		expect(document.querySelector('.tc-icon-text')).toBeVisible();
+		const { container } = render(<CellIconText />);
+		expect(container.firstChild).toBeVisible();
 		expect(screen.getByTestId('TooltipTrigger')).toBeVisible();
-		expect(document.querySelector('.theme-label')).toBeVisible();
+		expect(container.querySelector('[class*="label"]')).toBeVisible();
 	});
 
 	it('should render an icon cell with an icon', () => {

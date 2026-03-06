@@ -5,12 +5,15 @@
 import { screen, render } from '@testing-library/react';
 import CellTitle from './CellTitle.component';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import { vi } from 'vitest';
 
-jest.mock('../../TooltipTrigger', () => props => (
-	<div data-testid="TooltipTrigger" aria-label={props.label}>
-		{props.children}
-	</div>
-));
+vi.mock('../../TooltipTrigger', () => ({
+	default: props => (
+		<div data-testid="TooltipTrigger" aria-label={props.label}>
+			{props.children}
+		</div>
+	),
+}));
 describe('CellTitle', () => {
 	it('should render', () => {
 		// given

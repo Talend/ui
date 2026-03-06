@@ -1,5 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { vi } from 'vitest';
 
 import Component, {
 	abstracter,
@@ -17,21 +18,22 @@ const callbacksProps = {
 	onToggle: jest.fn(),
 	onToggleAllSiblings: jest.fn(),
 };
-jest.mock('../../TooltipTrigger', () => {
+vi.mock('../../TooltipTrigger', () => {
 	const PropTypes = require('prop-types');
 	const TooltipTriggerMock = props => <div data-testid="tooltipTrigger">{props.label}</div>;
 	TooltipTriggerMock.displayName = 'TooltipTriggerMock';
 	TooltipTriggerMock.propTypes = {
 		label: PropTypes.string.isRequired,
 	};
-	return TooltipTriggerMock;
+	return { default: TooltipTriggerMock };
 });
 
-jest.mock('react', () => {
-	const realReact = jest.requireActual('react');
+vi.mock('react', async () => {
+	const realReact = await vi.importActual('react');
 	return {
 		...realReact,
-		useCallback: () => {},
+		// Avoid layout-measurement ref callback crashes in jsdom.
+		useCallback: () => () => {},
 	};
 });
 describe('JSONLike', () => {

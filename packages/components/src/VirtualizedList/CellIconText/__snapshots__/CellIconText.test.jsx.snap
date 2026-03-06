@@ -4,11 +4,15 @@ exports[`CellIconText > should render an icon cell with an icon 1`] = `
 <div
   class="tc-icon-text _tc-icon-text_c39f35"
 >
-  <span
-    aria-describedby="00000000-0000-4000-8000-000000000000"
-    class="_label_c39f35"
+  <div
+    aria-label="list"
+    data-testid="TooltipTrigger"
   >
-    list
-  </span>
+    <span
+      class="_label_c39f35"
+    >
+      list
+    </span>
+  </div>
 </div>
 `;

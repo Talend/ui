@@ -13,17 +13,21 @@ exports[`CellTitle > should render 1`] = `
     pointer-events="none"
     shape-rendering="geometricPrecision"
   />
-  <button
-    aria-describedby="00000000-0000-4000-8000-000000000000"
+  <div
     aria-label="my awesome title"
-    class="_main-title_650db4 btn btn-link"
-    id="my-title-1-title-cell-btn"
-    role="link"
-    type="button"
+    data-testid="TooltipTrigger"
   >
-    <span>
-      my awesome title
-    </span>
-  </button>
+    <button
+      aria-label="my awesome title"
+      class="_main-title_650db4 btn btn-link"
+      id="my-title-1-title-cell-btn"
+      role="link"
+      type="button"
+    >
+      <span>
+        my awesome title
+      </span>
+    </button>
+  </div>
 </div>
 `;

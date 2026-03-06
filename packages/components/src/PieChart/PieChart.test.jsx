@@ -1,24 +1,25 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import PieChart from './PieChart.component';
-jest.mock('../TooltipTrigger', () => {
+vi.mock('../TooltipTrigger', () => {
 	const TooltipTrigger = ({ children, ...props }) => (
 		<div data-testid="TooltipTrigger" data-props={JSON.stringify(props)}>
 			{children}
 		</div>
 	);
 	TooltipTrigger.propTypes = {};
-	return TooltipTrigger;
+	return { default: TooltipTrigger };
 });
-jest.mock('../OverlayTrigger', () => {
+vi.mock('../OverlayTrigger', () => {
 	const OverlayTrigger = ({ children, ...props }) => (
 		<div data-testid="OverlayTrigger" data-props={JSON.stringify(props)}>
 			{children}
 		</div>
 	);
 	OverlayTrigger.propTypes = {};
-	return OverlayTrigger;
+	return { default: OverlayTrigger };
 });
 
 describe('PieChart', () => {
