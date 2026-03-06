@@ -16,9 +16,9 @@
     "lint": "eslint .",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
-    "test:cov": "npm run test",
-    "test": "talend-scripts test",
-    "test:update": "talend-scripts test -u"
+    "test:cov": "vitest run --coverage",
+    "test": "vitest run",
+    "test:update": "vitest run --update"
   },
   "author": "json-schema-form",
   "contributors": [
@@ -48,6 +48,7 @@
     "json-schema"
   ],
   "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.18",
     "@talend/babel-plugin-assets-api": "^1.8.0",
     "@talend/babel-plugin-import-from-index": "^1.12.0",
     "@talend/eslint-config": "^14.0.0",
@@ -59,6 +60,7 @@
     "@types/node": "^6.14.13",
     "eslint": "^9.39.3",
     "rimraf": "^6.1.2",
+    "vitest": "^4.0.18",
     "webpack": "^5.104.1"
   },
   "dependencies": {
