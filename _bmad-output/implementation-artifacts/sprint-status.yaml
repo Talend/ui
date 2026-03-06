@@ -54,11 +54,11 @@ development_status:
   2-3-validate-cmf-tests-v4: done
   epic-2-retrospective: optional
 
-  epic-3: in-progress
+  epic-3: done
   3-1-replace-iterable-collection-actiondropdown: done
   3-2-validate-cmf-cqrs-v4: done
-  3-3-validate-cmf-router-v4: ready-for-dev
-  3-4-validate-sagas-v4: ready-for-dev
+  3-3-validate-cmf-router-v4: done
+  3-4-validate-sagas-v4: done
   epic-3-retrospective: optional
 
   epic-4: backlog
