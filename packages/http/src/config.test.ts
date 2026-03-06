@@ -24,7 +24,7 @@ describe('Configuration service', () => {
 		it('should not redefine the Accept Language if no defaultConfig', () => {
 			expect(() => {
 				setDefaultLanguage('ja');
-			}).toThrow('');
+			}).toThrow();
 		});
 
 		it('should redefine the Accept Language', () => {
@@ -61,7 +61,7 @@ describe('Configuration service', () => {
 		});
 
 		it('should add a new interceptor when the name is not already used', () => {
-			const interceptor = jest.fn();
+			const interceptor = vi.fn();
 			addHttpResponseInterceptor('myInterceptor', interceptor);
 			expect(HTTP_RESPONSE_INTERCEPTORS).toEqual({
 				myInterceptor: interceptor,
@@ -69,8 +69,8 @@ describe('Configuration service', () => {
 		});
 
 		it('should throw an error when the name is already used', () => {
-			const interceptor1 = jest.fn();
-			const interceptor2 = jest.fn();
+			const interceptor1 = vi.fn();
+			const interceptor2 = vi.fn();
 			addHttpResponseInterceptor('myInterceptor', interceptor1);
 			expect(() => addHttpResponseInterceptor('myInterceptor', interceptor2)).toThrowError(
 				'Interceptor myInterceptor already exists',
@@ -81,7 +81,7 @@ describe('Configuration service', () => {
 		});
 
 		it('should remove an existing interceptor', () => {
-			const interceptor1 = jest.fn();
+			const interceptor1 = vi.fn();
 			addHttpResponseInterceptor('myInterceptor', interceptor1);
 
 			removeHttpResponseInterceptor('myInterceptor');
@@ -89,7 +89,7 @@ describe('Configuration service', () => {
 		});
 
 		it('should throw an error when the interceptor does not exist', () => {
-			const interceptor2 = jest.fn();
+			const interceptor2 = vi.fn();
 			addHttpResponseInterceptor('myInterceptor2', interceptor2);
 			expect(() => removeHttpResponseInterceptor('myInterceptor')).toThrowError(
 				'Interceptor myInterceptor does not exist',
@@ -107,12 +107,12 @@ describe('Configuration service', () => {
 				body: [1, 2, 3],
 			} as unknown as Response;
 
-			const interceptor1 = jest
+			const interceptor1 = vi
 				.fn()
 				.mockImplementation((resp, _) => Promise.resolve({ ...resp, body: [...resp.body, 4] }));
 			addHttpResponseInterceptor('interceptor-1', interceptor1);
 
-			const interceptor2 = jest.fn().mockImplementation((resp, req) =>
+			const interceptor2 = vi.fn().mockImplementation((resp, req) =>
 				Promise.resolve({
 					...resp,
 					body: { interceptor: `interceptor2-${req.method}`, original: resp.body },
@@ -132,7 +132,7 @@ describe('Configuration service', () => {
 				body: { interceptor: 'interceptor2-GET', original: [1, 2, 3, 4] },
 			});
 		});
-		it('should return response if no interceptors', () => {
+		it('should return response if no interceptors', async () => {
 			const request: TalendRequest = {
 				url: '/api/v1/data',
 				method: HTTP_METHODS.GET,
@@ -143,7 +143,7 @@ describe('Configuration service', () => {
 				body: [1, 2, 3],
 			} as unknown as Response;
 
-			expect(applyInterceptors(request, response)).resolves.toEqual(response);
+			await expect(applyInterceptors(request, response)).resolves.toEqual(response);
 		});
 		it('should return response if interceptor returns void', async () => {
 			const request: TalendRequest = {
@@ -155,7 +155,7 @@ describe('Configuration service', () => {
 				status: HTTP_STATUS.OK,
 				body: [1, 2, 3],
 			} as unknown as Response;
-			const interceptor = jest.fn().mockImplementation(() => {});
+			const interceptor = vi.fn().mockImplementation(() => {});
 			addHttpResponseInterceptor('interceptor', interceptor);
 			const gotResponse = await applyInterceptors(request, response);
 			expect(gotResponse).toEqual(response);
