@@ -1,9 +1,9 @@
-jest.mock('eslint-plugin-storybook', () => ({
+vi.mock('eslint-plugin-storybook', () => ({
 	configs: { 'flat/recommended': [] },
 	rules: {},
 }));
 
-jest.mock('eslint-plugin-mdx', () => ({
+vi.mock('eslint-plugin-mdx', () => ({
 	configs: { flat: {} },
 	rules: {},
 }));

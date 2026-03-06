@@ -1,0 +1,202 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputDateTimeRangePicker > should render 1`] = `
+<div
+  class="range-picker _range-picker_4d99f3"
+>
+  <div
+    class="range-input"
+    data-testid="range-start"
+  >
+    <label
+      class="_label_048b2f"
+      for="my-picker"
+    >
+      From
+    </label>
+    <div
+      class="_date-time-picker_85a5de"
+    >
+      <div
+        class="_date-picker_c8776c date-picker"
+        tabindex="-1"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <span
+            class="_hidden_91f55b"
+          >
+            <label
+              class="_label_048b2f"
+              for="my-picker-start-date-picker-input"
+            />
+          </span>
+          <div
+            class="_inputShell_bca7b9"
+          >
+            <input
+              autocomplete="off"
+              class="_input_876932"
+              data-testid="date-picker"
+              id="my-picker-start-date-picker-input"
+              placeholder="YYYY-MM-DD"
+              style="width: 47px;"
+              type="text"
+              value="2019-12-01"
+            />
+          </div>
+        </div>
+        <span
+          data-testid="InputSizer"
+          style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
+        >
+          YYYY-MM-DD
+        </span>
+      </div>
+      <div
+        class="_time-picker_78da7e time-picker"
+        tabindex="-1"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <span
+            class="_hidden_91f55b"
+          >
+            <label
+              class="_label_048b2f"
+              for="my-picker-start-time-picker-input"
+            />
+          </span>
+          <div
+            class="_inputShell_bca7b9"
+          >
+            <input
+              autocomplete="off"
+              class="_input_876932"
+              data-testid="time-picker"
+              id="my-picker-start-time-picker-input"
+              maxlength="8"
+              placeholder="HH:mm:ss"
+              style="width: 47px;"
+              type="text"
+              value="00:00:00"
+            />
+          </div>
+        </div>
+        <span
+          data-testid="InputSizer"
+          style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
+        >
+          HH:mm:ss
+        </span>
+      </div>
+    </div>
+  </div>
+  <span
+    class="_arrow_4d99f3 arrow"
+  >
+    <svg
+      aria-hidden="true"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+      style="width: 0.75rem; height: 0.75rem;"
+    >
+      <use
+        xlink:href="#arrow-right:S"
+      />
+    </svg>
+  </span>
+  <div
+    class="range-input"
+    data-testid="range-end"
+  >
+    <label
+      class="_label_048b2f"
+      for="my-picker"
+    >
+      To
+    </label>
+    <div
+      class="_date-time-picker_85a5de"
+    >
+      <div
+        class="_date-picker_c8776c date-picker"
+        tabindex="-1"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <span
+            class="_hidden_91f55b"
+          >
+            <label
+              class="_label_048b2f"
+              for="my-picker-end-date-picker-input"
+            />
+          </span>
+          <div
+            class="_inputShell_bca7b9"
+          >
+            <input
+              autocomplete="off"
+              class="_input_876932"
+              data-testid="date-picker"
+              id="my-picker-end-date-picker-input"
+              placeholder="YYYY-MM-DD"
+              style="width: 47px;"
+              type="text"
+              value="2019-12-11"
+            />
+          </div>
+        </div>
+        <span
+          data-testid="InputSizer"
+          style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
+        >
+          YYYY-MM-DD
+        </span>
+      </div>
+      <div
+        class="_time-picker_78da7e time-picker"
+        tabindex="-1"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <span
+            class="_hidden_91f55b"
+          >
+            <label
+              class="_label_048b2f"
+              for="my-picker-end-time-picker-input"
+            />
+          </span>
+          <div
+            class="_inputShell_bca7b9"
+          >
+            <input
+              autocomplete="off"
+              class="_input_876932"
+              data-testid="time-picker"
+              id="my-picker-end-time-picker-input"
+              maxlength="8"
+              placeholder="HH:mm:ss"
+              style="width: 47px;"
+              type="text"
+              value="23:59:59"
+            />
+          </div>
+        </div>
+        <span
+          data-testid="InputSizer"
+          style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
+        >
+          HH:mm:ss
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

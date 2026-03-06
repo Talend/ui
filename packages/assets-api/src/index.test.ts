@@ -1,4 +1,5 @@
 import readPackageUp from 'read-pkg-up';
+import { vi } from 'vitest';
 import assetsApi, { Asset } from '.';
 
 const currentInfo = readPackageUp.sync({ cwd: __dirname });
@@ -7,7 +8,7 @@ const bundlePath = '/dist/svg-bundles/all.svg';
 describe('assets-api', () => {
 	describe('getURL', () => {
 		afterEach(() => {
-			jest.restoreAllMocks();
+			vi.restoreAllMocks();
 		});
 
 		it('should return static url', () => {
@@ -27,9 +28,9 @@ describe('assets-api', () => {
 			const original = window.Talend.CDN_URL;
 			window.Talend.CDN_URL = '/cdn';
 			const mockedBaseElement = {
-				getAttribute: jest.fn().mockReturnValueOnce('/'),
+				getAttribute: vi.fn().mockReturnValueOnce('/'),
 			} as unknown as Element;
-			jest.spyOn(document, 'querySelector').mockImplementation(() => mockedBaseElement);
+			vi.spyOn(document, 'querySelector').mockImplementation(() => mockedBaseElement);
 			const url = assetsApi.getURL(bundlePath, '@talend/icons', '6.60.1');
 			expect(url).toBe(`/cdn/@talend/icons/6.60.1${bundlePath}`);
 			window.Talend.CDN_URL = original;
@@ -38,7 +39,7 @@ describe('assets-api', () => {
 		it('should use global getCDNUrl', () => {
 			const assetsPath = '/package.json';
 			const original = window.Talend.getCDNUrl;
-			window.Talend.getCDNUrl = jest.fn(
+			window.Talend.getCDNUrl = vi.fn(
 				(info: Asset) => `https://mycdn.talend.com/${info.name}/${info.version}${info.path}`,
 			);
 			const url = assetsApi.getURL(
@@ -54,7 +55,7 @@ describe('assets-api', () => {
 		it('should use meta to override the value', () => {
 			const assetsPath = '/package.json';
 			const original = window.Talend.getCDNUrl;
-			window.Talend.getCDNUrl = jest.fn(
+			window.Talend.getCDNUrl = vi.fn(
 				(info: Asset) => `https://mycdn.talend.com/${info.name}/${info.version}${info.path}`,
 			);
 			const meta = document.createElement('meta');

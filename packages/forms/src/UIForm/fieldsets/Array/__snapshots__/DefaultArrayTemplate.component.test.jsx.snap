@@ -1,0 +1,343 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Default Array Template component > should render default array template 1`] = `
+<fieldset
+  class="_tf-array-fieldset_78a48e tf-array-fieldset"
+  data-content="comments"
+>
+  <span
+    class="_hidden_91f55b"
+  >
+    <legend>
+      comments
+    </legend>
+  </span>
+  <button
+    aria-label="Add"
+    class="_tf-array-add_78a48e tf-array-add btn btn-info"
+    id="my-template-btn"
+    type="button"
+  >
+    <span>
+      Add
+    </span>
+  </button>
+  <div
+    aria-live="polite"
+    class="_inlineMessage_c6661a"
+    data-test="fieldTemplate.inlineMessage"
+    id="my-template-description"
+    role="status"
+  >
+    <span
+      class="_icon_c6661a _information__icon_8d33ef"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1rem; height: 1rem;"
+      >
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="_inlineMessage__contents_c6661a"
+    >
+      <span>
+        Tnstructions to fill it
+      </span>
+    </p>
+  </div>
+  <ol
+    aria-describedby="my-template-description my-template-error"
+    aria-invalid="true"
+    class="_tf-array_78a48e tf-array"
+    id="my-template"
+  >
+    <li
+      class="_item_78a48e item item-0"
+    >
+      <div
+        class="_tf-array-item_2f0f38 tf-array-item"
+      >
+        <div
+          class="_control_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Move up"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            disabled=""
+            id="my-template-control-0-moveUp"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            aria-describedby="id-42"
+            aria-label="Move down"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            id="my-template-control-0-moveDown"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div>
+          Render item 
+          0
+        </div>
+        <div
+          class="_delete_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Delete"
+            class="_clickable_5222c6 _buttonIcon_5aa719"
+            id="my-template-control-0-delete"
+            tabindex="0"
+            tooltip="Delete"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </li>
+    <li
+      class="_item_78a48e item item-1"
+    >
+      <div
+        class="_tf-array-item_2f0f38 tf-array-item"
+      >
+        <div
+          class="_control_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Move up"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            id="my-template-control-1-moveUp"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            aria-describedby="id-42"
+            aria-label="Move down"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            id="my-template-control-1-moveDown"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div>
+          Render item 
+          1
+        </div>
+        <div
+          class="_delete_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Delete"
+            class="_clickable_5222c6 _buttonIcon_5aa719"
+            id="my-template-control-1-delete"
+            tabindex="0"
+            tooltip="Delete"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </li>
+    <li
+      class="_item_78a48e item item-2"
+    >
+      <div
+        class="_tf-array-item_2f0f38 tf-array-item"
+      >
+        <div
+          class="_control_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Move up"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            id="my-template-control-2-moveUp"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            aria-describedby="id-42"
+            aria-label="Move down"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            disabled=""
+            id="my-template-control-2-moveDown"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div>
+          Render item 
+          2
+        </div>
+        <div
+          class="_delete_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Delete"
+            class="_clickable_5222c6 _buttonIcon_5aa719"
+            id="my-template-control-2-delete"
+            tabindex="0"
+            tooltip="Delete"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </li>
+  </ol>
+</fieldset>
+`;

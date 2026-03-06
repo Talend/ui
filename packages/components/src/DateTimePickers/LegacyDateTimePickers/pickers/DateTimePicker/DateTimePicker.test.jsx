@@ -6,22 +6,20 @@ import { startOfDay } from 'date-fns/startOfDay';
 import dateMock from '../../../../../../../mocks/dateMock';
 import DateTimePicker from './DateTimePicker.component';
 
-jest.unmock('@talend/design-system');
-
-jest.mock('../../views/DateTimeView', () =>
-	jest.fn(props => (
+vi.mock('../../views/DateTimeView', () => ({
+	default: vi.fn(props => (
 		<div data-testid="DateTimeView" data-props={JSON.stringify(props)}>
 			<button onClick={() => props.onTitleClick()}>Select MonthYearView</button>
 		</div>
 	)),
-);
-jest.mock('../../views/MonthYearView', () =>
-	jest.fn(props => (
+}));
+vi.mock('../../views/MonthYearView', () => ({
+	default: vi.fn(props => (
 		<div data-testid="MonthYearView" data-props={JSON.stringify(props)}>
 			<button onClick={() => props.onBackClick()}>Select DateTimeView</button>
 		</div>
 	)),
-);
+}));
 
 describe('DateTimePicker', () => {
 	afterEach(() => {
@@ -30,9 +28,10 @@ describe('DateTimePicker', () => {
 
 	it('should render', () => {
 		dateMock.mock(new Date(2018, 5, 12));
-		const { container } = render(<DateTimePicker manageFocus={false} onSubmit={() => {}} />);
+		render(<DateTimePicker manageFocus={false} onSubmit={() => {}} />);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByTestId('DateTimeView')).toBeVisible();
+		expect(screen.getByText('Today')).toBeVisible();
 	});
 
 	it('should initialize calendar view to current date', () => {
@@ -118,7 +117,6 @@ describe('DateTimePicker', () => {
 
 			// when
 			await user.click(screen.getByText('Select DateTimeView'));
-			jest.runAllTimers();
 
 			// then
 			expect(screen.queryByText('Select MonthYearView')).toBeVisible();

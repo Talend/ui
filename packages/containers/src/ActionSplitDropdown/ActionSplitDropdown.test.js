@@ -5,8 +5,6 @@ import Connected, {
 	ContainerActionSplitDropdown,
 } from './ActionSplitDropdown.connect';
 
-jest.unmock('@talend/design-system');
-
 describe('Connect(CMF(Container(ActionSplitDropdown)))', () => {
 	it('should connect ActionSplitDropdown', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${ContainerActionSplitDropdown.displayName}))`);

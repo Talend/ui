@@ -100,12 +100,13 @@ const items = fromJS([
 	},
 ]);
 
-jest.mock('@talend/react-components/lib/List', () => ({ getProps, ...props }) => (
-	<div data-testid="List">
-		<button onClick={() => getProps(props)}>getProps</button>
-	</div>
-));
-jest.unmock('@talend/design-system');
+vi.mock('@talend/react-components/lib/List', () => ({
+	default: ({ getProps, ...props }) => (
+		<div data-testid="List">
+			<button onClick={() => getProps(props)}>getProps</button>
+		</div>
+	),
+}));
 
 describe('Container List', () => {
 	it('should put default props', async () => {

@@ -6,10 +6,8 @@ import cmf, { mock } from '@talend/react-cmf';
 import { resolveNameForTitleMap, TCompForm, toJS } from './ComponentForm.component';
 import addSchemaMock from './ComponentForm.test.schema.json';
 
-jest.unmock('@talend/design-system');
-
-jest.mock('./kit', () => ({
-	createTriggers({ url, customRegistry, security }) {
+vi.mock('./kit', () => {
+	const createTriggers = ({ url, customRegistry, security }) => {
 		function trigger() {
 			trigger.isCalled = true;
 			return Promise.resolve(trigger.data || {});
@@ -19,8 +17,15 @@ jest.mock('./kit', () => ({
 			this.data = data;
 		};
 		return trigger;
-	},
-}));
+	};
+
+	return {
+		default: {
+			createTriggers,
+		},
+		createTriggers,
+	};
+});
 
 describe('ComponentForm', () => {
 	let App;

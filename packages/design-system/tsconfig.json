@@ -7,6 +7,6 @@
     "paths": {},
     "module": "CommonJs",
     "rootDirs": ["src"],
-    "types": []
+    "types": ["vitest/globals"]
   }
 }

@@ -3,7 +3,7 @@
 exports[`Horizontal bar chart > should render 1`] = `
 <div
   class="recharts-responsive-container"
-  style="width: 400px; height: 300px; min-width: 0px;"
+  style="width: 400px; height: 300px; min-width: 0;"
 >
   <div
     class="recharts-wrapper horizontal-bar-chart"

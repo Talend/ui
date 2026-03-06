@@ -1,18 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`KeyValue field should render default KeyValue 1`] = `
+exports[`KeyValue field > should render default KeyValue 1`] = `
 <div>
   <div
-    class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+    class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _height-100_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
   >
     <label
-      class="theme-label"
+      class="_label_048b2f"
       for="my-key-value-field"
     >
       Variable
     </label>
     <dl
-      class="theme-key-value"
+      class="_key-value_10ac4e"
     >
       <dt>
         <div
@@ -35,13 +35,13 @@ exports[`KeyValue field should render default KeyValue 1`] = `
     </dl>
     <div
       aria-live="polite"
-      class="theme-inlineMessage"
+      class="_inlineMessage_c6661a"
       data-test="fieldTemplate.inlineMessage"
       id="my-key-value-field-description"
       role="status"
     >
       <span
-        class="theme-icon theme-information__icon"
+        class="_icon_c6661a _information__icon_8d33ef"
       >
         <svg
           aria-hidden="true"
@@ -55,7 +55,7 @@ exports[`KeyValue field should render default KeyValue 1`] = `
         </svg>
       </span>
       <p
-        class="theme-inlineMessage__contents"
+        class="_inlineMessage__contents_c6661a"
       >
         <span>
           This is the key/value field

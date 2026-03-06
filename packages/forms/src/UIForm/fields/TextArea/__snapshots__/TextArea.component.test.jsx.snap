@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TextArea field > should render textarea 1`] = `
+<div
+  class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+>
+  <label
+    class="_label_048b2f"
+    for="myForm"
+  >
+    My input title
+    *
+  </label>
+  <textarea
+    aria-invalid="false"
+    aria-required="true"
+    class="_textarea_578735"
+    id="myForm"
+    placeholder="Type something here"
+    required=""
+    rows="5"
+  >
+    toto
+  </textarea>
+  <div
+    aria-live="polite"
+    class="_inlineMessage_c6661a"
+    role="status"
+  >
+    <span
+      class="_icon_c6661a _information__icon_8d33ef"
+    >
+      <svg
+        aria-hidden="true"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+        style="width: 1rem; height: 1rem;"
+      >
+        <use
+          xlink:href="#information-filled:M"
+        />
+      </svg>
+    </span>
+    <p
+      class="_inlineMessage__contents_c6661a"
+    >
+      <span>
+        My error message
+      </span>
+    </p>
+  </div>
+</div>
+`;

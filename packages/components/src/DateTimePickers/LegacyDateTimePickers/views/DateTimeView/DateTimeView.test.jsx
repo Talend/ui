@@ -4,13 +4,12 @@ import userEvent from '@testing-library/user-event';
 
 import DateTimeView from './DateTimeView.component';
 
-jest.unmock('@talend/design-system');
-jest.mock('../../pickers/DatePicker', () => props => (
-	<div data-testid="DatePicker" data-props={JSON.stringify(props)} />
-));
-jest.mock('../../pickers/TimePicker', () => props => (
-	<div data-testid="TimePicker" data-props={JSON.stringify(props)} />
-));
+vi.mock('../../pickers/DatePicker', () => ({
+	default: props => <div data-testid="DatePicker" data-props={JSON.stringify(props)} />,
+}));
+vi.mock('../../pickers/TimePicker', () => ({
+	default: props => <div data-testid="TimePicker" data-props={JSON.stringify(props)} />,
+}));
 
 describe('DateTimeView', () => {
 	it('should render', () => {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`check linkreducer FLOWDESIGNER_LINK_ADD should add a new link to the state 1`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_ADD should add a new link to the state 1`] = `
 Immutable.Map {
   "in": Immutable.Map {
     "id2": Immutable.Map {
@@ -274,7 +274,7 @@ Immutable.Map {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_ADD should add a new link to the state 2`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_ADD should add a new link to the state 2`] = `
 Immutable.Map {
   "in": Immutable.Map {
     "id2": Immutable.Map {
@@ -575,7 +575,7 @@ Immutable.Map {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE should remove link from state 1`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_REMOVE should remove link from state 1`] = `
 Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
@@ -805,7 +805,7 @@ Immutable.Map {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE_DATA should remove 'attr'from data map 1`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_REMOVE_DATA should remove 'attr'from data map 1`] = `
 Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
@@ -1054,7 +1054,7 @@ Immutable.Map {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES should remove a specific attributes from attr map 1`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES should remove a specific attributes from attr map 1`] = `
 Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
@@ -1301,7 +1301,7 @@ Immutable.Map {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_SET_DATA should add a data attribute type: 'test' from data map 1`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_SET_DATA should add a data attribute type: 'test' from data map 1`] = `
 Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
@@ -1551,7 +1551,7 @@ Immutable.Map {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES should merge attributes within link attr property 1`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES should merge attributes within link attr property 1`] = `
 Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
@@ -1801,7 +1801,7 @@ Immutable.Map {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_SET_SOURCE switch source to correct port if it exist 1`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_SET_SOURCE switch source to correct port if it exist 1`] = `
 Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": undefined,
@@ -2056,7 +2056,7 @@ Immutable.Map {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_SET_TARGET switch target to correct port if it exist 1`] = `
+exports[`check linkreducer > FLOWDESIGNER_LINK_SET_TARGET switch target to correct port if it exist 1`] = `
 Immutable.Map {
   "in": Immutable.Map {
     "id3": Immutable.Map {

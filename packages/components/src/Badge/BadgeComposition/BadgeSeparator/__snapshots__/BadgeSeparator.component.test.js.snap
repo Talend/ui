@@ -1,4 +1,24 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BadgeSeparator > should default render 1`] = `
+<body>
+  <div>
+    <span
+      class="tc-badge-separator _tc-badge-separator_2ccc7e"
+    />
+  </div>
+</body>
+`;
+
+exports[`BadgeSeparator > should render with icon separator class 1`] = `
+<body>
+  <div>
+    <span
+      class="tc-badge-separator _tc-badge-separator_2ccc7e tc-badge-separator-icon _tc-badge-separator-icon_2ccc7e"
+    />
+  </div>
+</body>
+`;
 
 exports[`BadgeSeparator should default render 1`] = `
 <body>

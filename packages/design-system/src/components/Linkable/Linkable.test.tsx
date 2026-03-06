@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { Linkable } from './';

@@ -4,15 +4,15 @@ import userEvent from '@testing-library/user-event';
 import { DateTimeContext } from '../Context';
 import Picker from './Picker.component';
 
-jest.mock('../../pickers/DateTimePicker', () => {
-	return function DummyDateTimePicker({ getProps, ...props }) {
+vi.mock('../../pickers/DateTimePicker', () => ({
+	default: function DummyDateTimePicker({ getProps, ...props }) {
 		return (
 			<div data-testid="DateTimePicker" {...props}>
 				<button onClick={() => getProps(props)}>getProps</button>
 			</div>
 		);
-	};
-});
+	},
+}));
 
 describe('DateTime.Picker', () => {
 	it('should render', async () => {

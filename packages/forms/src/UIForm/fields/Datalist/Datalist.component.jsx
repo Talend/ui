@@ -32,7 +32,7 @@ const PROPS_TO_OMIT = [
 	'resolveName',
 ];
 
-class Datalist extends Component {
+export class Datalist extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { isValid: true };

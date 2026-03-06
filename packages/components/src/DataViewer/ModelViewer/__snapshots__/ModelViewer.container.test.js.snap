@@ -1,4 +1,279 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`I18n > should render 1`] = `
+<div
+  class="_tc-model_fc7435 tc-model"
+>
+  <div
+    class="_tc-tree-header_2a680a tc-tree-header"
+  >
+    Data model
+    <div
+      class="_tc-tree-header-actions_2a680a tc-tree-header-actions"
+    />
+  </div>
+  <ul
+    class="_tc-tree_4f2225 tc-tree"
+  >
+    <li>
+      <span
+        class="_tc-model-leaf_fc7435 tc-model-leaf"
+      >
+        <button
+          aria-label="Select business_id ($['business_id'])"
+          class="_tc-model-leaf-button_fc7435 tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="business_id (INTEGER)"
+        />
+        <span
+          class="_tc-simple-text_5c4f92 tc-simple-text"
+        >
+          <span
+            class="_tc-simple-text-key_5c4f92 tc-simple-text-key _tc-simple-text-key-with-value_5c4f92 tc-simple-text-key-with-value"
+          >
+            business_id
+             
+          </span>
+          <span
+            class="_tc-simple-text-value_5c4f92 tc-simple-text-value"
+          >
+            (INTEGER)
+          </span>
+        </span>
+        <span
+          class="_tc-model-leaf-options_fc7435 tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <span
+        class="_tc-model-leaf_fc7435 tc-model-leaf"
+      >
+        <button
+          aria-label="Select name ($['name'])"
+          class="_tc-model-leaf-button_fc7435 tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="name (STRING)"
+        />
+        <span
+          class="_tc-simple-text_5c4f92 tc-simple-text"
+        >
+          <span
+            class="_tc-simple-text-key_5c4f92 tc-simple-text-key _tc-simple-text-key-with-value_5c4f92 tc-simple-text-key-with-value"
+          >
+            name
+             
+          </span>
+          <span
+            class="_tc-simple-text-value_5c4f92 tc-simple-text-value"
+          >
+            (STRING)
+          </span>
+        </span>
+        <span
+          class="_tc-model-leaf-options_fc7435 tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <span
+        class="_tc-model-leaf_fc7435 tc-model-leaf"
+      >
+        <button
+          aria-label="Select category ($['category'])"
+          class="_tc-model-leaf-button_fc7435 tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="category (STRING)"
+        />
+        <span
+          class="_tc-simple-text_5c4f92 tc-simple-text"
+        >
+          <span
+            class="_tc-simple-text-key_5c4f92 tc-simple-text-key _tc-simple-text-key-with-value_5c4f92 tc-simple-text-key-with-value"
+          >
+            category
+             
+          </span>
+          <span
+            class="_tc-simple-text-value_5c4f92 tc-simple-text-value"
+          >
+            (STRING)
+          </span>
+        </span>
+        <span
+          class="_tc-model-leaf-options_fc7435 tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <span
+        class="_tc-model-leaf_fc7435 tc-model-leaf"
+      >
+        <button
+          aria-label="Select rating ($['rating'])"
+          class="_tc-model-leaf-button_fc7435 tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="rating (DOUBLE)"
+        />
+        <span
+          class="_tc-simple-text_5c4f92 tc-simple-text"
+        >
+          <span
+            class="_tc-simple-text-key_5c4f92 tc-simple-text-key _tc-simple-text-key-with-value_5c4f92 tc-simple-text-key-with-value"
+          >
+            rating
+             
+          </span>
+          <span
+            class="_tc-simple-text-value_5c4f92 tc-simple-text-value"
+          >
+            (DOUBLE)
+          </span>
+        </span>
+        <span
+          class="_tc-model-leaf-options_fc7435 tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <span
+        class="_tc-model-leaf_fc7435 tc-model-leaf"
+      >
+        <button
+          aria-label="Select num_of_reviews ($['num_of_reviews'])"
+          class="_tc-model-leaf-button_fc7435 tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="num_of_reviews (INTEGER)"
+        />
+        <span
+          class="_tc-simple-text_5c4f92 tc-simple-text"
+        >
+          <span
+            class="_tc-simple-text-key_5c4f92 tc-simple-text-key _tc-simple-text-key-with-value_5c4f92 tc-simple-text-key-with-value"
+          >
+            num_of_reviews
+             
+          </span>
+          <span
+            class="_tc-simple-text-value_5c4f92 tc-simple-text-value"
+          >
+            (INTEGER)
+          </span>
+        </span>
+        <span
+          class="_tc-model-leaf-options_fc7435 tc-model-leaf-options"
+        />
+      </span>
+    </li>
+    <li>
+      <div
+        class="_tc-model-branch_fc7435 tc-model-branch"
+      >
+        <span
+          class="_tc-model-branch-content_fc7435 tc-model-branch-content"
+        >
+          <button
+            class="_tc-model-branch-button_fc7435 tc-model-branch-button"
+            data-testid="model-branch-button"
+          />
+          <span
+            class="_tc-tree-branch-icon_e17aee tc-tree-branch-icon _tc-model-branch-icon_fc7435 tc-model-branch-icon"
+            data-testid="tree-branch-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon _svg_bf5f45 _tc-tree-branch-icon-caret_e17aee tc-tree-branch-icon-caret _tc-tree-branch-icon-caret-right_e17aee tc-tree-branch-icon-caret-right tc-icon-name-talend-chevron-left"
+              focusable="false"
+              name="talend-chevron-left"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              title="Expand attributes ($['attributes'])"
+            />
+          </span>
+          <span
+            class="_tc-simple-text_5c4f92 tc-simple-text"
+          >
+            <span
+              class="_tc-simple-text-key_5c4f92 tc-simple-text-key"
+            >
+              attributes
+               
+            </span>
+          </span>
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="_tc-model-branch_fc7435 tc-model-branch"
+      >
+        <span
+          class="_tc-model-branch-content_fc7435 tc-model-branch-content"
+        >
+          <button
+            class="_tc-model-branch-button_fc7435 tc-model-branch-button"
+            data-testid="model-branch-button"
+          />
+          <span
+            class="_tc-tree-branch-icon_e17aee tc-tree-branch-icon _tc-model-branch-icon_fc7435 tc-model-branch-icon"
+            data-testid="tree-branch-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon _svg_bf5f45 _tc-tree-branch-icon-caret_e17aee tc-tree-branch-icon-caret _tc-tree-branch-icon-caret-right_e17aee tc-tree-branch-icon-caret-right tc-icon-name-talend-chevron-left"
+              focusable="false"
+              name="talend-chevron-left"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              title="Expand location ($['location'])"
+            />
+          </span>
+          <span
+            class="_tc-simple-text_5c4f92 tc-simple-text"
+          >
+            <span
+              class="_tc-simple-text-key_5c4f92 tc-simple-text-key"
+            >
+              location
+               
+            </span>
+          </span>
+        </span>
+      </div>
+    </li>
+    <li>
+      <span
+        class="_tc-model-leaf_fc7435 tc-model-leaf"
+      >
+        <button
+          aria-label="Select tags ($['tags'][])"
+          class="_tc-model-leaf-button_fc7435 tc-model-leaf-button"
+          data-testid="model-leaf-button"
+          title="tags* (array)"
+        />
+        <span
+          class="_tc-simple-text_5c4f92 tc-simple-text"
+        >
+          <span
+            class="_tc-simple-text-key_5c4f92 tc-simple-text-key _tc-simple-text-key-with-value_5c4f92 tc-simple-text-key-with-value"
+          >
+            tags*
+             
+          </span>
+          <span
+            class="_tc-simple-text-value_5c4f92 tc-simple-text-value"
+          >
+            (array)
+          </span>
+        </span>
+        <span
+          class="_tc-model-leaf-options_fc7435 tc-model-leaf-options"
+        />
+      </span>
+    </li>
+  </ul>
+</div>
+`;
 
 exports[`I18n should render 1`] = `
 <div

@@ -15,10 +15,10 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "talend-scripts test",
+    "test": "vitest run",
     "lint": "eslint .",
-    "test:update": "talend-scripts test -u",
-    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
+    "test:update": "vitest run --update",
+    "test:cov": "vitest run --coverage"
   },
   "keywords": [
     "react",
@@ -44,14 +44,15 @@
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/date-fns": "^2.6.3",
-    "@types/jest": "^29.5.14",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
+    "@vitest/coverage-v8": "^4.0.18",
     "date-fns": "^3.6.0",
     "eslint": "^9.39.3",
     "jest-in-case": "^1.0.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "react": "^18.3.1",

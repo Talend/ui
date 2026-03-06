@@ -19,9 +19,9 @@
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "lint": "eslint .",
-    "test": "talend-scripts test",
-    "test:update": "talend-scripts test -u",
-    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
+    "test": "vitest run",
+    "test:update": "vitest run --update",
+    "test:cov": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -30,11 +30,12 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "@talend/babel-plugin-import-from-index": "^1.12.0",
     "@talend/babel-plugin-assets-api": "^1.8.0",
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-config-jest": "^14.6.0",
     "@talend/scripts-core": "^17.0.0",
     "@talend/scripts-config-typescript": "^12.0.0",
     "@talend/scripts-config-react-webpack": "^17.0.0",
@@ -42,7 +43,6 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@types/d3": "^7.4.3",
     "@types/invariant": "^2.2.37",
-    "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.23",
     "@types/node": "^6.14.13",
     "@types/prop-types": "^15.7.15",
@@ -64,7 +64,8 @@
     "redux": "^4.2.1",
     "redux-mock-store": "^1.5.5",
     "redux-thunk": "^2.4.2",
-    "reselect": "^4.1.8"
+    "reselect": "^4.1.8",
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "immutable": "3",

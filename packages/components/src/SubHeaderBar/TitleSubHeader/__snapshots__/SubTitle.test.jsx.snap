@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SubTitle > should render 1`] = `
+<small
+  aria-describedby="00000000-0000-4000-8000-000000000000"
+  class="tc-subheader-details-text-subtitle _tc-subheader-details-text-subtitle_dde847"
+>
+  mySubTitle
+</small>
+`;

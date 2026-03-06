@@ -20,10 +20,10 @@
   "scripts": {
     "build:lib": "talend-scripts build && talend-scripts build --esm",
     "start": "echo nothing to start",
-    "test": "talend-scripts test",
-    "test:update": "talend-scripts test -u",
-    "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary",
+    "test": "vitest run",
+    "test:update": "vitest run --update",
+    "test:watch": "vitest --watch",
+    "test:cov": "vitest run --coverage",
     "lint": "eslint ."
   },
   "keywords": [
@@ -61,13 +61,14 @@
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "@redux-saga/testing-utils": "^1.2.1",
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
     "@talend/scripts-config-typescript": "^12.0.0",
     "@talend/scripts-core": "^17.0.0",
     "@talend/scripts-config-babel": "^13.9.0",
-    "@talend/scripts-config-jest": "^14.6.0",
     "@talend/scripts-config-react-webpack": "^17.0.0",
     "@testing-library/react": "^14.3.1",
     "eslint": "^9.39.3",
@@ -76,7 +77,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redux-mock-store": "^1.5.5",
-    "redux-saga-tester": "^1.0.874"
+    "redux-saga-tester": "^1.0.874",
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "react": "^18.3.1",

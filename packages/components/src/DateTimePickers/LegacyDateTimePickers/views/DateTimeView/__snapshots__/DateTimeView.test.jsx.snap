@@ -1,25 +1,25 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DateTimeView should render 1`] = `
+exports[`DateTimeView > should render 1`] = `
 <div
-  class="theme-container"
+  class="_container_bd3dff"
 >
   <div
-    class="theme-header"
+    class="_header_bd3dff"
   >
     <div
-      class="theme-element-container theme-left"
+      class="_element-container_bd3dff _left_bd3dff"
     >
       <button
-        aria-describedby="id-42"
+        aria-describedby="id-00000000-0000-4000-8000-000000000000"
         aria-label="Go to previous month"
-        class="theme-clickable theme-buttonIcon theme-size_S"
+        class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
         tabindex="-1"
         type="button"
       >
         <span
           aria-hidden="true"
-          class="theme-buttonIcon__icon"
+          class="_buttonIcon__icon_5aa719"
         >
           <svg
             aria-hidden="true"
@@ -35,11 +35,11 @@ exports[`DateTimeView should render 1`] = `
       </button>
     </div>
     <div
-      class="theme-element-container theme-middle"
+      class="_element-container_bd3dff _middle_bd3dff"
     >
       <button
         aria-label="Switch to month-and-year view"
-        class="theme-common theme-button btn-tertiary btn-info btn btn-default"
+        class="_common_5e34f4 _button_5e34f4 btn-tertiary btn-info btn btn-default"
         tabindex="0"
         type="button"
       >
@@ -49,18 +49,18 @@ exports[`DateTimeView should render 1`] = `
       </button>
     </div>
     <div
-      class="theme-element-container theme-right"
+      class="_element-container_bd3dff _right_bd3dff"
     >
       <button
-        aria-describedby="id-42"
+        aria-describedby="id-00000000-0000-4000-8000-000000000000"
         aria-label="Go to next month"
-        class="theme-clickable theme-buttonIcon theme-size_S"
+        class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
         tabindex="-1"
         type="button"
       >
         <span
           aria-hidden="true"
-          class="theme-buttonIcon__icon"
+          class="_buttonIcon__icon_5aa719"
         >
           <svg
             aria-hidden="true"
@@ -77,13 +77,13 @@ exports[`DateTimeView should render 1`] = `
     </div>
   </div>
   <div
-    class="theme-element-container theme-body"
+    class="_element-container_bd3dff _body_bd3dff"
   >
     <div
-      class="theme-body"
+      class="_body_bd90e9"
     >
       <div
-        class="theme-date"
+        class="_date_bd90e9"
       >
         <div
           data-props="{"allowFocus":true,"calendar":{"monthIndex":5,"year":2006}}"
@@ -91,7 +91,7 @@ exports[`DateTimeView should render 1`] = `
         />
       </div>
       <div
-        class="theme-time"
+        class="_time_bd90e9"
       >
         <div
           data-props="{"allowFocus":true,"value":{"hours":"15","minutes":"45"}}"

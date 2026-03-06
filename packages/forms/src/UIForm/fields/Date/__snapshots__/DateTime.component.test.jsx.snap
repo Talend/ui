@@ -1,0 +1,125 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DateTime widget > should render an InputDateTimePicker 1`] = `
+<div>
+  <div
+    class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _height-100_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+  >
+    <label
+      class="_label_048b2f"
+      for="talend-date-time"
+    >
+      Select DateTime
+      *
+    </label>
+    <div
+      class="_date-time-picker_0f97d6"
+    >
+      <div
+        class="_date-picker_a24f42 date-picker"
+        tabindex="-1"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <span
+            class="_hidden_91f55b"
+          >
+            <label
+              class="_label_048b2f"
+              for="talend-date-time-date-picker-input"
+            />
+          </span>
+          <div
+            class="_inputShell_bca7b9"
+          >
+            <input
+              autocomplete="off"
+              class="_input_876932"
+              data-testid="date-picker"
+              id="talend-date-time-date-picker-input"
+              placeholder="YYYY-MM-DD"
+              style="width: 47px;"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <span
+          data-testid="InputSizer"
+          style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
+        >
+          YYYY-MM-DD
+        </span>
+      </div>
+      <div
+        class="_time-picker_c762d1 time-picker"
+        tabindex="-1"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <span
+            class="_hidden_91f55b"
+          >
+            <label
+              class="_label_048b2f"
+              for="talend-date-time-time-picker-input"
+            />
+          </span>
+          <div
+            class="_inputShell_bca7b9"
+          >
+            <input
+              autocomplete="off"
+              class="_input_876932"
+              data-testid="time-picker"
+              id="talend-date-time-time-picker-input"
+              maxlength="5"
+              placeholder="HH:mm"
+              style="width: 47px;"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <span
+          data-testid="InputSizer"
+          style="padding: 0px 0.625rem; font-size: 0.875rem; visibility: hidden; position: absolute;"
+        >
+          HH:mm
+        </span>
+      </div>
+    </div>
+    <div
+      aria-live="polite"
+      class="_inlineMessage_c6661a"
+      data-test="fieldTemplate.inlineMessage"
+      id="talend-date-time-description"
+      role="status"
+    >
+      <span
+        class="_icon_c6661a _information__icon_8d33ef"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1rem; height: 1rem;"
+        >
+          <use
+            xlink:href="#information-filled:M"
+          />
+        </svg>
+      </span>
+      <p
+        class="_inlineMessage__contents_c6661a"
+      >
+        <span>
+          talend datetime picker
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;

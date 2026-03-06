@@ -8,8 +8,6 @@ import TreeView, {
 	mapStateToProps,
 } from './TreeView.container';
 
-jest.unmock('@talend/design-system');
-
 describe('TreeView', () => {
 	let context;
 	let state;

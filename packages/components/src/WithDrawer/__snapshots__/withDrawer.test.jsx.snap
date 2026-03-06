@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`WithDrawer > should render 1`] = `
+<div
+  class="_tc-with-drawer_e8edc5"
+>
+  <div
+    data-testid="Children"
+  />
+  <div
+    class="_tc-with-drawer-container_e8edc5"
+  >
+    <div
+      class="tc-with-drawer-wrapper"
+      style="transition: transform 350ms ease-in-out; transform: translateX(0%);"
+    >
+      <div
+        aria-labelledby="00000000-0000-4000-8000-000000000000"
+        class="tc-drawer _tc-drawer_39ddca tc-drawer-transition _tc-drawer-transition_39ddca"
+        role="dialog"
+      >
+        <div
+          class="tc-drawer-container _tc-drawer-container_39ddca"
+        >
+          <div
+            class="tc-drawer-header _tc-drawer-header_39ddca"
+          >
+            <div
+              class="tc-drawer-header-menu _tc-drawer-header-menu_39ddca"
+            >
+              <div
+                class="tc-drawer-header-title _tc-drawer-header-title_39ddca"
+              >
+                <h1
+                  id="00000000-0000-4000-8000-000000000000"
+                  title="drawerTitle"
+                >
+                  drawerTitle
+                </h1>
+              </div>
+            </div>
+            <div
+              class="tc-drawer-header-with-tabs _tc-drawer-header-with-tabs_39ddca"
+            />
+          </div>
+          <div
+            style="display: flex; flex-direction: column; flex-grow: 1; overflow: hidden;"
+          >
+            <div
+              class="tc-drawer-content _tc-drawer-content_39ddca"
+              data-drawer-content="true"
+            >
+              <div
+                class="tc-drawer-content-wrapper _tc-drawer-content-wrapper_39ddca"
+              >
+                test
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

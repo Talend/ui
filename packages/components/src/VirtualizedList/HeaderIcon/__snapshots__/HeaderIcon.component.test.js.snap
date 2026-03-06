@@ -1,4 +1,38 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeaderIcon > should render the header when there is no sort 1`] = `
+<div
+  class="_tc-header-icon_ef0567 tc-header-icon"
+>
+  <span
+    aria-label="test"
+    title="test"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-test"
+      focusable="false"
+      name="talend-test"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      class="ReactVirtualized__Table__sortableHeaderIcon ReactVirtualized__Table__sortableHeaderIcon--DESC"
+      height="18"
+      viewBox="0 0 24 24"
+      width="18"
+    >
+      <path
+        d="M7 10l5 5 5-5z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
+  </span>
+</div>
+`;
 
 exports[`HeaderIcon should render the header when there is no sort 1`] = `
 <div

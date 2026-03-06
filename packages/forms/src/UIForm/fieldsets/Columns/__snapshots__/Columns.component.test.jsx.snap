@@ -1,0 +1,189 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Columns widget > should render columns 1`] = `
+<fieldset
+  class="_fieldset_51db4a"
+>
+  <legend
+    class="_legend_51db4a"
+  >
+    My awesome columns
+  </legend>
+  <div
+    class="_fieldset-content_51db4a"
+  >
+    <div
+      class="_row_d480d4 _row_stretched_d480d4"
+      data-form-row="true"
+    >
+      <div
+        class="_item_444f91 _align-auto_444f91 _overflow-auto_444f91 _fullWidth_444f91 _grow_444f91 _shrink_444f91"
+      >
+        <fieldset
+          class="_fieldset_51db4a"
+        >
+          <legend
+            class="_legend_51db4a"
+          >
+            User Fieldset
+          </legend>
+          <div
+            class="_fieldset-content_51db4a"
+          >
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="lastname"
+              >
+                Last Name (with description)
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="lastname-description lastname-error"
+                  aria-invalid="false"
+                  class="_input_876932"
+                  id="lastname"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                aria-live="polite"
+                class="_inlineMessage_c6661a"
+                role="status"
+              >
+                <span
+                  class="_icon_c6661a _information__icon_8d33ef"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="_inlineMessage__contents_c6661a"
+                >
+                  <span>
+                    Hint: this is the last name
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="firstname"
+              >
+                First Name (with placeholder)
+                *
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="firstname-description firstname-error"
+                  aria-invalid="false"
+                  aria-required="true"
+                  class="_input_876932"
+                  id="firstname"
+                  placeholder="Enter your firstname here"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="age"
+              >
+                Age
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="age-description age-error"
+                  aria-invalid="false"
+                  class="_input_876932"
+                  id="age"
+                  type="number"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div
+        class="_item_444f91 _align-auto_444f91 _overflow-auto_444f91 _fullWidth_444f91 _grow_444f91 _shrink_444f91"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <label
+            class="_label_048b2f"
+            for="singleInput"
+          >
+            singleInput
+          </label>
+          <div
+            class="_inputShell_bca7b9"
+          >
+            <input
+              aria-describedby="singleInput-description singleInput-error"
+              aria-invalid="false"
+              class="_input_876932"
+              id="singleInput"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            aria-live="polite"
+            class="_inlineMessage_c6661a"
+            role="status"
+          >
+            <span
+              class="_icon_c6661a _information__icon_8d33ef"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#information-filled:M"
+                />
+              </svg>
+            </span>
+            <p
+              class="_inlineMessage__contents_c6661a"
+            >
+              <span>
+                This one is a column composed by a single input
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+`;

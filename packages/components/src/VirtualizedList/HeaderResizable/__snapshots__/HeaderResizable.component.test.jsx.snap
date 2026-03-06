@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeaderResizable > should render with no specific props 1`] = `
+<div
+  class="tc-header-cell-resizable _tc-header-cell-resizable_26c359"
+>
+  <div
+    class="tc-header-cell-resizable-truncated-text _tc-header-cell-resizable-truncated-text_26c359"
+  />
+  <span
+    class="tc-header-cell-resizable-drag-button _tc-header-cell-resizable-drag-button_26c359"
+  >
+    <input
+      class="tc-header-cell-resizable-drag-accessibility _tc-header-cell-resizable-drag-accessibility_26c359 sr-only"
+      data-testid="resize-input-button-ally"
+      title="Resize column"
+      type="button"
+      value="Resize column"
+    />
+    <div
+      class="tc-header-cell-resizable-drag-button-handle-icon _tc-header-cell-resizable-drag-button-handle-icon_26c359 react-draggable"
+      data-testid="draggable"
+      style="transform: translate(0px,undefinedpx);"
+      title="Resize column"
+    />
+  </span>
+</div>
+`;

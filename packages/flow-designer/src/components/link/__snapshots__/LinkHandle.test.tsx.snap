@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<LinkHandle /> renders correctly <LinkHandle /> renders correctly 1`] = `
+exports[`<LinkHandle /> renders correctly > <LinkHandle /> renders correctly 1`] = `
 <g
   transform="translate(10,10)"
 >

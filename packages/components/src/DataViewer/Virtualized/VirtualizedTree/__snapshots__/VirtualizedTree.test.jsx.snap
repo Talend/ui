@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`VirtualizedTree should render the autosize from react virtualized 1`] = `
+exports[`VirtualizedTree > should render the autosize from react virtualized 1`] = `
 {
   "cache": {
     "_cellHeightCache": {},

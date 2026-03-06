@@ -4,8 +4,6 @@ import Immutable from 'immutable';
 import Container from './SelectObject.container';
 import Connected, { mapStateToProps } from './SelectObject.connect';
 
-jest.unmock('@talend/design-system');
-
 describe('Connected SelectObject', () => {
 	it('should connect SelectObject', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);

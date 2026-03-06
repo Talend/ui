@@ -1,4 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RowLabel > should render the props label 1`] = `
+<span
+  class="tc-column-chooser-row-label _tc-column-chooser-row-label_27b2cf"
+>
+  Hello world
+</span>
+`;
 
 exports[`RowLabel should render the props label 1`] = `
 <span

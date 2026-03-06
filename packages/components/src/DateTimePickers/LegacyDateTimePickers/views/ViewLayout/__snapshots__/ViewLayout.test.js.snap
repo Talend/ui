@@ -1,4 +1,41 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ViewLayout > should render a ViewLayout 1`] = `
+<div
+  class="_container_bd3dff"
+>
+  <div
+    class="_header_bd3dff"
+  >
+    <div
+      class="_element-container_bd3dff _left_bd3dff"
+    >
+      <span>
+        left item
+      </span>
+    </div>
+    <div
+      class="_element-container_bd3dff _middle_bd3dff"
+    >
+      <span>
+        middle item
+      </span>
+    </div>
+    <div
+      class="_element-container_bd3dff _right_bd3dff"
+    >
+      <span>
+        right item
+      </span>
+    </div>
+  </div>
+  <div
+    class="_element-container_bd3dff _body_bd3dff"
+  >
+    <whateverbodyelement />
+  </div>
+</div>
+`;
 
 exports[`ViewLayout should render a ViewLayout 1`] = `
 <div

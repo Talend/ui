@@ -1,4 +1,17 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeaderTitle > should render HeaderTitle 1`] = `
+<div
+  class="_container_6138fe tc-header-title"
+>
+  <h4
+    class="_title_6138fe tc-header-title-text"
+    title="Pipelines"
+  >
+    Pipelines
+  </h4>
+</div>
+`;
 
 exports[`HeaderTitle should render HeaderTitle 1`] = `
 <div

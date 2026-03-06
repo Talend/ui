@@ -1,4 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RowSelection > should render 1`] = `
+<div
+  class="_row-selection_3196cd _selected_3196cd selected"
+  index="1"
+  style="background: red;"
+/>
+`;
 
 exports[`RowSelection should render 1`] = `
 <div

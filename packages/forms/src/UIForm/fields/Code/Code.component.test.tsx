@@ -8,7 +8,7 @@ import { render, waitFor, screen } from '@testing-library/react';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import Code, { CodeProps } from './Code.component';
 
-jest.unmock('@talend/design-system');
+vi.unmock('@talend/design-system');
 declare global {
 	interface Window {
 		ReactAce: { default: typeof ReactAce };
@@ -26,8 +26,8 @@ describe('Code field', () => {
 	const props = {
 		id: 'myCodeWidget',
 		schema,
-		onChange: jest.fn(),
-		onFinish: jest.fn(),
+		onChange: vi.fn(),
+		onFinish: vi.fn(),
 		value: 'toto',
 	};
 

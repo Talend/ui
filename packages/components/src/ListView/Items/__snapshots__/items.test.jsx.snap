@@ -1,0 +1,140 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Items > should render 1`] = `
+<div
+  class="_tc-listview-items_d3ffac tc-listview-items"
+>
+  <div
+    id="autoSizer"
+  >
+    <div
+      aria-label="grid"
+      aria-readonly="true"
+      class="ReactVirtualized__Grid ReactVirtualized__List _tc-list-items_d3ffac tc-list-items"
+      role="listbox"
+      style="box-sizing: border-box; direction: ltr; height: 30px; position: relative; width: 30px; -webkit-overflow-scrolling: touch; will-change: transform; overflow-x: hidden; overflow-y: auto;"
+      tabindex="0"
+    >
+      <div
+        class="ReactVirtualized__Grid__innerScrollContainer"
+        role="row"
+        style="width: auto; height: 166px; max-width: 30px; max-height: 166px; overflow: hidden; position: relative;"
+      >
+        <div
+          class="_tc-item-container_d3ffac tc-item-container _toggle_d3ffac toggle"
+          style="height: 40px; left: 0px; position: absolute; top: 0px; width: 100%;"
+        >
+          <div
+            class="checkbox"
+          >
+            <div
+              class="checkbox tc-checkbox"
+            >
+              <label
+                for="tc-listview-toggle-all"
+              >
+                <input
+                  data-checked="0"
+                  id="tc-listview-toggle-all"
+                  type="checkbox"
+                />
+                <span>
+                  <strong>
+                    Select all
+                  </strong>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="_tc-item-container_d3ffac tc-item-container"
+          style="height: 42px; left: 0px; position: absolute; top: 40px; width: 100%;"
+        >
+          <div
+            class="checkbox"
+            data-test="item-0"
+            data-testid="item-0"
+            role="option"
+          >
+            <div
+              class="checkbox tc-checkbox"
+            >
+              <label>
+                <input
+                  aria-label="Select Lorem ipsum dolor sit amet 0"
+                  data-checked="0"
+                  data-test="item-0.checkbox"
+                  data-testid="item-0.checkbox"
+                  type="checkbox"
+                />
+                <span>
+                  Lorem ipsum dolor sit amet 0
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="_tc-item-container_d3ffac tc-item-container"
+          style="height: 42px; left: 0px; position: absolute; top: 82px; width: 100%;"
+        >
+          <div
+            aria-selected="true"
+            class="checkbox"
+            data-test="item-1"
+            data-testid="item-1"
+            role="option"
+          >
+            <div
+              class="checkbox tc-checkbox"
+            >
+              <label>
+                <input
+                  aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                  checked=""
+                  data-checked="2"
+                  data-test="item-1.checkbox"
+                  data-testid="item-1.checkbox"
+                  type="checkbox"
+                />
+                <span>
+                  Lorem ipsum dolor sit amet 1
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="_tc-item-container_d3ffac tc-item-container"
+          style="height: 42px; left: 0px; position: absolute; top: 124px; width: 100%;"
+        >
+          <div
+            class="checkbox"
+            data-test="item-2"
+            data-testid="item-2"
+            role="option"
+          >
+            <div
+              class="checkbox tc-checkbox"
+            >
+              <label>
+                <input
+                  aria-label="Select Lorem ipsum dolor sit amet 2"
+                  data-checked="0"
+                  data-test="item-2.checkbox"
+                  data-testid="item-2.checkbox"
+                  type="checkbox"
+                />
+                <span>
+                  Lorem ipsum dolor sit amet 2
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

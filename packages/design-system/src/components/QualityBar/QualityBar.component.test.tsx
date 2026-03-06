@@ -1,4 +1,3 @@
-import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 
 import { QualityBar, QualityBarProps } from './QualityBar.component';
@@ -64,7 +63,7 @@ describe('QualityBar', () => {
 
 		it('should render an chart with action button', () => {
 			// given
-			const mockFunctionAction = jest.fn();
+			const mockFunctionAction = vi.fn();
 			const props = {
 				valid: 523,
 				invalid: 123,

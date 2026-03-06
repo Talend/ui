@@ -3,7 +3,7 @@ import { screen, render } from '@testing-library/react';
 import { WidgetContext } from '../../context';
 import KeyValue from './KeyValue.component';
 
-jest.unmock('@talend/design-system');
+vi.unmock('@talend/design-system');
 
 const widgets = {
 	text: props => (
@@ -35,8 +35,8 @@ describe('KeyValue field', () => {
 		descriptionId: 'my-key-value-field-description',
 		isValid: true,
 		errorMessage: 'This is wrong',
-		onChange: jest.fn(),
-		onFinish: jest.fn(),
+		onChange: vi.fn(),
+		onFinish: vi.fn(),
 		errors: {},
 		schema: {
 			autoFocus: false,

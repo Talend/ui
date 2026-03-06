@@ -1,25 +1,25 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DateView should render 1`] = `
+exports[`DateView > should render 1`] = `
 <div
-  class="theme-container"
+  class="_container_75af3f"
 >
   <div
-    class="theme-header"
+    class="_header_75af3f"
   >
     <div
-      class="theme-element-container theme-left"
+      class="_element-container_75af3f _left_75af3f"
     >
       <button
-        aria-describedby="id-42"
+        aria-describedby="id-00000000-0000-4000-8000-000000000000"
         aria-label="Go to previous month"
-        class="theme-clickable theme-buttonIcon theme-size_S"
+        class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
         tabindex="-1"
         type="button"
       >
         <span
           aria-hidden="true"
-          class="theme-buttonIcon__icon"
+          class="_buttonIcon__icon_5aa719"
         >
           <svg
             aria-hidden="true"
@@ -35,13 +35,13 @@ exports[`DateView should render 1`] = `
       </button>
     </div>
     <div
-      class="theme-element-container theme-middle"
+      class="_element-container_75af3f _middle_75af3f"
     >
       <div
-        class="theme-common"
+        class="_common_901194"
       >
         <div
-          class="theme-month"
+          class="_month_901194"
         >
           <button
             aria-label="Switch to month view"
@@ -61,7 +61,8 @@ exports[`DateView should render 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             aria-label="2006"
-            class="theme-tc-dropdown-button tc-dropdown-button btn-tertiary btn-info dropdown-toggle btn btn-default"
+            class="_tc-dropdown-button_8ebcb7 tc-dropdown-button btn-tertiary btn-info dropdown-toggle btn btn-default"
+            i18n="[object Object]"
             role="button"
             type="button"
           >
@@ -72,7 +73,7 @@ exports[`DateView should render 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="tc-svg-icon tc-icon theme-svg theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+              class="tc-svg-icon tc-icon _svg_bf5f45 _tc-dropdown-caret_8ebcb7 tc-icon-name-talend-caret-down"
               focusable="false"
               name="talend-caret-down"
               pointer-events="none"
@@ -84,18 +85,18 @@ exports[`DateView should render 1`] = `
             role="menu"
           >
             <div
-              class="theme-year-picker"
+              class="_year-picker_b52113"
             >
               <button
-                aria-describedby="42"
+                aria-describedby="00000000-0000-4000-8000-000000000000"
                 aria-label="Go to previous year"
-                class="theme-scroll theme-scroll-up tc-date-picker-scroll-up btn-icon-only btn btn-link"
+                class="_scroll_b52113 _scroll-up_b52113 tc-date-picker-scroll-up btn-icon-only btn btn-link"
                 role="link"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-chevron-left theme-rotate-90"
+                  class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-90_bf5f45"
                   focusable="false"
                   name="talend-chevron-left"
                   pointer-events="none"
@@ -105,7 +106,7 @@ exports[`DateView should render 1`] = `
               <ol>
                 <li>
                   <button
-                    class="theme-year tc-date-picker-year"
+                    class="_year_b52113 tc-date-picker-year"
                     tabindex="-1"
                     type="button"
                   >
@@ -114,7 +115,7 @@ exports[`DateView should render 1`] = `
                 </li>
                 <li>
                   <button
-                    class="theme-year tc-date-picker-year"
+                    class="_year_b52113 tc-date-picker-year"
                     tabindex="-1"
                     type="button"
                   >
@@ -123,7 +124,7 @@ exports[`DateView should render 1`] = `
                 </li>
                 <li>
                   <button
-                    class="theme-year tc-date-picker-year"
+                    class="_year_b52113 tc-date-picker-year"
                     tabindex="-1"
                     type="button"
                   >
@@ -132,7 +133,7 @@ exports[`DateView should render 1`] = `
                 </li>
                 <li>
                   <button
-                    class="theme-year tc-date-picker-year"
+                    class="_year_b52113 tc-date-picker-year"
                     tabindex="0"
                     type="button"
                   >
@@ -141,7 +142,7 @@ exports[`DateView should render 1`] = `
                 </li>
                 <li>
                   <button
-                    class="theme-year tc-date-picker-year"
+                    class="_year_b52113 tc-date-picker-year"
                     tabindex="-1"
                     type="button"
                   >
@@ -150,7 +151,7 @@ exports[`DateView should render 1`] = `
                 </li>
                 <li>
                   <button
-                    class="theme-year tc-date-picker-year"
+                    class="_year_b52113 tc-date-picker-year"
                     tabindex="-1"
                     type="button"
                   >
@@ -159,7 +160,7 @@ exports[`DateView should render 1`] = `
                 </li>
                 <li>
                   <button
-                    class="theme-year tc-date-picker-year"
+                    class="_year_b52113 tc-date-picker-year"
                     tabindex="-1"
                     type="button"
                   >
@@ -168,15 +169,15 @@ exports[`DateView should render 1`] = `
                 </li>
               </ol>
               <button
-                aria-describedby="42"
+                aria-describedby="00000000-0000-4000-8000-000000000000"
                 aria-label="Go to next year"
-                class="theme-scroll theme-scroll-down tc-date-picker-scroll-down btn-icon-only btn btn-link"
+                class="_scroll_b52113 _scroll-down_b52113 tc-date-picker-scroll-down btn-icon-only btn btn-link"
                 role="link"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-chevron-left theme-rotate-270"
+                  class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-270_bf5f45"
                   focusable="false"
                   name="talend-chevron-left"
                   pointer-events="none"
@@ -189,18 +190,18 @@ exports[`DateView should render 1`] = `
       </div>
     </div>
     <div
-      class="theme-element-container theme-right"
+      class="_element-container_75af3f _right_75af3f"
     >
       <button
-        aria-describedby="id-42"
+        aria-describedby="id-00000000-0000-4000-8000-000000000000"
         aria-label="Go to next month"
-        class="theme-clickable theme-buttonIcon theme-size_S"
+        class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
         tabindex="-1"
         type="button"
       >
         <span
           aria-hidden="true"
-          class="theme-buttonIcon__icon"
+          class="_buttonIcon__icon_5aa719"
         >
           <svg
             aria-hidden="true"
@@ -217,18 +218,682 @@ exports[`DateView should render 1`] = `
     </div>
   </div>
   <div
-    class="theme-element-container theme-body"
+    class="_element-container_75af3f _body_75af3f"
   >
     <div
-      class="theme-body"
+      class="_body_ba832b"
     >
       <div
-        class="theme-date"
+        class="_date_ba832b"
       >
-        <div
-          data-props="{"allowFocus":true,"calendar":{"monthIndex":5,"year":2006}}"
-          data-testid="DatePicker"
-        />
+        <div>
+          <table
+            class="_container_804025"
+          >
+            <caption
+              class="sr-only"
+            >
+              June 2006
+            </caption>
+            <thead>
+              <tr
+                class="_calendar-header_804025"
+              >
+                <th
+                  scope="col"
+                >
+                  <abbr
+                    title="Monday"
+                  >
+                    M
+                  </abbr>
+                  <hr
+                    aria-orientation="horizontal"
+                    class="_divider_53cf73"
+                  />
+                </th>
+                <th
+                  scope="col"
+                >
+                  <abbr
+                    title="Tuesday"
+                  >
+                    T
+                  </abbr>
+                  <hr
+                    aria-orientation="horizontal"
+                    class="_divider_53cf73"
+                  />
+                </th>
+                <th
+                  scope="col"
+                >
+                  <abbr
+                    title="Wednesday"
+                  >
+                    W
+                  </abbr>
+                  <hr
+                    aria-orientation="horizontal"
+                    class="_divider_53cf73"
+                  />
+                </th>
+                <th
+                  scope="col"
+                >
+                  <abbr
+                    title="Thursday"
+                  >
+                    T
+                  </abbr>
+                  <hr
+                    aria-orientation="horizontal"
+                    class="_divider_53cf73"
+                  />
+                </th>
+                <th
+                  scope="col"
+                >
+                  <abbr
+                    title="Friday"
+                  >
+                    F
+                  </abbr>
+                  <hr
+                    aria-orientation="horizontal"
+                    class="_divider_53cf73"
+                  />
+                </th>
+                <th
+                  scope="col"
+                >
+                  <abbr
+                    title="Saturday"
+                  >
+                    S
+                  </abbr>
+                  <hr
+                    aria-orientation="horizontal"
+                    class="_divider_53cf73"
+                  />
+                </th>
+                <th
+                  scope="col"
+                >
+                  <abbr
+                    title="Sunday"
+                  >
+                    S
+                  </abbr>
+                  <hr
+                    aria-orientation="horizontal"
+                    class="_divider_53cf73"
+                  />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="_calendar-row_804025 tc-date-picker-calendar-row"
+              >
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Monday 29 May 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    29
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Tuesday 30 May 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    30
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Wednesday 31 May 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    31
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Thursday 01 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="1"
+                    tabindex="0"
+                    type="button"
+                  >
+                    1
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Friday 02 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="2"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Saturday 03 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="3"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    3
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Sunday 04 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="4"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    4
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class="_calendar-row_804025 tc-date-picker-calendar-row"
+              >
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Monday 05 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="5"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    5
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Tuesday 06 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="6"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    6
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Wednesday 07 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="7"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    7
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Thursday 08 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="8"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    8
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Friday 09 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="9"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    9
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Saturday 10 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="10"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    10
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Sunday 11 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="11"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    11
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class="_calendar-row_804025 tc-date-picker-calendar-row"
+              >
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Monday 12 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="12"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    12
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Tuesday 13 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="13"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    13
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Wednesday 14 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="14"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    14
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Thursday 15 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="15"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    15
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Friday 16 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="16"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    16
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Saturday 17 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="17"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    17
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Sunday 18 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="18"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    18
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class="_calendar-row_804025 tc-date-picker-calendar-row"
+              >
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Monday 19 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="19"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    19
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Tuesday 20 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="20"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    20
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Wednesday 21 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="21"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    21
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Thursday 22 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="22"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    22
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Friday 23 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="23"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    23
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Saturday 24 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="24"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    24
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Sunday 25 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="25"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    25
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class="_calendar-row_804025 tc-date-picker-calendar-row"
+              >
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Monday 26 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="26"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    26
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Tuesday 27 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="27"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    27
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Wednesday 28 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="28"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    28
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Thursday 29 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="29"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    29
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Friday 30 June 2006"
+                    class="_calendar-day_804025 tc-date-picker-day"
+                    data-value="30"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    30
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Saturday 01 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="0"
+                    type="button"
+                  >
+                    1
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Sunday 02 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class="_calendar-row_804025 tc-date-picker-calendar-row"
+              >
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Monday 03 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    3
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Tuesday 04 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    4
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Wednesday 05 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    5
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Thursday 06 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    6
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Friday 07 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    7
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Saturday 08 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    8
+                  </button>
+                </td>
+                <td
+                  class="_calendar-col_804025"
+                >
+                  <button
+                    aria-label="Sunday 09 July 2006"
+                    class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    9
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

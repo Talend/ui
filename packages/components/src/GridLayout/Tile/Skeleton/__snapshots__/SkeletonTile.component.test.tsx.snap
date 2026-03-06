@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`skeleton tile should compute skeleton tile 1`] = `
+exports[`skeleton tile > should compute skeleton tile 1`] = `
 <div
-  class="theme-tc-tile-container tc-tile-container"
+  class="_tc-tile-container_d0d657 tc-tile-container"
 >
   <div
-    class="theme-tc-tile-body tc-tile-body"
+    class="_tc-tile-body_d0d657 tc-tile-body"
   >
     <span
       aria-label="text Loading..."
-      class="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      class="tc-skeleton _tc-skeleton_df5122 tc-skeleton-text _tc-skeleton-text_df5122 tc-skeleton-text-medium _tc-skeleton-text-medium_df5122 tc-skeleton-heartbeat _tc-skeleton-heartbeat_df5122"
       style="width: 100%; height: 100%;"
     />
   </div>

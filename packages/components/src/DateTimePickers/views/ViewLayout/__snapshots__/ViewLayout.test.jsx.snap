@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ViewLayout > should render a ViewLayout 1`] = `
+<div
+  class="_container_75af3f"
+>
+  <div
+    class="_header_75af3f"
+  >
+    <div
+      class="_element-container_75af3f _left_75af3f"
+    >
+      <span>
+        left item
+      </span>
+    </div>
+    <div
+      class="_element-container_75af3f _middle_75af3f"
+    >
+      <span>
+        middle item
+      </span>
+    </div>
+    <div
+      class="_element-container_75af3f _right_75af3f"
+    >
+      <span>
+        right item
+      </span>
+    </div>
+  </div>
+  <div
+    class="_element-container_75af3f _body_75af3f"
+  >
+    <div
+      data-testid="body"
+    />
+  </div>
+</div>
+`;

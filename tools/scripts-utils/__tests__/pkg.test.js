@@ -7,8 +7,8 @@ describe('utils.pkg', () => {
 	const globalConsoleLog = console.log;
 	const globalConsoleError = console.error;
 	beforeEach(() => {
-		global.console.log = jest.fn();
-		global.console.error = jest.fn();
+		global.console.log = vi.fn();
+		global.console.error = vi.fn();
 	});
 	afterEach(() => {
 		global.process.cwd = globalProcessCwd;

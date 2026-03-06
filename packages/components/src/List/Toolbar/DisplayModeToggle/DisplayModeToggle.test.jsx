@@ -1,0 +1,41 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import DisplayModeToggle from './DisplayModeToggle.component';
+
+const props = {
+	onChange: jest.fn(),
+};
+
+describe('DisplayModeToggle', () => {
+	it('should render', () => {
+		// when
+		const { container } = render(<DisplayModeToggle {...props} />);
+
+		// then
+		expect(container.firstChild).toMatchSnapshot();
+	});
+	it('should render table mode selected', () => {
+		// given
+		render(<DisplayModeToggle {...props} mode="table" />);
+
+		// when
+		const btn = screen.getAllByRole('button')[0];
+		// then
+		expect(btn).toHaveAttribute('aria-pressed', 'true');
+		expect(btn.querySelector('svg')).toHaveAttribute('name', 'talend-table');
+	});
+	it('should call onChange when change display mode', async () => {
+		const user = userEvent.setup();
+
+		// given
+		render(<DisplayModeToggle {...props} mode="table" />);
+
+		// when
+		const btn = screen.getAllByRole('button')[1];
+		await user.click(btn);
+
+		// then
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), 'large');
+	});
+});

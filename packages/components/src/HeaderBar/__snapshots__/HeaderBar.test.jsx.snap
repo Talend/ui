@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeaderBar > should render 1`] = `
+<nav
+  class="tc-header-bar _tc-header-bar_dd8ddb navbar _navbar_dd8ddb navbar-inverse _navbar-inverse_dd8ddb"
+>
+  <ul
+    class="tc-header-bar-actions _tc-header-bar-actions_dd8ddb navbar-nav _navbar-nav_dd8ddb"
+  >
+    <li
+      class="tc-app-switcher-action _tc-app-switcher-action_004bec"
+      role="presentation"
+    >
+      <span
+        aria-level="1"
+        role="heading"
+      >
+        <button
+          class="tc-app-switcher _tc-app-switcher_004bec btn-icon-only btn btn-link"
+          type="button"
+        >
+          <span />
+        </button>
+      </span>
+    </li>
+  </ul>
+  <ul
+    class="tc-header-bar-actions _tc-header-bar-actions_dd8ddb navbar-nav _navbar-nav_dd8ddb right _right_dd8ddb"
+  />
+</nav>
+`;

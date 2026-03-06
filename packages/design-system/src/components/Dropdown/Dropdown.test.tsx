@@ -1,13 +1,12 @@
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
-import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
 import { ButtonTertiary } from '../Button';
 import { Dropdown } from './';
 
-jest.mock('@talend/utils', () => {
+vi.mock('@talend/utils', () => {
 	let i = 0;
 	return {
 		// we need stable but different uuid (is fixed to 42 by current mock)
@@ -42,7 +41,7 @@ describe('Dropdown', () => {
 							},
 							{
 								label: 'Button',
-								onClick: jest.fn(),
+								onClick: vi.fn(),
 								type: 'button',
 							},
 							{

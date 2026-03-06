@@ -1,22 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Dropdown should render a11y html 1`] = `
+exports[`Dropdown > should render a11y html 1`] = `
 <main>
   <button
     aria-busy="false"
     aria-expanded="false"
     aria-pressed="false"
-    class="theme-clickable theme-button theme-tertiary"
+    class="_clickable_77b759 _button_31facc _tertiary_1d5581"
     data-test="dropdown.button"
     data-testid="dropdown.button"
     type="button"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
     >
       Dropdown
       <span
-        class="theme-button__caret"
+        class="_button__caret_31facc"
       >
         <svg
           aria-hidden="true"
@@ -34,7 +34,7 @@ exports[`Dropdown should render a11y html 1`] = `
   <div
     aria-label="Custom menu"
     aria-orientation="vertical"
-    class="theme-dropdownShell"
+    class="_dropdownShell_5f3373"
     data-floating-ui-focusable=""
     data-test="dropdown.menu"
     data-testid="dropdown.menu"
@@ -43,13 +43,13 @@ exports[`Dropdown should render a11y html 1`] = `
     tabindex="-1"
   >
     <div
-      class="theme-animatedZone"
+      class="_animatedZone_5f3373"
     >
       <div
-        class="theme-stack theme-justify-stretch theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+        class="_stack_ea00e5 _justify-stretch_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
       >
         <a
-          class="theme-linkable theme-dropdownEntry"
+          class="_linkable_4927c6 _dropdownEntry_1ffa1e"
           data-test="dropdown.menuitem.External link-0"
           data-testid="dropdown.menuitem.External link-0"
           href="https://community.talend.com/s/?language=en_US"
@@ -59,7 +59,7 @@ exports[`Dropdown should render a11y html 1`] = `
         >
           External link
           <span
-            class="theme-link__iconExternal"
+            class="_link__iconExternal_4927c6"
             data-test="link.icon.external"
             data-testid="link.icon.external"
           >
@@ -77,12 +77,12 @@ exports[`Dropdown should render a11y html 1`] = `
         </a>
         <hr
           aria-orientation="horizontal"
-          class="theme-divider"
+          class="_divider_744442"
           data-test="dropdown.menuitem.divider-1"
           data-testid="dropdown.menuitem.divider-1"
         />
         <a
-          class="theme-linkable theme-dropdownEntry"
+          class="_linkable_4927c6 _dropdownEntry_1ffa1e"
           data-test="dropdown.menuitem.Link-2"
           data-testid="dropdown.menuitem.Link-2"
           href="/download"
@@ -92,12 +92,12 @@ exports[`Dropdown should render a11y html 1`] = `
         </a>
         <hr
           aria-orientation="horizontal"
-          class="theme-divider"
+          class="_divider_744442"
           data-test="dropdown.menuitem.divider-3"
           data-testid="dropdown.menuitem.divider-3"
         />
         <button
-          class="theme-clickable"
+          class="_clickable_77b759"
           data-test="dropdown.menuitem.Button-4"
           data-testid="dropdown.menuitem.Button-4"
           id="mocked-uuid-10"
@@ -106,17 +106,17 @@ exports[`Dropdown should render a11y html 1`] = `
           type="button"
         >
           <div
-            class="theme-dropdownEntry"
+            class="_dropdownEntry_1ffa1e"
           >
             <span
-              class="theme-buttonContent"
+              class="_buttonContent_1ffa1e"
             >
               Button
             </span>
           </div>
         </button>
         <a
-          class="theme-linkable theme-dropdownEntry"
+          class="_linkable_4927c6 _dropdownEntry_1ffa1e"
           data-test="link-as"
           data-testid="link-as"
           href="/route"

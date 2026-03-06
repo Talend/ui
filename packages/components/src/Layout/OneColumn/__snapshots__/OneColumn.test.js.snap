@@ -1,4 +1,90 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OneColumn > should render 1`] = `
+<div
+  class="tc-layout-one-column _main_10644b"
+  id="tc-layout-main"
+  role="main"
+  tabindex="-1"
+>
+  <div
+    class="_tc-with-drawer_e8edc5"
+  >
+    <div
+      id="my-tabs"
+    >
+      <div
+        class="_tc-tab-bar-menu_7bc6d9 tc-tab-bar-menu"
+      >
+        <ul
+          class="_tc-tab-bar_7bc6d9 tc-tab-bar _tc-tab-bar-responsive_7bc6d9 tc-tab-bar-responsive nav nav-tabs"
+          role="tablist"
+        >
+          <li
+            class="_tc-tab-bar-item_7bc6d9 tc-tab-bar-item"
+            role="presentation"
+          >
+            <button
+              aria-controls="my-tabs-pane-1"
+              aria-selected="false"
+              href="#"
+              id="my-tabs-tab-1"
+              label="Tab1"
+              role="tab"
+              tabindex="-1"
+            >
+              <span
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="_tc-tab-bar-item-container_7bc6d9 tc-tab-bar-item-container"
+              >
+                <span
+                  class="_tc-tab-bar-item-label_7bc6d9"
+                >
+                  Tab1
+                </span>
+              </span>
+            </button>
+          </li>
+          <li
+            class="_tc-tab-bar-item_7bc6d9 tc-tab-bar-item active"
+            role="presentation"
+          >
+            <button
+              aria-controls="my-tabs-pane-2"
+              aria-selected="true"
+              href="#"
+              id="my-tabs-tab-2"
+              label="Tab2"
+              role="tab"
+            >
+              <span
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="_tc-tab-bar-item-container_7bc6d9 tc-tab-bar-item-container"
+              >
+                <span
+                  class="_tc-tab-bar-item-label_7bc6d9"
+                >
+                  Tab2
+                </span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      style="overflow: auto; height: 100%; display: flex; flex-direction: column;"
+    >
+      <span>
+        children
+      </span>
+    </div>
+    <div
+      class="_tc-with-drawer-container_e8edc5"
+    />
+  </div>
+</div>
+`;
 
 exports[`OneColumn should render 1`] = `
 <div

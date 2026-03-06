@@ -5,9 +5,11 @@ import { FlowDesigner } from './FlowDesigner.container';
 import NodeType from './configuration/NodeType.component';
 import { NodeRecord, Id, PortRecord, LinkRecord } from '../customTypings/index.d';
 
-jest.mock('./ZoomHandler.component');
-jest.mock('./grid/Grid.component', () => {
-	return null;
+vi.mock('./ZoomHandler.component');
+vi.mock('./grid/Grid.component', () => {
+	return {
+		default: () => null,
+	};
 });
 
 const noOp = () => {};

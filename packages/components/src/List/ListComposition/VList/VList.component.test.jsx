@@ -4,9 +4,8 @@ import { screen, render } from '@testing-library/react';
 import VList from './VList.component';
 import { ListContext } from '../context';
 
-jest.unmock('@talend/design-system');
-jest.mock('../../../VirtualizedList', () => {
-	const Original = jest.requireActual('../../../VirtualizedList').default;
+vi.mock('../../../VirtualizedList', async () => {
+	const Original = (await vi.importActual('../../../VirtualizedList')).default;
 	const TestVList = ({ type, collection, ...props }) => (
 		<div data-testid="VirtualizedList" data-props={JSON.stringify({ type, collection })}>
 			{props.headerAction}
@@ -16,7 +15,7 @@ jest.mock('../../../VirtualizedList', () => {
 	Object.entries(Original).forEach(([key, value]) => {
 		TestVList[key] = value;
 	});
-	return TestVList;
+	return { default: TestVList };
 });
 
 describe('List VList', () => {

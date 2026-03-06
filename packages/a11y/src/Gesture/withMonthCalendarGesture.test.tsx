@@ -32,11 +32,11 @@ const MonthCalendarWithGesture = withMonthCalendarGesture(MonthCalendar, /* Row 
 //  */
 describe('withMonthCalendarGesture', () => {
 	const props = {
-		goToPreviousMonth: jest.fn(),
-		goToNextMonth: jest.fn(),
+		goToPreviousMonth: vi.fn(),
+		goToNextMonth: vi.fn(),
 	};
 	beforeEach(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 	describe('LEFT keydown', () => {
 		it('should focus on previous month in the same set of months', async () => {

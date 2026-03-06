@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tile Header should render header with action on the right 1`] = `
+exports[`Tile Header > should render header with action on the right 1`] = `
 <div
-  class="theme-tc-tile-header tc-tile-header"
+  class="_tc-tile-header_9c4d50 tc-tile-header"
 >
   <span>
     Test

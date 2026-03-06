@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import Component, { isLoaded } from './RecordsViewerBranch.component';
 
-jest.unmock('@talend/design-system');
-
 describe('isLoading', () => {
 	it('should return false on the initial state', () => {
 		expect(isLoaded({ loading: false, loaded: false })).toEqual(false);

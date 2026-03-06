@@ -1,0 +1,127 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RowLarge > should render large row 1`] = `
+<div
+  aria-label="Title from second item"
+  aria-posinset="2"
+  class="tc-list-item tc-list-large-row tc-list-large _tc-list-large_069ebc _row_e1d434 my-class-names"
+  id="my-list-1"
+  role="listitem"
+  style="background: red;"
+  tabindex="0"
+>
+  <div
+    class="tc-list-large-inner-box _inner-box_069ebc"
+  >
+    <div
+      class="_header_069ebc"
+    >
+      <div
+        class="_tc-list-title_650db4 tc-list-title"
+        id="my-list-1-title-cell"
+      >
+        <span
+          aria-describedby="00000000-0000-4000-8000-000000000000"
+          class="_main-title_650db4"
+          id="my-list-1-title-cell"
+        >
+          Title from second item
+        </span>
+        <div
+          class="main-title-actions-group _main-title-actions-group_f399b5"
+          id="my-list-1-title-actions"
+        >
+          <div
+            class="tc-actions cell-title-actions _cell-title-actions_f399b5 btn-group"
+          >
+            <button
+              aria-describedby="00000000-0000-4000-8000-000000000000"
+              aria-label="edit"
+              class="btn-icon-only btn btn-link"
+              id="edit"
+              role="link"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-pencil"
+                focusable="false"
+                name="talend-pencil"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </button>
+            <button
+              aria-describedby="00000000-0000-4000-8000-000000000000"
+              aria-label="delete"
+              class="btn-icon-only btn btn-link"
+              id="delete"
+              role="link"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-trash"
+                focusable="false"
+                name="talend-trash"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <dl
+      class="tc-list-large-content _content_069ebc"
+    >
+      <div
+        class="_field-group_069ebc"
+        role="group"
+      >
+        <dt
+          class="_field-label_069ebc"
+        >
+          Id
+          :
+        </dt>
+        <dd
+          class="_field-value_069ebc"
+        >
+          <div
+            aria-describedby="00000000-0000-4000-8000-000000000000"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            1
+          </div>
+        </dd>
+      </div>
+      <div
+        class="_field-group_069ebc"
+        role="group"
+      >
+        <dt
+          class="_field-label_069ebc"
+        >
+          Description
+          :
+        </dt>
+        <dd
+          class="_field-value_069ebc"
+        >
+          <div
+            aria-describedby="00000000-0000-4000-8000-000000000000"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            Title from second item
+          </div>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+`;

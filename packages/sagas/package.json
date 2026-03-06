@@ -18,11 +18,11 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "talend-scripts test",
-    "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage",
     "lint": "eslint .",
-    "test:update": "talend-scripts test -u"
+    "test:update": "vitest run --update"
   },
   "keywords": [
     "react",
@@ -55,10 +55,12 @@
     "@talend/scripts-core": "^17.0.0",
     "@talend/scripts-config-babel": "^13.9.0",
     "@talend/scripts-config-react-webpack": "^17.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^9.39.3",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "vitest": "^4.0.18"
   },
   "publishConfig": {
     "access": "public"

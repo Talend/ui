@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectAllColumnsCheckbox > should render by default 1`] = `
+<div
+  class="tc-column-chooser-row _tc-column-chooser-row_27b2cf tc-column-chooser-row-select-all _tc-column-chooser-row-select-all_27b2cf _tc-column-chooser-row-select-all _tc-column-chooser-row-select-all_27b2cf_27b2cf"
+>
+  <div
+    class="_checkbox_c9d9f8"
+  >
+    <input
+      aria-checked="mixed"
+      aria-describedby="select-all-id-display all the columns"
+      data-feature="column-chooser.select.all"
+      id="select-all-id-checkbox-Select-all"
+      type="checkbox"
+    />
+    <label
+      class="_label_048b2f _label_inline_048b2f"
+      for="select-all-id-checkbox-Select-all"
+    >
+      Select all
+    </label>
+  </div>
+  <div
+    class="sr-only"
+    id="select-all-id-display all the columns"
+  >
+    display all the columns
+  </div>
+</div>
+`;

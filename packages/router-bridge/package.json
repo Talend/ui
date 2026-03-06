@@ -18,9 +18,9 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build": "talend-scripts build",
     "lint": "eslint .",
-    "test": "talend-scripts test",
-    "test:update": "talend-scripts test -u",
-    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
+    "test": "vitest run",
+    "test:update": "vitest run --update",
+    "test:cov": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -36,11 +36,13 @@
     "@talend/scripts-config-babel": "^13.9.0",
     "@talend/scripts-config-jest": "^14.6.0",
     "@talend/scripts-config-react-webpack": "^17.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
     "connected-react-router": "^6.9.3",
     "eslint": "^9.39.3",
     "history": "^5.3.0",
     "react": "^18.3.1",
-    "react-router-dom": "~6.3.0"
+    "react-router-dom": "~6.3.0",
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "connected-react-router": "^6.9.2",

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Container DeleteResource should render with proper resourceInfo params 1`] = `
+exports[`Container DeleteResource > should render with proper resourceInfo params 1`] = `
 <div
   role="dialog"
 >
@@ -35,9 +35,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
         <div
           class="modal-body"
         >
-          Are you sure you want to remove the 
-          resourceLabel
-           
+          Are you sure you want to remove the resourceLabel 
           <strong>
             myLabel
           </strong>
@@ -47,10 +45,10 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
           class="modal-footer"
         >
           <div
-            class="theme-tc-actionbar-container tc-actionbar-container nav"
+            class="_tc-actionbar-container_36170f tc-actionbar-container nav"
           >
             <div
-              class="theme-navbar-left navbar-left"
+              class="_navbar-left_36170f navbar-left"
             >
               <button
                 aria-label="CANCEL"
@@ -63,7 +61,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
               </button>
             </div>
             <div
-              class="theme-navbar-right navbar-right"
+              class="_navbar-right_36170f navbar-right"
             >
               <button
                 aria-label="REMOVE"

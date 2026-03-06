@@ -1,20 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Card should render a11y html 1`] = `
+exports[`Card > should render a11y html 1`] = `
 <main>
   <div
-    class="theme-card"
+    class="_card_f66b11"
   >
     <div
-      class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-column theme-block theme-align-content-center theme-gap-x-L theme-gap-y-L"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-start_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _align-content-center_ea00e5 _gap-x-L_ea00e5 _gap-y-L_ea00e5"
     >
       <header
-        class="theme-card__header"
+        class="_card__header_f66b11"
       >
         header
       </header>
       <div
-        class="theme-card__body"
+        class="_card__body_f66b11"
       >
         <p>
           Content

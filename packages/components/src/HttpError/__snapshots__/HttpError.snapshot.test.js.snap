@@ -1,4 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HttpError > should render a forbidden http error message 1`] = `
+<div
+  class="_http-error_6804f3 http-error"
+  data-status="403"
+>
+  <div
+    class="_http-error-content_6804f3 http-error-content http-error-403"
+  >
+    <h1>
+      Access denied
+    </h1>
+    <p>
+      You are not allowed to access this page
+    </p>
+  </div>
+</div>
+`;
 
 exports[`HttpError should render a forbidden http error message 1`] = `
 <div

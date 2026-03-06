@@ -1,13 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CellTitle should render 1`] = `
+exports[`CellTitle > should render 1`] = `
 <div
-  class="theme-tc-list-title tc-list-title theme-tc-list-title-filter tc-list-title-filter"
+  class="_tc-list-title_650db4 tc-list-title _tc-list-title-filter_650db4 tc-list-title-filter"
   id="my-title-1-title-cell"
 >
   <svg
     aria-hidden="true"
-    class="tc-svg-icon tc-icon theme-svg theme-icon tc-icon-name-talend-file-o"
+    class="tc-svg-icon tc-icon _svg_bf5f45 _icon_650db4 tc-icon-name-talend-file-o"
     focusable="false"
     name="talend-file-o"
     pointer-events="none"
@@ -19,7 +19,7 @@ exports[`CellTitle should render 1`] = `
   >
     <button
       aria-label="my awesome title"
-      class="theme-main-title btn btn-link"
+      class="_main-title_650db4 btn btn-link"
       id="my-title-1-title-cell-btn"
       role="link"
       type="button"

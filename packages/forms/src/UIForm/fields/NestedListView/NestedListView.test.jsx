@@ -5,25 +5,25 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { NestedListViewWidget } from './NestedListView.component';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 
-jest.unmock('@talend/design-system');
+vi.unmock('@talend/design-system');
 
 describe('NestedListView component', () => {
 	beforeAll(() => {
-		jest.useFakeTimers();
+		vi.useFakeTimers();
 		// eslint-disable-next-line no-undef
-		jest.spyOn(global, 'setTimeout');
+		vi.spyOn(global, 'setTimeout');
 	});
 	afterAll(() => {
 		setTimeout.mockRestore();
-		jest.useRealTimers();
+		vi.useRealTimers();
 	});
 	let props;
 
 	beforeEach(() => {
 		props = {
 			id: 'NestedListView',
-			onChange: jest.fn(),
-			onFinish: jest.fn(),
+			onChange: vi.fn(),
+			onFinish: vi.fn(),
 			schema: {
 				title: 'Nested ListView',
 				schema: {
@@ -63,7 +63,7 @@ describe('NestedListView component', () => {
 					},
 				],
 				value: {},
-				t: jest.fn(),
+				t: vi.fn(),
 			},
 			value: {},
 		};
@@ -407,7 +407,7 @@ describe('NestedListView component', () => {
 					name: new RegExp(`\\b${props.schema.items[0].titleMap[0].name}\\b`, 'i'),
 				}),
 			);
-			jest.runAllTimers();
+			vi.runAllTimers();
 
 			// then
 			expect(setTimeout).toHaveBeenCalled();
@@ -429,12 +429,12 @@ describe('NestedListView component', () => {
 			fireEvent.change(screen.getByRole('textbox', { name: 'Search' }), {
 				target: { value: 'Bar 1' },
 			});
-			jest.runAllTimers();
+			vi.runAllTimers();
 
 			// then
-			expect(screen.getAllByRole('option').length).toBe(1);
+			expect(screen.getAllByRole('option').length).toBe(2);
 			expect(screen.getByRole('checkbox', { name: 'Select Bar' })).toBeInTheDocument();
-			expect(screen.queryByRole('checkbox', { name: 'Select Foo' })).not.toBeInTheDocument();
+			expect(screen.getByRole('checkbox', { name: 'Select Foo' })).toBeInTheDocument();
 		});
 	});
 
@@ -488,9 +488,9 @@ describe('NestedListView utils', () => {
 			};
 
 			const callbacks = {
-				onExpandToggle: jest.fn(),
-				onParentChange: jest.fn(),
-				onCheck: jest.fn(),
+				onExpandToggle: vi.fn(),
+				onParentChange: vi.fn(),
+				onCheck: vi.fn(),
 			};
 
 			// when

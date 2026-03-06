@@ -1,29 +1,29 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PieChart should render a PieChartButton 1`] = `
+exports[`PieChart > should render a PieChartButton 1`] = `
 <button
-  class="tc-pie-chart-button theme-tc-pie-chart-button btn-icon-only btn btn-link"
+  class="tc-pie-chart-button _tc-pie-chart-button_29f501 btn-icon-only btn btn-link"
   role="button"
   type="button"
 >
   <span />
   <span
-    class="tc-pie-chart-icon theme-tc-pie-chart-icon"
+    class="tc-pie-chart-icon _tc-pie-chart-icon_29f501"
   >
     <svg
-      class="tc-pie-chart-icon-graph theme-tc-pie-chart-icon-graph"
+      class="tc-pie-chart-icon-graph _tc-pie-chart-icon-graph_29f501"
       height="20"
       style="width: 20px; height: 20px;"
       width="20"
     >
       <path
-        class="tc-pie-chart-color-alto theme-tc-pie-chart-color-alto"
+        class="tc-pie-chart-color-alto _tc-pie-chart-color-alto_29f501"
         d="M0,-9A9,9,0,1,1,0,9A9,9,0,1,1,0,-9M0,-6A6,6,0,1,0,0,6A6,6,0,1,0,0,-6Z"
         transform="translate(10,10)"
       />
     </svg>
     <div
-      class="tc-pie-chart-color-undefined theme-tc-pie-chart-color-undefined"
+      class="tc-pie-chart-color-undefined _tc-pie-chart-color-undefined_29f501"
     />
   </span>
 </button>

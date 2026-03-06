@@ -1,16 +1,16 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Filter container should render 1`] = `
+exports[`Filter container > should render 1`] = `
 <form
-  class="theme-filter theme-navbar"
+  class="_filter_274451 _navbar_274451"
   role="search"
 >
   <div
-    class="form-group theme-animate"
+    class="form-group _animate_274451"
   >
     <svg
       aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg theme-search-icon theme-search-focused tc-icon-name-talend-search"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _search-icon_274451 _search-focused_274451 tc-icon-name-talend-search"
       focusable="false"
       name="talend-search"
       pointer-events="none"
@@ -19,7 +19,7 @@ exports[`Filter container should render 1`] = `
     <input
       aria-label="Filter"
       autocomplete="off"
-      class="theme-search form-control"
+      class="_search_274451 form-control"
       name="search"
       placeholder="Filter"
       role="searchbox"
@@ -27,14 +27,14 @@ exports[`Filter container should render 1`] = `
       value="a filter"
     />
     <button
-      aria-describedby="42"
+      aria-describedby="00000000-0000-4000-8000-000000000000"
       aria-label="Remove filter"
-      class="theme-remove btn-icon-only btn btn-default"
+      class="_remove_274451 btn-icon-only btn btn-default"
       type="button"
     >
       <svg
         aria-hidden="true"
-        class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-cross"
         focusable="false"
         name="talend-cross"
         pointer-events="none"

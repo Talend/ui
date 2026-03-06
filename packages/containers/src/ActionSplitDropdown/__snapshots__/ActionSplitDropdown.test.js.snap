@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Container(ActionSplitDropdown) should render 1`] = `
+exports[`Container(ActionSplitDropdown) > should render 1`] = `
 <div
   class="dropdown btn-group"
 >
   <button
     aria-label="extra"
-    class="theme-tc-split-dropdown btn btn-default"
+    class="_tc-split-dropdown_732e94 btn btn-default"
     type="button"
   >
     <span>
@@ -20,7 +20,7 @@ exports[`Container(ActionSplitDropdown) should render 1`] = `
     aria-haspopup="true"
     aria-label="Open extra menu"
     class="dropdown-toggle btn btn-default"
-    id="42"
+    id="00000000-0000-4000-8000-000000000000"
     role="button"
     type="button"
   >
@@ -30,7 +30,7 @@ exports[`Container(ActionSplitDropdown) should render 1`] = `
     />
   </button>
   <ul
-    aria-labelledby="42"
+    aria-labelledby="00000000-0000-4000-8000-000000000000"
     class="dropdown-menu"
     role="menu"
   >

@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CellLabel > should default render an object 1`] = `
+<span
+  class="_tag_3a15bc _tag_de8703"
+  id="25"
+  title="my label"
+>
+  my label
+</span>
+`;

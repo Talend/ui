@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CellDatetime should render CellDatetime 1`] = `
+exports[`CellDatetime > should render CellDatetime 1`] = `
 <div
-  aria-label="2016-09-22 09:00:00"
+  aria-label="2016-09-21 22:00:00"
   data-placement="top"
   data-testid="TooltipTrigger"
 >
   <div
-    class="cell-datetime-container theme-cell-datetime-container"
+    class="cell-datetime-container _cell-datetime-container_7d8ec9"
   >
-    about 1 month ago
+    over 9 years ago
   </div>
 </div>
 `;

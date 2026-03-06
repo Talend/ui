@@ -1,23 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TimeZone should render 1`] = `
+exports[`TimeZone > should render 1`] = `
 <div
-  aria-label="Asia/Beijing"
+  aria-describedby="00000000-0000-4000-8000-000000000000"
+  class="_stack_dbc270 _justify-center_dbc270 _align-start_dbc270 _nowrap_dbc270 _column_dbc270 _inline_dbc270 _gap-x-0_dbc270 _gap-y-0_dbc270 _margin-top-0_dbc270 _margin-right-0_dbc270 _margin-bottom-0_dbc270 _margin-left-XS_dbc270"
 >
-  <div
-    class="theme-stack theme-justify-center theme-align-start theme-nowrap theme-column theme-inline theme-gap-x-0 theme-gap-y-0 theme-margin-top-0 theme-margin-right-0 theme-margin-bottom-0 theme-margin-left-XS"
+  <svg
+    aria-hidden="true"
+    color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+    style="width: 1rem; height: 1rem;"
   >
-    <svg
-      aria-hidden="true"
-      color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
-      pointer-events="none"
-      shape-rendering="geometricPrecision"
-      style="width: 1rem; height: 1rem;"
-    >
-      <use
-        xlink:href="#information-filled:M"
-      />
-    </svg>
-  </div>
+    <use
+      xlink:href="#information-filled:M"
+    />
+  </svg>
 </div>
 `;

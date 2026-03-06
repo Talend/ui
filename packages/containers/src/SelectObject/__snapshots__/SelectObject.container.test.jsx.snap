@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Container SelectObject should render 1`] = `
+exports[`Container SelectObject > should render 1`] = `
 <div
   class="mock-provider"
 >

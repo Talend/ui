@@ -1,11 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { describe, expect, it } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
 import { InlineEditing } from './';
 
-jest.mock('@talend/utils', () => {
+vi.mock('@talend/utils', () => {
 	let i = 0;
 	return {
 		// we need stable but different uuid (is fixed to 42 by current mock)
@@ -22,7 +21,7 @@ describe('InlineEditing', () => {
 					label="Edit the value"
 					placeholder="What is your Lorem Ipsum?"
 					defaultValue="Lorem Ipsum"
-					onEdit={jest.fn()}
+					onEdit={vi.fn()}
 				/>
 			</main>,
 		);
@@ -40,7 +39,7 @@ describe('InlineEditing', () => {
 					label="Edit the value"
 					placeholder="What is your Lorem Ipsum?"
 					defaultValue="Lorem Ipsum"
-					onEdit={jest.fn()}
+					onEdit={vi.fn()}
 					data-testid="my-prefix"
 				/>
 			</main>,
@@ -50,7 +49,7 @@ describe('InlineEditing', () => {
 	});
 
 	it('should not allow to submit required input', async () => {
-		const onEdit = jest.fn();
+		const onEdit = vi.fn();
 		render(
 			<main>
 				<InlineEditing

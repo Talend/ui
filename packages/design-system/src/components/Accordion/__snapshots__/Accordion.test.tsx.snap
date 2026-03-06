@@ -1,21 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Accordion should render a11y html 1`] = `
+exports[`Accordion > should render a11y html 1`] = `
 <main>
   <div
-    class="theme-panelWrapper theme-panelWrapper__first theme-panelWrapper__notLast"
+    class="_panelWrapper_4c29ef _panelWrapper__first_4c29ef _panelWrapper__notLast_4c29ef"
   >
     <button
       aria-controls="CollapsiblePanel__content--id-mocked-uuid-0"
       aria-expanded="false"
-      class="theme-headerWrapper theme-headerWrapper__clickable"
+      class="_headerWrapper_31045e _headerWrapper__clickable_31045e"
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-0"
       type="button"
     >
       <div
-        class="theme-iconWrapper"
+        class="_iconWrapper_31045e"
       >
         <svg
           aria-hidden="true"
@@ -30,13 +30,13 @@ exports[`Accordion should render a11y html 1`] = `
         </svg>
       </div>
       <span
-        class="theme-status theme-successful"
+        class="_status_5be59e _successful_5be59e"
       >
         <span
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <span
-            class="theme-status__icon"
+            class="_status__icon_5be59e"
           >
             <svg
               aria-hidden="true"
@@ -50,7 +50,7 @@ exports[`Accordion should render a11y html 1`] = `
             </svg>
           </span>
           <span
-            class="theme-status__text"
+            class="_status__text_5be59e"
           >
             Successful
           </span>
@@ -59,19 +59,19 @@ exports[`Accordion should render a11y html 1`] = `
     </button>
   </div>
   <div
-    class="theme-panelWrapper theme-panelWrapper__notLast"
+    class="_panelWrapper_4c29ef _panelWrapper__notLast_4c29ef"
   >
     <button
       aria-controls="CollapsiblePanel__content--id-mocked-uuid-1"
       aria-expanded="false"
-      class="theme-headerWrapper theme-headerWrapper__clickable"
+      class="_headerWrapper_31045e _headerWrapper__clickable_31045e"
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-1"
       type="button"
     >
       <div
-        class="theme-iconWrapper"
+        class="_iconWrapper_31045e"
       >
         <svg
           aria-hidden="true"
@@ -86,13 +86,13 @@ exports[`Accordion should render a11y html 1`] = `
         </svg>
       </div>
       <span
-        class="theme-status theme-failed"
+        class="_status_5be59e _failed_5be59e"
       >
         <span
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <span
-            class="theme-status__icon"
+            class="_status__icon_5be59e"
           >
             <svg
               aria-hidden="true"
@@ -106,7 +106,7 @@ exports[`Accordion should render a11y html 1`] = `
             </svg>
           </span>
           <span
-            class="theme-status__text"
+            class="_status__text_5be59e"
           >
             Failed
           </span>
@@ -115,19 +115,19 @@ exports[`Accordion should render a11y html 1`] = `
     </button>
   </div>
   <div
-    class="theme-panelWrapper theme-panelWrapper__notLast"
+    class="_panelWrapper_4c29ef _panelWrapper__notLast_4c29ef"
   >
     <button
       aria-controls="CollapsiblePanel__content--id-mocked-uuid-2"
       aria-expanded="false"
-      class="theme-headerWrapper theme-headerWrapper__clickable"
+      class="_headerWrapper_31045e _headerWrapper__clickable_31045e"
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-2"
       type="button"
     >
       <div
-        class="theme-iconWrapper"
+        class="_iconWrapper_31045e"
       >
         <svg
           aria-hidden="true"
@@ -142,13 +142,13 @@ exports[`Accordion should render a11y html 1`] = `
         </svg>
       </div>
       <span
-        class="theme-status theme-inProgress"
+        class="_status_5be59e _inProgress_5be59e"
       >
         <span
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <span
-            class="theme-status__icon"
+            class="_status__icon_5be59e"
           >
             <svg
               style="width: 1rem; height: 1rem;"
@@ -178,7 +178,7 @@ exports[`Accordion should render a11y html 1`] = `
             </svg>
           </span>
           <span
-            class="theme-status__text"
+            class="_status__text_5be59e"
           >
             In progress
           </span>
@@ -187,19 +187,19 @@ exports[`Accordion should render a11y html 1`] = `
     </button>
   </div>
   <div
-    class="theme-panelWrapper theme-panelWrapper__notLast"
+    class="_panelWrapper_4c29ef _panelWrapper__notLast_4c29ef"
   >
     <button
       aria-controls="CollapsiblePanel__content--id-mocked-uuid-3"
       aria-expanded="false"
-      class="theme-headerWrapper theme-headerWrapper__clickable"
+      class="_headerWrapper_31045e _headerWrapper__clickable_31045e"
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-3"
       type="button"
     >
       <div
-        class="theme-iconWrapper"
+        class="_iconWrapper_31045e"
       >
         <svg
           aria-hidden="true"
@@ -214,13 +214,13 @@ exports[`Accordion should render a11y html 1`] = `
         </svg>
       </div>
       <span
-        class="theme-status theme-warning"
+        class="_status_5be59e _warning_5be59e"
       >
         <span
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <span
-            class="theme-status__icon"
+            class="_status__icon_5be59e"
           >
             <svg
               aria-hidden="true"
@@ -234,7 +234,7 @@ exports[`Accordion should render a11y html 1`] = `
             </svg>
           </span>
           <span
-            class="theme-status__text"
+            class="_status__text_5be59e"
           >
             Warning
           </span>
@@ -243,19 +243,19 @@ exports[`Accordion should render a11y html 1`] = `
     </button>
   </div>
   <div
-    class="theme-panelWrapper theme-panelWrapper__last"
+    class="_panelWrapper_4c29ef _panelWrapper__last_4c29ef"
   >
     <button
       aria-controls="CollapsiblePanel__content--id-mocked-uuid-4"
       aria-expanded="false"
-      class="theme-headerWrapper theme-headerWrapper__clickable"
+      class="_headerWrapper_31045e _headerWrapper__clickable_31045e"
       data-test="panel.header"
       data-testid="panel.header"
       id="CollapsiblePanel__control--id-mocked-uuid-4"
       type="button"
     >
       <div
-        class="theme-iconWrapper"
+        class="_iconWrapper_31045e"
       >
         <svg
           aria-hidden="true"
@@ -270,13 +270,13 @@ exports[`Accordion should render a11y html 1`] = `
         </svg>
       </div>
       <span
-        class="theme-status theme-canceled"
+        class="_status_5be59e _canceled_5be59e"
       >
         <span
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <span
-            class="theme-status__icon"
+            class="_status__icon_5be59e"
           >
             <svg
               aria-hidden="true"
@@ -290,7 +290,7 @@ exports[`Accordion should render a11y html 1`] = `
             </svg>
           </span>
           <span
-            class="theme-status__text"
+            class="_status__text_5be59e"
           >
             Canceled
           </span>

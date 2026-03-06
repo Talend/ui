@@ -4,14 +4,15 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cloneDeep from 'lodash/cloneDeep';
+import { vi } from 'vitest';
 
 import VirtualizedList from '../../VirtualizedList';
 import { compareOrder, ListToVirtualizedList } from './ListToVirtualizedList.component';
 
-jest.unmock('@talend/design-system');
-jest.mock('../../VirtualizedList', () => {
-	const getProps = jest.fn();
-	const Original = jest.requireActual('../../VirtualizedList').default;
+vi.mock('../../VirtualizedList', async () => {
+	const getProps = vi.fn();
+	const OriginalModule = await vi.importActual('../../VirtualizedList');
+	const Original = OriginalModule.default;
 	const TestVList = ({
 		sortBy,
 		sortDirection,
@@ -44,7 +45,7 @@ jest.mock('../../VirtualizedList', () => {
 	});
 	TestVList.getProps = getProps;
 	TestVList.Content = props => <div data-testid="Content" data-props={JSON.stringify(props)}></div>;
-	return TestVList;
+	return { default: TestVList };
 });
 
 const props = {
@@ -64,7 +65,7 @@ const props = {
 
 describe('ListToVirtualizedList', () => {
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 	it('should map props', () => {
 		render(<ListToVirtualizedList {...props} />);
@@ -242,7 +243,7 @@ describe('ListToVirtualizedList', () => {
 		const user = userEvent.setup();
 
 		// given
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(
 			<ListToVirtualizedList {...props} sort={{ field: 'name', isDescending: false, onChange }} />,
 		);
@@ -260,7 +261,7 @@ describe('ListToVirtualizedList', () => {
 		const user = userEvent.setup();
 
 		// given
-		const isSelected = jest.fn();
+		const isSelected = vi.fn();
 		render(<ListToVirtualizedList {...props} itemProps={{ isSelected }} />);
 
 		// when
@@ -276,7 +277,7 @@ describe('ListToVirtualizedList', () => {
 		const user = userEvent.setup();
 
 		// given
-		const onToggle = jest.fn();
+		const onToggle = vi.fn();
 		const event = { target: {} };
 		render(<ListToVirtualizedList {...props} itemProps={{ onToggle }} />);
 
@@ -293,7 +294,7 @@ describe('ListToVirtualizedList', () => {
 		const user = userEvent.setup();
 
 		// given
-		const onRowClick = jest.fn();
+		const onRowClick = vi.fn();
 		const event = { target: {} };
 		render(<ListToVirtualizedList {...props} itemProps={{ onRowClick }} />);
 
@@ -310,7 +311,7 @@ describe('ListToVirtualizedList', () => {
 		const user = userEvent.setup();
 
 		// given
-		props.titleProps.onClick = jest.fn();
+		props.titleProps.onClick = vi.fn();
 		const event = { target: {} };
 		render(<ListToVirtualizedList {...props} />);
 
@@ -327,7 +328,7 @@ describe('ListToVirtualizedList', () => {
 		const user = userEvent.setup();
 
 		// given
-		const isActive = jest.fn();
+		const isActive = vi.fn();
 		render(<ListToVirtualizedList {...props} itemProps={{ isActive }} />);
 
 		// when

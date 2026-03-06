@@ -1,19 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BadgeOverlay should render the html output in the default state 1`] = `
+exports[`BadgeOverlay > should render the html output in the default state 1`] = `
 <div>
   <button
     aria-busy="false"
     aria-expanded="false"
     aria-haspopup="dialog"
     aria-label="my label"
-    class="theme-clickable theme-button theme-tertiary theme-size-S"
+    class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf _size-S_9243c0"
     id="my-id-action-overlay"
     title="my label"
     type="button"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+      class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
     >
       <span>
         my label

@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "jest .test.js"
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:update": "vitest run --update"
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
@@ -14,8 +16,9 @@
   },
   "devDependencies": {
     "@talend/eslint-config": "^14.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^9.39.3",
-    "jest": "^29.7.0"
+    "vitest": "^4.0.18"
   },
   "repository": {
     "type": "git",

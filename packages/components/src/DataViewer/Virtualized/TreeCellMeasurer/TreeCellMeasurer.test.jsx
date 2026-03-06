@@ -3,18 +3,17 @@ import { render, screen } from '@testing-library/react';
 import TreeCellMeasurer from './TreeCellMeasurer.component';
 import { CellMeasurerCache, measure } from 'react-virtualized';
 
-jest.mock('react-virtualized', () => {
-	const mod = jest.requireActual('react-virtualized');
-	// eslint-disable-next-line @typescript-eslint/no-shadow
-	const measure = jest.fn();
+vi.mock('react-virtualized', async () => {
+	const mod = await vi.importActual('react-virtualized');
+	const mockedMeasure = vi.fn();
 	return {
 		...mod,
 		CellMeasurer: props => (
 			<div data-testid="CellMeasurer" data-props={JSON.stringify(props, null, 2)}>
-				{props.children({ measure })}
+				{props.children({ measure: mockedMeasure })}
 			</div>
 		),
-		measure,
+		measure: mockedMeasure,
 	};
 });
 

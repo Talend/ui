@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header > should render 1`] = `
+<header
+  class="_tc-listview-header_8993d5 tc-listview-header"
+>
+  <strong>
+    Values
+  </strong>
+  <div
+    class="actions"
+  >
+    <button
+      aria-describedby="00000000-0000-4000-8000-000000000000"
+      aria-label="Search for specific values"
+      class="btn-icon-only btn btn-link"
+      role="link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-search"
+        focusable="false"
+        name="talend-search"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+</header>
+`;

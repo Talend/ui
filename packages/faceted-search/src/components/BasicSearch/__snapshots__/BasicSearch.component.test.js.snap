@@ -1,26 +1,26 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BasicSearch should render the default html output with no badges 1`] = `
+exports[`BasicSearch > should render the default html output with no badges 1`] = `
 <div
-  class="theme-tc-basic-search"
+  class="_tc-basic-search_71542c"
   id="manager-id-basic-search"
 >
   <div
     aria-expanded="false"
     aria-haspopup="listbox"
-    aria-owns="react-autowhatever-42"
-    class="theme-tc-typeahead-container tc-typeahead-container theme-tc-basic-search-quicksearch"
+    aria-owns="react-autowhatever-mocked-uuid-1"
+    class="_tc-typeahead-container_1e11d6 tc-typeahead-container _tc-basic-search-quicksearch_71542c"
     role="combobox"
   >
     <div
-      class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon"
+      class="tc-typeahead-typeahead-input-icon _typeahead-input-container_1e11d6 _typeahead-input-icon_1e11d6"
     >
       <div
-        class="icon-cls theme-icon-cls"
+        class="icon-cls _icon-cls_1e11d6"
       >
         <svg
           aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-search"
           focusable="false"
           name="talend-search"
           pointer-events="none"
@@ -28,26 +28,26 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
         />
       </div>
       <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+        class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
       >
         <span
-          class="theme-hidden"
+          class="_hidden_91f55b"
         >
           <label
-            class="theme-label"
-            for="42"
+            class="_label_048b2f"
+            for="mocked-uuid-1"
           />
         </span>
         <div
-          class="theme-inputShell"
+          class="_inputShell_bca7b9"
         >
           <input
-            aria-activedescendant="react-autowhatever-42-section-0-item-0"
+            aria-activedescendant="react-autowhatever-mocked-uuid-1-section-0-item-0"
             aria-autocomplete="list"
-            aria-controls="react-autowhatever-42"
+            aria-controls="react-autowhatever-mocked-uuid-1"
             autocomplete="off"
-            class="theme-input theme-typeahead-input tc-typeahead-typeahead-input"
-            id="42"
+            class="_input_876932 _typeahead-input_1e11d6 tc-typeahead-typeahead-input"
+            id="mocked-uuid-1"
             placeholder="Find in a column..."
             role="searchbox"
             type="text"
@@ -58,44 +58,44 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     </div>
   </div>
   <div
-    class="theme-tc-basic-search-content"
+    class="_tc-basic-search-content_71542c"
   >
     <div
-      class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-tc-badge-faceted theme-theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly"
+      class="tc-badge _tc-badge_56447e tc-badge-display-large _tc-badge-display-large_56447e _tc-badge-faceted_771407 __tc-badge-faceted_771407_56447e tc-badge-readonly _tc-badge-readonly_56447e"
     >
       <div
-        class="tc-badge-button theme-tc-badge-button"
+        class="tc-badge-button _tc-badge-button_56447e"
         id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
       >
         <span
-          aria-describedby="42"
+          aria-describedby="mocked-uuid-4"
           aria-label="Name"
-          class="tc-badge-category theme-tc-badge-category"
+          class="tc-badge-category _tc-badge-category_56447e"
         >
           Name
         </span>
         <div
-          class="theme-tc-badge-operator theme-tc-badge-operator-large"
+          class="_tc-badge-operator_8469bc _tc-badge-operator-large_8469bc"
         >
           <div
-            class="theme-tc-badge-operator-button"
+            class="_tc-badge-operator-button_8469bc"
           >
             <button
               aria-busy="false"
               aria-expanded="false"
               aria-haspopup="dialog"
               aria-label="Equals"
-              class="theme-clickable theme-button theme-tertiary theme-size-S"
+              class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf _size-S_9243c0"
               id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
               title="Equals"
               type="button"
             >
               <span
-                class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+                class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
               >
                 <svg
                   aria-hidden="true"
-                  class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-equal"
+                  class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-equal"
                   focusable="false"
                   name="talend-equal"
                   pointer-events="none"
@@ -106,20 +106,20 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
           </div>
         </div>
         <div
-          class="theme-tc-badge-faceted-overlay"
+          class="_tc-badge-faceted-overlay_771407"
         >
           <button
             aria-busy="false"
             aria-expanded="false"
             aria-haspopup="dialog"
             aria-label="hello"
-            class="theme-clickable theme-button theme-tertiary theme-size-S"
+            class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf _size-S_9243c0"
             id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
             title="hello"
             type="button"
           >
             <span
-              class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+              class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
             >
               <span>
                 hello
@@ -128,9 +128,9 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
           </button>
         </div>
         <button
-          aria-describedby="42"
+          aria-describedby="mocked-uuid-5"
           aria-label="Remove filter"
-          class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+          class="tc-badge-delete-icon _tc-badge-delete-icon_56447e btn-icon-only btn btn-link"
           data-feature="filter.remove"
           id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
           role="button"
@@ -138,7 +138,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
         >
           <svg
             aria-hidden="true"
-            class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-cross"
             focusable="false"
             name="talend-cross"
             pointer-events="none"
@@ -152,16 +152,16 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
         aria-busy="false"
         aria-expanded="false"
         aria-haspopup="dialog"
-        class="theme-clickable theme-button theme-secondary theme-size-S"
+        class="_clickable_5222c6 _button_9243c0 _secondary_abe81c _size-S_9243c0"
         data-feature="filter.basic.add"
         type="button"
       >
         <span
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+          class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
         >
           Add filter
           <span
-            class="theme-button__caret"
+            class="_button__caret_9243c0"
           >
             <svg
               aria-hidden="true"
@@ -179,19 +179,19 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     </div>
   </div>
   <div
-    class="theme-tc-basic-search-clear-content"
+    class="_tc-basic-search-clear-content_71542c"
   >
     <button
-      aria-describedby="id-42"
+      aria-describedby="id-mocked-uuid-6"
       aria-label="Remove all filters"
-      class="theme-clickable theme-buttonIcon theme-size_S"
+      class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
       data-feature="filter.basic.clear"
       tabindex="0"
       type="button"
     >
       <span
         aria-hidden="true"
-        class="theme-buttonIcon__icon"
+        class="_buttonIcon__icon_5aa719"
       >
         <svg
           aria-hidden="true"

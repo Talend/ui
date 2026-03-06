@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ModelViewer > should render the ModelViewer 1`] = `
+<div
+  class="_tc-model_fc7435 tc-model"
+>
+  <div
+    class="_tc-tree-header_2a680a tc-tree-header"
+  >
+    Data model
+    <div
+      class="_tc-tree-header-actions_2a680a tc-tree-header-actions"
+    />
+  </div>
+  <ul
+    class="_tc-tree_4f2225 tc-tree"
+  />
+</div>
+`;

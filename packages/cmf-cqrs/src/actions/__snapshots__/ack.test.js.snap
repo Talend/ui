@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`actions.ack.addContext should return action 1`] = `
+exports[`actions.ack.addContext > should return action 1`] = `
 {
   "actionCreator": "my super action creator id",
   "data": {
@@ -11,14 +11,14 @@ exports[`actions.ack.addContext should return action 1`] = `
 }
 `;
 
-exports[`actions.ack.deleteACK should return action 1`] = `
+exports[`actions.ack.deleteACK > should return action 1`] = `
 {
   "requestId": "123",
   "type": "ACK_DELETE",
 }
 `;
 
-exports[`actions.ack.receiveMessage should return action 1`] = `
+exports[`actions.ack.receiveMessage > should return action 1`] = `
 {
   "requestId": "123",
   "type": "ACK_RECEIVE_MESSAGE",

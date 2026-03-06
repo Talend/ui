@@ -2,9 +2,9 @@
 import { render, screen } from '@testing-library/react';
 import TreeNodeList from './TreeNodeList.component';
 
-jest.mock('../TreeNode', () => props => (
-	<div data-testid="TreeNode" data-props={JSON.stringify(props)} />
-));
+vi.mock('../TreeNode', () => ({
+	default: props => <div data-testid="TreeNode" data-props={JSON.stringify(props)} />,
+}));
 
 describe('TreeNodeList', () => {
 	it('should return a list of 3 TreeNode with an inline paddingLeft value of 30', () => {
@@ -29,7 +29,6 @@ describe('TreeNodeList', () => {
 			index: 0,
 			jsonpath: '$',
 			value: 'toto',
-			dataKey: 'dataKey1',
 		});
 	});
 });

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Container(ActionDropdown) should render 1`] = `
+exports[`Container(ActionDropdown) > should render 1`] = `
 <div
   class="dropdown btn-group btn-group-default"
 >
@@ -8,7 +8,8 @@ exports[`Container(ActionDropdown) should render 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     aria-label="foo"
-    class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+    class="_tc-dropdown-button_0099c3 tc-dropdown-button dropdown-toggle btn btn-default"
+    i18n="[object Object]"
     id="foo"
     role="button"
     type="button"
@@ -20,7 +21,7 @@ exports[`Container(ActionDropdown) should render 1`] = `
     </span>
     <svg
       aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg theme-tc-dropdown-caret tc-icon-name-talend-caret-down"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _tc-dropdown-caret_0099c3 tc-icon-name-talend-caret-down"
       focusable="false"
       name="talend-caret-down"
       pointer-events="none"

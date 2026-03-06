@@ -1,19 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Switch should render accessible html 1`] = `
+exports[`Switch > should render accessible html 1`] = `
 <main>
   <div
-    class="theme-switch"
+    class="_switch_40ce32"
   >
     <div
       aria-activedescendant="id-mocked-uuid-11"
-      class="theme-container"
+      class="_container_40ce32"
       role="radiogroup"
       tabindex="0"
     >
       <button
         aria-checked="false"
-        class="theme-btn"
+        class="_btn_40ce32"
         data-checked="false"
         id="id-mocked-uuid-6"
         role="radio"
@@ -24,7 +24,7 @@ exports[`Switch should render accessible html 1`] = `
       </button>
       <button
         aria-checked="false"
-        class="theme-btn"
+        class="_btn_40ce32"
         data-checked="false"
         id="id-mocked-uuid-7"
         role="radio"
@@ -35,7 +35,7 @@ exports[`Switch should render accessible html 1`] = `
       </button>
       <button
         aria-checked="false"
-        class="theme-btn"
+        class="_btn_40ce32"
         data-checked="false"
         id="id-mocked-uuid-8"
         role="radio"
@@ -46,7 +46,7 @@ exports[`Switch should render accessible html 1`] = `
       </button>
       <button
         aria-checked="false"
-        class="theme-btn"
+        class="_btn_40ce32"
         data-checked="false"
         id="id-mocked-uuid-9"
         role="radio"
@@ -57,7 +57,7 @@ exports[`Switch should render accessible html 1`] = `
       </button>
       <button
         aria-checked="false"
-        class="theme-btn"
+        class="_btn_40ce32"
         data-checked="false"
         id="id-mocked-uuid-10"
         role="radio"
@@ -68,7 +68,7 @@ exports[`Switch should render accessible html 1`] = `
       </button>
       <button
         aria-checked="true"
-        class="theme-btn"
+        class="_btn_40ce32"
         data-checked="true"
         id="id-mocked-uuid-11"
         role="radio"
@@ -79,7 +79,7 @@ exports[`Switch should render accessible html 1`] = `
       </button>
       <span
         aria-hidden="true"
-        class="theme-switchIndicator"
+        class="_switchIndicator_40ce32"
         data-animated="true"
         style="width: 0px; transform: translateX(0px);"
       >

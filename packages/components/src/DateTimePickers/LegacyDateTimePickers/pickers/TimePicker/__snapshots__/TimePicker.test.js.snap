@@ -1,4 +1,47 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TimePicker > should render 1`] = `
+<div
+  class="tc-date-picker-time _time-picker_ee3baf"
+>
+  <legend>
+    Time
+  </legend>
+  <label
+    class="sr-only"
+    for="00000000-0000-4000-8000-000000000000-hour"
+  >
+    hours
+  </label>
+  <input
+    aria-describedby="error-hours"
+    aria-invalid="false"
+    class="_time-input_ee3baf"
+    id="00000000-0000-4000-8000-000000000000-hour"
+    placeholder="HH"
+    tabindex="-1"
+    type="text"
+    value="15"
+  />
+  <hr />
+  <label
+    class="sr-only"
+    for="00000000-0000-4000-8000-000000000000-minute"
+  >
+    minutes
+  </label>
+  <input
+    aria-describedby="error-minutes"
+    aria-invalid="false"
+    class="_time-input_ee3baf"
+    id="00000000-0000-4000-8000-000000000000-minute"
+    placeholder="MM"
+    tabindex="-1"
+    type="text"
+    value="38"
+  />
+</div>
+`;
 
 exports[`TimePicker should render 1`] = `
 <div

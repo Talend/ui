@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`tile's body should compute tile body 1`] = `
+exports[`tile's body > should compute tile body 1`] = `
 <div
-  class="theme-tc-tile-body tc-tile-body"
+  class="_tc-tile-body_d0d657 tc-tile-body"
 >
   my body
 </div>

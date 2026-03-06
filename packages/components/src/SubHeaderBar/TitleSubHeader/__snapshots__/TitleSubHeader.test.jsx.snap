@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TitleSubHeader > should render 1`] = `
+<div
+  class="tc-subheader-details _tc-subheader-details_dde847"
+>
+  <div
+    class="tc-subheader-details-text _tc-subheader-details-text_dde847"
+  >
+    <div
+      class="tc-subheader-details-text-title _tc-subheader-details-text-title_dde847"
+    >
+      <h1
+        aria-describedby="00000000-0000-4000-8000-000000000000"
+        class="tc-subheader-details-text-title-wording _tc-subheader-details-text-title-wording_dde847"
+      >
+        myTitle
+      </h1>
+    </div>
+  </div>
+</div>
+`;

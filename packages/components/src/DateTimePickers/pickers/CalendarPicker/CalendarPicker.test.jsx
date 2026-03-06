@@ -9,22 +9,26 @@ import { startOfDay } from 'date-fns/startOfDay';
 import dateMock from '../../../../../../mocks/dateMock';
 import CalendarPicker from './CalendarPicker.component';
 
-jest.mock('../../views/DateView', () => props => (
-	<div data-testid="DateView" data-props={JSON.stringify(props)}>
-		<button onClick={e => props.onTitleClick(e)}>onTitleClick</button>
-		<button onClick={() => props.onSelectMonthYear({ monthIndex: 1, year: 2019 })}>
-			onSelectMonthYear
-		</button>
-		<button onClick={e => props.onSelectDate(e, new Date(2018, 2, 5))}>onSelectDate</button>
-	</div>
-));
-jest.mock('../../views/MonthYearView', () => props => (
-	<div data-testid="MonthYearView" data-props={JSON.stringify(props)}>
-		<button onClick={e => props.onBackClick(e)}>onBackClick</button>
-		<button onClick={e => props.onSelectMonth(e, 5)}>onSelectMonth</button>
-		<button onClick={e => props.onSelectYear(e, 2016)}>onSelectYear</button>
-	</div>
-));
+vi.mock('../../views/DateView', () => ({
+	default: props => (
+		<div data-testid="DateView" data-props={JSON.stringify(props)}>
+			<button onClick={e => props.onTitleClick(e)}>onTitleClick</button>
+			<button onClick={() => props.onSelectMonthYear({ monthIndex: 1, year: 2019 })}>
+				onSelectMonthYear
+			</button>
+			<button onClick={e => props.onSelectDate(e, new Date(2018, 2, 5))}>onSelectDate</button>
+		</div>
+	),
+}));
+vi.mock('../../views/MonthYearView', () => ({
+	default: props => (
+		<div data-testid="MonthYearView" data-props={JSON.stringify(props)}>
+			<button onClick={e => props.onBackClick(e)}>onBackClick</button>
+			<button onClick={e => props.onSelectMonth(e, 5)}>onSelectMonth</button>
+			<button onClick={e => props.onSelectYear(e, 2016)}>onSelectYear</button>
+		</div>
+	),
+}));
 
 describe('CalendarPicker', () => {
 	afterEach(() => {
@@ -33,9 +37,10 @@ describe('CalendarPicker', () => {
 
 	it('should render', () => {
 		dateMock.mock(new Date(2018, 5, 12));
-		const { container } = render(<CalendarPicker onSubmit={() => {}} />);
+		render(<CalendarPicker onSubmit={() => {}} />);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByTestId('DateView')).toBeVisible();
+		expect(screen.getByText('Today')).toBeVisible();
 	});
 
 	it('should initialize calendar view to current date', () => {

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { useForm, FormProvider } from 'react-hook-form';
 import TextArea from './RHFTextArea.component';
 
-jest.unmock('@talend/design-system');
+vi.unmock('@talend/design-system');
 
 /* eslint-disable-next-line react/prop-types */
 function FormWrapper({ children, onSubmit }) {
@@ -22,7 +22,7 @@ function FormWrapper({ children, onSubmit }) {
 describe('TextArea RHF widget', () => {
 	it('should integrate with RHF', async () => {
 		// given
-		const onSubmit = jest.fn();
+		const onSubmit = vi.fn();
 		render(
 			<FormWrapper onSubmit={onSubmit}>
 				<TextArea id="name" name="name" label="name" defaultValue="12" />
@@ -43,7 +43,7 @@ describe('TextArea RHF widget', () => {
 	it('should render RHF error', async () => {
 		// given
 
-		const onSubmit = jest.fn();
+		const onSubmit = vi.fn();
 		render(
 			<FormWrapper onSubmit={onSubmit}>
 				<TextArea

@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 
 import Dialog from './Dialog.component';
 
-jest.mock('@talend/react-bootstrap', () => {
+vi.mock('@talend/react-bootstrap', () => {
 	const Modal = props => (
 		<div data-testid="Modal" data-size={props.bsSize} {...props}>
 			{props.children}
@@ -18,12 +18,18 @@ jest.mock('@talend/react-bootstrap', () => {
 	Modal.Footer = props => <div data-testid="Footer">{props.children}</div>;
 	return { Modal };
 });
-jest.mock('../Actions/Action', () => props => (
-	<button data-testid="Action" {...props}>
-		{props.label}
-	</button>
-));
-jest.mock('../ActionBar', () => () => <div data-testid="ActionBar" />);
+
+vi.mock('../Actions/Action', () => ({
+	default: props => (
+		<button data-testid="Action" {...props}>
+			{props.label}
+		</button>
+	),
+}));
+
+vi.mock('../ActionBar', () => ({
+	default: () => <div data-testid="ActionBar" />,
+}));
 
 const children = <div>BODY</div>;
 

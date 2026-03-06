@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TreeHeader > should render a simple tree header 1`] = `
+<div
+  class="_tc-tree-header_2a680a tc-tree-header"
+>
+  myTitle
+  <div
+    class="_tc-tree-header-actions_2a680a tc-tree-header-actions"
+  />
+</div>
+`;

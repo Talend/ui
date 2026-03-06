@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Action should render from name props keeping extra props 1`] = `
+exports[`Action > should render from name props keeping extra props 1`] = `
 <div
   class="mock-provider"
 >

@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NameFilter component snaps > should render 1`] = `
+<form
+  class="tc-resource-picker-name-filter _tc-resource-picker-name-filter_87bd8a"
+>
+  <label
+    class="sr-only"
+    for="resource-picker-toolbar-name-filter-input"
+  >
+    Example label
+  </label>
+  <input
+    autocomplete="off"
+    class="form-control"
+    id="resource-picker-toolbar-name-filter-input"
+    placeholder="Example label"
+    required=""
+    type="text"
+    value=""
+  />
+  <button
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    aria-label="Remove filter"
+    class="_remove_87bd8a btn-icon-only btn btn-default"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-cross"
+      focusable="false"
+      name="talend-cross"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </button>
+</form>
+`;

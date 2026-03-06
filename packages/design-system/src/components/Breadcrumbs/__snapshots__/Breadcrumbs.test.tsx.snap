@@ -1,63 +1,63 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Breadcrumbs should render a11y html 1`] = `
+exports[`Breadcrumbs > should render a11y html 1`] = `
 <main>
   <nav
     aria-label="breadcrumb"
-    class="theme-breadcrumbs"
+    class="_breadcrumbs_325516"
   >
     <ul
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-S_ea00e5 _gap-y-S_ea00e5"
       role="list"
     >
       <li
-        class="theme-entry"
+        class="_entry_325516"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-S_ea00e5 _gap-y-S_ea00e5"
         >
           <a
-            class="theme-linkable theme-link theme-with_ellipsis"
+            class="_linkable_4927c6 _link_d78ce8 _with_ellipsis_4927c6"
             href="/"
           >
             <span
-              class="theme-link__text"
+              class="_link__text_d78ce8"
             >
               Link example
             </span>
           </a>
           <span
             aria-hidden="true"
-            class="theme-divider"
+            class="_divider_325516"
           >
             <hr
               aria-orientation="vertical"
-              class="theme-divider"
+              class="_divider_3f6662"
               orientation="vertical"
             />
           </span>
         </div>
       </li>
       <li
-        class="theme-entry theme-entry__collapsed"
+        class="_entry_325516 _entry__collapsed_325516"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-S_ea00e5 _gap-y-S_ea00e5"
         >
           <button
             aria-busy="false"
             aria-expanded="false"
             aria-pressed="false"
-            class="theme-clickable theme-button theme-tertiary theme-size-S"
+            class="_clickable_77b759 _button_31facc _tertiary_1d5581 _size-S_31facc"
             data-test="dropdown.button"
             data-testid="dropdown.button"
             type="button"
           >
             <span
-              class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+              class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
             >
               <span
-                class="theme-hidden"
+                class="_hidden_46bc47"
               >
                 Display collapsed links
               </span>
@@ -67,7 +67,7 @@ exports[`Breadcrumbs should render a11y html 1`] = `
                 …
               </span>
               <span
-                class="theme-button__caret"
+                class="_button__caret_31facc"
               >
                 <svg
                   aria-hidden="true"
@@ -85,7 +85,7 @@ exports[`Breadcrumbs should render a11y html 1`] = `
           <div
             aria-label="Collapsed links"
             aria-orientation="vertical"
-            class="theme-dropdownShell"
+            class="_dropdownShell_5f3373"
             data-floating-ui-focusable=""
             data-test="dropdown.menu"
             data-testid="dropdown.menu"
@@ -94,13 +94,13 @@ exports[`Breadcrumbs should render a11y html 1`] = `
             tabindex="-1"
           >
             <div
-              class="theme-animatedZone"
+              class="_animatedZone_5f3373"
             >
               <div
-                class="theme-stack theme-justify-stretch theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+                class="_stack_ea00e5 _justify-stretch_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
               >
                 <a
-                  class="theme-linkable theme-dropdownEntry"
+                  class="_linkable_4927c6 _dropdownEntry_1ffa1e"
                   data-test="dropdown.menuitem.Link example-0"
                   data-testid="dropdown.menuitem.Link example-0"
                   href="/here"
@@ -109,7 +109,7 @@ exports[`Breadcrumbs should render a11y html 1`] = `
                   Link example
                 </a>
                 <a
-                  class="theme-linkable theme-dropdownEntry"
+                  class="_linkable_4927c6 _dropdownEntry_1ffa1e"
                   data-test="dropdown.menuitem.Link example-1"
                   data-testid="dropdown.menuitem.Link example-1"
                   href="/there"
@@ -120,7 +120,7 @@ exports[`Breadcrumbs should render a11y html 1`] = `
                   Link example
                 </a>
                 <a
-                  class="theme-linkable theme-dropdownEntry"
+                  class="_linkable_4927c6 _dropdownEntry_1ffa1e"
                   data-test="dropdown.menuitem.Link example-2"
                   data-testid="dropdown.menuitem.Link example-2"
                   href="/away"
@@ -133,57 +133,57 @@ exports[`Breadcrumbs should render a11y html 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="theme-divider"
+            class="_divider_325516"
           >
             <hr
               aria-orientation="vertical"
-              class="theme-divider"
+              class="_divider_3f6662"
               orientation="vertical"
             />
           </span>
         </div>
       </li>
       <li
-        class="theme-entry"
+        class="_entry_325516"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-S_ea00e5 _gap-y-S_ea00e5"
         >
           <a
-            class="theme-linkable theme-link theme-with_ellipsis"
+            class="_linkable_4927c6 _link_d78ce8 _with_ellipsis_4927c6"
             href="/more"
           >
             <span
-              class="theme-link__text"
+              class="_link__text_d78ce8"
             >
               Link example that is much too long and should create an ellipsis if all is well
             </span>
           </a>
           <span
             aria-hidden="true"
-            class="theme-divider"
+            class="_divider_325516"
           >
             <hr
               aria-orientation="vertical"
-              class="theme-divider"
+              class="_divider_3f6662"
               orientation="vertical"
             />
           </span>
         </div>
       </li>
       <li
-        class="theme-entry"
+        class="_entry_325516"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-S theme-gap-y-S"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-S_ea00e5 _gap-y-S_ea00e5"
         >
           <a
             aria-current="page"
-            class="theme-linkable theme-link theme-with_ellipsis"
+            class="_linkable_4927c6 _link_d78ce8 _with_ellipsis_4927c6"
             href="/here"
           >
             <span
-              class="theme-link__text"
+              class="_link__text_d78ce8"
             >
               Label
             </span>

@@ -1,0 +1,137 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CollapsibleFieldset > should render 1`] = `
+<fieldset
+  class="collapsible-panel"
+>
+  <div
+    class="_panelWrapper_0ad5fe _panelWrapper__alone_0ad5fe"
+  >
+    <button
+      aria-controls="CollapsiblePanel__content--id-42"
+      aria-expanded="true"
+      class="_headerWrapper_809c46 _headerWrapper__clickable_809c46"
+      data-test="panel.header"
+      data-testid="panel.header"
+      id="CollapsiblePanel__control--id-42"
+      type="button"
+    >
+      <div
+        class="_iconWrapper_809c46"
+      >
+        <svg
+          aria-hidden="true"
+          color="var(--coral-color-accent-icon, hsla(204, 88%, 40%, 1))"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1rem; height: 1rem;"
+        >
+          <use
+            xlink:href="#chevron-up:M"
+          />
+        </svg>
+      </div>
+      <span
+        class="_headerTitle_809c46"
+      >
+        Basic
+      </span>
+    </button>
+    <div
+      aria-labelledby="CollapsiblePanel__control--id-42"
+      class="_panelContent_0ad5fe"
+      data-test="panel.section"
+      data-testid="panel.section"
+      id="CollapsiblePanel__content--id-42"
+      role="region"
+    >
+      <div
+        aria-live="polite"
+        class="_inlineMessage_c6661a"
+        id="my-fieldset-description"
+        role="status"
+      >
+        <span
+          class="_icon_c6661a _information__icon_8d33ef"
+        >
+          <svg
+            aria-hidden="true"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+            style="width: 1rem; height: 1rem;"
+          >
+            <use
+              xlink:href="#information-filled:M"
+            />
+          </svg>
+        </span>
+        <p
+          class="_inlineMessage__contents_c6661a"
+        >
+          <span>
+            This is description
+          </span>
+        </p>
+      </div>
+      <div
+        class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _gap-x-S_dbc270 _gap-y-S_dbc270"
+      >
+        <div
+          aria-live="polite"
+          class="_inlineMessage_c6661a"
+          role="status"
+        >
+          <span
+            class="_icon_c6661a _destructive__icon_859702"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1rem; height: 1rem;"
+            >
+              <use
+                xlink:href="#square-cross:M"
+              />
+            </svg>
+          </span>
+          <p
+            class="_inlineMessage__contents_c6661a"
+          >
+            <span>
+              Widget not found string
+            </span>
+          </p>
+        </div>
+        <div
+          aria-live="polite"
+          class="_inlineMessage_c6661a"
+          role="status"
+        >
+          <span
+            class="_icon_c6661a _destructive__icon_859702"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 1rem; height: 1rem;"
+            >
+              <use
+                xlink:href="#square-cross:M"
+              />
+            </svg>
+          </span>
+          <p
+            class="_inlineMessage__contents_c6661a"
+          >
+            <span>
+              Widget not found string
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+`;
