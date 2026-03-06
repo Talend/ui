@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+import { immutableListPropType } from '../../propTypes/immutable';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { isImmutable } from 'immutable';
@@ -323,7 +323,7 @@ ActionDropdown.propTypes = {
 				...MenuItem.propTypes,
 			}),
 		),
-		ImmutablePropTypes.list,
+		immutableListPropType,
 	]),
 	badge: PropTypes.shape({
 		className: PropTypes.string,

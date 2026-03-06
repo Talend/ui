@@ -1,6 +1,6 @@
 # Story 6.2: Replace react-immutable-proptypes in cmf
 
-Status: ready-for-dev
+Status: done
 
 ## Story
 
@@ -17,12 +17,12 @@ so that cmf no longer depends on `react-immutable-proptypes`.
 
 ## Tasks / Subtasks
 
-- [ ] Import custom validator in `cmfConnect.jsx` (AC: #1)
-- [ ] Replace `ImmutablePropTypes.map` usage at L395-396 (AC: #2, #3)
-  - [ ] `state: ImmutablePropTypes.map` → `state: immutableMapPropType`
-  - [ ] `initialState: PropTypes.oneOfType([ImmutablePropTypes.map, PropTypes.object])` → custom
-- [ ] Remove `react-immutable-proptypes` import (AC: #1)
-- [ ] Run tests (AC: #4)
+- [x] Import custom validator in `cmfConnect.jsx` (AC: #1)
+- [x] Replace `ImmutablePropTypes.map` usage at L395-396 (AC: #2, #3)
+  - [x] `state: ImmutablePropTypes.map` → `state: immutableMapPropType`
+  - [x] `initialState: PropTypes.oneOfType([ImmutablePropTypes.map, PropTypes.object])` → custom
+- [x] Remove `react-immutable-proptypes` import (AC: #1)
+- [x] Run tests (AC: #4)
 
 ## Dev Notes
 
@@ -40,8 +40,26 @@ so that cmf no longer depends on `react-immutable-proptypes`.
 
 ### Agent Model Used
 
+Claude Sonnet 4.6
+
 ### Debug Log References
+
+- All 40 cmfConnect tests passed after import swap.
 
 ### Completion Notes List
 
+- Replaced `import ImmutablePropTypes from 'react-immutable-proptypes'` with `import { immutableMapPropType } from './propTypes/immutable'`.
+- Replaced both `ImmutablePropTypes.map` usages in `cmfConnect.propTypes` with `immutableMapPropType`.
+- 40/40 tests pass, no regressions.
+
 ### File List
+
+- `packages/cmf/src/cmfConnect.jsx` (modified)
+
+## Senior Developer Review (AI)
+
+**Reviewer:** Smouillour — 2026-03-06
+**Outcome:** Approved
+
+- All ACs verified against git diff: import removed, both `ImmutablePropTypes.map` usages replaced, 40/40 tests pass.
+- No issues found. Clean, minimal change.

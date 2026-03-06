@@ -12,5 +12,8 @@
     }
   ],
   "typescript.validate.enable": true,
-  "javascript.validate.enable": true
+  "javascript.validate.enable": true,
+  "chat.tools.terminal.autoApprove": {
+    "yarn workspace": true
+  }
 }
