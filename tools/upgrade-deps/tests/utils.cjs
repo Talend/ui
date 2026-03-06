@@ -12,14 +12,11 @@ const util = require('util');
 
 const execProm = util.promisify(exec);
 const cpxProm = util.promisify(cpx.copy);
-const removeProm = util.promisify(rimraf);
+const removeProm = target => rimraf(target);
 
 async function getTmpDirectory(prefix, fixturePath, lock = 'yarn.lock') {
-	const date = new Date();
-	const tmp = path.join(
-		__dirname,
-		`tmp-${prefix}-${lock}-${date.toLocaleDateString().replace(/\//g, '-')}`,
-	);
+	const uniqueSuffix = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+	const tmp = path.join(__dirname, `tmp-${prefix}-${lock}-${uniqueSuffix}`);
 	await cpxProm(path.join(fixturePath, '**'), tmp);
 	if (lock === 'yarn.lock') {
 		await fsProm.rename(path.join(tmp, 'yarn-template.lock'), path.join(tmp, 'yarn.lock'));
