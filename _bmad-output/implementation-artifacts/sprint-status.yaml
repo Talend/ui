@@ -74,8 +74,8 @@ development_status:
 
   # ── Phase 2: v4 → v5 ──────────────────────────────
 
-  epic-6: backlog
-  6-1-create-immutable-proptype-validators: ready-for-dev
+  epic-6: in-progress
+  6-1-create-immutable-proptype-validators: done
   6-2-replace-proptypes-cmf: ready-for-dev
   6-3-replace-proptypes-components: ready-for-dev
   6-4-replace-proptypes-containers: ready-for-dev

@@ -1,6 +1,6 @@
 # Story 6.1: Create reusable immutable PropType validators
 
-Status: ready-for-dev
+Status: done
 
 ## Story
 
@@ -18,16 +18,16 @@ so that they can replace `react-immutable-proptypes` across all packages.
 
 ## Tasks / Subtasks
 
-- [ ] Create validator for Immutable Map (AC: #1, #3)
-  - [ ] Function checks `Map.isMap(props[propName])` when prop is defined
-  - [ ] Returns `Error` with descriptive message if check fails
-- [ ] Create validator for Immutable List (AC: #2, #3)
-  - [ ] Function checks `List.isList(props[propName])` when prop is defined
-  - [ ] Returns `Error` with descriptive message if check fails
-- [ ] Add `.isRequired` support (AC: #4)
-  - [ ] Wrap each validator to produce a version that also fails when prop is `undefined`/`null`
-- [ ] Place in shared location accessible by cmf, components, containers (AC: #5)
-- [ ] Write unit tests for validators
+- [x] Create validator for Immutable Map (AC: #1, #3)
+  - [x] Function checks `Map.isMap(props[propName])` when prop is defined
+  - [x] Returns `Error` with descriptive message if check fails
+- [x] Create validator for Immutable List (AC: #2, #3)
+  - [x] Function checks `List.isList(props[propName])` when prop is defined
+  - [x] Returns `Error` with descriptive message if check fails
+- [x] Add `.isRequired` support (AC: #4)
+  - [x] Wrap each validator to produce a version that also fails when prop is `undefined`/`null`
+- [x] Place in shared location accessible by cmf, components, containers (AC: #5)
+- [x] Write unit tests for validators
 
 ## Dev Notes
 
@@ -53,8 +53,33 @@ so that they can replace `react-immutable-proptypes` across all packages.
 
 ### Agent Model Used
 
+Claude Sonnet 4.6
+
 ### Debug Log References
+
+- Phase RED: tests echouaient sur `Cannot find module './immutable'` — confirmé avant implémentation.
+- Phase GREEN: 20/20 tests passent après création de `immutable.js`.
 
 ### Completion Notes List
 
+- Créé `packages/cmf/src/propTypes/immutable.js` avec `immutableMapPropType` et `immutableListPropType`.
+- Chaque validateur suit la signature standard PropTypes `(props, propName, componentName) => Error | null`.
+- `.isRequired` implémenté via une factory `makeRequired()` commune aux deux validateurs.
+- 20 tests unitaires couvrant : valeurs valides, null/undefined (optionnel), valeurs invalides, `.isRequired` sur undefined/null/valide/invalide.
+- Tous les tests passent, aucune régression.
+
 ### File List
+
+- `packages/cmf/src/propTypes/immutable.js` (created)
+- `packages/cmf/src/propTypes/immutable.test.js` (created)
+- `packages/cmf/src/index.js` (modified — added exports)
+
+### Review Follow-ups (AI)
+
+- [x] [AI-Review][MEDIUM] Validators not exported from cmf public API — fixed: added named exports in `index.js`
+- [ ] [AI-Review][MEDIUM] `packages/components` does not depend on `@talend/react-cmf` — story 6-3 will need to use a deep import or add the dependency. Flag for story 6-3 dev.
+
+## Change Log
+
+- 2026-03-06: Created custom immutable PropType validators (`immutableMapPropType`, `immutableListPropType`) with `.isRequired` support in `packages/cmf/src/propTypes/immutable.js`. Added 20 unit tests.
+- 2026-03-06: [Code Review] Added `immutableMapPropType` and `immutableListPropType` to cmf named exports in `index.js`.
