@@ -6,9 +6,9 @@ describe('CMF middleware', () => {
 	let middleware;
 	beforeEach(() => {
 		store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		next = jest.fn();
+		next = vi.fn();
 		middleware = cmfMiddleware(store)(next);
 	});
 	it('should be a middleware', () => {
