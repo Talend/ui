@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS should batch many elements creation 1`] = `
+exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS > should batch many elements creation 1`] = `
 Immutable.Map {
   "in": Immutable.Map {
     "nodeId": Immutable.Map {},
@@ -108,7 +108,7 @@ Immutable.Map {
 }
 `;
 
-exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS should batch one element creation 1`] = `
+exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS > should batch one element creation 1`] = `
 Immutable.Map {
   "in": Immutable.Map {
     "nodeId": Immutable.Map {},
@@ -160,7 +160,7 @@ Immutable.Map {
 }
 `;
 
-exports[`FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not touching flow config should load elements 1`] = `
+exports[`FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not touching flow config > should load elements 1`] = `
 Immutable.Map {
   "in": Immutable.Map {
     "nodeId": Immutable.Map {},
@@ -267,7 +267,7 @@ Immutable.Map {
 }
 `;
 
-exports[`FLOWDESIGNER_PAN_TO set a calculated transformation into transformToApply  1`] = `
+exports[`FLOWDESIGNER_PAN_TO set a calculated transformation into transformToApply >  1`] = `
 Immutable.Map {
   "in": Immutable.Map {},
   "transformToApply": Transform {

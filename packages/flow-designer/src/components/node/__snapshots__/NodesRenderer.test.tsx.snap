@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<NodesRenderer /> renders correctly 1`] = `
+exports[`<NodesRenderer /> > renders correctly 1`] = `
 <g>
   <span>
     MockNodes
@@ -8,7 +8,7 @@ exports[`<NodesRenderer /> renders correctly 1`] = `
 </g>
 `;
 
-exports[`<NodesRenderer /> renders correctly if nested 1`] = `
+exports[`<NodesRenderer /> > renders correctly if nested 1`] = `
 <g>
   <span>
     MockNodes

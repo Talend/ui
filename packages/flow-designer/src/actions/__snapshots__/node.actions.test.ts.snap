@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Check that node action creators generate proper action objects and perform checking addNode generate action with 0 configuration 1`] = `
+exports[`Check that node action creators generate proper action objects and perform checking > addNode generate action with 0 configuration 1`] = `
 [
   {
     "data": {},
@@ -22,7 +22,7 @@ exports[`Check that node action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that node action creators generate proper action objects and perform checking moveNode generate a proper action object witch nodeId and nodePosition parameter 1`] = `
+exports[`Check that node action creators generate proper action objects and perform checking > moveNode generate a proper action object witch nodeId and nodePosition parameter 1`] = `
 [
   {
     "nodeId": "nodeId",
@@ -35,7 +35,7 @@ exports[`Check that node action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that node action creators generate proper action objects and perform checking removeNode 1`] = `
+exports[`Check that node action creators generate proper action objects and perform checking > removeNode 1`] = `
 [
   {
     "nodeId": "id",
@@ -44,7 +44,7 @@ exports[`Check that node action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that node action creators generate proper action objects and perform checking removeNodeData 1`] = `
+exports[`Check that node action creators generate proper action objects and perform checking > removeNodeData 1`] = `
 [
   {
     "dataKey": "type",
@@ -54,7 +54,7 @@ exports[`Check that node action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that node action creators generate proper action objects and perform checking removeNodeGraphicalAttribute 1`] = `
+exports[`Check that node action creators generate proper action objects and perform checking > removeNodeGraphicalAttribute 1`] = `
 [
   {
     "graphicalAttributesKey": "selected",
@@ -64,7 +64,7 @@ exports[`Check that node action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that node action creators generate proper action objects and perform checking setNodeData 1`] = `
+exports[`Check that node action creators generate proper action objects and perform checking > setNodeData 1`] = `
 [
   {
     "bySubmit": false,
@@ -77,7 +77,7 @@ exports[`Check that node action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that node action creators generate proper action objects and perform checking setNodeGraphicalAttributes 1`] = `
+exports[`Check that node action creators generate proper action objects and perform checking > setNodeGraphicalAttributes 1`] = `
 [
   {
     "graphicalAttributes": {
@@ -89,7 +89,7 @@ exports[`Check that node action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that node action creators generate proper action objects and perform checking setNodeSize 1`] = `
+exports[`Check that node action creators generate proper action objects and perform checking > setNodeSize 1`] = `
 [
   {
     "nodeId": "nodeId",
@@ -102,7 +102,7 @@ exports[`Check that node action creators generate proper action objects and perf
 ]
 `;
 
-exports[`applyMovementTo generate proper action 1`] = `
+exports[`applyMovementTo > generate proper action 1`] = `
 {
   "movement": {
     "x": 10,

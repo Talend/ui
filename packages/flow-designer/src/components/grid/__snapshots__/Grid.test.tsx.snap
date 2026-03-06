@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Grid.component should render a grid by default 1`] = `
+exports[`Grid.component > should render a grid by default 1`] = `
 <g>
   <defs>
     <pattern

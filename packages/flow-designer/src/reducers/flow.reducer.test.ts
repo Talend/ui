@@ -159,7 +159,7 @@ describe('calculatePortsPosition behavior', () => {
 		.set('nodeTypes', Map().set('42', Map().set('component', {})));
 
 	it('should trigger only if NODE/PORT/FLOW action are dispatched', () => {
-		const calculatePortPosition = jest.fn();
+		const calculatePortPosition = vi.fn();
 		const givenState = state.setIn(['nodeTypes', '42', 'component'], { calculatePortPosition });
 		calculatePortsPosition(givenState, {
 			type: 'FLOWDESIGNER_NODE_MOVE',
@@ -174,7 +174,7 @@ describe('calculatePortsPosition behavior', () => {
 	});
 
 	it('should not trigger on FLOWDESIGNER_NODE_REMOVE and FLOWDESIGNER_PORT_REMOVE', () => {
-		const calculatePortPosition = jest.fn();
+		const calculatePortPosition = vi.fn();
 		const givenState = state.setIn(['nodeTypes', '42', 'component'], { calculatePortPosition });
 		calculatePortsPosition(givenState, {
 			type: 'FLOWDESIGNER_NODE_REMOVE',
@@ -186,7 +186,7 @@ describe('calculatePortsPosition behavior', () => {
 	});
 
 	it('should trigger using action with port id', () => {
-		const calculatePortPosition = jest.fn();
+		const calculatePortPosition = vi.fn();
 		const givenState = state.setIn(['nodeTypes', '42', 'component'], { calculatePortPosition });
 		const action = {
 			type: 'FLOWDESIGNER_PORT_SET_DATA',

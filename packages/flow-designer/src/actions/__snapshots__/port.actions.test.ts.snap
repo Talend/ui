@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Check that port action creators generate proper action objects and perform checking addPort 1`] = `
+exports[`Check that port action creators generate proper action objects and perform checking > addPort 1`] = `
 [
   {
     "data": {
@@ -19,7 +19,7 @@ exports[`Check that port action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that port action creators generate proper action objects and perform checking removePort 1`] = `
+exports[`Check that port action creators generate proper action objects and perform checking > removePort 1`] = `
 [
   {
     "portId": "portId",
@@ -28,7 +28,7 @@ exports[`Check that port action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that port action creators generate proper action objects and perform checking removePortAttribute 1`] = `
+exports[`Check that port action creators generate proper action objects and perform checking > removePortAttribute 1`] = `
 [
   {
     "graphicalAttributesKey": "selected",
@@ -38,7 +38,7 @@ exports[`Check that port action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that port action creators generate proper action objects and perform checking removePortData 1`] = `
+exports[`Check that port action creators generate proper action objects and perform checking > removePortData 1`] = `
 [
   {
     "dataKey": "type",
@@ -48,7 +48,7 @@ exports[`Check that port action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that port action creators generate proper action objects and perform checking setPortData 1`] = `
+exports[`Check that port action creators generate proper action objects and perform checking > setPortData 1`] = `
 [
   {
     "data": {
@@ -60,7 +60,7 @@ exports[`Check that port action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that port action creators generate proper action objects and perform checking setPortGraphicalAttribute 1`] = `
+exports[`Check that port action creators generate proper action objects and perform checking > setPortGraphicalAttribute 1`] = `
 [
   {
     "graphicalAttributes": {

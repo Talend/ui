@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Check that link action creators generate proper action objects and perform checking addLink 1`] = `
+exports[`Check that link action creators generate proper action objects and perform checking > addLink 1`] = `
 [
   {
     "data": {},
@@ -15,7 +15,7 @@ exports[`Check that link action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that link action creators generate proper action objects and perform checking removeLink 1`] = `
+exports[`Check that link action creators generate proper action objects and perform checking > removeLink 1`] = `
 [
   {
     "linkId": "id",
@@ -24,7 +24,7 @@ exports[`Check that link action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that link action creators generate proper action objects and perform checking removeLinkData 1`] = `
+exports[`Check that link action creators generate proper action objects and perform checking > removeLinkData 1`] = `
 [
   {
     "dataKey": "type",
@@ -34,7 +34,7 @@ exports[`Check that link action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that link action creators generate proper action objects and perform checking removeLinkGrahicalAttribute 1`] = `
+exports[`Check that link action creators generate proper action objects and perform checking > removeLinkGrahicalAttribute 1`] = `
 [
   {
     "graphicalAttributesKey": "selected",
@@ -44,7 +44,7 @@ exports[`Check that link action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that link action creators generate proper action objects and perform checking setLinkData 1`] = `
+exports[`Check that link action creators generate proper action objects and perform checking > setLinkData 1`] = `
 [
   {
     "data": {
@@ -56,7 +56,7 @@ exports[`Check that link action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that link action creators generate proper action objects and perform checking setLinkGraphicalAttributes 1`] = `
+exports[`Check that link action creators generate proper action objects and perform checking > setLinkGraphicalAttributes 1`] = `
 [
   {
     "graphicalAttributes": {
@@ -68,7 +68,7 @@ exports[`Check that link action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that link action creators generate proper action objects and perform checking setLinkSource 1`] = `
+exports[`Check that link action creators generate proper action objects and perform checking > setLinkSource 1`] = `
 [
   {
     "linkId": "linkId",
@@ -78,7 +78,7 @@ exports[`Check that link action creators generate proper action objects and perf
 ]
 `;
 
-exports[`Check that link action creators generate proper action objects and perform checking setLinkTarget 1`] = `
+exports[`Check that link action creators generate proper action objects and perform checking > setLinkTarget 1`] = `
 [
   {
     "linkId": "linkId",

@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`setZoom if transform object is not well set return null 1`] = `null`;
+exports[`setZoom > if transform object is not well set return null 1`] = `null`;
 
-exports[`setZoom should generate an action with proper shape 1`] = `
+exports[`setZoom > should generate an action with proper shape 1`] = `
 {
   "transform": {
     "k": 0,
