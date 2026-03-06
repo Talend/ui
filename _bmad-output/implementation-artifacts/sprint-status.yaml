@@ -66,9 +66,9 @@ development_status:
   4-2-validate-flow-designer-v4: done
   epic-4-retrospective: optional
 
-  epic-5: backlog
-  5-1-full-test-suite-v4: ready-for-dev
-  5-2-validate-builds-v4: ready-for-dev
+  epic-5: in-progress
+  5-1-full-test-suite-v4: done
+  5-2-validate-builds-v4: done
   5-3-create-changesets-v4: ready-for-dev
   epic-5-retrospective: optional
 

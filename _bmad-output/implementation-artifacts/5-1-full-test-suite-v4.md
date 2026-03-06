@@ -1,6 +1,6 @@
 # Story 5.1: Run full test suite for v4 validation
 
-Status: ready-for-dev
+Status: done
 
 ## Story
 
@@ -15,9 +15,9 @@ so that I can confirm no regressions.
 
 ## Tasks / Subtasks
 
-- [ ] Run `yarn test` at root (AC: #1)
-- [ ] Review any failures and fix (AC: #1)
-- [ ] Verify no Immutable warnings (AC: #2)
+- [x] Run `yarn test` at root (AC: #1)
+- [x] Review any failures and fix (AC: #1)
+- [x] Verify no Immutable warnings (AC: #2)
 
 ## Dev Notes
 
@@ -33,8 +33,19 @@ so that I can confirm no regressions.
 
 ### Agent Model Used
 
+Claude Sonnet 4.6
+
 ### Debug Log References
+
+N/A — All tests passed on first run, no debugging required.
 
 ### Completion Notes List
 
+- Ran `yarn test` at monorepo root (2026-03-06). All 44 workspace packages (via `talend-yarn-workspace run test`) returned exit code 0. Total test duration: ~150s.
+- Confirmed no Immutable.js library warnings in key packages: `@talend/react-cmf`, `@talend/react-containers` (378/378 passed), `@talend/react-flow-designer`.
+- Warnings observed are pre-existing React warnings (defaultProps deprecation, React 18 colander) — unrelated to Immutable v4 migration.
+- No regression introduced by Epics 1–4 changes.
+
 ### File List
+
+No source files modified — validation story only.
