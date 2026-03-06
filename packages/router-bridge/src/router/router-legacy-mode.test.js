@@ -1,11 +1,16 @@
-jest.mock('react-router-dom', () => {
-	throw new Error();
-});
-
 describe('router bridge - legacy mode', () => {
-	it('should not export any router implementation', () => {
+	beforeEach(() => {
+		process.env.TALEND_ROUTER_BRIDGE_FORCE_LEGACY = 'true';
+		vi.resetModules();
+	});
+
+	afterEach(() => {
+		delete process.env.TALEND_ROUTER_BRIDGE_FORCE_LEGACY;
+	});
+
+	it('should not export any router implementation', async () => {
 		// when
-		const { history, Route, isLegacy } = require('./index');
+		const { history, Route, isLegacy } = await import('./index');
 
 		// then
 		expect(history).toBe(null);
