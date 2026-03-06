@@ -1,4 +1,88 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectSortBy > should render 1`] = `
+<div>
+  <ul
+    class="_tc-list-toolbar-sort-by_953245 nav"
+  >
+    <li
+      class="_sort-by-items_953245 dropdown"
+    >
+      <a
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Change sort criteria. Current sort criteria: Id."
+        class="dropdown-toggle"
+        href="#"
+        id="00000000-0000-4000-8000-000000000000"
+        role="button"
+      >
+        Id
+         
+        <span
+          class="caret"
+        />
+      </a>
+      <ul
+        aria-labelledby="00000000-0000-4000-8000-000000000000"
+        class="dropdown-menu"
+        role="menu"
+      >
+        <li
+          class=""
+          role="presentation"
+        >
+          <a
+            aria-label="Select Id as current sort criteria."
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+          >
+            Id
+          </a>
+        </li>
+        <li
+          class=""
+          role="presentation"
+        >
+          <a
+            aria-label="Select Name as current sort criteria."
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+          >
+            Name
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <button
+        aria-label="Change sort order. Current order: Ascending."
+        class="_tc-list-toolbar-order-chooser_953245 tc-list-toolbar-order-chooser btn btn-link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-sort-asc"
+          focusable="false"
+          name="talend-sort-asc"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-list-toolbar-order-indicator _tc-list-toolbar-order-indicator_953245 tc-icon-name-talend-caret-down _rotate-180_bf5f45"
+          focusable="false"
+          name="talend-caret-down"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </button>
+    </li>
+  </ul>
+</div>
+`;
 
 exports[`SelectSortBy should render 1`] = `
 <div>

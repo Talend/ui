@@ -1,22 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RecordsViewerBranch should render the branch with children 1`] = `
+exports[`RecordsViewerBranch > should render the branch with children 1`] = `
 <div
-  class="theme-tc-records-viewer-branch tc-records-viewer-branch"
+  class="_tc-records-viewer-branch_ad9b4e tc-records-viewer-branch"
 >
   <span
-    class="theme-tc-records-viewer-branch-content tc-records-viewer-branch-content"
+    class="_tc-records-viewer-branch-content_ad9b4e tc-records-viewer-branch-content"
     data-testid="records-branch"
     role="button"
     tabindex="0"
   >
     <span
-      class="theme-tc-tree-branch-icon tc-tree-branch-icon"
+      class="_tc-tree-branch-icon_e17aee tc-tree-branch-icon"
       data-testid="tree-branch-icon"
     >
       <svg
         aria-hidden="true"
-        class="tc-svg-icon tc-icon theme-svg theme-tc-tree-branch-icon-caret tc-tree-branch-icon-caret tc-icon-name-talend-caret-down"
+        class="tc-svg-icon tc-icon _svg_bf5f45 _tc-tree-branch-icon-caret_e17aee tc-tree-branch-icon-caret tc-icon-name-talend-caret-down"
         focusable="false"
         name="talend-caret-down"
         pointer-events="none"
@@ -25,7 +25,7 @@ exports[`RecordsViewerBranch should render the branch with children 1`] = `
       />
     </span>
     <span
-      class="theme-tc-records-viewer-branch-text tc-records-viewer-branch-text"
+      class="_tc-records-viewer-branch-text_ad9b4e tc-records-viewer-branch-text"
     >
       myDataKey
     </span>

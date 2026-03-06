@@ -1,18 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CellIconText should render an icon cell with an icon 1`] = `
+exports[`CellIconText > should render an icon cell with an icon 1`] = `
 <div
-  class="tc-icon-text theme-tc-icon-text"
+  class="tc-icon-text _tc-icon-text_c39f35"
 >
-  <div
-    aria-label="list"
-    data-testid="TooltipTrigger"
+  <span
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    class="_label_c39f35"
   >
-    <span
-      class="theme-label"
-    >
-      list
-    </span>
-  </div>
+    list
+  </span>
 </div>
 `;

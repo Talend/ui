@@ -1,4 +1,292 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`List > should render 1`] = `
+<div
+  class="tc-list _list_9fef90"
+>
+  <div
+    class="_tc-list-toolbar_40008b tc-list-toolbar"
+  >
+    <div
+      class="_tc-list-toolbar_40008b navbar navbar-default"
+      role="toolbar"
+    >
+      <div
+        class="container-fluid"
+      >
+        <p
+          class="navbar-text"
+        >
+          <label>
+            Show:
+          </label>
+        </p>
+        <ul
+          class="_tc-pagination_5e4041 nav navbar-nav"
+        >
+          <li
+            class="dropdown"
+          >
+            <a
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="dropdown-toggle"
+              href="#"
+              id="00000000-0000-4000-8000-000000000000"
+              role="button"
+            >
+              5
+               
+              <span
+                class="caret"
+              />
+            </a>
+            <ul
+              aria-labelledby="00000000-0000-4000-8000-000000000000"
+              class="dropdown-menu"
+              role="menu"
+            >
+              <li
+                class=""
+                role="presentation"
+              >
+                <a
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  5
+                </a>
+              </li>
+              <li
+                class=""
+                role="presentation"
+              >
+                <a
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  10
+                </a>
+              </li>
+              <li
+                class=""
+                role="presentation"
+              >
+                <a
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  20
+                </a>
+              </li>
+              <li
+                class=""
+                role="presentation"
+              >
+                <a
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  50
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="btn-link"
+            role="presentation"
+          >
+            <a
+              aria-label="Go to first page."
+              href="#"
+              role="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-end"
+                focusable="false"
+                name="talend-chevron-end"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </a>
+          </li>
+          <li
+            class="btn-link"
+            role="presentation"
+          >
+            <a
+              aria-label="Go to previous page. Current page: 2."
+              href="#"
+              role="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left"
+                focusable="false"
+                name="talend-chevron-left"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </a>
+          </li>
+          <li
+            class="_page-index_5e4041"
+          >
+            2
+            /
+            3
+          </li>
+          <li
+            class="btn-link"
+            role="presentation"
+          >
+            <a
+              aria-label="Go to next page. Current page: 2."
+              href="#"
+              role="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-180_bf5f45"
+                focusable="false"
+                name="talend-chevron-left"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </a>
+          </li>
+          <li
+            class="btn-link"
+            role="presentation"
+          >
+            <a
+              aria-label="Go to last page."
+              href="#"
+              role="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-end _rotate-180_bf5f45"
+                focusable="false"
+                name="talend-chevron-end"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="tc-list-display-virtualized _display-mode-table_9fef90"
+  >
+    <div
+      style="overflow: visible; height: 0px; width: 0px;"
+    >
+      <div
+        aria-colcount="3"
+        aria-rowcount="3"
+        class="ReactVirtualized__Table tc-list-table _tc-list-table_cdefb9"
+        role="grid"
+      >
+        <div
+          class="tc-list-headerRow _tc-list-headerRow_cdefb9 ReactVirtualized__Table__headerRow tc-list-item _tc-list-item_cdefb9 _row_cdefb9 __row_cdefb9_cdefb9 _row_42b6e2 __row_42b6e2_cdefb9 _ReactVirtualized__Table__headerRow tc-list-item _tc-list-item_cdefb9 _row_cdefb9 __row_cdefb9_cdefb9 _row_42b6e2 __row_42b6e2_cdefb9_cdefb9"
+          role="row"
+          style="height: 40px; overflow: hidden; padding-right: 0px; width: 0px;"
+        >
+          <div
+            class="ReactVirtualized__Table__headerColumn _header_cdefb9 tc-list-cell-"
+            id="tc-list-internal-row-selector"
+            role="columnheader"
+            style="flex: 0 0 35px;"
+          >
+            <form
+              class="tc-list-checkbox _tc-list-checkbox_a1edc0"
+            >
+              <div
+                class="checkbox"
+                title="Select all"
+              >
+                <label>
+                  <div
+                    class="checkbox tc-checkbox"
+                  >
+                    <label
+                      data-feature="list.select_all.enable"
+                    >
+                      <input
+                        data-checked="0"
+                        type="checkbox"
+                      />
+                      <span />
+                    </label>
+                  </div>
+                  <span
+                    class="sr-only"
+                  >
+                    Select all
+                  </span>
+                </label>
+              </div>
+            </form>
+          </div>
+          <div
+            class="ReactVirtualized__Table__headerColumn _header_cdefb9 tc-list-cell-id"
+            role="columnheader"
+            style="flex: 0 0 -1px;"
+          >
+            <span
+              class="ReactVirtualized__Table__headerTruncatedText"
+              title="Id"
+            >
+              Id
+            </span>
+          </div>
+          <div
+            class="ReactVirtualized__Table__headerColumn _header_cdefb9 tc-list-cell-name"
+            role="columnheader"
+            style="flex: 0 0 -1px;"
+          >
+            <span
+              class="ReactVirtualized__Table__headerTruncatedText"
+              title="Name"
+            >
+              Name
+            </span>
+          </div>
+        </div>
+        <div
+          aria-label="grid"
+          class="ReactVirtualized__Grid ReactVirtualized__Table__Grid _grid_cdefb9 tc-dropdown-container"
+          role="rowgroup"
+          style="box-sizing: border-box; direction: ltr; height: 210px; position: relative; width: 0px; -webkit-overflow-scrolling: touch; will-change: transform; overflow-x: hidden; overflow-y: hidden;"
+          tabindex="0"
+        />
+      </div>
+    </div>
+    <div
+      class="resize-triggers"
+    >
+      <div
+        class="expand-trigger"
+      >
+        <div
+          style="width: 1px; height: 1px;"
+        />
+      </div>
+      <div
+        class="contract-trigger"
+      />
+    </div>
+  </div>
+</div>
+`;
 
 exports[`List should render 1`] = `
 <div

@@ -1,0 +1,675 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DatePicker > should render a DatePicker 1`] = `
+<div>
+  <table
+    class="_container_804025"
+  >
+    <caption
+      class="sr-only"
+    >
+      June 2018
+    </caption>
+    <thead>
+      <tr
+        class="_calendar-header_804025"
+      >
+        <th
+          scope="col"
+        >
+          <abbr
+            title="Monday"
+          >
+            M
+          </abbr>
+          <hr
+            aria-orientation="horizontal"
+            class="_divider_53cf73"
+          />
+        </th>
+        <th
+          scope="col"
+        >
+          <abbr
+            title="Tuesday"
+          >
+            T
+          </abbr>
+          <hr
+            aria-orientation="horizontal"
+            class="_divider_53cf73"
+          />
+        </th>
+        <th
+          scope="col"
+        >
+          <abbr
+            title="Wednesday"
+          >
+            W
+          </abbr>
+          <hr
+            aria-orientation="horizontal"
+            class="_divider_53cf73"
+          />
+        </th>
+        <th
+          scope="col"
+        >
+          <abbr
+            title="Thursday"
+          >
+            T
+          </abbr>
+          <hr
+            aria-orientation="horizontal"
+            class="_divider_53cf73"
+          />
+        </th>
+        <th
+          scope="col"
+        >
+          <abbr
+            title="Friday"
+          >
+            F
+          </abbr>
+          <hr
+            aria-orientation="horizontal"
+            class="_divider_53cf73"
+          />
+        </th>
+        <th
+          scope="col"
+        >
+          <abbr
+            title="Saturday"
+          >
+            S
+          </abbr>
+          <hr
+            aria-orientation="horizontal"
+            class="_divider_53cf73"
+          />
+        </th>
+        <th
+          scope="col"
+        >
+          <abbr
+            title="Sunday"
+          >
+            S
+          </abbr>
+          <hr
+            aria-orientation="horizontal"
+            class="_divider_53cf73"
+          />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="_calendar-row_804025 tc-date-picker-calendar-row"
+      >
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Monday 28 May 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            28
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Tuesday 29 May 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            29
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Wednesday 30 May 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            30
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Thursday 31 May 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            31
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Friday 01 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="1"
+            tabindex="-1"
+            type="button"
+          >
+            1
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Saturday 02 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="2"
+            tabindex="-1"
+            type="button"
+          >
+            2
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Sunday 03 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="3"
+            tabindex="-1"
+            type="button"
+          >
+            3
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="_calendar-row_804025 tc-date-picker-calendar-row"
+      >
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Monday 04 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="4"
+            tabindex="-1"
+            type="button"
+          >
+            4
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Tuesday 05 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="5"
+            tabindex="-1"
+            type="button"
+          >
+            5
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Date is not allowed, Wednesday 06 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="6"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            6
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Thursday 07 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="7"
+            tabindex="-1"
+            type="button"
+          >
+            7
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Friday 08 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="8"
+            tabindex="-1"
+            type="button"
+          >
+            8
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Saturday 09 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="9"
+            tabindex="-1"
+            type="button"
+          >
+            9
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Sunday 10 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="10"
+            tabindex="-1"
+            type="button"
+          >
+            10
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="_calendar-row_804025 tc-date-picker-calendar-row"
+      >
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Monday 11 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="11"
+            tabindex="-1"
+            type="button"
+          >
+            11
+          </button>
+        </td>
+        <td
+          aria-current="date"
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Tuesday 12 June 2018, selected"
+            class="_calendar-day_804025 _selected_804025 tc-date-picker-day"
+            data-value="12"
+            tabindex="-1"
+            type="button"
+          >
+            12
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Wednesday 13 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="13"
+            tabindex="-1"
+            type="button"
+          >
+            13
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Thursday 14 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="14"
+            tabindex="-1"
+            type="button"
+          >
+            14
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Date is not allowed, Friday 15 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="15"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            15
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Saturday 16 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="16"
+            tabindex="-1"
+            type="button"
+          >
+            16
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Sunday 17 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="17"
+            tabindex="-1"
+            type="button"
+          >
+            17
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="_calendar-row_804025 tc-date-picker-calendar-row"
+      >
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Monday 18 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="18"
+            tabindex="-1"
+            type="button"
+          >
+            18
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Tuesday 19 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="19"
+            tabindex="-1"
+            type="button"
+          >
+            19
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Today, Wednesday 20 June 2018"
+            class="_calendar-day_804025 _today_804025 tc-date-picker-day"
+            data-value="20"
+            tabindex="-1"
+            type="button"
+          >
+            20
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Thursday 21 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="21"
+            tabindex="-1"
+            type="button"
+          >
+            21
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Friday 22 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="22"
+            tabindex="-1"
+            type="button"
+          >
+            22
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Saturday 23 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="23"
+            tabindex="-1"
+            type="button"
+          >
+            23
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Sunday 24 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="24"
+            tabindex="-1"
+            type="button"
+          >
+            24
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="_calendar-row_804025 tc-date-picker-calendar-row"
+      >
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Monday 25 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="25"
+            tabindex="-1"
+            type="button"
+          >
+            25
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Tuesday 26 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="26"
+            tabindex="-1"
+            type="button"
+          >
+            26
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Wednesday 27 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="27"
+            tabindex="-1"
+            type="button"
+          >
+            27
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Thursday 28 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="28"
+            tabindex="-1"
+            type="button"
+          >
+            28
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Friday 29 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="29"
+            tabindex="-1"
+            type="button"
+          >
+            29
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Saturday 30 June 2018"
+            class="_calendar-day_804025 tc-date-picker-day"
+            data-value="30"
+            tabindex="-1"
+            type="button"
+          >
+            30
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Sunday 01 July 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            1
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="_calendar-row_804025 tc-date-picker-calendar-row"
+      >
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Monday 02 July 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            2
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Tuesday 03 July 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            3
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Wednesday 04 July 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            4
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Thursday 05 July 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            5
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Friday 06 July 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            6
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Saturday 07 July 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            7
+          </button>
+        </td>
+        <td
+          class="_calendar-col_804025"
+        >
+          <button
+            aria-label="Sunday 08 July 2018"
+            class="_calendar-day_804025 _not-current-month_804025 tc-date-picker-day"
+            tabindex="-1"
+            type="button"
+          >
+            8
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

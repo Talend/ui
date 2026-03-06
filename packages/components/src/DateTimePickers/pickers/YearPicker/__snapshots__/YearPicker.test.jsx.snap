@@ -1,0 +1,108 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`YearPicker > should render 1`] = `
+<div
+  class="_year-picker_b52113"
+>
+  <button
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    aria-label="Go to previous year"
+    class="_scroll_b52113 _scroll-up_b52113 tc-date-picker-scroll-up btn-icon-only btn btn-link"
+    role="link"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-90_bf5f45"
+      focusable="false"
+      name="talend-chevron-left"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </button>
+  <ol>
+    <li>
+      <button
+        class="_year_b52113 tc-date-picker-year"
+        tabindex="-1"
+        type="button"
+      >
+        2009
+      </button>
+    </li>
+    <li>
+      <button
+        class="_year_b52113 tc-date-picker-year"
+        tabindex="-1"
+        type="button"
+      >
+        2010
+      </button>
+    </li>
+    <li>
+      <button
+        class="_year_b52113 tc-date-picker-year"
+        tabindex="-1"
+        type="button"
+      >
+        2011
+      </button>
+    </li>
+    <li
+      aria-current="true"
+    >
+      <button
+        aria-label="2012, selected"
+        class="_year_b52113 _selected_b52113 tc-date-picker-year"
+        tabindex="0"
+        type="button"
+      >
+        2012
+      </button>
+    </li>
+    <li>
+      <button
+        class="_year_b52113 tc-date-picker-year"
+        tabindex="-1"
+        type="button"
+      >
+        2013
+      </button>
+    </li>
+    <li>
+      <button
+        class="_year_b52113 tc-date-picker-year"
+        tabindex="-1"
+        type="button"
+      >
+        2014
+      </button>
+    </li>
+    <li>
+      <button
+        class="_year_b52113 tc-date-picker-year"
+        tabindex="-1"
+        type="button"
+      >
+        2015
+      </button>
+    </li>
+  </ol>
+  <button
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    aria-label="Go to next year"
+    class="_scroll_b52113 _scroll-down_b52113 tc-date-picker-scroll-down btn-icon-only btn btn-link"
+    role="link"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-270_bf5f45"
+      focusable="false"
+      name="talend-chevron-left"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </button>
+</div>
+`;

@@ -1,4 +1,154 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SubHeaderBar > should render 1`] = `
+<header
+  class="_tc-subheader_232e4d tc-subheader myClassName"
+>
+  <div
+    class="_tc-actionbar-container_78677b tc-actionbar-container nav _tc-subheader-navbar_232e4d tc-subheader-navbar"
+  >
+    <div
+      class="tc-subheader-left _tc-subheader-navbar-left_232e4d"
+    >
+      <div
+        class="_navbar-left_78677b navbar-left"
+      >
+        <div
+          class="_tc-subheader-back-button_232e4d tc-subheader-back-button"
+        >
+          <button
+            aria-describedby="id-00000000-0000-4000-8000-000000000000"
+            aria-label="Go back"
+            class="_clickable_5222c6 _buttonIcon_5aa719"
+            data-testid="tc-subheader-backArrow"
+            id="backArrow"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#arrow-left:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="tc-subheader-details _tc-subheader-details_dde847"
+        >
+          <div
+            class="tc-subheader-details-text _tc-subheader-details-text_dde847"
+          >
+            <div
+              class="tc-subheader-details-text-title _tc-subheader-details-text-title_dde847"
+            >
+              <h1
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="tc-subheader-details-text-title-wording _tc-subheader-details-text-title-wording_dde847"
+              >
+                myTitle
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tc-subheader-left _tc-subheader-navbar-left_232e4d"
+    >
+      <div
+        class="_navbar-left_78677b navbar-left"
+      >
+        <button
+          aria-describedby="00000000-0000-4000-8000-000000000000"
+          aria-label="action1"
+          class="btn-icon-only btn btn-link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-share-alt"
+            focusable="false"
+            name="talend-share-alt"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </button>
+        <button
+          aria-describedby="00000000-0000-4000-8000-000000000000"
+          aria-label="action2"
+          class="btn-icon-only btn btn-link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-activity"
+            focusable="false"
+            name="talend-activity"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="tc-subheader-center tc-subheader-right-no-margin-right _tc-subheader-navbar-center_232e4d _tc-subheader-navbar-center-no-margin-right_232e4d"
+    >
+      <div
+        class="_navbar-center_78677b"
+      >
+        <button
+          aria-describedby="00000000-0000-4000-8000-000000000000"
+          aria-label="action3"
+          class="btn-icon-only btn btn-link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-activity"
+            focusable="false"
+            name="talend-activity"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="tc-subheader-right _tc-subheader-navbar-right_232e4d"
+    >
+      <div
+        class="_navbar-right_78677b navbar-right"
+      >
+        <button
+          aria-describedby="00000000-0000-4000-8000-000000000000"
+          aria-label="action4"
+          class="btn-icon-only btn btn-link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-activity"
+            focusable="false"
+            name="talend-activity"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+`;
 
 exports[`SubHeaderBar should render 1`] = `
 <header

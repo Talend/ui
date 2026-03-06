@@ -1,4 +1,45 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ResourcePicker component > should render ResourceList 1`] = `
+<div
+  class="tc-resource-picker _tc-resource-picker_07d1a4"
+>
+  <div
+    class="tc-resource-list _tc-resource-list_8e97cc"
+  >
+    <div
+      class="tc-resource-picker-list _tc-resource-picker-list_07d1a4 tc-resource-list-items _tc-resource-list-items_8e97cc"
+    >
+      <div
+        style="overflow: visible; height: 0px; width: 0px;"
+      >
+        <div
+          aria-label="list"
+          aria-readonly="true"
+          class="ReactVirtualized__Grid ReactVirtualized__List tc-list-list _tc-list-list_da7845"
+          role="group"
+          style="box-sizing: border-box; direction: ltr; height: 250px; position: relative; width: 0px; -webkit-overflow-scrolling: touch; will-change: transform; overflow-x: hidden; overflow-y: hidden;"
+          tabindex="0"
+        />
+      </div>
+      <div
+        class="resize-triggers"
+      >
+        <div
+          class="expand-trigger"
+        >
+          <div
+            style="width: 1px; height: 1px;"
+          />
+        </div>
+        <div
+          class="contract-trigger"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`ResourcePicker component should render ResourceList 1`] = `
 <div

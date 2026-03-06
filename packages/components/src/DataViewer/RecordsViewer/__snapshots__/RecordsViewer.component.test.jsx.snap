@@ -1,20 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RecordsViewer should render a tree (not virtualized)  1`] = `
+exports[`RecordsViewer > should render a tree virtualized with a header 1`] = `
 <div
-  class="theme-tc-records-viewer tc-records-viewer"
+  class="_tc-records-viewer_ad9b4e tc-records-viewer"
 >
   <div
-    class="theme-tc-tree-header tc-tree-header"
+    class="_tc-tree-header_2a680a tc-tree-header"
   >
     Records
     <div
-      class="theme-tc-tree-header-actions tc-tree-header-actions"
+      class="_tc-tree-header-actions_2a680a tc-tree-header-actions"
     >
       <button
-        aria-describedby="42"
+        aria-describedby="00000000-0000-4000-8000-000000000000"
         aria-label="Close all"
-        class="theme-tc-tree-header-actions-icon tc-tree-header-actions-icon btn-icon-only btn btn-link"
+        class="_tc-tree-header-actions-icon_2a680a tc-tree-header-actions-icon btn-icon-only btn btn-link"
         data-testid="collapse-all"
         id="CollapseAllRecords"
         role="link"
@@ -22,7 +22,7 @@ exports[`RecordsViewer should render a tree (not virtualized)  1`] = `
       >
         <svg
           aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-minus-circle"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-minus-circle"
           focusable="false"
           name="talend-minus-circle"
           pointer-events="none"
@@ -32,46 +32,34 @@ exports[`RecordsViewer should render a tree (not virtualized)  1`] = `
     </div>
   </div>
   <div
-    data-props="{"value":[{"data":"myData"}],"jsonpath":"$","level":0}"
-    data-testid="tree"
-  />
-</div>
-`;
-
-exports[`RecordsViewer should render a tree virtualized with a header 1`] = `
-<div
-  class="theme-tc-records-viewer tc-records-viewer"
->
-  <div
-    class="theme-tc-tree-header tc-tree-header"
+    class="_tc-virtualized-tree_2e1d33 tc-virtualized-tree _tc-records-viewer-tree_ad9b4e tc-records-viewer-tree"
   >
-    Records
     <div
-      class="theme-tc-tree-header-actions tc-tree-header-actions"
+      style="overflow: visible; width: 0px;"
     >
-      <button
-        aria-describedby="42"
-        aria-label="Close all"
-        class="theme-tc-tree-header-actions-icon tc-tree-header-actions-icon btn-icon-only btn btn-link"
-        data-testid="collapse-all"
-        id="CollapseAllRecords"
-        role="link"
-        type="button"
+      <div
+        aria-label="grid"
+        aria-readonly="true"
+        class="ReactVirtualized__Grid ReactVirtualized__List _tc-records-viewer-tree_ad9b4e tc-records-viewer-tree"
+        role="grid"
+        style="box-sizing: border-box; direction: ltr; position: relative; width: 0px; -webkit-overflow-scrolling: touch; will-change: transform; overflow-x: hidden; overflow-y: auto;"
+        tabindex="0"
+      />
+    </div>
+    <div
+      class="resize-triggers"
+    >
+      <div
+        class="expand-trigger"
       >
-        <svg
-          aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-minus-circle"
-          focusable="false"
-          name="talend-minus-circle"
-          pointer-events="none"
-          shape-rendering="geometricPrecision"
+        <div
+          style="width: 1px; height: 1px;"
         />
-      </button>
+      </div>
+      <div
+        class="contract-trigger"
+      />
     </div>
   </div>
-  <div
-    data-props="{"cellMeasurerClassName":"theme-tc-records-viewer-tree-border tc-records-viewer-tree-border","className":"theme-tc-records-viewer-tree tc-records-viewer-tree","rowCount":2,"disableHeight":true}"
-    data-testid="virtualized-tree"
-  />
 </div>
 `;

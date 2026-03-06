@@ -1,19 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Component should render the leaf 1`] = `
+exports[`Component > should render the leaf 1`] = `
 <div
-  class="theme-tc-records-viewer-leaf tc-records-viewer-leaf"
+  class="_tc-records-viewer-leaf_ad9b4e tc-records-viewer-leaf"
 >
   <span
-    class="theme-tc-simple-text tc-simple-text"
+    class="_tc-simple-text_5c4f92 tc-simple-text"
   >
     <span
-      class="theme-tc-simple-text-key tc-simple-text-key theme-tc-simple-text-key-with-value tc-simple-text-key-with-value"
+      class="_tc-simple-text-key_5c4f92 tc-simple-text-key _tc-simple-text-key-with-value_5c4f92 tc-simple-text-key-with-value"
     >
       myDataKey
     </span>
     <div
-      class="theme-td-default-cell td-default-cell"
+      class="_td-default-cell_7e27f5 td-default-cell"
     >
       <span>
         myValue

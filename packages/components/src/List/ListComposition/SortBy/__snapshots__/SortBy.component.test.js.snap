@@ -1,4 +1,76 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SortBy > should render sort by component 1`] = `
+<ul
+  class="tc-sort-by _tc-sort-by_a61a4c nav"
+>
+  <li>
+    <p
+      class="navbar-text"
+    >
+      <label
+        class="tc-sort-by-label _tc-sort-by-label_a61a4c"
+        for="mySortBy"
+      >
+        Sort by:
+      </label>
+    </p>
+  </li>
+  <li
+    class="tc-sort-by-items _tc-sort-by-items_a61a4c dropdown"
+  >
+    <a
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Change sort criteria. Current sort criteria: N.C."
+      class="dropdown-toggle"
+      href="#"
+      id="mySortBy-by"
+      role="button"
+    >
+      N.C
+       
+      <span
+        class="caret"
+      />
+    </a>
+    <ul
+      aria-labelledby="mySortBy-by"
+      class="dropdown-menu"
+      role="menu"
+    >
+      <li
+        class=""
+        role="presentation"
+      >
+        <a
+          aria-label="Select First Name as current sort criteria."
+          href="#"
+          id="mySortBy-firstName"
+          role="menuitem"
+          tabindex="-1"
+        >
+          First Name
+        </a>
+      </li>
+      <li
+        class=""
+        role="presentation"
+      >
+        <a
+          aria-label="Select Last Name as current sort criteria."
+          href="#"
+          id="mySortBy-lastName"
+          role="menuitem"
+          tabindex="-1"
+        >
+          Last Name
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
 
 exports[`SortBy should render sort by component 1`] = `
 <ul

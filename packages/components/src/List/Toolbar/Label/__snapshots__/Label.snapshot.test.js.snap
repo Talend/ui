@@ -1,4 +1,26 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Label > should render 1`] = `
+<p
+  className="navbar-text"
+>
+  <label>
+    Text:
+  </label>
+</p>
+`;
+
+exports[`Label > should render for if provided 1`] = `
+<p
+  className="navbar-text"
+>
+  <label
+    htmlFor="id"
+  >
+    Text:
+  </label>
+</p>
+`;
 
 exports[`Label should render 1`] = `
 <p

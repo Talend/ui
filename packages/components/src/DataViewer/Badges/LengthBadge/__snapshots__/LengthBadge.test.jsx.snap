@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LengthBadge > should render 1`] = `
+<sup
+  class="_tc-length-badge_4af4c9 tc-length-badge badge myCLass"
+>
+  10
+</sup>
+`;

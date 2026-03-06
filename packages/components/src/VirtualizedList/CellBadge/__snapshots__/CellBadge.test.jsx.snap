@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CellBadge > should render 1`] = `
+<div
+  class="tc-badge _tc-badge_2ccc7e tc-badge-display-large _tc-badge-display-large_2ccc7e tc-badge-selected _tc-badge-selected_2ccc7e tc-badge-readonly _tc-badge-readonly_2ccc7e"
+>
+  <div
+    class="tc-badge-button _tc-badge-button_2ccc7e"
+    id="tc-badge-select-25"
+  >
+    <div
+      class="tc-badge-label _tc-badge-label_2ccc7e"
+    >
+      <span
+        aria-describedby="00000000-0000-4000-8000-000000000000"
+        class="tc-badge-label-text _tc-badge-label-text_2ccc7e"
+      >
+        streaming
+      </span>
+    </div>
+  </div>
+</div>
+`;

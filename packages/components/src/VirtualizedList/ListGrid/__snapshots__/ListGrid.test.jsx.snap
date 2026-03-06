@@ -1,0 +1,198 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ListGrid > should render react-virtualized list 1`] = `
+<div
+  aria-label="list"
+  aria-readonly="true"
+  class="ReactVirtualized__Grid ReactVirtualized__List tc-list-list _tc-list-list_da7845"
+  id="my-list"
+  role="group"
+  style="box-sizing: border-box; direction: ltr; height: 600px; position: relative; width: 1024px; -webkit-overflow-scrolling: touch; will-change: transform; overflow-x: hidden; overflow-y: hidden;"
+  tabindex="0"
+>
+  <div
+    class="ReactVirtualized__Grid__innerScrollContainer"
+    role="list"
+    style="width: auto; height: 260px; max-width: 1024px; max-height: 260px; overflow: hidden; position: relative;"
+  >
+    <div
+      aria-posinset="1"
+      aria-setsize="2"
+      class="tc-list-item tc-list-large-row tc-list-large _tc-list-large_069ebc _row_e1d434"
+      id="my-list-0"
+      role="listitem"
+      style="height: 130px; left: 0px; position: absolute; top: 0px; width: 100%;"
+      tabindex="0"
+    >
+      <div
+        class="tc-list-large-inner-box _inner-box_069ebc"
+      >
+        <div
+          class="_header_069ebc"
+        />
+        <dl
+          class="tc-list-large-content _content_069ebc"
+        >
+          <div
+            class="_field-group_069ebc"
+            role="group"
+          >
+            <dt
+              class="_field-label_069ebc"
+            >
+              Id
+              :
+            </dt>
+            <dd
+              class="_field-value_069ebc"
+            >
+              <div
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
+              >
+                0
+              </div>
+            </dd>
+          </div>
+          <div
+            class="_field-group_069ebc"
+            role="group"
+          >
+            <dt
+              class="_field-label_069ebc"
+            >
+              Name
+              :
+            </dt>
+            <dd
+              class="_field-value_069ebc"
+            >
+              <div
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
+              >
+                Title with icon and actions
+              </div>
+            </dd>
+          </div>
+          <div
+            class="_field-group_069ebc"
+            role="group"
+          >
+            <dt
+              class="_field-label_069ebc"
+            >
+              :
+            </dt>
+            <dd
+              class="_field-value_069ebc"
+            >
+              <div
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
+              >
+                Simple row with icon and actions
+              </div>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <div
+      aria-posinset="2"
+      aria-setsize="2"
+      class="tc-list-item tc-list-large-row tc-list-large _tc-list-large_069ebc _row_e1d434"
+      id="my-list-1"
+      role="listitem"
+      style="height: 130px; left: 0px; position: absolute; top: 130px; width: 100%;"
+      tabindex="0"
+    >
+      <div
+        class="tc-list-large-inner-box _inner-box_069ebc"
+      >
+        <div
+          class="_header_069ebc"
+        />
+        <dl
+          class="tc-list-large-content _content_069ebc"
+        >
+          <div
+            class="_field-group_069ebc"
+            role="group"
+          >
+            <dt
+              class="_field-label_069ebc"
+            >
+              Id
+              :
+            </dt>
+            <dd
+              class="_field-value_069ebc"
+            >
+              <div
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
+              >
+                1
+              </div>
+            </dd>
+          </div>
+          <div
+            class="_field-group_069ebc"
+            role="group"
+          >
+            <dt
+              class="_field-label_069ebc"
+            >
+              Name
+              :
+            </dt>
+            <dd
+              class="_field-value_069ebc"
+            >
+              <div
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
+              >
+                Title without actions
+              </div>
+            </dd>
+          </div>
+          <div
+            class="_field-group_069ebc"
+            role="group"
+          >
+            <dt
+              class="_field-label_069ebc"
+            >
+              :
+            </dt>
+            <dd
+              class="_field-value_069ebc"
+            >
+              <div
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="tc-virtualizedlist-default-cell"
+                data-test="tc-virtualizedlist-default-cell-tooltip"
+                data-testid="tc-virtualizedlist-default-cell-tooltip"
+              >
+                Simple row without actions
+              </div>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+`;

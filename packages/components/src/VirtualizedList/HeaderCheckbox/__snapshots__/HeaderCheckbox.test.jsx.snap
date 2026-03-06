@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header "Select All" checkbox > should render 1`] = `
+<form
+  class="tc-list-checkbox _tc-list-checkbox_a1edc0"
+>
+  <div
+    class="checkbox"
+    title="Select all"
+  >
+    <label
+      for="myList-header-check"
+    >
+      <div
+        class="checkbox tc-checkbox"
+      >
+        <label
+          data-feature="list.select_all.enable"
+          for="myList-header-check"
+        >
+          <input
+            data-checked="0"
+            id="myList-header-check"
+            type="checkbox"
+          />
+          <span />
+        </label>
+      </div>
+      <span
+        class="sr-only"
+      >
+        Select all
+      </span>
+    </label>
+  </div>
+</form>
+`;

@@ -1,4 +1,30 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ModelViewerLeaf > should render ModelViewerLeaf 1`] = `
+<span
+  class="_tc-model-leaf_fc7435 tc-model-leaf"
+>
+  <button
+    aria-label="Select myDataKey ($)"
+    class="_tc-model-leaf-button_fc7435 tc-model-leaf-button"
+    data-testid="model-leaf-button"
+    title="toto"
+  />
+  <span
+    class="_tc-simple-text_5c4f92 tc-simple-text"
+  >
+    <span
+      class="_tc-simple-text-key_5c4f92 tc-simple-text-key"
+    >
+      toto
+       
+    </span>
+  </span>
+  <span
+    class="_tc-model-leaf-options_fc7435 tc-model-leaf-options"
+  />
+</span>
+`;
 
 exports[`ModelViewerLeaf should render ModelViewerLeaf 1`] = `
 <span

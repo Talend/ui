@@ -1,4 +1,16 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ColumnChooserRow > should render 1`] = `
+<div
+  class="tc-column-chooser-row _tc-column-chooser-row_27b2cf"
+>
+  <div
+    id="my-child"
+  >
+    Hello World
+  </div>
+</div>
+`;
 
 exports[`ColumnChooserRow should render 1`] = `
 <div

@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Skip links > should render 1`] = `
+<nav
+  aria-label="Skip links"
+  class="_tc-skip-links_6d10d7"
+>
+  <ul>
+    <li>
+      <a
+        href="#my-custom-nav-id"
+      >
+        <span
+          class="_icon_6d10d7"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-arrow-left _rotate-270_bf5f45"
+            focusable="false"
+            name="talend-arrow-left"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </span>
+        <span
+          class="_text_6d10d7"
+        >
+          Skip to navigation
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="#my-custom-main-id"
+      >
+        <span
+          class="_icon_6d10d7"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-arrow-left _rotate-270_bf5f45"
+            focusable="false"
+            name="talend-arrow-left"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </span>
+        <span
+          class="_text_6d10d7"
+        >
+          Skip to main content
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

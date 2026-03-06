@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`JSONSchemaRenderer > should render the empty properties list 1`] = `
+<dl
+  class="_json-schema-renderer_d3de64 json-schema-renderer"
+>
+  <dt>
+    test string
+  </dt>
+  <dd>
+    A big a
+  </dd>
+  <dt>
+    test integer
+  </dt>
+  <dd>
+    42
+  </dd>
+</dl>
+`;

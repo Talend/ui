@@ -1,4 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Toggle > should render a Toggle 1`] = `
+<div
+  class="checkbox tc-checkbox switch tc-toggle"
+>
+  <label
+    for="id"
+  >
+    <input
+      data-checked="0"
+      id="id"
+      type="checkbox"
+    />
+    <span />
+  </label>
+</div>
+`;
 
 exports[`Toggle should render a Toggle 1`] = `
 <div

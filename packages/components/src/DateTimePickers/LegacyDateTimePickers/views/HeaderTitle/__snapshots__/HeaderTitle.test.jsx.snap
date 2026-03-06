@@ -1,0 +1,152 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeaderTitle > should render 1`] = `
+<div
+  class="_common_5e34f4"
+>
+  <div
+    class="_month_5e34f4"
+  >
+    <span
+      class="_common_5e34f4"
+    >
+      September
+    </span>
+  </div>
+  <div
+    class="dropdown btn-group btn-group-default"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="2012"
+      class="_tc-dropdown-button_8ebcb7 tc-dropdown-button btn-tertiary btn-info dropdown-toggle btn btn-default"
+      i18n="[object Object]"
+      role="button"
+      type="button"
+    >
+      <span
+        class="tc-dropdown-button-title-label"
+      >
+        2012
+      </span>
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 _tc-dropdown-caret_8ebcb7 tc-icon-name-talend-caret-down"
+        focusable="false"
+        name="talend-caret-down"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+    <ul
+      class="dropdown-menu"
+      role="menu"
+    >
+      <div
+        class="_year-picker_62fa54"
+      >
+        <button
+          aria-describedby="00000000-0000-4000-8000-000000000000"
+          aria-label="Go to previous year"
+          class="_scroll_62fa54 _scroll-up_62fa54 tc-date-picker-scroll-up btn-icon-only btn btn-link"
+          role="link"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-90_bf5f45"
+            focusable="false"
+            name="talend-chevron-left"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </button>
+        <ol>
+          <li>
+            <button
+              class="_year_62fa54 tc-date-picker-year"
+              tabindex="-1"
+              type="button"
+            >
+              2020
+            </button>
+          </li>
+          <li>
+            <button
+              class="_year_62fa54 tc-date-picker-year"
+              tabindex="-1"
+              type="button"
+            >
+              2021
+            </button>
+          </li>
+          <li>
+            <button
+              class="_year_62fa54 tc-date-picker-year"
+              tabindex="-1"
+              type="button"
+            >
+              2022
+            </button>
+          </li>
+          <li>
+            <button
+              class="_year_62fa54 tc-date-picker-year"
+              tabindex="0"
+              type="button"
+            >
+              2023
+            </button>
+          </li>
+          <li>
+            <button
+              class="_year_62fa54 tc-date-picker-year"
+              tabindex="-1"
+              type="button"
+            >
+              2024
+            </button>
+          </li>
+          <li>
+            <button
+              class="_year_62fa54 tc-date-picker-year"
+              tabindex="-1"
+              type="button"
+            >
+              2025
+            </button>
+          </li>
+          <li>
+            <button
+              class="_year_62fa54 tc-date-picker-year"
+              tabindex="-1"
+              type="button"
+            >
+              2026
+            </button>
+          </li>
+        </ol>
+        <button
+          aria-describedby="00000000-0000-4000-8000-000000000000"
+          aria-label="Go to next year"
+          class="_scroll_62fa54 _scroll-down_62fa54 tc-date-picker-scroll-down btn-icon-only btn btn-link"
+          role="link"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-270_bf5f45"
+            focusable="false"
+            name="talend-chevron-left"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </button>
+      </div>
+    </ul>
+  </div>
+</div>
+`;
