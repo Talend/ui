@@ -62,7 +62,7 @@
     "@testing-library/react-hooks": "^8.0.1",
     "eslint": "^9.39.3",
     "i18next": "^23.16.8",
-    "immutable": "^3.8.2",
+    "immutable": "^4.3.8",
     "jsdom": "^26.1.0",
     "prettier": "^3.8.1",
     "prop-types": "^15.8.1",
