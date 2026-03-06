@@ -22,9 +22,10 @@
     "test": "cross-env TZ=UTC talend-scripts test",
     "test:noisy": "cross-env TZ=UTC talend-scripts test",
     "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage",
+    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary",
     "lint": "eslint .",
-    "start": "talend-scripts start-storybook -p 6006"
+    "start": "talend-scripts start-storybook -p 6006",
+    "test:update": "cross-env TZ=UTC talend-scripts test -u"
   },
   "keywords": [
     "react",

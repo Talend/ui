@@ -32,7 +32,9 @@
     "build:lib:esm": "talend-scripts build --esm",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:update": "talend-scripts test -u",
+    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
   },
   "devDependencies": {
     "@talend/eslint-config": "^14.0.0",

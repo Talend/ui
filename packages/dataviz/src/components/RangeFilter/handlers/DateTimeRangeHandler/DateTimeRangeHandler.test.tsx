@@ -3,7 +3,7 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import { DateTimeInputField, DateTimeRangeHandler } from './DateTimeRangeHandler';
 import { DateRangeHandler } from '../DateRangeHandler/DateRangeHandler';
 
-jest.mock('@talend/react-components', () => ({
+vi.mock('@talend/react-components', () => ({
 	InputDateTimePicker: ({ onChange, useSeconds, ...props }) => (
 		<div data-testid="InputDateTimePicker">
 			<button
@@ -28,7 +28,7 @@ jest.mock('@talend/react-components', () => ({
 
 describe('DateTimeRangeHandler', () => {
 	it('Should submit value on blur', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<DateTimeInputField id="" value={1262300400000} onChange={onChange} />);
 		fireEvent.click(screen.getByText('InputDateTimePicker.onChange 1'));
 		expect(onChange).not.toHaveBeenCalled();
@@ -37,7 +37,7 @@ describe('DateTimeRangeHandler', () => {
 	});
 
 	it('Should reset value on Esc', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<DateTimeInputField id="" value={1262300400000} onChange={onChange} />);
 
 		fireEvent.click(screen.getByText('InputDateTimePicker.onChange 1'));
@@ -47,7 +47,7 @@ describe('DateTimeRangeHandler', () => {
 	});
 
 	it('Should reset value on blur with invalid input', () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(
 			<DateTimeInputField
 				id=""
