@@ -19,10 +19,10 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "talend-scripts test",
+    "test": "vitest run",
     "lint": "eslint .",
-    "test:update": "talend-scripts test -u",
-    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
+    "test:update": "vitest run --update",
+    "test:cov": "vitest run --coverage"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -34,6 +34,8 @@
     }
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
     "@talend/react-cmf": "^12.0.0",
@@ -45,7 +47,8 @@
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
     "redux-saga": "^1.4.2",
-    "storybook": "^10.2.10"
+    "storybook": "^10.2.10",
+    "vitest": "^4.0.18"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
