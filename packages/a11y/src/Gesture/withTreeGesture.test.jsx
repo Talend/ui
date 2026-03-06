@@ -1,4 +1,5 @@
 /* eslint-disable import/imports-first */
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
@@ -36,9 +37,9 @@ const treeProps = {
 		{ id: 2, name: 'Two' }, // 0 2
 		{ id: 3, name: 'Three' }, // 0 3
 	],
-	onSelect: jest.fn(),
-	onToggle: jest.fn(),
-	onToggleAllSiblings: jest.fn(),
+	onSelect: vi.fn(),
+	onToggle: vi.fn(),
+	onToggleAllSiblings: vi.fn(),
 };
 
 const ComponentWithGesture = withTreeGesture(Tree);
@@ -55,7 +56,7 @@ describe('TreeGesture HOC', () => {
 		// given
 		const props = {
 			...treeProps,
-			onSelect: jest.fn(),
+			onSelect: vi.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
 		expect(props.onSelect).not.toHaveBeenCalled();
@@ -74,7 +75,7 @@ describe('TreeGesture HOC', () => {
 		// given
 		const props = {
 			...treeProps,
-			onSelect: jest.fn(),
+			onSelect: vi.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
 		expect(props.onSelect).not.toHaveBeenCalled();
@@ -93,7 +94,7 @@ describe('TreeGesture HOC', () => {
 		// given
 		const props = {
 			...treeProps,
-			onToggle: jest.fn(),
+			onToggle: vi.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
 		// const event = { key: 'ArrowLeft', stopPropagation: jest.fn() };
@@ -115,7 +116,7 @@ describe('TreeGesture HOC', () => {
 		// given
 		const props = {
 			...treeProps,
-			onToggle: jest.fn(),
+			onToggle: vi.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
 		expect(props.onToggle).not.toHaveBeenCalled();
@@ -137,7 +138,7 @@ describe('TreeGesture HOC', () => {
 		const props = {
 			...treeProps,
 			items,
-			onToggleAllSiblings: jest.fn(),
+			onToggleAllSiblings: vi.fn(),
 		};
 		render(<ComponentWithGesture {...props} />);
 		expect(props.onToggleAllSiblings).not.toHaveBeenCalled();
