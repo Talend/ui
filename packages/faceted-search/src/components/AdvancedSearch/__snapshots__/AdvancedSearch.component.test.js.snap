@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AdvancedSearch should render by default 1`] = `
+exports[`AdvancedSearch > should render by default 1`] = `
 <div
-  class="theme-adv-search"
+  class="_adv-search_fb9c38"
   id="some-id-adv-search"
 >
   <form
@@ -10,7 +10,7 @@ exports[`AdvancedSearch should render by default 1`] = `
     role="search"
   >
     <div
-      class="theme-adv-search-filter-icon"
+      class="_adv-search-filter-icon_fb9c38"
     >
       <svg
         aria-hidden="true"
@@ -25,19 +25,19 @@ exports[`AdvancedSearch should render by default 1`] = `
       </svg>
     </div>
     <div
-      class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+      class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
     >
       <label
-        class="theme-label"
+        class="_label_048b2f"
         for="some-id-form"
       />
       <div
-        class="theme-inputShell"
+        class="_inputShell_bca7b9"
       >
         <input
           aria-label="Advanced Faceted Search"
           autocomplete="off"
-          class="theme-input theme-adv-search-input"
+          class="_input_876932 _adv-search-input_fb9c38"
           id="some-id-form"
           name="advanced-search-faceted"
           placeholder="Enter your query"
@@ -48,12 +48,12 @@ exports[`AdvancedSearch should render by default 1`] = `
       </div>
     </div>
     <div
-      class="theme-adv-search-buttons"
+      class="_adv-search-buttons_fb9c38"
     >
       <button
-        aria-describedby="id-42"
+        aria-describedby="id-mocked-uuid-0"
         aria-label="Cancel"
-        class="theme-clickable theme-buttonIcon theme-size_S"
+        class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
         data-feature="filter.advanced.clear"
         name="action-cancel-title"
         tabindex="0"
@@ -61,7 +61,7 @@ exports[`AdvancedSearch should render by default 1`] = `
       >
         <span
           aria-hidden="true"
-          class="theme-buttonIcon__icon"
+          class="_buttonIcon__icon_5aa719"
         >
           <svg
             aria-hidden="true"
@@ -76,9 +76,9 @@ exports[`AdvancedSearch should render by default 1`] = `
         </span>
       </button>
       <button
-        aria-describedby="id-42"
+        aria-describedby="id-mocked-uuid-1"
         aria-label="Submit"
-        class="theme-clickable theme-buttonIcon theme-size_S"
+        class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
         data-feature="filter.advanced.apply"
         name="action-submit-title"
         tabindex="0"
@@ -86,7 +86,7 @@ exports[`AdvancedSearch should render by default 1`] = `
       >
         <span
           aria-hidden="true"
-          class="theme-buttonIcon__icon"
+          class="_buttonIcon__icon_5aa719"
         >
           <svg
             aria-hidden="true"
