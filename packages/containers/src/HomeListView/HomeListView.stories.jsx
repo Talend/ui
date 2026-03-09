@@ -1,6 +1,6 @@
 import { Drawer } from '@talend/react-components';
 import { action } from 'storybook/actions';
-import Immutable from 'immutable';
+import { fromJS } from 'immutable';
 
 import HomeListView from '.';
 
@@ -128,7 +128,7 @@ const toolbar = {
 	},
 };
 
-const items = Immutable.fromJS([
+const items = fromJS([
 	{
 		id: 1,
 		label: 'Title with actions',
