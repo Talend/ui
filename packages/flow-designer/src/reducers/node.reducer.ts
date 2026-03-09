@@ -1,4 +1,4 @@
-import Immutable, { Map, fromJS } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import invariant from 'invariant';
 import { removePort } from '../actions/port.actions';
 import portReducer from './port.reducer';
@@ -42,7 +42,7 @@ const nodeReducer = (state: State = defaultState, action: any) => {
 					new NodeRecord({
 						id: action.nodeId,
 						type: action.nodeType,
-						data: Immutable.Map(action.data).set(
+						data: Map(action.data).set(
 							'properties',
 							fromJS(action.data && action.data.properties) || Map(),
 						),

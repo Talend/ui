@@ -3,7 +3,7 @@
 /* eslint-disable react/display-name */
 import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
-import Immutable, { fromJS } from 'immutable';
+import { Map, fromJS } from 'immutable';
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Container from './Notification.container';
@@ -89,7 +89,7 @@ describe('Notification.pushNotification', () => {
 
 	it('should add a Notification in the state even if the state slot is not yet available', () => {
 		const state = mock.store.state();
-		state.cmf.components = new Immutable.Map();
+		state.cmf.components = new Map();
 		const notification = { message: 'hello world' };
 		const newState = pushNotification(state, notification);
 		const notifications = newState.cmf.components.getIn([

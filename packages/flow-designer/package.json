@@ -53,7 +53,7 @@
     "@types/redux-thunk": "^2.1.0",
     "eslint": "^9.39.3",
     "i18next": "^23.16.8",
-    "immutable": "^5.0.2",
+    "immutable": "^5.1.5",
     "lodash": "^4.17.23",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
