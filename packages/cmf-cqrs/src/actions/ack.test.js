@@ -1,8 +1,4 @@
-import {
-	addContext,
-	receiveMessage,
-	deleteACK,
-} from './ack';
+import { addContext, receiveMessage, deleteACK } from './ack';
 
 describe('actions.ack.addContext', () => {
 	it('should return action', () => {
@@ -23,7 +19,6 @@ describe('actions.ack.receiveMessage', () => {
 		expect(action).toMatchSnapshot();
 	});
 });
-
 
 describe('actions.ack.deleteACK', () => {
 	it('should return action', () => {

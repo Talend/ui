@@ -27,7 +27,7 @@
     "@talend/scripts-core": "^18.0.0",
     "@vitest/coverage-v8": "^4.0.18",
     "babel-plugin-tester": "^10.1.0",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "vitest": "^4.0.18"
   }
 }
