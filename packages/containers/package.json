@@ -49,7 +49,7 @@
     "@talend/react-forms": "^16.1.0",
     "@talend/utils": "^3.7.0",
     "classnames": "^2.5.1",
-    "immutable": "^3.8.2",
+    "immutable": "^3.8.3",
     "invariant": "^2.2.4",
     "lodash": "^4.17.23",
     "memoize-one": "^6.0.0",
