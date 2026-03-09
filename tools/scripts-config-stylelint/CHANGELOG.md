@@ -1,5 +1,11 @@
 # @talend/scripts-config-stylelint
 
+## 4.5.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 4.4.0
 
 ### Minor Changes

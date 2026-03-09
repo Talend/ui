@@ -1,5 +1,15 @@
 # @talend/scripts-cmf
 
+## 1.8.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- faebbb7: fix: update serialize-javascripts deps
+
 ## 1.7.1
 
 ### Patch Changes

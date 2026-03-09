@@ -1,5 +1,17 @@
 # @talend/scripts-config-babel
 
+## 13.10.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+  - @talend/babel-plugin-import-from-index@1.13.0
+  - @talend/babel-plugin-assets-api@1.9.0
+
 ## 13.9.1
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @talend/react-components
 
+## 18.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+- Updated dependencies [faebbb7]
+  - @talend/design-tokens@4.1.0
+  - @talend/react-bootstrap@4.1.0
+  - @talend/assets-api@2.1.0
+  - @talend/bootstrap-theme@10.1.0
+  - @talend/utils@3.7.0
+  - @talend/react-a11y@4.3.0
+
 ## 18.0.0
 
 ### Major Changes

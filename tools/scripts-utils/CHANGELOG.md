@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.8.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 2.7.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @talend/scripts-config-jest
 
+## 14.7.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+  - @talend/scripts-config-babel@13.10.0
+
 ## 14.6.3
 
 ### Patch Changes
