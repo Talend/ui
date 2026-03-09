@@ -2,11 +2,11 @@ import { Component as RComponent } from 'react';
 import { cmfConnect } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/Slider';
 import omit from 'lodash/omit';
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import PropTypes from 'prop-types';
 
 export const VALUE_ATTR = 'value';
-export const DEFAULT_STATE = new Immutable.Map({
+export const DEFAULT_STATE = new Map({
 	[VALUE_ATTR]: undefined,
 });
 

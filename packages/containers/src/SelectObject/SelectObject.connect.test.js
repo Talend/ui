@@ -1,5 +1,5 @@
 import { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
+import { List, Map } from 'immutable';
 
 import Container from './SelectObject.container';
 import Connected, { mapStateToProps } from './SelectObject.connect';
@@ -11,19 +11,16 @@ describe('Connected SelectObject', () => {
 	});
 	it('should map state to props', () => {
 		const state = mock.store.state();
-		const data = new Immutable.List([
-			new Immutable.Map({ label: 'foo' }),
-			new Immutable.Map({ label: 'bar' }),
-		]);
-		state.cmf.collections = new Immutable.Map({
-			width: new Immutable.Map({ data }),
+		const data = new List([new Map({ label: 'foo' }), new Map({ label: 'bar' })]);
+		state.cmf.collections = new Map({
+			width: new Map({ data }),
 		});
-		state.cmf.components = new Immutable.Map({
-			'Container(FilterBar)': new Immutable.Map({
-				test: new Immutable.Map({ query: 'foo' }),
+		state.cmf.components = new Map({
+			'Container(FilterBar)': new Map({
+				test: new Map({ query: 'foo' }),
 			}),
-			'Container(Tree)': new Immutable.Map({
-				test: new Immutable.Map({ selectedId: '27' }),
+			'Container(Tree)': new Map({
+				test: new Map({ selectedId: '27' }),
 			}),
 		});
 		const props = mapStateToProps(state, {

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import Immutable from 'immutable';
+import { fromJS } from 'immutable';
 import assetsApi from '@talend/assets-api';
 import tokens from '@talend/design-tokens';
 import AppSwitcher from '../AppSwitcher';
@@ -102,7 +102,7 @@ export default meta;
 
 export const Default = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		return <HeaderBar {...headerProps} />;
 	},
 	parameters: { info: { styles: infoStyle } },
@@ -110,7 +110,7 @@ export const Default = {
 
 export const WithFullLogo = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		headerProps.logo.isFull = true;
 		return <HeaderBar {...headerProps} />;
 	},
@@ -119,7 +119,7 @@ export const WithFullLogo = {
 
 export const WithoutProducts = {
 	render: () => {
-		const headerProps = Immutable.fromJS({
+		const headerProps = fromJS({
 			...props,
 			products: null,
 		}).toJS();
@@ -131,7 +131,7 @@ export const WithoutProducts = {
 
 export const WithBrandIcon = {
 	render: () => {
-		const headerProps = Immutable.fromJS({
+		const headerProps = fromJS({
 			...props,
 			brand: {
 				...props.brand,
@@ -145,7 +145,7 @@ export const WithBrandIcon = {
 
 export const WithBrandIconUrl = {
 	render: () => {
-		const headerProps = Immutable.fromJS({
+		const headerProps = fromJS({
 			...props,
 			brand: {
 				...props.brand,
@@ -159,7 +159,7 @@ export const WithBrandIconUrl = {
 
 export const WithEnvironmentDropdown = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		headerProps.env = {
 			id: 'header-environment',
 			items: [
@@ -177,7 +177,7 @@ export const WithEnvironmentDropdown = {
 
 export const WithUnreadNotifications = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		headerProps.notification = {
 			hasUnread: true,
 		};
@@ -188,7 +188,7 @@ export const WithUnreadNotifications = {
 
 export const WithReadNotifications = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		headerProps.notification = {
 			hasUnread: false,
 		};
@@ -199,7 +199,7 @@ export const WithReadNotifications = {
 
 export const WithHelpSplitDropdown = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		headerProps.help.items = [
 			{
 				icon: 'talend-board',
@@ -219,7 +219,7 @@ export const WithHelpSplitDropdown = {
 
 export const WithCallToAction = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		headerProps.callToAction = {
 			bsStyle: 'info',
 			className: 'btn-inverse',
@@ -234,7 +234,7 @@ export const WithCallToAction = {
 
 export const WithGenericAction = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		headerProps.genericAction = {
 			bsStyle: 'link',
 			id: 'header-generic-action',
@@ -249,7 +249,7 @@ export const WithGenericAction = {
 
 export const WithoutUserAndWithInformation = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = fromJS(props).toJS();
 		headerProps.user = null;
 		headerProps.information = {
 			id: 'header-info',

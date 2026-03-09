@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import toJS from '../../src/selectors/toJS';
 
 describe('toJS', () => {
@@ -12,7 +12,7 @@ describe('toJS', () => {
 	it('the returned function should call toJS on the results', () => {
 		const myselector = toJS(selector);
 		const state = {
-			foo: new Immutable.Map({ bar: 'bar' }),
+			foo: new Map({ bar: 'bar' }),
 		};
 		const result = myselector(state);
 		expect(result).toEqual({ bar: 'bar' });
@@ -20,7 +20,7 @@ describe('toJS', () => {
 	it('the returned function should return same reference on multiple calls', () => {
 		const myselector = toJS(selector);
 		const state = {
-			foo: new Immutable.Map({ bar: 'bar' }),
+			foo: new Map({ bar: 'bar' }),
 		};
 		const result1 = myselector(state);
 		const result2 = myselector(state);
@@ -29,7 +29,7 @@ describe('toJS', () => {
 	it('the returned function should return a different result if store is has been modified', () => {
 		const myselector = toJS(selector);
 		const state = {
-			foo: new Immutable.Map({ bar: 'bar' }),
+			foo: new Map({ bar: 'bar' }),
 		};
 		const result1 = myselector(state);
 		state.foo = state.foo.set('bar', 'baz');
