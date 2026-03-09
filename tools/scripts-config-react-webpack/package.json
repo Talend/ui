@@ -14,7 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint -o eslint-report.json --format json .",
     "test": "echo \"Nothing to test\""
   },
   "peerDependencies": {

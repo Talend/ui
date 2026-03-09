@@ -21,7 +21,7 @@ module.exports = require('@talend/eslint-config');
 ```json
 {
 	"scripts": {
-		"lint": "eslint ."
+		"lint": "eslint -o eslint-report.json --format json ."
 	}
 }
 ```

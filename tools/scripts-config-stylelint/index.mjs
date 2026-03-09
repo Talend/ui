@@ -1,5 +1,6 @@
-module.exports = {
-	extends: 'stylelint-config-sass-guidelines',
+export default {
+	name: 'Talend Stylelint Config',
+	extends: ['stylelint-config-standard'],
 	rules: {
 		'at-rule-disallowed-list': ['debug', 'warn'],
 		// deprecated but here to help align with current prettier

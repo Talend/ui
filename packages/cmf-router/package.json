@@ -23,7 +23,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
-    "lint": "eslint .",
+    "lint": "eslint -o eslint-report.json --format json .",
     "test:update": "vitest run --update"
   },
   "dependencies": {

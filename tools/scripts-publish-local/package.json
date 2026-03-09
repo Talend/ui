@@ -11,7 +11,7 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint -o eslint-report.json --format json .",
     "test": "echo nothing to test"
   },
   "dependencies": {

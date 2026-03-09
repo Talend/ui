@@ -13,7 +13,7 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "eslint .",
+    "lint": "eslint -o eslint-report.json --format json .",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "test:cov": "vitest run --coverage",

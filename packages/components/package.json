@@ -24,7 +24,7 @@
     "test:update": "cross-env TZ=UTC vitest run --update",
     "test:watch": "cross-env TZ=UTC vitest --watch",
     "test:cov": "cross-env TZ=UTC vitest run --coverage",
-    "lint": "eslint .",
+    "lint": "eslint -o eslint-report.json --format json .",
     "start": "storybook dev",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },

@@ -24,7 +24,7 @@
   "scripts": {
     "build:lib": "talend-scripts build --tsc",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "eslint .",
+    "lint": "eslint -o eslint-report.json --format json .",
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "test:noisy": "vitest run",
