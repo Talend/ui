@@ -99,6 +99,6 @@ development_status:
   epic-9: in-progress
   9-1-full-test-suite-build-v5: review
   9-2-storybook-verification: done
-  9-3-verify-localstorage-roundtrip: ready-for-dev
+  9-3-verify-localstorage-roundtrip: done
   9-4-create-changesets-documentation: ready-for-dev
   epic-9-retrospective: optional

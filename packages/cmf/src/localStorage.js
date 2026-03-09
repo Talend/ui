@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import set from 'lodash/set';
 
 /**
- * getState read localStorage and create a initilState for redux
+ * getState read localStorage and create a initialState for redux
  * @param {string} key the localStorage key where to read
  * @return {Object} initialState for redux
  */
