@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-index
 
+## 1.13.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 1.13.0
 
 ### Minor Changes

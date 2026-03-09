@@ -1,5 +1,11 @@
 # @talend/scripts-cmf
 
+## 1.8.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 1.8.0
 
 ### Minor Changes

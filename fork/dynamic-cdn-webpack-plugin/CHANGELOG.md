@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 14.5.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/module-to-cdn@9.18.1
+
 ## 14.5.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/react-faceted-search-query-client
 
+## 3.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 3.1.0
 
 ### Minor Changes

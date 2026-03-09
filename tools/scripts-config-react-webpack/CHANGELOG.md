@@ -1,5 +1,16 @@
 # @talend/scripts-config-react-webpack
 
+## 17.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-config-babel@13.10.1
+  - @talend/react-cmf-webpack-plugin@6.44.1
+  - @talend/scripts-config-cdn@10.17.1
+  - @talend/scripts-utils@2.8.1
+
 ## 17.1.0
 
 ### Minor Changes

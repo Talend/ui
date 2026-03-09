@@ -1,6 +1,6 @@
 {
   "name": "@talend/eslint-plugin",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Contains internal rules used at Talend",
   "keywords": [
     "eslint",
@@ -20,11 +20,11 @@
     "test:update": "vitest run --update"
   },
   "dependencies": {
-    "@talend/scripts-config-cdn": "^10.17.0",
+    "@talend/scripts-config-cdn": "^10.17.1",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
-    "@talend/scripts-config-babel": "^13.10.0",
+    "@talend/scripts-config-babel": "^13.10.1",
     "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^10.0.3",
     "vitest": "^4.0.18"

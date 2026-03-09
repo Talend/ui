@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-tokens@4.1.1
+
 ## 8.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/assets-api
 
+## 2.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 2.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 5.6.0
 
 ### Minor Changes

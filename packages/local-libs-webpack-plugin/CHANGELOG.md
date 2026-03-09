@@ -1,5 +1,11 @@
 # @talend/local-libs-webpack-plugin
 
+## 0.6.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 0.6.0
 
 ### Minor Changes

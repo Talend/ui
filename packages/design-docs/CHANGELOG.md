@@ -1,5 +1,15 @@
 # @talend/design-docs
 
+## 5.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/storybook-docs@3.1.1
+  - @talend/design-system@12.1.1
+  - @talend/design-tokens@4.1.1
+
 ## 5.1.0
 
 ### Minor Changes

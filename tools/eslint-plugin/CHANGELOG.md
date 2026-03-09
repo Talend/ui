@@ -1,5 +1,13 @@
 # @talend/eslint-plugin
 
+## 1.8.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-config-cdn@10.17.1
+
 ## 1.8.0
 
 ### Minor Changes

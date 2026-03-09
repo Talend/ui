@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 18.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-tokens@4.1.1
+  - @talend/react-bootstrap@4.1.1
+  - @talend/assets-api@2.1.1
+  - @talend/bootstrap-theme@10.1.1
+  - @talend/utils@3.7.1
+  - @talend/react-a11y@4.3.1
+
 ## 18.1.0
 
 ### Minor Changes

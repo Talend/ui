@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-locales",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "manage locales in the project",
   "type": "module",
   "bin": {
@@ -14,13 +14,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@talend/scripts-utils": "^2.8.0",
+    "@talend/scripts-utils": "^2.8.1",
     "cross-spawn": "^7.0.6"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.0",
-    "@talend/eslint-plugin": "^1.8.0",
-    "@talend/scripts-core": "^18.0.0",
+    "@talend/eslint-config": "^14.1.1",
+    "@talend/eslint-plugin": "^1.8.1",
+    "@talend/scripts-core": "^19.0.0",
     "eslint": "^10.0.3"
   },
   "keywords": [

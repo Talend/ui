@@ -1,5 +1,20 @@
 # @talend/ui-storybook-one
 
+## 3.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-config-storybook-lib@6.1.1
+  - @talend/react-faceted-search@22.1.1
+  - @talend/storybook-docs@3.1.1
+  - @talend/design-system@12.1.1
+  - @talend/design-tokens@4.1.1
+  - @talend/react-components@18.1.1
+  - @talend/react-dataviz@8.1.1
+  - @talend/react-forms@16.1.1
+
 ## 3.1.0
 
 ### Minor Changes

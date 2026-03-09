@@ -1,5 +1,14 @@
 # @talend/bootstrap-theme
 
+## 10.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-tokens@4.1.1
+  - @talend/bootstrap-sass@5.6.1
+
 ## 10.1.0
 
 ### Minor Changes
