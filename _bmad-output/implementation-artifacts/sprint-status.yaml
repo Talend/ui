@@ -96,9 +96,9 @@ development_status:
   8-6-validate-all-packages-v5: done
   epic-8-retrospective: optional
 
-  epic-9: in-progress
-  9-1-full-test-suite-build-v5: review
+  epic-9: done
+  9-1-full-test-suite-build-v5: done
   9-2-storybook-verification: done
   9-3-verify-localstorage-roundtrip: done
-  9-4-create-changesets-documentation: ready-for-dev
+  9-4-create-changesets-documentation: done
   epic-9-retrospective: optional
