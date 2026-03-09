@@ -60,7 +60,6 @@ describe('talend-import-depth', () => {
 					{
 						message:
 							"'@talend/react-components/lib/List/ListComposition' import too deep. No more than @talend/react-components/lib/List",
-						type: 'ImportDeclaration',
 					},
 				],
 			},
@@ -71,7 +70,6 @@ describe('talend-import-depth', () => {
 					{
 						message:
 							"'@talend/react-cmf/lib/matchPath' import too deep. No more than @talend/react-cmf",
-						type: 'ImportDeclaration',
 					},
 				],
 			},
@@ -82,7 +80,6 @@ describe('talend-import-depth', () => {
 					{
 						message:
 							"'@talend/react-forms/lib/UIForm' import too deep. No more than @talend/react-forms",
-						type: 'ImportDeclaration',
 					},
 				],
 			},
