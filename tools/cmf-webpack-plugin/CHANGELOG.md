@@ -1,5 +1,17 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.44.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+- Updated dependencies [faebbb7]
+  - @talend/scripts-cmf@1.8.0
+
 ## 6.43.0
 
 ### Minor Changes

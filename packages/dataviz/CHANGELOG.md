@@ -1,5 +1,19 @@
 # Changelog
 
+## 8.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- 9c93ab3: test: replace jest by vitest
+- Updated dependencies [c1eae85]
+  - @talend/design-tokens@4.1.0
+  - @talend/assets-api@2.1.0
+  - @talend/react-components@18.1.0
+
 ## 8.0.0
 
 ### Major Changes

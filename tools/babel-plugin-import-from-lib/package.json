@@ -1,6 +1,6 @@
 {
   "name": "@talend/babel-plugin-import-from-lib",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "This plugin transform imports of lib using /lib path",
   "main": "index.js",
   "scripts": {
@@ -22,9 +22,9 @@
     "@babel/types": "^7.28.6"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.0.0",
-    "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-core": "^17.0.0",
+    "@talend/eslint-config": "^14.1.0",
+    "@talend/eslint-plugin": "^1.8.0",
+    "@talend/scripts-core": "^18.0.0",
     "@vitest/coverage-v8": "^4.0.18",
     "babel-plugin-tester": "^10.1.0",
     "eslint": "^9.39.3",

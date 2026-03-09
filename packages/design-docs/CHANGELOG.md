@@ -1,5 +1,20 @@
 # @talend/design-docs
 
+## 5.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- 8f9e544: fix: drop figma-js dead lib and so axios deps
+- Updated dependencies [c1eae85]
+- Updated dependencies [b8c0bc6]
+  - @talend/storybook-docs@3.1.0
+  - @talend/design-system@12.1.0
+  - @talend/design-tokens@4.1.0
+
 ## 5.0.0
 
 ### Major Changes

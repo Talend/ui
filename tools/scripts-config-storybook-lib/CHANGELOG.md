@@ -1,5 +1,20 @@
 # @talend/scripts-config-storybook-lib
 
+## 6.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+- Updated dependencies [faebbb7]
+- Updated dependencies [b8c0bc6]
+  - @talend/design-system@12.1.0
+  - @talend/bootstrap-theme@10.1.0
+  - @talend/react-cmf@12.1.0
+
 ## 6.0.2
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # @talend/ui-storybook-one
 
+## 3.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+- Updated dependencies [9c93ab3]
+- Updated dependencies [b8c0bc6]
+  - @talend/scripts-config-storybook-lib@6.1.0
+  - @talend/react-faceted-search@22.1.0
+  - @talend/storybook-docs@3.1.0
+  - @talend/design-system@12.1.0
+  - @talend/design-tokens@4.1.0
+  - @talend/react-components@18.1.0
+  - @talend/react-dataviz@8.1.0
+  - @talend/react-forms@16.1.0
+
 ## 3.0.0
 
 ### Major Changes

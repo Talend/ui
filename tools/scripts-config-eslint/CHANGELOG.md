@@ -1,5 +1,17 @@
 # @talend/scripts-config-eslint
 
+## 14.1.0
+
+### Minor Changes
+
+- c1eae85: Upgrade to eslint 9 + migrate shared config
+
+### Patch Changes
+
+- c1eae85: Update eslint to v9 + update config
+- Updated dependencies [c1eae85]
+  - @talend/eslint-plugin@1.8.0
+
 ## 14.0.0
 
 ### Major Changes

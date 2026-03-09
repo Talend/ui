@@ -1,5 +1,16 @@
 # @talend/eslint-plugin
 
+## 1.8.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+  - @talend/scripts-config-cdn@10.17.0
+
 ## 1.7.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @talend/local-libs-webpack-plugin
 
+## 0.6.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
 ## 0.5.0
 
 ### Minor Changes
