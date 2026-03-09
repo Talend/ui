@@ -1,5 +1,4 @@
 import { Map, List } from 'immutable';
-import cases from 'jest-in-case';
 import selectors from '../../src/selectors';
 
 describe('selectors.collections', () => {
@@ -65,14 +64,8 @@ const state = {
 	},
 };
 
-cases(
-	'find(state, pathDescriptor, resourceId)',
-	opts => {
-		expect(
-			selectors.collections.findListItem(opts.state, opts.pathDescriptor, opts.resourceId),
-		).toBe(opts.result);
-	},
-	[
+describe('find(state, pathDescriptor, resourceId)', () => {
+	it.each([
 		{
 			name: 'work if collection path is a string',
 			state,
@@ -94,17 +87,15 @@ cases(
 			resourceId: 'notFound',
 			result: undefined,
 		},
-	],
-);
+	])('$name', opts => {
+		expect(
+			selectors.collections.findListItem(opts.state, opts.pathDescriptor, opts.resourceId),
+		).toBe(opts.result);
+	});
+});
 
-cases(
-	'selectors.collections.findListItem(state, pathDescriptor, resourceId)',
-	opts => {
-		expect(() => {
-			selectors.collections.findListItem(opts.state, opts.pathDescriptor, opts.resourceId);
-		}).toThrow(opts.result);
-	},
-	[
+describe('selectors.collections.findListItem(state, pathDescriptor, resourceId)', () => {
+	it.each([
 		{
 			name: 'throw if collection path is not a List',
 			state,
@@ -121,5 +112,9 @@ got Map { "id": Map { "id": "id" } }`,
 			result: `Type mismatch: notFound does not resolve as an instance of Immutable.List,
 got undefined`,
 		},
-	],
-);
+	])('$name', opts => {
+		expect(() => {
+			selectors.collections.findListItem(opts.state, opts.pathDescriptor, opts.resourceId);
+		}).toThrow(opts.result);
+	});
+});
