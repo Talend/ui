@@ -1,4 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CellTitleSelector > should render the input 1`] = `
+<form
+  class="_edit-form_650db4"
+>
+  <label
+    aria-hidden="true"
+    class="sr-only"
+    for="my-title-input"
+    hidden=""
+  >
+    title
+  </label>
+  <input
+    id="my-title-input"
+  />
+</form>
+`;
 
 exports[`CellTitleSelector should render the input 1`] = `
 <form

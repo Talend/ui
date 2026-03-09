@@ -1,0 +1,227 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CellQualityBar > should render a valid quality bar 1`] = `
+<body>
+  <div>
+    <div
+      class="_tc-ratio-bar_c0393d"
+      data-testid="ratio-bar"
+    >
+      <div
+        aria-describedby="id-00000000-0000-4000-8000-000000000000"
+        class="_tc-ratio-bar-line_c0393d _tc-ratio-bar-line-grow_c0393d _quality-ratio-bar_18b185 _quality-ratio-bar--invalid_18b185"
+        data-test="quality-bar-invalid"
+        data-testid="quality-bar-invalid"
+        role="button"
+        style="flex-basis: 10%;"
+        tabindex="0"
+      >
+        <span
+          class="sr-only"
+        >
+          1 invalid value (10%)
+        </span>
+      </div>
+      <div
+        aria-describedby="id-00000000-0000-4000-8000-000000000000"
+        class="_tc-ratio-bar-line_c0393d _tc-ratio-bar-line-grow_c0393d _quality-ratio-bar_18b185 _quality-ratio-bar--empty_18b185"
+        data-test="quality-bar-empty"
+        data-testid="quality-bar-empty"
+        role="button"
+        style="flex-basis: 20%;"
+        tabindex="0"
+      >
+        <span
+          class="sr-only"
+        >
+          2 empty values (20%)
+        </span>
+      </div>
+      <div
+        aria-describedby="id-00000000-0000-4000-8000-000000000000"
+        class="_tc-ratio-bar-line_c0393d _tc-ratio-bar-line-grow_c0393d _quality-ratio-bar_18b185 _quality-ratio-bar--na_18b185"
+        data-test="quality-bar-na"
+        data-testid="quality-bar-na"
+        role="button"
+        style="flex-basis: 40%;"
+        tabindex="0"
+      >
+        <span
+          class="sr-only"
+        >
+          4 not applicable values ({{percentage}}%)
+        </span>
+      </div>
+      <div
+        aria-describedby="id-00000000-0000-4000-8000-000000000000"
+        class="_tc-ratio-bar-line_c0393d _tc-ratio-bar-line-grow_c0393d _quality-ratio-bar_18b185 _quality-ratio-bar--valid_18b185"
+        data-test="quality-bar-valid"
+        data-testid="quality-bar-valid"
+        role="button"
+        style="flex-basis: 30%;"
+        tabindex="0"
+      >
+        <span
+          class="sr-only"
+        >
+          3 valid values (30%)
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    data-floating-ui-portal=""
+    id=":r2:"
+  >
+    <div
+      class="_container_03ff00"
+      data-floating-ui-focusable=""
+      id="id-00000000-0000-4000-8000-000000000000"
+      role="tooltip"
+      style="display: none; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        height="14"
+        style="position: absolute; pointer-events: none; bottom: 100%; transform: rotate(180deg);"
+        viewBox="0 0 14 14"
+        width="14"
+      >
+        <path
+          d="M0,0 H14 L7,7 Q7,7 7,7 Z"
+          stroke="none"
+        />
+        <clippath
+          id=":rc:"
+        >
+          <rect
+            height="14"
+            width="14"
+            x="0"
+            y="0"
+          />
+        </clippath>
+      </svg>
+      1 invalid value (10%)
+    </div>
+  </div>
+  <div
+    data-floating-ui-portal=""
+    id=":r5:"
+  >
+    <div
+      class="_container_03ff00"
+      data-floating-ui-focusable=""
+      id="id-00000000-0000-4000-8000-000000000000"
+      role="tooltip"
+      style="display: none; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        height="14"
+        style="position: absolute; pointer-events: none; bottom: 100%; transform: rotate(180deg);"
+        viewBox="0 0 14 14"
+        width="14"
+      >
+        <path
+          d="M0,0 H14 L7,7 Q7,7 7,7 Z"
+          stroke="none"
+        />
+        <clippath
+          id=":rd:"
+        >
+          <rect
+            height="14"
+            width="14"
+            x="0"
+            y="0"
+          />
+        </clippath>
+      </svg>
+      2 empty values (20%)
+    </div>
+  </div>
+  <div
+    data-floating-ui-portal=""
+    id=":r8:"
+  >
+    <div
+      class="_container_03ff00"
+      data-floating-ui-focusable=""
+      id="id-00000000-0000-4000-8000-000000000000"
+      role="tooltip"
+      style="display: none; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        height="14"
+        style="position: absolute; pointer-events: none; bottom: 100%; transform: rotate(180deg);"
+        viewBox="0 0 14 14"
+        width="14"
+      >
+        <path
+          d="M0,0 H14 L7,7 Q7,7 7,7 Z"
+          stroke="none"
+        />
+        <clippath
+          id=":re:"
+        >
+          <rect
+            height="14"
+            width="14"
+            x="0"
+            y="0"
+          />
+        </clippath>
+      </svg>
+      4 not applicable values ({{percentage}}%)
+    </div>
+  </div>
+  <div
+    data-floating-ui-portal=""
+    id=":rb:"
+  >
+    <div
+      class="_container_03ff00"
+      data-floating-ui-focusable=""
+      id="id-00000000-0000-4000-8000-000000000000"
+      role="tooltip"
+      style="display: none; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        height="14"
+        style="position: absolute; pointer-events: none; bottom: 100%; transform: rotate(180deg);"
+        viewBox="0 0 14 14"
+        width="14"
+      >
+        <path
+          d="M0,0 H14 L7,7 Q7,7 7,7 Z"
+          stroke="none"
+        />
+        <clippath
+          id=":rf:"
+        >
+          <rect
+            height="14"
+            width="14"
+            x="0"
+            y="0"
+          />
+        </clippath>
+      </svg>
+      3 valid values (30%)
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CellQualityBar > should render an empty quality bar 1`] = `
+<body>
+  <div />
+</body>
+`;

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Guided Tour Container should render 1`] = `
+exports[`Guided Tour Container > should render 1`] = `
 <div
   id="___reactour"
 >
@@ -150,12 +150,12 @@ exports[`Guided Tour Container should render 1`] = `
     data-focus-lock-disabled="false"
   >
     <div
-      class="sc-dcJsrY djpCVG reactour__helper theme-tc-guided-tour tc-guided-tour reactour__helper--is-open"
+      class="sc-dcJsrY djpCVG reactour__helper _tc-guided-tour_7c2679 tc-guided-tour reactour__helper--is-open"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="theme-body tc-guided-tour__body"
+        class="_body_7c2679 tc-guided-tour__body"
       >
         <p>
           Text A
@@ -173,12 +173,29 @@ exports[`Guided Tour Container should render 1`] = `
           <span
             class="sc-gEvEer fZNxWp"
           >
-            <span
-              class="CoralButtonIcon"
-              icon="arrow-left"
+            <button
+              aria-describedby="id-00000000-0000-4000-8000-000000000000"
+              aria-label="Previous"
+              class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
+              tabindex="0"
+              type="button"
             >
-              Previous
-            </span>
+              <span
+                aria-hidden="true"
+                class="_buttonIcon__icon_5aa719"
+              >
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1rem; height: 1rem;"
+                >
+                  <use
+                    xlink:href="#arrow-left:M"
+                  />
+                </svg>
+              </span>
+            </button>
           </span>
         </button>
         <nav
@@ -208,12 +225,29 @@ exports[`Guided Tour Container should render 1`] = `
           <span
             class="sc-gEvEer fZNxWp"
           >
-            <span
-              class="CoralButtonIcon"
-              icon="arrow-right"
+            <button
+              aria-describedby="id-00000000-0000-4000-8000-000000000000"
+              aria-label="Next"
+              class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
+              tabindex="0"
+              type="button"
             >
-              Next
-            </span>
+              <span
+                aria-hidden="true"
+                class="_buttonIcon__icon_5aa719"
+              >
+                <svg
+                  aria-hidden="true"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                  style="width: 1rem; height: 1rem;"
+                >
+                  <use
+                    xlink:href="#arrow-right:M"
+                  />
+                </svg>
+              </span>
+            </button>
           </span>
         </button>
       </div>

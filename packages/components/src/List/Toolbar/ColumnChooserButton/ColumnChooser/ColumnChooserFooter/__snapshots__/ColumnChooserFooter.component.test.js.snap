@@ -1,4 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ColumnChooserFooter > should render by default 1`] = `
+<footer
+  class="_footer_5ee47b tc-tooltip-footer tc-column-chooser-footer _tc-column-chooser-footer_27b2cf"
+  id="column-chooser-footer"
+>
+  <button
+    aria-label="Apply"
+    class="btn btn-info"
+    data-feature="column-chooser.submit"
+    id="footer-context-id-submit-button"
+    type="submit"
+  >
+    <span>
+      Apply
+    </span>
+  </button>
+</footer>
+`;
 
 exports[`ColumnChooserFooter should render by default 1`] = `
 <footer

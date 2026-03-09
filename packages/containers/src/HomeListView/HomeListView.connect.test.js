@@ -7,8 +7,6 @@ import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Component from './HomeListView.component';
 import Connected from './HomeListView.connect';
 
-jest.unmock('@talend/design-system');
-
 const sidepanel = {
 	actionIds: ['menu:article'],
 };

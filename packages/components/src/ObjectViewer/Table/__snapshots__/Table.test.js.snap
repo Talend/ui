@@ -1,4 +1,191 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Table > should render Table with props data as an object 1`] = `
+<table
+  class="_table_f8dff3 tc-object-viewer table table-bordered table-striped table-hover"
+  id="my-viewer"
+>
+  <caption
+    class="sr-only"
+  >
+    my-viewer
+  </caption>
+  <thead>
+    <tr>
+      <th
+        id="my-viewer-field1"
+      >
+        <div>
+          field1
+        </div>
+        <div
+          class="text-right"
+        >
+          type2
+        </div>
+      </th>
+      <th
+        id="my-viewer-field0"
+      >
+        <div>
+          field0
+        </div>
+        <div
+          class="text-right"
+        >
+          type1
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <div
+          class="tc-object-viewer _container_cb4507"
+          data-testid="my-viewer-container"
+          id="my-viewer-container"
+        >
+          <ul
+            class="_tc-object-viewer-list_cb4507"
+            role="tree"
+          >
+            <li
+              aria-level="1"
+              aria-posinset="1"
+              aria-setsize="1"
+              class="_list-item_cb4507"
+              id="my-viewer-root"
+              role="treeitem"
+              tabindex="0"
+            >
+              <div
+                class="_line_cb4507"
+              >
+                <div
+                  class="_line-main_cb4507"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </td>
+      <td
+        headers="my-viewer-field0"
+      >
+        <div
+          class="tc-object-viewer _container_cb4507"
+          data-testid="my-viewer-container"
+          id="my-viewer-container"
+        >
+          <ul
+            class="_tc-object-viewer-list_cb4507"
+            role="tree"
+          >
+            <li
+              aria-level="1"
+              aria-posinset="1"
+              aria-setsize="1"
+              class="_list-item_cb4507"
+              id="my-viewer-root"
+              role="treeitem"
+              tabindex="0"
+            >
+              <div
+                class="_line_cb4507"
+              >
+                <div
+                  class="_line-main_cb4507"
+                >
+                  <span
+                    class="_nativevalue_f8dff3 _native_cb4507 _string_cb4507"
+                  >
+                    header1
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <div
+          class="tc-object-viewer _container_cb4507"
+          data-testid="my-viewer-container"
+          id="my-viewer-container"
+        >
+          <ul
+            class="_tc-object-viewer-list_cb4507"
+            role="tree"
+          >
+            <li
+              aria-level="1"
+              aria-posinset="1"
+              aria-setsize="1"
+              class="_list-item_cb4507"
+              id="my-viewer-root"
+              role="treeitem"
+              tabindex="0"
+            >
+              <div
+                class="_line_cb4507"
+              >
+                <div
+                  class="_line-main_cb4507"
+                >
+                  <span
+                    class="_nativevalue_f8dff3 _native_cb4507 _string_cb4507"
+                  >
+                    header2
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </td>
+      <td
+        headers="my-viewer-field0"
+      >
+        <div
+          class="tc-object-viewer _container_cb4507"
+          data-testid="my-viewer-container"
+          id="my-viewer-container"
+        >
+          <ul
+            class="_tc-object-viewer-list_cb4507"
+            role="tree"
+          >
+            <li
+              aria-level="1"
+              aria-posinset="1"
+              aria-setsize="1"
+              class="_list-item_cb4507"
+              id="my-viewer-root"
+              role="treeitem"
+              tabindex="0"
+            >
+              <div
+                class="_line_cb4507"
+              >
+                <div
+                  class="_line-main_cb4507"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
 
 exports[`Table should render Table with props data as an object 1`] = `
 <table
@@ -185,6 +372,50 @@ exports[`Table should render Table with props data as an object 1`] = `
     </tr>
   </tbody>
 </table>
+`;
+
+exports[`buildContentHeaders > should return a jsx array with a type 1`] = `
+[
+  <th
+    id="myHeader1Id"
+  >
+    <div>
+      myHeader1
+    </div>
+    <div
+      className="text-right"
+    >
+      type1
+    </div>
+  </th>,
+  <th
+    id="myHeader2Id"
+  >
+    <div>
+      myHeader2
+    </div>
+    <div
+      className="text-right"
+    >
+      type2
+    </div>
+  </th>,
+]
+`;
+
+exports[`buildContentHeaders > should return a jsx array with no type 1`] = `
+[
+  <th
+    id="myHeader1Id"
+  >
+    myHeader1
+  </th>,
+  <th
+    id="myHeader2Id"
+  >
+    myHeader2
+  </th>,
+]
 `;
 
 exports[`buildContentHeaders should return a jsx array with a type 1`] = `

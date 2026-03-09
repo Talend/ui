@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { useState } from 'react';
 
-import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
@@ -37,7 +36,7 @@ describe('Message', () => {
 	it('should render a11y html', async () => {
 		const { container } = render(
 			<main>
-				<Modal visible header={{ title: '(Default story title)' }} onClose={() => jest.fn()}>
+				<Modal visible header={{ title: '(Default story title)' }} onClose={() => vi.fn()}>
 					Content
 				</Modal>
 			</main>,

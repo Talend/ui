@@ -20,11 +20,11 @@ describe('hooks', () => {
 	let eventListener: any;
 
 	beforeEach(() => {
-		removeEventListener = jest.fn();
+		removeEventListener = vi.fn();
 		addEventListener = (event: string, cb: Function) => {
 			eventListener = cb;
 		};
-		send = jest.fn();
+		send = vi.fn();
 
 		mockedWebSocket = {
 			removeEventListener,

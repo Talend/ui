@@ -1,14 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MonthYearView should render 1`] = `
+exports[`MonthYearView > should render 1`] = `
 <div
-  class="theme-container"
+  class="_container_75af3f"
 >
   <div
-    class="theme-header"
+    class="_header_75af3f"
   >
     <div
-      class="theme-element-container theme-left"
+      class="_element-container_75af3f _left_75af3f"
     >
       <button
         aria-label="Switch to date-and-time view"
@@ -18,7 +18,7 @@ exports[`MonthYearView should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-arrow-left"
           focusable="false"
           name="talend-arrow-left"
           pointer-events="none"
@@ -28,24 +28,348 @@ exports[`MonthYearView should render 1`] = `
       </button>
     </div>
     <div
-      class="theme-element-container theme-middle"
+      class="_element-container_75af3f _middle_75af3f"
     >
       <div
-        data-props="{"monthIndex":8,"year":2012}"
-        data-testid="HeaderTitle"
-      />
+        class="_common_901194"
+      >
+        <div
+          class="_month_901194"
+        >
+          <span
+            class=""
+          >
+            September
+          </span>
+        </div>
+        <div
+          class="dropdown btn-group btn-group-default"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="2012"
+            class="_tc-dropdown-button_8ebcb7 tc-dropdown-button btn-tertiary btn-info dropdown-toggle btn btn-default"
+            i18n="[object Object]"
+            role="button"
+            type="button"
+          >
+            <span
+              class="tc-dropdown-button-title-label"
+            >
+              2012
+            </span>
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon _svg_bf5f45 _tc-dropdown-caret_8ebcb7 tc-icon-name-talend-caret-down"
+              focusable="false"
+              name="talend-caret-down"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </button>
+          <ul
+            class="dropdown-menu"
+            role="menu"
+          >
+            <div
+              class="_year-picker_b52113"
+            >
+              <button
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                aria-label="Go to previous year"
+                class="_scroll_b52113 _scroll-up_b52113 tc-date-picker-scroll-up btn-icon-only btn btn-link"
+                role="link"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-90_bf5f45"
+                  focusable="false"
+                  name="talend-chevron-left"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                />
+              </button>
+              <ol>
+                <li>
+                  <button
+                    class="_year_b52113 tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2023
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="_year_b52113 tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2024
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="_year_b52113 tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2025
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="_year_b52113 tc-date-picker-year"
+                    tabindex="0"
+                    type="button"
+                  >
+                    2026
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="_year_b52113 tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2027
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="_year_b52113 tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2028
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="_year_b52113 tc-date-picker-year"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    2029
+                  </button>
+                </li>
+              </ol>
+              <button
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                aria-label="Go to next year"
+                class="_scroll_b52113 _scroll-down_b52113 tc-date-picker-scroll-down btn-icon-only btn btn-link"
+                role="link"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-chevron-left _rotate-270_bf5f45"
+                  focusable="false"
+                  name="talend-chevron-left"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                />
+              </button>
+            </div>
+          </ul>
+        </div>
+      </div>
     </div>
     <div
-      class="theme-element-container theme-right"
+      class="_element-container_75af3f _right_75af3f"
     />
   </div>
   <div
-    class="theme-element-container theme-body"
+    class="_element-container_75af3f _body_75af3f"
   >
-    <div
-      data-props="{"allowFocus":true,"selectedMonthIndex":8,"selectedYear":2012}"
-      data-testid="MonthPicker"
-    />
+    <div>
+      <table
+        class="_container_153b30"
+      >
+        <caption
+          class="sr-only"
+        >
+          Year 2012
+        </caption>
+        <tbody>
+          <tr
+            class="_calendar-row_153b30"
+          >
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="January 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="0"
+                tabindex="-1"
+                type="button"
+              >
+                January
+              </button>
+            </td>
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="February 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="1"
+                tabindex="-1"
+                type="button"
+              >
+                February
+              </button>
+            </td>
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="March 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="2"
+                tabindex="-1"
+                type="button"
+              >
+                March
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="_calendar-row_153b30"
+          >
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="April 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="3"
+                tabindex="-1"
+                type="button"
+              >
+                April
+              </button>
+            </td>
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="May 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="4"
+                tabindex="-1"
+                type="button"
+              >
+                May
+              </button>
+            </td>
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="June 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="5"
+                tabindex="-1"
+                type="button"
+              >
+                June
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="_calendar-row_153b30"
+          >
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="July 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="6"
+                tabindex="-1"
+                type="button"
+              >
+                July
+              </button>
+            </td>
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="August 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="7"
+                tabindex="-1"
+                type="button"
+              >
+                August
+              </button>
+            </td>
+            <td
+              aria-current="date"
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="September 2012, selected"
+                class="_calendar-month_153b30 _selected_153b30 tc-date-picker-month"
+                data-value="8"
+                tabindex="0"
+                type="button"
+              >
+                September
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="_calendar-row_153b30"
+          >
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="October 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="9"
+                tabindex="-1"
+                type="button"
+              >
+                October
+              </button>
+            </td>
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="November 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="10"
+                tabindex="-1"
+                type="button"
+              >
+                November
+              </button>
+            </td>
+            <td
+              class="_calendar-col_153b30"
+            >
+              <button
+                aria-label="December 2012"
+                class="_calendar-month_153b30 tc-date-picker-month"
+                data-value="11"
+                tabindex="-1"
+                type="button"
+              >
+                December
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 `;

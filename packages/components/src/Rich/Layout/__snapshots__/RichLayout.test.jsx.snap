@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RichLayout > should render RichLayout with header, content and footer 1`] = `
+<div
+  class="_rich-layout_5ee47b"
+  id="richlayout"
+  tabindex="-1"
+>
+  <header
+    class="_header_5ee47b tc-tooltip-header"
+    id="richlayout-header"
+  >
+    <div
+      data-testid="Header"
+    >
+      Header
+    </div>
+  </header>
+  <div
+    class="_body_5ee47b tc-tooltip-body"
+    id="richlayout-body"
+  >
+    <div
+      class="_content_5ee47b tc-tooltip-content"
+      id="richlayout-body-content"
+    >
+      <div
+        data-testid="Content"
+      >
+        Content
+      </div>
+    </div>
+  </div>
+  <footer
+    class="_footer_5ee47b tc-tooltip-footer"
+    id="richlayout-footer"
+  >
+    <div
+      data-testid="Footer"
+    >
+      Footer
+    </div>
+  </footer>
+</div>
+`;

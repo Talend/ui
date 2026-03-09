@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Fieldset widget > should render fieldset 1`] = `
+<fieldset
+  class="_fieldset_51db4a"
+>
+  <legend
+    class="_legend_51db4a"
+  >
+    My fieldset
+  </legend>
+  <div
+    class="_fieldset-content_51db4a"
+  >
+    <div
+      class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+    >
+      <label
+        class="_label_048b2f"
+        for="user_firstname"
+      />
+      <div
+        class="_inputShell_bca7b9"
+      >
+        <input
+          aria-describedby="user_firstname-description user_firstname-error"
+          aria-invalid="false"
+          class="_input_876932"
+          id="user_firstname"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+    >
+      <label
+        class="_label_048b2f"
+        for="user_lastname"
+      />
+      <div
+        class="_inputShell_bca7b9"
+      >
+        <input
+          aria-describedby="user_lastname-description user_lastname-error"
+          aria-invalid="false"
+          class="_input_876932"
+          id="user_lastname"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</fieldset>
+`;

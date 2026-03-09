@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Actions should render 1`] = `
+exports[`Actions > should render 1`] = `
 <div
   class="tc-actions btn-group"
 >
@@ -12,7 +12,7 @@ exports[`Actions should render 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg tc-icon-name-fa-bars"
+      class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-fa-bars"
       focusable="false"
       name="fa-bars"
       pointer-events="none"

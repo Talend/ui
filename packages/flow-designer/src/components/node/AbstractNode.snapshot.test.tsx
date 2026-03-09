@@ -8,8 +8,8 @@ import {
 	SizeRecord,
 } from '../../constants/flowdesigner.model';
 
-jest.mock('d3', () => {
-	const original = jest.requireActual('d3');
+vi.mock('d3', async () => {
+	const original = await vi.importActual<typeof import('d3')>('d3');
 	return {
 		...original,
 		select() {

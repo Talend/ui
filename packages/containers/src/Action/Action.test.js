@@ -2,8 +2,6 @@ import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 import Action, { mapStateToProps, mergeProps } from './Action.connect';
 
-jest.unmock('@talend/design-system');
-
 const Provider = mock.Provider;
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {

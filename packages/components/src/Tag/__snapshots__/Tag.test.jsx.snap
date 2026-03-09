@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tag > should render 1`] = `
+<span
+  class="_tag_3a15bc _tag_905a34"
+>
+  The lazy quick brown fox jumps over the lazy dog
+</span>
+`;

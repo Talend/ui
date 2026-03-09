@@ -1,4 +1,159 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CellActions > should render actions 1`] = `
+<div
+  class="tc-list-actions _tc-list-actions_42b6e2 _tc-list-actions_e1d434"
+>
+  <div
+    class="tc-actions btn-group"
+  >
+    <button
+      aria-describedby="00000000-0000-4000-8000-000000000000"
+      aria-label="Simple action"
+      class="btn-icon-only btn btn-link"
+      id="action-1"
+      role="link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-pencil"
+        focusable="false"
+        name="talend-pencil"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+    <div
+      class="dropdown btn-group btn-group-link"
+    >
+      <button
+        aria-describedby="00000000-0000-4000-8000-000000000000"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Dropdown action"
+        class="_tc-dropdown-button_8ebcb7 tc-dropdown-button dropdown-toggle btn btn-link"
+        i18n="[object Object]"
+        id="action-2"
+        role="button"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-file-o"
+          focusable="false"
+          name="talend-file-o"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 _tc-dropdown-caret_8ebcb7 tc-icon-name-talend-caret-down"
+          focusable="false"
+          name="talend-caret-down"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </button>
+      <ul
+        aria-labelledby="action-2"
+        class="dropdown-menu"
+        role="menu"
+      >
+        <li
+          class="_tc-dropdown-item_8ebcb7 tc-dropdown-item"
+          role="presentation"
+        >
+          <a
+            href="#"
+            label="Document 1"
+            role="menuitem"
+            tabindex="-1"
+            title="Document 1"
+          >
+            Document 1
+          </a>
+        </li>
+        <li
+          class="_tc-dropdown-item_8ebcb7 tc-dropdown-item"
+          role="presentation"
+        >
+          <a
+            href="#"
+            label="Document 2"
+            role="menuitem"
+            tabindex="-1"
+            title="Document 2"
+          >
+            Document 2
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="dropdown btn-group"
+    >
+      <button
+        aria-label="Split dropdown action"
+        class="_tc-split-dropdown_f65005 btn btn-default"
+        type="button"
+      >
+        <span>
+          <span>
+            Split dropdown action
+          </span>
+        </span>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Open Split dropdown action menu"
+        class="dropdown-toggle btn btn-default"
+        id="action-3"
+        role="button"
+        type="button"
+      >
+         
+        <span
+          class="caret"
+        />
+      </button>
+      <ul
+        aria-labelledby="action-3"
+        class="dropdown-menu"
+        role="menu"
+      >
+        <li
+          class=""
+          role="presentation"
+        >
+          <a
+            href="#"
+            label="File 1"
+            role="menuitem"
+            tabindex="-1"
+          >
+            File 1
+          </a>
+        </li>
+        <li
+          class=""
+          role="presentation"
+        >
+          <a
+            href="#"
+            label="File 2"
+            role="menuitem"
+            tabindex="-1"
+          >
+            File 2
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`CellActions should render actions 1`] = `
 <div

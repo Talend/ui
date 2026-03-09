@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Slider component should render Slider 1`] = `
+exports[`Slider > component > should render Slider 1`] = `
 <div>
   <div
-    class="theme-tc-slider tc-slider"
+    class="_tc-slider_7def3a tc-slider"
   >
     <div
-      class="rc-slider theme-tc-slider-rc-slider tc-slider-rc-slider rc-slider-horizontal"
+      class="rc-slider _tc-slider-rc-slider_7def3a tc-slider-rc-slider rc-slider-horizontal"
     >
       <div
         class="rc-slider-rail"

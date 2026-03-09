@@ -1,0 +1,677 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Array component > should render array 1`] = `
+<fieldset
+  class="_tf-array-fieldset_78a48e tf-array-fieldset"
+  data-content="comments"
+>
+  <span
+    class="_hidden_91f55b"
+  >
+    <legend>
+      comments
+    </legend>
+  </span>
+  <button
+    aria-label="Add"
+    class="_tf-array-add_78a48e tf-array-add btn btn-info"
+    id="talend-array-btn"
+    type="button"
+  >
+    <span>
+      Add
+    </span>
+  </button>
+  <ol
+    aria-describedby="talend-array-description talend-array-error"
+    aria-invalid="true"
+    class="_tf-array_78a48e tf-array"
+    id="talend-array"
+  >
+    <li
+      class="_item_78a48e item item-0"
+    >
+      <div
+        class="_tf-array-item_2f0f38 tf-array-item"
+      >
+        <div
+          class="_control_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Move up"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            disabled=""
+            id="talend-array-control-0-moveUp"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            aria-describedby="id-42"
+            aria-label="Move down"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            id="talend-array-control-0-moveDown"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <fieldset
+          class="_fieldset_51db4a"
+        >
+          <div
+            class="_fieldset-content_51db4a"
+          >
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-0_comments_0_comments_0_name"
+              >
+                Name
+                *
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="talend-array-0_comments_0_comments_0_name-description talend-array-0_comments_0_comments_0_name-error"
+                  aria-invalid="false"
+                  aria-required="true"
+                  class="_input_876932"
+                  id="talend-array-0_comments_0_comments_0_name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-0_comments_0_comments_0_email"
+              >
+                Email
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="talend-array-0_comments_0_comments_0_email-description talend-array-0_comments_0_comments_0_email-error"
+                  aria-invalid="false"
+                  class="_input_876932"
+                  id="talend-array-0_comments_0_comments_0_email"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                aria-live="polite"
+                class="_inlineMessage_c6661a"
+                role="status"
+              >
+                <span
+                  class="_icon_c6661a _information__icon_8d33ef"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="_inlineMessage__contents_c6661a"
+                >
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-0_comments_0_comments_0_comment"
+              >
+                Comment
+              </label>
+              <textarea
+                aria-invalid="false"
+                class="_textarea_578735"
+                id="talend-array-0_comments_0_comments_0_comment"
+                rows="3"
+              />
+              <div
+                aria-live="polite"
+                class="_inlineMessage_c6661a"
+                role="status"
+              >
+                <span
+                  class="_icon_c6661a _information__icon_8d33ef"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="_inlineMessage__contents_c6661a"
+                >
+                  <span>
+                    Don't be greedy!
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div
+          class="_delete_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Delete"
+            class="_clickable_5222c6 _buttonIcon_5aa719"
+            id="talend-array-control-0-delete"
+            tabindex="0"
+            tooltip="Delete"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </li>
+    <li
+      class="_item_78a48e item item-1"
+    >
+      <div
+        class="_tf-array-item_2f0f38 tf-array-item"
+      >
+        <div
+          class="_control_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Move up"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            id="talend-array-control-1-moveUp"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            aria-describedby="id-42"
+            aria-label="Move down"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            id="talend-array-control-1-moveDown"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <fieldset
+          class="_fieldset_51db4a"
+        >
+          <div
+            class="_fieldset-content_51db4a"
+          >
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-1_comments_1_comments_1_name"
+              >
+                Name
+                *
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="talend-array-1_comments_1_comments_1_name-description talend-array-1_comments_1_comments_1_name-error"
+                  aria-invalid="false"
+                  aria-required="true"
+                  class="_input_876932"
+                  id="talend-array-1_comments_1_comments_1_name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-1_comments_1_comments_1_email"
+              >
+                Email
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="talend-array-1_comments_1_comments_1_email-description talend-array-1_comments_1_comments_1_email-error"
+                  aria-invalid="false"
+                  class="_input_876932"
+                  id="talend-array-1_comments_1_comments_1_email"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                aria-live="polite"
+                class="_inlineMessage_c6661a"
+                role="status"
+              >
+                <span
+                  class="_icon_c6661a _information__icon_8d33ef"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="_inlineMessage__contents_c6661a"
+                >
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-1_comments_1_comments_1_comment"
+              >
+                Comment
+              </label>
+              <textarea
+                aria-invalid="false"
+                class="_textarea_578735"
+                id="talend-array-1_comments_1_comments_1_comment"
+                rows="3"
+              />
+              <div
+                aria-live="polite"
+                class="_inlineMessage_c6661a"
+                role="status"
+              >
+                <span
+                  class="_icon_c6661a _information__icon_8d33ef"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="_inlineMessage__contents_c6661a"
+                >
+                  <span>
+                    Don't be greedy!
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div
+          class="_delete_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Delete"
+            class="_clickable_5222c6 _buttonIcon_5aa719"
+            id="talend-array-control-1-delete"
+            tabindex="0"
+            tooltip="Delete"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </li>
+    <li
+      class="_item_78a48e item item-2"
+    >
+      <div
+        class="_tf-array-item_2f0f38 tf-array-item"
+      >
+        <div
+          class="_control_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Move up"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            id="talend-array-control-2-moveUp"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-top:S"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            aria-describedby="id-42"
+            aria-label="Move down"
+            class="_clickable_5222c6 _buttonIcon_5aa719 _size_XS_5aa719"
+            disabled=""
+            id="talend-array-control-2-moveDown"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 0.75rem; height: 0.75rem;"
+              >
+                <use
+                  xlink:href="#arrow-bottom:S"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <fieldset
+          class="_fieldset_51db4a"
+        >
+          <div
+            class="_fieldset-content_51db4a"
+          >
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-2_comments_2_comments_2_name"
+              >
+                Name
+                *
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="talend-array-2_comments_2_comments_2_name-description talend-array-2_comments_2_comments_2_name-error"
+                  aria-invalid="false"
+                  aria-required="true"
+                  class="_input_876932"
+                  id="talend-array-2_comments_2_comments_2_name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-2_comments_2_comments_2_email"
+              >
+                Email
+              </label>
+              <div
+                class="_inputShell_bca7b9"
+              >
+                <input
+                  aria-describedby="talend-array-2_comments_2_comments_2_email-description talend-array-2_comments_2_comments_2_email-error"
+                  aria-invalid="false"
+                  class="_input_876932"
+                  id="talend-array-2_comments_2_comments_2_email"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                aria-live="polite"
+                class="_inlineMessage_c6661a"
+                role="status"
+              >
+                <span
+                  class="_icon_c6661a _information__icon_8d33ef"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="_inlineMessage__contents_c6661a"
+                >
+                  <span>
+                    Email will be used for evil.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+            >
+              <label
+                class="_label_048b2f"
+                for="talend-array-2_comments_2_comments_2_comment"
+              >
+                Comment
+              </label>
+              <textarea
+                aria-invalid="false"
+                class="_textarea_578735"
+                id="talend-array-2_comments_2_comments_2_comment"
+                rows="3"
+              />
+              <div
+                aria-live="polite"
+                class="_inlineMessage_c6661a"
+                role="status"
+              >
+                <span
+                  class="_icon_c6661a _information__icon_8d33ef"
+                >
+                  <svg
+                    aria-hidden="true"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                    style="width: 1rem; height: 1rem;"
+                  >
+                    <use
+                      xlink:href="#information-filled:M"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="_inlineMessage__contents_c6661a"
+                >
+                  <span>
+                    Don't be greedy!
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div
+          class="_delete_2f0f38"
+        >
+          <button
+            aria-describedby="id-42"
+            aria-label="Delete"
+            class="_clickable_5222c6 _buttonIcon_5aa719"
+            id="talend-array-control-2-delete"
+            tabindex="0"
+            tooltip="Delete"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#trash:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </li>
+  </ol>
+</fieldset>
+`;

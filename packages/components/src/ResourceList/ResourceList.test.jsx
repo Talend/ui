@@ -1,37 +1,44 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import ResourceList from './ResourceList.component';
 
-jest.mock(
-	'../VirtualizedList',
-	() =>
-		({ rowHeight, collection, inProgress, type, onRowClick, noRowsRenderer, rowRenderers }) => (
-			<div
-				data-testid="VirtualizedList"
-				data-props={JSON.stringify({ rowHeight, collection, inProgress, type })}
-			>
-				<div data-testid="rowRenderers">
-					{rowRenderers.resource({
-						index: 0,
-						parent: {
-							props: {
-								rowHeight,
-								collection,
-								inProgress,
-								type,
-								rowGetter: index => collection[index],
-							},
+vi.mock('../VirtualizedList', () => ({
+	default: ({
+		rowHeight,
+		collection,
+		inProgress,
+		type,
+		onRowClick,
+		noRowsRenderer,
+		rowRenderers,
+	}) => (
+		<div
+			data-testid="VirtualizedList"
+			data-props={JSON.stringify({ rowHeight, collection, inProgress, type })}
+		>
+			<div data-testid="rowRenderers">
+				{rowRenderers.resource({
+					index: 0,
+					parent: {
+						props: {
+							rowHeight,
+							collection,
+							inProgress,
+							type,
+							rowGetter: index => collection[index],
 						},
-					})}
-				</div>
-				{collection.length === 0 && <div data-testid="noRowsRenderer">{noRowsRenderer()}</div>}
-				<button type="button" onClick={() => onRowClick()}>
-					onRowClick
-				</button>
+					},
+				})}
 			</div>
-		),
-);
+			{collection.length === 0 && <div data-testid="noRowsRenderer">{noRowsRenderer()}</div>}
+			<button type="button" onClick={() => onRowClick()}>
+				onRowClick
+			</button>
+		</div>
+	),
+}));
 
 const collection = [
 	{
@@ -104,7 +111,7 @@ describe('ResourceList component', () => {
 
 		render(<ResourceList {...props} />);
 		const toolbar = document.querySelector('.tc-resource-list-toolbar');
-		expect(toolbar.nextSibling).toHaveClass('theme-filtered');
+		expect(toolbar.nextSibling.className).toContain('filtered');
 	});
 
 	it('should render ResourceList without toolbar', () => {

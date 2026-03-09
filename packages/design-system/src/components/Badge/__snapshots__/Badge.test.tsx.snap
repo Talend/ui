@@ -1,47 +1,47 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Badge should render a11y html 1`] = `
+exports[`Badge > should render a11y html 1`] = `
 <main>
   <div
     data-testid="Badge"
   >
     <span
-      class="theme-badge"
+      class="_badge_a13362"
     >
       <div
-        class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS theme-padding-top-0 theme-padding-right-XXS theme-padding-bottom-0 theme-padding-left-XXS"
+        class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5 _padding-top-0_ea00e5 _padding-right-XXS_ea00e5 _padding-bottom-0_ea00e5 _padding-left-XXS_ea00e5"
       >
         <span
-          class="theme-badge__label"
+          class="_badge__label_a13362"
           data-test="badge-label"
           data-testid="badge-label"
         >
           Awesome
         </span>
         <span
-          class="theme-badge__divider"
+          class="_badge__divider_a13362"
           data-testid="badge-divider"
         >
           <hr
             aria-orientation="vertical"
-            class="theme-divider"
+            class="_divider_3f6662"
             orientation="vertical"
           />
         </span>
         <button
           aria-expanded="false"
           aria-pressed="false"
-          class="theme-clickable theme-badge__button"
+          class="_clickable_77b759 _badge__button_534dff"
           data-test="dropdown.button.badge-button"
           data-testid="dropdown.button.badge-button"
           type="button"
         >
           <span
-            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+            class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
           >
             Component
             <span
-              class="theme-badge-dropdown__button__caret"
+              class="_badge-dropdown__button__caret_7347f4"
             >
               <svg
                 aria-hidden="true"
@@ -59,7 +59,7 @@ exports[`Badge should render a11y html 1`] = `
         <div
           aria-label="Select item"
           aria-orientation="vertical"
-          class="theme-dropdownShell"
+          class="_dropdownShell_5f3373"
           data-floating-ui-focusable=""
           data-test="dropdown.menu"
           data-testid="dropdown.menu"
@@ -68,13 +68,13 @@ exports[`Badge should render a11y html 1`] = `
           tabindex="-1"
         >
           <div
-            class="theme-animatedZone"
+            class="_animatedZone_5f3373"
           >
             <div
-              class="theme-stack theme-justify-stretch theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+              class="_stack_ea00e5 _justify-stretch_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
             >
               <button
-                class="theme-clickable"
+                class="_clickable_77b759"
                 data-test="dropdown.menuitem.Feature-0"
                 data-testid="dropdown.menuitem.Feature-0"
                 id="mocked-uuid-6"
@@ -83,17 +83,17 @@ exports[`Badge should render a11y html 1`] = `
                 type="button"
               >
                 <div
-                  class="theme-dropdownEntry"
+                  class="_dropdownEntry_1ffa1e"
                 >
                   <span
-                    class="theme-buttonContent"
+                    class="_buttonContent_1ffa1e"
                   >
                     Feature
                   </span>
                 </div>
               </button>
               <button
-                class="theme-clickable"
+                class="_clickable_77b759"
                 data-test="dropdown.menuitem.Item-1"
                 data-testid="dropdown.menuitem.Item-1"
                 id="mocked-uuid-7"
@@ -102,17 +102,17 @@ exports[`Badge should render a11y html 1`] = `
                 type="button"
               >
                 <div
-                  class="theme-dropdownEntry"
+                  class="_dropdownEntry_1ffa1e"
                 >
                   <span
-                    class="theme-buttonContent"
+                    class="_buttonContent_1ffa1e"
                   >
                     Item
                   </span>
                 </div>
               </button>
               <button
-                class="theme-clickable"
+                class="_clickable_77b759"
                 data-test="dropdown.menuitem.Component-2"
                 data-testid="dropdown.menuitem.Component-2"
                 id="mocked-uuid-8"
@@ -121,10 +121,10 @@ exports[`Badge should render a11y html 1`] = `
                 type="button"
               >
                 <div
-                  class="theme-dropdownEntry"
+                  class="_dropdownEntry_1ffa1e"
                 >
                   <span
-                    class="theme-buttonContent"
+                    class="_buttonContent_1ffa1e"
                   >
                     Component
                   </span>
@@ -140,42 +140,42 @@ exports[`Badge should render a11y html 1`] = `
     data-testid="BadgeDropdown"
   >
     <span
-      class="theme-badge"
+      class="_badge_a13362"
     >
       <div
-        class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS theme-padding-top-0 theme-padding-right-XXS theme-padding-bottom-0 theme-padding-left-XXS"
+        class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5 _padding-top-0_ea00e5 _padding-right-XXS_ea00e5 _padding-bottom-0_ea00e5 _padding-left-XXS_ea00e5"
       >
         <span
-          class="theme-badge__label"
+          class="_badge__label_a13362"
           data-test="badge-label"
           data-testid="badge-label"
         >
           Awesome
         </span>
         <span
-          class="theme-badge__divider"
+          class="_badge__divider_a13362"
           data-testid="badge-divider"
         >
           <hr
             aria-orientation="vertical"
-            class="theme-divider"
+            class="_divider_3f6662"
             orientation="vertical"
           />
         </span>
         <button
           aria-expanded="false"
           aria-pressed="false"
-          class="theme-clickable theme-badge__button"
+          class="_clickable_77b759 _badge__button_534dff"
           data-test="dropdown.button.badge-button"
           data-testid="dropdown.button.badge-button"
           type="button"
         >
           <span
-            class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+            class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
           >
             Component
             <span
-              class="theme-badge-dropdown__button__caret"
+              class="_badge-dropdown__button__caret_7347f4"
             >
               <svg
                 aria-hidden="true"
@@ -193,7 +193,7 @@ exports[`Badge should render a11y html 1`] = `
         <div
           aria-label="Select item"
           aria-orientation="vertical"
-          class="theme-dropdownShell"
+          class="_dropdownShell_5f3373"
           data-floating-ui-focusable=""
           data-test="dropdown.menu"
           data-testid="dropdown.menu"
@@ -202,13 +202,13 @@ exports[`Badge should render a11y html 1`] = `
           tabindex="-1"
         >
           <div
-            class="theme-animatedZone"
+            class="_animatedZone_5f3373"
           >
             <div
-              class="theme-stack theme-justify-stretch theme-align-stretch theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+              class="_stack_ea00e5 _justify-stretch_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
             >
               <button
-                class="theme-clickable"
+                class="_clickable_77b759"
                 data-test="dropdown.menuitem.Feature-0"
                 data-testid="dropdown.menuitem.Feature-0"
                 id="mocked-uuid-9"
@@ -217,17 +217,17 @@ exports[`Badge should render a11y html 1`] = `
                 type="button"
               >
                 <div
-                  class="theme-dropdownEntry"
+                  class="_dropdownEntry_1ffa1e"
                 >
                   <span
-                    class="theme-buttonContent"
+                    class="_buttonContent_1ffa1e"
                   >
                     Feature
                   </span>
                 </div>
               </button>
               <button
-                class="theme-clickable"
+                class="_clickable_77b759"
                 data-test="dropdown.menuitem.Item-1"
                 data-testid="dropdown.menuitem.Item-1"
                 id="mocked-uuid-10"
@@ -236,17 +236,17 @@ exports[`Badge should render a11y html 1`] = `
                 type="button"
               >
                 <div
-                  class="theme-dropdownEntry"
+                  class="_dropdownEntry_1ffa1e"
                 >
                   <span
-                    class="theme-buttonContent"
+                    class="_buttonContent_1ffa1e"
                   >
                     Item
                   </span>
                 </div>
               </button>
               <button
-                class="theme-clickable"
+                class="_clickable_77b759"
                 data-test="dropdown.menuitem.Component-2"
                 data-testid="dropdown.menuitem.Component-2"
                 id="mocked-uuid-11"
@@ -255,10 +255,10 @@ exports[`Badge should render a11y html 1`] = `
                 type="button"
               >
                 <div
-                  class="theme-dropdownEntry"
+                  class="_dropdownEntry_1ffa1e"
                 >
                   <span
-                    class="theme-buttonContent"
+                    class="_buttonContent_1ffa1e"
                   >
                     Component
                   </span>

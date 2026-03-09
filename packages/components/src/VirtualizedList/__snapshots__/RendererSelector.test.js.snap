@@ -1,4 +1,202 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RendererSelector > should render table list by default 1`] = `
+<div
+  aria-colcount="3"
+  aria-rowcount="2"
+  class="ReactVirtualized__Table tc-list-table _tc-list-table_cdefb9"
+  id="my-list-id"
+  role="grid"
+>
+  <div
+    class="tc-list-headerRow _tc-list-headerRow_cdefb9 ReactVirtualized__Table__headerRow tc-list-item _tc-list-item_cdefb9 _row_cdefb9 __row_cdefb9_cdefb9 _row_42b6e2 __row_42b6e2_cdefb9 _ReactVirtualized__Table__headerRow tc-list-item _tc-list-item_cdefb9 _row_cdefb9 __row_cdefb9_cdefb9 _row_42b6e2 __row_42b6e2_cdefb9_cdefb9"
+    role="row"
+    style="height: 40px; overflow: hidden; padding-right: 0px; width: 1024px;"
+  >
+    <div
+      aria-label="Id"
+      aria-sort="none"
+      class="ReactVirtualized__Table__headerColumn ReactVirtualized__Table__sortableHeaderColumn"
+      role="columnheader"
+      style="flex: 0 0 50px;"
+      tabindex="0"
+    >
+      <span
+        class="ReactVirtualized__Table__headerTruncatedText"
+        title="Id"
+      >
+        Id
+      </span>
+    </div>
+    <div
+      aria-label="Name"
+      aria-sort="descending"
+      class="ReactVirtualized__Table__headerColumn ReactVirtualized__Table__sortableHeaderColumn"
+      role="columnheader"
+      style="flex: 0 0 350px;"
+      tabindex="0"
+    >
+      <span
+        class="ReactVirtualized__Table__headerTruncatedText"
+        title="Name"
+      >
+        Name
+      </span>
+      <svg
+        class="ReactVirtualized__Table__sortableHeaderIcon ReactVirtualized__Table__sortableHeaderIcon--DESC"
+        height="18"
+        viewBox="0 0 24 24"
+        width="18"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+      </svg>
+    </div>
+    <div
+      aria-label="Description"
+      aria-sort="none"
+      class="ReactVirtualized__Table__headerColumn ReactVirtualized__Table__sortableHeaderColumn"
+      role="columnheader"
+      style="flex: 0 0 350px;"
+      tabindex="0"
+    >
+      <span
+        class="ReactVirtualized__Table__headerTruncatedText"
+        title="Description"
+      >
+        Description
+      </span>
+    </div>
+  </div>
+  <div
+    aria-label="grid"
+    class="ReactVirtualized__Grid ReactVirtualized__Table__Grid _grid_cdefb9 tc-dropdown-container"
+    role="rowgroup"
+    style="box-sizing: border-box; direction: ltr; height: 560px; position: relative; width: 1024px; -webkit-overflow-scrolling: touch; will-change: transform; overflow-x: hidden; overflow-y: hidden;"
+    tabindex="0"
+  >
+    <div
+      class="ReactVirtualized__Grid__innerScrollContainer"
+      role="row"
+      style="width: auto; height: 100px; max-width: 1024px; max-height: 100px; overflow: hidden; position: relative;"
+    >
+      <div
+        aria-label="row"
+        aria-rowindex="1"
+        class="ReactVirtualized__Table__row tc-list-item _tc-list-item_cdefb9 _row_cdefb9 __row_cdefb9_cdefb9 _row_42b6e2 __row_42b6e2_cdefb9 undefined _undefined_cdefb9 _row-selection_3196cd"
+        role="row"
+        style="height: 50px; left: 0px; position: absolute; top: 0px; width: 1024px; overflow: hidden; padding-right: 0px;"
+        tabindex="0"
+      >
+        <div
+          aria-colindex="1"
+          class="ReactVirtualized__Table__rowColumn"
+          role="gridcell"
+          style="overflow: hidden; flex: 0 0 50px;"
+        >
+          <div
+            aria-describedby="00000000-0000-4000-8000-000000000000"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            0
+          </div>
+        </div>
+        <div
+          aria-colindex="2"
+          class="ReactVirtualized__Table__rowColumn"
+          role="gridcell"
+          style="overflow: hidden; flex: 0 0 350px;"
+        >
+          <div
+            aria-describedby="00000000-0000-4000-8000-000000000000"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            Title with icon and actions
+          </div>
+        </div>
+        <div
+          aria-colindex="3"
+          class="ReactVirtualized__Table__rowColumn"
+          role="gridcell"
+          style="overflow: hidden; flex: 0 0 350px;"
+        >
+          <div
+            aria-describedby="00000000-0000-4000-8000-000000000000"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            Simple row with icon and actions
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="row"
+        aria-rowindex="2"
+        class="ReactVirtualized__Table__row tc-list-item _tc-list-item_cdefb9 _row_cdefb9 __row_cdefb9_cdefb9 _row_42b6e2 __row_42b6e2_cdefb9 undefined _undefined_cdefb9 _row-selection_3196cd"
+        role="row"
+        style="height: 50px; left: 0px; position: absolute; top: 50px; width: 1024px; overflow: hidden; padding-right: 0px;"
+        tabindex="0"
+      >
+        <div
+          aria-colindex="1"
+          class="ReactVirtualized__Table__rowColumn"
+          role="gridcell"
+          style="overflow: hidden; flex: 0 0 50px;"
+        >
+          <div
+            aria-describedby="00000000-0000-4000-8000-000000000000"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            1
+          </div>
+        </div>
+        <div
+          aria-colindex="2"
+          class="ReactVirtualized__Table__rowColumn"
+          role="gridcell"
+          style="overflow: hidden; flex: 0 0 350px;"
+        >
+          <div
+            aria-describedby="00000000-0000-4000-8000-000000000000"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            Title without actions
+          </div>
+        </div>
+        <div
+          aria-colindex="3"
+          class="ReactVirtualized__Table__rowColumn"
+          role="gridcell"
+          style="overflow: hidden; flex: 0 0 350px;"
+        >
+          <div
+            aria-describedby="00000000-0000-4000-8000-000000000000"
+            class="tc-virtualizedlist-default-cell"
+            data-test="tc-virtualizedlist-default-cell-tooltip"
+            data-testid="tc-virtualizedlist-default-cell-tooltip"
+          >
+            Simple row without actions
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`RendererSelector should render table list by default 1`] = `
 <div

@@ -1,20 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ButtonIcon should render accessible html 1`] = `
+exports[`ButtonIcon > should render accessible html 1`] = `
 <button
   aria-describedby="id-42"
   aria-label="should be required"
-  class="theme-clickable theme-buttonIcon"
+  class="_clickable_77b759 _buttonIcon_df4c61"
   tabindex="0"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="theme-buttonIcon__icon"
+    class="_buttonIcon__icon_df4c61"
   >
     <svg
       aria-hidden="true"
-      class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left"
+      class="tc-svg-icon tc-icon _svg_779da8 tc-icon-name-talend-arrow-left"
       focusable="false"
       name="talend-arrow-left"
       pointer-events="none"

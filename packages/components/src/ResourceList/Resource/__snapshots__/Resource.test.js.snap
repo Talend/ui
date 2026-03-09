@@ -1,4 +1,58 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Resource component snaps > renderers > should render 1`] = `
+<div
+  aria-label="Title with few actions"
+  aria-posinset="1"
+  class="resource-item _resource-item_786d60 _center_786d60"
+  i18n="[object Object]"
+  role="listitem"
+  tabindex="0"
+>
+  <svg
+    aria-hidden="true"
+    class="tc-svg-icon tc-icon _svg_bf5f45 _icon_786d60 tc-icon-name-talend-file-xls-o"
+    focusable="false"
+    name="talend-file-xls-o"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+  />
+  <div
+    class="data-container _data-container_786d60"
+  >
+    <span
+      class="title _title_786d60"
+    >
+      Title with few actions
+    </span>
+    <small
+      class="author _author_786d60"
+    >
+      owned by Jean-Pierre DUPONT, over 9 years ago
+    </small>
+  </div>
+  <div
+    class="flags-container _flags-container_786d60"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _flag_786d60 tc-icon-name-talend-badge"
+      focusable="false"
+      name="talend-badge"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _flag_786d60 tc-icon-name-talend-star"
+      focusable="false"
+      name="talend-star"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </div>
+</div>
+`;
 
 exports[`Resource component snaps renderers should render 1`] = `
 <div

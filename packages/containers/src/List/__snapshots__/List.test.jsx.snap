@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Connected List should map items to props from collection List 1`] = `
+exports[`Connected List > should map items to props from collection List 1`] = `
 {
   "items": Immutable.List [
     Immutable.Map {
@@ -34,7 +34,7 @@ exports[`Connected List should map items to props from collection List 1`] = `
 }
 `;
 
-exports[`Connected List should map items to props from collection Map 1`] = `
+exports[`Connected List > should map items to props from collection Map 1`] = `
 {
   "items": Immutable.List [
     Immutable.Map {
@@ -68,7 +68,7 @@ exports[`Connected List should map items to props from collection Map 1`] = `
 }
 `;
 
-exports[`Connected List should map items to props from default collection List 1`] = `
+exports[`Connected List > should map items to props from default collection List 1`] = `
 {
   "items": Immutable.List [
     Immutable.Map {
@@ -102,7 +102,7 @@ exports[`Connected List should map items to props from default collection List 1
 }
 `;
 
-exports[`Container List should put default props 1`] = `
+exports[`Container List > should put default props 1`] = `
 {
   "actions": {
     "editCancel": "object:edit:cancel",

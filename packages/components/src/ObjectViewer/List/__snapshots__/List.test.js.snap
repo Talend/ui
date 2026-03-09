@@ -1,4 +1,128 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ObjectViewer.List > should render List with props data as an object 1`] = `
+<ul
+  class="_container_241890 tc-object-viewer list-unstyled"
+  id="my-object-list"
+>
+  <li>
+    <div
+      class="tc-object-viewer _container_cb4507"
+      data-testid="my-object-list-container"
+      id="my-object-list-container"
+    >
+      <ul
+        class="_tc-object-viewer-list_cb4507"
+        role="tree"
+      >
+        <li
+          aria-expanded="false"
+          aria-level="1"
+          aria-posinset="1"
+          aria-setsize="1"
+          class="_list-item_cb4507"
+          id="my-object-list-root"
+          role="treeitem"
+          tabindex="0"
+        >
+          <div
+            class="_line_cb4507"
+          >
+            <button
+              aria-hidden="true"
+              aria-label=""
+              class="_toggle_cb4507 tc-object-viewer-toggle btn-icon-only btn btn-link"
+              id="my-object-list-root-toggle"
+              role="link"
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-caret-down _rotate-270_bf5f45"
+                focusable="false"
+                name="talend-caret-down"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+              <span />
+            </button>
+            <div
+              class="_line-main_cb4507"
+            >
+              <sup
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                aria-label="Contains 1 child object"
+                class="_badge_cb4507 badge"
+              >
+                (1)
+              </sup>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <div
+      class="tc-object-viewer _container_cb4507"
+      data-testid="my-object-list-container"
+      id="my-object-list-container"
+    >
+      <ul
+        class="_tc-object-viewer-list_cb4507"
+        role="tree"
+      >
+        <li
+          aria-expanded="false"
+          aria-level="1"
+          aria-posinset="1"
+          aria-setsize="1"
+          class="_list-item_cb4507"
+          id="my-object-list-root"
+          role="treeitem"
+          tabindex="0"
+        >
+          <div
+            class="_line_cb4507"
+          >
+            <button
+              aria-hidden="true"
+              aria-label=""
+              class="_toggle_cb4507 tc-object-viewer-toggle btn-icon-only btn btn-link"
+              id="my-object-list-root-toggle"
+              role="link"
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-caret-down _rotate-270_bf5f45"
+                focusable="false"
+                name="talend-caret-down"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+              <span />
+            </button>
+            <div
+              class="_line-main_cb4507"
+            >
+              <sup
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                aria-label="Contains 1 child object"
+                class="_badge_cb4507 badge"
+              >
+                (1)
+              </sup>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+`;
 
 exports[`ObjectViewer.List should render List with props data as an object 1`] = `
 <ul

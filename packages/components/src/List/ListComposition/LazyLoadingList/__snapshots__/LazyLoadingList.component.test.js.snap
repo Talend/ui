@@ -1,4 +1,49 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LazyLoadingList > should render lazy loading list component 1`] = `
+<div
+  class="_vlist_ac3192"
+>
+  <div
+    style="overflow: visible; height: 0px; width: 0px;"
+  >
+    <div
+      aria-colcount="0"
+      aria-rowcount="0"
+      class="ReactVirtualized__Table tc-list-table _tc-list-table_cdefb9"
+      id="myLazyLoadingList"
+      role="grid"
+    >
+      <div
+        class="tc-list-headerRow _tc-list-headerRow_cdefb9 ReactVirtualized__Table__headerRow tc-list-item _tc-list-item_cdefb9 _row_cdefb9 __row_cdefb9_cdefb9 _row_42b6e2 __row_42b6e2_cdefb9 _ReactVirtualized__Table__headerRow tc-list-item _tc-list-item_cdefb9 _row_cdefb9 __row_cdefb9_cdefb9 _row_42b6e2 __row_42b6e2_cdefb9_cdefb9"
+        role="row"
+        style="height: 40px; overflow: hidden; padding-right: 0px; width: 0px;"
+      />
+      <div
+        aria-label="grid"
+        class="ReactVirtualized__Grid ReactVirtualized__Table__Grid _grid_cdefb9 tc-dropdown-container"
+        role="rowgroup"
+        style="box-sizing: border-box; direction: ltr; height: 210px; position: relative; width: 0px; -webkit-overflow-scrolling: touch; will-change: transform; overflow-x: hidden; overflow-y: hidden;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+  <div
+    class="resize-triggers"
+  >
+    <div
+      class="expand-trigger"
+    >
+      <div
+        style="width: 1px; height: 1px;"
+      />
+    </div>
+    <div
+      class="contract-trigger"
+    />
+  </div>
+</div>
+`;
 
 exports[`LazyLoadingList should render lazy loading list component 1`] = `
 <div

@@ -1,22 +1,22 @@
 import { screen, render } from '@testing-library/react';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
-jest.unmock('@talend/design-system');
 
-jest.mock('../../../FormatValue/FormatValue.component', () => {
-	return jest.fn(props => (
+vi.mock('../../../FormatValue/FormatValue.component', () => ({
+	default: vi.fn(props => (
 		<span data-testid="formatvalue" data-value={props.value} data-type={typeof props.value}>
 			{props.value}
 		</span>
-	));
-});
-jest.mock('../../../TooltipTrigger', () => {
-	return jest.fn(props => (
+	)),
+}));
+
+vi.mock('../../../TooltipTrigger', () => ({
+	default: vi.fn(props => (
 		<span data-testid="tooltip-trigger">
 			<span data-testid="tooltip-label">{props.label}</span>
 			<span>{props.children}</span>
 		</span>
-	));
-});
+	)),
+}));
 
 describe('#DefaultValueRenderer', () => {
 	it('should render without the tooltip', () => {

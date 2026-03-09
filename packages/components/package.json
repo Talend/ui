@@ -20,10 +20,10 @@
     "build:lib:esm": "talend-scripts build --esm",
     "watch": "talend-scripts build --watch",
     "tsc": "tsc --emitDeclarationOnly --project ./tsconfig.json --outDir ./types",
-    "test": "cross-env TZ=UTC talend-scripts test",
-    "test:update": "cross-env TZ=UTC talend-scripts test -u",
-    "test:watch": "cross-env TZ=UTC talend-scripts test --watch",
-    "test:cov": "cross-env TZ=UTC talend-scripts test --coverage --coverageReporters json-summary",
+    "test": "cross-env TZ=UTC vitest run",
+    "test:update": "cross-env TZ=UTC vitest run --update",
+    "test:watch": "cross-env TZ=UTC vitest --watch",
+    "test:cov": "cross-env TZ=UTC vitest run --coverage",
     "lint": "eslint .",
     "start": "storybook dev",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
@@ -82,6 +82,8 @@
     "@storybook/addon-links": "^10.2.1",
     "@storybook/react": "^10.2.1",
     "@storybook/react-vite": "^10.2.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "@talend/bootstrap-theme": "^10.0.0",
     "@talend/design-system": "^12.0.0",
     "@talend/eslint-config": "^14.0.0",
@@ -98,7 +100,6 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/classnames": "^2.3.4",
     "@types/d3": "^7.4.3",
-    "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.23",
     "@types/prop-types": "^15.7.15",
     "@types/react": "^18.3.27",
@@ -116,7 +117,8 @@
     "react-router-dom": "~6.3.0",
     "react-test-renderer": "^18.3.1",
     "esbuild-plugin-react-virtualized": "^1.0.5",
-    "storybook": "^10.2.10"
+    "storybook": "^10.2.10",
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "@talend/design-system": "^12.0.0",

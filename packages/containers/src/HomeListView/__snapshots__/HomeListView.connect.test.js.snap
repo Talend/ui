@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Connected HomeListView should render 1`] = `
+exports[`Connected HomeListView > should render 1`] = `
 <div
-  class="tc-layout theme-layout"
+  class="tc-layout _layout_96ba00"
 >
   <div
-    class="theme-skip-links"
+    class="_skip-links_96ba00"
   >
     <nav
       aria-label="Skip links"
-      class="theme-tc-skip-links"
+      class="_tc-skip-links_6db515"
     >
       <ul>
         <li>
@@ -17,11 +17,11 @@ exports[`Connected HomeListView should render 1`] = `
             href="#tc-layout-side-menu"
           >
             <span
-              class="theme-icon"
+              class="_icon_6db515"
             >
               <svg
                 aria-hidden="true"
-                class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-arrow-left _rotate-270_bf5f45"
                 focusable="false"
                 name="talend-arrow-left"
                 pointer-events="none"
@@ -29,7 +29,7 @@ exports[`Connected HomeListView should render 1`] = `
               />
             </span>
             <span
-              class="theme-text"
+              class="_text_6db515"
             >
               Skip to navigation
             </span>
@@ -40,11 +40,11 @@ exports[`Connected HomeListView should render 1`] = `
             href="#tc-layout-main"
           >
             <span
-              class="theme-icon"
+              class="_icon_6db515"
             >
               <svg
                 aria-hidden="true"
-                class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-arrow-left theme-rotate-270"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-arrow-left _rotate-270_bf5f45"
                 focusable="false"
                 name="talend-arrow-left"
                 pointer-events="none"
@@ -52,7 +52,7 @@ exports[`Connected HomeListView should render 1`] = `
               />
             </span>
             <span
-              class="theme-text"
+              class="_text_6db515"
             >
               Skip to main content
             </span>
@@ -62,7 +62,7 @@ exports[`Connected HomeListView should render 1`] = `
     </nav>
   </div>
   <header
-    class="tc-layout-header theme-header"
+    class="tc-layout-header _header_96ba00"
     role="banner"
   >
     <div
@@ -72,10 +72,10 @@ exports[`Connected HomeListView should render 1`] = `
     </div>
   </header>
   <div
-    class="tc-layout-two-columns theme-container"
+    class="tc-layout-two-columns _container_2fb19b"
   >
     <div
-      class="tc-layout-two-columns-left theme-sidemenu"
+      class="tc-layout-two-columns-left _sidemenu_2fb19b"
       id="tc-layout-side-menu"
       tabindex="-1"
     >
@@ -86,13 +86,13 @@ exports[`Connected HomeListView should render 1`] = `
       </div>
     </div>
     <div
-      class="tc-layout-two-columns-main theme-main"
+      class="tc-layout-two-columns-main _main_2fb19b"
       id="tc-layout-main"
       role="main"
       tabindex="-1"
     >
       <div
-        class="theme-tc-with-drawer"
+        class="_tc-with-drawer_0478ca"
       >
         <div
           style="overflow: auto; height: 100%; display: flex; flex-direction: column;"
@@ -104,7 +104,7 @@ exports[`Connected HomeListView should render 1`] = `
           </div>
         </div>
         <div
-          class="theme-tc-with-drawer-container"
+          class="_tc-with-drawer-container_0478ca"
         />
       </div>
     </div>

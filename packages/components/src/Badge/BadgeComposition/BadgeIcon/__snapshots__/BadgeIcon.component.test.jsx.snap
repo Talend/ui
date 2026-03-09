@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BadgeIcon > should default render 1`] = `
+<body>
+  <div>
+    <span
+      class="tc-badge-label-icon _tc-badge-label-icon_2ccc7e"
+      name="my icon name"
+      role="img"
+    />
+  </div>
+</body>
+`;

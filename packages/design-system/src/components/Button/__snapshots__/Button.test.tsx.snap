@@ -1,28 +1,28 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Button should render a11y html 1`] = `
+exports[`Button > should render a11y html 1`] = `
 <main>
   <button
     aria-busy="false"
-    class="theme-clickable theme-button theme-primary"
+    class="_clickable_77b759 _button_31facc _primary_1034f3"
     type="button"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
     >
       Primary
     </span>
   </button>
   <button
     aria-busy="false"
-    class="theme-clickable theme-button theme-destructive"
+    class="_clickable_77b759 _button_31facc _destructive_c5748f"
     type="button"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
     >
       <span
-        class="theme-button__icon"
+        class="_button__icon_31facc"
       >
         <svg
           aria-hidden="true"
@@ -40,37 +40,37 @@ exports[`Button should render a11y html 1`] = `
   </button>
   <button
     aria-busy="false"
-    class="theme-clickable theme-button theme-secondary"
+    class="_clickable_77b759 _button_31facc _secondary_383928"
     disabled=""
     type="button"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
     >
       Secondary disabled
     </span>
   </button>
   <button
     aria-busy="false"
-    class="theme-clickable theme-button theme-tertiary"
+    class="_clickable_77b759 _button_31facc _tertiary_1d5581"
     type="submit"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
     >
       Tertiary submit
     </span>
   </button>
   <button
     aria-busy="true"
-    class="theme-clickable theme-button theme-tertiary"
+    class="_clickable_77b759 _button_31facc _tertiary_1d5581"
     type="button"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
     >
       <span
-        class="theme-button__loading"
+        class="_button__loading_31facc"
       >
         <svg
           aria-hidden="true"
@@ -106,15 +106,15 @@ exports[`Button should render a11y html 1`] = `
   </button>
   <button
     aria-busy="false"
-    class="theme-clickable theme-button theme-tertiary"
+    class="_clickable_77b759 _button_31facc _tertiary_1d5581"
     type="button"
   >
     <span
-      class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+      class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
     >
       Tertiary isDropdown
       <span
-        class="theme-button__caret"
+        class="_button__caret_31facc"
       >
         <svg
           aria-hidden="true"

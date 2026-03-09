@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TreeView should render 1`] = `
+exports[`TreeView > should render 1`] = `
 <div
-  class="tc-treeview theme-tc-treeview"
+  class="tc-treeview _tc-treeview_541c07"
 >
   <header
-    class="theme-tc-treeview-header"
+    class="_tc-treeview-header_541c07"
   >
     <span
       id="my-treeview-title"
@@ -15,7 +15,7 @@ exports[`TreeView should render 1`] = `
   </header>
   <ul
     aria-labelledby="my-treeview-title"
-    class="theme-tc-treeview-list"
+    class="_tc-treeview-list_541c07"
     role="tree"
   >
     <li
@@ -24,19 +24,19 @@ exports[`TreeView should render 1`] = `
       aria-posinset="1"
       aria-selected="false"
       aria-setsize="2"
-      class="tc-treeview-item-li theme-tc-treeview-li"
+      class="tc-treeview-item-li _tc-treeview-li_fa0e07"
       id="my-treeview-0"
       role="treeitem"
       tabindex="0"
     >
       <div
-        class="tc-treeview-item theme-tc-treeview-item"
+        class="tc-treeview-item _tc-treeview-item_fa0e07"
         style="padding-left: 30px;"
       >
         <button
           aria-hidden="true"
           aria-label=""
-          class="theme-tc-treeview-toggle btn-icon-only btn btn-link"
+          class="_tc-treeview-toggle_fa0e07 btn-icon-only btn btn-link"
           id="my-treeview-0-toggle"
           role="link"
           tabindex="-1"
@@ -44,7 +44,7 @@ exports[`TreeView should render 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-caret-down theme-rotate-270"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-caret-down _rotate-270_bf5f45"
             focusable="false"
             name="talend-caret-down"
             pointer-events="none"
@@ -54,19 +54,19 @@ exports[`TreeView should render 1`] = `
         </button>
         <svg
           aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg theme-tc-treeview-folder tc-icon-name-talend-folder-closed"
+          class="tc-svg-icon tc-icon _svg_bf5f45 _tc-treeview-folder_fa0e07 tc-icon-name-talend-folder-closed"
           focusable="false"
           name="talend-folder-closed"
           pointer-events="none"
           shape-rendering="geometricPrecision"
         />
         <span
-          class="tc-treeview-item-name theme-tc-treeview-item-name"
+          class="tc-treeview-item-name _tc-treeview-item-name_fa0e07"
         >
           foo
         </span>
         <div
-          class="theme-tc-treeview-item-ctrl"
+          class="_tc-treeview-item-ctrl_fa0e07"
         />
       </div>
     </li>
@@ -75,30 +75,30 @@ exports[`TreeView should render 1`] = `
       aria-posinset="2"
       aria-selected="false"
       aria-setsize="2"
-      class="tc-treeview-item-li theme-tc-treeview-li"
+      class="tc-treeview-item-li _tc-treeview-li_fa0e07"
       id="my-treeview-1"
       role="treeitem"
       tabindex="-1"
     >
       <div
-        class="tc-treeview-item theme-tc-treeview-item"
+        class="tc-treeview-item _tc-treeview-item_fa0e07"
         style="padding-left: 30px;"
       >
         <svg
           aria-hidden="true"
-          class="tc-svg-icon tc-icon theme-svg theme-tc-treeview-folder tc-icon-name-talend-folder-closed"
+          class="tc-svg-icon tc-icon _svg_bf5f45 _tc-treeview-folder_fa0e07 tc-icon-name-talend-folder-closed"
           focusable="false"
           name="talend-folder-closed"
           pointer-events="none"
           shape-rendering="geometricPrecision"
         />
         <span
-          class="tc-treeview-item-name theme-tc-treeview-item-name"
+          class="tc-treeview-item-name _tc-treeview-item-name_fa0e07"
         >
           bar
         </span>
         <div
-          class="theme-tc-treeview-item-ctrl"
+          class="_tc-treeview-item-ctrl_fa0e07"
         />
       </div>
     </li>

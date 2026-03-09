@@ -8,8 +8,6 @@ import Connect from './EditableText.connect';
 import Container, { DISPLAY_NAME } from './EditableText.container';
 import { getEditMode } from './EditableText.selectors';
 
-jest.unmock('@talend/design-system');
-
 describe('Connect', () => {
 	it('should connect EditableText', () => {
 		expect(Connect.displayName).toBe(`Connect(CMF(${Container.displayName}))`);

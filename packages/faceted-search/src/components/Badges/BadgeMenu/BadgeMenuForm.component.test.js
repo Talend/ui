@@ -4,8 +4,6 @@ import userEvent from '@testing-library/user-event';
 import getDefaultT from '../../../translate';
 import { BadgeMenuForm } from './BadgeMenuForm.component';
 
-jest.unmock('@talend/design-system');
-
 const menuItems = [
 	{
 		id: 'item-one',

@@ -1,0 +1,190 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MonthPicker > should render 1`] = `
+<div>
+  <table
+    class="_container_153b30"
+  >
+    <caption
+      class="sr-only"
+    >
+      Year 2018
+    </caption>
+    <tbody>
+      <tr
+        class="_calendar-row_153b30"
+      >
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="January 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="0"
+            tabindex="-1"
+            type="button"
+          >
+            January
+          </button>
+        </td>
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="February 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="1"
+            tabindex="-1"
+            type="button"
+          >
+            February
+          </button>
+        </td>
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="March 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="2"
+            tabindex="-1"
+            type="button"
+          >
+            March
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="_calendar-row_153b30"
+      >
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="April 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="3"
+            tabindex="-1"
+            type="button"
+          >
+            April
+          </button>
+        </td>
+        <td
+          aria-current="date"
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="May 2018, selected"
+            class="_calendar-month_153b30 _selected_153b30 tc-date-picker-month"
+            data-value="4"
+            tabindex="-1"
+            type="button"
+          >
+            May
+          </button>
+        </td>
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="June 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="5"
+            tabindex="-1"
+            type="button"
+          >
+            June
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="_calendar-row_153b30"
+      >
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="July 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="6"
+            tabindex="-1"
+            type="button"
+          >
+            July
+          </button>
+        </td>
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="August 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="7"
+            tabindex="-1"
+            type="button"
+          >
+            August
+          </button>
+        </td>
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="September 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="8"
+            tabindex="-1"
+            type="button"
+          >
+            September
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="_calendar-row_153b30"
+      >
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="October 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="9"
+            tabindex="-1"
+            type="button"
+          >
+            October
+          </button>
+        </td>
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="November 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="10"
+            tabindex="-1"
+            type="button"
+          >
+            November
+          </button>
+        </td>
+        <td
+          class="_calendar-col_153b30"
+        >
+          <button
+            aria-label="December 2018"
+            class="_calendar-month_153b30 tc-date-picker-month"
+            data-value="11"
+            tabindex="-1"
+            type="button"
+          >
+            December
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

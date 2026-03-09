@@ -1,36 +1,36 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Form should render a11y html 1`] = `
+exports[`Form > should render a11y html 1`] = `
 <main>
   <form
-    class="theme-form"
+    class="_form_6dcef2"
   >
     <fieldset
-      class="theme-fieldset"
+      class="_fieldset_b5342b"
     >
       <legend
-        class="theme-legend"
+        class="_legend_b5342b"
       >
         Complete your registration
       </legend>
       <div
-        class="theme-fieldset-content"
+        class="_fieldset-content_b5342b"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-0"
           >
             Input
             *
           </label>
           <div
-            class="theme-inputShell"
+            class="_inputShell_251f4b"
           >
             <input
-              class="theme-input"
+              class="_input_260f17"
               id="field--mocked-uuid-0"
               name="input"
               required=""
@@ -39,20 +39,20 @@ exports[`Form should render a11y html 1`] = `
           </div>
         </div>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-1"
           >
             Phone
             *
           </label>
           <div
-            class="theme-inputShell"
+            class="_inputShell_251f4b"
           >
             <input
-              class="theme-input"
+              class="_input_260f17"
               id="field--mocked-uuid-1"
               name="tel"
               required=""
@@ -61,37 +61,37 @@ exports[`Form should render a11y html 1`] = `
           </div>
         </div>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-2"
           >
             Amount
           </label>
           <div
-            class="theme-inputShell"
+            class="_inputShell_251f4b"
           >
             <span
-              class="theme-affix"
+              class="_affix_38c31c"
             >
               <span
-                class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+                class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
               >
                 $
               </span>
             </span>
             <input
-              class="theme-input"
+              class="_input_260f17"
               id="field--mocked-uuid-2"
               name="amount"
               type="number"
             />
             <span
-              class="theme-affix theme-affix_isSuffix"
+              class="_affix_38c31c _affix_isSuffix_38c31c"
             >
               <span
-                class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-row theme-inline theme-gap-x-XXS theme-gap-y-XXS"
+                class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _inline_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
               >
                 .00
               </span>
@@ -99,30 +99,30 @@ exports[`Form should render a11y html 1`] = `
           </div>
         </div>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-3"
           >
             File
           </label>
           <div
             aria-describedby="info--mocked-uuid-4"
-            class="theme-wrapper"
+            class="_wrapper_04a0ca"
           >
             <div
-              class="theme-inputFile"
+              class="_inputFile_04a0ca"
               id="info--mocked-uuid-4"
             >
               <input
-                class="theme-inputFile__input theme-input"
+                class="_inputFile__input_04a0ca _input_04a0ca"
                 id="field--mocked-uuid-3"
                 name="file"
                 type="file"
               />
               <div
-                class="theme-inputFile__text theme-text"
+                class="_inputFile__text_04a0ca _text_04a0ca"
               >
                 <svg
                   aria-hidden="true"
@@ -138,7 +138,7 @@ exports[`Form should render a11y html 1`] = `
                 <span>
                   Drop your files or 
                   <span
-                    class="theme-text__fakeLink"
+                    class="_text__fakeLink_04a0ca"
                   >
                     browse
                   </span>
@@ -148,19 +148,19 @@ exports[`Form should render a11y html 1`] = `
           </div>
         </div>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-5"
           >
             Password
           </label>
           <div
-            class="theme-inputShell"
+            class="_inputShell_251f4b"
           >
             <input
-              class="theme-input"
+              class="_input_260f17"
               id="field--mocked-uuid-5"
               name="password"
               type="password"
@@ -168,7 +168,7 @@ exports[`Form should render a11y html 1`] = `
             <button
               aria-describedby="id-mocked-uuid-6"
               aria-hidden="true"
-              class="theme-clickable theme-button"
+              class="_clickable_77b759 _button_e2753f"
               data-testid="form.password.reveal"
               tabindex="-1"
               type="button"
@@ -187,19 +187,19 @@ exports[`Form should render a11y html 1`] = `
           </div>
         </div>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-7"
           >
             Search
           </label>
           <div
-            class="theme-inputShell"
+            class="_inputShell_251f4b"
           >
             <span
-              class="theme-icon"
+              class="_icon_260f17"
             >
               <svg
                 aria-hidden="true"
@@ -213,7 +213,7 @@ exports[`Form should render a11y html 1`] = `
               </svg>
             </span>
             <input
-              class="theme-input"
+              class="_input_260f17"
               id="field--mocked-uuid-7"
               name="search"
               type="search"
@@ -221,38 +221,38 @@ exports[`Form should render a11y html 1`] = `
           </div>
         </div>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-8"
           >
             Textarea
           </label>
           <textarea
-            class="theme-textarea"
+            class="_textarea_cdbedd"
             id="field--mocked-uuid-8"
             name="textarea"
             rows="3"
           />
         </div>
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_ea00e5 _justify-start_ea00e5 _align-stretch_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _noShrink_ea00e5 _gap-x-XXS_ea00e5 _gap-y-XXS_ea00e5"
         >
           <label
-            class="theme-label"
+            class="_label_7e0543"
             for="field--mocked-uuid-9"
           >
             Select
           </label>
           <div
-            class="theme-inputShell"
+            class="_inputShell_251f4b"
           >
             <div
-              class="theme-select__wrapper"
+              class="_select__wrapper_287d7f"
             >
               <select
-                class="theme-select"
+                class="_select_287d7f"
                 id="field--mocked-uuid-9"
                 label="Select"
                 name="select"
@@ -268,7 +268,7 @@ exports[`Form should render a11y html 1`] = `
                 </option>
               </select>
               <div
-                class="theme-select__icon"
+                class="_select__icon_287d7f"
               >
                 <svg
                   aria-hidden="true"
@@ -285,7 +285,7 @@ exports[`Form should render a11y html 1`] = `
           </div>
         </div>
         <span
-          class="theme-switch theme-switch_checked"
+          class="_switch_e75486 _switch_checked_e75486"
         >
           <label
             for="switch--mocked-uuid-10"
@@ -299,7 +299,7 @@ exports[`Form should render a11y html 1`] = `
               type="checkbox"
             />
             <span
-              class="theme-legend"
+              class="_legend_e75486"
             >
               Checkbox
               *
@@ -307,7 +307,7 @@ exports[`Form should render a11y html 1`] = `
           </label>
         </span>
         <span
-          class="theme-radio"
+          class="_radio_709626"
         >
           <input
             checked=""
@@ -316,14 +316,14 @@ exports[`Form should render a11y html 1`] = `
             type="radio"
           />
           <label
-            class="theme-label theme-label_inline"
+            class="_label_7e0543 _label_inline_7e0543"
             for="checkbox--mocked-uuid-11"
           >
             Radio
           </label>
         </span>
         <span
-          class="theme-switch theme-switch_checked"
+          class="_switch_e75486 _switch_checked_e75486"
         >
           <label
             for="switch--mocked-uuid-12"
@@ -336,36 +336,36 @@ exports[`Form should render a11y html 1`] = `
               type="checkbox"
             />
             <span
-              class="theme-legend"
+              class="_legend_e75486"
             >
               Switch
             </span>
           </label>
         </span>
         <div
-          class="theme-buttons"
+          class="_buttons_28e037"
         >
           <div
-            class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-0 theme-padding-bottom-M theme-padding-left-0"
+            class="_stack_ea00e5 _justify-space-between_ea00e5 _align-start_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-M_ea00e5 _gap-y-M_ea00e5 _padding-top-M_ea00e5 _padding-right-0_ea00e5 _padding-bottom-M_ea00e5 _padding-left-0_ea00e5"
           >
             <button
               aria-busy="false"
-              class="theme-clickable theme-button theme-secondary"
+              class="_clickable_77b759 _button_31facc _secondary_383928"
               type="reset"
             >
               <span
-                class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+                class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
               >
                 Reset
               </span>
             </button>
             <button
               aria-busy="false"
-              class="theme-clickable theme-button theme-primary"
+              class="_clickable_77b759 _button_31facc _primary_1034f3"
               type="button"
             >
               <span
-                class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS"
+                class="_stack_ea00e5 _justify-start_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _row_ea00e5 _block_ea00e5 _gap-x-XS_ea00e5 _gap-y-XS_ea00e5"
               >
                 Submit
               </span>

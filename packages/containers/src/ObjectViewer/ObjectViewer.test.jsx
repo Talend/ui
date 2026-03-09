@@ -11,11 +11,13 @@ import Container, {
 } from './ObjectViewer.container';
 import Connected from './ObjectViewer.connect';
 
-jest.mock('@talend/react-components/lib/ObjectViewer', () => ({ getProps, ...props }) => (
-	<div data-testid="ObjectViewer">
-		<button onClick={() => getProps(props)}>getProps</button>
-	</div>
-));
+vi.mock('@talend/react-components/lib/ObjectViewer', () => ({
+	default: ({ getProps, ...props }) => (
+		<div data-testid="ObjectViewer">
+			<button onClick={() => getProps(props)}>getProps</button>
+		</div>
+	),
+}));
 
 const path = "$[0]['arrayInt']";
 const data = [

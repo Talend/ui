@@ -4,8 +4,6 @@ import Container, { DEFAULT_STATE, DISPLAY_NAME } from './FilterBar.container';
 import Connected from './FilterBar.connect';
 import { getComponentState, getQuery } from './FilterBar.selectors';
 
-jest.unmock('@talend/design-system');
-
 describe('Filter connected', () => {
 	it('should connect filter', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);

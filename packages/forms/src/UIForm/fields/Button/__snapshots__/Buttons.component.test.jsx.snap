@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Buttons field > should render buttons 1`] = `
+<div
+  class="_buttons_42d65d"
+>
+  <div
+    class="_stack_dbc270 _justify-space-between_dbc270 _align-start_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-M_dbc270 _gap-y-M_dbc270 _padding-top-M_dbc270 _padding-right-0_dbc270 _padding-bottom-M_dbc270 _padding-left-0_dbc270"
+  >
+    <button
+      aria-label="Reset"
+      class="btn--secondary btn custom-class-name btn btn-default"
+      id="myForm-0"
+      type="reset"
+    >
+      <span>
+        Reset
+      </span>
+    </button>
+    <button
+      aria-label="Test"
+      class="btn--secondary btn btn btn-default"
+      id="myForm-1"
+      type="button"
+    >
+      <span>
+        Test
+      </span>
+    </button>
+    <button
+      aria-label="Submit"
+      class="btn btn btn-primary"
+      id="myForm-2"
+      type="submit"
+    >
+      <span>
+        Submit
+      </span>
+    </button>
+  </div>
+</div>
+`;

@@ -1,14 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import Component from './RecordsViewer.component';
 
-jest.unmock('@talend/design-system');
-
-jest.mock('../Core', () => {
+vi.mock('../Core', () => {
 	return {
 		Tree: props => <div data-testid="tree" data-props={JSON.stringify(props)}></div>,
 	};
 });
-jest.mock('../Virtualized', () => {
+vi.mock('../Virtualized', () => {
 	return {
 		VirtualizedTree: props => (
 			<div data-testid="virtualized-tree" data-props={JSON.stringify(props)}></div>
@@ -18,7 +16,7 @@ jest.mock('../Virtualized', () => {
 
 describe('RecordsViewer', () => {
 	beforeEach(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 	it('should render a tree virtualized with a header', () => {
 		const { container } = render(

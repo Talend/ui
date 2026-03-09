@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`List Toolbar > should display nav with li and separator 1`] = `
+<div
+  class="tc-list-toolbar _tc-list-toolbar_237378 navbar navbar-default"
+  role="toolbar"
+>
+  <div
+    class="container-fluid"
+  >
+    <ul
+      class="tc-list-toolbar-right _tc-list-toolbar-right_237378"
+    >
+      <li
+        class="tc-list-toolbar-separated _tc-list-toolbar-separated_237378"
+      >
+        <div>
+          Hello
+        </div>
+      </li>
+      <li
+        class="tc-list-toolbar-separated _tc-list-toolbar-separated_237378"
+      >
+        <div>
+          World
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

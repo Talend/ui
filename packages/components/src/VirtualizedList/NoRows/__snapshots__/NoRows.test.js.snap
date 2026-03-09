@@ -1,4 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NoRows > should show no result 1`] = `
+<span
+  aria-live="polite"
+  class="_tc-virtualizedlist-no-result_527ad2 tc-virtualizedlist-no-result"
+  role="status"
+>
+  No results found
+</span>
+`;
 
 exports[`NoRows should show no result 1`] = `
 <span

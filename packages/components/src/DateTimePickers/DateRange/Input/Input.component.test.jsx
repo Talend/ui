@@ -4,17 +4,17 @@ import { render, screen } from '@testing-library/react';
 import { DateRangeContext } from '../Context';
 import Input from './Input.component';
 
-jest.mock('react-debounce-input', () => {
-	return props => <input data-testid="debounce" data-props={JSON.stringify(props)} {...props} />;
-});
+vi.mock('react-debounce-input', () => ({
+	default: props => <input data-testid="debounce" data-props={JSON.stringify(props)} {...props} />,
+}));
 
-jest.mock('../../shared/InputSizer', () => {
-	return props => (
+vi.mock('../../shared/InputSizer', () => ({
+	default: props => (
 		<div data-testid="InputSizer" data-props={JSON.stringify(props)}>
 			{props.children(300)}
 		</div>
-	);
-});
+	),
+}));
 
 describe('Date.Input', () => {
 	it('should render', () => {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`decorateWithOverlay should return the component wrapped 1`] = `
+exports[`decorateWithOverlay > should return the component wrapped 1`] = `
 <span>
   <OverlayTrigger
     overlay={

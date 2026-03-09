@@ -1,4 +1,29 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RichLayout > should render RichLayout with header, content and footer 1`] = `
+<div
+  class="_wrapper_78b88f tc-rich-error"
+>
+  <svg
+    aria-hidden="true"
+    class="tc-svg-icon tc-icon _svg_bf5f45 _icon_78b88f tc-rich-error-icon tc-icon-name-talend-warning"
+    focusable="false"
+    name="talend-warning"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+  />
+  <div
+    class="_content_78b88f tc-rich-error-content"
+  >
+    <h4>
+      Pipelines
+    </h4>
+    <div>
+      One error...
+    </div>
+  </div>
+</div>
+`;
 
 exports[`RichLayout should render RichLayout with header, content and footer 1`] = `
 <div

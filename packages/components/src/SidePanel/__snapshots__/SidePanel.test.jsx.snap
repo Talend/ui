@@ -1,0 +1,112 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SidePanel > should render 1`] = `
+<nav
+  class="_tc-side-panel_ee4982 tc-side-panel"
+  id="sp"
+  role="navigation"
+  style="width: 0px;"
+>
+  <div
+    class="_toggle-btn_ee4982 tc-side-panel-toggle-btn"
+  >
+    <button
+      aria-controls="sp"
+      aria-describedby="00000000-0000-4000-8000-000000000000"
+      aria-label="Collapse menu"
+      class="btn-icon-only btn btn-link"
+      id="sp-toggle-dock"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-opener"
+        focusable="false"
+        name="talend-opener"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+  <div
+    class="_action-list-container_ee4982 tc-side-panel-action-list-container"
+  >
+    <ul
+      class="nav nav-pills nav-stacked _tc-action-list_478309 tc-action-list _tc-side-panel-list_ee4982 tc-side-panel-list"
+    >
+      <li
+        class="_tc-action-list-item_478309 tc-action-list-item"
+        role="presentation"
+      >
+        <button
+          aria-label="Preparations"
+          class="btn btn-link"
+          id="sp-nav-preparations"
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-fa fa-asterisk"
+            focusable="false"
+            name="fa fa-asterisk"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+          <span>
+            Preparations
+          </span>
+        </button>
+      </li>
+      <li
+        class="_tc-action-list-item_478309 tc-action-list-item"
+        role="presentation"
+      >
+        <button
+          aria-label="Datasets"
+          class="btn btn-link"
+          id="sp-nav-datasets"
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-fa fa-file-excel-o"
+            focusable="false"
+            name="fa fa-file-excel-o"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+          <span>
+            Datasets
+          </span>
+        </button>
+      </li>
+      <li
+        class="_tc-action-list-item_478309 tc-action-list-item"
+        role="presentation"
+      >
+        <button
+          aria-label="Favorites"
+          class="btn btn-link"
+          id="sp-nav-favorites"
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-fa fa-star"
+            focusable="false"
+            name="fa fa-star"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+          <span>
+            Favorites
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Connected ActionFile should render 1`] = `
+exports[`Connected ActionFile > should render 1`] = `
 <span>
   <input
-    class="theme-action-file-input sr-only"
+    class="_action-file-input_8365d6 sr-only"
     data-test="42"
     id="42"
     type="file"
   />
   <label
-    class="btn btn-default theme-btn-file btn-icon-only"
+    class="btn btn-default _btn-file_8365d6 btn-icon-only"
     for="42"
   >
     <span />

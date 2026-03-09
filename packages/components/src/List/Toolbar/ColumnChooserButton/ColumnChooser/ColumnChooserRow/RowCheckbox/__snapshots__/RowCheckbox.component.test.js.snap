@@ -1,4 +1,24 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RowCheckBox > should render a checked checkbox input by default 1`] = `
+<div
+  class="_checkbox_c9d9f8"
+>
+  <input
+    aria-checked="false"
+    aria-describedby="some-id-this is my checkbox"
+    data-feature="my-feature"
+    id="some-id-checkbox-column-label"
+    type="checkbox"
+  />
+  <label
+    class="_label_048b2f _label_inline_048b2f"
+    for="some-id-checkbox-column-label"
+  >
+    column-label
+  </label>
+</div>
+`;
 
 exports[`RowCheckBox should render a checked checkbox input by default 1`] = `
 <div

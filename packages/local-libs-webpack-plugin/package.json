@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "jest",
+    "test": "vitest run --passWithNoTests",
+    "test:cov": "vitest run --coverage --passWithNoTests",
+    "test:update": "vitest run --update --passWithNoTests",
     "lint": "eslint ."
   },
   "keywords": [
@@ -30,7 +32,8 @@
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
     "@talend/scripts-core": "^17.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^9.39.3",
-    "jest-cli": "^29.7.0"
+    "vitest": "^4.0.18"
   }
 }

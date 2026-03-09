@@ -15,7 +15,9 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "jest"
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:update": "vitest run --update"
   },
   "dependencies": {
     "@talend/scripts-config-babel": "^13.9.0",
@@ -32,7 +34,9 @@
   },
   "devDependencies": {
     "@talend/eslint-config": "^14.0.0",
-    "@talend/eslint-plugin": "^1.7.0"
+    "@talend/eslint-plugin": "^1.7.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "@talend/design-system": ">= 8.1.0",

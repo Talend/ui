@@ -70,12 +70,12 @@ class DayCalendarWithGesture extends React.Component<CalendarGestureProps, DateC
  */
 describe('withCalendarGesture', () => {
 	const props = {
-		goToPreviousMonth: jest.fn(),
-		goToNextMonth: jest.fn(),
+		goToPreviousMonth: vi.fn(),
+		goToNextMonth: vi.fn(),
 	};
 
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	describe('LEFT keydown', () => {

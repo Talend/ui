@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tile Footer should render footer with action on the right 1`] = `
+exports[`Tile Footer > should render footer with action on the right 1`] = `
 <div
-  class="theme-tc-tile-footer tc-tile-footer"
+  class="_tc-tile-footer_369150 tc-tile-footer"
 >
   <span>
     Test

@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ErrorState should render a11y html 1`] = `
+exports[`ErrorState > should render a11y html 1`] = `
 <main>
   <article
-    class="theme-error-state"
+    class="_error-state_9a43c6"
   >
     <div
-      class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
+      class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-M_ea00e5 _gap-y-M_ea00e5"
     >
       <svg
         fill="none"
@@ -48,10 +48,10 @@ exports[`ErrorState should render a11y html 1`] = `
         />
       </svg>
       <div
-        class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
+        class="_stack_ea00e5 _justify-center_ea00e5 _align-center_ea00e5 _nowrap_ea00e5 _column_ea00e5 _block_ea00e5 _gap-x-0_ea00e5 _gap-y-0_ea00e5"
       >
         <h3
-          class="theme-error-state__title"
+          class="_error-state__title_9a43c6"
         >
           small
         </h3>

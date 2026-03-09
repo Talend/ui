@@ -1,4 +1,174 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Progress > should normalize percent to 0 when prop is < 0 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={0}
+  className="_progress_8ab4a6 _hidden_8ab4a6 _fixed_8ab4a6"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    className="_progress-percent_8ab4a6"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      {
+        "width": "0%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Progress > should normalize percent to 100 when prop is > 100 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={100}
+  className="_progress_8ab4a6 _fixed_8ab4a6"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    className="_progress-percent_8ab4a6"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      {
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Progress > should render a contained progress 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={60}
+  className="_progress_8ab4a6"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    className="_progress-percent_8ab4a6"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      {
+        "width": "60%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Progress > should render an infinite progress 1`] = `
+<div
+  aria-busy={true}
+  aria-label="Hey dude !"
+  className="_progress_8ab4a6 _fixed_8ab4a6 _infinite_8ab4a6"
+  id="my-progress"
+  role="status"
+>
+  <div
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    className="_progress-percent_8ab4a6"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="_infinite-indicator_8ab4a6"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress > should render hidden progress at 0% 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={0}
+  className="_progress_8ab4a6 _hidden_8ab4a6 _fixed_8ab4a6"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    className="_progress-percent_8ab4a6"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      {
+        "width": "0%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Progress > should render progress with given percentage 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={60}
+  className="_progress_8ab4a6 _fixed_8ab4a6"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    className="_progress-percent_8ab4a6"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      {
+        "width": "60%",
+      }
+    }
+  />
+</div>
+`;
 
 exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
 <div

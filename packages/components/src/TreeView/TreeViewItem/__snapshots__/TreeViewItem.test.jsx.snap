@@ -1,0 +1,92 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TreeView item > should render 1`] = `
+<li
+  aria-expanded="false"
+  aria-level="2"
+  aria-posinset="1"
+  aria-selected="false"
+  aria-setsize="4"
+  class="tc-treeview-item-li _tc-treeview-li_bb3483"
+  id="my-treeview"
+  role="treeitem"
+  tabindex="-1"
+>
+  <div
+    class="tc-treeview-item _tc-treeview-item_bb3483"
+    style="padding-left: 62px;"
+  >
+    <button
+      aria-hidden="true"
+      aria-label=""
+      class="_tc-treeview-toggle_bb3483 btn-icon-only btn btn-link"
+      id="my-treeview-toggle"
+      role="link"
+      tabindex="-1"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-caret-down _rotate-270_bf5f45"
+        focusable="false"
+        name="talend-caret-down"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+      <span />
+    </button>
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _tc-treeview-folder_bb3483 tc-icon-name-talend-folder-closed"
+      focusable="false"
+      name="talend-folder-closed"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span
+      class="tc-treeview-item-name _tc-treeview-item-name_bb3483"
+    >
+      grandpa
+    </span>
+    <div
+      class="_tc-treeview-item-ctrl_bb3483"
+    >
+      <div
+        class="tc-badge _tc-badge_2ccc7e tc-badge-display-large _tc-badge-display-large_2ccc7e tc-badge-readonly _tc-badge-readonly_2ccc7e"
+      >
+        <div
+          class="tc-badge-button _tc-badge-button_2ccc7e"
+        >
+          <div
+            class="tc-badge-label _tc-badge-label_2ccc7e"
+          >
+            <span
+              aria-describedby="00000000-0000-4000-8000-000000000000"
+              class="tc-badge-label-text _tc-badge-label-text_2ccc7e"
+            >
+              101
+            </span>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="00000000-0000-4000-8000-000000000000"
+        aria-label="remove element"
+        class="btn-icon-only btn btn-link"
+        id="my-treeview-talend-trash"
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-trash"
+          focusable="false"
+          name="talend-trash"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </button>
+    </div>
+  </div>
+</li>
+`;

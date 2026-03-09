@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`tablerow #insertSelectionConfiguration should NOT insert selection column when selection callback is NOT provided 1`] = `
 [
@@ -187,6 +187,218 @@ exports[`tablerow #toColumns should return a column with fixed width 1`] = `
 `;
 
 exports[`tablerow #toColumns should return a column with resizable width and classname 1`] = `
+[
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="tc-list-cell-id"
+    columnData={
+      {
+        "custom": "lol",
+        "getRowState": undefined,
+        "id": "my-id",
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerClassName="tc-list-cell-id tc-header-resizable"
+    headerRenderer={[Function]}
+    label="Id"
+    style={{}}
+    width={50}
+  />,
+]
+`;
+
+exports[`tablerow > #insertSelectionConfiguration > should NOT insert selection column when selection callback is NOT provided 1`] = `
+[
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerRenderer={[Function]}
+    label="Id"
+    style={{}}
+    width={50}
+  />,
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="name"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerRenderer={[Function]}
+    label="Name"
+    style={{}}
+    width={350}
+  />,
+]
+`;
+
+exports[`tablerow > #insertSelectionConfiguration > should insert selection column when selection callback is provided 1`] = `
+[
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    columnData={
+      {
+        "collection": undefined,
+        "getRowState": undefined,
+        "isSelected": [MockFunction],
+        "isToggleAllDisabled": undefined,
+        "label": "Select this element",
+        "onChange": [MockFunction],
+        "onToggleAll": undefined,
+        "selectionMode": undefined,
+      }
+    }
+    dataKey=""
+    defaultSortDirection="ASC"
+    disableSort={true}
+    flexGrow={0}
+    flexShrink={0}
+    headerRenderer={[Function]}
+    id="tc-list-internal-row-selector"
+    label=""
+    style={{}}
+    width={35}
+  />,
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerRenderer={[Function]}
+    label="Id"
+    style={{}}
+    width={50}
+  />,
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="name"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerRenderer={[Function]}
+    label="Name"
+    style={{}}
+    width={350}
+  />,
+]
+`;
+
+exports[`tablerow > #toColumns > should add id in columns data 1`] = `
+[
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="tc-list-cell-id"
+    columnData={
+      {
+        "custom": "lol",
+        "getRowState": undefined,
+        "id": "my-id",
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerClassName="tc-list-cell-id"
+    headerRenderer={[Function]}
+    label="Id"
+    style={{}}
+    width={50}
+  />,
+]
+`;
+
+exports[`tablerow > #toColumns > should create column with enhanced classname from theme 1`] = `
+[
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="my-classname theme-classname tc-list-cell-id"
+    columnData={
+      {
+        "getRowState": undefined,
+        "id": undefined,
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerClassName="tc-list-cell-id"
+    headerRenderer={[Function]}
+    label="Id"
+    style={{}}
+    width={50}
+  />,
+]
+`;
+
+exports[`tablerow > #toColumns > should create column with enhanced header classname from theme 1`] = `
+[
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="tc-list-cell-id"
+    columnData={
+      {
+        "getRowState": undefined,
+        "id": undefined,
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerClassName="my-header-classname theme-header-classname tc-list-cell-id"
+    headerRenderer={[Function]}
+    label="Id"
+    style={{}}
+    width={50}
+  />,
+]
+`;
+
+exports[`tablerow > #toColumns > should return a column with fixed width 1`] = `
+[
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="tc-list-cell-id"
+    columnData={
+      {
+        "custom": "lol",
+        "getRowState": undefined,
+        "id": "my-id",
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerClassName="tc-list-cell-id"
+    headerRenderer={[Function]}
+    label="Id"
+    style={{}}
+    width={50}
+  />,
+]
+`;
+
+exports[`tablerow > #toColumns > should return a column with resizable width and classname 1`] = `
 [
   <Column
     cellDataGetter={[Function]}

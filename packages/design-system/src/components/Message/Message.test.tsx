@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { MessageSuccess, MessageDestructive, MessageWarning, MessageInformation } from './';
@@ -12,7 +11,7 @@ describe('Message', () => {
 					title="All good"
 					description="This component is well configured"
 					link={{ href: 'https://talend.com', children: 'Learn more' }}
-					action={{ children: 'See', onClick: jest.fn() }}
+					action={{ children: 'See', onClick: vi.fn() }}
 				>
 					Success
 				</MessageSuccess>
@@ -20,7 +19,7 @@ describe('Message', () => {
 					title="Something went wrong"
 					description="There is an issue with the component configuration"
 					link={{ href: 'https://talend.com', children: 'Learn more' }}
-					action={{ children: 'See', onClick: jest.fn() }}
+					action={{ children: 'See', onClick: vi.fn() }}
 				>
 					Destructive
 				</MessageDestructive>
@@ -28,7 +27,7 @@ describe('Message', () => {
 					title="Type incompatibilities"
 					description="Maybe resolve this issue before doing anything else"
 					link={{ href: 'https://talend.com', children: 'Learn more' }}
-					action={{ children: 'See', onClick: jest.fn() }}
+					action={{ children: 'See', onClick: vi.fn() }}
 				>
 					Warning
 				</MessageWarning>
@@ -36,7 +35,7 @@ describe('Message', () => {
 					title="Auto mapping"
 					description="Some fields has been auto mapped"
 					link={{ href: 'https://talend.com', children: 'Learn more' }}
-					action={{ children: 'Dismiss', onClick: jest.fn() }}
+					action={{ children: 'Dismiss', onClick: vi.fn() }}
 				>
 					Information
 				</MessageInformation>

@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Status > should render a label with Icon 1`] = `
+<div
+  class="_tc-status_74940c tc-status _action_74940c"
+  role="status"
+>
+  <span
+    class="_tc-status-icon_74940c tc-status-icon _success_74940c"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-fa fa-check"
+      focusable="false"
+      name="fa fa-check"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </span>
+  <span
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    class="_tc-status-label_74940c tc-status-label _success_74940c"
+  >
+    Successful
+  </span>
+  <div
+    class="tc-actions _tc-status-actions_74940c tc-status-actions btn-group"
+  >
+    <button
+      aria-label="cancel"
+      class="btn btn-sm btn-default"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-fa fa-cancel"
+        focusable="false"
+        name="fa fa-cancel"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      class="btn btn-sm btn-default"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-fa fa-delete"
+        focusable="false"
+        name="fa fa-delete"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
+</div>
+`;

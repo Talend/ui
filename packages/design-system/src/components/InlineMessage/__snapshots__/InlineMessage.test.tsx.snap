@@ -1,14 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InlineMessage should render a11y html 1`] = `
+exports[`InlineMessage > should render a11y html 1`] = `
 <main>
   <div
     aria-live="polite"
-    class="theme-inlineMessage"
+    class="_inlineMessage_bbb5fa"
     role="status"
   >
     <span
-      class="theme-icon theme-information__icon"
+      class="_icon_bbb5fa _information__icon_3fbe61"
     >
       <svg
         aria-hidden="true"
@@ -22,7 +22,7 @@ exports[`InlineMessage should render a11y html 1`] = `
       </svg>
     </span>
     <p
-      class="theme-inlineMessage__contents"
+      class="_inlineMessage__contents_bbb5fa"
     >
       <span>
         The information message value
@@ -31,11 +31,11 @@ exports[`InlineMessage should render a11y html 1`] = `
   </div>
   <div
     aria-live="polite"
-    class="theme-inlineMessage"
+    class="_inlineMessage_bbb5fa"
     role="status"
   >
     <span
-      class="theme-icon theme-destructive__icon"
+      class="_icon_bbb5fa _destructive__icon_ca39ab"
     >
       <svg
         aria-hidden="true"
@@ -49,7 +49,7 @@ exports[`InlineMessage should render a11y html 1`] = `
       </svg>
     </span>
     <p
-      class="theme-inlineMessage__contents"
+      class="_inlineMessage__contents_bbb5fa"
     >
       <span>
         The destructive message value
@@ -58,11 +58,11 @@ exports[`InlineMessage should render a11y html 1`] = `
   </div>
   <div
     aria-live="polite"
-    class="theme-inlineMessage"
+    class="_inlineMessage_bbb5fa"
     role="status"
   >
     <span
-      class="theme-icon theme-success__icon"
+      class="_icon_bbb5fa _success__icon_4f5dbb"
     >
       <svg
         aria-hidden="true"
@@ -76,7 +76,7 @@ exports[`InlineMessage should render a11y html 1`] = `
       </svg>
     </span>
     <p
-      class="theme-inlineMessage__contents"
+      class="_inlineMessage__contents_bbb5fa"
     >
       <span>
         The success message value
@@ -85,11 +85,11 @@ exports[`InlineMessage should render a11y html 1`] = `
   </div>
   <div
     aria-live="polite"
-    class="theme-inlineMessage"
+    class="_inlineMessage_bbb5fa"
     role="status"
   >
     <span
-      class="theme-icon theme-warning__icon"
+      class="_icon_bbb5fa _warning__icon_cd37a8"
     >
       <svg
         aria-hidden="true"
@@ -103,7 +103,7 @@ exports[`InlineMessage should render a11y html 1`] = `
       </svg>
     </span>
     <p
-      class="theme-inlineMessage__contents"
+      class="_inlineMessage__contents_bbb5fa"
     >
       <span>
         The warning message value
@@ -112,11 +112,11 @@ exports[`InlineMessage should render a11y html 1`] = `
   </div>
   <div
     aria-live="polite"
-    class="theme-inlineMessage"
+    class="_inlineMessage_bbb5fa"
     role="status"
   >
     <span
-      class="theme-icon theme-beta__icon"
+      class="_icon_bbb5fa _beta__icon_deb1ce"
     >
       <svg
         aria-hidden="true"
@@ -130,7 +130,7 @@ exports[`InlineMessage should render a11y html 1`] = `
       </svg>
     </span>
     <p
-      class="theme-inlineMessage__contents"
+      class="_inlineMessage__contents_bbb5fa"
     >
       <span>
         The beta message value

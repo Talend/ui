@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Connected ACKDispatcher > should mapStateToProps 1`] = `
+{
+  "acks": Immutable.Map {
+    "123": Immutable.Map {
+      "actionCreator": "test",
+      "data": {
+        "foo": "bar",
+      },
+      "received": true,
+    },
+  },
+}
+`;

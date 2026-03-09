@@ -4,12 +4,12 @@ describe('getModule', () => {
 	it('should support multiple args', () => {
 		const config = {
 			sagaRouterConfig: {
-				'/foo': jest.fn(),
+				'/foo': vi.fn(),
 			},
 		};
 		const configBis = {
 			sagaRouterConfig: {
-				'/foo/bar': jest.fn(),
+				'/foo/bar': vi.fn(),
 			},
 		};
 		const mod = getModule(config, configBis);

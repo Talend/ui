@@ -6,7 +6,6 @@ import Slider, {
 	renderActions,
 } from './Slider.component';
 
-jest.unmock('@talend/design-system');
 const onChange = jest.fn();
 
 describe('Slider', () => {

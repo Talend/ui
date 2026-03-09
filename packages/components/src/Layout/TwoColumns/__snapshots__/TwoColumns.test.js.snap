@@ -1,4 +1,42 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TwoColumns > should render 1`] = `
+<div
+  class="tc-layout-two-columns _container_53febd"
+  style="display: flex;"
+>
+  <div
+    class="tc-layout-two-columns-left _sidemenu_53febd"
+    id="tc-layout-side-menu"
+    tabindex="-1"
+  >
+    <div>
+      Hello world
+    </div>
+  </div>
+  <div
+    class="tc-layout-two-columns-main _main_53febd"
+    id="tc-layout-main"
+    role="main"
+    tabindex="-1"
+  >
+    <div
+      class="_tc-with-drawer_e8edc5"
+    >
+      <div
+        style="overflow: auto; height: 100%; display: flex; flex-direction: column;"
+      >
+        <span>
+          children
+        </span>
+      </div>
+      <div
+        class="_tc-with-drawer-container_e8edc5"
+      />
+    </div>
+  </div>
+</div>
+`;
 
 exports[`TwoColumns should render 1`] = `
 <div

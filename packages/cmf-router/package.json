@@ -20,11 +20,11 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
-    "test": "talend-scripts test",
-    "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage",
     "lint": "eslint .",
-    "test:update": "talend-scripts test -u"
+    "test:update": "vitest run --update"
   },
   "dependencies": {
     "@talend/react-cmf": "^12.0.0",
@@ -43,6 +43,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.18",
     "@redux-saga/testing-utils": "^1.2.1",
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
@@ -53,7 +54,8 @@
     "eslint": "^9.39.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "redux-saga-tester": "^1.0.874"
+    "redux-saga-tester": "^1.0.874",
+    "vitest": "^4.0.18"
   },
   "publishConfig": {
     "access": "public"

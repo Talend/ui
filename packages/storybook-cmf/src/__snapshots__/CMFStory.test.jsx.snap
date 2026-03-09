@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CMFStory should render its name 1`] = `
+exports[`CMFStory > should render its name 1`] = `
 <div>
   My Story
 </div>

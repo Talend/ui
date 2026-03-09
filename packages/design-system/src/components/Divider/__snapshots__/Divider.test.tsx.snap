@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Divider should render a11y html 1`] = `
+exports[`Divider > should render a11y html 1`] = `
 <main>
   <div>
     <h1>
@@ -8,7 +8,7 @@ exports[`Divider should render a11y html 1`] = `
     </h1>
     <hr
       aria-orientation="horizontal"
-      class="theme-divider"
+      class="_divider_3f6662"
     />
     <p>
       lorem ipsum
@@ -16,7 +16,7 @@ exports[`Divider should render a11y html 1`] = `
   </div>
   <hr
     aria-orientation="vertical"
-    class="theme-divider"
+    class="_divider_3f6662"
     orientation="vertical"
   />
   <div>

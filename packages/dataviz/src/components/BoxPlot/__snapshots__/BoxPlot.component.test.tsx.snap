@@ -85,7 +85,7 @@ exports[`Boxplot chart > should render the different basic components of the box
           cx="20"
           cy="120.63000000000001"
           r="1.5"
-          style="opacity: 0.000001; shape-rendering: geometricprecision;"
+          style="opacity: 0.000001; shape-rendering: geometricPrecision;"
         />
       </g>
       <g>

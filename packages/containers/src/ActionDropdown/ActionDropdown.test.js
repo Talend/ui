@@ -8,8 +8,6 @@ import Connected, {
 	mergeProps,
 } from './ActionDropdown.connect';
 
-jest.unmock('@talend/design-system');
-
 describe('Connect(CMF(Container(ActionDropdown)))', () => {
 	const state = {
 		cmf: {

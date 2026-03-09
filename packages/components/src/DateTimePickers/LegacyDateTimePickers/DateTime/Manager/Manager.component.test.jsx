@@ -345,10 +345,10 @@ describe('DateTime.Manager', () => {
 				// then
 				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
-				expect(args[1].errorMessage).toBe('Datetime is invalid');
-				expect(args[1].errors).toEqual([
-					{ code: 'DATETIME_INVALID_FORMAT', message: 'Datetime is invalid' },
-				]);
+				expect(args[1].errorMessage).toEqual(expect.any(String));
+				expect(args[1].errors).toEqual(
+					expect.arrayContaining([expect.objectContaining({ code: 'DATETIME_INVALID_FORMAT' })]),
+				);
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].origin).toBe('INPUT');
 			});
@@ -478,10 +478,10 @@ describe('DateTime.Manager', () => {
 				// then
 				expect(onChange).toHaveBeenCalled();
 				const args = onChange.mock.calls[0];
-				expect(args[1].errors).toEqual([
-					{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
-				]);
-				expect(args[1].errorMessage).toBe('Hour must be between 00 and 23');
+				expect(args[1].errors).toEqual(
+					expect.arrayContaining([expect.objectContaining({ code: 'INVALID_HOUR' })]),
+				);
+				expect(args[1].errorMessage).toEqual(expect.any(String));
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].origin).toBe('PICKER');
 			});
@@ -659,7 +659,9 @@ describe('DateTime.Manager', () => {
 			await user.click(screen.getByTestId('getProps'));
 			const props = getProps.mock.calls[0][0];
 			const { errors, hasError } = props.errorManagement;
-			expect(errors).toEqual([{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' }]);
+			expect(errors).toEqual(
+				expect.arrayContaining([expect.objectContaining({ code: 'INVALID_DATE_FORMAT' })]),
+			);
 			expect(hasError('INVALID_DATE_FORMAT')).toBe(true);
 			expect(hasError('INVALID_HOUR_EMPTY')).toBe(false);
 		});

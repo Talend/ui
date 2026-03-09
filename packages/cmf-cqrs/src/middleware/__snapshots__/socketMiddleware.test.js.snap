@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`pathToServer should ask the ws module to send a patch 1`] = `
+exports[`pathToServer > should ask the ws module to send a patch 1`] = `
 [
   [
-    "ws://localhosttest",
+    "ws://localhost:3000test",
     {
       "onClose": [Function],
       "onError": [Function],

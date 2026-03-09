@@ -4,8 +4,6 @@ import cmf, { mock } from '@talend/react-cmf';
 
 import Connected, { mapStateToProps, mergeProps, ContainerActionFile } from './ActionFile.connect';
 
-jest.unmock('@talend/design-system');
-
 describe('Connected ActionFile', () => {
 	let App;
 	beforeAll(async () => {

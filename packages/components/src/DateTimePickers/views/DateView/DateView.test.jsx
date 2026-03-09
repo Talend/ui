@@ -7,7 +7,6 @@ import DateView from './DateView.component';
 jest.mock('../../pickers/DatePicker', () => props => (
 	<div data-testid="DatePicker" data-props={JSON.stringify(props)} />
 ));
-jest.unmock('@talend/design-system');
 
 describe('DateView', () => {
 	it('should render', () => {

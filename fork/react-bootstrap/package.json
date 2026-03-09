@@ -20,11 +20,11 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
     "lint": "eslint .",
-    "test": "talend-scripts test",
+    "test": "vitest run",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:update": "talend-scripts test -u",
-    "test:cov": "talend-scripts test --coverage --coverageReporters json-summary"
+    "test:update": "vitest run --update",
+    "test:cov": "vitest run --coverage"
   },
   "files": [
     "CHANGELOG.md",
@@ -46,6 +46,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "@talend/eslint-config": "^14.0.0",
     "@talend/eslint-plugin": "^1.7.0",
     "@talend/scripts-config-typescript": "^12.0.0",
@@ -64,7 +66,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
-    "sinon": "^11.1.2"
+    "sinon": "^11.1.2",
+    "vitest": "^4.0.18"
   },
   "dependencies": {
     "classnames": "^2.5.1",

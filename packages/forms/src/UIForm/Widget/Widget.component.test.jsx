@@ -5,7 +5,7 @@ import { WidgetContext } from '../context';
 import defaultWidgets from '../utils/widgets';
 import Widget from './Widget.component';
 
-jest.unmock('@talend/design-system');
+vi.unmock('@talend/design-system');
 
 describe('Widget component', () => {
 	const schema = {
@@ -34,13 +34,13 @@ describe('Widget component', () => {
 		schema,
 		errors,
 		properties,
-		onChange: jest.fn(),
-		onFinish: jest.fn(),
-		onTrigger: jest.fn(),
+		onChange: vi.fn(),
+		onFinish: vi.fn(),
+		onTrigger: vi.fn(),
 	};
 
 	beforeEach(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 
 	it('should render widget', () => {

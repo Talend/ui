@@ -17,12 +17,12 @@ const defaultPayload = {
 	bar: 42,
 };
 
-interface FetchMock extends jest.Mock {
+interface FetchMock extends vi.Mock {
 	mockResponse?: Response;
 }
 
 beforeEach(() => {
-	jest.clearAllMocks();
+	vi.clearAllMocks();
 });
 
 const isTalendHttpError = (err: any): err is TalendHttpError<unknown> =>
@@ -55,11 +55,11 @@ describe('handleBody', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/zip');
 
-		const blob = jest.fn(() => Promise.resolve());
+		const blob = vi.fn(() => Promise.resolve());
 
 		await handleBody({
 			headers,
-			clone: jest.fn().mockReturnValue({ blob }),
+			clone: vi.fn().mockReturnValue({ blob }),
 		} as any);
 
 		expect(blob).toHaveBeenCalled();
@@ -383,7 +383,7 @@ describe('#httpFetch with interceptors', () => {
 	});
 
 	it('should call interceptor', async () => {
-		const interceptor = jest.fn().mockImplementation((res, _) => res);
+		const interceptor = vi.fn().mockImplementation((res, _) => res);
 		addHttpResponseInterceptor('interceptor', interceptor);
 
 		const url = '/foo';
@@ -399,7 +399,7 @@ describe('#httpFetch with interceptors', () => {
 	});
 
 	it('should have access to context in interceptor', async () => {
-		const interceptor = jest.fn().mockImplementation((res, _) => res);
+		const interceptor = vi.fn().mockImplementation((res, _) => res);
 		addHttpResponseInterceptor('interceptor', interceptor);
 
 		const url = '/foo';

@@ -31,7 +31,7 @@ describe('Testing <AbstractNode>', () => {
 	});
 
 	it('call the injected onClick action when clicked', () => {
-		const onClick = jest.fn();
+		const onClick = vi.fn();
 		render(
 			<AbstractNode
 				node={node}
@@ -51,7 +51,7 @@ describe('Testing <AbstractNode>', () => {
 	});
 
 	it('call the onDoubleClick props when double clicked', async () => {
-		const onDoubleClick = jest.fn();
+		const onDoubleClick = vi.fn();
 		render(
 			<AbstractNode
 				node={node}
@@ -74,7 +74,7 @@ describe('Testing <AbstractNode>', () => {
 	xit('call the injected onDragStart action when drag action start', done => {
 		const evt = document.createEvent('HTMLEvents');
 		evt.initEvent('click', false, true);
-		const onDragStart = jest.fn();
+		const onDragStart = vi.fn();
 		render(
 			<AbstractNode
 				node={node}

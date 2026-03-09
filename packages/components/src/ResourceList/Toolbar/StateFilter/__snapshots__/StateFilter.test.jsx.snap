@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StateFilter > should render 1`] = `
+<div
+  class="tc-resource-picker-state-filters _tc-resource-picker-state-filters_56eaf3"
+>
+  <span
+    class="_option-label_56eaf3"
+  >
+    Filter:
+  </span>
+  <button
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    aria-label="Certified"
+    aria-pressed="false"
+    class="_tc-resource-picker-certified-filter_56eaf3 tc-icon-toggle _tc-icon-toggle_6faee3 btn btn-link"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-badge"
+      focusable="false"
+      name="talend-badge"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </button>
+  <button
+    aria-describedby="00000000-0000-4000-8000-000000000000"
+    aria-label="Favorites"
+    aria-pressed="false"
+    class="_tc-resource-picker-favorite-filter_56eaf3 tc-icon-toggle _tc-icon-toggle_6faee3 btn btn-link"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-star"
+      focusable="false"
+      name="talend-star"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </button>
+</div>
+`;

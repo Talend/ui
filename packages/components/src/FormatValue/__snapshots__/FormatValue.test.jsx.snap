@@ -1,0 +1,307 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FormatValue > should handle empty string 1`] = `
+<DocumentFragment>
+  <span />
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should handle leading empty space in the string 1`] = `
+<DocumentFragment>
+  <span>
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span
+      class="_td-value_6edb33 td-value"
+    />
+    <span
+      class="_td-value_6edb33 td-value"
+    >
+      l
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should handle line feeding in the string 1`] = `
+<DocumentFragment>
+  <span>
+    <span
+      class="_td-value_6edb33 td-value"
+    >
+      loreum
+    </span>
+    <span>
+      <svg
+        aria-hidden="true"
+        aria-label="line feeding character"
+        class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 td-white-space-character tc-icon-name-talend-carriage-return"
+        focusable="false"
+        name="talend-carriage-return"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </span>
+    <span
+      class="_td-value_6edb33 td-value"
+    >
+      lopsum
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should handle non string param 1`] = `
+<DocumentFragment>
+  <span>
+    2
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should handle single line feed 1`] = `
+<DocumentFragment>
+  <span>
+    <span>
+      <svg
+        aria-hidden="true"
+        aria-label="line feeding character"
+        class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 td-white-space-character tc-icon-name-talend-carriage-return"
+        focusable="false"
+        name="talend-carriage-return"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should handle string with only alpha 1`] = `
+<DocumentFragment>
+  <span>
+    a
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should handle string with only white characters 1`] = `
+<DocumentFragment>
+  <span>
+    <svg
+      aria-hidden="true"
+      aria-label="space character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 td-white-space-character tc-icon-name-talend-empty-space"
+      focusable="false"
+      name="talend-empty-space"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should handle trailing empty space in the string 1`] = `
+<DocumentFragment>
+  <span>
+    <span
+      class="_td-value_6edb33 td-value"
+    >
+      l
+    </span>
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span
+      class="_td-value_6edb33 td-value"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should handle white space 1`] = `
+<DocumentFragment>
+  <span>
+    loreum lopsum
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue > should replace the leading/trailing white space and the line feeding 1`] = `
+<DocumentFragment>
+  <span>
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span
+      class="_td-value_6edb33 td-value"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="space character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 td-white-space-character tc-icon-name-talend-empty-space"
+      focusable="false"
+      name="talend-empty-space"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="space character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 td-white-space-character tc-icon-name-talend-empty-space"
+      focusable="false"
+      name="talend-empty-space"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span
+      class="_td-value_6edb33 td-value"
+    >
+      loreum lo
+    </span>
+    <span>
+      <svg
+        aria-hidden="true"
+        aria-label="line feeding character"
+        class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 td-white-space-character tc-icon-name-talend-carriage-return"
+        focusable="false"
+        name="talend-carriage-return"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </span>
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="whitespace character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-other-characters_6edb33 td-white-space-character tc-icon-name-talend-empty-char"
+      focusable="false"
+      name="talend-empty-char"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <span
+      class="_td-value_6edb33 td-value"
+    >
+      psum
+    </span>
+    <svg
+      aria-hidden="true"
+      aria-label="tab character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-tab-character_6edb33 td-white-space-character tc-icon-name-talend-empty-cell"
+      focusable="false"
+      name="talend-empty-cell"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="space character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 td-white-space-character tc-icon-name-talend-empty-space"
+      focusable="false"
+      name="talend-empty-space"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="tab character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 _td-tab-character_6edb33 td-white-space-character tc-icon-name-talend-empty-cell"
+      focusable="false"
+      name="talend-empty-cell"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+    <svg
+      aria-hidden="true"
+      aria-label="space character"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _td-white-space-character_6edb33 td-white-space-character tc-icon-name-talend-empty-space"
+      focusable="false"
+      name="talend-empty-space"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </span>
+</DocumentFragment>
+`;

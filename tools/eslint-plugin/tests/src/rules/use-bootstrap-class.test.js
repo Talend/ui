@@ -23,7 +23,6 @@ const languageOptions = {
 // Tests
 //------------------------------------------------------------------------------
 
-describe('test', () => {});
 const ruleTester = new RuleTester();
 ruleTester.run('talend-use-bootstrap-class', rule, {
 	valid: [

@@ -1,9 +1,8 @@
-import { describe, it, expect } from '@jest/globals';
 import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { Badge, BadgeDropdown } from './';
 
-jest.mock('@talend/utils', () => {
+vi.mock('@talend/utils', () => {
 	let i = 0;
 	return {
 		// we need stable but different uuid (is fixed to 42 by current mock)
@@ -14,7 +13,7 @@ jest.mock('@talend/utils', () => {
 describe('Badge', () => {
 	it('should render a11y html', async () => {
 		const selectedValue = '3';
-		const setSelectedValue = jest.fn();
+		const setSelectedValue = vi.fn();
 		const { container } = render(
 			<main>
 				<div data-testid="Badge">

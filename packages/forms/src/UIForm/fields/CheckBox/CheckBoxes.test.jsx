@@ -1,0 +1,248 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import CheckBoxes from './CheckBoxes.component';
+
+vi.unmock('@talend/design-system');
+
+describe('CheckBoxes field', () => {
+	const schema = {
+		description: 'my checkbox input hint',
+		title: 'My checkboxes title',
+		titleMap: [
+			{ name: 'My foo title', value: 'foo' },
+			{ name: 'My bar title', value: 'bar' },
+			{ name: 'My lol title', value: 'lol' },
+		],
+		type: 'checkbox',
+	};
+
+	it('should render checkboxes', () => {
+		// given
+		const value = ['foo', 'bar'];
+
+		// when
+		const { container } = render(
+			<CheckBoxes
+				id="myForm"
+				isValid
+				errorMessage="My error message"
+				onChange={vi.fn()}
+				onFinish={vi.fn()}
+				schema={schema}
+				value={value}
+			/>,
+		);
+
+		// then
+		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+		expect(screen.getByRole('checkbox', { name: 'My foo title' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'My bar title' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'My lol title' })).not.toBeChecked();
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	it('should render checkboxes with no values', () => {
+		// when
+		render(
+			<CheckBoxes
+				id="myForm"
+				isValid
+				errorMessage="My error message"
+				onChange={vi.fn()}
+				onFinish={vi.fn()}
+				schema={schema}
+			/>,
+		);
+
+		// then
+		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+		expect(screen.getByRole('checkbox', { name: 'My foo title' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'My bar title' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'My lol title' })).not.toBeChecked();
+	});
+
+	it('should render disabled checkboxes', () => {
+		// given
+		const disabledSchema = {
+			...schema,
+			disabled: true,
+		};
+
+		// when
+		render(
+			<CheckBoxes
+				id="myForm"
+				isValid
+				errorMessage="My error message"
+				onChange={vi.fn()}
+				onFinish={vi.fn()}
+				schema={disabledSchema}
+			/>,
+		);
+
+		// then
+		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+		expect(screen.getByRole('checkbox', { name: 'My foo title' })).toBeDisabled();
+		expect(screen.getByRole('checkbox', { name: 'My bar title' })).toBeDisabled();
+		expect(screen.getByRole('checkbox', { name: 'My lol title' })).toBeDisabled();
+	});
+
+	it('should render single disabled checkboxe', () => {
+		// given
+		const singleDisabledSchema = {
+			...schema,
+			titleMap: [
+				{ name: 'My foo title', value: 'foo' },
+				{ name: 'My bar title', value: 'bar', disabled: true },
+				{ name: 'My lol title', value: 'lol' },
+			],
+		};
+
+		// when
+		render(
+			<CheckBoxes
+				id="myForm"
+				isValid
+				errorMessage="My error message"
+				onChange={vi.fn()}
+				onFinish={vi.fn()}
+				schema={singleDisabledSchema}
+			/>,
+		);
+
+		// then
+		expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+		expect(screen.getByRole('checkbox', { name: 'My foo title' })).toBeEnabled();
+		expect(screen.getByRole('checkbox', { name: 'My bar title' })).toBeDisabled();
+		expect(screen.getByRole('checkbox', { name: 'My lol title' })).toBeEnabled();
+	});
+
+	describe('#onChange', () => {
+		it('should trigger callback, adding a value to existing values', async () => {
+			// given
+			const values = ['foo', 'bar'];
+			const onChange = vi.fn();
+			render(
+				<CheckBoxes
+					id="myForm"
+					isValid
+					errorMessage="My error message"
+					onChange={onChange}
+					onFinish={vi.fn()}
+					schema={schema}
+					value={values}
+				/>,
+			);
+
+			// when
+			await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
+
+			// then
+			expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
+				schema,
+				value: ['foo', 'bar', 'lol'],
+			});
+		});
+
+		it('should trigger callback, adding a value to undefined values', async () => {
+			// given
+			const onChange = vi.fn();
+			render(
+				<CheckBoxes
+					id="myForm"
+					isValid
+					errorMessage="My error message"
+					onChange={onChange}
+					onFinish={vi.fn()}
+					schema={schema}
+				/>,
+			);
+
+			// when
+			await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
+
+			// then
+			expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema, value: ['lol'] });
+		});
+
+		it('should trigger callback, removing a value to existing multi values', async () => {
+			// given
+			const values = ['foo', 'bar'];
+			const onChange = vi.fn();
+			render(
+				<CheckBoxes
+					id="myForm"
+					isValid
+					errorMessage="My error message"
+					onChange={onChange}
+					onFinish={vi.fn()}
+					schema={schema}
+					value={values}
+				/>,
+			);
+
+			// when
+			await userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
+
+			// then
+			expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
+				schema,
+				value: ['bar'],
+			});
+		});
+
+		it('should trigger callback, removing a value to existing single value', async () => {
+			// given
+			const values = ['foo'];
+			const onChange = vi.fn();
+			render(
+				<CheckBoxes
+					id="myForm"
+					isValid
+					errorMessage="My error message"
+					onChange={onChange}
+					onFinish={vi.fn()}
+					schema={schema}
+					value={values}
+				/>,
+			);
+
+			// when
+			await userEvent.click(screen.getByRole('checkbox', { name: 'My foo title' }));
+
+			// then
+			expect(onChange).toHaveBeenCalledWith(expect.anything({ type: 'click' }), {
+				schema,
+				value: undefined,
+			});
+		});
+	});
+
+	it('should trigger onFinish on checkbox change', async () => {
+		// given
+		const values = ['foo', 'bar'];
+		const onFinish = vi.fn();
+		render(
+			<CheckBoxes
+				id="myForm"
+				isValid
+				errorMessage="My error message"
+				onChange={vi.fn()}
+				onFinish={onFinish}
+				schema={schema}
+				value={values}
+			/>,
+		);
+		// const event = { target: { checked: true } };
+
+		// when
+		await userEvent.click(screen.getByRole('checkbox', { name: 'My lol title' }));
+
+		// then
+		expect(onFinish).toHaveBeenCalledWith(expect.anything(), {
+			schema,
+			value: ['foo', 'bar', 'lol'],
+		});
+	});
+});

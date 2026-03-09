@@ -1,4 +1,57 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DisplayModeToggle > should render 1`] = `
+<div
+  class="_stack_dbc270 _justify-start_dbc270 _align-start_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270 _padding-top-0_dbc270 _padding-right-S_dbc270 _padding-bottom-0_dbc270 _padding-left-S_dbc270"
+>
+  <button
+    aria-describedby="id-00000000-0000-4000-8000-000000000000"
+    aria-label="Set Table as current display mode."
+    aria-pressed="false"
+    class="_clickable_5222c6 _buttonIcon_5aa719 _toggle_5aa719 _size_S_5aa719"
+    id="undefined-table"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+      class="_buttonIcon__icon_5aa719"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-table"
+        focusable="false"
+        name="talend-table"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </span>
+  </button>
+  <button
+    aria-describedby="id-00000000-0000-4000-8000-000000000000"
+    aria-label="Set Expanded as current display mode."
+    aria-pressed="false"
+    class="_clickable_5222c6 _buttonIcon_5aa719 _toggle_5aa719 _size_S_5aa719"
+    id="undefined-large"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+      class="_buttonIcon__icon_5aa719"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-expanded"
+        focusable="false"
+        name="talend-expanded"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </span>
+  </button>
+</div>
+`;
 
 exports[`DisplayModeToggle should render 1`] = `
 <div

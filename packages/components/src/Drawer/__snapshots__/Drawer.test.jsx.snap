@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Drawer > should render 1`] = `
+<div
+  aria-labelledby="00000000-0000-4000-8000-000000000000"
+  class="tc-drawer _tc-drawer_39ddca tc-drawer-transition _tc-drawer-transition_39ddca"
+  role="dialog"
+>
+  <div
+    class="tc-drawer-container _tc-drawer-container_39ddca"
+  >
+    <div
+      style="display: flex; flex-direction: column; flex-grow: 1; overflow: hidden;"
+    >
+      <div
+        class="tc-drawer-content _tc-drawer-content_39ddca"
+        data-drawer-content="true"
+      >
+        <div
+          class="tc-drawer-content-wrapper _tc-drawer-content-wrapper_39ddca"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

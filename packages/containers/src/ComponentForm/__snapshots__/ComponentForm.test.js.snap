@@ -1,37 +1,37 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ComponentForm #render should render a UIForm 1`] = `
+exports[`ComponentForm > #render > should render a UIForm 1`] = `
 <form
-  class="theme-form"
+  class="_form_ac678e"
   novalidate=""
 >
   <fieldset
-    class="theme-fieldset"
+    class="_fieldset_51db4a"
   >
     <legend
-      class="theme-legend"
+      class="_legend_51db4a"
     >
       Metadata
     </legend>
     <div
-      class="theme-fieldset-content"
+      class="_fieldset-content_51db4a"
     >
       <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+        class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
       >
         <label
-          class="theme-label"
+          class="_label_048b2f"
           for="_datasetMetadata_name"
         >
           Name
         </label>
         <div
-          class="theme-inputShell"
+          class="_inputShell_bca7b9"
         >
           <input
             aria-describedby="_datasetMetadata_name-description _datasetMetadata_name-error"
             aria-invalid="false"
-            class="theme-input"
+            class="_input_876932"
             id="_datasetMetadata_name"
             type="text"
             value=""
@@ -42,41 +42,41 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
         aria-busy="false"
       >
         <div
-          class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-height-100 theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _height-100_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
         >
           <label
-            class="theme-label"
+            class="_label_048b2f"
             for="_datasetMetadata_type"
           >
             Types
           </label>
           <div
-            class="theme-tc-datalist-item"
+            class="_tc-datalist-item_1c0f3c"
             tabindex="-1"
           >
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="react-autowhatever-_datasetMetadata_type"
-              class="theme-tc-typeahead-container tc-typeahead-container theme-container tc-datalist-container tc-datalist"
+              class="_tc-typeahead-container_1e11d6 tc-typeahead-container _container_1c0f3c tc-datalist-container tc-datalist"
               role="combobox"
             >
               <div
-                class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-caret"
+                class="tc-typeahead-typeahead-input-icon _typeahead-input-container_1e11d6 _typeahead-input-caret_1e11d6"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+                  class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
                 >
                   <span
-                    class="theme-hidden"
+                    class="_hidden_91f55b"
                   >
                     <label
-                      class="theme-label"
+                      class="_label_048b2f"
                       for="_datasetMetadata_type"
                     />
                   </span>
                   <div
-                    class="theme-inputShell"
+                    class="_inputShell_bca7b9"
                   >
                     <input
                       aria-autocomplete="list"
@@ -84,7 +84,7 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
                       aria-describedby="_datasetMetadata_type-description _datasetMetadata_type-error"
                       aria-invalid="false"
                       autocomplete="off"
-                      class="theme-input theme-typeahead-input tc-typeahead-typeahead-input"
+                      class="_input_876932 _typeahead-input_1e11d6 tc-typeahead-typeahead-input"
                       id="_datasetMetadata_type"
                       type="text"
                       value=""
@@ -92,11 +92,11 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
                   </div>
                 </div>
                 <div
-                  class="icon-cls theme-icon-cls icon-caret theme-icon-caret"
+                  class="icon-cls _icon-cls_1e11d6 icon-caret _icon-caret_1e11d6"
                 >
                   <svg
                     aria-hidden="true"
-                    class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-caret-down"
+                    class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-caret-down"
                     focusable="false"
                     name="talend-caret-down"
                     pointer-events="none"
@@ -109,17 +109,17 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
         </div>
       </div>
       <div
-        class="theme-stack theme-justify-start theme-align-stretch theme-nowrap theme-column theme-block theme-noShrink theme-gap-x-XXS theme-gap-y-XXS"
+        class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
       >
         <label
-          class="theme-label"
+          class="_label_048b2f"
           for="_datasetMetadata_description"
         >
           Description
         </label>
         <textarea
           aria-invalid="false"
-          class="theme-textarea"
+          class="_textarea_578735"
           id="_datasetMetadata_description"
           rows="5"
         />
@@ -127,10 +127,10 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
     </div>
   </fieldset>
   <div
-    class="theme-buttons"
+    class="_buttons_42d65d"
   >
     <div
-      class="theme-stack theme-justify-space-between theme-align-start theme-nowrap theme-row theme-block theme-gap-x-M theme-gap-y-M theme-padding-top-M theme-padding-right-0 theme-padding-bottom-M theme-padding-left-0"
+      class="_stack_dbc270 _justify-space-between_dbc270 _align-start_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-M_dbc270 _gap-y-M_dbc270 _padding-top-M_dbc270 _padding-right-0_dbc270 _padding-bottom-M_dbc270 _padding-left-0_dbc270"
     >
       <button
         aria-label="Submit"

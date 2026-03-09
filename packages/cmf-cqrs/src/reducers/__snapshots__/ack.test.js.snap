@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`reducers.ack.ackReducer should reduce addContext 1`] = `
+exports[`reducers.ack.ackReducer > should reduce addContext 1`] = `
 Immutable.Map {
   "123": Immutable.Map {
     "data": {
@@ -11,7 +11,7 @@ Immutable.Map {
 }
 `;
 
-exports[`reducers.ack.ackReducer should reduce deleteACK 1`] = `
+exports[`reducers.ack.ackReducer > should reduce deleteACK 1`] = `
 Immutable.Map {
   "456": Immutable.Map {
     "foo": "bar",
@@ -19,7 +19,7 @@ Immutable.Map {
 }
 `;
 
-exports[`reducers.ack.ackReducer should reduce receiveMessage 1`] = `
+exports[`reducers.ack.ackReducer > should reduce receiveMessage 1`] = `
 Immutable.Map {
   "123": Immutable.Map {
     "foo": "bar",
@@ -31,7 +31,7 @@ Immutable.Map {
 }
 `;
 
-exports[`reducers.ackProcessed higher order reducer should reduce addContext 1`] = `
+exports[`reducers.ackProcessed higher order reducer > should reduce addContext 1`] = `
 {
   "ack": Immutable.Map {
     "123": Immutable.Map {
@@ -44,7 +44,7 @@ exports[`reducers.ackProcessed higher order reducer should reduce addContext 1`]
 }
 `;
 
-exports[`reducers.ackProcessed higher order reducer should reduce deleteACK 1`] = `
+exports[`reducers.ackProcessed higher order reducer > should reduce deleteACK 1`] = `
 {
   "ack": Immutable.Map {
     "456": Immutable.Map {
@@ -54,7 +54,7 @@ exports[`reducers.ackProcessed higher order reducer should reduce deleteACK 1`] 
 }
 `;
 
-exports[`reducers.ackProcessed higher order reducer should reduce receiveMessage 1`] = `
+exports[`reducers.ackProcessed higher order reducer > should reduce receiveMessage 1`] = `
 {
   "ack": Immutable.Map {
     "123": Immutable.Map {

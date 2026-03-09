@@ -51,7 +51,7 @@ describe('BadgeSliderForm', () => {
 		expect(slider).toHaveAttribute('aria-valuenow', '0');
 		expect(slider).toHaveAttribute('aria-valuemin', '0');
 		expect(slider).toHaveAttribute('aria-valuemax', '100');
-		expect(slider.parentElement).toHaveClass('theme-tc-slider-rc-slider--track-greater-than');
+		expect(slider.parentElement).toHaveClass('tc-slider-rc-slider--track-greater-than');
 	});
 
 	it('should mount an badge with an equals slider', () => {
@@ -75,7 +75,7 @@ describe('BadgeSliderForm', () => {
 		expect(slider).toHaveAttribute('aria-valuenow', '0');
 		expect(slider).toHaveAttribute('aria-valuemin', '0');
 		expect(slider).toHaveAttribute('aria-valuemax', '100');
-		expect(slider.parentElement).toHaveClass('theme-tc-slider-rc-slider--track-equals');
+		expect(slider.parentElement).toHaveClass('tc-slider-rc-slider--track-equals');
 	});
 
 	it('should mount a default badge in edit mode', () => {

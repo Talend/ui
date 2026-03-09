@@ -1,20 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Linkable should render a11y html 1`] = `
+exports[`Linkable > should render a11y html 1`] = `
 <main>
   <a
-    class="theme-linkable"
+    class="_linkable_4927c6"
     data-testid="my.Linkable"
     href="#"
   >
     Linkable example
   </a>
   <a
-    class="theme-linkable"
+    class="_linkable_4927c6"
     href="#"
   >
     <span
-      class="theme-link__icon"
+      class="_link__icon_4927c6"
     >
       <svg
         aria-hidden="true"
@@ -32,12 +32,12 @@ exports[`Linkable should render a11y html 1`] = `
     Linkable example
   </a>
   <a
-    class="theme-linkable"
+    class="_linkable_4927c6"
     href="https://www.talend.com"
   >
     Linkable example
     <span
-      class="theme-link__iconExternal"
+      class="_link__iconExternal_4927c6"
       data-test="link.icon.external"
       data-testid="link.icon.external"
     >

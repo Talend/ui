@@ -1,4 +1,5 @@
 import { screen, render } from '@testing-library/react';
+import { vi } from 'vitest';
 import VirtualizedList from '.';
 import collection from './collection';
 
@@ -31,8 +32,8 @@ const contentFields = [
 	/>,
 ];
 
-jest.mock('react-virtualized', () => {
-	const mod = jest.requireActual('react-virtualized');
+vi.mock('react-virtualized', async () => {
+	const mod = await vi.importActual('react-virtualized');
 	// eslint-disable-next-line @typescript-eslint/no-shadow
 	return {
 		...mod,
