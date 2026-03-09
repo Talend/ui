@@ -1,8 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import '@testing-library/jest-dom/vitest';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-import 'raf/polyfill';
 import { afterAll, expect, vi } from 'vitest';
 import * as jestAxe from 'jest-axe';
 
