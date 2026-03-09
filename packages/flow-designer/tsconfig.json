@@ -6,6 +6,7 @@
     "declaration": true,
     "allowJs": false,
     "incremental": true,
-    "module": "CommonJs"
+    "module": "CommonJs",
+    "moduleResolution": "node"
   }
 }

@@ -90,7 +90,7 @@ development_status:
   epic-8: in-progress
   8-1-replace-orderedmap-flow-designer: done
   8-2-replace-collection-isimmutable: done
-  8-3-verify-records-v5: ready-for-dev
+  8-3-verify-records-v5: done
   8-4-verify-typescript-typings-v5: ready-for-dev
   8-5-verify-containers-sort-v5: ready-for-dev
   8-6-validate-all-packages-v5: ready-for-dev
