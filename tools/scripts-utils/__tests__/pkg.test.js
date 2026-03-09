@@ -36,7 +36,7 @@ describe('utils.pkg', () => {
 	});
 	describe('checkPackageIsInstalled', () => {
 		it('should no throw if pkg is installed', () => {
-			expect(utils.pkg.checkPackageIsInstalled('jest'));
+			expect(utils.pkg.checkPackageIsInstalled('vitest'));
 		});
 		it('should throw if pkg is not installed', () => {
 			const shouldThrow = () => utils.pkg.checkPackageIsInstalled('do-not-exists');

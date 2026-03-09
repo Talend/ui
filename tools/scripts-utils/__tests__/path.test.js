@@ -34,12 +34,12 @@ describe('utils.path', () => {
 	});
 	describe('resolveBin', () => {
 		it('should return the global executable if found', () => {
-			const jest = utils.path.resolveBin('jest');
-			expect(jest).toBe('jest');
+			const vitest = utils.path.resolveBin('vitest');
+			expect(vitest).toBe('vitest');
 		});
 		it('should return the global executable if not found', () => {
-			const jest = utils.path.resolveBin('foobar');
-			expect(jest).toBe();
+			const vitest = utils.path.resolveBin('foobar');
+			expect(vitest).toBe();
 		});
 	});
 });
