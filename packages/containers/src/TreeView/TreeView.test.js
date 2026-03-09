@@ -1,6 +1,6 @@
 import { screen, render, fireEvent } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
+import { List, Map } from 'immutable';
 import TreeView, {
 	DEFAULT_STATE,
 	DEFAULT_PROPS,
@@ -16,9 +16,9 @@ describe('TreeView', () => {
 	beforeEach(() => {
 		context = mock.store.context();
 		state = mock.store.state();
-		data = new Immutable.List([
-			new Immutable.Map({ id: 1, name: 'foo', children: [{ id: 11, name: 'fofo', childre: [] }] }),
-			new Immutable.Map({ id: 2, name: 'bar', children: [] }),
+		data = new List([
+			new Map({ id: 1, name: 'foo', children: [{ id: 11, name: 'fofo', childre: [] }] }),
+			new Map({ id: 2, name: 'bar', children: [] }),
 		]);
 		context.store.getState = () => state;
 	});
@@ -161,9 +161,9 @@ describe('TreeView', () => {
 describe('mapStateToProps', () => {
 	it('should return props', () => {
 		const state = mock.store.state();
-		const data = new Immutable.Map({
-			foo: new Immutable.Map({
-				bar: new Immutable.List([new Immutable.Map({ foo: 'bar' })]),
+		const data = new Map({
+			foo: new Map({
+				bar: new List([new Map({ foo: 'bar' })]),
 			}),
 		});
 		state.cmf.collections = state.cmf.collections.set('data', data);
@@ -180,8 +180,8 @@ describe('transform', () => {
 	it('should add toggled booleans', () => {
 		const props = {
 			...DEFAULT_PROPS,
-			state: Immutable.Map({
-				opened: Immutable.List([1, 11, 111]),
+			state: Map({
+				opened: List([1, 11, 111]),
 				selectedId: 11,
 			}),
 		};
@@ -212,8 +212,8 @@ describe('transform', () => {
 	it("should unfold selected's parents", () => {
 		const props = {
 			...DEFAULT_PROPS,
-			state: Immutable.Map({
-				opened: Immutable.List([1, 11, 111]),
+			state: Map({
+				opened: List([1, 11, 111]),
 				selectedId: 111,
 			}),
 		};

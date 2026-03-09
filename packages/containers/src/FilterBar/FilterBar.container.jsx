@@ -2,11 +2,11 @@ import { cmfConnect } from '@talend/react-cmf';
 import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import Component from '@talend/react-components/lib/FilterBar';
 
 export const QUERY_ATTR = 'query';
-export const DEFAULT_STATE = new Immutable.Map({
+export const DEFAULT_STATE = new Map({
 	[QUERY_ATTR]: '',
 	docked: true,
 });

@@ -2,7 +2,7 @@
 /* eslint-disable react/display-name */
 import { screen, render, fireEvent } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
+import { List, Map, fromJS } from 'immutable';
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 
@@ -29,8 +29,8 @@ describe('Container SelectObject', () => {
 	it('should default props with Tree map the selectedId', async () => {
 		const tree = {};
 		const getProps = jest.fn();
-		const item = new Immutable.Map({ id: '1', name: 'foo' });
-		const sourceData = new Immutable.List([item]);
+		const item = new Map({ id: '1', name: 'foo' });
+		const sourceData = new List([item]);
 		render(
 			await prepareCMF(
 				<Container tree={tree} selectedId="1" sourceData={sourceData} getProps={getProps} />,
@@ -45,7 +45,7 @@ describe('Container SelectObject', () => {
 			preview: undefined,
 			selected: item.toJS(),
 			selectedId: '1',
-			sourceData: new Immutable.List([item]),
+			sourceData: new List([item]),
 			tree: {
 				onSelect: expect.anything(),
 				selectedId: '1',
@@ -55,9 +55,9 @@ describe('Container SelectObject', () => {
 	it('should set selectedId props to the only matched item if nothing selected', async () => {
 		const getProps = jest.fn();
 		const tree = {};
-		const item1 = new Immutable.Map({ id: '1', name: 'foo' });
-		const item2 = new Immutable.Map({ id: '2', name: 'bar' });
-		const sourceData = new Immutable.List([item1, item2]);
+		const item1 = new Map({ id: '1', name: 'foo' });
+		const item2 = new Map({ id: '2', name: 'bar' });
+		const sourceData = new List([item1, item2]);
 
 		render(
 			await prepareCMF(
@@ -73,7 +73,7 @@ describe('Container SelectObject', () => {
 			query: 'f',
 			selected: item1.toJS(),
 			sourceData,
-			filteredData: expect.any(Immutable.List),
+			filteredData: expect.any(List),
 			results: {
 				idAttr: 'id',
 				nameAttr: 'name',
@@ -99,7 +99,7 @@ describe('Container SelectObject', () => {
 	});
 	it('should call filter and getById', () => {
 		const props = {
-			sourceData: new Immutable.List(),
+			sourceData: new List(),
 			query: 'query',
 			selectedId: 1,
 		};
@@ -113,18 +113,18 @@ describe('Container SelectObject', () => {
 
 	describe('getById', () => {
 		it('should return nothing if not found and POO if found', () => {
-			const subfirst = new Immutable.Map({ id: 11 });
-			const first = new Immutable.Map({ id: 1, children: new Immutable.List([subfirst]) });
-			const second = new Immutable.Map({ id: 2 });
-			const items = new Immutable.List([first, second]);
+			const subfirst = new Map({ id: 11 });
+			const first = new Map({ id: 1, children: new List([subfirst]) });
+			const second = new Map({ id: 2 });
+			const items = new List([first, second]);
 			expect(getById(items, 11)).toEqual({ id: 11 });
 			expect(getById(items, 3)).toBe();
 		});
 		it('should return be able to support some options', () => {
-			const subfirst = new Immutable.Map({ myid: 11 });
-			const first = new Immutable.Map({ myid: 1, children: new Immutable.List([subfirst]) });
-			const second = new Immutable.Map({ myid: 2 });
-			const items = new Immutable.List([first, second]);
+			const subfirst = new Map({ myid: 11 });
+			const first = new Map({ myid: 1, children: new List([subfirst]) });
+			const second = new Map({ myid: 2 });
+			const items = new List([first, second]);
 			expect(getById(items, 11, { idAttr: 'myid' })).toEqual({ myid: 11 });
 			expect(getById(items, 3)).toBe();
 		});
@@ -132,14 +132,14 @@ describe('Container SelectObject', () => {
 	describe('filter', () => {
 		it('does not match on non leaf element (non leaf element have children)', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
-			const first = new Immutable.Map({
+			const subfirst = new Map({ id: 11, name: 'sub' });
+			const first = new Map({
 				id: 1,
 				name: 'abc',
-				children: new Immutable.List([subfirst]),
+				children: new List([subfirst]),
 			});
-			const second = new Immutable.Map({ id: 2, name: 'foo' });
-			const items = new Immutable.List([first, second]);
+			const second = new Map({ id: 2, name: 'foo' });
+			const items = new List([first, second]);
 
 			// when
 			const results = filter(items, 'ab');
@@ -149,14 +149,14 @@ describe('Container SelectObject', () => {
 		});
 		it('does match only on leaf element', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
-			const first = new Immutable.Map({
+			const subfirst = new Map({ id: 11, name: 'sub' });
+			const first = new Map({
 				id: 1,
 				name: 'abc',
-				children: new Immutable.List([subfirst]),
+				children: new List([subfirst]),
 			});
-			const second = new Immutable.Map({ id: 2, name: 'foo' });
-			const items = new Immutable.List([first, second]);
+			const second = new Map({ id: 2, name: 'foo' });
+			const items = new List([first, second]);
 
 			// when
 			const results = filter(items, 'sub');
@@ -170,14 +170,14 @@ describe('Container SelectObject', () => {
 		});
 		it('does match on multiple leaf elements of different depth, result is list', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
-			const first = new Immutable.Map({
+			const subfirst = new Map({ id: 11, name: 'sub' });
+			const first = new Map({
 				id: 1,
 				name: 'abc',
-				children: new Immutable.List([subfirst]),
+				children: new List([subfirst]),
 			});
-			const second = new Immutable.Map({ id: 2, name: 'sub' });
-			const items = new Immutable.List([first, second]);
+			const second = new Map({ id: 2, name: 'sub' });
+			const items = new List([first, second]);
 
 			// when
 			const results = filter(items, 'sub');
@@ -195,20 +195,20 @@ describe('Container SelectObject', () => {
 
 		it('does match on multiple leaf children of a node', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub1' });
-			const subsecond = new Immutable.Map({
+			const subfirst = new Map({ id: 11, name: 'sub1' });
+			const subsecond = new Map({
 				id: 12,
 				name: 'sub2',
-				children: new Immutable.List([Immutable.Map()]),
+				children: new List([Map()]),
 			});
-			const subthird = new Immutable.Map({ id: 13, name: 'sub3' });
-			const first = new Immutable.Map({
+			const subthird = new Map({ id: 13, name: 'sub3' });
+			const first = new Map({
 				id: 1,
 				name: 'abc',
-				children: new Immutable.List([subfirst, subsecond, subthird]),
+				children: new List([subfirst, subsecond, subthird]),
 			});
-			const second = new Immutable.Map({ id: 2, name: 'sub' });
-			const items = new Immutable.List([first, second]);
+			const second = new Map({ id: 2, name: 'sub' });
+			const items = new List([first, second]);
 
 			// when
 			const results = filter(items, 'sub');
@@ -229,19 +229,19 @@ describe('Container SelectObject', () => {
 
 		it('does match on multiple leaf children of different node', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub1' });
-			const subsecond = new Immutable.Map({ id: 13, name: 'sub2' });
-			const first = new Immutable.Map({
+			const subfirst = new Map({ id: 11, name: 'sub1' });
+			const subsecond = new Map({ id: 13, name: 'sub2' });
+			const first = new Map({
 				id: 1,
 				name: 'abc',
-				children: new Immutable.List([subfirst]),
+				children: new List([subfirst]),
 			});
-			const second = new Immutable.Map({
+			const second = new Map({
 				id: 2,
 				name: 'sub',
-				children: new Immutable.List([subsecond]),
+				children: new List([subsecond]),
 			});
-			const items = new Immutable.List([first, second]);
+			const items = new List([first, second]);
 
 			// when
 			const results = filter(items, 'sub');
@@ -259,20 +259,20 @@ describe('Container SelectObject', () => {
 
 		it('return the original struct if no query or empty query is provided', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub1' });
-			const subsecond = new Immutable.Map({
+			const subfirst = new Map({ id: 11, name: 'sub1' });
+			const subsecond = new Map({
 				id: 12,
 				name: 'sub2',
-				children: new Immutable.List([Immutable.Map()]),
+				children: new List([Map()]),
 			});
-			const subthird = new Immutable.Map({ id: 13, name: 'sub3' });
-			const first = new Immutable.Map({
+			const subthird = new Map({ id: 13, name: 'sub3' });
+			const first = new Map({
 				id: 1,
 				name: 'abc',
-				children: new Immutable.List([subfirst, subsecond, subthird]),
+				children: new List([subfirst, subsecond, subthird]),
 			});
-			const second = new Immutable.Map({ id: 2, name: 'sub' });
-			const items = new Immutable.List([first, second]);
+			const second = new Map({ id: 2, name: 'sub' });
+			const items = new List([first, second]);
 
 			// when
 			const results = filter(items, '');
@@ -309,7 +309,7 @@ describe('Container SelectObject', () => {
 				},
 			];
 
-			const items = Immutable.fromJS(tree);
+			const items = fromJS(tree);
 			const results = filterAll(items, 'ab');
 
 			expect(results.size).toBe(3);
@@ -325,14 +325,14 @@ describe('Container SelectObject', () => {
 
 		it('does match on multiple leaf elements of different depth, result is list', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
-			const first = new Immutable.Map({
+			const subfirst = new Map({ id: 11, name: 'sub' });
+			const first = new Map({
 				id: 1,
 				name: 'abc',
-				children: new Immutable.List([subfirst]),
+				children: new List([subfirst]),
 			});
-			const second = new Immutable.Map({ id: 2, name: 'sub' });
-			const items = new Immutable.List([first, second]);
+			const second = new Map({ id: 2, name: 'sub' });
+			const items = new List([first, second]);
 
 			// when
 			const results = filter(items, 'sub');
