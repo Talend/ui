@@ -1,5 +1,16 @@
 # @talend/react-a11y
 
+## 4.3.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+  - @talend/utils@3.7.0
+
 ## 4.2.0
 
 ### Minor Changes

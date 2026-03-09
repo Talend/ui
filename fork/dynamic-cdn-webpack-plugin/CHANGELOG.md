@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 14.5.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- c08ea6e: Remove deprecated `codecov` from fork/dynamic-cdn-webpack-plugin
+- Updated dependencies [c1eae85]
+  - @talend/module-to-cdn@9.18.0
+
 ## 14.4.0
 
 ### Minor Changes

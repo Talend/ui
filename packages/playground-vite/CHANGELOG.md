@@ -1,5 +1,29 @@
 # @talend/ui-playground
 
+## 0.6.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+- Updated dependencies [faebbb7]
+- Updated dependencies [9c93ab3]
+- Updated dependencies [b8c0bc6]
+  - @talend/react-faceted-search@22.1.0
+  - @talend/design-system@12.1.0
+  - @talend/design-tokens@4.1.0
+  - @talend/assets-api@2.1.0
+  - @talend/react-cmf-router@9.1.0
+  - @talend/react-components@18.1.0
+  - @talend/react-containers@12.1.0
+  - @talend/react-dataviz@8.1.0
+  - @talend/react-forms@16.1.0
+  - @talend/bootstrap-theme@10.1.0
+  - @talend/react-cmf@12.1.0
+
 ## 0.5.0
 
 ### Minor Changes

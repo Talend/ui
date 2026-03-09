@@ -1,6 +1,6 @@
 {
   "name": "@talend/babel-plugin-import-d3",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Transform import d3-xx to d3",
   "main": "src/index.js",
   "license": "Apache-2.0",
@@ -20,9 +20,9 @@
     "test:update": "vitest run --update"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.0.0",
-    "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-core": "^17.0.0",
+    "@talend/eslint-config": "^14.1.0",
+    "@talend/eslint-plugin": "^1.8.0",
+    "@talend/scripts-core": "^18.0.0",
     "@babel/core": "^7.28.6",
     "@babel/preset-env": "^7.28.6",
     "@vitest/coverage-v8": "^4.0.18",

@@ -1,5 +1,17 @@
 # Changelog
 
+## 9.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+- Updated dependencies [faebbb7]
+  - @talend/react-cmf@12.1.0
+
 ## 9.0.0
 
 ### Major Changes

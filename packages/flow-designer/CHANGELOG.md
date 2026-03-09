@@ -1,5 +1,16 @@
 # Changelog
 
+## 8.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- Updated dependencies [c1eae85]
+  - @talend/design-tokens@4.1.0
+
 ## 8.0.1
 
 ### Patch Changes

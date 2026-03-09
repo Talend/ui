@@ -1,5 +1,18 @@
 # @talend/bootstrap-theme
 
+## 10.1.0
+
+### Minor Changes
+
+- c1eae85: Update eslint to v9 + update config
+
+### Patch Changes
+
+- faebbb7: fix: update serialize-javascripts deps
+- Updated dependencies [c1eae85]
+  - @talend/design-tokens@4.1.0
+  - @talend/bootstrap-sass@5.6.0
+
 ## 10.0.0
 
 ### Major Changes
