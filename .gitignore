@@ -54,6 +54,7 @@ i18n-extract
 
 # TMP
 _bmad
+_bmad-*
 .github/agents/bmad-*
 .github/prompts/bmad_*
 .github/prompts/bmad-*
