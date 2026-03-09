@@ -3,7 +3,6 @@ import { Component } from 'react';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import cases from 'jest-in-case';
 
 import { WithDynamicListGesture } from './withDynamicListGesture';
 
@@ -71,7 +70,7 @@ describe('List Gesture HOC', () => {
 		expect(screen.getByTestId(`item-${expectedActiveIndex}`)).toHaveFocus();
 	}
 
-	cases('focus', testFocus, [
+	it.each([
 		{
 			name: 'should focus previous item on up keydown',
 			elementIndex: 22,
@@ -108,5 +107,5 @@ describe('List Gesture HOC', () => {
 			expectedActiveIndex: 27,
 			key: 'PageDown',
 		},
-	]);
+	])('$name', testFocus);
 });

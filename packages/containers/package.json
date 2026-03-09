@@ -76,7 +76,6 @@
     "@testing-library/user-event": "^14.6.1",
     "eslint": "^9.39.3",
     "i18next": "^23.16.8",
-    "jest-in-case": "^1.0.2",
     "msw": "2.12.7",
     "@storybook/addon-a11y": "^10.2.1",
     "@storybook/addon-links": "^10.2.1",
