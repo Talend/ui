@@ -18,6 +18,7 @@
     "@talend/eslint-plugin": "^1.7.0",
     "@talend/scripts-core": "^17.0.0",
     "@vitest/coverage-v8": "^4.0.18",
+    "cpx2": "^8.0.0",
     "eslint": "^9.39.3",
     "vitest": "^4.0.18"
   },
