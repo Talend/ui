@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { Map, OrderedMap } from 'immutable';
+import { Map } from 'immutable';
 
 import * as nodeActions from './node.actions';
 import { FLOWDESIGNER_NODE_SET_TYPE } from '../constants/flowdesigner.constants';
@@ -41,7 +41,7 @@ describe('Check that node action creators generate proper action objects and per
 					}),
 				}),
 				// eslint-disable-next-line new-cap
-				ports: OrderedMap(),
+				ports: Map(),
 			},
 		});
 
