@@ -9,7 +9,7 @@ type Props = {
 
 class LinksRender extends Component<Props> {
 	render() {
-		const links = this.props.links.toArray();
+		const links = this.props.links.valueSeq().toArray();
 		return (
 			<g>
 				{links.map(link => {

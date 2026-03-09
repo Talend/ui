@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import onEvent from '../src/onEvent';
 
 describe('onEvent', () => {
@@ -10,7 +10,7 @@ describe('onEvent', () => {
 			instance = {
 				props: {
 					setState: jest.fn(),
-					state: new Immutable.Map({ docked: false }),
+					state: new Map({ docked: false }),
 				},
 			};
 			config = {};

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import cmf, { cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect, immutableListPropType } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components/lib/Actions';
 import omit from 'lodash/omit';
 
@@ -50,7 +49,7 @@ export function ContainerActionDropdown({ items, ...props }) {
 ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
 
 ContainerActionDropdown.propTypes = {
-	items: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), ImmutablePropTypes.list]),
+	items: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), immutableListPropType]),
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,
 	hideLabel: PropTypes.bool,
