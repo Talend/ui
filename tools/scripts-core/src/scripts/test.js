@@ -22,23 +22,8 @@ async function testKarma(env, presetApi, options) {
 	);
 }
 
-export default async function test(env, presetApi, options) {
-	const packageType = utils.pkg.getPackageType();
-	if (packageType.isAngular) {
-		return testKarma(env, presetApi, options);
-	}
-	const configPath = path.dirname(
-		fileURLToPath(import.meta.resolve('@talend/scripts-config-jest')),
-	);
-	const jestConfigPath =
-		getUserConfigFile('jest.config.js') || path.join(configPath, 'jest.config.js');
-
-	return utils.process.spawn(
-		'node',
-		[resolveScript('jest-cli/bin/jest'), '--config', jestConfigPath].concat(options),
-		{
-			stdio: 'inherit',
-			env,
-		},
+export default async function test() {
+	throw new Error(
+		'test command is not supported anymore. Please use either jest or karma or vitest directly',
 	);
 }

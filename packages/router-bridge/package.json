@@ -34,7 +34,6 @@
     "@talend/eslint-plugin": "^1.8.0",
     "@talend/scripts-core": "^18.0.0",
     "@talend/scripts-config-babel": "^13.10.0",
-    "@talend/scripts-config-jest": "^14.7.0",
     "@talend/scripts-config-react-webpack": "^17.1.0",
     "@vitest/coverage-v8": "^4.0.18",
     "connected-react-router": "^6.9.3",
