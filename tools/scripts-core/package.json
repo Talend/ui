@@ -19,7 +19,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "node ./src/index.js test ./__tests__"
+    "test": "vitest run"
   },
   "peerDependencies": {
     "@talend/scripts-config-react-webpack": ">=16.0.0",
@@ -58,7 +58,8 @@
     "yargs": "^15.4.1"
   },
   "devDependencies": {
-    "eslint": "^9.39.3"
+    "eslint": "^9.39.3",
+    "vitest": "^3.2.1"
   },
   "publishConfig": {
     "access": "public"

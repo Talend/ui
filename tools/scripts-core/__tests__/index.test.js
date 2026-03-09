@@ -1,8 +1,11 @@
 /* eslint-disable no-console */
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { spawnSync } from 'child_process';
 import fs from 'fs';
 import { rimrafSync } from 'rimraf';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const fixture = path.join(__dirname, 'fixture');
 const bin = path.resolve(__dirname, '../src/index.js');
 
