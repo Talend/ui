@@ -68,7 +68,7 @@
     "@types/lodash": "^4.17.23",
     "@types/node": "^25.0.10",
     "@types/react": "^18.3.27",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "typescript": "^5.9.3"
   },
   "publishConfig": {

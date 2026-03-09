@@ -41,7 +41,7 @@
     "@types/date-fns": "^2.6.3",
     "@types/lodash": "^4.17.23",
     "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "vitest": "^4.0.18"
   },
   "dependencies": {

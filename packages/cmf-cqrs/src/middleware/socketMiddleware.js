@@ -20,7 +20,10 @@ if (window.location.protocol === 'https:') {
  * @returns {boolean} true if it starts with a WS protocol
  */
 export function isAbsoluteWebSocketUrl(socketUrl) {
-	return (typeof socketUrl === 'string' && (socketUrl.startsWith('ws://') || socketUrl.startsWith('wss://')));
+	return (
+		typeof socketUrl === 'string' &&
+		(socketUrl.startsWith('ws://') || socketUrl.startsWith('wss://'))
+	);
 }
 
 /**
@@ -69,35 +72,37 @@ function createWebsocketMiddleware(
 		buffer.length = 0;
 	}
 
-	return ({ getState, dispatch }) => next => action => {
-		if (!ws) {
-			ws = new SmartWebsocket(url, {
-				onOpen: () => dispatch({ type: SOCKET_ON_OPEN }),
-				onClose: event => dispatch({ type: SOCKET_ON_CLOSE, event }),
-				onMessage: messageEvent => {
-					socketListener.forEach(func => func(messageEvent, dispatch, getState, ws));
-				},
-				onError: event => {
-					dispatch({ type: SOCKET_ON_ERROR, event });
-				},
-				onPing: event => {
-					ws.pingTimeoutId = event.pingTimeoutId;
-				},
-				onPingTimeout: () => {
-					dispatch({ type: SOCKET_ON_PING_TIMEOUT });
-				},
-				...socketOptions,
-			});
-		}
-		const entrie = {};
-		buffer.push(entrie);
-		entrie.action = action;
-		entrie.previousState = getState();
-		const result = next(action);
-		entrie.nextState = getState();
-		send();
-		return result;
-	};
+	return ({ getState, dispatch }) =>
+		next =>
+		action => {
+			if (!ws) {
+				ws = new SmartWebsocket(url, {
+					onOpen: () => dispatch({ type: SOCKET_ON_OPEN }),
+					onClose: event => dispatch({ type: SOCKET_ON_CLOSE, event }),
+					onMessage: messageEvent => {
+						socketListener.forEach(func => func(messageEvent, dispatch, getState, ws));
+					},
+					onError: event => {
+						dispatch({ type: SOCKET_ON_ERROR, event });
+					},
+					onPing: event => {
+						ws.pingTimeoutId = event.pingTimeoutId;
+					},
+					onPingTimeout: () => {
+						dispatch({ type: SOCKET_ON_PING_TIMEOUT });
+					},
+					...socketOptions,
+				});
+			}
+			const entrie = {};
+			buffer.push(entrie);
+			entrie.action = action;
+			entrie.previousState = getState();
+			const result = next(action);
+			entrie.nextState = getState();
+			send();
+			return result;
+		};
 }
 
 export default createWebsocketMiddleware;

@@ -34,7 +34,7 @@
     "copy-webpack-plugin": "^14.0.0",
     "cross-env": "^7.0.3",
     "esbuild-plugin-react-virtualized": "^1.0.5",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "i18next-http-backend": "^1.4.5",
     "mockjs": "^1.1.0",
     "sass": "^1.97.3",
