@@ -9,7 +9,6 @@
 '@talend/scripts-config-typescript': minor
 '@talend/scripts-config-stylelint': minor
 '@talend/babel-plugin-assets-api': minor
-'@talend/cypress-api-mock-plugin': minor
 '@talend/scripts-config-prettier': minor
 '@talend/babel-plugin-import-d3': minor
 '@talend/scripts-yarn-workspace': minor
