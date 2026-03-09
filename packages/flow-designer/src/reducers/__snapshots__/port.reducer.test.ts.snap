@@ -18,7 +18,7 @@ Immutable.Map {
   "nodes": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "ports": Immutable.OrderedMap {
+  "ports": Immutable.Map {
     "id1": Immutable.Record {
       "id": "id1",
       "nodeId": undefined,
@@ -138,7 +138,7 @@ Immutable.Map {
   "nodes": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "ports": Immutable.OrderedMap {
+  "ports": Immutable.Map {
     "id1": Immutable.Record {
       "id": "id1",
       "nodeId": undefined,
@@ -301,28 +301,7 @@ Immutable.Map {
   "nodes": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "ports": Immutable.OrderedMap {
-    "id2": Immutable.Record {
-      "id": "id2",
-      "nodeId": "test",
-      "data": Immutable.Map {
-        "properties": Immutable.Map {},
-        "flowType": undefined,
-      },
-      "graphicalAttributes": Immutable.Map {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-      },
-      "getPosition": [Function],
-      "setPosition": [Function],
-      "getPortType": [Function],
-      "getPortDirection": [Function],
-      "getPortFlowType": [Function],
-      "getIndex": [Function],
-      "setIndex": [Function],
-    },
+  "ports": Immutable.Map {
     "id3": Immutable.Record {
       "id": "id3",
       "nodeId": undefined,
@@ -337,6 +316,27 @@ Immutable.Map {
         },
         "properties": Immutable.Map {
           "index": 0,
+        },
+      },
+      "getPosition": [Function],
+      "setPosition": [Function],
+      "getPortType": [Function],
+      "getPortDirection": [Function],
+      "getPortFlowType": [Function],
+      "getIndex": [Function],
+      "setIndex": [Function],
+    },
+    "id2": Immutable.Record {
+      "id": "id2",
+      "nodeId": "test",
+      "data": Immutable.Map {
+        "properties": Immutable.Map {},
+        "flowType": undefined,
+      },
+      "graphicalAttributes": Immutable.Map {
+        "position": Immutable.Record {
+          "x": 10,
+          "y": 10,
         },
       },
       "getPosition": [Function],
@@ -368,7 +368,7 @@ Immutable.Map {
   "nodes": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "ports": Immutable.OrderedMap {
+  "ports": Immutable.Map {
     "id1": Immutable.Record {
       "id": "id1",
       "nodeId": undefined,
@@ -432,7 +432,7 @@ Immutable.Map {
   "nodes": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "ports": Immutable.OrderedMap {
+  "ports": Immutable.Map {
     "id1": Immutable.Record {
       "id": "id1",
       "nodeId": undefined,
@@ -517,7 +517,7 @@ Immutable.Map {
   "nodes": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "ports": Immutable.OrderedMap {
+  "ports": Immutable.Map {
     "id1": Immutable.Record {
       "id": "id1",
       "nodeId": undefined,
@@ -602,7 +602,7 @@ Immutable.Map {
   "nodes": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "ports": Immutable.OrderedMap {
+  "ports": Immutable.Map {
     "id1": Immutable.Record {
       "id": "id1",
       "nodeId": undefined,
@@ -687,7 +687,7 @@ Immutable.Map {
   "nodes": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "ports": Immutable.OrderedMap {
+  "ports": Immutable.Map {
     "id1": Immutable.Record {
       "id": "id1",
       "nodeId": undefined,
