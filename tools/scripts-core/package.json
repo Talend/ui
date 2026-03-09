@@ -58,7 +58,7 @@
     "yargs": "^15.4.1"
   },
   "devDependencies": {
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "vitest": "^3.2.1"
   },
   "publishConfig": {

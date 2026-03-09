@@ -79,7 +79,7 @@
     "@types/topojson-specification": "^1.0.5",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "cross-env": "^7.0.3",
     "i18next": "^23.16.8",
     "jsdom": "^28.1.0",

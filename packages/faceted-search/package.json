@@ -71,7 +71,7 @@
     "@testing-library/user-event": "^14.6.1",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "cross-env": "^7.0.3",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "i18next": "^23.16.8",
     "storybook": "^10.2.10",
     "prop-types": "^15.8.1",

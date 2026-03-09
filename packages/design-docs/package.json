@@ -52,7 +52,7 @@
     "@talend/scripts-config-react-webpack": "^17.1.0",
     "@talend/scripts-config-typescript": "^12.1.0",
     "@types/react": "^18.3.27",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "i18next": "^23.16.8",
     "mdx-embed": "^1.1.2",
     "react": "^18.3.1",
