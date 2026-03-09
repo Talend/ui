@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-core",
   "description": "Set of scripts",
-  "version": "18.0.0",
+  "version": "19.0.0",
   "license": "Apache-2.0",
   "exports": "./src/index.js",
   "type": "module",
@@ -19,7 +19,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:cov": "vitest run"
   },
   "peerDependencies": {
     "@talend/scripts-config-react-webpack": ">=16.0.0",
@@ -40,12 +41,12 @@
   "dependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.28.6",
-    "@talend/eslint-config": "^14.1.0",
-    "@talend/eslint-plugin": "^1.8.0",
-    "@talend/scripts-utils": "^2.8.0",
-    "@talend/scripts-config-babel": "^13.10.0",
-    "@talend/scripts-config-stylelint": "^4.5.0",
-    "@talend/scripts-config-typescript": "^12.1.0",
+    "@talend/eslint-config": "^14.1.1",
+    "@talend/eslint-plugin": "^1.8.1",
+    "@talend/scripts-utils": "^2.8.1",
+    "@talend/scripts-config-babel": "^13.10.1",
+    "@talend/scripts-config-stylelint": "^4.5.1",
+    "@talend/scripts-config-typescript": "^12.1.1",
     "stylelint": "^15.11.0",
     "babel-loader": "^9.2.1",
     "cpx2": "^8.0.0",
@@ -59,7 +60,7 @@
   },
   "devDependencies": {
     "eslint": "^10.0.3",
-    "vitest": "^3.2.1"
+    "vitest": "^4.0.18"
   },
   "publishConfig": {
     "access": "public"

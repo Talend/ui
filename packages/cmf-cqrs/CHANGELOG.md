@@ -1,5 +1,14 @@
 # @talend/react-cmf-cqrs
 
+## 12.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/utils@3.7.1
+  - @talend/react-cmf@12.1.1
+
 ## 12.1.0
 
 ### Minor Changes

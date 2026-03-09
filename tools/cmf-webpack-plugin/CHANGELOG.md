@@ -1,5 +1,13 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.44.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-cmf@1.8.1
+
 ## 6.44.0
 
 ### Minor Changes

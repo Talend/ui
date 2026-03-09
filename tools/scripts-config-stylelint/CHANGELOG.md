@@ -1,5 +1,11 @@
 # @talend/scripts-config-stylelint
 
+## 4.5.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 4.5.0
 
 ### Minor Changes

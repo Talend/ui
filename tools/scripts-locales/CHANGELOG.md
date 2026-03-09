@@ -1,5 +1,13 @@
 # @talend/scripts-locales
 
+## 1.6.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-utils@2.8.1
+
 ## 1.6.0
 
 ### Minor Changes

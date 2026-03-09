@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.7.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 12.7.0
 
 ### Minor Changes

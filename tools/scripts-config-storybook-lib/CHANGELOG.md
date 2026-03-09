@@ -1,5 +1,15 @@
 # @talend/scripts-config-storybook-lib
 
+## 6.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-system@12.1.1
+  - @talend/bootstrap-theme@10.1.1
+  - @talend/react-cmf@12.1.1
+
 ## 6.1.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @talend/scripts-config-babel
 
+## 13.10.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/babel-plugin-import-from-index@1.13.1
+  - @talend/babel-plugin-assets-api@1.9.1
+
 ## 13.10.0
 
 ### Minor Changes

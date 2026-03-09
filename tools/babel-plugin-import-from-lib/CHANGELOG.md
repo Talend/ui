@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-from-lib
 
+## 0.7.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 0.7.0
 
 ### Minor Changes

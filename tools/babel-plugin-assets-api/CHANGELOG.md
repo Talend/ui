@@ -1,5 +1,13 @@
 # @talend/babel-plugin-assets-api
 
+## 1.9.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/module-to-cdn@9.18.1
+
 ## 1.9.0
 
 ### Minor Changes

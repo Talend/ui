@@ -1,5 +1,23 @@
 # @talend/ui-playground
 
+## 3.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/react-faceted-search@22.1.1
+  - @talend/design-system@12.1.1
+  - @talend/design-tokens@4.1.1
+  - @talend/assets-api@2.1.1
+  - @talend/react-cmf-router@9.1.1
+  - @talend/react-components@18.1.1
+  - @talend/react-containers@12.1.1
+  - @talend/react-dataviz@8.1.1
+  - @talend/react-forms@16.1.1
+  - @talend/bootstrap-theme@10.1.1
+  - @talend/react-cmf@12.1.1
+
 ## 3.1.0
 
 ### Minor Changes

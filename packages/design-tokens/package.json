@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-tokens",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -53,13 +53,13 @@
   },
   "devDependencies": {
     "sass": "^1.97.3",
-    "@talend/eslint-config": "^14.1.0",
-    "@talend/eslint-plugin": "^1.8.0",
-    "@talend/scripts-core": "^18.0.0",
-    "@talend/scripts-config-react-webpack": "^17.1.0",
-    "@talend/scripts-config-typescript": "^12.1.0",
-    "@talend/babel-plugin-import-from-index": "^1.13.0",
-    "@talend/babel-plugin-assets-api": "^1.9.0",
+    "@talend/eslint-config": "^14.1.1",
+    "@talend/eslint-plugin": "^1.8.1",
+    "@talend/scripts-core": "^19.0.0",
+    "@talend/scripts-config-react-webpack": "^17.1.1",
+    "@talend/scripts-config-typescript": "^12.1.1",
+    "@talend/babel-plugin-import-from-index": "^1.13.1",
+    "@talend/babel-plugin-assets-api": "^1.9.1",
     "eslint": "^10.0.3",
     "typeface-source-sans-pro": "^1.1.13",
     "webpack": "^5.104.1"

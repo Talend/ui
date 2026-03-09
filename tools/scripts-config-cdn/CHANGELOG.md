@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 10.17.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/dynamic-cdn-webpack-plugin@14.5.1
+  - @talend/module-to-cdn@9.18.1
+
 ## 10.17.0
 
 ### Minor Changes

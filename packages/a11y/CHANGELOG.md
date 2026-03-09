@@ -1,5 +1,13 @@
 # @talend/react-a11y
 
+## 4.3.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/utils@3.7.1
+
 ## 4.3.0
 
 ### Minor Changes

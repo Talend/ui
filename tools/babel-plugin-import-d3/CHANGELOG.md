@@ -1,5 +1,11 @@
 # @talend/babel-plugin-import-d3
 
+## 0.10.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 0.10.0
 
 ### Minor Changes

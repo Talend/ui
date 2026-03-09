@@ -1,5 +1,11 @@
 # @talend/scripts-publish-local
 
+## 1.7.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 1.7.0
 
 ### Minor Changes

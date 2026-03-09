@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.18.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 9.18.0
 
 ### Minor Changes

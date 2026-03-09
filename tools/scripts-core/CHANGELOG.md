@@ -1,5 +1,22 @@
 # @talend/scripts-core
 
+## 19.0.0
+
+### Major Changes
+
+- 1677e09: Drop test command (jest). You should migrate to vitest
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-config-typescript@12.1.1
+  - @talend/scripts-config-stylelint@4.5.1
+  - @talend/eslint-config@14.1.1
+  - @talend/scripts-config-babel@13.10.1
+  - @talend/eslint-plugin@1.8.1
+  - @talend/scripts-utils@2.8.1
+
 ## 18.0.0
 
 ### Major Changes
