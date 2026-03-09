@@ -1,8 +1,8 @@
-import { Map } from 'immutable';
+import Immutable from 'immutable';
 
 import * as Data from './data';
 
-export const isNotMapException = `Map should be a Map, was given
+export const isNotMapException = `Immutable.Map should be a Immutable.Map, was given
 """
 object
 """
@@ -14,7 +14,7 @@ export const isNotKeyException = 'key should be a string, was given 8 of type nu
 describe('isMapElseThrow', () => {
 	it('return true if parameter is an Map', () => {
 		// given
-		const testMap = Map<any, any>();
+		const testMap = Immutable.Map<any, any>();
 		// when
 		const test = Data.isMapElseThrow(testMap);
 		// expect
@@ -55,7 +55,7 @@ describe('Data', () => {
 			// given
 			const key = 'key';
 			const value = 'value';
-			const map = Map({
+			const map = Immutable.Map({
 				withValue: 'value',
 			});
 			// when
@@ -68,7 +68,7 @@ describe('Data', () => {
 			// given
 			const key = 8;
 			const value = 'value';
-			const map = Map({
+			const map = Immutable.Map({
 				withValue: 'value',
 			});
 			// when
@@ -92,7 +92,7 @@ describe('Data', () => {
 			// given
 			const key = 'key';
 			const value = 'value';
-			const map = Map({
+			const map = Immutable.Map({
 				key: value,
 			});
 			// when
@@ -105,7 +105,7 @@ describe('Data', () => {
 			// given
 			const key = 'anotherKey';
 			const value = 'value';
-			const map = Map({
+			const map = Immutable.Map({
 				key: value,
 			});
 			// when
@@ -117,7 +117,7 @@ describe('Data', () => {
 		it('given an improper key throw', () => {
 			// given
 			const key = 8;
-			const map = Map({
+			const map = Immutable.Map({
 				withValue: 'value',
 			});
 			// when
@@ -140,7 +140,7 @@ describe('Data', () => {
 			// given
 			const key = 'key';
 			const value = 'value';
-			const map = Map({
+			const map = Immutable.Map({
 				key: value,
 			});
 			// when
@@ -153,7 +153,7 @@ describe('Data', () => {
 			// given
 			const key = 'anotherKey';
 			const value = 'value';
-			const map = Map({
+			const map = Immutable.Map({
 				key: value,
 			});
 			// when
@@ -165,7 +165,7 @@ describe('Data', () => {
 		it('given an improper key throw', () => {
 			// given
 			const key = 8;
-			const map = Map({
+			const map = Immutable.Map({
 				withValue: 'value',
 			});
 			// when
@@ -188,20 +188,20 @@ describe('Data', () => {
 			// given
 			const key = 'key';
 			const value = 'value';
-			const map = Map({
+			const map = Immutable.Map({
 				key: value,
 			});
 			// when
 			const test = Data.deleteKey(key, map);
 			// expect
-			expect(test).toEqual(Map());
+			expect(test).toEqual(Immutable.Map());
 		});
 
 		it('given a key and map not containing said key return same map', () => {
 			// given
 			const key = 'anotherKey';
 			const value = 'value';
-			const map = Map({
+			const map = Immutable.Map({
 				key: value,
 			});
 			// when
@@ -213,7 +213,7 @@ describe('Data', () => {
 		it('given an improper key throw', () => {
 			// given
 			const key = 8;
-			const map = Map({
+			const map = Immutable.Map({
 				withValue: 'value',
 			});
 			// when
