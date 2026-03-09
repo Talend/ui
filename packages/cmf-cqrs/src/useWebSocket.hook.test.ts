@@ -21,7 +21,7 @@ describe('hooks', () => {
 
 	beforeEach(() => {
 		removeEventListener = vi.fn();
-		addEventListener = (event: string, cb: Function) => {
+		addEventListener = (event: string, cb: (...args: any[]) => void) => {
 			eventListener = cb;
 		};
 		send = vi.fn();

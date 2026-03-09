@@ -51,7 +51,7 @@
     "@talend/scripts-config-babel": "^13.10.0",
     "@talend/scripts-config-react-webpack": "^17.1.0",
     "@talend/scripts-config-typescript": "^12.1.0",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redux-saga-tester": "^1.0.874",

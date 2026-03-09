@@ -1,4 +1,5 @@
 const { defineConfig, globalIgnores } = require('eslint/config');
+const { fixupPluginRules } = require('@eslint/compat');
 const js = require('@eslint/js');
 const globals = require('globals');
 const tseslint = require('typescript-eslint');
@@ -9,7 +10,6 @@ const path = require('path');
 const reactPlugin = require('eslint-plugin-react');
 const reactHooksPlugin = require('eslint-plugin-react-hooks');
 const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
-const importPlugin = require('eslint-plugin-import');
 const prettierPlugin = require('eslint-plugin-prettier');
 const prettierConfig = require('eslint-config-prettier');
 const talendPlugin = require('@talend/eslint-plugin');
@@ -49,13 +49,12 @@ const baseConfig = {
 		},
 	},
 	plugins: {
-		'@talend': talendPlugin,
-		angular: angularPlugin,
-		import: importPlugin,
-		'jest-dom': jestDomPlugin,
+		'@talend': fixupPluginRules(talendPlugin),
+		angular: fixupPluginRules(angularPlugin),
+		'jest-dom': fixupPluginRules(jestDomPlugin),
 		'jsx-a11y': jsxA11yPlugin,
 		prettier: prettierPlugin,
-		react: reactPlugin,
+		react: fixupPluginRules(reactPlugin),
 		'react-hooks': reactHooksPlugin,
 		'testing-library': testingLibraryPlugin,
 	},
@@ -72,7 +71,6 @@ const baseConfig = {
 	rules: {
 		...reactPlugin.configs.recommended.rules,
 		...reactPlugin.configs['jsx-runtime'].rules,
-		...importPlugin.flatConfigs.recommended.rules,
 		...jsxA11yPlugin.flatConfigs.recommended.rules,
 		...jestDomPlugin.configs['flat/recommended'].rules,
 		...testingLibraryPlugin.configs['flat/react'].rules,
@@ -179,6 +177,11 @@ const testConfig = {
 		'**/*.stories.ts',
 		'**/*.stories.tsx',
 	],
+	languageOptions: {
+		globals: {
+			vi: 'readonly',
+		},
+	},
 	rules: {
 		'import/no-extraneous-dependencies': 'off',
 	},
@@ -208,6 +211,7 @@ module.exports = defineConfig([
 		'**/*.stories.js',
 		'**/jest.setup.js',
 		'**/jest.config.js',
+		'**/vitest.config.ts',
 		'./.eslintrc.js',
 		'./index.js',
 	]),

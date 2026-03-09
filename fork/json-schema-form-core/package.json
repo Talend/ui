@@ -58,7 +58,7 @@
     "@talend/scripts-core": "^18.0.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "rimraf": "^6.1.2",
     "vitest": "^4.0.18",
     "webpack": "^5.104.1"

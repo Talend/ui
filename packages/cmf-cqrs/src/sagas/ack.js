@@ -23,7 +23,6 @@ function* onMyButtonClicked() {
  * @param {Object} channel redux-saga channel
  */
 function* listen(chan) {
-	// eslint-disable-next-line no-constant-condition
 	while (true) {
 		const action = yield take(ACK_RECEIVE_MESSAGE);
 		yield put(chan, action.requestId);
