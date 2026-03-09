@@ -16,7 +16,6 @@
 '@talend/scripts-publish-local': patch
 '@talend/json-schema-form-core': patch
 '@talend/scripts-config-babel': patch
-'@talend/scripts-config-jest': patch
 '@talend/ui-playground-vite': patch
 '@talend/react-cmf-webpack-plugin': patch
 '@talend/scripts-config-cdn': patch
