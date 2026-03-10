@@ -23,18 +23,10 @@
     "test:cov": "vitest run"
   },
   "peerDependencies": {
-    "@talend/scripts-config-react-webpack": ">=16.0.0",
-    "@talend/scripts-config-storybook-lib": ">=5.0.0",
-    "storybook": ">=7.4.0"
+    "@talend/scripts-config-react-webpack": ">=16.0.0"
   },
   "peerDependenciesMeta": {
     "@talend/scripts-config-react-webpack": {
-      "optional": true
-    },
-    "@talend/scripts-config-storybook-lib": {
-      "optional": true
-    },
-    "storybook": {
       "optional": true
     }
   },
@@ -45,9 +37,7 @@
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-utils": "^2.8.1",
     "@talend/scripts-config-babel": "^13.10.1",
-    "@talend/scripts-config-stylelint": "^4.5.1",
     "@talend/scripts-config-typescript": "^12.1.1",
-    "stylelint": "^17.4.0",
     "babel-loader": "^9.2.1",
     "cpx2": "^8.0.0",
     "fs-extra": "^10.1.0",

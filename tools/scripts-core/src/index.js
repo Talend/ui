@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 /* eslint-disable no-console */
-import mergeReport from './scripts/lint-merge-report.js';
 import { getEnv } from './utils/env.js';
 import { printSeparator } from './utils/log.js';
 import { getPresetApi } from './utils/preset.js';
@@ -13,9 +12,6 @@ if (command === '--help' || command === '-h' || command === 'help') {
 	console.log(`Please use one of the following commands:
 * start
 * build
-* lint-merge-report
-* test
-* extends
 `);
 	process.exit(0);
 }
@@ -78,43 +74,7 @@ async function runScript() {
 switch (command) {
 	case 'build':
 	case 'start':
-	case 'test':
 		runScript(command, options);
-		break;
-	case 'lint-merge-report':
-		mergeReport(options);
-		break;
-	case 'lint':
-		console.log(
-			'The "lint" command has been removed. Please use "eslint ." directly with @talend/eslint-config',
-		);
-		process.exit(1);
-		break;
-	case 'build:lib':
-	case 'build:lib:umd':
-		console.log('This command do not exists anymore, please use just "build" command');
-		process.exit(-1);
-		break;
-	case 'lint:es':
-	case 'lint:style':
-		console.log('This command do not exists anymore, please use just "lint" command');
-		process.exit(-1);
-		break;
-	case 'test:ng':
-		console.log('This command do not exists anymore, please use just "test" command');
-		process.exit(-1);
-		break;
-	case 'upgrade:deps':
-		console.log(
-			'This command do not exists anymore, please use just "talend-upgrade-deps" binary from "@talend/upgrade-deps" package',
-		);
-		process.exit(-1);
-		break;
-	case 'publish:local':
-		console.log(
-			'This command do not exists anymore, please use just "talend-publish-local" bin from "@talend/scripts-publish-local" package',
-		);
-		process.exit(-1);
 		break;
 	default:
 		console.log(`Command ${command} not found.`);
