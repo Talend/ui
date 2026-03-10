@@ -1,10 +1,39 @@
 import { render, screen } from '@testing-library/react';
-import { fromJS, Map } from 'immutable';
 
 import cmf, { mock } from '@talend/react-cmf';
 
 import { resolveNameForTitleMap, TCompForm, toJS } from './ComponentForm.component';
 import addSchemaMock from './ComponentForm.test.schema.json';
+
+/**
+ * Minimal shim mimicking Immutable.Map for production code that calls
+ * .get(key, def), .getIn([...keys], def), .set(key, val), .toJS().
+ * Uses a per-instance cache so that repeated .get(key) calls return the same
+ * object reference (avoids infinite loops in componentDidUpdate identity checks).
+ */
+const makeImmutableMap = obj => {
+	const wrapCache = Object.create(null);
+	const wrap = (key, v) => {
+		if (v == null || typeof v !== 'object') return v;
+		if (!(key in wrapCache)) {
+			wrapCache[key] = Array.isArray(v)
+				? Object.assign([], v, { toJS: () => v })
+				: makeImmutableMap(v);
+		}
+		return wrapCache[key];
+	};
+	return {
+		get: (key, def) => (key in obj ? wrap(key, obj[key]) : def),
+		getIn([key, ...rest], def) {
+			if (!(key in obj)) return def;
+			const child = wrap(key, obj[key]);
+			if (rest.length === 0) return child;
+			return child?.getIn?.(rest, def) ?? def;
+		},
+		set: (key, val) => makeImmutableMap({ ...obj, [key]: val?.toJS?.() ?? val }),
+		toJS: () => obj,
+	};
+};
 
 vi.mock('./kit', () => {
 	const createTriggers = ({ url, customRegistry, security }) => {
@@ -47,7 +76,7 @@ describe('ComponentForm', () => {
 
 		it('should return js object', () => {
 			// given
-			const immutableObject = new Map({ a: 1, b: 2 });
+			const immutableObject = { a: 1, b: 2, toJS: () => ({ a: 1, b: 2 }) };
 
 			// when
 			const result = toJS(immutableObject);
@@ -313,7 +342,7 @@ describe('ComponentForm', () => {
 	describe('#render', () => {
 		it("should render a CircularProgress when we don't have the schema", () => {
 			// given
-			const state = new Map({});
+			const state = makeImmutableMap({});
 
 			// when
 			render(
@@ -334,7 +363,7 @@ describe('ComponentForm', () => {
 
 		it('should render a response status', () => {
 			// given
-			const state = fromJS({ response: { statusText: 'we had an error' } });
+			const state = makeImmutableMap({ response: { statusText: 'we had an error' } });
 
 			// when
 			render(
@@ -353,7 +382,7 @@ describe('ComponentForm', () => {
 
 		it('should render a UIForm', () => {
 			// given
-			const state = fromJS(addSchemaMock.ui);
+			const state = makeImmutableMap(addSchemaMock.ui);
 
 			// when
 			const { container } = render(
@@ -374,7 +403,7 @@ describe('ComponentForm', () => {
 
 	describe('#security', () => {
 		it('should pass security props to createTrigger', () => {
-			const state = fromJS(addSchemaMock.ui);
+			const state = makeImmutableMap(addSchemaMock.ui);
 			const instance = new TCompForm({
 				state,
 				triggerURL: 'http://trigger',
@@ -391,7 +420,7 @@ describe('ComponentForm', () => {
 	describe('#update', () => {
 		it('should recreate trigger if triggerURL or customTriggers props change', () => {
 			// given
-			const state = fromJS(addSchemaMock.ui);
+			const state = makeImmutableMap(addSchemaMock.ui);
 			const oldTriggerURL = 'http://old';
 			const newTriggerURL = 'http://new';
 			const oldCustomTriggers = { oldCustomReload: () => {} };
@@ -433,7 +462,7 @@ describe('ComponentForm', () => {
 
 		it('should dispatch new definitionURL props', () => {
 			// given
-			const state = fromJS(addSchemaMock.ui);
+			const state = makeImmutableMap(addSchemaMock.ui);
 			const dispatch = jest.fn();
 			const oldUrl = 'http://old';
 			const newUrl = 'http://new';
@@ -460,7 +489,7 @@ describe('ComponentForm', () => {
 	});
 
 	describe('events', () => {
-		const state = fromJS({ ...addSchemaMock.ui, initialState: addSchemaMock.ui });
+		const state = makeImmutableMap({ ...addSchemaMock.ui, initialState: addSchemaMock.ui });
 
 		// extract type field schema
 		const typeSchema = {
@@ -501,10 +530,7 @@ describe('ComponentForm', () => {
 
 			it('should NOT dispatch dirty state if it is already dirty', () => {
 				// given
-				const dirtyState = fromJS({
-					...addSchemaMock.ui,
-					dirty: true,
-				});
+				const dirtyState = makeImmutableMap({ ...addSchemaMock.ui, dirty: true });
 				const setState = jest.fn();
 				const instance = new TCompForm({
 					state: dirtyState,

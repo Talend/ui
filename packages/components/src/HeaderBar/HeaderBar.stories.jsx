@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import Immutable from 'immutable';
 import assetsApi from '@talend/assets-api';
 import tokens from '@talend/design-tokens';
 import AppSwitcher from '../AppSwitcher';
@@ -102,7 +101,7 @@ export default meta;
 
 export const Default = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		return <HeaderBar {...headerProps} />;
 	},
 	parameters: { info: { styles: infoStyle } },
@@ -110,7 +109,7 @@ export const Default = {
 
 export const WithFullLogo = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		headerProps.logo.isFull = true;
 		return <HeaderBar {...headerProps} />;
 	},
@@ -119,10 +118,10 @@ export const WithFullLogo = {
 
 export const WithoutProducts = {
 	render: () => {
-		const headerProps = Immutable.fromJS({
+		const headerProps = structuredClone({
 			...props,
 			products: null,
-		}).toJS();
+		});
 		headerProps.logo.isFull = true;
 		return <HeaderBar {...headerProps} />;
 	},
@@ -131,13 +130,13 @@ export const WithoutProducts = {
 
 export const WithBrandIcon = {
 	render: () => {
-		const headerProps = Immutable.fromJS({
+		const headerProps = structuredClone({
 			...props,
 			brand: {
 				...props.brand,
 				icon: 'talend-tmc-negative',
 			},
-		}).toJS();
+		});
 		return <HeaderBar {...headerProps} />;
 	},
 	parameters: { info: { styles: infoStyle } },
@@ -145,13 +144,13 @@ export const WithBrandIcon = {
 
 export const WithBrandIconUrl = {
 	render: () => {
-		const headerProps = Immutable.fromJS({
+		const headerProps = structuredClone({
 			...props,
 			brand: {
 				...props.brand,
 				iconUrl: assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons'),
 			},
-		}).toJS();
+		});
 		return <HeaderBar {...headerProps} />;
 	},
 	parameters: { info: { styles: infoStyle } },
@@ -159,7 +158,7 @@ export const WithBrandIconUrl = {
 
 export const WithEnvironmentDropdown = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		headerProps.env = {
 			id: 'header-environment',
 			items: [
@@ -177,7 +176,7 @@ export const WithEnvironmentDropdown = {
 
 export const WithUnreadNotifications = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		headerProps.notification = {
 			hasUnread: true,
 		};
@@ -188,7 +187,7 @@ export const WithUnreadNotifications = {
 
 export const WithReadNotifications = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		headerProps.notification = {
 			hasUnread: false,
 		};
@@ -199,7 +198,7 @@ export const WithReadNotifications = {
 
 export const WithHelpSplitDropdown = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		headerProps.help.items = [
 			{
 				icon: 'talend-board',
@@ -219,7 +218,7 @@ export const WithHelpSplitDropdown = {
 
 export const WithCallToAction = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		headerProps.callToAction = {
 			bsStyle: 'info',
 			className: 'btn-inverse',
@@ -234,7 +233,7 @@ export const WithCallToAction = {
 
 export const WithGenericAction = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		headerProps.genericAction = {
 			bsStyle: 'link',
 			id: 'header-generic-action',
@@ -249,7 +248,7 @@ export const WithGenericAction = {
 
 export const WithoutUserAndWithInformation = {
 	render: () => {
-		const headerProps = Immutable.fromJS(props).toJS();
+		const headerProps = structuredClone(props);
 		headerProps.user = null;
 		headerProps.information = {
 			id: 'header-info',

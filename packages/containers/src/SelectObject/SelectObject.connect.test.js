@@ -1,8 +1,30 @@
 import { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
 
 import Container from './SelectObject.container';
 import Connected, { mapStateToProps } from './SelectObject.connect';
+
+/** Plain-object shim implementing .get(key, def) for a nested Immutable-Map-like componentState. */
+const makeCompState = (data = {}) => ({ ...data, get: (k, def) => (k in data ? data[k] : def) });
+/** Plain-object shim implementing .getIn(keys, def) for state.cmf.collections. */
+const makeCollections = (data = {}) => ({
+	getIn(keys, def) {
+		let curr = data;
+		for (const key of keys) {
+			if (curr == null || typeof curr !== 'object') return def;
+			curr = curr[key];
+		}
+		return curr !== undefined ? curr : def;
+	},
+});
+/** Plain-object shim implementing .getIn([outer, inner], def) for state.cmf.components. */
+const makeComponents = (data = {}) => ({
+	getIn([outer, inner], def) {
+		const outerVal = data[outer];
+		if (outerVal == null) return def;
+		const innerVal = outerVal[inner];
+		return innerVal !== undefined ? innerVal : def;
+	},
+});
 
 describe('Connected SelectObject', () => {
 	it('should connect SelectObject', () => {
@@ -11,20 +33,11 @@ describe('Connected SelectObject', () => {
 	});
 	it('should map state to props', () => {
 		const state = mock.store.state();
-		const data = new Immutable.List([
-			new Immutable.Map({ label: 'foo' }),
-			new Immutable.Map({ label: 'bar' }),
-		]);
-		state.cmf.collections = new Immutable.Map({
-			width: new Immutable.Map({ data }),
-		});
-		state.cmf.components = new Immutable.Map({
-			'Container(FilterBar)': new Immutable.Map({
-				test: new Immutable.Map({ query: 'foo' }),
-			}),
-			'Container(Tree)': new Immutable.Map({
-				test: new Immutable.Map({ selectedId: '27' }),
-			}),
+		const data = [{ label: 'foo' }, { label: 'bar' }];
+		state.cmf.collections = makeCollections({ width: { data } });
+		state.cmf.components = makeComponents({
+			'Container(FilterBar)': { test: makeCompState({ query: 'foo' }) },
+			'Container(Tree)': { test: makeCompState({ selectedId: '27' }) },
 		});
 		const props = mapStateToProps(state, {
 			id: 'test',

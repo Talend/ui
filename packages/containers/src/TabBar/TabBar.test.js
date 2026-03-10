@@ -1,5 +1,16 @@
-import { Map } from 'immutable';
 import Component from '@talend/react-components/lib/TabBar';
+
+/** Plain-object shim implementing .get(key, def) for component state. */
+const makeCompState = (data = {}) => ({ ...data, get: (k, def) => (k in data ? data[k] : def) });
+/** Plain-object shim implementing .getIn([outer, inner], def) for state.cmf.components. */
+const makeComponents = (data = {}) => ({
+	getIn([outer, inner], def) {
+		const outerVal = data[outer];
+		if (outerVal == null) return def;
+		const innerVal = outerVal[inner];
+		return innerVal !== undefined ? innerVal : def;
+	},
+});
 import Connected, { DEFAULT_STATE } from './TabBar.connect';
 import { getComponentState, getSelectedKey } from './TabBar.selectors';
 
@@ -12,10 +23,12 @@ describe('TabBar connected', () => {
 
 describe('TabBar selectors', () => {
 	let mockState;
-	const componentState = Map({ selectedKey: 'hello' });
+	const componentState = makeCompState({ selectedKey: 'hello' });
 	beforeEach(() => {
 		mockState = {
-			cmf: { components: Map({ [Component.displayName]: Map({ thisTabBar: componentState }) }) },
+			cmf: {
+				components: makeComponents({ [Component.displayName]: { thisTabBar: componentState } }),
+			},
 		};
 	});
 

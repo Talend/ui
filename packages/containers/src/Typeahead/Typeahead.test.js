@@ -1,8 +1,12 @@
 import { fireEvent, render } from '@testing-library/react';
-import { Map } from 'immutable';
 
 import Connect from './Typeahead.connect';
 import Container, { DEFAULT_STATE } from './Typeahead.container';
+
+const makeTypeaheadState = (obj = {}) => ({
+	get: (k, def) => (k in obj ? obj[k] : def),
+	toJS: () => ({ ...obj }),
+});
 
 const defaultProps = {
 	id: 42,
@@ -30,7 +34,7 @@ describe('Typeahead container', () => {
 		let state;
 		const props = {
 			...defaultProps,
-			state: Map({ docked: true }),
+			state: makeTypeaheadState({ docked: true }),
 			setState: jest.fn(fn => {
 				state = fn();
 			}),
@@ -63,7 +67,7 @@ describe('Typeahead container', () => {
 				const event = { key: KEYS.DOWN, preventDefault: () => {} };
 				const props = {
 					...defaultProps,
-					state: Map({ docked: true }),
+					state: makeTypeaheadState({ docked: true }),
 					setState: jest.fn(),
 					onKeyDown: jest.fn(),
 					onBlur: jest.fn(),
@@ -78,7 +82,7 @@ describe('Typeahead container', () => {
 				const event = { key: 'Esc', preventDefault: () => {} };
 				const props = {
 					...defaultProps,
-					state: Map({ docked: true }),
+					state: makeTypeaheadState({ docked: true }),
 					setState: jest.fn(),
 					onKeyDown: jest.fn(),
 					onBlur: jest.fn(),
@@ -93,7 +97,7 @@ describe('Typeahead container', () => {
 				const event = { key: 'Enter', preventDefault: () => {} };
 				const props = {
 					...defaultProps,
-					state: Map({ docked: true }),
+					state: makeTypeaheadState({ docked: true }),
 					setState: jest.fn(),
 					onKeyDown: jest.fn(),
 					onSelect: jest.fn(),

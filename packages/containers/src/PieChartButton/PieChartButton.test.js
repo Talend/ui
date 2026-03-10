@@ -1,6 +1,20 @@
-import Immutable from 'immutable';
 import { screen, render } from '@testing-library/react';
 import Connected, { ContainerPieChartButton } from './PieChartButton.connect';
+
+/**
+ * Shim for Immutable.Map used by PieChartButton.connect:
+ * - .has(key)
+ * - .get(key, default) — wraps arrays with { toJS() }
+ * - .get(key)
+ */
+const makePieState = (obj = {}) => ({
+	has: key => key in obj,
+	get: (key, def) => {
+		if (!(key in obj)) return def;
+		const val = obj[key];
+		return Array.isArray(val) ? { toJS: () => val } : val;
+	},
+});
 
 describe('PieChartButton connected', () => {
 	it('should connect filter', () => {
@@ -11,7 +25,7 @@ describe('PieChartButton connected', () => {
 
 describe('PieChartButton container', () => {
 	it('should render', () => {
-		const initialState = Immutable.fromJS({
+		const initialState = makePieState({
 			model: [
 				{ percentage: 10, color: 'rio-grande' },
 				{ percentage: 15, color: 'chestnut-rose' },
@@ -25,7 +39,7 @@ describe('PieChartButton container', () => {
 	});
 
 	it('should render not available pie chart button', () => {
-		const initialState = Immutable.fromJS({
+		const initialState = makePieState({
 			model: [
 				{ percentage: 10, color: 'rio-grande' },
 				{ percentage: 15, color: 'chestnut-rose' },
@@ -40,7 +54,7 @@ describe('PieChartButton container', () => {
 	});
 
 	it('should render loading pie chart button', () => {
-		const initialState = Immutable.fromJS({
+		const initialState = makePieState({
 			model: [
 				{ percentage: 10, color: 'rio-grande' },
 				{ percentage: 15, color: 'chestnut-rose' },

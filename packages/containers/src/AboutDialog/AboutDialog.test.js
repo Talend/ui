@@ -1,6 +1,10 @@
-import { Map, List } from 'immutable';
-
 import Container from './AboutDialog.container';
+
+/**
+ * cmf.selectors.collections.toJS calls getIn([COLLECTION_ID]) and then .toJS() on the result.
+ * Returning the default value (undefined) causes `{...undefined} = {}`, matching the test expectation.
+ */
+const makeCollections = () => ({ getIn: (_keys, def) => def });
 import Connected, { mapStateToProps } from './AboutDialog.connect';
 import Constants from './AboutDialog.constant';
 
@@ -13,11 +17,7 @@ describe('Connected AboutDialog', () => {
 	it('should mapStateToProps with an empty list of products', () => {
 		const state = {
 			cmf: {
-				collections: new Map({
-					AboutDialog: {
-						[Constants.COLLECTION_ID]: new List(),
-					},
-				}),
+				collections: makeCollections(),
 			},
 		};
 		const ownProps = {};

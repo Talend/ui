@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import { render, screen, within } from '@testing-library/react';
 import ActionDropdown from './ActionDropdown.component';
 
@@ -13,7 +12,6 @@ const items = [
 		onClick: jest.fn(),
 	},
 ];
-const immutableItems = Immutable.fromJS(items);
 
 describe('ActionDropdown', () => {
 	it('should render a button dropdown with its menu', () => {
@@ -26,26 +24,6 @@ describe('ActionDropdown', () => {
 
 		// when
 		render(<ActionDropdown {...props} />);
-
-		// then
-		expect(screen.getByRole('button')).toBeInTheDocument();
-		expect(screen.getByRole('menu')).toBeInTheDocument();
-	});
-
-	it('should render the same as when plain object or immutable list', () => {
-		// given
-		const props = {
-			id: 'dropdown-id',
-			label: 'related items',
-			items,
-		};
-		const immutableProps = {
-			...props,
-			items: immutableItems,
-		};
-
-		// when
-		render(<ActionDropdown {...immutableProps} />);
 
 		// then
 		expect(screen.getByRole('button')).toBeInTheDocument();

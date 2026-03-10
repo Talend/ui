@@ -1,8 +1,33 @@
 import { render } from '@testing-library/react';
-import { fromJS } from 'immutable';
 
 import Connected from './Form.connect';
 import Container from './Form.container';
+
+/**
+ * Minimal Immutable.Map-like shim for plain objects.
+ * Implements the subset of the Immutable.Map API used by Form.container and these tests.
+ */
+const makePlainState = (obj = {}) => ({
+	_data: obj,
+	get size() {
+		return Object.keys(obj).length;
+	},
+	get(key, def) {
+		const val = obj[key];
+		return val !== undefined ? val : def;
+	},
+	set(key, val) {
+		return makePlainState({ ...obj, [key]: val });
+	},
+	getIn(keys, def) {
+		let current = obj;
+		for (const key of keys) {
+			if (current == null) return def;
+			current = current._data ? current._data[key] : current[key];
+		}
+		return current !== undefined ? current : def;
+	},
+});
 
 const jsonSchema = {
 	type: 'object',
@@ -45,7 +70,7 @@ describe('Container(Form)', () => {
 		const setState = jest.fn();
 		const event = { target: 'test' };
 		const form = new Container({
-			state: fromJS({ data: { schema: true } }),
+			state: makePlainState({ data: { schema: true } }),
 			onErrors,
 			setState,
 		});
@@ -59,7 +84,7 @@ describe('Container(Form)', () => {
 		const dispatchActionCreator = jest.fn();
 		const setState = jest.fn();
 		const form = new Container({
-			state: fromJS({ data: { schema: true } }),
+			state: makePlainState({ data: { schema: true } }),
 			setState,
 			onSubmitActionCreator: 'myaction',
 			onSubmit,
@@ -79,7 +104,7 @@ describe('Container(Form)', () => {
 		const setState = jest.fn();
 		const event = { target: 'test' };
 		const form = new Container({
-			state: fromJS({ data: { schema: true } }),
+			state: makePlainState({ data: { schema: true } }),
 			onChange,
 			setState,
 		});
@@ -93,12 +118,12 @@ describe('Container(Form)', () => {
 		const formId = 'my-form';
 		const state = {
 			cmf: {
-				components: fromJS({
-					'Container(Form)': {
-						[formId]: {
-							data: { foo: 'bar' },
-						},
-					},
+				components: makePlainState({
+					'Container(Form)': makePlainState({
+						[formId]: makePlainState({
+							data: makePlainState({ foo: 'bar' }),
+						}),
+					}),
 				}),
 			},
 		};

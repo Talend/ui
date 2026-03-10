@@ -1,10 +1,11 @@
 // import SagaTester from 'redux-saga-tester';
-import { Map } from 'immutable';
 import cmf from '@talend/react-cmf';
 import { take, put } from 'redux-saga/effects';
 import CONSTANTS from './constants';
 // import actions from './actions';
 import sagas, * as internals from './sagas';
+
+const makeMapItem = data => ({ get: (k, def) => (k in data ? data[k] : def) });
 
 describe('internals', () => {
 	describe('getResourceLocator', () => {
@@ -54,7 +55,7 @@ describe('internals', () => {
 					},
 				},
 			};
-			const resource = new Map({ id: '123', label: 'Foo' });
+			const resource = makeMapItem({ id: '123', label: 'Foo' });
 
 			const gen = internals.deleteResourceValidate();
 			let effect = gen.next().value;
@@ -97,7 +98,11 @@ describe('internals', () => {
 				},
 			};
 
-			const resource = new Map({ id: 'profileId', type: 'advanced', name: 'deleteThisRunProfile' });
+			const resource = makeMapItem({
+				id: 'profileId',
+				type: 'advanced',
+				name: 'deleteThisRunProfile',
+			});
 
 			const gen = internals.deleteResourceValidate();
 			gen.next();
@@ -122,7 +127,7 @@ describe('internals', () => {
 						},
 					},
 				};
-				const resource = new Map({
+				const resource = makeMapItem({
 					id: 'profileId',
 					type: 'advanced',
 					name: 'deleteThisRunProfile',

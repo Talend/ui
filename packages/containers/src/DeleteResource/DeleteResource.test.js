@@ -1,18 +1,23 @@
 import { render, screen } from '@testing-library/react';
 import cmf, { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
 
 import { DeleteResource } from './DeleteResource.container';
 import Connected, { mapStateToProps } from './DeleteResource.connect';
+
+/** Plain-object shim implementing .get(key, def) for Immutable-Map-like objects. */
+const makeMapItem = data => ({ get: (k, def) => (k in data ? data[k] : def) });
+/** Plain-object shim implementing .find(fn) / .get(index) for Immutable-List-like objects. */
+const makeList = items => ({ find: fn => items.find(fn), get: idx => items[idx] });
+/** Plain-object shim implementing .get(key, def) for the top-level collections Map. */
+const makeCollections = (data = {}) => ({ get: key => data[key] });
 
 const state = mock.store.state();
 const settings = {};
 state.cmf = {
 	settings,
 };
-state.cmf.collections = new Immutable.Map({
-	foo: new Immutable.List([new Immutable.Map({ id: '123' })]),
-});
+const fooItem = makeMapItem({ id: '123' });
+state.cmf.collections = makeCollections({ foo: makeList([fooItem]) });
 
 describe('Container DeleteResource', () => {
 	let App;
@@ -27,7 +32,7 @@ describe('Container DeleteResource', () => {
 		const props = {
 			uri: '/myEndpoint',
 			resourceType: 'myResourceType',
-			resource: new Immutable.Map({ label: 'myLabel' }),
+			resource: makeMapItem({ label: 'myLabel' }),
 			header: 'My header title',
 			params: { id: 'myResourceID' },
 			resourceTypeLabel: 'resourceLabel',
