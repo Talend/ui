@@ -1,5 +1,3 @@
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-console */
 import { merge } from 'webpack-merge';
 import * as utils from '@talend/scripts-utils';
@@ -19,7 +17,6 @@ export default async (env = {}) => {
 	const presetApi = getPresetApi();
 
 	let webpackConfigurations = [];
-	// eslint-disable-next-line import/no-extraneous-dependencies
 	const defaultConfig = await import('@talend/scripts-config-react-webpack');
 	webpackConfigurations = webpackConfigurations.concat(
 		defaultConfig.default(presetApi, { umd: env.umd }),
