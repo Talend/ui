@@ -1,5 +1,20 @@
 # @talend/scripts-core
 
+## 20.0.0
+
+### Major Changes
+
+- 64e2fd5: feat: drop lint command from talend-scripts
+
+### Minor Changes
+
+- 8c98cb7: feat: update stylelint to 17
+
+### Patch Changes
+
+- Updated dependencies [64e2fd5]
+  - @talend/eslint-config@14.1.2
+
 ## 19.0.0
 
 ### Major Changes
