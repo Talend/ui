@@ -7,7 +7,7 @@
     "@talend/scripts-core": "^18.0.0",
     "@talend/scripts-yarn-workspace": "^2.3.0",
     "baseline-browser-mapping": "^2.9.19",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.1.0",
     "cross-spawn": "^7.0.6",
     "eslint": "^10.0.3",
     "husky": "^8.0.3",
