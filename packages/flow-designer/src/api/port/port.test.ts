@@ -11,8 +11,6 @@
 
     because the underlying module data is itself tested.
  */
-import { Map } from 'immutable';
-
 import { PortRecord } from '../../constants/flowdesigner.model';
 import * as Port from './port';
 import * as Position from '../position/position';
@@ -28,10 +26,10 @@ describe('isPortElseThrow', () => {
 	});
 	it('throw if given parameter is not a PortRecord', () => {
 		// given
-		const testPort = Map();
+		const testPort2 = {};
 		// when
 		// expect
-		expect(() => Port.isPortElseThrow(testPort)).toThrow();
+		expect(() => Port.isPortElseThrow(testPort2)).toThrow();
 	});
 });
 
@@ -62,9 +60,9 @@ describe('port api', () => {
 	const improperNodeId = 42;
 	const improperIndex = '10';
 	const impropertopology = {};
-	const improperPosition = Map({ x: 10, y: 10 });
+	const improperPosition = { x: 10, y: 10 };
 	const improperPortType = {};
-	const improperPort = Map();
+	const improperPort = {};
 
 	describe('create', () => {
 		it('given proper id, nodeId, index, topology and componentType return a Node', () => {
@@ -78,41 +76,31 @@ describe('port api', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(improperId as any, nodeId, index, topology, portType),
-			).toThrow();
+			expect(() => Port.create(improperId as any, nodeId, index, topology, portType)).toThrow();
 		});
 		it('throw if given an improper NodeId', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(id, improperNodeId as any, index, topology, portType),
-			).toThrow();
+			expect(() => Port.create(id, improperNodeId as any, index, topology, portType)).toThrow();
 		});
 		it('throw if given an improper index', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(id, nodeId, improperIndex as any, topology, portType),
-			).toThrow();
+			expect(() => Port.create(id, nodeId, improperIndex as any, topology, portType)).toThrow();
 		});
 		it('throw if given an improper topology', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(id, nodeId, index, impropertopology as any, portType),
-			).toThrow();
+			expect(() => Port.create(id, nodeId, index, impropertopology as any, portType)).toThrow();
 		});
 		it('throw if given an improper componentType', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(id, nodeId, index, topology, improperPortType as any),
-			).toThrow();
+			expect(() => Port.create(id, nodeId, index, topology, improperPortType as any)).toThrow();
 		});
 	});
 

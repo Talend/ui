@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import invariant from 'invariant';
 import get from 'lodash/get';
-import { Map } from 'immutable';
 
 import { setZoom } from '../actions/flow.actions';
 import Grid from './grid/Grid.component';
@@ -121,16 +120,19 @@ export function FlowDesigner(props: Props) {
 	);
 }
 
-const mapStateToProps = (state: State, ownProps: Props) => ({
-	nodes: get(state, ownProps.reduxMountPoint).get('nodes'),
-	links: get(state, ownProps.reduxMountPoint).get('links'),
-	ports: get(state, ownProps.reduxMountPoint).get('ports'),
-	transform: get(state, ownProps.reduxMountPoint).get('transform'),
-	transformToApply: get(state, ownProps.reduxMountPoint).get('transformToApply'),
-});
+const mapStateToProps = (state: State, ownProps: Props) => {
+	const slice = get(state, ownProps.reduxMountPoint);
+	return {
+		nodes: slice.nodes,
+		links: slice.links,
+		ports: slice.ports,
+		transform: slice.transform,
+		transformToApply: slice.transformToApply,
+	};
+};
 
 const mapDispatchToProps = (dispatch: any) => ({
-	setNodeTypes: (nodeTypeMap: Map<string, any>) => dispatch(setNodeTypes(nodeTypeMap)),
+	setNodeTypes: (nodeTypeMap: StateMap) => dispatch(setNodeTypes(nodeTypeMap)),
 	startMoveNodeTo: (nodeId: Id, nodePosition: string) =>
 		dispatch(startMoveNodeTo(nodeId, nodePosition)),
 	moveNodeTo: (nodeId: Id, nodePosition: Position) => dispatch(moveNodeTo(nodeId, nodePosition)),

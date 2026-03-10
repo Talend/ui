@@ -1,5 +1,4 @@
 import curry from 'lodash/curry';
-import flow from 'lodash/flow';
 
 import { throwInDev, throwTypeError } from '../throwInDev';
 import { SizeRecord } from '../../constants/flowdesigner.model';
@@ -50,7 +49,7 @@ export function isSizeElseThrow(size: SizeRecordType) {
  */
 export function getWidth(size: SizeRecordType) {
 	if (isSizeElseThrow(size)) {
-		return size.get('width');
+		return size.width;
 	}
 	return null;
 }
@@ -64,7 +63,7 @@ export function getWidth(size: SizeRecordType) {
  */
 export const setWidth = curry((width: number, size: SizeRecordType) => {
 	if (isSizeElseThrow(size) && typeof width === 'number') {
-		return size.set('width', width);
+		return new SizeRecord({ ...size, width });
 	}
 	throwInDev(`width should be a number, was given ${width.toString()}  of type ${typeof width}`);
 	return size;
@@ -77,7 +76,7 @@ export const setWidth = curry((width: number, size: SizeRecordType) => {
  */
 export function getHeight(size: SizeRecordType) {
 	if (isSizeElseThrow(size)) {
-		return size.get('height');
+		return size.height;
 	}
 	return null;
 }
@@ -91,11 +90,9 @@ export function getHeight(size: SizeRecordType) {
  */
 export const setHeight = curry((height: number, size: SizeRecordType) => {
 	if (isSizeElseThrow(size) && typeof height === 'number') {
-		return size.set('height', height);
+		return new SizeRecord({ ...size, height });
 	}
-	throwInDev(
-		`height should be a number, was given ${height.toString()}  of type ${typeof height}`,
-	);
+	throwInDev(`height should be a number, was given ${height.toString()}  of type ${typeof height}`);
 	return size;
 });
 
@@ -106,6 +103,16 @@ export const setHeight = curry((height: number, size: SizeRecordType) => {
  * @param {number} height
  * @return {SizeRecord}
  */
-export const create = curry((width: number, height: number) =>
-	flow([setWidth(width), setHeight(height)])(new SizeRecord()),
-);
+export const create = curry((width: number, height: number) => {
+	if (typeof width !== 'number') {
+		throwInDev(
+			`width should be a number, was given ${(width as any).toString()}  of type ${typeof width}`,
+		);
+	}
+	if (typeof height !== 'number') {
+		throwInDev(
+			`height should be a number, was given ${(height as any).toString()}  of type ${typeof height}`,
+		);
+	}
+	return new SizeRecord({ width, height });
+});

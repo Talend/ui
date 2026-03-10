@@ -1,24 +1,20 @@
 import renderer from 'react-test-renderer';
-import { Map } from 'immutable';
 
 import PortsRenderer from './PortsRenderer.component';
 import { PortRecord } from '../../constants/flowdesigner.model';
-import { Id, PortRecord as PortRecordType } from '../../customTypings/index.d';
+import { PortRecordMap } from '../../customTypings/index.d';
 
 const MockPort = () => <span>MockPort</span>;
 
 describe('<PortsRenderer />', () => {
 	it('renders correctly', () => {
-		const ports = Map<Id, PortRecordType>().set(
-			'id',
-			new PortRecord({
+		const ports: PortRecordMap = {
+			id: new PortRecord({
 				id: 'id',
 				nodeId: 'nodeId',
-				graphicalAttributes: Map({
-					portType: 'id',
-				}),
+				graphicalAttributes: { portType: 'id' },
 			}),
-		);
+		};
 		const portTypeMap = {
 			id: {
 				id: 'id',

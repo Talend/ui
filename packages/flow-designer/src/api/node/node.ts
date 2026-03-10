@@ -6,7 +6,6 @@ import flow from 'lodash/flow';
 import indexOf from 'lodash/indexOf';
 import isString from 'lodash/isString';
 import upperFirst from 'lodash/upperFirst';
-import { Map } from 'immutable';
 
 import { throwInDev, throwTypeError } from '../throwInDev';
 import { NodeRecord, NestedNodeRecord } from '../../constants/flowdesigner.model';
@@ -102,12 +101,14 @@ export function getPosition(node: NodeRecordType | NestedNodeRecordType) {
  * @param {NodeRecord} node
  * @returns {NodeRecord}
  */
-export const setPosition = curry((position: PositionRecord, node: NodeRecordType | NestedNodeRecordType) => {
-	if (isPositionElseThrow(position) && isNodeElseThrow(node)) {
-		return node.setIn(positionSelector, position);
-	}
-	return node;
-});
+export const setPosition = curry(
+	(position: PositionRecord, node: NodeRecordType | NestedNodeRecordType) => {
+		if (isPositionElseThrow(position) && isNodeElseThrow(node)) {
+			return node.setIn(positionSelector, position);
+		}
+		return node;
+	},
+);
 
 /**
  * @param {NodeRecord} node
@@ -150,13 +151,15 @@ export function getComponentType(node: NodeRecordType | NestedNodeRecordType) {
  * @param {NodeRecord} node
  * @returns {NodeRecord}
  */
-export const setComponentType = curry((nodeType: string, node: NodeRecordType | NestedNodeRecordType) => {
-	if (isString(nodeType) && isNodeElseThrow(node)) {
-		return node.setIn(componentTypeSelector, nodeType);
-	}
-	throwInDev(`nodeType should be a string, was given ${nodeType && nodeType.toString()}`);
-	return node;
-});
+export const setComponentType = curry(
+	(nodeType: string, node: NodeRecordType | NestedNodeRecordType) => {
+		if (isString(nodeType) && isNodeElseThrow(node)) {
+			return node.setIn(componentTypeSelector, nodeType);
+		}
+		throwInDev(`nodeType should be a string, was given ${nodeType && nodeType.toString()}`);
+		return node;
+	},
+);
 
 /**
  * @function
@@ -164,15 +167,17 @@ export const setComponentType = curry((nodeType: string, node: NodeRecordType | 
  * @param {NodeRecord} node
  * @returns {NodeRecord}
  */
-export const setComponents = curry((components: Map<string, NodeRecordType>, node: NestedNodeRecordType) => {
-	if (Map.isMap(components) && isNodeElseThrow(node)) {
-		return node.setIn(componentsSelector, components);
-	}
-	throwInDev(
-		`components should be a Immutable.List, was given ${components && components.toString()}`,
-	);
-	return node;
-});
+export const setComponents = curry(
+	(components: Record<string, NodeRecordType>, node: NestedNodeRecordType) => {
+		if (components != null && isNodeElseThrow(node)) {
+			return node.setIn(componentsSelector, components);
+		}
+		throwInDev(
+			`components should be a plain object, was given ${components && components.toString()}`,
+		);
+		return node;
+	},
+);
 
 /**
  * @param {NodeRecord} node
@@ -192,12 +197,14 @@ export function getComponents(node: NestedNodeRecordType) {
  * @param {NodeRecord} node
  * @returns {NodeRecord}
  */
-export const setData = curry((key: string, value: any, node: NodeRecordType | NestedNodeRecordType) => {
-	if (isNodeElseThrow(node)) {
-		return node.set('data', Data.set(key, value, node.get('data')));
-	}
-	return node;
-});
+export const setData = curry(
+	(key: string, value: any, node: NodeRecordType | NestedNodeRecordType) => {
+		if (isNodeElseThrow(node)) {
+			return node.set('data', Data.set(key, value, node.get('data')));
+		}
+		return node;
+	},
+);
 
 /**
  * @function
@@ -262,15 +269,14 @@ export function isWhiteListAttribute(key: string) {
  * @param {NodeRecord} node
  * @returns {NodeRecord}
  */
-export const setGraphicalAttribute = curry((key: string, value: any, node: NodeRecordType | NestedNodeRecordType) => {
-	if (isNodeElseThrow(node) && isWhiteListAttribute(key)) {
-		return node.set(
-			'graphicalAttributes',
-			Data.set(key, value, node.get('graphicalAttributes')),
-		);
-	}
-	return node;
-});
+export const setGraphicalAttribute = curry(
+	(key: string, value: any, node: NodeRecordType | NestedNodeRecordType) => {
+		if (isNodeElseThrow(node) && isWhiteListAttribute(key)) {
+			return node.set('graphicalAttributes', Data.set(key, value, node.get('graphicalAttributes')));
+		}
+		return node;
+	},
+);
 
 /**
  * @function
@@ -278,12 +284,14 @@ export const setGraphicalAttribute = curry((key: string, value: any, node: NodeR
  * @param {NodeRecord} node
  * @returns {any | null}
  */
-export const getGraphicalAttribute = curry((key: string, node: NodeRecordType | NestedNodeRecordType) => {
-	if (isNodeElseThrow(node) && isWhiteListAttribute(key)) {
-		return Data.get(key, node.get('graphicalAttributes'));
-	}
-	return null;
-});
+export const getGraphicalAttribute = curry(
+	(key: string, node: NodeRecordType | NestedNodeRecordType) => {
+		if (isNodeElseThrow(node) && isWhiteListAttribute(key)) {
+			return Data.get(key, node.get('graphicalAttributes'));
+		}
+		return null;
+	},
+);
 
 /**
  * @function
@@ -291,12 +299,14 @@ export const getGraphicalAttribute = curry((key: string, node: NodeRecordType | 
  * @param {NodeRecord} node
  * @returns {bool}
  */
-export const hasGraphicalAttribute = curry((key: string, node: NodeRecordType | NestedNodeRecordType) => {
-	if (isNodeElseThrow(node) && isWhiteListAttribute(key)) {
-		return Data.has(key, node.get('graphicalAttributes'));
-	}
-	return false;
-});
+export const hasGraphicalAttribute = curry(
+	(key: string, node: NodeRecordType | NestedNodeRecordType) => {
+		if (isNodeElseThrow(node) && isWhiteListAttribute(key)) {
+			return Data.has(key, node.get('graphicalAttributes'));
+		}
+		return false;
+	},
+);
 
 /**
  * @function
@@ -304,15 +314,14 @@ export const hasGraphicalAttribute = curry((key: string, node: NodeRecordType | 
  * @param {NodeRecord} node
  * @returns {NodeRecord}
  */
-export const deleteGraphicalAttribute = curry((key: string, node: NodeRecordType | NestedNodeRecordType) => {
-	if (isNodeElseThrow(node) && isWhiteListAttribute(key)) {
-		return node.set(
-			'graphicalAttributes',
-			Data.deleteKey(key, node.get('graphicalAttributes')),
-		);
-	}
-	return node;
-});
+export const deleteGraphicalAttribute = curry(
+	(key: string, node: NodeRecordType | NestedNodeRecordType) => {
+		if (isNodeElseThrow(node) && isWhiteListAttribute(key)) {
+			return node.set('graphicalAttributes', Data.deleteKey(key, node.get('graphicalAttributes')));
+		}
+		return node;
+	},
+);
 
 /**
  * Create a new Node
@@ -338,15 +347,12 @@ export const create = curry(
 				setPosition(position),
 				setSize(size),
 				setComponentType(componentType),
-				setComponents(Map()),
+				setComponents({}),
 			])(new NestedNodeRecord());
 		}
 
-		return flow([
-			setId(id),
-			setPosition(position),
-			setSize(size),
-			setComponentType(componentType),
-		])(new NodeRecord());
+		return flow([setId(id), setPosition(position), setSize(size), setComponentType(componentType)])(
+			new NodeRecord(),
+		);
 	},
 );

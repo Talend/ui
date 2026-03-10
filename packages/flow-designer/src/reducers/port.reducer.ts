@@ -1,7 +1,12 @@
 import invariant from 'invariant';
-import { Map, fromJS } from 'immutable';
+import cloneDeep from 'lodash/cloneDeep';
 
-import { PortRecord, PositionRecord } from '../constants/flowdesigner.model';
+import {
+	PortRecord,
+	PortData,
+	PortGraphicalAttributes,
+	PositionRecord,
+} from '../constants/flowdesigner.model';
 import { removeLink } from '../actions/link.actions';
 import linkReducer from './link.reducer';
 import { portOutLink, portInLink } from '../selectors/linkSelectors';
@@ -26,20 +31,25 @@ import {
 	State,
 	PortAction,
 } from '../customTypings/index.d';
+import { setIn, deleteIn } from './state-utils';
 
 /**
  * get ports attached to a node
  */
 function filterPortsByNode(ports: PortRecordMap, nodeId: Id): PortRecordMap {
-	return ports.filter((port: PortRecordType) => port.nodeId === nodeId) as PortRecordMap;
+	return Object.fromEntries(
+		Object.entries(ports).filter(([, port]) => (port as PortRecordType).nodeId === nodeId),
+	) as PortRecordMap;
 }
 
 /**
  * get ports of direction EMITTER or SINK
  */
 function filterPortsByDirection(ports: PortRecordMap, direction: PortDirection): PortRecordMap {
-	return ports.filter(
-		(port: PortRecordType) => port.getPortDirection() === direction,
+	return Object.fromEntries(
+		Object.entries(ports).filter(
+			([, port]) => (port as PortRecordType).getPortDirection() === direction,
+		),
 	) as PortRecordMap;
 }
 
@@ -47,28 +57,30 @@ function filterPortsByDirection(ports: PortRecordMap, direction: PortDirection):
  * for a new port calculate its index by retrieving all its siblings
  */
 function calculateNewPortIndex(ports: PortRecordMap, port: PortRecordType): number {
-	return filterPortsByDirection(
-		filterPortsByNode(ports, port.nodeId),
-		port.graphicalAttributes.properties.type,
-	).size;
+	return Object.keys(
+		filterPortsByDirection(
+			filterPortsByNode(ports, port.nodeId),
+			port.graphicalAttributes.properties.type,
+		),
+	).length;
 }
 
 function indexPortMap(ports: PortRecordMap): PortRecordMap {
 	let i = 0;
-	return ports
-		.sort((a, b) => {
-			if (a.getIndex() < b.getIndex()) {
-				return -1;
-			}
-			if (a.getIndex() > b.getIndex()) {
-				return 1;
-			}
-			return 0;
-		})
-		.map(port => {
-			i += 1;
-			return port.setIndex(i - 1);
-		}) as PortRecordMap;
+	return Object.fromEntries(
+		Object.entries(ports)
+			.sort(([, a], [, b]) => {
+				const pa = a as PortRecordType;
+				const pb = b as PortRecordType;
+				if (pa.getIndex() < pb.getIndex()) return -1;
+				if (pa.getIndex() > pb.getIndex()) return 1;
+				return 0;
+			})
+			.map(([k, port]) => {
+				i += 1;
+				return [k, (port as PortRecordType).setIndex(i - 1)];
+			}),
+	) as PortRecordMap;
 }
 
 /**
@@ -78,35 +90,34 @@ function indexPortMap(ports: PortRecordMap): PortRecordMap {
  */
 function setPort(state: State, port: PortRecordType) {
 	const index: number =
-		port.graphicalAttributes.properties.index ||
-		calculateNewPortIndex(state.get('ports'), port);
-	const newState = state.setIn(
-		['ports', port.id],
-		new PortRecord({
-			id: port.id,
-			nodeId: port.nodeId,
-			data: Map(port.data).set(
-				'properties',
-				fromJS(port.data && port.data.properties) || Map(),
-			),
-			graphicalAttributes: Map(port.graphicalAttributes)
-				.set('position', new PositionRecord(port.graphicalAttributes.position))
-				.set(
-					'properties',
-					fromJS(
-						port.graphicalAttributes && {
-							index,
-							...port.graphicalAttributes.properties,
-						},
-					) || Map(),
-				),
-		}),
-	);
+		port.graphicalAttributes.properties.index || calculateNewPortIndex(state.ports, port);
+	const newState: State = {
+		...state,
+		ports: {
+			...state.ports,
+			[port.id]: new PortRecord({
+				id: port.id,
+				nodeId: port.nodeId,
+				data: new PortData({
+					...port.data,
+					properties: cloneDeep((port.data as any)?.properties) || {},
+				}),
+				graphicalAttributes: new PortGraphicalAttributes({
+					...port.graphicalAttributes,
+					position: new PositionRecord(port.graphicalAttributes.position),
+					properties: {
+						index,
+						...(port.graphicalAttributes?.properties || {}),
+					},
+				}),
+			}),
+		},
+	};
 	const type = port.graphicalAttributes.properties.type;
 	if (type === PORT_SOURCE) {
-		return newState.setIn(['out', port.nodeId, port.id], Map());
+		return setIn(newState, ['out', port.nodeId, port.id], {});
 	} else if (type === PORT_SINK) {
-		return newState.setIn(['in', port.nodeId, port.id], Map());
+		return setIn(newState, ['in', port.nodeId, port.id], {});
 	}
 	invariant(
 		false,
@@ -120,11 +131,8 @@ function setPort(state: State, port: PortRecordType) {
 export default function portReducer(state: State, action: PortAction): State {
 	switch (action.type) {
 		case FLOWDESIGNER_PORT_ADD:
-			if (!state.getIn(['nodes', action.nodeId])) {
-				invariant(
-					false,
-					`Can't set a new port ${action.id} on non existing node ${action.nodeId}`,
-				);
+			if (!state.nodes?.[action.nodeId]) {
+				invariant(false, `Can't set a new port ${action.id} on non existing node ${action.nodeId}`);
 			}
 
 			return setPort(state, {
@@ -135,7 +143,7 @@ export default function portReducer(state: State, action: PortAction): State {
 			});
 		case FLOWDESIGNER_PORT_ADDS: {
 			const localAction = action;
-			if (!state.getIn(['nodes', action.nodeId])) {
+			if (!state.nodes?.[action.nodeId]) {
 				invariant(false, `Can't set a new ports on non existing node ${action.nodeId}`);
 			}
 			return action.ports.reduce(
@@ -149,98 +157,119 @@ export default function portReducer(state: State, action: PortAction): State {
 				state,
 			);
 		}
-		case FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES:
-			if (!state.getIn(['ports', action.portId])) {
-				invariant(
-					false,
-					`Can't set an graphical attribute on non existing port ${action.portId}`,
-				);
+		case FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES: {
+			if (!state.ports?.[action.portId]) {
+				invariant(false, `Can't set an graphical attribute on non existing port ${action.portId}`);
 			}
 
+			const port = state.ports[action.portId] as PortRecord;
 			try {
-				return state.mergeIn(
-					['ports', action.portId, 'graphicalAttributes'],
-					fromJS(action.graphicalAttributes),
-				);
+				return {
+					...state,
+					ports: {
+						...state.ports,
+						[action.portId]: port.set(
+							'graphicalAttributes',
+							port.graphicalAttributes.merge(action.graphicalAttributes),
+						),
+					},
+				};
 			} catch (error) {
 				console.error(error);
-				return state.mergeIn(
-					['ports', action.portId, 'graphicalAttributes', 'properties'],
-					fromJS(action.graphicalAttributes),
-				);
+				return {
+					...state,
+					ports: {
+						...state.ports,
+						[action.portId]: port.set(
+							'graphicalAttributes',
+							port.graphicalAttributes.set('properties', {
+								...(port.graphicalAttributes?.properties || {}),
+								...action.graphicalAttributes,
+							}),
+						),
+					},
+				};
 			}
-
+		}
 		case FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES:
-			if (!state.getIn(['ports', action.portId])) {
+			if (!state.ports?.[action.portId]) {
 				invariant(
 					false,
 					`Can't remove a graphical attribute on non existing port ${action.portId}`,
 				);
 			}
 
-			return state.deleteIn([
+			return deleteIn(state, [
 				'ports',
 				action.portId,
 				'graphicalAttributes',
 				'properties',
 				action.graphicalAttributesKey,
 			]);
-		case FLOWDESIGNER_PORT_SET_DATA:
-			if (!state.getIn(['ports', action.portId])) {
+		case FLOWDESIGNER_PORT_SET_DATA: {
+			if (!state.ports?.[action.portId]) {
 				invariant(false, `Can't set a data on non existing port ${action.portId}`);
 			}
 
+			const port = state.ports[action.portId] as PortRecord;
 			try {
-				return state.mergeIn(['ports', action.portId, 'data'], fromJS(action.data));
+				return {
+					...state,
+					ports: {
+						...state.ports,
+						[action.portId]: port.set(
+							'data',
+							new PortData({ ...(port.data as any), ...action.data }),
+						),
+					},
+				};
 			} catch (error) {
 				console.error(error);
-				return state.mergeIn(
-					['ports', action.portId, 'data', 'properties'],
-					fromJS(action.data),
-				);
+				return setIn(state, ['ports', action.portId, 'data', 'properties'], {
+					...(port.data as any)?.properties,
+					...action.data,
+				});
 			}
-
+		}
 		case FLOWDESIGNER_PORT_REMOVE_DATA:
-			if (!state.getIn(['ports', action.portId])) {
+			if (!state.ports?.[action.portId]) {
 				invariant(false, `Can't remove a data on non existing port ${action.portId}`);
 			}
 
-			return state.deleteIn(['ports', action.portId, 'data', 'properties', action.dataKey]);
+			return deleteIn(state, ['ports', action.portId, 'data', 'properties', action.dataKey]);
 		case FLOWDESIGNER_PORT_REMOVE: {
-			if (!state.getIn(['ports', action.portId])) {
+			if (!state.ports?.[action.portId]) {
 				invariant(false, `Can not remove port ${action.portId} since it doesn't exist`);
 			}
-			const port: PortRecordType | null | undefined = state.getIn(['ports', action.portId]);
+			const port = state.ports[action.portId] as PortRecord;
 			if (port) {
-				const newState = portInLink(state, action.portId)
-					.reduce(
-						(cumulativeState: State, link: LinkRecordType) =>
-							linkReducer(cumulativeState, removeLink(link.id)),
-						portOutLink(state, action.portId).reduce(
-							(cumulativeState: State, link: LinkRecordType) =>
-								linkReducer(cumulativeState, removeLink(link.id)),
-							state,
-						),
-					)
-					.deleteIn(['ports', action.portId])
-					.deleteIn([
-						'out',
-						state.getIn(['ports', action.portId, 'nodeId']),
-						action.portId,
-					])
-					.deleteIn([
-						'in',
-						state.getIn(['ports', action.portId, 'nodeId']),
-						action.portId,
-					]);
-				return newState.mergeDeep({
-					ports: indexPortMap(
-						filterPortsByDirection(
-							filterPortsByNode(newState.get('ports'), port.nodeId),
-							port.getPortDirection(),
-						),
+				const outLinks = Object.values(portOutLink(state, action.portId));
+				const inLinks = Object.values(portInLink(state, action.portId));
+
+				let newState: State = [...outLinks, ...inLinks].reduce<State>(
+					(cumulativeState, link) =>
+						linkReducer(cumulativeState, removeLink((link as LinkRecordType).id)),
+					state,
+				);
+
+				newState = deleteIn(newState, ['ports', action.portId]);
+				newState = deleteIn(newState, ['out', port.nodeId, action.portId]);
+				newState = deleteIn(newState, ['in', port.nodeId, action.portId]);
+
+				const reindexed = indexPortMap(
+					filterPortsByDirection(
+						filterPortsByNode(newState.ports, port.nodeId),
+						port.getPortDirection(),
 					),
-				});
+				);
+
+				return {
+					...newState,
+					ports: {
+						...newState.ports,
+						...reindexed,
+					},
+				};
 			}
 			return state;
 		}
