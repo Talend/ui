@@ -1,8 +1,3 @@
-vi.mock('eslint-plugin-storybook', () => ({
-	configs: { 'flat/recommended': [] },
-	rules: {},
-}));
-
 vi.mock('eslint-plugin-mdx', () => ({
 	configs: { flat: {} },
 	rules: {},

@@ -16,7 +16,6 @@ const talendPlugin = require('@talend/eslint-plugin');
 const angularPlugin = require('eslint-plugin-angular');
 const jestDomPlugin = require('eslint-plugin-jest-dom');
 const testingLibraryPlugin = require('eslint-plugin-testing-library');
-const storybookPlugin = require('eslint-plugin-storybook');
 const mdxPlugin = require('eslint-plugin-mdx');
 
 function tsConfig() {
@@ -219,5 +218,4 @@ module.exports = defineConfig([
 	...tsConfigs,
 	testConfig,
 	mdxConfig,
-	...storybookPlugin.configs['flat/recommended'],
 ]);
