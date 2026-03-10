@@ -32,7 +32,7 @@
     "build:lib:esm": "talend-scripts build --esm",
     "start": "echo nothing to start",
     "test": "vitest run",
-    "lint": "eslint .",
+    "lint": "eslint -o eslint-report.json --format json .",
     "test:update": "vitest run --update",
     "test:cov": "vitest run --coverage"
   },

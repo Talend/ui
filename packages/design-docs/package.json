@@ -7,7 +7,9 @@
   "scripts": {
     "build-storybook": "storybook build --docs",
     "start-storybook": "storybook dev -p 6006 --docs",
-    "lint": "eslint .",
+    "lint:js": "eslint -o eslint-report.json --format json .",
+    "lint:css": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
+    "lint": "npm run lint:js && npm run lint:css",
     "start": "storybook dev -p 6006 --docs",
     "test:demo": "storybook build --docs"
   },
@@ -50,9 +52,11 @@
     "@talend/scripts-core": "^19.0.0",
     "@talend/scripts-config-babel": "^13.10.1",
     "@talend/scripts-config-react-webpack": "^17.1.1",
+    "@talend/scripts-config-stylelint": "^4.5.1",
     "@talend/scripts-config-typescript": "^12.1.1",
     "@types/react": "^18.3.27",
     "eslint": "^10.0.3",
+    "stylelint": "^17.4.0",
     "i18next": "^23.16.8",
     "mdx-embed": "^1.1.2",
     "react": "^18.3.1",

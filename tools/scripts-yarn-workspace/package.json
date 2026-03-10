@@ -7,7 +7,7 @@
     "talend-yarn-workspace": "./src/index.js"
   },
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint -o eslint-report.json --format json ."
   },
   "author": "frontend@talend.com",
   "devDependencies": {

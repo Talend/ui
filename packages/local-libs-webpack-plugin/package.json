@@ -8,7 +8,7 @@
     "test": "vitest run --passWithNoTests",
     "test:cov": "vitest run --coverage --passWithNoTests",
     "test:update": "vitest run --update --passWithNoTests",
-    "lint": "eslint ."
+    "lint": "eslint -o eslint-report.json --format json ."
   },
   "keywords": [
     "webpack",

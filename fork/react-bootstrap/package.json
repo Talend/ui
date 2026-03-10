@@ -19,7 +19,7 @@
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
-    "lint": "eslint .",
+    "lint": "eslint -o eslint-report.json --format json .",
     "test": "vitest run",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

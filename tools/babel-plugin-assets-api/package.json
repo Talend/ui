@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint ./src",
+    "lint": "eslint -o eslint-report.json --format json ./src",
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "test:update": "vitest run --update"

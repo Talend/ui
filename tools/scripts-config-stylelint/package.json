@@ -3,24 +3,21 @@
   "description": "Stylelint configuration for @talend/scripts-core",
   "version": "4.5.1",
   "license": "Apache-2.0",
-  "main": "index.js",
+  "main": "index.mjs",
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
   "bugs": {
     "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
-    "lint": "eslint .",
-    "test": "echo \"Nothing to test\""
+    "lint": "eslint -o eslint-report.json --format json ."
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "stylelint": "^15.11.0",
-    "stylelint-config-sass-guidelines": "^10.0.0",
-    "stylelint-config-standard": "^34.0.0"
+    "stylelint-config-standard": "^40.0.0"
   },
   "devDependencies": {
     "@talend/eslint-config": "^14.1.1",
