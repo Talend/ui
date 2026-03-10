@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-core",
   "description": "Set of scripts",
-  "version": "19.0.0",
+  "version": "20.0.0",
   "license": "Apache-2.0",
   "exports": "./src/index.js",
   "type": "module",
@@ -33,7 +33,7 @@
   "dependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.28.6",
-    "@talend/eslint-config": "^14.1.1",
+    "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-utils": "^2.8.1",
     "@talend/scripts-config-babel": "^13.10.1",

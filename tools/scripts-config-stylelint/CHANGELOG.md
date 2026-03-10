@@ -1,5 +1,11 @@
 # @talend/scripts-config-stylelint
 
+## 5.0.0
+
+### Major Changes
+
+- 8c98cb7: feat: bump config for stylelint 17
+
 ## 4.5.1
 
 ### Patch Changes

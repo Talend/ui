@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 14.1.2
+
+### Patch Changes
+
+- 64e2fd5: fix: remove storybook eslint plugin from the list
+
 ## 14.1.1
 
 ### Patch Changes

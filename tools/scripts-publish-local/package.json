@@ -20,9 +20,9 @@
     "rimraf": "^6.1.2"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.1",
+    "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^19.0.0",
+    "@talend/scripts-core": "^20.0.0",
     "eslint": "^10.0.3"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
