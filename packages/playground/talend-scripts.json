@@ -4,8 +4,8 @@
   "webpack": {
     "monoRepoFixSourceMap": ["../dataviz/src", "../containers/src", "../components/src"],
     "config": {
-      "development": "./webpack.config.dev.js",
-      "production": "./webpack.config.dev.js"
+      "development": "./webpack.config.dev.cjs",
+      "production": "./webpack.config.dev.cjs"
     }
   },
   "dynamic-cdn-webpack-plugin": false

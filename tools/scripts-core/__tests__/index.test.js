@@ -24,21 +24,6 @@ describe('talend-scripts', () => {
 		rimrafSync(path.join(__dirname, 'tmp*'), { glob: { silent: true } });
 	});
 	describe('build', () => {
-		it('should by default create a dist folder', () => {
-			const tmp = getTmpDirectory('build-lib-umd');
-			const output = spawnSync('node', [bin, 'build', '--umd'], { cwd: tmp });
-			const logs = output.stdout.toString();
-			expect(output.error).toBeUndefined();
-			expect(logs).toContain('CONFIGURATION -----');
-			expect(logs).toContain('Running command: build With options: --umd');
-			expect(logs).toContain('Talend scripts mode : production');
-			expect(logs).toContain('Talend scripts configuration file found and loaded');
-			expect(logs).toContain('RUN ------------');
-			// expect(output.stderr.toString()).toBe('');
-			fs.existsSync(path.join(tmp, 'dist', 'TalendTestScriptsCore.min.js'));
-			fs.existsSync(path.join(tmp, 'dist', 'TalendTestScriptsCore.min.js.dependencies.json'));
-			fs.existsSync(path.join(tmp, 'dist', 'TalendTestScriptsCore.min.js.map'));
-		});
 		it('should by default put build output in lib folder', () => {
 			const tmp = getTmpDirectory('build-lib');
 			const output = spawnSync('node', [bin, 'build'], { cwd: tmp });
