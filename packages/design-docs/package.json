@@ -22,26 +22,26 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.19.4",
-    "@storybook/react": "^10.2.1",
+    "@algolia/autocomplete-js": "^1.19.6",
+    "@storybook/react": "^10.2.17",
     "@talend/design-system": "^12.1.1",
     "@talend/design-tokens": "^4.1.1",
     "@talend/storybook-docs": "^3.1.1",
     "@talend/icons": "^8.0.0",
-    "algoliasearch": "^4.25.3",
+    "algoliasearch": "^4.27.0",
     "classnames": "^2.5.1",
     "color-contrast-checker": "^2.1.0",
-    "react-hook-form": "^7.71.1",
+    "react-hook-form": "^7.71.2",
     "pkg-dir": "^7.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "use-overflow": "^1.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^10.2.1",
-    "@storybook/addon-links": "^10.2.1",
-    "@storybook/addon-docs": "^10.2.1",
-    "@storybook/react-vite": "^10.2.1",
+    "@storybook/addon-a11y": "^10.2.17",
+    "@storybook/addon-links": "^10.2.17",
+    "@storybook/addon-docs": "^10.2.17",
+    "@storybook/react-vite": "^10.2.17",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/locales-design-system": "^7.15.1",
@@ -54,7 +54,7 @@
     "@talend/scripts-config-react-webpack": "^17.1.1",
     "@talend/scripts-config-stylelint": "^5.0.0",
     "@talend/scripts-config-typescript": "^12.1.1",
-    "@types/react": "^18.3.27",
+    "@types/react": "^18.3.28",
     "eslint": "^10.0.3",
     "stylelint": "^17.4.0",
     "i18next": "^23.16.8",
@@ -62,7 +62,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "~6.3.0",
-    "storybook": "^10.2.10"
+    "storybook": "^10.2.17"
   },
   "private": true
 }

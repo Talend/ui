@@ -60,16 +60,16 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@talend/design-tokens": "^4.0.0",
-    "@talend/eslint-config": "^14.0.0",
-    "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-config-typescript": "^12.0.0",
-    "@types/node": "^20.19.30",
+    "@talend/design-tokens": "^4.1.1",
+    "@talend/eslint-config": "^14.1.2",
+    "@talend/eslint-plugin": "^1.8.1",
+    "@talend/scripts-config-typescript": "^12.1.1",
+    "@types/node": "^20.19.37",
     "fantasticon": "^4.1.0",
     "mkdirp": "^1.0.4",
     "prettier": "^3.8.1",
     "react": "^18.3.1",
-    "storybook": "^10.2.10",
+    "storybook": "^10.2.17",
     "svgo": "^3.3.3",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"
