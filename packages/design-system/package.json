@@ -17,6 +17,7 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build && talend-scripts build --esm",
+    "build:libx": "tsup && tsup-postbuild",
     "watch": "talend-scripts build --watch",
     "watch:esm": "talend-scripts build --watch --esm",
     "test": "vitest run",
@@ -57,6 +58,7 @@
     "typeface-source-sans-pro": "^1.1.13"
   },
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
     "@storybook/addon-a11y": "^10.2.1",
     "@storybook/addon-links": "^10.2.1",
     "@storybook/react": "^10.2.1",

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.ts"],"sourcesContent":["import Gesture, { focus } from './Gesture';\n\nexport { Gesture, focus };\n"],"mappings":"AAAA,OAAO,WAAW,aAAa;","names":[]}

@@ -17,6 +17,7 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:esm": "talend-scripts build --esm",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "test": "vitest run",
@@ -52,6 +53,7 @@
     "lodash": "^4.17.23"
   },
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/coverage-v8": "^4.0.18",
     "@talend/icons": "^8.0.0",

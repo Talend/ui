@@ -13,6 +13,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "echo nothing to start",
     "test": "vitest run",
@@ -35,6 +36,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
     "@talend/babel-plugin-import-from-index": "^1.13.1",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",

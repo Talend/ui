@@ -17,6 +17,7 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:esm": "talend-scripts build --esm",
     "lint": "eslint -o eslint-report.json --format json .",
     "test": "vitest run",
@@ -30,6 +31,7 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/coverage-v8": "^4.0.18",
     "@talend/babel-plugin-import-from-index": "^1.13.1",

@@ -1,0 +1,20 @@
+{
+  "name": "@talend/scripts-config-tsup",
+  "version": "1.0.0",
+  "description": "Shared tsup configuration for Talend library packages",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "bin": {
+    "tsup-postbuild": "./bin/postbuild.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "tsup": ">=8.0.0"
+  }
+}

@@ -15,6 +15,7 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:esm": "talend-scripts build --esm",
     "build": "talend-scripts build",
     "lint": "eslint -o eslint-report.json --format json .",
@@ -30,6 +31,7 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-core": "^20.0.0",
