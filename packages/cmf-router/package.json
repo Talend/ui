@@ -19,6 +19,7 @@
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
+    "build:libx": "tsup && tsup-postbuild",
     "start": "echo nothing to start",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -43,6 +44,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
+    "tsup": "^8.3.0",
     "@vitest/coverage-v8": "^4.0.18",
     "@redux-saga/testing-utils": "^1.2.1",
     "@talend/eslint-config": "^14.1.2",

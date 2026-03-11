@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:esm": "talend-scripts build --esm",
     "test": "vitest run",
     "lint": "eslint -o eslint-report.json --format json .",
@@ -34,6 +35,8 @@
     }
   },
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
+    "tsup": "^8.3.0",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/coverage-v8": "^4.0.18",
     "@talend/eslint-config": "^14.1.2",

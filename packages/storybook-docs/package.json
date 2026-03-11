@@ -8,6 +8,7 @@
   "scripts": {
     "build:styles": "webpack --config webpack.custom.js --mode=production",
     "build:lib": "talend-scripts build && npm run build:styles",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "npm run storybook",
     "lint:js": "eslint -o eslint-report.json --format json .",
@@ -40,6 +41,8 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
+    "tsup": "^8.3.0",
     "@figma/rest-api-spec": "^0.36.0",
     "@storybook/addon-a11y": "^10.2.1",
     "@storybook/react-vite": "^10.2.1",

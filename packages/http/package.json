@@ -29,6 +29,7 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "echo nothing to start",
     "test": "vitest run",
@@ -37,6 +38,8 @@
     "test:cov": "vitest run --coverage"
   },
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
+    "tsup": "^8.3.0",
     "@vitest/coverage-v8": "^4.0.18",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",

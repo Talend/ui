@@ -23,6 +23,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib": "talend-scripts build --tsc",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:esm": "talend-scripts build --esm",
     "lint": "eslint -o eslint-report.json --format json .",
     "test": "vitest run",
@@ -33,6 +34,8 @@
     "test:update": "vitest run --update"
   },
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
+    "tsup": "^8.3.0",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-core": "^20.0.0",

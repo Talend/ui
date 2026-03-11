@@ -16,6 +16,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib": "talend-scripts build",
+    "build:libx": "tsup && tsup-postbuild",
     "build:lib:tsc": "yarn run tsc",
     "build:lib:esm": "talend-scripts build --esm",
     "watch": "talend-scripts build --watch",
@@ -80,6 +81,8 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
+    "@talend/scripts-config-tsup": "^1.0.0",
+    "tsup": "^8.3.0",
     "@storybook/addon-a11y": "^10.2.1",
     "@storybook/addon-links": "^10.2.1",
     "@storybook/react": "^10.2.1",

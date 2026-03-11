@@ -45,6 +45,8 @@ build/
 tmp/
 lib/
 lib-esm/
+libx/
+libx-esm/
 storybook-static/
 dist/
 eslint-report.json
