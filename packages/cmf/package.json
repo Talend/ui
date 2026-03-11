@@ -46,7 +46,7 @@
     "@talend/utils": "^3.7.1",
     "commander": "^6.2.1",
     "hoist-non-react-statics": "^3.3.2",
-    "immutable": "^3.8.2",
+    "immutable": "^3.8.3",
     "invariant": "^2.2.4",
     "lodash": "^4.17.23",
     "nested-combine-reducers": "^1.2.2",

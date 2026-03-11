@@ -47,7 +47,7 @@
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
     "redux-saga": "^1.4.2",
-    "storybook": "^10.2.10",
+    "storybook": "^10.2.17",
     "vitest": "^4.0.18"
   },
   "dependencies": {
@@ -58,7 +58,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
-    "storybook": "^10.2.10",
+    "storybook": "^10.2.17",
     "redux-saga": "^1.4.2"
   }
 }

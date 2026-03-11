@@ -68,7 +68,7 @@
     "eslint": "^10.0.3",
     "stylelint": "^17.4.0",
     "i18next": "^23.16.8",
-    "immutable": "^3.8.2",
+    "immutable": "^3.8.3",
     "jsdom": "^26.1.0",
     "prettier": "^3.8.1",
     "prop-types": "^15.8.1",

@@ -25,11 +25,11 @@
   },
   "dependencies": {
     "@eslint/compat": "^2.0.3",
-    "@eslint/js": "^9.17.0",
+    "@eslint/js": "^9.39.4",
     "@talend/eslint-plugin": "^1.8.1",
     "@testing-library/dom": "^9.3.4",
-    "@typescript-eslint/parser": "^8.19.1",
-    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-angular": "^5.0.0",
@@ -40,8 +40,8 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-testing-library": "^7.16.0",
-    "globals": "^15.14.0",
-    "typescript-eslint": "^8.56.1"
+    "globals": "^15.15.0",
+    "typescript-eslint": "^8.57.0"
   },
   "publishConfig": {
     "access": "public"
