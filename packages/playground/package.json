@@ -6,10 +6,9 @@
   "type": "module",
   "main": "app/index.js",
   "scripts": {
-    "build": "vite build && cmf-settings",
-    "test": "echo nothing to test in playground",
-    "test:demo:umd": "cross-env BASENAME='/playground/' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
     "start": "vite dev",
+    "build": "vite build && cmf-settings",
+    "build:settings": "cmf-settings",
     "start-dist": "node serve-dist.mjs",
     "lint": "eslint -o eslint-report.json --format json ."
   },
@@ -31,7 +30,6 @@
     "@talend/scripts-config-stylelint": "^5.0.0",
     "@talend/scripts-core": "^20.0.0",
     "@vitejs/plugin-react": "^4.7.0",
-    "copy-webpack-plugin": "^14.0.0",
     "cross-env": "^10.1.0",
     "esbuild-plugin-react-virtualized": "^1.0.5",
     "eslint": "^10.0.3",
@@ -39,8 +37,7 @@
     "mockjs": "^1.1.0",
     "sass": "^1.97.3",
     "vite": "^7.3.1",
-    "vite-plugin-mock": "^3.0.2",
-    "webpack": "^5.104.1"
+    "vite-plugin-mock": "^3.0.2"
   },
   "dependencies": {
     "@talend/assets-api": "^2.1.1",
