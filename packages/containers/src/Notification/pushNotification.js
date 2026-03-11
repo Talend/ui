@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import Immutable from 'immutable';
+import cmf from '@talend/react-cmf';
 import { randomUUID } from '@talend/utils';
 
 /**
@@ -14,12 +14,15 @@ export default function pushNotification(state, notification) {
 		return state;
 	}
 	const path = ['Container(Notification)', 'Notification', 'notifications'];
-	let notifs = state.cmf.components.getIn(path, new Immutable.List());
-	notifs = notifs.push({
-		id: randomUUID(),
-		...notification,
-	});
+	const notifs =
+		cmf.selectors.components.getComponentStateProperty(
+			state,
+			'Container(Notification)',
+			'Notification',
+			'notifications',
+		) || [];
+	const newNotifs = [...notifs, { id: randomUUID(), ...notification }];
 	const newState = { ...state };
-	newState.cmf.components = state.cmf.components.setIn(path, notifs);
+	newState.cmf.components = state.cmf.components.setIn(path, newNotifs);
 	return newState;
 }

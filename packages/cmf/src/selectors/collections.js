@@ -1,4 +1,4 @@
-import { List } from 'immutable';
+import { Map, List } from 'immutable';
 import getToJSMemoized from './toJS';
 
 export function getAll(state) {
@@ -52,4 +52,64 @@ export function toJS(state, path) {
 		selectors[joinedPath] = getToJSMemoized(calledState => get(calledState, path));
 	}
 	return selectors[joinedPath](state);
+}
+
+/**
+ * Get a collection as a plain JS object/array (no Immutable types leaked).
+ * @param {Object} state
+ * @param {String} collectionId
+ * @returns {Object|Array|undefined}
+ */
+export function getCollectionPlain(state, collectionId) {
+	const collection = state.cmf.collections.get(collectionId);
+	if (collection == null) return undefined;
+	if (typeof collection.toJS === 'function') return collection.toJS();
+	return collection;
+}
+
+/**
+ * Get the items from a collection, handling both Map-wrapped and direct List forms.
+ * Covers the `Map.isMap(collection) ? collection.get('items') : collection` pattern
+ * from containers/src/List/selector.js.
+ * @param {Object} state
+ * @param {String} collectionId
+ * @returns {Array|undefined}
+ */
+function extractItems(collection) {
+	if (Map.isMap(collection)) {
+		return collection.get('items');
+	}
+	return collection;
+}
+
+export function getCollectionItems(state, collectionId) {
+	const collection = state.cmf.collections.get(collectionId);
+	if (collection == null) return undefined;
+	const items = extractItems(collection);
+	if (items == null) return undefined;
+	if (typeof items.toJS === 'function') return items.toJS();
+	return items;
+}
+
+/**
+ * Find an item in a collection by its id field, returning a plain JS object.
+ * Covers the `.find(r => r.get('id') === id)` pattern from
+ * containers/src/DeleteResource/DeleteResource.connect.js.
+ * @param {Object} state
+ * @param {String} collectionId
+ * @param {String} itemId
+ * @returns {Object|undefined}
+ */
+export function getCollectionItem(state, collectionId, itemId) {
+	const collection = state.cmf.collections.get(collectionId);
+	if (collection == null) return undefined;
+	const items = extractItems(collection);
+	if (!items || typeof items.find !== 'function') return undefined;
+	const found = items.find(item => {
+		if (item && typeof item.get === 'function') return item.get('id') === itemId;
+		return item && item.id === itemId;
+	});
+	if (found == null) return undefined;
+	if (typeof found.toJS === 'function') return found.toJS();
+	return found;
 }

@@ -83,8 +83,8 @@ describe('Notification.pushNotification', () => {
 			'Notification',
 			'notifications',
 		]);
-		expect(notifications.size).toBe(1);
-		expect(notifications.get(0).message).toBe('hello world');
+		expect(notifications.length).toBe(1);
+		expect(notifications[0].message).toBe('hello world');
 	});
 
 	it('should add a Notification in the state even if the state slot is not yet available', () => {
@@ -97,8 +97,8 @@ describe('Notification.pushNotification', () => {
 			'Notification',
 			'notifications',
 		]);
-		expect(notifications.size).toBe(1);
-		expect(notifications.get(0).message).toBe('hello world');
+		expect(notifications.length).toBe(1);
+		expect(notifications[0].message).toBe('hello world');
 	});
 
 	it('should delete all Notification in the state', () => {
@@ -117,7 +117,7 @@ describe('Notification.pushNotification', () => {
 			'Notification',
 			'notifications',
 		]);
-		expect(notifications.size).toBe(0);
+		expect(notifications.length).toBe(0);
 	});
 
 	it('should not change the state if no notification', () => {

@@ -1,6 +1,5 @@
 import { call, put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
-import { fromJS } from 'immutable';
 import get from 'lodash/get';
 import Component from './ComponentForm.component';
 import { COMPONENT_FORM_SET_DIRTY } from './ComponentForm.actions';
@@ -78,7 +77,7 @@ export function* onFormSubmit(componentId, submitURL, action) {
 				prev
 					.setIn(['initialState', 'jsonSchema'], prev.get('jsonSchema'))
 					.setIn(['initialState', 'uiSchema'], prev.get('uiSchema'))
-					.setIn(['initialState', 'properties'], fromJS(action.properties)),
+					.setIn(['initialState', 'properties'], action.properties),
 			componentId,
 		)(undefined, getReduxState),
 	);

@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Map } from 'immutable';
 import cmf, { cmfConnect, useCMFContext } from '@talend/react-cmf';
 import { randomUUID } from '@talend/utils';
 
 import { deleteACK } from '../../actions/ack';
 
-export const DEFAULT_STATE = new Map({});
+export const DEFAULT_STATE = {};
 
 /**
  * {
@@ -40,14 +39,11 @@ function ACKDispatcher(props) {
 			cache[uuid].push(requestId);
 		}
 	}
-	(props.acks || [])
-		.filter(ack => ack.get('received') === true && ack.get('actionCreator'))
-		.forEach((ack, requestId) => {
-			let data = ack.get('data');
-			if (data === undefined) {
-				data = {};
-			}
-			dispatchAndUpdateAck(ack.get('actionCreator'), data, requestId);
+	Object.entries(props.acks || {})
+		.filter(([, ack]) => ack.received === true && ack.actionCreator)
+		.forEach(([requestId, ack]) => {
+			const data = ack.data !== undefined ? ack.data : {};
+			dispatchAndUpdateAck(ack.actionCreator, data, requestId);
 		});
 
 	return null;

@@ -1,7 +1,6 @@
-import { Map } from 'immutable';
 import { ACK_ADD_CONTEXT, ACK_RECEIVE_MESSAGE, ACK_DELETE } from '../constants/index';
 
-const DEFAULT_STATE = new Map({});
+const DEFAULT_STATE = {};
 
 /**
  * ackReducer
@@ -12,13 +11,26 @@ const DEFAULT_STATE = new Map({});
 export default function ackReducer(state = DEFAULT_STATE, action) {
 	switch (action.type) {
 		case ACK_ADD_CONTEXT:
-			return state
-				.setIn([action.requestId, 'data'], action.data)
-				.setIn([action.requestId, 'actionCreator'], action.actionCreator);
+			return {
+				...state,
+				[action.requestId]: {
+					...(state[action.requestId] || {}),
+					data: action.data,
+					actionCreator: action.actionCreator,
+				},
+			};
 		case ACK_RECEIVE_MESSAGE:
-			return state.setIn([action.requestId, 'received'], true);
-		case ACK_DELETE:
-			return state.remove(action.requestId);
+			return {
+				...state,
+				[action.requestId]: {
+					...(state[action.requestId] || {}),
+					received: true,
+				},
+			};
+		case ACK_DELETE: {
+			const { [action.requestId]: _, ...rest } = state;
+			return rest;
+		}
 		default:
 			return state;
 	}

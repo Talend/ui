@@ -2,11 +2,15 @@ import cmf from '@talend/react-cmf';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import { createSelector } from 'reselect';
-import { Map, List } from 'immutable';
 
 function contains(listItem, query, columns) {
 	let item = listItem;
-	if (Map.isMap(listItem)) {
+	if (
+		listItem != null &&
+		!Array.isArray(listItem) &&
+		typeof listItem === 'object' &&
+		typeof listItem.toJS === 'function'
+	) {
 		item = listItem.toJS();
 	}
 	return columns.some(
@@ -17,14 +21,16 @@ function contains(listItem, query, columns) {
 }
 
 function getCollection(state, collectionId) {
-	return state.cmf.collections.get(collectionId);
+	if (collectionId == null) return undefined;
+	return cmf.selectors.collections.get(state, collectionId);
 }
 
 export function getCollectionItems(state, collectionId) {
 	const collection = getCollection(state, collectionId);
 
-	if (Map.isMap(collection)) {
-		return collection.get('items');
+	if (collection != null && !Array.isArray(collection) && typeof collection === 'object') {
+		const items = typeof collection.get === 'function' ? collection.get('items') : collection.items;
+		return items !== undefined ? items : collection;
 	}
 	return collection;
 }
@@ -32,15 +38,18 @@ export function getCollectionItems(state, collectionId) {
 export function configureGetPagination(state, { collectionId }) {
 	const collection = getCollection(state, collectionId);
 
-	if (Map.isMap(collection)) {
-		return collection.get('pagination');
+	if (collection != null && !Array.isArray(collection) && typeof collection === 'object') {
+		return typeof collection.get === 'function'
+			? collection.get('pagination')
+			: collection.pagination;
 	}
 
 	return null;
 }
 
 function getComponentState(collectionId) {
-	return state => state.cmf.components.getIn(['Container(List)', collectionId || 'default']);
+	return state =>
+		cmf.selectors.components.getComponentState(state, 'Container(List)', collectionId || 'default');
 }
 
 export function configureGetFilteredItems(configure) {
@@ -51,7 +60,7 @@ export function configureGetFilteredItems(configure) {
 		componentState => {
 			let results = localConfig.items;
 			if (componentState) {
-				const searchQuery = componentState.get('searchQuery');
+				const searchQuery = componentState?.searchQuery;
 				if (searchQuery && results) {
 					results = results.filter(item => contains(item, searchQuery, localConfig.columns));
 				}
@@ -65,8 +74,8 @@ export function configureGetFilteredItems(configure) {
 
 export function compare(sortBy) {
 	return (a, b) => {
-		let aValue = a.get(sortBy);
-		let bValue = b.get(sortBy);
+		let aValue = typeof a.get === 'function' ? a.get(sortBy) : a[sortBy];
+		let bValue = typeof b.get === 'function' ? b.get(sortBy) : b[sortBy];
 
 		if (typeof aValue === 'string' && typeof bValue === 'string') {
 			aValue = aValue.toLowerCase();
@@ -93,13 +102,13 @@ export function compare(sortBy) {
 }
 
 export function getSortedResults(componentState, config, listItems) {
-	if (!List.isList(listItems)) {
-		return new List();
+	if (listItems == null || typeof listItems.filter !== 'function') {
+		return [];
 	}
 	let results = listItems;
 	if (!isEmpty(componentState)) {
-		const sortBy = componentState.get('sortOn');
-		const sortAsc = componentState.get('sortAsc');
+		const sortBy = componentState.sortOn;
+		const sortAsc = componentState.sortAsc;
 		const sortedColumn = get(config, 'columns', []).find(column => column.key === sortBy);
 
 		if (get(sortedColumn, 'sortFunction')) {
@@ -130,8 +139,8 @@ export function configureGetPagedItems(configure, listItems) {
 	const getPagedList = createSelector(getComponentState(configure.collectionId), componentState => {
 		let results = listItems;
 		if (componentState) {
-			const startIndex = componentState.get('startIndex');
-			const itemsPerPage = componentState.get('itemsPerPage');
+			const startIndex = componentState.startIndex;
+			const itemsPerPage = componentState.itemsPerPage;
 
 			if (itemsPerPage > 0 && startIndex > 0) {
 				results = results.slice(

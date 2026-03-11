@@ -163,10 +163,10 @@ describe('List Selector tests', () => {
 			return 0;
 		});
 
-		const componentState = fromJS({
+		const componentState = {
 			sortOn: 'data',
 			sortAsc: true,
-		});
+		};
 		const config = {
 			columns: [
 				{
@@ -190,7 +190,7 @@ describe('List Selector tests', () => {
 		// Sorting by column and custom sort function
 		expect(
 			getSortedResults(
-				fromJS({ sortOn: 'a', sortAsc: true }),
+				{ sortOn: 'a', sortAsc: true },
 				{ columns: [{ key: 'a', sortFunction: 'myCustomSortFn' }] },
 				fromJS([{ a: 1 }, { a: 3 }, { a: 2 }]),
 			),
@@ -199,7 +199,7 @@ describe('List Selector tests', () => {
 		// Desc sort
 		expect(
 			getSortedResults(
-				fromJS({ sortOn: 'key', sortAsc: false }),
+				{ sortOn: 'key', sortAsc: false },
 				config,
 				fromJS([{ key: 1 }, { key: 3 }, { key: 2 }]),
 			),
@@ -213,6 +213,6 @@ describe('List Selector tests', () => {
 		);
 
 		// With no items
-		expect(getSortedResults(componentState, config, null)).toEqual(new List());
+		expect(getSortedResults(componentState, config, null)).toEqual([]);
 	});
 });
