@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/Gesture/constants.ts"],"sourcesContent":["export const FIRST = 0;\nexport const LAST = Number.POSITIVE_INFINITY;\n"],"mappings":"AAAO,MAAM,QAAQ;AACd,MAAM,OAAO,OAAO;","names":[]}

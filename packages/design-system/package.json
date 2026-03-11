@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@talend/scripts-config-tsup": "^1.0.0",
+    "tsup": "^8.3.0",
     "@storybook/addon-a11y": "^10.2.1",
     "@storybook/addon-links": "^10.2.1",
     "@storybook/react": "^10.2.1",

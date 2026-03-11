@@ -29,7 +29,7 @@ with the current `lib-esm/` before cutting over.
 
 ### Phase 0 — Setup ✅ DONE
 
-- [x] Add `tsup` to root `devDependencies`
+- [x] Add `tsup` as `devDependency` to each consumer package (not the root — pnpm-compatible explicit deps)
 - [x] Create `tools/scripts-config-tsup/` workspace package
   - [x] Exports `baseConfig()` helper — common tsup options
   - [x] Exports `copyAssets()` helper — replaces `cpx2` copy step

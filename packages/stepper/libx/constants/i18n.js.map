@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/constants/i18n.ts"],"sourcesContent":["const STEPPER_NAMESPACE = 'tui-stepper';\n\nexport default {\n\tSTEPPER_NAMESPACE,\n};\n"],"mappings":"AAAA,MAAM,oBAAoB;AAE1B,IAAO,eAAQ;AAAA,EACd;AACD;","names":[]}

@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@talend/scripts-config-tsup": "^1.0.0",
+    "tsup": "^8.3.0",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/react-faceted-search": "22.1.1",
