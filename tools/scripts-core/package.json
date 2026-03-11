@@ -22,14 +22,6 @@
     "test": "vitest run",
     "test:cov": "vitest run"
   },
-  "peerDependencies": {
-    "@talend/scripts-config-react-webpack": ">=16.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@talend/scripts-config-react-webpack": {
-      "optional": true
-    }
-  },
   "dependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.28.6",
@@ -44,8 +36,6 @@
     "lodash": "^4.17.23",
     "rimraf": "^6.1.2",
     "typescript": "^5.9.3",
-    "webpack": "^5.104.1",
-    "webpack-merge": "^5.10.0",
     "yargs": "^15.4.1"
   },
   "devDependencies": {
