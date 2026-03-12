@@ -5,6 +5,7 @@
 '@talend/react-components': patch
 '@talend/react-sagas': minor
 '@talend/react-stepper': patch
+'@talend/react-flow-designer': major
 ---
 
 feat: remove immutable dependency
