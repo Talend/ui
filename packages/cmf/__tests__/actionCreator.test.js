@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { mock } from '../src';
 import actionCreatorAPI from '../src/actionCreator';
 
@@ -33,7 +34,7 @@ describe('CMF action', () => {
 	});
 
 	it('should register an actionCreator in context', () => {
-		const creator = jest.fn();
+		const creator = vi.fn();
 		const id = 'myactioncreator';
 		context.registry = {};
 		actionCreatorAPI.register(id, creator, context);

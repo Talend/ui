@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import onEvent from '../src/onEvent';
 
 describe('onEvent', () => {
@@ -8,12 +9,12 @@ describe('onEvent', () => {
 		beforeEach(() => {
 			instance = {
 				props: {
-					setState: jest.fn(),
+					setState: vi.fn(),
 					state: { docked: false },
 				},
 			};
 			config = {};
-			currentHandler = jest.fn();
+			currentHandler = vi.fn();
 		});
 		it('should return a function', () => {
 			const handler = onEvent.getOnEventSetStateHandler(instance, {}, config, currentHandler);

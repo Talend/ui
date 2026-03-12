@@ -5,7 +5,8 @@ export default defineConfig({
 	plugins: [react({ include: /\.[jt]sx?$/ })],
 	esbuild: {
 		loader: 'tsx',
-		include: /src\/.*\.[jt]sx?$/,
+		include: /(src|__tests__)\/.*\.[jt]sx?$/,
+		exclude: /node_modules/,
 		jsx: 'automatic',
 		tsconfigRaw: {
 			compilerOptions: {
@@ -16,8 +17,13 @@ export default defineConfig({
 	test: {
 		globals: true,
 		environment: 'jsdom',
+		environmentOptions: {
+			jsdom: {
+				url: 'http://localhost',
+			},
+		},
 		setupFiles: ['src/test-setup.ts'],
-		include: ['src/**/*.test.{js,jsx,ts,tsx}'],
+		include: ['src/**/*.test.{js,jsx,ts,tsx}', '__tests__/**/*.test.{js,jsx,ts,tsx}'],
 		exclude: ['lib/**', 'lib-esm/**'],
 		coverage: {
 			provider: 'v8',

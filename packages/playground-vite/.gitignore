@@ -1,3 +1,4 @@
 dist
 package-lock.json
 .cache-loader/
+mockVite/_server.bundled_*.mjs

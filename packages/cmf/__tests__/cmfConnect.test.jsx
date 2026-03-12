@@ -752,13 +752,13 @@ describe('cmfConnect', () => {
 				return {
 					cmf: {
 						...state.cmf,
-						components: fromJS({
+						components: {
 							Button: {
 								default: {
 									inProgress: false,
 								},
 							},
-						}),
+						},
 					},
 				};
 			};
@@ -766,7 +766,7 @@ describe('cmfConnect', () => {
 
 			render(
 				<mock.Provider {...context}>
-					<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={new Map()} />
+					<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={{}} />
 				</mock.Provider>,
 			);
 			const btn = screen.getByRole('button');

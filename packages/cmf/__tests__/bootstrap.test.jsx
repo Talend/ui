@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import ReactDOM from 'react-dom/client';
 
 import createSagaMiddleware from 'redux-saga';
@@ -12,53 +13,69 @@ import registry from '../src/registry';
 import sagas from '../src/sagas';
 import storeAPI from '../src/store';
 
-jest.mock('react-dom/client', () => ({
-	createRoot: jest.fn().mockImplementation(() => ({
-		render: jest.fn(),
-	})),
+vi.mock('react-dom/client', () => ({
+	default: {
+		createRoot: vi.fn().mockImplementation(() => ({
+			render: vi.fn(),
+		})),
+	},
 }));
 
-jest.mock('redux-saga', () => ({
+vi.mock('redux-saga', () => ({
 	__esModule: true, // this property makes it work
 	default: (() => {
-		const run = jest.fn();
-		const middleware = jest.fn(() => ({ reduxSagaMocked: true, run }));
+		const run = vi.fn();
+		const middleware = vi.fn(() => ({ reduxSagaMocked: true, run }));
 		middleware.run = run;
 		middleware.clearRun = () => run.mockClear();
 		return middleware;
 	})(),
 	effects: {
-		spawn: jest.fn(),
+		spawn: vi.fn(),
 	},
 }));
-jest.mock('../src/onError', () => ({
-	report: jest.fn(),
-	bootstrap: jest.fn(),
+vi.mock('../src/onError', () => ({
+	default: {
+		report: vi.fn(),
+		bootstrap: vi.fn(),
+	},
 }));
-jest.mock('../src/registry', () => ({
-	registerMany: jest.fn(),
-	getRegistry: jest.fn(),
+vi.mock('../src/registry', () => ({
+	default: {
+		registerMany: vi.fn(),
+		getRegistry: vi.fn(),
+	},
 }));
-jest.mock('../src/actionCreator', () => ({
-	registerMany: jest.fn(),
+vi.mock('../src/actionCreator', () => ({
+	default: {
+		registerMany: vi.fn(),
+	},
 }));
-jest.mock('../src/component', () => ({
-	registerMany: jest.fn(),
+vi.mock('../src/component', () => ({
+	default: {
+		registerMany: vi.fn(),
+	},
 }));
-jest.mock('../src/expression', () => ({
-	registerMany: jest.fn(),
+vi.mock('../src/expression', () => ({
+	default: {
+		registerMany: vi.fn(),
+	},
 }));
-jest.mock('../src/sagas', () => ({
-	registerMany: jest.fn(),
+vi.mock('../src/sagas', () => ({
+	default: {
+		registerMany: vi.fn(),
+	},
 }));
-jest.mock('../src/register', () => ({
-	registerInternals: jest.fn(),
+vi.mock('../src/register', () => ({
+	registerInternals: vi.fn(),
 }));
 
-jest.mock('../src/store', () => ({
-	addPreReducer: jest.fn(),
-	setHttpMiddleware: jest.fn(),
-	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn() })),
+vi.mock('../src/store', () => ({
+	default: {
+		addPreReducer: vi.fn(),
+		setHttpMiddleware: vi.fn(),
+		initialize: vi.fn(() => ({ dispatch: vi.fn(), applyMiddleware: vi.fn() })),
+	},
 }));
 
 describe('bootstrap', () => {

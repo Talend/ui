@@ -305,7 +305,7 @@ export default function cmfConnect({
 			}
 			let spreadedState = {};
 			if ((spreadCMFState || props.spreadCMFState) && props.state) {
-				spreadedState = props.state.toJS();
+				spreadedState = { ...props.state };
 			}
 
 			const newProps = {

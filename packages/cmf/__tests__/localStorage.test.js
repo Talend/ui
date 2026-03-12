@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import localStorageAPI from '../src/localStorage';
 
 const PATHS = [
@@ -45,7 +46,7 @@ const KEY = 'test-cmf-localStorage';
 describe('reduxLocalStorage', () => {
 	const realEventListener = window.addEventListener;
 	beforeEach(() => {
-		window.addEventListener = jest.fn();
+		window.addEventListener = vi.fn();
 	});
 	afterAll(() => {
 		window.addEventListener = realEventListener;
