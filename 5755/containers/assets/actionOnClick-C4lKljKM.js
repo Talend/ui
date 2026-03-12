@@ -1,0 +1,1 @@
+import{_ as e}from"./iframe-yixHU2nE.js";function c(r,a){return r.href?{}:!r.actionCreator&&!e(r,"payload.type")?{}:{onClick(o,t){r.actionCreator?a.dispatchActionCreator(r.actionCreator,o,t):a.dispatch({model:a.model,...r.payload})}}}export{c as g};
