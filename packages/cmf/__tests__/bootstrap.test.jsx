@@ -81,7 +81,7 @@ vi.mock('../src/store', () => ({
 describe('bootstrap', () => {
 	beforeEach(() => {
 		onError.bootstrap.mockClear();
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 	describe('error management', () => {
 		it('should bootstrap onError', async () => {
@@ -114,7 +114,7 @@ describe('bootstrap', () => {
 			registry.registerMany.mockClear();
 			const options = {
 				registry: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -124,7 +124,7 @@ describe('bootstrap', () => {
 			component.registerMany.mockClear();
 			const options = {
 				components: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -134,7 +134,7 @@ describe('bootstrap', () => {
 			expression.registerMany.mockClear();
 			const options = {
 				expressions: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -144,7 +144,7 @@ describe('bootstrap', () => {
 			actionCreator.registerMany.mockClear();
 			const options = {
 				actionCreators: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -154,7 +154,7 @@ describe('bootstrap', () => {
 			sagas.registerMany.mockClear();
 			const options = {
 				sagas: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -173,14 +173,14 @@ describe('bootstrap', () => {
 	describe('redux', () => {
 		it('should call storeAPI.addPreReducer if options.preReducer', async () => {
 			const options = {
-				preReducer: jest.fn(),
+				preReducer: vi.fn(),
 			};
 			await bootstrap(options);
 			expect(storeAPI.addPreReducer).toHaveBeenCalledWith(options.preReducer);
 		});
 		it('should call storeAPI.setHttpMiddleware if options.preReducer', async () => {
 			const options = {
-				httpMiddleware: jest.fn(),
+				httpMiddleware: vi.fn(),
 			};
 			await bootstrap(options);
 			expect(storeAPI.setHttpMiddleware).toHaveBeenCalledWith(options.httpMiddleware);
@@ -189,7 +189,7 @@ describe('bootstrap', () => {
 			storeAPI.initialize.mockClear();
 			createSagaMiddleware.mockClear();
 			const options = {
-				reducer: { app: jest.fn() },
+				reducer: { app: vi.fn() },
 				preloadedState: {},
 				middlewares: [],
 			};

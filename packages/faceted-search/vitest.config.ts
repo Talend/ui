@@ -20,7 +20,7 @@ export default defineConfig({
 		env: {
 			TZ: 'UTC',
 		},
-		setupFiles: ['jest.setup.js'],
+		setupFiles: ['test-setup.js'],
 		include: ['src/**/*.test.{js,jsx,ts,tsx}'],
 		exclude: ['lib/**', 'lib-esm/**'],
 		coverage: {
