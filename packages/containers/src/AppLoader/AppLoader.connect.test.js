@@ -1,14 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { AppLoaderContainer, mapStateToProps } from './AppLoader.connect';
 
-/**
- * Returns a plain object shim with the Immutable.Map interface required by
- * AppLoader.connect.jsx's mapStateToProps which calls `.has(collectionName)`.
- */
-const makeCollections = (keys = []) => ({
-	has: key => keys.includes(key),
-});
-
 describe('AppLoader container', () => {
 	describe('rendering', () => {
 		it('should render child if not loading', () => {
@@ -34,7 +26,7 @@ describe('AppLoader container', () => {
 	describe('mapStateToProps', () => {
 		it('should return loading to false if we have nothing to wait', () => {
 			// given
-			const state = { cmf: { collections: makeCollections() } };
+			const state = { cmf: { collections: {} } };
 			const ownProps = {};
 			// when
 			const result = mapStateToProps(state, ownProps);
@@ -44,7 +36,7 @@ describe('AppLoader container', () => {
 
 		it('should return loading to true if there is something to wait', () => {
 			// given
-			const state = { cmf: { collections: makeCollections(['test2']) } };
+			const state = { cmf: { collections: { test2: null } } };
 			const ownProps = { hasCollections: ['test', 'test2'] };
 			// when
 			const result = mapStateToProps(state, ownProps);
@@ -56,7 +48,7 @@ describe('AppLoader container', () => {
 			// given
 			const state = {
 				cmf: {
-					collections: makeCollections(['test2', 'test']),
+					collections: { test2: null, test: null },
 				},
 			};
 			const ownProps = { hasCollections: ['test', 'test2'] };

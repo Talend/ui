@@ -7,21 +7,6 @@ import Connect from './EditableText.connect';
 import Container, { DISPLAY_NAME } from './EditableText.container';
 import { getEditMode } from './EditableText.selectors';
 
-/** Plain-object shim implementing .get(key, def) and .toJS() for EditableText container state prop. */
-const makeState = editMode => ({
-	get: (k, def) => (k === 'editMode' ? editMode : def),
-	toJS: () => ({ editMode }),
-});
-/** Plain-object shim implementing .getIn([outer, inner], def) for state.cmf.components. */
-const makeComponents = (data = {}) => ({
-	getIn([outer, inner], def) {
-		const outerVal = data[outer];
-		if (outerVal == null) return def;
-		const innerVal = outerVal[inner];
-		return innerVal !== undefined ? innerVal : def;
-	},
-});
-
 describe('Connect', () => {
 	it('should connect EditableText', () => {
 		expect(Connect.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
@@ -49,7 +34,7 @@ describe('EditableText container', () => {
 	it('should setState when submit event trigger', async () => {
 		let state;
 		const props = {
-			state: makeState(true),
+			state: { editMode: true },
 			setState: jest.fn(fn => {
 				state = fn;
 			}),
@@ -70,7 +55,7 @@ describe('EditableText container', () => {
 		const props = {
 			actionCreatorSubmit: 'mySubmitActionCreator',
 			dispatchActionCreator: jest.fn(),
-			state: makeState(true),
+			state: { editMode: true },
 			setState: jest.fn(),
 			text: 'my text',
 		};
@@ -91,7 +76,7 @@ describe('EditableText container', () => {
 	it('should setState when cancel event trigger', async () => {
 		let state;
 		const props = {
-			state: makeState(true),
+			state: { editMode: true },
 			setState: jest.fn(fn => {
 				state = fn;
 			}),
@@ -106,7 +91,7 @@ describe('EditableText container', () => {
 	it('should call onCancel when cancel event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: makeState(true),
+			state: { editMode: true },
 			onCancel: jest.fn(),
 			text: 'my text',
 		};
@@ -117,7 +102,7 @@ describe('EditableText container', () => {
 	it('should call actionCreatorCancel when cancel event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: makeState(true),
+			state: { editMode: true },
 			actionCreatorCancel: 'myCancelActionCreator',
 			dispatchActionCreator: jest.fn(),
 			text: 'my text',
@@ -135,7 +120,7 @@ describe('EditableText container', () => {
 	it('should call setState when edit event trigger', async () => {
 		let state;
 		const props = {
-			state: makeState(false),
+			state: { editMode: false },
 			setState: jest.fn(fn => {
 				state = fn;
 			}),
@@ -150,7 +135,7 @@ describe('EditableText container', () => {
 	it('should call onEdit when edit event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: makeState(false),
+			state: { editMode: false },
 			onEdit: jest.fn(),
 			text: 'my text',
 		};
@@ -161,7 +146,7 @@ describe('EditableText container', () => {
 	it('should call actionCreatorEdit via dispatchActionCreator when edit event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: makeState(false),
+			state: { editMode: false },
 			dispatchActionCreator: jest.fn(),
 			actionCreatorEdit: 'myEditActionCreator',
 			text: 'my text',
@@ -181,7 +166,7 @@ describe('EditableText container', () => {
 
 		const props = {
 			setState: jest.fn(),
-			state: makeState(true),
+			state: { editMode: true },
 			onChange: jest.fn(),
 			text: 'my text',
 		};
@@ -197,7 +182,7 @@ describe('EditableText container', () => {
 
 		const props = {
 			setState: jest.fn(),
-			state: makeState(true),
+			state: { editMode: true },
 			dispatchActionCreator: jest.fn(),
 			actionCreatorChange: 'myChangeActionCreator',
 			text: 'my text',
@@ -220,11 +205,11 @@ describe('EditableText container', () => {
 
 describe('EditableText selectors', () => {
 	let mockState;
-	const componentState = makeState(true);
+	const componentState = { editMode: true };
 	beforeEach(() => {
 		mockState = {
 			cmf: {
-				components: makeComponents({ [DISPLAY_NAME]: { myEditableText: componentState } }),
+				components: { [DISPLAY_NAME]: { myEditableText: componentState } },
 			},
 		};
 	});

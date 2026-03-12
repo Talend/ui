@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import actions from './actions';
 
 /**
@@ -23,7 +22,7 @@ export default cmfConnect({})(MyComponent);
 
 export function getStateProps(state, name, id = 'default') {
 	return {
-		state: state.cmf.components.getIn([name, id]),
+		state: state.cmf.components?.[name]?.[id],
 	};
 }
 
@@ -67,9 +66,9 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 		initState(initialState) {
 			let state;
 			if (DEFAULT_STATE) {
-				state = DEFAULT_STATE.merge(initialState);
+				state = { ...DEFAULT_STATE, ...(initialState || {}) };
 			} else if (initialState) {
-				state = Immutable.Map.isMap(initialState) ? initialState : Immutable.fromJS(initialState);
+				state = initialState;
 			}
 			if (state) {
 				const componentState = actions.components.addState(name, id, state);

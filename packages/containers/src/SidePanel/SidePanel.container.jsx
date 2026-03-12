@@ -1,6 +1,5 @@
 import { Component as RComponent } from 'react';
 
-import { Map } from 'immutable';
 import omit from 'lodash/omit';
 
 import { cmfConnect } from '@talend/react-cmf';
@@ -8,9 +7,9 @@ import Component from '@talend/react-components/lib/SidePanel';
 
 import { ACTION_TYPE_LINK } from './constants';
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = {
 	docked: false,
-});
+};
 
 /**
  * Checkout the {@link http://talend.github.io/ui/main/containers/?selectedKind=SidePanelExample&selectedStory=Default|examples}
@@ -30,13 +29,13 @@ class SidePanel extends RComponent {
 
 	onToggleDock() {
 		const state = this.props.state || DEFAULT_STATE;
-		this.props.setState({ docked: !state.get('docked') });
+		this.props.setState({ docked: !state?.docked });
 	}
 
 	render() {
 		const { state = DEFAULT_STATE } = this.props;
 		const props = {
-			docked: state.get('docked'),
+			docked: state?.docked,
 			onToggleDock: this.onToggleDock,
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
 		};

@@ -2,7 +2,7 @@ import collectionsReducers, {
 	defaultState,
 	getId,
 	getActionWithCollectionIdAsArray,
-} from '../../src/reducers/collectionsReducers';
+} from './collectionsReducers';
 
 const initialState = { ...defaultState, collection1: 'super data' };
 
@@ -238,6 +238,18 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 				},
 			});
 		});
+
+		it('should leave state unchanged when add target is neither array nor object (fallback branch)', () => {
+			const initState = { ...defaultState, collectionid: 'primitive-value' };
+			const nextState = collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: ['collectionid'],
+				operations: {
+					add: [{ id: 0, label: 'new' }],
+				},
+			});
+			expect(nextState).toEqual(initState);
+		});
 	});
 
 	describe('#delete', () => {
@@ -427,6 +439,19 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 				test1: 'new test data 1',
 				test2: 'test data 2',
 			});
+		});
+
+		it('should update elements of List to falsy update values properly', () => {
+			const nextState = collectionsReducers(listInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: ['collectionid'],
+				operations: {
+					update: {
+						0: null,
+					},
+				},
+			});
+			expect(nextState.collectionid).toEqual([null, { id: 1, label: 'test data 1' }]);
 		});
 	});
 });

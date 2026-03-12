@@ -3,7 +3,6 @@
 /* eslint-disable react/display-name */
 import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
-import Immutable, { fromJS } from 'immutable';
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Container from './Notification.container';
@@ -30,7 +29,7 @@ describe('Connected Notification', () => {
 	it('mergeProps should merge the props', () => {
 		const message = { message: 'hello world' };
 		const stateProps = {
-			state: fromJS({ notifications: [message] }),
+			state: { notifications: [message] },
 		};
 		const dispatchProps = {
 			setState: jest.fn(),
@@ -38,7 +37,7 @@ describe('Connected Notification', () => {
 		const ownProps = { foo: 'bar' };
 		const props = mergeProps(stateProps, dispatchProps, ownProps);
 		expect(props.foo).toBe('bar');
-		expect(props.state.get('notifications').size).toBe(1);
+		expect(props.state.notifications.length).toBe(1);
 		expect(typeof props.setState).toBe('function');
 		expect(typeof props.deleteNotification).toBe('function');
 		props.deleteNotification(message);
@@ -46,20 +45,20 @@ describe('Connected Notification', () => {
 	});
 
 	it('deleteNotification should delete notification', () => {
-		const message = fromJS({ message: 'hello world' });
+		const message = { message: 'hello world' };
 		const stateProps = {
-			state: fromJS({ notifications: [message] }),
+			state: { notifications: [message] },
 		};
-		expect(deleteNotification(message)(stateProps).toJS()).toEqual({
+		expect(deleteNotification(message)(stateProps)).toEqual({
 			notifications: [],
 		});
 	});
 
 	it('deleteNotification should do nothing if the notification does not exist', () => {
-		const ok = fromJS({ message: 'ahah' });
-		const ko = fromJS({ message: 'hello world' });
+		const ok = { message: 'ahah' };
+		const ko = { message: 'hello world' };
 		const stateProps = {
-			state: fromJS({ notifications: [ok] }),
+			state: { notifications: [ok] },
 		};
 		expect(deleteNotification(ko)(stateProps)).toEqual(stateProps.state);
 	});
@@ -68,74 +67,65 @@ describe('Connected Notification', () => {
 describe('Notification.pushNotification', () => {
 	it('should add a Notification in the state', () => {
 		const state = mock.store.state();
-		state.cmf.components = fromJS({
+		state.cmf.components = {
 			'Container(Notification)': {
 				Notification: {
 					notifications: [],
 				},
 			},
-		});
+		};
 		const notification = { message: 'hello world' };
 		const newState = pushNotification(state, notification);
 		expect(newState).not.toBe(state);
-		const notifications = newState.cmf.components.getIn([
-			'Container(Notification)',
-			'Notification',
-			'notifications',
-		]);
+		const notifications =
+			newState.cmf.components['Container(Notification)'].Notification.notifications;
 		expect(notifications.length).toBe(1);
 		expect(notifications[0].message).toBe('hello world');
 	});
 
 	it('should add a Notification in the state even if the state slot is not yet available', () => {
 		const state = mock.store.state();
-		state.cmf.components = new Immutable.Map();
+		state.cmf.components = {};
 		const notification = { message: 'hello world' };
 		const newState = pushNotification(state, notification);
-		const notifications = newState.cmf.components.getIn([
-			'Container(Notification)',
-			'Notification',
-			'notifications',
-		]);
+		const notifications =
+			newState.cmf.components['Container(Notification)'].Notification.notifications;
 		expect(notifications.length).toBe(1);
 		expect(notifications[0].message).toBe('hello world');
 	});
 
 	it('should delete all Notification in the state', () => {
 		const state = mock.store.state();
-		state.cmf.components = fromJS({
+		state.cmf.components = {
 			'Container(Notification)': {
 				Notification: {
 					notifications: [{ message: 'hello world' }, { message: 'hello world2' }],
 				},
 			},
-		});
+		};
 		const newState = clearNotifications(state);
 		expect(newState).not.toBe(state);
-		const notifications = newState.cmf.components.getIn([
-			'Container(Notification)',
-			'Notification',
-			'notifications',
-		]);
+		const notifications =
+			newState.cmf.components['Container(Notification)'].Notification.notifications;
 		expect(notifications.length).toBe(0);
 	});
 
 	it('should not change the state if no notification', () => {
 		const state = mock.store.state();
-		state.cmf.components = fromJS({
+		state.cmf.components = {
 			'Container(Notification)': {
 				Notification: {
 					notifications: [],
 				},
 			},
-		});
+		};
 		const newState = pushNotification(state);
 		expect(newState).toBe(state);
 	});
 
 	it('should not change the state if notification state is not yet availbale', () => {
 		const state = mock.store.state();
-		state.cmf.components = fromJS({});
+		state.cmf.components = {};
 		const newState = pushNotification(state);
 		expect(newState).toBe(state);
 	});

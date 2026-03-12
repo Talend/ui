@@ -59,7 +59,7 @@ class GuidedTourContainer extends Component {
 		const { controls } = this.state;
 		return (
 			<GuidedTour
-				isOpen={this.props.state.get('show')}
+				isOpen={this.props.state.show}
 				steps={steps}
 				onRequestClose={this.closeTour}
 				showCloseButton={controls}

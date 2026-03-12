@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import { runSaga } from 'redux-saga';
 import { onPushNotification } from './Notification.sagas';
 
@@ -18,13 +17,13 @@ describe('Notification sagas', () => {
 					dispatch: a => dispatched.push(a),
 					getState: () => ({
 						cmf: {
-							components: Immutable.fromJS({
+							components: {
 								'Container(Notification)': {
 									Notification: {
 										notifications: [],
 									},
 								},
-							}),
+							},
 						},
 					}),
 				},
@@ -32,8 +31,7 @@ describe('Notification sagas', () => {
 				onPushNotificationAction,
 			).done;
 
-			// Convert first, the half immutable payload to a full one then back to a full js one
-			const actions = Immutable.fromJS(dispatched).toJS();
+			const actions = dispatched;
 
 			expect(actions[0]).toEqual({
 				type: 'Container(Notification).setState',

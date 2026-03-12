@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { cmfConnect, Inject } from '@talend/react-cmf';
 import PieChart from '@talend/react-components/lib/PieChart';
 
-export const DEFAULT_STATE = new Immutable.Map({});
+export const DEFAULT_STATE = {};
 
 export function ContainerPieChartButton(props) {
 	let overlayComponent = null;
@@ -30,14 +29,14 @@ export function ContainerPieChartButton(props) {
 	}
 
 	const state = props.state || DEFAULT_STATE;
-	const model = state.has('model') ? state.get('model').toJS() : props.model;
+	const model = 'model' in state ? state.model : props.model;
 
 	const newProps = {
 		...omit(props, cmfConnect.INJECTED_PROPS.concat(['getComponent', 'initialState'])),
 		model,
-		inProgress: state.get('inProgress', props.inProgress),
-		loading: state.get('loading', props.loading),
-		available: state.get('available', props.available),
+		inProgress: state?.inProgress ?? props.inProgress,
+		loading: state?.loading ?? props.loading,
+		available: state?.available ?? props.available,
 		overlayComponent,
 		onClick,
 	};

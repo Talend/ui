@@ -1,10 +1,9 @@
-import { fromJS } from 'immutable';
 import Action from '../Action';
 import GuidedTour from '.';
 
-const initialState = fromJS({
+const initialState = {
 	show: true,
-});
+};
 
 const steps = [
 	{

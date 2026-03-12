@@ -12,8 +12,7 @@ export function* fetchDefinition(action) {
 	if (!response.ok) {
 		yield put(
 			Component.setStateAction(
-				prev =>
-					prev.set('jsonSchema').set('uiSchema').set('response', response).set('dirty', false),
+				{ jsonSchema: undefined, uiSchema: undefined, response, dirty: false },
 				action.componentId,
 			),
 		);
@@ -44,9 +43,7 @@ export function* onDidMount({
 	uiSpecPath,
 	data,
 }) {
-	const jsonSchema = yield select(state =>
-		Component.getState(state, componentId).get('jsonSchema'),
-	);
+	const jsonSchema = yield select(state => Component.getState(state, componentId)?.jsonSchema);
 	if (!jsonSchema) {
 		if (definition) {
 			yield put(
@@ -73,11 +70,15 @@ export function* onFormSubmit(componentId, submitURL, action) {
 	}
 	yield put(
 		Component.setStateAction(
-			prev =>
-				prev
-					.setIn(['initialState', 'jsonSchema'], prev.get('jsonSchema'))
-					.setIn(['initialState', 'uiSchema'], prev.get('uiSchema'))
-					.setIn(['initialState', 'properties'], action.properties),
+			prev => ({
+				...prev,
+				initialState: {
+					...(prev.initialState ?? {}),
+					jsonSchema: prev.jsonSchema,
+					uiSchema: prev.uiSchema,
+					properties: action.properties,
+				},
+			}),
 			componentId,
 		)(undefined, getReduxState),
 	);
@@ -110,8 +111,7 @@ export function checkFormComponentId(componentId, actionType) {
  * @param {object} reduxAction with a componentId (string) & the dirtyState (boolean) to apply
  */
 export function* handleSetDirtyState({ componentId, dirty }) {
-	const componentFormState = yield select(Component.getState, componentId);
-	yield put(Component.setStateAction(componentFormState.set('dirty', !!dirty), componentId));
+	yield put(Component.setStateAction({ dirty: !!dirty }, componentId));
 }
 
 export function* handle(props) {

@@ -2,12 +2,10 @@ import { screen, render } from '@testing-library/react';
 import Connect from './GuidedTour.connect';
 import Container from './GuidedTour.container';
 
-const makeState = obj => ({ get: key => obj[key] });
-
 const defaultProps = {
-	state: makeState({
+	state: {
 		show: true,
-	}),
+	},
 	steps: [
 		{
 			content: {

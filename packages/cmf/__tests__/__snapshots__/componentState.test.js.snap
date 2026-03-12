@@ -5,7 +5,7 @@ exports[`state should getStateAccessors return accessors 1`] = `
   "cmf": {
     "componentState": {
       "componentName": "name",
-      "initialComponentState": Immutable.Map {
+      "initialComponentState": {
         "foo": "bar",
       },
       "key": "id",

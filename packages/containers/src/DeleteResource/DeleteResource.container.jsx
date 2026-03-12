@@ -14,7 +14,7 @@ import CONSTANTS from './constants';
  */
 function getLabel(resource) {
 	if (resource) {
-		return resource.get('label') || resource.get('name') || '';
+		return resource.label || resource.name || '';
 	}
 	return '';
 }

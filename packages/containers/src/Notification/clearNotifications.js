@@ -1,7 +1,6 @@
 import cmf from '@talend/react-cmf';
 
 export default function clearNotifications(state) {
-	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	const notifs = cmf.selectors.components.getComponentStateProperty(
 		state,
 		'Container(Notification)',
@@ -13,7 +12,20 @@ export default function clearNotifications(state) {
 		return state;
 	}
 
-	const newState = { ...state };
-	newState.cmf.components = state.cmf.components.setIn(path, []);
-	return newState;
+	return {
+		...state,
+		cmf: {
+			...state.cmf,
+			components: {
+				...state.cmf.components,
+				'Container(Notification)': {
+					...state.cmf.components?.['Container(Notification)'],
+					Notification: {
+						...state.cmf.components?.['Container(Notification)']?.Notification,
+						notifications: [],
+					},
+				},
+			},
+		},
+	};
 }

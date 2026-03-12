@@ -1,18 +1,6 @@
 import { isComponentFormDirty } from './ComponentForm.selectors';
 import { TCompForm } from './ComponentForm.component';
 
-/** Plain-object shim implementing .get(key, def) for component state. */
-const makeCompState = (data = {}) => ({ get: (k, def) => (k in data ? data[k] : def) });
-/** Plain-object shim implementing .getIn([outer, inner], def) for state.cmf.components. */
-const makeComponents = (data = {}) => ({
-	getIn([outer, inner], def) {
-		const outerVal = data[outer];
-		if (outerVal == null) return def;
-		const innerVal = outerVal[inner];
-		return innerVal !== undefined ? innerVal : def;
-	},
-});
-
 describe('ComponentForm selectors', () => {
 	const componentName = 'comp';
 	describe('isComponentFormDirty', () => {
@@ -20,9 +8,9 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: makeComponents({
-						[TCompForm.displayName]: { [componentName]: makeCompState({}) },
-					}),
+					components: {
+						[TCompForm.displayName]: { [componentName]: {} },
+					},
 				},
 			};
 			// when
@@ -35,9 +23,9 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: makeComponents({
-						[TCompForm.displayName]: { [componentName]: makeCompState({ dirty: false }) },
-					}),
+					components: {
+						[TCompForm.displayName]: { [componentName]: { dirty: false } },
+					},
 				},
 			};
 			// when
@@ -50,9 +38,9 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: makeComponents({
-						[TCompForm.displayName]: { [componentName]: makeCompState({ dirty: true }) },
-					}),
+					components: {
+						[TCompForm.displayName]: { [componentName]: { dirty: true } },
+					},
 				},
 			};
 			// when

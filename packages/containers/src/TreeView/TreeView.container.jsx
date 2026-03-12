@@ -2,9 +2,8 @@ import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/TreeView';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import Immutable from 'immutable';
 import omit from 'lodash/omit';
+import _get from 'lodash/get';
 
 const OPENED_ATTR = 'opened';
 const SELECTED_ATTR = 'selectedId';
@@ -14,10 +13,10 @@ export const DEFAULT_PROPS = {
 	nameAttr: 'name',
 	childrenAttr: 'children',
 };
-export const DEFAULT_STATE = new Immutable.Map({
-	[OPENED_ATTR]: new Immutable.List(),
+export const DEFAULT_STATE = {
+	[OPENED_ATTR]: [],
 	[SELECTED_ATTR]: undefined,
-});
+};
 
 function itemHasChildId(data, idAttr, idToMatch) {
 	if (!data.children || !data.children.length) {
@@ -30,34 +29,31 @@ function itemHasChildId(data, idAttr, idToMatch) {
 
 function toggleState(prevProps, data, idAttr) {
 	const id = data[idAttr];
-	const opened = prevProps.state.get(OPENED_ATTR);
+	const opened = prevProps.state?.[OPENED_ATTR] ?? [];
 	const index = opened.indexOf(id);
 	if (index !== -1) {
-		let nextState = prevProps.state.set(OPENED_ATTR, opened.delete(index));
-		const selectedId = nextState.get(SELECTED_ATTR);
+		const newOpened = opened.filter((_, i) => i !== index);
+		const selectedId = prevProps.state?.[SELECTED_ATTR];
 		if (selectedId !== undefined && itemHasChildId(data, idAttr, selectedId)) {
-			nextState = nextState.set(SELECTED_ATTR, undefined);
+			return { [OPENED_ATTR]: newOpened, [SELECTED_ATTR]: undefined };
 		}
-
-		return nextState;
+		return { [OPENED_ATTR]: newOpened };
 	}
-	return prevProps.state.set(OPENED_ATTR, prevProps.state.get(OPENED_ATTR).push(id));
+	return { [OPENED_ATTR]: [...opened, id] };
 }
 
 function openAllState(prevProps, data, idAttr) {
-	const nextOpened = data
-		.reduce((accu, item) => accu.add(item[idAttr]), prevProps.state.get(OPENED_ATTR).toSet())
-		.toList();
-
-	return prevProps.state.set(OPENED_ATTR, nextOpened);
+	const openedIds = prevProps.state?.[OPENED_ATTR] ?? [];
+	const newIds = data.map(item => item[idAttr]).filter(id => !openedIds.includes(id));
+	return { [OPENED_ATTR]: [...openedIds, ...newIds] };
 }
 
 function selectWrapper(prevProps, id) {
-	const selected = prevProps.state.get(SELECTED_ATTR);
+	const selected = prevProps.state?.[SELECTED_ATTR];
 	if (id === selected) {
-		return prevProps.state.set(SELECTED_ATTR, undefined);
+		return { [SELECTED_ATTR]: undefined };
 	}
-	return prevProps.state.set(SELECTED_ATTR, id);
+	return { [SELECTED_ATTR]: id };
 }
 
 /**
@@ -71,8 +67,8 @@ export function transform(items, props, parent) {
 		return undefined;
 	}
 	const state = props.state || DEFAULT_STATE;
-	const selectedId = state.get(SELECTED_ATTR);
-	const opened = state.get(OPENED_ATTR);
+	const selectedId = state[SELECTED_ATTR];
+	const opened = state[OPENED_ATTR] ?? [];
 
 	return items.map(item => {
 		const elem = {
@@ -103,7 +99,7 @@ class TreeView extends RComponent {
 
 	static propTypes = {
 		childrenAttr: PropTypes.string,
-		data: ImmutablePropTypes.list,
+		data: PropTypes.array,
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		onClick: PropTypes.func,
@@ -182,14 +178,14 @@ class TreeView extends RComponent {
 		}
 
 		const state = this.props.state || DEFAULT_STATE;
-		return state.get(SELECTED_ATTR);
+		return state?.[SELECTED_ATTR];
 	}
 
 	render() {
 		if (!this.props.data) {
 			return null;
 		}
-		const structure = transform(this.props.data.toJS(), this.props);
+		const structure = transform(this.props.data, this.props);
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		return (
 			<Component
@@ -207,7 +203,7 @@ class TreeView extends RComponent {
 export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.collection) {
-		props.data = state.cmf.collections.getIn(ownProps.collection.split('.'));
+		props.data = _get(state.cmf.collections, ownProps.collection.split('.'));
 		if (!props.data) {
 			// eslint-disable-next-line no-console
 			console.warn('TreeView.collection not found');

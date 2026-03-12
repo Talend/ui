@@ -47,7 +47,7 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 
 	props.items = getItems(state, config);
 
-	const totalResults = props.items.size;
+	const totalResults = props.items.length;
 
 	if (get(ownProps, ['toolbar', 'pagination'])) {
 		props.items = getPagedItems(state, config, props.items);
@@ -55,12 +55,18 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 
 	const cmfState = get(cmfProps, 'state');
 	if (cmfState) {
-		props.state = cmfState.setIn(['totalResults'], totalResults);
-		if (props.state.has('toolbar')) {
-			props.state = props.state.mergeIn(
-				['toolbar', 'pagination'],
-				configureGetPagination(state, config),
-			);
+		props.state = { ...cmfState, totalResults };
+		if (props.state.toolbar !== undefined) {
+			props.state = {
+				...props.state,
+				toolbar: {
+					...props.state.toolbar,
+					pagination: {
+						...props.state.toolbar?.pagination,
+						...configureGetPagination(state, config),
+					},
+				},
+			};
 		}
 	}
 

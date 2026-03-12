@@ -4,19 +4,10 @@ import isEmpty from 'lodash/isEmpty';
 import { createSelector } from 'reselect';
 
 function contains(listItem, query, columns) {
-	let item = listItem;
-	if (
-		listItem != null &&
-		!Array.isArray(listItem) &&
-		typeof listItem === 'object' &&
-		typeof listItem.toJS === 'function'
-	) {
-		item = listItem.toJS();
-	}
 	return columns.some(
 		column =>
-			typeof item[column.key] === 'string' &&
-			item[column.key].toLowerCase().indexOf(query.toLowerCase()) !== -1,
+			typeof listItem[column.key] === 'string' &&
+			listItem[column.key].toLowerCase().indexOf(query.toLowerCase()) !== -1,
 	);
 }
 
@@ -29,8 +20,7 @@ export function getCollectionItems(state, collectionId) {
 	const collection = getCollection(state, collectionId);
 
 	if (collection != null && !Array.isArray(collection) && typeof collection === 'object') {
-		const items = typeof collection.get === 'function' ? collection.get('items') : collection.items;
-		return items !== undefined ? items : collection;
+		return collection.items !== undefined ? collection.items : collection;
 	}
 	return collection;
 }
@@ -69,7 +59,10 @@ export function configureGetFilteredItems(configure) {
 		},
 	);
 
-	return createSelector([getFilteredList, getComponentState], items => items);
+	return createSelector(
+		[getFilteredList, getComponentState(localConfig.collectionId)],
+		items => items,
+	);
 }
 
 export function compare(sortBy) {
@@ -113,11 +106,11 @@ export function getSortedResults(componentState, config, listItems) {
 
 		if (get(sortedColumn, 'sortFunction')) {
 			// Immutable sort method returns sorted array
-			results = results.sort(
+			results = [...results].sort(
 				cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc),
 			);
 		} else {
-			results = results.sort(compare(sortBy));
+			results = [...results].sort(compare(sortBy));
 		}
 
 		if (!sortAsc) {
@@ -132,7 +125,7 @@ export function configureGetSortedItems(config, listItems) {
 		getSortedResults(componentState, config, listItems),
 	);
 
-	return createSelector([getSortedList, getComponentState], items => items);
+	return createSelector([getSortedList, getComponentState(config.collectionId)], items => items);
 }
 
 export function configureGetPagedItems(configure, listItems) {
@@ -145,12 +138,12 @@ export function configureGetPagedItems(configure, listItems) {
 			if (itemsPerPage > 0 && startIndex > 0) {
 				results = results.slice(
 					startIndex - 1,
-					Math.min(startIndex + itemsPerPage - 1, results.size),
+					Math.min(startIndex + itemsPerPage - 1, results.size ?? results.length),
 				);
 			}
 		}
 		return results;
 	});
 
-	return createSelector([getPagedList, getComponentState], items => items);
+	return createSelector([getPagedList, getComponentState(configure.collectionId)], items => items);
 }

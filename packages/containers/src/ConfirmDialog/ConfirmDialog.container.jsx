@@ -1,18 +1,17 @@
-import { Map } from 'immutable';
 import omit from 'lodash/omit';
 import Component from '@talend/react-components/lib/ConfirmDialog';
 import { cmfConnect, useCMFContext } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = {
 	show: false,
-});
+};
 
 // eslint-disable-next-line react/prefer-stateless-function
 function ConfirmDialog(props) {
 	const context = useCMFContext();
-	const state = (props.state || DEFAULT_STATE).toJS();
+	const state = props.state || DEFAULT_STATE;
 	if (!state.validateAction || !state.cancelAction) {
 		return null;
 	}

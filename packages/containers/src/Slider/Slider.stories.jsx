@@ -1,5 +1,3 @@
-import { Map } from 'immutable';
-
 import Slider from '.';
 
 const icons = [
@@ -65,10 +63,10 @@ const actions = [
 
 const functionToFormat = value => `${value}`;
 
-const nullState = new Map();
-const initialState = new Map({
+const nullState = {};
+const initialState = {
 	value: 50,
-});
+};
 
 export default {
 	title: 'Slider',

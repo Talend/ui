@@ -13,7 +13,6 @@ export default function pushNotification(state, notification) {
 	if (!get(notification, 'message')) {
 		return state;
 	}
-	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	const notifs =
 		cmf.selectors.components.getComponentStateProperty(
 			state,
@@ -22,7 +21,21 @@ export default function pushNotification(state, notification) {
 			'notifications',
 		) || [];
 	const newNotifs = [...notifs, { id: randomUUID(), ...notification }];
-	const newState = { ...state };
-	newState.cmf.components = state.cmf.components.setIn(path, newNotifs);
+	const newState = {
+		...state,
+		cmf: {
+			...state.cmf,
+			components: {
+				...state.cmf.components,
+				'Container(Notification)': {
+					...state.cmf.components?.['Container(Notification)'],
+					Notification: {
+						...state.cmf.components?.['Container(Notification)']?.Notification,
+						notifications: newNotifs,
+					},
+				},
+			},
+		},
+	};
 	return newState;
 }

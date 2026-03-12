@@ -1,37 +1,35 @@
 import PropTypes from 'prop-types';
 import { Component as RComponent } from 'react';
-import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
 import Component from '@talend/react-components/lib/ObjectViewer';
 import { cmfConnect } from '@talend/react-cmf';
 
-export const DEFAULT_STATE = new Map({
-	edited: new List(), // Array of JSONPath
-	opened: new List(), // Array of JSONPath
+export const DEFAULT_STATE = {
+	edited: [], // Array of JSONPath
+	opened: [], // Array of JSONPath
 	selectedJsonpath: '', // Selected JSONPath
-	modified: new Map(), // Store the onChange
-});
+	modified: {}, // Store the onChange
+};
 
 export function open(path, state) {
-	return state.set('opened', state.get('opened').push(path));
+	return { opened: [...(state.opened ?? []), path] };
 }
 
 export function select(path, state) {
-	return state.set('selectedJsonpath', path);
+	return { selectedJsonpath: path };
 }
 
 export function close(path, state) {
-	const opened = state.get('opened');
-	return state.set('opened', opened.delete(opened.indexOf(path)));
+	return { opened: (state.opened ?? []).filter(p => p !== path) };
 }
 
 export function edit(path, state) {
-	return state.set('edited', state.get('edited').push(path));
+	return { edited: [...(state.edited ?? []), path] };
 }
 
 export function change(path, state, value) {
-	return state.set('modified', state.get('modified').set(path, value));
+	return { modified: { ...(state.modified ?? {}), [path]: value } };
 }
 
 export function toggleState(prevState, data) {
@@ -42,21 +40,16 @@ export function toggleState(prevState, data) {
 		return open(data.jsonpath, prevState.state);
 	}
 
-	return prevState;
+	return {};
 }
 
 export function openAllState(prevState, siblings) {
-	let openedIds = prevState.state.get('opened');
-
-	siblings
+	const openedIds = prevState.state?.opened ?? [];
+	const newIds = siblings
 		.filter(({ data }) => typeof data === 'object')
-		.forEach(({ jsonpath }) => {
-			if (!openedIds.includes(jsonpath)) {
-				openedIds = openedIds.push(jsonpath);
-			}
-		});
-
-	return prevState.state.set('opened', openedIds);
+		.map(({ jsonpath }) => jsonpath)
+		.filter(id => !openedIds.includes(id));
+	return { opened: [...openedIds, ...newIds] };
 }
 
 export function selectWrapper(prevState, data) {
@@ -68,7 +61,7 @@ export function editWrapper(prevState, data) {
 		return edit(data.jsonpath, prevState.state);
 	}
 
-	return prevState;
+	return {};
 }
 
 class ObjectViewer extends RComponent {
@@ -112,7 +105,7 @@ class ObjectViewer extends RComponent {
 	}
 
 	render() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const state = this.props.state || DEFAULT_STATE;
 		return (
 			<Component
 				{...this.props}
@@ -122,8 +115,8 @@ class ObjectViewer extends RComponent {
 				onToggle={this.onToggle}
 				onToggleAllSiblings={this.onToggleAllSiblings}
 				selectedJsonpath={state.selectedJsonpath}
-				opened={state.opened}
-				edited={state.edited}
+				opened={state.opened ?? []}
+				edited={state.edited ?? []}
 			/>
 		);
 	}

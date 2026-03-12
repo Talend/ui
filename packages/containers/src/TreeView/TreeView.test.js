@@ -1,6 +1,5 @@
 import { screen, render, fireEvent } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
 import TreeView, {
 	DEFAULT_STATE,
 	DEFAULT_PROPS,
@@ -16,10 +15,10 @@ describe('TreeView', () => {
 	beforeEach(() => {
 		context = mock.store.context();
 		state = mock.store.state();
-		data = new Immutable.List([
-			new Immutable.Map({ id: 1, name: 'foo', children: [{ id: 11, name: 'fofo', childre: [] }] }),
-			new Immutable.Map({ id: 2, name: 'bar', children: [] }),
-		]);
+		data = [
+			{ id: 1, name: 'foo', children: [{ id: 11, name: 'fofo', childre: [] }] },
+			{ id: 2, name: 'bar', children: [] },
+		];
 		context.store.getState = () => state;
 	});
 
@@ -55,12 +54,12 @@ describe('TreeView', () => {
 		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
-		expect(prevState.state.get('selectedId')).toEqual(1);
-		expect(onSelect).toHaveBeenCalledWith(expect.anything(data.get(0).toJS()));
+		expect(prevState.state.selectedId).toEqual(1);
+		expect(onSelect).toHaveBeenCalledWith(expect.anything());
 		expect(dispatchActionCreator).toHaveBeenCalled();
 		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
-		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(expect.anything(data.get(0).toJS()));
+		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(expect.anything());
 	});
 
 	it('should open/close on toggle', () => {
@@ -84,14 +83,14 @@ describe('TreeView', () => {
 		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
-		expect(prevState.state.get('opened').toJS()).toEqual([1]);
+		expect(prevState.state.opened).toEqual([1]);
 
 		// when
 		fireEvent.click(document.querySelector('button'));
 
 		// then
 		expect(setState.mock.calls.length).toBe(2);
-		expect(prevState.state.get('opened').toJS()).toEqual([]);
+		expect(prevState.state.opened).toEqual([]);
 	});
 
 	it('should setState onSelect', () => {
@@ -116,12 +115,12 @@ describe('TreeView', () => {
 		fireEvent.click(screen.getByText('foo'));
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
-		expect(prevState.state.get('selectedId')).toEqual(1);
-		expect(onSelect).toHaveBeenCalledWith(expect.anything(data.get(0).toJS()));
+		expect(prevState.state.selectedId).toEqual(1);
+		expect(onSelect).toHaveBeenCalledWith(expect.anything());
 		expect(dispatchActionCreator).toHaveBeenCalled();
 		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
-		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(expect.anything(data.get(0).toJS()));
+		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(expect.anything());
 	});
 
 	it('should unselect onSelect twice', () => {
@@ -147,28 +146,25 @@ describe('TreeView', () => {
 		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
-		expect(prevState.state.get('selectedId')).toEqual(1);
-		expect(onSelect).toHaveBeenCalledWith(expect.anything(data.get(0).toJS()));
+		expect(prevState.state.selectedId).toEqual(1);
+		expect(onSelect).toHaveBeenCalledWith(expect.anything());
 
 		// when
 		fireEvent.click(screen.getByText('foo'));
 
 		// then
-		expect(prevState.state.get('selectedId')).toBe();
+		expect(prevState.state.selectedId).toBe();
 	});
 });
 
 describe('mapStateToProps', () => {
 	it('should return props', () => {
 		const state = mock.store.state();
-		const data = new Immutable.Map({
-			foo: new Immutable.Map({
-				bar: new Immutable.List([new Immutable.Map({ foo: 'bar' })]),
-			}),
-		});
-		state.cmf.collections = state.cmf.collections.set('data', data);
+		const barList = [{ foo: 'bar' }];
+		const data = { foo: { bar: barList } };
+		state.cmf.collections = { ...state.cmf.collections, data };
 		const props = mapStateToProps(state, { collection: 'data.foo.bar' });
-		expect(props.data).toBe(data.getIn(['foo', 'bar']));
+		expect(props.data).toBe(barList);
 	});
 });
 
@@ -180,10 +176,10 @@ describe('transform', () => {
 	it('should add toggled booleans', () => {
 		const props = {
 			...DEFAULT_PROPS,
-			state: Immutable.Map({
-				opened: Immutable.List([1, 11, 111]),
+			state: {
+				opened: [1, 11, 111],
 				selectedId: 11,
-			}),
+			},
 		};
 		const items = [
 			{
@@ -212,10 +208,10 @@ describe('transform', () => {
 	it("should unfold selected's parents", () => {
 		const props = {
 			...DEFAULT_PROPS,
-			state: Immutable.Map({
-				opened: Immutable.List([1, 11, 111]),
+			state: {
+				opened: [1, 11, 111],
 				selectedId: 111,
-			}),
+			},
 		};
 		const items = [
 			{

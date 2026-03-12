@@ -4,7 +4,6 @@
 import { Component } from 'react';
 
 import { fireEvent, render, screen } from '@testing-library/react';
-import { fromJS, Map } from 'immutable';
 import PropTypes from 'prop-types';
 
 import { mock } from '../src';
@@ -54,25 +53,25 @@ describe('cmfConnect', () => {
 	describe('#getStateToProps', () => {
 		it('should call getStateProps', () => {
 			const state = mock.store.state();
-			state.cmf.components = fromJS({
+			state.cmf.components = {
 				TestComponent: {
 					testId: {
 						foo: 'bar',
 					},
 				},
-			});
+			};
 			const props = getStateToProps({
 				componentId: 'testId',
 				ownProps: {},
 				state,
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
-			expect(props.state.get('foo')).toBe('bar');
+			expect(props.state.foo).toBe('bar');
 		});
 
 		it('should inject view settings using props.view', () => {
 			const state = mock.store.state();
-			state.cmf.components = fromJS({});
+			state.cmf.components = {};
 			const props = getStateToProps({
 				componentId: 'testId',
 				ownProps: { view: 'homepage' },
@@ -84,7 +83,7 @@ describe('cmfConnect', () => {
 
 		it('should inject view settings using displayName and componentId', () => {
 			const state = mock.store.state();
-			state.cmf.components = fromJS({});
+			state.cmf.components = {};
 			state.cmf.settings.props['TestComponent#default'] = { foo: 'from-displayName' };
 			state.cmf.settings.props['TestComponent#props-id'] = { foo: 'from-props-componentId' };
 			state.cmf.settings.props['TestComponent#connect-id'] = { foo: 'from-connect-componentId' };
@@ -115,7 +114,7 @@ describe('cmfConnect', () => {
 		});
 		it('should evaluate expression using all props', () => {
 			const state = mock.store.state();
-			state.cmf.components = fromJS({});
+			state.cmf.components = {};
 			expression.register('hasModel', ({ payload }) => payload.model !== undefined);
 			const props = getStateToProps({
 				ownProps: {
@@ -239,18 +238,18 @@ describe('cmfConnect', () => {
 		it('should expose getState static function to get the state', () => {
 			expect(typeof CMFConnectedButton.getState).toBe('function');
 			const state = mock.store.state();
-			state.cmf.components = fromJS({
+			state.cmf.components = {
 				Button: {
 					default: { foo: 'bar' },
 					other: { foo: 'baz' },
 				},
-			});
-			expect(CMFConnectedButton.getState(state).get('foo')).toBe('bar');
-			expect(CMFConnectedButton.getState(state, 'other').get('foo')).toBe('baz');
+			};
+			expect(CMFConnectedButton.getState(state).foo).toBe('bar');
+			expect(CMFConnectedButton.getState(state, 'other').foo).toBe('baz');
 		});
 		it('should expose setStateAction static function to get the redux action to setState', () => {
 			expect(typeof CMFConnectedButton.setStateAction).toBe('function');
-			const state = new Map({ foo: 'bar' });
+			const state = { foo: 'bar' };
 			let action = CMFConnectedButton.setStateAction(state);
 			expect(action).toEqual({
 				type: 'Button.setState',
@@ -271,15 +270,16 @@ describe('cmfConnect', () => {
 		it('should expose setStateAction static function to get the redux action to setState', () => {
 			expect(typeof CMFConnectedButton.setStateAction).toBe('function');
 			const state = mock.store.state();
-			state.cmf.components = fromJS({
+			state.cmf.components = {
 				Button: {
 					default: { foo: 'foo' },
 					other: { foo: 'baz' },
 				},
-			});
-			let actionCreator = CMFConnectedButton.setStateAction(prevState =>
-				prevState.set('foo', 'bar'),
-			);
+			};
+			let actionCreator = CMFConnectedButton.setStateAction(prevState => ({
+				...prevState,
+				foo: 'bar',
+			}));
 			expect(typeof actionCreator).toBe('function');
 			let action = actionCreator(null, () => state);
 			expect(action).toMatchObject({
@@ -292,16 +292,16 @@ describe('cmfConnect', () => {
 					},
 				},
 			});
-			expect(action.cmf.componentState.componentState.get('foo')).toBe('bar');
+			expect(action.cmf.componentState.componentState.foo).toBe('bar');
 			actionCreator = CMFConnectedButton.setStateAction(
-				prevState => prevState.set('foo', 'baz'),
+				prevState => ({ ...prevState, foo: 'baz' }),
 				'other',
 				'MY_ACTION',
 			);
 			action = actionCreator(null, () => state);
 			expect(action.type).toBe('MY_ACTION');
 			expect(action.cmf.componentState.key).toBe('other');
-			expect(action.cmf.componentState.componentState.get('foo')).toBe('baz');
+			expect(action.cmf.componentState.componentState.foo).toBe('baz');
 		});
 		it('should support no context in dispatchActionCreator', () => {
 			const event = {};
@@ -346,12 +346,12 @@ describe('cmfConnect', () => {
 		});
 
 		it('should pass defaultState when there is no component state in store', () => {
-			const TestComponent = props => <button className={props.state.get('toto')}>Click me</button>;
+			const TestComponent = props => <button className={props.state.toto}>Click me</button>;
 			TestComponent.displayName = 'MyComponentWithoutStateInStore';
 			TestComponent.propTypes = {
 				state: PropTypes.any,
 			};
-			const defaultState = new Map({ toto: 'lol' });
+			const defaultState = { toto: 'lol' };
 			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
 
 			render(
@@ -365,7 +365,7 @@ describe('cmfConnect', () => {
 		it('should componentDidMount initState and dispatchActionCreator after the saga', () => {
 			const TestComponent = jest.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
-			const STATE = new Map();
+			const STATE = {};
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
 				didMountActionCreator: 'hello',
@@ -493,7 +493,7 @@ describe('cmfConnect', () => {
 			const TestComponent = () => <div />;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({
-				defaultState: new Map(),
+				defaultState: {},
 			})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
@@ -519,7 +519,7 @@ describe('cmfConnect', () => {
 			const TestComponent = () => <div />;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({
-				defaultState: new Map(),
+				defaultState: {},
 				keepComponentState: true,
 			})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');

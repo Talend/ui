@@ -1,10 +1,9 @@
-import { Map, List, fromJS } from 'immutable';
 import { describe, it, expect } from 'vitest';
 import { getComponentState, getAllComponentStates, getComponentStateProperty } from './components';
 
 const makeState = componentsMap => ({
 	cmf: {
-		components: fromJS(componentsMap),
+		components: componentsMap,
 	},
 });
 
@@ -54,30 +53,25 @@ describe('components.getAllComponentStates', () => {
 });
 
 describe('components.getComponentStateProperty', () => {
-	const notifications = new List([{ id: '1', message: 'Hi' }]);
-	const state = {
-		cmf: {
-			components: new Map({
-				'Container(Notification)': new Map({
-					Notification: new Map({
-						notifications,
-					}),
-				}),
-				'Container(List)': new Map({
-					default: new Map({
-						searchQuery: 'test',
-					}),
-				}),
-			}),
+	const state = makeState({
+		'Container(Notification)': {
+			Notification: {
+				notifications: [{ id: '1', message: 'Hi' }],
+			},
 		},
-	};
+		'Container(List)': {
+			default: {
+				searchQuery: 'test',
+			},
+		},
+	});
 
 	it('returns plain scalar value for a string property', () => {
 		const result = getComponentStateProperty(state, 'Container(List)', 'default', 'searchQuery');
 		expect(result).toBe('test');
 	});
 
-	it('returns plain JS array for an Immutable List property', () => {
+	it('returns plain array for a notifications property', () => {
 		const result = getComponentStateProperty(
 			state,
 			'Container(Notification)',

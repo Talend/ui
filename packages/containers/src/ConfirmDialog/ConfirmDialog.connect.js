@@ -9,9 +9,9 @@ export function mapStateToProps(state, props, cmfProps) {
 			getState: () => state,
 		},
 	};
-	const validateAction = cmfProps.state ? cmfProps.state.get('validateAction') : undefined;
-	const cancelAction = cmfProps.state ? cmfProps.state.get('cancelAction') : undefined;
-	const model = cmfProps.state ? cmfProps.state.get('model') : cmfProps.model;
+	const validateAction = cmfProps.state?.validateAction;
+	const cancelAction = cmfProps.state?.cancelAction;
+	const model = cmfProps.state?.model ?? cmfProps.model;
 	return {
 		validateAction: getActionsProps(context, validateAction, model),
 		cancelAction: getActionsProps(context, cancelAction, model),

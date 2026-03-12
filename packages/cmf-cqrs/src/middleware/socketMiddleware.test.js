@@ -1,5 +1,4 @@
 import configureStore from 'redux-mock-store';
-import { Map } from 'immutable';
 import createStatePatchLogger, { isAbsoluteWebSocketUrl } from './socketMiddleware';
 import smartWebsocket from './smartWebsocket';
 
@@ -17,15 +16,15 @@ const mockStore = configureStore([createStatePatchLogger([], [])]);
 
 const state = {
 	path: {},
-	test: new Map({
+	test: {
 		in: {},
 		out: {},
 		parents: {},
 		childrens: {},
-		nodes: new Map(),
+		nodes: {},
 		transforms: {},
 		nodeTypes: {},
-	}),
+	},
 	routing: {
 		locationBeforeTransitions: {
 			pathname: '/datastream-designer/50/',
@@ -65,7 +64,7 @@ describe('pathToServer', () => {
 				call = 1;
 				return state;
 			}
-			return { ...state, test: state.test.setIn(['nodes', 'test'], 'test') };
+			return { ...state, test: { ...state.test, nodes: { ...state.test.nodes, test: 'test' } } };
 		});
 		const dispatch = vi.fn();
 		const middleware = createStatePatchLogger('test', []);

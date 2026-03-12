@@ -3,32 +3,6 @@ import { render } from '@testing-library/react';
 import Connected from './Form.connect';
 import Container from './Form.container';
 
-/**
- * Minimal Immutable.Map-like shim for plain objects.
- * Implements the subset of the Immutable.Map API used by Form.container and these tests.
- */
-const makePlainState = (obj = {}) => ({
-	_data: obj,
-	get size() {
-		return Object.keys(obj).length;
-	},
-	get(key, def) {
-		const val = obj[key];
-		return val !== undefined ? val : def;
-	},
-	set(key, val) {
-		return makePlainState({ ...obj, [key]: val });
-	},
-	getIn(keys, def) {
-		let current = obj;
-		for (const key of keys) {
-			if (current == null) return def;
-			current = current._data ? current._data[key] : current[key];
-		}
-		return current !== undefined ? current : def;
-	},
-});
-
 const jsonSchema = {
 	type: 'object',
 	title: 'Comment',
@@ -70,7 +44,7 @@ describe('Container(Form)', () => {
 		const setState = jest.fn();
 		const event = { target: 'test' };
 		const form = new Container({
-			state: makePlainState({ data: { schema: true } }),
+			state: { data: { schema: true } },
 			onErrors,
 			setState,
 		});
@@ -84,7 +58,7 @@ describe('Container(Form)', () => {
 		const dispatchActionCreator = jest.fn();
 		const setState = jest.fn();
 		const form = new Container({
-			state: makePlainState({ data: { schema: true } }),
+			state: { data: { schema: true } },
 			setState,
 			onSubmitActionCreator: 'myaction',
 			onSubmit,
@@ -95,7 +69,7 @@ describe('Container(Form)', () => {
 		expect(dispatchActionCreator.mock.calls[0][0]).toBe('myaction');
 		expect(dispatchActionCreator.mock.calls[0][1]).toBe(null);
 		expect(dispatchActionCreator.mock.calls[0][2].formData).toEqual({ foo: 'bar' });
-		expect(dispatchActionCreator.mock.calls[0][2].props.state.size).toBe(1);
+		expect(dispatchActionCreator.mock.calls[0][2].props.state).toEqual({ data: { schema: true } });
 		expect(setState.mock.calls.length).toBe(0);
 	});
 
@@ -104,7 +78,7 @@ describe('Container(Form)', () => {
 		const setState = jest.fn();
 		const event = { target: 'test' };
 		const form = new Container({
-			state: makePlainState({ data: { schema: true } }),
+			state: { data: { schema: true } },
 			onChange,
 			setState,
 		});
@@ -118,17 +92,17 @@ describe('Container(Form)', () => {
 		const formId = 'my-form';
 		const state = {
 			cmf: {
-				components: makePlainState({
-					'Container(Form)': makePlainState({
-						[formId]: makePlainState({
-							data: makePlainState({ foo: 'bar' }),
-						}),
-					}),
-				}),
+				components: {
+					'Container(Form)': {
+						[formId]: {
+							data: { foo: 'bar' },
+						},
+					},
+				},
 			},
 		};
 		const formData = Container.getFormData(state, formId);
-		expect(formData.get('foo')).toBe('bar');
+		expect(formData.foo).toBe('bar');
 	});
 
 	it('should formActions return props.action', () => {

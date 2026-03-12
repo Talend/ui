@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import localStorageAPI from '../src/localStorage';
 
 const PATHS = [
@@ -12,21 +11,6 @@ const state = {
 		app: {
 			extra: true,
 		},
-		components: new Immutable.Map({
-			Foo: new Immutable.Map({
-				default: new Immutable.Map({
-					foo: 'foo',
-				}),
-			}),
-		}),
-		collections: new Immutable.Map({
-			data: new Immutable.Map({}),
-		}),
-	},
-};
-
-const serializedState = JSON.stringify(Object.assign({}, state, {
-	cmf: {
 		components: {
 			Foo: {
 				default: {
@@ -38,7 +22,24 @@ const serializedState = JSON.stringify(Object.assign({}, state, {
 			data: {},
 		},
 	},
-}));
+};
+
+const serializedState = JSON.stringify(
+	Object.assign({}, state, {
+		cmf: {
+			components: {
+				Foo: {
+					default: {
+						foo: 'foo',
+					},
+				},
+			},
+			collections: {
+				data: {},
+			},
+		},
+	}),
+);
 const KEY = 'test-cmf-localStorage';
 
 describe('reduxLocalStorage', () => {
@@ -56,8 +57,8 @@ describe('reduxLocalStorage', () => {
 	it('should getState return parsed state from localStorage', () => {
 		localStorage.setItem(KEY, serializedState);
 		const initialState = localStorageAPI.getState(KEY);
-		expect(initialState.cmf.components.getIn(['Foo', 'default', 'foo'])).toBe('foo');
-		expect(initialState.cmf.collections.getIn(['data']).toJS()).toEqual({});
+		expect(initialState.cmf.components?.Foo?.default?.foo).toBe('foo');
+		expect(initialState.cmf.collections?.data).toEqual({});
 		localStorage.setItem(KEY, undefined);
 	});
 	it('should getStoreCallback return a function', () => {

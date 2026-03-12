@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import get from 'lodash/get';
 import set from 'lodash/set';
 
 /**
@@ -12,14 +12,6 @@ function getState(key) {
 		return {};
 	}
 	source = JSON.parse(source);
-	if (source.cmf) {
-		if (source.cmf.components) {
-			source.cmf.components = Immutable.fromJS(source.cmf.components);
-		}
-		if (source.cmf.collections) {
-			source.cmf.collections = Immutable.fromJS(source.cmf.collections);
-		}
-	}
 	return source;
 }
 
@@ -47,14 +39,14 @@ function getStoreCallback(key, paths) {
 			paths.forEach(path => {
 				if (path.length > 2) {
 					if (path[1] === 'components') {
-						const value = state.cmf.components.getIn(path.slice(2));
+						const value = get(state.cmf.components, path.slice(2));
 						if (value) {
-							set(toKeep, path, value.toJS());
+							set(toKeep, path, value);
 						}
 					} else if (path[1] === 'collections') {
-						const value = state.cmf.collections.getIn(path.slice(2));
+						const value = get(state.cmf.collections, path.slice(2));
 						if (value) {
-							set(toKeep, path, value.toJS());
+							set(toKeep, path, value);
 						}
 					}
 				}

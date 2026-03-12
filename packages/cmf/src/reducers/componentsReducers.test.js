@@ -1,6 +1,6 @@
-import reducer, { defaultState } from '../../src/reducers/componentsReducers';
+import reducer, { defaultState } from './componentsReducers';
 
-global.console = { warn: jest.fn() };
+global.console = { warn: vi.fn() };
 
 describe('check component management reducer', () => {
 	const initialState = {
@@ -9,7 +9,7 @@ describe('check component management reducer', () => {
 	};
 
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
@@ -65,11 +65,12 @@ describe('check component management reducer', () => {
 			initialComponentState: 'initialState',
 		};
 		reducer(initialState, action);
-		expect(console.warn).toHaveBeenCalled(); // eslint no-console: ["error", { allow: ["warn"] }]
+		expect(console.warn).toHaveBeenCalled();
 		expect(console.warn.mock.calls[0][0])
 			.toEqual(`Beware component component1 try to recreate an existing
- State namespace key1, meaning that the original one will be overloaded`); // eslint no-console: ["error", { allow: ["warn"] }]
+ State namespace key1, meaning that the original one will be overloaded`);
 	});
+
 	it(`REACT_CMF.COMPONENT_MERGE_STATE should properly merge
 		component/key state into the store`, () => {
 		expect(
@@ -107,6 +108,7 @@ describe('check component management reducer', () => {
 			}),
 		).toEqual({ component1: {} });
 	});
+
 	it(`removeComponentState throw when a couple of componentName,
 		collectionId doesn't exist`, () => {
 		const action = {
@@ -121,6 +123,7 @@ describe('check component management reducer', () => {
  State namespace key, it isn't a normal behavior execpt if two component are binded
  to this specific namespace`);
 	});
+
 	it('should recall itself on action.cmf.componentState', () => {
 		const action = {
 			type: 'REACT_CMF.COMPONENT_ADD_STATE',

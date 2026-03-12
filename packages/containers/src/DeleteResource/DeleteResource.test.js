@@ -4,20 +4,11 @@ import cmf, { mock } from '@talend/react-cmf';
 import { DeleteResource } from './DeleteResource.container';
 import Connected, { mapStateToProps } from './DeleteResource.connect';
 
-/** Plain-object shim implementing .get(key, def) for Immutable-Map-like objects. */
-const makeMapItem = data => ({ get: (k, def) => (k in data ? data[k] : def) });
-/** Plain-object shim implementing .find(fn) / .get(index) for Immutable-List-like objects. */
-const makeList = items => ({ find: fn => items.find(fn), get: idx => items[idx] });
-/** Plain-object shim implementing .get(key, def) for the top-level collections Map. */
-const makeCollections = (data = {}) => ({ get: key => data[key] });
-
 const state = mock.store.state();
 const settings = {};
-state.cmf = {
-	settings,
-};
-const fooItem = makeMapItem({ id: '123' });
-state.cmf.collections = makeCollections({ foo: makeList([fooItem]) });
+state.cmf = { settings };
+const fooItem = { id: '123' };
+state.cmf.collections = { foo: [fooItem] };
 
 describe('Container DeleteResource', () => {
 	let App;
@@ -32,7 +23,7 @@ describe('Container DeleteResource', () => {
 		const props = {
 			uri: '/myEndpoint',
 			resourceType: 'myResourceType',
-			resource: makeMapItem({ label: 'myLabel' }),
+			resource: { label: 'myLabel' },
 			header: 'My header title',
 			params: { id: 'myResourceID' },
 			resourceTypeLabel: 'resourceLabel',
@@ -84,12 +75,12 @@ describe('Connected DeleteResource', () => {
 		});
 		it('should return the props.resource corresponding to resourceId', () => {
 			expect(mapStateToProps(state, { resourceType: 'foo', resourceId: '123' }).resource).toBe(
-				state.cmf.collections.get('foo').get(0),
+				fooItem,
 			);
 		});
 		it('should return the props.resource corresponding to routeParams.id', () => {
 			expect(mapStateToProps(state, { resourceType: 'foo', params: { id: '123' } }).resource).toBe(
-				state.cmf.collections.get('foo').get(0),
+				fooItem,
 			);
 		});
 

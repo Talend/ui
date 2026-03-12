@@ -3,12 +3,6 @@ import { render, screen } from '@testing-library/react';
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 
-/** Plain-object shim implementing .get(key, def) for the HeaderBar container state prop. */
-const makeHeaderBarState = (data = {}) => ({ get: (k, def) => (k in data ? data[k] : def) });
-/** Plain-object shim for state.cmf.collections — wraps a value in a .toJS()-able object. */
-const makeToJSList = arr => ({ toJS: () => [...arr] });
-/** Plain-object shim implementing .getIn([key], def) for state.cmf.collections. */
-const makeCollections = (data = {}) => ({ getIn: ([key], def) => (key in data ? data[key] : def) });
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Connected, { mapStateToProps } from './HeaderBar.connect';
 import Constants from './HeaderBar.constant';
@@ -34,9 +28,9 @@ describe('Container HeaderBar', () => {
 					url: 'http://foo.bar',
 				},
 			],
-			state: makeHeaderBarState({
+			state: {
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
-			}),
+			},
 		};
 
 		render(await prepareCMF(<Container {...props} />));
@@ -71,9 +65,9 @@ describe('Container HeaderBar', () => {
 					},
 				],
 			},
-			state: makeHeaderBarState({
+			state: {
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
-			}),
+			},
 		};
 		render(await prepareCMF(<Container {...props} />));
 		expect(screen.getAllByRole('menuitem')).toHaveLength(3);
@@ -96,9 +90,9 @@ describe('Container HeaderBar', () => {
 			prepareProducts: jest.fn(products =>
 				products.map(product => ({ ...product, label: `${product.label} and bar` })),
 			),
-			state: makeHeaderBarState({
+			state: {
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
-			}),
+			},
 		};
 
 		render(<Container {...props} />);
@@ -109,9 +103,9 @@ describe('Container HeaderBar', () => {
 	it('should render HeaderBar container while fetching items', async () => {
 		const props = {
 			...containerProps,
-			state: makeHeaderBarState({
+			state: {
 				productsFetchState: Constants.FETCHING_PRODUCTS,
-			}),
+			},
 		};
 
 		render(await prepareCMF(<Container {...props} />));
@@ -130,7 +124,7 @@ describe('Connected HeaderBar', () => {
 	it('should mapStateToProps with an empty list of products', () => {
 		const state = {
 			cmf: {
-				collections: makeCollections(),
+				collections: {},
 			},
 		};
 		const ownProps = {};
@@ -148,7 +142,7 @@ describe('Connected HeaderBar', () => {
 		const apps = [{ url: 'foobar' }];
 		const state = {
 			cmf: {
-				collections: makeCollections({ [Constants.COLLECTION_ID]: makeToJSList(apps) }),
+				collections: { [Constants.COLLECTION_ID]: apps },
 			},
 		};
 		const ownProps = {};

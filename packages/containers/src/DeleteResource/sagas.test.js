@@ -5,8 +5,6 @@ import CONSTANTS from './constants';
 // import actions from './actions';
 import sagas, * as internals from './sagas';
 
-const makeMapItem = data => ({ get: (k, def) => (k in data ? data[k] : def) });
-
 describe('internals', () => {
 	describe('getResourceLocator', () => {
 		it('should return resourceType if no no resourcePath', () => {
@@ -55,7 +53,7 @@ describe('internals', () => {
 					},
 				},
 			};
-			const resource = makeMapItem({ id: '123', label: 'Foo' });
+			const resource = { id: '123', label: 'Foo' };
 
 			const gen = internals.deleteResourceValidate();
 			let effect = gen.next().value;
@@ -98,11 +96,11 @@ describe('internals', () => {
 				},
 			};
 
-			const resource = makeMapItem({
+			const resource = {
 				id: 'profileId',
 				type: 'advanced',
 				name: 'deleteThisRunProfile',
-			});
+			};
 
 			const gen = internals.deleteResourceValidate();
 			gen.next();
@@ -127,11 +125,11 @@ describe('internals', () => {
 						},
 					},
 				};
-				const resource = makeMapItem({
+				const resource = {
 					id: 'profileId',
 					type: 'advanced',
 					name: 'deleteThisRunProfile',
-				});
+				};
 
 				const gen = internals.deleteResourceValidate();
 				gen.next();

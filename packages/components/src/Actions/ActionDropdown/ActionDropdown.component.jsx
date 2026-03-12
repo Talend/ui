@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import classNames from 'classnames';
-// TODO(epic-3+): remove once all consumers have migrated away from ImmutableJS.
-// Kept for runtime backward-compat: callers (e.g. containers/ActionDropdown.connect) may still pass an ImmutableList.
-import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
@@ -97,11 +94,6 @@ function renderMutableMenuItem(item, index, getComponent) {
 }
 
 function getMenuItem(item, index, getComponent) {
-	// TODO(epic-3+): remove this branch once all consumers pass plain JS objects.
-	if (Iterable.isIterable(item)) {
-		return renderMutableMenuItem(item.toJS(), index, getComponent);
-	}
-
 	return renderMutableMenuItem(item, index, getComponent);
 }
 
@@ -267,8 +259,8 @@ class ActionDropdown extends Component {
 				}}
 				noCaret
 			>
-				{/* items.size: ImmutableList backward-compat guard during migration — TODO(epic-3+): remove */}
-				{!children && !items.length && !items.size && !loading && !components && (
+				{/* items.size: backward-compat guard removed — items is always a plain array */}
+				{!children && !items.length && !loading && !components && (
 					<Renderers.MenuItem key="empty" disabled>
 						{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
 					</Renderers.MenuItem>
