@@ -16,12 +16,11 @@ For all the following example we take this component as example:
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 
-const DEFAULT_STATE = new Immutable.Map({
+const DEFAULT_STATE = {
 	like: false,
-});
+};
 
 class Article extends React.Component {
 	static propTypes = {
@@ -35,11 +34,11 @@ class Article extends React.Component {
 	}
 
 	onLike() {
-		this.props.setState({ like: !this.props.state.get('like') });
+		this.props.setState({ like: !this.props.state.like });
 	}
 
 	render() {
-		const like = this.props.state.get('like');
+		const like = this.props.state.like;
 			return (
 			<article>
 				<h1>{props.title}</h1>
@@ -51,7 +50,8 @@ class Article extends React.Component {
 }
 function mapStateToProps(state) {
 	return {
-		model: state.cmf.collections.get('article');
+		model: state.cmf.collections['article'],
+	};
 	};
 }
 export cmfConnect({mapStateToProps})(MyComponent)
@@ -101,6 +101,7 @@ export cmfConnect({mapStateToProps})(MyComponent)
 		}
 	}
 ```
+
 ### allOf
 
 ```json

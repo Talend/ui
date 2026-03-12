@@ -1,12 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { Map } from 'immutable';
 
-import {
-	addOrReplace,
-	remove,
-	mutate,
-} from '../../src/actions/collectionsActions';
+import { addOrReplace, remove, mutate } from '../../src/actions/collectionsActions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -22,7 +17,7 @@ describe('test collection management action creators', () => {
 
 	it('addOrReplaceCollection dispatch with path to nested collections (path can be either strings separated with dots or array of strings)', () => {
 		expect(
-			addOrReplace('collectionId.nestedCollection.nestedObjField', 'data can be anything')
+			addOrReplace('collectionId.nestedCollection.nestedObjField', 'data can be anything'),
 		).toEqual({
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
 			collectionId: 'collectionId.nestedCollection.nestedObjField',
@@ -31,14 +26,16 @@ describe('test collection management action creators', () => {
 	});
 
 	it('removeCollection dispatch well formed action object', () => {
-		const expectedActions = [{
-			type: 'REACT_CMF.COLLECTION_REMOVE',
-			collectionId: 'collectionId',
-		}];
+		const expectedActions = [
+			{
+				type: 'REACT_CMF.COLLECTION_REMOVE',
+				collectionId: 'collectionId',
+			},
+		];
 
 		const store = mockStore({
 			cmf: {
-				collections: new Map().set('collectionId', 'data'),
+				collections: { collectionId: 'data' },
 			},
 		});
 

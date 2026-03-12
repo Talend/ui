@@ -1,5 +1,3 @@
-import { Map } from 'immutable';
-
 import { PositionRecord } from '../../constants/flowdesigner.model';
 
 import * as Position from './position';
@@ -8,14 +6,14 @@ const isNotPositionException = `PositionRecord should be a PositionRecord, was g
 """
 object
 """
-Map {}
+[object Object]
 """
 you should use Position module functions to create and transform Position`;
 const improperPositionException = `PositionRecord should be a PositionRecord, was given
 """
 object
 """
-Map { "x": 10, "y": 10 }
+[object Object]
 """
 you should use Position module functions to create and transform Position`;
 const isImproperXCoordinate = 'x should be a number, was given 10 of type string';
@@ -33,10 +31,10 @@ describe('isPositionElseThrow', () => {
 
 	it('thow an error if parameter is not a PositionRecord', () => {
 		// given
-		const testPosition = Map();
+		const testPosition2 = {};
 		// when
 		// expect
-		expect(() => Position.isPositionElseThrow(testPosition)).toThrow(isNotPositionException);
+		expect(() => Position.isPositionElseThrow(testPosition2)).toThrow(isNotPositionException);
 	});
 });
 
@@ -47,7 +45,7 @@ describe('Position', () => {
 
 	const improperX = '10';
 	const improperY = '50';
-	const improperTestPosition = Map({ x: 10, y: 10 });
+	const improperTestPosition = { x: 10, y: 10 };
 	describe('create', () => {
 		it('given proper x and y coordinate return a Position', () => {
 			// given

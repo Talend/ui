@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import { render, screen } from '@testing-library/react';
 import { AppLoaderContainer, mapStateToProps } from './AppLoader.connect';
 
@@ -27,7 +26,7 @@ describe('AppLoader container', () => {
 	describe('mapStateToProps', () => {
 		it('should return loading to false if we have nothing to wait', () => {
 			// given
-			const state = { cmf: { collections: Immutable.Map() } };
+			const state = { cmf: { collections: {} } };
 			const ownProps = {};
 			// when
 			const result = mapStateToProps(state, ownProps);
@@ -37,7 +36,7 @@ describe('AppLoader container', () => {
 
 		it('should return loading to true if there is something to wait', () => {
 			// given
-			const state = { cmf: { collections: Immutable.Map({ test2: Immutable.Map() }) } };
+			const state = { cmf: { collections: { test2: null } } };
 			const ownProps = { hasCollections: ['test', 'test2'] };
 			// when
 			const result = mapStateToProps(state, ownProps);
@@ -49,7 +48,7 @@ describe('AppLoader container', () => {
 			// given
 			const state = {
 				cmf: {
-					collections: Immutable.Map({ test2: Immutable.Map(), test: Immutable.Map() }),
+					collections: { test2: null, test: null },
 				},
 			};
 			const ownProps = { hasCollections: ['test', 'test2'] };

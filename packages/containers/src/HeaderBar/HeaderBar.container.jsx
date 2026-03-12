@@ -1,7 +1,6 @@
 import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/HeaderBar';
 
@@ -9,9 +8,9 @@ import { fetchProducts, openProduct } from './HeaderBar.actions';
 
 import Constants from './HeaderBar.constant';
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = {
 	productsFetchState: Constants.PRODUCTS_NOT_LOADED,
-});
+};
 
 function sortProductsByLabel(a, b) {
 	return a.label > b.label ? 1 : -1;
@@ -40,7 +39,7 @@ class HeaderBar extends RComponent {
 		// products URL has changed or products have not been loaded yet
 		const hasProductsUrlChanged = this.props.productsUrl !== prevProps.productsUrl;
 		const hasProductsNotBeenLoaded =
-			this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED;
+			this.props.state?.productsFetchState === Constants.PRODUCTS_NOT_LOADED;
 
 		if (this.props.productsUrl && (hasProductsNotBeenLoaded || hasProductsUrlChanged)) {
 			this.props.dispatch(fetchProducts(this.props.productsUrl));
@@ -56,7 +55,7 @@ class HeaderBar extends RComponent {
 		} = this.props;
 
 		const hasFetchedProducts =
-			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
+			this.props.state?.productsFetchState === Constants.FETCH_PRODUCTS_SUCCESS;
 
 		const productsProps = {};
 

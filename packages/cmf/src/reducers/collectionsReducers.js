@@ -1,21 +1,33 @@
 /**
  * @module react-cmf/lib/reducers/collectionsReducers
  */
-import { Map, List, fromJS } from 'immutable';
+import get from 'lodash/get';
+import has from 'lodash/has';
+import cloneDeep from 'lodash/cloneDeep';
+import set from 'lodash/set';
+import unset from 'lodash/unset';
 import invariant from 'invariant';
 import CONSTANTS from '../constant';
 
-export const defaultState = new Map();
+export const defaultState = {};
+
+function setIn(state, path, value) {
+	const cloned = cloneDeep(state);
+	set(cloned, path, value);
+	return cloned;
+}
+
+function deleteIn(state, path) {
+	const cloned = cloneDeep(state);
+	unset(cloned, path);
+	return cloned;
+}
 
 /**
- * Get element id. If it doesn't have "id" property, we consider it as immutable.
+ * Get element id.
  */
 export function getId(element) {
-	const id = element.id;
-	if (id === undefined) {
-		return element.get('id');
-	}
-	return id;
+	return element.id;
 }
 
 /*
@@ -43,14 +55,14 @@ export function getActionWithCollectionIdAsArray(action) {
 function addCollectionElement(state, action) {
 	if (action.operations.add) {
 		return action.operations.add.reduce((s, e) => {
-			const element = s.getIn(action.collectionId);
-			if (List.isList(element)) {
-				return s.setIn(action.collectionId, element.push(e));
+			const element = get(s, action.collectionId);
+			if (Array.isArray(element)) {
+				return setIn(s, action.collectionId, [...element, e]);
 			}
-			if (Map.isMap(element)) {
-				return s.setIn(action.collectionId, element.merge(e));
+			if (typeof element === 'object' && !Array.isArray(element) && element !== null) {
+				return setIn(s, action.collectionId, { ...element, ...e });
 			}
-			return state;
+			return s;
 		}, state);
 	}
 	return state;
@@ -61,22 +73,26 @@ function deleteListElements(state, action) {
 		return action.operations.delete.indexOf(getId(element)) >= 0;
 	}
 
-	const collection = state.getIn(action.collectionId);
+	const collection = get(state, action.collectionId);
 	if (collection.some(shouldBeRemoved)) {
-		return state.setIn(action.collectionId, collection.filterNot(shouldBeRemoved));
+		return setIn(
+			state,
+			action.collectionId,
+			collection.filter(e => !shouldBeRemoved(e)),
+		);
 	}
 	return state;
 }
 
 function deleteMapElements(state, action) {
-	const collection = state.getIn(action.collectionId);
+	const collection = get(state, action.collectionId);
 
-	if (action.operations.delete.some(id => collection.has(id))) {
-		const changedCollection = action.operations.delete.reduce(
-			(collectionAccu, element) => collectionAccu.delete(element),
-			collection,
-		);
-		return state.setIn(action.collectionId, changedCollection);
+	if (action.operations.delete.some(id => id in collection)) {
+		const changedCollection = action.operations.delete.reduce((collectionAccu, element) => {
+			const { [element]: _, ...rest } = collectionAccu;
+			return rest;
+		}, collection);
+		return setIn(state, action.collectionId, changedCollection);
 	}
 
 	return state;
@@ -91,33 +107,33 @@ function deleteMapElements(state, action) {
  */
 function deleteCollectionElement(state, action) {
 	if (action.operations.delete) {
-		const collection = state.getIn(action.collectionId);
-		if (Map.isMap(collection)) {
+		const collection = get(state, action.collectionId);
+		if (!Array.isArray(collection) && typeof collection === 'object' && collection !== null) {
 			return deleteMapElements(state, action);
-		} else if (List.isList(collection)) {
+		} else if (Array.isArray(collection)) {
 			return deleteListElements(state, action);
 		}
-		throw new Error('CMF collection deletion is only compatible with ImmutableJs List and Map');
+		throw new Error('CMF collection deletion is only compatible with plain arrays and objects');
 	}
 	return state;
 }
 
 function updateListElements(state, action) {
 	const updates = action.operations.update;
-
-	const changedCollection = state
-		.getIn(action.collectionId)
-		.map(element => updates[getId(element)] || element);
-	return state.setIn(action.collectionId, changedCollection);
+	const changedCollection = get(state, action.collectionId).map(element =>
+		getId(element) in updates ? updates[getId(element)] : element,
+	);
+	return setIn(state, action.collectionId, changedCollection);
 }
 
 function updateMapElements(state, action) {
 	const updates = action.operations.update;
+	const currentCollection = get(state, action.collectionId);
 	const changedCollection = Object.keys(updates).reduce(
-		(collectionAccu, id) => collectionAccu.set(id, updates[id]),
-		state.getIn(action.collectionId),
+		(collectionAccu, id) => ({ ...collectionAccu, [id]: updates[id] }),
+		currentCollection,
 	);
-	return state.setIn(action.collectionId, changedCollection);
+	return setIn(state, action.collectionId, changedCollection);
 }
 
 /**
@@ -129,13 +145,13 @@ function updateMapElements(state, action) {
  */
 function updateCollectionElement(state, action) {
 	if (action.operations.update) {
-		const collection = state.getIn(action.collectionId);
-		if (Map.isMap(collection)) {
+		const collection = get(state, action.collectionId);
+		if (!Array.isArray(collection) && typeof collection === 'object' && collection !== null) {
 			return updateMapElements(state, action);
-		} else if (List.isList(collection)) {
+		} else if (Array.isArray(collection)) {
 			return updateListElements(state, action);
 		}
-		throw new Error('CMF collection update is only compatible with ImmutableJs List and Map');
+		throw new Error('CMF collection update is only compatible with plain arrays and objects');
 	}
 	return state;
 }
@@ -148,7 +164,7 @@ function updateCollectionElement(state, action) {
  * @returns {object} the new state
  */
 function mutateCollection(state, action) {
-	if (!action.operations || !state.hasIn(action.collectionId) || state.isEmpty()) {
+	if (!action.operations || !has(state, action.collectionId)) {
 		return state;
 	}
 	let newState = addCollectionElement(state, action);
@@ -165,16 +181,16 @@ function collectionsReducers(state = defaultState, action = { type: '' }) {
 	const newAction = getActionWithCollectionIdAsArray(action);
 	switch (newAction.type) {
 		case CONSTANTS.COLLECTION_ADD_OR_REPLACE:
-			return state.setIn(newAction.collectionId, fromJS(newAction.data));
+			return setIn(state, newAction.collectionId, newAction.data);
 		case CONSTANTS.COLLECTION_REMOVE:
-			if (!state.getIn(newAction.collectionId)) {
+			if (!has(state, newAction.collectionId)) {
 				invariant(
 					process.env.NODE_ENV === 'production',
 					`Can't remove collection ${newAction.collectionId} since it doesn't exist.`,
 				);
 				return state;
 			}
-			return state.deleteIn(newAction.collectionId);
+			return deleteIn(state, newAction.collectionId);
 		case CONSTANTS.COLLECTION_MUTATE:
 			return mutateCollection(state, newAction);
 		default:

@@ -1,6 +1,5 @@
 // rewrite tests using react-testing-library
 import { screen, render } from '@testing-library/react';
-import { fromJS } from 'immutable';
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 
@@ -36,7 +35,7 @@ const toolbar = {
 	},
 };
 
-const items = fromJS([
+const items = [
 	{
 		id: 1,
 		label: 'Title with actions',
@@ -47,7 +46,7 @@ const items = fromJS([
 		display: 'text',
 		className: 'item-0-class',
 	},
-]);
+];
 
 const listProps = {
 	list,

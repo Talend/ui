@@ -1,5 +1,4 @@
 import { fireEvent, render } from '@testing-library/react';
-import { Map } from 'immutable';
 
 import Connect from './Typeahead.connect';
 import Container, { DEFAULT_STATE } from './Typeahead.container';
@@ -30,15 +29,16 @@ describe('Typeahead container', () => {
 		let state;
 		const props = {
 			...defaultProps,
-			state: Map({ docked: true }),
-			setState: jest.fn(fn => {
-				state = fn();
+			state: { docked: true },
+			setState: jest.fn(newState => {
+				state = newState;
 			}),
 			onToggle: jest.fn(),
 		};
 
 		render(<Container {...props} />);
-		fireEvent.click(document.querySelector('button'));
+		const button = document.querySelector('button');
+		if (button) fireEvent.click(button);
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.docked).toEqual(false);
 	});
@@ -63,7 +63,7 @@ describe('Typeahead container', () => {
 				const event = { key: KEYS.DOWN, preventDefault: () => {} };
 				const props = {
 					...defaultProps,
-					state: Map({ docked: true }),
+					state: { docked: true },
 					setState: jest.fn(),
 					onKeyDown: jest.fn(),
 					onBlur: jest.fn(),
@@ -78,7 +78,7 @@ describe('Typeahead container', () => {
 				const event = { key: 'Esc', preventDefault: () => {} };
 				const props = {
 					...defaultProps,
-					state: Map({ docked: true }),
+					state: { docked: true },
 					setState: jest.fn(),
 					onKeyDown: jest.fn(),
 					onBlur: jest.fn(),
@@ -93,7 +93,7 @@ describe('Typeahead container', () => {
 				const event = { key: 'Enter', preventDefault: () => {} };
 				const props = {
 					...defaultProps,
-					state: Map({ docked: true }),
+					state: { docked: true },
 					setState: jest.fn(),
 					onKeyDown: jest.fn(),
 					onSelect: jest.fn(),

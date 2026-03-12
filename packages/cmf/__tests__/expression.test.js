@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import cmf, { mock } from '../src';
@@ -9,7 +10,7 @@ describe('expression', () => {
 	});
 
 	it('should register in registry', () => {
-		const test = jest.fn();
+		const test = vi.fn();
 		const context = {
 			registry: {},
 		};
@@ -18,7 +19,7 @@ describe('expression', () => {
 	});
 
 	it('should get from registry', () => {
-		const test = jest.fn();
+		const test = vi.fn();
 		const context = {
 			registry: {
 				'expression:test': test,
@@ -28,7 +29,7 @@ describe('expression', () => {
 	});
 
 	it('should call with simple string (no args)', () => {
-		const test = jest.fn();
+		const test = vi.fn();
 		const context = {
 			registry: {
 				'expression:test': test,
@@ -39,7 +40,7 @@ describe('expression', () => {
 	});
 
 	it('should call with object (args)', () => {
-		const test = jest.fn();
+		const test = vi.fn();
 		const context = {
 			registry: {
 				'expression:test': test,
@@ -131,7 +132,7 @@ describe('getProps', () => {
 
 describe('mapStateToProps', () => {
 	it('should check first level props keys and call expression on it', () => {
-		const isCalled = jest.fn(() => true);
+		const isCalled = vi.fn(() => true);
 		// eslint-disable-next-line import/no-named-as-default-member
 		const registry = cmf.registry.getRegistry();
 		registry['expression:isCalled'] = isCalled;

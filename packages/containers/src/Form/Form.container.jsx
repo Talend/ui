@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import BaseForm from '@talend/react-forms';
 import classnames from 'classnames';
@@ -10,7 +9,7 @@ if (process.env.FORM_MOZ) {
 	DefaultArrayFieldTemplate = BaseForm.deprecated.templates.ArrayFieldTemplate;
 }
 
-export const DEFAULT_STATE = new Immutable.Map({});
+export const DEFAULT_STATE = {};
 
 /**
  * Because we don't want to loose form input
@@ -42,7 +41,7 @@ class Form extends Component {
 	 * @return {[type]}        [description]
 	 */
 	static getFormData(state, formId) {
-		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], new Immutable.Map());
+		return state.cmf.components?.['Container(Form)']?.[formId]?.data ?? {};
 	}
 
 	static getDerivedStateFromProps(nextProps, prevState) {
@@ -62,7 +61,7 @@ class Form extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = DEFAULT_STATE.toJS();
+		this.state = { ...DEFAULT_STATE };
 		this.formActions = this.formActions.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -105,7 +104,7 @@ class Form extends Component {
 	}
 
 	jsonSchema() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const state = this.props.state || DEFAULT_STATE;
 		if (typeof this.props.jsonSchema === 'function') {
 			return this.props.jsonSchema(state.data);
 		}
@@ -113,7 +112,7 @@ class Form extends Component {
 	}
 
 	uiSchema() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const state = this.props.state || DEFAULT_STATE;
 		if (typeof this.props.uiSchema === 'function') {
 			return this.props.uiSchema(state.data);
 		}
@@ -121,7 +120,7 @@ class Form extends Component {
 	}
 
 	data() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const state = this.props.state || DEFAULT_STATE;
 		if (typeof this.props.data === 'function') {
 			return this.props.data(state.data);
 		}
@@ -129,7 +128,7 @@ class Form extends Component {
 	}
 
 	errors() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const state = this.props.state || DEFAULT_STATE;
 		if (typeof this.props.errors === 'function') {
 			return this.props.errors(state.errors);
 		}
@@ -138,14 +137,14 @@ class Form extends Component {
 
 	formActions() {
 		if (typeof this.props.actions === 'function') {
-			const state = (this.props.state || DEFAULT_STATE).toJS();
+			const state = this.props.state || DEFAULT_STATE;
 			return this.props.actions(state.data || this.props.data);
 		}
 		return this.props.actions;
 	}
 
 	render() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const state = this.props.state || DEFAULT_STATE;
 		const props = {
 			data: {
 				jsonSchema: this.jsonSchema(),

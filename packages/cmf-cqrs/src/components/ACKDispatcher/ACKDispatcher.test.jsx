@@ -1,5 +1,4 @@
 import React from 'react';
-import { Map } from 'immutable';
 import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 
@@ -16,23 +15,23 @@ describe('Container ACKDispatcher', () => {
 	it('should render nothing', () => {
 		const { container } = render(
 			<CMFProvider>
-				<Container acks={Map()} dispatch={dispatch} />
+				<Container acks={{}} dispatch={dispatch} />
 			</CMFProvider>,
 		);
 		expect(container.firstChild).toBeEmptyDOMElement();
 	});
 	it('should processACK call dispatch', () => {
-		const acks = Map({
-			123: new Map({
+		const acks = {
+			123: {
 				actionCreator: 'actionCreator',
 				data: { foo: 'bar' },
 				received: true,
-			}),
-			456: new Map({
+			},
+			456: {
 				actionCreator: 'actionCreatorBis',
 				data: { foo: 'baz' },
-			}),
-		});
+			},
+		};
 		const registry = mock.store.registry();
 		const mocked = vi.fn();
 
@@ -70,14 +69,14 @@ describe('Container ACKDispatcher', () => {
 		registry['actionCreator:myActionCreator'] = myActionCreator;
 		const { rerender } = render(
 			<CMFProvider registry={registry}>
-				<Container dispatch={dispatch} acks={Map()} />
+				<Container dispatch={dispatch} acks={{}} />
 			</CMFProvider>,
 		);
 		rerender(
 			<CMFProvider registry={registry}>
 				<Container
 					dispatch={dispatch}
-					acks={Map({ id1: Map({ actionCreator: 'myActionCreator', received: true }) })}
+					acks={{ id1: { actionCreator: 'myActionCreator', received: true } }}
 				/>
 			</CMFProvider>,
 		);
@@ -95,20 +94,20 @@ describe('Container ACKDispatcher', () => {
 	});
 	it(`should dispatch call props.dispatch even when ack only when both received is true, and action exist
 	meaning that we can receive ack before creation request is resolve`, () => {
-		const acks = Map({
-			42: new Map({
+		const acks = {
+			42: {
 				received: true,
-			}),
-			123: new Map({
+			},
+			123: {
 				actionCreator: 'actionCreator',
 				data: { foo: 'bar' },
 				received: true,
-			}),
-			456: new Map({
+			},
+			456: {
 				actionCreator: 'actionCreatorBis',
 				data: { foo: 'baz' },
-			}),
-		});
+			},
+		};
 		const registry = mock.store.registry();
 		const mocked = vi.fn();
 
@@ -141,19 +140,15 @@ describe('Connected ACKDispatcher', () => {
 	it('should mapStateToProps', () => {
 		const state = {
 			cmf: {
-				components: new Map({
-					ACKDispatcher: {
-						ACKDispatcher: DEFAULT_STATE.toJS(),
-					},
-				}),
+				components: {},
 			},
-			ack: new Map({
-				123: new Map({
+			ack: {
+				123: {
 					actionCreator: 'test',
 					data: { foo: 'bar' },
 					received: true,
-				}),
-			}),
+				},
+			},
 		};
 		const props = mapStateToProps(state);
 		expect(typeof props).toBe('object');

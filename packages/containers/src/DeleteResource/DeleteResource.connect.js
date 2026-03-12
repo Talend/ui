@@ -1,5 +1,4 @@
-import { cmfConnect } from '@talend/react-cmf';
-import Immutable from 'immutable';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import get from 'lodash/get';
 import Container from './DeleteResource.container';
 
@@ -16,9 +15,7 @@ export function mapStateToProps(state, ownProps) {
 	} else {
 		const collectionId = ownProps.collectionId || ownProps.resourceType;
 		if (collectionId) {
-			props.resource = state.cmf.collections
-				.get(collectionId, new Immutable.Map())
-				.find(currentResource => currentResource.get('id') === resourceId);
+			props.resource = cmf.selectors.collections.getCollectionItem(state, collectionId, resourceId);
 		}
 	}
 

@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Map } from 'immutable';
 
 import cmf, { mock } from '@talend/react-cmf';
 
@@ -35,7 +34,7 @@ describe('EditableText container', () => {
 	it('should setState when submit event trigger', async () => {
 		let state;
 		const props = {
-			state: Map({ editMode: true }),
+			state: { editMode: true },
 			setState: jest.fn(fn => {
 				state = fn;
 			}),
@@ -53,11 +52,10 @@ describe('EditableText container', () => {
 		});
 	});
 	it('should call ActionCreatorSubmit when submit event trigger', async () => {
-		const event = {};
 		const props = {
 			actionCreatorSubmit: 'mySubmitActionCreator',
 			dispatchActionCreator: jest.fn(),
-			state: Map({ editMode: true }),
+			state: { editMode: true },
 			setState: jest.fn(),
 			text: 'my text',
 		};
@@ -78,7 +76,7 @@ describe('EditableText container', () => {
 	it('should setState when cancel event trigger', async () => {
 		let state;
 		const props = {
-			state: Map({ editMode: true }),
+			state: { editMode: true },
 			setState: jest.fn(fn => {
 				state = fn;
 			}),
@@ -93,7 +91,7 @@ describe('EditableText container', () => {
 	it('should call onCancel when cancel event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: true }),
+			state: { editMode: true },
 			onCancel: jest.fn(),
 			text: 'my text',
 		};
@@ -104,7 +102,7 @@ describe('EditableText container', () => {
 	it('should call actionCreatorCancel when cancel event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: true }),
+			state: { editMode: true },
 			actionCreatorCancel: 'myCancelActionCreator',
 			dispatchActionCreator: jest.fn(),
 			text: 'my text',
@@ -122,7 +120,7 @@ describe('EditableText container', () => {
 	it('should call setState when edit event trigger', async () => {
 		let state;
 		const props = {
-			state: Map({ editMode: false }),
+			state: { editMode: false },
 			setState: jest.fn(fn => {
 				state = fn;
 			}),
@@ -137,7 +135,7 @@ describe('EditableText container', () => {
 	it('should call onEdit when edit event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false }),
+			state: { editMode: false },
 			onEdit: jest.fn(),
 			text: 'my text',
 		};
@@ -145,10 +143,10 @@ describe('EditableText container', () => {
 		await userEvent.click(screen.getByLabelText('Rename'));
 		expect(props.onEdit).toHaveBeenCalledWith(expect.anything());
 	});
-	it('should call onEdit when edit event trigger', async () => {
+	it('should call actionCreatorEdit via dispatchActionCreator when edit event trigger', async () => {
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false }),
+			state: { editMode: false },
 			dispatchActionCreator: jest.fn(),
 			actionCreatorEdit: 'myEditActionCreator',
 			text: 'my text',
@@ -168,7 +166,7 @@ describe('EditableText container', () => {
 
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: true }),
+			state: { editMode: true },
 			onChange: jest.fn(),
 			text: 'my text',
 		};
@@ -184,7 +182,7 @@ describe('EditableText container', () => {
 
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: true }),
+			state: { editMode: true },
 			dispatchActionCreator: jest.fn(),
 			actionCreatorChange: 'myChangeActionCreator',
 			text: 'my text',
@@ -207,11 +205,11 @@ describe('EditableText container', () => {
 
 describe('EditableText selectors', () => {
 	let mockState;
-	const componentState = Map({ editMode: true });
+	const componentState = { editMode: true };
 	beforeEach(() => {
 		mockState = {
 			cmf: {
-				components: Map({ [DISPLAY_NAME]: Map({ myEditableText: componentState }) }),
+				components: { [DISPLAY_NAME]: { myEditableText: componentState } },
 			},
 		};
 	});

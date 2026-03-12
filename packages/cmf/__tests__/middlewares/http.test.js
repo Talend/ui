@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import http from '../../src/middlewares/http';
 
 import {
@@ -17,7 +18,8 @@ import { HTTP_METHODS, HTTP_STATUS } from '../../src/middlewares/http/constants'
 
 describe('CMF http middleware', () => {
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
+		global.fetch = vi.fn((url, config) => Promise.resolve(config.response));
 	});
 
 	it('should be available from middlewares/http', () => {
@@ -165,22 +167,22 @@ describe('CMF http middleware', () => {
 
 	it('should httpMiddleware return function', () => {
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const middleware = httpMiddleware(store)(next);
 		expect(typeof middleware).toBe('function');
 	});
 
-	it('return a promise when is given an action', done => {
+	it('return a promise when is given an action', () => {
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
 		}
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			url: 'foo',
 			type: HTTP_METHODS.POST,
@@ -213,24 +215,23 @@ describe('CMF http middleware', () => {
 			url: 'foo',
 		};
 
-		newState.then(() => {
+		return newState.then(() => {
 			expect(global.fetch.mock.calls[0]).toEqual(['foo', config]);
 			expect(next.mock.calls.length).toBe(1);
 			const newAction = next.mock.calls[0][0];
 			expect(newAction.response.foo).toBe('bar');
-			done();
 		});
 	});
 
-	it('pass FormData to the fetch function without tempering if given as action body', done => {
+	it('pass FormData to the fetch function without tempering if given as action body', () => {
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
 		}
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const formData = new FormData();
 		const action = {
 			url: 'foo',
@@ -266,20 +267,19 @@ describe('CMF http middleware', () => {
 			url: 'foo',
 		};
 
-		newState.then(() => {
+		return newState.then(() => {
 			expect(global.fetch.mock.calls[0]).toEqual(['foo', config]);
 			expect(next.mock.calls.length).toBe(1);
 			const newAction = next.mock.calls[0][0];
 			expect(newAction.response.foo).toBe('bar');
-			done();
 		});
 	});
 
-	it('should httpMiddleware handle response promise with error', done => {
+	it('should httpMiddleware handle response promise with error', () => {
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			type: HTTP_METHODS.POST,
 			body: { label: 'great test' },
@@ -299,7 +299,7 @@ describe('CMF http middleware', () => {
 		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
-		newState.then(() => {
+		return newState.then(() => {
 			expect(store.dispatch.mock.calls.length).toBe(3);
 			const errorHTTPAction = store.dispatch.mock.calls[2][0];
 			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
@@ -309,15 +309,14 @@ describe('CMF http middleware', () => {
 			expect(errorHTTPAction.error.stack.messageObject).toEqual({
 				foo: 'bar',
 			});
-			done();
 		});
 	});
 
-	it('should httpMiddleware handle response promise with error if the body is not a JSON', done => {
+	it('should httpMiddleware handle response promise with error if the body is not a JSON', () => {
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			type: HTTP_METHODS.POST,
 			body: { label: 'great test' },
@@ -337,25 +336,22 @@ describe('CMF http middleware', () => {
 		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
-		newState
-			.then(() => {
-				expect(store.dispatch.mock.calls.length).toBe(3);
-				const errorHTTPAction = store.dispatch.mock.calls[2][0];
-				expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
-				expect(errorHTTPAction.error.stack.status).toBe(HTTP_STATUS.INTERNAL_SERVER_ERROR);
-				expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
-				expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
-				expect(errorHTTPAction.error.stack.response).toBe('invalid json');
-			})
-			.catch(error => console.error(error))
-			.finally(done);
+		return newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(3);
+			const errorHTTPAction = store.dispatch.mock.calls[2][0];
+			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+			expect(errorHTTPAction.error.stack.status).toBe(HTTP_STATUS.INTERNAL_SERVER_ERROR);
+			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
+			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
+		});
 	});
 
-	it('should handle onError callback if this action property is a typeof function', done => {
+	it('should handle onError callback if this action property is a typeof function', () => {
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			type: HTTP_METHODS.POST,
 			body: { label: 'great test' },
@@ -378,11 +374,10 @@ describe('CMF http middleware', () => {
 		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
-		newState.then(() => {
+		return newState.then(() => {
 			expect(store.dispatch.mock.calls.length).toBe(3);
 			const errorCallbackAction = store.dispatch.mock.calls[2][0];
 			expect(errorCallbackAction.type).toBe('CUSTOM_ACTION');
-			done();
 		});
 	});
 });
@@ -454,10 +449,10 @@ describe('json function', () => {
 
 describe('httpMiddleware configuration', () => {
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
-	it('should use its parameter for CSRF handling if a security configuration is given', done => {
+	it('should use its parameter for CSRF handling if a security configuration is given', () => {
 		// given
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
@@ -470,9 +465,9 @@ describe('httpMiddleware configuration', () => {
 		};
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			url: 'foo',
 			type: HTTP_METHODS.POST,
@@ -503,7 +498,7 @@ describe('httpMiddleware configuration', () => {
 		// when
 		const middleware = httpMiddleware(httpDefaultConfig)(store)(next);
 		expect(typeof middleware).toBe('function');
-		middleware(action).then(() => {
+		return middleware(action).then(() => {
 			// then
 			const firstCall = global.fetch.mock.calls[0];
 			const firstCallSecondParam = firstCall[1];
@@ -525,21 +520,20 @@ describe('httpMiddleware configuration', () => {
 			expect(next.mock.calls.length).toBe(1);
 			const newAction = next.mock.calls[0][0];
 			expect(newAction.response.foo).toBe('bar');
-			done();
 		});
 		document.cookie = `cookieKey=${expectedCSRFKeyValue}; dwf_section_edit=True; Max-Age=0`;
 	});
 
-	it('should use defaults CSRF handling parameter if no security configuration is given', done => {
+	it('should use defaults CSRF handling parameter if no security configuration is given', () => {
 		// given
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
 		}
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			url: 'foo',
 			type: HTTP_METHODS.POST,
@@ -570,7 +564,7 @@ describe('httpMiddleware configuration', () => {
 		// when
 		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
-		middleware(action).then(() => {
+		return middleware(action).then(() => {
 			// then
 			const firstCall = global.fetch.mock.calls[0];
 			const firstCallSecondParam = firstCall[1];
@@ -593,11 +587,10 @@ describe('httpMiddleware configuration', () => {
 			const newAction = next.mock.calls[0][0];
 			expect(newAction.response.foo).toBe('bar');
 			document.cookie = '';
-			done();
 		});
 	});
 
-	it('should call interceptor at every levels', done => {
+	it('should call interceptor at every levels', () => {
 		// given
 		const response = { foo: 'bar' };
 		function json() {
@@ -605,9 +598,9 @@ describe('httpMiddleware configuration', () => {
 		}
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			url: 'foo',
 			type: HTTP_METHODS.POST,
@@ -620,8 +613,8 @@ describe('httpMiddleware configuration', () => {
 			},
 		};
 		const interceptor = {
-			request: jest.fn(config => config),
-			response: jest.fn(r => r),
+			request: vi.fn(config => config),
+			response: vi.fn(r => r),
 		};
 		interceptors.push(interceptor);
 		// when
@@ -629,14 +622,13 @@ describe('httpMiddleware configuration', () => {
 		const result = middleware(action);
 
 		// then
-		result.then(() => {
+		return result.then(() => {
 			expect(interceptor.request).toHaveBeenCalled();
 			const augmentedConfig = interceptor.request.mock.calls[0][0];
 			expect(augmentedConfig.url).toBe(action.url);
 			expect(interceptor.response).toHaveBeenCalledWith({ data: response, headers: {} });
 			// eslint-disable-next-line no-underscore-dangle
 			interceptors._clear();
-			done();
 		});
 	});
 });

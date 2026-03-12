@@ -1,9 +1,10 @@
+import { vi } from 'vitest';
 import cmfMiddleware from '../../src/middlewares/cmf';
 import onError from '../../src/onError';
 import CONSTANT from '../../src/constant';
 
-jest.mock('../../src/onError', () => ({
-	addAction: jest.fn(),
+vi.mock('../../src/onError', () => ({
+	addAction: vi.fn(),
 }));
 
 describe('CMF middleware', () => {
@@ -12,9 +13,9 @@ describe('CMF middleware', () => {
 	let middleware;
 	beforeEach(() => {
 		store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		next = jest.fn();
+		next = vi.fn();
 		middleware = cmfMiddleware(store)(next);
 	});
 	it('should be a middleware', () => {

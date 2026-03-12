@@ -1,18 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import cmf, { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
 
 import { DeleteResource } from './DeleteResource.container';
 import Connected, { mapStateToProps } from './DeleteResource.connect';
 
 const state = mock.store.state();
 const settings = {};
-state.cmf = {
-	settings,
-};
-state.cmf.collections = new Immutable.Map({
-	foo: new Immutable.List([new Immutable.Map({ id: '123' })]),
-});
+state.cmf = { settings };
+const fooItem = { id: '123' };
+state.cmf.collections = { foo: [fooItem] };
 
 describe('Container DeleteResource', () => {
 	let App;
@@ -27,7 +23,7 @@ describe('Container DeleteResource', () => {
 		const props = {
 			uri: '/myEndpoint',
 			resourceType: 'myResourceType',
-			resource: new Immutable.Map({ label: 'myLabel' }),
+			resource: { label: 'myLabel' },
 			header: 'My header title',
 			params: { id: 'myResourceID' },
 			resourceTypeLabel: 'resourceLabel',
@@ -79,12 +75,12 @@ describe('Connected DeleteResource', () => {
 		});
 		it('should return the props.resource corresponding to resourceId', () => {
 			expect(mapStateToProps(state, { resourceType: 'foo', resourceId: '123' }).resource).toBe(
-				state.cmf.collections.get('foo').get(0),
+				fooItem,
 			);
 		});
 		it('should return the props.resource corresponding to routeParams.id', () => {
 			expect(mapStateToProps(state, { resourceType: 'foo', params: { id: '123' } }).resource).toBe(
-				state.cmf.collections.get('foo').get(0),
+				fooItem,
 			);
 		});
 

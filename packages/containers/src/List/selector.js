@@ -2,29 +2,25 @@ import cmf from '@talend/react-cmf';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import { createSelector } from 'reselect';
-import { Map, List } from 'immutable';
 
 function contains(listItem, query, columns) {
-	let item = listItem;
-	if (Map.isMap(listItem)) {
-		item = listItem.toJS();
-	}
 	return columns.some(
 		column =>
-			typeof item[column.key] === 'string' &&
-			item[column.key].toLowerCase().indexOf(query.toLowerCase()) !== -1,
+			typeof listItem[column.key] === 'string' &&
+			listItem[column.key].toLowerCase().indexOf(query.toLowerCase()) !== -1,
 	);
 }
 
 function getCollection(state, collectionId) {
-	return state.cmf.collections.get(collectionId);
+	if (collectionId == null) return undefined;
+	return cmf.selectors.collections.get(state, collectionId);
 }
 
 export function getCollectionItems(state, collectionId) {
 	const collection = getCollection(state, collectionId);
 
-	if (Map.isMap(collection)) {
-		return collection.get('items');
+	if (collection != null && !Array.isArray(collection) && typeof collection === 'object') {
+		return collection.items !== undefined ? collection.items : collection;
 	}
 	return collection;
 }
@@ -32,15 +28,18 @@ export function getCollectionItems(state, collectionId) {
 export function configureGetPagination(state, { collectionId }) {
 	const collection = getCollection(state, collectionId);
 
-	if (Map.isMap(collection)) {
-		return collection.get('pagination');
+	if (collection != null && !Array.isArray(collection) && typeof collection === 'object') {
+		return typeof collection.get === 'function'
+			? collection.get('pagination')
+			: collection.pagination;
 	}
 
 	return null;
 }
 
 function getComponentState(collectionId) {
-	return state => state.cmf.components.getIn(['Container(List)', collectionId || 'default']);
+	return state =>
+		cmf.selectors.components.getComponentState(state, 'Container(List)', collectionId || 'default');
 }
 
 export function configureGetFilteredItems(configure) {
@@ -51,7 +50,7 @@ export function configureGetFilteredItems(configure) {
 		componentState => {
 			let results = localConfig.items;
 			if (componentState) {
-				const searchQuery = componentState.get('searchQuery');
+				const searchQuery = componentState?.searchQuery;
 				if (searchQuery && results) {
 					results = results.filter(item => contains(item, searchQuery, localConfig.columns));
 				}
@@ -60,13 +59,16 @@ export function configureGetFilteredItems(configure) {
 		},
 	);
 
-	return createSelector([getFilteredList, getComponentState], items => items);
+	return createSelector(
+		[getFilteredList, getComponentState(localConfig.collectionId)],
+		items => items,
+	);
 }
 
 export function compare(sortBy) {
 	return (a, b) => {
-		let aValue = a.get(sortBy);
-		let bValue = b.get(sortBy);
+		let aValue = typeof a.get === 'function' ? a.get(sortBy) : a[sortBy];
+		let bValue = typeof b.get === 'function' ? b.get(sortBy) : b[sortBy];
 
 		if (typeof aValue === 'string' && typeof bValue === 'string') {
 			aValue = aValue.toLowerCase();
@@ -93,22 +95,22 @@ export function compare(sortBy) {
 }
 
 export function getSortedResults(componentState, config, listItems) {
-	if (!List.isList(listItems)) {
-		return new List();
+	if (listItems == null || typeof listItems.filter !== 'function') {
+		return [];
 	}
 	let results = listItems;
 	if (!isEmpty(componentState)) {
-		const sortBy = componentState.get('sortOn');
-		const sortAsc = componentState.get('sortAsc');
+		const sortBy = componentState.sortOn;
+		const sortAsc = componentState.sortAsc;
 		const sortedColumn = get(config, 'columns', []).find(column => column.key === sortBy);
 
 		if (get(sortedColumn, 'sortFunction')) {
 			// Immutable sort method returns sorted array
-			results = results.sort(
+			results = [...results].sort(
 				cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc),
 			);
 		} else {
-			results = results.sort(compare(sortBy));
+			results = [...results].sort(compare(sortBy));
 		}
 
 		if (!sortAsc) {
@@ -123,25 +125,25 @@ export function configureGetSortedItems(config, listItems) {
 		getSortedResults(componentState, config, listItems),
 	);
 
-	return createSelector([getSortedList, getComponentState], items => items);
+	return createSelector([getSortedList, getComponentState(config.collectionId)], items => items);
 }
 
 export function configureGetPagedItems(configure, listItems) {
 	const getPagedList = createSelector(getComponentState(configure.collectionId), componentState => {
 		let results = listItems;
 		if (componentState) {
-			const startIndex = componentState.get('startIndex');
-			const itemsPerPage = componentState.get('itemsPerPage');
+			const startIndex = componentState.startIndex;
+			const itemsPerPage = componentState.itemsPerPage;
 
 			if (itemsPerPage > 0 && startIndex > 0) {
 				results = results.slice(
 					startIndex - 1,
-					Math.min(startIndex + itemsPerPage - 1, results.size),
+					Math.min(startIndex + itemsPerPage - 1, results.size ?? results.length),
 				);
 			}
 		}
 		return results;
 	});
 
-	return createSelector([getPagedList, getComponentState], items => items);
+	return createSelector([getPagedList, getComponentState(configure.collectionId)], items => items);
 }

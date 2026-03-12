@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "@talend/react-cmf": "^12.1.1",
-    "immutable": "^3.8.2",
     "redux-saga": "^1.4.2"
   },
   "peerDependencies": {

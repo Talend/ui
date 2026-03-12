@@ -7,5 +7,5 @@ import { DEFAULT_STATE, DISPLAY_NAME } from './SubHeaderBar.container';
  */
 // eslint-disable-next-line import/prefer-default-export
 export function getComponentState(state, idComponent) {
-	return state.cmf.components.getIn([DISPLAY_NAME, idComponent], DEFAULT_STATE);
+	return state.cmf.components?.[DISPLAY_NAME]?.[idComponent] ?? DEFAULT_STATE;
 }

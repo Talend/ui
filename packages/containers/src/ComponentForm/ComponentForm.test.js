@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { fromJS, Map } from 'immutable';
 
 import cmf, { mock } from '@talend/react-cmf';
 
@@ -47,10 +46,10 @@ describe('ComponentForm', () => {
 
 		it('should return js object', () => {
 			// given
-			const immutableObject = new Map({ a: 1, b: 2 });
+			const anObject = { a: 1, b: 2 };
 
 			// when
-			const result = toJS(immutableObject);
+			const result = toJS(anObject);
 
 			// then
 			expect(result).toEqual({ a: 1, b: 2 });
@@ -313,7 +312,7 @@ describe('ComponentForm', () => {
 	describe('#render', () => {
 		it("should render a CircularProgress when we don't have the schema", () => {
 			// given
-			const state = new Map({});
+			const state = {};
 
 			// when
 			render(
@@ -334,7 +333,7 @@ describe('ComponentForm', () => {
 
 		it('should render a response status', () => {
 			// given
-			const state = fromJS({ response: { statusText: 'we had an error' } });
+			const state = { response: { statusText: 'we had an error' } };
 
 			// when
 			render(
@@ -353,7 +352,7 @@ describe('ComponentForm', () => {
 
 		it('should render a UIForm', () => {
 			// given
-			const state = fromJS(addSchemaMock.ui);
+			const state = { ...addSchemaMock.ui };
 
 			// when
 			const { container } = render(
@@ -374,7 +373,7 @@ describe('ComponentForm', () => {
 
 	describe('#security', () => {
 		it('should pass security props to createTrigger', () => {
-			const state = fromJS(addSchemaMock.ui);
+			const state = { ...addSchemaMock.ui };
 			const instance = new TCompForm({
 				state,
 				triggerURL: 'http://trigger',
@@ -391,7 +390,7 @@ describe('ComponentForm', () => {
 	describe('#update', () => {
 		it('should recreate trigger if triggerURL or customTriggers props change', () => {
 			// given
-			const state = fromJS(addSchemaMock.ui);
+			const state = { ...addSchemaMock.ui };
 			const oldTriggerURL = 'http://old';
 			const newTriggerURL = 'http://new';
 			const oldCustomTriggers = { oldCustomReload: () => {} };
@@ -433,7 +432,7 @@ describe('ComponentForm', () => {
 
 		it('should dispatch new definitionURL props', () => {
 			// given
-			const state = fromJS(addSchemaMock.ui);
+			const state = { ...addSchemaMock.ui };
 			const dispatch = jest.fn();
 			const oldUrl = 'http://old';
 			const newUrl = 'http://new';
@@ -460,7 +459,7 @@ describe('ComponentForm', () => {
 	});
 
 	describe('events', () => {
-		const state = fromJS({ ...addSchemaMock.ui, initialState: addSchemaMock.ui });
+		const state = { ...addSchemaMock.ui, initialState: addSchemaMock.ui };
 
 		// extract type field schema
 		const typeSchema = {
@@ -501,10 +500,7 @@ describe('ComponentForm', () => {
 
 			it('should NOT dispatch dirty state if it is already dirty', () => {
 				// given
-				const dirtyState = fromJS({
-					...addSchemaMock.ui,
-					dirty: true,
-				});
+				const dirtyState = { ...addSchemaMock.ui, dirty: true };
 				const setState = jest.fn();
 				const instance = new TCompForm({
 					state: dirtyState,

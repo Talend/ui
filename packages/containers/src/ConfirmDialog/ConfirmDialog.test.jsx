@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
-import { fromJS, Map } from 'immutable';
 import cmf, { mock } from '@talend/react-cmf';
 import { render } from '@testing-library/react';
 
@@ -37,12 +36,12 @@ describe('Container ConfirmDialog', () => {
 		App = config.App;
 	});
 	it('should not render', () => {
-		const state = new Map({
+		const state = {
 			size: 'small',
 			header: 'DO SOMETHING',
 			show: true,
 			children: 'Confirm this !',
-		});
+		};
 		const { container } = render(
 			<App {...mock.store.context()}>
 				<Container state={state} />
@@ -51,7 +50,7 @@ describe('Container ConfirmDialog', () => {
 		expect(container).toBeEmptyDOMElement();
 	});
 	it('should render', () => {
-		const state = new Map({
+		const state = {
 			size: 'small',
 			header: 'DO SOMETHING',
 			show: true,
@@ -59,7 +58,7 @@ describe('Container ConfirmDialog', () => {
 			validateAction: 'menu:demo',
 			cancelAction: 'menu:demo',
 			model: { foo: 'bar' },
-		});
+		};
 		const { container } = render(
 			<App {...mock.store.context()}>
 				<Container state={state} />
@@ -77,14 +76,14 @@ describe('Connected ConfirmDialog', () => {
 	});
 
 	it('should set validateAction and cancelAction', () => {
-		const cmfState = new Map({
+		const cmfState = {
 			size: 'small',
 			header: 'DO SOMETHING',
 			show: true,
 			children: 'Confirm this !',
 			validateAction: 'object:validate',
 			cancelAction: 'object:cancel',
-		});
+		};
 		const state = mock.store.state();
 		state.cmf.settings.actions['object:validate'] = { name: 'foo' };
 		state.cmf.settings.actions['object:cancel'] = { name: 'foo1' };
@@ -98,15 +97,15 @@ describe('Connected ConfirmDialog', () => {
 describe('ConfirmDialog.show/hide', () => {
 	it('should change the visibility to true in the state', () => {
 		const state = mock.store.state();
-		state.cmf.components = fromJS({
+		state.cmf.components = {
 			ConfirmDialog: {
 				ConfirmDialog: {
 					show: false,
 				},
 			},
-		});
+		};
 
-		const dialog = new Map({
+		const dialog = {
 			size: 'small',
 			header: 'REMOVE SEMANTIC TYPE',
 			children: 'Are you sure you want to remove the semantic type ?',
@@ -114,7 +113,7 @@ describe('ConfirmDialog.show/hide', () => {
 			// these two actions are contained in show:remove:semantic action payload
 			validateAction: '',
 			cancelAction: '',
-		});
+		};
 
 		const action = {
 			confirmDialogConf: dialog,
@@ -123,31 +122,25 @@ describe('ConfirmDialog.show/hide', () => {
 
 		const newState = showConfirmDialog(state, action);
 		expect(newState).not.toBe(state);
-		const confirmDialoVisibility = newState.cmf.components.getIn([
-			'CMFContainer(ConfirmDialog)',
-			'ConfirmDialog',
-			'show',
-		]);
+		const confirmDialoVisibility =
+			newState.cmf.components?.['CMFContainer(ConfirmDialog)']?.['ConfirmDialog']?.show;
 		expect(confirmDialoVisibility).toBeTruthy();
 	});
 
 	it('should change the visibility to false in the state', () => {
 		const state = mock.store.state();
-		state.cmf.components = fromJS({
+		state.cmf.components = {
 			ConfirmDialog: {
 				ConfirmDialog: {
 					show: true,
 				},
 			},
-		});
+		};
 
 		const newState = hideConfirmDialog(state);
 		expect(newState).not.toBe(state);
-		const confirmDialogVisibility = newState.cmf.components.getIn([
-			'CMFContainer(ConfirmDialog)',
-			'ConfirmDialog',
-			'show',
-		]);
+		const confirmDialogVisibility =
+			newState.cmf.components?.['CMFContainer(ConfirmDialog)']?.['ConfirmDialog']?.show;
 		expect(confirmDialogVisibility).toBeFalsy();
 	});
 });

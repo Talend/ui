@@ -11,8 +11,6 @@
 
     because the underlying module data is itself tested.
  */
-import { Map } from 'immutable';
-
 import { NodeRecord, NestedNodeRecord } from '../../constants/flowdesigner.model';
 
 import * as Node from './node';
@@ -23,14 +21,14 @@ const isNotNodeException = `NodeRecord should be a NodeRecord, was given
 """
 object
 """
-Map {}
+[object Object]
 """`;
 
 const improperSizeMessage = `SizeRecord should be a SizeRecord, was given
 """
 object
 """
-Map { "width": 20, "height": 50 }
+[object Object]
 """
 you should use Size module functions to create and transform Size`;
 
@@ -38,7 +36,7 @@ const improperPositionMessage = `PositionRecord should be a PositionRecord, was 
 """
 object
 """
-Map { "x": 10, "y": 10 }
+[object Object]
 """
 `;
 
@@ -66,10 +64,10 @@ describe('isNodeElseThrow', () => {
 
 	it('thow an error if parameter is not a NodeRecord', () => {
 		// given
-		const testNode = Map();
+		const testNode2 = {};
 		// when
 		// expect
-		expect(() => Node.isNodeElseThrow(testNode)).toThrow(isNotNodeException);
+		expect(() => Node.isNodeElseThrow(testNode2)).toThrow(isNotNodeException);
 	});
 });
 
@@ -83,10 +81,10 @@ describe('Node', () => {
 	const value = { whatever: 'whatever' };
 
 	const improperId = 34;
-	const improperPosition = Map({ x: 10, y: 10 });
-	const improperSize = Map({ width: 20, height: 50 });
+	const improperPosition = { x: 10, y: 10 };
+	const improperSize = { width: 20, height: 50 };
 	const improperNodeType = {};
-	const improperNode = Map();
+	const improperNode = {};
 	describe('create', () => {
 		it('given proper id, position, size and componentType return a Node', () => {
 			// given
@@ -115,9 +113,7 @@ describe('Node', () => {
 			// given
 			// when
 			// expect
-			expect(() => Node.create(id, position, improperSize, nodeType)).toThrow(
-				improperSizeMessage,
-			);
+			expect(() => Node.create(id, position, improperSize, nodeType)).toThrow(improperSizeMessage);
 		});
 		it('throw if given an improper componentType', () => {
 			// given
@@ -190,7 +186,7 @@ describe('Node', () => {
 """
 object
 """
-Map { "x": 10, "y": 10 }
+[object Object]
 """
 you should use Position module functions to create and transform Position`);
 		});
@@ -545,9 +541,7 @@ you should use Position module functions to create and transform Position`);
 			// given
 			// when
 			// expect
-			expect(() => Node.deleteGraphicalAttribute(key, improperNode)).toThrow(
-				isNotNodeException,
-			);
+			expect(() => Node.deleteGraphicalAttribute(key, improperNode)).toThrow(isNotNodeException);
 		});
 	});
 });

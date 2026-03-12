@@ -51,3 +51,10 @@ eslint-report.json
 stylelint-report.json
 i18n-extract
 .test-cache
+
+# TMP
+_bmad
+_bmad-*
+.github/agents/bmad-*
+.github/prompts/bmad_*
+.github/prompts/bmad-*

@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import http from '../../src/actions/http';
 import {
 	HTTP_METHODS,
@@ -107,7 +108,7 @@ describe('actions.http', () => {
 		expect(newAction.type).toBe('CALL_ME_BACK');
 		expect(newAction.error).toBe(error);
 
-		action.onError = jest.fn();
+		action.onError = vi.fn();
 		http.onActionError(action, error);
 		expect(action.onError.mock.calls.length).toBe(1);
 		expect(action.onError.mock.calls[0][0]).toBe(error);
@@ -120,14 +121,14 @@ describe('actions.http', () => {
 			onResponse: 'CALL_ME_BACK',
 		};
 		const headers = {
-			'content-type': 'application/json'
+			'content-type': 'application/json',
 		};
 		const newAction = http.onActionResponse(action, response, headers);
 		expect(newAction.type).toBe('CALL_ME_BACK');
 		expect(newAction.response).toBe(response);
 		expect(newAction.headers).toBe(headers);
 
-		action.onResponse = jest.fn();
+		action.onResponse = vi.fn();
 		http.onActionResponse(action, response, headers);
 		expect(action.onResponse.mock.calls.length).toBe(1);
 		expect(action.onResponse.mock.calls[0][0]).toBe(response);

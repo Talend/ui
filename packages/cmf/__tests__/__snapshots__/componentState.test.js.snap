@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`state should getStateAccessors return accessors 1`] = `
+exports[`state > should getStateAccessors return accessors 1`] = `
 {
   "cmf": {
     "componentState": {
       "componentName": "name",
-      "initialComponentState": Immutable.Map {
+      "initialComponentState": {
         "foo": "bar",
       },
       "key": "id",
@@ -17,7 +17,7 @@ exports[`state should getStateAccessors return accessors 1`] = `
 }
 `;
 
-exports[`state should getStateAccessors return accessors 2`] = `
+exports[`state > should getStateAccessors return accessors 2`] = `
 {
   "cmf": {
     "componentState": {
@@ -34,7 +34,7 @@ exports[`state should getStateAccessors return accessors 2`] = `
 }
 `;
 
-exports[`state should getStateAccessors return accessors 3`] = `
+exports[`state > should getStateAccessors return accessors 3`] = `
 {
   "cmf": {
     "componentState": {
@@ -48,7 +48,7 @@ exports[`state should getStateAccessors return accessors 3`] = `
 }
 `;
 
-exports[`state should getStateAccessors should support no DEFAULT_STATE 1`] = `
+exports[`state > should getStateAccessors should support no DEFAULT_STATE 1`] = `
 {
   "cmf": {
     "componentState": {

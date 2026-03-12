@@ -85,7 +85,7 @@ export function* deleteResourceValidate(
 				model: {
 					...get(action, 'data.model', {}),
 					id: safeId,
-					labelResource: resource.get('label') || resource.get('name', ''),
+					labelResource: resource.label || resource.name || '',
 				},
 			});
 			yield call(redirect, get(action, 'data.model.redirectUrl'));

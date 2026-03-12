@@ -1,16 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 
 export function addPathsToCollection(index, collection, paths, jsonpath) {
-	return collection.set(index, paths.push(jsonpath));
+	return { ...collection, [index]: [...paths, jsonpath] };
 }
 
 export function removePathsFromCollection(index, collection, paths, jsonpath) {
-	return collection.set(
-		index,
-		paths.filter(path => path !== jsonpath),
-	);
+	return { ...collection, [index]: paths.filter(path => path !== jsonpath) };
 }
 
 /**
@@ -51,23 +47,23 @@ export default class TreeManager extends Component {
 
 		this.state = {
 			isAllExpanded: props.isAllExpanded || false,
-			collapsedNodes: props.collapsedNodes || Immutable.Map(),
-			expandedNodes: props.expandedNodes || Immutable.Map().set(0, Immutable.List(['$'])),
+			collapsedNodes: props.collapsedNodes || {},
+			expandedNodes: props.expandedNodes || { 0: ['$'] },
 		};
 	}
 
 	onExpandAll = () => {
-		this.setState(oldState => ({
+		this.setState({
 			isAllExpanded: true,
-			collapsedNodes: oldState.collapsedNodes.clear(),
-		}));
+			collapsedNodes: {},
+		});
 	};
 
 	onCollapseAll = () => {
-		this.setState(oldState => ({
+		this.setState({
 			isAllExpanded: false,
-			expandedNodes: oldState.expandedNodes.clear(),
-		}));
+			expandedNodes: {},
+		});
 	};
 
 	onToggle = (event, options, index) => {
@@ -88,7 +84,7 @@ export default class TreeManager extends Component {
 					index,
 					collection,
 					isAllExpanded,
-					collection.get(index, Immutable.List()),
+					collection[index] ?? [],
 					options,
 				),
 			});
@@ -98,7 +94,7 @@ export default class TreeManager extends Component {
 					index,
 					collection,
 					isAllExpanded,
-					collection.get(index, Immutable.List()),
+					collection[index] ?? [],
 					options,
 				),
 			});
@@ -115,7 +111,7 @@ export default class TreeManager extends Component {
 			onToggle: this.onToggle,
 			onCollapseAll: this.onCollapseAll,
 			onExpandAll: this.onExpandAll,
-			paths: isAllExpanded ? this.state.collapsedNodes.toJS() : this.state.expandedNodes.toJS(),
+			paths: isAllExpanded ? this.state.collapsedNodes : this.state.expandedNodes,
 			highlighted: this.props.highlighted,
 			isAllExpanded,
 		};

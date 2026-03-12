@@ -1,8 +1,7 @@
-import { List, Map } from 'immutable';
 import Notification from '.';
 
-const initialState = new Map({
-	notifications: new List([
+const initialState = {
+	notifications: [
 		{
 			id: 'story-1',
 			message: 'This is a feedback of your operation1, This is a feedback of your operation1',
@@ -20,8 +19,8 @@ const initialState = new Map({
 			type: 'warning',
 			message: ['This is a feedback of your operation3', 'details'],
 		},
-	]),
-});
+	],
+};
 
 export default {
 	title: 'Notification',

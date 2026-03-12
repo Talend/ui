@@ -1,19 +1,12 @@
-import { List, Map, OrderedMap } from 'immutable';
 import * as Selectors from './nodeSelectors';
 import {
 	NodeRecord,
 	NestedNodeRecord,
 	PortRecord,
 	LinkRecord,
+	LinkGraphicalAttributes,
 } from '../constants/flowdesigner.model';
-import {
-	State,
-	NodeRecord as NodeRecordType,
-	NestedNodeRecord as NestedNodeRecordType,
-	PortRecord as PortRecordType,
-	LinkRecord as LinkRecordType,
-	Id,
-} from '../customTypings/index.d';
+import { State } from '../customTypings/index.d';
 
 describe('Testing node selectors', () => {
 	const node1 = new NodeRecord({
@@ -132,108 +125,117 @@ describe('Testing node selectors', () => {
 		id: 'id1',
 		sourceId: 'id1',
 		targetId: 'id2',
-		graphicalAttributes: Map().set('attr', 'attr'),
+		graphicalAttributes: new LinkGraphicalAttributes({ attr: 'attr' }),
 	});
 
 	const link2 = new LinkRecord({
 		id: 'id2',
 		sourceId: 'id3',
 		targetId: 'id5',
-		graphicalAttributes: Map().set('attr', 'attr'),
+		graphicalAttributes: new LinkGraphicalAttributes({ attr: 'attr' }),
 	});
 	const link3 = new LinkRecord({
 		id: 'id3',
 		sourceId: 'id6',
 		targetId: 'id9',
-		graphicalAttributes: Map().set('attr', 'attr'),
+		graphicalAttributes: new LinkGraphicalAttributes({ attr: 'attr' }),
 	});
 	const link4 = new LinkRecord({
 		id: 'id4',
 		sourceId: 'id10',
 		targetId: 'id13',
-		graphicalAttributes: Map().set('attr', 'attr'),
+		graphicalAttributes: new LinkGraphicalAttributes({ attr: 'attr' }),
 	});
 	const link5 = new LinkRecord({
 		id: 'id5',
 		sourceId: 'id15',
 		targetId: 'id16',
-		graphicalAttributes: Map().set('attr', 'attr'),
+		graphicalAttributes: new LinkGraphicalAttributes({ attr: 'attr' }),
 	});
 	const link6 = new LinkRecord({
 		id: 'id6',
 		sourceId: 'id4',
 		targetId: 'id7',
-		graphicalAttributes: Map().set('attr', 'attr'),
+		graphicalAttributes: new LinkGraphicalAttributes({ attr: 'attr' }),
 	});
 	const link7 = new LinkRecord({
 		id: 'id7',
 		sourceId: 'id8',
 		targetId: 'id11',
-		graphicalAttributes: Map().set('attr', 'attr'),
+		graphicalAttributes: new LinkGraphicalAttributes({ attr: 'attr' }),
 	});
 	const link8 = new LinkRecord({
 		id: 'id8',
 		sourceId: 'id12',
 		targetId: 'id14',
-		graphicalAttributes: Map().set('attr', 'attr'),
+		graphicalAttributes: new LinkGraphicalAttributes({ attr: 'attr' }),
 	});
 
-	const givenState: State = Map({
-		nodes: Map<Id, NodeRecordType>()
-			.set('id1', node1)
-			.set('id2', node2)
-			.set('id3', node3)
-			.set('id4', node4)
-			.set('id5', node5)
-			.set('id6', node6)
-			.set('id7', node7)
-			.set('id8', node8),
-		// eslint-disable-next-line new-cap
-		ports: OrderedMap<Id, PortRecordType>()
-			.set('id1', port1)
-			.set('id2', port2)
-			.set('id3', port3)
-			.set('id4', port4)
-			.set('id5', port5)
-			.set('id6', port6)
-			.set('id7', port7)
-			.set('id8', port8)
-			.set('id9', port9)
-			.set('id10', port10)
-			.set('id11', port11)
-			.set('id12', port12)
-			.set('id13', port13)
-			.set('id14', port14)
-			.set('id15', port15)
-			.set('id16', port16),
-		links: Map<Id, LinkRecordType>()
-			.set('id1', link1)
-			.set('id2', link2)
-			.set('id3', link3)
-			.set('id4', link4)
-			.set('id5', link5)
-			.set('id6', link6)
-			.set('id7', link7)
-			.set('id8', link8),
-		parents: Map<Id, Map<Id, Id>>()
-			.set('id1', Map({}))
-			.set('id2', Map({ id1: 'id1' }))
-			.set('id3', Map({ id2: 'id2' }))
-			.set('id4', Map({ id2: 'id2' }))
-			.set('id5', Map({ id3: 'id3' }))
-			.set('id6', Map({ id4: 'id4' }))
-			.set('id7', Map({ id5: 'id5', id6: 'id6' }))
-			.set('id8', Map({ id7: 'id7' })),
-		childrens: Map<Id, Map<Id, Id>>()
-			.set('id1', Map({ id2: 'id2' }))
-			.set('id2', Map({ id3: 'id3', id4: 'id4' }))
-			.set('id3', Map({ id5: 'id5' }))
-			.set('id4', Map({ id6: 'id6' }))
-			.set('id5', Map({ id7: 'id7' }))
-			.set('id6', Map({ id7: 'id7' }))
-			.set('id7', Map({ id8: 'id8' }))
-			.set('id8', Map({})),
-	});
+	const givenState: State = {
+		nodes: {
+			id1: node1,
+			id2: node2,
+			id3: node3,
+			id4: node4,
+			id5: node5,
+			id6: node6,
+			id7: node7,
+			id8: node8,
+		},
+		ports: {
+			id1: port1,
+			id2: port2,
+			id3: port3,
+			id4: port4,
+			id5: port5,
+			id6: port6,
+			id7: port7,
+			id8: port8,
+			id9: port9,
+			id10: port10,
+			id11: port11,
+			id12: port12,
+			id13: port13,
+			id14: port14,
+			id15: port15,
+			id16: port16,
+		},
+		links: {
+			id1: link1,
+			id2: link2,
+			id3: link3,
+			id4: link4,
+			id5: link5,
+			id6: link6,
+			id7: link7,
+			id8: link8,
+		},
+		parents: {
+			id1: {},
+			id2: { id1: 'id1' },
+			id3: { id2: 'id2' },
+			id4: { id2: 'id2' },
+			id5: { id3: 'id3' },
+			id6: { id4: 'id4' },
+			id7: { id5: 'id5', id6: 'id6' },
+			id8: { id7: 'id7' },
+		},
+		childrens: {
+			id1: { id2: 'id2' },
+			id2: { id3: 'id3', id4: 'id4' },
+			id3: { id5: 'id5' },
+			id4: { id6: 'id6' },
+			id5: { id7: 'id7' },
+			id6: { id7: 'id7' },
+			id7: { id8: 'id8' },
+			id8: {},
+		},
+		out: {},
+		in: {},
+		nodeTypes: {},
+		transform: { k: 1, x: 0, y: 0 },
+		transformToApply: undefined,
+	};
 
 	it('node1 should not have any predecessors', () => {
 		expect(Selectors.getPredecessors(givenState, 'id1')).toMatchSnapshot();
@@ -263,28 +265,32 @@ describe('Testing node selectors', () => {
 describe('Testing node selectors on nested nodes', () => {
 	const nodeA1 = new NestedNodeRecord({
 		id: 'nodeIdA1',
-		components: List(),
+		components: {},
 	});
 	const nodeA = new NestedNodeRecord({
 		id: 'nodeIdA',
-		components: List([nodeA1]),
+		components: { nodeIdA1: nodeA1 },
 	});
 
 	const nodeB = new NestedNodeRecord({
 		id: 'nodeIdB',
 	});
 
-	const givenState: State = Map({
-		nodes: Map<Id, NestedNodeRecordType>().set('nodeIdA', nodeA).set('nodeIdB', nodeB),
-		// eslint-disable-next-line new-cap
-		ports: OrderedMap<Id, PortRecordType>(),
-		links: Map<Id, LinkRecordType>(),
-		parents: Map<Id, Map<Id, Id>>(),
-		childrens: Map<Id, Map<Id, Id>>(),
-	});
+	const givenState: State = {
+		nodes: { nodeIdA: nodeA, nodeIdB: nodeB },
+		ports: {},
+		links: {},
+		parents: {},
+		childrens: {},
+		out: {},
+		in: {},
+		nodeTypes: {},
+		transform: { k: 1, x: 0, y: 0 },
+		transformToApply: undefined,
+	};
 
 	it('nodeA should not have 1 embeded child and node B 0 children', () => {
-		expect(givenState.get('nodes').get('nodeIdA').get('components').size).toBe(1);
-		expect(givenState.get('nodes').get('nodeIdB').get('components').size).toBe(0);
+		expect(Object.keys(givenState.nodes['nodeIdA'].components).length).toBe(1);
+		expect(Object.keys(givenState.nodes['nodeIdB'].components).length).toBe(0);
 	});
 });

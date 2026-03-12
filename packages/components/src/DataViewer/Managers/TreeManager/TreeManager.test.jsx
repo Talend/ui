@@ -1,7 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Immutable from 'immutable';
-
 import TreeManager, {
 	addPathsToCollection,
 	removePathsFromCollection,
@@ -9,19 +7,19 @@ import TreeManager, {
 
 describe('addPathsToCollection', () => {
 	it('should add the jsonpath to the paths collection', () => {
-		const myMap = Immutable.Map();
-		const myList = Immutable.List();
+		const myMap = {};
+		const myList = [];
 		const newMap = addPathsToCollection(0, myMap, myList, 'jsonpath');
-		expect(newMap.get(0).toJS()).toEqual(['jsonpath']);
+		expect(newMap[0]).toEqual(['jsonpath']);
 	});
 });
 
 describe('removePathsFromCollection', () => {
 	it('should remove the jsonpath to the paths collection', () => {
-		const myList = Immutable.List(['jsonpath', 'somestuff']);
-		const myMap = Immutable.Map({ 0: myList });
+		const myList = ['jsonpath', 'somestuff'];
+		const myMap = { 0: myList };
 		const newCollection = removePathsFromCollection(0, myMap, myList, 'jsonpath');
-		expect(newCollection.get(0).toJS()).toEqual(['somestuff']);
+		expect(newCollection[0]).toEqual(['somestuff']);
 	});
 });
 

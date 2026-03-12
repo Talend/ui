@@ -6,10 +6,7 @@ import { DEFAULT_STATE, DISPLAY_NAME } from './FilterBar.container';
  * @param {string} idComponent
  */
 export function getComponentState(state, idComponent) {
-	if (state.cmf.components.hasIn([DISPLAY_NAME, idComponent])) {
-		return state.cmf.components.getIn([DISPLAY_NAME, idComponent]);
-	}
-	return DEFAULT_STATE;
+	return state.cmf.components?.[DISPLAY_NAME]?.[idComponent] ?? DEFAULT_STATE;
 }
 
 /**
@@ -18,5 +15,5 @@ export function getComponentState(state, idComponent) {
  * @param {string} idComponent
  */
 export function getQuery(state, idComponent) {
-	return getComponentState(state, idComponent).get('query', '');
+	return getComponentState(state, idComponent).query ?? '';
 }

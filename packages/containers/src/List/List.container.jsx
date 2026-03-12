@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import { Map, List as ImmutableList } from 'immutable';
 import Component from '@talend/react-components/lib/List';
 import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 import get from 'lodash/get';
@@ -44,9 +42,9 @@ export const connectedCellDictionary = {
 	},
 };
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = {
 	displayMode: 'table',
-	selectedItems: new ImmutableList(),
+	selectedItems: [],
 	searchQuery: '',
 	itemsPerPage: 10,
 	startIndex: 1,
@@ -54,7 +52,7 @@ export const DEFAULT_STATE = new Map({
 	sortOn: 'name',
 	sortAsc: true,
 	filterDocked: true,
-});
+};
 
 /**
  * merge props.items with actions
@@ -63,7 +61,7 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.toJS().map(item => {
+	return props.items.map(item => {
 		const actionsItems = get(props, 'actions.items', []);
 		let actions = [];
 		if (
@@ -89,7 +87,7 @@ export function getItems(context, props) {
 
 function List(props) {
 	const context = useCMFContext();
-	const state = props.state.toJS();
+	const state = props.state;
 
 	function onChangePage(startIndex, itemsPerPage) {
 		props.setState({ startIndex, itemsPerPage });
@@ -100,7 +98,7 @@ function List(props) {
 	}
 
 	function getSelectedItems() {
-		return props.state.get('selectedItems', new ImmutableList());
+		return props.state?.selectedItems ?? [];
 	}
 
 	function onToggleMultiSelection(event, data) {
@@ -108,11 +106,11 @@ function List(props) {
 		const dataIndex = selectedItems.indexOf(data[props.idKey]);
 		if (dataIndex > -1) {
 			props.setState({
-				selectedItems: selectedItems.splice(dataIndex, 1),
+				selectedItems: selectedItems.filter((_, i) => i !== dataIndex),
 			});
 		} else {
 			props.setState({
-				selectedItems: selectedItems.push(data[props.idKey]),
+				selectedItems: [...selectedItems, data[props.idKey]],
 			});
 		}
 	}
@@ -120,13 +118,13 @@ function List(props) {
 	function onToggleAllMultiSelection() {
 		const selectedItems = getSelectedItems();
 		const items = props.items;
-		if (selectedItems.size !== items.size) {
+		if (selectedItems.length !== items.length) {
 			props.setState({
-				selectedItems: items.map(item => item.get(props.idKey)),
+				selectedItems: items.map(item => item[props.idKey]),
 			});
 		} else {
 			props.setState({
-				selectedItems: new ImmutableList([]),
+				selectedItems: [],
 			});
 		}
 	}
@@ -268,7 +266,7 @@ function List(props) {
 			newProps.list.itemProps.onToggle = onToggleMultiSelection;
 			newProps.list.itemProps.onToggleAll = onToggleAllMultiSelection;
 			newProps.list.itemProps.isSelected = isSelected;
-			newProps.toolbar.actionBar.selected = getSelectedItems().size;
+			newProps.toolbar.actionBar.selected = getSelectedItems().length;
 		}
 
 		const actions = newProps.actions;
@@ -353,7 +351,7 @@ List.propTypes = {
 	}),
 	cellDictionary: PropTypes.object,
 	displayMode: PropTypes.string,
-	items: ImmutablePropTypes.list.isRequired,
+	items: PropTypes.array.isRequired,
 	state: cmfConnect.propTypes.state,
 	...cmfConnect.propTypes,
 };

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 import api from '@talend/react-cmf';
-import Immutable from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
 import List from '.';
@@ -115,16 +114,16 @@ const customHeight = {
 	table: 100,
 };
 
-const defaultListState = new Immutable.Map({
+const defaultListState = {
 	displayMode: 'large',
-});
+};
 
-const defaultSortedListState = new Immutable.Map({
+const defaultSortedListState = {
 	sortOn: 'modified',
 	sortAsc: false,
-});
+};
 
-const items = Immutable.fromJS([
+const items = [
 	{
 		id: 'id1',
 		label: 'Title with actions',
@@ -179,7 +178,7 @@ const items = Immutable.fromJS([
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
 	},
-]);
+];
 
 const referenceDatetime = Date.now();
 const minusThreeHours = referenceDatetime - 3600 * 3 * 1000;
@@ -189,7 +188,7 @@ const minusThreeMin = referenceDatetime - 60 * 3 * 1000;
 
 const oneDay = 24 * 3600 * 1000;
 
-const itemsWithTimestamp = Immutable.fromJS([
+const itemsWithTimestamp = [
 	{
 		id: 'id0',
 		label: 'Title with actions but first',
@@ -227,7 +226,7 @@ const itemsWithTimestamp = Immutable.fromJS([
 		modified: minusOneHours,
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
-]);
+];
 
 const sortUpdatedAsc = {
 	field: 'modified',
@@ -258,73 +257,72 @@ export const WithSeparatorActions = () => (
 );
 export const Pagination = () => {
 	const propsPg = cloneDeep(props);
-	const itemsPg = items.concat(
-		Immutable.fromJS([
-			{
-				id: 'id4',
-				label: 'Title with actions',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT',
-			},
-			{
-				id: 'ID5',
-				label: 'Title in input mode',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT',
-			},
-			{
-				id: 'iD6',
-				label: 'Super long title to trigger overflow on some rendering',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT with super long name',
-			},
-			{
-				id: 'id7',
-				label: 'Title with actions',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT',
-			},
-			{
-				id: 'ID8',
-				label: 'Title in input mode',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT',
-			},
-			{
-				id: 'iD9',
-				label: 'Super long title to trigger overflow on some rendering',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT with super long name',
-			},
-			{
-				id: 'id10',
-				label: 'Title with actions',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT',
-			},
-			{
-				id: 'ID11',
-				label: 'Title in input mode',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT',
-			},
-			{
-				id: 'iD12',
-				label: 'Super long title to trigger overflow on some rendering',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT with super long name',
-			},
-		]),
-	);
+	const itemsPg = [
+		...items,
+		{
+			id: 'id4',
+			label: 'Title with actions',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+		},
+		{
+			id: 'ID5',
+			label: 'Title in input mode',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+		},
+		{
+			id: 'iD6',
+			label: 'Super long title to trigger overflow on some rendering',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT with super long name',
+		},
+		{
+			id: 'id7',
+			label: 'Title with actions',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+		},
+		{
+			id: 'ID8',
+			label: 'Title in input mode',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+		},
+		{
+			id: 'iD9',
+			label: 'Super long title to trigger overflow on some rendering',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT with super long name',
+		},
+		{
+			id: 'id10',
+			label: 'Title with actions',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+		},
+		{
+			id: 'ID11',
+			label: 'Title in input mode',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+		},
+		{
+			id: 'iD12',
+			label: 'Super long title to trigger overflow on some rendering',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT with super long name',
+		},
+	];
 	propsPg.toolbar.pagination = {};
 	return (
 		<div className="list-container">

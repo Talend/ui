@@ -1,4 +1,3 @@
-import { Map, fromJS } from 'immutable';
 import ackReducer, { ackProcessed } from './ack';
 import { addContext, receiveMessage, deleteACK } from '../actions/ack';
 
@@ -16,10 +15,10 @@ describe('reducers.ack.ackReducer', () => {
 	});
 	it('should reduce receiveMessage', () => {
 		const state = ackReducer(
-			fromJS({
+			{
 				123: { foo: 'bar' },
 				456: { foo: 'bar' },
-			}),
+			},
 			receiveMessage(null, {
 				requestId: '123',
 			}),
@@ -28,10 +27,10 @@ describe('reducers.ack.ackReducer', () => {
 	});
 	it('should reduce deleteACK', () => {
 		const state = ackReducer(
-			fromJS({
+			{
 				123: { foo: 'bar' },
 				456: { foo: 'bar' },
-			}),
+			},
 			deleteACK(null, {
 				requestId: '123',
 			}),
@@ -41,11 +40,13 @@ describe('reducers.ack.ackReducer', () => {
 
 	it('should return default state', () => {
 		const state = ackReducer(undefined, { type: 'notsupported' });
-		expect(Map.isMap(state)).toBe(true);
+		expect(typeof state).toBe('object');
+		expect(state).not.toBeNull();
+		expect(Array.isArray(state)).toBe(false);
 	});
 
 	it('should return input state on non supported action', () => {
-		const state = new Map();
+		const state = {};
 		const newState = ackReducer(state, { type: 'notsupported' });
 		expect(state).toBe(newState);
 	});
@@ -73,10 +74,10 @@ describe('reducers.ackProcessed higher order reducer', () => {
 	it('should reduce receiveMessage', () => {
 		const state = ackProcessed(
 			{
-				ack: fromJS({
+				ack: {
 					123: { foo: 'bar' },
 					456: { foo: 'bar' },
-				}),
+				},
 			},
 			{
 				ack: receiveMessage(null, {
@@ -89,10 +90,10 @@ describe('reducers.ackProcessed higher order reducer', () => {
 	it('should reduce deleteACK', () => {
 		const state = ackProcessed(
 			{
-				ack: fromJS({
+				ack: {
 					123: { foo: 'bar' },
 					456: { foo: 'bar' },
-				}),
+				},
 			},
 			{
 				ack: deleteACK(null, {

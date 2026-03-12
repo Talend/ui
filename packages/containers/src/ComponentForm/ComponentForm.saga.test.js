@@ -1,9 +1,8 @@
 import { call, select, put } from 'redux-saga/effects';
-import { fromJS, Map } from 'immutable';
 import cmf from '@talend/react-cmf';
 
 import * as sagas from './ComponentForm.sagas';
-import ConnectedTCompForm, { TCompForm } from './ComponentForm.component';
+import { TCompForm } from './ComponentForm.component';
 
 describe('ComponentForm saga', () => {
 	describe('*checkFormComponentId', () => {
@@ -72,14 +71,14 @@ describe('ComponentForm saga', () => {
 			const selector = selectJsonSchema.payload.selector;
 			const jsonSchemaSelection = selector({
 				cmf: {
-					components: fromJS({
+					components: {
 						[TCompForm.displayName]: { [props.componentId]: { jsonSchema } },
-					}),
+					},
 				},
 			});
 
 			// then
-			expect(jsonSchemaSelection.toJS()).toEqual(jsonSchema);
+			expect(jsonSchemaSelection).toEqual(jsonSchema);
 		});
 
 		it('should NOT fetch uiSpec when it is already fetched', () => {
@@ -174,9 +173,9 @@ describe('ComponentForm saga', () => {
 		function getReduxStore() {
 			return {
 				cmf: {
-					components: fromJS({
+					components: {
 						[TCompForm.displayName]: { [componentId]: {} },
-					}),
+					},
 				},
 			};
 		}
@@ -231,19 +230,19 @@ describe('ComponentForm saga', () => {
 			const errorStep = gen.next({ response }).value;
 			expect(errorStep.payload).toBeDefined();
 			expect(errorStep.type).toBe('PUT');
-			const setStateAction = errorStep.payload.action(null, getReduxStore);
+			const setStateAction = errorStep.payload.action;
 
 			// then
 			expect(setStateAction).toEqual({
 				cmf: {
 					componentState: {
 						componentName: 'ComponentForm',
-						componentState: new Map({
+						componentState: {
 							jsonSchema: undefined,
 							uiSchema: undefined,
 							response,
 							dirty: false,
-						}),
+						},
 						key: 'MyComponentId',
 						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 					},
@@ -348,15 +347,15 @@ describe('ComponentForm saga', () => {
 	describe('onFormSubmit', () => {
 		const componentId = 'form';
 		const prevState = {
-			cmf: { components: fromJS({ [TCompForm.displayName]: { [componentId]: {} } }) },
+			cmf: { components: { [TCompForm.displayName]: { [componentId]: {} } } },
 		};
 		const mergeStatePayload = {
 			cmf: {
 				componentState: {
 					componentName: 'ComponentForm',
-					componentState: fromJS({
+					componentState: {
 						initialState: { jsonSchema: undefined, uiSchema: undefined, properties: 'prop' },
-					}),
+					},
 					key: 'form',
 					type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 				},
@@ -441,15 +440,14 @@ describe('ComponentForm saga', () => {
 			// when
 			const gen = sagas.handleSetDirtyState({ componentId, dirty });
 			// then
-			expect(gen.next().value).toEqual(select(ConnectedTCompForm.getState, componentId));
-			expect(gen.next(Map({})).value).toEqual(
+			expect(gen.next().value).toEqual(
 				put({
 					cmf: {
 						componentState: {
 							componentName: 'ComponentForm',
-							componentState: Map({
+							componentState: {
 								dirty: true,
-							}),
+							},
 							key: 'myId',
 							type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 						},

@@ -1,728 +1,559 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_ADD add a new node to the node collection with the right type 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {
-    "id": Immutable.Map {},
+{
+  "childrens": {
+    "id": {},
   },
-  "transformToApply": undefined,
-  "parents": Immutable.Map {
-    "id": Immutable.Map {},
+  "in": {
+    "id": {},
   },
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id": NodeRecord {
+      "data": NodeData {
+        "properties": {},
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "name": "test",
+        "nodePosition": {
+          "x": 10,
+          "y": 10,
+        },
+        "nodeSize": {
+          "height": undefined,
+          "width": undefined,
+        },
+        "position": {
+          "x": undefined,
+          "y": undefined,
+        },
+        "properties": {},
+        "type": "MY_NODE_TYPE",
+      },
+      "id": "id",
+      "type": undefined,
+    },
+  },
+  "out": {
+    "id": {},
+  },
+  "parents": {
+    "id": {},
+  },
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {
-    "id": Immutable.Map {},
-  },
-  "nodes": Immutable.Map {
-    "id": Immutable.Record {
-      "id": "id",
-      "type": undefined,
-      "data": Immutable.Map {
-        "properties": Immutable.Map {},
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": undefined,
-          "y": undefined,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {
-    "id": Immutable.Map {},
-  },
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_ADD properly add a new node to the node collection 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {
-    "id": Immutable.Map {},
+{
+  "childrens": {
+    "id": {},
   },
-  "transformToApply": undefined,
-  "parents": Immutable.Map {
-    "id": Immutable.Map {},
+  "in": {
+    "id": {},
   },
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id": NodeRecord {
+      "data": NodeData {
+        "properties": {},
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "nodeSize": {
+          "height": undefined,
+          "width": undefined,
+        },
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+      },
+      "id": "id",
+      "type": undefined,
+    },
+  },
+  "out": {
+    "id": {},
+  },
+  "parents": {
+    "id": {},
+  },
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {
-    "id": Immutable.Map {},
-  },
-  "nodes": Immutable.Map {
-    "id": Immutable.Record {
-      "id": "id",
-      "type": undefined,
-      "data": Immutable.Map {
-        "properties": Immutable.Map {},
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {
-    "id": Immutable.Map {},
-  },
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_MOVE update node position 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id1": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": true,
+        "type": "type1",
+      },
+      "id": "id1",
+      "type": "type1",
+    },
+    "id2": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 50,
+          "y": 50,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type2",
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id1": Immutable.Record {
-      "id": "id1",
-      "type": "type1",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": "type2",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 50,
-          "y": 50,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_REMOVE should remove node from node collection 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id2": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type2",
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": "type2",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_REMOVE_DATA should remove {type} attribute to node data map 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id1": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": true,
+        "type": "type1",
+      },
+      "id": "id1",
+      "type": "type1",
+    },
+    "id2": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type2",
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id1": Immutable.Record {
-      "id": "id1",
-      "type": "type1",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": "type2",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES should remove {selected} attribute to node graphicalAttributes map 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id1": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": true,
+        "type": "type1",
+      },
+      "id": "id1",
+      "type": "type1",
+    },
+    "id2": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type2",
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id1": Immutable.Record {
-      "id": "id1",
-      "type": "type1",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": "type2",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_SET_DATA should add { type: 'string' } attribute to node data map 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id1": NodeRecord {
+      "data": NodeData {
+        "type": "string",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": true,
+        "type": "type1",
+      },
+      "id": "id1",
+      "type": "type1",
+    },
+    "id2": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type2",
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id1": Immutable.Record {
-      "id": "id1",
-      "type": "type1",
-      "data": Immutable.Map {
-        "type": "string",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": "type2",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES should add { selected: false } attribute to node graphicalAttributes map 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id1": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type1",
+      },
+      "id": "id1",
+      "type": "type1",
+    },
+    "id2": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type2",
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id1": Immutable.Record {
-      "id": "id1",
-      "type": "type1",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {
-          "selected": false,
-        },
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": "type2",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_SET_SIZE update node size property 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id1": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "nodeSize": {
+          "height": 200,
+          "width": 200,
+        },
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": true,
+        "type": "type1",
+      },
+      "id": "id1",
+      "type": "type1",
+    },
+    "id2": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type2",
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id1": Immutable.Record {
-      "id": "id1",
-      "type": "type1",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": 200,
-          "height": 200,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": "type2",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`Check node reducer > FLOWDESIGNER_NODE_SET_TYPE update node type 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id1": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": true,
+        "type": "type1",
+      },
+      "id": "id1",
+      "type": "nodetype",
+    },
+    "id2": NodeRecord {
+      "data": NodeData {
+        "type": "test",
+      },
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+        "selected": false,
+        "type": "type2",
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id1": Immutable.Record {
-      "id": "id1",
-      "type": "nodetype",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": "type2",
-      "data": Immutable.Map {
-        "type": "test",
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;
 
 exports[`FLOWDESIGNER_NODE_APPLY_MOVEMENT > should apply the same relative movement to each node listed 1`] = `
-Immutable.Map {
-  "in": Immutable.Map {},
-  "transformToApply": undefined,
-  "parents": Immutable.Map {},
+{
+  "childrens": {},
+  "in": {},
+  "links": {},
+  "nodeTypes": {},
+  "nodes": {
+    "id1": NodeRecord {
+      "data": NodeData {},
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 20,
+          "y": 15,
+        },
+        "properties": {},
+      },
+      "id": "id1",
+      "type": undefined,
+    },
+    "id2": NodeRecord {
+      "data": NodeData {},
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 20,
+          "y": 15,
+        },
+        "properties": {},
+      },
+      "id": "id2",
+      "type": undefined,
+    },
+    "id3": NodeRecord {
+      "data": NodeData {},
+      "graphicalAttributes": NodeGraphicalAttributes {
+        "position": {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": {},
+      },
+      "id": "id3",
+      "type": undefined,
+    },
+  },
+  "out": {},
+  "parents": {},
+  "ports": {},
   "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
   },
-  "out": Immutable.Map {},
-  "nodes": Immutable.Map {
-    "id1": Immutable.Record {
-      "id": "id1",
-      "type": undefined,
-      "data": Immutable.Map {
-        "properties": Immutable.Map {},
-        "label": "",
-        "description": "",
-        "datasetInfo": Immutable.Map {},
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 20,
-          "y": 15,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id2": Immutable.Record {
-      "id": "id2",
-      "type": undefined,
-      "data": Immutable.Map {
-        "properties": Immutable.Map {},
-        "label": "",
-        "description": "",
-        "datasetInfo": Immutable.Map {},
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 20,
-          "y": 15,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-    "id3": Immutable.Record {
-      "id": "id3",
-      "type": undefined,
-      "data": Immutable.Map {
-        "properties": Immutable.Map {},
-        "label": "",
-        "description": "",
-        "datasetInfo": Immutable.Map {},
-      },
-      "graphicalAttributes": Immutable.Record {
-        "position": Immutable.Record {
-          "x": 10,
-          "y": 10,
-        },
-        "nodeSize": Immutable.Record {
-          "width": undefined,
-          "height": undefined,
-        },
-        "nodeType": undefined,
-        "label": "",
-        "description": "",
-        "properties": Immutable.Map {},
-      },
-      "getPosition": [Function],
-      "getSize": [Function],
-      "getNodeType": [Function],
-    },
-  },
-  "ports": Immutable.Map {},
-  "childrens": Immutable.Map {},
-  "nodeTypes": Immutable.Map {},
-  "links": Immutable.Map {},
+  "transformToApply": undefined,
 }
 `;

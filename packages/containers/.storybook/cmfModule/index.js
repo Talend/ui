@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable';
 import actionCreators from './actionCreators';
 import components from './components';
 import expressions from './expressions';
@@ -15,7 +14,7 @@ const cmfModule = {
 	modules: [containersModule],
 	preloadedState: {
 		cmf: {
-			collections: fromJS({
+			collections: {
 				with: {
 					data: [
 						{
@@ -122,7 +121,7 @@ const cmfModule = {
 						},
 					],
 				},
-			}),
+			},
 		},
 	},
 };

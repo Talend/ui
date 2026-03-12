@@ -12,12 +12,16 @@ const DEFAULT_COMPONENT_ID = 'Notification';
 
 export function* onPushNotification(action) {
 	const componentState = yield select(state => Notification.getState(state, DEFAULT_COMPONENT_ID));
-	const newComponentState = componentState.updateIn(['notifications'], notifications =>
-		notifications.push({
-			id: randomUUID(),
-			...action.notification,
-		}),
-	);
+	const newComponentState = {
+		...componentState,
+		notifications: [
+			...componentState.notifications,
+			{
+				id: randomUUID(),
+				...action.notification,
+			},
+		],
+	};
 	const updateStateAction = Notification.setStateAction(newComponentState, DEFAULT_COMPONENT_ID);
 
 	yield put(updateStateAction);

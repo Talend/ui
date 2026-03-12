@@ -1,5 +1,5 @@
+import { vi } from 'vitest';
 import PropTypes from 'prop-types';
-import Immutable, { Map } from 'immutable';
 
 import state, {
 	getStateAccessors,
@@ -17,8 +17,8 @@ describe('state', () => {
 	});
 
 	it('should getStateAccessors should support no DEFAULT_STATE', () => {
-		const dispatch = jest.fn();
-		const props = getStateAccessors(dispatch, 'name', 'id', new Map());
+		const dispatch = vi.fn();
+		const props = getStateAccessors(dispatch, 'name', 'id', {});
 		expect(typeof props.setState).toBe('function');
 
 		props.setState();
@@ -30,8 +30,8 @@ describe('state', () => {
 	});
 
 	it('should getStateAccessors return accessors', () => {
-		const dispatch = jest.fn();
-		const DEFAULT_STATE = new Map({ foo: 'bar' });
+		const dispatch = vi.fn();
+		const DEFAULT_STATE = { foo: 'bar' };
 		const props = getStateAccessors(dispatch, 'name', 'id', DEFAULT_STATE);
 		expect(typeof props.setState).toBe('function');
 		expect(typeof props.initState).toBe('function');
@@ -54,9 +54,9 @@ describe('state', () => {
 
 	it(`should call state if state is a function,
 		via applyCallback`, () => {
-		const dispatch = jest.fn();
-		const callBack = jest.fn();
-		const DEFAULT_STATE = new Map({ foo: 'bar' });
+		const dispatch = vi.fn();
+		const callBack = vi.fn();
+		const DEFAULT_STATE = { foo: 'bar' };
 		const props = getStateAccessors(dispatch, 'name', 'id', DEFAULT_STATE);
 
 		props.setState(callBack);
@@ -67,22 +67,22 @@ describe('state', () => {
 	it('should getStateProps return state', () => {
 		const storeState = {
 			cmf: {
-				components: Immutable.fromJS({
+				components: {
 					foo: {
 						bar: {
 							open: true,
 						},
 					},
-				}),
+				},
 			},
 		};
 		const props = getStateProps(storeState, 'foo', 'bar');
-		expect(props.state.get('open')).toBe(true);
+		expect(props.state.open).toBe(true);
 	});
 
 	it('should initState call props.initState with initialState', () => {
 		const props = {
-			initState: jest.fn(),
+			initState: vi.fn(),
 			state: undefined,
 			initialState: undefined,
 		};
@@ -90,7 +90,7 @@ describe('state', () => {
 		expect(props.initState.mock.calls.length).toBe(1);
 		expect(props.initState.mock.calls[0][0]).toBe();
 
-		props.initialState = new Map({ foo: 'bar' });
+		props.initialState = { foo: 'bar' };
 		initState(props);
 		expect(props.initState.mock.calls[1][0]).toBe(props.initialState);
 	});

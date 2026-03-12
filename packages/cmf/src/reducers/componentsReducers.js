@@ -3,11 +3,10 @@
  * @module react-cmf/lib/reducers/componentsReducers
  */
 import get from 'lodash/get';
-import { Map, fromJS } from 'immutable';
 import invariant from 'invariant';
 import CONSTANTS from '../constant';
 
-export const defaultState = new Map();
+export const defaultState = {};
 
 /**
  * given the state and action, determine if another component try to bind to a specific
@@ -17,7 +16,7 @@ export const defaultState = new Map();
  */
 export function warnIfAnotherComponentBind(state, action) {
 	if (process.env.NODE_ENV !== 'production') {
-		if (state.getIn([action.componentName, action.key])) {
+		if (state[action.componentName]?.[action.key]) {
 			console.warn(`Beware component ${action.componentName} try to recreate an existing
  State namespace ${action.key}, meaning that the original one will be overloaded`);
 		}
@@ -32,7 +31,7 @@ export function warnIfAnotherComponentBind(state, action) {
  */
 export function warnIfRemovingStateDoesntExist(state, action) {
 	if (process.env.NODE_ENV !== 'production') {
-		if (!state.getIn([action.componentName, action.key])) {
+		if (!state[action.componentName]?.[action.key]) {
 			console.warn(`Beware the component ${action.componentName} try to remove a non existing
  State namespace ${action.key}, it isn't a normal behavior execpt if two component are binded
  to this specific namespace`);
@@ -48,7 +47,7 @@ export function warnIfRemovingStateDoesntExist(state, action) {
  * @param {Object} action a redux action
  */
 export function errorIfMergingStateDoesntExist(state, action) {
-	if (!state.getIn([action.componentName, action.key])) {
+	if (!state[action.componentName]?.[action.key]) {
 		invariant(
 			process.env.NODE_ENV === 'production',
 			`Error, the component ${action.componentName} try to mutate a non existing
@@ -65,22 +64,38 @@ export function errorIfMergingStateDoesntExist(state, action) {
  */
 export function componentsReducers(state = defaultState, action) {
 	switch (action.type) {
-		case CONSTANTS.COMPONENT_ADD_STATE:
+		case CONSTANTS.COMPONENT_ADD_STATE: {
 			warnIfAnotherComponentBind(state, action);
-			if (action.initialComponentState) {
-				return state.setIn(
-					[action.componentName, action.key],
-					fromJS(action.initialComponentState),
-				);
-			}
-			return state.setIn([action.componentName, action.key], new Map());
+			const componentState =
+				action.initialComponentState !== undefined ? action.initialComponentState : {};
+			return {
+				...state,
+				[action.componentName]: {
+					...state[action.componentName],
+					[action.key]: componentState,
+				},
+			};
+		}
 		case CONSTANTS.COMPONENT_MERGE_STATE:
 			errorIfMergingStateDoesntExist(state, action);
-
-			return state.mergeIn([action.componentName, action.key], fromJS(action.componentState));
-		case CONSTANTS.COMPONENT_REMOVE_STATE:
+			return {
+				...state,
+				[action.componentName]: {
+					...state[action.componentName],
+					[action.key]: {
+						...(state[action.componentName]?.[action.key] || {}),
+						...action.componentState,
+					},
+				},
+			};
+		case CONSTANTS.COMPONENT_REMOVE_STATE: {
 			warnIfRemovingStateDoesntExist(state, action);
-			return state.deleteIn([action.componentName, action.key]);
+			const { [action.key]: _removed, ...remainingKeys } = state[action.componentName] || {};
+			return {
+				...state,
+				[action.componentName]: remainingKeys,
+			};
+		}
 		default: {
 			const subAction = get(action, 'cmf.componentState');
 			if (subAction) {

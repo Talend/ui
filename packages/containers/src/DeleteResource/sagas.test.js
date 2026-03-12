@@ -1,5 +1,4 @@
 // import SagaTester from 'redux-saga-tester';
-import { Map } from 'immutable';
 import cmf from '@talend/react-cmf';
 import { take, put } from 'redux-saga/effects';
 import CONSTANTS from './constants';
@@ -54,7 +53,7 @@ describe('internals', () => {
 					},
 				},
 			};
-			const resource = new Map({ id: '123', label: 'Foo' });
+			const resource = { id: '123', label: 'Foo' };
 
 			const gen = internals.deleteResourceValidate();
 			let effect = gen.next().value;
@@ -97,7 +96,11 @@ describe('internals', () => {
 				},
 			};
 
-			const resource = new Map({ id: 'profileId', type: 'advanced', name: 'deleteThisRunProfile' });
+			const resource = {
+				id: 'profileId',
+				type: 'advanced',
+				name: 'deleteThisRunProfile',
+			};
 
 			const gen = internals.deleteResourceValidate();
 			gen.next();
@@ -122,11 +125,11 @@ describe('internals', () => {
 						},
 					},
 				};
-				const resource = new Map({
+				const resource = {
 					id: 'profileId',
 					type: 'advanced',
 					name: 'deleteThisRunProfile',
-				});
+				};
 
 				const gen = internals.deleteResourceValidate();
 				gen.next();

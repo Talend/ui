@@ -1,4 +1,3 @@
-import { Map } from 'immutable';
 import { zoomIdentity } from 'd3';
 import {
 	FLOWDESIGNER_FLOW_ADD_ELEMENTS,
@@ -14,20 +13,20 @@ import nodesReducer from './node.reducer';
 import linksReducer from './link.reducer';
 import portsReducer from './port.reducer';
 import nodeTypeReducer from './nodeType.reducer';
-import { State, NodeRecord, Id, LinkRecord, PortRecord } from '../customTypings/index.d';
+import { State, NodeRecord, PortRecord } from '../customTypings/index.d';
 
-export const defaultState: Partial<State> = Map({
-	nodes: Map<Id, NodeRecord>(),
-	links: Map<Id, LinkRecord>(),
-	ports: Map<Id, PortRecord>(),
-	out: Map<Id, Map<Id, Id>>(),
-	in: Map<Id, Map<Id, Id>>(),
-	childrens: Map<Id, Map<Id, Id>>(),
-	parents: Map<Id, Map<Id, Id>>(),
-	nodeTypes: Map<string, any>(),
+export const defaultState: State = {
+	nodes: {},
+	links: {},
+	ports: {},
+	out: {},
+	in: {},
+	childrens: {},
+	parents: {},
+	nodeTypes: {},
 	transform: { k: 1, x: 0, y: 0 },
 	transformToApply: undefined,
-});
+};
 
 function combinedReducer(state = defaultState, action: any) {
 	return [nodesReducer, linksReducer, portsReducer, nodeTypeReducer].reduce(
@@ -92,52 +91,50 @@ export function reducer(state: State, action: any) {
 				state,
 			);
 		case FLOWDESIGNER_FLOW_RESET:
-			return defaultState.set('nodeTypes', state.get('nodeTypes'));
+			return { ...defaultState, nodeTypes: state.nodeTypes };
 		case FLOWDESIGNER_FLOW_LOAD:
 			return action.listOfActionCreation.reduce(
 				(cumulativeState: State, actionCreation: any) =>
 					combinedReducer(cumulativeState, actionCreation),
-				defaultState.set('nodeTypes', state.get('nodeTypes')),
+				{ ...defaultState, nodeTypes: state.nodeTypes },
 			);
 		case FLOWDESIGNER_FLOW_SET_ZOOM:
-			return state.set('transform', action.transform);
+			return { ...state, transform: action.transform };
 		case FLOWDESIGNER_FLOW_ZOOM_IN:
-			return state.set(
-				'transformToApply',
-				zoomIdentity
-					.translate(state.get('transform').x, state.get('transform').y)
+			return {
+				...state,
+				transformToApply: zoomIdentity
+					.translate(state.transform.x, state.transform.y)
 					.scale(
 						calculateZoomScale(
-							state.get('transform').k,
+							state.transform.k,
 							ZoomDirection.IN,
 							action.scale || DEFAULT_ZOOM_SCALE_STEP,
 						),
 					),
-			);
+			};
 		case FLOWDESIGNER_FLOW_ZOOM_OUT:
-			return state.set(
-				'transformToApply',
-				zoomIdentity
-					.translate(state.get('transform').x, state.get('transform').y)
+			return {
+				...state,
+				transformToApply: zoomIdentity
+					.translate(state.transform.x, state.transform.y)
 					.scale(
 						calculateZoomScale(
-							state.get('transform').k,
+							state.transform.k,
 							ZoomDirection.OUT,
 							action.scale || DEFAULT_ZOOM_SCALE_STEP,
 						),
 					),
-			);
+			};
 		case FLOWDESIGNER_PAN_TO:
-			return state.update('transformToApply', () =>
-				zoomIdentity
-					.translate(state.get('transform').x, state.get('transform').y)
-					.scale(state.get('transform').k)
-					.scale(1 / state.get('transform').k)
-					.translate(
-						-(state.get('transform').x + action.x),
-						-(state.get('transform').y + action.y),
-					),
-			);
+			return {
+				...state,
+				transformToApply: zoomIdentity
+					.translate(state.transform.x, state.transform.y)
+					.scale(state.transform.k)
+					.scale(1 / state.transform.k)
+					.translate(-(state.transform.x + action.x), -(state.transform.y + action.y)),
+			};
 		default:
 			return combinedReducer(state, action);
 	}
@@ -155,7 +152,7 @@ export function reducer(state: State, action: any) {
  * @return {object} new state
  */
 export function calculatePortsPosition(state: State, action: any) {
-	let nodes = [];
+	let nodes: NodeRecord[] = [];
 	// TODO: NOT a big fan of this way to optimize port recalculations, don't feel future proof
 	if (
 		(/FLOWDESIGNER_NODE_/.exec(action.type) && action.type !== 'FLOWDESIGNER_NODE_REMOVE') ||
@@ -164,25 +161,31 @@ export function calculatePortsPosition(state: State, action: any) {
 		action.type === FLOWDESIGNER_NODETYPE_SET
 	) {
 		if (action.nodeId) {
-			nodes.push(state.getIn(['nodes', action.nodeId]));
+			nodes.push(state.nodes?.[action.nodeId] as NodeRecord);
 		} else if (action.portId) {
-			nodes.push(state.getIn(['nodes', state.getIn(['ports', action.portId]).nodeId]));
+			const portNodeId = state.ports?.[action.portId]?.nodeId;
+			if (portNodeId) nodes.push(state.nodes?.[portNodeId as string] as NodeRecord);
 		} else {
-			nodes = state.get('nodes');
+			nodes = Object.values(state.nodes || {}) as NodeRecord[];
 		}
 		return nodes.reduce((cumulativeState: State, node: NodeRecord) => {
 			const nodeType = node.getNodeType();
-			const ports = state.get('ports').filter((port: PortRecord) => port.nodeId === node.id);
-
-			const calculatePortPosition = state.getIn(
-				['nodeTypes', nodeType, 'component', 'calculatePortPosition'],
-				state.getIn(['nodeTypes', nodeType, 'component'])?.calculatePortPosition,
+			const ports = Object.fromEntries(
+				Object.entries(state.ports || {}).filter(
+					([, port]) => (port as PortRecord).nodeId === node.id,
+				),
 			);
+
+			const calculatePortPosition =
+				state.nodeTypes?.[nodeType as string]?.component?.calculatePortPosition;
 			if (calculatePortPosition) {
-				return cumulativeState.mergeIn(
-					['ports'],
-					calculatePortPosition(ports, node.getPosition(), node.getSize()),
-				);
+				return {
+					...cumulativeState,
+					ports: {
+						...cumulativeState.ports,
+						...calculatePortPosition(ports, node.getPosition(), node.getSize()),
+					},
+				};
 			}
 			return state;
 		}, state);

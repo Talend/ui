@@ -10,7 +10,7 @@ function PortsRenderer({ ports, portTypeMap }: { ports: PortRecordMap; portTypeM
 		return <ConcretePort key={Port.getId(port)} port={port} />;
 	};
 
-	return <g>{ports.toArray().map(renderPort)}</g>;
+	return <g>{Object.values(ports).map(renderPort)}</g>;
 }
 
 export default PortsRenderer;

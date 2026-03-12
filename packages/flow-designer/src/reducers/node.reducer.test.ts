@@ -1,9 +1,8 @@
-import { Map } from 'immutable';
-
 import { defaultState } from './flow.reducer';
 import nodeReducer from './node.reducer';
 import {
 	NodeRecord,
+	NodeData,
 	PositionRecord,
 	NodeGraphicalAttributes,
 } from '../constants/flowdesigner.model';
@@ -15,33 +14,32 @@ import {
 } from '../constants/flowdesigner.constants';
 
 describe('Check node reducer', () => {
-	const initialState = defaultState
-		.setIn(
-			['nodes', 'id1'],
-			new NodeRecord({
+	const initialState = {
+		...defaultState,
+		nodes: {
+			...defaultState.nodes,
+			id1: new NodeRecord({
 				id: 'id1',
 				type: 'type1',
-				data: Map({ type: 'test' }),
+				data: new NodeData({ type: 'test' }),
 				graphicalAttributes: new NodeGraphicalAttributes({
 					type: 'type1',
 					selected: true,
 					position: new PositionRecord({ x: 10, y: 10 }),
 				}),
 			}),
-		)
-		.setIn(
-			['nodes', 'id2'],
-			new NodeRecord({
+			id2: new NodeRecord({
 				id: 'id2',
 				type: 'type2',
-				data: Map({ type: 'test' }),
+				data: new NodeData({ type: 'test' }),
 				graphicalAttributes: new NodeGraphicalAttributes({
 					type: 'type2',
 					selected: false,
 					position: new PositionRecord({ x: 10, y: 10 }),
 				}),
 			}),
-		);
+		},
+	};
 
 	it('FLOWDESIGNER_NODE_ADD properly add a new node to the node collection', () => {
 		expect(
@@ -75,9 +73,7 @@ describe('Check node reducer', () => {
 				type: FLOWDESIGNER_NODE_MOVE_START,
 				nodeId: 'id1',
 				nodePosition: { x: 50, y: 50 },
-			})
-				.getIn(['nodes', 'id1', 'graphicalAttributes', 'properties', 'startPosition'])
-				.toJS(),
+			}).nodes['id1'].graphicalAttributes.properties.startPosition,
 		).toEqual({ x: 50, y: 50 });
 	});
 
@@ -97,7 +93,7 @@ describe('Check node reducer', () => {
 				type: FLOWDESIGNER_NODE_MOVE_END,
 				nodeId: 'id1',
 				nodePosition: { x: 50, y: 50 },
-			}).getIn(['nodes', 'id1', 'graphicalAttributes', 'properties', 'startPosition']),
+			}).nodes['id1'].graphicalAttributes.properties.startPosition,
 		).toEqual(undefined);
 	});
 
@@ -175,37 +171,33 @@ describe('Check node reducer', () => {
 });
 
 describe('FLOWDESIGNER_NODE_APPLY_MOVEMENT', () => {
-	const initialState = defaultState
-		.setIn(
-			['nodes', 'id1'],
-			new NodeRecord({
+	const initialState = {
+		...defaultState,
+		nodes: {
+			...defaultState.nodes,
+			id1: new NodeRecord({
 				id: 'id1',
 				nodeType: 'type1',
 				graphicalAttributes: new NodeGraphicalAttributes({
 					position: new PositionRecord({ x: 10, y: 10 }),
 				}),
 			}),
-		)
-		.setIn(
-			['nodes', 'id2'],
-			new NodeRecord({
+			id2: new NodeRecord({
 				id: 'id2',
 				nodeType: 'type2',
 				graphicalAttributes: new NodeGraphicalAttributes({
 					position: new PositionRecord({ x: 10, y: 10 }),
 				}),
 			}),
-		)
-		.setIn(
-			['nodes', 'id3'],
-			new NodeRecord({
+			id3: new NodeRecord({
 				id: 'id3',
 				nodeType: 'type2',
 				graphicalAttributes: new NodeGraphicalAttributes({
 					position: new PositionRecord({ x: 10, y: 10 }),
 				}),
 			}),
-		);
+		},
+	};
 	it('should apply the same relative movement to each node listed', () => {
 		expect(
 			nodeReducer(initialState, {

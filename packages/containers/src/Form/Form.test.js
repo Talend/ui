@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import { fromJS } from 'immutable';
 
 import Connected from './Form.connect';
 import Container from './Form.container';
@@ -45,7 +44,7 @@ describe('Container(Form)', () => {
 		const setState = jest.fn();
 		const event = { target: 'test' };
 		const form = new Container({
-			state: fromJS({ data: { schema: true } }),
+			state: { data: { schema: true } },
 			onErrors,
 			setState,
 		});
@@ -59,7 +58,7 @@ describe('Container(Form)', () => {
 		const dispatchActionCreator = jest.fn();
 		const setState = jest.fn();
 		const form = new Container({
-			state: fromJS({ data: { schema: true } }),
+			state: { data: { schema: true } },
 			setState,
 			onSubmitActionCreator: 'myaction',
 			onSubmit,
@@ -70,7 +69,7 @@ describe('Container(Form)', () => {
 		expect(dispatchActionCreator.mock.calls[0][0]).toBe('myaction');
 		expect(dispatchActionCreator.mock.calls[0][1]).toBe(null);
 		expect(dispatchActionCreator.mock.calls[0][2].formData).toEqual({ foo: 'bar' });
-		expect(dispatchActionCreator.mock.calls[0][2].props.state.size).toBe(1);
+		expect(dispatchActionCreator.mock.calls[0][2].props.state).toEqual({ data: { schema: true } });
 		expect(setState.mock.calls.length).toBe(0);
 	});
 
@@ -79,7 +78,7 @@ describe('Container(Form)', () => {
 		const setState = jest.fn();
 		const event = { target: 'test' };
 		const form = new Container({
-			state: fromJS({ data: { schema: true } }),
+			state: { data: { schema: true } },
 			onChange,
 			setState,
 		});
@@ -93,17 +92,17 @@ describe('Container(Form)', () => {
 		const formId = 'my-form';
 		const state = {
 			cmf: {
-				components: fromJS({
+				components: {
 					'Container(Form)': {
 						[formId]: {
 							data: { foo: 'bar' },
 						},
 					},
-				}),
+				},
 			},
 		};
 		const formData = Container.getFormData(state, formId);
-		expect(formData.get('foo')).toBe('bar');
+		expect(formData.foo).toBe('bar');
 	});
 
 	it('should formActions return props.action', () => {

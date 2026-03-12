@@ -1,6 +1,5 @@
 import { Component as RComponent } from 'react';
 
-import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import PropTypes from 'prop-types';
 
@@ -8,13 +7,13 @@ import { cmfConnect, componentState } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/Typeahead';
 
 export const DISPLAY_NAME = 'Container(Typeahead)';
-export const DEFAULT_STATE = new Immutable.Map({
+export const DEFAULT_STATE = {
 	docked: true,
 	searching: false,
 	focusedSectionIndex: null,
 	focusedItemIndex: null,
 	items: null,
-});
+};
 
 /**
  * The Typeahead React container
@@ -37,12 +36,12 @@ export default class Typeahead extends RComponent {
 	}
 
 	onToggle() {
-		this.props.setState(() => ({
-			docked: !this.props.state.get('docked', true),
+		this.props.setState({
+			docked: !(this.props.state?.docked ?? true),
 			focusedSectionIndex: null,
 			focusedItemIndex: null,
 			items: null,
-		}));
+		});
 	}
 
 	onBlur(event) {
@@ -108,12 +107,12 @@ export default class Typeahead extends RComponent {
 		const { items } = this.props;
 		const props = {
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
-			...this.props.state.toJS(),
+			...this.props.state,
 			onToggle: this.onToggle,
 			onBlur: this.onBlur,
 			onSelect: this.onSelect,
 			onKeyDown: this.onKeyDown,
-			items: items && items.toJS ? items.toJS() : items,
+			items,
 		};
 
 		return <Component {...props} />;

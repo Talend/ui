@@ -1,12 +1,11 @@
 import { put } from 'redux-saga/effects';
-import { fromJS } from 'immutable';
 import { mock } from '@talend/react-cmf';
 import { onToggleFilter, onFilterChange, onChangeSortChange } from './List.sagas';
 import Connected from './List.connect';
 
 const localConfig = {
 	collectionId: 'default',
-	items: fromJS([
+	items: [
 		{
 			id: 'id1',
 			value: 'value1',
@@ -17,7 +16,7 @@ const localConfig = {
 			value: 'value2',
 			text: 'text',
 		},
-	]),
+	],
 	list: {
 		columns: [
 			{ key: 'id', name: 'ID' },
@@ -27,7 +26,7 @@ const localConfig = {
 };
 
 const state = mock.store.state();
-state.cmf.collections = fromJS({
+state.cmf.collections = {
 	default: {
 		columns: [
 			{ key: 'id', name: 'ID' },
@@ -35,7 +34,7 @@ state.cmf.collections = fromJS({
 		],
 		items: localConfig.items,
 	},
-});
+};
 
 const context = mock.store.context();
 const event = { type: 'click' };
@@ -47,14 +46,14 @@ const data = {
 	props: { config: localConfig },
 };
 
-state.cmf.components = fromJS({
+state.cmf.components = {
 	'Container(List)': {
 		default: {
 			itemsPerPage: 1,
 			startIndex: 1,
 		},
 	},
-});
+};
 
 describe('List sagas', () => {
 	it('should check onToggleFilter action', () => {

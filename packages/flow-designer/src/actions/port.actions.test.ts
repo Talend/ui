@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import configureMockStore from 'redux-mock-store';
-import { Map } from 'immutable';
 
 import * as portActions from './port.actions';
 import { PORT_SINK } from '../constants/flowdesigner.constants';
@@ -11,8 +10,8 @@ describe('Check that port action creators generate proper action objects and per
 	it('addPort', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: Map({ nodeId: { id: 'nodeId', nodeType: 'type' } }),
-				ports: Map(),
+				nodes: { nodeId: { id: 'nodeId', nodeType: 'type' } },
+				ports: {},
 			},
 		});
 
@@ -35,7 +34,7 @@ describe('Check that port action creators generate proper action objects and per
 	it('setPortGraphicalAttribute', () => {
 		const store = mockStore({
 			flowDesigner: {
-				ports: Map({ id: { id: 'portId', portType: 'type' } }),
+				ports: { id: { id: 'portId', portType: 'type' } },
 			},
 		});
 
@@ -47,7 +46,7 @@ describe('Check that port action creators generate proper action objects and per
 	it('removePortAttribute', () => {
 		const store = mockStore({
 			flowDesigner: {
-				ports: Map({ id: { id: 'portId' } }),
+				ports: { id: { id: 'portId' } },
 			},
 		});
 
@@ -59,7 +58,7 @@ describe('Check that port action creators generate proper action objects and per
 	it('setPortData', () => {
 		const store = mockStore({
 			flowDesigner: {
-				ports: Map({ id: { id: 'portId', portType: 'type' } }),
+				ports: { id: { id: 'portId', portType: 'type' } },
 			},
 		});
 
@@ -71,7 +70,7 @@ describe('Check that port action creators generate proper action objects and per
 	it('removePortData', () => {
 		const store = mockStore({
 			flowDesigner: {
-				ports: Map({ id: { id: 'portId' }, data: Map({ type: 'test' }) }),
+				ports: { id: { id: 'portId' }, data: { type: 'test' } },
 			},
 		});
 

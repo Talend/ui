@@ -118,14 +118,14 @@ describe('editValue', () => {
 		};
 
 		prevState.state = editWrapper(prevState, someData);
-		expect(prevState.state.get('edited').size).toBe(1);
+		expect(prevState.state.edited.length).toBe(1);
 	});
 	it('should change', () => {
 		const prevState = { state: DEFAULT_STATE };
 
 		prevState.state = change(path, prevState.state, 'new label');
 
-		expect(prevState.state.get('modified').size).toBe(1);
+		expect(Object.keys(prevState.state.modified).length).toBe(1);
 	});
 });
 
@@ -133,18 +133,18 @@ describe('toggleState', () => {
 	const prevState = { state: DEFAULT_STATE };
 	it('should open', () => {
 		const newState = toggleState(prevState, { isOpened: false, jsonpath: path });
-		expect(newState.get('opened').size).toBe(1);
-		expect(newState.get('opened').first()).toEqual(path);
+		expect(newState.opened.length).toBe(1);
+		expect(newState.opened[0]).toEqual(path);
 	});
 
 	it(' should close', () => {
-		prevState.state = prevState.state.set('opened', prevState.state.get('opened').push(path));
+		prevState.state = { ...prevState.state, opened: [...(prevState.state.opened ?? []), path] };
 
-		expect(prevState.state.get('opened').size).toBe(1);
-		expect(prevState.state.get('opened').first()).toEqual(path);
+		expect(prevState.state.opened.length).toBe(1);
+		expect(prevState.state.opened[0]).toEqual(path);
 
 		const newState = toggleState(prevState, { isOpened: true, jsonpath: path });
-		expect(newState.get('opened').size).toBe(0);
+		expect(newState.opened.length).toBe(0);
 	});
 });
 
@@ -153,6 +153,6 @@ describe('select', () => {
 		const prevState = { state: DEFAULT_STATE };
 		prevState.state = selectWrapper(prevState, { jsonpath: path });
 
-		expect(prevState.state.get('selectedJsonpath')).toEqual(path);
+		expect(prevState.state.selectedJsonpath).toEqual(path);
 	});
 });

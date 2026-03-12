@@ -1,5 +1,3 @@
-import ImmutablePropTypes from 'react-immutable-proptypes';
-
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -55,12 +53,12 @@ function SelectObject({
 					<div className={theme.results}>
 						{filteredData.map(data => (
 							<Action
-								className={classNames({ active: results.selectedId === data.get(idAttr) })}
-								key={data.get(idAttr)}
+								className={classNames({ active: results.selectedId === data[idAttr] })}
+								key={data[idAttr]}
 								onClick={event => results.onClick(event, data)}
 							>
-								<h3>{data.get(nameAttr)}</h3>
-								<span>{data.get('currentPosition')}</span>
+								<h3>{data[nameAttr]}</h3>
+								<span>{data.currentPosition}</span>
 							</Action>
 						))}
 					</div>
@@ -80,12 +78,12 @@ SelectObject.propTypes = {
 	list: PropTypes.object,
 	filter: PropTypes.object,
 	schema: PropTypes.object,
-	filteredData: ImmutablePropTypes.List,
+	filteredData: PropTypes.array,
 	results: PropTypes.shape({
 		selectedId: PropTypes.string,
 		onClick: PropTypes.func,
 	}),
-	sourceData: ImmutablePropTypes.List,
+	sourceData: PropTypes.array,
 	selected: PropTypes.object,
 };
 

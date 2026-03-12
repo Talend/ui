@@ -6,5 +6,5 @@ import EditableText from './EditableText.connect';
  * @param {string} idComponent
  */
 export function getEditMode(state, idComponent) {
-	return EditableText.getState(state, idComponent).get('editMode', false);
+	return EditableText.getState(state, idComponent)?.editMode ?? false;
 }

@@ -1,10 +1,8 @@
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import get from 'lodash/get';
 import classNames from 'classnames';
-import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
@@ -96,10 +94,6 @@ function renderMutableMenuItem(item, index, getComponent) {
 }
 
 function getMenuItem(item, index, getComponent) {
-	if (Iterable.isIterable(item)) {
-		return renderMutableMenuItem(item.toJS(), index, getComponent);
-	}
-
 	return renderMutableMenuItem(item, index, getComponent);
 }
 
@@ -265,7 +259,8 @@ class ActionDropdown extends Component {
 				}}
 				noCaret
 			>
-				{!children && !items.length && !items.size && !loading && !components && (
+				{/* items.size: backward-compat guard removed — items is always a plain array */}
+				{!children && !items.length && !loading && !components && (
 					<Renderers.MenuItem key="empty" disabled>
 						{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
 					</Renderers.MenuItem>
@@ -315,16 +310,13 @@ ActionDropdown.propTypes = {
 	pullRight: PropTypes.bool,
 	icon: PropTypes.string,
 	iconTransform: PropTypes.string,
-	items: PropTypes.oneOfType([
-		PropTypes.arrayOf(
-			PropTypes.shape({
-				icon: PropTypes.string,
-				label: PropTypes.string,
-				...MenuItem.propTypes,
-			}),
-		),
-		ImmutablePropTypes.list,
-	]),
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			icon: PropTypes.string,
+			label: PropTypes.string,
+			...MenuItem.propTypes,
+		}),
+	),
 	badge: PropTypes.shape({
 		className: PropTypes.string,
 		label: PropTypes.string,

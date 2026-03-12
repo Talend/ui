@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { fireEvent, createEvent, render, screen } from '@testing-library/react';
@@ -9,20 +10,20 @@ const noopRId = `${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:noOp`;
 
 describe('Testing <Dispatcher />', () => {
 	let registry;
-	const onError = jest.fn();
+	const onError = vi.fn();
 	beforeEach(() => {
 		registry = {
-			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:existingActionCreator:id`]: jest.fn(),
-			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:actionCreator:id`]: jest.fn(),
-			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:noOp`]: jest.fn(),
-			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:another:actionCreator:id`]: jest.fn(),
+			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:existingActionCreator:id`]: vi.fn(),
+			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:actionCreator:id`]: vi.fn(),
+			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:noOp`]: vi.fn(),
+			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:another:actionCreator:id`]: vi.fn(),
 		};
 
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 
 	it('should add onclick event handler to its children', () => {
-		const dispatchActionCreator = jest.fn();
+		const dispatchActionCreator = vi.fn();
 
 		render(
 			<mock.Provider registry={registry} onError={onError}>
@@ -38,7 +39,7 @@ describe('Testing <Dispatcher />', () => {
 		render(
 			<mock.Provider registry={registry}>
 				<mock.Provider.ErrorBoundary onError={onError}>
-					<Dispatcher onClick="unknnown:actionCreator:id" dispatchActionCreator={jest.fn()}>
+					<Dispatcher onClick="unknnown:actionCreator:id" dispatchActionCreator={vi.fn()}>
 						<button type="button">Hello</button>
 					</Dispatcher>
 				</mock.Provider.ErrorBoundary>
@@ -85,8 +86,8 @@ describe('Testing <Dispatcher />', () => {
 	);
 
 	it('should not prevent event propagation by default', () => {
-		const dispatchActionCreator = jest.fn();
-		const onClick = jest.fn();
+		const dispatchActionCreator = vi.fn();
+		const onClick = vi.fn();
 		render(
 			<mock.Provider registry={registry}>
 				<div onClick={onClick}>
@@ -105,8 +106,8 @@ describe('Testing <Dispatcher />', () => {
 	});
 
 	it('should prevent event propagation if stopPropagation is set', () => {
-		const dispatchActionCreator = jest.fn();
-		const onClick = jest.fn();
+		const dispatchActionCreator = vi.fn();
+		const onClick = vi.fn();
 		render(
 			<mock.Provider registry={registry}>
 				<div onClick={onClick}>
@@ -126,7 +127,7 @@ describe('Testing <Dispatcher />', () => {
 	});
 
 	it('should preventDefault if props is set', () => {
-		const dispatchActionCreator = jest.fn();
+		const dispatchActionCreator = vi.fn();
 		render(
 			<mock.Provider registry={registry}>
 				<Dispatcher dispatchActionCreator={dispatchActionCreator} preventDefault onClick="noOp">
@@ -136,13 +137,13 @@ describe('Testing <Dispatcher />', () => {
 		);
 		const el = screen.getByText('foo');
 		const event = createEvent.click(el, {});
-		event.preventDefault = jest.fn();
+		event.preventDefault = vi.fn();
 		fireEvent(el, event);
 		expect(event.preventDefault).toHaveBeenCalled();
 	});
 
 	it('should dispatch actionCreator with props as data', () => {
-		const dispatchActionCreator = jest.fn();
+		const dispatchActionCreator = vi.fn();
 		const props = {
 			dispatchActionCreator,
 			preventDefault: true,
@@ -160,7 +161,7 @@ describe('Testing <Dispatcher />', () => {
 		const el = screen.getByText('foo');
 
 		const event = createEvent.click(el, {});
-		event.preventDefault = jest.fn();
+		event.preventDefault = vi.fn();
 		expect(event.type).toBe('click');
 
 		fireEvent(el, event);

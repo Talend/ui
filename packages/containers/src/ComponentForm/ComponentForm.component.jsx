@@ -4,7 +4,6 @@ import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
 import omit from 'lodash/omit';
 import get from 'lodash/get';
-import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
 import kit from './kit';
 import tcompFieldsWidgets from './fields';
@@ -20,19 +19,19 @@ const TO_OMIT = [
 	...cmfConnect.INJECTED_PROPS,
 ];
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = {
 	dirty: false,
-	initialState: new Map(),
-});
+	initialState: {},
+};
 
 /**
- * Convert immutable object to js object
+ * Returns object or null
  */
-export function toJS(immutableObject) {
-	if (!immutableObject) {
+export function toJS(object) {
+	if (!object) {
 		return null;
 	}
-	return immutableObject.toJS();
+	return object;
 }
 
 /**
@@ -102,9 +101,9 @@ export class TCompForm extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		const nextProperties = this.props.state.get('properties');
-		if (prevProps.state.get('properties') !== nextProperties) {
-			this.setState({ properties: nextProperties?.toJS() || {} });
+		const nextProperties = this.props.state.properties;
+		if (prevProps.state.properties !== nextProperties) {
+			this.setState({ properties: nextProperties || {} });
 		}
 
 		if (
@@ -123,7 +122,7 @@ export class TCompForm extends Component {
 	}
 
 	onChange(_, payload) {
-		if (!this.props.state.get('dirty')) {
+		if (!this.props.state.dirty) {
 			this.props.setState({ dirty: true });
 		}
 
@@ -184,15 +183,15 @@ export class TCompForm extends Component {
 	}
 
 	onReset() {
-		this.props.setState(prev =>
-			prev.state
-				.set('jsonSchema', this.props.state.getIn(['initialState', 'jsonSchema']))
-				.set('uiSchema', this.props.state.getIn(['initialState', 'uiSchema']))
-				.set('properties', this.props.state.getIn(['initialState', 'properties']))
-				.set('dirty', false),
-		);
+		const { initialState } = this.props.state;
+		this.props.setState({
+			jsonSchema: initialState?.jsonSchema,
+			uiSchema: initialState?.uiSchema,
+			properties: initialState?.properties,
+			dirty: false,
+		});
 		this.setState({
-			properties: this.props.state.getIn(['initialState', 'properties']).toJS(),
+			properties: initialState?.properties || {},
 		});
 	}
 
@@ -213,8 +212,8 @@ export class TCompForm extends Component {
 	getUISpec() {
 		return {
 			properties: this.state.properties,
-			jsonSchema: this.getMemoizedJsonSchema(this.props.state.get('jsonSchema')),
-			uiSchema: this.getMemoizedUiSchema(this.props.state.get('uiSchema')),
+			jsonSchema: this.getMemoizedJsonSchema(this.props.state.jsonSchema),
+			uiSchema: this.getMemoizedUiSchema(this.props.state.uiSchema),
 		};
 	}
 
@@ -222,9 +221,9 @@ export class TCompForm extends Component {
 		const uiSpecs = this.getUISpec();
 
 		if (!uiSpecs.jsonSchema) {
-			const response = this.props.state.get('response');
+			const response = this.props.state.response;
 			if (response) {
-				return <p className="danger">{response.get('statusText')}</p>;
+				return <p className="danger">{response.statusText}</p>;
 			}
 			return <Form loading displayMode={this.props.displayMode} actions={this.props.actions} />;
 		}
@@ -232,7 +231,7 @@ export class TCompForm extends Component {
 		const props = {
 			...omit(this.props, TO_OMIT),
 			data: uiSpecs,
-			initialData: this.getMemoizedInitialState(this.props.state.get('initialState')),
+			initialData: this.getMemoizedInitialState(this.props.state.initialState),
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,

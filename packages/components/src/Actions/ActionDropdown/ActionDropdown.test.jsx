@@ -126,6 +126,23 @@ describe('getMenuItem', () => {
 	});
 });
 
+// Regression: react-immutable-proptypes was removed in story 3-1. Verify items accepts plain arrays.
+describe('ActionDropdown — plain array items (regression: story 3-1)', () => {
+	it('should render all items from a plain JS array', () => {
+		const props = {
+			id: 'dropdown-id',
+			label: 'Dropdown',
+			items: [
+				{ id: 'item1', label: 'Alpha' },
+				{ id: 'item2', label: 'Beta' },
+			],
+		};
+		render(<ActionDropdown {...props} />);
+		expect(screen.getByRole('menuitem', { name: 'Alpha' })).toBeInTheDocument();
+		expect(screen.getByRole('menuitem', { name: 'Beta' })).toBeInTheDocument();
+	});
+});
+
 describe('InjectDropdownMenuItem', () => {
 	it('should render MenuItem with props divider', () => {
 		render(
