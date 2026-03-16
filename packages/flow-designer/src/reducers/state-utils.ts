@@ -7,6 +7,9 @@ import set from 'lodash/set';
  * Deep-clones obj then sets the value at path.
  */
 export function setIn<T extends object>(obj: T, path: (string | number)[], value: any): T {
+	if (path.length === 0) {
+		return value as T;
+	}
 	const clone = cloneDeep(obj);
 	set(clone, path, value);
 	return clone;

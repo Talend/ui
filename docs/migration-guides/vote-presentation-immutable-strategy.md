@@ -29,7 +29,7 @@ ImmutableJS is completely removed from TUI. All internal data structures become 
 
 **Consumer project impact:**
 
-- CMF store access (`.get()` / `.getIn()`), container `defaultState`, component state read/write, and test fixtures must be migrated — covered by [per-package migration guides](../../docs/migration-guides/migration-guide-remove-immutable.md)
+- CMF store access (`.get()` / `.getIn()`), container `defaultState`, component state read/write, and test fixtures must be migrated — covered by [per-package migration guides](./migration-guide-remove-immutable.md)
 - **Only TUI-related Immutable usage is affected.** Project-internal code that uses ImmutableJS independently of TUI is untouched
 - After migration, each project is free to keep, upgrade, or remove Immutable at its own pace
 

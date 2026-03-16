@@ -15,7 +15,7 @@ export function* onPushNotification(action) {
 	const newComponentState = {
 		...componentState,
 		notifications: [
-			...componentState.notifications,
+			...(componentState?.notifications ?? []),
 			{
 				id: randomUUID(),
 				...action.notification,

@@ -20,7 +20,6 @@ import http, {
 	HTTPError,
 	httpFetch,
 	httpGet,
-	httpHead,
 	httpPatch,
 	httpPost,
 	httpPut,

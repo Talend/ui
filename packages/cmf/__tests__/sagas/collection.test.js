@@ -1,4 +1,4 @@
-import { delay, call, select } from 'redux-saga/effects';
+import { delay, select } from 'redux-saga/effects';
 import selectors from '../../src/selectors';
 import { waitFor } from '../../src/sagas/collection';
 

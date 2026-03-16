@@ -10,7 +10,7 @@
  *
  * ```import mock from 'react-cmf/lib/mock';```
  *
- * MIGRATION NOTE (Story 1.3):
+ * MIGRATION NOTE (Immutable removal):
  * `mock.store.getState().cmf.collections` is now a plain object `{}` (was Immutable.Map).
  * `mock.store.getState().cmf.components` is now a plain object (was Immutable.Map via fromJS()).
  * Consumers should use plain object access (`collections['key']`) instead of `.get('key')`.

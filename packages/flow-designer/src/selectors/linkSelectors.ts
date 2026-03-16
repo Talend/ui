@@ -13,18 +13,16 @@ const getLinks = (state: State): LinkRecordMap => state.links;
 
 export const getDetachedLinks = createSelector(
 	[getLinks, getPorts],
-	(links: LinkRecordMap, ports: PortRecordMap) =>
-		Object.fromEntries(
+	(links: LinkRecordMap, ports: PortRecordMap) => {
+		const portIds = new Set(Object.values(ports || {}).map((port: PortRecord) => port.id));
+		return Object.fromEntries(
 			Object.entries(links || {}).filter(
 				([, link]) =>
-					!Object.values(ports || {}).find(
-						(port: PortRecord) => port.id === (link as LinkRecord).sourceId,
-					) ||
-					!Object.values(ports || {}).find(
-						(port: PortRecord) => port.id === (link as LinkRecord).targetId,
-					),
+					!portIds.has((link as LinkRecord).sourceId) ||
+					!portIds.has((link as LinkRecord).targetId),
 			),
-		),
+		);
+	},
 );
 
 /**
@@ -58,10 +56,7 @@ export function portInLink(state: State, portId: Id) {
  */
 export function outLink(state: State, nodeId: Id) {
 	const outMap = state.out?.[nodeId] || {};
-	return Object.values(outMap).reduce<Record<string, string>>(
-		(reduction, portLinks) => ({ ...reduction, ...(portLinks as Record<string, string>) }),
-		{},
-	);
+	return Object.assign({}, ...Object.values(outMap)) as Record<string, string>;
 }
 
 /**
@@ -71,10 +66,7 @@ export function outLink(state: State, nodeId: Id) {
  */
 export function inLink(state: State, nodeId: Id) {
 	const inMap = state.in?.[nodeId] || {};
-	return Object.values(inMap).reduce<Record<string, string>>(
-		(reduction, portLinks) => ({ ...reduction, ...(portLinks as Record<string, string>) }),
-		{},
-	);
+	return Object.assign({}, ...Object.values(inMap)) as Record<string, string>;
 }
 
 export default getDetachedLinks;

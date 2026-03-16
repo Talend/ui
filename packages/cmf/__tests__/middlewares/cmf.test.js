@@ -1,6 +1,5 @@
 import { vi } from 'vitest';
 import cmfMiddleware from '../../src/middlewares/cmf';
-import onError from '../../src/onError';
 import CONSTANT from '../../src/constant';
 
 vi.mock('../../src/onError', () => ({
