@@ -1,4 +1,5 @@
 import curry from 'lodash/curry';
+import flow from 'lodash/flow';
 import isNumber from 'lodash/isNumber';
 
 import { throwInDev, throwTypeError } from '../throwInDev';
@@ -50,7 +51,7 @@ export function isPositionElseThrow(position: PositionRecordType) {
  */
 export function getXCoordinate(position: PositionRecordType) {
 	if (isPositionElseThrow(position)) {
-		return position.x;
+		return position.get('x');
 	}
 	return null;
 }
@@ -64,7 +65,7 @@ export function getXCoordinate(position: PositionRecordType) {
  */
 export const setXCoordinate = curry((x: number, position: PositionRecordType) => {
 	if (isPositionElseThrow(position) && isNumber(x)) {
-		return new PositionRecord({ ...position, x });
+		return position.set('x', x);
 	}
 	throwInDev(`x should be a number, was given ${x && x.toString()} of type ${typeof x}`);
 	return position;
@@ -77,7 +78,7 @@ export const setXCoordinate = curry((x: number, position: PositionRecordType) =>
  */
 export function getYCoordinate(position: PositionRecordType) {
 	if (isPositionElseThrow(position)) {
-		return position.y;
+		return position.get('y');
 	}
 	return null;
 }
@@ -90,7 +91,7 @@ export function getYCoordinate(position: PositionRecordType) {
  */
 export const setYCoordinate = curry((y: number, position: PositionRecordType) => {
 	if (isPositionElseThrow(position) && isNumber(y)) {
-		return new PositionRecord({ ...position, y });
+		return position.set('y', y);
 	}
 	throwInDev(`y should be a number, was given ${y && y.toString()} of type ${typeof y}`);
 	return position;
@@ -102,12 +103,6 @@ export const setYCoordinate = curry((y: number, position: PositionRecordType) =>
  * @param {number} y
  * @return {PositionRecord}
  */
-export const create = curry((x: number, y: number) => {
-	if (!isNumber(x)) {
-		throwInDev(`x should be a number, was given ${x && (x as any).toString()} of type ${typeof x}`);
-	}
-	if (!isNumber(y)) {
-		throwInDev(`y should be a number, was given ${y && (y as any).toString()} of type ${typeof y}`);
-	}
-	return new PositionRecord({ x, y });
-});
+export const create = curry((x: number, y: number) =>
+	flow([setXCoordinate(x), setYCoordinate(y)])(new PositionRecord()),
+);

@@ -6,6 +6,7 @@ import flow from 'lodash/flow';
 import indexOf from 'lodash/indexOf';
 import isString from 'lodash/isString';
 import upperFirst from 'lodash/upperFirst';
+import { Map } from 'immutable';
 
 import { throwInDev, throwTypeError } from '../throwInDev';
 import { NodeRecord, NestedNodeRecord } from '../../constants/flowdesigner.model';
@@ -168,12 +169,12 @@ export const setComponentType = curry(
  * @returns {NodeRecord}
  */
 export const setComponents = curry(
-	(components: Record<string, NodeRecordType>, node: NestedNodeRecordType) => {
-		if (components != null && isNodeElseThrow(node)) {
+	(components: Map<string, NodeRecordType>, node: NestedNodeRecordType) => {
+		if (Map.isMap(components) && isNodeElseThrow(node)) {
 			return node.setIn(componentsSelector, components);
 		}
 		throwInDev(
-			`components should be a plain object, was given ${components && components.toString()}`,
+			`components should be a Immutable.List, was given ${components && components.toString()}`,
 		);
 		return node;
 	},
@@ -347,7 +348,7 @@ export const create = curry(
 				setPosition(position),
 				setSize(size),
 				setComponentType(componentType),
-				setComponents({}),
+				setComponents(Map()),
 			])(new NestedNodeRecord());
 		}
 

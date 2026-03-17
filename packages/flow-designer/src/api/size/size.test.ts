@@ -1,3 +1,5 @@
+import { Map } from 'immutable';
+
 import { SizeRecord } from '../../constants/flowdesigner.model';
 
 import * as Size from './size';
@@ -6,14 +8,14 @@ const isNotSizeException = `SizeRecord should be a SizeRecord, was given
 """
 object
 """
-[object Object]
+Map {}
 """
 you should use Size module functions to create and transform Size`;
 const isNotProperSizeException = `SizeRecord should be a SizeRecord, was given
 """
 object
 """
-[object Object]
+Map { "width": 10, "height": 10 }
 """
 you should use Size module functions to create and transform Size`;
 const isImproperWidth = 'width should be a number, was given 10  of type string';
@@ -31,10 +33,10 @@ describe('isSizeElseThrow', () => {
 
 	it('throw an error if parameter is not a SizeRecord', () => {
 		// given
-		const testSize2 = {};
+		const testSize = Map();
 		// when
 		// expect
-		expect(() => Size.isSizeElseThrow(testSize2)).toThrow(isNotSizeException);
+		expect(() => Size.isSizeElseThrow(testSize)).toThrow(isNotSizeException);
 	});
 });
 
@@ -45,7 +47,7 @@ describe('Size', () => {
 
 	const improperWidth = '10';
 	const improperHeight = '50';
-	const improperTestSize = { width: 10, height: 10 };
+	const improperTestSize = Map({ width: 10, height: 10 });
 	describe('create', () => {
 		it('given proper width and height return a Size', () => {
 			// given

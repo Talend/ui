@@ -1,3 +1,4 @@
+import { Record, Map } from 'immutable';
 import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 /** $BASIC */
@@ -63,7 +64,7 @@ export interface Node {
 	type: string;
 	data: NodeData;
 	graphicalAttributes: NodeGraphicalAttributes;
-	components?: Record<string, Node>;
+	components?: List<Node>;
 }
 
 export interface LinkGraphicalAttributes {
@@ -84,60 +85,60 @@ export interface Link {
 }
 
 /** $RECORDS */
-export interface PositionRecord {
-	readonly x: number | undefined;
-	readonly y: number | undefined;
-}
+export type PositionRecord = Record<Position> & Position;
 
-export interface SizeRecord {
-	readonly width: number | undefined;
-	readonly height: number | undefined;
-}
+export type SizeRecord = Record<Size> & Size;
 
-export interface PortRecord {
-	readonly id: Id;
-	readonly nodeId: Id;
-	readonly data: Record<string, any>;
-	readonly graphicalAttributes: Record<string, any>;
-}
+export type PortRecord = Record<Port> & {
+	getPosition: () => Position;
+	getPortType: () => string;
+	getPortDirection: () => PortDirection;
+	getPortFlowType: () => string;
+	getIndex: () => number;
+	setIndex: (index: number) => PortRecord;
+} & Port;
 
-export interface NodeRecord {
-	readonly id: Id;
-	readonly type: string;
-	readonly data: Record<string, any>;
-	readonly graphicalAttributes: any;
-}
+// TODO add record
+export type NodeRecord = Record<Node> & {
+	getPosition: () => Position;
+	getSize: () => Size;
+	getNodeType: () => string;
+} & Node;
 
-export interface NestedNodeRecord extends NodeRecord {
-	readonly components: any;
-}
+export type NestedNodeRecord = Record<Node> & {
+	getPosition: () => Position;
+	getSize: () => Size;
+	getNodeType: () => string;
+} & Node;
 
-export interface LinkRecord {
-	readonly id: Id;
-	readonly sourceId: Id;
-	readonly targetId: Id;
-	readonly data: Record<string, any>;
-	readonly graphicalAttributes: Record<string, any>;
-}
+export type LinkRecord = Record<Link> & {
+	getLinkType: () => string;
+} & Link;
 
 /** $STATE */
 
-export type PortRecordMap = Record<Id, PortRecord>;
-export type NodeRecordMap = Record<Id, NodeRecord | NestedNodeRecord>;
-export type LinkRecordMap = Record<Id, LinkRecord>;
+export type PortRecordMap = Map<Id, PortRecord>;
+export type NodeRecordMap = Map<Id, NodeRecord | NestedNodeRecord>;
+export type LinkRecordMap = Map<Id, LinkRecord>;
+
+type GetStateNodes = (selector: ['nodes', Id]) => NodeRecord;
+type GetStatePorts = (selector: ['ports', Id]) => PortRecord;
+type GetStateLinks = (selector: ['links', Id]) => LinkRecord;
+type GetStateIn = (selector: ['in', Id]) => Id;
+type GetStateOut = (selector: ['out', Id]) => Id;
 
 export type State = {
-	in: Record<Id, Record<Id, Record<Id, Id>>>;
-	parents: Record<Id, Record<Id, Id>>;
+	in: Map<string, Map<Id, Id>>;
+	parents: Map<string, Map<Id, Id>>;
 	transform: Transform;
 	transformToApply?: Transform;
-	out: Record<Id, Record<Id, Record<Id, Id>>>;
-	nodes: Record<Id, NodeRecord | NestedNodeRecord>;
-	ports: Record<Id, PortRecord>;
-	childrens: Record<Id, Record<Id, Id>>;
-	nodeTypes: Record<string, any>;
-	links: Record<Id, LinkRecord>;
-};
+	out: Map<string, Map<Id, Id>>;
+	nodes: Map<string, Map<Id, NodeRecord | NestedNodeRecord>>;
+	ports: Map<string, Map<Id, PortRecord>>;
+	children: Map<string, Map<Id, Id>>;
+	nodeTypes: Map<string, Map<Id, any>>;
+	links: Map<string, Map<Id, LinkRecord>>;
+} & Map & { getIn: getStateNodes | getStatePorts | getStateLinks | getStateIn | getStateOut };
 
 /** $ACTIONS */
 export interface PortActionAdd {

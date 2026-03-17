@@ -41,7 +41,7 @@ class NodesRenderer extends Component<Props> {
 	}
 
 	render() {
-		return <g>{Object.values(this.props.nodes).map(this.renderNode)}</g>;
+		return <g>{this.props.nodes.toArray().map(this.renderNode)}</g>;
 	}
 }
 

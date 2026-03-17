@@ -1,21 +1,22 @@
 /**
- * This module is private and deal with updating a graph object
+ * This module is private and deal with updating a graph object internal Immutable.Map
  */
 import curry from 'lodash/curry';
 import isString from 'lodash/isString';
+import { Map } from 'immutable';
 
 import { throwInDev, throwTypeError } from '../throwInDev';
 
 /**
- * return true if the parameter is a plain object, throw otherwise
+ * return true if the parameter is an Immutable.Map throw otherwise
  * @private
- * @param {any} map - the value to be checked as plain object
+ * @param {any} map - the value to be checkd as Immutable.Map
  * @return {bool}
  */
-export function isMapElseThrow(map: Record<string, any>) {
-	const test = typeof map === 'object' && map !== null && !Array.isArray(map);
+export function isMapElseThrow(map: Map<any, any>) {
+	const test = Map.isMap(map);
 	if (!test) {
-		throwTypeError('plain object', map, 'map');
+		throwTypeError('Immutable.Map', map, 'map');
 	}
 	return test;
 }
@@ -39,12 +40,12 @@ export function isKeyElseThrow(key: string | number) {
  * @function
  * @param {string} key
  * @param {any} value
- * @param {Record<string, any>} map
- * @returns {Record<string, any>}
+ * @param {Immutable.Map} map
+ * @returns {Immutable.Map}
  */
-export const set = curry((key: any, value: any, map: Record<string, any>) => {
+export const set = curry((key: any, value: any, map: Map<any, any>) => {
 	if (isKeyElseThrow(key) && isMapElseThrow(map)) {
-		return { ...map, [key]: value };
+		return map.set(key, value);
 	}
 	return map;
 });
@@ -53,12 +54,12 @@ export const set = curry((key: any, value: any, map: Record<string, any>) => {
  * given a key and a map return the value associated if exist
  * @function
  * @param {string} key
- * @param {Record<string, any>} map
+ * @param {Immutable.Map} map
  * @returns {any | null}
  */
-export const get = curry((key: any, map: Record<string, any>) => {
+export const get = curry((key: any, map: Map<any, any>) => {
 	if (isKeyElseThrow(key) && isMapElseThrow(map)) {
-		return map[key];
+		return map.get(key);
 	}
 	return null;
 });
@@ -67,12 +68,12 @@ export const get = curry((key: any, map: Record<string, any>) => {
  * Given a key and a map check if this key exist on the map
  * @function
  * @param {string} key
- * @param {Record<string, any>} map
+ * @param {Immutable.Map} map
  * @return {bool}
  */
-export const has = curry((key: any, map: Record<string, any>) => {
+export const has = curry((key: any, map: Map<any, any>) => {
 	if (isKeyElseThrow(key) && isMapElseThrow(map)) {
-		return Object.prototype.hasOwnProperty.call(map, key);
+		return map.has(key);
 	}
 	return false;
 });
@@ -81,14 +82,12 @@ export const has = curry((key: any, map: Record<string, any>) => {
  * remove given key and its value from the map
  * @function
  * @param {string} key
- * @param {Record<string, any>} map
- * @returns {Record<string, any>}
+ * @param {Immutable.Map} map
+ * @returns {Immutable.Map}
  */
-export const deleteKey = curry((key: any, map: Record<string, any>) => {
+export const deleteKey = curry((key: any, map: Map<any, any>) => {
 	if (isKeyElseThrow(key) && isMapElseThrow(map)) {
-		const result = { ...map };
-		delete result[key];
-		return result;
+		return map.delete(key);
 	}
 	return map;
 });

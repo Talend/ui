@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import type { MouseEventHandler, MouseEvent } from 'react';
 import { scaleLinear, drag, select } from 'd3';
+import { Map } from 'immutable';
 
 import invariant from 'invariant';
 
@@ -28,16 +29,18 @@ function calculatePortPosition(
 	nodePosition: PositionType,
 	nodeSize: SizeType,
 ) {
-	let portsWithPosition: Record<string, any> = {};
-	const emitterPorts = Object.values(ports).filter(port => Port.getTopology(port) === PORT_SOURCE);
-	const sinkPorts = Object.values(ports).filter(port => Port.getTopology(port) === PORT_SINK);
-	const yStart = Position.getYCoordinate(nodePosition) as number;
-	const range: [number, number] = [yStart, yStart + (Size.getHeight(nodeSize) as number)];
+	let portsWithPosition = Map();
+	const emitterPorts = ports.filter(port => Port.getTopology(port) === PORT_SOURCE);
+	const sinkPorts = ports.filter(port => Port.getTopology(port) === PORT_SINK);
+	const range = [
+		Position.getYCoordinate(nodePosition),
+		Position.getYCoordinate(nodePosition) + Size.getHeight(nodeSize),
+	];
 	const scaleYEmitter = scaleLinear()
-		.domain([0, emitterPorts.length + 1])
+		.domain([0, emitterPorts.size + 1])
 		.range(range);
 	const scaleYSink = scaleLinear()
-		.domain([0, sinkPorts.length + 1])
+		.domain([0, sinkPorts.size + 1])
 		.range(range);
 	let emitterNumber = 0;
 	let sinkNumber = 0;
@@ -55,13 +58,10 @@ function calculatePortPosition(
 			emitterNumber += 1;
 
 			const position = Position.create(
-				(Position.getXCoordinate(nodePosition) as number) + (Size.getWidth(nodeSize) as number),
-				scaleYEmitter(emitterNumber) as number,
-			) as PositionType;
-			portsWithPosition = {
-				...portsWithPosition,
-				[Port.getId(port)!]: Port.setPosition(position, port),
-			};
+				Position.getXCoordinate(nodePosition) + Size.getWidth(nodeSize),
+				scaleYEmitter(emitterNumber),
+			);
+			portsWithPosition = portsWithPosition.set(Port.getId(port), Port.setPosition(port, position));
 		});
 	sinkPorts
 		.sort((a, b) => {
@@ -76,13 +76,10 @@ function calculatePortPosition(
 		.forEach(port => {
 			sinkNumber += 1;
 			const position = Position.create(
-				Position.getXCoordinate(nodePosition) as number,
-				scaleYSink(sinkNumber) as number,
-			) as PositionType;
-			portsWithPosition = {
-				...portsWithPosition,
-				[Port.getId(port)!]: Port.setPosition(position, port),
-			};
+				Position.getXCoordinate(nodePosition),
+				scaleYSink(sinkNumber),
+			);
+			portsWithPosition = portsWithPosition.set(Port.getId(port), Port.setPosition(port, position));
 		});
 	return portsWithPosition;
 }
@@ -123,7 +120,7 @@ class AbstractNode extends Component<Props> {
 
 	componentDidMount() {
 		this.d3Node = select(this.nodeElement);
-		this.d3Node.data([Node.getPosition(this.props.node)]);
+		this.d3Node.data([this.props.node.getPosition()]);
 		this.d3Node.call(
 			drag().on('start', this.onDragStart).on('drag', this.onDrag).on('end', this.onDragEnd),
 		);

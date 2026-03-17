@@ -5,7 +5,6 @@
 '@talend/react-components': major
 '@talend/react-sagas': major
 '@talend/react-stepper': patch
-'@talend/react-flow-designer': major
 ---
 
 feat: remove immutable dependency
@@ -42,6 +41,3 @@ The `Iterable.isIterable` backward-compat guard was removed from `ActionDropdown
 
 `immutable` and `react-immutable-proptypes` removed from published `dependencies`.
 
-### `@talend/react-flow-designer` (major)
-
-`immutable` removed from `peerDependencies`. Consumers must no longer install `immutable` as a peer dependency.

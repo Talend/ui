@@ -1,6 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Map, OrderedMap } from 'immutable';
+
 import * as nodeActions from './node.actions';
 import { FLOWDESIGNER_NODE_SET_TYPE } from '../constants/flowdesigner.constants';
 
@@ -11,7 +13,7 @@ describe('Check that node action creators generate proper action objects and per
 	it('addNode generate action with 0 configuration', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: {},
+				nodes: Map({}),
 			},
 		});
 
@@ -32,13 +34,14 @@ describe('Check that node action creators generate proper action objects and per
 	it('moveNode generate a proper action object witch nodeId and nodePosition parameter', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: { nodeId: { id: 'nodeId', type: 'type' } },
-				nodeTypes: {
-					type: {
+				nodes: Map({ nodeId: { id: 'nodeId', type: 'type' } }),
+				nodeTypes: Map({
+					type: Map({
 						component: { calculatePortPosition: () => ({}) },
-					},
-				},
-				ports: {},
+					}),
+				}),
+				// eslint-disable-next-line new-cap
+				ports: OrderedMap(),
 			},
 		});
 
@@ -50,7 +53,7 @@ describe('Check that node action creators generate proper action objects and per
 	it('setNodeSize', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: { nodeId: { id: 'nodeId', type: 'type' } },
+				nodes: Map({ nodeId: { id: 'nodeId', type: 'type' } }),
 			},
 		});
 
@@ -63,7 +66,7 @@ describe('Check that node action creators generate proper action objects and per
 		const nodeType = 'newNodeType';
 		const store = mockStore({
 			flowDesigner: {
-				nodes: { nodeId: { id: nodeId, type: 'type' } },
+				nodes: Map({ nodeId: { id: nodeId, type: 'type' } }),
 			},
 		});
 
@@ -78,7 +81,7 @@ describe('Check that node action creators generate proper action objects and per
 	it('setNodeGraphicalAttributes', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: { id: { id: 'nodeId', type: 'type' } },
+				nodes: Map({ id: { id: 'nodeId', type: 'type' } }),
 			},
 		});
 
@@ -90,7 +93,7 @@ describe('Check that node action creators generate proper action objects and per
 	it('removeNodeGraphicalAttribute', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: { id: { id: 'nodeId', type: 'type' } },
+				nodes: Map({ id: { id: 'nodeId', type: 'type' } }),
 			},
 		});
 
@@ -102,7 +105,7 @@ describe('Check that node action creators generate proper action objects and per
 	it('setNodeData', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: { id: { id: 'nodeId', type: 'type' } },
+				nodes: Map({ id: { id: 'nodeId', type: 'type' } }),
 			},
 		});
 
@@ -114,13 +117,13 @@ describe('Check that node action creators generate proper action objects and per
 	it('removeNodeData', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: {
+				nodes: Map({
 					id: {
 						id: 'nodeId',
 						type: 'type',
-						data: { testProperties: 'testProperties' },
+						data: Map({ testProperties: 'testProperties' }),
 					},
-				},
+				}),
 			},
 		});
 
@@ -132,7 +135,7 @@ describe('Check that node action creators generate proper action objects and per
 	it('removeNode', () => {
 		const store = mockStore({
 			flowDesigner: {
-				nodes: { id: { id: 'nodeId', type: 'type' } },
+				nodes: Map({ id: { id: 'nodeId', type: 'type' } }),
 			},
 		});
 

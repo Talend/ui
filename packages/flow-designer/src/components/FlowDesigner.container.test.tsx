@@ -1,8 +1,9 @@
 import renderer from 'react-test-renderer';
+import { Map } from 'immutable';
 
 import { FlowDesigner } from './FlowDesigner.container';
 import NodeType from './configuration/NodeType.component';
-import { NodeRecordMap, PortRecordMap, LinkRecordMap } from '../customTypings/index.d';
+import { NodeRecord, Id, PortRecord, LinkRecord } from '../customTypings/index.d';
 
 vi.mock('./ZoomHandler.component');
 vi.mock('./grid/Grid.component', () => {
@@ -15,9 +16,9 @@ const noOp = () => {};
 
 describe('<FlowDesigner /> renders correctly', () => {
 	it('<FlowDesigner /> renders correctly', () => {
-		const nodes: NodeRecordMap = {};
-		const ports: PortRecordMap = {};
-		const links: LinkRecordMap = {};
+		const nodes = Map<Id, NodeRecord>();
+		const ports = Map<Id, PortRecord>();
+		const links = Map<Id, LinkRecord>();
 		const tree = renderer
 			.create(
 				<FlowDesigner

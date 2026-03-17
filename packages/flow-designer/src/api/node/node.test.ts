@@ -11,6 +11,8 @@
 
     because the underlying module data is itself tested.
  */
+import { Map } from 'immutable';
+
 import { NodeRecord, NestedNodeRecord } from '../../constants/flowdesigner.model';
 
 import * as Node from './node';
@@ -21,14 +23,14 @@ const isNotNodeException = `NodeRecord should be a NodeRecord, was given
 """
 object
 """
-[object Object]
+Map {}
 """`;
 
 const improperSizeMessage = `SizeRecord should be a SizeRecord, was given
 """
 object
 """
-[object Object]
+Map { "width": 20, "height": 50 }
 """
 you should use Size module functions to create and transform Size`;
 
@@ -36,7 +38,7 @@ const improperPositionMessage = `PositionRecord should be a PositionRecord, was 
 """
 object
 """
-[object Object]
+Map { "x": 10, "y": 10 }
 """
 `;
 
@@ -64,10 +66,10 @@ describe('isNodeElseThrow', () => {
 
 	it('thow an error if parameter is not a NodeRecord', () => {
 		// given
-		const testNode2 = {};
+		const testNode = Map();
 		// when
 		// expect
-		expect(() => Node.isNodeElseThrow(testNode2)).toThrow(isNotNodeException);
+		expect(() => Node.isNodeElseThrow(testNode)).toThrow(isNotNodeException);
 	});
 });
 
@@ -81,10 +83,10 @@ describe('Node', () => {
 	const value = { whatever: 'whatever' };
 
 	const improperId = 34;
-	const improperPosition = { x: 10, y: 10 };
-	const improperSize = { width: 20, height: 50 };
+	const improperPosition = Map({ x: 10, y: 10 });
+	const improperSize = Map({ width: 20, height: 50 });
 	const improperNodeType = {};
-	const improperNode = {};
+	const improperNode = Map();
 	describe('create', () => {
 		it('given proper id, position, size and componentType return a Node', () => {
 			// given
@@ -186,7 +188,7 @@ describe('Node', () => {
 """
 object
 """
-[object Object]
+Map { "x": 10, "y": 10 }
 """
 you should use Position module functions to create and transform Position`);
 		});

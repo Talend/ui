@@ -1,5 +1,5 @@
 import invariant from 'invariant';
-import cloneDeep from 'lodash/cloneDeep';
+import { Map, fromJS } from 'immutable';
 
 import {
 	FLOWDESIGNER_LINK_ADD,
@@ -13,187 +13,204 @@ import {
 } from '../constants/flowdesigner.constants';
 
 import { LinkRecord, LinkGraphicalAttributes, LinkData } from '../constants/flowdesigner.model';
-import { setIn, deleteIn } from './state-utils';
-import { State } from '../customTypings/index.d';
 
-export default function linkReducer(state: State, action: any) {
+const defaultState = Map();
+
+export default function linkReducer(state = defaultState, action: any) {
 	switch (action.type) {
-		case FLOWDESIGNER_LINK_ADD: {
-			if (state.links?.[action.linkId]) {
+		case FLOWDESIGNER_LINK_ADD:
+			if (state.getIn(['links', action.linkId])) {
 				invariant(false, `can't create a link ${action.linkId} when it already exist`);
 			}
 
-			if (!state.ports?.[action.targetId]) {
+			if (!state.getIn(['ports', action.targetId])) {
 				invariant(
 					false,
 					`can't set a non existing target with id ${action.targetId} on link ${action.linkId}`,
 				);
 			}
 
-			if (!state.ports?.[action.sourceId]) {
+			if (!state.getIn(['ports', action.sourceId])) {
 				invariant(
 					false,
 					`can't set a non existing source with id ${action.sourceId} on link ${action.linkId}`,
 				);
 			}
 
-			const sourcePort = state.ports[action.sourceId];
-			const targetPort = state.ports[action.targetId];
-			const sourceNodeId = sourcePort.nodeId as string;
-			const targetNodeId = targetPort.nodeId as string;
-
-			return {
-				...state,
-				links: {
-					...state.links,
-					[action.linkId]: new LinkRecord({
+			return state
+				.setIn(
+					['links', action.linkId],
+					new LinkRecord({
 						id: action.linkId,
 						sourceId: action.sourceId,
 						targetId: action.targetId,
-						data: new LinkData({
-							...action.data,
-							properties: cloneDeep(action.data?.properties) || {},
-						}),
+						data: new LinkData(action.data).set(
+							'properties',
+							fromJS(action.data && action.data.properties) || Map(),
+						),
 						graphicalAttributes: new LinkGraphicalAttributes(action.graphicalAttributes).set(
 							'properties',
-							cloneDeep(action.graphicalAttributes?.properties) || {},
+							fromJS(action.graphicalAttributes && action.graphicalAttributes.properties) || Map(),
 						),
 					}),
-				},
-				childrens: {
-					...state.childrens,
-					[sourceNodeId]: {
-						...(state.childrens?.[sourceNodeId] || {}),
-						[targetNodeId]: targetNodeId,
-					},
-				},
-				parents: {
-					...state.parents,
-					[targetNodeId]: {
-						...(state.parents?.[targetNodeId] || {}),
-						[sourceNodeId]: sourceNodeId,
-					},
-				},
-				out: setIn(state.out, [sourceNodeId, action.sourceId, action.linkId], action.linkId),
-				in: setIn(state.in, [targetNodeId, action.targetId, action.linkId], action.linkId),
-			};
-		}
-		case FLOWDESIGNER_LINK_SET_TARGET: {
-			if (!state.links?.[action.linkId]) {
+				) // parcourir l'ensemble des parents et set le composant cible en tant que sucessors '
+				.setIn(
+					[
+						'childrens',
+						state.getIn(['ports', action.sourceId]).nodeId,
+						state.getIn(['ports', action.targetId]).nodeId,
+					],
+					state.getIn(['ports', action.targetId]).nodeId,
+				)
+				.setIn(
+					[
+						'parents',
+						state.getIn(['ports', action.targetId]).nodeId,
+						state.getIn(['ports', action.sourceId]).nodeId,
+					],
+					state.getIn(['ports', action.sourceId]).nodeId,
+				)
+				.setIn(
+					['out', state.getIn(['ports', action.sourceId]).nodeId, action.sourceId, action.linkId],
+					action.linkId,
+				)
+				.setIn(
+					['in', state.getIn(['ports', action.targetId]).nodeId, action.targetId, action.linkId],
+					action.linkId,
+				);
+		case FLOWDESIGNER_LINK_SET_TARGET:
+			if (!state.getIn(['links', action.linkId])) {
 				invariant(
 					false,
 					`can't set a target ${action.targetId} on non existing link with id ${action.linkId}`,
 				);
 			}
 
-			if (!state.ports?.[action.targetId]) {
+			if (!state.getIn(['ports', action.targetId])) {
 				invariant(
 					false,
 					`can't set a non existing target with id ${action.targetId} on link ${action.linkId}`,
 				);
 			}
 
-			const link = state.links[action.linkId] as LinkRecord;
-			const oldTargetPort = state.ports[link.targetId as string];
-			const newTargetPort = state.ports[action.targetId];
-			const sourcePort = state.ports[link.sourceId as string];
-
-			let s: State = {
-				...state,
-				links: { ...state.links, [action.linkId]: link.set('targetId', action.targetId) },
-			};
-			s = deleteIn(s, ['in', oldTargetPort?.nodeId, link.targetId, action.linkId]);
-			s = setIn(s, ['in', newTargetPort?.nodeId, action.targetId, action.linkId], action.linkId);
-			s = deleteIn(s, ['childrens', sourcePort?.nodeId, oldTargetPort?.nodeId]);
-			s = setIn(s, ['childrens', sourcePort?.nodeId, newTargetPort?.nodeId], newTargetPort?.nodeId);
-			return s;
-		}
-		case FLOWDESIGNER_LINK_SET_SOURCE: {
-			if (!state.links?.[action.linkId]) {
+			return state
+				.setIn(['links', action.linkId, 'targetId'], action.targetId)
+				.deleteIn([
+					'in',
+					state.getIn(['ports', state.getIn(['links', action.linkId]).targetId]).nodeId,
+					state.getIn(['links', action.linkId]).targetId,
+					action.linkId,
+				])
+				.setIn(
+					['in', state.getIn(['ports', action.targetId]).nodeId, action.targetId, action.linkId],
+					action.linkId,
+				)
+				.deleteIn([
+					'childrens',
+					state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
+					state.getIn(['ports', state.getIn(['links', action.linkId]).targetId]).nodeId,
+				])
+				.setIn(
+					[
+						'childrens',
+						state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
+						state.getIn(['ports', action.targetId]).nodeId,
+					],
+					state.getIn(['ports', action.targetId]).nodeId,
+				);
+		case FLOWDESIGNER_LINK_SET_SOURCE:
+			if (!state.getIn(['links', action.linkId])) {
 				invariant(
 					false,
 					`can't set a source ${action.sourceId} on non existing link with id ${action.linkId}`,
 				);
 			}
 
-			if (!state.ports?.[action.sourceId]) {
+			if (!state.getIn(['ports', action.sourceId])) {
 				invariant(
 					false,
 					`can't set a non existing target with id ${action.sourceId} on link ${action.linkId}`,
 				);
 			}
 
-			const link = state.links[action.linkId] as LinkRecord;
-			const oldSourcePort = state.ports[link.sourceId as string];
-			const newSourcePort = state.ports[action.sourceId];
-			const targetPort = state.ports[link.targetId as string];
-
-			let s: State = {
-				...state,
-				links: { ...state.links, [action.linkId]: link.set('sourceId', action.sourceId) },
-			};
-			s = deleteIn(s, ['out', oldSourcePort?.nodeId, link.sourceId, action.linkId]);
-			s = setIn(s, ['out', newSourcePort?.nodeId, action.sourceId, action.linkId], action.linkId);
-			s = deleteIn(s, ['parents', targetPort?.nodeId, oldSourcePort?.nodeId]);
-			s = setIn(s, ['parents', targetPort?.nodeId, newSourcePort?.nodeId], newSourcePort?.nodeId);
-			return s;
-		}
-		case FLOWDESIGNER_LINK_REMOVE: {
-			if (!state.links?.[action.linkId]) {
+			return state
+				.setIn(['links', action.linkId, 'sourceId'], action.sourceId)
+				.deleteIn([
+					'out',
+					state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
+					state.getIn(['links', action.linkId]).sourceId,
+					action.linkId,
+				])
+				.setIn(
+					['out', state.getIn(['ports', action.sourceId]).nodeId, action.sourceId, action.linkId],
+					action.linkId,
+				)
+				.deleteIn([
+					'parents',
+					state.getIn(['ports', state.getIn(['links', action.linkId]).targetId]).nodeId,
+					state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
+				])
+				.setIn(
+					[
+						'parents',
+						state.getIn(['ports', state.getIn(['links', action.linkId]).targetId]).nodeId,
+						state.getIn(['ports', action.sourceId]).nodeId,
+					],
+					state.getIn(['ports', action.sourceId]).nodeId,
+				);
+		case FLOWDESIGNER_LINK_REMOVE:
+			if (!state.getIn(['links', action.linkId])) {
 				invariant(false, `can't remove non existing link ${action.linkId}`);
 			}
 
-			const link = state.links[action.linkId] as LinkRecord;
-			const targetPort = state.ports?.[link.targetId as string];
-			const sourcePort = state.ports?.[link.sourceId as string];
-
-			let s = deleteIn(state, ['in', targetPort?.nodeId, link.targetId, action.linkId]);
-			s = deleteIn(s, ['out', sourcePort?.nodeId, link.sourceId, action.linkId]);
-			s = deleteIn(s, ['childrens', sourcePort?.nodeId, targetPort?.nodeId]);
-			s = deleteIn(s, ['parents', targetPort?.nodeId, sourcePort?.nodeId]);
-			s = deleteIn(s, ['links', action.linkId]);
-			return s;
-		}
-		case FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES: {
-			if (!state.links?.[action.linkId]) {
+			return state
+				.deleteIn([
+					'in',
+					state.getIn(['ports', state.getIn(['links', action.linkId]).targetId]).nodeId,
+					state.getIn(['links', action.linkId]).targetId,
+					action.linkId,
+				])
+				.deleteIn([
+					'out',
+					state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
+					state.getIn(['links', action.linkId]).sourceId,
+					action.linkId,
+				])
+				.deleteIn([
+					'childrens',
+					state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
+					state.getIn(['ports', state.getIn(['links', action.linkId]).targetId]).nodeId,
+				])
+				.deleteIn([
+					'parents',
+					state.getIn(['ports', state.getIn(['links', action.linkId]).targetId]).nodeId,
+					state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
+				])
+				.deleteIn(['links', action.linkId]);
+		case FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES:
+			if (!state.getIn(['links', action.linkId])) {
 				invariant(false, `Can't set an attribute on non existing link ${action.linkId}`);
 			}
 
-			const link = state.links[action.linkId] as LinkRecord;
 			try {
-				return {
-					...state,
-					links: {
-						...state.links,
-						[action.linkId]: link.set(
-							'graphicalAttributes',
-							link.graphicalAttributes.merge(action.graphicalAttributes),
-						),
-					},
-				};
+				return state.mergeIn(
+					['links', action.linkId, 'graphicalAttributes'],
+					fromJS(action.graphicalAttributes),
+				);
 			} catch (error) {
 				console.error(error);
-				return {
-					...state,
-					links: {
-						...state.links,
-						[action.linkId]: link.set(
-							'graphicalAttributes',
-							link.graphicalAttributes.set('properties', {
-								...(link.graphicalAttributes?.properties || {}),
-								...action.graphicalAttributes,
-							}),
-						),
-					},
-				};
+				return state.mergeIn(
+					['links', action.linkId, 'graphicalAttributes', 'properties'],
+					fromJS(action.graphicalAttributes),
+				);
 			}
-		}
+
 		case FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES:
-			if (!state.links?.[action.linkId]) {
+			if (!state.getIn(['links', action.linkId])) {
 				invariant(false, `Can't remove an attribute on non existing link ${action.linkId}`);
 			}
 
-			return deleteIn(state, [
+			return state.deleteIn([
 				'links',
 				action.linkId,
 				'graphicalAttributes',
@@ -201,37 +218,24 @@ export default function linkReducer(state: State, action: any) {
 				action.graphicalAttributesKey,
 			]);
 
-		case FLOWDESIGNER_LINK_SET_DATA: {
-			if (!state.links?.[action.linkId]) {
+		case FLOWDESIGNER_LINK_SET_DATA:
+			if (!state.getIn(['links', action.linkId])) {
 				invariant(false, `Can't set an attribute on non existing link ${action.linkId}`);
 			}
 
-			const link = state.links[action.linkId] as LinkRecord;
 			try {
-				return {
-					...state,
-					links: {
-						...state.links,
-						[action.linkId]: link.set(
-							'data',
-							new LinkData({ ...(link.data as any), ...action.data }),
-						),
-					},
-				};
+				return state.mergeIn(['links', action.linkId, 'data'], fromJS(action.data));
 			} catch (error) {
 				console.error(error);
-				return setIn(state, ['links', action.linkId, 'data', 'properties'], {
-					...(link.data as any)?.properties,
-					...action.data,
-				});
+				return state.mergeIn(['links', action.linkId, 'data', 'properties'], fromJS(action.data));
 			}
-		}
+
 		case FLOWDESIGNER_LINK_REMOVE_DATA:
-			if (!state.links?.[action.linkId]) {
+			if (!state.getIn(['links', action.linkId])) {
 				invariant(false, `Can't remove an attribute on non existing link ${action.linkId}`);
 			}
 
-			return deleteIn(state, ['links', action.linkId, 'data', 'properties', action.dataKey]);
+			return state.deleteIn(['links', action.linkId, 'data', 'properties', action.dataKey]);
 
 		default:
 			return state;

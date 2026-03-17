@@ -11,6 +11,8 @@
 
 	because the underlying module data is itself tested.
  */
+import { Map } from 'immutable';
+
 import { LinkRecord } from '../../constants/flowdesigner.model';
 import * as Link from './link';
 
@@ -18,7 +20,7 @@ const isNotLinkException = `Linkrecord should be a Linkrecord, was given
 """
 object
 """
-[object Object]
+Map {}
 """
 you should use Link module functions to create and transform Link`;
 const protectedValueException =
@@ -36,10 +38,10 @@ describe('isLinkElseThrow', () => {
 
 	it('thow an error if parameter is not a LinkRecord', () => {
 		// given
-		const testLink2 = {};
+		const testLink = Map();
 		// when
 		// expect
-		expect(() => Link.isLinkElseThrow(testLink2)).toThrow(isNotLinkException);
+		expect(() => Link.isLinkElseThrow(testLink)).toThrow(isNotLinkException);
 	});
 });
 
@@ -56,7 +58,7 @@ describe('Link', () => {
 	const improperSourceId = 42;
 	const improperTargetId = 64;
 	const improperLinkType = {};
-	const improperLink = {};
+	const improperLink = Map();
 
 	describe('create', () => {
 		it('given proper id, sourceId, targetid and componentType return a Link', () => {

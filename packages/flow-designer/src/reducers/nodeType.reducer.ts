@@ -1,10 +1,12 @@
-import { FLOWDESIGNER_NODETYPE_SET } from '../constants/flowdesigner.constants';
-import { State } from '../customTypings/index.d';
+import { Map } from 'immutable';
 
-const nodeTypeReducer = (state: State, action: any) => {
+import { FLOWDESIGNER_NODETYPE_SET } from '../constants/flowdesigner.constants';
+
+const defaultState = Map();
+const nodeTypeReducer = (state = defaultState, action: any) => {
 	switch (action.type) {
 		case FLOWDESIGNER_NODETYPE_SET:
-			return { ...state, nodeTypes: { ...state.nodeTypes, ...action.nodeTypes } };
+			return state.mergeIn(['nodeTypes'], action.nodeTypes);
 		default:
 			return state;
 	}

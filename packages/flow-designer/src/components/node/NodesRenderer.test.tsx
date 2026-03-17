@@ -1,4 +1,5 @@
 import renderer from 'react-test-renderer';
+import { List, Map } from 'immutable';
 
 import NodesRenderer from './NodesRenderer.component';
 import {
@@ -6,7 +7,7 @@ import {
 	NodeRecord,
 	NodeGraphicalAttributes,
 } from '../../constants/flowdesigner.model';
-import { NodeRecordMap } from '../../customTypings/index.d';
+import { NodeRecord as NodeRecordType } from '../../customTypings/index.d';
 
 const MockNode = () => <span>MockNodes</span>;
 
@@ -14,15 +15,16 @@ const noOp = () => {};
 
 describe('<NodesRenderer />', () => {
 	it('renders correctly', () => {
-		const nodes: NodeRecordMap = {
-			id: new NodeRecord({
+		const nodes = Map<string, NodeRecordType>().set(
+			'id',
+			new NodeRecord({
 				id: 'id',
 				type: 'id',
 				graphicalAttributes: new NodeGraphicalAttributes({
 					nodeType: 'id',
 				}),
 			}),
-		};
+		);
 		const nodeTypeMap = { id: { id: 'id', component: MockNode } };
 		const tree = renderer
 			.create(
@@ -39,16 +41,17 @@ describe('<NodesRenderer />', () => {
 		expect(tree).toMatchSnapshot();
 	});
 	it('renders correctly if nested', () => {
-		const nodes: NodeRecordMap = {
-			id: new NestedNodeRecord({
+		const nodes = Map<string, NodeRecordType>().set(
+			'id',
+			new NestedNodeRecord({
 				id: 'id',
 				type: 'id',
 				graphicalAttributes: new NodeGraphicalAttributes({
 					nodeType: 'id',
 				}),
-				components: {},
+				components: List(),
 			}),
-		};
+		);
 		const nodeTypeMap = { id: { id: 'id', component: MockNode } };
 		const tree = renderer
 			.create(

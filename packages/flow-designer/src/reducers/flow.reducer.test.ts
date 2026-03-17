@@ -1,3 +1,5 @@
+import { Map } from 'immutable';
+
 import { reducer, calculatePortsPosition, defaultState } from './flow.reducer';
 import * as nodeActions from '../actions/node.actions';
 import * as portActions from '../actions/port.actions';
@@ -131,26 +133,34 @@ describe('FLOWDESIGNER_PAN_TO set a calculated transformation into transformToAp
 });
 
 describe('calculatePortsPosition behavior', () => {
-	const state = {
-		...defaultState,
-		nodes: {
-			'42': new NodeRecord({
-				id: '42',
-				graphicalAttributes: { nodeType: '42' },
-			}),
-		},
-		ports: {
-			'42': new PortRecord({
-				id: '42',
-				nodeId: '42',
-			}),
-		},
-		nodeTypes: { '42': { component: {} } },
-	};
+	const state = defaultState
+		.set(
+			'nodes',
+			Map().set(
+				'42',
+				new NodeRecord({
+					id: '42',
+					graphicalAttributes: Map({
+						nodeType: '42',
+					}),
+				}),
+			),
+		)
+		.set(
+			'ports',
+			Map().set(
+				'42',
+				new PortRecord({
+					id: '42',
+					nodeId: '42',
+				}),
+			),
+		)
+		.set('nodeTypes', Map().set('42', Map().set('component', {})));
 
 	it('should trigger only if NODE/PORT/FLOW action are dispatched', () => {
 		const calculatePortPosition = vi.fn();
-		const givenState = { ...state, nodeTypes: { '42': { component: { calculatePortPosition } } } };
+		const givenState = state.setIn(['nodeTypes', '42', 'component'], { calculatePortPosition });
 		calculatePortsPosition(givenState, {
 			type: 'FLOWDESIGNER_NODE_MOVE',
 		});
@@ -165,7 +175,7 @@ describe('calculatePortsPosition behavior', () => {
 
 	it('should not trigger on FLOWDESIGNER_NODE_REMOVE and FLOWDESIGNER_PORT_REMOVE', () => {
 		const calculatePortPosition = vi.fn();
-		const givenState = { ...state, nodeTypes: { '42': { component: { calculatePortPosition } } } };
+		const givenState = state.setIn(['nodeTypes', '42', 'component'], { calculatePortPosition });
 		calculatePortsPosition(givenState, {
 			type: 'FLOWDESIGNER_NODE_REMOVE',
 		});
@@ -177,7 +187,7 @@ describe('calculatePortsPosition behavior', () => {
 
 	it('should trigger using action with port id', () => {
 		const calculatePortPosition = vi.fn();
-		const givenState = { ...state, nodeTypes: { '42': { component: { calculatePortPosition } } } };
+		const givenState = state.setIn(['nodeTypes', '42', 'component'], { calculatePortPosition });
 		const action = {
 			type: 'FLOWDESIGNER_PORT_SET_DATA',
 			portId: '42',

@@ -1,42 +1,49 @@
+import { Map, OrderedMap } from 'immutable';
+
 import { defaultState } from './flow.reducer';
 import portReducer from './port.reducer';
-import {
-	PortRecord,
-	PortData,
-	PortGraphicalAttributes,
-	PositionRecord,
-} from '../constants/flowdesigner.model';
+import { PortRecord, PositionRecord } from '../constants/flowdesigner.model';
 import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 describe('Check port reducer', () => {
-	const initialState = {
-		...defaultState,
-		ports: {
-			id1: new PortRecord({
-				id: 'id1',
-				data: new PortData({ type: 'test' }),
-				graphicalAttributes: new PortGraphicalAttributes({
-					type: 'test',
-					position: new PositionRecord({ x: 10, y: 10 }),
-				}),
-			}),
-			id2: new PortRecord({
-				id: 'id2',
-				nodeId: 'test',
-				graphicalAttributes: new PortGraphicalAttributes({
-					position: new PositionRecord({ x: 10, y: 10 }),
-				}),
-			}),
-			id3: new PortRecord({
-				id: 'id3',
-				graphicalAttributes: new PortGraphicalAttributes({
-					position: new PositionRecord({ x: 10, y: 10 }),
-				}),
-			}),
-		},
-		nodes: { nodeId: {} },
-		links: {},
-	};
+	const initialState = defaultState
+		.set(
+			'ports',
+			// eslint-disable-next-line new-cap
+			OrderedMap()
+				.set(
+					'id1',
+					new PortRecord({
+						id: 'id1',
+						data: Map({ type: 'test' }),
+						graphicalAttributes: Map({
+							type: 'test',
+							position: new PositionRecord({ x: 10, y: 10 }),
+						}),
+					}),
+				)
+				.set(
+					'id2',
+					new PortRecord({
+						id: 'id2',
+						nodeId: 'test',
+						graphicalAttributes: Map({
+							position: new PositionRecord({ x: 10, y: 10 }),
+						}),
+					}),
+				)
+				.set(
+					'id3',
+					new PortRecord({
+						id: 'id3',
+						graphicalAttributes: Map({
+							position: new PositionRecord({ x: 10, y: 10 }),
+						}),
+					}),
+				),
+		)
+		.set('nodes', Map().set('nodeId', Map()))
+		.set('links', Map());
 
 	it('FLOWDESIGNER_PORT_ADD properly add the port to the port Map', () => {
 		expect(

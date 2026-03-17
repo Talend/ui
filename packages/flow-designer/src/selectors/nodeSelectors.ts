@@ -1,29 +1,30 @@
+import { Set } from 'immutable';
 import { State, Id } from '../customTypings/index.d';
 
 /**
- * @param state plain flow state
+ * @param state Map flow state
  * @param nodeId String
  * @param predecessors Set list of already determined predecessors
  */
-export function getPredecessors(state: State, nodeId: Id, predecessors?: Set<Id>): Set<Id> {
-	const parents = state.parents?.[nodeId] ?? {};
-	return Object.values(parents).reduce<Set<Id>>((acc, parentId) => {
-		const deeper = getPredecessors(state, parentId as Id, acc);
-		deeper.add(parentId as Id);
-		return deeper;
-	}, predecessors || new Set<Id>());
+export function getPredecessors(state: State, nodeId: Id, predecessors?: Set<Id>) {
+	return state.getIn(['parents', nodeId]).reduce(
+		(accumulator: Set<Id>, parentId: Id) =>
+			getPredecessors(state, parentId, accumulator).add(parentId),
+		// eslint-disable-next-line new-cap
+		predecessors || Set(),
+	);
 }
 
 /**
- * @param state plain flow state
+ * @param state Map flow state
  * @param nodeId String
  * @param successors Set list of already determined successors
  */
-export function getSuccessors(state: State, nodeId: Id, successors?: Set<Id>): Set<Id> {
-	const childrens = state.childrens?.[nodeId] ?? {};
-	return Object.values(childrens).reduce<Set<Id>>((acc, childrenId) => {
-		const deeper = getSuccessors(state, childrenId as Id, acc);
-		deeper.add(childrenId as Id);
-		return deeper;
-	}, successors || new Set<Id>());
+export function getSuccessors(state: State, nodeId: Id, successors?: Set<Id>) {
+	return state.getIn(['childrens', nodeId]).reduce(
+		(accumulator: Set<Id>, childrenId: Id) =>
+			getSuccessors(state, childrenId, accumulator).add(childrenId),
+		// eslint-disable-next-line new-cap
+		successors || Set(),
+	);
 }

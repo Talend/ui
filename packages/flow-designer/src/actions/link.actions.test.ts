@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Map } from 'immutable';
 
 import * as linkActions from './link.actions';
 
@@ -10,11 +12,11 @@ describe('Check that link action creators generate proper action objects and per
 	it('addLink', () => {
 		const store = mockStore({
 			flowDesigner: {
-				links: {},
-				ports: {
+				links: Map(),
+				ports: Map({
 					id1: { id: 'portId', portType: 'type' },
 					id2: { id: 'portId', portType: 'type' },
-				},
+				}),
 			},
 		});
 
@@ -29,8 +31,8 @@ describe('Check that link action creators generate proper action objects and per
 	it('setLinkTarget', () => {
 		const store = mockStore({
 			flowDesigner: {
-				links: { linkId: { id: 'linkId' } },
-				ports: { id1: { id: 'portId', portType: 'type' } },
+				links: Map({ linkId: { id: 'linkId' } }),
+				ports: Map({ id1: { id: 'portId', portType: 'type' } }),
 			},
 		});
 
@@ -42,8 +44,8 @@ describe('Check that link action creators generate proper action objects and per
 	it('setLinkSource', () => {
 		const store = mockStore({
 			flowDesigner: {
-				links: { linkId: { id: 'linkId' } },
-				ports: { id1: { id: 'portId', portType: 'type' } },
+				links: Map({ linkId: { id: 'linkId' } }),
+				ports: Map({ id1: { id: 'portId', portType: 'type' } }),
 			},
 		});
 
@@ -55,7 +57,7 @@ describe('Check that link action creators generate proper action objects and per
 	it('setLinkGraphicalAttributes', () => {
 		const store = mockStore({
 			flowDesigner: {
-				links: { id: { id: 'linkId', linkType: 'type' } },
+				links: Map({ id: { id: 'linkId', linkType: 'type' } }),
 			},
 		});
 
@@ -67,7 +69,7 @@ describe('Check that link action creators generate proper action objects and per
 	it('removeLinkGrahicalAttribute', () => {
 		const store = mockStore({
 			flowDesigner: {
-				links: { id: { id: 'linkId', linkType: 'type' } },
+				links: Map({ id: { id: 'linkId', linkType: 'type' } }),
 			},
 		});
 
@@ -79,7 +81,7 @@ describe('Check that link action creators generate proper action objects and per
 	it('setLinkData', () => {
 		const store = mockStore({
 			flowDesigner: {
-				links: { id: { id: 'linkId', linkType: 'type' } },
+				links: Map({ id: { id: 'linkId', linkType: 'type' } }),
 			},
 		});
 
@@ -91,7 +93,7 @@ describe('Check that link action creators generate proper action objects and per
 	it('removeLinkData', () => {
 		const store = mockStore({
 			flowDesigner: {
-				links: { id: { id: 'linkId', linkType: 'type' } },
+				links: Map({ id: { id: 'linkId', linkType: 'type' } }),
 			},
 		});
 
@@ -103,7 +105,7 @@ describe('Check that link action creators generate proper action objects and per
 	it('removeLink', () => {
 		const store = mockStore({
 			flowDesigner: {
-				links: { id: { id: 'linkId' } },
+				links: Map({ id: { id: 'linkId' } }),
 			},
 		});
 

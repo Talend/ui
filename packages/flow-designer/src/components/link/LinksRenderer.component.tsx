@@ -9,13 +9,13 @@ type Props = {
 
 class LinksRender extends Component<Props> {
 	render() {
-		const links = Object.values(this.props.links);
+		const links = this.props.links.toArray();
 		return (
 			<g>
 				{links.map(link => {
 					const ConcreteLink = this.props.linkTypeMap[link.getLinkType()].component;
-					const source = this.props.ports[link.sourceId];
-					const target = this.props.ports[link.targetId];
+					const source = this.props.ports.get(link.sourceId);
+					const target = this.props.ports.get(link.targetId);
 
 					return <ConcreteLink link={link} source={source} target={target} key={link.id} />;
 				})}

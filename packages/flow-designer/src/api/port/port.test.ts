@@ -11,6 +11,8 @@
 
     because the underlying module data is itself tested.
  */
+import { Map } from 'immutable';
+
 import { PortRecord } from '../../constants/flowdesigner.model';
 import * as Port from './port';
 import * as Position from '../position/position';
@@ -26,10 +28,10 @@ describe('isPortElseThrow', () => {
 	});
 	it('throw if given parameter is not a PortRecord', () => {
 		// given
-		const testPort2 = {};
+		const testPort = Map();
 		// when
 		// expect
-		expect(() => Port.isPortElseThrow(testPort2)).toThrow();
+		expect(() => Port.isPortElseThrow(testPort)).toThrow();
 	});
 });
 
@@ -60,9 +62,9 @@ describe('port api', () => {
 	const improperNodeId = 42;
 	const improperIndex = '10';
 	const impropertopology = {};
-	const improperPosition = { x: 10, y: 10 };
+	const improperPosition = Map({ x: 10, y: 10 });
 	const improperPortType = {};
-	const improperPort = {};
+	const improperPort = Map();
 
 	describe('create', () => {
 		it('given proper id, nodeId, index, topology and componentType return a Node', () => {

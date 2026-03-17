@@ -1,41 +1,97 @@
+import { Map, fromJS } from 'immutable';
+
 import { defaultState } from './flow.reducer';
 import linkReducer from './link.reducer';
-import {
-	LinkRecord,
-	LinkData,
-	LinkGraphicalAttributes,
-	PortRecord,
-	NodeRecord,
-} from '../constants/flowdesigner.model';
+import { LinkRecord, PortRecord, NodeRecord } from '../constants/flowdesigner.model';
 
 describe('check linkreducer', () => {
-	const initialState = {
-		...defaultState,
-		nodes: {
-			id1: new NodeRecord({ id: 'id1' }),
-			id2: new NodeRecord({ id: 'id2' }),
-			id3: new NodeRecord({ id: 'id3' }),
-		},
-		links: {
-			id1: new LinkRecord({
-				id: 'id1',
-				sourceId: 'id1',
-				targetId: 'id2',
-				data: new LinkData({ attr: 'attr' }),
-				graphicalAttributes: new LinkGraphicalAttributes({ properties: { attr: 'attr' } }),
-			}),
-		},
-		ports: {
-			id1: new PortRecord({ id: 'id1', nodeId: 'id1' }),
-			id2: new PortRecord({ id: 'id2', nodeId: 'id2' }),
-			id3: new PortRecord({ id: 'id3', nodeId: 'id2' }),
-			id4: new PortRecord({ id: 'id4', nodeId: 'id1' }),
-			id5: new PortRecord({ id: 'id5', nodeId: 'id3' }),
-			id6: new PortRecord({ id: 'id6', nodeId: 'id3' }),
-		},
-		parents: { id1: {}, id2: { id1: 'id1' }, id3: {} },
-		childrens: { id1: { id2: 'id2' }, id2: {}, id3: {} },
-	};
+	const initialState = defaultState
+		.set(
+			'nodes',
+			Map()
+				.set(
+					'id1',
+					new NodeRecord({
+						id: 'id1',
+					}),
+				)
+				.set(
+					'id2',
+					new NodeRecord({
+						id: 'id2',
+					}),
+				)
+				.set(
+					'id3',
+					new NodeRecord({
+						id: 'id3',
+					}),
+				),
+		)
+		.set(
+			'links',
+			Map().set(
+				'id1',
+				new LinkRecord({
+					id: 'id1',
+					sourceId: 'id1',
+					targetId: 'id2',
+					data: Map().set('attr', 'attr'),
+					graphicalAttributes: Map().set('properties', fromJS({ attr: 'attr' })),
+				}),
+			),
+		)
+		.set(
+			'ports',
+			Map()
+				.set(
+					'id1',
+					new PortRecord({
+						id: 'id1',
+						nodeId: 'id1',
+					}),
+				)
+				.set(
+					'id2',
+					new PortRecord({
+						id: 'id2',
+						nodeId: 'id2',
+					}),
+				)
+				.set(
+					'id3',
+					new PortRecord({
+						id: 'id3',
+						nodeId: 'id2',
+					}),
+				)
+				.set(
+					'id4',
+					new PortRecord({
+						id: 'id4',
+						nodeId: 'id1',
+					}),
+				)
+				.set(
+					'id5',
+					new PortRecord({
+						id: 'id5',
+						nodeId: 'id3',
+					}),
+				)
+				.set(
+					'id6',
+					new PortRecord({
+						id: 'id6',
+						nodeID: 'id3',
+					}),
+				),
+		)
+		.set('parents', Map().set('id1', Map()).set('id2', Map().set('id1', 'id1')).set('id3', Map()))
+		.set(
+			'childrens',
+			Map().set('id1', Map().set('id2', 'id2')).set('id2', Map()).set('id3', Map()),
+		);
 
 	it('FLOWDESIGNER_LINK_ADD should add a new link to the state', () => {
 		const newState = linkReducer(initialState, {
