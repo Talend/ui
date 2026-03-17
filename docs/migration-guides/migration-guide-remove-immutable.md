@@ -4,15 +4,14 @@ This is the index for per-package migration guides covering the breaking changes
 
 ## Affected packages
 
-| Package                       | Version bump | Guide                                                                                                                     |
-| ----------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| `@talend/react-cmf`           | **MAJOR**    | [migration-guide-remove-immutable-cmf.md](./remove-immutable/migration-guide-remove-immutable-cmf.md)                     |
-| `@talend/react-containers`    | **MAJOR**    | [migration-guide-remove-immutable-containers.md](./remove-immutable/migration-guide-remove-immutable-containers.md)       |
-| `@talend/react-cmf-cqrs`      | **MAJOR**    | [migration-guide-remove-immutable-cmf-cqrs.md](./remove-immutable/migration-guide-remove-immutable-cmf-cqrs.md)           |
-| `@talend/react-sagas`         | **MAJOR**    | [migration-guide-remove-immutable-sagas.md](./remove-immutable/migration-guide-remove-immutable-sagas.md)                 |
-| `@talend/react-components`    | **MAJOR**    | [migration-guide-remove-immutable-components.md](./remove-immutable/migration-guide-remove-immutable-components.md)       |
-| `@talend/react-flow-designer` | **MAJOR**    | [migration-guide-remove-immutable-flow-designer.md](./remove-immutable/migration-guide-remove-immutable-flow-designer.md) |
-| `@talend/react-stepper`       | patch        | [migration-guide-remove-immutable-stepper.md](./remove-immutable/migration-guide-remove-immutable-stepper.md)             |
+| Package                    | Version bump | Guide                                                                                                               |
+| -------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| `@talend/react-cmf`        | **MAJOR**    | [migration-guide-remove-immutable-cmf.md](./remove-immutable/migration-guide-remove-immutable-cmf.md)               |
+| `@talend/react-containers` | **MAJOR**    | [migration-guide-remove-immutable-containers.md](./remove-immutable/migration-guide-remove-immutable-containers.md) |
+| `@talend/react-cmf-cqrs`   | **MAJOR**    | [migration-guide-remove-immutable-cmf-cqrs.md](./remove-immutable/migration-guide-remove-immutable-cmf-cqrs.md)     |
+| `@talend/react-sagas`      | **MAJOR**    | [migration-guide-remove-immutable-sagas.md](./remove-immutable/migration-guide-remove-immutable-sagas.md)           |
+| `@talend/react-components` | **MAJOR**    | [migration-guide-remove-immutable-components.md](./remove-immutable/migration-guide-remove-immutable-components.md) |
+| `@talend/react-stepper`    | patch        | [migration-guide-remove-immutable-stepper.md](./remove-immutable/migration-guide-remove-immutable-stepper.md)       |
 
 ---
 
