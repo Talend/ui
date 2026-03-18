@@ -34,8 +34,8 @@
     }
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.1.4",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitejs/plugin-react": "^5.2.0",
+    "@vitest/coverage-v8": "^4.1.0",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/react-cmf": "^12.1.1",
@@ -47,8 +47,8 @@
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
     "redux-saga": "^1.4.2",
-    "storybook": "^10.2.10",
-    "vitest": "^4.0.18"
+    "storybook": "^10.2.19",
+    "vitest": "^4.1.0"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
@@ -58,7 +58,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
-    "storybook": "^10.2.10",
+    "storybook": "^10.2.19",
     "redux-saga": "^1.4.2"
   }
 }

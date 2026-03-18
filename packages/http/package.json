@@ -37,7 +37,7 @@
     "test:cov": "vitest run --coverage"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/coverage-v8": "^4.1.0",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-core": "^20.0.0",
@@ -49,7 +49,7 @@
     "node-fetch": "^2.7.0",
     "react-dom": "^18.3.1",
     "react": "^18.3.1",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.0"
   },
   "jest": {
     "collectCoverageFrom": [

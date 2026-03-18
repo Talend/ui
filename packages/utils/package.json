@@ -39,10 +39,10 @@
     "@talend/scripts-config-stylelint": "^5.0.0",
     "@talend/scripts-config-typescript": "^12.1.1",
     "@types/date-fns": "^2.6.3",
-    "@types/lodash": "^4.17.23",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@types/lodash": "^4.17.24",
+    "@vitest/coverage-v8": "^4.1.0",
     "eslint": "^10.0.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.0"
   },
   "dependencies": {
     "date-fns": "^3.6.0",

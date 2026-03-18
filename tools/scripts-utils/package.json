@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
-    "glob": "^11.0.0",
+    "glob": "^11.1.0",
     "which": "^2.0.2"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.1",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@talend/eslint-config": "^14.1.2",
+    "@vitest/coverage-v8": "^4.1.0",
     "eslint": "^10.0.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.0"
   },
   "repository": {
     "type": "git",
