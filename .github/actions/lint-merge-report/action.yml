@@ -1,0 +1,23 @@
+name: 'Lint merge report'
+description: 'Merge lint reports'
+author: 'Talend'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run script
+      shell: bash
+      run: node ./lint-merge-report.mjs
+
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      shell: bash
+      run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+    - uses: actions/cache@v4
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
