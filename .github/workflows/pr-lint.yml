@@ -42,7 +42,10 @@ jobs:
         run: yarn lint
 
       - name: Merge lint
-        run: yarn lint-merge-report master ${GITHUB_HEAD_REF}
+        uses: ./.github/actions/lint-merge-report
+        with:
+          base-branch: master
+          head-branch: ${{ github.head_ref }}
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@d57a1193d4c59cbfbf3f86c271f42612f9dbd9e9 #v3.0.0
