@@ -43,11 +43,11 @@
   "dependencies": {
     "@talend/react-cmf": "^12.1.1",
     "@talend/utils": "^3.7.1",
-    "immutable": "^3.8.2",
+    "immutable": "^3.8.3",
     "redux-saga": "^1.4.2"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/coverage-v8": "^4.1.1",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-core": "^20.0.0",
@@ -56,13 +56,13 @@
     "@talend/scripts-config-typescript": "^12.1.1",
     "@testing-library/react": "^14.3.1",
     "@testing-library/react-hooks": "^8.0.1",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "mock-socket": "^9.3.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redux-mock-store": "^1.5.5",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.1"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
